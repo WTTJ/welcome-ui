@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { boolean } from '@storybook/addon-knobs'
 
 import { Button } from './index'
 
@@ -25,3 +26,4 @@ storiesOf('Button', module)
   ))
   .add('with rounded corners', () => <Button borderRounded>Don't panic Janice</Button>)
   .add('with circle', () => <Button rounded>😹</Button>)
+  .add('with playground', () => <Button disabled={boolean('Disabled', false)}>😹</Button>)

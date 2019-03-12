@@ -482,21 +482,6 @@ export const Button = styled.button`
   }
 `
 
-Button.propTypes = {
-  /** Just for `LinkButton` and `InlineLink` */
-  to: string,
-  /** Just for `HrefButton` */
-  href: string,
-  /** Normally one of `primary`, `dark`, `light`, `neutral`, `danger` or `linkedin`: */
-  mode: string,
-  size: oneOf(['auto', 'sm', 'md', 'lg']),
-  width: oneOf(['full', 'half']),
-  rounded: bool,
-  pulsing: bool,
-  borderRounded: bool,
-  withicon: bool
-}
-
 export const LinkButton = styled(Link)`
   ${buttonStyles};
   ${ButtonLabel} {
