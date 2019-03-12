@@ -6,6 +6,8 @@
   "scripts": {
     "preversion": "yarn test",
     "postversion": "git push && git push --tags",
+    "storybook": "start-storybook",
+    "storybook:build": "build-storybook -c .storybook -o .out",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +25,14 @@
   "bugs": {
     "url": "https://github.com/WTTJ/jungle-ui/issues"
   },
-  "homepage": "https://github.com/WTTJ/jungle-ui#readme"
+  "homepage": "https://github.com/WTTJ/jungle-ui#readme",
+  "devDependencies": {
+    "@babel/core": "=7.3.4",
+    "@storybook/react": "=5.0.1",
+    "babel-loader": "=8.0.5"
+  },
+  "dependencies": {
+    "react": "16.4.2",
+    "react-dom": "16.4.2"
+  }
 }

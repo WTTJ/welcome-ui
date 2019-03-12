@@ -4,10 +4,11 @@
 
 Each component will consist of:
 
-- `index.js`: The React component
-- `styles.js`: Any related `styled-components`
-- `README.md` or `docs.js`: Documentation depending on Storybook or Docz
-- `tests.js`: Jest tests for this component
+- `ComponentName`: Folder with name of component (capitalized)
+  - `index.js`: The React component
+  - `styles.js`: Any related `styled-components`
+  - `README.md` or `docs.js`: Documentation depending on Storybook or Docz
+  - `tests.js`: Jest tests for this component
 
 ### Publishing
 
