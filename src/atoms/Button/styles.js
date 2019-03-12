@@ -1,9 +1,7 @@
 import styled, { css, keyframes } from 'styled-components'
 import { bool, string, oneOf } from 'prop-types'
 import Link from 'react-router-dom/Link'
-import { media, overflowEllipsis } from '../utils/utils.styled'
-import { LoadingSpinner } from '../loading.styled'
-import { ModalCloseIcon } from '../modals/modals.styled'
+import { media, overflowEllipsis } from '../../utils/utils'
 import {
   boxShadow,
   color,
@@ -17,7 +15,7 @@ import {
   roundedButtonSize,
   textStyles,
   transition
-} from '../../utils/theme-helpers'
+} from '../../utils/theme'
 
 const pulsing = keyframes`
   from {
@@ -264,10 +262,6 @@ export const roundedStyles = css`
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3D(0, 0, 0) scale(1) skewY(0deg);
   }
-
-  ${ModalCloseIcon} {
-    margin: ${gutter('xs')};
-  }
 `
 
 export const roundedSizeAutoStyles = css`
@@ -485,13 +479,6 @@ export const Button = styled.button`
   ${ButtonLabel} {
     margin-left: ${props =>
       props.withicon ? props.theme.buttonIconWidth : props.theme.buttonIconWidth};
-  }
-
-  ${LoadingSpinner} {
-    margin-left: ${gutter('sm')};
-    margin-top: calc(${gutter('md')} * -1);
-    margin-right: calc(${gutter('md')} * -1);
-    margin-bottom: calc(${gutter('md')} * -1);
   }
 `
 

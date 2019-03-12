@@ -28,11 +28,18 @@
   "homepage": "https://github.com/WTTJ/jungle-ui#readme",
   "devDependencies": {
     "@babel/core": "=7.3.4",
+    "@babel/preset-env": "=7.3.4",
+    "@babel/preset-react": "=7.0.0",
     "@storybook/react": "=5.0.1",
     "babel-loader": "=8.0.5"
   },
   "dependencies": {
+    "lodash.concat": "=4.5.0",
+    "lodash.get": "=4.4.2",
+    "prop-types": "=15.7.2",
     "react": "16.4.2",
-    "react-dom": "16.4.2"
+    "react-dom": "16.4.2",
+    "react-router-dom": "4.2.2",
+    "styled-components": "=4.1.3"
   }
 }
