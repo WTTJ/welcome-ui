@@ -7,9 +7,15 @@ import { themes } from '@storybook/theming'
 import { ThemeProvider } from 'styled-components'
 
 import theme from '../src/theme'
+import GlobalStyle from '../src/utils/base'
 
 // Create decorators
-const ThemeDecorator = storyFn => <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>
+const ThemeDecorator = storyFn => (
+  <>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>
+  </>
+)
 
 // Add decorators
 addDecorator(
@@ -25,9 +31,9 @@ addDecorator(ThemeDecorator)
 // Add parameters
 addParameters({
   options: {
-    name: 'WTTJ',
-    goFullScreen: false,
-    showAddonsPanel: true,
+    brandTitle: 'WTTJ',
+    isFullScreen: false,
+    showPanel: true,
     theme: themes.light
   }
 })

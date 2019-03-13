@@ -1,7 +1,7 @@
-import { injectGlobal, css } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
-import reset from './reset.styled'
-import { fontFace } from './font.styled'
+import reset from './reset'
+import { fontFace } from './font'
 
 const baseResponsiveStyles = css`
   @media (max-width: 1200px) {
@@ -23,7 +23,7 @@ const baseResponsiveStyles = css`
   }
 `
 
-const baseStyles = () => injectGlobal`
+const BaseStyles = createGlobalStyle`
   ${reset}
 
   ${fontFace('Regular', 300)}
@@ -37,7 +37,7 @@ const baseStyles = () => injectGlobal`
   }
 
   body{
-    font-family: 'HKCompakt';
+    font-family: 'HKCompakt, sans-serif';
     -webkit-font-smoothing: antialiased;
   }
 
@@ -57,4 +57,4 @@ const baseStyles = () => injectGlobal`
   ${baseResponsiveStyles}
 `
 
-export default baseStyles
+export default BaseStyles

@@ -1,5 +1,5 @@
 import { css, keyframes } from 'styled-components'
-import { fontSize } from './theme-helpers'
+import { fontSize } from './theme'
 
 const resetAutofill = keyframes`
   0% {
