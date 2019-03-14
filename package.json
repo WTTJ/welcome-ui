@@ -6,9 +6,9 @@
   "scripts": {
     "preversion": "yarn test",
     "postversion": "git push && git push --tags",
-    "storybook": "start-storybook",
-    "storybook:build": "build-storybook -c .storybook -o .out",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   },
   "repository": {
     "type": "git",
@@ -26,17 +26,12 @@
     "url": "https://github.com/WTTJ/jungle-ui/issues"
   },
   "homepage": "https://github.com/WTTJ/jungle-ui#readme",
+  "engines": {
+    "node": "=11.11.0"
+  },
   "devDependencies": {
-    "@babel/core": "=7.3.4",
-    "@babel/preset-env": "=7.3.4",
-    "@babel/preset-react": "=7.0.0",
-    "@storybook/addon-info": "=5.0.1",
-    "@storybook/addon-knobs": "=5.0.1",
-    "@storybook/addon-viewport": "=5.0.1",
-    "@storybook/addons": "=5.0.1",
-    "@storybook/react": "=5.0.1",
-    "@storybook/theming": "=5.0.1",
-    "babel-loader": "=8.0.5",
+    "docz": "^0.13.7",
+    "docz-theme-default": "^0.13.7",
     "react": "16.8.0",
     "react-dom": "16.8.0"
   },

@@ -2,7 +2,7 @@ const DEFAULT_FONT_SIZE = 16
 const toRem = px => `${px / DEFAULT_FONT_SIZE}rem`
 const toEm = px => `${px / DEFAULT_FONT_SIZE}em`
 
-const theme = {}
+export const theme = {}
 
 theme.color = {
   white: '#ffffff',
