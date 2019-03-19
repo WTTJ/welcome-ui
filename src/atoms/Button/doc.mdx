@@ -2,13 +2,31 @@
 name: Button
 ---
 
-import { Playground } from 'docz'
+import { Playground, PropsTable } from 'docz'
 import { Button } from './index'
 
 # Button
 
-This is the default button
+<PropsTable of={Button} />
+
+### modes
 
 <Playground>
-  <Button>Click</Button>
+  <Button>default</Button>
+  <Button mode="primary">primary</Button>
+  <Button mode="dark">dark</Button>
+  <Button mode="light">light</Button>
+  <Button mode="neutral">neutral</Button>
+  <Button mode="danger">danger</Button>
+  <Button mode="linkedin">linkedin</Button>
+</Playground>
+
+### sizes
+
+<Playground>
+  <Button>default</Button>
+  <Button size="auto">auto</Button>
+  <Button size="sm">sm</Button>
+  <Button size="md">md</Button>
+  <Button size="lg">lg</Button>
 </Playground>

@@ -26,9 +26,6 @@
     "url": "https://github.com/WTTJ/jungle-ui/issues"
   },
   "homepage": "https://github.com/WTTJ/jungle-ui#readme",
-  "engines": {
-    "node": "=11.11.0"
-  },
   "devDependencies": {
     "docz": "^0.13.7",
     "docz-theme-default": "^0.13.7",
@@ -36,6 +33,7 @@
     "react-dom": "16.8.0"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.9",
     "lodash.concat": "=4.5.0",
     "lodash.get": "=4.4.2",
     "prop-types": "=15.7.2",
