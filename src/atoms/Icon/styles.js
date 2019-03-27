@@ -5,12 +5,14 @@ import { color } from '../../utils/theme'
 const iconSvgStrokedStyles = css`
   g, path {
     stroke: inherit;
+    fill: none;
   }
 `
 
 const iconSvgFilledStyles = css`
   g, path {
     fill: inherit;
+    stroke: none;
   }
 `
 
