@@ -3,12 +3,16 @@ name: Button
 ---
 
 import { PropsTable } from 'docz'
-import Playground from '../../../docz.styled'
+import { ButtonsPlayground as Playground } from '../../../docz.styled'
 import { Button } from './index'
 
 # Button
 
+## Properties
+
 <PropsTable of={Button} />
+
+## Examples
 
 ### modes
 
@@ -30,4 +34,27 @@ import { Button } from './index'
   <Button size="sm">sm</Button>
   <Button size="md">md</Button>
   <Button size="lg">lg</Button>
+</Playground>
+
+### full width
+
+<Playground>
+  <Button width="full">full width</Button>
+</Playground>
+
+### rounded pulsing
+
+<Playground spacing="xxl">
+  <Button rounded pulsing size="md">md</Button>
+  <Button rounded pulsing size="lg">lg</Button>
+</Playground>
+
+### rounded border
+
+<Playground>
+  <Button borderRounded>default</Button>
+  <Button borderRounded size="auto">auto</Button>
+  <Button borderRounded size="sm">sm</Button>
+  <Button borderRounded size="md">md</Button>
+  <Button borderRounded size="lg">lg</Button>
 </Playground>

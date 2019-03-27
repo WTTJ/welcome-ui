@@ -285,7 +285,7 @@ export const roundedSizeLgStyles = css`
 `
 
 export const borderRoundedStyles = css`
-  border-radius: 20px;
+  border-radius: 40px;
 `
 
 export const fullWidthStyles = css`

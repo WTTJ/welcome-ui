@@ -13,14 +13,31 @@ Button.propTypes = {
   to: string,
   /** Just for `HrefButton` */
   href: string,
-  /** Normally one of `primary`, `dark`, `light`, `neutral`, `danger` or `linkedin`: */
+  /** To set the button color */
   mode: string,
+  /** To set the button size */
   size: oneOf(['auto', 'sm', 'md', 'lg']),
+  /** To set the button width */
   width: oneOf(['full', 'half']),
+  /** To set a rounded button */
   rounded: bool,
+  /** A button with a pulsing effect, only for rounded ones */
   pulsing: bool,
+  /** A button with rounded borders */
   borderRounded: bool,
+  /** A button with icon */
   withicon: bool
 }
+
+// Specifies the default values for props:
+Button.defaultProps = {
+  size: 'auto',
+  mode: 'primary',
+  width: 'auto',
+  rounded: false,
+  pulsing: false,
+  borderRounded: false,
+  withicon: false
+};
 
 export default Button
