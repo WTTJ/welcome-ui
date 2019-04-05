@@ -2,6 +2,7 @@ import { createGlobalStyle, css } from 'styled-components'
 
 import reset from './reset'
 import { fontFace } from './font'
+import { fontSize } from './theme'
 
 const baseResponsiveStyles = css`
   @media (max-width: 1200px) {
@@ -32,7 +33,7 @@ const BaseStyles = createGlobalStyle`
   ${fontFace('Heading', 700)}
 
   html {
-    font-size: 16px;
+    font-size: ${fontSize('html')};
     scroll-behavior: smooth;
   }
 

@@ -17,7 +17,7 @@ export const fontFace = (version, weight) => {
         @font-face{
           font-family: 'HKCompakt';
           src: url(${MediumWoff}) format('woff'),
-               url(${MediumTtf}) format('truetype'),
+               url(${MediumTtf}) format('truetype');
           font-weight: ${weight};
         }
       `
@@ -26,7 +26,7 @@ export const fontFace = (version, weight) => {
         @font-face{
           font-family: 'HKCompakt';
           src: url(${BoldWoff}) format('woff'),
-               url(${BoldTtf}) format('truetype'),
+               url(${BoldTtf}) format('truetype');
           font-weight: ${weight};
         }
       `
@@ -35,7 +35,7 @@ export const fontFace = (version, weight) => {
         @font-face{
           font-family: 'HKCompakt';
           src: url(${HeadingWoff}) format('woff'),
-               url(${HeadingTtf}) format('truetype'),
+               url(${HeadingTtf}) format('truetype');
           font-weight: ${weight};
         }
       `
@@ -44,7 +44,7 @@ export const fontFace = (version, weight) => {
         @font-face{
           font-family: 'HKCompakt';
           src: url(${RegularWoff}) format('woff'),
-               url(${RegularTtf}) format('truetype'),
+               url(${RegularTtf}) format('truetype');
           font-weight: ${weight};
         }
       `

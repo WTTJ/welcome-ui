@@ -1,5 +1,4 @@
 import { css, keyframes } from 'styled-components'
-import { fontSize } from './theme'
 
 const resetAutofill = keyframes`
   0% {
@@ -165,7 +164,6 @@ export const reset = css`
   }
   html {
     height: 100%;
-    font-size: ${fontSize('html')};
   }
   body {
     min-height: 100%;

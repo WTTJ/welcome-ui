@@ -2,13 +2,14 @@ import { css } from 'styled-components'
 import get from 'lodash.get'
 import concat from 'lodash.concat'
 
-import theme from '../theme'
+import theme from '../theme/core'
 import hexToRGB from './hexToRGB'
 
 let themeHelpers = Object.keys(theme).reduce((acc, key) => {
   return {
     ...acc,
     [key]: (...path) => props => {
+      props = props.hasOwnProperty() ? props : { theme }
       const value = get(props, ['theme', key, ...path])
       if (process.env.NODE_ENV === 'development' && value === undefined) {
         console.warn(`${key}[${[...path]}] is not available in this theme`)
@@ -26,14 +27,6 @@ themeHelpers.rgba = (...args) => {
     const color = get(props, ['theme', 'color', ...path]) || args[0] // Handle rgba('#COFFEE', 0.3)
 
     return `rgba(${hexToRGB(color)}, ${opacity})`
-  }
-}
-
-themeHelpers.searchFormWidth = (...path) => {
-  return props => {
-    const basename = ['theme', 'searchFormWidth']
-    const pathname = props.width || (path.length && [...path]) || 'md'
-    return get(props, concat(basename, pathname))
   }
 }
 
