@@ -137,7 +137,7 @@ const createTheme = (options = {}) => {
   }
 
   theme.fontFamily = {
-    texts: theme.defaultFontFamily,
+    texts: defaultFontFamily,
     icons: 'Material-design-iconic-font'
   }
 
@@ -219,7 +219,7 @@ const createTheme = (options = {}) => {
     mobile: toRem(22)
   }
 
-  return merge(theme, options)
+  return merge(theme, rest)
 }
 
 let theme = createTheme()
@@ -236,8 +236,7 @@ setTheme({
       secondary: '#0000FF'
     }
   },
-  defaultFontSize: 12,
-  defaultFontFamily: 'fantasy'
+  defaultFontSize: 16
 })
 
 export default theme
