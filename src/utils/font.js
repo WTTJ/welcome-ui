@@ -1,22 +1,31 @@
-import RegularWoff from '../../fonts/HKCompakt-Regular.woff'
-import RegularTtf from '../../fonts/HKCompakt-Regular.ttf'
+import { DEFAULT_FONT_FAMILY } from './constants'
 
-import MediumWoff from '../../fonts/HKCompakt-Medium.woff'
-import MediumTtf from '../../fonts/HKCompakt-Medium.ttf'
+const pathBase = 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-'
 
-import BoldWoff from '../../fonts/HKCompakt-Bold.woff'
-import BoldTtf from '../../fonts/HKCompakt-Bold.ttf'
+const RegularWoff = `${pathBase}regular.woff`
+const RegularWoff2 = `${pathBase}regular.woff2`
+const RegularTtf = `${pathBase}regular.ttf`
 
-import HeadingWoff from '../../fonts/HKCompakt-Heading.woff'
-import HeadingTtf from '../../fonts/HKCompakt-Heading.ttf'
+const MediumWoff = `${pathBase}medium.woff`
+const MediumWoff2 = `${pathBase}medium.woff`
+const MediumTtf = `${pathBase}medium.woff`
+
+const BoldWoff = `${pathBase}bold.woff`
+const BoldWoff2 = `${pathBase}bold.woff`
+const BoldTtf = `${pathBase}bold.woff`
+
+const BlackWoff = `${pathBase}black.woff`
+const BlackWoff2 = `${pathBase}black.woff`
+const BlackTtf = `${pathBase}black.woff`
 
 export const fontFace = (version, weight) => {
   switch (version) {
     case 'Medium':
       return `
         @font-face{
-          font-family: 'HKCompakt';
+          font-family: ${DEFAULT_FONT_FAMILY};
           src: url(${MediumWoff}) format('woff'),
+               url(${MediumWoff2}) format('woff2'),
                url(${MediumTtf}) format('truetype');
           font-weight: ${weight};
         }
@@ -24,26 +33,29 @@ export const fontFace = (version, weight) => {
     case 'Bold':
       return `
         @font-face{
-          font-family: 'HKCompakt';
+          font-family: ${DEFAULT_FONT_FAMILY};
           src: url(${BoldWoff}) format('woff'),
+               url(${BoldWoff2}) format('woff2'),
                url(${BoldTtf}) format('truetype');
           font-weight: ${weight};
         }
       `
-    case 'Heading':
+    case 'Black':
       return `
         @font-face{
-          font-family: 'HKCompakt';
-          src: url(${HeadingWoff}) format('woff'),
-               url(${HeadingTtf}) format('truetype');
+          font-family: ${DEFAULT_FONT_FAMILY};
+          src: url(${BlackWoff}) format('woff'),
+               url(${BlackWoff2}) format('woff2'),
+               url(${BlackTtf}) format('truetype');
           font-weight: ${weight};
         }
       `
     default:
       return `
         @font-face{
-          font-family: 'HKCompakt';
+          font-family: ${DEFAULT_FONT_FAMILY};
           src: url(${RegularWoff}) format('woff'),
+               url(${RegularWoff2}) format('woff2'),
                url(${RegularTtf}) format('truetype');
           font-weight: ${weight};
         }

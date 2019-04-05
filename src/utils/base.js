@@ -1,5 +1,6 @@
 import { createGlobalStyle, css } from 'styled-components'
 
+import { DEFAULT_FONT_FAMILY } from './constants'
 import reset from './reset'
 import { fontFace } from './font'
 import { fontSize } from './theme'
@@ -30,15 +31,15 @@ const BaseStyles = createGlobalStyle`
   ${fontFace('Regular', 300)}
   ${fontFace('Medium', 400)}
   ${fontFace('Bold', 600)}
-  ${fontFace('Heading', 700)}
+  ${fontFace('Black', 700)}
 
   html {
     font-size: ${fontSize('html')};
     scroll-behavior: smooth;
   }
 
-  body{
-    font-family: 'HKCompakt, sans-serif';
+  body {
+    font-family: 'welcomeweb, sans-serif';
     -webkit-font-smoothing: antialiased;
   }
 
