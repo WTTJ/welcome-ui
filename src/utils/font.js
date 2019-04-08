@@ -8,22 +8,19 @@ const createSrc = font => {
   return font.extensions.map(extension => createUrl(font.url, extension)).join(', ')
 }
 
+const getFontFace = (name, font) => {
+  return `
+    @font-face {
+      font-family: '${name}';
+      src: ${createSrc(font)};
+      ${font.weight ? `font-weight: ${font.weight};` : ''}
+      ${font.style ? `font-style: ${font.style};` : ''}
+    }
+  `
+}
+
 export const fontFace = () => {
-  let fontFace = Object.entries(theme.fonts)
-    .map(([name, fonts]) => {
-      return fonts
-        .map(font => {
-          return `
-        @font-face {
-          font-family: '${name}';
-          src: ${createSrc(font)};
-          ${font.weight ? `font-weight: ${font.weight};` : ''}
-          ${font.style ? `font-style: ${font.style};` : ''}
-        }
-      `
-        })
-        .join('')
-    })
+  return Object.entries(theme.fonts)
+    .map(([name, variations]) => variations.map(font => getFontFace(name, font)).join(''))
     .join('')
-  return fontFace
 }
