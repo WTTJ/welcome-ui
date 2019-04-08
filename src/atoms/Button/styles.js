@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components'
-import { bool, string, oneOf } from 'prop-types'
+import { string } from 'prop-types'
 import Link from 'react-router-dom/Link'
 import { media, overflowEllipsis } from '../../utils/utils'
 import {
@@ -135,10 +135,10 @@ export const darkStyles = css`
 
 export const lightStyles = css`
   background: ${color('white')};
-  color: ${color('texts', 'light')};
+  color: ${color('silver')};
 
   &:hover {
-    color: ${color('texts', 'light')};
+    color: ${color('silver')};
   }
 
   &::before {
@@ -151,11 +151,11 @@ export const lightStyles = css`
 `
 
 export const neutralStyles = css`
-  background: ${color('gray', '150')};
-  color: ${color('gray', '300')};
+  background: ${color('timberwolf')};
+  color: ${color('onyx')};
 
   &:hover {
-    color: ${color('gray', '300')};
+    color: ${color('onyx')};
   }
 
   &::before {
@@ -163,7 +163,7 @@ export const neutralStyles = css`
   }
 
   svg path {
-    fill: ${color('gray', '300')};
+    fill: ${color('onyx')};
   }
 `
 
@@ -236,7 +236,7 @@ export const nakedStyles = css`
 `
 
 export const linkedinStyles = css`
-  background: ${color('linkedin', 'secondary')};
+  background: ${color('linkedin')};
   color: ${color('white')};
 
   &[disabled] {

@@ -8,23 +8,15 @@ import { IconSvg } from './src/atoms/Icon/styles'
 export const StyledPlayground = styled(Playground)``
 
 const spacer = {
-  'xxl': '64px',
-  'xl': '32px',
-  'lg': '24px',
-  'md': '16px',
-  'sm': '8px'
+  xxl: '64px',
+  xl: '32px',
+  lg: '24px',
+  md: '16px',
+  sm: '8px'
 }
 
 function getButtonsPlaygroundSpacing(spacing) {
-  switch(spacing) {
-    case "xxl":
-      return spacer['xxl']
-      break
-    case "lg":
-      return spacer['lg']
-    default:
-      return spacer['md']
-  }
+  return spacer[spacing] || spacer['md']
 }
 
 export const ButtonsPlayground = styled(Playground)`

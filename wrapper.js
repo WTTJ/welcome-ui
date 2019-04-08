@@ -8,7 +8,7 @@ const Wrapper = ({ children }) => {
   return (
     <Fragment>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>{ children }</ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </Fragment>
   )
 }

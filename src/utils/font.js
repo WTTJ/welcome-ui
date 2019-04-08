@@ -6,13 +6,14 @@ const createUrl = (url, extension) => {
 
 const createSrc = font => {
   return font.extensions.map(extension => createUrl(font.url, extension)).join(', ')
-
 }
 
 export const fontFace = () => {
-  let fontFace = Object.entries(theme.fonts).map(([name, fonts]) => {
-    return fonts.map(font => {
-      return `
+  let fontFace = Object.entries(theme.fonts)
+    .map(([name, fonts]) => {
+      return fonts
+        .map(font => {
+          return `
         @font-face {
           font-family: '${name}';
           src: ${createSrc(font)};
@@ -20,7 +21,9 @@ export const fontFace = () => {
           ${font.style ? `font-style: ${font.style};` : ''}
         }
       `
-    }).join('')
-  }).join('')
+        })
+        .join('')
+    })
+    .join('')
   return fontFace
 }

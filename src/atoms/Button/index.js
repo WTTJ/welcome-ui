@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { bool, oneOf, string} from 'prop-types'
+import { bool, oneOf, string } from 'prop-types'
 import StyledButton from './styles'
 
 export class Button extends PureComponent {
@@ -38,6 +38,6 @@ Button.defaultProps = {
   pulsing: false,
   borderRounded: false,
   withicon: false
-};
+}
 
 export default Button

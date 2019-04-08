@@ -1,16 +1,17 @@
 import React, { PureComponent } from 'react'
-import { number, string, oneOf } from 'prop-types'
+import { string, oneOf } from 'prop-types'
 
 import { IconSvg } from './styles'
 import icons from './icons'
 
 export class Icon extends PureComponent {
-
   constructor(props) {
     super(props)
-    const { icon, width, height } = this.props
+    const { icon } = this.props
     const iconConfig = icons[icon.toLowerCase()]
-    if (!iconConfig) return
+    if (!iconConfig) {
+      return
+    }
 
     this.setIconSize()
     this.iconConfig = iconConfig
@@ -66,6 +67,6 @@ Icon.propTypes = {
 // Specifies the default values for props:
 Icon.defaultProps = {
   size: 'md'
-};
+}
 
 export default Icon

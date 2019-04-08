@@ -1,9 +1,5 @@
 import merge from 'lodash.merge'
-import {
-  DEFAULT_FONT_SIZE,
-  DEFAULT_FONT_FAMILY,
-  HEADING_FONT_FAMILY
-} from '../utils/constants'
+import { DEFAULT_FONT_SIZE, DEFAULT_FONT_FAMILY, HEADING_FONT_FAMILY } from '../utils/constants'
 
 const createTheme = (options = {}) => {
   let {
@@ -14,46 +10,62 @@ const createTheme = (options = {}) => {
   } = options
 
   const toEm = px => `${px / defaultFontSize}em`
-  const toRem = (px) => `${px / defaultFontSize}rem`
+  const toRem = px => `${px / defaultFontSize}rem`
+  const getFontSizes = unit => {
+    const convert = unit === 'em' ? toEm : toRem
+    return {
+      html: `${defaultFontSize}px`,
+      body: convert(16),
+      xs: convert(11),
+      sm: convert(13),
+      default: convert(14),
+      md: convert(16),
+      mdlg: convert(18),
+      lg: convert(19),
+      xl: convert(22),
+      xxl: convert(32),
+      xxxl: convert(50)
+    }
+  }
 
   let theme = {}
 
   theme.color = {
-    richblack: '#050506',      //#050506
-    smokyblack: '#0B0B0D',     //#0B0B0D
-    licorice: '#101013',       //#101013
-    eerieblack: '#16161A',     //#16161A
-    moodyblack: '#1B1C20',     //#1B1C20
-    raisinblack: '#212227',    //#212227
-    charcoal: '#26272E',       //#26272E
-    gunmetal: '#2C2D34',       //#2C2D34
-    metal: '#31333B',          //#31333B
-    onyx: '#373942',           //#373942
-    darkliver: '#4B4D55',      //#4B4D55
-    granite: '#5F6067',        //#5F6067
-    battleship: '#73747B',     //#73747B
-    steel: '#87888D',          //#87888D
-    silverchalice: '#AFAFB3',  //#AFAFB3
-    silver: '#C3C3C6',         //#C3C3C6
-    timberwolf: '#D7D7D9',     //#D7D7D9
-    isabelline: '#EEEEEE',     //#EEEEEE
-    snow: '#F9F9F9',           //#F9F9F9
-    white: '#FFFFFF',          //#FFFFFF
+    richblack: '#050506', //#050506
+    smokyblack: '#0B0B0D', //#0B0B0D
+    licorice: '#101013', //#101013
+    eerieblack: '#16161A', //#16161A
+    moodyblack: '#1B1C20', //#1B1C20
+    raisinblack: '#212227', //#212227
+    charcoal: '#26272E', //#26272E
+    gunmetal: '#2C2D34', //#2C2D34
+    metal: '#31333B', //#31333B
+    onyx: '#373942', //#373942
+    darkliver: '#4B4D55', //#4B4D55
+    granite: '#5F6067', //#5F6067
+    battleship: '#73747B', //#73747B
+    steel: '#87888D', //#87888D
+    silverchalice: '#AFAFB3', //#AFAFB3
+    silver: '#C3C3C6', //#C3C3C6
+    timberwolf: '#D7D7D9', //#D7D7D9
+    isabelline: '#EEEEEE', //#EEEEEE
+    snow: '#F9F9F9', //#F9F9F9
+    white: '#FFFFFF', //#FFFFFF
 
-    iceberg: '#71A6DE',        //#71A6DE
-    lightcyan: '#E1F0FF',      //#E1F0FF
+    iceberg: '#71A6DE', //#71A6DE
+    lightcyan: '#E1F0FF', //#E1F0FF
 
-    pastelorange: '#FFAF51',   //#FFAF51
-    lemonchiffon: '#FFF2E3',   //#FFF2E3
+    pastelorange: '#FFAF51', //#FFAF51
+    lemonchiffon: '#FFF2E3', //#FFF2E3
 
-    seafoamblue: '#00C29A',    //#00C29A
+    seafoamblue: '#00C29A', //#00C29A
     carribeangreen: '#66C8AB', //#66C8AB
-    pastelmint: '#E3F8F4',     //#E3F8F4
+    pastelmint: '#E3F8F4', //#E3F8F4
 
     alabamacrimson: '#F35454', //#F35454
-    mistryrose: '#FEE6E6',     //#FEE6E6
+    mistryrose: '#FEE6E6', //#FEE6E6
 
-
+    linkedin: '#0077B5' // #0077B5
   }
 
   theme.text = {
@@ -88,26 +100,9 @@ const createTheme = (options = {}) => {
     input: '1px'
   }
 
-  const fontSize = unit => {
-    const convert = unit === 'em' ? toEm : toRem
-    return {
-      html: `${defaultFontSize}px`,
-      body: convert(16),
-      xs: convert(11),
-      sm: convert(13),
-      default: convert(14),
-      md: convert(16),
-      mdlg: convert(18),
-      lg: convert(19),
-      xl: convert(22),
-      xxl: convert(32),
-      xxxl: convert(50)
-    }
-  }
+  theme.fontSize = getFontSizes('rem')
 
-  theme.fontSize = fontSize('rem')
-
-  theme.fontSizeEm = fontSize('em')
+  theme.fontSizeEm = getFontSizes('em')
 
   theme.letterSpacing = {
     sm: '0.5px',
@@ -143,6 +138,7 @@ const createTheme = (options = {}) => {
 
   theme.fontFamily = {
     texts: defaultFontFamily,
+    headings: headingFontFamily,
     icons: 'Material-design-iconic-font'
   }
 
@@ -156,7 +152,7 @@ const createTheme = (options = {}) => {
   theme.transition = {
     sm: 'all .2s cubic-bezier(0.41, 0.094, 0.54, 0.07)',
     md: 'all .3s cubic-bezier(0.41, 0.094, 0.54, 0.07)',
-    lg: 'all 1s cubic-bezier(0.41, 0.094, 0.54, 0.07)',
+    lg: 'all 1s cubic-bezier(0.41, 0.094, 0.54, 0.07)'
   }
 
   theme.centeredContainerWidth = {
@@ -228,19 +224,58 @@ const createTheme = (options = {}) => {
 
 let theme = createTheme()
 
-export const setTheme = options => { theme = createTheme(options) }
+export const setTheme = options => {
+  theme = createTheme(options)
+  return theme
+}
 
 setTheme({
   fonts: {
     welcomeweb: [
-      {url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-regular', weight: '400', extensions: ['woff2', 'woff', 'ttf']},
-      {url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-medium', weight: '500', extensions: ['woff2', 'woff', 'ttf']},
-      {url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-bold', weight: '600', extensions: ['woff2', 'woff', 'ttf']},
-      {url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-black', weight: '700', extensions: ['woff2', 'woff', 'ttf']},
-      {url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-regularitalic', weight: '400', style: 'italic', extensions: ['woff2', 'woff', 'ttf']},
-      {url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-mediumitalic', weight: '500', style: 'italic', extensions: ['woff2', 'woff', 'ttf']},
-      {url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-bolditalic', weight: '600', style: 'italic', extensions: ['woff2', 'woff', 'ttf']},
-      {url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-blackitalic', weight: '700', style: 'italic', extensions: ['woff2', 'woff', 'ttf']}
+      {
+        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-regular',
+        weight: '400',
+        extensions: ['woff2', 'woff', 'ttf']
+      },
+      {
+        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-medium',
+        weight: '500',
+        extensions: ['woff2', 'woff', 'ttf']
+      },
+      {
+        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-bold',
+        weight: '600',
+        extensions: ['woff2', 'woff', 'ttf']
+      },
+      {
+        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-black',
+        weight: '700',
+        extensions: ['woff2', 'woff', 'ttf']
+      },
+      {
+        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-regularitalic',
+        weight: '400',
+        style: 'italic',
+        extensions: ['woff2', 'woff', 'ttf']
+      },
+      {
+        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-mediumitalic',
+        weight: '500',
+        style: 'italic',
+        extensions: ['woff2', 'woff', 'ttf']
+      },
+      {
+        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-bolditalic',
+        weight: '600',
+        style: 'italic',
+        extensions: ['woff2', 'woff', 'ttf']
+      },
+      {
+        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-blackitalic',
+        weight: '700',
+        style: 'italic',
+        extensions: ['woff2', 'woff', 'ttf']
+      }
     ]
   }
 })
