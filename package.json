@@ -6,7 +6,6 @@
   "scripts": {
     "preversion": "yarn test",
     "postversion": "git push && git push --tags",
-    "precommit": "yarn lint && yarn test",
     "lint": "eslint . --max-warnings 0",
     "test": "jest",
     "docz:dev": "docz dev",
@@ -44,6 +43,7 @@
     "eslint-plugin-jsx-a11y": "=6.2.1",
     "eslint-plugin-prettier": "=3.0.1",
     "eslint-plugin-react": "=7.12.4",
+    "husky": "=1.3.1",
     "jest": "=24.7.1",
     "jest-styled-components": "=6.3.1",
     "react": "16.8.0",
@@ -63,5 +63,10 @@
     "react": "16.4.2",
     "react-dom": "16.4.2",
     "react-router-dom": "4.2.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint && yarn test"
+    }
   }
 }

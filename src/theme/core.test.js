@@ -28,5 +28,5 @@ test('Can create theme with different fonts', () => {
   console.debug('theme', theme.fontFamily)
 
   // TODO: Fix this
-  expect(fontFamily('texts')(theme)).toBe('HKCompakt')
+  expect(fontFamily('texts')(theme)).toBe('welcomeweb')
 })
