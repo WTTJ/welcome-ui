@@ -1,9 +1,9 @@
 import { createGlobalStyle, css } from 'styled-components'
 
-import { DEFAULT_FONT_FAMILY } from './constants'
+import { HEADING_FONT_FAMILY, DEFAULT_FONT_FAMILY } from './constants'
 import reset from './reset'
 import { fontFace } from './font'
-import { fontSize } from './theme'
+import { color, fontSize } from './theme'
 
 const baseResponsiveStyles = css`
   @media (max-width: 1200px) {
@@ -28,19 +28,19 @@ const baseResponsiveStyles = css`
 const BaseStyles = createGlobalStyle`
   ${reset}
 
-  ${fontFace('Regular', 300)}
-  ${fontFace('Medium', 400)}
-  ${fontFace('Bold', 600)}
-  ${fontFace('Black', 700)}
+  ${fontFace()}
 
   html {
     font-size: ${fontSize('html')};
-    scroll-behavior: smooth;
   }
 
   body {
-    font-family: 'welcomeweb, sans-serif';
+    font-family: ${[DEFAULT_FONT_FAMILY, 'sans-serif'].join(', ')};
     -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: ${[HEADING_FONT_FAMILY, DEFAULT_FONT_FAMILY, 'sans-serif'].join(', ')};
   }
 
   h1, h2, h3{
@@ -52,8 +52,8 @@ const BaseStyles = createGlobalStyle`
   }
 
   ::selection {
-    background-color: #00C29A;
-    color: #fff;
+    background-color: ${color('seafoamblue')};
+    color: ${color('white')};
   }
 
   ${baseResponsiveStyles}

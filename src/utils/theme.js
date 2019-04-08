@@ -62,6 +62,6 @@ export const color = themeHelpers.color
 export const fontFace = themeHelpers.fontFace
 export const fontSize = themeHelpers.fontSize
 export const fontFamily = themeHelpers.fontFamily
-export const fontWeight = themeHelpers.breakpoint
+export const fontWeight = themeHelpers.fontWeight
 export const breakpoint = themeHelpers.breakpoint
 export const boxShadow = themeHelpers.boxShadow

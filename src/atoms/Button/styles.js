@@ -74,7 +74,7 @@ export const sizeLgStyles = css`
 `
 
 export const primaryStyles = css`
-  background: ${color('primary')};
+  background: ${color('seafoamblue')};
   color: ${color('white')};
 
   &:hover {
@@ -89,13 +89,13 @@ export const primaryStyles = css`
 
 export const primaryOutlineStyles = css`
   background-color: ${color('white')};
-  color: ${color('primary')};
-  border: 1px solid ${color('primary')};
+  color: ${color('seafoamblue')};
+  border: 1px solid ${color('seafoamblue')};
   font-weight: ${fontWeight('bold')};
 
   &:hover {
     background-color: ${color('green', '100')};
-    color: ${color('primary')};
+    color: ${color('seafoamblue')};
   }
 `
 
@@ -117,7 +117,7 @@ export const closeDarkStyles = css`
 `
 
 export const darkStyles = css`
-  background: ${color('gray', '500')};
+  background: ${color('gunmetal')};
   color: ${color('white')};
 
   &:hover {
@@ -169,10 +169,10 @@ export const neutralStyles = css`
 
 export const dangerStyles = css`
   background: ${color('white')};
-  color: ${color('red', '500')};
+  color: ${color('alabamacrimson')};
 
   &:hover {
-    color: ${color('red', '500')};
+    color: ${color('alabamacrimson')};
   }
 
   &::before {
@@ -180,12 +180,12 @@ export const dangerStyles = css`
   }
 
   svg path {
-    fill: ${color('red', '500')};
+    fill: ${color('alabamacrimson')};
   }
 `
 
 export const dangerReverseStyles = css`
-  background: ${color('red', 500)};
+  background: ${color('alabamacrimson')};
   color: ${color('white')};
 
   &:hover {
@@ -404,7 +404,7 @@ export const inlineLinkStyles = css`
 
   &:hover {
     &::after {
-      background-color: ${color('primary')};
+      background-color: ${color('seafoamblue')};
     }
   }
 `
