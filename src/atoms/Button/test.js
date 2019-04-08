@@ -1,57 +1,55 @@
 import React from 'react'
-import { MemoryRouter } from 'react-router-dom'
-import { mount, shallow } from '../../test/support'
 
-import { Button, LinkButton, HrefButton } from './button.styled'
+import { render } from '../../utils/tests'
+
+import { Button, LinkButton, HrefButton } from './styles'
 
 test('<Button> renders correctly and has white text by default', () => {
-  const button = shallow(<Button>Test button</Button>)
-  expect(button.text()).to.equal('Test button')
-  expect(button).toHaveStyleRule('color', '#ffffff')
-  expect(button).toHaveStyleRule('background', '#00c29a')
+  const button = render(<Button>Test button</Button>).toJSON()
+  expect(button).toMatchSnapshot()
+  expect(button.children).toContain('Test button')
+  expect(button).toHaveStyleRule('color', '#FFFFFF')
+  expect(button).toHaveStyleRule('background', '#00C29A')
 })
 
 test('<Button> has correct colour for mode light', () => {
-  const button = shallow(<Button mode="light">Test button</Button>)
-  expect(button).toHaveStyleRule('color', '#97999d')
+  const button = render(<Button mode="light">Test button</Button>).toJSON()
+  expect(button).toHaveStyleRule('color', '#C3C3C6')
+  expect(button).toHaveStyleRule('background', '#FFFFFF')
 })
 
 test('<Button> has correct colour for mode dark', () => {
-  const button = shallow(<Button mode="dark">Test button</Button>)
-  expect(button).toHaveStyleRule('color', '#ffffff')
+  const button = render(<Button mode="dark">Test button</Button>).toJSON()
+  expect(button).toHaveStyleRule('color', '#FFFFFF')
+  expect(button).toHaveStyleRule('background', '#2C2D34')
 })
 
 test('<Button> has correct colour for mode neutral', () => {
-  const button = shallow(<Button mode="neutral">Test button</Button>)
-  expect(button).toHaveStyleRule('color', '#97999d')
+  const button = render(<Button mode="neutral">Test button</Button>).toJSON()
+  expect(button).toHaveStyleRule('color', '#373942')
+  expect(button).toHaveStyleRule('background', '#D7D7D9')
 })
 
 test('<Button> has correct colour for mode danger', () => {
-  const button = shallow(<Button mode="danger">Test button</Button>)
-  expect(button).toHaveStyleRule('color', '#d32f2f')
+  const button = render(<Button mode="danger">Test button</Button>).toJSON()
+  expect(button).toHaveStyleRule('color', '#F35454')
+  expect(button).toHaveStyleRule('background', '#FFFFFF')
 })
 
 test('<Button> has correct colour for mode linkedin', () => {
-  const button = shallow(<Button mode="linkedin">Test button</Button>)
-  expect(button).toHaveStyleRule('color', '#ffffff')
+  const button = render(<Button mode="linkedin">Test button</Button>).toJSON()
+  expect(button).toHaveStyleRule('color', '#FFFFFF')
+  expect(button).toHaveStyleRule('background', '#0077B5')
 })
 
 test('<LinkButton> renders correctly', () => {
-  const button = mount(
-    <MemoryRouter>
-      <LinkButton to="#nowhere">Link button</LinkButton>
-    </MemoryRouter>
-  )
-  expect(button.text()).to.equal('Link button')
-  expect(button).toHaveStyleRule('color', '#ffffff')
+  const button = render(<LinkButton to="#nowhere">Link button</LinkButton>).toJSON()
+  expect(button.children).toContain('Link button')
+  expect(button).toHaveStyleRule('color', '#FFFFFF')
 })
 
 test('<HrefButton> renders correctly', () => {
-  const button = mount(
-    <MemoryRouter>
-      <HrefButton href="#nowhere">Href button</HrefButton>
-    </MemoryRouter>
-  )
-  expect(button.text()).to.equal('Href button')
-  expect(button).toHaveStyleRule('color', '#ffffff')
+  const button = render(<HrefButton href="#nowhere">Href button</HrefButton>).toJSON()
+  expect(button.children).toContain('Href button')
+  expect(button).toHaveStyleRule('color', '#FFFFFF')
 })

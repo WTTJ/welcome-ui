@@ -1,0 +1,9 @@
+{
+  "extends": ["plugin:prettier/recommended", "react-app"],
+  "rules": { "prettier/prettier": "warn" },
+  "settings": {
+    "react": {
+      "version": "16.4.2"
+    }
+  }
+}
