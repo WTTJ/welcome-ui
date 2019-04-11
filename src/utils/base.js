@@ -1,9 +1,8 @@
 import { createGlobalStyle, css } from 'styled-components'
 
-import { HEADING_FONT_FAMILY, DEFAULT_FONT_FAMILY } from './constants'
 import reset from './reset'
 import { fontFace } from './font'
-import { color, fontSize } from './theme'
+import { color, fontSize, fontFamily } from './helpers'
 
 const baseResponsiveStyles = css`
   @media (max-width: 1200px) {
@@ -25,22 +24,26 @@ const baseResponsiveStyles = css`
   }
 `
 
-const BaseStyles = createGlobalStyle`
+export const getBaseStyles = theme => createGlobalStyle`
   ${reset}
 
-  ${fontFace()}
+  ${fontFace(theme)}
 
   html {
-    font-size: ${fontSize('html')};
+    font-size: ${fontSize('html')({ theme })};
   }
 
   body {
-    font-family: ${[DEFAULT_FONT_FAMILY, 'sans-serif'].join(', ')};
+    font-family: ${[fontFamily('texts')({ theme }), 'sans-serif'].join(', ')};
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: ${[HEADING_FONT_FAMILY, DEFAULT_FONT_FAMILY, 'sans-serif'].join(', ')};
+    font-family: ${[
+      fontFamily('headings')({ theme }),
+      fontFamily('texts')({ theme }),
+      'serif'
+    ].join(', ')};
   }
 
   h1, h2, h3{
@@ -59,4 +62,4 @@ const BaseStyles = createGlobalStyle`
   ${baseResponsiveStyles}
 `
 
-export default BaseStyles
+export default getBaseStyles

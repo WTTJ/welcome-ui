@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { breakpoint, boxShadow, transition, rgba } from './theme'
+import { breakpoint, boxShadow, transition, rgba } from './helpers'
 
 // Custom scrollbar mixin
 export const scrollbar = (width, thumbColor, trackColor) => {

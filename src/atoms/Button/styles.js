@@ -15,7 +15,7 @@ import {
   roundedButtonSize,
   textStyles,
   transition
-} from '../../utils/theme'
+} from '../../utils/helpers'
 
 const pulsing = keyframes`
   from {

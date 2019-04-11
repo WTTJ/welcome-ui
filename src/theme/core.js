@@ -1,7 +1,7 @@
 import merge from 'lodash.merge'
 import { DEFAULT_FONT_SIZE, DEFAULT_FONT_FAMILY, HEADING_FONT_FAMILY } from '../utils/constants'
 
-const createTheme = (options = {}) => {
+const coreTheme = (options = {}) => {
   let {
     defaultFontSize = DEFAULT_FONT_SIZE,
     defaultFontFamily = DEFAULT_FONT_FAMILY,
@@ -219,65 +219,16 @@ const createTheme = (options = {}) => {
     mobile: toRem(22)
   }
 
+  theme.fonts = {}
+
   return merge(theme, rest)
 }
 
-let theme = createTheme()
+let theme = coreTheme()
 
-export const setTheme = options => {
-  theme = createTheme(options)
+export const createTheme = options => {
+  theme = coreTheme(options)
   return theme
 }
-
-setTheme({
-  fonts: {
-    welcomeweb: [
-      {
-        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-regular',
-        weight: '400',
-        extensions: ['woff2', 'woff', 'ttf']
-      },
-      {
-        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-medium',
-        weight: '500',
-        extensions: ['woff2', 'woff', 'ttf']
-      },
-      {
-        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-bold',
-        weight: '600',
-        extensions: ['woff2', 'woff', 'ttf']
-      },
-      {
-        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-black',
-        weight: '700',
-        extensions: ['woff2', 'woff', 'ttf']
-      },
-      {
-        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-regularitalic',
-        weight: '400',
-        style: 'italic',
-        extensions: ['woff2', 'woff', 'ttf']
-      },
-      {
-        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-mediumitalic',
-        weight: '500',
-        style: 'italic',
-        extensions: ['woff2', 'woff', 'ttf']
-      },
-      {
-        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-bolditalic',
-        weight: '600',
-        style: 'italic',
-        extensions: ['woff2', 'woff', 'ttf']
-      },
-      {
-        url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-blackitalic',
-        weight: '700',
-        style: 'italic',
-        extensions: ['woff2', 'woff', 'ttf']
-      }
-    ]
-  }
-})
 
 export default theme

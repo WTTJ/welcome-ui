@@ -4018,7 +4018,7 @@ docz-utils@^0.13.6:
     unist-util-is "^2.1.2"
     unist-util-visit "^1.4.0"
 
-docz@^0.13.7:
+docz@=0.13.7, docz@^0.13.7:
   version "0.13.7"
   resolved "https://registry.yarnpkg.com/docz/-/docz-0.13.7.tgz#dcf6bd4bcdec121cbd973a21da25eef2108a4ac3"
   integrity sha512-kxbluFEkkIZFC6P2AYNDCi2qQAyRXj6AL0z3mebptvctu0veuB1YqEL1GqTZ9DtuUr4ZLsqmg34MqJrJNzhlHw==

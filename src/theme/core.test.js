@@ -1,8 +1,8 @@
-import { setTheme } from './core'
-import { fontFamily, fontSize } from '../utils/theme'
+import { createTheme } from './core'
+import { fontFamily, fontSize } from '../utils/helpers'
 
 test('Can create theme with different base font size', () => {
-  const theme = setTheme({
+  const theme = createTheme({
     defaultFontSize: 50
   })
 
@@ -10,7 +10,7 @@ test('Can create theme with different base font size', () => {
 })
 
 test('Can create theme with different fonts', () => {
-  const theme = setTheme({
+  const theme = createTheme({
     fonts: {
       HKCompakt: [
         {
@@ -21,12 +21,13 @@ test('Can create theme with different fonts', () => {
       ]
     },
     fontFamily: {
-      texts: 'HKCompakt'
+      texts: 'HKCompakt',
+      quotes: 'HKCompakt'
     }
   })
 
-  console.debug('theme', theme.fontFamily)
-
-  // TODO: Fix this
-  expect(fontFamily('texts')(theme)).toBe('welcomeweb')
+  expect(fontFamily('texts')({ theme })).toBe('HKCompakt')
+  expect(fontFamily('headings')({ theme })).toBe('welcomeweb')
+  expect(fontFamily('quotes')({ theme })).toBe('HKCompakt')
+  expect(theme.fonts.HKCompakt).toBeDefined()
 })

@@ -1,5 +1,3 @@
-import theme from '../theme/core'
-
 const createUrl = (url, extension) => {
   return `url('${url}.${extension}') format('${extension === 'ttf' ? 'truetype' : extension}')`
 }
@@ -19,7 +17,7 @@ const getFontFace = (name, font) => {
   `
 }
 
-export const fontFace = () => {
+export const fontFace = theme => {
   return Object.entries(theme.fonts)
     .map(([name, variations]) => variations.map(font => getFontFace(name, font)).join(''))
     .join('')
