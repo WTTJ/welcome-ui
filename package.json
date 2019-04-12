@@ -35,6 +35,7 @@
     "babel-jest": "=24.7.1",
     "docz": "=0.13.7",
     "docz-theme-default": "^0.13.7",
+    "@emotion/core": "^10.0.9",
     "eslint": "=5.16.0",
     "eslint-config-prettier": "=4.1.0",
     "eslint-config-react-app": "=3.0.8",
@@ -46,17 +47,16 @@
     "husky": "=1.3.1",
     "jest": "=24.7.1",
     "jest-styled-components": "=6.3.1",
-    "react": "16.8.0",
-    "react-dom": "16.8.0",
+    "react": "16.4.2",
+    "react-dom": "16.4.2",
+    "react-router-dom": "4.2.2",
     "react-test-renderer": "=16.8.6"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.9",
     "lodash.concat": "=4.5.0",
     "lodash.get": "=4.4.2",
     "lodash.merge": "^4.6.1",
     "prop-types": "=15.7.2",
-    "react-router-dom": "4.2.2",
     "styled-components": "=4.1.3"
   },
   "peerDependencies": {
