@@ -9,8 +9,8 @@
     "postversion": "git push && git push --tags",
     "prepublish": "yarn build",
     "build": "BABEL_ENV=es babel src --out-dir es",
-    "lint": "eslint . --max-warnings 0",
-    "test": "jest",
+    "lint": "eslint src --max-warnings 0",
+    "test": "jest src",
     "docz:dev": "docz dev",
     "docz:build": "docz build"
   },
@@ -39,6 +39,7 @@
     "@emotion/core": "^10.0.9",
     "babel-eslint": "=10.0.1",
     "babel-jest": "=24.7.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "=6.26.2",
     "docz": "=0.13.7",
     "docz-theme-default": "^0.13.7",
     "eslint": "=5.16.0",
