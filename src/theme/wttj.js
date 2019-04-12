@@ -1,4 +1,4 @@
-export const jungleTheme = {
+export const wttjTheme = {
   defaultFontSize: 16,
   defaultFontFamily: 'welcomeweb',
   headingFontFamily: 'welcomeweb',
@@ -52,4 +52,4 @@ export const jungleTheme = {
   }
 }
 
-export default jungleTheme
+export default wttjTheme
