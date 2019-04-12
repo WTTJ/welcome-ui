@@ -1,8 +1,5 @@
 module.exports = {
   env: {
-    commonjs: {
-      plugins: [['transform-es2015-modules-commonjs', { loose: true }]]
-    },
     test: {
       plugins: ['transform-es2015-modules-commonjs']
     }

@@ -2,3 +2,4 @@
 
 export { getBaseStyles } from './utils/base'
 export { createTheme } from './theme/core'
+export { jungleTheme } from './theme/jungle'

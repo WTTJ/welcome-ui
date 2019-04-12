@@ -1,5 +1,8 @@
 import merge from 'lodash.merge'
-import { DEFAULT_FONT_SIZE, DEFAULT_FONT_FAMILY, HEADING_FONT_FAMILY } from '../utils/constants'
+
+const DEFAULT_FONT_SIZE = 50
+const DEFAULT_FONT_FAMILY = 'Arial'
+const HEADING_FONT_FAMILY = 'Times'
 
 const coreTheme = (options = {}) => {
   let {

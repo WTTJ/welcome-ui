@@ -16,7 +16,7 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
   -ms-flex-pack: center;
   justify-content: center;
   width: auto;
-  font-family: welcomeweb;
+  font-family: Arial;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;

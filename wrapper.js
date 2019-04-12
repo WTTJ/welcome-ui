@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import { DEFAULT_FONTS } from './src/utils/constants'
+import { jungleTheme } from './src/theme/jungle'
 import { createTheme } from './src/theme/core'
-import getBaseStyles from './src/utils/base'
+import { getBaseStyles } from './src/utils/base'
 
-const theme = createTheme({
-  fonts: DEFAULT_FONTS
-})
+const theme = createTheme(jungleTheme)
 
 const Wrapper = ({ children }) => {
   const BaseStyles = getBaseStyles(theme)
