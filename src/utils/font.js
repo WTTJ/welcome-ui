@@ -13,6 +13,7 @@ const getFontFace = (name, font) => {
       src: ${createSrc(font)};
       ${font.weight ? `font-weight: ${font.weight};` : ''}
       ${font.style ? `font-style: ${font.style};` : ''}
+      font-display: fallback;
     }
   `
 }

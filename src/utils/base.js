@@ -33,13 +33,9 @@ export const getBaseStyles = theme => createGlobalStyle`
     font-size: ${fontSize('html')({ theme })};
   }
 
-  body {
+  body, button, input, select, textarea {
     font-family: ${[fontFamily('texts')({ theme }), 'sans-serif'].join(', ')};
     -webkit-font-smoothing: antialiased;
-  }
-
-  button, input, select, textarea {
-    font-family: inherit;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -59,8 +55,8 @@ export const getBaseStyles = theme => createGlobalStyle`
   }
 
   ::selection {
-    background-color: ${color('seafoamblue')};
-    color: ${color('white')};
+    background-color: ${color('seafoamblue')({ theme })};
+    color: ${color('white')({ theme })};
   }
 
   ${baseResponsiveStyles}
