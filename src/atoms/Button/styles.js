@@ -28,6 +28,10 @@ const pulsing = keyframes`
   }
 `
 
+const pulsingRule = css`
+  ${pulsing} 0.2s linear both;
+`
+
 export const slidingBackgroundStyles = css`
   &::before {
     content: ' ';
@@ -307,7 +311,7 @@ export const pulsingStyles = css`
     opacity: 0.1;
     border-radius: 50%;
     transform-origin: center;
-    animation: ${pulsing} 1.5s ease infinite alternate;
+    animation: ${pulsingRule} 1.5s ease infinite alternate;
   }
 `
 

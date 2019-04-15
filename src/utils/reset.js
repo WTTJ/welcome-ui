@@ -9,6 +9,10 @@ const resetAutofill = keyframes`
   }
 `
 
+const resetAutofillRule = css`
+  ${resetAutofill} 0.2s linear both;
+`
+
 export const reset = css`
   html,
   body,
@@ -149,7 +153,7 @@ export const reset = css`
   textarea,
   select {
     &:-webkit-autofill {
-      animation: ${resetAutofill} 0.2s linear both;
+      animation: ${resetAutofillRule};
     }
   }
   :focus {
