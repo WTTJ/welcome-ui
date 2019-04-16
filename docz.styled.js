@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Playground } from 'docz'
 
 import { Button } from './src/atoms/Button/styles'
-import { IconSvg } from './src/atoms/Icon/styles'
 
 export const StyledPlayground = styled(Playground)``
 
@@ -25,14 +24,6 @@ export const ButtonsPlayground = styled(Playground)`
   ${Button} {
     margin-right: ${props => getButtonsPlaygroundSpacing(props.spacing)};
     margin-bottom: ${props => getButtonsPlaygroundSpacing(props.spacing)};
-  }
-`
-
-export const IconsPlayground = styled(Playground)`
-  ${IconSvg} {
-    stroke: white;
-    fill: white;
-    margin-right: ${spacer['md']};
   }
 `
 

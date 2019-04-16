@@ -2,7 +2,7 @@
 
 import { getBaseStyles } from './utils/base'
 import { createTheme } from './theme/core'
-import { wttjTheme } from './theme/wttj'
+import { welcomeTheme } from './theme/welcome'
 import { createHelpers } from './utils/helpers'
 
-export { getBaseStyles, createTheme, wttjTheme, createHelpers }
+export { getBaseStyles, createTheme, welcomeTheme, createHelpers }

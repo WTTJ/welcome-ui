@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { breakpoint, boxShadow, transition, rgba } from './helpers'
+import { rgba } from './helpers'
 
 // Custom scrollbar mixin
 export const scrollbar = (width, thumbColor, trackColor) => {
@@ -37,27 +37,27 @@ export const media = {
     }
   `,
   mobile: (...args) => css`
-    @media (max-width: ${breakpoint('mobile')}) {
+    @media (max-width: ${props => props.theme.breakpoint.mobile}) {
       ${css(...args)};
     }
   `,
   tablet: (...args) => css`
-    @media (max-width: ${breakpoint('tablet')}) {
+    @media (max-width: ${props => props.theme.breakpoint.tablet}) {
       ${css(...args)};
     }
   `,
   smallscreen: (...args) => css`
-    @media (max-width: ${breakpoint('smallscreen')}) {
+    @media (max-width: ${props => props.theme.breakpoint.smallscreen}) {
       ${css(...args)};
     }
   `,
   mediumscreen: (...args) => css`
-    @media (max-width: ${breakpoint('mediumscreen')}) {
+    @media (max-width: ${props => props.theme.breakpoint.mediumscreen}) {
       ${css(...args)};
     }
   `,
   widescreen: (...args) => css`
-    @media (max-width: ${breakpoint('widescreen')}) {
+    @media (max-width: ${props => props.theme.breakpoint.widescreen}) {
       ${css(...args)};
     }
   `
@@ -98,10 +98,10 @@ export const printHiddenStyles = css`
 `
 
 export const hoverTransformStyles = css`
-  transition: ${transition('md')};
+  transition: ${props => props.theme.transition.md};
 
   &:hover {
     transform: translate3d(0, -5px, 0);
-    box-shadow: ${boxShadow('articleThumbHover')};
+    box-shadow: ${props => props.theme.boxShadow.articleThumbHover};
   }
 `

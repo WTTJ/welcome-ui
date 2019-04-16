@@ -14,47 +14,38 @@ import { Button } from './index'
 
 ## Examples
 
-### modes
+### Variants
 
 <Playground>
   <Button>default</Button>
-  <Button mode="primary">primary</Button>
-  <Button mode="dark">dark</Button>
-  <Button mode="light">light</Button>
-  <Button mode="neutral">neutral</Button>
-  <Button mode="danger">danger</Button>
-  <Button mode="linkedin">linkedin</Button>
+  <Button variant="primary">primary</Button>
+  <Button variant="secondary">secondary</Button>
+  <Button variant="tertiary">tertiary</Button>
+  <Button variant="primary-warning">primary-warning</Button>
+  <Button variant="secondary-warning">secondary-warning</Button>
+  <Button variant="primary-danger">primary-danger</Button>
+  <Button variant="secondary-danger">secondary-danger</Button>
 </Playground>
 
-### sizes
+### Sizes
 
 <Playground>
   <Button>default</Button>
-  <Button size="auto">auto</Button>
   <Button size="sm">sm</Button>
   <Button size="md">md</Button>
   <Button size="lg">lg</Button>
 </Playground>
 
-### full width
+### Span
 
 <Playground>
-  <Button width="full">full width</Button>
+  <Button span="full">full width</Button>
+  <Button span="half">half width</Button>
 </Playground>
 
-### rounded pulsing
-
-<Playground spacing="xxl">
-  <Button rounded pulsing size="md">md</Button>
-  <Button rounded pulsing size="lg">lg</Button>
-</Playground>
-
-### rounded border
+### Border radii
 
 <Playground>
-  <Button borderRounded>default</Button>
-  <Button borderRounded size="auto">auto</Button>
-  <Button borderRounded size="sm">sm</Button>
-  <Button borderRounded size="md">md</Button>
-  <Button borderRounded size="lg">lg</Button>
+  <Button>default</Button>
+  <Button radius='10px'>sm</Button>
 </Playground>

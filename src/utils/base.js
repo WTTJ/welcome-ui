@@ -2,7 +2,6 @@ import { createGlobalStyle, css } from 'styled-components'
 
 import reset from './reset'
 import { fontFace } from './font'
-import { color, fontSize, fontFamily } from './helpers'
 
 const baseResponsiveStyles = css`
   @media (max-width: 1200px) {
@@ -30,20 +29,16 @@ export const getBaseStyles = theme => createGlobalStyle`
   ${fontFace(theme)}
 
   html {
-    font-size: ${fontSize('html')({ theme })};
+    font-size: ${theme.fontSize.html};
   }
 
   body, button, input, select, textarea {
-    font-family: ${[fontFamily('texts')({ theme }), 'sans-serif'].join(', ')};
+    font-family: ${[theme.fontFamily.texts, 'sans-serif'].join(', ')};
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: ${[
-      fontFamily('headings')({ theme }),
-      fontFamily('texts')({ theme }),
-      'serif'
-    ].join(', ')};
+    font-family: ${[theme.fontFamily.headings, theme.fontFamily.texts, 'serif'].join(', ')};
   }
 
   h1, h2, h3{
@@ -55,8 +50,8 @@ export const getBaseStyles = theme => createGlobalStyle`
   }
 
   ::selection {
-    background-color: ${color('seafoamblue')({ theme })};
-    color: ${color('white')({ theme })};
+    background-color: ${theme.colors.primary};
+    color: ${theme.colors.white};
   }
 
   ${baseResponsiveStyles}

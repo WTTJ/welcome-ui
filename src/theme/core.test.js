@@ -1,10 +1,12 @@
 import { createTheme } from './core'
-import { fontFamily, fontSize } from '../utils/helpers'
+import createHelpers from '../utils/helpers'
 
 test('Can create theme with different base font size', () => {
   const theme = createTheme({
     defaultFontSize: 50
   })
+
+  const { fontSize } = createHelpers(theme)
 
   expect(fontSize('html')(theme)).toBe('50px')
 })
@@ -25,6 +27,8 @@ test('Can create theme with different fonts', () => {
       quotes: 'HKCompakt'
     }
   })
+
+  const { fontFamily } = createHelpers(theme)
 
   expect(fontFamily('texts')({ theme })).toBe('HKCompakt')
   expect(fontFamily('headings')({ theme })).toBe('Times')

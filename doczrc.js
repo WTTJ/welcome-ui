@@ -1,7 +1,7 @@
 export default {
   wrapper: 'wrapper',
   themeConfig: {
-    mode: 'dark'
+    // mode: 'dark'
   },
   port: 3020
 }

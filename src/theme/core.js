@@ -33,43 +33,43 @@ const coreTheme = (options = {}) => {
 
   let theme = {}
 
-  theme.color = {
-    richblack: '#050506', //#050506
-    smokyblack: '#0B0B0D', //#0B0B0D
-    licorice: '#101013', //#101013
-    eerieblack: '#16161A', //#16161A
-    moodyblack: '#1B1C20', //#1B1C20
-    raisinblack: '#212227', //#212227
-    charcoal: '#26272E', //#26272E
-    gunmetal: '#2C2D34', //#2C2D34
-    metal: '#31333B', //#31333B
-    onyx: '#373942', //#373942
-    darkliver: '#4B4D55', //#4B4D55
-    granite: '#5F6067', //#5F6067
-    battleship: '#73747B', //#73747B
-    steel: '#87888D', //#87888D
-    silverchalice: '#AFAFB3', //#AFAFB3
-    silver: '#C3C3C6', //#C3C3C6
-    timberwolf: '#D7D7D9', //#D7D7D9
-    isabelline: '#EEEEEE', //#EEEEEE
-    snow: '#F9F9F9', //#F9F9F9
-    white: '#FFFFFF', //#FFFFFF
-
-    iceberg: '#71A6DE', //#71A6DE
-    lightcyan: '#E1F0FF', //#E1F0FF
-
-    pastelorange: '#FFAF51', //#FFAF51
-    lemonchiffon: '#FFF2E3', //#FFF2E3
-
-    seafoamblue: '#00C29A', //#00C29A
-    carribeangreen: '#66C8AB', //#66C8AB
-    pastelmint: '#E3F8F4', //#E3F8F4
-
-    alabamacrimson: '#F35454', //#F35454
-    mistryrose: '#FEE6E6', //#FEE6E6
-
-    linkedin: '#0077B5' // #0077B5
+  theme.colors = {
+    core: {
+      primary: '#333333',
+      secondary: '#999999',
+      success: '#00FFFF',
+      danger: '#FF0000',
+      warning: '#FFFF00',
+      info: '#999999',
+      light: '#EEEEEE',
+      dark: '#222222',
+      white: '#FFFFFF'
+    },
+    text: {
+      primary: '#333333',
+      secondary: '#999999',
+      success: '#00FFFF',
+      danger: '#FF0000',
+      warning: '#FFFF00',
+      info: '#999999',
+      light: '#EEEEEE',
+      dark: '#222222',
+      white: '#FFFFFF'
+    },
+    bg: {
+      primary: '#333333',
+      secondary: '#999999',
+      success: '#00FFFF',
+      danger: '#FF0000',
+      warning: '#FFFF00',
+      info: '#999999',
+      light: '#EEEEEE',
+      dark: '#222222',
+      white: '#FFFFFF'
+    }
   }
+
+  theme.palette = {}
 
   theme.text = {
     primary: {
@@ -114,24 +114,18 @@ const coreTheme = (options = {}) => {
   }
 
   theme.padding = {
-    xxxs: '0.1em',
-    xxs: '0.3em',
-    xs: '0.5em',
-    sm: '0.8125em',
-    md: '1em',
-    lg: '1.5em',
-    mdx2: '2em',
-    xl: '3.125em',
-    xxl: '4em',
-    xxxl: '6.875em'
+    xxs: toRem(8),
+    xs: toRem(10),
+    sm: toRem(12),
+    md: toRem(15)
   }
 
   theme.gutter = {
     xxxs: toRem(1.6),
     xxs: toRem(4.8),
-    xs: toRem(8),
-    sm: toRem(13),
-    md: toRem(16),
+    xs: toRem(10),
+    sm: toRem(12),
+    md: toRem(15),
     lg: toRem(24),
     mdx2: toRem(32),
     xl: toRem(50),
@@ -196,7 +190,7 @@ const coreTheme = (options = {}) => {
 
   theme.radius = {
     sm: '3px',
-    md: '5px',
+    md: '6px',
     lg: '10px'
   }
 

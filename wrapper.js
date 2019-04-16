@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import { wttjTheme } from './src/theme/wttj'
+import { welcomeTheme } from './src/theme/welcome'
 import { createTheme } from './src/theme/core'
 import { getBaseStyles } from './src/utils/base'
 
-const theme = createTheme(wttjTheme)
+const theme = createTheme(welcomeTheme)
 
 const Wrapper = ({ children }) => {
   const BaseStyles = getBaseStyles(theme)
