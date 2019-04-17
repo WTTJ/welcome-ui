@@ -28,11 +28,12 @@ helpers.textStyles = key => {
   return props => {
     const value = get(props, ['theme', 'text', key])
     const { size, weight, transform, spacing } = value
+    const { fontSize, fontWeight, letterSpacing } = props.theme
     return css`
-      font-size: ${size ? props.theme.fontSize[size] : 'inherit'};
-      font-weight: ${weight ? props.theme.fontWeight[weight] : 'inherit'};
+      font-size: ${size && fontSize ? fontSize[size] : 'inherit'};
+      font-weight: ${weight && fontWeight ? fontWeight[weight] : 'inherit'};
       text-transform: ${transform ? transform : null};
-      letter-spacing: ${spacing ? props.theme.letterSpacing[spacing] : null};
+      letter-spacing: ${spacing && letterSpacing ? letterSpacing[spacing] : null};
     `
   }
 }
