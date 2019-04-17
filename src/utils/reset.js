@@ -1,17 +1,4 @@
-import { css, keyframes } from 'styled-components'
-
-const resetAutofill = keyframes`
-  0% {
-    background: inherit;
-  }
-  100% {
-    background: rgba(0, 194, 154, 0.07);
-  }
-`
-
-const resetAutofillRule = css`
-  ${resetAutofill} 0.2s linear both;
-`
+import { css } from 'styled-components'
 
 export const reset = css`
   html,
@@ -147,13 +134,6 @@ export const reset = css`
     appearance: none;
     &::-webkit-search-cancel-button {
       display: none;
-    }
-  }
-  input,
-  textarea,
-  select {
-    &:-webkit-autofill {
-      animation: ${resetAutofillRule};
     }
   }
   :focus {
