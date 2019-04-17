@@ -2,9 +2,9 @@ import React from 'react'
 
 import { render } from '../../utils/tests'
 
-import { Button, LinkButton, HrefButton } from './styles'
+import { Button } from './styles'
 
-test.skip('<Button> renders correctly and has white text by default', () => {
+test('<Button> renders correctly and has white text by default', () => {
   const button = render(<Button>Test button</Button>).toJSON()
   expect(button).toMatchSnapshot()
   expect(button.children).toContain('Test button')
@@ -12,44 +12,50 @@ test.skip('<Button> renders correctly and has white text by default', () => {
   expect(button).toHaveStyleRule('background', '#00C29A')
 })
 
-test.skip('<Button> has correct colour for mode light', () => {
-  const button = render(<Button mode="light">Test button</Button>).toJSON()
-  expect(button).toHaveStyleRule('color', '#C3C3C6')
+test('<Button> has correct colour for variant primary', () => {
+  const button = render(<Button variant="primary">Test button</Button>).toJSON()
+  expect(button).toHaveStyleRule('color', '#FFFFFF')
+  expect(button).toHaveStyleRule('background', '#00C29A')
+})
+
+test('<Button> has correct colour for variant secondary', () => {
+  const button = render(<Button variant="secondary">Test button</Button>).toJSON()
+  expect(button).toHaveStyleRule('color', '#999999')
   expect(button).toHaveStyleRule('background', '#FFFFFF')
 })
 
-test.skip('<Button> has correct colour for mode dark', () => {
-  const button = render(<Button mode="dark">Test button</Button>).toJSON()
+test('<Button> has correct colour for variant tertiary', () => {
+  const button = render(<Button variant="tertiary">Test button</Button>).toJSON()
   expect(button).toHaveStyleRule('color', '#FFFFFF')
-  expect(button).toHaveStyleRule('background', '#2C2D34')
+  expect(button).toHaveStyleRule('background', '#999999')
 })
 
-test.skip('<Button> has correct colour for mode neutral', () => {
-  const button = render(<Button mode="neutral">Test button</Button>).toJSON()
-  expect(button).toHaveStyleRule('color', '#373942')
-  expect(button).toHaveStyleRule('background', '#D7D7D9')
+test('<Button> has correct colour for variant disabled', () => {
+  const button = render(<Button variant="disabled">Test button</Button>).toJSON()
+  expect(button).toHaveStyleRule('color', '#26272E')
+  expect(button).toHaveStyleRule('background', '#EEEEEE')
 })
 
-test.skip('<Button> has correct colour for mode danger', () => {
-  const button = render(<Button mode="danger">Test button</Button>).toJSON()
+test('<Button> has correct colour for variant primary-danger', () => {
+  const button = render(<Button variant="primary-danger">Test button</Button>).toJSON()
+  expect(button).toHaveStyleRule('color', '#FFFFFF')
+  expect(button).toHaveStyleRule('background', '#F35454')
+})
+
+test('<Button> has correct colour for variant secondary-danger', () => {
+  const button = render(<Button variant="secondary-danger">Test button</Button>).toJSON()
   expect(button).toHaveStyleRule('color', '#F35454')
   expect(button).toHaveStyleRule('background', '#FFFFFF')
 })
 
-test.skip('<Button> has correct colour for mode linkedin', () => {
-  const button = render(<Button mode="linkedin">Test button</Button>).toJSON()
+test('<Button> has correct colour for variant primary-warning', () => {
+  const button = render(<Button variant="primary-warning">Test button</Button>).toJSON()
   expect(button).toHaveStyleRule('color', '#FFFFFF')
-  expect(button).toHaveStyleRule('background', '#0077B5')
+  expect(button).toHaveStyleRule('background', '#FFAF51')
 })
 
-test.skip('<LinkButton> renders correctly', () => {
-  const button = render(<LinkButton to="#nowhere">Link button</LinkButton>).toJSON()
-  expect(button.children).toContain('Link button')
-  expect(button).toHaveStyleRule('color', '#FFFFFF')
-})
-
-test.skip('<HrefButton> renders correctly', () => {
-  const button = render(<HrefButton href="#nowhere">Href button</HrefButton>).toJSON()
-  expect(button.children).toContain('Href button')
-  expect(button).toHaveStyleRule('color', '#FFFFFF')
+test('<Button> has correct colour for variant secondary-warning', () => {
+  const button = render(<Button variant="secondary-warning">Test button</Button>).toJSON()
+  expect(button).toHaveStyleRule('color', '#FFAF51')
+  expect(button).toHaveStyleRule('background', '#FFFFFF')
 })
