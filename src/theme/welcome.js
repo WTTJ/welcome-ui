@@ -38,17 +38,15 @@ const palette = {
 
 export const welcomeTheme = {
   colors: {
-    core: {
-      primary: palette.seafoamblue,
-      secondary: palette.cadet,
-      danger: palette.alabamacrimson,
-      success: palette.seafoamblue,
-      warning: palette.pastelorange,
-      info: palette.carribeangreen,
-      light: palette.isabelline,
-      dark: palette.charcoal,
-      white: palette.white
-    },
+    primary: palette.seafoamblue,
+    secondary: palette.cadet,
+    danger: palette.alabamacrimson,
+    success: palette.seafoamblue,
+    warning: palette.pastelorange,
+    info: palette.carribeangreen,
+    light: palette.isabelline,
+    dark: palette.charcoal,
+    white: palette.white,
     text: {
       primary: palette.seafoamblue,
       secondary: palette.cadet,

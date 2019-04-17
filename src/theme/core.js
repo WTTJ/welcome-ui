@@ -34,17 +34,15 @@ const coreTheme = (options = {}) => {
   let theme = {}
 
   theme.colors = {
-    core: {
-      primary: '#333333',
-      secondary: '#999999',
-      success: '#00FFFF',
-      danger: '#FF0000',
-      warning: '#FFFF00',
-      info: '#999999',
-      light: '#EEEEEE',
-      dark: '#222222',
-      white: '#FFFFFF'
-    },
+    primary: '#333333',
+    secondary: '#999999',
+    success: '#00FFFF',
+    danger: '#FF0000',
+    warning: '#FFFF00',
+    info: '#999999',
+    light: '#EEEEEE',
+    dark: '#222222',
+    white: '#FFFFFF',
     text: {
       primary: '#333333',
       secondary: '#999999',
