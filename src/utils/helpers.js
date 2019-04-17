@@ -37,11 +37,11 @@ helpers.textStyles = key => {
     if (value) {
       const { size, weight, transform, spacing } = value
       defaultValues = {
+        ...defaultValues,
         size: fontSize[size],
         weight: fontWeight[weight],
         transform: transform,
-        spacing: letterSpacing[spacing],
-        ...defaultValues
+        spacing: letterSpacing[spacing]
       }
     }
     return css`

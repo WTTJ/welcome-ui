@@ -3,17 +3,7 @@ import styled, { css, keyframes } from 'styled-components'
 import helpers from '../../theme/helpers'
 import { media } from '../../utils/utils'
 
-const {
-  boxShadow,
-  colors,
-  fontFamily,
-  padding,
-  gutter,
-  radius,
-  rgba,
-  textStyles,
-  transition
-} = helpers
+const { boxShadow, colors, padding, gutter, radius, rgba, textStyles, transition } = helpers
 
 const pulsing = keyframes`
   from {
@@ -50,7 +40,6 @@ export const slidingBackgroundStyles = css`
 `
 
 const getVariant = (foreground, background, border) => {
-  console.debug('getVariant', foreground, background)
   return css`
     color: ${colors('text', foreground)};
     background: ${colors('bg', background)};
@@ -84,19 +73,16 @@ function getButtonVariant(variant) {
 const sizes = {
   sm: css`
     padding: ${padding('xxs')} ${padding('xs')};
-    ${textStyles('button')};
   `,
   md: css`
     padding: ${padding('xs')} ${padding('sm')};
-    ${textStyles('button')};
 
     ${media.mobile`
-    padding: ${padding('md')};
+      padding: ${padding('md')};
     `};
   `,
   lg: css`
     padding: ${padding('sm')} ${padding('md')};
-    ${textStyles('button')};
   `
 }
 
@@ -134,9 +120,8 @@ export const buttonStyles = css`
   align-self: ${({ alignself }) => alignself || null};
   justify-content: ${({ align }) => align || 'center'};
   width: auto;
-  font-family: ${fontFamily('texts')};
   text-align: ${({ align }) => align || 'center'};
-  text-transform: uppercase;
+  ${textStyles('button')};
   white-space: nowrap;
   cursor: pointer;
   outline: none;
