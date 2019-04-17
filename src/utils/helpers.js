@@ -26,14 +26,29 @@ helpers.centeredContainerWidth = (...path) => {
 
 helpers.textStyles = key => {
   return props => {
-    const value = get(props, ['theme', 'text', key])
-    const { size, weight, transform, spacing } = value
     const { fontSize, fontWeight, letterSpacing } = props.theme
+    let defaultValues = {
+      size: 'inherit',
+      weight: 'inherit',
+      transform: null,
+      spacing: null
+    }
+    const value = get(props, ['theme', 'text', key])
+    if (value) {
+      const { size, weight, transform, spacing } = value
+      defaultValues = {
+        size: fontSize[size],
+        weight: fontWeight[weight],
+        transform: transform,
+        spacing: letterSpacing[spacing],
+        ...defaultValues
+      }
+    }
     return css`
-      font-size: ${size && fontSize ? fontSize[size] : 'inherit'};
-      font-weight: ${weight && fontWeight ? fontWeight[weight] : 'inherit'};
-      text-transform: ${transform ? transform : null};
-      letter-spacing: ${spacing && letterSpacing ? letterSpacing[spacing] : null};
+      font-size: ${defaultValues.size};
+      font-weight: ${defaultValues.weight};
+      text-transform: ${defaultValues.transform};
+      letter-spacing: ${defaultValues.spacing};
     `
   }
 }
