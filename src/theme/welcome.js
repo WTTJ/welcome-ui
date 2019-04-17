@@ -49,7 +49,9 @@ export const welcomeTheme = {
     white: palette.white,
     text: {
       primary: palette.seafoamblue,
-      secondary: palette.cadet,
+      secondary: palette.battleship,
+      tertiary: palette.steel,
+      quaternary: palette.silverchalice,
       danger: palette.alabamacrimson,
       success: palette.seafoamblue,
       warning: palette.pastelorange,
@@ -61,6 +63,7 @@ export const welcomeTheme = {
     bg: {
       primary: palette.seafoamblue,
       secondary: palette.cadet,
+      tertiary: palette.isabelline,
       danger: palette.alabamacrimson,
       success: palette.seafoamblue,
       warning: palette.pastelorange,
@@ -68,6 +71,9 @@ export const welcomeTheme = {
       light: palette.isabelline,
       dark: palette.charcoal,
       white: palette.white
+    },
+    border: {
+      primary: palette.timberwolf
     }
   },
   palette,

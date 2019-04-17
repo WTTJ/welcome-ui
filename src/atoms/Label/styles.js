@@ -1,0 +1,31 @@
+import styled from 'styled-components'
+
+import { getVariantColor } from '../../common/styles/form'
+import helpers from '../../theme/helpers'
+
+const { colors, fontFamily, gutter, textStyles } = helpers
+
+export const Disabled = styled.div`
+  display: inline-block;
+  margin-right: ${gutter('xxs')};
+`
+
+export const Required = styled.abbr`
+  margin-left: ${gutter('xxs')};
+  color: ${colors('primary')};
+`
+
+export const Variant = styled.div`
+  display: inline-block;
+  margin-right: ${gutter('xxs')};
+  color: ${props => getVariantColor(props.variant)};
+`
+
+export const Label = styled.label`
+  display: block;
+  font-family: ${fontFamily('texts')}
+  ${textStyles('label')}
+  color: ${colors('text', 'secondary')};
+`
+
+export default Label

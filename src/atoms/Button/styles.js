@@ -1,43 +1,9 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import helpers from '../../theme/helpers'
 import { media } from '../../utils/utils'
 
 const { boxShadow, colors, padding, gutter, radius, rgba, textStyles, transition } = helpers
-
-const pulsing = keyframes`
-  from {
-    transform: scale(1);
-    opacity: .1;
-  }
-  to {
-    transform: scale(1.8);
-    opacity: .2;
-  }
-`
-
-const pulsingRule = css`
-  ${pulsing} 0.2s linear both;
-`
-
-export const slidingBackgroundStyles = css`
-  &::before {
-    content: ' ';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: ${rgba('white', 0.15)};
-    transform: scaleX(0);
-    transform-origin: 0;
-    transition: ${transition('md')};
-  }
-
-  &:hover::before {
-    transform: scaleX(1);
-  }
-`
 
 const getVariant = (foreground, background, border) => {
   return css`
@@ -109,7 +75,6 @@ export const pulsingStyles = css`
     opacity: 0.1;
     border-radius: 50%;
     transform-origin: center;
-    // animation: ${pulsingRule} 1.5s ease infinite alternate;
   }
 `
 
@@ -133,8 +98,6 @@ export const buttonStyles = css`
   overflow: hidden;
   transition: ${transition('sm')};
   line-height: 1rem;
-
-  ${props => (props.effect ? slidingBackgroundStyles : null)};
 
   &:active {
     transform: translateY(2px);

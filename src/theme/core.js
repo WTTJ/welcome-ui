@@ -70,28 +70,21 @@ const coreTheme = (options = {}) => {
   theme.palette = {}
 
   theme.text = {
-    primary: {
-      size: 'md',
+    hint: {
+      size: 'xs',
       weight: 'regular'
     },
-    secondary: {
-      size: 'xs',
-      weight: 'medium',
-      transform: 'none'
-    },
     label: {
-      size: 'md',
-      weight: 'bold'
+      size: 'sm',
+      weight: 'medium'
+    },
+    input: {
+      size: 'sm',
+      weight: 'regular'
     },
     button: {
       size: 'xs',
       weight: 'bold',
-      transform: 'uppercase',
-      spacing: 'md'
-    },
-    button_small: {
-      size: 'xs',
-      weight: 'regular',
       transform: 'uppercase',
       spacing: 'md'
     }
