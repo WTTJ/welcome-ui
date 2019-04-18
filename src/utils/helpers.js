@@ -1,5 +1,6 @@
 import { css } from 'styled-components'
 import get from 'lodash.get'
+import merge from 'lodash.merge'
 import concat from 'lodash.concat'
 
 import hexToRGB from './hexToRGB'
@@ -26,25 +27,27 @@ helpers.centeredContainerWidth = (...path) => {
 
 helpers.textStyles = key => {
   return props => {
-    const { fontSize, fontWeight, letterSpacing } = props.theme
+    const { fontFamily, fontSize, fontWeight, letterSpacing } = props.theme
     let defaultValues = {
+      family: fontFamily.texts,
       size: 'inherit',
       weight: 'inherit',
-      transform: null,
-      spacing: null
+      transform: 'none',
+      spacing: 'none'
     }
     const value = get(props, ['theme', 'text', key])
     if (value) {
-      const { size, weight, transform, spacing } = value
-      defaultValues = {
-        ...defaultValues,
+      const { family, size, weight, transform, spacing } = value
+      defaultValues = merge(defaultValues, {
+        family: fontFamily[family],
         size: fontSize[size],
         weight: fontWeight[weight],
         transform: transform,
         spacing: letterSpacing[spacing]
-      }
+      })
     }
     return css`
+      font-family: ${defaultValues.family};
       font-size: ${defaultValues.size};
       font-weight: ${defaultValues.weight};
       text-transform: ${defaultValues.transform};

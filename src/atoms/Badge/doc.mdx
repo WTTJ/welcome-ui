@@ -1,0 +1,49 @@
+---
+name: Badge
+route: /atoms/badge
+menu: Atoms
+---
+
+import { PropsTable } from 'docz'
+import { StyledPlayground as Playground } from '../../../docz.styled'
+import { Badge } from './index'
+
+# Badge
+
+## Properties
+
+<PropsTable of={Badge} />
+
+## Examples
+
+### Defaults
+
+<Playground>
+  <Badge>1</Badge>
+  <Badge>2</Badge>
+  <Badge>3</Badge>
+  <Badge>4</Badge>
+  <Badge>5</Badge>
+  <Badge>6</Badge>
+  <Badge>7</Badge>
+  <Badge>8</Badge>
+  <Badge>9</Badge>
+  <Badge>10</Badge>
+  <Badge>100</Badge>
+  <Badge>Some text</Badge>
+</Playground>
+
+### Variants
+
+<Playground>
+  <Badge>Default</Badge>
+  <Badge variant='warning'>Warning</Badge>
+  <Badge variant='error'>Error</Badge>
+</Playground>
+
+### Custom
+
+<Playground>
+  <Badge radius='md' fontsize='lg'>Custom badge</Badge>
+  <Badge fontsize='md'>╳</Badge>
+</Playground>

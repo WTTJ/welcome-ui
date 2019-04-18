@@ -82,6 +82,10 @@ const coreTheme = (options = {}) => {
       size: 'sm',
       weight: 'regular'
     },
+    badge: {
+      size: 'sm',
+      weight: 'bold'
+    },
     button: {
       size: 'xs',
       weight: 'bold',

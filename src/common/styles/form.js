@@ -10,6 +10,8 @@ export const getVariantColor = (variant, fallback) => {
       return colors('danger')
     case 'warning':
       return colors('warning')
+    case 'info':
+      return colors('info')
     default:
       return fallback || colors('border', 'primary')
   }

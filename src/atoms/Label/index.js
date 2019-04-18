@@ -2,12 +2,19 @@ import React, { PureComponent } from 'react'
 import { bool } from 'prop-types'
 
 import StyledLabel, { Disabled, Required, Variant } from './styles'
+import Badge from '../Badge'
 
 export class Label extends PureComponent {
   getVariantIcon = variant => {
     const { errorWarningIcon } = this.props
     if (variant === 'error' || variant === 'warning') {
-      return errorWarningIcon || '⚠'
+      return (
+        errorWarningIcon || (
+          <Badge size="1.4em" fontsize="xs" variant={variant}>
+            !
+          </Badge>
+        )
+      )
     }
   }
 

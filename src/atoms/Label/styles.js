@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { getVariantColor } from '../../common/styles/form'
 import helpers from '../../theme/helpers'
 
-const { colors, fontFamily, gutter, textStyles } = helpers
+const { colors, gutter, textStyles } = helpers
 
 export const Disabled = styled.div`
   display: inline-block;
@@ -19,12 +19,12 @@ export const Variant = styled.div`
   display: inline-block;
   margin-right: ${gutter('xxs')};
   color: ${props => getVariantColor(props.variant)};
+  fill: ${props => getVariantColor(props.variant)};
 `
 
 export const Label = styled.label`
   display: block;
-  font-family: ${fontFamily('texts')}
-  ${textStyles('label')}
+  ${textStyles('label')};
   color: ${colors('text', 'secondary')};
 `
 
