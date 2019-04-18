@@ -1,8 +1,8 @@
 {
-  "name": "jungle-ui",
+  "name": "welcome-ui",
   "version": "0.0.1",
-  "description": "A delightful UI system for Jungle products",
-  "main": "dist/umd/jungle-ui.js",
+  "description": "A delightful UI system from Welcome to the Jungle",
+  "main": "dist/umd/welcome-ui.js",
   "module": "dist/esm/index.js",
   "scripts": {
     "prepare": "rollup --config",
@@ -19,20 +19,22 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WTTJ/jungle-ui.git"
+    "url": "git+https://github.com/WTTJ/welcome-ui.git"
   },
   "keywords": [
     "ui",
-    "jungle",
+    "welcome",
+    "welcome to the jungle",
+    "WTTJ",
     "react",
     "styled-components"
   ],
   "author": "WTTJ <tech@wttj.co>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/WTTJ/jungle-ui/issues"
+    "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "homepage": "https://github.com/WTTJ/jungle-ui#readme",
+  "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "devDependencies": {
     "@babel/cli": "=7.4.3",
     "@babel/core": "=7.4.3",
