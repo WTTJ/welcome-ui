@@ -5,6 +5,8 @@
   "main": "dist/umd/welcome-ui.js",
   "module": "dist/esm/index.js",
   "scripts": {
+    "icons:optimize": "svgo --folder=src/assets/icons --pretty --indent=2 --multipass --quiet",
+    "icons:collect": "node helpers/icons.js && eslint src/atoms/Icon/icons2.js --fix",
     "prepare": "rollup --config",
     "preversion": "yarn test",
     "postversion": "git push && git push --tags",
@@ -66,7 +68,8 @@
     "rollup-plugin-babel": "=4.3.2",
     "rollup-plugin-commonjs": "=9.3.4",
     "rollup-plugin-node-resolve": "=4.2.3",
-    "rollup-plugin-terser": "=4.0.4"
+    "rollup-plugin-terser": "=4.0.4",
+    "svgo": "=1.2.2"
   },
   "dependencies": {
     "lodash.concat": "=4.5.0",
@@ -82,7 +85,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn lint && yarn test"
+      "pre-push": "yarn lint && yarn icons:optimize && yarn icons:collect && yarn test"
     }
   }
 }
