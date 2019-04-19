@@ -5,7 +5,7 @@
   "main": "dist/umd/welcome-ui.js",
   "module": "dist/esm/index.js",
   "scripts": {
-    "icons:optimize": "svgo --folder=src/assets/icons --pretty --indent=2 --multipass --quiet",
+    "icons:optimize": "svgo --folder=src/atoms/Icon/assets --pretty --indent=2 --multipass --quiet",
     "icons:collect": "node helpers/icons.js && eslint src/atoms/Icon/icons2.js --fix",
     "prepare": "rollup --config",
     "preversion": "yarn test",

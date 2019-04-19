@@ -6,8 +6,9 @@ fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)
 fs.writeFileAsync = util.promisify(fs.writeFile)
 
-const inputPath = path.join(__dirname, '../assets/icons')
-const outputPath = path.join(__dirname, '../src/atoms/Icon/icons2.js')
+const rootPath = path.join(__dirname, '../src/atoms/Icon')
+const inputPath = path.join(rootPath, 'assets')
+const outputPath = path.join(rootPath, 'icons2.js')
 
 const addFile = (key, file) =>
   fs.readFileAsync(path.join(inputPath, file), 'utf8').then(content => ({ key, content }))
