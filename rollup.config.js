@@ -36,7 +36,7 @@ export default [
     plugins: [terser(), babel(babelOpts)],
     output: {
       globals,
-      file: 'dist/umd/jungle-ui.js',
+      file: 'dist/umd/welcome-ui.js',
       format: 'umd',
       name: 'JungleUI',
       esModule: false
