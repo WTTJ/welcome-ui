@@ -3,9 +3,11 @@ import { bool, func, object, oneOf, node, string } from 'prop-types'
 
 import StyledField from './styles'
 
+// molecules
+import Label from '../../molecules/Label'
+
 // atoms
 import InputText from '../../atoms/InputText'
-import Label from '../../atoms/Label'
 import Hint from '../../atoms/Hint'
 
 export class Field extends PureComponent {

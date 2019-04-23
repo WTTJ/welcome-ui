@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-// atoms
-import Label from '../../atoms/Label/styles'
+// molecules
+import Label from '../../molecules/Label/styles'
 
 import themeHelpers from '../../theme/helpers'
 
