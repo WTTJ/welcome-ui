@@ -3,10 +3,9 @@ import { bool, func, object, oneOf, node, string } from 'prop-types'
 
 import StyledField from './styles'
 
-// molecules
-import Label from '../../molecules/Label'
-
 // atoms
+import InputRadios from '../../molecules/InputRadios'
+import Label from '../../molecules/Label'
 import InputText from '../../atoms/InputText'
 import Hint from '../../atoms/Hint'
 
@@ -15,7 +14,8 @@ export class Field extends PureComponent {
     const fieldTypes = {
       text: InputText,
       number: InputText,
-      email: InputText
+      email: InputText,
+      radios: InputRadios
     }
     return fieldTypes[fieldType] || fieldTypes.text
   }
@@ -72,7 +72,7 @@ Field.propTypes = {
   /** Label of Field component */
   label: string,
   /** Type of Field component */
-  fieldType: oneOf(['text', 'number', 'email', 'textarea']),
+  fieldType: oneOf(['text', 'number', 'email', 'textarea', 'radios']),
   /** Props of Field's component input */
   fieldTypeProps: object,
   /** Hint of Field component */
