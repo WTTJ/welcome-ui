@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react'
-import { bool } from 'prop-types'
+import { bool, oneOf } from 'prop-types'
 
 import StyledLabel, { Disabled, Required, Variant } from './styles'
 
 // atoms
 import Badge from '../../atoms/Badge'
+import { Icon } from '../../atoms/Icon'
 
 export class Label extends PureComponent {
   getVariantIcon = variant => {
@@ -25,7 +26,7 @@ export class Label extends PureComponent {
     return (
       <StyledLabel {...this.props}>
         {variant && <Variant variant={variant}>{this.getVariantIcon(variant)}</Variant>}
-        {disabled && <Disabled>{disabledIcon || <div></div>}</Disabled>}
+        {disabled && <Disabled>{disabledIcon || <Icon icon="special_pipeline" size="sm" />}</Disabled>}
         {children}
         {required && <Required>*</Required>}
       </StyledLabel>
@@ -34,16 +35,19 @@ export class Label extends PureComponent {
 }
 
 Label.propTypes = {
-  /** locked */
-  locked: bool,
+  /** disabled */
+  disabled: bool,
   /** required */
-  required: bool
+  required: bool,
+  /** variant */
+  variant: oneOf(['warning', 'error'])
 }
 
 // Specifies the default values for props:
 Label.defaultProps = {
-  locked: false,
-  required: false
+  disabled: false,
+  required: false,
+  variant: ''
 }
 
 export default Label

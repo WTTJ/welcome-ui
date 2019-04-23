@@ -6,7 +6,7 @@ import helpers from '../../theme/helpers'
 const { colors, gutter, textStyles } = helpers
 
 export const Disabled = styled.div`
-  display: inline-block;
+  display: inline-flex;
   margin-right: ${gutter('xxs')};
 `
 
@@ -16,14 +16,15 @@ export const Required = styled.abbr`
 `
 
 export const Variant = styled.div`
-  display: inline-block;
+  display: inline-flex;
   margin-right: ${gutter('xxs')};
   color: ${props => getVariantColor(props.variant)};
   fill: ${props => getVariantColor(props.variant)};
 `
 
 export const Label = styled.label`
-  display: block;
+  display: flex;
+  align-items: center;
   ${textStyles('label')};
   color: ${colors('text', 'secondary')};
 `
