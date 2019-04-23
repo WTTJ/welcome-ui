@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react'
 import { bool } from 'prop-types'
 
 import StyledLabel, { Disabled, Required, Variant } from './styles'
+
+// atoms
 import Badge from '../../atoms/Badge'
 
 export class Label extends PureComponent {
