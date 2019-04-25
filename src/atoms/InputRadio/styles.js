@@ -2,16 +2,15 @@ import styled from 'styled-components'
 
 import themeHelpers from '../../theme/helpers'
 
-const { 
-  colors, 
-  fontWeight, 
-  boxShadow, 
-  borderWidth, 
-  gutter, 
-  padding, 
-  radius, 
-  textStyles, 
-  transition 
+const {
+  colors,
+  fontWeight,
+  boxShadow,
+  borderWidth,
+  gutter,
+  radius,
+  textStyles,
+  transition
 } = themeHelpers
 
 export const InputRadioWrapper = styled.div``
@@ -37,7 +36,8 @@ export const InputRadioLabel = styled.label`
   transition: ${transition('sm')};
   line-height: 1;
 
-  &:hover, ${InputRadio}:checked + & {
+  &:hover,
+  ${InputRadio}:checked + & {
     z-index: 2;
     background-color: ${colors('white')};
     box-shadow: ${boxShadow('xs')};

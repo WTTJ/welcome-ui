@@ -15,7 +15,7 @@ export class Icon extends PureComponent {
 
     this.setIconSize()
     this.iconConfig = iconConfig
-    this.viewBox = `0 0 100 100`
+    this.viewBox = '0 0 100 100'
     if (iconConfig.viewBox) {
       this.viewBox = iconConfig.viewBox
     }

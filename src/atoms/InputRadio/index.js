@@ -1,10 +1,6 @@
 import React, { PureComponent } from 'react'
 
-import { 
-  InputRadioWrapper, 
-  InputRadio as StyledInputRadio, 
-  InputRadioLabel 
-} from './styles'
+import { InputRadioWrapper, InputRadio as StyledInputRadio, InputRadioLabel } from './styles'
 
 export class InputRadio extends PureComponent {
   render() {
@@ -12,9 +8,7 @@ export class InputRadio extends PureComponent {
     return (
       <InputRadioWrapper>
         <StyledInputRadio type="radio" id={radio.id} name={name} value={radio.id} />
-        <InputRadioLabel htmlFor={radio.id}>
-          {radio.label}
-        </InputRadioLabel>
+        <InputRadioLabel htmlFor={radio.id}>{radio.label}</InputRadioLabel>
       </InputRadioWrapper>
     )
   }

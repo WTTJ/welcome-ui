@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { bool, oneOf } from 'prop-types'
+import { bool, node, oneOf, oneOfType, string } from 'prop-types'
 
 import StyledLabel, { Disabled, Required, Variant } from './styles'
 
@@ -37,10 +37,13 @@ export class Label extends PureComponent {
 }
 
 Label.propTypes = {
+  children: oneOfType([node, string]),
   /** disabled */
   disabled: bool,
+  disabledIcon: node,
   /** required */
-  required: bool
+  required: bool,
+  variant: oneOf(['error', 'warning'])
 }
 
 // Specifies the default values for props:

@@ -4,7 +4,7 @@ import helpers from '../../theme/helpers'
 
 const { borderWidth, colors, toggleSize } = helpers
 
-const valueStyles = () => css`
+const checkedStyles = () => css`
   background: ${colors('primary')};
   &:hover {
     background: ${colors('primary')};
@@ -26,6 +26,7 @@ export const Toggle = styled.div`
   background: ${colors('bg', 'light')};
   border-radius: ${props => toggleSize(props.size)};
   transition: 0.3s;
+  order: ${props => props.order || null};
   &::after {
     content: '';
     position: absolute;
@@ -54,7 +55,7 @@ export const Toggle = styled.div`
     width: 0;
     visibility: hidden;
   }
-  ${props => props.value && valueStyles()}
+  ${props => props.checked && checkedStyles()}
 `
 
 export default Toggle

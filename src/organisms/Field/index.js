@@ -1,7 +1,10 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { bool, func, object, oneOf, node, string } from 'prop-types'
 
 import StyledField from './styles'
+
+// common
+import { RowContainer } from '../../common/styles/layout'
 
 // atoms
 import InputRadios from '../../molecules/InputRadios'
@@ -41,29 +44,33 @@ export class Field extends PureComponent {
       onChange,
       required,
       disabled,
-      placeholder
+      placeholder,
+      direction
     } = this.props
     const FieldType = this.getFieldType(fieldType)
-    let variant = this.getVariant(warning, error)
-    let hintText = error || warning || hint
-
+    const variant = this.getVariant(warning, error)
+    const hintText = error || warning || hint
+    const layout = direction || fieldType === 'toggle' ? 'row' : 'column'
+    const Container = layout === 'row' ? RowContainer : Fragment
     return (
-      <StyledField>
-        {label && (
-          <Label variant={variant} {...this.props}>
-            {label}
-          </Label>
-        )}
-        <FieldType
-          {...fieldTypeProps}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          onChange={onChange}
-          variant={variant}
-          required={required}
-          disabled={disabled}
-          placeholder={placeholder}
-        />
+      <StyledField direction={layout}>
+        <Container>
+          {label && (
+            <Label variant={variant} {...this.props}>
+              {label}
+            </Label>
+          )}
+          <FieldType
+            {...fieldTypeProps}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onChange={onChange}
+            variant={variant}
+            required={required}
+            disabled={disabled}
+            placeholder={placeholder}
+          />
+        </Container>
         {hintText && <Hint variant={variant}>{hintText}</Hint>}
       </StyledField>
     )
@@ -71,6 +78,8 @@ export class Field extends PureComponent {
 }
 
 Field.propTypes = {
+  /** Direction of Label and FieldType Wrapper */
+  direction: string,
   /** Label of Field component */
   label: string,
   /** Type of Field component */
@@ -103,15 +112,15 @@ Field.propTypes = {
 
 // Specifies the default values for props:
 Field.defaultProps = {
-  label: '',
+  disabled: false,
+  error: '',
   fieldType: 'text',
   fieldTypeProps: {},
   hint: '',
-  error: '',
-  warning: '',
+  label: '',
+  placeholder: '',
   required: false,
-  disabled: false,
-  placeholder: ''
+  warning: ''
 }
 
 export default Field
