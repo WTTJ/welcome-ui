@@ -26,7 +26,9 @@ export class Label extends PureComponent {
     return (
       <StyledLabel {...this.props}>
         {variant && <Variant variant={variant}>{this.getVariantIcon(variant)}</Variant>}
-        {disabled && <Disabled>{disabledIcon || <Icon icon="special_pipeline" size="sm" />}</Disabled>}
+        {disabled && (
+          <Disabled>{disabledIcon || <Icon icon="special_pipeline" size="sm" />}</Disabled>
+        )}
         {children}
         {required && <Required>*</Required>}
       </StyledLabel>
@@ -38,16 +40,13 @@ Label.propTypes = {
   /** disabled */
   disabled: bool,
   /** required */
-  required: bool,
-  /** variant */
-  variant: oneOf(['warning', 'error'])
+  required: bool
 }
 
 // Specifies the default values for props:
 Label.defaultProps = {
   disabled: false,
-  required: false,
-  variant: ''
+  required: false
 }
 
 export default Label

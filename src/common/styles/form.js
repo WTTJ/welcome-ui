@@ -22,7 +22,7 @@ export const fieldFocusStyles = css`
 `
 
 export const fieldDisabledStyles = css`
-  background-color: ${colors('bg', 'tertiary')};
+  background-color: ${colors('bg', 'light')};
   pointer-events: 'none';
 `
 

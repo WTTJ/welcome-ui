@@ -63,7 +63,7 @@ export const welcomeTheme = {
     bg: {
       primary: palette.seafoamblue,
       secondary: palette.cadet,
-      tertiary: palette.isabelline,
+      tertiary: palette.timberwolf,
       danger: palette.alabamacrimson,
       success: palette.seafoamblue,
       warning: palette.pastelorange,

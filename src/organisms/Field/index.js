@@ -7,6 +7,7 @@ import StyledField from './styles'
 import InputRadios from '../../molecules/InputRadios'
 import Label from '../../molecules/Label'
 import InputText from '../../atoms/InputText'
+import Toggle from '../../atoms/Toggle'
 import Hint from '../../atoms/Hint'
 
 export class Field extends PureComponent {
@@ -15,7 +16,8 @@ export class Field extends PureComponent {
       text: InputText,
       number: InputText,
       email: InputText,
-      radios: InputRadios
+      radios: InputRadios,
+      toggle: Toggle
     }
     return fieldTypes[fieldType] || fieldTypes.text
   }
@@ -72,7 +74,7 @@ Field.propTypes = {
   /** Label of Field component */
   label: string,
   /** Type of Field component */
-  fieldType: oneOf(['text', 'number', 'email', 'textarea', 'radios']),
+  fieldType: oneOf(['text', 'number', 'email', 'textarea', 'radios', 'toggle']),
   /** Props of Field's component input */
   fieldTypeProps: object,
   /** Hint of Field component */

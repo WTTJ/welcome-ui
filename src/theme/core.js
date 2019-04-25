@@ -167,6 +167,12 @@ const coreTheme = (options = {}) => {
     lg: 46
   }
 
+  theme.toggleSize = {
+    sm: toRem(16),
+    md: toRem(22),
+    lg: toRem(42)
+  }
+
   theme.roundedButtonSize = {
     xs: toRem(19),
     sm: toRem(26),
