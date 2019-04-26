@@ -24,6 +24,7 @@ export const Variant = styled.div`
 
 export const Label = styled.label`
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   ${textStyles('label')};
   color: ${colors('text', 'secondary')};

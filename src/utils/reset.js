@@ -82,6 +82,8 @@ export const reset = css`
   mark,
   audio,
   video {
+    min-width: 0;
+    min-height: 0;
     margin: 0;
     padding: 0;
     border: 0;

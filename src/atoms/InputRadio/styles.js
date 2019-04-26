@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import themeHelpers from '../../theme/helpers'
+import { overflowEllipsis } from '../../common/styles/text'
 
 const {
   colors,
@@ -13,7 +14,9 @@ const {
   transition
 } = themeHelpers
 
-export const InputRadioWrapper = styled.div``
+export const InputRadioWrapper = styled.div`
+  flex: 1;
+`
 
 export const InputRadio = styled.input`
   position: absolute;
@@ -29,16 +32,20 @@ export const InputRadioLabel = styled.label`
   display: block;
   padding: ${gutter('xs')};
   padding-right: calc(${gutter('xs')} + ${borderWidth('input')});
+  text-align: center;
   background-color: ${colors('bg', 'light')};
   border: ${borderWidth('input')} solid ${colors('border', 'primary')};
   margin-left: -${borderWidth('input')};
   ${textStyles('input')};
   transition: ${transition('sm')};
   line-height: 1;
+  ${overflowEllipsis};
 
-  &:hover,
   ${InputRadio}:checked + & {
     z-index: 2;
+  }
+  &:hover,
+  ${InputRadio}:checked + & {
     background-color: ${colors('white')};
     box-shadow: ${boxShadow('xs')};
   }

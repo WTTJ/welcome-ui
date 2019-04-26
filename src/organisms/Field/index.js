@@ -33,12 +33,14 @@ export class Field extends PureComponent {
 
   render() {
     const {
+      checked,
       label,
       fieldType,
       fieldTypeProps,
       hint,
       error,
       warning,
+      name,
       onFocus,
       onBlur,
       onChange,
@@ -62,6 +64,8 @@ export class Field extends PureComponent {
           )}
           <FieldType
             {...fieldTypeProps}
+            checked={checked}
+            name={name}
             onFocus={onFocus}
             onBlur={onBlur}
             onChange={onChange}
@@ -94,6 +98,8 @@ Field.propTypes = {
   warning: string,
   /** custom icon for error / warning state */
   errorWarningIcon: node,
+  /** name of the field */
+  name: string.isRequired,
   /** onFocus callback */
   onFocus: func,
   /** onBlur callback */

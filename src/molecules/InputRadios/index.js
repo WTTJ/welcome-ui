@@ -6,11 +6,19 @@ import { InputRadios as StyledInputRadios } from './styles'
 
 export class InputRadios extends PureComponent {
   render() {
-    const { name, options } = this.props
+    const { checked, name, onChange, options } = this.props
+
     return (
       <StyledInputRadios>
         {options.map((radio, i) => (
-          <InputRadio name={name} radio={radio} key={i} />
+          <InputRadio
+            checked={checked === radio.id}
+            id={radio.id}
+            label={radio.label}
+            name={name}
+            key={radio.id}
+            onClick={onChange}
+          />
         ))}
       </StyledInputRadios>
     )

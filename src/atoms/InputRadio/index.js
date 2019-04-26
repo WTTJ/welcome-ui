@@ -4,11 +4,11 @@ import { InputRadioWrapper, InputRadio as StyledInputRadio, InputRadioLabel } fr
 
 export class InputRadio extends PureComponent {
   render() {
-    const { name, radio } = this.props
+    const { checked, id, label, name } = this.props
     return (
       <InputRadioWrapper>
-        <StyledInputRadio type="radio" id={radio.id} name={name} value={radio.id} />
-        <InputRadioLabel htmlFor={radio.id}>{radio.label}</InputRadioLabel>
+        <StyledInputRadio defaultChecked={checked} type="radio" id={id} name={name} value={id} />
+        <InputRadioLabel htmlFor={id}>{label}</InputRadioLabel>
       </InputRadioWrapper>
     )
   }
