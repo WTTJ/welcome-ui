@@ -18,6 +18,9 @@ export default {
         fontFamily: theme.fontFamily.texts,
         'nav a': {
           fontSize: theme.fontSize.sm
+        },
+        'div.react-live span div': {
+          boxSizing: 'content-box'
         }
       },
       h1: {
