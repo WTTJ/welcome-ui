@@ -4,14 +4,15 @@ import StyledInputText from './styles'
 
 export class InputText extends PureComponent {
   render() {
-    const { disabled, fieldTypeProps, placeholder, variant, type } = this.props
+    const { disabled, fieldTypeProps, name, placeholder, variant, type } = this.props
     return (
       <StyledInputText
         disabled={disabled}
-        {...fieldTypeProps}
+        id={name}
         placeholder={placeholder}
-        variant={variant}
         type={type}
+        variant={variant}
+        {...fieldTypeProps}
       />
     )
   }

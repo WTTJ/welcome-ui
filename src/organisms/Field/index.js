@@ -34,20 +34,21 @@ export class Field extends PureComponent {
   render() {
     const {
       checked,
-      label,
+      direction,
+      disabled,
+      disabledIcon,
+      error,
       fieldType,
       fieldTypeProps,
       hint,
-      error,
-      warning,
+      label,
       name,
-      onFocus,
       onBlur,
       onChange,
-      required,
-      disabled,
+      onFocus,
       placeholder,
-      direction
+      required,
+      warning
     } = this.props
     const FieldType = this.getFieldType(fieldType)
     const variant = this.getVariant(warning, error)
@@ -58,7 +59,13 @@ export class Field extends PureComponent {
       <StyledField direction={layout}>
         <Container>
           {label && (
-            <Label variant={variant} {...this.props}>
+            <Label
+              htmlFor={name}
+              disabled={disabled}
+              disabledIcon={disabledIcon}
+              required={required}
+              variant={variant}
+            >
               {label}
             </Label>
           )}

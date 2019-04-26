@@ -19,27 +19,27 @@ import { Field } from './index'
 ### Variants
 
 <Playground>
-  <Field placeholder='Placeholder' fieldType='text' label='Label' hint='A hint'></Field>
-  <Field placeholder='Placeholder' fieldType='text' label='Label' warning='A warning'></Field>
-  <Field placeholder='Placeholder' fieldType='text' label='Label' error='An error'></Field>
+  <Field name='random' placeholder='Placeholder' fieldType='text' label='Label' hint='A hint'></Field>
+  <Field name='random-one' placeholder='Placeholder' fieldType='text' label='Label' warning='A warning'></Field>
+  <Field name='random-two' placeholder='Placeholder' fieldType='text' label='Label' error='An error'></Field>
 </Playground>
 
 ### Disabled
 
 <Playground>
-  <Field placeholder='Placeholder' fieldType='text' label='Label' disabled></Field>
+  <Field name='random-three' placeholder='Placeholder' fieldType='text' label='Label' disabled></Field>
 </Playground>
 
 ### Inline
 
 <Playground>
-  <Field direction='row' placeholder='Placeholder' fieldType='text' label='Label' required></Field>
+  <Field name='random-four' direction='row' placeholder='Placeholder' fieldType='text' label='Label' required></Field>
 </Playground>
 
 ### Required
 
 <Playground>
-  <Field placeholder='Placeholder' fieldType='text' label='Label' required></Field>
+  <Field name='random-five' placeholder='Placeholder' fieldType='text' label='Label' required></Field>
 </Playground>
 
 ### Radios
@@ -49,7 +49,7 @@ import { Field } from './index'
     checked='choice_2'
     fieldType='radios'
     label='Label for input radios'
-    name='cookies'
+    name='random-six'
     fieldTypeProps={{
       options: [{
         id: "choice_1",
@@ -71,6 +71,7 @@ import { Field } from './index'
 
 <Playground>
   <Field
+    name='random-seven'
     fieldType='toggle'
     fieldTypeProps={{
       value: false

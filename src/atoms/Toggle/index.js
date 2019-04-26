@@ -10,15 +10,17 @@ export class Toggle extends PureComponent {
   }
 
   onClick = e => {
+    const { onChange } = this.props
     this.setState({ checked: !this.state.checked })
+    onChange && onChange()
   }
 
   render() {
-    const { order, size } = this.props
+    const { name, onBlur, onFocus, order, size } = this.props
     const { checked } = this.state
     return (
       <StyledToggle checked={checked} order={order} onClick={this.onClick} size={size}>
-        <input type="checkbox" checked={checked} />
+        <input checked={checked} id={name} onBlur={onBlur} onFocus={onFocus} type="checkbox" />
       </StyledToggle>
     )
   }
