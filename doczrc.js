@@ -19,6 +19,9 @@ export default {
         'nav a': {
           fontSize: theme.fontSize.sm
         },
+        '#root nav dl a': {
+          fontWeight: theme.fontWeight.regular
+        },
         'div.react-live span div': {
           boxSizing: 'content-box'
         }
