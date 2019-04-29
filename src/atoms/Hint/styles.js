@@ -1,15 +1,13 @@
 import styled from 'styled-components'
 
 import { getVariantColor } from '../../common/styles/form'
-import helpers from '../../theme/helpers'
-
-const { colors, fontFamily, gutter, textStyles } = helpers
+import { get } from '../../theme/helpers'
 
 export const Hint = styled.div`
-  font-family: ${fontFamily('texts')};
-  color: ${props => getVariantColor(props.variant, colors('text', 'tertiary'))};
-  ${textStyles('hint')};
-  margin-top: ${gutter('xs')};
+  font-family: ${get('fontFamily', 'texts')};
+  color: ${props => getVariantColor(props.variant, get('color', 'text', 'tertiary'))};
+  ${get('textStyles', 'hint')};
+  margin-top: ${get('gutter', 'xs')};
 `
 
 export default Hint

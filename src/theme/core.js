@@ -33,7 +33,7 @@ const coreTheme = (options = {}) => {
 
   let theme = {}
 
-  theme.colors = {
+  theme.color = {
     primary: '#333333',
     secondary: '#999999',
     success: '#00FFFF',

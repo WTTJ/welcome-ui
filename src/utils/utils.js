@@ -1,5 +1,4 @@
 import { css } from 'styled-components'
-import { rgba } from './helpers'
 
 // Custom scrollbar mixin
 export const scrollbar = (width, thumbColor, trackColor) => {
@@ -86,7 +85,7 @@ export const bannerMask = css`
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: ${rgba('black', 0.5)};
+    background-color: rgba(0, 0, 0, 0.5);
     content: ' ';
   }
 `

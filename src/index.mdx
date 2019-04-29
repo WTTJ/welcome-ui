@@ -23,13 +23,13 @@ yarn add welcome-ui
 ```
 import React, { Component, Fragment } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { createTheme, createHelpers, getBaseStyles } from 'welcome-ui'
+import { createTheme, getBaseStyles } from 'welcome-ui'
 
 const options = {
   defaultFontSize: 16,
   defaultFontFamily: 'Helvetica',
   headingFontFamily: 'Georgia',
-  colors: {
+  color: {
     primary: '#FF0000',
     secondary: '#00FF00'
   }
@@ -68,11 +68,11 @@ You can use helpers to access theme values more easily using the key from the th
 
 ```
 import styled from 'styled-components'
-import { colors, fontFamily } from 'jungle-ui'
+import { get } from 'welcome-ui'
 
 const Sidebar = styled.div`
-  font-family: ${fontFamily('default')};
-  background: ${colors('bg', 'light')};
+  font-family: ${get('fontFamily', 'default')};
+  background: ${get('color', 'bg', 'light')};
 `
 ```
 

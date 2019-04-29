@@ -1,43 +1,41 @@
 import { css } from 'styled-components'
 
-import themeHelpers from '../../theme/helpers'
-
-const { colors, borderWidth, padding, radius, textStyles, transition } = themeHelpers
+import { get } from '../../theme/helpers'
 
 export const getVariantColor = (variant, fallback) => {
   switch (variant) {
     case 'error':
-      return colors('danger')
+      return get('color', 'danger')
     case 'warning':
-      return colors('warning')
+      return get('color', 'warning')
     case 'info':
-      return colors('info')
+      return get('color', 'info')
     default:
-      return fallback || colors('border', 'primary')
+      return fallback || get('color', 'border', 'primary')
   }
 }
 
 export const fieldFocusStyles = css`
-  border-color: ${colors('primary')};
+  border-color: ${get('color', 'primary')};
 `
 
 export const fieldDisabledStyles = css`
-  background-color: ${colors('bg', 'light')};
+  background-color: ${get('color', 'bg', 'light')};
   pointer-events: 'none';
 `
 
 export const fieldTypeStyles = css`
   width: 100%;
-  padding: ${padding('sm')} ${padding('xs')};
-  color: ${colors('text', 'secondary')};
-  ${textStyles('input')}
-  border: ${borderWidth('input')} solid ${colors('border', 'primary')};
-  border-radius: ${radius('md')};
+  padding: ${get('padding', 'sm')} ${get('padding', 'xs')};
+  color: ${get('color', 'text', 'secondary')};
+  ${get('textStyles', 'input')}
+  border: ${get('borderWidth', 'input')} solid ${get('color', 'border', 'primary')};
+  border-radius: ${get('radius', 'md')};
   border-color: ${props => getVariantColor(props.variant)};
-  transition: ${transition('md')};
+  transition: ${get('transition', 'md')};
 
   &::placeholder {
-    color: ${colors('text', 'quaternary')};
+    color: ${get('color', 'text', 'quaternary')};
   }
 
   &:focus {

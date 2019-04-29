@@ -50,8 +50,8 @@ export const getBaseStyles = theme => createGlobalStyle`
   }
 
   ::selection {
-    background-color: ${theme.colors.primary};
-    color: ${theme.colors.white};
+    background-color: ${theme.color.primary};
+    color: ${theme.color.white};
   }
 
   ${baseResponsiveStyles}

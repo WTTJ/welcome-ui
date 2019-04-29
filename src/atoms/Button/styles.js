@@ -1,22 +1,20 @@
 import styled, { css } from 'styled-components'
 
-import helpers from '../../theme/helpers'
+import { get } from '../../theme/helpers'
 import { media } from '../../utils/utils'
-
-const { boxShadow, colors, padding, gutter, radius, rgba, textStyles, transition } = helpers
 
 const getVariant = (foreground, background, border) => {
   return css`
-    color: ${colors('text', foreground)};
-    background: ${colors('bg', background)};
-    border-color: ${colors('bg', border)};
+    color: ${get('color', 'text', foreground)};
+    background: ${get('color', 'bg', background)};
+    border-color: ${get('color', 'bg', border)};
 
     &::before {
-      background: ${rgba(background, 0.05)};
+      background: ${get('rgba', background, 0.05)};
     }
 
     svg path {
-      fill: ${colors(foreground)};
+      fill: ${get('color', foreground)};
     }
   `
 }
@@ -38,17 +36,17 @@ function getButtonVariant(variant) {
 
 const sizes = {
   sm: css`
-    padding: ${padding('xxs')} ${padding('xs')};
+    padding: ${get('padding', 'xxs')} ${get('padding', 'xs')};
   `,
   md: css`
-    padding: ${padding('xs')} ${padding('sm')};
+    padding: ${get('padding', 'xs')} ${get('padding', 'sm')};
 
     ${media.mobile`
-      padding: ${padding('md')};
+      padding: ${get('padding', 'md')};
     `};
   `,
   lg: css`
-    padding: ${padding('sm')} ${padding('md')};
+    padding: ${get('padding', 'sm')} ${get('padding', 'md')};
   `
 }
 
@@ -59,7 +57,7 @@ function getButtonSize(size) {
 export const fullWidthStyles = css`
   width: 100%;
   &:not(:last-child) {
-    margin-bottom: ${gutter('lg')};
+    margin-bottom: ${get('gutter', 'lg')};
   }
 `
 
@@ -86,26 +84,26 @@ export const buttonStyles = css`
   justify-content: ${({ align }) => align || 'center'};
   width: auto;
   text-align: ${({ align }) => align || 'center'};
-  ${textStyles('button')};
+  ${get('textStyles', 'button')};
   white-space: nowrap;
   cursor: pointer;
   outline: none;
   border-width: 1px;
   border-style: solid;
-  border-radius: ${props => props.radius || radius('md')};
-  box-shadow: ${props => props.shadow || boxShadow('buttons')};
+  border-radius: ${props => props.radius || get('radius', 'md')};
+  box-shadow: ${props => props.shadow || get('boxShadow', 'buttons')};
   appearance: none;
   overflow: hidden;
-  transition: ${transition('sm')};
+  transition: ${get('transition', 'sm')};
   line-height: 1rem;
 
   &:active {
     transform: translateY(2px);
-    box-shadow: 0 0 4px ${rgba('black', 0.2)};
+    box-shadow: 0 0 4px ${get('rgba', 'black', 0.2)};
   }
 
   &::before {
-    background: ${rgba('white', 0.05)};
+    background: ${get('rgba', 'white', 0.05)};
   }
 
   &:hover {
@@ -115,8 +113,8 @@ export const buttonStyles = css`
   }
 
   &[disabled] {
-    color: ${colors('white')};
-    background-color: ${colors('light')};
+    color: ${get('color', 'white')};
+    background-color: ${get('color', 'light')};
     pointer-events: none;
   }
 

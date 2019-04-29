@@ -1,13 +1,11 @@
 import styled from 'styled-components'
 
-import helpers from '../../theme/helpers'
-
-const { colors } = helpers
+import { get } from '../../theme/helpers'
 
 export const DummyComponent = styled.div`
   position: relative;
-  color: ${colors('dark')};
-  background: ${colors('white')};
+  color: ${get('color', 'dark')};
+  background: ${get('color', 'white')};
 `
 
 export default DummyComponent

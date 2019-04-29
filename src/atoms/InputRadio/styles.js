@@ -1,18 +1,7 @@
 import styled from 'styled-components'
 
-import themeHelpers from '../../theme/helpers'
+import { get } from '../../theme/helpers'
 import { overflowEllipsis } from '../../common/styles/text'
-
-const {
-  colors,
-  fontWeight,
-  boxShadow,
-  borderWidth,
-  gutter,
-  radius,
-  textStyles,
-  transition
-} = themeHelpers
 
 export const InputRadioWrapper = styled.div`
   flex: 1;
@@ -30,14 +19,14 @@ export const InputRadioLabel = styled.label`
   cursor: pointer;
   user-select: none;
   display: block;
-  padding: ${gutter('xs')};
-  padding-right: calc(${gutter('xs')} + ${borderWidth('input')});
+  padding: ${get('gutter', 'xs')};
+  padding-right: calc(${get('gutter', 'xs')} + ${get('borderWidth', 'input')});
   text-align: center;
-  background-color: ${colors('bg', 'light')};
-  border: ${borderWidth('input')} solid ${colors('border', 'primary')};
-  margin-left: -${borderWidth('input')};
-  ${textStyles('input')};
-  transition: ${transition('sm')};
+  background-color: ${get('color', 'bg', 'light')};
+  border: ${get('borderWidth', 'input')} solid ${get('color', 'border', 'primary')};
+  margin-left: -${get('borderWidth', 'input')};
+  ${get('textStyles', 'input')};
+  transition: ${get('transition', 'sm')};
   line-height: 1;
   ${overflowEllipsis};
 
@@ -46,22 +35,22 @@ export const InputRadioLabel = styled.label`
   }
   &:hover,
   ${InputRadio}:checked + & {
-    background-color: ${colors('white')};
-    box-shadow: ${boxShadow('xs')};
+    background-color: ${get('color', 'white')};
+    box-shadow: ${get('boxShadow', 'xs')};
   }
 
   ${InputRadio}:checked + & {
-    border-color: ${colors('primary')};
-    font-weight: ${fontWeight('medium')};
+    border-color: ${get('color', 'primary')};
+    font-weight: ${get('fontWeight', 'medium')};
   }
 
   ${InputRadioWrapper}:first-child & {
-    border-radius: ${radius('sm')} 0 0 ${radius('sm')};
+    border-radius: ${get('radius', 'sm')} 0 0 ${get('radius', 'sm')};
     margin-left: 0;
   }
 
   ${InputRadioWrapper}:last-child & {
-    border-radius: 0 ${radius('sm')} ${radius('sm')} 0;
-    padding-right: ${gutter('xs')};
+    border-radius: 0 ${get('radius', 'sm')} ${get('radius', 'sm')} 0;
+    padding-right: ${get('gutter', 'xs')};
   }
 `

@@ -37,7 +37,7 @@ const palette = {
 }
 
 export const welcomeTheme = {
-  colors: {
+  color: {
     primary: palette.seafoamblue,
     secondary: palette.cadet,
     danger: palette.alabamacrimson,

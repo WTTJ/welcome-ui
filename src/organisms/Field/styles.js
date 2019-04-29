@@ -6,17 +6,15 @@ import Label from '../../molecules/Label/styles'
 // atoms
 import Toggle from '../../atoms/Toggle/styles'
 
-import themeHelpers from '../../theme/helpers'
-
-const { gutter } = themeHelpers
+import { get } from '../../theme/helpers'
 
 export const Field = styled.div`
   ${Label} {
-    margin-right: ${props => (props.direction === 'row' ? gutter('xxs') : null)};
-    margin-bottom: ${props => (props.direction === 'column' ? gutter('xxs') : null)};
+    margin-right: ${props => (props.direction === 'row' ? get('gutter', 'xxs') : null)};
+    margin-bottom: ${props => (props.direction === 'column' ? get('gutter', 'xxs') : null)};
   }
   ${Toggle} {
-    margin-right: ${gutter('xxs')};
+    margin-right: ${get('gutter', 'xxs')};
   }
 `
 

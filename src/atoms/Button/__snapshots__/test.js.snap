@@ -17,7 +17,6 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
   justify-content: center;
   width: auto;
   text-align: center;
-  font-family: welcomeweb;
   font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -52,7 +51,7 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
 }
 
 .c0::before {
-  background: rgba(undefined,0.05);
+  background: rgba(255,255,255,0.05);
 }
 
 .c0[disabled] {
@@ -62,7 +61,7 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
 }
 
 .c0::before {
-  background: rgba(undefined,0.05);
+  background: rgba(0,194,154,0.05);
 }
 
 .c0 svg path {
