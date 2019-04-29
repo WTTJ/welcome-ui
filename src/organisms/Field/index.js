@@ -61,7 +61,7 @@ export class Field extends PureComponent {
     const FieldType = this.getFieldType(fieldType)
     const variant = this.getVariant(warning, error)
     const hintText = error || warning || hint
-    const layout = direction || this.isInline ? 'row' : 'column'
+    const layout = direction || this.isInline() ? 'row' : 'column'
     const Container = layout === 'row' ? RowContainer : Fragment
     return (
       <StyledField direction={layout}>

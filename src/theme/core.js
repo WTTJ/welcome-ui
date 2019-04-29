@@ -213,8 +213,7 @@ const coreTheme = (options = {}) => {
   }
 
   theme.checkboxSize = {
-    desktop: toRem(16),
-    mobile: toRem(22)
+    md: toRem(15)
   }
 
   theme.fonts = {}

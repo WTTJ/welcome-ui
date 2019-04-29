@@ -16,8 +16,8 @@ const checkedStyles = () => css`
 export const InputCheckbox = styled.div`
   ${fieldTypeStyles};
   position: relative;
-  width: 15px;
-  height: 15px;
+  width: ${get('checkboxSize', 'md')};
+  height: ${get('checkboxSize', 'md')};
   padding: 0;
   cursor: pointer;
   order: ${props => props.order || null};
@@ -33,7 +33,7 @@ export const InputCheckbox = styled.div`
     left: 0;
     line-height: 1;
     text-align: center;
-    color: white;
+    color: ${get('color', 'white')};
     opacity: 0;
     transition: ${get('transition', 'sm')};
   }

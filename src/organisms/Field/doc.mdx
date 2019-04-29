@@ -19,27 +19,27 @@ import { Field } from './index'
 ### Variants
 
 <Playground>
-  <Field name='random' placeholder='Placeholder' fieldType='text' label='Label' hint='A hint'></Field>
-  <Field name='random-one' placeholder='Placeholder' fieldType='text' label='Label' warning='A warning'></Field>
-  <Field name='random-two' placeholder='Placeholder' fieldType='text' label='Label' error='An error'></Field>
+  <Field name='random' placeholder='Placeholder' fieldType='text' label='Label' hint='A hint' />
+  <Field name='random-one' placeholder='Placeholder' fieldType='text' label='Label' warning='A warning' />
+  <Field name='random-two' placeholder='Placeholder' fieldType='text' label='Label' error='An error' />
 </Playground>
 
 ### Disabled
 
 <Playground>
-  <Field name='random-three' placeholder='Placeholder' fieldType='text' label='Label' disabled></Field>
+  <Field name='random-three' placeholder='Placeholder' fieldType='text' label='Label' disabled />
 </Playground>
 
 ### Inline
 
 <Playground>
-  <Field name='random-four' direction='row' placeholder='Placeholder' fieldType='text' label='Label' required></Field>
+  <Field name='random-four' direction='row' placeholder='Placeholder' fieldType='text' label='Label' required />
 </Playground>
 
 ### Required
 
 <Playground>
-  <Field name='random-five' placeholder='Placeholder' fieldType='text' label='Label' required></Field>
+  <Field name='random-five' placeholder='Placeholder' fieldType='text' label='Label' required />
 </Playground>
 
 ### Radios
@@ -63,30 +63,40 @@ import { Field } from './index'
       }]
     }}
     required
-  >
-  </Field>
+  />
 </Playground>
 
 ### Checkbox
 
 <Playground>
+  Check the frameworks you already worked with
   <Field
     name='random-seven'
     fieldType='checkbox'
     fieldTypeProps={{ value: false }}
-    label='Checkbox example'
-  >
-  </Field>
+    label='React'
+  />
+  <Field
+    name='random-height'
+    fieldType='checkbox'
+    fieldTypeProps={{ value: false }}
+    label='Angular'
+  />
+  <Field
+    name='random-nine'
+    fieldType='checkbox'
+    fieldTypeProps={{ value: false }}
+    label='Vue'
+  />
 </Playground>
 
 ### Toggle
 
 <Playground>
   <Field
-    name='random-height'
+    name='random-ten'
     fieldType='toggle'
     fieldTypeProps={{ value: false }}
     label='Switch example'
-  >
-  </Field>
+  />
 </Playground>

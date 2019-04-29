@@ -22,7 +22,13 @@ export class InputCheckbox extends PureComponent {
     const { checked } = this.state
     return (
       <this.styledComponent checked={checked} order={order} onClick={this.onClick} size={size}>
-        <input checked={checked} id={name} onBlur={onBlur} onFocus={onFocus} type="checkbox" />
+        <input
+          checked={checked}
+          id={name}
+          onBlur={onBlur}
+          onFocus={onFocus}
+          type={this.inputType || 'checkbox'}
+        />
       </this.styledComponent>
     )
   }
