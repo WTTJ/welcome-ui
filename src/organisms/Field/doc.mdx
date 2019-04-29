@@ -6,6 +6,8 @@ menu: Organisms
 
 import { PropsTable } from 'docz'
 import { StyledPlayground as Playground } from '../../../docz.styled'
+
+import { FieldGroup } from '../FieldGroup'
 import { Field } from './index'
 
 # Field
@@ -69,25 +71,26 @@ import { Field } from './index'
 ### Checkbox
 
 <Playground>
-  Check the frameworks you already worked with
-  <Field
-    name='random-seven'
-    fieldType='checkbox'
-    fieldTypeProps={{ value: false }}
-    label='React'
-  />
-  <Field
-    name='random-height'
-    fieldType='checkbox'
-    fieldTypeProps={{ value: false }}
-    label='Angular'
-  />
-  <Field
-    name='random-nine'
-    fieldType='checkbox'
-    fieldTypeProps={{ value: false }}
-    label='Vue'
-  />
+  <FieldGroup label='Check the frameworks you already worked with'>
+    <Field
+      name='random-seven'
+      fieldType='checkbox'
+      fieldTypeProps={{ value: false }}
+      label='React'
+    />
+    <Field
+      name='random-height'
+      fieldType='checkbox'
+      fieldTypeProps={{ value: false }}
+      label='Angular'
+    />
+    <Field
+      name='random-nine'
+      fieldType='checkbox'
+      fieldTypeProps={{ value: false }}
+      label='Vue'
+    />
+  </FieldGroup>
 </Playground>
 
 ### Toggle
