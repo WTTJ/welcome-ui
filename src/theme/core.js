@@ -190,7 +190,7 @@ const coreTheme = (options = {}) => {
   }
 
   theme.radius = {
-    sm: '3px',
+    sm: '4px',
     md: '6px',
     lg: '10px'
   }

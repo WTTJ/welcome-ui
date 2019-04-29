@@ -67,11 +67,23 @@ import { Field } from './index'
   </Field>
 </Playground>
 
-### Radios
+### Checkbox
 
 <Playground>
   <Field
     name='random-seven'
+    fieldType='checkbox'
+    fieldTypeProps={{ value: false }}
+    label='Checkbox example'
+  >
+  </Field>
+</Playground>
+
+### Toggle
+
+<Playground>
+  <Field
+    name='random-height'
     fieldType='toggle'
     fieldTypeProps={{ value: false }}
     label='Switch example'

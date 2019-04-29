@@ -45,12 +45,12 @@ export const InputRadioLabel = styled.label`
   }
 
   ${InputRadioWrapper}:first-child & {
-    border-radius: ${get('radius', 'sm')} 0 0 ${get('radius', 'sm')};
+    border-radius: ${get('radius', 'md')} 0 0 ${get('radius', 'md')};
     margin-left: 0;
   }
 
   ${InputRadioWrapper}:last-child & {
-    border-radius: 0 ${get('radius', 'sm')} ${get('radius', 'sm')} 0;
+    border-radius: 0 ${get('radius', 'md')} ${get('radius', 'md')} 0;
     padding-right: ${get('gutter', 'xs')};
   }
 `

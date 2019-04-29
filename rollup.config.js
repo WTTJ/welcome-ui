@@ -23,7 +23,8 @@ const globals = {
   'prop-types': 'PropTypes',
   'lodash.merge': 'merge',
   'lodash.get': 'get',
-  'lodash.concat': 'concat'
+  'lodash.concat': 'concat',
+  'lodash.includes': 'includes'
 }
 
 const babelOpts = {

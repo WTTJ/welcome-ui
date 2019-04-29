@@ -1,5 +1,6 @@
 import React, { PureComponent, Fragment } from 'react'
 import { bool, func, object, oneOf, node, string } from 'prop-types'
+import includes from 'lodash.includes'
 
 import StyledField from './styles'
 
@@ -10,6 +11,7 @@ import { RowContainer } from '../../common/styles/layout'
 import InputRadios from '../../molecules/InputRadios'
 import Label from '../../molecules/Label'
 import InputText from '../../atoms/InputText'
+import InputCheckbox from '../../atoms/InputCheckbox'
 import Toggle from '../../atoms/Toggle'
 import Hint from '../../atoms/Hint'
 
@@ -20,6 +22,7 @@ export class Field extends PureComponent {
       number: InputText,
       email: InputText,
       radios: InputRadios,
+      checkbox: InputCheckbox,
       toggle: Toggle
     }
     return fieldTypes[fieldType] || fieldTypes.text
@@ -29,6 +32,11 @@ export class Field extends PureComponent {
     if (error) return 'error'
     if (warning) return 'warning'
     return 'hint'
+  }
+
+  isInline = () => {
+    const { fieldType } = this.props
+    return includes(['toggle', 'checkbox'], fieldType)
   }
 
   render() {
@@ -53,7 +61,7 @@ export class Field extends PureComponent {
     const FieldType = this.getFieldType(fieldType)
     const variant = this.getVariant(warning, error)
     const hintText = error || warning || hint
-    const layout = direction || fieldType === 'toggle' ? 'row' : 'column'
+    const layout = direction || this.isInline ? 'row' : 'column'
     const Container = layout === 'row' ? RowContainer : Fragment
     return (
       <StyledField direction={layout}>
