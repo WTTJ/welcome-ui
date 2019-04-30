@@ -1,37 +1,45 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import { bool, number, oneOf } from 'prop-types'
 
 import StyledInputCheckbox from './styles'
 
-export class InputCheckbox extends PureComponent {
-  constructor(props) {
-    super(props)
-    this.state = { checked: props.value }
+export const InputCheckbox = props => {
+  const {
+    checked = false,
+    name,
+    onBlur,
+    onFocus,
+    order = -1,
+    size = 'md',
+    StyledComponent = StyledInputCheckbox
+  } = props
+
+  let input = React.createRef()
+  let component = React.createRef()
+
+  const onChange = e => {
+    input.current.checked
+      ? component.current.classList.add('checked')
+      : component.current.classList.remove('checked')
   }
 
-  styledComponent = StyledInputCheckbox
-
-  onClick = e => {
-    const { onChange } = this.props
-    this.setState({ checked: !this.state.checked })
-    onChange && onChange()
+  const onClick = e => {
+    input.current.click()
   }
 
-  render() {
-    const { name, onBlur, onFocus, order, size } = this.props
-    const { checked } = this.state
-    return (
-      <this.styledComponent checked={checked} order={order} onClick={this.onClick} size={size}>
-        <input
-          checked={checked}
-          id={name}
-          onBlur={onBlur}
-          onFocus={onFocus}
-          type={this.inputType || 'checkbox'}
-        />
-      </this.styledComponent>
-    )
-  }
+  return (
+    <StyledComponent order={order} ref={component} size={size} onClick={onClick}>
+      <input
+        ref={input}
+        defaultChecked={checked}
+        id={name}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        onChange={onChange}
+        type={'checkbox'}
+      />
+    </StyledComponent>
+  )
 }
 
 InputCheckbox.propTypes = {
@@ -40,12 +48,3 @@ InputCheckbox.propTypes = {
   /** Size of component */
   size: oneOf(['sm', 'md', 'lg'])
 }
-
-// Specifies the default values for props:
-InputCheckbox.defaultProps = {
-  cheked: false,
-  order: -1,
-  size: 'md'
-}
-
-export default InputCheckbox

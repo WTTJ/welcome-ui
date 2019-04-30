@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { bool, func, object, oneOf, node, string } from 'prop-types'
 import includes from 'lodash.includes'
 
@@ -8,92 +8,89 @@ import StyledField from './styles'
 import { RowContainer } from '../../common/styles/layout'
 
 // atoms
-import InputRadios from '../../molecules/InputRadios'
-import Label from '../../molecules/Label'
-import InputText from '../../atoms/InputText'
-import InputCheckbox from '../../atoms/InputCheckbox'
-import Toggle from '../../atoms/Toggle'
-import Hint from '../../atoms/Hint'
+import { RadioTabs } from '../../molecules/RadioTabs'
+import { Label } from '../../molecules/Label'
+import { InputText } from '../../atoms/InputText'
+import { InputCheckbox } from '../../atoms/InputCheckbox'
+import { Toggle } from '../../atoms/Toggle'
+import { Hint } from '../../atoms/Hint'
 
-export class Field extends PureComponent {
-  getFieldType = fieldType => {
+export const Field = ({
+  disabled = false,
+  error = '',
+  checked,
+  direction,
+  disabledIcon,
+  name,
+  onBlur,
+  onChange,
+  onFocus,
+  fieldType = 'text',
+  fieldTypeProps = {},
+  hint = '',
+  label = '',
+  placeholder = '',
+  required = false,
+  warning = ''
+}) => {
+  const getFieldType = fieldType => {
     const fieldTypes = {
       text: InputText,
       number: InputText,
       email: InputText,
-      radios: InputRadios,
+      radios: RadioTabs,
       checkbox: InputCheckbox,
       toggle: Toggle
     }
     return fieldTypes[fieldType] || fieldTypes.text
   }
 
-  getVariant = (warning, error) => {
+  const getVariant = (warning, error) => {
     if (error) return 'error'
     if (warning) return 'warning'
     return 'hint'
   }
 
-  isInline = () => {
-    const { fieldType } = this.props
+  const isInline = () => {
     return includes(['toggle', 'checkbox'], fieldType)
   }
 
-  render() {
-    const {
-      checked,
-      direction,
-      disabled,
-      disabledIcon,
-      error,
-      fieldType,
-      fieldTypeProps,
-      hint,
-      label,
-      name,
-      onBlur,
-      onChange,
-      onFocus,
-      placeholder,
-      required,
-      warning
-    } = this.props
-    const FieldType = this.getFieldType(fieldType)
-    const variant = this.getVariant(warning, error)
-    const hintText = error || warning || hint
-    const layout = direction || this.isInline() ? 'row' : 'column'
-    const Container = layout === 'row' ? RowContainer : Fragment
-    return (
-      <StyledField direction={layout}>
-        <Container>
-          {label && (
-            <Label
-              htmlFor={name}
-              disabled={disabled}
-              disabledIcon={disabledIcon}
-              required={required}
-              variant={variant}
-            >
-              {label}
-            </Label>
-          )}
-          <FieldType
-            {...fieldTypeProps}
-            checked={checked}
-            name={name}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onChange={onChange}
-            variant={variant}
-            required={required}
+  const FieldType = getFieldType(fieldType)
+  const variant = getVariant(warning, error)
+  const hintText = error || warning || hint
+  const layout = direction || isInline() ? 'row' : 'column'
+  const Container = layout === 'row' ? RowContainer : Fragment
+
+  return (
+    <StyledField direction={layout}>
+      <Container>
+        {label && (
+          <Label
+            htmlFor={name}
             disabled={disabled}
-            placeholder={placeholder}
-          />
-        </Container>
-        {hintText && <Hint variant={variant}>{hintText}</Hint>}
-      </StyledField>
-    )
-  }
+            disabledIcon={disabledIcon}
+            required={required}
+            variant={variant}
+          >
+            {label}
+          </Label>
+        )}
+        <FieldType
+          {...fieldTypeProps}
+          checked={checked}
+          name={name}
+          onBlur={onBlur}
+          onChange={onChange}
+          onFocus={onFocus}
+          variant={variant}
+          required={required}
+          disabled={disabled}
+          placeholder={placeholder}
+        />
+      </Container>
+      {hintText && <Hint variant={variant}>{hintText}</Hint>}
+    </StyledField>
+  )
 }
 
 Field.propTypes = {
@@ -143,5 +140,3 @@ Field.defaultProps = {
   required: false,
   warning: ''
 }
-
-export default Field

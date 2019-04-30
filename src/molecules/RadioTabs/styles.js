@@ -1,5 +1,5 @@
 import styled from 'styled-components'
 
-export const InputRadios = styled.div`
+export const RadioTabs = styled.div`
   display: flex;
 `

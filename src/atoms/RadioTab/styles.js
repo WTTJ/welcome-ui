@@ -3,18 +3,18 @@ import styled from 'styled-components'
 import { get } from '../../theme/helpers'
 import { overflowEllipsis } from '../../common/styles/text'
 
-export const InputRadioWrapper = styled.div`
+export const RadioTabWrapper = styled.div`
   flex: 1;
 `
 
-export const InputRadio = styled.input`
+export const RadioTab = styled.input`
   position: absolute;
   top: 0;
   left: 0;
   opactiy: 0;
 `
 
-export const InputRadioLabel = styled.label`
+export const RadioTabLabel = styled.label`
   position: relative;
   cursor: pointer;
   user-select: none;
@@ -30,26 +30,26 @@ export const InputRadioLabel = styled.label`
   line-height: 1;
   ${overflowEllipsis};
 
-  ${InputRadio}:checked + & {
+  ${RadioTab}:checked + & {
     z-index: 2;
   }
   &:hover,
-  ${InputRadio}:checked + & {
+  ${RadioTab}:checked + & {
     background-color: ${get('color', 'white')};
     box-shadow: ${get('boxShadow', 'xs')};
   }
 
-  ${InputRadio}:checked + & {
+  ${RadioTab}:checked + & {
     border-color: ${get('color', 'primary')};
     font-weight: ${get('fontWeight', 'medium')};
   }
 
-  ${InputRadioWrapper}:first-child & {
+  ${RadioTabWrapper}:first-child & {
     border-radius: ${get('radius', 'md')} 0 0 ${get('radius', 'md')};
     margin-left: 0;
   }
 
-  ${InputRadioWrapper}:last-child & {
+  ${RadioTabWrapper}:last-child & {
     border-radius: 0 ${get('radius', 'md')} ${get('radius', 'md')} 0;
     padding-right: ${get('gutter', 'xs')};
   }

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import { bool, node, oneOf, oneOfType, string } from 'prop-types'
 
 import StyledLabel, { Disabled, Required, Variant } from './styles'
@@ -7,9 +7,11 @@ import StyledLabel, { Disabled, Required, Variant } from './styles'
 import Badge from '../../atoms/Badge'
 import { Icon } from '../../atoms/Icon'
 
-export class Label extends PureComponent {
-  getVariantIcon = variant => {
-    const { errorWarningIcon } = this.props
+export const Label = props => {
+  const { children, disabled = false, disabledIcon, required = false, variant } = props
+
+  const getVariantIcon = variant => {
+    const { errorWarningIcon } = props
     if (variant === 'error' || variant === 'warning') {
       return (
         errorWarningIcon || (
@@ -21,19 +23,16 @@ export class Label extends PureComponent {
     }
   }
 
-  render() {
-    const { children, disabled, disabledIcon, required, variant } = this.props
-    return (
-      <StyledLabel {...this.props}>
-        {variant && <Variant variant={variant}>{this.getVariantIcon(variant)}</Variant>}
-        {disabled && (
-          <Disabled>{disabledIcon || <Icon icon="special_pipeline" size="sm" />}</Disabled>
-        )}
-        {children}
-        {required && <Required>*</Required>}
-      </StyledLabel>
-    )
-  }
+  return (
+    <StyledLabel {...props}>
+      {variant && <Variant variant={variant}>{getVariantIcon(variant)}</Variant>}
+      {disabled && (
+        <Disabled>{disabledIcon || <Icon icon="special_pipeline" size="sm" />}</Disabled>
+      )}
+      {children}
+      {required && <Required>*</Required>}
+    </StyledLabel>
+  )
 }
 
 Label.propTypes = {
@@ -51,5 +50,3 @@ Label.defaultProps = {
   disabled: false,
   required: false
 }
-
-export default Label
