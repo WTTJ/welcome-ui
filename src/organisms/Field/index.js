@@ -27,7 +27,7 @@ export const Field = ({
   onFocus,
   fieldType = 'text',
   fieldTypeProps = {},
-  hint = '',
+  hint,
   label = '',
   placeholder = '',
   required = false,
@@ -48,7 +48,6 @@ export const Field = ({
   const getVariant = (warning, error) => {
     if (error) return 'error'
     if (warning) return 'warning'
-    return 'hint'
   }
 
   const isInline = () => {
@@ -99,7 +98,7 @@ Field.propTypes = {
   /** Label of Field component */
   label: string,
   /** Type of Field component */
-  fieldType: oneOf(['text', 'number', 'email', 'textarea', 'radios', 'toggle']),
+  fieldType: oneOf(['text', 'number', 'email', 'textarea', 'radios', 'toggle', 'checkbox']),
   /** Props of Field's component input */
   fieldTypeProps: object,
   /** Hint of Field component */
@@ -134,7 +133,6 @@ Field.defaultProps = {
   error: '',
   fieldType: 'text',
   fieldTypeProps: {},
-  hint: '',
   label: '',
   placeholder: '',
   required: false,

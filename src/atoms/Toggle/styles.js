@@ -2,6 +2,19 @@ import styled, { css } from 'styled-components'
 
 import { get } from '../../theme/helpers'
 
+const checkedStyles = css`
+  background: ${get('color', 'primary')};
+  &:hover {
+    background: ${get('color', 'primary')};
+  }
+
+  &::after {
+    left: calc(100% - ${get('borderWidth', 'input')});
+    transform: translateX(-100%);
+    border-color: ${get('color', 'primary')};
+  }
+`
+
 export const Toggle = styled.div(
   props => css`
     position: relative;
@@ -33,19 +46,6 @@ export const Toggle = styled.div(
       transition: 0.3s;
     }
 
-    &.checked {
-      background: ${get('color', 'primary')};
-      &:hover {
-        background: ${get('color', 'primary')};
-      }
-
-      &::after {
-        left: calc(100% - ${get('borderWidth', 'input')});
-        transform: translateX(-100%);
-        border-color: ${get('color', 'primary')};
-      }
-    }
-
     &:hover {
       background-color: ${get('color', 'bg', 'tertiary')};
     }
@@ -59,6 +59,8 @@ export const Toggle = styled.div(
       width: 0;
       visibility: hidden;
     }
+
+    ${props.checked && checkedStyles}
   `
 )
 

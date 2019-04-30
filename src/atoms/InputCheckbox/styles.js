@@ -5,6 +5,14 @@ import { fieldTypeStyles } from '../../common/styles/form'
 
 import { get } from '../../theme/helpers'
 
+const checkedStyles = css`
+  background-color: ${get('color', 'primary')};
+  border-color: ${get('color', 'primary')};
+  &::after {
+    opacity: 1;
+  }
+`
+
 export const InputCheckbox = styled.div(
   props => css`
     ${fieldTypeStyles};
@@ -16,14 +24,6 @@ export const InputCheckbox = styled.div(
     order: ${props.order || null};
     border-radius: ${get('radius', 'sm')};
     transition: ${get('transition', 'sm')};
-
-    &.checked {
-      background-color: ${get('color', 'primary')};
-      border-color: ${get('color', 'primary')};
-      &::after {
-        opacity: 1;
-      }
-    }
 
     &::after {
       content: '✓';
@@ -38,6 +38,8 @@ export const InputCheckbox = styled.div(
       opacity: 0;
       transition: ${get('transition', 'sm')};
     }
+
+    ${props.checked && checkedStyles};
   `
 )
 
