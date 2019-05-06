@@ -28,15 +28,20 @@ const addAllFiles = files => {
 
 const getContents = files => {
   return files.reduce((acc, { key, content }) => {
-    const match = /<svg[^>]*>([\s\S]*)<\/svg>/g.exec(content)
-    return {
-      ...acc,
-      [key]: {
-        width: 15,
-        height: 15,
-        block: match[1].trim()
+    let match = /<svg[^>]*>([\s\S]*)<\/svg>/g.exec(content)
+    if (match) {
+      match = match[1].replace(/#134B45/g, 'currentColor').trim()
+      return {
+        ...acc,
+        [key]: {
+          width: 15,
+          height: 15,
+          block: match
+        }
       }
     }
+
+    return acc
   }, {})
 }
 
