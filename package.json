@@ -8,7 +8,8 @@
     "icons:optimize": "svgo --folder=src/atoms/Icon/assets --pretty --indent=2 --multipass --quiet",
     "icons:collect": "node helpers/icons.js && eslint src/atoms/Icon/icons.js --fix",
     "build": "rm -rf dist && rollup --config",
-    "preversion": "yarn test && yarn build",
+    "preversion": "yarn test",
+    "version": "yarn build && git add -A dist",
     "postversion": "git push && git push --tags",
     "lint": "eslint src --max-warnings 0",
     "test": "jest src",
@@ -17,7 +18,7 @@
   },
   "files": [
     "esm/*",
-    "umd/*"
+    "cjs/*"
   ],
   "repository": {
     "type": "git",
