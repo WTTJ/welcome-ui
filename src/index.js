@@ -1,8 +1,8 @@
-import Button from './atoms/Button/index'
+// Components
+export * from './atoms/Button/index'
 
-import { getBaseStyles } from './utils/base'
-import { createTheme } from './theme/core'
-import { welcomeTheme } from './theme/welcome'
-import { get } from './theme/helpers'
-
-export { Button, getBaseStyles, createTheme, welcomeTheme, get }
+// Utils/theme
+export * from './utils/base'
+export * from './theme/core'
+export * from './theme/welcome'
+export * from './theme/helpers'

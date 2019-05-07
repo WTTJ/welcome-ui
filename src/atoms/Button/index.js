@@ -35,5 +35,3 @@ Button.defaultProps = {
   size: 'auto',
   span: 'auto'
 }
-
-export default Button
