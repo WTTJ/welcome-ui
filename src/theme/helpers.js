@@ -26,16 +26,21 @@ const rgba = (theme, path) => {
 }
 
 const textStyles = (theme, path) => {
-  const value = getThemeValue(theme, ['text', ...path])
-  const props = { ...DEFAULT_TEXT_STYLES, ...value }
-  const styles = css`
-    font-family: ${getThemeValue(theme, ['fontFamily', props.family])};
-    font-size: ${getThemeValue(theme, ['fontSize', props.size])};
-    font-weight: ${getThemeValue(theme, ['fontWeight', props.weight])};
-    text-transform: ${props.transform};
-    letter-spacing: ${getThemeValue(theme, ['letterSpacing', props.spacing])};
+  const { family, size, weight, transform, spacing } = getThemeValue(theme, ['text', ...path])
+
+  return css`
+    font-family: ${family
+      ? getThemeValue(theme, ['fontFamily', family])
+      : DEFAULT_TEXT_STYLES.family};
+    font-size: ${size ? getThemeValue(theme, ['fontSize', size]) : DEFAULT_TEXT_STYLES.size};
+    font-weight: ${weight
+      ? getThemeValue(theme, ['fontWeight', weight])
+      : DEFAULT_TEXT_STYLES.weight};
+    text-transform: ${transform ? transform : DEFAULT_TEXT_STYLES.transform};
+    letter-spacing: ${spacing
+      ? getThemeValue(theme, ['letterSpacing', spacing])
+      : DEFAULT_TEXT_STYLES.spacing};
   `
-  return styles
 }
 
 export const get = (...path) => ({ theme }) => {

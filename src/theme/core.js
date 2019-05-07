@@ -135,6 +135,7 @@ const coreTheme = (options = {}) => {
   }
 
   theme.fontWeight = {
+    light: '400',
     regular: '400',
     medium: '500',
     bold: '600',
