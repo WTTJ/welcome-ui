@@ -76,7 +76,7 @@ export const pulsingStyles = css`
   }
 `
 
-export const buttonStyles = css`
+export const buttonStyles = props => css`
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -90,8 +90,8 @@ export const buttonStyles = css`
   outline: none;
   border-width: 1px;
   border-style: solid;
-  border-radius: ${props => props.radius || get('radius', 'md')};
-  box-shadow: ${props => props.shadow || get('boxShadow', 'buttons')};
+  border-radius: ${props.radius || get('radius', 'md')};
+  box-shadow: ${props.shadow || get('boxShadow', 'buttons')};
   appearance: none;
   overflow: hidden;
   transition: ${get('transition', 'sm')};
@@ -118,11 +118,11 @@ export const buttonStyles = css`
     pointer-events: none;
   }
 
-  ${props => getButtonSize(props.size, props.rounded)};
-  ${props => getButtonVariant(props.variant)};
-  ${props => (props.span === 'full' ? fullWidthStyles : null)};
+  ${getButtonSize(props.size, props.rounded)};
+  ${getButtonVariant(props.variant)};
+  ${props.span === 'full' ? fullWidthStyles : null};
 
-  ${props => props.styles};
+  ${props.styles};
 `
 
 export const Button = styled.button`
