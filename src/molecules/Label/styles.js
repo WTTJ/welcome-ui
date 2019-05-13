@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { getVariantColor } from '../../common/styles/form'
 import { get } from '../../theme/helpers'
@@ -13,12 +13,14 @@ export const Required = styled.abbr`
   color: ${get('color', 'primary')};
 `
 
-export const Variant = styled.div`
-  display: inline-flex;
-  margin-right: ${get('gutter', 'xxs')};
-  color: ${props => getVariantColor(props.variant)};
-  fill: ${props => getVariantColor(props.variant)};
-`
+export const Variant = styled.div(
+  props => css`
+    display: inline-flex;
+    margin-right: ${get('gutter', 'xxs')};
+    color: ${getVariantColor(props.variant)};
+    fill: ${getVariantColor(props.variant)};
+  `
+)
 
 export const Label = styled.label`
   display: flex;
