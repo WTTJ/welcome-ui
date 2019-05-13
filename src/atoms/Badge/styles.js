@@ -14,8 +14,9 @@ export const Badge = styled.div(
     padding-right: ${props.length === 1
       ? 0
       : get('padding', props.padding)(props) || props.padding || null};
-    padding-left: ${props =>
-      props.length === 1 ? 0 : get('padding', props.padding)(props) || props.padding || null};
+    padding-left: ${props.length === 1
+      ? 0
+      : get('padding', props.padding)(props) || props.padding || null};
     color: ${get('color', 'white')};
     ${get('textStyles', 'badge')};
     font-size: ${get('fontSize', props.fontsize)(props) || props.fontsize || null};
