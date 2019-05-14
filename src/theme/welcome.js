@@ -38,42 +38,29 @@ const palette = {
 
 export const welcomeTheme = {
   color: {
-    primary: palette.seafoamblue,
-    secondary: palette.cadet,
-    danger: palette.alabamacrimson,
-    success: palette.seafoamblue,
-    warning: palette.pastelorange,
-    info: palette.carribeangreen,
-    light: palette.isabelline,
-    dark: palette.charcoal,
-    white: palette.white,
-    text: {
-      primary: palette.seafoamblue,
-      secondary: palette.battleship,
-      tertiary: palette.steel,
-      quaternary: palette.silverchalice,
-      danger: palette.alabamacrimson,
-      success: palette.seafoamblue,
-      warning: palette.pastelorange,
-      info: palette.carribeangreen,
-      light: palette.isabelline,
-      dark: palette.charcoal,
-      white: palette.white
+    primary: {
+      special: '#999999'
     },
-    bg: {
-      primary: palette.seafoamblue,
-      secondary: palette.cadet,
-      tertiary: palette.timberwolf,
-      danger: palette.alabamacrimson,
-      success: palette.seafoamblue,
-      warning: palette.pastelorange,
-      info: palette.carribeangreen,
-      light: palette.isabelline,
-      dark: palette.charcoal,
-      white: palette.white
+    nudes: {
+      metal: '#31333B', //#31333B
+      onyx: '#373942', //#373942
+      darkliver: '#4B4D55', //#4B4D55
+      granite: '#5F6067', //#5F6067
+      battleship: '#73747B', //#73747B
+      steel: '#87888D', //#87888D
+      silverchalice: '#AFAFB3', //#AFAFB3
+      silver: '#C3C3C6', //#C3C3C6
+      timberwolf: '#D7D7D9', //#D7D7D9
+      isabelline: '#EEEEEE', //#EEEEEE
+      snow: '#F9F9F9' //#F9F9F9
+    }
+  },
+  fields: {
+    default: {
+      'border-color': palette.timberwolf
     },
-    border: {
-      primary: palette.timberwolf
+    disabled: {
+      'border-color': palette.timberwolf
     }
   },
   palette,

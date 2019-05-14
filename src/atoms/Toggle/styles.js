@@ -3,15 +3,15 @@ import styled, { css } from 'styled-components'
 import { get } from '../../theme/helpers'
 
 const checkedStyles = css`
-  background: ${get('color', 'primary')};
+  background: ${get('color', 'primary', 'default')};
   &:hover {
-    background: ${get('color', 'primary')};
+    background: ${get('color', 'primary', 'default')};
   }
 
   &::after {
     left: calc(100% - ${get('borderWidth', 'input')});
     transform: translateX(-100%);
-    border-color: ${get('color', 'primary')};
+    border-color: ${get('color', 'primary', 'default')};
   }
 `
 

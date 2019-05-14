@@ -11,37 +11,37 @@ export const RadioTab = styled.input`
   position: absolute;
   top: 0;
   left: 0;
-  opactiy: 0;
+  opacity: 0;
 `
 
 export const RadioTabLabel = styled.label`
+  ${get('fields', 'default')};
+  ${overflowEllipsis};
   position: relative;
   cursor: pointer;
   user-select: none;
   display: block;
+  text-align: center;
+  line-height: 1;
   padding: ${get('gutter', 'xs')};
   padding-right: calc(${get('gutter', 'xs')} + ${get('borderWidth', 'input')});
-  text-align: center;
-  background-color: ${get('color', 'bg', 'light')};
-  border: ${get('borderWidth', 'input')} solid ${get('color', 'border', 'primary')};
   margin-left: -${get('borderWidth', 'input')};
-  ${get('textStyles', 'input')};
   transition: ${get('transition', 'sm')};
-  line-height: 1;
-  ${overflowEllipsis};
 
   ${RadioTab}:checked + & {
     z-index: 2;
   }
+
   &:hover,
   ${RadioTab}:checked + & {
-    background-color: ${get('color', 'white')};
+    background-color: ${get('color', 'light', 'light')};
     box-shadow: ${get('boxShadow', 'xs')};
   }
 
   ${RadioTab}:checked + & {
-    border-color: ${get('color', 'primary')};
-    font-weight: ${get('fontWeight', 'medium')};
+    border-color: ${get('color', 'primary', 'default')};
+    font-weight: ${get('fontWeight', 'bold')};
+    color: ${get('color', 'primary', 'dark')};
   }
 
   ${RadioTabWrapper}:first-child & {

@@ -1,5 +1,13 @@
 import merge from 'lodash.merge'
 
+import { colors } from './colors'
+import { fields } from './fields'
+import { buttons } from './buttons'
+import { radii } from './radii'
+import { typography, letterSpacings } from './typography'
+import { fontSizes, fontSizesEm, toEm, toRem } from './font-sizes'
+import { fontWeights } from './font-weights'
+
 const DEFAULT_FONT_SIZE = 50
 const DEFAULT_FONT_FAMILY = 'Arial'
 const HEADING_FONT_FAMILY = 'Times'
@@ -12,101 +20,25 @@ const coreTheme = (options = {}) => {
     ...rest
   } = options
 
-  const toEm = px => `${px / defaultFontSize}em`
-  const toRem = px => `${px / defaultFontSize}rem`
-  const getFontSizes = unit => {
-    const convert = unit === 'em' ? toEm : toRem
-    return {
-      html: `${defaultFontSize}px`,
-      body: convert(16),
-      xs: convert(11),
-      sm: convert(13),
-      default: convert(14),
-      md: convert(16),
-      mdlg: convert(18),
-      lg: convert(19),
-      xl: convert(22),
-      xxl: convert(32),
-      xxxl: convert(50)
-    }
-  }
-
   let theme = {}
 
-  theme.color = {
-    primary: '#333333',
-    secondary: '#999999',
-    success: '#00FFFF',
-    danger: '#FF0000',
-    warning: '#FFFF00',
-    info: '#999999',
-    light: '#EEEEEE',
-    dark: '#222222',
-    white: '#FFFFFF',
-    text: {
-      primary: '#333333',
-      secondary: '#999999',
-      success: '#00FFFF',
-      danger: '#FF0000',
-      warning: '#FFFF00',
-      info: '#999999',
-      light: '#EEEEEE',
-      dark: '#222222',
-      white: '#FFFFFF'
-    },
-    bg: {
-      primary: '#333333',
-      secondary: '#999999',
-      success: '#00FFFF',
-      danger: '#FF0000',
-      warning: '#FFFF00',
-      info: '#999999',
-      light: '#EEEEEE',
-      dark: '#222222',
-      white: '#FFFFFF'
-    }
-  }
+  theme.color = colors
 
-  theme.palette = {}
+  theme.text = typography
 
-  theme.text = {
-    hint: {
-      size: 'xs',
-      weight: 'regular'
-    },
-    label: {
-      size: 'sm',
-      weight: 'medium'
-    },
-    input: {
-      size: 'sm',
-      weight: 'regular'
-    },
-    badge: {
-      size: 'sm',
-      weight: 'bold'
-    },
-    button: {
-      size: 'xs',
-      weight: 'bold',
-      transform: 'uppercase',
-      spacing: 'md'
-    }
-  }
+  theme.fields = fields
+
+  theme.buttons = buttons
 
   theme.borderWidth = {
     input: '1px'
   }
 
-  theme.fontSize = getFontSizes('rem')
+  theme.fontSize = fontSizes
 
-  theme.fontSizeEm = getFontSizes('em')
+  theme.fontSizeEm = fontSizesEm
 
-  theme.letterSpacing = {
-    sm: '0.5px',
-    md: '1px',
-    lg: '2px'
-  }
+  theme.letterSpacing = letterSpacings
 
   theme.padding = {
     xxs: toRem(8),
@@ -134,13 +66,7 @@ const coreTheme = (options = {}) => {
     icons: 'Material-design-iconic-font'
   }
 
-  theme.fontWeight = {
-    light: '400',
-    regular: '400',
-    medium: '500',
-    bold: '600',
-    black: '700'
-  }
+  theme.fontWeight = fontWeights
 
   theme.transition = {
     sm: 'all .2s cubic-bezier(0.41, 0.094, 0.54, 0.07)',
@@ -190,11 +116,7 @@ const coreTheme = (options = {}) => {
     lg: toRem(960)
   }
 
-  theme.radius = {
-    sm: '4px',
-    md: '6px',
-    lg: '10px'
-  }
+  theme.radius = radii
 
   theme.boxShadow = {
     xs: '0 1px 2px rgba(0,0,0,.1)',

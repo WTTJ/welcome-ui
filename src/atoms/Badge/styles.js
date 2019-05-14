@@ -17,11 +17,11 @@ export const Badge = styled.div(
     padding-left: ${props.length === 1
       ? 0
       : get('padding', props.padding)(props) || props.padding || null};
-    color: ${get('color', 'white')};
-    ${get('textStyles', 'badge')};
+    color: ${get('color', 'light', 'light')};
+    ${get('text', 'badge')};
     font-size: ${get('fontSize', props.fontsize)(props) || props.fontsize || null};
     background-color: ${getVariantColor(props.variant)};
-    border-radius: ${get('radius', props.radius)(props) || props.radius || props.size};
+    border-radius: ${props.radius ? get('radius', props.radius) : props.size};
   `
 )
 

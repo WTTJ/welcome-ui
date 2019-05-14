@@ -84,7 +84,7 @@ export const buttonStyles = props => css`
   justify-content: ${({ align }) => align || 'center'};
   width: auto;
   text-align: ${({ align }) => align || 'center'};
-  ${get('textStyles', 'button')};
+  ${get('text', 'button')};
   white-space: nowrap;
   cursor: pointer;
   outline: none;

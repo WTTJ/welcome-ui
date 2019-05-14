@@ -6,8 +6,8 @@ import { get } from '../../theme/helpers'
 export const Hint = styled.div(
   props => css`
     font-family: ${get('fontFamily', 'texts')};
-    color: ${getVariantColor(props.variant, get('color', 'text', 'tertiary'))};
-    ${get('textStyles', 'hint')};
+    color: ${getVariantColor(props.variant, get('color', 'mute', 'default'))};
+    ${get('text', 'hint')};
     margin-top: ${get('gutter', 'xs')};
   `
 )

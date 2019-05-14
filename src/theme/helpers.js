@@ -16,6 +16,11 @@ const getThemeValue = (theme, path) => {
   if (process.env.NODE_ENV !== 'development' && value === undefined) {
     console.warn(`${path.join('.')} is not available in this theme`)
   }
+  if (typeof value !== 'string') {
+    return css`
+      ${value}
+    `
+  }
   return value
 }
 
@@ -26,7 +31,8 @@ const rgba = (theme, path) => {
 }
 
 const textStyles = (theme, path) => {
-  const { family, size, weight, transform, spacing } = getThemeValue(theme, ['text', ...path])
+  const values = getThemeValue(theme, ['text', ...path])
+  const { family, size, weight, transform, spacing } = values
 
   return css`
     font-family: ${family

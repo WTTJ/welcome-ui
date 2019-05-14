@@ -5,44 +5,32 @@ import { get } from '../../theme/helpers'
 export const getVariantColor = (variant, fallback) => {
   switch (variant) {
     case 'error':
-      return get('color', 'danger')
+      return get('color', 'danger', 'default')
     case 'warning':
-      return get('color', 'warning')
+      return get('color', 'warning', 'default')
     case 'info':
-      return get('color', 'info')
+      return get('color', 'info', 'default')
     default:
-      return fallback || get('color', 'border', 'primary')
+      return fallback || null
   }
 }
 
-export const fieldFocusStyles = css`
-  border-color: ${get('color', 'primary')};
-`
-
-export const fieldDisabledStyles = css`
-  background-color: ${get('color', 'bg', 'light')};
-  pointer-events: 'none';
-`
-
 export const fieldTypeStyles = css`
+  ${get('fields', 'default')};
   width: 100%;
   padding: ${get('padding', 'sm')} ${get('padding', 'xs')};
-  color: ${get('color', 'text', 'secondary')};
-  ${get('textStyles', 'input')}
-  border: ${get('borderWidth', 'input')} solid ${get('color', 'border', 'primary')};
-  border-radius: ${get('radius', 'md')};
   border-color: ${props => getVariantColor(props.variant)};
   transition: ${get('transition', 'md')};
 
   &::placeholder {
-    color: ${get('color', 'text', 'quaternary')};
+    color: ${get('color', 'mute', 'light')};
   }
 
   &:focus {
-    ${fieldFocusStyles};
+    ${get('fields', 'focus')};
   }
 
   &[disabled] {
-    ${fieldDisabledStyles};
+    ${get('fields', 'disabled')};
   }
 `
