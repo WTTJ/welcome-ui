@@ -1,54 +1,42 @@
-import React, { Component } from 'react'
+import React, { memo, useState } from 'react'
 import { bool, number, oneOf } from 'prop-types'
 
 import StyledInputCheckbox from './styles'
 
-export class InputCheckbox extends Component {
-  constructor(props) {
-    super(props)
-    this.input = React.createRef()
-    this.state = { checked: props.checked }
+export const InputCheckbox = memo(props => {
+  const {
+    groupName,
+    name,
+    onBlur,
+    onFocus,
+    order = -1,
+    size = 'md',
+    StyledComponent = StyledInputCheckbox,
+    type = 'checkbox'
+  } = props
+
+  const [checked, setChecked] = useState(props.checked)
+
+  const onChange = e => {
+    if (props.onChange) return props.onChange()
+    setChecked(!checked)
   }
 
-  onChange = e => {
-    this.setState({ checked: this.input.current.checked })
-  }
-
-  onClick = e => {
-    this.input.current.click()
-  }
-
-  render() {
-    const {
-      checked = false,
-      name,
-      onBlur,
-      onFocus,
-      order = -1,
-      size = 'md',
-      StyledComponent = StyledInputCheckbox
-    } = this.props
-
-    return (
-      <StyledComponent
-        checked={this.state.checked}
-        order={order}
-        size={size}
-        onClick={this.onClick}
-      >
-        <input
-          ref={this.input}
-          defaultChecked={checked}
-          id={name}
-          onBlur={onBlur}
-          onFocus={onFocus}
-          onChange={this.onChange}
-          type={'checkbox'}
-        />
-      </StyledComponent>
-    )
-  }
-}
+  return (
+    <StyledComponent checked={checked} order={order} onClick={onChange} size={size} type={type}>
+      <input
+        defaultChecked={props.checked}
+        checked={checked}
+        id={name}
+        name={groupName || name}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        onChange={onChange}
+        type={type}
+      />
+    </StyledComponent>
+  )
+})
 
 InputCheckbox.propTypes = {
   checked: bool,

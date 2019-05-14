@@ -12,6 +12,7 @@ import { RadioTabs } from '../../molecules/RadioTabs'
 import { Label } from '../../molecules/Label'
 import { InputText } from '../../atoms/InputText'
 import { InputCheckbox } from '../../atoms/InputCheckbox'
+import { InputRadio } from '../../atoms/InputRadio'
 import { Toggle } from '../../atoms/Toggle'
 import { Hint } from '../../atoms/Hint'
 
@@ -21,6 +22,7 @@ export const Field = ({
   checked,
   direction,
   disabledIcon,
+  groupName,
   name,
   onBlur,
   onChange,
@@ -40,7 +42,8 @@ export const Field = ({
       email: InputText,
       radios: RadioTabs,
       checkbox: InputCheckbox,
-      toggle: Toggle
+      toggle: Toggle,
+      radio: InputRadio
     }
     return fieldTypes[fieldType] || fieldTypes.text
   }
@@ -51,7 +54,7 @@ export const Field = ({
   }
 
   const isInline = () => {
-    return includes(['toggle', 'checkbox'], fieldType)
+    return includes(['toggle', 'checkbox', 'radio'], fieldType)
   }
 
   const FieldType = getFieldType(fieldType)
@@ -78,6 +81,7 @@ export const Field = ({
           {...fieldTypeProps}
           checked={checked}
           name={name}
+          groupName={groupName}
           onBlur={onBlur}
           onChange={onChange}
           onFocus={onFocus}
@@ -98,7 +102,16 @@ Field.propTypes = {
   /** Label of Field component */
   label: string,
   /** Type of Field component */
-  fieldType: oneOf(['text', 'number', 'email', 'textarea', 'radios', 'toggle', 'checkbox']),
+  fieldType: oneOf([
+    'text',
+    'number',
+    'email',
+    'textarea',
+    'radios',
+    'toggle',
+    'radio',
+    'checkbox'
+  ]),
   /** Props of Field's component input */
   fieldTypeProps: object,
   /** Hint of Field component */

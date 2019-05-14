@@ -8,6 +8,7 @@ import { PropsTable } from 'docz'
 import { StyledPlayground as Playground } from '../../../docz.styled'
 
 import { FieldGroup } from '../FieldGroup'
+import { RadioGroup } from '../RadioGroup'
 import { Field } from './index'
 
 # Field
@@ -68,24 +69,49 @@ import { Field } from './index'
   />
 </Playground>
 
+### Radio
+
+<Playground>
+  <RadioGroup label='Your favorite sauce' groupName='sauce' checkedName='random-seven'>
+    <Field
+      name='random-seven'
+      fieldType='radio'
+      fieldTypeProps={{ value: false }}
+      label='Mayonnaise'
+    />
+    <Field
+      name='random-eight'
+      fieldType='radio'
+      fieldTypeProps={{ value: false }}
+      label='Ketchup'
+    />
+    <Field
+      name='random-nine'
+      fieldType='radio'
+      fieldTypeProps={{ value: false }}
+      label='Barebecue'
+    />
+  </RadioGroup>
+</Playground>
+
 ### Checkbox
 
 <Playground>
   <FieldGroup label='Check the frameworks you already worked with'>
     <Field
-      name='random-seven'
+      name='random-ten'
       fieldType='checkbox'
       fieldTypeProps={{ value: false }}
       label='React'
     />
     <Field
-      name='random-height'
+      name='random-eleven'
       fieldType='checkbox'
       fieldTypeProps={{ value: false }}
       label='Angular'
     />
     <Field
-      name='random-nine'
+      name='random-twelve'
       fieldType='checkbox'
       fieldTypeProps={{ value: false }}
       label='Vue'
@@ -97,7 +123,7 @@ import { Field } from './index'
 
 <Playground>
   <Field
-    name='random-ten'
+    name='random-thirteen'
     fieldType='toggle'
     fieldTypeProps={{ value: false }}
     label='Switch example'
