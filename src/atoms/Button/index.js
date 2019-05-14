@@ -1,12 +1,10 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import { oneOf, string } from 'prop-types'
 
 import StyledButton from './styles'
 
-export class Button extends PureComponent {
-  render() {
-    return <StyledButton {...this.props}>{this.props.children}</StyledButton>
-  }
+export const Button = props => {
+  return <StyledButton {...props}>{props.children}</StyledButton>
 }
 
 Button.propTypes = {

@@ -1,17 +1,16 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import { oneOf, string } from 'prop-types'
 
 import StyledBadge from './styles'
 
-export class Badge extends PureComponent {
-  render() {
-    const { children } = this.props
-    return (
-      <StyledBadge length={children.length} {...this.props}>
-        {children}
-      </StyledBadge>
-    )
-  }
+export const Badge = props => {
+  const { children } = props
+
+  return (
+    <StyledBadge length={children.length} {...props}>
+      {children}
+    </StyledBadge>
+  )
 }
 
 Badge.propTypes = {
@@ -31,9 +30,7 @@ Badge.propTypes = {
 Badge.defaultProps = {
   variant: 'info',
   size: '2em',
-  fontsize: '',
-  padding: 'sm',
-  radius: ''
+  padding: 'sm'
 }
 
 export default Badge

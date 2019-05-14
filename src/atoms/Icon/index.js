@@ -1,60 +1,35 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import { string, oneOf } from 'prop-types'
 
 import { IconSvg } from './styles'
 import icons from './icons'
 
-export class Icon extends PureComponent {
-  constructor(props) {
-    super(props)
-    const { icon } = this.props
-    const iconConfig = icons[icon.toLowerCase()]
-    if (!iconConfig) {
-      return
-    }
+const sizes = {
+  sm: 16,
+  md: 24,
+  lg: 32,
+  xl: 48
+}
 
-    this.setIconSize()
-    this.iconConfig = iconConfig
-    this.viewBox = '0 0 100 100'
-    if (iconConfig.viewBox) {
-      this.viewBox = iconConfig.viewBox
-    }
+export const Icon = props => {
+  const { icon, size = 'md' } = props
+  const iconConfig = icons[icon.toLowerCase()]
+
+  if (!iconConfig) {
+    return null
   }
 
-  setIconSize = () => {
-    const { size } = this.props
-    switch (size) {
-      case 'xl':
-        this.w = 48
-        this.h = 48
-        break
-      case 'lg':
-        this.w = 32
-        this.h = 32
-        break
-      case 'sm':
-        this.w = 16
-        this.h = 16
-        break
-      case 'md':
-      default:
-        this.w = 24
-        this.h = 24
-    }
-  }
+  const iconSize = sizes[size] || sizes.md
 
-  render() {
-    if (!this.iconConfig) return null
-    return (
-      <IconSvg
-        viewBox={this.viewBox}
-        width={this.w}
-        height={this.h}
-        stroked={this.iconConfig.stroked}
-        dangerouslySetInnerHTML={{ __html: this.iconConfig.block }}
-      />
-    )
-  }
+  return (
+    <IconSvg
+      viewBox={iconConfig.viewBox || '0 0 100 100'}
+      width={iconSize}
+      height={iconSize}
+      stroked={iconConfig.stroked}
+      dangerouslySetInnerHTML={{ __html: iconConfig.block }}
+    />
+  )
 }
 
 Icon.propTypes = {
