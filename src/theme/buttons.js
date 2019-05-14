@@ -1,11 +1,11 @@
 import { colors } from './colors'
-import { radii } from './radii'
+import { radius } from './radius'
 
 const defaults = {
   color: colors.light.light,
   background: colors.primary.default,
   'border-color': colors.primary.default,
-  'border-radius': radii.sm
+  'border-radius': radius.sm
 }
 
 export const buttons = {
