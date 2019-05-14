@@ -2,6 +2,18 @@
 
 exports[`<Button> renders correctly and has white text by default 1`] = `
 .c0 {
+  color: #FFFFFF;
+  background: #00C29A;
+  border-color: #00C29A;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
   position: relative;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -17,20 +29,11 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
   justify-content: center;
   width: auto;
   text-align: center;
-  font-family: inherit;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
   white-space: nowrap;
   cursor: pointer;
   outline: none;
   border-width: 1px;
   border-style: solid;
-  border-radius: 6px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -39,9 +42,6 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
   transition: all .2s cubic-bezier(0.41,0.094,0.54,0.07);
   line-height: 1rem;
   padding: 0.625rem 0.75rem;
-  color: #FFFFFF;
-  background: #00C29A;
-  border-color: #00C29A;
 }
 
 .c0:active {
@@ -52,21 +52,13 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
 }
 
 .c0::before {
-  background: rgba(255,255,255,0.05);
+  background: rgba(undefined,0.05);
 }
 
 .c0[disabled] {
   color: #FFFFFF;
-  background-color: #EEEEEE;
+  background-color: #EEECE8;
   pointer-events: none;
-}
-
-.c0::before {
-  background: rgba(0,194,154,0.05);
-}
-
-.c0 svg path {
-  fill: #FFFFFF;
 }
 
 @media (max-width:670px) {

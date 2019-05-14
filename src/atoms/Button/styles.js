@@ -47,7 +47,7 @@ export const pulsingStyles = css`
 
 export const Button = styled.button(
   props => css`
-    ${getCss('buttons', props.variant)};
+    ${getCss('buttons', props.variant || 'primary')};
     ${getCss('text', 'button')};
     position: relative;
     display: inline-flex;

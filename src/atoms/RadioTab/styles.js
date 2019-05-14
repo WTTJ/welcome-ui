@@ -27,6 +27,7 @@ export const RadioTabLabel = styled.label`
   padding-right: calc(${get('gutter', 'xs')} + ${get('borderWidth', 'input')});
   margin-left: -${get('borderWidth', 'input')};
   transition: ${get('transition', 'sm')};
+  border-radius: 0;
 
   ${RadioTab}:checked + & {
     z-index: 2;

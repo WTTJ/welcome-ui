@@ -19,14 +19,14 @@ export const buttons = {
   tertiary: {
     ...defaults,
     color: colors.light.light,
-    background: colors.primary.dark,
-    'border-color': colors.primary.dark
+    background: colors.dark.light,
+    'border-color': colors.dark.light
   },
   disabled: {
     ...defaults,
-    color: colors.light.light,
-    background: colors.mute.light,
-    'border-color': colors.mute.light
+    color: colors.dark.dark,
+    background: colors.light.dark,
+    'border-color': colors.light.dark
   },
   'primary-warning': {
     ...defaults,

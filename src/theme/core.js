@@ -1,12 +1,10 @@
 import merge from 'lodash.merge'
 
 import { colors } from './colors'
-import { fields } from './fields'
+import { getFields } from './fields'
 import { buttons } from './buttons'
 import { radii } from './radii'
-import { typography, letterSpacings } from './typography'
-import { fontSizes, fontSizesEm, toEm, toRem } from './font-sizes'
-import { fontWeights } from './font-weights'
+import { getFontSizes, fontWeights, letterSpacings, toRem, getTypography } from './typography'
 
 const DEFAULT_FONT_SIZE = 50
 const DEFAULT_FONT_FAMILY = 'Arial'
@@ -24,40 +22,39 @@ const coreTheme = (options = {}) => {
 
   theme.color = colors
 
-  theme.text = typography
+  theme.fontSize = getFontSizes('rem', defaultFontSize)
+  theme.fontSizeEm = getFontSizes('em', defaultFontSize)
+  theme.fontWeight = fontWeights
 
-  theme.fields = fields
-
+  // CSS blocks
+  theme.text = getTypography(theme)
+  theme.fields = getFields(theme)
   theme.buttons = buttons
 
   theme.borderWidth = {
     input: '1px'
   }
 
-  theme.fontSize = fontSizes
-
-  theme.fontSizeEm = fontSizesEm
-
   theme.letterSpacing = letterSpacings
 
   theme.padding = {
-    xxs: toRem(8),
-    xs: toRem(10),
-    sm: toRem(12),
-    md: toRem(15)
+    xxs: toRem(8, defaultFontSize),
+    xs: toRem(10, defaultFontSize),
+    sm: toRem(12, defaultFontSize),
+    md: toRem(15, defaultFontSize)
   }
 
   theme.gutter = {
-    xxxs: toRem(1.6),
-    xxs: toRem(4.8),
-    xs: toRem(10),
-    sm: toRem(12),
-    md: toRem(15),
-    lg: toRem(24),
-    mdx2: toRem(32),
-    xl: toRem(50),
-    xxl: toRem(64),
-    xxxl: toRem(110)
+    xxxs: toRem(1.6, defaultFontSize),
+    xxs: toRem(4.8, defaultFontSize),
+    xs: toRem(10, defaultFontSize),
+    sm: toRem(12, defaultFontSize),
+    md: toRem(15, defaultFontSize),
+    lg: toRem(24, defaultFontSize),
+    mdx2: toRem(32, defaultFontSize),
+    xl: toRem(50, defaultFontSize),
+    xxl: toRem(64, defaultFontSize),
+    xxxl: toRem(110, defaultFontSize)
   }
 
   theme.fontFamily = {
@@ -66,8 +63,6 @@ const coreTheme = (options = {}) => {
     icons: 'Material-design-iconic-font'
   }
 
-  theme.fontWeight = fontWeights
-
   theme.transition = {
     sm: 'all .2s cubic-bezier(0.41, 0.094, 0.54, 0.07)',
     md: 'all .3s cubic-bezier(0.41, 0.094, 0.54, 0.07)',
@@ -75,12 +70,12 @@ const coreTheme = (options = {}) => {
   }
 
   theme.centeredContainerWidth = {
-    sm: toRem(640),
-    md: toRem(896),
-    mdlg: toRem(1029),
-    lg: toRem(1248),
+    sm: toRem(640, defaultFontSize),
+    md: toRem(896, defaultFontSize),
+    mdlg: toRem(1029, defaultFontSize),
+    lg: toRem(1248, defaultFontSize),
     movies: {
-      md: toRem(1024)
+      md: toRem(1024, defaultFontSize)
     }
   }
 
@@ -95,25 +90,25 @@ const coreTheme = (options = {}) => {
   }
 
   theme.toggleSize = {
-    sm: toRem(16),
-    md: toRem(22),
-    lg: toRem(42)
+    sm: toRem(16, defaultFontSize),
+    md: toRem(22, defaultFontSize),
+    lg: toRem(42, defaultFontSize)
   }
 
   theme.roundedButtonSize = {
-    xs: toRem(19),
-    sm: toRem(26),
-    md: toRem(35),
-    lg: toRem(70)
+    xs: toRem(19, defaultFontSize),
+    sm: toRem(26, defaultFontSize),
+    md: toRem(35, defaultFontSize),
+    lg: toRem(70, defaultFontSize)
   }
 
-  theme.buttonIconWidth = toRem(46)
+  theme.buttonIconWidth = toRem(46, defaultFontSize)
 
   theme.modalSize = {
-    xs: toRem(480),
-    sm: toRem(640),
-    md: toRem(800),
-    lg: toRem(960)
+    xs: toRem(480, defaultFontSize),
+    sm: toRem(640, defaultFontSize),
+    md: toRem(800, defaultFontSize),
+    lg: toRem(960, defaultFontSize)
   }
 
   theme.radius = radii
@@ -136,7 +131,7 @@ const coreTheme = (options = {}) => {
   }
 
   theme.checkboxSize = {
-    md: toRem(15)
+    md: toRem(15, defaultFontSize)
   }
 
   theme.fonts = {}
