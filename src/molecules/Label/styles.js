@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import { getVariantColor } from '../../common/styles/form'
-import { get } from '../../theme/helpers'
+import { get, getCss } from '../../theme/helpers'
 
 export const Disabled = styled.div`
   display: inline-flex;
@@ -26,7 +26,7 @@ export const Label = styled.label`
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  ${get('text', 'label')};
+  ${getCss('text', 'label')};
   color: ${get('color', 'dark', 'default')};
 `
 

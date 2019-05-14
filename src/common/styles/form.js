@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 
-import { get } from '../../theme/helpers'
+import { get, getCss } from '../../theme/helpers'
 
 export const getVariantColor = (variant, fallback) => {
   switch (variant) {
@@ -11,12 +11,12 @@ export const getVariantColor = (variant, fallback) => {
     case 'info':
       return get('color', 'info', 'default')
     default:
-      return fallback || null
+      return fallback || get('color', 'primary', 'default')
   }
 }
 
 export const fieldTypeStyles = css`
-  ${get('fields', 'default')};
+  ${getCss('fields', 'default')};
   width: 100%;
   padding: ${get('padding', 'sm')} ${get('padding', 'xs')};
   border-color: ${props => getVariantColor(props.variant)};
@@ -27,10 +27,10 @@ export const fieldTypeStyles = css`
   }
 
   &:focus {
-    ${get('fields', 'focus')};
+    ${getCss('fields', 'focus')};
   }
 
   &[disabled] {
-    ${get('fields', 'disabled')};
+    ${getCss('fields', 'disabled')};
   }
 `

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { get } from '../../theme/helpers'
+import { get, getCss } from '../../theme/helpers'
 import { media } from '../../utils/utils'
 
 const getVariant = (foreground, background, border) => {
@@ -76,57 +76,55 @@ export const pulsingStyles = css`
   }
 `
 
-export const buttonStyles = props => css`
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  align-self: ${({ alignself }) => alignself || null};
-  justify-content: ${({ align }) => align || 'center'};
-  width: auto;
-  text-align: ${({ align }) => align || 'center'};
-  ${get('text', 'button')};
-  white-space: nowrap;
-  cursor: pointer;
-  outline: none;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: ${props.radius || get('radius', 'md')};
-  box-shadow: ${props.shadow || get('boxShadow', 'buttons')};
-  appearance: none;
-  overflow: hidden;
-  transition: ${get('transition', 'sm')};
-  line-height: 1rem;
+export const Button = styled.button(
+  props => css`
+    ${getCss('buttons', props.variant)};
+    ${getCss('text', 'button')};
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    align-self: ${props.alignself || null};
+    justify-content: ${props.align || 'center'};
+    width: auto;
+    text-align: ${props.align || 'center'};
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: ${props.radius ? props.radius : null};
+    box-shadow: ${props.shadow || get('boxShadow', 'buttons')};
+    appearance: none;
+    overflow: hidden;
+    transition: ${get('transition', 'sm')};
+    line-height: 1rem;
 
-  &:active {
-    transform: translateY(2px);
-    box-shadow: 0 0 4px ${get('rgba', 'black', 0.2)};
-  }
-
-  &::before {
-    background: ${get('rgba', 'white', 0.05)};
-  }
-
-  &:hover {
-    ${media.mobile`
+    &:active {
       transform: translateY(2px);
-    `}
-  }
+      box-shadow: 0 0 4px ${get('rgba', 'black', 0.2)};
+    }
 
-  &[disabled] {
-    color: ${get('color', 'white')};
-    background-color: ${get('color', 'light')};
-    pointer-events: none;
-  }
+    &::before {
+      background: ${get('rgba', 'white', 0.05)};
+    }
 
-  ${getButtonSize(props.size, props.rounded)};
-  ${getButtonVariant(props.variant)};
-  ${props.span === 'full' ? fullWidthStyles : null};
+    &:hover {
+      ${media.mobile`
+    transform: translateY(2px);
+  `}
+    }
 
-  ${props.styles};
-`
+    &[disabled] {
+      color: ${get('color', 'light', 'light')};
+      background-color: ${get('color', 'light', 'dark')};
+      pointer-events: none;
+    }
 
-export const Button = styled.button`
-  ${buttonStyles};
-`
+    ${getButtonSize(props.size, props.rounded)};
+    ${props.span === 'full' ? fullWidthStyles : null};
+
+    ${props.styles};
+  `
+)
 
 export default Button

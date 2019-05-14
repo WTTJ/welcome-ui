@@ -32,6 +32,5 @@ Button.propTypes = {
 // Specifies the default values for props:
 Button.defaultProps = {
   variant: 'primary',
-  size: 'auto',
-  span: 'auto'
+  size: 'auto'
 }

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { get } from '../../theme/helpers'
+import { get, getCss } from '../../theme/helpers'
 import { overflowEllipsis } from '../../common/styles/text'
 
 export const RadioTabWrapper = styled.div`
@@ -15,7 +15,7 @@ export const RadioTab = styled.input`
 `
 
 export const RadioTabLabel = styled.label`
-  ${get('fields', 'default')};
+  ${getCss('fields', 'default')};
   ${overflowEllipsis};
   position: relative;
   cursor: pointer;

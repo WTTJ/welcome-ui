@@ -26,7 +26,7 @@ export const colors = {
   },
   info: {
     light: '#FFFF00',
-    default: '#FFFF00',
+    default: '#66C8AB',
     dark: '#FFFF00'
   },
   light: {
