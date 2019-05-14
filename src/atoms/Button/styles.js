@@ -3,37 +3,6 @@ import styled, { css } from 'styled-components'
 import { get, getCss } from '../../theme/helpers'
 import { media } from '../../utils/utils'
 
-const getVariant = (foreground, background, border) => {
-  return css`
-    color: ${get('color', 'text', foreground)};
-    background: ${get('color', 'bg', background)};
-    border-color: ${get('color', 'bg', border)};
-
-    &::before {
-      background: ${get('rgba', background, 0.05)};
-    }
-
-    svg path {
-      fill: ${get('color', foreground)};
-    }
-  `
-}
-
-const variants = {
-  primary: getVariant('white', 'primary', 'primary'),
-  secondary: getVariant('secondary', 'white', 'secondary'),
-  tertiary: getVariant('white', 'secondary', 'secondary'),
-  disabled: getVariant('dark', 'light', 'light'),
-  'primary-warning': getVariant('white', 'warning', 'warning'),
-  'secondary-warning': getVariant('warning', 'white', 'warning'),
-  'primary-danger': getVariant('white', 'danger', 'danger'),
-  'secondary-danger': getVariant('danger', 'white', 'danger')
-}
-
-function getButtonVariant(variant) {
-  return variants[variant] || variants['primary']
-}
-
 const sizes = {
   sm: css`
     padding: ${get('padding', 'xxs')} ${get('padding', 'xs')};

@@ -11,7 +11,7 @@ const iconSvgStrokedStyles = css`
 const iconSvgFilledStyles = css`
   g,
   path {
-    fill: inherit;
+    fill: currentColor;
     stroke: none;
   }
 `
