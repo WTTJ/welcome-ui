@@ -2,14 +2,16 @@ import React, { Fragment } from 'react'
 import { bool, func, node, object, oneOf, string } from 'prop-types'
 import includes from 'lodash.includes'
 
-// common
+// Common
 import { RowContainer } from '../../common/styles/layout'
 import { getVariant } from '../../utils/variants'
-import { Label } from '../Label'
+// Form fields
+import { FileDrop } from '../../atoms/FileDrop'
 import { InputText } from '../InputText'
 import { InputTextarea } from '../InputTextarea'
 import { InputCheckbox } from '../InputCheckbox'
 import { InputRadio } from '../InputRadio'
+import { Label } from '../Label'
 import { RadioTab } from '../RadioTab'
 import { Toggle } from '../Toggle'
 import { Hint } from '../Hint'
@@ -20,6 +22,7 @@ const getFieldType = fieldType => {
   const fieldTypes = {
     checkbox: InputCheckbox,
     email: InputText,
+    filedrop: FileDrop,
     number: InputText,
     radio: InputRadio,
     radioTab: RadioTab,
@@ -114,6 +117,7 @@ Field.propTypes = {
     'text',
     'number',
     'email',
+    'filedrop',
     'textarea',
     'radio',
     'radioTab',

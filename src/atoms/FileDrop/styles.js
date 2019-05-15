@@ -1,21 +1,16 @@
 import styled, { css } from 'styled-components'
 
-import { get } from '../../theme/helpers'
+import { get, getCss } from '../../theme/helpers'
 
-const getBorder = ({ isDragAccept, isDragActive, isDragReject, alertMode }) => {
+const getBorder = ({ isDragAccept, isDragActive, isDragReject }) => {
   let borderStyle = 'dashed'
   let borderColor = null
 
-  if (isDragActive) {
-    borderColor = get('color', 'gray', 400)
-  }
   if (isDragAccept) {
-    borderStyle = 'solid'
-    borderColor = get('color', 'green', 400)
+    borderColor = get('color', 'primary', 'default')
   }
   if (isDragReject) {
-    borderStyle = 'solid'
-    borderColor = get('color', 'red', 400)
+    borderColor = get('color', 'danger', 'default')
   }
 
   return css`
@@ -23,22 +18,24 @@ const getBorder = ({ isDragAccept, isDragActive, isDragReject, alertMode }) => {
   `
 }
 
+export const Wrapper = styled.div`
+  position: relative;
+`
+
 export const StyledFileDrop = styled.div(
   props => css`
+    ${getCss('fields', 'default')};
+    ${getBorder(props)};
     position: relative;
-    height: ${get('headerHeight')};
+    display: flex;
+    justify-content: space-between;
+    height: ${get('fileDropHeight')};
     padding: ${get('gutter', 'md')};
     text-align: center;
-    background: ${get('color', 'gray', 100)};
-    ${getBorder(props)};
-    border-radius: ${get('radius', 'sm')};
 
     h3 {
-      font-size: ${get('fontSize', 'lg')};
-    }
-
-    p {
-      color: ${get('color', 'gray', 300)};
+      ${getCss('text', 'h1')};
+      color: ${get('color', 'primary', 'dark')};
     }
   `
 )
@@ -56,4 +53,10 @@ export const FilePreviewImage = styled.img`
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
+`
+
+export const Actions = styled.div`
+  position: absolute;
+  top: ${get('gutter', 'lg')};
+  right: ${get('gutter', 'lg')};
 `
