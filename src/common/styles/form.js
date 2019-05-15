@@ -11,7 +11,7 @@ export const getVariantColor = (variant, fallback) => {
     case 'info':
       return get('color', 'info', 'default')
     default:
-      return fallback || get('color', 'primary', 'default')
+      return fallback || get('color', 'nude', 'default')
   }
 }
 

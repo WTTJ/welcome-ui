@@ -113,6 +113,7 @@ Field.propTypes = {
     'radios',
     'toggle',
     'radio',
+    'radioTab',
     'checkbox'
   ]),
   /** Hint of Field component */

@@ -13,8 +13,7 @@ export const InputRadio = memo(props => {
   return (
     <StyledInputCheckbox onClick={onClick} checked={checked} order={order} size={size} type="radio">
       <input
-        defaultChecked={props.checked}
-        checked={checked}
+        defaultChecked={checked}
         id={name}
         name={groupName}
         onBlur={onBlur}

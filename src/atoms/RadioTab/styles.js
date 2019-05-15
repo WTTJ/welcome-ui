@@ -71,6 +71,7 @@ export const radioTabStyles = props => css`
     line-height: 1;
     text-align: center;
     transition: ${get('transition', 'sm')};
+    border-radius: 0;
     ${overflowEllipsis};
 
     ${props.checked && checkedStyles};

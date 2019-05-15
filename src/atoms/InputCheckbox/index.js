@@ -25,8 +25,7 @@ export const InputCheckbox = memo(props => {
   return (
     <StyledComponent checked={checked} order={order} onClick={onChange} size={size} type={type}>
       <input
-        defaultChecked={props.checked}
-        checked={checked}
+        defaultChecked={checked}
         id={name}
         name={groupName || name}
         onBlur={onBlur}
