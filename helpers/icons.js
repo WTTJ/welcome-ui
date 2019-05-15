@@ -6,7 +6,7 @@ fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)
 fs.writeFileAsync = util.promisify(fs.writeFile)
 
-const rootPath = path.join(__dirname, '../src/atoms/Icon')
+const rootPath = path.join(__dirname, '../src/components/Icon')
 const inputPath = path.join(rootPath, 'assets')
 const outputPath = path.join(rootPath, 'icons.js')
 

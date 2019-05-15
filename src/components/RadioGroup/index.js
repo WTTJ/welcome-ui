@@ -4,8 +4,7 @@ import { bool, oneOf, string } from 'prop-types'
 import StyledFieldGroup from '../FieldGroup/styles'
 import { Radios } from './styles'
 
-// molecules
-import { Label } from '../../molecules/Label'
+import { Label } from '../Label'
 
 export const RadioGroup = props => {
   const { children, groupName, label, required, direction } = props

@@ -3,8 +3,7 @@ import { string } from 'prop-types'
 
 import StyledFieldGroup from './styles'
 
-// molecules
-import { Label } from '../../molecules/Label'
+import { Label } from '../Label'
 
 export const FieldGroup = ({ children, label }) => {
   return (

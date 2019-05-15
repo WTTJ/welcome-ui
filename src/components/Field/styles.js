@@ -1,12 +1,9 @@
 import styled, { css } from 'styled-components'
 
-// molecules
-import Label from '../../molecules/Label/styles'
-
-// atoms
-import Toggle from '../../atoms/Toggle/styles'
-import InputCheckbox from '../../atoms/InputCheckbox/styles'
-import { radioTabStyles } from '../../atoms/RadioTab/styles'
+import Label from '../Label/styles'
+import Toggle from '../Toggle/styles'
+import InputCheckbox from '../InputCheckbox/styles'
+import { radioTabStyles } from '../RadioTab/styles'
 
 import { get } from '../../theme/helpers'
 

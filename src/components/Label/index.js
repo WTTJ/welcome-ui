@@ -3,9 +3,8 @@ import { bool, node, oneOf, oneOfType, string } from 'prop-types'
 
 import StyledLabel, { Disabled, Required, Variant } from './styles'
 
-// atoms
-import Badge from '../../atoms/Badge'
-import { Icon } from '../../atoms/Icon'
+import Badge from '../Badge'
+import { Icon } from '../Icon'
 
 export const Label = props => {
   const { children, disabled = false, disabledIcon, required = false, variant } = props

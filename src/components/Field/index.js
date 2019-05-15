@@ -7,14 +7,13 @@ import StyledField from './styles'
 // common
 import { RowContainer } from '../../common/styles/layout'
 
-// atoms
-import { Label } from '../../molecules/Label'
-import { InputText } from '../../atoms/InputText'
-import { InputCheckbox } from '../../atoms/InputCheckbox'
-import { InputRadio } from '../../atoms/InputRadio'
-import { RadioTab } from '../../atoms/RadioTab'
-import { Toggle } from '../../atoms/Toggle'
-import { Hint } from '../../atoms/Hint'
+import { Label } from '../Label'
+import { InputText } from '../InputText'
+import { InputCheckbox } from '../InputCheckbox'
+import { InputRadio } from '../InputRadio'
+import { RadioTab } from '../RadioTab'
+import { Toggle } from '../Toggle'
+import { Hint } from '../Hint'
 
 export const Field = ({
   disabled = false,

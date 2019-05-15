@@ -5,8 +5,8 @@
   "main": "dist/cjs/welcome-ui.js",
   "module": "dist/esm/index.js",
   "scripts": {
-    "icons:optimize": "svgo --folder=src/atoms/Icon/assets --pretty --indent=2 --multipass --quiet",
-    "icons:collect": "node helpers/icons.js && eslint src/atoms/Icon/icons.js --fix",
+    "icons:optimize": "svgo --folder=src/components/Icon/assets --pretty --indent=2 --multipass --quiet",
+    "icons:collect": "node helpers/icons.js && eslint src/components/Icon/icons.js --fix",
     "build": "rm -rf dist && rollup --config",
     "preversion": "yarn test",
     "version": "yarn build",
