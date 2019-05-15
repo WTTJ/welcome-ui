@@ -28,6 +28,7 @@ const getFieldType = fieldType => {
     textarea: InputTextarea,
     toggle: Toggle
   }
+
   return fieldTypes[fieldType] || fieldTypes.text
 }
 
@@ -107,7 +108,8 @@ Field.propTypes = {
     'number',
     'email',
     'textarea',
-    'radios',
+    'radio',
+    'radioTab',
     'toggle',
     'radio',
     'radioTab',
