@@ -1,7 +1,10 @@
 import styled, { css } from 'styled-components'
 
-import { get, getCss } from '../../theme/helpers'
+import { get } from '../../theme/helpers'
 import { overflowEllipsis } from '../../common/styles/text'
+
+// common form styles
+import { fieldTypeStyles } from '../../common/styles/form'
 
 //molecules
 import { Label } from '../../molecules/Label/styles'
@@ -26,13 +29,14 @@ const checkedStyles = css`
 `
 
 const columnStyles = css`
-  ${Label} {
-    margin-top: -${get('borderWidth', 'input')};
-  }
+  margin-top: -${get('borderWidth', 'input')};
 
-  &:first-child ${Label} {
-    border-radius: ${get('radius', 'md')} ${get('radius', 'md')} 0 0;
+  &:first-child {
     margin-top: 0;
+
+    ${Label} {
+      border-radius: ${get('radius', 'md')} ${get('radius', 'md')} 0 0;
+    }
   }
 
   &:last-child ${Label} {
@@ -41,13 +45,14 @@ const columnStyles = css`
 `
 
 const rowStyles = css`
-  ${Label} {
-    margin-left: -${get('borderWidth', 'input')};
-  }
+  margin-left: -${get('borderWidth', 'input')};
 
-  &:first-child ${Label} {
-    border-radius: ${get('radius', 'md')} 0 0 ${get('radius', 'md')};
+  &:first-child {
     margin-left: 0;
+
+    ${Label} {
+      border-radius: ${get('radius', 'md')} 0 0 ${get('radius', 'md')};
+    }
   }
 
   &:last-child ${Label} {
@@ -58,7 +63,7 @@ const rowStyles = css`
 export const radioTabStyles = props => css`
   flex: 1;
   ${Label} {
-    ${getCss('fields', 'default')};
+    ${fieldTypeStyles};
     flex-grow: 1;
     position: relative;
     display: block;
