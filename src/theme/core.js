@@ -1,10 +1,11 @@
 import merge from 'lodash.merge'
 
+import { buttons } from './buttons'
 import { colors } from './colors'
 import { getFields } from './fields'
-import { buttons } from './buttons'
-import { radii } from './radii'
 import { getFontSizes, fontWeights, letterSpacings, toRem, getTypography } from './typography'
+import { radii } from './radii'
+import { tooltips } from './tooltips'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'welcomeweb'
@@ -30,6 +31,7 @@ export const coreTheme = (options = {}) => {
   theme.text = getTypography(theme)
   theme.fields = getFields(theme)
   theme.buttons = buttons
+  theme.tooltips = tooltips({ defaultFontSize })
 
   theme.borderWidth = {
     input: '1px'

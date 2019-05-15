@@ -1,0 +1,43 @@
+---
+name: Tooltip
+route: /components/tooltip
+menu: Components
+---
+
+import { PropsTable } from 'docz'
+import { StyledPlayground as Playground } from '../../../docz.styled'
+
+import { Button } from '../Button'
+import Tooltip from './index'
+
+# Tooltip
+
+## Properties
+
+<PropsTable of={Tooltip} />
+
+## Examples
+
+<Playground>
+  {() => {
+      return (
+        <>
+          <Button>
+            Hover right here to show a beautiful tooltip :)
+          </Button>
+          <Tooltip accessibilityId="button_example">lorem ipsum dolor sit amet</Tooltip>
+          <div style={{ marginTop: '30px' }}>
+              <div style={{ display: 'inline-block' }}>
+                Example with a long text > max width
+              </div>
+              <Tooltip accessibilityId="div_example">
+                lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </Tooltip>
+          </div>
+        </>
+      )
+    }
+
+}
+
+</Playground>
