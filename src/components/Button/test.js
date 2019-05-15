@@ -2,7 +2,7 @@ import React from 'react'
 
 import { render } from '../../utils/tests'
 
-import { Button } from './styles'
+import { Button } from './index'
 
 test('<Button> renders correctly and has white text by default', () => {
   const button = render(<Button>Test button</Button>).toJSON()

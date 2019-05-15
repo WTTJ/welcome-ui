@@ -1,19 +1,7 @@
 import { css } from 'styled-components'
 
 import { get, getCss } from '../../theme/helpers'
-
-export const getVariantColor = (variant, fallback) => {
-  switch (variant) {
-    case 'error':
-      return get('color', 'danger', 'default')
-    case 'warning':
-      return get('color', 'warning', 'default')
-    case 'info':
-      return get('color', 'info', 'default')
-    default:
-      return fallback || get('color', 'nude', 'default')
-  }
-}
+import { getVariantColor } from '../../utils/variants'
 
 export const fieldTypeStyles = css`
   ${getCss('fields', 'default')};

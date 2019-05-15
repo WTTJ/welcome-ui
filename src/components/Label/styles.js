@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { getVariantColor } from '../../common/styles/form'
+import { getVariantColor } from '../../utils/variants'
 import { get, getCss } from '../../theme/helpers'
 
 export const Disabled = styled.div`

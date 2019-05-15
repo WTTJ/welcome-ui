@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { bool, oneOf, string } from 'prop-types'
 
-import StyledFieldGroup from '../FieldGroup/styles'
+import { StyledFieldGroup } from '../FieldGroup/styles'
 import { Radios } from './styles'
 
 import { Label } from '../Label'

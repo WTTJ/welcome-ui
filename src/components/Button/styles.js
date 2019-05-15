@@ -45,7 +45,7 @@ export const pulsingStyles = css`
   }
 `
 
-export const Button = styled.button(
+export const StyledButton = styled.button(
   props => css`
     ${getCss('buttons', props.variant || 'primary')};
     ${getCss('text', 'button')};
@@ -62,7 +62,7 @@ export const Button = styled.button(
     border-width: 1px;
     border-style: solid;
     border-radius: ${props.radius ? props.radius : null};
-    box-shadow: ${props.shadow || get('boxShadow', 'buttons')};
+    box-shadow: ${props.shadow || get('boxShadow', 'sm')};
     appearance: none;
     overflow: hidden;
     transition: ${get('transition', 'sm')};
@@ -70,11 +70,11 @@ export const Button = styled.button(
 
     &:active {
       transform: translateY(2px);
-      box-shadow: 0 0 4px ${get('rgba', 'black', 0.2)};
+      box-shadow: ${get('boxShadow', 'sm')};
     }
 
     &::before {
-      background: ${get('rgba', 'white', 0.05)};
+      background: ${get('rgba', 'light', 'light', 0.05)};
     }
 
     &:hover {
@@ -95,5 +95,3 @@ export const Button = styled.button(
     ${props.styles};
   `
 )
-
-export default Button

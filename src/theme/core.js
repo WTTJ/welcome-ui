@@ -10,7 +10,7 @@ const DEFAULT_FONT_SIZE = 50
 const DEFAULT_FONT_FAMILY = 'Arial'
 const HEADING_FONT_FAMILY = 'Times'
 
-const coreTheme = (options = {}) => {
+export const coreTheme = (options = {}) => {
   let {
     defaultFontSize = DEFAULT_FONT_SIZE,
     defaultFontFamily = DEFAULT_FONT_FAMILY,
@@ -115,7 +115,7 @@ const coreTheme = (options = {}) => {
 
   theme.boxShadow = {
     xs: '0 1px 2px rgba(0,0,0,.1)',
-    sm: '0 2px 2px rgba(0,0,0,.1)',
+    sm: '0 2px 4px rgba(0,0,0,.2)',
     md: '0 3px 10px rgba(0,0,0,.08)',
     lg: '0 4px 15px rgba(0,0,0,.2)',
     xl: '0 8px 20px rgba(0,0,0,.2)',

@@ -7,7 +7,7 @@ import { getBaseStyles } from './src/utils/base'
 
 const theme = createTheme(welcomeTheme)
 
-const Wrapper = ({ children }) => {
+export const Wrapper = ({ children }) => {
   const BaseStyles = getBaseStyles(theme)
   return (
     <Fragment>

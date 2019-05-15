@@ -116,5 +116,3 @@ export const welcomeTheme = {
     ]
   }
 }
-
-export default welcomeTheme

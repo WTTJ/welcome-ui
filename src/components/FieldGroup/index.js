@@ -1,7 +1,7 @@
 import React from 'react'
 import { string } from 'prop-types'
 
-import StyledFieldGroup from './styles'
+import { StyledFieldGroup } from './styles'
 
 import { Label } from '../Label'
 
