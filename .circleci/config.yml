@@ -1,0 +1,66 @@
+defaults: &defaults
+  working_directory: ~/welcome-ui
+  docker:
+    - image: circleci/node:10.15.1-browsers
+
+defaults_deploy: &defaults_deploy
+  working_directory: ~/welcome-ui
+  machine: true
+
+version: 2
+jobs:
+  checkout:
+    <<: *defaults
+    steps:
+      - checkout
+      - save_cache:
+          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/welcome-ui
+
+  yarn_install:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: yarn install
+      - store_artifacts:
+          path: yarn.lock
+      - persist_to_workspace:
+          root: ~/welcome-ui
+          paths:
+            - node_modules
+
+  lint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: yarn lint
+
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: yarn test
+
+
+workflows:
+  version: 2
+  btd:
+    jobs:
+      - checkout
+      - yarn_install:
+          requires:
+            - checkout
+      - lint:
+          requires:
+            - yarn_install
+      - test:
+          requires:
+            - yarn_install
