@@ -1,0 +1,31 @@
+---
+name: FileDrop
+route: /molecules/filedrop
+menu: Molecules
+---
+
+import { PropsTable } from 'docz'
+import { StyledPlayground as Playground } from '../../../docz.styled'
+
+import { FileDrop } from './index'
+
+# FileDrop
+
+## Properties
+
+<PropsTable of={FileDrop} />
+
+## Examples
+
+### Default
+
+<Playground>
+  <FileDrop label="Avatar" hint="Files must be <200MB" required />
+</Playground>
+
+### Disabled
+
+<Playground>
+  <FileDrop disabled />
+</Playground>
+
