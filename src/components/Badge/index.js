@@ -15,7 +15,7 @@ export const Badge = props => {
 
 Badge.propTypes = {
   /** Variant of component */
-  variant: oneOf(['error', 'warning', 'valid']),
+  variant: oneOf(['error', 'info', 'valid', 'warning']),
   /** size of badge (height and min-width) */
   size: string,
   /** font size of badge text */
