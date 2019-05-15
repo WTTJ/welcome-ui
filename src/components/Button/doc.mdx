@@ -1,0 +1,54 @@
+---
+name: Button
+route: /components/button
+menu: Components
+---
+
+import { PropsTable } from 'docz'
+import { ButtonsPlayground as Playground } from '../../../docz.styled'
+import { Button } from './index'
+
+# Button
+
+## Properties
+
+<PropsTable of={Button} />
+
+## Examples
+
+### Variants
+
+<Playground>
+  <Button>default</Button>
+  <Button variant="primary">primary</Button>
+  <Button variant="secondary">secondary</Button>
+  <Button variant="tertiary">tertiary</Button>
+  <Button variant="disabled">disabled</Button>
+  <Button variant="primary-warning">primary-warning</Button>
+  <Button variant="secondary-warning">secondary-warning</Button>
+  <Button variant="primary-danger">primary-danger</Button>
+  <Button variant="secondary-danger">secondary-danger</Button>
+</Playground>
+
+### Sizes
+
+<Playground>
+  <Button>default</Button>
+  <Button size="sm">sm</Button>
+  <Button size="md">md</Button>
+  <Button size="lg">lg</Button>
+</Playground>
+
+### Span
+
+<Playground>
+  <Button span="full">full width</Button>
+  <Button span="half">half width</Button>
+</Playground>
+
+### Border radius
+
+<Playground>
+  <Button>default</Button>
+  <Button radius="10px">10px</Button>
+</Playground>

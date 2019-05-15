@@ -1,0 +1,59 @@
+---
+name: Label
+route: /components/label
+menu: Components
+---
+
+import { PropsTable } from 'docz'
+import { StyledPlayground as Playground } from '../../../docz.styled'
+
+import { Label } from './index'
+
+# Label
+
+## Properties
+
+<PropsTable of={Label} />
+
+## Examples
+
+### Default
+
+<Playground>
+  <Label>
+    Default label
+  </Label>
+</Playground>
+
+### Required
+
+<Playground>
+  <Label required>
+    Required label
+  </Label>
+</Playground>
+
+### Variants
+
+<Playground>
+  <Label variant="warning">
+    Warning variant
+  </Label>
+  <Label variant="error">
+    Error variant
+  </Label>
+</Playground>
+
+### Disabled
+
+<Playground>
+  <Label disabled>
+    Disabled label
+  </Label>
+  <Label disabled disabledIcon="🔒">
+    Custom icon disabled label
+  </Label>
+  <Label disabled disabledIcon="🔒" variant="warning">
+    Disabled custom icon warning label
+  </Label>
+</Playground>

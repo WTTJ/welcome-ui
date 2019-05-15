@@ -1,5 +1,5 @@
 // Components
-export * from './atoms/Button/index'
+export * from './components/Button/index'
 
 // Utils/theme
 export * from './utils/base'
