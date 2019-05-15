@@ -6,6 +6,7 @@ import Label from '../../molecules/Label/styles'
 // atoms
 import Toggle from '../../atoms/Toggle/styles'
 import InputCheckbox from '../../atoms/InputCheckbox/styles'
+import { radioTabStyles } from '../../atoms/RadioTab/styles'
 
 import { get } from '../../theme/helpers'
 
@@ -18,6 +19,7 @@ export const Field = styled.div(
     ${Toggle}, ${InputCheckbox} {
       margin-right: ${get('gutter', 'xxs')};
     }
+    ${props.fieldType === 'radioTab' && radioTabStyles(props)}
   `
 )
 

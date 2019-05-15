@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { bool, func, object, oneOf, node, string } from 'prop-types'
+import { bool, func, oneOf, node, string } from 'prop-types'
 import includes from 'lodash.includes'
 
 import StyledField from './styles'
@@ -8,11 +8,11 @@ import StyledField from './styles'
 import { RowContainer } from '../../common/styles/layout'
 
 // atoms
-import { RadioTabs } from '../../molecules/RadioTabs'
 import { Label } from '../../molecules/Label'
 import { InputText } from '../../atoms/InputText'
 import { InputCheckbox } from '../../atoms/InputCheckbox'
 import { InputRadio } from '../../atoms/InputRadio'
+import { RadioTab } from '../../atoms/RadioTab'
 import { Toggle } from '../../atoms/Toggle'
 import { Hint } from '../../atoms/Hint'
 
@@ -40,10 +40,10 @@ export const Field = ({
       text: InputText,
       number: InputText,
       email: InputText,
-      radios: RadioTabs,
       checkbox: InputCheckbox,
       toggle: Toggle,
-      radio: InputRadio
+      radio: InputRadio,
+      radioTab: RadioTab
     }
     return fieldTypes[fieldType] || fieldTypes.text
   }
@@ -57,6 +57,10 @@ export const Field = ({
     return includes(['toggle', 'checkbox', 'radio'], fieldType)
   }
 
+  const showRequired = () => {
+    return includes(['radio', 'radioTab'], fieldType) ? null : required
+  }
+
   const FieldType = getFieldType(fieldType)
   const variant = getVariant(warning, error)
   const hintText = error || warning || hint
@@ -64,21 +68,20 @@ export const Field = ({
   const Container = layout === 'row' ? RowContainer : Fragment
 
   return (
-    <StyledField direction={layout}>
+    <StyledField direction={layout} fieldType={fieldType} checked={checked}>
       <Container>
         {label && (
           <Label
             htmlFor={name}
             disabled={disabled}
             disabledIcon={disabledIcon}
-            required={required}
+            required={showRequired()}
             variant={variant}
           >
             {label}
           </Label>
         )}
         <FieldType
-          {...fieldTypeProps}
           checked={checked}
           name={name}
           groupName={groupName}
@@ -112,8 +115,6 @@ Field.propTypes = {
     'radio',
     'checkbox'
   ]),
-  /** Props of Field's component input */
-  fieldTypeProps: object,
   /** Hint of Field component */
   hint: string,
   /** Error of Field component */

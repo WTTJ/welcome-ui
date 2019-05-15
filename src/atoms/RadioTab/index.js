@@ -1,15 +1,9 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 
-import { RadioTabWrapper, RadioTab as StyledRadioTab, RadioTabLabel } from './styles'
+import { Input } from './styles'
 
-export class RadioTab extends PureComponent {
-  render() {
-    const { checked, id, label, name } = this.props
-    return (
-      <RadioTabWrapper>
-        <StyledRadioTab defaultChecked={checked} type="radio" id={id} name={name} value={id} />
-        <RadioTabLabel htmlFor={id}>{label}</RadioTabLabel>
-      </RadioTabWrapper>
-    )
-  }
+export const RadioTab = props => {
+  const { checked, name, groupName } = props
+
+  return <Input defaultChecked={checked} type="radio" id={name} name={groupName} />
 }

@@ -48,25 +48,51 @@ import { Field } from './index'
 ### RadioTabs
 
 <Playground>
-  <Field
-    checked='choice_2'
-    fieldType='radios'
+  <RadioGroup
     label='Label for input radios'
-    name='random-six'
-    fieldTypeProps={{
-      options: [{
-        id: "choice_1",
-        label: "Choice 1"
-      },{
-        id: "choice_2",
-        label: "Choice 2 very very very long incredible"
-      },{
-        id: "choice_3",
-        label: "Choice 3"
-      }]
-    }}
+    checkedName='choice_2'
+    groupName='choices'
+    direction='row'
     required
-  />
+  >
+    <Field
+      fieldType='radioTab'
+      name='choice_1'
+      label='Choice 1'
+    />
+    <Field
+      fieldType='radioTab'
+      name='choice_2'
+      label='Choice 2 very very very long incredible'
+    />
+    <Field
+      fieldType='radioTab'
+      name='choice_3'
+      label='Choice 3'
+    />
+  </RadioGroup>
+  <RadioGroup
+    label='Label for input radios'
+    checkedName='choice_2'
+    groupName='choices'
+    required
+  >
+    <Field
+      fieldType='radioTab'
+      name='choice_1'
+      label='Choice 1'
+    />
+    <Field
+      fieldType='radioTab'
+      name='choice_2'
+      label='Choice 2 very very very long incredible'
+    />
+    <Field
+      fieldType='radioTab'
+      name='choice_3'
+      label='Choice 3'
+    />
+  </RadioGroup>
 </Playground>
 
 ### Radio
@@ -74,21 +100,19 @@ import { Field } from './index'
 <Playground>
   <RadioGroup label='Your favorite sauce' groupName='sauce' checkedName='random-seven'>
     <Field
+      direction='row'
       name='random-seven'
       fieldType='radio'
-      fieldTypeProps={{ value: false }}
       label='Mayonnaise'
     />
     <Field
       name='random-eight'
       fieldType='radio'
-      fieldTypeProps={{ value: false }}
       label='Ketchup'
     />
     <Field
       name='random-nine'
       fieldType='radio'
-      fieldTypeProps={{ value: false }}
       label='Barebecue'
     />
   </RadioGroup>
