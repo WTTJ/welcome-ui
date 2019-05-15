@@ -1,5 +1,5 @@
 import { colors } from './colors'
-import { radius } from './radius'
+import { radii } from './radii'
 
 export const getFields = theme => {
   const defaults = {
@@ -8,7 +8,7 @@ export const getFields = theme => {
     'border-color': colors.light.dark,
     'border-width': '1px',
     'border-style': 'solid',
-    'border-radius': radius.sm,
+    'border-radius': radii.sm,
     ...theme.text.input
   }
 

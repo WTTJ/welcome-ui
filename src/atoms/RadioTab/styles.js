@@ -35,12 +35,12 @@ const columnStyles = css`
     margin-top: 0;
 
     ${Label} {
-      border-radius: ${get('radius', 'md')} ${get('radius', 'md')} 0 0;
+      border-radius: ${get('radii', 'md')} ${get('radii', 'md')} 0 0;
     }
   }
 
   &:last-child ${Label} {
-    border-radius: 0 0 ${get('radius', 'md')} ${get('radius', 'md')};
+    border-radius: 0 0 ${get('radii', 'md')} ${get('radii', 'md')};
   }
 `
 
@@ -51,12 +51,12 @@ const rowStyles = css`
     margin-left: 0;
 
     ${Label} {
-      border-radius: ${get('radius', 'md')} 0 0 ${get('radius', 'md')};
+      border-radius: ${get('radii', 'md')} 0 0 ${get('radii', 'md')};
     }
   }
 
   &:last-child ${Label} {
-    border-radius: 0 ${get('radius', 'md')} ${get('radius', 'md')} 0;
+    border-radius: 0 ${get('radii', 'md')} ${get('radii', 'md')} 0;
   }
 `
 

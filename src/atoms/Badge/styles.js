@@ -19,7 +19,7 @@ export const Badge = styled.div(
     color: ${get('color', 'light', 'light')};
     font-size: ${getWithFallback(props, 'fontSize')};
     background-color: ${getVariantColor(props.variant)};
-    border-radius: ${props.radius ? get('radius', props.radius) : props.size};
+    border-radius: ${props.radius ? get('radii', props.radius) : props.size};
   `
 )
 

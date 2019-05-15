@@ -3,7 +3,7 @@ import merge from 'lodash.merge'
 import { colors } from './colors'
 import { getFields } from './fields'
 import { buttons } from './buttons'
-import { radius } from './radius'
+import { radii } from './radii'
 import { getFontSizes, fontWeights, letterSpacings, toRem, getTypography } from './typography'
 
 const DEFAULT_FONT_SIZE = 50
@@ -111,7 +111,7 @@ const coreTheme = (options = {}) => {
     lg: toRem(960, defaultFontSize)
   }
 
-  theme.radius = radius
+  theme.radii = radii
 
   theme.boxShadow = {
     xs: '0 1px 2px rgba(0,0,0,.1)',

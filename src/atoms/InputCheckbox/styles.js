@@ -22,7 +22,7 @@ export const InputCheckbox = styled.div(
     padding: 0;
     cursor: pointer;
     order: ${props.order || null};
-    border-radius: ${props.type === 'radio' ? '50%' : get('radius', 'sm')};
+    border-radius: ${props.type === 'radio' ? '50%' : get('radii', 'sm')};
     transition: ${get('transition', 'sm')};
 
     &::after {
