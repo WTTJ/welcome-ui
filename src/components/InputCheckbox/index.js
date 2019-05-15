@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react'
 import { bool, number, oneOf } from 'prop-types'
 
-import StyledInputCheckbox from './styles'
+import { StyledInputCheckbox } from './styles'
 
 export const InputCheckbox = memo(props => {
   const {

@@ -18,7 +18,7 @@ const checkedStyles = css`
 const toggleSize = props =>
   `calc(${get('toggleSize', props.size)(props)} - 2 * ${get('borderWidth', 'input')(props)})`
 
-export const Toggle = styled.div(
+export const StyledToggle = styled.div(
   props =>
     css`
       position: relative;
@@ -59,5 +59,3 @@ export const Toggle = styled.div(
       ${props.checked && checkedStyles}
     `
 )
-
-export default Toggle

@@ -1,7 +1,7 @@
 import React, { memo, useRef } from 'react'
 import { bool, number, oneOf } from 'prop-types'
 
-import StyledInputCheckbox from '../InputCheckbox/styles'
+import { StyledInputCheckbox } from '../InputCheckbox/styles'
 
 export const InputRadio = memo(props => {
   const { checked, groupName, name, onBlur, onFocus, order = -1, size = 'md' } = props

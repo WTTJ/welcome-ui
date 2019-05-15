@@ -1,7 +1,7 @@
 import React from 'react'
 import { bool, node, oneOf, oneOfType, string } from 'prop-types'
 
-import StyledLabel, { Disabled, Required, Variant } from './styles'
+import { Disabled, Required, StyledLabel, Variant } from './styles'
 
 import Badge from '../Badge'
 import { Icon } from '../Icon'

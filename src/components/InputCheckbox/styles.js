@@ -13,7 +13,7 @@ const checkedStyles = css`
   }
 `
 
-export const InputCheckbox = styled.div(
+export const StyledInputCheckbox = styled.div(
   props => css`
     ${fieldTypeStyles};
     position: relative;
@@ -42,5 +42,3 @@ export const InputCheckbox = styled.div(
     ${props.checked && checkedStyles};
   `
 )
-
-export default InputCheckbox

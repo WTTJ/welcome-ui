@@ -2,18 +2,34 @@ import React, { Fragment } from 'react'
 import { bool, func, oneOf, node, string } from 'prop-types'
 import includes from 'lodash.includes'
 
-import StyledField from './styles'
+import { StyledField } from './styles'
 
 // common
 import { RowContainer } from '../../common/styles/layout'
+import { getVariant } from '../../utils/variants'
 
 import { Label } from '../Label'
 import { InputText } from '../InputText'
+import { InputTextarea } from '../InputTextarea'
 import { InputCheckbox } from '../InputCheckbox'
 import { InputRadio } from '../InputRadio'
 import { RadioTab } from '../RadioTab'
 import { Toggle } from '../Toggle'
 import { Hint } from '../Hint'
+
+const getFieldType = fieldType => {
+  const fieldTypes = {
+    checkbox: InputCheckbox,
+    email: InputText,
+    number: InputText,
+    radio: InputRadio,
+    radioTab: RadioTab,
+    text: InputText,
+    textarea: InputTextarea,
+    toggle: Toggle
+  }
+  return fieldTypes[fieldType] || fieldTypes.text
+}
 
 export const Field = ({
   disabled = false,
@@ -34,24 +50,6 @@ export const Field = ({
   required = false,
   warning = ''
 }) => {
-  const getFieldType = fieldType => {
-    const fieldTypes = {
-      text: InputText,
-      number: InputText,
-      email: InputText,
-      checkbox: InputCheckbox,
-      toggle: Toggle,
-      radio: InputRadio,
-      radioTab: RadioTab
-    }
-    return fieldTypes[fieldType] || fieldTypes.text
-  }
-
-  const getVariant = (warning, error) => {
-    if (error) return 'error'
-    if (warning) return 'warning'
-  }
-
   const isInline = () => {
     return includes(['toggle', 'checkbox', 'radio'], fieldType)
   }

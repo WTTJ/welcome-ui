@@ -22,12 +22,10 @@ export const Variant = styled.div(
   `
 )
 
-export const Label = styled.label`
+export const StyledLabel = styled.label`
   display: flex;
   flex-shrink: 0;
   align-items: center;
   ${getCss('text', 'label')};
   color: ${get('color', 'dark', 'default')};
 `
-
-export default Label

@@ -6,7 +6,7 @@ import { overflowEllipsis } from '../../common/styles/text'
 // common form styles
 import { fieldTypeStyles } from '../../common/styles/form'
 
-import { Label } from '../Label/styles'
+import { StyledLabel } from '../Label/styles'
 
 export const StyledRadioTab = styled.div`
   flex: 1;
@@ -33,12 +33,12 @@ const columnStyles = css`
   &:first-child {
     margin-top: 0;
 
-    ${Label} {
+    ${StyledLabel} {
       border-radius: ${get('radii', 'md')} ${get('radii', 'md')} 0 0;
     }
   }
 
-  &:last-child ${Label} {
+  &:last-child ${StyledLabel} {
     border-radius: 0 0 ${get('radii', 'md')} ${get('radii', 'md')};
   }
 `
@@ -49,19 +49,19 @@ const rowStyles = css`
   &:first-child {
     margin-left: 0;
 
-    ${Label} {
+    ${StyledLabel} {
       border-radius: ${get('radii', 'md')} 0 0 ${get('radii', 'md')};
     }
   }
 
-  &:last-child ${Label} {
+  &:last-child ${StyledLabel} {
     border-radius: 0 ${get('radii', 'md')} ${get('radii', 'md')} 0;
   }
 `
 
 export const radioTabStyles = props => css`
   flex: 1;
-  ${Label} {
+  ${StyledLabel} {
     ${fieldTypeStyles};
     flex-grow: 1;
     position: relative;
