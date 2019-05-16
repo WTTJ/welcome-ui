@@ -6,8 +6,8 @@ import { fieldTypeStyles } from '../../common/styles/form'
 import { get } from '../../theme/helpers'
 
 const checkedStyles = css`
-  background-color: ${get('colors.primary.default')};
-  border-color: ${get('colors.primary.default')};
+  background-color: ${get('colors.primary.500')};
+  border-color: ${get('colors.primary.500')};
   &::after {
     opacity: 1;
   }
@@ -34,7 +34,7 @@ export const StyledInputCheckbox = styled.div(
       left: 0;
       line-height: 1;
       text-align: center;
-      color: ${get('colors.light.light')};
+      color: ${get('colors.light.200')};
       opacity: 0;
       transition: ${get('transition.sm')};
     }

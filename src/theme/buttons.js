@@ -2,9 +2,9 @@ import { colors } from './colors'
 import { radii } from './radii'
 
 const defaults = {
-  color: colors.light.light,
-  background: colors.primary.default,
-  'border-color': colors.primary.default,
+  color: colors.light[200],
+  background: colors.primary[500],
+  'border-color': colors.primary[500],
   'border-radius': radii.sm
 }
 
@@ -12,44 +12,44 @@ export const buttons = {
   primary: defaults,
   secondary: {
     ...defaults,
-    color: colors.primary.dark,
-    background: colors.light.light,
-    'border-color': colors.light.dark
+    color: colors.primary[700],
+    background: colors.light[200],
+    'border-color': colors.light[700]
   },
   tertiary: {
     ...defaults,
-    color: colors.light.light,
-    background: colors.dark.light,
-    'border-color': colors.dark.light
+    color: colors.light[200],
+    background: colors.dark[200],
+    'border-color': colors.dark[200]
   },
   disabled: {
     ...defaults,
-    color: colors.dark.dark,
-    background: colors.light.dark,
-    'border-color': colors.light.dark
+    color: colors.dark[700],
+    background: colors.light[700],
+    'border-color': colors.light[700]
   },
   'primary-warning': {
     ...defaults,
-    color: colors.light.light,
-    background: colors.warning.default,
-    'border-color': colors.warning.default
+    color: colors.light[200],
+    background: colors.warning[500],
+    'border-color': colors.warning[500]
   },
   'secondary-warning': {
     ...defaults,
-    color: colors.warning.default,
-    background: colors.light.light,
-    'border-color': colors.warning.default
+    color: colors.warning[500],
+    background: colors.light[200],
+    'border-color': colors.warning[500]
   },
   'primary-danger': {
     ...defaults,
-    color: colors.light.light,
-    background: colors.danger.default,
-    'border-color': colors.danger.default
+    color: colors.light[200],
+    background: colors.danger[500],
+    'border-color': colors.danger[500]
   },
   'secondary-danger': {
     ...defaults,
-    color: colors.danger.default,
-    background: colors.light.light,
-    'border-color': colors.danger.default
+    color: colors.danger[500],
+    background: colors.light[200],
+    'border-color': colors.danger[500]
   }
 }

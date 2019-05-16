@@ -74,7 +74,7 @@ export const StyledButton = styled.button(
     }
 
     &::before {
-      background: ${get('rgba.light.light', 0.05)};
+      background: ${get('rgba.light.200', 0.05)};
     }
 
     &:hover {
@@ -84,8 +84,8 @@ export const StyledButton = styled.button(
     }
 
     &[disabled] {
-      color: ${get('colors.light.light')};
-      background-color: ${get('colors.light.dark')};
+      color: ${get('colors.light.200')};
+      background-color: ${get('colors.light.700')};
       pointer-events: none;
     }
 
