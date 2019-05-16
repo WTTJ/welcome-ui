@@ -1,7 +1,7 @@
 import React from 'react'
 import { oneOf, string, node } from 'prop-types'
 
-import StyledDummyComponent from './styles'
+import { StyledDummyComponent } from './styles'
 
 export const DummyComponent = ({ children, size, type, ...props }) => (
   <StyledDummyComponent size={size} type={type} {...props}>
@@ -23,5 +23,3 @@ DummyComponent.defaultProps = {
   size: 'auto',
   type: 'full'
 }
-
-export default DummyComponent

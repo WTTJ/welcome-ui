@@ -1,6 +1,6 @@
 import React from 'react'
 
-import StyledInputText from './styles'
+import { StyledInputText } from './styles'
 
 export const InputText = props => {
   const { disabled, fieldTypeProps, name, placeholder, variant, type } = props

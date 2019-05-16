@@ -1,7 +1,7 @@
 import React from 'react'
 import { oneOf, string } from 'prop-types'
 
-import StyledBadge from './styles'
+import { StyledBadge } from './styles'
 
 export const Badge = props => {
   const { children } = props
@@ -32,5 +32,3 @@ Badge.defaultProps = {
   size: '2em',
   padding: 'sm'
 }
-
-export default Badge

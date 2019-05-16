@@ -34,6 +34,7 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
   outline: none;
   border-width: 1px;
   border-style: solid;
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -48,11 +49,11 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
   -webkit-transform: translateY(2px);
   -ms-transform: translateY(2px);
   transform: translateY(2px);
-  box-shadow: 0 0 4px rgba(undefined,0.2);
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
 }
 
 .c0::before {
-  background: rgba(undefined,0.05);
+  background: rgba(255,255,255,0.05);
 }
 
 .c0[disabled] {
@@ -77,6 +78,7 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
 
 <button
   className="c0"
+  size="auto"
 >
   Test button
 </button>

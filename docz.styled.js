@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Playground } from 'docz'
 
-import { Button } from './src/components/Button/styles'
+import { StyledButton } from './src/components/Button/styles'
 import { IconSvg } from './src/components/Icon/styles'
 
 export const StyledPlayground = styled(Playground)``
@@ -22,7 +22,7 @@ function getButtonsPlaygroundSpacing(spacing) {
 export const ButtonsPlayground = styled(Playground)`
   margin-bottom: -${props => getButtonsPlaygroundSpacing(props.spacing)};
 
-  ${Button} {
+  ${StyledButton} {
     margin-right: ${props => getButtonsPlaygroundSpacing(props.spacing)};
     margin-bottom: ${props => getButtonsPlaygroundSpacing(props.spacing)};
   }

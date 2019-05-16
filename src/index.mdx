@@ -21,7 +21,7 @@ yarn add welcome-ui
 
 ### 2. Import welcome-ui and create a theme
 ```
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { createTheme, getBaseStyles } from 'welcome-ui'
 
@@ -37,19 +37,16 @@ const options = {
 const theme = createTheme(options)
 const BaseStyles = getBaseStyles(theme)
 
-export default class Root extends Component {
-  render() {
-
-    // Wrap your component with ThemeProvider
-    return (
-      <Fragment>
-        <BaseStyles />
-        <ThemeProvider theme={theme}>
-          <div>Welcome!</div>
-        </ThemeProvider>
-      </Fragment>
-    )
-  }
+export default const Root = () => {
+  // Wrap your component with ThemeProvider
+  return (
+    <Fragment>
+      <BaseStyles />
+      <ThemeProvider theme={theme}>
+        <div>Welcome!</div>
+      </ThemeProvider>
+    </Fragment>
+  )
 }
 
 export default Root
@@ -57,7 +54,7 @@ export default Root
 
 ## Themes
 
-Here are all the possible values for your theme. These will be merged with the default theme which you can find here: 
+Here are all the possible values for your theme. These will be merged with the default theme which you can find here:
 
 ```
 ```

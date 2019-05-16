@@ -157,5 +157,3 @@ export const reset = css`
     margin-top: -1px;
   }
 `
-
-export default reset

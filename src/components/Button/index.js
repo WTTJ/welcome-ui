@@ -1,7 +1,7 @@
 import React from 'react'
 import { oneOf, string } from 'prop-types'
 
-import StyledButton from './styles'
+import { StyledButton } from './styles'
 
 export const Button = props => {
   return <StyledButton {...props}>{props.children}</StyledButton>

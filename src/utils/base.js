@@ -1,6 +1,6 @@
 import { createGlobalStyle, css } from 'styled-components'
 
-import reset from './reset'
+import { reset } from './reset'
 import { fontFace } from './font'
 
 const baseResponsiveStyles = css`
@@ -56,5 +56,3 @@ export const getBaseStyles = theme => createGlobalStyle`
 
   ${baseResponsiveStyles}
 `
-
-export default getBaseStyles

@@ -4,7 +4,7 @@ const getHexValueAtLocation = (value, start, count) => {
 
 const isValidHex = hex => /(^[0-9a-fA-F]{6}$)|(^[0-9a-fA-F]{3}$)/.test(hex)
 
-const hexToRGB = hex => {
+export const hexToRGB = hex => {
   if (!hex) {
     return
   }
@@ -24,5 +24,3 @@ const hexToRGB = hex => {
 
   return `${hexToR(hex)}, ${hexToG(hex)}, ${hexToB(hex)}`
 }
-
-export default hexToRGB

@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components'
 
-import { getVariantColor } from '../../common/styles/form'
+import { getVariantColor } from '../../utils/variants'
 import { get, getCss } from '../../theme/helpers'
 
 const getWithFallback = (props, key) => get(key, props[key])(props) || props[key] || null
 
-export const Badge = styled.div(
+export const StyledBadge = styled.div(
   props => css`
     ${getCss('text', 'badge')};
     display: inline-flex;
@@ -22,5 +22,3 @@ export const Badge = styled.div(
     border-radius: ${props.radius ? get('radii', props.radius) : props.size};
   `
 )
-
-export default Badge
