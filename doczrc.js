@@ -4,6 +4,7 @@ import { createTheme } from './src/theme/core'
 const theme = createTheme(welcomeTheme)
 
 export default {
+  base: '/welcome-ui/',
   dest: '/docs',
   wrapper: 'wrapper',
   hashRouter: true,
