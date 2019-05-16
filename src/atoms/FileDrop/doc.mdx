@@ -1,6 +1,6 @@
 ---
-name: FileDrop
-route: /molecules/filedrop
+name: FileUpload
+route: /molecules/fileupload
 menu: Molecules
 ---
 
@@ -8,22 +8,22 @@ import { PropsTable } from 'docz'
 import { StyledPlayground as Playground } from '../../../docz.styled'
 
 import { Fragment } from 'react'
-import { FileDrop } from './index'
+import { FileUpload } from './index'
 import { Button } from '../../atoms/Button'
 import { Icon } from '../../atoms/Icon'
 
-# FileDrop
+# FileUpload
 
 ## Properties
 
-<PropsTable of={FileDrop} />
+<PropsTable of={FileUpload} />
 
 ## Examples
 
 ### Default
 
 <Playground>
-  <FileDrop
+  <FileUpload
     label="Avatar"
     hint="Files must be <200MB"
     required
@@ -45,7 +45,7 @@ import { Icon } from '../../atoms/Icon'
 ### Disabled
 
 <Playground>
-  <FileDrop
+  <FileUpload
     disabled
     states={{
       default: (

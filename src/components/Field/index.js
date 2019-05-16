@@ -6,7 +6,7 @@ import includes from 'lodash.includes'
 import { RowContainer } from '../../common/styles/layout'
 import { getVariant } from '../../utils/variants'
 // Form fields
-import { FileDrop } from '../../atoms/FileDrop'
+import { FileUpload } from '../../atoms/FileUpload'
 import { InputText } from '../InputText'
 import { InputTextarea } from '../InputTextarea'
 import { InputCheckbox } from '../InputCheckbox'
@@ -22,7 +22,7 @@ const getFieldType = fieldType => {
   const fieldTypes = {
     checkbox: InputCheckbox,
     email: InputText,
-    filedrop: FileDrop,
+    fileupload: FileUpload,
     number: InputText,
     radio: InputRadio,
     radioTab: RadioTab,
@@ -117,7 +117,7 @@ Field.propTypes = {
     'text',
     'number',
     'email',
-    'filedrop',
+    'fileupload',
     'textarea',
     'radio',
     'radioTab',

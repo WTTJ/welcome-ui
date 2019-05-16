@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
   position: relative;
 `
 
-export const StyledFileDrop = styled.div(
+export const StyledFileUpload = styled.div(
   props => css`
     ${getCss('fields', 'default')};
     ${getBorder(props)};

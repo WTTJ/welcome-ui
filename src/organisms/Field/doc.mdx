@@ -1,7 +1,7 @@
 ---
 name: Field
-route: /components/field
-menu: Components
+route: /organisms/field
+menu: Organisms
 ---
 
 import { PropsTable } from 'docz'
@@ -17,11 +17,12 @@ import { Field } from './index'
 
 <PropsTable of={Field} />
 
-## Variants
+## Examples
+
+### Variants
 
 <Playground>
   <Field name="random" placeholder="Placeholder" fieldType="text" label="Label" hint="A hint" />
-  <br />
   <Field
     name="random-one"
     placeholder="Placeholder"
@@ -29,7 +30,6 @@ import { Field } from './index'
     label="Label"
     warning="A warning"
   />
-  <br />
   <Field
     name="random-two"
     placeholder="Placeholder"
@@ -39,13 +39,13 @@ import { Field } from './index'
   />
 </Playground>
 
-## Disabled
+### Disabled
 
 <Playground>
   <Field name="random-three" placeholder="Placeholder" fieldType="text" label="Label" disabled />
 </Playground>
 
-## Inline
+### Inline
 
 <Playground>
   <Field
@@ -58,19 +58,13 @@ import { Field } from './index'
   />
 </Playground>
 
-## Required
+### Required
 
 <Playground>
   <Field name="random-five" placeholder="Placeholder" fieldType="text" label="Label" required />
 </Playground>
 
-## Textarea
-
-<Playground>
-  <Field name="random-zero" placeholder="Placeholder" fieldType="textarea" label="Label" />
-</Playground>
-
-## RadioTabs
+### RadioTabs
 
 <Playground>
   <RadioGroup
@@ -91,7 +85,7 @@ import { Field } from './index'
   </RadioGroup>
 </Playground>
 
-## Radio
+### Radio
 
 <Playground>
   <RadioGroup label="Your favorite sauce" groupName="sauce" checkedName="random-seven">
@@ -101,7 +95,7 @@ import { Field } from './index'
   </RadioGroup>
 </Playground>
 
-## Checkbox
+### Checkbox
 
 <Playground>
   <FieldGroup label="Check the frameworks you already worked with">
@@ -121,19 +115,14 @@ import { Field } from './index'
   </FieldGroup>
 </Playground>
 
-## Toggle
+### Toggle
 
 <Playground>
   <Field
     name="random-thirteen"
     fieldType="toggle"
+    fieldTypeProps={{ value: false }}
     label="Switch example"
-  />
-  <Field
-    name="random-fourteen"
-    fieldType="toggle"
-    label="Disabled switch example"
-    disabled
   />
 </Playground>
 

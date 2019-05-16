@@ -9,11 +9,11 @@ import { Button } from '../Button'
 // Utils
 import { validateFileSize, validateImage, IMAGE_MIME_TYPES } from '../../utils/validations'
 
-// FileDrop
-import { Actions, Wrapper, StyledFileDrop, FilePreview, FilePreviewImage } from './styles.js'
+// FileUpload
+import { Actions, Wrapper, StyledFileUpload, FilePreview, FilePreviewImage } from './styles.js'
 const MAX_FILE_SIZE = 2000000
 
-export const FileDrop = props => {
+export const FileUpload = props => {
   const {
     input,
     disabled,
@@ -140,11 +140,11 @@ export const FileDrop = props => {
 
   return (
     <Wrapper>
-      <StyledFileDrop {...getRootProps({ removeFile, isDragActive, isDragAccept, isDragReject })}>
+      <StyledFileUpload {...getRootProps({ removeFile, isDragActive, isDragAccept, isDragReject })}>
         <input {...getInputProps({ name: input && input.name })} />
         {file && renderPreviewState()}
         {!file && renderEmptyState()}
-      </StyledFileDrop>
+      </StyledFileUpload>
       {file && (
         <Actions>
           <Button type="button" size="sm" variant="secondary" onClick={open}>
@@ -159,7 +159,7 @@ export const FileDrop = props => {
   )
 }
 
-FileDrop.propTypes = {
+FileUpload.propTypes = {
   input: PropTypes.node,
   disabled: PropTypes.bool,
   accept: PropTypes.arrayOf(PropTypes.string),
@@ -176,7 +176,7 @@ FileDrop.propTypes = {
   onError: PropTypes.func
 }
 
-FileDrop.defaultProps = {
+FileUpload.defaultProps = {
   disabled: false,
   multiple: false,
   accept: IMAGE_MIME_TYPES
