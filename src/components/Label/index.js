@@ -3,7 +3,7 @@ import { bool, node, oneOf, oneOfType, string } from 'prop-types'
 
 import { Disabled, Required, StyledLabel, Variant } from './styles'
 
-import Badge from '../Badge'
+import { Badge } from '../Badge'
 import { Icon } from '../Icon'
 
 export const Label = props => {
