@@ -8,10 +8,10 @@ const getBorder = ({ isDragAccept, isDragActive, isDragReject }) => {
   let borderColor = null
 
   if (isDragAccept) {
-    borderColor = get('color.primary.500')
+    borderColor = get('color', 'primary', 'default')
   }
   if (isDragReject) {
-    borderColor = get('color.danger.500')
+    borderColor = get('color', 'danger', 'default')
   }
 
   return css`
@@ -24,11 +24,11 @@ export const Wrapper = styled.div`
 `
 
 const disabledStyles = css`
-  background: ${get('color.light.500')};
+  background: ${get('color', 'light', 'default')};
 
   h3,
   p {
-    color: ${get('color.dark.200')};
+    color: ${get('color', 'dark', 'light')};
   }
 `
 

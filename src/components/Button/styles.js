@@ -74,8 +74,7 @@ export const StyledButton = styled.button(
     }
 
     &[disabled] {
-      color: ${get('colors.light.200')};
-      background-color: ${get('colors.light.700')};
+      ${get('buttons', 'disabled')};
       pointer-events: none;
     }
 

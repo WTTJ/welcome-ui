@@ -85,7 +85,7 @@ export const FileUpload = props => {
       <Fragment>
         <h3>{title}</h3>
         <p>{body}</p>
-        <Button type="button" onClick={open}>
+        <Button type="button" onClick={open} disabled={disabled}>
           {buttonText}
         </Button>
       </Fragment>
@@ -140,7 +140,9 @@ export const FileUpload = props => {
 
   return (
     <Wrapper>
-      <StyledFileUpload {...getRootProps({ removeFile, isDragActive, isDragAccept, isDragReject })}>
+      <StyledFileUpload
+        {...getRootProps({ removeFile, isDragActive, isDragAccept, isDragReject, disabled })}
+      >
         <input {...getInputProps({ name: input && input.name })} />
         {file && renderPreviewState()}
         {!file && renderEmptyState()}

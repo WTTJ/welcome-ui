@@ -1,0 +1,41 @@
+---
+name: FileUpload
+route: /components/fileupload
+menu: Components
+---
+
+import { PropsTable } from 'docz'
+import { StyledPlayground as Playground } from '../../../docz.styled'
+
+import { Fragment } from 'react'
+import { FileUpload } from './index'
+import { Button } from '../Button'
+import { Icon } from '../Icon'
+
+# FileUpload
+
+## Properties
+
+<PropsTable of={FileUpload} />
+
+## Examples
+
+### Default
+
+<Playground>
+  <FileUpload
+    label="Avatar"
+    hint="Files must be <200MB"
+    required
+  />
+</Playground>
+
+### Disabled
+
+<Playground>
+  <FileUpload
+    label="Avatar"
+    hint="Files must be <200MB"
+    disabled
+  />
+</Playground>

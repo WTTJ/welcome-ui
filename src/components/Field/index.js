@@ -5,8 +5,8 @@ import includes from 'lodash.includes'
 // Common
 import { RowContainer } from '../../common/styles/layout'
 import { getVariant } from '../../utils/variants'
-// Form fields
-import { FileUpload } from '../../atoms/FileUpload'
+// Components
+import { FileUpload } from '../FileUpload'
 import { InputText } from '../InputText'
 import { InputTextarea } from '../InputTextarea'
 import { InputCheckbox } from '../InputCheckbox'
@@ -16,6 +16,7 @@ import { RadioTab } from '../RadioTab'
 import { Toggle } from '../Toggle'
 import { Hint } from '../Hint'
 
+// Fields
 import { StyledField } from './styles'
 
 const getFieldType = fieldType => {
