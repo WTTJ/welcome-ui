@@ -12,7 +12,7 @@ export default {
   },
   themeConfig: {
     colors: {
-      primary: theme.colors.primary.default
+      primary: theme.colors.primary[500]
     },
     styles: {
       body: {
@@ -38,7 +38,7 @@ export default {
         fontSize: theme.fontSize.xl,
         fontWeight: theme.fontWeight.black,
         textTransform: 'uppercase',
-        color: theme.colors.secondary.default,
+        color: theme.colors.secondary[500],
         borderBottom: 'none',
         marginTop: '4rem'
       },

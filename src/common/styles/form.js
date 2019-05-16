@@ -11,7 +11,7 @@ export const fieldTypeStyles = css`
   transition: ${get('transition.md')};
 
   &::placeholder {
-    color: ${get('colors.nude.light')};
+    color: ${get('colors.nude.300')};
   }
 
   &:focus {

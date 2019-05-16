@@ -5,7 +5,7 @@ route: /
 
 # Welcome UI
 
-Welcome to the *Welcome UI library*. Here you'll find all the core components you need to create a delightful webapp.
+Welcome to the _Welcome UI library_. Here you'll find all the core components you need to create a delightful webapp.
 
 ## Getting started
 
@@ -14,12 +14,15 @@ Welcome to the *Welcome UI library*. Here you'll find all the core components yo
 ```
 npm install welcome-ui
 ```
+
 or
+
 ```
 yarn add welcome-ui
 ```
 
 ### 2. Import welcome-ui and create a theme
+
 ```
 import React, { Fragment } from 'react'
 import { ThemeProvider } from 'styled-components'
@@ -57,6 +60,7 @@ export default Root
 Here are all the possible values for your theme. These will be merged with the default theme which you can find here:
 
 ```
+
 ```
 
 ## Helpers
@@ -69,8 +73,6 @@ import { get } from 'welcome-ui'
 
 const Sidebar = styled.div`
   font-family: ${get('fontFamily.default')};
-  background: ${get('colors.bg.light')};
+  background: ${get('colors.primary[500]')};
 `
 ```
-
-

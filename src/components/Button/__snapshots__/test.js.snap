@@ -3,8 +3,8 @@
 exports[`<Button> renders correctly and has white text by default 1`] = `
 .c0 {
   color: #FFFFFF;
-  background: #00C29A;
-  border-color: #00C29A;
+  background: #208DDB;
+  border-color: #208DDB;
   border-radius: 4px;
   font-family: inherit;
   font-size: 0.6875rem;
@@ -58,7 +58,7 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
 
 .c0[disabled] {
   color: #FFFFFF;
-  background-color: #EEECE8;
+  background-color: #CCCCCC;
   pointer-events: none;
 }
 

@@ -7,9 +7,9 @@ export const getVariant = (warning, error) => {
 }
 
 const variantColors = {
-  error: ['danger', 'default'],
-  warning: ['warning', 'default'],
-  info: ['info', 'default']
+  error: ['danger', 500],
+  warning: ['warning', 500],
+  info: ['info', 500]
 }
 
 export const getVariantColor = variant => {

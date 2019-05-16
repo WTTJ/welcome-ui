@@ -1,47 +1,45 @@
 export const colors = {
   primary: {
-    light: '#FFFF00',
-    default: '#00C29A',
-    dark: '#73747B'
+    500: '#208DDB',
+    700: '#1B74B5'
   },
   secondary: {
-    light: '#FFFF00',
-    default: '#FFFF00',
-    dark: '#FFFF00'
+    500: '#3A3A3A',
+    700: '#232323'
   },
   success: {
-    light: '#FFFF00',
-    default: '#FFFF00',
-    dark: '#FFFF00'
+    500: '#66CC75',
+    700: '#62C370'
   },
   danger: {
-    light: '#FFFF00',
-    default: '#F35454',
-    dark: '#FFFF00'
+    500: '#EA2A2D',
+    700: '#D62327'
   },
   warning: {
-    light: '#FFFF00',
-    default: '#FFAF51',
-    dark: '#FFFF00'
+    500: '#EE8434',
+    700: '#D6772F'
   },
   info: {
-    light: '#FFFF00',
-    default: '#66C8AB',
-    dark: '#FFFF00'
+    500: '#6060D1',
+    700: '#4E4EAA'
   },
   light: {
-    light: '#FFFFFF',
-    default: '#FBF9F7',
-    dark: '#EEECE8'
-  },
-  nude: {
-    light: '#AFABA7',
-    default: '#97938F',
-    dark: '#FFFF00'
+    200: '#FFFFFF',
+    500: '#FBF9F7',
+    700: '#CCCCCC'
   },
   dark: {
-    light: '#999999',
-    default: '#7F7C7A',
-    dark: '#26272E'
+    200: '#333333',
+    500: '#191919',
+    700: '#000000'
+  },
+  nude: {
+    100: '#E5E5E5',
+    200: '#CCCCCC',
+    300: '#B2B2B2',
+    400: '#999999',
+    500: '#7F7F7F',
+    600: '#666666',
+    700: '#4C4C4C'
   }
 }

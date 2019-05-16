@@ -8,10 +8,10 @@ const getBorder = ({ isDragAccept, isDragActive, isDragReject }) => {
   let borderColor = null
 
   if (isDragAccept) {
-    borderColor = get('color.primary.default')
+    borderColor = get('color.primary.500')
   }
   if (isDragReject) {
-    borderColor = get('color.danger.default')
+    borderColor = get('color.danger.500')
   }
 
   return css`
@@ -24,11 +24,11 @@ export const Wrapper = styled.div`
 `
 
 const disabledStyles = css`
-  background: ${get('color.light.default')};
+  background: ${get('color.light.500')};
 
   h3,
   p {
-    color: ${get('color.dark.light')};
+    color: ${get('color.dark.200')};
   }
 `
 
@@ -45,7 +45,7 @@ export const StyledFileUpload = styled.div(
 
     h3 {
       ${getCss('text.h1')};
-      color: ${get('color.primary.dark')};
+      color: ${get('color.primary.500')};
     }
 
     ${props.disabled && disabledStyles};
