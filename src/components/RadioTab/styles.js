@@ -20,9 +20,9 @@ export const Input = styled.input`
 `
 
 const checkedStyles = css`
-  color: ${get('color.primary.dark')};
-  border-color: ${get('color.primary.default')};
-  background-color: ${get('color.light.light')};
+  color: ${get('colors.primary.dark')};
+  border-color: ${get('colors.primary.default')};
+  background-color: ${get('colors.light.light')};
   box-shadow: ${get('boxShadow.xs')};
   z-index: 2;
 `

@@ -24,7 +24,7 @@ export const StyledBadge = styled.div(
     height: ${props.size};
     padding-right: ${getPadding(props)};
     padding-left: ${getPadding(props)};
-    color: ${get('color.light.light')};
+    color: ${get('colors.light.light')};
     font-size: ${props.fontSize ? props.fontSize : null};
     background-color: ${getVariantColor(props.variant)};
     border-radius: ${props.radius ? get(`radii.${props.radius}`) : props.size};

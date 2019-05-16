@@ -9,11 +9,10 @@ export const getVariant = (warning, error) => {
 const variantColors = {
   error: ['danger', 'default'],
   warning: ['warning', 'default'],
-  info: ['info', 'default'],
-  default: ['nude', 'default']
+  info: ['info', 'default']
 }
 
 export const getVariantColor = variant => {
   const variantColor = variantColors[variant] || variantColors.default
-  return get(`color.${variantColor.join('.')}`)
+  return get(`colors.${variantColor.join('.')}`)
 }

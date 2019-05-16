@@ -10,7 +10,7 @@ export const Disabled = styled.div`
 
 export const Required = styled.abbr`
   margin-left: ${get('gutter.xxs')};
-  color: ${get('color.primary.default')};
+  color: ${get('colors.primary.default')};
 `
 
 export const Variant = styled.div(
@@ -27,5 +27,5 @@ export const StyledLabel = styled.label`
   flex-shrink: 0;
   align-items: center;
   ${getCss('text.label')};
-  color: ${get('color.dark.default')};
+  color: ${get('colors.dark.default')};
 `
