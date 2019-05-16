@@ -84,8 +84,8 @@ export const StyledButton = styled.button(
     }
 
     &[disabled] {
-      color: ${get('color.light.light')};
-      background-color: ${get('color.light.dark')};
+      color: ${get('colors.light.light')};
+      background-color: ${get('colors.light.dark')};
       pointer-events: none;
     }
 

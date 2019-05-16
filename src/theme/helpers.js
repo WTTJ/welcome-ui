@@ -12,7 +12,7 @@ const getThemeValue = (theme, path) => {
 }
 
 const rgba = (theme, path, opacity) => {
-  const value = getThemeValue(theme, `color.${path.join('.')}`)
+  const value = getThemeValue(theme, `colors.${path.join('.')}`)
   return `rgba(${hexToRGB(value)}, ${opacity})`
 }
 

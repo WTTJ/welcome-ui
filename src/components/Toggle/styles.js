@@ -3,15 +3,15 @@ import styled, { css } from 'styled-components'
 import { get, getCss } from '../../theme/helpers'
 
 const checkedStyles = css`
-  background: ${get('color.primary.default')};
+  background: ${get('colors.primary.default')};
   &:hover {
-    background: ${get('color.primary.default')};
+    background: ${get('colors.primary.default')};
   }
 
   &::after {
     left: calc(100% - ${get('borderWidth.input')});
     transform: translateX(-100%);
-    border-color: ${get('color.primary.default')};
+    border-color: ${get('colors.primary.default')};
   }
 `
 
@@ -26,7 +26,7 @@ export const StyledToggle = styled.div(props => {
     width: ${`calc(${toggleSize} * 2)`};
     height: ${toggleSize};
     cursor: pointer;
-    background: ${get('color.light.dark')};
+    background: ${get('colors.light.dark')};
     border-radius: ${toggleSize};
     transition: 0.3s;
     order: ${props.order || null};
@@ -43,7 +43,7 @@ export const StyledToggle = styled.div(props => {
     }
 
     &:hover {
-      background-color: ${get('color.bg.tertiary')};
+      background-color: ${get('colors.bg.tertiary')};
     }
 
     &:active::after {
