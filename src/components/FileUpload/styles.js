@@ -45,7 +45,7 @@ export const StyledFileUpload = styled.div(
 
     h3 {
       ${getCss('text.h1')};
-      color: ${get('color.primary.500')};
+      color: ${get('color.primary.700')};
     }
 
     ${props.disabled && disabledStyles};
