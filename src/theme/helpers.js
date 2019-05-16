@@ -11,28 +11,33 @@ const getThemeValue = (theme, path) => {
   return value
 }
 
-const rgba = (theme, path) => {
-  const opacity = path.pop()
-  const value = getThemeValue(theme, ['color', ...path])
+const rgba = (theme, path, opacity) => {
+  const value = getThemeValue(theme, `color.${path.join('.')}`)
   return `rgba(${hexToRGB(value)}, ${opacity})`
 }
 
-export const get = (...path) => ({ theme }) => {
-  const [key, ...rest] = path
+export const get = (path, fallback) => ({ theme }) => {
+  const [key, ...rest] = path.split('.')
   if (key === 'rgba') {
-    return rgba(theme, rest)
+    return rgba(theme, rest, fallback)
   }
 
-  return getThemeValue(theme, path)
+  const value = getThemeValue(theme, path, fallback)
+  return value
 }
 
-export const getCss = (...path) => ({ theme }) => {
+export const getCss = (path, fallback) => ({ theme }) => {
   const value = getThemeValue(theme, path)
+  if (!value) {
+    return fallback
+  }
+
   if (typeof value !== 'string') {
     return css`
       ${value}
     `
   }
+
   if (process.env.NODE_ENV !== 'development') {
     console.warn(`${path.join('.')} is not returning CSS but a value`)
   }

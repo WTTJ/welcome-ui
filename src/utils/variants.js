@@ -15,5 +15,5 @@ const variantColors = {
 
 export const getVariantColor = variant => {
   const variantColor = variantColors[variant] || variantColors.default
-  return get('color', ...variantColor)
+  return get(`color.${variantColor.join('.')}`)
 }

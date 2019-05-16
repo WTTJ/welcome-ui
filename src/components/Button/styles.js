@@ -5,17 +5,17 @@ import { media } from '../../utils/utils'
 
 const sizes = {
   sm: css`
-    padding: ${get('padding', 'xxs')} ${get('padding', 'xs')};
+    padding: ${get('padding.xxs')} ${get('padding.xs')};
   `,
   md: css`
-    padding: ${get('padding', 'xs')} ${get('padding', 'sm')};
+    padding: ${get('padding.xs')} ${get('padding.sm')};
 
     ${media.mobile`
-      padding: ${get('padding', 'md')};
+      padding: ${get('padding.md')};
     `};
   `,
   lg: css`
-    padding: ${get('padding', 'sm')} ${get('padding', 'md')};
+    padding: ${get('padding.sm')} ${get('padding.md')};
   `
 }
 
@@ -26,7 +26,7 @@ function getButtonSize(size) {
 export const fullWidthStyles = css`
   width: 100%;
   &:not(:last-child) {
-    margin-bottom: ${get('gutter', 'lg')};
+    margin-bottom: ${get('gutter.lg')};
   }
 `
 
@@ -47,8 +47,8 @@ export const pulsingStyles = css`
 
 export const StyledButton = styled.button(
   props => css`
-    ${getCss('buttons', props.variant || 'primary')};
-    ${getCss('text', 'button')};
+    ${getCss(`buttons.${props.variant || 'primary'}`)};
+    ${getCss('text.button')};
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -62,19 +62,19 @@ export const StyledButton = styled.button(
     border-width: 1px;
     border-style: solid;
     border-radius: ${props.radius ? props.radius : null};
-    box-shadow: ${props.shadow || get('boxShadow', 'sm')};
+    box-shadow: ${props.shadow || get('boxShadow.sm')};
     appearance: none;
     overflow: hidden;
-    transition: ${get('transition', 'sm')};
+    transition: ${get('transition.sm')};
     line-height: 1rem;
 
     &:active {
       transform: translateY(2px);
-      box-shadow: ${get('boxShadow', 'sm')};
+      box-shadow: ${get('boxShadow.sm')};
     }
 
     &::before {
-      background: ${get('rgba', 'light', 'light', 0.05)};
+      background: ${get('rgba.light.light', 0.05)};
     }
 
     &:hover {
@@ -84,8 +84,8 @@ export const StyledButton = styled.button(
     }
 
     &[disabled] {
-      color: ${get('color', 'light', 'light')};
-      background-color: ${get('color', 'light', 'dark')};
+      color: ${get('color.light.light')};
+      background-color: ${get('color.light.dark')};
       pointer-events: none;
     }
 
