@@ -4,6 +4,7 @@ import { createTheme } from './src/theme/core'
 const theme = createTheme(welcomeTheme)
 
 export default {
+  dest: '/docs',
   wrapper: 'wrapper',
   hashRouter: true,
   htmlContext: {
