@@ -6,8 +6,8 @@ import { fieldTypeStyles } from '../../common/styles/form'
 import { get } from '../../theme/helpers'
 
 const checkedStyles = css`
-  background-color: ${get('color', 'primary', 'default')};
-  border-color: ${get('color', 'primary', 'default')};
+  background-color: ${get('color.primary.default')};
+  border-color: ${get('color.primary.default')};
   &::after {
     opacity: 1;
   }
@@ -17,13 +17,13 @@ export const StyledInputCheckbox = styled.div(
   props => css`
     ${fieldTypeStyles};
     position: relative;
-    width: ${get('checkboxSize', 'md')};
-    height: ${get('checkboxSize', 'md')};
+    width: ${get('checkboxSize.md')};
+    height: ${get('checkboxSize.md')};
     padding: 0;
     cursor: pointer;
     order: ${props.order || null};
-    border-radius: ${props.type === 'radio' ? '50%' : get('radii', 'sm')};
-    transition: ${get('transition', 'sm')};
+    border-radius: ${props.type === 'radio' ? '50%' : get('radii.sm')};
+    transition: ${get('transition.sm')};
 
     &::after {
       content: '✓';
@@ -34,9 +34,9 @@ export const StyledInputCheckbox = styled.div(
       left: 0;
       line-height: 1;
       text-align: center;
-      color: ${get('color', 'light', 'light')};
+      color: ${get('color.light.light')};
       opacity: 0;
-      transition: ${get('transition', 'sm')};
+      transition: ${get('transition.sm')};
     }
 
     ${props.checked && checkedStyles};
