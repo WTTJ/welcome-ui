@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import { get, getCss } from '../../theme/helpers'
+import { Button } from '../Button/styles'
 
 const getBorder = ({ isDragAccept, isDragActive, isDragReject }) => {
   let borderStyle = 'dashed'
@@ -59,4 +60,10 @@ export const Actions = styled.div`
   position: absolute;
   top: ${get('gutter', 'lg')};
   right: ${get('gutter', 'lg')};
+  display: flex;
+  flex-direction: column;
+
+  ${Button} {
+    margin-bottom: ${get('gutter', 'sm')};
+  }
 `

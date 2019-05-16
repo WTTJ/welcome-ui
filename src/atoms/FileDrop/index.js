@@ -145,14 +145,16 @@ export const FileDrop = props => {
         {file && renderPreviewState()}
         {!file && renderEmptyState()}
       </StyledFileDrop>
-      <Actions>
-        <Button type="button" size="sm" variant="secondary" onClick={open}>
-          <Icon icon="pencil" size="sm" />
-        </Button>
-        <Button type="button" size="sm" variant="primary-danger" onClick={removeFile}>
-          <Icon icon="cross" size="sm" />
-        </Button>
-      </Actions>
+      {file && (
+        <Actions>
+          <Button type="button" size="sm" variant="secondary" onClick={open}>
+            <Icon icon="pencil" size="sm" />
+          </Button>
+          <Button type="button" size="sm" variant="primary-danger" onClick={removeFile}>
+            <Icon icon="cross" size="sm" />
+          </Button>
+        </Actions>
+      )}
     </Wrapper>
   )
 }
@@ -162,6 +164,11 @@ FileDrop.propTypes = {
   disabled: PropTypes.bool,
   accept: PropTypes.arrayOf(PropTypes.string),
   multiple: PropTypes.bool,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  body: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  buttonText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  rejectText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  acceptText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   maxSize: PropTypes.number,
   onAddFile: PropTypes.func,
   onRemoveFile: PropTypes.func,
