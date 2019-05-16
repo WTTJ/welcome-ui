@@ -13,6 +13,6 @@ const variantColors = {
 }
 
 export const getVariantColor = variant => {
-  const variantColor = variantColors[variant] || variantColors.default
-  return get(`colors.${variantColor.join('.')}`)
+  const variantColor = variantColors[variant]
+  return variantColor ? get(`colors.${variantColor.join('.')}`) : null
 }
