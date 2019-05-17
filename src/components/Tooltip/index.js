@@ -6,7 +6,7 @@ import { useEventListener } from '../../utils/hooks/eventListener'
 import { useRefElement } from '../../utils/hooks/refElement'
 import { useSetAttribute } from '../../utils/hooks/attributes'
 
-const Tooltip = ({ accessibilityId, children }) => {
+export const Tooltip = ({ accessibilityId, children }) => {
   /*** set state ***/
   // get mouse coords
   const [mouseCoords, setCoords] = useState({ left: 0, top: 0 })
@@ -56,5 +56,3 @@ Tooltip.propTypes = {
   /** Target parent element */
   children: node.isRequired
 }
-
-export default Tooltip
