@@ -13,6 +13,7 @@
     "postversion": "git push && git push --tags",
     "lint": "eslint src --max-warnings 0",
     "test": "jest src",
+    "test:watch": "jest --watch",
     "docz:dev": "docz dev",
     "docz:build": "docz build"
   },
