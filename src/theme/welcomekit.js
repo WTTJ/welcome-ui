@@ -83,29 +83,5 @@ export const welcomekitTheme = {
       800: palette.concord
     }
   },
-  fields: {
-    placeholder: {
-      color: palette.silverchalice
-    },
-    focus: {
-      'border-color': palette.jade
-    },
-    radiotabs: {
-      default: {
-        color: palette.zorba,
-        'background-color': palette.vistawhite
-      },
-      checked: {
-        'background-color': palette.soapstone,
-        'border-color': palette.jade,
-        '-webkit-text-stroke-color': palette.aquadeep,
-        '-webkit-text-fill-color': palette.aquadeep
-      },
-      hover: {
-        color: palette.concord,
-        'background-color': palette.soapstone
-      }
-    }
-  },
   palette
 }
