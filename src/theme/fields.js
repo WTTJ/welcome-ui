@@ -46,6 +46,28 @@ export const getFields = theme => {
         'background-color': theme.colors.light[200],
         'box-shadow': theme.boxShadow.xs
       }
+    },
+    toggles: {
+      default: {
+        'background-color': theme.colors.nude[200],
+        '&::after': {
+          ...defaults,
+          'background-color': theme.colors.light[200],
+          'border-color': theme.colors.nude[400]
+        }
+      },
+      checked: {
+        'background-color': theme.colors.primary[500],
+        '&::after': {
+          'border-color': theme.colors.primary[500]
+        }
+      },
+      disabled: {
+        'background-color': theme.colors.light[700],
+        '&::after': {
+          'border-color': theme.colors.nude[200]
+        }
+      }
     }
   }
 }
