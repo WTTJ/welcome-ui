@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { get } from '../../theme/helpers'
+import { get, getCss } from '../../theme/helpers'
 import { overflowEllipsis } from '../../common/styles/text'
 // common form styles
 import { fieldTypeStyles } from '../../common/styles/form'
@@ -18,11 +18,13 @@ export const Input = styled.input`
 `
 
 const checkedStyles = css`
-  color: ${get('colors.primary.700')};
-  border-color: ${get('colors.primary.500')};
-  background-color: ${get('colors.light.200')};
+  ${getCss('fields.radiotabs.checked')};
+  -webkit-text-stroke-width: 0.5px;
   box-shadow: ${get('boxShadow.xs')};
   z-index: 2;
+  &:hover {
+    color: transparent;
+  }
 `
 
 const columnStyles = css`
@@ -79,7 +81,7 @@ export const radioTabStyles = props => css`
     ${props.checked && checkedStyles};
 
     &:hover {
-      box-shadow: ${get('boxShadow.xs')};
+      ${getCss('fields.radiotabs.hover')};
     }
   }
 

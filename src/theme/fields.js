@@ -3,8 +3,8 @@ import { radii } from './radii'
 
 export const getFields = theme => {
   const defaults = {
-    background: colors.light[200],
     color: colors.dark[200],
+    'background-color': colors.light[200],
     'border-color': colors.nude[200],
     'border-width': '1px',
     'border-style': 'solid',
@@ -16,7 +16,7 @@ export const getFields = theme => {
     default: defaults,
     disabled: {
       ...defaults,
-      background: colors.light[500],
+      'background-color': colors.light[500],
       'pointer-events': 'none'
     },
     active: {
@@ -26,6 +26,26 @@ export const getFields = theme => {
     focus: {
       ...defaults,
       'border-color': colors.primary[500]
+    },
+    placeholder: {
+      color: colors.nude[300]
+    },
+    radiotabs: {
+      default: {
+        ...defaults
+      },
+      checked: {
+        color: 'transparent',
+        'background-color': colors.light[200],
+        'border-color': colors.primary[500],
+        'box-shadow': 'none',
+        '-webkit-text-stroke-color': colors.primary[700],
+        '-webkit-text-fill-color': colors.primary[700]
+      },
+      hover: {
+        'background-color': colors.nude[100],
+        'box-shadow': theme.boxShadow.xs
+      }
     }
   }
 }

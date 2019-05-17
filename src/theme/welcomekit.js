@@ -44,21 +44,46 @@ const palette = {
 export const welcomekitTheme = {
   colors: {
     danger: {
-      default: palette.carmen
+      500: palette.carmen
     },
     primary: {
-      default: palette.jade
+      500: palette.jade
     },
     warning: {
-      default: palette.anzac
+      500: palette.anzac
     }
   },
   fields: {
     default: {
+      color: palette.concord,
+      'background-color': palette.soapstone,
       'border-color': palette.cararra
     },
     disabled: {
       'border-color': palette.cararra
+    },
+    placeholder: {
+      color: palette.silverchalice
+    },
+    focus: {
+      'background-color': 'white',
+      'border-color': palette.jade
+    },
+    radiotabs: {
+      default: {
+        color: palette.zorba,
+        'background-color': palette.vistawhite
+      },
+      checked: {
+        'background-color': palette.soapstone,
+        'border-color': palette.jade,
+        '-webkit-text-stroke-color': palette.aquadeep,
+        '-webkit-text-fill-color': palette.aquadeep
+      },
+      hover: {
+        color: palette.concord,
+        'background-color': palette.soapstone
+      }
     }
   },
   palette

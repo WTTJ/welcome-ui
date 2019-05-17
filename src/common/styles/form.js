@@ -4,14 +4,15 @@ import { get, getCss } from '../../theme/helpers'
 import { getVariantColor } from '../../utils/variants'
 
 export const fieldTypeStyles = css`
-  ${getCss('fields.default')};
+  ${props =>
+    props.fieldType === 'radioTab' ? getCss('fields.radiotabs.default') : getCss('fields.default')};
   width: 100%;
   padding: ${get('padding.sm')} ${get('padding.xs')};
   border-color: ${props => getVariantColor(props.variant)};
   transition: ${get('transition.md')};
 
   &::placeholder {
-    color: ${get('colors.nude.300')};
+    ${getCss('fields.placeholder')};
   }
 
   &:focus {
