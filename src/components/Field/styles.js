@@ -4,13 +4,28 @@ import { StyledLabel } from '../Label/styles'
 import { radioTabStyles } from '../RadioTab/styles'
 import { StyledToggle } from '../Toggle/styles'
 import { StyledInputCheckbox } from '../InputCheckbox/styles'
-import { get } from '../../theme/helpers'
+import { get, getCss } from '../../theme/helpers'
+
+const rowStyles = css`
+  margin-right: ${get('gutter.xs')};
+`
+
+const columnStyles = css`
+  margin-bottom: ${get('gutter.xs')};
+`
+
+const checkableFieldStyles = css`
+  ${getCss('text.checkablelabel.default')};
+  margin-right: 0;
+`
 
 export const StyledField = styled.div(
   props => css`
     ${StyledLabel} {
-      margin-right: ${props.direction === 'row' ? get('gutter.xxs') : null};
-      margin-bottom: ${props.direction === 'column' ? get('gutter.xxs') : null};
+      ${props.direction === 'row' && rowStyles};
+      ${props.direction === 'column' && columnStyles};
+      ${props.checkableField && checkableFieldStyles};
+      ${props.checked && getCss('text.checkablelabel.checked')}
     }
     ${StyledToggle}, ${StyledInputCheckbox} {
       margin-right: ${get('gutter.xxs')};

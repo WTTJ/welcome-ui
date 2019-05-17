@@ -1,14 +1,11 @@
-import { colors } from './colors'
-import { radii } from './radii'
-
 export const getFields = theme => {
   const defaults = {
-    color: colors.dark[200],
-    'background-color': colors.light[200],
-    'border-color': colors.nude[200],
+    color: theme.colors.nude[800],
+    'background-color': theme.colors.light[200],
+    'border-color': theme.colors.nude[200],
     'border-width': '1px',
     'border-style': 'solid',
-    'border-radius': radii.sm,
+    'border-radius': theme.radii.sm,
     ...theme.text.input
   }
 
@@ -16,19 +13,22 @@ export const getFields = theme => {
     default: defaults,
     disabled: {
       ...defaults,
-      'background-color': colors.light[500],
+      'background-color': theme.colors.light[500],
       'pointer-events': 'none'
-    },
-    active: {
-      ...defaults,
-      'border-color': colors.primary[500]
     },
     focus: {
       ...defaults,
-      'border-color': colors.primary[500]
+      'background-color': theme.colors.light[100],
+      'border-color': theme.colors.primary[500]
     },
     placeholder: {
-      color: colors.nude[300]
+      color: theme.colors.nude[600]
+    },
+    checkbox: {
+      checked: {
+        'background-color': theme.colors.primary[500],
+        'border-color': theme.colors.primary[500]
+      }
     },
     radiotabs: {
       default: {
@@ -36,14 +36,14 @@ export const getFields = theme => {
       },
       checked: {
         color: 'transparent',
-        'background-color': colors.light[200],
-        'border-color': colors.primary[500],
+        'background-color': theme.colors.light[200],
+        'border-color': theme.colors.primary[500],
         'box-shadow': 'none',
-        '-webkit-text-stroke-color': colors.primary[700],
-        '-webkit-text-fill-color': colors.primary[700]
+        '-webkit-text-stroke-color': theme.colors.dark[200],
+        '-webkit-text-fill-color': theme.colors.dark[200]
       },
       hover: {
-        'background-color': colors.nude[100],
+        'background-color': theme.colors.light[200],
         'box-shadow': theme.boxShadow.xs
       }
     }

@@ -43,30 +43,51 @@ const palette = {
 
 export const welcomekitTheme = {
   colors: {
-    danger: {
-      500: palette.carmen
-    },
     primary: {
+      200: palette.moutainmeadow,
       500: palette.jade
     },
+    secondary: {
+      200: palette.seanymph,
+      500: palette.cadet,
+      700: palette.eden
+    },
+    danger: {
+      200: palette.valencia,
+      500: palette.carmen
+    },
     warning: {
+      200: palette.sunray,
       500: palette.anzac
+    },
+    light: {
+      100: '#FFFFFF',
+      200: palette.soapstone,
+      500: palette.vistawhite,
+      700: palette.pampas
+    },
+    dark: {
+      200: palette.aquadeep,
+      500: palette.cyprus,
+      700: palette.deepteal,
+      900: '#000'
+    },
+    nude: {
+      100: palette.isabelline,
+      200: palette.cararra,
+      300: palette.gainsboro,
+      400: palette.quillgray,
+      500: palette.silversand,
+      600: palette.silverchalice,
+      700: palette.zorba,
+      800: palette.concord
     }
   },
   fields: {
-    default: {
-      color: palette.concord,
-      'background-color': palette.soapstone,
-      'border-color': palette.cararra
-    },
-    disabled: {
-      'border-color': palette.cararra
-    },
     placeholder: {
       color: palette.silverchalice
     },
     focus: {
-      'background-color': 'white',
       'border-color': palette.jade
     },
     radiotabs: {

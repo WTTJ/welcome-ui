@@ -50,7 +50,7 @@ export const Field = ({
   required = false,
   warning = ''
 }) => {
-  const isInline = () => {
+  const isCheckable = () => {
     return includes(['toggle', 'checkbox', 'radio'], fieldType)
   }
 
@@ -61,11 +61,16 @@ export const Field = ({
   const FieldType = getFieldType(fieldType)
   const variant = getVariant(warning, error)
   const hintText = error || warning || hint
-  const layout = direction || isInline() ? 'row' : 'column'
+  const layout = direction || isCheckable() ? 'row' : 'column'
   const Container = layout === 'row' ? RowContainer : Fragment
 
   return (
-    <StyledField checked={checked} direction={layout} fieldType={fieldType}>
+    <StyledField
+      checkableField={isCheckable()}
+      checked={checked}
+      direction={layout}
+      fieldType={fieldType}
+    >
       <Container>
         {label && (
           <Label
