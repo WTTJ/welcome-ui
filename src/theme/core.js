@@ -3,7 +3,7 @@ import merge from 'lodash.merge'
 
 import { colors } from './colors'
 import { getFields } from './fields'
-import { buttons } from './buttons'
+import { getButtons } from './buttons'
 import { radii } from './radii'
 import { getFontSizes, fontWeights, letterSpacings, toRem, getTypography } from './typography'
 
@@ -183,7 +183,7 @@ export const getBaseTheme = (options = {}) => {
   // CSS blocks
   theme.text = getTypography(theme)
   theme.fields = getFields(theme)
-  theme.buttons = buttons
+  theme.buttons = getButtons(theme)
 
   return theme
 }

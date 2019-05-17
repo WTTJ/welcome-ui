@@ -2,9 +2,9 @@
 
 exports[`<Button> renders correctly and has white text by default 1`] = `
 .c0 {
-  color: #FFFFFF;
-  background: #208DDB;
-  border-color: #208DDB;
+  color: #FAFAFA;
+  background: #1B74B5;
+  border-color: #1B74B5;
   border-radius: 4px;
   font-family: inherit;
   font-size: 0.6875rem;
@@ -53,11 +53,11 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
 }
 
 .c0::before {
-  background: rgba(255,255,255,0.05);
+  background: rgba(250,250,250,0.05);
 }
 
 .c0[disabled] {
-  color: #FFFFFF;
+  color: #FAFAFA;
   background-color: #CCCCCC;
   pointer-events: none;
 }
