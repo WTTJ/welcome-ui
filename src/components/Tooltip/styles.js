@@ -5,7 +5,7 @@ import { get, getCss } from '../../theme/helpers'
 export const Wrapper = styled.div(
   props => css`
     position: fixed;
-    font-size: ${get('fontSize.xs')};
+    font-size: ${get('fontSize.body4')};
     padding: ${get('padding.xs')};
     ${getCss('tooltips')};
     top: ${`${props.top}px`};
