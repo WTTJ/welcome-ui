@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button> renders correctly and has white text by default 1`] = `
+exports[`<Button> renders correctly 1`] = `
 .c0 {
   color: #FAFAFA;
   font-size: 0.6875rem;
@@ -43,10 +43,141 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
   padding: 0.625rem 0.75rem;
 }
 
+.c0::before {
+  background: rgba(255,255,255,0.05);
+}
+
 .c0:active {
   -webkit-transform: translateY(2px);
   -ms-transform: translateY(2px);
   transform: translateY(2px);
+}
+
+.c0[disabled] {
+  pointer-events: none;
+}
+
+.c0[disabled] primary {
+  color: #FFFFFF;
+  background: #208DDB;
+  border-color: #208DDB;
+  border-radius: 4px;
+}
+
+.c0[disabled] secondary {
+  color: #1B74B5;
+  background: #FFFFFF;
+  border-color: #CCCCCC;
+  border-radius: 4px;
+}
+
+.c0[disabled] tertiary {
+  color: #FFFFFF;
+  background: #333333;
+  border-color: #333333;
+  border-radius: 4px;
+}
+
+.c0[disabled] disabled {
+  color: #333333;
+  background: #CCCCCC;
+  border-color: #CCCCCC;
+  border-radius: 4px;
+}
+
+.c0[disabled] primary-warning {
+  color: #FFFFFF;
+  background: #EE8434;
+  border-color: #EE8434;
+  border-radius: 4px;
+}
+
+.c0[disabled] secondary-warning {
+  color: #EE8434;
+  background: #FFFFFF;
+  border-color: #EE8434;
+  border-radius: 4px;
+}
+
+.c0[disabled] primary-danger {
+  color: #FFFFFF;
+  background: #EA2A2D;
+  border-color: #EA2A2D;
+  border-radius: 4px;
+}
+
+.c0[disabled] secondary-danger {
+  color: #EA2A2D;
+  background: #FFFFFF;
+  border-color: #EA2A2D;
+  border-radius: 4px;
+}
+
+@media (max-width:670px) {
+  .c0:hover {
+    -webkit-transform: translateY(2px);
+    -ms-transform: translateY(2px);
+    transform: translateY(2px);
+  }
+}
+
+@media (max-width:670px) {
+  .c0 {
+    padding: 0.9375rem;
+  }
+}
+
+<button
+  className="c0"
+  size="auto"
+>
+  Test button
+</button>
+`;
+
+exports[`<Button> renders correctly and has white text by default 1`] = `
+.c0 {
+  color: #FFFFFF;
+  background: #208DDB;
+  border-color: #208DDB;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  overflow: hidden;
+  -webkit-transition: all .2s cubic-bezier(0.41,0.094,0.54,0.07);
+  transition: all .2s cubic-bezier(0.41,0.094,0.54,0.07);
+  line-height: 1rem;
+  padding: 0.625rem 0.75rem;
 }
 
 .c0::before {
@@ -55,6 +186,13 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
 
 .c0:hover {
   box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.05);
+}
+
+.c0:active {
+  -webkit-transform: translateY(2px);
+  -ms-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
 }
 
 .c0[disabled] {

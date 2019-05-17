@@ -6,12 +6,22 @@ import { Button } from './index'
 
 const content = 'Test button'
 
-test('<Button> renders correctly and has white text by default', () => {
+test('<Button> renders correctly', () => {
   const button = render(<Button>{content}</Button>).toJSON()
   expect(button).toMatchSnapshot()
   expect(button.children).toContain('Test button')
   expect(button).toHaveStyleRule('color', '#FAFAFA')
   expect(button).toHaveStyleRule('background-color', '#1B74B5')
+})
+
+test('Disabled <Button> renders correctly', () => {
+  const button = render(
+    <Button variant="primary" disabled>
+      Test button
+    </Button>
+  ).toJSON()
+  expect(button).toHaveStyleRule('color', '#333333')
+  expect(button).toHaveStyleRule('background', '#CCCCCC')
 })
 
 test('<Button> has correct colour for variant primary', () => {

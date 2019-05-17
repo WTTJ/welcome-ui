@@ -61,12 +61,12 @@ export const StyledButton = styled.button(
     transition: ${get('transitions.sm')};
     line-height: 0.9rem;
 
-    &:active {
-      transform: translateY(2px);
-    }
-
     &::before {
       background: ${get('rgba.light.200', 0.05)};
+    }
+
+    &:active {
+      transform: translateY(2px);
     }
 
     &:hover {
@@ -74,7 +74,7 @@ export const StyledButton = styled.button(
     }
 
     &[disabled] {
-      ${get('buttons', 'disabled')};
+      ${getCss('buttons.disabled')};
       pointer-events: none;
     }
 
