@@ -1,20 +1,16 @@
-export const IMAGE_MIME_TYPES = [
-  'image/gif',
-  'image/jpeg',
-  'image/pjpeg',
-  'image/png',
-  'image/x-png'
-]
-
 export const validateImage = file => {
-  return validateMimeType(file, IMAGE_MIME_TYPES)
+  return validateMimeType(file, 'image/*')
 }
 
 export const validateMimeType = (file, mimeTypes) => {
-  if (file.type) {
-    return mimeTypes.includes(file.type)
+  const { type } = file
+
+  if (!file || !type) {
+    return false
   }
-  return false
+
+  const mimeTypeRegex = new RegExp(mimeTypes.replace('*', '[^\\/,]+'))
+  return mimeTypeRegex.test(type)
 }
 
 export const validateFileSize = (file, size) => {

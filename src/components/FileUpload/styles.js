@@ -3,20 +3,21 @@ import styled, { css } from 'styled-components'
 import { get, getCss } from '../../theme/helpers'
 import { StyledButton } from '../Button/styles'
 
-const getBorder = ({ isDragAccept, isDragActive, isDragReject }) => {
-  let borderStyle = 'dashed'
-  let borderColor = null
-
+const getBorderColor = ({ isDragAccept, isDragActive, isDragReject }) => {
   if (isDragAccept) {
-    borderColor = get('color', 'primary', 'default')
+    return get('colors.primary.default')
   }
   if (isDragReject) {
-    borderColor = get('color', 'danger', 'default')
+    return get('colors.danger.default')
   }
 
+<<<<<<< HEAD
   return css`
     border: ${get('borderWidths.sm')} ${borderStyle} ${borderColor};
   `
+=======
+  return null
+>>>>>>> Clean up FileUpload (based on PR feedback)
 }
 
 export const Wrapper = styled.div`
@@ -24,18 +25,24 @@ export const Wrapper = styled.div`
 `
 
 const disabledStyles = css`
-  background: ${get('color', 'light', 'default')};
+  background: ${get('colors.light.500')};
 
   h3,
   p {
-    color: ${get('color', 'dark', 'light')};
+    color: ${get('colors.nude.300')};
   }
 `
 
 export const StyledFileUpload = styled.div(
   props => css`
+<<<<<<< HEAD
     ${getCss('fields.filedrop')};
     ${getBorder(props)};
+=======
+    ${getCss('fields.default')};
+    border-style: dashed;
+    border-color: ${getBorderColor(props)};
+>>>>>>> Clean up FileUpload (based on PR feedback)
     position: relative;
     display: flex;
     justify-content: space-between;

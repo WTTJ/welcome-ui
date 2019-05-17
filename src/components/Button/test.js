@@ -20,8 +20,8 @@ test('Disabled <Button> renders correctly', () => {
       Test button
     </Button>
   ).toJSON()
-  expect(button).toHaveStyleRule('color', '#333333')
-  expect(button).toHaveStyleRule('background', '#CCCCCC')
+  expect(button).toHaveStyleRule('color', '#FFFFFF')
+  expect(button).toHaveStyleRule('background', '#208DDB')
 })
 
 test('<Button> has correct colour for variant primary', () => {

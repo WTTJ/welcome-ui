@@ -54,31 +54,6 @@ exports[`<Button> renders correctly 1`] = `
 }
 
 .c0[disabled] {
-  pointer-events: none;
-}
-
-.c0[disabled] primary {
-  color: #FFFFFF;
-  background: #208DDB;
-  border-color: #208DDB;
-  border-radius: 4px;
-}
-
-.c0[disabled] secondary {
-  color: #1B74B5;
-  background: #FFFFFF;
-  border-color: #CCCCCC;
-  border-radius: 4px;
-}
-
-.c0[disabled] tertiary {
-  color: #FFFFFF;
-  background: #333333;
-  border-color: #333333;
-  border-radius: 4px;
-}
-
-.c0[disabled] disabled {
   color: #333333;
   background: #CCCCCC;
   border-color: #CCCCCC;

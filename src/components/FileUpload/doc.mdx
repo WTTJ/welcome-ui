@@ -27,6 +27,10 @@ import { Icon } from '../Icon'
     label="Avatar"
     hint="Files must be <200MB"
     required
+    onChange={console.debug}
+    onAddFile={console.debug}
+    onRemoveFile={console.debug}
+    onError={console.error}
   />
 </Playground>
 
