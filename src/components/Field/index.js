@@ -1,13 +1,10 @@
 import React, { Fragment } from 'react'
-import { bool, func, oneOf, node, string } from 'prop-types'
+import { bool, func, node, object, oneOf, string } from 'prop-types'
 import includes from 'lodash.includes'
-
-import { StyledField } from './styles'
 
 // common
 import { RowContainer } from '../../common/styles/layout'
 import { getVariant } from '../../utils/variants'
-
 import { Label } from '../Label'
 import { InputText } from '../InputText'
 import { InputTextarea } from '../InputTextarea'
@@ -16,6 +13,8 @@ import { InputRadio } from '../InputRadio'
 import { RadioTab } from '../RadioTab'
 import { Toggle } from '../Toggle'
 import { Hint } from '../Hint'
+
+import { StyledField } from './styles'
 
 const getFieldType = fieldType => {
   const fieldTypes = {
@@ -66,13 +65,13 @@ export const Field = ({
   const Container = layout === 'row' ? RowContainer : Fragment
 
   return (
-    <StyledField direction={layout} fieldType={fieldType} checked={checked}>
+    <StyledField checked={checked} direction={layout} fieldType={fieldType}>
       <Container>
         {label && (
           <Label
-            htmlFor={name}
             disabled={disabled}
             disabledIcon={disabledIcon}
+            htmlFor={name}
             required={showRequired()}
             variant={variant}
           >
@@ -81,15 +80,15 @@ export const Field = ({
         )}
         <FieldType
           checked={checked}
-          name={name}
+          disabled={disabled}
           groupName={groupName}
+          name={name}
           onBlur={onBlur}
           onChange={onChange}
           onFocus={onFocus}
-          variant={variant}
-          required={required}
-          disabled={disabled}
           placeholder={placeholder}
+          required={required}
+          variant={variant}
         />
       </Container>
       {hintText && <Hint variant={variant}>{hintText}</Hint>}
@@ -98,11 +97,14 @@ export const Field = ({
 }
 
 Field.propTypes = {
-  /** Direction of Label and FieldType Wrapper */
+  checked: bool,
   direction: string,
+  disabled: bool,
+  /** Direction of Label and FieldType Wrapper */
+  disabledIcon: node,
   /** Label of Field component */
-  label: string,
-  /** Type of Field component */
+  error: string,
+  /** Hint of Field component */
   fieldType: oneOf([
     'text',
     'number',
@@ -115,30 +117,28 @@ Field.propTypes = {
     'radioTab',
     'checkbox'
   ]),
-  /** Hint of Field component */
-  hint: string,
   /** Error of Field component */
-  error: string,
+  fieldTypeProps: object,
   /** Warning of Field component */
-  warning: string,
+  groupName: string,
   /** custom icon for error / warning state */
-  errorWarningIcon: node,
+  hint: string,
   /** name of the field */
-  name: string.isRequired,
+  label: string,
   /** onFocus callback */
-  onFocus: func,
+  name: string.isRequired,
   /** onBlur callback */
   onBlur: func,
   /** onChange callback */
   onChange: func,
   /** Required Field component */
-  required: bool,
+  onFocus: func,
   /** Disabled Field component */
-  disabled: bool,
+  placeholder: string,
   /** custom icon for disabled state */
-  disabledIcon: node,
+  required: bool,
   /** Placeholder of Field's component input */
-  placeholder: string
+  warning: string
 }
 
 // Specifies the default values for props:

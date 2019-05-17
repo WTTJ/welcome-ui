@@ -4,7 +4,6 @@ import { StyledLabel } from '../Label/styles'
 import { radioTabStyles } from '../RadioTab/styles'
 import { StyledToggle } from '../Toggle/styles'
 import { StyledInputCheckbox } from '../InputCheckbox/styles'
-
 import { get } from '../../theme/helpers'
 
 export const StyledField = styled.div(

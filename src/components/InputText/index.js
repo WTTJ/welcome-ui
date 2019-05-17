@@ -1,4 +1,5 @@
 import React from 'react'
+import { bool, object, oneOf, string } from 'prop-types'
 
 import { StyledInputText } from './styles'
 
@@ -14,4 +15,13 @@ export const InputText = props => {
       {...fieldTypeProps}
     />
   )
+}
+
+InputText.propTypes = {
+  disabled: bool,
+  fieldTypeProps: object,
+  name: string,
+  placeholder: string,
+  type: string,
+  variant: oneOf(['error', 'info', 'valid', 'warning'])
 }

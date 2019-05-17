@@ -1,9 +1,9 @@
 import merge from 'lodash.merge'
 
+import { fontWeights, getFontSizes, getTypography, letterSpacings, toRem } from './typography'
 import { buttons } from './buttons'
 import { colors } from './colors'
 import { getFields } from './fields'
-import { getFontSizes, fontWeights, letterSpacings, toRem, getTypography } from './typography'
 import { radii } from './radii'
 import { tooltips } from './tooltips'
 

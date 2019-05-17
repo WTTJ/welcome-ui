@@ -1,5 +1,5 @@
 import React from 'react'
-import { oneOf, string, node } from 'prop-types'
+import { node, oneOf, string } from 'prop-types'
 
 import { StyledDummyComponent } from './styles'
 

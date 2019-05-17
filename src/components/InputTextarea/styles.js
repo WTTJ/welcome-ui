@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { get } from '../../theme/helpers'
 
+import { get } from '../../theme/helpers'
 // common form styles
 import { fieldTypeStyles } from '../../common/styles/form'
 

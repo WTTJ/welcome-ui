@@ -1,5 +1,5 @@
 import React from 'react'
-import { string, oneOf } from 'prop-types'
+import { oneOf, string } from 'prop-types'
 
 import { IconSvg } from './styles'
 import icons from './icons'
@@ -23,11 +23,11 @@ export const Icon = props => {
 
   return (
     <IconSvg
-      viewBox={iconConfig.viewBox || '0 0 100 100'}
-      width={iconSize}
+      dangerouslySetInnerHTML={{ __html: iconConfig.block }}
       height={iconSize}
       stroked={iconConfig.stroked}
-      dangerouslySetInnerHTML={{ __html: iconConfig.block }}
+      viewBox={iconConfig.viewBox || '0 0 100 100'}
+      width={iconSize}
     />
   )
 }

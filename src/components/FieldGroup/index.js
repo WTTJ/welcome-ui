@@ -1,9 +1,9 @@
 import React from 'react'
-import { string } from 'prop-types'
-
-import { StyledFieldGroup } from './styles'
+import { node, string } from 'prop-types'
 
 import { Label } from '../Label'
+
+import { StyledFieldGroup } from './styles'
 
 export const FieldGroup = ({ children, label }) => {
   return (
@@ -15,6 +15,7 @@ export const FieldGroup = ({ children, label }) => {
 }
 
 FieldGroup.propTypes = {
+  children: node,
   /** Label of FieldGroup */
   label: string
 }

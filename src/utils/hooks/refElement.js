@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 /** Hook to return correct ref updated  **/
 export const useRefElement = (setRefElement, isParentElement) => {

@@ -1,4 +1,4 @@
-import { array, shape, string, oneOfType, bool, node } from 'prop-types'
+import { array, bool, node, oneOfType, shape, string } from 'prop-types'
 
 export const reduxFormFieldPropTypes = {
   input: shape({

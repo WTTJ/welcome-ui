@@ -2,10 +2,8 @@ import styled, { css } from 'styled-components'
 
 import { get } from '../../theme/helpers'
 import { overflowEllipsis } from '../../common/styles/text'
-
 // common form styles
 import { fieldTypeStyles } from '../../common/styles/form'
-
 import { StyledLabel } from '../Label/styles'
 
 export const StyledRadioTab = styled.div`
