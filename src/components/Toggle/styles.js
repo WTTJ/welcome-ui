@@ -11,12 +11,12 @@ const checkedStyles = css`
   &::after {
     left: calc(100% - ${get('borderWidth.input')});
     transform: translateX(-100%);
-    border-color: ${get('colors.primary.700')};
+    border-color: ${get('colors.primary.500')};
   }
 `
 
 const getToggleSize = props =>
-  `calc(${get(`toggleSize.${props.size}`)(props)} - 2 * ${get('borderWidth.input')(props)})`
+  `calc(${get(`toggleSize.${props.size}`)(props)})`
 
 export const StyledToggle = styled.div(props => {
   const toggleSize = getToggleSize(props)
@@ -34,9 +34,10 @@ export const StyledToggle = styled.div(props => {
       ${getCss('fields.default')};
       content: '';
       position: absolute;
+      top: ${get('borderWidth.input')};
       left: ${get('borderWidth.input')};
-      width: ${toggleSize};
-      height: ${toggleSize};
+      width: ${`calc(${toggleSize} - 2 * ${get('borderWidth.input')(props)})`};
+      height: ${`calc(${toggleSize} - 2 * ${get('borderWidth.input')(props)})`};
       border-radius: ${toggleSize};
       border-color: ${get('colors.nude.300')};
       transition: 0.3s;
