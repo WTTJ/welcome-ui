@@ -19,7 +19,7 @@ export default {
       body: {
         fontFamily: theme.fontFamily.texts,
         'nav a': {
-          fontSize: theme.fontSize.sm
+          fontSize: theme.fontSize.body3
         },
         '#root nav dl a': {
           fontWeight: theme.fontWeight.regular
@@ -30,13 +30,13 @@ export default {
       },
       h1: {
         fontFamily: theme.fontFamily.headings,
-        fontSize: theme.fontSize.xxxl,
+        fontSize: theme.fontSize.h1,
         fontWeight: theme.fontWeight.bold,
         marginBottom: '1rem'
       },
       h2: {
         fontFamily: theme.fontFamily.headings,
-        fontSize: theme.fontSize.xl,
+        fontSize: theme.fontSize.h2,
         fontWeight: theme.fontWeight.black,
         textTransform: 'uppercase',
         color: theme.colors.secondary[500],
@@ -45,7 +45,7 @@ export default {
       },
       h3: {
         fontFamily: theme.fontFamily.headings,
-        fontSize: theme.fontSize.md,
+        fontSize: theme.fontSize.h3,
         fontWeight: theme.fontWeight.bold,
         textTransform: 'uppercase'
       }

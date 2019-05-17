@@ -8,7 +8,7 @@ export const StyledTextarea = styled.textarea(
   props => css`
     ${fieldTypeStyles};
     min-height: calc(${get('gutter.xxl')} * 2);
-    line-height: ${get('fontSize.lg')};
+    line-height: ${get('fontSize.body1')};
     padding: ${get('gutter.xs')};
   `
 )
