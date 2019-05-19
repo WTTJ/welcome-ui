@@ -8,7 +8,7 @@ export const useRefElement = (setRefElement, isParentElement) => {
     isParentElement
       ? setRefElement(targetRef.current.parentElement.firstChild)
       : setRefElement(targetRef.current)
-  }, [targetRef])
+  }, [isParentElement, setRefElement, targetRef])
 
   return targetRef
 }

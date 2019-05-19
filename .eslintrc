@@ -1,7 +1,7 @@
 {
   "extends": ["plugin:prettier/recommended", "plugin:react/all"],
   "parser": "babel-eslint",
-  "plugins": ["import"],
+  "plugins": ["import", "react-hooks"],
   "rules": {
     "import/order": ["warn", { "newlines-between": "always" }],
     "sort-imports": [
@@ -12,6 +12,8 @@
       }
     ],
     "prettier/prettier": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "react/require-default-props": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-indent": "off",
