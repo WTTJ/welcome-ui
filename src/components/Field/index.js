@@ -10,6 +10,7 @@ import { InputText } from '../InputText'
 import { InputTextarea } from '../InputTextarea'
 import { InputCheckbox } from '../InputCheckbox'
 import { InputRadio } from '../InputRadio'
+import { MarkdownEditor } from '../MarkdownEditor'
 import { RadioTab } from '../RadioTab'
 import { Toggle } from '../Toggle'
 import { Hint } from '../Hint'
@@ -21,6 +22,7 @@ const getFieldType = fieldType => {
     checkbox: InputCheckbox,
     email: InputText,
     number: InputText,
+    mde: MarkdownEditor,
     radio: InputRadio,
     radioTab: RadioTab,
     text: InputText,
@@ -43,7 +45,7 @@ export const Field = ({
   onChange,
   onFocus,
   fieldType = 'text',
-  fieldTypeProps = {},
+  fieldProps = {},
   hint,
   label,
   placeholder,
@@ -109,8 +111,10 @@ Field.propTypes = {
   /** Custom icon for disabled state */
   disabledIcon: node,
   error: string,
+  fieldProps: object,
   /** Required Field component */
   fieldType: oneOf([
+    'mde',
     'text',
     'number',
     'email',
@@ -122,7 +126,6 @@ Field.propTypes = {
     'radioTab',
     'checkbox'
   ]),
-  fieldTypeProps: object,
   groupName: string,
   hint: string,
   label: string,
