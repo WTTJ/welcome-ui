@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components'
 import { createTheme } from '../theme/core'
 import { welcomeTheme } from '../theme/welcome'
 
-const theme = createTheme(welcomeTheme)
+const theme = createTheme()
 
 export const render = children => {
   return renderer.create(
