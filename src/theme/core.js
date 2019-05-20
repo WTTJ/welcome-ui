@@ -1,11 +1,10 @@
-
 import merge from 'lodash.merge'
 
 import { colors } from './colors'
 import { getFields } from './fields'
 import { getButtons } from './buttons'
 import { radii } from './radii'
-import { getFontSizes, fontWeights, letterSpacings, toRem, getTypography } from './typography'
+import { fontWeights, getFontSizes, getTypography, letterSpacings, toRem } from './typography'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'welcomeweb'

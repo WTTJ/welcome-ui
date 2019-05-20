@@ -49,6 +49,7 @@ export const InputCheckbox = memo(props => {
 InputCheckbox.propTypes = {
   StyledComponent: oneOfType([func, node]),
   checked: bool,
+  disabled: bool,
   groupName: string,
   name: string,
   onBlur: func,
