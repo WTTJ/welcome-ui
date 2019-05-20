@@ -16,6 +16,7 @@ export * from './components/RadioGroup/index'
 export * from './components/RadioTab/index'
 export * from './components/Tag/index'
 export * from './components/Toggle/index'
+export * from './components/Tabs/index'
 export * from './components/Tooltip/index'
 
 // Utils/theme

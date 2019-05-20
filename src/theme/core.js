@@ -6,6 +6,7 @@ import { getFontSizes } from './typography'
 import { getTags } from './tags'
 import { getButtons } from './buttons'
 import { getFields } from './fields'
+import { getTabs } from './tabs'
 import { getTooltips } from './tooltips'
 import { radii } from './radii'
 
@@ -85,9 +86,10 @@ export const getBaseTheme = (options = {}) => {
 
   // CSS blocks
   // These attributes depend on colors and fontSizes and must come last
-  theme.tags = getTags(theme)
-  theme.fields = getFields(theme)
   theme.buttons = getButtons(theme)
+  theme.fields = getFields(theme)
+  theme.tabs = getTabs(theme)
+  theme.tags = getTags(theme)
   theme.tooltips = getTooltips(theme)
 
   return theme
