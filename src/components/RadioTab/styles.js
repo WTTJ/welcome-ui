@@ -22,6 +22,7 @@ const checkedStyles = css`
   -webkit-text-stroke-width: 0.5px;
   box-shadow: ${get('boxShadow.xs')};
   z-index: 2;
+
   &:hover {
     color: transparent;
   }
