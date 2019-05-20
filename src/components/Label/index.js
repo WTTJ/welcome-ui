@@ -1,26 +1,33 @@
 import React from 'react'
 import { bool, node, oneOf, oneOfType, string } from 'prop-types'
 
-import { Disabled, Required, StyledLabel, Variant } from './styles'
-
 import { Badge } from '../Badge'
 import { Icon } from '../Icon'
 
-export const Label = props => {
-  const { children, disabled = false, disabledIcon, required = false, variant } = props
+import { Disabled, Required, StyledLabel, Variant } from './styles'
 
-  const getVariantIcon = variant => {
-    const { errorWarningIcon } = props
-    if (variant === 'error' || variant === 'warning') {
-      return (
-        errorWarningIcon || (
-          <Badge size="1.4em" fontsize="xs" variant={variant}>
-            !
-          </Badge>
-        )
+const getVariantIcon = variant => {
+  if (variant === 'error' || variant === 'warning') {
+    return (
+      errorWarningIcon || (
+        <Badge fontsize="xs" size="1.4em" variant={variant}>
+          {'!'}
+        </Badge>
       )
-    }
+    )
   }
+  return null
+}
+
+export const Label = props => {
+  const {
+    errorWarningIcon,
+    children,
+    disabled = false,
+    disabledIcon,
+    required = false,
+    variant
+  } = props
 
   return (
     <StyledLabel {...props}>
@@ -39,6 +46,7 @@ Label.propTypes = {
   /** disabled */
   disabled: bool,
   disabledIcon: node,
+  errorWarningIcon: node,
   /** required */
   required: bool,
   variant: oneOf(['error', 'warning'])

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 /** Hook for events listeners **/
 export const useEventListener = (eventName, handler, element = global) => {

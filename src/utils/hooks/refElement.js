@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 /** Hook to return correct ref updated  **/
 export const useRefElement = (setRefElement, isParentElement) => {
@@ -8,7 +8,7 @@ export const useRefElement = (setRefElement, isParentElement) => {
     isParentElement
       ? setRefElement(targetRef.current.parentElement.firstChild)
       : setRefElement(targetRef.current)
-  }, [targetRef])
+  }, [isParentElement, setRefElement, targetRef])
 
   return targetRef
 }

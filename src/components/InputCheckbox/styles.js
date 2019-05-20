@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components'
 
 // common form styles
 import { fieldTypeStyles } from '../../common/styles/form'
-
 import { get } from '../../theme/helpers'
 
 const checkedStyles = css`

@@ -2,22 +2,22 @@ import React, { useState } from 'react'
 import { bool, oneOf, string } from 'prop-types'
 
 import { StyledFieldGroup } from '../FieldGroup/styles'
-import { Radios } from './styles'
-
 import { Label } from '../Label'
 
-export const RadioGroup = props => {
-  const { children, groupName, label, required, direction } = props
+import { Radios } from './styles'
 
-  const [checkedName, setCheckedName] = useState(props.checkedName)
+export const RadioGroup = props => {
+  const { children, groupName, label, required, direction, checkedName } = props
+
+  const [checked, setChecked] = useState(checkedName)
 
   const onChange = e => {
-    setCheckedName(e.target.id)
+    setChecked(e.target.id)
   }
 
   const childrenWithProps = React.Children.map(children, child =>
     React.cloneElement(child, {
-      checked: child.props.name === checkedName,
+      checked: child.props.name === checked,
       direction: direction,
       fieldType: child.props.fieldType || 'radio',
       groupName: groupName
@@ -35,11 +35,12 @@ export const RadioGroup = props => {
 }
 
 RadioGroup.propTypes = {
-  direction: oneOf(['column', 'row']),
+  checkedName: string,
+  children: node,
   /** Label of RadioGroup */
-  label: string,
+  direction: oneOf(['column', 'row']),
   groupName: string.isRequired,
   /** name of selected radio (refers to the id id={name}) */
-  checkedName: string,
+  label: string,
   required: bool
 }

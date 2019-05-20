@@ -1,14 +1,25 @@
 import React from 'react'
-import { oneOf, string } from 'prop-types'
+import { node, oneOf, string } from 'prop-types'
 
 import { StyledButton } from './styles'
 
-export const Button = props => {
-  return <StyledButton {...props}>{props.children}</StyledButton>
+export const Button = ({ radius, children, size, span, variant }) => {
+  return (
+    <StyledButton radius={radius} size={size} span={span} variant={variant}>
+      {children}
+    </StyledButton>
+  )
 }
 
 Button.propTypes = {
+  children: node,
   /** To set the button size */
+  radius: string,
+  /** To set the button size */
+  size: oneOf(['auto', 'sm', 'md', 'lg']),
+  /** To set the button width */
+  span: oneOf(['full', 'half']),
+  /** To set a rounded button */
   variant: oneOf([
     'primary',
     'secondary',
@@ -18,17 +29,11 @@ Button.propTypes = {
     'secondary-warning',
     'primary-danger',
     'secondary-danger'
-  ]),
-  /** To set the button size */
-  size: oneOf(['auto', 'sm', 'md', 'lg']),
-  /** To set the button width */
-  span: oneOf(['full', 'half']),
-  /** To set a rounded button */
-  radius: string
+  ])
 }
 
 // Specifies the default values for props:
 Button.defaultProps = {
-  variant: 'primary',
-  size: 'auto'
+  size: 'auto',
+  variant: 'primary'
 }

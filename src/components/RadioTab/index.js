@@ -1,9 +1,16 @@
 import React from 'react'
+import { checked, groupName, name } from 'prop-types'
 
 import { Input } from './styles'
 
 export const RadioTab = props => {
   const { checked, name, groupName } = props
 
-  return <Input defaultChecked={checked} type="radio" id={name} name={groupName} />
+  return <Input defaultChecked={checked} id={name} name={groupName} type="radio" />
+}
+
+RadioTab.propTypes = {
+  checked: bool,
+  groupName: string.isRequired,
+  name: string
 }

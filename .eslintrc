@@ -1,6 +1,30 @@
 {
-  "extends": ["plugin:prettier/recommended", "react-app"],
-  "rules": { "prettier/prettier": "warn" },
+  "extends": ["plugin:prettier/recommended", "plugin:react/all"],
+  "parser": "babel-eslint",
+  "plugins": ["import", "react-hooks"],
+  "rules": {
+    "import/order": ["warn", { "newlines-between": "always" }],
+    "sort-imports": [
+      "warn",
+      {
+        "ignoreDeclarationSort": true,
+        "memberSyntaxSortOrder": ["single", "all", "multiple", "none"]
+      }
+    ],
+    "prettier/prettier": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/require-default-props": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-indent": "off",
+    "react/jsx-max-props-per-line": "off",
+    "react/jsx-first-prop-new-line": "off",
+    "react/jsx-indent-props": "2",
+    "react/jsx-one-expression-per-line": "off",
+    "react/forbid-prop-types": "off",
+    "react/jsx-no-bind": ["warn", { "allowArrowFunctions": true }],
+    "react/jsx-no-literals": "off"
+  },
   "settings": {
     "react": {
       "version": "16.4.2"

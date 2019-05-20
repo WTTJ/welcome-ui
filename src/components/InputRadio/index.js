@@ -1,5 +1,5 @@
 import React, { memo, useRef } from 'react'
-import { bool, number, oneOf } from 'prop-types'
+import { bool, func, number, oneOf, string } from 'prop-types'
 
 import { StyledInputCheckbox } from '../InputCheckbox/styles'
 
@@ -8,10 +8,10 @@ export const InputRadio = memo(props => {
 
   const inputEl = useRef()
 
-  const onClick = e => inputEl.current.click()
+  const onClick = () => inputEl.current.click()
 
   return (
-    <StyledInputCheckbox onClick={onClick} checked={checked} order={order} size={size} type="radio">
+    <StyledInputCheckbox checked={checked} onClick={onClick} order={order} size={size} type="radio">
       <input
         defaultChecked={checked}
         id={name}
@@ -27,6 +27,10 @@ export const InputRadio = memo(props => {
 
 InputRadio.propTypes = {
   checked: bool,
+  groupName: string,
+  name: string,
+  onBlur: func,
+  onFocus: func,
   order: number,
   /** Size of component */
   size: oneOf(['sm', 'md', 'lg'])

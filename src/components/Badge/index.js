@@ -1,5 +1,5 @@
 import React from 'react'
-import { oneOf, string } from 'prop-types'
+import { node, oneOf, string } from 'prop-types'
 
 import { StyledBadge } from './styles'
 
@@ -14,21 +14,22 @@ export const Badge = props => {
 }
 
 Badge.propTypes = {
+  children: node,
   /** Variant of component */
-  variant: oneOf(['error', 'info', 'valid', 'warning']),
-  /** size of badge (height and min-width) */
-  size: string,
-  /** font size of badge text */
   fontsize: string,
-  /** custom padding */
+  /** size of badge (height and min-width) */
   padding: string,
+  /** font size of badge text */
+  radius: string,
+  /** custom padding */
+  size: string,
   /** custom radius */
-  radius: string
+  variant: oneOf(['error', 'info', 'valid', 'warning'])
 }
 
 // Specifies the default values for props:
 Badge.defaultProps = {
-  variant: 'info',
+  padding: 'sm',
   size: '2em',
-  padding: 'sm'
+  variant: 'info'
 }
