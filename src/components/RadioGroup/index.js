@@ -26,9 +26,11 @@ export const RadioGroup = props => {
 
   return (
     <StyledFieldGroup onChange={onChange}>
-      <Label as="legend" required={required}>
-        {label}
-      </Label>
+      {label && (
+        <Label as="legend" required={required}>
+          {label}
+        </Label>
+      )}
       <Radios direction={direction}>{childrenWithProps}</Radios>
     </StyledFieldGroup>
   )
