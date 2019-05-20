@@ -5,6 +5,7 @@
   "main": "dist/cjs/welcome-ui.js",
   "module": "dist/esm/index.js",
   "scripts": {
+    "start": "yarn docz:dev",
     "icons:optimize": "svgo --folder=src/components/Icon/assets --pretty --indent=2 --multipass --quiet",
     "icons:collect": "node helpers/icons.js && eslint src/components/Icon/icons.js --fix",
     "build": "rm -rf dist && rollup --config",
