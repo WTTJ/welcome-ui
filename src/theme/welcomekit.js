@@ -43,22 +43,44 @@ const palette = {
 
 export const welcomekitTheme = {
   colors: {
-    danger: {
-      default: palette.carmen
-    },
     primary: {
-      default: palette.jade
+      200: palette.moutainmeadow,
+      500: palette.jade
+    },
+    secondary: {
+      200: palette.seanymph,
+      500: palette.cadet,
+      700: palette.eden
+    },
+    danger: {
+      200: palette.valencia,
+      500: palette.carmen
     },
     warning: {
-      default: palette.anzac
-    }
-  },
-  fields: {
-    default: {
-      'border-color': palette.cararra
+      200: palette.sunray,
+      500: palette.anzac
     },
-    disabled: {
-      'border-color': palette.cararra
+    light: {
+      100: '#FFFFFF',
+      200: palette.soapstone,
+      500: palette.vistawhite,
+      700: palette.pampas
+    },
+    dark: {
+      200: palette.aquadeep,
+      500: palette.cyprus,
+      700: palette.deepteal,
+      900: '#000'
+    },
+    nude: {
+      100: palette.isabelline,
+      200: palette.cararra,
+      300: palette.gainsboro,
+      400: palette.quillgray,
+      500: palette.silversand,
+      600: palette.silverchalice,
+      700: palette.zorba,
+      800: palette.concord
     }
   },
   palette

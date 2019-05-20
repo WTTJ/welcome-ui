@@ -9,5 +9,5 @@ test('<DummyComponent> renders correctly and has light background', () => {
   const dummy = render(<DummyComponent>{content}</DummyComponent>).toJSON()
   expect(dummy.children).toContain('Test')
   expect(dummy).toHaveStyleRule('color', '#CCCCCC')
-  expect(dummy).toHaveStyleRule('background', '#FFFFFF')
+  expect(dummy).toHaveStyleRule('background', '#FAFAFA')
 })

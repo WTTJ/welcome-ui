@@ -18,7 +18,6 @@ const palette = {
   timberwolf: '#D7D7D9', //#D7D7D9
   isabelline: '#EEEEEE', //#EEEEEE
   snow: '#F9F9F9', //#F9F9F9
-  white: '#FFFFFF', //#FFFFFF
 
   iceberg: '#71A6DE', //#71A6DE
   lightcyan: '#E1F0FF', //#E1F0FF
@@ -37,12 +36,44 @@ const palette = {
 }
 
 export const welcomeTheme = {
-  fields: {
-    default: {
-      'border-color': palette.timberwolf
+  colors: {
+    primary: {
+      200: palette.carribeangreen,
+      500: palette.seafoamblue
     },
-    disabled: {
-      'border-color': palette.timberwolf
+    secondary: {
+      200: palette.raisinblack,
+      500: palette.moodyblack,
+      700: palette.eerieblack
+    },
+    danger: {
+      500: palette.alabamacrimson
+    },
+    warning: {
+      200: palette.lemonchiffon,
+      500: palette.pastelorange
+    },
+    light: {
+      100: '#FFFFFF',
+      200: palette.snow,
+      500: palette.isabelline,
+      700: palette.timberwolf
+    },
+    dark: {
+      200: palette.licorice,
+      500: palette.smokyblack,
+      700: palette.richblack,
+      900: '#000'
+    },
+    nude: {
+      100: palette.silver,
+      200: palette.silverchalice,
+      300: palette.steel,
+      400: palette.battleship,
+      500: palette.granite,
+      600: palette.darkliver,
+      700: palette.onyx,
+      800: palette.metal
     }
   },
   palette

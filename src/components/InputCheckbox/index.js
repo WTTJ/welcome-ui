@@ -1,10 +1,11 @@
 import React, { memo, useState } from 'react'
-import { bool, func, node, number, oneOf, oneOfType, string } from 'prop-types'
+import { bool, elementType, func, number, oneOf, oneOfType, string } from 'prop-types'
 
 import { StyledInputCheckbox } from './styles'
 
 export const InputCheckbox = memo(props => {
   const {
+    disabled,
     groupName,
     name,
     onBlur,
@@ -23,9 +24,17 @@ export const InputCheckbox = memo(props => {
   }
 
   return (
-    <StyledComponent checked={checked} onClick={onChange} order={order} size={size} type={type}>
+    <StyledComponent
+      checked={checked}
+      disabled={disabled}
+      onClick={disabled ? undefined : onChange}
+      order={order}
+      size={size}
+      type={type}
+    >
       <input
         defaultChecked={checked}
+        disabled={disabled}
         id={name}
         name={groupName || name}
         onBlur={onBlur}
@@ -38,8 +47,9 @@ export const InputCheckbox = memo(props => {
 })
 
 InputCheckbox.propTypes = {
-  StyledComponent: oneOfType([func, node]),
+  StyledComponent: elementType,
   checked: bool,
+  disabled: bool,
   groupName: string,
   name: string,
   onBlur: func,

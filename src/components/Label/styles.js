@@ -27,5 +27,4 @@ export const StyledLabel = styled.label`
   flex-shrink: 0;
   align-items: center;
   ${getCss('text.label')};
-  ${get('colors.dark.500')};
 `

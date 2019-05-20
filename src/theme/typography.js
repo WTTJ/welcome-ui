@@ -52,8 +52,18 @@ export const getTypography = theme => {
     },
     label: {
       ...defaults,
+      color: theme.colors.nude[800],
       'font-size': theme.fontSize.body3,
       'font-weight': theme.fontWeight.medium
+    },
+    checkablelabel: {
+      default: {
+        'font-weight': theme.fontWeight.regular
+      },
+      checked: {
+        color: theme.colors.dark[200],
+        'font-weight': theme.fontWeight.bold
+      }
     },
     input: {
       ...defaults,

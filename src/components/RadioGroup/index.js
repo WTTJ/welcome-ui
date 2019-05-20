@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { bool, oneOf, string } from 'prop-types'
+import { bool, node, oneOf, string } from 'prop-types'
 
 import { StyledFieldGroup } from '../FieldGroup/styles'
 import { Label } from '../Label'
@@ -26,9 +26,11 @@ export const RadioGroup = props => {
 
   return (
     <StyledFieldGroup onChange={onChange}>
-      <Label as="legend" required={required}>
-        {label}
-      </Label>
+      {label && (
+        <Label as="legend" required={required}>
+          {label}
+        </Label>
+      )}
       <Radios direction={direction}>{childrenWithProps}</Radios>
     </StyledFieldGroup>
   )

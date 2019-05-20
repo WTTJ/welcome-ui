@@ -1,17 +1,16 @@
 import merge from 'lodash.merge'
 
-import { fontWeights, getFontSizes, getTypography, letterSpacings, toRem } from './typography'
-import { buttons } from './buttons'
 import { colors } from './colors'
 import { getFields } from './fields'
+import { getButtons } from './buttons'
 import { radii } from './radii'
-import { tooltips } from './tooltips'
+import { fontWeights, getFontSizes, getTypography, letterSpacings, toRem } from './typography'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'welcomeweb'
 const HEADING_FONT_FAMILY = 'welcomeweb'
 
-export const coreTheme = (options = {}) => {
+export const getBaseTheme = (options = {}) => {
   let {
     defaultFontSize = DEFAULT_FONT_SIZE,
     defaultFontFamily = DEFAULT_FONT_FAMILY,
@@ -26,18 +25,11 @@ export const coreTheme = (options = {}) => {
   theme.fontSize = getFontSizes('rem', defaultFontSize)
   theme.fontSizeEm = getFontSizes('em', defaultFontSize)
   theme.fontWeight = fontWeights
-
-  // CSS blocks
-  theme.text = getTypography(theme)
-  theme.fields = getFields(theme)
-  theme.buttons = buttons
-  theme.tooltips = tooltips({ defaultFontSize })
+  theme.letterSpacing = letterSpacings
 
   theme.borderWidth = {
     input: '1px'
   }
-
-  theme.letterSpacing = letterSpacings
 
   theme.padding = {
     xxs: toRem(8, defaultFontSize),
@@ -81,9 +73,9 @@ export const coreTheme = (options = {}) => {
     }
   }
 
-  theme.ratio = {
-    '720p': 1280 / 720
-  }
+  theme.ratio = { '720p': 1280 / 720 }
+
+  theme.fileDropHeight = toRem(300, defaultFontSize)
 
   theme.shareButtonSize = {
     sm: 16,
@@ -185,14 +177,18 @@ export const coreTheme = (options = {}) => {
     ]
   }
 
-  return merge(theme, rest)
-}
+  theme = merge(theme, rest)
 
-let theme = coreTheme()
+  // CSS blocks
+  theme.text = getTypography(theme)
+  theme.fields = getFields(theme)
+  theme.buttons = getButtons(theme)
 
-export const createTheme = options => {
-  theme = coreTheme(options)
   return theme
 }
 
-export default theme
+export const createTheme = options => {
+  const base = getBaseTheme(options)
+  const theme = merge(base, options)
+  return theme
+}

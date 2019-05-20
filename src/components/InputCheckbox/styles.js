@@ -2,11 +2,11 @@ import styled, { css } from 'styled-components'
 
 // common form styles
 import { fieldTypeStyles } from '../../common/styles/form'
-import { get } from '../../theme/helpers'
+import { get, getCss } from '../../theme/helpers'
 
 const checkedStyles = css`
-  background-color: ${get('colors.primary.500')};
-  border-color: ${get('colors.primary.500')};
+  ${getCss('fields.checkbox.checked')};
+
   &::after {
     opacity: 1;
   }
@@ -21,7 +21,7 @@ export const StyledInputCheckbox = styled.div(
     padding: 0;
     cursor: pointer;
     order: ${props.order || null};
-    border-radius: ${props.type === 'radio' ? '50%' : get('radii.sm')};
+    border-radius: ${props.type === 'radio' && '50%'};
     transition: ${get('transition.sm')};
 
     &::after {

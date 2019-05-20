@@ -1,3 +1,10 @@
 import styled from 'styled-components'
 
-export const StyledFieldGroup = styled.fieldset``
+import { get } from '../../theme/helpers'
+import { StyledLabel } from '../Label/styles'
+
+export const StyledFieldGroup = styled.fieldset`
+  & > ${StyledLabel} {
+    margin-bottom: ${get('gutter.xs')};
+  }
+`
