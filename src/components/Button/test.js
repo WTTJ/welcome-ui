@@ -16,7 +16,7 @@ test('<Button> renders correctly', () => {
 
 test('Disabled <Button> renders correctly', () => {
   const button = render(
-    <Button variant="primary" disabled>
+    <Button disabled variant="primary">
       Test button
     </Button>
   ).toJSON()

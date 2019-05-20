@@ -11,13 +11,7 @@ const getBorderColor = ({ isDragAccept, isDragActive, isDragReject }) => {
     return get('colors.danger.default')
   }
 
-<<<<<<< HEAD
-  return css`
-    border: ${get('borderWidths.sm')} ${borderStyle} ${borderColor};
-  `
-=======
   return null
->>>>>>> Clean up FileUpload (based on PR feedback)
 }
 
 export const Wrapper = styled.div`
@@ -35,14 +29,8 @@ const disabledStyles = css`
 
 export const StyledFileUpload = styled.div(
   props => css`
-<<<<<<< HEAD
     ${getCss('fields.filedrop')};
-    ${getBorder(props)};
-=======
-    ${getCss('fields.default')};
-    border-style: dashed;
     border-color: ${getBorderColor(props)};
->>>>>>> Clean up FileUpload (based on PR feedback)
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -81,6 +69,6 @@ export const Actions = styled.div`
   flex-direction: column;
 
   ${StyledButton} {
-    margin-bottom: ${get('spaces.md')};
+    margin-bottom: ${get('gutter.md')};
   }
 `

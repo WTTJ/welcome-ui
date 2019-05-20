@@ -56,6 +56,7 @@ export const getFields = theme => {
     },
     filedrop: {
       ...defaults,
+      'border-style': 'dashed',
       height: toRem(300)
     },
     radiotabs: {
