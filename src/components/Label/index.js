@@ -6,19 +6,6 @@ import { Icon } from '../Icon'
 
 import { Disabled, Required, StyledLabel, Variant } from './styles'
 
-const getVariantIcon = variant => {
-  if (variant === 'error' || variant === 'warning') {
-    return (
-      errorWarningIcon || (
-        <Badge fontsize="xs" size="1.4em" variant={variant}>
-          {'!'}
-        </Badge>
-      )
-    )
-  }
-  return null
-}
-
 export const Label = props => {
   const {
     errorWarningIcon,
@@ -28,6 +15,19 @@ export const Label = props => {
     required = false,
     variant
   } = props
+
+  const getVariantIcon = variant => {
+    if (variant === 'error' || variant === 'warning') {
+      return (
+        errorWarningIcon || (
+          <Badge fontsize="xs" size="1.4em" variant={variant}>
+            !
+          </Badge>
+        )
+      )
+    }
+    return null
+  }
 
   return (
     <StyledLabel {...props}>

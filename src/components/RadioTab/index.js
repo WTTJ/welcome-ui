@@ -1,5 +1,5 @@
 import React from 'react'
-import { checked, groupName, name } from 'prop-types'
+import { bool, string } from 'prop-types'
 
 import { Input } from './styles'
 
