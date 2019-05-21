@@ -15,7 +15,7 @@ const getBorder = ({ isDragAccept, isDragActive, isDragReject }) => {
   }
 
   return css`
-    border: ${get('borderWidth.input')} ${borderStyle} ${borderColor};
+    border: ${get('borderWidth.sm')} ${borderStyle} ${borderColor};
   `
 }
 
@@ -34,14 +34,13 @@ const disabledStyles = css`
 
 export const StyledFileUpload = styled.div(
   props => css`
-    ${getCss('fields.default')};
+    ${getCss('fields.filedrop')};
     ${getBorder(props)};
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: ${get('fileDropHeight')};
-    padding: ${get('gutter.md')};
+    padding: ${get('spaces.md')};
 
     h3 {
       ${getCss('text.h1')};
@@ -69,12 +68,12 @@ export const FilePreviewImage = styled.img`
 
 export const Actions = styled.div`
   position: absolute;
-  top: ${get('gutter.lg')};
-  right: ${get('gutter.lg')};
+  top: ${get('spaces.xl')};
+  right: ${get('spaces.xl')};
   display: flex;
   flex-direction: column;
 
   ${StyledButton} {
-    margin-bottom: ${get('gutter.sm')};
+    margin-bottom: ${get('spaces.md')};
   }
 `

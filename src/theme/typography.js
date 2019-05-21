@@ -35,23 +35,13 @@ export const letterSpacings = {
   lg: '2px'
 }
 
-const defaults = {
-  'font-family': 'inherit',
-  'font-size': 'inherit',
-  'font-weight': 'inherit',
-  'text-transform': 'none',
-  'letter-spacing': 'normal'
-}
-
 export const getTypography = theme => {
   return {
     hint: {
-      ...defaults,
       'font-size': theme.fontSize.body3,
       'font-weight': theme.fontWeight.regular
     },
     label: {
-      ...defaults,
       color: theme.colors.nude[800],
       'font-size': theme.fontSize.body3,
       'font-weight': theme.fontWeight.medium
@@ -66,17 +56,14 @@ export const getTypography = theme => {
       }
     },
     input: {
-      ...defaults,
       'font-size': theme.fontSize.body3,
       'font-weight': theme.fontWeight.regular
     },
     badge: {
-      ...defaults,
       'font-size': theme.fontSize.body3,
       'font-weight': theme.fontWeight.bold
     },
     button: {
-      ...defaults,
       'font-size': theme.fontSize.button,
       'font-weight': theme.fontWeight.bold,
       'text-transform': 'uppercase',

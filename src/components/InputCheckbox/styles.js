@@ -5,7 +5,7 @@ import { fieldTypeStyles } from '../../common/styles/form'
 import { get, getCss } from '../../theme/helpers'
 
 const checkedStyles = css`
-  ${getCss('fields.checkbox.checked')};
+  ${getCss('fields.checkboxes.checked')};
 
   &::after {
     opacity: 1;
@@ -15,9 +15,8 @@ const checkedStyles = css`
 export const StyledInputCheckbox = styled.div(
   props => css`
     ${fieldTypeStyles};
+    ${getCss('fields.checkboxes.default')}
     position: relative;
-    width: ${get('checkboxSize.md')};
-    height: ${get('checkboxSize.md')};
     padding: 0;
     cursor: pointer;
     order: ${props.order || null};

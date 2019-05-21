@@ -7,7 +7,7 @@ export const StyledHint = styled.div(
   props => css`
     font-family: ${get('fontFamily.texts')};
     color: ${getVariantColor(props.variant)};
-    ${getCss('text.hint')};
-    margin-top: ${get('gutter.xs')};
+    ${getCss('fields.hint')};
+    margin-top: ${get('spaces.sm')};
   `
 )

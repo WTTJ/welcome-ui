@@ -11,7 +11,6 @@ export const InputCheckbox = memo(props => {
     onBlur,
     onFocus,
     order = -1,
-    size = 'md',
     StyledComponent = StyledInputCheckbox,
     type = 'checkbox'
   } = props
@@ -29,7 +28,6 @@ export const InputCheckbox = memo(props => {
       disabled={disabled}
       onClick={disabled ? undefined : onChange}
       order={order}
-      size={size}
       type={type}
     >
       <input
@@ -57,8 +55,6 @@ InputCheckbox.propTypes = {
   onFocus: func,
   order: number,
   order: number,
-  size: string,
-  size: oneOf(['sm', 'md', 'lg']),
   /** Size of component */
   type: string
 }

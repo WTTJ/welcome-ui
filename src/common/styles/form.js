@@ -7,7 +7,7 @@ export const fieldTypeStyles = css`
   ${props =>
     props.fieldType === 'radioTab' ? getCss('fields.radiotabs.default') : getCss('fields.default')};
   width: 100%;
-  padding: ${get('padding.sm')} ${get('padding.xs')};
+  padding: ${get('spaces.md')} ${get('spaces.sm')};
   border-color: ${props => getVariantColor(props.variant)};
   transition: ${get('transition.md')};
 

@@ -20,7 +20,6 @@ export const Input = styled.input`
 const checkedStyles = css`
   ${getCss('fields.radiotabs.checked')};
   -webkit-text-stroke-width: 0.5px;
-  box-shadow: ${get('boxShadow.xs')};
   z-index: 2;
 
   &:hover {
@@ -29,7 +28,7 @@ const checkedStyles = css`
 `
 
 const columnStyles = css`
-  margin-top: -${get('borderWidth.input')};
+  margin-top: -${get('borderWidth.sm')};
 
   &:first-child {
     margin-top: 0;
@@ -45,7 +44,7 @@ const columnStyles = css`
 `
 
 const rowStyles = css`
-  margin-left: -${get('borderWidth.input')};
+  margin-left: -${get('borderWidth.sm')};
 
   &:first-child {
     margin-left: 0;
@@ -70,8 +69,8 @@ export const radioTabStyles = props => css`
     max-width: 100%;
     user-select: none;
     margin: 0;
-    padding: ${get('gutter.xs')};
-    padding-right: calc(${get('gutter.xs')} + ${get('borderWidth.input')});
+    padding: ${get('spaces.sm')};
+    padding-right: calc(${get('spaces.sm')} + ${get('borderWidth.sm')});
     cursor: pointer;
     line-height: 1;
     text-align: center;
@@ -79,11 +78,12 @@ export const radioTabStyles = props => css`
     border-radius: 0;
     ${overflowEllipsis};
 
-    ${props.checked && checkedStyles};
-
     &:hover {
       ${getCss('fields.radiotabs.hover')};
+      z-index: 1;
     }
+
+    ${props.checked && checkedStyles};
   }
 
   ${props.direction === 'column' && columnStyles};

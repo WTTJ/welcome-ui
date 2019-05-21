@@ -7,11 +7,11 @@ import { StyledInputCheckbox } from '../InputCheckbox/styles'
 import { get, getCss } from '../../theme/helpers'
 
 const rowStyles = css`
-  margin-right: ${get('gutter.xs')};
+  margin-right: ${get('spaces.sm')};
 `
 
 const columnStyles = css`
-  margin-bottom: ${get('gutter.xs')};
+  margin-bottom: ${get('spaces.sm')};
 `
 
 const checkableFieldStyles = css`
@@ -28,7 +28,7 @@ export const StyledField = styled.div(
       ${props.checked && getCss('text.checkablelabel.checked')}
     }
     ${StyledToggle}, ${StyledInputCheckbox} {
-      margin-right: ${get('gutter.xxs')};
+      margin-right: ${get('spaces.xxs')};
     }
     ${props.fieldType === 'radioTab' && radioTabStyles(props)}
   `

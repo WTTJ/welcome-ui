@@ -1,4 +1,4 @@
-export const getFields = theme => {
+export const getFields = (theme, toRem) => {
   const defaults = {
     color: theme.colors.nude[800],
     'background-color': theme.colors.light[200],
@@ -24,11 +24,23 @@ export const getFields = theme => {
     placeholder: {
       color: theme.colors.nude[600]
     },
-    checkbox: {
+    hint: {
+      'font-size': theme.fontSize.body3,
+      'font-weight': theme.fontWeight.regular
+    },
+    checkboxes: {
+      default: {
+        width: toRem(15, theme.defaultFontSize),
+        height: toRem(15, theme.defaultFontSize)
+      },
       checked: {
         'background-color': theme.colors.primary[500],
         'border-color': theme.colors.primary[500]
       }
+    },
+    filedrop: {
+      ...defaults,
+      height: toRem(300, theme.defaultFontSize)
     },
     radiotabs: {
       default: {
@@ -38,17 +50,23 @@ export const getFields = theme => {
         color: 'transparent',
         'background-color': theme.colors.light[200],
         'border-color': theme.colors.primary[500],
-        'box-shadow': 'none',
         '-webkit-text-stroke-color': theme.colors.dark[200],
-        '-webkit-text-fill-color': theme.colors.dark[200]
+        '-webkit-text-fill-color': theme.colors.dark[200],
+        '&:hover': {
+          'box-shadow': 'none'
+        }
       },
       hover: {
         'background-color': theme.colors.light[200],
-        'box-shadow': theme.boxShadow.xs
+        'box-shadow': theme.boxShadow.sm
       }
+    },
+    textarea: {
+      'min-height': '8rem'
     },
     toggles: {
       default: {
+        width: toRem(22, theme.defaultFontSize),
         'background-color': theme.colors.nude[200],
         '&::after': {
           ...defaults,
