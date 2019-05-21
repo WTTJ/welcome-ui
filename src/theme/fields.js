@@ -1,13 +1,14 @@
 export const getFields = theme => {
-  const { boxShadows, colors, fontSizes, fontWeights, radii, texts, toRem } = theme
+  const { boxShadows, colors, fontSizes, fontWeights, radii, toRem } = theme
   const defaults = {
     color: colors.nude[800],
+    'font-size': fontSizes.body3,
+    'font-weight': fontWeights.regular,
     'background-color': colors.light[200],
     'border-color': colors.nude[200],
     'border-width': '1px',
     'border-style': 'solid',
-    'border-radius': radii.sm,
-    ...texts.input
+    'border-radius': radii.sm
   }
 
   return {
@@ -28,6 +29,20 @@ export const getFields = theme => {
     hint: {
       'font-size': fontSizes.body3,
       'font-weight': fontWeights.regular
+    },
+    label: {
+      color: colors.nude[800],
+      'font-size': fontSizes.body3,
+      'font-weight': fontWeights.medium
+    },
+    checkablelabel: {
+      default: {
+        'font-weight': fontWeights.regular
+      },
+      checked: {
+        color: colors.dark[200],
+        'font-weight': fontWeights.bold
+      }
     },
     checkboxes: {
       default: {

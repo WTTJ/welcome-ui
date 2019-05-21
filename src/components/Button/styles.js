@@ -43,7 +43,6 @@ export const pulsingStyles = css`
 export const StyledButton = styled.button(
   props => css`
     ${getCss(`buttons.${props.variant || 'primary'}`)};
-    ${getCss('texts.button')};
     position: relative;
     display: inline-flex;
     align-items: center;

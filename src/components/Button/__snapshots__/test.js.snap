@@ -3,9 +3,6 @@
 exports[`<Button> renders correctly and has white text by default 1`] = `
 .c0 {
   color: #FAFAFA;
-  background: #1B74B5;
-  border-color: #1B74B5;
-  border-radius: 4px;
   font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -13,6 +10,9 @@ exports[`<Button> renders correctly and has white text by default 1`] = `
   -moz-letter-spacing: 1px;
   -ms-letter-spacing: 1px;
   letter-spacing: 1px;
+  background-color: #1B74B5;
+  border-color: #1B74B5;
+  border-radius: 4px;
   position: relative;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;

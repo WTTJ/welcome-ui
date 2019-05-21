@@ -15,7 +15,7 @@ const getPadding = props => {
 
 export const StyledBadge = styled.div(
   props => css`
-    ${getCss('texts.badge')};
+    ${getCss('badges.default')};
     display: inline-flex;
     align-items: center;
     justify-content: center;

@@ -26,5 +26,5 @@ export const StyledLabel = styled.label`
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  ${getCss('texts.label')};
+  ${getCss('fields.label')};
 `
