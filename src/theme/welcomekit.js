@@ -44,7 +44,7 @@ const palette = {
 export const welcomekitTheme = {
   colors: {
     primary: {
-      200: palette.moutainmeadow,
+      200: palette.mountainmeadow,
       500: palette.jade
     },
     secondary: {

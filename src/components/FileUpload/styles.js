@@ -29,7 +29,7 @@ const disabledStyles = css`
 
 export const StyledFileUpload = styled.div(
   props => css`
-    ${getCss('fields.filedrop')};
+    ${getCss('fields.fileupload')};
     border-color: ${getBorderColor(props)};
     position: relative;
     display: flex;
@@ -38,8 +38,8 @@ export const StyledFileUpload = styled.div(
     padding: ${get('spaces.md')};
 
     h3 {
-      ${getCss('texts.h1')};
-      color: ${get('color.primary.700')};
+      font-size: ${get('fontSizes.h1')};
+      color: ${get('colors.secondary.500')};
     }
 
     ${props.disabled && disabledStyles};
