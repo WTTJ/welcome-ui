@@ -3,19 +3,16 @@ import { bool, object, oneOf, string } from 'prop-types'
 
 import { StyledInputText } from './styles'
 
-export const InputText = props => {
-  const { disabled, fieldTypeProps, name, placeholder, variant, type } = props
-  return (
-    <StyledInputText
-      disabled={disabled}
-      id={name}
-      placeholder={placeholder}
-      type={type}
-      variant={variant}
-      {...fieldTypeProps}
-    />
-  )
-}
+export const InputText = ({ disabled, fieldTypeProps, name, placeholder, variant, type }) => (
+  <StyledInputText
+    disabled={disabled}
+    id={name}
+    placeholder={placeholder}
+    type={type}
+    variant={variant}
+    {...fieldTypeProps}
+  />
+)
 
 InputText.propTypes = {
   disabled: bool,

@@ -3,7 +3,7 @@ import { node, oneOf, string } from 'prop-types'
 
 import { StyledButton } from './styles'
 
-export const Button = ({ radius, children, size, span, variant }) => {
+export const Button = ({ radius, children, size = 'auto', span, variant = 'primary' }) => {
   return (
     <StyledButton radius={radius} size={size} span={span} variant={variant}>
       {children}
@@ -30,10 +30,4 @@ Button.propTypes = {
     'primary-danger',
     'secondary-danger'
   ])
-}
-
-// Specifies the default values for props:
-Button.defaultProps = {
-  size: 'auto',
-  variant: 'primary'
 }

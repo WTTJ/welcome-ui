@@ -6,9 +6,7 @@ import { Label } from '../Label'
 
 import { Radios } from './styles'
 
-export const RadioGroup = props => {
-  const { children, groupName, label, required, direction, checkedName } = props
-
+export const RadioGroup = ({ children, groupName, label, required, direction, checkedName }) => {
   const [checked, setChecked] = useState(checkedName)
 
   const onChange = e => {

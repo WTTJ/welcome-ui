@@ -3,49 +3,51 @@ import { bool, elementType, func, number, oneOf, oneOfType, string } from 'prop-
 
 import { StyledInputCheckbox } from './styles'
 
-export const InputCheckbox = memo(props => {
-  const {
+export const InputCheckbox = memo(
+  ({
+    checked: initialChecked,
     disabled,
     groupName,
     name,
     onBlur,
+    onChange,
     onFocus,
     order = -1,
-    StyledComponent = StyledInputCheckbox,
+    Component = StyledInputCheckbox,
     type = 'checkbox'
-  } = props
+  }) => {
+    const [checked, setChecked] = useState(initialChecked)
 
-  const [checked, setChecked] = useState(props.checked)
+    const handleChange = e => {
+      onChange && onChange()
+      setChecked(!checked)
+    }
 
-  const onChange = e => {
-    if (props.onChange) return props.onChange()
-    setChecked(!checked)
-  }
-
-  return (
-    <StyledComponent
-      checked={checked}
-      disabled={disabled}
-      onClick={disabled ? undefined : onChange}
-      order={order}
-      type={type}
-    >
-      <input
-        defaultChecked={checked}
+    return (
+      <Component
+        checked={checked}
         disabled={disabled}
-        id={name}
-        name={groupName || name}
-        onBlur={onBlur}
-        onChange={onChange}
-        onFocus={onFocus}
+        onClick={disabled ? undefined : handleChange}
+        order={order}
         type={type}
-      />
-    </StyledComponent>
-  )
-})
+      >
+        <input
+          defaultChecked={checked}
+          disabled={disabled}
+          id={name}
+          name={groupName || name}
+          onBlur={onBlur}
+          onChange={handleChange}
+          onFocus={onFocus}
+          type={type}
+        />
+      </Component>
+    )
+  }
+)
 
 InputCheckbox.propTypes = {
-  StyledComponent: elementType,
+  Component: elementType,
   checked: bool,
   disabled: bool,
   groupName: string,
@@ -54,7 +56,5 @@ InputCheckbox.propTypes = {
   onChange: func,
   onFocus: func,
   order: number,
-  order: number,
-  /** Size of component */
   type: string
 }
