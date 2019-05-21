@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import SimpleMDE from 'react-simplemde-editor'
+
 import { get } from '../../theme/helpers'
 import { fieldTypeStyles } from '../../common/styles/form'
 

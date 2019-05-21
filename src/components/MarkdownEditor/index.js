@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { func, node, arrayOf, oneOfType, string, object, bool } from 'prop-types'
+import { arrayOf, bool, func, node, object, oneOfType, string } from 'prop-types'
 import { throttle } from 'lodash'
 import 'easymde/dist/easymde.min.css'
 
-import { StyledMarkdownEditor, StyledSimpleMDE } from './styles'
 import { formFieldPropTypes } from '../../utils/propTypes'
+
+import { StyledMarkdownEditor, StyledSimpleMDE } from './styles'
 
 export const MarkdownEditor = props => {
   const {
@@ -37,16 +38,15 @@ export const MarkdownEditor = props => {
     onChange && onChange(value)
   }, 200)
 
-  // getInstance = instance => {
-  //   this.simpleMdeInstance = instance
-  // }
-
   return (
     <StyledMarkdownEditor disabled={disabled} focused={focused} variant={variant}>
       <StyledSimpleMDE
-        // getMdeInstance={this.getInstance}
-        onChange={handleChange}
         className="simple-md-editor-wrapper"
+        events={{ blur: handleBlur, focus: handleFocus }}
+        extraKeys={{
+          Tab: false // Prevent tab from indenting (and creating code block)
+        }}
+        onChange={handleChange}
         options={{
           autofocus: autoFocus,
           placeholder,
@@ -56,10 +56,6 @@ export const MarkdownEditor = props => {
           showIcons,
           hideIcons: [...hideIcons, 'image', 'heading', 'fullscreen', 'side-by-side']
         }}
-        extraKeys={{
-          Tab: false // Prevent tab from indenting (and creating code block)
-        }}
-        events={{ blur: handleBlur, focus: handleFocus }}
       />
     </StyledMarkdownEditor>
   )
@@ -68,11 +64,9 @@ export const MarkdownEditor = props => {
 MarkdownEditor.propTypes = {
   ...formFieldPropTypes,
   autoFocus: func,
-  showIcons: arrayOf(string),
+  disabled: bool,
   hideIcons: arrayOf(string),
-  toolbar: arrayOf(string),
   placeholder: oneOfType([string, node]),
-  error: object,
-  warning: object,
-  disabled: bool
+  showIcons: arrayOf(string),
+  toolbar: arrayOf(string)
 }
