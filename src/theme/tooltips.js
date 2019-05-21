@@ -1,10 +1,6 @@
-import { colors } from './colors'
-import { radii } from './radii'
-import { toRem } from './typography'
-
-export const tooltips = ({ defaultFontSize }) => ({
-  background: colors.primary[700],
-  color: colors.light[200],
-  'border-radius': radii.md,
+export const getTooltips = ({ defaultFontSize, theme, toRem }) => ({
+  background: theme.colors.dark[700],
+  color: theme.colors.light[200],
+  'border-radius': theme.radii.md,
   'max-width': toRem(200, defaultFontSize)
 })
