@@ -54,12 +54,12 @@ export const StyledButton = styled.button(
     white-space: nowrap;
     cursor: pointer;
     outline: none;
-    border-width: get('borderWidths');
+    border-width: ${get('borderWidths.sm')};
     border-style: solid;
     border-radius: ${props.radius ? props.radius : null};
     appearance: none;
     overflow: hidden;
-    transition: ${get('transition.sm')};
+    transition: ${get('transitions.sm')};
     line-height: 0.9rem;
 
     &:active {

@@ -74,7 +74,7 @@ export const radioTabStyles = props => css`
     cursor: pointer;
     line-height: 1;
     text-align: center;
-    transition: ${get('transition.sm')};
+    transition: ${get('transitions.sm')};
     border-radius: 0;
     ${overflowEllipsis};
 

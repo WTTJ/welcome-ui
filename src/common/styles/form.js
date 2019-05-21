@@ -9,7 +9,7 @@ export const fieldTypeStyles = css`
   width: 100%;
   padding: ${get('spaces.md')} ${get('spaces.sm')};
   border-color: ${props => getVariantColor(props.variant)};
-  transition: ${get('transition.md')};
+  transition: ${get('transitions.md')};
 
   &::placeholder {
     ${getCss('fields.placeholder')};

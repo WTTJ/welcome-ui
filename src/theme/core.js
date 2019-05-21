@@ -62,6 +62,13 @@ export const getBaseTheme = (options = {}) => {
 
   theme.radii = radii
 
+  // TODO rework transitions
+  theme.transitions = {
+    sm: 'all .2s cubic-bezier(0.41, 0.094, 0.54, 0.07)',
+    md: 'all .3s cubic-bezier(0.41, 0.094, 0.54, 0.07)',
+    lg: 'all 1s cubic-bezier(0.41, 0.094, 0.54, 0.07)'
+  }
+
   theme.boxShadows = {
     sm: '1px 2px 4px 0 rgba(0,0,0,0.05)'
   }

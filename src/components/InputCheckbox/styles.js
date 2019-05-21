@@ -21,7 +21,7 @@ export const StyledInputCheckbox = styled.div(
     cursor: pointer;
     order: ${props.order || null};
     border-radius: ${props.type === 'radio' && '50%'};
-    transition: ${get('transition.sm')};
+    transition: ${get('transitions.sm')};
 
     &::after {
       content: '✓';
@@ -34,7 +34,7 @@ export const StyledInputCheckbox = styled.div(
       text-align: center;
       color: ${get('colors.light.200')};
       opacity: 0;
-      transition: ${get('transition.sm')};
+      transition: ${get('transitions.sm')};
     }
 
     ${props.checked && checkedStyles};

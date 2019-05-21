@@ -20,7 +20,7 @@ test('Can create theme with different fonts', () => {
         }
       ]
     },
-    fontFamily: {
+    fontFamilies: {
       texts: 'HKCompakt',
       quotes: 'HKCompakt'
     }
