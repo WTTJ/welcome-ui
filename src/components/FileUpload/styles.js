@@ -14,10 +14,6 @@ const getBorderColor = ({ isDragAccept, isDragActive, isDragReject }) => {
   return null
 }
 
-export const Wrapper = styled.div`
-  position: relative;
-`
-
 const disabledStyles = css`
   background: ${get('colors.light.500')};
 
@@ -38,7 +34,7 @@ export const StyledFileUpload = styled.div(
     padding: ${get('spaces.md')};
 
     h3 {
-      font-size: ${get('fontSizes.h1')};
+      font-size: ${get('fontSizes.h3')};
       color: ${get('colors.secondary.500')};
     }
 

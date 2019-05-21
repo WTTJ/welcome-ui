@@ -19,25 +19,16 @@ import { Tooltip } from './'
 ## Examples
 
 <Playground>
-  {() => {
-      return (
-        <>
-          <Button>
-            Hover right here to show a beautiful tooltip :)
-          </Button>
-          <Tooltip accessibilityId="button_example">lorem ipsum dolor sit amet</Tooltip>
-          <div style={{ marginTop: '30px' }}>
-              <div style={{ display: 'inline-block' }}>
-                Example with a long text > max width
-              </div>
-              <Tooltip accessibilityId="div_example">
-                lorem ipsum dolor sit amet, consectetur adipiscing elit
-              </Tooltip>
-          </div>
-        </>
-      )
-    }
-
-}
-
+  {() => (
+    <>
+      <Button>Hover right here to show a beautiful tooltip :)</Button>
+      <Tooltip accessibilityId="button_example">lorem ipsum dolor sit amet</Tooltip>
+      <div style={{ marginTop: '30px' }}>
+        <div style={{ display: 'inline-block' }}>Example with a long text > max width</div>
+        <Tooltip accessibilityId="div_example">
+          lorem ipsum dolor sit amet, consectetur adipiscing elit
+        </Tooltip>
+      </div>
+    </>
+  )}
 </Playground>

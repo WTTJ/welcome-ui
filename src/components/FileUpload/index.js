@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+import { bool, func, node, number, oneOfType, string } from 'prop-types'
 import { useDropzone } from 'react-dropzone'
 
 // Common
 import { Icon } from '../Icon'
 import { Button } from '../Button'
-import { validateFileSize, validateImage, validateMimeType } from '../../utils/validations'
+import { validateFileSize, validateMimeType } from '../../utils/validations'
 
 // FileUpload
-import { Actions, FilePreview, FilePreviewImage, StyledFileUpload, Wrapper } from './styles.js'
+import { Actions, FilePreview, StyledFileUpload } from './styles.js'
+
 const DEFAULT_MAX_FILE_SIZE = 2000000
+const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
+const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
 
 const getPreviewUrl = url =>
   typeof url !== 'string' || url.startsWith('blob:') ? url : new URL(url)
@@ -20,11 +23,7 @@ export const FileUpload = ({
   disabled = false,
   multiple = false,
   maxSize = DEFAULT_MAX_FILE_SIZE,
-  title = 'Add picture',
-  body = 'Drag and drop a file here or…',
-  buttonText = 'Choose file',
-  rejectText = "We don't accept this file type",
-  acceptText = 'Drop your file to upload',
+  children,
   onAddFile,
   onChange,
   onError,
@@ -49,11 +48,18 @@ export const FileUpload = ({
   const handleDropRejected = files => {
     files.forEach(file => {
       if (!validateMimeType(file, accept)) {
-        onError && onError('INVALID_TYPE')
+        onError && onError(ERROR_INVALID_TYPE)
       } else if (!validateFileSize(file, maxSize)) {
-        onError && onError('INVALID_SIZE')
+        onError && onError(ERROR_INVALID_SIZE)
       }
     })
+  }
+
+  const handleRemoveFile = e => {
+    e.preventDefault()
+    setFile(null)
+    onRemoveFile && onRemoveFile()
+    onChange && onChange(null)
   }
 
   const {
@@ -70,100 +76,50 @@ export const FileUpload = ({
     multiple,
     accept,
     disabled,
-    maxSize
+    maxSize,
+    children
   })
 
-  const emptyStates = {
-    default: (
-      <>
-        <h3>{title}</h3>
-        <p>{body}</p>
-        <Button disabled={disabled} onClick={open} type="button">
-          {buttonText}
-        </Button>
-      </>
-    ),
-    accept: (
-      <>
-        <Icon icon="positive" />
-        <h3>{acceptText}</h3>
-      </>
-    ),
-    reject: (
-      <>
-        <Icon icon="negative" />
-        <h3>{rejectText}</h3>
-      </>
-    )
-  }
-
-  const handleRemoveFile = e => {
-    e.preventDefault()
-    setFile(null)
-    onRemoveFile && onRemoveFile()
-    onChange && onChange(null)
-  }
-
-  const getEmptyState = () => {
-    let state = 'default'
-    if (!isDragActive) {
-      state = 'default'
-    } else if (isDragAccept) {
-      state = 'accept'
-    } else if (isDragReject) {
-      state = 'reject'
-    }
-
-    return emptyStates[state]
-  }
-
-  const emptyState = getEmptyState()
   const hasFile = !!file
 
   return (
-    <Wrapper>
-      <StyledFileUpload
-        {...getRootProps({ handleRemoveFile, isDragActive, isDragAccept, isDragReject, disabled })}
-      >
-        <input {...getInputProps({ name: input && input.name })} />
-        <FilePreview>
-          {hasFile && validateImage(file) && <FilePreviewImage src={getPreviewUrl(file.preview)} />}
-          {!hasFile && emptyState}
-        </FilePreview>
-      </StyledFileUpload>
-      {hasFile && (
-        <Actions>
-          <Button onClick={open} size="sm" type="button" variant="secondary">
-            <Icon icon="pencil" size="sm" />
-          </Button>
-          <Button onClick={handleRemoveFile} size="sm" type="button" variant="primary-danger">
-            <Icon icon="cross" size="sm" />
-          </Button>
-        </Actions>
-      )}
-    </Wrapper>
+    <StyledFileUpload
+      {...getRootProps({ handleRemoveFile, isDragActive, isDragAccept, isDragReject, disabled })}
+    >
+      <input {...getInputProps({ name: input && input.name })} />
+      <FilePreview>
+        {children({
+          fileUrl: file && getPreviewUrl(file.preview),
+          isDefault: !file && !isDragActive,
+          isHoverAccept: isDragAccept,
+          isHoverReject: isDragReject,
+          openFile: open
+        })}
+        {hasFile && (
+          <Actions>
+            <Button onClick={open} size="sm" type="button" variant="secondary">
+              <Icon icon="pencil" size="sm" />
+            </Button>
+            <Button onClick={handleRemoveFile} size="sm" type="button" variant="primary-danger">
+              <Icon icon="cross" size="sm" />
+            </Button>
+          </Actions>
+        )}
+      </FilePreview>
+    </StyledFileUpload>
   )
 }
 
 FileUpload.propTypes = {
-  accept: PropTypes.string,
-  acceptText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  body: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  buttonText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  disabled: PropTypes.bool,
-  input: PropTypes.node,
-  maxSize: PropTypes.number,
-  multiple: PropTypes.bool,
-  onAddFile: PropTypes.func,
-  onChange: PropTypes.func,
-  onError: PropTypes.func,
-  onRemoveFile: PropTypes.func,
-  rejectText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
-}
-
-FileUpload.defaultProps = {
-  accept: 'image/*',
-  disabled: false,
-  multiple: false
+  accept: string,
+  children: func.isRequired,
+  disabled: bool,
+  input: node,
+  maxSize: number,
+  multiple: bool,
+  onAddFile: func,
+  onChange: func,
+  onError: func,
+  onRemoveFile: func,
+  title: oneOfType([string, node])
 }
