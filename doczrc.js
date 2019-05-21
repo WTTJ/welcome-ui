@@ -51,7 +51,8 @@ export default {
       }
     },
     logo: {
-      src: 'https://cdn.welcometothejungle.co/wttj-front/assets/images/logos/wttj-long.svg',
+      src:
+        'https://cdn.welcometothejungle.co/common/assets/images/logos/wttj-long-original-dark.svg',
       width: 200
     }
   },
