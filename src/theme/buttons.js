@@ -1,54 +1,59 @@
 export const getButtons = theme => {
+  const { colors, fontSizes, fontWeights, letterSpacings, radii } = theme
   const defaults = {
-    color: theme.colors.light[200],
-    background: theme.colors.primary[500],
-    'border-color': theme.colors.primary[500],
-    'border-radius': theme.radii.sm
+    color: colors.light[200],
+    'font-size': fontSizes.button,
+    'font-weight': fontWeights.bold,
+    'text-transform': 'uppercase',
+    'letter-spacing': letterSpacings.md,
+    'background-color': colors.primary[500],
+    'border-color': colors.primary[500],
+    'border-radius': radii.sm
   }
 
   return {
     primary: defaults,
     secondary: {
       ...defaults,
-      color: theme.colors.primary[500],
-      background: theme.colors.light[200],
-      'border-color': theme.colors.light[700]
+      color: colors.primary[500],
+      'background-color': colors.light[200],
+      'border-color': colors.light[700]
     },
     tertiary: {
       ...defaults,
-      color: theme.colors.light[200],
-      background: theme.colors.dark[200],
-      'border-color': theme.colors.dark[200]
+      color: colors.light[200],
+      'background-color': colors.dark[200],
+      'border-color': colors.dark[200]
     },
     disabled: {
       ...defaults,
-      color: theme.colors.dark[700],
-      background: theme.colors.light[700],
-      'border-color': theme.colors.light[700]
+      color: colors.dark[700],
+      'background-color': colors.light[700],
+      'border-color': colors.light[700]
     },
     'primary-warning': {
       ...defaults,
-      color: theme.colors.light[200],
-      background: theme.colors.warning[500],
-      'border-color': theme.colors.warning[500]
+      color: colors.light[200],
+      'background-color': colors.warning[500],
+      'border-color': colors.warning[500]
     },
     'secondary-warning': {
       ...defaults,
-      color: theme.colors.warning[500],
-      background: theme.colors.light[200],
-      'border-color': theme.colors.warning[500]
+      color: colors.warning[500],
+      'background-color': colors.light[200],
+      'border-color': colors.warning[500]
     },
     'primary-danger': {
       ...defaults,
-      color: theme.colors.light[200],
-      background: theme.colors.danger[500],
-      'border-color': theme.colors.danger[500]
+      color: colors.light[200],
+      'background-color': colors.danger[500],
+      'border-color': colors.danger[500]
     },
     'secondary-danger': {
       ...defaults,
-      color: theme.colors.danger[500],
-      background: theme.colors.light[200],
-      'border-color': theme.colors.danger[500]
+      color: colors.danger[500],
+      'background-color': colors.light[200],
+      'border-color': colors.danger[500]
     }
   }
 }

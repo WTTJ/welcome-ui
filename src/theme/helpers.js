@@ -6,7 +6,7 @@ import { hexToRGB } from '../utils/hexToRGB'
 const getThemeValue = (theme, path) => {
   const value = _get(theme, path)
   if (process.env.NODE_ENV !== 'development' && value === undefined) {
-    console.warn(`${path.join('.')} is not available in this theme`)
+    console.warn(`${path} is not available in this theme`)
   }
   return value
 }
@@ -39,7 +39,7 @@ export const getCss = (path, fallback) => ({ theme }) => {
   }
 
   if (process.env.NODE_ENV !== 'development') {
-    console.warn(`${path.join('.')} is not returning CSS but a value`)
+    console.warn(`${path} is not returning CSS but a value`)
   }
   return value
 }

@@ -5,6 +5,6 @@ import { StyledLabel } from '../Label/styles'
 
 export const StyledFieldGroup = styled.fieldset`
   & > ${StyledLabel} {
-    margin-bottom: ${get('gutter.xs')};
+    margin-bottom: ${get('spaces.sm')};
   }
 `

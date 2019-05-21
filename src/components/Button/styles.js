@@ -1,21 +1,16 @@
 import styled, { css } from 'styled-components'
 
 import { get, getCss } from '../../theme/helpers'
-import { media } from '../../utils/utils'
 
 const sizes = {
   sm: css`
-    padding: ${get('padding.xxs')} ${get('padding.xs')};
+    padding: ${get('spaces.xs')} ${get('spaces.sm')};
   `,
   md: css`
-    padding: ${get('padding.xs')} ${get('padding.sm')};
-
-    ${media.mobile`
-      padding: ${get('padding.md')};
-    `};
+    padding: ${get('spaces.sm')} ${get('spaces.md')};
   `,
   lg: css`
-    padding: ${get('padding.sm')} ${get('padding.md')};
+    padding: ${get('spaces.md')} ${get('spaces.lg')};
   `
 }
 
@@ -26,7 +21,7 @@ function getButtonSize(size) {
 export const fullWidthStyles = css`
   width: 100%;
   &:not(:last-child) {
-    margin-bottom: ${get('gutter.lg')};
+    margin-bottom: ${get('spaces.xl')};
   }
 `
 
@@ -48,7 +43,6 @@ export const pulsingStyles = css`
 export const StyledButton = styled.button(
   props => css`
     ${getCss(`buttons.${props.variant || 'primary'}`)};
-    ${getCss('text.button')};
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -59,18 +53,16 @@ export const StyledButton = styled.button(
     white-space: nowrap;
     cursor: pointer;
     outline: none;
-    border-width: 1px;
+    border-width: ${get('borderWidths.sm')};
     border-style: solid;
     border-radius: ${props.radius ? props.radius : null};
-    box-shadow: ${props.shadow || get('boxShadow.sm')};
     appearance: none;
     overflow: hidden;
-    transition: ${get('transition.sm')};
-    line-height: 1rem;
+    transition: ${get('transitions.sm')};
+    line-height: 0.9rem;
 
     &:active {
       transform: translateY(2px);
-      box-shadow: ${get('boxShadow.sm')};
     }
 
     &::before {
@@ -78,9 +70,7 @@ export const StyledButton = styled.button(
     }
 
     &:hover {
-      ${media.mobile`
-    transform: translateY(2px);
-  `}
+      box-shadow: ${get('boxShadows.sm')};
     }
 
     &[disabled] {
