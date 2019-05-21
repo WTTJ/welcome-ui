@@ -52,7 +52,7 @@ export const getBaseTheme = (options = {}) => {
     sm: '1px'
   }
 
-  theme.spaces = {
+  theme.space = {
     xxs: theme.toRem(6),
     xs: theme.toRem(8),
     sm: theme.toRem(10),

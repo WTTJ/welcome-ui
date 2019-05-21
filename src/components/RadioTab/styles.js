@@ -69,8 +69,8 @@ export const radioTabStyles = props => css`
     max-width: 100%;
     user-select: none;
     margin: 0;
-    padding: ${get('spaces.sm')};
-    padding-right: calc(${get('spaces.sm')} + ${get('borderWidths.sm')});
+    padding: ${get('space.sm')};
+    padding-right: calc(${get('space.sm')} + ${get('borderWidths.sm')});
     cursor: pointer;
     line-height: 1;
     text-align: center;

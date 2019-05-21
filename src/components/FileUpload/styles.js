@@ -31,7 +31,7 @@ export const StyledFileUpload = styled.div(
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: ${get('spaces.md')};
+    padding: ${get('space.md')};
 
     h3 {
       font-size: ${get('fontSizes.h3')};
@@ -59,12 +59,12 @@ export const FilePreviewImage = styled.img`
 
 export const Actions = styled.div`
   position: absolute;
-  top: ${get('spaces.xl')};
-  right: ${get('spaces.xl')};
+  top: ${get('space.xl')};
+  right: ${get('space.xl')};
   display: flex;
   flex-direction: column;
 
   ${StyledButton} {
-    margin-bottom: ${get('gutter.md')};
+    margin-bottom: ${get('space.md')};
   }
 `

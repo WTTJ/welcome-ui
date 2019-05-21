@@ -8,6 +8,6 @@ export const StyledHint = styled.div(
     font-family: ${get('fontFamilies.texts')};
     color: ${getVariantColor(props.variant)};
     ${getCss('fields.hint')};
-    margin-top: ${get('spaces.sm')};
+    margin-top: ${get('space.sm')};
   `
 )

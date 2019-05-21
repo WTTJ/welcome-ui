@@ -8,9 +8,9 @@ const getPadding = props => {
     return 0
   }
   if (props.padding) {
-    return get(`spaces.${props.padding}`, props.padding)
+    return get(`space.${props.padding}`, props.padding)
   }
-  return get('spaces.sm')
+  return get('space.sm')
 }
 
 export const StyledBadge = styled.div(

@@ -1,29 +1,23 @@
 import styled, { css } from 'styled-components'
+import { width } from 'styled-system'
 
 import { get, getCss } from '../../theme/helpers'
 
 const sizes = {
   sm: css`
-    padding: ${get('spaces.xs')} ${get('spaces.sm')};
+    padding: ${get('space.xs')} ${get('space.sm')};
   `,
   md: css`
-    padding: ${get('spaces.sm')} ${get('spaces.md')};
+    padding: ${get('space.sm')} ${get('space.md')};
   `,
   lg: css`
-    padding: ${get('spaces.md')} ${get('spaces.lg')};
+    padding: ${get('space.md')} ${get('space.lg')};
   `
 }
 
 function getButtonSize(size) {
   return sizes[size] || sizes['md']
 }
-
-export const fullWidthStyles = css`
-  width: 100%;
-  &:not(:last-child) {
-    margin-bottom: ${get('spaces.xl')};
-  }
-`
 
 export const pulsingStyles = css`
   overflow: visible;
@@ -60,6 +54,7 @@ export const StyledButton = styled.button(
     overflow: hidden;
     transition: ${get('transitions.sm')};
     line-height: 0.9rem;
+    ${width};
 
     &::before {
       background: ${get('rgba.light.200', 0.05)};
@@ -79,7 +74,6 @@ export const StyledButton = styled.button(
     }
 
     ${getButtonSize(props.size, props.rounded)};
-    ${props.span === 'full' ? fullWidthStyles : null};
 
     ${props.styles};
   `
