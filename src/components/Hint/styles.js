@@ -5,7 +5,7 @@ import { get, getCss } from '../../theme/helpers'
 
 export const StyledHint = styled.div(
   props => css`
-    font-family: ${get('fontFamily.texts')};
+    font-family: ${get('fontFamilies.texts')};
     color: ${getVariantColor(props.variant)};
     ${getCss('fields.hint')};
     margin-top: ${get('spaces.sm')};

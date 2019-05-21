@@ -2,7 +2,7 @@ import merge from 'lodash.merge'
 
 import { colors } from './colors'
 import { fonts } from './fonts'
-import { fontWeights, getFontSizes, getTypography, letterSpacings, toRem } from './typography'
+import { getFontSizes, getTypography } from './typography'
 import { getButtons } from './buttons'
 import { getFields } from './fields'
 import { getTooltips } from './tooltips'
@@ -22,48 +22,58 @@ export const getBaseTheme = (options = {}) => {
 
   let theme = {}
 
+  theme.toEm = px => `${px / defaultFontSize}em`
+  theme.toRem = px => `${px / defaultFontSize}rem`
+
   theme.colors = colors
 
+  // fonts
   theme.defaultFontSize = defaultFontSize
-
-  theme.fontSize = getFontSizes('rem', defaultFontSize)
-  theme.fontSizeEm = getFontSizes('em', defaultFontSize)
-  theme.fontWeight = fontWeights
-  theme.letterSpacing = letterSpacings
-
-  theme.borderWidth = {
-    sm: '1px'
+  theme.fonts = fonts
+  theme.fontSizes = getFontSizes('rem', theme)
+  theme.fontWeights = {
+    regular: '400',
+    medium: '500',
+    bold: '600',
+    black: '700'
   }
-
-  theme.spaces = {
-    xxs: toRem(6, defaultFontSize),
-    xs: toRem(8, defaultFontSize),
-    sm: toRem(10, defaultFontSize),
-    md: toRem(12, defaultFontSize),
-    lg: toRem(15, defaultFontSize),
-    xl: toRem(24, defaultFontSize)
+  theme.letterSpacings = {
+    sm: '0.5px',
+    md: '1px',
+    lg: '2px'
   }
-
-  theme.fontFamily = {
+  theme.fontFamilies = {
     texts: defaultFontFamily,
     headings: headingFontFamily
   }
 
-  theme.radii = radii
-
-  theme.boxShadow = {
-    sm: '1px 2px 4px 0 rgba(0,0,0,0.05)'
+  theme.borderWidths = {
+    sm: '1px'
   }
 
-  theme = theme.fonts
+  theme.spaces = {
+    xxs: theme.toRem(6),
+    xs: theme.toRem(8),
+    sm: theme.toRem(10),
+    md: theme.toRem(12),
+    lg: theme.toRem(15),
+    xl: theme.toRem(24)
+  }
+
+  theme.radii = radii
+
+  theme.boxShadows = {
+    sm: '1px 2px 4px 0 rgba(0,0,0,0.05)'
+  }
 
   theme = merge(theme, rest)
 
   // CSS blocks
-  theme.text = getTypography(theme)
-  theme.fields = getFields(theme, toRem)
+  // These attributes depend on colors and fontSizes and must come last
+  theme.texts = getTypography(theme)
+  theme.fields = getFields(theme)
   theme.buttons = getButtons(theme)
-  theme.tooltips = getTooltips({ theme, toRem })
+  theme.tooltips = getTooltips(theme)
 
   return theme
 }

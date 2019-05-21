@@ -29,16 +29,16 @@ export const getBaseStyles = theme => createGlobalStyle`
   ${fontFace(theme)}
 
   html {
-    font-size: ${theme.fontSize.html};
+    font-size: ${theme.fontSizes.html};
   }
 
   body, button, input, select, textarea {
-    font-family: ${[theme.fontFamily.texts, 'sans-serif'].join(', ')};
+    font-family: ${[theme.fontFamilies.texts, 'sans-serif'].join(', ')};
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: ${[theme.fontFamily.headings, theme.fontFamily.texts, 'serif'].join(', ')};
+    font-family: ${[theme.fontFamilies.headings, theme.fontFamilies.texts, 'serif'].join(', ')};
   }
 
   h1, h2, h3{

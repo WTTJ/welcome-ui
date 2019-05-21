@@ -15,7 +15,7 @@ const getBorder = ({ isDragAccept, isDragActive, isDragReject }) => {
   }
 
   return css`
-    border: ${get('borderWidth.sm')} ${borderStyle} ${borderColor};
+    border: ${get('borderWidths.sm')} ${borderStyle} ${borderColor};
   `
 }
 
@@ -43,7 +43,7 @@ export const StyledFileUpload = styled.div(
     padding: ${get('spaces.md')};
 
     h3 {
-      ${getCss('text.h1')};
+      ${getCss('texts.h1')};
       color: ${get('color.primary.700')};
     }
 

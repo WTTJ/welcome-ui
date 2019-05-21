@@ -43,7 +43,7 @@ export const pulsingStyles = css`
 export const StyledButton = styled.button(
   props => css`
     ${getCss(`buttons.${props.variant || 'primary'}`)};
-    ${getCss('text.button')};
+    ${getCss('texts.button')};
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -54,7 +54,7 @@ export const StyledButton = styled.button(
     white-space: nowrap;
     cursor: pointer;
     outline: none;
-    border-width: get('borderWidth');
+    border-width: get('borderWidths');
     border-style: solid;
     border-radius: ${props.radius ? props.radius : null};
     appearance: none;
@@ -71,7 +71,7 @@ export const StyledButton = styled.button(
     }
 
     &:hover {
-      box-shadow: ${get('boxShadow.sm')};
+      box-shadow: ${get('boxShadows.sm')};
     }
 
     &[disabled] {

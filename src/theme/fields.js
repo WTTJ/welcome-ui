@@ -1,46 +1,47 @@
-export const getFields = (theme, toRem) => {
+export const getFields = theme => {
+  const { boxShadows, colors, fontSizes, fontWeights, radii, texts, toRem } = theme
   const defaults = {
-    color: theme.colors.nude[800],
-    'background-color': theme.colors.light[200],
-    'border-color': theme.colors.nude[200],
+    color: colors.nude[800],
+    'background-color': colors.light[200],
+    'border-color': colors.nude[200],
     'border-width': '1px',
     'border-style': 'solid',
-    'border-radius': theme.radii.sm,
-    ...theme.text.input
+    'border-radius': radii.sm,
+    ...texts.input
   }
 
   return {
     default: defaults,
     disabled: {
       ...defaults,
-      'background-color': theme.colors.light[500],
+      'background-color': colors.light[500],
       'pointer-events': 'none'
     },
     focus: {
       ...defaults,
-      'background-color': theme.colors.light[100],
-      'border-color': theme.colors.primary[500]
+      'background-color': colors.light[100],
+      'border-color': colors.primary[500]
     },
     placeholder: {
-      color: theme.colors.nude[600]
+      color: colors.nude[600]
     },
     hint: {
-      'font-size': theme.fontSize.body3,
-      'font-weight': theme.fontWeight.regular
+      'font-size': fontSizes.body3,
+      'font-weight': fontWeights.regular
     },
     checkboxes: {
       default: {
-        width: toRem(15, theme.defaultFontSize),
-        height: toRem(15, theme.defaultFontSize)
+        width: toRem(15),
+        height: toRem(15)
       },
       checked: {
-        'background-color': theme.colors.primary[500],
-        'border-color': theme.colors.primary[500]
+        'background-color': colors.primary[500],
+        'border-color': colors.primary[500]
       }
     },
     filedrop: {
       ...defaults,
-      height: toRem(300, theme.defaultFontSize)
+      height: toRem(300)
     },
     radiotabs: {
       default: {
@@ -48,17 +49,17 @@ export const getFields = (theme, toRem) => {
       },
       checked: {
         color: 'transparent',
-        'background-color': theme.colors.light[200],
-        'border-color': theme.colors.primary[500],
-        '-webkit-text-stroke-color': theme.colors.dark[200],
-        '-webkit-text-fill-color': theme.colors.dark[200],
+        'background-color': colors.light[200],
+        'border-color': colors.primary[500],
+        '-webkit-text-stroke-color': colors.dark[200],
+        '-webkit-text-fill-color': colors.dark[200],
         '&:hover': {
           'box-shadow': 'none'
         }
       },
       hover: {
-        'background-color': theme.colors.light[200],
-        'box-shadow': theme.boxShadow.sm
+        'background-color': colors.light[200],
+        'box-shadow': boxShadows.sm
       }
     },
     textarea: {
@@ -66,24 +67,24 @@ export const getFields = (theme, toRem) => {
     },
     toggles: {
       default: {
-        width: toRem(22, theme.defaultFontSize),
-        'background-color': theme.colors.nude[200],
+        width: toRem(22),
+        'background-color': colors.nude[200],
         '&::after': {
           ...defaults,
-          'background-color': theme.colors.light[200],
-          'border-color': theme.colors.nude[400]
+          'background-color': colors.light[200],
+          'border-color': colors.nude[400]
         }
       },
       checked: {
-        'background-color': theme.colors.primary[500],
+        'background-color': colors.primary[500],
         '&::after': {
-          'border-color': theme.colors.primary[500]
+          'border-color': colors.primary[500]
         }
       },
       disabled: {
-        'background-color': theme.colors.light[700],
+        'background-color': colors.light[700],
         '&::after': {
-          'border-color': theme.colors.nude[200]
+          'border-color': colors.nude[200]
         }
       }
     }

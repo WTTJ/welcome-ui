@@ -17,36 +17,36 @@ export default {
     },
     styles: {
       body: {
-        fontFamily: theme.fontFamily.texts,
+        fontFamily: theme.fontFamilies.texts,
         'nav a': {
-          fontSize: theme.fontSize.body3
+          fontSize: theme.fontSizes.body3
         },
         '#root nav dl a': {
-          fontWeight: theme.fontWeight.regular
+          fontWeight: theme.fontWeights.regular
         },
         'div.react-live span div': {
           boxSizing: 'content-box'
         }
       },
       h1: {
-        fontFamily: theme.fontFamily.headings,
-        fontSize: theme.fontSize.h1,
-        fontWeight: theme.fontWeight.bold,
+        fontFamily: theme.fontFamilies.headings,
+        fontSize: theme.fontSizes.h1,
+        fontWeight: theme.fontWeights.bold,
         marginBottom: '1rem'
       },
       h2: {
-        fontFamily: theme.fontFamily.headings,
-        fontSize: theme.fontSize.h2,
-        fontWeight: theme.fontWeight.black,
+        fontFamily: theme.fontFamilies.headings,
+        fontSize: theme.fontSizes.h2,
+        fontWeight: theme.fontWeights.bold,
         textTransform: 'uppercase',
         color: theme.colors.secondary[500],
         borderBottom: 'none',
         marginTop: '4rem'
       },
       h3: {
-        fontFamily: theme.fontFamily.headings,
-        fontSize: theme.fontSize.h3,
-        fontWeight: theme.fontWeight.bold,
+        fontFamily: theme.fontFamilies.headings,
+        fontSize: theme.fontSizes.h3,
+        fontWeight: theme.fontWeights.bold,
         textTransform: 'uppercase'
       }
     },

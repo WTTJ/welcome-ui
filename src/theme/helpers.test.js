@@ -6,7 +6,7 @@ test('Can create theme with different base font size', () => {
     defaultFontSize: 50
   })
 
-  expect(get('fontSize.html')({ theme })).toBe('50px')
+  expect(get('fontSizes.html')({ theme })).toBe('50px')
 })
 
 test('Can create theme with different fonts', () => {
@@ -26,8 +26,8 @@ test('Can create theme with different fonts', () => {
     }
   })
 
-  expect(get('fontFamily.texts')({ theme })).toBe('HKCompakt')
-  expect(get('fontFamily.headings')({ theme })).toBe('welcomeweb')
-  expect(get('fontFamily.quotes')({ theme })).toBe('HKCompakt')
+  expect(get('fontFamilies.texts')({ theme })).toBe('HKCompakt')
+  expect(get('fontFamilies.headings')({ theme })).toBe('welcomeweb')
+  expect(get('fontFamilies.quotes')({ theme })).toBe('HKCompakt')
   expect(theme.fonts.HKCompakt).toBeDefined()
 })

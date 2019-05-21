@@ -28,7 +28,7 @@ const checkedStyles = css`
 `
 
 const columnStyles = css`
-  margin-top: -${get('borderWidth.sm')};
+  margin-top: -${get('borderWidths.sm')};
 
   &:first-child {
     margin-top: 0;
@@ -44,7 +44,7 @@ const columnStyles = css`
 `
 
 const rowStyles = css`
-  margin-left: -${get('borderWidth.sm')};
+  margin-left: -${get('borderWidths.sm')};
 
   &:first-child {
     margin-left: 0;
@@ -70,7 +70,7 @@ export const radioTabStyles = props => css`
     user-select: none;
     margin: 0;
     padding: ${get('spaces.sm')};
-    padding-right: calc(${get('spaces.sm')} + ${get('borderWidth.sm')});
+    padding-right: calc(${get('spaces.sm')} + ${get('borderWidths.sm')});
     cursor: pointer;
     line-height: 1;
     text-align: center;

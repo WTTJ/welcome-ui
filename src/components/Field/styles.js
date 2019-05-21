@@ -15,7 +15,7 @@ const columnStyles = css`
 `
 
 const checkableFieldStyles = css`
-  ${getCss('text.checkablelabel.default')};
+  ${getCss('texts.checkablelabel.default')};
   margin-right: 0;
 `
 
@@ -25,7 +25,7 @@ export const StyledField = styled.div(
       ${props.direction === 'row' && rowStyles};
       ${props.direction === 'column' && columnStyles};
       ${props.checkableField && checkableFieldStyles};
-      ${props.checked && getCss('text.checkablelabel.checked')}
+      ${props.checked && getCss('texts.checkablelabel.checked')}
     }
     ${StyledToggle}, ${StyledInputCheckbox} {
       margin-right: ${get('spaces.xxs')};

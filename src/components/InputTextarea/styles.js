@@ -8,7 +8,7 @@ export const StyledTextarea = styled.textarea(
   props => css`
     ${fieldTypeStyles};
     ${getCss('fields.textarea')};
-    line-height: ${get('fontSize.body1')};
+    line-height: ${get('fontSizes.body1')};
     padding: ${get('spaces.sm')};
   `
 )
