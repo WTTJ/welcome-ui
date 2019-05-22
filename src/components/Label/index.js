@@ -11,6 +11,7 @@ export const Label = ({
   disabled = false,
   disabledIcon,
   errorWarningIcon,
+  htmlFor,
   required = false,
   variant
 }) => {
@@ -32,6 +33,7 @@ export const Label = ({
       disabled={disabled}
       disabledIcon={disabledIcon}
       errorWarningIcon={errorWarningIcon}
+      htmlFor={htmlFor}
       required={required}
       variant={variant}
     >
@@ -50,6 +52,8 @@ Label.propTypes = {
   disabled: bool,
   disabledIcon: node,
   errorWarningIcon: node,
+  /** Name of the linked form element */
+  htmlFor: string,
   required: bool,
   variant: oneOf(['error', 'warning'])
 }
