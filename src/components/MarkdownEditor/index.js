@@ -34,7 +34,7 @@ export const MarkdownEditor = props => {
     setFocused(false)
   }
 
-  const handleChange = throttle(() => {
+  const handleChange = throttle(value => {
     onChange && onChange(value)
   }, 200)
 

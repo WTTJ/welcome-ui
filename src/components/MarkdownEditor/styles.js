@@ -15,40 +15,26 @@ export const StyledMarkdownEditor = styled.div(
 
     .editor-toolbar {
       border: 0 none;
-      padding: ${get('gutter.xxs')} ${get('gutter.xs')};
+      padding: ${get('spaces.xs')} ${get('spaces.xs')};
       opacity: 1;
-      background-color: ${get('colors.light.500', 100)};
+      background-color: ${get('colors.light.100')};
+      border-bottom: ${get('borderWidths.sm')} solid ${get('colors.nude.200')};
       position: sticky;
       top: 0;
       z-index: 2;
-      box-shadow: ${get('boxShadow.sm')};
-
-      &:hover {
-        opacity: 1;
-      }
+      box-shadow: ${get('boxShadows.sm')};
 
       &::before,
       &::after {
         content: none;
       }
 
-      a.fa {
-        height: ${get('gutter.mdx2')};
-        width: ${get('gutter.mdx2')};
-        line-height: ${get('gutter.mdx2')};
+      button {
+        ${getCss('fields.mde.icons')};
+        height: 2rem;
+        width: 2rem;
+        line-height: 2rem;
         text-align: center;
-        margin: ${get('gutter.xxs')};
-        border: 0 none;
-        border-radius: ${get('radius.sm')};
-        cursor: pointer;
-        color: ${get('colors.nude.500')} !important;
-
-        &.active,
-        &:hover {
-          color: ${get('colors.nude.500')} !important;
-          background-color: ${get('colors.nude.500', 150)};
-          border: 0 none;
-        }
 
         &::before {
           line-height: inherit;
@@ -58,7 +44,7 @@ export const StyledMarkdownEditor = styled.div(
       i.separator {
         color: transparent;
         border-left: 0 none;
-        border-right: 1px solid ${get('colors.nude.200', 150)};
+        border-right: 1px solid ${get('colors.nude.200')};
       }
     }
 
@@ -67,45 +53,12 @@ export const StyledMarkdownEditor = styled.div(
     }
 
     .CodeMirror {
-      position: relative;
-      height: calc(100% - 42px);
-      line-height: 1.5;
       border: none;
-      border-radius: 0;
-      box-shadow: none;
-      background-color: transparent;
-      transition: border-color 0.2s;
+      background: inherit;
+    }
 
-      .CodeMirror-code .cm-comment {
-        background: ${get('rgba.nude.300', 0.15)};
-        display: inline-block;
-        font-family: monospace;
-      }
-
-      .CodeMirror-selected {
-        background: null;
-      }
-
-      .CodeMirror-selectedtext,
-      span::selection {
-        background: none;
-        color: inherit;
-      }
-
-      &.CodeMirror-focused & {
-        border-color: null;
-      }
-
-      .CodeMirror-scroll {
-        overflow-x: hidden !important;
-        margin-right: -7px;
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-
-      .cm-spell-error:not(.cm-url):not(.cm-comment):not(.cm-tag):not(.cm-word) {
-        background-color: transparent;
-      }
+    .cm-strong {
+      font-weight: ${get('fontWeights.bold')};
     }
   `
 )
