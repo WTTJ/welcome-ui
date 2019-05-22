@@ -1,11 +1,11 @@
 import React from 'react'
-import { node, oneOf, string } from 'prop-types'
+import { func, node, oneOf, string } from 'prop-types'
 
 import { StyledButton } from './styles'
 
-export const Button = ({ radius, children, size = 'auto', span, variant = 'primary' }) => {
+export const Button = ({ radius, children, size = 'auto', span, variant = 'primary', onClick }) => {
   return (
-    <StyledButton radius={radius} size={size} span={span} variant={variant}>
+    <StyledButton onClick={onClick} radius={radius} size={size} span={span} variant={variant}>
       {children}
     </StyledButton>
   )
@@ -13,13 +13,10 @@ export const Button = ({ radius, children, size = 'auto', span, variant = 'prima
 
 Button.propTypes = {
   children: node,
-  /** To set the button size */
+  onClick: func,
   radius: string,
-  /** To set the button size */
   size: oneOf(['auto', 'sm', 'md', 'lg']),
-  /** To set the button width */
   span: oneOf(['full', 'half']),
-  /** To set a rounded button */
   variant: oneOf([
     'primary',
     'secondary',

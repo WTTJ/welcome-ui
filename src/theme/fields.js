@@ -54,8 +54,9 @@ export const getFields = theme => {
         'border-color': colors.primary[500]
       }
     },
-    filedrop: {
+    fileupload: {
       ...defaults,
+      'border-style': 'dashed',
       height: toRem(300)
     },
     radiotabs: {

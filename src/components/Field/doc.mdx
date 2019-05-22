@@ -119,17 +119,30 @@ import { Field } from './index'
 ## Toggle
 
 <Playground>
+  <Field name="random-thirteen" fieldType="toggle" label="Switch example" />
+  <Field name="random-fourteen" fieldType="toggle" label="Disabled switch example" disabled />
+</Playground>
+
+### FileUpload
+
+<Playground>
   <Field
-    name="random-thirteen"
-    fieldType="toggle"
-    label="Switch example"
-  />
-  <Field
-    name="random-fourteen"
-    fieldType="toggle"
-    label="Disabled switch example"
-    disabled
-  />
+    name='random-fifteen'
+    fieldType='fileupload'
+    label='Filedrop example'
+  >
+    {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
+      if (isHoverAccept) {
+        return <h3>Drop file!</h3>
+      } else if (isHoverReject) {
+        return <h3>Can't accept this file</h3>
+      } else if (fileUrl) {
+        return <img style={{maxWidth: '100%', maxHeight: '100%'}} src={fileUrl} />
+      }
+      return <h3>Drop file to upload</h3>
+    }}
+  </Field>
+
 </Playground>
 
 ## Markdown Editor

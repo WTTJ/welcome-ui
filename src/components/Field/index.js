@@ -2,25 +2,29 @@ import React, { Fragment } from 'react'
 import { bool, func, node, object, oneOf, string } from 'prop-types'
 import includes from 'lodash.includes'
 
-// common
+// Common
 import { RowContainer } from '../../common/styles/layout'
 import { getVariant } from '../../utils/variants'
-import { Label } from '../Label'
+// Components
+import { FileUpload } from '../FileUpload'
 import { InputText } from '../InputText'
 import { InputTextarea } from '../InputTextarea'
 import { InputCheckbox } from '../InputCheckbox'
 import { InputRadio } from '../InputRadio'
+import { Label } from '../Label'
 import { MarkdownEditor } from '../MarkdownEditor'
 import { RadioTab } from '../RadioTab'
 import { Toggle } from '../Toggle'
 import { Hint } from '../Hint'
 
+// Fields
 import { StyledField } from './styles'
 
 const getFieldType = fieldType => {
   const fieldTypes = {
     checkbox: InputCheckbox,
     email: InputText,
+    fileupload: FileUpload,
     number: InputText,
     mde: MarkdownEditor,
     radio: InputRadio,
@@ -37,7 +41,8 @@ export const Field = ({
   disabled = false,
   error,
   checked,
-  direction = 'row',
+  children,
+  direction,
   disabledIcon,
   groupName,
   name,
@@ -96,7 +101,9 @@ export const Field = ({
           placeholder={placeholder}
           required={required}
           variant={variant}
-        />
+        >
+          {children}
+        </FieldType>
       </Container>
       {hintText && <Hint variant={variant}>{hintText}</Hint>}
     </StyledField>
@@ -105,6 +112,7 @@ export const Field = ({
 
 Field.propTypes = {
   checked: bool,
+  children: node,
   /** Direction of Label and FieldType Wrapper */
   direction: oneOf(['row', 'container']),
   disabled: bool,
@@ -118,6 +126,7 @@ Field.propTypes = {
     'text',
     'number',
     'email',
+    'fileupload',
     'textarea',
     'radio',
     'radioTab',

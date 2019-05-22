@@ -1,0 +1,87 @@
+---
+name: FileUpload
+route: /components/fileupload
+menu: Components
+---
+
+import { PropsTable } from 'docz'
+import { StyledPlayground as Playground } from '../../../docz.styled'
+
+import { Fragment } from 'react'
+import { FileUpload } from './index'
+import { Button } from '../Button'
+import { Icon } from '../Icon'
+import { FilePreviewImage } from './styles.js'
+
+# FileUpload
+
+FileUpload uses render props to give you more flexibility on what to render at each state change:
+
+- `isDefault`: No file uploaded and no user interaction
+- `isHoverAccept`: File is being dragged over and matches the `accept` string
+- `isHoverReject`: File is being dragged over but does _not_ matches the `accept` string
+
+You also have access to:
+
+- `openFile`: To open the native file chooser dialog box
+- `fileUrl`: URL of file if one has been opened/dropped (to show a preview)
+
+## Properties
+
+<PropsTable of={FileUpload} />
+
+## Examples
+
+### Default
+
+<Playground>
+  {() => {
+    const disabled = false
+    const defaultView = openFile => (
+      <>
+        <h3>Add picture</h3>
+        <p>Drag and drop a file here or…</p>
+        <Button disabled={disabled} onClick={openFile} type="button">Choose file</Button>
+      </>
+    )
+
+    return (
+      <FileUpload
+        label="Avatar"
+        hint="Files must be <200MB"
+        disabled={disabled}
+        required
+        onChange={console.debug}
+        onAddFile={console.debug}
+        onRemoveFile={console.debug}
+        onError={console.error}
+      >
+        {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
+          if (isHoverAccept) {
+            return <Icon icon="positive" />
+          } else if (isHoverReject) {
+            return <Icon icon="negative" />
+          } else if (fileUrl) {
+            return <FilePreviewImage src={fileUrl} />
+          }
+          return defaultView(openFile)
+        }}
+      </FileUpload>
+    )
+
+}}
+
+</Playground>
+
+### Disabled
+
+<Playground>
+  <FileUpload disabled>
+    {() => (
+      <>
+        <Icon icon="negative" />
+        <p>Can't upload file</p>
+      </>
+    )}
+  </FileUpload>
+</Playground>
