@@ -1,18 +1,17 @@
 import styled, { css } from 'styled-components'
 import SimpleMDE from 'react-simplemde-editor'
 
-import { get } from '../../theme/helpers'
+import { get, getCss } from '../../theme/helpers'
 import { fieldTypeStyles } from '../../common/styles/form'
 
 export const StyledMarkdownEditor = styled.div(
   props => css`
     position: relative;
     pointer-events: ${props.disabled && 'none'};
-
-    .simple-md-editor-wrapper {
-      ${fieldTypeStyles};
-      padding: 0;
-    }
+    ${fieldTypeStyles};
+    ${props.focused && getCss('fields.focused')};
+    ${props.disabled && getCss('fields.disabled')};
+    padding: 0;
 
     .editor-toolbar {
       border: 0 none;
@@ -68,8 +67,6 @@ export const StyledMarkdownEditor = styled.div(
     }
 
     .CodeMirror {
-      ${get('fields.default')};
-      ${props.disabled && get('fields.disabled')};
       position: relative;
       height: calc(100% - 42px);
       line-height: 1.5;
@@ -86,7 +83,7 @@ export const StyledMarkdownEditor = styled.div(
       }
 
       .CodeMirror-selected {
-        background: ${get('colors.primary.500')};
+        background: null;
       }
 
       .CodeMirror-selectedtext,
@@ -95,8 +92,8 @@ export const StyledMarkdownEditor = styled.div(
         color: inherit;
       }
 
-      &.CodeMirror-focused {
-        border-color: ${get('rgba.light.200', 0.5)};
+      &.CodeMirror-focused & {
+        border-color: null;
       }
 
       .CodeMirror-scroll {

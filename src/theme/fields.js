@@ -18,7 +18,7 @@ export const getFields = theme => {
       'background-color': colors.light[500],
       'pointer-events': 'none'
     },
-    focus: {
+    focused: {
       ...defaults,
       'background-color': colors.light[100],
       'border-color': colors.primary[500]
