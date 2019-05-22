@@ -4,4 +4,4 @@ import { InputCheckbox } from '../InputCheckbox'
 
 import { StyledToggle } from './styles'
 
-export const Toggle = props => <InputCheckbox {...props} StyledComponent={StyledToggle} />
+export const Toggle = props => <InputCheckbox {...props} Component={StyledToggle} />

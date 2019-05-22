@@ -33,9 +33,9 @@ const getFieldType = fieldType => {
 
 export const Field = ({
   disabled = false,
-  error = '',
+  error,
   checked,
-  direction,
+  direction = 'row',
   disabledIcon,
   groupName,
   name,
@@ -45,10 +45,10 @@ export const Field = ({
   fieldType = 'text',
   fieldTypeProps = {},
   hint,
-  label = '',
-  placeholder = '',
+  label,
+  placeholder,
   required = false,
-  warning = ''
+  warning
 }) => {
   const isCheckable = () => {
     return includes(['toggle', 'checkbox', 'radio'], fieldType)
@@ -103,13 +103,13 @@ export const Field = ({
 
 Field.propTypes = {
   checked: bool,
-  direction: string,
-  disabled: bool,
   /** Direction of Label and FieldType Wrapper */
+  direction: oneOf(['row', 'container']),
+  disabled: bool,
+  /** Custom icon for disabled state */
   disabledIcon: node,
-  /** Label of Field component */
   error: string,
-  /** Hint of Field component */
+  /** Required Field component */
   fieldType: oneOf([
     'text',
     'number',
@@ -122,38 +122,15 @@ Field.propTypes = {
     'radioTab',
     'checkbox'
   ]),
-  /** Error of Field component */
   fieldTypeProps: object,
-  /** Warning of Field component */
   groupName: string,
-  /** custom icon for error / warning state */
   hint: string,
-  /** name of the field */
   label: string,
-  /** onFocus callback */
   name: string.isRequired,
-  /** onBlur callback */
   onBlur: func,
-  /** onChange callback */
   onChange: func,
-  /** Required Field component */
   onFocus: func,
-  /** Disabled Field component */
   placeholder: string,
-  /** custom icon for disabled state */
   required: bool,
-  /** Placeholder of Field's component input */
   warning: string
-}
-
-// Specifies the default values for props:
-Field.defaultProps = {
-  disabled: false,
-  error: '',
-  fieldType: 'text',
-  fieldTypeProps: {},
-  label: '',
-  placeholder: '',
-  required: false,
-  warning: ''
 }
