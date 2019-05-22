@@ -7,6 +7,7 @@ import { Label } from '../Label'
 import { Radios } from './styles'
 
 export const RadioGroup = ({ children, groupName, label, required, checkedName, ...props }) => {
+  const { flexDirection } = { ...props }
   const [checked, setChecked] = useState(checkedName)
 
   const onChange = e => {
@@ -23,13 +24,13 @@ export const RadioGroup = ({ children, groupName, label, required, checkedName, 
   )
 
   return (
-    <StyledFieldGroup onChange={onChange}>
+    <StyledFieldGroup onChange={onChange} {...props}>
       {label && (
         <Label as="legend" required={required}>
           {label}
         </Label>
       )}
-      <Radios {...props}>{childrenWithProps}</Radios>
+      <Radios flexDirection={flexDirection}>{childrenWithProps}</Radios>
     </StyledFieldGroup>
   )
 }

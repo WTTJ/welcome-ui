@@ -114,7 +114,7 @@ export const Field = ({
 
 Field.propTypes = {
   checked: bool,
-  children: node,
+  children: func,
   disabled: bool,
   /** Custom icon for disabled state */
   disabledIcon: node,

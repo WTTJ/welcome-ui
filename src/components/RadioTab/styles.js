@@ -19,12 +19,7 @@ export const Input = styled.input`
 
 const checkedStyles = css`
   ${getCss('fields.radiotabs.checked')};
-  -webkit-text-stroke-width: 0.5px;
   z-index: 2;
-
-  &:hover {
-    color: transparent;
-  }
 `
 
 const columnStyles = css`
@@ -74,13 +69,12 @@ export const radioTabStyles = props => css`
     cursor: pointer;
     line-height: 1;
     text-align: center;
-    transition: ${get('transitions.sm')};
+    transition: none;
     border-radius: 0;
     ${overflowEllipsis};
 
     &:hover {
       ${getCss('fields.radiotabs.hover')};
-      z-index: 1;
     }
 
     ${props.checked && checkedStyles};
