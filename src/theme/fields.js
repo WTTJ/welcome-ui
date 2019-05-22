@@ -18,7 +18,7 @@ export const getFields = theme => {
       'background-color': colors.light[500],
       'pointer-events': 'none'
     },
-    focus: {
+    focused: {
       ...defaults,
       'background-color': colors.light[100],
       'border-color': colors.primary[500]
@@ -101,6 +101,20 @@ export const getFields = theme => {
         'background-color': colors.light[700],
         '&::after': {
           'border-color': colors.nude[200]
+        }
+      }
+    },
+    mde: {
+      icons: {
+        'font-size': fontSizes.body3,
+        color: colors.secondary[500],
+        '&.active': {
+          color: colors.primary[200],
+          'border-color': colors.nude[300]
+        },
+        '&:hover': {
+          color: colors.primary[200],
+          'border-color': colors.nude[300]
         }
       }
     }

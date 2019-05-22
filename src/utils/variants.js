@@ -7,12 +7,12 @@ export const getVariant = (warning, error) => {
 }
 
 const variantColors = {
-  error: ['danger', 500],
-  warning: ['warning', 500],
-  info: ['info', 500]
+  error: 'colors.danger.500',
+  warning: 'colors.warning.500',
+  info: 'colors.info.500'
 }
 
 export const getVariantColor = variant => {
   const variantColor = variantColors[variant]
-  return variantColor ? get(`colors.${variantColor.join('.')}`) : null
+  return variantColor ? get(variantColor) : null
 }

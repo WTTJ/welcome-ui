@@ -16,7 +16,7 @@ export const fieldTypeStyles = css`
   }
 
   &:focus {
-    ${getCss('fields.focus')};
+    ${getCss('fields.focused')};
   }
 
   &[disabled] {

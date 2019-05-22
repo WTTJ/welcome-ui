@@ -1,4 +1,4 @@
-import { array, bool, node, oneOfType, shape, string } from 'prop-types'
+import { array, bool, func, node, number, oneOfType, shape, string } from 'prop-types'
 
 export const reduxFormFieldPropTypes = {
   input: shape({
@@ -13,11 +13,10 @@ export const reduxFormFieldPropTypes = {
 }
 
 export const formFieldPropTypes = {
-  classList: array,
-  formName: string,
-  inlineHint: bool,
-  label: oneOfType([string, bool, node]),
-  placeholder: oneOfType([string, bool, node]),
+  onBlur: func,
+  onChange: func,
+  onFocus: func,
+  value: oneOfType([string, number]),
   required: bool,
   autoFocus: bool
 }

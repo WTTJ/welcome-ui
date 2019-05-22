@@ -12,6 +12,7 @@ import { InputTextarea } from '../InputTextarea'
 import { InputCheckbox } from '../InputCheckbox'
 import { InputRadio } from '../InputRadio'
 import { Label } from '../Label'
+import { MarkdownEditor } from '../MarkdownEditor'
 import { RadioTab } from '../RadioTab'
 import { Toggle } from '../Toggle'
 import { Hint } from '../Hint'
@@ -25,6 +26,7 @@ const getFieldType = fieldType => {
     email: InputText,
     fileupload: FileUpload,
     number: InputText,
+    mde: MarkdownEditor,
     radio: InputRadio,
     radioTab: RadioTab,
     text: InputText,
@@ -120,6 +122,7 @@ Field.propTypes = {
   fieldProps: object,
   /** Required Field component */
   fieldType: oneOf([
+    'mde',
     'text',
     'number',
     'email',
