@@ -1,17 +1,14 @@
 import styled, { css } from 'styled-components'
 
+import { system } from '../../utils/utils'
 import { getVariantColor } from '../../utils/variants'
 import { get, getCss } from '../../theme/helpers'
 
-const getPadding = props => {
-  if (props.length === 1) {
-    return 0
-  }
-  if (props.padding) {
-    return get(`space.${props.padding}`, props.padding)
-  }
-  return get('space.sm')
-}
+const oneCharacterStyles = size => css`
+  max-width: ${size};
+  padding-right: 0;
+  padding-left: 0;
+`
 
 export const StyledBadge = styled.div(
   props => css`
@@ -20,13 +17,13 @@ export const StyledBadge = styled.div(
     align-items: center;
     justify-content: center;
     min-width: ${props.size};
-    max-width: ${props.length === 1 ? props.size : '100%'};
+    max-width: 100%;
     height: ${props.size};
-    padding-right: ${getPadding(props)};
-    padding-left: ${getPadding(props)};
+    padding: 0 ${get('space.sm')};
     color: ${get('colors.light.200')};
-    font-size: ${props.fontSize ? props.fontSize : null};
     background-color: ${getVariantColor(props.variant)};
-    border-radius: ${props.radius ? get(`radii.${props.radius}`) : props.size};
+    border-radius: ${props.size};
+    ${system};
+    ${props.length === 1 && oneCharacterStyles(props.size)};
   `
 )

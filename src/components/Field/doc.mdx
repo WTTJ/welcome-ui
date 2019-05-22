@@ -50,7 +50,7 @@ import { Field } from './index'
 <Playground>
   <Field
     name="random-four"
-    direction="row"
+    flexDirection="row"
     placeholder="Placeholder"
     fieldType="text"
     label="Label"
@@ -77,7 +77,7 @@ import { Field } from './index'
     label="Label for input radios"
     checkedName="choice_2"
     groupName="choices"
-    direction="row"
+    flexDirection="row"
     required
   >
     <Field fieldType="radioTab" name="choice_1" label="Choice 1" />
@@ -95,7 +95,7 @@ import { Field } from './index'
 
 <Playground>
   <RadioGroup label="Your favorite sauce" groupName="sauce" checkedName="random-seven">
-    <Field direction="row" name="random-seven" fieldType="radio" label="Mayonnaise" />
+    <Field name="random-seven" fieldType="radio" label="Mayonnaise" />
     <Field name="random-eight" fieldType="radio" label="Ketchup" />
     <Field name="random-nine" fieldType="radio" label="Barebecue" />
   </RadioGroup>

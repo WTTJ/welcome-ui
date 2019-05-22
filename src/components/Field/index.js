@@ -42,7 +42,6 @@ export const Field = ({
   error,
   checked,
   children,
-  direction,
   disabledIcon,
   groupName,
   name,
@@ -55,8 +54,10 @@ export const Field = ({
   label,
   placeholder,
   required = false,
-  warning
+  warning,
+  ...props
 }) => {
+  const { flexDirection, ...rest } = { ...props }
   const isCheckable = () => {
     return includes(['toggle', 'checkbox', 'radio'], fieldType)
   }
@@ -68,15 +69,16 @@ export const Field = ({
   const FieldType = getFieldType(fieldType)
   const variant = getVariant(warning, error)
   const hintText = error || warning || hint
-  const layout = direction || isCheckable() ? 'row' : 'column'
+  const layout = flexDirection || isCheckable() ? 'row' : 'column'
   const Container = layout === 'row' ? RowContainer : Fragment
 
   return (
     <StyledField
       checkableField={isCheckable()}
       checked={checked}
-      direction={layout}
       fieldType={fieldType}
+      flexDirection={layout}
+      {...rest}
     >
       <Container>
         {label && (
@@ -113,8 +115,6 @@ export const Field = ({
 Field.propTypes = {
   checked: bool,
   children: node,
-  /** Direction of Label and FieldType Wrapper */
-  direction: oneOf(['row', 'container']),
   disabled: bool,
   /** Custom icon for disabled state */
   disabledIcon: node,

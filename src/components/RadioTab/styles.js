@@ -86,6 +86,6 @@ export const radioTabStyles = props => css`
     ${props.checked && checkedStyles};
   }
 
-  ${props.direction === 'column' && columnStyles};
-  ${props.direction === 'row' && rowStyles};
+  ${props.flexDirection === 'column' && columnStyles};
+  ${props.flexDirection === 'row' && rowStyles};
 `

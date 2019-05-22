@@ -6,7 +6,7 @@ import { Label } from '../Label'
 
 import { Radios } from './styles'
 
-export const RadioGroup = ({ children, groupName, label, required, direction, checkedName }) => {
+export const RadioGroup = ({ children, groupName, label, required, checkedName, ...props }) => {
   const [checked, setChecked] = useState(checkedName)
 
   const onChange = e => {
@@ -16,9 +16,9 @@ export const RadioGroup = ({ children, groupName, label, required, direction, ch
   const childrenWithProps = React.Children.map(children, child =>
     React.cloneElement(child, {
       checked: child.props.name === checked,
-      direction: direction,
       fieldType: child.props.fieldType || 'radio',
-      groupName: groupName
+      groupName: groupName,
+      ...props
     })
   )
 
@@ -29,7 +29,7 @@ export const RadioGroup = ({ children, groupName, label, required, direction, ch
           {label}
         </Label>
       )}
-      <Radios direction={direction}>{childrenWithProps}</Radios>
+      <Radios {...props}>{childrenWithProps}</Radios>
     </StyledFieldGroup>
   )
 }
@@ -37,8 +37,6 @@ export const RadioGroup = ({ children, groupName, label, required, direction, ch
 RadioGroup.propTypes = {
   checkedName: string,
   children: node,
-  /** Label of RadioGroup */
-  direction: oneOf(['column', 'row']),
   groupName: string.isRequired,
   /** name of selected radio (refers to the id id={name}) */
   label: string,

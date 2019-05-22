@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { width } from 'styled-system'
 
+import { system } from '../../utils/utils'
 import { get, getCss } from '../../theme/helpers'
 
 const sizes = {
@@ -37,6 +37,7 @@ export const pulsingStyles = css`
 export const StyledButton = styled.button(
   props => css`
     ${getCss(`buttons.${props.variant || 'primary'}`)};
+    ${getButtonSize(props.size, props.rounded)};
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -49,12 +50,11 @@ export const StyledButton = styled.button(
     outline: none;
     border-width: ${get('borderWidths.sm')};
     border-style: solid;
-    border-radius: ${props.radius ? props.radius : null};
     appearance: none;
     overflow: hidden;
     transition: ${get('transitions.sm')};
     line-height: 0.9rem;
-    ${width};
+    ${system};
 
     &::before {
       background: ${get('rgba.light.200', 0.05)};
@@ -72,9 +72,5 @@ export const StyledButton = styled.button(
       ${getCss('buttons.disabled')};
       pointer-events: none;
     }
-
-    ${getButtonSize(props.size, props.rounded)};
-
-    ${props.styles};
   `
 )
