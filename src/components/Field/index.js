@@ -39,7 +39,8 @@ export const Field = ({
   disabled = false,
   error,
   checked,
-  direction = 'row',
+  children,
+  direction,
   disabledIcon,
   groupName,
   name,
@@ -47,7 +48,7 @@ export const Field = ({
   onChange,
   onFocus,
   fieldType = 'text',
-  fieldTypeProps = {},
+  fieldProps = {},
   hint,
   label,
   placeholder,
@@ -98,7 +99,9 @@ export const Field = ({
           placeholder={placeholder}
           required={required}
           variant={variant}
-        />
+        >
+          {children}
+        </FieldType>
       </Container>
       {hintText && <Hint variant={variant}>{hintText}</Hint>}
     </StyledField>
@@ -107,12 +110,14 @@ export const Field = ({
 
 Field.propTypes = {
   checked: bool,
+  children: node,
   /** Direction of Label and FieldType Wrapper */
   direction: oneOf(['row', 'container']),
   disabled: bool,
   /** Custom icon for disabled state */
   disabledIcon: node,
   error: string,
+  fieldProps: object,
   /** Required Field component */
   fieldType: oneOf([
     'text',
@@ -127,7 +132,6 @@ Field.propTypes = {
     'radioTab',
     'checkbox'
   ]),
-  fieldTypeProps: object,
   groupName: string,
   hint: string,
   label: string,
