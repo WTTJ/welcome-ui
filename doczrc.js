@@ -11,6 +11,16 @@ export default {
   htmlContext: {
     favicon: 'https://cdn.welcometothejungle.co/wttj-front/assets/images/favicon.ico'
   },
+  modifyBundlerConfig: bundlerConfig => {
+    const rules = [
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      }
+    ]
+    bundlerConfig.module.rules.push(...rules)
+    return bundlerConfig
+  },
   themeConfig: {
     colors: {
       primary: theme.colors.primary[500]

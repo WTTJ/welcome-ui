@@ -105,19 +105,14 @@ import { Field } from './index'
 
 <Playground>
   <FieldGroup label="Check the frameworks you already worked with">
-    <Field name="random-ten" fieldType="checkbox" fieldTypeProps={{ value: false }} label="React" />
+    <Field name="random-ten" fieldType="checkbox" fieldProps={{ value: false }} label="React" />
     <Field
       name="random-eleven"
       fieldType="checkbox"
-      fieldTypeProps={{ value: false }}
+      fieldProps={{ value: false }}
       label="Angular"
     />
-    <Field
-      name="random-twelve"
-      fieldType="checkbox"
-      fieldTypeProps={{ value: false }}
-      label="Vue"
-    />
+    <Field name="random-twelve" fieldType="checkbox" fieldProps={{ value: false }} label="Vue" />
   </FieldGroup>
 </Playground>
 
@@ -134,5 +129,18 @@ import { Field } from './index'
     fieldType="toggle"
     label="Disabled switch example"
     disabled
+  />
+</Playground>
+
+## Markdown Editor
+
+<Playground>
+  <Field
+    name="random-fourteen"
+    fieldType="mde"
+    value="Something happening"
+    onChange={console.debug}
+    placeholder="Placeholder"
+    label="Markdown editor example"
   />
 </Playground>
