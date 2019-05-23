@@ -1,5 +1,5 @@
 export const getFields = theme => {
-  const { boxShadows, colors, fontSizes, fontWeights, radii, toRem } = theme
+  const { boxShadows, colors, fontSizes, fontWeights, radii, toRem, transitions } = theme
   const defaults = {
     color: colors.nude[800],
     'font-size': fontSizes.body3,
@@ -64,11 +64,10 @@ export const getFields = theme => {
         ...defaults
       },
       checked: {
-        color: 'transparent',
+        color: colors.dark[200],
+        'font-weight': fontWeights.bold,
         'background-color': colors.light[200],
         'border-color': colors.primary[500],
-        '-webkit-text-stroke-color': colors.dark[200],
-        '-webkit-text-fill-color': colors.dark[200],
         '&:hover': {
           'box-shadow': 'none'
         }

@@ -52,13 +52,20 @@ export const getBaseTheme = (options = {}) => {
     sm: '1px'
   }
 
-  theme.spaces = {
+  theme.space = {
     xxs: theme.toRem(6),
     xs: theme.toRem(8),
     sm: theme.toRem(10),
     md: theme.toRem(12),
     lg: theme.toRem(15),
     xl: theme.toRem(24)
+  }
+
+  theme.icons = {
+    sm: 16,
+    md: 24,
+    lg: 32,
+    xl: 48
   }
 
   theme.radii = radii

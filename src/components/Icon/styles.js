@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components'
 
+import { system } from '../../utils/utils'
+import { get } from '../../theme/helpers'
+
 const iconSvgStrokedStyles = css`
   g,
   path {
@@ -16,6 +19,10 @@ const iconSvgFilledStyles = css`
   }
 `
 
-export const IconSvg = styled.svg`
+export const IconSvg = styled.svg.attrs(({ size = 'md', ...props }) => ({
+  width: get(`icons.${size}`)(props),
+  height: get(`icons.${size}`)(props)
+}))`
   ${({ stroked }) => (stroked ? iconSvgStrokedStyles : iconSvgFilledStyles)};
+  ${system};
 `

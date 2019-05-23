@@ -13,6 +13,7 @@ exports[`<Button> renders correctly 1`] = `
   background-color: #1B74B5;
   border-color: #1B74B5;
   border-radius: 4px;
+  padding: 0.625rem 0.75rem;
   position: relative;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -40,7 +41,6 @@ exports[`<Button> renders correctly 1`] = `
   -webkit-transition: all .2s cubic-bezier(0.41,0.094,0.54,0.07);
   transition: all .2s cubic-bezier(0.41,0.094,0.54,0.07);
   line-height: 0.9rem;
-  padding: 0.625rem 0.75rem;
 }
 
 .c0::before {

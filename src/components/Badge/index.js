@@ -1,25 +1,11 @@
 import React from 'react'
-import { node, oneOf, string } from 'prop-types'
+import { node, number, object, oneOf, oneOfType, string } from 'prop-types'
 
 import { StyledBadge } from './styles'
 
-export const Badge = ({
-  children,
-  fontsize,
-  padding = 'sm',
-  radius,
-  size = '2em',
-  variant = 'info'
-}) => {
+export const Badge = ({ children, size = '2em', variant = 'info', ...props }) => {
   return (
-    <StyledBadge
-      fontsize={fontsize}
-      length={children.length}
-      padding={padding}
-      radius={radius}
-      size={size}
-      variant={variant}
-    >
+    <StyledBadge length={children.length} size={size} variant={variant} {...props}>
       {children}
     </StyledBadge>
   )
@@ -27,9 +13,6 @@ export const Badge = ({
 
 Badge.propTypes = {
   children: node,
-  fontsize: string,
-  padding: string,
-  radius: string,
   size: string,
   variant: oneOf(['error', 'info', 'valid', 'warning'])
 }

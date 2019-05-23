@@ -1,8 +1,11 @@
 import styled, { css } from 'styled-components'
 
+import { system } from '../../utils/utils'
+
 export const Radios = styled.div(
   props => css`
     display: flex;
-    flex-direction: ${props.direction || 'column'};
+    flex-direction: column;
+    ${system};
   `
 )

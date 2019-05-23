@@ -9,6 +9,6 @@ export const StyledTextarea = styled.textarea(
     ${fieldTypeStyles};
     ${getCss('fields.textarea')};
     line-height: ${get('fontSizes.body1')};
-    padding: ${get('spaces.sm')};
+    padding: ${get('space.sm')};
   `
 )

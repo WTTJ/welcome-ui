@@ -19,12 +19,7 @@ export const Input = styled.input`
 
 const checkedStyles = css`
   ${getCss('fields.radiotabs.checked')};
-  -webkit-text-stroke-width: 0.5px;
   z-index: 2;
-
-  &:hover {
-    color: transparent;
-  }
 `
 
 const columnStyles = css`
@@ -69,23 +64,22 @@ export const radioTabStyles = props => css`
     max-width: 100%;
     user-select: none;
     margin: 0;
-    padding: ${get('spaces.sm')};
-    padding-right: calc(${get('spaces.sm')} + ${get('borderWidths.sm')});
+    padding: ${get('space.sm')};
+    padding-right: calc(${get('space.sm')} + ${get('borderWidths.sm')});
     cursor: pointer;
     line-height: 1;
     text-align: center;
-    transition: ${get('transitions.sm')};
+    transition: none;
     border-radius: 0;
     ${overflowEllipsis};
 
     &:hover {
       ${getCss('fields.radiotabs.hover')};
-      z-index: 1;
     }
 
     ${props.checked && checkedStyles};
   }
 
-  ${props.direction === 'column' && columnStyles};
-  ${props.direction === 'row' && rowStyles};
+  ${props.flexDirection === 'column' && columnStyles};
+  ${props.flexDirection === 'row' && rowStyles};
 `

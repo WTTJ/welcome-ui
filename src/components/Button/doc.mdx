@@ -5,7 +5,7 @@ menu: Components
 ---
 
 import { PropsTable } from 'docz'
-import { ButtonsPlayground as Playground } from '../../../docz.styled'
+import Playground from '../../../docz.styled'
 import { Button } from './index'
 
 # Button
@@ -36,18 +36,20 @@ import { Button } from './index'
   <Button size="lg">lg</Button>
 </Playground>
 
-## Span
+## Width
+[https://styled-system.com/api#width](https://styled-system.com/api#width)
 
 <Playground>
-  <Button span="full">full width</Button>
-  <Button span="half">half width</Button>
+  <Button width={1}>full width</Button>
+  <Button width={1/2}>half width</Button>
 </Playground>
 
 ## Radius
+[https://styled-system.com/api#borders](https://styled-system.com/api#borders)
 
 <Playground>
   <Button>default</Button>
-  <Button radius="10px">10px</Button>
+  <Button borderRadius="10px">10px</Button>
 </Playground>
 
 ### Disabled

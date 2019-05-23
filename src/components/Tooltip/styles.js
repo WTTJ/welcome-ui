@@ -8,7 +8,7 @@ export const Wrapper = styled.div(
     position: fixed;
     top: ${`${props.top}px`};
     left: ${`${props.left}px`};
-    padding: ${get('spaces.sm')};
+    padding: ${get('space.sm')};
     font-size: ${get('fontSizes.body4')};
     z-index: 999;
   `
