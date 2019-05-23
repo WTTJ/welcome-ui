@@ -61,6 +61,13 @@ export const getBaseTheme = (options = {}) => {
     xl: theme.toRem(24)
   }
 
+  theme.icons = {
+    sm: 16,
+    md: 24,
+    lg: 32,
+    xl: 48
+  }
+
   theme.radii = radii
 
   // TODO rework transitions
