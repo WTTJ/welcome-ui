@@ -41,23 +41,20 @@ export default {
       h1: {
         fontFamily: theme.fontFamilies.headings,
         fontSize: theme.fontSizes.h1,
-        fontWeight: theme.fontWeights.bold,
-        marginBottom: '1rem'
+        fontWeight: theme.fontWeights.bold
       },
       h2: {
         fontFamily: theme.fontFamilies.headings,
         fontSize: theme.fontSizes.h2,
         fontWeight: theme.fontWeights.bold,
-        textTransform: 'uppercase',
         color: theme.colors.secondary[500],
         borderBottom: 'none',
-        marginTop: '4rem'
+        margin: '3rem 0 0 0'
       },
       h3: {
         fontFamily: theme.fontFamilies.headings,
         fontSize: theme.fontSizes.h3,
-        fontWeight: theme.fontWeights.bold,
-        textTransform: 'uppercase'
+        fontWeight: theme.fontWeights.bold
       }
     },
     logo: {
