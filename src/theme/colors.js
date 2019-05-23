@@ -44,5 +44,15 @@ export const colors = {
     600: '#666666',
     700: '#4C4C4C',
     800: '#8D8D8D'
+  },
+  sub: {
+    blue: '#559AF1',
+    green: '#4AB519',
+    orange: '#EA724C',
+    pink: '#F0AABF',
+    purple: '#965FE6',
+    red: '#D04232',
+    turquoize: '#3FD1C1',
+    yellow: '#F4CF70'
   }
 }

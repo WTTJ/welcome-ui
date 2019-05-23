@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { getVariantColor } from '../../utils/variants'
+import { getVariantStateColor } from '../../utils/variants'
 import { get, getCss } from '../../theme/helpers'
 
 export const Disabled = styled.div`
@@ -17,8 +17,8 @@ export const Variant = styled.div(
   props => css`
     display: inline-flex;
     margin-right: ${get('space.xxs')};
-    color: ${getVariantColor(props.variant)};
-    fill: ${getVariantColor(props.variant)};
+    color: ${getVariantStateColor(props.variant)};
+    fill: ${getVariantStateColor(props.variant)};
   `
 )
 

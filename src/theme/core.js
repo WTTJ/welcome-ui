@@ -3,7 +3,7 @@ import merge from 'lodash.merge'
 import { colors } from './colors'
 import { fonts } from './fonts'
 import { getFontSizes } from './typography'
-import { getBadges } from './badges'
+import { getTags } from './tags'
 import { getButtons } from './buttons'
 import { getFields } from './fields'
 import { getTooltips } from './tooltips'
@@ -85,7 +85,7 @@ export const getBaseTheme = (options = {}) => {
 
   // CSS blocks
   // These attributes depend on colors and fontSizes and must come last
-  theme.badges = getBadges(theme)
+  theme.tags = getTags(theme)
   theme.fields = getFields(theme)
   theme.buttons = getButtons(theme)
   theme.tooltips = getTooltips(theme)

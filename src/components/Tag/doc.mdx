@@ -1,0 +1,73 @@
+---
+name: Tag
+route: /components/tag
+menu: Components
+---
+
+import { PropsTable } from 'docz'
+import { StyledPlayground as Playground } from '../../../docz.styled'
+import { Tag } from './index'
+
+# Tag
+
+## Variants
+
+Admire these beautiful colors 💅
+
+### Basics
+
+<Playground>
+  <Tag>Default</Tag>
+  <Tag variant="primary">Primary</Tag>
+  <Tag variant="secondary">Secondary</Tag>
+</Playground>
+
+### Subs
+
+<Playground>
+  <Tag variant="blue">Blue</Tag>
+  <Tag variant="green">Green</Tag>
+  <Tag variant="orange">Orange</Tag>
+  <Tag variant="pink">Pink</Tag>
+  <Tag variant="purple">Purple</Tag>
+  <Tag variant="red">Red</Tag>
+  <Tag variant="turquoize">Turquoize</Tag>
+  <Tag variant="yellow">Yellow</Tag>
+</Playground>
+
+## Sizes
+
+Use size property with `sm` `md` or `lg`.
+
+<Playground>
+  <Tag size="sm">Small</Tag>
+  <Tag size="md">Medium</Tag>
+  <Tag size="lg">Large</Tag>
+</Playground>
+
+## One character style
+
+When we have only one character, we apply same size for the width and height.
+
+<Playground>
+  <Tag size="sm">1</Tag>
+  <Tag size="md">1</Tag>
+  <Tag size="lg">1</Tag>
+</Playground>
+
+## Rounded
+
+Add `rounded` property to set a border-radius `1em`.
+
+<Playground>
+  <Tag size="lg" rounded>
+    Rounded
+  </Tag>
+  <Tag size="lg" rounded>
+    1
+  </Tag>
+</Playground>
+
+## Properties
+
+<PropsTable of={Tag} />
