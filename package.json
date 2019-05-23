@@ -16,7 +16,8 @@
     "test": "jest src",
     "test:watch": "jest --watch",
     "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "docz:build": "docz build",
+    "docz:clean": "rm -rf .docz"
   },
   "files": [
     "dist/esm/*",
