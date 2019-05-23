@@ -19,10 +19,11 @@ const iconSvgFilledStyles = css`
   }
 `
 
-export const IconSvg = styled.svg.attrs(({ size = 'md', ...props }) => ({
-  width: get(`icons.${size}`)(props),
-  height: get(`icons.${size}`)(props)
-}))`
-  ${({ stroked }) => (stroked ? iconSvgStrokedStyles : iconSvgFilledStyles)};
-  ${system};
-`
+export const IconSvg = styled.svg(
+  ({ size = 'md', stroked, ...props }) => css`
+    ${stroked ? iconSvgStrokedStyles : iconSvgFilledStyles};
+    width: ${get(`icons.${size}`)(props)}px;
+    height: ${get(`icons.${size}`)(props)}px;
+    ${system};
+  `
+)
