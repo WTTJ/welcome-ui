@@ -1,0 +1,51 @@
+---
+name: Final Form
+route: /usage-finalform
+menu: Usage
+---
+
+import { Form, Field } from 'react-final-form'
+import { StyledPlayground as Playground } from '../docz.styled'
+
+import { Field as WelcomeField } from './final/Field'
+import { FieldGroup } from './components/FieldGroup'
+import { RadioGroup } from './components/RadioGroup'
+
+# Usage with form libraries
+
+<Playground>
+  {() => {
+    const onSubmit = (values) => {
+      console.debug('values', values)
+    }
+
+    return (
+      <Form
+        initialValues={{ firstName: 'Fish', description: 'Fancy that', diet: 'herbivore', dogs: 'true', hungry: 'true' }}
+        onSubmit={onSubmit}
+        render={({ handleSubmit }) => (
+          <form onSubmit={handleSubmit}>
+            <Field name="firstName" component={WelcomeField} fieldType="text" placeholder="Boaty" label="First name" />
+            <Field name="lastName" component={WelcomeField} fieldType="text" placeholder="Boaty" label="Last name" />
+            <RadioGroup label="Dietary">
+              <Field name="diet" value="vegan" type="radio" component={WelcomeField} fieldType="radio" label="Vegan" />
+              <Field name="diet" value="herbivore" type="radio" component={WelcomeField} fieldType="radio" label="Herbivore" />
+              <Field name="diet" value="omnivore" type="radio" component={WelcomeField} fieldType="radio" label="Omnivore" />
+              <Field name="diet" value="carnivore" type="radio" component={WelcomeField} fieldType="radio" label="Carnivore" />
+            </RadioGroup>
+            <Field name="hungry" component={WelcomeField} fieldType="toggle" label="Hungry" />
+            <FieldGroup label="Animals">
+              <Field name="dogs" component={WelcomeField} fieldType="checkbox" label="Dogs" />
+              <Field name="cats" component={WelcomeField} fieldType="checkbox" label="Cats" />
+            </FieldGroup>
+
+            <Field name="description" component={WelcomeField} fieldType="textarea" placeholder="Boaty" label="Description" />
+            <button type="submit">Submit</button>
+          </form>
+        )}
+      />
+    )
+
+}}
+
+</Playground>
