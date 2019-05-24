@@ -19,7 +19,9 @@ Tag.propTypes = {
   variant: oneOf([
     'blue',
     'default',
+    'error',
     'green',
+    'info',
     'orange',
     'pink',
     'primary',
@@ -27,6 +29,7 @@ Tag.propTypes = {
     'red',
     'secondary',
     'turquoize',
+    'warning',
     'yellow'
   ])
 }

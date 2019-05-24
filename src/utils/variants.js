@@ -31,7 +31,8 @@ const variantColors = {
   red: 'colors.sub.red',
   secondary: 'colors.secondary.500',
   turquoize: 'colors.sub.turquoize',
-  yellow: 'colors.sub.yellow'
+  yellow: 'colors.sub.yellow',
+  ...variantStateColors
 }
 
 export const getVariantColor = variant => {
