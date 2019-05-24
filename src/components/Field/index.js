@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { bool, func, node, object, oneOf, string } from 'prop-types'
+import { bool, func, node, object, oneOf, oneOfType, shape, string } from 'prop-types'
 import includes from 'lodash.includes'
 
 // Common
@@ -43,69 +43,94 @@ export const Field = ({
   checked,
   children,
   disabledIcon,
+  flexDirection,
   groupName,
-  name,
-  onBlur,
-  onChange,
-  onFocus,
   fieldType = 'text',
   hint,
   label,
+  onChange,
+  onBlur,
+  onFocus,
+  name,
   placeholder,
   required = false,
-  warning,
-  ...props
+  type,
+  value,
+  warning
 }) => {
-  const { flexDirection, ...rest } = { ...props }
-  const isCheckable = () => {
-    return includes(['toggle', 'checkbox', 'radio'], fieldType)
+  const getIsCheckbox = () => includes(['toggle', 'checkbox'], fieldType)
+  const getIsCheckable = () => includes(['toggle', 'checkbox', 'radio'], fieldType)
+  const getIsShowRequired = () => (includes(['radio', 'radioTab'], fieldType) ? null : required)
+
+  const handleChange = e => {
+    const {
+      target: { name, value, checked }
+    } = e
+    const newValue = getIsCheckbox() ? String(checked) : value
+    onChange && onChange(newValue, name)
   }
 
-  const showRequired = () => {
-    return includes(['radio', 'radioTab'], fieldType) ? null : required
+  const handleBlur = () => {
+    onBlur && onBlur()
   }
 
-  const FieldType = getFieldType(fieldType)
+  const handleFocus = () => {
+    onFocus && onFocus()
+  }
+
+  const Component = getFieldType(fieldType)
   const variant = getVariant(warning, error)
 
   const hintText = error || warning || hint
-  const layout = flexDirection || isCheckable() ? 'row' : 'column'
+  const isShowRequired = getIsShowRequired()
+  const isCheckable = getIsCheckable()
+  const isChecked = getIsCheckbox() ? value === 'true' : checked
+
+  const layout = flexDirection || isCheckable ? 'row' : 'column'
   const Container = layout === 'row' ? RowContainer : Fragment
+  const htmlFor = fieldType === 'radio' ? value : name // Use value for radio buttons
+
+  const field = (
+    <Component
+      checked={isChecked}
+      disabled={disabled}
+      groupName={groupName}
+      name={name}
+      onBlur={handleBlur}
+      onChange={handleChange}
+      onFocus={handleFocus}
+      placeholder={placeholder}
+      required={required}
+      type={fieldType}
+      value={value}
+      variant={variant}
+    >
+      {children}
+    </Component>
+  )
 
   return (
     <StyledField
-      checkableField={isCheckable()}
-      checked={checked}
+      checkableField={isCheckable}
+      checked={isChecked}
       fieldType={fieldType}
       flexDirection={layout}
-      {...rest}
     >
       <Container>
         {label && (
           <Label
             disabled={disabled}
             disabledIcon={disabledIcon}
-            htmlFor={name}
-            required={showRequired()}
+            htmlFor={htmlFor}
+            onClick={handleChange}
+            required={isShowRequired}
             variant={variant}
           >
+            {isCheckable && field}
             {label}
           </Label>
         )}
-        <FieldType
-          checked={checked}
-          disabled={disabled}
-          groupName={groupName}
-          name={name}
-          onBlur={onBlur}
-          onChange={onChange}
-          onFocus={onFocus}
-          placeholder={placeholder}
-          required={required}
-          variant={variant}
-        >
-          {children}
-        </FieldType>
+        {!isCheckable && field}
       </Container>
       {hintText && <Hint variant={variant}>{hintText}</Hint>}
     </StyledField>
@@ -135,6 +160,7 @@ Field.propTypes = {
     'radioTab',
     'checkbox'
   ]).isRequired,
+  flexDirection: string,
   groupName: string,
   hint: string,
   label: string,
@@ -144,5 +170,7 @@ Field.propTypes = {
   onFocus: func,
   placeholder: string,
   required: bool,
+  type: string,
+  value: oneOfType([string, bool]),
   warning: string
 }

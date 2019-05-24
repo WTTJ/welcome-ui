@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, number, oneOf, string } from 'prop-types'
+import { bool, func, number, oneOf, string } from 'prop-types'
 
 import { StyledTextarea } from './styles.js'
 
@@ -7,7 +7,12 @@ export const InputTextarea = ({
   minRows = 5,
   disabled,
   maxLength,
+  name,
+  onBlur,
+  onChange,
+  onFocus,
   placeholder,
+  value,
   variant,
   autoFocus
 }) => (
@@ -16,7 +21,12 @@ export const InputTextarea = ({
     disabled={disabled}
     maxLength={maxLength}
     minRows={minRows}
+    name={name}
+    onBlur={onBlur}
+    onChange={onChange}
+    onFocus={onFocus}
     placeholder={placeholder}
+    value={value}
     variant={variant}
   />
 )
@@ -26,6 +36,11 @@ InputTextarea.propTypes = {
   disabled: bool,
   maxLength: number,
   minRows: number,
+  name: string,
+  onBlur: func,
+  onChange: func,
+  onFocus: func,
   placeholder: string,
+  value: string,
   variant: oneOf(['error', 'info', 'valid', 'warning'])
 }

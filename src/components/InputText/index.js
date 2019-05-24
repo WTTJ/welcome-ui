@@ -1,24 +1,43 @@
 import React from 'react'
-import { bool, object, oneOf, string } from 'prop-types'
+import { bool, func, object, oneOf, string } from 'prop-types'
 
 import { StyledInputText } from './styles'
 
-export const InputText = ({ disabled, fieldProps, name, placeholder, variant, type }) => (
-  <StyledInputText
-    disabled={disabled}
-    id={name}
-    placeholder={placeholder}
-    type={type}
-    variant={variant}
-    {...fieldProps}
-  />
-)
+export const InputText = ({
+  disabled,
+  name,
+  onChange,
+  onBlur,
+  onFocus,
+  placeholder,
+  variant,
+  value,
+  type = 'text'
+}) => {
+  return (
+    <StyledInputText
+      disabled={disabled}
+      id={name}
+      name={name}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+      placeholder={placeholder}
+      type={type}
+      value={value}
+      variant={variant}
+    />
+  )
+}
 
 InputText.propTypes = {
   disabled: bool,
-  fieldProps: object,
   name: string,
+  onBlur: func,
+  onChange: func,
+  onFocus: func,
   placeholder: string,
   type: string,
+  value: string,
   variant: oneOf(['error', 'info', 'valid', 'warning'])
 }
