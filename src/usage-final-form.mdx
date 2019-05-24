@@ -21,17 +21,24 @@ import { RadioGroup } from './components/RadioGroup'
 
     return (
       <Form
-        initialValues={{ firstName: 'Fish', description: 'Fancy that', diet: 'herbivore', dogs: 'true', hungry: 'true' }}
+        initialValues={{ firstName: 'Fish', description: 'Fancy that', diet: 'herbivore', dogs: 'true', hungry: 'true', weekday: 'tuesday' }}
         onSubmit={onSubmit}
         render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             <Field name="firstName" component={WelcomeField} fieldType="text" placeholder="Boaty" label="First name" />
             <Field name="lastName" component={WelcomeField} fieldType="text" placeholder="Boaty" label="Last name" />
             <RadioGroup label="Dietary">
-              <Field name="diet" value="vegan" type="radio" component={WelcomeField} fieldType="radio" label="Vegan" />
-              <Field name="diet" value="herbivore" type="radio" component={WelcomeField} fieldType="radio" label="Herbivore" />
-              <Field name="diet" value="omnivore" type="radio" component={WelcomeField} fieldType="radio" label="Omnivore" />
-              <Field name="diet" value="carnivore" type="radio" component={WelcomeField} fieldType="radio" label="Carnivore" />
+              <Field name="diet" type="radio" value="vegan" component={WelcomeField} fieldType="radio" label="Vegan" />
+              <Field name="diet" type="radio" value="herbivore" component={WelcomeField} fieldType="radio" label="Herbivore" />
+              <Field name="diet" type="radio" value="omnivore" component={WelcomeField} fieldType="radio" label="Omnivore" />
+              <Field name="diet" type="radio" value="carnivore" component={WelcomeField} fieldType="radio" label="Carnivore" />
+            </RadioGroup>
+            <RadioGroup label="Favourite weekday" flexDirection="row" required>
+              <Field name="weekday" type="radio" value="monday"component={WelcomeField} fieldType="radioTab" label="Monday" />
+              <Field name="weekday" type="radio" value="tuesday" component={WelcomeField} fieldType="radioTab" label="Tuesday" />
+              <Field name="weekday" type="radio" value="wednesday"component={WelcomeField} fieldType="radioTab" label="Wednesday" />
+              <Field name="weekday" type="radio" value="thursday"component={WelcomeField} fieldType="radioTab" label="Thursday" />
+              <Field name="weekday" type="radio" value="friday"component={WelcomeField} fieldType="radioTab" label="Friday" />
             </RadioGroup>
             <Field name="hungry" component={WelcomeField} fieldType="toggle" label="Hungry" />
             <FieldGroup label="Animals">

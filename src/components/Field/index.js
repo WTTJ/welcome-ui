@@ -59,13 +59,10 @@ export const Field = ({
   warning
 }) => {
   const getIsCheckbox = () => includes(['toggle', 'checkbox'], fieldType)
+  const getIsRadio = () => includes(['radio', 'radioTab'], fieldType)
   const getIsCheckable = () => includes(['toggle', 'checkbox', 'radio'], fieldType)
-  const getIsShowRequired = () => (includes(['radio', 'radioTab'], fieldType) ? null : required)
 
-  const handleChange = e => {
-    const {
-      target: { name, value, checked }
-    } = e
+  const handleChange = ({ target: { name, value, checked } }) => {
     const newValue = getIsCheckbox() ? String(checked) : value
     onChange && onChange(newValue, name)
   }
@@ -80,15 +77,16 @@ export const Field = ({
 
   const Component = getFieldType(fieldType)
   const variant = getVariant(warning, error)
+  const isRadio = getIsRadio()
+  const isCheckbox = getIsCheckbox()
+  const isCheckable = getIsCheckable()
 
   const hintText = error || warning || hint
-  const isShowRequired = getIsShowRequired()
-  const isCheckable = getIsCheckable()
-  const isChecked = getIsCheckbox() ? value === 'true' : checked
-
+  const isShowRequired = isRadio ? null : required
+  const isChecked = isCheckbox ? value === 'true' : checked
   const layout = flexDirection || isCheckable ? 'row' : 'column'
   const Container = layout === 'row' ? RowContainer : Fragment
-  const htmlFor = fieldType === 'radio' ? value : name // Use value for radio buttons
+  const htmlFor = isRadio ? value : name // Use value for radio buttons
 
   const field = (
     <Component
