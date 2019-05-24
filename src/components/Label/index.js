@@ -19,7 +19,7 @@ export const Label = ({
     if (variant === 'error' || variant === 'warning') {
       return (
         errorWarningIcon || (
-          <Badge fontsize="xs" size="1.4em" variant={variant}>
+          <Badge rounded variant={variant}>
             !
           </Badge>
         )
