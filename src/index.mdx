@@ -3,6 +3,10 @@ name: Intro
 route: /
 ---
 
+import { Component } from 'react'
+import { StyledPlayground as Playground } from '../docz.styled'
+import { createTheme } from './theme/core'
+
 # Welcome UI
 
 Welcome to the _Welcome UI library_. Here you'll find all the core components you need to create a delightful webapp.
@@ -59,9 +63,22 @@ export default Root
 
 Here are all the possible values for your theme. These will be merged with the default theme which you can find here:
 
-```
+<Playground>
+  {() => {
+    const theme = createTheme()
 
-```
+    const ThemeValues = () => (
+      <>
+        <pre style={{
+          fontFamily: 'monospace',
+          fontSize: '14px'
+        }}>{JSON.stringify(theme, null, 2)}</pre>
+      </>
+    )
+
+    return <ThemeValues />
+  }}
+</Playground>
 
 ## Helpers
 
