@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 
+import { system } from '../../utils/utils'
 import { get, getCss } from '../../theme/helpers'
 
 const checkedStyles = css`
@@ -10,19 +11,20 @@ const checkedStyles = css`
   }
 `
 
-export const StyledToggle = styled.div(props => {
+export const StyledToggle = styled.div(({ checked, disabled, order = '-1', ...props }) => {
   const toggleSize = getCss('fields.toggles.default.width')(props)
   return css`
     ${getCss('fields.toggles.default')};
-    ${props.disabled && getCss('fields.toggles.disabled')};
+    ${disabled && getCss('fields.toggles.disabled')};
     position: relative;
     display: block;
     width: ${`calc(${toggleSize} * 2)`};
     height: ${toggleSize};
-    cursor: ${props.disabled ? null : 'pointer'};
+    cursor: ${disabled ? null : 'pointer'};
     border-radius: ${toggleSize};
     transition: 0.3s;
-    order: ${props.order || null};
+    order: ${order};
+
     &::after {
       content: '';
       position: absolute;
@@ -44,6 +46,7 @@ export const StyledToggle = styled.div(props => {
       visibility: hidden;
     }
 
-    ${props.checked && checkedStyles}
+    ${checked && checkedStyles}
+    ${system};
   `
 })
