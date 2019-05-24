@@ -5,7 +5,8 @@ menu: Usage
 ---
 
 import { Form, Field } from 'react-final-form'
-import { StyledPlayground as Playground, CodeBlock } from '../docz.styled'
+import { StyledPlayground as Playground } from '../docz.styled'
+import { DoczCodeBlock } from '../docz/CodeBlock'
 
 import { Field as WelcomeField } from './final/Field'
 import { FieldGroup } from './components/FieldGroup'
@@ -45,7 +46,7 @@ import { RadioGroup } from './components/RadioGroup'
             </FieldGroup>
 
             <Field name="description" component={WelcomeField} fieldType="textarea" placeholder="Boaty" label="Description" />
-            <CodeBlock>{values}</CodeBlock>
+            <DoczCodeBlock>{values}</DoczCodeBlock>
           </form>
         )}
       />

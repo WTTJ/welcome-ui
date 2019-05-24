@@ -62,7 +62,11 @@ export const Field = ({
   const getIsRadio = () => includes(['radio', 'radioTab'], fieldType)
   const getIsCheckable = () => includes(['toggle', 'checkbox', 'radio'], fieldType)
 
-  const handleChange = ({ target: { name, value, checked } }) => {
+  const handleChange = e => {
+    const {
+      target: { name, value, checked }
+    } = e
+    e.preventDefault()
     const newValue = getIsCheckbox() ? String(checked) : value
     onChange && onChange(newValue, name)
   }

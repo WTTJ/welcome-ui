@@ -15,7 +15,7 @@ export const StyledMarkdownEditor = styled.div(
 
     .editor-toolbar {
       border: 0 none;
-      padding: ${get('spaces.xs')} ${get('spaces.xs')};
+      padding: ${get('space.xs')} ${get('space.xs')};
       opacity: 1;
       background-color: ${get('colors.light.100')};
       border-bottom: ${get('borderWidths.sm')} solid ${get('colors.nude.200')};

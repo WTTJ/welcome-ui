@@ -5,7 +5,10 @@ menu: Components
 ---
 
 import { PropsTable } from 'docz'
+import { useState } from 'react'
 import { StyledPlayground as Playground } from '../../../docz.styled'
+
+import { DoczForm } from '../../../docz/Form'
 
 import { FieldGroup } from '../FieldGroup'
 import { RadioGroup } from '../RadioGroup'
@@ -16,23 +19,38 @@ import { Field } from './index'
 ## Variants
 
 <Playground>
-  <Field name="random" placeholder="Placeholder" fieldType="text" label="Label" hint="A hint" />
-  <br />
-  <Field
-    name="random-one"
-    placeholder="Placeholder"
-    fieldType="text"
-    label="Label"
-    warning="A warning"
-  />
-  <br />
-  <Field
-    name="random-two"
-    placeholder="Placeholder"
-    fieldType="text"
-    label="Label"
-    error="An error"
-  />
+  <DoczForm initialValues={{ random: 'Test' }}>
+    {(values, handleChange) => (
+      <>
+        <Field
+          name="random"
+          placeholder="Placeholder"
+          fieldType="text"
+          label="Label"
+          hint="A hint"
+          value={values.random}
+          onChange={handleChange}/>
+        <Field
+          name="warning"
+          placeholder="Placeholder"
+          fieldType="text"
+          label="Label"
+          warning="A warning"
+          value={values.warning}
+          onChange={handleChange}
+        />
+        <Field
+          name="error"
+          placeholder="Placeholder"
+          fieldType="text"
+          label="Label"
+          error="An error"
+          value={values.error}
+          onChange={handleChange}
+        />
+      </>
+    )}
+  </DoczForm>
 </Playground>
 
 ## Disabled
@@ -69,30 +87,30 @@ import { Field } from './index'
 ## RadioTabs
 
 <Playground>
-  <RadioGroup
-    label="Label for input radios"
-    groupName="choices"
-    flexDirection="row"
-    required
-  >
+  <RadioGroup label="Label for input radios" groupName="choices" flexDirection="row" required>
     <Field fieldType="radioTab" name="choice_1" label="Choice 1" />
-    <Field fieldType="radioTab" name="choice_2" label="Choice 2 very very very long incredible" />
+    <Field
+      fieldType="radioTab"
+      name="choice_2"
+      label="Choice 2 very very very long incredible"
+      checked
+    />
     <Field fieldType="radioTab" name="choice_3" label="Choice 3" />
   </RadioGroup>
-  <RadioGroup label="Label for input radios" groupName="choices" width={1/3} required>
+  <RadioGroup label="Label for input radios" groupName="choices" width={1 / 3} required>
     <Field fieldType="radioTab" name="choice_4" label="Choice 4" />
     <Field fieldType="radioTab" name="choice_5" label="Choice 5 very very very long incredible" />
-    <Field fieldType="radioTab" name="choice_6" label="Choice 6" />
+    <Field fieldType="radioTab" name="choice_6" label="Choice 6" checked />
   </RadioGroup>
 </Playground>
 
 ## Radio
 
 <Playground>
-  <RadioGroup label="Your favorite sauce" groupName="sauce">
-    <Field name="random-seven" fieldType="radio" label="Mayonnaise" />
-    <Field name="random-eight" fieldType="radio" label="Ketchup" />
-    <Field name="random-nine" fieldType="radio" label="Barebecue" />
+  <RadioGroup label="Your favorite sauce" groupName="sauces">
+    <Field name="sauces" fieldType="radio" value="mayonnaise" label="Mayonnaise" />
+    <Field name="sauces" fieldType="radio" value="ketchup" label="Ketchup" checked />
+    <Field name="sauces" fieldType="radio" value="barbecue" label="Barbecue" />
   </RadioGroup>
 </Playground>
 
@@ -100,28 +118,17 @@ import { Field } from './index'
 
 <Playground>
   <FieldGroup label="Check the frameworks you already worked with">
-    <Field name="random-ten" fieldType="checkbox" fieldProps={{ value: false }} label="React" />
-    <Field
-      name="random-eleven"
-      fieldType="checkbox"
-      fieldProps={{ value: false }}
-      label="Angular"
-    />
-    <Field name="random-twelve" fieldType="checkbox" fieldProps={{ value: false }} label="Vue" />
+    <Field name="react" fieldType="checkbox" label="React" />
+    <Field name="angular" fieldType="checkbox" label="Angular" />
+    <Field name="vue" fieldType="checkbox" label="Vue" checked />
   </FieldGroup>
 </Playground>
 
 ## Toggle
 
 <Playground>
-  <Field name="random-thirteen" fieldType="toggle" label="Switch example" />
-  <Field
-    name="random-fourteen"
-    fieldType="toggle"
-    label="Disabled switch example"
-    disabled
-    checked
-  />
+  <Field name="switch" fieldType="toggle" label="Switch example" />
+  <Field name="switch-disabled" fieldType="toggle" label="Disabled switch example" disabled />
 </Playground>
 
 ## File Upload
@@ -143,7 +150,6 @@ import { Field } from './index'
       return <h3>Drop file to upload</h3>
     }}
   </Field>
-
 </Playground>
 
 ## Markdown Editor
