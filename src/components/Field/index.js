@@ -110,10 +110,11 @@ export const Field = ({
             required={isShowRequired}
             variant={variant}
           >
+            {isCheckable && field}
             {label}
           </Label>
         )}
-        {field}
+        {!isCheckable && field}
       </Container>
       {hintText && <Hint variant={variant}>{hintText}</Hint>}
     </StyledField>
@@ -131,12 +132,12 @@ Field.propTypes = {
   fieldType: PropTypes.oneOf(Object.keys(FIELD_TYPES)).isRequired,
   flexDirection: PropTypes.oneOf(['row', 'container']),
   hint: PropTypes.string,
-  /** For `select` fields */
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  /** For `select` fields */
   options: PropTypes.any,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
