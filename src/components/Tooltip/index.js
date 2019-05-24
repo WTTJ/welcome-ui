@@ -52,8 +52,8 @@ export const Tooltip = ({ accessibilityId, children }) => {
 }
 
 Tooltip.propTypes = {
-  /** Id for aria-describedby for accessibility */
+  /** id for aria-describedby for accessibility */
   accessibilityId: string.isRequired,
-  /** Target parent element */
+  /** wording to show in the tooltip */
   children: node.isRequired
 }

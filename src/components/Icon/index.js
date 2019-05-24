@@ -4,8 +4,8 @@ import { oneOf, string } from 'prop-types'
 import { IconSvg } from './styles'
 import icons from './icons'
 
-export const Icon = ({ icon, ...props }) => {
-  const iconConfig = icons[icon.toLowerCase()]
+export const Icon = ({ name, ...props }) => {
+  const iconConfig = icons[name.toLowerCase()]
 
   if (!iconConfig) {
     return null
@@ -23,5 +23,5 @@ export const Icon = ({ icon, ...props }) => {
 
 Icon.propTypes = {
   /** Icon name */
-  icon: string
+  name: string
 }

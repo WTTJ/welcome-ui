@@ -26,13 +26,7 @@ You also have access to:
 - `openFile`: To open the native file chooser dialog box
 - `fileUrl`: URL of file if one has been opened/dropped (to show a preview)
 
-## Properties
-
-<PropsTable of={FileUpload} />
-
-## Examples
-
-### Default
+## Default
 
 <Playground>
   {() => {
@@ -58,9 +52,9 @@ You also have access to:
       >
         {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
           if (isHoverAccept) {
-            return <Icon icon="positive" />
+            return <Icon name="positive" />
           } else if (isHoverReject) {
-            return <Icon icon="negative" />
+            return <Icon name="negative" />
           } else if (fileUrl) {
             return <FilePreviewImage src={fileUrl} />
           }
@@ -73,15 +67,19 @@ You also have access to:
 
 </Playground>
 
-### Disabled
+## Disabled
 
 <Playground>
   <FileUpload disabled>
     {() => (
       <>
-        <Icon icon="negative" />
+        <Icon name="negative" />
         <p>Can't upload file</p>
       </>
     )}
   </FileUpload>
 </Playground>
+
+## Properties
+
+<PropsTable of={FileUpload} />

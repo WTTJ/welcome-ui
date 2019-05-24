@@ -58,7 +58,7 @@ exports[`<Button> renders correctly 1`] = `
 }
 
 .c0[disabled] {
-  color: #A0A0A0;
+  color: #828282;
   font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;

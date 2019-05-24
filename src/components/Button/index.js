@@ -1,13 +1,13 @@
 import React from 'react'
 import { node, object, oneOf, string } from 'prop-types'
 
-import { StyledButton } from './styles'
+import * as S from './styles'
 
 export const Button = ({ children, size = 'auto', variant = 'primary', ...props }) => {
   return (
-    <StyledButton size={size} variant={variant} {...props}>
+    <S.Wrapper size={size} variant={variant} {...props}>
       {children}
-    </StyledButton>
+    </S.Wrapper>
   )
 }
 

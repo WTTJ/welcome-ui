@@ -39,7 +39,7 @@ export const Label = ({
     >
       {variant && <Variant variant={variant}>{getVariantIcon(variant)}</Variant>}
       {disabled && (
-        <Disabled>{disabledIcon || <Icon icon="special_pipeline" size="sm" />}</Disabled>
+        <Disabled>{disabledIcon || <Icon name="special_pipeline" size="sm" />}</Disabled>
       )}
       {children}
       {required && <Required>*</Required>}

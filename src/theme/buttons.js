@@ -15,7 +15,7 @@ export const getButtons = theme => {
     primary: defaults,
     secondary: {
       ...defaults,
-      color: colors.primary[500],
+      color: colors.secondary[500],
       'background-color': colors.light[200],
       'border-color': colors.light[700]
     },
@@ -27,7 +27,7 @@ export const getButtons = theme => {
     },
     disabled: {
       ...defaults,
-      color: colors.dark[700],
+      color: colors.nude[700],
       'background-color': colors.light[700],
       'border-color': colors.light[700]
     },

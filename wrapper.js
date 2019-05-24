@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import { node } from 'prop-types'
+import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import { welcomekitTheme } from './src/theme/welcomekit'
@@ -10,11 +11,15 @@ const theme = createTheme(welcomekitTheme)
 export const Wrapper = ({ children }) => {
   const BaseStyles = getBaseStyles(theme)
   return (
-    <Fragment>
+    <>
       <BaseStyles />
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </Fragment>
+    </>
   )
+}
+
+Wrapper.propTypes = {
+  children: node
 }
 
 export default Wrapper

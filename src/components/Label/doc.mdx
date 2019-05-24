@@ -11,11 +11,9 @@ import { Label } from './index'
 
 # Label
 
-## Properties
-
-<PropsTable of={Label} />
-
 ## Default
+
+label DOM, use on Field.
 
 <Playground>
   <Label>Default label</Label>
@@ -23,11 +21,15 @@ import { Label } from './index'
 
 ## Required
 
+With `required` property.
+
 <Playground>
   <Label required>Required label</Label>
 </Playground>
 
 ## Variants
+
+`error` or `warning` variant add specific badge.
 
 <Playground>
   <Label variant="warning">Warning variant</Label>
@@ -35,6 +37,8 @@ import { Label } from './index'
 </Playground>
 
 ## Disabled
+
+Customize label for disabled elements.
 
 <Playground>
   <Label disabled>Disabled label</Label>
@@ -45,3 +49,7 @@ import { Label } from './index'
     Disabled custom icon warning label
   </Label>
 </Playground>
+
+## Properties
+
+<PropsTable of={Label} />
