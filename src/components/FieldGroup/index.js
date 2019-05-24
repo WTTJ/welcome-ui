@@ -1,39 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import includes from 'lodash.includes'
 
 import { Label } from '../Label'
 
 import { StyledFieldGroup } from './styles'
 
-export const FieldGroup = ({ checkedName = [], children, label }) => {
-  const [checked, setChecked] = useState(checkedName)
-
-  const onChange = e => {
-    const target = e.target.id
-    let updatedArray = includes(checked, target)
-      ? checked.filter(item => item !== target)
-      : [...checked, target]
-    setChecked(updatedArray)
-  }
-
-  const childrenWithProps = React.Children.map(children, child =>
-    React.cloneElement(child, {
-      checked: includes(checked, child.props.name)
-    })
-  )
-
-  return (
-    <StyledFieldGroup onChange={onChange}>
-      <Label as="legend">{label}</Label>
-      {childrenWithProps}
-    </StyledFieldGroup>
-  )
-}
+export const FieldGroup = ({ children, label }) => (
+  <StyledFieldGroup>
+    <Label as="legend">{label}</Label>
+    {children}
+  </StyledFieldGroup>
+)
 
 FieldGroup.propTypes = {
-  checkedName: PropTypes.arrayOf(PropTypes.string),
   children: PropTypes.node,
-  /** Label of FieldGroup */
   label: PropTypes.string
 }
