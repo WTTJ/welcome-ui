@@ -120,7 +120,7 @@ Field.propTypes = {
   disabledIcon: node,
   error: string,
   fieldProps: object,
-  /** Required Field component */
+  /** Field component */
   fieldType: oneOf([
     'mde',
     'text',
@@ -134,7 +134,7 @@ Field.propTypes = {
     'radio',
     'radioTab',
     'checkbox'
-  ]),
+  ]).isRequired,
   groupName: string,
   hint: string,
   label: string,

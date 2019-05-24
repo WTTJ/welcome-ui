@@ -12,9 +12,9 @@ export const InputCheckbox = memo(
     onBlur,
     onChange,
     onFocus,
-    order = -1,
     Component = StyledInputCheckbox,
-    type = 'checkbox'
+    type = 'checkbox',
+    ...props
   }) => {
     const [checked, setChecked] = useState(initialChecked)
 
@@ -28,8 +28,8 @@ export const InputCheckbox = memo(
         checked={checked}
         disabled={disabled}
         onClick={disabled ? undefined : handleChange}
-        order={order}
         type={type}
+        {...props}
       >
         <input
           defaultChecked={checked}
@@ -55,6 +55,5 @@ InputCheckbox.propTypes = {
   onBlur: func,
   onChange: func,
   onFocus: func,
-  order: number,
   type: string
 }
