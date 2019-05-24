@@ -1,6 +1,6 @@
-import { Playground } from 'docz'
 import React from 'react'
 import styled from 'styled-components'
+import { Playground } from 'docz'
 
 import { Box } from './src/components/Box'
 import { Icon } from './src/components/Icon'
@@ -43,5 +43,3 @@ export const IconsList = icons => (
     ))}
   </Box>
 )
-
-export default StyledPlayground

@@ -22,7 +22,7 @@ const checkableFieldStyles = css`
 
 export const StyledField = styled.div(
   props => css`
-    margin-bottom: ${props.checkableField ? get('spaces.xxs') : get('spaces.xl')};
+    margin-bottom: ${props.checkableField ? get('space.xxs') : get('space.xl')};
     ${StyledLabel} {
       ${props.flexDirection === 'row' && rowStyles};
       ${props.flexDirection === 'column' && columnStyles};

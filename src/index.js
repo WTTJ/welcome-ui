@@ -2,6 +2,7 @@
 export * from './components/Badge/index'
 export * from './components/Button/index'
 export * from './components/Field/index'
+export * from './components/Field/index'
 export * from './components/FieldGroup/index'
 export * from './components/FileUpload/index'
 export * from './components/Hint/index'
