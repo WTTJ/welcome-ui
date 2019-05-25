@@ -1,9 +1,10 @@
 import React from 'react'
 import { bool, elementType, func, number, string } from 'prop-types'
 
-import { StyledInputCheckbox } from './styles'
+import { StyledCheckbox } from './styles'
 
 export const InputCheckbox = ({
+  Component = StyledInputCheckbox,
   checked,
   disabled,
   name,
@@ -11,7 +12,6 @@ export const InputCheckbox = ({
   onChange,
   onFocus,
   order,
-  Component = StyledInputCheckbox,
   type = 'checkbox',
   value
 }) => (
@@ -40,5 +40,5 @@ InputCheckbox.propTypes = {
   onFocus: func,
   order: number,
   type: string,
-  value: string
+  value: bool
 }

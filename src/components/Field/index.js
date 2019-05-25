@@ -20,7 +20,7 @@ import { Hint } from '../Hint'
 // Fields
 import { StyledField } from './styles'
 
-const getFieldType = fieldType => {
+const getFieldType = type => {
   const fieldTypes = {
     checkbox: InputCheckbox,
     email: InputText,
@@ -34,7 +34,7 @@ const getFieldType = fieldType => {
     toggle: Toggle
   }
 
-  return fieldTypes[fieldType] || fieldTypes.text
+  return fieldTypes[type] || fieldTypes.text
 }
 
 export const Field = ({
@@ -43,9 +43,9 @@ export const Field = ({
   checked,
   children,
   disabledIcon,
+  fieldType = type,
   flexDirection,
   groupName,
-  fieldType = 'text',
   hint,
   label,
   onChange,
@@ -54,20 +54,20 @@ export const Field = ({
   name,
   placeholder,
   required = false,
-  type,
+  type = 'text',
   value,
   warning
 }) => {
-  const getIsCheckbox = () => includes(['toggle', 'checkbox'], fieldType)
-  const getIsRadio = () => includes(['radio', 'radioTab'], fieldType)
-  const getIsCheckable = () => includes(['toggle', 'checkbox', 'radio'], fieldType)
+  const getIsCheckbox = () => includes(['toggle', 'checkbox'], type)
+  const getIsRadio = () => includes(['radio', 'radioTab'], type)
+  const getIsCheckable = () => includes(['toggle', 'checkbox', 'radio', 'radioTab'], type)
 
   const handleChange = e => {
     const {
       target: { name, value, checked }
     } = e
     e.preventDefault()
-    const newValue = getIsCheckbox() ? String(checked) : value
+    const newValue = getIsCheckbox() ? checked : value
     onChange && onChange(newValue, name)
   }
 
@@ -79,7 +79,8 @@ export const Field = ({
     onFocus && onFocus()
   }
 
-  const Component = getFieldType(fieldType)
+  // const type = fieldType || type
+  const Component = getFieldType(fieldType || type)
   const variant = getVariant(warning, error)
   const isRadio = getIsRadio()
   const isCheckbox = getIsCheckbox()
@@ -87,15 +88,18 @@ export const Field = ({
 
   const hintText = error || warning || hint
   const isShowRequired = isRadio ? null : required
-  const isChecked = isCheckbox ? value === 'true' : checked
   const layout = flexDirection || isCheckable ? 'row' : 'column'
   const Container = layout === 'row' ? RowContainer : Fragment
   const htmlFor = isRadio ? value : name // Use value for radio buttons
 
+  console.debug('Field.render', { type, fieldType, flexDirection, layout, name, value, htmlFor })
+
   const field = (
     <Component
-      checked={isChecked}
+      checked={checked}
       disabled={disabled}
+      fieldType={fieldType || type}
+      flexDirection={layout}
       groupName={groupName}
       name={name}
       onBlur={handleBlur}
@@ -103,7 +107,7 @@ export const Field = ({
       onFocus={handleFocus}
       placeholder={placeholder}
       required={required}
-      type={fieldType}
+      type={type}
       value={value}
       variant={variant}
     >
@@ -114,8 +118,8 @@ export const Field = ({
   return (
     <StyledField
       checkableField={isCheckable}
-      checked={isChecked}
-      fieldType={fieldType}
+      checked={checked}
+      fieldType={fieldType || type}
       flexDirection={layout}
     >
       <Container>
@@ -124,7 +128,6 @@ export const Field = ({
             disabled={disabled}
             disabledIcon={disabledIcon}
             htmlFor={htmlFor}
-            onClick={handleChange}
             required={isShowRequired}
             variant={variant}
           >
@@ -146,7 +149,6 @@ Field.propTypes = {
   /** Custom icon for disabled state */
   disabledIcon: node,
   error: string,
-  fieldProps: object,
   /** Field component */
   fieldType: oneOf([
     'mde',
