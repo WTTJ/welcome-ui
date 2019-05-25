@@ -40,6 +40,7 @@ const columnStyles = css`
 
 const rowStyles = css`
   margin-left: -${get('borderWidths.sm')};
+  margin-bottom: 0;
 
   &:first-child {
     margin-left: 0;
