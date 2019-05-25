@@ -1,9 +1,23 @@
 import React from 'react'
 import { bool, func, object, shape, string } from 'prop-types'
+import { Field as FinalField } from 'react-final-form'
 
-import { Field as SimpleField } from '../components/Field'
+import { Field as WelcomeField } from '../components/Field'
 
-export const Field = ({ input, meta, ...rest }) => <SimpleField {...input} {...meta} {...rest} />
+const Component = ({ input, meta, ...rest }) => {
+  return <WelcomeField {...input} {...meta} {...rest} />
+}
+
+export const Field = props => {
+  let type = props.type
+  if (type === 'radioTab') {
+    type = 'radio'
+  }
+  if (type === 'toggle') {
+    type = 'checkbox'
+  }
+  return <FinalField component={Component} {...props} type={type} fieldType={props.type} />
+}
 
 Field.propTypes = {
   input: shape({

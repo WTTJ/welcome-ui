@@ -71,6 +71,8 @@ export const Field = ({
   const Container = layout === 'row' ? RowContainer : Fragment
   const htmlFor = isRadio ? value : name // Use value for radio buttons
 
+  console.debug('Field.render', { type, fieldType, flexDirection, layout, name, value, htmlFor })
+
   const field = (
     <Component
       checked={checked}
@@ -96,7 +98,7 @@ export const Field = ({
     <StyledField
       checkableField={isCheckable}
       checked={checked}
-      fieldType={fieldType}
+      fieldType={fieldType || type}
       flexDirection={layout}
     >
       <Container>
