@@ -65,8 +65,9 @@ export const Button = styled.button(
       transform: translateY(2px);
     }
 
-    &:hover {
-      box-shadow: ${get('boxShadows.sm')};
+    &:hover,
+    &:focus {
+      ${!props.disabled && getCss(`buttons.focused.${props.variant || 'primary'}`)};
     }
 
     &[disabled] {
