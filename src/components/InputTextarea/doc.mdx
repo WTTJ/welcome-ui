@@ -1,0 +1,28 @@
+---
+name: Textarea
+route: /fields/textarea
+menu: Fields
+---
+
+import { PropsTable } from 'docz'
+import { StyledPlayground as Playground } from '../../../docz.styled'
+
+import { InputTextarea } from './index'
+
+# Textarea
+
+## Properties
+
+<PropsTable of={InputTextarea} />
+
+## Default
+
+<Playground>
+  <InputTextarea label="Avatar" hint="Files must be <200MB" required />
+</Playground>
+
+## Disabled
+
+<Playground>
+  <InputTextarea disabled />
+</Playground>

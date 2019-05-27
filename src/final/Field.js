@@ -2,7 +2,7 @@ import React from 'react'
 import { bool, func, object, shape, string } from 'prop-types'
 import { Field as FinalField } from 'react-final-form'
 
-import { Component } from './Component'
+import { WrappedField } from './WrappedField'
 
 const getBaseType = type => {
   if (type === 'radioTab') {
@@ -17,7 +17,7 @@ const getBaseType = type => {
 export const Field = props => {
   let { type } = props
   let baseType = getBaseType(type)
-  return <FinalField {...props} component={Component} fieldType={type} type={baseType} />
+  return <FinalField {...props} component={WrappedField} fieldType={type} type={baseType} />
 }
 
 Field.propTypes = {
