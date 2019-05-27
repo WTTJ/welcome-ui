@@ -8,7 +8,8 @@ import { Button } from '../Button'
 import { validateFileSize, validateMimeType } from '../../utils/validations'
 
 // FileUpload
-import { Actions, FilePreview, StyledFileUpload } from './styles.js'
+import { Actions, FilePreview, FilePreviewImage, StyledFileUpload } from './styles.js'
+import { DefaultContent } from './default.js'
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
@@ -17,13 +18,21 @@ const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
 const getPreviewUrl = url =>
   typeof url !== 'string' || url.startsWith('blob:') ? url : new URL(url)
 
+const createEvent = file => ({
+  preventDefault: () => {},
+  target: {
+    name,
+    value: file
+  }
+})
+
 export const FileUpload = ({
   input,
   accept = 'image/*',
   disabled = false,
   multiple = false,
   maxSize = DEFAULT_MAX_FILE_SIZE,
-  children,
+  children = DefaultContent,
   onAddFile,
   onChange,
   onError,
@@ -39,9 +48,9 @@ export const FileUpload = ({
   const handleDropAccepted = files => {
     const [file] = files
     file.preview = URL.createObjectURL(file)
-
     setFile(file)
-    onChange && onChange(file)
+
+    onChange && onChange(createEvent(file))
     onAddFile && onAddFile(file)
   }
 
@@ -58,8 +67,9 @@ export const FileUpload = ({
   const handleRemoveFile = e => {
     e.preventDefault()
     setFile(null)
+
+    onChange && onChange(createEvent())
     onRemoveFile && onRemoveFile()
-    onChange && onChange(null)
   }
 
   const {
@@ -112,7 +122,7 @@ export const FileUpload = ({
 
 FileUpload.propTypes = {
   accept: string,
-  children: func.isRequired,
+  children: func,
   disabled: bool,
   input: node,
   maxSize: number,

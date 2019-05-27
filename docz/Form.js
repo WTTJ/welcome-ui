@@ -6,7 +6,6 @@ import { DoczCodeBlock } from './CodeBlock'
 export const DoczForm = ({ children, initialValues }) => {
   const [values, setValues] = useState(initialValues)
   const handleChange = (value, name) => {
-    console.debug('Form.handleChange', name, value)
     setValues({
       ...values,
       [name]: value

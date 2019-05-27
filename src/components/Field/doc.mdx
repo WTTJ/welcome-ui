@@ -61,7 +61,7 @@ Alternatively, you can create your own form component to manage the state of you
 ## Disabled
 
 <Playground>
-  <Field name="random-three" placeholder="Placeholder" type="text" label="Label" disabled />
+  <Field name="random-three" placeholder="Placeholder" type="text" label="Label" disabled onChange={()=>{}} />
 </Playground>
 
 ## Inline
@@ -74,19 +74,33 @@ Alternatively, you can create your own form component to manage the state of you
     type="text"
     label="Label"
     required
+    onChange={()=>{}}
   />
 </Playground>
 
 ## Required
 
 <Playground>
-  <Field name="random-five" placeholder="Placeholder" type="text" label="Label" required />
+  <Field
+    name="random-five"
+    placeholder="Placeholder"
+    type="text"
+    label="Label"
+    required
+    onChange={()=>{}}
+  />
 </Playground>
 
 ## Textarea
 
 <Playground>
-  <Field name="random-zero" placeholder="Placeholder" type="textarea" label="Label" />
+  <Field
+    name="random-zero"
+    placeholder="Placeholder"
+    type="textarea"
+    label="Label"
+    onChange={()=>{}}
+  />
 </Playground>
 
 ## RadioTabs
@@ -192,31 +206,28 @@ Alternatively, you can create your own form component to manage the state of you
 ## Checkbox
 
 <Playground>
-  <DoczForm initialValues={{ vue: 'true' }}>
+  <DoczForm initialValues={{ vue: true }}>
     {(values, handleChange) => (
-      <FieldGroup label="Check the frameworks you already worked with">
+      <FieldGroup label="Check the frameworks you have already worked with">
         <Field
+          type="checkbox"
           name="react"
-          type="checkbox"
           label="React"
-          checked={values.react === 'true'}
-          value={values.react === 'true'}
+          checked={values.react === true}
           onChange={handleChange}
         />
         <Field
+          type="checkbox"
           name="angular"
-          type="checkbox"
           label="Angular"
-          checked={values.angular === 'true'}
-          value={values.angular === 'true'}
+          checked={values.angular === true}
           onChange={handleChange}
         />
         <Field
-          name="vue"
           type="checkbox"
+          name="vue"
           label="Vue"
-          checked={values.vue === 'true'}
-          value={values.vue === 'true'}
+          checked={values.vue === true}
           onChange={handleChange}
         />
       </FieldGroup>
@@ -227,14 +238,33 @@ Alternatively, you can create your own form component to manage the state of you
 ## Toggle
 
 <Playground>
-  <Field name="switch" type="toggle" label="Switch example" />
-  <Field name="switch-disabled" type="toggle" label="Disabled switch example" disabled />
+  <DoczForm initialValues={{ swatch: true }}>
+    {(values, handleChange) => (
+      <>
+        <Field
+          name="switch"
+          type="toggle"
+          label="Switch example"
+          checked={values.switch === true}
+          onChange={handleChange}
+        />
+        <Field
+          name="swatch"
+          type="toggle"
+          label="Disabled switch example"
+          disabled
+          checked={values.swatch === true}
+          onChange={handleChange}
+        />
+      </>
+    )}
+  </DoczForm>
 </Playground>
 
 ## File Upload
 
 <Playground>
-  <Field name="random-fifteen" type="fileupload" label="Filedrop example">
+  <Field name="random-fifteen" type="fileupload" label="Filedrop example" onChange={()=>{}}>
     {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
       if (isHoverAccept) {
         return <h3>Drop file!</h3>
@@ -255,7 +285,7 @@ Alternatively, you can create your own form component to manage the state of you
     name="random-fourteen"
     type="mde"
     value="Something happening"
-    onChange={console.debug}
+    onChange={()=>{}}
     placeholder="Placeholder"
     label="Markdown editor example"
   />

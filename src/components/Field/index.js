@@ -20,6 +20,10 @@ import { Hint } from '../Hint'
 // Fields
 import { StyledField } from './styles'
 
+const getIsCheckbox = type => includes(['toggle', 'checkbox'], type)
+const getIsRadio = type => includes(['radio', 'radioTab'], type)
+const getIsCheckable = type => includes(['toggle', 'checkbox', 'radio', 'radioTab'], type)
+
 const getFieldType = type => {
   const fieldTypes = {
     checkbox: InputCheckbox,
@@ -45,7 +49,6 @@ export const Field = ({
   disabledIcon,
   fieldType = type,
   flexDirection,
-  groupName,
   hint,
   label,
   onChange,
@@ -54,20 +57,16 @@ export const Field = ({
   name,
   placeholder,
   required = false,
-  type = 'text',
+  type,
   value,
   warning
 }) => {
-  const getIsCheckbox = () => includes(['toggle', 'checkbox'], type)
-  const getIsRadio = () => includes(['radio', 'radioTab'], type)
-  const getIsCheckable = () => includes(['toggle', 'checkbox', 'radio', 'radioTab'], type)
-
   const handleChange = e => {
     const {
       target: { name, value, checked }
     } = e
     e.preventDefault()
-    const newValue = getIsCheckbox() ? checked : value
+    const newValue = getIsCheckbox(type) ? checked : value
     onChange && onChange(newValue, name)
   }
 
@@ -82,9 +81,9 @@ export const Field = ({
   // const type = fieldType || type
   const Component = getFieldType(fieldType || type)
   const variant = getVariant(warning, error)
-  const isRadio = getIsRadio()
-  const isCheckbox = getIsCheckbox()
-  const isCheckable = getIsCheckable()
+  const isRadio = getIsRadio(type)
+  const isCheckbox = getIsCheckbox(type)
+  const isCheckable = getIsCheckable(type)
 
   const hintText = error || warning || hint
   const isShowRequired = isRadio ? null : required
@@ -92,15 +91,12 @@ export const Field = ({
   const Container = layout === 'row' ? RowContainer : Fragment
   const htmlFor = isRadio ? value : name // Use value for radio buttons
 
-  console.debug('Field.render', { type, fieldType, flexDirection, layout, name, value, htmlFor })
-
   const field = (
     <Component
       checked={checked}
       disabled={disabled}
       fieldType={fieldType || type}
       flexDirection={layout}
-      groupName={groupName}
       name={name}
       onBlur={handleBlur}
       onChange={handleChange}
@@ -149,32 +145,29 @@ Field.propTypes = {
   /** Custom icon for disabled state */
   disabledIcon: node,
   error: string,
-  /** Field component */
-  fieldType: oneOf([
-    'mde',
-    'text',
-    'number',
-    'email',
-    'fileupload',
-    'textarea',
-    'radio',
-    'radioTab',
-    'toggle',
-    'radio',
-    'radioTab',
-    'checkbox'
-  ]).isRequired,
-  flexDirection: string,
-  groupName: string,
+  /** Required Field component */
+  fieldType: string,
+  flexDirection: oneOf(['row', 'container']),
   hint: string,
   label: string,
   name: string.isRequired,
   onBlur: func,
-  onChange: func,
+  onChange: func.isRequired,
   onFocus: func,
   placeholder: string,
   required: bool,
-  type: string,
+  type: oneOf([
+    'checkbox',
+    'email',
+    'fileupload',
+    'mde',
+    'number',
+    'radio',
+    'radioTab',
+    'text',
+    'textarea',
+    'toggle'
+  ]).isRequired,
   value: oneOfType([string, bool]),
   warning: string
 }
