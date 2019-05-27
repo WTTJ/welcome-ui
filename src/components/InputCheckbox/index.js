@@ -4,7 +4,7 @@ import { bool, elementType, func, number, string } from 'prop-types'
 import { StyledCheckbox } from './styles'
 
 export const InputCheckbox = ({
-  Component = StyledInputCheckbox,
+  Component = StyledCheckbox,
   checked,
   disabled,
   name,
