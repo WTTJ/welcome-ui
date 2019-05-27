@@ -47,7 +47,7 @@ export const Item = styled.li(
 )
 
 export const ActiveBar = styled.span(
-  props => css`
+  () => css`
     ${getCss('tabs.activeBar')};
     position: absolute;
     ${width}
