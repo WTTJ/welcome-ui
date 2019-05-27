@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 import { system } from '../../utils/utils'
 import { get, getCss } from '../../theme/helpers'
 import { fieldTypeStyles } from '../../common/styles/form'
-import { StyledCheckbox } from '../InputCheckbox/styles'
 
 const checkedStyles = css`
   ${getCss('fields.checkboxes.checked')};
