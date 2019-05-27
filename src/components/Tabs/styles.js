@@ -37,7 +37,11 @@ export const Item = styled.li(
     }
 
     & > *:first-child {
-      line-height: 1;
+      line-height: 1em;
+    }
+
+    & > *:nth-child(2) {
+      margin-left: ${get('space.xs')};
     }
   `
 )

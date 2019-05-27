@@ -8,8 +8,9 @@ import { PropsTable } from 'docz'
 import { StyledPlayground as Playground } from '../../../docz.styled'
 import { useState } from 'react'
 
-import { Tabs, TabsItem } from './index'
+import { Badge } from '../Badge'
 import { Button } from '../Button'
+import { Tabs, TabsItem } from './index'
 
 # Tabs
 
@@ -25,7 +26,7 @@ Tabs make it easy to explore and switch between different views.
 
     return (
       <>
-        <Tabs handleActiveTab={name => setBloc(name)}>
+        <Tabs onChangeTab={setBloc}>
           <TabsItem name="tab1">
             <div>Tab1</div>
           </TabsItem>
@@ -59,7 +60,7 @@ You can add a default active tab for the first render with `defaultActiveTab` pr
 <Playground>
   <Tabs
     defaultActiveTab="tab3"
-    handleActiveTab={name => console.log(`you have selected tabs "${name}"`)}
+    onChangeTab={name => console.log(`you have selected tabs "${name}"`)}
   >
     <TabsItem name="tab1">
       <div>Tab1</div>
@@ -75,21 +76,23 @@ You can add a default active tab for the first render with `defaultActiveTab` pr
 
 ## With a badge
 
-You can add a badge on set `badgeContent` on TabsItem component.
+Add a Badge (or other component) on TabsItem component.
 
 <Playground>
   <Tabs
     defaultActiveTab="tab3"
-    handleActiveTab={name => console.log(`you have selected tabs "${name}"`)}
+    onChangeTab={name => console.log(`you have selected tabs "${name}"`)}
   >
     <TabsItem name="tab1">
       <div>Tab1</div>
     </TabsItem>
-    <TabsItem name="tab2" badgeContent="4">
+    <TabsItem name="tab2">
       <div>Tab2</div>
+      <Badge>4</Badge>
     </TabsItem>
-    <TabsItem name="tab3" badgeContent="new">
+    <TabsItem name="tab3">
       <div>Tab3</div>
+      <Badge>new</Badge>
     </TabsItem>
   </Tabs>
 </Playground>
@@ -106,7 +109,7 @@ An example with bloc change.
 
     return (
       <>
-      <Tabs handleActiveTab={name => setBloc(name)} defaultActiveTab={bloc}>
+      <Tabs onChangeTab={setBloc} defaultActiveTab={bloc}>
         <TabsItem name="tab1">
           <div>Tab1</div>
         </TabsItem>
@@ -154,7 +157,7 @@ An example with a scroll into same view.
 
     return (
       <>
-      <Tabs handleActiveTab={name => scrollToBloc(name)}>
+      <Tabs onChangeTab={name => scrollToBloc(name)}>
         <TabsItem name="tab1">
           <div>Tab1</div>
         </TabsItem>
