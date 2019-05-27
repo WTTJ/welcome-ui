@@ -80,7 +80,13 @@ import { Field } from './index'
     <Field fieldType="radioTab" name="choice_2" label="Choice 2 very very very long incredible" />
     <Field fieldType="radioTab" name="choice_3" label="Choice 3" />
   </RadioGroup>
-  <RadioGroup label="Label for input radios" checkedName="choice_4" groupName="choices" width={1/3} required>
+  <RadioGroup
+    label="Label for input radios"
+    checkedName="choice_4"
+    groupName="choices"
+    width={1 / 3}
+    required
+  >
     <Field fieldType="radioTab" name="choice_4" label="Choice 4" />
     <Field fieldType="radioTab" name="choice_5" label="Choice 5 very very very long incredible" />
     <Field fieldType="radioTab" name="choice_6" label="Choice 6" />
@@ -116,7 +122,13 @@ import { Field } from './index'
 
 <Playground>
   <Field name="random-thirteen" fieldType="toggle" label="Switch example" />
-  <Field name="random-fourteen" fieldType="toggle" label="Disabled switch example" disabled />
+  <Field
+    name="random-fourteen"
+    fieldType="toggle"
+    label="Disabled switch example"
+    disabled
+    checked
+  />
 </Playground>
 
 ### FileUpload
