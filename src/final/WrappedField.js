@@ -3,9 +3,9 @@ import { bool, func, object, shape, string } from 'prop-types'
 
 import { Field } from '../components/Field'
 
-export const Component = ({ input, meta, ...rest }) => <Field {...input} {...meta} {...rest} />
+export const WrappedField = ({ input, meta, ...rest }) => <Field {...input} {...meta} {...rest} />
 
-Component.propTypes = {
+WrappedField.propTypes = {
   input: shape({
     name: string.isRequired,
     onBlur: func,
