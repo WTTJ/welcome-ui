@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { bool, node, oneOf, string } from 'prop-types'
+import { bool, node, string } from 'prop-types'
 
 import { StyledFieldGroup } from '../FieldGroup/styles'
 import { Label } from '../Label'

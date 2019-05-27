@@ -1,5 +1,5 @@
 export const getFields = theme => {
-  const { boxShadows, colors, fontSizes, fontWeights, radii, toRem, transitions } = theme
+  const { boxShadows, colors, fontSizes, fontWeights, radii, toRem } = theme
   const defaults = {
     color: colors.nude[800],
     'font-size': fontSizes.body3,

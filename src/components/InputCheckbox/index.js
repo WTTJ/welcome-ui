@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react'
-import { bool, elementType, func, number, oneOf, oneOfType, string } from 'prop-types'
+import { bool, elementType, func, string } from 'prop-types'
 
 import { StyledInputCheckbox } from './styles'
 
@@ -18,7 +18,7 @@ export const InputCheckbox = memo(
   }) => {
     const [checked, setChecked] = useState(initialChecked)
 
-    const handleChange = e => {
+    const handleChange = () => {
       onChange && onChange()
       setChecked(!checked)
     }

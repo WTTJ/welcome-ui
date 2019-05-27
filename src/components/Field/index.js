@@ -49,7 +49,6 @@ export const Field = ({
   onChange,
   onFocus,
   fieldType = 'text',
-  fieldProps = {},
   hint,
   label,
   placeholder,
@@ -68,6 +67,7 @@ export const Field = ({
 
   const FieldType = getFieldType(fieldType)
   const variant = getVariant(warning, error)
+
   const hintText = error || warning || hint
   const layout = flexDirection || isCheckable() ? 'row' : 'column'
   const Container = layout === 'row' ? RowContainer : Fragment

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { arrayOf, bool, func, node, object, oneOfType, string } from 'prop-types'
+import { arrayOf, bool, func, node, oneOfType, string } from 'prop-types'
 import { throttle } from 'lodash'
 import 'easymde/dist/easymde.min.css'
 

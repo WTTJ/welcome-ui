@@ -1,5 +1,10 @@
 {
-  "extends": ["plugin:prettier/recommended", "plugin:react/all"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": ["eslint:recommended", "plugin:prettier/recommended", "plugin:react/all"],
   "parser": "babel-eslint",
   "plugins": ["import", "react-hooks"],
   "rules": {
@@ -24,7 +29,8 @@
     "react/forbid-prop-types": "off",
     "react/jsx-no-bind": ["warn", { "allowArrowFunctions": true }],
     "react/jsx-no-literals": "off",
-    "react/forbid-component-props": "off"
+    "react/forbid-component-props": "off",
+    "no-unused-vars": ["error", { "ignoreRestSiblings": true }]
   },
   "settings": {
     "react": {

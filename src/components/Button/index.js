@@ -1,5 +1,5 @@
 import React from 'react'
-import { node, object, oneOf, string } from 'prop-types'
+import { node, oneOf } from 'prop-types'
 
 import * as S from './styles'
 

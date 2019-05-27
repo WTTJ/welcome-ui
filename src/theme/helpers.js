@@ -6,6 +6,7 @@ import { hexToRGB } from '../utils/hexToRGB'
 const getThemeValue = (theme, path) => {
   const value = _get(theme, path)
   if (process.env.NODE_ENV !== 'development' && value === undefined) {
+    // eslint-disable-next-line no-console
     console.warn(`${path} is not available in this theme`)
   }
   return value
@@ -39,6 +40,7 @@ export const getCss = (path, fallback) => ({ theme }) => {
   }
 
   if (process.env.NODE_ENV !== 'development') {
+    // eslint-disable-next-line no-console
     console.warn(`${path} is not returning CSS but a value`)
   }
   return value

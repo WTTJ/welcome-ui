@@ -1,7 +1,4 @@
-import { blueBright } from 'ansi-colors'
-
 import { get } from '../theme/helpers'
-import { colors } from '../theme/colors'
 
 export const getVariant = (warning, error) => {
   if (error) return 'error'
