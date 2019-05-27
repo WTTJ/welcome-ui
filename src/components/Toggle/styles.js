@@ -46,13 +46,7 @@ export const StyledToggle = styled.div(({ checked, disabled, order = '-1', ...pr
     }
 
     &:active::after {
-      width: ${!disabled && '55%'};
-    }
-
-    input {
-      width: 0;
-      height: 0;
-      visibility: hidden;
+      width: ${disabled ? null : '55%'};
     }
 
     ${checked && !disabled && checkedStyles}

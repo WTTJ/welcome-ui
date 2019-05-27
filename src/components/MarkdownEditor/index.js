@@ -25,12 +25,12 @@ export const MarkdownEditor = props => {
   const [focused, setFocused] = useState(autoFocus || false)
 
   const handleFocus = () => {
-    onFocus && onFocus(value)
+    onFocus && onFocus()
     setFocused(true)
   }
 
   const handleBlur = () => {
-    onBlur && onBlur(value)
+    onBlur && onBlur()
     setFocused(false)
   }
 

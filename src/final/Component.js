@@ -1,26 +1,11 @@
 import React from 'react'
 import { bool, func, object, shape, string } from 'prop-types'
-import { Field as FinalField } from 'react-final-form'
 
-import { Component } from './Component'
+import { Field } from '../components/Field'
 
-const getBaseType = type => {
-  if (type === 'radioTab') {
-    return 'radio'
-  }
-  if (type === 'toggle') {
-    return 'checkbox'
-  }
-  return type
-}
+export const Component = ({ input, meta, ...rest }) => <Field {...input} {...meta} {...rest} />
 
-export const Field = props => {
-  let { type } = props
-  let baseType = getBaseType(type)
-  return <FinalField {...props} component={Component} fieldType={type} type={baseType} />
-}
-
-Field.propTypes = {
+Component.propTypes = {
   input: shape({
     name: string.isRequired,
     onBlur: func,
@@ -45,6 +30,5 @@ Field.propTypes = {
     touched: bool,
     valid: bool,
     visited: bool
-  }),
-  type: string
+  })
 }
