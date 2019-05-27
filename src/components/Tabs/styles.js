@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import { left, width } from 'styled-system'
 
 import { get, getCss } from '../../theme/helpers'
+import { getTransitions } from '../../utils/transitions'
 
 export const Tabs = styled.nav`
   width: 100%;
@@ -53,6 +54,6 @@ export const ActiveBar = styled.span(
     ${width}
     ${left}
     bottom: 0;
-    transition: ${get('transitions.sm')};
+    transition: ${getTransitions(['width', 'left'], 'lg')};
   `
 )

@@ -79,10 +79,7 @@ You can add a default active tab for the first render with `defaultActiveTab` pr
 Add a Badge (or other component) on TabsItem component.
 
 <Playground>
-  <Tabs
-    defaultActiveTab="tab3"
-    onChangeTab={name => console.log(`you have selected tabs "${name}"`)}
-  >
+  <Tabs onChangeTab={name => console.log(`you have selected tabs "${name}"`)}>
     <TabsItem name="tab1">
       <div>Tab1</div>
     </TabsItem>
