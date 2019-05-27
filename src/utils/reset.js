@@ -133,6 +133,8 @@ export const reset = css`
     overflow: hidden;
   }
   input {
+    -webkit-appearnce: none;
+    -moz-appearance: none;
     appearance: none;
     &::-webkit-search-cancel-button {
       display: none;
@@ -144,6 +146,7 @@ export const reset = css`
   *,
   *::after,
   *::before {
+    font-family: inherit;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
