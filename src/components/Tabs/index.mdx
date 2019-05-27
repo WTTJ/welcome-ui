@@ -1,0 +1,197 @@
+---
+name: Tabs
+route: /components/tabs
+menu: Components
+---
+
+import { PropsTable } from 'docz'
+import { StyledPlayground as Playground } from '../../../docz.styled'
+import { useState } from 'react'
+
+import { Badge } from '../Badge'
+import { Button } from '../Button'
+import { Tabs, TabsItem } from './index'
+
+# Tabs
+
+Tabs make it easy to explore and switch between different views.
+
+## Default
+
+`<Tabs>` and `<TabsItem>` are you friends.
+
+<Playground>
+   {() => {
+    const [bloc, setBloc] = useState()
+
+    return (
+      <>
+        <Tabs onChangeTab={setBloc}>
+          <TabsItem name="tab1">
+            <div>Tab1</div>
+          </TabsItem>
+          <TabsItem name="tab2">
+            <div>Tab2</div>
+          </TabsItem>
+          <TabsItem name="tab3">
+            <div>Tab3</div>
+          </TabsItem>
+          <TabsItem name="tabRandom">
+            <div>Long title</div>
+          </TabsItem>
+          <TabsItem name="link">
+            <a href="/#/components/tabs">Link</a>
+          </TabsItem>
+        </Tabs>
+        <div style={{ marginTop: "30px", fontSize: "0.85rem" }}>
+          {bloc ? `you have selected ${bloc}` : 'by default, the first child is active'}
+        </div>
+      </>
+    )
+
+}}
+
+</Playground>
+
+## With default active
+
+You can add a default active tab for the first render with `defaultActiveTab` property.
+
+<Playground>
+  <Tabs
+    defaultActiveTab="tab3"
+    onChangeTab={name => console.log(`you have selected tabs "${name}"`)}
+  >
+    <TabsItem name="tab1">
+      <div>Tab1</div>
+    </TabsItem>
+    <TabsItem name="tab2">
+      <div>Tab2</div>
+    </TabsItem>
+    <TabsItem name="tab3">
+      <div>Tab3</div>
+    </TabsItem>
+  </Tabs>
+</Playground>
+
+## With a badge
+
+Add a Badge (or other component) on TabsItem component.
+
+<Playground>
+  <Tabs
+    defaultActiveTab="tab3"
+    onChangeTab={name => console.log(`you have selected tabs "${name}"`)}
+  >
+    <TabsItem name="tab1">
+      <div>Tab1</div>
+    </TabsItem>
+    <TabsItem name="tab2">
+      <div>Tab2</div>
+      <Badge>4</Badge>
+    </TabsItem>
+    <TabsItem name="tab3">
+      <div>Tab3</div>
+      <Badge>new</Badge>
+    </TabsItem>
+  </Tabs>
+</Playground>
+
+## Examples
+
+### Change content bloc
+
+An example with bloc change.
+
+<Playground>
+  {() => {
+    const [bloc, setBloc] = useState('tab1')
+
+    return (
+      <>
+      <Tabs onChangeTab={setBloc} defaultActiveTab={bloc}>
+        <TabsItem name="tab1">
+          <div>Tab1</div>
+        </TabsItem>
+        <TabsItem name="tab2">
+          <div>Tab2</div>
+        </TabsItem>
+        <TabsItem name="tab3">
+          <div>Tab3</div>
+        </TabsItem>
+      </Tabs>
+      <div style={{ marginTop: "30px", fontSize: "0.85rem" }}>
+      {bloc === 'tab1' &&
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis viverra lectus, vel tristique turpis. Vivamus magna nulla, elementum in feugiat feugiat, egestas eget nibh. Ut ac justo vitae dolor iaculis gravida. In eu nisl lorem. Cras eu mauris et tortor suscipit accumsan. Duis ullamcorper nisl a justo ultricies, eu consequat risus imperdiet. Phasellus at metus cursus, fringilla tortor eu, scelerisque quam. Donec efficitur porta elit ac malesuada.</span>
+      }
+      {bloc === 'tab2' &&
+        <span>Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut nisi sapien, ultricies quis dapibus non, placerat eget dui. Suspendisse id gravida tortor. Vivamus ornare volutpat augue. Suspendisse potenti. Nam rhoncus turpis magna, vel varius justo tempor ac. Maecenas purus mauris.</span>
+      }
+      {bloc === 'tab3' &&
+        <>
+          <span>Donec nec bibendum enim, eu volutpat odio. Nam nec scelerisque neque, sit amet sollicitudin ex. Nam nec turpis a sem condimentum pulvinar in et urna.</span>
+
+          <div style={{marginTop: '10px'}}  onClick={() => setBloc('tab1')}><Button size="sm">Go to first tab</Button></div>
+        </>
+      }
+      </div>
+      </>
+    )
+
+}}
+
+</Playground>
+
+### Scroll to view
+
+An example with a scroll into same view.
+
+<Playground>
+  {() => {
+    const scrollToBloc = (name) => {
+      const elm = document.getElementById(name)
+      const elmBloc = document.getElementById('blocs')
+      const topPos = elm.offsetTop;
+      elmBloc.scrollTop = topPos - elmBloc.offsetTop;
+    }
+
+    return (
+      <>
+      <Tabs onChangeTab={name => scrollToBloc(name)}>
+        <TabsItem name="tab1">
+          <div>Tab1</div>
+        </TabsItem>
+        <TabsItem name="tab2">
+          <div>Tab2</div>
+        </TabsItem>
+        <TabsItem name="tab3">
+          <div>Tab3</div>
+        </TabsItem>
+      </Tabs>
+      <div id="blocs" style={{ marginTop: "10px", fontSize: "0.85rem", height: "100px", overflow: 'auto' }}>
+        <div id="tab1">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis viverra lectus, vel tristique turpis. Vivamus magna nulla, elementum in feugiat feugiat, egestas eget nibh. Ut ac justo vitae dolor iaculis gravida. In eu nisl lorem. Cras eu mauris et tortor suscipit accumsan. Duis ullamcorper nisl a justo ultricies, eu consequat risus imperdiet. Phasellus at metus cursus, fringilla tortor eu, scelerisque quam. Donec efficitur porta elit ac malesuada.
+        </div>
+        <div id="tab2" style={{ marginTop: "10px" }}>
+          Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut nisi sapien, ultricies quis dapibus non, placerat eget dui. Suspendisse id gravida tortor. Vivamus ornare volutpat augue. Suspendisse potenti. Nam rhoncus turpis magna, vel varius justo tempor ac. Maecenas purus mauris.
+        </div>
+        <div id="tab3" style={{ marginTop: "10px" }}>
+          Donec nec bibendum enim, eu volutpat odio. Nam nec scelerisque neque, sit amet sollicitudin ex. Nam nec turpis a sem condimentum pulvinar in et urna.
+        </div>
+      </div>
+      </>
+    )
+
+}}
+
+</Playground>
+
+## Properties
+
+### Tabs
+
+<PropsTable of={Tabs} />
+
+### TabsItem
+
+<PropsTable of={TabsItem.render} />
