@@ -10,17 +10,15 @@ import { Icon } from './index'
 
 # Icon
 
-## Properties
-
-<PropsTable of={Icon} />
-
 ## Size
 
+Use size property with `sm` `md` `lg` or `xl`.
+
 <Playground>
-  <Icon icon="twitter" size="sm" />
-  <Icon icon="twitter" size="md" />
-  <Icon icon="twitter" size="lg" />
-  <Icon icon="twitter" size="xl" />
+  <Icon name="twitter" size="sm" />
+  <Icon name="twitter" size="md" />
+  <Icon name="twitter" size="lg" />
+  <Icon name="twitter" size="xl" />
 </Playground>
 
 ## Colour
@@ -30,13 +28,13 @@ Icons inherit the colour from their parent
 <Playground>
   <div style={{ display: 'flex' }}>
     <div style={{ color: 'blue' }}>
-      <Icon icon="twitter" size="xl" />
+      <Icon name="twitter" size="xl" />
     </div>
     <div style={{ color: 'orange' }}>
-      <Icon icon="twitter" size="xl" />
+      <Icon name="twitter" size="xl" />
     </div>
     <div style={{ color: 'green' }}>
-      <Icon icon="twitter" size="xl" />
+      <Icon name="twitter" size="xl" />
     </div>
   </div>
 </Playground>
@@ -46,116 +44,120 @@ Icons inherit the colour from their parent
 ### App icons
 
 <Playground>
-  <Icon icon="twitter" />
-  <Icon icon="youtube" />
-  <Icon icon="facebook" />
-  <Icon icon="linkedin" />
-  <Icon icon="instagram" />
-  <Icon icon="github" />
-  <Icon icon="stackoverflow" />
-  <Icon icon="dribbble" />
-  <Icon icon="behance" />
-  <Icon icon="xing" />
+  <Icon name="twitter" />
+  <Icon name="youtube" />
+  <Icon name="facebook" />
+  <Icon name="linkedin" />
+  <Icon name="instagram" />
+  <Icon name="github" />
+  <Icon name="stackoverflow" />
+  <Icon name="dribbble" />
+  <Icon name="behance" />
+  <Icon name="xing" />
 </Playground>
 
 ### Directions
 
 <Playground>
-  <Icon icon="up" />
-  <Icon icon="down" />
-  <Icon icon="left" />
-  <Icon icon="right" />
+  <Icon name="up" />
+  <Icon name="down" />
+  <Icon name="left" />
+  <Icon name="right" />
 </Playground>
 
 ### File types
 
 <Playground>
-  <Icon icon="offer_status" />
-  <Icon icon="cover_letter" />
-  <Icon icon="resume" />
-  <Icon icon="questions" />
+  <Icon name="offer_status" />
+  <Icon name="cover_letter" />
+  <Icon name="resume" />
+  <Icon name="questions" />
 </Playground>
 
 ### Moods
 
 <Playground>
-  <Icon icon="negative" />
-  <Icon icon="positive" />
+  <Icon name="negative" />
+  <Icon name="positive" />
 </Playground>
 
 ### UX
 
 <Playground>
-  <Icon icon="pencil" />
-  <Icon icon="create" />
-  <Icon icon="filters" />
-  <Icon icon="details" />
-  <Icon icon="thumbup" />
-  <Icon icon="male" />
-  <Icon icon="female" />
-  <Icon icon="origine" />
-  <Icon icon="phone" />
-  <Icon icon="mic" />
-  <Icon icon="crown" />
-  <Icon icon="sun" />
-  <Icon icon="reset" />
-  <Icon icon="gear" />
-  <Icon icon="search" />
-  <Icon icon="calendar" />
-  <Icon icon="cross" />
-  <Icon icon="heart" />
-  <Icon icon="megaphone" />
-  <Icon icon="calcul" />
-  <Icon icon="marketplace" />
-  <Icon icon="compass" />
-  <Icon icon="shield" />
-  <Icon icon="tree" />
-  <Icon icon="actions" />
-  <Icon icon="coffee" />
-  <Icon icon="update" />
-  <Icon icon="language" />
-  <Icon icon="book" />
-  <Icon icon="computer" />
-  <Icon icon="chevron" />
-  <Icon icon="pizza" />
-  <Icon icon="spanner" />
-  <Icon icon="flag" />
-  <Icon icon="ats" />
-  <Icon icon="microship" />
-  <Icon icon="paperplane" />
-  <Icon icon="location" />
-  <Icon icon="settings" />
-  <Icon icon="department" />
-  <Icon icon="target" />
-  <Icon icon="stackserver" />
-  <Icon icon="money" />
-  <Icon icon="email" />
-  <Icon icon="bulb" />
-  <Icon icon="source" />
-  <Icon icon="piechart" />
-  <Icon icon="candidate_status" />
-  <Icon icon="welcome_home" />
-  <Icon icon="map" />
-  <Icon icon="tag" />
-  <Icon icon="external_link" />
-  <Icon icon="hashtag" />
-  <Icon icon="handshake" />
-  <Icon icon="camera" />
-  <Icon icon="basketball" />
-  <Icon icon="lock" />
-  <Icon icon="special_pipeline" />
-  <Icon icon="hard_hat" />
-  <Icon icon="music" />
-  <Icon icon="archive" />
-  <Icon icon="employer_branding" />
-  <Icon icon="print" />
-  <Icon icon="mountain" />
-  <Icon icon="dish" />
-  <Icon icon="delete" />
+  <Icon name="pencil" />
+  <Icon name="create" />
+  <Icon name="filters" />
+  <Icon name="details" />
+  <Icon name="thumbup" />
+  <Icon name="male" />
+  <Icon name="female" />
+  <Icon name="origine" />
+  <Icon name="phone" />
+  <Icon name="mic" />
+  <Icon name="crown" />
+  <Icon name="sun" />
+  <Icon name="reset" />
+  <Icon name="gear" />
+  <Icon name="search" />
+  <Icon name="calendar" />
+  <Icon name="cross" />
+  <Icon name="heart" />
+  <Icon name="megaphone" />
+  <Icon name="calcul" />
+  <Icon name="marketplace" />
+  <Icon name="compass" />
+  <Icon name="shield" />
+  <Icon name="tree" />
+  <Icon name="actions" />
+  <Icon name="coffee" />
+  <Icon name="update" />
+  <Icon name="language" />
+  <Icon name="book" />
+  <Icon name="computer" />
+  <Icon name="chevron" />
+  <Icon name="pizza" />
+  <Icon name="spanner" />
+  <Icon name="flag" />
+  <Icon name="ats" />
+  <Icon name="microship" />
+  <Icon name="paperplane" />
+  <Icon name="location" />
+  <Icon name="settings" />
+  <Icon name="department" />
+  <Icon name="target" />
+  <Icon name="stackserver" />
+  <Icon name="money" />
+  <Icon name="email" />
+  <Icon name="bulb" />
+  <Icon name="source" />
+  <Icon name="piechart" />
+  <Icon name="candidate_status" />
+  <Icon name="welcome_home" />
+  <Icon name="map" />
+  <Icon name="tag" />
+  <Icon name="external_link" />
+  <Icon name="hashtag" />
+  <Icon name="handshake" />
+  <Icon name="camera" />
+  <Icon name="basketball" />
+  <Icon name="lock" />
+  <Icon name="special_pipeline" />
+  <Icon name="hard_hat" />
+  <Icon name="music" />
+  <Icon name="archive" />
+  <Icon name="employer_branding" />
+  <Icon name="print" />
+  <Icon name="mountain" />
+  <Icon name="dish" />
+  <Icon name="delete" />
 </Playground>
 
 ### Menus
 
 <Playground>
-  <Icon icon="bulk" />
+  <Icon name="bulk" />
 </Playground>
+
+## Properties
+
+<PropsTable of={Icon} />

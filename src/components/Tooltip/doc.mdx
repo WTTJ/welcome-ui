@@ -12,23 +12,30 @@ import { Tooltip } from './'
 
 # Tooltip
 
+## Example
+
+The tooltip follow cursor pointer.
+
+<Playground>
+  <>
+    <Button>Show a beautiful tooltip 🔥</Button>
+    <Tooltip accessibilityId="button_example">🔥🔥🔥🔥🔥🔥🔥</Tooltip>
+  </>
+</Playground>
+
+## With a long text
+
+Set a `max-width` when had a long text
+
+<Playground>
+  <>
+    <Button>With a long text</Button>
+    <Tooltip accessibilityId="div_example">
+      lorem ipsum dolor sit amet, consectetur adipiscing elit
+    </Tooltip>
+  </>
+</Playground>
+
 ## Properties
 
 <PropsTable of={Tooltip} />
-
-## Examples
-
-<Playground>
-  {() => (
-    <>
-      <Button>Hover right here to show a beautiful tooltip :)</Button>
-      <Tooltip accessibilityId="button_example">lorem ipsum dolor sit amet</Tooltip>
-      <div style={{ marginTop: '30px' }}>
-        <div style={{ display: 'inline-block' }}>Example with a long text > max width</div>
-        <Tooltip accessibilityId="div_example">
-          lorem ipsum dolor sit amet, consectetur adipiscing elit
-        </Tooltip>
-      </div>
-    </>
-  )}
-</Playground>

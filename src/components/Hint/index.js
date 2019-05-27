@@ -1,9 +1,9 @@
 import React from 'react'
 import { node, oneOf } from 'prop-types'
 
-import { StyledHint } from './styles'
+import * as S from './styles'
 
-export const Hint = ({ children, variant }) => <StyledHint variant={variant}>{children}</StyledHint>
+export const Hint = ({ children, variant }) => <S.Hint variant={variant}>{children}</S.Hint>
 
 Hint.propTypes = {
   /** Node component from parent */

@@ -10,11 +10,9 @@ import { Button } from './index'
 
 # Button
 
-## Properties
-
-<PropsTable of={Button} />
-
 ## Variants
+
+Admire these beautiful variants 🌈
 
 <Playground>
   <Button>default</Button>
@@ -30,30 +28,42 @@ import { Button } from './index'
 
 ## Sizes
 
+Use size property with `sm` `md`(default) or `lg`.
+
 <Playground>
-  <Button size="sm">sm</Button>
-  <Button>default (size="md")</Button>
-  <Button size="lg">lg</Button>
+  <Button size="sm">Small</Button>
+  <Button>Medium</Button>
+  <Button size="lg">Large</Button>
+</Playground>
+
+## Disabled
+
+All disabled buttons have the style.
+
+<Playground>
+  <Button variant="primary-danger" disabled>
+    Disabled
+  </Button>
 </Playground>
 
 ## Width
-[https://styled-system.com/api#width](https://styled-system.com/api#width)
+
+You can add `width` property from [styled-system](https://styled-system.com/api#width).
 
 <Playground>
   <Button width={1}>full width</Button>
-  <Button width={1/2}>half width</Button>
+  <Button width={1 / 2}>half width</Button>
 </Playground>
 
 ## Radius
-[https://styled-system.com/api#borders](https://styled-system.com/api#borders)
+
+You can add `borderRadius` property from [styled-system](https://styled-system.com/api#borders).
 
 <Playground>
   <Button>default</Button>
   <Button borderRadius="10px">10px</Button>
 </Playground>
 
-### Disabled
+## Properties
 
-<Playground>
-  <Button variant="primary-danger" disabled>Disabled</Button>
-</Playground>
+<PropsTable of={Button} />

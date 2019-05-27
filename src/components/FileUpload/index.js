@@ -98,10 +98,10 @@ export const FileUpload = ({
         {hasFile && (
           <Actions>
             <Button onClick={open} size="sm" type="button" variant="secondary">
-              <Icon icon="pencil" size="sm" />
+              <Icon name="pencil" size="sm" />
             </Button>
             <Button onClick={handleRemoveFile} size="sm" type="button" variant="primary-danger">
-              <Icon icon="cross" size="sm" />
+              <Icon name="cross" size="sm" />
             </Button>
           </Actions>
         )}
