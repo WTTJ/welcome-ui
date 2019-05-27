@@ -115,10 +115,10 @@ export const reset = css`
   q {
     quotes: none;
   }
-  blockquote:before,
-  blockquote:after,
-  q:before,
-  q:after {
+  blockquote::before,
+  blockquote::after,
+  q::before,
+  q::after {
     content: '';
     content: none;
   }
@@ -133,12 +133,12 @@ export const reset = css`
     overflow: hidden;
   }
   input {
-    -webkit-appearnce: none;
+    -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    &::-webkit-search-cancel-button {
-      display: none;
-    }
+  }
+  input::-webkit-search-cancel-button {
+    display: none;
   }
   :focus {
     outline: none;
@@ -146,7 +146,6 @@ export const reset = css`
   *,
   *::after,
   *::before {
-    font-family: inherit;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
