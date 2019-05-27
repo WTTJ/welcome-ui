@@ -3,12 +3,21 @@ import styled, { css } from 'styled-components'
 import { system } from '../../utils/utils'
 import { get, getCss } from '../../theme/helpers'
 
-const checkedStyles = css`
-  ${getCss('fields.toggles.checked')};
+const afterCheckedStyles = css`
   &::after {
     left: calc(100% - ${get('borderWidths.sm')});
     transform: translateX(-100%);
   }
+`
+
+const checkedStyles = css`
+  ${getCss('fields.toggles.checked')};
+  ${afterCheckedStyles}
+`
+
+const checkedDisabledStyles = css`
+  ${getCss('fields.toggles.checkedDisabled')};
+  ${afterCheckedStyles}
 `
 
 export const StyledToggle = styled.div(({ checked, disabled, order = '-1', ...props }) => {
@@ -20,7 +29,7 @@ export const StyledToggle = styled.div(({ checked, disabled, order = '-1', ...pr
     display: block;
     width: ${`calc(${toggleSize} * 2)`};
     height: ${toggleSize};
-    cursor: ${disabled ? null : 'pointer'};
+    cursor: ${disabled ? 'not-allowed' : 'pointer'};
     border-radius: ${toggleSize};
     transition: 0.3s;
     order: ${order};
@@ -37,7 +46,7 @@ export const StyledToggle = styled.div(({ checked, disabled, order = '-1', ...pr
     }
 
     &:active::after {
-      width: ${props.disabled ? null : '55%'};
+      width: ${!disabled && '55%'};
     }
 
     input {
@@ -46,7 +55,8 @@ export const StyledToggle = styled.div(({ checked, disabled, order = '-1', ...pr
       visibility: hidden;
     }
 
-    ${checked && checkedStyles}
+    ${checked && !disabled && checkedStyles}
+    ${checked && disabled && checkedDisabledStyles}
     ${system};
   `
 })

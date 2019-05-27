@@ -101,6 +101,12 @@ export const getFields = theme => {
         '&::after': {
           'border-color': colors.nude[200]
         }
+      },
+      checkedDisabled: {
+        'background-color': colors.secondary[200],
+        '&::after': {
+          'border-color': colors.secondary[200]
+        }
       }
     },
     mde: {
