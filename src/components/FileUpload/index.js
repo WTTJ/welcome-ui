@@ -9,7 +9,8 @@ import { validateFileSize, validateMimeType } from '../../utils/validations'
 import { createEvent } from '../../utils/events.js'
 
 // FileUpload
-import { Actions, FilePreview, StyledFileUpload } from './styles.js'
+import { Actions, FilePreview, FilePreviewImage, StyledFileUpload } from './styles.js'
+import { DefaultContent } from './default.js'
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
@@ -18,13 +19,21 @@ const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
 const getPreviewUrl = url =>
   typeof url !== 'string' || url.startsWith('blob:') ? url : new URL(url)
 
+const createEvent = file => ({
+  preventDefault: () => {},
+  target: {
+    name,
+    value: file
+  }
+})
+
 export const FileUpload = ({
   input,
   accept = 'image/*',
   disabled = false,
   multiple = false,
   maxSize = DEFAULT_MAX_FILE_SIZE,
-  children,
+  children = DefaultContent,
   onAddFile,
   onChange,
   onError,
@@ -115,7 +124,7 @@ export const FileUpload = ({
 
 FileUpload.propTypes = {
   accept: PropTypes.string,
-  children: PropTypes.func.isRequired,
+  children: PropTypes.func,
   disabled: PropTypes.bool,
   input: PropTypes.node,
   maxSize: PropTypes.number,

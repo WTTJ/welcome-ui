@@ -71,8 +71,6 @@ export const Field = ({
   const Container = layout === 'row' ? RowContainer : Fragment
   const htmlFor = isRadio ? value : name // Use value for radio buttons
 
-  console.debug('Field.render', { type, fieldType, flexDirection, layout, name, value, htmlFor })
-
   const field = (
     <Component
       checked={checked}
@@ -135,7 +133,7 @@ Field.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
   /** For `select` fields */
   options: PropTypes.any,
