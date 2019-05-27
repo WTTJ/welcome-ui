@@ -9,7 +9,7 @@ const oneCharacterStyles = size => css`
   padding: 0;
 `
 
-export const Wrapper = styled.div(
+export const Tag = styled.div(
   props => css`
     ${getCss('tags.default')};
     ${getCss(`tags.sizes.${props.size}`)}

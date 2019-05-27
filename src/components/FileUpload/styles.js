@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import { get, getCss } from '../../theme/helpers'
-import { Wrapper as StyledButton } from '../Button/styles'
+import { Button as StyledButton } from '../Button/styles'
 
 const getBorderColor = ({ isDragAccept, isDragActive, isDragReject }) => {
   if (isDragAccept) {

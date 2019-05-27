@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { get, getCss } from '../../theme/helpers'
 
-export const Wrapper = styled.div(
+export const Tooltip = styled.div(
   props => css`
     ${getCss('tooltips')};
     position: fixed;

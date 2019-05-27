@@ -5,9 +5,9 @@ import * as S from './styles'
 
 export const Button = ({ children, size = 'auto', variant = 'primary', ...props }) => {
   return (
-    <S.Wrapper size={size} variant={variant} {...props}>
+    <S.Button size={size} variant={variant} {...props}>
       {children}
-    </S.Wrapper>
+    </S.Button>
   )
 }
 

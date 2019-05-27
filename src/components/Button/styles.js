@@ -34,7 +34,7 @@ export const pulsingStyles = css`
   }
 `
 
-export const Wrapper = styled.button(
+export const Button = styled.button(
   props => css`
     ${getCss(`buttons.${props.variant || 'primary'}`)};
     ${getButtonSize(props.size, props.rounded)};

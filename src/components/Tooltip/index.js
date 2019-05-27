@@ -5,7 +5,7 @@ import { useEventListener } from '../../utils/hooks/eventListener'
 import { useRefElement } from '../../utils/hooks/refElement'
 import { useSetAttribute } from '../../utils/hooks/attributes'
 
-import { Wrapper } from './styles'
+import * as S from './styles'
 
 export const Tooltip = ({ accessibilityId, children }) => {
   /*** set state ***/
@@ -43,9 +43,9 @@ export const Tooltip = ({ accessibilityId, children }) => {
     <>
       <div ref={targetRef} />
       {isShow && (
-        <Wrapper id={tooltipId} left={mouseCoords.left} role="tooltip" top={mouseCoords.top}>
+        <S.Tooltip id={tooltipId} left={mouseCoords.left} role="tooltip" top={mouseCoords.top}>
           {children}
-        </Wrapper>
+        </S.Tooltip>
       )}
     </>
   )
