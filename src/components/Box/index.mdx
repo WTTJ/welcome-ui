@@ -1,0 +1,31 @@
+---
+name: Box
+route: /components/box
+menu: Components
+---
+
+import { PropsTable } from 'docz'
+import Playground from '../../../docz.styled'
+
+import { Box } from './index'
+
+# Box
+
+Use properties from [styled-system](https://styled-system.com/api#core) library.
+
+## Example
+
+<Playground>
+  <Box
+    display="flex"
+    width={1}
+    height="500px"
+    justifyContent="center"
+    alignItems="center"
+    bg="gainsboro"
+  >
+    <Box size="100px" bg="white" padding="50px">
+      Centered Box
+    </Box>
+  </Box>
+</Playground>
