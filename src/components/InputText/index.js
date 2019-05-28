@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, func, object, oneOf, string } from 'prop-types'
+import { bool, func, oneOf, string } from 'prop-types'
 
 import { StyledInputText } from './styles'
 

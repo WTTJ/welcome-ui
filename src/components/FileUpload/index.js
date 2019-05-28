@@ -8,7 +8,7 @@ import { Button } from '../Button'
 import { validateFileSize, validateMimeType } from '../../utils/validations'
 
 // FileUpload
-import { Actions, FilePreview, FilePreviewImage, StyledFileUpload } from './styles.js'
+import { Actions, FilePreview, StyledFileUpload } from './styles.js'
 import { DefaultContent } from './default.js'
 
 const DEFAULT_MAX_FILE_SIZE = 2000000

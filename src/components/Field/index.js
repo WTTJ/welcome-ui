@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { bool, func, node, object, oneOf, oneOfType, shape, string } from 'prop-types'
+import { bool, func, node, oneOf, oneOfType, string } from 'prop-types'
 import includes from 'lodash.includes'
 
 // Common
@@ -82,7 +82,6 @@ export const Field = ({
   const Component = getFieldType(fieldType || type)
   const variant = getVariant(warning, error)
   const isRadio = getIsRadio(type)
-  const isCheckbox = getIsCheckbox(type)
   const isCheckable = getIsCheckable(type)
 
   const hintText = error || warning || hint
