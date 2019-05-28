@@ -5,7 +5,8 @@ menu: Components
 ---
 
 import { PropsTable } from 'docz'
-import Playground from '../../../docz.styled'
+import Playground, { IconsList } from '../../../docz.styled'
+
 import { Icon } from './index'
 
 # Icon
@@ -44,118 +45,140 @@ Icons inherit the colour from their parent
 ### App icons
 
 <Playground>
-  <Icon name="twitter" />
-  <Icon name="youtube" />
-  <Icon name="facebook" />
-  <Icon name="linkedin" />
-  <Icon name="instagram" />
-  <Icon name="github" />
-  <Icon name="stackoverflow" />
-  <Icon name="dribbble" />
-  <Icon name="behance" />
-  <Icon name="xing" />
+  {() => {
+    const icons = ['twitter', 'youtube', 'facebook', 'linkedin', 'instagram', 'github', 'stackoverflow', 'dribbble', 'behance', 'xing']
+
+    return IconsList(icons)
+
+}}
+
 </Playground>
 
 ### Directions
 
 <Playground>
-  <Icon name="up" />
-  <Icon name="down" />
-  <Icon name="left" />
-  <Icon name="right" />
+  {() => {
+    const icons = ['up', 'down', 'left', 'right']
+
+    return IconsList(icons)
+
+}}
+
 </Playground>
 
 ### File types
 
 <Playground>
-  <Icon name="offer_status" />
-  <Icon name="cover_letter" />
-  <Icon name="resume" />
-  <Icon name="questions" />
+  {() => {
+    const icons = ['offer_status', 'cover_letter', 'resume', 'questions']
+
+    return IconsList(icons)
+
+}}
+
 </Playground>
 
 ### Moods
 
 <Playground>
-  <Icon name="negative" />
-  <Icon name="positive" />
+  {() => {
+    const icons = ['negative', 'positive']
+
+    return IconsList(icons)
+
+}}
+
 </Playground>
 
 ### UX
 
 <Playground>
-  <Icon name="pencil" />
-  <Icon name="create" />
-  <Icon name="filters" />
-  <Icon name="details" />
-  <Icon name="thumbup" />
-  <Icon name="male" />
-  <Icon name="female" />
-  <Icon name="origine" />
-  <Icon name="phone" />
-  <Icon name="mic" />
-  <Icon name="crown" />
-  <Icon name="sun" />
-  <Icon name="reset" />
-  <Icon name="gear" />
-  <Icon name="search" />
-  <Icon name="calendar" />
-  <Icon name="cross" />
-  <Icon name="heart" />
-  <Icon name="megaphone" />
-  <Icon name="calcul" />
-  <Icon name="marketplace" />
-  <Icon name="compass" />
-  <Icon name="shield" />
-  <Icon name="tree" />
-  <Icon name="actions" />
-  <Icon name="coffee" />
-  <Icon name="update" />
-  <Icon name="language" />
-  <Icon name="book" />
-  <Icon name="computer" />
-  <Icon name="chevron" />
-  <Icon name="pizza" />
-  <Icon name="spanner" />
-  <Icon name="flag" />
-  <Icon name="ats" />
-  <Icon name="microship" />
-  <Icon name="paperplane" />
-  <Icon name="location" />
-  <Icon name="settings" />
-  <Icon name="department" />
-  <Icon name="target" />
-  <Icon name="stackserver" />
-  <Icon name="money" />
-  <Icon name="email" />
-  <Icon name="bulb" />
-  <Icon name="source" />
-  <Icon name="piechart" />
-  <Icon name="candidate_status" />
-  <Icon name="welcome_home" />
-  <Icon name="map" />
-  <Icon name="tag" />
-  <Icon name="external_link" />
-  <Icon name="hashtag" />
-  <Icon name="handshake" />
-  <Icon name="camera" />
-  <Icon name="basketball" />
-  <Icon name="lock" />
-  <Icon name="special_pipeline" />
-  <Icon name="hard_hat" />
-  <Icon name="music" />
-  <Icon name="archive" />
-  <Icon name="employer_branding" />
-  <Icon name="print" />
-  <Icon name="mountain" />
-  <Icon name="dish" />
-  <Icon name="delete" />
+  {() => {
+    const icons = [
+  'pencil',
+  'create',
+  'filters',
+  'details',
+  'thumbup',
+  'male',
+  'female',
+  'origine',
+  'phone',
+  'mic',
+  'crown',
+  'sun',
+  'reset',
+  'gear',
+  'search',
+  'cross',
+  'heart',
+  'megaphone',
+  'calcul',
+  'marketplace',
+  'compass',
+  'shield',
+  'tree',
+  'actions',
+  'coffee',
+  'update',
+  'language',
+  'book',
+  'computer',
+  'chevron',
+  'pizza',
+  'spanner',
+  'flag',
+  'ats',
+  'microship',
+  'paperplane',
+  'location',
+  'settings',
+  'department',
+  'target',
+  'stackserver',
+  'money',
+  'email',
+  'email',
+  'bulb',
+  'source',
+  'piechart',
+  'candidate_status',
+  'welcome_home',
+  'map',
+  'tag',
+  'external_link',
+  'hashtag',
+  'handshake',
+  'camera',
+  'basketball',
+  'lock',
+  'special_pipeline',
+  'hard_hat',
+  'music',
+  'archive',
+  'employer_branding',
+  'print',
+  'mountain',
+  'dish',
+  'delete'
+]
+
+    return IconsList(icons)
+
+}}
+
 </Playground>
 
 ### Menus
 
 <Playground>
-  <Icon name="bulk" />
+  {() => {
+    const icons = ['bulk']
+
+    return IconsList(icons)
+
+}}
+
 </Playground>
 
 ## Properties
