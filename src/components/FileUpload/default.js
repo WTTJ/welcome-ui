@@ -3,13 +3,13 @@ import { bool, string } from 'prop-types'
 
 import { Icon } from '../Icon'
 
-import { Actions, FilePreview, FilePreviewImage, StyledFileUpload } from './styles.js'
+import { FilePreviewImage } from './styles.js'
 
 export const DefaultContent = ({ fileUrl, isHoverAccept, isHoverReject }) => {
   if (isHoverAccept) {
-    return <Icon icon="positive" />
+    return <Icon name="positive" />
   } else if (isHoverReject) {
-    return <Icon icon="negative" />
+    return <Icon name="negative" />
   } else if (fileUrl) {
     return <FilePreviewImage src={fileUrl} />
   }
