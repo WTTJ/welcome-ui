@@ -2,11 +2,12 @@ import merge from 'lodash.merge'
 
 import { colors } from './colors'
 import { fonts } from './fonts'
-import { getFontSizes } from './typography'
-import { getTags } from './tags'
 import { getButtons } from './buttons'
 import { getFields } from './fields'
+import { getFontSizes } from './typography'
+import { getGrowls } from './growls'
 import { getTabs } from './tabs'
+import { getTags } from './tags'
 import { getTooltips } from './tooltips'
 import { radii } from './radii'
 import { transitionCurves, transitions } from './transitions'
@@ -64,6 +65,7 @@ export const getBaseTheme = (options = {}) => {
   }
 
   theme.icons = {
+    xs: 10,
     sm: 16,
     md: 24,
     lg: 32,
@@ -85,6 +87,7 @@ export const getBaseTheme = (options = {}) => {
   // These attributes depend on colors and fontSizes and must come last
   theme.buttons = getButtons(theme)
   theme.fields = getFields(theme)
+  theme.growls = getGrowls(theme)
   theme.tabs = getTabs(theme)
   theme.tags = getTags(theme)
   theme.tooltips = getTooltips(theme)
