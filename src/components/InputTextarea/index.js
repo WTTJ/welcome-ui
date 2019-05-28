@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, node, number, oneOf, string } from 'prop-types'
+import { bool, number, oneOf, string } from 'prop-types'
 
 import { StyledTextarea } from './styles.js'
 

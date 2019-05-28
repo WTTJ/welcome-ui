@@ -1,5 +1,5 @@
 import React from 'react'
-import { oneOf, string } from 'prop-types'
+import { string } from 'prop-types'
 
 import { IconSvg } from './styles'
 import icons from './icons'

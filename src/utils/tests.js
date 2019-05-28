@@ -5,7 +5,6 @@ import renderer from 'react-test-renderer'
 import { ThemeProvider } from 'styled-components'
 
 import { createTheme } from '../theme/core'
-import { welcomeTheme } from '../theme/welcome'
 
 const theme = createTheme()
 

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { get, getCss } from '../../theme/helpers'
 import { Button as StyledButton } from '../Button/styles'
 
-const getBorderColor = ({ isDragAccept, isDragActive, isDragReject }) => {
+const getBorderColor = ({ isDragAccept, isDragReject }) => {
   if (isDragAccept) {
     return get('colors.primary.default')
   }
