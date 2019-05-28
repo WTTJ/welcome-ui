@@ -1,5 +1,8 @@
 import { terser } from 'rollup-plugin-terser'
 import babel from 'rollup-plugin-babel'
+import resolve from 'rollup-plugin-node-resolve'
+import postcss from 'rollup-plugin-postcss'
+import commonjs from 'rollup-plugin-commonjs'
 
 const base = {
   input: 'src/index.js',
@@ -27,14 +30,12 @@ const globals = {
   'lodash.includes': 'includes'
 }
 
-const babelOpts = {
-  exclude: 'node_modules/**'
-}
+const plugins = [babel({ exclude: 'node_modules/**' }), resolve(), commonjs(), postcss()]
 
 export default [
   {
     ...base,
-    plugins: [terser(), babel(babelOpts)],
+    plugins: [terser(), ...plugins],
     output: {
       globals,
       file: 'dist/cjs/welcome-ui.js',
@@ -45,7 +46,7 @@ export default [
   },
   {
     ...base,
-    plugins: [babel(babelOpts)],
+    plugins,
     output: {
       globals,
       file: 'dist/esm/index.js',

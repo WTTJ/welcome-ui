@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { arrayOf, bool, func, node, oneOfType, string } from 'prop-types'
-import { throttle } from 'lodash'
 import 'easymde/dist/easymde.min.css'
 
 import { formFieldPropTypes } from '../../utils/propTypes'
@@ -34,9 +33,9 @@ export const MarkdownEditor = props => {
     setFocused(false)
   }
 
-  const handleChange = throttle(value => {
+  const handleChange = value => {
     onChange && onChange(value)
-  }, 200)
+  }
 
   return (
     <StyledMarkdownEditor disabled={disabled} focused={focused} variant={variant}>
