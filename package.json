@@ -17,7 +17,8 @@
     "test:watch": "jest --watch",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "docz:clean": "rm -rf .docz"
+    "docz:clean": "rm -rf .docz",
+    "clean": "yarn docz:clean && yarn start"
   },
   "files": [
     "dist/esm/*",
