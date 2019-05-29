@@ -43,6 +43,14 @@ exports[`<Button> renders correctly 1`] = `
   line-height: 0.9rem;
 }
 
+.c0:hover {
+  box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.05);
+}
+
+.c0:focus {
+  box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.05);
+}
+
 .c0::before {
   background: rgba(250,250,250,0.05);
 }
@@ -53,8 +61,10 @@ exports[`<Button> renders correctly 1`] = `
   transform: translateY(2px);
 }
 
-.c0:hover {
-  box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.05);
+.c0:hover,
+.c0:focus {
+  background-color: #208DDB;
+  border-color: #208DDB;
 }
 
 .c0[disabled] {
@@ -70,6 +80,14 @@ exports[`<Button> renders correctly 1`] = `
   border-color: #CCCCCC;
   border-radius: 4px;
   pointer-events: none;
+}
+
+.c0[disabled]:hover {
+  box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.05);
+}
+
+.c0[disabled]:focus {
+  box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.05);
 }
 
 <button

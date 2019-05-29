@@ -32,14 +32,14 @@ test('<Button> has correct colour for variant primary', () => {
 
 test('<Button> has correct colour for variant secondary', () => {
   const button = render(<Button variant="secondary">{content}</Button>).toJSON()
-  expect(button).toHaveStyleRule('color', '#232323')
+  expect(button).toHaveStyleRule('color', '#171717')
   expect(button).toHaveStyleRule('background-color', '#FAFAFA')
 })
 
 test('<Button> has correct colour for variant tertiary', () => {
   const button = render(<Button variant="tertiary">Test button</Button>).toJSON()
   expect(button).toHaveStyleRule('color', '#FAFAFA')
-  expect(button).toHaveStyleRule('background-color', '#333333')
+  expect(button).toHaveStyleRule('background-color', '#171717')
 })
 
 test('<Button> has correct colour for variant disabled', () => {

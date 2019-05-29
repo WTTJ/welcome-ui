@@ -1,5 +1,5 @@
 export const getButtons = theme => {
-  const { colors, fontSizes, fontWeights, letterSpacings, radii } = theme
+  const { boxShadows, colors, fontSizes, fontWeights, letterSpacings, radii } = theme
   const defaults = {
     color: colors.light[200],
     'font-size': fontSizes.button,
@@ -8,28 +8,28 @@ export const getButtons = theme => {
     'letter-spacing': letterSpacings.md,
     'background-color': colors.primary[500],
     'border-color': colors.primary[500],
-    'border-radius': radii.sm
+    'border-radius': radii.sm,
+    '&:hover': {
+      'box-shadow': boxShadows.sm
+    },
+    '&:focus': {
+      'box-shadow': boxShadows.sm
+    }
   }
 
   return {
     primary: defaults,
     secondary: {
       ...defaults,
-      color: colors.secondary[500],
+      color: colors.secondary[700],
       'background-color': colors.light[200],
-      'border-color': colors.light[700]
+      'border-color': colors.nude[200]
     },
     tertiary: {
       ...defaults,
       color: colors.light[200],
-      'background-color': colors.dark[200],
-      'border-color': colors.dark[200]
-    },
-    disabled: {
-      ...defaults,
-      color: colors.nude[700],
-      'background-color': colors.light[700],
-      'border-color': colors.light[700]
+      'background-color': colors.secondary[700],
+      'border-color': colors.secondary[700]
     },
     'primary-warning': {
       ...defaults,
@@ -54,6 +54,42 @@ export const getButtons = theme => {
       color: colors.danger[500],
       'background-color': colors.light[200],
       'border-color': colors.danger[500]
+    },
+    focused: {
+      primary: {
+        'background-color': colors.primary[200],
+        'border-color': colors.primary[200]
+      },
+      secondary: {
+        color: colors.secondary[500],
+        'border-color': colors.nude[400]
+      },
+      tertiary: {
+        'background-color': colors.secondary[500],
+        'border-color': colors.secondary[500]
+      },
+      'primary-warning': {
+        'background-color': colors.warning[200],
+        'border-color': colors.warning[200]
+      },
+      'secondary-warning': {
+        color: colors.warning[200],
+        'border-color': colors.warning[200]
+      },
+      'primary-danger': {
+        'background-color': colors.danger[200],
+        'border-color': colors.danger[200]
+      },
+      'secondary-danger': {
+        color: colors.danger[200],
+        'border-color': colors.danger[200]
+      }
+    },
+    disabled: {
+      ...defaults,
+      color: colors.nude[700],
+      'background-color': colors.light[700],
+      'border-color': colors.light[700]
     }
   }
 }
