@@ -1,6 +1,6 @@
 {
   "name": "welcome-ui",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A delightful UI system from Welcome to the Jungle",
   "main": "dist/cjs/welcome-ui.js",
   "module": "dist/esm/index.js",
