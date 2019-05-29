@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components'
 
-import { system } from '../../utils/utils'
 import { get, getCss } from '../../theme/helpers'
+import { getTransitions } from '../../utils/transitions'
+import { system } from '../../utils/utils'
 
 const sizes = {
   sm: css`
@@ -52,7 +53,7 @@ export const Button = styled.button(
     border-style: solid;
     appearance: none;
     overflow: hidden;
-    transition: ${get('transitions.sm')};
+    transition: ${getTransitions(['all'])};
     line-height: 0.9rem;
     ${system};
 
