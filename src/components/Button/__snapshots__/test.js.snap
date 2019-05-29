@@ -13,7 +13,8 @@ exports[`<Button> renders correctly 1`] = `
   background-color: #1B74B5;
   border-color: #1B74B5;
   border-radius: 4px;
-  padding: 0.625rem 0.75rem;
+  height: 2.25rem;
+  padding: 0 0.75rem;
   position: relative;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -40,7 +41,6 @@ exports[`<Button> renders correctly 1`] = `
   overflow: hidden;
   -webkit-transition: 300ms ease;
   transition: 300ms ease;
-  line-height: 0.9rem;
 }
 
 .c0:hover {
@@ -49,6 +49,10 @@ exports[`<Button> renders correctly 1`] = `
 
 .c0:focus {
   box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.05);
+}
+
+.c0 > *:last-child {
+  margin-left: 0.625rem;
 }
 
 .c0::before {

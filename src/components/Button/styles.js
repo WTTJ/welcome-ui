@@ -5,13 +5,16 @@ import { system } from '../../utils/utils'
 
 const sizes = {
   sm: css`
-    padding: ${get('space.xs')} ${get('space.sm')};
+    ${getCss(`buttons.sizes.sm`)};
+    padding: 0 ${get('space.sm')};
   `,
   md: css`
-    padding: ${get('space.sm')} ${get('space.md')};
+    ${getCss(`buttons.sizes.md`)};
+    padding: 0 ${get('space.md')};
   `,
   lg: css`
-    padding: ${get('space.md')} ${get('space.lg')};
+    ${getCss(`buttons.sizes.lg`)};
+    padding: 0 ${get('space.lg')};
   `
 }
 
@@ -53,8 +56,11 @@ export const Button = styled.button(
     appearance: none;
     overflow: hidden;
     transition: ${get('transitions.medium')};
-    line-height: 0.9rem;
     ${system};
+
+    & > *:last-child {
+      margin-left: ${get('space.sm')};
+    }
 
     &::before {
       background: ${get('rgba.light.200', 0.05)};

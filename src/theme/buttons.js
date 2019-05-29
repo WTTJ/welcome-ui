@@ -90,6 +90,17 @@ export const getButtons = theme => {
       color: colors.nude[700],
       'background-color': colors.light[700],
       'border-color': colors.light[700]
+    },
+    sizes: {
+      sm: {
+        height: '2rem'
+      },
+      md: {
+        height: '2.25rem'
+      },
+      lg: {
+        height: '2.5rem'
+      }
     }
   }
 }

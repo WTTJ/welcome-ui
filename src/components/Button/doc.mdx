@@ -7,7 +7,9 @@ menu: Components
 import { PropsTable } from 'docz'
 import Playground from '../../../docz.styled'
 
-import { Button } from './index'
+import { Box } from '../Box'
+import { Button } from './'
+import { Icon } from '../Icon'
 
 # Button
 
@@ -16,11 +18,16 @@ import { Button } from './index'
 Admire these beautiful variants 🌈
 
 <Playground>
-  <Button>default</Button>
-  <Button variant="primary">primary</Button>
+  <Box width="100%" fontSize="body3">
+    Defaults
+  </Box>
+  <Button>primary (default)</Button>
   <Button variant="secondary">secondary</Button>
   <Button variant="tertiary">tertiary</Button>
   <Button variant="disabled">disabled</Button>
+  <Box width="100%" fontSize="body3" marginTop="10px">
+    States
+  </Box>
   <Button variant="primary-warning">primary-warning</Button>
   <Button variant="secondary-warning">secondary-warning</Button>
   <Button variant="primary-danger">primary-danger</Button>
@@ -44,6 +51,27 @@ All disabled buttons have the style.
 <Playground>
   <Button variant="primary-danger" disabled>
     Disabled
+  </Button>
+</Playground>
+
+## With icons
+
+<Playground>
+  <Button>
+    <Icon name="language" size="sm" />
+    <span>Button</span>
+  </Button>
+  <Button variant="secondary">
+    <Icon name="language" size="sm" />
+    <span>Button</span>
+  </Button>
+  <Button variant="tertiary">
+    <Icon name="language" size="sm" />
+    <span>Button</span>
+  </Button>
+  <Button variant="disabled">
+    <Icon name="language" size="sm" />
+    <span>Button</span>
   </Button>
 </Playground>
 
