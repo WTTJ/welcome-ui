@@ -38,8 +38,8 @@ exports[`<Button> renders correctly 1`] = `
   -moz-appearance: none;
   appearance: none;
   overflow: hidden;
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
+  -webkit-transition: 300ms ease;
+  transition: 300ms ease;
   line-height: 0.9rem;
 }
 

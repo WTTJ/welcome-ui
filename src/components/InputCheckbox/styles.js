@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 import { system } from '../../utils/utils'
 import { get, getCss } from '../../theme/helpers'
 import { fieldTypeStyles } from '../../common/styles/form'
-import { getTransitions } from '../../utils/transitions'
 
 const checkedStyles = css`
   ${getCss('fields.checkboxes.checked')};
@@ -22,7 +21,7 @@ export const StyledInputCheckbox = styled.div(
     order: ${order};
     cursor: pointer;
     border-radius: ${props.type === 'radio' && '50%'};
-    transition: ${getTransitions(['all'], 'sm')};
+    transition: ${get('transitions.medium')};
 
     &::after {
       content: '✓';
@@ -35,7 +34,7 @@ export const StyledInputCheckbox = styled.div(
       text-align: center;
       color: ${get('colors.light.200')};
       opacity: 0;
-      transition: ${getTransitions(['all'], 'sm')};
+      transition: ${get('transitions.medium')};
     }
 
     ${checked && checkedStyles};

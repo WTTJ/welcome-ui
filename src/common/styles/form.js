@@ -2,7 +2,6 @@ import { css } from 'styled-components'
 
 import { get, getCss } from '../../theme/helpers'
 import { getVariantStateColor } from '../../utils/variants'
-import { getTransitions } from '../../utils/transitions'
 
 export const fieldTypeStyles = css`
   ${props =>
@@ -10,7 +9,7 @@ export const fieldTypeStyles = css`
   width: 100%;
   padding: ${get('space.md')} ${get('space.sm')};
   border-color: ${props => getVariantStateColor(props.variant)};
-  transition: ${getTransitions(['all'])};
+  transition: ${get('transitions.medium')};
 
   &::placeholder {
     ${getCss('fields.placeholder')};

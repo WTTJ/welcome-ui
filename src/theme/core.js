@@ -9,7 +9,7 @@ import { getFields } from './fields'
 import { getTabs } from './tabs'
 import { getTooltips } from './tooltips'
 import { radii } from './radii'
-import { transitions } from './transitions'
+import { transitionCurves, transitions } from './transitions'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'welcomeweb'
@@ -73,6 +73,7 @@ export const getBaseTheme = (options = {}) => {
   theme.radii = radii
 
   theme.transitions = transitions
+  theme.transitionCurves = transitionCurves
 
   theme.boxShadows = {
     sm: '1px 2px 4px 0 rgba(0,0,0,0.05)'
