@@ -25,7 +25,9 @@ const palette = {
   pampas: '#F6F4F2', //#F6F4F2
   vistawhite: '#FBF9F7', //##FBF9F7
   soapstone: '#FFFDFB', //#FFFDFB
-  //warning & danger
+  // states : infos, warning & danger
+  bluedefrance: '#3790F0',
+  blueberry: '#4B9BF1',
   anzac: '#DDA343', //#DDA343
   sunray: '#E4AE56', //#E4AE56
   carmen: '#BF4C3B', //#BF4C3B
@@ -59,6 +61,10 @@ export const welcomekitTheme = {
     warning: {
       200: palette.sunray,
       500: palette.anzac
+    },
+    info: {
+      200: palette.blueberry,
+      500: palette.bluedefrance
     },
     light: {
       100: '#FFFFFF',
