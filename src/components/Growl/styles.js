@@ -36,10 +36,11 @@ export const CloseContent = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${get('space.xl')};
-  height: ${get('space.xl')};
+  width: 1.87rem;
+  height: 1.87rem;
   ${getCss('growls.close')};
   border: none;
+  padding: 0;
   transition: background ${get('transitions.medium')};
 `
 
