@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Playground } from 'docz'
+import { Playground as DoczPlayground } from 'docz'
 
 import { Box } from './src/components/Box'
 import { Icon } from './src/components/Icon'
 import { get } from './src/theme/helpers'
 
-export const StyledPlayground = styled(Playground)`
+export const Playground = styled(DoczPlayground)`
   margin-bottom: -${get('space.sm')};
 
   > * {

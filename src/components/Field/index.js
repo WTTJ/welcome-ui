@@ -12,7 +12,7 @@ import { InputTextarea } from '../InputTextarea'
 import { InputCheckbox } from '../InputCheckbox'
 import { InputRadio } from '../InputRadio'
 import { Label } from '../Label'
-import { MarkdownEditor } from '../MarkdownEditor'
+// import { MarkdownEditor } from '../MarkdownEditor'
 import { RadioTab } from '../RadioTab'
 import { Toggle } from '../Toggle'
 import { Hint } from '../Hint'
@@ -26,11 +26,11 @@ const getIsCheckable = type => includes(['toggle', 'checkbox', 'radio', 'radioTa
 
 const getFieldType = type => {
   const fieldTypes = {
-    checkbox: InputCheckbox,
+    checkbox: InputCheckbox,  
     email: InputText,
     fileupload: FileUpload,
     number: InputText,
-    mde: MarkdownEditor,
+    // mde: MarkdownEditor,
     radio: InputRadio,
     radioTab: RadioTab,
     text: InputText,
