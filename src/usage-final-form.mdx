@@ -5,11 +5,11 @@ menu: Usage
 ---
 
 import { Form } from 'react-final-form'
-import { StyledPlayground as Playground } from '../docz.styled'
+import { Playground } from '../docz.styled'
 import { DoczCodeBlock } from '../docz/CodeBlock'
 
 import { Button } from './components/Button'
-import { Field } from './final/Field'
+import { ConnectedField } from './components/ConnectedField'
 import { FieldGroup } from './components/FieldGroup'
 import { RadioGroup } from './components/RadioGroup'
 
@@ -29,29 +29,29 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
         onSubmit={submitForm}
         render={({ handleSubmit, values }) => (
           <form onSubmit={handleSubmit}>
-            <Field name="firstName" type="text" placeholder="Boaty" label="First name" />
-            <Field name="lastName" type="text" placeholder="McBoatface" label="Last name" />
+            <ConnectedField name="firstName" type="text" placeholder="Boaty" label="First name" />
+            <ConnectedField name="lastName" type="text" placeholder="McBoatface" label="Last name" />
             <RadioGroup label="Dietary">
-              <Field name="diet" type="radio" value="vegan" label="Vegan" />
-              <Field name="diet" type="radio" value="herbivore" label="Herbivore" />
-              <Field name="diet" type="radio" value="omnivore" label="Omnivore" />
-              <Field name="diet" type="radio" value="carnivore" label="Carnivore" />
+              <ConnectedField name="diet" type="radio" value="vegan" label="Vegan" />
+              <ConnectedField name="diet" type="radio" value="herbivore" label="Herbivore" />
+              <ConnectedField name="diet" type="radio" value="omnivore" label="Omnivore" />
+              <ConnectedField name="diet" type="radio" value="carnivore" label="Carnivore" />
             </RadioGroup>
             <RadioGroup label="Favourite weekday" flexDirection="row" required>
-              <Field name="weekday" type="radioTab" value="monday" label="Monday" />
-              <Field name="weekday" type="radioTab" value="tuesday" label="Tuesday" />
-              <Field name="weekday" type="radioTab" value="wednesday" label="Wednesday" />
-              <Field name="weekday" type="radioTab" value="thursday" label="Thursday" />
-              <Field name="weekday" type="radioTab" value="friday" label="Friday" />
+              <ConnectedField name="weekday" type="radioTab" value="monday" label="Monday" />
+              <ConnectedField name="weekday" type="radioTab" value="tuesday" label="Tuesday" />
+              <ConnectedField name="weekday" type="radioTab" value="wednesday" label="Wednesday" />
+              <ConnectedField name="weekday" type="radioTab" value="thursday" label="Thursday" />
+              <ConnectedField name="weekday" type="radioTab" value="friday" label="Friday" />
             </RadioGroup>
-            <Field name="hungry" type="toggle" label="Hungry" />
+            <ConnectedField name="hungry" type="toggle" label="Hungry" />
             <FieldGroup label="Animals">
-              <Field name="dogs" type="checkbox" label="Dogs" />
-              <Field name="cats" type="checkbox" label="Cats" />
+              <ConnectedField name="dogs" type="checkbox" label="Dogs" />
+              <ConnectedField name="cats" type="checkbox" label="Cats" />
             </FieldGroup>
-            <Field name="summary" type="textarea" placeholder="Keep it short" label="Summary" />
-            <Field name="description" type="mde" placeholder="Keep it clean" label="Description" />
-            <Field name="profile" type="fileupload" label="Profile pic" />
+            <ConnectedField name="summary" type="textarea" placeholder="Keep it short" label="Summary" />
+            <ConnectedField name="description" type="mde" placeholder="Keep it clean" label="Description" />
+            <ConnectedField name="profile" type="fileupload" label="Profile pic" />
             <Button type="submit">Go!</Button>
             <DoczCodeBlock>{values}</DoczCodeBlock>
           </form>
