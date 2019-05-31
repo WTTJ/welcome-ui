@@ -6,7 +6,7 @@ import { Box } from './src/components/Box'
 import { Icon } from './src/components/Icon'
 import { get } from './src/theme/helpers'
 
-export const StyledPlayground = styled(DoczPlayground)`
+export const Playground = styled(DoczPlayground)`
   margin-bottom: -${get('space.sm')};
 
   > * {
