@@ -12,10 +12,6 @@ import { InputTextarea } from '../InputTextarea'
 import { InputCheckbox } from '../InputCheckbox'
 import { InputRadio } from '../InputRadio'
 import { Label } from '../Label'
-<<<<<<< HEAD
-=======
-// import { MarkdownEditor } from '../MarkdownEditor'
->>>>>>> Hide MDE to create proper build
 import { RadioTab } from '../RadioTab'
 import { Select } from '../Select'
 import { Toggle } from '../Toggle'
