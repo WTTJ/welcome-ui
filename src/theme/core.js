@@ -6,6 +6,7 @@ import { getButtons } from './buttons'
 import { getFields } from './fields'
 import { getFontSizes, getLineHeights, getTexts } from './typography'
 import { getGrowls } from './growls'
+import { getPaginations } from './paginations'
 import { getTabs } from './tabs'
 import { getTags } from './tags'
 import { getTooltips } from './tooltips'
@@ -66,7 +67,7 @@ export const getBaseTheme = (options = {}) => {
   }
 
   theme.icons = {
-    xs: 12,
+    xs: 10,
     sm: 16,
     md: 24,
     lg: 32,
@@ -89,9 +90,10 @@ export const getBaseTheme = (options = {}) => {
   theme.buttons = getButtons(theme)
   theme.fields = getFields(theme)
   theme.growls = getGrowls(theme)
-  theme.texts = getTexts(theme)
+  theme.paginations = getPaginations(theme)
   theme.tabs = getTabs(theme)
   theme.tags = getTags(theme)
+  theme.texts = getTexts(theme)
   theme.tooltips = getTooltips(theme)
 
   return theme
