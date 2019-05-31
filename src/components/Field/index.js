@@ -26,7 +26,7 @@ const getIsCheckable = type => includes(['toggle', 'checkbox', 'radio', 'radioTa
 
 const getFieldType = type => {
   const fieldTypes = {
-    checkbox: InputCheckbox,  
+    checkbox: InputCheckbox,
     email: InputText,
     fileupload: FileUpload,
     number: InputText,
