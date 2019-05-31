@@ -1,17 +1,14 @@
 ---
-name: Intro
+name: Getting Started
 route: /
 ---
 
 import { Component } from 'react'
-import { StyledPlayground as Playground } from '../docz.styled'
-import { createTheme } from './theme/core'
+import { Playground } from 'docz'
 
 # Welcome UI
 
 Welcome to the _Welcome UI library_. Here you'll find all the core components you need to create a delightful webapp.
-
-## Getting started
 
 ### 1. Add welcome-ui as a dependency
 
@@ -57,39 +54,4 @@ export default const Root = () => {
 }
 
 export default Root
-```
-
-## Themes
-
-Here are all the possible values for your theme. These will be merged with the default theme which you can find here:
-
-<Playground>
-  {() => {
-    const theme = createTheme()
-
-    const ThemeValues = () => (
-      <>
-        <pre style={{
-          fontFamily: 'monospace',
-          fontSize: '14px'
-        }}>{JSON.stringify(theme, null, 2)}</pre>
-      </>
-    )
-
-    return <ThemeValues />
-  }}
-</Playground>
-
-## Helpers
-
-You can use helpers to access theme values more easily using the key from the theme as the function name. For example…
-
-```
-import styled from 'styled-components'
-import { get } from 'welcome-ui'
-
-const Sidebar = styled.div`
-  font-family: ${get('fontFamilies.default')};
-  background: ${get('colors.primary.500')};
-`
 ```

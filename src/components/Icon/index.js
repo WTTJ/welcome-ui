@@ -2,7 +2,7 @@ import React from 'react'
 import { string } from 'prop-types'
 
 import { IconSvg } from './styles'
-import icons from './icons'
+import { icons } from './icons'
 
 export const Icon = ({ name, ...props }) => {
   const iconConfig = icons[name.toLowerCase()]

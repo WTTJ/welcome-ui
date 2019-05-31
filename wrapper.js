@@ -11,10 +11,12 @@ const theme = createTheme(welcomekitTheme)
 export const Wrapper = ({ children }) => {
   const BaseStyles = getBaseStyles(theme)
   return (
-    <>
-      <BaseStyles />
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <>
+        {children}
+        <BaseStyles />
+      </>
+    </ThemeProvider>
   )
 }
 
