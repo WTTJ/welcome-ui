@@ -23,6 +23,7 @@ export const Item = styled.li(
     flex: none;
     margin-right: ${get('space.lg')};
     padding-bottom: ${get('space.lg')};
+    transition: ${get('transitions.medium')};
     text-transform: none;
     cursor: pointer;
 
