@@ -1,4 +1,4 @@
-import { func, node } from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import { Icon } from '../Icon'
@@ -25,9 +25,9 @@ export const Growl = ({ children, onClose, close }) => (
 )
 
 Growl.propTypes = {
-  children: node.isRequired,
+  children: PropTypes.node.isRequired,
   /** node element replace right position  */
-  close: node,
+  close: PropTypes.node,
   /** action called onclick on right position  */
-  onClose: func
+  onClose: PropTypes.func
 }

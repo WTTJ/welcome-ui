@@ -1,5 +1,5 @@
 import React from 'react'
-import { node, oneOf } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import * as S from './styles'
 
@@ -12,11 +12,11 @@ export const Button = ({ children, size = 'auto', variant = 'primary', ...props 
 }
 
 Button.propTypes = {
-  children: node,
+  children: PropTypes.node,
   /** To set the button size */
-  size: oneOf(['auto', 'sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['auto', 'sm', 'md', 'lg']),
   /** To set a rounded button */
-  variant: oneOf([
+  variant: PropTypes.oneOf([
     'primary',
     'secondary',
     'tertiary',

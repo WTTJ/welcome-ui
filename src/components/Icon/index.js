@@ -1,8 +1,8 @@
 import React from 'react'
-import { string } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import { IconSvg } from './styles'
-import icons from './icons'
+import { icons } from './icons'
 
 export const Icon = ({ name, ...props }) => {
   const iconConfig = icons[name.toLowerCase()]
@@ -23,5 +23,5 @@ export const Icon = ({ name, ...props }) => {
 
 Icon.propTypes = {
   /** Icon name */
-  name: string
+  name: PropTypes.string
 }

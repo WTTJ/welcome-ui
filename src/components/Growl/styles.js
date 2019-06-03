@@ -29,7 +29,6 @@ export const Close = styled.div`
   position: absolute;
   right: ${get('space.lg')};
   top: ${get('space.lg')};
-  cursor: pointer;
 `
 
 export const CloseContent = styled.button`
@@ -42,6 +41,7 @@ export const CloseContent = styled.button`
   border: none;
   padding: 0;
   transition: background ${get('transitions.medium')};
+  cursor: pointer;
 `
 
 export const Action = styled.div`

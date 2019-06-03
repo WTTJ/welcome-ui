@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, string } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import { Input } from './styles'
 
@@ -8,7 +8,7 @@ export const RadioTab = ({ checked, name, groupName }) => (
 )
 
 RadioTab.propTypes = {
-  checked: bool,
-  groupName: string.isRequired,
-  name: string
+  checked: PropTypes.bool,
+  groupName: PropTypes.string.isRequired,
+  name: PropTypes.string
 }

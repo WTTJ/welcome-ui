@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { bool, node, string } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import { StyledFieldGroup } from '../FieldGroup/styles'
 import { Label } from '../Label'
@@ -36,10 +36,10 @@ export const RadioGroup = ({ children, groupName, label, required, checkedName, 
 }
 
 RadioGroup.propTypes = {
-  checkedName: string,
-  children: node,
-  groupName: string.isRequired,
+  checkedName: PropTypes.string,
+  children: PropTypes.node,
+  groupName: PropTypes.string.isRequired,
   /** name of selected radio (refers to the id id={name}) */
-  label: string,
-  required: bool
+  label: PropTypes.string,
+  required: PropTypes.bool
 }

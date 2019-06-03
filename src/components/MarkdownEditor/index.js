@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { arrayOf, bool, func, node, oneOfType, string } from 'prop-types'
+import PropTypes from 'prop-types'
 import 'easymde/dist/easymde.min.css'
 
 import { formFieldPropTypes } from '../../utils/propTypes'
@@ -62,10 +62,10 @@ export const MarkdownEditor = props => {
 
 MarkdownEditor.propTypes = {
   ...formFieldPropTypes,
-  autoFocus: func,
-  disabled: bool,
-  hideIcons: arrayOf(string),
-  placeholder: oneOfType([string, node]),
-  showIcons: arrayOf(string),
-  toolbar: arrayOf(string)
+  autoFocus: PropTypes.func,
+  disabled: PropTypes.bool,
+  hideIcons: PropTypes.arrayOf(PropTypes.string),
+  placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  showIcons: PropTypes.arrayOf(PropTypes.string),
+  toolbar: PropTypes.arrayOf(PropTypes.string)
 }

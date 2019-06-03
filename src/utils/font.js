@@ -20,6 +20,9 @@ const getFontFace = (name, font) => {
 
 export const fontFace = theme => {
   return Object.entries(theme.fonts)
-    .map(([name, variations]) => variations.map(font => getFontFace(name, font)).join(''))
+    .map(
+      ([name, variations]) =>
+        Array.isArray(variations) && variations.map(font => getFontFace(name, font)).join('')
+    )
     .join('')
 }

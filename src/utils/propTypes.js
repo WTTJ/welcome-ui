@@ -1,24 +1,24 @@
-import { array, bool, func, number, oneOfType, shape, string } from 'prop-types'
+import PropTypes from 'prop-types'
 
 export const reduxFormFieldPropTypes = {
-  input: shape({
-    name: string.isRequired
+  input: PropTypes.shape({
+    name: PropTypes.string.isRequired
   }).isRequired,
-  meta: shape({
-    error: oneOfType([string, array]),
-    warnings: oneOfType([string, array]),
-    submitFailed: bool.isRequired,
-    touched: bool.isRequired
+  meta: PropTypes.shape({
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    warnings: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    submitFailed: PropTypes.bool.isRequired,
+    touched: PropTypes.bool.isRequired
   })
 }
 
 export const formFieldPropTypes = {
-  onBlur: func,
-  onChange: func,
-  onFocus: func,
-  value: oneOfType([string, number]),
-  required: bool,
-  autoFocus: bool
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  required: PropTypes.bool,
+  autoFocus: PropTypes.bool
 }
 
 export const formFieldDefaultProps = {

@@ -1,4 +1,4 @@
-export default {
+export const icons = {
   actions: {
     width: 15,
     height: 15,

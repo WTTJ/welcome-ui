@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { bool, func, node, object, oneOf, string } from 'prop-types'
+import PropTypes from 'prop-types'
 import includes from 'lodash.includes'
 
 // Common
@@ -38,7 +38,7 @@ const getFieldType = fieldType => {
 }
 
 export const Field = ({
-  disabled = false,
+  disabled,
   error,
   checked,
   children,
@@ -52,7 +52,7 @@ export const Field = ({
   hint,
   label,
   placeholder,
-  required = false,
+  required,
   warning,
   ...props
 }) => {
@@ -113,15 +113,15 @@ export const Field = ({
 }
 
 Field.propTypes = {
-  checked: bool,
-  children: func,
-  disabled: bool,
+  checked: PropTypes.bool,
+  children: PropTypes.func,
+  disabled: PropTypes.bool,
   /** Custom icon for disabled state */
-  disabledIcon: node,
-  error: string,
-  fieldProps: object,
+  disabledIcon: PropTypes.node,
+  error: PropTypes.string,
+  fieldProps: PropTypes.object,
   /** Field component */
-  fieldType: oneOf([
+  fieldType: PropTypes.oneOf([
     'mde',
     'text',
     'number',
@@ -135,14 +135,14 @@ Field.propTypes = {
     'radioTab',
     'checkbox'
   ]).isRequired,
-  groupName: string,
-  hint: string,
-  label: string,
-  name: string.isRequired,
-  onBlur: func,
-  onChange: func,
-  onFocus: func,
-  placeholder: string,
-  required: bool,
-  warning: string
+  groupName: PropTypes.string,
+  hint: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  warning: PropTypes.string
 }

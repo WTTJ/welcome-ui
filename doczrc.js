@@ -1,13 +1,17 @@
+import { css } from 'styled-components'
+
 import { welcomeTheme } from './src/theme/welcome'
 import { createTheme } from './src/theme/core'
 
 const theme = createTheme(welcomeTheme)
 
 export default {
-  base: '/welcome-ui/',
+  title: 'Welcome UI',
+  description: 'Design system of @wttj with react, styled-components and styled-system',
+  base: '/',
   dest: '/docs',
   wrapper: 'wrapper',
-  hashRouter: true,
+  repository: 'https://github.com/WTTJ/welcome-ui',
   htmlContext: {
     favicon: 'https://cdn.welcometothejungle.co/wttj-front/assets/images/favicon.ico'
   },
@@ -21,41 +25,46 @@ export default {
     bundlerConfig.module.rules.push(...rules)
     return bundlerConfig
   },
+  menu: ['Getting Started', 'Themes', 'Components', 'Helpers'],
   themeConfig: {
     colors: {
       primary: theme.colors.primary[500]
     },
+    radius: theme.radii.md,
     styles: {
-      body: {
-        fontFamily: theme.fontFamilies.texts,
-        'nav a': {
-          fontSize: theme.fontSizes.body3
-        },
-        '#root nav dl a': {
-          fontWeight: theme.fontWeights.regular
-        },
-        'div.react-live span div': {
-          boxSizing: 'content-box'
+      body: css`
+        font-family: ${theme.fontFamilies.texts};
+
+        #root nav > div > div > a {
+          font-weight: ${theme.fontWeights.bold};
+          margin-top: 7px;
         }
-      },
-      h1: {
-        fontFamily: theme.fontFamilies.headings,
-        fontSize: theme.fontSizes.h1,
-        fontWeight: theme.fontWeights.bold
-      },
-      h2: {
-        fontFamily: theme.fontFamilies.headings,
-        fontSize: theme.fontSizes.h2,
-        fontWeight: theme.fontWeights.bold,
-        color: theme.colors.secondary[500],
-        borderBottom: 'none',
-        margin: '3rem 0 0 0'
-      },
-      h3: {
-        fontFamily: theme.fontFamilies.headings,
-        fontSize: theme.fontSizes.h3,
-        fontWeight: theme.fontWeights.bold
-      }
+
+        #root nav dl a {
+          font-weight: ${theme.fontWeights.regular};
+          padding-top: 7px;
+        }
+      `,
+      h1: css`
+        font-family: ${theme.fontFamilies.headings};
+        font-size: ${theme.fontSizes.h1};
+        font-weight: ${theme.fontWeights.bold};
+        margin: 3rem 0 2rem;
+      `,
+      h2: css`
+        font-family: ${theme.fontFamilies.headings};
+        font-size: ${theme.fontSizes.h2};
+        font-weight: ${theme.fontWeights.bold};
+        color: ${theme.colors.secondary[500]};
+        border-bottom: 'none';
+        margin: 3rem 0 1rem;
+      `,
+      h3: css`
+        font-family: ${theme.fontFamilies.headings};
+        font-size: ${theme.fontSizes.h3};
+        font-weight: ${theme.fontWeights.bold};
+        margin: 2.5rem 0 1rem;
+      `
     },
     logo: {
       src:
