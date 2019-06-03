@@ -35,13 +35,13 @@ export default {
       body: css`
         font-family: ${theme.fontFamilies.texts};
 
-        nav > div > div > a {
-          font-weight: ${theme.fontWeights.bold} !important;
+        #root nav > div > div > a {
+          font-weight: ${theme.fontWeights.bold};
           margin-top: 7px;
         }
 
         #root nav dl a {
-          font-weight: ${theme.fontWeights.regular} !important;
+          font-weight: ${theme.fontWeights.regular};
           padding-top: 7px;
         }
       `,

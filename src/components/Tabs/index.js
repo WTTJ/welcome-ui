@@ -1,4 +1,4 @@
-import { func, node, string } from 'prop-types'
+import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 import { useEventListener } from '../../utils/hooks'
@@ -67,11 +67,11 @@ const Tabs = ({ children, defaultActiveTab, onChangeTab }) => {
 
 Tabs.propTypes = {
   /** <TabsItem> childs */
-  children: node.isRequired,
+  children: PropTypes.node.isRequired,
   /** by default, the first child is active, you can set one by default with this property */
-  defaultActiveTab: string,
+  defaultActiveTab: PropTypes.string,
   /** return active tab */
-  onChangeTab: func.isRequired
+  onChangeTab: PropTypes.func.isRequired
 }
 
 export { Tabs, TabsItem }

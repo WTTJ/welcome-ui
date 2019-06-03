@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, node, oneOf } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import * as S from './styles'
 
@@ -12,11 +12,11 @@ export const Tag = ({ children, rounded, size = 'md', variant = 'default', ...pr
 }
 
 Tag.propTypes = {
-  children: node,
+  children: PropTypes.node,
   /** set a border-radius to 1em  */
-  rounded: bool,
-  size: oneOf(['sm', 'md', 'lg']),
-  variant: oneOf([
+  rounded: PropTypes.bool,
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  variant: PropTypes.oneOf([
     'blue',
     'default',
     'error',

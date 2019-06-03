@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { arrayOf, node, string } from 'prop-types'
+import PropTypes from 'prop-types'
 import includes from 'lodash.includes'
 
 import { Label } from '../Label'
@@ -32,8 +32,8 @@ export const FieldGroup = ({ checkedName = [], children, label }) => {
 }
 
 FieldGroup.propTypes = {
-  checkedName: arrayOf(string),
-  children: node,
+  checkedName: PropTypes.arrayOf(PropTypes.string),
+  children: PropTypes.node,
   /** Label of FieldGroup */
-  label: string
+  label: PropTypes.string
 }

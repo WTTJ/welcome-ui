@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, number, oneOf, string } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import { StyledTextarea } from './styles.js'
 
@@ -22,10 +22,10 @@ export const InputTextarea = ({
 )
 
 InputTextarea.propTypes = {
-  autoFocus: bool,
-  disabled: bool,
-  maxLength: number,
-  minRows: number,
-  placeholder: string,
-  variant: oneOf(['error', 'info', 'valid', 'warning'])
+  autoFocus: PropTypes.bool,
+  disabled: PropTypes.bool,
+  maxLength: PropTypes.number,
+  minRows: PropTypes.number,
+  placeholder: PropTypes.string,
+  variant: PropTypes.oneOf(['error', 'info', 'valid', 'warning'])
 }

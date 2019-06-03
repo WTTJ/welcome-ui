@@ -1,5 +1,5 @@
 import React from 'react'
-import { node, oneOf } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import * as S from './styles'
 
@@ -7,7 +7,7 @@ export const Hint = ({ children, variant }) => <S.Hint variant={variant}>{childr
 
 Hint.propTypes = {
   /** Node component from parent */
-  children: node,
+  children: PropTypes.node,
   /** Variant of component */
-  variant: oneOf(['warning', 'error'])
+  variant: PropTypes.oneOf(['warning', 'error'])
 }

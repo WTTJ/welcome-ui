@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { node, string } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import { useEventListener, useRefElement, useSetAttribute } from '../../utils/hooks'
 
@@ -51,7 +51,7 @@ export const Tooltip = ({ accessibilityId, children }) => {
 
 Tooltip.propTypes = {
   /** id for aria-describedby for accessibility */
-  accessibilityId: string.isRequired,
+  accessibilityId: PropTypes.string.isRequired,
   /** wording to show in the tooltip */
-  children: node.isRequired
+  children: PropTypes.node.isRequired
 }

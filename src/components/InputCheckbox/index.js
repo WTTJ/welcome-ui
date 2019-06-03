@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react'
-import { bool, elementType, func, string } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import { StyledInputCheckbox } from './styles'
 
@@ -47,13 +47,13 @@ export const InputCheckbox = memo(
 )
 
 InputCheckbox.propTypes = {
-  Component: elementType,
-  checked: bool,
-  disabled: bool,
-  groupName: string,
-  name: string,
-  onBlur: func,
-  onChange: func,
-  onFocus: func,
-  type: string
+  Component: PropTypes.elementType,
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  groupName: PropTypes.string,
+  name: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  type: PropTypes.string
 }

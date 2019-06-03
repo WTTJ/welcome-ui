@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, object, oneOf, string } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import { StyledInputText } from './styles'
 
@@ -15,10 +15,10 @@ export const InputText = ({ disabled, fieldProps, name, placeholder, variant, ty
 )
 
 InputText.propTypes = {
-  disabled: bool,
-  fieldProps: object,
-  name: string,
-  placeholder: string,
-  type: string,
-  variant: oneOf(['error', 'info', 'valid', 'warning'])
+  disabled: PropTypes.bool,
+  fieldProps: PropTypes.object,
+  name: PropTypes.string,
+  placeholder: PropTypes.string,
+  type: PropTypes.string,
+  variant: PropTypes.oneOf(['error', 'info', 'valid', 'warning'])
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { bool, func, node, number, oneOfType, string } from 'prop-types'
+import PropTypes from 'prop-types'
 import { useDropzone } from 'react-dropzone'
 
 // Common
@@ -111,15 +111,15 @@ export const FileUpload = ({
 }
 
 FileUpload.propTypes = {
-  accept: string,
-  children: func.isRequired,
-  disabled: bool,
-  input: node,
-  maxSize: number,
-  multiple: bool,
-  onAddFile: func,
-  onChange: func,
-  onError: func,
-  onRemoveFile: func,
-  title: oneOfType([string, node])
+  accept: PropTypes.string,
+  children: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  input: PropTypes.node,
+  maxSize: PropTypes.number,
+  multiple: PropTypes.bool,
+  onAddFile: PropTypes.func,
+  onChange: PropTypes.func,
+  onError: PropTypes.func,
+  onRemoveFile: PropTypes.func,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
 }

@@ -1,4 +1,4 @@
-import { bool, func, node } from 'prop-types'
+import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
 import * as S from './styles'
@@ -15,8 +15,8 @@ TabsItem.displayName = 'TabsItem'
 
 TabsItem.propTypes = {
   /** is added from Tabs component, do not use it */
-  active: bool,
-  children: node.isRequired,
+  active: PropTypes.bool,
+  children: PropTypes.node.isRequired,
   /** is added from Tabs component, do not use it */
-  onClick: func
+  onClick: PropTypes.func
 }

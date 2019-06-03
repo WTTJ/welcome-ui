@@ -1,4 +1,4 @@
-import { node } from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
@@ -21,7 +21,7 @@ export const Wrapper = ({ children }) => {
 }
 
 Wrapper.propTypes = {
-  children: node
+  children: PropTypes.node
 }
 
 export default Wrapper

@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, node, oneOf, oneOfType, string } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import { Badge } from '../Badge'
 import { Icon } from '../Icon'
@@ -48,12 +48,12 @@ export const Label = ({
 }
 
 Label.propTypes = {
-  children: oneOfType([node, string]),
-  disabled: bool,
-  disabledIcon: node,
-  errorWarningIcon: node,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  disabled: PropTypes.bool,
+  disabledIcon: PropTypes.node,
+  errorWarningIcon: PropTypes.node,
   /** Name of the linked form element */
-  htmlFor: string,
-  required: bool,
-  variant: oneOf(['error', 'warning'])
+  htmlFor: PropTypes.string,
+  required: PropTypes.bool,
+  variant: PropTypes.oneOf(['error', 'warning'])
 }
