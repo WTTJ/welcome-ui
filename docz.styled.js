@@ -20,23 +20,23 @@ export const IconsList = icons => (
     {icons.map(icon => (
       <Box
         alignItems="center"
-        border="1px solid #CED4DE"
         display="flex"
         flexDirection="column"
         key={icon}
         margin="10px"
         width="120px"
       >
-        <Box display="flex" padding="15px 10px">
-          <Icon name={icon} size="lg" />
-        </Box>
         <Box
-          borderTop="1px solid #CED4DE"
-          fontSize="meta2"
-          padding="5px 0"
-          textAlign="center"
+          background="#FBF9F7"
+          color="#134B45"
+          display="flex"
+          justifyContent="center"
+          padding="15px 10px"
           width={1}
         >
+          <Icon name={icon} size="lg" />
+        </Box>
+        <Box fontSize="meta1" fontWeight="medium" padding="5px 0" textAlign="center" width={1}>
           {icon}
         </Box>
       </Box>
