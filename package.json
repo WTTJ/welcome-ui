@@ -11,7 +11,7 @@
     "icons:collect": "node helpers/icons.js && eslint src/components/Icon/icons.js --fix",
     "build": "rm -rf dist && rollup --config",
     "preversion": "yarn test",
-    "version": "yarn docz:dist && yarn dist && git add .",
+    "version": "yarn docz:build && yarn build && git add .",
     "postversion": "git push && git push --tags",
     "lint": "eslint src --max-warnings 0",
     "test": "jest src",
