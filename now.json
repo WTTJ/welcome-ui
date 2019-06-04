@@ -1,0 +1,12 @@
+{
+  "name": "welcome-ui",
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "docs" } }
+  ],
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/assets.json", "dest": "/assets.json" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}

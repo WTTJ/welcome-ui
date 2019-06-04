@@ -6,11 +6,12 @@
   "module": "dist/esm/index.js",
   "scripts": {
     "start": "yarn docz:dev",
+    "icons": "yarn icons:optimize && yarn icons:collect",
     "icons:optimize": "svgo --folder=src/components/Icon/assets --pretty --indent=2 --multipass --quiet",
     "icons:collect": "node helpers/icons.js && eslint src/components/Icon/icons.js --fix",
     "build": "rm -rf dist && rollup --config",
     "preversion": "yarn test",
-    "version": "yarn docz:build && yarn build && git add .",
+    "version": "yarn docz:dist && yarn dist && git add .",
     "postversion": "git push && git push --tags",
     "lint": "eslint src --max-warnings 0",
     "test": "jest src",
@@ -18,7 +19,8 @@
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "docz:clean": "rm -rf .docz && rm -rf dist",
-    "clean": "yarn docz:clean && yarn start"
+    "clean": "yarn docz:clean && yarn start",
+    "now-build": "yarn docz:build"
   },
   "files": [
     "dist/esm/*",
