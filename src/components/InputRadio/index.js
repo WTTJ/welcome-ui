@@ -5,7 +5,7 @@ import { StyledCheckbox } from '../InputCheckbox/styles'
 
 export const InputRadio = ({
   checked,
-  disabled = 'false',
+  disabled = false,
   name,
   onBlur,
   onChange,
