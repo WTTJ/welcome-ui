@@ -8,5 +8,8 @@
     { "src": "/static/(.*)", "dest": "/static/$1" },
     { "src": "/assets.json", "dest": "/assets.json" },
     { "src": "/(.*)", "dest": "/index.html" }
-  ]
+  ],
+  "github": {
+    "silent": true
+  }
 }
