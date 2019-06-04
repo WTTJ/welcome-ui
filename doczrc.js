@@ -72,5 +72,7 @@ export default {
       width: 200
     }
   },
-  port: 3020
+  port: 3020,
+  // https://github.com/pedronauck/docz/issues/777#issuecomment-489947783
+  filterComponents: files => files.filter(filepath => /w*.(js|jsx|ts|tsx)$/.test(filepath))
 }

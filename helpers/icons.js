@@ -45,7 +45,8 @@ const getContents = files => {
   }, {})
 }
 
-const writeContents = obj => fs.writeFileAsync(outputPath, `export default ${JSON.stringify(obj)}`)
+const writeContents = obj =>
+  fs.writeFileAsync(outputPath, `export const icons = ${JSON.stringify(obj)}`)
 
 fs.readdirAsync(inputPath)
   .then(addAllFiles)
