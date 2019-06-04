@@ -17,7 +17,6 @@ const columnStyles = css`
 
 const checkableFieldStyles = css`
   ${getCss('fields.checkablelabel.default')};
-  margin-right: 0;
 `
 
 export const StyledField = styled.div(

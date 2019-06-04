@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import 'easymde/dist/easymde.min.css'
 
-import { formFieldPropTypes } from '../../utils/propTypes'
 import { createEvent } from '../../utils/events'
 
 import { StyledMarkdownEditor, StyledSimpleMDE } from './styles'
@@ -16,10 +15,10 @@ export const MarkdownEditor = props => {
     placeholder,
     variant,
     disabled,
-    value,
     onBlur,
     onFocus,
-    onChange
+    onChange,
+    value
   } = props
 
   const [focused, setFocused] = useState(autoFocus || false)
@@ -63,11 +62,15 @@ export const MarkdownEditor = props => {
 }
 
 MarkdownEditor.propTypes = {
-  ...formFieldPropTypes,
   autoFocus: PropTypes.func,
   disabled: PropTypes.bool,
   hideIcons: PropTypes.arrayOf(PropTypes.string),
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   showIcons: PropTypes.arrayOf(PropTypes.string),
-  toolbar: PropTypes.arrayOf(PropTypes.string)
+  toolbar: PropTypes.arrayOf(PropTypes.string),
+  value: PropTypes.string,
+  variant: PropTypes.oneOf(['warning', 'info', 'error'])
 }
