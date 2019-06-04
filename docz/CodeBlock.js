@@ -6,7 +6,8 @@ import { get } from '../src/theme/helpers'
 
 const StyledCodeBlock = styled.pre`
   font-family: monospace;
-  font-size: ${get('fontSizes.body3')};
+  font-size: ${get('fontSizes.body1')};
+  line-height: ${get('fontSizes.h4')};
   color: ${get('colors.nude.700')};
   margin-top: ${get('space.xl')};
   padding: ${get('space.xl')};
