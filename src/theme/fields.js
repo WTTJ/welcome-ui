@@ -78,6 +78,16 @@ export const getFields = theme => {
         'box-shadow': boxShadows.sm
       }
     },
+    select: {
+      focused: {
+        'background-color': colors.light[500]
+      },
+      selected: {
+        color: colors.dark[200],
+        'font-weight': fontWeights.bold,
+        'background-color': colors.nude[200]
+      }
+    },
     textarea: {
       'min-height': '8rem'
     },

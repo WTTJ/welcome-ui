@@ -1,0 +1,45 @@
+---
+name: Select
+route: /fields/select
+menu: Fields
+---
+
+import { PropsTable } from 'docz'
+import { Playground } from '../../../docz.styled'
+
+import { Select } from './index'
+
+# Select
+
+We use [react-select](https://github.com/JedWatson/react-select) and add our own custom styles from your theme.
+
+## Example
+
+<Playground>
+  <Select
+    name="description"
+    options={[
+      {
+        label: 'Fish',
+        value: 'fish'
+      },
+      {
+        label: 'Cakes',
+        value: 'cakes'
+      },
+      {
+        label: 'Ahoy',
+        value: 'ahoy'
+      }
+    ]}
+    onChange={console.debug}
+    placeholder="Placeholder"
+    label="Select example"
+
+/>
+
+</Playground>
+
+## Properties
+
+<PropsTable of={Select} />

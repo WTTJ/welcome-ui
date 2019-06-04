@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import 'easymde/dist/easymde.min.css'
 
 import { formFieldPropTypes } from '../../utils/propTypes'
+import { createEvent } from '../../utils/events'
 
 import { StyledMarkdownEditor, StyledSimpleMDE } from './styles'
 
@@ -33,8 +34,9 @@ export const MarkdownEditor = props => {
     setFocused(false)
   }
 
-  const handleChange = value => {
-    onChange && onChange(value)
+  const handleChange = () => {
+    const event = createEvent({ name, value })
+    onChange && onChange(event)
   }
 
   return (

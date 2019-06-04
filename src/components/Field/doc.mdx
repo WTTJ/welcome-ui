@@ -38,7 +38,14 @@ import { Field } from './index'
 ## Disabled
 
 <Playground>
-  <Field name="random-three" placeholder="Placeholder" fieldType="text" label="Label" disabled />
+  <Field
+    name="random-three"
+    placeholder="Placeholder"
+    type="text"
+    label="Label"
+    disabled
+    onChange={() => {}}
+  />
 </Playground>
 
 ## Inline
@@ -51,19 +58,50 @@ import { Field } from './index'
     fieldType="text"
     label="Label"
     required
+    onChange={() => {}}
   />
 </Playground>
 
 ## Required
 
 <Playground>
-  <Field name="random-five" placeholder="Placeholder" fieldType="text" label="Label" required />
+  <Field
+    name="random-five"
+    placeholder="Placeholder"
+    type="text"
+    label="Label"
+    required
+    onChange={() => {}}
+  />
 </Playground>
 
 ## Textarea
 
 <Playground>
-  <Field name="random-zero" placeholder="Placeholder" fieldType="textarea" label="Label" />
+  <Field
+    name="random-zero"
+    placeholder="Placeholder"
+    type="textarea"
+    label="Label"
+    onChange={() => {}}
+  />
+</Playground>
+
+## Select
+
+<Playground>
+  <Field
+    name="random-zero"
+    placeholder="Placeholder"
+    type="select"
+    label="Label"
+    options={[
+      { value: 'carrot', label: 'Carrot' },
+      { value: 'madeleine', label: 'Madeleine (made with farm-fresh eggs' },
+      { value: 'pumpkin', label: 'Pumpkin' }
+    ]}
+    onChange={() => {}}
+  />
 </Playground>
 
 ## RadioTabs
@@ -138,6 +176,7 @@ import { Field } from './index'
     name='random-fifteen'
     fieldType='fileupload'
     label='Filedrop example'
+    onChange={() => {}}
   >
     {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
       if (isHoverAccept) {
@@ -160,9 +199,9 @@ import { Field } from './index'
     name="random-fourteen"
     fieldType="mde"
     value="Something happening"
-    onChange={console.debug}
     placeholder="Placeholder"
     label="Markdown editor example"
+    onChange={() => {}}
   />
 </Playground>
 
