@@ -94,6 +94,7 @@
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.1",
     "prop-types": "^15.7.2",
+    "react-datepicker": "^2.6.0",
     "react-dropzone": "^10.1.5",
     "react-select": "=3.0.4",
     "styled-components": "^4.2.1"

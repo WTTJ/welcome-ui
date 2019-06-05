@@ -44,6 +44,10 @@ export default {
           font-weight: ${theme.fontWeights.regular};
           padding-top: 7px;
         }
+
+        #root div[class^='Playground__Overlay'] {
+          z-index: auto;
+        }
       `,
       h1: css`
         font-family: ${theme.fontFamilies.headings};

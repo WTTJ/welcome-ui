@@ -1,0 +1,28 @@
+---
+name: DateTimePicker
+route: /components/DateTimePicker
+menu: Components
+---
+
+import { Props } from 'docz'
+import Playground from '../../../docz.styled'
+
+import { DateTimePicker } from './index.js'
+
+# DateTimePicker
+
+## Simple use case
+
+<Playground>
+  <DateTimePicker date={Date.now()} onChange={date => console.log('date: ', date)} />
+</Playground>
+
+## Pass props to TimePicker
+
+<Playground>
+  <DateTimePicker date={Date.now()} timePickerProps={{ timeIntervals: 30 }} />
+</Playground>
+
+## Properties
+
+<Props of={DateTimePicker} />
