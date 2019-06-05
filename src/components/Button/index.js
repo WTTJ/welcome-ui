@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { IconButton } from '../IconButton'
+
 import * as S from './styles'
 
-export const Button = ({ children, size = 'auto', variant = 'primary', ...props }) => {
+const Button = ({ children, size = 'md', variant = 'primary', ...props }) => {
   return (
     <S.Button size={size} variant={variant} {...props}>
       {children}
@@ -14,7 +16,7 @@ export const Button = ({ children, size = 'auto', variant = 'primary', ...props 
 Button.propTypes = {
   children: PropTypes.node,
   /** To set the button size */
-  size: PropTypes.oneOf(['auto', 'sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
   /** To set a rounded button */
   variant: PropTypes.oneOf([
     'primary',
@@ -27,3 +29,5 @@ Button.propTypes = {
     'secondary-danger'
   ])
 }
+
+export { Button, IconButton }

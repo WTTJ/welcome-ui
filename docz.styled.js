@@ -1,6 +1,6 @@
 import { Playground } from 'docz'
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { Box } from './src/components/Box'
 import { Icon } from './src/components/Icon'
@@ -13,6 +13,14 @@ export const StyledPlayground = styled(Playground)`
     margin-right: ${get('space.sm')};
     margin-bottom: ${get('space.sm')};
   }
+
+  ${props =>
+    props.flex &&
+    css`
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    `}
 `
 
 export const IconsList = icons => (

@@ -4,11 +4,11 @@ route: /components/button
 menu: Components
 ---
 
-import { Props } from 'docz'
+import { Props, Link } from 'docz'
 import Playground from '../../../docz.styled'
 
 import { Box } from '../Box'
-import { Button } from './'
+import { Button, IconButton } from './'
 import { Icon } from '../Icon'
 
 # Button
@@ -72,6 +72,59 @@ All disabled buttons have the style.
   <Button variant="disabled">
     <Icon name="language" size="sm" />
     <span>Button</span>
+  </Button>
+</Playground>
+
+## IconButton
+
+Get same size on `width` and `height`, can be `rounded`.
+
+<Playground flex>
+  <IconButton size="sm">
+    <Icon name="language" size="sm" />
+  </IconButton>
+  <IconButton size="sm" rounded>
+    <Icon name="language" size="sm" />
+  </IconButton>
+  <IconButton>
+    <Icon name="language" size="sm" />
+  </IconButton>
+  <IconButton rounded>
+    <Icon name="language" size="sm" />
+  </IconButton>
+  <IconButton size="lg">
+    <Icon name="language" size="md" />
+  </IconButton>
+  <IconButton size="lg" rounded>
+    <Icon name="language" size="md" />
+  </IconButton>
+</Playground>
+
+## Transform to a link
+
+You can transform your Button component with `as` property to add you linker, `href` or `to`... all that you want.
+
+<Playground flex>
+  <IconButton
+    as="a"
+    href="http://www.welcometothejungle.co"
+    target="_blank"
+    rel="noopener nofollow"
+  >
+    <Icon name="external_link" size="sm" />
+  </IconButton>
+  <Button
+    as="a"
+    href="http://www.welcometothejungle.co"
+    target="_blank"
+    rel="noopener nofollow"
+    variant="secondary"
+  >
+    <Icon name="sun" size="sm" />
+    <span>Welcome</span>
+  </Button>
+  <Button as={Link} to="/" variant="tertiary">
+    Homepage
   </Button>
 </Playground>
 
