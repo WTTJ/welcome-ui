@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
+import ReactDatePicker from 'react-datepicker'
 
 import { get } from '../../theme/helpers'
-import { StyledDatePicker as DatePicker } from '../DatePicker/styles'
-import { StyledTimePicker as TimePicker } from '../TimePicker/styles'
+import { fieldTypeStyles } from '../../common/styles/form'
 
 const overridingStyles = css`
   .react-datepicker-wrapper:first-child {
@@ -56,21 +56,32 @@ const overridingStyles = css`
   }
 `
 
-export const DateTimePicker = styled.div`
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap;
-  .react-datepicker-wrapper {
-    position: relative;
-    ${DatePicker} {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-    ${TimePicker} {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
-
-  ${overridingStyles};
+export const DatePicker = styled(ReactDatePicker)`
+  ${fieldTypeStyles};
 `
+
+export const TimePicker = styled(ReactDatePicker)`
+  ${fieldTypeStyles};
+  text-align: center;
+`
+
+export const DateTimePicker = styled.div(
+  props => css`
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    .react-datepicker-wrapper {
+      position: relative;
+      ${DatePicker} {
+        border-top-right-radius: ${props.datePickerOnly ? null : 0};
+        border-bottom-right-radius: ${props.datePickerOnly ? null : 0};
+      }
+      ${TimePicker} {
+        border-top-left-radius: ${props.timePickerOnly ? null : 0};
+        border-bottom-left-radius: ${props.timePickerOnly ? null : 0};
+      }
+    }
+
+    ${overridingStyles};
+  `
+)

@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
-import { func, number, object, oneOfType, string } from 'prop-types'
+import { bool, func, number, object, oneOfType, string } from 'prop-types'
 import 'react-datepicker/dist/react-datepicker.css'
-
-import { StyledDatePicker as DatePicker } from '../DatePicker/styles'
-import { StyledTimePicker as TimePicker } from '../TimePicker/styles'
 
 import * as S from './styles'
 
-export const DateTimePicker = ({ date, datePickerProps = {}, onChange, timePickerProps = {} }) => {
+export const DateTimePicker = ({
+  date,
+  datePickerOnly,
+  datePickerProps = {},
+  onChange,
+  timePickerOnly,
+  timePickerProps = {}
+}) => {
   // set defaults
   const datePickerDateFormat = datePickerProps.dateFormat || 'dd/MM/yyyy'
   const timePickerDateFormat = timePickerProps.dateFormat || 'HH:mm'
@@ -46,31 +50,42 @@ export const DateTimePicker = ({ date, datePickerProps = {}, onChange, timePicke
   }
 
   return (
-    <S.DateTimePicker focusedInput={focusedInput} onBlur={onBlur}>
-      <DatePicker
-        dateFormat={datePickerDateFormat}
-        onChange={date => handleChange(date, 'date')}
-        onFocus={() => focusOn('date')}
-        selected={newDate}
-        {...datePickerProps}
-      />
-      <TimePicker
-        dateFormat={timePickerDateFormat}
-        onChange={time => handleChange(time, 'time')}
-        onFocus={() => focusOn('time')}
-        selected={newDate}
-        showTimeSelect
-        showTimeSelectOnly
-        timeIntervals={timeIntervals}
-        {...timePickerProps}
-      />
+    <S.DateTimePicker
+      datePickerOnly={datePickerOnly}
+      focusedInput={focusedInput}
+      onBlur={onBlur}
+      timePickerOnly={timePickerOnly}
+    >
+      {!timePickerOnly && (
+        <S.DatePicker
+          dateFormat={datePickerDateFormat}
+          onChange={date => handleChange(date, 'date')}
+          onFocus={() => focusOn('date')}
+          selected={newDate}
+          {...datePickerProps}
+        />
+      )}
+      {!datePickerOnly && (
+        <S.TimePicker
+          dateFormat={timePickerDateFormat}
+          onChange={time => handleChange(time, 'time')}
+          onFocus={() => focusOn('time')}
+          selected={newDate}
+          showTimeSelect
+          showTimeSelectOnly
+          timeIntervals={timeIntervals}
+          {...timePickerProps}
+        />
+      )}
     </S.DateTimePicker>
   )
 }
 
 DateTimePicker.propTypes = {
   date: oneOfType([number, object, string]).isRequired,
+  datePickerOnly: bool,
   datePickerProps: object,
   onChange: func,
+  timePickerOnly: bool,
   timePickerProps: object
 }
