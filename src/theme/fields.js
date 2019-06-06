@@ -119,20 +119,6 @@ export const getFields = theme => {
           'border-color': colors.secondary[200]
         }
       }
-    },
-    mde: {
-      icons: {
-        'font-size': fontSizes.body3,
-        color: colors.secondary[500],
-        '&.active': {
-          color: colors.primary[200],
-          'border-color': colors.nude[300]
-        },
-        '&:hover': {
-          color: colors.primary[200],
-          'border-color': colors.nude[300]
-        }
-      }
     }
   }
 }
