@@ -31,7 +31,7 @@ export const StyledField = styled.div(
     ${StyledToggle}, ${StyledCheckbox} {
       margin-right: ${get('space.xxs')};
     }
-    ${props.fieldType === 'radioTab' && radioTabStyles(props)}
+    ${props.fieldType === 'RadioTab' && radioTabStyles(props)}
     ${system};
   `
 )

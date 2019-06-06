@@ -34,7 +34,8 @@ export const getFields = theme => {
     label: {
       color: colors.nude[800],
       'font-size': fontSizes.body3,
-      'font-weight': fontWeights.medium
+      'font-weight': fontWeights.medium,
+      'min-height': '1.4em'
     },
     checkablelabel: {
       default: {
