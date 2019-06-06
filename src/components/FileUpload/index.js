@@ -30,8 +30,8 @@ const createEvent = file => ({
 export const FileUpload = ({
   input,
   accept = 'image/*',
-  disabled = false,
-  multiple = false,
+  disabled,
+  multiple,
   maxSize = DEFAULT_MAX_FILE_SIZE,
   children = DefaultContent,
   onAddFile,
