@@ -5,7 +5,7 @@ import { hexToRGB } from '../utils/hexToRGB'
 
 const getThemeValue = (theme, path) => {
   const value = _get(theme, path)
-  if (process.env.NODE_ENV !== 'development' && value === undefined) {
+  if (process.env.NODE_ENV === 'development' && value === undefined) {
     // eslint-disable-next-line no-console
     console.warn(`${path} is not available in this theme`)
   }
@@ -14,7 +14,11 @@ const getThemeValue = (theme, path) => {
 
 const rgba = (theme, path, opacity) => {
   const value = getThemeValue(theme, `colors.${path.join('.')}`)
-  return `rgba(${hexToRGB(value)}, ${opacity})`
+  if (value && typeof value === 'string') {
+    return `rgba(${hexToRGB(value)}, ${opacity})`
+  } else {
+    return undefined
+  }
 }
 
 export const get = (path, fallback) => ({ theme }) => {
@@ -39,7 +43,7 @@ export const getCss = (path, fallback) => ({ theme }) => {
     `
   }
 
-  if (process.env.NODE_ENV !== 'development') {
+  if (process.env.NODE_ENV === 'development') {
     // eslint-disable-next-line no-console
     console.warn(`${path} is not returning CSS but a value`)
   }
