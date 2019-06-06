@@ -15,7 +15,9 @@ export const ConnectedField = ({ component, type, ...rest }) => (
   <FinalField
     type={types[component.name] || type}
     {...rest}
-    render={({ input, meta }) => <Field {...rest} {...input} {...meta} component={component} />}
+    render={({ input, meta }) => (
+      <Field {...rest} {...input} {...meta} component={component} connected />
+    )}
   />
 )
 

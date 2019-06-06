@@ -57,6 +57,7 @@ const rowStyles = css`
 
 export const radioTabStyles = props => css`
   flex: 1;
+  margin: 0;
   ${StyledLabel} {
     ${fieldTypeStyles};
     flex-grow: 1;

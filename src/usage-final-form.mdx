@@ -32,12 +32,18 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
     }
     const toTitleCase = str => str.charAt(0).toUpperCase() + str.slice(1)
     const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'].map(month => ({label: toTitleCase(month), value: month}))
-    console.debug('months', months)
 
     return (
       <Form
         initialValues={{ firstName: 'Fish', description: 'Fancy that', diet: 'herbivore', dogs: true, hungry: true, weekday: 'tuesday' }}
         onSubmit={submitForm}
+        validate={(values) => {
+          let errors = {}
+          if (!values.lastName) {
+            errors.lastName = "Required"
+          }
+          return errors
+        }}
         render={({ handleSubmit, values }) => (
           <form onSubmit={handleSubmit}>
             <ConnectedField name="firstName" component={InputText} placeholder="Boaty" label="First name" />

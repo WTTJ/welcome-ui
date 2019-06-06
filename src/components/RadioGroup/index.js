@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { cloneElement } from 'react'
 import PropTypes from 'prop-types'
 
 import { StyledFieldGroup } from '../FieldGroup/styles'
@@ -13,7 +13,9 @@ export const RadioGroup = ({ children, label, required, flexDirection }) => (
         {label}
       </Label>
     )}
-    <StyledRadios flexDirection={flexDirection}>{children}</StyledRadios>
+    <StyledRadios flexDirection={flexDirection}>
+      {children.map(child => cloneElement(child, { flexDirection }))}
+    </StyledRadios>
   </StyledFieldGroup>
 )
 
