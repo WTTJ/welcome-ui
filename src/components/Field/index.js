@@ -56,7 +56,7 @@ export const Field = ({
   onFocus,
   options,
   placeholder,
-  required = false,
+  required,
   touched,
   type,
   value,
