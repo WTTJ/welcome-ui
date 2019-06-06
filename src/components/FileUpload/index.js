@@ -19,14 +19,6 @@ const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
 const getPreviewUrl = url =>
   typeof url !== 'string' || url.startsWith('blob:') ? url : new URL(url)
 
-const createEvent = file => ({
-  preventDefault: () => {},
-  target: {
-    name,
-    value: file
-  }
-})
-
 export const FileUpload = ({
   input,
   accept = 'image/*',
@@ -50,7 +42,7 @@ export const FileUpload = ({
     const [file] = files
     file.preview = URL.createObjectURL(file)
 
-    const event = createEvent({ name: input.name, file })
+    const event = createEvent({ name: input.name, value: file })
     onChange && onChange(event)
     onAddFile && onAddFile(event)
   }
