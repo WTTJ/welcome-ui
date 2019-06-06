@@ -10,7 +10,7 @@ export const StyledRadioTab = styled.div`
   flex: 1;
 `
 
-export const Input = styled.input`
+export const StyledInput = styled.input`
   position: absolute;
   top: 0;
   left: 0;

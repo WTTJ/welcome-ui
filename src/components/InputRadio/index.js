@@ -16,7 +16,7 @@ export const InputRadio = ({
 }) => (
   <StyledCheckbox checked={checked} disabled={disabled} order={order} size={size} type="radio">
     <input
-      defaultChecked={checked}
+      checked={checked}
       disabled={disabled}
       id={value}
       name={name}

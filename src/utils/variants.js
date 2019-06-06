@@ -1,6 +1,7 @@
 import { get } from '../theme/helpers'
 
-export const getVariant = (warning, error) => {
+export const getVariant = ({ touched, warning, error }) => {
+  if (!touched) return undefined
   if (error) return 'error'
   if (warning) return 'warning'
   return undefined

@@ -17,7 +17,7 @@ export const InputCheckbox = ({
 }) => (
   <Component checked={checked} disabled={disabled} order={order} type={type}>
     <input
-      defaultChecked={checked}
+      checked={checked}
       disabled={disabled}
       id={name}
       name={name}
@@ -40,5 +40,5 @@ InputCheckbox.propTypes = {
   onFocus: PropTypes.func,
   order: PropTypes.number,
   type: PropTypes.string,
-  value: PropTypes.bool
+  value: PropTypes.string
 }

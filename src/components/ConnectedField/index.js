@@ -1,31 +1,26 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/no-multi-comp */
-
 import React from 'react'
 import { bool, func, object, shape, string } from 'prop-types'
 import { Field as FinalField } from 'react-final-form'
 
 import { Field } from '../Field'
 
-const getBaseType = type => {
-  if (type === 'radioTab') {
-    return 'radio'
-  }
-  if (type === 'toggle') {
-    return 'checkbox'
-  }
-  return type
+const types = {
+  InputCheckbox: 'checkbox',
+  InputRadio: 'radio',
+  RadioTab: 'radio',
+  Toggle: 'checkbox'
 }
 
-const WrappedField = ({ input, meta, ...rest }) => <Field {...input} {...meta} {...rest} />
-
-export const ConnectedField = props => {
-  let { type } = props
-  let baseType = getBaseType(type)
-  return <FinalField {...props} component={WrappedField} fieldType={type} type={baseType} />
-}
+export const ConnectedField = ({ component, type, ...rest }) => (
+  <FinalField
+    type={types[component.name] || type}
+    {...rest}
+    render={({ input, meta }) => <Field {...rest} {...input} {...meta} component={component} />}
+  />
+)
 
 ConnectedField.propTypes = {
+  component: func,
   input: shape({
     name: string.isRequired,
     onBlur: func,
