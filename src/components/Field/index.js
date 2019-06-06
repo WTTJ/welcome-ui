@@ -12,7 +12,6 @@ import { InputTextarea } from '../InputTextarea'
 import { InputCheckbox } from '../InputCheckbox'
 import { InputRadio } from '../InputRadio'
 import { Label } from '../Label'
-import { MarkdownEditor } from '../MarkdownEditor'
 import { RadioTab } from '../RadioTab'
 import { Select } from '../Select'
 import { Toggle } from '../Toggle'
@@ -29,7 +28,6 @@ const FIELD_TYPES = {
   email: InputText,
   fileupload: FileUpload,
   number: InputText,
-  mde: MarkdownEditor,
   radio: InputRadio,
   radioTab: RadioTab,
   select: Select,
