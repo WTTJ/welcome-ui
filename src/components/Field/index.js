@@ -14,28 +14,31 @@ import { InputRadio } from '../InputRadio'
 import { Label } from '../Label'
 import { MarkdownEditor } from '../MarkdownEditor'
 import { RadioTab } from '../RadioTab'
+import { Select } from '../Select'
 import { Toggle } from '../Toggle'
 import { Hint } from '../Hint'
 
 // Fields
 import { StyledField } from './styles'
 
-const getFieldType = fieldType => {
-  const fieldTypes = {
-    checkbox: InputCheckbox,
-    email: InputText,
-    fileupload: FileUpload,
-    number: InputText,
-    mde: MarkdownEditor,
-    radio: InputRadio,
-    radioTab: RadioTab,
-    text: InputText,
-    textarea: InputTextarea,
-    toggle: Toggle
-  }
+const getIsRadio = type => includes(['radio', 'radioTab'], type)
+const getIsCheckable = type => includes(['toggle', 'checkbox', 'radio', 'radioTab'], type)
 
-  return fieldTypes[fieldType] || fieldTypes.text
+const FIELD_TYPES = {
+  checkbox: InputCheckbox,
+  email: InputText,
+  fileupload: FileUpload,
+  number: InputText,
+  mde: MarkdownEditor,
+  radio: InputRadio,
+  radioTab: RadioTab,
+  select: Select,
+  text: InputText,
+  textarea: InputTextarea,
+  toggle: Toggle
 }
+
+const getFieldType = type => FIELD_TYPES[type] || FIELD_TYPES.text
 
 export const Field = ({
   disabled,
@@ -43,69 +46,74 @@ export const Field = ({
   checked,
   children,
   disabledIcon,
-  groupName,
+  fieldType,
+  flexDirection,
+  hint,
+  label,
   name,
   onBlur,
   onChange,
   onFocus,
-  fieldType = 'text',
-  hint,
-  label,
+  options,
   placeholder,
   required,
-  warning,
-  ...props
+  touched,
+  type,
+  value,
+  warning
 }) => {
-  const { flexDirection, ...rest } = { ...props }
-  const isCheckable = () => {
-    return includes(['toggle', 'checkbox', 'radio'], fieldType)
-  }
+  const Component = getFieldType(fieldType || type)
+  const variant = getVariant({ touched, warning, error })
+  const isRadio = getIsRadio(type)
+  const isCheckable = getIsCheckable(type)
 
-  const showRequired = () => {
-    return includes(['radio', 'radioTab'], fieldType) ? null : required
-  }
-
-  const FieldType = getFieldType(fieldType)
-  const variant = getVariant(warning, error)
-
-  const hintText = error || warning || hint
-  const layout = flexDirection || isCheckable() ? 'row' : 'column'
+  const hintText = (touched && (error || warning)) || hint
+  const isShowRequired = isRadio ? null : required
+  const layout = flexDirection || isCheckable ? 'row' : 'column'
   const Container = layout === 'row' ? RowContainer : Fragment
+  const htmlFor = isRadio ? value : name // Use value for radio buttons
+
+  const field = (
+    <Component
+      checked={checked}
+      disabled={disabled}
+      fieldType={fieldType || type}
+      flexDirection={layout}
+      name={name}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+      options={options}
+      placeholder={placeholder}
+      required={required}
+      type={type}
+      value={value}
+      variant={variant}
+    >
+      {children}
+    </Component>
+  )
 
   return (
     <StyledField
-      checkableField={isCheckable()}
+      checkableField={isCheckable}
       checked={checked}
       fieldType={fieldType}
       flexDirection={layout}
-      {...rest}
     >
       <Container>
         {label && (
           <Label
             disabled={disabled}
             disabledIcon={disabledIcon}
-            htmlFor={name}
-            required={showRequired()}
+            htmlFor={htmlFor}
+            required={isShowRequired}
             variant={variant}
           >
             {label}
           </Label>
         )}
-        <FieldType
-          checked={checked}
-          disabled={disabled}
-          groupName={groupName}
-          name={name}
-          onBlur={onBlur}
-          onChange={onChange}
-          onFocus={onFocus}
-          placeholder={placeholder}
-          required={required}
-          variant={variant}
-        >
-          {children}
-        </FieldType>
+        {field}
       </Container>
       {hintText && <Hint variant={variant}>{hintText}</Hint>}
     </StyledField>
@@ -119,30 +127,21 @@ Field.propTypes = {
   /** Custom icon for disabled state */
   disabledIcon: PropTypes.node,
   error: PropTypes.string,
-  fieldProps: PropTypes.object,
   /** Field component */
-  fieldType: PropTypes.oneOf([
-    'mde',
-    'text',
-    'number',
-    'email',
-    'fileupload',
-    'textarea',
-    'radio',
-    'radioTab',
-    'toggle',
-    'radio',
-    'radioTab',
-    'checkbox'
-  ]).isRequired,
-  groupName: PropTypes.string,
+  fieldType: PropTypes.oneOf(Object.keys(FIELD_TYPES)).isRequired,
+  flexDirection: PropTypes.oneOf(['row', 'container']),
   hint: PropTypes.string,
+  /** For `select` fields */
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  options: PropTypes.any,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  touched: PropTypes.bool,
+  type: PropTypes.oneOf(Object.keys(FIELD_TYPES)).isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   warning: PropTypes.string
 }

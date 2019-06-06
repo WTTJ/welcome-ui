@@ -6,6 +6,7 @@ import { useDropzone } from 'react-dropzone'
 import { Icon } from '../Icon'
 import { Button } from '../Button'
 import { validateFileSize, validateMimeType } from '../../utils/validations'
+import { createEvent } from '../../utils/events.js'
 
 // FileUpload
 import { Actions, FilePreview, StyledFileUpload } from './styles.js'
@@ -40,9 +41,9 @@ export const FileUpload = ({
     const [file] = files
     file.preview = URL.createObjectURL(file)
 
-    setFile(file)
-    onChange && onChange(file)
-    onAddFile && onAddFile(file)
+    const event = createEvent({ name: input.name, file })
+    onChange && onChange(event)
+    onAddFile && onAddFile(event)
   }
 
   const handleDropRejected = files => {
@@ -58,8 +59,10 @@ export const FileUpload = ({
   const handleRemoveFile = e => {
     e.preventDefault()
     setFile(null)
-    onRemoveFile && onRemoveFile()
-    onChange && onChange(null)
+
+    const event = createEvent({ name: input.name, value: null })
+    onChange && onChange(event)
+    onRemoveFile && onRemoveFile(event)
   }
 
   const {
