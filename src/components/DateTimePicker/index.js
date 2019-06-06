@@ -27,10 +27,18 @@ export const DateTimePicker = ({
     return date ? new Date(nextDateInterval) : undefined
   }
 
-  const [focusedInput, setFocusedInput] = useState()
+  const [focusedInput, setFocusedInput] = useState(
+    (datePickerProps.autoFocus && 'date') || (timePickerProps.autoFocus && 'time') || null
+  )
   const [newDate, setNewDate] = useState(getDate(date))
 
-  const focusOn = kind => setFocusedInput(kind)
+  const focusOn = (kind, e) => {
+    let onDatePickerFocus = datePickerProps.onFocus
+    let onTimePickerFocus = timePickerProps.onFocus
+    setFocusedInput(kind)
+    kind === 'date' && onDatePickerFocus && onDatePickerFocus(e)
+    kind === 'time' && onTimePickerFocus && onTimePickerFocus(e)
+  }
 
   const handleChange = (newDate, kind) => {
     const date = getDate(newDate)
@@ -45,36 +53,35 @@ export const DateTimePicker = ({
     onChange && onChange(new Date(newDate))
   }
 
-  const onBlur = () => {
-    setFocusedInput()
-  }
+  const clickOutside = () => setFocusedInput(null)
 
   return (
     <S.DateTimePicker
       datePickerOnly={datePickerOnly}
       focusedInput={focusedInput}
-      onBlur={onBlur}
       timePickerOnly={timePickerOnly}
     >
       {!timePickerOnly && (
         <S.DatePicker
           dateFormat={datePickerDateFormat}
-          onChange={date => handleChange(date, 'date')}
-          onFocus={() => focusOn('date')}
-          selected={newDate}
           {...datePickerProps}
+          onChange={date => handleChange(date, 'date')}
+          onClickOutside={clickOutside}
+          onFocus={e => focusOn('date', e)}
+          selected={newDate}
         />
       )}
       {!datePickerOnly && (
         <S.TimePicker
           dateFormat={timePickerDateFormat}
-          onChange={time => handleChange(time, 'time')}
-          onFocus={() => focusOn('time')}
-          selected={newDate}
           showTimeSelect
           showTimeSelectOnly
           timeIntervals={timeIntervals}
           {...timePickerProps}
+          onChange={time => handleChange(time, 'time')}
+          onClickOutside={clickOutside}
+          onFocus={e => focusOn('time', e)}
+          selected={newDate}
         />
       )}
     </S.DateTimePicker>
