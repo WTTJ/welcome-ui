@@ -9,7 +9,7 @@ import { StyledSelect } from './styles'
 const DropdownIndicator = <Icon name="down" size="xs" />
 
 export const Select = ({
-  autoFocus = false,
+  autoFocus,
   className,
   disabled = false,
   name,
