@@ -4,7 +4,7 @@ import includes from 'lodash.includes'
 
 // Common
 import { RowContainer } from '../../common/styles/layout'
-import { getVariant } from '../../utils/variants'
+import { getHintText, getVariant } from '../../utils/variants'
 // Components
 import { Label } from '../Label'
 import { Hint } from '../Hint'
@@ -21,6 +21,7 @@ export const Field = ({
   checked,
   children,
   component,
+  connected,
   disabledIcon,
   flexDirection,
   hint,
@@ -37,14 +38,19 @@ export const Field = ({
   value,
   warning
 }) => {
+  // Return early if no component
+  if (!component) {
+    return null
+  }
+
   const Component = component
-  const variant = getVariant({ touched, warning, error })
+  const variant = getVariant({ connected, touched, warning, error })
+  const hintText = getHintText({ connected, touched, warning, error, hint })
   const isRadio = getIsRadio(component.name)
   const isCheckable = getIsCheckable(component.name)
 
-  const hintText = (touched && (error || warning)) || hint
   const isShowRequired = isRadio ? null : required
-  const layout = flexDirection || isCheckable ? 'row' : 'column'
+  const layout = flexDirection || (isCheckable ? 'row' : 'column')
   const Container = layout === 'row' ? RowContainer : Fragment
   const htmlFor = isRadio ? value : name
 
@@ -100,11 +106,12 @@ Field.propTypes = {
   children: PropTypes.func,
   /** Field component */
   component: PropTypes.func.isRequired,
+  connected: PropTypes.bool,
   disabled: PropTypes.bool,
   /** Custom icon for disabled state */
   disabledIcon: PropTypes.node,
   error: PropTypes.string,
-  flexDirection: PropTypes.oneOf(['row', 'container']),
+  flexDirection: PropTypes.oneOf(['row', 'column']),
   hint: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
@@ -116,7 +123,7 @@ Field.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   touched: PropTypes.bool,
-  type: PropTypes.oneOf(['text', 'tel', 'email', 'password', 'file']),
+  type: PropTypes.oneOf(['text', 'radio', 'checkbox', 'tel', 'email', 'password', 'file']),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   warning: PropTypes.string
 }

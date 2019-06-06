@@ -1,10 +1,24 @@
 import { get } from '../theme/helpers'
 
-export const getVariant = ({ touched, warning, error }) => {
-  if (!touched) return undefined
-  if (error) return 'error'
-  if (warning) return 'warning'
+const isPristine = (connected, touched) => connected && !touched
+
+export const getVariant = ({ connected, touched, warning, error }) => {
+  if (isPristine(connected, touched)) {
+    return undefined
+  } else if (error) {
+    return 'error'
+  } else if (warning) {
+    return 'warning'
+  }
   return undefined
+}
+
+export const getHintText = ({ connected, touched, warning, error, hint }) => {
+  if (isPristine(connected, touched)) {
+    return hint
+  } else {
+    return error || warning || hint
+  }
 }
 
 const variantStateColors = {
