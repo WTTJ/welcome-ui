@@ -50,6 +50,7 @@ export const DateTimePicker = ({
       newDate = newDate.setFullYear(date.getFullYear(), date.getMonth(), date.getDate())
     }
     setNewDate(newDate)
+    setFocusedInput(null)
     onChange && onChange(new Date(newDate))
   }
 
