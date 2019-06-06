@@ -51,8 +51,8 @@ exports[`<Button> renders correctly 1`] = `
   box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.05);
 }
 
-.c0 > *:last-child {
-  margin-left: 0.625rem;
+.c0 > *:first-child:not(:only-child) {
+  margin-right: 0.625rem;
 }
 
 .c0::before {
@@ -96,7 +96,7 @@ exports[`<Button> renders correctly 1`] = `
 
 <button
   className="c0"
-  size="auto"
+  size="md"
 >
   Test button
 </button>

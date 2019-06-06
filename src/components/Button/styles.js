@@ -18,10 +18,6 @@ const sizes = {
   `
 }
 
-function getButtonSize(size) {
-  return sizes[size] || sizes['md']
-}
-
 export const pulsingStyles = css`
   overflow: visible;
 
@@ -40,7 +36,7 @@ export const pulsingStyles = css`
 export const Button = styled.button(
   props => css`
     ${getCss(`buttons.${props.variant || 'primary'}`)};
-    ${getButtonSize(props.size, props.rounded)};
+    ${sizes[props.size] || sizes.md};
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -58,8 +54,8 @@ export const Button = styled.button(
     transition: ${get('transitions.medium')};
     ${system};
 
-    & > *:last-child {
-      margin-left: ${get('space.sm')};
+    & > *:first-child:not(:only-child) {
+      margin-right: ${get('space.sm')};
     }
 
     &::before {

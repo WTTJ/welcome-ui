@@ -20,7 +20,8 @@
     "docz:build": "docz build",
     "docz:clean": "rm -rf .docz && rm -rf dist",
     "clean": "yarn docz:clean && yarn start",
-    "now-build": "yarn docz:build"
+    "now-build": "yarn docz:build",
+    "phoenix": "rm -rf node_modules && yarn cache clean && yarn"
   },
   "files": [
     "dist/esm/*",
