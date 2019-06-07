@@ -18,12 +18,22 @@ Customize with `<GrowlTitle>`, `<GrowlAction>` or `<GrowlClose>`.
 
 ## Example
 
+To use `Growl` components you'll want to…
+
+1. Import and spread the `useGrowl` hook
+2. Add a `GrowlContainer` to your app
+3. Add a trigger to add `Growl` items to the `GrowlContainer`
+
+To test the placement of `Growl` items, open the editor and change the `position` prop of the `GrowlContainer`. 
+
 <Playground>
   {() => {
-    const { addGrowl, removeGrowl, content } = useGrowl()
+    // Import and spread the `useGrowl` hook
+    const { addGrowl, removeGrowl, content } = useGrowl() 
 
+    // Create a `Growl` item, passing `removeGrowl` through as `onClose`
     const growl = (
-      <Growl onClose={removeGrowl}>
+      <Growl onClose={removeGrowl}> 
         <GrowlTitle>
           <Icon name="megaphone" size="sm" /> Lorem ipsum dolor sit amet
         </GrowlTitle>
@@ -36,9 +46,10 @@ Customize with `<GrowlTitle>`, `<GrowlAction>` or `<GrowlClose>`.
       </Growl>
     )
 
+    // Create a trigger (here we use a button)
     return (
       <>
-        <GrowlContainer content={content} />
+        <GrowlContainer content={content} position='top-left' />
         <Button onClick={() => addGrowl(growl)}>Show Growl</Button>
       </>
     )
@@ -93,7 +104,7 @@ Variant properties `info` (default), `error` or `warning` with automatic color.
   </Box>
 </Playground>
 
-## Customs
+## Custom elements
 
 Change close component, don't add icon on title, remove action button...
 
@@ -126,6 +137,10 @@ Change close component, don't add icon on title, remove action button...
 </Playground>
 
 ## Properties
+
+### GrowlContainer
+
+<Props of={GrowlContainer} />
 
 ### Growl
 

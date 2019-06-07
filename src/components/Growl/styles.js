@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { getVariantStateColor } from '../../utils/variants'
 import { get, getCss } from '../../theme/helpers'
 
-const POSITIONS = {
+export const POSITIONS = {
   'top-right': css`
     top: 0;
     right: 0;
@@ -30,6 +30,8 @@ export const GrowlContainer = styled.div(({ position }) => {
     z-index: 1000;
     padding: ${get('space.md')};
     ${POSITIONS[position] || POSITIONS['top-right']};
+    max-height: 100vh;
+    overflow: auto;
   `
 })
 
