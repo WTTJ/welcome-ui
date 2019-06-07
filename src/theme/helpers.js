@@ -5,10 +5,16 @@ import { hexToRGB } from '../utils/hexToRGB'
 
 const getThemeValue = (theme, path) => {
   const value = _get(theme, path)
-  if (process.env.NODE_ENV !== 'development' && value === undefined) {
-    // eslint-disable-next-line no-console
-    console.warn(`${path} is not available in this theme`)
+  if (process.env.NODE_ENV !== 'production') {
+    if (value === undefined) {
+      // eslint-disable-next-line no-console
+      console.warn(`${path} is not available in this theme`)
+    } else if (typeof value !== 'string' && typeof value !== 'number') {
+      // eslint-disable-next-line no-console
+      console.warn(`${path} is returning an object rather than a value`, value)
+    }
   }
+
   return value
 }
 
@@ -39,9 +45,10 @@ export const getCss = (path, fallback) => ({ theme }) => {
     `
   }
 
-  if (process.env.NODE_ENV !== 'development') {
+  if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
-    console.warn(`${path} is not returning CSS but a value`)
+    console.warn(`${path} is returning a value rather than CSS`, value)
   }
+
   return value
 }
