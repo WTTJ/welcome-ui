@@ -4,7 +4,7 @@ import { colors } from './colors'
 import { fonts } from './fonts'
 import { getButtons } from './buttons'
 import { getFields } from './fields'
-import { getFontSizes } from './typography'
+import { getFontSizes, getLineHeights, getTexts } from './typography'
 import { getGrowls } from './growls'
 import { getTabs } from './tabs'
 import { getTags } from './tags'
@@ -35,6 +35,7 @@ export const getBaseTheme = (options = {}) => {
   theme.defaultFontSize = defaultFontSize
   theme.fonts = fonts
   theme.fontSizes = getFontSizes('rem', theme)
+  theme.lineHeights = getLineHeights(theme)
   theme.fontWeights = {
     regular: '400',
     medium: '500',
@@ -88,6 +89,7 @@ export const getBaseTheme = (options = {}) => {
   theme.buttons = getButtons(theme)
   theme.fields = getFields(theme)
   theme.growls = getGrowls(theme)
+  theme.texts = getTexts(theme)
   theme.tabs = getTabs(theme)
   theme.tags = getTags(theme)
   theme.tooltips = getTooltips(theme)
