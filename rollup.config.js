@@ -23,7 +23,6 @@ const globals = {
   'react-dom': 'ReactDOM',
   'react-router-dom': 'ReactRouterDOM',
   'styled-components': 'styled',
-  'prop-types': 'PropTypes',
   'lodash.merge': 'merge',
   'lodash.get': 'get',
   'lodash.concat': 'concat',

@@ -55,6 +55,7 @@
     "@emotion/core": "^10.0.9",
     "babel-eslint": "=10.0.1",
     "babel-jest": "=24.7.1",
+    "babel-plugin-transform-react-remove-prop-types": "=0.4.24",
     "css-loader": "=2.1.1",
     "docz": "1.2.0",
     "docz-theme-default": "1.2.0",
