@@ -6,11 +6,12 @@ module.exports = {
   },
   presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
   plugins: [
+    ['transform-react-remove-prop-types', { removeImport: true }],
     [
       'styled-components',
       {
         ssr: true,
-        displayName: false
+        displayName: true
       }
     ],
     '@babel/plugin-proposal-class-properties'
