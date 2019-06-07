@@ -14,7 +14,7 @@ export const RadioGroup = ({ children, label, required, flexDirection }) => (
       </Label>
     )}
     <StyledRadios flexDirection={flexDirection}>
-      {children.map(child => cloneElement(child, { flexDirection }))}
+      {children.map(child => cloneElement(child, { key: child.props.value, flexDirection }))}
     </StyledRadios>
   </StyledFieldGroup>
 )

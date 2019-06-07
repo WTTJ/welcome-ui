@@ -8,7 +8,7 @@ export const DoczForm = ({ children, initialValues }) => {
   const handleChange = e => {
     e.preventDefault()
     const { target } = e
-    const value = target.type === 'checkbox' ? target.checked : target.value
+    const value = target.type === 'checkbox' ? !values[target.name] : target.value
     setValues({
       ...values,
       [target.name]: value
