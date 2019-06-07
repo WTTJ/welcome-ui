@@ -5,7 +5,8 @@ export const getGrowls = ({ fontSizes, fontWeights, colors, radii }) => ({
     'border-color': colors.nude[200],
     'border-width': '1px',
     'border-style': 'solid',
-    'border-radius': radii.md
+    'border-radius': radii.md,
+    'max-width': '25rem'
   },
   title: {
     'font-size': fontSizes.body2,

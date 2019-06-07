@@ -3,11 +3,41 @@ import styled, { css } from 'styled-components'
 import { getVariantStateColor } from '../../utils/variants'
 import { get, getCss } from '../../theme/helpers'
 
+const POSITIONS = {
+  'top-right': css`
+    top: 0;
+    right: 0;
+  `,
+  'top-left': css`
+    top: 0;
+    left: 0;
+  `,
+  'bottom-right': css`
+    bottom: 0;
+    right: 0;
+  `,
+  'bottom-left': css`
+    bottom: 0;
+    left: 0;
+  `
+}
+
+export const GrowlContainer = styled.div(({ position }) => {
+  return css`
+    width: 70%;
+    max-width: 25rem;
+    position: fixed;
+    z-index: 1000;
+    padding: ${get('space.md')};
+    ${POSITIONS[position] || POSITIONS['top-right']};
+  `
+})
+
 export const Growl = styled.div`
   position: relative;
-  width: 70%;
-  max-width: 25rem;
+  width: 100%;
   padding: ${get('space.lg')};
+  margin-bottom: ${get('space.md')};
   ${getCss('growls.default')};
 `
 
