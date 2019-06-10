@@ -13,9 +13,12 @@ export const DateTimePicker = ({
   timePickerProps = {}
 }) => {
   // set defaults
-  const datePickerDateFormat = datePickerProps.dateFormat || 'dd/MM/yyyy'
-  const timePickerDateFormat = timePickerProps.dateFormat || 'HH:mm'
-  const timeIntervals = timePickerProps.timeIntervals || 15
+  const datePickerDefaultDateFormat = 'dd/MM/yyyy'
+  const timePickerDefaultDateFormat = 'HH:mm'
+  const defaultTimeIntervals = 15
+  const datePickerDateFormat = datePickerProps.dateFormat || datePickerDefaultDateFormat
+  const timePickerDateFormat = timePickerProps.dateFormat || timePickerDefaultDateFormat
+  const timeIntervals = timePickerProps.timeIntervals || defaultTimeIntervals
 
   const getDate = newDate => {
     let minutes = new Date(newDate).getMinutes()
@@ -41,6 +44,7 @@ export const DateTimePicker = ({
   }
 
   const handleChange = (newDate, kind) => {
+    if (!newDate) return
     const date = getDate(newDate)
 
     if (kind === 'date') {
@@ -50,7 +54,6 @@ export const DateTimePicker = ({
       newDate = newDate.setFullYear(date.getFullYear(), date.getMonth(), date.getDate())
     }
     setNewDate(newDate)
-    setFocusedInput(null)
     onChange && onChange(new Date(newDate))
   }
 
@@ -75,14 +78,14 @@ export const DateTimePicker = ({
       {!datePickerOnly && (
         <S.TimePicker
           dateFormat={timePickerDateFormat}
-          showTimeSelect
-          showTimeSelectOnly
           timeIntervals={timeIntervals}
           {...timePickerProps}
           onChange={time => handleChange(time, 'time')}
           onClickOutside={clickOutside}
           onFocus={e => focusOn('time', e)}
           selected={newDate}
+          showTimeSelect
+          showTimeSelectOnly
         />
       )}
     </S.DateTimePicker>

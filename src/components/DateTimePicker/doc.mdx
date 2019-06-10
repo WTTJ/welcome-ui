@@ -4,6 +4,7 @@ route: /components/DateTimePicker
 menu: Components
 ---
 
+import fr from 'date-fns/locale/fr'
 import { Props } from 'docz'
 import Playground from '../../../docz.styled'
 
@@ -32,10 +33,10 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
   <DateTimePicker date={Date.now()} timePickerProps={{ timeIntervals: 30 }} />
 </Playground>
 
-## DatePicker only
+## DatePicker only + fr locale
 
 <Playground>
-  <DateTimePicker datePickerOnly date={Date.now()} onChange={date => console.log('date: ', date)} />
+  <DateTimePicker datePickerOnly date={Date.now()} onChange={date => console.log('date: ', date)} datePickerProps={{ locale: fr }} />
 </Playground>
 
 ## TimePickerOnly

@@ -18,6 +18,10 @@ const overridingStyles = css`
     font-family: inherit;
   }
 
+  .react-datepicker--time-only .react-datepicker__time-box {
+    border-radius: 0;
+  }
+
   .react-datepicker__time-container
     .react-datepicker__time
     .react-datepicker__time-box
