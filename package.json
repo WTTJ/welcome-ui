@@ -87,6 +87,7 @@
     "svgo": "=1.2.2"
   },
   "dependencies": {
+    "@xstyled/system": "^1.2.0",
     "lodash.concat": "^4.5.0",
     "lodash.get": "^4.4.2",
     "lodash.includes": "^4.3.0",
@@ -94,8 +95,7 @@
     "prop-types": "^15.7.2",
     "react-dropzone": "^10.1.5",
     "react-select": "=3.0.4",
-    "styled-components": "^4.2.1",
-    "styled-system": "^4.2.4"
+    "styled-components": "^4.2.1"
   },
   "peerDependencies": {
     "react": "^16.8.0",
