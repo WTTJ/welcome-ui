@@ -1,0 +1,61 @@
+---
+name: Text
+route: /components/text
+menu: Components
+---
+
+import { Props } from 'docz'
+import { StyledPlayground as Playground } from '../../../docz.styled'
+
+import { Text } from './index'
+
+# Text
+
+The `Text` component allows you to remain consistent with your text sizing and line-height. To add additional padding/margins use the `space` values from (https://styled-system.com/api#space).
+
+## Typography
+
+<Playground>
+  <>
+    <Text variant="h1">Heading 1</Text>
+    <Text variant="h2">Heading 2</Text>
+    <Text variant="h3">Heading 3</Text>
+    <Text variant="h4">Heading 4</Text>
+    <Text variant="body1">Body 1</Text>
+    <Text variant="body2">Body 2</Text>
+    <Text variant="body3">Body 3</Text>
+    <Text variant="body4">Body 4</Text>
+    <Text variant="subtitle1">Subtitle 1</Text>
+    <Text variant="subtitle2">Subtitle 2</Text>
+    <Text variant="meta1">Meta 1</Text>
+    <Text variant="meta2">Meta 2</Text>
+  </>
+</Playground>
+
+## Bring your own tag
+
+You can pass a tag name with `as` to use that tag type with the styling from another tag. For example…
+
+<Playground>
+  <>
+    <Text variant="h1" as="p">`p` tag styled as an `H1`</Text>
+    <Text variant="p" as="h1">`H1` tag styled as a `p`</Text>
+  </>
+</Playground>
+
+## Truncation
+
+Set the number of lines you want to display with `lines`. Your text will be displayed truncated with an ellipsis (`...`) at the end (if necessary).
+<Playground>
+  <>
+    <Text lines={1}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis viverra lectus, vel tristique turpis. Vivamus magna nulla, elementum in feugiat feugiat, egestas eget nibh. Ut ac justo vitae dolor iaculis gravida. In eu nisl lorem. Cras eu mauris et tortor suscipit accumsan. Duis ullamcorper nisl a justo ultricies, eu consequat risus imperdiet. Phasellus at metus cursus, fringilla tortor eu, scelerisque quam. Donec efficitur porta elit ac malesuada.</Text>
+    <Text lines={3}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis viverra lectus, vel tristique turpis. Vivamus magna nulla, elementum in feugiat feugiat, egestas eget nibh. Ut ac justo vitae dolor iaculis gravida. In eu nisl lorem. Cras eu mauris et tortor suscipit accumsan. Duis ullamcorper nisl a justo ultricies, eu consequat risus imperdiet. Phasellus at metus cursus, fringilla tortor eu, scelerisque quam. Donec efficitur porta elit ac malesuada.</Text>
+    <Text lines={3}>Lorem ipsum dolor sit amet</Text>
+  </>
+</Playground>
+
+
+
+## Properties
+
+<Props of={Text} />
