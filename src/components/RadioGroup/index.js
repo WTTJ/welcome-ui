@@ -1,45 +1,27 @@
-import React, { useState } from 'react'
+import React, { cloneElement } from 'react'
 import PropTypes from 'prop-types'
 
 import { StyledFieldGroup } from '../FieldGroup/styles'
 import { Label } from '../Label'
 
-import { Radios } from './styles'
+import { StyledRadios } from './styles'
 
-export const RadioGroup = ({ children, groupName, label, required, checkedName, ...props }) => {
-  const { flexDirection } = { ...props }
-  const [checked, setChecked] = useState(checkedName)
-
-  const onChange = e => {
-    setChecked(e.target.id)
-  }
-
-  const childrenWithProps = React.Children.map(children, child =>
-    React.cloneElement(child, {
-      checked: child.props.name === checked,
-      fieldType: child.props.fieldType || 'radio',
-      groupName: groupName,
-      ...props
-    })
-  )
-
-  return (
-    <StyledFieldGroup onChange={onChange} {...props}>
-      {label && (
-        <Label as="legend" required={required}>
-          {label}
-        </Label>
-      )}
-      <Radios flexDirection={flexDirection}>{childrenWithProps}</Radios>
-    </StyledFieldGroup>
-  )
-}
+export const RadioGroup = ({ children, label, required, flexDirection }) => (
+  <StyledFieldGroup>
+    {label && (
+      <Label as="legend" required={required}>
+        {label}
+      </Label>
+    )}
+    <StyledRadios flexDirection={flexDirection}>
+      {children.map(child => cloneElement(child, { key: child.props.value, flexDirection }))}
+    </StyledRadios>
+  </StyledFieldGroup>
+)
 
 RadioGroup.propTypes = {
-  checkedName: PropTypes.string,
   children: PropTypes.node,
-  groupName: PropTypes.string.isRequired,
-  /** name of selected radio (refers to the id id={name}) */
+  flexDirection: PropTypes.oneOf(['column', 'row']),
   label: PropTypes.string,
   required: PropTypes.bool
 }

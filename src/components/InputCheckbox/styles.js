@@ -12,16 +12,16 @@ const checkedStyles = css`
   }
 `
 
-export const StyledInputCheckbox = styled.div(
-  ({ checked, order = '-1', ...props }) => css`
+export const StyledCheckbox = styled.div(
+  ({ checked, order = '-1', type }) => css`
     ${fieldTypeStyles};
     ${getCss('fields.checkboxes.default')}
     position: relative;
     padding: 0;
     order: ${order};
     cursor: pointer;
-    border-radius: ${props.type === 'radio' && '50%'};
-    transition: ${get('transitions.medium')};
+    border-radius: ${type === 'radio' && '50%'};
+    transition: ${get('transitions.sm')};
 
     &::after {
       content: '✓';
@@ -41,3 +41,5 @@ export const StyledInputCheckbox = styled.div(
     ${system};
   `
 )
+
+export const StyledRadio = StyledCheckbox

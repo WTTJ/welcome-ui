@@ -8,11 +8,11 @@ import { Disabled, Required, StyledLabel, Variant } from './styles'
 
 export const Label = ({
   children,
-  disabled = false,
+  disabled,
   disabledIcon,
   errorWarningIcon,
   htmlFor,
-  required = false,
+  required,
   variant
 }) => {
   const getVariantIcon = variant => {

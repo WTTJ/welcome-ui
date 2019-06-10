@@ -20,7 +20,11 @@ const getThemeValue = (theme, path) => {
 
 const rgba = (theme, path, opacity) => {
   const value = getThemeValue(theme, `colors.${path.join('.')}`)
-  return `rgba(${hexToRGB(value)}, ${opacity})`
+  if (value && typeof value === 'string') {
+    return `rgba(${hexToRGB(value)}, ${opacity})`
+  } else {
+    return undefined
+  }
 }
 
 export const get = (path, fallback) => ({ theme }) => {

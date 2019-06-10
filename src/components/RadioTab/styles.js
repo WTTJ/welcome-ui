@@ -10,7 +10,7 @@ export const StyledRadioTab = styled.div`
   flex: 1;
 `
 
-export const Input = styled.input`
+export const StyledInput = styled.input`
   position: absolute;
   top: 0;
   left: 0;
@@ -40,6 +40,7 @@ const columnStyles = css`
 
 const rowStyles = css`
   margin-left: -${get('borderWidths.sm')};
+  margin-bottom: 0;
 
   &:first-child {
     margin-left: 0;
@@ -56,6 +57,7 @@ const rowStyles = css`
 
 export const radioTabStyles = props => css`
   flex: 1;
+  margin: 0;
   ${StyledLabel} {
     ${fieldTypeStyles};
     flex-grow: 1;

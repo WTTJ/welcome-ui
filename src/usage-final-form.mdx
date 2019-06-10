@@ -1,0 +1,82 @@
+---
+name: Final Form
+route: /usage-final-form
+menu: Usage
+---
+
+import { Form } from 'react-final-form'
+import { Playground } from '../docz.styled'
+import { DoczCodeBlock } from '../docz/CodeBlock'
+
+import { Button } from './components/Button'
+import { ConnectedField } from './components/ConnectedField'
+import { FieldGroup } from './components/FieldGroup'
+import { RadioGroup } from './components/RadioGroup'
+import { InputText } from './components/InputText'
+import { InputTextarea } from './components/InputTextarea'
+import { InputCheckbox } from './components/InputCheckbox'
+import { Toggle } from './components/Toggle'
+import { InputRadio } from './components/InputRadio'
+import { RadioTab } from './components/RadioTab'
+import { Select } from './components/Select'
+import { FileUpload } from './components/FileUpload'
+
+# Usage with form libraries
+
+You'll probably use [Final Form](https://github.com/final-form/react-final-form), [Redux Form](https://github.com/erikras/redux-form) or [Formik](https://github.com/jaredpalmer/formik) to manage your form state. If so, make sure you import `Field` from `final/Field`.
+
+<Playground>
+  {() => {
+    const submitForm = (values) => {
+      console.debug('values', values)
+    }
+    const toTitleCase = str => str.charAt(0).toUpperCase() + str.slice(1)
+    const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'].map(month => ({label: toTitleCase(month), value: month}))
+
+    return (
+      <Form
+        initialValues={{ firstName: 'Fish', description: 'Fancy that', diet: 'herbivore', dogs: true, hungry: true, weekday: 'tuesday' }}
+        onSubmit={submitForm}
+        validate={(values) => {
+          let errors = {}
+          if (!values.lastName) {
+            errors.lastName = "Required"
+          }
+          return errors
+        }}
+        render={({ handleSubmit, values }) => (
+          <form onSubmit={handleSubmit}>
+            <ConnectedField name="firstName" component={InputText} placeholder="Boaty" label="First name" />
+            <ConnectedField name="lastName" component={InputText} placeholder="McBoatface" label="Last name" />
+            <ConnectedField name="telephone" component={InputText} type='tel' placeholder="123456789" label="Phone number" />
+            <RadioGroup label="Dietary">
+              <ConnectedField name="diet" component={InputRadio} value="vegan" label="Vegan" />
+              <ConnectedField name="diet" component={InputRadio} value="herbivore" label="Herbivore" />
+              <ConnectedField name="diet" component={InputRadio} value="omnivore" label="Omnivore" checked />
+              <ConnectedField name="diet" component={InputRadio} value="carnivore" label="Carnivore" />
+            </RadioGroup>
+            <RadioGroup label="Favourite weekday" flexDirection="row" required>
+              <ConnectedField name="weekday" component={RadioTab} value="monday" label="Monday" />
+              <ConnectedField name="weekday" component={RadioTab} value="tuesday" label="Tuesday" />
+              <ConnectedField name="weekday" component={RadioTab} value="wednesday" label="Wednesday" checked />
+              <ConnectedField name="weekday" component={RadioTab} value="thursday" label="Thursday" />
+              <ConnectedField name="weekday" component={RadioTab} value="friday" label="Friday" />
+            </RadioGroup>
+            <ConnectedField name="month" component={Select} options={months} value="february" label="Favourite month" />
+            <ConnectedField name="hungry" component={Toggle} label="Hungry" />
+            <FieldGroup label="Animals">
+              <ConnectedField name="dogs" component={InputCheckbox} label="Dogs" checked />
+              <ConnectedField name="cats" component={InputCheckbox} label="Cats" />
+            </FieldGroup>
+            <ConnectedField name="summary" component={InputTextarea} placeholder="Keep it short" label="Summary" />
+            <ConnectedField name="profile" component={FileUpload} label="Profile pic" />
+            <Button type="submit">Go!</Button>
+            <DoczCodeBlock>{values}</DoczCodeBlock>
+          </form>
+        )}
+      />
+    )
+
+}}
+
+</Playground>

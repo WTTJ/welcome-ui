@@ -10,6 +10,7 @@ import { createEvent } from '../../utils/events.js'
 
 // FileUpload
 import { Actions, FilePreview, StyledFileUpload } from './styles.js'
+import { DefaultContent } from './default.js'
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
@@ -21,10 +22,10 @@ const getPreviewUrl = url =>
 export const FileUpload = ({
   input,
   accept = 'image/*',
-  disabled = false,
-  multiple = false,
+  disabled,
+  multiple,
   maxSize = DEFAULT_MAX_FILE_SIZE,
-  children,
+  children = DefaultContent,
   onAddFile,
   onChange,
   onError,
@@ -41,7 +42,7 @@ export const FileUpload = ({
     const [file] = files
     file.preview = URL.createObjectURL(file)
 
-    const event = createEvent({ name: input.name, file })
+    const event = createEvent({ name: input.name, value: file })
     onChange && onChange(event)
     onAddFile && onAddFile(event)
   }
@@ -115,7 +116,7 @@ export const FileUpload = ({
 
 FileUpload.propTypes = {
   accept: PropTypes.string,
-  children: PropTypes.func.isRequired,
+  children: PropTypes.func,
   disabled: PropTypes.bool,
   input: PropTypes.node,
   maxSize: PropTypes.number,

@@ -2,10 +2,10 @@ import styled, { css } from 'styled-components'
 
 import { system } from '../../utils/utils'
 
-export const Radios = styled.div(
-  () => css`
+export const StyledRadios = styled.div(
+  ({ flexDirection }) => css`
     display: flex;
-    flex-direction: column;
+    flex-direction: ${flexDirection};
     ${system};
   `
 )

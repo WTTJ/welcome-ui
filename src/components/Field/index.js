@@ -4,47 +4,25 @@ import includes from 'lodash.includes'
 
 // Common
 import { RowContainer } from '../../common/styles/layout'
-import { getVariant } from '../../utils/variants'
+import { getHintText, getVariant } from '../../utils/variants'
 // Components
-import { FileUpload } from '../FileUpload'
-import { InputText } from '../InputText'
-import { InputTextarea } from '../InputTextarea'
-import { InputCheckbox } from '../InputCheckbox'
-import { InputRadio } from '../InputRadio'
 import { Label } from '../Label'
-import { RadioTab } from '../RadioTab'
-import { Select } from '../Select'
-import { Toggle } from '../Toggle'
 import { Hint } from '../Hint'
 
 // Fields
 import { StyledField } from './styles'
 
-const getIsRadio = type => includes(['radio', 'radioTab'], type)
-const getIsCheckable = type => includes(['toggle', 'checkbox', 'radio', 'radioTab'], type)
-
-const FIELD_TYPES = {
-  checkbox: InputCheckbox,
-  email: InputText,
-  fileupload: FileUpload,
-  number: InputText,
-  radio: InputRadio,
-  radioTab: RadioTab,
-  select: Select,
-  text: InputText,
-  textarea: InputTextarea,
-  toggle: Toggle
-}
-
-const getFieldType = type => FIELD_TYPES[type] || FIELD_TYPES.text
+const getIsRadio = type => includes(['InputRadio', 'RadioTab'], type)
+const getIsCheckable = type => includes(['Toggle', 'InputCheckbox', 'InputRadio', 'RadioTab'], type)
 
 export const Field = ({
   disabled,
   error,
   checked,
   children,
+  component,
+  connected,
   disabledIcon,
-  fieldType,
   flexDirection,
   hint,
   label,
@@ -60,22 +38,26 @@ export const Field = ({
   value,
   warning
 }) => {
-  const Component = getFieldType(fieldType || type)
-  const variant = getVariant({ touched, warning, error })
-  const isRadio = getIsRadio(type)
-  const isCheckable = getIsCheckable(type)
+  // Return early if no component
+  if (!component) {
+    return null
+  }
 
-  const hintText = (touched && (error || warning)) || hint
+  const Component = component
+  const variant = getVariant({ connected, touched, warning, error })
+  const hintText = getHintText({ connected, touched, warning, error, hint })
+  const isRadio = getIsRadio(component.name)
+  const isCheckable = getIsCheckable(component.name)
+
   const isShowRequired = isRadio ? null : required
-  const layout = flexDirection || isCheckable ? 'row' : 'column'
+  const layout = flexDirection || (isCheckable ? 'row' : 'column')
   const Container = layout === 'row' ? RowContainer : Fragment
-  const htmlFor = isRadio ? value : name // Use value for radio buttons
+  const htmlFor = isRadio ? value : name
 
   const field = (
     <Component
       checked={checked}
       disabled={disabled}
-      fieldType={fieldType || type}
       flexDirection={layout}
       name={name}
       onBlur={onBlur}
@@ -96,7 +78,7 @@ export const Field = ({
     <StyledField
       checkableField={isCheckable}
       checked={checked}
-      fieldType={fieldType}
+      fieldType={component.name}
       flexDirection={layout}
     >
       <Container>
@@ -108,10 +90,11 @@ export const Field = ({
             required={isShowRequired}
             variant={variant}
           >
+            {isCheckable && field}
             {label}
           </Label>
         )}
-        {field}
+        {!isCheckable && field}
       </Container>
       {hintText && <Hint variant={variant}>{hintText}</Hint>}
     </StyledField>
@@ -121,25 +104,26 @@ export const Field = ({
 Field.propTypes = {
   checked: PropTypes.bool,
   children: PropTypes.func,
+  /** Field component */
+  component: PropTypes.func.isRequired,
+  connected: PropTypes.bool,
   disabled: PropTypes.bool,
   /** Custom icon for disabled state */
   disabledIcon: PropTypes.node,
   error: PropTypes.string,
-  /** Field component */
-  fieldType: PropTypes.oneOf(Object.keys(FIELD_TYPES)).isRequired,
-  flexDirection: PropTypes.oneOf(['row', 'container']),
+  flexDirection: PropTypes.oneOf(['row', 'column']),
   hint: PropTypes.string,
-  /** For `select` fields */
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
+  /** For `select` fields */
   options: PropTypes.any,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   touched: PropTypes.bool,
-  type: PropTypes.oneOf(Object.keys(FIELD_TYPES)).isRequired,
+  type: PropTypes.oneOf(['text', 'radio', 'checkbox', 'tel', 'email', 'password', 'file']),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   warning: PropTypes.string
 }

@@ -1,14 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Input } from './styles'
+import { StyledInput } from './styles'
 
-export const RadioTab = ({ checked, name, groupName }) => (
-  <Input defaultChecked={checked} id={name} name={groupName} type="radio" />
+export const RadioTab = ({ checked, disabled, name, onBlur, onChange, onFocus, value }) => (
+  <StyledInput
+    checked={checked}
+    disabled={disabled}
+    id={value}
+    name={name}
+    onBlur={onBlur}
+    onChange={onChange}
+    onFocus={onFocus}
+    type="radio"
+    value={value}
+  />
 )
 
 RadioTab.propTypes = {
   checked: PropTypes.bool,
-  groupName: PropTypes.string.isRequired,
-  name: PropTypes.string
+  disabled: PropTypes.bool,
+  name: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  value: PropTypes.string
 }
