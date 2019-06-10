@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import ReactDatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 import { get } from '../../theme/helpers'
 import { fieldTypeStyles } from '../../common/styles/form'

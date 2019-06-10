@@ -111,5 +111,10 @@
     "hooks": {
       "pre-push": "yarn lint && yarn icons:optimize && yarn icons:collect && yarn test"
     }
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/mocks/styleMock.js"
+    }
   }
 }

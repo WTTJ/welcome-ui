@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { bool, func, number, object, oneOfType, string } from 'prop-types'
-import 'react-datepicker/dist/react-datepicker.css'
 
 import * as S from './styles'
 
