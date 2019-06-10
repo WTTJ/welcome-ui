@@ -18,8 +18,8 @@ const TAG_NAMES = {
   meta2: 'p'
 }
 
-export const Text = ({ children, lines, variant = 'body1' }) => {
-  const tagName = TAG_NAMES[variant]
+export const Text = ({ as, children, lines, variant = 'body1' }) => {
+  const tagName = as || TAG_NAMES[variant]
 
   return (
     <StyledText as={tagName} lines={lines} variant={variant}>
@@ -29,6 +29,7 @@ export const Text = ({ children, lines, variant = 'body1' }) => {
 }
 
 Text.propTypes = {
+  as: string,
   children: string,
   lines: number,
   variant: oneOf(Object.keys(TAG_NAMES))

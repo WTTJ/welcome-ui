@@ -32,6 +32,17 @@ The `Text` component allows you to remain consistent with your text sizing and l
   </>
 </Playground>
 
+## Bring your own tag
+
+You can pass a tag name with `as` to use that tag type with the styling from another tag. For example…
+
+<Playground>
+  <>
+    <Text variant="h1" as="p">`p` tag styled as an `H1`</Text>
+    <Text variant="p" as="h1">`H1` tag styled as a `p`</Text>
+  </>
+</Playground>
+
 ## Truncation
 
 Set the number of lines you want to display with `lines`. Your text will be displayed truncated with an ellipsis (`...`) at the end (if necessary).
