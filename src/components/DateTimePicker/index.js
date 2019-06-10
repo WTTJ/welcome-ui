@@ -4,7 +4,7 @@ import { bool, func, number, object, oneOfType, string } from 'prop-types'
 import * as S from './styles'
 
 export const DateTimePicker = ({
-  date,
+  value = new Date(),
   datePickerOnly,
   datePickerProps = {},
   onChange,
@@ -26,13 +26,13 @@ export const DateTimePicker = ({
       minutes - minutesToPreviousInterval + (minutesToPreviousInterval === 0 ? 0 : timeIntervals)
     let nextDateInterval = new Date(newDate).setMinutes(nextMinutesInterval, 0, 0)
 
-    return date ? new Date(nextDateInterval) : undefined
+    return value ? new Date(nextDateInterval) : undefined
   }
 
   const [focusedInput, setFocusedInput] = useState(
     (datePickerProps.autoFocus && 'date') || (timePickerProps.autoFocus && 'time') || null
   )
-  const [newDate, setNewDate] = useState(getDate(date))
+  const [newDate, setNewDate] = useState(getDate(value))
 
   const focusOn = (kind, e) => {
     let onDatePickerFocus = datePickerProps.onFocus
@@ -92,10 +92,10 @@ export const DateTimePicker = ({
 }
 
 DateTimePicker.propTypes = {
-  date: oneOfType([number, object, string]).isRequired,
   datePickerOnly: bool,
   datePickerProps: object,
   onChange: func,
   timePickerOnly: bool,
-  timePickerProps: object
+  timePickerProps: object,
+  value: oneOfType([number, object, string]).isRequired
 }

@@ -20,6 +20,7 @@ import { InputRadio } from '../InputRadio'
 import { RadioTab } from '../RadioTab'
 import { Select } from '../Select'
 import { FileUpload } from '../FileUpload'
+import { DateTimePicker } from '../DateTimePicker'
 
 # Field
 
@@ -314,6 +315,18 @@ You can find additional props for each field component in [Fields](/fields/file-
       return <h3>Drop file to upload</h3>
     }}
   </Field>
+</Playground>
+
+## DateTimePicker
+
+<Playground>
+  <Field
+    name='random-sixteen'
+    component={DateTimePicker}
+    value={Date.now() - 18 * 365 * 24 * 3600 * 1000}
+    label='Tell us your birth date and time (if you remember it)'
+    onChange={date => console.log('date: ', date)}
+  />
 </Playground>
 
 ## Properties
