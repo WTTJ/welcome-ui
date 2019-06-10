@@ -7,17 +7,17 @@ import { render } from '../../utils/tests'
 import { DateTimePicker } from './index'
 
 test('<DateTimePicker> renders correctly', () => {
-  const dateTimePicker = render(<DateTimePicker date={Date.now()} />).toJSON()
+  const dateTimePicker = render(<DateTimePicker value={Date.now()} />).toJSON()
   expect(dateTimePicker.children.length).toEqual(2)
 })
 
 test('<DateTimePicker> renders only DatePicker when prop datePickerOnly is true', () => {
-  const dateTimePicker = render(<DateTimePicker date={Date.now()} datePickerOnly />).toJSON()
+  const dateTimePicker = render(<DateTimePicker datePickerOnly value={Date.now()} />).toJSON()
   expect(dateTimePicker.children.length).toEqual(1)
 })
 
 test('<DateTimePicker> renders only TimePicker when prop timePickerOnly is true', () => {
-  const dateTimePicker = render(<DateTimePicker date={Date.now()} timePickerOnly />).toJSON()
+  const dateTimePicker = render(<DateTimePicker timePickerOnly value={Date.now()} />).toJSON()
   expect(dateTimePicker.children.length).toEqual(1)
 })
 
@@ -35,7 +35,7 @@ afterEach(() => {
 
 it('can render and opens the datePicker on click', () => {
   act(() => {
-    ReactDOM.render(<DateTimePicker date={Date.now()} />, container)
+    ReactDOM.render(<DateTimePicker value={Date.now()} />, container)
   })
   const datePicker = container.querySelectorAll('input')[0]
 
@@ -51,7 +51,7 @@ it('should render next time interval if current time is between 2 intervals', ()
   const date = new Date().setHours(12, 25, 0, 0)
 
   act(() => {
-    ReactDOM.render(<DateTimePicker date={new Date(date)} />, container)
+    ReactDOM.render(<DateTimePicker value={new Date(date)} />, container)
   })
 
   const timePicker = container.querySelectorAll('input')[1]
@@ -65,7 +65,7 @@ it('should not render next interval if current time is a multiple of the interva
   const date = new Date().setHours(12, 30, 0, 0)
 
   act(() => {
-    ReactDOM.render(<DateTimePicker date={new Date(date)} />, container)
+    ReactDOM.render(<DateTimePicker value={new Date(date)} />, container)
   })
 
   const timePicker = container.querySelectorAll('input')[1]
@@ -80,7 +80,7 @@ it('should render next plain hour if timeInterval is 60', () => {
 
   act(() => {
     ReactDOM.render(
-      <DateTimePicker date={new Date(date)} timePickerProps={{ timeIntervals: 60 }} />,
+      <DateTimePicker timePickerProps={{ timeIntervals: 60 }} value={new Date(date)} />,
       container
     )
   })

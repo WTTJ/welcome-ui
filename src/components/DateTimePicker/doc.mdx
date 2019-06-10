@@ -18,31 +18,31 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 ## Simple use case
 
 <Playground>
-  <DateTimePicker date={Date.now()} onChange={date => console.log('date: ', date)} />
+  <DateTimePicker value={Date.now()} onChange={date => console.log('date: ', date)} />
 </Playground>
 
 ## Pass props to DatePicker
 
 <Playground>
-  <DateTimePicker date={Date.now()} datePickerProps={{ dateFormat: 'MMM dd YYYY' }} />
+  <DateTimePicker value={Date.now()} datePickerProps={{ dateFormat: 'MMM dd YYYY' }} />
 </Playground>
 
 ## Pass props to TimePicker
 
 <Playground>
-  <DateTimePicker date={Date.now()} timePickerProps={{ timeIntervals: 30 }} />
+  <DateTimePicker value={Date.now()} timePickerProps={{ timeIntervals: 30 }} />
 </Playground>
 
 ## DatePicker only + fr locale
 
 <Playground>
-  <DateTimePicker datePickerOnly date={Date.now()} onChange={date => console.log('date: ', date)} datePickerProps={{ locale: fr }} />
+  <DateTimePicker datePickerOnly value={Date.now()} onChange={date => console.log('date: ', date)} datePickerProps={{ locale: fr }} />
 </Playground>
 
 ## TimePickerOnly
 
 <Playground>
-  <DateTimePicker timePickerOnly date={Date.now()} onChange={date => console.log('date: ', date)} />
+  <DateTimePicker timePickerOnly value={Date.now()} onChange={date => console.log('date: ', date)} />
 </Playground>
 
 ## Properties
