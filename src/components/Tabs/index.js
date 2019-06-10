@@ -47,12 +47,16 @@ const Tabs = ({ children, defaultActiveTab, onChangeTab }) => {
     const name = child.props.name
     const isActiveTab = activeTab ? activeTab === name : key === 0
 
-    return React.cloneElement(child, {
-      active: isActiveTab,
-      onClick: () => !isActiveTab && updateActiveTab(name, child),
-      // set ref to active tab
-      ref: isActiveTab ? activeRef : null
-    })
+    return (
+      <li>
+        {React.cloneElement(child, {
+          active: isActiveTab,
+          onClick: () => !isActiveTab && updateActiveTab(name, child),
+          // set ref to active tab
+          ref: isActiveTab ? activeRef : null
+        })}
+      </li>
+    )
   })
 
   return (
