@@ -14,8 +14,10 @@ export const List = styled.ul`
   display: flex;
 `
 
-export const Item = styled.li(
+export const Item = styled.button(
   props => css`
+    border: 0;
+    background: none;
     ${getCss('tabs.item.default')};
     ${props.active && getCss('tabs.item.active')};
     display: flex;
@@ -30,11 +32,6 @@ export const Item = styled.li(
     &:hover,
     &:focus {
       ${!props.active && getCss('tabs.item.focus')};
-    }
-
-    a {
-      color: inherit;
-      font-size: inherit;
     }
 
     & > *:first-child {

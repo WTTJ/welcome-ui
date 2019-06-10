@@ -5,7 +5,7 @@ import * as S from './styles'
 
 export const TabsItem = forwardRef(({ active, children, onClick }, ref) => {
   return (
-    <S.Item active={active} onClick={onClick} ref={ref} role="tab" tabIndex="1">
+    <S.Item active={active} onClick={onClick} ref={ref} role="tab">
       {children}
     </S.Item>
   )

@@ -28,20 +28,22 @@ Tabs make it easy to explore and switch between different views.
       <>
         <Tabs onChangeTab={setBloc}>
           <TabsItem name="tab1">
-            <div>Tab1</div>
+            Tab1
           </TabsItem>
           <TabsItem name="tab2">
-            <div>Tab2</div>
+            Tab2
           </TabsItem>
           <TabsItem name="tab3">
-            <div>Tab3</div>
+            Tab3
           </TabsItem>
           <TabsItem name="tabRandom">
-            <div>Long title</div>
+            Long title
           </TabsItem>
-          <TabsItem name="link">
-            <a href="/#/components/tabs">Link</a>
-          </TabsItem>
+          <a href="/components/tabs#with-default-active">
+            <TabsItem name="link">
+              Link
+            </TabsItem>
+          </a>
         </Tabs>
         <div style={{ marginTop: "30px", fontSize: "0.85rem" }}>
           {bloc ? `you have selected ${bloc}` : 'by default, the first child is active'}
