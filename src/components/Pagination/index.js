@@ -1,8 +1,8 @@
 import { func, node, number } from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { Icon } from '../Icon'
-import { useKeyboardEvent } from '../../utils/hooks'
+import { useKeyboardEvent, useRefElement } from '../../utils/hooks'
 
 import { PageItem } from './item'
 import * as S from './styles'
@@ -16,6 +16,10 @@ export const Pagination = ({
   rightArrow
 }) => {
   const [activePage, setActivePage] = useState(defaultPage)
+  // set target element
+  const [targetElm, setTargetElm] = useState(null)
+  const targetRef = useRefElement(setTargetElm, true)
+  const activeRef = useRef()
 
   const handlePrevPage = () => {
     if (activePage > 1) {
@@ -58,8 +62,13 @@ export const Pagination = ({
     }
   }
 
-  useKeyboardEvent('ArrowLeft', handlePrevPage)
-  useKeyboardEvent('ArrowRight', handleNextPage)
+  /** accessibility **/
+  useKeyboardEvent('ArrowLeft', handlePrevPage, targetElm)
+  useKeyboardEvent('ArrowRight', handleNextPage, targetElm)
+  // add correct focus when activePage change
+  useEffect(() => {
+    activeRef && activeRef.current.focus()
+  }, [activePage])
 
   // when defaultPage property change from parent, we set new active page
   useEffect(() => {
@@ -70,7 +79,7 @@ export const Pagination = ({
   const getFirstPageNumber = getPageNumberBefore()[0]
 
   return (
-    <S.Pagination>
+    <S.Pagination ref={targetRef}>
       {activePage > 1 && (
         <li>
           <S.ArrowItemLeft onClick={handlePrevPage}>
@@ -79,7 +88,12 @@ export const Pagination = ({
         </li>
       )}
       {getFirstPageNumber > 1 && (
-        <PageItem activePage={activePage} handleChange={handleChange} page={1} />
+        <PageItem
+          activePage={activePage}
+          handleChange={handleChange}
+          page={1}
+          ref={activePage === 1 ? activeRef : null}
+        />
       )}
       {getFirstPageNumber > 2 && <S.Dots>...</S.Dots>}
       {getPageNumberBefore().map(page => (
@@ -88,11 +102,17 @@ export const Pagination = ({
           handleChange={handleChange}
           key={`page_${page}`}
           page={page}
+          ref={activePage === page ? activeRef : null}
         />
       ))}
       {numberOfPagesEnding < pageCount - 1 && <S.Dots>...</S.Dots>}
       {numberOfPagesEnding < pageCount && (
-        <PageItem activePage={activePage} handleChange={handleChange} page={pageCount} />
+        <PageItem
+          activePage={activePage}
+          handleChange={handleChange}
+          page={pageCount}
+          ref={activePage === pageCount ? activeRef : null}
+        />
       )}
       {activePage < pageCount && (
         <li>

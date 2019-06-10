@@ -16,17 +16,12 @@ export const useEventListener = (eventName, handler, element = global) => {
   }, [eventName, element])
 }
 
-export const useKeyboardEvent = (key, callback) => {
-  useEffect(() => {
-    const handler = function(event) {
-      if (event.key === key) {
-        callback(event)
-      }
+export const useKeyboardEvent = (key, callback, element) => {
+  const handler = event => {
+    if (event.key === key) {
+      callback(event)
     }
+  }
 
-    window.addEventListener('keydown', handler)
-    return () => {
-      window.removeEventListener('keydown', handler)
-    }
-  }, [callback, key])
+  useEventListener('keydown', handler, element)
 }
