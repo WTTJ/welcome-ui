@@ -62,17 +62,19 @@ export const Button = styled.button(
       background: ${get('rgba.light.200', 0.05)};
     }
 
-    &:active {
-      transform: translateY(2px);
-    }
+    ${!props.disabled &&
+      css`
+        &:active {
+          transform: translateY(2px);
+        }
 
-    &:hover,
-    &:focus {
-      ${!props.disabled && getCss(`buttons.focused.${props.variant || 'primary'}`)};
-    }
+        &:hover,
+        &:focus {
+          ${getCss(`buttons.focused.${props.variant || 'primary'}`)};
+        }
+      `};
 
     &[disabled] {
-      ${getCss('buttons.disabled')};
       pointer-events: none;
     }
   `
