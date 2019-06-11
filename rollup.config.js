@@ -25,8 +25,7 @@ const globals = {
   'styled-components': 'styled',
   'lodash.merge': 'merge',
   'lodash.get': 'get',
-  'lodash.concat': 'concat',
-  'lodash.includes': 'includes'
+  'lodash.concat': 'concat'
 }
 
 const plugins = [babel({ exclude: 'node_modules/**' }), resolve(), commonjs(), postcss()]

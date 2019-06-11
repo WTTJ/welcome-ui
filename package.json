@@ -89,7 +89,6 @@
   "dependencies": {
     "lodash.concat": "^4.5.0",
     "lodash.get": "^4.4.2",
-    "lodash.includes": "^4.3.0",
     "lodash.merge": "^4.6.1",
     "prop-types": "^15.7.2",
     "react-dropzone": "^10.1.5",

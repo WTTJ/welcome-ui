@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import includes from 'lodash.includes'
 
 // Common
 import { RowContainer } from '../../common/styles/layout'
@@ -12,15 +11,12 @@ import { Hint } from '../Hint'
 // Fields
 import { StyledField } from './styles'
 
-const getIsRadio = type => includes(['InputRadio', 'RadioTab'], type)
-const getIsCheckable = type => includes(['Toggle', 'InputCheckbox', 'InputRadio', 'RadioTab'], type)
-
 export const Field = ({
   disabled,
   error,
   checked,
   children,
-  component,
+  component: Component,
   connected,
   disabledIcon,
   flexDirection,
@@ -39,15 +35,14 @@ export const Field = ({
   warning
 }) => {
   // Return early if no component
-  if (!component) {
+  if (!Component) {
     return null
   }
 
-  const Component = component
   const variant = getVariant({ connected, touched, warning, error })
   const hintText = getHintText({ connected, touched, warning, error, hint })
-  const isRadio = getIsRadio(component.name)
-  const isCheckable = getIsCheckable(component.name)
+  const isRadio = type === 'radio'
+  const isCheckable = ['checkbox', 'radio'].includes(type)
 
   const isShowRequired = isRadio ? null : required
   const layout = flexDirection || (isCheckable ? 'row' : 'column')
@@ -78,7 +73,7 @@ export const Field = ({
     <StyledField
       checkableField={isCheckable}
       checked={checked}
-      fieldType={component.name}
+      fieldType={Component.type}
       flexDirection={layout}
     >
       <Container>

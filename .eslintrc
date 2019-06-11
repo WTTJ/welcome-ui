@@ -8,6 +8,7 @@
   "parser": "babel-eslint",
   "plugins": ["import", "react-hooks"],
   "rules": {
+    "no-console": "warn",
     "import/order": ["warn", { "newlines-between": "always" }],
     "sort-imports": [
       "warn",

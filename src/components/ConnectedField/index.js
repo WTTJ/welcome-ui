@@ -13,7 +13,7 @@ const types = {
 
 export const ConnectedField = ({ component, type, ...rest }) => (
   <FinalField
-    type={types[component.name] || type}
+    type={types[component.type] || type}
     {...rest}
     render={({ input, meta }) => (
       <Field {...rest} {...input} {...meta} component={component} connected />

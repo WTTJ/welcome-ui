@@ -17,6 +17,8 @@ export const RadioTab = ({ checked, disabled, name, onBlur, onChange, onFocus, v
   />
 )
 
+RadioTab.type = 'RadioTab'
+
 RadioTab.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,

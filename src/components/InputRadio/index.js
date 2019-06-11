@@ -29,6 +29,8 @@ export const InputRadio = ({
   </StyledCheckbox>
 )
 
+InputRadio.type = 'InputRadio'
+
 InputRadio.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,

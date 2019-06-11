@@ -33,6 +33,8 @@ export const InputCheckbox = ({
   )
 }
 
+InputCheckbox.type = 'InputCheckbox'
+
 InputCheckbox.propTypes = {
   Component: PropTypes.elementType,
   checked: PropTypes.bool,
