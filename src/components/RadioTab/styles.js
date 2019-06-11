@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { get, getCss } from '../../theme/helpers'
 import { overflowEllipsis } from '../../common/styles/text'
+import { system } from '../../utils/utils'
 // common form styles
 import { fieldTypeStyles } from '../../common/styles/form'
 import { StyledLabel } from '../Label/styles'
@@ -15,6 +16,7 @@ export const StyledInput = styled.input`
   top: 0;
   left: 0;
   opacity: 0;
+  ${system};
 `
 
 const checkedStyles = css`

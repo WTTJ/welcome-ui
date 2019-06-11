@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import { get, getCss } from '../../theme/helpers'
+import { system } from '../../utils/utils'
 import { Button as StyledButton } from '../Button/styles'
 
 const getBorderColor = ({ isDragAccept, isDragReject }) => {
@@ -32,6 +33,7 @@ export const StyledFileUpload = styled.div(
     justify-content: space-between;
     align-items: center;
     padding: ${get('space.md')};
+    ${system};
 
     h3 {
       font-size: ${get('fontSizes.h3')};

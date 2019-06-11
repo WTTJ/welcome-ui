@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import { get, getCss } from '../../theme/helpers'
+import { system } from '../../utils/utils'
 
 const baseStyle = css`
   display: flex;
@@ -20,6 +21,7 @@ const baseStyle = css`
 export const Pagination = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  ${system};
 `
 
 const Item = styled.button`

@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import { get, getCss } from '../../theme/helpers'
+import { system } from '../../utils/utils'
 
 export const Tooltip = styled.div(
   props => css`
@@ -11,5 +12,6 @@ export const Tooltip = styled.div(
     padding: ${get('space.sm')};
     font-size: ${get('fontSizes.body4')};
     z-index: 999;
+    ${system};
   `
 )

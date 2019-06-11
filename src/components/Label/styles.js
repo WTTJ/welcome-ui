@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { getVariantStateColor } from '../../utils/variants'
 import { get, getCss } from '../../theme/helpers'
+import { system } from '../../utils/utils'
 
 export const Disabled = styled.div`
   display: inline-flex;
@@ -27,4 +28,5 @@ export const StyledLabel = styled.label`
   flex-shrink: 0;
   align-items: center;
   ${getCss('fields.label')};
+  ${system};
 `
