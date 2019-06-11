@@ -51,12 +51,15 @@ export const DateTimePicker = ({
 
   return (
     <S.DateTimePicker
+      data-testid="dateTimePicker"
       datePickerOnly={datePickerOnly}
       focusedInput={focusedInput}
       timePickerOnly={timePickerOnly}
     >
       {!timePickerOnly && (
         <S.DatePicker
+          calendarClassName="date-picker-popper"
+          className="date-picker"
           dateFormat={datePickerDateFormat}
           {...datePickerProps}
           onChange={date => handleChange(date, 'date')}
@@ -67,6 +70,8 @@ export const DateTimePicker = ({
       )}
       {!datePickerOnly && (
         <S.TimePicker
+          calendarClassName="time-picker-popper"
+          className="time-picker"
           dateFormat={timePickerDateFormat}
           timeIntervals={timeIntervals}
           {...timePickerProps}
