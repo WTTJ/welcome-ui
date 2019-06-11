@@ -9,9 +9,6 @@ const getThemeValue = (theme, path) => {
     if (value === undefined) {
       // eslint-disable-next-line no-console
       console.warn(`${path} is not available in this theme`)
-    } else if (typeof value !== 'string' && typeof value !== 'number') {
-      // eslint-disable-next-line no-console
-      console.warn(`${path} is returning an object rather than a value`, value)
     }
   }
 
@@ -34,6 +31,16 @@ export const get = (path, fallback) => ({ theme }) => {
   }
 
   const value = getThemeValue(theme, path, fallback)
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    typeof value !== 'string' &&
+    typeof value !== 'number'
+  ) {
+    // eslint-disable-next-line no-console
+    console.warn(`${path} is returning an object rather than a value`, value)
+  }
+
   return value
 }
 
