@@ -21,7 +21,7 @@ const checkedDisabledStyles = css`
 `
 
 export const StyledToggle = styled.div(({ checked, disabled, order = '-1', ...props }) => {
-  const toggleSize = getCss('fields.toggles.default.width')(props)
+  const toggleSize = get('fields.toggles.default.width')(props)
   return css`
     ${getCss('fields.toggles.default')};
     ${disabled && getCss('fields.toggles.disabled')};
