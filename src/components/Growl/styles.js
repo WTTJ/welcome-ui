@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { getVariantStateColor } from '../../utils/variants'
 import { get, getCss } from '../../theme/helpers'
+import { system } from '../../utils/utils'
 
 export const Growl = styled.div`
   position: relative;
@@ -9,6 +10,7 @@ export const Growl = styled.div`
   max-width: 25rem;
   padding: ${get('space.lg')};
   ${getCss('growls.default')};
+  ${system};
 `
 
 export const Title = styled.div(

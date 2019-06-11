@@ -2,11 +2,13 @@ import styled, { css } from 'styled-components'
 import { left, width } from '@xstyled/system'
 
 import { get, getCss } from '../../theme/helpers'
+import { system } from '../../utils/utils'
 
 export const Tabs = styled.nav`
   width: 100%;
   overflow: auto;
   position: relative;
+  ${system};
 `
 
 export const List = styled.ul`

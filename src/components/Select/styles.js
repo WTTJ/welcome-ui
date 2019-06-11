@@ -3,8 +3,11 @@ import Select from 'react-select'
 
 import { get, getCss } from '../../theme/helpers'
 import { fieldTypeStyles } from '../../common/styles/form'
+import { system } from '../../utils/utils'
 
 export const StyledSelect = styled(Select)`
+  ${system};
+
   .wui__control {
     ${fieldTypeStyles};
     box-shadow: none;

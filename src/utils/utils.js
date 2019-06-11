@@ -1,4 +1,3 @@
-import { css } from 'styled-components'
 import {
   alignContent,
   alignItems,
@@ -49,9 +48,3 @@ export const system = compose(
   textAlign,
   width
 )
-
-export const overflowEllipsis = css`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`
