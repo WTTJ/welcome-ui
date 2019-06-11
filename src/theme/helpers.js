@@ -34,6 +34,7 @@ export const get = (path, fallback) => ({ theme }) => {
 
   if (
     process.env.NODE_ENV !== 'production' &&
+    value &&
     typeof value !== 'string' &&
     typeof value !== 'number'
   ) {
