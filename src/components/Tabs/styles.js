@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { left, width } from 'styled-system'
+import { left, width } from '@xstyled/system'
 
 import { get, getCss } from '../../theme/helpers'
 

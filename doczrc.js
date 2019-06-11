@@ -7,7 +7,7 @@ const theme = createTheme(welcomeTheme)
 
 export default {
   title: 'Welcome UI',
-  description: 'Design system of @wttj with react, styled-components and styled-system',
+  description: 'Design system of @wttj with react, styled-components and system-ui',
   base: '/',
   dest: '/docs',
   wrapper: 'wrapper',

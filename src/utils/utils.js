@@ -23,7 +23,7 @@ import {
   space,
   textAlign,
   width
-} from 'styled-system'
+} from '@xstyled/system'
 
 export const system = compose(
   alignContent,
