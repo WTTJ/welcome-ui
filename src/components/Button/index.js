@@ -5,9 +5,15 @@ import { IconButton } from '../IconButton'
 
 import * as S from './styles'
 
-const Button = ({ children, size = 'md', variant = 'primary', ...props }) => {
+const Button = ({ children, size = 'md', variant = 'primary', disabled, ...props }) => {
   return (
-    <S.Button size={size} variant={variant} {...props}>
+    <S.Button
+      data-testid="button"
+      disabled={disabled}
+      size={size}
+      variant={disabled ? 'disabled' : variant}
+      {...props}
+    >
       {children}
     </S.Button>
   )
@@ -15,6 +21,7 @@ const Button = ({ children, size = 'md', variant = 'primary', ...props }) => {
 
 Button.propTypes = {
   children: PropTypes.node,
+  disabled: PropTypes.bool,
   /** To set the button size */
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   /** To set a rounded button */
@@ -22,7 +29,6 @@ Button.propTypes = {
     'primary',
     'secondary',
     'tertiary',
-    'disabled',
     'primary-warning',
     'secondary-warning',
     'primary-danger',
