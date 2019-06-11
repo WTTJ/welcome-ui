@@ -21,7 +21,7 @@ export const StyledCheckbox = styled.div(
     order: ${order};
     cursor: pointer;
     border-radius: ${type === 'radio' && '50%'};
-    transition: ${get('transitions.sm')};
+    transition: ${get('transitions.medium')};
 
     &::after {
       content: '✓';
