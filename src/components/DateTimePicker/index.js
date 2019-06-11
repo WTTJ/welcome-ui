@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { bool, func, number, object, oneOfType, string } from 'prop-types'
 
+import { getDate } from './utils'
 import * as S from './styles'
 
 export const DateTimePicker = ({
@@ -19,20 +20,10 @@ export const DateTimePicker = ({
   const timePickerDateFormat = timePickerProps.dateFormat || timePickerDefaultDateFormat
   const timeIntervals = timePickerProps.timeIntervals || defaultTimeIntervals
 
-  const getDate = newDate => {
-    let minutes = new Date(newDate).getMinutes()
-    let minutesToPreviousInterval = minutes % timeIntervals
-    let nextMinutesInterval =
-      minutes - minutesToPreviousInterval + (minutesToPreviousInterval === 0 ? 0 : timeIntervals)
-    let nextDateInterval = new Date(newDate).setMinutes(nextMinutesInterval, 0, 0)
-
-    return value ? new Date(nextDateInterval) : undefined
-  }
-
   const [focusedInput, setFocusedInput] = useState(
     (datePickerProps.autoFocus && 'date') || (timePickerProps.autoFocus && 'time') || null
   )
-  const [newDate, setNewDate] = useState(getDate(value))
+  const [newDate, setNewDate] = useState(getDate(value, timeIntervals))
 
   const focusOn = (kind, e) => {
     let onDatePickerFocus = datePickerProps.onFocus
@@ -44,7 +35,7 @@ export const DateTimePicker = ({
 
   const handleChange = (newDate, kind) => {
     if (!newDate) return
-    const date = getDate(newDate)
+    const date = getDate(newDate, timeIntervals)
 
     if (kind === 'date') {
       newDate = newDate.setHours(date.getHours(), date.getMinutes())
