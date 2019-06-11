@@ -78,7 +78,6 @@
     "react-dom": "16.8.6",
     "react-final-form": "=6.0.1",
     "react-router-dom": "4.2.2",
-    "react-test-renderer": "=16.8.6",
     "rollup": "=1.12.4",
     "rollup-plugin-babel": "=4.3.2",
     "rollup-plugin-commonjs": "=10.0.0",
@@ -94,6 +93,7 @@
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.1",
     "prop-types": "^15.7.2",
+    "react-datepicker": "^2.6.0",
     "react-dropzone": "^10.1.5",
     "react-select": "=3.0.4",
     "styled-components": "^4.2.1"

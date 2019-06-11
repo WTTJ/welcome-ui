@@ -1,0 +1,50 @@
+---
+name: DateTimePicker
+route: /components/Fields/DateTimePicker
+menu: Fields
+---
+
+import fr from 'date-fns/locale/fr'
+import { Props } from 'docz'
+import { Playground } from '../../../docz.styled'
+
+import { DateTimePicker } from './index.js'
+
+# DateTimePicker
+
+It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
+[All the props](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) the library exposes can be passed to either DatePicker or TimePicker through the `datePickerProps` and `timePickerProps`
+
+## Simple use case
+
+<Playground>
+  <DateTimePicker value={Date.now()} onChange={date => console.log('date: ', date)} />
+</Playground>
+
+## Pass props to DatePicker
+
+<Playground>
+  <DateTimePicker value={Date.now()} datePickerProps={{ dateFormat: 'MMM dd YYYY' }} />
+</Playground>
+
+## Pass props to TimePicker
+
+<Playground>
+  <DateTimePicker value={Date.now()} timePickerProps={{ timeIntervals: 30 }} />
+</Playground>
+
+## DatePicker only + fr locale
+
+<Playground>
+  <DateTimePicker datePickerOnly value={Date.now()} onChange={date => console.log('date: ', date)} datePickerProps={{ locale: fr }} />
+</Playground>
+
+## TimePickerOnly
+
+<Playground>
+  <DateTimePicker timePickerOnly value={Date.now()} onChange={date => console.log('date: ', date)} />
+</Playground>
+
+## Properties
+
+<Props of={DateTimePicker} />

@@ -33,7 +33,8 @@ export const Field = ({
   touched,
   type,
   value,
-  warning
+  warning,
+  ...props
 }) => {
   // Return early if no component
   if (!Component) {
@@ -66,6 +67,7 @@ export const Field = ({
       type={baseType}
       value={value}
       variant={variant}
+      {...props}
     >
       {children}
     </Component>
@@ -121,6 +123,6 @@ Field.propTypes = {
   required: PropTypes.bool,
   touched: PropTypes.bool,
   type: PropTypes.oneOf(['text', 'radio', 'checkbox', 'tel', 'email', 'password', 'file']),
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.object, PropTypes.string]),
   warning: PropTypes.string
 }
