@@ -3,17 +3,11 @@ import { bool, func, object, shape, string } from 'prop-types'
 import { Field as FinalField } from 'react-final-form'
 
 import { Field } from '../Field'
-
-const types = {
-  InputCheckbox: 'checkbox',
-  InputRadio: 'radio',
-  RadioTab: 'radio',
-  Toggle: 'checkbox'
-}
+import { getBaseType } from '../../utils/fields'
 
 export const ConnectedField = ({ component, type, ...rest }) => (
   <FinalField
-    type={types[component.type] || type}
+    type={getBaseType(component.type || type)}
     {...rest}
     render={({ input, meta }) => (
       <Field {...rest} {...input} {...meta} component={component} connected />

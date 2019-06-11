@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 // Common
 import { RowContainer } from '../../common/styles/layout'
 import { getHintText, getVariant } from '../../utils/variants'
+import { getBaseType } from '../../utils/fields'
 // Components
 import { Label } from '../Label'
 import { Hint } from '../Hint'
@@ -39,10 +40,11 @@ export const Field = ({
     return null
   }
 
+  const baseType = getBaseType(Component.type || type)
   const variant = getVariant({ connected, touched, warning, error })
   const hintText = getHintText({ connected, touched, warning, error, hint })
-  const isRadio = type === 'radio'
-  const isCheckable = ['checkbox', 'radio'].includes(type)
+  const isRadio = baseType === 'radio'
+  const isCheckable = ['checkbox', 'radio'].includes(baseType)
 
   const isShowRequired = isRadio ? null : required
   const layout = flexDirection || (isCheckable ? 'row' : 'column')
@@ -61,7 +63,7 @@ export const Field = ({
       options={options}
       placeholder={placeholder}
       required={required}
-      type={type}
+      type={baseType}
       value={value}
       variant={variant}
     >
@@ -99,7 +101,7 @@ export const Field = ({
 Field.propTypes = {
   checked: PropTypes.bool,
   children: PropTypes.func,
-  /** Field component */
+  /** Field component e.g. `InputText` or `FileUpload` */
   component: PropTypes.func.isRequired,
   connected: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -113,7 +115,7 @@ Field.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
-  /** For `select` fields */
+  /** For `Select` component */
   options: PropTypes.any,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
