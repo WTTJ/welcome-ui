@@ -7,6 +7,7 @@ import { Icon } from '../Icon'
 import { Disabled, Required, StyledLabel, Variant } from './styles'
 
 export const Label = ({
+  as,
   children,
   disabled,
   disabledIcon,
@@ -30,6 +31,7 @@ export const Label = ({
 
   return (
     <StyledLabel
+      as={as}
       disabled={disabled}
       disabledIcon={disabledIcon}
       errorWarningIcon={errorWarningIcon}
@@ -48,6 +50,7 @@ export const Label = ({
 }
 
 Label.propTypes = {
+  as: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   disabled: PropTypes.bool,
   disabledIcon: PropTypes.node,
