@@ -1,54 +1,44 @@
-import { terser } from 'rollup-plugin-terser'
 import babel from 'rollup-plugin-babel'
-import resolve from 'rollup-plugin-node-resolve'
+import nodeResolve from 'rollup-plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
-import commonjs from 'rollup-plugin-commonjs'
+import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 
-const base = {
-  input: 'src/index.js',
-  external: [
-    'react',
-    'react-dom',
-    'react-router-dom',
-    'prop-types',
-    'styled-components',
-    'lodash.merge',
-    'lodash.get',
-    'lodash.concat'
+import pkg from './package.json'
+
+const input = 'src/index.js'
+const external = id => !id.startsWith('.') && !id.startsWith('/')
+const getBabelOptions = ({ useESModules }) => ({
+  exclude: '**/node_modules/**',
+  runtimeHelpers: true,
+  configFile: './babel.config.js',
+  plugins: [
+    'babel-plugin-annotate-pure-calls',
+    ['@babel/plugin-transform-runtime', { useESModules }]
+  ]
+})
+
+const cjsConfig = {
+  input,
+  output: { file: pkg.main, format: 'cjs' },
+  external,
+  plugins: [
+    babel(getBabelOptions({ useESModules: false })),
+    nodeResolve(),
+    postcss(),
+    sizeSnapshot()
   ]
 }
 
-const globals = {
-  react: 'React',
-  'react-dom': 'ReactDOM',
-  'react-router-dom': 'ReactRouterDOM',
-  'styled-components': 'styled',
-  'lodash.merge': 'merge',
-  'lodash.get': 'get',
-  'lodash.concat': 'concat'
+const esmConfig = {
+  input,
+  output: { file: pkg.module, format: 'esm' },
+  external,
+  plugins: [
+    babel(getBabelOptions({ useESModules: true })),
+    nodeResolve(),
+    postcss(),
+    sizeSnapshot()
+  ]
 }
 
-const plugins = [babel({ exclude: 'node_modules/**' }), resolve(), commonjs(), postcss()]
-
-export default [
-  {
-    ...base,
-    plugins: [terser(), ...plugins],
-    output: {
-      globals,
-      file: 'dist/cjs/welcome-ui.js',
-      format: 'cjs',
-      name: 'JungleUI',
-      esModule: false
-    }
-  },
-  {
-    ...base,
-    plugins,
-    output: {
-      globals,
-      file: 'dist/esm/index.js',
-      format: 'esm'
-    }
-  }
-]
+export default [cjsConfig, esmConfig]

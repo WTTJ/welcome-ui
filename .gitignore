@@ -3,3 +3,4 @@ dist/
 docs/
 node_modules/
 .DS_Store
+.size-snapshot.json
