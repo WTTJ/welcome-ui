@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 
 import * as S from './styles'
 
-export const PageItem = forwardRef(({ page, activePage, handleChange }, ref) => {
+export const PageItem = forwardRef(({ activePage, handleChange, page }, ref) => {
   const handleClick = () => {
     handleChange(page)
   }

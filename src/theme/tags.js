@@ -1,4 +1,4 @@
-export const getTags = ({ fontSizes, fontWeights, colors, toRem, space }) => ({
+export const getTags = ({ colors, fontSizes, fontWeights, space, toRem }) => ({
   default: {
     'font-size': fontSizes.meta2,
     'font-weight': fontWeights.bold,

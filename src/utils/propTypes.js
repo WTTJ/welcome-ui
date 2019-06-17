@@ -6,9 +6,9 @@ export const reduxFormFieldPropTypes = {
   }).isRequired,
   meta: PropTypes.shape({
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-    warnings: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     submitFailed: PropTypes.bool.isRequired,
-    touched: PropTypes.bool.isRequired
+    touched: PropTypes.bool.isRequired,
+    warnings: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
   })
 }
 

@@ -6,7 +6,7 @@
   },
   "extends": ["eslint:recommended", "plugin:prettier/recommended", "plugin:react/all"],
   "parser": "babel-eslint",
-  "plugins": ["import", "react-hooks"],
+  "plugins": ["import", "react-hooks", "sort-destructure-keys"],
   "rules": {
     "no-console": "warn",
     "import/order": ["warn", { "newlines-between": "always" }],
@@ -17,11 +17,13 @@
         "memberSyntaxSortOrder": ["single", "all", "multiple", "none"]
       }
     ],
+    "sort-destructure-keys/sort-destructure-keys": ["warn", { "caseSensitive": false }],
     "prettier/prettier": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/require-default-props": "off",
     "react/jsx-filename-extension": "off",
+    "react/sort-prop-types": ["warn", { "ignoreCase": true, "sortShapeProp": true }],
     "react/jsx-indent": "off",
     "react/jsx-max-props-per-line": "off",
     "react/jsx-first-prop-new-line": "off",

@@ -9,7 +9,7 @@ export const GrowlAction = S.Action
 export const GrowlClose = S.CloseContent
 export { GrowlTitle } from './title'
 
-export const Growl = ({ children, onClose, close }) => (
+export const Growl = ({ children, close, onClose }) => (
   <S.Growl>
     {onClose && (
       <S.Close onClick={onClose}>

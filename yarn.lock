@@ -4539,6 +4539,13 @@ eslint-plugin-react@=7.12.4:
     prop-types "^15.6.2"
     resolve "^1.9.0"
 
+eslint-plugin-sort-destructure-keys@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sort-destructure-keys/-/eslint-plugin-sort-destructure-keys-1.2.0.tgz#1dddbc775bd3672319fd92f88d4efd6fe88dba1b"
+  integrity sha512-2rvRzhImWcq9r0hBojlvzCKlT7lYLrHCH/N37GWu7SKdn3G0PbEIXLt5pdHY6I4F49bmBQr1+7cBMM8XWv0xgQ==
+  dependencies:
+    natural-compare-lite "^1.4.0"
+
 eslint-scope@3.7.1:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-3.7.1.tgz#3d63c3edfda02e06e01a452ad88caacc7cdcb6e8"
@@ -7720,6 +7727,11 @@ nanomatch@^1.2.9:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
+
+natural-compare-lite@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/natural-compare-lite/-/natural-compare-lite-1.4.0.tgz#17b09581988979fddafe0201e931ba933c96cbb4"
+  integrity sha1-F7CVgZiJef3a/gIB6TG6kzyWy7Q=
 
 natural-compare@^1.4.0:
   version "1.4.0"
