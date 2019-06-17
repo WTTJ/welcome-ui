@@ -12,6 +12,7 @@
     "build": "rm -rf dist && rollup --config",
     "prepublishOnly": "yarn build",
     "release": "standard-version && conventional-github-releaser --preset angular",
+    "publish": "git push --follow-tags origin master && npm publish",
     "lint": "eslint src --max-warnings 0",
     "test": "jest src",
     "test:watch": "jest --watch",
@@ -32,7 +33,9 @@
     "welcome to the jungle",
     "WTTJ",
     "react",
-    "styled-components"
+    "styled-components",
+    "design-system",
+    "ui-library"
   ],
   "author": "WTTJ <tech@wttj.co>",
   "license": "MIT",
