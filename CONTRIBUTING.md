@@ -12,8 +12,8 @@ Each component will consist of:
 
 Automate versioning and CHANGELOG generation, with semver and conventional commit messages. We use `standard-version` && `conventional-github-releaser`
 
-`yarn run release`
+`yarn run release-build`
 
 Then run:
 
-`npm publish`
+`yarn run release-publish`
