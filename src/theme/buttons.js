@@ -92,6 +92,9 @@ export const getButtons = theme => {
       'border-color': colors.light[700]
     },
     sizes: {
+      xs: {
+        height: '1.25rem'
+      },
       sm: {
         height: '2rem'
       },
