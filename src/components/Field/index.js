@@ -128,7 +128,16 @@ Field.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   touched: PropTypes.bool,
-  type: PropTypes.oneOf(['text', 'radio', 'checkbox', 'tel', 'email', 'password', 'file']),
+  type: PropTypes.oneOf([
+    'checkbox',
+    'email',
+    'file',
+    'password',
+    'radio',
+    'search',
+    'tel',
+    'text'
+  ]),
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.object, PropTypes.string]),
   warning: PropTypes.string
 }
