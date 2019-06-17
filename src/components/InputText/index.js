@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { StyledInputText } from './styles'
 
 export const InputText = ({
+  autoFocus,
   disabled,
   name,
   onChange,
@@ -16,6 +17,7 @@ export const InputText = ({
 }) => {
   return (
     <StyledInputText
+      autoFocus={autoFocus}
       disabled={disabled}
       id={name}
       name={name}
@@ -31,6 +33,7 @@ export const InputText = ({
 }
 
 InputText.propTypes = {
+  autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
   name: PropTypes.string,
   onBlur: PropTypes.func,

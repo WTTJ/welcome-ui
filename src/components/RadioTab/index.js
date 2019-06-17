@@ -3,8 +3,18 @@ import PropTypes from 'prop-types'
 
 import { StyledInput } from './styles'
 
-export const RadioTab = ({ checked, disabled, name, onBlur, onChange, onFocus, value }) => (
+export const RadioTab = ({
+  autoFocus,
+  checked,
+  disabled,
+  name,
+  onBlur,
+  onChange,
+  onFocus,
+  value
+}) => (
   <StyledInput
+    autoFocus={autoFocus}
     checked={checked}
     disabled={disabled}
     id={value}
@@ -20,6 +30,7 @@ export const RadioTab = ({ checked, disabled, name, onBlur, onChange, onFocus, v
 RadioTab.type = 'RadioTab'
 
 RadioTab.propTypes = {
+  autoFocus: PropTypes.bool,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   name: PropTypes.string,

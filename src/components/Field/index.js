@@ -13,13 +13,14 @@ import { Hint } from '../Hint'
 import { StyledField } from './styles'
 
 export const Field = ({
-  disabled,
-  error,
+  autoFocus,
   checked,
   children,
   component: Component,
   connected,
+  disabled,
   disabledIcon,
+  error,
   flexDirection,
   hint,
   label,
@@ -54,6 +55,7 @@ export const Field = ({
 
   const field = (
     <Component
+      autoFocus={autoFocus}
       checked={checked}
       disabled={disabled}
       flexDirection={layout}
@@ -101,6 +103,7 @@ export const Field = ({
 }
 
 Field.propTypes = {
+  autoFocus: PropTypes.bool,
   checked: PropTypes.bool,
   children: PropTypes.func,
   /** Field component e.g. `InputText` or `FileUpload` */
