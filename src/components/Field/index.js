@@ -28,6 +28,7 @@ export const Field = ({
   onBlur,
   onChange,
   onFocus,
+  onKeyDown,
   options,
   placeholder,
   required,
@@ -63,6 +64,7 @@ export const Field = ({
       onBlur={onBlur}
       onChange={onChange}
       onFocus={onFocus}
+      onKeyDown={onKeyDown}
       options={options}
       placeholder={placeholder}
       required={required}
@@ -120,6 +122,7 @@ Field.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   /** For `Select` component */
   options: PropTypes.any,
   placeholder: PropTypes.string,
