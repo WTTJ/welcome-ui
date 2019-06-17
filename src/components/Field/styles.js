@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import { system } from '../../utils/utils'
-import { StyledLabel } from '../Label/styles'
+import { Label as StyledLabel } from '../Label/styles'
 import { radioTabStyles } from '../RadioTab/styles'
 import { StyledToggle } from '../Toggle/styles'
 import { StyledCheckbox } from '../InputCheckbox/styles'
