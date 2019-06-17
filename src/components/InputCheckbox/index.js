@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { StyledCheckbox } from './styles'
 
 export const InputCheckbox = ({
+  autoFocus,
   Component = StyledCheckbox,
   checked,
   disabled,
@@ -19,6 +20,7 @@ export const InputCheckbox = ({
   return (
     <Component checked={checked} disabled={disabled} order={order} type={type}>
       <input
+        autoFocus={autoFocus}
         checked={checked}
         disabled={disabled}
         id={name}
@@ -37,6 +39,7 @@ InputCheckbox.type = 'InputCheckbox'
 
 InputCheckbox.propTypes = {
   Component: PropTypes.elementType,
+  autoFocus: PropTypes.bool,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   name: PropTypes.string,

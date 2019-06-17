@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { StyledCheckbox } from '../InputCheckbox/styles'
 
 export const InputRadio = ({
+  autoFocus,
   checked,
   disabled,
   name,
@@ -16,6 +17,7 @@ export const InputRadio = ({
 }) => (
   <StyledCheckbox checked={checked} disabled={disabled} order={order} size={size} type="radio">
     <input
+      autoFocus={autoFocus}
       checked={checked}
       disabled={disabled}
       id={value}
@@ -32,6 +34,7 @@ export const InputRadio = ({
 InputRadio.type = 'InputRadio'
 
 InputRadio.propTypes = {
+  autoFocus: PropTypes.bool,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   name: PropTypes.string,
