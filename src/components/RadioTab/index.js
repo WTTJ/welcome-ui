@@ -11,6 +11,7 @@ export const RadioTab = ({
   onBlur,
   onChange,
   onFocus,
+  onKeyDown,
   value
 }) => (
   <StyledInput
@@ -22,6 +23,7 @@ export const RadioTab = ({
     onBlur={onBlur}
     onChange={onChange}
     onFocus={onFocus}
+    onKeyDown={onKeyDown}
     type="radio"
     value={value}
   />
@@ -37,5 +39,6 @@ RadioTab.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   value: PropTypes.string
 }

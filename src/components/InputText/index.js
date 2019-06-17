@@ -10,6 +10,7 @@ export const InputText = ({
   onBlur,
   onChange,
   onFocus,
+  onKeyDown,
   placeholder,
   type = 'text',
   value,
@@ -24,6 +25,7 @@ export const InputText = ({
       onBlur={onBlur}
       onChange={onChange}
       onFocus={onFocus}
+      onKeyDown={onKeyDown}
       placeholder={placeholder}
       type={type}
       value={value}
@@ -39,6 +41,7 @@ InputText.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   placeholder: PropTypes.string,
   type: PropTypes.string,
   value: PropTypes.string,

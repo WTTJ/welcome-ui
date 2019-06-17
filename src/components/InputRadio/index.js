@@ -10,6 +10,7 @@ export const InputRadio = ({
   name,
   onBlur,
   onChange,
+  onKeyDown,
   onFocus,
   order = -1,
   size = 'md',
@@ -25,6 +26,7 @@ export const InputRadio = ({
       onBlur={onBlur}
       onChange={onChange}
       onFocus={onFocus}
+      onKeyDown={onKeyDown}
       type="radio"
       value={value}
     />
@@ -41,6 +43,7 @@ InputRadio.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   order: PropTypes.number,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   value: PropTypes.string

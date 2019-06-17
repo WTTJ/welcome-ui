@@ -10,6 +10,7 @@ export const InputCheckbox = ({
   disabled,
   name,
   onBlur,
+  onKeyDown,
   onChange,
   onFocus,
   order,
@@ -29,6 +30,7 @@ export const InputCheckbox = ({
         onChange={handleChange}
         onClick={onChange}
         onFocus={onFocus}
+        onKeyDown={onKeyDown}
         type="checkbox"
       />
     </Component>
@@ -46,6 +48,7 @@ InputCheckbox.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   order: PropTypes.number,
   type: PropTypes.string
 }
