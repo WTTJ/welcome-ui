@@ -7,13 +7,13 @@ export const InputText = ({
   autoFocus,
   disabled,
   name,
-  onChange,
   onBlur,
+  onChange,
   onFocus,
   placeholder,
-  variant,
+  type = 'text',
   value,
-  type = 'text'
+  variant
 }) => {
   return (
     <StyledInputText

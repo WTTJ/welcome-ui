@@ -4,17 +4,17 @@ import PropTypes from 'prop-types'
 import { StyledTextarea } from './styles.js'
 
 export const InputTextarea = ({
-  minRows = 5,
+  autoFocus,
   disabled,
   maxLength,
+  minRows = 5,
   name,
   onBlur,
   onChange,
   onFocus,
   placeholder,
   value,
-  variant,
-  autoFocus
+  variant
 }) => (
   <StyledTextarea
     autoFocus={autoFocus}

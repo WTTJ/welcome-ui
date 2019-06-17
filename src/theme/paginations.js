@@ -1,4 +1,4 @@
-export const getPaginations = ({ fontSizes, fontWeights, colors, toRem }) => ({
+export const getPaginations = ({ colors, fontSizes, fontWeights, toRem }) => ({
   default: {
     color: colors.nude[600],
     'font-size': fontSizes.body3,

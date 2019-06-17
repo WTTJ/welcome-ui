@@ -6,7 +6,7 @@ import { Label } from '../Label'
 
 import { StyledRadios } from './styles'
 
-export const RadioGroup = ({ children, label, required, flexDirection }) => (
+export const RadioGroup = ({ children, flexDirection, label, required }) => (
   <StyledFieldGroup>
     {label && (
       <Label as="legend" required={required}>

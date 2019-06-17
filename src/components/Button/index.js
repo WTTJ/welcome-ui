@@ -5,7 +5,7 @@ import { IconButton } from '../IconButton'
 
 import * as S from './styles'
 
-const Button = ({ children, size = 'md', variant = 'primary', disabled, ...props }) => {
+const Button = ({ children, disabled, size = 'md', variant = 'primary', ...props }) => {
   return (
     <S.Button
       data-testid="button"

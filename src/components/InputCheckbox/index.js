@@ -38,9 +38,9 @@ export const InputCheckbox = ({
 InputCheckbox.type = 'InputCheckbox'
 
 InputCheckbox.propTypes = {
-  Component: PropTypes.elementType,
   autoFocus: PropTypes.bool,
   checked: PropTypes.bool,
+  Component: PropTypes.elementType,
   disabled: PropTypes.bool,
   name: PropTypes.string,
   onBlur: PropTypes.func,

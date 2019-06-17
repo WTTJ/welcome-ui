@@ -1,4 +1,4 @@
-export const getGrowls = ({ fontSizes, fontWeights, colors, radii }) => ({
+export const getGrowls = ({ colors, fontSizes, fontWeights, radii }) => ({
   default: {
     'font-size': fontSizes.body3,
     'background-color': colors.light[200],

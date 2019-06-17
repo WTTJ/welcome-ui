@@ -20,12 +20,12 @@ const getPreviewUrl = url =>
   typeof url !== 'string' || url.startsWith('blob:') ? url : new URL(url)
 
 export const FileUpload = ({
-  input,
   accept = 'image/*',
-  disabled,
-  multiple,
-  maxSize = DEFAULT_MAX_FILE_SIZE,
   children = DefaultContent,
+  disabled,
+  input,
+  maxSize = DEFAULT_MAX_FILE_SIZE,
+  multiple,
   onAddFile,
   onChange,
   onError,
@@ -67,10 +67,10 @@ export const FileUpload = ({
   }
 
   const {
-    getRootProps,
     getInputProps,
-    isDragActive,
+    getRootProps,
     isDragAccept,
+    isDragActive,
     isDragReject,
     open
   } = useDropzone({

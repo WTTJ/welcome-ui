@@ -2,7 +2,7 @@ import { get } from '../theme/helpers'
 
 const isPristine = (connected, touched) => connected && !touched
 
-export const getVariant = ({ connected, touched, warning, error }) => {
+export const getVariant = ({ connected, error, touched, warning }) => {
   if (isPristine(connected, touched)) {
     return undefined
   } else if (error) {
@@ -13,7 +13,7 @@ export const getVariant = ({ connected, touched, warning, error }) => {
   return undefined
 }
 
-export const getHintText = ({ connected, touched, warning, error, hint }) => {
+export const getHintText = ({ connected, error, hint, touched, warning }) => {
   if (isPristine(connected, touched)) {
     return hint
   } else {
