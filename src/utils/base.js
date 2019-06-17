@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from 'styled-components'
+import { createGlobalStyle, css } from '@xstyled/styled-components'
 
 import { reset } from './reset'
 import { fontFace } from './font'
@@ -33,12 +33,12 @@ export const getBaseStyles = theme => createGlobalStyle`
   }
 
   body, button, input, select, textarea {
-    font-family: ${[theme.fontFamilies.texts, 'sans-serif'].join(', ')};
+    font-family: ${[theme.fonts.texts, 'sans-serif'].join(', ')};
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: ${[theme.fontFamilies.headings, theme.fontFamilies.texts, 'serif'].join(', ')};
+    font-family: ${[theme.fonts.headings, theme.fonts.texts, 'serif'].join(', ')};
   }
 
   h1, h2, h3{

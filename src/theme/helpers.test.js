@@ -1,17 +1,18 @@
+import { th } from '@xstyled/system'
+
 import { createTheme } from './core'
-import { get } from './helpers'
 
 test('Can create theme with different base font size', () => {
   const theme = createTheme({
     defaultFontSize: 50
   })
 
-  expect(get('fontSizes.html')({ theme })).toBe('50px')
+  expect(th.fontSize('html')({ theme })).toBe('50px')
 })
 
 test('Can create theme with different fonts', () => {
   const theme = createTheme({
-    fonts: {
+    fontFaces: {
       HKCompakt: [
         {
           url: 'https://cdn.welcometothejungle.co/common/assets/fonts/HKCompakt-Regular',
@@ -20,14 +21,14 @@ test('Can create theme with different fonts', () => {
         }
       ]
     },
-    fontFamilies: {
+    fonts: {
       texts: 'HKCompakt',
       quotes: 'HKCompakt'
     }
   })
 
-  expect(get('fontFamilies.texts')({ theme })).toBe('HKCompakt')
-  expect(get('fontFamilies.headings')({ theme })).toBe('welcomeweb')
-  expect(get('fontFamilies.quotes')({ theme })).toBe('HKCompakt')
-  expect(theme.fonts.HKCompakt).toBeDefined()
+  expect(th.font('texts')({ theme })).toBe('HKCompakt')
+  expect(th.font('headings')({ theme })).toBe('welcomeweb')
+  expect(th.font('quotes')({ theme })).toBe('HKCompakt')
+  expect(theme.fontFaces.HKCompakt).toBeDefined()
 })

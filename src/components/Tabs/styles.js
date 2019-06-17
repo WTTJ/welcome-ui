@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components'
-import { left, width } from '@xstyled/system'
+import styled, { css } from '@xstyled/styled-components'
+import { left, th, width } from '@xstyled/system'
 
-import { get, getCss } from '../../theme/helpers'
 import { system } from '../../utils/utils'
 
 export const Tabs = styled.nav`
@@ -12,7 +11,7 @@ export const Tabs = styled.nav`
 `
 
 export const List = styled.ul`
-  ${getCss('tabs.tabs')}
+  ${th('tabs.tabs')}
   display: flex;
 `
 
@@ -20,20 +19,20 @@ export const Item = styled.button(
   props => css`
     border: 0;
     background: none;
-    ${getCss('tabs.item.default')};
-    ${props.active && getCss('tabs.item.active')};
+    ${th('tabs.item.default')};
+    ${props.active && th('tabs.item.active')};
     display: flex;
     align-items: center;
     flex: none;
-    margin-right: ${get('space.lg')};
-    padding-bottom: ${get('space.lg')};
-    transition: ${get('transitions.medium')};
+    margin-right: lg;
+    padding-bottom: lg;
+    transition: medium;
     text-transform: none;
     cursor: pointer;
 
     &:hover,
     &:focus {
-      ${!props.active && getCss('tabs.item.focus')};
+      ${!props.active && th('tabs.item.focus')};
     }
 
     & > *:first-child {
@@ -41,19 +40,19 @@ export const Item = styled.button(
     }
 
     & > *:nth-child(2) {
-      margin-left: ${get('space.xs')};
+      margin-left: xs;
     }
   `
 )
 
 export const ActiveBar = styled.span(
   () => css`
-    ${getCss('tabs.activeBar')};
+    ${th('tabs.activeBar')};
     position: absolute;
     ${width}
     ${left}
     bottom: 0;
-    transition: ${get('transitions.medium')};
+    transition: medium;
     transition-property: width, left;
   `
 )

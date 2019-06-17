@@ -1,25 +1,25 @@
-import { css } from 'styled-components'
+import { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
-import { get, getCss } from '../../theme/helpers'
 import { getVariantStateColor } from '../../utils/variants'
 
 export const fieldTypeStyles = css`
   ${props =>
-    props.fieldType === 'radioTab' ? getCss('fields.radiotabs.default') : getCss('fields.default')};
+    props.fieldType === 'radioTab' ? th('fields.radiotabs.default') : th('fields.default')};
   width: 100%;
-  padding: ${get('space.md')} ${get('space.sm')};
+  padding: md sm;
   border-color: ${props => getVariantStateColor(props.variant)};
-  transition: ${get('transitions.medium')};
+  transition: medium;
 
   &::placeholder {
-    ${getCss('fields.placeholder')};
+    ${th('fields.placeholder')};
   }
 
   &:focus {
-    ${getCss('fields.focused')};
+    ${th('fields.focused')};
   }
 
   &[disabled] {
-    ${getCss('fields.disabled')};
+    ${th('fields.disabled')};
   }
 `

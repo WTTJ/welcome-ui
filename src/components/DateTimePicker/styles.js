@@ -1,8 +1,7 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-import { get } from '../../theme/helpers'
 import { fieldTypeStyles } from '../../common/styles/form'
 
 const overridingStyles = css`
@@ -33,7 +32,7 @@ const overridingStyles = css`
   .react-datepicker__current-month,
   .react-datepicker-time__header,
   .react-datepicker-year-header {
-    font-weight: ${get('fontWeights.medium')};
+    font-weight: medium;
   }
   .react-datepicker__time-container {
     width: 100px;
@@ -54,9 +53,9 @@ const overridingStyles = css`
   .react-datepicker__month-text--selected,
   .react-datepicker__month-text--in-selecting-range,
   .react-datepicker__month-text--in-range {
-    background-color: ${get('colors.primary.500')};
+    background-color: primary.500;
     &:hover {
-      background-color: ${get('colors.primary.500')};
+      background-color: primary.500;
     }
   }
 `

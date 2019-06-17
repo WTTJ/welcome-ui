@@ -1,14 +1,14 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
-import { get, getCss } from '../../theme/helpers'
 import { system } from '../../utils/utils'
 
 const baseStyle = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: ${get('space.xxs')};
-  ${getCss('paginations.default')};
+  margin-right: xxs;
+  ${th('paginations.default')};
 
   & > * {
     display: flex;
@@ -26,7 +26,7 @@ export const Pagination = styled.ul`
 
 const Item = styled.button`
   border-radius: 50%;
-  transition: ${get('transitions.medium')};
+  transition: medium;
   transition-property: none;
   cursor: pointer;
   ${baseStyle};
@@ -43,7 +43,7 @@ export const Dots = styled.div`
 `
 
 export const ArrowItemLeft = styled(Item)`
-  ${getCss('paginations.arrow')}
+  ${th('paginations.arrow')}
   transition-property: border;
 `
 
@@ -52,6 +52,6 @@ export const ArrowItemRight = styled(ArrowItemLeft)`
 `
 
 export const PageItem = styled(Item)`
-  ${getCss('paginations.number')}
-  ${props => props.active && getCss('paginations.active')};
+  ${th('paginations.number')}
+  ${props => props.active && th('paginations.active')};
 `

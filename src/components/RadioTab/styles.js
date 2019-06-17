@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
-import { get, getCss } from '../../theme/helpers'
 import { overflowEllipsis } from '../../common/styles/text'
 import { system } from '../../utils/utils'
 // common form styles
@@ -20,40 +20,40 @@ export const StyledInput = styled.input`
 `
 
 const checkedStyles = css`
-  ${getCss('fields.radiotabs.checked')};
+  ${th('fields.radiotabs.checked')};
   z-index: 2;
 `
 
 const columnStyles = css`
-  margin-top: -${get('borderWidths.sm')};
+  margin-top: -${th.borderWidth('sm')};
 
   &:first-child {
     margin-top: 0;
 
     ${StyledLabel} {
-      border-radius: ${get('radii.md')} ${get('radii.md')} 0 0;
+      border-radius: ${th.radius('md')} ${th.radius('md')} 0 0;
     }
   }
 
   &:last-child ${StyledLabel} {
-    border-radius: 0 0 ${get('radii.md')} ${get('radii.md')};
+    border-radius: 0 0 ${th.radius('md')} ${th.radius('md')};
   }
 `
 
 const rowStyles = css`
-  margin-left: -${get('borderWidths.sm')};
+  margin-left: -${th.borderWidth('sm')};
   margin-bottom: 0;
 
   &:first-child {
     margin-left: 0;
 
     ${StyledLabel} {
-      border-radius: ${get('radii.md')} 0 0 ${get('radii.md')};
+      border-radius: ${th.radius('md')} 0 0 ${th.radius('md')};
     }
   }
 
   &:last-child ${StyledLabel} {
-    border-radius: 0 ${get('radii.md')} ${get('radii.md')} 0;
+    border-radius: 0 ${th.radius('md')} ${th.radius('md')} 0;
   }
 `
 
@@ -68,8 +68,8 @@ export const radioTabStyles = props => css`
     max-width: 100%;
     user-select: none;
     margin: 0;
-    padding: ${get('space.sm')};
-    padding-right: calc(${get('space.sm')} + ${get('borderWidths.sm')});
+    padding: sm;
+    padding-right: calc(${th.space('sm')} + ${th.borderWidth('sm')});
     cursor: pointer;
     line-height: 1;
     text-align: center;
@@ -78,7 +78,7 @@ export const radioTabStyles = props => css`
     ${overflowEllipsis};
 
     &:hover {
-      ${getCss('fields.radiotabs.hover')};
+      ${th('fields.radiotabs.hover')};
     }
 
     ${props.checked && checkedStyles};

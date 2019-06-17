@@ -1,4 +1,4 @@
-import { get } from '../theme/helpers'
+import { th } from '@xstyled/system'
 
 const isPristine = (connected, touched) => connected && !touched
 
@@ -29,7 +29,7 @@ const variantStateColors = {
 
 export const getVariantStateColor = variant => {
   const variantColor = variantStateColors[variant]
-  return variantColor ? get(variantColor) : null
+  return variantColor ? th(variantColor) : null
 }
 
 const variantColors = {
@@ -49,5 +49,5 @@ const variantColors = {
 
 export const getVariantColor = variant => {
   const variantColor = variantColors[variant]
-  return variantColor ? get(variantColor) : null
+  return variantColor ? th(variantColor) : null
 }

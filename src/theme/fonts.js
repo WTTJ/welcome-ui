@@ -1,4 +1,4 @@
-export const fonts = {
+export const fontFaces = {
   welcomeweb: [
     {
       url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcomeweb-regular',

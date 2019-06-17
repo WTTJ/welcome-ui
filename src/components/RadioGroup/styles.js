@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
 
 import { system } from '../../utils/utils'
 

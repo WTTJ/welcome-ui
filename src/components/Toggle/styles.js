@@ -1,33 +1,33 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
 import { system } from '../../utils/utils'
-import { get, getCss } from '../../theme/helpers'
 
 const afterCheckedStyles = css`
   &::after {
-    left: calc(100% - ${get('borderWidths.sm')});
+    left: calc(100% - ${th.borderWidth('sm')});
     transform: translateX(-100%);
   }
 `
 
 const checkedStyles = css`
-  ${getCss('fields.toggles.checked')};
+  ${th('fields.toggles.checked')};
   ${afterCheckedStyles}
 `
 
 const checkedDisabledStyles = css`
-  ${getCss('fields.toggles.checkedDisabled')};
+  ${th('fields.toggles.checkedDisabled')};
   ${afterCheckedStyles}
 `
 
-export const StyledToggle = styled.div(({ checked, disabled, order = '-1', ...props }) => {
-  const toggleSize = get('fields.toggles.default.width')(props)
+export const StyledToggle = styled.div(({ checked, disabled, order = '-1' }) => {
+  const toggleSize = th('fields.toggles.default.width')
   return css`
-    ${getCss('fields.toggles.default')};
-    ${disabled && getCss('fields.toggles.disabled')};
+    ${th('fields.toggles.default')};
+    ${disabled && th('fields.toggles.disabled')};
     position: relative;
     display: block;
-    width: ${`calc(${toggleSize} * 2)`};
+    width: calc(${toggleSize} * 2);
     height: ${toggleSize};
     cursor: ${disabled ? 'not-allowed' : 'pointer'};
     border-radius: ${toggleSize};
@@ -37,10 +37,10 @@ export const StyledToggle = styled.div(({ checked, disabled, order = '-1', ...pr
     &::after {
       content: '';
       position: absolute;
-      top: ${get('borderWidths.sm')};
-      left: ${get('borderWidths.sm')};
-      width: ${`calc(${toggleSize} - 2 * ${get('borderWidths.sm')(props)})`};
-      height: ${`calc(${toggleSize} - 2 * ${get('borderWidths.sm')(props)})`};
+      top: ${th.borderWidth('sm')};
+      left: ${th.borderWidth('sm')};
+      width: calc(${toggleSize} - 2 * ${th.borderWidth('sm')});
+      height: calc(${toggleSize} - 2 * ${th.borderWidth('sm')});
       border-radius: ${toggleSize};
       transition: 0.3s;
     }

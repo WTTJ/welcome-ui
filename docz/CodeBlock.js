@@ -1,18 +1,17 @@
 import React from 'react'
 import { object } from 'prop-types'
-import styled from 'styled-components'
-
-import { get } from '../src/theme/helpers'
+import styled from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
 const StyledCodeBlock = styled.pre`
   font-family: monospace;
-  font-size: ${get('fontSizes.body1')};
-  line-height: ${get('fontSizes.h4')};
-  color: ${get('colors.nude.700')};
-  margin-top: ${get('space.xl')};
-  padding: ${get('space.xl')};
-  border: 1px solid ${get('colors.nude.200')};
-  border-radius: ${get('radii.sm')};
+  font-size: body1;
+  line-height: h4;
+  color: nude.700;
+  margin-top: xl;
+  padding: xl;
+  border: 1px solid ${th.color('nude.200')};
+  border-radius: sm;
 `
 
 export const DoczCodeBlock = ({ children }) => (

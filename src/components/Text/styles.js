@@ -1,19 +1,17 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
 import { system } from '../../utils/utils'
-import { get, getCss } from '../../theme/helpers'
 
-const getBlockHeight = props =>
-  `calc(${get(`fontSizes.${props.variant}`)(props)} * ${get(`lineHeights.${props.variant}`)(
-    props
-  )} * ${props.lines})`
+const getBlockHeight = props => `
+  calc(${th.fontSize(props.variant)} * ${th.lineHeight(props.variant)} * ${props.lines})`
 
 export const StyledText = styled.p(props => {
   const { lines, variant } = props
   const blockHeight = lines ? getBlockHeight(props) : null
 
   return css`
-    ${getCss(`texts.${variant}`)};
+    ${th(`texts.${variant}`)};
     display: block; /* Fallback for non-webkit */
     height: ${blockHeight}; /* Fallback for non-webkit */
 

@@ -1,7 +1,7 @@
 import merge from 'lodash.merge'
 
 import { colors } from './colors'
-import { fonts } from './fonts'
+import { fontFaces } from './fonts'
 import { getButtons } from './buttons'
 import { getFields } from './fields'
 import { getFontSizes, getLineHeights, getTexts } from './typography'
@@ -34,7 +34,7 @@ export const getBaseTheme = (options = {}) => {
 
   // fonts
   theme.defaultFontSize = defaultFontSize
-  theme.fonts = fonts
+  theme.fontFaces = fontFaces
   theme.fontSizes = getFontSizes('rem', theme)
   theme.lineHeights = getLineHeights(theme)
   theme.fontWeights = {
@@ -48,7 +48,7 @@ export const getBaseTheme = (options = {}) => {
     md: '1px',
     lg: '2px'
   }
-  theme.fontFamilies = {
+  theme.fonts = {
     texts: defaultFontFamily,
     headings: headingFontFamily
   }
@@ -79,7 +79,7 @@ export const getBaseTheme = (options = {}) => {
   theme.transitions = transitions
   theme.transitionCurves = transitionCurves
 
-  theme.boxShadows = {
+  theme.shadows = {
     sm: '1px 2px 4px 0 rgba(0,0,0,0.05)'
   }
 

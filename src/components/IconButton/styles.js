@@ -1,13 +1,13 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
 import { Button } from '../Button/styles'
 import { system } from '../../utils/utils'
-import { get } from '../../theme/helpers'
 
 const getSize = (size = 'md', rounded) => css`
-  width: ${get(`buttons.sizes.${size}.height`)};
-  height: ${get(`buttons.sizes.${size}.height`)};
-  border-radius: ${rounded && get(`buttons.sizes.${size}.height`)};
+  width: ${th(`buttons.sizes.${size}.height`)};
+  height: ${th(`buttons.sizes.${size}.height`)};
+  border-radius: ${rounded && th(`buttons.sizes.${size}.height`)};
 `
 
 export const IconButton = styled(Button)`

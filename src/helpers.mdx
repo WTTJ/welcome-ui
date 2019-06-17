@@ -8,11 +8,10 @@ route: /helpers
 You can use helpers to access theme values more easily using the key from the theme as the function name. For example…
 
 ```
-import styled from 'styled-components'
-import { get } from 'welcome-ui'
+import styled from '@xstyled/styled-components'
 
 const Sidebar = styled.div`
-  font-family: ${get('fontFamilies.default')};
-  background: ${get('colors.primary.500')};
+  font-family: texts;
+  background: primary.500;
 `
 ```
