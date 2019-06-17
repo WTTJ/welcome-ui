@@ -18,4 +18,4 @@ Automate versioning and CHANGELOG generation, with semver and conventional commi
 
 Then run:
 
-`yarn run release-publish`
+`npm run publish`

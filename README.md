@@ -22,7 +22,7 @@ yarn add welcome-ui
 
 ## Import library & Theme
 
-You can find all the theme property [here](https://welcome-ui.now.sh/themes).
+You can find all the theme properties [here](https://welcome-ui.now.sh/themes).
 
 ```javascript
 import React, { Fragment } from 'react'
