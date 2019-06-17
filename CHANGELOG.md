@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.1](https://github.com/WTTJ/welcome-ui/compare/v0.8.0...v0.8.1) (2019-06-17)
+
+
+### Bug Fixes
+
+* wrong exported component ([fb419b0](https://github.com/WTTJ/welcome-ui/commit/fb419b0))
+
+
+
 ## [0.8.0](https://github.com/WTTJ/welcome-ui/compare/v0.7.0...v0.8.0) (2019-06-17)
 
 
