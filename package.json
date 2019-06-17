@@ -12,7 +12,6 @@
     "build": "rm -rf dist && rollup --config",
     "prepublishOnly": "yarn build",
     "release": "standard-version && conventional-github-releaser --preset angular",
-    "release-build": "standard-version && conventional-github-releaser --preset angular",
     "release-publish": "git push --follow-tags origin master && npm publish",
     "lint": "eslint src --max-warnings 0",
     "test": "jest src",

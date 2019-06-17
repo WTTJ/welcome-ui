@@ -1,4 +1,6 @@
-### Writing components
+# How to contribute
+
+## Writing components
 
 Each component will consist of:
 
@@ -8,11 +10,11 @@ Each component will consist of:
   - ``docs.mdx`: Documentation on Docz
   - `index.test.js`: Jest tests for this component
 
-### Publishing
+## Publishing
 
 Automate versioning and CHANGELOG generation, with semver and conventional commit messages. We use `standard-version` && `conventional-github-releaser`
 
-`yarn run release-build`
+`yarn run release`
 
 Then run:
 
