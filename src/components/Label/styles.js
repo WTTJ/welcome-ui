@@ -4,6 +4,14 @@ import { getVariantStateColor } from '../../utils/variants'
 import { get, getCss } from '../../theme/helpers'
 import { system } from '../../utils/utils'
 
+export const Label = styled.label`
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  ${getCss('fields.label')};
+  ${system};
+`
+
 export const Disabled = styled.div`
   display: inline-flex;
   margin-right: ${get('space.xxs')};
@@ -22,11 +30,3 @@ export const Variant = styled.div(
     fill: ${getVariantStateColor(props.variant)};
   `
 )
-
-export const StyledLabel = styled.label`
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  ${getCss('fields.label')};
-  ${system};
-`

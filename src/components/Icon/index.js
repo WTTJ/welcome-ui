@@ -5,7 +5,8 @@ import { IconSvg } from './styles'
 import { icons } from './icons'
 
 export const Icon = ({ name, ...props }) => {
-  const iconConfig = icons[name.toLowerCase()]
+  const iconName = name.toLowerCase()
+  const iconConfig = icons[iconName]
 
   if (!iconConfig) {
     return null
@@ -14,6 +15,7 @@ export const Icon = ({ name, ...props }) => {
   return (
     <IconSvg
       dangerouslySetInnerHTML={{ __html: iconConfig.block }}
+      data-testid={`icon-${iconName}`}
       stroked={iconConfig.stroked}
       viewBox={iconConfig.viewBox || '0 0 100 100'}
       {...props}

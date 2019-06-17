@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Badge } from '../Badge'
 import { Icon } from '../Icon'
 
-import { Disabled, Required, StyledLabel, Variant } from './styles'
+import * as S from './styles'
 
 export const Label = ({
   as,
@@ -30,7 +30,7 @@ export const Label = ({
   }
 
   return (
-    <StyledLabel
+    <S.Label
       as={as}
       disabled={disabled}
       disabledIcon={disabledIcon}
@@ -39,13 +39,13 @@ export const Label = ({
       required={required}
       variant={variant}
     >
-      {variant && <Variant variant={variant}>{getVariantIcon(variant)}</Variant>}
+      {variant && <S.Variant variant={variant}>{getVariantIcon(variant)}</S.Variant>}
       {disabled && (
-        <Disabled>{disabledIcon || <Icon name="special_pipeline" size="sm" />}</Disabled>
+        <S.Disabled>{disabledIcon || <Icon name="special_pipeline" size="sm" />}</S.Disabled>
       )}
       {children}
-      {required && <Required>*</Required>}
-    </StyledLabel>
+      {required && <S.Required>*</S.Required>}
+    </S.Label>
   )
 }
 
