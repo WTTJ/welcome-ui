@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/WTTJ/welcome-ui/compare/v0.7.0...v0.8.0) (2019-06-17)
+
+
+### Bug Fixes
+
+* add missing onKeyDown on inputs ([e19226e](https://github.com/WTTJ/welcome-ui/commit/e19226e))
+
+
+### Features
+
+* add missing date icon ([7279b4f](https://github.com/WTTJ/welcome-ui/commit/7279b4f))
+
+
+### Tests
+
+* add tests on Label ([07366f9](https://github.com/WTTJ/welcome-ui/commit/07366f9))
+
+
+
 ## [0.7.0](https://github.com/WTTJ/welcome-ui/compare/v0.6.4...v0.7.0) (2019-06-17)
 
 
