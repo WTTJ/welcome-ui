@@ -16,6 +16,7 @@ export const Select = ({
   onBlur,
   onChange,
   onFocus,
+  onKeyDown,
   options,
   placeholder,
   searchable = false,
@@ -42,6 +43,7 @@ export const Select = ({
       onBlur={onBlur}
       onChange={handleChange}
       onFocus={onFocus}
+      onKeyDown={onKeyDown}
       options={options}
       placeholder={placeholder}
       value={selected}
@@ -57,6 +59,7 @@ Select.propTypes = {
   onBlur: func,
   onChange: func,
   onFocus: func,
+  onKeyDown: func,
   options: array.isRequired,
   placeholder: oneOfType([string, bool]),
   searchable: bool,

@@ -12,6 +12,7 @@ export const InputTextarea = ({
   onBlur,
   onChange,
   onFocus,
+  onKeyDown,
   placeholder,
   value,
   variant
@@ -25,6 +26,7 @@ export const InputTextarea = ({
     onBlur={onBlur}
     onChange={onChange}
     onFocus={onFocus}
+    onKeyDown={onKeyDown}
     placeholder={placeholder}
     value={value}
     variant={variant}
@@ -40,6 +42,7 @@ InputTextarea.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   placeholder: PropTypes.string,
   value: PropTypes.string,
   variant: PropTypes.oneOf(['error', 'info', 'valid', 'warning'])
