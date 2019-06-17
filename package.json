@@ -13,6 +13,7 @@
     "preversion": "yarn test",
     "version": "yarn build && git add .",
     "postversion": "git push && git push --tags",
+    "release": "standard-version && conventional-github-releaser --preset angular",
     "lint": "eslint src --max-warnings 0",
     "test": "jest src",
     "test:watch": "jest --watch",
@@ -55,6 +56,7 @@
     "babel-jest": "=24.7.1",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-plugin-transform-react-remove-prop-types": "=0.4.24",
+    "conventional-github-releaser": "^3.1.3",
     "css-loader": "=2.1.1",
     "docz": "1.2.0",
     "docz-theme-default": "1.2.0",
@@ -82,6 +84,7 @@
     "rollup-plugin-node-resolve": "^5.0.1",
     "rollup-plugin-postcss": "=2.0.3",
     "rollup-plugin-size-snapshot": "^0.9.0",
+    "standard-version": "^6.0.1",
     "style-loader": "=0.23.1",
     "svgo": "=1.2.2"
   },
