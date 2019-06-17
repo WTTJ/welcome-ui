@@ -5,7 +5,7 @@ import { overflowEllipsis } from '../../common/styles/text'
 import { system } from '../../utils/utils'
 // common form styles
 import { fieldTypeStyles } from '../../common/styles/form'
-import { StyledLabel } from '../Label/styles'
+import { Label as StyledLabel } from '../Label/styles'
 
 export const StyledRadioTab = styled.div`
   flex: 1;
