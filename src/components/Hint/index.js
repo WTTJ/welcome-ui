@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 
 import * as S from './styles'
 
-export const Hint = ({ children, variant }) => <S.Hint variant={variant}>{children}</S.Hint>
+export const Hint = ({ children, variant }) => (
+  <S.Hint data-testid="hint" variant={variant}>
+    {children}
+  </S.Hint>
+)
 
 Hint.propTypes = {
   /** Node component from parent */
