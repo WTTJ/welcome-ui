@@ -35,9 +35,10 @@ Admire these beautiful variants 🌈
 
 ## Sizes
 
-Use size property with `sm` `md`(default) or `lg`.
+Use size property with `xs` `sm` `md`(default) or `lg`.
 
 <Playground>
+  <Button size="xs">Tiny</Button>
   <Button size="sm">Small</Button>
   <Button>Medium</Button>
   <Button size="lg">Large</Button>
@@ -79,6 +80,12 @@ All disabled buttons have the same style.
 Get same size on `width` and `height`, can be `rounded`.
 
 <Playground flex>
+  <IconButton size="xs">
+    <Icon name="language" size="xs" />
+  </IconButton>
+  <IconButton size="xs" rounded>
+    <Icon name="language" size="xs" />
+  </IconButton>
   <IconButton size="sm">
     <Icon name="language" size="sm" />
   </IconButton>

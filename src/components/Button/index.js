@@ -23,7 +23,7 @@ Button.propTypes = {
   children: PropTypes.node,
   disabled: PropTypes.bool,
   /** To set the button size */
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   /** To set a rounded button */
   variant: PropTypes.oneOf([
     'primary',

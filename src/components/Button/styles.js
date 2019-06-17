@@ -4,6 +4,10 @@ import { get, getCss } from '../../theme/helpers'
 import { system } from '../../utils/utils'
 
 const sizes = {
+  xs: css`
+    ${getCss(`buttons.sizes.xs`)};
+    padding: 0 ${get('space.sm')};
+  `,
   sm: css`
     ${getCss(`buttons.sizes.sm`)};
     padding: 0 ${get('space.sm')};
