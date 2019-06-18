@@ -4,7 +4,9 @@ import React from 'react'
 import { Title } from './styles'
 
 export const GrowlTitle = ({ children, variant = 'info' }) => (
-  <Title variant={variant}>{children}</Title>
+  <Title data-testid="growl-title" variant={variant}>
+    {children}
+  </Title>
 )
 
 GrowlTitle.propTypes = {
