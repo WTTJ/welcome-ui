@@ -22,7 +22,7 @@ export const Text = ({ as, children, lines, variant = 'body1' }) => {
   const tagName = as || TAG_NAMES[variant]
 
   return (
-    <StyledText as={tagName} lines={lines} variant={variant}>
+    <StyledText as={tagName} data-testid="text" lines={lines} variant={variant}>
       {children}
     </StyledText>
   )
