@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from '@xstyled/styled-components'
 
 import { welcomekitTheme } from './src/theme/welcomekit'
 import { createTheme } from './src/theme/core'

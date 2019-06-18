@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 import Select from 'react-select'
 
-import { get, getCss } from '../../theme/helpers'
 import { fieldTypeStyles } from '../../common/styles/form'
 import { system } from '../../utils/utils'
 
@@ -14,12 +14,12 @@ export const StyledSelect = styled(Select)`
 
     .wui__indicators svg {
       transform: rotate(0deg);
-      transition: ${get('transitions.medium')};
+      transition: medium;
     }
 
     &.wui__control--is-focused,
     &.wui__control--menu-is-open {
-      ${getCss('fields.focused')};
+      ${th('fields.focused')};
     }
 
     &.wui__control--menu-is-open {
@@ -44,7 +44,7 @@ export const StyledSelect = styled(Select)`
   .wui__menu {
     ${fieldTypeStyles};
     padding: 0;
-    box-shadow: ${get('boxShadows.sm')};
+    box-shadow: sm;
   }
 
   .wui__menu-list {
@@ -52,17 +52,17 @@ export const StyledSelect = styled(Select)`
   }
 
   .wui__option {
-    padding: ${get('space.md')} ${get('space.sm')};
-    transition: ${get('transitions.medium')};
+    padding: md sm;
+    transition: medium;
   }
 
   .wui__option--is-focused {
-    ${getCss('fields.select.focused')};
+    ${th('fields.select.focused')};
   }
 
   .wui__option--is-selected,
   .wui__option--is-focused:active,
   .wui__option--is-focused.wui__option--is-selected {
-    ${getCss('fields.select.selected')};
+    ${th('fields.select.selected')};
   }
 `

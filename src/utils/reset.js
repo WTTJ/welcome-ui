@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css } from '@xstyled/styled-components'
 
 export const reset = css`
   html,

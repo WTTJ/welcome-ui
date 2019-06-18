@@ -1,5 +1,5 @@
 export const getButtons = theme => {
-  const { boxShadows, colors, fontSizes, fontWeights, letterSpacings, radii } = theme
+  const { colors, fontSizes, fontWeights, letterSpacings, radii, shadows } = theme
   const defaults = {
     color: colors.light[200],
     'font-size': fontSizes.button,
@@ -10,10 +10,10 @@ export const getButtons = theme => {
     'border-color': colors.primary[500],
     'border-radius': radii.sm,
     '&:hover': {
-      'box-shadow': boxShadows.sm
+      'box-shadow': shadows.sm
     },
     '&:focus': {
-      'box-shadow': boxShadows.sm
+      'box-shadow': shadows.sm
     }
   }
 

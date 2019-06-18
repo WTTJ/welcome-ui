@@ -1,43 +1,43 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
-import { get, getCss } from '../../theme/helpers'
 import { system } from '../../utils/utils'
 import { Button as StyledButton } from '../Button/styles'
 
 const getBorderColor = ({ isDragAccept, isDragReject }) => {
   if (isDragAccept) {
-    return get('colors.primary.default')
+    return 'primary.default'
   }
   if (isDragReject) {
-    return get('colors.danger.default')
+    return 'danger.default'
   }
 
   return null
 }
 
 const disabledStyles = css`
-  background: ${get('colors.light.500')};
+  background: light.500;
 
   h3,
   p {
-    color: ${get('colors.nude.300')};
+    color: nude.300;
   }
 `
 
 export const StyledFileUpload = styled.div(
   props => css`
-    ${getCss('fields.fileupload')};
+    ${th('fields.fileupload')};
     border-color: ${getBorderColor(props)};
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: ${get('space.md')};
+    padding: md;
     ${system};
 
     h3 {
-      font-size: ${get('fontSizes.h3')};
-      color: ${get('colors.secondary.500')};
+      font-size: h3;
+      color: secondary.500;
     }
 
     ${props.disabled && disabledStyles};
@@ -61,12 +61,12 @@ export const FilePreviewImage = styled.img`
 
 export const Actions = styled.div`
   position: absolute;
-  top: ${get('space.xl')};
-  right: ${get('space.xl')};
+  top: ${th.space('xl')};
+  right: ${th.space('xl')};
   display: flex;
   flex-direction: column;
 
   ${StyledButton} {
-    margin-bottom: ${get('space.md')};
+    margin-bottom: md;
   }
 `

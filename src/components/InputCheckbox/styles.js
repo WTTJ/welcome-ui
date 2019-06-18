@@ -1,11 +1,11 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
 import { system } from '../../utils/utils'
-import { get, getCss } from '../../theme/helpers'
 import { fieldTypeStyles } from '../../common/styles/form'
 
 const checkedStyles = css`
-  ${getCss('fields.checkboxes.checked')};
+  ${th('fields.checkboxes.checked')};
 
   &::after {
     opacity: 1;
@@ -15,13 +15,13 @@ const checkedStyles = css`
 export const StyledCheckbox = styled.div(
   ({ checked, order = '-1', type }) => css`
     ${fieldTypeStyles};
-    ${getCss('fields.checkboxes.default')}
+    ${th('fields.checkboxes.default')}
     position: relative;
     padding: 0;
     order: ${order};
     cursor: pointer;
     border-radius: ${type === 'radio' && '50%'};
-    transition: ${get('transitions.medium')};
+    transition: medium;
 
     &::after {
       content: '✓';
@@ -32,9 +32,9 @@ export const StyledCheckbox = styled.div(
       left: 0;
       line-height: 1;
       text-align: center;
-      color: ${get('colors.light.200')};
+      color: light.200;
       opacity: 0;
-      transition: ${get('transitions.medium')};
+      transition: medium;
     }
 
     ${checked && checkedStyles};

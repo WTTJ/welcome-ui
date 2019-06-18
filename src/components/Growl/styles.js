@@ -1,15 +1,15 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
 import { getVariantStateColor } from '../../utils/variants'
-import { get, getCss } from '../../theme/helpers'
 import { system } from '../../utils/utils'
 
 export const Growl = styled.div`
   position: relative;
   width: 70%;
   max-width: 25rem;
-  padding: ${get('space.lg')};
-  ${getCss('growls.default')};
+  padding: lg;
+  ${th('growls.default')};
   ${system};
 `
 
@@ -18,19 +18,19 @@ export const Title = styled.div(
     display: flex;
     align-items: center;
     color: ${getVariantStateColor(variant)};
-    padding-bottom: ${get('space.md')};
-    ${getCss('growls.title')};
+    padding-bottom: md;
+    ${th('growls.title')};
 
     & > *:first-child {
-      margin-right: ${get('space.sm')};
+      margin-right: sm;
     }
   `
 )
 
 export const Close = styled.div`
   position: absolute;
-  right: ${get('space.lg')};
-  top: ${get('space.lg')};
+  right: ${th.space('lg')};
+  top: ${th.space('lg')};
 `
 
 export const CloseContent = styled.button`
@@ -39,13 +39,13 @@ export const CloseContent = styled.button`
   justify-content: center;
   width: 1.87rem;
   height: 1.87rem;
-  ${getCss('growls.close')};
+  ${th('growls.close')};
   border: none;
   padding: 0;
-  transition: background ${get('transitions.medium')};
+  transition: background ${th.transition('medium')};
   cursor: pointer;
 `
 
 export const Action = styled.div`
-  padding-top: ${get('space.md')};
+  padding-top: md;
 `

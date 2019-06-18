@@ -33,7 +33,7 @@ export default {
     radius: theme.radii.md,
     styles: {
       body: css`
-        font-family: ${theme.fontFamilies.texts};
+        font-family: ${theme.fonts.texts};
 
         #root nav > div > div > a {
           font-weight: ${theme.fontWeights.bold};
@@ -50,13 +50,13 @@ export default {
         }
       `,
       h1: css`
-        font-family: ${theme.fontFamilies.headings};
+        font-family: ${theme.fonts.headings};
         font-size: ${theme.fontSizes.h1};
         font-weight: ${theme.fontWeights.bold};
         margin: 3rem 0 2rem;
       `,
       h2: css`
-        font-family: ${theme.fontFamilies.headings};
+        font-family: ${theme.fonts.headings};
         font-size: ${theme.fontSizes.h2};
         font-weight: ${theme.fontWeights.bold};
         color: ${theme.colors.secondary[500]};
@@ -64,7 +64,7 @@ export default {
         margin: 3rem 0 1rem;
       `,
       h3: css`
-        font-family: ${theme.fontFamilies.headings};
+        font-family: ${theme.fonts.headings};
         font-size: ${theme.fontSizes.h3};
         font-weight: ${theme.fontWeights.bold};
         margin: 2.5rem 0 1rem;

@@ -1,14 +1,13 @@
-import styled from 'styled-components'
+import styled from '@xstyled/styled-components'
 
-import { get } from '../../theme/helpers'
 import { Label as StyledLabel } from '../Label/styles'
 import { system } from '../../utils/utils'
 
 export const StyledFieldGroup = styled.fieldset`
-  margin-bottom: ${get('space.xl')};
+  margin-bottom: xl;
   ${system};
 
   & > ${StyledLabel} {
-    margin-bottom: ${get('space.sm')};
+    margin-bottom: sm;
   }
 `

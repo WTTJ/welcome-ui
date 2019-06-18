@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import React from 'react'
 
 const getFlexStyles = (align, justify, direction) => css`

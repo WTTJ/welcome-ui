@@ -1,4 +1,3 @@
-import { css } from 'styled-components'
 import _get from 'lodash.get'
 
 import { hexToRGB } from '../utils/hexToRGB'
@@ -40,26 +39,6 @@ export const get = (path, fallback) => ({ theme }) => {
   ) {
     // eslint-disable-next-line no-console
     console.warn(`${path} is returning an object rather than a value`, value)
-  }
-
-  return value
-}
-
-export const getCss = (path, fallback) => ({ theme }) => {
-  const value = getThemeValue(theme, path)
-  if (!value) {
-    return fallback
-  }
-
-  if (typeof value !== 'string') {
-    return css`
-      ${value}
-    `
-  }
-
-  if (process.env.NODE_ENV !== 'production') {
-    // eslint-disable-next-line no-console
-    console.warn(`${path} is returning a value rather than CSS`, value)
   }
 
   return value

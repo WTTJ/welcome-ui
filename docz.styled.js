@@ -1,21 +1,21 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 import { Playground as DoczPlayground } from 'docz'
 
 import { Box } from './src/components/Box'
 import { Icon } from './src/components/Icon'
-import { get } from './src/theme/helpers'
 
 export const Playground = styled(DoczPlayground)`
-  margin-bottom: -${get('space.sm')};
+  margin-bottom: -${th.space('sm')};
 
   form > * {
-    margin-bottom: ${get('space.md')};
+    margin-bottom: md;
   }
 
   > * {
-    margin-right: ${get('space.sm')};
-    margin-bottom: ${get('space.sm')};
+    margin-right: sm;
+    margin-bottom: sm;
   }
 
   ${props =>

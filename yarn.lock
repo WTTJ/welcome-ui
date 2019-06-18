@@ -1867,10 +1867,34 @@
     text-table "^0.2.0"
     webpack-log "^1.1.2"
 
+"@xstyled/core@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.5.0.tgz#75901d3f11db60764d589afa7b25fced95badc72"
+  integrity sha512-1fr6fNpfiT/RMCXAWZNLPPLXmu7UBkPECHjaGRWb4eVJv7X7d+/9qsMbH4JQNxC1W0OZOoLU/cMI29uJeWdzEQ==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@xstyled/system" "^1.5.0"
+
+"@xstyled/styled-components@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.5.0.tgz#ac03c15f3fafc47c0f4144442b9346cf963ff42f"
+  integrity sha512-fam2zMJrZxKr+X8N93W05X6fF47CCt0nS9At+lxjYRy6oprMpkm+r6615RFwvC+1rMiILD1l7i1n63GCsa9LHA==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@xstyled/core" "^1.5.0"
+
 "@xstyled/system@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.2.0.tgz#e6939e7a00832a2acbc0d280b8ebe56d852b4f9d"
   integrity sha512-ZytevZWiLxysBJsdtyONvdYynEv7rVQvrI5R1lvLI1lqjM0gjBZgy1WcF8uyrxLSE0jBip9gjR5H1iSmXA8piA==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    deepmerge "^3.2.0"
+
+"@xstyled/system@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.5.0.tgz#2839213da519926c3284f5e6e942fd64a8ef5b60"
+  integrity sha512-kapiXjW0EomO+BEj4ZEIjieE8sB9pgRdf+aXA9Vt/eSIALi6Pmv3WrFd31GGM+UpbgmtYmMYRZzc28x1u4vEIw==
   dependencies:
     "@babel/runtime" "^7.4.4"
     deepmerge "^3.2.0"

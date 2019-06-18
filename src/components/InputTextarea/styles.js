@@ -1,15 +1,15 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
-import { get, getCss } from '../../theme/helpers'
 import { fieldTypeStyles } from '../../common/styles/form'
 import { system } from '../../utils/utils'
 
 export const StyledTextarea = styled.textarea(
   () => css`
     ${fieldTypeStyles};
-    ${getCss('fields.textarea')};
-    line-height: ${get('fontSizes.body1')};
-    padding: ${get('space.sm')};
+    ${th('fields.textarea')};
+    line-height: body1;
+    padding: sm;
     ${system};
   `
 )

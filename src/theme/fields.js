@@ -1,5 +1,5 @@
 export const getFields = theme => {
-  const { boxShadows, colors, fontSizes, fontWeights, radii, toRem } = theme
+  const { colors, fontSizes, fontWeights, radii, shadows, toRem } = theme
 
   const defaults = {
     color: colors.nude[800],
@@ -76,7 +76,7 @@ export const getFields = theme => {
       },
       hover: {
         'background-color': colors.light[200],
-        'box-shadow': boxShadows.sm
+        'box-shadow': shadows.sm
       }
     },
     select: {
