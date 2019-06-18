@@ -13,6 +13,7 @@ import { Box } from './components/Box'
 import { Button, IconButton } from './components/Button'
 import { Icon } from './components/Icon'
 import { ConnectedField } from './components/ConnectedField'
+import { Field } from './components/Field'
 import { InputText } from './components/InputText'
 
 # Refs
@@ -21,11 +22,15 @@ You can pass `ref` to a component to access the underlying DOM element.
 
 <Playground>
   {() => {
-    const buttonRef = useRef(null)
-    const inputRef = useRef(null)
+    const connectedInputRef = React.createRef()
+    const normalInputRef = useRef(null)
 
-    handleClick = e => {
-      inputRef.current.focus()
+    handleConnectedClick = e => {
+      connectedInputRef.current.focus()
+    }
+
+    handleNormalClick = e => {
+      normalInputRef.current.focus()
     }
 
     return (
@@ -33,8 +38,10 @@ You can pass `ref` to a component to access the underlying DOM element.
         onSubmit={() => {}}
         render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
-          <ConnectedField name="firstName" component={InputText} label="First name" ref={inputRef} mb={20} />
-          <Button ref={buttonRef} onClick={handleClick}>Click to focus field</Button>
+          <ConnectedField name="firstName" component={InputText} label="Connected" ref={connectedInputRef} mb={20} />
+          <Field name="lastName" component={InputText} label="Normal" ref={normalInputRef} mb={20} inputRef={normalInputRef} />
+          <Button onClick={handleConnectedClick}>Click to focus connected field</Button>
+          <Button onClick={handleNormalClick} ml={20}>Click to focus normal field</Button>
         </form>
       )} />
     )

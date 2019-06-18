@@ -4,7 +4,6 @@ route: /components/connected-field
 menu: Components
 ---
 
-import { useRef } from 'react'
 import { Form } from 'react-final-form'
 import { Props } from 'docz'
 import { Playground } from '../../../docz.styled'
@@ -36,8 +35,6 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
     }
     const toTitleCase = str => str.charAt(0).toUpperCase() + str.slice(1)
     const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'].map(month => ({label: toTitleCase(month), value: month}))
-    const getFirstNameRef = useRef()
-    const getButtonRef = useRef()
 
     return (
       <Form
@@ -52,7 +49,7 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
         }}
         render={({ handleSubmit, values }) => (
           <form onSubmit={handleSubmit}>
-            <ConnectedField name="firstName" component={InputText} placeholder="Boaty" label="First name" ref={getFirstNameRef} />
+            <ConnectedField name="firstName" component={InputText} placeholder="Boaty" label="First name" />
             <ConnectedField name="lastName" component={InputText} placeholder="McBoatface" label="Last name" />
             <ConnectedField name="telephone" component={InputText} type='tel' placeholder="123456789" label="Phone number" />
             <RadioGroup label="Dietary">
@@ -76,7 +73,7 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
             </FieldGroup>
             <ConnectedField name="summary" component={InputTextarea} placeholder="Keep it short" label="Summary" />
             <ConnectedField name="profile" component={FileUpload} label="Profile pic" />
-            <Button type="submit" ref={getButtonRef}>Go!</Button>
+            <Button type="submit">Go!</Button>
             <DoczCodeBlock>{values}</DoczCodeBlock>
           </form>
         )}
