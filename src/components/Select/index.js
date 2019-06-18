@@ -1,5 +1,5 @@
 import React from 'react'
-import { array, bool, func, oneOfType, string } from 'prop-types'
+import { array, bool, func, node, oneOfType, string } from 'prop-types'
 
 import { createEvent } from '../../utils/events'
 import { Icon } from '../Icon'
@@ -12,6 +12,7 @@ export const Select = ({
   autoFocus,
   className,
   disabled = false,
+  inputRef,
   name,
   onBlur,
   onChange,
@@ -37,6 +38,7 @@ export const Select = ({
       components={{
         DropdownIndicator: () => DropdownIndicator
       }}
+      inputRef={inputRef}
       isDisabled={disabled}
       isSearchable={searchable}
       name={name}
@@ -55,6 +57,7 @@ Select.propTypes = {
   autoFocus: bool,
   className: string,
   disabled: bool,
+  inputRef: node,
   name: string.isRequired,
   onBlur: func,
   onChange: func,

@@ -1,17 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { forwardRef } from 'react'
+import { node, oneOf } from 'prop-types'
 
 import * as S from './styles'
 
-export const Hint = ({ children, variant }) => (
-  <S.Hint data-testid="hint" variant={variant}>
+export const Hint = forwardRef(({ children, variant }, ref) => (
+  <S.Hint data-testid="hint" ref={ref} variant={variant}>
     {children}
   </S.Hint>
-)
+))
+
+Hint.displayName = 'Hint'
 
 Hint.propTypes = {
   /** Node component from parent */
-  children: PropTypes.node,
+  children: node,
   /** Variant of component */
-  variant: PropTypes.oneOf(['warning', 'error'])
+  variant: oneOf(['warning', 'error'])
 }

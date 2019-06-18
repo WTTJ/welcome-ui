@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import * as S from './styles'
 
-export const Tag = ({ children, rounded, size = 'md', variant = 'default', ...props }) => {
-  return (
+export const Tag = forwardRef(
+  ({ children, rounded, size = 'md', variant = 'default', ...props }, ref) => (
     <S.Tag
       data-testid="tag"
       length={children.length}
+      ref={ref}
       rounded={rounded}
       size={size}
       variant={variant}
@@ -16,7 +17,9 @@ export const Tag = ({ children, rounded, size = 'md', variant = 'default', ...pr
       {children}
     </S.Tag>
   )
-}
+)
+
+Tag.displayName = 'Tag'
 
 Tag.propTypes = {
   children: PropTypes.node,

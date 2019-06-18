@@ -1,11 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { bool, func, oneOf, string } from 'prop-types'
 
 import { StyledInputText } from './styles'
 
 export const InputText = ({
   autoFocus,
   disabled,
+  inputRef,
   name,
   onBlur,
   onChange,
@@ -15,35 +16,35 @@ export const InputText = ({
   type = 'text',
   value,
   variant
-}) => {
-  return (
-    <StyledInputText
-      autoFocus={autoFocus}
-      disabled={disabled}
-      id={name}
-      name={name}
-      onBlur={onBlur}
-      onChange={onChange}
-      onFocus={onFocus}
-      onKeyDown={onKeyDown}
-      placeholder={placeholder}
-      type={type}
-      value={value}
-      variant={variant}
-    />
-  )
-}
+}) => (
+  <StyledInputText
+    autoFocus={autoFocus}
+    disabled={disabled}
+    id={name}
+    name={name}
+    onBlur={onBlur}
+    onChange={onChange}
+    onFocus={onFocus}
+    onKeyDown={onKeyDown}
+    placeholder={placeholder}
+    ref={inputRef}
+    type={type}
+    value={value}
+    variant={variant}
+  />
+)
 
 InputText.propTypes = {
-  autoFocus: PropTypes.bool,
-  disabled: PropTypes.bool,
-  name: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  placeholder: PropTypes.string,
-  type: PropTypes.string,
-  value: PropTypes.string,
-  variant: PropTypes.oneOf(['error', 'info', 'valid', 'warning'])
+  autoFocus: bool,
+  disabled: bool,
+  inputRef: string,
+  name: string,
+  onBlur: func,
+  onChange: func,
+  onFocus: func,
+  onKeyDown: func,
+  placeholder: string,
+  type: string,
+  value: string,
+  variant: oneOf(['error', 'info', 'valid', 'warning'])
 }

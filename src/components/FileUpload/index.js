@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+import { bool, func, node, number, oneOfType, string } from 'prop-types'
 import { useDropzone } from 'react-dropzone'
 
 // Common
@@ -24,6 +24,7 @@ export const FileUpload = ({
   children = DefaultContent,
   disabled,
   input,
+  inputRef,
   maxSize = DEFAULT_MAX_FILE_SIZE,
   multiple,
   onAddFile,
@@ -90,7 +91,7 @@ export const FileUpload = ({
     <StyledFileUpload
       {...getRootProps({ handleRemoveFile, isDragActive, isDragAccept, isDragReject, disabled })}
     >
-      <input {...getInputProps({ name: input && input.name })} />
+      <input {...getInputProps({ name: input && input.name })} ref={inputRef} />
       <FilePreview>
         {children({
           fileUrl: file && getPreviewUrl(file.preview),
@@ -115,15 +116,16 @@ export const FileUpload = ({
 }
 
 FileUpload.propTypes = {
-  accept: PropTypes.string,
-  children: PropTypes.func,
-  disabled: PropTypes.bool,
-  input: PropTypes.node,
-  maxSize: PropTypes.number,
-  multiple: PropTypes.bool,
-  onAddFile: PropTypes.func,
-  onChange: PropTypes.func,
-  onError: PropTypes.func,
-  onRemoveFile: PropTypes.func,
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+  accept: string,
+  children: func,
+  disabled: bool,
+  input: node,
+  inputRef: node,
+  maxSize: number,
+  multiple: bool,
+  onAddFile: func,
+  onChange: func,
+  onError: func,
+  onRemoveFile: func,
+  title: oneOfType([string, node])
 }

@@ -13,6 +13,7 @@
     "sort-imports": [
       "warn",
       {
+        "ignoreCase": true,
         "ignoreDeclarationSort": true,
         "memberSyntaxSortOrder": ["single", "all", "multiple", "none"]
       }

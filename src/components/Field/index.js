@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { forwardRef, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 // Common
@@ -12,97 +12,105 @@ import { Hint } from '../Hint'
 // Fields
 import { StyledField } from './styles'
 
-export const Field = ({
-  autoFocus,
-  checked,
-  children,
-  component: Component,
-  connected,
-  disabled,
-  disabledIcon,
-  error,
-  flexDirection,
-  hint,
-  label,
-  name,
-  onBlur,
-  onChange,
-  onFocus,
-  onKeyDown,
-  options,
-  placeholder,
-  required,
-  touched,
-  type,
-  value,
-  warning,
-  ...props
-}) => {
-  // Return early if no component
-  if (!Component) {
-    return null
+export const Field = forwardRef(
+  (
+    {
+      autoFocus,
+      checked,
+      children,
+      component: Component,
+      connected,
+      disabled,
+      disabledIcon,
+      error,
+      flexDirection,
+      hint,
+      label,
+      name,
+      onBlur,
+      onChange,
+      onFocus,
+      onKeyDown,
+      options,
+      placeholder,
+      required,
+      touched,
+      type,
+      value,
+      warning,
+      ...props
+    },
+    ref
+  ) => {
+    // Return early if no component
+    if (!Component) {
+      return null
+    }
+
+    const baseType = getBaseType(Component.type || type)
+    const variant = getVariant({ connected, touched, warning, error })
+    const hintText = getHintText({ connected, touched, warning, error, hint })
+    const isRadio = baseType === 'radio'
+    const isCheckable = ['checkbox', 'radio'].includes(baseType)
+
+    const isShowRequired = isRadio ? null : required
+    const layout = flexDirection || (isCheckable ? 'row' : 'column')
+    const Container = layout === 'row' ? RowContainer : Fragment
+    const htmlFor = isRadio ? value : name
+
+    const field = (
+      <Component
+        autoFocus={autoFocus}
+        checked={checked}
+        disabled={disabled}
+        flexDirection={layout}
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        options={options}
+        placeholder={placeholder}
+        ref={ref}
+        required={required}
+        type={baseType}
+        value={value}
+        variant={variant}
+        {...props}
+      >
+        {children}
+      </Component>
+    )
+
+    return (
+      <StyledField
+        checkableField={isCheckable}
+        checked={checked}
+        fieldType={Component.type}
+        flexDirection={layout}
+      >
+        <Container>
+          {label && (
+            <Label
+              disabled={disabled}
+              disabledIcon={disabledIcon}
+              htmlFor={htmlFor}
+              required={isShowRequired}
+              variant={variant}
+            >
+              {isCheckable && field}
+              {label}
+            </Label>
+          )}
+          {!isCheckable && field}
+        </Container>
+        {hintText && <Hint variant={variant}>{hintText}</Hint>}
+      </StyledField>
+    )
   }
+)
 
-  const baseType = getBaseType(Component.type || type)
-  const variant = getVariant({ connected, touched, warning, error })
-  const hintText = getHintText({ connected, touched, warning, error, hint })
-  const isRadio = baseType === 'radio'
-  const isCheckable = ['checkbox', 'radio'].includes(baseType)
-
-  const isShowRequired = isRadio ? null : required
-  const layout = flexDirection || (isCheckable ? 'row' : 'column')
-  const Container = layout === 'row' ? RowContainer : Fragment
-  const htmlFor = isRadio ? value : name
-
-  const field = (
-    <Component
-      autoFocus={autoFocus}
-      checked={checked}
-      disabled={disabled}
-      flexDirection={layout}
-      name={name}
-      onBlur={onBlur}
-      onChange={onChange}
-      onFocus={onFocus}
-      onKeyDown={onKeyDown}
-      options={options}
-      placeholder={placeholder}
-      required={required}
-      type={baseType}
-      value={value}
-      variant={variant}
-      {...props}
-    >
-      {children}
-    </Component>
-  )
-
-  return (
-    <StyledField
-      checkableField={isCheckable}
-      checked={checked}
-      fieldType={Component.type}
-      flexDirection={layout}
-    >
-      <Container>
-        {label && (
-          <Label
-            disabled={disabled}
-            disabledIcon={disabledIcon}
-            htmlFor={htmlFor}
-            required={isShowRequired}
-            variant={variant}
-          >
-            {isCheckable && field}
-            {label}
-          </Label>
-        )}
-        {!isCheckable && field}
-      </Container>
-      {hintText && <Hint variant={variant}>{hintText}</Hint>}
-    </StyledField>
-  )
-}
+Field.displayName = 'Field'
 
 Field.propTypes = {
   autoFocus: PropTypes.bool,

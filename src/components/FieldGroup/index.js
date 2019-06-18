@@ -1,18 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { forwardRef } from 'react'
+import { node, string } from 'prop-types'
 
 import { Label } from '../Label'
 
 import { StyledFieldGroup } from './styles'
 
-export const FieldGroup = ({ children, label }) => (
-  <StyledFieldGroup>
+export const FieldGroup = forwardRef(({ children, label }, ref) => (
+  <StyledFieldGroup ref={ref}>
     <Label as="legend">{label}</Label>
     {children}
   </StyledFieldGroup>
-)
+))
 
+FieldGroup.displayName = 'FieldGroup'
 FieldGroup.propTypes = {
-  children: PropTypes.node,
-  label: PropTypes.string
+  children: node,
+  label: string
 }

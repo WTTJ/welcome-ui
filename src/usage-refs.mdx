@@ -1,0 +1,44 @@
+---
+name: Refs
+route: /usage-refs
+menu: Usage
+---
+
+import { createRef, useRef } from 'react'
+import { Props, Link } from 'docz'
+import { Playground } from '../docz.styled'
+import { Form } from 'react-final-form'
+
+import { Box } from './components/Box'
+import { Button, IconButton } from './components/Button'
+import { Icon } from './components/Icon'
+import { ConnectedField } from './components/ConnectedField'
+import { InputText } from './components/InputText'
+
+## Refs
+
+You can get and pass `ref` to access the underlying DOM element
+
+<Playground>
+  {() => {
+    const buttonRef = useRef(null)
+    const inputRef = useRef(null)
+
+    handleClick = e => {
+      inputRef.current.focus()
+    }
+
+    return (
+      <Form
+        onSubmit={() => {}}
+        render={({ handleSubmit }) => (
+        <form onSubmit={handleSubmit}>
+          <ConnectedField name="firstName" component={InputText} label="First name" ref={inputRef} mb={20} />
+          <Button ref={buttonRef} onClick={handleClick}>Click to focus field</Button>
+        </form>
+      )} />
+    )
+
+}}
+
+</Playground>

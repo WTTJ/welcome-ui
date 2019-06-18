@@ -1,31 +1,32 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { forwardRef } from 'react'
+import { bool, node, oneOf } from 'prop-types'
 
 import { IconButton } from '../IconButton'
 
 import * as S from './styles'
 
-const Button = ({ children, disabled, size = 'md', variant = 'primary', ...props }) => {
-  return (
+const Button = forwardRef(
+  ({ children, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
     <S.Button
       data-testid="button"
       disabled={disabled}
+      ref={ref}
       size={size}
       variant={disabled ? 'disabled' : variant}
-      {...props}
+      {...rest}
     >
       {children}
     </S.Button>
   )
-}
+)
+
+Button.displayName = 'Button'
 
 Button.propTypes = {
-  children: PropTypes.node,
-  disabled: PropTypes.bool,
-  /** To set the button size */
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
-  /** To set a rounded button */
-  variant: PropTypes.oneOf([
+  children: node,
+  disabled: bool,
+  size: oneOf(['xs', 'sm', 'md', 'lg']),
+  variant: oneOf([
     'primary',
     'secondary',
     'tertiary',

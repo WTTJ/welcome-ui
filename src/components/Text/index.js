@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { number, oneOf, string } from 'prop-types'
 
 import { StyledText } from './styles'
@@ -18,15 +18,17 @@ const TAG_NAMES = {
   meta2: 'p'
 }
 
-export const Text = ({ as, children, lines, variant = 'body1' }) => {
+export const Text = forwardRef(({ as, children, lines, variant = 'body1' }, ref) => {
   const tagName = as || TAG_NAMES[variant]
 
   return (
-    <StyledText as={tagName} data-testid="text" lines={lines} variant={variant}>
+    <StyledText as={tagName} data-testid="text" lines={lines} ref={ref} variant={variant}>
       {children}
     </StyledText>
   )
-}
+})
+
+Text.displayName = 'Text'
 
 Text.propTypes = {
   as: string,
