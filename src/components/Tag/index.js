@@ -5,7 +5,14 @@ import * as S from './styles'
 
 export const Tag = ({ children, rounded, size = 'md', variant = 'default', ...props }) => {
   return (
-    <S.Tag length={children.length} rounded={rounded} size={size} variant={variant} {...props}>
+    <S.Tag
+      data-testid="tag"
+      length={children.length}
+      rounded={rounded}
+      size={size}
+      variant={variant}
+      {...props}
+    >
       {children}
     </S.Tag>
   )
