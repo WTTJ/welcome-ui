@@ -12,7 +12,7 @@ export { GrowlTitle } from './title'
 export const Growl = ({ children, close, onClose }) => (
   <S.Growl>
     {onClose && (
-      <S.Close onClick={onClose}>
+      <S.Close data-testid="growl-close" onClick={onClose}>
         {close || (
           <S.CloseContent>
             <Icon name="cross" size="xs" />
