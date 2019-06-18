@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.3](https://github.com/WTTJ/welcome-ui/compare/v0.8.1...v0.8.3) (2019-06-18)
+
+
+### Bug Fixes
+
+* margin-bottom on Field components ([688b140](https://github.com/WTTJ/welcome-ui/commit/688b140)), closes [#92](https://github.com/WTTJ/welcome-ui/issues/92)
+
+
+### Tests
+
+* add tests on Growl and GrowTitle ([c6c8981](https://github.com/WTTJ/welcome-ui/commit/c6c8981))
+* Tag ([c123a57](https://github.com/WTTJ/welcome-ui/commit/c123a57))
+* Text ([fef8f08](https://github.com/WTTJ/welcome-ui/commit/fef8f08))
+* Toggle ([0e3148b](https://github.com/WTTJ/welcome-ui/commit/0e3148b))
+
+
+
 ### [0.8.2](https://github.com/WTTJ/welcome-ui/compare/v0.8.1...v0.8.2) (2019-06-18)
 
 
