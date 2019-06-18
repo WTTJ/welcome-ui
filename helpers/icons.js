@@ -23,11 +23,12 @@ const addAllFiles = files => {
     }
   })
 
+  // eslint-disable-next-line no-undef
   return Promise.all(promises)
 }
 
 const getContents = files => {
-  return files.reduce((acc, { key, content }) => {
+  return files.reduce((acc, { content, key }) => {
     let match = /<svg[^>]*>([\s\S]*)<\/svg>/g.exec(content)
     if (match) {
       match = match[1].replace(/#134B45/g, 'currentColor').trim()
@@ -52,6 +53,7 @@ fs.readdirAsync(inputPath)
   .then(addAllFiles)
   .then(getContents)
   .then(writeContents)
+  // eslint-disable-next-line no-console
   .then(() => console.log('SVGs successfully written to json'))
   .catch(err => {
     throw err
