@@ -9,6 +9,10 @@ import { get } from './src/theme/helpers'
 export const Playground = styled(DoczPlayground)`
   margin-bottom: -${get('space.sm')};
 
+  form > * {
+    margin-bottom: ${get('space.md')};
+  }
+
   > * {
     margin-right: ${get('space.sm')};
     margin-bottom: ${get('space.sm')};

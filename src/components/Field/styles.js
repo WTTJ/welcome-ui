@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import { system } from '../../utils/utils'
 import { Label as StyledLabel } from '../Label/styles'
 import { radioTabStyles } from '../RadioTab/styles'
+import { StyledFieldGroup } from '../FieldGroup/styles'
 import { StyledToggle } from '../Toggle/styles'
 import { StyledCheckbox } from '../InputCheckbox/styles'
 import { get, getCss } from '../../theme/helpers'
@@ -21,7 +22,9 @@ const checkableFieldStyles = css`
 
 export const StyledField = styled.div(
   props => css`
-    margin-bottom: ${props.checkableField ? get('space.xxs') : get('space.xl')};
+    ${StyledFieldGroup} {
+      margin-bottom: ${props.checkableField && get('space.xxs')};
+    }
     ${StyledLabel} {
       ${props.flexDirection === 'row' && rowStyles};
       ${props.flexDirection === 'column' && columnStyles};
