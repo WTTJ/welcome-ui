@@ -1,11 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { bool, func, node, number, oneOf, string } from 'prop-types'
 
 import { StyledTextarea } from './styles.js'
 
 export const InputTextarea = ({
   autoFocus,
   disabled,
+  inputRef,
   maxLength,
   minRows = 5,
   name,
@@ -28,22 +29,24 @@ export const InputTextarea = ({
     onFocus={onFocus}
     onKeyDown={onKeyDown}
     placeholder={placeholder}
+    ref={inputRef}
     value={value}
     variant={variant}
   />
 )
 
 InputTextarea.propTypes = {
-  autoFocus: PropTypes.bool,
-  disabled: PropTypes.bool,
-  maxLength: PropTypes.number,
-  minRows: PropTypes.number,
-  name: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-  variant: PropTypes.oneOf(['error', 'info', 'valid', 'warning'])
+  autoFocus: bool,
+  disabled: bool,
+  inputRef: node,
+  maxLength: number,
+  minRows: number,
+  name: string,
+  onBlur: func,
+  onChange: func,
+  onFocus: func,
+  onKeyDown: func,
+  placeholder: string,
+  value: string,
+  variant: oneOf(['error', 'info', 'valid', 'warning'])
 }

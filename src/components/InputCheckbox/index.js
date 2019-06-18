@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { bool, elementType, func, node, number, string } from 'prop-types'
 
 import { StyledCheckbox } from './styles'
 
@@ -8,6 +8,7 @@ export const InputCheckbox = ({
   Component = StyledCheckbox,
   checked,
   disabled,
+  inputRef,
   name,
   onBlur,
   onKeyDown,
@@ -31,6 +32,7 @@ export const InputCheckbox = ({
         onClick={onChange}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
+        ref={inputRef}
         type="checkbox"
       />
     </Component>
@@ -40,15 +42,16 @@ export const InputCheckbox = ({
 InputCheckbox.type = 'InputCheckbox'
 
 InputCheckbox.propTypes = {
-  autoFocus: PropTypes.bool,
-  checked: PropTypes.bool,
-  Component: PropTypes.elementType,
-  disabled: PropTypes.bool,
-  name: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  order: PropTypes.number,
-  type: PropTypes.string
+  autoFocus: bool,
+  checked: bool,
+  Component: elementType,
+  disabled: bool,
+  inputRef: node,
+  name: string,
+  onBlur: func,
+  onChange: func,
+  onFocus: func,
+  onKeyDown: func,
+  order: number,
+  type: string
 }

@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import React, { forwardRef } from 'react'
+import { func, node } from 'prop-types'
 
 import { Icon } from '../Icon'
 
@@ -9,8 +9,8 @@ export const GrowlAction = S.Action
 export const GrowlClose = S.CloseContent
 export { GrowlTitle } from './title'
 
-export const Growl = ({ children, close, onClose }) => (
-  <S.Growl>
+export const Growl = forwardRef(({ children, close, onClose }, ref) => (
+  <S.Growl ref={ref}>
     {onClose && (
       <S.Close data-testid="growl-close" onClick={onClose}>
         {close || (
@@ -22,12 +22,14 @@ export const Growl = ({ children, close, onClose }) => (
     )}
     {children}
   </S.Growl>
-)
+))
+
+Growl.displayName = 'Growl'
 
 Growl.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: node.isRequired,
   /** node element replace right position  */
-  close: PropTypes.node,
+  close: node,
   /** action called onclick on right position  */
-  onClose: PropTypes.func
+  onClose: func
 }
