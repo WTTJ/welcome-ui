@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { bool, func, object, shape, string } from 'prop-types'
 import { Field as FinalField } from 'react-final-form'
 
 import { Field } from '../Field'
 import { getBaseType } from '../../utils/fields'
 
-export const ConnectedField = React.forwardRef(({ component, type, ...rest }, ref) => (
+export const ConnectedField = forwardRef(({ component, type, ...rest }, ref) => (
   <FinalField
     type={getBaseType(component.type || type)}
     {...rest}
