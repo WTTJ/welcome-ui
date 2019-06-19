@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.1](https://github.com/WTTJ/welcome-ui/compare/v0.9.0...v0.9.1) (2019-06-19)
+
+
+### Bug Fixes
+
+* add missing copy icon ([73144d3](https://github.com/WTTJ/welcome-ui/commit/73144d3))
+
+
+
 ## [0.9.0](https://github.com/WTTJ/welcome-ui/compare/v0.8.5...v0.9.0) (2019-06-19)
 
 
