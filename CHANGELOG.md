@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/WTTJ/welcome-ui/compare/v0.8.5...v0.9.0) (2019-06-19)
+
+
+### Features
+
+* add Shape component ([3d00ffd](https://github.com/WTTJ/welcome-ui/commit/3d00ffd))
+
+
+
 ### [0.8.5](https://github.com/WTTJ/welcome-ui/compare/v0.8.3...v0.8.5) (2019-06-18)
 
 
