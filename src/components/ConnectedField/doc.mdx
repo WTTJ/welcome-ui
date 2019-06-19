@@ -21,6 +21,7 @@ import { InputRadio } from '../InputRadio'
 import { RadioTab } from '../RadioTab'
 import { Select } from '../Select'
 import { FileUpload } from '../FileUpload'
+import { DateTimePicker } from '../DateTimePicker'
 
 # ConnectedField
 
@@ -35,10 +36,13 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
     }
     const toTitleCase = str => str.charAt(0).toUpperCase() + str.slice(1)
     const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'].map(month => ({label: toTitleCase(month), value: month}))
+    let defaultPartyDate = new Date(Date.now())
+    defaultPartyDate.setHours(defaultPartyDate.getHours() + 24)
+
 
     return (
       <Form
-        initialValues={{ firstName: 'Fish', description: 'Fancy that', diet: 'herbivore', dogs: true, hungry: true, weekday: 'tuesday' }}
+        initialValues={{ firstName: 'Fish', description: 'Fancy that', diet: 'herbivore', dogs: true, hungry: true, weekday: 'tuesday', partyDate: defaultPartyDate }}
         onSubmit={submitForm}
         validate={(values) => {
           let errors = {}
@@ -73,6 +77,7 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
             </FieldGroup>
             <ConnectedField name="summary" component={InputTextarea} placeholder="Keep it short" label="Summary" />
             <ConnectedField name="profile" component={FileUpload} label="Profile pic" />
+            <ConnectedField name="partyDate" component={DateTimePicker} label="Party date" />
             <Button type="submit">Go!</Button>
             <DoczCodeBlock>{values}</DoczCodeBlock>
           </form>
