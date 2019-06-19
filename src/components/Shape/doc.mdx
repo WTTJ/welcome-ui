@@ -1,0 +1,94 @@
+---
+name: Shape
+route: /components/shape
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+
+import { Box } from '../Box'
+import { Shape } from './index'
+
+# Shape
+
+Overflow child with hidden child.
+
+## Default
+
+Add `width` and `height` to set size of shape.
+
+<Playground>
+  <Shape width="150px" height="150px">
+    <img src="https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif" />
+  </Shape>
+</Playground>
+
+## Border radius
+
+Add `borderRadius` from theme or what you want.
+
+<Playground>
+  <Shape width="150px" height="150px" borderRadius="lg">
+    <img src="https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif" />
+  </Shape>
+</Playground>
+
+## Rounded
+
+Add `rounded` and will take width size.
+
+<Playground>
+  <Shape width="150px" height="150px" rounded>
+    <img src="https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif" />
+  </Shape>
+</Playground>
+
+## Examples: Avatar
+
+<Playground>
+  <Box display="flex" width="180px" justifyContent="space-between">
+    <Shape width="50px" height="50px" rounded>
+      <Box
+        backgroundColor="primary.500"
+        fontSize="meta2"
+        color="light.100"
+        fontWeight="bold"
+        width={1}
+        height={1}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        WTTJ
+      </Box>
+    </Shape>
+    <Shape
+      width="50px"
+      height="50px"
+      rounded
+      borderWidth="1px"
+      borderColor="primary.500"
+      borderStyle="dotted"
+    >
+      <Box
+        color="primary.500"
+        fontSize="meta2"
+        fontWeight="bold"
+        width={1}
+        height={1}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        WTTJ
+      </Box>
+    </Shape>
+    <Shape width="50px" height="50px" rounded>
+      <img src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4" />
+    </Shape>
+  </Box>
+</Playground>
+
+## Properties
+
+<Props of={Shape} />
