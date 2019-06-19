@@ -25,7 +25,7 @@ export default {
     bundlerConfig.module.rules.push(...rules)
     return bundlerConfig
   },
-  menu: ['Getting Started', 'Themes', 'Components', 'Helpers'],
+  menu: ['Getting Started', 'Theming', 'Components', 'Fields', 'Helpers', 'Usage'],
   themeConfig: {
     colors: {
       primary: theme.colors.primary[500]

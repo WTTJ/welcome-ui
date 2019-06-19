@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-multi-comp */
 import React from 'react'
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
@@ -50,6 +52,35 @@ export const IconsList = icons => (
         </Box>
         <Box fontSize="meta1" fontWeight="medium" padding="5px 0" textAlign="center" width={1}>
           {icon}
+        </Box>
+      </Box>
+    ))}
+  </Box>
+)
+
+export const Colors = ({ colors, withBorder }) => (
+  <Box display="flex" flexWrap="wrap">
+    {Object.keys(colors).map(color => (
+      <Box key={color} marginBottom="10px" marginRight="10px">
+        <Box
+          backgroundColor={colors[color]}
+          borderColor={withBorder && 'nude.300'}
+          borderStyle={withBorder && 'solid'}
+          borderWidth={withBorder && '1px'}
+          height="40px"
+          width="90px"
+        />
+        <Box
+          borderColor="nude.300"
+          borderStyle="solid"
+          borderWidth="0 1px 1px 1px"
+          padding="5px"
+          textAlign="center"
+        >
+          <Box fontWeight="medium">{color}</Box>
+          <Box color="nude.700" fontSize="meta2" marginTop="3px">
+            {colors[color]}
+          </Box>
         </Box>
       </Box>
     ))}
