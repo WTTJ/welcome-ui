@@ -2657,6 +2657,11 @@ body-parser@1.19.0:
     raw-body "2.4.0"
     type-is "~1.6.17"
 
+body-scroll-lock@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/body-scroll-lock/-/body-scroll-lock-2.6.1.tgz#3782ff37404886faaee366968ceee40c3964d8f2"
+  integrity sha512-fsDsq10+BJrk/+eGADqxspyZpGiKSh3dK8ByE6KuDK0REmPB99U05p1t9xVTAM9J6j9PJGm6W/W+HsCPnOFj+Q==
+
 bonjour@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/bonjour/-/bonjour-3.5.0.tgz#8e890a183d8ee9a2393b3844c691a42bcf7bc9f5"
@@ -9404,7 +9409,7 @@ polished@^3.3.0:
   dependencies:
     "@babel/runtime" "^7.4.4"
 
-popper.js@^1.14.4, popper.js@^1.14.7:
+popper.js@^1.14.4, popper.js@^1.14.7, popper.js@^1.15.0:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.15.0.tgz#5560b99bbad7647e9faa475c6b8056621f5a4ff2"
   integrity sha512-w010cY1oCUmI+9KwwlWki+r5jxKfTFDVoadl7MSrIujHU5MJ5OR6HTDj6Xo8aoR/QsA56x8jKjA59qGH4ELtrA==
@@ -10461,6 +10466,14 @@ readdirp@^3.0.2:
   integrity sha512-LbyJYv48eywrhOlScq16H/VkCiGKGPC2TpOdZCJ7QXnYEjn3NN/Oblh8QEU3vqfSRBB7OGvh5x45NKiVeNujIQ==
   dependencies:
     picomatch "^2.0.4"
+
+reakit@^1.0.0-beta.2:
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/reakit/-/reakit-1.0.0-beta.2.tgz#e52c3fd75d4cbcce48a8633acc528d85f25813da"
+  integrity sha512-8RHDBBnoS4dbUHERYsDXLdP984RwcNO6Sb76bkDrIdxd5kGLBea7nx+WyUZHoNGA7PwDkGtasXlcyNBMsrYRBw==
+  dependencies:
+    body-scroll-lock "^2.6.1"
+    popper.js "^1.15.0"
 
 realpath-native@^1.1.0:
   version "1.1.0"
