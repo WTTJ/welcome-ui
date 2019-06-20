@@ -37,6 +37,10 @@ export const StyledCheckbox = styled.div(
       transition: medium;
     }
 
+    input {
+      appearance: none;
+    }
+
     ${checked && checkedStyles};
     ${system};
   `

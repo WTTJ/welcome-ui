@@ -21,6 +21,9 @@ const baseStyle = css`
 export const Pagination = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
   ${system};
 `
 

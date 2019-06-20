@@ -13,5 +13,6 @@ export const Shape = styled.div`
 
   img {
     object-fit: cover;
+    overflow: hidden;
   }
 `
