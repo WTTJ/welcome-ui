@@ -120,6 +120,9 @@ export const getFields = theme => {
           'border-color': colors.secondary[200]
         }
       }
+    },
+    fieldset: {
+      'border-width': '0'
     }
   }
 }
