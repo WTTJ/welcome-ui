@@ -41,14 +41,6 @@ export const getBaseStyles = theme => createGlobalStyle`
     font-family: ${[theme.fonts.headings, theme.fonts.texts, 'serif'].join(', ')};
   }
 
-  h1, h2, h3{
-    line-height: 1.3;
-  }
-
-  h4, h5, h6, p, li{
-    line-height: 1.4;
-  }
-
   ::selection {
     background-color: ${theme.colors.primary[500]};
     color: ${theme.colors.light[200]};
