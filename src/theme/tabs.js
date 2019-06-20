@@ -5,6 +5,7 @@ export const getTabs = theme => {
     tabs: {
       'border-style': 'solid',
       'border-color': colors.nude[200],
+      'border-width': 0,
       'border-bottom-width': borderWidths.sm
     },
     item: {

@@ -4,15 +4,17 @@ import { left, th, width } from '@xstyled/system'
 import { system } from '../../utils/utils'
 
 export const Tabs = styled.nav`
+  position: relative;
   width: 100%;
   overflow: auto;
-  position: relative;
   ${system};
 `
 
 export const List = styled.ul`
   ${th('tabs.tabs')}
   display: flex;
+  margin: 0;
+  list-style-type: none;
 `
 
 export const Item = styled.button(
