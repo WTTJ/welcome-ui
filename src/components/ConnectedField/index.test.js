@@ -10,7 +10,7 @@ const content = 'Jungle'
 
 const noop = () => {}
 
-describe('<ConnectedField>', () => {
+describe.skip('<ConnectedField>', () => {
   it('should render correctly and hold `ref`', () => {
     const inputRef = createRef()
     const { getByTestId } = render(
