@@ -20,16 +20,13 @@ import { Pagination } from './'
 <Playground>
   {() => {
     const [selected, setSelected] = useState(1)
-
     return (
       <>
-       <Pagination onChange={setSelected} pageCount={10} />
-       <Box mt="20px">Page {selected} is selected !</Box>
+        <Pagination onChange={setSelected} pageCount={10} />
+        <Box mt="20px">Page {selected} is selected !</Box>
       </>
     )
-
-}}
-
+  }}
 </Playground>
 
 ## Range display
@@ -39,16 +36,15 @@ When your range display is above your pageCount, all the pages are shown.<br />C
 <Playground>
   {() => {
     const [selected, setSelected] = useState(1)
-
     return (
       <>
-       <Pagination onChange={setSelected} pageCount={5} rangeDisplay={10} />
-       <Box mt="20px">Page <strong>{selected} </strong> is selected !</Box>
+        <Pagination onChange={setSelected} pageCount={5} rangeDisplay={10} />
+        <Box mt="20px">
+          Page <strong>{selected} </strong> is selected !
+        </Box>
       </>
     )
-
-}}
-
+  }}
 </Playground>
 
 ## Default page
@@ -59,16 +55,13 @@ Use `defaultPage` property.
   {() => {
     const defaultPage = 4
     const [selected, setSelected] = useState(defaultPage)
-
     return (
       <>
-       <Pagination onChange={setSelected} pageCount={10} defaultPage={defaultPage} />
-       <Box mt="20px">Page {selected} is selected !</Box>
+        <Pagination onChange={setSelected} pageCount={10} defaultPage={defaultPage} />
+        <Box mt="20px">Page {selected} is selected !</Box>
       </>
     )
-
-}}
-
+  }}
 </Playground>
 
 ## Properties

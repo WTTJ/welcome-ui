@@ -18,11 +18,13 @@ import { InputText } from './components/InputText'
 
 # Refs
 
-You can pass `ref` to a component to access the underlying DOM element.
+You can create a `ref`\* and pass it to a component to access the underlying DOM element.
+
+Note: `ref`s can be created with either `React.createRef()` or `React.useRef(null)` for functional components or a callback ref if using a React `class`.
 
 <Playground>
   {() => {
-    const connectedInputRef = React.createRef()
+    const connectedInputRef = createRef()
     const normalInputRef = useRef(null)
 
     handleConnectedClick = e => {

@@ -31,51 +31,121 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
 
 <Playground>
   {() => {
-    const submitForm = (values) => {
+    const submitForm = values => {
       console.debug('values', values)
     }
     const toTitleCase = str => str.charAt(0).toUpperCase() + str.slice(1)
-    const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'].map(month => ({label: toTitleCase(month), value: month}))
-    let defaultPartyDate = new Date(Date.now())
-    defaultPartyDate.setHours(defaultPartyDate.getHours() + 24)
-
-
+    const months = [
+      'january',
+      'february',
+      'march',
+      'april',
+      'may',
+      'june',
+      'july',
+      'august',
+      'september',
+      'october',
+      'november',
+      'december'
+    ].map(month => ({ label: toTitleCase(month), value: month }))
     return (
       <Form
-        initialValues={{ firstName: 'Fish', description: 'Fancy that', diet: 'herbivore', dogs: true, hungry: true, weekday: 'tuesday', partyDate: defaultPartyDate }}
+        initialValues={{
+          firstName: 'Fish',
+          description: 'Fancy that',
+          diet: 'herbivore',
+          dogs: true,
+          hungry: true,
+          weekday: 'tuesday'
+        }}
         onSubmit={submitForm}
-        validate={(values) => {
+        validate={values => {
           let errors = {}
           if (!values.lastName) {
-            errors.lastName = "Required"
+            errors.lastName = 'Required'
           }
           return errors
         }}
         render={({ handleSubmit, values }) => (
           <form onSubmit={handleSubmit}>
-            <ConnectedField name="firstName" component={InputText} placeholder="Boaty" label="First name" />
-            <ConnectedField name="lastName" component={InputText} placeholder="McBoatface" label="Last name" />
-            <ConnectedField name="telephone" component={InputText} type='tel' placeholder="123456789" label="Phone number" />
+            <ConnectedField
+              name="firstName"
+              component={InputText}
+              placeholder="Boaty"
+              label="First name"
+            />
+            <ConnectedField
+              name="lastName"
+              component={InputText}
+              placeholder="McBoatface"
+              label="Last name"
+            />
+            <ConnectedField
+              name="telephone"
+              component={InputText}
+              type="tel"
+              placeholder="123456789"
+              label="Phone number"
+            />
             <RadioGroup label="Dietary">
               <ConnectedField name="diet" component={InputRadio} value="vegan" label="Vegan" />
-              <ConnectedField name="diet" component={InputRadio} value="herbivore" label="Herbivore" />
-              <ConnectedField name="diet" component={InputRadio} value="omnivore" label="Omnivore" checked />
-              <ConnectedField name="diet" component={InputRadio} value="carnivore" label="Carnivore" />
+              <ConnectedField
+                name="diet"
+                component={InputRadio}
+                value="herbivore"
+                label="Herbivore"
+              />
+              <ConnectedField
+                name="diet"
+                component={InputRadio}
+                value="omnivore"
+                label="Omnivore"
+                checked
+              />
+              <ConnectedField
+                name="diet"
+                component={InputRadio}
+                value="carnivore"
+                label="Carnivore"
+              />
             </RadioGroup>
             <RadioGroup label="Favourite weekday" flexDirection="row" required>
               <ConnectedField name="weekday" component={RadioTab} value="monday" label="Monday" />
               <ConnectedField name="weekday" component={RadioTab} value="tuesday" label="Tuesday" />
-              <ConnectedField name="weekday" component={RadioTab} value="wednesday" label="Wednesday" checked />
-              <ConnectedField name="weekday" component={RadioTab} value="thursday" label="Thursday" />
+              <ConnectedField
+                name="weekday"
+                component={RadioTab}
+                value="wednesday"
+                label="Wednesday"
+                checked
+              />
+              <ConnectedField
+                name="weekday"
+                component={RadioTab}
+                value="thursday"
+                label="Thursday"
+              />
               <ConnectedField name="weekday" component={RadioTab} value="friday" label="Friday" />
             </RadioGroup>
-            <ConnectedField name="month" component={Select} options={months} value="february" label="Favourite month" />
+            <ConnectedField
+              name="month"
+              component={Select}
+              options={months}
+              value="february"
+              label="Favourite month"
+            />
             <ConnectedField name="hungry" component={Toggle} label="Hungry" />
             <FieldGroup label="Animals">
               <ConnectedField name="dogs" component={InputCheckbox} label="Dogs" checked />
               <ConnectedField name="cats" component={InputCheckbox} label="Cats" />
             </FieldGroup>
-            <ConnectedField name="summary" component={InputTextarea} placeholder="Keep it short" label="Summary" />
+            <ConnectedField
+              name="summary"
+              component={InputTextarea}
+              placeholder="Keep it short"
+              label="Summary"
+            />
             <ConnectedField name="profile" component={FileUpload} label="Profile pic" />
             <ConnectedField name="partyDate" component={DateTimePicker} label="Party date" />
             <Button type="submit">Go!</Button>
@@ -84,9 +154,7 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
         )}
       />
     )
-
-}}
-
+  }}
 </Playground>
 
 ## Properties

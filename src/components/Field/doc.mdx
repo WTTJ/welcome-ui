@@ -299,9 +299,9 @@ You can find additional props for each field component in [Fields](/fields/file-
 
 <Playground>
   <Field
-    name='random-fifteen'
+    name="random-fifteen"
     component={FileUpload}
-    label='File upload example'
+    label="File upload example"
     onChange={() => {}}
   >
     {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
@@ -321,10 +321,10 @@ You can find additional props for each field component in [Fields](/fields/file-
 
 <Playground>
   <Field
-    name='random-sixteen'
+    name="random-sixteen"
     component={DateTimePicker}
     value={Date.now() - 18 * 365 * 24 * 3600 * 1000}
-    label='Tell us your birth date and time (if you remember it)'
+    label="Tell us your birth date and time (if you remember it)"
     onChange={date => console.log('date: ', date)}
   />
 </Playground>
