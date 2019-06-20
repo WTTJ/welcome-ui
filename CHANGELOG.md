@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.2](https://github.com/WTTJ/welcome-ui/compare/v0.9.1...v0.9.2) (2019-06-20)
+
+
+### Bug Fixes
+
+* add reset style when baseStyle is not called ([#121](https://github.com/WTTJ/welcome-ui/issues/121)) ([b512674](https://github.com/WTTJ/welcome-ui/commit/b512674)), closes [#117](https://github.com/WTTJ/welcome-ui/issues/117)
+* tab component styles broken ([b9fdd81](https://github.com/WTTJ/welcome-ui/commit/b9fdd81)), closes [#111](https://github.com/WTTJ/welcome-ui/issues/111)
+
+
+
 ### [0.9.1](https://github.com/WTTJ/welcome-ui/compare/v0.9.0...v0.9.1) (2019-06-19)
 
 
