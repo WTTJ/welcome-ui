@@ -13,6 +13,7 @@ import { DateTimePicker } from './index.js'
 # DateTimePicker
 
 It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
+
 [All the props](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) the library exposes can be passed to either DatePicker or TimePicker through the `datePickerProps` and `timePickerProps`
 
 ## Simple use case
@@ -36,13 +37,22 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 ## DatePicker only + fr locale
 
 <Playground>
-  <DateTimePicker datePickerOnly value={Date.now()} onChange={date => console.log('date: ', date)} datePickerProps={{ locale: fr }} />
+  <DateTimePicker
+    datePickerOnly
+    value={Date.now()}
+    onChange={date => console.log('date: ', date)}
+    datePickerProps={{ locale: fr }}
+  />
 </Playground>
 
 ## TimePickerOnly
 
 <Playground>
-  <DateTimePicker timePickerOnly value={Date.now()} onChange={date => console.log('date: ', date)} />
+  <DateTimePicker
+    timePickerOnly
+    value={Date.now()}
+    onChange={date => console.log('date: ', date)}
+  />
 </Playground>
 
 ## Properties
