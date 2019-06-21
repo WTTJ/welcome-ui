@@ -2,11 +2,11 @@ import styled, { css } from 'styled-components'
 import { th } from '@xstyled/system'
 import SimpleMDE from 'react-simplemde-editor'
 
-import { fieldStyles } from '../../common/styles/form'
+import { fieldTypeStyles } from '../../common/styles/form'
 
 export const Wrapper = styled.div(
   props => css`
-    ${fieldStyles};
+    ${fieldTypeStyles};
     position: relative;
     pointer-events: ${props.disabled && 'none'};
     ${props.focused && th('fields.focused')};
