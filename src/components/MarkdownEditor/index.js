@@ -1,56 +1,40 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import { bool, func, node, oneOfType, string } from 'prop-types'
+import { NimblePicker } from 'emoji-mart'
+import data from 'emoji-mart/data/apple.json'
 
 // Only require CSS on client
 if (window) {
+  require('emoji-mart/css/emoji-mart.css')
   require('easymde/dist/easymde.min.css')
 }
 
 import { formFieldPropTypes } from '../../utils/propTypes'
 import { createEvent } from '../../utils/events'
-import { Icon } from '../Icon'
 
+import { Toolbar } from './Toolbar'
 import * as S from './styles'
 
-const ACTIONS = {
-  divider: null,
-  emoji: null,
-  bold: 'toggleBold',
-  italic: 'toggleItalic',
-  strikethrough: 'toggleStrikethrough',
-  link: 'drawLink',
-  'heading-1': 'toggleHeading1',
-  'heading-2': 'toggleHeading2',
-  code: 'toggleCodeBlock',
-  quote: 'toggleBlockquote',
-  'unordered-list': 'toggleUnorderedList',
-  'ordered-list': 'toggleOrderedList',
-  'horizontal-rule': 'drawHorizontalRule'
-}
-
-const getTooltip = item =>
-  `${item.charAt(0).toUpperCase()}${item.substr(1).toLowerCase()}`.replace('-', ' ')
-
-export const MarkdownEditor = props => {
-  const {
-    autoFocus,
-    disabled,
-    inputRef,
-    name,
-    onBlur,
-    onChange,
-    onFocus,
-    placeholder,
-    value,
-    variant
-  } = props
-
+export const MarkdownEditor = ({
+  autoFocus,
+  disabled,
+  inputRef,
+  name,
+  onBlur,
+  onChange,
+  onFocus,
+  placeholder,
+  value,
+  variant
+}) => {
   const [focused, setFocused] = useState(autoFocus || false)
   const [instance, setInstance] = useState(null)
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false)
 
   const handleFocus = () => {
     onFocus && onFocus(value)
     setFocused(true)
+    setShowEmojiPicker(false)
   }
 
   const handleBlur = () => {
@@ -76,7 +60,45 @@ export const MarkdownEditor = props => {
     }
   }
 
-  const actions = [
+  const addEmoji = emoji => {
+    const cm = instance.codemirror
+    const doc = cm.getDoc()
+    const position = doc.getCursor()
+    doc.replaceRange(emoji.native, position)
+
+    // Update input value
+    const nextValue = instance.value()
+    handleChange(nextValue)
+
+    // Close picker
+    toggleEmojiPicker()
+    cm.focus()
+
+    // Position cursor after our emoji
+    setTimeout(() => doc.setCursor({ line: position.line, ch: position.ch + 2 }), 50)
+  }
+
+  const toggleEmojiPicker = () => {
+    setShowEmojiPicker(!showEmojiPicker)
+  }
+
+  const ACTIONS = {
+    divider: null,
+    emoji: toggleEmojiPicker,
+    bold: 'toggleBold',
+    italic: 'toggleItalic',
+    strikethrough: 'toggleStrikethrough',
+    link: 'drawLink',
+    'heading-1': 'toggleHeading1',
+    'heading-2': 'toggleHeading2',
+    code: 'toggleCodeBlock',
+    quote: 'toggleBlockquote',
+    'unordered-list': 'toggleUnorderedList',
+    'ordered-list': 'toggleOrderedList',
+    'horizontal-rule': 'drawHorizontalRule'
+  }
+
+  const toolbar = [
     'bold',
     'italic',
     'strikethrough',
@@ -97,23 +119,19 @@ export const MarkdownEditor = props => {
 
   return (
     <S.Wrapper disabled={disabled} focused={focused} variant={variant}>
-      <S.Toolbar>
-        {actions.map((action, i) => {
-          if (action === 'divider') {
-            return <S.Divider />
-          }
-          return (
-            <S.ToolbarIcon
-              data-id={action}
-              key={`${action}-${i}`}
-              onClick={handleToolbarClick}
-              title={getTooltip(action)}
-            >
-              <Icon name="comment" />
-            </S.ToolbarIcon>
-          )
-        })}
-      </S.Toolbar>
+      <Toolbar items={toolbar} onClick={handleToolbarClick} />
+      {showEmojiPicker && (
+        <S.EmojiPicker>
+          <NimblePicker
+            autoFocus
+            data={data}
+            emoji="ok_hand"
+            onSelect={addEmoji}
+            set="apple"
+            title="Pick an emoji"
+          />
+        </S.EmojiPicker>
+      )}
       <S.Editor
         className="simple-md-editor-wrapper"
         events={{ blur: handleBlur, focus: handleFocus }}
@@ -127,7 +145,8 @@ export const MarkdownEditor = props => {
           placeholder,
           toolbar: false,
           tabSize: 4,
-          spellChecker: false
+          spellChecker: false,
+          status: false
         }}
         ref={inputRef}
         value={value}
@@ -138,10 +157,7 @@ export const MarkdownEditor = props => {
 
 MarkdownEditor.propTypes = {
   ...formFieldPropTypes,
-  autoFocus: PropTypes.func,
-  disabled: PropTypes.bool,
-  hideIcons: PropTypes.arrayOf(PropTypes.string),
-  placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  showIcons: PropTypes.arrayOf(PropTypes.string),
-  toolbar: PropTypes.arrayOf(PropTypes.string)
+  autoFocus: func,
+  disabled: bool,
+  placeholder: oneOfType([string, node])
 }

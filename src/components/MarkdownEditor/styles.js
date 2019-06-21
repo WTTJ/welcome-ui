@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import SimpleMDE from 'react-simplemde-editor'
 
@@ -12,41 +12,6 @@ export const Wrapper = styled.div(
     ${props.focused && th('fields.focused')};
     ${props.disabled && th('fields.disabled')};
     padding: 0;
-
-    .editor-toolbar {
-      border: 0 none;
-      padding: ${th('space.xs')} ${th('space.xs')};
-      opacity: 1;
-      background-color: ${th('colors.light.100')};
-      border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude.200')};
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      box-shadow: ${th('shadows.sm')};
-
-      &::before,
-      &::after {
-        content: none;
-      }
-
-      button {
-        ${th('fields.mde.icons')};
-        height: 2rem;
-        width: 2rem;
-        line-height: 2rem;
-        text-align: center;
-
-        &::before {
-          line-height: inherit;
-        }
-      }
-
-      i.separator {
-        color: transparent;
-        border-left: 0 none;
-        border-right: 1px solid nude.200;
-      }
-    }
 
     .editor-statusbar {
       display: none;
@@ -65,10 +30,11 @@ export const Wrapper = styled.div(
 
 export const Toolbar = styled.div(
   props => css`
-    padding: ${th('space.xs')} ${th('space.xs')};
+    padding: xs xs;
     opacity: 1;
     background-color: ${th('colors.light.100')};
     border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude.200')};
+    border-radius: ${th('radii.sm')} ${th('radii.sm')} 0 0;
     position: sticky;
     top: 0;
     z-index: 2;
@@ -86,8 +52,15 @@ export const Divider = styled.div`
   display: inline-block;
   width: 1px;
   height: 1.5rem;
-  margin-right: ${th('space.md')};
-  background: ${th('colors.nude.200')};
+  margin-right: md;
+  background-color: nude.200;
+`
+
+export const EmojiPicker = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: ${th('space.md')};
+  right: ${th('space.md')};
 `
 
 export const Editor = styled(SimpleMDE)``

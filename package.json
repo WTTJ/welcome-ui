@@ -97,6 +97,7 @@
     "@babel/runtime": "^7.4.5",
     "@xstyled/styled-components": "^1.5.2",
     "@xstyled/system": "^1.2.0",
+    "emoji-mart": "=2.11.1",
     "lodash.concat": "^4.5.0",
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.1",
