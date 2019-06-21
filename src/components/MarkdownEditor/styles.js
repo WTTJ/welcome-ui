@@ -63,4 +63,31 @@ export const Wrapper = styled.div(
   `
 )
 
+export const Toolbar = styled.div(
+  props => css`
+    padding: ${th('space.xs')} ${th('space.xs')};
+    opacity: 1;
+    background-color: ${th('colors.light.100')};
+    border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude.200')};
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-shadow: ${th('shadows.sm')};
+  `
+)
+
+export const ToolbarIcon = styled.a`
+  display: inline-block;
+  margin-right: ${th('space.md')};
+  cursor: pointer;
+`
+
+export const Divider = styled.div`
+  display: inline-block;
+  width: 1px;
+  height: 1.5rem;
+  margin-right: ${th('space.md')};
+  background: ${th('colors.nude.200')};
+`
+
 export const Editor = styled(SimpleMDE)``
