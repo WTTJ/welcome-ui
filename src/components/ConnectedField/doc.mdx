@@ -15,6 +15,7 @@ import { FieldGroup } from '../FieldGroup'
 import { RadioGroup } from '../RadioGroup'
 import { InputText } from '../InputText'
 import { InputTextarea } from '../InputTextarea'
+import { MarkdownEditor } from '../MarkdownEditor'
 import { InputCheckbox } from '../InputCheckbox'
 import { Toggle } from '../Toggle'
 import { InputRadio } from '../InputRadio'
@@ -57,7 +58,8 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
           diet: 'herbivore',
           dogs: true,
           hungry: true,
-          weekday: 'tuesday'
+          weekday: 'tuesday',
+          partyDate: Date.now()
         }}
         onSubmit={submitForm}
         validate={values => {
@@ -146,6 +148,12 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
               placeholder="Keep it short"
               label="Summary"
             />
+            <ConnectedField
+              name="description"
+              component={MarkdownEditor}
+              placeholder="Keep it sweet"
+              label="Description"
+            />
             <ConnectedField name="profile" component={FileUpload} label="Profile pic" />
             <ConnectedField name="partyDate" component={DateTimePicker} label="Party date" />
             <Button type="submit">Go!</Button>
@@ -154,7 +162,9 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
         )}
       />
     )
-  }}
+
+}}
+
 </Playground>
 
 ## Properties

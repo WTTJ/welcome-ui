@@ -1,0 +1,30 @@
+---
+name: MarkdownEditor
+route: /fields/mde
+menu: Fields
+---
+
+import { Props } from 'docz'
+import { Playground } from '../../../docz.styled'
+
+import { MarkdownEditor } from './index'
+
+# MarkdownEditor
+
+We use [react-simplemde-editor](https://github.com/RIP21/react-simplemde-editor) with simple styles around it.
+
+## Example
+
+<Playground>
+  <MarkdownEditor
+    name="description"
+    value="Something happening"
+    onChange={console.debug}
+    placeholder="Placeholder"
+    label="Markdown editor example"
+  />
+</Playground>
+
+## Properties
+
+<Props of={MarkdownEditor} />

@@ -15,6 +15,7 @@ import { RadioGroup } from '../RadioGroup'
 import { InputText } from '../InputText'
 import { InputTextarea } from '../InputTextarea'
 import { InputCheckbox } from '../InputCheckbox'
+import { MarkdownEditor } from '../MarkdownEditor'
 import { Toggle } from '../Toggle'
 import { InputRadio } from '../InputRadio'
 import { RadioTab } from '../RadioTab'
@@ -293,6 +294,19 @@ You can find additional props for each field component in [Fields](/fields/file-
       </>
     )}
   </DoczForm>
+</Playground>
+
+## Markdown Editor
+
+<Playground>
+  <Field
+    name="markdown"
+    component={MarkdownEditor}
+    value="Something happening"
+    placeholder="Placeholder"
+    label="Markdown editor example"
+    onChange={() => {}}
+  />
 </Playground>
 
 ## File Upload
