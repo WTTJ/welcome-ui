@@ -4,7 +4,7 @@ import { th } from '@xstyled/system'
 import { overflowEllipsis } from '../../common/styles/text'
 import { system } from '../../utils/utils'
 // common form styles
-import { fieldTypeStyles } from '../../common/styles/form'
+import { fieldStyles } from '../../common/styles/form'
 import { Label as StyledLabel } from '../Label/styles'
 
 export const StyledRadioTab = styled.div`
@@ -61,7 +61,7 @@ export const radioTabStyles = props => css`
   flex: 1;
   margin: 0;
   ${StyledLabel} {
-    ${fieldTypeStyles};
+    ${fieldStyles};
     flex-grow: 1;
     position: relative;
     display: block;

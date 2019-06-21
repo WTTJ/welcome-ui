@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { system } from '../../utils/utils'
-import { fieldTypeStyles } from '../../common/styles/form'
+import { fieldStyles } from '../../common/styles/form'
 
 const checkedStyles = css`
   ${th('fields.checkboxes.checked')};
@@ -14,7 +14,7 @@ const checkedStyles = css`
 
 export const StyledCheckbox = styled.div(
   ({ checked, order = '-1', type }) => css`
-    ${fieldTypeStyles};
+    ${fieldStyles};
     ${th('fields.checkboxes.default')}
     position: relative;
     padding: 0;

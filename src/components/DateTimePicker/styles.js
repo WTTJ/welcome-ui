@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-import { fieldTypeStyles } from '../../common/styles/form'
+import { fieldStyles } from '../../common/styles/form'
 
 const overridingStyles = css`
   .react-datepicker-wrapper:first-child {
@@ -61,11 +61,11 @@ const overridingStyles = css`
 `
 
 export const DatePicker = styled(ReactDatePicker)`
-  ${fieldTypeStyles};
+  ${fieldStyles};
 `
 
 export const TimePicker = styled(ReactDatePicker)`
-  ${fieldTypeStyles};
+  ${fieldStyles};
   text-align: center;
 `
 

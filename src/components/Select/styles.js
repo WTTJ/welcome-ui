@@ -2,14 +2,14 @@ import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import Select from 'react-select'
 
-import { fieldTypeStyles } from '../../common/styles/form'
+import { fieldStyles } from '../../common/styles/form'
 import { system } from '../../utils/utils'
 
 export const StyledSelect = styled(Select)`
   ${system};
 
   .wui__control {
-    ${fieldTypeStyles};
+    ${fieldStyles};
     box-shadow: none;
 
     .wui__indicators svg {
@@ -42,7 +42,7 @@ export const StyledSelect = styled(Select)`
   }
 
   .wui__menu {
-    ${fieldTypeStyles};
+    ${fieldStyles};
     padding: 0;
     box-shadow: sm;
   }
