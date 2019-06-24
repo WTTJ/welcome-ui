@@ -3,7 +3,7 @@ import { th } from '@xstyled/system'
 
 import { getVariantStateColor } from '../../utils/variants'
 
-export const fieldTypeStyles = css`
+export const fieldStyles = css`
   ${props =>
     props.fieldType === 'radioTab' ? th('fields.radiotabs.default') : th('fields.default')};
   width: 100%;
