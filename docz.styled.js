@@ -40,8 +40,8 @@ export const IconsList = icons => (
         width="120px"
       >
         <Box
-          background="#FBF9F7"
-          color="#134B45"
+          backgroundColor="light.500"
+          color="dark.200"
           display="flex"
           justifyContent="center"
           padding="15px 10px"
