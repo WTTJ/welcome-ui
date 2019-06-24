@@ -15,6 +15,7 @@ import { FieldGroup } from '../FieldGroup'
 import { RadioGroup } from '../RadioGroup'
 import { InputText } from '../InputText'
 import { InputTextarea } from '../InputTextarea'
+import { MarkdownEditor } from '../MarkdownEditor'
 import { InputCheckbox } from '../InputCheckbox'
 import { Toggle } from '../Toggle'
 import { InputRadio } from '../InputRadio'
@@ -27,13 +28,12 @@ import { DateTimePicker } from '../DateTimePicker'
 
 You'll probably use [Final Form](https://github.com/final-form/react-final-form), [Redux Form](https://github.com/erikras/redux-form) or [Formik](https://github.com/jaredpalmer/formik) to manage your form state. If so, use `ConnectedField` for your fields.
 
+You can find additional props for each field component in [Fields](/fields/file-upload).
+
 ## Examples
 
 <Playground>
   {() => {
-    const submitForm = values => {
-      console.debug('values', values)
-    }
     const toTitleCase = str => str.charAt(0).toUpperCase() + str.slice(1)
     const months = [
       'january',
@@ -57,9 +57,10 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
           diet: 'herbivore',
           dogs: true,
           hungry: true,
-          weekday: 'tuesday'
+          weekday: 'tuesday',
+          partyDate: Date.now()
         }}
-        onSubmit={submitForm}
+        onSubmit={console.debug}
         validate={values => {
           let errors = {}
           if (!values.lastName) {
@@ -146,6 +147,12 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
               placeholder="Keep it short"
               label="Summary"
             />
+            <ConnectedField
+              name="description"
+              component={MarkdownEditor}
+              placeholder="Keep it sweet"
+              label="Description"
+            />
             <ConnectedField name="profile" component={FileUpload} label="Profile pic" />
             <ConnectedField name="partyDate" component={DateTimePicker} label="Party date" />
             <Button type="submit">Go!</Button>
@@ -154,7 +161,9 @@ You'll probably use [Final Form](https://github.com/final-form/react-final-form)
         )}
       />
     )
-  }}
+
+}}
+
 </Playground>
 
 ## Properties

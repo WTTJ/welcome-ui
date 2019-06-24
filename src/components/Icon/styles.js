@@ -19,7 +19,7 @@ const iconSvgFilledStyles = css`
   }
 `
 
-export const IconSvg = styled.svg(
+export const Icon = styled.svg(
   ({ size = 'md', stroked }) => css`
     ${stroked ? iconSvgStrokedStyles : iconSvgFilledStyles};
     width: ${th(`icons.${size}`)}px;

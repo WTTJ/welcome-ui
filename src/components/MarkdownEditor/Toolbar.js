@@ -1,0 +1,49 @@
+import React from 'react'
+import { arrayOf, func, node, oneOfType, shape, string } from 'prop-types'
+
+import * as S from './styles'
+
+const getTooltip = item =>
+  `${item.charAt(0).toUpperCase()}${item.substr(1).toLowerCase()}`.replace('-', ' ')
+
+export const Toolbar = ({ active = [], items = [], onClick }) => {
+  const handleClick = e => {
+    const item = e.currentTarget.dataset.id
+    onClick(item, e)
+  }
+
+  return (
+    <S.Toolbar data-testid="mde.toolbar">
+      {items.map(({ icon, name }, i) => {
+        if (name === 'divider') {
+          // eslint-disable-next-line react/no-array-index-key
+          return <S.Divider key={i} />
+        }
+
+        return (
+          <S.ToolbarIcon
+            active={active.includes(name)}
+            data-id={name}
+            key={name}
+            onClick={handleClick}
+            title={getTooltip(name)}
+          >
+            {icon}
+          </S.ToolbarIcon>
+        )
+      })}
+    </S.Toolbar>
+  )
+}
+
+export const toolbarItemPropTypes = shape({
+  action: oneOfType([func, string]),
+  icon: node,
+  name: string.isRequired
+})
+
+Toolbar.propTypes = {
+  active: arrayOf(string),
+  items: arrayOf(toolbarItemPropTypes),
+  onClick: func
+}

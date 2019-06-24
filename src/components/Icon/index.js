@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { string } from 'prop-types'
 
-import { IconSvg } from './styles'
+import * as S from './styles'
 import { icons } from './icons'
 
 export const Icon = forwardRef(({ name, ...props }, ref) => {
@@ -13,11 +13,13 @@ export const Icon = forwardRef(({ name, ...props }, ref) => {
   }
 
   return (
-    <IconSvg
+    <S.Icon
       dangerouslySetInnerHTML={{ __html: iconConfig.block }}
       data-testid={`icon-${iconName}`}
       ref={ref}
+      role="img"
       stroked={iconConfig.stroked}
+      title={iconName}
       viewBox={iconConfig.viewBox || '0 0 100 100'}
       {...props}
     />
