@@ -49,6 +49,7 @@ export const ToolbarIcon = styled.a(
     margin-right: xxs;
     cursor: pointer;
     color: ${props.active ? th('colors.primary.500') : 'inherit'};
+    transition: medium;
 
     &:hover {
       color: ${th('colors.primary.500')};

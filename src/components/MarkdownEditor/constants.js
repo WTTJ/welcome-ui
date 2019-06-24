@@ -13,5 +13,5 @@ export const DEFAULT_TOOLBAR = [
   { name: 'code' },
   { name: 'quote' },
   { name: 'divider' },
-  { name: 'emoji', icon: '😄' }
+  { name: 'emoji', icon: '🙂' }
 ]
