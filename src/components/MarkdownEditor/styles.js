@@ -45,7 +45,8 @@ export const Toolbar = styled.div`
 
 export const ToolbarIcon = styled.a(
   props => css`
-    margin-right: md;
+    padding: 0 xxs;
+    margin-right: xxs;
     cursor: pointer;
     color: ${props.active ? th('colors.primary.500') : 'inherit'};
 
@@ -59,7 +60,7 @@ export const Divider = styled.div`
   display: inline-block;
   width: 1px;
   height: 1rem;
-  margin-right: md;
+  margin-right: xxs;
   background-color: nude.200;
 `
 
