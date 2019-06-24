@@ -2,14 +2,13 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react'
 import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
 import { Playground as DoczPlayground } from 'docz'
 
 import { Box } from './src/components/Box'
 import { Icon } from './src/components/Icon'
 
 export const Playground = styled(DoczPlayground)`
-  margin-bottom: -${th.space('sm')};
+  margin-bottom: -sm;
 
   form > * {
     margin-bottom: md;

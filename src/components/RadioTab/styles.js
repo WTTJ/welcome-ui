@@ -31,12 +31,12 @@ const columnStyles = css`
     margin-top: 0;
 
     ${StyledLabel} {
-      border-radius: ${th.radius('md')} ${th.radius('md')} 0 0;
+      border-radius: md md 0 0;
     }
   }
 
   &:last-child ${StyledLabel} {
-    border-radius: 0 0 ${th.radius('md')} ${th.radius('md')};
+    border-radius: 0 0 md md;
   }
 `
 
@@ -48,12 +48,12 @@ const rowStyles = css`
     margin-left: 0;
 
     ${StyledLabel} {
-      border-radius: ${th.radius('md')} 0 0 ${th.radius('md')};
+      border-radius: md 0 0 md;
     }
   }
 
   &:last-child ${StyledLabel} {
-    border-radius: 0 ${th.radius('md')} ${th.radius('md')} 0;
+    border-radius: 0 md md 0;
   }
 `
 
