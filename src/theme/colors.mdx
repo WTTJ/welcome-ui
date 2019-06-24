@@ -7,49 +7,51 @@ menu: Theming
 import { Colors } from '../../docz.styled'
 import { welcomekitTheme } from './welcomekit'
 import { colors } from './colors'
+import { createTheme } from './core'
+const theme = createTheme()
 
 # Colors
 
 ## Primary
 
-<Colors colors={welcomekitTheme.colors.primary} />
+<Colors colors={theme.colors.primary} />
 
 ## Secondary
 
-<Colors colors={welcomekitTheme.colors.secondary} />
+<Colors colors={theme.colors.secondary} />
 
 ## States
 
 ### Success
 
-<Colors colors={colors.success} />
+<Colors colors={theme.colors.success} />
 
 ### Danger
 
-<Colors colors={welcomekitTheme.colors.danger} />
+<Colors colors={theme.colors.danger} />
 
 ### Info
 
-<Colors colors={welcomekitTheme.colors.info} />
+<Colors colors={theme.colors.info} />
 
 ### Warning
 
-<Colors colors={welcomekitTheme.colors.warning} />
+<Colors colors={theme.colors.warning} />
 
 ## Nudes
 
-<Colors colors={welcomekitTheme.colors.nude} />
+<Colors colors={theme.colors.nude} />
 
 ## Basics
 
 ### Light
 
-<Colors withBorder colors={welcomekitTheme.colors.light} />
+<Colors withBorder colors={theme.colors.light} />
 
 ### Dark
 
-<Colors colors={welcomekitTheme.colors.dark} />
+<Colors colors={theme.colors.dark} />
 
 ## Sub
 
-<Colors colors={colors.sub} />
+<Colors colors={theme.colors.sub} />
