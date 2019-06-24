@@ -1867,21 +1867,21 @@
     text-table "^0.2.0"
     webpack-log "^1.1.2"
 
-"@xstyled/core@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.5.0.tgz#75901d3f11db60764d589afa7b25fced95badc72"
-  integrity sha512-1fr6fNpfiT/RMCXAWZNLPPLXmu7UBkPECHjaGRWb4eVJv7X7d+/9qsMbH4JQNxC1W0OZOoLU/cMI29uJeWdzEQ==
+"@xstyled/core@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.5.2.tgz#ca2da5e89bec6b81559fe5ac8cbcc0319d6f0856"
+  integrity sha512-QbjpxOrLFH0ZpS7ciBBQ1VMveKGw458Q64oqD+V3ozzwvFshX6NiRT5XJ32UmY+qOidpHILyxLgLNsoLbPI0gg==
   dependencies:
     "@babel/runtime" "^7.4.4"
-    "@xstyled/system" "^1.5.0"
+    "@xstyled/system" "^1.5.2"
 
-"@xstyled/styled-components@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.5.0.tgz#ac03c15f3fafc47c0f4144442b9346cf963ff42f"
-  integrity sha512-fam2zMJrZxKr+X8N93W05X6fF47CCt0nS9At+lxjYRy6oprMpkm+r6615RFwvC+1rMiILD1l7i1n63GCsa9LHA==
+"@xstyled/styled-components@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.5.2.tgz#49d8de354b3965f954c8f8f1b051ec0f6fd8dc1d"
+  integrity sha512-A/uG6lXGz1knGPpM7xIj835xyjGbto0FmkjByfMAmMY8iryqrLlA5R84pi3h3c6MsLm6Uj9kndkF2gU96GpYOQ==
   dependencies:
     "@babel/runtime" "^7.4.4"
-    "@xstyled/core" "^1.5.0"
+    "@xstyled/core" "^1.5.2"
 
 "@xstyled/system@^1.2.0":
   version "1.2.0"
@@ -1891,10 +1891,10 @@
     "@babel/runtime" "^7.4.4"
     deepmerge "^3.2.0"
 
-"@xstyled/system@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.5.0.tgz#2839213da519926c3284f5e6e942fd64a8ef5b60"
-  integrity sha512-kapiXjW0EomO+BEj4ZEIjieE8sB9pgRdf+aXA9Vt/eSIALi6Pmv3WrFd31GGM+UpbgmtYmMYRZzc28x1u4vEIw==
+"@xstyled/system@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.5.2.tgz#7d784a479f27c8bd68960891ee7569cf0c543103"
+  integrity sha512-5ycbjH4UkNgxtHtVH0BxhuJlUWfbyXb6Cuv8mzIf15E5VrQhyKJ9NVOxKfNFNySr7LGd5VG8NK/JVAdE95vNyA==
   dependencies:
     "@babel/runtime" "^7.4.4"
     deepmerge "^3.2.0"

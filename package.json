@@ -95,7 +95,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "@xstyled/styled-components": "^1.5.0",
+    "@xstyled/styled-components": "^1.5.2",
     "@xstyled/system": "^1.2.0",
     "lodash.concat": "^4.5.0",
     "lodash.get": "^4.4.2",
