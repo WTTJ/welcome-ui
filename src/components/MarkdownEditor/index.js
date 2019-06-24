@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { arrayOf, bool, func, node, oneOfType, string } from 'prop-types'
 
 // Only require CSS on client
@@ -14,6 +14,7 @@ import { Icon } from '../Icon'
 import { Toolbar, toolbarItemPropTypes } from './Toolbar'
 import { EmojiPicker } from './EmojiPicker'
 import * as S from './styles'
+import { getCurrentToolsFromEditor } from './utils'
 
 const DEFAULT_TOOLBAR = [
   { name: 'bold' },
@@ -121,35 +122,8 @@ export const MarkdownEditor = ({
     updateCurrentTools(instance.codemirror)
   }
 
-  // Taken from https://github.com/sparksuite/simplemde-markdown-editor/blob/6abda7ab68cc20f4aca870eb243747951b90ab04/src/js/simplemde.js#L140
   const updateCurrentTools = cm => {
-    const pos = cm.getCursor('start')
-    const token = cm.getTokenAt(pos)
-    const line = cm.getLine(pos.line)
-
-    const CODE_MIRROR_TYPES = {
-      strong: 'bold',
-      atom: 'quote',
-      em: 'italic',
-      quote: 'quote',
-      strikethrough: 'strikethrough',
-      'variable-2': /^\s*\d+\.\s/.test(line) ? 'ordered-list' : 'unordered-list',
-      comment: 'code',
-      link: 'link',
-      tag: 'image',
-      'header-1': 'heading-1',
-      'header-2': 'heading-2'
-    }
-
-    let current = []
-    if (token.type) {
-      current = token.type
-        .split(' ')
-        .map(type => CODE_MIRROR_TYPES[type])
-        .filter(type => type)
-    }
-
-    setCurrentTools(current)
+    setCurrentTools(getCurrentToolsFromEditor(cm))
   }
 
   const addEmoji = emoji => {
@@ -168,7 +142,7 @@ export const MarkdownEditor = ({
   }
 
   return (
-    <S.Wrapper disabled={disabled} focused={focused} variant={variant}>
+    <S.Wrapper data-testid="mde" disabled={disabled} focused={focused} variant={variant}>
       <Toolbar active={currentTools} items={toolbarItems} onClick={handleToolbarClick} />
       {showEmojiPicker && <EmojiPicker onSelect={addEmoji} />}
       <S.Editor
@@ -177,6 +151,7 @@ export const MarkdownEditor = ({
         getMdeInstance={setInstance}
         onChange={handleChange}
         options={{
+          autoDownloadFontAwesome: false,
           autofocus: autoFocus,
           placeholder,
           toolbar: false,

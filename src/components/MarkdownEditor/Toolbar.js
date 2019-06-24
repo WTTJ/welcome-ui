@@ -13,7 +13,7 @@ export const Toolbar = ({ active = [], items = [], onClick }) => {
   }
 
   return (
-    <S.Toolbar>
+    <S.Toolbar data-testid="mde.toolbar">
       {items.map(({ icon, name }, i) => {
         if (name === 'divider') {
           // eslint-disable-next-line react/no-array-index-key

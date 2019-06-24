@@ -24,3 +24,18 @@ export * from '@testing-library/react'
 
 // override render method
 export { customRender as render }
+
+// https://stackoverflow.com/questions/42099385/jest-enzyme-jsdom-document-body-createtextrange-is-not-a-function
+global.document.createRange = () => ({
+  setEnd: () => {},
+  setStart: () => {},
+  getBoundingClientRect: () => ({
+    width: 100,
+    height: 100,
+    top: 0,
+    left: 0,
+    right: 100,
+    bottom: 100
+  }),
+  getClientRects: () => ({ width: 100, height: 100, top: 0, left: 0, right: 100, bottom: 100 })
+})
