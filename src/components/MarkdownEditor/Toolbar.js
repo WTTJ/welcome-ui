@@ -1,7 +1,5 @@
 import React from 'react'
-import { arrayOf, func, string } from 'prop-types'
-
-import { Icon } from '../Icon'
+import { arrayOf, func, node, oneOfType, shape, string } from 'prop-types'
 
 import * as S from './styles'
 
@@ -16,28 +14,36 @@ export const Toolbar = ({ active = [], items = [], onClick }) => {
 
   return (
     <S.Toolbar>
-      {items.map((item, i) =>
-        item === 'divider' ? (
+      {items.map(({ icon, name }, i) => {
+        if (name === 'divider') {
           // eslint-disable-next-line react/no-array-index-key
-          <S.Divider key={i} />
-        ) : (
+          return <S.Divider key={i} />
+        }
+
+        return (
           <S.ToolbarIcon
-            active={active.includes(item)}
-            data-id={item}
-            key={item}
+            active={active.includes(name)}
+            data-id={name}
+            key={name}
             onClick={handleClick}
-            title={getTooltip(item)}
+            title={getTooltip(name)}
           >
-            <Icon name="comment" size="sm" />
+            {icon}
           </S.ToolbarIcon>
         )
-      )}
+      })}
     </S.Toolbar>
   )
 }
 
+export const toolbarItemPropTypes = shape({
+  action: oneOfType([func, string]),
+  icon: node,
+  name: string.isRequired
+})
+
 Toolbar.propTypes = {
   active: arrayOf(string),
-  items: arrayOf(string),
+  items: arrayOf(toolbarItemPropTypes),
   onClick: func
 }

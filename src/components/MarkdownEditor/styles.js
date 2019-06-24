@@ -28,26 +28,30 @@ export const Wrapper = styled.div(
   `
 )
 
-export const Toolbar = styled.div(
-  props => css`
-    padding: md md;
-    opacity: 1;
-    background-color: light.100;
-    border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude.200')};
-    border-radius: ${th('radii.sm')} ${th('radii.sm')} 0 0;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    box-shadow: ${th('shadows.sm')};
-  `
-)
+export const Toolbar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: md md;
+  opacity: 1;
+  background-color: light.100;
+  border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude.200')};
+  border-radius: ${th('radii.sm')} ${th('radii.sm')} 0 0;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  box-shadow: ${th('shadows.sm')};
+`
 
 export const ToolbarIcon = styled.a(
   props => css`
-    display: inline-block;
     margin-right: md;
     cursor: pointer;
     color: ${props.active ? th('colors.primary.500') : 'inherit'};
+
+    &:hover {
+      color: ${th('colors.primary.500')};
+    }
   `
 )
 
