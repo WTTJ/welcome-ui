@@ -33,9 +33,13 @@ const options = {
   defaultFontSize: 16,
   defaultFontFamily: 'Helvetica',
   headingFontFamily: 'Georgia',
-  color: {
-    primary: '#FF0000',
-    secondary: '#00FF00'
+  colors: {
+    primary: {
+      500: '#FF0000',
+    },
+    secondary: {
+      500: '#00FF00',
+    }
   }
 }
 const theme = createTheme(options)
