@@ -85,10 +85,10 @@ export const MarkdownEditor = ({
   useEffect(() => {
     // Set toolbar items on mount
     setToolbarItems(
-      toolbar.map(item => ({
-        name: item.name,
-        icon: item.icon || <Icon name="comment" size="sm" />,
-        action: item.action || DEFAULT_TOOLBAR_ACTIONS[item.name] || null
+      toolbar.map(({ action, icon, name }) => ({
+        name: name,
+        icon: icon || <Icon name={name} size="sm" />,
+        action: action || DEFAULT_TOOLBAR_ACTIONS[name] || null
       }))
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
