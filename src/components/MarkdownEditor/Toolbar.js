@@ -8,7 +8,12 @@ import * as S from './styles'
 const getTooltip = item =>
   `${item.charAt(0).toUpperCase()}${item.substr(1).toLowerCase()}`.replace('-', ' ')
 
-export const Toolbar = ({ items, onClick }) => {
+export const Toolbar = ({ active = [], items = [], onClick }) => {
+  const handleClick = e => {
+    const item = e.currentTarget.dataset.id
+    onClick(item, e)
+  }
+
   return (
     <S.Toolbar>
       {items.map((item, i) =>
@@ -16,8 +21,14 @@ export const Toolbar = ({ items, onClick }) => {
           // eslint-disable-next-line react/no-array-index-key
           <S.Divider key={i} />
         ) : (
-          <S.ToolbarIcon data-id={item} key={item} onClick={onClick} title={getTooltip(item)}>
-            <Icon name="comment" />
+          <S.ToolbarIcon
+            active={active.includes(item)}
+            data-id={item}
+            key={item}
+            onClick={handleClick}
+            title={getTooltip(item)}
+          >
+            <Icon name="comment" size="sm" />
           </S.ToolbarIcon>
         )
       )}
@@ -26,6 +37,7 @@ export const Toolbar = ({ items, onClick }) => {
 }
 
 Toolbar.propTypes = {
+  active: arrayOf(string),
   items: arrayOf(string),
   onClick: func
 }

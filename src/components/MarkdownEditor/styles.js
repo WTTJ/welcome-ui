@@ -30,9 +30,9 @@ export const Wrapper = styled.div(
 
 export const Toolbar = styled.div(
   props => css`
-    padding: xs xs;
+    padding: md md;
     opacity: 1;
-    background-color: ${th('colors.light.100')};
+    background-color: light.100;
     border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude.200')};
     border-radius: ${th('radii.sm')} ${th('radii.sm')} 0 0;
     position: sticky;
@@ -42,16 +42,19 @@ export const Toolbar = styled.div(
   `
 )
 
-export const ToolbarIcon = styled.a`
-  display: inline-block;
-  margin-right: ${th('space.md')};
-  cursor: pointer;
-`
+export const ToolbarIcon = styled.a(
+  props => css`
+    display: inline-block;
+    margin-right: md;
+    cursor: pointer;
+    color: ${props.active ? th('colors.primary.500') : 'inherit'};
+  `
+)
 
 export const Divider = styled.div`
   display: inline-block;
   width: 1px;
-  height: 1.5rem;
+  height: 1rem;
   margin-right: md;
   background-color: nude.200;
 `
