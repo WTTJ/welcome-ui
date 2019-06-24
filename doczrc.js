@@ -13,7 +13,16 @@ export default {
   wrapper: 'wrapper',
   repository: 'https://github.com/WTTJ/welcome-ui',
   htmlContext: {
-    favicon: 'https://cdn.welcometothejungle.co/wttj-front/assets/images/favicon.ico'
+    favicon: 'https://cdn.welcometothejungle.co/wttj-front/assets/images/favicon.ico',
+    head: {
+      links: [
+        {
+          rel: 'stylesheet',
+          href:
+            'https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'
+        }
+      ]
+    }
   },
   modifyBundlerConfig: bundlerConfig => {
     const rules = [
