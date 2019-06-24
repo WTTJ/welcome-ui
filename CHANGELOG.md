@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0](https://github.com/WTTJ/welcome-ui/compare/v0.9.3...v0.10.0) (2019-06-24)
+
+
+### Features
+
+* add markdown editor ([#124](https://github.com/WTTJ/welcome-ui/issues/124)) ([5787e21](https://github.com/WTTJ/welcome-ui/commit/5787e21))
+* add markdown icons ([#128](https://github.com/WTTJ/welcome-ui/issues/128)) ([fe896c2](https://github.com/WTTJ/welcome-ui/commit/fe896c2))
+
+
+
 ### [0.9.3](https://github.com/WTTJ/welcome-ui/compare/v0.9.2...v0.9.3) (2019-06-20)
 
 
