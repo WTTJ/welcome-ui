@@ -6,6 +6,7 @@ export const StyledRadios = styled.div(
   ({ flexDirection }) => css`
     display: flex;
     flex-direction: ${flexDirection};
+    flex-wrap: wrap;
     ${system};
   `
 )

@@ -10,6 +10,7 @@ export const fieldStyles = css`
   padding: md sm;
   border-color: ${props => getVariantStateColor(props.variant)};
   transition: medium;
+  appearance: none;
 
   &::placeholder {
     ${th('fields.placeholder')};

@@ -51,6 +51,8 @@ export const StyledToggle = styled.div(({ checked, disabled, order = '-1' }) => 
 
     input {
       appearance: none;
+      border: none;
+      background: transparent;
     }
 
     ${checked && !disabled && checkedStyles}
