@@ -38,4 +38,20 @@ describe('<Tabs>', () => {
     expect(items).toHaveTextContent('Tab1Tab2Tab3')
     expect(activeBar).toBeInTheDocument()
   })
+
+  it('should not render activeBar when have only one Tab', () => {
+    const { queryByTestId } = render(
+      <Tabs
+        items={
+          <>
+            <TabsItem>Tab1</TabsItem>
+          </>
+        }
+        name="tabsTest"
+      >
+        <TabsPanels />
+      </Tabs>
+    )
+    expect(queryByTestId('activeBar')).not.toBeInTheDocument()
+  })
 })
