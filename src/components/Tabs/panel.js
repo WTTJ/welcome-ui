@@ -3,8 +3,8 @@ import React from 'react'
 
 import * as S from './styles'
 
-export const TabsItem = ({ children, ...rest }) => <S.Item {...rest}>{children}</S.Item>
+export const TabsPanel = ({ children, ...rest }) => <S.Panel {...rest}>{children}</S.Panel>
 
-TabsItem.propTypes = {
+TabsPanel.propTypes = {
   children: PropTypes.node.isRequired
 }
