@@ -40,6 +40,7 @@ const Item = styled.button`
 `
 
 export const Dots = styled.div`
+  ${th('paginations.dots')}
   ${baseStyle};
   margin-left: 0;
   width: auto;

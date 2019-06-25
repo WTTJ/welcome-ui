@@ -1,7 +1,6 @@
 export const getPaginations = ({ colors, fontSizes, fontWeights, toRem }) => ({
   default: {
     color: colors.nude[600],
-    'font-size': fontSizes.body3,
     'font-weight': fontWeights.bold,
     'border-color': 'transparent',
     'border-width': '1px',
@@ -18,9 +17,13 @@ export const getPaginations = ({ colors, fontSizes, fontWeights, toRem }) => ({
     }
   },
   number: {
+    'font-size': fontSizes.body3,
     '&:hover, &:focus': {
       color: colors.nude[800]
     }
+  },
+  dots: {
+    'font-size': fontSizes.body3
   },
   arrow: {
     'background-color': colors.light[200],
