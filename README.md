@@ -24,38 +24,35 @@ yarn add welcome-ui
 
 You can find all the theme properties [here](https://welcome-ui.now.sh/themes).
 
-```javascript
-import React, { Fragment } from 'react'
+```js
+import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import { createTheme, getBaseStyles } from 'welcome-ui'
+import { createTheme, GlobalStyle } from 'welcome-ui'
 
 const options = {
-  defaultFontSize: 16,
   defaultFontFamily: 'Helvetica',
   headingFontFamily: 'Georgia',
   colors: {
     primary: {
-      500:'#FF0000'
+      500: '#FF0000'
     },
     secondary: {
-      500: '#00FF00',
+      500: '#00FF00'
     }
   }
 }
-const theme = createTheme(options)
-const BaseStyles = getBaseStyles(theme)
 
-export default const Root = () => {
+const theme = createTheme(options)
+
+export default function Root() {
   // Wrap your component with ThemeProvider
   return (
-    <Fragment>
-      <BaseStyles />
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
         <div>Welcome!</div>
-      </ThemeProvider>
-    </Fragment>
+      </>
+    </ThemeProvider>
   )
 }
-
-export default Root
 ```

@@ -37,6 +37,7 @@ export const StyledFileUpload = styled.div(
 
     h3 {
       font-size: h3;
+      font-weight: normal;
       color: secondary.500;
     }
 

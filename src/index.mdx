@@ -12,50 +12,46 @@ Welcome to the _Welcome UI library_. Here you'll find all the core components yo
 
 ### 1. Add welcome-ui as a dependency
 
-```
+```bash
 npm install welcome-ui
 ```
 
 or
 
-```
+```bash
 yarn add welcome-ui
 ```
 
 ### 2. Import welcome-ui and create a theme
 
-```
-import React, { Fragment } from 'react'
+```js
+import React from 'react'
 import { ThemeProvider } from '@xstyled/styled-components'
-import { createTheme, getBaseStyles } from 'welcome-ui'
+import { createTheme, GlobalStyle } from 'welcome-ui'
 
 const options = {
-  defaultFontSize: 16,
   defaultFontFamily: 'Helvetica',
   headingFontFamily: 'Georgia',
   colors: {
     primary: {
-      500: '#FF0000',
+      500: '#FF0000'
     },
     secondary: {
-      500: '#00FF00',
+      500: '#00FF00'
     }
   }
 }
 const theme = createTheme(options)
-const BaseStyles = getBaseStyles(theme)
 
-export default const Root = () => {
+export default function Root() {
   // Wrap your component with ThemeProvider
   return (
-    <Fragment>
-      <BaseStyles />
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
         <div>Welcome!</div>
-      </ThemeProvider>
-    </Fragment>
+      </>
+    </ThemeProvider>
   )
 }
-
-export default Root
 ```

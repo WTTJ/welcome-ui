@@ -1,28 +1,42 @@
-const createUrl = (url, extension) => {
-  return `url('${url}.${extension}') format('${extension === 'ttf' ? 'truetype' : extension}')`
+import { css } from '@xstyled/styled-components'
+
+function getFormat(extension) {
+  return extension === 'ttf' ? 'truetype' : extension
 }
 
-const createSrc = font => {
-  return font.extensions.map(extension => createUrl(font.url, extension)).join(', ')
+function getUrl(url, extension) {
+  return `url('${url}.${extension}') format('${getFormat(extension)}')`
 }
 
-const getFontFace = (name, font) => {
-  return `
+function getSrc(descriptor) {
+  return descriptor.extensions.map(extension => getUrl(descriptor.url, extension)).join(', ')
+}
+
+function getFont(descriptor) {
+  return css`
     @font-face {
-      font-family: '${name}';
-      src: ${createSrc(font)};
-      ${font.weight ? `font-weight: ${font.weight};` : ''}
-      ${font.style ? `font-style: ${font.style};` : ''}
+      font-family: ${descriptor.name};
+      src: ${getSrc(descriptor)};
       font-display: fallback;
+      ${descriptor.weight &&
+        css`
+          font-weight: ${descriptor.weight};
+        `}
+      ${descriptor.style &&
+        css`
+          font-style: ${descriptor.style};
+        `}
     }
   `
 }
 
-export const fontFace = theme => {
-  return Object.entries(theme.fontFaces)
-    .map(
-      ([name, variations]) =>
-        Array.isArray(variations) && variations.map(font => getFontFace(name, font)).join('')
-    )
-    .join('')
+export const fonts = () => ({ theme: { fontFaces } }) => {
+  if (!fontFaces) return null
+  return (
+    Object.entries(fontFaces)
+      // Ignore anything else than array
+      .filter(([, variations]) => Array.isArray(variations))
+      .flatMap(([name, variations]) => variations.map(variation => getFont({ name, ...variation })))
+      .flat()
+  )
 }

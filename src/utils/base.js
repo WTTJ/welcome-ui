@@ -1,50 +1,87 @@
 import { createGlobalStyle, css } from '@xstyled/styled-components'
+import { getColor, getFont } from '@xstyled/system'
+import { normalize } from 'polished'
 
-import { reset } from './reset'
-import { fontFace } from './font'
+import { fonts } from './font'
 
-const baseResponsiveStyles = css`
-  @media (max-width: 1200px) {
-    html {
-      font-size: 14px;
-    }
-  }
+function getFontFamilies(...fonts) {
+  return fonts.filter(Boolean).join(', ')
+}
 
-  @media (max-width: 1300px) and (max-height: 700px) {
-    html {
-      font-size: 14px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    html {
-      font-size: 16px;
+const baseBoxSizing = css`
+  * {
+    &,
+    &::before,
+    &::after {
+      box-sizing: border-box;
     }
   }
 `
 
-export const getBaseStyles = theme => createGlobalStyle`
-  ${reset}
+function baseFonts(props) {
+  const texts = getFont('texts')(props)
+  const headings = getFont('headings')(props)
+  const sansSerif = 'sans-serif'
+  return css`
+    @media (max-width: 1200px) {
+      html {
+        font-size: 87.5%;
+      }
+    }
 
-  ${fontFace(theme)}
+    @media (max-width: 1300px) and (max-height: 700px) {
+      html {
+        font-size: 87.5%;
+      }
+    }
 
-  html {
-    font-size: ${theme.fontSizes.html};
-  }
+    @media (max-width: 600px) {
+      html {
+        font-size: 100%;
+      }
+    }
 
-  body, button, input, select, textarea {
-    font-family: ${[theme.fonts.texts, 'sans-serif'].join(', ')};
-    -webkit-font-smoothing: antialiased;
-  }
+    body,
+    button,
+    input,
+    select,
+    textarea {
+      font-family: ${getFontFamilies(texts, sansSerif)};
+      -webkit-font-smoothing: antialiased;
+    }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: ${[theme.fonts.headings, theme.fonts.texts, 'serif'].join(', ')};
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: ${getFontFamilies(headings, texts, sansSerif)};
+    }
+  `
+}
 
-  ::selection {
-    background-color: ${theme.colors.primary[500]};
-    color: ${theme.colors.light[200]};
-  }
+function baseSelection(props) {
+  const selectionBgColor = getColor('primary.500')(props) || null
+  const selectionColor = getColor('primary.200')(props) || null
+  return css`
+    ::selection {
+      ${selectionBgColor &&
+        css`
+          background-color: ${selectionBgColor};
+        `}
+      ${selectionColor &&
+        css`
+          background-color: ${selectionColor};
+        `}
+    }
+  `
+}
 
-  ${baseResponsiveStyles}
+export const GlobalStyle = createGlobalStyle`
+  ${normalize()}
+  ${fonts()}
+  ${baseBoxSizing}
+  ${baseFonts}
+  ${baseSelection}
 `
