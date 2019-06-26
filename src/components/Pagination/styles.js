@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { system } from '../../utils/utils'
+import { system } from '../../utils/'
 
 const baseStyle = css`
   display: flex;

@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { left, th, width } from '@xstyled/system'
 import { Tab, TabList, TabPanel } from 'reakit/Tab'
 
-import { system } from '../../utils/utils'
+import { system } from '../../utils/'
 
 export const Tabs = styled.section`
   ${system};

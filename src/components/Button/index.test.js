@@ -27,6 +27,18 @@ describe('<Button>', () => {
     expect(onClick).toHaveBeenCalledTimes(1)
   })
 
+  it('should look like a square', () => {
+    const { getByTestId } = render(
+      <Button shape="square" size="sm">
+        {content}
+      </Button>
+    )
+    const button = getByTestId('button')
+
+    expect(button).toHaveStyleRule('width', '2rem')
+    expect(button).toHaveStyleRule('height', '2rem')
+  })
+
   it('should have correct size', () => {
     const { getByTestId } = render(<Button size="sm">{content}</Button>)
     const button = getByTestId('button')

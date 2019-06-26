@@ -10,7 +10,7 @@ const getVariantIcon = (variant, errorWarningIcon) => {
   if (variant === 'error' || variant === 'warning') {
     return (
       errorWarningIcon || (
-        <Badge rounded variant={variant}>
+        <Badge shape="circle" variant={variant}>
           !
         </Badge>
       )

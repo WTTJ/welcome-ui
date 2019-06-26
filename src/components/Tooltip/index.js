@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { useEventListener, useRefElement, useSetAttribute } from '../../utils/hooks'
+import { useEventListener, useRefElement, useSetAttribute } from '../../utils/'
 
 import * as S from './styles'
 

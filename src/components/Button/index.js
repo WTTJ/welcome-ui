@@ -1,11 +1,9 @@
 import React, { forwardRef } from 'react'
 import { bool, node, oneOf } from 'prop-types'
 
-import { IconButton } from '../IconButton'
-
 import * as S from './styles'
 
-const Button = forwardRef(
+export const Button = forwardRef(
   ({ children, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
     <S.Button
       data-testid="button"
@@ -25,6 +23,7 @@ Button.displayName = 'Button'
 Button.propTypes = {
   children: node,
   disabled: bool,
+  shape: oneOf(['square', 'circle']),
   size: oneOf(['xs', 'sm', 'md', 'lg']),
   variant: oneOf([
     'primary',
@@ -36,5 +35,3 @@ Button.propTypes = {
     'secondary-danger'
   ])
 }
-
-export { Button, IconButton }

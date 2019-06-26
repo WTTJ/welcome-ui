@@ -3,7 +3,7 @@ import { th } from '@xstyled/system'
 import Select from 'react-select'
 
 import { fieldStyles } from '../../common/styles/form'
-import { system } from '../../utils/utils'
+import { system } from '../../utils/'
 
 export const StyledSelect = styled(Select)`
   ${system};

@@ -28,14 +28,27 @@ describe('<Shape>', () => {
     expect(shape).toHaveStyleRule('border-radius', '10px')
   })
 
-  it('should render rounded shape', () => {
+  it('using shape with unequal width / height props should use biggest value', () => {
     const { getByTestId } = render(
-      <Shape borderRadius="lg" height="100px" rounded width="100px">
+      <Shape height="1px" shape="circle" width="100px">
         {content}
       </Shape>
     )
     const shape = getByTestId('shape')
 
-    expect(shape).toHaveStyleRule('border-radius', '100px')
+    expect(shape).toHaveStyleRule('width', '100px')
+    expect(shape).toHaveStyleRule('height', '100px')
+    expect(shape).toHaveStyleRule('border-radius', '50%')
+  })
+
+  it('should render a circle shape', () => {
+    const { getByTestId } = render(
+      <Shape borderRadius="lg" height="100px" shape="circle" width="100px">
+        {content}
+      </Shape>
+    )
+    const shape = getByTestId('shape')
+
+    expect(shape).toHaveStyleRule('border-radius', '50%')
   })
 })

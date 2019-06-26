@@ -41,10 +41,10 @@ describe('<Tag>', () => {
     expect(tag).toHaveStyleRule('padding', '0')
   })
 
-  it('should have correct border radius for rounded tag', () => {
-    const { getByTestId } = render(<Tag rounded>{content}</Tag>)
+  it('should have correct border radius for tag with prop `shape` set to `circle`', () => {
+    const { getByTestId } = render(<Tag shape="circle">{content}</Tag>)
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('border-radius', '1em')
+    expect(tag).toHaveStyleRule('border-radius', '50%')
   })
 })

@@ -1,7 +1,7 @@
 import React from 'react'
 import { array, bool, func, node, oneOfType, string } from 'prop-types'
 
-import { createEvent } from '../../utils/events'
+import { createEvent } from '../../utils/'
 import { Icon } from '../Icon'
 
 import { StyledSelect } from './styles'

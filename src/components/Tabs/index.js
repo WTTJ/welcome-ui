@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useTabState } from 'reakit/Tab'
 
-import { useEventListener } from '../../utils/hooks'
+import { useEventListener } from '../../utils/'
 
 import { TabsItem } from './item'
 import { TabsPanel } from './panel'

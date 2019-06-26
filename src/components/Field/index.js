@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 
 // Common
 import { RowContainer } from '../../common/styles/layout'
-import { getHintText, getVariant } from '../../utils/variants'
-import { getBaseType } from '../../utils/fields'
+import { getBaseType, getHintText, getVariant } from '../../utils/'
 // Components
 import { Label } from '../Label'
 import { Hint } from '../Hint'
