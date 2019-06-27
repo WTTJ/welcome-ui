@@ -55,7 +55,7 @@ Use size property with `sm` `md` or `lg`.
 
 ## One character style
 
-When we have only one character, we apply same size for the width and height.
+When we have only one character, we apply same size for the width and height (it implicitely sets `shape` prop to `square`)
 
 <Playground>
   <Tag size="sm">1</Tag>
@@ -63,15 +63,23 @@ When we have only one character, we apply same size for the width and height.
   <Tag size="lg">1</Tag>
 </Playground>
 
-## Rounded
+## Shape
 
-Add `rounded` property to set a border-radius `1em`.
+Set `shape` prop to `square` to get a square no matter the content.
 
 <Playground>
-  <Tag size="lg" rounded>
-    Rounded
+  <Tag size="lg" shape="square">
+    1
   </Tag>
-  <Tag size="lg" rounded>
+  <Tag size="lg" shape="square" width={50}>
+    Long text
+  </Tag>
+</Playground>
+
+Set `shape` prop to `circle` to set a border-radius `50%`.
+
+<Playground>
+  <Tag size="lg" shape="circle">
     1
   </Tag>
 </Playground>

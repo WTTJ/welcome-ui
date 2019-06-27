@@ -2,7 +2,7 @@ import { func, node, number } from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 
 import { Icon } from '../Icon'
-import { useKeyboardEvent, useRefElement } from '../../utils/hooks'
+import { useKeyboardEvent, useRefElement } from '../../utils/'
 
 import { PageItem } from './item'
 import * as S from './styles'

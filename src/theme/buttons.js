@@ -1,5 +1,5 @@
 export const getButtons = theme => {
-  const { colors, fontSizes, fontWeights, letterSpacings, radii, shadows } = theme
+  const { colors, fontSizes, fontWeights, letterSpacings, radii, shadows, space } = theme
   const defaults = {
     color: colors.light[200],
     'font-size': fontSizes.button,
@@ -93,16 +93,20 @@ export const getButtons = theme => {
     },
     sizes: {
       xs: {
-        height: '1.25rem'
+        height: '1.25rem',
+        padding: `0 ${space.sm}`
       },
       sm: {
-        height: '2rem'
+        height: '2rem',
+        padding: `0 ${space.sm}`
       },
       md: {
-        height: '2.25rem'
+        height: '2.25rem',
+        padding: `0 ${space.md}`
       },
       lg: {
-        height: '2.5rem'
+        height: '2.5rem',
+        padding: `0 ${space.lg}`
       }
     }
   }

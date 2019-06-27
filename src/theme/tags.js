@@ -20,18 +20,34 @@ export const getTags = ({ colors, fontSizes, fontWeights, space, toRem }) => ({
       'font-size': fontSizes.meta1
     }
   },
-  oneCharacter: {
-    sm: {
-      width: '1.6363em',
-      height: '1.6363em'
+  shape: {
+    square: {
+      sm: {
+        width: '1.6363em',
+        height: '1.6363em'
+      },
+      md: {
+        width: '1.82em',
+        height: '1.82em'
+      },
+      lg: {
+        width: '2em',
+        height: '2em'
+      }
     },
-    md: {
-      width: '1.82em',
-      height: '1.82em'
-    },
-    lg: {
-      width: '2em',
-      height: '2em'
+    circle: {
+      sm: {
+        width: '1.6363em',
+        height: '1.6363em'
+      },
+      md: {
+        width: '1.82em',
+        height: '1.82em'
+      },
+      lg: {
+        width: '2em',
+        height: '2em'
+      }
     }
   }
 })

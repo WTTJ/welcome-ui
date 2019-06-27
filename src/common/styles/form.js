@@ -1,7 +1,7 @@
 import { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { getVariantStateColor } from '../../utils/variants'
+import { getVariantStateColor } from '../../utils/'
 
 export const fieldStyles = css`
   ${props =>

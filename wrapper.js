@@ -5,7 +5,7 @@ import { Provider } from 'reakit'
 
 import { welcomekitTheme } from './src/theme/welcomekit'
 import { createTheme } from './src/theme/core'
-import { GlobalStyle } from './src/utils/base'
+import { GlobalStyle } from './src/utils/'
 
 const theme = createTheme(welcomekitTheme)
 

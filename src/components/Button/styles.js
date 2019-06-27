@@ -1,39 +1,26 @@
 import styled, { css } from '@xstyled/styled-components'
+import { Button as ReakitButton } from 'reakit/Button'
 import { th } from '@xstyled/system'
 
-import { system } from '../../utils/utils'
+import { filterProps, system } from '../../utils/'
 
-const sizes = {
-  xs: css`
-    ${th(`buttons.sizes.xs`)};
-    padding: 0 sm;
-  `,
-  sm: css`
-    ${th(`buttons.sizes.sm`)};
-    padding: 0 sm;
-  `,
-  md: css`
-    ${th(`buttons.sizes.md`)};
-    padding: 0 md;
-  `,
-  lg: css`
-    ${th(`buttons.sizes.lg`)};
-    padding: 0 lg;
-  `
-}
+const shapeStyles = (size, shape) => css`
+  width: ${th(`buttons.sizes.${size}.height`)};
+  padding: 0;
+  border-radius: ${shape === 'circle' && th(`buttons.sizes.${size}.height`)};
+`
 
-export const Button = styled.button(
-  props => css`
-    ${th(`buttons.${props.variant || 'primary'}`)};
-    ${sizes[props.size] || sizes.md};
+export const Button = styled(filterProps(ReakitButton, ['forwardedAs', 'shape', 'variant']))(
+  ({ disabled, shape, size, variant }) => css`
+    ${th(`buttons.${variant}`)};
     position: relative;
     display: inline-flex;
     align-items: center;
-    align-self: ${props.alignself || null};
-    justify-content: ${props.align || 'center'};
+    justify-content: center;
     width: auto;
-    text-align: ${props.align || 'center'};
+    ${th(`buttons.sizes.${size}`)};
     text-decoration: none;
+    text-align: center;
     white-space: nowrap;
     cursor: pointer;
     outline: none;
@@ -42,13 +29,14 @@ export const Button = styled.button(
     appearance: none;
     overflow: hidden;
     transition: medium;
+    ${shape && shapeStyles(size, shape)};
     ${system};
 
-    & > *:first-child:not(:only-child) {
+    & > *:not(:only-child):not(:last-child) {
       margin-right: sm;
     }
 
-    ${!props.disabled &&
+    ${!disabled &&
       css`
         &:active {
           transform: translateY(2px);
@@ -56,7 +44,7 @@ export const Button = styled.button(
 
         &:hover,
         &:focus {
-          ${th(`buttons.focused.${props.variant || 'primary'}`)};
+          ${th(`buttons.focused.${variant || 'primary'}`)};
         }
       `};
 

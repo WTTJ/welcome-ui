@@ -7,8 +7,7 @@ if (window) {
   require('easymde/dist/easymde.min.css')
 }
 
-import { formFieldPropTypes } from '../../utils/propTypes'
-import { createEvent } from '../../utils/events'
+import { createEvent, formFieldPropTypes } from '../../utils/'
 import { Icon } from '../Icon'
 
 import { Toolbar, toolbarItemPropTypes } from './Toolbar'

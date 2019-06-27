@@ -1,32 +1,29 @@
 import React, { forwardRef } from 'react'
-import PropTypes from 'prop-types'
+import { node, oneOf } from 'prop-types'
 
 import * as S from './styles'
 
-export const Tag = forwardRef(
-  ({ children, rounded, size = 'md', variant = 'default', ...props }, ref) => (
-    <S.Tag
-      data-testid="tag"
-      length={children.length}
-      ref={ref}
-      rounded={rounded}
-      size={size}
-      variant={variant}
-      {...props}
-    >
-      {children}
-    </S.Tag>
-  )
-)
+export const Tag = forwardRef(({ children, size = 'md', variant = 'default', ...rest }, ref) => (
+  <S.Tag
+    data-testid="tag"
+    length={children ? children.length : null}
+    ref={ref}
+    size={size}
+    variant={variant}
+    {...rest}
+  >
+    {children}
+  </S.Tag>
+))
 
 Tag.displayName = 'Tag'
 
 Tag.propTypes = {
-  children: PropTypes.node,
+  children: node,
   /** set a border-radius to 1em  */
-  rounded: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  variant: PropTypes.oneOf([
+  shape: oneOf(['square', 'circle']),
+  size: oneOf(['sm', 'md', 'lg']),
+  variant: oneOf([
     'blue',
     'default',
     'error',

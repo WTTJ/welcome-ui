@@ -1,50 +1,51 @@
+import React from 'react'
+import omit from 'lodash.omit'
 import {
-  alignContent,
-  alignItems,
-  alignSelf,
-  background,
-  backgroundColor,
+  backgrounds,
+  basics,
   borders,
   color,
   compose,
   display,
-  flex,
-  flexBasis,
-  flexDirection,
-  flexWrap,
-  fontSize,
-  fontWeight,
+  flexboxes,
+  grids,
   height,
-  justifyContent,
-  justifySelf,
-  lineHeight,
-  order,
+  maxHeight,
+  maxWidth,
+  minHeight,
+  minWidth,
+  positioning,
   space,
-  textAlign,
+  typography,
+  verticalAlign,
   width
 } from '@xstyled/system'
+import { getSystemPropTypes } from '@xstyled/prop-types'
 
 export const system = compose(
-  alignContent,
-  alignItems,
-  alignSelf,
-  background,
-  backgroundColor,
+  backgrounds,
+  basics,
   borders,
   color,
   display,
-  flex,
-  flexBasis,
-  flexDirection,
-  flexWrap,
-  fontSize,
-  fontWeight,
+  flexboxes,
+  grids,
   height,
-  justifyContent,
-  justifySelf,
-  lineHeight,
-  order,
+  maxHeight,
+  maxWidth,
+  minHeight,
+  minWidth,
+  positioning,
   space,
-  textAlign,
+  typography,
+  verticalAlign,
   width
 )
+
+const xstyledProps = Object.keys(getSystemPropTypes(system))
+
+export const filterProps = (Component, excludedProps) =>
+  function FilteredProps(props) {
+    const rest = omit(props, [...excludedProps, ...xstyledProps])
+    return <Component {...rest} />
+  }

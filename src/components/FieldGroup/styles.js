@@ -2,7 +2,7 @@ import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { Label as StyledLabel } from '../Label/styles'
-import { system } from '../../utils/utils'
+import { system } from '../../utils/'
 
 export const StyledFieldGroup = styled.fieldset`
   margin: 0 0 xl 0;

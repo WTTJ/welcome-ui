@@ -33,12 +33,28 @@ Add `borderRadius` from theme or what you want.
   </Shape>
 </Playground>
 
-## Rounded
+## Shape
 
-Add `rounded` and will take width size.
+Set `shape` prop to `square`…
 
 <Playground>
-  <Shape width="150px" height="150px" rounded>
+  <Shape width="150px" height="150px" shape="square">
+    <img src="https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif" />
+  </Shape>
+</Playground>
+
+… or set it to `circle`.
+
+<Playground>
+  <Shape width="150px" height="150px" shape="circle">
+    <img src="https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif" />
+  </Shape>
+</Playground>
+
+also, using `shape` with unequal sizes will match the biggest value between width / height.
+
+<Playground>
+  <Shape width="1px" height="50px" shape="circle">
     <img src="https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif" />
   </Shape>
 </Playground>
@@ -47,7 +63,7 @@ Add `rounded` and will take width size.
 
 <Playground>
   <Box display="flex" width="180px" justifyContent="space-between">
-    <Shape width="50px" height="50px" rounded>
+    <Shape width="50px" height="50px" shape="circle">
       <Box
         backgroundColor="primary.500"
         fontSize="meta2"
@@ -65,7 +81,7 @@ Add `rounded` and will take width size.
     <Shape
       width="50px"
       height="50px"
-      rounded
+      shape="circle"
       borderWidth="1px"
       borderColor="primary.500"
       borderStyle="dotted"
@@ -83,7 +99,7 @@ Add `rounded` and will take width size.
         WTTJ
       </Box>
     </Shape>
-    <Shape width="50px" height="50px" rounded>
+    <Shape width="50px" height="50px" shape="circle">
       <img src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4" />
     </Shape>
   </Box>

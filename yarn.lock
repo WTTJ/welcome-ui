@@ -1880,6 +1880,13 @@
     "@babel/runtime" "^7.4.4"
     "@xstyled/system" "^1.5.2"
 
+"@xstyled/prop-types@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/prop-types/-/prop-types-1.3.0.tgz#0482f4c23f9723cc4a31014f79241446dcc5b1cd"
+  integrity sha512-PVHZq83HKWPatVU9hK0fdpcL3gSmfhIj80A04aqExq/HklMi7XgunRnFClxJsMJKpbu2gfL34ZvDEzQAXzAQ5w==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+
 "@xstyled/styled-components@^1.5.2":
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.5.2.tgz#49d8de354b3965f954c8f8f1b051ec0f6fd8dc1d"
@@ -7551,10 +7558,10 @@ jest-snapshot@^24.8.0:
     pretty-format "^24.8.0"
     semver "^5.5.0"
 
-jest-styled-components@=6.3.1:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/jest-styled-components/-/jest-styled-components-6.3.1.tgz#fa21a89bfe8c20081c7c083cbaed2200854b60e3"
-  integrity sha512-zie3ajvJbwlbHCAq8/Bv5jdbcYCz0ZMRNNX6adL7wSRpkCVPQtiJigv1140JN1ZOJIODPn8VKrjeFCN+jlPa7w==
+jest-styled-components@=6.3.3:
+  version "6.3.3"
+  resolved "https://registry.yarnpkg.com/jest-styled-components/-/jest-styled-components-6.3.3.tgz#e15bbda13a6b6ff876d6b783751fe9840860c52a"
+  integrity sha512-RBMPZSJJSgPDTTJsuYzx5fsij/CULaqQNZOWkn8J/L++rX6P830o2vB9CXGzfQf/bVq9qGr1ZBNoivi+v6JPYg==
   dependencies:
     css "^2.2.4"
 
@@ -7989,6 +7996,11 @@ lodash.merge@^4.0.2, lodash.merge@^4.6.1:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
   integrity sha512-AOYza4+Hf5z1/0Hztxpm2/xiPZgi/cjMqdnKTUWTBSKchJlxXXuUSxCCl8rJlf4g6yww/j6mA8nC8Hw/EZWxKQ==
+
+lodash.omit@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
+  integrity sha1-brGa5aHuHdnfC5aeZs4Lf6MLXmA=
 
 lodash.sortby@^4.7.0:
   version "4.7.0"
