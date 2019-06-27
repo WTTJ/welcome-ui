@@ -3,59 +3,57 @@ import { th } from '@xstyled/system'
 
 import { system } from '../../utils/'
 
-const baseStyle = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: xxs;
-  ${th('paginations.default')};
+export const Pagination = styled.nav(system)
 
-  & > * {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: inherit;
-  }
-`
-
-export const Pagination = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
+export const List = styled.ul`
   list-style-type: none;
   padding: 0;
   margin: 0;
-  ${system};
 `
 
-const Item = styled.button`
+export const Item = styled.li`
+  display: inline-block;
+  padding: 0;
+  margin: 0 xxs;
+  ${p =>
+    p.hidden &&
+    css`
+      display: none;
+    `}
+`
+
+export const Dots = styled.span`
+  ${th('paginations.default')};
+  ${th('paginations.dots')}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`
+
+const AbstractLink = styled.a`
+  ${th('paginations.default')};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   border-radius: 50%;
   transition: medium;
-  transition-property: none;
-  cursor: pointer;
-  ${baseStyle};
+  transition-property: color, box-shadow;
+  text-decoration: none;
 
-  &:hover {
-    transition-property: color;
+  &:focus {
+    outline: none;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
   }
 `
 
-export const Dots = styled.div`
-  ${th('paginations.dots')}
-  ${baseStyle};
-  margin-left: 0;
-  width: auto;
+export const ArrowLink = styled(AbstractLink)`
+  ${th('paginations.arrow')};
+  transition-property: color, box-shadow, border-color;
 `
 
-export const ArrowItemLeft = styled(Item)`
-  ${th('paginations.arrow')}
-  transition-property: border;
-`
-
-export const ArrowItemRight = styled(ArrowItemLeft)`
-  margin-left: 0;
-`
-
-export const PageItem = styled(Item)`
+export const PageLink = styled(AbstractLink)`
   ${th('paginations.number')}
-  ${props => props.active && th('paginations.active')};
+  ${p => p['aria-current'] && th('paginations.active')(p)}
 `
