@@ -13,6 +13,9 @@ const StyledCodeBlock = styled.pre`
   border: 1px solid ${th.color('nude.200')};
   border-radius: sm;
   overflow: auto;
+  code {
+    font: inherit;
+  }
 `
 
 export const DoczCodeBlock = ({ children }) => (

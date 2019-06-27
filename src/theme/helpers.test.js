@@ -2,14 +2,6 @@ import { th } from '@xstyled/system'
 
 import { createTheme } from './core'
 
-test('Can create theme with different base font size', () => {
-  const theme = createTheme({
-    defaultFontSize: 50
-  })
-
-  expect(th.fontSize('html')({ theme })).toBe('50px')
-})
-
 test('Can create theme with different fonts', () => {
   const theme = createTheme({
     fontFaces: {

@@ -19,7 +19,6 @@ const HEADING_FONT_FAMILY = 'welcomeweb'
 
 export const getBaseTheme = (options = {}) => {
   let {
-    defaultFontSize = DEFAULT_FONT_SIZE,
     defaultFontFamily = DEFAULT_FONT_FAMILY,
     headingFontFamily = HEADING_FONT_FAMILY,
     ...rest
@@ -27,13 +26,12 @@ export const getBaseTheme = (options = {}) => {
 
   let theme = {}
 
-  theme.toEm = px => `${px / defaultFontSize}em`
-  theme.toRem = px => `${px / defaultFontSize}rem`
+  theme.toEm = px => `${px / DEFAULT_FONT_SIZE}em`
+  theme.toRem = px => `${px / DEFAULT_FONT_SIZE}rem`
 
   theme.colors = colors
 
   // fonts
-  theme.defaultFontSize = defaultFontSize
   theme.fontFaces = fontFaces
   theme.fontSizes = getFontSizes('rem', theme)
   theme.lineHeights = getLineHeights(theme)

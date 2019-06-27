@@ -14,12 +14,14 @@ export const List = styled.div`
 `
 
 export const ListContent = styled(TabList)`
+  border: 0;
   ${th('tabs.tabs')}
   position: relative;
   display: flex;
 `
 
 export const Item = styled(Tab)`
+  outline: none;
   border: 0;
   background: none;
   ${th('tabs.item.default')};

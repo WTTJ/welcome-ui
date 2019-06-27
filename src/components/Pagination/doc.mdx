@@ -40,7 +40,7 @@ When your range display is above your pageCount, all the pages are shown.<br />C
       <>
         <Pagination onChange={setSelected} pageCount={5} rangeDisplay={10} />
         <Box mt="20px">
-          Page <strong>{selected} </strong> is selected !
+          Page <strong>{selected}</strong> is selected !
         </Box>
       </>
     )
@@ -58,7 +58,9 @@ Use `defaultPage` property.
     return (
       <>
         <Pagination onChange={setSelected} pageCount={10} defaultPage={defaultPage} />
-        <Box mt="20px">Page {selected} is selected !</Box>
+        <Box mt="20px">
+          Page <strong>{selected}</strong> is selected !
+        </Box>
       </>
     )
   }}

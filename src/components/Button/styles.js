@@ -33,6 +33,7 @@ export const Button = styled.button(
     justify-content: ${props.align || 'center'};
     width: auto;
     text-align: ${props.align || 'center'};
+    text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
     outline: none;

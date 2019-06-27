@@ -1,8 +1,7 @@
 export const getFontSizes = (unit, theme) => {
-  const { defaultFontSize, toEm, toRem } = theme
+  const { toEm, toRem } = theme
   const convert = unit === 'em' ? toEm : toRem
   return {
-    html: `${defaultFontSize}px`,
     h1: convert(36),
     h2: convert(28),
     h3: convert(22),
@@ -39,11 +38,12 @@ export const getLineHeights = () => {
 }
 
 export const getTexts = theme => {
-  const { fontSizes, lineHeights } = theme
+  const { fontSizes, fontWeights, lineHeights } = theme
   return Object.keys(fontSizes).reduce((acc, key) => {
     return {
       ...acc,
       [key]: {
+        'font-weight': fontWeights.regular,
         'font-size': fontSizes[key],
         'line-height': lineHeights[key] || lineHeights.body1
       }
