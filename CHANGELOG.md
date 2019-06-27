@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.12.0](https://github.com/WTTJ/welcome-ui/compare/v0.11.0...v0.12.0) (2019-06-27)
+
+
+### Features
+
+* use reakit on buttons ([#135](https://github.com/WTTJ/welcome-ui/issues/135)) ([3f11e39](https://github.com/WTTJ/welcome-ui/commit/3f11e39))
+
+
+### refactor
+
+* don't play with font-size ([0cd4022](https://github.com/WTTJ/welcome-ui/commit/0cd4022))
+
+
+### BREAKING CHANGES
+
+* `rounded` (boolean) prop does not exist and is now replaced by `shape="circle"`.
+It affects every `Tag`, `Shape` and `Button` components.
+Also fix warnings by filtering props to prevent them of being sent to the dom element
+
+Signed-off-by: Paul-Xavier Ceccaldi <pix@wttj.co>
+* - base font size is now the one defined in browser and no longer fixed by welcome-ui
+- expose `GlobalStyle` instead of `getBaseStyles`
+- use normalize instead of reset, cleaner approach
+
+
+
 ## [0.11.0](https://github.com/WTTJ/welcome-ui/compare/v0.10.0...v0.11.0) (2019-06-25)
 
 
