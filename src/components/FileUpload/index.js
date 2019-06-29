@@ -22,10 +22,9 @@ export const FileUpload = ({
   accept = 'image/*',
   children = DefaultContent,
   disabled,
-  input,
-  inputRef,
   maxSize = DEFAULT_MAX_FILE_SIZE,
   multiple,
+  name,
   onAddFile,
   onChange,
   onError,
@@ -41,8 +40,9 @@ export const FileUpload = ({
   const handleDropAccepted = files => {
     const [file] = files
     file.preview = URL.createObjectURL(file)
+    setFile(file)
 
-    const event = createEvent({ name: input.name, value: file })
+    const event = createEvent({ name, value: file })
     onChange && onChange(event)
     onAddFile && onAddFile(event)
   }
@@ -61,7 +61,7 @@ export const FileUpload = ({
     e.preventDefault()
     setFile(null)
 
-    const event = createEvent({ name: input.name, value: null })
+    const event = createEvent({ name, value: null })
     onChange && onChange(event)
     onRemoveFile && onRemoveFile(event)
   }
@@ -90,7 +90,7 @@ export const FileUpload = ({
     <StyledFileUpload
       {...getRootProps({ handleRemoveFile, isDragActive, isDragAccept, isDragReject, disabled })}
     >
-      <input {...getInputProps({ name: input && input.name })} ref={inputRef} />
+      <input {...getInputProps({ name })} />
       <FilePreview>
         {children({
           fileUrl: file && getPreviewUrl(file.preview),
@@ -118,10 +118,10 @@ FileUpload.propTypes = {
   accept: string,
   children: func,
   disabled: bool,
-  input: node,
   inputRef: node,
   maxSize: number,
   multiple: bool,
+  name: string.isRequired,
   onAddFile: func,
   onChange: func,
   onError: func,

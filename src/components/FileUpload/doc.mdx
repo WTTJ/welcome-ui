@@ -33,16 +33,16 @@ You also have access to:
       <>
         <h3>Add picture</h3>
         <p>Drag and drop a file here or…</p>
-        <Button disabled={disabled} onClick={openFile} type="button">
+        <Button onClick={openFile} type="button">
           Choose file
         </Button>
       </>
     )
     return (
       <FileUpload
+        name="avatar"
         label="Avatar"
         hint="Files must be <200MB"
-        disabled={disabled}
         required
         onChange={console.debug}
         onAddFile={console.debug}
