@@ -22,6 +22,7 @@ export const FileUpload = ({
   accept = 'image/*',
   children = DefaultContent,
   disabled,
+  inputRef: fieldRef,
   maxSize = DEFAULT_MAX_FILE_SIZE,
   multiple,
   name,
@@ -69,10 +70,12 @@ export const FileUpload = ({
   const {
     getInputProps,
     getRootProps,
+    inputRef,
     isDragAccept,
     isDragActive,
     isDragReject,
-    open
+    open,
+    rootRef
   } = useDropzone({
     onDropAccepted: handleDropAccepted,
     onDropRejected: handleDropRejected,
@@ -84,11 +87,16 @@ export const FileUpload = ({
     children
   })
 
-  const hasFile = !!file
-
   return (
     <StyledFileUpload
-      {...getRootProps({ handleRemoveFile, isDragActive, isDragAccept, isDragReject, disabled })}
+      {...getRootProps({
+        disabled,
+        handleRemoveFile,
+        isDragActive,
+        isDragAccept,
+        isDragReject,
+        ref: fieldRef
+      })}
     >
       <input {...getInputProps({ name })} />
       <FilePreview>
@@ -97,9 +105,11 @@ export const FileUpload = ({
           isDefault: !file && !isDragActive,
           isHoverAccept: isDragAccept,
           isHoverReject: isDragReject,
-          openFile: open
+          openFile: open,
+          inputRef,
+          rootRef
         })}
-        {hasFile && (
+        {!!file && (
           <Actions>
             <Button onClick={open} size="sm" type="button" variant="secondary">
               <Icon name="pencil" size="sm" />

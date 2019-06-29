@@ -29,7 +29,7 @@ You also have access to:
 
 <Playground>
   {() => {
-    const defaultView = openFile => (
+    const DefaultView = ({ openFile }) => (
       <>
         <h3>Add picture</h3>
         <p>Drag and drop a file here or…</p>
@@ -57,7 +57,7 @@ You also have access to:
           } else if (fileUrl) {
             return <FilePreviewImage src={fileUrl} />
           }
-          return defaultView(openFile)
+          return <DefaultView openFile={openFile} />
         }}
       </FileUpload>
     )

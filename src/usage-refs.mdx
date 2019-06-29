@@ -15,6 +15,7 @@ import { Icon } from './components/Icon'
 import { ConnectedField } from './components/ConnectedField'
 import { Field } from './components/Field'
 import { InputText } from './components/InputText'
+import { FileUpload } from './components/FileUpload'
 
 # Refs
 
@@ -26,28 +27,54 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
   {() => {
     const connectedInputRef = createRef()
     const normalInputRef = useRef(null)
-
-    handleConnectedClick = e => {
+    const fileUploadRef = useRef(null)
+    //
+    const handleConnectedClick = () => {
       connectedInputRef.current.focus()
     }
-
-    handleNormalClick = e => {
+    const handleNormalClick = () => {
       normalInputRef.current.focus()
     }
-
+    const handleFileUploadClick = () => {
+      fileUploadRef.current.focus()
+    }
+    //
     return (
       <Form
         onSubmit={() => {}}
         render={({ handleSubmit }) => (
-        <form onSubmit={handleSubmit}>
-          <ConnectedField name="firstName" component={InputText} label="Connected" ref={connectedInputRef} mb={20} />
-          <Field name="lastName" component={InputText} label="Normal" ref={normalInputRef} mb={20} inputRef={normalInputRef} />
-          <Button onClick={handleConnectedClick}>Click to focus connected field</Button>
-          <Button onClick={handleNormalClick} ml={20}>Click to focus normal field</Button>
-        </form>
-      )} />
+          <form onSubmit={handleSubmit}>
+            <ConnectedField
+              name="firstName"
+              component={InputText}
+              label="Connected field"
+              ref={connectedInputRef}
+              mb={20}
+            />
+            <Field
+              name="lastName"
+              component={InputText}
+              label="Normal field"
+              ref={normalInputRef}
+              mb={20}
+            />
+            <Field
+              name="avatar"
+              component={FileUpload}
+              label="Complex field"
+              ref={fileUploadRef}
+              mb={20}
+            />
+            <Button onClick={handleConnectedClick}>Focus connected field</Button>
+            <Button onClick={handleNormalClick} ml={20}>
+              Focus normal field
+            </Button>
+            <Button onClick={handleFileUploadClick} ml={20}>
+              Focus file upload field
+            </Button>
+          </form>
+        )}
+      />
     )
-
-}}
-
+  }}
 </Playground>
