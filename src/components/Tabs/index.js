@@ -49,12 +49,16 @@ const Tabs = ({ children, defaultActiveTab = 1, items, name }) => {
     setPositionActiveBar()
   }, [setPositionActiveBar, windowWidth, tab.selectedId])
 
+  const tabsItems = items.props.children
+
   return (
     <S.Tabs>
       <S.List>
         <S.ListContent {...tab} aria-label={name} data-testid="tabsItems" ref={listRef}>
-          {setChild(items.props.children)}
-          <S.ActiveBar data-testid="activeBar" left={activeBar.left} width={activeBar.width} />
+          {setChild(tabsItems)}
+          {tabsItems.length > 1 && (
+            <S.ActiveBar data-testid="activeBar" left={activeBar.left} width={activeBar.width} />
+          )}
         </S.ListContent>
       </S.List>
       {setChild(children)}
