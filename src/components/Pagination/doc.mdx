@@ -8,7 +8,7 @@ import { useState } from 'react'
 import { Props, Link } from 'docz'
 import { Playground } from '../../../docz/'
 import { Box } from '../Box'
-
+import { Icon } from '../Icon'
 import { Pagination } from './'
 
 # Pagination
@@ -19,49 +19,58 @@ import { Pagination } from './'
 
 <Playground>
   {() => {
-    const [selected, setSelected] = useState(1)
+    const [page, setPage] = useState(8)
     return (
-      <>
-        <Pagination onChange={setSelected} pageCount={10} />
-        <Box mt="20px">Page {selected} is selected !</Box>
-      </>
+      <Pagination
+        aria-label="Pagination"
+        getHref={page => `?page=${page}`}
+        page={page}
+        onChange={setPage}
+        pageCount={10}
+      />
     )
   }}
 </Playground>
 
 ## Range display
 
-When your range display is above your pageCount, all the pages are shown.<br />Change range with `rangeDisplay`, by default is 5.
+When your range display is above your pageCount, all the pages are shown.
+
+Change range with `rangeDisplay`, by default it is `5`.
 
 <Playground>
   {() => {
-    const [selected, setSelected] = useState(1)
+    const [page, setPage] = useState(1)
     return (
-      <>
-        <Pagination onChange={setSelected} pageCount={5} rangeDisplay={10} />
-        <Box mt="20px">
-          Page <strong>{selected}</strong> is selected !
-        </Box>
-      </>
+      <Pagination
+        aria-label="Pagination"
+        getHref={page => `?page=${page}`}
+        page={page}
+        onChange={setPage}
+        pageCount={5}
+        rangeDisplay={10}
+      />
     )
   }}
 </Playground>
 
-## Default page
+## Custom previous & next
 
-Use `defaultPage` property.
+Set custom previous and next buttons using `leftArrow` and `rightArrow`.
 
 <Playground>
   {() => {
-    const defaultPage = 4
-    const [selected, setSelected] = useState(defaultPage)
+    const [page, setPage] = useState(5)
     return (
-      <>
-        <Pagination onChange={setSelected} pageCount={10} defaultPage={defaultPage} />
-        <Box mt="20px">
-          Page <strong>{selected}</strong> is selected !
-        </Box>
-      </>
+      <Pagination
+        aria-label="Pagination"
+        getHref={page => `?page=${page}`}
+        page={page}
+        onChange={setPage}
+        pageCount={10}
+        leftArrow={<Icon name="crown" size="xs" />}
+        rightArrow={<Icon name="crown" size="xs" />}
+      />
     )
   }}
 </Playground>
