@@ -44,22 +44,20 @@ export const Select = ({
         selectedItem
       }) => (
         <S.Wrapper {...getRootProps()}>
-          <S.Input>
-            <input
-              autoFocus={autoFocus}
-              disabled={disabled}
-              name={name}
-              placeholder={placeholder}
-              readOnly
-              ref={inputRef}
-              value={selectedItem && selectedItem.label}
-              variant={variant}
-              {...getInputProps({ onBlur, onFocus })}
-            />
-            <S.DropDownIndicator disabled={disabled} isOpen={isOpen} {...getToggleButtonProps()}>
-              <Icon name="down" size="xs" />
-            </S.DropDownIndicator>
-          </S.Input>
+          <S.Input
+            autoFocus={autoFocus}
+            disabled={disabled}
+            name={name}
+            placeholder={placeholder}
+            readOnly
+            ref={inputRef}
+            value={selectedItem && selectedItem.label}
+            variant={variant}
+            {...getInputProps({ onBlur, onFocus })}
+          />
+          <S.DropDownIndicator disabled={disabled} isOpen={isOpen} {...getToggleButtonProps()}>
+            <Icon name="down" size="xs" />
+          </S.DropDownIndicator>
           {isOpen ? (
             <S.Menu {...getMenuProps()}>
               {options.map((item, index) => (

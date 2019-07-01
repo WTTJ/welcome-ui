@@ -1895,14 +1895,6 @@
     "@babel/runtime" "^7.4.4"
     "@xstyled/core" "^1.5.2"
 
-"@xstyled/system@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.2.0.tgz#e6939e7a00832a2acbc0d280b8ebe56d852b4f9d"
-  integrity sha512-ZytevZWiLxysBJsdtyONvdYynEv7rVQvrI5R1lvLI1lqjM0gjBZgy1WcF8uyrxLSE0jBip9gjR5H1iSmXA8piA==
-  dependencies:
-    "@babel/runtime" "^7.4.4"
-    deepmerge "^3.2.0"
-
 "@xstyled/system@^1.5.2":
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.5.2.tgz#7d784a479f27c8bd68960891ee7569cf0c543103"

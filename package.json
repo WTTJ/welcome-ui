@@ -97,7 +97,7 @@
     "@babel/runtime": "^7.4.5",
     "@xstyled/prop-types": "^1.3.0",
     "@xstyled/styled-components": "^1.5.2",
-    "@xstyled/system": "^1.2.0",
+    "@xstyled/system": "^1.5.2",
     "downshift": "=3.2.10",
     "emoji-mart": "=2.11.1",
     "lodash.concat": "^4.5.0",

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { fieldStyles } from '../../common/styles/form'
@@ -9,18 +9,8 @@ export const Wrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled.div`
-  display: flex;
-  input {
-    ${fieldStyles}
-    width: 100%;
-  }
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
+export const Input = styled.input`
+  ${fieldStyles}
 `
 
 export const Menu = styled.ul`
@@ -32,12 +22,13 @@ export const Menu = styled.ul`
   right: 0;
   margin: 0;
   padding: 0;
-  border: 1px solid ${th('colors.nude.200')};
+  border: 1px solid;
+  border-color: nude.200;
   border-bottom-left-radius: ${th('radii.sm')};
   border-bottom-right-radius: ${th('radii.sm')};
-  background: ${th('colors.light.100')};
-  transition: ${th('transitions.medium')};
-  box-shadow: ${th('shadows.sm')};
+  background-color: light.100;
+  transition: medium;
+  box-shadow: sm;
 `
 
 const getBackground = (selected, highlighted) => {
@@ -49,13 +40,13 @@ const getBackground = (selected, highlighted) => {
 
 export const Items = styled.li(
   ({ highlighted, selected }) => css`
-    background: ${getBackground(selected, highlighted)};
+    background-color: ${getBackground(selected, highlighted)};
     color: ${selected && th('colors.primary.500')};
     font-weight: ${selected && th('fontWeights.bold')};
-    padding: ${th('space.sm')};
+    padding: sm;
     list-style: none;
     text-decoration: none;
-    font-size: ${th('fontSizes.body3')};
+    font-size: body3;
   `
 )
 
@@ -66,7 +57,7 @@ export const DropDownIndicator = styled.button(
       border: none;
       background: transparent;
       position: absolute;
-      padding: ${th('space.lg')};
+      padding: xxs lg;
       top: 0;
       right: 0;
       line-height: 2rem;
@@ -74,7 +65,7 @@ export const DropDownIndicator = styled.button(
 
       ${Icon} {
         transform: ${isOpen ? 'rotate(180deg)' : 'rotate(0)'};
-        transition: ${th('transitions.medium')};
+        transition: medium;
       }
     }
   `
