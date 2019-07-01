@@ -1,5 +1,5 @@
 export const getFields = theme => {
-  const { colors, fontSizes, fontWeights, radii, shadows, toRem } = theme
+  const { colors, fontSizes, fontWeights, radii, shadows, space, toRem } = theme
 
   const defaults = {
     color: colors.nude[800],
@@ -20,6 +20,17 @@ export const getFields = theme => {
       ...defaults,
       'background-color': colors.light[500],
       'pointer-events': 'none'
+    },
+    sizes: {
+      sm: {
+        padding: `${space.xs} ${space.sm}`
+      },
+      md: {
+        padding: space.sm
+      },
+      lg: {
+        padding: `${space.md} ${space.sm}`
+      }
     },
     focused: {
       ...defaults,

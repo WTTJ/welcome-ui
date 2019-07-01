@@ -29,6 +29,43 @@ Alternatively, you can create your own system to manage the state of your form f
 
 You can find additional props for each field component in [Fields](/fields/file-upload).
 
+## Sizes
+
+<Playground>
+  <DoczForm initialValues={{ small: 'I am small' }}>
+    {(values, handleChange) => (
+      <>
+        <Field
+          name="small"
+          placeholder="Placeholder"
+          component={InputText}
+          label="I'm a small sized field"
+          onChange={handleChange}
+          value={values.small}
+          size="sm"
+        />
+        <Field
+          name="medium"
+          placeholder="Placeholder"
+          component={InputText}
+          label="I'm a medium sized field"
+          onChange={handleChange}
+          value={values.medium}
+          size="md"
+        />
+        <Field
+          name="large"
+          placeholder="Placeholder"
+          component={InputText}
+          label="I'm a large sized field which is my default size"
+          value={values.large}
+          onChange={handleChange}
+        />
+      </>
+    )}
+  </DoczForm>
+</Playground>
+
 ## Variants
 
 <Playground>

@@ -17,6 +17,8 @@ export const Select = ({
   onChange,
   onFocus,
   placeholder = 'Please select',
+  searchable = false,
+  size = 'lg',
   value,
   variant
 }) => {
@@ -53,6 +55,8 @@ export const Select = ({
             placeholder={placeholder}
             readOnly
             ref={inputRef}
+            searchable={searchable}
+            size={size}
             value={selectedItem && selectedItem.label}
             variant={variant}
             {...getInputProps({ onBlur, onFocus })}
@@ -100,6 +104,8 @@ Select.propTypes = {
     })
   ),
   placeholder: string,
+  searchable: bool,
+  size: oneOf(['sm', 'md', 'lg']),
   value: string,
   variant: oneOf(['error', 'info', 'valid', 'warning'])
 }

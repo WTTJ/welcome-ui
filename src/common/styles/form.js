@@ -3,14 +3,13 @@ import { th } from '@xstyled/system'
 
 import { getVariantStateColor } from '../../utils/'
 
-export const fieldStyles = css`
-  ${props =>
-    props.fieldType === 'radioTab' ? th('fields.radiotabs.default') : th('fields.default')};
+export const fieldStyles = ({ fieldType, size, variant }) => css`
+  ${fieldType === 'radioTab' ? th('fields.radiotabs.default') : th('fields.default')};
   width: 100%;
-  padding: md sm;
-  border-color: ${props => getVariantStateColor(props.variant)};
+  border-color: ${getVariantStateColor(variant)};
   transition: medium;
   appearance: none;
+  ${size && th(`fields.sizes.${size}`)};
 
   &::placeholder {
     ${th('fields.placeholder')};

@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, func, node, number, oneOf, string } from 'prop-types'
+import { bool, func, node, number, string } from 'prop-types'
 
 import { StyledCheckbox } from '../InputCheckbox/styles'
 
@@ -14,10 +14,9 @@ export const InputRadio = ({
   onKeyDown,
   onFocus,
   order = -1,
-  size = 'md',
   value
 }) => (
-  <StyledCheckbox checked={checked} disabled={disabled} order={order} size={size} type="radio">
+  <StyledCheckbox checked={checked} disabled={disabled} order={order} type="radio">
     <input
       autoFocus={autoFocus}
       checked={checked}
@@ -48,6 +47,5 @@ InputRadio.propTypes = {
   onFocus: func,
   onKeyDown: func,
   order: number,
-  size: oneOf(['sm', 'md', 'lg']),
   value: string
 }
