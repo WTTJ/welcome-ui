@@ -2,6 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { system } from '../../utils/'
+import { fieldStyles } from '../../common/styles/form'
 import { Button as StyledButton } from '../Button/styles'
 
 const getBorderColor = ({ isDragAccept, isDragReject }) => {
@@ -26,6 +27,7 @@ const disabledStyles = css`
 
 export const StyledFileUpload = styled.div(
   props => css`
+    ${fieldStyles};
     ${th('fields.fileupload')};
     border-color: ${getBorderColor(props)};
     position: relative;
