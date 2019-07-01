@@ -3,6 +3,8 @@ import { func, node, oneOf } from 'prop-types'
 
 import { Icon } from '../Icon'
 
+import { SHAPES } from '../../propTypes'
+
 import * as S from './styles'
 
 export const Tag = forwardRef(
@@ -32,7 +34,7 @@ Tag.displayName = 'Tag'
 Tag.propTypes = {
   children: node,
   onRemove: func,
-  shape: oneOf(['square', 'circle']),
+  shape: oneOf(SHAPES),
   size: oneOf(['sm', 'md', 'lg']),
   variant: oneOf([
     'blue',

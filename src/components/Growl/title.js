@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import { VARIANTS } from '../../propTypes'
+
 import { Title } from './styles'
 
 export const GrowlTitle = ({ children, variant = 'info' }) => (
@@ -11,5 +13,5 @@ export const GrowlTitle = ({ children, variant = 'info' }) => (
 
 GrowlTitle.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(['warning', 'info', 'error'])
+  variant: PropTypes.oneOf(VARIANTS)
 }

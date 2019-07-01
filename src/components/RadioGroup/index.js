@@ -1,6 +1,7 @@
 import React, { cloneElement } from 'react'
 import PropTypes from 'prop-types'
 
+import { DIRECTIONS } from '../../propTypes'
 import { StyledFieldGroup } from '../FieldGroup/styles'
 import { Label } from '../Label'
 
@@ -21,7 +22,7 @@ export const RadioGroup = ({ children, flexDirection, label, required }) => (
 
 RadioGroup.propTypes = {
   children: PropTypes.node,
-  flexDirection: PropTypes.oneOf(['column', 'row']),
+  flexDirection: PropTypes.oneOf(DIRECTIONS),
   label: PropTypes.string,
   required: PropTypes.bool
 }

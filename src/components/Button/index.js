@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react'
 import { bool, func, node, object, oneOf, oneOfType, string } from 'prop-types'
 
+import { SHAPES } from '../../propTypes'
+
 import * as S from './styles'
 
 export const Button = forwardRef(
@@ -25,7 +27,7 @@ Button.propTypes = {
   as: oneOfType([func, object, string]),
   children: node,
   disabled: bool,
-  shape: oneOf(['square', 'circle']),
+  shape: oneOf(SHAPES),
   size: oneOf(['xs', 'sm', 'md', 'lg']),
   variant: oneOf([
     'primary',

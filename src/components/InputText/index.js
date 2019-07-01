@@ -1,7 +1,9 @@
 import React from 'react'
 import { bool, func, oneOf, string } from 'prop-types'
 
-import { StyledInputText } from './styles'
+import { VARIANTS } from '../../propTypes'
+
+import * as S from './styles'
 
 export const InputText = ({
   _ref,
@@ -18,7 +20,7 @@ export const InputText = ({
   value,
   variant
 }) => (
-  <StyledInputText
+  <S.InputText
     autoFocus={autoFocus}
     disabled={disabled}
     id={name}
@@ -49,5 +51,5 @@ InputText.propTypes = {
   size: oneOf(['sm', 'md', 'lg']),
   type: string,
   value: string,
-  variant: oneOf(['error', 'info', 'valid', 'warning'])
+  variant: oneOf(VARIANTS)
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import { bool, func, node, number, oneOf, string } from 'prop-types'
 
+import { VARIANTS } from '../../propTypes'
+
 import { StyledTextarea } from './styles.js'
 
 export const InputTextarea = ({
@@ -51,5 +53,5 @@ InputTextarea.propTypes = {
   placeholder: string,
   size: oneOf(['sm', 'md', 'lg']),
   value: string,
-  variant: oneOf(['error', 'info', 'valid', 'warning'])
+  variant: oneOf(VARIANTS)
 }
