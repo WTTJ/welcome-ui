@@ -4,6 +4,10 @@ import { bool, func, number, object, oneOfType, string } from 'prop-types'
 import { getDate } from './utils'
 import * as S from './styles'
 
+const DEFAULT_INTERVAL = 15
+const DEFAULT_DATE_FORMAT = 'dd/MM/yyyy'
+const DEFAULT_TIME_FORMAT = 'HH:mm'
+
 export const DateTimePicker = ({
   value = new Date(),
   datePickerOnly,
@@ -12,17 +16,15 @@ export const DateTimePicker = ({
   timePickerOnly,
   timePickerProps = {}
 }) => {
-  // set defaults
-  const datePickerDefaultDateFormat = 'dd/MM/yyyy'
-  const timePickerDefaultDateFormat = 'HH:mm'
-  const defaultTimeIntervals = 15
-  const datePickerDateFormat = datePickerProps.dateFormat || datePickerDefaultDateFormat
-  const timePickerDateFormat = timePickerProps.dateFormat || timePickerDefaultDateFormat
-  const timeIntervals = timePickerProps.timeIntervals || defaultTimeIntervals
+  // Set defaults
+  const datePickerDateFormat = datePickerProps.dateFormat || DEFAULT_DATE_FORMAT
+  const timePickerDateFormat = timePickerProps.dateFormat || DEFAULT_TIME_FORMAT
+  const timeIntervals = timePickerProps.timeIntervals || DEFAULT_INTERVAL
 
   const [focusedInput, setFocusedInput] = useState(
     (datePickerProps.autoFocus && 'date') || (timePickerProps.autoFocus && 'time') || null
   )
+
   const [newDate, setNewDate] = useState(getDate(value, timeIntervals))
 
   const focusOn = (kind, e) => {

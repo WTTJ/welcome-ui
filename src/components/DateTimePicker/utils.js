@@ -1,9 +1,16 @@
-export const getDate = (newDate, interval) => {
-  let minutes = new Date(newDate).getMinutes()
-  let minutesToPreviousInterval = minutes % interval
-  let nextMinutesInterval =
-    minutes - minutesToPreviousInterval + (minutesToPreviousInterval === 0 ? 0 : interval)
-  let nextDateInterval = new Date(newDate).setMinutes(nextMinutesInterval, 0, 0)
+export const getDate = (date, interval) => {
+  if (!date) {
+    return null
+  }
 
-  return new Date(nextDateInterval)
+  // If invalid date, use today
+  let newDate = new Date(date)
+  if (isNaN(newDate)) {
+    newDate = new Date()
+  }
+
+  // Round to nearest interval
+  const nextInterval = Math.ceil(newDate.getMinutes() / interval) * interval
+  // Set minutes to nearest interval
+  return new Date(newDate.setMinutes(nextInterval, 0, 0))
 }
