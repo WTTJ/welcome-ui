@@ -10,39 +10,35 @@ export const Wrapper = styled.div`
 `
 
 export const Input = styled.input`
-  ${fieldStyles}
+  ${fieldStyles};
+  cursor: default;
 `
 
 export const Menu = styled.ul`
   ${system};
+  ${th('fields.select.default')};
   position: absolute;
   z-index: 2;
-  top: 2.4rem;
+  top: 3rem;
   left: 0;
   right: 0;
   margin: 0;
   padding: 0;
   border: 1px solid;
   border-color: nude.200;
-  border-bottom-left-radius: ${th('radii.sm')};
-  border-bottom-right-radius: ${th('radii.sm')};
+  border-radius: sm;
   background-color: light.100;
   transition: medium;
   box-shadow: sm;
+  overflow: auto;
+  overflow-scrolling: touch;
 `
-
-const getBackground = (selected, highlighted) => {
-  if (selected || highlighted) {
-    return th('colors.nude.200')
-  }
-  return undefined
-}
 
 export const Items = styled.li(
   ({ highlighted, selected }) => css`
-    background-color: ${getBackground(selected, highlighted)};
-    color: ${selected && th('colors.primary.500')};
-    font-weight: ${selected && th('fontWeights.bold')};
+    color: nude.800;
+    ${highlighted && th('fields.select.highlighted')};
+    ${selected && th('fields.select.selected')};
     padding: sm;
     list-style: none;
     text-decoration: none;
@@ -57,10 +53,9 @@ export const DropDownIndicator = styled.button(
       border: none;
       background: transparent;
       position: absolute;
-      padding: xxs lg;
+      padding: md lg;
       top: 0;
       right: 0;
-      line-height: 2rem;
       outline: none;
 
       ${Icon} {

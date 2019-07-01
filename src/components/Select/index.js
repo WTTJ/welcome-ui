@@ -41,13 +41,15 @@ export const Select = ({
         getToggleButtonProps,
         highlightedIndex,
         isOpen,
-        selectedItem
+        selectedItem,
+        toggleMenu
       }) => (
         <S.Wrapper {...getRootProps()}>
           <S.Input
             autoFocus={autoFocus}
             disabled={disabled}
             name={name}
+            onClick={toggleMenu}
             placeholder={placeholder}
             readOnly
             ref={inputRef}
