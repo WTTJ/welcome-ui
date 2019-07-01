@@ -1,68 +1,81 @@
-import styled from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { th } from '@xstyled/system'
-import Select from 'react-select'
 
 import { fieldStyles } from '../../common/styles/form'
 import { system } from '../../utils/'
+import { Icon } from '../Icon/styles'
 
-export const StyledSelect = styled(Select)`
-  ${system};
+export const Wrapper = styled.div`
+  position: relative;
+`
 
-  .wui__control {
-    ${fieldStyles};
-    box-shadow: none;
-
-    .wui__indicators svg {
-      transform: rotate(0deg);
-      transition: medium;
-    }
-
-    &.wui__control--is-focused,
-    &.wui__control--menu-is-open {
-      ${th('fields.focused')};
-    }
-
-    &.wui__control--menu-is-open {
-      .wui__indicators svg {
-        transform: rotate(180deg);
-      }
-    }
+export const Input = styled.div`
+  display: flex;
+  input {
+    ${fieldStyles}
+    width: 100%;
   }
-
-  .wui__value-container {
-    padding: 0;
-  }
-
-  .wui__indicator-separator {
-    display: none;
-  }
-
-  .wui__indicator {
-    padding: 0;
-  }
-
-  .wui__menu {
-    ${fieldStyles};
-    padding: 0;
-    box-shadow: sm;
-  }
-
-  .wui__menu-list {
-    padding: 0;
-  }
-
-  .wui__option {
-    padding: md sm;
-    transition: medium;
-  }
-
-  .wui__option--is-focused {
-    ${th('fields.select.focused')};
-  }
-
-  .wui__option--is-selected,
-  .wui__option--is-focused:active,
-  .wui__option--is-focused.wui__option--is-selected {
-    ${th('fields.select.selected')};
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
 `
+
+export const Menu = styled.ul`
+  ${system};
+  position: absolute;
+  z-index: 2;
+  top: 2.4rem;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  border: 1px solid ${th('colors.nude.200')};
+  border-bottom-left-radius: ${th('radii.sm')};
+  border-bottom-right-radius: ${th('radii.sm')};
+  background: ${th('colors.light.100')};
+  transition: ${th('transitions.medium')};
+  box-shadow: ${th('shadows.sm')};
+`
+
+const getBackground = (selected, highlighted) => {
+  if (selected || highlighted) {
+    return th('colors.nude.200')
+  }
+  return undefined
+}
+
+export const Items = styled.li(
+  ({ highlighted, selected }) => css`
+    background: ${getBackground(selected, highlighted)};
+    color: ${selected && th('colors.primary.500')};
+    font-weight: ${selected && th('fontWeights.bold')};
+    padding: ${th('space.sm')};
+    list-style: none;
+    text-decoration: none;
+    font-size: ${th('fontSizes.body3')};
+  `
+)
+
+export const DropDownIndicator = styled.button(
+  ({ isOpen }) => css`
+    &[type='button'] {
+      appearance: none;
+      border: none;
+      background: transparent;
+      position: absolute;
+      padding: ${th('space.lg')};
+      top: 0;
+      right: 0;
+      line-height: 2rem;
+      outline: none;
+
+      ${Icon} {
+        transform: ${isOpen ? 'rotate(180deg)' : 'rotate(0)'};
+        transition: ${th('transitions.medium')};
+      }
+    }
+  `
+)

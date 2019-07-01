@@ -22,19 +22,20 @@
     "prettier/prettier": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react/sort-prop-types": ["warn", { "ignoreCase": true, "sortShapeProp": true }],
+    "react/jsx-no-bind": ["warn", { "allowArrowFunctions": true }],
+    "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+    "react/jsx-max-depth": ["warn", { "max": 3 }],
     "react/require-default-props": "off",
     "react/jsx-filename-extension": "off",
-    "react/sort-prop-types": ["warn", { "ignoreCase": true, "sortShapeProp": true }],
     "react/jsx-indent": "off",
     "react/jsx-max-props-per-line": "off",
     "react/jsx-first-prop-new-line": "off",
     "react/jsx-indent-props": "2",
     "react/jsx-one-expression-per-line": "off",
     "react/forbid-prop-types": "off",
-    "react/jsx-no-bind": ["warn", { "allowArrowFunctions": true }],
     "react/jsx-no-literals": "off",
-    "react/forbid-component-props": "off",
-    "no-unused-vars": ["error", { "ignoreRestSiblings": true }]
+    "react/forbid-component-props": "off"
   },
   "settings": {
     "react": {

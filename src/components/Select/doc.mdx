@@ -11,31 +11,45 @@ import { Select } from './index'
 
 # Select
 
-We use [react-select](https://github.com/JedWatson/react-select) and add our own custom styles from your theme.
-
-## Example
+## Default
 
 <Playground>
-  <Select
-    name="description"
-    options={[
-      {
-        label: 'Fish',
-        value: 'fish'
-      },
-      {
-        label: 'Cakes',
-        value: 'cakes'
-      },
-      {
-        label: 'Ahoy',
-        value: 'ahoy'
-      }
-    ]}
-    onChange={console.debug}
-    placeholder="Placeholder"
-    label="Select example"
-  />
+  {() => {
+    const ITEMS = [
+      { value: 'react', label: 'React' },
+      { value: 'angular', label: 'Angular' },
+      { value: 'vue', label: 'Vue' },
+      { value: 'ember', label: 'Ember' },
+      { value: 'elm', label: 'Elm' },
+      { value: 'backbone', label: 'Backbone' }
+    ]
+    return <Select options={ITEMS} name="language" onChange={console.debug} required value="vue" />
+  }}
+</Playground>
+
+## Disabled
+
+<Playground>
+  {() => {
+    const ITEMS = [
+      { value: 'react', label: 'React' },
+      { value: 'angular', label: 'Angular' },
+      { value: 'vue', label: 'Vue' },
+      { value: 'ember', label: 'Ember' },
+      { value: 'elm', label: 'Elm' },
+      { value: 'backbone', label: 'Backbone' }
+    ]
+    return (
+      <Select
+        disabled
+        options={ITEMS}
+        name="language"
+        onChange={console.debug}
+        required
+        value="vue"
+      />
+    )
+  }}
 </Playground>
 
 ## Properties
