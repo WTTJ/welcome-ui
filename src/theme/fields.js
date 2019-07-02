@@ -112,8 +112,13 @@ export const getFields = theme => {
       default: {
         'max-height': toRem(200)
       },
+      existing: {
+        color: colors.nude[500],
+        cursor: 'not-allowed'
+      },
       highlighted: {
-        'background-color': colors.light[500]
+        'background-color': colors.light[500],
+        cursor: 'default'
       },
       selected: {
         color: colors.dark[200],

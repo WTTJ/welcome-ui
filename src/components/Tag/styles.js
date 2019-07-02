@@ -3,6 +3,7 @@ import { th } from '@xstyled/system'
 
 import { overflowEllipsis } from '../../common/styles/text'
 import { getMax, getVariantColor, system } from '../../utils/'
+import { Icon } from '../Icon/styles'
 
 const shapeStyles = (size, width, height, shape = 'square') => css`
   ${th(`tags.shape.${shape}.${size}`)}
@@ -25,5 +26,9 @@ export const Tag = styled.div(
     ${overflowEllipsis};
     ${system};
     ${(shape || length === 1) && shapeStyles(size, width, height, shape)};
+
+    ${Icon} {
+      cursor: pointer;
+    }
   `
 )

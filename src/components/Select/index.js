@@ -48,18 +48,21 @@ export const Select = ({
       }) => (
         <S.Wrapper {...getRootProps()}>
           <S.Input
-            autoFocus={autoFocus}
-            disabled={disabled}
-            name={name}
-            onClick={toggleMenu}
-            placeholder={placeholder}
-            readOnly
-            ref={inputRef}
-            searchable={searchable}
-            size={size}
-            value={selectedItem && selectedItem.label}
-            variant={variant}
-            {...getInputProps({ onBlur, onFocus })}
+            {...getInputProps({
+              onBlur,
+              onFocus,
+              autoFocus,
+              disabled,
+              name,
+              onClick: toggleMenu,
+              placeholder: placeholder,
+              readOnly: true,
+              ref: inputRef,
+              searchable: searchable,
+              size: size,
+              value: selectedItem && selectedItem.label,
+              variant
+            })}
           />
           <S.DropDownIndicator disabled={disabled} isOpen={isOpen} {...getToggleButtonProps()}>
             <Icon name="down" size="xs" />
@@ -67,18 +70,17 @@ export const Select = ({
           {isOpen ? (
             <S.Menu {...getMenuProps()}>
               {options.map((item, index) => (
-                // eslint-disable-next-line react/jsx-key
-                <S.Items
-                  highlighted={highlightedIndex === index}
-                  selected={selectedItem === item}
+                <S.Item
+                  key={item.value}
                   {...getItemProps({
-                    key: item.value,
                     index,
+                    isHighlighted: highlightedIndex === index,
+                    isSelected: selectedItem === item,
                     item
                   })}
                 >
                   {item.label}
-                </S.Items>
+                </S.Item>
               ))}
             </S.Menu>
           ) : null}

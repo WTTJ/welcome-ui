@@ -4,6 +4,7 @@ import { th } from '@xstyled/system'
 import { fieldStyles } from '../../common/styles/form'
 import { system } from '../../utils/'
 import { Icon } from '../Icon/styles'
+import { Tag } from '../Tag/styles'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -34,12 +35,12 @@ export const Menu = styled.ul`
   overflow-scrolling: touch;
 `
 
-export const Items = styled.li(
-  ({ highlighted, selected }) => css`
+export const Item = styled.li(
+  ({ isExisting, isHighlighted, isSelected }) => css`
     color: nude.800;
-    cursor: default;
-    ${highlighted && th('fields.select.highlighted')};
-    ${selected && th('fields.select.selected')};
+    ${isHighlighted && th('fields.select.highlighted')};
+    ${isSelected && th('fields.select.selected')};
+    ${isExisting && th('fields.select.existing')};
     padding: sm;
     list-style: none;
     text-decoration: none;
@@ -67,3 +68,15 @@ export const DropDownIndicator = styled.button(
     }
   `
 )
+
+export const Tags = styled.div`
+  margin-top: lg;
+
+  ${Tag}:not(:last-child) {
+    margin-right: sm;
+  }
+
+  &:empty: {
+    display: none;
+  }
+`

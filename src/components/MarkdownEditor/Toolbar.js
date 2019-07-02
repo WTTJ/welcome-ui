@@ -36,14 +36,14 @@ export const Toolbar = ({ active = [], items = [], onClick }) => {
   )
 }
 
-export const toolbarItemPropTypes = shape({
-  action: oneOfType([func, string]),
-  icon: node,
-  name: string.isRequired
-})
-
 Toolbar.propTypes = {
   active: arrayOf(string),
-  items: arrayOf(toolbarItemPropTypes),
+  items: arrayOf(
+    shape({
+      action: oneOfType([func, string]),
+      icon: node,
+      name: string.isRequired
+    })
+  ),
   onClick: func
 }
