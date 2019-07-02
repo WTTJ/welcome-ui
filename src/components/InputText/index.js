@@ -1,7 +1,7 @@
 import React from 'react'
 import { bool, func, oneOf, string } from 'prop-types'
 
-import { VARIANTS } from '../../utils/propTypes'
+import { SIZES, VARIANTS } from '../../utils/propTypes'
 
 import * as S from './styles'
 
@@ -48,7 +48,7 @@ InputText.propTypes = {
   onFocus: func,
   onKeyDown: func,
   placeholder: string,
-  size: oneOf(['sm', 'md', 'lg']),
+  size: oneOf(SIZES),
   type: string,
   value: string,
   variant: oneOf(VARIANTS)

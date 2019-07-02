@@ -6,6 +6,7 @@ import kebabCase from 'lodash.kebabcase'
 import uniqBy from 'lodash.uniqby'
 import isEqual from 'lodash.isequal'
 
+import { SIZES, VARIANTS } from '../../utils/propTypes'
 import { Icon } from '../Icon'
 import { Tag } from '../Tag'
 import { createEvent } from '../../utils/'
@@ -222,12 +223,13 @@ Select.propTypes = {
     })
   ),
   placeholder: string,
-  size: oneOf(['sm', 'md', 'lg']),
+  searchable: bool,
+  size: oneOf(SIZES),
   value: arrayOf(
     shape({
       label: string,
       value: string
     })
   ),
-  variant: oneOf(['error', 'info', 'valid', 'warning'])
+  variant: oneOf(VARIANTS)
 }

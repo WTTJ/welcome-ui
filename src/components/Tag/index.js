@@ -3,7 +3,7 @@ import { func, node, oneOf } from 'prop-types'
 
 import { Icon } from '../Icon'
 
-import { SHAPES } from '../../utils/propTypes'
+import { SHAPES, SIZES } from '../../utils/propTypes'
 
 import * as S from './styles'
 
@@ -35,7 +35,7 @@ Tag.propTypes = {
   children: node,
   onRemove: func,
   shape: oneOf(SHAPES),
-  size: oneOf(['sm', 'md', 'lg']),
+  size: oneOf(SIZES),
   variant: oneOf([
     'blue',
     'default',

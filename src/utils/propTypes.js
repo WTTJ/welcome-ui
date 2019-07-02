@@ -33,10 +33,8 @@ export const formFieldDefaultProps = {
 
 export const refsPropTypes = oneOfType([func, shape({ current: instanceOf(Element) })])
 
-<<<<<<< HEAD
 export const componentType = oneOfType([func, object, string])
-=======
+
 export const VARIANTS = ['error', 'info', 'valid', 'warning']
 export const DIRECTIONS = ['row', 'container']
 export const SHAPES = ['square', 'circle']
->>>>>>> chore: extract common proptypes

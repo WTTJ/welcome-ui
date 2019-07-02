@@ -4,7 +4,7 @@ import { any, bool, func, node, number, object, oneOf, oneOfType, string } from 
 // Common
 import { RowContainer } from '../../common/styles/layout'
 import { getBaseType, getHintText, getVariant } from '../../utils/'
-import { DIRECTIONS } from '../../utils/propTypes'
+import { DIRECTIONS, SIZES } from '../../utils/propTypes'
 // Components
 import { Label } from '../Label'
 import { Hint } from '../Hint'
@@ -126,7 +126,7 @@ Field.propTypes = {
   /** Custom icon for disabled state */
   disabledIcon: node,
   error: string,
-  flexDirection: oneOf(['row', 'column']),
+  flexDirection: oneOf(DIRECTIONS),
   hint: string,
   label: string,
   name: string.isRequired,
@@ -138,7 +138,7 @@ Field.propTypes = {
   options: any,
   placeholder: string,
   required: bool,
-  size: oneOf(['sm', 'md', 'lg']),
+  size: oneOf(SIZES),
   touched: bool,
   type: oneOf(['checkbox', 'email', 'file', 'password', 'radio', 'search', 'tel', 'text']),
   value: oneOfType([number, object, string]),

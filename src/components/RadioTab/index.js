@@ -1,6 +1,8 @@
 import React from 'react'
 import { bool, func, node, oneOf, string } from 'prop-types'
 
+import { SIZES } from '../../utils/propTypes'
+
 import { StyledInput } from './styles'
 
 export const RadioTab = ({
@@ -45,6 +47,6 @@ RadioTab.propTypes = {
   onChange: func,
   onFocus: func,
   onKeyDown: func,
-  size: oneOf(['sm', 'md', 'lg']),
+  size: oneOf(SIZES),
   value: string
 }
