@@ -53,7 +53,8 @@ export const DropDownIndicator = styled.button(
       border: none;
       background: transparent;
       position: absolute;
-      padding: md lg;
+      height: 100%;
+      padding: 0 lg;
       top: 0;
       right: 0;
       outline: none;
