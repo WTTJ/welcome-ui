@@ -49,8 +49,20 @@ export const Select = ({
   }
 
   const handleSelect = item => {
-    const newItems = isMultiple ? uniqBy([...values, item], item => item.value) : [item]
-    isMultiple && setInputValue('')
+    let newItems
+    let isClearInput
+
+    if (item === null) {
+      // If removing item
+      newItems = isMultiple ? values : []
+      isClearInput = true
+    } else {
+      // If adding item
+      newItems = isMultiple ? getUnique(item, values) : [item]
+      isClearInput = isMultiple
+    }
+
+    isClearInput && setInputValue('')
     setResults(options)
     setValues(newItems)
     handleChange(newItems)
@@ -62,8 +74,8 @@ export const Select = ({
     handleChange(newItems)
   }
 
+  const getUnique = (item, values) => uniqBy([...values, item], item => item.value)
   const isTagExisting = value => values.find(item => item.value === kebabCase(value))
-  const type = isSearchable ? 'search' : 'select'
 
   return (
     <Downshift
@@ -73,6 +85,7 @@ export const Select = ({
       onSelect={handleSelect}
     >
       {({
+        clearSelection,
         getInputProps,
         getItemProps,
         getMenuProps,
@@ -97,16 +110,28 @@ export const Select = ({
               readOnly: !isSearchable,
               ref: inputRef,
               size,
-              type,
               value: inputValue,
               variant
             })}
           />
-          {!isSearchable && (
-            <S.DropDownIndicator disabled={disabled} isOpen={isOpen} {...getToggleButtonProps()}>
-              <Icon name="down" size="xs" />
-            </S.DropDownIndicator>
-          )}
+          <S.Indicators>
+            {inputValue && (
+              <S.DropDownIndicator
+                actionType="destructive"
+                disabled={disabled}
+                onClick={clearSelection}
+                role="button"
+                type="button"
+              >
+                <Icon name="cross" size="xs" />
+              </S.DropDownIndicator>
+            )}
+            {!isSearchable && (
+              <S.DropDownIndicator disabled={disabled} isOpen={isOpen} {...getToggleButtonProps()}>
+                <Icon name="down" size="xs" />
+              </S.DropDownIndicator>
+            )}
+          </S.Indicators>
           {isOpen ? (
             <S.Menu {...getMenuProps()}>
               {results.map((item, index) => {

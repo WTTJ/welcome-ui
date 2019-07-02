@@ -48,23 +48,36 @@ export const Item = styled.li(
   `
 )
 
+export const Indicators = styled.div(
+  () => css`
+    position: absolute;
+    ${th('fields.sizes.lg')};
+    padding: 0;
+    top: 0;
+    right: 0;
+  `
+)
+
 export const DropDownIndicator = styled.button(
-  ({ isOpen }) => css`
+  ({ actionType, isOpen }) => css`
     &[type='button'] {
       appearance: none;
       border: none;
       background: transparent;
-      position: absolute;
       height: 100%;
-      padding: 0 lg;
-      top: 0;
-      right: 0;
+      padding: md lg;
       outline: none;
+      border-left: 1px solid ${th('colors.nude.200')};
+      cursor: pointer;
 
       ${Icon} {
         transform: ${isOpen ? 'rotate(180deg)' : 'rotate(0)'};
         transition: medium;
       }
+    }
+
+    &:hover {
+      color: ${actionType === 'destructive' ? th('colors.danger.500') : th('colors.primary.500')};
     }
   `
 )

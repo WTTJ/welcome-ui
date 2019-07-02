@@ -29,6 +29,13 @@ export const Tag = styled.div(
 
     ${Icon} {
       cursor: pointer;
+
+      &:hover {
+        path,
+        g {
+          fill: ${th('colors.danger.500')};
+        }
+      }
     }
   `
 )
