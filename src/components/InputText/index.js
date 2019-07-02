@@ -1,7 +1,7 @@
 import React from 'react'
 import { bool, func, oneOf, string } from 'prop-types'
 
-import { VARIANTS } from '../../propTypes'
+import { VARIANTS } from '../../utils/propTypes'
 
 import * as S from './styles'
 

@@ -1,0 +1,57 @@
+---
+name: InputTags
+route: /fields/input-tags
+menu: Fields
+---
+
+import { Props } from 'docz'
+import { Playground } from '../../../docz/'
+
+import { InputTags } from './index'
+
+# InputTags
+
+## Default
+
+<Playground>
+  {() => {
+    const ITEMS = [
+      { value: 'react', label: 'React' },
+      { value: 'angular', label: 'Angular' },
+      { value: 'vue', label: 'Vue' },
+      { value: 'ember', label: 'Ember' },
+      { value: 'elm', label: 'Elm' },
+      { value: 'backbone', label: 'Backbone' }
+    ]
+    return <InputTags options={ITEMS} name="language" onChange={console.debug} required value="vue" />
+  }}
+</Playground>
+
+## Disabled
+
+<Playground>
+  {() => {
+    const ITEMS = [
+      { value: 'react', label: 'React' },
+      { value: 'angular', label: 'Angular' },
+      { value: 'vue', label: 'Vue' },
+      { value: 'ember', label: 'Ember' },
+      { value: 'elm', label: 'Elm' },
+      { value: 'backbone', label: 'Backbone' }
+    ]
+    return (
+      <InputTags
+        disabled
+        options={ITEMS}
+        name="language"
+        onChange={console.debug}
+        required
+        value="vue"
+      />
+    )
+  }}
+</Playground>
+
+## Properties
+
+<Props of={InputTags} />

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import { VARIANTS } from '../../propTypes'
+import { VARIANTS } from '../../utils/propTypes'
 
 import { Title } from './styles'
 

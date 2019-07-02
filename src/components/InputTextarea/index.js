@@ -1,7 +1,7 @@
 import React from 'react'
 import { bool, func, node, number, oneOf, string } from 'prop-types'
 
-import { VARIANTS } from '../../propTypes'
+import { VARIANTS } from '../../utils/propTypes'
 
 import { StyledTextarea } from './styles.js'
 

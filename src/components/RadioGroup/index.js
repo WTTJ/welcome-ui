@@ -1,7 +1,7 @@
 import React, { cloneElement } from 'react'
 import PropTypes from 'prop-types'
 
-import { DIRECTIONS } from '../../propTypes'
+import { DIRECTIONS } from '../../utils/propTypes'
 import { StyledFieldGroup } from '../FieldGroup/styles'
 import { Label } from '../Label'
 

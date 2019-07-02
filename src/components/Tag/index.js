@@ -3,7 +3,7 @@ import { func, node, oneOf } from 'prop-types'
 
 import { Icon } from '../Icon'
 
-import { SHAPES } from '../../propTypes'
+import { SHAPES } from '../../utils/propTypes'
 
 import * as S from './styles'
 
