@@ -69,7 +69,6 @@ export const radioTabStyles = props => css`
     display: block;
     min-width: 0;
     max-width: 100%;
-    min-height: 0;
     user-select: none;
     margin: 0;
     cursor: pointer;

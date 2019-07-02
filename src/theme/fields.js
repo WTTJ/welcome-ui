@@ -10,8 +10,7 @@ export const getFields = theme => {
     'border-width': '1px',
     'border-style': 'solid',
     'border-radius': radii.sm,
-    outline: 'none',
-    'line-height': 1
+    outline: 'none:'
   }
 
   return {
