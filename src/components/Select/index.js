@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { arrayOf, bool, func, node, oneOf, shape, string } from 'prop-types'
 import Downshift from 'downshift'
+import matchSorter from 'match-sorter'
+import kebabCase from 'lodash.kebabcase'
+import uniqBy from 'lodash.uniqby'
+import isEqual from 'lodash.isequal'
 
 import { Icon } from '../Icon'
+import { Tag } from '../Tag'
 import { createEvent } from '../../utils/'
 
 import * as S from './styles'
@@ -13,29 +18,59 @@ export const Select = ({
   autoFocus,
   disabled,
   inputRef,
+  isCreatable,
+  isMultiple,
+  isSearchable,
   options = [],
   name,
   onBlur,
   onChange,
   onFocus,
-  placeholder = 'Please select',
-  searchable = false,
+  placeholder = 'Choose from…',
   size = 'lg',
-  value,
+  value: defaultValue,
   variant
 }) => {
-  const handleChange = ({ value }) => {
+  const [values, setValues] = useState(defaultValue)
+  const initialItem = !isMultiple && values
+  const [inputValue, setInputValue] = useState(initialItem ? initialItem.label : '')
+  const [results, setResults] = useState(options)
+
+  const handleInputChange = value => {
+    const results = matchSorter(options, value, { keys: ['label'] })
+    setInputValue(value)
+    setResults(results)
+  }
+
+  const handleChange = values => {
+    const value = isMultiple ? values : values[0]
     const event = createEvent({ name, value })
     onChange && onChange(event)
   }
 
-  const getItem = value => options.find(item => item.value === value)
+  const handleSelect = item => {
+    const newItems = isMultiple ? uniqBy([...values, item], item => item.value) : [item]
+    isMultiple && setInputValue('')
+    setResults(options)
+    setValues(newItems)
+    handleChange(newItems)
+  }
+
+  const handleRemove = value => {
+    const newItems = values.filter(item => item.value !== value)
+    setValues(newItems)
+    handleChange(newItems)
+  }
+
+  const isTagExisting = value => values.find(item => item.value === kebabCase(value))
+  const type = isSearchable ? 'search' : 'select'
 
   return (
     <Downshift
-      initialSelectedItem={getItem(value)}
+      initialSelectedItem={initialItem}
       itemToString={itemToString}
-      onChange={handleChange}
+      onInputValueChange={handleInputChange}
+      onSelect={handleSelect}
     >
       {({
         getInputProps,
@@ -51,41 +86,71 @@ export const Select = ({
         <S.Wrapper {...getRootProps()}>
           <S.Input
             {...getInputProps({
-              onBlur,
-              onFocus,
+              autoComplete: 'off',
               autoFocus,
               disabled,
               name,
+              onBlur,
               onClick: toggleMenu,
-              placeholder: placeholder,
-              readOnly: true,
+              onFocus,
+              placeholder,
+              readOnly: !isSearchable,
               ref: inputRef,
-              searchable: searchable,
-              size: size,
-              value: selectedItem && selectedItem.label,
+              size,
+              type,
+              value: inputValue,
               variant
             })}
           />
-          <S.DropDownIndicator disabled={disabled} isOpen={isOpen} {...getToggleButtonProps()}>
-            <Icon name="down" size="xs" />
-          </S.DropDownIndicator>
+          {!isSearchable && (
+            <S.DropDownIndicator disabled={disabled} isOpen={isOpen} {...getToggleButtonProps()}>
+              <Icon name="down" size="xs" />
+            </S.DropDownIndicator>
+          )}
           {isOpen ? (
             <S.Menu {...getMenuProps()}>
-              {options.map((item, index) => (
+              {results.map((item, index) => {
+                return (
+                  <S.Item
+                    key={item.value}
+                    {...getItemProps({
+                      index,
+                      isExisting: isMultiple && isTagExisting(item.value),
+                      isHighlighted: highlightedIndex === index,
+                      isSelected: !isMultiple && isEqual(selectedItem, item),
+                      item
+                    })}
+                  >
+                    {item.label}
+                  </S.Item>
+                )
+              })}
+              {isCreatable && inputValue && !isTagExisting(inputValue) && (
                 <S.Item
-                  key={item.value}
+                  key="add"
                   {...getItemProps({
-                    index,
-                    isHighlighted: highlightedIndex === index,
-                    isSelected: selectedItem === item,
-                    item
+                    index: results.length,
+                    isHighlighted: highlightedIndex === results.length,
+                    item: {
+                      value: kebabCase(inputValue),
+                      label: inputValue
+                    }
                   })}
                 >
-                  {item.label}
+                  {`Create "${inputValue}"`}
                 </S.Item>
-              ))}
+              )}
             </S.Menu>
           ) : null}
+          {isMultiple && (
+            <S.Tags>
+              {values.map(tag => (
+                <Tag data-id={tag.value} key={tag.value} onRemove={handleRemove}>
+                  {tag.label}
+                </Tag>
+              ))}
+            </S.Tags>
+          )}
         </S.Wrapper>
       )}
     </Downshift>
@@ -96,6 +161,9 @@ Select.propTypes = {
   autoFocus: bool,
   disabled: bool,
   inputRef: node,
+  isCreatable: bool,
+  isMultiple: bool,
+  isSearchable: bool,
   name: string,
   onBlur: func,
   onChange: func,
@@ -108,8 +176,12 @@ Select.propTypes = {
     })
   ),
   placeholder: string,
-  searchable: bool,
   size: oneOf(['sm', 'md', 'lg']),
-  value: string,
+  value: arrayOf(
+    shape({
+      label: string,
+      value: string
+    })
+  ),
   variant: oneOf(['error', 'info', 'valid', 'warning'])
 }

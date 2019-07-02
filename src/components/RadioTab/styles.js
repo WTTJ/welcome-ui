@@ -64,15 +64,15 @@ export const radioTabStyles = props => css`
   margin: 0;
   ${StyledLabel} {
     ${fieldStyles};
+    display: block;
+    text-align: center;
     flex-grow: 1;
     position: relative;
-    display: block;
     min-width: 0;
     max-width: 100%;
     user-select: none;
     margin: 0;
     cursor: pointer;
-    text-align: center;
     transition: none;
     border-radius: 0;
     ${overflowEllipsis};

@@ -1,29 +1,37 @@
 ---
-name: Select
-route: /fields/select
+name: InputTags
+route: /fields/input-tags
 menu: Fields
 ---
 
 import { Props } from 'docz'
 import { Playground } from '../../../docz/'
 
-import { Select } from './index'
+import { InputTags } from './index'
 
-# Select
+# InputTags
 
 ## Default
 
 <Playground>
   {() => {
     const ITEMS = [
-      { value: 'react', label: 'React' },
       { value: 'angular', label: 'Angular' },
-      { value: 'vue', label: 'Vue' },
-      { value: 'ember', label: 'Ember' },
+      { value: 'backbone', label: 'Backbone' },
       { value: 'elm', label: 'Elm' },
-      { value: 'backbone', label: 'Backbone' }
+      { value: 'ember', label: 'Ember' },
+      { value: 'react', label: 'React' },
+      { value: 'vue', label: 'Vue' }
     ]
-    return <Select options={ITEMS} name="language" onChange={console.debug} required value="vue" />
+    return (
+      <InputTags
+        options={ITEMS}
+        name="language"
+        onChange={console.debug}
+        required
+        tags={[ITEMS[2]]}
+      />
+    )
   }}
 </Playground>
 
@@ -32,26 +40,17 @@ import { Select } from './index'
 <Playground>
   {() => {
     const ITEMS = [
-      { value: 'react', label: 'React' },
       { value: 'angular', label: 'Angular' },
-      { value: 'vue', label: 'Vue' },
-      { value: 'ember', label: 'Ember' },
+      { value: 'backbone', label: 'Backbone' },
       { value: 'elm', label: 'Elm' },
-      { value: 'backbone', label: 'Backbone' }
+      { value: 'ember', label: 'Ember' },
+      { value: 'react', label: 'React' },
+      { value: 'vue', label: 'Vue' }
     ]
-    return (
-      <Select
-        disabled
-        options={ITEMS}
-        name="language"
-        onChange={console.debug}
-        required
-        value="vue"
-      />
-    )
+    return <InputTags disabled options={ITEMS} name="language" onChange={console.debug} required />
   }}
 </Playground>
 
 ## Properties
 
-<Props of={Select} />
+<Props of={InputTags} />

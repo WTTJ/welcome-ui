@@ -21,7 +21,6 @@ import { Toggle } from '../Toggle'
 import { InputRadio } from '../InputRadio'
 import { RadioTab } from '../RadioTab'
 import { Select } from '../Select'
-import { InputTags } from '../InputTags'
 import { FileUpload } from '../FileUpload'
 import { DateTimePicker } from '../DateTimePicker'
 
@@ -55,12 +54,12 @@ You can find additional props for each field component in [Fields](/fields/file-
         initialValues={{
           firstName: 'Fish',
           description: 'Fancy that',
-          diet: 'herbivore',
+          diet: 'carnivore',
           dogs: true,
           hungry: true,
-          weekday: 'tuesday',
-          month: 'february',
-          tags: [months[1]],
+          weekday: 'monday',
+          month: months[1],
+          tags: [months[3], months[2]],
           partyDate: Date.now()
         }}
         onSubmit={console.debug}
@@ -105,7 +104,6 @@ You can find additional props for each field component in [Fields](/fields/file-
                 component={InputRadio}
                 value="omnivore"
                 label="Omnivore"
-                checked
               />
               <ConnectedField
                 name="diet"
@@ -122,7 +120,6 @@ You can find additional props for each field component in [Fields](/fields/file-
                 component={RadioTab}
                 value="wednesday"
                 label="Wednesday"
-                checked
               />
               <ConnectedField
                 name="weekday"
@@ -142,11 +139,15 @@ You can find additional props for each field component in [Fields](/fields/file-
               component={Select}
               options={months}
               label="Favourite month"
+              placeholder="Choose month"
             />
             <ConnectedField
               name="tags"
-              component={InputTags}
+              component={Select}
               options={months}
+              isMultiple
+              isSearchable
+              isCreatable
               label="Tag months"
             />
             <ConnectedField
@@ -163,7 +164,7 @@ You can find additional props for each field component in [Fields](/fields/file-
             />
             <ConnectedField name="profile" component={FileUpload} label="Profile pic" />
             <ConnectedField name="partyDate" component={DateTimePicker} label="Party date" />
-            <Button type="submit">Go!</Button>
+            <Button type="submit" size="lg">Go!</Button>
             <DoczCodeBlock>{values}</DoczCodeBlock>
           </form>
         )}

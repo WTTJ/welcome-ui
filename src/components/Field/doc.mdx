@@ -159,18 +159,25 @@ You can find additional props for each field component in [Fields](/fields/file-
 ## Select
 
 <Playground>
-  <Field
-    name="random-zero"
-    placeholder="Placeholder"
-    component={Select}
-    label="Label"
-    options={[
-      { value: 'carrot', label: 'Carrot' },
-      { value: 'madeleine', label: 'Madeleine (made with farm-fresh eggs' },
-      { value: 'pumpkin', label: 'Pumpkin' }
-    ]}
-    onChange={() => {}}
-  />
+  <DoczForm initialValues={{ cakes: { label: 'Pumpkin', value: 'pumpkin' } }}>
+    {(values, handleChange) => (
+      <>
+        <Field
+          name="cakes"
+          placeholder="Placeholder"
+          component={Select}
+          label="Label"
+          options={[
+            { value: 'carrot', label: 'Carrot' },
+            { value: 'madeleine', label: 'Madeleine (made with farm-fresh eggs' },
+            { value: 'pumpkin', label: 'Pumpkin' }
+          ]}
+          value={values.cakes}
+          onChange={handleChange}
+        />
+      </>
+    )}
+  </DoczForm>
 </Playground>
 
 ## RadioTabs
