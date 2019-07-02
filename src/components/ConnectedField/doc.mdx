@@ -21,6 +21,7 @@ import { Toggle } from '../Toggle'
 import { InputRadio } from '../InputRadio'
 import { RadioTab } from '../RadioTab'
 import { Select } from '../Select'
+import { InputTags } from '../InputTags'
 import { FileUpload } from '../FileUpload'
 import { DateTimePicker } from '../DateTimePicker'
 
@@ -58,6 +59,8 @@ You can find additional props for each field component in [Fields](/fields/file-
           dogs: true,
           hungry: true,
           weekday: 'tuesday',
+          month: 'february',
+          tags: [months[1]],
           partyDate: Date.now()
         }}
         onSubmit={console.debug}
@@ -129,18 +132,23 @@ You can find additional props for each field component in [Fields](/fields/file-
               />
               <ConnectedField name="weekday" component={RadioTab} value="friday" label="Friday" />
             </RadioGroup>
-            <ConnectedField
-              name="month"
-              component={Select}
-              options={months}
-              value="february"
-              label="Favourite month"
-            />
             <ConnectedField name="hungry" component={Toggle} label="Hungry" />
             <FieldGroup label="Animals">
               <ConnectedField name="dogs" component={InputCheckbox} label="Dogs" checked />
               <ConnectedField name="cats" component={InputCheckbox} label="Cats" />
             </FieldGroup>
+            <ConnectedField
+              name="month"
+              component={Select}
+              options={months}
+              label="Favourite month"
+            />
+            <ConnectedField
+              name="tags"
+              component={InputTags}
+              options={months}
+              label="Tag months"
+            />
             <ConnectedField
               name="summary"
               component={InputTextarea}

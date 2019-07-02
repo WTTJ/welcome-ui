@@ -7,6 +7,8 @@ import { createEvent } from '../../utils/'
 
 import * as S from './styles'
 
+const itemToString = item => (item ? item.label : '')
+
 export const Select = ({
   autoFocus,
   disabled,
@@ -32,7 +34,7 @@ export const Select = ({
   return (
     <Downshift
       initialSelectedItem={getItem(value)}
-      itemToString={item => (item ? item.label : '')}
+      itemToString={itemToString}
       onChange={handleChange}
     >
       {({

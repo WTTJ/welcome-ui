@@ -21,10 +21,11 @@ export const InputTags = ({
   onChange,
   onFocus,
   placeholder = 'Search or add a tag',
-  tags: initialTags = [],
+  size = 'lg',
+  value,
   variant
 }) => {
-  const [tags, setTags] = useState(initialTags)
+  const [tags, setTags] = useState(value)
   const [inputValue, setInputValue] = useState('')
   const [results, setResults] = useState(options)
 
@@ -34,13 +35,13 @@ export const InputTags = ({
     setResults(results)
   }
 
-  const handleChange = value => {
-    const event = createEvent({ name, value })
+  const handleChange = tags => {
+    const event = createEvent({ name, value: tags })
     onChange && onChange(event)
   }
 
   const handleSelect = tag => {
-    const newTags = uniqBy([...tags, tag], item => item.value)
+    const newTags = uniqBy([...tags, tag], tag => tag.value)
     setInputValue('')
     setResults(options)
     setTags(newTags)
@@ -83,6 +84,7 @@ export const InputTags = ({
                 onFocus,
                 placeholder,
                 ref: inputRef,
+                size,
                 value: inputValue,
                 variant
               })}
@@ -149,6 +151,12 @@ InputTags.propTypes = {
     })
   ),
   placeholder: string,
-  tags: arrayOf(string),
+  size: oneOf(['sm', 'md', 'lg']),
+  value: arrayOf(
+    shape({
+      label: string,
+      value: string
+    })
+  ),
   variant: oneOf(['error', 'info', 'valid', 'warning'])
 }
