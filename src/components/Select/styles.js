@@ -74,9 +74,10 @@ export const Tags = styled.div`
 
   ${Tag}:not(:last-child) {
     margin-right: sm;
+    margin-bottom: sm;
   }
 
-  &:empty: {
+  &:empty {
     display: none;
   }
 `
