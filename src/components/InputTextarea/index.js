@@ -15,6 +15,7 @@ export const InputTextarea = ({
   onFocus,
   onKeyDown,
   placeholder,
+  size = 'lg',
   value,
   variant
 }) => (
@@ -30,6 +31,7 @@ export const InputTextarea = ({
     onKeyDown={onKeyDown}
     placeholder={placeholder}
     ref={inputRef}
+    size={size}
     value={value}
     variant={variant}
   />
@@ -47,6 +49,7 @@ InputTextarea.propTypes = {
   onFocus: func,
   onKeyDown: func,
   placeholder: string,
+  size: oneOf(['sm', 'md', 'lg']),
   value: string,
   variant: oneOf(['error', 'info', 'valid', 'warning'])
 }

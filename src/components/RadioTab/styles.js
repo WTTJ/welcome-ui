@@ -59,19 +59,20 @@ const rowStyles = css`
 
 export const radioTabStyles = props => css`
   flex: 1;
+  min-width: 0;
+  min-height: 0;
   margin: 0;
   ${StyledLabel} {
     ${fieldStyles};
     flex-grow: 1;
     position: relative;
     display: block;
+    min-width: 0;
     max-width: 100%;
+    min-height: 0;
     user-select: none;
     margin: 0;
-    padding: sm;
-    padding-right: calc(${th.space('sm')} + ${th.borderWidth('sm')});
     cursor: pointer;
-    line-height: 1;
     text-align: center;
     transition: none;
     border-radius: 0;

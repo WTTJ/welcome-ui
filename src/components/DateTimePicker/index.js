@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { bool, func, number, object, oneOfType, string } from 'prop-types'
+import { bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 
 import { getDate } from './utils'
 import * as S from './styles'
@@ -13,6 +13,7 @@ export const DateTimePicker = ({
   datePickerOnly,
   datePickerProps = {},
   onChange,
+  size = 'lg',
   timePickerOnly,
   timePickerProps = {}
 }) => {
@@ -68,6 +69,7 @@ export const DateTimePicker = ({
           onClickOutside={clickOutside}
           onFocus={e => focusOn('date', e)}
           selected={newDate}
+          size={size}
         />
       )}
       {!datePickerOnly && (
@@ -83,6 +85,7 @@ export const DateTimePicker = ({
           selected={newDate}
           showTimeSelect
           showTimeSelectOnly
+          size={size}
         />
       )}
     </S.DateTimePicker>
@@ -93,6 +96,7 @@ DateTimePicker.propTypes = {
   datePickerOnly: bool,
   datePickerProps: object,
   onChange: func,
+  size: oneOf(['sm', 'md', 'lg']),
   timePickerOnly: bool,
   timePickerProps: object,
   value: oneOfType([number, object, string]).isRequired

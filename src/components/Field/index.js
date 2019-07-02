@@ -1,5 +1,5 @@
 import React, { forwardRef, Fragment } from 'react'
-import PropTypes from 'prop-types'
+import { any, bool, func, node, number, object, oneOf, oneOfType, string } from 'prop-types'
 
 // Common
 import { RowContainer } from '../../common/styles/layout'
@@ -33,6 +33,7 @@ export const Field = forwardRef(
       options,
       placeholder,
       required,
+      size = 'lg',
       touched,
       type,
       value,
@@ -72,6 +73,7 @@ export const Field = forwardRef(
         options={options}
         placeholder={placeholder}
         required={required}
+        size={size}
         type={baseType}
         value={value}
         variant={variant}
@@ -87,6 +89,7 @@ export const Field = forwardRef(
         checked={checked}
         fieldType={Component.type}
         flexDirection={layout}
+        size={size}
       >
         <Container>
           {label && (
@@ -112,39 +115,31 @@ export const Field = forwardRef(
 Field.displayName = 'Field'
 
 Field.propTypes = {
-  autoFocus: PropTypes.bool,
-  checked: PropTypes.bool,
-  children: PropTypes.func,
+  autoFocus: bool,
+  checked: bool,
+  children: func,
   /** Field component e.g. `InputText` or `FileUpload` */
-  component: PropTypes.func.isRequired,
-  connected: PropTypes.bool,
-  disabled: PropTypes.bool,
+  component: func.isRequired,
+  connected: bool,
+  disabled: bool,
   /** Custom icon for disabled state */
-  disabledIcon: PropTypes.node,
-  error: PropTypes.string,
-  flexDirection: PropTypes.oneOf(['row', 'column']),
-  hint: PropTypes.string,
-  label: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
+  disabledIcon: node,
+  error: string,
+  flexDirection: oneOf(['row', 'column']),
+  hint: string,
+  label: string,
+  name: string.isRequired,
+  onBlur: func,
+  onChange: func.isRequired,
+  onFocus: func,
+  onKeyDown: func,
   /** For `Select` component */
-  options: PropTypes.any,
-  placeholder: PropTypes.string,
-  required: PropTypes.bool,
-  touched: PropTypes.bool,
-  type: PropTypes.oneOf([
-    'checkbox',
-    'email',
-    'file',
-    'password',
-    'radio',
-    'search',
-    'tel',
-    'text'
-  ]),
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.object, PropTypes.string]),
-  warning: PropTypes.string
+  options: any,
+  placeholder: string,
+  required: bool,
+  size: oneOf(['sm', 'md', 'lg']),
+  touched: bool,
+  type: oneOf(['checkbox', 'email', 'file', 'password', 'radio', 'search', 'tel', 'text']),
+  value: oneOfType([number, object, string]),
+  warning: string
 }

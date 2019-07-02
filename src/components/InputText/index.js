@@ -13,6 +13,7 @@ export const InputText = ({
   onFocus,
   onKeyDown,
   placeholder,
+  size,
   type = 'text',
   value,
   variant
@@ -28,6 +29,7 @@ export const InputText = ({
     onKeyDown={onKeyDown}
     placeholder={placeholder}
     ref={inputRef}
+    size={size}
     type={type}
     value={value}
     variant={variant}
@@ -44,6 +46,7 @@ InputText.propTypes = {
   onFocus: func,
   onKeyDown: func,
   placeholder: string,
+  size: oneOf(['sm', 'md', 'lg']),
   type: string,
   value: string,
   variant: oneOf(['error', 'info', 'valid', 'warning'])

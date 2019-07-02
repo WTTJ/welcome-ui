@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, func, node, string } from 'prop-types'
+import { bool, func, node, oneOf, string } from 'prop-types'
 
 import { StyledInput } from './styles'
 
@@ -13,6 +13,7 @@ export const RadioTab = ({
   onChange,
   onFocus,
   onKeyDown,
+  size = 'lg',
   value
 }) => (
   <StyledInput
@@ -26,6 +27,7 @@ export const RadioTab = ({
     onFocus={onFocus}
     onKeyDown={onKeyDown}
     ref={inputRef}
+    size={size}
     type="radio"
     value={value}
   />
@@ -43,5 +45,6 @@ RadioTab.propTypes = {
   onChange: func,
   onFocus: func,
   onKeyDown: func,
+  size: oneOf(['sm', 'md', 'lg']),
   value: string
 }
