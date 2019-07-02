@@ -5,8 +5,7 @@ import { DoczCodeBlock } from './CodeBlock'
 
 export const DoczForm = ({ children, initialValues }) => {
   const [values, setValues] = useState(initialValues)
-  const handleChange = (e, x) => {
-    console.debug('handleChange', e, x)
+  const handleChange = e => {
     e.preventDefault()
     const { target } = e
     const value = target.type === 'checkbox' ? !values[target.name] : target.value
