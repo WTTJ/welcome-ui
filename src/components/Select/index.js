@@ -1,70 +1,105 @@
 import React from 'react'
-import { array, bool, func, node, oneOfType, string } from 'prop-types'
+import { arrayOf, bool, func, node, oneOf, shape, string } from 'prop-types'
+import Downshift from 'downshift'
 
-import { createEvent } from '../../utils/'
 import { Icon } from '../Icon'
+import { createEvent } from '../../utils/'
 
-import { StyledSelect } from './styles'
-
-const DropdownIndicator = <Icon name="down" size="xs" />
+import * as S from './styles'
 
 export const Select = ({
   autoFocus,
-  className,
-  disabled = false,
+  disabled,
   inputRef,
+  options = [],
   name,
   onBlur,
   onChange,
   onFocus,
-  onKeyDown,
-  options,
-  placeholder,
-  searchable = false,
-  value
+  placeholder = 'Please select',
+  value,
+  variant
 }) => {
-  const handleChange = option => {
-    const event = createEvent({ name, value: option.value })
-    onChange(event)
+  const handleChange = ({ value }) => {
+    const event = createEvent({ name, value })
+    onChange && onChange(event)
   }
 
-  const selected = options.find(option => option.value === value)
+  const getItem = value => options.find(item => item.value === value)
 
   return (
-    <StyledSelect
-      autoFocus={autoFocus}
-      className={className}
-      classNamePrefix="wui"
-      components={{
-        DropdownIndicator: () => DropdownIndicator
-      }}
-      inputRef={inputRef}
-      isDisabled={disabled}
-      isSearchable={searchable}
-      name={name}
-      onBlur={onBlur}
+    <Downshift
+      initialSelectedItem={getItem(value)}
+      itemToString={item => (item ? item.label : '')}
       onChange={handleChange}
-      onFocus={onFocus}
-      onKeyDown={onKeyDown}
-      options={options}
-      placeholder={placeholder}
-      value={selected}
-    />
+    >
+      {({
+        getInputProps,
+        getItemProps,
+        getMenuProps,
+        getRootProps,
+        getToggleButtonProps,
+        highlightedIndex,
+        isOpen,
+        selectedItem,
+        toggleMenu
+      }) => (
+        <S.Wrapper {...getRootProps()}>
+          <S.Input
+            autoFocus={autoFocus}
+            disabled={disabled}
+            name={name}
+            onClick={toggleMenu}
+            placeholder={placeholder}
+            readOnly
+            ref={inputRef}
+            value={selectedItem && selectedItem.label}
+            variant={variant}
+            {...getInputProps({ onBlur, onFocus })}
+          />
+          <S.DropDownIndicator disabled={disabled} isOpen={isOpen} {...getToggleButtonProps()}>
+            <Icon name="down" size="xs" />
+          </S.DropDownIndicator>
+          {isOpen ? (
+            <S.Menu {...getMenuProps()}>
+              {options.map((item, index) => (
+                // eslint-disable-next-line react/jsx-key
+                <S.Items
+                  highlighted={highlightedIndex === index}
+                  selected={selectedItem === item}
+                  {...getItemProps({
+                    key: item.value,
+                    index,
+                    item
+                  })}
+                >
+                  {item.label}
+                </S.Items>
+              ))}
+            </S.Menu>
+          ) : null}
+        </S.Wrapper>
+      )}
+    </Downshift>
   )
 }
 
 Select.propTypes = {
   autoFocus: bool,
-  className: string,
   disabled: bool,
   inputRef: node,
-  name: string.isRequired,
+  name: string,
   onBlur: func,
   onChange: func,
   onFocus: func,
   onKeyDown: func,
-  options: array.isRequired,
-  placeholder: oneOfType([string, bool]),
-  searchable: bool,
-  value: string
+  options: arrayOf(
+    shape({
+      label: string,
+      value: string
+    })
+  ),
+  placeholder: string,
+  value: string,
+  variant: oneOf(['error', 'info', 'valid', 'warning'])
 }

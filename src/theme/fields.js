@@ -10,7 +10,8 @@ export const getFields = theme => {
     'border-width': '1px',
     'border-style': 'solid',
     'border-radius': radii.sm,
-    outline: 'none'
+    outline: 'none',
+    'line-height': 1
   }
 
   return {
@@ -95,7 +96,10 @@ export const getFields = theme => {
       }
     },
     select: {
-      focused: {
+      default: {
+        'max-height': toRem(200)
+      },
+      highlighted: {
         'background-color': colors.light[500]
       },
       selected: {
