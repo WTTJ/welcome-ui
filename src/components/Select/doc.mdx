@@ -1,6 +1,6 @@
 ---
 name: Select
-route: /fields/input-tags
+route: /fields/select
 menu: Fields
 ---
 
@@ -24,13 +24,7 @@ import { Select } from './index'
       { value: 'vue', label: 'Vue' }
     ]
     return (
-      <Select
-        options={ITEMS}
-        name="language"
-        onChange={console.debug}
-        required
-        tags={[ITEMS[2]]}
-      />
+      <Select options={ITEMS} name="language" onChange={console.debug} required value={ITEMS[2]} />
     )
   }}
 </Playground>
