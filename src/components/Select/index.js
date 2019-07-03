@@ -74,6 +74,8 @@ export const Select = ({
     handleChange(newItems)
   }
 
+  const handleOuterClick = () => setResults(options)
+
   const getUnique = (item, values) => uniqBy([...values, item], item => item.value)
   const isTagExisting = value =>
     Array.isArray(values)
@@ -85,6 +87,7 @@ export const Select = ({
       initialSelectedItem={initialItem}
       itemToString={itemToString}
       onInputValueChange={handleInputChange}
+      onOuterClick={handleOuterClick}
       onSelect={handleSelect}
     >
       {({
