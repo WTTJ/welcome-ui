@@ -22,8 +22,8 @@ const iconSvgFilledStyles = css`
 export const Icon = styled.svg(
   ({ size = 'md', stroked }) => css`
     ${stroked ? iconSvgStrokedStyles : iconSvgFilledStyles};
-    width: ${th(`icons.${size}`)}px;
-    height: ${th(`icons.${size}`)}px;
+    width: ${th(`icons.${size}`)};
+    height: ${th(`icons.${size}`)};
     ${system};
   `
 )

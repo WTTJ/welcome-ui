@@ -65,11 +65,11 @@ export const getBaseTheme = (options = {}) => {
   }
 
   theme.icons = {
-    xs: 10,
-    sm: 16,
-    md: 24,
-    lg: 32,
-    xl: 48
+    xs: theme.toRem(10),
+    sm: theme.toRem(16),
+    md: theme.toRem(24),
+    lg: theme.toRem(32),
+    xl: theme.toRem(48)
   }
 
   theme.radii = radii
