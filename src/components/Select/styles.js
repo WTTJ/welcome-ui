@@ -37,6 +37,7 @@ export const Menu = styled.ul`
 export const Items = styled.li(
   ({ highlighted, selected }) => css`
     color: nude.800;
+    cursor: default;
     ${highlighted && th('fields.select.highlighted')};
     ${selected && th('fields.select.selected')};
     padding: sm;

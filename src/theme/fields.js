@@ -10,7 +10,7 @@ export const getFields = theme => {
     'border-width': '1px',
     'border-style': 'solid',
     'border-radius': radii.sm,
-    outline: 'none:'
+    outline: 'none'
   }
 
   return {
@@ -22,12 +22,15 @@ export const getFields = theme => {
     },
     sizes: {
       sm: {
+        height: '2rem',
         padding: `${space.xs} ${space.sm}`
       },
       md: {
+        height: '2.25rem',
         padding: space.sm
       },
       lg: {
+        height: '2.5rem',
         padding: `${space.md} ${space.sm}`
       }
     },
