@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.13.0](https://github.com/WTTJ/welcome-ui/compare/v0.12.0...v0.13.0) (2019-07-03)
+
+
+### Bug Fixes
+
+*  styles on radioTabs and selects after merge of pr [#147](https://github.com/WTTJ/welcome-ui/issues/147) ([#150](https://github.com/WTTJ/welcome-ui/issues/150)) ([0a3fba0](https://github.com/WTTJ/welcome-ui/commit/0a3fba0))
+* add missing menu icon ([#148](https://github.com/WTTJ/welcome-ui/issues/148)) ([b05ebb8](https://github.com/WTTJ/welcome-ui/commit/b05ebb8)), closes [#142](https://github.com/WTTJ/welcome-ui/issues/142)
+* allow null values for datetimepicker ([#140](https://github.com/WTTJ/welcome-ui/issues/140)) ([8e8ab56](https://github.com/WTTJ/welcome-ui/commit/8e8ab56))
+* lineheight problem on fields ([#152](https://github.com/WTTJ/welcome-ui/issues/152)) ([34a7ff3](https://github.com/WTTJ/welcome-ui/commit/34a7ff3))
+* shape prop set to square was buggy ([#151](https://github.com/WTTJ/welcome-ui/issues/151)) ([1b2d64c](https://github.com/WTTJ/welcome-ui/commit/1b2d64c))
+* use correct ref to fix FileUpload ([#138](https://github.com/WTTJ/welcome-ui/issues/138)) ([1ac7895](https://github.com/WTTJ/welcome-ui/commit/1ac7895))
+
+
+### Features
+
+* accessible & controlled pagination ([376ddd8](https://github.com/WTTJ/welcome-ui/commit/376ddd8))
+* add size prop to give sizes to field components ([#147](https://github.com/WTTJ/welcome-ui/issues/147)) ([067ac6d](https://github.com/WTTJ/welcome-ui/commit/067ac6d))
+* remove activeBar on tabs when had only one item ([#133](https://github.com/WTTJ/welcome-ui/issues/133)) ([dd1e0d8](https://github.com/WTTJ/welcome-ui/commit/dd1e0d8))
+* replace Select with new one built on Downshift ([#146](https://github.com/WTTJ/welcome-ui/issues/146)) ([7d3e0c7](https://github.com/WTTJ/welcome-ui/commit/7d3e0c7))
+
+
+
 ## [0.12.0](https://github.com/WTTJ/welcome-ui/compare/v0.11.0...v0.12.0) (2019-06-27)
 
 
