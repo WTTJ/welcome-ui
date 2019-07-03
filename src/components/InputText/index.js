@@ -13,7 +13,7 @@ export const InputText = ({
   onFocus,
   onKeyDown,
   placeholder,
-  size,
+  size = 'lg',
   type = 'text',
   value,
   variant
