@@ -36,8 +36,6 @@ export const Select = ({
   const [inputValue, setInputValue] = useState(initialItem ? initialItem.label : '')
   const [results, setResults] = useState(options)
 
-  console.debug(name, values)
-
   const handleInputChange = value => {
     const results = matchSorter(options, value, { keys: ['label'] })
     setInputValue(value)
