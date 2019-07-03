@@ -36,6 +36,8 @@ export const Select = ({
   const [inputValue, setInputValue] = useState(initialItem ? initialItem.label : '')
   const [results, setResults] = useState(options)
 
+  console.debug(name, values)
+
   const handleInputChange = value => {
     const results = matchSorter(options, value, { keys: ['label'] })
     setInputValue(value)
@@ -75,7 +77,10 @@ export const Select = ({
   }
 
   const getUnique = (item, values) => uniqBy([...values, item], item => item.value)
-  const isTagExisting = value => values.find(item => item.value === kebabCase(value))
+  const isTagExisting = value =>
+    Array.isArray(values)
+      ? values.find(item => item.value === kebabCase(value))
+      : values.value === kebabCase(value)
 
   return (
     <Downshift
