@@ -41,7 +41,51 @@ describe('<Tag>', () => {
     expect(tag).toHaveStyleRule('padding', '0')
   })
 
-  it('should have correct border radius for tag with prop `shape` set to `circle`', () => {
+  it('should have same height and width when prop `shape` set to `square`', () => {
+    const { getByTestId } = render(<Tag shape="square">{content}</Tag>)
+    const tag = getByTestId('tag')
+
+    expect(tag).toHaveStyleRule('width', '1.82em')
+    expect(tag).toHaveStyleRule('height', '1.82em')
+  })
+
+  it('should have same height and width when prop `shape` set to `square` and different width / height props', () => {
+    const { getByTestId } = render(
+      <Tag height={10} shape="square" width={50}>
+        {content}
+      </Tag>
+    )
+    const tag = getByTestId('tag')
+
+    expect(tag).toHaveStyleRule('width', '50px')
+    expect(tag).toHaveStyleRule('height', '50px')
+  })
+
+  it('should have same height and width when prop `shape` set to `square` and width prop only', () => {
+    const { getByTestId } = render(
+      <Tag shape="square" width="4rem">
+        {content}
+      </Tag>
+    )
+    const tag = getByTestId('tag')
+
+    expect(tag).toHaveStyleRule('width', '4rem')
+    expect(tag).toHaveStyleRule('height', '4rem')
+  })
+
+  it('should have same height and width when prop `shape` set to `square` and height prop only', () => {
+    const { getByTestId } = render(
+      <Tag height={10} shape="square">
+        {content}
+      </Tag>
+    )
+    const tag = getByTestId('tag')
+
+    expect(tag).toHaveStyleRule('width', '10px')
+    expect(tag).toHaveStyleRule('height', '10px')
+  })
+
+  it('should have correct border radius when prop `shape` set to `circle`', () => {
     const { getByTestId } = render(<Tag shape="circle">{content}</Tag>)
     const tag = getByTestId('tag')
 
