@@ -101,89 +101,98 @@ export const Select = ({
         isOpen,
         selectedItem,
         toggleMenu
-      }) => (
-        <S.Wrapper {...getRootProps()}>
-          <S.Input
-            {...getInputProps({
-              autoComplete: 'off',
-              autoFocus,
-              disabled,
-              name,
-              onBlur,
-              onClick: toggleMenu,
-              onFocus,
-              placeholder,
-              readOnly: !isSearchable,
-              ref: inputRef,
-              size,
-              value: inputValue,
-              variant
-            })}
-          />
-          <S.Indicators>
-            {inputValue && (
-              <S.DropDownIndicator
-                actionType="destructive"
-                disabled={disabled}
-                onClick={clearSelection}
-                role="button"
-                type="button"
-              >
-                <Icon name="cross" size="xs" />
-              </S.DropDownIndicator>
-            )}
-            {!isSearchable && (
-              <S.DropDownIndicator disabled={disabled} isOpen={isOpen} {...getToggleButtonProps()}>
-                <Icon name="down" size="xs" />
-              </S.DropDownIndicator>
-            )}
-          </S.Indicators>
-          {isOpen ? (
-            <S.Menu {...getMenuProps()}>
-              {results.map((item, index) => {
-                return (
+      }) => {
+        const isShowCreate = isCreatable && inputValue && !isTagExisting(inputValue)
+        const isShowMenu = isOpen && (results.length || isShowCreate)
+
+        return (
+          <S.Wrapper {...getRootProps()}>
+            <S.Input
+              {...getInputProps({
+                autoComplete: 'off',
+                autoFocus,
+                disabled,
+                name,
+                onBlur,
+                onClick: toggleMenu,
+                onFocus,
+                placeholder,
+                readOnly: !isSearchable,
+                ref: inputRef,
+                size,
+                value: inputValue,
+                variant
+              })}
+            />
+            <S.Indicators>
+              {inputValue && (
+                <S.DropDownIndicator
+                  actionType="destructive"
+                  disabled={disabled}
+                  onClick={clearSelection}
+                  role="button"
+                  type="button"
+                >
+                  <Icon name="cross" size="xs" />
+                </S.DropDownIndicator>
+              )}
+              {!isSearchable && (
+                <S.DropDownIndicator
+                  disabled={disabled}
+                  isOpen={isOpen}
+                  {...getToggleButtonProps()}
+                >
+                  <Icon name="down" size="xs" />
+                </S.DropDownIndicator>
+              )}
+            </S.Indicators>
+            {isShowMenu ? (
+              <S.Menu {...getMenuProps()}>
+                {results.map((item, index) => {
+                  return (
+                    <S.Item
+                      key={item.value}
+                      {...getItemProps({
+                        index,
+                        isExisting: isMultiple && isTagExisting(item.value),
+                        isHighlighted: highlightedIndex === index,
+                        isSelected: !isMultiple && isEqual(selectedItem, item),
+                        item
+                      })}
+                    >
+                      {item.label}
+                    </S.Item>
+                  )
+                })}
+                {isShowCreate && (
                   <S.Item
-                    key={item.value}
+                    key="add"
                     {...getItemProps({
-                      index,
-                      isExisting: isMultiple && isTagExisting(item.value),
-                      isHighlighted: highlightedIndex === index,
-                      isSelected: !isMultiple && isEqual(selectedItem, item),
-                      item
+                      index: results.length,
+                      isHighlighted: highlightedIndex === results.length,
+                      item: {
+                        value: kebabCase(inputValue),
+                        label: inputValue
+                      }
                     })}
                   >
-                    {item.label}
+                    {`Create "${inputValue}"`}
                   </S.Item>
-                )
-              })}
-              {isCreatable && inputValue && !isTagExisting(inputValue) && (
-                <S.Item
-                  key="add"
-                  {...getItemProps({
-                    index: results.length,
-                    isHighlighted: highlightedIndex === results.length,
-                    item: {
-                      value: kebabCase(inputValue),
-                      label: inputValue
-                    }
-                  })}
-                >
-                  {`Create "${inputValue}"`}
-                </S.Item>
-              )}
-            </S.Menu>
-          ) : null}
-          {isMultiple && (
-            <S.Tags>
-              {values.map(tag => (
-                <Tag data-id={tag.value} key={tag.value} onRemove={handleRemove}>
-                  {tag.label}
-                </Tag>
-              ))}
-            </S.Tags>
-          )}
-        </S.Wrapper>
-      )}
+                )}
+              </S.Menu>
+            ) : null}
+            {isMultiple && (
+              <S.Tags>
+                {values.map(tag => (
+                  <Tag data-id={tag.value} key={tag.value} onRemove={handleRemove}>
+                    {tag.label}
+                  </Tag>
+                ))}
+              </S.Tags>
+            )}
+          </S.Wrapper>
+        )
+      }}
     </Downshift>
   )
 }
