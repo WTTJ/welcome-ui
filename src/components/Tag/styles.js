@@ -6,8 +6,8 @@ import { getMax, getVariantColor, system } from '../../utils/'
 
 const shapeStyles = (size, width, height, shape = 'square') => css`
   ${th(`tags.shape.${shape}.${size}`)}
-  width: ${width ? getMax(width, height) : null};
-  height: ${height ? getMax(width, height) : null};
+  width: ${width || height ? getMax(width || 0, height) : null};
+  height: ${width || height ? getMax(width || 0, height) : null};
   padding: 0;
   border-radius: ${shape === 'circle' && '50%'};
 `
