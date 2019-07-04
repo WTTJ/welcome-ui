@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.0](https://github.com/WTTJ/welcome-ui/compare/v0.13.0...v0.14.0) (2019-07-04)
+
+
+### Bug Fixes
+
+* adds default size (lg) on InputText component ([#154](https://github.com/WTTJ/welcome-ui/issues/154)) ([9d06df9](https://github.com/WTTJ/welcome-ui/commit/9d06df9))
+* forward ref on button ([#163](https://github.com/WTTJ/welcome-ui/issues/163)) ([ba15da3](https://github.com/WTTJ/welcome-ui/commit/ba15da3)), closes [#153](https://github.com/WTTJ/welcome-ui/issues/153)
+* use rem instead of px for icons ([#160](https://github.com/WTTJ/welcome-ui/issues/160)) ([c826451](https://github.com/WTTJ/welcome-ui/commit/c826451)), closes [#159](https://github.com/WTTJ/welcome-ui/issues/159)
+
+
+### Features
+
+* input with tags ([#149](https://github.com/WTTJ/welcome-ui/issues/149)) ([36aecc6](https://github.com/WTTJ/welcome-ui/commit/36aecc6)), closes [#74](https://github.com/WTTJ/welcome-ui/issues/74) [#156](https://github.com/WTTJ/welcome-ui/issues/156)
+
+
+### refactor
+
+* refactor tabs ([#161](https://github.com/WTTJ/welcome-ui/issues/161)) ([cd4ad6e](https://github.com/WTTJ/welcome-ui/commit/cd4ad6e)), closes [#158](https://github.com/WTTJ/welcome-ui/issues/158)
+
+
+### BREAKING CHANGES
+
+* Tabs now stick to reakit API
+
+
+
 ## [0.13.0](https://github.com/WTTJ/welcome-ui/compare/v0.12.0...v0.13.0) (2019-07-03)
 
 
