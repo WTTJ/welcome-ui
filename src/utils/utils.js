@@ -48,7 +48,7 @@ const xstyledProps = Object.keys(getSystemPropTypes(system))
 
 const COMMON_EXCLUDED_PROPS = ['forwardedAs', '_ref']
 
-export const filterProps = (Component, excludedProps) => {
+export const filterProps = (Component, excludedProps = []) => {
   const FilteredProps = ({ _ref, ...rest }) => {
     const props = omit(rest, [...COMMON_EXCLUDED_PROPS, ...excludedProps, ...xstyledProps])
     return <Component {...props} ref={_ref} />
