@@ -1,27 +1,19 @@
-import styled, { css } from '@xstyled/styled-components'
-import { left, th, width } from '@xstyled/system'
-import { Tab, TabList, TabPanel } from 'reakit/Tab'
+import styled from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
-import { system } from '../../utils/'
+import { system } from '../../utils'
 
-export const Tabs = styled.section`
-  ${system};
-`
-export const List = styled.div`
+export const TabList = styled.div`
   position: relative;
   width: 100%;
-  overflow: auto;
-`
-
-export const ListContent = styled(TabList)`
+  overflow-y: auto;
+  display: flex;
   border: 0;
   ${th('tabs.tabs')}
-  position: relative;
-  display: flex;
+  ${system};
 `
 
-export const Item = styled(Tab)`
-  outline: none;
+export const Tab = styled.button`
   border: 0;
   background: none;
   ${th('tabs.item.default')};
@@ -33,44 +25,39 @@ export const Item = styled(Tab)`
   padding-top: lg;
   transition: medium;
   text-transform: none;
-
-  a {
-    color: inherit;
-  }
+  cursor: pointer;
 
   &[aria-selected='true'] {
     ${th('tabs.item.active')};
   }
 
-  &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
-    ${th('tabs.item.focus')};
-    cursor: pointer;
-  }
-
   &[aria-disabled='true'] {
     ${th('tabs.item.disabled')};
+    cursor: auto;
   }
 
-  & > *:first-child {
-    line-height: 1em;
+  &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
+    ${th('tabs.item.focus')};
   }
 
-  & > *:nth-child(2) {
-    margin-left: xs;
+  &:focus {
+    outline: none;
+    &:not([aria-selected='true']) {
+      ${th('tabs.item.focus')};
+    }
   }
 `
 
-export const Panel = styled(TabPanel)`
+export const TabPanel = styled.div`
   ${th('tabs.panel')};
 `
 
-export const ActiveBar = styled.span(
-  () => css`
-    ${th('tabs.activeBar')};
-    position: absolute;
-    ${width}
-    ${left}
-    transition: medium;
-    transition-property: width, left;
-  `
-)
+export const ActiveBar = styled.span`
+  ${th('tabs.activeBar')};
+  position: absolute;
+  left: 0;
+  width: 0;
+  will-change: width, transform;
+  transition: medium;
+  transition-property: transform, width;
+`
