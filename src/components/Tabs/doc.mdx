@@ -5,109 +5,164 @@ menu: Components
 ---
 
 import { Props } from 'docz'
-import { Playground } from '../../../docz/'
 import { useState } from 'react'
-
+import { Playground } from '../../../docz'
 import { Badge } from '../Badge'
 import { Button } from '../Button'
-import { Tabs, TabsItem, TabsPanel } from './index'
+import { TabList, Tab, TabPanel, useTabState } from './index'
 
 # Tabs
 
-Tabs make it easy to explore and switch between different views.<br />Powered by [Reakit](https://reakit.io/docs/tab/) for accessibility.
+Tabs make it easy to explore and switch between different views.
+
+See [Reakit](https://reakit.io/docs/tab/) for documentation.
 
 ## Default
 
-`<Tabs>` `<TabsItem>` and `<TabsPanel>` are you friends.
+Set the tab activated by default using `selectedId` on `useTabState`.
 
 <Playground>
-  <Tabs
-    name="tabDemo"
-    items={
+  {() => {
+    const tab = useTabState({ selectedId: 'tab1' })
+    return (
       <>
-        <TabsItem>Tab1</TabsItem>
-        <TabsItem>Tab2</TabsItem>
-        <TabsItem disabled>Tab3</TabsItem>
+        <TabList aria-label="Tabs" {...tab}>
+          <Tab {...tab} stopId="tab1">
+            Tab 1
+          </Tab>
+          <Tab {...tab} stopId="tab2">
+            Tab 2
+          </Tab>
+          <Tab {...tab} stopId="tab3">
+            Tab 3
+          </Tab>
+          <Tab {...tab} stopId="tab4">
+            Tab 4
+          </Tab>
+          <Tab {...tab} disabled stopId="tab5">
+            Tab 5
+          </Tab>
+        </TabList>
+        <TabPanel {...tab} stopId="tab1">
+          TabPanel 1
+        </TabPanel>
+        <TabPanel {...tab} stopId="tab2">
+          TabPanel 2
+        </TabPanel>
+        <TabPanel {...tab} stopId="tab3">
+          TabPanel 3
+        </TabPanel>
+        <TabPanel {...tab} stopId="tab4">
+          TabPanel 4
+        </TabPanel>
+        <TabPanel {...tab} disabled stopId="tab5">
+          TabPanel 5
+        </TabPanel>
       </>
-    }
-  >
-    <TabsPanel>Panel 1</TabsPanel>
-    <TabsPanel>Panel 2</TabsPanel>
-    <TabsPanel>Panel 3</TabsPanel>
-    <TabsPanel>Panel 4</TabsPanel>
-    <TabsPanel>Panel 5</TabsPanel>
-  </Tabs>
-</Playground>
-
-## With default active
-
-You can add a default active tab for the first render with `defaultActiveTab` property.
-
-<Playground>
-  <Tabs
-    name="tabDemo"
-    defaultActiveTab={2}
-    items={
-      <>
-        <TabsItem>Tab1</TabsItem>
-        <TabsItem>Tab2</TabsItem>
-        <TabsItem>Tab3</TabsItem>
-      </>
-    }
-  >
-    <TabsPanel>Panel 1</TabsPanel>
-    <TabsPanel>Panel 2</TabsPanel>
-    <TabsPanel>Panel 3</TabsPanel>
-  </Tabs>
+    )
+  }}
 </Playground>
 
 ## With a badge
 
-Add a Badge (or other component) on TabsItem component.
+Add badges in tab.
 
 <Playground>
-  <Tabs
-    name="tabDemo"
-    defaultActiveTab={2}
-    items={
+  {() => {
+    const tab = useTabState({ selectedId: 'tab2' })
+    return (
       <>
-        <TabsItem>Tab1</TabsItem>
-        <TabsItem>
-          <span>Tab2 </span>
-          <Badge>new</Badge>
-        </TabsItem>
-        <TabsItem>
-          <span>Tab3 </span>
-          <Badge>new</Badge>
-        </TabsItem>
+        <TabList aria-label="Tabs" {...tab}>
+          <Tab {...tab} stopId="tab1">
+            Tab 1 <Badge ml="xs">new</Badge>
+          </Tab>
+          <Tab {...tab} stopId="tab2">
+            Tab 2 <Badge ml="xs">old</Badge>
+          </Tab>
+          <Tab {...tab} stopId="tab3">
+            Tab 3
+          </Tab>
+        </TabList>
+        <TabPanel {...tab} stopId="tab1">
+          TabPanel 1
+        </TabPanel>
+        <TabPanel {...tab} stopId="tab2">
+          TabPanel 2
+        </TabPanel>
+        <TabPanel {...tab} stopId="tab3">
+          TabPanel 3
+        </TabPanel>
       </>
-    }
-  >
-    <TabsPanel>Panel 1</TabsPanel>
-    <TabsPanel>Panel 2</TabsPanel>
-    <TabsPanel>Panel 3</TabsPanel>
-  </Tabs>
+    )
+  }}
 </Playground>
 
-## With only one Tab
+## Use another component
 
-When we have only tab, we don't show ActiveBar.
+Use another component in tab.
 
 <Playground>
-  <Tabs
-    name="tabDemo"
-    items={
+  {() => {
+    const tab = useTabState({ selectedId: 'tab1' })
+    return (
       <>
-        <TabsItem>Tab1</TabsItem>
+        <TabList aria-label="Tabs" {...tab}>
+          <Tab {...tab} as="a" stopId="tab1">
+            Tab 1
+          </Tab>
+          <Tab {...tab} as="a" stopId="tab2">
+            Tab 2
+          </Tab>
+          <Tab {...tab} as="a" stopId="tab3">
+            Tab 3
+          </Tab>
+        </TabList>
+        <TabPanel {...tab} stopId="tab1">
+          TabPanel 1
+        </TabPanel>
+        <TabPanel {...tab} stopId="tab2">
+          TabPanel 2
+        </TabPanel>
+        <TabPanel {...tab} stopId="tab3">
+          TabPanel 3
+        </TabPanel>
       </>
-    }
-  >
-    <TabsPanel>Panel 1</TabsPanel>
-  </Tabs>
+    )
+  }}
+</Playground>
+
+## One tab
+
+Active bar doesn't display with only one tab.
+
+<Playground>
+  {() => {
+    const tab = useTabState({ selectedId: 'tab1' })
+    return (
+      <>
+        <TabList aria-label="Tabs" {...tab}>
+          <Tab {...tab} stopId="tab1">
+            Tab 1
+          </Tab>
+        </TabList>
+        <TabPanel {...tab} stopId="tab1">
+          TabPanel 1
+        </TabPanel>
+      </>
+    )
+  }}
 </Playground>
 
 ## Properties
 
-### Tabs
+### TabList
 
-<Props of={Tabs} />
+<Props of={TabList} />
+
+### Tab
+
+<Props of={Tab} />
+
+### TabPanel
+
+<Props of={TabPanel} />

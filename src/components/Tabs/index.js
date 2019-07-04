@@ -1,80 +1,111 @@
-/* eslint-disable react/jsx-max-depth */
-import PropTypes from 'prop-types'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { useTabState } from 'reakit/Tab'
+/* eslint-disable react/no-multi-comp */
+import React, { cloneElement, useLayoutEffect, useState } from 'react'
+import { node, string } from 'prop-types'
+import { Tab as ReakitTab, TabList as ReakitTabList, TabPanel as ReakitTabPanel } from 'reakit/Tab'
+import flattenChildren from 'react-flatten-children'
 
-import { useEventListener } from '../../utils/'
+import { getTransformStyle } from '../../utils/css'
+import { componentType } from '../../utils/propTypes'
+import { useForkRef } from '../../utils/ref'
+import { useViewportSize } from '../../utils/viewport'
 
-import { TabsItem } from './item'
-import { TabsPanel } from './panel'
 import * as S from './styles'
 
-const Tabs = ({ children, defaultActiveTab = 1, items, name }) => {
-  const [windowWidth, setWindowWidth] = useState(0)
-  const [activeBar, setActiveBar] = useState({ width: 0, left: 0 })
-  const listRef = useRef()
+export { useTabState } from 'reakit/Tab'
 
-  const tab = useTabState({
-    selectedId: defaultActiveTab
+function useTrackActiveTabs(state, children) {
+  const [activeTab, setActiveTab] = useState(null)
+  const tabs = flattenChildren(children).map(child => {
+    if (child.props.stopId === state.selectedId) {
+      return cloneElement(child, { ref: setActiveTab })
+    }
+    return child
   })
+  return [tabs, activeTab]
+}
 
-  const setChild = elements =>
-    React.Children.map(elements, (child, key) => {
-      return React.cloneElement(child, {
-        stopId: key + 1,
-        ...tab
-      })
+function useActiveBarState(listRef, activeTab) {
+  const [state, setState] = useState({})
+  const { width: viewportWidth } = useViewportSize()
+  useLayoutEffect(() => {
+    const list = listRef.current
+    if (!list || !activeTab) return
+
+    const listRect = list.getBoundingClientRect()
+    const activeTabRect = activeTab.getBoundingClientRect()
+
+    const left = activeTabRect.left - listRect.left + list.scrollLeft
+    const width = activeTabRect.width
+    setState({
+      style: {
+        width,
+        ...getTransformStyle(`translateX(${left}px)`)
+      }
     })
+  }, [listRef, activeTab, viewportWidth])
 
-  // get width on resize to reset activeBar width and left
-  useEventListener('resize', setWindowWidth)
+  return state
+}
 
-  // set width & height for item active
-  const setPositionActiveBar = useCallback(() => {
-    const listElm = listRef && listRef.current
-    const activeTabElm = listElm && listElm.querySelector('[aria-selected="true"]')
+// eslint-disable-next-line react/prop-types
+function ActiveBar({ activeTab, listRef }) {
+  const activeBar = useActiveBarState(listRef, activeTab)
+  return <S.ActiveBar {...activeBar} />
+}
 
-    const left =
-      activeTabElm &&
-      activeTabElm.getBoundingClientRect().left -
-        listElm.getBoundingClientRect().left +
-        listElm.scrollLeft
-    const width = activeTabElm && activeTabElm.getBoundingClientRect().width
-    setActiveBar({ width, left })
-    // for mobile device, add scrooling on nav parent
-    listElm.parentElement.scrollLeft = left
-  }, [])
-
-  useEffect(() => {
-    setPositionActiveBar()
-  }, [setPositionActiveBar, windowWidth, tab.selectedId])
-
-  const tabsItems = items.props.children
-
+export const TabList = React.forwardRef(({ as, children, ...props }, ref) => {
+  const listRef = React.useRef()
+  const listForkedRef = useForkRef(ref, listRef)
+  const [tabs, activeTab] = useTrackActiveTabs(props, children)
   return (
-    <S.Tabs>
-      <S.List>
-        <S.ListContent {...tab} aria-label={name} data-testid="tabsItems" ref={listRef}>
-          {setChild(tabsItems)}
-          {tabsItems.length > 1 && (
-            <S.ActiveBar data-testid="activeBar" left={activeBar.left} width={activeBar.width} />
-          )}
-        </S.ListContent>
-      </S.List>
-      {setChild(children)}
-    </S.Tabs>
+    <ReakitTabList ref={listForkedRef} {...props}>
+      {tabListProps => (
+        <S.TabList as={as} {...tabListProps}>
+          {tabs}
+          {tabs.length > 1 && <ActiveBar activeTab={activeTab} listRef={listRef} />}
+        </S.TabList>
+      )}
+    </ReakitTabList>
   )
+})
+TabList.displayName = 'TabList'
+TabList.propTypes = {
+  as: componentType,
+  children: node
 }
 
-Tabs.propTypes = {
-  /** <TabsPanel> children */
-  children: PropTypes.node.isRequired,
-  /** by default, the first child is active, you can set one by default with this property */
-  defaultActiveTab: PropTypes.string,
-  /** List of <TabsItem> elements */
-  items: PropTypes.node.isRequired,
-  /** name for the <TabList> (for accessibility) */
-  name: PropTypes.string.isRequired
+export const Tab = React.forwardRef(({ as, children, stopId, ...props }, ref) => {
+  return (
+    <ReakitTab ref={ref} stopId={stopId} {...props}>
+      {tabProps => (
+        <S.Tab as={as} {...tabProps}>
+          {children}
+        </S.Tab>
+      )}
+    </ReakitTab>
+  )
+})
+Tab.displayName = 'Tab'
+Tab.propTypes = {
+  as: componentType,
+  children: node,
+  stopId: string.isRequired
 }
 
-export { Tabs, TabsItem, TabsPanel }
+export const TabPanel = React.forwardRef(({ as, children, stopId, ...props }, ref) => {
+  return (
+    <ReakitTabPanel ref={ref} stopId={stopId} {...props}>
+      {tabPanelProps => (
+        <S.TabPanel as={as} {...tabPanelProps}>
+          {children}
+        </S.TabPanel>
+      )}
+    </ReakitTabPanel>
+  )
+})
+TabPanel.displayName = 'TabPanel'
+TabPanel.propTypes = {
+  as: componentType,
+  children: node,
+  stopId: string.isRequired
+}

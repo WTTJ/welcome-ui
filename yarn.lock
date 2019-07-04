@@ -10274,6 +10274,11 @@ react-final-form@=6.0.1:
     "@babel/runtime" "^7.4.5"
     ts-essentials "^2.0.2"
 
+react-flatten-children@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-flatten-children/-/react-flatten-children-1.0.0.tgz#9f29e3a54aa0e990c2b3a7e572dec5e225d59432"
+  integrity sha512-BSKnBi7MJadvfTjE07xzJoBNhlKYY8FfQUJ1e5dlFh4lMZf3i1AcldP/9d2hBeEtFeYleHCU8nYTuSzrz3ZwsA==
+
 react-hot-loader@^4.8.4:
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.9.0.tgz#498e5f76aae28bfd420efdabddf5af156745b4dd"
