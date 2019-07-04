@@ -1,14 +1,15 @@
 import React, { forwardRef } from 'react'
-import { bool, node, oneOf } from 'prop-types'
+import { bool, func, node, object, oneOf, oneOfType, string } from 'prop-types'
 
 import * as S from './styles'
 
 export const Button = forwardRef(
-  ({ children, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
+  ({ as, children, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
     <S.Button
+      _ref={ref}
       data-testid="button"
       disabled={disabled}
-      ref={ref}
+      forwardedAs={as}
       size={size}
       variant={disabled ? 'disabled' : variant}
       {...rest}
@@ -21,6 +22,7 @@ export const Button = forwardRef(
 Button.displayName = 'Button'
 
 Button.propTypes = {
+  as: oneOfType([func, object, string]),
   children: node,
   disabled: bool,
   shape: oneOf(['square', 'circle']),

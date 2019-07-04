@@ -12,14 +12,14 @@ const noop = () => {}
 
 describe.skip('<ConnectedField>', () => {
   it('should render correctly and hold `ref`', () => {
-    const inputRef = createRef()
+    const fieldRef = createRef()
     const { getByTestId } = render(
       <Form
         initialValues={{ jungle: content }}
         onSubmit={noop}
         render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
-            <ConnectedField component={InputText} name="jungle" ref={inputRef} />
+            <ConnectedField component={InputText} name="jungle" ref={fieldRef} />
           </form>
         )}
       />
@@ -27,7 +27,7 @@ describe.skip('<ConnectedField>', () => {
 
     const input = getByTestId('input')
     expect(input).toHaveValue(content)
-    expect(inputRef.current.name).toEqual('jungle')
+    expect(fieldRef.current.name).toEqual('jungle')
   })
 
   it.skip('should throw error if invalid component provided', () => {

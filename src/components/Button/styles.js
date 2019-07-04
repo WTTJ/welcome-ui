@@ -10,7 +10,7 @@ const shapeStyles = (size, shape) => css`
   border-radius: ${shape === 'circle' && th(`buttons.sizes.${size}.height`)};
 `
 
-export const Button = styled(filterProps(ReakitButton, ['forwardedAs', 'shape', 'variant']))(
+export const Button = styled(filterProps(ReakitButton, ['shape', 'variant']))(
   ({ disabled, shape, size, variant }) => css`
     ${th(`buttons.${variant}`)};
     position: relative;
