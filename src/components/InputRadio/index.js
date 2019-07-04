@@ -1,13 +1,14 @@
 import React from 'react'
-import { bool, func, node, number, string } from 'prop-types'
+import { bool, func, number, string } from 'prop-types'
 
-import { StyledCheckbox } from '../InputCheckbox/styles'
+import { REFS_TYPE } from '../../utils/propTypes'
+import * as S from '../InputCheckbox/styles'
 
 export const InputRadio = ({
+  _ref,
   autoFocus,
   checked,
   disabled,
-  _ref,
   name,
   onBlur,
   onChange,
@@ -16,7 +17,7 @@ export const InputRadio = ({
   order = -1,
   value
 }) => (
-  <StyledCheckbox checked={checked} disabled={disabled} order={order} type="radio">
+  <S.Checkbox checked={checked} disabled={disabled} order={order} type="radio">
     <input
       autoFocus={autoFocus}
       checked={checked}
@@ -31,13 +32,13 @@ export const InputRadio = ({
       type="radio"
       value={value}
     />
-  </StyledCheckbox>
+  </S.Checkbox>
 )
 
 InputRadio.type = 'InputRadio'
 
 InputRadio.propTypes = {
-  _ref: node,
+  _ref: REFS_TYPE,
   autoFocus: bool,
   checked: bool,
   disabled: bool,

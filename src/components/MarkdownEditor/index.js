@@ -17,9 +17,9 @@ import { getCurrentToolsFromEditor } from './utils'
 import { DEFAULT_TOOLBAR } from './constants'
 
 export const MarkdownEditor = ({
+  _ref,
   autoFocus,
   disabled,
-  _ref,
   name,
   onBlur,
   onChange,

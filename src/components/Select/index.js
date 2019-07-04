@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { arrayOf, bool, func, node, oneOf, shape, string } from 'prop-types'
+import { arrayOf, bool, func, shape, string } from 'prop-types'
 import Downshift from 'downshift'
 import matchSorter from 'match-sorter'
 import kebabCase from 'lodash.kebabcase'
 import uniqBy from 'lodash.uniqby'
 import isEqual from 'lodash.isequal'
 
+import { REFS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils/propTypes'
 import { Icon } from '../Icon'
 import { Tag } from '../Tag'
 import { createEvent } from '../../utils/'
@@ -204,7 +205,7 @@ export const Select = ({
 }
 
 Select.propTypes = {
-  _ref: node,
+  _ref: REFS_TYPE,
   autoFocus: bool,
   disabled: bool,
   isCreatable: bool,
@@ -222,12 +223,13 @@ Select.propTypes = {
     })
   ),
   placeholder: string,
-  size: oneOf(['sm', 'md', 'lg']),
+  searchable: bool,
+  size: SIZES_TYPE,
   value: arrayOf(
     shape({
       label: string,
       value: string
     })
   ),
-  variant: oneOf(['error', 'info', 'valid', 'warning'])
+  variant: VARIANTS_TYPE
 }

@@ -1,8 +1,9 @@
 import React, { forwardRef } from 'react'
-import { bool, node, oneOf, oneOfType, string } from 'prop-types'
+import { bool, node, oneOf, string } from 'prop-types'
 
 import { Badge } from '../Badge'
 import { Icon } from '../Icon'
+import { COMPONENT_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 
@@ -47,8 +48,8 @@ export const Label = forwardRef(
 Label.displayName = 'Label'
 
 Label.propTypes = {
-  as: oneOfType([node, string]),
-  children: oneOfType([node, string]),
+  as: COMPONENT_TYPE,
+  children: node,
   disabled: bool,
   disabledIcon: node,
   errorWarningIcon: node,

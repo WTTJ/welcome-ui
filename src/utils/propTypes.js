@@ -1,5 +1,16 @@
 import { Element } from 'react'
-import { array, bool, func, instanceOf, number, object, oneOfType, shape, string } from 'prop-types'
+import {
+  array,
+  bool,
+  func,
+  instanceOf,
+  number,
+  object,
+  oneOf,
+  oneOfType,
+  shape,
+  string
+} from 'prop-types'
 
 export const reduxFormFieldPropTypes = {
   input: shape({
@@ -31,6 +42,11 @@ export const formFieldDefaultProps = {
   autoFocus: false
 }
 
-export const refsPropTypes = oneOfType([func, shape({ current: instanceOf(Element) })])
+export const REFS_TYPE = oneOfType([func, shape({ current: instanceOf(Element) })])
 
-export const componentType = oneOfType([func, object, string])
+export const COMPONENT_TYPE = oneOfType([func, object, string])
+
+export const VARIANTS_TYPE = ['error', 'info', 'valid', 'warning']
+export const DIRECTIONS_TYPE = ['row', 'container']
+export const SHAPES_TYPE = ['square', 'circle']
+export const SIZES_TYPE = oneOf(['sm', 'md', 'lg'])

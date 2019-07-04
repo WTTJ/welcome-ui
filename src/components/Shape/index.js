@@ -1,5 +1,7 @@
-import { node, number, oneOf, oneOfType, string } from 'prop-types'
+import { node, number, oneOfType, string } from 'prop-types'
 import React, { forwardRef } from 'react'
+
+import { SHAPES_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 
@@ -14,6 +16,6 @@ Shape.displayName = 'Shape'
 Shape.propTypes = {
   children: node.isRequired,
   height: oneOfType([string, number]),
-  shape: oneOf(['square', 'circle']),
+  shape: SHAPES_TYPE,
   width: oneOfType([string, number]).isRequired
 }

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
+import { bool, func, number, object, oneOfType, string } from 'prop-types'
+
+import { SIZES_TYPE } from '../../utils/propTypes'
 
 import { getDate } from './utils'
 import * as S from './styles'
@@ -96,7 +98,7 @@ DateTimePicker.propTypes = {
   datePickerOnly: bool,
   datePickerProps: object,
   onChange: func,
-  size: oneOf(['sm', 'md', 'lg']),
+  size: SIZES_TYPE,
   timePickerOnly: bool,
   timePickerProps: object,
   value: oneOfType([number, object, string]).isRequired

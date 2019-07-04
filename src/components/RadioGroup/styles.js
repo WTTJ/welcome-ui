@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 
 import { system } from '../../utils/'
 
-export const StyledRadios = styled.div(
+export const Radios = styled.div(
   ({ flexDirection }) => css`
     display: flex;
     flex-direction: ${flexDirection};

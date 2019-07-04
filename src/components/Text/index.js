@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react'
-import { number, oneOf, string } from 'prop-types'
+import { node, number, oneOf } from 'prop-types'
+
+import { COMPONENT_TYPE } from '../../utils/propTypes'
 
 import { StyledText } from './styles'
 
@@ -31,8 +33,8 @@ export const Text = forwardRef(({ as, children, lines, variant = 'body1' }, ref)
 Text.displayName = 'Text'
 
 Text.propTypes = {
-  as: string,
-  children: string,
+  as: COMPONENT_TYPE,
+  children: node,
   lines: number,
   variant: oneOf(Object.keys(TAG_NAMES))
 }
