@@ -7,7 +7,7 @@ export const InputRadio = ({
   autoFocus,
   checked,
   disabled,
-  inputRef,
+  _ref,
   name,
   onBlur,
   onChange,
@@ -27,7 +27,7 @@ export const InputRadio = ({
       onChange={onChange}
       onFocus={onFocus}
       onKeyDown={onKeyDown}
-      ref={inputRef}
+      ref={_ref}
       type="radio"
       value={value}
     />
@@ -37,10 +37,10 @@ export const InputRadio = ({
 InputRadio.type = 'InputRadio'
 
 InputRadio.propTypes = {
+  _ref: node,
   autoFocus: bool,
   checked: bool,
   disabled: bool,
-  inputRef: node,
   name: string,
   onBlur: func,
   onChange: func,

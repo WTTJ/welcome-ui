@@ -8,7 +8,7 @@ export const InputCheckbox = ({
   Component = StyledCheckbox,
   checked,
   disabled,
-  inputRef,
+  _ref,
   name,
   onBlur,
   onKeyDown,
@@ -32,7 +32,7 @@ export const InputCheckbox = ({
         onClick={onChange}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
-        ref={inputRef}
+        ref={_ref}
         type="checkbox"
       />
     </Component>
@@ -42,11 +42,11 @@ export const InputCheckbox = ({
 InputCheckbox.type = 'InputCheckbox'
 
 InputCheckbox.propTypes = {
+  _ref: node,
   autoFocus: bool,
   checked: bool,
   Component: elementType,
   disabled: bool,
-  inputRef: node,
   name: string,
   onBlur: func,
   onChange: func,

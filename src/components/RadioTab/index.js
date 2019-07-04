@@ -4,10 +4,10 @@ import { bool, func, node, oneOf, string } from 'prop-types'
 import { StyledInput } from './styles'
 
 export const RadioTab = ({
+  _ref,
   autoFocus,
   checked,
   disabled,
-  inputRef,
   name,
   onBlur,
   onChange,
@@ -26,7 +26,7 @@ export const RadioTab = ({
     onChange={onChange}
     onFocus={onFocus}
     onKeyDown={onKeyDown}
-    ref={inputRef}
+    ref={_ref}
     size={size}
     type="radio"
     value={value}
@@ -36,10 +36,10 @@ export const RadioTab = ({
 RadioTab.type = 'RadioTab'
 
 RadioTab.propTypes = {
+  _ref: node,
   autoFocus: bool,
   checked: bool,
   disabled: bool,
-  inputRef: node,
   name: string,
   onBlur: func,
   onChange: func,

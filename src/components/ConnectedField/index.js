@@ -10,7 +10,7 @@ export const ConnectedField = forwardRef(({ component, type, ...rest }, ref) => 
     type={getBaseType(component.type || type)}
     {...rest}
     render={({ input, meta }) => (
-      <Field {...input} {...meta} {...rest} component={component} connected inputRef={ref} />
+      <Field _ref={ref} {...input} {...meta} {...rest} component={component} connected />
     )}
   />
 ))
