@@ -1,7 +1,7 @@
 export const getTags = ({ colors, fontSizes, fontWeights, space, toRem }) => ({
   default: {
     'font-size': fontSizes.meta2,
-    'font-weight': fontWeights.bold,
+    'font-weight': fontWeights.medium,
     'line-height': '1em',
     color: colors.nude[800]
   },
