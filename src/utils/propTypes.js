@@ -46,7 +46,7 @@ export const REFS_TYPE = oneOfType([func, shape({ current: instanceOf(Element) }
 
 export const COMPONENT_TYPE = oneOfType([func, object, string])
 
-export const VARIANTS_TYPE = ['error', 'info', 'valid', 'warning']
-export const DIRECTIONS_TYPE = ['row', 'container']
-export const SHAPES_TYPE = ['square', 'circle']
+export const VARIANTS_TYPE = oneOf(['error', 'info', 'valid', 'warning'])
+export const DIRECTIONS_TYPE = oneOf(['row', 'container'])
+export const SHAPES_TYPE = oneOf(['square', 'circle'])
 export const SIZES_TYPE = oneOf(['sm', 'md', 'lg'])

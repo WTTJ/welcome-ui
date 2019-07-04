@@ -17,23 +17,22 @@ import { Tooltip } from './'
 The tooltip follow cursor pointer.
 
 <Playground>
-  <>
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥">
     <Button>Show a beautiful tooltip 🔥</Button>
-    <Tooltip accessibilityId="button_example">🔥🔥🔥🔥🔥🔥🔥</Tooltip>
-  </>
+  </Tooltip>
 </Playground>
 
-## With a long text
+## With a long text and a custom placement
 
-Set a `max-width` when had a long text
+Set a `max-width` for long text
 
 <Playground>
-  <>
-    <Button>With a long text</Button>
-    <Tooltip accessibilityId="div_example">
-      lorem ipsum dolor sit amet, consectetur adipiscing elit
-    </Tooltip>
-  </>
+  <Tooltip
+    placement="bottom-start"
+    content={<div>lorem ipsum dolor sit amet, consectetur adipiscing elit</div>}
+  >
+    <span>With long text</span>
+  </Tooltip>
 </Playground>
 
 ## Properties

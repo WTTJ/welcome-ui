@@ -1,17 +1,12 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
+import { Tooltip as ReakitTooltip } from 'reakit'
 
-import { system } from '../../utils/'
+import { filterProps, system } from '../../utils/'
 
-export const Tooltip = styled.div(
-  props => css`
-    ${th('tooltips')};
-    position: fixed;
-    top: ${`${props.top}px`};
-    left: ${`${props.left}px`};
-    padding: sm;
-    font-size: body4;
-    z-index: 999;
-    ${system};
-  `
-)
+export const Tooltip = styled(filterProps(ReakitTooltip))`
+  ${th('tooltips')};
+  padding: sm;
+  font-size: body4;
+  ${system};
+`
