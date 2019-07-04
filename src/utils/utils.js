@@ -1,4 +1,5 @@
 import React from 'react'
+import { node, shape } from 'prop-types'
 import omit from 'lodash.omit'
 import {
   backgrounds,
@@ -44,8 +45,20 @@ export const system = compose(
 
 const xstyledProps = Object.keys(getSystemPropTypes(system))
 
-export const filterProps = (Component, excludedProps) =>
-  function FilteredProps(props) {
-    const rest = omit(props, [...excludedProps, ...xstyledProps])
-    return <Component {...rest} />
+const COMMON_EXCLUDED_PROPS = ['forwardedAs', '_ref']
+
+export const filterProps = (Component, excludedProps) => {
+  const FilteredProps = ({ _ref, ...rest }) => {
+    const props = omit(rest, [...COMMON_EXCLUDED_PROPS, ...excludedProps, ...xstyledProps])
+    return <Component {...props} ref={_ref} />
   }
+
+  FilteredProps.displayName = 'FilteredProps'
+  FilteredProps.propTypes = {
+    _ref: shape({
+      current: node
+    })
+  }
+
+  return FilteredProps
+}

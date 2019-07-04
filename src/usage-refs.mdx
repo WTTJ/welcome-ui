@@ -28,6 +28,7 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
     const connectedInputRef = createRef()
     const normalInputRef = useRef(null)
     const fileUploadRef = useRef(null)
+    const buttonRef = useRef(null)
     //
     const handleConnectedClick = () => {
       connectedInputRef.current.focus()
@@ -37,6 +38,9 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
     }
     const handleFileUploadClick = () => {
       fileUploadRef.current.focus()
+    }
+    const handleButtonClick = () => {
+      console.debug('<Button> ref', buttonRef)
     }
     //
     return (
@@ -65,12 +69,17 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
               ref={fileUploadRef}
               mb={20}
             />
-            <Button onClick={handleConnectedClick}>Focus connected field</Button>
+            <p>Click a button below to focus the relevant field above</p>
+            <Button onClick={handleConnectedClick}>Connected field</Button>
             <Button onClick={handleNormalClick} ml={20}>
-              Focus normal field
+              Normal field
             </Button>
             <Button onClick={handleFileUploadClick} ml={20}>
-              Focus file upload field
+              File upload field
+            </Button>
+            <p>Click the button below to read the button's ref in the console</p>
+            <Button as={Link} ref={buttonRef} onClick={handleButtonClick}>
+              Test button
             </Button>
           </form>
         )}
