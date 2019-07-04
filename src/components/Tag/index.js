@@ -2,8 +2,7 @@ import React, { forwardRef } from 'react'
 import { func, node, oneOf } from 'prop-types'
 
 import { Icon } from '../Icon'
-
-import { SHAPES, SIZES } from '../../utils/propTypes'
+import { SHAPES_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 
@@ -34,8 +33,8 @@ Tag.displayName = 'Tag'
 Tag.propTypes = {
   children: node,
   onRemove: func,
-  shape: oneOf(SHAPES),
-  size: oneOf(SIZES),
+  shape: SHAPES_TYPE,
+  size: SIZES_TYPE,
   variant: oneOf([
     'blue',
     'default',

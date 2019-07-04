@@ -12,7 +12,7 @@ const checkedStyles = css`
   }
 `
 
-export const StyledCheckbox = styled.div(
+export const Checkbox = styled.div(
   ({ checked, order = '-1', type }) => css`
     ${fieldStyles};
     ${th('fields.checkboxes.default')}
@@ -48,4 +48,4 @@ export const StyledCheckbox = styled.div(
   `
 )
 
-export const StyledRadio = StyledCheckbox
+export const Radio = Checkbox

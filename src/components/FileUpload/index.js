@@ -6,6 +6,7 @@ import { useDropzone } from 'react-dropzone'
 import { Icon } from '../Icon'
 import { Button } from '../Button'
 import { createEvent, validateFileSize, validateMimeType } from '../../utils/'
+import { REFS_TYPE } from '../../utils/propTypes'
 
 // FileUpload
 import { Actions, FilePreview, StyledFileUpload } from './styles.js'
@@ -19,10 +20,10 @@ const getPreviewUrl = url =>
   typeof url !== 'string' || url.startsWith('blob:') ? url : new URL(url)
 
 export const FileUpload = ({
+  _ref,
   accept = 'image/*',
   children = DefaultContent,
   disabled,
-  _ref,
   maxSize = DEFAULT_MAX_FILE_SIZE,
   multiple,
   name,
@@ -125,7 +126,7 @@ export const FileUpload = ({
 }
 
 FileUpload.propTypes = {
-  _ref: node,
+  _ref: REFS_TYPE,
   accept: string,
   children: func,
   disabled: bool,

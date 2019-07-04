@@ -1,7 +1,7 @@
 import React from 'react'
-import { bool, func, node, number, oneOf, string } from 'prop-types'
+import { bool, func, number, string } from 'prop-types'
 
-import { SIZES, VARIANTS } from '../../utils/propTypes'
+import { REFS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils/propTypes'
 
 import { StyledTextarea } from './styles.js'
 
@@ -40,7 +40,7 @@ export const InputTextarea = ({
 )
 
 InputTextarea.propTypes = {
-  _ref: node,
+  _ref: REFS_TYPE,
   autoFocus: bool,
   disabled: bool,
   maxLength: number,
@@ -51,7 +51,7 @@ InputTextarea.propTypes = {
   onFocus: func,
   onKeyDown: func,
   placeholder: string,
-  size: oneOf(SIZES),
+  size: SIZES_TYPE,
   value: string,
-  variant: oneOf(VARIANTS)
+  variant: VARIANTS_TYPE
 }

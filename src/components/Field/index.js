@@ -1,10 +1,10 @@
 import React, { forwardRef, Fragment } from 'react'
-import { any, bool, func, node, number, object, oneOf, oneOfType, string } from 'prop-types'
+import { bool, func, node, number, object, oneOf, oneOfType, string } from 'prop-types'
 
 // Common
 import { RowContainer } from '../../common/styles/layout'
 import { getBaseType, getHintText, getVariant } from '../../utils/'
-import { DIRECTIONS, SIZES } from '../../utils/propTypes'
+import { COMPONENT_TYPE, DIRECTIONS_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 // Components
 import { Label } from '../Label'
 import { Hint } from '../Hint'
@@ -31,7 +31,6 @@ export const Field = forwardRef(
       onChange,
       onFocus,
       onKeyDown,
-      options,
       placeholder,
       required,
       size = 'lg',
@@ -71,7 +70,6 @@ export const Field = forwardRef(
         onChange={onChange}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
-        options={options}
         placeholder={placeholder}
         required={required}
         size={size}
@@ -119,14 +117,14 @@ Field.propTypes = {
   autoFocus: bool,
   checked: bool,
   children: func,
-  /** Field component e.g. `InputText` or `FileUpload` */
-  component: func.isRequired,
+  /** Field component e.g. `InputText` or `FileUpload` or `'div'` */
+  component: COMPONENT_TYPE.isRequired,
   connected: bool,
   disabled: bool,
   /** Custom icon for disabled state */
   disabledIcon: node,
   error: string,
-  flexDirection: oneOf(DIRECTIONS),
+  flexDirection: DIRECTIONS_TYPE,
   hint: string,
   label: string,
   name: string.isRequired,
@@ -134,11 +132,9 @@ Field.propTypes = {
   onChange: func.isRequired,
   onFocus: func,
   onKeyDown: func,
-  /** For `Select` component */
-  options: any,
   placeholder: string,
   required: bool,
-  size: oneOf(SIZES),
+  size: SIZES_TYPE,
   touched: bool,
   type: oneOf(['checkbox', 'email', 'file', 'password', 'radio', 'search', 'tel', 'text']),
   value: oneOfType([number, object, string]),

@@ -7,7 +7,7 @@ import { system } from '../../utils/'
 import { fieldStyles } from '../../common/styles/form'
 import { Label as StyledLabel } from '../Label/styles'
 
-export const StyledRadioTab = styled.div`
+export const RadioTab = styled.div`
   flex: 1;
 `
 

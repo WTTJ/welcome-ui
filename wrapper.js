@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import React from 'react'
+import { node } from 'prop-types'
 import { ThemeProvider } from '@xstyled/styled-components'
 import { Provider } from 'reakit'
 
@@ -21,5 +21,5 @@ export default function Wrapper({ children }) {
 }
 
 Wrapper.propTypes = {
-  children: PropTypes.node
+  children: node
 }

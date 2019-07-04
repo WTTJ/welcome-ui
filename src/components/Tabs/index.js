@@ -5,7 +5,7 @@ import { Tab as ReakitTab, TabList as ReakitTabList, TabPanel as ReakitTabPanel 
 import flattenChildren from 'react-flatten-children'
 
 import { getTransformStyle } from '../../utils/css'
-import { componentType } from '../../utils/propTypes'
+import { COMPONENT_TYPE } from '../../utils/propTypes'
 import { useForkRef } from '../../utils/ref'
 import { useViewportSize } from '../../utils/viewport'
 
@@ -70,7 +70,7 @@ export const TabList = React.forwardRef(({ as, children, ...props }, ref) => {
 })
 TabList.displayName = 'TabList'
 TabList.propTypes = {
-  as: componentType,
+  as: COMPONENT_TYPE,
   children: node
 }
 
@@ -87,7 +87,7 @@ export const Tab = React.forwardRef(({ as, children, stopId, ...props }, ref) =>
 })
 Tab.displayName = 'Tab'
 Tab.propTypes = {
-  as: componentType,
+  as: COMPONENT_TYPE,
   children: node,
   stopId: string.isRequired
 }
@@ -105,7 +105,7 @@ export const TabPanel = React.forwardRef(({ as, children, stopId, ...props }, re
 })
 TabPanel.displayName = 'TabPanel'
 TabPanel.propTypes = {
-  as: componentType,
+  as: COMPONENT_TYPE,
   children: node,
   stopId: string.isRequired
 }

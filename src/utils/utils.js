@@ -1,5 +1,4 @@
 import React from 'react'
-import { node, shape } from 'prop-types'
 import omit from 'lodash.omit'
 import {
   backgrounds,
@@ -22,6 +21,8 @@ import {
   width
 } from '@xstyled/system'
 import { getSystemPropTypes } from '@xstyled/prop-types'
+
+import { REFS_TYPE } from './propTypes'
 
 export const system = compose(
   backgrounds,
@@ -55,9 +56,7 @@ export const filterProps = (Component, excludedProps) => {
 
   FilteredProps.displayName = 'FilteredProps'
   FilteredProps.propTypes = {
-    _ref: shape({
-      current: node
-    })
+    _ref: REFS_TYPE
   }
 
   return FilteredProps

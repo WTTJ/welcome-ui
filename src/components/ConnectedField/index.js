@@ -4,6 +4,7 @@ import { Field as FinalField } from 'react-final-form'
 
 import { Field } from '../Field'
 import { getBaseType } from '../../utils/'
+import { COMPONENT_TYPE } from '../../utils/propTypes'
 
 export const ConnectedField = forwardRef(({ component, type, ...rest }, ref) => (
   <FinalField
@@ -18,7 +19,7 @@ export const ConnectedField = forwardRef(({ component, type, ...rest }, ref) => 
 ConnectedField.displayName = 'WelcomeField'
 
 ConnectedField.propTypes = {
-  component: func,
+  component: COMPONENT_TYPE,
   input: shape({
     name: string.isRequired,
     onBlur: func,

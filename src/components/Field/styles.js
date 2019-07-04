@@ -6,7 +6,7 @@ import { Label as StyledLabel } from '../Label/styles'
 import { radioTabStyles } from '../RadioTab/styles'
 import { StyledFieldGroup } from '../FieldGroup/styles'
 import { StyledToggle } from '../Toggle/styles'
-import { StyledCheckbox } from '../InputCheckbox/styles'
+import * as S from '../InputCheckbox/styles'
 
 const rowStyles = css`
   margin-right: sm;
@@ -31,7 +31,7 @@ export const StyledField = styled.div(
       ${props.checkableField && checkableFieldStyles};
       ${props.checked && th('fields.checkablelabel.checked')}
     }
-    ${StyledToggle}, ${StyledCheckbox} {
+    ${StyledToggle}, ${S.Checkbox} {
       margin-right: xxs;
     }
     ${props.fieldType === 'RadioTab' && radioTabStyles(props)}
