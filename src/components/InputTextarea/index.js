@@ -4,9 +4,9 @@ import { bool, func, node, number, oneOf, string } from 'prop-types'
 import { StyledTextarea } from './styles.js'
 
 export const InputTextarea = ({
+  _ref,
   autoFocus,
   disabled,
-  inputRef,
   maxLength,
   minRows = 5,
   name,
@@ -30,7 +30,7 @@ export const InputTextarea = ({
     onFocus={onFocus}
     onKeyDown={onKeyDown}
     placeholder={placeholder}
-    ref={inputRef}
+    ref={_ref}
     size={size}
     value={value}
     variant={variant}
@@ -38,9 +38,9 @@ export const InputTextarea = ({
 )
 
 InputTextarea.propTypes = {
+  _ref: node,
   autoFocus: bool,
   disabled: bool,
-  inputRef: node,
   maxLength: number,
   minRows: number,
   name: string,

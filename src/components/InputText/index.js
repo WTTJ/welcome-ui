@@ -4,9 +4,9 @@ import { bool, func, oneOf, string } from 'prop-types'
 import { StyledInputText } from './styles'
 
 export const InputText = ({
+  _ref,
   autoFocus,
   disabled,
-  inputRef,
   name,
   onBlur,
   onChange,
@@ -28,7 +28,7 @@ export const InputText = ({
     onFocus={onFocus}
     onKeyDown={onKeyDown}
     placeholder={placeholder}
-    ref={inputRef}
+    ref={_ref}
     size={size}
     type={type}
     value={value}
@@ -37,9 +37,9 @@ export const InputText = ({
 )
 
 InputText.propTypes = {
+  _ref: string,
   autoFocus: bool,
   disabled: bool,
-  inputRef: string,
   name: string,
   onBlur: func,
   onChange: func,

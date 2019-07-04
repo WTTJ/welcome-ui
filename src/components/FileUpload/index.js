@@ -22,7 +22,7 @@ export const FileUpload = ({
   accept = 'image/*',
   children = DefaultContent,
   disabled,
-  inputRef: fieldRef,
+  _ref,
   maxSize = DEFAULT_MAX_FILE_SIZE,
   multiple,
   name,
@@ -95,7 +95,7 @@ export const FileUpload = ({
         isDragActive,
         isDragAccept,
         isDragReject,
-        ref: fieldRef
+        ref: _ref
       })}
     >
       <input {...getInputProps({ name })} />
@@ -125,10 +125,10 @@ export const FileUpload = ({
 }
 
 FileUpload.propTypes = {
+  _ref: node,
   accept: string,
   children: func,
   disabled: bool,
-  inputRef: node,
   maxSize: number,
   multiple: bool,
   name: string.isRequired,

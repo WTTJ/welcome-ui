@@ -19,7 +19,7 @@ import { DEFAULT_TOOLBAR } from './constants'
 export const MarkdownEditor = ({
   autoFocus,
   disabled,
-  inputRef,
+  _ref,
   name,
   onBlur,
   onChange,
@@ -136,7 +136,7 @@ export const MarkdownEditor = ({
           spellChecker: false,
           status: false
         }}
-        ref={inputRef}
+        ref={_ref}
         value={value}
       />
     </S.Wrapper>

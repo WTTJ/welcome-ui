@@ -15,9 +15,9 @@ import * as S from './styles'
 const itemToString = item => (item ? item.label : '')
 
 export const Select = ({
+  _ref,
   autoFocus,
   disabled,
-  inputRef,
   isCreatable,
   isMultiple,
   isSearchable,
@@ -124,7 +124,7 @@ export const Select = ({
                 onFocus,
                 placeholder,
                 readOnly: !isSearchable,
-                ref: inputRef,
+                ref: _ref,
                 size,
                 value: inputValue,
                 variant
@@ -204,9 +204,9 @@ export const Select = ({
 }
 
 Select.propTypes = {
+  _ref: node,
   autoFocus: bool,
   disabled: bool,
-  inputRef: node,
   isCreatable: bool,
   isMultiple: bool,
   isSearchable: bool,
