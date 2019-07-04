@@ -52,7 +52,7 @@ export const Select = ({
     let newItems
     let isClearInput
 
-    if (item === null) {
+    if (!item) {
       // If removing item
       newItems = isMultiple ? values : []
       isClearInput = true
@@ -74,7 +74,13 @@ export const Select = ({
     handleChange(newItems)
   }
 
-  const handleOuterClick = () => setResults(options)
+  const handleOuterClick = e => {
+    // Reset input value if not selecting a new item
+    if (isMultiple && e.selectedItem) {
+      setInputValue('')
+    }
+    setResults(options)
+  }
 
   const getUnique = (item, values) => uniqBy([...values, item], item => item.value)
   const isTagExisting = value =>
