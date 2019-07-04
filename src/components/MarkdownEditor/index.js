@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { arrayOf, bool, func, node, oneOfType, string } from 'prop-types'
+import { arrayOf, bool, func, node, oneOfType, shape, string } from 'prop-types'
 
 // Only require CSS on client
 if (window) {
@@ -10,7 +10,7 @@ if (window) {
 import { createEvent, formFieldPropTypes } from '../../utils/'
 import { Icon } from '../Icon'
 
-import { Toolbar, toolbarItemPropTypes } from './Toolbar'
+import { Toolbar } from './Toolbar'
 import { EmojiPicker } from './EmojiPicker'
 import * as S from './styles'
 import { getCurrentToolsFromEditor } from './utils'
@@ -148,5 +148,11 @@ MarkdownEditor.propTypes = {
   autoFocus: func,
   disabled: bool,
   placeholder: oneOfType([string, node]),
-  toolbar: arrayOf(toolbarItemPropTypes)
+  toolbar: arrayOf(
+    shape({
+      action: oneOfType([func, string]),
+      icon: node,
+      name: string.isRequired
+    })
+  )
 }

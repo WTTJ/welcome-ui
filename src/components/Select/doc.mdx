@@ -16,14 +16,100 @@ import { Select } from './index'
 <Playground>
   {() => {
     const ITEMS = [
-      { value: 'react', label: 'React' },
       { value: 'angular', label: 'Angular' },
-      { value: 'vue', label: 'Vue' },
-      { value: 'ember', label: 'Ember' },
+      { value: 'backbone', label: 'Backbone' },
       { value: 'elm', label: 'Elm' },
-      { value: 'backbone', label: 'Backbone' }
+      { value: 'ember', label: 'Ember' },
+      { value: 'react', label: 'React' },
+      { value: 'vue', label: 'Vue' }
     ]
-    return <Select options={ITEMS} name="language" onChange={console.debug} required value="vue" />
+    return (
+      <Select options={ITEMS} name="default" onChange={console.debug} required value={ITEMS[2]} />
+    )
+  }}
+</Playground>
+
+## Multiple values
+
+Just add the `isMultiple` prop. Note: to be able to choose multiple values you must pass an array for the `value`.
+
+<Playground>
+  {() => {
+    const ITEMS = [
+      { value: 'angular', label: 'Angular' },
+      { value: 'backbone', label: 'Backbone' },
+      { value: 'elm', label: 'Elm' },
+      { value: 'ember', label: 'Ember' },
+      { value: 'react', label: 'React' },
+      { value: 'vue', label: 'Vue' }
+    ]
+    return (
+      <Select
+        isMultiple
+        options={ITEMS}
+        name="multiple"
+        onChange={console.debug}
+        required
+        value={[ITEMS[2]]}
+      />
+    )
+  }}
+</Playground>
+
+## Searchable
+
+To be able to filter (i.e. search) the results, add the `isSearchable` prop.
+
+<Playground>
+  {() => {
+    const ITEMS = [
+      { value: 'angular', label: 'Angular' },
+      { value: 'backbone', label: 'Backbone' },
+      { value: 'elm', label: 'Elm' },
+      { value: 'ember', label: 'Ember' },
+      { value: 'react', label: 'React' },
+      { value: 'vue', label: 'Vue' }
+    ]
+    return (
+      <Select
+        isSearchable
+        options={ITEMS}
+        name="searchable"
+        onChange={console.debug}
+        required
+        value={ITEMS[2]}
+      />
+    )
+  }}
+</Playground>
+
+## Creatable
+
+If your field is searchable (i.e. has the `isSearchable` prop, you can _add_ items by passing the `isCreatable` prop. The returned item will be of the shape:
+
+`{ value: 'name-to-be-kebab-cased', label: 'Name to be kebab-cased' }`
+
+<Playground>
+  {() => {
+    const ITEMS = [
+      { value: 'angular', label: 'Angular' },
+      { value: 'backbone', label: 'Backbone' },
+      { value: 'elm', label: 'Elm' },
+      { value: 'ember', label: 'Ember' },
+      { value: 'react', label: 'React' },
+      { value: 'vue', label: 'Vue' }
+    ]
+    return (
+      <Select
+        isCreatable
+        isSearchable
+        options={ITEMS}
+        name="creatable"
+        onChange={console.debug}
+        required
+        value={ITEMS[2]}
+      />
+    )
   }}
 </Playground>
 
@@ -32,23 +118,14 @@ import { Select } from './index'
 <Playground>
   {() => {
     const ITEMS = [
-      { value: 'react', label: 'React' },
       { value: 'angular', label: 'Angular' },
-      { value: 'vue', label: 'Vue' },
-      { value: 'ember', label: 'Ember' },
+      { value: 'backbone', label: 'Backbone' },
       { value: 'elm', label: 'Elm' },
-      { value: 'backbone', label: 'Backbone' }
+      { value: 'ember', label: 'Ember' },
+      { value: 'react', label: 'React' },
+      { value: 'vue', label: 'Vue' }
     ]
-    return (
-      <Select
-        disabled
-        options={ITEMS}
-        name="language"
-        onChange={console.debug}
-        required
-        value="vue"
-      />
-    )
+    return <Select disabled options={ITEMS} name="language" onChange={console.debug} required />
   }}
 </Playground>
 

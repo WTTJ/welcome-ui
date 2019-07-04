@@ -1,26 +1,37 @@
 import React, { forwardRef } from 'react'
-import { node, oneOf } from 'prop-types'
+import { func, node, oneOf } from 'prop-types'
+
+import { Icon } from '../Icon'
 
 import * as S from './styles'
 
-export const Tag = forwardRef(({ children, size = 'md', variant = 'default', ...rest }, ref) => (
-  <S.Tag
-    data-testid="tag"
-    length={children ? children.length : null}
-    ref={ref}
-    size={size}
-    variant={variant}
-    {...rest}
-  >
-    {children}
-  </S.Tag>
-))
+export const Tag = forwardRef(
+  ({ children, onRemove, size = 'md', variant = 'default', ...rest }, ref) => {
+    const handleClick = () => {
+      onRemove(rest['data-id'])
+    }
+
+    return (
+      <S.Tag
+        data-testid="tag"
+        length={children ? children.length : null}
+        ref={ref}
+        size={size}
+        variant={variant}
+        {...rest}
+      >
+        {children}
+        {onRemove && <Icon ml="sm" name="cross" onClick={handleClick} size="xs" />}
+      </S.Tag>
+    )
+  }
+)
 
 Tag.displayName = 'Tag'
 
 Tag.propTypes = {
   children: node,
-  /** set a border-radius to 1em  */
+  onRemove: func,
   shape: oneOf(['square', 'circle']),
   size: oneOf(['sm', 'md', 'lg']),
   variant: oneOf([

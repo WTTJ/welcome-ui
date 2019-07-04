@@ -4,6 +4,7 @@ import { th } from '@xstyled/system'
 import { fieldStyles } from '../../common/styles/form'
 import { system } from '../../utils/'
 import { Icon } from '../Icon/styles'
+import { Tag } from '../Tag/styles'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -34,12 +35,12 @@ export const Menu = styled.ul`
   overflow-scrolling: touch;
 `
 
-export const Items = styled.li(
-  ({ highlighted, selected }) => css`
+export const Item = styled.li(
+  ({ isExisting, isHighlighted, isSelected }) => css`
     color: nude.800;
-    cursor: default;
-    ${highlighted && th('fields.select.highlighted')};
-    ${selected && th('fields.select.selected')};
+    ${isHighlighted && th('fields.select.highlighted')};
+    ${isSelected && th('fields.select.selected')};
+    ${isExisting && th('fields.select.existing')};
     padding: sm;
     list-style: none;
     text-decoration: none;
@@ -47,23 +48,49 @@ export const Items = styled.li(
   `
 )
 
+export const Indicators = styled.div(
+  () => css`
+    position: absolute;
+    ${th('fields.sizes.lg')};
+    padding: 0;
+    top: 0;
+    right: 0;
+  `
+)
+
 export const DropDownIndicator = styled.button(
-  ({ isOpen }) => css`
+  ({ actionType, isOpen }) => css`
     &[type='button'] {
       appearance: none;
       border: none;
       background: transparent;
-      position: absolute;
       height: 100%;
-      padding: 0 lg;
-      top: 0;
-      right: 0;
+      padding: md lg;
       outline: none;
+      border-left: 1px solid ${th('colors.nude.200')};
+      cursor: pointer;
 
       ${Icon} {
         transform: ${isOpen ? 'rotate(180deg)' : 'rotate(0)'};
         transition: medium;
       }
     }
+
+    &:hover {
+      color: ${actionType === 'destructive' ? th('colors.danger.500') : th('colors.primary.500')};
+    }
   `
 )
+
+export const Tags = styled.div`
+  margin-top: lg;
+
+  ${Tag}:not(:last-child) {
+    margin-right: sm;
+    margin-bottom: sm;
+  }
+
+  &:empty {
+    display: none;
+  }
+`

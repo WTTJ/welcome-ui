@@ -4,6 +4,7 @@ export const getFields = theme => {
   const defaults = {
     color: colors.nude[800],
     'font-size': fontSizes.body3,
+    'line-height': toRem(16),
     'font-weight': fontWeights.regular,
     'background-color': colors.light[200],
     'border-color': colors.nude[200],
@@ -23,15 +24,15 @@ export const getFields = theme => {
     sizes: {
       sm: {
         height: '2rem',
-        padding: `${space.xs} ${space.sm}`
+        padding: `${space.xs} ${space.md}`
       },
       md: {
         height: '2.25rem',
-        padding: space.sm
+        padding: `${space.sm} ${space.md}`
       },
       lg: {
         height: '2.5rem',
-        padding: `${space.md} ${space.sm}`
+        padding: space.md
       }
     },
     focused: {
@@ -112,8 +113,13 @@ export const getFields = theme => {
       default: {
         'max-height': toRem(200)
       },
+      existing: {
+        color: colors.nude[500],
+        cursor: 'not-allowed'
+      },
       highlighted: {
-        'background-color': colors.light[500]
+        'background-color': colors.light[500],
+        cursor: 'default'
       },
       selected: {
         color: colors.dark[200],

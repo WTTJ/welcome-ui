@@ -7977,6 +7977,11 @@ lodash.get@^4.4.2:
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
   integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
 
+lodash.isequal@=4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+  integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
+
 lodash.ismatch@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.ismatch/-/lodash.ismatch-4.4.0.tgz#756cb5150ca3ba6f11085a78849645f188f85f37"
@@ -7986,6 +7991,11 @@ lodash.iteratee@^4.5.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.iteratee/-/lodash.iteratee-4.7.0.tgz#be4177db289a8ccc3c0990f1db26b5b22fc1554c"
   integrity sha1-vkF32yiajMw8CZDx2ya1si/BVUw=
+
+lodash.kebabcase@=4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.kebabcase/-/lodash.kebabcase-4.1.1.tgz#8489b1cb0d29ff88195cceca448ff6d6cc295c36"
+  integrity sha1-hImxyw0p/4gZXM7KRI/21swpXDY=
 
 lodash.memoize@^4.1.2:
   version "4.1.2"
@@ -8026,6 +8036,11 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
+
+lodash.uniqby@=4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/lodash.uniqby/-/lodash.uniqby-4.7.0.tgz#d99c07a669e9e6d24e1362dfe266c67616af1302"
+  integrity sha1-2ZwHpmnp5tJOE2Lf4mbGdhavEwI=
 
 lodash@4.17.11, "lodash@>=3.5 <5", lodash@^4.17.10, lodash@^4.17.11, lodash@^4.2.1:
   version "4.17.11"
@@ -8184,6 +8199,13 @@ marked@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.6.2.tgz#c574be8b545a8b48641456ca1dbe0e37b6dccc1a"
   integrity sha512-LqxwVH3P/rqKX4EKGz7+c2G9r98WeM/SW34ybhgNGhUQNKtf1GmmSkJ6cDGJ/t6tiyae49qRkpyTw2B9HOrgUA==
+
+match-sorter@=3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/match-sorter/-/match-sorter-3.1.1.tgz#a49889245da80a3d6a032eca0c18e21f265bb42a"
+  integrity sha512-Qlox3wRM/Q4Ww9rv1cBmYKNJwWVX/WC+eA3+1S3Fv4EOhrqyp812ZEfVFKQk0AP6RfzmPUUOwEZBbJ8IRt8SOw==
+  dependencies:
+    remove-accents "0.4.2"
 
 match-sorter@^3.0.0:
   version "3.0.0"
