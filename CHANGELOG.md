@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.14.1](https://github.com/WTTJ/welcome-ui/compare/v0.14.0...v0.14.1) (2019-07-05)
+
+
+### Bug Fixes
+
+* rewrite tooltip using reakit's tooltip ([#166](https://github.com/WTTJ/welcome-ui/issues/166)) ([a3c6069](https://github.com/WTTJ/welcome-ui/commit/a3c6069)), closes [#157](https://github.com/WTTJ/welcome-ui/issues/157)
+* styles on tags now stick to the mockups ([#165](https://github.com/WTTJ/welcome-ui/issues/165)) ([155478f](https://github.com/WTTJ/welcome-ui/commit/155478f))
+
+
+
 ## [0.14.0](https://github.com/WTTJ/welcome-ui/compare/v0.13.0...v0.14.0) (2019-07-04)
 
 
