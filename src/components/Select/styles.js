@@ -67,7 +67,6 @@ export const DropDownIndicator = styled.button(
       height: 100%;
       padding: md lg;
       outline: none;
-      border-left: 1px solid ${th('colors.nude.200')};
       cursor: pointer;
 
       ${Icon} {
