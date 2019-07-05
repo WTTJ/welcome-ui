@@ -9,8 +9,11 @@ import { createEvent, validateFileSize, validateMimeType } from '../../utils/'
 import { REFS_TYPE } from '../../utils/propTypes'
 
 // FileUpload
-import { Actions, FilePreview, StyledFileUpload } from './styles.js'
+import * as S from './styles.js'
 import { DefaultContent } from './default.js'
+
+// Export `FilePreviewImage` from styles
+export const FilePreviewImage = S.FilePreviewImage
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
@@ -89,7 +92,7 @@ export const FileUpload = ({
   })
 
   return (
-    <StyledFileUpload
+    <S.FileUpload
       {...getRootProps({
         disabled,
         handleRemoveFile,
@@ -100,7 +103,7 @@ export const FileUpload = ({
       })}
     >
       <input {...getInputProps({ name })} />
-      <FilePreview>
+      <S.FilePreview>
         {children({
           fileUrl: file && getPreviewUrl(file.preview),
           isDefault: !file && !isDragActive,
@@ -111,17 +114,17 @@ export const FileUpload = ({
           rootRef
         })}
         {!!file && (
-          <Actions>
+          <S.Actions>
             <Button onClick={open} size="sm" type="button" variant="secondary">
               <Icon name="pencil" size="sm" />
             </Button>
             <Button onClick={handleRemoveFile} size="sm" type="button" variant="primary-danger">
               <Icon name="cross" size="sm" />
             </Button>
-          </Actions>
+          </S.Actions>
         )}
-      </FilePreview>
-    </StyledFileUpload>
+      </S.FilePreview>
+    </S.FileUpload>
   )
 }
 
