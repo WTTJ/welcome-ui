@@ -4,7 +4,7 @@ import { bool, func, node, number, object, oneOf, oneOfType, string } from 'prop
 // Common
 import { RowContainer } from '../../common/styles/layout'
 import { getBaseType, getHintText, getVariant } from '../../utils/'
-import { COMPONENT_TYPE, DIRECTIONS_TYPE, SIZES_TYPE } from '../../utils/propTypes'
+import { COMPONENT_TYPE, DIRECTIONS_TYPE, SIZES_TYPE } from '../../utils'
 // Components
 import { Label } from '../Label'
 import { Hint } from '../Hint'
