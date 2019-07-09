@@ -1,8 +1,8 @@
 import styled, { css } from '@xstyled/styled-components'
 import { Button as ReakitButton } from 'reakit/Button'
-import { th } from '@xstyled/system'
+import { createSystemComponent, th } from '@xstyled/system'
 
-import { filterProps, system } from '../../utils/'
+import { createElement, system } from '../../utils/'
 
 const shapeStyles = (size, shape) => css`
   width: ${th(`buttons.sizes.${size}.height`)};
@@ -10,7 +10,7 @@ const shapeStyles = (size, shape) => css`
   border-radius: ${shape === 'circle' && th(`buttons.sizes.${size}.height`)};
 `
 
-export const Button = styled(filterProps(ReakitButton, ['shape', 'variant']))(
+export const Button = styled(createSystemComponent(createElement, ReakitButton, system))(
   ({ disabled, shape, size, variant }) => css`
     ${th(`buttons.${variant}`)};
     position: relative;
