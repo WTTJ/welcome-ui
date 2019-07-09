@@ -3,7 +3,7 @@ import { bool, node, oneOf, string } from 'prop-types'
 
 import { Badge } from '../Badge'
 import { Icon } from '../Icon'
-import { COMPONENT_TYPE } from '../../utils/propTypes'
+import { COMPONENT_TYPE } from '../../utils'
 
 import * as S from './styles'
 

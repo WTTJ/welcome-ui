@@ -1,7 +1,7 @@
 import React from 'react'
 import { bool, elementType, func, number, string } from 'prop-types'
 
-import { REFS_TYPE } from '../../utils/propTypes'
+import { REFS_TYPE } from '../../utils'
 
 import * as S from './styles'
 

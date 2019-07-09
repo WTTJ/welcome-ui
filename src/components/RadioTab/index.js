@@ -1,7 +1,7 @@
 import React from 'react'
 import { bool, func, string } from 'prop-types'
 
-import { REFS_TYPE, SIZES_TYPE } from '../../utils/propTypes'
+import { REFS_TYPE, SIZES_TYPE } from '../../utils'
 
 import { StyledInput } from './styles'
 

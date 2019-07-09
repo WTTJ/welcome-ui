@@ -6,7 +6,7 @@ import { useDropzone } from 'react-dropzone'
 import { Icon } from '../Icon'
 import { Button } from '../Button'
 import { createEvent, validateFileSize, validateMimeType } from '../../utils/'
-import { REFS_TYPE } from '../../utils/propTypes'
+import { REFS_TYPE } from '../../utils'
 
 // FileUpload
 import { Actions, FilePreview, StyledFileUpload } from './styles.js'

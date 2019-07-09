@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { bool, func, number, object, oneOfType, string } from 'prop-types'
 
-import { SIZES_TYPE } from '../../utils/propTypes'
+import { SIZES_TYPE } from '../../utils'
 
 import { getDate } from './utils'
 import * as S from './styles'

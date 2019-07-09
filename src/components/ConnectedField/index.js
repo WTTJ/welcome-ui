@@ -4,7 +4,7 @@ import { Field as FinalField } from 'react-final-form'
 
 import { Field } from '../Field'
 import { getBaseType } from '../../utils/'
-import { COMPONENT_TYPE } from '../../utils/propTypes'
+import { COMPONENT_TYPE } from '../../utils'
 
 export const ConnectedField = forwardRef(({ component, type, ...rest }, ref) => (
   <FinalField

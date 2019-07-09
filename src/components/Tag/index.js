@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import { func, node, oneOf } from 'prop-types'
 
 import { Icon } from '../Icon'
-import { SHAPES_TYPE, SIZES_TYPE } from '../../utils/propTypes'
+import { SHAPES_TYPE, SIZES_TYPE } from '../../utils'
 
 import * as S from './styles'
 
