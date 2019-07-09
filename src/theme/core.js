@@ -1,4 +1,5 @@
 import merge from 'lodash.merge'
+import { rpxTransformers } from '@xstyled/system'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -25,6 +26,8 @@ export const getBaseTheme = (options = {}) => {
   } = options
 
   let theme = {}
+
+  theme.transformers = { ...rpxTransformers }
 
   theme.toEm = px => `${px / DEFAULT_FONT_SIZE}em`
   theme.toRem = px => `${px / DEFAULT_FONT_SIZE}rem`
