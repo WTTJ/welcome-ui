@@ -22,6 +22,7 @@ export const getHintText = ({ connected, error, hint, touched, warning }) => {
 }
 
 const variantStateColors = {
+  focused: 'colors.primary.500',
   error: 'colors.danger.500',
   warning: 'colors.warning.500',
   info: 'colors.info.500'

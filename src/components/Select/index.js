@@ -128,11 +128,19 @@ export const Select = ({
                 ref: _ref,
                 size,
                 value: inputValue,
-                variant
+                variant: isOpen ? 'focused' : variant
               })}
             />
             <S.Indicators>
-              {inputValue && (
+              {!inputValue || isOpen ? (
+                <S.DropDownIndicator
+                  disabled={disabled}
+                  isOpen={isOpen}
+                  {...getToggleButtonProps()}
+                >
+                  <Icon name="down" size="xs" />
+                </S.DropDownIndicator>
+              ) : (
                 <S.DropDownIndicator
                   actionType="destructive"
                   disabled={disabled}
@@ -141,15 +149,6 @@ export const Select = ({
                   type="button"
                 >
                   <Icon name="cross" size="xs" />
-                </S.DropDownIndicator>
-              )}
-              {!isSearchable && (
-                <S.DropDownIndicator
-                  disabled={disabled}
-                  isOpen={isOpen}
-                  {...getToggleButtonProps()}
-                >
-                  <Icon name="down" size="xs" />
                 </S.DropDownIndicator>
               )}
             </S.Indicators>
