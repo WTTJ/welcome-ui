@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { arrayOf, bool, func, node, oneOfType, shape, string } from 'prop-types'
 
 // Only require CSS on client
-if (window) {
+if (typeof window !== 'undefined') {
   require('emoji-mart/css/emoji-mart.css')
   require('easymde/dist/easymde.min.css')
 }
