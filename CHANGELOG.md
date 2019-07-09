@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.14.2](https://github.com/WTTJ/welcome-ui/compare/v0.14.1...v0.14.2) (2019-07-09)
+
+
+### Bug Fixes
+
+* export FilePreviewImage ([#168](https://github.com/WTTJ/welcome-ui/issues/168)) ([2eabf1f](https://github.com/WTTJ/welcome-ui/commit/2eabf1f))
+* replace window check for ssr ([#175](https://github.com/WTTJ/welcome-ui/issues/175)) ([a6d9f76](https://github.com/WTTJ/welcome-ui/commit/a6d9f76))
+* simplify icons in Select ([#169](https://github.com/WTTJ/welcome-ui/issues/169)) ([fe434b1](https://github.com/WTTJ/welcome-ui/commit/fe434b1))
+
+
+
 ### [0.14.1](https://github.com/WTTJ/welcome-ui/compare/v0.14.0...v0.14.1) (2019-07-05)
 
 
