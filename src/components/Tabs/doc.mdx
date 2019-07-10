@@ -70,7 +70,7 @@ Add badges in tab.
 <Playground>
   {() => {
     const tab = useTabState({ selectedId: 'tab2' })
-    const getVariant = tab => (tab.selectedId === tab ? 'primary' : 'default')
+    const getVariant = item => (tab.selectedId === item ? 'primary' : 'default')
     return (
       <>
         <TabList aria-label="Tabs" {...tab}>
