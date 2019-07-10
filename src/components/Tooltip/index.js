@@ -2,7 +2,7 @@ import React from 'react'
 import { TooltipReference, useTooltipState } from 'reakit'
 import { func, node, oneOf, oneOfType } from 'prop-types'
 
-import { COMPONENT_TYPE } from '../../utils/'
+import { COMPONENT_TYPE, useNextFrame } from '../../utils/'
 
 import * as S from './styles'
 
@@ -14,7 +14,7 @@ export const Tooltip = ({ children, content, placement = 'top', ...props }) => {
       <TooltipReference {...tooltip}>
         {referenceProps => React.cloneElement(React.Children.only(children), referenceProps)}
       </TooltipReference>
-      <S.Tooltip {...tooltip} {...props}>
+      <S.Tooltip hidden={useNextFrame(tooltip.hidden)} {...tooltip} {...props}>
         {content}
       </S.Tooltip>
     </>
