@@ -221,7 +221,7 @@ Select.propTypes = {
       value: string
     })
   ),
-  placeholder: string,
+  placeholder: string.isRequired,
   searchable: bool,
   size: SIZES_TYPE,
   value: arrayOf(
