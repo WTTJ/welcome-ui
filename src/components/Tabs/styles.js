@@ -6,7 +6,7 @@ import { system } from '../../utils'
 export const TabList = styled.div`
   position: relative;
   width: 100%;
-  overflow-y: auto;
+  overflow-x: auto;
   display: flex;
   border: 0;
   ${th('tabs.tabs')}
