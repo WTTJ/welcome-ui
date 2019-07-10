@@ -57,8 +57,8 @@ describe('<Tag>', () => {
     )
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('width', '50px')
-    expect(tag).toHaveStyleRule('height', '50px')
+    expect(tag).toHaveStyleRule('width', '3.125rem')
+    expect(tag).toHaveStyleRule('height', '3.125rem')
   })
 
   it('should have same height and width when prop `shape` set to `square` and width prop only', () => {
@@ -81,8 +81,8 @@ describe('<Tag>', () => {
     )
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('width', '10px')
-    expect(tag).toHaveStyleRule('height', '10px')
+    expect(tag).toHaveStyleRule('width', '0.625rem')
+    expect(tag).toHaveStyleRule('height', '0.625rem')
   })
 
   it('should have correct border radius when prop `shape` set to `circle`', () => {

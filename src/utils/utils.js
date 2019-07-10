@@ -1,7 +1,5 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
-
 import React from 'react'
+import { createSystemComponent } from '@xstyled/system'
 import {
   backgrounds,
   basics,
@@ -43,8 +41,4 @@ export const system = compose(
   width
 )
 
-export const createElement = (component, { _ref, ...props }) =>
-  React.createElement(component, {
-    ...props,
-    ref: _ref
-  })
+export const filterComponent = Component => createSystemComponent(React, Component, system)

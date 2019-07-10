@@ -95,8 +95,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "@xstyled/styled-components": "^1.7.0",
-    "@xstyled/system": "^1.7.0",
+    "@xstyled/styled-components": "^1.8.3",
+    "@xstyled/system": "^1.8.2",
     "downshift": "=3.2.10",
     "emoji-mart": "=2.11.1",
     "lodash.concat": "^4.5.0",

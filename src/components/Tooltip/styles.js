@@ -1,10 +1,10 @@
 import styled from '@xstyled/styled-components'
-import { createSystemComponent, th } from '@xstyled/system'
+import { th } from '@xstyled/system'
 import { Tooltip as ReakitTooltip } from 'reakit'
 
-import { createElement, system } from '../../utils/'
+import { filterComponent, system } from '../../utils/'
 
-export const Tooltip = styled(createSystemComponent(createElement, ReakitTooltip, system))`
+export const Tooltip = styled(filterComponent(ReakitTooltip))`
   ${th('tooltips')};
   padding: sm;
   font-size: body4;

@@ -8,10 +8,10 @@ import * as S from './styles'
 export const Button = forwardRef(
   ({ as, children, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
     <S.Button
-      _ref={ref}
       data-testid="button"
       disabled={disabled}
       forwardedAs={as}
+      ref={ref}
       size={size}
       variant={disabled ? 'disabled' : variant}
       {...rest}

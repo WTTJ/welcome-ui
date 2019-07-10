@@ -25,7 +25,7 @@ const disabledStyles = css`
   }
 `
 
-export const StyledFileUpload = styled.div(
+export const FileUpload = styled.div(
   props => css`
     ${fieldStyles};
     ${th('fields.fileupload')};
