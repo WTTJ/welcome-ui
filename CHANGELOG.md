@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.14.3](https://github.com/WTTJ/welcome-ui/compare/v0.14.2...v0.14.3) (2019-07-10)
+
+
+### Bug Fixes
+
+* **tabs:** fix tab overflow ([#176](https://github.com/WTTJ/welcome-ui/issues/176)) ([f3793a3](https://github.com/WTTJ/welcome-ui/commit/f3793a3))
+
+
+
 ### [0.14.2](https://github.com/WTTJ/welcome-ui/compare/v0.14.1...v0.14.2) (2019-07-09)
 
 
