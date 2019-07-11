@@ -30,12 +30,20 @@ export const DateTimePicker = ({
 
   const [newDate, setNewDate] = useState(getDate(value, timeIntervals))
 
-  const focusOn = (kind, e) => {
+  const handleFocus = (kind, e) => {
     let onDatePickerFocus = datePickerProps.onFocus
     let onTimePickerFocus = timePickerProps.onFocus
     setFocusedInput(kind)
     kind === 'date' && onDatePickerFocus && onDatePickerFocus(e)
     kind === 'time' && onTimePickerFocus && onTimePickerFocus(e)
+  }
+
+  const handleBlur = (kind, e) => {
+    let onDatePickerBlur = datePickerProps.onBlur
+    let onTimePickerBlur = timePickerProps.onBlur
+    setFocusedInput(null)
+    kind === 'date' && onDatePickerBlur && onDatePickerBlur(e)
+    kind === 'time' && onTimePickerBlur && onTimePickerBlur(e)
   }
 
   const handleChange = (newDate, kind) => {
@@ -52,8 +60,6 @@ export const DateTimePicker = ({
     onChange && onChange(new Date(newDate))
   }
 
-  const clickOutside = () => setFocusedInput(null)
-
   return (
     <S.DateTimePicker
       data-testid="dateTimePicker"
@@ -67,9 +73,9 @@ export const DateTimePicker = ({
           className="date-picker"
           dateFormat={datePickerDateFormat}
           {...datePickerProps}
+          onBlur={e => handleBlur('date', e)}
           onChange={date => handleChange(date, 'date')}
-          onClickOutside={clickOutside}
-          onFocus={e => focusOn('date', e)}
+          onFocus={e => handleFocus('date', e)}
           selected={newDate}
           size={size}
         />
@@ -81,9 +87,9 @@ export const DateTimePicker = ({
           dateFormat={timePickerDateFormat}
           timeIntervals={timeIntervals}
           {...timePickerProps}
+          onBlur={e => handleBlur('time', e)}
           onChange={time => handleChange(time, 'time')}
-          onClickOutside={clickOutside}
-          onFocus={e => focusOn('time', e)}
+          onFocus={e => handleFocus('time', e)}
           selected={newDate}
           showTimeSelect
           showTimeSelectOnly
