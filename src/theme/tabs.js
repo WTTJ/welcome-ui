@@ -2,10 +2,11 @@ export const getTabs = theme => {
   const { borderWidths, colors, fontSizes, fontWeights, space } = theme
 
   return {
-    tabs: {
-      'border-style': 'solid',
-      'border-color': colors.nude[200],
-      'border-bottom-width': borderWidths.sm
+    tabsBorder: {
+      bottom: borderWidths.sm,
+      width: '100%',
+      height: borderWidths.sm,
+      'background-color': colors.nude[200]
     },
     item: {
       default: {
@@ -27,10 +28,10 @@ export const getTabs = theme => {
       'margin-top': space.xl
     },
     activeBar: {
+      bottom: 0,
       background: colors.primary[500],
       height: '3px',
-      'border-radius': '3px',
-      bottom: `-${borderWidths.sm}`
+      'border-radius': '3px'
     }
   }
 }
