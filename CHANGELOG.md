@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.15.0](https://github.com/WTTJ/welcome-ui/compare/v0.14.3...v0.15.0) (2019-07-11)
+
+
+### Bug Fixes
+
+* add Delay component to delay tooltip's display ([#189](https://github.com/WTTJ/welcome-ui/issues/189)) ([547b7fb](https://github.com/WTTJ/welcome-ui/commit/547b7fb)), closes [#185](https://github.com/WTTJ/welcome-ui/issues/185)
+* don't use onClickOutside prop from datePicker ([#183](https://github.com/WTTJ/welcome-ui/issues/183)) ([96e0615](https://github.com/WTTJ/welcome-ui/commit/96e0615)), closes [#155](https://github.com/WTTJ/welcome-ui/issues/155)
+* make placeholder required for select ([#181](https://github.com/WTTJ/welcome-ui/issues/181)) ([31d764c](https://github.com/WTTJ/welcome-ui/commit/31d764c))
+* remove flatMap from fonts which causes errors ([#192](https://github.com/WTTJ/welcome-ui/issues/192)) ([e0637c2](https://github.com/WTTJ/welcome-ui/commit/e0637c2)), closes [#182](https://github.com/WTTJ/welcome-ui/issues/182)
+* remove react-final-form dependency ([#193](https://github.com/WTTJ/welcome-ui/issues/193)) ([7c2f72e](https://github.com/WTTJ/welcome-ui/commit/7c2f72e))
+* ugly vertical scroll on tabs ([#187](https://github.com/WTTJ/welcome-ui/issues/187)) ([04ee921](https://github.com/WTTJ/welcome-ui/commit/04ee921)), closes [#186](https://github.com/WTTJ/welcome-ui/issues/186)
+
+
+### Features
+
+* allow tooltip to follow the cursor or not ([#190](https://github.com/WTTJ/welcome-ui/issues/190)) ([6217eb3](https://github.com/WTTJ/welcome-ui/commit/6217eb3))
+
+
+
 ### [0.14.3](https://github.com/WTTJ/welcome-ui/compare/v0.14.2...v0.14.3) (2019-07-10)
 
 
