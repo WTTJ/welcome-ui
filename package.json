@@ -117,8 +117,7 @@
   },
   "peerDependencies": {
     "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "react-final-form": "^6.0.0"
+    "react-dom": "^16.8.0"
   },
   "resolutions": {
     "docz/**/webpack": "4.31.0"
