@@ -10,9 +10,27 @@ import Popper from 'popper.js'
 import { TooltipReference, useDialogState, useTooltipState } from 'reakit'
 import { bool, func, node, oneOf, oneOfType } from 'prop-types'
 
-import { COMPONENT_TYPE, useNextFrame } from '../../utils/'
+import { COMPONENT_TYPE } from '../../utils/'
 
 import * as S from './styles'
+
+const TOOLTIP_VISIBILITY_DELAY = 50
+
+const useDelayedVisibility = (value, duration) => {
+  const [visibility, setVisibility] = useState(null)
+  useEffect(() => {
+    let id
+    if (value) {
+      id = setTimeout(() => {
+        setVisibility({ visibility: 'visible' })
+      }, duration)
+    } else {
+      setVisibility({ visibility: 'hidden' })
+    }
+    return () => id && clearTimeout(id)
+  }, [value, duration])
+  return visibility
+}
 
 const useMouseTooltipState = ({ placement: originalPlacement, ...rest } = {}) => {
   const popper = useRef(null)
@@ -93,13 +111,14 @@ const useMouseTooltipState = ({ placement: originalPlacement, ...rest } = {}) =>
 export const Tooltip = ({ children, content, fixed = false, placement = 'top', ...props }) => {
   const useCorrectTooltipState = fixed ? useTooltipState : useMouseTooltipState
   const tooltip = useCorrectTooltipState({ placement })
+  const visibilityStyles = useDelayedVisibility(tooltip.visible, TOOLTIP_VISIBILITY_DELAY)
 
   return (
     <>
       <TooltipReference {...tooltip}>
         {referenceProps => cloneElement(React.Children.only(children), referenceProps)}
       </TooltipReference>
-      <S.Tooltip hidden={useNextFrame(tooltip.hidden)} {...tooltip} {...props}>
+      <S.Tooltip style={visibilityStyles} {...tooltip} {...props}>
         {content}
       </S.Tooltip>
     </>
