@@ -36,7 +36,6 @@ export const fonts = () => ({ theme: { fontFaces } }) => {
     Object.entries(fontFaces)
       // Ignore anything else than array
       .filter(([, variations]) => Array.isArray(variations))
-      .flatMap(([name, variations]) => variations.map(variation => getFont({ name, ...variation })))
-      .flat()
+      .map(([name, variations]) => variations.map(variation => getFont({ name, ...variation })))
   )
 }
