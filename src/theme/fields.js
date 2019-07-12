@@ -21,6 +21,20 @@ export const getFields = theme => {
       'background-color': colors.light[500],
       'pointer-events': 'none'
     },
+    checked: {
+      ...defaults,
+      'background-color': colors.primary[500],
+      'border-color': colors.primary[500],
+      color: colors.light[100],
+      '&::after': {
+        opacity: 1
+      }
+    },
+    focused: {
+      ...defaults,
+      'background-color': colors.light[100],
+      'border-color': colors.primary[500]
+    },
     sizes: {
       sm: {
         height: '2rem',
@@ -34,11 +48,6 @@ export const getFields = theme => {
         height: '2.5rem',
         padding: space.md
       }
-    },
-    focused: {
-      ...defaults,
-      'background-color': colors.light[100],
-      'border-color': colors.primary[500]
     },
     placeholder: {
       color: colors.nude[600]
@@ -134,6 +143,7 @@ export const getFields = theme => {
       default: {
         width: toRem(22),
         'background-color': colors.nude[200],
+        'border-color': colors.nude[200],
         '&::after': {
           ...defaults,
           'background-color': colors.light[200],
@@ -142,6 +152,7 @@ export const getFields = theme => {
       },
       checked: {
         'background-color': colors.primary[500],
+        'border-color': colors.primary[500],
         '&::after': {
           'border-color': colors.primary[500]
         }

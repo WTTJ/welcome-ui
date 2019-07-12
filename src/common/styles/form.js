@@ -22,4 +22,8 @@ export const fieldStyles = ({ fieldType, size, variant }) => css`
   &[disabled] {
     ${th('fields.disabled')};
   }
+
+  &[aria-checked='true'] {
+    ${th('fields.checked')};
+  }
 `

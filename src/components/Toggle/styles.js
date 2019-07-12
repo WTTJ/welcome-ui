@@ -1,11 +1,12 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
+import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
 
-import { system } from '../../utils/'
+import { filterComponent, system } from '../../utils/'
 
 const afterCheckedStyles = css`
   &::after {
-    left: calc(100% - ${th.borderWidth('sm')});
+    left: 100%;
     transform: translateX(-100%);
   }
 `
@@ -20,15 +21,21 @@ const checkedDisabledStyles = css`
   ${afterCheckedStyles}
 `
 
-export const StyledToggle = styled.div(({ checked, disabled, order = '-1' }) => {
-  const toggleSize = th('fields.toggles.default.width')
-  return css`
+export const StyledToggle = styled(filterComponent(ReakitCheckbox))(
+  ({ checked, disabled, order = '-1' }) => {
+    const toggleSize = th('fields.toggles.default.width')
+
+    return css`
+    appearance: none;
+    background: transparent;
+    border: ${th.borderWidth('sm')} solid;
+    outline: none;
     ${th('fields.toggles.default')};
     ${disabled && th('fields.toggles.disabled')};
     position: relative;
     display: block;
     width: calc(${toggleSize} * 2);
-    height: ${toggleSize};
+    height: calc(${toggleSize} + 2 * ${th.borderWidth('sm')});
     cursor: ${disabled ? 'not-allowed' : 'pointer'};
     border-radius: ${toggleSize};
     transition: 0.3s;
@@ -37,10 +44,10 @@ export const StyledToggle = styled.div(({ checked, disabled, order = '-1' }) => 
     &::after {
       content: '';
       position: absolute;
-      top: ${th.borderWidth('sm')};
-      left: ${th.borderWidth('sm')};
-      width: calc(${toggleSize} - 2 * ${th.borderWidth('sm')});
-      height: calc(${toggleSize} - 2 * ${th.borderWidth('sm')});
+      top: 0;
+      left: 0;
+      width: ${toggleSize};
+      height: ${toggleSize};
       border-radius: ${toggleSize};
       transition: 0.3s;
     }
@@ -49,14 +56,13 @@ export const StyledToggle = styled.div(({ checked, disabled, order = '-1' }) => 
       width: ${disabled ? null : '55%'};
     }
 
-    input {
-      appearance: none;
-      border: none;
-      background: transparent;
+    &:focus {
+      border-color: ${th('colors.primary.500')};
     }
 
     ${checked && !disabled && checkedStyles}
     ${checked && disabled && checkedDisabledStyles}
     ${system};
   `
-})
+  }
+)

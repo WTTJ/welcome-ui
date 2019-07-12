@@ -1,19 +1,12 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
+import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
 
-import { system } from '../../utils/'
+import { filterComponent, system } from '../../utils/'
 import { fieldStyles } from '../../common/styles/form'
 
-const checkedStyles = css`
-  ${th('fields.checkboxes.checked')};
-
-  &::after {
-    opacity: 1;
-  }
-`
-
-export const Checkbox = styled.div(
-  ({ checked, order = '-1', type }) => css`
+export const Checkbox = styled(filterComponent(ReakitCheckbox))(
+  ({ order = '-1', type }) => css`
     ${fieldStyles};
     ${th('fields.checkboxes.default')}
     position: relative;
@@ -37,13 +30,6 @@ export const Checkbox = styled.div(
       transition: medium;
     }
 
-    input {
-      appearance: none;
-      border: none;
-      background: transparent;
-    }
-
-    ${checked && checkedStyles};
     ${system};
   `
 )

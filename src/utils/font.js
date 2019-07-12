@@ -30,10 +30,10 @@ function getFont(descriptor) {
   `
 }
 
-export const fonts = () => ({ theme: { fontFaces } }) => {
-  if (!fontFaces) return null
+export const fonts = () => ({ theme }) => {
+  if (!theme || !theme.fontFaces) return null
   return (
-    Object.entries(fontFaces)
+    Object.entries(theme.fontFaces)
       // Ignore anything else than array
       .filter(([, variations]) => Array.isArray(variations))
       .map(([name, variations]) => variations.map(variation => getFont({ name, ...variation })))
