@@ -24,6 +24,6 @@ export const fieldStyles = ({ size, type, variant }) => css`
   }
 
   &[aria-checked='true'] {
-    ${th(`fields.${type}.checked`)};
+    ${(type === 'radio' || type === 'checkbox') && th(`fields.${type}.checked`)};
   }
 `
