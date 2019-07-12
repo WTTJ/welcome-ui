@@ -21,7 +21,7 @@ const checkedDisabledStyles = css`
   ${afterCheckedStyles}
 `
 
-export const StyledToggle = styled(filterComponent(ReakitCheckbox))(
+export const Toggle = styled(filterComponent(ReakitCheckbox))(
   ({ checked, disabled, order = '-1' }) => {
     const toggleSize = th('fields.toggles.default.width')
 

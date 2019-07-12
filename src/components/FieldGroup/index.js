@@ -3,13 +3,13 @@ import { node, string } from 'prop-types'
 
 import { Label } from '../Label'
 
-import { StyledFieldGroup } from './styles'
+import * as S from './styles'
 
 export const FieldGroup = forwardRef(({ children, label }, ref) => (
-  <StyledFieldGroup ref={ref}>
+  <S.FieldGroup ref={ref}>
     <Label as="legend">{label}</Label>
     {children}
-  </StyledFieldGroup>
+  </S.FieldGroup>
 ))
 
 FieldGroup.displayName = 'FieldGroup'

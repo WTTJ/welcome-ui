@@ -3,7 +3,7 @@ import { node, number, oneOf } from 'prop-types'
 
 import { COMPONENT_TYPE } from '../../utils'
 
-import { StyledText } from './styles'
+import * as S from './styles'
 
 const TAG_NAMES = {
   h1: 'h1',
@@ -24,9 +24,9 @@ export const Text = forwardRef(({ as, children, lines, variant = 'body1' }, ref)
   const tagName = as || TAG_NAMES[variant]
 
   return (
-    <StyledText as={tagName} data-testid="text" lines={lines} ref={ref} variant={variant}>
+    <S.Text as={tagName} data-testid="text" lines={lines} ref={ref} variant={variant}>
       {children}
-    </StyledText>
+    </S.Text>
   )
 })
 

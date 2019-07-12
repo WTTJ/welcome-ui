@@ -5,13 +5,13 @@ import { overflowEllipsis } from '../../common/styles/text'
 import { system } from '../../utils/'
 // common form styles
 import { fieldStyles } from '../../common/styles/form'
-import { Label as StyledLabel } from '../Label/styles'
+import { Label } from '../Label/styles'
 
 export const RadioTab = styled.div`
   flex: 1;
 `
 
-export const StyledInput = styled.input`
+export const Input = styled.input`
   position: absolute;
   top: 0;
   left: 0;
@@ -30,12 +30,12 @@ const columnStyles = css`
   &:first-child {
     margin-top: 0;
 
-    ${StyledLabel} {
+    ${Label} {
       border-radius: md md 0 0;
     }
   }
 
-  &:last-child ${StyledLabel} {
+  &:last-child ${Label} {
     border-radius: 0 0 md md;
   }
 `
@@ -47,12 +47,12 @@ const rowStyles = css`
   &:first-child {
     margin-left: 0;
 
-    ${StyledLabel} {
+    ${Label} {
       border-radius: md 0 0 md;
     }
   }
 
-  &:last-child ${StyledLabel} {
+  &:last-child ${Label} {
     border-radius: 0 md md 0;
   }
 `
@@ -62,7 +62,7 @@ export const radioTabStyles = props => css`
   min-width: 0;
   min-height: 0;
   margin: 0;
-  ${StyledLabel} {
+  ${Label} {
     ${fieldStyles};
     display: block;
     text-align: center;

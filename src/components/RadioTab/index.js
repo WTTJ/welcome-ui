@@ -3,7 +3,7 @@ import { bool, func, string } from 'prop-types'
 
 import { REFS_TYPE, SIZES_TYPE } from '../../utils'
 
-import { StyledInput } from './styles'
+import * as S from './styles'
 
 export const RadioTab = ({
   _ref,
@@ -18,7 +18,7 @@ export const RadioTab = ({
   size = 'lg',
   value
 }) => (
-  <StyledInput
+  <S.Input
     autoFocus={autoFocus}
     checked={checked}
     disabled={disabled}

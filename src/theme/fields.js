@@ -14,21 +14,21 @@ export const getFields = theme => {
     outline: 'none'
   }
 
+  const checked = {
+    'background-color': colors.primary[500],
+    'border-color': colors.primary[500],
+    color: colors.light[100],
+    '&::after': {
+      opacity: 1
+    }
+  }
+
   return {
     default: defaults,
     disabled: {
       ...defaults,
       'background-color': colors.light[500],
       'pointer-events': 'none'
-    },
-    checked: {
-      ...defaults,
-      'background-color': colors.primary[500],
-      'border-color': colors.primary[500],
-      color: colors.light[100],
-      '&::after': {
-        opacity: 1
-      }
     },
     focused: {
       ...defaults,
@@ -71,14 +71,22 @@ export const getFields = theme => {
         'font-weight': fontWeights.bold
       }
     },
-    checkboxes: {
+    checkbox: {
       default: {
         width: toRem(15),
         height: toRem(15)
       },
+      checked
+    },
+    radio: {
+      default: {
+        width: toRem(15),
+        height: toRem(15),
+        'border-radius': '50%'
+      },
       checked: {
-        'background-color': colors.primary[500],
-        'border-color': colors.primary[500]
+        ...checked,
+        'border-radius': '50%'
       }
     },
     fileupload: {

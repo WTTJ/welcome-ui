@@ -2,11 +2,12 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { system } from '../../utils/'
-import { Label as StyledLabel } from '../Label/styles'
+import { Label } from '../Label/styles'
 import { radioTabStyles } from '../RadioTab/styles'
-import { StyledFieldGroup } from '../FieldGroup/styles'
-import { StyledToggle } from '../Toggle/styles'
-import * as S from '../InputCheckbox/styles'
+import { FieldGroup } from '../FieldGroup/styles'
+import { InputRadio } from '../InputRadio/styles'
+import { InputCheckbox } from '../InputCheckbox/styles'
+import { Toggle } from '../Toggle/styles'
 
 const rowStyles = css`
   margin-right: sm;
@@ -20,18 +21,18 @@ const checkableFieldStyles = css`
   ${th('fields.checkablelabel.default')};
 `
 
-export const StyledField = styled.div(
+export const Field = styled.div(
   props => css`
-    ${StyledFieldGroup} {
+    ${FieldGroup} {
       margin-bottom: ${props.checkableField && 'xxs'};
     }
-    ${StyledLabel} {
+    ${Label} {
       ${props.flexDirection === 'row' && rowStyles};
       ${props.flexDirection === 'column' && columnStyles};
       ${props.checkableField && checkableFieldStyles};
       ${props.checked && th('fields.checkablelabel.checked')}
     }
-    ${StyledToggle}, ${S.Checkbox} {
+    ${Toggle}, ${InputCheckbox}, ${InputRadio} {
       margin-right: xxs;
     }
     ${props.fieldType === 'RadioTab' && radioTabStyles(props)}

@@ -5,9 +5,14 @@ import { REFS_TYPE } from '../../utils'
 
 import * as S from './styles'
 
-export const InputCheckbox = ({ _ref, Component = S.Checkbox, name, order, ...rest }) => (
-  <Component id={name} name={name} order={order} ref={_ref} {...rest} />
-)
+export const InputCheckbox = ({
+  _ref,
+  Component = S.InputCheckbox,
+  name,
+  order,
+  value,
+  ...rest
+}) => <Component id={name} name={name} order={order} ref={_ref} {...rest} />
 
 InputCheckbox.type = 'InputCheckbox'
 
@@ -23,5 +28,6 @@ InputCheckbox.propTypes = {
   onFocus: func,
   onKeyDown: func,
   order: number,
-  type: string
+  type: string,
+  value: string
 }

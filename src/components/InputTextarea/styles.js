@@ -4,7 +4,7 @@ import { th } from '@xstyled/system'
 import { fieldStyles } from '../../common/styles/form'
 import { system } from '../../utils/'
 
-export const StyledTextarea = styled.textarea(
+export const Textarea = styled.textarea(
   () => css`
     ${fieldStyles};
     ${th('fields.textarea')};

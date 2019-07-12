@@ -2,13 +2,13 @@ import React, { cloneElement } from 'react'
 import { bool, node, string } from 'prop-types'
 
 import { DIRECTIONS_TYPE } from '../../utils'
-import { StyledFieldGroup } from '../FieldGroup/styles'
+import { FieldGroup } from '../FieldGroup'
 import { Label } from '../Label'
 
 import * as S from './styles'
 
 export const RadioGroup = ({ children, flexDirection, label, required }) => (
-  <StyledFieldGroup>
+  <FieldGroup>
     {label && (
       <Label as="legend" required={required}>
         {label}
@@ -17,7 +17,7 @@ export const RadioGroup = ({ children, flexDirection, label, required }) => (
     <S.Radios flexDirection={flexDirection}>
       {children.map(child => cloneElement(child, { key: child.props.value, flexDirection }))}
     </S.Radios>
-  </StyledFieldGroup>
+  </FieldGroup>
 )
 
 RadioGroup.propTypes = {
