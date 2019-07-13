@@ -5,9 +5,8 @@ import { getVariantStateColor, system } from '../../utils/'
 
 export const Hint = styled.div(
   props => css`
-    font-family: texts;
-    color: ${getVariantStateColor(props.variant)};
     ${th('fields.hint')};
+    color: ${getVariantStateColor(props.variant)};
     margin-top: sm;
     ${system};
   `

@@ -21,7 +21,7 @@ export const getHintText = ({ connected, error, hint, touched, warning }) => {
   }
 }
 
-const variantStateColors = {
+const VARIANTS = {
   focused: 'colors.primary.500',
   error: 'colors.danger.500',
   warning: 'colors.warning.500',
@@ -29,7 +29,7 @@ const variantStateColors = {
 }
 
 export const getVariantStateColor = variant => {
-  const variantColor = variantStateColors[variant]
+  const variantColor = VARIANTS[variant]
   return variantColor ? th(variantColor) : null
 }
 
@@ -45,7 +45,7 @@ const variantColors = {
   secondary: 'colors.secondary.500',
   turquoize: 'colors.sub.turquoize',
   yellow: 'colors.sub.yellow',
-  ...variantStateColors
+  ...VARIANTS
 }
 
 export const getVariantColor = variant => {

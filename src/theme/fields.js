@@ -44,6 +44,7 @@ export const getFields = theme => {
       color: colors.nude[600]
     },
     hint: {
+      color: colors.nude[600],
       'font-size': fontSizes.body3,
       'font-weight': fontWeights.regular
     },

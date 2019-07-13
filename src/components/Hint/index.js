@@ -12,8 +12,6 @@ export const Hint = forwardRef(({ children, variant }, ref) => (
 Hint.displayName = 'Hint'
 
 Hint.propTypes = {
-  /** Node component from parent */
   children: node,
-  /** Variant of component */
   variant: oneOf(['warning', 'error'])
 }
