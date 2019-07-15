@@ -41,4 +41,11 @@ export const system = compose(
   width
 )
 
-export const filterComponent = Component => createSystemComponent(React, Component, system)
+export const filterComponent = (Component, omitProps = []) => {
+  const unallowedProps = {
+    meta: {
+      props: [...omitProps, ...system.meta.props]
+    }
+  }
+  return createSystemComponent(React, Component, unallowedProps)
+}
