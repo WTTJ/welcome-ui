@@ -1,16 +1,4 @@
-import { Element } from 'react'
-import {
-  array,
-  bool,
-  func,
-  instanceOf,
-  number,
-  object,
-  oneOf,
-  oneOfType,
-  shape,
-  string
-} from 'prop-types'
+import { array, bool, func, number, object, oneOf, oneOfType, shape, string } from 'prop-types'
 
 export const reduxFormFieldPropTypes = {
   input: shape({
@@ -41,8 +29,6 @@ export const formFieldDefaultProps = {
   required: false,
   autoFocus: false
 }
-
-export const REFS_TYPE = oneOfType([func, shape({ current: instanceOf(Element) })])
 
 export const COMPONENT_TYPE = oneOfType([func, object, string])
 

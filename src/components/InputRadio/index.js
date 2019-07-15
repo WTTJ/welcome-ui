@@ -1,30 +1,28 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { bool, elementType, func, number, string } from 'prop-types'
 import { useRadioState } from 'reakit/Radio'
 
-import { REFS_TYPE } from '../../utils'
-
 import * as S from './styles'
 
-export const InputRadio = ({ _ref, name, order, value, ...rest }) => {
+export const InputRadio = forwardRef(({ name, order, value, ...rest }, ref) => {
   const radio = useRadioState()
   return (
     <S.InputRadio
       id={value}
       name={name}
       order={order}
-      ref={_ref}
+      ref={ref}
       value={value}
       {...rest}
       {...radio}
     />
   )
-}
+})
 
 InputRadio.type = 'InputRadio'
+InputRadio.displayName = 'InputRadio'
 
 InputRadio.propTypes = {
-  _ref: REFS_TYPE,
   autoFocus: bool,
   checked: bool,
   Component: elementType,

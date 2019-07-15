@@ -12,6 +12,7 @@ import { Form } from 'react-final-form'
 import { Box } from './components/Box'
 import { Button } from './components/Button'
 import { Icon } from './components/Icon'
+import { Label } from './components/Label'
 import { ConnectedField } from './components/ConnectedField'
 import { Field } from './components/Field'
 import { InputText } from './components/InputText'
@@ -27,6 +28,7 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
   {() => {
     const connectedInputRef = createRef()
     const normalInputRef = useRef(null)
+    const nakedInputRef = useRef(null)
     const fileUploadRef = useRef(null)
     const buttonRef = useRef(null)
     //
@@ -35,6 +37,9 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
     }
     const handleNormalClick = () => {
       normalInputRef.current.focus()
+    }
+    const handleNakedClick = () => {
+      nakedInputRef.current.focus()
     }
     const handleFileUploadClick = () => {
       fileUploadRef.current.focus()
@@ -62,6 +67,8 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
               ref={normalInputRef}
               mb={20}
             />
+            <Label>Naked field</Label>
+            <InputText name="naked" ref={nakedInputRef} mb={20} />
             <Field
               name="avatar"
               component={FileUpload}
@@ -73,6 +80,9 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
             <Button onClick={handleConnectedClick}>Connected field</Button>
             <Button onClick={handleNormalClick} ml={20}>
               Normal field
+            </Button>
+            <Button onClick={handleNakedClick} ml={20}>
+              Naked field
             </Button>
             <Button onClick={handleFileUploadClick} ml={20}>
               File upload field

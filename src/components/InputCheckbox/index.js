@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { bool, elementType, func, number, string } from 'prop-types'
-
-import { REFS_TYPE } from '../../utils'
 
 import * as S from './styles'
 
-export const InputCheckbox = ({ _ref, Component = S.InputCheckbox, name, order, ...rest }) => (
-  <Component id={name} name={name} order={order} ref={_ref} {...rest} />
+export const InputCheckbox = forwardRef(
+  ({ Component = S.InputCheckbox, name, order, ...rest }, ref) => (
+    <Component id={name} name={name} order={order} ref={ref} {...rest} />
+  )
 )
 
 InputCheckbox.type = 'InputCheckbox'
+InputCheckbox.displayName = 'InputCheckbox'
 
 InputCheckbox.propTypes = {
-  _ref: REFS_TYPE,
   autoFocus: bool,
   checked: bool,
   Component: elementType,

@@ -60,7 +60,6 @@ export const Field = forwardRef(
 
     const field = (
       <Component
-        _ref={ref}
         autoFocus={autoFocus}
         checked={checked}
         disabled={disabled}
@@ -71,6 +70,7 @@ export const Field = forwardRef(
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         placeholder={placeholder}
+        ref={ref}
         required={required}
         size={size}
         type={baseType}
