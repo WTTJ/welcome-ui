@@ -2,10 +2,12 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
 
-import { filterComponent, system } from '../../utils/'
+import { filterComponent, FINAL_FORM_META_TYPES, system } from '../../utils/'
 import { fieldStyles } from '../../common/styles/form'
 
-export const InputCheckbox = styled(filterComponent(ReakitCheckbox))(
+export const InputCheckbox = styled(
+  filterComponent(ReakitCheckbox, Object.keys(FINAL_FORM_META_TYPES))
+)(
   ({ order = '-1' }) => css`
     ${fieldStyles};
     ${th('fields.checkbox.default')}
@@ -24,7 +26,6 @@ export const InputCheckbox = styled(filterComponent(ReakitCheckbox))(
       left: 0;
       width: 9;
       margin: auto;
-      line-height: 100%;
       text-align: center;
       color: light.200;
       opacity: 0;

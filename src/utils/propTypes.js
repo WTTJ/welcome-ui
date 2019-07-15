@@ -31,6 +31,24 @@ export const formFieldDefaultProps = {
 }
 
 export const COMPONENT_TYPE = oneOfType([func, object, string])
+export const FINAL_FORM_META_TYPES = {
+  active: bool,
+  data: object,
+  dirty: bool,
+  dirtySinceLastSubmit: bool,
+  error: object,
+  initial: string,
+  invalid: bool,
+  modified: bool,
+  pristine: bool,
+  submitError: object,
+  submitFailed: bool,
+  submitSucceeded: bool,
+  submitting: bool,
+  touched: bool,
+  valid: bool,
+  visited: bool
+}
 
 export const VARIANTS_TYPE = oneOf(['error', 'info', 'valid', 'warning'])
 export const DIRECTIONS_TYPE = oneOf(['row', 'container'])
