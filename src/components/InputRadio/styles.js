@@ -17,19 +17,20 @@ export const InputRadio = styled(filterComponent(ReakitRadio))(
     transition: medium;
 
     &::after {
-      content: '✓';
+      content: url('data:image/svg+xml; utf8, <svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><path d="M8.48.751a.914.914 0 0 1 1.26 0 .837.837 0 0 1 0 1.215L4.26 7.249a.913.913 0 0 1-1.319-.064L.201 3.96A.838.838 0 0 1 .326 2.75a.913.913 0 0 1 1.253.12l2.117 2.493L8.48.75z" fill="white" fill-rule="evenodd"/></svg>
+');
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
-      line-height: 1;
+      width: 10;
+      margin: auto;
       text-align: center;
       color: light.200;
       opacity: 0;
       transition: medium;
     }
-
     ${system};
   `
 )
