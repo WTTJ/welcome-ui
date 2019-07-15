@@ -12,7 +12,7 @@ describe('<Hint>', () => {
     const button = getByTestId('hint')
 
     expect(button).toHaveTextContent(content)
-    expect(button).toHaveStyleRule('color', undefined)
+    expect(button).toHaveStyleRule('color', '#8e8e8e')
   })
 
   it('should render correctly with a state', () => {
