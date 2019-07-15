@@ -1,45 +1,50 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { bool, func, string } from 'prop-types'
 
-import { REFS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
+import { SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
 
 import * as S from './styles'
 
-export const InputText = ({
-  _ref,
-  autoFocus,
-  disabled,
-  name,
-  onBlur,
-  onChange,
-  onFocus,
-  onKeyDown,
-  placeholder,
-  size = 'lg',
-  type = 'text',
-  value,
-  variant
-}) => (
-  <S.InputText
-    autoFocus={autoFocus}
-    disabled={disabled}
-    id={name}
-    name={name}
-    onBlur={onBlur}
-    onChange={onChange}
-    onFocus={onFocus}
-    onKeyDown={onKeyDown}
-    placeholder={placeholder}
-    ref={_ref}
-    size={size}
-    type={type}
-    value={value}
-    variant={variant}
-  />
+export const InputText = forwardRef(
+  (
+    {
+      autoFocus,
+      disabled,
+      name,
+      onBlur,
+      onChange,
+      onFocus,
+      onKeyDown,
+      placeholder,
+      size = 'lg',
+      type = 'text',
+      value,
+      variant
+    },
+    ref
+  ) => (
+    <S.InputText
+      autoFocus={autoFocus}
+      disabled={disabled}
+      id={name}
+      name={name}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+      onKeyDown={onKeyDown}
+      placeholder={placeholder}
+      ref={ref}
+      size={size}
+      type={type}
+      value={value}
+      variant={variant}
+    />
+  )
 )
 
+InputText.displayName = 'InputText'
+
 InputText.propTypes = {
-  _ref: REFS_TYPE,
   autoFocus: bool,
   disabled: bool,
   name: string,

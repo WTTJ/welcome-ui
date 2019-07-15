@@ -1,46 +1,52 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { bool, func, number, string } from 'prop-types'
 
-import { REFS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
+import { SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
 
 import * as S from './styles.js'
 
-export const InputTextarea = ({
-  _ref,
-  autoFocus,
-  disabled,
-  maxLength,
-  minRows = 5,
-  name,
-  onBlur,
-  onChange,
-  onFocus,
-  onKeyDown,
-  placeholder,
-  size = 'lg',
-  value,
-  variant
-}) => (
-  <S.Textarea
-    autoFocus={autoFocus}
-    disabled={disabled}
-    maxLength={maxLength}
-    minRows={minRows}
-    name={name}
-    onBlur={onBlur}
-    onChange={onChange}
-    onFocus={onFocus}
-    onKeyDown={onKeyDown}
-    placeholder={placeholder}
-    ref={_ref}
-    size={size}
-    value={value}
-    variant={variant}
-  />
+export const InputTextarea = forwardRef(
+  (
+    {
+      autoFocus,
+      disabled,
+      maxLength,
+      minRows = 5,
+      name,
+      onBlur,
+      onChange,
+      onFocus,
+      onKeyDown,
+      placeholder,
+      size = 'lg',
+      value,
+      variant
+    },
+    ref
+  ) => (
+    <S.Textarea
+      autoFocus={autoFocus}
+      disabled={disabled}
+      maxLength={maxLength}
+      minRows={minRows}
+      name={name}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+      onKeyDown={onKeyDown}
+      placeholder={placeholder}
+      ref={ref}
+      size={size}
+      value={value}
+      variant={variant}
+    />
+  )
 )
 
+InputTextarea.type = 'InputTextarea'
+InputTextarea.displayName = 'InputTextarea'
+
 InputTextarea.propTypes = {
-  _ref: REFS_TYPE,
   autoFocus: bool,
   disabled: bool,
   maxLength: number,
