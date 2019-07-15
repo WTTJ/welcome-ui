@@ -3,7 +3,7 @@ import { th } from '@xstyled/system'
 
 import { system } from '../../utils/'
 import { fieldStyles } from '../../common/styles/form'
-import { Button as StyledButton } from '../Button/styles'
+import { Button } from '../Button/styles'
 
 const getBorderColor = ({ isDragAccept, isDragReject }) => {
   if (isDragAccept) {
@@ -69,7 +69,7 @@ export const Actions = styled.div`
   display: flex;
   flex-direction: column;
 
-  ${StyledButton} {
+  ${Button} {
     margin-bottom: md;
   }
 `

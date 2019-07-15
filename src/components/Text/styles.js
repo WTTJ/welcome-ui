@@ -6,7 +6,7 @@ import { system } from '../../utils/'
 const getBlockHeight = props => `
   calc(${th.fontSize(props.variant)} * ${th.lineHeight(props.variant)} * ${props.lines})`
 
-export const StyledText = styled.p(props => {
+export const Text = styled.p(props => {
   const { lines, variant } = props
   const blockHeight = lines ? getBlockHeight(props) : null
 

@@ -3,7 +3,7 @@ import { object } from 'prop-types'
 import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-const StyledCodeBlock = styled.pre`
+const CodeBlock = styled.pre`
   font-family: monospace;
   font-size: body1;
   line-height: h4;
@@ -19,9 +19,9 @@ const StyledCodeBlock = styled.pre`
 `
 
 export const DoczCodeBlock = ({ children }) => (
-  <StyledCodeBlock>
+  <CodeBlock>
     <code>{JSON.stringify(children, 0, 2)}</code>
-  </StyledCodeBlock>
+  </CodeBlock>
 )
 
 DoczCodeBlock.propTypes = {

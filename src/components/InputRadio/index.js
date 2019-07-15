@@ -1,39 +1,25 @@
 import React from 'react'
-import { bool, func, number, string } from 'prop-types'
+import { bool, elementType, func, number, string } from 'prop-types'
+import { useRadioState } from 'reakit/Radio'
 
 import { REFS_TYPE } from '../../utils'
-import * as S from '../InputCheckbox/styles'
 
-export const InputRadio = ({
-  _ref,
-  autoFocus,
-  checked,
-  disabled,
-  name,
-  onBlur,
-  onChange,
-  onKeyDown,
-  onFocus,
-  order = -1,
-  value
-}) => (
-  <S.Checkbox checked={checked} disabled={disabled} order={order} type="radio">
-    <input
-      autoFocus={autoFocus}
-      checked={checked}
-      disabled={disabled}
+import * as S from './styles'
+
+export const InputRadio = ({ _ref, name, order, value, ...rest }) => {
+  const radio = useRadioState()
+  return (
+    <S.InputRadio
       id={value}
       name={name}
-      onBlur={onBlur}
-      onChange={onChange}
-      onFocus={onFocus}
-      onKeyDown={onKeyDown}
+      order={order}
       ref={_ref}
-      type="radio"
       value={value}
+      {...rest}
+      {...radio}
     />
-  </S.Checkbox>
-)
+  )
+}
 
 InputRadio.type = 'InputRadio'
 
@@ -41,6 +27,7 @@ InputRadio.propTypes = {
   _ref: REFS_TYPE,
   autoFocus: bool,
   checked: bool,
+  Component: elementType,
   disabled: bool,
   name: string,
   onBlur: func,
@@ -48,5 +35,6 @@ InputRadio.propTypes = {
   onFocus: func,
   onKeyDown: func,
   order: number,
+  type: string,
   value: string
 }

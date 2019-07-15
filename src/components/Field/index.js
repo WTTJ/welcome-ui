@@ -10,7 +10,7 @@ import { Label } from '../Label'
 import { Hint } from '../Hint'
 
 // Fields
-import { StyledField } from './styles'
+import * as S from './styles'
 
 export const Field = forwardRef(
   (
@@ -83,7 +83,7 @@ export const Field = forwardRef(
     )
 
     return (
-      <StyledField
+      <S.Field
         checkableField={isCheckable}
         checked={checked}
         fieldType={Component.type}
@@ -106,7 +106,7 @@ export const Field = forwardRef(
           {!isCheckable && field}
         </Container>
         {hintText && <Hint variant={variant}>{hintText}</Hint>}
-      </StyledField>
+      </S.Field>
     )
   }
 )

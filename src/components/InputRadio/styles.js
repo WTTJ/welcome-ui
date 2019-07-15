@@ -1,19 +1,19 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
+import { Radio as ReakitRadio } from 'reakit/Radio'
 
 import { filterComponent, system } from '../../utils/'
 import { fieldStyles } from '../../common/styles/form'
 
-export const InputCheckbox = styled(filterComponent(ReakitCheckbox))(
-  ({ order = '-1', type }) => css`
+export const InputRadio = styled(filterComponent(ReakitRadio))(
+  ({ order = '-1' }) => css`
     ${fieldStyles};
-    ${th('fields.checkbox.default')}
+    ${th('fields.radio.default')}
     position: relative;
     padding: 0;
     order: ${order};
     cursor: pointer;
-    border-radius: ${type === 'radio' && '50%'};
+    border-radius: 50%;
     transition: medium;
 
     &::after {

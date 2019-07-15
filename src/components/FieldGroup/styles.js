@@ -1,10 +1,10 @@
 import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { Label as StyledLabel } from '../Label/styles'
+import { Label } from '../Label/styles'
 import { system } from '../../utils/'
 
-export const StyledFieldGroup = styled.fieldset`
+export const FieldGroup = styled.fieldset`
   min-width: 0;
   min-height: 0;
   margin: 0 0 xl 0;
@@ -12,7 +12,7 @@ export const StyledFieldGroup = styled.fieldset`
   ${th('fields.fieldset')};
   ${system};
 
-  & > ${StyledLabel} {
+  & > ${Label} {
     margin-bottom: sm;
   }
 `

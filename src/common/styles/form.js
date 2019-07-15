@@ -3,8 +3,8 @@ import { th } from '@xstyled/system'
 
 import { getVariantStateColor } from '../../utils/'
 
-export const fieldStyles = ({ fieldType, size, variant }) => css`
-  ${fieldType === 'radioTab' ? th('fields.radiotabs.default') : th('fields.default')};
+export const fieldStyles = ({ size, type, variant }) => css`
+  ${th('fields.default')};
   width: 100%;
   border-color: ${getVariantStateColor(variant)};
   transition: medium;
@@ -21,5 +21,9 @@ export const fieldStyles = ({ fieldType, size, variant }) => css`
 
   &[disabled] {
     ${th('fields.disabled')};
+  }
+
+  &[aria-checked='true'] {
+    ${(type === 'radio' || type === 'checkbox') && th(`fields.${type}.checked`)};
   }
 `

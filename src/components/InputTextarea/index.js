@@ -3,7 +3,7 @@ import { bool, func, number, string } from 'prop-types'
 
 import { REFS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
 
-import { StyledTextarea } from './styles.js'
+import * as S from './styles.js'
 
 export const InputTextarea = ({
   _ref,
@@ -21,7 +21,7 @@ export const InputTextarea = ({
   value,
   variant
 }) => (
-  <StyledTextarea
+  <S.Textarea
     autoFocus={autoFocus}
     disabled={disabled}
     maxLength={maxLength}
