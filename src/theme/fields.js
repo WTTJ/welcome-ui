@@ -31,7 +31,6 @@ export const getFields = theme => {
       'pointer-events': 'none'
     },
     focused: {
-      ...defaults,
       'background-color': colors.light[100],
       'border-color': colors.primary[500]
     },
@@ -80,8 +79,8 @@ export const getFields = theme => {
     },
     radio: {
       default: {
-        width: toRem(15),
-        height: toRem(15),
+        width: toRem(18),
+        height: toRem(18),
         'border-radius': '50%'
       },
       checked: {
@@ -166,12 +165,14 @@ export const getFields = theme => {
         }
       },
       disabled: {
+        'border-color': colors.light[700],
         'background-color': colors.light[700],
         '&::after': {
           'border-color': colors.nude[200]
         }
       },
       checkedDisabled: {
+        'border-color': colors.secondary[200],
         'background-color': colors.secondary[200],
         '&::after': {
           'border-color': colors.secondary[200]
