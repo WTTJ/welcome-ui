@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.2](https://github.com/WTTJ/welcome-ui/compare/v0.15.1...v0.15.2) (2019-07-15)
+
+
+### Bug Fixes
+
+* add default hint color ([#197](https://github.com/WTTJ/welcome-ui/issues/197)) ([766ebee](https://github.com/WTTJ/welcome-ui/commit/766ebee))
+* Use reakit for checkbox, toggles and radio buttons ([#196](https://github.com/WTTJ/welcome-ui/issues/196)) ([e5d3802](https://github.com/WTTJ/welcome-ui/commit/e5d3802))
+
+
+
 ### [0.15.1](https://github.com/WTTJ/welcome-ui/compare/v0.15.0...v0.15.1) (2019-07-11)
 
 
