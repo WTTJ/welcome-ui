@@ -84,7 +84,7 @@ export const getBaseTheme = (options = {}) => {
     sm: '1px 2px 4px 0 rgba(0,0,0,0.05)'
   }
 
-  theme = merge(theme, rest)
+  theme = merge({}, theme, rest)
 
   // CSS blocks
   // These attributes depend on colors and fontSizes and must come last
@@ -102,6 +102,6 @@ export const getBaseTheme = (options = {}) => {
 
 export const createTheme = options => {
   const base = getBaseTheme(options)
-  const theme = merge(base, options)
+  const theme = merge({}, base, options)
   return theme
 }
