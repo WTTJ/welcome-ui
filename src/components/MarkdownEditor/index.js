@@ -7,7 +7,7 @@ if (typeof window !== 'undefined') {
   require('easymde/dist/easymde.min.css')
 }
 
-import { createEvent, formFieldPropTypes } from '../../utils/'
+import { createEvent, FINAL_FORM_INPUT_TYPES } from '../../utils/'
 import { Icon } from '../Icon'
 
 import { Toolbar } from './Toolbar'
@@ -151,8 +151,6 @@ MarkdownEditor.type = 'MarkdownEditor'
 MarkdownEditor.displayName = 'MarkdownEditor'
 
 MarkdownEditor.propTypes = {
-  ...formFieldPropTypes,
-  autoFocus: func,
   disabled: bool,
   placeholder: oneOfType([string, node]),
   toolbar: arrayOf(
@@ -161,5 +159,6 @@ MarkdownEditor.propTypes = {
       icon: node,
       name: string.isRequired
     })
-  )
+  ),
+  ...FINAL_FORM_INPUT_TYPES
 }
