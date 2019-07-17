@@ -38,50 +38,73 @@ const palette = {
   linkedin: '#0077B5'
 }
 
+const colors = {
+  primary: {
+    200: palette.carribeangreen,
+    500: palette.seafoamblue
+  },
+  secondary: {
+    200: palette.granite,
+    500: palette.onyx,
+    700: palette.metal
+  },
+  danger: {
+    200: palette.valencia,
+    500: palette.carmen
+  },
+  warning: {
+    200: palette.sunray,
+    500: palette.anzac
+  },
+  info: {
+    200: palette.blueberry,
+    500: palette.bluedefrance
+  },
+  light: {
+    100: '#FFFFFF',
+    200: palette.snow,
+    500: palette.isabelline,
+    700: palette.timberwolf
+  },
+  dark: {
+    200: palette.metal,
+    500: palette.raisinblack,
+    700: palette.moodyblack,
+    900: palette.richblack
+  },
+  nude: {
+    100: palette.isabelline,
+    200: palette.timberwolf,
+    300: palette.silver,
+    400: palette.silverchalice,
+    500: palette.steel,
+    600: palette.battleship,
+    700: palette.granite,
+    800: palette.darkliver
+  }
+}
+
 export const welcomeTheme = {
-  colors: {
-    primary: {
-      200: palette.carribeangreen,
-      500: palette.seafoamblue
-    },
+  colors,
+  buttons: {
     secondary: {
-      200: palette.raisinblack,
-      500: palette.moodyblack,
-      700: palette.eerieblack
+      color: colors.secondary[500]
     },
-    danger: {
-      200: palette.valencia,
-      500: palette.carmen
+    tertiary: {
+      'background-color': colors.secondary[500],
+      'border-color': colors.secondary[500]
     },
-    warning: {
-      200: palette.sunray,
-      500: palette.anzac
+    focused: {
+      secondary: {
+        color: colors.secondary[200]
+      },
+      tertiary: {
+        'background-color': colors.secondary[200],
+        'border-color': colors.secondary[200]
+      }
     },
-    info: {
-      200: palette.blueberry,
-      500: palette.bluedefrance
-    },
-    light: {
-      100: '#FFFFFF',
-      200: palette.snow,
-      500: palette.isabelline,
-      700: palette.timberwolf
-    },
-    dark: {
-      200: palette.licorice,
-      500: palette.smokyblack,
-      700: palette.richblack,
-      900: '#000'
-    },
-    nude: {
-      100: palette.silver,
-      200: palette.silverchalice,
-      300: palette.steel,
-      400: palette.battleship,
-      500: palette.granite,
-      600: palette.darkliver,
-      700: palette.onyx,
-      800: palette.metal
+    disabled: {
+      color: colors.nude[600]
     }
   },
   palette
