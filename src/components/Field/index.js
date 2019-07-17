@@ -117,11 +117,9 @@ Field.propTypes = {
   autoFocus: bool,
   checked: bool,
   children: func,
-  /** Field component e.g. `InputText` or `FileUpload` or `'div'` */
   component: COMPONENT_TYPE.isRequired,
   connected: bool,
   disabled: bool,
-  /** Custom icon for disabled state */
   disabledIcon: node,
   error: string,
   flexDirection: DIRECTIONS_TYPE,

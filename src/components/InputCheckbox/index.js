@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react'
-import { bool, elementType, func, number, string } from 'prop-types'
+import { bool, elementType, func, number } from 'prop-types'
+
+import { FINAL_FORM_INPUT_TYPES } from '../../utils'
 
 import * as S from './styles'
 
@@ -13,16 +15,9 @@ InputCheckbox.type = 'InputCheckbox'
 InputCheckbox.displayName = 'InputCheckbox'
 
 InputCheckbox.propTypes = {
-  autoFocus: bool,
-  checked: bool,
+  ...FINAL_FORM_INPUT_TYPES,
   Component: elementType,
   disabled: bool,
-  name: string,
-  onBlur: func,
-  onChange: func,
-  onFocus: func,
   onKeyDown: func,
-  order: number,
-  type: string,
-  value: string
+  order: number
 }
