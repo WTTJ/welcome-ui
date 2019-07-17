@@ -15,7 +15,7 @@ import * as S from './styles'
 
 // Helpers
 const itemToString = item => (item ? item.label : '')
-const ensureArray = value => (Array.isArray(value) ? value : [value])
+const ensureArray = value => (Array.isArray(value) ? value : value ? [value] : [])
 const getUniqueValue = (item, values) => uniqBy([...values, item], item => item.value)
 const isValueExisting = (value, values) => values.find(item => item.value === kebabCase(value))
 
@@ -39,7 +39,7 @@ export const Select = forwardRef(
     },
     ref
   ) => {
-    const selectedItem = !isMultiple && defaultValue
+    const selectedItem = (!isMultiple && defaultValue) || null
     const defaultInputValue = selectedItem ? defaultValue.label : ''
     // Values will always be an array internally
     const [values, setValues] = useState(ensureArray(defaultValue))
@@ -120,7 +120,6 @@ export const Select = forwardRef(
           getToggleButtonProps,
           highlightedIndex,
           isOpen,
-          selectedItem,
           toggleMenu
         }) => {
           const isShowCreate = isCreatable && inputValue && !isValueExisting(inputValue, values)

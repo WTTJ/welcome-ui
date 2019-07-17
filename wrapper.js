@@ -37,7 +37,13 @@ export default function Wrapper({ children }) {
     <ThemeProvider theme={createTheme(theme)}>
       <Provider>
         <div style={{ position: 'fixed', zIndex: 9999, right: '80px', top: '4px' }}>
-          <Select onChange={chooseTheme} options={THEMES} size="sm" value={THEMES[0]} />
+          <Select
+            name="theme"
+            onChange={chooseTheme}
+            options={THEMES}
+            size="sm"
+            value={THEMES[0]}
+          />
         </div>
         <GlobalStyle />
         {children}
