@@ -1,4 +1,8 @@
 const palette = {
+  // primary
+  seafoamblue: '#00C29A',
+  carribeangreen: '#66C8AB',
+
   richblack: '#050506',
   smokyblack: '#0B0B0D',
   licorice: '#101013',
@@ -19,61 +23,88 @@ const palette = {
   isabelline: '#EEEEEE',
   snow: '#F9F9F9',
 
+  // states : infos, warning & danger
+  bluedefrance: '#3790F0',
+  blueberry: '#4B9BF1',
+  anzac: '#DDA343',
+  sunray: '#E4AE56',
+  carmen: '#BF4C3B',
+  valencia: '#CE5947',
+
+  // others
   iceberg: '#71A6DE',
   lightcyan: '#E1F0FF',
-
-  pastelorange: '#FFAF51',
-  lemonchiffon: '#FFF2E3',
-
-  seafoamblue: '#00C29A',
-  carribeangreen: '#66C8AB',
   pastelmint: '#E3F8F4',
-
-  alabamacrimson: '#F35454',
-  mistryrose: '#FEE6E6',
-
   linkedin: '#0077B5'
 }
 
+const colors = {
+  primary: {
+    200: palette.carribeangreen,
+    500: palette.seafoamblue
+  },
+  secondary: {
+    200: palette.granite,
+    500: palette.onyx,
+    700: palette.metal
+  },
+  danger: {
+    200: palette.valencia,
+    500: palette.carmen
+  },
+  warning: {
+    200: palette.sunray,
+    500: palette.anzac
+  },
+  info: {
+    200: palette.blueberry,
+    500: palette.bluedefrance
+  },
+  light: {
+    100: '#FFFFFF',
+    200: palette.snow,
+    500: palette.isabelline,
+    700: palette.timberwolf
+  },
+  dark: {
+    200: palette.metal,
+    500: palette.raisinblack,
+    700: palette.moodyblack,
+    900: palette.richblack
+  },
+  nude: {
+    100: palette.isabelline,
+    200: palette.timberwolf,
+    300: palette.silver,
+    400: palette.silverchalice,
+    500: palette.steel,
+    600: palette.battleship,
+    700: palette.granite,
+    800: palette.darkliver
+  }
+}
+
 export const welcomeTheme = {
-  colors: {
-    primary: {
-      200: palette.carribeangreen,
-      500: palette.seafoamblue
-    },
+  colors,
+  buttons: {
     secondary: {
-      200: palette.raisinblack,
-      500: palette.moodyblack,
-      700: palette.eerieblack
+      color: colors.secondary[500]
     },
-    danger: {
-      500: palette.alabamacrimson
+    tertiary: {
+      'background-color': colors.secondary[500],
+      'border-color': colors.secondary[500]
     },
-    warning: {
-      200: palette.lemonchiffon,
-      500: palette.pastelorange
+    focused: {
+      secondary: {
+        color: colors.secondary[200]
+      },
+      tertiary: {
+        'background-color': colors.secondary[200],
+        'border-color': colors.secondary[200]
+      }
     },
-    light: {
-      100: '#FFFFFF',
-      200: palette.snow,
-      500: palette.isabelline,
-      700: palette.timberwolf
-    },
-    dark: {
-      200: palette.licorice,
-      500: palette.smokyblack,
-      700: palette.richblack,
-      900: '#000'
-    },
-    nude: {
-      100: palette.silver,
-      200: palette.silverchalice,
-      300: palette.steel,
-      400: palette.battleship,
-      500: palette.granite,
-      600: palette.darkliver,
-      700: palette.onyx,
-      800: palette.metal
+    disabled: {
+      color: colors.nude[600]
     }
   },
   palette

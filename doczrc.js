@@ -1,9 +1,9 @@
 import { css } from 'styled-components'
 
-import { welcomeTheme } from './src/theme/welcome'
+import { welcomekitTheme } from './src/theme/welcomekit'
 import { createTheme } from './src/theme/core'
 
-const theme = createTheme(welcomeTheme)
+const theme = createTheme(welcomekitTheme)
 
 export default {
   title: 'Welcome UI',

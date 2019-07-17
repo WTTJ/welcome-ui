@@ -39,18 +39,17 @@ const AbstractLink = styled.a`
   cursor: pointer;
   border-radius: 50%;
   transition: medium;
-  transition-property: color, box-shadow;
+  transition-property: color;
   text-decoration: none;
 
   &:focus {
     outline: none;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+    transition: none;
   }
 `
 
 export const ArrowLink = styled(AbstractLink)`
   ${th('paginations.arrow')};
-  transition-property: color, box-shadow, border-color;
 `
 
 export const PageLink = styled(AbstractLink)`
