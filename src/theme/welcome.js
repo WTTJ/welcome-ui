@@ -1,4 +1,8 @@
 const palette = {
+  // primary
+  seafoamblue: '#00C29A',
+  carribeangreen: '#66C8AB',
+
   richblack: '#050506',
   smokyblack: '#0B0B0D',
   licorice: '#101013',
@@ -19,19 +23,18 @@ const palette = {
   isabelline: '#EEEEEE',
   snow: '#F9F9F9',
 
+  // states : infos, warning & danger
+  bluedefrance: '#3790F0',
+  blueberry: '#4B9BF1',
+  anzac: '#DDA343',
+  sunray: '#E4AE56',
+  carmen: '#BF4C3B',
+  valencia: '#CE5947',
+
+  // others
   iceberg: '#71A6DE',
   lightcyan: '#E1F0FF',
-
-  pastelorange: '#FFAF51',
-  lemonchiffon: '#FFF2E3',
-
-  seafoamblue: '#00C29A',
-  carribeangreen: '#66C8AB',
   pastelmint: '#E3F8F4',
-
-  alabamacrimson: '#F35454',
-  mistryrose: '#FEE6E6',
-
   linkedin: '#0077B5'
 }
 
@@ -47,11 +50,16 @@ export const welcomeTheme = {
       700: palette.eerieblack
     },
     danger: {
-      500: palette.alabamacrimson
+      200: palette.valencia,
+      500: palette.carmen
     },
     warning: {
-      200: palette.lemonchiffon,
-      500: palette.pastelorange
+      200: palette.sunray,
+      500: palette.anzac
+    },
+    info: {
+      200: palette.blueberry,
+      500: palette.bluedefrance
     },
     light: {
       100: '#FFFFFF',
