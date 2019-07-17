@@ -5,7 +5,8 @@ export const colors = {
   },
   secondary: {
     200: '#3A3A3A',
-    500: '#232323'
+    500: '#2e2e2e',
+    700: '#171717'
   },
   success: {
     200: '#66CC75',
