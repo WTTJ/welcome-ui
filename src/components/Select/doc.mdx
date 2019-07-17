@@ -47,13 +47,7 @@ Just add the `isMultiple` prop. Note: to be able to choose multiple values you m
     const [value, setValue] = useState(ITEMS[2])
     const handleChange = e => setValue(e.target.value)
     return (
-      <Select
-        isMultiple
-        options={ITEMS}
-        name="multiple"
-        onChange={handleChange}
-        value={value}
-      />
+      <Select isMultiple options={ITEMS} name="multiple" onChange={handleChange} value={value} />
     )
   }}
 </Playground>

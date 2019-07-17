@@ -11,25 +11,29 @@ import { GlobalStyle } from './src/utils/'
 
 const THEMES = [
   { value: 'welcomekit', label: 'WelcomeKit' },
-  { value: 'welcome', label: 'WelcomeToTheJungle' },
-  { value: 'core', label: 'Core' }
+  { value: 'welcome', label: 'WelcomeToTheJungle' }
 ]
 
 export default function Wrapper({ children }) {
   const [theme, setTheme] = useState(welcomekitTheme)
+  const [value, setValue] = useState(THEMES[0])
 
-  const chooseTheme = e => {
-    const value = e.target.value.value
-    // console.log(value)
-    switch (value) {
-      case 'welcomekit':
-        setTheme(welcomekitTheme)
-        break
-      case 'welcome':
-        setTheme(welcomeTheme)
-        break
-      default:
-        setTheme()
+  const handleChange = e => {
+    const valueObject = e.target.value
+    setValue(valueObject)
+    if (valueObject) {
+      switch (valueObject.value) {
+        case 'welcomekit':
+          setTheme(welcomekitTheme)
+          break
+        case 'welcome':
+          setTheme(welcomeTheme)
+          break
+        default:
+          setTheme()
+      }
+    } else {
+      setTheme()
     }
   }
 
@@ -39,10 +43,11 @@ export default function Wrapper({ children }) {
         <div style={{ position: 'fixed', zIndex: 9999, right: '80px', top: '4px' }}>
           <Select
             name="theme"
-            onChange={chooseTheme}
+            onChange={handleChange}
             options={THEMES}
+            placeholder="Choose theme (defaults to core theme)"
             size="sm"
-            value={THEMES[0]}
+            value={value}
           />
         </div>
         <GlobalStyle />
