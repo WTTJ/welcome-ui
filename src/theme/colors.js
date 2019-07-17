@@ -1,11 +1,11 @@
 export const colors = {
   primary: {
     200: '#208DDB',
-    500: '#1B74B5'
+    500: '#187EC7'
   },
   secondary: {
     200: '#3A3A3A',
-    500: '#2e2e2e',
+    500: '#2E2E2E',
     700: '#171717'
   },
   success: {

@@ -13,7 +13,7 @@ describe('<Button>', () => {
 
     expect(button).toHaveTextContent(content)
     expect(button).not.toBeDisabled()
-    expect(button).toHaveStyleRule('background-color', '#1B74B5')
+    expect(button).toHaveStyleRule('background-color', '#187EC7')
     expect(button).toHaveStyleRule('height', '2.25rem')
   })
 
