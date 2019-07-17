@@ -72,6 +72,32 @@ To be able to filter (i.e. search) the results, add the `isSearchable` prop.
   }}
 </Playground>
 
+## Sizes
+
+Use size property with `sm` `md` or `lg`(default).
+
+<Playground>
+  {() => {
+    const ITEMS = [
+      { value: 'angular', label: 'Angular' },
+      { value: 'backbone', label: 'Backbone' },
+      { value: 'elm', label: 'Elm' },
+      { value: 'ember', label: 'Ember' },
+      { value: 'react', label: 'React' },
+      { value: 'vue', label: 'Vue' }
+    ]
+    const [value, setValue] = useState(ITEMS[2])
+    const handleChange = e => setValue(e.target.value)
+    return (
+      <>
+        <Select options={ITEMS} name="default" onChange={handleChange} size="sm" value={value} />
+        <Select options={ITEMS} name="default" onChange={handleChange} size="md" value={value} />
+        <Select options={ITEMS} name="default" onChange={handleChange} size="lg" value={value} />
+      </>
+    )
+  }}
+</Playground>
+
 ## Creatable
 
 If your field is searchable (i.e. has the `isSearchable` prop, you can _add_ items by passing the `isCreatable` prop. The returned item will be of the shape:

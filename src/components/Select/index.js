@@ -144,11 +144,12 @@ export const Select = forwardRef(
                   variant: isOpen ? 'focused' : variant
                 })}
               />
-              <S.Indicators>
+              <S.Indicators size={size}>
                 {!inputValue || isOpen ? (
                   <S.DropDownIndicator
                     disabled={disabled}
                     isOpen={isOpen}
+                    size={size}
                     {...getToggleButtonProps()}
                   >
                     <Icon name="down" size="xs" />
@@ -159,6 +160,7 @@ export const Select = forwardRef(
                     disabled={disabled}
                     onClick={clearSelection}
                     role="button"
+                    size={size}
                     type="button"
                   >
                     <Icon name="cross" size="xs" />
