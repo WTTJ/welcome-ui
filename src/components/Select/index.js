@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react'
+import React, { forwardRef, useEffect, useState } from 'react'
 import { arrayOf, bool, func, shape, string } from 'prop-types'
 import Downshift from 'downshift'
 import matchSorter from 'match-sorter'
@@ -13,7 +13,11 @@ import { createEvent } from '../../utils/'
 
 import * as S from './styles'
 
+// Helpers
 const itemToString = item => (item ? item.label : '')
+const ensureArray = value => (Array.isArray(value) ? value : value ? [value] : [])
+const getUniqueValue = (item, values) => uniqBy([...values, item], item => item.value)
+const isValueExisting = (value, values) => values.find(item => item.value === kebabCase(value))
 
 export const Select = forwardRef(
   (
@@ -35,23 +39,36 @@ export const Select = forwardRef(
     },
     ref
   ) => {
-    const [values, setValues] = useState(defaultValue)
-    const initialItem = !isMultiple && values
-    const [inputValue, setInputValue] = useState(initialItem ? initialItem.label : '')
+    const selectedItem = (!isMultiple && defaultValue) || null
+    const defaultInputValue = selectedItem ? defaultValue.label : ''
+    // Values will always be an array internally
+    const [values, setValues] = useState(ensureArray(defaultValue))
+    const [inputValue, setInputValue] = useState(defaultInputValue)
     const [results, setResults] = useState(options)
 
+    // Ensure values are controlled by parent
+    useEffect(() => {
+      setValues(ensureArray(defaultValue))
+      setInputValue(defaultInputValue)
+    }, [defaultValue, defaultInputValue])
+
+    // Update results if searchable
     const handleInputChange = value => {
-      const results = matchSorter(options, value, { keys: ['label'] })
-      setInputValue(value)
-      setResults(results)
+      if (isSearchable) {
+        const results = matchSorter(options, value, { keys: ['label'] })
+        setInputValue(value)
+        setResults(results)
+      }
     }
 
+    // Send event to parent when value(s) changes
     const handleChange = values => {
       const value = isMultiple ? values : values[0]
       const event = createEvent({ name, value })
       onChange && onChange(event)
     }
 
+    // Update internal state when clicking/adding a select item
     const handleSelect = item => {
       let newItems
       let isClearInput
@@ -62,7 +79,7 @@ export const Select = forwardRef(
         isClearInput = true
       } else {
         // If adding item
-        newItems = isMultiple ? getUnique(item, values) : [item]
+        newItems = isMultiple ? getUniqueValue(item, values) : [item]
         isClearInput = isMultiple
       }
 
@@ -86,19 +103,13 @@ export const Select = forwardRef(
       setResults(options)
     }
 
-    const getUnique = (item, values) => uniqBy([...values, item], item => item.value)
-    const isTagExisting = value =>
-      Array.isArray(values)
-        ? values.find(item => item.value === kebabCase(value))
-        : values.value === kebabCase(value)
-
     return (
       <Downshift
-        initialSelectedItem={initialItem}
         itemToString={itemToString}
         onInputValueChange={handleInputChange}
         onOuterClick={handleOuterClick}
         onSelect={handleSelect}
+        selectedItem={selectedItem}
       >
         {({
           clearSelection,
@@ -109,10 +120,9 @@ export const Select = forwardRef(
           getToggleButtonProps,
           highlightedIndex,
           isOpen,
-          selectedItem,
           toggleMenu
         }) => {
-          const isShowCreate = isCreatable && inputValue && !isTagExisting(inputValue)
+          const isShowCreate = isCreatable && inputValue && !isValueExisting(inputValue, values)
           const isShowMenu = isOpen && (results.length || isShowCreate)
 
           return (
@@ -163,7 +173,7 @@ export const Select = forwardRef(
                         key={item.value}
                         {...getItemProps({
                           index,
-                          isExisting: isMultiple && isTagExisting(item.value),
+                          isExisting: isMultiple && isValueExisting(item.value, values),
                           isHighlighted: highlightedIndex === index,
                           isSelected: !isMultiple && isEqual(selectedItem, item),
                           item
