@@ -21,7 +21,7 @@ const disabledStyles = css`
 
   h3,
   p {
-    color: nude.300;
+    color: nude.700;
   }
 `
 
@@ -40,7 +40,6 @@ export const FileUpload = styled.div(
     h3 {
       font-size: h3;
       font-weight: normal;
-      color: secondary.500;
     }
 
     ${props.disabled && disabledStyles};
