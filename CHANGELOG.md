@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.4](https://github.com/WTTJ/welcome-ui/compare/v0.15.3...v0.15.4) (2019-07-17)
+
+
+### Bug Fixes
+
+* add correct colors on welcome theme ([be3b0b8](https://github.com/WTTJ/welcome-ui/commit/be3b0b8))
+* add missing color on core theme ([0d67206](https://github.com/WTTJ/welcome-ui/commit/0d67206))
+* broken styles of select indicators when using `size` prop on Select ([3725bb0](https://github.com/WTTJ/welcome-ui/commit/3725bb0))
+* change primary color on core theme ([753ae27](https://github.com/WTTJ/welcome-ui/commit/753ae27))
+* change welcome theme color ([d94e6c0](https://github.com/WTTJ/welcome-ui/commit/d94e6c0))
+* remove bow-shadow on pagination ([59dbc6a](https://github.com/WTTJ/welcome-ui/commit/59dbc6a))
+* style on fielUpload ([a0b6bc5](https://github.com/WTTJ/welcome-ui/commit/a0b6bc5))
+* theme switching is now working and defaults to 'core' when cleared ([578d76c](https://github.com/WTTJ/welcome-ui/commit/578d76c))
+
+
+
 ### [0.15.3](https://github.com/WTTJ/welcome-ui/compare/v0.15.2...v0.15.3) (2019-07-17)
 
 
