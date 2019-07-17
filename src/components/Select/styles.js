@@ -1,6 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
+import { overflowEllipsis } from '../../common/styles/text'
 import { fieldStyles } from '../../common/styles/form'
 import { system } from '../../utils/'
 import { Icon } from '../Icon/styles'
@@ -10,10 +11,14 @@ export const Wrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled.input`
-  ${fieldStyles};
-  cursor: default;
-`
+export const Input = styled.input(
+  ({ size }) => css`
+    ${fieldStyles};
+    ${overflowEllipsis};
+    padding-right: ${th(`fields.sizes.${size}.height`)};
+    cursor: default;
+  `
+)
 
 export const Menu = styled.ul`
   ${system};
@@ -49,9 +54,9 @@ export const Item = styled.li(
 )
 
 export const Indicators = styled.div(
-  () => css`
+  ({ size }) => css`
     position: absolute;
-    ${th('fields.sizes.lg')};
+    height: ${th(`fields.sizes.${size}.height`)};
     padding: 0;
     top: 0;
     right: 0;
@@ -59,15 +64,17 @@ export const Indicators = styled.div(
 )
 
 export const DropDownIndicator = styled.button(
-  ({ actionType, isOpen }) => css`
+  ({ actionType, isOpen, size }) => css`
     &[type='button'] {
+      position: relative;
+      width: ${th(`fields.sizes.${size}.height`)};
+      height: 100%;
+      padding: 0;
+      outline: none;
       appearance: none;
+      cursor: pointer;
       border: none;
       background: transparent;
-      height: 100%;
-      padding: md lg;
-      outline: none;
-      cursor: pointer;
 
       ${Icon} {
         transform: ${isOpen ? 'rotate(180deg)' : 'rotate(0)'};
