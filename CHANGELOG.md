@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.3](https://github.com/WTTJ/welcome-ui/compare/v0.15.2...v0.15.3) (2019-07-17)
+
+
+### Bug Fixes
+
+* add forwardRef to all input components ([#204](https://github.com/WTTJ/welcome-ui/issues/204)) ([6f93cd8](https://github.com/WTTJ/welcome-ui/commit/6f93cd8))
+* broken styles on checkable fields ([#199](https://github.com/WTTJ/welcome-ui/issues/199)) ([d4db531](https://github.com/WTTJ/welcome-ui/commit/d4db531))
+* delete warnings on unwanted props from final-form ([#205](https://github.com/WTTJ/welcome-ui/issues/205)) ([5853821](https://github.com/WTTJ/welcome-ui/commit/5853821)), closes [#202](https://github.com/WTTJ/welcome-ui/issues/202)
+* make Select a controlled component ([#210](https://github.com/WTTJ/welcome-ui/issues/210)) ([330c5f7](https://github.com/WTTJ/welcome-ui/commit/330c5f7))
+* merge on theming ([#207](https://github.com/WTTJ/welcome-ui/issues/207)) ([a9583b5](https://github.com/WTTJ/welcome-ui/commit/a9583b5))
+* warnings on propTypes ([9d6ae5e](https://github.com/WTTJ/welcome-ui/commit/9d6ae5e))
+
+
+
 ### [0.15.2](https://github.com/WTTJ/welcome-ui/compare/v0.15.1...v0.15.2) (2019-07-15)
 
 
