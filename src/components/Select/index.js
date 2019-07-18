@@ -33,6 +33,7 @@ export const Select = forwardRef(
       onChange,
       onFocus,
       placeholder = 'Choose from…',
+      required,
       size = 'lg',
       value: defaultValue,
       variant
@@ -124,6 +125,7 @@ export const Select = forwardRef(
         }) => {
           const isShowCreate = isCreatable && inputValue && !isValueExisting(inputValue, values)
           const isShowMenu = isOpen && (results.length || isShowCreate)
+          const isShowDeleteIcon = inputValue && !isOpen && !required
 
           return (
             <S.Wrapper {...getRootProps()}>
@@ -145,16 +147,7 @@ export const Select = forwardRef(
                 })}
               />
               <S.Indicators size={size}>
-                {!inputValue || isOpen ? (
-                  <S.DropDownIndicator
-                    disabled={disabled}
-                    isOpen={isOpen}
-                    size={size}
-                    {...getToggleButtonProps()}
-                  >
-                    <Icon name="down" size="xs" />
-                  </S.DropDownIndicator>
-                ) : (
+                {isShowDeleteIcon ? (
                   <S.DropDownIndicator
                     actionType="destructive"
                     disabled={disabled}
@@ -164,6 +157,15 @@ export const Select = forwardRef(
                     type="button"
                   >
                     <Icon name="cross" size="xs" />
+                  </S.DropDownIndicator>
+                ) : (
+                  <S.DropDownIndicator
+                    disabled={disabled}
+                    isOpen={isOpen}
+                    size={size}
+                    {...getToggleButtonProps()}
+                  >
+                    <Icon name="down" size="xs" />
                   </S.DropDownIndicator>
                 )}
               </S.Indicators>
@@ -237,6 +239,7 @@ Select.propTypes = {
     })
   ),
   placeholder: string.isRequired,
+  required: bool,
   searchable: bool,
   size: SIZES_TYPE,
   value: arrayOf(
