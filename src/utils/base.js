@@ -3,6 +3,7 @@ import { getColor, getFont } from '@xstyled/system'
 import { normalize } from 'polished'
 
 import { fonts } from './font'
+import { resetStyles } from './reset'
 
 function getFontFamilies(...fonts) {
   return fonts.filter(Boolean).join(', ')
@@ -78,10 +79,13 @@ function baseSelection(props) {
   `
 }
 
-export const GlobalStyle = createGlobalStyle`
-  ${normalize()}
-  ${fonts()}
-  ${baseBoxSizing}
-  ${baseFonts}
-  ${baseSelection}
-`
+export const GlobalStyle = createGlobalStyle(
+  ({ useReset }) => css`
+    ${normalize()};
+    ${useReset && resetStyles};
+    ${fonts()};
+    ${baseBoxSizing};
+    ${baseFonts};
+    ${baseSelection};
+  `
+)
