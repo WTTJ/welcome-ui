@@ -82,9 +82,8 @@ function baseSelection(props) {
 export const GlobalStyle = createGlobalStyle(
   ({ useReset }) => css`
     ${normalize()};
-    ${useReset && resetStyles};
+    ${useReset ? resetStyles : baseBoxSizing};
     ${fonts()};
-    ${baseBoxSizing};
     ${baseFonts};
     ${baseSelection};
   `
