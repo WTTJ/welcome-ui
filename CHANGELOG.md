@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.16.0](https://github.com/WTTJ/welcome-ui/compare/v0.15.4...v0.16.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* css datepicker client only ([#217](https://github.com/WTTJ/welcome-ui/issues/217)) ([5ac015f](https://github.com/WTTJ/welcome-ui/commit/5ac015f))
+
+
+### Features
+
+* don't show delete icon if select is required ([ff1c8c2](https://github.com/WTTJ/welcome-ui/commit/ff1c8c2))
+
+
+
 ### [0.15.4](https://github.com/WTTJ/welcome-ui/compare/v0.15.3...v0.15.4) (2019-07-17)
 
 
