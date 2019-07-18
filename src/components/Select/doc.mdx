@@ -47,7 +47,7 @@ Just add the `isMultiple` prop. Note: to be able to choose multiple values you m
     const [value, setValue] = useState(ITEMS[2])
     const handleChange = e => setValue(e.target.value)
     return (
-      <Select isMultiple options={ITEMS} name="multiple" onChange={handleChange} value={value} />
+      <Select isMultiple options={ITEMS} name="multiple" onChange={console.debug} value={value} />
     )
   }}
 </Playground>
@@ -68,13 +68,13 @@ To be able to filter (i.e. search) the results, add the `isSearchable` prop.
     ]
     const [value, setValue] = useState(ITEMS[2])
     const handleChange = e => setValue(e.target.value)
-    return <Select isSearchable options={ITEMS} name="searchable" onChange={handleChange} />
+    return <Select isSearchable options={ITEMS} name="searchable" onChange={handleChange} value={value} />
   }}
 </Playground>
 
-## Sizes
+## Required
 
-Use size property with `sm` `md` or `lg`(default).
+You can normally clear the selected value of a `Select` but if it's has a `required` prop we'll prevent the ability to remove a chosen option.
 
 <Playground>
   {() => {
@@ -87,14 +87,11 @@ Use size property with `sm` `md` or `lg`(default).
       { value: 'vue', label: 'Vue' }
     ]
     const [value, setValue] = useState(ITEMS[2])
-    const handleChange = e => setValue(e.target.value)
-    return (
-      <>
-        <Select options={ITEMS} name="default" onChange={handleChange} size="sm" value={value} />
-        <Select options={ITEMS} name="default" onChange={handleChange} size="md" value={value} />
-        <Select options={ITEMS} name="default" onChange={handleChange} size="lg" value={value} />
-      </>
-    )
+    const handleChange = e => {
+      console.debug('e', e.target)
+      setValue(e.target.value)
+    }
+    return <Select required options={ITEMS} name="has_default" onChange={handleChange} value={value} />
   }}
 </Playground>
 
@@ -118,6 +115,50 @@ If your field is searchable (i.e. has the `isSearchable` prop, you can _add_ ite
     const handleChange = e => setValue(e.target.value)
     return (
       <Select isCreatable isSearchable options={ITEMS} name="creatable" onChange={handleChange} />
+    )
+  }}
+</Playground>
+
+## Sizes
+
+Use size property with `sm` `md` or `lg`(default).
+
+<Playground>
+  {() => {
+    const ITEMS = [
+      { value: 'angular', label: 'Angular' },
+      { value: 'backbone', label: 'Backbone' },
+      { value: 'elm', label: 'Elm' },
+      { value: 'ember', label: 'Ember' },
+      { value: 'react', label: 'React' },
+      { value: 'vue', label: 'Vue' }
+    ]
+    const [values, setValues] = useState({ small: ITEMS[2], medium: ITEMS[1], large: ITEMS[0] })
+    const handleChange = e => setValues({ ...values, [e.target.name]: e.target.value })
+    return (
+      <>
+        <Select
+          options={ITEMS}
+          name="small"
+          onChange={handleChange}
+          size="sm"
+          value={values.small}
+        />
+        <Select
+          options={ITEMS}
+          name="medium"
+          onChange={handleChange}
+          size="md"
+          value={values.medium}
+        />
+        <Select
+          options={ITEMS}
+          name="large"
+          onChange={handleChange}
+          size="lg"
+          value={values.large}
+        />
+      </>
     )
   }}
 </Playground>
