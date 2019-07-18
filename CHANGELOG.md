@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.1](https://github.com/WTTJ/welcome-ui/compare/v0.16.0...v0.16.1) (2019-07-18)
+
+
+### Bug Fixes
+
+* don't call boxSizingReset if useReset is true ([#218](https://github.com/WTTJ/welcome-ui/issues/218)) ([e467da5](https://github.com/WTTJ/welcome-ui/commit/e467da5))
+
+
+
 ## [0.16.0](https://github.com/WTTJ/welcome-ui/compare/v0.15.4...v0.16.0) (2019-07-18)
 
 
