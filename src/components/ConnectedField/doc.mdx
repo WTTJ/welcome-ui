@@ -10,6 +10,7 @@ import { Playground } from '../../../docz/'
 import { DoczCodeBlock } from '../../../docz/CodeBlock'
 
 import { Button } from '../Button'
+import { Icon } from '../Icon'
 import { ConnectedField } from '../ConnectedField'
 import { FieldGroup } from '../FieldGroup'
 import { RadioGroup } from '../RadioGroup'
@@ -82,6 +83,7 @@ You can find additional props for each field component in [Fields](/fields/file-
                 component={InputText}
                 placeholder="Boaty"
                 label="First name"
+                mb={20}
               />
               <ConnectedField
                 name="lastName"
@@ -92,6 +94,7 @@ You can find additional props for each field component in [Fields](/fields/file-
               <ConnectedField
                 name="telephone"
                 component={InputText}
+                icon={<Icon name="phone" size="sm" />}
                 type="tel"
                 placeholder="123456789"
                 label="Phone number"
@@ -103,12 +106,14 @@ You can find additional props for each field component in [Fields](/fields/file-
                   component={InputRadio}
                   value="herbivore"
                   label="Herbivore"
+                  mb={20}
                 />
                 <ConnectedField
                   name="diet"
                   component={InputRadio}
                   value="omnivore"
                   label="Omnivore"
+                  mb={20}
                 />
                 <ConnectedField
                   name="diet"

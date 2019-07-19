@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { bool, func, string } from 'prop-types'
+import { bool, func, node, oneOf, string } from 'prop-types'
 
 import { SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
 
@@ -10,6 +10,8 @@ export const InputText = forwardRef(
     {
       autoFocus,
       disabled,
+      icon,
+      iconPlacement = 'left',
       name,
       onBlur,
       onChange,
@@ -22,24 +24,37 @@ export const InputText = forwardRef(
       variant
     },
     ref
-  ) => (
-    <S.InputText
-      autoFocus={autoFocus}
-      disabled={disabled}
-      id={name}
-      name={name}
-      onBlur={onBlur}
-      onChange={onChange}
-      onFocus={onFocus}
-      onKeyDown={onKeyDown}
-      placeholder={placeholder}
-      ref={ref}
-      size={size}
-      type={type}
-      value={value}
-      variant={variant}
-    />
-  )
+  ) => {
+    const input = (
+      <S.InputText
+        autoFocus={autoFocus}
+        disabled={disabled}
+        hasIcon={!!icon}
+        iconPlacement={iconPlacement}
+        id={name}
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        placeholder={placeholder}
+        ref={ref}
+        size={size}
+        type={type}
+        value={value}
+        variant={variant}
+      />
+    )
+
+    return icon ? (
+      <S.Wrapper>
+        {input}
+        {icon && <S.IconWrapper iconPlacement={iconPlacement}>{icon}</S.IconWrapper>}
+      </S.Wrapper>
+    ) : (
+      input
+    )
+  }
 )
 
 InputText.displayName = 'InputText'
@@ -47,6 +62,8 @@ InputText.displayName = 'InputText'
 InputText.propTypes = {
   autoFocus: bool,
   disabled: bool,
+  icon: node,
+  iconPlacement: oneOf(['left', 'right']),
   name: string,
   onBlur: func,
   onChange: func,
