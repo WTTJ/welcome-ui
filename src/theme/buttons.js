@@ -107,6 +107,10 @@ export const getButtons = theme => {
       lg: {
         height: '2.5rem',
         padding: `0 ${space.lg}`
+      },
+      xl: {
+        height: '4.375rem',
+        padding: `0 ${space.lg}`
       }
     }
   }
