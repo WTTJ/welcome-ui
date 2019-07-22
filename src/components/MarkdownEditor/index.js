@@ -1,12 +1,6 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { arrayOf, bool, func, node, oneOfType, shape, string } from 'prop-types'
 
-// Only require CSS on client
-if (typeof window !== 'undefined') {
-  require('emoji-mart/css/emoji-mart.css')
-  require('easymde/dist/easymde.min.css')
-}
-
 import { createEvent, FINAL_FORM_INPUT_TYPES } from '../../utils/'
 import { Icon } from '../Icon'
 
@@ -15,6 +9,12 @@ import { EmojiPicker } from './EmojiPicker'
 import * as S from './styles'
 import { getCurrentToolsFromEditor } from './utils'
 import { DEFAULT_TOOLBAR } from './constants'
+
+// Only require CSS on client
+if (typeof window !== 'undefined') {
+  require('emoji-mart/css/emoji-mart.css')
+  require('easymde/dist/easymde.min.css')
+}
 
 export const MarkdownEditor = forwardRef(
   (
