@@ -68,7 +68,15 @@ To be able to filter (i.e. search) the results, add the `isSearchable` prop.
     ]
     const [value, setValue] = useState(ITEMS[2])
     const handleChange = e => setValue(e.target.value)
-    return <Select isSearchable options={ITEMS} name="searchable" onChange={handleChange} value={value} />
+    return (
+      <Select
+        isSearchable
+        options={ITEMS}
+        name="searchable"
+        onChange={handleChange}
+        value={value}
+      />
+    )
   }}
 </Playground>
 
@@ -91,7 +99,9 @@ You can normally clear the selected value of a `Select` but if it's has a `requi
       console.debug('e', e.target)
       setValue(e.target.value)
     }
-    return <Select required options={ITEMS} name="has_default" onChange={handleChange} value={value} />
+    return (
+      <Select required options={ITEMS} name="has_default" onChange={handleChange} value={value} />
+    )
   }}
 </Playground>
 
