@@ -39,3 +39,18 @@ export const Field = styled.div(
     ${system};
   `
 )
+
+export const IconWrapper = styled.div(
+  ({ iconPlacement, size, ...rest }) => css`
+    position: absolute;
+    top: 0;
+    left: ${iconPlacement === 'left' ? 0 : null};
+    right: ${iconPlacement === 'right' ? 0 : null};
+    bottom: 0;
+    display: flex;
+    width: ${size ? th(`fields.sizes.${size}.height`)(rest) : null};
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+  `
+)
