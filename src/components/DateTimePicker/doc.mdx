@@ -7,6 +7,7 @@ menu: Fields
 import fr from 'date-fns/locale/fr'
 import { Props } from 'docz'
 import { Playground } from '../../../docz/'
+import { Icon } from '../Icon'
 
 import { DateTimePicker } from './index.js'
 
@@ -28,6 +29,26 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 
 <Playground>
   <DateTimePicker value={Date.now()} datePickerProps={{ dateFormat: 'MMM dd YYYY' }} />
+</Playground>
+
+## Give an Icon to DatePicker
+
+<Playground>
+  <DateTimePicker
+    dateIcon={<Icon name="date" size="sm" color="nude.500" />}
+    value={Date.now()}
+    onChange={date => console.log('date: ', date)}
+  />
+</Playground>
+
+## ...And / or to TimePicker
+
+<Playground>
+  <DateTimePicker
+    timeIcon={<Icon name="date" size="sm" color="primary.500" />}
+    value={Date.now()}
+    onChange={date => console.log('date: ', date)}
+  />
 </Playground>
 
 ## Pass props to TimePicker

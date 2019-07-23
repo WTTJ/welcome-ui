@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react'
 import { bool, func, node, oneOf, string } from 'prop-types'
 
 import { SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
+import { IconWrapper } from '../Field/styles'
 
 import * as S from './styles'
 
@@ -29,7 +30,7 @@ export const InputText = forwardRef(
       <S.InputText
         autoFocus={autoFocus}
         disabled={disabled}
-        hasIcon={!!icon}
+        icon={!!icon}
         iconPlacement={iconPlacement}
         id={name}
         name={name}
@@ -49,7 +50,11 @@ export const InputText = forwardRef(
     return icon ? (
       <S.Wrapper>
         {input}
-        {icon && <S.IconWrapper iconPlacement={iconPlacement}>{icon}</S.IconWrapper>}
+        {icon && (
+          <IconWrapper iconPlacement={iconPlacement} size={size}>
+            {icon}
+          </IconWrapper>
+        )}
       </S.Wrapper>
     ) : (
       input

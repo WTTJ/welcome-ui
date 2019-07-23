@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { bool, func, number, object, oneOfType, string } from 'prop-types'
 
-import { SIZES_TYPE } from '../../utils'
+import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils'
 
+import { CustomInput } from './CustomInput'
 import { getDate } from './utils'
 import * as S from './styles'
 
@@ -12,10 +13,12 @@ const DEFAULT_TIME_FORMAT = 'HH:mm'
 
 export const DateTimePicker = ({
   value = new Date(),
+  dateIcon,
   datePickerOnly,
   datePickerProps = {},
   onChange,
   size = 'lg',
+  timeIcon,
   timePickerOnly,
   timePickerProps = {}
 }) => {
@@ -71,8 +74,9 @@ export const DateTimePicker = ({
         <S.DatePicker
           calendarClassName="date-picker-popper"
           className="date-picker"
-          dateFormat={datePickerDateFormat}
+          customInput={<CustomInput icon={dateIcon} size={size} />}
           {...datePickerProps}
+          dateFormat={datePickerDateFormat}
           onBlur={e => handleBlur('date', e)}
           onChange={date => handleChange(date, 'date')}
           onFocus={e => handleFocus('date', e)}
@@ -84,6 +88,7 @@ export const DateTimePicker = ({
         <S.TimePicker
           calendarClassName="time-picker-popper"
           className="time-picker"
+          customInput={<CustomInput icon={timeIcon} size={size} />}
           dateFormat={timePickerDateFormat}
           timeIntervals={timeIntervals}
           {...timePickerProps}
@@ -101,10 +106,12 @@ export const DateTimePicker = ({
 }
 
 DateTimePicker.propTypes = {
+  dateIcon: COMPONENT_TYPE,
   datePickerOnly: bool,
   datePickerProps: object,
   onChange: func,
   size: SIZES_TYPE,
+  timeIcon: COMPONENT_TYPE,
   timePickerOnly: bool,
   timePickerProps: object,
   value: oneOfType([number, object, string]).isRequired

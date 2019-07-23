@@ -1,4 +1,5 @@
 import styled, { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 import ReactDatePicker from 'react-datepicker'
 
 import { fieldStyles } from '../../common/styles/form'
@@ -94,3 +95,12 @@ export const DateTimePicker = styled.div(
     ${overridingStyles};
   `
 )
+
+export const CustomInput = styled.div(({ icon, size, ...rest }) => {
+  return css`
+    position: relative;
+    ${DatePicker}, ${TimePicker} {
+      padding-left: ${icon ? th(`fields.sizes.${size}.height`)(rest) : null};
+    }
+  `
+})
