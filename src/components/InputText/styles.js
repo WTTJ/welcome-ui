@@ -4,12 +4,10 @@ import { th } from '@xstyled/system'
 import { fieldStyles } from '../../common/styles/form'
 import { system } from '../../utils/'
 
-// TODO: Remove magic number
 export const InputText = styled.input(
   ({ icon, iconPlacement, size, ...rest }) => css`
     ${fieldStyles};
-    ${system};
-
+    
     ${icon &&
       iconPlacement === 'left' &&
       css`
@@ -20,6 +18,8 @@ export const InputText = styled.input(
       css`
         padding-right: ${icon ? th(`fields.sizes.${size}.height`)(rest) : null};
       `}
+
+    ${system};
   `
 )
 

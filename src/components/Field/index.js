@@ -76,7 +76,6 @@ export const Field = forwardRef(
         type={baseType}
         value={value}
         variant={variant}
-        {...rest}
       >
         {children}
       </Component>

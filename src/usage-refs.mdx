@@ -58,23 +58,20 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
               component={InputText}
               label="Connected field"
               ref={connectedInputRef}
-              mb={20}
             />
             <Field
               name="lastName"
               component={InputText}
               label="Normal field"
               ref={normalInputRef}
-              mb={20}
             />
             <Label>Naked field</Label>
-            <InputText name="naked" ref={nakedInputRef} mb={20} />
+            <InputText name="naked" ref={nakedInputRef} />
             <Field
               name="avatar"
               component={FileUpload}
               label="Complex field"
               ref={fileUploadRef}
-              mb={20}
             />
             <p>Click a button below to focus the relevant field above</p>
             <Button onClick={handleConnectedClick}>Connected field</Button>
