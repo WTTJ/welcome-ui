@@ -9,6 +9,7 @@ import { Props } from 'docz'
 import { Playground } from '../../../docz/'
 import { DoczCodeBlock } from '../../../docz/CodeBlock'
 
+import { Box } from '../Box'
 import { Button } from '../Button'
 import { Icon } from '../Icon'
 import { ConnectedField } from '../ConnectedField'
@@ -175,9 +176,9 @@ You can find additional props for each field component in [Fields](/fields/file-
                 label="Social network"
                 placeholder="Choose network"
                 renderItem={option => (
-                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Box display="flex" alignItems="center">
                     <Icon name={option.value} size="sm" mr="xs" /> <span>{option.label}</span>
-                  </div>
+                  </Box>
                 )}
               />
               <ConnectedField

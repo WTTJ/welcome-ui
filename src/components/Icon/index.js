@@ -9,8 +9,7 @@ export const Icon = forwardRef(({ name, ...props }, ref) => {
     return null
   }
 
-  const iconName = name.toLowerCase()
-  const iconConfig = icons[iconName]
+  const iconConfig = icons[name]
 
   if (!iconConfig) {
     return null
@@ -19,7 +18,7 @@ export const Icon = forwardRef(({ name, ...props }, ref) => {
   return (
     <S.Icon
       dangerouslySetInnerHTML={{ __html: iconConfig.block }}
-      data-testid={`icon-${iconName}`}
+      data-testid={`icon-${name}`}
       ref={ref}
       role="img"
       stroked={iconConfig.stroked}
