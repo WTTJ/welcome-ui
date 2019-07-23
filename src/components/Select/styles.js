@@ -9,19 +9,28 @@ import { Tag } from '../Tag/styles'
 
 export const Wrapper = styled.div`
   position: relative;
+  ${system}
 `
 
-export const Input = styled.input(
+export const Input = styled.div(
   ({ size }) => css`
     ${fieldStyles};
     ${overflowEllipsis};
     padding-right: ${th(`fields.sizes.${size}.height`)};
     cursor: default;
+
+    br {
+      display: none;
+    }
+
+    &:empty::before {
+      content: attr(placeholder);
+      opacity: 0.5;
+    }
   `
 )
 
 export const Menu = styled.ul`
-  ${system};
   ${th('fields.select.default')};
   position: absolute;
   z-index: 2;

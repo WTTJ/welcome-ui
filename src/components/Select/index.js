@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import { arrayOf, bool, func, shape, string } from 'prop-types'
+import { arrayOf, bool, func, oneOfType, shape, string } from 'prop-types'
 import Downshift from 'downshift'
 import matchSorter from 'match-sorter'
 import kebabCase from 'lodash.kebabcase'
@@ -14,10 +14,12 @@ import { createEvent } from '../../utils/'
 import * as S from './styles'
 
 // Helpers
+const EMPTY = ''
 const itemToString = item => (item ? item.label : '')
 const ensureArray = value => (Array.isArray(value) ? value : value ? [value] : [])
 const getUniqueValue = (item, values) => uniqBy([...values, item], item => item.value)
 const isValueExisting = (value, values) => values.find(item => item.value === kebabCase(value))
+const defaultRenderOption = option => (option ? option.label : EMPTY)
 
 export const Select = forwardRef(
   (
@@ -33,15 +35,17 @@ export const Select = forwardRef(
       onChange,
       onFocus,
       placeholder = 'Choose from…',
+      renderItem = defaultRenderOption,
       required,
       size = 'lg',
       value: defaultValue,
-      variant
+      variant,
+      ...rest
     },
     ref
   ) => {
     const selectedItem = (!isMultiple && defaultValue) || null
-    const defaultInputValue = selectedItem ? defaultValue.label : ''
+    const defaultInputValue = selectedItem ? defaultValue.label : EMPTY
     // Values will always be an array internally
     const [values, setValues] = useState(ensureArray(defaultValue))
     const [inputValue, setInputValue] = useState(defaultInputValue)
@@ -54,11 +58,19 @@ export const Select = forwardRef(
     }, [defaultValue, defaultInputValue])
 
     // Update results if searchable
-    const handleInputChange = value => {
+    const handleInputChange = (value, openMenu) => {
       if (isSearchable) {
+        // Update
         const results = matchSorter(options, value, { keys: ['label'] })
         setInputValue(value)
         setResults(results)
+        openMenu()
+
+        // We have to manage the cursor position when searching on field that isMultiple
+        const selection = window.getSelection()
+        const node = selection.focusNode
+        const offset = selection.focusOffset
+        setImmediate(() => selection.setPosition(node, offset))
       }
     }
 
@@ -107,7 +119,6 @@ export const Select = forwardRef(
     return (
       <Downshift
         itemToString={itemToString}
-        onInputValueChange={handleInputChange}
         onOuterClick={handleOuterClick}
         onSelect={handleSelect}
         selectedItem={selectedItem}
@@ -121,31 +132,45 @@ export const Select = forwardRef(
           getToggleButtonProps,
           highlightedIndex,
           isOpen,
+          openMenu,
           toggleMenu
         }) => {
           const isShowCreate = isCreatable && inputValue && !isValueExisting(inputValue, values)
           const isShowMenu = isOpen && (results.length || isShowCreate)
           const isShowDeleteIcon = inputValue && !isOpen && !required
+          const inputProps = getInputProps({
+            autoComplete: 'off',
+            autoFocus,
+            contentEditable: isSearchable,
+            disabled,
+            name,
+            onBlur,
+            onClick: toggleMenu,
+            onFocus,
+            placeholder,
+            readOnly: !isSearchable,
+            ref: ref,
+            size,
+            value: inputValue || EMPTY,
+            variant: isOpen ? 'focused' : variant
+          })
+
+          let content = EMPTY
+          if (isMultiple) {
+            content = inputValue
+          } else if (values.length) {
+            content = renderItem(values[0])
+          }
 
           return (
-            <S.Wrapper {...getRootProps()}>
+            <S.Wrapper {...getRootProps()} {...rest}>
               <S.Input
-                {...getInputProps({
-                  autoComplete: 'off',
-                  autoFocus,
-                  disabled,
-                  name,
-                  onBlur,
-                  onClick: toggleMenu,
-                  onFocus,
-                  placeholder,
-                  readOnly: !isSearchable,
-                  ref: ref,
-                  size,
-                  value: inputValue,
-                  variant: isOpen ? 'focused' : variant
-                })}
-              />
+                {...inputProps}
+                onInput={e => handleInputChange(e.target.innerText, openMenu)}
+                suppressContentEditableWarning
+              >
+                {content}
+              </S.Input>
               <S.Indicators size={size}>
                 {isShowDeleteIcon ? (
                   <S.DropDownIndicator
@@ -171,22 +196,20 @@ export const Select = forwardRef(
               </S.Indicators>
               {isShowMenu ? (
                 <S.Menu {...getMenuProps()}>
-                  {results.map((item, index) => {
-                    return (
-                      <S.Item
-                        key={item.value}
-                        {...getItemProps({
-                          index,
-                          isExisting: isMultiple && isValueExisting(item.value, values),
-                          isHighlighted: highlightedIndex === index,
-                          isSelected: !isMultiple && isEqual(selectedItem, item),
-                          item
-                        })}
-                      >
-                        {item.label}
-                      </S.Item>
-                    )
-                  })}
+                  {results.map((item, index) => (
+                    <S.Item
+                      key={item.value}
+                      {...getItemProps({
+                        index,
+                        isExisting: isMultiple && isValueExisting(item.value, values),
+                        isHighlighted: highlightedIndex === index,
+                        isSelected: !isMultiple && isEqual(selectedItem, item),
+                        item
+                      })}
+                    >
+                      {renderItem(item)}
+                    </S.Item>
+                  ))}
                   {isShowCreate && (
                     <S.Item
                       key="add"
@@ -221,6 +244,11 @@ export const Select = forwardRef(
   }
 )
 
+const OPTION_TYPE = shape({
+  label: string,
+  value: string
+})
+
 Select.propTypes = {
   autoFocus: bool,
   disabled: bool,
@@ -232,21 +260,12 @@ Select.propTypes = {
   onChange: func,
   onFocus: func,
   onKeyDown: func,
-  options: arrayOf(
-    shape({
-      label: string,
-      value: string
-    })
-  ),
+  options: arrayOf(OPTION_TYPE),
   placeholder: string.isRequired,
+  renderItem: func,
   required: bool,
   searchable: bool,
   size: SIZES_TYPE,
-  value: arrayOf(
-    shape({
-      label: string,
-      value: string
-    })
-  ),
+  value: oneOfType([OPTION_TYPE, arrayOf(OPTION_TYPE)]),
   variant: VARIANTS_TYPE
 }

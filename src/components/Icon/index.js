@@ -5,8 +5,11 @@ import * as S from './styles'
 import { icons } from './icons'
 
 export const Icon = forwardRef(({ name, ...props }, ref) => {
-  const iconName = name.toLowerCase()
-  const iconConfig = icons[iconName]
+  if (!name) {
+    return null
+  }
+
+  const iconConfig = icons[name]
 
   if (!iconConfig) {
     return null
@@ -15,11 +18,11 @@ export const Icon = forwardRef(({ name, ...props }, ref) => {
   return (
     <S.Icon
       dangerouslySetInnerHTML={{ __html: iconConfig.block }}
-      data-testid={`icon-${iconName}`}
+      data-testid={`icon-${name}`}
       ref={ref}
       role="img"
       stroked={iconConfig.stroked}
-      title={iconName}
+      title={name}
       viewBox={iconConfig.viewBox || '0 0 100 100'}
       {...props}
     />

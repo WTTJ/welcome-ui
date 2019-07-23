@@ -9,6 +9,7 @@ import { Props } from 'docz'
 import { Playground } from '../../../docz/'
 import { DoczCodeBlock } from '../../../docz/CodeBlock'
 
+import { Box } from '../Box'
 import { Button } from '../Button'
 import { Icon } from '../Icon'
 import { ConnectedField } from '../ConnectedField'
@@ -36,21 +37,40 @@ You can find additional props for each field component in [Fields](/fields/file-
 <Playground>
   {() => {
     // Data
-    const toTitleCase = str => str.charAt(0).toUpperCase() + str.slice(1)
     const months = [
-      'january',
-      'february',
-      'march',
-      'april',
-      'may',
-      'june',
-      'july',
-      'august',
-      'september',
-      'october',
-      'november',
-      'december'
-    ].map(month => ({ label: toTitleCase(month), value: month }))
+      { value: 'january', label: 'January' },
+      { value: 'february', label: 'February' },
+      { value: 'march', label: 'March' },
+      { value: 'april', label: 'April' },
+      { value: 'may', label: 'May' },
+      { value: 'june', label: 'June' },
+      { value: 'july', label: 'July' },
+      { value: 'august', label: 'August' },
+      { value: 'september', label: 'September' },
+      { value: 'october', label: 'October' },
+      { value: 'november', label: 'November' },
+      { value: 'december', label: 'December' }
+    ]
+    const colors = [
+      { value: 'red', label: 'Red' },
+      { value: 'orange', label: 'Orange' },
+      { value: 'green', label: 'Green' },
+      { value: 'blue', label: 'Blue' },
+      { value: 'pink', label: 'Pink' },
+      { value: 'yellow', label: 'Yellow' }
+    ]
+    const networks = [
+      { value: 'behance', label: 'Behance' },
+      { value: 'dribbble', label: 'Dribbble' },
+      { value: 'facebook', label: 'Facebook' },
+      { value: 'github', label: 'Github' },
+      { value: 'instagram', label: 'Instagram' },
+      { value: 'linkedin', label: 'Linkedin' },
+      { value: 'stackoverflow', label: 'Stack Overflow' },
+      { value: 'twitter', label: 'Twitter' },
+      { value: 'xing', label: 'Xing' },
+      { value: 'youtube', label: 'Youtube' }
+    ]
     // State
     const initialValues = {
       firstName: 'Fish',
@@ -59,8 +79,8 @@ You can find additional props for each field component in [Fields](/fields/file-
       dogs: true,
       hungry: true,
       weekday: 'monday',
-      month: months[1],
-      tags: [months[3], months[2]],
+      month: { label: 'February', value: 'february' },
+      tags: [],
       partyDate: Date.now()
     }
     // Render
@@ -150,20 +170,33 @@ You can find additional props for each field component in [Fields](/fields/file-
                 <ConnectedField name="cats" component={InputCheckbox} label="Cats" />
               </FieldGroup>
               <ConnectedField
+                name="network"
+                component={Select}
+                options={networks}
+                label="Social network"
+                placeholder="Choose network"
+                renderItem={option => (
+                  <Box display="flex" alignItems="center">
+                    <Icon name={option.value} size="sm" mr="xs" /> <span>{option.label}</span>
+                  </Box>
+                )}
+              />
+              <ConnectedField
                 name="month"
                 component={Select}
                 options={months}
                 label="Favourite month"
                 placeholder="Choose month"
+                required
               />
               <ConnectedField
-                name="tags"
+                name="colors"
                 component={Select}
-                options={months}
+                options={colors}
                 isMultiple
                 isSearchable
                 isCreatable
-                label="Tag months"
+                label="Colors"
               />
               <ConnectedField
                 name="summary"
