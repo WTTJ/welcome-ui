@@ -22,7 +22,8 @@ export const InputText = forwardRef(
       size = 'lg',
       type = 'text',
       value,
-      variant
+      variant,
+      ...rest
     },
     ref
   ) => {
@@ -44,6 +45,7 @@ export const InputText = forwardRef(
         type={type}
         value={value}
         variant={variant}
+        {...rest}
       />
     )
 
