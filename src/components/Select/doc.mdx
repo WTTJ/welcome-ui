@@ -9,6 +9,7 @@ import { Props } from 'docz'
 import { Playground } from '../../../docz/'
 
 import { Select } from './index'
+import { Icon } from '../Icon'
 
 # Select
 
@@ -26,7 +27,16 @@ import { Select } from './index'
     ]
     const [value, setValue] = useState(ITEMS[2])
     const handleChange = e => setValue(e.target.value)
-    return <Select options={ITEMS} name="default" onChange={handleChange} value={value} />
+    return (
+      <Select
+        options={ITEMS}
+        name="default"
+        onChange={handleChange}
+        value={value}
+        mt={20}
+        borderRadius={15}
+      />
+    )
   }}
 </Playground>
 
@@ -82,7 +92,7 @@ To be able to filter (i.e. search) the results, add the `isSearchable` prop.
 
 ## Required
 
-You can normally clear the selected value of a `Select` but if it's has a `required` prop we'll prevent the ability to remove a chosen option.
+You can normally clear the selected value of a `Select` but if it has a `required` prop we'll prevent the ability to remove a chosen option.
 
 <Playground>
   {() => {
@@ -96,11 +106,47 @@ You can normally clear the selected value of a `Select` but if it's has a `requi
     ]
     const [value, setValue] = useState(ITEMS[2])
     const handleChange = e => {
-      console.debug('e', e.target)
+      setValue(e.target.value)
+    }
+    return <Select required options={ITEMS} name="required" onChange={handleChange} value={value} />
+  }}
+</Playground>
+
+## Formatting options
+
+Passing a `renderItem` function allows you to format the options in the list (and the selected option). 
+
+<Playground>
+  {() => {
+    const ITEMS = [
+      { value: 'behance', label: 'Behance' },
+      { value: 'dribbble', label: 'Dribbble' },
+      { value: 'facebook', label: 'Facebook' },
+      { value: 'github', label: 'Github' },
+      { value: 'instagram', label: 'Instagram' },
+      { value: 'linkedin', label: 'Linkedin' },
+      { value: 'stackoverflow', label: 'Stack Overflow' },
+      { value: 'twitter', label: 'Twitter' },
+      { value: 'xing', label: 'Xing' },
+      { value: 'youtube', label: 'Youtube' }
+    ]
+    const [value, setValue] = useState(ITEMS[2])
+    const handleChange = e => {
       setValue(e.target.value)
     }
     return (
-      <Select required options={ITEMS} name="has_default" onChange={handleChange} value={value} />
+      <Select
+        required
+        options={ITEMS}
+        name="rich"
+        onChange={handleChange}
+        value={value}
+        renderItem={option => (
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Icon name={option.value} size="sm" mr="xs" /> <span>{option.label}</span>
+          </div>
+        )}
+      />
     )
   }}
 </Playground>
@@ -187,7 +233,9 @@ Use size property with `sm` `md` or `lg`(default).
     ]
     const [value, setValue] = useState(ITEMS[2])
     const handleChange = e => setValue(e.target.value)
-    return <Select disabled options={ITEMS} name="disabled" onChange={handleChange} />
+    return (
+      <Select disabled options={ITEMS} name="disabled" onChange={handleChange} value={ITEMS[3]} />
+    )
   }}
 </Playground>
 

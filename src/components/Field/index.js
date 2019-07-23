@@ -89,6 +89,7 @@ export const Field = forwardRef(
         fieldType={Component.type}
         flexDirection={layout}
         size={size}
+        {...rest}
       >
         <Container>
           {label && (

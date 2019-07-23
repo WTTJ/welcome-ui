@@ -5,6 +5,10 @@ import * as S from './styles'
 import { icons } from './icons'
 
 export const Icon = forwardRef(({ name, ...props }, ref) => {
+  if (!name) {
+    return null
+  }
+
   const iconName = name.toLowerCase()
   const iconConfig = icons[iconName]
 
@@ -19,7 +23,7 @@ export const Icon = forwardRef(({ name, ...props }, ref) => {
       ref={ref}
       role="img"
       stroked={iconConfig.stroked}
-      title={iconName}
+      title={name}
       viewBox={iconConfig.viewBox || '0 0 100 100'}
       {...props}
     />
