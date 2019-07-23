@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.0](https://github.com/WTTJ/welcome-ui/compare/v0.16.1...v0.17.0) (2019-07-23)
+
+
+### Bug Fixes
+
+* allow icon to be added to DatePicker ([#225](https://github.com/WTTJ/welcome-ui/issues/225)) ([f413901](https://github.com/WTTJ/welcome-ui/commit/f413901)), closes [#221](https://github.com/WTTJ/welcome-ui/issues/221)
+* pass all props to field ([dc5c413](https://github.com/WTTJ/welcome-ui/commit/dc5c413))
+
+
+### Features
+
+* add `renderItem` prop to allow formatting of options ([#222](https://github.com/WTTJ/welcome-ui/issues/222)) ([c4106d9](https://github.com/WTTJ/welcome-ui/commit/c4106d9))
+* add xl size to buttons ([af808e9](https://github.com/WTTJ/welcome-ui/commit/af808e9))
+* allow icon to be added to InputText ([cb11a68](https://github.com/WTTJ/welcome-ui/commit/cb11a68))
+
+
+
 ### [0.16.1](https://github.com/WTTJ/welcome-ui/compare/v0.16.0...v0.16.1) (2019-07-18)
 
 
