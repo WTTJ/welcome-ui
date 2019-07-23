@@ -114,7 +114,7 @@ You can normally clear the selected value of a `Select` but if it has a `require
 
 ## Formatting options
 
-Passing a `renderItem` function allows you to format the options in the list (and the selected option). 
+Passing a `renderItem` function allows you to format the options in the list (and the selected option).
 
 <Playground>
   {() => {
@@ -171,6 +171,44 @@ If your field is searchable (i.e. has the `isSearchable` prop, you can _add_ ite
     const handleChange = e => setValue(e.target.value)
     return (
       <Select isCreatable isSearchable options={ITEMS} name="creatable" onChange={handleChange} />
+    )
+  }}
+</Playground>
+
+## Combining props
+
+You can pass any combination of the props above. For example below, we have a `Select` that allows you to search the options, choose multiple options, and create new options.
+
+<Playground>
+  {() => {
+    const ITEMS = [
+      { value: 'behance', label: 'Behance' },
+      { value: 'dribbble', label: 'Dribbble' },
+      { value: 'facebook', label: 'Facebook' },
+      { value: 'github', label: 'Github' },
+      { value: 'instagram', label: 'Instagram' },
+      { value: 'linkedin', label: 'Linkedin' },
+      { value: 'stackoverflow', label: 'Stack Overflow' },
+      { value: 'twitter', label: 'Twitter' },
+      { value: 'xing', label: 'Xing' },
+      { value: 'youtube', label: 'Youtube' }
+    ]
+    const [value, setValue] = useState(ITEMS[2])
+    const handleChange = e => setValue(e.target.value)
+    return (
+      <Select
+        isCreatable
+        isMultiple
+        isSearchable
+        options={ITEMS}
+        name="creatable"
+        onChange={handleChange}
+        renderItem={option => (
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Icon name={option.value} size="sm" mr="xs" /> <span>{option.label}</span>
+          </div>
+        )}
+      />
     )
   }}
 </Playground>
