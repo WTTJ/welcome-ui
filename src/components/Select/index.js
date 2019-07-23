@@ -58,12 +58,19 @@ export const Select = forwardRef(
     }, [defaultValue, defaultInputValue])
 
     // Update results if searchable
-    const handleInputChange = e => {
-      const value = e.currentTarget.innerText
+    const handleInputChange = (value, openMenu) => {
       if (isSearchable) {
+        // Update
         const results = matchSorter(options, value, { keys: ['label'] })
         setInputValue(value)
         setResults(results)
+        openMenu()
+
+        // We have to manage the cursor position when searching on field that isMultiple
+        const selection = window.getSelection()
+        const node = selection.focusNode
+        const offset = selection.focusOffset
+        setImmediate(() => selection.setPosition(node, offset))
       }
     }
 
@@ -125,6 +132,7 @@ export const Select = forwardRef(
           getToggleButtonProps,
           highlightedIndex,
           isOpen,
+          openMenu,
           toggleMenu
         }) => {
           const isShowCreate = isCreatable && inputValue && !isValueExisting(inputValue, values)
@@ -156,7 +164,11 @@ export const Select = forwardRef(
 
           return (
             <S.Wrapper {...getRootProps()} {...rest}>
-              <S.Input {...inputProps} onInput={handleInputChange} suppressContentEditableWarning>
+              <S.Input
+                {...inputProps}
+                onInput={e => handleInputChange(e.target.innerText, openMenu)}
+                suppressContentEditableWarning
+              >
                 {content}
               </S.Input>
               <S.Indicators size={size}>
