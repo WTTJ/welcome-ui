@@ -104,6 +104,7 @@ export const Field = forwardRef(
             </Label>
           )}
           {!isCheckable && field}
+          {!label && isCheckable && field}
         </Container>
         {hintText && <Hint variant={variant}>{hintText}</Hint>}
       </S.Field>
