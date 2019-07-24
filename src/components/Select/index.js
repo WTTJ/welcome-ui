@@ -1,12 +1,12 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import { arrayOf, bool, func, oneOfType, shape, string } from 'prop-types'
+import { arrayOf, bool, func, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import matchSorter from 'match-sorter'
 import kebabCase from 'lodash.kebabcase'
 import uniqBy from 'lodash.uniqby'
 import isEqual from 'lodash.isequal'
 
-import { SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
+import { OPTIONS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
 import { Icon } from '../Icon'
 import { Tag } from '../Tag'
 import { createEvent } from '../../utils/'
@@ -244,11 +244,6 @@ export const Select = forwardRef(
   }
 )
 
-const OPTION_TYPE = shape({
-  label: string,
-  value: string
-})
-
 Select.propTypes = {
   autoFocus: bool,
   disabled: bool,
@@ -260,12 +255,12 @@ Select.propTypes = {
   onChange: func,
   onFocus: func,
   onKeyDown: func,
-  options: arrayOf(OPTION_TYPE),
+  options: arrayOf(OPTIONS_TYPE),
   placeholder: string.isRequired,
   renderItem: func,
   required: bool,
   searchable: bool,
   size: SIZES_TYPE,
-  value: oneOfType([OPTION_TYPE, arrayOf(OPTION_TYPE)]),
+  value: oneOfType([OPTIONS_TYPE, arrayOf(OPTIONS_TYPE)]),
   variant: VARIANTS_TYPE
 }

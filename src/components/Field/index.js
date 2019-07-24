@@ -1,10 +1,21 @@
 import React, { forwardRef, Fragment } from 'react'
-import { bool, func, node, number, object, oneOf, oneOfType, string } from 'prop-types'
+import {
+  array,
+  arrayOf,
+  bool,
+  func,
+  node,
+  number,
+  object,
+  oneOf,
+  oneOfType,
+  string
+} from 'prop-types'
 
 // Common
 import { RowContainer } from '../../common/styles/layout'
 import { getBaseType, getHintText, getVariant } from '../../utils/'
-import { COMPONENT_TYPE, DIRECTIONS_TYPE, SIZES_TYPE } from '../../utils'
+import { COMPONENT_TYPE, DIRECTIONS_TYPE, OPTIONS_TYPE, SIZES_TYPE } from '../../utils'
 // Components
 import { Label } from '../Label'
 import { Hint } from '../Hint'
@@ -31,14 +42,14 @@ export const Field = forwardRef(
       onChange,
       onFocus,
       onKeyDown,
+      options,
       placeholder,
       required,
       size = 'lg',
       touched,
       type,
       value,
-      warning,
-      ...rest
+      warning
     },
     ref
   ) => {
@@ -69,6 +80,7 @@ export const Field = forwardRef(
         onChange={onChange}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
+        options={options}
         placeholder={placeholder}
         ref={ref}
         required={required}
@@ -88,7 +100,6 @@ export const Field = forwardRef(
         fieldType={Component.type}
         flexDirection={layout}
         size={size}
-        {...rest}
       >
         <Container>
           {label && (
@@ -130,11 +141,12 @@ Field.propTypes = {
   onChange: func.isRequired,
   onFocus: func,
   onKeyDown: func,
+  options: arrayOf(OPTIONS_TYPE),
   placeholder: string,
   required: bool,
   size: SIZES_TYPE,
   touched: bool,
   type: oneOf(['checkbox', 'email', 'file', 'password', 'radio', 'search', 'tel', 'text']),
-  value: oneOfType([number, object, string]),
+  value: oneOfType([array, number, object, string]),
   warning: string
 }
