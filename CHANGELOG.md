@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.17.3](https://github.com/WTTJ/welcome-ui/compare/v0.17.1...v0.17.3) (2019-07-24)
+
+
+### Bug Fixes
+
+* allowed checkbox without label ([#245](https://github.com/WTTJ/welcome-ui/issues/245)) ([fac96ef](https://github.com/WTTJ/welcome-ui/commit/fac96ef))
+* pass options from field to select ([05f9c6f](https://github.com/WTTJ/welcome-ui/commit/05f9c6f))
+* z-index on select ([3cfb2fd](https://github.com/WTTJ/welcome-ui/commit/3cfb2fd))
+
+
+
 ### [0.17.2](https://github.com/WTTJ/welcome-ui/compare/v0.17.1...v0.17.2) (2019-07-24)
 
 
