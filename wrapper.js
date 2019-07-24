@@ -10,6 +10,7 @@ import { createTheme } from './src/theme/core'
 import { GlobalStyle } from './src/utils/'
 
 const THEMES = [
+  { value: 'core', label: 'Default' },
   { value: 'welcomekit', label: 'WelcomeKit' },
   { value: 'welcome', label: 'WelcomeToTheJungle' }
 ]
@@ -46,6 +47,7 @@ export default function Wrapper({ children }) {
             onChange={handleChange}
             options={THEMES}
             placeholder="Choose theme (defaults to core theme)"
+            required
             size="sm"
             value={value}
           />

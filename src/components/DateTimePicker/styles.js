@@ -79,7 +79,7 @@ export const DateTimePicker = styled.div(
     position: relative;
     display: flex;
     flex-wrap: nowrap;
-    z-index: ${props.focusedInput ? 20 : 'auto'};
+    z-index: ${props.focusedInput ? 1 : 'auto'};
     .react-datepicker-wrapper {
       position: relative;
       ${DatePicker} {
