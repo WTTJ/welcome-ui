@@ -13,6 +13,8 @@ import { Icon } from '../Icon'
 
 # Select
 
+It is based on the [downshift](https://github.com/downshift-js/downshift) library.
+
 ## Default
 
 <Playground>
@@ -25,7 +27,7 @@ import { Icon } from '../Icon'
       { value: 'react', label: 'React' },
       { value: 'vue', label: 'Vue' }
     ]
-    const [value, setValue] = useState(ITEMS[2])
+    const [value, setValue] = useState()
     const handleChange = e => setValue(e.target.value)
     return (
       <Select
