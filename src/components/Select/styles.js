@@ -86,7 +86,7 @@ export const DropDownIndicator = styled.button(
       background: transparent;
 
       ${Icon} {
-        transform: ${isOpen ? 'rotate(180deg)' : 'rotate(0)'};
+        transform: ${isOpen ? 'rotate3d(0, 0, 1, 180deg)' : 'rotate3d(0)'};
         transition: medium;
       }
     }
