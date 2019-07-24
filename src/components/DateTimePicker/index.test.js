@@ -24,10 +24,10 @@ test('<DateTimePicker> renders only TimePicker when prop timePickerOnly is true'
 })
 
 test('can render and opens the datePicker on click', () => {
-  const { container } = render(<DateTimePicker value={Date.now()} />)
+  const { baseElement, container } = render(<DateTimePicker value={Date.now()} />)
   const datePicker = container.getElementsByClassName('date-picker')[0]
-  const datePickerPopper = container.getElementsByClassName('date-picker-popper')
-  const timePickerPopper = container.getElementsByClassName('time-picker-popper')
+  const datePickerPopper = baseElement.getElementsByClassName('date-picker-popper')
+  const timePickerPopper = baseElement.getElementsByClassName('time-picker-popper')
 
   fireEvent.click(datePicker)
 
@@ -36,10 +36,10 @@ test('can render and opens the datePicker on click', () => {
 })
 
 test('can render and opens the timePicker on click', () => {
-  const { container } = render(<DateTimePicker value={Date.now()} />)
+  const { baseElement, container } = render(<DateTimePicker value={Date.now()} />)
   const timePicker = container.getElementsByClassName('time-picker')[0]
-  const datePickerPopper = container.getElementsByClassName('date-picker-popper')
-  const timePickerPopper = container.getElementsByClassName('time-picker-popper')
+  const datePickerPopper = baseElement.getElementsByClassName('date-picker-popper')
+  const timePickerPopper = baseElement.getElementsByClassName('time-picker-popper')
 
   fireEvent.click(timePicker)
 

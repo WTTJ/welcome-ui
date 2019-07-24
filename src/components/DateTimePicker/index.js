@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { createPortal } from 'react-dom'
 import { bool, func, number, object, oneOfType, string } from 'prop-types'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils'
@@ -10,6 +11,11 @@ import * as S from './styles'
 const DEFAULT_INTERVAL = 15
 const DEFAULT_DATE_FORMAT = 'dd/MM/yyyy'
 const DEFAULT_TIME_FORMAT = 'HH:mm'
+
+const PopperPortal = ({ children }) =>
+  typeof window !== 'undefined'
+    ? createPortal(<S.Popper>{children}</S.Popper>, document.querySelector('body'))
+    : null
 
 export const DateTimePicker = ({
   value = new Date(),
@@ -75,6 +81,7 @@ export const DateTimePicker = ({
           calendarClassName="date-picker-popper"
           className="date-picker"
           customInput={<CustomInput icon={dateIcon} size={size} />}
+          popperContainer={PopperPortal}
           {...datePickerProps}
           dateFormat={datePickerDateFormat}
           onBlur={e => handleBlur('date', e)}
@@ -89,9 +96,9 @@ export const DateTimePicker = ({
           calendarClassName="time-picker-popper"
           className="time-picker"
           customInput={<CustomInput icon={timeIcon} size={size} />}
-          dateFormat={timePickerDateFormat}
-          timeIntervals={timeIntervals}
+          popperContainer={PopperPortal}
           {...timePickerProps}
+          dateFormat={timePickerDateFormat}
           onBlur={e => handleBlur('time', e)}
           onChange={time => handleChange(time, 'time')}
           onFocus={e => handleFocus('time', e)}
@@ -99,6 +106,7 @@ export const DateTimePicker = ({
           showTimeSelect
           showTimeSelectOnly
           size={size}
+          timeIntervals={timeIntervals}
         />
       )}
     </S.DateTimePicker>
