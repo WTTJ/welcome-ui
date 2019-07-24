@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.17.1](https://github.com/WTTJ/welcome-ui/compare/v0.17.0...v0.17.1) (2019-07-24)
+
+
+### Bug Fixes
+
+* button line height ([#237](https://github.com/WTTJ/welcome-ui/issues/237)) ([5ae30a0](https://github.com/WTTJ/welcome-ui/commit/5ae30a0))
+* prevent system props from being sent to children ([#226](https://github.com/WTTJ/welcome-ui/issues/226)) ([aabb848](https://github.com/WTTJ/welcome-ui/commit/aabb848))
+
+
+
 ## [0.17.0](https://github.com/WTTJ/welcome-ui/compare/v0.16.1...v0.17.0) (2019-07-23)
 
 
