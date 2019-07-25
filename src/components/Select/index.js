@@ -55,7 +55,8 @@ export const Select = forwardRef(
     useEffect(() => {
       setValues(ensureArray(defaultValue))
       setInputValue(defaultInputValue)
-    }, [defaultValue, defaultInputValue])
+      setResults(options)
+    }, [defaultValue, defaultInputValue, options])
 
     // Update results if searchable
     const handleInputChange = (value, openMenu) => {
