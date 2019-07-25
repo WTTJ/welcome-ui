@@ -103,12 +103,14 @@ You can find additional props for each field component in [Fields](/fields/file-
                 component={InputText}
                 placeholder="Boaty"
                 label="First name"
+                mb="xl"
               />
               <ConnectedField
                 name="lastName"
                 component={InputText}
                 placeholder="McBoatface"
                 label="Last name"
+                mb="xl"
               />
               <ConnectedField
                 name="telephone"
@@ -117,8 +119,9 @@ You can find additional props for each field component in [Fields](/fields/file-
                 type="tel"
                 placeholder="123456789"
                 label="Phone number"
+                mb="xl"
               />
-              <RadioGroup label="Dietary">
+              <RadioGroup label="Dietary" mb="xl">
                 <ConnectedField name="diet" component={InputRadio} value="vegan" label="Vegan" />
                 <ConnectedField
                   name="diet"
@@ -139,7 +142,7 @@ You can find additional props for each field component in [Fields](/fields/file-
                   label="Carnivore"
                 />
               </RadioGroup>
-              <RadioGroup label="Favourite weekday" flexDirection="row" required>
+              <RadioGroup label="Favourite weekday" flexDirection="row" required mb="xl">
                 <ConnectedField name="weekday" component={RadioTab} value="monday" label="Monday" />
                 <ConnectedField
                   name="weekday"
@@ -161,8 +164,8 @@ You can find additional props for each field component in [Fields](/fields/file-
                 />
                 <ConnectedField name="weekday" component={RadioTab} value="friday" label="Friday" />
               </RadioGroup>
-              <ConnectedField name="hungry" component={Toggle} label="Hungry" />
-              <FieldGroup label="Animals">
+              <ConnectedField name="hungry" component={Toggle} label="Hungry" mb="xl" />
+              <FieldGroup label="Animals" mb="xl">
                 <ConnectedField name="dogs" component={InputCheckbox} label="Dogs" />
                 <ConnectedField name="cats" component={InputCheckbox} label="Cats" />
               </FieldGroup>
@@ -177,6 +180,7 @@ You can find additional props for each field component in [Fields](/fields/file-
                     <Icon name={option.value} size="sm" mr="xs" /> <span>{option.label}</span>
                   </Box>
                 )}
+                mb="xl"
               />
               <ConnectedField
                 name="month"
@@ -185,6 +189,7 @@ You can find additional props for each field component in [Fields](/fields/file-
                 label="Favourite month"
                 placeholder="Choose month"
                 required
+                mb="xl"
               />
               <ConnectedField
                 name="colors"
@@ -194,21 +199,29 @@ You can find additional props for each field component in [Fields](/fields/file-
                 isSearchable
                 isCreatable
                 label="Colors"
+                mb="xl"
               />
               <ConnectedField
                 name="summary"
                 component={InputTextarea}
                 placeholder="Keep it short"
                 label="Summary"
+                mb="xl"
               />
               <ConnectedField
                 name="description"
                 component={MarkdownEditor}
                 placeholder="Keep it sweet"
                 label="Description"
+                mb="xl"
               />
-              <ConnectedField name="profile" component={FileUpload} label="Profile pic" />
-              <ConnectedField name="partyDate" component={DateTimePicker} label="Party date" />
+              <ConnectedField name="profile" component={FileUpload} label="Profile pic" mb="xl" />
+              <ConnectedField
+                name="partyDate"
+                component={DateTimePicker}
+                label="Party date"
+                mb="xl"
+              />
               <Button type="submit" size="lg" mr={20}>
                 Submit
               </Button>
@@ -224,9 +237,7 @@ You can find additional props for each field component in [Fields](/fields/file-
         }}
       />
     )
-
-}}
-
+  }}
 </Playground>
 
 ## Properties
