@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.17.6](https://github.com/WTTJ/welcome-ui/compare/v0.17.4...v0.17.6) (2019-07-25)
+
+
+### Bug Fixes
+
+* include submitError in error from ConnectedField ([65fae84](https://github.com/WTTJ/welcome-ui/commit/65fae84))
+* remove duplicate label ([3808e25](https://github.com/WTTJ/welcome-ui/commit/3808e25))
+
+
+
 ### [0.17.5](https://github.com/WTTJ/welcome-ui/compare/v0.17.4...v0.17.5) (2019-07-25)
 
 
