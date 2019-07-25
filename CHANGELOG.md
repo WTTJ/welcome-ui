@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.17.4](https://github.com/WTTJ/welcome-ui/compare/v0.17.3...v0.17.4) (2019-07-25)
+
+
+### Bug Fixes
+
+* add correct value on htmlFor ([35cb574](https://github.com/WTTJ/welcome-ui/commit/35cb574))
+* show datepicker popper in portal ([#248](https://github.com/WTTJ/welcome-ui/issues/248)) ([41107f0](https://github.com/WTTJ/welcome-ui/commit/41107f0))
+* theme selection's min width now based on largest option's label ([#250](https://github.com/WTTJ/welcome-ui/issues/250)) ([c848fb0](https://github.com/WTTJ/welcome-ui/commit/c848fb0))
+* update options in state from parent ([505d3f2](https://github.com/WTTJ/welcome-ui/commit/505d3f2))
+
+
+
 ### [0.17.3](https://github.com/WTTJ/welcome-ui/compare/v0.17.1...v0.17.3) (2019-07-24)
 
 
