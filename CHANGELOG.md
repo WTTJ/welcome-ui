@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.18.0](https://github.com/WTTJ/welcome-ui/compare/v0.17.6...v0.18.0) (2019-07-25)
+
+
+### Features
+
+* add breakpoints on theme ([7139755](https://github.com/WTTJ/welcome-ui/commit/7139755))
+
+
+
 ### [0.17.6](https://github.com/WTTJ/welcome-ui/compare/v0.17.4...v0.17.6) (2019-07-25)
 
 
