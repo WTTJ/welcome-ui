@@ -58,6 +58,14 @@ export const getBaseTheme = (options = {}) => {
     sm: '1px'
   }
 
+  theme.breakpoints = {
+    xs: 0,
+    sm: 480,
+    md: 736,
+    lg: 980,
+    xl: 1280
+  }
+
   theme.space = {
     xxs: theme.toRem(6),
     xs: theme.toRem(8),
