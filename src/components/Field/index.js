@@ -36,6 +36,7 @@ export const Field = forwardRef(
       error,
       flexDirection,
       hint,
+      id,
       label,
       name,
       onBlur,
@@ -67,7 +68,7 @@ export const Field = forwardRef(
     const isShowRequired = isRadio ? null : required
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
     const Container = layout === 'row' ? RowContainer : Fragment
-    const htmlFor = isRadio ? value : name
+    const htmlFor = isRadio ? value : id || name
 
     const field = (
       <Component
@@ -75,6 +76,7 @@ export const Field = forwardRef(
         checked={checked}
         disabled={disabled}
         flexDirection={layout}
+        id={htmlFor}
         name={name}
         onBlur={onBlur}
         onChange={onChange}
@@ -136,6 +138,7 @@ Field.propTypes = {
   error: string,
   flexDirection: DIRECTIONS_TYPE,
   hint: string,
+  id: string,
   label: string,
   name: string.isRequired,
   onBlur: func,
