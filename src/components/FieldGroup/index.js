@@ -1,13 +1,15 @@
 import React, { forwardRef } from 'react'
-import { node, string } from 'prop-types'
+import { bool, node, string } from 'prop-types'
 
 import { Label } from '../Label'
 
 import * as S from './styles'
 
-export const FieldGroup = forwardRef(({ children, label }, ref) => (
+export const FieldGroup = forwardRef(({ children, label, required }, ref) => (
   <S.FieldGroup ref={ref}>
-    <Label as="legend">{label}</Label>
+    <Label as="legend" required={required}>
+      {label}
+    </Label>
     {children}
   </S.FieldGroup>
 ))
@@ -15,5 +17,6 @@ export const FieldGroup = forwardRef(({ children, label }, ref) => (
 FieldGroup.displayName = 'FieldGroup'
 FieldGroup.propTypes = {
   children: node,
-  label: string
+  label: string,
+  required: bool
 }
