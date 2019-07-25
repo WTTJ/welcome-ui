@@ -117,6 +117,11 @@ export const Select = forwardRef(
       setResults(options)
     }
 
+    const spacer = options.reduce(
+      (prev, current) => (prev.length > current.label.length ? prev : current.label),
+      ''
+    )
+
     return (
       <Downshift
         itemToString={itemToString}
@@ -164,11 +169,13 @@ export const Select = forwardRef(
           }
 
           return (
-            <S.Wrapper {...getRootProps()} {...rest}>
+            <S.Wrapper {...getRootProps()}>
               <S.Input
                 {...inputProps}
+                data-spacer={spacer || placeholder}
                 onInput={e => handleInputChange(e.target.innerText, openMenu)}
                 suppressContentEditableWarning
+                {...rest}
               >
                 {content}
               </S.Input>

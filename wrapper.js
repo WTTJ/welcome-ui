@@ -46,7 +46,6 @@ export default function Wrapper({ children }) {
             name="theme"
             onChange={handleChange}
             options={THEMES}
-            placeholder="Choose theme (defaults to core theme)"
             required
             size="sm"
             value={value}

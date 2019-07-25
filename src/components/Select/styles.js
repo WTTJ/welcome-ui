@@ -9,7 +9,6 @@ import { Tag } from '../Tag/styles'
 
 export const Wrapper = styled.div`
   position: relative;
-  ${system}
 `
 
 export const Input = styled.div(
@@ -18,13 +17,27 @@ export const Input = styled.div(
     ${overflowEllipsis};
     padding-right: ${th(`fields.sizes.${size}.height`)};
     cursor: default;
+    ${system}
 
     br {
       display: none;
     }
 
+    &::after {
+      content: attr(data-spacer);
+      display: block;
+      height: 0;
+      visibility: hidden;
+    }
+
     &:empty::before {
       content: attr(placeholder);
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      ${overflowEllipsis};
+      padding: inherit;
       opacity: 0.5;
     }
   `
@@ -35,8 +48,8 @@ export const Menu = styled.ul`
   position: absolute;
   z-index: 2;
   top: 3rem;
-  left: 0;
   right: 0;
+  left: 0;
   margin: 0;
   padding: 0;
   border: 1px solid;
@@ -55,6 +68,7 @@ export const Item = styled.li(
     ${isHighlighted && th('fields.select.highlighted')};
     ${isSelected && th('fields.select.selected')};
     ${isExisting && th('fields.select.existing')};
+    ${overflowEllipsis};
     padding: sm;
     list-style: none;
     text-decoration: none;
