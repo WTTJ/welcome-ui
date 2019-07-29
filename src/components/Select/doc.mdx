@@ -29,7 +29,16 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
     ]
     const [value, setValue] = useState()
     const handleChange = e => setValue(e.target.value)
-    return <Select options={ITEMS} name="default" onChange={handleChange} value={value} />
+    return (
+      <Select
+        options={ITEMS}
+        name="default"
+        onChange={handleChange}
+        value={value}
+        mt={20}
+        borderRadius={15}
+      />
+    )
   }}
 </Playground>
 

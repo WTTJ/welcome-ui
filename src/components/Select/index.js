@@ -169,7 +169,7 @@ export const Select = forwardRef(
           }
 
           return (
-            <S.Wrapper {...getRootProps()}>
+            <S.Wrapper {...getRootProps()} {...rest}>
               <S.Input
                 {...inputProps}
                 data-spacer={spacer || placeholder}

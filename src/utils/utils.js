@@ -10,18 +10,43 @@ import {
   flexboxes,
   grids,
   height,
+  margin,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  marginTop,
   maxHeight,
   maxWidth,
   minHeight,
   minWidth,
+  mx,
+  my,
+  padding,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+  paddingTop,
   positioning,
-  space,
+  px,
+  py,
   typography,
   verticalAlign,
   width
 } from '@xstyled/system'
 
-export const system = compose(
+const wrapperProps = [
+  margin,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  marginTop,
+  mx,
+  my,
+  positioning,
+  width
+]
+
+const componentProps = [
   backgrounds,
   basics,
   borders,
@@ -34,12 +59,24 @@ export const system = compose(
   maxWidth,
   minHeight,
   minWidth,
-  positioning,
-  space,
+  padding,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+  paddingTop,
+  px,
+  py,
   typography,
-  verticalAlign,
-  width
-)
+  verticalAlign
+]
+
+export const wrapperSystem = compose(...wrapperProps)
+
+export const componentSystem = compose(...componentProps)
+
+const systemProps = [...wrapperProps, ...componentProps]
+
+export const system = compose(...systemProps)
 
 export const filterComponent = (Component, omitProps = []) => {
   const unallowedProps = {

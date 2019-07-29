@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { system } from '../../utils/'
+import { wrapperSystem } from '../../utils/'
 import { Label } from '../Label/styles'
 import { radioTabStyles } from '../RadioTab/styles'
 import { FieldGroup } from '../FieldGroup/styles'
@@ -36,7 +36,7 @@ export const Field = styled.div(
       margin-right: xxs;
     }
     ${props.fieldType === 'RadioTab' && radioTabStyles(props)}
-    ${system};
+    ${wrapperSystem};
   `
 )
 
