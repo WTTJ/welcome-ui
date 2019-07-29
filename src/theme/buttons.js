@@ -20,11 +20,23 @@ export const getButtons = theme => {
 
   return {
     primary: defaults,
+    'primary-reverse': {
+      ...defaults,
+      color: colors.primary[500],
+      'background-color': colors.light[200],
+      'border-color': colors.primary[500]
+    },
     secondary: {
       ...defaults,
-      color: colors.secondary[700],
+      color: colors.light[200],
+      'background-color': colors.secondary[700],
+      'border-color': colors.secondary[700]
+    },
+    'secondary-reverse': {
+      ...defaults,
+      color: colors.secondary[500],
       'background-color': colors.light[200],
-      'border-color': colors.nude[200]
+      'border-color': colors.secondary[500]
     },
     tertiary: {
       ...defaults,
@@ -32,25 +44,31 @@ export const getButtons = theme => {
       'background-color': colors.secondary[700],
       'border-color': colors.secondary[700]
     },
-    'primary-warning': {
+    'tertiary-reverse': {
+      ...defaults,
+      'background-color': colors.light[200],
+      color: colors.secondary[700],
+      'border-color': colors.secondary[700]
+    },
+    warning: {
       ...defaults,
       color: colors.light[200],
       'background-color': colors.warning[500],
       'border-color': colors.warning[500]
     },
-    'secondary-warning': {
+    'warning-reverse': {
       ...defaults,
       color: colors.warning[500],
       'background-color': colors.light[200],
       'border-color': colors.warning[500]
     },
-    'primary-danger': {
+    danger: {
       ...defaults,
       color: colors.light[200],
       'background-color': colors.danger[500],
       'border-color': colors.danger[500]
     },
-    'secondary-danger': {
+    'danger-reverse': {
       ...defaults,
       color: colors.danger[500],
       'background-color': colors.light[200],
@@ -61,27 +79,39 @@ export const getButtons = theme => {
         'background-color': colors.primary[200],
         'border-color': colors.primary[200]
       },
+      'primary-reverse': {
+        color: colors.primary[200],
+        'border-color': colors.primary[200]
+      },
       secondary: {
+        'background-color': colors.secondary[500],
+        'border-color': colors.secondary[500]
+      },
+      'secondary-reverse': {
         color: colors.secondary[500],
-        'border-color': colors.nude[400]
+        'border-color': colors.secondary[500]
       },
       tertiary: {
         'background-color': colors.secondary[500],
         'border-color': colors.secondary[500]
       },
-      'primary-warning': {
+      'tertiary-reverse': {
+        color: colors.secondary[500],
+        'border-color': colors.secondary[500]
+      },
+      warning: {
         'background-color': colors.warning[200],
         'border-color': colors.warning[200]
       },
-      'secondary-warning': {
+      'warning-reverse': {
         color: colors.warning[200],
         'border-color': colors.warning[200]
       },
-      'primary-danger': {
+      danger: {
         'background-color': colors.danger[200],
         'border-color': colors.danger[200]
       },
-      'secondary-danger': {
+      'danger-reverse': {
         color: colors.danger[200],
         'border-color': colors.danger[200]
       }

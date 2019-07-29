@@ -27,15 +27,21 @@ Button.propTypes = {
   as: COMPONENT_TYPE,
   children: node,
   disabled: bool,
+  reverse: bool,
   shape: SHAPES_TYPE,
   size: oneOf(['xs', 'sm', 'md', 'lg']),
   variant: oneOf([
+    'danger',
+    'danger-reverse',
+    'neutral',
+    'neutral-reverse',
     'primary',
+    'primary-reverse',
     'secondary',
+    'secondary-reverse',
     'tertiary',
-    'primary-warning',
-    'secondary-warning',
-    'primary-danger',
-    'secondary-danger'
+    'tertiary-reverse',
+    'warning',
+    'warning-reverse'
   ])
 }

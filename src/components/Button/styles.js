@@ -11,7 +11,7 @@ const shapeStyles = (size, shape) => css`
 `
 
 export const Button = styled(filterComponent(ReakitButton))(
-  ({ disabled, shape, size, variant }) => css`
+  ({ disabled, shape, size, variant = 'primary' }) => css`
     ${th(`buttons.${variant}`)};
     position: relative;
     display: inline-flex;
@@ -44,7 +44,7 @@ export const Button = styled(filterComponent(ReakitButton))(
 
         &:hover,
         &:focus {
-          ${th(`buttons.focused.${variant || 'primary'}`)};
+          ${th(`buttons.focused.${variant}`)};
         }
       `};
 
