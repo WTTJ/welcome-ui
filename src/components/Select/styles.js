@@ -19,7 +19,6 @@ export const Input = styled.div(
     position: relative;
     ${fieldStyles};
     ${overflowEllipsis};
-    min-width: min-content;
     padding-right: ${th(`fields.sizes.${size}.height`)};
     cursor: default;
     ${componentSystem}

@@ -14,7 +14,14 @@ import { Icon } from './components/Icon'
 import { ConnectedField } from './components/ConnectedField'
 import { Field } from './components/Field'
 
-# Select
+# xstyled
+
+With [xstyled/system](https://www.smooth-code.com/open-source/xstyled/docs/system-props/) you can easily override styles for your components. When you use a component (e.g. `Select`) that is wrapped by a container component (e.g. `Field` or `ConnectedField`), we want to make sure that the correct style props are passed to the correct component i.e. which props affect `ConnectedField` and which props affect `Select`.
+
+We split these props at the container level so that…
+
+1. **width, margin and positioning props are applied to the container** (e.g. `width`, `margin`, `mt`, `position`, `top` etc), and
+2. **all the rest are applied to the underlying component** (e.g. `padding`, `borderColor`, `fontSize` etc).
 
 ## Naked Select
 
