@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { bool, func, number, object, oneOfType, string } from 'prop-types'
 
@@ -37,7 +37,25 @@ export const DateTimePicker = ({
     (datePickerProps.autoFocus && 'date') || (timePickerProps.autoFocus && 'time') || null
   )
 
-  const [newDate, setNewDate] = useState(getDate(value, timeIntervals))
+  const [date, setDate] = useState(null)
+
+  const formatDate = date => getDate(date, timeIntervals)
+
+  // format date at component mount
+  useEffect(() => {
+    onChange && onChange(formatDate(value))
+    //eslint-disable-next-line
+  }, [])
+
+  // Ensure values are controlled by parent
+  useEffect(() => {
+    const formattedDate = formatDate(value)
+    if (value - formattedDate !== 0 && onChange) {
+      onChange(formattedDate)
+    }
+    setDate(formattedDate)
+    //eslint-disable-next-line
+  }, [value])
 
   const handleFocus = (kind, e) => {
     let onDatePickerFocus = datePickerProps.onFocus
@@ -57,7 +75,7 @@ export const DateTimePicker = ({
 
   const handleChange = (newDate, kind) => {
     if (!newDate) return
-    const date = getDate(newDate, timeIntervals)
+    const date = formatDate(newDate)
 
     if (kind === 'date') {
       newDate = newDate.setHours(date.getHours(), date.getMinutes())
@@ -65,7 +83,7 @@ export const DateTimePicker = ({
     if (kind === 'time') {
       newDate = newDate.setFullYear(date.getFullYear(), date.getMonth(), date.getDate())
     }
-    setNewDate(newDate)
+    setDate(newDate)
     onChange && onChange(new Date(newDate))
   }
 
@@ -87,7 +105,7 @@ export const DateTimePicker = ({
           onBlur={e => handleBlur('date', e)}
           onChange={date => handleChange(date, 'date')}
           onFocus={e => handleFocus('date', e)}
-          selected={newDate}
+          selected={date}
           size={size}
         />
       )}
@@ -102,7 +120,7 @@ export const DateTimePicker = ({
           onBlur={e => handleBlur('time', e)}
           onChange={time => handleChange(time, 'time')}
           onFocus={e => handleFocus('time', e)}
-          selected={newDate}
+          selected={date}
           showTimeSelect
           showTimeSelectOnly
           size={size}
