@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.18.1](https://github.com/WTTJ/welcome-ui/compare/v0.18.0...v0.18.1) (2019-07-30)
+
+
+### Bug Fixes
+
+* datePicker is not resetable ([#259](https://github.com/WTTJ/welcome-ui/issues/259)) ([e39c23c](https://github.com/WTTJ/welcome-ui/commit/e39c23c)), closes [#228](https://github.com/WTTJ/welcome-ui/issues/228)
+* pass (preview) value to FileUpload ([#260](https://github.com/WTTJ/welcome-ui/issues/260)) ([572b1e4](https://github.com/WTTJ/welcome-ui/commit/572b1e4))
+
+
+
 ## [0.18.0](https://github.com/WTTJ/welcome-ui/compare/v0.17.6...v0.18.0) (2019-07-25)
 
 
