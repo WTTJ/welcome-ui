@@ -50,7 +50,8 @@ export const Field = forwardRef(
       touched,
       type,
       value,
-      warning
+      warning,
+      ...rest
     },
     ref
   ) => {
@@ -74,6 +75,7 @@ export const Field = forwardRef(
       <Component
         autoFocus={autoFocus}
         checked={checked}
+        connected
         disabled={disabled}
         flexDirection={layout}
         id={htmlFor}
@@ -90,6 +92,7 @@ export const Field = forwardRef(
         type={baseType}
         value={value}
         variant={variant}
+        {...rest}
       >
         {children}
       </Component>
@@ -102,6 +105,7 @@ export const Field = forwardRef(
         fieldType={Component.type}
         flexDirection={layout}
         size={size}
+        {...rest}
       >
         <Container>
           {label && (

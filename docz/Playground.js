@@ -4,7 +4,7 @@ import { Playground as DoczPlayground } from 'docz'
 export const Playground = styled(DoczPlayground)`
   margin-bottom: -sm;
 
-  > * {
+  > *:not(:only-child) {
     margin-right: sm;
     margin-bottom: sm;
   }

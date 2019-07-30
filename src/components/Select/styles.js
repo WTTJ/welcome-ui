@@ -3,21 +3,29 @@ import { th } from '@xstyled/system'
 
 import { overflowEllipsis } from '../../common/styles/text'
 import { fieldStyles } from '../../common/styles/form'
-import { system } from '../../utils/'
+import { componentSystem, wrapperSystem } from '../../utils/'
 import { Icon } from '../Icon/styles'
 import { Tag } from '../Tag/styles'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div(
+  ({ connected }) => css`
+    position: relative;
+    ${connected ? null : wrapperSystem};
+  `
+)
+
+export const InputWrapper = styled.div`
   position: relative;
 `
 
 export const Input = styled.div(
   ({ size }) => css`
+    position: relative;
     ${fieldStyles};
     ${overflowEllipsis};
     padding-right: ${th(`fields.sizes.${size}.height`)};
     cursor: default;
-    ${system}
+    ${componentSystem}
 
     br {
       display: none;
@@ -25,20 +33,26 @@ export const Input = styled.div(
 
     &::after {
       content: attr(data-spacer);
+      visibility: hidden;
       display: block;
       height: 0;
-      visibility: hidden;
     }
 
-    &:empty::before {
-      content: attr(placeholder);
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      ${overflowEllipsis};
-      padding: inherit;
-      opacity: 0.5;
+    &:empty {
+      &::before {
+        content: attr(placeholder);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        ${overflowEllipsis};
+        padding: inherit;
+        opacity: 0.5;
+      }
+      &::after {
+        height: auto;
+      }
     }
   `
 )
@@ -47,10 +61,10 @@ export const Menu = styled.ul`
   ${th('fields.select.default')};
   position: absolute;
   z-index: 2;
-  top: 3rem;
   right: 0;
   left: 0;
   margin: 0;
+  margin-top: md;
   padding: 0;
   border: 1px solid;
   border-color: nude.200;
@@ -76,15 +90,13 @@ export const Item = styled.li(
   `
 )
 
-export const Indicators = styled.div(
-  ({ size }) => css`
-    position: absolute;
-    height: ${th(`fields.sizes.${size}.height`)};
-    padding: 0;
-    top: 0;
-    right: 0;
-  `
-)
+export const Indicators = styled.div`
+  position: absolute;
+  padding: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+`
 
 export const DropDownIndicator = styled.button(
   ({ actionType, isOpen, size }) => css`

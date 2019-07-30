@@ -2,12 +2,12 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { fieldStyles } from '../../common/styles/form'
-import { system } from '../../utils/'
+import { componentSystem, system } from '../../utils/'
 
 export const InputText = styled.input(
-  ({ icon, iconPlacement, size, ...rest }) => css`
+  ({ connected, icon, iconPlacement, size, ...rest }) => css`
     ${fieldStyles};
-    
+
     ${icon &&
       iconPlacement === 'left' &&
       css`
@@ -19,7 +19,7 @@ export const InputText = styled.input(
         padding-right: ${icon ? th(`fields.sizes.${size}.height`)(rest) : null};
       `}
 
-    ${system};
+    ${connected ? componentSystem : system};
   `
 )
 
