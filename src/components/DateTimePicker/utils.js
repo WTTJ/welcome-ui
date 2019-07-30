@@ -5,7 +5,7 @@ export const getDate = (date, interval) => {
 
   // If invalid date, use today
   let newDate = new Date(date)
-  if (isNaN(newDate)) {
+  if (isNaN(newDate.getTime())) {
     newDate = new Date()
   }
 
