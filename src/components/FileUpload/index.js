@@ -18,8 +18,10 @@ const DEFAULT_MAX_FILE_SIZE = 2000000
 const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
 const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
 
-const getPreviewUrl = url =>
-  typeof url !== 'string' || url.startsWith('blob:') ? url : new URL(url)
+const getPreviewUrl = file => {
+  const url = file.preview || file
+  return typeof url !== 'string' || url.startsWith('blob:') ? url : new URL(url)
+}
 
 export const FileUpload = forwardRef(
   (
@@ -33,11 +35,16 @@ export const FileUpload = forwardRef(
       onAddFile,
       onChange,
       onError,
-      onRemoveFile
+      onRemoveFile,
+      value
     },
     ref
   ) => {
-    const [file, setFile] = useState(null)
+    const [file, setFile] = useState(value)
+
+    useEffect(() => {
+      setFile(value)
+    }, [value])
 
     // Clean up URL
     useEffect(() => {
@@ -107,7 +114,7 @@ export const FileUpload = forwardRef(
         <input {...getInputProps({ name })} />
         <S.FilePreview>
           {children({
-            fileUrl: file && getPreviewUrl(file.preview),
+            fileUrl: file && getPreviewUrl(file),
             isDefault: !file && !isDragActive,
             isHoverAccept: isDragAccept,
             isHoverReject: isDragReject,
@@ -145,5 +152,6 @@ FileUpload.propTypes = {
   onChange: func,
   onError: func,
   onRemoveFile: func,
-  title: oneOfType([string, node])
+  title: oneOfType([string, node]),
+  value: string
 }
