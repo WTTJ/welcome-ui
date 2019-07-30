@@ -64,6 +64,46 @@ You also have access to:
   }}
 </Playground>
 
+## Show preview if value exists
+
+<Playground>
+  {() => {
+    const DefaultView = ({ openFile }) => (
+      <>
+        <h3>Add picture</h3>
+        <p>Drag and drop a file here or…</p>
+        <Button onClick={openFile} type="button">
+          Choose file
+        </Button>
+      </>
+    )
+    return (
+      <FileUpload
+        name="avatar"
+        label="Avatar"
+        hint="Files must be <200MB"
+        required
+        onChange={console.debug}
+        onAddFile={console.debug}
+        onRemoveFile={console.debug}
+        onError={console.error}
+        value="https://cdn-development.welcometothejungle.co/uploads/robert/applicants/303416437e/avatars/0.jpg?v=63731713698"
+      >
+        {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
+          if (isHoverAccept) {
+            return <Icon name="positive" />
+          } else if (isHoverReject) {
+            return <Icon name="negative" />
+          } else if (fileUrl) {
+            return <FilePreviewImage src={fileUrl} />
+          }
+          return <DefaultView openFile={openFile} />
+        }}
+      </FileUpload>
+    )
+  }}
+</Playground>
+
 ## Disabled
 
 <Playground>
