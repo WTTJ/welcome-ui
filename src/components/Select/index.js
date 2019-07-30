@@ -170,39 +170,41 @@ export const Select = forwardRef(
 
           return (
             <S.Wrapper {...getRootProps()} {...rest}>
-              <S.Input
-                {...inputProps}
-                data-spacer={spacer || placeholder}
-                onInput={e => handleInputChange(e.target.innerText, openMenu)}
-                suppressContentEditableWarning
-                {...rest}
-              >
-                {content}
-              </S.Input>
-              <S.Indicators size={size}>
-                {isShowDeleteIcon ? (
-                  <S.DropDownIndicator
-                    actionType="destructive"
-                    disabled={disabled}
-                    onClick={clearSelection}
-                    role="button"
-                    size={size}
-                    type="button"
-                  >
-                    <Icon name="cross" size="xs" />
-                  </S.DropDownIndicator>
-                ) : (
-                  <S.DropDownIndicator
-                    disabled={disabled}
-                    isOpen={isOpen}
-                    size={size}
-                    {...getToggleButtonProps()}
-                  >
-                    <Icon name="down" size="xs" />
-                  </S.DropDownIndicator>
-                )}
-              </S.Indicators>
-              {isShowMenu ? (
+              <S.InputWrapper>
+                <S.Input
+                  {...inputProps}
+                  data-spacer={spacer || placeholder}
+                  onInput={e => handleInputChange(e.target.innerText, openMenu)}
+                  suppressContentEditableWarning
+                  {...rest}
+                >
+                  {content}
+                </S.Input>
+                <S.Indicators size={size}>
+                  {isShowDeleteIcon ? (
+                    <S.DropDownIndicator
+                      actionType="destructive"
+                      disabled={disabled}
+                      onClick={clearSelection}
+                      role="button"
+                      size={size}
+                      type="button"
+                    >
+                      <Icon name="cross" size="xs" />
+                    </S.DropDownIndicator>
+                  ) : (
+                    <S.DropDownIndicator
+                      disabled={disabled}
+                      isOpen={isOpen}
+                      size={size}
+                      {...getToggleButtonProps()}
+                    >
+                      <Icon name="down" size="xs" />
+                    </S.DropDownIndicator>
+                  )}
+                </S.Indicators>
+              </S.InputWrapper>
+              {isShowMenu && (
                 <S.Menu {...getMenuProps()}>
                   {results.map((item, index) => (
                     <S.Item
@@ -234,7 +236,7 @@ export const Select = forwardRef(
                     </S.Item>
                   )}
                 </S.Menu>
-              ) : null}
+              )}
               {isMultiple && (
                 <S.Tags>
                   {values.map(tag => (

@@ -14,6 +14,10 @@ export const Wrapper = styled.div(
   `
 )
 
+export const InputWrapper = styled.div`
+  position: relative;
+`
+
 export const Input = styled.div(
   ({ size }) => css`
     position: relative;
@@ -57,7 +61,6 @@ export const Menu = styled.ul`
   ${th('fields.select.default')};
   position: absolute;
   z-index: 2;
-  top: 100%;
   right: 0;
   left: 0;
   margin: 0;
