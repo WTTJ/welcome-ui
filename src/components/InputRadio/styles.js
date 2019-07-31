@@ -2,11 +2,11 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
 
-import { filterComponent, FINAL_FORM_META_TYPES, system } from '../../utils/'
+import { componentSystem, filterComponent, FINAL_FORM_META_TYPES, system } from '../../utils/'
 import { fieldStyles } from '../../common/styles/form'
 
 export const InputRadio = styled(filterComponent(ReakitRadio, Object.keys(FINAL_FORM_META_TYPES)))(
-  ({ order = '-1' }) => css`
+  ({ connected, order = '-1' }) => css`
     ${fieldStyles};
     ${th('fields.radio.default')}
     position: relative;
@@ -31,6 +31,6 @@ export const InputRadio = styled(filterComponent(ReakitRadio, Object.keys(FINAL_
       opacity: 0;
       transition: medium;
     }
-    ${system};
+    ${connected ? componentSystem : system};
   `
 )

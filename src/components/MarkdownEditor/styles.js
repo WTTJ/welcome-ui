@@ -3,14 +3,16 @@ import { th } from '@xstyled/system'
 import SimpleMDE from 'react-simplemde-editor'
 
 import { fieldStyles } from '../../common/styles/form'
+import { componentSystem, system } from '../../utils/'
 
 export const Wrapper = styled.div(
-  props => css`
+  ({ connected, disabled, focused }) => css`
     ${fieldStyles};
     position: relative;
-    pointer-events: ${props.disabled && 'none'};
-    ${props.focused && th('fields.focused')};
-    ${props.disabled && th('fields.disabled')};
+    pointer-events: ${disabled && 'none'};
+    ${focused && th('fields.focused')};
+    ${disabled && th('fields.disabled')};
+    height: auto;
     padding: 0;
 
     .editor-statusbar {
@@ -25,23 +27,30 @@ export const Wrapper = styled.div(
     .cm-strong {
       font-weight: bold;
     }
+    ${connected ? componentSystem : system};
   `
 )
 
-export const Toolbar = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: md md;
-  opacity: 1;
-  background-color: light.100;
-  border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude.200')};
-  border-radius: ${th('radii.sm')} ${th('radii.sm')} 0 0;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  box-shadow: ${th('shadows.sm')};
-`
+export const Toolbar = styled.div(
+  ({ borderRadius }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: md md;
+    opacity: 1;
+    background-color: light.100;
+    border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude.200')};
+    border-radius: sm;
+    position: sticky;
+    top: 0;
+    overflow: auto;
+    z-index: 2;
+    box-shadow: ${th('shadows.sm')};
+    border-radius: ${borderRadius};
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  `
+)
 
 export const ToolbarIcon = styled.a(
   props => css`

@@ -28,7 +28,8 @@ export const MarkdownEditor = forwardRef(
       placeholder,
       toolbar = DEFAULT_TOOLBAR,
       value,
-      variant
+      variant,
+      ...rest
     },
     ref
   ) => {
@@ -122,8 +123,19 @@ export const MarkdownEditor = forwardRef(
     }
 
     return (
-      <S.Wrapper data-testid="mde" disabled={disabled} focused={focused} variant={variant}>
-        <Toolbar active={currentTools} items={toolbarItems} onClick={handleToolbarClick} />
+      <S.Wrapper
+        data-testid="mde"
+        disabled={disabled}
+        focused={focused}
+        variant={variant}
+        {...rest}
+      >
+        <Toolbar
+          active={currentTools}
+          borderRadius={rest.borderRadius}
+          items={toolbarItems}
+          onClick={handleToolbarClick}
+        />
         {showEmojiPicker && <EmojiPicker onSelect={addEmoji} />}
         <S.Editor
           events={{ blur: handleBlur, focus: handleFocus, cursorActivity: updateCurrentTools }}

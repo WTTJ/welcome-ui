@@ -36,7 +36,8 @@ export const FileUpload = forwardRef(
       onChange,
       onError,
       onRemoveFile,
-      value
+      value,
+      ...rest
     },
     ref
   ) => {
@@ -110,6 +111,7 @@ export const FileUpload = forwardRef(
           isDragReject,
           ref: ref
         })}
+        {...rest}
       >
         <input {...getInputProps({ name })} />
         <S.FilePreview>

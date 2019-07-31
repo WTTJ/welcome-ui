@@ -47,7 +47,7 @@ export const componentSystem = compose(...componentProps)
 export const filterComponent = (Component, omitProps = []) => {
   const unallowedProps = {
     meta: {
-      props: [...omitProps, ...system.meta.props]
+      props: ['connected', ...omitProps, ...system.meta.props]
     }
   }
   return createSystemComponent(React, Component, unallowedProps)
