@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { system } from '../../utils/'
+import { componentSystem, system } from '../../utils/'
 import { fieldStyles } from '../../common/styles/form'
 import { Button } from '../Button/styles'
 
@@ -35,7 +35,7 @@ export const FileUpload = styled.div(
     justify-content: space-between;
     align-items: center;
     padding: md;
-    ${system};
+    ${props.connected ? componentSystem : system};
 
     h3 {
       font-size: h3;

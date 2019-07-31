@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { overflowEllipsis } from '../../common/styles/text'
-import { system } from '../../utils/'
+import { componentSystem } from '../../utils/'
 // common form styles
 import { fieldStyles } from '../../common/styles/form'
 import { Label } from '../Label/styles'
@@ -16,7 +16,6 @@ export const Input = styled.input`
   top: 0;
   left: 0;
   opacity: 0;
-  ${system};
 `
 
 const checkedStyles = css`
@@ -31,12 +30,18 @@ const columnStyles = css`
     margin-top: 0;
 
     ${Label} {
-      border-radius: md md 0 0;
+      border-radius: md;
+      ${componentSystem};
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 
   &:last-child ${Label} {
-    border-radius: 0 0 md md;
+    border-radius: md;
+    ${componentSystem};
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
   }
 `
 
@@ -48,16 +53,22 @@ const rowStyles = css`
     margin-left: 0;
 
     ${Label} {
-      border-radius: md 0 0 md;
+      border-radius: md;
+      ${componentSystem};
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
 
   &:last-child ${Label} {
-    border-radius: 0 md md 0;
+    border-radius: md;
+    ${componentSystem};
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 `
 
-export const radioTabStyles = props => css`
+export const radioTabStyles = ({ checked, flexDirection }) => css`
   flex: 1;
   min-width: 0;
   min-height: 0;
@@ -74,16 +85,17 @@ export const radioTabStyles = props => css`
     margin: 0;
     cursor: pointer;
     transition: none;
-    border-radius: 0;
     ${overflowEllipsis};
 
     &:hover {
       ${th('fields.radiotabs.hover')};
     }
 
-    ${props.checked && checkedStyles};
+    ${checked && checkedStyles};
+    ${componentSystem};
+    border-radius: 0;
   }
 
-  ${props.flexDirection === 'column' && columnStyles};
-  ${props.flexDirection === 'row' && rowStyles};
+  ${flexDirection === 'column' && columnStyles};
+  ${flexDirection === 'row' && rowStyles};
 `

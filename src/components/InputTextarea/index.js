@@ -20,7 +20,8 @@ export const InputTextarea = forwardRef(
       placeholder,
       size = 'lg',
       value,
-      variant
+      variant,
+      ...rest
     },
     ref
   ) => (
@@ -39,6 +40,7 @@ export const InputTextarea = forwardRef(
       size={size}
       value={value}
       variant={variant}
+      {...rest}
     />
   )
 )

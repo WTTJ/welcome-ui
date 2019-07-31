@@ -26,7 +26,6 @@ export const getFields = theme => {
   return {
     default: defaults,
     disabled: {
-      ...defaults,
       'background-color': colors.light[500],
       'pointer-events': 'none'
     },

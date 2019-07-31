@@ -26,7 +26,8 @@ export const DateTimePicker = ({
   size = 'lg',
   timeIcon,
   timePickerOnly,
-  timePickerProps = {}
+  timePickerProps = {},
+  ...rest
 }) => {
   // Set defaults
   const datePickerDateFormat = datePickerProps.dateFormat || DEFAULT_DATE_FORMAT
@@ -93,6 +94,7 @@ export const DateTimePicker = ({
       datePickerOnly={datePickerOnly}
       focusedInput={focusedInput}
       timePickerOnly={timePickerOnly}
+      {...rest}
     >
       {!timePickerOnly && (
         <S.DatePicker
@@ -107,6 +109,7 @@ export const DateTimePicker = ({
           onFocus={e => handleFocus('date', e)}
           selected={date}
           size={size}
+          {...rest}
         />
       )}
       {!datePickerOnly && (
@@ -125,6 +128,7 @@ export const DateTimePicker = ({
           showTimeSelectOnly
           size={size}
           timeIntervals={timeIntervals}
+          {...rest}
         />
       )}
     </S.DateTimePicker>
