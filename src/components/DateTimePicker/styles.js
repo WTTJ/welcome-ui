@@ -16,9 +16,17 @@ const overridingStyles = css`
   }
 `
 
+const focusStyles = css`
+  &:focus {
+    position: relative;
+    z-index: 1;
+  }
+`
+
 export const DatePicker = styled(ReactDatePicker)(
   ({ connected }) => css`
     ${fieldStyles};
+    ${focusStyles};
     ${connected ? componentSystem : system};
   `
 )
@@ -27,28 +35,22 @@ export const TimePicker = styled(ReactDatePicker)(
   ({ connected }) => css`
     ${fieldStyles};
     text-align: center;
+    ${focusStyles};
     ${connected ? componentSystem : system};
   `
 )
 
 export const DateTimePicker = styled.div(
-  ({ connected, datePickerOnly, focusedInput, timePickerOnly }) => css`
+  ({ connected, datePickerOnly, timePickerOnly }) => css`
     position: relative;
     display: flex;
     flex-wrap: nowrap;
-    z-index: ${focusedInput ? 1 : 'auto'};
 
     .react-datepicker-wrapper:first-child {
       margin-right: -1px;
-      z-index: ${focusedInput === 'date' ? 1 : null};
-    }
-
-    .react-datepicker-wrapper:last-child {
-      z-index: ${focusedInput === 'time' ? 1 : null};
     }
 
     .react-datepicker-wrapper {
-      position: relative;
       ${DatePicker} {
         border-top-right-radius: ${datePickerOnly ? null : 0};
         border-bottom-right-radius: ${datePickerOnly ? null : 0};

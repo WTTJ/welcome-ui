@@ -11,6 +11,7 @@ export const RadioTab = forwardRef(
       autoFocus,
       checked,
       disabled,
+      id,
       name,
       onBlur,
       onChange,
@@ -25,7 +26,7 @@ export const RadioTab = forwardRef(
       autoFocus={autoFocus}
       checked={checked}
       disabled={disabled}
-      id={value}
+      id={id}
       name={name}
       onBlur={onBlur}
       onChange={onChange}
@@ -46,6 +47,7 @@ RadioTab.propTypes = {
   autoFocus: bool,
   checked: bool,
   disabled: bool,
+  id: string,
   name: string,
   onBlur: func,
   onChange: func,

@@ -26,6 +26,7 @@ export const Select = forwardRef(
     {
       autoFocus,
       disabled,
+      id,
       isCreatable,
       isMultiple,
       isSearchable,
@@ -155,7 +156,7 @@ export const Select = forwardRef(
             onFocus,
             placeholder,
             readOnly: !isSearchable,
-            ref: ref,
+            ref,
             size,
             value: inputValue || EMPTY,
             variant: isOpen ? 'focused' : variant
@@ -174,8 +175,10 @@ export const Select = forwardRef(
                 <S.Input
                   {...inputProps}
                   data-spacer={spacer || placeholder}
+                  id={id}
                   onInput={e => handleInputChange(e.target.innerText, openMenu)}
                   suppressContentEditableWarning
+                  tabIndex={0}
                   {...rest}
                 >
                   {content}
@@ -254,9 +257,12 @@ export const Select = forwardRef(
   }
 )
 
+Select.displayName = 'Select'
+
 Select.propTypes = {
   autoFocus: bool,
   disabled: bool,
+  id: string,
   isCreatable: bool,
   isMultiple: bool,
   isSearchable: bool,
