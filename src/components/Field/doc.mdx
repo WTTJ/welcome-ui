@@ -398,6 +398,7 @@ You can find additional props for each field component in [Fields](/fields/file-
     value={Date.now() - 18 * 365 * 24 * 3600 * 1000}
     label="Tell us your birth date and time (if you remember it)"
     onChange={date => console.log('date: ', date)}
+    datePickerProps={{ autoFocus: true }}
   />
 </Playground>
 

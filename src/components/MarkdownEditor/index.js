@@ -80,6 +80,7 @@ export const MarkdownEditor = forwardRef(
     }, [])
 
     const handleFocus = () => {
+      instance && instance.codemirror.focus()
       onFocus && onFocus(value)
       setFocused(true)
       setShowEmojiPicker(false)
@@ -142,6 +143,7 @@ export const MarkdownEditor = forwardRef(
           extraKeys={{ Tab: false }}
           getMdeInstance={setInstance}
           onChange={handleChange}
+          onFocus={onFocus}
           options={{
             autoDownloadFontAwesome: false,
             autofocus: autoFocus,

@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { bool, node, oneOf, string } from 'prop-types'
+import { bool, func, node, oneOf, string } from 'prop-types'
 
 import { Badge } from '../Badge'
 import { Icon } from '../Icon'
@@ -21,7 +21,10 @@ const getVariantIcon = (variant, errorWarningIcon) => {
 }
 
 export const Label = forwardRef(
-  ({ as, children, disabled, disabledIcon, errorWarningIcon, htmlFor, required, variant }, ref) => {
+  (
+    { as, children, disabled, disabledIcon, errorWarningIcon, htmlFor, onClick, required, variant },
+    ref
+  ) => {
     const icon = variant && getVariantIcon(variant, errorWarningIcon)
     return (
       <S.Label
@@ -30,6 +33,7 @@ export const Label = forwardRef(
         disabledIcon={disabledIcon}
         errorWarningIcon={errorWarningIcon}
         htmlFor={htmlFor}
+        onClick={onClick}
         ref={ref}
         required={required}
         variant={variant}
@@ -55,6 +59,7 @@ Label.propTypes = {
   errorWarningIcon: node,
   /** Name of the linked form element */
   htmlFor: string,
+  onClick: func,
   required: bool,
   variant: oneOf(['error', 'warning'])
 }

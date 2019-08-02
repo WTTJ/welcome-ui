@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment } from 'react'
+import React, { forwardRef, Fragment, useRef } from 'react'
 import {
   array,
   arrayOf,
@@ -14,7 +14,7 @@ import {
 
 // Common
 import { RowContainer } from '../../common/styles/layout'
-import { getBaseType, getHintText, getVariant } from '../../utils/'
+import { getBaseType, getHintText, getVariant, makeUnique } from '../../utils/'
 import { COMPONENT_TYPE, DIRECTIONS_TYPE, OPTIONS_TYPE, SIZES_TYPE } from '../../utils'
 // Components
 import { Label } from '../Label'
@@ -60,7 +60,9 @@ export const Field = forwardRef(
       return null
     }
 
-    const baseType = getBaseType(Component.type || type)
+    const inputRef = useRef()
+
+    const baseType = getBaseType(type || Component.displayName)
     const variant = getVariant({ connected, touched, warning, error })
     const hintText = getHintText({ connected, touched, warning, error, hint })
     const isRadio = baseType === 'radio'
@@ -69,7 +71,24 @@ export const Field = forwardRef(
     const isShowRequired = isRadio ? null : required
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
     const Container = layout === 'row' ? RowContainer : Fragment
-    const htmlFor = isRadio ? value : id || name
+    const htmlFor = makeUnique(isRadio ? value : id || name)
+
+    const handleLabelClick = () => {
+      const input = inputRef.current
+      if (input) {
+        switch (Component.displayName) {
+          case 'InputRadio':
+          case 'RadioTab':
+          case 'Checkbox':
+            break
+          case 'MarkdownEditor':
+            input.simpleMde.codemirror.focus()
+            break
+          default:
+            input.focus()
+        }
+      }
+    }
 
     const field = (
       <Component
@@ -86,7 +105,7 @@ export const Field = forwardRef(
         onKeyDown={onKeyDown}
         options={options}
         placeholder={placeholder}
-        ref={ref}
+        ref={inputRef || ref}
         required={required}
         size={size}
         type={baseType}
@@ -113,6 +132,7 @@ export const Field = forwardRef(
               disabled={disabled}
               disabledIcon={disabledIcon}
               htmlFor={htmlFor}
+              onClick={handleLabelClick}
               required={isShowRequired}
               variant={variant}
             >
