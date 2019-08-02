@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.18.2](https://github.com/WTTJ/welcome-ui/compare/v0.18.1...v0.18.2) (2019-08-02)
+
+
+### Bug Fixes
+
+* add label onClick to focus on related component ([#266](https://github.com/WTTJ/welcome-ui/issues/266)) ([0e19b56](https://github.com/WTTJ/welcome-ui/commit/0e19b56)), closes [#241](https://github.com/WTTJ/welcome-ui/issues/241)
+* correctly spread system props in all form components ([#265](https://github.com/WTTJ/welcome-ui/issues/265)) ([14fc927](https://github.com/WTTJ/welcome-ui/commit/14fc927))
+
+
+
 ### [0.18.1](https://github.com/WTTJ/welcome-ui/compare/v0.18.0...v0.18.1) (2019-07-30)
 
 
