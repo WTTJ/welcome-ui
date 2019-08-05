@@ -18,7 +18,8 @@ const EMPTY = ''
 const itemToString = item => (item ? item.label : '')
 const ensureArray = value => (Array.isArray(value) ? value : value ? [value] : [])
 const getUniqueValue = (item, values) => uniqBy([...values, item], item => item.value)
-const isValueExisting = (value, values) => values.find(item => item.value === kebabCase(value))
+const isValueExisting = (value, values) =>
+  values.find(item => kebabCase(item.value) === kebabCase(value))
 const defaultRenderOption = option => (option ? option.label : EMPTY)
 
 export const Select = forwardRef(
