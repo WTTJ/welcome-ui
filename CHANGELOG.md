@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.18.3](https://github.com/WTTJ/welcome-ui/compare/v0.18.2...v0.18.3) (2019-08-05)
+
+
+### Bug Fixes
+
+* select isValueExisting buggy function ([b5d422a](https://github.com/WTTJ/welcome-ui/commit/b5d422a))
+* width='100%' prop on datetimepicker was not working ([18d5845](https://github.com/WTTJ/welcome-ui/commit/18d5845))
+
+
+
 ### [0.18.2](https://github.com/WTTJ/welcome-ui/compare/v0.18.1...v0.18.2) (2019-08-02)
 
 
