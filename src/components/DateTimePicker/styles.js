@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import ReactDatePicker from 'react-datepicker'
 
-import { componentSystem, system, wrapperSystem } from '../../utils/'
+import { componentSystem, wrapperSystem } from '../../utils/'
 import { fieldStyles } from '../../common/styles/form'
 
 // Only require CSS on client
@@ -23,34 +23,31 @@ const focusStyles = css`
   }
 `
 
-export const DatePicker = styled(ReactDatePicker)(
-  ({ connected }) => css`
-    ${fieldStyles};
-    ${focusStyles};
-    ${connected ? componentSystem : system};
-  `
-)
+export const DatePicker = styled(ReactDatePicker)`
+  ${fieldStyles};
+  ${focusStyles};
+  ${componentSystem};
+`
 
-export const TimePicker = styled(ReactDatePicker)(
-  ({ connected }) => css`
-    ${fieldStyles};
-    text-align: center;
-    ${focusStyles};
-    ${connected ? componentSystem : system};
-  `
-)
+export const TimePicker = styled(ReactDatePicker)`
+  ${fieldStyles};
+  text-align: center;
+  ${focusStyles};
+  ${componentSystem};
+`
 
 export const DateTimePicker = styled.div(
-  ({ connected, datePickerOnly, timePickerOnly }) => css`
+  ({ connected, datePickerOnly, timePickerOnly, width = 'auto' }) => css`
     position: relative;
-    display: flex;
+    display: ${width === 'auto' ? 'inline-flex' : 'flex'};
     flex-wrap: nowrap;
 
-    .react-datepicker-wrapper:first-child {
+    .react-datepicker-wrapper:first-child:not(:only-child) {
       margin-right: -1px;
     }
 
     .react-datepicker-wrapper {
+      flex-grow: 1;
       ${DatePicker} {
         border-top-right-radius: ${datePickerOnly ? null : 0};
         border-bottom-right-radius: ${datePickerOnly ? null : 0};
@@ -59,6 +56,9 @@ export const DateTimePicker = styled.div(
         border-top-left-radius: ${timePickerOnly ? null : 0};
         border-bottom-left-radius: ${timePickerOnly ? null : 0};
       }
+    }
+    .react-datepicker__input-container {
+      display: block;
     }
     ${overridingStyles};
     ${connected ? null : wrapperSystem};
