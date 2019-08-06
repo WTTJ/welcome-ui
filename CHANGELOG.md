@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0](https://github.com/WTTJ/welcome-ui/compare/v0.18.3...v0.19.0) (2019-08-06)
+
+
+### Features
+
+* add arrow and allow picto placement on DateTimePicker ([#270](https://github.com/WTTJ/welcome-ui/issues/270)) ([1c87dc7](https://github.com/WTTJ/welcome-ui/commit/1c87dc7))
+
+
+
 ### [0.18.3](https://github.com/WTTJ/welcome-ui/compare/v0.18.2...v0.18.3) (2019-08-05)
 
 
