@@ -4,6 +4,8 @@ import ReactDatePicker from 'react-datepicker'
 
 import { componentSystem, wrapperSystem } from '../../utils/'
 import { fieldStyles } from '../../common/styles/form'
+import { IconWrapper } from '../Field/styles'
+import { Icon } from '../Icon/styles'
 
 // Only require CSS on client
 if (typeof window !== 'undefined') {
@@ -20,6 +22,10 @@ const focusStyles = css`
   &:focus {
     position: relative;
     z-index: 1;
+
+    ~ ${IconWrapper}:last-child ${Icon} {
+      transform: rotate3d(0, 0, 1, 180deg);
+    }
   }
 `
 
@@ -65,11 +71,41 @@ export const DateTimePicker = styled.div(
   `
 )
 
-export const CustomInput = styled.div(({ icon, size, ...rest }) => {
+const iconPlacementStyles = (placement, size, rest) => {
+  if (placement === 'right') {
+    return css`
+      ${IconWrapper}:not(:last-child) {
+        right: ${th(`fields.sizes.${size}.height`)(rest)};
+        width: ${`calc(0.5 * ${th(`fields.sizes.${size}.height`)(rest)})`};
+        justify-content: flex-end;
+      }
+
+      ${DatePicker}, ${TimePicker} {
+        padding-right: ${`calc(1.5 * ${th(`fields.sizes.${size}.height`)(rest)})`};
+      }
+    `
+  }
+  if (placement === 'left') {
+    return css`
+      ${DatePicker}, ${TimePicker} {
+        padding-left: ${th(`fields.sizes.${size}.height`)(rest)};
+      }
+    `
+  }
+}
+
+export const CustomInput = styled.div(({ focused, icon, iconPlacement, size, ...rest }) => {
   return css`
     position: relative;
+    ${icon && iconPlacementStyles(iconPlacement, size, rest)};
+
     ${DatePicker}, ${TimePicker} {
-      padding-left: ${icon ? th(`fields.sizes.${size}.height`)(rest) : null};
+      padding-right: ${th(`fields.sizes.${size}.height`)(rest)};
+    }
+
+    ${Icon} {
+      transition: medium;
+      z-index: ${focused ? 2 : null};
     }
   `
 })
@@ -88,6 +124,14 @@ export const Popper = styled.div`
   .react-datepicker-time__header,
   .react-datepicker-year-header {
     font-weight: medium;
+  }
+
+  .react-datepicker__year-read-view--down-arrow,
+  .react-datepicker__month-read-view--down-arrow,
+  .react-datepicker__month-year-read-view--down-arrow {
+    top: 3px;
+    padding: sm 0;
+    transform: scale(0.5);
   }
 
   .react-datepicker__time-container {

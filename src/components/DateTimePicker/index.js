@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { bool, func, number, object, oneOfType, string } from 'prop-types'
+import { bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils'
 
@@ -22,11 +22,13 @@ export const DateTimePicker = forwardRef(
     {
       value = new Date(),
       dateIcon,
+      dateIconPlacement = 'left',
       datePickerOnly,
       datePickerProps = {},
       onChange,
       size = 'lg',
       timeIcon,
+      timeIconPlacement = 'left',
       timePickerOnly,
       timePickerProps = {},
       ...rest
@@ -38,6 +40,9 @@ export const DateTimePicker = forwardRef(
     const timePickerDateFormat = timePickerProps.dateFormat || DEFAULT_TIME_FORMAT
     const timeIntervals = timePickerProps.timeIntervals || DEFAULT_INTERVAL
 
+    const [focused, setFocused] = useState(
+      (datePickerProps.autoFocus && 'date') || (timePickerProps.autoFocus && 'time') || null
+    )
     const [date, setDate] = useState(null)
 
     const formatDate = date => getDate(date, timeIntervals)
@@ -61,6 +66,7 @@ export const DateTimePicker = forwardRef(
     const handleFocus = (kind, e) => {
       let onDatePickerFocus = datePickerProps.onFocus
       let onTimePickerFocus = timePickerProps.onFocus
+      setFocused(kind)
       kind === 'date' && onDatePickerFocus && onDatePickerFocus(e)
       kind === 'time' && onTimePickerFocus && onTimePickerFocus(e)
     }
@@ -68,6 +74,7 @@ export const DateTimePicker = forwardRef(
     const handleBlur = (kind, e) => {
       let onDatePickerBlur = datePickerProps.onBlur
       let onTimePickerBlur = timePickerProps.onBlur
+      setFocused(null)
       kind === 'date' && onDatePickerBlur && onDatePickerBlur(e)
       kind === 'time' && onTimePickerBlur && onTimePickerBlur(e)
     }
@@ -99,9 +106,11 @@ export const DateTimePicker = forwardRef(
             className="date-picker"
             customInput={
               <CustomInput
+                focused={focused}
                 handleBlur={e => handleBlur('date', e)}
                 handleFocus={e => handleFocus('date', e)}
                 icon={dateIcon}
+                iconPlacement={dateIconPlacement}
                 inputRef={timePickerOnly ? null : ref}
                 ref={ref}
                 size={size}
@@ -122,9 +131,11 @@ export const DateTimePicker = forwardRef(
             className="time-picker"
             customInput={
               <CustomInput
+                focused={focused}
                 handleBlur={e => handleBlur('date', e)}
                 handleFocus={e => handleFocus('date', e)}
                 icon={timeIcon}
+                iconPlacement={timeIconPlacement}
                 inputRef={timePickerOnly ? ref : null}
                 size={size}
               />
@@ -150,11 +161,13 @@ DateTimePicker.displayName = 'DateTimePicker'
 
 DateTimePicker.propTypes = {
   dateIcon: COMPONENT_TYPE,
+  dateIconPlacement: oneOf('right', 'left'),
   datePickerOnly: bool,
   datePickerProps: object,
   onChange: func,
   size: SIZES_TYPE,
   timeIcon: COMPONENT_TYPE,
+  timeIconPlacement: oneOf('right', 'left'),
   timePickerOnly: bool,
   timePickerProps: object,
   value: oneOfType([number, object, string]).isRequired
