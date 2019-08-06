@@ -36,7 +36,7 @@ export class CustomInput extends PureComponent {
         )}
         <input ref={inputRef} {...rest} />
         <IconWrapper iconPlacement="right" size={size}>
-          <Icon name="down" size="xs" />
+          <Icon color="nude.800" name="down" size="xs" />
         </IconWrapper>
       </S.CustomInput>
     )

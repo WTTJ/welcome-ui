@@ -194,7 +194,7 @@ export const Select = forwardRef(
                       size={size}
                       type="button"
                     >
-                      <Icon name="cross" size="xs" />
+                      <Icon color="nude.800" name="cross" size="xs" />
                     </S.DropDownIndicator>
                   ) : (
                     <S.DropDownIndicator
@@ -203,7 +203,7 @@ export const Select = forwardRef(
                       size={size}
                       {...getToggleButtonProps()}
                     >
-                      <Icon name="down" size="xs" />
+                      <Icon color="nude.800" name="down" size="xs" />
                     </S.DropDownIndicator>
                   )}
                 </S.Indicators>

@@ -130,7 +130,6 @@ export const Popper = styled.div`
   .react-datepicker__month-read-view--down-arrow,
   .react-datepicker__month-year-read-view--down-arrow {
     top: 3px;
-    padding: sm 0;
     transform: scale(0.5);
   }
 
@@ -148,6 +147,10 @@ export const Popper = styled.div`
   .react-datepicker__header {
     background-color: nude.100;
     border-color: nude.300;
+  }
+
+  .react-datepicker__header__dropdown {
+    padding: sm 0;
   }
 
   .react-datepicker-popper[data-placement^='bottom'] .react-datepicker__triangle::before {
@@ -189,6 +192,7 @@ export const Popper = styled.div`
   }
 
   .react-datepicker__navigation--next {
+    outline: none;
     border-left-color: nude.500;
 
     &:hover {
@@ -197,6 +201,7 @@ export const Popper = styled.div`
   }
 
   .react-datepicker__navigation--previous {
+    outline: none;
     border-right-color: nude.500;
 
     &:hover {
