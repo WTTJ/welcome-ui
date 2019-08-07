@@ -36,6 +36,7 @@ export const Select = forwardRef(
       onBlur,
       onChange,
       onFocus,
+      onKeyDown,
       placeholder = 'Choose from…',
       renderItem = defaultRenderOption,
       required,
@@ -192,6 +193,7 @@ export const Select = forwardRef(
                       onClick={clearSelection}
                       role="button"
                       size={size}
+                      tabIndex={-1}
                       type="button"
                     >
                       <Icon color="nude.800" name="cross" size="xs" />
@@ -201,6 +203,7 @@ export const Select = forwardRef(
                       disabled={disabled}
                       isOpen={isOpen}
                       size={size}
+                      tabIndex={-1}
                       {...getToggleButtonProps()}
                     >
                       <Icon color="nude.800" name="down" size="xs" />
