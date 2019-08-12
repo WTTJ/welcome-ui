@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.19.2](https://github.com/WTTJ/welcome-ui/compare/v0.19.1...v0.19.2) (2019-08-12)
+
+
+### Bug Fixes
+
+* checkboxes and radios being updated every two clicks ([#273](https://github.com/WTTJ/welcome-ui/issues/273)) ([16afd5d](https://github.com/WTTJ/welcome-ui/commit/16afd5d)), closes [#203](https://github.com/WTTJ/welcome-ui/issues/203)
+* selects keyboard events handling is working now ([4c22665](https://github.com/WTTJ/welcome-ui/commit/4c22665)), closes [#267](https://github.com/WTTJ/welcome-ui/issues/267)
+
+
+
 ### [0.19.1](https://github.com/WTTJ/welcome-ui/compare/v0.19.0...v0.19.1) (2019-08-06)
 
 
