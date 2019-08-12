@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment, useRef } from 'react'
+import React, { forwardRef, Fragment, useRef, useState } from 'react'
 import {
   array,
   arrayOf,
@@ -62,6 +62,8 @@ export const Field = forwardRef(
 
     const inputRef = useRef()
 
+    const [isCheckboxChecked, setIsCheckboxChecked] = useState(checked)
+
     const baseType = getBaseType(type || Component.displayName)
     const variant = getVariant({ connected, touched, warning, error })
     const hintText = getHintText({ connected, touched, warning, error, hint })
@@ -74,26 +76,21 @@ export const Field = forwardRef(
     const htmlFor = makeUnique(isRadio ? value : id || name)
 
     const handleLabelClick = () => {
+      if (isCheckable) return
       const input = inputRef.current
       if (input) {
-        switch (Component.displayName) {
-          case 'InputRadio':
-          case 'RadioTab':
-          case 'Checkbox':
-            break
-          case 'MarkdownEditor':
-            input.simpleMde.codemirror.focus()
-            break
-          default:
-            input.focus()
-        }
+        Component.displayName === 'MarkdownEditor'
+          ? input.simpleMde.codemirror.focus()
+          : input.focus()
       }
     }
+
+    const handleChecked = () => (baseType === 'checkbox' ? isCheckboxChecked : checked)
 
     const field = (
       <Component
         autoFocus={autoFocus}
-        checked={checked}
+        checked={handleChecked()}
         connected
         disabled={disabled}
         flexDirection={layout}
@@ -107,6 +104,7 @@ export const Field = forwardRef(
         placeholder={placeholder}
         ref={inputRef || ref}
         required={required}
+        setIsCheckboxChecked={setIsCheckboxChecked}
         size={size}
         type={baseType}
         value={value}
@@ -120,7 +118,7 @@ export const Field = forwardRef(
     return (
       <S.Field
         checkableField={isCheckable}
-        checked={checked}
+        checked={handleChecked()}
         fieldType={Component.type}
         flexDirection={layout}
         size={size}
