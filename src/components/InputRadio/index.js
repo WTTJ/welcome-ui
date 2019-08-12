@@ -1,12 +1,11 @@
 import React, { forwardRef } from 'react'
-import { bool, elementType, func, number, string } from 'prop-types'
-import { useRadioState } from 'reakit/Radio'
+import { bool, elementType, func, number, object, string } from 'prop-types'
 
 import * as S from './styles'
 
-export const InputRadio = forwardRef(({ name, order, value, ...rest }, ref) => {
-  const radio = useRadioState()
-  return (
+export const InputRadio = forwardRef(
+  ({ name, order, radio, setIsCheckboxChecked, value, ...rest }, ref) => (
+    // setIsCheckboxChecked is here to remove it from the DOM element
     <S.InputRadio
       id={value}
       name={name}
@@ -17,7 +16,7 @@ export const InputRadio = forwardRef(({ name, order, value, ...rest }, ref) => {
       {...radio}
     />
   )
-})
+)
 
 InputRadio.type = 'InputRadio'
 InputRadio.displayName = 'InputRadio'
@@ -33,6 +32,8 @@ InputRadio.propTypes = {
   onFocus: func,
   onKeyDown: func,
   order: number,
+  radio: object,
+  setIsCheckboxChecked: func,
   type: string,
   value: string
 }

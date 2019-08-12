@@ -6,9 +6,26 @@ import { FINAL_FORM_INPUT_TYPES } from '../../utils'
 import * as S from './styles'
 
 export const InputCheckbox = forwardRef(
-  ({ Component = S.InputCheckbox, name, order, ...rest }, ref) => (
-    <Component id={name} name={name} order={order} ref={ref} {...rest} />
-  )
+  (
+    { checked, Component = S.InputCheckbox, name, onChange, order, setIsCheckboxChecked, ...rest },
+    ref
+  ) => {
+    const toggle = () => setIsCheckboxChecked(!checked)
+    const handleChange = e => onChange && onChange(e)
+
+    return (
+      <Component
+        checked={checked}
+        id={name}
+        name={name}
+        onChange={handleChange}
+        onClick={toggle}
+        order={order}
+        ref={ref}
+        {...rest}
+      />
+    )
+  }
 )
 
 InputCheckbox.type = 'InputCheckbox'
