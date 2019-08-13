@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from 'react'
+import React, { forwardRef, useCallback, useEffect, useState } from 'react'
 import { arrayOf, bool, func, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import matchSorter from 'match-sorter'
@@ -47,19 +47,29 @@ export const Select = forwardRef(
     },
     ref
   ) => {
-    const selectedItem = (!isMultiple && defaultValue) || null
-    const defaultInputValue = selectedItem ? defaultValue.label : EMPTY
+    const getOptionFromValue = useCallback(
+      value => {
+        if (!value) return
+        const optionFromValue = v =>
+          options.find(o => o.label === (v.label || v) || o.value === (v.value || v))
+        return Array.isArray(value) ? value.map(v => optionFromValue(v)) : optionFromValue(value)
+      },
+      [options]
+    )
+    const defaultOption = getOptionFromValue(defaultValue)
+    const selectedItem = (!isMultiple && defaultOption) || null
+    const defaultInputValue = selectedItem ? defaultOption : EMPTY
     // Values will always be an array internally
-    const [values, setValues] = useState(ensureArray(defaultValue))
+    const [values, setValues] = useState(ensureArray(defaultOption))
     const [inputValue, setInputValue] = useState(defaultInputValue)
     const [results, setResults] = useState(options)
 
     // Ensure values are controlled by parent
     useEffect(() => {
-      setValues(ensureArray(defaultValue))
+      setValues(ensureArray(getOptionFromValue(defaultValue)))
       setInputValue(defaultInputValue)
       setResults(options)
-    }, [defaultValue, defaultInputValue, options])
+    }, [defaultValue, defaultInputValue, getOptionFromValue, options])
 
     // Update results if searchable
     const handleInputChange = (value, openMenu) => {
@@ -78,11 +88,18 @@ export const Select = forwardRef(
       }
     }
 
+    const getValue = value => {
+      if (!value) return
+      const getCorrectValue = value =>
+        isValueExisting(value.value, options) ? value.value : value.label
+      return Array.isArray(value) ? value.map(v => getCorrectValue(v)) : getCorrectValue(value)
+    }
+
     // Send event to parent when value(s) changes
     const handleChange = values => {
       const value = isMultiple ? values : values[0]
       const event = createEvent({ name, value })
-      onChange && onChange(event)
+      onChange && onChange(getValue(value), event)
     }
 
     // Update internal state when clicking/adding a select item
@@ -281,6 +298,6 @@ Select.propTypes = {
   required: bool,
   searchable: bool,
   size: SIZES_TYPE,
-  value: oneOfType([OPTIONS_TYPE, arrayOf(OPTIONS_TYPE)]),
+  value: oneOfType([OPTIONS_TYPE, arrayOf(OPTIONS_TYPE)], string),
   variant: VARIANTS_TYPE
 }
