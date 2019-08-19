@@ -25,6 +25,7 @@ import { RadioTab } from '../RadioTab'
 import { Select } from '../Select'
 import { FileUpload } from '../FileUpload'
 import { DateTimePicker } from '../DateTimePicker'
+import kebabCase from 'lodash.kebabcase'
 
 # ConnectedField
 
@@ -79,9 +80,15 @@ You can find additional props for each field component in [Fields](/fields/file-
       dogs: true,
       hungry: true,
       weekday: 'monday',
-      month: { label: 'February', value: 'february' },
-      tags: [],
+      month: 'february',
+      colors: ['red', 'blue'],
       partyDate: Date.now()
+    }
+    // Add newly-created values to options
+    handleColorCreate = value => {
+      if (!colors.find(color => color.value === value)) {
+        colors.push({ value: kebabCase(value), label: value })
+      }
     }
     // Render
     return (
@@ -199,6 +206,7 @@ You can find additional props for each field component in [Fields](/fields/file-
                 isSearchable
                 isCreatable
                 label="Colors"
+                onCreate={handleColorCreate}
                 mb="xl"
               />
               <ConnectedField

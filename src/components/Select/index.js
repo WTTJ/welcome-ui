@@ -5,6 +5,7 @@ import matchSorter from 'match-sorter'
 import kebabCase from 'lodash.kebabcase'
 import uniqBy from 'lodash.uniqby'
 import isEqual from 'lodash.isequal'
+import reject from 'lodash.reject'
 
 import { OPTIONS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
 import { Icon } from '../Icon'
@@ -16,11 +17,26 @@ import * as S from './styles'
 // Helpers
 const EMPTY = ''
 const itemToString = item => (item ? item.label : '')
-const ensureArray = value => (Array.isArray(value) ? value : value ? [value] : [])
 const getUniqueValue = (item, values) => uniqBy([...values, item], item => item.value)
 const isValueExisting = (value, values) =>
   values.find(item => kebabCase(item.value) === kebabCase(value))
 const defaultRenderOption = option => (option ? option.label : EMPTY)
+const findOption = (value, options) => {
+  const option = options.find(
+    option => option.label === (value.label || value) || option.value === (value.value || value)
+  )
+  // Create the option if it doesn't exist
+  return option || { value: kebabCase(option), label: option }
+}
+const optionFromValue = (options, value) => {
+  if (!value) {
+    return []
+  } else if (Array.isArray(value)) {
+    return value.map(value => findOption(value, options))
+  } else {
+    return [findOption(value, options)]
+  }
+}
 
 export const Select = forwardRef(
   (
@@ -35,6 +51,7 @@ export const Select = forwardRef(
       name,
       onBlur,
       onChange,
+      onCreate,
       onFocus,
       onKeyDown,
       placeholder = 'Choose from…',
@@ -47,26 +64,18 @@ export const Select = forwardRef(
     },
     ref
   ) => {
-    const getOptionFromValue = useCallback(
-      value => {
-        if (!value) return
-        const optionFromValue = v =>
-          options.find(o => o.label === (v.label || v) || o.value === (v.value || v))
-        return Array.isArray(value) ? value.map(v => optionFromValue(v)) : optionFromValue(value)
-      },
-      [options]
-    )
+    const getOptionFromValue = useCallback(value => optionFromValue(options, value), [options])
     const defaultOption = getOptionFromValue(defaultValue)
-    const selectedItem = (!isMultiple && defaultOption) || null
-    const defaultInputValue = selectedItem ? defaultOption : EMPTY
+    const selectedItem = (!isMultiple && defaultOption && defaultOption[0]) || null
+    const defaultInputValue = selectedItem ? defaultOption[0] : EMPTY
     // Values will always be an array internally
-    const [values, setValues] = useState(ensureArray(defaultOption))
+    const [values, setValues] = useState(defaultOption)
     const [inputValue, setInputValue] = useState(defaultInputValue)
     const [results, setResults] = useState(options)
 
     // Ensure values are controlled by parent
     useEffect(() => {
-      setValues(ensureArray(getOptionFromValue(defaultValue)))
+      setValues(getOptionFromValue(defaultValue))
       setInputValue(defaultInputValue)
       setResults(options)
     }, [defaultValue, defaultInputValue, getOptionFromValue, options])
@@ -92,7 +101,7 @@ export const Select = forwardRef(
       if (!value) return
       const getCorrectValue = value =>
         isValueExisting(value.value, options) ? value.value : value.label
-      return Array.isArray(value) ? value.map(v => getCorrectValue(v)) : getCorrectValue(value)
+      return Array.isArray(value) ? value.map(getCorrectValue) : getCorrectValue(value)
     }
 
     // Send event to parent when value(s) changes
@@ -100,6 +109,15 @@ export const Select = forwardRef(
       const value = isMultiple ? values : values[0]
       const event = createEvent({ name, value })
       onChange && onChange(getValue(value), event)
+      if (isCreatable) {
+        // If there are newly-created values, call `onCreate`
+        const created = reject(values, value =>
+          options.find(option => option.value === value.value)
+        )
+        if (created.length) {
+          onCreate && onCreate(created[0].label, event)
+        }
+      }
     }
 
     // Update internal state when clicking/adding a select item
@@ -244,7 +262,7 @@ export const Select = forwardRef(
                       {renderItem(item)}
                     </S.Item>
                   ))}
-                  {isShowCreate && (
+                  {isShowCreate && inputValue.length && (
                     <S.Item
                       key="add"
                       {...getItemProps({
@@ -263,11 +281,18 @@ export const Select = forwardRef(
               )}
               {isMultiple && (
                 <S.Tags>
-                  {values.map(tag => (
-                    <Tag data-id={tag.value} key={tag.value} onRemove={handleRemove}>
-                      {tag.label}
-                    </Tag>
-                  ))}
+                  {values.map(value => {
+                    const tag = findOption(value, options) || value
+                    return (
+                      <Tag
+                        data-id={tag.value || tag}
+                        key={tag.value || tag}
+                        onRemove={handleRemove}
+                      >
+                        {tag.label || tag}
+                      </Tag>
+                    )
+                  })}
                 </S.Tags>
               )}
             </S.Wrapper>
@@ -290,6 +315,7 @@ Select.propTypes = {
   name: string,
   onBlur: func,
   onChange: func,
+  onCreate: func,
   onFocus: func,
   onKeyDown: func,
   options: arrayOf(OPTIONS_TYPE),
