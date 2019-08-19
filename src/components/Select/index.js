@@ -281,18 +281,11 @@ export const Select = forwardRef(
               )}
               {isMultiple && (
                 <S.Tags>
-                  {values.map(value => {
-                    const tag = findOption(value, options) || value
-                    return (
-                      <Tag
-                        data-id={tag.value || tag}
-                        key={tag.value || tag}
-                        onRemove={handleRemove}
-                      >
-                        {tag.label || tag}
-                      </Tag>
-                    )
-                  })}
+                  {values.map(tag => (
+                    <Tag data-id={tag.value} key={tag.value} onRemove={handleRemove}>
+                      {tag.label}
+                    </Tag>
+                  ))}
                 </S.Tags>
               )}
             </S.Wrapper>
