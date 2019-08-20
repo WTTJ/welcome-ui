@@ -1,4 +1,5 @@
 export * from './base'
+export * from './bytes'
 export * from './events'
 export * from './fields'
 export * from './font'

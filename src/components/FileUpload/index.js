@@ -1,34 +1,48 @@
-import React, { forwardRef, useEffect, useState } from 'react'
+import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import { bool, func, node, number, oneOfType, string } from 'prop-types'
-import { useDropzone } from 'react-dropzone'
 
 // Common
-import { Icon } from '../Icon'
 import { Button } from '../Button'
-import { createEvent, validateFileSize, validateMimeType } from '../../utils/'
+import { Tag } from '../Tag'
+import { createEvent, formatBytes } from '../../utils/'
 
 // FileUpload
 import * as S from './styles.js'
-import { DefaultContent } from './default.js'
-
-// Export `FilePreviewImage` from styles
-export const FilePreviewImage = S.FilePreviewImage
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
-const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
-const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
+const DEFAULT_FILE_TYPES = '*/*'
 
-const getPreviewUrl = file => {
-  const url = file.preview || file
-  return typeof url !== 'string' || url.startsWith('blob:') ? url : new URL(url)
+const getFileName = file => {
+  if (file.name) {
+    return file.name
+  }
+  if (typeof file === 'string') {
+    return file
+      .split('/')
+      .pop()
+      .split('?')[0]
+  }
+  return
+}
+
+const getFileSize = file => file.size || undefined
+
+const ensureArray = value => {
+  if (Array.isArray(value)) {
+    return value
+  } else if (value) {
+    return [value]
+  }
+  return []
 }
 
 export const FileUpload = forwardRef(
   (
     {
-      accept = 'image/*',
-      children = DefaultContent,
+      accept = DEFAULT_FILE_TYPES,
+      children,
       disabled,
+      draggable,
       maxSize = DEFAULT_MAX_FILE_SIZE,
       multiple,
       name,
@@ -36,106 +50,83 @@ export const FileUpload = forwardRef(
       onChange,
       onError,
       onRemoveFile,
-      value,
+      value = [],
       ...rest
     },
     ref
   ) => {
-    const [file, setFile] = useState(value)
+    // We always keep an array of files
+    const [files, setFiles] = useState(ensureArray(value))
+    const inputRef = ref || useRef()
 
+    // Ensure component is controlled
     useEffect(() => {
-      setFile(value)
+      setFiles(ensureArray(value))
     }, [value])
 
-    // Clean up URL
+    // Clean up URL on unmount
     useEffect(() => {
-      return () => file && URL.revokeObjectURL(file.preview)
-    }, [file])
+      return () => files && files.map(file => file && URL.revokeObjectURL(file.preview))
+    }, [files])
 
-    const handleDropAccepted = files => {
-      const [file] = files
-      file.preview = URL.createObjectURL(file)
-      setFile(file)
-
-      const event = createEvent({ name, value: file })
-      onChange && onChange(event)
-      onAddFile && onAddFile(event)
-    }
-
-    const handleDropRejected = files => {
-      files.forEach(file => {
-        if (!validateMimeType(file, accept)) {
-          onError && onError(ERROR_INVALID_TYPE)
-        } else if (!validateFileSize(file, maxSize)) {
-          onError && onError(ERROR_INVALID_SIZE)
-        }
+    const handleAddFile = e => {
+      let newFiles = Array.from(e.target.files).map(file => {
+        file.preview = URL.createObjectURL(file)
+        return file
       })
-    }
+      setFiles(newFiles)
 
-    const handleRemoveFile = e => {
-      e.preventDefault()
-      setFile(null)
+      if (newFiles.length === 1) {
+        newFiles = newFiles[0]
+      }
 
-      const event = createEvent({ name, value: null })
+      const event = createEvent({ name, value: newFiles })
       onChange && onChange(event)
-      onRemoveFile && onRemoveFile(event)
+      onAddFile && onAddFile(newFiles)
     }
 
-    const {
-      getInputProps,
-      getRootProps,
-      inputRef,
-      isDragAccept,
-      isDragActive,
-      isDragReject,
-      open,
-      rootRef
-    } = useDropzone({
-      onDropAccepted: handleDropAccepted,
-      onDropRejected: handleDropRejected,
-      noClick: true,
-      multiple,
-      accept,
-      disabled,
-      maxSize,
-      children
-    })
+    const handleRemoveFile = index => {
+      const newFiles = [...files]
+      const file = newFiles.splice(index, 1)
+      setFiles(newFiles)
+
+      const event = createEvent({ name, value: newFiles })
+      onChange && onChange(event)
+      onRemoveFile && onRemoveFile(file)
+    }
+
+    const handleClick = () => {
+      inputRef.current.click()
+    }
 
     return (
-      <S.FileUpload
-        {...getRootProps({
-          disabled,
-          handleRemoveFile,
-          isDragActive,
-          isDragAccept,
-          isDragReject,
-          ref: ref
+      <>
+        {children ? (
+          children({ openFile: handleClick })
+        ) : (
+          <Button onClick={handleClick}>Upload file</Button>
+        )}
+        <br />
+        <S.Input
+          accept={accept}
+          maxSize={maxSize}
+          multiple={multiple}
+          name={name}
+          onChange={handleAddFile}
+          ref={inputRef}
+          {...rest}
+          type="file"
+        />
+        {files.map((file, i) => {
+          const preview = getFileName(file)
+          const size = getFileSize(file)
+          return (
+            <Tag key={preview} onRemove={() => handleRemoveFile(i)}>
+              {preview} {size && `(${formatBytes(size, 0)})`}
+            </Tag>
+          )
         })}
-        {...rest}
-      >
-        <input {...getInputProps({ name })} />
-        <S.FilePreview>
-          {children({
-            fileUrl: file && getPreviewUrl(file),
-            isDefault: !file && !isDragActive,
-            isHoverAccept: isDragAccept,
-            isHoverReject: isDragReject,
-            openFile: open,
-            inputRef,
-            rootRef
-          })}
-          {!!file && (
-            <S.Actions>
-              <Button onClick={open} size="sm" type="button" variant="secondary">
-                <Icon name="pencil" size="sm" />
-              </Button>
-              <Button onClick={handleRemoveFile} size="sm" type="button" variant="primary-danger">
-                <Icon name="cross" size="sm" />
-              </Button>
-            </S.Actions>
-          )}
-        </S.FilePreview>
-      </S.FileUpload>
+      </>
     )
   }
 )
@@ -147,6 +138,7 @@ FileUpload.propTypes = {
   accept: string,
   children: func,
   disabled: bool,
+  draggable: bool,
   maxSize: number,
   multiple: bool,
   name: string.isRequired,

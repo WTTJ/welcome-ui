@@ -23,6 +23,7 @@ import { Toggle } from '../Toggle'
 import { InputRadio } from '../InputRadio'
 import { RadioTab } from '../RadioTab'
 import { Select } from '../Select'
+import { FileDrop } from '../FileDrop'
 import { FileUpload } from '../FileUpload'
 import { DateTimePicker } from '../DateTimePicker'
 import kebabCase from 'lodash.kebabcase'
@@ -223,7 +224,10 @@ You can find additional props for each field component in [Fields](/fields/file-
                 label="Description"
                 mb="xl"
               />
-              <ConnectedField name="profile" component={FileUpload} label="Profile pic" mb="xl" />
+              <ConnectedField name="profile" component={FileDrop} label="Profile pic" mb="xl" />
+              <ConnectedField name="avatar" component={FileUpload} label="Avatar" mb="xl">
+                {({ openFile }) => <Button mb="sm" onClick={openFile}>Upload avatar</Button>}
+              </ConnectedField>
               <ConnectedField
                 dateIcon={<Icon name="celebrate" size="sm" color="nude.600" />}
                 name="partyDate"

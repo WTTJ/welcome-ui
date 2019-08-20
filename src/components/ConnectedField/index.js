@@ -5,7 +5,7 @@ import { Field as FinalField } from 'react-final-form'
 import { Field } from '../Field'
 import { COMPONENT_TYPE, FINAL_FORM_INPUT_TYPES, getBaseType } from '../../utils'
 
-export const ConnectedField = forwardRef(({ component, type, ...rest }, ref) => (
+export const ConnectedField = forwardRef(({ children, component, type, ...rest }, ref) => (
   <FinalField
     type={getBaseType(component.type || type)}
     {...rest}
@@ -18,7 +18,9 @@ export const ConnectedField = forwardRef(({ component, type, ...rest }, ref) => 
         {...rest}
         component={component}
         connected
-      />
+      >
+        {children}
+      </Field>
     )}
   />
 ))

@@ -8,10 +8,6 @@ import * as S from './styles'
 
 export const Tag = forwardRef(
   ({ children, onRemove, size = 'md', variant = 'default', ...rest }, ref) => {
-    const handleClick = () => {
-      onRemove(rest['data-id'])
-    }
-
     return (
       <S.Tag
         data-testid="tag"
@@ -22,7 +18,7 @@ export const Tag = forwardRef(
         {...rest}
       >
         {children}
-        {onRemove && <Icon ml="sm" name="cross" onClick={handleClick} size="xs" />}
+        {onRemove && <Icon ml="sm" name="cross" onClick={onRemove} size="xs" />}
       </S.Tag>
     )
   }
