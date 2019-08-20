@@ -6,59 +6,70 @@ menu: Fields
 
 import { Props } from 'docz'
 import { Playground } from '../../../docz/'
+import { useState } from 'react'
 
 import { FileUpload } from './index'
 import { Button } from '../Button'
 import { Icon } from '../Icon'
-import { FilePreviewImage } from './styles.js'
 
 # FileUpload
 
-FileUpload uses render props to give you more flexibility on what to render at each state change:
-
-- `isDefault`: No file uploaded and no user interaction
-- `isHoverAccept`: File is being dragged over and matches the `accept` string
-- `isHoverReject`: File is being dragged over but does _not_ matches the `accept` string
-
-You also have access to:
-
-- `openFile`: To open the native file chooser dialog box
-- `fileUrl`: URL of file if one has been opened/dropped (to show a preview)
+FileUpload uses render props so you can pass a button through. You have access to `openFile` to open the native file chooser dialog box.
 
 ## Default
 
 <Playground>
   {() => {
-    const DefaultView = ({ openFile }) => (
-      <>
-        <h3>Add picture</h3>
-        <p>Drag and drop a file here or…</p>
-        <Button onClick={openFile} type="button">
-          Choose file
-        </Button>
-      </>
-    )
+    const [file, setFile] = useState(null)
+    const handleChange = e => {
+      setFile(e.target.value)
+    }
     return (
       <FileUpload
-        name="avatar"
+        accept="image/*"
+        name="default"
         label="Avatar"
         hint="Files must be <200MB"
         required
-        onChange={console.debug}
+        onChange={handleChange}
         onAddFile={console.debug}
         onRemoveFile={console.debug}
         onError={console.error}
+        value={file}
       >
-        {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
-          if (isHoverAccept) {
-            return <Icon name="positive" />
-          } else if (isHoverReject) {
-            return <Icon name="negative" />
-          } else if (fileUrl) {
-            return <FilePreviewImage src={fileUrl} />
-          }
-          return <DefaultView openFile={openFile} />
-        }}
+        {({ openFile }) => <Button onClick={openFile}>Upload avatar</Button>}
+      </FileUpload>
+    )
+  }}
+</Playground>
+
+## Multiple
+
+<Playground>
+  {() => {
+    const [file, setFile] = useState(null)
+    const handleChange = e => {
+      setFile(e.target.value)
+    }
+    return (
+      <FileUpload
+        accept="application/pdf"
+        name="multiple"
+        label="Avatar"
+        hint="Files must be <200MB"
+        multiple
+        onChange={handleChange}
+        onAddFile={console.debug}
+        onRemoveFile={console.debug}
+        onError={console.error}
+        required
+        value={file}
+      >
+        {({ openFile }) => (
+          <Button onClick={openFile} variant="secondary">
+            Choose file(s)
+          </Button>
+        )}
       </FileUpload>
     )
   }}
@@ -79,7 +90,7 @@ You also have access to:
     )
     return (
       <FileUpload
-        name="avatar"
+        name="preview"
         label="Avatar"
         hint="Files must be <200MB"
         required
@@ -89,16 +100,7 @@ You also have access to:
         onError={console.error}
         value="https://cdn-development.welcometothejungle.co/uploads/robert/applicants/303416437e/avatars/0.jpg?v=63731713698"
       >
-        {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
-          if (isHoverAccept) {
-            return <Icon name="positive" />
-          } else if (isHoverReject) {
-            return <Icon name="negative" />
-          } else if (fileUrl) {
-            return <FilePreviewImage src={fileUrl} />
-          }
-          return <DefaultView openFile={openFile} />
-        }}
+        {({ openFile }) => <Button onClick={openFile}>Upload file</Button>}
       </FileUpload>
     )
   }}
@@ -107,12 +109,11 @@ You also have access to:
 ## Disabled
 
 <Playground>
-  <FileUpload disabled>
-    {() => (
-      <>
-        <Icon name="negative" />
-        <p>Can't upload file</p>
-      </>
+  <FileUpload disabled name="disabled">
+    {({ openFile }) => (
+      <Button disabled onClick={openFile}>
+        Choose file
+      </Button>
     )}
   </FileUpload>
 </Playground>

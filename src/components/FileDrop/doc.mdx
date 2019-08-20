@@ -1,0 +1,122 @@
+---
+name: FileDrop
+route: /fields/file-drop
+menu: Fields
+---
+
+import { Props } from 'docz'
+import { Playground } from '../../../docz/'
+
+import { FileDrop } from './index'
+import { Button } from '../Button'
+import { Icon } from '../Icon'
+import { FilePreviewImage } from './styles.js'
+
+# FileDrop
+
+FileDrop uses render props to give you more flexibility on what to render at each state change:
+
+- `isDefault`: No file uploaded and no user interaction
+- `isHoverAccept`: File is being dragged over and matches the `accept` string
+- `isHoverReject`: File is being dragged over but does _not_ matches the `accept` string
+
+You also have access to:
+
+- `openFile`: To open the native file chooser dialog box
+- `fileUrl`: URL of file if one has been opened/dropped (to show a preview)
+
+## Default
+
+<Playground>
+  {() => {
+    const DefaultView = ({ openFile }) => (
+      <>
+        <h3>Add picture</h3>
+        <p>Drag and drop a file here or…</p>
+        <Button onClick={openFile} type="button">
+          Choose file
+        </Button>
+      </>
+    )
+    return (
+      <FileDrop
+        name="avatar"
+        label="Avatar"
+        hint="Files must be <200MB"
+        required
+        onChange={console.debug}
+        onAddFile={console.debug}
+        onRemoveFile={console.debug}
+        onError={console.error}
+      >
+        {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
+          if (isHoverAccept) {
+            return <Icon name="positive" />
+          } else if (isHoverReject) {
+            return <Icon name="negative" />
+          } else if (fileUrl) {
+            return <FilePreviewImage src={fileUrl} />
+          }
+          return <DefaultView openFile={openFile} />
+        }}
+      </FileDrop>
+    )
+  }}
+</Playground>
+
+## Show preview if value exists
+
+<Playground>
+  {() => {
+    const DefaultView = ({ openFile }) => (
+      <>
+        <h3>Add picture</h3>
+        <p>Drag and drop a file here or…</p>
+        <Button onClick={openFile} type="button">
+          Choose file
+        </Button>
+      </>
+    )
+    return (
+      <FileDrop
+        name="avatar"
+        label="Avatar"
+        hint="Files must be <200MB"
+        required
+        onChange={console.debug}
+        onAddFile={console.debug}
+        onRemoveFile={console.debug}
+        onError={console.error}
+        value="https://cdn-development.welcometothejungle.co/uploads/robert/applicants/303416437e/avatars/0.jpg?v=63731713698"
+      >
+        {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
+          if (isHoverAccept) {
+            return <Icon name="positive" />
+          } else if (isHoverReject) {
+            return <Icon name="negative" />
+          } else if (fileUrl) {
+            return <FilePreviewImage src={fileUrl} />
+          }
+          return <DefaultView openFile={openFile} />
+        }}
+      </FileDrop>
+    )
+  }}
+</Playground>
+
+## Disabled
+
+<Playground>
+  <FileDrop disabled>
+    {() => (
+      <>
+        <Icon name="negative" />
+        <p>Can't upload file</p>
+      </>
+    )}
+  </FileDrop>
+</Playground>
+
+## Properties
+
+<Props of={FileDrop} />
