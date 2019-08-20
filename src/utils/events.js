@@ -1,4 +1,4 @@
-export const createEvent = ({ name, value }) => ({
+export const createEvent = props => ({
   preventDefault: () => {},
-  target: { name, value }
+  target: { ...props }
 })

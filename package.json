@@ -106,6 +106,7 @@
     "lodash.isequal": "=4.5.0",
     "lodash.kebabcase": "=4.1.1",
     "lodash.merge": "^4.6.1",
+    "lodash.reject": "=4.6.0",
     "lodash.uniqby": "=4.7.0",
     "match-sorter": "=3.1.1",
     "polished": "^3.4.1",

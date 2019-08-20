@@ -28,7 +28,7 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
       { value: 'vue', label: 'Vue' }
     ]
     const [value, setValue] = useState()
-    const handleChange = e => setValue(e.target.value)
+    const handleChange = value => setValue(value)
     return <Select options={ITEMS} name="default" onChange={handleChange} value={value} />
   }}
 </Playground>
@@ -47,8 +47,8 @@ Just add the `isMultiple` prop. Note: to be able to choose multiple values you m
       { value: 'react', label: 'React' },
       { value: 'vue', label: 'Vue' }
     ]
-    const [value, setValue] = useState(ITEMS[2])
-    const handleChange = e => setValue(e.target.value)
+    // you can pass either the label, the value or the entire object
+    const [value, setValue] = useState(['React', 'ember', ITEMS[2]])
     return (
       <Select isMultiple options={ITEMS} name="multiple" onChange={console.debug} value={value} />
     )
@@ -70,7 +70,7 @@ To be able to filter (i.e. search) the results, add the `isSearchable` prop.
       { value: 'vue', label: 'Vue' }
     ]
     const [value, setValue] = useState(ITEMS[2])
-    const handleChange = e => setValue(e.target.value)
+    const handleChange = value => setValue(value)
     return (
       <Select
         isSearchable
@@ -98,9 +98,7 @@ You can normally clear the selected value of a `Select` but if it has a `require
       { value: 'vue', label: 'Vue' }
     ]
     const [value, setValue] = useState(ITEMS[2])
-    const handleChange = e => {
-      setValue(e.target.value)
-    }
+    const handleChange = value => setValue(value)
     return <Select required options={ITEMS} name="required" onChange={handleChange} value={value} />
   }}
 </Playground>
@@ -124,9 +122,7 @@ Passing a `renderItem` function allows you to format the options in the list (an
       { value: 'youtube', label: 'Youtube' }
     ]
     const [value, setValue] = useState(ITEMS[2])
-    const handleChange = e => {
-      setValue(e.target.value)
-    }
+    const handleChange = value => setValue(value)
     return (
       <Select
         required
@@ -160,10 +156,8 @@ If your field is searchable (i.e. has the `isSearchable` prop, you can _add_ ite
       { value: 'react', label: 'React' },
       { value: 'vue', label: 'Vue' }
     ]
-    const [value, setValue] = useState(ITEMS[2])
-    const handleChange = e => setValue(e.target.value)
     return (
-      <Select isCreatable isSearchable options={ITEMS} name="creatable" onChange={handleChange} />
+      <Select isCreatable isSearchable options={ITEMS} name="creatable" onChange={console.debug} />
     )
   }}
 </Playground>
@@ -186,8 +180,6 @@ You can pass any combination of the props above. For example below, we have a `S
       { value: 'xing', label: 'Xing' },
       { value: 'youtube', label: 'Youtube' }
     ]
-    const [value, setValue] = useState(ITEMS[2])
-    const handleChange = e => setValue(e.target.value)
     return (
       <Select
         isCreatable
@@ -195,12 +187,13 @@ You can pass any combination of the props above. For example below, we have a `S
         isSearchable
         options={ITEMS}
         name="creatable"
-        onChange={handleChange}
+        onChange={console.debug}
         renderItem={option => (
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Icon name={option.value} size="sm" mr="xs" /> <span>{option.label}</span>
           </div>
         )}
+        value={['Facebook', 'Twitter']}
       />
     )
   }}
@@ -220,8 +213,8 @@ Use size property with `sm` `md` or `lg`(default).
       { value: 'react', label: 'React' },
       { value: 'vue', label: 'Vue' }
     ]
-    const [values, setValues] = useState({ small: ITEMS[2], medium: ITEMS[1], large: ITEMS[0] })
-    const handleChange = e => setValues({ ...values, [e.target.name]: e.target.value })
+    const [values, setValues] = useState({ small: 'elm', medium: 'backbone', large: 'angular' })
+    const handleChange = (value, e) => setValues({ ...values, [e.target.name]: value })
     return (
       <>
         <Select
@@ -263,10 +256,8 @@ Use size property with `sm` `md` or `lg`(default).
       { value: 'vue', label: 'Vue' }
     ]
     const [value, setValue] = useState(ITEMS[2])
-    const handleChange = e => setValue(e.target.value)
-    return (
-      <Select disabled options={ITEMS} name="disabled" onChange={handleChange} value={ITEMS[3]} />
-    )
+    const handleChange = value => setValue(value)
+    return <Select disabled options={ITEMS} name="disabled" onChange={handleChange} value="ember" />
   }}
 </Playground>
 
