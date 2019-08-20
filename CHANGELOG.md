@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.0](https://github.com/WTTJ/welcome-ui/compare/v0.19.3...v0.20.0) (2019-08-20)
+
+
+### Features
+
+* add "traditional" file upload ([6a46c3a](https://github.com/WTTJ/welcome-ui/commit/6a46c3a))
+
+
+
 ### [0.19.3](https://github.com/WTTJ/welcome-ui/compare/v0.19.2...v0.19.3) (2019-08-20)
 
 
