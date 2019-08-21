@@ -19,6 +19,7 @@ const columnStyles = css`
 
 const checkableFieldStyles = css`
   ${th('fields.checkablelabel.default')};
+  margin-bottom: sm;
 `
 
 export const Field = styled.div(
