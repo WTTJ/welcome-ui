@@ -26,4 +26,16 @@ export const fieldStyles = ({ size, type, variant }) => css`
   &[aria-checked='true'] {
     ${(type === 'radio' || type === 'checkbox') && th(`fields.${type}.checked`)};
   }
+
+  &:invalid {
+    box-shadow: none;
+  }
+
+  &:-moz-submit-invalid {
+    box-shadow: none;
+  }
+
+  &:-moz-ui-invalid {
+    box-shadow: none;
+  }
 `
