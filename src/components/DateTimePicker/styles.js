@@ -153,6 +153,19 @@ export const Popper = styled.div`
     padding: sm 0;
   }
 
+  .react-datepicker__month-dropdown-container,
+  .react-datepicker__year-dropdown-container {
+    padding: sm;
+    background-color: light.100;
+    border: ${th.borderWidth('sm')} solid;
+    border-color: nude.200;
+    border-radius: sm;
+
+    &:active {
+      border-color: primary.500;
+    }
+  }
+
   .react-datepicker-popper[data-placement^='bottom'] .react-datepicker__triangle::before {
     border-bottom-color: nude.300;
   }
