@@ -26,6 +26,11 @@ export const Label = forwardRef(
     ref
   ) => {
     const icon = variant && getVariantIcon(variant, errorWarningIcon)
+    // Wrap strings in span to allow for required asterisk
+    const content = React.Children.toArray(children).map(child =>
+      typeof child === 'string' ? <span>{child}</span> : child
+    )
+
     return (
       <S.Label
         as={as}
@@ -42,8 +47,7 @@ export const Label = forwardRef(
         {disabled && (
           <S.Disabled>{disabledIcon || <Icon name="special_pipeline" size="sm" />}</S.Disabled>
         )}
-        {children}
-        {required && <S.Required>*</S.Required>}
+        {content}
       </S.Label>
     )
   }
