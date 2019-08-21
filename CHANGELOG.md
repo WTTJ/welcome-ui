@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.20.2](https://github.com/WTTJ/welcome-ui/compare/v0.20.1...v0.20.2) (2019-08-21)
+
+
+### Bug Fixes
+
+* infinite loop in field label's `for` attribute ([9909cea](https://github.com/WTTJ/welcome-ui/commit/9909cea)), closes [#280](https://github.com/WTTJ/welcome-ui/issues/280)
+* label spacing and wrapping ([979d938](https://github.com/WTTJ/welcome-ui/commit/979d938))
+
+
+
 ### [0.20.1](https://github.com/WTTJ/welcome-ui/compare/v0.20.0...v0.20.1) (2019-08-20)
 
 
