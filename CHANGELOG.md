@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.20.3](https://github.com/WTTJ/welcome-ui/compare/v0.20.2...v0.20.3) (2019-08-21)
+
+
+### Bug Fixes
+
+* add dark variant for tags ([e5b0ce1](https://github.com/WTTJ/welcome-ui/commit/e5b0ce1))
+* add styles for month/year dropdowns when open ([811b6bc](https://github.com/WTTJ/welcome-ui/commit/811b6bc))
+* add styles for year/month dropdowns in datepicker ([badb1d0](https://github.com/WTTJ/welcome-ui/commit/badb1d0))
+* firefox cursor position on contenteditable div's focus ([8a08b96](https://github.com/WTTJ/welcome-ui/commit/8a08b96)), closes [#286](https://github.com/WTTJ/welcome-ui/issues/286)
+* padding within labels ([14a69ba](https://github.com/WTTJ/welcome-ui/commit/14a69ba))
+* remove red border from required fields in firefox ([5575676](https://github.com/WTTJ/welcome-ui/commit/5575676))
+
+
+
 ### [0.20.2](https://github.com/WTTJ/welcome-ui/compare/v0.20.1...v0.20.2) (2019-08-21)
 
 
