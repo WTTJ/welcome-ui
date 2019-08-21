@@ -1,3 +1,6 @@
+// To allow for line-height of text in label
+const LINE_HEIGHT_ADJUSTMENTS = '0.15rem'
+
 export const getFields = theme => {
   const { colors, fontSizes, fontWeights, radii, shadows, space, toRem } = theme
 
@@ -73,7 +76,9 @@ export const getFields = theme => {
     checkbox: {
       default: {
         width: toRem(15),
-        height: toRem(15)
+        height: toRem(15),
+        'flex-shrink': 0,
+        'margin-top': LINE_HEIGHT_ADJUSTMENTS
       },
       checked
     },
@@ -151,6 +156,7 @@ export const getFields = theme => {
         width: toRem(22),
         'background-color': colors.nude[200],
         'border-color': colors.nude[200],
+        'margin-top': `-${LINE_HEIGHT_ADJUSTMENTS}`,
         '&::after': {
           ...defaults,
           'background-color': colors.light[200],

@@ -77,7 +77,7 @@ export const Field = forwardRef(
 
     const isShowRequired = isRadio ? null : required
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
-    const Container = layout === 'row' ? RowContainer : Fragment
+    const Container = flexDirection === 'row' ? RowContainer : Fragment
 
     const handleLabelClick = () => {
       if (isCheckable) return

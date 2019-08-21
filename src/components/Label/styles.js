@@ -6,8 +6,8 @@ import { getVariantStateColor, system } from '../../utils/'
 export const Label = styled.label`
   display: flex;
   flex-shrink: 0;
-  align-items: center;
-  line-height: 1;
+  align-items: flex-start;
+  line-height: body1;
   ${th('fields.label')};
   ${system};
 `
