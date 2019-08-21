@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment, useRef, useState } from 'react'
+import React, { forwardRef, Fragment, useEffect, useRef, useState } from 'react'
 import {
   array,
   arrayOf,
@@ -64,6 +64,11 @@ export const Field = forwardRef(
 
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(checked)
 
+    const [uniqueId, setUniqueId] = useState()
+    useEffect(() => {
+      setUniqueId(makeUnique(isRadio ? value : id || name))
+    }, [id, isRadio, name, value])
+
     const baseType = getBaseType(type || Component.displayName)
     const variant = getVariant({ connected, touched, warning, error })
     const hintText = getHintText({ connected, touched, warning, error, hint })
@@ -73,7 +78,6 @@ export const Field = forwardRef(
     const isShowRequired = isRadio ? null : required
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
     const Container = layout === 'row' ? RowContainer : Fragment
-    const htmlFor = makeUnique(isRadio ? value : id || name)
 
     const handleLabelClick = () => {
       if (isCheckable) return
@@ -94,7 +98,7 @@ export const Field = forwardRef(
         connected
         disabled={disabled}
         flexDirection={layout}
-        id={htmlFor}
+        id={uniqueId}
         name={name}
         onBlur={onBlur}
         onChange={onChange}
@@ -129,7 +133,7 @@ export const Field = forwardRef(
             <Label
               disabled={disabled}
               disabledIcon={disabledIcon}
-              htmlFor={htmlFor}
+              htmlFor={uniqueId}
               onClick={handleLabelClick}
               required={isShowRequired}
               variant={variant}
