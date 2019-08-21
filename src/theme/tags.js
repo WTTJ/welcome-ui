@@ -13,14 +13,9 @@ export const getTags = ({ colors, fontSizes, fontWeights, space, toRem }) => {
     },
     variants: {
       default: { defaults, color: colors.nude[800] },
-      light: { defaults, color: colors.nude[800] },
       dark: {
         'background-color': colors.nude[200],
-        color: colors.light[100],
-        '&:hover': {
-          'background-color': colors.primary[500],
-          color: colors.light[100]
-        }
+        color: colors.light[100]
       }
     },
     sizes: {
