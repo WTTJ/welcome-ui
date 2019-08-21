@@ -17,7 +17,7 @@ describe('<Label>', () => {
     const { container } = render(<Label required>{content}</Label>)
 
     expect(container).toHaveTextContent(content)
-    expect(container).toHaveTextContent('*')
+    // TODO: Check for content of `after`
   })
 
   describe('should render correctly when had a variant', () => {

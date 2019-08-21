@@ -153,6 +153,40 @@ export const Popper = styled.div`
     padding: sm 0;
   }
 
+  .react-datepicker__month-dropdown-container,
+  .react-datepicker__year-dropdown-container {
+    padding: sm;
+    background-color: light.100;
+    border: ${th.borderWidth('sm')} solid;
+    border-color: nude.300;
+    border-radius: sm;
+    text-align: left;
+
+    &:active {
+      border-color: primary.500;
+    }
+  }
+
+  .react-datepicker__year-dropdown,
+  .react-datepicker__month-dropdown {
+    background-color: light.100;
+  }
+
+  .react-datepicker__year-option,
+  .react-datepicker__month-option {
+    padding: xs;
+
+    &:hover {
+      background-color: nude.100;
+    }
+
+    &.react-datepicker__year-option--selected_year,
+    &.--selected_month {
+      background-color: primary.500;
+      color: light.100;
+    }
+  }
+
   .react-datepicker-popper[data-placement^='bottom'] .react-datepicker__triangle::before {
     border-bottom-color: nude.300;
   }
