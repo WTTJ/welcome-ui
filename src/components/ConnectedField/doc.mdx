@@ -227,7 +227,11 @@ You can find additional props for each field component in [Fields](/fields/file-
               />
               <ConnectedField name="profile" component={FileDrop} label="Profile pic" mb="xl" />
               <ConnectedField name="avatar" component={FileUpload} label="Avatar" mb="xl">
-                {({ openFile }) => <Button mb="sm" onClick={openFile}>Upload avatar</Button>}
+                {({ openFile }) => (
+                  <Button mb="sm" onClick={openFile}>
+                    Upload avatar
+                  </Button>
+                )}
               </ConnectedField>
               <ConnectedField
                 dateIcon={<Icon name="celebrate" size="sm" color="nude.600" />}
