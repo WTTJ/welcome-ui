@@ -16,8 +16,8 @@ const shapeStyles = (size, width, height, shape = 'square') => css`
 export const Tag = styled.div(
   ({ height, length, shape, size, variant, width }) => css`
     ${th('tags.default')};
+    ${th(`tags.variants.${variant}`)};
     ${th(`tags.sizes.${size}`)}
-    ${variant !== 'default' && th('tags.variants')};
     display: inline-flex;
     align-items: center;
     justify-content: center;

@@ -35,6 +35,7 @@ export const getVariantStateColor = variant => {
 
 const variantColors = {
   blue: 'colors.sub.blue',
+  dark: 'colors.dark.500',
   default: 'colors.nude.100',
   green: 'colors.sub.green',
   orange: 'colors.sub.orange',
