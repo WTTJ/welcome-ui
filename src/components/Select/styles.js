@@ -31,7 +31,7 @@ export const Input = styled.div(
       display: none;
     }
 
-    &::after {
+    &::before {
       content: attr(data-spacer);
       visibility: hidden;
       display: block;
@@ -39,7 +39,7 @@ export const Input = styled.div(
     }
 
     &:empty {
-      &::before {
+      &::after {
         content: attr(placeholder);
         position: absolute;
         top: 0;
@@ -50,7 +50,7 @@ export const Input = styled.div(
         padding: inherit;
         opacity: 0.5;
       }
-      &::after {
+      &::before {
         height: auto;
       }
     }
