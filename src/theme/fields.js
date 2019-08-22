@@ -9,7 +9,7 @@ export const getFields = theme => {
     'font-size': fontSizes.body3,
     'line-height': toRem(16),
     'font-weight': fontWeights.regular,
-    'background-color': colors.light[200],
+    'background-color': colors.light[100],
     'border-color': colors.nude[200],
     'border-width': '1px',
     'border-style': 'solid',
@@ -34,7 +34,6 @@ export const getFields = theme => {
       cursor: 'not-allowed'
     },
     focused: {
-      'background-color': colors.light[100],
       'border-color': colors.primary[500]
     },
     sizes: {
