@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.20.4](https://github.com/WTTJ/welcome-ui/compare/v0.20.3...v0.20.4) (2019-08-22)
+
+
+### Bug Fixes
+
+* change cursor on disabled field and pass all props to label ([c13a581](https://github.com/WTTJ/welcome-ui/commit/c13a581))
+
+
+
 ### [0.20.3](https://github.com/WTTJ/welcome-ui/compare/v0.20.2...v0.20.3) (2019-08-21)
 
 
