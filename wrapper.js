@@ -19,22 +19,17 @@ export default function Wrapper({ children }) {
   const [theme, setTheme] = useState(welcomekitTheme)
   const [value, setValue] = useState(THEMES[0])
 
-  const handleChange = e => {
-    const valueObject = e.target.value
-    setValue(valueObject)
-    if (valueObject) {
-      switch (valueObject.value) {
-        case 'welcomekit':
-          setTheme(welcomekitTheme)
-          break
-        case 'welcome':
-          setTheme(welcomeTheme)
-          break
-        default:
-          setTheme()
-      }
-    } else {
-      setTheme()
+  const handleChange = value => {
+    setValue(value)
+    switch (value) {
+      case 'welcomekit':
+        setTheme(welcomekitTheme)
+        break
+      case 'welcome':
+        setTheme(welcomeTheme)
+        break
+      default:
+        setTheme()
     }
   }
 
