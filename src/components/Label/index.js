@@ -22,7 +22,18 @@ const getVariantIcon = (variant, errorWarningIcon) => {
 
 export const Label = forwardRef(
   (
-    { as, children, disabled, disabledIcon, errorWarningIcon, htmlFor, onClick, required, variant },
+    {
+      as,
+      children,
+      disabled,
+      disabledIcon,
+      errorWarningIcon,
+      htmlFor,
+      onClick,
+      required,
+      variant,
+      ...rest
+    },
     ref
   ) => {
     const icon = variant && getVariantIcon(variant, errorWarningIcon)
@@ -42,6 +53,7 @@ export const Label = forwardRef(
         ref={ref}
         required={required}
         variant={variant}
+        {...rest}
       >
         {variant && <S.Variant variant={variant}>{icon}</S.Variant>}
         {disabled && (

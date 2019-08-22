@@ -30,7 +30,8 @@ export const getFields = theme => {
     default: defaults,
     disabled: {
       'background-color': colors.light[500],
-      'pointer-events': 'none'
+      color: colors.nude[600],
+      cursor: 'not-allowed'
     },
     focused: {
       'background-color': colors.light[100],
