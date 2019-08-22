@@ -17,7 +17,7 @@ const THEMES = [
 
 export default function Wrapper({ children }) {
   const [theme, setTheme] = useState(welcomekitTheme)
-  const [value, setValue] = useState(THEMES[0])
+  const [value, setValue] = useState(THEMES[1])
 
   const handleChange = value => {
     setValue(value)
