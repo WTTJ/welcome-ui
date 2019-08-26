@@ -6,6 +6,7 @@ menu: Components
 
 import { Form } from 'react-final-form'
 import { Props } from 'docz'
+import kebabCase from 'lodash.kebabcase'
 import { Playground } from '../../../docz/'
 import { DoczCodeBlock } from '../../../docz/CodeBlock'
 
@@ -26,7 +27,8 @@ import { Select } from '../Select'
 import { FileDrop } from '../FileDrop'
 import { FileUpload } from '../FileUpload'
 import { DateTimePicker } from '../DateTimePicker'
-import kebabCase from 'lodash.kebabcase'
+
+import { validateFileSize, validateMimeType } from '../../utils/'
 
 # ConnectedField
 
@@ -38,6 +40,10 @@ You can find additional props for each field component in [Fields](/fields/file-
 
 <Playground>
   {() => {
+    // Constants
+    const DEFAULT_MAX_FILE_SIZE = 2000000
+    const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
+    const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
     // Data
     const months = [
       { value: 'january', label: 'January' },
@@ -86,7 +92,7 @@ You can find additional props for each field component in [Fields](/fields/file-
       partyDate: Date.now()
     }
     // Add newly-created values to options
-    handleColorCreate = value => {
+    const handleColorCreate = value => {
       if (!colors.find(color => color.value === value)) {
         colors.push({ value: kebabCase(value), label: value })
       }
@@ -100,6 +106,11 @@ You can find additional props for each field component in [Fields](/fields/file-
           let errors = {}
           if (!values.lastName) {
             errors.lastName = 'Required'
+          }
+          if (!validateMimeType(values.profile, 'image/*')) {
+            errors.profile = ERROR_INVALID_TYPE
+          } else if (!validateFileSize(values.profile, DEFAULT_MAX_FILE_SIZE)) {
+            errors.profile = ERROR_INVALID_SIZE
           }
           return errors
         }}
@@ -230,7 +241,14 @@ You can find additional props for each field component in [Fields](/fields/file-
                 label="Description"
                 mb="xl"
               />
-              <ConnectedField name="profile" component={FileDrop} label="Profile pic" mb="xl" />
+              <ConnectedField
+                name="profile"
+                component={FileDrop}
+                isEditable
+                isRemovable
+                label="Profile pic"
+                mb="xl"
+              />
               <ConnectedField name="avatar" component={FileUpload} label="Avatar" mb="xl">
                 {({ openFile }) => (
                   <Button mb="sm" onClick={openFile}>

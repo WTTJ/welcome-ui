@@ -6,6 +6,7 @@ menu: Fields
 
 import { Props } from 'docz'
 import { Playground } from '../../../docz/'
+import { useState } from 'react'
 
 import { FileDrop } from './index'
 import { Button } from '../Button'
@@ -40,20 +41,22 @@ You also have access to:
     )
     return (
       <FileDrop
-        name="avatar"
-        label="Avatar"
+        name="default"
+        label="Default"
         hint="Files must be <200MB"
         required
         onChange={console.debug}
         onAddFile={console.debug}
         onRemoveFile={console.debug}
-        onError={console.error}
+        onError={console.debug}
       >
-        {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
+        {({ error, fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
           if (isHoverAccept) {
             return <Icon name="positive" />
           } else if (isHoverReject) {
             return <Icon name="negative" />
+          } else if (error) {
+            return <Icon name="cross" />
           } else if (fileUrl) {
             return <FilePreviewImage src={fileUrl} />
           }
@@ -68,6 +71,8 @@ You also have access to:
 
 <Playground>
   {() => {
+    const [error, setError] = useState()
+    const handleError = e => console.debug(e)
     const DefaultView = ({ openFile }) => (
       <>
         <h3>Add picture</h3>
@@ -79,27 +84,18 @@ You also have access to:
     )
     return (
       <FileDrop
-        name="avatar"
-        label="Avatar"
         hint="Files must be <200MB"
-        required
-        onChange={console.debug}
+        isEditable
+        isRemovable
+        label="Avatar"
+        name="avatar"
         onAddFile={console.debug}
+        onChange={console.debug}
+        onError={setError}
         onRemoveFile={console.debug}
-        onError={console.error}
+        required
         value="https://cdn-development.welcometothejungle.co/uploads/robert/applicants/303416437e/avatars/0.jpg?v=63731713698"
-      >
-        {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
-          if (isHoverAccept) {
-            return <Icon name="positive" />
-          } else if (isHoverReject) {
-            return <Icon name="negative" />
-          } else if (fileUrl) {
-            return <FilePreviewImage src={fileUrl} />
-          }
-          return <DefaultView openFile={openFile} />
-        }}
-      </FileDrop>
+      />
     )
   }}
 </Playground>

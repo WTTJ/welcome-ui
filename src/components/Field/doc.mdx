@@ -18,6 +18,7 @@ import { Toggle } from '../Toggle'
 import { InputRadio } from '../InputRadio'
 import { RadioTab } from '../RadioTab'
 import { Select } from '../Select'
+import { FileDrop } from '../FileDrop'
 import { FileUpload } from '../FileUpload'
 import { DateTimePicker } from '../DateTimePicker'
 
@@ -372,22 +373,22 @@ You can find additional props for each field component in [Fields](/fields/file-
 
 <Playground>
   <Field
-    name="random-fifteen"
+    name="upload"
     component={FileUpload}
     label="File upload example"
     onChange={console.debug}
-  >
-    {({ fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
-      if (isHoverAccept) {
-        return <h3>Drop file!</h3>
-      } else if (isHoverReject) {
-        return <h3>Can't accept this file</h3>
-      } else if (fileUrl) {
-        return <img style={{ maxWidth: '100%', maxHeight: '100%' }} src={fileUrl} />
-      }
-      return <h3>Drop file to upload</h3>
-    }}
-  </Field>
+  />
+</Playground>
+
+## File Drop
+
+<Playground>
+  <Field
+    name="drop"
+    component={FileDrop}
+    label="File upload example"
+    onChange={console.debug}
+  />
 </Playground>
 
 ## DateTimePicker
