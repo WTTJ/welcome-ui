@@ -79,7 +79,6 @@ export const FileDrop = forwardRef(
       }
 
       setFile(null)
-      console.debug('error1', error)
       setError(error)
 
       onError && onError(error)
