@@ -3,29 +3,14 @@ import { bool, func, node, number, oneOfType, string } from 'prop-types'
 
 // Common
 import { Button } from '../Button'
-import { Tag } from '../Tag'
-import { createEvent, formatBytes } from '../../utils/'
+import { createEvent } from '../../utils/'
 
 // FileUpload
+import { Preview } from './Preview'
 import * as S from './styles.js'
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const DEFAULT_FILE_TYPES = '*/*'
-
-const getFileName = file => {
-  if (file.name) {
-    return file.name
-  }
-  if (typeof file === 'string') {
-    return file
-      .split('/')
-      .pop()
-      .split('?')[0]
-  }
-  return
-}
-
-const getFileSize = file => file.size || undefined
 
 const ensureArray = value => {
   if (Array.isArray(value)) {
@@ -117,15 +102,9 @@ export const FileUpload = forwardRef(
           {...rest}
           type="file"
         />
-        {files.map((file, i) => {
-          const preview = getFileName(file)
-          const size = getFileSize(file)
-          return (
-            <Tag key={preview} onRemove={() => handleRemoveFile(i)}>
-              {preview} {size && `(${formatBytes(size, 0)})`}
-            </Tag>
-          )
-        })}
+        {files.map(file => (
+          <Preview file={file} key={file.name || file} onRemove={handleRemoveFile} />
+        ))}
       </>
     )
   }
