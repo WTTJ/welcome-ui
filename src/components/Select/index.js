@@ -141,7 +141,8 @@ export const Select = forwardRef(
       handleChange(newItems)
     }
 
-    const handleRemove = value => {
+    const handleRemove = e => {
+      const value = e.currentTarget.parentNode.dataset.id
       const newItems = values.filter(item => item.value !== value)
       setValues(newItems)
       handleChange(newItems)
