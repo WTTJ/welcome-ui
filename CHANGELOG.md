@@ -2,17 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.20.6](https://github.com/WTTJ/welcome-ui/compare/v0.20.5...v0.20.6) (2019-08-27)
-
-
-### Bug Fixes
-
-* pass props to correct element ([685e785](https://github.com/WTTJ/welcome-ui/commit/685e785))
-* show errors when dropping invalid file ([7a5cf9f](https://github.com/WTTJ/welcome-ui/commit/7a5cf9f))
-* show errors when dropping invalid file ([44d103a](https://github.com/WTTJ/welcome-ui/commit/44d103a))
-
-
-
 ### [0.20.5](https://github.com/WTTJ/welcome-ui/compare/v0.20.4...v0.20.5) (2019-08-22)
 
 
