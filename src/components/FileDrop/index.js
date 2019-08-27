@@ -119,19 +119,17 @@ export const FileDrop = forwardRef(
     return (
       <S.FileDrop
         {...getRootProps({
-          disabled,
           handleRemoveFile,
           isEditable,
           isDragActive,
           isDragAccept,
           isDragReject,
           isRemovable,
-          onError,
           ref
         })}
         {...rest}
       >
-        <input {...getInputProps({ name })} />
+        <input {...getInputProps({ disabled, multiple, name, onError })} />
         <S.FilePreview>
           {children({
             error,
