@@ -49,7 +49,7 @@ export const Button = styled(filterComponent(ReakitButton))(
       `};
 
     &[disabled] {
-      pointer-events: none;
+      cursor: not-allowed;
     }
   `
 )

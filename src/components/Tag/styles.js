@@ -27,7 +27,11 @@ export const Tag = styled.div(
     ${system};
     ${(shape || length === 1) && shapeStyles(size, width, height, shape)};
 
-    ${Icon} {
+    > *:not(:last-child) {
+      margin-right: xxs;
+    }
+
+    ${Icon}:last-child {
       cursor: pointer;
 
       &:hover {
