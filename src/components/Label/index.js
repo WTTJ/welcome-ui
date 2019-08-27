@@ -3,7 +3,7 @@ import { bool, func, node, oneOf, string } from 'prop-types'
 
 import { Badge } from '../Badge'
 import { Icon } from '../Icon'
-import { COMPONENT_TYPE } from '../../utils'
+import { COMPONENT_TYPE, wrap } from '../../utils'
 
 import * as S from './styles'
 
@@ -38,9 +38,7 @@ export const Label = forwardRef(
   ) => {
     const icon = variant && getVariantIcon(variant, errorWarningIcon)
     // Wrap strings in span to allow for required asterisk
-    const content = React.Children.toArray(children).map(child =>
-      typeof child === 'string' ? <span>{child}</span> : child
-    )
+    const content = wrap(children)
 
     return (
       <S.Label
