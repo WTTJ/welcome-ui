@@ -15,8 +15,8 @@ import { DefaultContent } from './default.js'
 export const FilePreviewImage = S.FilePreviewImage
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
-const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
-const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
+const ERROR_INVALID_TYPE = 'Invalid file type'
+const ERROR_INVALID_SIZE = 'File too large'
 
 const getPreviewUrl = file => {
   const url = file.preview || file
@@ -29,10 +29,13 @@ export const FileDrop = forwardRef(
       accept = 'image/*',
       children = DefaultContent,
       disabled,
+      isEditable,
+      isRemovable,
       maxSize = DEFAULT_MAX_FILE_SIZE,
       multiple,
       name,
       onAddFile,
+      onBlur,
       onChange,
       onError,
       onRemoveFile,
@@ -42,6 +45,7 @@ export const FileDrop = forwardRef(
     ref
   ) => {
     const [file, setFile] = useState(value)
+    const [error, setError] = useState()
 
     useEffect(() => {
       setFile(value)
@@ -56,6 +60,7 @@ export const FileDrop = forwardRef(
       const [file] = files
       file.preview = URL.createObjectURL(file)
       setFile(file)
+      setError(null)
 
       const event = createEvent({ name, value: file })
       onChange && onChange(event)
@@ -63,18 +68,28 @@ export const FileDrop = forwardRef(
     }
 
     const handleDropRejected = files => {
-      files.forEach(file => {
-        if (!validateMimeType(file, accept)) {
-          onError && onError(ERROR_INVALID_TYPE)
-        } else if (!validateFileSize(file, maxSize)) {
-          onError && onError(ERROR_INVALID_SIZE)
-        }
-      })
+      const [file] = files
+      let error
+      const event = createEvent({ name, value: file })
+
+      if (!validateMimeType(file, accept)) {
+        error = ERROR_INVALID_TYPE
+      } else if (!validateFileSize(file, maxSize)) {
+        error = ERROR_INVALID_SIZE
+      }
+
+      setFile(null)
+      setError(error)
+
+      onError && onError(error)
+      onChange && onChange(event)
+      onBlur && onBlur() // Trigger field touch
     }
 
     const handleRemoveFile = e => {
       e.preventDefault()
       setFile(null)
+      setError(null)
 
       const event = createEvent({ name, value: null })
       onChange && onChange(event)
@@ -106,16 +121,20 @@ export const FileDrop = forwardRef(
         {...getRootProps({
           disabled,
           handleRemoveFile,
+          isEditable,
           isDragActive,
           isDragAccept,
           isDragReject,
-          ref: ref
+          isRemovable,
+          onError,
+          ref
         })}
         {...rest}
       >
         <input {...getInputProps({ name })} />
         <S.FilePreview>
           {children({
+            error,
             fileUrl: file && getPreviewUrl(file),
             isDefault: !file && !isDragActive,
             isHoverAccept: isDragAccept,
@@ -124,16 +143,18 @@ export const FileDrop = forwardRef(
             inputRef,
             rootRef
           })}
-          {!!file && (
-            <S.Actions>
+          <S.Actions>
+            {(!!file || error) && isEditable && (
               <Button onClick={open} size="sm" type="button" variant="secondary">
                 <Icon name="pencil" size="sm" />
               </Button>
+            )}
+            {!!file && isRemovable && (
               <Button onClick={handleRemoveFile} size="sm" type="button" variant="primary-danger">
                 <Icon name="cross" size="sm" />
               </Button>
-            </S.Actions>
-          )}
+            )}
+          </S.Actions>
         </S.FilePreview>
       </S.FileDrop>
     )
@@ -147,12 +168,16 @@ FileDrop.propTypes = {
   accept: string,
   children: func,
   disabled: bool,
+  isEditable: bool,
+  isRemovable: bool,
   maxSize: number,
   multiple: bool,
   name: string.isRequired,
   onAddFile: func,
+  onBlur: func,
   onChange: func,
   onError: func,
+  onFocus: func,
   onRemoveFile: func,
   title: oneOfType([string, node]),
   value: string
