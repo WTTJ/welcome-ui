@@ -20,11 +20,11 @@ const TAG_NAMES = {
   meta2: 'p'
 }
 
-export const Text = forwardRef(({ as, children, lines, variant = 'body1' }, ref) => {
+export const Text = forwardRef(({ as, children, lines, variant = 'body1', ...rest }, ref) => {
   const tagName = as || TAG_NAMES[variant]
 
   return (
-    <S.Text as={tagName} data-testid="text" lines={lines} ref={ref} variant={variant}>
+    <S.Text as={tagName} data-testid="text" lines={lines} ref={ref} variant={variant} {...rest}>
       {children}
     </S.Text>
   )
