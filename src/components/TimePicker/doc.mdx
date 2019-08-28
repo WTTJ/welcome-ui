@@ -1,0 +1,39 @@
+---
+name: TimePicker
+route: /fields/time-picker
+menu: Fields
+---
+
+import { Props } from 'docz'
+import { Playground } from '../../../docz/'
+import { Icon } from '../Icon'
+
+import { TimePicker } from './index.js'
+
+# TimePicker
+
+It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
+
+_Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
+
+## Simple use case
+
+<Playground>
+  <TimePicker onChange={date => console.log('date: ', date)} value={Date.now()} />
+</Playground>
+
+## Add an icon on the right
+
+<Playground>
+  <TimePicker icon={<Icon name="date" size="sm" color="primary.500" />} iconPlacement="right" />
+</Playground>
+
+## Pass props to TimePicker
+
+<Playground>
+  <TimePicker timeIntervals={30} />
+</Playground>
+
+## Properties
+
+<Props of={TimePicker} />

@@ -4,82 +4,38 @@ route: /fields/date-time-picker
 menu: Fields
 ---
 
-import fr from 'date-fns/locale/fr'
 import { Props } from 'docz'
 import { Playground } from '../../../docz/'
 import { Icon } from '../Icon'
 
 import { DateTimePicker } from './index.js'
+import { DatePicker } from '../DatePicker/index.js'
+import { TimePicker } from '../TimePicker/index.js'
 
 # DateTimePicker
 
 It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
 
-[All the props](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) the library exposes can be passed to either DatePicker or TimePicker through the `datePickerProps` and `timePickerProps`
+[All the props](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) the library exposes can be passed to either DatePicker or TimePicker.
 
 _Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
 
 ## Simple use case
 
 <Playground>
-  <DateTimePicker value={Date.now()} onChange={date => console.log('date: ', date)} />
+  <DateTimePicker value={Date.now()} onChange={date => console.log('date: ', date)}>
+    <DatePicker />
+    <TimePicker />
+  </DateTimePicker>
 </Playground>
 
 ## Pass props to DatePicker
 
 <Playground>
-  <DateTimePicker
-    value={Date.now()}
-    datePickerProps={{ dateFormat: 'MMM dd YYYY', showMonthDropdown: true, showYearDropdown: true }}
-  />
-</Playground>
-
-## Give an Icon to DatePicker
-
-<Playground>
-  <DateTimePicker
-    dateIcon={<Icon name="date" size="sm" color="nude.500" />}
-    value={Date.now()}
-    onChange={date => console.log('date: ', date)}
-  />
-</Playground>
-
-## ...And / or to TimePicker
-
-<Playground>
-  <DateTimePicker
-    timeIcon={<Icon name="date" size="sm" color="primary.500" />}
-    timeIconPlacement="right"
-    value={Date.now()}
-    onChange={date => console.log('date: ', date)}
-  />
-</Playground>
-
-## Pass props to TimePicker
-
-<Playground>
-  <DateTimePicker value={Date.now()} timePickerProps={{ timeIntervals: 30 }} />
-</Playground>
-
-## DatePicker only + fr locale
-
-<Playground>
-  <DateTimePicker
-    datePickerOnly
-    value={Date.now()}
-    onChange={date => console.log('date: ', date)}
-    datePickerProps={{ locale: fr }}
-  />
-</Playground>
-
-## TimePickerOnly
-
-<Playground>
-  <DateTimePicker
-    timePickerOnly
-    value={Date.now()}
-    onChange={date => console.log('date: ', date)}
-  />
+  <DateTimePicker value={Date.now()}>
+    <DatePicker dateFormat="MMM dd YYYY" showMonthDropdown showYearDropdown />
+    <TimePicker />
+  </DateTimePicker>
 </Playground>
 
 ## Properties

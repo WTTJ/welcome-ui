@@ -91,7 +91,7 @@ export const Field = forwardRef(
 
     const handleChecked = () => (baseType === 'checkbox' ? isCheckboxChecked : checked)
 
-    const field = (
+    const Field = (
       <Component
         autoFocus={autoFocus}
         checked={handleChecked()}
@@ -138,12 +138,12 @@ export const Field = forwardRef(
               required={isShowRequired}
               variant={variant}
             >
-              {isCheckable && field}
+              {isCheckable && Field}
               {label}
             </Label>
           )}
-          {!isCheckable && field}
-          {!label && isCheckable && field}
+          {!isCheckable && Field}
+          {!label && isCheckable && Field}
         </Container>
         {hintText && <Hint variant={variant}>{hintText}</Hint>}
       </S.Field>

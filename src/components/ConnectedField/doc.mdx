@@ -27,8 +27,9 @@ import { Select } from '../Select'
 import { FileDrop } from '../FileDrop'
 import { FileUpload } from '../FileUpload'
 import { DateTimePicker } from '../DateTimePicker'
-
 import { validateFileSize, validateMimeType } from '../../utils/'
+import { DatePicker } from '../DatePicker'
+import { TimePicker } from '../TimePicker'
 
 # ConnectedField
 
@@ -257,12 +258,14 @@ You can find additional props for each field component in [Fields](/fields/file-
                 )}
               </ConnectedField>
               <ConnectedField
-                dateIcon={<Icon name="celebrate" size="sm" color="nude.600" />}
                 name="partyDate"
                 component={DateTimePicker}
                 label="Party date"
                 mb="xl"
-              />
+              >
+                <DatePicker icon={<Icon name="celebrate" size="sm" color="nude.600" />} />
+                <TimePicker />
+              </ConnectedField>
               <Button type="submit" size="lg" mr={20}>
                 Submit
               </Button>
