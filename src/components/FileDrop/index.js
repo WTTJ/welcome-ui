@@ -15,8 +15,8 @@ import { DefaultContent } from './default.js'
 export const FilePreviewImage = S.FilePreviewImage
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
-const ERROR_INVALID_TYPE = 'Invalid file type'
-const ERROR_INVALID_SIZE = 'File too large'
+const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
+const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
 
 const getPreviewUrl = file => {
   const url = file.preview || file

@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, func, node, oneOfType, string } from 'prop-types'
+import { bool, func, string } from 'prop-types'
 
 import { Button } from '../Button'
 import { Icon } from '../Icon'
@@ -13,22 +13,11 @@ export const DefaultContent = ({ error, fileUrl, isHoverAccept, isHoverReject, o
   } else if (isHoverReject) {
     return <Icon name="negative" />
   } else if (error) {
-    return (
-      <Message
-        icon="cross"
-        openFile={openFile}
-        title={
-          <>
-            <Icon mr="sm" name="cross" size="sm" />
-            {error}
-          </>
-        }
-      />
-    )
+    return <Message openFile={openFile} />
   } else if (fileUrl) {
     return <FilePreviewImage src={fileUrl} />
   }
-  return <Message openFile={openFile} title="Add file" />
+  return <Message openFile={openFile} />
 }
 
 DefaultContent.propTypes = {
@@ -40,11 +29,11 @@ DefaultContent.propTypes = {
 }
 
 // eslint-disable-next-line react/no-multi-comp
-const Message = ({ openFile, title }) => {
+const Message = ({ openFile }) => {
   return (
     <>
       <Text m="0" variant="h3">
-        {title}
+        Add file
       </Text>
       <Text variant="p">Drag and drop a file here or…</Text>
       <Button onClick={openFile} type="button">
@@ -55,6 +44,5 @@ const Message = ({ openFile, title }) => {
 }
 
 Message.propTypes = {
-  openFile: func,
-  title: oneOfType([node, string])
+  openFile: func
 }
