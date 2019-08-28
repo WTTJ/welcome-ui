@@ -1,17 +1,17 @@
 import merge from 'lodash.merge'
 import { rpxTransformers } from '@xstyled/system'
 
+import { getButtons } from '../components/Button/theme'
+import { getFields } from '../components/Field/theme'
+import { getGrowls } from '../components/Growl/theme'
+import { getPaginations } from '../components/Pagination/theme'
+import { getTabs } from '../components/Tabs/theme'
+import { getTags } from '../components/Tag/theme'
+import { getTooltips } from '../components/Tooltip/theme'
+
 import { colors } from './colors'
 import { fontFaces } from './fonts'
-import { getButtons } from './buttons'
-import { getFields } from './fields'
 import { getFontSizes, getLineHeights, getTexts } from './typography'
-import { getGrowls } from './growls'
-import { getPaginations } from './paginations'
-import { getTabs } from './tabs'
-import { getTags } from './tags'
-import { getTooltips } from './tooltips'
-import { radii } from './radii'
 import { transitionCurves, transitions } from './transitions'
 
 const DEFAULT_FONT_SIZE = 16
@@ -83,7 +83,7 @@ export const getBaseTheme = (options = {}) => {
     xl: theme.toRem(48)
   }
 
-  theme.radii = radii
+  theme.radii = { sm: '4px', md: '6px', lg: '10px' }
 
   theme.transitions = transitions
   theme.transitionCurves = transitionCurves
