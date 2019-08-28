@@ -33,7 +33,7 @@ export const getVariantStateColor = variant => {
   return variantColor ? th(variantColor) : null
 }
 
-const variantColors = {
+export const variantColors = {
   blue: 'colors.sub.blue',
   dark: 'colors.dark.500',
   default: 'colors.nude.100',

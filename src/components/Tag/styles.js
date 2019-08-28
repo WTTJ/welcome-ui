@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { overflowEllipsis } from '../../common/styles/text'
-import { getMax, getVariantColor, system } from '../../utils/'
+import { getMax, system } from '../../utils/'
 import { Icon } from '../Icon/styles'
 
 const shapeStyles = (size, width, height, shape = 'square') => css`
@@ -21,7 +21,6 @@ export const Tag = styled.div(
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: ${getVariantColor(variant)};
     border-radius: md;
     ${overflowEllipsis};
     ${system};
