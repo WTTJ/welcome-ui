@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.21.0](https://github.com/WTTJ/welcome-ui/compare/v0.20.6...v0.21.0) (2019-08-28)
+
+
+### Bug Fixes
+
+* function to remove chosen tag ([bb02289](https://github.com/WTTJ/welcome-ui/commit/bb02289))
+* pass all props to Text component ([5deb749](https://github.com/WTTJ/welcome-ui/commit/5deb749))
+* tweak FileDrop defaults ([6a24b6e](https://github.com/WTTJ/welcome-ui/commit/6a24b6e))
+
+
+### Features
+
+* add better file upload preview ([72393b3](https://github.com/WTTJ/welcome-ui/commit/72393b3))
+* add missings icons ([69dc4b4](https://github.com/WTTJ/welcome-ui/commit/69dc4b4))
+
+
+### Tests
+
+* test react wrap function ([38e497a](https://github.com/WTTJ/welcome-ui/commit/38e497a))
+
+
+
 ### [0.20.6](https://github.com/WTTJ/welcome-ui/compare/v0.20.5...v0.20.6) (2019-08-27)
 
 
