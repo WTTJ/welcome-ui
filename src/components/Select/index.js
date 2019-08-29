@@ -21,12 +21,12 @@ const getUniqueValue = (item, values) => uniqBy([...values, item], item => item.
 const isValueExisting = (value, values) =>
   values.find(item => kebabCase(item.value) === kebabCase(value))
 const defaultRenderOption = option => (option ? option.label : EMPTY)
-const findOption = (value, options) => {
+const findOption = (value, options = []) => {
   const option = options.find(
     option => option.label === (value.label || value) || option.value === (value.value || value)
   )
   // Create the option if it doesn't exist
-  return option || { value: kebabCase(option), label: option }
+  return option || { value: kebabCase(value), label: value }
 }
 const optionFromValue = (options, value) => {
   if (!value) {
@@ -157,7 +157,8 @@ export const Select = forwardRef(
     }
 
     const spacer = options.reduce(
-      (prev, current) => (prev.length > current.label.length ? prev : current.label),
+      (prev, current) =>
+        current.label && prev.length > current.label.length ? prev : current.label,
       ''
     )
 
@@ -180,7 +181,7 @@ export const Select = forwardRef(
           openMenu,
           toggleMenu
         }) => {
-          const isShowCreate = isCreatable && inputValue && !isValueExisting(inputValue, values)
+          const isShowCreate = !!(isCreatable && inputValue && !isValueExisting(inputValue, values))
           const isShowMenu = isOpen && (results.length || isShowCreate)
           const isShowDeleteIcon = inputValue && !isOpen && !required
           const inputProps = getInputProps({
@@ -312,7 +313,7 @@ Select.propTypes = {
   onCreate: func,
   onFocus: func,
   onKeyDown: func,
-  options: arrayOf(OPTIONS_TYPE),
+  options: arrayOf(OPTIONS_TYPE).isRequired,
   placeholder: string.isRequired,
   renderItem: func,
   required: bool,
