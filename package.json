@@ -128,7 +128,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn lint && yarn icons:optimize && yarn icons:collect && yarn test",
+      "pre-push": "yarn exports:check && yarn lint && yarn icons:optimize && yarn icons:collect && yarn test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
