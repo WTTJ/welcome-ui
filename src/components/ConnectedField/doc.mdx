@@ -190,7 +190,14 @@ You can find additional props for each field component in [Fields](/fields/file-
                 <ConnectedField
                   name="dogs"
                   component={InputCheckbox}
-                  label="Dogs are particularly funny creatures due to their floppy ears"
+                  label={
+                    <>
+                      <span>Dogs are particularly funny </span>
+                      <a href="#">creatures</a>
+                      <span> due to their floppy ears</span>
+                    </>
+                  }
+                  variant="error"
                   required
                 />
                 <ConnectedField name="cats" component={InputCheckbox} label="Cats" />

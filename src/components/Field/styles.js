@@ -49,3 +49,9 @@ export const IconWrapper = styled.div(
     pointer-events: none;
   `
 )
+
+export const Input = styled.div`
+  flex-shrink: 0;
+`
+
+export const Content = styled.div``

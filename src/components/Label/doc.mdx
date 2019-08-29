@@ -8,6 +8,7 @@ import { Props } from 'docz'
 import { Playground } from '../../../docz/'
 
 import { Label } from './index'
+import { InputCheckbox } from '../InputCheckbox'
 
 # Label
 
@@ -35,6 +36,23 @@ With `required` property.
   <>
     <Label variant="warning">Warning variant</Label>
     <Label variant="error">Error variant</Label>
+  </>
+</Playground>
+
+## More content
+
+Checkboxes and radio buttons are normally nested inside labels. If you do this, make sure there is only one other child (in this example, a `div`).
+
+<Playground>
+  <>
+    <Label variant="error">
+      <InputCheckbox onChange={console.debug} />
+      <div>
+        <span>Error variant with </span>
+        <a href="#">a link</a>
+        <span> and all of that jazz because of the fox</span>
+      </div>
+    </Label>
   </>
 </Playground>
 
