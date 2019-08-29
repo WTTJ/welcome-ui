@@ -1,0 +1,50 @@
+---
+name: DatePicker
+route: /fields/date-picker
+menu: Fields
+---
+
+import fr from 'date-fns/locale/fr'
+import { Props } from 'docz'
+import { Playground } from '../../../docz/'
+import { Icon } from '../Icon'
+
+import { DatePicker } from './index.js'
+
+# DatePicker
+
+It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
+
+_Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
+
+## Simple use case
+
+<Playground>
+  <DatePicker onChange={date => console.log('date: ', date)} value={Date.now()} />
+</Playground>
+
+## Pass props from [the original library](https://github.com/Hacker0x01/react-datepicker).
+
+<Playground>
+  <DatePicker dateFormat="MMM dd YYYY" showMonthDropdown showYearDropdown />
+</Playground>
+
+## Give an Icon
+
+<Playground>
+  <DatePicker
+    icon={<Icon name="date" size="sm" color="nude.500" />}
+    onChange={date => console.log('date: ', date)}
+    value={Date.now()}
+  />
+</Playground>
+
+## fr locale
+
+<Playground>
+  <DatePicker locale={fr} onChange={date => console.log('date: ', date)} value={Date.now()} />
+</Playground>
+
+## Properties
+
+<Props of={DatePicker} />

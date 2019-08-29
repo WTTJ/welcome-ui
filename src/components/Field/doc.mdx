@@ -10,6 +10,7 @@ import { DoczForm, Playground } from '../../../docz/'
 import { Field } from './index'
 import { FieldGroup } from '../FieldGroup'
 import { RadioGroup } from '../RadioGroup'
+import { Icon } from '../Icon'
 import { InputText } from '../InputText'
 import { InputTextarea } from '../InputTextarea'
 import { InputCheckbox } from '../InputCheckbox'
@@ -21,6 +22,8 @@ import { Select } from '../Select'
 import { FileDrop } from '../FileDrop'
 import { FileUpload } from '../FileUpload'
 import { DateTimePicker } from '../DateTimePicker'
+import { DatePicker } from '../DatePicker'
+import { TimePicker } from '../TimePicker'
 
 # Field
 
@@ -395,8 +398,10 @@ You can find additional props for each field component in [Fields](/fields/file-
     value={Date.now() - 18 * 365 * 24 * 3600 * 1000}
     label="Tell us your birth date and time (if you remember it)"
     onChange={date => console.log('date: ', date)}
-    datePickerProps={{ autoFocus: true }}
-  />
+  >
+    <DatePicker autoFocus icon={<Icon name="birthday" size="sm" color="nude.600" />} />
+    <TimePicker />
+  </Field>
 </Playground>
 
 ## Properties
