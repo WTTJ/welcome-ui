@@ -1,3 +1,6 @@
+import { getBaseTheme } from './core'
+const theme = getBaseTheme()
+
 const palette = {
   jade: '#00A772',
   mountainmeadow: '#17AF7F',
@@ -92,6 +95,9 @@ const colors = {
 export const welcomekitTheme = {
   colors,
   palette,
+  underline: {
+    'border-bottom-width': theme.borderWidths.md
+  },
   fields: {
     default: {
       'background-color': colors.light[200]

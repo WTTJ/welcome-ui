@@ -8,6 +8,7 @@ import { getPaginations } from '../components/Pagination/theme'
 import { getTabs } from '../components/Tabs/theme'
 import { getTags } from '../components/Tag/theme'
 import { getTooltips } from '../components/Tooltip/theme'
+import { getLinks } from '../components/Link/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -55,7 +56,8 @@ export const getBaseTheme = (options = {}) => {
   }
 
   theme.borderWidths = {
-    sm: '1px'
+    sm: '1px',
+    md: '2px'
   }
 
   theme.breakpoints = {
@@ -92,10 +94,16 @@ export const getBaseTheme = (options = {}) => {
     sm: '1px 2px 4px 0 rgba(0,0,0,0.05)'
   }
 
+  theme.underline = {
+    'border-bottom-style': 'solid',
+    'border-bottom-width': theme.borderWidths.sm
+  }
+
   theme = merge({}, theme, rest)
 
   // CSS blocks
   // These attributes depend on colors and fontSizes and must come last
+  theme.underline['border-bottom-color'] = theme.colors.primary[500]
   theme.buttons = getButtons(theme)
   theme.fields = getFields(theme)
   theme.growls = getGrowls(theme)
@@ -104,6 +112,7 @@ export const getBaseTheme = (options = {}) => {
   theme.tags = getTags(theme)
   theme.texts = getTexts(theme)
   theme.tooltips = getTooltips(theme)
+  theme.links = getLinks(theme)
 
   return theme
 }

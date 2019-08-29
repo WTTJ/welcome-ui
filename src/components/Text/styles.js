@@ -7,11 +7,12 @@ const getBlockHeight = props => `
   calc(${th.fontSize(props.variant)} * ${th.lineHeight(props.variant)} * ${props.lines})`
 
 export const Text = styled.p(props => {
-  const { lines, variant } = props
+  const { lines, underline, variant } = props
   const blockHeight = lines ? getBlockHeight(props) : null
 
   return css`
     ${th(`texts.${variant}`)};
+    ${underline && th('underline')};
     display: block; /* Fallback for non-webkit */
     height: ${blockHeight}; /* Fallback for non-webkit */
 
