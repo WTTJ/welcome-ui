@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.22.1](https://github.com/WTTJ/welcome-ui/compare/v0.22.0...v0.22.1) (2019-08-29)
+
+
+### Bug Fixes
+
+* option not being created correctly ([d3acc08](https://github.com/WTTJ/welcome-ui/commit/d3acc08)), closes [#310](https://github.com/WTTJ/welcome-ui/issues/310)
+
+
+
 ## [0.22.0](https://github.com/WTTJ/welcome-ui/compare/v0.21.0...v0.22.0) (2019-08-29)
 
 
