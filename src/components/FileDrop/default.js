@@ -35,7 +35,7 @@ const Message = ({ openFile }) => {
       <Text m="0" variant="h3">
         Add file
       </Text>
-      <Text variant="p">Drag and drop a file here or…</Text>
+      <Text variant="body1">Drag and drop a file here or…</Text>
       <Button onClick={openFile} type="button">
         Choose file
       </Button>
