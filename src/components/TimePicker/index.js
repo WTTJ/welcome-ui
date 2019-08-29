@@ -24,6 +24,7 @@ export const TimePicker = forwardRef(
       icon,
       iconPlacement = 'left',
       inputRef,
+      placeholder,
       timeIntervals = DEFAULT_INTERVAL,
       ...rest
     },
@@ -33,6 +34,7 @@ export const TimePicker = forwardRef(
     const [date, setDate] = useState(null)
 
     const formatDate = date => getDate(date, timeIntervals)
+    const placeholderText = placeholder || rest.placeholderText
 
     // format date at component mount
     useEffect(() => {
@@ -87,6 +89,7 @@ export const TimePicker = forwardRef(
         data-testid="timePicker"
         dateFormat={dateFormat}
         onChange={handleChange}
+        placeholderText={placeholderText}
         popperContainer={DatePickerPopper}
         selected={date}
         showTimeSelect
@@ -110,6 +113,7 @@ TimePicker.propTypes = {
   onBlur: func,
   onChange: func,
   onFocus: func,
+  placeholder: string,
   size: SIZES_TYPE,
   timeIntervals: number,
   value: oneOfType([number, object, string]).isRequired
