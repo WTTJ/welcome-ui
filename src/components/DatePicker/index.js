@@ -21,6 +21,7 @@ export const DatePicker = forwardRef(
       onBlur,
       onChange,
       onFocus,
+      placeholder,
       size = 'lg',
       value = new Date(),
       ...rest
@@ -31,6 +32,7 @@ export const DatePicker = forwardRef(
     const [date, setDate] = useState(null)
 
     const formatDate = date => getDate(date, 15)
+    const placeholderText = placeholder || rest.placeholderText
 
     // format date at component mount
     useEffect(() => {
@@ -85,6 +87,7 @@ export const DatePicker = forwardRef(
         data-testid="datePicker"
         dateFormat={dateFormat}
         onChange={handleChange}
+        placeholderText={placeholderText}
         popperContainer={DatePickerPopper}
         selected={date}
         size={size}
@@ -105,6 +108,7 @@ DatePicker.propTypes = {
   onBlur: func,
   onChange: func,
   onFocus: func,
+  placeholder: string,
   size: SIZES_TYPE,
   value: oneOfType([number, object, string]).isRequired
 }
