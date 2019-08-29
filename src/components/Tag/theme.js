@@ -3,18 +3,14 @@ import { th } from '@xstyled/system'
 import { variantColors } from '../../utils/variants'
 
 export const getVariantsTheme = theme => {
-  const variantsTheme = {}
-  const colorsKeys = Object.keys(variantColors)
-  // remove filemeta from styled component
-  colorsKeys.pop()
-
-  colorsKeys.map(variantColor => {
-    const color = variantColors[variantColor]
-    variantsTheme[variantColor] = {
-      'background-color': th(color)({ theme })
+  return Object.entries(variantColors).reduce((acc, [variant, color]) => {
+    if (variant !== '__filemeta') {
+      acc[variant] = {
+        'background-color': th(color)({ theme })
+      }
     }
-  })
-  return variantsTheme
+    return acc
+  }, {})
 }
 
 export const getTags = theme => {
