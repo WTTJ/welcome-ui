@@ -1,21 +1,37 @@
-export const getTags = ({ colors, fontSizes, fontWeights, space, toRem }) => {
-  const defaults = {
-    'background-color': colors.light[500],
-    color: colors.light[100]
-  }
+import { th } from '@xstyled/system'
+
+import { variantColors } from '../../utils/variants'
+
+export const getVariantsTheme = theme => {
+  const variantsTheme = {}
+  const colorsKeys = Object.keys(variantColors)
+  // remove filemeta from styled component
+  colorsKeys.pop()
+
+  colorsKeys.map(variantColor => {
+    const color = variantColors[variantColor]
+    variantsTheme[variantColor] = {
+      'background-color': th(color)({ theme })
+    }
+  })
+  return variantsTheme
+}
+
+export const getTags = theme => {
+  const { colors, fontSizes, fontWeights, space, toRem } = theme
 
   return {
     default: {
       'font-size': fontSizes.meta2,
       'font-weight': fontWeights.medium,
       'line-height': '1em',
-      ...defaults
+      color: colors.light[100]
     },
     variants: {
-      default: { defaults, color: colors.nude[800] },
-      dark: {
-        'background-color': colors.nude[200],
-        color: colors.light[100]
+      ...getVariantsTheme(theme),
+      default: {
+        'background-color': colors.light[500],
+        color: colors.nude[800]
       }
     },
     sizes: {
