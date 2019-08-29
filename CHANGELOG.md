@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.22.0](https://github.com/WTTJ/welcome-ui/compare/v0.21.0...v0.22.0) (2019-08-29)
+
+
+### Bug Fixes
+
+* refactor DateTimePicker ([#305](https://github.com/WTTJ/welcome-ui/issues/305)) ([6f6f100](https://github.com/WTTJ/welcome-ui/commit/6f6f100)), closes [#238](https://github.com/WTTJ/welcome-ui/issues/238)
+* theme warning on tag ([768d5f3](https://github.com/WTTJ/welcome-ui/commit/768d5f3))
+
+
+### Features
+
+* add Link component ([57bdda2](https://github.com/WTTJ/welcome-ui/commit/57bdda2))
+
+
+
 ## [0.21.0](https://github.com/WTTJ/welcome-ui/compare/v0.20.6...v0.21.0) (2019-08-28)
 
 
