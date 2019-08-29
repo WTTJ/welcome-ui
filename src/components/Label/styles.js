@@ -43,5 +43,6 @@ export const Icon = styled.div(
     margin-right: xxs;
     color: ${getVariantStateColor(variant)};
     fill: ${getVariantStateColor(variant)};
+    flex-shrink: 0;
   `
 )
