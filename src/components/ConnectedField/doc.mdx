@@ -108,6 +108,9 @@ You can find additional props for each field component in [Fields](/fields/file-
           if (!values.lastName) {
             errors.lastName = 'Required'
           }
+          if (!values.dogs) {
+            errors.dogs = 'Required'
+          }
           if (!validateMimeType(values.profile, 'image/*')) {
             errors.profile = ERROR_INVALID_TYPE
           } else if (!validateFileSize(values.profile, DEFAULT_MAX_FILE_SIZE)) {
@@ -190,7 +193,13 @@ You can find additional props for each field component in [Fields](/fields/file-
                 <ConnectedField
                   name="dogs"
                   component={InputCheckbox}
-                  label="Dogs are particularly funny creatures due to their floppy ears"
+                  label={
+                    <>
+                      <span>Dogs are particularly </span>
+                      <a href="#">funny creatures</a>
+                      <span> due to their floppy ears</span>
+                    </>
+                  }
                   required
                 />
                 <ConnectedField name="cats" component={InputCheckbox} label="Cats" />

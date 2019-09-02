@@ -37,11 +37,12 @@ export const Disabled = styled.div`
   margin-right: xxs;
 `
 
-export const Variant = styled.div(
+export const Icon = styled.div(
   ({ variant }) => css`
     display: inline-flex;
     margin-right: xxs;
     color: ${getVariantStateColor(variant)};
     fill: ${getVariantStateColor(variant)};
+    flex-shrink: 0;
   `
 )
