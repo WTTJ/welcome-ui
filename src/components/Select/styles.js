@@ -3,11 +3,11 @@ import { th } from '@xstyled/system'
 
 import { overflowEllipsis } from '../../common/styles/text'
 import { fieldStyles } from '../../common/styles/form'
-import { componentSystem, wrapperSystem } from '../../utils/'
+import { componentSystem, filterComponent, wrapperSystem } from '../../utils/'
 import { Icon } from '../Icon/styles'
 import { Tag } from '../Tag/styles'
 
-export const Wrapper = styled.div(
+export const Wrapper = styled(filterComponent('div'))(
   ({ connected }) => css`
     position: relative;
     ${connected ? null : wrapperSystem};
@@ -18,7 +18,7 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled.div(
+export const Input = styled(filterComponent('div'))(
   ({ size }) => css`
     position: relative;
     ${fieldStyles};

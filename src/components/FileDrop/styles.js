@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { componentSystem, system } from '../../utils/'
+import { componentSystem, filterComponent, system } from '../../utils/'
 import { fieldStyles } from '../../common/styles/form'
 import { Button } from '../Button/styles'
 
@@ -25,7 +25,7 @@ const disabledStyles = css`
   }
 `
 
-export const FileDrop = styled.div(
+export const FileDrop = styled(filterComponent('div'))(
   props => css`
     ${fieldStyles};
     ${th('fields.fileupload')};

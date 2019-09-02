@@ -4,6 +4,8 @@ import { createSystemComponent } from '@xstyled/system'
 import * as S from '@xstyled/system'
 import { compose } from '@xstyled/system'
 
+import { reservedProps } from './reservedProps'
+
 const systemProps = [
   S.backgrounds,
   S.basics,
@@ -47,7 +49,7 @@ export const componentSystem = compose(...componentProps)
 export const filterComponent = (Component, omitProps = []) => {
   const unallowedProps = {
     meta: {
-      props: ['connected', ...omitProps, ...system.meta.props]
+      props: ['connected', ...omitProps, ...reservedProps, ...system.meta.props]
     }
   }
   return createSystemComponent(React, Component, unallowedProps)

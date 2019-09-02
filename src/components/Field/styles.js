@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { wrapperSystem } from '../../utils/'
+import { filterComponent, wrapperSystem } from '../../utils/'
 import { Label } from '../Label/styles'
 import { radioTabStyles } from '../RadioTab/styles'
 import { FieldGroup } from '../FieldGroup/styles'
@@ -19,7 +19,7 @@ const checkableFieldStyles = css`
   margin-bottom: sm;
 `
 
-export const Field = styled.div(
+export const Field = styled(filterComponent('div'))(
   props => css`
     ${FieldGroup} {
       margin-bottom: ${props.checkableField && 'xxs'};
