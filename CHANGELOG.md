@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.22.2](https://github.com/WTTJ/welcome-ui/compare/v0.22.1...v0.22.2) (2019-09-02)
+
+
+### Bug Fixes
+
+* ensure icons are not squashed in labels ([3d9b719](https://github.com/WTTJ/welcome-ui/commit/3d9b719))
+* replace <Text as={p}…> ([96d5c1f](https://github.com/WTTJ/welcome-ui/commit/96d5c1f))
+* use placeholder or placeholderText on DatePicker ([443936a](https://github.com/WTTJ/welcome-ui/commit/443936a)), closes [#306](https://github.com/WTTJ/welcome-ui/issues/306)
+* wrap label contents to preserve flex functionality ([16206f4](https://github.com/WTTJ/welcome-ui/commit/16206f4))
+
+
+
 ### [0.22.1](https://github.com/WTTJ/welcome-ui/compare/v0.22.0...v0.22.1) (2019-08-29)
 
 
