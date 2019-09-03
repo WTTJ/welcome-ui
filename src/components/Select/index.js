@@ -16,7 +16,7 @@ import * as S from './styles'
 
 // Helpers
 const EMPTY = ''
-const itemToString = item => (item ? item.label : '')
+const itemToString = item => (item ? item.label : EMPTY)
 const getUniqueValue = (item, values) => uniqBy([...values, item], item => item.value)
 const isValueExisting = (value, values) =>
   values.find(item => kebabCase(item.value) === kebabCase(value))
@@ -67,7 +67,7 @@ export const Select = forwardRef(
     const getOptionFromValue = useCallback(value => optionFromValue(options, value), [options])
     const defaultOption = getOptionFromValue(defaultValue)
     const selectedItem = (!isMultiple && defaultOption && defaultOption[0]) || null
-    const defaultInputValue = selectedItem ? defaultOption[0] : EMPTY
+    const defaultInputValue = selectedItem ? defaultOption[0].label : EMPTY
     // Values will always be an array internally
     const [values, setValues] = useState(defaultOption)
     const [inputValue, setInputValue] = useState(defaultInputValue)
@@ -135,7 +135,7 @@ export const Select = forwardRef(
         isClearInput = isMultiple
       }
 
-      isClearInput && setInputValue('')
+      isClearInput && setInputValue(EMPTY)
       setResults(options)
       setValues(newItems)
       handleChange(newItems)
@@ -151,7 +151,9 @@ export const Select = forwardRef(
     const handleOuterClick = e => {
       // Reset input value if not selecting a new item
       if (isMultiple && e.selectedItem) {
-        setInputValue('')
+        setInputValue(EMPTY)
+      } else if (isSearchable && e.selectedItem) {
+        setInputValue(e.selectedItem.label)
       }
       setResults(options)
     }
@@ -159,7 +161,7 @@ export const Select = forwardRef(
     const spacer = options.reduce(
       (prev, current) =>
         current.label && prev.length > current.label.length ? prev : current.label,
-      ''
+      EMPTY
     )
 
     return (
@@ -204,8 +206,10 @@ export const Select = forwardRef(
           let content = EMPTY
           if (isMultiple) {
             content = inputValue
-          } else if (values.length) {
-            content = renderItem(values[0])
+          } else if (inputValue) {
+            content = renderItem(findOption(inputValue, options))
+          } else {
+            content = placeholder
           }
 
           return (
