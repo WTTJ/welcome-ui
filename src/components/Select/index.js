@@ -208,8 +208,6 @@ export const Select = forwardRef(
             content = inputValue
           } else if (inputValue) {
             content = renderItem(findOption(inputValue, options))
-          } else {
-            content = placeholder
           }
 
           return (
