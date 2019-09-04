@@ -138,7 +138,7 @@ export const Field = forwardRef(
               required={isShowRequired}
               variant={variant}
             >
-              <S.Input>{isCheckable && Field}</S.Input>
+              {isCheckable && <S.Input>{Field}</S.Input>}
               <S.Content>{label}</S.Content>
             </Label>
           )}
