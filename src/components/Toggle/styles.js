@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
 
-import { componentSystem, filterComponent, FINAL_FORM_META_TYPES, system } from '../../utils/'
+import { componentSystem, filterComponent, system } from '../../utils/'
 
 const afterCheckedStyles = css`
   &::after {
@@ -21,7 +21,7 @@ const checkedDisabledStyles = css`
   ${afterCheckedStyles}
 `
 
-export const Toggle = styled(filterComponent(ReakitCheckbox, Object.keys(FINAL_FORM_META_TYPES)))(
+export const Toggle = styled(filterComponent(ReakitCheckbox))(
   ({ checked, connected, disabled, order = '-1' }) => {
     const toggleSize = th('fields.toggles.default.width')
 

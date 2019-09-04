@@ -27,6 +27,7 @@ export const FINAL_FORM_META_TYPES = Object.freeze({
   submitting: bool,
   touched: bool,
   valid: bool,
+  validating: bool,
   visited: bool
 })
 

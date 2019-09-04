@@ -2,9 +2,9 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { fieldStyles } from '../../common/styles/form'
-import { componentSystem, system } from '../../utils/'
+import { componentSystem, filterComponent, system } from '../../utils/'
 
-export const InputText = styled.input(
+export const InputText = styled(filterComponent('input'))(
   ({ connected, icon, iconPlacement, size, ...rest }) => css`
     ${fieldStyles};
 

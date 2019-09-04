@@ -1,5 +1,7 @@
 import styled from '@xstyled/styled-components'
 
-export const Input = styled.input`
+import { filterComponent } from '../../utils'
+
+export const Input = styled(filterComponent('input'))`
   display: none;
 `

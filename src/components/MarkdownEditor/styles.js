@@ -3,9 +3,9 @@ import { th } from '@xstyled/system'
 import SimpleMDE from 'react-simplemde-editor'
 
 import { fieldStyles } from '../../common/styles/form'
-import { componentSystem, system } from '../../utils/'
+import { componentSystem, filterComponent, system } from '../../utils/'
 
-export const Wrapper = styled.div(
+export const Wrapper = styled(filterComponent('div'))(
   ({ connected, disabled, focused }) => css`
     ${fieldStyles};
     position: relative;
