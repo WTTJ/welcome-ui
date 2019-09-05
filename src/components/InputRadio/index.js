@@ -3,20 +3,9 @@ import { bool, elementType, func, number, object, string } from 'prop-types'
 
 import * as S from './styles'
 
-export const InputRadio = forwardRef(
-  ({ name, order, radio, setIsCheckboxChecked, value, ...rest }, ref) => (
-    // setIsCheckboxChecked is here to remove it from the DOM element
-    <S.InputRadio
-      id={value}
-      name={name}
-      order={order}
-      ref={ref}
-      value={value}
-      {...rest}
-      {...radio}
-    />
-  )
-)
+export const InputRadio = forwardRef(({ name, order, radio, value, ...rest }, ref) => (
+  <S.InputRadio id={value} name={name} order={order} ref={ref} value={value} {...rest} {...radio} />
+))
 
 InputRadio.type = 'InputRadio'
 InputRadio.displayName = 'InputRadio'
@@ -33,7 +22,6 @@ InputRadio.propTypes = {
   onKeyDown: func,
   order: number,
   radio: object,
-  setIsCheckboxChecked: func,
   type: string,
   value: string
 }
