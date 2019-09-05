@@ -112,7 +112,7 @@
     "mime": "=2.4.4",
     "polished": "^3.4.1",
     "prop-types": "^15.7.2",
-    "react-datepicker": "^2.6.0",
+    "react-datepicker": "^2.9.6",
     "react-dropzone": "^10.1.5",
     "react-flatten-children": "^1.0.0",
     "react-simplemde-editor": "=4.0.2",
