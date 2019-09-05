@@ -81,7 +81,8 @@ const colors = {
     600: palette.battleship,
     700: palette.granite,
     800: palette.darkliver
-  }
+  },
+  bookmark: '#bf4c3b'
 }
 
 export const welcomeTheme = {
