@@ -62,8 +62,6 @@ export const Field = forwardRef(
 
     const inputRef = useRef()
 
-    const [isCheckboxChecked, setIsCheckboxChecked] = useState(checked)
-
     const [uniqueId, setUniqueId] = useState()
     useEffect(() => {
       setUniqueId(makeUnique(isRadio ? value : id || name))
@@ -89,12 +87,10 @@ export const Field = forwardRef(
       }
     }
 
-    const handleChecked = () => (baseType === 'checkbox' ? isCheckboxChecked : checked)
-
     const Field = (
       <Component
         autoFocus={autoFocus}
-        checked={handleChecked()}
+        checked={checked}
         connected
         disabled={disabled}
         flexDirection={layout}
@@ -108,7 +104,6 @@ export const Field = forwardRef(
         placeholder={placeholder}
         ref={inputRef || ref}
         required={required}
-        setIsCheckboxChecked={setIsCheckboxChecked}
         size={size}
         type={baseType}
         value={value}
@@ -122,7 +117,7 @@ export const Field = forwardRef(
     return (
       <S.Field
         checkableField={isCheckable}
-        checked={handleChecked()}
+        checked={checked}
         fieldType={Component.type}
         flexDirection={layout}
         size={size}

@@ -43,6 +43,7 @@ export const Label = forwardRef(
     return (
       <S.Label
         as={as}
+        data-testid="label"
         disabled={disabled}
         disabledIcon={disabledIcon}
         errorWarningIcon={errorWarningIcon}

@@ -113,8 +113,7 @@ const customProps = [
   'isSearchable',
   'maxSize',
   'minRows',
-  'renderItem',
-  'setIsCheckboxChecked'
+  'renderItem'
 ]
 
 const finalFormFieldProps = [
