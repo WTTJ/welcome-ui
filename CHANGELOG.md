@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.22.4](https://github.com/WTTJ/welcome-ui/compare/v0.22.3...v0.22.4) (2019-09-05)
+
+
+### Bug Fixes
+
+* correctly update checked state on checkboxes ([#329](https://github.com/WTTJ/welcome-ui/issues/329)) ([209f4df](https://github.com/WTTJ/welcome-ui/commit/209f4df)), closes [#328](https://github.com/WTTJ/welcome-ui/issues/328)
+* findDOMNode warning because of dateTime library ([#330](https://github.com/WTTJ/welcome-ui/issues/330)) ([ddbfae3](https://github.com/WTTJ/welcome-ui/commit/ddbfae3)), closes [#311](https://github.com/WTTJ/welcome-ui/issues/311)
+* remove empty input on field's label ([#326](https://github.com/WTTJ/welcome-ui/issues/326)) ([d7e3eb6](https://github.com/WTTJ/welcome-ui/commit/d7e3eb6))
+* warnings on props being forwarded too deep ([#324](https://github.com/WTTJ/welcome-ui/issues/324)) ([267b87e](https://github.com/WTTJ/welcome-ui/commit/267b87e)), closes [#313](https://github.com/WTTJ/welcome-ui/issues/313) [#316](https://github.com/WTTJ/welcome-ui/issues/316) [#312](https://github.com/WTTJ/welcome-ui/issues/312)
+
+
+
 ### [0.22.3](https://github.com/WTTJ/welcome-ui/compare/v0.22.2...v0.22.3) (2019-09-03)
 
 
