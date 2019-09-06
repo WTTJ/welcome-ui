@@ -212,6 +212,7 @@ export const Select = forwardRef(
             placeholder,
             readOnly: !isSearchable,
             ref,
+            required,
             size,
             suppressContentEditableWarning: true,
             tabIndex: 0,
@@ -240,9 +241,10 @@ export const Select = forwardRef(
                       role="button"
                       size={size}
                       tabIndex={-1}
+                      title="Remove item"
                       type="button"
                     >
-                      <Icon color="nude.800" name="cross" size="xs" />
+                      <Icon color="nude.800" name="cross" size="xs" title="Remove" />
                     </S.DropDownIndicator>
                   ) : (
                     <S.DropDownIndicator

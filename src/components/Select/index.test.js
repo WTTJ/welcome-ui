@@ -4,6 +4,7 @@ import { fireEvent } from '@testing-library/react'
 import { getFormValues, TestFinalForm } from '../../../docz/FinalForm'
 import { render } from '../../utils/tests'
 import { ConnectedField } from '../ConnectedField'
+import { Icon } from '../Icon'
 
 import { Select } from './index'
 
@@ -42,6 +43,7 @@ test('<Select> has default attributes', () => {
   expect(label).toHaveTextContent('Select')
   expect(select.getAttribute('placeholder')).toBe('Choose from…')
   expect(select.getAttribute('data-spacer')).toBe('September')
+  expect(select.getAttribute('readonly')).toBe('')
   expect(select).toHaveTextContent('')
 })
 
@@ -91,7 +93,7 @@ test('<Select> can choose option', () => {
 })
 
 test('<Select> can remove option', () => {
-  const { getByRole, getByTestId } = render(
+  const { getByTestId, getByTitle } = render(
     <TestFinalForm initialValues={{ select: 'february' }}>
       <ConnectedField
         component={Select}
@@ -109,8 +111,8 @@ test('<Select> can remove option', () => {
   expect(formValues.select).toStrictEqual('february')
 
   // Click cross to remove selected option
-  const button = getByRole('button')
-  fireEvent.click(button)
+  const removeButton = getByTitle('Remove item')
+  fireEvent.click(removeButton)
 
   formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('')
@@ -127,7 +129,6 @@ test('<Select isMultiple> can select multiple items', () => {
         label="Select"
         name="select"
         options={OPTIONS}
-        tabIndex={1}
       />
     </TestFinalForm>
   )
@@ -161,7 +162,6 @@ test('<Select isMultiple> can remove multiple items', () => {
         label="Select"
         name="select"
         options={OPTIONS}
-        tabIndex={1}
       />
     </TestFinalForm>
   )
@@ -180,38 +180,63 @@ test('<Select isMultiple> can remove multiple items', () => {
   expect(formValues.select).toStrictEqual(['february'])
 })
 
-// Can't test searchable as can't type in `contenteditable` using JSDom :(
-test.skip('<Select isSearchable> can search options', () => {
-  const { getByRole, getByTestId } = render(
+test('<Select required> cannot remove selected item', () => {
+  const { getByRole, getByTestId, queryByTitle } = render(
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
         dataTestid="select"
-        isSearchable
         label="Select"
         name="select"
         options={OPTIONS}
-        tabIndex={1}
+        required
       />
     </TestFinalForm>
   )
 
   const select = getByTestId('select')
+  expect(select.getAttribute('required')).toBe('')
 
-  // Search `emb`
+  // Choose option
   fireEvent.click(select)
-  fireEvent.input(select, { target: { value: 'emb' } })
 
-  // Assert 3 results (September, October, November)
   const options = getByRole('listbox')
-  expect(options.childNodes.length).toBe(3)
-
-  // Click 2nd result (October)
   fireEvent.click(options.childNodes[1])
-  expect(select).toHaveTextContent('October')
 
-  // Assert October
-  const formValues = getFormValues(getByTestId('values'))
-  expect(select).toHaveTextContent('October')
-  expect(formValues.select).toStrictEqual('october')
+  let formValues = getFormValues(getByTestId('values'))
+  expect(select).toHaveTextContent('February')
+  expect(formValues.select).toStrictEqual('february')
+
+  // Use `queryByTitle` to expect no close button
+  const removeButton = queryByTitle('Remove item')
+  expect(removeButton).toBeNull()
 })
+
+test('<Select renderItem> formats items', () => {
+  const { getByTestId } = render(
+    <TestFinalForm initialValues={{ select: 'february' }}>
+      <ConnectedField
+        component={Select}
+        dataTestid="select"
+        label="Select"
+        name="select"
+        options={OPTIONS}
+        renderItem={option => (
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Icon mr="xs" name="date" size="sm" title="Calendar" /> <span>{option.label}</span>
+          </div>
+        )}
+      />
+    </TestFinalForm>
+  )
+
+  const select = getByTestId('select')
+  const icon = select.querySelector('svg')
+
+  const formValues = getFormValues(getByTestId('values'))
+  expect(select).toHaveTextContent('February')
+  expect(icon.getAttribute('title')).toBe('Calendar')
+  expect(formValues.select).toStrictEqual('february')
+})
+
+// Can't test isSearchable or isCreatable as can't type in `contenteditable` using JSDom :(
