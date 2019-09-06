@@ -239,4 +239,4 @@ test('<Select renderItem> formats items', () => {
   expect(formValues.select).toStrictEqual('february')
 })
 
-// Can't test isSearchable or isCreatable as can't type in `contenteditable` using JSDom :(
+// Can't test `isSearchable`, `isCreatable` or keyboard navigation as can't type in `contenteditable` using JSDom :(
