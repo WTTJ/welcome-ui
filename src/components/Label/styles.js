@@ -11,6 +11,7 @@ export const Label = styled.label(
     line-height: body1;
     ${th('fields.label')};
     ${system};
+    user-select: none;
 
     > * {
       &:not(:last-child) {
