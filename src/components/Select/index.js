@@ -73,6 +73,13 @@ export const Select = forwardRef(
     const [inputValue, setInputValue] = useState(defaultInputValue)
     const [results, setResults] = useState(options)
 
+    // Autofocus
+    useEffect(() => {
+      if (autoFocus) {
+        ref.current.focus()
+      }
+    }, [autoFocus, ref])
+
     // Ensure values are controlled by parent
     useEffect(() => {
       setValues(getOptionFromValue(defaultValue))
