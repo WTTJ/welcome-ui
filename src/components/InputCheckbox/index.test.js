@@ -1,16 +1,18 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
-import { Form } from 'react-final-form'
 
 import { DoczForm } from '../../../docz/'
+import { getFormValues, TestFinalForm } from '../../../docz/FinalForm'
 import { render } from '../../utils/tests'
 import { ConnectedField } from '../ConnectedField'
 import { Field } from '../Field'
 
 import { InputCheckbox } from './index'
 
-const expectChecked = (element, value) => {
+const expectChecked = (element, valuesElement, value) => {
+  const formValues = getFormValues(valuesElement)
   expect(element.getAttribute('aria-checked')).toBe(`${value}`)
+  expect(!!formValues.checkbox).toBe(value)
 }
 
 test('<Field component={InputCheckbox}> toggles on input click', () => {
@@ -20,6 +22,7 @@ test('<Field component={InputCheckbox}> toggles on input click', () => {
         <Field
           checked={!!values.checkbox}
           component={InputCheckbox}
+          dataTestid="inputCheckbox"
           label="Checkbox"
           name="checkbox"
           onChange={handleChange}
@@ -29,52 +32,39 @@ test('<Field component={InputCheckbox}> toggles on input click', () => {
   )
   const label = getByTestId('label')
   const inputCheckbox = getByTestId('inputCheckbox')
-  const values = container.getElementsByTagName('code')[0]
 
   expect(label).toHaveTextContent('Checkbox')
-  expectChecked(inputCheckbox, true)
-  expect(values).toHaveTextContent('{ "checkbox": true }')
+  expectChecked(inputCheckbox, container, true)
 
   fireEvent.click(inputCheckbox)
-
-  expectChecked(inputCheckbox, false)
-  expect(values).toHaveTextContent('{ "checkbox": false }')
+  expectChecked(inputCheckbox, container, false)
 
   fireEvent.click(inputCheckbox)
-
-  expectChecked(inputCheckbox, true)
-  expect(values).toHaveTextContent('{ "checkbox": true }')
+  expectChecked(inputCheckbox, container, true)
 })
 
 test('<ConnectedField component={InputCheckbox}> toggles on input click', () => {
-  // eslint-disable-next-line
-  const handleSubmit = console.debug
-  const { getByTestId } = render(
-    <Form
-      initialValues={{}}
-      onSubmit={handleSubmit}
-      render={({ handleSubmit }) => {
-        return (
-          <form onSubmit={handleSubmit}>
-            <ConnectedField component={InputCheckbox} label="Checkbox" name="checkbox" />
-          </form>
-        )
-      }}
-    />
+  const { container, getByTestId } = render(
+    <TestFinalForm initialValues={{}}>
+      <ConnectedField
+        component={InputCheckbox}
+        dataTestid="inputCheckbox"
+        label="Checkbox"
+        name="checkbox"
+      />
+    </TestFinalForm>
   )
   const label = getByTestId('label')
   const inputCheckbox = getByTestId('inputCheckbox')
 
   expect(label).toHaveTextContent('Checkbox')
-  expectChecked(inputCheckbox, false)
+  expectChecked(inputCheckbox, container, false)
 
   fireEvent.click(inputCheckbox)
-
-  expectChecked(inputCheckbox, true)
+  expectChecked(inputCheckbox, container, true)
 
   fireEvent.click(inputCheckbox)
-
-  expectChecked(inputCheckbox, false)
+  expectChecked(inputCheckbox, container, false)
 })
 
 test('<Field component={InputCheckbox}> toggles on label click', () => {
@@ -84,6 +74,7 @@ test('<Field component={InputCheckbox}> toggles on label click', () => {
         <Field
           checked={!!values.checkbox}
           component={InputCheckbox}
+          dataTestid="inputCheckbox"
           label="Checkbox"
           name="checkbox"
           onChange={handleChange}
@@ -93,50 +84,37 @@ test('<Field component={InputCheckbox}> toggles on label click', () => {
   )
   const label = getByTestId('label')
   const inputCheckbox = getByTestId('inputCheckbox')
-  const values = container.getElementsByTagName('code')[0]
 
   expect(label).toHaveTextContent('Checkbox')
-  expectChecked(inputCheckbox, true)
-  expect(values).toHaveTextContent('{ "checkbox": true }')
+  expectChecked(inputCheckbox, container, true)
 
   fireEvent.click(label)
-
-  expectChecked(inputCheckbox, false)
-  expect(values).toHaveTextContent('{ "checkbox": false }')
+  expectChecked(inputCheckbox, container, false)
 
   fireEvent.click(label)
-
-  expectChecked(inputCheckbox, true)
-  expect(values).toHaveTextContent('{ "checkbox": true }')
+  expectChecked(inputCheckbox, container, true)
 })
 
 test('<ConnectedField component={InputCheckbox}> toggles on label click', () => {
-  // eslint-disable-next-line
-  const handleSubmit = console.debug
-  const { getByTestId } = render(
-    <Form
-      initialValues={{}}
-      onSubmit={handleSubmit}
-      render={({ handleSubmit }) => {
-        return (
-          <form onSubmit={handleSubmit}>
-            <ConnectedField component={InputCheckbox} label="Checkbox" name="checkbox" />
-          </form>
-        )
-      }}
-    />
+  const { container, getByTestId } = render(
+    <TestFinalForm initialValues={{}}>
+      <ConnectedField
+        component={InputCheckbox}
+        dataTestid="inputCheckbox"
+        label="Checkbox"
+        name="checkbox"
+      />
+    </TestFinalForm>
   )
   const label = getByTestId('label')
   const inputCheckbox = getByTestId('inputCheckbox')
 
   expect(label).toHaveTextContent('Checkbox')
-  expectChecked(inputCheckbox, false)
+  expectChecked(inputCheckbox, container, false)
 
   fireEvent.click(label)
-
-  expectChecked(inputCheckbox, true)
+  expectChecked(inputCheckbox, container, true)
 
   fireEvent.click(label)
-
-  expectChecked(inputCheckbox, false)
+  expectChecked(inputCheckbox, container, false)
 })
