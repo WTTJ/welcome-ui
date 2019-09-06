@@ -7,7 +7,7 @@ import uniqBy from 'lodash.uniqby'
 import isEqual from 'lodash.isequal'
 import reject from 'lodash.reject'
 
-import { OPTIONS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
+import { INPUTS_TYPE, OPTIONS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
 import { Icon } from '../Icon'
 import { Tag } from '../Tag'
 import { createEvent } from '../../utils/'
@@ -42,6 +42,7 @@ export const Select = forwardRef(
   (
     {
       autoFocus,
+      dataTestid,
       disabled,
       id,
       isCreatable,
@@ -58,6 +59,7 @@ export const Select = forwardRef(
       renderItem = defaultRenderOption,
       required,
       size = 'lg',
+      type,
       value: defaultValue,
       variant,
       ...rest
@@ -193,21 +195,29 @@ export const Select = forwardRef(
           const isShowCreate = !!(isCreatable && inputValue && !isValueExisting(inputValue, values))
           const isShowMenu = isOpen && (results.length || isShowCreate)
           const isShowDeleteIcon = inputValue && !isOpen && !required
+          const rootProps = getRootProps(rest)
           const inputProps = getInputProps({
             autoComplete: 'off',
             autoFocus,
             contentEditable: isSearchable,
+            'data-spacer': spacer || placeholder,
+            'data-testid': dataTestid,
             disabled,
+            id,
             name,
             onBlur,
             onClick: toggleMenu,
             onFocus,
+            onInput: e => handleInputChange(e.target.innerText, openMenu),
             placeholder,
             readOnly: !isSearchable,
             ref,
             size,
+            suppressContentEditableWarning: true,
+            tabIndex: 0,
             value: inputValue || EMPTY,
-            variant: isOpen ? 'focused' : variant
+            variant: isOpen ? 'focused' : variant,
+            ...rest
           })
 
           let content = EMPTY
@@ -218,19 +228,9 @@ export const Select = forwardRef(
           }
 
           return (
-            <S.Wrapper {...getRootProps()} {...rest}>
+            <S.Wrapper {...rootProps}>
               <S.InputWrapper>
-                <S.Input
-                  {...inputProps}
-                  data-spacer={spacer || placeholder}
-                  id={id}
-                  onInput={e => handleInputChange(e.target.innerText, openMenu)}
-                  suppressContentEditableWarning
-                  tabIndex={0}
-                  {...rest}
-                >
-                  {content}
-                </S.Input>
+                <S.Input {...inputProps}>{content}</S.Input>
                 <S.Indicators size={size}>
                   {isShowDeleteIcon ? (
                     <S.DropDownIndicator
@@ -311,6 +311,7 @@ Select.displayName = 'Select'
 
 Select.propTypes = {
   autoFocus: bool,
+  dataTestid: string,
   disabled: bool,
   id: string,
   isCreatable: bool,
@@ -328,6 +329,7 @@ Select.propTypes = {
   required: bool,
   searchable: bool,
   size: SIZES_TYPE,
+  type: INPUTS_TYPE,
   value: oneOfType([OPTIONS_TYPE, arrayOf(OPTIONS_TYPE)], string),
   variant: VARIANTS_TYPE
 }

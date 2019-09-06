@@ -18,8 +18,8 @@ const CodeBlock = styled.pre`
   }
 `
 
-export const DoczCodeBlock = ({ children }) => (
-  <CodeBlock>
+export const DoczCodeBlock = ({ children, ...rest }) => (
+  <CodeBlock {...rest}>
     <code>{JSON.stringify(children, 0, 2)}</code>
   </CodeBlock>
 )
