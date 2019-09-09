@@ -19,7 +19,7 @@ export const Tag = forwardRef(
         {...rest}
       >
         {content}
-        {onRemove && <Icon name="cross" onClick={onRemove} size="xs" />}
+        {onRemove && <Icon name="cross" onClick={onRemove} size="xs" title="Remove" />}
       </S.Tag>
     )
   }

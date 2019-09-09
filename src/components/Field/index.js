@@ -1,21 +1,10 @@
 import React, { forwardRef, Fragment, useEffect, useRef, useState } from 'react'
-import {
-  array,
-  arrayOf,
-  bool,
-  func,
-  node,
-  number,
-  object,
-  oneOf,
-  oneOfType,
-  string
-} from 'prop-types'
+import { array, arrayOf, bool, func, node, number, object, oneOfType, string } from 'prop-types'
 
 // Common
 import { RowContainer } from '../../common/styles/layout'
 import { getBaseType, getHintText, getVariant, makeUnique } from '../../utils/'
-import { COMPONENT_TYPE, DIRECTIONS_TYPE, OPTIONS_TYPE, SIZES_TYPE } from '../../utils'
+import { COMPONENT_TYPE, DIRECTIONS_TYPE, INPUTS_TYPE, OPTIONS_TYPE, SIZES_TYPE } from '../../utils'
 // Components
 import { Label } from '../Label'
 import { Hint } from '../Hint'
@@ -31,6 +20,7 @@ export const Field = forwardRef(
       children,
       component: Component,
       connected,
+      dataTestid,
       disabled,
       disabledIcon,
       error,
@@ -92,6 +82,7 @@ export const Field = forwardRef(
         autoFocus={autoFocus}
         checked={checked}
         connected
+        dataTestid={dataTestid}
         disabled={disabled}
         flexDirection={layout}
         id={uniqueId}
@@ -154,6 +145,7 @@ Field.propTypes = {
   children: func,
   component: COMPONENT_TYPE.isRequired,
   connected: bool,
+  dataTestid: string,
   disabled: bool,
   disabledIcon: node,
   error: string,
@@ -171,7 +163,7 @@ Field.propTypes = {
   required: bool,
   size: SIZES_TYPE,
   touched: bool,
-  type: oneOf(['checkbox', 'email', 'file', 'password', 'radio', 'search', 'tel', 'text']),
+  type: INPUTS_TYPE,
   value: oneOfType([array, number, object, string]),
   warning: string
 }

@@ -32,8 +32,18 @@ export const FINAL_FORM_META_TYPES = Object.freeze({
 })
 
 export const COMPONENT_TYPE = oneOfType([func, object, string])
-export const VARIANTS_TYPE = oneOf(['error', 'info', 'valid', 'warning'])
 export const DIRECTIONS_TYPE = oneOf(['row', 'container'])
+export const INPUTS_TYPE = oneOf([
+  'checkbox',
+  'email',
+  'file',
+  'password',
+  'radio',
+  'search',
+  'tel',
+  'text'
+])
+export const OPTIONS_TYPE = shape({ label: string, value: string })
 export const SHAPES_TYPE = oneOf(['square', 'circle'])
 export const SIZES_TYPE = oneOf(['sm', 'md', 'lg'])
-export const OPTIONS_TYPE = shape({ label: string, value: string })
+export const VARIANTS_TYPE = oneOf(['error', 'info', 'valid', 'warning'])

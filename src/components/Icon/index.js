@@ -4,7 +4,7 @@ import { oneOf, string } from 'prop-types'
 import * as S from './styles'
 import { icons } from './icons'
 
-export const Icon = forwardRef(({ name, size = 'md', ...props }, ref) => {
+export const Icon = forwardRef(({ name, size = 'md', title, ...props }, ref) => {
   if (!name) {
     return null
   }
@@ -23,7 +23,7 @@ export const Icon = forwardRef(({ name, size = 'md', ...props }, ref) => {
       role="img"
       size={size}
       stroked={iconConfig.stroked}
-      title={name}
+      title={title || name}
       viewBox={iconConfig.viewBox || '0 0 100 100'}
       {...props}
     />
@@ -34,5 +34,6 @@ Icon.displayName = 'Icon'
 
 Icon.propTypes = {
   name: string,
-  size: oneOf(['xs', 'sm', 'md', 'lg', 'xl'])
+  size: oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  title: string
 }
