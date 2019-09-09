@@ -144,12 +144,12 @@ export const FileDrop = forwardRef(
           <S.Actions>
             {(!!file || error) && isEditable && (
               <Button onClick={open} size="sm" type="button" variant="secondary">
-                <Icon name="pencil" size="sm" />
+                <Icon name="pencil" />
               </Button>
             )}
             {!!file && isRemovable && (
               <Button onClick={handleRemoveFile} size="sm" type="button" variant="primary-danger">
-                <Icon name="cross" size="sm" />
+                <Icon name="cross" />
               </Button>
             )}
           </S.Actions>

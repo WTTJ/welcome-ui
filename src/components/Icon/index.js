@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react'
-import { string } from 'prop-types'
+import { oneOf, string } from 'prop-types'
 
 import * as S from './styles'
 import { icons } from './icons'
 
-export const Icon = forwardRef(({ name, ...props }, ref) => {
+export const Icon = forwardRef(({ name, size = 'md', ...props }, ref) => {
   if (!name) {
     return null
   }
@@ -21,6 +21,7 @@ export const Icon = forwardRef(({ name, ...props }, ref) => {
       data-testid={`icon-${name}`}
       ref={ref}
       role="img"
+      size={size}
       stroked={iconConfig.stroked}
       title={name}
       viewBox={iconConfig.viewBox || '0 0 100 100'}
@@ -32,5 +33,6 @@ export const Icon = forwardRef(({ name, ...props }, ref) => {
 Icon.displayName = 'Icon'
 
 Icon.propTypes = {
-  name: string
+  name: string,
+  size: oneOf(['xs', 'sm', 'md', 'lg', 'xl'])
 }

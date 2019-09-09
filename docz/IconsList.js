@@ -21,7 +21,7 @@ export const IconsList = icons => (
           padding="15px 10px"
           width={1}
         >
-          <Icon name={icon} size="lg" />
+          <Icon name={icon} size="xl" />
         </Box>
         <Box fontSize="meta1" fontWeight="medium" padding="5px 0" textAlign="center" width={1}>
           {icon}

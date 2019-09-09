@@ -4,11 +4,12 @@ import { rpxTransformers } from '@xstyled/system'
 import { getButtons } from '../components/Button/theme'
 import { getFields } from '../components/Field/theme'
 import { getGrowls } from '../components/Growl/theme'
+import { getIcons } from '../components/Icon/theme'
+import { getLinks } from '../components/Link/theme'
 import { getPaginations } from '../components/Pagination/theme'
 import { getTabs } from '../components/Tabs/theme'
 import { getTags } from '../components/Tag/theme'
 import { getTooltips } from '../components/Tooltip/theme'
-import { getLinks } from '../components/Link/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -77,13 +78,7 @@ export const getBaseTheme = (options = {}) => {
     xl: theme.toRem(24)
   }
 
-  theme.icons = {
-    xs: theme.toRem(10),
-    sm: theme.toRem(16),
-    md: theme.toRem(24),
-    lg: theme.toRem(32),
-    xl: theme.toRem(48)
-  }
+  theme.icons = getIcons(theme)
 
   theme.radii = { sm: '4px', md: '6px', lg: '10px' }
 

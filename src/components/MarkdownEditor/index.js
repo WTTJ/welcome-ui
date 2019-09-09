@@ -72,7 +72,7 @@ export const MarkdownEditor = forwardRef(
       setToolbarItems(
         toolbar.map(({ action, icon, name }) => ({
           name: name,
-          icon: icon || <Icon name={name} size="sm" />,
+          icon: icon || <Icon name={name} />,
           action: action || DEFAULT_TOOLBAR_ACTIONS[name] || null
         }))
       )
