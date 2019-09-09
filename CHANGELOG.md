@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.23.0](https://github.com/WTTJ/welcome-ui/compare/v0.22.4...v0.23.0) (2019-09-09)
+
+
+### Bug Fixes
+
+* file browser opens on button click ([#331](https://github.com/WTTJ/welcome-ui/issues/331)) ([1e6329d](https://github.com/WTTJ/welcome-ui/commit/1e6329d)), closes [#315](https://github.com/WTTJ/welcome-ui/issues/315)
+* prevent selecting text in labels ([#334](https://github.com/WTTJ/welcome-ui/issues/334)) ([0b22674](https://github.com/WTTJ/welcome-ui/commit/0b22674))
+* remove valid html attributes from blacklist ([#333](https://github.com/WTTJ/welcome-ui/issues/333)) ([ce7c2ed](https://github.com/WTTJ/welcome-ui/commit/ce7c2ed))
+
+
+### Features
+
+* change icon size on themes ([e7630e8](https://github.com/WTTJ/welcome-ui/commit/e7630e8))
+
+
+
 ### [0.22.4](https://github.com/WTTJ/welcome-ui/compare/v0.22.3...v0.22.4) (2019-09-05)
 
 
