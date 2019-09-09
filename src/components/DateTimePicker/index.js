@@ -8,8 +8,11 @@ import { TimePicker } from '../TimePicker'
 
 import * as S from './styles'
 
+// Set default date in a const to avoid memory leak
+const DEFAULT_DATE = new Date()
+
 export const DateTimePicker = forwardRef(
-  ({ children, onChange, size = 'lg', value = new Date() }, ref) => {
+  ({ children, onChange, size = 'lg', value = DEFAULT_DATE }, ref) => {
     const [date, setDate] = useState(value)
 
     const handleChange = newDate => {

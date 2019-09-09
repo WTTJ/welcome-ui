@@ -8,13 +8,14 @@ import { DatePickerPopper } from '../DatePickerPopper'
 
 import * as S from './styles'
 
-const DEFAULT_FORMAT = 'dd/MM/yyyy'
+// Set default date in a const to avoid memory leak
+const DEFAULT_DATE = new Date()
 
 export const DatePicker = forwardRef(
   (
     {
       autoFocus,
-      dateFormat = DEFAULT_FORMAT,
+      dateFormat = 'dd/MM/yyyy',
       icon,
       iconPlacement = 'left',
       inputRef,
@@ -23,7 +24,7 @@ export const DatePicker = forwardRef(
       onFocus,
       placeholder,
       size = 'lg',
-      value = new Date(),
+      value = DEFAULT_DATE,
       ...rest
     },
     ref
