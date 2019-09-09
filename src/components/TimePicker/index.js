@@ -8,15 +8,15 @@ import { DatePickerPopper } from '../DatePickerPopper'
 
 import * as S from './styles'
 
-const DEFAULT_INTERVAL = 15
-const DEFAULT_FORMAT = 'HH:mm'
+// Set default date in a const to avoid memory leak
+const DEFAULT_DATE = new Date()
 
 export const TimePicker = forwardRef(
   (
     {
       autoFocus,
-      dateFormat = DEFAULT_FORMAT,
-      value = new Date(),
+      dateFormat = 'HH:mm',
+      value = DEFAULT_DATE,
       onBlur,
       onChange,
       onFocus,
@@ -25,7 +25,7 @@ export const TimePicker = forwardRef(
       iconPlacement = 'left',
       inputRef,
       placeholder,
-      timeIntervals = DEFAULT_INTERVAL,
+      timeIntervals = 15,
       ...rest
     },
     ref
