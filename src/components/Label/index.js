@@ -55,9 +55,7 @@ export const Label = forwardRef(
         {...rest}
       >
         {variant && <S.Icon variant={variant}>{icon}</S.Icon>}
-        {disabled && (
-          <S.Disabled>{disabledIcon || <Icon name="special_pipeline" size="sm" />}</S.Disabled>
-        )}
+        {disabled && <S.Disabled>{disabledIcon || <Icon name="special_pipeline" />}</S.Disabled>}
         {content}
       </S.Label>
     )

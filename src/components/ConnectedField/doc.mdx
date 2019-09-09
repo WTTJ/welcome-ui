@@ -139,7 +139,7 @@ You can find additional props for each field component in [Fields](/fields/file-
               <ConnectedField
                 name="telephone"
                 component={InputText}
-                icon={<Icon name="phone" size="sm" color="nude.500" />}
+                icon={<Icon name="phone" color="nude.500" />}
                 type="tel"
                 placeholder="123456789"
                 label="Phone number"
@@ -212,7 +212,7 @@ You can find additional props for each field component in [Fields](/fields/file-
                 placeholder="Choose network"
                 renderItem={option => (
                   <Box display="flex" alignItems="center">
-                    <Icon name={option.value} size="sm" mr="xs" /> <span>{option.label}</span>
+                    <Icon name={option.value} mr="xs" /> <span>{option.label}</span>
                   </Box>
                 )}
                 mb="xl"
@@ -272,7 +272,7 @@ You can find additional props for each field component in [Fields](/fields/file-
                 label="Party date"
                 mb="xl"
               >
-                <DatePicker icon={<Icon name="celebrate" size="sm" color="nude.600" />} />
+                <DatePicker icon={<Icon name="celebrate" color="nude.600" />} />
                 <TimePicker />
               </ConnectedField>
               <Button type="submit" size="lg" mr={20}>

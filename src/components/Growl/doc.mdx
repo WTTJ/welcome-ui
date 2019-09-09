@@ -21,7 +21,7 @@ Customize with `<GrowlTitle>`, `<GrowlAction>` or `<GrowlClose>`.
 <Playground>
   <Growl onClose={() => console.log('close')}>
     <GrowlTitle>
-      <Icon name="megaphone" size="sm" /> Lorem ipsum dolor sit amet
+      <Icon name="megaphone" /> Lorem ipsum dolor sit amet
     </GrowlTitle>
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
     <GrowlAction>
@@ -40,7 +40,7 @@ Variant properties `info` (default), `error` or `warning` with automatic color.
   <Box mb="10px">
     <Growl onClose={() => console.log('close')}>
       <GrowlTitle variant="error">
-        <Icon name="flag" size="sm" /> Error growl
+        <Icon name="flag" /> Error growl
       </GrowlTitle>
       Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
       <GrowlAction>
@@ -53,7 +53,7 @@ Variant properties `info` (default), `error` or `warning` with automatic color.
   <Box mb="10px">
     <Growl onClose={() => console.log('close')}>
       <GrowlTitle variant="warning">
-        <Icon name="shield" size="sm" /> Warning growl
+        <Icon name="shield" /> Warning growl
       </GrowlTitle>
       Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
       <GrowlAction>
@@ -66,7 +66,7 @@ Variant properties `info` (default), `error` or `warning` with automatic color.
   <Box>
     <Growl onClose={() => console.log('close')}>
       <GrowlTitle>
-        <Icon name="megaphone" size="sm" /> Info growl (default)
+        <Icon name="megaphone" /> Info growl (default)
       </GrowlTitle>
       Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
       <GrowlAction>
@@ -94,7 +94,7 @@ Change close component, don't add icon on title, remove action button...
       onClose={() => console.log('close')}
       close={
         <GrowlClose>
-          <Icon name="positive" size="sm" />
+          <Icon name="positive" />
         </GrowlClose>
       }
     >
@@ -103,7 +103,7 @@ Change close component, don't add icon on title, remove action button...
     </Growl>
   </Box>
   <Box>
-    <Growl onClose={() => console.log('close')} close={<Icon name="positive" size="md" />}>
+    <Growl onClose={() => console.log('close')} close={<Icon name="positive" size="lg" />}>
       <GrowlTitle>Custom close button</GrowlTitle>
       Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
     </Growl>
