@@ -20,13 +20,13 @@ export const MarkdownEditor = forwardRef(
   (
     {
       autoFocus,
+      dataTestId,
       disabled,
       name,
       onBlur,
       onChange,
       onFocus,
       placeholder,
-      testId,
       toolbar = DEFAULT_TOOLBAR,
       value,
       variant,
@@ -126,7 +126,7 @@ export const MarkdownEditor = forwardRef(
 
     return (
       <S.Wrapper
-        data-testid={testId}
+        data-testid={dataTestId}
         disabled={disabled}
         focused={focused}
         variant={variant}
@@ -167,9 +167,9 @@ MarkdownEditor.type = 'MarkdownEditor'
 MarkdownEditor.displayName = 'MarkdownEditor'
 
 MarkdownEditor.propTypes = {
+  dataTestId: string,
   disabled: bool,
   placeholder: oneOfType([string, node]),
-  testId: string,
   toolbar: arrayOf(
     shape({
       action: oneOfType([func, string]),

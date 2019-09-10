@@ -21,11 +21,18 @@ const TAG_NAMES = {
 }
 
 export const Text = forwardRef(
-  ({ as, children, lines, testId, variant = 'body1', ...rest }, ref) => {
+  ({ as, children, dataTestId, lines, variant = 'body1', ...rest }, ref) => {
     const tagName = as || TAG_NAMES[variant]
 
     return (
-      <S.Text as={tagName} data-testid={testId} lines={lines} ref={ref} variant={variant} {...rest}>
+      <S.Text
+        as={tagName}
+        data-testid={dataTestId}
+        lines={lines}
+        ref={ref}
+        variant={variant}
+        {...rest}
+      >
         {children}
       </S.Text>
     )
@@ -37,7 +44,7 @@ Text.displayName = 'Text'
 Text.propTypes = {
   as: COMPONENT_TYPE,
   children: node,
+  dataTestId: string,
   lines: number,
-  testId: string,
   variant: oneOf(Object.keys(TAG_NAMES))
 }

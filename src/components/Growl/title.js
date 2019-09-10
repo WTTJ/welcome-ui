@@ -5,14 +5,14 @@ import { VARIANTS_TYPE } from '../../utils'
 
 import { Title } from './styles'
 
-export const GrowlTitle = ({ children, testId, variant = 'info' }) => (
-  <Title data-testid={testId} variant={variant}>
+export const GrowlTitle = ({ children, dataTestId, variant = 'info' }) => (
+  <Title data-testid={dataTestId} variant={variant}>
     {children}
   </Title>
 )
 
 GrowlTitle.propTypes = {
   children: node.isRequired,
-  testId: string,
+  dataTestId: string,
   variant: VARIANTS_TYPE
 }

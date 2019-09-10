@@ -4,9 +4,9 @@ import { node, oneOf, string } from 'prop-types'
 import * as S from './styles'
 
 export const Link = forwardRef(
-  ({ children, target, testId, variant = 'primary', ...rest }, ref) => (
+  ({ children, dataTestId, target, variant = 'primary', ...rest }, ref) => (
     <S.Link
-      data-testid={testId}
+      data-testid={dataTestId}
       ref={ref}
       // for security
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
@@ -22,7 +22,7 @@ export const Link = forwardRef(
 Link.displayName = 'Link'
 Link.propTypes = {
   children: node,
+  dataTestId: string,
   target: string,
-  testId: string,
   variant: oneOf(['primary', 'secondary'])
 }

@@ -4,7 +4,7 @@ import { oneOf, string } from 'prop-types'
 import * as S from './styles'
 import { icons } from './icons'
 
-export const Icon = forwardRef(({ name, size = 'md', testId, title, ...props }, ref) => {
+export const Icon = forwardRef(({ dataTestId, name, size = 'md', title, ...props }, ref) => {
   if (!name) {
     return null
   }
@@ -18,7 +18,7 @@ export const Icon = forwardRef(({ name, size = 'md', testId, title, ...props }, 
   return (
     <S.Icon
       dangerouslySetInnerHTML={{ __html: iconConfig.block }}
-      data-testid={testId && `icon-${testId}`}
+      data-testid={dataTestId && `icon-${dataTestId}`}
       ref={ref}
       role="img"
       size={size}
@@ -33,8 +33,8 @@ export const Icon = forwardRef(({ name, size = 'md', testId, title, ...props }, 
 Icon.displayName = 'Icon'
 
 Icon.propTypes = {
+  dataTestId: string,
   name: string,
   size: oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  testId: string,
   title: string
 }

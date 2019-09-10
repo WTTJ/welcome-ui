@@ -8,7 +8,7 @@ const content = 'Jungle'
 
 describe('<Tag>', () => {
   it('should render correctly', () => {
-    const { getByTestId } = render(<Tag testId="tag">{content}</Tag>)
+    const { getByTestId } = render(<Tag dataTestId="tag">{content}</Tag>)
     const tag = getByTestId('tag')
 
     expect(tag).toHaveTextContent(content)
@@ -19,7 +19,7 @@ describe('<Tag>', () => {
 
   it('should have correct size', () => {
     const { getByTestId } = render(
-      <Tag size="lg" testId="tag">
+      <Tag dataTestId="tag" size="lg">
         {content}
       </Tag>
     )
@@ -30,7 +30,7 @@ describe('<Tag>', () => {
 
   it('should have correct color', () => {
     const { getByTestId } = render(
-      <Tag testId="tag" variant="turquoize">
+      <Tag dataTestId="tag" variant="turquoize">
         {content}
       </Tag>
     )
@@ -41,7 +41,7 @@ describe('<Tag>', () => {
   })
 
   it('should have correct size with only one character', () => {
-    const { getByTestId } = render(<Tag testId="tag">1</Tag>)
+    const { getByTestId } = render(<Tag dataTestId="tag">1</Tag>)
     const tag = getByTestId('tag')
 
     expect(tag).toHaveStyleRule('width', '1.82em')
@@ -51,7 +51,7 @@ describe('<Tag>', () => {
 
   it('should have same height and width when prop `shape` set to `square`', () => {
     const { getByTestId } = render(
-      <Tag shape="square" testId="tag">
+      <Tag dataTestId="tag" shape="square">
         {content}
       </Tag>
     )
@@ -63,7 +63,7 @@ describe('<Tag>', () => {
 
   it('should have same height and width when prop `shape` set to `square` and different width / height props', () => {
     const { getByTestId } = render(
-      <Tag height={10} shape="square" testId="tag" width={50}>
+      <Tag dataTestId="tag" height={10} shape="square" width={50}>
         {content}
       </Tag>
     )
@@ -75,7 +75,7 @@ describe('<Tag>', () => {
 
   it('should have same height and width when prop `shape` set to `square` and width prop only', () => {
     const { getByTestId } = render(
-      <Tag shape="square" testId="tag" width="4rem">
+      <Tag dataTestId="tag" shape="square" width="4rem">
         {content}
       </Tag>
     )
@@ -87,7 +87,7 @@ describe('<Tag>', () => {
 
   it('should have same height and width when prop `shape` set to `square` and height prop only', () => {
     const { getByTestId } = render(
-      <Tag height={10} shape="square" testId="tag">
+      <Tag dataTestId="tag" height={10} shape="square">
         {content}
       </Tag>
     )
@@ -99,7 +99,7 @@ describe('<Tag>', () => {
 
   it('should have correct border radius when prop `shape` set to `circle`', () => {
     const { getByTestId } = render(
-      <Tag shape="circle" testId="tag">
+      <Tag dataTestId="tag" shape="circle">
         {content}
       </Tag>
     )

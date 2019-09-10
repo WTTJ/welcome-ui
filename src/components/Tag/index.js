@@ -7,11 +7,11 @@ import { SHAPES_TYPE, SIZES_TYPE, wrap } from '../../utils'
 import * as S from './styles'
 
 export const Tag = forwardRef(
-  ({ children, onRemove, size = 'md', testId, variant = 'default', ...rest }, ref) => {
+  ({ children, dataTestId, onRemove, size = 'md', variant = 'default', ...rest }, ref) => {
     const content = wrap(children)
     return (
       <S.Tag
-        data-testid={testId}
+        data-testid={dataTestId}
         length={children ? children.length : null}
         ref={ref}
         role="listitem"
@@ -30,10 +30,10 @@ Tag.displayName = 'Tag'
 
 Tag.propTypes = {
   children: node,
+  dataTestId: string,
   onRemove: func,
   shape: SHAPES_TYPE,
   size: SIZES_TYPE,
-  testId: string,
   variant: oneOf([
     'blue',
     'default',

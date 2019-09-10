@@ -15,6 +15,7 @@ export const TimePicker = forwardRef(
   (
     {
       autoFocus,
+      dataTestId,
       dateFormat = 'HH:mm',
       value = DEFAULT_DATE,
       onBlur,
@@ -25,7 +26,6 @@ export const TimePicker = forwardRef(
       iconPlacement = 'left',
       inputRef,
       placeholder,
-      testId,
       timeIntervals = 15,
       ...rest
     },
@@ -87,7 +87,7 @@ export const TimePicker = forwardRef(
             size={size}
           />
         }
-        data-testid={testId}
+        data-testid={dataTestId}
         dateFormat={dateFormat}
         onChange={handleChange}
         placeholderText={placeholderText}
@@ -107,6 +107,7 @@ TimePicker.displayName = 'TimePicker'
 
 TimePicker.propTypes = {
   autoFocus: bool,
+  dataTestId: string,
   dateFormat: string,
   icon: COMPONENT_TYPE,
   iconPlacement: oneOf('right', 'left'),
@@ -116,7 +117,6 @@ TimePicker.propTypes = {
   onFocus: func,
   placeholder: string,
   size: SIZES_TYPE,
-  testId: string,
   timeIntervals: number,
   value: oneOfType([number, object, string]).isRequired
 }

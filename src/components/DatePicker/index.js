@@ -15,6 +15,7 @@ export const DatePicker = forwardRef(
   (
     {
       autoFocus,
+      dataTestId,
       dateFormat = 'dd/MM/yyyy',
       icon,
       iconPlacement = 'left',
@@ -24,7 +25,6 @@ export const DatePicker = forwardRef(
       onFocus,
       placeholder,
       size = 'lg',
-      testId,
       value = DEFAULT_DATE,
       ...rest
     },
@@ -86,7 +86,7 @@ export const DatePicker = forwardRef(
             size={size}
           />
         }
-        data-testid={testId}
+        data-testid={dataTestId}
         dateFormat={dateFormat}
         onChange={handleChange}
         placeholderText={placeholderText}
@@ -103,6 +103,7 @@ DatePicker.displayName = 'DatePicker'
 
 DatePicker.propTypes = {
   autoFocus: bool,
+  dataTestId: string,
   dateFormat: string,
   icon: COMPONENT_TYPE,
   iconPlacement: oneOf('right', 'left'),
@@ -112,6 +113,5 @@ DatePicker.propTypes = {
   onFocus: func,
   placeholder: string,
   size: SIZES_TYPE,
-  testId: string,
   value: oneOfType([number, object, string]).isRequired
 }

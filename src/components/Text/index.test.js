@@ -8,7 +8,7 @@ const content = 'Jungle'
 
 describe('<Text>', () => {
   it('should render correctly', () => {
-    const { container, getByTestId } = render(<Text testId="text">{content}</Text>)
+    const { container, getByTestId } = render(<Text dataTestId="text">{content}</Text>)
     const text = getByTestId('text')
 
     expect(text).toHaveTextContent(content)
@@ -19,7 +19,7 @@ describe('<Text>', () => {
 
   it('should render correctly with a variant', () => {
     const { container, getByTestId } = render(
-      <Text testId="text" variant="h1">
+      <Text dataTestId="text" variant="h1">
         {content}
       </Text>
     )
@@ -33,7 +33,7 @@ describe('<Text>', () => {
 
   it('should render correctly with a as property', () => {
     const { container, getByTestId } = render(
-      <Text as="div" testId="text" variant="h1">
+      <Text as="div" dataTestId="text" variant="h1">
         {content}
       </Text>
     )

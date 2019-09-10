@@ -8,7 +8,7 @@ const content = 'Jungle'
 
 describe('<Link>', () => {
   it('should render correctly', () => {
-    const { getByTestId } = render(<Link testId="link">{content}</Link>)
+    const { getByTestId } = render(<Link dataTestId="link">{content}</Link>)
     const button = getByTestId('link')
 
     expect(button).toHaveTextContent(content)
@@ -17,7 +17,7 @@ describe('<Link>', () => {
 
   it('should render correctly with a target blank', () => {
     const { getByTestId } = render(
-      <Link target="_blank" testId="link">
+      <Link dataTestId="link" target="_blank">
         {content}
       </Link>
     )

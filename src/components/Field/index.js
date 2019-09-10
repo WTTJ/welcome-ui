@@ -20,6 +20,7 @@ export const Field = forwardRef(
       children,
       component: Component,
       connected,
+      dataTestId,
       disabled,
       disabledIcon,
       error,
@@ -36,7 +37,6 @@ export const Field = forwardRef(
       placeholder,
       required,
       size = 'lg',
-      testId,
       touched,
       type,
       value,
@@ -82,6 +82,7 @@ export const Field = forwardRef(
         autoFocus={autoFocus}
         checked={checked}
         connected
+        dataTestId={dataTestId}
         disabled={disabled}
         flexDirection={layout}
         id={uniqueId}
@@ -95,7 +96,6 @@ export const Field = forwardRef(
         ref={inputRef || ref}
         required={required}
         size={size}
-        testId={testId}
         type={baseType}
         value={value}
         variant={variant}
@@ -145,6 +145,7 @@ Field.propTypes = {
   children: func,
   component: COMPONENT_TYPE.isRequired,
   connected: bool,
+  dataTestId: string,
   disabled: bool,
   disabledIcon: node,
   error: string,
@@ -161,7 +162,6 @@ Field.propTypes = {
   placeholder: string,
   required: bool,
   size: SIZES_TYPE,
-  testId: string,
   touched: bool,
   type: INPUTS_TYPE,
   value: oneOfType([array, number, object, string]),

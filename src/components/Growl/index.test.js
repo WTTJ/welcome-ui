@@ -17,7 +17,7 @@ describe('<Growl>', () => {
     it('should call onClose', () => {
       const onClose = jest.fn()
       const { getByTestId } = render(
-        <Growl onClose={onClose} testId="growl-close">
+        <Growl dataTestId="growl-close" onClose={onClose}>
           {content}
         </Growl>
       )
@@ -33,7 +33,7 @@ describe('<Growl>', () => {
     it('should render correctly with custom close', () => {
       const onClose = jest.fn()
       const { getByTestId } = render(
-        <Growl close={<span>growl close</span>} onClose={onClose} testId="growl-close">
+        <Growl close={<span>growl close</span>} dataTestId="growl-close" onClose={onClose}>
           {content}
         </Growl>
       )

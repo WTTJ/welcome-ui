@@ -5,8 +5,8 @@ import { SHAPES_TYPE } from '../../utils'
 
 import * as S from './styles'
 
-export const Shape = forwardRef(({ children, testId, ...rest }, ref) => (
-  <S.Shape data-testid={testId} ref={ref} {...rest}>
+export const Shape = forwardRef(({ children, dataTestId, ...rest }, ref) => (
+  <S.Shape data-testid={dataTestId} ref={ref} {...rest}>
     {children}
   </S.Shape>
 ))
@@ -15,8 +15,8 @@ Shape.displayName = 'Shape'
 
 Shape.propTypes = {
   children: node.isRequired,
+  dataTestId: string,
   height: oneOfType([string, number]),
   shape: SHAPES_TYPE,
-  testId: string,
   width: oneOfType([string, number]).isRequired
 }

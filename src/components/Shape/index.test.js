@@ -19,7 +19,7 @@ describe('<Shape>', () => {
 
   it('should render correctly with borderRadius', () => {
     const { getByTestId } = render(
-      <Shape borderRadius="lg" height="100px" testId="shape" width="100px">
+      <Shape borderRadius="lg" dataTestId="shape" height="100px" width="100px">
         {content}
       </Shape>
     )
@@ -30,7 +30,7 @@ describe('<Shape>', () => {
 
   it('using shape with unequal width / height props should use biggest value', () => {
     const { getByTestId } = render(
-      <Shape height="1px" shape="circle" testId="shape" width="100px">
+      <Shape dataTestId="shape" height="1px" shape="circle" width="100px">
         {content}
       </Shape>
     )
@@ -43,7 +43,7 @@ describe('<Shape>', () => {
 
   it('should render a circle shape', () => {
     const { getByTestId } = render(
-      <Shape borderRadius="lg" height="100px" shape="circle" testId="shape" width="100px">
+      <Shape borderRadius="lg" dataTestId="shape" height="100px" shape="circle" width="100px">
         {content}
       </Shape>
     )
