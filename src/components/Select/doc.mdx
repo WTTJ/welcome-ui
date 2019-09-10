@@ -105,7 +105,9 @@ You can normally clear the selected value of a `Select` but if it has a `require
 
 ## Formatting options
 
-Passing a `renderItem` function allows you to format the options in the list (and the selected option).
+Passing a `renderItem` function allows you to format the options in the list.
+
+Note: if you use `renderItem` with `isSearchable` or `isCreatable` the selected item will _not_ be formatted
 
 <Playground>
   {() => {
@@ -142,7 +144,7 @@ Passing a `renderItem` function allows you to format the options in the list (an
 
 ## Creatable
 
-If your field is searchable (i.e. has the `isSearchable` prop, you can _add_ items by passing the `isCreatable` prop. The returned item will be of the shape:
+You can _add_ items by passing the `isCreatable` prop. The returned item will be of the shape:
 
 `{ value: 'name-to-be-kebab-cased', label: 'Name to be kebab-cased' }`
 
@@ -156,9 +158,7 @@ If your field is searchable (i.e. has the `isSearchable` prop, you can _add_ ite
       { value: 'react', label: 'React' },
       { value: 'vue', label: 'Vue' }
     ]
-    return (
-      <Select isCreatable isSearchable options={ITEMS} name="creatable" onChange={console.debug} />
-    )
+    return <Select isCreatable options={ITEMS} name="creatable" onChange={console.debug} />
   }}
 </Playground>
 

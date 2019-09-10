@@ -63,9 +63,9 @@ test('<Select> shows options on click', () => {
   const select = getByTestId('select')
   fireEvent.click(select)
 
-  const options = getByRole('listbox')
-  expect(options.childNodes.length).toBe(12)
-  expect(options.childNodes[0]).toHaveTextContent('January')
+  const options = getByRole('listbox').querySelectorAll('li')
+  expect(options.length).toBe(12)
+  expect(options[0]).toHaveTextContent('January')
 })
 
 test('<Select> can choose option', () => {
@@ -84,8 +84,8 @@ test('<Select> can choose option', () => {
   const select = getByTestId('select')
   fireEvent.click(select)
 
-  const options = getByRole('listbox')
-  fireEvent.click(options.childNodes[1])
+  const options = getByRole('listbox').querySelectorAll('li')
+  fireEvent.click(options[1])
 
   const formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('February')
@@ -140,8 +140,8 @@ test('<Select isMultiple> can select multiple items', () => {
   fireEvent.click(select)
 
   // Click 4th result (April)
-  const options = getByRole('listbox')
-  fireEvent.click(options.childNodes[3])
+  const options = getByRole('listbox').querySelectorAll('li')
+  fireEvent.click(options[3])
 
   tags = getAllByTestId('tag')
   expect(tags.length).toBe(3)
@@ -200,8 +200,8 @@ test('<Select required> cannot remove selected item', () => {
   // Choose option
   fireEvent.click(select)
 
-  const options = getByRole('listbox')
-  fireEvent.click(options.childNodes[1])
+  const options = getByRole('listbox').querySelectorAll('li')
+  fireEvent.click(options[1])
 
   let formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('February')
@@ -239,4 +239,77 @@ test('<Select renderItem> formats items', () => {
   expect(formValues.select).toStrictEqual('february')
 })
 
-// Can't test `isSearchable`, `isCreatable` or keyboard navigation as can't type in `contenteditable` using JSDom :(
+test('<Select isSearchable> filters results', () => {
+  const { getByRole, getByTestId } = render(
+    <TestFinalForm initialValues={{}}>
+      <ConnectedField
+        component={Select}
+        dataTestid="select"
+        isSearchable
+        label="Select"
+        name="select"
+        options={OPTIONS}
+      />
+    </TestFinalForm>
+  )
+
+  const select = getByTestId('select')
+  fireEvent.change(select, { target: { value: 'ember' } })
+
+  const options = getByRole('listbox').querySelectorAll('li')
+  expect(options.length).toBe(3) // September, November, December
+
+  fireEvent.click(options[1])
+
+  const formValues = getFormValues(getByTestId('values'))
+  expect(select.value).toBe('November')
+  expect(formValues.select).toStrictEqual('november')
+})
+
+test("<Select isSearchable> doesn't show list if no results", () => {
+  const { getByTestId, queryByRole } = render(
+    <TestFinalForm initialValues={{}}>
+      <ConnectedField
+        component={Select}
+        dataTestid="select"
+        isSearchable
+        label="Select"
+        name="select"
+        options={OPTIONS}
+      />
+    </TestFinalForm>
+  )
+
+  const select = getByTestId('select')
+  fireEvent.change(select, { target: { value: 'fish' } })
+
+  const options = queryByRole('listbox').querySelectorAll('li')
+  expect(options.length).toBe(0)
+})
+
+test('<Select isCreatable> can create new items', () => {
+  const { getByRole, getByTestId } = render(
+    <TestFinalForm initialValues={{}}>
+      <ConnectedField
+        component={Select}
+        dataTestid="select"
+        isCreatable
+        label="Select"
+        name="select"
+        options={OPTIONS}
+      />
+    </TestFinalForm>
+  )
+
+  const select = getByTestId('select')
+  fireEvent.change(select, { target: { value: 'Fish and chips' } })
+
+  const option = getByRole('listbox').querySelector('li')
+  expect(option).toHaveTextContent('Create "Fish and chips"')
+
+  // TODO: Fix this test
+  // fireEvent.click(addOption)
+  // const formValues = getFormValues(getByTestId('values'))
+  // expect(select.value).toBe('Fish and chips')
+  // expect(formValues.select).toStrictEqual('fish-and-chips')
+})
