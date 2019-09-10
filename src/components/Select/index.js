@@ -59,6 +59,7 @@ export const Select = forwardRef(
       renderItem = defaultRenderOption,
       required,
       size = 'lg',
+      testId,
       type,
       value: defaultValue,
       variant,
@@ -322,6 +323,7 @@ Select.propTypes = {
   required: bool,
   searchable: bool,
   size: SIZES_TYPE,
+  testId: string,
   type: INPUTS_TYPE,
   value: oneOfType([OPTIONS_TYPE, arrayOf(OPTIONS_TYPE)], string),
   variant: VARIANTS_TYPE
