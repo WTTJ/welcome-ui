@@ -36,6 +36,5 @@ Icon.propTypes = {
   dataTestId: string,
   name: string,
   size: oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  testId: string,
   title: string
 }

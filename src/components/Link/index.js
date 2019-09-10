@@ -24,6 +24,5 @@ Link.propTypes = {
   children: node,
   dataTestId: string,
   target: string,
-  testId: string,
   variant: oneOf(['primary', 'secondary'])
 }

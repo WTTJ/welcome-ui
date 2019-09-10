@@ -26,7 +26,6 @@ test('<Field component={InputCheckbox}> toggles on input click', () => {
           label="Checkbox"
           name="checkbox"
           onChange={handleChange}
-          testId="inputCheckbox"
         />
       )}
     </DoczForm>
@@ -52,7 +51,6 @@ test('<ConnectedField component={InputCheckbox}> toggles on input click', () => 
         dataTestId="inputCheckbox"
         label="Checkbox"
         name="checkbox"
-        testId="inputCheckbox"
       />
     </TestFinalForm>
   )
@@ -80,7 +78,6 @@ test('<Field component={InputCheckbox}> toggles on label click', () => {
           label="Checkbox"
           name="checkbox"
           onChange={handleChange}
-          testId="inputCheckbox"
         />
       )}
     </DoczForm>
@@ -106,7 +103,6 @@ test('<ConnectedField component={InputCheckbox}> toggles on label click', () => 
         dataTestId="inputCheckbox"
         label="Checkbox"
         name="checkbox"
-        testId="inputCheckbox"
       />
     </TestFinalForm>
   )

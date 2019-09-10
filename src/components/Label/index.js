@@ -32,7 +32,6 @@ export const Label = forwardRef(
       htmlFor,
       onClick,
       required,
-      testId,
       variant,
       ...rest
     },
@@ -77,6 +76,5 @@ Label.propTypes = {
   htmlFor: string,
   onClick: func,
   required: bool,
-  testId: string,
   variant: oneOf(['error', 'warning'])
 }

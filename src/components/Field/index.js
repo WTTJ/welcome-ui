@@ -37,7 +37,6 @@ export const Field = forwardRef(
       placeholder,
       required,
       size = 'lg',
-      testId,
       touched,
       type,
       value,
@@ -97,7 +96,6 @@ export const Field = forwardRef(
         ref={inputRef || ref}
         required={required}
         size={size}
-        testId={testId}
         type={baseType}
         value={value}
         variant={variant}
@@ -164,7 +162,6 @@ Field.propTypes = {
   placeholder: string,
   required: bool,
   size: SIZES_TYPE,
-  testId: string,
   touched: bool,
   type: INPUTS_TYPE,
   value: oneOfType([array, number, object, string]),

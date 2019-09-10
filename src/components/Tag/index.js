@@ -34,7 +34,6 @@ Tag.propTypes = {
   onRemove: func,
   shape: SHAPES_TYPE,
   size: SIZES_TYPE,
-  testId: string,
   variant: oneOf([
     'blue',
     'default',

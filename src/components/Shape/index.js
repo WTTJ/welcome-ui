@@ -18,6 +18,5 @@ Shape.propTypes = {
   dataTestId: string,
   height: oneOfType([string, number]),
   shape: SHAPES_TYPE,
-  testId: string,
   width: oneOfType([string, number]).isRequired
 }

@@ -45,6 +45,5 @@ InputCheckbox.propTypes = {
   Component: elementType,
   dataTestId: string,
   name: string.isRequired,
-  onChange: func.isRequired,
-  testId: string
+  onChange: func.isRequired
 }

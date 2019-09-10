@@ -34,7 +34,6 @@ test('<Select> has default attributes', () => {
         label="Select"
         name="select"
         options={OPTIONS}
-        testId="select"
       />
     </TestFinalForm>
   )
@@ -57,7 +56,6 @@ test('<Select> shows options on click', () => {
         label="Select"
         name="select"
         options={OPTIONS}
-        testId="select"
       />
     </TestFinalForm>
   )
@@ -79,7 +77,6 @@ test('<Select> can choose option', () => {
         label="Select"
         name="select"
         options={OPTIONS}
-        testId="select"
       />
     </TestFinalForm>
   )
@@ -104,7 +101,6 @@ test('<Select> can remove option', () => {
         label="Select"
         name="select"
         options={OPTIONS}
-        testId="select"
       />
     </TestFinalForm>
   )
@@ -133,7 +129,6 @@ test('<Select isMultiple> can select multiple items', () => {
         label="Select"
         name="select"
         options={OPTIONS}
-        testId="select"
       />
     </TestFinalForm>
   )
@@ -167,7 +162,6 @@ test('<Select isMultiple> can remove multiple items', () => {
         label="Select"
         name="select"
         options={OPTIONS}
-        testId="select"
       />
     </TestFinalForm>
   )
@@ -196,7 +190,6 @@ test('<Select required> cannot remove selected item', () => {
         name="select"
         options={OPTIONS}
         required
-        testId="select"
       />
     </TestFinalForm>
   )
@@ -233,7 +226,6 @@ test('<Select renderItem> formats items', () => {
             <Icon mr="xs" name="date" size="sm" title="Calendar" /> <span>{option.label}</span>
           </div>
         )}
-        testId="select"
       />
     </TestFinalForm>
   )
