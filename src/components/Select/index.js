@@ -42,7 +42,6 @@ export const Select = forwardRef(
   (
     {
       autoFocus,
-      dataTestid,
       disabled,
       id,
       isCreatable,
@@ -59,6 +58,7 @@ export const Select = forwardRef(
       renderItem = defaultRenderOption,
       required,
       size = 'lg',
+      testId,
       type,
       value: defaultValue,
       variant,
@@ -196,7 +196,7 @@ export const Select = forwardRef(
             autoComplete: 'off',
             autoFocus,
             'data-spacer': spacer || placeholder,
-            'data-testid': dataTestid,
+            'data-testid': testId,
             disabled,
             id,
             name,
@@ -303,7 +303,6 @@ Select.displayName = 'Select'
 
 Select.propTypes = {
   autoFocus: bool,
-  dataTestid: string,
   disabled: bool,
   id: string,
   isCreatable: bool,
@@ -321,6 +320,7 @@ Select.propTypes = {
   required: bool,
   searchable: bool,
   size: SIZES_TYPE,
+  testId: string,
   type: INPUTS_TYPE,
   value: oneOfType([OPTIONS_TYPE, arrayOf(OPTIONS_TYPE)], string),
   variant: VARIANTS_TYPE

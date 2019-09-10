@@ -22,10 +22,10 @@ test('<Field component={InputCheckbox}> toggles on input click', () => {
         <Field
           checked={!!values.checkbox}
           component={InputCheckbox}
-          dataTestid="inputCheckbox"
           label="Checkbox"
           name="checkbox"
           onChange={handleChange}
+          testId="inputCheckbox"
         />
       )}
     </DoczForm>
@@ -48,9 +48,9 @@ test('<ConnectedField component={InputCheckbox}> toggles on input click', () => 
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={InputCheckbox}
-        dataTestid="inputCheckbox"
         label="Checkbox"
         name="checkbox"
+        testId="inputCheckbox"
       />
     </TestFinalForm>
   )
@@ -74,10 +74,10 @@ test('<Field component={InputCheckbox}> toggles on label click', () => {
         <Field
           checked={!!values.checkbox}
           component={InputCheckbox}
-          dataTestid="inputCheckbox"
           label="Checkbox"
           name="checkbox"
           onChange={handleChange}
+          testId="inputCheckbox"
         />
       )}
     </DoczForm>
@@ -100,9 +100,9 @@ test('<ConnectedField component={InputCheckbox}> toggles on label click', () => 
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={InputCheckbox}
-        dataTestid="inputCheckbox"
         label="Checkbox"
         name="checkbox"
+        testId="inputCheckbox"
       />
     </TestFinalForm>
   )

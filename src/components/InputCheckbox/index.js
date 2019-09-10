@@ -6,7 +6,7 @@ import { FINAL_FORM_INPUT_TYPES } from '../../utils'
 import * as S from './styles'
 
 export const InputCheckbox = forwardRef(
-  ({ checked = false, Component = S.InputCheckbox, dataTestid, name, onChange, ...rest }, ref) => {
+  ({ checked = false, Component = S.InputCheckbox, name, onChange, testId, ...rest }, ref) => {
     // control checked state here if there is no parent like Field or ConnectedField
     const [isChecked, setIsChecked] = useState(checked)
 
@@ -25,7 +25,7 @@ export const InputCheckbox = forwardRef(
     return (
       <Component
         checked={isChecked}
-        data-testid={dataTestid}
+        data-testid={testId}
         id={name}
         name={name}
         onChange={handleChange}
@@ -43,7 +43,7 @@ InputCheckbox.propTypes = {
   ...FINAL_FORM_INPUT_TYPES,
   checked: bool,
   Component: elementType,
-  dataTestid: string,
   name: string.isRequired,
-  onChange: func.isRequired
+  onChange: func.isRequired,
+  testId: string
 }

@@ -30,10 +30,10 @@ test('<Select> has default attributes', () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
         label="Select"
         name="select"
         options={OPTIONS}
+        testId="select"
       />
     </TestFinalForm>
   )
@@ -52,10 +52,10 @@ test('<Select> shows options on click', () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
         label="Select"
         name="select"
         options={OPTIONS}
+        testId="select"
       />
     </TestFinalForm>
   )
@@ -73,10 +73,10 @@ test('<Select> can choose option', () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
         label="Select"
         name="select"
         options={OPTIONS}
+        testId="select"
       />
     </TestFinalForm>
   )
@@ -97,10 +97,10 @@ test('<Select> can remove option', () => {
     <TestFinalForm initialValues={{ select: 'february' }}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
         label="Select"
         name="select"
         options={OPTIONS}
+        testId="select"
       />
     </TestFinalForm>
   )
@@ -124,11 +124,11 @@ test('<Select isMultiple> can select multiple items', () => {
     <TestFinalForm initialValues={{ select: ['february', 'march'] }}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
         isMultiple
         label="Select"
         name="select"
         options={OPTIONS}
+        testId="select"
       />
     </TestFinalForm>
   )
@@ -157,11 +157,11 @@ test('<Select isMultiple> can remove multiple items', () => {
     <TestFinalForm initialValues={{ select: ['february', 'march'] }}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
         isMultiple
         label="Select"
         name="select"
         options={OPTIONS}
+        testId="select"
       />
     </TestFinalForm>
   )
@@ -185,11 +185,11 @@ test('<Select required> cannot remove selected item', () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
         label="Select"
         name="select"
         options={OPTIONS}
         required
+        testId="select"
       />
     </TestFinalForm>
   )
@@ -217,7 +217,6 @@ test('<Select renderItem> formats items', () => {
     <TestFinalForm initialValues={{ select: 'february' }}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
         label="Select"
         name="select"
         options={OPTIONS}
@@ -226,6 +225,7 @@ test('<Select renderItem> formats items', () => {
             <Icon mr="xs" name="date" size="sm" title="Calendar" /> <span>{option.label}</span>
           </div>
         )}
+        testId="select"
       />
     </TestFinalForm>
   )
