@@ -283,8 +283,8 @@ test("<Select isSearchable> doesn't show list if no results", () => {
   const select = getByTestId('select')
   fireEvent.change(select, { target: { value: 'fish' } })
 
-  const options = queryByRole('listbox').querySelectorAll('li')
-  expect(options.length).toBe(0)
+  const options = queryByRole('listbox')
+  expect(options).toBeNull()
 })
 
 test('<Select isCreatable> can create new items', () => {
