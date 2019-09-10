@@ -46,5 +46,6 @@ Text.propTypes = {
   children: node,
   dataTestId: string,
   lines: number,
+  testId: string,
   variant: oneOf(Object.keys(TAG_NAMES))
 }

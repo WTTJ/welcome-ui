@@ -46,5 +46,6 @@ Toolbar.propTypes = {
       name: string.isRequired
     })
   ),
-  onClick: func
+  onClick: func,
+  testId: string
 }

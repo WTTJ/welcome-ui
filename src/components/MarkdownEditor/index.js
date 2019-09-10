@@ -27,6 +27,7 @@ export const MarkdownEditor = forwardRef(
       onChange,
       onFocus,
       placeholder,
+      testId,
       toolbar = DEFAULT_TOOLBAR,
       value,
       variant,
@@ -170,6 +171,7 @@ MarkdownEditor.propTypes = {
   dataTestId: string,
   disabled: bool,
   placeholder: oneOfType([string, node]),
+  testId: string,
   toolbar: arrayOf(
     shape({
       action: oneOfType([func, string]),

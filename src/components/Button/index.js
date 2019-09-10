@@ -30,6 +30,7 @@ Button.propTypes = {
   disabled: bool,
   shape: SHAPES_TYPE,
   size: oneOf(['xs', 'sm', 'md', 'lg']),
+  testId: string,
   variant: oneOf([
     'primary',
     'secondary',

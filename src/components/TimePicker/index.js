@@ -26,6 +26,7 @@ export const TimePicker = forwardRef(
       iconPlacement = 'left',
       inputRef,
       placeholder,
+      testId,
       timeIntervals = 15,
       ...rest
     },
@@ -117,6 +118,7 @@ TimePicker.propTypes = {
   onFocus: func,
   placeholder: string,
   size: SIZES_TYPE,
+  testId: string,
   timeIntervals: number,
   value: oneOfType([number, object, string]).isRequired
 }
