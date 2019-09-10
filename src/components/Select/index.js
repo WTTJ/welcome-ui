@@ -208,7 +208,6 @@ export const Select = forwardRef(
             onBlur,
             onClick: toggleMenu,
             onFocus,
-            onInput: e => handleInputChange(e.target.innerText, openMenu),
             placeholder,
             readOnly: !isSearchable,
             ref,
@@ -231,7 +230,12 @@ export const Select = forwardRef(
           return (
             <S.Wrapper {...rootProps}>
               <S.InputWrapper>
-                <S.Input {...inputProps}>{content}</S.Input>
+                <S.Input
+                  {...inputProps}
+                  onInput={e => handleInputChange(e.target.innerText, openMenu)}
+                >
+                  {content}
+                </S.Input>
                 <S.Indicators size={size}>
                   {isShowDeleteIcon ? (
                     <S.DropDownIndicator
