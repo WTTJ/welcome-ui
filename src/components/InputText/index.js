@@ -11,6 +11,7 @@ export const InputText = forwardRef(
     {
       autoFocus,
       connected,
+      dataTestId,
       disabled,
       icon,
       iconPlacement = 'left',
@@ -32,6 +33,7 @@ export const InputText = forwardRef(
       <S.InputText
         autoFocus={autoFocus}
         connected={connected}
+        data-testid={dataTestId}
         disabled={disabled}
         icon={!!icon}
         iconPlacement={iconPlacement}
@@ -71,6 +73,7 @@ InputText.displayName = 'InputText'
 InputText.propTypes = {
   autoFocus: bool,
   connected: bool,
+  dataTestId: string,
   disabled: bool,
   icon: node,
   iconPlacement: oneOf(['left', 'right']),

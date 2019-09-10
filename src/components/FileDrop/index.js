@@ -28,6 +28,7 @@ export const FileDrop = forwardRef(
     {
       accept = 'image/*',
       children = DefaultContent,
+      dataTestId,
       disabled,
       isEditable,
       isRemovable,
@@ -119,6 +120,7 @@ export const FileDrop = forwardRef(
     return (
       <S.FileDrop
         {...getRootProps({
+          'data-testid': dataTestId,
           handleRemoveFile,
           isEditable,
           isDragActive,
@@ -165,6 +167,7 @@ FileDrop.displayName = 'FileDrop'
 FileDrop.propTypes = {
   accept: string,
   children: func,
+  dataTestId: string,
   disabled: bool,
   isEditable: bool,
   isRemovable: bool,

@@ -244,7 +244,7 @@ test('<Select isSearchable> filters results', () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         isSearchable
         label="Select"
         name="select"
@@ -271,7 +271,7 @@ test("<Select isSearchable> doesn't show list if no results", () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         isSearchable
         label="Select"
         name="select"
@@ -292,7 +292,7 @@ test('<Select isCreatable> can create new items', () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         isCreatable
         label="Select"
         name="select"
