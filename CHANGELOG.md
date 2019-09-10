@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.23.1](https://github.com/WTTJ/welcome-ui/compare/v0.23.0...v0.23.1) (2019-09-10)
+
+
+### Bug Fixes
+
+* change select to input rather than contenteditable div ([9b9dd62](https://github.com/WTTJ/welcome-ui/commit/9b9dd62))
+* failing test ([871c2d7](https://github.com/WTTJ/welcome-ui/commit/871c2d7))
+* memory leak on date / time / dateTime Pickers ([#337](https://github.com/WTTJ/welcome-ui/issues/337)) ([12b0358](https://github.com/WTTJ/welcome-ui/commit/12b0358))
+* remove debugging effort ([dbd95b9](https://github.com/WTTJ/welcome-ui/commit/dbd95b9))
+* remove debugging effort ([3006b6b](https://github.com/WTTJ/welcome-ui/commit/3006b6b))
+* search in select ([#339](https://github.com/WTTJ/welcome-ui/issues/339)) ([b39eff6](https://github.com/WTTJ/welcome-ui/commit/b39eff6))
+
+
+
 ## [0.23.0](https://github.com/WTTJ/welcome-ui/compare/v0.22.4...v0.23.0) (2019-09-09)
 
 
