@@ -300,6 +300,7 @@ export const Select = forwardRef(
 )
 
 Select.displayName = 'Select'
+Select.whyDidYouRender = true
 
 Select.propTypes = {
   autoFocus: bool,
