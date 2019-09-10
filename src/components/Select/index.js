@@ -47,7 +47,7 @@ export const Select = forwardRef(
       id,
       isCreatable,
       isMultiple,
-      isSearchable,
+      isSearchable = isCreatable || isSearchable,
       options = [],
       name,
       onBlur,
@@ -90,20 +90,15 @@ export const Select = forwardRef(
     }, [defaultValue, defaultInputValue, getOptionFromValue, options])
 
     // Update results if searchable
-    const handleInputChange = (value, openMenu) => {
-      if (isSearchable) {
-        // Update
-        const results = matchSorter(options, value, { keys: ['label'] })
-        setInputValue(value)
-        setResults(results)
-        openMenu()
-
-        // We have to manage the cursor position when searching on field that isMultiple
-        const selection = window.getSelection()
-        const node = selection.focusNode
-        const offset = selection.focusOffset
-        setImmediate(() => selection.setPosition(node, offset))
+    const handleInputChange = value => {
+      if (!isSearchable) {
+        return
       }
+
+      // Update
+      const results = matchSorter(options, value, { keys: ['label'] })
+      setInputValue(value)
+      setResults(results)
     }
 
     const getValue = value => {
@@ -176,6 +171,7 @@ export const Select = forwardRef(
     return (
       <Downshift
         itemToString={itemToString}
+        onInputValueChange={handleInputChange}
         onOuterClick={handleOuterClick}
         onSelect={handleSelect}
         selectedItem={selectedItem}
@@ -189,17 +185,16 @@ export const Select = forwardRef(
           getToggleButtonProps,
           highlightedIndex,
           isOpen,
-          openMenu,
           toggleMenu
         }) => {
           const isShowCreate = !!(isCreatable && inputValue && !isValueExisting(inputValue, values))
+          const inputContent = isMultiple ? inputValue : renderItem(findOption(inputValue, options))
           const isShowMenu = isOpen && (results.length || isShowCreate)
           const isShowDeleteIcon = inputValue && !isOpen && !required
           const rootProps = getRootProps(rest)
           const inputProps = getInputProps({
             autoComplete: 'off',
             autoFocus,
-            contentEditable: isSearchable,
             'data-spacer': spacer || placeholder,
             'data-testid': dataTestid,
             disabled,
@@ -213,29 +208,20 @@ export const Select = forwardRef(
             ref,
             required,
             size,
-            suppressContentEditableWarning: true,
             tabIndex: 0,
-            value: inputValue || EMPTY,
+            value: inputContent || EMPTY,
             variant: isOpen ? 'focused' : variant,
             ...rest
           })
 
-          let content = EMPTY
-          if (isMultiple) {
-            content = inputValue
-          } else if (inputValue) {
-            content = renderItem(findOption(inputValue, options))
-          }
-
           return (
             <S.Wrapper {...rootProps}>
               <S.InputWrapper>
-                <S.Input
-                  {...inputProps}
-                  onInput={e => handleInputChange(e.target.innerText, openMenu)}
-                >
-                  {content}
-                </S.Input>
+                {isSearchable ? (
+                  <S.Input as="input" type="text" {...inputProps} />
+                ) : (
+                  <S.Input {...inputProps}>{inputContent || EMPTY}</S.Input>
+                )}
                 <S.Indicators size={size}>
                   {isShowDeleteIcon ? (
                     <S.DropDownIndicator
