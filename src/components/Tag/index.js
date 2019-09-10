@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { func, node, oneOf } from 'prop-types'
+import { func, node, oneOf, string } from 'prop-types'
 
 import { Icon } from '../Icon'
 import { SHAPES_TYPE, SIZES_TYPE, wrap } from '../../utils'
@@ -7,13 +7,14 @@ import { SHAPES_TYPE, SIZES_TYPE, wrap } from '../../utils'
 import * as S from './styles'
 
 export const Tag = forwardRef(
-  ({ children, onRemove, size = 'md', variant = 'default', ...rest }, ref) => {
+  ({ children, onRemove, size = 'md', testId, variant = 'default', ...rest }, ref) => {
     const content = wrap(children)
     return (
       <S.Tag
-        data-testid="tag"
+        data-testid={testId}
         length={children ? children.length : null}
         ref={ref}
+        role="listitem"
         size={size}
         variant={variant}
         {...rest}
@@ -32,6 +33,7 @@ Tag.propTypes = {
   onRemove: func,
   shape: SHAPES_TYPE,
   size: SIZES_TYPE,
+  testId: string,
   variant: oneOf([
     'blue',
     'default',

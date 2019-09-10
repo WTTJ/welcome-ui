@@ -24,16 +24,16 @@ describe('<MarkdownEditor>', () => {
   })
 
   it('should render all toolbar items', () => {
-    const { getByTestId } = render(
+    const { getByRole } = render(
       <MarkdownEditor name="description" placeholder="Placeholder" value={content} />
     )
 
-    const toolbar = getByTestId('mde.toolbar')
+    const toolbar = getByRole('toolbar')
     expect(getToolbarItems(toolbar)).toEqual(DEFAULT_TOOLBAR.map(item => item.name))
   })
 
   it('should render provided toolbar items', () => {
-    const { getByTestId } = render(
+    const { getByRole } = render(
       <MarkdownEditor
         name="description"
         placeholder="Placeholder"
@@ -42,7 +42,7 @@ describe('<MarkdownEditor>', () => {
       />
     )
 
-    const toolbar = getByTestId('mde.toolbar')
+    const toolbar = getByRole('toolbar')
     expect(getToolbarItems(toolbar)).toEqual(['bold', 'italic'])
   })
 })

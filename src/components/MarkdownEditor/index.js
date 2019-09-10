@@ -26,6 +26,7 @@ export const MarkdownEditor = forwardRef(
       onChange,
       onFocus,
       placeholder,
+      testId,
       toolbar = DEFAULT_TOOLBAR,
       value,
       variant,
@@ -125,7 +126,7 @@ export const MarkdownEditor = forwardRef(
 
     return (
       <S.Wrapper
-        data-testid="mde"
+        data-testid={testId}
         disabled={disabled}
         focused={focused}
         variant={variant}
@@ -136,6 +137,7 @@ export const MarkdownEditor = forwardRef(
           borderRadius={rest.borderRadius}
           items={toolbarItems}
           onClick={handleToolbarClick}
+          role="toolbar"
         />
         {showEmojiPicker && <EmojiPicker onSelect={addEmoji} />}
         <S.Editor
@@ -167,6 +169,7 @@ MarkdownEditor.displayName = 'MarkdownEditor'
 MarkdownEditor.propTypes = {
   disabled: bool,
   placeholder: oneOfType([string, node]),
+  testId: string,
   toolbar: arrayOf(
     shape({
       action: oneOfType([func, string]),

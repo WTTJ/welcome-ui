@@ -12,7 +12,7 @@ import * as S from './styles'
 const DEFAULT_DATE = new Date()
 
 export const DateTimePicker = forwardRef(
-  ({ children, onChange, size = 'lg', value = DEFAULT_DATE }, ref) => {
+  ({ children, onChange, size = 'lg', testId, value = DEFAULT_DATE }, ref) => {
     const [date, setDate] = useState(value)
 
     const handleChange = newDate => {
@@ -39,7 +39,7 @@ export const DateTimePicker = forwardRef(
     }, [value])
 
     return (
-      <S.DateTimePicker data-testid="dateTimePicker" size={size}>
+      <S.DateTimePicker data-testid={testId} size={size}>
         {children &&
           children.map((child, i) =>
             cloneElement(child, {
@@ -67,5 +67,6 @@ DateTimePicker.propTypes = {
   children: node,
   onChange: func,
   size: SIZES_TYPE,
+  testId: string,
   value: oneOfType([number, object, string]).isRequired
 }

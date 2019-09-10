@@ -9,7 +9,7 @@ import { DateTimePicker } from './index'
 
 test('<DateTimePicker> renders correctly', () => {
   const { getByTestId } = render(
-    <DateTimePicker value={Date.now()}>
+    <DateTimePicker testId="dateTimePicker" value={Date.now()}>
       <DatePicker />
       <TimePicker />
     </DateTimePicker>

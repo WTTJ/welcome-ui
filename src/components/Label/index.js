@@ -31,6 +31,7 @@ export const Label = forwardRef(
       htmlFor,
       onClick,
       required,
+      testId,
       variant,
       ...rest
     },
@@ -43,7 +44,7 @@ export const Label = forwardRef(
     return (
       <S.Label
         as={as}
-        data-testid="label"
+        data-testid={testId}
         disabled={disabled}
         disabledIcon={disabledIcon}
         errorWarningIcon={errorWarningIcon}
@@ -74,5 +75,6 @@ Label.propTypes = {
   htmlFor: string,
   onClick: func,
   required: bool,
+  testId: string,
   variant: oneOf(['error', 'warning'])
 }
