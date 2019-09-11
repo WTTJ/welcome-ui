@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { node, number, oneOf, string } from 'prop-types'
+import { node, number, oneOf } from 'prop-types'
 
 import { COMPONENT_TYPE } from '../../utils'
 
@@ -21,6 +21,7 @@ const TAG_NAMES = {
 }
 
 export const Text = forwardRef(
+  // eslint-disable-next-line react/prop-types
   ({ as, children, dataTestId, lines, variant = 'body1', ...rest }, ref) => {
     const tagName = as || TAG_NAMES[variant]
 
@@ -44,7 +45,6 @@ Text.displayName = 'Text'
 Text.propTypes = {
   as: COMPONENT_TYPE,
   children: node,
-  dataTestId: string,
   lines: number,
   variant: oneOf(Object.keys(TAG_NAMES))
 }

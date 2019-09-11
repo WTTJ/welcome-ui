@@ -14,7 +14,7 @@ const DEFAULT_DATE = new Date()
 export const DatePicker = forwardRef(
   (
     {
-      autoFocus,
+      autoFocus, // eslint-disable-next-line react/prop-types
       dataTestId,
       dateFormat = 'dd/MM/yyyy',
       icon,
@@ -103,7 +103,7 @@ DatePicker.displayName = 'DatePicker'
 
 DatePicker.propTypes = {
   autoFocus: bool,
-  dataTestId: string,
+
   dateFormat: string,
   icon: COMPONENT_TYPE,
   iconPlacement: oneOf('right', 'left'),

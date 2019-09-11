@@ -3,6 +3,7 @@ import { bool, elementType, func, number, object, string } from 'prop-types'
 
 import * as S from './styles'
 
+// eslint-disable-next-line react/prop-types
 export const InputRadio = forwardRef(({ dataTestId, name, order, radio, value, ...rest }, ref) => (
   <S.InputRadio
     data-testid={dataTestId}
@@ -23,7 +24,6 @@ InputRadio.propTypes = {
   autoFocus: bool,
   checked: bool,
   Component: elementType,
-  dataTestId: string,
   disabled: bool,
   name: string,
   onBlur: func,

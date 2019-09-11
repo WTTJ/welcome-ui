@@ -27,7 +27,7 @@ export const FileDrop = forwardRef(
   (
     {
       accept = 'image/*',
-      children = DefaultContent,
+      children = DefaultContent, // eslint-disable-next-line react/prop-types
       dataTestId,
       disabled,
       isEditable,
@@ -167,7 +167,6 @@ FileDrop.displayName = 'FileDrop'
 FileDrop.propTypes = {
   accept: string,
   children: func,
-  dataTestId: string,
   disabled: bool,
   isEditable: bool,
   isRemovable: bool,

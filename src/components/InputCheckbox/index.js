@@ -6,6 +6,7 @@ import { FINAL_FORM_INPUT_TYPES } from '../../utils'
 import * as S from './styles'
 
 export const InputCheckbox = forwardRef(
+  // eslint-disable-next-line react/prop-types
   ({ checked = false, Component = S.InputCheckbox, dataTestId, name, onChange, ...rest }, ref) => {
     // control checked state here if there is no parent like Field or ConnectedField
     const [isChecked, setIsChecked] = useState(checked)
@@ -43,7 +44,6 @@ InputCheckbox.propTypes = {
   ...FINAL_FORM_INPUT_TYPES,
   checked: bool,
   Component: elementType,
-  dataTestId: string,
   name: string.isRequired,
   onChange: func.isRequired
 }

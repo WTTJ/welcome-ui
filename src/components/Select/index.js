@@ -41,7 +41,7 @@ const optionFromValue = (options, value) => {
 export const Select = forwardRef(
   (
     {
-      autoFocus,
+      autoFocus, // eslint-disable-next-line react/prop-types
       dataTestId,
       disabled,
       id,
@@ -304,7 +304,6 @@ Select.whyDidYouRender = true
 
 Select.propTypes = {
   autoFocus: bool,
-  dataTestId: string,
   disabled: bool,
   id: string,
   isCreatable: bool,

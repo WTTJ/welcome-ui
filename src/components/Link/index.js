@@ -4,6 +4,7 @@ import { node, oneOf, string } from 'prop-types'
 import * as S from './styles'
 
 export const Link = forwardRef(
+  // eslint-disable-next-line react/prop-types
   ({ children, dataTestId, target, variant = 'primary', ...rest }, ref) => (
     <S.Link
       data-testid={dataTestId}
@@ -22,7 +23,6 @@ export const Link = forwardRef(
 Link.displayName = 'Link'
 Link.propTypes = {
   children: node,
-  dataTestId: string,
   target: string,
   variant: oneOf(['primary', 'secondary'])
 }

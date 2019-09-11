@@ -1,10 +1,11 @@
 import React from 'react'
-import { node, string } from 'prop-types'
+import { node } from 'prop-types'
 
 import { VARIANTS_TYPE } from '../../utils'
 
 import { Title } from './styles'
 
+// eslint-disable-next-line react/prop-types
 export const GrowlTitle = ({ children, dataTestId, variant = 'info' }) => (
   <Title data-testid={dataTestId} variant={variant}>
     {children}
@@ -13,6 +14,5 @@ export const GrowlTitle = ({ children, dataTestId, variant = 'info' }) => (
 
 GrowlTitle.propTypes = {
   children: node.isRequired,
-  dataTestId: string,
   variant: VARIANTS_TYPE
 }

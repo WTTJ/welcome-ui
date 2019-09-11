@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { func, node, string } from 'prop-types'
+import { func, node } from 'prop-types'
 
 import { Icon } from '../Icon'
 
@@ -9,6 +9,7 @@ export const GrowlAction = S.Action
 export const GrowlClose = S.CloseContent
 export { GrowlTitle } from './title'
 
+// eslint-disable-next-line react/prop-types
 export const Growl = forwardRef(({ children, close, dataTestId, onClose }, ref) => (
   <S.Growl ref={ref}>
     {onClose && (
@@ -29,6 +30,5 @@ Growl.displayName = 'Growl'
 Growl.propTypes = {
   children: node.isRequired,
   close: node,
-  dataTestId: string,
   onClose: func
 }

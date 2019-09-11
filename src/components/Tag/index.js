@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { func, node, oneOf, string } from 'prop-types'
+import { func, node, oneOf } from 'prop-types'
 
 import { Icon } from '../Icon'
 import { SHAPES_TYPE, SIZES_TYPE, wrap } from '../../utils'
@@ -7,6 +7,7 @@ import { SHAPES_TYPE, SIZES_TYPE, wrap } from '../../utils'
 import * as S from './styles'
 
 export const Tag = forwardRef(
+  // eslint-disable-next-line react/prop-types
   ({ children, dataTestId, onRemove, size = 'md', variant = 'default', ...rest }, ref) => {
     const content = wrap(children)
     return (
@@ -30,7 +31,6 @@ Tag.displayName = 'Tag'
 
 Tag.propTypes = {
   children: node,
-  dataTestId: string,
   onRemove: func,
   shape: SHAPES_TYPE,
   size: SIZES_TYPE,

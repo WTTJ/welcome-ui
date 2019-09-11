@@ -19,7 +19,7 @@ export const Field = forwardRef(
       checked,
       children,
       component: Component,
-      connected,
+      connected, // eslint-disable-next-line react/prop-types
       dataTestId,
       disabled,
       disabledIcon,
@@ -145,7 +145,6 @@ Field.propTypes = {
   children: func,
   component: COMPONENT_TYPE.isRequired,
   connected: bool,
-  dataTestId: string,
   disabled: bool,
   disabledIcon: node,
   error: string,

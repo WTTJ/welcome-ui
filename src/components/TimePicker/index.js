@@ -14,7 +14,7 @@ const DEFAULT_DATE = new Date()
 export const TimePicker = forwardRef(
   (
     {
-      autoFocus,
+      autoFocus, // eslint-disable-next-line react/prop-types
       dataTestId,
       dateFormat = 'HH:mm',
       value = DEFAULT_DATE,
@@ -107,7 +107,6 @@ TimePicker.displayName = 'TimePicker'
 
 TimePicker.propTypes = {
   autoFocus: bool,
-  dataTestId: string,
   dateFormat: string,
   icon: COMPONENT_TYPE,
   iconPlacement: oneOf('right', 'left'),

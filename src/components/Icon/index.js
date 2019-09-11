@@ -4,6 +4,7 @@ import { oneOf, string } from 'prop-types'
 import * as S from './styles'
 import { icons } from './icons'
 
+// eslint-disable-next-line react/prop-types
 export const Icon = forwardRef(({ dataTestId, name, size = 'md', title, ...props }, ref) => {
   if (!name) {
     return null
@@ -33,7 +34,6 @@ export const Icon = forwardRef(({ dataTestId, name, size = 'md', title, ...props
 Icon.displayName = 'Icon'
 
 Icon.propTypes = {
-  dataTestId: string,
   name: string,
   size: oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   title: string

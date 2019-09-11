@@ -24,7 +24,7 @@ export const Label = forwardRef(
   (
     {
       as,
-      children,
+      children, // eslint-disable-next-line react/prop-types
       dataTestId,
       disabled,
       disabledIcon,
@@ -68,7 +68,6 @@ Label.displayName = 'Label'
 Label.propTypes = {
   as: COMPONENT_TYPE,
   children: node,
-  dataTestId: string,
   disabled: bool,
   disabledIcon: node,
   errorWarningIcon: node,

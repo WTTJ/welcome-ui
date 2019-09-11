@@ -10,7 +10,7 @@ export const InputText = forwardRef(
   (
     {
       autoFocus,
-      connected,
+      connected, // eslint-disable-next-line react/prop-types
       dataTestId,
       disabled,
       icon,
@@ -73,7 +73,6 @@ InputText.displayName = 'InputText'
 InputText.propTypes = {
   autoFocus: bool,
   connected: bool,
-  dataTestId: string,
   disabled: bool,
   icon: node,
   iconPlacement: oneOf(['left', 'right']),

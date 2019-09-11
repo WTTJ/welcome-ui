@@ -19,7 +19,7 @@ import { DEFAULT_TOOLBAR } from './constants'
 export const MarkdownEditor = forwardRef(
   (
     {
-      autoFocus,
+      autoFocus, // eslint-disable-next-line react/prop-types
       dataTestId,
       disabled,
       name,
@@ -167,7 +167,6 @@ MarkdownEditor.type = 'MarkdownEditor'
 MarkdownEditor.displayName = 'MarkdownEditor'
 
 MarkdownEditor.propTypes = {
-  dataTestId: string,
   disabled: bool,
   placeholder: oneOfType([string, node]),
   toolbar: arrayOf(
