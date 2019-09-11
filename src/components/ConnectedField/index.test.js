@@ -19,7 +19,7 @@ describe.skip('<ConnectedField>', () => {
         onSubmit={noop}
         render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
-            <ConnectedField component={InputText} name="jungle" ref={fieldRef} />
+            <ConnectedField component={InputText} dataTestId="input" name="jungle" ref={fieldRef} />
           </form>
         )}
       />
@@ -37,7 +37,7 @@ describe.skip('<ConnectedField>', () => {
         onSubmit={noop}
         render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
-            <ConnectedField component={noop} name="jungle" />
+            <ConnectedField component={noop} dataTestId="input" name="jungle" />
           </form>
         )}
       />

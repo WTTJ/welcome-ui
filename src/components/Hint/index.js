@@ -3,8 +3,8 @@ import { node, oneOf } from 'prop-types'
 
 import * as S from './styles'
 
-export const Hint = forwardRef(({ children, variant }, ref) => (
-  <S.Hint data-testid="hint" ref={ref} variant={variant}>
+export const Hint = forwardRef(({ children, dataTestId, variant }, ref) => (
+  <S.Hint data-testid={dataTestId} ref={ref} variant={variant}>
     {children}
   </S.Hint>
 ))

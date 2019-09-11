@@ -22,6 +22,7 @@
     "prettier/prettier": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": ["error", { "ignore": ["dataTestId"] }],
     "react/sort-prop-types": ["warn", { "ignoreCase": true, "sortShapeProp": true }],
     "react/jsx-no-bind": ["warn", { "allowArrowFunctions": true }],
     "no-unused-vars": ["error", { "ignoreRestSiblings": true }],

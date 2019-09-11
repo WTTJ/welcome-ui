@@ -15,6 +15,7 @@ export const DatePicker = forwardRef(
   (
     {
       autoFocus,
+      dataTestId,
       dateFormat = 'dd/MM/yyyy',
       icon,
       iconPlacement = 'left',
@@ -85,7 +86,7 @@ export const DatePicker = forwardRef(
             size={size}
           />
         }
-        data-testid="datePicker"
+        data-testid={dataTestId}
         dateFormat={dateFormat}
         onChange={handleChange}
         placeholderText={placeholderText}

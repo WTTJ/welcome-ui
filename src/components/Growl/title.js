@@ -5,8 +5,8 @@ import { VARIANTS_TYPE } from '../../utils'
 
 import { Title } from './styles'
 
-export const GrowlTitle = ({ children, variant = 'info' }) => (
-  <Title data-testid="growl-title" variant={variant}>
+export const GrowlTitle = ({ children, dataTestId, variant = 'info' }) => (
+  <Title data-testid={dataTestId} variant={variant}>
     {children}
   </Title>
 )

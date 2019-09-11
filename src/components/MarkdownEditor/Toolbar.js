@@ -6,14 +6,14 @@ import * as S from './styles'
 const getTooltip = item =>
   `${item.charAt(0).toUpperCase()}${item.substr(1).toLowerCase()}`.replace('-', ' ')
 
-export const Toolbar = ({ active = [], items = [], onClick, ...rest }) => {
+export const Toolbar = ({ active = [], dataTestId, items = [], onClick, ...rest }) => {
   const handleClick = e => {
     const item = e.currentTarget.dataset.id
     onClick(item, e)
   }
 
   return (
-    <S.Toolbar data-testid="mde.toolbar" {...rest}>
+    <S.Toolbar data-testid={dataTestId} {...rest}>
       {items.map(({ icon, name }, i) => {
         if (name === 'divider') {
           // eslint-disable-next-line react/no-array-index-key

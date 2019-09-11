@@ -26,6 +26,7 @@ export const FileUpload = forwardRef(
     {
       accept = DEFAULT_FILE_TYPES,
       children,
+      dataTestId,
       disabled,
       draggable,
       maxSize = DEFAULT_MAX_FILE_SIZE,
@@ -94,6 +95,7 @@ export const FileUpload = forwardRef(
         <br />
         <S.Input
           accept={accept}
+          data-testid={dataTestId}
           maxSize={maxSize}
           multiple={multiple}
           name={name}

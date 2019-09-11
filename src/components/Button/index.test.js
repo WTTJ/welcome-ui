@@ -8,7 +8,7 @@ const content = 'Jungle'
 
 describe('<Button>', () => {
   it('should render correctly', () => {
-    const { getByTestId } = render(<Button>{content}</Button>)
+    const { getByTestId } = render(<Button dataTestId="button">{content}</Button>)
     const button = getByTestId('button')
 
     expect(button).toHaveTextContent(content)
@@ -19,7 +19,11 @@ describe('<Button>', () => {
 
   it('should call onClick property', () => {
     const onClick = jest.fn()
-    const { getByText } = render(<Button onClick={onClick}>{content}</Button>)
+    const { getByText } = render(
+      <Button dataTestId="button" onClick={onClick}>
+        {content}
+      </Button>
+    )
 
     const eventElement = getByText(content)
     fireEvent.click(eventElement)
@@ -29,7 +33,7 @@ describe('<Button>', () => {
 
   it('should look like a square', () => {
     const { getByTestId } = render(
-      <Button shape="square" size="sm">
+      <Button dataTestId="button" shape="square" size="sm">
         {content}
       </Button>
     )
@@ -40,7 +44,11 @@ describe('<Button>', () => {
   })
 
   it('should have correct size', () => {
-    const { getByTestId } = render(<Button size="sm">{content}</Button>)
+    const { getByTestId } = render(
+      <Button dataTestId="button" size="sm">
+        {content}
+      </Button>
+    )
     const button = getByTestId('button')
 
     expect(button).toHaveStyleRule('height', '2rem')
@@ -50,7 +58,7 @@ describe('<Button>', () => {
     it('should not call onClick property', () => {
       const onClick = jest.fn()
       const { getByText } = render(
-        <Button disabled onClick={onClick}>
+        <Button dataTestId="button" disabled onClick={onClick}>
           {content}
         </Button>
       )
@@ -62,7 +70,11 @@ describe('<Button>', () => {
     })
 
     it('should have disabled attribute', () => {
-      const { getByTestId } = render(<Button disabled>{content}</Button>)
+      const { getByTestId } = render(
+        <Button dataTestId="button" disabled>
+          {content}
+        </Button>
+      )
 
       const button = getByTestId('button')
 

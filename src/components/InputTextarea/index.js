@@ -9,6 +9,7 @@ export const InputTextarea = forwardRef(
   (
     {
       autoFocus,
+      dataTestId,
       disabled,
       maxLength,
       minRows = 5,
@@ -27,6 +28,7 @@ export const InputTextarea = forwardRef(
   ) => (
     <S.Textarea
       autoFocus={autoFocus}
+      data-testid={dataTestId}
       disabled={disabled}
       maxLength={maxLength}
       minRows={minRows}

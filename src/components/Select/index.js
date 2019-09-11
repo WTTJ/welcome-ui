@@ -42,7 +42,7 @@ export const Select = forwardRef(
   (
     {
       autoFocus,
-      dataTestid,
+      dataTestId,
       disabled,
       id,
       isCreatable,
@@ -196,7 +196,7 @@ export const Select = forwardRef(
             autoComplete: 'off',
             autoFocus,
             'data-spacer': spacer || placeholder,
-            'data-testid': dataTestid,
+            'data-testid': dataTestId,
             disabled,
             id,
             name,
@@ -303,7 +303,6 @@ Select.displayName = 'Select'
 
 Select.propTypes = {
   autoFocus: bool,
-  dataTestid: string,
   disabled: bool,
   id: string,
   isCreatable: bool,

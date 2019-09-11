@@ -5,8 +5,8 @@ import { SHAPES_TYPE } from '../../utils'
 
 import * as S from './styles'
 
-export const Shape = forwardRef(({ children, ...rest }, ref) => (
-  <S.Shape data-testid="shape" ref={ref} {...rest}>
+export const Shape = forwardRef(({ children, dataTestId, ...rest }, ref) => (
+  <S.Shape data-testid={dataTestId} ref={ref} {...rest}>
     {children}
   </S.Shape>
 ))

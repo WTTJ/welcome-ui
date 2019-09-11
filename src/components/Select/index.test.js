@@ -26,19 +26,19 @@ const OPTIONS = [
 ].map(month => ({ label: capitalize(month), value: month }))
 
 test('<Select> has default attributes', () => {
-  const { getByTestId } = render(
+  const { container, getByTestId } = render(
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         label="Select"
         name="select"
         options={OPTIONS}
       />
     </TestFinalForm>
   )
-  const label = getByTestId('label')
   const select = getByTestId('select')
+  const label = container.querySelector('label')
 
   expect(label).toHaveTextContent('Select')
   expect(select.getAttribute('placeholder')).toBe('Choose from…')
@@ -52,7 +52,7 @@ test('<Select> shows options on click', () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         label="Select"
         name="select"
         options={OPTIONS}
@@ -73,7 +73,7 @@ test('<Select> can choose option', () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         label="Select"
         name="select"
         options={OPTIONS}
@@ -97,7 +97,7 @@ test('<Select> can remove option', () => {
     <TestFinalForm initialValues={{ select: 'february' }}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         label="Select"
         name="select"
         options={OPTIONS}
@@ -120,11 +120,11 @@ test('<Select> can remove option', () => {
 })
 
 test('<Select isMultiple> can select multiple items', () => {
-  const { getAllByTestId, getByRole, getByTestId } = render(
+  const { getAllByRole, getByRole, getByTestId } = render(
     <TestFinalForm initialValues={{ select: ['february', 'march'] }}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         isMultiple
         label="Select"
         name="select"
@@ -134,7 +134,7 @@ test('<Select isMultiple> can select multiple items', () => {
   )
 
   const select = getByTestId('select')
-  let tags = getAllByTestId('tag')
+  let tags = getAllByRole('listitem')
   expect(tags.length).toBe(2)
 
   fireEvent.click(select)
@@ -143,7 +143,7 @@ test('<Select isMultiple> can select multiple items', () => {
   const options = getByRole('listbox').querySelectorAll('li')
   fireEvent.click(options[3])
 
-  tags = getAllByTestId('tag')
+  tags = getAllByRole('listitem')
   expect(tags.length).toBe(3)
 
   const formValues = getFormValues(getByTestId('values'))
@@ -153,11 +153,11 @@ test('<Select isMultiple> can select multiple items', () => {
 })
 
 test('<Select isMultiple> can remove multiple items', () => {
-  const { getAllByTestId, getByTestId } = render(
+  const { getAllByRole, getByTestId } = render(
     <TestFinalForm initialValues={{ select: ['february', 'march'] }}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         isMultiple
         label="Select"
         name="select"
@@ -167,11 +167,11 @@ test('<Select isMultiple> can remove multiple items', () => {
   )
 
   const select = getByTestId('select')
-  let tags = getAllByTestId('tag')
+  let tags = getAllByRole('listitem')
   expect(tags.length).toBe(2)
 
   fireEvent.click(tags[1].querySelector('[title=Remove]'))
-  tags = getAllByTestId('tag')
+  tags = getAllByRole('listitem')
   expect(tags.length).toBe(1)
 
   const formValues = getFormValues(getByTestId('values'))
@@ -185,7 +185,7 @@ test('<Select required> cannot remove selected item', () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         label="Select"
         name="select"
         options={OPTIONS}
@@ -217,7 +217,7 @@ test('<Select renderItem> formats items', () => {
     <TestFinalForm initialValues={{ select: 'february' }}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         label="Select"
         name="select"
         options={OPTIONS}
@@ -244,7 +244,7 @@ test('<Select isSearchable> filters results', () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         isSearchable
         label="Select"
         name="select"
@@ -271,7 +271,7 @@ test("<Select isSearchable> doesn't show list if no results", () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         isSearchable
         label="Select"
         name="select"
@@ -292,7 +292,7 @@ test('<Select isCreatable> can create new items', () => {
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={Select}
-        dataTestid="select"
+        dataTestId="select"
         isCreatable
         label="Select"
         name="select"

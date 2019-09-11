@@ -22,7 +22,7 @@ test('<Field component={InputCheckbox}> toggles on input click', () => {
         <Field
           checked={!!values.checkbox}
           component={InputCheckbox}
-          dataTestid="inputCheckbox"
+          dataTestId="inputCheckbox"
           label="Checkbox"
           name="checkbox"
           onChange={handleChange}
@@ -30,8 +30,8 @@ test('<Field component={InputCheckbox}> toggles on input click', () => {
       )}
     </DoczForm>
   )
-  const label = getByTestId('label')
   const inputCheckbox = getByTestId('inputCheckbox')
+  const label = container.querySelector('label')
 
   expect(label).toHaveTextContent('Checkbox')
   expectChecked(inputCheckbox, container, true)
@@ -48,14 +48,14 @@ test('<ConnectedField component={InputCheckbox}> toggles on input click', () => 
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={InputCheckbox}
-        dataTestid="inputCheckbox"
+        dataTestId="inputCheckbox"
         label="Checkbox"
         name="checkbox"
       />
     </TestFinalForm>
   )
-  const label = getByTestId('label')
   const inputCheckbox = getByTestId('inputCheckbox')
+  const label = container.querySelector('label')
 
   expect(label).toHaveTextContent('Checkbox')
   expectChecked(inputCheckbox, container, false)
@@ -74,7 +74,7 @@ test('<Field component={InputCheckbox}> toggles on label click', () => {
         <Field
           checked={!!values.checkbox}
           component={InputCheckbox}
-          dataTestid="inputCheckbox"
+          dataTestId="inputCheckbox"
           label="Checkbox"
           name="checkbox"
           onChange={handleChange}
@@ -82,8 +82,8 @@ test('<Field component={InputCheckbox}> toggles on label click', () => {
       )}
     </DoczForm>
   )
-  const label = getByTestId('label')
   const inputCheckbox = getByTestId('inputCheckbox')
+  const label = container.querySelector('label')
 
   expect(label).toHaveTextContent('Checkbox')
   expectChecked(inputCheckbox, container, true)
@@ -100,14 +100,14 @@ test('<ConnectedField component={InputCheckbox}> toggles on label click', () => 
     <TestFinalForm initialValues={{}}>
       <ConnectedField
         component={InputCheckbox}
-        dataTestid="inputCheckbox"
+        dataTestId="inputCheckbox"
         label="Checkbox"
         name="checkbox"
       />
     </TestFinalForm>
   )
-  const label = getByTestId('label')
   const inputCheckbox = getByTestId('inputCheckbox')
+  const label = container.querySelector('label')
 
   expect(label).toHaveTextContent('Checkbox')
   expectChecked(inputCheckbox, container, false)

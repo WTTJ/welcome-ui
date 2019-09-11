@@ -42,9 +42,10 @@ describe('<Label>', () => {
 
   describe('should render correctly when is disabled', () => {
     it('default', () => {
-      const { getByTestId } = render(<Label disabled>{content}</Label>)
+      const { container } = render(<Label disabled>{content}</Label>)
+      const icon = container.querySelector('[title="special_pipeline"]')
 
-      expect(getByTestId('icon-special_pipeline')).not.toBeNull()
+      expect(icon).not.toBeNull()
     })
 
     it('with custom icon', () => {

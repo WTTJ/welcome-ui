@@ -20,7 +20,7 @@ export const Field = forwardRef(
       children,
       component: Component,
       connected,
-      dataTestid,
+      dataTestId,
       disabled,
       disabledIcon,
       error,
@@ -82,7 +82,7 @@ export const Field = forwardRef(
         autoFocus={autoFocus}
         checked={checked}
         connected
-        dataTestid={dataTestid}
+        dataTestId={dataTestId}
         disabled={disabled}
         flexDirection={layout}
         id={uniqueId}
@@ -145,7 +145,6 @@ Field.propTypes = {
   children: func,
   component: COMPONENT_TYPE.isRequired,
   connected: bool,
-  dataTestid: string,
   disabled: bool,
   disabledIcon: node,
   error: string,

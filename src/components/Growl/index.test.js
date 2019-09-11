@@ -16,9 +16,13 @@ describe('<Growl>', () => {
   describe('Growl closing', () => {
     it('should call onClose', () => {
       const onClose = jest.fn()
-      const { getByTestId } = render(<Growl onClose={onClose}>{content}</Growl>)
+      const { getByTestId } = render(
+        <Growl dataTestId="growl-close" onClose={onClose}>
+          {content}
+        </Growl>
+      )
       const close = getByTestId('growl-close')
-      const closeIcon = getByTestId('icon-cross')
+      const closeIcon = close.querySelector('[title="cross"]')
 
       fireEvent.click(close)
 
@@ -29,7 +33,7 @@ describe('<Growl>', () => {
     it('should render correctly with custom close', () => {
       const onClose = jest.fn()
       const { getByTestId } = render(
-        <Growl close={<span>growl close</span>} onClose={onClose}>
+        <Growl close={<span>growl close</span>} dataTestId="growl-close" onClose={onClose}>
           {content}
         </Growl>
       )

@@ -20,6 +20,7 @@ export const MarkdownEditor = forwardRef(
   (
     {
       autoFocus,
+      dataTestId,
       disabled,
       name,
       onBlur,
@@ -125,7 +126,7 @@ export const MarkdownEditor = forwardRef(
 
     return (
       <S.Wrapper
-        data-testid="mde"
+        data-testid={dataTestId}
         disabled={disabled}
         focused={focused}
         variant={variant}
@@ -136,6 +137,7 @@ export const MarkdownEditor = forwardRef(
           borderRadius={rest.borderRadius}
           items={toolbarItems}
           onClick={handleToolbarClick}
+          role="toolbar"
         />
         {showEmojiPicker && <EmojiPicker onSelect={addEmoji} />}
         <S.Editor

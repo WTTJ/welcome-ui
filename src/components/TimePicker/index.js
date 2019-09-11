@@ -15,6 +15,7 @@ export const TimePicker = forwardRef(
   (
     {
       autoFocus,
+      dataTestId,
       dateFormat = 'HH:mm',
       value = DEFAULT_DATE,
       onBlur,
@@ -86,7 +87,7 @@ export const TimePicker = forwardRef(
             size={size}
           />
         }
-        data-testid="timePicker"
+        data-testid={dataTestId}
         dateFormat={dateFormat}
         onChange={handleChange}
         placeholderText={placeholderText}
