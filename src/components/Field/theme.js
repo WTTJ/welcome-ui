@@ -70,7 +70,7 @@ export const getFields = theme => {
       },
       checked: {
         color: colors.dark[200],
-        'font-weight': fontWeights.bold
+        '-webkit-text-stroke': '0.04em'
       }
     },
     checkbox: {
@@ -118,7 +118,6 @@ export const getFields = theme => {
       },
       checked: {
         color: colors.dark[200],
-        'font-weight': fontWeights.bold,
         'background-color': colors.light[200],
         'border-color': colors.primary[500],
         '&:hover': {
