@@ -12,7 +12,6 @@ import * as S from './styles'
 const DEFAULT_DATE = new Date()
 
 export const DateTimePicker = forwardRef(
-  // eslint-disable-next-line react/prop-types
   ({ children, dataTestId, onChange, size = 'lg', value = DEFAULT_DATE }, ref) => {
     const [date, setDate] = useState(value)
 

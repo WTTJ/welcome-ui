@@ -5,7 +5,6 @@ import { SHAPES_TYPE } from '../../utils'
 
 import * as S from './styles'
 
-// eslint-disable-next-line react/prop-types
 export const Shape = forwardRef(({ children, dataTestId, ...rest }, ref) => (
   <S.Shape data-testid={dataTestId} ref={ref} {...rest}>
     {children}

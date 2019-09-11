@@ -19,7 +19,7 @@ export const Field = forwardRef(
       checked,
       children,
       component: Component,
-      connected, // eslint-disable-next-line react/prop-types
+      connected,
       dataTestId,
       disabled,
       disabledIcon,

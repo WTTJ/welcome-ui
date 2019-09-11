@@ -8,7 +8,7 @@ import * as S from './styles.js'
 export const InputTextarea = forwardRef(
   (
     {
-      autoFocus, // eslint-disable-next-line react/prop-types
+      autoFocus,
       dataTestId,
       disabled,
       maxLength,

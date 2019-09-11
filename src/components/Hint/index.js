@@ -3,7 +3,6 @@ import { node, oneOf } from 'prop-types'
 
 import * as S from './styles'
 
-// eslint-disable-next-line react/prop-types
 export const Hint = forwardRef(({ children, dataTestId, variant }, ref) => (
   <S.Hint data-testid={dataTestId} ref={ref} variant={variant}>
     {children}

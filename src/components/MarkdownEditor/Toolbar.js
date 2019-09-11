@@ -6,7 +6,6 @@ import * as S from './styles'
 const getTooltip = item =>
   `${item.charAt(0).toUpperCase()}${item.substr(1).toLowerCase()}`.replace('-', ' ')
 
-// eslint-disable-next-line react/prop-types
 export const Toolbar = ({ active = [], dataTestId, items = [], onClick, ...rest }) => {
   const handleClick = e => {
     const item = e.currentTarget.dataset.id

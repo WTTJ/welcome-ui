@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import React, { cloneElement, useLayoutEffect, useState } from 'react'
-import { node, string } from 'prop-types'
+import { any, node, shape, string } from 'prop-types'
 import { Tab as ReakitTab, TabList as ReakitTabList, TabPanel as ReakitTabPanel } from 'reakit/Tab'
 import flattenChildren from 'react-flatten-children'
 
@@ -47,10 +47,14 @@ function useActiveBarState(listRef, activeTab) {
   return state
 }
 
-// eslint-disable-next-line react/prop-types
-function ActiveBar({ activeTab, listRef }) {
+const ActiveBar = ({ activeTab, listRef }) => {
   const activeBar = useActiveBarState(listRef, activeTab)
   return <S.ActiveBar {...activeBar} />
+}
+ActiveBar.displayName = 'ActiveBar'
+ActiveBar.propTypes = {
+  activeTab: COMPONENT_TYPE,
+  listRef: shape({ current: any })
 }
 
 export const TabList = React.forwardRef(({ as, children, ...props }, ref) => {

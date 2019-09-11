@@ -9,7 +9,6 @@ export const GrowlAction = S.Action
 export const GrowlClose = S.CloseContent
 export { GrowlTitle } from './title'
 
-// eslint-disable-next-line react/prop-types
 export const Growl = forwardRef(({ children, close, dataTestId, onClose }, ref) => (
   <S.Growl ref={ref}>
     {onClose && (

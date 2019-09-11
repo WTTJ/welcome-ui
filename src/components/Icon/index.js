@@ -4,7 +4,6 @@ import { oneOf, string } from 'prop-types'
 import * as S from './styles'
 import { icons } from './icons'
 
-// eslint-disable-next-line react/prop-types
 export const Icon = forwardRef(({ dataTestId, name, size = 'md', title, ...props }, ref) => {
   if (!name) {
     return null

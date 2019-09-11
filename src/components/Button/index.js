@@ -6,7 +6,6 @@ import { COMPONENT_TYPE, SHAPES_TYPE } from '../../utils'
 import * as S from './styles'
 
 export const Button = forwardRef(
-  // eslint-disable-next-line react/prop-types
   ({ as, children, dataTestId, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
     <S.Button
       data-testid={dataTestId}

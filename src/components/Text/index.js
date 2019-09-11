@@ -21,7 +21,6 @@ const TAG_NAMES = {
 }
 
 export const Text = forwardRef(
-  // eslint-disable-next-line react/prop-types
   ({ as, children, dataTestId, lines, variant = 'body1', ...rest }, ref) => {
     const tagName = as || TAG_NAMES[variant]
 

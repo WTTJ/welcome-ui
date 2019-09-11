@@ -25,7 +25,7 @@ export const FileUpload = forwardRef(
   (
     {
       accept = DEFAULT_FILE_TYPES,
-      children, // eslint-disable-next-line react/prop-types
+      children,
       dataTestId,
       disabled,
       draggable,

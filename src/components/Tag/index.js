@@ -7,7 +7,6 @@ import { SHAPES_TYPE, SIZES_TYPE, wrap } from '../../utils'
 import * as S from './styles'
 
 export const Tag = forwardRef(
-  // eslint-disable-next-line react/prop-types
   ({ children, dataTestId, onRemove, size = 'md', variant = 'default', ...rest }, ref) => {
     const content = wrap(children)
     return (
