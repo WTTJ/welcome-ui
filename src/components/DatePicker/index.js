@@ -103,7 +103,6 @@ DatePicker.displayName = 'DatePicker'
 
 DatePicker.propTypes = {
   autoFocus: bool,
-
   dateFormat: string,
   icon: COMPONENT_TYPE,
   iconPlacement: oneOf('right', 'left'),
