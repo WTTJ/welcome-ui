@@ -1,29 +1,17 @@
 import React, { forwardRef } from 'react'
 import { bool, func, node, oneOf, string } from 'prop-types'
 
-import { Badge } from '../Badge'
 import { Icon } from '../Icon'
+import { VariantIcon } from '../VariantIcon'
 import { COMPONENT_TYPE, wrap } from '../../utils'
 
 import * as S from './styles'
-
-const getVariantIcon = (variant, errorWarningIcon) => {
-  if (variant === 'error' || variant === 'warning') {
-    return (
-      errorWarningIcon || (
-        <Badge shape="circle" variant={variant}>
-          !
-        </Badge>
-      )
-    )
-  }
-  return null
-}
 
 export const Label = forwardRef(
   (
     {
       as,
+      checkableField,
       children,
       dataTestId,
       disabled,
@@ -37,7 +25,6 @@ export const Label = forwardRef(
     },
     ref
   ) => {
-    const icon = variant && getVariantIcon(variant, errorWarningIcon)
     // Wrap strings in span to allow for required asterisk
     const content = wrap(children)
 
@@ -47,7 +34,6 @@ export const Label = forwardRef(
         data-testid={dataTestId}
         disabled={disabled}
         disabledIcon={disabledIcon}
-        errorWarningIcon={errorWarningIcon}
         htmlFor={htmlFor}
         onClick={onClick}
         ref={ref}
@@ -55,7 +41,7 @@ export const Label = forwardRef(
         variant={variant}
         {...rest}
       >
-        {variant && <S.Icon variant={variant}>{icon}</S.Icon>}
+        {!checkableField && <VariantIcon errorWarningIcon={errorWarningIcon} variant={variant} />}
         {disabled && <S.Disabled>{disabledIcon || <Icon name="special_pipeline" />}</S.Disabled>}
         {content}
       </S.Label>
@@ -67,6 +53,7 @@ Label.displayName = 'Label'
 
 Label.propTypes = {
   as: COMPONENT_TYPE,
+  checkableField: bool,
   children: node,
   disabled: bool,
   disabledIcon: node,

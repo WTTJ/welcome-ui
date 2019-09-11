@@ -117,6 +117,7 @@ export const Field = forwardRef(
         <Container>
           {label && (
             <Label
+              checkableField={isCheckable}
               disabled={disabled}
               disabledIcon={disabledIcon}
               htmlFor={uniqueId}
@@ -131,7 +132,11 @@ export const Field = forwardRef(
           {!isCheckable && Field}
           {!label && isCheckable && Field}
         </Container>
-        {hintText && <Hint variant={variant}>{hintText}</Hint>}
+        {hintText && (
+          <Hint checkableField={isCheckable} variant={variant}>
+            {hintText}
+          </Hint>
+        )}
       </S.Field>
     )
   }
