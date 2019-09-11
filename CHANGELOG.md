@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.23.2](https://github.com/WTTJ/welcome-ui/compare/v0.23.1...v0.23.2) (2019-09-11)
+
+
+
 ### [0.23.1](https://github.com/WTTJ/welcome-ui/compare/v0.23.0...v0.23.1) (2019-09-10)
 
 
