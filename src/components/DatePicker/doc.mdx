@@ -26,7 +26,16 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 ## Pass props from [the original library](https://github.com/Hacker0x01/react-datepicker).
 
 <Playground>
-  <DatePicker dateFormat="MMM dd yyyy" showMonthDropdown showYearDropdown />
+  <DatePicker
+    dateFormat="MMM dd yyyy"
+    maxDate={new Date()}
+    showMonthDropdown
+    showYearDropdown
+    dropdownMode="scroll"
+    scrollableMonthDropdown
+    scrollableYearDropdown
+    yearDropdownItemNumber={30}
+  />
 </Playground>
 
 ## Give an Icon
