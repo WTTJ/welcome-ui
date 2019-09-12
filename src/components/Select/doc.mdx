@@ -10,6 +10,8 @@ import { Playground } from '../../../docz/'
 
 import { Select } from './index'
 import { Icon } from '../Icon'
+import { Tag } from '../Tag'
+import { Text } from '../Text'
 
 # Select
 
@@ -149,8 +151,6 @@ Note: if you use `renderItem` with `isSearchable` or `isCreatable` the selected 
     const handleChange = value => setValue(value)
     return (
       <Select
-        required
-        options={ITEMS}
         name="rich"
         onChange={handleChange}
         options={ITEMS}
@@ -159,6 +159,45 @@ Note: if you use `renderItem` with `isSearchable` or `isCreatable` the selected 
             <Icon name={option.value || 'link'} mr="xs" /> <span>{option.label}</span>
           </div>
         )}
+        value={value}
+      />
+    )
+  }}
+</Playground>
+
+Passing a `renderMultiple` function allows you to format the selected items below the select.
+
+<Playground>
+  {() => {
+    const ITEMS = [
+      { value: 'behance', label: 'Behance' },
+      { value: 'dribbble', label: 'Dribbble' },
+      { value: 'facebook', label: 'Facebook' },
+      { value: 'github', label: 'Github' },
+      { value: 'instagram', label: 'Instagram' },
+      { value: 'linkedin', label: 'Linkedin' },
+      { value: 'stackoverflow', label: 'Stack Overflow' },
+      { value: 'twitter', label: 'Twitter' },
+      { value: 'xing', label: 'Xing' },
+      { value: 'youtube', label: 'Youtube' }
+    ]
+    const [value, setValue] = useState(['facebook', 'linkedin'])
+    const handleChange = value => setValue(value)
+    return (
+      <Select
+        isMultiple
+        name="rich"
+        onChange={handleChange}
+        options={ITEMS}
+        renderMultiple={(selected, handleRemove) => {
+          console.debug('--', selected)
+          return selected.map(option => (
+            <Tag variant="primary" onRemove={() => handleRemove(option.value)} mr="sm" mt="sm">
+              <Icon name={option.value} mr="sm" />
+              <Text as="body2">{option.label}</Text>
+            </Tag>
+          ))
+        }}
         value={value}
       />
     )

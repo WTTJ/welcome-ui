@@ -43,7 +43,6 @@ test('<Select> has default attributes', () => {
   expect(label).toHaveTextContent('Select')
   expect(select.getAttribute('placeholder')).toBe('Choose from…')
   expect(select.getAttribute('data-spacer')).toBe('September')
-  expect(select.getAttribute('readonly')).toBe('')
   expect(select).toHaveTextContent('')
 })
 

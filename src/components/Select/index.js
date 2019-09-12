@@ -9,9 +9,9 @@ import reject from 'lodash.reject'
 
 import { COMPONENT_TYPE, INPUTS_TYPE, OPTIONS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
 import { Icon } from '../Icon'
-import { Tag } from '../Tag'
 import { createEvent } from '../../utils/'
 
+import { MultipleSelections as defaultRenderMultiple } from './MultipleSelections'
 import * as S from './styles'
 
 // Helpers
@@ -20,7 +20,7 @@ const itemToString = item => (item ? item.label : EMPTY)
 const getUniqueValue = (item, values) => uniqBy([...values, item], item => item.value)
 const isValueExisting = (value, values) =>
   values.find(item => kebabCase(item.value) === kebabCase(value))
-const defaultRenderOption = option => (option ? option.label : EMPTY)
+const defaultRenderItem = option => (option ? option.label : EMPTY)
 const findOption = (value, options = []) => {
   const option = options.find(
     option => option.label === (value.label || value) || option.value === (value.value || value)
@@ -57,7 +57,8 @@ export const Select = forwardRef(
       onFocus,
       onKeyDown,
       placeholder = 'Choose from…',
-      renderItem = defaultRenderOption,
+      renderItem = defaultRenderItem,
+      renderMultiple = defaultRenderMultiple,
       required,
       size = 'lg',
       type,
@@ -146,8 +147,7 @@ export const Select = forwardRef(
       handleChange(newItems)
     }
 
-    const handleRemove = e => {
-      const value = e.currentTarget.parentNode.dataset.id
+    const handleRemove = value => {
       const newItems = values.filter(item => item.value !== value)
       setValues(newItems)
       handleChange(newItems)
@@ -289,15 +289,7 @@ export const Select = forwardRef(
                   )}
                 </S.Menu>
               )}
-              {isMultiple && (
-                <S.Tags>
-                  {values.map(tag => (
-                    <Tag data-id={tag.value} key={tag.value} onRemove={handleRemove}>
-                      {tag.label}
-                    </Tag>
-                  ))}
-                </S.Tags>
-              )}
+              {isMultiple && renderMultiple(values, handleRemove)}
             </S.Wrapper>
           )
         }}
@@ -325,6 +317,7 @@ Select.propTypes = {
   options: arrayOf(OPTIONS_TYPE).isRequired,
   placeholder: string.isRequired,
   renderItem: func,
+  renderMultiple: func,
   required: bool,
   searchable: bool,
   size: SIZES_TYPE,
