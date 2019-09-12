@@ -82,7 +82,6 @@ Passing a `renderMultiple` function allows you to format the selected items belo
         onChange={handleChange}
         options={ITEMS}
         renderMultiple={(selected, handleRemove) => {
-          console.debug('--', selected)
           return selected.map(option => (
             <Tag variant="primary" onRemove={() => handleRemove(option.value)} mr="sm" mt="sm">
               <Icon name={option.value} mr="sm" />
