@@ -46,7 +46,7 @@ export const Tag = styled.div(
   `
 )
 
-export const RemoveIcon = styled.div(
+export const ActionIcon = styled.div(
   ({ size }) => css`
     position: absolute;
     ${th(`tags.sizes.${size}`)};
