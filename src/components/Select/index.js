@@ -193,11 +193,7 @@ export const Select = forwardRef(
           const isShowDeleteIcon = inputValue && !isOpen && !required
           const rootProps = getRootProps(rest)
           const option = findOption(inputValue, options)
-          const inputContent = isMultiple
-            ? inputValue
-            : option.label
-            ? renderItem(option)
-            : placeholder
+          const inputContent = isMultiple ? inputValue : option.label ? renderItem(option) : EMPTY
           const inputProps = getInputProps({
             autoComplete: 'off',
             autoFocus,

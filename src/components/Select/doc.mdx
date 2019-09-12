@@ -135,8 +135,15 @@ You can normally clear the selected value of a `Select` but if it has a `require
 
 <Playground>
   {() => {
-    const ITEMS = []
-    const [value, setValue] = useState(ITEMS[2])
+    const ITEMS = [
+      { value: 'angular', label: 'Angular' },
+      { value: 'backbone', label: 'Backbone' },
+      { value: 'elm', label: 'Elm' },
+      { value: 'ember', label: 'Ember' },
+      { value: 'react', label: 'React' },
+      { value: 'vue', label: 'Vue' }
+    ]
+    const [value, setValue] = useState()
     const handleChange = value => setValue(value)
     return <Select required options={ITEMS} name="required" onChange={handleChange} value={value} />
   }}
