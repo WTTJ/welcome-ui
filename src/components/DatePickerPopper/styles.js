@@ -65,6 +65,12 @@ export const Popper = styled.div`
     background-color: light.100;
   }
 
+  .react-datepicker__year-dropdown--scrollable,
+  .react-datepicker__month-dropdown {
+    height: 16.875rem;
+    overflow-y: scroll;
+  }
+
   .react-datepicker__year-option,
   .react-datepicker__month-option {
     padding: xs;
