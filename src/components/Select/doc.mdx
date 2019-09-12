@@ -132,6 +132,8 @@ Passing a `renderItem` function allows you to format the options in the list.
 
 Note: if you use `renderItem` with `isSearchable` or `isCreatable` the selected item will _not_ be formatted
 
+Note: if you want to format the options _and_ the placeholder, create a dummy value as the first of your options with an empty string as the value (see code below).
+
 <Playground>
   {() => {
     const ITEMS = [
