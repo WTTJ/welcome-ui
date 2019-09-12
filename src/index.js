@@ -32,6 +32,7 @@ export * from './components/TimePicker/index'
 export * from './components/Toggle/index'
 export * from './components/Tooltip/index'
 export * from './components/UniversalLink/index'
+export * from './components/VariantIcon/index'
 
 // Utils/theme
 export * from './utils/base'
