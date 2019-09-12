@@ -89,6 +89,19 @@ You can normally clear the selected value of a `Select` but if it has a `require
 
 <Playground>
   {() => {
+    const ITEMS = []
+    const [value, setValue] = useState(ITEMS[2])
+    const handleChange = value => setValue(value)
+    return <Select required options={ITEMS} name="required" onChange={handleChange} value={value} />
+  }}
+</Playground>
+
+## Add an icon
+
+You can normally clear the selected value of a `Select` but if it has a `required` prop we'll prevent the ability to remove a chosen option.
+
+<Playground>
+  {() => {
     const ITEMS = [
       { value: 'angular', label: 'Angular' },
       { value: 'backbone', label: 'Backbone' },
@@ -97,9 +110,17 @@ You can normally clear the selected value of a `Select` but if it has a `require
       { value: 'react', label: 'React' },
       { value: 'vue', label: 'Vue' }
     ]
-    const [value, setValue] = useState(ITEMS[2])
+    const [value, setValue] = useState()
     const handleChange = value => setValue(value)
-    return <Select required options={ITEMS} name="required" onChange={handleChange} value={value} />
+    return (
+      <Select
+        icon={<Icon name="add" color="nude.500" />}
+        name="icon"
+        onChange={handleChange}
+        options={ITEMS}
+        value={value}
+      />
+    )
   }}
 </Playground>
 
@@ -112,6 +133,7 @@ Note: if you use `renderItem` with `isSearchable` or `isCreatable` the selected 
 <Playground>
   {() => {
     const ITEMS = [
+      { value: '', label: 'Choose a social network…' },
       { value: 'behance', label: 'Behance' },
       { value: 'dribbble', label: 'Dribbble' },
       { value: 'facebook', label: 'Facebook' },
@@ -123,7 +145,7 @@ Note: if you use `renderItem` with `isSearchable` or `isCreatable` the selected 
       { value: 'xing', label: 'Xing' },
       { value: 'youtube', label: 'Youtube' }
     ]
-    const [value, setValue] = useState(ITEMS[2])
+    const [value, setValue] = useState()
     const handleChange = value => setValue(value)
     return (
       <Select
@@ -131,12 +153,13 @@ Note: if you use `renderItem` with `isSearchable` or `isCreatable` the selected 
         options={ITEMS}
         name="rich"
         onChange={handleChange}
-        value={value}
+        options={ITEMS}
         renderItem={option => (
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Icon name={option.value} mr="xs" /> <span>{option.label}</span>
+            <Icon name={option.value || 'link'} mr="xs" /> <span>{option.label}</span>
           </div>
         )}
+        value={value}
       />
     )
   }}
@@ -168,14 +191,23 @@ You can pass any combination of the props above. For example below, we have a `S
 
 <Playground>
   {() => {
-    const [value, setValue] = useState(['Facebook', 'Twitter'])
+    const ITEMS = [
+      { value: 'angular', label: 'Angular' },
+      { value: 'backbone', label: 'Backbone' },
+      { value: 'elm', label: 'Elm' },
+      { value: 'ember', label: 'Ember' },
+      { value: 'react', label: 'React' },
+      { value: 'vue', label: 'Vue' }
+    ]
+    const [value, setValue] = useState(['ember', 'vue'])
     const handleChange = value => setValue(value)
     return (
       <Select
+        icon={<Icon name="add" color="nude.500" />}
         isCreatable
         isMultiple
         isSearchable
-        options={[]}
+        options={ITEMS}
         name="combined"
         onChange={handleChange}
         value={value}

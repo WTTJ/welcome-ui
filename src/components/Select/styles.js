@@ -4,7 +4,8 @@ import { th } from '@xstyled/system'
 import { overflowEllipsis } from '../../common/styles/text'
 import { fieldStyles } from '../../common/styles/form'
 import { componentSystem, filterComponent, wrapperSystem } from '../../utils/'
-import { Icon } from '../Icon/styles'
+import { centerContent } from '../../utils/css'
+import { Icon as StyledIcon } from '../Icon/styles'
 import { Tag } from '../Tag/styles'
 
 export const Wrapper = styled(filterComponent('div'))(
@@ -18,12 +19,13 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled(filterComponent('div'))(
-  ({ size }) => css`
+export const Input = styled(filterComponent('div', ['hasIcon', 'renderMultiple']))(
+  ({ hasIcon, size }) => css`
     position: relative;
     ${fieldStyles};
     ${overflowEllipsis};
     padding-right: ${th(`fields.sizes.${size}.height`)};
+    padding-left: ${hasIcon && th(`fields.sizes.${size}.height`)};
     cursor: default;
     ${componentSystem}
 
@@ -90,6 +92,18 @@ export const Item = styled.li(
   `
 )
 
+export const Icon = styled.div(
+  ({ size }) => css`
+    position: absolute;
+    width: ${th(`fields.sizes.${size}.height`)};
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    ${centerContent}
+  `
+)
+
 export const Indicators = styled.div`
   position: absolute;
   padding: 0;
@@ -111,7 +125,7 @@ export const DropDownIndicator = styled.button(
       border: none;
       background: transparent;
 
-      ${Icon} {
+      ${StyledIcon} {
         transform: ${isOpen ? 'rotate3d(0, 0, 1, 180deg)' : 'rotate3d(0)'};
         transition: medium;
       }

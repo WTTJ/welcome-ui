@@ -7,7 +7,7 @@ import uniqBy from 'lodash.uniqby'
 import isEqual from 'lodash.isequal'
 import reject from 'lodash.reject'
 
-import { INPUTS_TYPE, OPTIONS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
+import { COMPONENT_TYPE, INPUTS_TYPE, OPTIONS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
 import { Icon } from '../Icon'
 import { Tag } from '../Tag'
 import { createEvent } from '../../utils/'
@@ -44,6 +44,7 @@ export const Select = forwardRef(
       autoFocus,
       dataTestId,
       disabled,
+      icon,
       id,
       isCreatable,
       isMultiple,
@@ -188,28 +189,33 @@ export const Select = forwardRef(
           toggleMenu
         }) => {
           const isShowCreate = !!(isCreatable && inputValue && !isValueExisting(inputValue, values))
-          const inputContent = isMultiple ? inputValue : renderItem(findOption(inputValue, options))
           const isShowMenu = isOpen && (results.length || isShowCreate)
           const isShowDeleteIcon = inputValue && !isOpen && !required
           const rootProps = getRootProps(rest)
+          const option = findOption(inputValue, options)
+          const inputContent = isMultiple
+            ? inputValue
+            : option.label
+            ? renderItem(option)
+            : placeholder
           const inputProps = getInputProps({
             autoComplete: 'off',
             autoFocus,
             'data-spacer': spacer || placeholder,
             'data-testid': dataTestId,
             disabled,
+            hasIcon: !!icon,
             id,
             name,
             onBlur,
             onClick: toggleMenu,
             onFocus,
             placeholder,
-            readOnly: !isSearchable,
             ref,
             required,
             size,
             tabIndex: 0,
-            value: inputContent || EMPTY,
+            value: inputContent,
             variant: isOpen ? 'focused' : variant,
             ...rest
           })
@@ -222,6 +228,7 @@ export const Select = forwardRef(
                 ) : (
                   <S.Input {...inputProps}>{inputContent || EMPTY}</S.Input>
                 )}
+                {icon && <S.Icon size={size}>{icon}</S.Icon>}
                 <S.Indicators size={size}>
                   {isShowDeleteIcon ? (
                     <S.DropDownIndicator
@@ -304,6 +311,7 @@ Select.displayName = 'Select'
 Select.propTypes = {
   autoFocus: bool,
   disabled: bool,
+  icon: COMPONENT_TYPE,
   id: string,
   isCreatable: bool,
   isMultiple: bool,
