@@ -4,7 +4,7 @@ route: /components/link
 menu: Components
 ---
 
-import { Link as LinkDocz, Props, Playground } from 'docz'
+import { Link as LinkDocz, Playground } from 'docz'
 import { Link } from './index'
 import { Box, Shape, Text } from '../../index'
 
@@ -12,7 +12,11 @@ import { Box, Shape, Text } from '../../index'
 
 A link component who can get `as` property to pass custom linker.
 
+This component is a child from `UniversalLink` component.
+
 ## Variants
+
+Can be `primary` by default or `secondary`
 
 <Playground>
   <Box mb="xl">
@@ -51,7 +55,3 @@ For a target `_blank` we add `rel='noopener noreferrer'`
     with a target blank
   </Link>
 </Playground>
-
-## Properties
-
-<Props of={Link} />
