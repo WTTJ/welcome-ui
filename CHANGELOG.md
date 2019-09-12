@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.24.0](https://github.com/WTTJ/welcome-ui/compare/v0.23.2...v0.24.0) (2019-09-12)
+
+
+### Bug Fixes
+
+* avoid font-weight on checked labels ([#344](https://github.com/WTTJ/welcome-ui/issues/344)) ([901d974](https://github.com/WTTJ/welcome-ui/commit/901d974)), closes [#343](https://github.com/WTTJ/welcome-ui/issues/343)
+* move error / warning icon to hint for checkable Fields ([#347](https://github.com/WTTJ/welcome-ui/issues/347)) ([0443c16](https://github.com/WTTJ/welcome-ui/commit/0443c16)), closes [#346](https://github.com/WTTJ/welcome-ui/issues/346)
+
+
+### Features
+
+* add UniversalLink ([#345](https://github.com/WTTJ/welcome-ui/issues/345)) ([1ed46f3](https://github.com/WTTJ/welcome-ui/commit/1ed46f3))
+* select improvements ([#348](https://github.com/WTTJ/welcome-ui/issues/348)) ([932dabc](https://github.com/WTTJ/welcome-ui/commit/932dabc))
+
+
+
 ### [0.23.2](https://github.com/WTTJ/welcome-ui/compare/v0.23.1...v0.23.2) (2019-09-11)
 
 
