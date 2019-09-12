@@ -3,6 +3,7 @@ import { th } from '@xstyled/system'
 
 import { overflowEllipsis } from '../../common/styles/text'
 import { getMax, system } from '../../utils/'
+import { centerContent } from '../../utils/css'
 import { Icon } from '../Icon/styles'
 
 const shapeStyles = (size, width, height, shape = 'square') => css`
@@ -14,14 +15,16 @@ const shapeStyles = (size, width, height, shape = 'square') => css`
 `
 
 export const Tag = styled.div(
-  ({ height, length, shape, size, variant, width }) => css`
+  ({ hasAction, height, length, shape, size, variant, width }) => css`
     ${th('tags.default')};
     ${th(`tags.variants.${variant}`)};
     ${th(`tags.sizes.${size}`)}
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: md;
+    padding-right: ${hasAction ? th('space.xl') : null};
     ${overflowEllipsis};
     ${system};
     ${(shape || length === 1) && shapeStyles(size, width, height, shape)};
@@ -40,5 +43,16 @@ export const Tag = styled.div(
         }
       }
     }
+  `
+)
+
+export const ActionIcon = styled.div(
+  ({ size }) => css`
+    position: absolute;
+    ${th(`tags.sizes.${size}`)};
+    top: 0;
+    bottom: 0;
+    right: 0;
+    ${centerContent};
   `
 )
