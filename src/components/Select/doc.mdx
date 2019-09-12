@@ -85,7 +85,7 @@ Passing a `renderMultiple` function allows you to format the selected items belo
           return selected.map(option => (
             <Tag variant="primary" onRemove={() => handleRemove(option.value)} mr="sm" mt="sm">
               <Icon name={option.value} mr="sm" />
-              <Text as="body2">{option.label}</Text>
+              <Text variant="body2">{option.label}</Text>
             </Tag>
           ))
         }}
