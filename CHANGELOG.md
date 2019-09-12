@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.24.1](https://github.com/WTTJ/welcome-ui/compare/v0.24.0...v0.24.1) (2019-09-12)
+
+
+### Bug Fixes
+
+* don't use placeholder for content ([#350](https://github.com/WTTJ/welcome-ui/issues/350)) ([b50fcc7](https://github.com/WTTJ/welcome-ui/commit/b50fcc7))
+* improve size/scroll of month/year dropdowns ([#349](https://github.com/WTTJ/welcome-ui/issues/349)) ([760aa87](https://github.com/WTTJ/welcome-ui/commit/760aa87))
+
+
+
 ## [0.24.0](https://github.com/WTTJ/welcome-ui/compare/v0.23.2...v0.24.0) (2019-09-12)
 
 
