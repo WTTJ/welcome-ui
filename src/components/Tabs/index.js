@@ -4,7 +4,6 @@ import { any, node, shape, string } from 'prop-types'
 import { Tab as ReakitTab, TabList as ReakitTabList, TabPanel as ReakitTabPanel } from 'reakit/Tab'
 import flattenChildren from 'react-flatten-children'
 
-import { getTransformStyle } from '../../utils/css'
 import { COMPONENT_TYPE } from '../../utils'
 import { useForkRef } from '../../utils/ref'
 import { useViewportSize } from '../../utils/viewport'
@@ -37,10 +36,8 @@ function useActiveBarState(listRef, activeTab) {
     const left = activeTabRect.left - listRect.left + list.scrollLeft
     const width = activeTabRect.width
     setState({
-      style: {
-        width,
-        ...getTransformStyle(`translateX(${left}px)`)
-      }
+      width,
+      left
     })
   }, [listRef, activeTab, viewportWidth])
 
