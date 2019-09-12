@@ -12,7 +12,7 @@ export const Tag = forwardRef(
     return (
       <S.Tag
         data-testid={dataTestId}
-        hasRemoveIcon={!!onRemove}
+        hasAction={!!onRemove}
         length={children ? children.length : null}
         ref={ref}
         role="listitem"

@@ -15,7 +15,7 @@ const shapeStyles = (size, width, height, shape = 'square') => css`
 `
 
 export const Tag = styled.div(
-  ({ hasRemoveIcon, height, length, shape, size, variant, width }) => css`
+  ({ hasAction, height, length, shape, size, variant, width }) => css`
     ${th('tags.default')};
     ${th(`tags.variants.${variant}`)};
     ${th(`tags.sizes.${size}`)}
@@ -24,7 +24,7 @@ export const Tag = styled.div(
     align-items: center;
     justify-content: center;
     border-radius: md;
-    padding-right: ${hasRemoveIcon ? th('space.xl') : null};
+    padding-right: ${hasAction ? th('space.xl') : null};
     ${overflowEllipsis};
     ${system};
     ${(shape || length === 1) && shapeStyles(size, width, height, shape)};
