@@ -12,6 +12,7 @@ export const Tag = forwardRef(
     return (
       <S.Tag
         data-testid={dataTestId}
+        hasAction={!!onRemove}
         length={children ? children.length : null}
         ref={ref}
         role="listitem"
@@ -20,7 +21,11 @@ export const Tag = forwardRef(
         {...rest}
       >
         {content}
-        {onRemove && <Icon name="cross" onClick={onRemove} size="xs" title="Remove" />}
+        {!!onRemove && (
+          <S.ActionIcon size={size}>
+            <Icon name="cross" onClick={onRemove} size="xs" title="Remove" />
+          </S.ActionIcon>
+        )}
       </S.Tag>
     )
   }

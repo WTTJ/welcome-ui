@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css } from '@xstyled/styled-components'
 
 import { welcomekitTheme } from './src/theme/welcomekit'
 import { createTheme } from './src/theme/core'

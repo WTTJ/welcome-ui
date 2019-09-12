@@ -1,27 +1,29 @@
-import React, { forwardRef } from 'react'
-import { node, oneOf, string } from 'prop-types'
+import styled from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
-import * as S from './styles'
+import { system } from '../../utils/'
+import { UniversalLink } from '../UniversalLink'
 
-export const Link = forwardRef(
-  ({ children, dataTestId, target, variant = 'primary', ...rest }, ref) => (
-    <S.Link
-      data-testid={dataTestId}
-      ref={ref}
-      // for security
-      rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-      target={target}
-      variant={variant}
-      {...rest}
-    >
-      {children}
-    </S.Link>
-  )
-)
+export const Link = styled(UniversalLink)`
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  opacity: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 300ms;
 
-Link.displayName = 'Link'
-Link.propTypes = {
-  children: node,
-  target: string,
-  variant: oneOf(['primary', 'secondary'])
-}
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+    outline: none;
+  }
+
+  ${th('links.default')};
+  ${props => th(`links.${props.variant || 'primary'}`)};
+  ${system};
+
+  & > *:not(:only-child):not(:last-child) {
+    margin-right: xs;
+  }
+`

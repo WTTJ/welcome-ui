@@ -1,4 +1,4 @@
-import styled from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { system } from '../../utils'
@@ -57,12 +57,15 @@ export const TabPanel = styled.div`
   ${th('tabs.panel')};
 `
 
-export const ActiveBar = styled.span`
-  ${th('tabs.activeBar')};
-  position: absolute;
-  left: 0;
-  width: 0;
-  will-change: width, transform;
-  transition: medium;
-  transition-property: transform, width;
-`
+export const ActiveBar = styled.span(
+  ({ left = 0, width = 0 }) => css`
+    ${th('tabs.activeBar')};
+    position: absolute;
+    left: 0;
+    width: ${width};
+    transform: translateX(${left}px);
+    will-change: width, transform;
+    transition: medium;
+    transition-property: transform, width;
+  `
+)
