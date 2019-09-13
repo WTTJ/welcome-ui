@@ -8,7 +8,7 @@ export const getButtons = theme => {
     'letter-spacing': letterSpacings.md,
     'background-color': colors.primary[500],
     'border-color': colors.primary[500],
-    'border-radius': radii.sm,
+    'border-radius': radii.md,
     'line-height': '100%',
     '&:hover': {
       'box-shadow': shadows.sm
