@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.24.2](https://github.com/WTTJ/welcome-ui/compare/v0.24.1...v0.24.2) (2019-09-13)
+
+
+### Bug Fixes
+
+* infinite loop when adding select item ([#352](https://github.com/WTTJ/welcome-ui/issues/352)) ([e2713a7](https://github.com/WTTJ/welcome-ui/commit/e2713a7))
+
+
+
 ### [0.24.1](https://github.com/WTTJ/welcome-ui/compare/v0.24.0...v0.24.1) (2019-09-12)
 
 
