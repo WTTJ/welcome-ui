@@ -5,7 +5,6 @@ import matchSorter from 'match-sorter'
 import kebabCase from 'lodash.kebabcase'
 import uniqBy from 'lodash.uniqby'
 import isEqual from 'lodash.isequal'
-import reject from 'lodash.reject'
 
 import { COMPONENT_TYPE, INPUTS_TYPE, OPTIONS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
 import { Icon } from '../Icon'
@@ -93,14 +92,12 @@ export const Select = forwardRef(
 
     // Update results if searchable
     const handleInputChange = value => {
-      if (!isSearchable) {
-        return
-      }
-
       // Update
-      const results = matchSorter(options, value, { keys: ['label'] })
-      setInputValue(value)
-      setResults(results)
+      if (isSearchable && value !== inputValue) {
+        const results = matchSorter(options, value, { keys: ['label'] })
+        setInputValue(value)
+        setResults(results)
+      }
     }
 
     const getValue = value => {
@@ -114,15 +111,11 @@ export const Select = forwardRef(
     const handleChange = values => {
       const value = isMultiple ? values : values[0]
       const event = createEvent({ name, value })
+
       onChange && onChange(getValue(value), event)
+
       if (isCreatable) {
-        // If there are newly-created values, call `onCreate`
-        const created = reject(values, value =>
-          options.find(option => option.value === value.value)
-        )
-        if (created.length) {
-          onCreate && onCreate(created[0].label, event)
-        }
+        onCreate && onCreate(value.label, event)
       }
     }
 
