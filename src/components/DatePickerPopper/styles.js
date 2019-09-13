@@ -19,10 +19,17 @@ export const Popper = styled.div`
     font-weight: medium;
   }
 
+  .react-datepicker__year-read-view,
+  .react-datepicker__month-read-view,
+  .react-datepicker__month-year-read-view {
+    visibility: visible !important;
+  }
+
   .react-datepicker__year-read-view--down-arrow,
   .react-datepicker__month-read-view--down-arrow,
   .react-datepicker__month-year-read-view--down-arrow {
     top: 5px;
+    right: -5px;
     transform: scale(0.5);
   }
 
@@ -78,7 +85,7 @@ export const Popper = styled.div`
   .react-datepicker__month-dropdown {
     height: 16.875rem;
     overflow-y: scroll;
-    top: 0;
+    top: 3rem;
     border-radius: sm;
   }
 
