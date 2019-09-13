@@ -3,11 +3,11 @@ import { fireEvent } from '@testing-library/react'
 
 import { getFormValues, TestFinalForm } from '../../../docz/FinalForm'
 import { render } from '../../utils/tests'
+import { createEvent } from '../../utils/'
 import { ConnectedField } from '../ConnectedField'
 import { Icon } from '../Icon'
 
 import { Select } from './index'
-
 const capitalize = text => text.charAt(0).toUpperCase() + text.slice(1)
 
 const OPTIONS = [
@@ -238,6 +238,24 @@ test('<Select renderItem> formats items', () => {
   expect(formValues.select).toStrictEqual('february')
 })
 
+test('<Select icon> shows icon', () => {
+  const { container } = render(
+    <TestFinalForm initialValues={{ select: 'february' }}>
+      <ConnectedField
+        component={Select}
+        dataTestId="select"
+        icon={<Icon color="nude.500" name="avatar" />}
+        label="Select"
+        name="select"
+        options={OPTIONS}
+      />
+    </TestFinalForm>
+  )
+
+  const icon = container.querySelector('[title="avatar"]')
+  expect(icon).toBeInTheDocument()
+})
+
 test('<Select isSearchable> filters results', () => {
   const { getByRole, getByTestId } = render(
     <TestFinalForm initialValues={{}}>
@@ -287,6 +305,16 @@ test("<Select isSearchable> doesn't show list if no results", () => {
 })
 
 test('<Select isCreatable> can create new items', () => {
+  const handleCreate = jest.fn()
+  const CREATED = {
+    label: 'Fish and chips',
+    value: 'fish-and-chips'
+  }
+  const event = createEvent({
+    name: 'select',
+    value: CREATED
+  })
+  delete event.preventDefault
   const { getByRole, getByTestId } = render(
     <TestFinalForm initialValues={{}}>
       <ConnectedField
@@ -295,20 +323,32 @@ test('<Select isCreatable> can create new items', () => {
         isCreatable
         label="Select"
         name="select"
+        onCreate={handleCreate}
         options={OPTIONS}
       />
     </TestFinalForm>
   )
 
   const select = getByTestId('select')
-  fireEvent.change(select, { target: { value: 'Fish and chips' } })
 
+  // Type in search box
+  fireEvent.change(select, { target: { value: CREATED.label } })
+
+  // Expect results to have only 'Create' item
   const option = getByRole('listbox').querySelector('li')
-  expect(option).toHaveTextContent('Create "Fish and chips"')
+  expect(option).toHaveTextContent(`Create "${CREATED.label}"`)
 
-  // TODO: Fix this test
-  // fireEvent.click(addOption)
-  // const formValues = getFormValues(getByTestId('values'))
-  // expect(select.value).toBe('Fish and chips')
-  // expect(formValues.select).toStrictEqual('fish-and-chips')
+  // Click on 'Create' item
+  fireEvent.click(option)
+
+  // Expect `onCreate` callback to be called
+  expect(handleCreate).toHaveBeenCalledTimes(1)
+  expect(handleCreate).toHaveBeenCalledWith(CREATED.label, expect.objectContaining(event))
+
+  // Expect content to be new item
+  expect(select.value).toBe(CREATED.label)
+
+  // Expect form values to have new item
+  const formValues = getFormValues(getByTestId('values'))
+  expect(formValues.select).toStrictEqual(CREATED.label)
 })
