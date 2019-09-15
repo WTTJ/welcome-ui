@@ -98,6 +98,11 @@ You can find additional props for each field component in [Fields](/fields/file-
         colors.push({ value: kebabCase(value), label: value })
       }
     }
+    const renderItem = option => (
+      <Box display="flex" alignItems="center">
+        <Icon name={option.value} mr="xs" /> <span>{option.label}</span>
+      </Box>
+    )
     // Render
     return (
       <Form
@@ -210,11 +215,7 @@ You can find additional props for each field component in [Fields](/fields/file-
                 options={networks}
                 label="Social network"
                 placeholder="Choose network"
-                renderItem={option => (
-                  <Box display="flex" alignItems="center">
-                    <Icon name={option.value} mr="xs" /> <span>{option.label}</span>
-                  </Box>
-                )}
+                renderItem={renderItem}
                 mb="xl"
               />
               <ConnectedField
@@ -223,14 +224,12 @@ You can find additional props for each field component in [Fields](/fields/file-
                 options={months}
                 label="Favourite month"
                 placeholder="Choose month"
-                required
                 mb="xl"
               />
               <ConnectedField
                 name="colors"
                 component={Select}
                 options={colors}
-                isMultiple
                 isSearchable
                 isCreatable
                 label="Colors"

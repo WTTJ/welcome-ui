@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useState } from 'react'
+import React, { forwardRef, useCallback, useEffect, useMemo, useState } from 'react'
 import { arrayOf, bool, func, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import matchSorter from 'match-sorter'
@@ -67,12 +67,12 @@ export const Select = forwardRef(
     },
     ref
   ) => {
-    const getOptionFromValue = useCallback(value => optionFromValue(options, value), [options])
-    const defaultOption = getOptionFromValue(defaultValue)
-    const selectedItem = (!isMultiple && defaultOption && defaultOption[0]) || null
-    const defaultInputValue = selectedItem ? defaultOption[0].label : EMPTY
+    const getOptionsFromValues = useCallback(value => optionFromValue(options, value), [options])
+    const defaultOptions = useMemo(() => getOptionsFromValues(defaultValue), [defaultValue])
+    const selectedItem = (!isMultiple && defaultOptions && defaultOptions[0]) || null
+    const defaultInputValue = selectedItem ? defaultOptions[0].label : EMPTY
     // Values will always be an array internally
-    const [values, setValues] = useState(defaultOption)
+    const [values, setValues] = useState(defaultOptions)
     const [inputValue, setInputValue] = useState(defaultInputValue)
     const [results, setResults] = useState(options)
 
@@ -85,26 +85,27 @@ export const Select = forwardRef(
 
     // Ensure values are controlled by parent
     useEffect(() => {
-      setValues(getOptionFromValue(defaultValue))
+      const items = matchSorter(options, defaultInputValue, { keys: ['label'] })
+      setValues(defaultOptions)
       setInputValue(defaultInputValue)
-      setResults(options)
-    }, [defaultValue, defaultInputValue, getOptionFromValue, options])
-
-    // Update results if searchable
-    const handleInputChange = value => {
-      // Update
-      if (isSearchable && value !== inputValue) {
-        const results = matchSorter(options, value, { keys: ['label'] })
-        setInputValue(value)
-        setResults(results)
-      }
-    }
+      setResults(items)
+    }, [defaultInputValue, options, defaultOptions])
 
     const getValue = value => {
       if (!value) return
       const getCorrectValue = value =>
         isValueExisting(value.value, options) ? value.value : value.label
       return Array.isArray(value) ? value.map(getCorrectValue) : getCorrectValue(value)
+    }
+
+    // Update results if searchable
+    const handleInputChange = value => {
+      // Update
+      if (isSearchable && value !== inputValue) {
+        const items = matchSorter(options, value, { keys: ['label'] })
+        setInputValue(value)
+        setResults(items)
+      }
     }
 
     // Send event to parent when value(s) changes
@@ -115,7 +116,11 @@ export const Select = forwardRef(
       onChange && onChange(getValue(value), event)
 
       if (isCreatable) {
-        onCreate && onCreate(value.label, event)
+        // If there are newly-created values, call `onCreate`
+        const isExisting = options.find(option => option.value === value.value)
+        if (!isExisting) {
+          onCreate && onCreate(value.label, event)
+        }
       }
     }
 
@@ -159,11 +164,24 @@ export const Select = forwardRef(
     const spacer = options.reduce(
       (prev, current) =>
         current.label && prev.length > current.label.length ? prev : current.label,
-      EMPTY
+      ''
     )
+
+    const option = findOption(inputValue, options)
+    let inputContent = EMPTY
+    if (isMultiple) {
+      inputContent = inputValue
+    } else if (option.label) {
+      if (isSearchable) {
+        inputContent = option.label
+      } else {
+        inputContent = renderItem(option)
+      }
+    }
 
     return (
       <Downshift
+        inputValue={isSearchable ? inputContent : EMPTY}
         itemToString={itemToString}
         onInputValueChange={handleInputChange}
         onOuterClick={handleOuterClick}
@@ -185,13 +203,6 @@ export const Select = forwardRef(
           const isShowMenu = isOpen && (results.length || isShowCreate)
           const isShowDeleteIcon = inputValue && !isOpen && !required
           const rootProps = getRootProps(rest)
-          const option = findOption(inputValue, options)
-          let inputContent = EMPTY
-          if (isMultiple) {
-            inputContent = inputValue
-          } else if (option.label) {
-            inputContent = renderItem(option)
-          }
           const inputProps = getInputProps({
             autoComplete: 'off',
             autoFocus,
@@ -209,7 +220,6 @@ export const Select = forwardRef(
             required,
             size,
             tabIndex: 0,
-            value: inputContent,
             variant: isOpen ? 'focused' : variant,
             ...rest
           })
@@ -220,7 +230,7 @@ export const Select = forwardRef(
                 {isSearchable ? (
                   <S.Input as="input" type="text" {...inputProps} />
                 ) : (
-                  <S.Input {...inputProps}>{inputContent || EMPTY}</S.Input>
+                  <S.Input {...inputProps}>{inputContent}</S.Input>
                 )}
                 {icon && <S.Icon size={size}>{icon}</S.Icon>}
                 <S.Indicators size={size}>

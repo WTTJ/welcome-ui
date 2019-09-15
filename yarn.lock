@@ -1587,6 +1587,11 @@
     "@babel/runtime" "^7.4.5"
     "@testing-library/dom" "^5.0.0"
 
+"@testing-library/user-event@=7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-7.0.1.tgz#c69bc0c691f8ee83faaaef60d7dd85b07532fa36"
+  integrity sha512-U5KHL2wyTWmKM3JW9eMI1fd/4B8qcJKuu6uKktZuTG17MTJNsbmH0dkiTHg3a1kN1xrkAAel8VVaq5fmEpuV4A==
+
 "@tippy.js/react@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@tippy.js/react/-/react-2.2.0.tgz#6b3af3b7f34bc436abf38fa374eadf60f3f7ca62"
