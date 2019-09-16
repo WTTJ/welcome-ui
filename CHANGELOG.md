@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.24.3](https://github.com/WTTJ/welcome-ui/compare/v0.24.2...v0.24.3) (2019-09-16)
+
+
+### Bug Fixes
+
+* can't type in select after creating new item ([#355](https://github.com/WTTJ/welcome-ui/issues/355)) ([1cbaaba](https://github.com/WTTJ/welcome-ui/commit/1cbaaba))
+* crea changes 2 ([#353](https://github.com/WTTJ/welcome-ui/issues/353)) ([451361f](https://github.com/WTTJ/welcome-ui/commit/451361f))
+* send correct payload and blur input when uploading/removing ([#359](https://github.com/WTTJ/welcome-ui/issues/359)) ([b20be75](https://github.com/WTTJ/welcome-ui/commit/b20be75))
+
+
+
 ### [0.24.2](https://github.com/WTTJ/welcome-ui/compare/v0.24.1...v0.24.2) (2019-09-13)
 
 
