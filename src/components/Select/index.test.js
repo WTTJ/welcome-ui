@@ -1,16 +1,16 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { getFormValues, TestFinalForm } from '../../../docz/FinalForm'
 import { render } from '../../utils/tests'
-import { createEvent } from '../../utils/'
 import { ConnectedField } from '../ConnectedField'
 import { Icon } from '../Icon'
 
 import { Select } from './index'
 const capitalize = text => text.charAt(0).toUpperCase() + text.slice(1)
 
-const OPTIONS = [
+const MONTHS = [
   'january',
   'february',
   'march',
@@ -32,8 +32,8 @@ test('<Select> has default attributes', () => {
         component={Select}
         dataTestId="select"
         label="Select"
-        name="select"
-        options={OPTIONS}
+        name="default"
+        options={MONTHS}
       />
     </TestFinalForm>
   )
@@ -54,7 +54,7 @@ test('<Select> shows options on click', () => {
         dataTestId="select"
         label="Select"
         name="select"
-        options={OPTIONS}
+        options={MONTHS}
       />
     </TestFinalForm>
   )
@@ -75,7 +75,39 @@ test('<Select> can choose option', () => {
         dataTestId="select"
         label="Select"
         name="select"
-        options={OPTIONS}
+        options={MONTHS}
+      />
+    </TestFinalForm>
+  )
+
+  const select = getByTestId('select')
+  fireEvent.click(select)
+
+  let options = getByRole('listbox').querySelectorAll('li')
+  fireEvent.click(options[1])
+
+  const formValues = getFormValues(getByTestId('values'))
+  expect(select).toHaveTextContent('February')
+  expect(formValues.select).toStrictEqual('february')
+
+  // List is refilled
+  fireEvent.click(select)
+
+  options = getByRole('listbox').querySelectorAll('li')
+  expect(options.length).toBe(12)
+})
+
+test('<Select> calls onChange with correct (object) values', () => {
+  const handleChange = jest.fn()
+  const { getByRole, getByTestId } = render(
+    <TestFinalForm initialValues={{}}>
+      <ConnectedField
+        component={Select}
+        dataTestId="select"
+        label="Select"
+        name="select"
+        onChange={handleChange}
+        options={MONTHS}
       />
     </TestFinalForm>
   )
@@ -86,9 +118,13 @@ test('<Select> can choose option', () => {
   const options = getByRole('listbox').querySelectorAll('li')
   fireEvent.click(options[1])
 
-  const formValues = getFormValues(getByTestId('values'))
-  expect(select).toHaveTextContent('February')
-  expect(formValues.select).toStrictEqual('february')
+  expect(handleChange).toHaveBeenCalledTimes(1)
+  expect(handleChange).toHaveBeenCalledWith(
+    'february',
+    expect.objectContaining({
+      target: { name: 'select', value: { label: 'February', value: 'february' } }
+    }) // Ignore preventDefault
+  )
 })
 
 test('<Select> can remove option', () => {
@@ -99,7 +135,7 @@ test('<Select> can remove option', () => {
         dataTestId="select"
         label="Select"
         name="select"
-        options={OPTIONS}
+        options={MONTHS}
       />
     </TestFinalForm>
   )
@@ -127,7 +163,7 @@ test('<Select isMultiple> can select multiple items', () => {
         isMultiple
         label="Select"
         name="select"
-        options={OPTIONS}
+        options={MONTHS}
       />
     </TestFinalForm>
   )
@@ -151,6 +187,41 @@ test('<Select isMultiple> can select multiple items', () => {
   expect(formValues.select).toStrictEqual(['february', 'march', 'april'])
 })
 
+test('<Select> can accept value, label or object as value', () => {
+  const { getAllByRole, getByRole, getByTestId } = render(
+    <TestFinalForm
+      initialValues={{ select: [{ label: 'January', value: 'january' }, 'february', 'March'] }}
+    >
+      <ConnectedField
+        component={Select}
+        dataTestId="select"
+        isMultiple
+        label="Select"
+        name="select"
+        options={MONTHS}
+      />
+    </TestFinalForm>
+  )
+
+  const select = getByTestId('select')
+  let tags = getAllByRole('listitem')
+  expect(tags.length).toBe(3)
+
+  fireEvent.click(select)
+
+  // Click 4th result (April)
+  const options = getByRole('listbox').querySelectorAll('li')
+  fireEvent.click(options[3])
+
+  tags = getAllByRole('listitem')
+  expect(tags.length).toBe(4)
+
+  const formValues = getFormValues(getByTestId('values'))
+  expect(select).toHaveTextContent('')
+  expect(tags.map(tag => tag.textContent)).toStrictEqual(['January', 'February', 'March', 'April'])
+  expect(formValues.select).toStrictEqual(['january', 'february', 'march', 'april'])
+})
+
 test('<Select isMultiple> can remove multiple items', () => {
   const { getAllByRole, getByTestId } = render(
     <TestFinalForm initialValues={{ select: ['february', 'march'] }}>
@@ -160,7 +231,7 @@ test('<Select isMultiple> can remove multiple items', () => {
         isMultiple
         label="Select"
         name="select"
-        options={OPTIONS}
+        options={MONTHS}
       />
     </TestFinalForm>
   )
@@ -169,7 +240,8 @@ test('<Select isMultiple> can remove multiple items', () => {
   let tags = getAllByRole('listitem')
   expect(tags.length).toBe(2)
 
-  fireEvent.click(tags[1].querySelector('[title=Remove]'))
+  const removeButton = tags[1].querySelector('[title=Remove]')
+  fireEvent.click(removeButton)
   tags = getAllByRole('listitem')
   expect(tags.length).toBe(1)
 
@@ -179,7 +251,7 @@ test('<Select isMultiple> can remove multiple items', () => {
   expect(formValues.select).toStrictEqual(['february'])
 })
 
-test('<Select required> cannot remove selected item', () => {
+test('<Select required> cannot remove selected item if required', () => {
   const { getByRole, getByTestId, queryByTitle } = render(
     <TestFinalForm initialValues={{}}>
       <ConnectedField
@@ -187,7 +259,7 @@ test('<Select required> cannot remove selected item', () => {
         dataTestId="select"
         label="Select"
         name="select"
-        options={OPTIONS}
+        options={MONTHS}
         required
       />
     </TestFinalForm>
@@ -219,7 +291,7 @@ test('<Select renderItem> formats items', () => {
         dataTestId="select"
         label="Select"
         name="select"
-        options={OPTIONS}
+        options={MONTHS}
         renderItem={option => (
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Icon mr="xs" name="date" size="sm" title="Calendar" /> <span>{option.label}</span>
@@ -247,7 +319,7 @@ test('<Select icon> shows icon', () => {
         icon={<Icon color="nude.500" name="avatar" />}
         label="Select"
         name="select"
-        options={OPTIONS}
+        options={MONTHS}
       />
     </TestFinalForm>
   )
@@ -265,19 +337,18 @@ test('<Select isSearchable> filters results', () => {
         isSearchable
         label="Select"
         name="select"
-        options={OPTIONS}
+        options={MONTHS}
       />
     </TestFinalForm>
   )
 
   const select = getByTestId('select')
-  fireEvent.change(select, { target: { value: 'ember' } })
+  userEvent.type(select, 'ember')
 
   const options = getByRole('listbox').querySelectorAll('li')
   expect(options.length).toBe(3) // September, November, December
 
   fireEvent.click(options[1])
-
   const formValues = getFormValues(getByTestId('values'))
   expect(select.value).toBe('November')
   expect(formValues.select).toStrictEqual('november')
@@ -292,13 +363,13 @@ test("<Select isSearchable> doesn't show list if no results", () => {
         isSearchable
         label="Select"
         name="select"
-        options={OPTIONS}
+        options={MONTHS}
       />
     </TestFinalForm>
   )
 
   const select = getByTestId('select')
-  fireEvent.change(select, { target: { value: 'fish' } })
+  userEvent.type(select, 'Fish')
 
   const options = queryByRole('listbox')
   expect(options).toBeNull()
@@ -306,15 +377,10 @@ test("<Select isSearchable> doesn't show list if no results", () => {
 
 test('<Select isCreatable> can create new items', () => {
   const handleCreate = jest.fn()
-  const CREATED = {
-    label: 'Fish and chips',
-    value: 'fish-and-chips'
-  }
-  const event = createEvent({
-    name: 'select',
-    value: CREATED
-  })
-  delete event.preventDefault
+
+  const firstItem = { label: 'Kayab', value: 'kayab' }
+  const secondItem = { label: 'Cumku', value: 'cumku' }
+
   const { getByRole, getByTestId } = render(
     <TestFinalForm initialValues={{}}>
       <ConnectedField
@@ -324,7 +390,7 @@ test('<Select isCreatable> can create new items', () => {
         label="Select"
         name="select"
         onCreate={handleCreate}
-        options={OPTIONS}
+        options={MONTHS}
       />
     </TestFinalForm>
   )
@@ -332,23 +398,138 @@ test('<Select isCreatable> can create new items', () => {
   const select = getByTestId('select')
 
   // Type in search box
-  fireEvent.change(select, { target: { value: CREATED.label } })
+  userEvent.type(select, firstItem.label)
 
   // Expect results to have only 'Create' item
-  const option = getByRole('listbox').querySelector('li')
-  expect(option).toHaveTextContent(`Create "${CREATED.label}"`)
+  let option = getByRole('listbox').querySelector('li')
+  expect(option).toHaveTextContent(`Create "${firstItem.label}"`)
 
   // Click on 'Create' item
   fireEvent.click(option)
 
   // Expect `onCreate` callback to be called
   expect(handleCreate).toHaveBeenCalledTimes(1)
-  expect(handleCreate).toHaveBeenCalledWith(CREATED.label, expect.objectContaining(event))
+  expect(handleCreate).toHaveBeenCalledWith(
+    firstItem.label,
+    expect.objectContaining({ target: { name: 'select', value: firstItem } }) // Ignore preventDefault
+  )
 
   // Expect content to be new item
-  expect(select.value).toBe(CREATED.label)
+  expect(select.value).toBe(firstItem.label)
+
+  // Expect form values to have new item
+  let formValues = getFormValues(getByTestId('values'))
+  expect(formValues.select).toStrictEqual(firstItem.label)
+
+  // Add another item
+  // Type again in search box
+  userEvent.type(select, secondItem.label)
+  expect(select.value).toBe(secondItem.label)
+
+  option = getByRole('listbox').querySelector('li')
+  expect(option).toHaveTextContent(`Create "${secondItem.label}"`)
+
+  // Click on 'Create' item
+  fireEvent.click(option)
+
+  // Expect `onCreate` callback to be called
+  expect(handleCreate).toHaveBeenCalledTimes(2)
+  expect(handleCreate).toHaveBeenCalledWith(
+    secondItem.label,
+    expect.objectContaining({ target: { name: 'select', value: secondItem } }) // Ignore preventDefault
+  )
+
+  // Expect content to be new item
+  expect(select.value).toBe(secondItem.label)
+
+  // Expect form values to have new item
+  formValues = getFormValues(getByTestId('values'))
+  expect(formValues.select).toStrictEqual(secondItem.label)
+})
+
+test('<Select isCreatable isMultiple> can create new items', () => {
+  const handleCreate = jest.fn()
+
+  const { getByRole, getByTestId } = render(
+    <TestFinalForm initialValues={{ select: ['february', 'march'] }}>
+      <ConnectedField
+        component={Select}
+        dataTestId="select"
+        isCreatable
+        isMultiple
+        label="Select"
+        name="select"
+        onCreate={handleCreate}
+        options={MONTHS}
+      />
+    </TestFinalForm>
+  )
+
+  const select = getByTestId('select')
+
+  // Type in search box
+  userEvent.type(select, 'Kayab')
+
+  // Click on 'Create' item
+  const option = getByRole('listbox').querySelector('li')
+  fireEvent.click(option)
+
+  // Expect `onCreate` callback to be called
+  expect(handleCreate).toHaveBeenCalledTimes(1)
+  expect(handleCreate).toHaveBeenCalledWith(
+    'Kayab',
+    expect.objectContaining({
+      target: {
+        name: 'select',
+        value: [
+          { label: 'February', value: 'february' },
+          { label: 'March', value: 'march' },
+          { label: 'Kayab', value: 'kayab' }
+        ]
+      }
+    }) // Ignore preventDefault
+  )
+
+  // Expect content to be new item
+  expect(select.value).toBe('')
 
   // Expect form values to have new item
   const formValues = getFormValues(getByTestId('values'))
-  expect(formValues.select).toStrictEqual(CREATED.label)
+  expect(formValues.select).toStrictEqual(['february', 'march', 'Kayab'])
+})
+
+test("<Select isCreatable> can't create an existing item", () => {
+  const handleCreate = jest.fn()
+  const { getByRole, getByTestId } = render(
+    <TestFinalForm initialValues={{}}>
+      <ConnectedField
+        component={Select}
+        dataTestId="select"
+        isCreatable
+        label="Select"
+        name="select"
+        onCreate={handleCreate}
+        options={MONTHS}
+      />
+    </TestFinalForm>
+  )
+
+  const select = getByTestId('select')
+
+  // Type in search box
+  userEvent.type(select, 'October')
+
+  // Expect results to not have 'Create' item
+  let option = getByRole('listbox').querySelector('li')
+  expect(option).toHaveTextContent('October')
+
+  // Click on 'Create' item
+  fireEvent.click(option)
+
+  // Expect `onCreate` callback not to be called
+  expect(handleCreate).toHaveBeenCalledTimes(0)
+
+  const formValues = getFormValues(getByTestId('values'))
+  expect(select.value).toBe('October')
+  expect(formValues.select).toStrictEqual('october')
 })

@@ -19,7 +19,7 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled(filterComponent('div', ['hasIcon', 'renderMultiple']))(
+export const Input = styled(filterComponent('div', ['hasIcon', 'inputValue', 'renderMultiple']))(
   ({ hasIcon, size }) => css`
     position: relative;
     ${fieldStyles};
