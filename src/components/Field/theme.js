@@ -13,7 +13,7 @@ export const getFields = theme => {
     'border-color': colors.nude[200],
     'border-width': '1px',
     'border-style': 'solid',
-    'border-radius': radii.sm,
+    'border-radius': radii.md,
     outline: 'none'
   }
 
