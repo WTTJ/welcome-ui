@@ -33,6 +33,7 @@ export const FileUpload = forwardRef(
       multiple,
       name,
       onAddFile,
+      onBlur,
       onChange,
       onError,
       onRemoveFile,
@@ -69,16 +70,19 @@ export const FileUpload = forwardRef(
       const event = createEvent({ name, value: newFiles })
       onChange && onChange(event)
       onAddFile && onAddFile(newFiles)
+      onBlur && onBlur()
     }
 
     const handleRemoveFile = index => {
       const newFiles = [...files]
       const file = newFiles.splice(index, 1)
+      const value = multiple ? newFiles : undefined
       setFiles(newFiles)
 
-      const event = createEvent({ name, value: newFiles })
+      const event = createEvent({ name, value })
       onChange && onChange(event)
       onRemoveFile && onRemoveFile(file)
+      onBlur && onBlur()
     }
 
     const handleClick = () => {
@@ -99,6 +103,7 @@ export const FileUpload = forwardRef(
           maxSize={maxSize}
           multiple={multiple}
           name={name}
+          onBlur={onBlur}
           onChange={handleAddFile}
           ref={inputRef}
           {...rest}
@@ -124,6 +129,7 @@ FileUpload.propTypes = {
   multiple: bool,
   name: string.isRequired,
   onAddFile: func,
+  onBlur: func,
   onChange: func,
   onError: func,
   onRemoveFile: func,
