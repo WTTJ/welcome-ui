@@ -3,7 +3,7 @@ import { func, oneOf } from 'prop-types'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils'
 import { IconWrapper } from '../Field/styles'
-import { Icon } from '../Icon'
+import { ClearButton } from '../ClearButton'
 
 import * as S from './styles'
 
@@ -17,9 +17,11 @@ export class CustomInput extends PureComponent {
       icon,
       iconPlacement,
       inputRef,
+      onReset,
       size,
       ...rest
     } = this.props
+
     return (
       <S.CustomInput
         focused={focused}
@@ -36,7 +38,7 @@ export class CustomInput extends PureComponent {
         )}
         <input ref={inputRef} {...rest} />
         <IconWrapper iconPlacement="right" size={size}>
-          <Icon color="nude.800" name="down" size="xs" />
+          <ClearButton onClick={onReset} />
         </IconWrapper>
       </S.CustomInput>
     )
@@ -50,5 +52,6 @@ CustomInput.propTypes = {
   icon: COMPONENT_TYPE,
   iconPlacement: oneOf('right', 'left'),
   inputRef: func,
+  onReset: func,
   size: SIZES_TYPE
 }

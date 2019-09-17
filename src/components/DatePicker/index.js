@@ -62,6 +62,12 @@ export const DatePicker = forwardRef(
       onBlur && onBlur(e)
     }
 
+    const handleReset = e => {
+      e.preventDefault()
+      setDate(null)
+      onChange && onChange()
+    }
+
     const handleChange = newDate => {
       if (!newDate) return
       const date = formatDate(newDate)
@@ -83,6 +89,7 @@ export const DatePicker = forwardRef(
             icon={icon}
             iconPlacement={iconPlacement}
             inputRef={inputRef || ref}
+            onReset={handleReset}
             size={size}
           />
         }
@@ -94,6 +101,7 @@ export const DatePicker = forwardRef(
         selected={date}
         size={size}
         {...rest}
+        isClearable={false}
       />
     )
   }

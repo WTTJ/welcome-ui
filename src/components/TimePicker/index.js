@@ -63,6 +63,12 @@ export const TimePicker = forwardRef(
       onBlur && onBlur(e)
     }
 
+    const handleReset = e => {
+      e.preventDefault()
+      setDate(null)
+      onChange && onChange()
+    }
+
     const handleChange = newDate => {
       if (!newDate) return
       const date = formatDate(newDate)
@@ -84,6 +90,7 @@ export const TimePicker = forwardRef(
             icon={icon}
             iconPlacement={iconPlacement}
             inputRef={inputRef || ref}
+            onReset={handleReset}
             size={size}
           />
         }
@@ -98,6 +105,7 @@ export const TimePicker = forwardRef(
         size={size}
         timeIntervals={timeIntervals}
         {...rest}
+        isClearable={false}
       />
     )
   }

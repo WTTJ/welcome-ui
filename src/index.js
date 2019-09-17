@@ -2,6 +2,7 @@
 export * from './components/Badge/index'
 export * from './components/Box/index'
 export * from './components/Button/index'
+export * from './components/ClearButton/index'
 export * from './components/ConnectedField/index'
 export * from './components/DatePicker/index'
 export * from './components/DatePickerPopper/index'
