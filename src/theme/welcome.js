@@ -88,7 +88,8 @@ export const welcomeTheme = {
   colors,
   buttons: {
     secondary: {
-      color: colors.secondary[500]
+      color: colors.secondary[500],
+      'background-color': colors.light[100]
     },
     tertiary: {
       'background-color': colors.secondary[500],
@@ -96,7 +97,9 @@ export const welcomeTheme = {
     },
     focused: {
       secondary: {
-        color: colors.secondary[200]
+        color: colors.secondary[200],
+        'border-color': colors.nude[200],
+        'box-shadow': 'none'
       },
       tertiary: {
         'background-color': colors.secondary[200],
