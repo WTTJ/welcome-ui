@@ -16,7 +16,7 @@
     "release": "yarn release:build && npm run release:publish && now --prod",
     "lint": "yarn lint:mdx && yarn lint:js",
     "lint:js": "eslint src --max-warnings 0",
-    "lint:mdx": "prettier --parser mdx --write 'src/**/*.mdx'",
+    "lint:mdx": "prettier --parser mdx --check 'src/**/*.mdx'",
     "test": "jest src",
     "test:watch": "jest --watch",
     "docz:dev": "docz dev",

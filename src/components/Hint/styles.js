@@ -8,6 +8,8 @@ export const Hint = styled.div(
     ${th('fields.hint')};
     color: ${getVariantStateColor(props.variant)};
     margin-top: sm;
+    display: flex;
+    align-items: center;
     ${system};
   `
 )
