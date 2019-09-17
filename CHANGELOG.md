@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.24.4](https://github.com/WTTJ/welcome-ui/compare/v0.24.3...v0.24.4) (2019-09-17)
+
+
+### Bug Fixes
+
+* improve secondary button hover state and hint alignment ([#362](https://github.com/WTTJ/welcome-ui/issues/362)) ([a0fed78](https://github.com/WTTJ/welcome-ui/commit/a0fed78))
+* replace arrow with clear button on DatePickers ([#361](https://github.com/WTTJ/welcome-ui/issues/361)) ([c0b136a](https://github.com/WTTJ/welcome-ui/commit/c0b136a)), closes [#358](https://github.com/WTTJ/welcome-ui/issues/358)
+
+
+
 ### [0.24.3](https://github.com/WTTJ/welcome-ui/compare/v0.24.2...v0.24.3) (2019-09-16)
 
 
