@@ -56,6 +56,12 @@ export const getButtons = theme => {
       'background-color': colors.light[200],
       'border-color': colors.danger[500]
     },
+    quaternary: {
+      ...defaults,
+      color: colors.nude[700],
+      'background-color': colors.nude[200],
+      'border-color': colors.nude[200]
+    },
     focused: {
       primary: {
         'background-color': colors.primary[200],
@@ -84,6 +90,11 @@ export const getButtons = theme => {
       'secondary-danger': {
         color: colors.danger[200],
         'border-color': colors.danger[200]
+      },
+      quaternary: {
+        color: colors.nude[800],
+        'background-color': colors.nude[400],
+        'border-color': colors.nude[400]
       }
     },
     disabled: {

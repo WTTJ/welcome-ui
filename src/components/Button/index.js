@@ -33,6 +33,7 @@ Button.propTypes = {
     'primary',
     'secondary',
     'tertiary',
+    'quaternary',
     'primary-warning',
     'secondary-warning',
     'primary-danger',

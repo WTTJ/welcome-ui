@@ -16,8 +16,8 @@ export const DateTimePicker = forwardRef(
     const [date, setDate] = useState(value)
 
     const handleChange = newDate => {
-      setDate(newDate)
-      onChange && onChange(new Date(newDate))
+      setDate(newDate || null)
+      onChange && onChange(newDate && new Date(newDate))
     }
 
     const formatDate = date => getDate(date, 15)
