@@ -6,13 +6,11 @@ import { getDate } from '../DateTimePicker/utils'
 import { DatePicker } from '../DatePicker'
 import { TimePicker } from '../TimePicker'
 
+import { DEFAULT_DATE } from './constants'
 import * as S from './styles'
 
-// Set default date in a const to avoid memory leak
-const DEFAULT_DATE = new Date()
-
 export const DateTimePicker = forwardRef(
-  ({ children, dataTestId, onChange, size = 'lg', value = DEFAULT_DATE }, ref) => {
+  ({ children, dataTestId, locale, onChange, size = 'lg', value = DEFAULT_DATE }, ref) => {
     const [date, setDate] = useState(value)
 
     const handleChange = newDate => {
@@ -47,13 +45,20 @@ export const DateTimePicker = forwardRef(
               onChange: handleChange,
               // give ref only to the first child
               inputRef: i < 1 && ref,
+              locale: locale,
               value: date
             })
           )}
         {!children && (
           <>
-            <DatePicker inputRef={ref} onChange={handleChange} size={size} value={value} />
-            <TimePicker onChange={handleChange} size={size} value={value} />
+            <DatePicker
+              inputRef={ref}
+              locale={locale}
+              onChange={handleChange}
+              size={size}
+              value={value}
+            />
+            <TimePicker locale={locale} onChange={handleChange} size={size} value={value} />
           </>
         )}
       </S.DateTimePicker>
@@ -65,6 +70,7 @@ DateTimePicker.displayName = 'DateTimePicker'
 
 DateTimePicker.propTypes = {
   children: node,
+  locale: object,
   onChange: func,
   size: SIZES_TYPE,
   value: oneOfType([number, object, string]).isRequired

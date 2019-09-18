@@ -19,13 +19,13 @@ test('<DateTimePicker> renders correctly', () => {
 })
 
 test('can render and opens the datePicker on click', () => {
-  const { baseElement, container } = render(
+  const { baseElement, getByTestId } = render(
     <DateTimePicker value={Date.now()}>
-      <DatePicker />
+      <DatePicker dataTestId={{ datePicker: 'datePicker' }} />
       <TimePicker />
     </DateTimePicker>
   )
-  const datePicker = container.querySelector('.date-picker')
+  const datePicker = getByTestId('datePicker')
   fireEvent.click(datePicker)
 
   const datePickerPopper = baseElement.querySelectorAll('.date-picker-popper')
@@ -35,17 +35,50 @@ test('can render and opens the datePicker on click', () => {
 })
 
 test('can render and opens the timePicker on click', () => {
-  const { baseElement, container } = render(
+  const { baseElement, getByTestId } = render(
     <DateTimePicker value={Date.now()}>
       <DatePicker />
-      <TimePicker />
+      <TimePicker dataTestId="timePicker" />
     </DateTimePicker>
   )
-  const timePicker = container.querySelector('.time-picker')
+  const timePicker = getByTestId('timePicker')
   fireEvent.click(timePicker)
 
   const datePickerPopper = baseElement.querySelectorAll('.date-picker-popper')
   const timePickerPopper = baseElement.querySelectorAll('.time-picker-popper')
   expect(datePickerPopper).toHaveLength(0)
   expect(timePickerPopper).toHaveLength(1)
+})
+
+test('', () => {
+  const { baseElement, debug, getByTestId } = render(
+    <DateTimePicker value={new Date('09/11/2001')}>
+      <DatePicker
+        dataTestId={{
+          datePicker: 'datePicker',
+          decreaseMonth: 'decreaseMonth',
+          increaseMonth: 'increaseMonth',
+          monthSelect: 'monthSelect',
+          yearSelect: 'yearSelect'
+        }}
+      />
+      <TimePicker />
+    </DateTimePicker>
+  )
+  const datePicker = getByTestId('datePicker')
+  expect(datePicker).toHaveValue('11/09/2001')
+
+  fireEvent.click(datePicker)
+
+  // const decreaseMonth = getByTestId('decreaseMonth')
+  // const increaseMonth = getByTestId('increaseMonth')
+  // const monthSelect = getByTestId('monthSelect')
+  // const yearSelect = getByTestId('yearSelect')
+  const datePickerPopper = baseElement.querySelector('.date-picker-popper')
+  const timePickerPopper = baseElement.querySelector('.time-picker-popper')
+
+  debug()
+  // expect(monthSelect).toHaveTextContent('September')
+  expect(datePickerPopper).toBeInTheDocument()
+  expect(timePickerPopper).toBeNull()
 })

@@ -33,6 +33,7 @@ export const Select = forwardRef(
       disabled,
       icon,
       id,
+      isClearable,
       isCreatable,
       isMultiple,
       isSearchable = isCreatable || isSearchable,
@@ -184,7 +185,7 @@ export const Select = forwardRef(
             !isValueSelected(inputValue, selected)
           )
           const isShowMenu = isOpen && (options.length || isShowCreate)
-          const isShowDeleteIcon = inputValue && !isOpen && !required
+          const isShowDeleteIcon = isClearable && inputValue && !required
 
           const DeleteIcon = (
             <S.DropDownIndicator
@@ -245,7 +246,7 @@ export const Select = forwardRef(
                 {icon && <S.Icon size={size}>{icon}</S.Icon>}
                 <S.Indicators size={size}>
                   {isShowDeleteIcon && DeleteIcon}
-                  {!isShowDeleteIcon && Arrow}
+                  {Arrow}
                 </S.Indicators>
               </S.InputWrapper>
               {isShowMenu && (
@@ -297,6 +298,7 @@ Select.propTypes = {
   disabled: bool,
   icon: COMPONENT_TYPE,
   id: string,
+  isClearable: bool,
   isCreatable: bool,
   isMultiple: bool,
   isSearchable: bool,

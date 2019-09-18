@@ -78,6 +78,13 @@ const iconPlacementStyles = (placement, size, rest) => {
   }
 }
 
+export const CustomHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10;
+`
+
 export const CustomInput = styled.div(({ focused, icon, iconPlacement, size, ...rest }) => {
   return css`
     position: relative;

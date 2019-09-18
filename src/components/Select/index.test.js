@@ -25,6 +25,29 @@ const MONTHS = [
   'december'
 ].map(month => ({ label: capitalize(month), value: month }))
 
+const MONTHS_WITH_INTEGER_VALUES = MONTHS.map((item, index) => ({
+  label: item.label,
+  value: index
+}))
+
+test('<Select> accepts falsy option values (such as 0)', () => {
+  const { getByTestId } = render(
+    <TestFinalForm initialValues={{}}>
+      <ConnectedField
+        component={Select}
+        dataTestId="select"
+        label="Select"
+        name="default"
+        options={MONTHS_WITH_INTEGER_VALUES}
+        value={0}
+      />
+    </TestFinalForm>
+  )
+  const select = getByTestId('select')
+
+  expect(select).toHaveTextContent('January')
+})
+
 test('<Select> has default attributes', () => {
   const { container, getByTestId } = render(
     <TestFinalForm initialValues={{}}>
@@ -136,6 +159,7 @@ test('<Select> can remove option', () => {
         label="Select"
         name="select"
         options={MONTHS}
+        isClearable
       />
     </TestFinalForm>
   )

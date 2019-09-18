@@ -35,6 +35,24 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
   }}
 </Playground>
 
+## Clearable
+
+<Playground>
+  {() => {
+    const ITEMS = [
+      { value: 'angular', label: 'Angular' },
+      { value: 'backbone', label: 'Backbone' },
+      { value: 'elm', label: 'Elm' },
+      { value: 'ember', label: 'Ember' },
+      { value: 'react', label: 'React' },
+      { value: 'vue', label: 'Vue' }
+    ]
+    const [value, setValue] = useState()
+    const handleChange = value => setValue(value)
+    return <Select isClearable name="default" onChange={handleChange} options={ITEMS} value={value} />
+  }}
+</Playground>
+
 ## Multiple values
 
 Just add the `isMultiple` prop. Note: to be able to choose multiple values you must pass an array for the `value`.

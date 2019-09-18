@@ -1,3 +1,18 @@
+export const MONTHS = [
+  { value: 0, label: 'January' },
+  { value: 1, label: 'February' },
+  { value: 2, label: 'March' },
+  { value: 3, label: 'April' },
+  { value: 4, label: 'May' },
+  { value: 5, label: 'June' },
+  { value: 6, label: 'July' },
+  { value: 7, label: 'August' },
+  { value: 8, label: 'September' },
+  { value: 9, label: 'October' },
+  { value: 10, label: 'November' },
+  { value: 11, label: 'December' }
+]
+
 export const getDate = (date, interval) => {
   if (!date) {
     return null
@@ -14,3 +29,23 @@ export const getDate = (date, interval) => {
   // Set minutes to nearest interval
   return new Date(newDate.setMinutes(nextInterval, 0, 0))
 }
+
+export const range = (start, end) => Array.from({ length: end + 1 - start }, (v, k) => k + start)
+
+export const getMonths = locale => {
+  if (locale) {
+    return MONTHS.map((item, index) => {
+      item.label = locale.localize.month(index)
+      return item
+    })
+  }
+  return MONTHS
+}
+
+export const getYears = (startYear, endYear) =>
+  range(startYear, endYear)
+    .map(year => ({
+      label: year,
+      value: year
+    }))
+    .reverse()
