@@ -49,7 +49,9 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
     ]
     const [value, setValue] = useState()
     const handleChange = value => setValue(value)
-    return <Select isClearable name="default" onChange={handleChange} options={ITEMS} value={value} />
+    return (
+      <Select isClearable name="default" onChange={handleChange} options={ITEMS} value={value} />
+    )
   }}
 </Playground>
 

@@ -102,11 +102,10 @@ export const DatePicker = forwardRef(
         popperContainer={DatePickerPopper}
         renderCustomHeader={props => (
           <CustomHeader
-            data-testid={dataTestId}
+            dataTestId={dataTestId}
             endYear={endYear}
             locale={locale}
             startYear={startYear}
-            value={value}
             {...props}
           />
         )}

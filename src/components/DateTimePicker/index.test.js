@@ -1,5 +1,6 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { render } from '../../utils/tests'
 import { DatePicker } from '../DatePicker'
@@ -50,8 +51,8 @@ test('can render and opens the timePicker on click', () => {
   expect(timePickerPopper).toHaveLength(1)
 })
 
-test('', () => {
-  const { baseElement, debug, getByTestId } = render(
+test('<DateTimePicker> renders month select', () => {
+  const { getByTestId } = render(
     <DateTimePicker value={new Date('09/11/2001')}>
       <DatePicker
         dataTestId={{
@@ -70,15 +71,97 @@ test('', () => {
 
   fireEvent.click(datePicker)
 
-  // const decreaseMonth = getByTestId('decreaseMonth')
-  // const increaseMonth = getByTestId('increaseMonth')
-  // const monthSelect = getByTestId('monthSelect')
-  // const yearSelect = getByTestId('yearSelect')
-  const datePickerPopper = baseElement.querySelector('.date-picker-popper')
-  const timePickerPopper = baseElement.querySelector('.time-picker-popper')
+  const monthSelect = getByTestId('monthSelect')
+  const yearSelect = getByTestId('yearSelect')
 
-  debug()
-  // expect(monthSelect).toHaveTextContent('September')
-  expect(datePickerPopper).toBeInTheDocument()
-  expect(timePickerPopper).toBeNull()
+  expect(monthSelect).toHaveTextContent('September')
+  expect(yearSelect).toHaveTextContent('2001')
+})
+
+test('<DateTimePicker> can proceed through next/prev months', () => {
+  const { getByTestId } = render(
+    <DateTimePicker value={new Date('09/11/2001')}>
+      <DatePicker
+        dataTestId={{
+          datePicker: 'datePicker',
+          decreaseMonth: 'decreaseMonth',
+          increaseMonth: 'increaseMonth',
+          monthSelect: 'monthSelect',
+          yearSelect: 'yearSelect'
+        }}
+      />
+      <TimePicker />
+    </DateTimePicker>
+  )
+  const datePicker = getByTestId('datePicker')
+  fireEvent.click(datePicker)
+
+  const decreaseMonth = getByTestId('decreaseMonth')
+  const increaseMonth = getByTestId('increaseMonth')
+  const monthSelect = getByTestId('monthSelect')
+  const yearSelect = getByTestId('yearSelect')
+
+  expect(monthSelect).toHaveTextContent('September')
+  expect(yearSelect).toHaveTextContent('2001')
+
+  fireEvent.click(decreaseMonth)
+  expect(monthSelect).toHaveTextContent('August')
+  expect(yearSelect).toHaveTextContent('2001')
+
+  fireEvent.click(increaseMonth)
+  fireEvent.click(increaseMonth)
+  expect(monthSelect).toHaveTextContent('October')
+  expect(yearSelect).toHaveTextContent('2001')
+
+  fireEvent.click(increaseMonth)
+  fireEvent.click(increaseMonth)
+  fireEvent.click(increaseMonth)
+  expect(monthSelect).toHaveTextContent('January')
+  expect(yearSelect).toHaveTextContent('2002')
+
+  fireEvent.click(decreaseMonth)
+  expect(monthSelect).toHaveTextContent('December')
+  expect(yearSelect).toHaveTextContent('2001')
+})
+
+test('<DateTimePicker> updating text updates selects', () => {
+  const { getByTestId } = render(
+    <DateTimePicker value={new Date('09/11/2001')}>
+      <DatePicker
+        dataTestId={{
+          datePicker: 'datePicker',
+          monthSelect: 'monthSelect',
+          yearSelect: 'yearSelect'
+        }}
+      />
+      <TimePicker />
+    </DateTimePicker>
+  )
+  const datePicker = getByTestId('datePicker')
+  userEvent.type(datePicker, '20/06/2018')
+
+  fireEvent.click(datePicker)
+
+  const monthSelect = getByTestId('monthSelect')
+  const yearSelect = getByTestId('yearSelect')
+
+  expect(monthSelect).toHaveTextContent('June')
+  expect(yearSelect).toHaveTextContent('2018')
+})
+
+test('<DatePicker> can be cleared', () => {
+  const { getByRole, getByTestId } = render(
+    <DatePicker
+      dataTestId={{
+        datePicker: 'datePicker'
+      }}
+      value={new Date('09/11/2001')}
+    />
+  )
+
+  const datePicker = getByTestId('datePicker')
+  const clearButton = getByRole('button')
+
+  fireEvent.click(clearButton)
+  expect(datePicker).toHaveValue('')
 })

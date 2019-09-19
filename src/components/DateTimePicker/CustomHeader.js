@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { func, number, object, oneOfType, string } from 'prop-types'
-import { enGB } from 'date-fns/locale'
 
 import { Button } from '../Button'
 import { Icon } from '../Icon'
@@ -17,23 +16,22 @@ export const CustomHeader = ({
   decreaseMonth,
   endYear,
   increaseMonth,
-  // add a default to update months labels when no locale
-  locale = enGB,
+  locale,
   startYear
 }) => {
   const [month, setMonth] = useState(null)
   const [year, setYear] = useState(null)
 
-  const months = getMonths(locale)
+  const months = useMemo(() => getMonths(locale), [locale])
   const years = getYears(startYear, endYear)
-  const currentDate = new Date(date)
 
   useEffect(() => {
+    const currentDate = new Date(date)
     const currentMonth = months[currentDate.getMonth()].label
     const currentYear = currentDate.getFullYear()
     setMonth(currentMonth)
     setYear(currentYear)
-  }, [currentDate, months])
+  }, [date, months])
 
   return (
     <S.CustomHeader>
@@ -48,14 +46,14 @@ export const CustomHeader = ({
         <Icon name="left" size="xs" />
       </Button>
       <Select
-        data-testid={dataTestId && dataTestId.monthSelect}
+        dataTestId={dataTestId && dataTestId.monthSelect}
         onChange={changeMonth}
         options={months}
         size="sm"
         value={month}
       />
       <Select
-        data-testid={dataTestId && dataTestId.yearSelect}
+        dataTestId={dataTestId && dataTestId.yearSelect}
         onChange={changeYear}
         options={years}
         size="sm"

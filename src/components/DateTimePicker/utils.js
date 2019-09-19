@@ -1,4 +1,4 @@
-export const MONTHS = [
+const MONTHS = [
   { value: 0, label: 'January' },
   { value: 1, label: 'February' },
   { value: 2, label: 'March' },
@@ -33,13 +33,14 @@ export const getDate = (date, interval) => {
 export const range = (start, end) => Array.from({ length: end + 1 - start }, (v, k) => k + start)
 
 export const getMonths = locale => {
-  if (locale) {
-    return MONTHS.map((item, index) => {
-      item.label = locale.localize.month(index)
-      return item
-    })
+  if (!locale) {
+    return MONTHS
   }
-  return MONTHS
+
+  return MONTHS.map((item, index) => ({
+    ...item,
+    label: locale.localize.month(index)
+  }))
 }
 
 export const getYears = (startYear, endYear) =>
