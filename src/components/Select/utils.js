@@ -25,7 +25,7 @@ export const getOption = (value, options = []) => {
 }
 
 export const getOptionsFromSelected = (selected, options) => {
-  if (!selected) {
+  if (typeof selected === 'undefined') {
     return []
   } else if (Array.isArray(selected)) {
     return selected.map(value => getOption(value, options))

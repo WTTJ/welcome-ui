@@ -32,14 +32,13 @@ const MONTHS_WITH_INTEGER_VALUES = MONTHS.map((item, index) => ({
 
 test('<Select> accepts falsy option values (such as 0)', () => {
   const { getByTestId } = render(
-    <TestFinalForm initialValues={{}}>
+    <TestFinalForm initialValues={{ select: 0 }}>
       <ConnectedField
         component={Select}
         dataTestId="select"
         label="Select"
-        name="default"
+        name="select"
         options={MONTHS_WITH_INTEGER_VALUES}
-        value={0}
       />
     </TestFinalForm>
   )
@@ -50,12 +49,12 @@ test('<Select> accepts falsy option values (such as 0)', () => {
 
 test('<Select> has default attributes', () => {
   const { container, getByTestId } = render(
-    <TestFinalForm initialValues={{}}>
+    <TestFinalForm initialValues={{ select: 'january' }}>
       <ConnectedField
         component={Select}
         dataTestId="select"
         label="Select"
-        name="default"
+        name="select"
         options={MONTHS}
       />
     </TestFinalForm>
@@ -66,7 +65,7 @@ test('<Select> has default attributes', () => {
   expect(label).toHaveTextContent('Select')
   expect(select.getAttribute('placeholder')).toBe('Choose from…')
   expect(select.getAttribute('data-spacer')).toBe('September')
-  expect(select).toHaveTextContent('')
+  expect(select).toHaveTextContent('January')
 })
 
 test('<Select> shows options on click', () => {
@@ -156,10 +155,10 @@ test('<Select> can remove option', () => {
       <ConnectedField
         component={Select}
         dataTestId="select"
+        isClearable
         label="Select"
         name="select"
         options={MONTHS}
-        isClearable
       />
     </TestFinalForm>
   )

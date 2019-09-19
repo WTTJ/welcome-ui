@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useMemo, useState } from 'react'
-import { arrayOf, bool, func, oneOfType, string } from 'prop-types'
+import { arrayOf, bool, func, number, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import matchSorter from 'match-sorter'
 import kebabCase from 'lodash.kebabcase'
@@ -316,6 +316,10 @@ Select.propTypes = {
   searchable: bool,
   size: SIZES_TYPE,
   type: INPUTS_TYPE,
-  value: oneOfType([OPTIONS_TYPE, arrayOf(OPTIONS_TYPE)], string),
+  value: oneOfType(
+    [OPTIONS_TYPE, arrayOf(OPTIONS_TYPE), string, arrayOf(string)],
+    number,
+    arrayOf(number)
+  ),
   variant: VARIANTS_TYPE
 }
