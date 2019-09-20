@@ -110,29 +110,26 @@ export const Indicators = styled.div`
   top: 0;
   bottom: 0;
   right: 0;
+  display: flex;
 `
 
 export const DropDownIndicator = styled.button(
-  ({ actionType, isOpen, size }) => css`
-    &[type='button'] {
-      position: relative;
-      width: ${th(`fields.sizes.${size}.height`)};
-      height: 100%;
-      padding: 0;
-      outline: none;
-      appearance: none;
-      cursor: pointer;
-      border: none;
-      background: transparent;
+  ({ isOpen, size }) => css`
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    width: ${th(`fields.sizes.${size}.height`)};
+    padding: 0;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    ${centerContent};
 
-      ${StyledIcon} {
-        transform: ${isOpen ? 'rotate3d(0, 0, 1, 180deg)' : 'rotate3d(0)'};
-        transition: medium;
-      }
-    }
-
-    &:hover {
-      color: ${actionType === 'destructive' ? th('colors.danger.500') : th('colors.primary.500')};
+    ${StyledIcon} {
+      transform: ${isOpen ? 'rotate3d(0, 0, 1, 180deg)' : 'rotate3d(0)'};
+      transition: medium;
     }
   `
 )

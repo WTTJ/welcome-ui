@@ -149,7 +149,7 @@ test('<Select> calls onChange with correct (object) values', () => {
   )
 })
 
-test('<Select> can remove option', () => {
+test('<Select isClearable> can remove option', () => {
   const { getByTestId, getByTitle } = render(
     <TestFinalForm initialValues={{ select: 'february' }}>
       <ConnectedField
@@ -169,8 +169,8 @@ test('<Select> can remove option', () => {
   expect(formValues.select).toStrictEqual('february')
 
   // Click cross to remove selected option
-  const removeButton = getByTitle('Remove item')
-  fireEvent.click(removeButton)
+  const clearButton = getByTitle('Clear')
+  fireEvent.click(clearButton)
 
   formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('')
@@ -274,7 +274,7 @@ test('<Select isMultiple> can remove multiple items', () => {
   expect(formValues.select).toStrictEqual(['february'])
 })
 
-test('<Select required> cannot remove selected item if required', () => {
+test("<Select> doesn't show clear button", () => {
   const { getByRole, getByTestId, queryByTitle } = render(
     <TestFinalForm initialValues={{}}>
       <ConnectedField
@@ -283,15 +283,11 @@ test('<Select required> cannot remove selected item if required', () => {
         label="Select"
         name="select"
         options={MONTHS}
-        required
       />
     </TestFinalForm>
   )
 
   const select = getByTestId('select')
-  expect(select.getAttribute('required')).toBe('')
-
-  // Choose option
   fireEvent.click(select)
 
   const options = getByRole('listbox').querySelectorAll('li')
@@ -301,9 +297,9 @@ test('<Select required> cannot remove selected item if required', () => {
   expect(select).toHaveTextContent('February')
   expect(formValues.select).toStrictEqual('february')
 
-  // Use `queryByTitle` to expect no close button
-  const removeButton = queryByTitle('Remove item')
-  expect(removeButton).toBeNull()
+  // Use `queryByTitle` to expect no clear button
+  const clearButton = queryByTitle('Clear')
+  expect(clearButton).toBeNull()
 })
 
 test('<Select renderItem> formats items', () => {

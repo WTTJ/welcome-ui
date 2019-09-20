@@ -47,7 +47,7 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
       { value: 'react', label: 'React' },
       { value: 'vue', label: 'Vue' }
     ]
-    const [value, setValue] = useState()
+    const [value, setValue] = useState(ITEMS[1])
     const handleChange = value => setValue(value)
     return (
       <Select isClearable name="default" onChange={handleChange} options={ITEMS} value={value} />

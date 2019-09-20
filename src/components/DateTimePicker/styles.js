@@ -6,7 +6,6 @@ import { TimePicker } from '../TimePicker/styles'
 import { wrapperSystem } from '../../utils/'
 import { IconWrapper } from '../Field/styles'
 import { Icon } from '../Icon/styles'
-import { ClearButton } from '../ClearButton/styles'
 
 // Only require CSS on client
 if (typeof window !== 'undefined') {
@@ -97,11 +96,6 @@ export const CustomInput = styled.div(({ focused, icon, iconPlacement, size, ...
     ${Icon} {
       transition: medium;
       z-index: ${focused ? 2 : null};
-    }
-
-    ${ClearButton} {
-      pointer-events: auto;
-      z-index: 1;
     }
   `
 })
