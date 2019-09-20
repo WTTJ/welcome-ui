@@ -22,7 +22,7 @@ export const CustomHeader = ({
   const [year, setYear] = useState(null)
 
   const months = useMemo(() => getMonths(locale), [locale])
-  const years = getYears(startYear, endYear)
+  const years = useMemo(() => getYears(startYear, endYear), [startYear, endYear])
 
   useEffect(() => {
     const currentDate = new Date(date)
