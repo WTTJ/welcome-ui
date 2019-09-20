@@ -1,3 +1,5 @@
+import range from 'lodash.range'
+
 const MONTHS = [
   { value: 0, label: 'January' },
   { value: 1, label: 'February' },
@@ -30,8 +32,6 @@ export const getDate = (date, interval) => {
   return new Date(newDate.setMinutes(nextInterval, 0, 0))
 }
 
-export const range = (start, end) => Array.from({ length: end + 1 - start }, (v, k) => k + start)
-
 export const getMonths = locale => {
   if (!locale) {
     return MONTHS
@@ -44,7 +44,7 @@ export const getMonths = locale => {
 }
 
 export const getYears = (startYear, endYear) =>
-  range(startYear, endYear)
+  range(startYear, endYear + 1)
     .map(year => ({
       label: year,
       value: year
