@@ -6,7 +6,7 @@ menu: Fields
 
 import { Props } from 'docz'
 import { Playground } from '../../../docz/Playground'
-import { getFormValues, TestFinalForm } from '../../../docz/FinalForm'
+import { DoczForm } from '../../../docz/Form'
 
 import { ConnectedField } from '../ConnectedField'
 import { Icon } from '../Icon'
@@ -17,7 +17,7 @@ import { InputText } from './index'
 ## Default
 
 <Playground>
-  <TestFinalForm initialValues={{}}>
+  <DoczForm initialValues={{}}>
     <ConnectedField
       name="firstName"
       component={InputText}
@@ -25,7 +25,7 @@ import { InputText } from './index'
       label="First name"
       required
     />
-  </TestFinalForm>
+  </DoczForm>
 </Playground>
 
 ## Clearable
@@ -33,7 +33,7 @@ import { InputText } from './index'
 Use the `isClearable` prop to add a cross button to remove the content (value) of the `TextInput`
 
 <Playground>
-  <TestFinalForm initialValues={{ firstName: 'Trevor' }}>
+  <DoczForm initialValues={{ firstName: 'Trevor' }}>
     <ConnectedField
       component={InputText}
       isClearable
@@ -41,7 +41,7 @@ Use the `isClearable` prop to add a cross button to remove the content (value) o
       name="firstName"
       placeholder="Boaty"
     />
-  </TestFinalForm>
+  </DoczForm>
 </Playground>
 
 ## Icon
@@ -49,7 +49,7 @@ Use the `isClearable` prop to add a cross button to remove the content (value) o
 Pass an `icon` through to decorate your `InputText`
 
 <Playground>
-  <TestFinalForm initialValues={{}}>
+  <DoczForm initialValues={{}}>
     <ConnectedField
       component={InputText}
       icon={<Icon name="avatar" color="nude.500" />}
@@ -57,13 +57,13 @@ Pass an `icon` through to decorate your `InputText`
       name="firstName"
       placeholder="Boaty"
     />
-  </TestFinalForm>
+  </DoczForm>
 </Playground>
 
 ## Sizes
 
 <Playground>
-  <TestFinalForm initialValues={{}}>
+  <DoczForm initialValues={{}}>
     <>
       <ConnectedField
         component={InputText}
@@ -89,13 +89,29 @@ Pass an `icon` through to decorate your `InputText`
         placeholder="Placeholder"
       />
     </>
-  </TestFinalForm>
+  </DoczForm>
+</Playground>
+
+## Inline
+
+<Playground>
+  <DoczForm initialValues={{ firstName: 'Trevor' }}>
+    <ConnectedField
+      component={InputText}
+      disabled
+      flexDirection="row"
+      label="First name"
+      name="firstName"
+      placeholder="Boaty"
+      required
+    />
+  </DoczForm>
 </Playground>
 
 ## Disabled
 
 <Playground>
-  <TestFinalForm initialValues={{ firstName: 'Trevor' }}>
+  <DoczForm initialValues={{ firstName: 'Trevor' }}>
     <ConnectedField
       component={InputText}
       disabled
@@ -104,7 +120,7 @@ Pass an `icon` through to decorate your `InputText`
       placeholder="Boaty"
       required
     />
-  </TestFinalForm>
+  </DoczForm>
 </Playground>
 
 ## Properties

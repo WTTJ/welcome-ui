@@ -1,0 +1,53 @@
+---
+name: Checkbox
+route: /fields/checkbox
+menu: Fields
+---
+
+import { Props } from 'docz'
+import { DoczForm, Playground } from '../../../docz/'
+
+import { ConnectedField } from '../ConnectedField'
+import { FieldGroup } from '../FieldGroup'
+import { Toggle } from '../Toggle'
+
+import { InputCheckbox } from './index'
+
+# Checkbox
+
+<Playground>
+  <DoczForm initialValues={{ vue: true }}>
+    <FieldGroup label="Check the frameworks you have already worked with">
+      <ConnectedField component={InputCheckbox} name="react" label="React" />
+      <ConnectedField
+        component={InputCheckbox}
+        label="Angular"
+        name="angular"
+        id="angular_custom_id"
+      />
+      <ConnectedField component={InputCheckbox} name="vue" label="Vue" />
+    </FieldGroup>
+  </DoczForm>
+</Playground>
+
+## Toggle
+
+<Playground>
+  <DoczForm initialValues={{ swatch: true }}>
+    <>
+      <ConnectedField name="switch" component={Toggle} label="Switch example" mb="xl" />
+      <ConnectedField
+        name="swatch"
+        component={Toggle}
+        label="Disabled swatch example"
+        disabled
+        mb="xl"
+      />
+    </>
+  </DoczForm>
+</Playground>
+
+## Properties
+
+<Props of={InputCheckbox} />
+<Props of={Toggle} />

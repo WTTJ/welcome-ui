@@ -1,0 +1,68 @@
+---
+name: Radio buttons
+route: /fields/radio-buttons
+menu: Fields
+---
+
+import { Props } from 'docz'
+import { DoczForm, Playground } from '../../../docz/'
+
+import { ConnectedField } from '../ConnectedField'
+import { RadioGroup } from '../RadioGroup'
+import { RadioTab } from '../RadioTab'
+
+import { InputRadio } from './index'
+
+# Radio buttons
+
+<Playground>
+  <DoczForm initialValues={{ sauces: 'ketchup' }}>
+    <>
+      <RadioGroup label="Your favorite sauce">
+        <ConnectedField
+          name="sauces"
+          component={InputRadio}
+          label="Mayonnaise"
+          value="mayonnaise"
+        />
+        <ConnectedField name="sauces" component={InputRadio} label="Ketchup" value="ketchup" />
+        <ConnectedField name="sauces" component={InputRadio} label="Barbecue" value="barbecue" />
+      </RadioGroup>
+    </>
+  </DoczForm>
+</Playground>
+
+## RadioTabs
+
+<Playground>
+  <DoczForm initialValues={{ cakes: 'madeleine', fish: 'mackerel' }}>
+    <>
+      <RadioGroup label="Label for input radios" required mb="xl">
+        <ConnectedField name="cakes" component={RadioTab} label="Carrot" value="carrot" mb="xl" />
+        <ConnectedField
+          name="cakes"
+          component={RadioTab}
+          label="Madeleine (made with farm-fresh eggs"
+          value="madeleine"
+        />
+        <ConnectedField name="cakes" component={RadioTab} label="Pumpkin" value="pumpkin" />
+      </RadioGroup>
+      <RadioGroup
+        label="Label for input radios"
+        flexDirection="column"
+        width={1 / 3}
+        required
+        mb="xl"
+      >
+        <ConnectedField name="fish" component={RadioTab} label="Mackerel" value="mackerel" />
+        <ConnectedField name="fish" component={RadioTab} label="Sardine" value="sardine" />
+        <ConnectedField name="fish" component={RadioTab} label="Salmon" value="salmon" />
+      </RadioGroup>
+    </>
+  </DoczForm>
+</Playground>
+
+
+## Properties
+
+<Props of={InputRadio} />
