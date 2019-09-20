@@ -22,7 +22,7 @@ test('<DateTimePicker> renders correctly', () => {
 test('can render and opens the datePicker on click', () => {
   const { baseElement, getByTestId } = render(
     <DateTimePicker value={Date.now()}>
-      <DatePicker dataTestId={{ datePicker: 'datePicker' }} />
+      <DatePicker dataTestId="datePicker" />
       <TimePicker />
     </DateTimePicker>
   )
@@ -52,17 +52,9 @@ test('can render and opens the timePicker on click', () => {
 })
 
 test('<DateTimePicker> renders month select', () => {
-  const { getByTestId } = render(
+  const { getAllByRole, getByTestId } = render(
     <DateTimePicker value={new Date('09/11/2001')}>
-      <DatePicker
-        dataTestId={{
-          datePicker: 'datePicker',
-          decreaseMonth: 'decreaseMonth',
-          increaseMonth: 'increaseMonth',
-          monthSelect: 'monthSelect',
-          yearSelect: 'yearSelect'
-        }}
-      />
+      <DatePicker dataTestId="datePicker" />
       <TimePicker />
     </DateTimePicker>
   )
@@ -71,35 +63,29 @@ test('<DateTimePicker> renders month select', () => {
 
   fireEvent.click(datePicker)
 
-  const monthSelect = getByTestId('monthSelect')
-  const yearSelect = getByTestId('yearSelect')
+  const dropdowns = getAllByRole('combobox')
+  const monthSelect = dropdowns[0]
+  const yearSelect = dropdowns[1]
 
   expect(monthSelect).toHaveTextContent('September')
   expect(yearSelect).toHaveTextContent('2001')
 })
 
 test('<DateTimePicker> can proceed through next/prev months', () => {
-  const { getByTestId } = render(
+  const { getAllByRole, getByTestId, getByTitle } = render(
     <DateTimePicker value={new Date('09/11/2001')}>
-      <DatePicker
-        dataTestId={{
-          datePicker: 'datePicker',
-          decreaseMonth: 'decreaseMonth',
-          increaseMonth: 'increaseMonth',
-          monthSelect: 'monthSelect',
-          yearSelect: 'yearSelect'
-        }}
-      />
+      <DatePicker dataTestId="datePicker" />
       <TimePicker />
     </DateTimePicker>
   )
   const datePicker = getByTestId('datePicker')
   fireEvent.click(datePicker)
 
-  const decreaseMonth = getByTestId('decreaseMonth')
-  const increaseMonth = getByTestId('increaseMonth')
-  const monthSelect = getByTestId('monthSelect')
-  const yearSelect = getByTestId('yearSelect')
+  const decreaseMonth = getByTitle('Previous month')
+  const increaseMonth = getByTitle('Next month')
+  const dropdowns = getAllByRole('combobox')
+  const monthSelect = dropdowns[0]
+  const yearSelect = dropdowns[1]
 
   expect(monthSelect).toHaveTextContent('September')
   expect(yearSelect).toHaveTextContent('2001')
@@ -125,15 +111,9 @@ test('<DateTimePicker> can proceed through next/prev months', () => {
 })
 
 test('<DateTimePicker> updating text updates selects', () => {
-  const { getByTestId } = render(
+  const { getAllByRole, getByTestId } = render(
     <DateTimePicker value={new Date('09/11/2001')}>
-      <DatePicker
-        dataTestId={{
-          datePicker: 'datePicker',
-          monthSelect: 'monthSelect',
-          yearSelect: 'yearSelect'
-        }}
-      />
+      <DatePicker dataTestId="datePicker" />
       <TimePicker />
     </DateTimePicker>
   )
@@ -142,8 +122,9 @@ test('<DateTimePicker> updating text updates selects', () => {
 
   fireEvent.click(datePicker)
 
-  const monthSelect = getByTestId('monthSelect')
-  const yearSelect = getByTestId('yearSelect')
+  const dropdowns = getAllByRole('combobox')
+  const monthSelect = dropdowns[0]
+  const yearSelect = dropdowns[1]
 
   expect(monthSelect).toHaveTextContent('June')
   expect(yearSelect).toHaveTextContent('2018')
@@ -151,12 +132,7 @@ test('<DateTimePicker> updating text updates selects', () => {
 
 test('<DatePicker> can be cleared', () => {
   const { getByRole, getByTestId } = render(
-    <DatePicker
-      dataTestId={{
-        datePicker: 'datePicker'
-      }}
-      value={new Date('09/11/2001')}
-    />
+    <DatePicker dataTestId="datePicker" value={new Date('09/11/2001')} />
   )
 
   const datePicker = getByTestId('datePicker')

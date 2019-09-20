@@ -41,6 +41,7 @@ export const CustomHeader = ({
         onClick={decreaseMonth}
         shape="circle"
         size="xs"
+        title="Previous month"
         variant="secondary"
       >
         <Icon name="left" size="xs" />
@@ -65,6 +66,7 @@ export const CustomHeader = ({
         onClick={increaseMonth}
         shape="circle"
         size="xs"
+        title="Next month"
         variant="secondary"
       >
         <Icon name="right" size="xs" />
