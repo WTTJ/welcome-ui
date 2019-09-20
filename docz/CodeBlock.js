@@ -5,11 +5,12 @@ import { th } from '@xstyled/system'
 
 const CodeBlock = styled.pre`
   font-family: monospace;
-  font-size: body1;
+  font-size: body3;
   line-height: h4;
-  color: nude.700;
+  color: nude.200;
   margin-top: xl;
-  padding: xl;
+  padding: lg;
+  background-color: dark.500;
   border: 1px solid ${th.color('nude.200')};
   border-radius: sm;
   overflow: auto;
