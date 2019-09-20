@@ -5,7 +5,7 @@ import { fieldStyles } from '../../common/styles/form'
 import { componentSystem, filterComponent, system } from '../../utils/'
 
 export const InputText = styled(filterComponent('input'))(
-  ({ connected, icon, iconPlacement, size, ...rest }) => css`
+  ({ connected, icon, iconPlacement, isClearable, size, ...rest }) => css`
     ${fieldStyles};
 
     ${icon &&
@@ -13,8 +13,7 @@ export const InputText = styled(filterComponent('input'))(
       css`
         padding-left: ${icon ? th(`fields.sizes.${size}.height`)(rest) : null};
       `}
-    ${icon &&
-      iconPlacement === 'right' &&
+    ${((icon && iconPlacement === 'right') || isClearable) &&
       css`
         padding-right: ${icon ? th(`fields.sizes.${size}.height`)(rest) : null};
       `}

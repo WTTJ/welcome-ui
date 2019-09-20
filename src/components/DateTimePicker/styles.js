@@ -91,10 +91,5 @@ export const CustomInput = styled.div(({ focused, icon, iconPlacement, size, ...
       transition: medium;
       z-index: ${focused ? 2 : null};
     }
-
-    ${ClearButton} {
-      pointer-events: auto;
-      z-index: 1;
-    }
   `
 })
