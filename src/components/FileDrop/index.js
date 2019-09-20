@@ -31,7 +31,7 @@ export const FileDrop = forwardRef(
       dataTestId,
       disabled,
       isEditable,
-      isRemovable,
+      isClearable,
       maxSize = DEFAULT_MAX_FILE_SIZE,
       multiple,
       name,
@@ -126,7 +126,7 @@ export const FileDrop = forwardRef(
           isDragActive,
           isDragAccept,
           isDragReject,
-          isRemovable,
+          isClearable,
           ref
         })}
         {...rest}
@@ -149,7 +149,7 @@ export const FileDrop = forwardRef(
                 <Icon name="pencil" />
               </Button>
             )}
-            {!!file && isRemovable && (
+            {!!file && isClearable && (
               <Button onClick={handleRemoveFile} size="sm" type="button" variant="primary-danger">
                 <Icon name="cross" />
               </Button>
@@ -168,8 +168,8 @@ FileDrop.propTypes = {
   accept: string,
   children: func,
   disabled: bool,
+  isClearable: bool,
   isEditable: bool,
-  isRemovable: bool,
   maxSize: number,
   multiple: bool,
   name: string.isRequired,

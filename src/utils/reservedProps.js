@@ -89,6 +89,8 @@ const datePickerProps = [
   'onMonthMouseLeave'
 ]
 
+const fileDropProps = ['onAddFile', 'onRemoveFile']
+
 const customProps = [
   'checkableField',
   'fieldType',
@@ -96,13 +98,13 @@ const customProps = [
   'handleRemoveFile',
   'icon',
   'iconPlacement',
+  'isClearable',
   'isCreatable',
   'isDragAccept',
   'isDragActive',
   'isDragReject',
   'isEditable',
   'isMultiple',
-  'isRemovable',
   'isSearchable',
   'maxSize',
   'minRows',
@@ -127,6 +129,7 @@ const finalFormFieldProps = [
 export const reservedProps = [
   ...customProps,
   ...datePickerProps,
+  ...fileDropProps,
   ...finalFormFieldProps,
   ...Object.keys(FINAL_FORM_META_TYPES)
 ]

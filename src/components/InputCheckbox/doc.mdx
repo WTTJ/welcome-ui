@@ -34,16 +34,14 @@ import { InputCheckbox } from './index'
 
 <Playground>
   <Form initialValues={{ swatch: true }}>
-    <>
-      <ConnectedField name="switch" component={Toggle} label="Switch example" mb="xl" />
-      <ConnectedField
-        name="swatch"
-        component={Toggle}
-        label="Disabled swatch example"
-        disabled
-        mb="xl"
-      />
-    </>
+    <ConnectedField name="switch" component={Toggle} label="Switch example" mb="xl" />
+    <ConnectedField
+      name="swatch"
+      component={Toggle}
+      label="Disabled swatch example"
+      disabled
+      mb="xl"
+    />
   </Form>
 </Playground>
 
