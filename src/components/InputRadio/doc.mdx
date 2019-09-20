@@ -5,7 +5,7 @@ menu: Fields
 ---
 
 import { Props } from 'docz'
-import { DoczForm, Playground } from '../../../docz/'
+import { Form, Playground } from '../../../docz/'
 
 import { ConnectedField } from '../ConnectedField'
 import { RadioGroup } from '../RadioGroup'
@@ -16,7 +16,7 @@ import { InputRadio } from './index'
 # Radio buttons
 
 <Playground>
-  <DoczForm initialValues={{ sauces: 'ketchup' }}>
+  <Form initialValues={{ sauces: 'ketchup' }}>
     <>
       <RadioGroup label="Your favorite sauce">
         <ConnectedField
@@ -29,13 +29,13 @@ import { InputRadio } from './index'
         <ConnectedField name="sauces" component={InputRadio} label="Barbecue" value="barbecue" />
       </RadioGroup>
     </>
-  </DoczForm>
+  </Form>
 </Playground>
 
 ## RadioTabs
 
 <Playground>
-  <DoczForm initialValues={{ cakes: 'madeleine', fish: 'mackerel' }}>
+  <Form initialValues={{ cakes: 'madeleine', fish: 'mackerel' }}>
     <>
       <RadioGroup label="Label for input radios" required mb="xl">
         <ConnectedField name="cakes" component={RadioTab} label="Carrot" value="carrot" mb="xl" />
@@ -59,9 +59,8 @@ import { InputRadio } from './index'
         <ConnectedField name="fish" component={RadioTab} label="Salmon" value="salmon" />
       </RadioGroup>
     </>
-  </DoczForm>
+  </Form>
 </Playground>
-
 
 ## Properties
 

@@ -7,7 +7,7 @@ import { Form as FinalForm } from 'react-final-form'
 
 import { DoczCodeBlock } from './CodeBlock'
 
-export const DoczForm = ({ children, initialValues }) => (
+export const Form = ({ children, initialValues }) => (
   <FinalForm initialValues={initialValues} onSubmit={console.debug}>
     {({ handleSubmit, values }) => (
       <>
@@ -20,7 +20,7 @@ export const DoczForm = ({ children, initialValues }) => (
   </FinalForm>
 )
 
-DoczForm.propTypes = {
+Form.propTypes = {
   children: func,
   initialValues: object
 }

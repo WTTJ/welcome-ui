@@ -5,7 +5,7 @@ menu: Fields
 ---
 
 import { Props } from 'docz'
-import { DoczForm, Playground } from '../../../docz/'
+import { Form, Playground } from '../../../docz/'
 
 import { ConnectedField } from '../ConnectedField'
 import { FieldGroup } from '../FieldGroup'
@@ -16,7 +16,7 @@ import { InputCheckbox } from './index'
 # Checkbox
 
 <Playground>
-  <DoczForm initialValues={{ vue: true }}>
+  <Form initialValues={{ vue: true }}>
     <FieldGroup label="Check the frameworks you have already worked with">
       <ConnectedField component={InputCheckbox} name="react" label="React" />
       <ConnectedField
@@ -27,13 +27,13 @@ import { InputCheckbox } from './index'
       />
       <ConnectedField component={InputCheckbox} name="vue" label="Vue" />
     </FieldGroup>
-  </DoczForm>
+  </Form>
 </Playground>
 
 ## Toggle
 
 <Playground>
-  <DoczForm initialValues={{ swatch: true }}>
+  <Form initialValues={{ swatch: true }}>
     <>
       <ConnectedField name="switch" component={Toggle} label="Switch example" mb="xl" />
       <ConnectedField
@@ -44,7 +44,7 @@ import { InputCheckbox } from './index'
         mb="xl"
       />
     </>
-  </DoczForm>
+  </Form>
 </Playground>
 
 ## Properties

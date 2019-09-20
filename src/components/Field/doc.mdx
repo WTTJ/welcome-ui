@@ -5,7 +5,7 @@ menu: Fields
 ---
 
 import { Props } from 'docz'
-import { DoczForm, Playground } from '../../../docz/'
+import { Form, Playground } from '../../../docz/'
 
 import { ConnectedField } from '../ConnectedField'
 import { InputText } from '../InputText'
@@ -21,7 +21,7 @@ You can find props for each field component in the other `Fields` pages.
 ## Sizes
 
 <Playground>
-  <DoczForm initialValues={{}}>
+  <Form initialValues={{}}>
     <>
       <ConnectedField
         name="small"
@@ -47,13 +47,13 @@ You can find props for each field component in the other `Fields` pages.
         mb="xl"
       />
     </>
-  </DoczForm>
+  </Form>
 </Playground>
 
 ## Variants
 
 <Playground>
-  <DoczForm initialValues={{}}>
+  <Form initialValues={{}}>
     <>
       <ConnectedField
         name="default"
@@ -80,13 +80,13 @@ You can find props for each field component in the other `Fields` pages.
         mb="xl"
       />
     </>
-  </DoczForm>
+  </Form>
 </Playground>
 
 ## Disabled
 
 <Playground>
-  <DoczForm initialValues={{ disabled: 'Disabled value' }}>
+  <Form initialValues={{ disabled: 'Disabled value' }}>
     <ConnectedField
       name="disabled"
       placeholder="Placeholder"
@@ -94,13 +94,13 @@ You can find props for each field component in the other `Fields` pages.
       label="Label"
       disabled
     />
-  </DoczForm>
+  </Form>
 </Playground>
 
 ## Required
 
 <Playground>
-  <DoczForm initialValues={{}}>
+  <Form initialValues={{}}>
     <ConnectedField
       name="required"
       placeholder="Placeholder"
@@ -108,7 +108,7 @@ You can find props for each field component in the other `Fields` pages.
       label="Label"
       required
     />
-  </DoczForm>
+  </Form>
 </Playground>
 
 ## Properties
