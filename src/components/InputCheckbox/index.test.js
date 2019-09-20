@@ -1,7 +1,7 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
-import { getFormValues, TestFinalForm } from '../../../docz/FinalForm'
+import { DoczForm, getFormValues } from '../../../docz/Form'
 import { render } from '../../utils/tests'
 import { ConnectedField } from '../ConnectedField'
 
@@ -15,14 +15,14 @@ const expectChecked = (element, valuesElement, value) => {
 
 test('<InputCheckbox> toggles on input click', () => {
   const { container, getByTestId } = render(
-    <TestFinalForm initialValues={{}}>
+    <DoczForm initialValues={{}}>
       <ConnectedField
         component={InputCheckbox}
         dataTestId="inputCheckbox"
         label="Checkbox"
         name="checkbox"
       />
-    </TestFinalForm>
+    </DoczForm>
   )
   const inputCheckbox = getByTestId('inputCheckbox')
   const label = container.querySelector('label')
@@ -39,14 +39,14 @@ test('<InputCheckbox> toggles on input click', () => {
 
 test('<InputCheckbox> toggles on label click', () => {
   const { container, getByTestId } = render(
-    <TestFinalForm initialValues={{}}>
+    <DoczForm initialValues={{}}>
       <ConnectedField
         component={InputCheckbox}
         dataTestId="inputCheckbox"
         label="Checkbox"
         name="checkbox"
       />
-    </TestFinalForm>
+    </DoczForm>
   )
   const inputCheckbox = getByTestId('inputCheckbox')
   const label = container.querySelector('label')

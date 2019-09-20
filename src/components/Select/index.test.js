@@ -2,7 +2,7 @@ import React from 'react'
 import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { getFormValues, TestFinalForm } from '../../../docz/FinalForm'
+import { DoczForm, getFormValues } from '../../../docz/Form'
 import { render } from '../../utils/tests'
 import { ConnectedField } from '../ConnectedField'
 import { Icon } from '../Icon'
@@ -27,7 +27,7 @@ const MONTHS = [
 
 test('<Select> has default attributes', () => {
   const { container, getByTestId } = render(
-    <TestFinalForm initialValues={{}}>
+    <DoczForm initialValues={{}}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -35,7 +35,7 @@ test('<Select> has default attributes', () => {
         name="default"
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
   const select = getByTestId('select')
   const label = container.querySelector('label')
@@ -48,7 +48,7 @@ test('<Select> has default attributes', () => {
 
 test('<Select> shows options on click', () => {
   const { getByRole, getByTestId } = render(
-    <TestFinalForm initialValues={{}}>
+    <DoczForm initialValues={{}}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -56,7 +56,7 @@ test('<Select> shows options on click', () => {
         name="select"
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -69,7 +69,7 @@ test('<Select> shows options on click', () => {
 
 test('<Select> can choose option', () => {
   const { getByRole, getByTestId } = render(
-    <TestFinalForm initialValues={{}}>
+    <DoczForm initialValues={{}}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -77,7 +77,7 @@ test('<Select> can choose option', () => {
         name="select"
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -100,7 +100,7 @@ test('<Select> can choose option', () => {
 test('<Select> calls onChange with correct (object) values', () => {
   const handleChange = jest.fn()
   const { getByRole, getByTestId } = render(
-    <TestFinalForm initialValues={{}}>
+    <DoczForm initialValues={{}}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -109,7 +109,7 @@ test('<Select> calls onChange with correct (object) values', () => {
         onChange={handleChange}
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -129,7 +129,7 @@ test('<Select> calls onChange with correct (object) values', () => {
 
 test('<Select> can remove option', () => {
   const { getByTestId, getByTitle } = render(
-    <TestFinalForm initialValues={{ select: 'february' }}>
+    <DoczForm initialValues={{ select: 'february' }}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -137,7 +137,7 @@ test('<Select> can remove option', () => {
         name="select"
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -156,7 +156,7 @@ test('<Select> can remove option', () => {
 
 test('<Select isMultiple> can select multiple items', () => {
   const { getAllByRole, getByRole, getByTestId } = render(
-    <TestFinalForm initialValues={{ select: ['february', 'march'] }}>
+    <DoczForm initialValues={{ select: ['february', 'march'] }}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -165,7 +165,7 @@ test('<Select isMultiple> can select multiple items', () => {
         name="select"
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -189,7 +189,7 @@ test('<Select isMultiple> can select multiple items', () => {
 
 test('<Select> can accept value, label or object as value', () => {
   const { getAllByRole, getByRole, getByTestId } = render(
-    <TestFinalForm
+    <DoczForm
       initialValues={{ select: [{ label: 'January', value: 'january' }, 'february', 'March'] }}
     >
       <ConnectedField
@@ -200,7 +200,7 @@ test('<Select> can accept value, label or object as value', () => {
         name="select"
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -224,7 +224,7 @@ test('<Select> can accept value, label or object as value', () => {
 
 test('<Select isMultiple> can remove multiple items', () => {
   const { getAllByRole, getByTestId } = render(
-    <TestFinalForm initialValues={{ select: ['february', 'march'] }}>
+    <DoczForm initialValues={{ select: ['february', 'march'] }}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -233,7 +233,7 @@ test('<Select isMultiple> can remove multiple items', () => {
         name="select"
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -253,7 +253,7 @@ test('<Select isMultiple> can remove multiple items', () => {
 
 test('<Select required> cannot remove selected item if required', () => {
   const { getByRole, getByTestId, queryByTitle } = render(
-    <TestFinalForm initialValues={{}}>
+    <DoczForm initialValues={{}}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -262,7 +262,7 @@ test('<Select required> cannot remove selected item if required', () => {
         options={MONTHS}
         required
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -285,7 +285,7 @@ test('<Select required> cannot remove selected item if required', () => {
 
 test('<Select renderItem> formats items', () => {
   const { getByTestId } = render(
-    <TestFinalForm initialValues={{ select: 'february' }}>
+    <DoczForm initialValues={{ select: 'february' }}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -298,7 +298,7 @@ test('<Select renderItem> formats items', () => {
           </div>
         )}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -312,7 +312,7 @@ test('<Select renderItem> formats items', () => {
 
 test('<Select icon> shows icon', () => {
   const { container } = render(
-    <TestFinalForm initialValues={{ select: 'february' }}>
+    <DoczForm initialValues={{ select: 'february' }}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -321,7 +321,7 @@ test('<Select icon> shows icon', () => {
         name="select"
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const icon = container.querySelector('[title="avatar"]')
@@ -330,7 +330,7 @@ test('<Select icon> shows icon', () => {
 
 test('<Select isSearchable> filters results', () => {
   const { getByRole, getByTestId } = render(
-    <TestFinalForm initialValues={{}}>
+    <DoczForm initialValues={{}}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -339,7 +339,7 @@ test('<Select isSearchable> filters results', () => {
         name="select"
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -356,7 +356,7 @@ test('<Select isSearchable> filters results', () => {
 
 test("<Select isSearchable> doesn't show list if no results", () => {
   const { getByTestId, queryByRole } = render(
-    <TestFinalForm initialValues={{}}>
+    <DoczForm initialValues={{}}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -365,7 +365,7 @@ test("<Select isSearchable> doesn't show list if no results", () => {
         name="select"
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -382,7 +382,7 @@ test('<Select isCreatable> can create new items', () => {
   const secondItem = { label: 'Cumku', value: 'cumku' }
 
   const { getByRole, getByTestId } = render(
-    <TestFinalForm initialValues={{}}>
+    <DoczForm initialValues={{}}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -392,7 +392,7 @@ test('<Select isCreatable> can create new items', () => {
         onCreate={handleCreate}
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -451,7 +451,7 @@ test('<Select isCreatable isMultiple> can create new items', () => {
   const handleCreate = jest.fn()
 
   const { getByRole, getByTestId } = render(
-    <TestFinalForm initialValues={{ select: ['february', 'march'] }}>
+    <DoczForm initialValues={{ select: ['february', 'march'] }}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -462,7 +462,7 @@ test('<Select isCreatable isMultiple> can create new items', () => {
         onCreate={handleCreate}
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')
@@ -501,7 +501,7 @@ test('<Select isCreatable isMultiple> can create new items', () => {
 test("<Select isCreatable> can't create an existing item", () => {
   const handleCreate = jest.fn()
   const { getByRole, getByTestId } = render(
-    <TestFinalForm initialValues={{}}>
+    <DoczForm initialValues={{}}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -511,7 +511,7 @@ test("<Select isCreatable> can't create an existing item", () => {
         onCreate={handleCreate}
         options={MONTHS}
       />
-    </TestFinalForm>
+    </DoczForm>
   )
 
   const select = getByTestId('select')

@@ -24,3 +24,5 @@ DoczForm.propTypes = {
   children: func,
   initialValues: object
 }
+
+export const getFormValues = node => JSON.parse(node.querySelector('code').textContent)
