@@ -11,7 +11,6 @@ import { getMonths, getYears } from './utils'
 export const CustomHeader = ({
   changeMonth,
   changeYear,
-  dataTestId,
   date,
   decreaseMonth,
   endYear,
@@ -36,7 +35,6 @@ export const CustomHeader = ({
   return (
     <S.CustomHeader>
       <Button
-        data-testid={dataTestId && dataTestId.decreaseMonth}
         disabled={month === months[0].label && year === startYear}
         onClick={decreaseMonth}
         shape="circle"
@@ -46,22 +44,9 @@ export const CustomHeader = ({
       >
         <Icon name="left" size="xs" />
       </Button>
-      <Select
-        dataTestId={dataTestId && dataTestId.monthSelect}
-        onChange={changeMonth}
-        options={months}
-        size="sm"
-        value={month}
-      />
-      <Select
-        dataTestId={dataTestId && dataTestId.yearSelect}
-        onChange={changeYear}
-        options={years}
-        size="sm"
-        value={year}
-      />
+      <Select onChange={changeMonth} options={months} size="sm" value={month} />
+      <Select onChange={changeYear} options={years} size="sm" value={year} />
       <Button
-        data-testid={dataTestId && dataTestId.increaseMonth}
         disabled={month === months[months.length - 1].label && year === endYear}
         onClick={increaseMonth}
         shape="circle"
