@@ -101,6 +101,7 @@
     "@xstyled/system": "^1.8.2",
     "downshift": "=3.2.10",
     "emoji-mart": "=2.11.1",
+    "lodash.capitalize": "=4.2.1",
     "lodash.concat": "^4.5.0",
     "lodash.difference": "=4.5.0",
     "lodash.differenceby": "=4.8.0",

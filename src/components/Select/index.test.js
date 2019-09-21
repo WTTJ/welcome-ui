@@ -1,6 +1,7 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import capitalize from 'lodash.capitalize'
 
 import { Form, getFormValues } from '../../../docz/Form'
 import { render } from '../../utils/tests'
@@ -8,7 +9,6 @@ import { ConnectedField } from '../ConnectedField'
 import { Icon } from '../Icon'
 
 import { Select } from './index'
-const capitalize = text => text.charAt(0).toUpperCase() + text.slice(1)
 
 const MONTHS = [
   'january',
