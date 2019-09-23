@@ -8,20 +8,14 @@ export const TestFinalForm = ({ children, initialValues }) => {
   // eslint-disable-next-line no-console
   const handleSubmit = console.debug
   return (
-    <>
-      <FinalForm
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        render={({ handleSubmit, values }) => {
-          return (
-            <>
-              <form onSubmit={handleSubmit}>{children}</form>
-              <DoczCodeBlock data-testid="values">{values}</DoczCodeBlock>
-            </>
-          )
-        }}
-      />
-    </>
+    <FinalForm initialValues={initialValues} onSubmit={handleSubmit}>
+      {({ handleSubmit, values }) => (
+        <>
+          <form onSubmit={handleSubmit}>{children}</form>
+          <DoczCodeBlock data-testid="values">{values}</DoczCodeBlock>
+        </>
+      )}
+    </FinalForm>
   )
 }
 

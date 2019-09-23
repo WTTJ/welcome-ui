@@ -1,8 +1,9 @@
 import React, { forwardRef } from 'react'
 import { bool, func, node, oneOf, string } from 'prop-types'
 
-import { SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
+import { createEvent, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
 import { IconWrapper } from '../Field/styles'
+import { ClearButton } from '../ClearButton'
 
 import * as S from './styles'
 
@@ -15,6 +16,7 @@ export const InputText = forwardRef(
       disabled,
       icon,
       iconPlacement = 'left',
+      isClearable,
       name,
       onBlur,
       onChange,
@@ -29,41 +31,46 @@ export const InputText = forwardRef(
     },
     ref
   ) => {
-    const input = (
-      <S.InputText
-        autoFocus={autoFocus}
-        connected={connected}
-        data-testid={dataTestId}
-        disabled={disabled}
-        icon={!!icon}
-        iconPlacement={iconPlacement}
-        id={name}
-        name={name}
-        onBlur={onBlur}
-        onChange={onChange}
-        onFocus={onFocus}
-        onKeyDown={onKeyDown}
-        placeholder={placeholder}
-        ref={ref}
-        size={size}
-        type={type}
-        value={value}
-        variant={variant}
-        {...rest}
-      />
-    )
+    const handleReset = () => {
+      const event = createEvent({ name, value: '' })
+      onChange && onChange(event)
+    }
 
-    return icon ? (
+    return (
       <S.Wrapper>
-        {input}
+        <S.InputText
+          autoFocus={autoFocus}
+          connected={connected}
+          data-testid={dataTestId}
+          disabled={disabled}
+          icon={!!icon}
+          iconPlacement={iconPlacement}
+          id={name}
+          isClearable={isClearable}
+          name={name}
+          onBlur={onBlur}
+          onChange={onChange}
+          onFocus={onFocus}
+          onKeyDown={onKeyDown}
+          placeholder={placeholder}
+          ref={ref}
+          size={size}
+          type={type}
+          value={value}
+          variant={variant}
+          {...rest}
+        />
         {icon && (
           <IconWrapper iconPlacement={iconPlacement} size={size}>
             {icon}
           </IconWrapper>
         )}
+        {isClearable && value && (
+          <IconWrapper iconPlacement="right" size={size}>
+            <ClearButton onClick={handleReset} />
+          </IconWrapper>
+        )}
       </S.Wrapper>
-    ) : (
-      input
     )
   }
 )
@@ -76,6 +83,7 @@ InputText.propTypes = {
   disabled: bool,
   icon: node,
   iconPlacement: oneOf(['left', 'right']),
+  isClearable: bool,
   name: string,
   onBlur: func,
   onChange: func,
