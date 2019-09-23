@@ -1,7 +1,7 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
-import { getFormValues, TestFinalForm } from '../../../docz/FinalForm'
+import { Form, getFormValues } from '../../../docz/Form'
 import { render } from '../../utils/tests'
 import { ConnectedField } from '../ConnectedField'
 
@@ -9,9 +9,9 @@ import { InputText } from './index'
 
 test('<InputText> displays given value', () => {
   const { getByTestId } = render(
-    <TestFinalForm initialValues={{ input: 'test' }}>
+    <Form initialValues={{ input: 'test' }}>
       <ConnectedField component={InputText} dataTestId="input" label="Input" name="input" />
-    </TestFinalForm>
+    </Form>
   )
 
   const input = getByTestId('input')
@@ -23,9 +23,9 @@ test('<InputText> displays given value', () => {
 
 test("<InputText> can't remove value", () => {
   const { getByTestId, queryByRole } = render(
-    <TestFinalForm initialValues={{ input: 'test' }}>
+    <Form initialValues={{ input: 'test' }}>
       <ConnectedField component={InputText} dataTestId="input" label="Input" name="input" />
-    </TestFinalForm>
+    </Form>
   )
 
   const input = getByTestId('input')
@@ -41,7 +41,7 @@ test("<InputText> can't remove value", () => {
 
 test('<InputText isClearable> can remove value', () => {
   const { getByRole, getByTestId } = render(
-    <TestFinalForm initialValues={{ input: 'test' }}>
+    <Form initialValues={{ input: 'test' }}>
       <ConnectedField
         component={InputText}
         dataTestId="input"
@@ -49,7 +49,7 @@ test('<InputText isClearable> can remove value', () => {
         label="Input"
         name="input"
       />
-    </TestFinalForm>
+    </Form>
   )
 
   let input = getByTestId('input')

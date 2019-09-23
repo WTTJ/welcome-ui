@@ -1,13 +1,12 @@
 ---
-name: Refs
-route: /usage/refs
-menu: Usage
+name: 2. Refs
+route: /fields/refs
+menu: Fields
 ---
 
 import { createRef, useRef } from 'react'
 import { Props, Link } from 'docz'
-import { Playground } from '../docz/'
-import { Form } from 'react-final-form'
+import { Form, Playground } from '../docz/'
 
 import { Box } from './components/Box'
 import { Button } from './components/Button'
@@ -49,43 +48,33 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
     }
     //
     return (
-      <Form
-        onSubmit={() => {}}
-        render={({ handleSubmit }) => (
-          <form onSubmit={handleSubmit}>
-            <ConnectedField
-              name="firstName"
-              component={InputText}
-              label="Connected field"
-              ref={connectedInputRef}
-            />
-            <Field
-              name="lastName"
-              component={InputText}
-              label="Normal field"
-              ref={normalInputRef}
-            />
-            <Label>Naked field</Label>
-            <InputText name="naked" ref={nakedInputRef} />
-            <Field name="avatar" component={FileUpload} label="Complex field" ref={fileUploadRef} />
-            <p>Click a button below to focus the relevant field above</p>
-            <Button onClick={handleConnectedClick}>Connected field</Button>
-            <Button onClick={handleNormalClick} ml={20}>
-              Normal field
-            </Button>
-            <Button onClick={handleNakedClick} ml={20}>
-              Naked field
-            </Button>
-            <Button onClick={handleFileUploadClick} ml={20}>
-              File upload field
-            </Button>
-            <p>Click the button below to read the button's ref in the console</p>
-            <Button as="a" ref={buttonRef} onClick={handleButtonClick}>
-              Test button
-            </Button>
-          </form>
-        )}
-      />
+      <Form>
+        <ConnectedField
+          component={InputText}
+          label="Connected field"
+          name="firstName"
+          ref={connectedInputRef}
+        />
+        <Field name="lastName" component={InputText} label="Normal field" ref={normalInputRef} />
+        <Label>Naked field</Label>
+        <InputText name="naked" ref={nakedInputRef} />
+        <Field name="avatar" component={FileUpload} label="Complex field" ref={fileUploadRef} />
+        <p>Click a button below to focus the relevant field above</p>
+        <Button onClick={handleConnectedClick}>Connected field</Button>
+        <Button onClick={handleNormalClick} ml={20}>
+          Normal field
+        </Button>
+        <Button onClick={handleNakedClick} ml={20}>
+          Naked field
+        </Button>
+        <Button onClick={handleFileUploadClick} ml={20}>
+          File upload field
+        </Button>
+        <p>Click the button below to read the button's ref in the console</p>
+        <Button as="a" ref={buttonRef} onClick={handleButtonClick}>
+          Test button
+        </Button>
+      </Form>
     )
   }}
 </Playground>

@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment, useEffect, useRef, useState } from 'react'
+import React, { forwardRef, Fragment, useEffect, useState } from 'react'
 import { array, arrayOf, bool, func, node, number, object, oneOfType, string } from 'prop-types'
 
 // Common
@@ -50,8 +50,6 @@ export const Field = forwardRef(
       return null
     }
 
-    const inputRef = useRef()
-
     const [uniqueId, setUniqueId] = useState()
     useEffect(() => {
       setUniqueId(makeUnique(isRadio ? value : id || name))
@@ -68,8 +66,10 @@ export const Field = forwardRef(
     const Container = flexDirection === 'row' ? RowContainer : Fragment
 
     const handleLabelClick = () => {
-      if (isCheckable) return
-      const input = inputRef.current
+      if (isCheckable) {
+        return
+      }
+      const input = ref.current
       if (input) {
         Component.displayName === 'MarkdownEditor'
           ? input.simpleMde.codemirror.focus()
@@ -93,7 +93,7 @@ export const Field = forwardRef(
         onKeyDown={onKeyDown}
         options={options}
         placeholder={placeholder}
-        ref={inputRef || ref}
+        ref={ref}
         required={required}
         size={size}
         type={baseType}

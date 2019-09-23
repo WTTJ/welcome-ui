@@ -1,3 +1,5 @@
+import capitalize from 'lodash.capitalize'
+
 import {
   getInputValue,
   getNewOptions,
@@ -8,8 +10,6 @@ import {
   isValueSelected,
   itemToString
 } from './utils'
-
-const capitalize = text => text.charAt(0).toUpperCase() + text.slice(1)
 
 const OPTIONS = [
   'january',

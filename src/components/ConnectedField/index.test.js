@@ -1,6 +1,6 @@
 import React, { createRef } from 'react'
-import { Form } from 'react-final-form'
 
+import { Form } from '../../../docz/Form'
 import { render } from '../../utils/tests'
 import { InputText } from '../InputText/index'
 
@@ -8,21 +8,13 @@ import { ConnectedField } from './index'
 
 const content = 'Jungle'
 
-const noop = () => {}
-
-describe.skip('<ConnectedField>', () => {
+describe('<ConnectedField>', () => {
   it('should render correctly and hold `ref`', () => {
     const fieldRef = createRef()
     const { getByTestId } = render(
-      <Form
-        initialValues={{ jungle: content }}
-        onSubmit={noop}
-        render={({ handleSubmit }) => (
-          <form onSubmit={handleSubmit}>
-            <ConnectedField component={InputText} dataTestId="input" name="jungle" ref={fieldRef} />
-          </form>
-        )}
-      />
+      <Form initialValues={{ jungle: content }}>
+        <ConnectedField component={InputText} dataTestId="input" name="jungle" ref={fieldRef} />
+      </Form>
     )
 
     const input = getByTestId('input')
@@ -30,20 +22,14 @@ describe.skip('<ConnectedField>', () => {
     expect(fieldRef.current.name).toEqual('jungle')
   })
 
-  it.skip('should throw error if invalid component provided', () => {
-    const { getByTestId } = render(
-      <Form
-        initialValues={{ jungle: content }}
-        onSubmit={noop}
-        render={({ handleSubmit }) => (
-          <form onSubmit={handleSubmit}>
-            <ConnectedField component={noop} dataTestId="input" name="jungle" />
-          </form>
-        )}
-      />
+  it('should throw error if no component provided', () => {
+    const { container } = render(
+      <Form initialValues={{ jungle: content }}>
+        <ConnectedField dataTestId="input" name="jungle" />
+      </Form>
     )
 
-    const input = getByTestId('input')
-    expect(input).toHaveValue(content)
+    const form = container.querySelector('form')
+    expect(form).toBeEmpty()
   })
 })
