@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { filterComponent, wrapperSystem } from '../../utils/'
+import { filterComponent, system, wrapperSystem } from '../../utils/'
 import { Label } from '../Label/styles'
 import { radioTabStyles } from '../RadioTab/styles'
 import { FieldGroup } from '../FieldGroup/styles'
@@ -47,6 +47,7 @@ export const IconWrapper = styled.div(
     justify-content: center;
     align-items: center;
     pointer-events: none;
+    ${system};
   `
 )
 

@@ -6,6 +6,9 @@ import { TimePicker } from '../TimePicker/styles'
 import { wrapperSystem } from '../../utils/'
 import { IconWrapper } from '../Field/styles'
 import { Icon } from '../Icon/styles'
+import { Wrapper as Select } from '../Select/styles'
+import { Button } from '../Button/styles'
+import { ClearButton } from '../ClearButton/styles'
 
 // Only require CSS on client
 if (typeof window !== 'undefined') {
@@ -77,6 +80,29 @@ const iconPlacementStyles = (placement, size, rest) => {
   }
 }
 
+export const CustomHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: lg;
+  text-align: left;
+  ${Button} {
+    width: 25;
+    height: 25;
+    ${Icon} {
+      width: 10;
+      height: 10;
+    }
+  }
+`
+
+export const Selects = styled.div`
+  display: flex;
+  ${Select}:first-child {
+    margin-right: sm;
+  }
+`
+
 export const CustomInput = styled.div(({ focused, icon, iconPlacement, size, ...rest }) => {
   return css`
     position: relative;
@@ -86,9 +112,8 @@ export const CustomInput = styled.div(({ focused, icon, iconPlacement, size, ...
       padding-right: ${th(`fields.sizes.${size}.height`)(rest)};
     }
 
-    ${Icon} {
-      transition: medium;
-      z-index: ${focused ? 2 : null};
+    ${ClearButton} {
+      z-index: ${focused ? 1 : null};
     }
   `
 })

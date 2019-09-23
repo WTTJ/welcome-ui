@@ -4,12 +4,10 @@ import { bool, func, number, object, oneOf, oneOfType, string } from 'prop-types
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils'
 import { getDate } from '../DateTimePicker/utils'
 import { CustomInput } from '../DateTimePicker/CustomInput'
+import { DEFAULT_DATE } from '../DateTimePicker/constants'
 import { DatePickerPopper } from '../DatePickerPopper'
 
 import * as S from './styles'
-
-// Set default date in a const to avoid memory leak
-const DEFAULT_DATE = new Date()
 
 export const TimePicker = forwardRef(
   (
@@ -81,9 +79,9 @@ export const TimePicker = forwardRef(
     return (
       <S.TimePicker
         calendarClassName="time-picker-popper"
-        className="time-picker"
         customInput={
           <CustomInput
+            data-testid={dataTestId}
             focused={focused}
             handleBlur={e => handleBlur('date', e)}
             handleFocus={handleFocus}
@@ -94,7 +92,6 @@ export const TimePicker = forwardRef(
             size={size}
           />
         }
-        data-testid={dataTestId}
         dateFormat={dateFormat}
         onChange={handleChange}
         placeholderText={placeholderText}

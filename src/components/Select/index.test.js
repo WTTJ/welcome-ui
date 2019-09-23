@@ -25,14 +25,36 @@ const MONTHS = [
   'december'
 ].map(month => ({ label: capitalize(month), value: month }))
 
-test('<Select> has default attributes', () => {
-  const { container, getByTestId } = render(
-    <Form initialValues={{}}>
+const MONTHS_WITH_INTEGER_VALUES = MONTHS.map((item, index) => ({
+  label: item.label,
+  value: index
+}))
+
+test('<Select> accepts falsy option values (such as 0)', () => {
+  const { getByTestId } = render(
+    <Form initialValues={{ select: 0 }}>
       <ConnectedField
         component={Select}
         dataTestId="select"
         label="Select"
-        name="default"
+        name="select"
+        options={MONTHS_WITH_INTEGER_VALUES}
+      />
+    </Form>
+  )
+  const select = getByTestId('select')
+
+  expect(select).toHaveTextContent('January')
+})
+
+test('<Select> has default attributes', () => {
+  const { container, getByTestId } = render(
+    <Form initialValues={{ select: 'january' }}>
+      <ConnectedField
+        component={Select}
+        dataTestId="select"
+        label="Select"
+        name="select"
         options={MONTHS}
       />
     </Form>
@@ -43,7 +65,7 @@ test('<Select> has default attributes', () => {
   expect(label).toHaveTextContent('Select')
   expect(select.getAttribute('placeholder')).toBe('Choose from…')
   expect(select.getAttribute('data-spacer')).toBe('September')
-  expect(select).toHaveTextContent('')
+  expect(select).toHaveTextContent('January')
 })
 
 test('<Select> shows options on click', () => {
@@ -127,12 +149,13 @@ test('<Select> calls onChange with correct (object) values', () => {
   )
 })
 
-test('<Select> can remove option', () => {
+test('<Select isClearable> can remove option', () => {
   const { getByTestId, getByTitle } = render(
     <Form initialValues={{ select: 'february' }}>
       <ConnectedField
         component={Select}
         dataTestId="select"
+        isClearable
         label="Select"
         name="select"
         options={MONTHS}
@@ -146,8 +169,8 @@ test('<Select> can remove option', () => {
   expect(formValues.select).toStrictEqual('february')
 
   // Click cross to remove selected option
-  const removeButton = getByTitle('Remove item')
-  fireEvent.click(removeButton)
+  const clearButton = getByTitle('Clear')
+  fireEvent.click(clearButton)
 
   formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('')
@@ -249,7 +272,7 @@ test('<Select isMultiple> can remove multiple items', () => {
   expect(formValues.select).toStrictEqual(['february'])
 })
 
-test('<Select required> cannot remove selected item if required', () => {
+test("<Select> doesn't show clear button", () => {
   const { getByRole, getByTestId, queryByTitle } = render(
     <Form initialValues={{}}>
       <ConnectedField
@@ -258,15 +281,11 @@ test('<Select required> cannot remove selected item if required', () => {
         label="Select"
         name="select"
         options={MONTHS}
-        required
       />
     </Form>
   )
 
   const select = getByTestId('select')
-  expect(select.getAttribute('required')).toBe('')
-
-  // Choose option
   fireEvent.click(select)
 
   const options = getByRole('listbox').querySelectorAll('li')
@@ -276,9 +295,9 @@ test('<Select required> cannot remove selected item if required', () => {
   expect(select).toHaveTextContent('February')
   expect(formValues.select).toStrictEqual('february')
 
-  // Use `queryByTitle` to expect no close button
-  const removeButton = queryByTitle('Remove item')
-  expect(removeButton).toBeNull()
+  // Use `queryByTitle` to expect no clear button
+  const clearButton = queryByTitle('Clear')
+  expect(clearButton).toBeNull()
 })
 
 test('<Select renderItem> formats items', () => {

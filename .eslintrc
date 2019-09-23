@@ -26,7 +26,7 @@
     "react/sort-prop-types": ["warn", { "ignoreCase": true, "sortShapeProp": true }],
     "react/jsx-no-bind": ["warn", { "allowArrowFunctions": true }],
     "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
-    "react/jsx-max-depth": ["warn", { "max": 3 }],
+    "react/jsx-max-depth": ["warn", { "max": 4 }],
     "react/require-default-props": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-indent": "off",

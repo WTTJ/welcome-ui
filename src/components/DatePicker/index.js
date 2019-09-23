@@ -2,14 +2,13 @@ import React, { forwardRef, useEffect, useState } from 'react'
 import { bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils'
+import { CustomHeader } from '../DateTimePicker/CustomHeader'
 import { CustomInput } from '../DateTimePicker/CustomInput'
 import { getDate } from '../DateTimePicker/utils'
+import { DEFAULT_DATE } from '../DateTimePicker/constants'
 import { DatePickerPopper } from '../DatePickerPopper'
 
 import * as S from './styles'
-
-// Set default date in a const to avoid memory leak
-const DEFAULT_DATE = new Date()
 
 export const DatePicker = forwardRef(
   (
@@ -17,21 +16,25 @@ export const DatePicker = forwardRef(
       autoFocus,
       dataTestId,
       dateFormat = 'dd/MM/yyyy',
+      endYear = DEFAULT_DATE.getFullYear(),
       icon,
       iconPlacement = 'left',
       inputRef,
+      locale,
       onBlur,
       onChange,
       onFocus,
       placeholder,
       size = 'lg',
+      startYear = 1900,
+      useWeekdaysShort = true,
       value = DEFAULT_DATE,
       ...rest
     },
     ref
   ) => {
     const [focused, setFocused] = useState((autoFocus && 'date') || null)
-    const [date, setDate] = useState(null)
+    const [date, setDate] = useState(value)
 
     const formatDate = date => getDate(date, 15)
     const placeholderText = placeholder || rest.placeholderText
@@ -80,9 +83,9 @@ export const DatePicker = forwardRef(
     return (
       <S.DatePicker
         calendarClassName="date-picker-popper"
-        className="date-picker"
         customInput={
           <CustomInput
+            data-testid={dataTestId}
             focused={focused}
             handleBlur={e => handleBlur('date', e)}
             handleFocus={e => handleFocus('date', e)}
@@ -93,13 +96,17 @@ export const DatePicker = forwardRef(
             size={size}
           />
         }
-        data-testid={dataTestId}
         dateFormat={dateFormat}
+        locale={locale}
         onChange={handleChange}
         placeholderText={placeholderText}
         popperContainer={DatePickerPopper}
+        renderCustomHeader={props => (
+          <CustomHeader endYear={endYear} locale={locale} startYear={startYear} {...props} />
+        )}
         selected={date}
         size={size}
+        useWeekdaysShort={useWeekdaysShort}
         {...rest}
         isClearable={false}
       />
@@ -112,13 +119,17 @@ DatePicker.displayName = 'DatePicker'
 DatePicker.propTypes = {
   autoFocus: bool,
   dateFormat: string,
+  endYear: number,
   icon: COMPONENT_TYPE,
   iconPlacement: oneOf('right', 'left'),
   inputRef: func,
+  locale: object,
   onBlur: func,
   onChange: func,
   onFocus: func,
   placeholder: string,
   size: SIZES_TYPE,
+  startYear: number,
+  useWeekdaysShort: bool,
   value: oneOfType([number, object, string]).isRequired
 }

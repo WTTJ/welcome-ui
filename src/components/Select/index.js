@@ -1,13 +1,20 @@
 import React, { forwardRef, useEffect, useMemo, useState } from 'react'
-import { arrayOf, bool, func, oneOfType, string } from 'prop-types'
+import { arrayOf, bool, func, number, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import matchSorter from 'match-sorter'
 import kebabCase from 'lodash.kebabcase'
 import isEqual from 'lodash.isequal'
 
-import { COMPONENT_TYPE, INPUTS_TYPE, OPTIONS_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils'
+import { createEvent } from '../../utils/events'
+import {
+  COMPONENT_TYPE,
+  INPUTS_TYPE,
+  OPTIONS_TYPE,
+  SIZES_TYPE,
+  VARIANTS_TYPE
+} from '../../utils/propTypes'
 import { Icon } from '../Icon'
-import { createEvent } from '../../utils/'
+import { ClearButton } from '../ClearButton'
 
 import { MultipleSelections } from './MultipleSelections'
 import * as S from './styles'
@@ -33,6 +40,7 @@ export const Select = forwardRef(
       disabled,
       icon,
       id,
+      isClearable,
       isCreatable,
       isMultiple,
       isSearchable = isCreatable || isSearchable,
@@ -46,7 +54,6 @@ export const Select = forwardRef(
       placeholder = 'Choose from…',
       renderItem = itemToString,
       renderMultiple = MultipleSelections,
-      required,
       size = 'lg',
       type,
       value: defaultSelected,
@@ -184,20 +191,11 @@ export const Select = forwardRef(
             !isValueSelected(inputValue, selected)
           )
           const isShowMenu = isOpen && (options.length || isShowCreate)
-          const isShowDeleteIcon = inputValue && !isOpen && !required
+          const isShowDeleteIcon = isClearable && inputValue
 
           const DeleteIcon = (
-            <S.DropDownIndicator
-              actionType="destructive"
-              disabled={disabled}
-              onClick={clearSelection}
-              role="button"
-              size={size}
-              tabIndex={-1}
-              title="Remove item"
-              type="button"
-            >
-              <Icon color="nude.800" name="cross" size="xs" title="Remove" />
+            <S.DropDownIndicator as="div" size={size}>
+              <ClearButton onClick={clearSelection} />
             </S.DropDownIndicator>
           )
           const Arrow = (
@@ -227,7 +225,6 @@ export const Select = forwardRef(
             onFocus,
             placeholder,
             ref,
-            required,
             size,
             tabIndex: 0,
             variant: isOpen ? 'focused' : variant,
@@ -245,7 +242,7 @@ export const Select = forwardRef(
                 {icon && <S.Icon size={size}>{icon}</S.Icon>}
                 <S.Indicators size={size}>
                   {isShowDeleteIcon && DeleteIcon}
-                  {!isShowDeleteIcon && Arrow}
+                  {Arrow}
                 </S.Indicators>
               </S.InputWrapper>
               {isShowMenu && (
@@ -297,6 +294,7 @@ Select.propTypes = {
   disabled: bool,
   icon: COMPONENT_TYPE,
   id: string,
+  isClearable: bool,
   isCreatable: bool,
   isMultiple: bool,
   isSearchable: bool,
@@ -310,10 +308,13 @@ Select.propTypes = {
   placeholder: string.isRequired,
   renderItem: func,
   renderMultiple: func,
-  required: bool,
   searchable: bool,
   size: SIZES_TYPE,
   type: INPUTS_TYPE,
-  value: oneOfType([OPTIONS_TYPE, arrayOf(OPTIONS_TYPE)], string),
+  value: oneOfType(
+    [OPTIONS_TYPE, arrayOf(OPTIONS_TYPE), string, arrayOf(string)],
+    number,
+    arrayOf(number)
+  ),
   variant: VARIANTS_TYPE
 }

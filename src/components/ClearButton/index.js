@@ -8,7 +8,7 @@ export const ClearButton = props => (
   <S.ClearButton
     height={0.45}
     shape="circle"
-    title="Remove"
+    title="Clear"
     variant="quaternary"
     width={0.45}
     {...props}
