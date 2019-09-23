@@ -115,7 +115,6 @@ export const Indicators = styled.div`
 
 export const DropDownIndicator = styled.button(
   ({ isOpen, size }) => css`
-    display: inline-block;
     position: relative;
     height: 100%;
     width: ${th(`fields.sizes.${size}.height`)};

@@ -63,9 +63,7 @@ test('<DateTimePicker> renders month select', () => {
 
   fireEvent.click(datePicker)
 
-  const dropdowns = getAllByRole('combobox')
-  const monthSelect = dropdowns[0]
-  const yearSelect = dropdowns[1]
+  const [monthSelect, yearSelect] = getAllByRole('combobox')
 
   expect(monthSelect).toHaveTextContent('September')
   expect(yearSelect).toHaveTextContent('2001')
@@ -83,9 +81,7 @@ test('<DateTimePicker> can proceed through next/prev months', () => {
 
   const decreaseMonth = getByTitle('Previous month')
   const increaseMonth = getByTitle('Next month')
-  const dropdowns = getAllByRole('combobox')
-  const monthSelect = dropdowns[0]
-  const yearSelect = dropdowns[1]
+  const [monthSelect, yearSelect] = getAllByRole('combobox')
 
   expect(monthSelect).toHaveTextContent('September')
   expect(yearSelect).toHaveTextContent('2001')
@@ -122,9 +118,7 @@ test('<DateTimePicker> updating text updates selects', () => {
 
   fireEvent.click(datePicker)
 
-  const dropdowns = getAllByRole('combobox')
-  const monthSelect = dropdowns[0]
-  const yearSelect = dropdowns[1]
+  const [monthSelect, yearSelect] = getAllByRole('combobox')
 
   expect(monthSelect).toHaveTextContent('June')
   expect(yearSelect).toHaveTextContent('2018')

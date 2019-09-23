@@ -32,7 +32,7 @@ const MONTHS_WITH_INTEGER_VALUES = MONTHS.map((item, index) => ({
 
 test('<Select> accepts falsy option values (such as 0)', () => {
   const { getByTestId } = render(
-    <TestFinalForm initialValues={{ select: 0 }}>
+    <Form initialValues={{ select: 0 }}>
       <ConnectedField
         component={Select}
         dataTestId="select"
@@ -40,7 +40,7 @@ test('<Select> accepts falsy option values (such as 0)', () => {
         name="select"
         options={MONTHS_WITH_INTEGER_VALUES}
       />
-    </TestFinalForm>
+    </Form>
   )
   const select = getByTestId('select')
 

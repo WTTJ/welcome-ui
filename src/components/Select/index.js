@@ -12,7 +12,7 @@ import {
   OPTIONS_TYPE,
   SIZES_TYPE,
   VARIANTS_TYPE
-} from '../../utils/proptypes'
+} from '../../utils/propTypes'
 import { Icon } from '../Icon'
 import { ClearButton } from '../ClearButton'
 
