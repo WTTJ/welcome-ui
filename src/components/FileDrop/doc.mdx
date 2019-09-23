@@ -5,9 +5,10 @@ menu: Fields
 ---
 
 import { Props } from 'docz'
-import { Playground } from '../../../docz/'
-import { useState } from 'react'
+import { Playground, Form } from '../../../docz'
+import { DefaultFileDropView } from '../../../helpers/tests'
 
+import { ConnectedField } from '../ConnectedField'
 import { FileDrop } from './index'
 import { Button } from '../Button'
 import { Icon } from '../Icon'
@@ -26,29 +27,21 @@ You also have access to:
 - `openFile`: To open the native file chooser dialog box
 - `fileUrl`: URL of file if one has been opened/dropped (to show a preview)
 
+See your browser console for the real `File` object ready to upload.
+
 ## Default
 
 <Playground>
-  {() => {
-    const DefaultView = ({ openFile }) => (
-      <>
-        <h3>Add picture</h3>
-        <p>Drag and drop a file here or…</p>
-        <Button onClick={openFile} type="button">
-          Choose file
-        </Button>
-      </>
-    )
-    return (
-      <FileDrop
-        name="default"
+  {() => (
+    <Form initialValues={{}}>
+      <ConnectedField
+        component={FileDrop}
+        name="avatar"
         label="Default"
         hint="Files must be <200MB"
         required
-        onChange={console.debug}
         onAddFile={console.debug}
         onRemoveFile={console.debug}
-        onError={console.debug}
       >
         {({ error, fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
           if (isHoverAccept) {
@@ -60,57 +53,44 @@ You also have access to:
           } else if (fileUrl) {
             return <FilePreviewImage src={fileUrl} />
           }
-          return <DefaultView openFile={openFile} />
+          return <DefaultFileDropView openFile={openFile} />
         }}
-      </FileDrop>
-    )
-  }}
+      </ConnectedField>
+    </Form>
+  )}
 </Playground>
 
 ## Show preview if value exists
 
 <Playground>
-  {() => {
-    const [error, setError] = useState()
-    const handleError = e => console.debug(e)
-    const DefaultView = ({ openFile }) => (
-      <>
-        <h3>Add picture</h3>
-        <p>Drag and drop a file here or…</p>
-        <Button onClick={openFile} type="button">
-          Choose file
-        </Button>
-      </>
-    )
-    return (
-      <FileDrop
+  {() => (
+    <Form
+      initialValues={{
+        avatar:
+          'https://cdn-development.welcometothejungle.co/uploads/robert/applicants/303416437e/avatars/0.jpg?v=63731713698'
+      }}
+    >
+      <ConnectedField
+        component={FileDrop}
         hint="Files must be <200MB"
         isEditable
-        isRemovable
+        isClearable
         label="Avatar"
         name="avatar"
         onAddFile={console.debug}
-        onChange={console.debug}
-        onError={setError}
         onRemoveFile={console.debug}
         required
-        value="https://cdn-development.welcometothejungle.co/uploads/robert/applicants/303416437e/avatars/0.jpg?v=63731713698"
       />
-    )
-  }}
+    </Form>
+  )}
 </Playground>
 
 ## Disabled
 
 <Playground>
-  <FileDrop disabled>
-    {() => (
-      <>
-        <Icon name="negative" />
-        <p>Can't upload file</p>
-      </>
-    )}
-  </FileDrop>
+  <Form initialValues={{}}>
+    <ConnectedField name="avatar" component={FileDrop} disabled />
+  </Form>
 </Playground>
 
 ## Properties

@@ -1,409 +1,116 @@
 ---
-name: Field
-route: /components/field
-menu: Components
+name: 1. Intro
+route: /fields/intro
+menu: Fields
 ---
 
 import { Props } from 'docz'
-import { DoczForm, Playground } from '../../../docz/'
+import { Form, Playground } from '../../../docz/'
 
-import { Field } from './index'
-import { FieldGroup } from '../FieldGroup'
-import { RadioGroup } from '../RadioGroup'
-import { Icon } from '../Icon'
+import { ConnectedField } from '../ConnectedField'
 import { InputText } from '../InputText'
-import { InputTextarea } from '../InputTextarea'
-import { InputCheckbox } from '../InputCheckbox'
-import { MarkdownEditor } from '../MarkdownEditor'
-import { Toggle } from '../Toggle'
-import { InputRadio } from '../InputRadio'
-import { RadioTab } from '../RadioTab'
-import { Select } from '../Select'
-import { FileDrop } from '../FileDrop'
-import { FileUpload } from '../FileUpload'
-import { DateTimePicker } from '../DateTimePicker'
-import { DatePicker } from '../DatePicker'
-import { TimePicker } from '../TimePicker'
 
 # Field
 
-We recommend using [Final Form](https://github.com/final-form/react-final-form), [Redux Form](https://github.com/erikras/redux-form) or [Formik](https://github.com/jaredpalmer/formik) with these components. You can see [usage with these libraries here](/usage-final-form).
+We recommend using [Final Form](https://github.com/final-form/react-final-form), [Redux Form](https://github.com/erikras/redux-form) or [Formik](https://github.com/jaredpalmer/formik) with these components. If so, use `ConnectedField` for your fields (as in the examples below).
 
-Alternatively, you can create your own system to manage the state of your form fields (`value`, `checked` etc).
+The examples below give you an overview of common props (e.g. `size`, `disable`, `required` etc.)
 
-You can find additional props for each field component in [Fields](/fields/file-upload).
+You can find props for each field component in the other `Fields` pages.
 
 ## Sizes
 
 <Playground>
-  <DoczForm initialValues={{ small: 'I am small' }}>
-    {(values, handleChange) => (
-      <>
-        <Field
-          name="small"
-          placeholder="Placeholder"
-          component={InputText}
-          label="I'm a small sized field"
-          onChange={handleChange}
-          value={values.small}
-          size="sm"
-          mb="xl"
-        />
-        <Field
-          name="medium"
-          placeholder="Placeholder"
-          component={InputText}
-          label="I'm a medium sized field"
-          onChange={handleChange}
-          value={values.medium}
-          size="md"
-          mb="xl"
-        />
-        <Field
-          name="large"
-          placeholder="Placeholder"
-          component={InputText}
-          label="I'm a large sized field which is my default size"
-          value={values.large}
-          onChange={handleChange}
-          mb="xl"
-        />
-      </>
-    )}
-  </DoczForm>
+  <Form initialValues={{}}>
+    <>
+      <ConnectedField
+        name="small"
+        placeholder="Placeholder"
+        component={InputText}
+        label="I'm a small sized field"
+        size="sm"
+        mb="xl"
+      />
+      <ConnectedField
+        name="medium"
+        placeholder="Placeholder"
+        component={InputText}
+        label="I'm a medium sized field"
+        size="md"
+        mb="xl"
+      />
+      <ConnectedField
+        name="large"
+        placeholder="Placeholder"
+        component={InputText}
+        label="I'm a large sized field which is my default size"
+        mb="xl"
+      />
+    </>
+  </Form>
 </Playground>
 
 ## Variants
 
 <Playground>
-  <DoczForm initialValues={{ random: 'Test' }}>
-    {(values, handleChange) => (
-      <>
-        <Field
-          name="random"
-          placeholder="Placeholder"
-          component={InputText}
-          label="Label"
-          hint="A hint"
-          value={values.random}
-          onChange={handleChange}
-          mb="xl"
-        />
-        <Field
-          name="warning"
-          placeholder="Placeholder"
-          component={InputText}
-          label="Label"
-          warning="A warning"
-          value={values.warning}
-          onChange={handleChange}
-          mb="xl"
-        />
-        <Field
-          name="error"
-          placeholder="Placeholder"
-          component={InputText}
-          label="Label"
-          error="An error"
-          value={values.error}
-          onChange={handleChange}
-          mb="xl"
-        />
-      </>
-    )}
-  </DoczForm>
+  <Form initialValues={{}}>
+    <>
+      <ConnectedField
+        name="default"
+        placeholder="Placeholder"
+        component={InputText}
+        label="Label"
+        hint="A hint"
+        mb="xl"
+      />
+      <ConnectedField
+        name="warning"
+        placeholder="Placeholder"
+        component={InputText}
+        label="Label"
+        warning="A warning"
+        mb="xl"
+      />
+      <ConnectedField
+        name="error"
+        placeholder="Placeholder"
+        component={InputText}
+        label="Label"
+        error="An error"
+        mb="xl"
+      />
+    </>
+  </Form>
 </Playground>
 
 ## Disabled
 
 <Playground>
-  <Field
-    name="disabled"
-    placeholder="Placeholder"
-    component={InputText}
-    label="Label"
-    disabled
-    value="My value can't change"
-    onChange={console.debug}
-  />
-</Playground>
-
-## Inline
-
-<Playground>
-  <Field
-    name="inline"
-    flexDirection="row"
-    placeholder="Placeholder"
-    component={InputText}
-    label="Label"
-    required
-    onChange={console.debug}
-  />
+  <Form initialValues={{ disabled: 'Disabled value' }}>
+    <ConnectedField
+      name="disabled"
+      placeholder="Placeholder"
+      component={InputText}
+      label="Label"
+      disabled
+    />
+  </Form>
 </Playground>
 
 ## Required
 
 <Playground>
-  <Field
-    name="required"
-    placeholder="Placeholder"
-    component={InputText}
-    label="Label"
-    required
-    onChange={console.debug}
-  />
-</Playground>
-
-## Textarea
-
-<Playground>
-  <Field
-    name="textarea"
-    placeholder="Placeholder"
-    component={InputTextarea}
-    label="Label"
-    onChange={console.debug}
-  />
-</Playground>
-
-## Select
-
-<Playground>
-  <DoczForm initialValues={{ cakes: { label: 'Pumpkin', value: 'pumpkin' } }}>
-    {(values, handleChange) => (
-      <>
-        <Field
-          name="cakes"
-          placeholder="Placeholder"
-          component={Select}
-          label="Label"
-          options={[
-            { value: 'carrot', label: 'Carrot' },
-            { value: 'madeleine', label: 'Madeleine (made with farm-fresh eggs' },
-            { value: 'pumpkin', label: 'Pumpkin' }
-          ]}
-          value={values.cakes}
-          onChange={handleChange}
-        />
-      </>
-    )}
-  </DoczForm>
-</Playground>
-
-## RadioTabs
-
-<Playground>
-  <DoczForm initialValues={{ cakes: 'madeleine', fish: 'mackerel' }}>
-    {(values, handleChange) => (
-      <>
-        <RadioGroup label="Label for input radios" required mb="xl">
-          <Field
-            name="cakes"
-            component={RadioTab}
-            value="carrot"
-            label="Carrot"
-            checked={values.cakes === 'carrot'}
-            onChange={handleChange}
-            mb="xl"
-          />
-          <Field
-            name="cakes"
-            component={RadioTab}
-            value="madeleine"
-            label="Madeleine (made with farm-fresh eggs"
-            checked={values.cakes === 'madeleine'}
-            onChange={handleChange}
-          />
-          <Field
-            name="cakes"
-            component={RadioTab}
-            value="pumpkin"
-            label="Pumpkin"
-            checked={values.cakes === 'pumpkin'}
-            onChange={handleChange}
-          />
-        </RadioGroup>
-        <RadioGroup
-          label="Label for input radios"
-          flexDirection="column"
-          width={1 / 3}
-          required
-          mb="xl"
-        >
-          <Field
-            name="fish"
-            component={RadioTab}
-            value="mackerel"
-            label="Mackerel"
-            checked={values.fish === 'mackerel'}
-            onChange={handleChange}
-          />
-          <Field
-            name="fish"
-            component={RadioTab}
-            value="sardine"
-            label="Sardine"
-            checked={values.fish === 'sardine'}
-            onChange={handleChange}
-          />
-          <Field
-            name="fish"
-            component={RadioTab}
-            value="salmon"
-            label="Salmon"
-            checked={values.fish === 'salmon'}
-            onChange={handleChange}
-          />
-        </RadioGroup>
-      </>
-    )}
-  </DoczForm>
-</Playground>
-
-## Radio
-
-<Playground>
-  <DoczForm initialValues={{ sauces: 'ketchup' }}>
-    {(values, handleChange) => (
-      <>
-        <RadioGroup label="Your favorite sauce">
-          <Field
-            name="sauces"
-            component={InputRadio}
-            value="mayonnaise"
-            label="Mayonnaise"
-            checked={values.sauces === 'mayonnaise'}
-            onChange={handleChange}
-          />
-          <Field
-            name="sauces"
-            component={InputRadio}
-            value="ketchup"
-            label="Ketchup"
-            checked={values.sauces === 'ketchup'}
-            onChange={handleChange}
-          />
-          <Field
-            name="sauces"
-            component={InputRadio}
-            value="barbecue"
-            label="Barbecue"
-            checked={values.sauces === 'barbecue'}
-            onChange={handleChange}
-          />
-        </RadioGroup>
-      </>
-    )}
-  </DoczForm>
-</Playground>
-
-## Checkbox
-
-<Playground>
-  <DoczForm initialValues={{ vue: true }}>
-    {(values, handleChange) => (
-      <FieldGroup label="Check the frameworks you have already worked with">
-        <Field
-          component={InputCheckbox}
-          name="react"
-          label="React"
-          checked={!!values.react}
-          onChange={handleChange}
-        />
-        <Field
-          component={InputCheckbox}
-          label="Angular"
-          name="angular"
-          id="angular_custom_id"
-          checked={!!values.angular}
-          onChange={handleChange}
-        />
-        <Field
-          component={InputCheckbox}
-          name="vue"
-          label="Vue"
-          checked={!!values.vue}
-          onChange={handleChange}
-        />
-      </FieldGroup>
-    )}
-  </DoczForm>
-</Playground>
-
-## Toggle
-
-<Playground>
-  <DoczForm initialValues={{ swatch: true }}>
-    {(values, handleChange) => (
-      <>
-        <Field
-          name="switch"
-          component={Toggle}
-          label="Switch example"
-          checked={!!values.switch}
-          onChange={handleChange}
-          mb="xl"
-        />
-        <Field
-          name="swatch"
-          component={Toggle}
-          label="Disabled swatch example"
-          disabled
-          checked={!!values.swatch}
-          onChange={handleChange}
-          mb="xl"
-        />
-      </>
-    )}
-  </DoczForm>
-</Playground>
-
-## Markdown Editor
-
-<Playground>
-  <Field
-    name="markdown"
-    component={MarkdownEditor}
-    value="Something happening"
-    placeholder="Placeholder"
-    label="Markdown editor example"
-    onChange={console.debug}
-  />
-</Playground>
-
-## File Upload
-
-<Playground>
-  <Field
-    name="upload"
-    component={FileUpload}
-    label="File upload example"
-    onChange={console.debug}
-  />
-</Playground>
-
-## File Drop
-
-<Playground>
-  <Field name="drop" component={FileDrop} label="File upload example" onChange={console.debug} />
-</Playground>
-
-## DateTimePicker
-
-<Playground>
-  <Field
-    name="datetimepicker"
-    component={DateTimePicker}
-    value={Date.now() - 18 * 365 * 24 * 3600 * 1000}
-    label="Tell us your birth date and time (if you remember it)"
-    onChange={date => console.log('date: ', date)}
-  >
-    <DatePicker autoFocus icon={<Icon name="birthday" color="nude.600" />} />
-    <TimePicker />
-  </Field>
+  <Form initialValues={{}}>
+    <ConnectedField
+      name="required"
+      placeholder="Placeholder"
+      component={InputText}
+      label="Label"
+      required
+    />
+  </Form>
 </Playground>
 
 ## Properties
 
-<Props of={Field} />
+<Props of={ConnectedField} />

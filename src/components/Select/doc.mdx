@@ -7,7 +7,10 @@ menu: Fields
 import { useState } from 'react'
 import { Props } from 'docz'
 import { Playground } from '../../../docz/'
+import { Form } from '../../../docz/Form'
+import { ITEMS } from '../../../helpers/tests'
 
+import { ConnectedField } from '../ConnectedField'
 import { Select } from './index'
 import { Icon } from '../Icon'
 import { Tag } from '../Tag'
@@ -20,19 +23,9 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
 ## Default
 
 <Playground>
-  {() => {
-    const ITEMS = [
-      { value: 'angular', label: 'Angular' },
-      { value: 'backbone', label: 'Backbone' },
-      { value: 'elm', label: 'Elm' },
-      { value: 'ember', label: 'Ember' },
-      { value: 'react', label: 'React' },
-      { value: 'vue', label: 'Vue' }
-    ]
-    const [value, setValue] = useState()
-    const handleChange = value => setValue(value)
-    return <Select options={ITEMS} name="default" onChange={handleChange} value={value} />
-  }}
+  <Form initialValues={{}}>
+    <ConnectedField component={Select} options={ITEMS} name="welcome" label="Social networks" />
+  </Form>
 </Playground>
 
 ## Clearable
@@ -60,67 +53,45 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
 Just add the `isMultiple` prop. Note: to be able to choose multiple values you must pass an array for the `value`.
 
 <Playground>
-  {() => {
-    const ITEMS = [
-      { value: 'angular', label: 'Angular' },
-      { value: 'backbone', label: 'Backbone' },
-      { value: 'elm', label: 'Elm' },
-      { value: 'ember', label: 'Ember' },
-      { value: 'react', label: 'React' },
-      { value: 'vue', label: 'Vue' }
-    ]
-    // you can pass either the label, the value or the entire object
-    const [value, setValue] = useState(['React', 'ember', ITEMS[2]])
-    return (
-      <Select isMultiple options={ITEMS} name="multiple" onChange={console.debug} value={value} />
-    )
-  }}
+  <Form initialValues={{ welcome: ['github', 'twitter'] }}>
+    <ConnectedField
+      component={Select}
+      isMultiple
+      options={ITEMS}
+      name="welcome"
+      label="Social networks"
+    />
+  </Form>
 </Playground>
 
 Passing a `renderMultiple` function allows you to format the selected items below the select.
 
 <Playground>
-  {() => {
-    const ITEMS = [
-      { value: 'behance', label: 'Behance' },
-      { value: 'dribbble', label: 'Dribbble' },
-      { value: 'facebook', label: 'Facebook' },
-      { value: 'github', label: 'Github' },
-      { value: 'instagram', label: 'Instagram' },
-      { value: 'linkedin', label: 'Linkedin' },
-      { value: 'stackoverflow', label: 'Stack Overflow' },
-      { value: 'twitter', label: 'Twitter' },
-      { value: 'xing', label: 'Xing' },
-      { value: 'youtube', label: 'Youtube' }
-    ]
-    const [value, setValue] = useState(['facebook', 'linkedin'])
-    const handleChange = value => setValue(value)
-    return (
-      <Select
-        isMultiple
-        name="rich"
-        onChange={handleChange}
-        options={ITEMS}
-        renderMultiple={(selected, handleRemove) => {
-          return selected.map(option => (
-            <Tag
-              key={option.value}
-              variant="primary"
-              onRemove={() => handleRemove(option.value)}
-              mr="sm"
-              mt="sm"
-            >
-              <Icon name={option.value} mr="sm" />
-              <Text variant="body3" m="0">
-                {option.label}
-              </Text>
-            </Tag>
-          ))
-        }}
-        value={value}
-      />
-    )
-  }}
+  <Form initialValues={{ welcome: ['github', 'twitter'] }}>
+    <ConnectedField
+      component={Select}
+      isMultiple
+      name="welcome"
+      label="Social networks"
+      options={ITEMS}
+      renderMultiple={(selected, handleRemove) => {
+        return selected.map(option => (
+          <Tag
+            key={option.value}
+            variant="primary"
+            onRemove={() => handleRemove(option.value)}
+            mr="sm"
+            mt="sm"
+          >
+            <Icon name={option.value} mr="sm" />
+            <Text variant="body3" m="0">
+              {option.label}
+            </Text>
+          </Tag>
+        ))
+      }}
+    />
+  </Form>
 </Playground>
 
 ## Searchable
@@ -128,75 +99,31 @@ Passing a `renderMultiple` function allows you to format the selected items belo
 To be able to filter (i.e. search) the results, add the `isSearchable` prop.
 
 <Playground>
-  {() => {
-    const ITEMS = [
-      { value: 'angular', label: 'Angular' },
-      { value: 'backbone', label: 'Backbone' },
-      { value: 'elm', label: 'Elm' },
-      { value: 'ember', label: 'Ember' },
-      { value: 'react', label: 'React' },
-      { value: 'vue', label: 'Vue' }
-    ]
-    const [value, setValue] = useState(ITEMS[2])
-    const handleChange = value => setValue(value)
-    return (
-      <Select
-        isSearchable
-        options={ITEMS}
-        name="searchable"
-        onChange={handleChange}
-        value={value}
-      />
-    )
-  }}
-</Playground>
-
-## Required
-
-You can normally clear the selected value of a `Select` but if it has a `required` prop we'll prevent the ability to remove a chosen option.
-
-<Playground>
-  {() => {
-    const ITEMS = [
-      { value: 'angular', label: 'Angular' },
-      { value: 'backbone', label: 'Backbone' },
-      { value: 'elm', label: 'Elm' },
-      { value: 'ember', label: 'Ember' },
-      { value: 'react', label: 'React' },
-      { value: 'vue', label: 'Vue' }
-    ]
-    const [value, setValue] = useState()
-    const handleChange = value => setValue(value)
-    return <Select required options={ITEMS} name="required" onChange={handleChange} value={value} />
-  }}
+  <Form initialValues={{}}>
+    <ConnectedField
+      component={Select}
+      isSearchable
+      options={ITEMS}
+      name="welcome"
+      label="Social networks"
+    />
+  </Form>
 </Playground>
 
 ## Add an icon
 
-You can normally clear the selected value of a `Select` but if it has a `required` prop we'll prevent the ability to remove a chosen option.
+Pass `icon` to decorate your `Select`
 
 <Playground>
-  {() => {
-    const ITEMS = [
-      { value: 'angular', label: 'Angular' },
-      { value: 'backbone', label: 'Backbone' },
-      { value: 'elm', label: 'Elm' },
-      { value: 'ember', label: 'Ember' },
-      { value: 'react', label: 'React' },
-      { value: 'vue', label: 'Vue' }
-    ]
-    const [value, setValue] = useState()
-    const handleChange = value => setValue(value)
-    return (
-      <Select
-        icon={<Icon name="add" color="nude.500" />}
-        name="icon"
-        onChange={handleChange}
-        options={ITEMS}
-        value={value}
-      />
-    )
-  }}
+  <Form initialValues={{}}>
+    <ConnectedField
+      component={Select}
+      icon={<Icon name="link" label="Social networks" color="nude.500" />}
+      name="welcome"
+      label="Social networks"
+      options={ITEMS}
+    />
+  </Form>
 </Playground>
 
 ## Formatting options
@@ -208,36 +135,19 @@ Note: if you use `renderItem` with `isSearchable` or `isCreatable` the selected 
 Note: if you want to format the options _and_ the placeholder, create a dummy value as the first of your options with an empty string as the value (see code below).
 
 <Playground>
-  {() => {
-    const ITEMS = [
-      { value: '', label: 'Choose a social network…' },
-      { value: 'behance', label: 'Behance' },
-      { value: 'dribbble', label: 'Dribbble' },
-      { value: 'facebook', label: 'Facebook' },
-      { value: 'github', label: 'Github' },
-      { value: 'instagram', label: 'Instagram' },
-      { value: 'linkedin', label: 'Linkedin' },
-      { value: 'stackoverflow', label: 'Stack Overflow' },
-      { value: 'twitter', label: 'Twitter' },
-      { value: 'xing', label: 'Xing' },
-      { value: 'youtube', label: 'Youtube' }
-    ]
-    const [value, setValue] = useState()
-    const handleChange = value => setValue(value)
-    return (
-      <Select
-        name="rich"
-        onChange={handleChange}
-        options={ITEMS}
-        renderItem={option => (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Icon name={option.value || 'link'} mr="xs" /> <span>{option.label}</span>
-          </div>
-        )}
-        value={value}
-      />
-    )
-  }}
+  <Form initialValues={{ welcome: 'twitter' }}>
+    <ConnectedField
+      component={Select}
+      name="welcome"
+      label="Social networks"
+      options={ITEMS}
+      renderItem={option => (
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <Icon name={option.value || 'link'} mr="xs" /> <span>{option.label}</span>
+        </div>
+      )}
+    />
+  </Form>
 </Playground>
 
 ## Creatable
@@ -247,17 +157,15 @@ You can _add_ items by passing the `isCreatable` prop. The returned item will be
 `{ value: 'name-to-be-kebab-cased', label: 'Name to be kebab-cased' }`
 
 <Playground>
-  {() => {
-    const ITEMS = [
-      { value: 'angular', label: 'Angular' },
-      { value: 'backbone', label: 'Backbone' },
-      { value: 'elm', label: 'Elm' },
-      { value: 'ember', label: 'Ember' },
-      { value: 'react', label: 'React' },
-      { value: 'vue', label: 'Vue' }
-    ]
-    return <Select isCreatable options={ITEMS} name="creatable" onChange={console.debug} />
-  }}
+  <Form initialValues={{}}>
+    <ConnectedField
+      component={Select}
+      isCreatable
+      options={ITEMS}
+      name="welcome"
+      label="Social networks"
+    />
+  </Form>
 </Playground>
 
 ## Combining props
@@ -265,92 +173,18 @@ You can _add_ items by passing the `isCreatable` prop. The returned item will be
 You can pass any combination of the props above. For example below, we have a `Select` that allows you to search the options, choose multiple options, and create new options.
 
 <Playground>
-  {() => {
-    const ITEMS = [
-      { value: 'angular', label: 'Angular' },
-      { value: 'backbone', label: 'Backbone' },
-      { value: 'elm', label: 'Elm' },
-      { value: 'ember', label: 'Ember' },
-      { value: 'react', label: 'React' },
-      { value: 'vue', label: 'Vue' }
-    ]
-    const [value, setValue] = useState(['ember', 'vue'])
-    const handleChange = value => setValue(value)
-    return (
-      <Select
-        icon={<Icon name="add" color="nude.500" />}
-        isCreatable
-        isMultiple
-        isSearchable
-        options={ITEMS}
-        name="combined"
-        onChange={handleChange}
-        value={value}
-      />
-    )
-  }}
-</Playground>
-
-## Sizes
-
-Use size property with `sm` `md` or `lg`(default).
-
-<Playground>
-  {() => {
-    const ITEMS = [
-      { value: 'angular', label: 'Angular' },
-      { value: 'backbone', label: 'Backbone' },
-      { value: 'elm', label: 'Elm' },
-      { value: 'ember', label: 'Ember' },
-      { value: 'react', label: 'React' },
-      { value: 'vue', label: 'Vue' }
-    ]
-    const [values, setValues] = useState({ small: 'elm', medium: 'backbone', large: 'angular' })
-    const handleChange = (value, e) => setValues({ ...values, [e.target.name]: value })
-    return (
-      <>
-        <Select
-          options={ITEMS}
-          name="small"
-          onChange={handleChange}
-          size="sm"
-          value={values.small}
-        />
-        <Select
-          options={ITEMS}
-          name="medium"
-          onChange={handleChange}
-          size="md"
-          value={values.medium}
-        />
-        <Select
-          options={ITEMS}
-          name="large"
-          onChange={handleChange}
-          size="lg"
-          value={values.large}
-        />
-      </>
-    )
-  }}
-</Playground>
-
-## Disabled
-
-<Playground>
-  {() => {
-    const ITEMS = [
-      { value: 'angular', label: 'Angular' },
-      { value: 'backbone', label: 'Backbone' },
-      { value: 'elm', label: 'Elm' },
-      { value: 'ember', label: 'Ember' },
-      { value: 'react', label: 'React' },
-      { value: 'vue', label: 'Vue' }
-    ]
-    const [value, setValue] = useState(ITEMS[2])
-    const handleChange = value => setValue(value)
-    return <Select disabled options={ITEMS} name="disabled" onChange={handleChange} value="ember" />
-  }}
+  <Form initialValues={{ welcome: ['github', 'twitter'] }}>
+    <ConnectedField
+      component={Select}
+      icon={<Icon name="link" label="Social networks" color="nude.500" />}
+      isCreatable
+      isMultiple
+      isSearchable
+      options={ITEMS}
+      name="welcome"
+      label="Social networks"
+    />
+  </Form>
 </Playground>
 
 ## Properties

@@ -6,8 +6,10 @@ menu: Fields
 
 import { Props } from 'docz'
 import { Playground } from '../../../docz/'
-import { Icon } from '../Icon'
+import { Form } from '../../../docz/Form'
 
+import { ConnectedField } from '../ConnectedField'
+import { Icon } from '../Icon'
 import { TimePicker } from './index.js'
 
 # TimePicker
@@ -19,19 +21,35 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 ## Simple use case
 
 <Playground>
-  <TimePicker onChange={date => console.log('date: ', date)} value={Date.now()} />
+  <Form initialValues={{ welcome: Date.now() }}>
+    <ConnectedField
+      name="welcome"
+      component={TimePicker}
+      onChange={date => console.log('date: ', date)}
+      value={Date.now()}
+    />
+  </Form>
 </Playground>
 
 ## Add an icon on the right
 
 <Playground>
-  <TimePicker icon={<Icon name="date" color="primary.500" />} iconPlacement="right" />
+  <Form initialValues={{ welcome: Date.now() }}>
+    <ConnectedField
+      name="welcome"
+      component={TimePicker}
+      icon={<Icon name="date" color="primary.500" />}
+      iconPlacement="right"
+    />
+  </Form>
 </Playground>
 
 ## Pass props to TimePicker
 
 <Playground>
-  <TimePicker timeIntervals={30} />
+  <Form initialValues={{ welcome: Date.now() }}>
+    <ConnectedField name="welcome" component={TimePicker} timeIntervals={30} />
+  </Form>
 </Playground>
 
 ## Properties
