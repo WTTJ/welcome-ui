@@ -38,10 +38,6 @@ export const Button = styled(filterComponent(ReakitButton))(
 
     ${!disabled &&
       css`
-        &:active {
-          transform: translateY(2px);
-        }
-
         &:hover,
         &:focus {
           ${th(`buttons.focused.${variant || 'primary'}`)};

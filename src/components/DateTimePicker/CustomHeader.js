@@ -38,23 +38,23 @@ export const CustomHeader = ({
         disabled={month === months[0].label && year === startYear}
         onClick={decreaseMonth}
         shape="circle"
-        size="xs"
         title="Previous month"
         variant="secondary"
       >
-        <Icon name="left" size="xs" />
+        <Icon mr={2} name="left" />
       </Button>
-      <Select onChange={changeMonth} options={months} size="sm" value={month} />
-      <Select onChange={changeYear} options={years} size="sm" value={year} />
+      <S.Selects>
+        <Select onChange={changeMonth} options={months} size="sm" value={month} />
+        <Select onChange={changeYear} options={years} size="sm" value={year} />
+      </S.Selects>
       <Button
         disabled={month === months[months.length - 1].label && year === endYear}
         onClick={increaseMonth}
         shape="circle"
-        size="xs"
         title="Next month"
         variant="secondary"
       >
-        <Icon name="right" size="xs" />
+        <Icon ml={2} name="right" />
       </Button>
     </S.CustomHeader>
   )

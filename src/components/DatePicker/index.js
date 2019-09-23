@@ -27,6 +27,7 @@ export const DatePicker = forwardRef(
       placeholder,
       size = 'lg',
       startYear = 1900,
+      useWeekdaysShort = true,
       value = DEFAULT_DATE,
       ...rest
     },
@@ -105,6 +106,7 @@ export const DatePicker = forwardRef(
         )}
         selected={date}
         size={size}
+        useWeekdaysShort={useWeekdaysShort}
         {...rest}
         isClearable={false}
       />
@@ -128,5 +130,6 @@ DatePicker.propTypes = {
   placeholder: string,
   size: SIZES_TYPE,
   startYear: number,
+  useWeekdaysShort: bool,
   value: oneOfType([number, object, string]).isRequired
 }
