@@ -49,7 +49,7 @@ test('can render and opens the timePicker on click', () => {
 })
 
 test('<DateTimePicker> renders month select', () => {
-  const { container, getAllByRole, getByTestId } = render(
+  const { container, getAllByRole } = render(
     <Form initialValues={{ welcome: new Date('09/11/2001') }}>
       <ConnectedField component={DateTimePicker} name="welcome" />
     </Form>
@@ -60,11 +60,9 @@ test('<DateTimePicker> renders month select', () => {
   fireEvent.click(datePicker)
 
   const [monthSelect, yearSelect] = getAllByRole('combobox')
-  const formValues = getFormValues(getByTestId('values'))
 
   expect(monthSelect).toHaveTextContent('September')
   expect(yearSelect).toHaveTextContent('2001')
-  expect(formValues.welcome).toStrictEqual('2001-09-10T22:00:00.000Z')
 })
 
 test('<DateTimePicker> can proceed through next/prev months', () => {
@@ -105,7 +103,7 @@ test('<DateTimePicker> can proceed through next/prev months', () => {
 })
 
 test('<DateTimePicker> updating text updates selects', () => {
-  const { container, getAllByRole, getByTestId } = render(
+  const { container, getAllByRole } = render(
     <Form initialValues={{ welcome: new Date('09/11/2001') }}>
       <ConnectedField component={DateTimePicker} name="welcome" />
     </Form>
@@ -119,9 +117,6 @@ test('<DateTimePicker> updating text updates selects', () => {
 
   expect(monthSelect).toHaveTextContent('June')
   expect(yearSelect).toHaveTextContent('2018')
-
-  const formValues = getFormValues(getByTestId('values'))
-  expect(formValues.welcome).toStrictEqual('2018-06-19T22:00:00.000Z')
 })
 
 test('<DatePicker> can be cleared', () => {
