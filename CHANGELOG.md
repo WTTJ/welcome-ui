@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.25.0](https://github.com/WTTJ/welcome-ui/compare/v0.24.4...v0.25.0) (2019-09-24)
+
+
+### Bug Fixes
+
+* search for emoji in MarkdownEditor emoji picker ([#366](https://github.com/WTTJ/welcome-ui/issues/366)) ([ddf071d](https://github.com/WTTJ/welcome-ui/commit/ddf071d))
+
+
+### Features
+
+* add is clearable to input text ([#364](https://github.com/WTTJ/welcome-ui/issues/364)) ([cd9644e](https://github.com/WTTJ/welcome-ui/commit/cd9644e))
+
+
+
 ### [0.24.4](https://github.com/WTTJ/welcome-ui/compare/v0.24.3...v0.24.4) (2019-09-17)
 
 
