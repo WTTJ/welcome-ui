@@ -26,10 +26,7 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 
 <Playground>
   <Form initialValues={{ welcome: Date.now() }}>
-    <ConnectedField name="welcome" component={DateTimePicker}>
-      <DatePicker />
-      <TimePicker />
-    </ConnectedField>
+    <ConnectedField name="welcome" component={DateTimePicker} />
   </Form>
 </Playground>
 
@@ -37,10 +34,13 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 
 <Playground>
   <Form initialValues={{ welcome: Date.now() }}>
-    <ConnectedField name="welcome" component={DateTimePicker}>
-      <DatePicker dateFormat="MMM dd yyyy" showMonthDropdown showYearDropdown />
-      <TimePicker />
-    </ConnectedField>
+    <ConnectedField
+      name="welcome"
+      component={DatePicker}
+      dateFormat="MMM dd yyyy"
+      showMonthDropdown
+      showYearDropdown
+    />
   </Form>
 </Playground>
 

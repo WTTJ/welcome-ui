@@ -47,7 +47,7 @@ export const MarkdownEditor = forwardRef(
 
     useEffect(() => {
       // Add emoji to currentTools if we're showing emoji picker
-      if (showEmojiPicker) {
+      if (showEmojiPicker && !currentTools.includes('emoji')) {
         setCurrentTools([...currentTools, 'emoji'])
       }
     }, [currentTools, showEmojiPicker])

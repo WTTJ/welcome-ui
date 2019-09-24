@@ -1,6 +1,7 @@
 import React from 'react'
+import { fireEvent } from '@testing-library/react'
 
-import { fireEvent, render } from '../../utils/tests'
+import { render } from '../../utils/tests'
 
 import { Button } from './index'
 

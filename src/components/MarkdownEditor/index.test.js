@@ -1,4 +1,6 @@
 import React from 'react'
+import { fireEvent, waitForElement } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { render } from '../../utils/tests'
 
@@ -44,5 +46,72 @@ describe('<MarkdownEditor>', () => {
 
     const toolbar = getByRole('toolbar')
     expect(getToolbarItems(toolbar)).toEqual(['bold', 'italic'])
+  })
+})
+
+describe('<EmojiPicker>', () => {
+  it('should show when clicking on icon in Toolbar', () => {
+    const { getByLabelText, getByTitle } = render(
+      <MarkdownEditor name="description" placeholder="Placeholder" value={content} />
+    )
+
+    const emojiButton = getByTitle('Emoji')
+    fireEvent.click(emojiButton)
+
+    const emojiPicker = getByLabelText('Pick an emoji')
+    expect(emojiPicker).toBeTruthy()
+  })
+
+  it('should add emoji to MDE when clicking on one', () => {
+    const { container, getAllByLabelText, getByTitle } = render(
+      <MarkdownEditor name="description" placeholder="Placeholder" value={content} />
+    )
+
+    const emojiButton = getByTitle('Emoji')
+    fireEvent.click(emojiButton)
+
+    const emoji = getAllByLabelText('😀, grinning')[0]
+    fireEvent.click(emoji)
+
+    expect(container).toHaveTextContent('😀# Hi!')
+  })
+
+  it.skip('should add emoji to MDE when clicking on one', () => {
+    const { container, getAllByLabelText, getByTitle } = render(
+      <MarkdownEditor name="description" placeholder="Placeholder" value={content} />
+    )
+
+    const emojiButton = getByTitle('Emoji')
+    fireEvent.click(emojiButton)
+
+    const emoji = getAllByLabelText('😀, grinning')[0]
+    fireEvent.click(emoji)
+
+    expect(container).toHaveTextContent('😀# Hi!')
+  })
+
+  it.skip('should filter emojis when searching', () => {
+    const { container, debug, getByLabelText, getByPlaceholderText, getByTitle } = render(
+      <MarkdownEditor name="description" placeholder="Placeholder" value={content} />
+    )
+
+    const emojiButton = getByTitle('Emoji')
+    fireEvent.click(emojiButton)
+
+    let results = getByLabelText('Search Results').querySelector('ul')
+    expect(results.children.length).toBe(0)
+
+    const search = getByPlaceholderText('Search')
+    userEvent.type(search, 'smile')
+
+    // TODO: Fix `waitForElement` which never gets called :(
+    waitForElement(() => getByLabelText('Search Results').querySelector('ul li').length, {
+      container
+    }).then(results => {
+      debug('fish', results)
+      expect(results.children.length).toBe(0)
+      const smile = results.children[0].querySelector('button')
+      expect(smile.getAttribute('data-role')).toBe('😄, smile')
+    })
   })
 })
