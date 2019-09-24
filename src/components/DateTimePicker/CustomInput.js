@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { func, oneOf } from 'prop-types'
+import { func, oneOf, string } from 'prop-types'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils'
 import { IconWrapper } from '../Field/styles'
@@ -19,6 +19,7 @@ export class CustomInput extends PureComponent {
       inputRef,
       onReset,
       size,
+      value,
       ...rest
     } = this.props
 
@@ -36,10 +37,12 @@ export class CustomInput extends PureComponent {
             {icon}
           </IconWrapper>
         )}
-        <input ref={inputRef} {...rest} />
-        <IconWrapper iconPlacement="right" size={size}>
-          <ClearButton onClick={onReset} />
-        </IconWrapper>
+        <input ref={inputRef} value={value} {...rest} />
+        {value && (
+          <IconWrapper iconPlacement="right" size={size}>
+            <ClearButton aria-label="clear date" onClick={onReset} />
+          </IconWrapper>
+        )}
       </S.CustomInput>
     )
   }
@@ -53,5 +56,6 @@ CustomInput.propTypes = {
   iconPlacement: oneOf('right', 'left'),
   inputRef: func,
   onReset: func,
-  size: SIZES_TYPE
+  size: SIZES_TYPE,
+  value: string
 }
