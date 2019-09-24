@@ -2,31 +2,29 @@ import React from 'react'
 import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
+import { Form, getFormValues } from '../../../docz/Form'
 import { render } from '../../utils/tests'
-import { DatePicker } from '../DatePicker'
-import { TimePicker } from '../TimePicker'
+import { ConnectedField } from '../ConnectedField'
 
 import { DateTimePicker } from './index'
 
 test('<DateTimePicker> renders correctly', () => {
   const { getByTestId } = render(
-    <DateTimePicker dataTestId="dateTimePicker" value={Date.now()}>
-      <DatePicker />
-      <TimePicker />
-    </DateTimePicker>
+    <Form initialValues={{ welcome: new Date() }}>
+      <ConnectedField component={DateTimePicker} dataTestId="dateTimePicker" name="welcome" />
+    </Form>
   )
   const dateTimePicker = getByTestId('dateTimePicker')
   expect(dateTimePicker.children).toHaveLength(2)
 })
 
 test('can render and opens the datePicker on click', () => {
-  const { baseElement, getByTestId } = render(
-    <DateTimePicker value={Date.now()}>
-      <DatePicker dataTestId="datePicker" />
-      <TimePicker />
-    </DateTimePicker>
+  const { baseElement, container } = render(
+    <Form initialValues={{ welcome: new Date() }}>
+      <ConnectedField component={DateTimePicker} name="welcome" />
+    </Form>
   )
-  const datePicker = getByTestId('datePicker')
+  const datePicker = container.querySelector('.date-picker')
   fireEvent.click(datePicker)
 
   const datePickerPopper = baseElement.querySelectorAll('.date-picker-popper')
@@ -36,13 +34,12 @@ test('can render and opens the datePicker on click', () => {
 })
 
 test('can render and opens the timePicker on click', () => {
-  const { baseElement, getByTestId } = render(
-    <DateTimePicker value={Date.now()}>
-      <DatePicker />
-      <TimePicker dataTestId="timePicker" />
-    </DateTimePicker>
+  const { baseElement, container } = render(
+    <Form initialValues={{ welcome: new Date() }}>
+      <ConnectedField component={DateTimePicker} name="welcome" />
+    </Form>
   )
-  const timePicker = getByTestId('timePicker')
+  const timePicker = container.querySelector('.time-picker')
   fireEvent.click(timePicker)
 
   const datePickerPopper = baseElement.querySelectorAll('.date-picker-popper')
@@ -52,31 +49,32 @@ test('can render and opens the timePicker on click', () => {
 })
 
 test('<DateTimePicker> renders month select', () => {
-  const { getAllByRole, getByTestId } = render(
-    <DateTimePicker value={new Date('09/11/2001')}>
-      <DatePicker dataTestId="datePicker" />
-      <TimePicker />
-    </DateTimePicker>
+  const { container, getAllByRole, getByTestId } = render(
+    <Form initialValues={{ welcome: new Date('09/11/2001') }}>
+      <ConnectedField component={DateTimePicker} name="welcome" />
+    </Form>
   )
-  const datePicker = getByTestId('datePicker')
+  const datePicker = container.querySelector('.date-picker')
   expect(datePicker).toHaveValue('11/09/2001')
 
   fireEvent.click(datePicker)
 
   const [monthSelect, yearSelect] = getAllByRole('combobox')
+  const formValues = getFormValues(getByTestId('values'))
 
   expect(monthSelect).toHaveTextContent('September')
   expect(yearSelect).toHaveTextContent('2001')
+  expect(formValues.welcome).toStrictEqual('2001-09-10T22:00:00.000Z')
 })
 
 test('<DateTimePicker> can proceed through next/prev months', () => {
-  const { getAllByRole, getByTestId, getByTitle } = render(
-    <DateTimePicker value={new Date('09/11/2001')}>
-      <DatePicker dataTestId="datePicker" />
-      <TimePicker />
-    </DateTimePicker>
+  const { container, getAllByRole, getByTitle } = render(
+    <Form initialValues={{ welcome: new Date('09/11/2001') }}>
+      <ConnectedField component={DateTimePicker} name="welcome" />
+    </Form>
   )
-  const datePicker = getByTestId('datePicker')
+  const datePicker = container.querySelector('.date-picker')
+
   fireEvent.click(datePicker)
 
   const decreaseMonth = getByTitle('Previous month')
@@ -107,31 +105,38 @@ test('<DateTimePicker> can proceed through next/prev months', () => {
 })
 
 test('<DateTimePicker> updating text updates selects', () => {
-  const { getAllByRole, getByTestId } = render(
-    <DateTimePicker value={new Date('09/11/2001')}>
-      <DatePicker dataTestId="datePicker" />
-      <TimePicker />
-    </DateTimePicker>
+  const { container, getAllByRole, getByTestId } = render(
+    <Form initialValues={{ welcome: new Date('09/11/2001') }}>
+      <ConnectedField component={DateTimePicker} name="welcome" />
+    </Form>
   )
-  const datePicker = getByTestId('datePicker')
-  userEvent.type(datePicker, '20/06/2018')
+  const datePicker = container.querySelector('.date-picker')
 
+  userEvent.type(datePicker, '20/06/2018')
   fireEvent.click(datePicker)
 
   const [monthSelect, yearSelect] = getAllByRole('combobox')
 
   expect(monthSelect).toHaveTextContent('June')
   expect(yearSelect).toHaveTextContent('2018')
+
+  const formValues = getFormValues(getByTestId('values'))
+  expect(formValues.welcome).toStrictEqual('2018-06-19T22:00:00.000Z')
 })
 
 test('<DatePicker> can be cleared', () => {
-  const { getByRole, getByTestId } = render(
-    <DatePicker dataTestId="datePicker" value={new Date('09/11/2001')} />
+  const { container, getAllByRole, getByTestId } = render(
+    <Form initialValues={{ welcome: new Date() }}>
+      <ConnectedField component={DateTimePicker} name="welcome" />
+    </Form>
   )
 
-  const datePicker = getByTestId('datePicker')
-  const clearButton = getByRole('button')
+  const datePicker = container.querySelector('.date-picker')
+  const clearButton = getAllByRole('button')[0]
 
   fireEvent.click(clearButton)
   expect(datePicker).toHaveValue('')
+
+  const formValues = getFormValues(getByTestId('values'))
+  expect(formValues.welcome).toBeUndefined()
 })

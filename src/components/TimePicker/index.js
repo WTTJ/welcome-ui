@@ -81,6 +81,7 @@ export const TimePicker = forwardRef(
         calendarClassName="time-picker-popper"
         customInput={
           <CustomInput
+            className="time-picker"
             data-testid={dataTestId}
             focused={focused}
             handleBlur={e => handleBlur('date', e)}

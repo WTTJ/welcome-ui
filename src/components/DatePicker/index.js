@@ -85,6 +85,7 @@ export const DatePicker = forwardRef(
         calendarClassName="date-picker-popper"
         customInput={
           <CustomInput
+            className="date-picker"
             data-testid={dataTestId}
             focused={focused}
             handleBlur={e => handleBlur('date', e)}
