@@ -5,7 +5,7 @@ import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 
 import pkg from './package.json'
 
-const input = 'src/index.js'
+const input = ['src/fields.js', 'src/components.js', 'src/utils.js']
 const external = id => !id.startsWith('.') && !id.startsWith('/')
 const getBabelOptions = ({ useESModules }) => ({
   exclude: '**/node_modules/**',
@@ -19,25 +19,25 @@ const getBabelOptions = ({ useESModules }) => ({
 
 const cjsConfig = {
   input,
-  output: { file: pkg.main, format: 'cjs' },
+  output: { dir: 'dist/cjs', format: 'cjs' },
   external,
   plugins: [
     babel(getBabelOptions({ useESModules: false })),
     nodeResolve(),
-    postcss(),
-    sizeSnapshot()
+    postcss()
+    // sizeSnapshot()
   ]
 }
 
 const esmConfig = {
   input,
-  output: { file: pkg.module, format: 'esm' },
+  output: { dir: 'dist/esm', format: 'esm' },
   external,
   plugins: [
     babel(getBabelOptions({ useESModules: true })),
     nodeResolve(),
-    postcss(),
-    sizeSnapshot()
+    postcss()
+    // sizeSnapshot()
   ]
 }
 
