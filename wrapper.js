@@ -7,7 +7,7 @@ import { Select } from './src'
 import { welcomekitTheme } from './src/theme/welcomekit'
 import { welcomeTheme } from './src/theme/welcome'
 import { createTheme } from './src/theme/core'
-import { GlobalStyle } from './src/utils/'
+import { GlobalStyle } from './src/utils/base'
 
 const THEMES = [
   { value: 'core', label: 'Default' },

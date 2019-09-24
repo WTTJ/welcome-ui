@@ -5,7 +5,6 @@ import matchSorter from 'match-sorter'
 import kebabCase from 'lodash.kebabcase'
 import isEqual from 'lodash.isequal'
 
-import { createEvent } from '../../utils/events'
 import {
   COMPONENT_TYPE,
   INPUTS_TYPE,
@@ -13,6 +12,7 @@ import {
   SIZES_TYPE,
   VARIANTS_TYPE
 } from '../../utils/propTypes'
+import { createEvent } from '../../utils/events'
 import { Icon } from '../Icon'
 import { ClearButton } from '../ClearButton'
 

@@ -2,7 +2,7 @@ import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Tooltip as ReakitTooltip } from 'reakit'
 
-import { filterComponent, system } from '../../utils/'
+import { filterComponent, system } from '../../utils/system'
 
 export const Tooltip = styled(filterComponent(ReakitTooltip))`
   ${th('tooltips')};

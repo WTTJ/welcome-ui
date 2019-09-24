@@ -5,7 +5,7 @@ import mime from 'mime/lite'
 import { Icon } from '../Icon'
 import { Tag } from '../Tag'
 import { Box } from '../Box'
-import { formatBytes } from '../../utils'
+import { formatBytes } from '../../utils/bytes'
 
 const removeQueryString = name => name.split('?')[0]
 

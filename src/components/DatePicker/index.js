@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 
-import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils'
+import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 import { CustomHeader } from '../DateTimePicker/CustomHeader'
 import { CustomInput } from '../DateTimePicker/CustomInput'
 import { getDate } from '../DateTimePicker/utils'

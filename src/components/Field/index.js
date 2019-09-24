@@ -3,8 +3,16 @@ import { array, arrayOf, bool, func, node, number, object, oneOfType, string } f
 
 // Common
 import { RowContainer } from '../../common/styles/layout'
-import { getBaseType, getHintText, getVariant, makeUnique } from '../../utils/'
-import { COMPONENT_TYPE, DIRECTIONS_TYPE, INPUTS_TYPE, OPTIONS_TYPE, SIZES_TYPE } from '../../utils'
+import { getBaseType } from '../../utils/fields'
+import { getHintText, getVariant } from '../../utils/variants'
+import { makeUnique } from '../../utils/text'
+import {
+  COMPONENT_TYPE,
+  DIRECTIONS_TYPE,
+  INPUTS_TYPE,
+  OPTIONS_TYPE,
+  SIZES_TYPE
+} from '../../utils/propTypes'
 // Components
 import { Label } from '../Label'
 import { Hint } from '../Hint'

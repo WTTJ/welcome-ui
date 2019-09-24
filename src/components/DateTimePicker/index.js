@@ -1,7 +1,7 @@
 import React, { cloneElement, forwardRef, useEffect, useState } from 'react'
 import { func, node, number, object, oneOfType, string } from 'prop-types'
 
-import { SIZES_TYPE } from '../../utils'
+import { SIZES_TYPE } from '../../utils/propTypes'
 import { getDate } from '../DateTimePicker/utils'
 import { DatePicker } from '../DatePicker'
 import { TimePicker } from '../TimePicker'

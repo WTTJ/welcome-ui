@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { filterComponent, system, wrapperSystem } from '../../utils/'
+import { filterComponent, system, wrapperSystem } from '../../utils/system'
 import { Label } from '../Label/styles'
 import { radioTabStyles } from '../RadioTab/styles'
 import { FieldGroup } from '../FieldGroup/styles'

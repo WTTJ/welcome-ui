@@ -1,6 +1,6 @@
 import styled, { css } from '@xstyled/styled-components'
 
-import { getVariantStateColor } from '../../utils/'
+import { getVariantStateColor } from '../../utils/variants'
 
 export const VariantIcon = styled.div(
   ({ variant }) => css`

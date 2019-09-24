@@ -3,7 +3,7 @@ import { th } from '@xstyled/system'
 
 import { DatePicker } from '../DatePicker/styles'
 import { TimePicker } from '../TimePicker/styles'
-import { wrapperSystem } from '../../utils/'
+import { wrapperSystem } from '../../utils/system'
 import { IconWrapper } from '../Field/styles'
 import { Icon } from '../Icon/styles'
 import { Wrapper as Select } from '../Select/styles'

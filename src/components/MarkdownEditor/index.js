@@ -7,7 +7,8 @@ if (typeof window !== 'undefined') {
   require('easymde/dist/easymde.min.css')
 }
 
-import { createEvent, FINAL_FORM_INPUT_TYPES } from '../../utils/'
+import { createEvent } from '../../utils/events'
+import { FINAL_FORM_INPUT_TYPES } from '../../utils/propTypes'
 import { Icon } from '../Icon'
 
 import { Toolbar } from './Toolbar'

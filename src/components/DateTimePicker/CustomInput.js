@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { func, oneOf } from 'prop-types'
 
-import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils'
+import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 import { IconWrapper } from '../Field/styles'
 import { ClearButton } from '../ClearButton'
 

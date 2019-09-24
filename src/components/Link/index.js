@@ -1,7 +1,7 @@
 import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { system } from '../../utils/'
+import { system } from '../../utils/system'
 import { UniversalLink } from '../UniversalLink'
 
 export const Link = styled(UniversalLink)`

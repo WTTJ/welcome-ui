@@ -2,7 +2,7 @@ import React, { cloneElement } from 'react'
 import { bool, node, string } from 'prop-types'
 import { RadioGroup as ReakitRadioGroup, useRadioState } from 'reakit/Radio'
 
-import { DIRECTIONS_TYPE } from '../../utils'
+import { DIRECTIONS_TYPE } from '../../utils/propTypes'
 import { FieldGroup } from '../FieldGroup'
 
 import * as S from './styles'

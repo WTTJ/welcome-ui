@@ -1,6 +1,6 @@
 import _get from 'lodash.get'
 
-import { hexToRGB } from '../utils/'
+import { hexToRGB } from '../utils/hexToRGB'
 
 const getThemeValue = (theme, path) => {
   const value = _get(theme, path)
