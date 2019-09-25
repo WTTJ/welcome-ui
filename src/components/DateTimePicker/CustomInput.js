@@ -37,7 +37,7 @@ export class CustomInput extends PureComponent {
             {icon}
           </IconWrapper>
         )}
-        <input ref={inputRef} value={value} {...rest} />
+        <input autoComplete="new-password" ref={inputRef} value={value} {...rest} />
         {value && (
           <IconWrapper iconPlacement="right" size={size}>
             <ClearButton aria-label="clear date" onClick={onReset} />
