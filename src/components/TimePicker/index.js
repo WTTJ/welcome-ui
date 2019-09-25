@@ -29,11 +29,11 @@ export const TimePicker = forwardRef(
     },
     ref
   ) => {
-    const [focused, setFocused] = useState((autoFocus && 'time') || null)
-    const [date, setDate] = useState(null)
-
     const formatDate = date => getDate(date, timeIntervals)
     const placeholderText = placeholder || rest.placeholderText
+
+    const [focused, setFocused] = useState((autoFocus && 'time') || null)
+    const [date, setDate] = useState(formatDate(value))
 
     // format date at component mount
     useEffect(() => {
@@ -44,7 +44,7 @@ export const TimePicker = forwardRef(
     // Ensure values are controlled by parent
     useEffect(() => {
       const formattedDate = formatDate(value)
-      if (value - formattedDate !== 0 && onChange) {
+      if (new Date(value) - formattedDate !== 0 && onChange) {
         onChange(formattedDate)
       }
       setDate(formattedDate)
