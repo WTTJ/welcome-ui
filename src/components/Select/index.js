@@ -212,7 +212,8 @@ export const Select = forwardRef(
 
           const rootProps = getRootProps(rest)
           const inputProps = getInputProps({
-            autoComplete: 'off',
+            // HACK for chrome : https://bugs.chromium.org/p/chromium/issues/detail?id=914451
+            autoComplete: 'new-password',
             autoFocus,
             'data-spacer': spacer || placeholder,
             'data-testid': dataTestId,
