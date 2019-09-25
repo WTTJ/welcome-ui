@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.25.1](https://github.com/WTTJ/welcome-ui/compare/v0.25.0...v0.25.1) (2019-09-25)
+
+
+### Bug Fixes
+
+* add hack for autocomplete on select ([db8dd92](https://github.com/WTTJ/welcome-ui/commit/db8dd92))
+* color on select ([a842f87](https://github.com/WTTJ/welcome-ui/commit/a842f87))
+* remove clearButton if Date or Time Pickers have no value ([#371](https://github.com/WTTJ/welcome-ui/issues/371)) ([6f6ad45](https://github.com/WTTJ/welcome-ui/commit/6f6ad45)), closes [#370](https://github.com/WTTJ/welcome-ui/issues/370)
+* welcome theme primary colors inversion and hexa ([#372](https://github.com/WTTJ/welcome-ui/issues/372)) ([e21aeba](https://github.com/WTTJ/welcome-ui/commit/e21aeba))
+
+
+
 ## [0.25.0](https://github.com/WTTJ/welcome-ui/compare/v0.24.4...v0.25.0) (2019-09-24)
 
 
