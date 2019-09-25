@@ -1,7 +1,7 @@
 const palette = {
   // primary
-  seafoamblue: '#00C29A',
-  carribeangreen: '#66C8AB',
+  eucalyptus: '#37CBA9',
+  carribeangreen: '#00C29A',
 
   richblack: '#050506',
   smokyblack: '#0B0B0D',
@@ -40,8 +40,8 @@ const palette = {
 
 const colors = {
   primary: {
-    200: palette.carribeangreen,
-    500: palette.seafoamblue
+    200: palette.eucalyptus,
+    500: palette.carribeangreen
   },
   secondary: {
     200: palette.granite,
