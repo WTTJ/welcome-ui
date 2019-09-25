@@ -18,6 +18,16 @@ test('<DateTimePicker> renders correctly', () => {
   expect(dateTimePicker.children).toHaveLength(2)
 })
 
+test('<DateTimePicker> renders correctly with invalid date', () => {
+  const { getByTestId } = render(
+    <Form initialValues={{ welcome: '2019-11-23' }}>
+      <ConnectedField component={DateTimePicker} dataTestId="dateTimePicker" name="welcome" />
+    </Form>
+  )
+  const dateTimePicker = getByTestId('dateTimePicker')
+  expect(dateTimePicker.children).toHaveLength(2)
+})
+
 test('can render and opens the datePicker on click', () => {
   const { baseElement, container } = render(
     <Form initialValues={{ welcome: new Date() }}>
@@ -134,7 +144,7 @@ test('<DatePicker> can be cleared and has no `ClearButton` when no value', () =>
   expect(datePicker).toHaveValue('')
 
   const formValues = getFormValues(getByTestId('values'))
-  expect(formValues.welcome).toBeUndefined()
+  expect(formValues.welcome).toBeNull()
   expect(clearButton).not.toBeInTheDocument()
 
   userEvent.type(datePicker, '20/06/2018')

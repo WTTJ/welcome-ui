@@ -11,14 +11,14 @@ import * as S from './styles'
 
 export const DateTimePicker = forwardRef(
   ({ children, dataTestId, locale, onChange, size = 'lg', value = DEFAULT_DATE }, ref) => {
-    const [date, setDate] = useState(value)
+    const formatDate = date => getDate(date, 15)
+
+    const [date, setDate] = useState(formatDate(value))
 
     const handleChange = newDate => {
       setDate(newDate || null)
       onChange && onChange(newDate && new Date(newDate))
     }
-
-    const formatDate = date => getDate(date, 15)
 
     // format date at component mount
     useEffect(() => {
@@ -29,7 +29,7 @@ export const DateTimePicker = forwardRef(
     // Ensure values are controlled by parent
     useEffect(() => {
       const formattedDate = formatDate(value)
-      if (value - formattedDate !== 0 && onChange) {
+      if (new Date(value) - formattedDate !== 0 && onChange) {
         handleChange(formattedDate)
       }
       setDate(formattedDate)
