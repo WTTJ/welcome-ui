@@ -48,6 +48,7 @@ const palette = {
 
 const colors = {
   primary: {
+    100: palette.gin,
     200: palette.mountainmeadow,
     500: palette.jade
   },

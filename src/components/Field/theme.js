@@ -144,7 +144,7 @@ export const getFields = theme => {
       selected: {
         color: colors.dark[200],
         'font-weight': fontWeights.bold,
-        'background-color': colors.nude[200]
+        'background-color': colors.primary[100]
       }
     },
     textarea: {

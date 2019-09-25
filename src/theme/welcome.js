@@ -31,15 +31,13 @@ const palette = {
   carmen: '#BF4C3B',
   valencia: '#CE5947',
 
-  // others
-  iceberg: '#71A6DE',
-  lightcyan: '#E1F0FF',
-  pastelmint: '#E3F8F4',
-  linkedin: '#0077B5'
+  // pastel
+  mint: '#DFF5EB'
 }
 
 const colors = {
   primary: {
+    100: palette.mint,
     200: palette.eucalyptus,
     500: palette.carribeangreen
   },
