@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.25.2](https://github.com/WTTJ/welcome-ui/compare/v0.25.1...v0.25.2) (2019-09-25)
+
+
+### Bug Fixes
+
+* invalide date strings on datepickers ([a7d4a4a](https://github.com/WTTJ/welcome-ui/commit/a7d4a4a)), closes [#375](https://github.com/WTTJ/welcome-ui/issues/375)
+
+
+
 ### [0.25.1](https://github.com/WTTJ/welcome-ui/compare/v0.25.0...v0.25.1) (2019-09-25)
 
 
