@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.25.3](https://github.com/WTTJ/welcome-ui/compare/v0.25.2...v0.25.3) (2019-09-25)
+
+
+### Bug Fixes
+
+* reset autocomplete on datepicker input ([#377](https://github.com/WTTJ/welcome-ui/issues/377)) ([2647cdd](https://github.com/WTTJ/welcome-ui/commit/2647cdd))
+
+
+
 ### [0.25.2](https://github.com/WTTJ/welcome-ui/compare/v0.25.1...v0.25.2) (2019-09-25)
 
 
