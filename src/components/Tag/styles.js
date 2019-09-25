@@ -36,6 +36,10 @@ export const Tag = styled.div(
     ${Icon}:last-child {
       cursor: pointer;
 
+      path {
+        transition: fill ${th.transition('medium')};
+      }
+
       &:hover {
         path,
         g {
