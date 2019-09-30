@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.25.6](https://github.com/WTTJ/welcome-ui/compare/v0.25.5...v0.25.6) (2019-09-30)
+
+
+### Bug Fixes
+
+* resize welcome_kit icon ([251b1e0](https://github.com/WTTJ/welcome-ui/commit/251b1e0))
+
+
+
 ### [0.25.5](https://github.com/WTTJ/welcome-ui/compare/v0.25.4...v0.25.5) (2019-09-30)
 
 
