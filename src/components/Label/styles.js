@@ -1,7 +1,8 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { getVariantStateColor, system } from '../../utils/'
+import { getVariantStateColor } from '../../utils/variants'
+import { system } from '../../utils/system'
 
 export const Label = styled.label(
   ({ required }) => css`

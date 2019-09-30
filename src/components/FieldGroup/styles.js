@@ -2,7 +2,7 @@ import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { Label } from '../Label/styles'
-import { system } from '../../utils/'
+import { system } from '../../utils/system'
 
 export const FieldGroup = styled.fieldset`
   min-width: 0;

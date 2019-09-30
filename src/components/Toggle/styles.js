@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
 
-import { componentSystem, filterComponent, system } from '../../utils/'
+import { componentSystem, filterComponent, system } from '../../utils/system'
 
 const afterCheckedStyles = css`
   &::after {

@@ -3,7 +3,8 @@ import { bool, func, node, oneOf, string } from 'prop-types'
 
 import { Icon } from '../Icon'
 import { VariantIcon } from '../VariantIcon'
-import { COMPONENT_TYPE, wrap } from '../../utils'
+import { COMPONENT_TYPE } from '../../utils/propTypes'
+import { wrap } from '../../utils/react'
 
 import * as S from './styles'
 

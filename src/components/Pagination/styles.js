@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { system } from '../../utils/'
+import { system } from '../../utils/system'
 
 export const Pagination = styled.nav(system)
 

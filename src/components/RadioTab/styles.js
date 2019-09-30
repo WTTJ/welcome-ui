@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { overflowEllipsis } from '../../common/styles/text'
-import { componentSystem } from '../../utils/'
+import { componentSystem } from '../../utils/system'
 // common form styles
 import { fieldStyles } from '../../common/styles/form'
 import { Label } from '../Label/styles'

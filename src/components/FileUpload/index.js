@@ -3,7 +3,7 @@ import { bool, func, node, number, oneOfType, string } from 'prop-types'
 
 // Common
 import { Button } from '../Button'
-import { createEvent } from '../../utils/'
+import { createEvent } from '../../utils/events'
 
 // FileUpload
 import { Preview } from './Preview'

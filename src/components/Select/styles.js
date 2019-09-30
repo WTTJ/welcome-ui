@@ -3,7 +3,7 @@ import { th } from '@xstyled/system'
 
 import { overflowEllipsis } from '../../common/styles/text'
 import { fieldStyles } from '../../common/styles/form'
-import { componentSystem, filterComponent, wrapperSystem } from '../../utils/'
+import { componentSystem, filterComponent, wrapperSystem } from '../../utils/system'
 import { centerContent } from '../../utils/css'
 import { Icon as StyledIcon } from '../Icon/styles'
 import { Tag } from '../Tag/styles'

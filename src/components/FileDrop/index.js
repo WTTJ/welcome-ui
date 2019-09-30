@@ -5,7 +5,8 @@ import { useDropzone } from 'react-dropzone'
 // Common
 import { Icon } from '../Icon'
 import { Button } from '../Button'
-import { createEvent, validateFileSize, validateMimeType } from '../../utils/'
+import { createEvent } from '../../utils/events'
+import { validateFileSize, validateMimeType } from '../../utils/validations'
 
 // FileDrop
 import * as S from './styles.js'

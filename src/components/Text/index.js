@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { node, number, oneOf } from 'prop-types'
 
-import { COMPONENT_TYPE } from '../../utils'
+import { COMPONENT_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 

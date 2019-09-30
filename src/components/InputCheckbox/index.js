@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { bool, elementType, func, string } from 'prop-types'
 
-import { FINAL_FORM_INPUT_TYPES } from '../../utils'
+import { FINAL_FORM_INPUT_TYPES } from '../../utils/propTypes'
 
 import * as S from './styles'
 
