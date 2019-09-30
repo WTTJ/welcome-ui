@@ -31,7 +31,7 @@ const getContents = files => {
   return files.reduce((acc, { content, key }) => {
     let match = /<svg[^>]*>([\s\S]*)<\/svg>/g.exec(content)
     if (match) {
-      match = match[1].replace(/#134B45/g, 'currentColor').trim()
+      match = match[1].replace(/fill="#\w{6}"/g, 'fill="currentColor"').trim()
       return {
         ...acc,
         [key]: {
