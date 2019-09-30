@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.25.4](https://github.com/WTTJ/welcome-ui/compare/v0.25.3...v0.25.4) (2019-09-30)
+
+
+### Bug Fixes
+
+* replace incorrect icon fills (and update script to future-proof) ([#378](https://github.com/WTTJ/welcome-ui/issues/378)) ([8742429](https://github.com/WTTJ/welcome-ui/commit/8742429))
+* simplify xing and play icons ([#380](https://github.com/WTTJ/welcome-ui/issues/380)) ([0ca5c59](https://github.com/WTTJ/welcome-ui/commit/0ca5c59))
+* use full util paths ([#369](https://github.com/WTTJ/welcome-ui/issues/369)) ([cf6ef10](https://github.com/WTTJ/welcome-ui/commit/cf6ef10))
+* xing icon referenced play icon ([#379](https://github.com/WTTJ/welcome-ui/issues/379)) ([9798b0a](https://github.com/WTTJ/welcome-ui/commit/9798b0a))
+
+
+
 ### [0.25.3](https://github.com/WTTJ/welcome-ui/compare/v0.25.2...v0.25.3) (2019-09-25)
 
 
