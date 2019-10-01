@@ -114,6 +114,16 @@ test('getOptionsFromSelected returns empty array if no SELECTED', () => {
   expect(options).toStrictEqual([])
 })
 
+test('getOptionsFromSelected returns empty array if no SELECTED', () => {
+  const options = getOptionsFromSelected('', OPTIONS)
+  expect(options).toStrictEqual([])
+})
+
+test('getOptionsFromSelected returns empty array if no SELECTED', () => {
+  const options = getOptionsFromSelected(0, OPTIONS)
+  expect(options).toStrictEqual([{ value: '0', label: 0 }])
+})
+
 test('getUniqueValue returns options with duplicates removed', () => {
   const uniqueValue = getUniqueValue(OPTIONS[1], SELECTED)
   expect(uniqueValue).toStrictEqual(SELECTED)
