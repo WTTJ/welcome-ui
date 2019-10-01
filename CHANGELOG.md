@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.25.7](https://github.com/WTTJ/welcome-ui/compare/v0.25.6...v0.25.7) (2019-10-01)
+
+
+### Bug Fixes
+
+* ensure array is empty if no selected values provided ([#381](https://github.com/WTTJ/welcome-ui/issues/381)) ([770043c](https://github.com/WTTJ/welcome-ui/commit/770043c))
+
+
+
 ### [0.25.6](https://github.com/WTTJ/welcome-ui/compare/v0.25.5...v0.25.6) (2019-09-30)
 
 
