@@ -60,10 +60,16 @@ export const DateTimePicker = styled.div(
 const iconPlacementStyles = (placement, size, rest) => {
   if (placement === 'right') {
     return css`
-      ${IconWrapper}:not(:last-child) {
-        right: ${th(`fields.sizes.${size}.height`)(rest)};
-        width: ${`calc(0.5 * ${th(`fields.sizes.${size}.height`)(rest)})`};
-        justify-content: flex-end;
+      ${IconWrapper} {
+        &:not(:last-child) {
+          right: ${th(`fields.sizes.${size}.height`)(rest)};
+          width: ${`calc(0.5 * ${th(`fields.sizes.${size}.height`)(rest)})`};
+          justify-content: flex-end;
+        }
+
+        &:only-of-type {
+          right: 0.625rem;
+        }
       }
 
       ${DatePicker}, ${TimePicker} {
@@ -106,11 +112,11 @@ export const Selects = styled.div`
 export const CustomInput = styled.div(({ focused, icon, iconPlacement, size, ...rest }) => {
   return css`
     position: relative;
-    ${icon && iconPlacementStyles(iconPlacement, size, rest)};
-
     ${DatePicker}, ${TimePicker} {
       padding-right: ${th(`fields.sizes.${size}.height`)(rest)};
     }
+
+    ${icon && iconPlacementStyles(iconPlacement, size, rest)};
 
     ${ClearButton} {
       z-index: ${focused ? 1 : null};

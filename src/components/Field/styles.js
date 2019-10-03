@@ -47,6 +47,8 @@ export const IconWrapper = styled.div(
     justify-content: center;
     align-items: center;
     pointer-events: none;
+    transition: medium;
+    transition-timing-function: primary;
     ${system};
   `
 )
