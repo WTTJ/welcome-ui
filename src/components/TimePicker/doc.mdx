@@ -23,10 +23,10 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 <Playground>
   <Form initialValues={{ welcome: Date.now() }}>
     <ConnectedField
-      name="welcome"
       component={TimePicker}
+      label="Time"
+      name="welcome"
       onChange={date => console.log('date: ', date)}
-      value={Date.now()}
     />
   </Form>
 </Playground>
@@ -36,10 +36,11 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 <Playground>
   <Form initialValues={{ welcome: Date.now() }}>
     <ConnectedField
-      name="welcome"
       component={TimePicker}
       icon={<Icon name="date" color="primary.500" />}
       iconPlacement="right"
+      label="Time"
+      name="welcome"
     />
   </Form>
 </Playground>
