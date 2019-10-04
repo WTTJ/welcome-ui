@@ -56,6 +56,7 @@ export const Field = forwardRef(
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
     const Container = flexDirection === 'row' ? RowContainer : Fragment
     const uniqueId = isRadio ? id : id || name
+    const inputRef = ref || React.createRef()
 
     const handleClick = e => {
       e.stopPropagation()
@@ -64,6 +65,15 @@ export const Field = forwardRef(
       }
       onClick && onClick(e)
       isCheckable && onChange && onChange(e)
+    }
+
+    const handleLabelClick = () => {
+      const input = inputRef.current
+      if (input) {
+        Component.displayName === 'MarkdownEditor'
+          ? input.simpleMde.codemirror.focus()
+          : input.focus()
+      }
     }
 
     const Field = (
@@ -77,7 +87,7 @@ export const Field = forwardRef(
         name={name}
         onChange={onChange}
         onClick={handleClick}
-        ref={ref}
+        ref={inputRef}
         required={required}
         size={size}
         type={baseType}
@@ -104,6 +114,7 @@ export const Field = forwardRef(
               disabled={disabled}
               disabledIcon={disabledIcon}
               htmlFor={isCheckable ? null : uniqueId}
+              onClick={handleLabelClick}
               required={isShowRequired}
               variant={variant}
             >
