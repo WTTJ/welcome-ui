@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from 'react'
+import React, { forwardRef } from 'react'
 import { bool, elementType, func, string } from 'prop-types'
 
 import { FINAL_FORM_INPUT_TYPES } from '../../utils/propTypes'
@@ -7,24 +7,14 @@ import * as S from './styles'
 
 export const InputCheckbox = forwardRef(
   ({ checked = false, Component = S.InputCheckbox, dataTestId, name, onChange, ...rest }, ref) => {
-    // control checked state here if there is no parent like Field or ConnectedField
-    const [isChecked, setIsChecked] = useState(checked)
-
-    // Ensure component is controlled
-    useEffect(() => {
-      setIsChecked(checked)
-    }, [checked])
-
     const handleChange = e => {
-      if (e.target) {
-        e.target.checked = !checked
-      }
+      e.target.checked = !e.target.checked
       onChange && onChange(e)
     }
 
     return (
       <Component
-        checked={isChecked}
+        checked={checked}
         data-testid={dataTestId}
         id={name}
         name={name}

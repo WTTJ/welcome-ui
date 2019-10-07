@@ -1,8 +1,9 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
+import { Radio as ReakitRadio } from 'reakit/Radio'
 
 import { overflowEllipsis } from '../../common/styles/text'
-import { componentSystem } from '../../utils/system'
+import { componentSystem, filterComponent, system } from '../../utils/system'
 // common form styles
 import { fieldStyles } from '../../common/styles/form'
 import { Label } from '../Label/styles'
@@ -11,12 +12,15 @@ export const RadioTab = styled.div`
   flex: 1;
 `
 
-export const Input = styled.input`
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-`
+export const Input = styled(filterComponent(ReakitRadio))(
+  ({ connected }) => css`
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    ${connected ? componentSystem : system};
+  `
+)
 
 const checkedStyles = css`
   ${th('fields.radiotabs.checked')};

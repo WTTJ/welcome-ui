@@ -1,18 +1,11 @@
-import React, { forwardRef, Fragment, useEffect, useState } from 'react'
-import { array, arrayOf, bool, func, node, number, object, oneOfType, string } from 'prop-types'
+import React, { forwardRef, Fragment } from 'react'
+import { bool, func, node, string } from 'prop-types'
 
 // Common
 import { RowContainer } from '../../common/styles/layout'
 import { getBaseType } from '../../utils/fields'
 import { getHintText, getVariant } from '../../utils/variants'
-import { makeUnique } from '../../utils/text'
-import {
-  COMPONENT_TYPE,
-  DIRECTIONS_TYPE,
-  INPUTS_TYPE,
-  OPTIONS_TYPE,
-  SIZES_TYPE
-} from '../../utils/propTypes'
+import { COMPONENT_TYPE, DIRECTIONS_TYPE, INPUTS_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 // Components
 import { Label } from '../Label'
 import { Hint } from '../Hint'
@@ -23,7 +16,6 @@ import * as S from './styles'
 export const Field = forwardRef(
   (
     {
-      autoFocus,
       checked,
       children,
       component: Component,
@@ -37,17 +29,12 @@ export const Field = forwardRef(
       id,
       label,
       name,
-      onBlur,
       onChange,
-      onFocus,
-      onKeyDown,
-      options,
-      placeholder,
+      onClick,
       required,
       size = 'lg',
       touched,
       type,
-      value,
       warning,
       ...rest
     },
@@ -58,26 +45,30 @@ export const Field = forwardRef(
       return null
     }
 
-    const [uniqueId, setUniqueId] = useState()
-    useEffect(() => {
-      setUniqueId(makeUnique(isRadio ? value : id || name))
-    }, [id, isRadio, name, value])
-
     const baseType = getBaseType(type || Component.displayName)
     const variant = getVariant({ connected, touched, warning, error })
     const hintText = getHintText({ connected, touched, warning, error, hint })
     const isRadio = baseType === 'radio'
-    const isCheckable = ['checkbox', 'radio'].includes(baseType)
+    const isCheckbox = baseType === 'checkbox'
+    const isCheckable = isRadio || isCheckbox
 
     const isShowRequired = isRadio ? null : required
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
     const Container = flexDirection === 'row' ? RowContainer : Fragment
+    const uniqueId = isRadio ? id : id || name
+    const inputRef = ref || React.createRef()
+
+    const handleClick = e => {
+      e.stopPropagation()
+      if (isCheckbox) {
+        e.target.checked = !e.target.checked
+      }
+      onClick && onClick(e)
+      isCheckable && onChange && onChange(e)
+    }
 
     const handleLabelClick = () => {
-      if (isCheckable) {
-        return
-      }
-      const input = ref.current
+      const input = inputRef.current
       if (input) {
         Component.displayName === 'MarkdownEditor'
           ? input.simpleMde.codemirror.focus()
@@ -87,7 +78,6 @@ export const Field = forwardRef(
 
     const Field = (
       <Component
-        autoFocus={autoFocus}
         checked={checked}
         connected
         dataTestId={dataTestId}
@@ -95,17 +85,12 @@ export const Field = forwardRef(
         flexDirection={layout}
         id={uniqueId}
         name={name}
-        onBlur={onBlur}
         onChange={onChange}
-        onFocus={onFocus}
-        onKeyDown={onKeyDown}
-        options={options}
-        placeholder={placeholder}
-        ref={ref}
+        onClick={handleClick}
+        ref={inputRef}
         required={required}
         size={size}
         type={baseType}
-        value={value}
         variant={variant}
         {...rest}
       >
@@ -128,7 +113,7 @@ export const Field = forwardRef(
               checkableField={isCheckable}
               disabled={disabled}
               disabledIcon={disabledIcon}
-              htmlFor={uniqueId}
+              htmlFor={isCheckable ? null : uniqueId}
               onClick={handleLabelClick}
               required={isShowRequired}
               variant={variant}
@@ -153,11 +138,11 @@ export const Field = forwardRef(
 Field.displayName = 'Field'
 
 Field.propTypes = {
-  autoFocus: bool,
   checked: bool,
   children: func,
   component: COMPONENT_TYPE.isRequired,
   connected: bool,
+  dataTestId: string,
   disabled: bool,
   disabledIcon: node,
   error: string,
@@ -166,16 +151,11 @@ Field.propTypes = {
   id: string,
   label: string,
   name: string.isRequired,
-  onBlur: func,
   onChange: func.isRequired,
-  onFocus: func,
-  onKeyDown: func,
-  options: arrayOf(OPTIONS_TYPE),
-  placeholder: string,
+  onClick: func,
   required: bool,
   size: SIZES_TYPE,
   touched: bool,
   type: INPUTS_TYPE,
-  value: oneOfType([array, number, object, string]),
   warning: string
 }

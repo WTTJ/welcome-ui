@@ -48,6 +48,7 @@ export const Select = forwardRef(
       name,
       onBlur,
       onChange,
+      onClick,
       onCreate,
       onFocus,
       onKeyDown,
@@ -210,6 +211,11 @@ export const Select = forwardRef(
             </S.DropDownIndicator>
           )
 
+          const handleInputClick = e => {
+            onClick && onClick(e)
+            toggleMenu()
+          }
+
           const rootProps = getRootProps(rest)
           const inputProps = getInputProps({
             // HACK for chrome : https://bugs.chromium.org/p/chromium/issues/detail?id=914451
@@ -222,7 +228,7 @@ export const Select = forwardRef(
             id,
             name,
             onBlur,
-            onClick: toggleMenu,
+            onClick: handleInputClick,
             onFocus,
             placeholder,
             ref,
@@ -302,6 +308,7 @@ Select.propTypes = {
   name: string,
   onBlur: func,
   onChange: func,
+  onClick: func,
   onCreate: func,
   onFocus: func,
   onKeyDown: func,
