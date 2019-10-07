@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.26.0](https://github.com/WTTJ/welcome-ui/compare/v0.25.7...v0.26.0) (2019-10-07)
+
+
+### Bug Fixes
+
+* click checkbox radio label ([#383](https://github.com/WTTJ/welcome-ui/issues/383)) ([7c437c0](https://github.com/WTTJ/welcome-ui/commit/7c437c0))
+
+
+### Features
+
+* replace right icon on DatePicker when it has been cleared ([#382](https://github.com/WTTJ/welcome-ui/issues/382)) ([00f7ddc](https://github.com/WTTJ/welcome-ui/commit/00f7ddc))
+
+
+
 ### [0.25.7](https://github.com/WTTJ/welcome-ui/compare/v0.25.6...v0.25.7) (2019-10-01)
 
 
