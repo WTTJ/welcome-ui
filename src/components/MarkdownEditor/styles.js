@@ -22,6 +22,7 @@ export const Wrapper = styled(filterComponent('div'))(
     .CodeMirror {
       border: none;
       background: inherit;
+      z-index: 0;
     }
 
     .cm-strong {
@@ -44,7 +45,7 @@ export const Toolbar = styled.div(
     position: sticky;
     top: 0;
     overflow: auto;
-    z-index: 2;
+    z-index: 1;
     box-shadow: ${th('shadows.sm')};
     border-radius: ${borderRadius};
     border-bottom-right-radius: 0;
