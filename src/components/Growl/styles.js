@@ -22,15 +22,15 @@ export const Title = styled.div(
     ${th('growls.title')};
 
     & > *:first-child {
+      flex-shrink: 0;
       margin-right: sm;
     }
   `
 )
 
 export const Close = styled.div`
-  position: absolute;
-  right: ${th.space('lg')};
-  top: ${th.space('lg')};
+  float: right;
+  margin-left: sm;
 `
 
 export const CloseContent = styled.button`
