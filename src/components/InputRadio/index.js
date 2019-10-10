@@ -1,27 +1,40 @@
 import React, { forwardRef } from 'react'
-import { bool, elementType, func, number, object, string } from 'prop-types'
+import { bool, elementType, string } from 'prop-types'
+
+import { Label } from '../Label'
+import { RadioTab } from '../RadioTab'
 
 import * as S from './styles'
 
-export const InputRadio = forwardRef(({ dataTestId, radio, value, ...rest }, ref) => (
-  <S.InputRadio data-testid={dataTestId} id={value} ref={ref} value={value} {...rest} {...radio} />
-))
+export const InputRadio = forwardRef((props, ref) => {
+  const { dataTestId, disabled, disabledIcon, label, tabs, variant, ...rest } = props
+  const Component = tabs ? RadioTab : S.InputRadio
+  return (
+    <Label checkableField disabled={disabled} disabledIcon={disabledIcon} variant={variant}>
+      <S.Input>
+        <Component
+          data-testid={dataTestId}
+          disabled={disabled}
+          label={label}
+          ref={ref}
+          variant={variant}
+          {...rest}
+        />
+      </S.Input>
+      <S.Content>{label}</S.Content>
+    </Label>
+  )
+})
 
 InputRadio.type = 'InputRadio'
 InputRadio.displayName = 'InputRadio'
 
 InputRadio.propTypes = {
-  autoFocus: bool,
-  checked: bool,
-  Component: elementType,
+  as: elementType,
+  dataTestId: string,
   disabled: bool,
-  name: string,
-  onBlur: func,
-  onChange: func,
-  onFocus: func,
-  onKeyDown: func,
-  order: number,
-  radio: object,
-  type: string,
-  value: string
+  disabledIcon: elementType,
+  label: string,
+  tabs: bool,
+  variant: string
 }

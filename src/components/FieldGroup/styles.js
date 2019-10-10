@@ -2,9 +2,9 @@ import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { Label } from '../Label/styles'
-import { system } from '../../utils/system'
+import { filterComponent, system } from '../../utils/system'
 
-export const FieldGroup = styled.fieldset`
+export const FieldGroup = styled(filterComponent('fieldset'))`
   min-width: 0;
   min-height: 0;
   margin: 0 0 xl 0;

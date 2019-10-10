@@ -7,8 +7,8 @@ import { Form as FinalForm } from 'react-final-form'
 
 import { DoczCodeBlock } from './CodeBlock'
 
-export const Form = ({ children, initialValues }) => (
-  <FinalForm initialValues={initialValues} onSubmit={console.debug}>
+export const Form = ({ children, initialValues, validate }) => (
+  <FinalForm initialValues={initialValues} onSubmit={console.debug} validate={validate}>
     {({ handleSubmit, values }) => (
       <>
         <form onSubmit={handleSubmit}>{children}</form>
@@ -22,7 +22,8 @@ export const Form = ({ children, initialValues }) => (
 
 Form.propTypes = {
   children: func,
-  initialValues: object
+  initialValues: object,
+  validate: func
 }
 
 export const getFormValues = node => JSON.parse(node.querySelector('code').textContent)

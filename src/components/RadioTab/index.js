@@ -5,18 +5,10 @@ import { SIZES_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 
-export const RadioTab = forwardRef(({ dataTestId, radio, size = 'lg', value, ...rest }, ref) => (
-  <S.Input
-    data-testid={dataTestId}
-    id={value}
-    ref={ref}
-    size={size}
-    type="radio"
-    value={value}
-    {...rest}
-    {...radio}
-  />
-))
+export const RadioTab = forwardRef((props, ref) => {
+  const { dataTestId, ...rest } = props
+  return <S.Input data-testid={dataTestId} ref={ref} {...rest} />
+})
 
 RadioTab.type = 'RadioTab'
 RadioTab.displayName = 'RadioTab'

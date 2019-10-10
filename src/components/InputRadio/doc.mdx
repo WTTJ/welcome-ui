@@ -6,58 +6,60 @@ menu: Fields
 
 import { Props } from 'docz'
 import { Form, Playground } from '../../../docz/'
+import { ITEMS } from '../../../helpers/tests'
 
 import { ConnectedField } from '../ConnectedField'
 import { RadioGroup } from '../RadioGroup'
 import { RadioTab } from '../RadioTab'
+import { Button } from '../Button'
 
 import { InputRadio } from './index'
 
 # Radio buttons
 
 <Playground>
-  <Form initialValues={{ sauces: 'ketchup' }}>
-    <>
-      <RadioGroup label="Your favorite sauce">
-        <ConnectedField
-          name="sauces"
-          component={InputRadio}
-          label="Mayonnaise"
-          value="mayonnaise"
-        />
-        <ConnectedField name="sauces" component={InputRadio} label="Ketchup" value="ketchup" />
-        <ConnectedField name="sauces" component={InputRadio} label="Barbecue" value="barbecue" />
-      </RadioGroup>
-    </>
+  <Form
+    initialValues={{ social: 'behance' }}
+    validate={values => (!values.social ? { social: 'Required' } : {})}
+  >
+    <ConnectedField
+      component={RadioGroup}
+      hint="Most popular is Twitter"
+      label="Social networks"
+      mb={0}
+      name="social"
+      options={ITEMS}
+      required
+    />
+    <Button type="submit">Submit</Button>
   </Form>
 </Playground>
 
 ## RadioTabs
 
 <Playground>
-  <Form initialValues={{ cakes: 'madeleine', fish: 'mackerel' }}>
+  <Form initialValues={{ social_1: 'twitter', social_2: 'xing' }}>
     <>
-      <RadioGroup label="Label for input radios" required mb="xl">
-        <ConnectedField name="cakes" component={RadioTab} label="Carrot" value="carrot" mb="xl" />
-        <ConnectedField
-          name="cakes"
-          component={RadioTab}
-          label="Madeleine (made with farm-fresh eggs"
-          value="madeleine"
-        />
-        <ConnectedField name="cakes" component={RadioTab} label="Pumpkin" value="pumpkin" />
-      </RadioGroup>
-      <RadioGroup
-        label="Label for input radios"
-        flexDirection="column"
-        width={1 / 3}
-        required
+      <ConnectedField
+        component={RadioGroup}
+        label="Social networks"
         mb="xl"
-      >
-        <ConnectedField name="fish" component={RadioTab} label="Mackerel" value="mackerel" />
-        <ConnectedField name="fish" component={RadioTab} label="Sardine" value="sardine" />
-        <ConnectedField name="fish" component={RadioTab} label="Salmon" value="salmon" />
-      </RadioGroup>
+        name="social_1"
+        options={ITEMS}
+        required
+        tabs
+      />
+      <ConnectedField
+        component={RadioGroup}
+        flexDirection="column"
+        label="Social networks"
+        mb="xl"
+        name="social_2"
+        options={ITEMS}
+        required
+        tabs
+        width={1 / 3}
+      />
     </>
   </Form>
 </Playground>
