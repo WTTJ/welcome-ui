@@ -13619,7 +13619,7 @@ ws@^7.0.0:
 
 wttj-config-front@WTTJ/wttj-config-front:
   version "1.0.0"
-  resolved "https://codeload.github.com/WTTJ/wttj-config-front/tar.gz/aa3d5bb5dd678cdac65cd83e6f716cef593fb34d"
+  resolved "https://codeload.github.com/WTTJ/wttj-config-front/tar.gz/42ad474528a3b0d2331518a8cb01fb41e50fb8cd"
 
 x-is-string@^0.1.0:
   version "0.1.0"

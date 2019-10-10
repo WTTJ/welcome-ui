@@ -48,6 +48,7 @@ export class CustomInput extends PureComponent {
   }
 }
 
+// eslint-disable-next-line react/static-property-placement
 CustomInput.propTypes = {
   focused: oneOf('date', 'time', null),
   handleBlur: func,
