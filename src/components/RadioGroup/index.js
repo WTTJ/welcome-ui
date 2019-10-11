@@ -5,6 +5,7 @@ import { RadioGroup as ReakitRadioGroup, useRadioState } from 'reakit/Radio'
 import { DIRECTIONS_TYPE, OPTIONS_TYPE } from '../../utils/propTypes'
 import { FieldGroup } from '../FieldGroup'
 import { InputRadio } from '../InputRadio'
+import { RadioTab } from '../RadioTab'
 
 import * as S from './styles'
 
@@ -12,32 +13,32 @@ export const RadioGroup = ({
   flexDirection,
   label,
   name,
-  onChange,
   options = [],
   required,
+  tabs,
   value,
   ...rest
 }) => {
   const radio = useRadioState({ currentId: value })
-  const handleChange = e => {
-    onChange && onChange(e.target.value, e)
-  }
+
+  const Component = tabs ? RadioTab : InputRadio
+  const type = Component.type
 
   return (
-    <FieldGroup as={ReakitRadioGroup} label={label} required={required} {...rest}>
+    <FieldGroup as={ReakitRadioGroup} label={label} mb={0} required={required} type={type}>
       <S.Radios flexDirection={flexDirection}>
         {options.map(option => (
-          <InputRadio
+          <Component
             {...rest}
-            checked={option.value === radio.state || option.value === radio.currentId}
+            checked={option.value === value}
             flexDirection={flexDirection}
             id={`${name}.${option.value}`}
             key={option.value}
             label={option.label}
             name={name}
-            onChange={handleChange}
             type="radio"
             value={option.value}
+            variant={type}
             {...radio}
           />
         ))}
@@ -53,8 +54,8 @@ RadioGroup.propTypes = {
   flexDirection: DIRECTIONS_TYPE,
   label: string,
   name: string,
-  onChange: func,
   options: arrayOf(OPTIONS_TYPE),
   required: bool,
+  tabs: bool,
   value: string
 }

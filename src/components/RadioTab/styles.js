@@ -3,24 +3,18 @@ import { th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
 
 import { overflowEllipsis } from '../../common/styles/text'
-import { componentSystem, filterComponent, system } from '../../utils/system'
-// common form styles
 import { fieldStyles } from '../../common/styles/form'
-import { Label } from '../Label/styles'
+import { componentSystem, filterComponent, system } from '../../utils/system'
 
-export const RadioTab = styled.div`
-  flex: 1;
-`
-
-export const Input = styled(filterComponent(ReakitRadio))(
-  ({ connected }) => css`
+export const InputRadio = styled(filterComponent(ReakitRadio))(({ connected }) => {
+  return css`
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
+    visibility: hidden;
     ${connected ? componentSystem : system};
   `
-)
+})
 
 const checkedStyles = css`
   ${th('fields.radiotabs.checked')};
@@ -29,21 +23,16 @@ const checkedStyles = css`
 
 const columnStyles = css`
   margin-top: -${th.borderWidth('sm')};
+  border-radius: 0;
 
-  &:first-child {
-    margin-top: 0;
-
-    ${Label} {
-      border-radius: md;
-      ${componentSystem};
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-    }
+  &:first-of-type {
+    border-radius: md;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
 
-  &:last-child ${Label} {
+  &:last-of-type {
     border-radius: md;
-    ${componentSystem};
     border-top-right-radius: 0;
     border-top-left-radius: 0;
   }
@@ -51,55 +40,50 @@ const columnStyles = css`
 
 const rowStyles = css`
   margin-left: -${th.borderWidth('sm')};
-  margin-bottom: 0;
+  border-radius: 0;
 
-  &:first-child {
-    margin-left: 0;
-
-    ${Label} {
-      border-radius: md;
-      ${componentSystem};
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
+  &:first-of-type {
+    border-radius: md;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
-  &:last-child ${Label} {
+  &:last-of-type {
     border-radius: md;
-    ${componentSystem};
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
 `
 
-export const radioTabStyles = ({ checked, flexDirection }) => css`
-  flex: 1;
-  min-width: 0;
-  min-height: 0;
-  margin: 0;
-  ${Label} {
-    ${fieldStyles};
-    display: block;
-    text-align: center;
-    flex-grow: 1;
-    position: relative;
+export const Label = styled.label(
+  ({ checked, flexDirection }) => css`
+    flex: 1;
     min-width: 0;
+    min-height: 0;
     max-width: 100%;
-    user-select: none;
     margin: 0;
+    text-align: center;
+    position: relative;
     cursor: pointer;
-    transition: none;
-    ${overflowEllipsis};
+    transition: medium;
+
+    ${fieldStyles};
+    ${checked && checkedStyles};
+    ${flexDirection === 'column' && columnStyles};
+    ${flexDirection === 'row' && rowStyles};
+    ${componentSystem};
 
     &:hover {
       ${th('fields.radiotabs.hover')};
     }
+  `
+)
 
-    ${checked && checkedStyles};
-    ${componentSystem};
-    border-radius: 0;
-  }
+export const Input = styled.div`
+  flex-shrink: 0;
+  position: relative;
+`
 
-  ${flexDirection === 'column' && columnStyles};
-  ${flexDirection === 'row' && rowStyles};
+export const Content = styled.div`
+  ${overflowEllipsis};
 `

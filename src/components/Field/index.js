@@ -51,7 +51,7 @@ export const Field = forwardRef(
     const isRadio = baseType === 'radio'
     const isCheckbox = baseType === 'checkbox'
     const isCheckable = isRadio || isCheckbox
-    const isGroup = baseType === 'RadioGroup' || baseType === 'FieldGroup'
+    const isGroup = ['FieldGroup', 'RadioGroup'].includes(baseType)
 
     const isShowRequired = isRadio ? null : required
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
@@ -61,11 +61,13 @@ export const Field = forwardRef(
 
     const handleClick = e => {
       e.stopPropagation()
+      onClick && onClick(e)
       if (isCheckbox) {
         e.target.checked = !e.target.checked
       }
-      onClick && onClick(e)
-      isCheckable && onChange && onChange(e)
+      if (isCheckbox || isGroup) {
+        onChange && onChange(e)
+      }
     }
 
     const handleLabelClick = () => {
@@ -104,7 +106,6 @@ export const Field = forwardRef(
       <S.Field
         checkableField={isCheckable}
         checked={checked}
-        fieldType={Component.type}
         flexDirection={layout}
         size={size}
         {...rest}

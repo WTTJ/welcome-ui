@@ -7,9 +7,11 @@ import * as S from './styles'
 
 export const FieldGroup = forwardRef(({ children, label, required }, ref) => (
   <S.FieldGroup ref={ref}>
-    <Label as="legend" required={required}>
-      {label}
-    </Label>
+    {label && (
+      <Label as="legend" required={required}>
+        {label}
+      </Label>
+    )}
     {children}
   </S.FieldGroup>
 ))

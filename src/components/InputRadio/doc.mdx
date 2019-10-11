@@ -19,14 +19,15 @@ import { InputRadio } from './index'
 
 <Playground>
   <Form
-    initialValues={{ social: 'behance' }}
-    validate={values => (!values.social ? { social: 'Required' } : {})}
+    initialValues={{}}
+    validate={values => (!values.social ? { social: 'You must choose a social network' } : {})}
   >
     <ConnectedField
       component={RadioGroup}
+      flexDirection="row"
       hint="Most popular is Twitter"
       label="Social networks"
-      mb={0}
+      mb="xl"
       name="social"
       options={ITEMS}
       required
@@ -42,6 +43,7 @@ import { InputRadio } from './index'
     <>
       <ConnectedField
         component={RadioGroup}
+        flexDirection="row"
         label="Social networks"
         mb="xl"
         name="social_1"
@@ -51,7 +53,6 @@ import { InputRadio } from './index'
       />
       <ConnectedField
         component={RadioGroup}
-        flexDirection="column"
         label="Social networks"
         mb="xl"
         name="social_2"

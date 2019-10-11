@@ -93,7 +93,6 @@ const fileDropProps = ['onAddFile', 'onRemoveFile']
 
 const customProps = [
   'checkableField',
-  'fieldType',
   'focused',
   'handleRemoveFile',
   'icon',

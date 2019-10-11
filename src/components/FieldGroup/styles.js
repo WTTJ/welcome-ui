@@ -5,9 +5,10 @@ import { Label } from '../Label/styles'
 import { filterComponent, system } from '../../utils/system'
 
 export const FieldGroup = styled(filterComponent('fieldset'))`
+  width: 100%;
   min-width: 0;
   min-height: 0;
-  margin: 0 0 xl 0;
+  margin: 0;
   padding: 0;
   ${th('fields.fieldset')};
   ${system};
