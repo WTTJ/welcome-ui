@@ -1,11 +1,10 @@
 import React from 'react'
-import { arrayOf, bool, func, string } from 'prop-types'
+import { arrayOf, bool, elementType, string } from 'prop-types'
 import { RadioGroup as ReakitRadioGroup, useRadioState } from 'reakit/Radio'
 
 import { DIRECTIONS_TYPE, OPTIONS_TYPE } from '../../utils/propTypes'
 import { FieldGroup } from '../FieldGroup'
 import { InputRadio } from '../InputRadio'
-import { RadioTab } from '../RadioTab'
 
 import * as S from './styles'
 
@@ -14,18 +13,15 @@ export const RadioGroup = ({
   label,
   name,
   options = [],
+  renderOption: Component = InputRadio,
   required,
-  tabs,
   value,
   ...rest
 }) => {
   const radio = useRadioState({ currentId: value })
 
-  const Component = tabs ? RadioTab : InputRadio
-  const type = Component.type
-
   return (
-    <FieldGroup as={ReakitRadioGroup} label={label} mb={0} required={required} type={type}>
+    <FieldGroup as={ReakitRadioGroup} label={label} mb={0} required={required}>
       <S.Radios flexDirection={flexDirection}>
         {options.map(option => (
           <Component
@@ -38,7 +34,6 @@ export const RadioGroup = ({
             name={name}
             type="radio"
             value={option.value}
-            variant={type}
             {...radio}
           />
         ))}
@@ -55,7 +50,7 @@ RadioGroup.propTypes = {
   label: string,
   name: string,
   options: arrayOf(OPTIONS_TYPE),
+  renderOption: elementType,
   required: bool,
-  tabs: bool,
   value: string
 }

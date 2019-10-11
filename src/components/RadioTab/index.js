@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { bool, elementType, string } from 'prop-types'
+import { bool, elementType, func, string } from 'prop-types'
 
 import { DIRECTIONS_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 
