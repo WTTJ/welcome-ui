@@ -34,17 +34,19 @@ export const Tag = styled.div(
       margin-right: xxs;
     }
 
-    ${Icon}:last-child {
-      cursor: pointer;
+    > *:not(:only-child) {
+      ${Icon}:last-child {
+        cursor: pointer;
 
-      path {
-        transition: fill ${th.transition('medium')};
-      }
+        path {
+          transition: fill ${th.transition('medium')};
+        }
 
-      &:hover {
-        path,
-        g {
-          fill: ${th('colors.danger.500')};
+        &:hover {
+          path,
+          g {
+            fill: ${th('colors.danger.500')};
+          }
         }
       }
     }
