@@ -34,3 +34,10 @@ export const InputRadio = styled(filterComponent(ReakitRadio))(
     ${connected ? componentSystem : system};
   `
 )
+
+export const Input = styled.div`
+  flex-shrink: 0;
+  position: relative;
+`
+
+export const Content = styled.div``

@@ -1,27 +1,66 @@
 import React, { forwardRef } from 'react'
-import { bool, elementType, func, number, object, string } from 'prop-types'
+import { bool, elementType, func, string } from 'prop-types'
+
+import { DIRECTIONS_TYPE } from '../../utils/propTypes'
+import { Label } from '../Label'
 
 import * as S from './styles'
 
-export const InputRadio = forwardRef(({ dataTestId, radio, value, ...rest }, ref) => (
-  <S.InputRadio data-testid={dataTestId} id={value} ref={ref} value={value} {...rest} {...radio} />
-))
+export const InputRadio = forwardRef((props, ref) => {
+  const {
+    dataTestId,
+    disabled,
+    disabledIcon,
+    flexDirection,
+    label,
+    onChange,
+    onClick,
+    variant,
+    ...rest
+  } = props
+
+  const handleClick = e => {
+    e.stopPropagation()
+    onClick && onClick(e)
+    onChange && onChange(e)
+  }
+
+  return (
+    <Label
+      checkableField
+      disabled={disabled}
+      disabledIcon={disabledIcon}
+      flexDirection={flexDirection}
+      onClick={handleClick}
+      variant={variant}
+    >
+      <S.Input>
+        <S.InputRadio
+          data-testid={dataTestId}
+          disabled={disabled}
+          label={label}
+          ref={ref}
+          variant={variant}
+          {...rest}
+        />
+      </S.Input>
+      <S.Content>{label}</S.Content>
+    </Label>
+  )
+})
 
 InputRadio.type = 'InputRadio'
 InputRadio.displayName = 'InputRadio'
 
 InputRadio.propTypes = {
-  autoFocus: bool,
-  checked: bool,
-  Component: elementType,
+  dataTestId: string,
   disabled: bool,
+  disabledIcon: elementType,
+  flexDirection: DIRECTIONS_TYPE,
+  label: string,
   name: string,
-  onBlur: func,
   onChange: func,
-  onFocus: func,
-  onKeyDown: func,
-  order: number,
-  radio: object,
-  type: string,
-  value: string
+  onClick: func,
+  value: string,
+  variant: string
 }

@@ -4,7 +4,7 @@ import { bool, func, node, string } from 'prop-types'
 // Common
 import { RowContainer } from '../../common/styles/layout'
 import { getBaseType } from '../../utils/fields'
-import { getHintText, getVariant } from '../../utils/variants'
+import { getVariant } from '../../utils/variants'
 import { COMPONENT_TYPE, DIRECTIONS_TYPE, INPUTS_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 // Components
 import { Label } from '../Label'
@@ -47,10 +47,11 @@ export const Field = forwardRef(
 
     const baseType = getBaseType(type || Component.displayName)
     const variant = getVariant({ connected, touched, warning, error })
-    const hintText = getHintText({ connected, touched, warning, error, hint })
+    const hintText = variant ? error || warning : hint
     const isRadio = baseType === 'radio'
     const isCheckbox = baseType === 'checkbox'
     const isCheckable = isRadio || isCheckbox
+    const isGroup = ['FieldGroup', 'RadioGroup'].includes(baseType)
 
     const isShowRequired = isRadio ? null : required
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
@@ -60,11 +61,13 @@ export const Field = forwardRef(
 
     const handleClick = e => {
       e.stopPropagation()
+      onClick && onClick(e)
       if (isCheckbox) {
         e.target.checked = !e.target.checked
       }
-      onClick && onClick(e)
-      isCheckable && onChange && onChange(e)
+      if (isCheckbox || isGroup) {
+        onChange && onChange(e)
+      }
     }
 
     const handleLabelClick = () => {
@@ -84,6 +87,7 @@ export const Field = forwardRef(
         disabled={disabled}
         flexDirection={layout}
         id={uniqueId}
+        label={label}
         name={name}
         onChange={onChange}
         onClick={handleClick}
@@ -102,13 +106,12 @@ export const Field = forwardRef(
       <S.Field
         checkableField={isCheckable}
         checked={checked}
-        fieldType={Component.type}
         flexDirection={layout}
         size={size}
         {...rest}
       >
         <Container>
-          {label && (
+          {label && !isGroup && (
             <Label
               checkableField={isCheckable}
               disabled={disabled}

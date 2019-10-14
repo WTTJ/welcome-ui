@@ -3,7 +3,6 @@ import { th } from '@xstyled/system'
 
 import { filterComponent, system, wrapperSystem } from '../../utils/system'
 import { Label } from '../Label/styles'
-import { radioTabStyles } from '../RadioTab/styles'
 import { FieldGroup } from '../FieldGroup/styles'
 
 const rowStyles = css`
@@ -19,7 +18,7 @@ const checkableFieldStyles = css`
   margin-bottom: sm;
 `
 
-export const Field = styled(filterComponent('div'))(
+export const Field = styled(filterComponent('div', ['options', 'value']))(
   props => css`
     ${FieldGroup} {
       margin-bottom: ${props.checkableField && 'xxs'};
@@ -30,7 +29,6 @@ export const Field = styled(filterComponent('div'))(
       ${props.checkableField && checkableFieldStyles};
       ${props.checked && th('fields.checkablelabel.checked')}
     }
-    ${props.fieldType === 'RadioTab' && radioTabStyles(props)}
     ${wrapperSystem};
   `
 )
