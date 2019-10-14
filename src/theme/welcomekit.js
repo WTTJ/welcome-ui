@@ -109,7 +109,7 @@ export const welcomekitTheme = {
     tags: {
       variants: {
         default: {
-          'background-color': colors.light[700]
+          'background-color': colors.nude[200]
         }
       }
     }
