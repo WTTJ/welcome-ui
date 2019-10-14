@@ -91,8 +91,8 @@ InputText.propTypes = {
   onFocus: func,
   onKeyDown: func,
   placeholder: string,
-  size: SIZES_TYPE,
+  size: oneOf(SIZES_TYPE),
   type: string,
   value: string,
-  variant: VARIANTS_TYPE
+  variant: oneOf(VARIANTS_TYPE)
 }

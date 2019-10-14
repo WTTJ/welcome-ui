@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { bool, elementType, func, string } from 'prop-types'
+import { bool, elementType, func, oneOf, string } from 'prop-types'
 
 import { DIRECTIONS_TYPE } from '../../utils/propTypes'
 import { Label } from '../Label'
@@ -53,10 +53,9 @@ InputRadio.type = 'InputRadio'
 InputRadio.displayName = 'InputRadio'
 
 InputRadio.propTypes = {
-  dataTestId: string,
   disabled: bool,
   disabledIcon: elementType,
-  flexDirection: DIRECTIONS_TYPE,
+  flexDirection: oneOf(DIRECTIONS_TYPE),
   label: string,
   name: string,
   onChange: func,

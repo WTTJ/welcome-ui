@@ -4,54 +4,21 @@ route: /
 ---
 
 import { Component } from 'react'
-import { Playground } from 'docz'
+import { Code } from '../docz'
+import { exampleHome } from '../docz/codeExamples'
 
 # Welcome UI
 
 Welcome to the _Welcome UI library_. Here you'll find all the core components you need to create a delightful webapp.
 
-### 1. Add welcome-ui as a dependency
+## 1. Add welcome-ui as a dependency
 
-```bash
-npm install welcome-ui
-```
+<Code language="bash">npm install welcome-ui</Code>
 
 or
 
-```bash
-yarn add welcome-ui
-```
+<Code language="bash">yarn add welcome-ui</Code>
 
-### 2. Import welcome-ui and create a theme
+## 2. Import welcome-ui and create a theme
 
-```js
-import React from 'react'
-import { ThemeProvider } from '@xstyled/styled-components'
-import { createTheme, GlobalStyle } from 'welcome-ui'
-
-const options = {
-  defaultFontFamily: 'Helvetica',
-  headingFontFamily: 'Georgia',
-  colors: {
-    primary: {
-      500: '#FF0000'
-    },
-    secondary: {
-      500: '#00FF00'
-    }
-  }
-}
-const theme = createTheme(options)
-
-export default function Root() {
-  // Wrap your component with ThemeProvider
-  return (
-    <ThemeProvider theme={theme}>
-      <>
-        <GlobalStyle />
-        <div>Welcome!</div>
-      </>
-    </ThemeProvider>
-  )
-}
-```
+<Code>{exampleHome}</Code>

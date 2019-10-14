@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { bool, func, number, string } from 'prop-types'
+import { bool, func, number, oneOf, string } from 'prop-types'
 
 import { SIZES_TYPE, VARIANTS_TYPE } from '../../utils/propTypes'
 
@@ -61,7 +61,7 @@ InputTextarea.propTypes = {
   onFocus: func,
   onKeyDown: func,
   placeholder: string,
-  size: SIZES_TYPE,
+  size: oneOf(SIZES_TYPE),
   value: string,
-  variant: VARIANTS_TYPE
+  variant: oneOf(VARIANTS_TYPE)
 }

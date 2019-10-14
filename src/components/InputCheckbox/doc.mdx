@@ -4,13 +4,8 @@ route: /fields/checkbox
 menu: Fields
 ---
 
-import { Props } from 'docz'
-import { Form, Playground } from '../../../docz/'
-
-import { ConnectedField } from '../ConnectedField'
-import { FieldGroup } from '../FieldGroup'
+import { Props, Playground } from 'docz'
 import { Toggle } from '../Toggle'
-
 import { InputCheckbox } from './index'
 
 # Checkbox
@@ -30,22 +25,6 @@ import { InputCheckbox } from './index'
   </Form>
 </Playground>
 
-## Toggle
-
-<Playground>
-  <Form initialValues={{ swatch: true }}>
-    <ConnectedField name="switch" component={Toggle} label="Switch example" mb="xl" />
-    <ConnectedField
-      name="swatch"
-      component={Toggle}
-      label="Disabled swatch example"
-      disabled
-      mb="xl"
-    />
-  </Form>
-</Playground>
-
 ## Properties
 
 <Props of={InputCheckbox} />
-<Props of={Toggle} />

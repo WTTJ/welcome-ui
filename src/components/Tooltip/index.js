@@ -138,7 +138,7 @@ export const Tooltip = forwardRef(
 
 Tooltip.propTypes = {
   children: oneOfType([func, node]),
-  content: COMPONENT_TYPE,
+  content: oneOfType(COMPONENT_TYPE),
   fixed: bool,
   placement: oneOf([
     'auto-start',

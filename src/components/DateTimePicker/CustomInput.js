@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { func, oneOf, string } from 'prop-types'
+import { func, oneOf, oneOfType, string } from 'prop-types'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 import { IconWrapper } from '../Field/styles'
@@ -50,13 +50,13 @@ export class CustomInput extends PureComponent {
 
 // eslint-disable-next-line react/static-property-placement
 CustomInput.propTypes = {
-  focused: oneOf('date', 'time', null),
+  focused: oneOf(['date', 'time', null]),
   handleBlur: func,
   handleFocus: func,
-  icon: COMPONENT_TYPE,
-  iconPlacement: oneOf('right', 'left'),
+  icon: oneOfType(COMPONENT_TYPE),
+  iconPlacement: oneOf(['right', 'left']),
   inputRef: func,
   onReset: func,
-  size: SIZES_TYPE,
+  size: oneOf(SIZES_TYPE),
   value: string
 }

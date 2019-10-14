@@ -4,9 +4,8 @@ route: /components/icon
 menu: Components
 ---
 
-import { Props } from 'docz'
-import { IconsList, Playground } from '../../../docz/'
-
+import { Props, Playground } from 'docz'
+import { IconsList } from '../../../docz/'
 import { Icon } from './index'
 
 # Icon
@@ -37,7 +36,7 @@ Icons inherit the colour from their parent
 
 ### Products
 
-<Playground>
+<Playground wrapper={false}>
   {() => {
     const icons = ['ats', 'employer_branding', 'marketplace', 'welcome_home', 'welcome_kit']
     return IconsList(icons)
@@ -46,7 +45,7 @@ Icons inherit the colour from their parent
 
 ### Directions
 
-<Playground>
+<Playground wrapper={false}>
   {() => {
     const icons = ['left', 'right', 'up', 'down']
     return IconsList(icons)
@@ -55,7 +54,7 @@ Icons inherit the colour from their parent
 
 ### Actions
 
-<Playground>
+<Playground wrapper={false}>
   {() => {
     const icons = [
       'add',
@@ -90,7 +89,7 @@ Icons inherit the colour from their parent
 
 ### Appreciations
 
-<Playground>
+<Playground wrapper={false}>
   {() => {
     const icons = [
       'negative_outline',
@@ -106,7 +105,7 @@ Icons inherit the colour from their parent
 
 ### Categories
 
-<Playground>
+<Playground wrapper={false}>
   {() => {
     const icons = ['actions', 'cover_letter', 'details', 'resume', 'questions']
     return IconsList(icons)
@@ -115,7 +114,7 @@ Icons inherit the colour from their parent
 
 ### Miscellaneous
 
-<Playground>
+<Playground wrapper={false}>
   {() => {
     const icons = [
       'activity',
@@ -151,7 +150,7 @@ Icons inherit the colour from their parent
 
 ### WTF
 
-<Playground>
+<Playground wrapper={false}>
   {() => {
     const icons = [
       'anniversary',
@@ -201,7 +200,7 @@ Icons inherit the colour from their parent
 
 ### Markdown
 
-<Playground>
+<Playground wrapper={false}>
   {() => {
     const icons = [
       'bold',
@@ -221,7 +220,7 @@ Icons inherit the colour from their parent
 
 ### Social networks
 
-<Playground>
+<Playground wrapper={false}>
   {() => {
     const icons = [
       'behance',

@@ -4,13 +4,8 @@ route: /components/button
 menu: Components
 ---
 
-import { Props, Link } from 'docz'
-import { Playground } from '../../../docz/'
-
-import { Badge } from '../Badge'
-import { Box } from '../Box'
+import { Props, Link, Playground } from 'docz'
 import { Button } from './'
-import { Icon } from '../Icon'
 
 # Button
 
@@ -18,16 +13,17 @@ import { Icon } from '../Icon'
 
 Admire these beautiful variants 🌈
 
+### Basics
+
 <Playground>
-  <Box width="100%" fontSize="body3">
-    Defaults
-  </Box>
   <Button>primary (default)</Button>
   <Button variant="secondary">secondary</Button>
   <Button variant="tertiary">tertiary</Button>
-  <Box width="100%" fontSize="body3" marginTop="10px">
-    States
-  </Box>
+</Playground>
+
+### States
+
+<Playground>
   <Button variant="primary-warning">primary-warning</Button>
   <Button variant="secondary-warning">secondary-warning</Button>
   <Button variant="primary-danger">primary-danger</Button>
@@ -81,7 +77,7 @@ All disabled buttons have the same style.
 
 Get same size on `width` and `height`, can have a 'circle' or 'square' `shape`.
 
-<Playground flex>
+<Playground>
   <Button shape="square" size="xs">
     <Icon name="language" size="xs" />
   </Button>
@@ -118,22 +114,10 @@ Get same size on `width` and `height`, can have a 'circle' or 'square' `shape`.
 
 You can transform your Button component with `as` property to add you linker, `href` or `to`... all that you want.
 
-<Playground flex>
-  <Button as="a" href="http://www.welcometothejungle.co" target="_blank" shape="square">
-    <Icon name="external_link" />
-  </Button>
-  <Button
-    as="a"
-    href="http://www.welcometothejungle.co"
-    target="_blank"
-    rel="noopener nofollow"
-    variant="secondary"
-  >
+<Playground>
+  <Button as="a" href="http://www.welcometothejungle.co" target="_blank" rel="noopener nofollow">
     <Icon name="sun" />
     <span>Welcome</span>
-  </Button>
-  <Button as={Link} to="/" variant="tertiary">
-    Homepage
   </Button>
 </Playground>
 

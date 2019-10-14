@@ -4,18 +4,7 @@ route: /fields/refs
 menu: Fields
 ---
 
-import { createRef, useRef } from 'react'
-import { Props, Link } from 'docz'
-import { Form, Playground } from '../docz/'
-
-import { Box } from './components/Box'
-import { Button } from './components/Button'
-import { Icon } from './components/Icon'
-import { Label } from './components/Label'
-import { ConnectedField } from './components/ConnectedField'
-import { Field } from './components/Field'
-import { InputText } from './components/InputText'
-import { FileUpload } from './components/FileUpload'
+import { Props, Link, Playground } from 'docz'
 
 # Refs
 
@@ -55,11 +44,25 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
           name="firstName"
           ref={connectedInputRef}
         />
-        <Field name="lastName" component={InputText} label="Normal field" ref={normalInputRef} />
+        <Field
+          name="lastName"
+          component={InputText}
+          label="Normal field"
+          ref={normalInputRef}
+          mb="sm"
+        />
         <Label>Naked field</Label>
-        <InputText name="naked" ref={nakedInputRef} />
-        <Field name="avatar" component={FileUpload} label="Complex field" ref={fileUploadRef} />
-        <p>Click a button below to focus the relevant field above</p>
+        <InputText name="naked" ref={nakedInputRef} mb="sm" />
+        <Field
+          name="avatar"
+          component={FileUpload}
+          label="Complex field"
+          ref={fileUploadRef}
+          mb="sm"
+        />
+        <Box mt="xl" mb="sm">
+          Click a button below to focus the relevant field above
+        </Box>
         <Button onClick={handleConnectedClick}>Connected field</Button>
         <Button onClick={handleNormalClick} ml={20}>
           Normal field
@@ -70,7 +73,9 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
         <Button onClick={handleFileUploadClick} ml={20}>
           File upload field
         </Button>
-        <p>Click the button below to read the button's ref in the console</p>
+        <Box mt="xl" mb="sm">
+          Click the button below to read the button's ref in the console
+        </Box>
         <Button as="a" ref={buttonRef} onClick={handleButtonClick}>
           Test button
         </Button>

@@ -11,7 +11,7 @@ export const IconsList = icons => (
         flexDirection="column"
         key={icon}
         margin="10px"
-        width="120px"
+        width="130px"
       >
         <Box
           backgroundColor="light.500"

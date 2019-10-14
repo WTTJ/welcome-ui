@@ -4,13 +4,8 @@ route: /fields/file-upload
 menu: Fields
 ---
 
-import { Props } from 'docz'
-import { Playground, Form } from '../../../docz'
-
-import { ConnectedField } from '../ConnectedField'
+import { Props, Playground } from 'docz'
 import { FileUpload } from './index'
-import { Button } from '../Button'
-import { Icon } from '../Icon'
 
 # FileUpload
 
@@ -87,7 +82,7 @@ See your browser console for the real `File` object ready to upload.
 
 ## Disabled
 
-<Playground>
+<Playground wrapper="withoutMargin">
   <Form initialValues={{}}>
     <ConnectedField component={FileUpload} disabled name="disabled">
       {({ openFile }) => <Button onClick={openFile}>Choose file</Button>}

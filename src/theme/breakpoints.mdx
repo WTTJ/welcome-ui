@@ -5,7 +5,10 @@ menu: Theming
 ---
 
 import { Playground } from 'docz'
+
 import { Box } from '../components/Box'
+import { Link } from '../components/Link'
+import { Code } from '../../docz'
 
 # Breakpoints
 
@@ -13,17 +16,17 @@ We use [breakpoints from xstyled](https://www.smooth-code.com/open-source/xstyle
 
 ## Sizes
 
-Default size from core theme. Get values from [this article](https://medium.com/@uiuxlab/the-most-used-responsive-breakpoints-in-2017-of-mine-9588e9bd3a8a).
+Default size from core theme (values from [this article](https://medium.com/@uiuxlab/the-most-used-responsive-breakpoints-in-2017-of-mine-9588e9bd3a8a)).
 
-```js
-theme.breakpoints = {
+<Code>
+  {`theme.breakpoints = {
   xs: 0,
   sm: 480,
   md: 736,
   lg: 980,
   xl: 1280
-}
-```
+}`}
+</Code>
 
 ## Example
 
@@ -33,10 +36,10 @@ theme.breakpoints = {
     alignItems="center"
     justifyContent="center"
     textAlign="center"
-    color="white"
+    color={{ xs: 'warning.500', lg: 'primary.500' }}
     fontSize={{ lg: 'h2' }}
     height={{ xs: '10rem', lg: '20rem' }}
-    backgroundColor={{ xs: 'danger.500', lg: 'primary.500' }}
+    backgroundColor={{ xs: 'warning.100', lg: 'primary.100' }}
   >
     Resize screen to change this Box 🌝
   </Box>

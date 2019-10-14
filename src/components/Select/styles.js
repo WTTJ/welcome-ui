@@ -11,7 +11,7 @@ import { Tag } from '../Tag/styles'
 export const Wrapper = styled(filterComponent('div'))(
   ({ connected }) => css`
     position: relative;
-    ${connected ? null : wrapperSystem};
+    ${!connected && wrapperSystem};
   `
 )
 
@@ -25,7 +25,10 @@ export const Input = styled(filterComponent('div', ['hasIcon', 'inputValue', 're
     ${fieldStyles};
     ${overflowEllipsis};
     padding-right: ${th(`fields.sizes.${size}.height`)};
-    padding-left: ${hasIcon && th(`fields.sizes.${size}.height`)};
+    ${hasIcon &&
+      css`
+        padding-left: ${th(`fields.sizes.${size}.height`)};
+      `};
     cursor: default;
     ${componentSystem}
 

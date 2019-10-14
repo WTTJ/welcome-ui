@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { bool, node, oneOf, string } from 'prop-types'
+import { bool, node, oneOf } from 'prop-types'
 
 import { Icon } from '../Icon'
 import { VariantIcon } from '../VariantIcon'
@@ -46,7 +46,6 @@ Label.displayName = 'Label'
 Label.propTypes = {
   checkableField: bool,
   children: node,
-  dataTestId: string,
   disabled: bool,
   disabledIcon: node,
   errorWarningIcon: node,

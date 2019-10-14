@@ -10,24 +10,21 @@ const Wrapper = ({ name, theme, withBorder }) => {
   return (
     <Box display="flex" flexWrap="wrap">
       {Object.entries(colors).map(([key, depth]) => (
-        <Box key={key} marginBottom="10px" marginRight="10px">
+        <Box key={key} mb="md" mr="lg">
           <Box
             backgroundColor={`${name}.${key}`}
-            borderColor={withBorder && 'nude.100'}
+            borderColor={withBorder && 'nude.300'}
+            borderRadius={40}
             borderStyle={withBorder && 'solid'}
             borderWidth={withBorder && '1px'}
-            height="40px"
-            width="90px"
+            height={40}
+            width={90}
           />
-          <Box
-            borderColor="nude.100"
-            borderStyle="solid"
-            borderWidth="0 1px 1px 1px"
-            padding="5px"
-            textAlign="center"
-          >
-            <Box fontWeight="medium">{key}</Box>
-            <Box color="nude.700" fontSize="meta2" marginTop="3px">
+          <Box padding="xs" textAlign="center">
+            <Box color="dark.900" fontWeight="medium" mt="xs">
+              {key}
+            </Box>
+            <Box color="nude.700" fontSize="meta2" mt={3}>
               {depth}
             </Box>
           </Box>

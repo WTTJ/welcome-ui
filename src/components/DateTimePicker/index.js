@@ -1,5 +1,5 @@
 import React, { cloneElement, forwardRef, useEffect, useState } from 'react'
-import { func, node, number, object, oneOfType, string } from 'prop-types'
+import { func, node, number, object, oneOf, oneOfType, string } from 'prop-types'
 
 import { SIZES_TYPE } from '../../utils/propTypes'
 import { getDate } from '../DateTimePicker/utils'
@@ -72,6 +72,6 @@ DateTimePicker.propTypes = {
   children: node,
   locale: object,
   onChange: func,
-  size: SIZES_TYPE,
+  size: oneOf(SIZES_TYPE),
   value: oneOfType([number, object, string]).isRequired
 }

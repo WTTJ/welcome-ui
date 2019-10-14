@@ -9,10 +9,13 @@ import { Icon } from '../Icon/styles'
 
 const shapeStyles = (size, width, height, shape = 'square') => css`
   ${th(`tags.shape.${shape}.${size}`)}
-  width: ${width || height ? getMax(width || 0, height) : null};
-  height: ${width || height ? getMax(width || 0, height) : null};
   padding: 0;
-  border-radius: ${shape === 'circle' && '50%'};
+  ${(width || height) &&
+    css`
+      width: ${getMax(width || 0, height)};
+      height: ${getMax(width || 0, height)};
+    `}
+  ${shape === 'circle' && 'border-radius: 50%'};
 `
 
 export const Tag = styled.div(
@@ -25,7 +28,10 @@ export const Tag = styled.div(
     align-items: center;
     justify-content: center;
     border-radius: md;
-    padding-right: ${hasAction ? th('space.xl') : null};
+    ${hasAction &&
+      css`
+        padding-right: xl;
+      `}
     ${overflowEllipsis};
     ${system};
     ${(shape || length === 1) && shapeStyles(size, width, height, shape)};

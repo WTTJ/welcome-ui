@@ -43,8 +43,8 @@ Tag.displayName = 'Tag'
 Tag.propTypes = {
   children: node,
   onRemove: func,
-  shape: SHAPES_TYPE,
-  size: SIZES_TYPE,
+  shape: oneOf(SHAPES_TYPE),
+  size: oneOf(SIZES_TYPE),
   variant: oneOf([
     'blue',
     'default',
