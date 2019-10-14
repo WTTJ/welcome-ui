@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.27.0](https://github.com/WTTJ/welcome-ui/compare/v0.26.0...v0.27.0) (2019-10-14)
+
+
+### Bug Fixes
+
+* growl close overlaping title and general line-heights missing ([#385](https://github.com/WTTJ/welcome-ui/issues/385)) ([8fdb697](https://github.com/WTTJ/welcome-ui/commit/8fdb697))
+* z-index of mde toolbar ([#384](https://github.com/WTTJ/welcome-ui/issues/384)) ([9a8507c](https://github.com/WTTJ/welcome-ui/commit/9a8507c))
+
+
+### refactor
+
+* radio group takes options ([#387](https://github.com/WTTJ/welcome-ui/issues/387)) ([ae7376c](https://github.com/WTTJ/welcome-ui/commit/ae7376c))
+
+
+### BREAKING CHANGES
+
+* RadioInput / RadioTab replaced by RadioGroup with options
+
+
+
 ## [0.26.0](https://github.com/WTTJ/welcome-ui/compare/v0.25.7...v0.26.0) (2019-10-07)
 
 
