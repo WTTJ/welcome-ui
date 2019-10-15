@@ -105,12 +105,12 @@ export const welcomekitTheme = {
     },
     focused: {
       'background-color': colors.light[100]
-    },
-    tags: {
-      variants: {
-        default: {
-          'background-color': colors.nude[200]
-        }
+    }
+  },
+  tags: {
+    variants: {
+      default: {
+        'background-color': colors.nude[200]
       }
     }
   }
