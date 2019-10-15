@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.27.3](https://github.com/WTTJ/welcome-ui/compare/v0.27.2...v0.27.3) (2019-10-15)
+
+
+### Bug Fixes
+
+* change color default tag on welcomekit theme ([d481235](https://github.com/WTTJ/welcome-ui/commit/d481235))
+
+
+
 ### [0.27.2](https://github.com/WTTJ/welcome-ui/compare/v0.27.1...v0.27.2) (2019-10-14)
 
 
