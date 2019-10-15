@@ -58,6 +58,15 @@ describe('<Tag>', () => {
       expect(tag).toHaveStyleRule('height', '1.82em')
       expect(tag).toHaveStyleRule('padding', '0')
     })
+
+    it('with zero', () => {
+      const { getByTestId } = render(<Tag dataTestId="tag">{0}</Tag>)
+      const tag = getByTestId('tag')
+
+      expect(tag).toHaveStyleRule('width', '1.82em')
+      expect(tag).toHaveStyleRule('height', '1.82em')
+      expect(tag).toHaveStyleRule('padding', '0')
+    })
   })
 
   it('should have same height and width when prop `shape` set to `square`', () => {
