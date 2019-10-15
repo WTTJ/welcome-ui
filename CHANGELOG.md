@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.27.6](https://github.com/WTTJ/welcome-ui/compare/v0.27.4...v0.27.6) (2019-10-15)
+
+
+### Bug Fixes
+
+* 0 character on Tag ([8cfedc9](https://github.com/WTTJ/welcome-ui/commit/8cfedc9))
+
+
+
+### [0.27.5](https://github.com/WTTJ/welcome-ui/compare/v0.27.4...v0.27.5) (2019-10-15)
+
+
+
 ### [0.27.4](https://github.com/WTTJ/welcome-ui/compare/v0.27.3...v0.27.4) (2019-10-15)
 
 
