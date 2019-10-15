@@ -10,8 +10,11 @@ import * as S from './styles'
 export const Tag = forwardRef(
   ({ children, dataTestId, onRemove, size = 'md', variant = 'default', ...rest }, ref) => {
     const content = wrap(children)
+    // get size children for int and string
     const childrenLength =
-      !!children && ['number', 'string'].includes(typeof children) && children.toString().length
+      !!(children || children === 0) &&
+      ['number', 'string'].includes(typeof children) &&
+      children.toString().length
 
     return (
       <S.Tag
