@@ -10,11 +10,14 @@ import * as S from './styles'
 export const Tag = forwardRef(
   ({ children, dataTestId, onRemove, size = 'md', variant = 'default', ...rest }, ref) => {
     const content = wrap(children)
+    const childrenLength =
+      !!children && ['number', 'string'].includes(typeof children) && children.toString().length
+
     return (
       <S.Tag
         data-testid={dataTestId}
         hasAction={!!onRemove}
-        length={children ? children.length : null}
+        length={childrenLength}
         ref={ref}
         role="listitem"
         size={size}

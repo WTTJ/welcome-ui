@@ -2,5 +2,5 @@ import React from 'react'
 
 export const wrap = children =>
   React.Children.toArray(children).map(child =>
-    typeof child === 'string' ? <span key={child}>{child}</span> : child
+    ['number', 'string'].includes(typeof child) ? <span key={child}>{child}</span> : child
   )
