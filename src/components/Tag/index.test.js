@@ -40,13 +40,24 @@ describe('<Tag>', () => {
     expect(tag).toHaveStyleRule('color', '#FFFFFF')
   })
 
-  it('should have correct size with only one character', () => {
-    const { getByTestId } = render(<Tag dataTestId="tag">1</Tag>)
-    const tag = getByTestId('tag')
+  describe('should have correct size with only one character', () => {
+    it('with string', () => {
+      const { getByTestId } = render(<Tag dataTestId="tag">1</Tag>)
+      const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('width', '1.82em')
-    expect(tag).toHaveStyleRule('height', '1.82em')
-    expect(tag).toHaveStyleRule('padding', '0')
+      expect(tag).toHaveStyleRule('width', '1.82em')
+      expect(tag).toHaveStyleRule('height', '1.82em')
+      expect(tag).toHaveStyleRule('padding', '0')
+    })
+
+    it('with integer', () => {
+      const { getByTestId } = render(<Tag dataTestId="tag">{1}</Tag>)
+      const tag = getByTestId('tag')
+
+      expect(tag).toHaveStyleRule('width', '1.82em')
+      expect(tag).toHaveStyleRule('height', '1.82em')
+      expect(tag).toHaveStyleRule('padding', '0')
+    })
   })
 
   it('should have same height and width when prop `shape` set to `square`', () => {
