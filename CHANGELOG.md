@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.27.7](https://github.com/WTTJ/welcome-ui/compare/v0.27.6...v0.27.7) (2019-10-16)
+
+
+### Bug Fixes
+
+* tabs size and padding ([b0bbcd2](https://github.com/WTTJ/welcome-ui/commit/b0bbcd2))
+
+
+
 ### [0.27.6](https://github.com/WTTJ/welcome-ui/compare/v0.27.4...v0.27.6) (2019-10-15)
 
 
