@@ -25,9 +25,8 @@ export const Tab = styled.button`
   display: flex;
   align-items: center;
   flex: none;
-  margin-right: lg;
-  padding-bottom: lg;
-  padding-top: lg;
+  margin-right: xl;
+  padding: lg 0;
   transition: medium;
   text-transform: none;
   cursor: pointer;
@@ -62,7 +61,7 @@ export const ActiveBar = styled.span(
     ${th('tabs.activeBar')};
     position: absolute;
     left: 0;
-    width: ${width};
+    width: ${`${width}px`};
     transform: translateX(${left}px);
     will-change: width, transform;
     transition: medium;
