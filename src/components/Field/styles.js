@@ -18,7 +18,7 @@ const checkableFieldStyles = css`
   margin-bottom: sm;
 `
 
-export const Field = styled(filterComponent('div', ['options', 'value']))(
+export const Field = styled(filterComponent('div', ['options', 'value', 'renderMultiple']))(
   props => css`
     ${FieldGroup} {
       margin-bottom: ${props.checkableField && 'xxs'};

@@ -131,6 +131,10 @@ export const DropDownIndicator = styled.button(
       transform: ${isOpen ? 'rotate3d(0, 0, 1, 180deg)' : 'rotate3d(0)'};
       transition: medium;
     }
+
+    &:not(:last-child) {
+      width: auto;
+    }
   `
 )
 
