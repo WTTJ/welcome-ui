@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.27.8](https://github.com/WTTJ/welcome-ui/compare/v0.27.7...v0.27.8) (2019-10-16)
+
+
+### Bug Fixes
+
+* clearable button on Select ([2bddc39](https://github.com/WTTJ/welcome-ui/commit/2bddc39))
+
+
+
 ### [0.27.7](https://github.com/WTTJ/welcome-ui/compare/v0.27.6...v0.27.7) (2019-10-16)
 
 
