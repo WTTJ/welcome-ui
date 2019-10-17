@@ -1,5 +1,6 @@
 import React, {
   cloneElement,
+  forwardRef,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -108,22 +109,27 @@ const useMouseTooltipState = ({ placement: originalPlacement, ...rest } = {}) =>
   }
 }
 
-export const Tooltip = ({ children, content, fixed = false, placement = 'top', ...props }) => {
-  const useCorrectTooltipState = fixed ? useTooltipState : useMouseTooltipState
-  const tooltip = useCorrectTooltipState({ placement })
-  const visibilityStyles = useDelayedVisibility(tooltip.visible, TOOLTIP_VISIBILITY_DELAY)
+export const Tooltip = forwardRef(
+  (
+    { children, content, fixed = false, placement = fixed ? 'top' : 'bottom-start', ...props },
+    ref
+  ) => {
+    const useCorrectTooltipState = fixed ? useTooltipState : useMouseTooltipState
+    const tooltip = useCorrectTooltipState({ placement })
+    const visibilityStyles = useDelayedVisibility(tooltip.visible, TOOLTIP_VISIBILITY_DELAY)
 
-  return (
-    <>
-      <TooltipReference {...tooltip}>
-        {referenceProps => cloneElement(React.Children.only(children), referenceProps)}
-      </TooltipReference>
-      <S.Tooltip style={visibilityStyles} {...tooltip} {...props}>
-        {content}
-      </S.Tooltip>
-    </>
-  )
-}
+    return (
+      <>
+        <TooltipReference {...tooltip}>
+          {referenceProps => cloneElement(React.Children.only(children), referenceProps)}
+        </TooltipReference>
+        <S.Tooltip ref={ref} style={visibilityStyles} {...tooltip} {...props}>
+          {content}
+        </S.Tooltip>
+      </>
+    )
+  }
+)
 
 Tooltip.propTypes = {
   children: oneOfType([func, node]),
