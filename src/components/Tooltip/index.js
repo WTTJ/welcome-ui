@@ -77,14 +77,19 @@ const useMouseTooltipState = ({ placement: originalPlacement, ...rest } = {}) =>
   useEffect(() => {
     const reference = referenceRef.current
 
+    const paddingTop = placement.startsWith('top') ? 5 : 0
+    const paddingBottom = placement.startsWith('bottom') ? 20 : 0
+    const paddingLeft = placement.startsWith('left') ? 5 : 0
+    const paddingRight = placement.startsWith('right') ? 15 : 0
+
     const onMouseMove = event => {
       mouseRef.current = {
         getBoundingClientRect: () => ({
           ...reference.getBoundingClientRect(),
-          top: event.clientY,
-          bottom: event.clientY,
-          left: event.clientX,
-          right: event.clientX
+          top: event.clientY - paddingTop,
+          bottom: event.clientY + paddingBottom,
+          left: event.clientX - paddingLeft,
+          right: event.clientX + paddingRight
         })
       }
       createPopper()
@@ -98,7 +103,7 @@ const useMouseTooltipState = ({ placement: originalPlacement, ...rest } = {}) =>
         reference.removeEventListener('mousemove', onMouseMove)
       }
     }
-  }, [createPopper])
+  }, [createPopper, placement])
 
   return {
     ...dialog,
