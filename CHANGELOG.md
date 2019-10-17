@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.27.9](https://github.com/WTTJ/welcome-ui/compare/v0.27.8...v0.27.9) (2019-10-17)
+
+
+### Bug Fixes
+
+* add forwardRef to Tooltip ([dbbfa31](https://github.com/WTTJ/welcome-ui/commit/dbbfa31))
+
+
+
 ### [0.27.8](https://github.com/WTTJ/welcome-ui/compare/v0.27.7...v0.27.8) (2019-10-16)
 
 
