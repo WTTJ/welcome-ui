@@ -49,6 +49,24 @@ jobs:
           key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn test
 
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: Install Now CLI
+          command: sudo npm install --global --unsafe-perm now
+      - deploy:
+          name: Deploy
+          command: |
+              if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                  now --token $NOW_SH_TOKEN --team "wttj-tech" --prod --force
+              else
+                  now --token $NOW_SH_TOKEN --team "wttj-tech" --force
+              fi
 
 workflows:
   version: 2
@@ -64,3 +82,7 @@ workflows:
       - test:
           requires:
             - yarn_install
+      - deploy:
+          requires:
+            - lint
+            - test
