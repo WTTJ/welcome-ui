@@ -63,9 +63,9 @@ jobs:
           name: Deploy
           command: |
               if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                  now --token $NOW_SH_TOKEN --team "wttj-tech" --prod --force
+                  now --token $NOW_SH_TOKEN --scope "wttj-tech" --prod --force
               else
-                  now --token $NOW_SH_TOKEN --team "wttj-tech" --force
+                  now --token $NOW_SH_TOKEN --scope "wttj-tech" --force
               fi
 
 workflows:
