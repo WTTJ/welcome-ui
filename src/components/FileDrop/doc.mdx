@@ -38,7 +38,7 @@ See your browser console for the real `File` object ready to upload.
         component={FileDrop}
         name="avatar"
         label="Default"
-        hint="Files must be <200MB"
+        hint="Files must be < 2MB"
         required
         onAddFile={console.debug}
         onRemoveFile={console.debug}
@@ -72,7 +72,7 @@ See your browser console for the real `File` object ready to upload.
     >
       <ConnectedField
         component={FileDrop}
-        hint="Files must be <200MB"
+        hint="Files must be < 2MB"
         isEditable
         isClearable
         label="Avatar"
