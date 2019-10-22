@@ -54,7 +54,7 @@ export const Preview = ({ file, onRemove }) => {
   const size = getSize(file)
 
   return (
-    <Tag data-id={name} key={name} onRemove={onRemove} size="lg">
+    <Tag data-id={name} key={name} mr="sm" mt="sm" onRemove={onRemove} size="lg">
       {icon && <Icon name={icon} size="xs" />}
       {name}
       {size && <Box color="nude.600">({size})</Box>}
