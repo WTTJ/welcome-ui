@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.29.0](https://github.com/WTTJ/welcome-ui/compare/v0.28.0...v0.29.0) (2019-10-22)
+
+
+### Features
+
+* add popperZIndex prop to control datepicker popper z-index ([#403](https://github.com/WTTJ/welcome-ui/issues/403)) ([9fb6bfa](https://github.com/WTTJ/welcome-ui/commit/9fb6bfa))
+
+
+
 ## [0.28.0](https://github.com/WTTJ/welcome-ui/compare/v0.27.10...v0.28.0) (2019-10-22)
 
 
