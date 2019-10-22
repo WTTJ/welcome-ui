@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.28.0](https://github.com/WTTJ/welcome-ui/compare/v0.27.10...v0.28.0) (2019-10-22)
+
+
+### Bug Fixes
+
+* fileupload error border ([44b8275](https://github.com/WTTJ/welcome-ui/commit/44b8275))
+
+
+### Features
+
+* add disabled prop to Link component ([6f26ebe](https://github.com/WTTJ/welcome-ui/commit/6f26ebe))
+
+
+
 ### [0.27.10](https://github.com/WTTJ/welcome-ui/compare/v0.27.9...v0.27.10) (2019-10-17)
 
 
