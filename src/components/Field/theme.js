@@ -94,7 +94,6 @@ export const getFields = theme => {
       }
     },
     fileupload: {
-      ...defaults,
       'border-style': 'dashed',
       height: toRem(300)
     },
