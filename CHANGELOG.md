@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.30.2](https://github.com/WTTJ/welcome-ui/compare/v0.30.1...v0.30.2) (2019-10-23)
+
+
+### Bug Fixes
+
+* change style for validator filedrop input ([d63fab2](https://github.com/WTTJ/welcome-ui/commit/d63fab2))
+
+
+
 ### [0.30.1](https://github.com/WTTJ/welcome-ui/compare/v0.30.0...v0.30.1) (2019-10-23)
 
 
