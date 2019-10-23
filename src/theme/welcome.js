@@ -32,7 +32,10 @@ const palette = {
   valencia: '#CE5947',
 
   // pastel
-  mint: '#DFF5EB'
+  mint: '#DFF5EB',
+  aliceblue: '#DFEAFF',
+  floralwhite: '#FFF2DC',
+  rosewhite: '#FFE7E7'
 }
 
 const colors = {
@@ -47,14 +50,17 @@ const colors = {
     700: palette.metal
   },
   danger: {
+    100: palette.rosewhite,
     200: palette.valencia,
     500: palette.carmen
   },
   warning: {
+    100: palette.floralwhite,
     200: palette.sunray,
     500: palette.anzac
   },
   info: {
+    100: palette.aliceblue,
     200: palette.blueberry,
     500: palette.bluedefrance
   },
@@ -84,6 +90,12 @@ const colors = {
 
 export const welcomeTheme = {
   colors,
+  alerts: {
+    success: {
+      'background-color': colors.primary[100],
+      color: colors.primary[500]
+    }
+  },
   buttons: {
     secondary: {
       color: colors.secondary[500],
