@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.30.1](https://github.com/WTTJ/welcome-ui/compare/v0.30.0...v0.30.1) (2019-10-23)
+
+
+### Bug Fixes
+
+* outline on tabpanel ([10e4f62](https://github.com/WTTJ/welcome-ui/commit/10e4f62))
+
+
+
 ## [0.30.0](https://github.com/WTTJ/welcome-ui/compare/v0.29.0...v0.30.0) (2019-10-23)
 
 
