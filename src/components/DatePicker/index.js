@@ -39,6 +39,7 @@ export const DatePicker = forwardRef(
 
     const [focused, setFocused] = useState((autoFocus && 'date') || null)
     const [date, setDate] = useState(formatDate(value))
+    const inputReference = inputRef || ref
 
     // format date at component mount
     useEffect(() => {
@@ -56,6 +57,8 @@ export const DatePicker = forwardRef(
       //eslint-disable-next-line
     }, [value])
 
+    const blur = () => inputReference.current.blur()
+
     const handleFocus = e => {
       setFocused('date')
       onFocus && onFocus(e)
@@ -66,8 +69,15 @@ export const DatePicker = forwardRef(
       onBlur && onBlur(e)
     }
 
+    const handleKeyDown = e => {
+      if (e.key === 'Escape') {
+        blur()
+      }
+    }
+
     const handleReset = e => {
       e.preventDefault()
+      blur()
       setDate(null)
       onChange && onChange()
     }
@@ -83,6 +93,7 @@ export const DatePicker = forwardRef(
 
     return (
       <S.DatePicker
+        autoComplete="off"
         calendarClassName="date-picker-popper"
         customInput={
           <CustomInput
@@ -93,7 +104,7 @@ export const DatePicker = forwardRef(
             handleFocus={e => handleFocus('date', e)}
             icon={icon}
             iconPlacement={iconPlacement}
-            inputRef={inputRef || ref}
+            inputRef={inputReference}
             onReset={handleReset}
             size={size}
           />
@@ -101,8 +112,10 @@ export const DatePicker = forwardRef(
         dateFormat={dateFormat}
         locale={locale}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
         placeholderText={placeholderText}
-        popperContainer={props => DatePickerPopper({ popperZIndex, ...props })}
+        popperContainer={DatePickerPopper}
+        popperProps={{ zIndex: popperZIndex }}
         renderCustomHeader={props => (
           <CustomHeader endYear={endYear} locale={locale} startYear={startYear} {...props} />
         )}
