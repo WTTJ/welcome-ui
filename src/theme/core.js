@@ -1,6 +1,7 @@
 import merge from 'lodash.merge'
 import { rpxTransformers } from '@xstyled/system'
 
+import { getAlerts } from '../components/Alert/theme'
 import { getButtons } from '../components/Button/theme'
 import { getFields } from '../components/Field/theme'
 import { getGrowls } from '../components/Growl/theme'
@@ -99,6 +100,7 @@ export const getBaseTheme = (options = {}) => {
   // CSS blocks
   // These attributes depend on colors and fontSizes and must come last
   theme.underline['border-bottom-color'] = theme.colors.primary[500]
+  theme.alerts = getAlerts(theme)
   theme.buttons = getButtons(theme)
   theme.fields = getFields(theme)
   theme.growls = getGrowls(theme)

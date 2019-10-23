@@ -4,6 +4,7 @@ const theme = getBaseTheme()
 const palette = {
   jade: '#00A772',
   mountainmeadow: '#17AF7F',
+
   //greens
   deepteal: '#002E32',
   cyprus: '#163D40',
@@ -16,6 +17,7 @@ const palette = {
   junglemist: '#B9CCC6',
   nebula: '#CCDBD7',
   gin: '#E3F0EC',
+
   //nudes
   concord: '#7F7C7A',
   zorba: '#97938F',
@@ -28,6 +30,7 @@ const palette = {
   pampas: '#F6F4F2',
   vistawhite: '#FBF9F7',
   soapstone: '#FFFDFB',
+
   // states : infos, warning & danger
   bluedefrance: '#3790F0',
   blueberry: '#4B9BF1',
@@ -35,6 +38,7 @@ const palette = {
   sunray: '#E4AE56',
   carmen: '#BF4C3B',
   valencia: '#CE5947',
+
   //colorpicker
   blue: '#559AF1',
   coral: '#EA724C',
@@ -43,7 +47,13 @@ const palette = {
   purple: '#965FE6',
   red: '#D04232',
   turquoize: '#3FD1C1',
-  yellow: '#F4CF70'
+  yellow: '#F4CF70',
+
+  // pastel
+  mint: '#DFF5EB',
+  aliceblue: '#DFEAFF',
+  floralwhite: '#FFF2DC',
+  rosewhite: '#FFE7E7'
 }
 
 const colors = {
@@ -58,14 +68,17 @@ const colors = {
     700: palette.eden
   },
   danger: {
+    100: palette.rosewhite,
     200: palette.valencia,
     500: palette.carmen
   },
   warning: {
+    100: palette.floralwhite,
     200: palette.sunray,
     500: palette.anzac
   },
   info: {
+    100: palette.aliceblue,
     200: palette.blueberry,
     500: palette.bluedefrance
   },
@@ -96,6 +109,12 @@ const colors = {
 export const welcomekitTheme = {
   colors,
   palette,
+  alerts: {
+    success: {
+      'background-color': colors.primary[100],
+      color: colors.secondary[700]
+    }
+  },
   underline: {
     'border-bottom-width': theme.borderWidths.md
   },

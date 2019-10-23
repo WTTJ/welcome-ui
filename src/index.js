@@ -1,4 +1,5 @@
 // Components
+export * from './components/Alert/index'
 export * from './components/Badge/index'
 export * from './components/Box/index'
 export * from './components/Button/index'

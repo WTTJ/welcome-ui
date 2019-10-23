@@ -4,7 +4,7 @@ import { wrap } from './react'
 
 const content = 'Jungle'
 
-describe.only('wrap', () => {
+describe('wrap', () => {
   it('should wrap a string', () => {
     const container = wrap(content)
     expect(container[0].type).toBe('span')
