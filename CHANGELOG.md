@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.30.0](https://github.com/WTTJ/welcome-ui/compare/v0.29.0...v0.30.0) (2019-10-23)
+
+
+### Bug Fixes
+
+* add space between tags on fileUpload ([58d0062](https://github.com/WTTJ/welcome-ui/commit/58d0062))
+
+
+### Features
+
+* add Alert component ([539fed5](https://github.com/WTTJ/welcome-ui/commit/539fed5))
+
+
+
 ## [0.29.0](https://github.com/WTTJ/welcome-ui/compare/v0.28.0...v0.29.0) (2019-10-22)
 
 
