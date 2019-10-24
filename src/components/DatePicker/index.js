@@ -70,7 +70,7 @@ export const DatePicker = forwardRef(
     }
 
     const handleKeyDown = e => {
-      if (e.key === 'Escape') {
+      if (['Escape', 'Enter'].includes(e.key)) {
         blur()
       }
     }
