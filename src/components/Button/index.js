@@ -28,7 +28,7 @@ Button.propTypes = {
   children: node,
   disabled: bool,
   shape: SHAPES_TYPE,
-  size: oneOf(['xs', 'sm', 'md', 'lg']),
+  size: oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   variant: oneOf([
     'primary',
     'secondary',
