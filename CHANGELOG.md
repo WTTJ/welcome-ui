@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.30.4](https://github.com/WTTJ/welcome-ui/compare/v0.30.3...v0.30.4) (2019-10-24)
+
+
+### Bug Fixes
+
+* blur datepicker on dateSelection with Enter key ([#410](https://github.com/WTTJ/welcome-ui/issues/410)) ([f0c9c12](https://github.com/WTTJ/welcome-ui/commit/f0c9c12))
+
+
+
 ### [0.30.3](https://github.com/WTTJ/welcome-ui/compare/v0.30.2...v0.30.3) (2019-10-24)
 
 
