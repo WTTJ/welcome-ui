@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.30.3](https://github.com/WTTJ/welcome-ui/compare/v0.30.2...v0.30.3) (2019-10-24)
+
+
+### Bug Fixes
+
+* add missing props size on button ([81dcaac](https://github.com/WTTJ/welcome-ui/commit/81dcaac))
+* double click on datepicker popper to select date ([#408](https://github.com/WTTJ/welcome-ui/issues/408)) ([2ad9475](https://github.com/WTTJ/welcome-ui/commit/2ad9475))
+
+
+
 ### [0.30.2](https://github.com/WTTJ/welcome-ui/compare/v0.30.1...v0.30.2) (2019-10-23)
 
 
