@@ -3,7 +3,8 @@ const theme = getBaseTheme()
 
 const palette = {
   jade: '#00A772',
-  mountainmeadow: '#17AF7F',
+  mountainmeadow: '#23C28F',
+  spanishviridian: '#00875C',
 
   //greens
   deepteal: '#002E32',
@@ -33,11 +34,13 @@ const palette = {
 
   // states : infos, warning & danger
   bluedefrance: '#3790F0',
-  blueberry: '#4B9BF1',
+  bluejeans: '#5EAAFC',
+  bronze: '#CA8E2A',
   anzac: '#DDA343',
-  sunray: '#E4AE56',
+  casablanca: '#F1B85B',
+  sweetbrown: '#A53626',
   carmen: '#BF4C3B',
-  valencia: '#CE5947',
+  flamingo: '#E16654',
 
   //colorpicker
   blue: '#559AF1',
@@ -60,7 +63,8 @@ const colors = {
   primary: {
     100: palette.gin,
     200: palette.mountainmeadow,
-    500: palette.jade
+    500: palette.jade,
+    700: palette.spanishviridian
   },
   secondary: {
     200: palette.seanymph,
@@ -69,17 +73,19 @@ const colors = {
   },
   danger: {
     100: palette.rosewhite,
-    200: palette.valencia,
-    500: palette.carmen
+    200: palette.flamingo,
+    500: palette.carmen,
+    700: palette.sweetbrown
   },
   warning: {
     100: palette.floralwhite,
-    200: palette.sunray,
-    500: palette.anzac
+    200: palette.casablanca,
+    500: palette.anzac,
+    700: palette.bronze
   },
   info: {
     100: palette.aliceblue,
-    200: palette.blueberry,
+    200: palette.bluejeans,
     500: palette.bluedefrance
   },
   light: {
