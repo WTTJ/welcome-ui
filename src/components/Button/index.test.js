@@ -80,7 +80,8 @@ describe('<Button>', () => {
       const button = getByTestId('button')
 
       expect(button).toBeDisabled()
-      expect(button).toHaveStyleRule('background-color', '#CCCCCC')
+      expect(button).toHaveStyleRule('background-color', '#E5E5E5')
+      expect(button).toHaveStyleRule('border-color', '#E5E5E5')
     })
   })
 })

@@ -2,6 +2,7 @@ const palette = {
   // primary
   eucalyptus: '#37CBA9',
   carribeangreen: '#00C29A',
+  persiangreen: '#00A280',
 
   richblack: '#050506',
   smokyblack: '#0B0B0D',
@@ -25,11 +26,13 @@ const palette = {
 
   // states : infos, warning & danger
   bluedefrance: '#3790F0',
-  blueberry: '#4B9BF1',
+  bluejeans: '#5EAAFC',
+  bronze: '#CA8E2A',
   anzac: '#DDA343',
-  sunray: '#E4AE56',
+  casablanca: '#F1B85B',
+  sweetbrown: '#A53626',
   carmen: '#BF4C3B',
-  valencia: '#CE5947',
+  flamingo: '#E16654',
 
   // pastel
   mint: '#DFF5EB',
@@ -42,26 +45,29 @@ const colors = {
   primary: {
     100: palette.mint,
     200: palette.eucalyptus,
-    500: palette.carribeangreen
+    500: palette.carribeangreen,
+    700: palette.persiangreen
   },
   secondary: {
-    200: palette.granite,
-    500: palette.onyx,
-    700: palette.metal
+    200: palette.battleship,
+    500: palette.granite,
+    700: palette.darkliver
   },
   danger: {
     100: palette.rosewhite,
-    200: palette.valencia,
-    500: palette.carmen
+    200: palette.flamingo,
+    500: palette.carmen,
+    700: palette.sweetbrown
   },
   warning: {
     100: palette.floralwhite,
-    200: palette.sunray,
-    500: palette.anzac
+    200: palette.casablanca,
+    500: palette.anzac,
+    700: palette.bronze
   },
   info: {
     100: palette.aliceblue,
-    200: palette.blueberry,
+    200: palette.bluejeans,
     500: palette.bluedefrance
   },
   light: {
@@ -84,7 +90,7 @@ const colors = {
     500: palette.steel,
     600: palette.battleship,
     700: palette.granite,
-    800: palette.darkliver
+    800: palette.onyx
   }
 }
 
@@ -97,27 +103,34 @@ export const welcomeTheme = {
     }
   },
   buttons: {
+    primary: {
+      color: colors.light[100]
+    },
     secondary: {
-      color: colors.secondary[500],
-      'background-color': colors.light[100]
+      color: colors.nude[800]
     },
     tertiary: {
-      'background-color': colors.secondary[500],
-      'border-color': colors.secondary[500]
+      color: colors.light[100]
+    },
+    'primary-warning': {
+      color: colors.light[100]
+    },
+    'primary-danger': {
+      color: colors.light[100]
+    },
+    hover: {
+      secondary: {
+        'background-color': colors.light[100]
+      }
     },
     focused: {
       secondary: {
-        color: colors.secondary[200],
-        'border-color': colors.nude[200],
-        'box-shadow': 'none'
-      },
-      tertiary: {
-        'background-color': colors.secondary[200],
-        'border-color': colors.secondary[200]
+        'border-color': colors.nude[400]
       }
     },
     disabled: {
-      color: colors.nude[600]
+      'background-color': colors.nude[300],
+      'border-color': colors.nude[300]
     }
   },
   palette

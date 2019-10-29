@@ -87,7 +87,8 @@ export const getBaseTheme = (options = {}) => {
   theme.transitionCurves = transitionCurves
 
   theme.shadows = {
-    sm: '1px 2px 4px 0 rgba(0,0,0,0.05)'
+    sm: '0 2px 4px 0 rgba(0,0,0,0.05)',
+    md: '3px 4px 10px 0 rgba(0,0,0,0.07)'
   }
 
   theme.underline = {

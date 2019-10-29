@@ -2,7 +2,8 @@ export const colors = {
   primary: {
     100: '#D5E6F2',
     200: '#208DDB',
-    500: '#187EC7'
+    500: '#187EC7',
+    700: '#1673B5'
   },
   secondary: {
     200: '#3A3A3A',
@@ -17,12 +18,14 @@ export const colors = {
   danger: {
     100: '#FCDDDD',
     200: '#EA2A2D',
-    500: '#D62327'
+    500: '#D62327',
+    700: '#C52024'
   },
   warning: {
     100: '#FBDCC5',
     200: '#EE8434',
-    500: '#D6772F'
+    500: '#D6772F',
+    700: '#CA6E28'
   },
   info: {
     100: '#DADAF4',

@@ -1,3 +1,5 @@
+import { hexToRGB } from '../../utils/hexToRGB'
+
 export const getButtons = theme => {
   const { colors, fontSizes, fontWeights, letterSpacings, radii, shadows, space } = theme
   const defaults = {
@@ -10,10 +12,10 @@ export const getButtons = theme => {
     'border-color': colors.primary[500],
     'border-radius': radii.md,
     'line-height': '100%',
-    '&:hover': {
-      'box-shadow': shadows.sm
-    },
     '&:focus': {
+      'box-shadow': `0 0 0 3px rgba(${hexToRGB(colors.info[500])}, 0.5)`
+    },
+    '&:hover': {
       'box-shadow': shadows.sm
     }
   }
@@ -23,14 +25,14 @@ export const getButtons = theme => {
     secondary: {
       ...defaults,
       color: colors.secondary[700],
-      'background-color': colors.light[200],
+      'background-color': colors.light[100],
       'border-color': colors.nude[200]
     },
     tertiary: {
       ...defaults,
       color: colors.light[200],
-      'background-color': colors.secondary[700],
-      'border-color': colors.secondary[700]
+      'background-color': colors.secondary[500],
+      'border-color': colors.secondary[500]
     },
     'primary-warning': {
       ...defaults,
@@ -41,7 +43,7 @@ export const getButtons = theme => {
     'secondary-warning': {
       ...defaults,
       color: colors.warning[500],
-      'background-color': colors.light[200],
+      'background-color': colors.light[100],
       'border-color': colors.warning[500]
     },
     'primary-danger': {
@@ -53,7 +55,7 @@ export const getButtons = theme => {
     'secondary-danger': {
       ...defaults,
       color: colors.danger[500],
-      'background-color': colors.light[200],
+      'background-color': colors.light[100],
       'border-color': colors.danger[500]
     },
     quaternary: {
@@ -62,25 +64,25 @@ export const getButtons = theme => {
       'background-color': colors.nude[200],
       'border-color': colors.nude[200]
     },
-    focused: {
+    hover: {
       primary: {
         'background-color': colors.primary[200],
         'border-color': colors.primary[200]
       },
       secondary: {
-        color: colors.secondary[500],
-        'border-color': colors.nude[400]
+        'background-color': colors.light[200],
+        'border-color': colors.nude[300]
       },
       tertiary: {
-        'background-color': colors.secondary[500],
-        'border-color': colors.secondary[500]
+        'background-color': colors.secondary[200],
+        'border-color': colors.secondary[200]
       },
       'primary-warning': {
         'background-color': colors.warning[200],
         'border-color': colors.warning[200]
       },
       'secondary-warning': {
-        color: colors.warning[200],
+        'background-color': colors.warning[100],
         'border-color': colors.warning[200]
       },
       'primary-danger': {
@@ -88,8 +90,43 @@ export const getButtons = theme => {
         'border-color': colors.danger[200]
       },
       'secondary-danger': {
-        color: colors.danger[200],
+        'background-color': colors.danger[100],
         'border-color': colors.danger[200]
+      },
+      quaternary: {
+        color: colors.nude[800],
+        'background-color': colors.nude[400],
+        'border-color': colors.nude[400]
+      }
+    },
+    focus: {
+      primary: {
+        'background-color': colors.primary[700],
+        'border-color': colors.primary[700]
+      },
+      secondary: {
+        'background-color': colors.light[200],
+        'border-color': colors.nude[500]
+      },
+      tertiary: {
+        'background-color': colors.secondary[700],
+        'border-color': colors.secondary[700]
+      },
+      'primary-warning': {
+        'background-color': colors.warning[700],
+        'border-color': colors.warning[700]
+      },
+      'secondary-warning': {
+        'background-color': colors.light[100],
+        'border-color': colors.warning[700]
+      },
+      'primary-danger': {
+        'background-color': colors.danger[700],
+        'border-color': colors.danger[700]
+      },
+      'secondary-danger': {
+        'background-color': colors.light[100],
+        'border-color': colors.danger[700]
       },
       quaternary: {
         color: colors.nude[800],
@@ -99,9 +136,9 @@ export const getButtons = theme => {
     },
     disabled: {
       ...defaults,
-      color: colors.nude[700],
-      'background-color': colors.light[700],
-      'border-color': colors.light[700]
+      color: colors.nude[600],
+      'background-color': colors.nude[100],
+      'border-color': colors.nude[100]
     },
     sizes: {
       xs: {
