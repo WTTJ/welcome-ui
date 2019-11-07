@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState, createRef, useRef } from 'react'
+import React, { createRef, useRef, useState } from 'react'
 import fr from 'date-fns/locale/fr'
 import { Link as LinkDocz } from 'docz'
 import { Form as FinalForm } from 'react-final-form'

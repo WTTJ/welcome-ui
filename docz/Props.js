@@ -8,17 +8,22 @@ import * as S from './Props.styled'
 const removeQuote = str => str.replace(/'/g, '')
 
 const getType = type => {
+  console.log(type)
   if (type.name === 'enum') {
-    return (
-      <Box mb="-sm">
-        {type.value.map(val => (
-          <Tag key={val.value} mb="sm" mr="sm">
-            {removeQuote(val.value)}
-          </Tag>
-        ))}
-      </Box>
-    )
-  } else if (type.name == 'union') {
+    if (Array(type.value).isArray) {
+      return (
+        <Box mb="-sm">
+          {type.value.map(val => (
+            <Tag key={val.value} mb="sm" mr="sm">
+              {removeQuote(val.value)}
+            </Tag>
+          ))}
+        </Box>
+      )
+    } else {
+      return type.name
+    }
+  } else if (type.name === 'union') {
     if (Array(type.value).isArray) {
       let values = []
       type.value.map(val => values.push(val.name))

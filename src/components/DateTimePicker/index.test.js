@@ -8,6 +8,21 @@ import { ConnectedField } from '../ConnectedField'
 
 import { DateTimePicker } from './index'
 
+jest.mock('popper.js', () => {
+  const PopperJS = jest.requireActual('popper.js')
+
+  return class {
+    static placements = PopperJS.placements
+
+    constructor() {
+      return {
+        destroy: () => {},
+        scheduleUpdate: () => {}
+      }
+    }
+  }
+})
+
 describe('<DateTimePicker />', () => {
   test('<DateTimePicker> renders correctly', () => {
     const { getByTestId } = render(
@@ -114,7 +129,7 @@ describe('<DateTimePicker />', () => {
   })
 
   test('<DateTimePicker> updating text updates selects', () => {
-    const { container, getAllByRole, debug } = render(
+    const { container, getAllByRole } = render(
       <Form initialValues={{ welcome: new Date('09/11/2001') }}>
         <ConnectedField component={DateTimePicker} name="welcome" />
       </Form>
@@ -125,7 +140,6 @@ describe('<DateTimePicker />', () => {
     fireEvent.click(datePicker)
 
     const [monthSelect, yearSelect] = getAllByRole('combobox')
-    debug(monthSelect)
     expect(monthSelect).toHaveTextContent('June')
     expect(yearSelect).toHaveTextContent('2018')
   })

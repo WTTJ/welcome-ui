@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Icon } from '../../components/Icon'
-import { Box } from '../../components/Box'
+import { Icon } from '../../../../src/components/Icon'
+import { Box } from '../../../../src/components/Box'
 
 import * as S from './Github.styled'
 

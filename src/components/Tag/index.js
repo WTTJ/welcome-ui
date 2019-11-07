@@ -46,6 +46,7 @@ Tag.propTypes = {
   shape: oneOf(SHAPES_TYPE),
   size: oneOf(SIZES_TYPE),
   variant: oneOf([
+    'dark',
     'blue',
     'default',
     'error',

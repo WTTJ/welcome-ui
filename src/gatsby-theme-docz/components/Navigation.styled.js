@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { Link } from 'gatsby'
 
-import { filterComponent } from '../../utils/system'
+import { filterComponent } from '../../../../src/utils/system'
 
 export const Block = styled.ul`
   margin: 0;

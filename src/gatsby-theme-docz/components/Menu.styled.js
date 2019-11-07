@@ -1,6 +1,6 @@
 import styled from '@xstyled/styled-components'
 
-import { system } from '../../utils/system'
+import { system } from '../../../../src/utils/system'
 
 export const Menu = styled.aside`
   position: relative;

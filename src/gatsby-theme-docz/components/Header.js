@@ -2,15 +2,15 @@
 import React from 'react'
 import { Link } from 'docz'
 
-import { Box } from '../../components/Box'
-import { Icon } from '../../components/Icon'
-import { Tag } from '../../components/Tag'
-import { Select } from '../../components/Select'
+import { Box } from '../../../../src/components/Box'
+import { Icon } from '../../../../src/components/Icon'
+import { Tag } from '../../../../src/components/Tag'
+import { Select } from '../../../../src/components/Select'
 
 import { Logo } from './Logo'
 import * as S from './Header.styled'
 
-const { version } = require('../../../package.json')
+const { version } = require('../../../../package.json')
 
 export const Header = ({ setTheme, value }) => {
   return (
@@ -33,6 +33,7 @@ export const Header = ({ setTheme, value }) => {
             { value: 'welcome', label: 'WelcomeToTheJungle Theme' },
             { value: 'core', label: 'Core Theme (default)' }
           ]}
+          placeholder="Choose a theme"
           size="sm"
           value={value}
         />
