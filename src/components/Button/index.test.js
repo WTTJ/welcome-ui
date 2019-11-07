@@ -1,6 +1,7 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
+import { colors } from '../../theme/colors'
 import { render } from '../../utils/tests'
 
 import { Button } from './index'
@@ -14,7 +15,7 @@ describe('<Button>', () => {
 
     expect(button).toHaveTextContent(content)
     expect(button).not.toBeDisabled()
-    expect(button).toHaveStyleRule('background-color', '#187EC7')
+    expect(button).toHaveStyleRule('background-color', colors.primary[500])
     expect(button).toHaveStyleRule('height', '2.25rem')
   })
 
