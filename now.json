@@ -3,7 +3,7 @@
   "version": 2,
   "alias": ["welcome-ui.now.sh"],
   "builds": [
-    { "src": "*.html", "use": "@now/static", "config": { "distDir": "docs" } }
+    { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "docs" } }
   ],
   "routes": [
     { "src": "/static/(.*)", "dest": "/static/$1" },
