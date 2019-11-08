@@ -41,7 +41,7 @@ export const Select = forwardRef(
       isClearable,
       isCreatable,
       isMultiple,
-      isSearchable = isCreatable || isSearchable,
+      isSearchable,
       options: defaultOptions = [],
       name,
       onBlur,
@@ -77,6 +77,9 @@ export const Select = forwardRef(
     const [selected, setSelected] = useState(defaultSelecteds)
     const [inputValue, setInputValue] = useState(defaultInputValue)
     const [options, setOptions] = useState(defaultOptions)
+
+    // Set default isSearchable
+    isSearchable = isCreatable || isSearchable
 
     // Autofocus
     useEffect(() => {

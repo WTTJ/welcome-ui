@@ -4,7 +4,7 @@ import React from 'react'
 import * as S from './Navigation.styled'
 
 export const Navigation = ({ items }) => {
-  const pathname = window && window.location.pathname
+  const pathname = typeof window === 'undefined' ? undefined : window.location.pathname
 
   return (
     <nav>
