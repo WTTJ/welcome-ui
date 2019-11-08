@@ -20,7 +20,7 @@
     "test": "jest src",
     "test:watch": "jest src --watch",
     "docz:dev": "docz dev",
-    "docz:build": "docz build --force",
+    "docz:build": "docz build --src src",
     "docz:clean": "rm -rf .docz && rm -rf .cache && rm -rf dist",
     "clean": "yarn docz:clean && yarn start",
     "now-build": "yarn docz:build",
