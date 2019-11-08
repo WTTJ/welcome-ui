@@ -21,7 +21,13 @@ const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
 
 const getPreviewUrl = file => {
   const url = file.preview || file
-  return typeof url !== 'string' || url.startsWith('blob:') ? url : new URL(url)
+  if (typeof url !== 'string' || url.startsWith('blob:')) {
+    return url
+  }
+  if (typeof window !== 'undefined') {
+    return new URL(url)
+  }
+  return undefined
 }
 
 export const FileDrop = forwardRef(
