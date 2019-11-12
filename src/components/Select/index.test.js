@@ -508,7 +508,7 @@ test('<Select isCreatable isMultiple> can create new items', () => {
   )
 
   // Expect content to be new item
-  expect(select.value).toBe('')
+  expect(select.value).toBe('\uFEFF')
 
   // Expect form values to have new item
   const formValues = getFormValues(getByTestId('values'))

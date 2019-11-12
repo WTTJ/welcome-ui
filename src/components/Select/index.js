@@ -29,12 +29,10 @@ import {
   itemToString
 } from './utils'
 
-// Helpers
-const EMPTY_STRING = ''
-
 export const Select = forwardRef(
   (
     {
+      autoComplete = false,
       autoFocus,
       dataTestId,
       disabled,
@@ -63,6 +61,8 @@ export const Select = forwardRef(
     },
     ref
   ) => {
+    const EMPTY_STRING = autoComplete ? '' : '\uFEFF'
+
     const defaultSelecteds = useMemo(
       () => getOptionsFromSelected(defaultSelected, defaultOptions),
       [defaultSelected, defaultOptions]
@@ -218,8 +218,7 @@ export const Select = forwardRef(
 
           const rootProps = getRootProps(rest)
           const inputProps = getInputProps({
-            // HACK for chrome : https://bugs.chromium.org/p/chromium/issues/detail?id=914451
-            autoComplete: 'new-password',
+            autoComplete,
             autoFocus,
             'data-spacer': spacer || placeholder,
             'data-testid': dataTestId,
@@ -297,6 +296,7 @@ export const Select = forwardRef(
 Select.displayName = 'Select'
 
 Select.propTypes = {
+  autoComplete: bool,
   autoFocus: bool,
   disabled: bool,
   icon: COMPONENT_TYPE,
