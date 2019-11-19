@@ -58,7 +58,7 @@ jobs:
           key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn docz:build
       - persist_to_workspace:
-          root: docs
+          root: ~/welcome-ui
           paths:
             - docs/*
 
