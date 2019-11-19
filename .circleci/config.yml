@@ -49,6 +49,30 @@ jobs:
           key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn test
 
+  docs_build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: yarn docz:build
+      - persist_to_workspace:
+          root: docs
+          paths:
+            - docs/*
+
+  docs_deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: docs
+      - run:
+          name: list files
+          command: ls docs/**/*
+      - restore_cache:
+          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: yarn docz:deploy --domain welcome-ui.{{ CIRCLE_BRANCH }}.surge.sh
 
 workflows:
   version: 2
@@ -64,3 +88,11 @@ workflows:
       - test:
           requires:
             - yarn_install
+      - docs_build:
+          requires:
+            - lint
+            - test
+      - docs_deploy:
+          requires:
+            - docs_build
+        
