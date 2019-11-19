@@ -13,7 +13,7 @@
     "build": "rm -rf dist && rollup --config",
     "release:build": "yarn pre-build && yarn build && standard-version && conventional-github-releaser --preset angular",
     "release:publish": "git push --follow-tags origin master && npm publish",
-    "release": "yarn release:build && npm run release:publish && now --prod",
+    "release": "yarn release:build && npm run release:publish && surge --project ./docs --domain https://welcome-ui.surge.sh",
     "lint": "yarn lint:mdx & yarn lint:js",
     "lint:js": "eslint src --max-warnings 0",
     "lint:mdx": "prettier --parser mdx --check 'src/**/*.mdx'",
@@ -22,9 +22,8 @@
     "docz:dev": "docz dev",
     "docz:build": "docz build --src src",
     "docz:deploy": "surge --project ./docs",
-    "docz:clean": "rm -rf .docz && rm -rf .cache && rm -rf dist",
+    "docz:clean": "gatsby clean",
     "clean": "yarn docz:clean && yarn start",
-    "now-build": "yarn docz:build",
     "phoenix": "rm -rf node_modules && yarn cache clean && yarn"
   },
   "repository": {

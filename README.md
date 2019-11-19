@@ -6,7 +6,7 @@ Welcome to the _Welcome UI library_ create by [Welcome to the jungle](http://www
 
 Here you'll find all the core components you need to create a delightful webapp.
 
-[🌴 Discover all the components](https://welcome-ui.now.sh)
+[🌴 Discover all the components](https://welcome-ui.surge.sh)
 
 ## Install
 
@@ -22,7 +22,7 @@ yarn add welcome-ui
 
 ## Import library & Theme
 
-You can find all the theme properties [here](https://welcome-ui.now.sh/themes).
+You can find all the theme properties [here](https://welcome-ui.surge.sh/themes).
 
 ```js
 import React from 'react'
