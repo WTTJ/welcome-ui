@@ -67,6 +67,7 @@ jobs:
     steps:
       - attach_workspace:
           at: docs
+      - run: yarn install --production=false
       - run:
           name: list files
           command: ls docs/**/*
