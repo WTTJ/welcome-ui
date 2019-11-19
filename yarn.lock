@@ -927,6 +927,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.7.2":
+  version "7.7.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.2.tgz#111a78002a5c25fc8e3361bedc9529c696b85a6a"
+  integrity sha512-JONRbXbTXc9WQE2mAZd1p0Z3DZ/6vaQIkgYMSTP3KjRCyd7rCZCcfhCyX+YjwcKxcZ82UrxbRD358bpExNgrjw==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/standalone@^7.4.5":
   version "7.6.4"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.6.4.tgz#10686768f27aa4ce4b5927b9791776738f6cb0e1"
@@ -2736,7 +2743,7 @@ babel-plugin-remove-graphql-queries@^2.7.14:
   resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.7.14.tgz#f60064d9711725768557096cb07988508e6616e3"
   integrity sha512-GnAZhBChCjAg0NyZMmZureWmBXijbAK7wreEpsoI1oP5hCuHcvWknDU4u5PjoVdLyJ+8ObJ86Y/Y4uzrqcg/qg==
 
-"babel-plugin-styled-components@>= 1":
+babel-plugin-styled-components@=1.10.6, "babel-plugin-styled-components@>= 1":
   version "1.10.6"
   resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.10.6.tgz#f8782953751115faf09a9f92431436912c34006b"
   integrity sha512-gyQj/Zf1kQti66100PhrCRjI5ldjaze9O0M3emXRPAN80Zsf8+e1thpTpaXJXVHXtaM4/+dJEgZHyS9Its+8SA==
@@ -6857,6 +6864,11 @@ gatsby-plugin-emotion@^4.1.2:
     "@babel/runtime" "^7.6.3"
     "@emotion/babel-preset-css-prop" "^10.0.17"
 
+gatsby-plugin-eslint@=2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-eslint/-/gatsby-plugin-eslint-2.0.8.tgz#1ff7f546a427d274dc2de3932ba29822aae330c3"
+  integrity sha512-vAMy37povmQJNg6ZxY78fkWR3pKwG8MNMhO3u+4vXj2MYT5avhFvHPJTAb126ZCuygf30gAWlpwbV50zP894Jw==
+
 gatsby-plugin-eslint@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-eslint/-/gatsby-plugin-eslint-2.0.5.tgz#be02f5aff9b7f4a37927f3f917e82ad9f3d67f09"
@@ -6942,6 +6954,13 @@ gatsby-plugin-root-import@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-root-import/-/gatsby-plugin-root-import-2.0.5.tgz#04e520dc661d67f49aa7950f11b7c780fd2fdbd3"
   integrity sha512-/yA6rFjfjiFb8D6nCjfFrrGqYQMkOt4J3u2o6s7VYEF/zpA5dw2C9ENJ5fDKkJSCbbwLiEIGVMMee3vMEip2zA==
+
+gatsby-plugin-styled-components@=3.1.13:
+  version "3.1.13"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-3.1.13.tgz#7063a9a63c02d612c3a81327166922bf6f748e15"
+  integrity sha512-AR3uBAqEixvPoO/Y43qhMNLb/StYFrCLOwAFqngekQqaXEto8CJjEyG8S/7CFbCH+FITfDrHh19yyR1qwIuQcw==
+  dependencies:
+    "@babel/runtime" "^7.7.2"
 
 gatsby-plugin-typescript@^2.1.6:
   version "2.1.15"
