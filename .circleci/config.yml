@@ -67,12 +67,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/welcome-ui
-      - run: yarn install --production=false
-      - run:
-          name: list files
-          command: ls docs/**/*
       - restore_cache:
           key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: yarn install surge
       - run: yarn docz:deploy --domain welcome-ui.{{ CIRCLE_BRANCH }}.surge.sh
 
 workflows:
