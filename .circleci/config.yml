@@ -14,7 +14,7 @@ jobs:
     steps:
       - checkout
       - save_cache:
-          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ~/welcome-ui
 
@@ -22,7 +22,7 @@ jobs:
     <<: *defaults
     steps:
       - restore_cache:
-          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn install
       - store_artifacts:
           path: yarn.lock
@@ -37,7 +37,7 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
-          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn lint
 
   test:
@@ -46,7 +46,7 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
-          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn test
 
   docs_build:
@@ -55,7 +55,7 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
-          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn docz:build
       - persist_to_workspace:
           root: ~/welcome-ui
@@ -72,8 +72,8 @@ jobs:
           name: list files
           command: ls docs/**/*
       - restore_cache:
-          key: v1-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - run: node_modules/surge/lib/cli.js --project ./docs --domain welcome-ui.{{ CIRCLE_BRANCH }}.surge.sh
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: yarn docz:deploy --domain welcome-ui.{{ CIRCLE_BRANCH }}.surge.sh
 
 workflows:
   version: 2
