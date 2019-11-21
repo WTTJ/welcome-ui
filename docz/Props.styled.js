@@ -13,7 +13,7 @@ export const Props = styled.div`
 export const Item = styled.div`
   display: flex;
   flex-direction: column;
-  padding: xl;
+  padding: lg xl;
   border-bottom: 1px solid ${th.color('nude.200')};
 
   @media screen and (min-width: 600px) {

@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import { Link } from 'docz'
 
 import { Box } from '../../../../src/components/Box'
 import { Icon } from '../../../../src/components/Icon'
@@ -16,11 +15,16 @@ export const Header = ({ setTheme, value }) => {
   return (
     <S.Header>
       <Box alignItems="flex-start" display="flex" justifyContent="space-between">
-        <Link to="/">
+        <a
+          alt="welcome to the jungle"
+          href="https://www.welcometothejungle.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <S.Logo>
             <Logo />
           </S.Logo>
-        </Link>
+        </a>
         <Tag size="lg" variant="dark">{`v${version}`}</Tag>
       </Box>
       <Box mb={40} mt={40}>

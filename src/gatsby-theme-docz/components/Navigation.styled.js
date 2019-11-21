@@ -1,5 +1,5 @@
 import styled, { css } from '@xstyled/styled-components'
-import { Link } from 'gatsby'
+import { Link } from 'docz'
 
 import { filterComponent } from '../../../../src/utils/system'
 

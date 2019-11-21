@@ -14,7 +14,7 @@ export const Content = styled.article`
   }
 
   p {
-    line-height: 1.5;
+    line-height: 1.7;
 
     a {
       opacity: 1;
@@ -30,5 +30,10 @@ export const Content = styled.article`
       ${th('links.default')};
       ${th(`links.primary`)};
     }
+  }
+
+  ol,
+  ul {
+    line-height: 1.7;
   }
 `

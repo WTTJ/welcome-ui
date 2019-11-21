@@ -19,7 +19,6 @@ export const Github = styled.a`
 
   &:hover,
   &:focus {
-    color: dark.500;
-    background-color: nude.300;
+    background-color: dark.200;
   }
 `

@@ -6,7 +6,7 @@ Welcome to the _Welcome UI library_ create by [Welcome to the jungle](http://www
 
 Here you'll find all the core components you need to create a delightful webapp.
 
-[🌴 Discover all the components](https://welcome-ui.surge.sh)
+🌴 [Discover all the components](https://welcome-ui.surge.sh)
 
 ## Install
 
@@ -56,4 +56,3 @@ export default function Root() {
   )
 }
 ```
-

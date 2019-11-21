@@ -9,4 +9,10 @@ export const Pre = styled.pre`
   border-width: sm;
   border-style: solid;
   border-color: light.700;
+
+  > div {
+    width: 100%;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+  }
 `
