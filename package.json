@@ -13,7 +13,7 @@
     "build": "rm -rf dist && rollup --config",
     "release:build": "yarn pre-build && yarn build && standard-version && conventional-github-releaser --preset angular",
     "release:publish": "git push --follow-tags origin master && npm publish",
-    "release": "yarn release:build && npm run release:publish && surge --project ./docs --domain https://welcome-ui.surge.sh",
+    "release": "yarn release:build && npm run release:publish && docz:build && surge --project ./docs --domain https://welcome-ui.surge.sh",
     "lint": "yarn lint:mdx & yarn lint:js",
     "lint:js": "eslint src --max-warnings 0",
     "lint:mdx": "prettier --parser mdx --check 'src/**/*.mdx'",
