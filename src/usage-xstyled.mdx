@@ -4,15 +4,8 @@ route: /theming/xstyled
 menu: Theming
 ---
 
-import { Form } from 'react-final-form'
 import { useState } from 'react'
-import { Props } from 'docz'
-import { Playground } from '../docz/'
-
-import { Select } from './components/Select'
-import { Icon } from './components/Icon'
-import { ConnectedField } from './components/ConnectedField'
-import { Field } from './components/Field'
+import { Props, Playground } from 'docz'
 
 # xstyled
 
@@ -20,8 +13,8 @@ With [xstyled/system](https://www.smooth-code.com/open-source/xstyled/docs/syste
 
 We split these props at the container level so that…
 
-1. **width, margin and positioning props are applied to the container** (e.g. `width`, `margin`, `mt`, `position`, `top` etc), and
-2. **all the rest are applied to the underlying component** (e.g. `padding`, `borderColor`, `fontSize` etc).
+1. width, margin and positioning props are applied to the container (e.g. `width`, `margin`, `mt`, `position`, `top` etc), and
+2. all the rest are applied to the underlying component (e.g. `padding`, `borderColor`, `fontSize` etc).
 
 ## Naked Select
 
@@ -74,7 +67,7 @@ We split these props at the container level so that…
     ]
     // Render
     return (
-      <Form
+      <FinalForm
         initialValues={{}}
         onSubmit={console.debug}
         validate={values => {
@@ -106,34 +99,30 @@ We split these props at the container level so that…
         }}
       />
     )
-
-}}
-
+  }}
 </Playground>
 
 ## Field Select
 
 <Playground>
   {() => (
-    <>
-      <Field
-        name="cakes"
-        placeholder="Placeholder"
-        component={Select}
-        label="Label"
-        options={[
-          { value: 'carrot', label: 'Carrot' },
-          { value: 'madeleine', label: 'Madeleine (made with farm-fresh eggs)' },
-          { value: 'pumpkin', label: 'Pumpkin' }
-        ]}
-        mt={50}
-        width={150}
-        height="auto"
-        borderColor="papayaWhip"
-        borderWidth={2}
-        borderRadius={15}
-        padding={50}
-      />
-    </>
+    <Field
+      name="cakes"
+      placeholder="Placeholder"
+      component={Select}
+      label="Label"
+      options={[
+        { value: 'carrot', label: 'Carrot' },
+        { value: 'madeleine', label: 'Madeleine (made with farm-fresh eggs)' },
+        { value: 'pumpkin', label: 'Pumpkin' }
+      ]}
+      mt={50}
+      width={150}
+      height="auto"
+      borderColor="papayaWhip"
+      borderWidth={2}
+      borderRadius={15}
+      padding={50}
+    />
   )}
 </Playground>

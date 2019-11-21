@@ -1,4 +1,4 @@
-import { any, bool, func, object, oneOf, oneOfType, shape, string } from 'prop-types'
+import { any, bool, func, object, string } from 'prop-types'
 
 export const FINAL_FORM_INPUT_TYPES = Object.freeze({
   name: string,
@@ -31,9 +31,9 @@ export const FINAL_FORM_META_TYPES = Object.freeze({
   visited: bool
 })
 
-export const COMPONENT_TYPE = oneOfType([func, object, string])
-export const DIRECTIONS_TYPE = oneOf(['row', 'container'])
-export const INPUTS_TYPE = oneOf([
+export const COMPONENT_TYPE = [func, object, string]
+export const DIRECTIONS_TYPE = ['row', 'container']
+export const INPUTS_TYPE = [
   'checkbox',
   'email',
   'file',
@@ -42,8 +42,8 @@ export const INPUTS_TYPE = oneOf([
   'search',
   'tel',
   'text'
-])
-export const OPTIONS_TYPE = shape({ label: string, value: string })
-export const SHAPES_TYPE = oneOf(['square', 'circle'])
-export const SIZES_TYPE = oneOf(['sm', 'md', 'lg'])
-export const VARIANTS_TYPE = oneOf(['error', 'info', 'valid', 'warning'])
+]
+export const OPTIONS_TYPE = { label: string, value: string }
+export const SHAPES_TYPE = ['square', 'circle']
+export const SIZES_TYPE = ['sm', 'md', 'lg']
+export const VARIANTS_TYPE = ['error', 'info', 'valid', 'warning']

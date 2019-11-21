@@ -1,42 +1,16 @@
 ---
-name: Radio buttons
-route: /fields/radio-buttons
+name: Radio Tab
+route: /fields/radio-tab
 menu: Fields
 ---
 
-import { Props } from 'docz'
-import { Form, Playground } from '../../../docz/'
+import { Props, Playground } from 'docz'
 import { ITEMS } from '../../../helpers/tests'
-
-import { ConnectedField } from '../ConnectedField'
 import { RadioGroup } from '../RadioGroup'
 import { RadioTab } from '../RadioTab'
-import { Button } from '../Button'
+import { InputRadio } from '../InputRadio'
 
-import { InputRadio } from './index'
-
-# Radio buttons
-
-<Playground>
-  <Form
-    initialValues={{}}
-    validate={values => (!values.social ? { social: 'You must choose a social network' } : {})}
-  >
-    <ConnectedField
-      component={RadioGroup}
-      flexDirection="row"
-      hint="Most popular is Twitter"
-      label="Social networks"
-      mb="xl"
-      name="social"
-      options={ITEMS}
-      required
-    />
-    <Button type="submit">Submit</Button>
-  </Form>
-</Playground>
-
-## RadioTabs
+# Radio Tab
 
 <Playground>
   <Form initialValues={{ social_1: 'twitter', social_2: 'xing' }}>

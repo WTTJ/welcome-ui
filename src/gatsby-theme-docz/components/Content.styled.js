@@ -1,0 +1,39 @@
+import styled from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
+
+export const Content = styled.article`
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  max-width: 1200;
+  padding: 30px 20px;
+  color: nude.800;
+
+  @media (min-width: 1300px) {
+    padding: 50px 100px;
+  }
+
+  p {
+    line-height: 1.7;
+
+    a {
+      opacity: 1;
+      text-decoration: none;
+      transition: opacity 300ms;
+
+      &:hover,
+      &:focus {
+        opacity: 0.6;
+        outline: none;
+      }
+
+      ${th('links.default')};
+      ${th(`links.primary`)};
+    }
+  }
+
+  ol,
+  ul {
+    line-height: 1.7;
+  }
+`

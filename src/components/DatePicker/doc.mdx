@@ -5,12 +5,7 @@ menu: Fields
 ---
 
 import fr from 'date-fns/locale/fr'
-import { Props } from 'docz'
-import { Playground } from '../../../docz/'
-import { Form } from '../../../docz/Form'
-
-import { ConnectedField } from '../ConnectedField'
-import { Icon } from '../Icon'
+import { Props, Playground } from 'docz'
 import { DatePicker } from './index.js'
 
 # DatePicker
@@ -27,7 +22,7 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
   </Form>
 </Playground>
 
-## Pass props from [the original library](https://github.com/Hacker0x01/react-datepicker).
+## Pass props from the original library.
 
 <Playground>
   <Form initialValues={{ welcome: Date.now() }}>

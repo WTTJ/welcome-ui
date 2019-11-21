@@ -4,29 +4,12 @@ route: /theming/theme-values
 menu: Theming
 ---
 
-import { Component } from 'react'
-import { Playground } from 'docz'
-import { createTheme } from './core'
+import { Code } from '../../docz/Code'
+
+import { themeValues } from '../../docz/CodeExamples'
 
 # Values
 
 Here are all the possible values for your theme.<br /> These will be merged with the default theme.
 
-<Playground>
-  {() => {
-    const theme = createTheme()
-
-    const ThemeValues = () => (
-      <>
-        <pre style={{
-          fontFamily: 'monospace',
-          fontSize: '14px'
-        }}>{JSON.stringify(theme, null, 2)}</pre>
-      </>
-    )
-
-    return <ThemeValues />
-
-}}
-
-</Playground>
+<Code language="json">{`${themeValues()}`}</Code>

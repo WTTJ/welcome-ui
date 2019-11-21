@@ -114,14 +114,14 @@ TimePicker.displayName = 'TimePicker'
 TimePicker.propTypes = {
   autoFocus: bool,
   dateFormat: string,
-  icon: COMPONENT_TYPE,
-  iconPlacement: oneOf('right', 'left'),
+  icon: oneOfType(COMPONENT_TYPE),
+  iconPlacement: oneOf(['right', 'left']),
   inputRef: func,
   onBlur: func,
   onChange: func,
   onFocus: func,
   placeholder: string,
-  size: SIZES_TYPE,
+  size: oneOf(SIZES_TYPE),
   timeIntervals: number,
   value: oneOfType([number, object, string]).isRequired
 }

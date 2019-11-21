@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import React, { cloneElement, useLayoutEffect, useState } from 'react'
-import { any, node, shape, string } from 'prop-types'
+import { any, node, oneOfType, shape, string } from 'prop-types'
 import { Tab as ReakitTab, TabList as ReakitTabList, TabPanel as ReakitTabPanel } from 'reakit/Tab'
 import flattenChildren from 'react-flatten-children'
 
@@ -50,7 +50,7 @@ const ActiveBar = ({ activeTab, listRef }) => {
 }
 ActiveBar.displayName = 'ActiveBar'
 ActiveBar.propTypes = {
-  activeTab: COMPONENT_TYPE,
+  activeTab: oneOfType(COMPONENT_TYPE),
   listRef: shape({ current: any })
 }
 
@@ -72,7 +72,7 @@ export const TabList = React.forwardRef(({ as, children, ...props }, ref) => {
 })
 TabList.displayName = 'TabList'
 TabList.propTypes = {
-  as: COMPONENT_TYPE,
+  as: oneOfType(COMPONENT_TYPE),
   children: node
 }
 
@@ -89,7 +89,7 @@ export const Tab = React.forwardRef(({ as, children, stopId, ...props }, ref) =>
 })
 Tab.displayName = 'Tab'
 Tab.propTypes = {
-  as: COMPONENT_TYPE,
+  as: oneOfType(COMPONENT_TYPE),
   children: node,
   stopId: string.isRequired
 }
@@ -107,7 +107,7 @@ export const TabPanel = React.forwardRef(({ as, children, stopId, ...props }, re
 })
 TabPanel.displayName = 'TabPanel'
 TabPanel.propTypes = {
-  as: COMPONENT_TYPE,
+  as: oneOfType(COMPONENT_TYPE),
   children: node,
   stopId: string.isRequired
 }

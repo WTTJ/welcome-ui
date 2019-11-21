@@ -3,18 +3,17 @@ import { th } from '@xstyled/system'
 
 import { system } from '../../utils/system'
 
-const getBlockHeight = props => `
-  calc(${th.fontSize(props.variant)} * ${th.lineHeight(props.variant)} * ${props.lines})`
+const getBlockHeight = ({ lines, variant }) => css`
+  height: ${`calc(${th.fontSize(variant)} * ${th.lineHeight(variant)} * ${lines}`};
+`
 
-export const Text = styled.p(props => {
-  const { lines, underline, variant } = props
-  const blockHeight = lines ? getBlockHeight(props) : null
-
+export const Text = styled.p(({ lines, underline, variant }) => {
   return css`
     ${th(`texts.${variant}`)};
     ${underline && th('underline')};
     display: block; /* Fallback for non-webkit */
-    height: ${blockHeight}; /* Fallback for non-webkit */
+    ${lines &&
+      getBlockHeight({ lines, variant })} /* Fallback for non-webkit */
 
     display: -webkit-box;
     -webkit-box-orient: vertical;

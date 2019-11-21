@@ -4,16 +4,10 @@ route: /fields/textarea
 menu: Fields
 ---
 
-import { Props } from 'docz'
-import { Form, Playground } from '../../../docz/'
-
-import { ConnectedField } from '../ConnectedField'
-
+import { Props, Playground } from 'docz'
 import { InputTextarea } from './index'
 
 # Textarea
-
-## Default
 
 <Playground>
   <Form initialValues={{}}>
@@ -26,5 +20,7 @@ import { InputTextarea } from './index'
     />
   </Form>
 </Playground>
+
+## Properties
 
 <Props of={InputTextarea} />

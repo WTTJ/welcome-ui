@@ -1,5 +1,5 @@
 import React from 'react'
-import { node } from 'prop-types'
+import { node, oneOf } from 'prop-types'
 
 import { VARIANTS_TYPE } from '../../utils/propTypes'
 
@@ -13,5 +13,5 @@ export const GrowlTitle = ({ children, dataTestId, variant = 'info' }) => (
 
 GrowlTitle.propTypes = {
   children: node.isRequired,
-  variant: VARIANTS_TYPE
+  variant: oneOf(VARIANTS_TYPE)
 }

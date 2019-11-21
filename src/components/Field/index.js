@@ -145,7 +145,6 @@ Field.propTypes = {
   children: func,
   component: COMPONENT_TYPE.isRequired,
   connected: bool,
-  dataTestId: string,
   disabled: bool,
   disabledIcon: node,
   error: string,
