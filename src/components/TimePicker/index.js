@@ -4,8 +4,8 @@ import { bool, func, number, object, oneOf, oneOfType, string } from 'prop-types
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 import { getDate } from '../DateTimePicker/utils'
 import { CustomInput } from '../DateTimePicker/CustomInput'
+import { CustomPopper } from '../DateTimePicker/CustomPopper'
 import { DEFAULT_DATE } from '../DateTimePicker/constants'
-import { DatePickerPopper } from '../DatePickerPopper'
 
 import * as S from './styles'
 
@@ -96,7 +96,7 @@ export const TimePicker = forwardRef(
         dateFormat={dateFormat}
         onChange={handleChange}
         placeholderText={placeholderText}
-        popperContainer={DatePickerPopper}
+        popperContainer={CustomPopper}
         selected={date}
         showTimeSelect
         showTimeSelectOnly

@@ -1,6 +1,6 @@
 import styled, { css } from '@xstyled/styled-components'
 
-export const Popper = styled.div(
+export const CustomPopper = styled.div(
   ({ zIndex }) =>
     css`
       .react-datepicker-popper {

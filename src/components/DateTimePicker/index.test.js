@@ -31,7 +31,11 @@ describe('<DateTimePicker />', () => {
       </Form>
     )
     const dateTimePicker = getByTestId('dateTimePicker')
-    expect(dateTimePicker.children).toHaveLength(2)
+
+    const datePicker = dateTimePicker.querySelectorAll('.date-picker')
+    expect(datePicker).toHaveLength(1)
+    const timePicker = dateTimePicker.querySelectorAll('.time-picker')
+    expect(timePicker).toHaveLength(1)
   })
 
   test('<DateTimePicker> renders correctly with invalid date', () => {
@@ -41,7 +45,11 @@ describe('<DateTimePicker />', () => {
       </Form>
     )
     const dateTimePicker = getByTestId('dateTimePicker')
-    expect(dateTimePicker.children).toHaveLength(2)
+
+    const datePicker = dateTimePicker.querySelectorAll('.date-picker')
+    expect(datePicker).toHaveLength(1)
+    const timePicker = dateTimePicker.querySelectorAll('.time-picker')
+    expect(timePicker).toHaveLength(1)
   })
 
   test('can render and opens the datePicker on click', () => {

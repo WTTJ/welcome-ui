@@ -19,7 +19,7 @@
     "lint:mdx": "prettier --parser mdx --check 'src/**/*.mdx'",
     "test": "jest src",
     "test:watch": "jest src --watch",
-    "docz:dev": "docz dev",
+    "docz:dev": "docz dev --src src",
     "docz:build": "docz build --src src",
     "docz:deploy": "surge --project ./docs",
     "docz:clean": "gatsby clean",
