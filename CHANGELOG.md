@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.31.0](https://github.com/WTTJ/welcome-ui/compare/v0.30.5...v0.31.0) (2019-11-25)
+
+
+### Bug Fixes
+
+* errors preventing gatsby build ([49dcf84](https://github.com/WTTJ/welcome-ui/commit/49dcf84))
+* gatsby-source-filesystem config ([6a5aa68](https://github.com/WTTJ/welcome-ui/commit/6a5aa68))
+* issues in DateTimePicker tests caused by popper.js ([85e6539](https://github.com/WTTJ/welcome-ui/commit/85e6539))
+* paths breaking gatsby build ([656406f](https://github.com/WTTJ/welcome-ui/commit/656406f))
+* remove calendar popper from portal ([#420](https://github.com/WTTJ/welcome-ui/issues/420)) ([0066f20](https://github.com/WTTJ/welcome-ui/commit/0066f20))
+* try to clear zeit build cache ([b06bb05](https://github.com/WTTJ/welcome-ui/commit/b06bb05))
+* undo config changes ([cd0fd16](https://github.com/WTTJ/welcome-ui/commit/cd0fd16))
+* undo static test ([4db6899](https://github.com/WTTJ/welcome-ui/commit/4db6899))
+* unstyled content ? ([ff9b43e](https://github.com/WTTJ/welcome-ui/commit/ff9b43e))
+* upgrade yarn deps ([ba3b931](https://github.com/WTTJ/welcome-ui/commit/ba3b931))
+* use empty space if autocomplete = false ([#416](https://github.com/WTTJ/welcome-ui/issues/416)) ([b689f30](https://github.com/WTTJ/welcome-ui/commit/b689f30))
+
+
+### Features
+
+* finish chore v2 ([c43115e](https://github.com/WTTJ/welcome-ui/commit/c43115e))
+* handle focus colors better and fix color to stick to the mockups ([#411](https://github.com/WTTJ/welcome-ui/issues/411)) ([a8f1e85](https://github.com/WTTJ/welcome-ui/commit/a8f1e85))
+
+
+### Tests
+
+* serving static files ([a8feced](https://github.com/WTTJ/welcome-ui/commit/a8feced))
+
+
+
 ### [0.30.5](https://github.com/WTTJ/welcome-ui/compare/v0.30.4...v0.30.5) (2019-10-24)
 
 
