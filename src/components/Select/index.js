@@ -221,7 +221,7 @@ export const Select = forwardRef(
 
           const rootProps = getRootProps(rest)
           const inputProps = getInputProps({
-            autoComplete,
+            autoComplete: autoComplete.toString(),
             autoFocus,
             'data-spacer': spacer || placeholder,
             'data-testid': dataTestId,
@@ -322,10 +322,12 @@ Select.propTypes = {
   searchable: bool,
   size: oneOf(SIZES_TYPE),
   type: oneOf(INPUTS_TYPE),
-  value: oneOfType(
-    [oneOf(shape(OPTIONS_TYPE), arrayOf(shape(OPTIONS_TYPE))), string, arrayOf(string)],
+  value: oneOfType([
+    oneOf([shape(OPTIONS_TYPE), arrayOf(shape(OPTIONS_TYPE))]),
+    string,
+    arrayOf(string),
     number,
     arrayOf(number)
-  ),
+  ]),
   variant: oneOf(VARIANTS_TYPE)
 }

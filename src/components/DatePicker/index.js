@@ -4,9 +4,9 @@ import { bool, func, number, object, oneOf, oneOfType, string } from 'prop-types
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 import { CustomHeader } from '../DateTimePicker/CustomHeader'
 import { CustomInput } from '../DateTimePicker/CustomInput'
+import { CustomPopper } from '../DateTimePicker/CustomPopper'
 import { getDate } from '../DateTimePicker/utils'
 import { DEFAULT_DATE } from '../DateTimePicker/constants'
-import { DatePickerPopper } from '../DatePickerPopper'
 
 import * as S from './styles'
 
@@ -25,7 +25,7 @@ export const DatePicker = forwardRef(
       onChange,
       onFocus,
       placeholder,
-      popperZIndex,
+      popperZIndex = 1,
       size = 'lg',
       startYear = 1900,
       useWeekdaysShort = true,
@@ -114,7 +114,7 @@ export const DatePicker = forwardRef(
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         placeholderText={placeholderText}
-        popperContainer={DatePickerPopper}
+        popperContainer={CustomPopper}
         popperProps={{ zIndex: popperZIndex }}
         renderCustomHeader={props => (
           <CustomHeader endYear={endYear} locale={locale} startYear={startYear} {...props} />
