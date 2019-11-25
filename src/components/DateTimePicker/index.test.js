@@ -32,10 +32,10 @@ describe('<DateTimePicker />', () => {
     )
     const dateTimePicker = getByTestId('dateTimePicker')
 
-    const datePicker = dateTimePicker.querySelectorAll('.date-picker')
-    expect(datePicker).toHaveLength(1)
-    const timePicker = dateTimePicker.querySelectorAll('.time-picker')
-    expect(timePicker).toHaveLength(1)
+    const datePicker = dateTimePicker.querySelector('.date-picker')
+    expect(datePicker).toBeInTheDocument()
+    const timePicker = dateTimePicker.querySelector('.time-picker')
+    expect(timePicker).toBeInTheDocument()
   })
 
   test('<DateTimePicker> renders correctly with invalid date', () => {
@@ -46,10 +46,10 @@ describe('<DateTimePicker />', () => {
     )
     const dateTimePicker = getByTestId('dateTimePicker')
 
-    const datePicker = dateTimePicker.querySelectorAll('.date-picker')
-    expect(datePicker).toHaveLength(1)
-    const timePicker = dateTimePicker.querySelectorAll('.time-picker')
-    expect(timePicker).toHaveLength(1)
+    const datePicker = dateTimePicker.querySelector('.date-picker')
+    expect(datePicker).toBeInTheDocument()
+    const timePicker = dateTimePicker.querySelector('.time-picker')
+    expect(timePicker).toBeInTheDocument()
   })
 
   test('can render and opens the datePicker on click', () => {
