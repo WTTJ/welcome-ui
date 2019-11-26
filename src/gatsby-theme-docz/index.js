@@ -34,10 +34,20 @@ const themeOptions = name => {
   }
 }
 
+const useStateWithLocalStorage = defaultValue => {
+  const defaultOrSaved = (localStorage && localStorage.getItem('themeWUI')) || defaultValue
+  const [themeWUI, setThemeWUI] = useState(defaultOrSaved)
+  const setAndPersistThemeWUI = val => {
+    setThemeWUI(val)
+    localStorage.setItem('themeWUI', val)
+  }
+  return [themeWUI, setAndPersistThemeWUI]
+}
+
 // eslint-disable-next-line react/prop-types
 const Theme = ({ children }) => {
   const menus = useMenus()
-  const [themeWUI, setThemeWUI] = useState('welcomekit')
+  const [themeWUI, setThemeWUI] = useStateWithLocalStorage('welcomekit')
 
   return (
     <ThemeProvider theme={createTheme(themeOptions(themeWUI))}>
