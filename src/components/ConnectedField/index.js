@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { string } from 'prop-types'
+import { oneOfType, string } from 'prop-types'
 import { Field as FinalField } from 'react-final-form'
 
 import { Field } from '../Field'
@@ -34,6 +34,6 @@ ConnectedField.displayName = 'WelcomeField'
 
 ConnectedField.propTypes = {
   ...FINAL_FORM_INPUT_TYPES,
-  component: COMPONENT_TYPE,
+  component: oneOfType(COMPONENT_TYPE),
   type: string
 }

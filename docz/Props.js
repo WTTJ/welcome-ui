@@ -8,7 +8,6 @@ import * as S from './Props.styled'
 const removeQuote = str => str.replace(/'/g, '')
 
 const getType = type => {
-  console.log(type)
   if (type.name === 'enum') {
     if (Array(type.value).isArray) {
       return (
