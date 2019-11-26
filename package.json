@@ -19,10 +19,10 @@
     "lint:mdx": "prettier --parser mdx --check 'src/**/*.mdx'",
     "test": "jest src",
     "test:watch": "jest src --watch",
-    "docz:dev": "docz dev --src src",
-    "docz:build": "docz build --src src",
+    "docz:dev": "yarn docz:clean && docz dev --src src",
+    "docz:build": "yarn docz:clean && docz build --src src",
     "docz:deploy": "surge --project ./docs",
-    "docz:clean": "gatsby clean",
+    "docz:clean": "rm -rf .docz && rm -rf docs && gatsby clean",
     "clean": "yarn docz:clean && yarn start",
     "phoenix": "rm -rf node_modules && yarn cache clean && yarn"
   },

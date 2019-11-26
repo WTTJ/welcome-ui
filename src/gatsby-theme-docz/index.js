@@ -35,11 +35,12 @@ const themeOptions = name => {
 }
 
 const useStateWithLocalStorage = defaultValue => {
-  const defaultOrSaved = (localStorage && localStorage.getItem('themeWUI')) || defaultValue
+  const withWindow = typeof window !== 'undefined'
+  const defaultOrSaved = (withWindow && localStorage.getItem('themeWUI')) || defaultValue
   const [themeWUI, setThemeWUI] = useState(defaultOrSaved)
   const setAndPersistThemeWUI = val => {
     setThemeWUI(val)
-    localStorage.setItem('themeWUI', val)
+    withWindow && localStorage.setItem('themeWUI', val)
   }
   return [themeWUI, setAndPersistThemeWUI]
 }
