@@ -1,24 +1,43 @@
 ---
-name: Getting Started
+name: Introduction
 route: /
 ---
 
 import { Component } from 'react'
+import { Link } from 'docz'
 import { Code } from '../docz/Code'
 import { exampleHome } from '../docz/CodeExamples'
+import Illustration from '../docz/Illustration'
+
+import { Box, Button, Icon, Text } from './'
 
 # Welcome UI
 
-Welcome to the _Welcome UI library_. Here you'll find all the core components you need to create a delightful webapp.
-
-## 1. Add welcome-ui as a dependency
-
-<Code language="bash">npm install welcome-ui</Code>
-
-or
-
-<Code language="bash">yarn add welcome-ui</Code>
-
-## 2. Import welcome-ui and create a theme
-
-<Code>{exampleHome}</Code>
+<Box>
+  <Box color="primary.500" fontsize={{ xs: 230, md: 500 }} mt={-50} mb={{ xs: -80, md: -150 }}>
+    <Illustration />
+  </Box>
+  <Text variant="h3" color="dark.200">
+    Customizable design system with react • styled-components • styled-system and reakit.
+  </Text>
+  <Text variant="body1">
+    Here you'll find all the core components you need to create a delightful webapp.
+  </Text>
+  <Box display="flex" mt={{ xs: 30, md: 50 }}>
+    <Button size="lg" as={Link} to="/getting-started">
+      <Icon name="hard_hat" size="lg" />
+      <span>Get Started</span>
+    </Button>
+    <Button
+      as="a"
+      size="lg"
+      variant="secondary"
+      ml="md"
+      href="https://github.com/WTTJ/welcome-ui"
+      target="_blank"
+    >
+      <Icon name="github" size="lg" />
+      <span>Github</span>
+    </Button>
+  </Box>
+</Box>

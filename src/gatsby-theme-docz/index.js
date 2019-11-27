@@ -11,6 +11,7 @@ import { Code, CodeEditor, H1, H2, H3, InlineCode, Props } from '../../../docz'
 
 import { Content } from './components/Content.styled'
 import { Menu } from './components/Menu'
+import { MobileMenu } from './components/MobileMenu'
 import { Page } from './components/Page'
 
 const components = {
@@ -70,6 +71,11 @@ const Theme = ({ children }) => {
             />
           </Helmet>
           <GlobalStyle />
+          <MobileMenu
+            display={{ lg: 'none' }}
+            items={menus}
+            theme={{ setTheme: setThemeWUI, value: themeWUI }}
+          />
           <Menu
             display={{ xs: 'none', lg: 'flex' }}
             items={menus}

@@ -1,12 +1,18 @@
 # Welcome UI
 
-[![License](https://img.shields.io/npm/l/welcome-ui.svg)](https://github.com/WTTJ/welcome-ui/blob/master/LICENSE) [![npm package](https://img.shields.io/npm/v/welcome-ui/latest.svg)](https://www.npmjs.com/package/welcome-ui) [![downloads npm](https://img.shields.io/npm/dw/welcome-ui.svg)](https://www.npmjs.com/package/welcome-ui) ![Code formating](https://img.shields.io/badge/code%20formating-prettier-blue.svg) ![Code style](https://img.shields.io/badge/code%20style-styled--components-ff69b4.svg) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-mediumspringgreen.svg)](https://github.com/WTTJ/welcome-ui/blob/master/CONTRIBUTING.md) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+<img src="assets/readme.png" width="500" />
 
-Welcome to the _Welcome UI library_ create by [Welcome to the jungle](http://www.welcometothejungle.co) with react and styled components 💅
+Welcome to the _Welcome UI library_ create by [Welcome to the jungle](http://www.welcometothejungle.co), a customizable design system with react • styled-components • styled-system and reakit.
 
 Here you'll find all the core components you need to create a delightful webapp.
 
-🌴 [Discover all the components](https://welcome-ui.surge.sh)
+🌴 [Discover all the components](https://welcome-ui.com)
+
+---
+
+[![npm package](https://img.shields.io/npm/v/welcome-ui/latest.svg)](https://www.npmjs.com/package/welcome-ui) [![License](https://img.shields.io/npm/l/welcome-ui.svg)](https://github.com/WTTJ/welcome-ui/blob/master/LICENSE) [![downloads npm](https://img.shields.io/npm/dw/welcome-ui.svg)](https://www.npmjs.com/package/welcome-ui) ![Code formating](https://img.shields.io/badge/code%20formating-prettier-blue.svg) ![Code style](https://img.shields.io/badge/code%20style-styled--components-ff69b4.svg) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-mediumspringgreen.svg)](https://github.com/WTTJ/welcome-ui/blob/master/CONTRIBUTING.md) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
+---
 
 ## Install
 
@@ -22,12 +28,12 @@ yarn add welcome-ui
 
 ## Import library & Theme
 
-You can find all the theme properties [here](https://welcome-ui.surge.sh/themes).
+You can find all the theme properties [here](https://welcome-ui.com/themes).
 
 ```js
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
-import { createTheme, GlobalStyle } from 'welcome-ui'
+import { ThemeProvider } from '@xstyled/styled-components'
+import { createTheme, GlobalStyle, Text } from 'welcome-ui'
 
 const options = {
   defaultFontFamily: 'Helvetica',
@@ -41,7 +47,6 @@ const options = {
     }
   }
 }
-
 const theme = createTheme(options)
 
 export default function Root() {
@@ -50,7 +55,7 @@ export default function Root() {
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyle />
-        <div>Welcome!</div>
+        <Text variant="h1">Welcome!</Text>
       </>
     </ThemeProvider>
   )
