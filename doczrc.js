@@ -2,6 +2,7 @@ export default {
   title: 'Welcome UI',
   description: 'Design system of @wttj with react, styled-components and styled-system',
   dest: '/docs',
+  src: 'src',
   menu: ['Introduction', 'Getting Started', 'Theming', 'Components', 'Fields'],
   ignore: ['README.md', 'CHANGELOG.md', 'CONTRIBUTING.md'],
   port: 3020,
