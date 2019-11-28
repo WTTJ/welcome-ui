@@ -1,5 +1,5 @@
 import React, { forwardRef, Fragment } from 'react'
-import { bool, func, node, string } from 'prop-types'
+import { bool, func, node, oneOf, oneOfType, string } from 'prop-types'
 
 // Common
 import { RowContainer } from '../../common/styles/layout'
@@ -143,12 +143,12 @@ Field.displayName = 'Field'
 Field.propTypes = {
   checked: bool,
   children: func,
-  component: COMPONENT_TYPE.isRequired,
+  component: oneOfType(COMPONENT_TYPE).isRequired,
   connected: bool,
   disabled: bool,
   disabledIcon: node,
   error: string,
-  flexDirection: DIRECTIONS_TYPE,
+  flexDirection: oneOf(DIRECTIONS_TYPE),
   hint: string,
   id: string,
   label: string,
@@ -156,8 +156,8 @@ Field.propTypes = {
   onChange: func.isRequired,
   onClick: func,
   required: bool,
-  size: SIZES_TYPE,
+  size: oneOf(SIZES_TYPE),
   touched: bool,
-  type: INPUTS_TYPE,
+  type: oneOf(INPUTS_TYPE),
   warning: string
 }
