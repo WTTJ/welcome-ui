@@ -6,11 +6,11 @@ export const Content = styled.article`
   height: 100vh;
   overflow-y: auto;
   max-width: 1200;
-  padding: 30px 20px;
+  padding: 20;
   color: nude.800;
 
   @media (min-width: 1300px) {
-    padding: 50px 100px;
+    padding: 50 100;
   }
 
   p {

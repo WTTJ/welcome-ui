@@ -3,17 +3,15 @@ import React from 'react'
 
 import { Box } from '../../../../src/components/Box'
 import { Icon } from '../../../../src/components/Icon'
-import { Tag } from '../../../../src/components/Tag'
 import { Select } from '../../../../src/components/Select'
 
 import { Logo } from './Logo'
+import { TagVersion } from './TagVersion'
 import * as S from './Header.styled'
-
-const { version } = require('../../../../package.json')
 
 export const Header = ({ setTheme, value }) => {
   return (
-    <S.Header>
+    <div>
       <Box alignItems="flex-start" display="flex" justifyContent="space-between">
         <a
           alt="welcome to the jungle"
@@ -25,7 +23,7 @@ export const Header = ({ setTheme, value }) => {
             <Logo />
           </S.Logo>
         </a>
-        <Tag size="lg" variant="dark">{`v${version}`}</Tag>
+        <TagVersion />
       </Box>
       <Box mb={40} mt={40}>
         <Select
@@ -42,9 +40,6 @@ export const Header = ({ setTheme, value }) => {
           value={value}
         />
       </Box>
-      {/* <Box>
-        <InputText name="search_wui" placeholder="Search..." size="sm" />
-      </Box> */}
-    </S.Header>
+    </div>
   )
 }
