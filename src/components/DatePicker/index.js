@@ -25,7 +25,7 @@ export const DatePicker = forwardRef(
       onChange,
       onFocus,
       placeholder,
-      popperZIndex = 1,
+      popperProps,
       size = 'lg',
       startYear = 1900,
       useWeekdaysShort = true,
@@ -115,7 +115,7 @@ export const DatePicker = forwardRef(
         onKeyDown={handleKeyDown}
         placeholderText={placeholderText}
         popperContainer={CustomPopper}
-        popperProps={{ zIndex: popperZIndex }}
+        popperProps={popperProps}
         renderCustomHeader={props => (
           <CustomHeader endYear={endYear} locale={locale} startYear={startYear} {...props} />
         )}
@@ -143,7 +143,7 @@ DatePicker.propTypes = {
   onChange: func,
   onFocus: func,
   placeholder: string,
-  popperZIndex: number,
+  popperProps: object,
   size: oneOf(SIZES_TYPE),
   startYear: number,
   useWeekdaysShort: bool,

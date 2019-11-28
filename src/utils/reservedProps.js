@@ -107,7 +107,7 @@ const customProps = [
   'isSearchable',
   'maxSize',
   'minRows',
-  'popperZIndex',
+  'popperProps',
   'renderItem'
 ]
 

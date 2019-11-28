@@ -33,8 +33,8 @@ describe('<DateTimePicker />', () => {
     const dateTimePicker = getByTestId('dateTimePicker')
 
     const datePicker = dateTimePicker.querySelector('.date-picker')
-    expect(datePicker).toBeInTheDocument()
     const timePicker = dateTimePicker.querySelector('.time-picker')
+    expect(datePicker).toBeInTheDocument()
     expect(timePicker).toBeInTheDocument()
   })
 
@@ -47,8 +47,8 @@ describe('<DateTimePicker />', () => {
     const dateTimePicker = getByTestId('dateTimePicker')
 
     const datePicker = dateTimePicker.querySelector('.date-picker')
-    expect(datePicker).toBeInTheDocument()
     const timePicker = dateTimePicker.querySelector('.time-picker')
+    expect(datePicker).toBeInTheDocument()
     expect(timePicker).toBeInTheDocument()
   })
 
@@ -61,10 +61,10 @@ describe('<DateTimePicker />', () => {
     const datePicker = container.querySelector('.date-picker')
     fireEvent.click(datePicker)
 
-    const datePickerPopper = baseElement.querySelectorAll('.date-picker-popper')
-    const timePickerPopper = baseElement.querySelectorAll('.time-picker-popper')
-    expect(datePickerPopper).toHaveLength(1)
-    expect(timePickerPopper).toHaveLength(0)
+    const datePickerPopper = baseElement.querySelector('.date-picker-popper')
+    const timePickerPopper = baseElement.querySelector('.time-picker-popper')
+    expect(datePickerPopper).toBeInTheDocument()
+    expect(timePickerPopper).not.toBeInTheDocument()
   })
 
   test('can render and opens the timePicker on click', () => {
@@ -76,10 +76,10 @@ describe('<DateTimePicker />', () => {
     const timePicker = container.querySelector('.time-picker')
     fireEvent.click(timePicker)
 
-    const datePickerPopper = baseElement.querySelectorAll('.date-picker-popper')
-    const timePickerPopper = baseElement.querySelectorAll('.time-picker-popper')
-    expect(datePickerPopper).toHaveLength(0)
-    expect(timePickerPopper).toHaveLength(1)
+    const datePickerPopper = baseElement.querySelector('.date-picker-popper')
+    const timePickerPopper = baseElement.querySelector('.time-picker-popper')
+    expect(datePickerPopper).not.toBeInTheDocument()
+    expect(timePickerPopper).toBeInTheDocument()
   })
 
   test('<DateTimePicker> renders month select', () => {

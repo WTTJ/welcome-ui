@@ -44,7 +44,12 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 
 <Playground>
   <Form initialValues={{ welcome: Date.now() }}>
-    <ConnectedField name="welcome" component={TimePicker} timeIntervals={30} />
+    <ConnectedField
+      name="welcome"
+      component={TimePicker}
+      popperProps={{ zIndex: 50 }}
+      timeIntervals={30}
+    />
   </Form>
 </Playground>
 
