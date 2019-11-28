@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { func, oneOf, oneOfType, string } from 'prop-types'
+import { elementType, func, oneOf, oneOfType, shape, string } from 'prop-types'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 import { IconWrapper } from '../Field/styles'
@@ -55,7 +55,7 @@ CustomInput.propTypes = {
   handleFocus: func,
   icon: oneOfType(COMPONENT_TYPE),
   iconPlacement: oneOf(['right', 'left']),
-  inputRef: func,
+  inputRef: shape({ current: elementType }),
   onReset: func,
   size: oneOf(SIZES_TYPE),
   value: string

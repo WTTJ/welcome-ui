@@ -1,4 +1,4 @@
-import { any, bool, func, object, string } from 'prop-types'
+import { any, bool, func, number, object, oneOfType, shape, string } from 'prop-types'
 
 export const FINAL_FORM_INPUT_TYPES = Object.freeze({
   name: string,
@@ -43,7 +43,10 @@ export const INPUTS_TYPE = [
   'tel',
   'text'
 ]
-export const OPTIONS_TYPE = { label: string, value: string }
+export const OPTIONS_TYPE = shape({
+  label: oneOfType([number, string]),
+  value: oneOfType([number, string])
+})
 export const SHAPES_TYPE = ['square', 'circle']
 export const SIZES_TYPE = ['sm', 'md', 'lg']
 export const VARIANTS_TYPE = ['error', 'info', 'valid', 'warning']
