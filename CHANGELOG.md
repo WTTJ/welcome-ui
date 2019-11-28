@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.1](https://github.com/WTTJ/welcome-ui/compare/v0.31.0...v0.31.1) (2019-11-28)
+
+
+### Bug Fixes
+
+* pass popperProps to StyledCustomPopper ([#427](https://github.com/WTTJ/welcome-ui/issues/427)) ([cc78d26](https://github.com/WTTJ/welcome-ui/commit/cc78d26))
+* proptypes warnings ([687fd1a](https://github.com/WTTJ/welcome-ui/commit/687fd1a))
+* proptypes warnings ([d551fdd](https://github.com/WTTJ/welcome-ui/commit/d551fdd))
+
+
+
 ## [0.31.0](https://github.com/WTTJ/welcome-ui/compare/v0.30.5...v0.31.0) (2019-11-25)
 
 
