@@ -24,6 +24,7 @@ export const TimePicker = forwardRef(
       iconPlacement = 'left',
       inputRef,
       placeholder,
+      popperProps,
       timeIntervals = 15,
       ...rest
     },
@@ -97,6 +98,7 @@ export const TimePicker = forwardRef(
         onChange={handleChange}
         placeholderText={placeholderText}
         popperContainer={CustomPopper}
+        popperProps={popperProps}
         selected={date}
         showTimeSelect
         showTimeSelectOnly
@@ -121,6 +123,7 @@ TimePicker.propTypes = {
   onChange: func,
   onFocus: func,
   placeholder: string,
+  popperProps: object,
   size: oneOf(SIZES_TYPE),
   timeIntervals: number,
   value: oneOfType([number, object, string]).isRequired
