@@ -1,5 +1,5 @@
 import React from 'react'
-import { arrayOf, bool, elementType, oneOf, shape, string } from 'prop-types'
+import { arrayOf, bool, elementType, oneOf, string } from 'prop-types'
 import { RadioGroup as ReakitRadioGroup, useRadioState } from 'reakit/Radio'
 
 import { DIRECTIONS_TYPE, OPTIONS_TYPE } from '../../utils/propTypes'
@@ -49,7 +49,7 @@ RadioGroup.propTypes = {
   flexDirection: oneOf(DIRECTIONS_TYPE),
   label: string,
   name: string,
-  options: arrayOf(shape(OPTIONS_TYPE)),
+  options: arrayOf(OPTIONS_TYPE),
   renderOption: elementType,
   required: bool,
   value: string

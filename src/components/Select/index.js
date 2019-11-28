@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useMemo, useState } from 'react'
-import { arrayOf, bool, func, number, oneOf, oneOfType, shape, string } from 'prop-types'
+import { arrayOf, bool, func, number, oneOf, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import matchSorter from 'match-sorter'
 import kebabCase from 'lodash.kebabcase'
@@ -315,15 +315,15 @@ Select.propTypes = {
   onCreate: func,
   onFocus: func,
   onKeyDown: func,
-  options: arrayOf(shape(OPTIONS_TYPE)).isRequired,
-  placeholder: string.isRequired,
+  options: arrayOf(OPTIONS_TYPE).isRequired,
+  placeholder: string,
   renderItem: func,
   renderMultiple: func,
   searchable: bool,
   size: oneOf(SIZES_TYPE),
   type: oneOf(INPUTS_TYPE),
   value: oneOfType([
-    oneOf([shape(OPTIONS_TYPE), arrayOf(shape(OPTIONS_TYPE))]),
+    oneOf([OPTIONS_TYPE, arrayOf(OPTIONS_TYPE)]),
     string,
     arrayOf(string),
     number,
