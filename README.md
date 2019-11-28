@@ -2,11 +2,11 @@
 
 <img src="assets/readme.png" width="500" />
 
-Welcome to the _Welcome UI library_ create by [Welcome to the jungle](http://www.welcometothejungle.co), a customizable design system with react • styled-components • styled-system and reakit.
+Welcome to the _Welcome UI library_ create by [Welcome to the jungle](https://www.welcometothejungle.co), a customizable design system with react • styled-components • styled-system and reakit.
 
 Here you'll find all the core components you need to create a delightful webapp.
 
-🌴 [Discover all the components](https://welcome-ui.com)
+🌴 [Discover all the components](http://welcome-ui.com)
 
 ---
 
@@ -28,7 +28,7 @@ yarn add welcome-ui
 
 ## Import library & Theme
 
-You can find all the theme properties [here](https://welcome-ui.com/themes).
+You can find all the theme properties [here](http://welcome-ui.com/theming/theme-values).
 
 ```js
 import React from 'react'
