@@ -69,6 +69,22 @@ const Theme = ({ children }) => {
               href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
               rel="stylesheet"
             />
+            <meta content="summary_large_image" name="twitter:card" />
+            <meta content="@wttj_fr" name="twitter:site" />
+            <meta content="@wttj_fr" name="twitter:create" />
+            <meta content="http://welcome-ui.com" property="og:url" />
+            <meta
+              content="Welcome UI - Customizable design system with react"
+              property="og:title"
+            />
+            <meta
+              content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react • styled-components • styled-system and reakit."
+              property="og:description"
+            />
+            <meta
+              content="https://cdn.welcometothejungle.co/images/welcome-ui-og-image.png"
+              property="og:image"
+            />
           </Helmet>
           <GlobalStyle />
           <MobileMenu
