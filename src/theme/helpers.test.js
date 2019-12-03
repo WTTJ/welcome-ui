@@ -20,7 +20,7 @@ test('Can create theme with different fonts', () => {
   })
 
   expect(th.font('texts')({ theme })).toBe('HKCompakt')
-  expect(th.font('headings')({ theme })).toBe('welcomeweb')
+  expect(th.font('headings')({ theme })).toBe('welcomefont')
   expect(th.font('quotes')({ theme })).toBe('HKCompakt')
   expect(theme.fontFaces.HKCompakt).toBeDefined()
 })
