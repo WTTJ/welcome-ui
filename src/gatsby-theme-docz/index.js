@@ -72,6 +72,14 @@ const Theme = ({ children }) => {
             <meta content="summary_large_image" name="twitter:card" />
             <meta content="@wttj_fr" name="twitter:site" />
             <meta content="@wttj_fr" name="twitter:create" />
+            <meta
+              content="Welcome UI - Customizable design system with react"
+              property="twitter:title"
+            />
+            <meta
+              content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react • styled-components • styled-system and reakit."
+              property="twitter:description"
+            />
             <meta content="http://welcome-ui.com" property="og:url" />
             <meta
               content="Welcome UI - Customizable design system with react"
