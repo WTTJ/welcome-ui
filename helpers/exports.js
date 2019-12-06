@@ -11,6 +11,9 @@ const indexPath = path.join(__dirname, '../src/index.js')
 fs.readdirAsync(rootPath).then(folders => {
   fs.readFileAsync(indexPath, 'utf8').then(content => {
     const missing = folders.reduce((acc, folder) => {
+      if (folder.charAt(0) === '.') {
+        return acc
+      }
       const regex = new RegExp(`/${folder}/`, 'g')
       return regex.test(content) ? acc : [...acc, folder]
     }, [])
