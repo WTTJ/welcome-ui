@@ -7,12 +7,13 @@ const getBlockHeight = ({ lines, variant }) => css`
   height: ${`calc(${th.fontSize(variant)} * ${th.lineHeight(variant)} * ${lines}`};
 `
 
-export const Text = styled.p(({ lines, underline, variant }) => {
-  return css`
+export const Text = styled.p(
+  ({ lines, underline, variant }) => css`
     ${th(`texts.${variant}`)};
     ${underline && th('underline')};
     display: block; /* Fallback for non-webkit */
     ${lines &&
+      lines !== Infinity &&
       getBlockHeight({ lines, variant })} /* Fallback for non-webkit */
 
     display: -webkit-box;
@@ -22,4 +23,4 @@ export const Text = styled.p(({ lines, underline, variant }) => {
 
     ${system};
   `
-})
+)
