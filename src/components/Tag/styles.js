@@ -41,7 +41,7 @@ export const Tag = styled.div(
     }
 
     > *:not(:only-child) {
-      ${Icon}:last-child {
+      ${/* sc-selector */ Icon}:last-child {
         cursor: pointer;
 
         path {

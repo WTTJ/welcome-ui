@@ -33,7 +33,7 @@ export const Wrapper = styled(filterComponent('div'))(
 )
 
 export const Toolbar = styled.div(
-  ({ borderRadius }) => css`
+  ({ borderRadius = 'sm' }) => css`
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -41,7 +41,6 @@ export const Toolbar = styled.div(
     opacity: 1;
     background-color: light.100;
     border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude.200')};
-    border-radius: sm;
     position: sticky;
     top: 0;
     overflow: auto;
