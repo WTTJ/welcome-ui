@@ -5,6 +5,8 @@ import { render } from '../../utils/tests'
 import { Text } from './index'
 
 const content = 'Jungle'
+const longContent =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis viverra lectus, vel tristique turpis. Vivamus magna nulla, elementum in feugiat feugiat, egestas eget nibh. Ut ac justo vitae dolor iaculis gravida. In eu nisl lorem. Cras eu mauris et tortor suscipit accumsan. Duis ullamcorper nisl a justo ultricies, eu consequat risus imperdiet. Phasellus at metus cursus, fringilla tortor eu, scelerisque quam. Donec efficitur porta elit ac malesuada.'
 
 describe('<Text>', () => {
   it('should render correctly', () => {
@@ -43,5 +45,20 @@ describe('<Text>', () => {
     // check if is a div element
     expect(container.querySelector('h1')).not.toBeInTheDocument()
     expect(container.querySelector('div')).toBeInTheDocument()
+  })
+
+  it('should render correctly when truncated', () => {
+    const { container, getByTestId } = render(
+      <Text dataTestId="text" lines={3}>
+        {longContent}
+      </Text>
+    )
+    const text = getByTestId('text')
+
+    expect(text).toHaveTextContent(longContent)
+    // check if is a div element
+    expect(container.querySelector('p')).toBeInTheDocument()
+    expect(text).toHaveStyleRule('overflow', 'hidden')
+    expect(text).toHaveStyleRule('-webkit-line-clamp', '3')
   })
 })

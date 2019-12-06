@@ -5330,7 +5330,7 @@ docz-utils@^2.1.0:
     unist-util-is "^3.0.0"
     unist-util-visit "^1.4.1"
 
-docz@^2.2.0-alpha.1:
+docz@=2.2.0-alpha.1:
   version "2.2.0-alpha.1"
   resolved "https://registry.yarnpkg.com/docz/-/docz-2.2.0-alpha.1.tgz#25047325df3272e1530d5bd3ec7a0de20fdec6bf"
   integrity sha512-h6zg/woiths3At7w0e+pXrHwCbyIp3bcNO7dArY51aBqkI02+UsCQFRTpaCNwjHBYnSL9DwFjpuuX1mk2jqY5w==
@@ -7051,7 +7051,7 @@ gatsby-telemetry@^1.1.33:
     stack-utils "1.0.2"
     uuid "3.3.3"
 
-gatsby-theme-docz@^2.2.0-alpha.1:
+gatsby-theme-docz@=2.2.0-alpha.1, gatsby-theme-docz@^2.2.0-alpha.1:
   version "2.2.0-alpha.1"
   resolved "https://registry.yarnpkg.com/gatsby-theme-docz/-/gatsby-theme-docz-2.2.0-alpha.1.tgz#0b05eb59bebde718858dad11e093648da7ebef14"
   integrity sha512-cRmNjunD4UXi6ILNYbN8eK+eka8i3QxHQxreAZUgz9Dv98oAt8mAm43HefwgamNHYr32PQ4hS9qbcCXJzpnIlQ==
