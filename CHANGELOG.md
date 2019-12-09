@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.2](https://github.com/WTTJ/welcome-ui/compare/v0.31.1...v0.31.2) (2019-12-09)
+
+
+### Bug Fixes
+
+* `Infinity` lines in `Text` ([#433](https://github.com/WTTJ/welcome-ui/issues/433)) ([5309ede](https://github.com/WTTJ/welcome-ui/commit/5309ede))
+
+
+
 ### [0.31.1](https://github.com/WTTJ/welcome-ui/compare/v0.31.0...v0.31.1) (2019-11-28)
 
 
