@@ -4,8 +4,11 @@ import { th } from '@xstyled/system'
 import { system } from '../../utils/system'
 
 const getBlockHeight = lines => css`
+  /* stylelint-disable-next-line value-no-vendor-prefix */
   display: -webkit-box;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-box-orient: vertical;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-line-clamp: ${lines || 'none'};
   overflow: hidden;
 `
@@ -14,8 +17,11 @@ export const Text = styled.p(
   ({ lines, underline, variant }) => css`
     ${th(`texts.${variant}`)};
     ${underline && th('underline')};
-    display: block; /* Fallback for non-webkit */
-    ${lines && lines !== Infinity && getBlockHeight(lines)}; /* Fallback for non-webkit */
+
+    /* Start fallback for non-webkit */
+    display: block;
+    ${lines && lines !== Infinity && getBlockHeight(lines)};
+    /* End fallback for non-webkit */
 
     ${system};
   `

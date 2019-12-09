@@ -31,6 +31,13 @@ export const Tab = styled.button`
   text-transform: none;
   cursor: pointer;
 
+  &:focus {
+    outline: none;
+    &:not([aria-selected='true']) {
+      ${th('tabs.item.focus')};
+    }
+  }
+
   &[aria-selected='true'] {
     ${th('tabs.item.active')};
   }
@@ -42,13 +49,6 @@ export const Tab = styled.button`
 
   &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
     ${th('tabs.item.focus')};
-  }
-
-  &:focus {
-    outline: none;
-    &:not([aria-selected='true']) {
-      ${th('tabs.item.focus')};
-    }
   }
 `
 

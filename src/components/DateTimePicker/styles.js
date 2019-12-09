@@ -22,44 +22,13 @@ const focusStyles = css`
   }
 `
 
-export const DateTimePicker = styled.div(
-  ({ connected, datePickerOnly, timePickerOnly, width = 'auto' }) => css`
-    position: relative;
-    display: ${width === 'auto' ? 'inline-flex' : 'flex'};
-    flex-wrap: nowrap;
-
-    .react-datepicker-wrapper:first-child:not(:only-child) {
-      margin-right: -1px;
-    }
-
-    .react-datepicker-wrapper {
-      flex-grow: 1;
-      ${DatePicker} {
-        ${focusStyles};
-        border-top-right-radius: ${datePickerOnly ? null : 0};
-        border-bottom-right-radius: ${datePickerOnly ? null : 0};
-      }
-      ${TimePicker} {
-        ${focusStyles};
-        border-top-left-radius: ${timePickerOnly ? null : 0};
-        border-bottom-left-radius: ${timePickerOnly ? null : 0};
-      }
-    }
-    .react-datepicker__input-container {
-      display: block;
-    }
-
-    .react-datepicker {
-      font-family: inherit;
-    }
-
-    ${connected ? null : wrapperSystem};
-  `
-)
-
 const iconPlacementStyles = (placement, size, rest) => {
   if (placement === 'right') {
     return css`
+      ${DatePicker}, ${TimePicker} {
+        padding-right: ${`calc(1.5 * ${th(`fields.sizes.${size}.height`)(rest)})`};
+      }
+
       ${IconWrapper} {
         &:not(:last-child) {
           right: ${th(`fields.sizes.${size}.height`)(rest)};
@@ -71,10 +40,6 @@ const iconPlacementStyles = (placement, size, rest) => {
           right: 0.625rem;
         }
       }
-
-      ${DatePicker}, ${TimePicker} {
-        padding-right: ${`calc(1.5 * ${th(`fields.sizes.${size}.height`)(rest)})`};
-      }
     `
   }
   if (placement === 'left') {
@@ -85,6 +50,21 @@ const iconPlacementStyles = (placement, size, rest) => {
     `
   }
 }
+
+export const CustomInput = styled.div(({ focused, icon, iconPlacement, size, ...rest }) => {
+  return css`
+    position: relative;
+    ${DatePicker}, ${TimePicker} {
+      padding-right: ${th(`fields.sizes.${size}.height`)(rest)};
+    }
+
+    ${icon && iconPlacementStyles(iconPlacement, size, rest)};
+
+    ${ClearButton} {
+      z-index: ${focused ? 1 : null};
+    }
+  `
+})
 
 export const CustomHeader = styled.div`
   display: flex;
@@ -102,24 +82,45 @@ export const CustomHeader = styled.div`
   }
 `
 
+export const DateTimePicker = styled.div(
+  ({ connected, datePickerOnly, timePickerOnly, width = 'auto' }) => css`
+    position: relative;
+    display: ${width === 'auto' ? 'inline-flex' : 'flex'};
+    flex-wrap: nowrap;
+
+    .react-datepicker-wrapper {
+      flex-grow: 1;
+      ${DatePicker} {
+        ${focusStyles};
+        border-top-right-radius: ${datePickerOnly ? null : 0};
+        border-bottom-right-radius: ${datePickerOnly ? null : 0};
+      }
+      ${TimePicker} {
+        ${focusStyles};
+        border-top-left-radius: ${timePickerOnly ? null : 0};
+        border-bottom-left-radius: ${timePickerOnly ? null : 0};
+      }
+    }
+
+    .react-datepicker-wrapper:first-child:not(:only-child) {
+      margin-right: -1px;
+    }
+
+    .react-datepicker__input-container {
+      display: block;
+    }
+
+    .react-datepicker {
+      font-family: inherit;
+    }
+
+    ${connected ? null : wrapperSystem};
+  `
+)
+
 export const Selects = styled.div`
   display: flex;
-  ${Select}:first-child {
+  ${/* sc-selector */ Select}:first-child {
     margin-right: sm;
   }
 `
-
-export const CustomInput = styled.div(({ focused, icon, iconPlacement, size, ...rest }) => {
-  return css`
-    position: relative;
-    ${DatePicker}, ${TimePicker} {
-      padding-right: ${th(`fields.sizes.${size}.height`)(rest)};
-    }
-
-    ${icon && iconPlacementStyles(iconPlacement, size, rest)};
-
-    ${ClearButton} {
-      z-index: ${focused ? 1 : null};
-    }
-  `
-})

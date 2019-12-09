@@ -78,7 +78,7 @@ export const Menu = styled.ul`
   transition: medium;
   box-shadow: sm;
   overflow: auto;
-  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
 `
 
 export const Item = styled.li(
@@ -144,7 +144,7 @@ export const DropDownIndicator = styled.button(
 export const Tags = styled.div`
   margin-top: lg;
 
-  ${Tag}:not(:last-child) {
+  ${/* sc-selector */ Tag}:not(:last-child) {
     margin-right: sm;
     margin-bottom: sm;
   }
