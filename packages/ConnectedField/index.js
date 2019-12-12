@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react'
 import { oneOfType, string } from 'prop-types'
 import { Field as FinalField } from 'react-final-form'
+import { Field } from '@welcome-ui/field'
 
-import { Field } from '../Field'
-import { COMPONENT_TYPE, FINAL_FORM_INPUT_TYPES } from '../../utils/propTypes'
-import { getBaseType } from '../../utils/fields'
+import { COMPONENT_TYPE, FINAL_FORM_INPUT_TYPES } from '../Core/utils/propTypes'
+import { getBaseType } from '../Core/utils/fields'
 
 export const ConnectedField = forwardRef(({ children, component, type, ...rest }, ref) => {
   if (!children && !component) {
