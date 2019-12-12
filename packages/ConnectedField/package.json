@@ -44,7 +44,6 @@
   "dependencies": {
     "@welcome-ui/field": "^1.0.7-alpha.0",
     "@welcome-ui/input-text": "^1.0.7-alpha.0",
-    "prop-types": "^15.7.2",
     "react-final-form": "^6.3.3"
   },
   "peerDependencies": {

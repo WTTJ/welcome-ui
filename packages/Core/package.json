@@ -46,7 +46,6 @@
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.1",
     "polished": "^3.4.1",
-    "prop-types": "^15.7.2",
     "react-router-dom": "=5.1.2",
     "styled-components": "^4.3.2"
   },
