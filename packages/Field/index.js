@@ -160,3 +160,5 @@ Field.propTypes = {
   type: oneOf(INPUTS_TYPE),
   warning: string
 }
+
+export const IconWrapper = S.IconWrapper

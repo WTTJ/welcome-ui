@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { bool, func, node, oneOf, string } from 'prop-types'
-import { IconWrapper } from '@welcome-ui/field/styles'
+import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
 
 import { createEvent } from '../utils/events'
