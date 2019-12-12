@@ -3,7 +3,7 @@ import { th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
 
 import { componentSystem, filterComponent, system } from '../Core/utils/system'
-import { fieldStyles } from '../Core/common/styles/form'
+import { fieldStyles } from '../Core/styles/form'
 
 export const InputRadio = styled(filterComponent(ReakitRadio))(
   ({ connected, order = '-1' }) => css`
