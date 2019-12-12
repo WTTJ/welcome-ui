@@ -1,9 +1,9 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledLabel } from '@welcome-ui/label'
+import { StyledFieldGroup } from '@welcome-ui/field-group'
 
 import { filterComponent, system, wrapperSystem } from '../utils/system'
-// import { FieldGroup } from '../FieldGroup/styles'
 
 const rowStyles = css`
   margin-right: sm;
@@ -20,9 +20,9 @@ const checkableFieldStyles = css`
 
 export const Field = styled(filterComponent('div', ['options', 'value', 'renderMultiple']))(
   props => css`
-    /* ${FieldGroup} {
+    ${StyledFieldGroup} {
       margin-bottom: ${props.checkableField && 'xxs'};
-    } */
+    }
     ${StyledLabel} {
       ${props.flexDirection === 'row' && rowStyles};
       ${props.flexDirection === 'column' && columnStyles};

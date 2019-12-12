@@ -1,0 +1,25 @@
+import React, { forwardRef } from 'react'
+import { bool, node, string } from 'prop-types'
+import { Label } from '@welcome-ui/label'
+
+import * as S from './styles'
+
+export const FieldGroup = forwardRef(({ children, label, required }, ref) => (
+  <S.FieldGroup ref={ref}>
+    {label && (
+      <Label as="legend" required={required}>
+        {label}
+      </Label>
+    )}
+    {children}
+  </S.FieldGroup>
+))
+
+FieldGroup.displayName = 'FieldGroup'
+FieldGroup.propTypes = {
+  children: node,
+  label: string,
+  required: bool
+}
+
+export const StyledFieldGroup = S.FieldGroup
