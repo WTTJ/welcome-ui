@@ -26,8 +26,7 @@ const getPackageNames = (callback, forceUpdatedPackages) => {
       console.log('No components have been changed, nothing to do. Exiting.')
       process.exit(0)
     } else {
-      const updatedPackages = JSON.parse(stdout)
-      const packageNames = updatedPackages.map(packageObject => packageObject.name)
+      const packageNames = JSON.parse(stdout).map(pkg => pkg.name)
 
       callback(packageNames)
     }
@@ -35,16 +34,21 @@ const getPackageNames = (callback, forceUpdatedPackages) => {
 }
 
 getPackageNames(packageNames => {
-  const scopeGlob = packageNames.length === 1 ? packageNames[0] : packageNames.join(',')
+  const scopeGlob = packageNames.length === 1 ? packageNames[0] : `{${packageNames.join(',')}}`
 
   spawnSync(
     'npx',
-    ['lerna', 'exec', '--no-private', '--', 'rollup --config ../../rollup.config.js'],
+    [
+      'lerna',
+      'exec',
+      '--scope',
+      scopeGlob,
+      '--no-private',
+      '--',
+      'rollup --config ../../rollup.config.js'
+    ],
     {
       stdio: 'inherit'
     }
   )
-  spawnSync('npx', ['lerna', 'exec', '--no-private', 'npm pack'], {
-    stdio: 'inherit'
-  })
 })
