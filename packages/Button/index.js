@@ -40,3 +40,5 @@ Button.propTypes = {
     'secondary-danger'
   ])
 }
+
+export const StyledButton = S.Button
