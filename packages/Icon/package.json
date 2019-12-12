@@ -27,6 +27,9 @@
     "clean": "yarn docz:clean && yarn start",
     "phoenix": "rm -rf node_modules && yarn cache clean && yarn"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WTTJ/welcome-ui.git"
@@ -69,5 +72,6 @@
       "pre-push": "yarn exports:check && yarn lint && yarn icons:optimize && yarn icons:collect && yarn test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  }
+  },
+  "gitHead": "b19b6774922a0d888191e5a38f15b2d5743f25a7"
 }
