@@ -1,8 +1,5 @@
 {
   "packages": ["packages/*"],
   "version": "1.0.0-alpha.0",
-  "npmClient": "yarn",
-  "publishConfig": {
-    "access": "public"
-  }
+  "npmClient": "yarn"
 }
