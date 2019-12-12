@@ -1,0 +1,50 @@
+{
+  "name": "@welcome-ui/alert",
+  "version": "0.31.2",
+  "description": "Customizable design system with react • styled-components • styled-system and reakit.",
+  "main": "dist/welcome-ui.cjs.js",
+  "module": "dist/welcome-ui.es.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WTTJ/welcome-ui.git"
+  },
+  "keywords": [
+    "design-system",
+    "react",
+    "reakit",
+    "styled-components",
+    "styled-system",
+    "ui-library",
+    "ui",
+    "ux",
+    "jungle",
+    "welcome",
+    "WTTJ"
+  ],
+  "author": "WTTJ <tech@wttj.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WTTJ/welcome-ui/issues"
+  },
+  "homepage": "https://github.com/WTTJ/welcome-ui#readme",
+  "dependencies": {
+    "@welcome-ui/text": "^0.31.2",
+    "@xstyled/styled-components": "^1.8.3",
+    "@xstyled/system": "^1.8.2",
+    "prop-types": "^15.7.2",
+    "styled-components": "^4.3.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "resolutions": {
+    "docz/**/webpack": "4.31.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn exports:check && yarn lint && yarn icons:optimize && yarn icons:collect && yarn test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

@@ -1,9 +1,9 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
+import { Box } from '@welcome-ui/box'
+import { Text } from '@welcome-ui/text'
 
-import { Box } from '../Box'
-import { Text } from '../Text'
-import { system } from '../../utils/system'
+import { system } from '../utils/system'
 
 export const Alert = styled(Box)(
   ({ variant }) => css`
