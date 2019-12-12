@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/button",
-  "version": "0.31.2",
+  "version": "1.0.0-alpha.0",
   "description": "welcome-ui: A button component",
   "scripts": {
     "build": "rm -rf dist && rollup --config",
