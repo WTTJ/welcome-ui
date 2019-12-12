@@ -3,7 +3,7 @@ import { bool, node, oneOf } from 'prop-types'
 import { Icon } from '@welcome-ui/icon'
 import { VariantIcon } from '@welcome-ui/variant-icon'
 
-import { wrap } from '../utils/react'
+import { wrap } from '../Core/utils/react'
 
 import * as S from './styles'
 

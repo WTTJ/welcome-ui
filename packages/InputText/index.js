@@ -3,8 +3,8 @@ import { bool, func, node, oneOf, string } from 'prop-types'
 import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
 
-import { createEvent } from '../utils/events'
-import { SIZES_TYPE, VARIANTS_TYPE } from '../utils/propTypes'
+import { createEvent } from '../Core/utils/events'
+import { SIZES_TYPE, VARIANTS_TYPE } from '../Core/utils/propTypes'
 
 import * as S from './styles'
 

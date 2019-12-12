@@ -1,8 +1,8 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
-import { colors } from '../../theme/colors'
-import { render } from '../utils/tests'
+import { colors } from '../Core/theme/colors'
+import { render } from '../Core/utils/tests'
 
 import { Button } from './index'
 

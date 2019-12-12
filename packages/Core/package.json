@@ -1,7 +1,7 @@
 {
-  "name": "@welcome-ui/button",
+  "name": "@welcome-ui/core",
   "version": "1.0.1-alpha.0",
-  "description": "welcome-ui: A button component",
+  "description": "welcome-ui: Core utils",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
   "scripts": {
@@ -39,10 +39,16 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
+    "@testing-library/react": "^8.0.1",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
+    "lodash.difference": "=4.5.0",
+    "lodash.get": "^4.4.2",
+    "lodash.merge": "^4.6.1",
+    "polished": "^3.4.1",
     "prop-types": "^15.7.2",
-    "reakit": "^1.0.0-beta.7"
+    "react-router-dom": "=5.1.2",
+    "styled-components": "^4.3.2"
   },
   "peerDependencies": {
     "react": "^16.8.0",
@@ -59,3 +65,4 @@
   },
   "gitHead": "b19b6774922a0d888191e5a38f15b2d5743f25a7"
 }
+

@@ -1,7 +1,7 @@
 import { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { getVariantStateColor } from '../../utils/variants'
+import { getVariantStateColor } from '../utils/variants'
 
 export const fieldStyles = ({ size, type, variant }) => css`
   ${th('fields.default')};

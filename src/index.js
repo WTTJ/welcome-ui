@@ -22,8 +22,8 @@ export * from './components/Tooltip/index'
 export * from './components/UniversalLink/index'
 
 // Utils/theme
-export * from './utils/base'
-export * from './theme/core'
-export * from './theme/welcome'
-export * from './theme/welcomekit'
-export * from './theme/helpers'
+export * from '../packages/Core/utils/base'
+export * from '../packages/Core/theme/core'
+export * from '../packages/Core/theme/welcome'
+export * from '../packages/Core/theme/welcomekit'
+export * from '../packages/Core/theme/helpers'
