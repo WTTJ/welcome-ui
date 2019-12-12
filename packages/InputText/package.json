@@ -1,10 +1,9 @@
 {
-  "name": "@welcome-ui/button",
+  "name": "@welcome-ui/input-text",
   "version": "0.31.2",
-  "description": "welcome-ui: A button component",
-  "main": "dist/welcome-ui.cjs.js",
-  "module": "dist/welcome-ui.es.js",
+  "description": "welcome-ui: Text input",
   "scripts": {
+    "build": "rm -rf dist && rollup --config",
     "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
     "lint:js": "eslint src --max-warnings 0",
     "lint:css": "stylelint 'src/**/styles.js'",
@@ -38,9 +37,9 @@
   "dependencies": {
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
-    "lodash.difference": "=4.5.0",
+    "@welcome-ui/clear-button": "^0.31.2",
+    "@welcome-ui/field": "^0.31.2",
     "prop-types": "^15.7.2",
-    "reakit": "^1.0.0-beta.7",
     "styled-components": "^4.3.2"
   },
   "peerDependencies": {
@@ -52,7 +51,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn lint && yarn test",
+      "pre-push": "yarn exports:check && yarn lint && yarn icons:optimize && yarn icons:collect && yarn test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
