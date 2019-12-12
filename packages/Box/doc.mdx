@@ -1,0 +1,28 @@
+---
+name: Box
+route: /components/box
+menu: Components
+---
+
+import { Props, Playground } from 'docz'
+
+# Box
+
+Use properties from [xstyled](https://www.smooth-code.com/open-source/xstyled/docs/system-props/).
+
+## Example
+
+<Playground>
+  <Box
+    display="flex"
+    width={1}
+    height="500px"
+    justifyContent="center"
+    alignItems="center"
+    backgroundColor="primary.100"
+  >
+    <Box backgroundColor="white" padding="50px">
+      Centered Box
+    </Box>
+  </Box>
+</Playground>

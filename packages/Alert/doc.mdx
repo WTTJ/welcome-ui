@@ -1,0 +1,67 @@
+---
+name: Alert
+route: /components/alert
+menu: Components
+---
+
+import { Link, Playground, Props } from 'docz'
+import { Alert, AlertTitle } from './index'
+
+# Alert
+
+Simple feedback messages for user actions.
+
+## Variants
+
+`error` is set by default.
+
+<Playground>
+  <Alert>
+    <AlertTitle>Error variant</AlertTitle>
+    <span>
+      Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
+      ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
+    </span>
+  </Alert>
+  <Alert variant="warning">
+    <AlertTitle>Warning variant</AlertTitle>
+    <span>
+      Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
+      ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
+    </span>
+  </Alert>
+  <Alert variant="success">
+    <AlertTitle>Success variant</AlertTitle>
+    <span>
+      Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
+      ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
+    </span>
+  </Alert>
+  <Alert variant="info">
+    <AlertTitle>Info variant</AlertTitle>
+    <span>
+      Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
+      ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
+    </span>
+  </Alert>
+</Playground>
+
+## With only AlertTitle
+
+We remove the `margin-bottom`.
+
+<Playground>
+  <Alert>
+    <AlertTitle>Welcome to the jungle</AlertTitle>
+  </Alert>
+</Playground>
+
+## Properties
+
+### Alert
+
+<Props of={Alert} />
+
+### AlertTitle
+
+<Props of={AlertTitle} />
