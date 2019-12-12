@@ -11,7 +11,7 @@ import Popper from 'popper.js'
 import { TooltipReference, useDialogState, useTooltipState } from 'reakit'
 import { bool, func, node, oneOf, oneOfType } from 'prop-types'
 
-import { COMPONENT_TYPE } from '../../utils/propTypes'
+import { COMPONENT_TYPE } from '../Core/utils/propTypes'
 
 import * as S from './styles'
 
