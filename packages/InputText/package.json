@@ -44,7 +44,6 @@
     "@welcome-ui/field": "^1.0.7-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
-    "prop-types": "^15.7.2",
     "styled-components": "^4.3.2"
   },
   "peerDependencies": {
