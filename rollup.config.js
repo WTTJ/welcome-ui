@@ -5,12 +5,13 @@ import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 
 import pkg from './package.json'
 
-const input = 'src/index.js'
+const input = 'index.js'
 const external = id => !id.startsWith('.') && !id.startsWith('/')
+
 const getBabelOptions = ({ useESModules }) => ({
   exclude: '**/node_modules/**',
   runtimeHelpers: true,
-  configFile: './babel.config.js',
+  configFile: '../../babel.config.js',
   plugins: [
     'babel-plugin-annotate-pure-calls',
     ['@babel/plugin-transform-runtime', { useESModules }]
