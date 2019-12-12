@@ -1,6 +1,6 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { Icon } from '@welcome-ui/icon/styles'
+import { StyledIcon } from '@welcome-ui/icon'
 
 import { overflowEllipsis } from '../common/styles/text'
 import { getMax } from '../utils/getMax'
@@ -41,7 +41,7 @@ export const Tag = styled.div(
     }
 
     > *:not(:only-child) {
-      ${/* sc-selector */ Icon}:last-child {
+      ${/* sc-selector */ StyledIcon}:last-child {
         cursor: pointer;
 
         path {

@@ -37,3 +37,5 @@ Icon.propTypes = {
   size: oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   title: string
 }
+
+export const StyledIcon = S.Icon

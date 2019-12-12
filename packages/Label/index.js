@@ -51,3 +51,5 @@ Label.propTypes = {
   errorWarningIcon: node,
   variant: oneOf(['error', 'warning'])
 }
+
+export const StyledLabel = S.Label
