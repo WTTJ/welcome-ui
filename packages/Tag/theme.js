@@ -1,6 +1,6 @@
 import { th } from '@xstyled/system'
 
-import { variantColors } from '../utils/variants'
+import { variantColors } from '../Core/utils/variants'
 
 export const getVariantsTheme = theme => {
   return Object.entries(variantColors).reduce((acc, [variant, color]) => {

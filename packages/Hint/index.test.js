@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { render } from '../utils/tests'
-import { colors } from '../../theme/colors'
+import { render } from '../Core/utils/tests'
+import { colors } from '../Core/theme/colors'
 
 import { Hint } from './index'
 

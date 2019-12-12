@@ -2,7 +2,7 @@ import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledLabel } from '@welcome-ui/label'
 
-import { filterComponent, system } from '../utils/system'
+import { filterComponent, system } from '../Core/utils/system'
 
 export const FieldGroup = styled(filterComponent('fieldset'))`
   width: 100%;

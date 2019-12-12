@@ -3,7 +3,7 @@ import { th } from '@xstyled/system'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 
-import { system } from '../utils/system'
+import { system } from '../Core/utils/system'
 
 export const Alert = styled(Box)(
   ({ variant }) => css`

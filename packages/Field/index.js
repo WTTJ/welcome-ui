@@ -4,10 +4,10 @@ import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 
 // Common
-import { RowContainer } from '../common/styles/layout'
-import { getBaseType } from '../utils/fields'
-import { getVariant } from '../utils/variants'
-import { COMPONENT_TYPE, DIRECTIONS_TYPE, INPUTS_TYPE, SIZES_TYPE } from '../utils/propTypes'
+import { RowContainer } from '../Core/styles/layout'
+import { getBaseType } from '../Core/utils/fields'
+import { getVariant } from '../Core/utils/variants'
+import { COMPONENT_TYPE, DIRECTIONS_TYPE, INPUTS_TYPE, SIZES_TYPE } from '../Core/utils/propTypes'
 
 // Fields
 import * as S from './styles'

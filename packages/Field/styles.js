@@ -3,7 +3,7 @@ import { th } from '@xstyled/system'
 import { StyledLabel } from '@welcome-ui/label'
 import { StyledFieldGroup } from '@welcome-ui/field-group'
 
-import { filterComponent, system, wrapperSystem } from '../utils/system'
+import { filterComponent, system, wrapperSystem } from '../Core/utils/system'
 
 const rowStyles = css`
   margin-right: sm;
