@@ -1,0 +1,68 @@
+---
+name: Label
+route: /components/label
+menu: Components
+---
+
+import { Props, Playground } from 'docz'
+import { Label } from './index'
+
+# Label
+
+## Default
+
+label DOM, use on Field.
+
+<Playground>
+  <Label>Default label</Label>
+</Playground>
+
+## Required
+
+With `required` property.
+
+<Playground>
+  <Label required>Required label</Label>
+</Playground>
+
+## Variants
+
+`error` or `warning` variant add specific badge.
+
+<Playground>
+  <Label variant="warning">Warning variant</Label>
+  <Label variant="error">Error variant</Label>
+</Playground>
+
+## More content
+
+Checkboxes and radio buttons are normally nested inside labels. If you do this, make sure there is only one other child (in this example, a `div`).
+
+<Playground>
+  <Label variant="error">
+    <InputCheckbox />
+    <div>
+      <span>Error variant with </span>
+      <a href="#">a link</a>
+      <span> and all of that jazz because of the fox</span>
+    </div>
+  </Label>
+</Playground>
+
+## Disabled
+
+Customize label for disabled elements.
+
+<Playground>
+  <Label disabled>Disabled label</Label>
+  <Label disabled disabledIcon="🔒">
+    Custom icon disabled label
+  </Label>
+  <Label disabled disabledIcon="🔒" variant="warning">
+    Disabled custom icon warning label
+  </Label>
+</Playground>
+
+## Properties
+
+<Props of={Label} />

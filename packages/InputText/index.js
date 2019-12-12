@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react'
 import { bool, func, node, oneOf, string } from 'prop-types'
+import { IconWrapper } from '@welcome-ui/field/styles'
+import { ClearButton } from '@welcome-ui/clear-button'
 
-import { createEvent } from '../../utils/events'
-import { SIZES_TYPE, VARIANTS_TYPE } from '../../utils/propTypes'
-import { IconWrapper } from '../Field/styles'
-import { ClearButton } from '../ClearButton'
+import { createEvent } from '../utils/events'
+import { SIZES_TYPE, VARIANTS_TYPE } from '../utils/propTypes'
 
 import * as S from './styles'
 

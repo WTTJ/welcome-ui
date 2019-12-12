@@ -1,5 +1,5 @@
 {
-  "name": "button",
+  "name": "@welcome-ui/button",
   "version": "0.31.2",
   "description": "welcome-ui: A button component",
   "scripts": {

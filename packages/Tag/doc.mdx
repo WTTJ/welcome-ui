@@ -1,0 +1,89 @@
+---
+name: Tag
+route: /components/tag
+menu: Components
+---
+
+import { Props, Playground } from 'docz'
+import { Tag } from './index'
+
+# Tag
+
+## Variants
+
+Admire these beautiful colors 💅
+
+### Basics
+
+<Playground>
+  <Tag>Default</Tag>
+  <Tag variant="primary">Primary</Tag>
+  <Tag variant="secondary">Secondary</Tag>
+  <Tag variant="dark">Dark</Tag>
+</Playground>
+
+### States
+
+<Playground>
+  <Tag variant="error">Error</Tag>
+  <Tag variant="warning">Warning</Tag>
+  <Tag variant="info">Info</Tag>
+</Playground>
+
+### Subs
+
+<Playground>
+  <Tag variant="blue">Blue</Tag>
+  <Tag variant="green">Green</Tag>
+  <Tag variant="orange">Orange</Tag>
+  <Tag variant="pink">Pink</Tag>
+  <Tag variant="purple">Purple</Tag>
+  <Tag variant="red">Red</Tag>
+  <Tag variant="turquoize">Turquoize</Tag>
+  <Tag variant="yellow">Yellow</Tag>
+</Playground>
+
+## Sizes
+
+Use size property with `sm` `md` or `lg`.
+
+<Playground>
+  <Tag size="sm">Small</Tag>
+  <Tag size="md">Medium</Tag>
+  <Tag size="lg">Large</Tag>
+</Playground>
+
+## One character style
+
+When we have only one character, we apply same size for the width and height (it implicitely sets `shape` prop to `square`)
+
+<Playground>
+  <Tag size="sm">1</Tag>
+  <Tag size="md">1</Tag>
+  <Tag size="lg">1</Tag>
+</Playground>
+
+## Shape
+
+Set `shape` prop to `square` to get a square no matter the content.
+
+<Playground>
+  <Tag size="lg" shape="square">
+    1
+  </Tag>
+  <Tag size="lg" shape="square" width={50}>
+    Long text
+  </Tag>
+</Playground>
+
+Set `shape` prop to `circle` to set a border-radius `50%`.
+
+<Playground>
+  <Tag size="lg" shape="circle">
+    1
+  </Tag>
+</Playground>
+
+## Properties
+
+<Props of={Tag} />
