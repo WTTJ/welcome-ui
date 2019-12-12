@@ -1,10 +1,9 @@
 {
-  "name": "button",
+  "name": "input-text",
   "version": "0.31.2",
-  "description": "welcome-ui: A button component",
-  "main": "dist/welcome-ui.cjs.js",
-  "module": "dist/welcome-ui.es.js",
+  "description": "welcome-ui: Text input",
   "scripts": {
+    "build": "rm -rf dist && rollup --config",
     "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
     "lint:js": "eslint src --max-warnings 0",
     "lint:css": "stylelint 'src/**/styles.js'",
@@ -36,10 +35,28 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
+    "@babel/runtime": "^7.4.5",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
+    "downshift": "=3.2.10",
+    "emoji-mart": "=2.11.1",
+    "lodash.capitalize": "=4.2.1",
     "lodash.difference": "=4.5.0",
+    "lodash.differenceby": "=4.8.0",
+    "lodash.get": "^4.4.2",
+    "lodash.isequal": "=4.5.0",
+    "lodash.kebabcase": "=4.1.1",
+    "lodash.merge": "^4.6.1",
+    "lodash.range": "=3.2.0",
+    "lodash.uniqby": "=4.7.0",
+    "match-sorter": "=3.1.1",
+    "mime": "=2.4.4",
+    "polished": "^3.4.1",
     "prop-types": "^15.7.2",
+    "react-datepicker": "^2.9.6",
+    "react-dropzone": "^10.1.8",
+    "react-flatten-children": "^1.0.0",
+    "react-simplemde-editor": "=4.0.2",
     "reakit": "^1.0.0-beta.7",
     "styled-components": "^4.3.2"
   },
@@ -52,7 +69,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn lint && yarn test",
+      "pre-push": "yarn exports:check && yarn lint && yarn icons:optimize && yarn icons:collect && yarn test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
