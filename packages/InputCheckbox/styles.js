@@ -3,7 +3,7 @@ import { th } from '@xstyled/system'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
 
 import { componentSystem, filterComponent, system } from '../Core/utils/system'
-import { fieldStyles } from '../Core/common/styles/form'
+import { fieldStyles } from '../Core/styles/form'
 
 export const InputCheckbox = styled(filterComponent(ReakitCheckbox))(
   ({ connected, order = '-1' }) => css`
