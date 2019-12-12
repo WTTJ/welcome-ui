@@ -65,15 +65,5 @@
   "peerDependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
-  },
-  "resolutions": {
-    "docz/**/webpack": "4.31.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn exports:check && yarn lint && yarn icons:optimize && yarn icons:collect && yarn test",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "gitHead": "c7949072d2845e9bd2e11e7b2d3be67e2ed663e6"
+  }
 }
