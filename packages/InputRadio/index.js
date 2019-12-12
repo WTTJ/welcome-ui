@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react'
 import { bool, elementType, func, oneOf, string } from 'prop-types'
+import { Label } from '@welcome-ui/label'
 
-import { DIRECTIONS_TYPE } from '../../utils/propTypes'
-import { Label } from '../Label'
+import { DIRECTIONS_TYPE } from '../Core/utils/propTypes'
 
 import * as S from './styles'
 

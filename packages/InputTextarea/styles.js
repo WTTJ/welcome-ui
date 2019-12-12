@@ -1,8 +1,8 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { fieldStyles } from '../../common/styles/form'
-import { componentSystem, filterComponent, system } from '../../utils/system'
+import { fieldStyles } from '../Core/common/styles/form'
+import { componentSystem, filterComponent, system } from '../Core/utils/system'
 
 export const Textarea = styled(filterComponent('textarea'))(
   ({ connected }) => css`
