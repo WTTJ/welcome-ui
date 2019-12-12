@@ -1,4 +1,4 @@
-import { getTexts } from '../../theme/typography'
+import { getTexts } from '../../../packages/Core/theme/typography'
 
 export const getGrowls = theme => {
   const { colors, fontWeights, radii } = theme

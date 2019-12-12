@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '../utils/tests'
+import { render } from '../Core/utils/tests'
 
 import { Badge } from './index'
 
