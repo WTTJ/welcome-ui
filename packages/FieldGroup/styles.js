@@ -1,8 +1,8 @@
 import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
+import { StyledLabel } from '@welcome-ui/label'
 
-import { Label } from '../Label/styles'
-import { filterComponent, system } from '../../utils/system'
+import { filterComponent, system } from '../utils/system'
 
 export const FieldGroup = styled(filterComponent('fieldset'))`
   width: 100%;
@@ -13,7 +13,7 @@ export const FieldGroup = styled(filterComponent('fieldset'))`
   ${th('fields.fieldset')};
   ${system};
 
-  & > ${Label} {
+  & > ${StyledLabel} {
     margin-bottom: sm;
   }
 `
