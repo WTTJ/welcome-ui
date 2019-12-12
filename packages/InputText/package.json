@@ -2,6 +2,8 @@
   "name": "@welcome-ui/input-text",
   "version": "1.0.2-alpha.0",
   "description": "welcome-ui: Text input",
+  "main": "dist/welcome-ui.cjs.js",
+  "module": "dist/welcome-ui.es.js",
   "scripts": {
     "build": "rm -rf dist && rollup --config",
     "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
