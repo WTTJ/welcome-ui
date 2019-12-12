@@ -1,6 +1,6 @@
 {
   "name": "welcome-ui",
-  "version": "0.32.2",
+  "version": "0.31.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
@@ -93,7 +93,6 @@
     "jest": "=24.7.1",
     "jest-dom": "^3.5.0",
     "jest-styled-components": "=6.3.3",
-    "lerna": "^3.19.0",
     "prettier": "=1.18.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
