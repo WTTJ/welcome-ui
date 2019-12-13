@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 
-import { Button } from '../src/components/Button'
+import { Button } from '../packages/Button'
 
 export const DefaultFileDropView = ({ openFile }) => (
   <>

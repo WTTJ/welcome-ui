@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from '@xstyled/styled-components'
 
-import { Text } from '../src/components/Text'
+import { Text } from '../packages/Text'
 
 export const H1 = props => <H1Styled variant="h1" {...props} />
 export const H2 = props => <H2Styled as="h2" variant="h3" {...props} />

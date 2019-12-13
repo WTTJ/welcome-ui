@@ -6,8 +6,9 @@ import { TimePicker } from '@welcome-ui/time-picker'
 import { SIZES_TYPE } from '../Core/utils/propTypes'
 
 import { getDate } from './utils'
-import { DEFAULT_DATE } from './constants'
 import * as S from './styles'
+
+export const DEFAULT_DATE = new Date()
 
 export const DateTimePicker = forwardRef(
   ({ children, dataTestId, locale, onChange, size = 'lg', value = DEFAULT_DATE }, ref) => {
@@ -79,3 +80,4 @@ DateTimePicker.propTypes = {
 export * from './CustomHeader'
 export * from './CustomPopper'
 export * from './CustomInput'
+export * from './utils'

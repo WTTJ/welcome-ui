@@ -331,3 +331,5 @@ Select.propTypes = {
   ]),
   variant: oneOf(VARIANTS_TYPE)
 }
+
+export const StyledSelect = S.Wrapper
