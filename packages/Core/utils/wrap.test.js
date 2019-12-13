@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { wrap } from './react'
+import { wrap } from './wrap'
 
 const content = 'Jungle'
 
