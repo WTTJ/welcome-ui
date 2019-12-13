@@ -5,7 +5,7 @@ import capitalize from 'lodash.capitalize'
 import { ConnectedField } from '@welcome-ui/connected-field'
 import { Icon } from '@welcome-ui/icon'
 
-import { Form, getFormValues } from '../../../docz/Form'
+import { Form, getFormValues } from '../../docz/Form'
 import { render } from '../Core/utils/tests'
 
 import { Select } from './index'
