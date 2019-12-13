@@ -39,5 +39,8 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
-  "gitHead": "7e422d2839e59ab1b90284eadbb05347eb4684df"
+  "gitHead": "7e422d2839e59ab1b90284eadbb05347eb4684df",
+  "devDependencies": {
+    "@welcome-ui/connected-field": "^1.0.10-alpha.0"
+  }
 }
