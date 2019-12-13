@@ -1,0 +1,91 @@
+---
+name: FileDrop
+route: /fields/file-drop
+menu: Fields
+---
+
+import { Props, Playground } from 'docz'
+import { FileDrop } from './index'
+
+# FileDrop
+
+FileDrop uses render props to give you more flexibility on what to render at each state change:
+
+- `isDefault`: No file uploaded and no user interaction
+- `isHoverAccept`: File is being dragged over and matches the `accept` string
+- `isHoverReject`: File is being dragged over but does _not_ match the `accept` string
+
+You also have access to:
+
+- `openFile`: To open the native file chooser dialog box
+- `fileUrl`: URL of file if one has been opened/dropped (to show a preview)
+
+See your browser console for the real `File` object ready to upload.
+
+## Default
+
+<Playground>
+  {() => (
+    <Form initialValues={{}}>
+      <ConnectedField
+        component={FileDrop}
+        name="avatar"
+        label="Default"
+        hint="Files must be < 2MB"
+        required
+        onAddFile={console.debug}
+        onRemoveFile={console.debug}
+      >
+        {({ error, fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
+          if (isHoverAccept) {
+            return <Icon name="positive" />
+          } else if (isHoverReject) {
+            return <Icon name="negative" />
+          } else if (error) {
+            return <Icon name="cross" />
+          } else if (fileUrl) {
+            return <FilePreviewImage src={fileUrl} />
+          }
+          return <DefaultFileDropView openFile={openFile} />
+        }}
+      </ConnectedField>
+    </Form>
+  )}
+</Playground>
+
+## Show preview if value exists
+
+<Playground>
+  {() => (
+    <Form
+      initialValues={{
+        avatar:
+          'https://cdn-development.welcometothejungle.co/uploads/robert/applicants/303416437e/avatars/0.jpg?v=63731713698'
+      }}
+    >
+      <ConnectedField
+        component={FileDrop}
+        hint="Files must be < 2MB"
+        isEditable
+        isClearable
+        label="Avatar"
+        name="avatar"
+        onAddFile={console.debug}
+        onRemoveFile={console.debug}
+        required
+      />
+    </Form>
+  )}
+</Playground>
+
+## Disabled
+
+<Playground>
+  <Form initialValues={{}}>
+    <ConnectedField name="avatar" component={FileDrop} disabled />
+  </Form>
+</Playground>
+
+## Properties
+
+<Props of={FileDrop} />

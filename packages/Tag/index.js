@@ -63,3 +63,5 @@ Tag.propTypes = {
     'yellow'
   ])
 }
+
+export const StyledTag = S.Tag

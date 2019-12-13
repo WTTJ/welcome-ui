@@ -1,0 +1,45 @@
+---
+name: DateTimePicker
+route: /fields/date-time-picker
+menu: Fields
+---
+
+import { Props, Playground } from 'docz'
+import { DateTimePicker } from './index.js'
+import { DatePicker } from '../DatePicker/index.js'
+
+# DateTimePicker
+
+It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
+
+[All the props](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) the library exposes can be passed to either DatePicker or TimePicker.
+
+_Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
+
+## Simple use case
+
+<Playground>
+  <Form initialValues={{ welcome: Date.now() }}>
+    <ConnectedField component={DateTimePicker} label="Date" name="welcome" />
+  </Form>
+</Playground>
+
+## Pass props to DatePicker
+
+<Playground>
+  <Form initialValues={{ welcome: Date.now() }}>
+    <ConnectedField
+      component={DatePicker}
+      dateFormat="MMM dd yyyy"
+      label="Date"
+      name="welcome"
+      popperProps={{ zIndex: 50 }}
+      showMonthDropdown
+      showYearDropdown
+    />
+  </Form>
+</Playground>
+
+## Properties
+
+<Props of={DateTimePicker} />
