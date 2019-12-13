@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/checkbox",
-  "version": "1.0.11-alpha.0",
+  "version": "1.0.12-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
@@ -45,6 +45,6 @@
   },
   "gitHead": "94b81a57c072de90a333f0e3a7a9a845b6c759be",
   "devDependencies": {
-    "@welcome-ui/connected-field": "^1.0.11-alpha.0"
+    "@welcome-ui/connected-field": "^1.0.12-alpha.0"
   }
 }
