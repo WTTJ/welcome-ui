@@ -1,10 +1,10 @@
 import React from 'react'
 import { arrayOf, bool, elementType, oneOf, string } from 'prop-types'
 import { RadioGroup as ReakitRadioGroup, useRadioState } from 'reakit/Radio'
+import { FieldGroup } from '@welcome-ui/field-group'
+import { InputRadio } from '@welcome-ui/radio'
 
-import { DIRECTIONS_TYPE, OPTIONS_TYPE } from '../../utils/propTypes'
-import { FieldGroup } from '../FieldGroup'
-import { InputRadio } from '../InputRadio'
+import { DIRECTIONS_TYPE, OPTIONS_TYPE } from '../Core/utils/propTypes'
 
 import * as S from './styles'
 
