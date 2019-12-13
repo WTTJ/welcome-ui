@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { bool, elementType, func, oneOf, string } from 'prop-types'
 
-import { DIRECTIONS_TYPE, SIZES_TYPE } from '../../utils/propTypes'
+import { DIRECTIONS_TYPE, SIZES_TYPE } from '../Core/utils/propTypes'
 
 import * as S from './styles'
 
