@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/button",
-  "version": "1.0.10-alpha.0",
+  "version": "1.0.11-alpha.0",
   "description": "welcome-ui: A button component",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
@@ -44,6 +44,6 @@
   },
   "gitHead": "7e422d2839e59ab1b90284eadbb05347eb4684df",
   "devDependencies": {
-    "@welcome-ui/connected-field": "^1.0.10-alpha.0"
+    "@welcome-ui/connected-field": "^1.0.11-alpha.0"
   }
 }
