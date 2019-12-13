@@ -1,9 +1,9 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { arrayOf, bool, func, node, oneOfType, shape, string } from 'prop-types'
+import { Icon } from '@welcome-ui/icon'
 
-import { createEvent } from '../../utils/events'
-import { FINAL_FORM_INPUT_TYPES } from '../../utils/propTypes'
-import { Icon } from '../Icon'
+import { createEvent } from '../Core/utils/events'
+import { FINAL_FORM_INPUT_TYPES } from '../Core/utils/propTypes'
 
 import { Toolbar } from './Toolbar'
 import { EmojiPicker } from './EmojiPicker'
