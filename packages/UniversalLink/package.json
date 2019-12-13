@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/universal-link",
-  "version": "0.31.2",
+  "version": "1.0.11-alpha.0",
   "description": "welcome-ui: A UniversalLink component",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
@@ -42,6 +42,6 @@
     "react-dom": "^16.8.0"
   },
   "devDependencies": {
-    "@welcome-ui/connected-field": "^1.0.10-alpha.0"
+    "@welcome-ui/connected-field": "^1.0.11-alpha.0"
   }
 }
