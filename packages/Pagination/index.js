@@ -2,8 +2,7 @@
 import { func, node, number, string } from 'prop-types'
 import React, { forwardRef, useCallback, useMemo, useRef } from 'react'
 import { Rover, useRoverState } from 'reakit/Rover'
-
-import { Icon } from '../Icon'
+import { Icon } from '@welcome-ui/icon'
 
 import * as S from './styles'
 
