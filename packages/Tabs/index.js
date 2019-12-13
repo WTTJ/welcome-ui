@@ -4,9 +4,9 @@ import { any, node, oneOfType, shape, string } from 'prop-types'
 import { Tab as ReakitTab, TabList as ReakitTabList, TabPanel as ReakitTabPanel } from 'reakit/Tab'
 import flattenChildren from 'react-flatten-children'
 
-import { COMPONENT_TYPE } from '../../utils/propTypes'
-import { useForkRef } from '../../utils/ref'
-import { useViewportSize } from '../../utils/viewport'
+import { COMPONENT_TYPE } from '../Core/utils/propTypes'
+import { useForkRef } from '../Core/utils/ref'
+import { useViewportSize } from '../Core/utils/viewport'
 
 import * as S from './styles'
 

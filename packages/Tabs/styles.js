@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { system } from '../../utils/system'
+import { system } from '../Core/utils/system'
 
 export const TabList = styled.div`
   position: relative;
