@@ -5,18 +5,7 @@
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
   "scripts": {
-    "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
-    "lint:js": "eslint src --max-warnings 0",
-    "lint:css": "stylelint 'src/**/styles.js'",
-    "lint:mdx": "prettier --parser mdx --check 'src/**/*.mdx'",
-    "test": "jest src",
-    "test:watch": "jest src --watch",
-    "docz:dev": "yarn docz:clean && docz dev",
-    "docz:build": "yarn docz:clean && docz build",
-    "docz:deploy": "surge --project ./docs",
-    "docz:clean": "rm -rf .docz && rm -rf docs && gatsby clean",
-    "clean": "yarn docz:clean && yarn start",
-    "phoenix": "rm -rf node_modules && yarn cache clean && yarn"
+    "test": "jest"
   },
   "publishConfig": {
     "access": "public"
