@@ -36,7 +36,8 @@
   "dependencies": {
     "@welcome-ui/field": "^1.0.14-alpha.0",
     "@welcome-ui/input-text": "^1.0.12-alpha.0",
-    "react-final-form": "^6.3.3"
+    "react-final-form": "^6.3.3",
+    "styled-components": "^4.4.1"
   },
   "peerDependencies": {
     "react": "^16.8.0",

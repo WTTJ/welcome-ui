@@ -43,6 +43,7 @@
     "@welcome-ui/time-picker": "^1.0.14-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
+    "lodash.range": "^3.2.0",
     "prop-types": "^15.7.2",
     "react-datepicker": "^2.9.6",
     "styled-components": "^4.3.2"
@@ -50,9 +51,6 @@
   "peerDependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
-  },
-  "devDependencies": {
-    "@welcome-ui/connected-field": "^1.0.14-alpha.0"
   },
   "gitHead": "815306603c6335082657045b3e8cf52424a3616f"
 }
