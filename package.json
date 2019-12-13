@@ -25,6 +25,11 @@
     "docz:clean": "rm -rf .docz && rm -rf docs && gatsby clean",
     "clean": "lerna clean"
   },
+  "private": true,
+  "workspaces": [
+    "packages/**/*",
+    "../packages/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WTTJ/welcome-ui.git"
@@ -119,28 +124,8 @@
     "wttj-config-front": "=1.0.1"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.5",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
-    "downshift": "=3.2.10",
-    "emoji-mart": "=2.11.1",
-    "lodash.capitalize": "=4.2.1",
-    "lodash.difference": "=4.5.0",
-    "lodash.differenceby": "=4.8.0",
-    "lodash.get": "^4.4.2",
-    "lodash.isequal": "=4.5.0",
-    "lodash.kebabcase": "=4.1.1",
-    "lodash.merge": "^4.6.1",
-    "lodash.range": "=3.2.0",
-    "lodash.uniqby": "=4.7.0",
-    "match-sorter": "=3.1.1",
-    "mime": "=2.4.4",
-    "polished": "^3.4.1",
-    "prop-types": "=15.7.2",
-    "react-datepicker": "^2.9.6",
-    "react-dropzone": "^10.1.8",
-    "react-flatten-children": "^1.0.0",
-    "react-simplemde-editor": "=4.0.2",
     "reakit": "^1.0.0-beta.7",
     "styled-components": "^4.3.2"
   },
@@ -149,7 +134,8 @@
     "react-dom": "^16.8.0"
   },
   "resolutions": {
-    "docz/**/webpack": "4.31.0"
+    "docz/**/webpack": "4.41.1",
+    "styled-components": "4.4.1"
   },
   "husky": {
     "hooks": {

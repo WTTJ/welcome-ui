@@ -3,7 +3,7 @@ import { func, node, oneOf } from 'prop-types'
 import { Icon } from '@welcome-ui/icon'
 
 import { SHAPES_TYPE, SIZES_TYPE } from '../Core/utils/propTypes'
-import { wrap } from '../Core/utils/react'
+import { wrap } from '../Core/utils/wrap'
 
 import * as S from './styles'
 
