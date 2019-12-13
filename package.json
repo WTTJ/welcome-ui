@@ -15,7 +15,7 @@
     "release:publish": "git push --follow-tags origin master && npm publish",
     "release": "yarn release:build && npm run release:publish && yarn docz:build && yarn docz:deploy --domain welcome-ui.com",
     "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
-    "lint:js": "eslint packages --max-warnings 0",
+    "lint:js": "eslint packages --max-warnings 0 --fix",
     "lint:css": "stylelint 'packages/**/styles.js'",
     "lint:mdx": "prettier --parser mdx --check 'packages/**/*.mdx'",
     "test": "jest packages",
@@ -23,11 +23,8 @@
     "docz:build": "yarn docz:clean && docz build",
     "docz:deploy": "surge --project ./docs",
     "docz:clean": "rm -rf .docz && rm -rf docs && gatsby clean",
-    "clean": "lerna run clean"
+    "clean": "lerna clean"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WTTJ/welcome-ui.git"
@@ -97,6 +94,7 @@
     "jest-dom": "^3.5.0",
     "jest-styled-components": "=6.3.3",
     "lerna": "^3.19.0",
+    "lodash.capitalize": "=4.2.1",
     "minimist": "=1.2.0",
     "prettier": "=1.18.2",
     "react": "^16.10.2",
