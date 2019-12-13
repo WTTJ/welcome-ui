@@ -7,6 +7,9 @@
   "scripts": {
     "test": "jest"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WTTJ/welcome-ui.git"
@@ -41,5 +44,6 @@
   "peerDependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
-  }
+  },
+  "gitHead": "815306603c6335082657045b3e8cf52424a3616f"
 }
