@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp */
-import { createTheme } from '../src/theme/core'
+import { createTheme } from '../packages/Core/theme/core'
 
 export const exampleHome = `
   import React from 'react'

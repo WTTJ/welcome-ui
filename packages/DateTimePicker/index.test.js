@@ -3,7 +3,7 @@ import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { ConnectedField } from '@welcome-ui/connected-field'
 
-import { Form, getFormValues } from '../../../docz/Form'
+import { Form, getFormValues } from '../../docz/Form'
 import { render } from '../Core/utils/tests'
 
 import { DateTimePicker } from './index'
