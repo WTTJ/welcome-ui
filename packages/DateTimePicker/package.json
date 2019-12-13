@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-time-picker",
-  "version": "1.0.13-alpha.0",
+  "version": "1.0.14-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
@@ -36,11 +36,11 @@
   "dependencies": {
     "@welcome-ui/button": "^1.0.12-alpha.0",
     "@welcome-ui/clear-button": "^1.0.12-alpha.0",
-    "@welcome-ui/date-picker": "^1.0.13-alpha.0",
-    "@welcome-ui/field": "^1.0.13-alpha.0",
+    "@welcome-ui/date-picker": "^1.0.14-alpha.0",
+    "@welcome-ui/field": "^1.0.14-alpha.0",
     "@welcome-ui/icon": "^1.0.12-alpha.0",
-    "@welcome-ui/select": "^1.0.13-alpha.0",
-    "@welcome-ui/time-picker": "^1.0.13-alpha.0",
+    "@welcome-ui/select": "^1.0.14-alpha.0",
+    "@welcome-ui/time-picker": "^1.0.14-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "prop-types": "^15.7.2",
@@ -52,7 +52,7 @@
     "react-dom": "^16.8.0"
   },
   "devDependencies": {
-    "@welcome-ui/connected-field": "^1.0.13-alpha.0"
+    "@welcome-ui/connected-field": "^1.0.14-alpha.0"
   },
   "gitHead": "815306603c6335082657045b3e8cf52424a3616f"
 }
