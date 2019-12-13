@@ -5,27 +5,7 @@
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
   "scripts": {
-    "start": "yarn docz:dev",
-    "icons:optimize": "svgo --folder=src/components/Icon/assets --pretty --indent=2 --multipass --quiet",
-    "icons:collect": "node helpers/icons.js && eslint src/components/Icon/icons.js --fix",
-    "exports:check": "node helpers/exports.js",
-    "pre-build": "yarn exports:check && yarn icons:optimize && yarn icons:collect",
-    "build": "rm -rf dist && rollup --config",
-    "release:build": "yarn pre-build && yarn build && standard-version && conventional-github-releaser --preset angular",
-    "release:publish": "git push --follow-tags origin master && npm publish",
-    "release": "yarn release:build && npm run release:publish && yarn docz:build && yarn docz:deploy --domain welcome-ui.com",
-    "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
-    "lint:js": "eslint src --max-warnings 0",
-    "lint:css": "stylelint 'src/**/styles.js'",
-    "lint:mdx": "prettier --parser mdx --check 'src/**/*.mdx'",
-    "test": "jest src",
-    "test:watch": "jest src --watch",
-    "docz:dev": "yarn docz:clean && docz dev",
-    "docz:build": "yarn docz:clean && docz build",
-    "docz:deploy": "surge --project ./docs",
-    "docz:clean": "rm -rf .docz && rm -rf docs && gatsby clean",
-    "clean": "yarn docz:clean && yarn start",
-    "phoenix": "rm -rf node_modules && yarn cache clean && yarn"
+    "test": "jest"
   },
   "publishConfig": {
     "access": "public"
