@@ -1,16 +1,11 @@
 {
-  "name": "tooltip",
+  "name": "@welcome-ui/tooltip",
   "version": "0.31.2",
   "description": "welcome-ui: A tooltip component",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
   "scripts": {
-    "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
-    "lint:js": "eslint src --max-warnings 0",
-    "lint:css": "stylelint 'src/**/styles.js'",
-    "lint:mdx": "prettier --parser mdx --check 'src/**/*.mdx'",
-    "test": "jest src",
-    "phoenix": "rm -rf node_modules && yarn cache clean && yarn"
+    "test": "jest"
   },
   "publishConfig": {
     "access": "public"
