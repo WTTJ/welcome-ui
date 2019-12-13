@@ -3,9 +3,9 @@ import React from 'react'
 import { Portal } from 'reakit/Portal'
 import { useDialogState } from 'reakit/Dialog'
 
-import { Box } from '../../../../src/components/Box'
-import { Button } from '../../../../src/components/Button'
-import { Icon } from '../../../../src/components/Icon'
+import { Box } from '../../../../packages/Box'
+import { Button } from '../../../../packages/Button'
+import { Icon } from '../../../../packages/Icon'
 
 import { Navigation } from './Navigation'
 import { LogoLong } from './LogoLong'

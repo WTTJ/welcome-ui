@@ -4,7 +4,7 @@ import { StyledDatePicker } from '@welcome-ui/date-picker'
 import { StyledTimePicker } from '@welcome-ui/time-picker'
 import { IconWrapper } from '@welcome-ui/field'
 import { StyledIcon } from '@welcome-ui/icon'
-import { Wrapper as Select } from '@welcome-ui/select'
+import { StyledSelect } from '@welcome-ui/select'
 import { StyledButton } from '@welcome-ui/button'
 import { StyledClearButton } from '@welcome-ui/clear-button'
 
@@ -120,7 +120,7 @@ export const DateTimePicker = styled.div(
 
 export const Selects = styled.div`
   display: flex;
-  ${/* sc-selector */ Select}:first-child {
+  ${/* sc-selector */ StyledSelect}:first-child {
     margin-right: sm;
   }
 `

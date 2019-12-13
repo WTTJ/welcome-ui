@@ -2,8 +2,8 @@ import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Dialog, DialogBackdrop, DialogDisclosure } from 'reakit/Dialog'
 
-import { system } from '../../../../src/utils/system'
-import { Button } from '../../../../src/components/Button'
+import { system } from '../../../../packages/Core/utils/system'
+import { Button } from '../../../../packages/Button'
 
 export const MobileMenu = styled.div`
   position: sticky;

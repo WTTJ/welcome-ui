@@ -7,7 +7,7 @@ import { LivePreview, LiveProvider } from 'react-live'
 import theme from 'prism-react-renderer/themes/github'
 
 import * as Wui from '../src/index.js'
-import { DefaultFileDropView, ITEMS } from '../helpers/tests'
+import { DefaultFileDropView, ITEMS } from '../scripts/tests'
 
 import { IconsList } from './IconsList'
 import { Form } from './Form'

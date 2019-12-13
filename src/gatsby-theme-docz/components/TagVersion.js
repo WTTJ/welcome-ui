@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Tag } from '../../../../src/components/Tag'
+import { Tag } from '../../../../packages/Tag'
 
 const { version } = require('../../../../package.json')
 
