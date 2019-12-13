@@ -1,0 +1,74 @@
+---
+name: Pagination
+route: /components/pagination
+menu: Components
+---
+
+import { Props, Playground } from 'docz'
+import { Pagination } from './'
+
+# Pagination
+
+## Example
+
+`onChange` return page selected.
+
+<Playground>
+  {() => {
+    const [page, setPage] = useState(8)
+    return (
+      <Pagination
+        aria-label="Pagination"
+        getHref={page => `?page=${page}`}
+        page={page}
+        onChange={setPage}
+        pageCount={10}
+      />
+    )
+  }}
+</Playground>
+
+## Range display
+
+When your range display is above your pageCount, all the pages are shown.<br />Change range with `rangeDisplay`, by default it is `5`.
+
+<Playground>
+  {() => {
+    const [page, setPage] = useState(1)
+    return (
+      <Pagination
+        aria-label="Pagination"
+        getHref={page => `?page=${page}`}
+        page={page}
+        onChange={setPage}
+        pageCount={5}
+        rangeDisplay={10}
+      />
+    )
+  }}
+</Playground>
+
+## Custom previous & next
+
+Set custom previous and next buttons using `leftArrow` and `rightArrow`.
+
+<Playground>
+  {() => {
+    const [page, setPage] = useState(5)
+    return (
+      <Pagination
+        aria-label="Pagination"
+        getHref={page => `?page=${page}`}
+        page={page}
+        onChange={setPage}
+        pageCount={10}
+        leftArrow={<Icon name="crown" size="xs" />}
+        rightArrow={<Icon name="crown" size="xs" />}
+      />
+    )
+  }}
+</Playground>
+
+## Properties
+
+<Props of={Pagination} />
