@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react'
 import { func, node } from 'prop-types'
-
-import { Icon } from '../Icon'
+import { Icon } from '@welcome-ui/icon'
 
 import * as S from './styles'
 
