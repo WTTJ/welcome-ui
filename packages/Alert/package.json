@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/alert",
-  "version": "1.0.13-alpha.0",
+  "version": "1.0.14-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
@@ -43,6 +43,6 @@
   },
   "gitHead": "815306603c6335082657045b3e8cf52424a3616f",
   "devDependencies": {
-    "@welcome-ui/connected-field": "^1.0.13-alpha.0"
+    "@welcome-ui/connected-field": "^1.0.14-alpha.0"
   }
 }
