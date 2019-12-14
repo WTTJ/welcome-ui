@@ -5,7 +5,7 @@ import { COMPONENT_TYPE, SHAPES_TYPE } from '../Core/utils/propTypes'
 
 import * as S from './styles'
 
-export const Button = forwardRef(
+const Button = forwardRef(
   ({ as, children, dataTestId, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
     <S.Button
       data-testid={dataTestId}
@@ -40,5 +40,7 @@ Button.propTypes = {
     'secondary-danger'
   ])
 }
+
+export default Button
 
 export const StyledButton = S.Button
