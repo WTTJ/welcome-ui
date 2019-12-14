@@ -38,7 +38,7 @@ export const RadioTab = forwardRef((props, ref) => {
       variant={variant}
     >
       <S.Input>
-        <S.InputRadio
+        <S.Radio
           data-testid={dataTestId}
           disabled={disabled}
           label={label}
@@ -66,3 +66,5 @@ RadioTab.propTypes = {
   size: oneOf(SIZES_TYPE),
   variant: string
 }
+
+export default RadioTab

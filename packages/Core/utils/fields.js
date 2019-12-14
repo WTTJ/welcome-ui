@@ -1,6 +1,6 @@
 const TYPES = {
-  InputCheckbox: 'checkbox',
-  InputRadio: 'radio',
+  Checkbox: 'checkbox',
+  Radio: 'radio',
   InputText: 'text',
   RadioTab: 'radio',
   Select: 'text',

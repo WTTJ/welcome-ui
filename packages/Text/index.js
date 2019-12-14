@@ -47,3 +47,5 @@ Text.propTypes = {
   lines: number,
   variant: oneOf(Object.keys(TAG_NAMES))
 }
+
+export default Text

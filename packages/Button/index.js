@@ -5,7 +5,7 @@ import { COMPONENT_TYPE, SHAPES_TYPE } from '../Core/utils/propTypes'
 
 import * as S from './styles'
 
-const Button = forwardRef(
+export const Button = forwardRef(
   ({ as, children, dataTestId, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
     <S.Button
       data-testid={dataTestId}

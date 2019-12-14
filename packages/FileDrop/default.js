@@ -1,7 +1,7 @@
 import React from 'react'
 import { bool, func, string } from 'prop-types'
-import { Button } from '@welcome-ui/button'
-import { Icon } from '@welcome-ui/icon'
+import Button from '@welcome-ui/button'
+import Icon from '@welcome-ui/icon'
 
 import { Text } from '../Text'
 

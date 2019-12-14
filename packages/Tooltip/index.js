@@ -158,3 +158,5 @@ Tooltip.propTypes = {
     'left-start'
   ])
 }
+
+export default Tooltip

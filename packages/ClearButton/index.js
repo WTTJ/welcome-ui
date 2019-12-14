@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from '@welcome-ui/icon'
+import Icon from '@welcome-ui/icon'
 
 import * as S from './styles'
 
@@ -15,5 +15,7 @@ export const ClearButton = props => (
     <Icon height={8} name="cross" width={8} />
   </S.ClearButton>
 )
+
+export default ClearButton
 
 export const StyledClearButton = S.ClearButton

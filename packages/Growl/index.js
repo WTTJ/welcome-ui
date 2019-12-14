@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { func, node } from 'prop-types'
-import { Icon } from '@welcome-ui/icon'
+import Icon from '@welcome-ui/icon'
 
 import * as S from './styles'
 
@@ -30,3 +30,5 @@ Growl.propTypes = {
   close: node,
   onClose: func
 }
+
+export default Growl
