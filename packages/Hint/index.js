@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { bool, node, oneOf } from 'prop-types'
-import { VariantIcon } from '@welcome-ui/variant-icon'
+import VariantIcon from '@welcome-ui/variant-icon'
 
 import * as S from './styles'
 
@@ -20,3 +20,5 @@ Hint.propTypes = {
   children: node,
   variant: oneOf(['warning', 'error'])
 }
+
+export default Hint

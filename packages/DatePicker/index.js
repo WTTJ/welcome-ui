@@ -163,3 +163,5 @@ DatePicker.propTypes = {
 }
 
 export const StyledDatePicker = S.DatePicker
+
+export default DatePicker

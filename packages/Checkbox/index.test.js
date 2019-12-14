@@ -5,7 +5,7 @@ import { Form, getFormValues } from '../../docz/Form'
 import { render } from '../Core/utils/tests'
 import { ConnectedField } from '../ConnectedField'
 
-import { InputCheckbox } from './index'
+import Checkbox from './index'
 
 const expectChecked = (element, valuesElement, value) => {
   const formValues = getFormValues(valuesElement)
@@ -13,11 +13,11 @@ const expectChecked = (element, valuesElement, value) => {
   expect(!!formValues.checkbox).toBe(value)
 }
 
-test('<InputCheckbox> toggles on input click', () => {
+test('<Checkbox> toggles on input click', () => {
   const { container, getByTestId } = render(
     <Form initialValues={{}}>
       <ConnectedField
-        component={InputCheckbox}
+        component={Checkbox}
         dataTestId="inputCheckbox"
         label="Checkbox"
         name="checkbox"
@@ -37,11 +37,11 @@ test('<InputCheckbox> toggles on input click', () => {
   expectChecked(inputCheckbox, container, false)
 })
 
-test('<InputCheckbox> toggles on label click', () => {
+test('<Checkbox> toggles on label click', () => {
   const { container, getByTestId } = render(
     <Form initialValues={{}}>
       <ConnectedField
-        component={InputCheckbox}
+        component={Checkbox}
         dataTestId="inputCheckbox"
         label="Checkbox"
         name="checkbox"

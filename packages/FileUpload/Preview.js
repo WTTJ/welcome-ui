@@ -1,9 +1,9 @@
 import React from 'react'
 import { func, number, oneOfType, shape, string } from 'prop-types'
 import mime from 'mime/lite'
-import { Icon } from '@welcome-ui/icon'
-import { Tag } from '@welcome-ui/tag'
-import { Box } from '@welcome-ui/box'
+import Icon from '@welcome-ui/icon'
+import Tag from '@welcome-ui/tag'
+import Box from '@welcome-ui/box'
 
 import { formatBytes } from '../Core/utils/bytes'
 

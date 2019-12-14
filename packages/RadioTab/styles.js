@@ -6,7 +6,7 @@ import { overflowEllipsis } from '../Core/styles/text'
 import { fieldStyles } from '../Core/styles/form'
 import { componentSystem, filterComponent, system } from '../Core/utils/system'
 
-export const InputRadio = styled(filterComponent(ReakitRadio))(({ connected }) => {
+export const Radio = styled(filterComponent(ReakitRadio))(({ connected }) => {
   return css`
     position: absolute;
     top: 0;

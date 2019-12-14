@@ -1,7 +1,7 @@
 import React, { forwardRef, Fragment } from 'react'
 import { bool, func, node, oneOf, oneOfType, string } from 'prop-types'
-import { Label } from '@welcome-ui/label'
-import { Hint } from '@welcome-ui/hint'
+import Label from '@welcome-ui/label'
+import Hint from '@welcome-ui/hint'
 
 // Common
 import { RowContainer } from '../Core/styles/layout'
@@ -162,3 +162,5 @@ Field.propTypes = {
 }
 
 export const IconWrapper = S.IconWrapper
+
+export default Field

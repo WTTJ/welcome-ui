@@ -23,3 +23,5 @@ UniversalLink.propTypes = {
   children: node,
   target: string
 }
+
+export default UniversalLink
