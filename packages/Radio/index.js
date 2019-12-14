@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react'
 import { bool, elementType, func, oneOf, string } from 'prop-types'
-import { Label } from '@welcome-ui/label'
+import Label from '@welcome-ui/label'
 
 import { DIRECTIONS_TYPE } from '../Core/utils/propTypes'
 
 import * as S from './styles'
 
-export const InputRadio = forwardRef((props, ref) => {
+export const Radio = forwardRef((props, ref) => {
   const {
     dataTestId,
     disabled,
@@ -35,7 +35,7 @@ export const InputRadio = forwardRef((props, ref) => {
       variant={variant}
     >
       <S.Input>
-        <S.InputRadio
+        <S.Radio
           data-testid={dataTestId}
           disabled={disabled}
           label={label}
@@ -49,10 +49,10 @@ export const InputRadio = forwardRef((props, ref) => {
   )
 })
 
-InputRadio.type = 'InputRadio'
-InputRadio.displayName = 'InputRadio'
+Radio.type = 'Radio'
+Radio.displayName = 'Radio'
 
-InputRadio.propTypes = {
+Radio.propTypes = {
   disabled: bool,
   disabledIcon: elementType,
   flexDirection: oneOf(DIRECTIONS_TYPE),

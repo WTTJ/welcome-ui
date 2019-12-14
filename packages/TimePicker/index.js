@@ -126,4 +126,6 @@ TimePicker.propTypes = {
   value: oneOfType([number, object, string]).isRequired
 }
 
+export default TimePicker
+
 export const StyledTimePicker = S.TimePicker

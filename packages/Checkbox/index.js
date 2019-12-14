@@ -5,8 +5,8 @@ import { FINAL_FORM_INPUT_TYPES } from '../Core/utils/propTypes'
 
 import * as S from './styles'
 
-export const InputCheckbox = forwardRef(
-  ({ checked = false, Component = S.InputCheckbox, dataTestId, name, onChange, ...rest }, ref) => {
+export const Checkbox = forwardRef(
+  ({ checked = false, Component = S.Checkbox, dataTestId, name, onChange, ...rest }, ref) => {
     const handleChange = e => {
       e.target.checked = !e.target.checked
       onChange && onChange(e)
@@ -26,13 +26,15 @@ export const InputCheckbox = forwardRef(
   }
 )
 
-InputCheckbox.type = 'InputCheckbox'
-InputCheckbox.displayName = 'InputCheckbox'
+Checkbox.type = 'Checkbox'
+Checkbox.displayName = 'Checkbox'
 
-InputCheckbox.propTypes = {
+Checkbox.propTypes = {
   ...FINAL_FORM_INPUT_TYPES,
   checked: bool,
   Component: elementType,
   name: string.isRequired,
   onChange: func.isRequired
 }
+
+export default Checkbox

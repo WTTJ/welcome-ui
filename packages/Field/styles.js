@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { StyledLabel } from '@welcome-ui/label'
-import { StyledFieldGroup } from '@welcome-ui/field-group'
+import StyledLabel from '@welcome-ui/label'
+import StyledFieldGroup from '@welcome-ui/field-group'
 
 import { filterComponent, system, wrapperSystem } from '../Core/utils/system'
 

@@ -5,7 +5,7 @@ menu: Fields
 ---
 
 import { Props, Playground } from 'docz'
-import { InputTextarea } from './index'
+import Textarea from './index'
 
 # Textarea
 
@@ -13,7 +13,7 @@ import { InputTextarea } from './index'
   <Form initialValues={{}}>
     <ConnectedField
       name="textarea"
-      component={InputTextarea}
+      component={Textarea}
       label="Description"
       hint="Description must be <200 words"
       required
@@ -23,4 +23,4 @@ import { InputTextarea } from './index'
 
 ## Properties
 
-<Props of={InputTextarea} />
+<Props of={Textarea} />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tag } from '@welcome-ui/tag'
+import Tag from '@welcome-ui/tag'
 
 import * as S from './styles'
 

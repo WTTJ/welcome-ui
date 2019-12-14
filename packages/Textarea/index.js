@@ -3,9 +3,9 @@ import { bool, func, number, oneOf, string } from 'prop-types'
 
 import { SIZES_TYPE, VARIANTS_TYPE } from '../Core/utils/propTypes'
 
-import * as S from './styles.js'
+import * as S from './styles'
 
-export const InputTextarea = forwardRef(
+export const Textarea = forwardRef(
   (
     {
       autoFocus,
@@ -47,10 +47,10 @@ export const InputTextarea = forwardRef(
   )
 )
 
-InputTextarea.type = 'InputTextarea'
-InputTextarea.displayName = 'InputTextarea'
+Textarea.type = 'Textarea'
+Textarea.displayName = 'Textarea'
 
-InputTextarea.propTypes = {
+Textarea.propTypes = {
   autoFocus: bool,
   disabled: bool,
   maxLength: number,
@@ -65,3 +65,5 @@ InputTextarea.propTypes = {
   value: string,
   variant: oneOf(VARIANTS_TYPE)
 }
+
+export default Textarea
