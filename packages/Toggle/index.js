@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import Checkbox from '../Checkbox'
+import Checkbox from '@welcome-ui/checkbox'
 
 import * as S from './styles'
 
