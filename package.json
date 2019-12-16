@@ -18,7 +18,7 @@
     "lint:js": "eslint packages --max-warnings 0 --fix",
     "lint:css": "stylelint 'packages/**/styles.js'",
     "lint:mdx": "prettier --parser mdx --check 'packages/**/*.mdx'",
-    "test": "jest packages",
+    "test": "jest ./packages",
     "docz:dev": "yarn docz:clean && docz dev",
     "docz:build": "yarn docz:clean && docz build",
     "docz:deploy": "surge --project ./docs",

@@ -19,5 +19,3 @@ Shape.propTypes = {
   shape: oneOf(SHAPES_TYPE),
   width: oneOfType([string, number]).isRequired
 }
-
-export default Shape

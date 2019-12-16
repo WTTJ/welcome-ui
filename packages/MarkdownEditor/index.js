@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { arrayOf, bool, func, node, oneOfType, shape, string } from 'prop-types'
-import Icon from '@welcome-ui/icon'
+import { Icon } from '@welcome-ui/icon'
 
 import { createEvent } from '../Core/utils/events'
 import { FINAL_FORM_INPUT_TYPES } from '../Core/utils/propTypes'
@@ -179,5 +179,3 @@ MarkdownEditor.propTypes = {
   ),
   ...FINAL_FORM_INPUT_TYPES
 }
-
-export default MarkdownEditor

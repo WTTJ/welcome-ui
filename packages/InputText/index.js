@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { bool, func, node, oneOf, string } from 'prop-types'
-import IconWrapper from '@welcome-ui/field'
-import ClearButton from '@welcome-ui/clear-button'
+import { IconWrapper } from '@welcome-ui/field'
+import { ClearButton } from '@welcome-ui/clear-button'
 
 import { createEvent } from '../Core/utils/events'
 import { SIZES_TYPE, VARIANTS_TYPE } from '../Core/utils/propTypes'
@@ -96,5 +96,3 @@ InputText.propTypes = {
   value: string,
   variant: oneOf(VARIANTS_TYPE)
 }
-
-export default InputText

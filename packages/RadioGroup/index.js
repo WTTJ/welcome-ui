@@ -1,8 +1,8 @@
 import React from 'react'
 import { arrayOf, bool, elementType, oneOf, string } from 'prop-types'
 import { RadioGroup as ReakitRadioGroup, useRadioState } from 'reakit/Radio'
-import FieldGroup from '@welcome-ui/field-group'
-import Radio from '@welcome-ui/radio'
+import { FieldGroup } from '@welcome-ui/field-group'
+import { Radio } from '@welcome-ui/radio'
 
 import { DIRECTIONS_TYPE, OPTIONS_TYPE } from '../Core/utils/propTypes'
 
@@ -54,5 +54,3 @@ RadioGroup.propTypes = {
   required: bool,
   value: string
 }
-
-export default RadioGroup

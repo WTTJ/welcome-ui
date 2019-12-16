@@ -1,11 +1,11 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
+import { ConnectedField } from '@welcome-ui/connected-field'
 
 import { Form, getFormValues } from '../../docz/Form'
 import { render } from '../Core/utils/tests'
-import { ConnectedField } from '../ConnectedField'
 
-import Checkbox from './index'
+import { Checkbox } from './index'
 
 const expectChecked = (element, valuesElement, value) => {
   const formValues = getFormValues(valuesElement)

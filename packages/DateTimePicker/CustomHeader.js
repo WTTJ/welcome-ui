@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { func, number, object, oneOfType, string } from 'prop-types'
-import Button from '@welcome-ui/button'
-import Icon from '@welcome-ui/icon'
-import Select from '@welcome-ui/select'
+import { Button } from '@welcome-ui/button'
+import { Icon } from '@welcome-ui/icon'
+import { Select } from '@welcome-ui/select'
 
 import * as S from './styles'
 import { getMonths, getYears } from './utils'

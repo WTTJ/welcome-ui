@@ -38,6 +38,4 @@ Icon.propTypes = {
   title: string
 }
 
-export default Icon
-
 export const StyledIcon = S.Icon

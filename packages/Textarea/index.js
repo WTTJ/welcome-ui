@@ -65,5 +65,3 @@ Textarea.propTypes = {
   value: string,
   variant: oneOf(VARIANTS_TYPE)
 }
-
-export default Textarea

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { func, node, oneOf } from 'prop-types'
-import Icon from '@welcome-ui/icon'
+import { Icon } from '@welcome-ui/icon'
 
 import { SHAPES_TYPE, SIZES_TYPE } from '../Core/utils/propTypes'
 import { wrap } from '../Core/utils/wrap'
@@ -63,7 +63,5 @@ Tag.propTypes = {
     'yellow'
   ])
 }
-
-export default Tag
 
 export const StyledTag = S.Tag

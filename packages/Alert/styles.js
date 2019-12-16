@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import Box from '@welcome-ui/box'
-import Text from '@welcome-ui/text'
+import { Box } from '@welcome-ui/box'
+import { Text } from '@welcome-ui/text'
 
 import { system } from '../Core/utils/system'
 

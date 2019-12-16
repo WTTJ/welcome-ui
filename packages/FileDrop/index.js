@@ -1,15 +1,15 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { bool, func, node, number, oneOfType, string } from 'prop-types'
 import { useDropzone } from 'react-dropzone'
-import Icon from '@welcome-ui/icon'
-import Button from '@welcome-ui/button'
+import { Icon } from '@welcome-ui/icon'
+import { Button } from '@welcome-ui/button'
 
 // Common
 import { createEvent } from '../Core/utils/events'
 import { validateFileSize, validateMimeType } from '../Core/utils/validations'
 
 // FileDrop
-import * as S from './styles.js'
+import * as S from './styles'
 import { DefaultContent } from './default.js'
 
 // Export `FilePreviewImage` from styles
@@ -193,5 +193,3 @@ FileDrop.propTypes = {
   title: oneOfType([string, node]),
   value: string
 }
-
-export default FileDrop

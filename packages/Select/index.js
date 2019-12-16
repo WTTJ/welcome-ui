@@ -4,8 +4,8 @@ import Downshift from 'downshift'
 import matchSorter from 'match-sorter'
 import kebabCase from 'lodash.kebabcase'
 import isEqual from 'lodash.isequal'
-import Icon from '@welcome-ui/icon'
-import ClearButton from '@welcome-ui/clear-button'
+import { Icon } from '@welcome-ui/icon'
+import { ClearButton } from '@welcome-ui/clear-button'
 
 import {
   COMPONENT_TYPE,
@@ -331,7 +331,5 @@ Select.propTypes = {
   ]),
   variant: oneOf(VARIANTS_TYPE)
 }
-
-export default Select
 
 export const StyledSelect = S.Wrapper

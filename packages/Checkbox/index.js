@@ -36,5 +36,3 @@ Checkbox.propTypes = {
   name: string.isRequired,
   onChange: func.isRequired
 }
-
-export default Checkbox
