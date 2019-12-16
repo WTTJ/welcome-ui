@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/shape",
-  "version": "1.0.14-alpha.0",
+  "version": "1.0.15-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
