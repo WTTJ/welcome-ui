@@ -1,6 +1,6 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import UniversalLink from '@welcome-ui/universal-link'
+import { UniversalLink } from '@welcome-ui/universal-link'
 
 import { system } from '../Core/utils/system'
 
@@ -34,5 +34,3 @@ export const Link = styled(UniversalLink)(
     }
   `
 )
-
-export default Link

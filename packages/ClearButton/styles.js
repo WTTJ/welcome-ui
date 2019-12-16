@@ -1,6 +1,6 @@
 import styled, { keyframes } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import Button from '@welcome-ui/button'
+import { Button } from '@welcome-ui/button'
 
 const fade = keyframes`
   from {

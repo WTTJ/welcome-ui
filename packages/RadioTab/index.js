@@ -66,5 +66,3 @@ RadioTab.propTypes = {
   size: oneOf(SIZES_TYPE),
   variant: string
 }
-
-export default RadioTab

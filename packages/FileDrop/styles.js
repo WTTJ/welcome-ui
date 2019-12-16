@@ -68,7 +68,7 @@ export const Actions = styled.div`
   display: flex;
   flex-direction: column;
 
-  ${Button} {
+  ${StyledButton} {
     margin-bottom: md;
   }
 `

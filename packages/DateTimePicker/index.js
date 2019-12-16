@@ -1,7 +1,7 @@
 import React, { cloneElement, forwardRef, useEffect, useState } from 'react'
 import { func, node, number, object, oneOf, oneOfType, string } from 'prop-types'
-import DatePicker from '@welcome-ui/date-picker'
-import TimePicker from '@welcome-ui/time-picker'
+import { DatePicker } from '@welcome-ui/date-picker'
+import { TimePicker } from '@welcome-ui/time-picker'
 
 import { SIZES_TYPE } from '../Core/utils/propTypes'
 
@@ -76,8 +76,6 @@ DateTimePicker.propTypes = {
   size: oneOf(SIZES_TYPE),
   value: oneOfType([number, object, string]).isRequired
 }
-
-export default DateTimePicker
 
 export * from './CustomHeader'
 export * from './CustomPopper'

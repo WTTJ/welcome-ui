@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { bool, node, string } from 'prop-types'
-import Label from '@welcome-ui/label'
+import { Label } from '@welcome-ui/label'
 
 import * as S from './styles'
 
@@ -23,5 +23,3 @@ FieldGroup.propTypes = {
 }
 
 export const StyledFieldGroup = S.FieldGroup
-
-export default FieldGroup

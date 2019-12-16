@@ -1,6 +1,6 @@
 import React from 'react'
 import { node, oneOf } from 'prop-types'
-import Badge from '@welcome-ui/badge'
+import { Badge } from '@welcome-ui/badge'
 
 import * as S from './styles'
 
@@ -24,5 +24,3 @@ VariantIcon.propTypes = {
   errorWarningIcon: node,
   variant: oneOf(['warning', 'error'])
 }
-
-export default VariantIcon
