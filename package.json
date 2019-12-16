@@ -8,8 +8,7 @@
     "start": "yarn docz:dev",
     "icons:optimize": "svgo --folder=packages/Icon/assets --pretty --indent=2 --multipass --quiet",
     "icons:collect": "node scripts/icons.js && eslint packages/Icon/icons.js --fix",
-    "exports:check": "node scripts/exports.js",
-    "pre-build": "yarn exports:check && yarn icons:optimize && yarn icons:collect",
+    "pre-build": "yarn icons:optimize && yarn icons:collect",
     "build": "node scripts/build.js",
     "release:build": "yarn pre-build && yarn build && standard-version && conventional-github-releaser --preset angular",
     "release:publish": "git push --follow-tags origin master && npm publish",
@@ -139,7 +138,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn exports:check && yarn lint && yarn icons:optimize && yarn icons:collect && yarn test",
+      "pre-push": "yarn lint && yarn icons:optimize && yarn icons:collect && yarn test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
