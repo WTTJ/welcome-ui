@@ -41,6 +41,4 @@ Button.propTypes = {
   ])
 }
 
-export default Button
-
 export const StyledButton = S.Button

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { bool, node, oneOf } from 'prop-types'
-import Icon from '@welcome-ui/icon'
-import VariantIcon from '@welcome-ui/variant-icon'
+import { Icon } from '@welcome-ui/icon'
+import { VariantIcon } from '@welcome-ui/variant-icon'
 
 import { wrap } from '../Core/utils/wrap'
 
@@ -51,7 +51,5 @@ Label.propTypes = {
   errorWarningIcon: node,
   variant: oneOf(['error', 'warning'])
 }
-
-export default Label
 
 export const StyledLabel = S.Label

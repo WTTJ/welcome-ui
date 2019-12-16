@@ -2,7 +2,7 @@
 import { func, node, number, string } from 'prop-types'
 import React, { forwardRef, useCallback, useMemo, useRef } from 'react'
 import { Rover, useRoverState } from 'reakit/Rover'
-import Icon from '@welcome-ui/icon'
+import { Icon } from '@welcome-ui/icon'
 
 import * as S from './styles'
 
@@ -150,5 +150,3 @@ Pagination.propTypes = {
   rangeDisplay: number,
   rightArrow: node
 }
-
-export default Pagination

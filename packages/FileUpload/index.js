@@ -1,13 +1,13 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import { bool, func, node, number, oneOfType, string } from 'prop-types'
-import Button from '@welcome-ui/button'
+import { Button } from '@welcome-ui/button'
 
 // Common
 import { createEvent } from '../Core/utils/events'
 
 // FileUpload
 import { Preview } from './Preview'
-import * as S from './styles.js'
+import * as S from './styles'
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const DEFAULT_FILE_TYPES = '*/*'
@@ -136,5 +136,3 @@ FileUpload.propTypes = {
   title: oneOfType([string, node]),
   value: string
 }
-
-export default FileUpload
