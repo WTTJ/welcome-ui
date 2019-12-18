@@ -43,16 +43,11 @@ export const Tag = styled.div(
     > *:not(:only-child) {
       ${/* sc-selector */ Icon}:last-child {
         cursor: pointer;
-
-        path {
-          transition: fill ${th.transition('medium')};
-        }
+        opacity: 1;
+        transition: opacity ${th.transition('medium')};
 
         &:hover {
-          path,
-          g {
-            fill: ${th('colors.danger.500')};
-          }
+          opacity: 0.6;
         }
       }
     }
