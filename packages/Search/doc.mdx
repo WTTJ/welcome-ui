@@ -1,0 +1,33 @@
+---
+name: Search
+route: /fields/search
+menu: Fields
+---
+
+import { Props, Playground } from 'docz'
+import { Search } from './index'
+
+# Search
+
+It is based on the [downshift](https://github.com/downshift-js/downshift) library.
+
+## Default
+
+<Playground>
+  <Form initialValues={{}}>
+    <ConnectedField
+      component={Search}
+      endpoint={
+        'http://www.omdbapi.com?apikey=41514363&s='
+      }
+      label="Films"
+      name="films"
+      renderItem={item => item.Title}
+      options={[]}
+    />
+  </Form>
+</Playground>
+
+## Properties
+
+<Props of={Search} />
