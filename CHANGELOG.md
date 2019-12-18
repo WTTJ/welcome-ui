@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.32.0](https://github.com/WTTJ/welcome-ui/compare/v0.31.2...v0.32.0) (2019-12-18)
+
+
+### Features
+
+* add pin icon ([776cec7](https://github.com/WTTJ/welcome-ui/commit/776cec7))
+
+
+
 ### [0.31.2](https://github.com/WTTJ/welcome-ui/compare/v0.31.1...v0.31.2) (2019-12-09)
 
 
