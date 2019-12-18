@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { Box, Icon } from '../src/index'
+import { Box } from '../packages/Box/index'
+import { Icon } from '../packages/Icon/index'
 
 export const IconsList = icons => (
   <Box display="flex" flexWrap="wrap">

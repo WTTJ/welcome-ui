@@ -2,7 +2,7 @@
 import React from 'react'
 import { withTheme } from '@xstyled/styled-components'
 
-import { Box } from '../src/index'
+import { Box } from '../packages/Box/index'
 
 const Wrapper = ({ name, theme, withBorder }) => {
   const colors = theme.colors[name]
