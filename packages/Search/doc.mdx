@@ -20,7 +20,7 @@ This allows you to search data from a remote API. It is based on the [downshift]
     <ConnectedField
       component={Search}
       search={async function asyncSearch(s) {
-        const response = await fetch(`http://www.omdbapi.com?apikey=41514363&s=${s}`)
+        const response = await fetch(`https://www.omdbapi.com?apikey=41514363&s=${s}`)
         const data = await response.json()
         return data.Search
       }}
@@ -49,7 +49,7 @@ There are several core props you must pass through:
 
 An async function (async/await or Promises) that takes a search string and returns an array of results (`items`). 
 
-For example, given an API call to http://www.omdbapi.com?s=fish that returns a payload like this:
+For example, given an API call to https://www.omdbapi.com?s=fish that returns a payload like this:
 
 <Code language="json">
 {`{
@@ -69,7 +69,7 @@ We could pass the following prop to the `Search` component:
 
 <Code>
 {`search={async function asyncSearch(query) {
-  const response = await fetch('http://www.omdbapi.com?apikey=' + YOUR_API_KEY + '&s=' + query)
+  const response = await fetch('https://www.omdbapi.com?apikey=' + YOUR_API_KEY + '&s=' + query)
   const data = await response.json()
   return data.Search
 }}`}
