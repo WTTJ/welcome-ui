@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useMemo, useState } from 'react'
+import React, { forwardRef, useEffect, useState } from 'react'
 import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import isEqual from 'lodash.isequal'
@@ -8,9 +8,7 @@ import { ClearButton } from '@welcome-ui/clear-button'
 import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../Core/utils/propTypes'
 import { createEvent } from '../Core/utils/events'
 
-import { MultipleSelections } from './MultipleSelections'
 import * as S from './styles'
-import { getUniqueValue } from './utils'
 
 export const Search = forwardRef(
   (
@@ -21,8 +19,9 @@ export const Search = forwardRef(
       disabled,
       icon,
       id,
-      isClearable,
+      isClearable = true,
       isMultiple,
+      itemToString,
       name,
       onBlur,
       onChange,
@@ -32,8 +31,6 @@ export const Search = forwardRef(
       onKeyDown,
       placeholder = 'Search…',
       renderItem,
-      renderMultiple = MultipleSelections,
-      itemToString = renderItem,
       search,
       size = 'lg',
       value: selected,
@@ -71,25 +68,19 @@ export const Search = forwardRef(
     // Send event to parent when value(s) changes
     const handleChange = results => {
       const value = isMultiple ? results : results[0]
-      const event = createEvent({ name, value: isMultiple ? results : results[0] })
+      const event = createEvent({ name, value })
       onChange && onChange(value, event)
     }
 
-    const handleSelect = option => {
-      if (option) {
-        // If selecting option
-        handleChange(isMultiple ? getUniqueValue(option, selected) : [option])
+    const handleSelect = result => {
+      if (result) {
+        // If selecting result
+        handleChange([result])
       } else {
-        // If removing option
+        // If removing result
         handleChange(isMultiple ? selected : [])
         setResults([])
       }
-    }
-
-    const handleRemove = value => {
-      const newItems = selected.filter(item => item.value !== value)
-      setResults([])
-      handleChange([])
     }
 
     const handleOuterClick = () => {
@@ -123,8 +114,7 @@ export const Search = forwardRef(
           selectedItem,
           toggleMenu
         }) => {
-          const handleClearClick = e => {
-            console.debug('handleClearClick', e)
+          const handleClearClick = () => {
             setResults([])
             handleChange([])
             clearSelection()
@@ -137,7 +127,7 @@ export const Search = forwardRef(
               <ClearButton onClick={handleClearClick} />
             </S.DropDownIndicator>
           )
-          const Arrow = (
+          const ArrowIcon = (
             <S.DropDownIndicator
               disabled={disabled}
               isOpen={isOpen}
@@ -154,7 +144,6 @@ export const Search = forwardRef(
             toggleMenu()
           }
 
-          const rootProps = getRootProps(rest)
           const inputProps = getInputProps({
             autoComplete,
             autoFocus,
@@ -170,19 +159,18 @@ export const Search = forwardRef(
             ref,
             size,
             tabIndex: 0,
-            type: 'search',
             variant: isOpen ? 'focused' : variant,
             ...rest
           })
 
           return (
-            <S.Wrapper {...rootProps}>
+            <S.Wrapper {...getRootProps(rest)}>
               <S.InputWrapper>
-                <S.Input type="search" {...inputProps} />
+                <S.Input {...inputProps} />
                 {icon && <S.Icon size={size}>{icon}</S.Icon>}
                 <S.Indicators size={size}>
                   {isShowDeleteIcon && DeleteIcon}
-                  {Arrow}
+                  {ArrowIcon}
                 </S.Indicators>
               </S.InputWrapper>
               {isShowMenu && (
@@ -204,7 +192,6 @@ export const Search = forwardRef(
                   ))}
                 </S.Menu>
               )}
-              {isMultiple && renderMultiple(selected, handleRemove)}
             </S.Wrapper>
           )
         }}
@@ -224,7 +211,7 @@ Search.propTypes = {
   id: string,
   isClearable: bool,
   isMultiple: bool,
-  itemToString: func,
+  itemToString: func.isRequired,
   name: string,
   onBlur: func,
   onChange: func,

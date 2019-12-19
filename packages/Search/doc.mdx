@@ -4,13 +4,14 @@ route: /fields/search
 menu: Fields
 ---
 
-import { Props, Playground } from 'docz'
+import { Playground, Props } from 'docz'
+import { Code } from '../../docz/Code'
 import { Search } from './index'
 import { Shape } from '../Shape'
 
 # Search
 
-It is based on the [downshift](https://github.com/downshift-js/downshift) library.
+This allows you to search data from a remote API. It is based on the [downshift](https://github.com/downshift-js/downshift) library.
 
 ## Default
 
@@ -41,5 +42,53 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
 </Playground>
 
 ## Properties
+
+There are several core props you must pass through:
+
+### `search`
+
+An async function (async/await or Promises) that takes a search string and returns an array of results (`items`). 
+
+For example: Given an API call to http://www.omdbapi.com?s=fish that returns a payload like this:
+
+<Code language="json">
+{`{
+  Search: [
+    {Title: "Big Fish", Year: "2003", imdbID: "tt0319061", Type: "movie",…},
+    {Title: "A Fish Called Wanda", Year: "1988", imdbID: "tt0095159", Type: "movie",…},
+    {Title: "Fish Tank", Year: "2009", imdbID: "tt1232776", Type: "movie",…},
+    {Title: "Rumble Fish", Year: "1983", imdbID: "tt0086216", Type: "movie",…},
+    {Title: "Cold Fish", Year: "2010", imdbID: "tt1632547", Type: "movie",…},
+  ],
+  totalResults: "895",
+  Response: "True"
+}`}
+</Code>
+
+We could pass the following prop to the `Search` component:
+
+<Code>
+{`search={async function asyncSearch(query) {
+  const response = await fetch('http://www.omdbapi.com?apikey=' + YOUR_API_KEY + '&s=' + query)
+  const data = await response.json()
+  return data.Search
+}}`}
+</Code>
+
+<hr />
+
+### `renderItem`
+
+A component that renders each of the results in the list e.g. `renderItem={item => <div>{item.Title} ({item.Year})</div>}`
+
+<hr />
+
+### `itemToString`
+
+A function that converts a selected result to a string e.g. `itemToString={item => item && item.Title}`
+
+<hr />
+
+The rest of the props are below:
 
 <Props of={Search} />

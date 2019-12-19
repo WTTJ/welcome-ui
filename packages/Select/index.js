@@ -202,7 +202,7 @@ export const Select = forwardRef(
               <ClearButton onClick={clearSelection} />
             </S.DropDownIndicator>
           )
-          const Arrow = (
+          const ArrowIcon = (
             <S.DropDownIndicator
               disabled={disabled}
               isOpen={isOpen}
@@ -251,7 +251,7 @@ export const Select = forwardRef(
                 {icon && <S.Icon size={size}>{icon}</S.Icon>}
                 <S.Indicators size={size}>
                   {isShowDeleteIcon && DeleteIcon}
-                  {Arrow}
+                  {ArrowIcon}
                 </S.Indicators>
               </S.InputWrapper>
               {isShowMenu && (
