@@ -24,6 +24,7 @@ A clear and concise description of what you expected to happen.
 ### Environment
 
 - Welcome-UI version: [e.g. 0.32.2]
+- Browser: [e.g. Chrome 79, IE11]
 - OS: [e.g. OSX 10.13.4, Windows 10]
 - Device: [iphone 11, oneplus 7t]
 - Node/npm version: [e.g. Node 8/npm 5]
