@@ -11,7 +11,7 @@ assignees: ''
 
 ### Where
 
-For what component ?
+For which component ?
 
 ### What
 
