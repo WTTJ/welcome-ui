@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-## 🙈 Documentation issuess
+## 🙈 Documentation issues
 
 ### Where
 
