@@ -19,7 +19,7 @@ Please try to build a small repo with a repro of your problem and provide a link
 
 ### Expected behavior
 
-A clear and concise description of what you expected to happen..
+A clear and concise description of what you expected to happen.
 
 ### Environment
 
