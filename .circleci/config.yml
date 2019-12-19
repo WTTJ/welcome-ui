@@ -69,7 +69,7 @@ jobs:
           at: ~/welcome-ui
       - restore_cache:
           key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - run: yarn add surge
+      - run: yarn add surge --dev -W
       - run: yarn docz:deploy --domain https://welcome-ui-${CIRCLE_BRANCH}.surge.sh
 
 workflows:
