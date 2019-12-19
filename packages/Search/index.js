@@ -2,7 +2,6 @@ import React, { forwardRef, useEffect, useState } from 'react'
 import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import isEqual from 'lodash.isequal'
-import { Icon } from '@welcome-ui/icon'
 import { ClearButton } from '@welcome-ui/clear-button'
 
 import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../Core/utils/propTypes'
@@ -106,7 +105,6 @@ export const Search = forwardRef(
           getItemProps,
           getMenuProps,
           getRootProps,
-          getToggleButtonProps,
           highlightedIndex,
           inputValue,
           isOpen,
@@ -125,18 +123,6 @@ export const Search = forwardRef(
               <ClearButton onClick={handleClearClick} />
             </S.DropDownIndicator>
           )
-          const ArrowIcon = (
-            <S.DropDownIndicator
-              disabled={disabled}
-              isOpen={isOpen}
-              size={size}
-              tabIndex={-1}
-              {...getToggleButtonProps()}
-            >
-              <Icon color="nude.800" name="down" size="xs" />
-            </S.DropDownIndicator>
-          )
-
           const handleInputClick = e => {
             onClick && onClick(e)
             toggleMenu()
@@ -166,10 +152,7 @@ export const Search = forwardRef(
               <S.InputWrapper>
                 <S.Input {...inputProps} />
                 {icon && <S.Icon size={size}>{icon}</S.Icon>}
-                <S.Indicators size={size}>
-                  {inputValue && DeleteIcon}
-                  {ArrowIcon}
-                </S.Indicators>
+                <S.Indicators size={size}>{inputValue && DeleteIcon}</S.Indicators>
               </S.InputWrapper>
               {isShowMenu && (
                 <S.Menu {...getMenuProps()}>
