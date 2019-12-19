@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/variant-icon",
-  "version": "1.0.16-alpha.0",
+  "version": "1.0.17-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
@@ -35,7 +35,7 @@
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "@welcome-ui/badge": "^1.0.16-alpha.0",
+    "@welcome-ui/badge": "^1.0.17-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "styled-components": "^4.3.2"
