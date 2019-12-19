@@ -19,7 +19,6 @@ export const Search = forwardRef(
       disabled,
       icon,
       id,
-      isClearable = true,
       isMultiple,
       itemToString,
       minChars = 3,
@@ -120,7 +119,6 @@ export const Search = forwardRef(
             clearSelection()
           }
           const isShowMenu = isOpen && results.length > 0
-          const isShowDeleteIcon = isClearable && inputValue
 
           const DeleteIcon = (
             <S.DropDownIndicator as="div" size={size}>
@@ -169,7 +167,7 @@ export const Search = forwardRef(
                 <S.Input {...inputProps} />
                 {icon && <S.Icon size={size}>{icon}</S.Icon>}
                 <S.Indicators size={size}>
-                  {isShowDeleteIcon && DeleteIcon}
+                  {inputValue && DeleteIcon}
                   {ArrowIcon}
                 </S.Indicators>
               </S.InputWrapper>
@@ -209,7 +207,6 @@ Search.propTypes = {
   disabled: bool,
   icon: oneOfType(COMPONENT_TYPE),
   id: string,
-  isClearable: bool,
   isMultiple: bool,
   itemToString: func.isRequired,
   minChars: number,

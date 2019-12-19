@@ -1,7 +1,6 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
-import { StyledTag } from '@welcome-ui/tag'
 
 import { overflowEllipsis } from '../Core/styles/text'
 import { fieldStyles } from '../Core/styles/form'
@@ -20,7 +19,7 @@ export const InputWrapper = styled.div`
 `
 
 export const Input = styled(
-  filterComponent('input', ['hasIcon', 'inputValue', 'renderMultiple', 'renderValue'])
+  filterComponent('input', ['hasIcon', 'inputValue', 'renderMultiple', 'itemToString'])
 )(
   ({ hasIcon, size }) => css`
     position: relative;
@@ -142,16 +141,3 @@ export const DropDownIndicator = styled.button(
     }
   `
 )
-
-export const Tags = styled.div`
-  margin-top: lg;
-
-  ${/* sc-selector */ StyledTag}:not(:last-child) {
-    margin-right: sm;
-    margin-bottom: sm;
-  }
-
-  &:empty {
-    display: none;
-  }
-`

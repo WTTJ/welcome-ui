@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     test: {
-      plugins: ['@babel/plugin-transform-modules-commonjs']
+      plugins: ['@babel/plugin-transform-modules-commonjs', '@babel/plugin-transform-runtime']
     }
   },
   presets: [['@babel/preset-env', { modules: false, loose: true }], '@babel/preset-react'],
