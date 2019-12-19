@@ -32,7 +32,7 @@ import {
 export const Select = forwardRef(
   (
     {
-      autoComplete = false,
+      autoComplete = 'off',
       autoFocus,
       dataTestId,
       disabled,
@@ -221,7 +221,7 @@ export const Select = forwardRef(
 
           const rootProps = getRootProps(rest)
           const inputProps = getInputProps({
-            autoComplete: autoComplete.toString(),
+            autoComplete,
             autoFocus,
             'data-spacer': spacer || placeholder,
             'data-testid': dataTestId,
@@ -299,7 +299,7 @@ export const Select = forwardRef(
 Select.displayName = 'Select'
 
 Select.propTypes = {
-  autoComplete: bool,
+  autoComplete: string,
   autoFocus: bool,
   disabled: bool,
   icon: oneOfType(COMPONENT_TYPE),
@@ -315,11 +315,10 @@ Select.propTypes = {
   onCreate: func,
   onFocus: func,
   onKeyDown: func,
-  options: arrayOf(OPTIONS_TYPE).isRequired,
+  options: arrayOf(OPTIONS_TYPE),
   placeholder: string,
   renderItem: func,
   renderMultiple: func,
-  searchable: bool,
   size: oneOf(SIZES_TYPE),
   type: oneOf(INPUTS_TYPE),
   value: oneOfType([

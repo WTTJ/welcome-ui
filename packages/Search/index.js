@@ -1,45 +1,28 @@
 import React, { forwardRef, useEffect, useMemo, useState } from 'react'
-import { arrayOf, bool, func, number, oneOf, oneOfType, string } from 'prop-types'
+import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
-import matchSorter from 'match-sorter'
 import isEqual from 'lodash.isequal'
 import { Icon } from '@welcome-ui/icon'
 import { ClearButton } from '@welcome-ui/clear-button'
 
-import {
-  COMPONENT_TYPE,
-  INPUTS_TYPE,
-  OPTIONS_TYPE,
-  SIZES_TYPE,
-  VARIANTS_TYPE
-} from '../Core/utils/propTypes'
+import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../Core/utils/propTypes'
 import { createEvent } from '../Core/utils/events'
 
 import { MultipleSelections } from './MultipleSelections'
 import * as S from './styles'
-import {
-  getInputValue,
-  getOptionsFromSelected,
-  getSpacer,
-  getUniqueValue,
-  getValuesFromOptions,
-  isValueSelected,
-  itemToString
-} from './utils'
+import { getUniqueValue } from './utils'
 
 export const Search = forwardRef(
   (
     {
-      autoComplete = false,
+      autoComplete = 'off',
       autoFocus,
       dataTestId,
       disabled,
-      endpoint,
       icon,
       id,
       isClearable,
       isMultiple,
-      options: defaultOptions = [],
       name,
       onBlur,
       onChange,
@@ -48,31 +31,25 @@ export const Search = forwardRef(
       onFocus,
       onKeyDown,
       placeholder = 'Search…',
-      renderItem = itemToString,
+      renderItem,
       renderMultiple = MultipleSelections,
+      itemToString = renderItem,
+      search,
       size = 'lg',
-      value: defaultSelected,
+      value: selected,
       variant,
       ...rest
     },
     ref
   ) => {
+    // Use `ZERO WIDTH NO-BREAK SPACE` to prevent browser autocomplete
     const EMPTY_STRING = autoComplete ? '' : '\uFEFF'
 
-    const defaultSelecteds = useMemo(
-      () => getOptionsFromSelected(defaultSelected, defaultOptions),
-      [defaultSelected, defaultOptions]
-    )
-    const selectedItem = (!isMultiple && defaultSelecteds[0]) || null
-    const defaultInputValue = selectedItem ? selectedItem.label : EMPTY_STRING
+    // Get initial value from selected value(s)
+    const initialInputValue = selected ? itemToString(selected) : EMPTY_STRING
 
-    // We keep 3 things in state:
-    // a. selected = currently selected item(s)
-    // b. inputValue = text in the select/search box
-    // c. options = options in the dropdown
-    const [selected, setSelected] = useState(defaultSelecteds)
-    const [inputValue, setInputValue] = useState(defaultInputValue)
-    const [options, setOptions] = useState(defaultOptions)
+    // Keep results in state
+    const [results, setResults] = useState([])
 
     // Autofocus
     useEffect(() => {
@@ -81,88 +58,57 @@ export const Search = forwardRef(
       }
     }, [autoFocus, ref])
 
-    // Ensure values are controlled by parent
-    useEffect(() => {
-      setSelected(defaultSelecteds)
-      setInputValue(defaultInputValue)
-      setOptions(defaultOptions)
-    }, [defaultInputValue, defaultOptions, defaultSelecteds])
-
-    // Update options when searching
+    // Update results when searching
     const handleInputChange = async value => {
-      // Update
-      if (value !== inputValue) {
-        const response = await fetch(`${endpoint}${value}`)
-        const data = await response.json()
-        console.debug('response', data)
-        setInputValue(value)
-        setOptions(data.Search || [])
+      if (!value) {
+        setResults([])
+      } else {
+        const data = await search(value)
+        setResults(data || [])
       }
     }
 
     // Send event to parent when value(s) changes
-    const handleChange = options => {
-      const values = getValuesFromOptions(options, defaultOptions)
-      const value = isMultiple ? values : values[0]
-      const event = createEvent({ name, value: isMultiple ? options : options[0] })
-
+    const handleChange = results => {
+      const value = isMultiple ? results : results[0]
+      const event = createEvent({ name, value: isMultiple ? results : results[0] })
       onChange && onChange(value, event)
     }
 
-    // Update internal state when clicking/adding a select item
     const handleSelect = option => {
-      let newItems
-      let isClearInput
-
-      if (!option) {
-        // If removing option
-        newItems = isMultiple ? selected : []
-        isClearInput = true
+      if (option) {
+        // If selecting option
+        handleChange(isMultiple ? getUniqueValue(option, selected) : [option])
       } else {
-        // If adding option
-        newItems = isMultiple ? getUniqueValue(option, selected) : [option]
-        isClearInput = isMultiple
+        // If removing option
+        handleChange(isMultiple ? selected : [])
+        setResults([])
       }
-
-      isClearInput && setInputValue(EMPTY_STRING)
-      setOptions(defaultOptions)
-      setSelected(newItems)
-      handleChange(newItems)
     }
 
     const handleRemove = value => {
       const newItems = selected.filter(item => item.value !== value)
-      setSelected(newItems)
-      handleChange(newItems)
+      setResults([])
+      handleChange([])
     }
 
-    const handleOuterClick = e => {
+    const handleOuterClick = () => {
       // Reset input value if not selecting a new item
-      if (isMultiple && e.selectedItem) {
-        setInputValue(EMPTY_STRING)
-      } else if (e.selectedItem) {
-        setInputValue(e.selectedItem.label)
+      if (!selected.length || (isMultiple && selected.length)) {
+        setResults([])
+        handleSelect()
       }
-      setOptions(defaultOptions)
+      setResults([])
     }
-
-    const spacer = getSpacer(defaultOptions)
-
-    let inputContent = getInputValue({
-      inputValue,
-      isMultiple,
-      options: defaultOptions,
-      renderItem
-    })
 
     return (
       <Downshift
-        inputValue={inputContent}
+        initialInputValue={initialInputValue}
         itemToString={itemToString}
         onInputValueChange={handleInputChange}
         onOuterClick={handleOuterClick}
         onSelect={handleSelect}
-        selectedItem={selectedItem}
+        selectedItem={selected}
       >
         {({
           clearSelection,
@@ -172,15 +118,23 @@ export const Search = forwardRef(
           getRootProps,
           getToggleButtonProps,
           highlightedIndex,
+          inputValue,
           isOpen,
+          selectedItem,
           toggleMenu
         }) => {
-          const isShowMenu = isOpen && options.length
+          const handleClearClick = e => {
+            console.debug('handleClearClick', e)
+            setResults([])
+            handleChange([])
+            clearSelection()
+          }
+          const isShowMenu = isOpen && results.length > 0
           const isShowDeleteIcon = isClearable && inputValue
 
           const DeleteIcon = (
             <S.DropDownIndicator as="div" size={size}>
-              <ClearButton onClick={clearSelection} />
+              <ClearButton onClick={handleClearClick} />
             </S.DropDownIndicator>
           )
           const Arrow = (
@@ -202,9 +156,8 @@ export const Search = forwardRef(
 
           const rootProps = getRootProps(rest)
           const inputProps = getInputProps({
-            autoComplete: autoComplete.toString(),
+            autoComplete,
             autoFocus,
-            'data-spacer': spacer || placeholder,
             'data-testid': dataTestId,
             disabled,
             hasIcon: !!icon,
@@ -217,6 +170,7 @@ export const Search = forwardRef(
             ref,
             size,
             tabIndex: 0,
+            type: 'search',
             variant: isOpen ? 'focused' : variant,
             ...rest
           })
@@ -233,12 +187,13 @@ export const Search = forwardRef(
               </S.InputWrapper>
               {isShowMenu && (
                 <S.Menu {...getMenuProps()}>
-                  {options.map((item, index) => (
+                  {results.map((item, index) => (
                     <S.Item
-                      key={item.value}
+                      // eslint-disable-next-line react/no-array-index-key
+                      key={index}
                       {...getItemProps({
                         index,
-                        isExisting: isMultiple && isValueSelected(item.value, selected),
+                        isExisting: isMultiple && selected.incluedes(item),
                         isHighlighted: highlightedIndex === index,
                         isSelected: !isMultiple && isEqual(selectedItem, item),
                         item
@@ -259,15 +214,17 @@ export const Search = forwardRef(
 )
 
 Search.displayName = 'Search'
+Search.type = 'search'
 
 Search.propTypes = {
-  autoComplete: bool,
+  autoComplete: string,
   autoFocus: bool,
   disabled: bool,
   icon: oneOfType(COMPONENT_TYPE),
   id: string,
   isClearable: bool,
   isMultiple: bool,
+  itemToString: func,
   name: string,
   onBlur: func,
   onChange: func,
@@ -275,20 +232,12 @@ Search.propTypes = {
   onCreate: func,
   onFocus: func,
   onKeyDown: func,
-  options: arrayOf(OPTIONS_TYPE).isRequired,
   placeholder: string,
-  renderItem: func,
+  renderItem: func.isRequired,
   renderMultiple: func,
-  searchable: bool,
+  search: func.isRequired,
   size: oneOf(SIZES_TYPE),
-  type: oneOf(INPUTS_TYPE),
-  value: oneOfType([
-    oneOf([OPTIONS_TYPE, arrayOf(OPTIONS_TYPE)]),
-    string,
-    arrayOf(string),
-    number,
-    arrayOf(number)
-  ]),
+  value: oneOfType([object, arrayOf(object), string, arrayOf(string), number, arrayOf(number)]),
   variant: oneOf(VARIANTS_TYPE)
 }
 

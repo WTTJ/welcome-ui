@@ -6,6 +6,7 @@ menu: Fields
 
 import { Props, Playground } from 'docz'
 import { Search } from './index'
+import { Shape } from '../Shape'
 
 # Search
 
@@ -17,13 +18,24 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
   <Form initialValues={{}}>
     <ConnectedField
       component={Search}
-      endpoint={
-        'http://www.omdbapi.com?apikey=41514363&s='
-      }
+      search={async function asyncSearch(s) {
+        const response = await fetch(`http://www.omdbapi.com?apikey=41514363&s=${s}`)
+        const data = await response.json()
+        return data.Search
+      }}
       label="Films"
       name="films"
-      renderItem={item => item.Title}
-      options={[]}
+      renderItem={item =>
+        item && (
+          <div style={{ display: 'flex' }}>
+            <Shape width="50px" height="50px" shape="circle">
+              <img src={item.Poster} />
+            </Shape>
+            {item.Title}
+          </div>
+        )
+      }
+      itemToString={item => item && item.Title}
     />
   </Form>
 </Playground>
