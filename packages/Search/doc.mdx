@@ -28,11 +28,11 @@ This allows you to search data from a remote API. It is based on the [downshift]
       name="films"
       renderItem={item =>
         item && (
-          <div style={{ display: 'flex' }}>
-            <Shape width="50px" height="50px" shape="circle">
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Shape width="40px" height="40px" shape="circle" mr="sm">
               <img src={item.Poster} />
             </Shape>
-            {item.Title}
+            {item.Title} ({item.Year})
           </div>
         )
       }
@@ -49,7 +49,7 @@ There are several core props you must pass through:
 
 An async function (async/await or Promises) that takes a search string and returns an array of results (`items`). 
 
-For example: Given an API call to http://www.omdbapi.com?s=fish that returns a payload like this:
+For example, given an API call to http://www.omdbapi.com?s=fish that returns a payload like this:
 
 <Code language="json">
 {`{

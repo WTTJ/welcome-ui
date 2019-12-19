@@ -22,11 +22,11 @@ export const Search = forwardRef(
       isClearable = true,
       isMultiple,
       itemToString,
+      minChars = 3,
       name,
       onBlur,
       onChange,
       onClick,
-      onCreate,
       onFocus,
       onKeyDown,
       placeholder = 'Search…',
@@ -57,7 +57,7 @@ export const Search = forwardRef(
 
     // Update results when searching
     const handleInputChange = async value => {
-      if (!value) {
+      if (!value || value.length < minChars) {
         setResults([])
       } else {
         const data = await search(value)
@@ -212,16 +212,15 @@ Search.propTypes = {
   isClearable: bool,
   isMultiple: bool,
   itemToString: func.isRequired,
+  minChars: number,
   name: string,
   onBlur: func,
   onChange: func,
   onClick: func,
-  onCreate: func,
   onFocus: func,
   onKeyDown: func,
   placeholder: string,
   renderItem: func.isRequired,
-  renderMultiple: func,
   search: func.isRequired,
   size: oneOf(SIZES_TYPE),
   value: oneOfType([object, arrayOf(object), string, arrayOf(string), number, arrayOf(number)]),
