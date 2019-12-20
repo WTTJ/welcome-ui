@@ -2,8 +2,8 @@
   "name": "@welcome-ui/date-time-picker",
   "version": "1.0.16-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
-  "main": "dist/welcome-ui.cjs.js",
-  "module": "dist/welcome-ui.es.js",
+  "main": "dist/date-time-picker.cjs.js",
+  "module": "dist/date-time-picker.es.js",
   "scripts": {
     "test": "jest"
   },

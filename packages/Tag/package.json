@@ -2,8 +2,8 @@
   "name": "@welcome-ui/tag",
   "version": "1.0.16-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
-  "main": "dist/welcome-ui.cjs.js",
-  "module": "dist/welcome-ui.es.js",
+  "main": "dist/tag.cjs.js",
+  "module": "dist/tag.es.js",
   "scripts": {
     "test": "jest"
   },

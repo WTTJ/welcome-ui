@@ -2,6 +2,8 @@
   "name": "@welcome-ui/button",
   "version": "1.0.16-alpha.0",
   "description": "welcome-ui: A button component",
+  "main": "dist/button.cjs.js",
+  "module": "dist/button.es.js",
   "scripts": {
     "test": "jest"
   },
