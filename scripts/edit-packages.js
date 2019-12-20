@@ -21,20 +21,23 @@ const getNewConfig = ({ componentName, config, pkgName }) => {
   }
 }
 
-const collectPackages = packages =>
-  Promise.all(
-    packages.map(pkg => ({
-      name: pkg.name,
-      config: require(`${ROOT_PATH}/${pkg.name}/package.json`)
-    }))
-  )
+const collectFolders = () =>
+  fs
+    .readdirAsync(ROOT_PATH, { withFileTypes: true })
+    .then(files => files.filter(f => f.isDirectory()))
+
+const collectPackages = folder =>
+  folder.map(({ name }) => ({
+    pkgName: kebabCase(name),
+    componentName: name,
+    config: require(`${ROOT_PATH}/${name}/package.json`)
+  }))
 
 const updatePackageConfig = pkg => {
-  const componentName = pkg.name
-  const pkgName = kebabCase(componentName)
+  const { componentName, config, pkgName } = pkg
   const newConfig = {
-    ...pkg.config,
-    ...getNewConfig({ ...pkg, pkgName })
+    ...config,
+    ...getNewConfig(pkg)
   }
   fs.writeFileAsync(`${ROOT_PATH}/${componentName}/package.json`, JSON.stringify(newConfig, 0, 2))
     // eslint-disable-next-line no-console
@@ -48,8 +51,7 @@ const handleError = err => {
   throw err
 }
 
-fs.readdirAsync(ROOT_PATH, { withFileTypes: true })
-  .then(files => files.filter(f => f.isDirectory()))
+collectFolders()
   .then(collectPackages)
   .then(packages => packages.forEach(updatePackageConfig))
   .catch(handleError)
