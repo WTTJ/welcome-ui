@@ -3,7 +3,8 @@ import nodeResolve from 'rollup-plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 
-import pkg from './package.json'
+const PACKAGE_ROOT_PATH = process.cwd()
+const pkg = require(`${PACKAGE_ROOT_PATH}/package.json`)
 
 const input = 'src/index.js'
 const external = id => !id.startsWith('.') && !id.startsWith('/')
