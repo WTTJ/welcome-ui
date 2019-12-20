@@ -2,8 +2,8 @@
   "name": "@welcome-ui/badge",
   "version": "1.0.17-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
-  "main": "dist/welcome-ui.cjs.js",
-  "module": "dist/welcome-ui.es.js",
+  "main": "dist/badge.cjs.js",
+  "module": "dist/badge.es.js",
   "scripts": {
     "test": "jest"
   },

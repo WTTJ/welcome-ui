@@ -2,8 +2,8 @@
   "name": "@welcome-ui/tabs",
   "version": "1.0.17-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
-  "main": "dist/welcome-ui.cjs.js",
-  "module": "dist/welcome-ui.es.js",
+  "main": "dist/tabs.cjs.js",
+  "module": "dist/tabs.es.js",
   "scripts": {
     "test": "jest"
   },
