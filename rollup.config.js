@@ -2,6 +2,7 @@ import babel from 'rollup-plugin-babel'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
+import path from 'path'
 
 const PACKAGE_ROOT_PATH = process.cwd()
 const pkg = require(`${PACKAGE_ROOT_PATH}/package.json`)
@@ -12,7 +13,7 @@ const external = id => !id.startsWith('.') && !id.startsWith('/')
 const getBabelOptions = ({ useESModules }) => ({
   exclude: '**/node_modules/**',
   runtimeHelpers: true,
-  configFile: '../../babel.config.js',
+  configFile: `${process.env.PROJECT_ROOT}/babel.config.js` || '../../babel.config.js',
   plugins: [
     'babel-plugin-annotate-pure-calls',
     ['@babel/plugin-transform-runtime', { useESModules }]

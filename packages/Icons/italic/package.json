@@ -1,5 +1,5 @@
 {
-  "name": "@welcome-ui/icons/italic",
+  "name": "@welcome-ui/icons.italic",
   "sideEffects": false,
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js"

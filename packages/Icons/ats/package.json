@@ -1,5 +1,5 @@
 {
-  "name": "@welcome-ui/icons/ats",
+  "name": "@welcome-ui/icons.ats",
   "sideEffects": false,
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js"

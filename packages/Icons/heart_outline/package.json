@@ -1,5 +1,5 @@
 {
-  "name": "@welcome-ui/icons/heart_outline",
+  "name": "@welcome-ui/icons.heart_outline",
   "sideEffects": false,
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js"

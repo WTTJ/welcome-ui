@@ -1,5 +1,5 @@
 {
-  "name": "@welcome-ui/icons/resume",
+  "name": "@welcome-ui/icons.resume",
   "sideEffects": false,
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js"

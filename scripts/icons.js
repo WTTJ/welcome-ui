@@ -47,7 +47,7 @@ const writeContents = files => {
     fs.writeFileSync(
       `${outputFolder}/package.json`,
       JSON.stringify({
-        name: `@welcome-ui/icons/${key}`,
+        name: `@welcome-ui/icons.${key}`,
         sideEffects: false,
         main: './dist/index.cjs.js',
         module: './dist/index.es.js'

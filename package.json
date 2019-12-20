@@ -7,7 +7,7 @@
   "scripts": {
     "start": "yarn docz:dev",
     "icons:optimize": "svgo --folder=packages/Icons/_assets --pretty --indent=2 --multipass --quiet",
-    "icons:collect": "node scripts/icons.js",
+    "icons:collect": "node scripts/icons.js && eslint packages/Icons --fix",
     "pre-build": "yarn icons:optimize && yarn icons:collect",
     "build": "node scripts/build.js",
     "release:build": "yarn pre-build && yarn build && standard-version && conventional-github-releaser --preset angular",

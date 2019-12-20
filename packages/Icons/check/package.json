@@ -1,5 +1,5 @@
 {
-  "name": "@welcome-ui/icons/check",
+  "name": "@welcome-ui/icons.check",
   "sideEffects": false,
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js"

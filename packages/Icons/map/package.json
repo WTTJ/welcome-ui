@@ -1,5 +1,5 @@
 {
-  "name": "@welcome-ui/icons/map",
+  "name": "@welcome-ui/icons.map",
   "sideEffects": false,
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js"

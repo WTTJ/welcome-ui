@@ -1,5 +1,5 @@
 {
-  "name": "@welcome-ui/icons/special_pipeline",
+  "name": "@welcome-ui/icons.special_pipeline",
   "sideEffects": false,
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js"
