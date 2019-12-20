@@ -2,14 +2,13 @@ import React, { forwardRef } from 'react'
 import { oneOf, string } from 'prop-types'
 
 import * as S from './styles'
-import { icons } from './icons'
 
 export const Icon = forwardRef(({ dataTestId, name, size = 'md', title, ...props }, ref) => {
   if (!name) {
     return null
   }
 
-  const iconConfig = icons[name]
+  const iconConfig = require(`../Icons/${name}`).default
 
   if (!iconConfig) {
     return null

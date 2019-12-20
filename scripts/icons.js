@@ -6,9 +6,8 @@ fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)
 fs.writeFileAsync = util.promisify(fs.writeFile)
 
-const rootPath = path.join(__dirname, '../packages/Icon')
-const inputPath = path.join(rootPath, 'assets')
-const outputPath = path.join(rootPath, 'icons.js')
+const rootPath = path.join(__dirname, '../packages/Icons')
+const inputPath = path.join(rootPath, '_assets')
 
 const addFile = (key, file) =>
   fs.readFileAsync(path.join(inputPath, file), 'utf8').then(content => ({ key, content }))
@@ -27,31 +26,40 @@ const addAllFiles = files => {
   return Promise.all(promises)
 }
 
-const getContents = files => {
-  return files.reduce((acc, { content, key }) => {
-    let match = /<svg[^>]*>([\s\S]*)<\/svg>/g.exec(content)
-    if (match) {
-      match = match[1].replace(/fill="#\w{6}"/g, 'fill="currentColor"').trim()
-      return {
-        ...acc,
-        [key]: {
-          width: 15,
-          height: 15,
-          block: match
-        }
-      }
+const writeContents = files => {
+  const indexContent = files.map(({ content, key }) => {
+    const outputFolder = `${rootPath}/${key}`
+    let svgContent = /<svg[^>]*>([\s\S]*)<\/svg>/g.exec(content)
+    if (svgContent) {
+      svgContent = svgContent[1].replace(/fill="#\w{6}"/g, 'fill="currentColor"').trim()
     }
+    if (!fs.existsSync(outputFolder)) {
+      fs.mkdirSync(outputFolder)
+    }
+    fs.writeFileSync(
+      `${outputFolder}/index.js`,
+      `export default {
+  width: 15,
+  height: 15,
+  block: '${svgContent}'
+}`
+    )
+    fs.writeFileSync(
+      `${outputFolder}/package.json`,
+      JSON.stringify({ sideEffects: false, main: './dist/index.cjs.js', module: './dist/index.es.js' }, 0, 2)
+    )
 
-    return acc
-  }, {})
+    return key
+  }).reduce((acc, file) => `${acc}
+export { default as ${file} } from './${file}'`, '')
+  
+  fs.writeFileSync(`${rootPath}/index.js`, indexContent)
+
+  return
 }
-
-const writeContents = obj =>
-  fs.writeFileAsync(outputPath, `export const icons = ${JSON.stringify(obj)}`)
 
 fs.readdirAsync(inputPath)
   .then(addAllFiles)
-  .then(getContents)
   .then(writeContents)
   // eslint-disable-next-line no-console
   .then(() => console.log('SVGs successfully written to json'))
