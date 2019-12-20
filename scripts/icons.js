@@ -41,7 +41,8 @@ const writeContents = files => {
       `export default {
   width: 15,
   height: 15,
-  block: '${svgContent}'
+  block:
+    '${svgContent}'
 }`
     )
     fs.writeFileSync(

@@ -10,12 +10,12 @@ export const getCurrentToolsFromEditor = editor => {
     em: 'italic',
     quote: 'quote',
     strikethrough: 'strikethrough',
-    'variable-2': /^\s*\d+\.\s/.test(line) ? 'ordered-list' : 'unordered-list',
+    'variable-2': /^\s*\d+\.\s/.test(line) ? 'ordered_list' : 'unordered_list',
     comment: 'code',
     link: 'link',
     tag: 'image',
-    'header-1': 'heading-1',
-    'header-2': 'heading-2'
+    'header-1': 'heading_1',
+    'header-2': 'heading_2'
   }
 
   if (!token.type) {

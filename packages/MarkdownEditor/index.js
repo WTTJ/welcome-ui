@@ -60,13 +60,13 @@ export const MarkdownEditor = forwardRef(
       italic: 'toggleItalic',
       strikethrough: 'toggleStrikethrough',
       link: 'drawLink',
-      'heading-1': 'toggleHeading1',
-      'heading-2': 'toggleHeading2',
+      heading_1: 'toggleHeading1',
+      heading_2: 'toggleHeading2',
       code: 'toggleCodeBlock',
       quote: 'toggleBlockquote',
-      'unordered-list': 'toggleUnorderedList',
-      'ordered-list': 'toggleOrderedList',
-      'horizontal-rule': 'drawHorizontalRule'
+      unordered_list: 'toggleUnorderedList',
+      ordered_list: 'toggleOrderedList',
+      horizontal_rule: 'drawHorizontalRule'
     }
 
     useEffect(() => {
