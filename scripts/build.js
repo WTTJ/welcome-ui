@@ -11,7 +11,7 @@ Usage: yarn build [component name...] [options] [lerna options]
 
 const { exec, spawnSync } = require('child_process')
 
-const { lernaOptions, tdsOptions, userPackageNames } = require('./parseArgs')
+const { lernaOptions, tdsOptions, userPackageNames } = require('./parse-args')
 
 const getPackageNames = (callback, forceUpdatedPackages) => {
   if (!forceUpdatedPackages && userPackageNames.length > 0) {
