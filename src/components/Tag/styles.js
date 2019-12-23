@@ -26,18 +26,30 @@ export const Tag = styled.div(
     position: relative;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     border-radius: md;
+    ${overflowEllipsis}
+    ${system};
+    ${!shape &&
+      length !== 1 &&
+      css`
+        span,
+        p {
+          ${overflowEllipsis}
+        }
+      `}
+    ${(shape || length === 1) &&
+      css`
+        justify-content: center;
+        ${shapeStyles(size, width, height, shape)};
+      `};
     ${hasAction &&
       css`
         padding-right: xl;
       `}
-    ${overflowEllipsis};
-    ${system};
-    ${(shape || length === 1) && shapeStyles(size, width, height, shape)};
+    max-width: 100%;
 
-    > *:not(:last-child) {
-      margin-right: xxs;
+    > *:not(:first-child) {
+      margin-left: xxs;
     }
 
     > *:not(:only-child) {
