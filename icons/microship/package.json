@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.microship",
+  "sideEffects": false,
+  "main": "dist/icons.microship.cjs.js",
+  "module": "dist/icons.microship.es.js"
+}

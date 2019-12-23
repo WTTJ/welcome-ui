@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.twitter",
+  "sideEffects": false,
+  "main": "dist/icons.twitter.cjs.js",
+  "module": "dist/icons.twitter.es.js"
+}

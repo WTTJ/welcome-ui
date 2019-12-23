@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.ats",
+  "sideEffects": false,
+  "main": "dist/icons.ats.cjs.js",
+  "module": "dist/icons.ats.es.js"
+}

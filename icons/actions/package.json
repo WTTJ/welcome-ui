@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.actions",
+  "sideEffects": false,
+  "main": "dist/icons.actions.cjs.js",
+  "module": "dist/icons.actions.es.js"
+}

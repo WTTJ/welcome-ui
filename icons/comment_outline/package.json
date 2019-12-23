@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.comment_outline",
+  "sideEffects": false,
+  "main": "dist/icons.comment_outline.cjs.js",
+  "module": "dist/icons.comment_outline.es.js"
+}

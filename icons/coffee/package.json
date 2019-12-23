@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.coffee",
+  "sideEffects": false,
+  "main": "dist/icons.coffee.cjs.js",
+  "module": "dist/icons.coffee.es.js"
+}

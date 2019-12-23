@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.expand",
+  "sideEffects": false,
+  "main": "dist/icons.expand.cjs.js",
+  "module": "dist/icons.expand.es.js"
+}

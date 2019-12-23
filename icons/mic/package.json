@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.mic",
+  "sideEffects": false,
+  "main": "dist/icons.mic.cjs.js",
+  "module": "dist/icons.mic.es.js"
+}

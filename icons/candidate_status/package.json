@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.candidate_status",
+  "sideEffects": false,
+  "main": "dist/icons.candidate_status.cjs.js",
+  "module": "dist/icons.candidate_status.es.js"
+}

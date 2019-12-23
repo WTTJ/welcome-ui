@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.spanner",
+  "sideEffects": false,
+  "main": "dist/icons.spanner.cjs.js",
+  "module": "dist/icons.spanner.es.js"
+}

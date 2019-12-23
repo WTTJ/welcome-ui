@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.activity",
+  "sideEffects": false,
+  "main": "dist/icons.activity.cjs.js",
+  "module": "dist/icons.activity.es.js"
+}

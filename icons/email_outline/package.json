@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.email_outline",
+  "sideEffects": false,
+  "main": "dist/icons.email_outline.cjs.js",
+  "module": "dist/icons.email_outline.es.js"
+}

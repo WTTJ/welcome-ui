@@ -15,7 +15,6 @@ export * from '../packages/FileUpload/index'
 export * from '../packages/Growl/index'
 export * from '../packages/Hint/index'
 export * from '../packages/Icon/index'
-export * from '../packages/Icons/index'
 export * from '../packages/InputText/index'
 export * from '../packages/Label/index'
 export * from '../packages/Link/index'
@@ -35,6 +34,9 @@ export * from '../packages/Toggle/index'
 export * from '../packages/Tooltip/index'
 export * from '../packages/UniversalLink/index'
 export * from '../packages/VariantIcon/index'
+
+// Icons
+export * from '../icons/index'
 
 // Utils/theme
 export * from '../packages/Core/utils/base'

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.cover_letter",
+  "sideEffects": false,
+  "main": "dist/icons.cover_letter.cjs.js",
+  "module": "dist/icons.cover_letter.es.js"
+}

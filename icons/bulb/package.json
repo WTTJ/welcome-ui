@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.bulb",
+  "sideEffects": false,
+  "main": "dist/icons.bulb.cjs.js",
+  "module": "dist/icons.bulb.es.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.phone_outline",
+  "sideEffects": false,
+  "main": "dist/icons.phone_outline.cjs.js",
+  "module": "dist/icons.phone_outline.es.js"
+}

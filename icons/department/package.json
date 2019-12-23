@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.department",
+  "sideEffects": false,
+  "main": "dist/icons.department.cjs.js",
+  "module": "dist/icons.department.es.js"
+}

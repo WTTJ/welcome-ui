@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.date",
+  "sideEffects": false,
+  "main": "dist/icons.date.cjs.js",
+  "module": "dist/icons.date.es.js"
+}

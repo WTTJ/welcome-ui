@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.resume",
+  "sideEffects": false,
+  "main": "dist/icons.resume.cjs.js",
+  "module": "dist/icons.resume.es.js"
+}

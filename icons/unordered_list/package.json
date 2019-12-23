@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.unordered_list",
+  "sideEffects": false,
+  "main": "dist/icons.unordered_list.cjs.js",
+  "module": "dist/icons.unordered_list.es.js"
+}

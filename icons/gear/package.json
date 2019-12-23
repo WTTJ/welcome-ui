@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.gear",
+  "sideEffects": false,
+  "main": "dist/icons.gear.cjs.js",
+  "module": "dist/icons.gear.es.js"
+}

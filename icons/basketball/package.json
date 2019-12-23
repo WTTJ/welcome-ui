@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.basketball",
+  "sideEffects": false,
+  "main": "dist/icons.basketball.cjs.js",
+  "module": "dist/icons.basketball.es.js"
+}

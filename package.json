@@ -6,7 +6,7 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "scripts": {
     "start": "yarn docz:dev",
-    "icons:optimize": "svgo --folder=packages/Icons/_assets --pretty --indent=2 --multipass --quiet",
+    "icons:optimize": "svgo --folder=icons/_assets --pretty --indent=2 --multipass --quiet",
     "icons:collect": "node scripts/icons.js && eslint packages/Icons --fix",
     "pre-build": "yarn icons:optimize && yarn icons:collect",
     "build": "node scripts/build.js",
@@ -14,7 +14,7 @@
     "release:publish": "git push --follow-tags origin master && npm publish",
     "release": "yarn release:build && npm run release:publish && yarn docz:build && yarn docz:deploy --domain welcome-ui.com",
     "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
-    "lint:js": "eslint packages --max-warnings 0 --fix",
+    "lint:js": "eslint packages scripts --max-warnings 0 --fix",
     "lint:css": "stylelint 'packages/**/styles.js'",
     "lint:mdx": "prettier --parser mdx --check 'packages/**/*.mdx'",
     "test": "jest ./packages",
@@ -27,7 +27,9 @@
   "private": true,
   "workspaces": [
     "packages/**/*",
-    "../packages/**/*"
+    "../packages/**/*",
+    "icons/**/*",
+    "../icons/**/*"
   ],
   "repository": {
     "type": "git",

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.camera",
+  "sideEffects": false,
+  "main": "dist/icons.camera.cjs.js",
+  "module": "dist/icons.camera.es.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.marketplace",
+  "sideEffects": false,
+  "main": "dist/icons.marketplace.cjs.js",
+  "module": "dist/icons.marketplace.es.js"
+}

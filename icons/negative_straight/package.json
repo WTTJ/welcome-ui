@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.negative_straight",
+  "sideEffects": false,
+  "main": "dist/icons.negative_straight.cjs.js",
+  "module": "dist/icons.negative_straight.es.js"
+}

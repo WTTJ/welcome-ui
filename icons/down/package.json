@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.down",
+  "sideEffects": false,
+  "main": "dist/icons.down.cjs.js",
+  "module": "dist/icons.down.es.js"
+}

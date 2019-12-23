@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.employer_branding",
+  "sideEffects": false,
+  "main": "dist/icons.employer_branding.cjs.js",
+  "module": "dist/icons.employer_branding.es.js"
+}

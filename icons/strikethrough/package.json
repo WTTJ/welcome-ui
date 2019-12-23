@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.strikethrough",
+  "sideEffects": false,
+  "main": "dist/icons.strikethrough.cjs.js",
+  "module": "dist/icons.strikethrough.es.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.bold",
+  "sideEffects": false,
+  "main": "dist/icons.bold.cjs.js",
+  "module": "dist/icons.bold.es.js"
+}

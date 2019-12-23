@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.instagram",
+  "sideEffects": false,
+  "main": "dist/icons.instagram.cjs.js",
+  "module": "dist/icons.instagram.es.js"
+}

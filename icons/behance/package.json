@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.behance",
+  "sideEffects": false,
+  "main": "dist/icons.behance.cjs.js",
+  "module": "dist/icons.behance.es.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.remote",
+  "sideEffects": false,
+  "main": "dist/icons.remote.cjs.js",
+  "module": "dist/icons.remote.es.js"
+}

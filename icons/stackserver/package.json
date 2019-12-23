@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.stackserver",
+  "sideEffects": false,
+  "main": "dist/icons.stackserver.cjs.js",
+  "module": "dist/icons.stackserver.es.js"
+}

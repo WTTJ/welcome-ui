@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.external_link",
+  "sideEffects": false,
+  "main": "dist/icons.external_link.cjs.js",
+  "module": "dist/icons.external_link.es.js"
+}

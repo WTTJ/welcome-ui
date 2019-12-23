@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.trash",
+  "sideEffects": false,
+  "main": "dist/icons.trash.cjs.js",
+  "module": "dist/icons.trash.es.js"
+}

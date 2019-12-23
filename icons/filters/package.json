@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.filters",
+  "sideEffects": false,
+  "main": "dist/icons.filters.cjs.js",
+  "module": "dist/icons.filters.es.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.review_outline",
+  "sideEffects": false,
+  "main": "dist/icons.review_outline.cjs.js",
+  "module": "dist/icons.review_outline.es.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.handshake",
+  "sideEffects": false,
+  "main": "dist/icons.handshake.cjs.js",
+  "module": "dist/icons.handshake.es.js"
+}

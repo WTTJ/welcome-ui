@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.promote",
+  "sideEffects": false,
+  "main": "dist/icons.promote.cjs.js",
+  "module": "dist/icons.promote.es.js"
+}

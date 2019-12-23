@@ -1,6 +1,0 @@
-{
-  "name": "@welcome-ui/icons.settings",
-  "sideEffects": false,
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.es.js"
-}

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.pin",
+  "sideEffects": false,
+  "main": "dist/icons.pin.cjs.js",
+  "module": "dist/icons.pin.es.js"
+}

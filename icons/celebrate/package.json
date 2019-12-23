@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.celebrate",
+  "sideEffects": false,
+  "main": "dist/icons.celebrate.cjs.js",
+  "module": "dist/icons.celebrate.es.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.welcome_home",
+  "sideEffects": false,
+  "main": "dist/icons.welcome_home.cjs.js",
+  "module": "dist/icons.welcome_home.es.js"
+}

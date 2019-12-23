@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.xing",
+  "sideEffects": false,
+  "main": "dist/icons.xing.cjs.js",
+  "module": "dist/icons.xing.es.js"
+}

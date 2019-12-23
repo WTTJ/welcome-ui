@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.collapse",
+  "sideEffects": false,
+  "main": "dist/icons.collapse.cjs.js",
+  "module": "dist/icons.collapse.es.js"
+}

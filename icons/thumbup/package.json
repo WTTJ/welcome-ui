@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.thumbup",
+  "sideEffects": false,
+  "main": "dist/icons.thumbup.cjs.js",
+  "module": "dist/icons.thumbup.es.js"
+}

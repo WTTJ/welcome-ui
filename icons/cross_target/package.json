@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.cross_target",
+  "sideEffects": false,
+  "main": "dist/icons.cross_target.cjs.js",
+  "module": "dist/icons.cross_target.es.js"
+}

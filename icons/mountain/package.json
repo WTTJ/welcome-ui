@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.mountain",
+  "sideEffects": false,
+  "main": "dist/icons.mountain.cjs.js",
+  "module": "dist/icons.mountain.es.js"
+}

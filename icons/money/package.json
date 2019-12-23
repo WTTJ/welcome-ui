@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.money",
+  "sideEffects": false,
+  "main": "dist/icons.money.cjs.js",
+  "module": "dist/icons.money.es.js"
+}

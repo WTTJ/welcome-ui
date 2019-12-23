@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.compass",
+  "sideEffects": false,
+  "main": "dist/icons.compass.cjs.js",
+  "module": "dist/icons.compass.es.js"
+}

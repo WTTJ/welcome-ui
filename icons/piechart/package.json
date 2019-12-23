@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.piechart",
+  "sideEffects": false,
+  "main": "dist/icons.piechart.cjs.js",
+  "module": "dist/icons.piechart.es.js"
+}

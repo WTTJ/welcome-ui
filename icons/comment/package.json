@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.comment",
+  "sideEffects": false,
+  "main": "dist/icons.comment.cjs.js",
+  "module": "dist/icons.comment.es.js"
+}

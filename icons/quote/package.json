@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.quote",
+  "sideEffects": false,
+  "main": "dist/icons.quote.cjs.js",
+  "module": "dist/icons.quote.es.js"
+}

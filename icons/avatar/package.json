@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.avatar",
+  "sideEffects": false,
+  "main": "dist/icons.avatar.cjs.js",
+  "module": "dist/icons.avatar.es.js"
+}

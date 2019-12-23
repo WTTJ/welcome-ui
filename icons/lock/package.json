@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.lock",
+  "sideEffects": false,
+  "main": "dist/icons.lock.cjs.js",
+  "module": "dist/icons.lock.es.js"
+}

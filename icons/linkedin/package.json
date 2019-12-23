@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.linkedin",
+  "sideEffects": false,
+  "main": "dist/icons.linkedin.cjs.js",
+  "module": "dist/icons.linkedin.es.js"
+}

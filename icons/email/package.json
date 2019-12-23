@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.email",
+  "sideEffects": false,
+  "main": "dist/icons.email.cjs.js",
+  "module": "dist/icons.email.es.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.phone",
+  "sideEffects": false,
+  "main": "dist/icons.phone.cjs.js",
+  "module": "dist/icons.phone.es.js"
+}

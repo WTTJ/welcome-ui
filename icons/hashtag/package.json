@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.hashtag",
+  "sideEffects": false,
+  "main": "dist/icons.hashtag.cjs.js",
+  "module": "dist/icons.hashtag.es.js"
+}

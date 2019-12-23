@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.book",
+  "sideEffects": false,
+  "main": "dist/icons.book.cjs.js",
+  "module": "dist/icons.book.es.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.facebook",
+  "sideEffects": false,
+  "main": "dist/icons.facebook.cjs.js",
+  "module": "dist/icons.facebook.es.js"
+}

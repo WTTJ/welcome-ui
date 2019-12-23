@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.birthday",
+  "sideEffects": false,
+  "main": "dist/icons.birthday.cjs.js",
+  "module": "dist/icons.birthday.es.js"
+}

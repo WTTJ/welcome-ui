@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.music",
+  "sideEffects": false,
+  "main": "dist/icons.music.cjs.js",
+  "module": "dist/icons.music.es.js"
+}

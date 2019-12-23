@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.dish",
+  "sideEffects": false,
+  "main": "dist/icons.dish.cjs.js",
+  "module": "dist/icons.dish.es.js"
+}

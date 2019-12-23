@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.play",
+  "sideEffects": false,
+  "main": "dist/icons.play.cjs.js",
+  "module": "dist/icons.play.es.js"
+}

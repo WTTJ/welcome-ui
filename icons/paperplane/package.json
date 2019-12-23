@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.paperplane",
+  "sideEffects": false,
+  "main": "dist/icons.paperplane.cjs.js",
+  "module": "dist/icons.paperplane.es.js"
+}

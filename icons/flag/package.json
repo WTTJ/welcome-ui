@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.flag",
+  "sideEffects": false,
+  "main": "dist/icons.flag.cjs.js",
+  "module": "dist/icons.flag.es.js"
+}

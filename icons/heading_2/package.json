@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.heading_2",
+  "sideEffects": false,
+  "main": "dist/icons.heading_2.cjs.js",
+  "module": "dist/icons.heading_2.es.js"
+}

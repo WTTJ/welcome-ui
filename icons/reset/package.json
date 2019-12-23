@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.reset",
+  "sideEffects": false,
+  "main": "dist/icons.reset.cjs.js",
+  "module": "dist/icons.reset.es.js"
+}

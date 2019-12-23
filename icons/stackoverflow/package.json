@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.stackoverflow",
+  "sideEffects": false,
+  "main": "dist/icons.stackoverflow.cjs.js",
+  "module": "dist/icons.stackoverflow.es.js"
+}

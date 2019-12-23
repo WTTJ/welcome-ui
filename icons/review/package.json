@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.review",
+  "sideEffects": false,
+  "main": "dist/icons.review.cjs.js",
+  "module": "dist/icons.review.es.js"
+}

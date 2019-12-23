@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.dribbble",
+  "sideEffects": false,
+  "main": "dist/icons.dribbble.cjs.js",
+  "module": "dist/icons.dribbble.es.js"
+}

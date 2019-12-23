@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.youtube",
+  "sideEffects": false,
+  "main": "dist/icons.youtube.cjs.js",
+  "module": "dist/icons.youtube.es.js"
+}

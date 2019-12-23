@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.tree",
+  "sideEffects": false,
+  "main": "dist/icons.tree.cjs.js",
+  "module": "dist/icons.tree.es.js"
+}

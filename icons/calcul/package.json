@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.calcul",
+  "sideEffects": false,
+  "main": "dist/icons.calcul.cjs.js",
+  "module": "dist/icons.calcul.es.js"
+}

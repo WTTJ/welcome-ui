@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.questions",
+  "sideEffects": false,
+  "main": "dist/icons.questions.cjs.js",
+  "module": "dist/icons.questions.es.js"
+}

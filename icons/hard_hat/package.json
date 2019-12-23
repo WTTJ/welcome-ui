@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.hard_hat",
+  "sideEffects": false,
+  "main": "dist/icons.hard_hat.cjs.js",
+  "module": "dist/icons.hard_hat.es.js"
+}

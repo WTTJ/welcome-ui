@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.chevron",
+  "sideEffects": false,
+  "main": "dist/icons.chevron.cjs.js",
+  "module": "dist/icons.chevron.es.js"
+}

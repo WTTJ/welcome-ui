@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.pencil",
+  "sideEffects": false,
+  "main": "dist/icons.pencil.cjs.js",
+  "module": "dist/icons.pencil.es.js"
+}

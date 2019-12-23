@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.shield",
+  "sideEffects": false,
+  "main": "dist/icons.shield.cjs.js",
+  "module": "dist/icons.shield.es.js"
+}

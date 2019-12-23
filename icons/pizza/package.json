@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.pizza",
+  "sideEffects": false,
+  "main": "dist/icons.pizza.cjs.js",
+  "module": "dist/icons.pizza.es.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.tag",
+  "sideEffects": false,
+  "main": "dist/icons.tag.cjs.js",
+  "module": "dist/icons.tag.es.js"
+}

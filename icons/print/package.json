@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.print",
+  "sideEffects": false,
+  "main": "dist/icons.print.cjs.js",
+  "module": "dist/icons.print.es.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.check",
+  "sideEffects": false,
+  "main": "dist/icons.check.cjs.js",
+  "module": "dist/icons.check.es.js"
+}

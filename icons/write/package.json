@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.write",
+  "sideEffects": false,
+  "main": "dist/icons.write.cjs.js",
+  "module": "dist/icons.write.es.js"
+}

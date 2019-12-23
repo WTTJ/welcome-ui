@@ -1,0 +1,6 @@
+{
+  "name": "@welcome-ui/icons.github",
+  "sideEffects": false,
+  "main": "dist/icons.github.cjs.js",
+  "module": "dist/icons.github.es.js"
+}
