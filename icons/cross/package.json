@@ -3,5 +3,5 @@
   "sideEffects": false,
   "main": "dist/icons.cross.cjs.js",
   "module": "dist/icons.cross.es.js",
-  "version": "1.0.16-alpha.0"
+  "version": "1.0.17-alpha.0"
 }

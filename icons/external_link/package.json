@@ -3,5 +3,5 @@
   "sideEffects": false,
   "main": "dist/icons.external_link.cjs.js",
   "module": "dist/icons.external_link.es.js",
-  "version": "1.0.16-alpha.0"
+  "version": "1.0.17-alpha.0"
 }

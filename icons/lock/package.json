@@ -3,5 +3,5 @@
   "sideEffects": false,
   "main": "dist/icons.lock.cjs.js",
   "module": "dist/icons.lock.es.js",
-  "version": "1.0.16-alpha.0"
+  "version": "1.0.17-alpha.0"
 }

@@ -3,5 +3,5 @@
   "sideEffects": false,
   "main": "dist/icons.review_outline.cjs.js",
   "module": "dist/icons.review_outline.es.js",
-  "version": "1.0.16-alpha.0"
+  "version": "1.0.17-alpha.0"
 }
