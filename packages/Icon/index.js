@@ -3,12 +3,13 @@ import { oneOf, string } from 'prop-types'
 
 import * as S from './styles'
 
-export const Icon = forwardRef(({ dataTestId, name, size = 'md', title, ...props }, ref) => {
+export const Icon = forwardRef((props, ref) => {
+  const { dataTestId, name, size = 'md', title, ...rest } = props
   if (!name) {
     return null
   }
 
-  const iconConfig = require(`@welcome-ui/icons.${name}`).default
+  const { default: iconConfig } = require(`@welcome-ui/icons.${name}`)
 
   if (!iconConfig) {
     return null
@@ -24,7 +25,7 @@ export const Icon = forwardRef(({ dataTestId, name, size = 'md', title, ...props
       stroked={iconConfig.stroked}
       title={title || name}
       viewBox={iconConfig.viewBox || '0 0 100 100'}
-      {...props}
+      {...rest}
     />
   )
 })
