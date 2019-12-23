@@ -3,5 +3,9 @@
   "sideEffects": false,
   "main": "dist/icons.mic.cjs.js",
   "module": "dist/icons.mic.es.js",
-  "version": "1.0.18-alpha.0"
+  "version": "1.0.18-alpha.0",
+  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
+  "publishConfig": {
+    "access": "public"
+  }
 }

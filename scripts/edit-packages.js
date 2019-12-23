@@ -21,7 +21,9 @@ const ROOT_PATH = path.join(__dirname, '../icons')
 const getNewConfig = ({ componentName, config, pkgName }) => {
   console.debug({ componentName, config, pkgName })
   return {
-    version: "1.0.16-alpha.0"
+    publishConfig: {
+      access: "public"
+    }
   }
 }
 
