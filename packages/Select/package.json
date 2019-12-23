@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/select",
-  "version": "1.0.19-alpha.0",
+  "version": "1.0.20-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/select.cjs.js",
   "module": "dist/select.es.js",
@@ -35,9 +35,9 @@
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "@welcome-ui/clear-button": "^1.0.19-alpha.0",
-    "@welcome-ui/icon": "^1.0.19-alpha.0",
-    "@welcome-ui/tag": "^1.0.19-alpha.0",
+    "@welcome-ui/clear-button": "^1.0.20-alpha.0",
+    "@welcome-ui/icon": "^1.0.20-alpha.0",
+    "@welcome-ui/tag": "^1.0.20-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "downshift": "=3.2.10",
