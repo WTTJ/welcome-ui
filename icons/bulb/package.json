@@ -3,5 +3,5 @@
   "sideEffects": false,
   "main": "dist/icons.bulb.cjs.js",
   "module": "dist/icons.bulb.es.js",
-  "version": "1.0.17-alpha.0"
+  "version": "1.0.18-alpha.0"
 }

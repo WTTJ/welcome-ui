@@ -3,5 +3,5 @@
   "sideEffects": false,
   "main": "dist/icons.welcome_kit.cjs.js",
   "module": "dist/icons.welcome_kit.es.js",
-  "version": "1.0.17-alpha.0"
+  "version": "1.0.18-alpha.0"
 }
