@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+/* eslint-disable no-console */
+
 const path = require('path')
 const fs = require('fs')
 const util = require('util')
@@ -7,7 +11,7 @@ const kebabCase = require('lodash.kebabcase')
 fs.readdirAsync = util.promisify(fs.readdir)
 fs.writeFileAsync = util.promisify(fs.writeFile)
 
-const ROOT_PATH = path.join(__dirname, '../packages')
+const ROOT_PATH = path.join(__dirname, '../icons')
 
 // UPDATE THIS FUNCTION TO RETURN NEW CONFIG FOR PACKAGE.JSON
 // componentName: ConnectedField
@@ -15,9 +19,9 @@ const ROOT_PATH = path.join(__dirname, '../packages')
 // config: content of package.json
 // eslint-disable-next-line no-unused-vars
 const getNewConfig = ({ componentName, config, pkgName }) => {
+  console.debug({ componentName, config, pkgName })
   return {
-    main: `dist/${pkgName}.cjs.js`,
-    module: `dist/${pkgName}.es.js`
+    version: "1.0.16-alpha.0"
   }
 }
 
@@ -27,11 +31,13 @@ const collectFolders = () =>
     .then(files => files.filter(f => f.isDirectory()))
 
 const collectPackages = folder =>
-  folder.map(({ name }) => ({
-    pkgName: kebabCase(name),
-    componentName: name,
-    config: require(`${ROOT_PATH}/${name}/package.json`)
-  }))
+  folder
+    .filter(({ name }) => !name.startsWith('_'))
+    .map(({ name }) => ({
+      pkgName: kebabCase(name),
+      componentName: name,
+      config: require(`${ROOT_PATH}/${name}/package.json`)
+    }))
 
 const updatePackageConfig = pkg => {
   const { componentName, config, pkgName } = pkg

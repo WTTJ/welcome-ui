@@ -8,7 +8,7 @@ export const Icon = forwardRef(({ dataTestId, name, size = 'md', title, ...props
     return null
   }
 
-  const iconConfig = require(`../Icons/${name}`).default
+  const iconConfig = require(`@welcome-ui/icons.${name}`).default
 
   if (!iconConfig) {
     return null

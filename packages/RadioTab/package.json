@@ -47,5 +47,6 @@
     "@welcome-ui/radio": "^1.0.16-alpha.0",
     "@welcome-ui/radio-group": "^1.0.16-alpha.0"
   },
-  "gitHead": "815306603c6335082657045b3e8cf52424a3616f"
+  "gitHead": "815306603c6335082657045b3e8cf52424a3616f",
+  "sideEffects": false
 }

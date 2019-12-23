@@ -1,6 +1,7 @@
 {
   "packages": [
-    "packages/*"
+    "packages/*",
+    "icons/*"
   ],
   "version": "1.0.16-alpha.0",
   "npmClient": "yarn",
