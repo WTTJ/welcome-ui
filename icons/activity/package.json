@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.activity",
   "sideEffects": false,
   "main": "dist/icons.activity.cjs.js",
-  "module": "dist/icons.activity.es.js"
+  "module": "dist/icons.activity.es.js",
+  "version": "1.0.16-alpha.0"
 }

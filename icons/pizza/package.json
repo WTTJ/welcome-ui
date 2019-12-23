@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.pizza",
   "sideEffects": false,
   "main": "dist/icons.pizza.cjs.js",
-  "module": "dist/icons.pizza.es.js"
+  "module": "dist/icons.pizza.es.js",
+  "version": "1.0.16-alpha.0"
 }

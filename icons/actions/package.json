@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.actions",
   "sideEffects": false,
   "main": "dist/icons.actions.cjs.js",
-  "module": "dist/icons.actions.es.js"
+  "module": "dist/icons.actions.es.js",
+  "version": "1.0.16-alpha.0"
 }

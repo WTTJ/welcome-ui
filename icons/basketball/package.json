@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.basketball",
   "sideEffects": false,
   "main": "dist/icons.basketball.cjs.js",
-  "module": "dist/icons.basketball.es.js"
+  "module": "dist/icons.basketball.es.js",
+  "version": "1.0.16-alpha.0"
 }

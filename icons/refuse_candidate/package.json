@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.refuse_candidate",
   "sideEffects": false,
   "main": "dist/icons.refuse_candidate.cjs.js",
-  "module": "dist/icons.refuse_candidate.es.js"
+  "module": "dist/icons.refuse_candidate.es.js",
+  "version": "1.0.16-alpha.0"
 }

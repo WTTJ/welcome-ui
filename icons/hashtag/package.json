@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.hashtag",
   "sideEffects": false,
   "main": "dist/icons.hashtag.cjs.js",
-  "module": "dist/icons.hashtag.es.js"
+  "module": "dist/icons.hashtag.es.js",
+  "version": "1.0.16-alpha.0"
 }

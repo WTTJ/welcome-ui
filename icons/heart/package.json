@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.heart",
   "sideEffects": false,
   "main": "dist/icons.heart.cjs.js",
-  "module": "dist/icons.heart.es.js"
+  "module": "dist/icons.heart.es.js",
+  "version": "1.0.16-alpha.0"
 }

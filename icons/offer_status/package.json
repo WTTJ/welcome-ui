@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.offer_status",
   "sideEffects": false,
   "main": "dist/icons.offer_status.cjs.js",
-  "module": "dist/icons.offer_status.es.js"
+  "module": "dist/icons.offer_status.es.js",
+  "version": "1.0.16-alpha.0"
 }

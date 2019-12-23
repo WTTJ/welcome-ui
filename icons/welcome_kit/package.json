@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.welcome_kit",
   "sideEffects": false,
   "main": "dist/icons.welcome_kit.cjs.js",
-  "module": "dist/icons.welcome_kit.es.js"
+  "module": "dist/icons.welcome_kit.es.js",
+  "version": "1.0.16-alpha.0"
 }

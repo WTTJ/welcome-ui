@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.code",
   "sideEffects": false,
   "main": "dist/icons.code.cjs.js",
-  "module": "dist/icons.code.es.js"
+  "module": "dist/icons.code.es.js",
+  "version": "1.0.16-alpha.0"
 }

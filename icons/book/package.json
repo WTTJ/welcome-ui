@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.book",
   "sideEffects": false,
   "main": "dist/icons.book.cjs.js",
-  "module": "dist/icons.book.es.js"
+  "module": "dist/icons.book.es.js",
+  "version": "1.0.16-alpha.0"
 }

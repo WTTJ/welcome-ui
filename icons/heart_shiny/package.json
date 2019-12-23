@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.heart_shiny",
   "sideEffects": false,
   "main": "dist/icons.heart_shiny.cjs.js",
-  "module": "dist/icons.heart_shiny.es.js"
+  "module": "dist/icons.heart_shiny.es.js",
+  "version": "1.0.16-alpha.0"
 }

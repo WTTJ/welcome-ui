@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.pencil",
   "sideEffects": false,
   "main": "dist/icons.pencil.cjs.js",
-  "module": "dist/icons.pencil.es.js"
+  "module": "dist/icons.pencil.es.js",
+  "version": "1.0.16-alpha.0"
 }

@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.ordered_list",
   "sideEffects": false,
   "main": "dist/icons.ordered_list.cjs.js",
-  "module": "dist/icons.ordered_list.es.js"
+  "module": "dist/icons.ordered_list.es.js",
+  "version": "1.0.16-alpha.0"
 }

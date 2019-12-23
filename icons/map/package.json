@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.map",
   "sideEffects": false,
   "main": "dist/icons.map.cjs.js",
-  "module": "dist/icons.map.es.js"
+  "module": "dist/icons.map.es.js",
+  "version": "1.0.16-alpha.0"
 }

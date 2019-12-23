@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.crown",
   "sideEffects": false,
   "main": "dist/icons.crown.cjs.js",
-  "module": "dist/icons.crown.es.js"
+  "module": "dist/icons.crown.es.js",
+  "version": "1.0.16-alpha.0"
 }

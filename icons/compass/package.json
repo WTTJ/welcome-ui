@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.compass",
   "sideEffects": false,
   "main": "dist/icons.compass.cjs.js",
-  "module": "dist/icons.compass.es.js"
+  "module": "dist/icons.compass.es.js",
+  "version": "1.0.16-alpha.0"
 }

@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.address",
   "sideEffects": false,
   "main": "dist/icons.address.cjs.js",
-  "module": "dist/icons.address.es.js"
+  "module": "dist/icons.address.es.js",
+  "version": "1.0.16-alpha.0"
 }

@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.check",
   "sideEffects": false,
   "main": "dist/icons.check.cjs.js",
-  "module": "dist/icons.check.es.js"
+  "module": "dist/icons.check.es.js",
+  "version": "1.0.16-alpha.0"
 }

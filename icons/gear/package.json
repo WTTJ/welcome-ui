@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.gear",
   "sideEffects": false,
   "main": "dist/icons.gear.cjs.js",
-  "module": "dist/icons.gear.es.js"
+  "module": "dist/icons.gear.es.js",
+  "version": "1.0.16-alpha.0"
 }

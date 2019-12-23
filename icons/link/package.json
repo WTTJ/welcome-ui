@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.link",
   "sideEffects": false,
   "main": "dist/icons.link.cjs.js",
-  "module": "dist/icons.link.es.js"
+  "module": "dist/icons.link.es.js",
+  "version": "1.0.16-alpha.0"
 }

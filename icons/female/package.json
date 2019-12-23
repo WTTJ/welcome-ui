@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.female",
   "sideEffects": false,
   "main": "dist/icons.female.cjs.js",
-  "module": "dist/icons.female.es.js"
+  "module": "dist/icons.female.es.js",
+  "version": "1.0.16-alpha.0"
 }

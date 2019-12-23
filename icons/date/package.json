@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.date",
   "sideEffects": false,
   "main": "dist/icons.date.cjs.js",
-  "module": "dist/icons.date.es.js"
+  "module": "dist/icons.date.es.js",
+  "version": "1.0.16-alpha.0"
 }

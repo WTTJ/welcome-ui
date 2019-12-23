@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.target",
   "sideEffects": false,
   "main": "dist/icons.target.cjs.js",
-  "module": "dist/icons.target.es.js"
+  "module": "dist/icons.target.es.js",
+  "version": "1.0.16-alpha.0"
 }

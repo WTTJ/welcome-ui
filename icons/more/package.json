@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.more",
   "sideEffects": false,
   "main": "dist/icons.more.cjs.js",
-  "module": "dist/icons.more.es.js"
+  "module": "dist/icons.more.es.js",
+  "version": "1.0.16-alpha.0"
 }

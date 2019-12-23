@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.music",
   "sideEffects": false,
   "main": "dist/icons.music.cjs.js",
-  "module": "dist/icons.music.es.js"
+  "module": "dist/icons.music.es.js",
+  "version": "1.0.16-alpha.0"
 }

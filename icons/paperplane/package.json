@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.paperplane",
   "sideEffects": false,
   "main": "dist/icons.paperplane.cjs.js",
-  "module": "dist/icons.paperplane.es.js"
+  "module": "dist/icons.paperplane.es.js",
+  "version": "1.0.16-alpha.0"
 }

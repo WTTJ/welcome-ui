@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.settings",
   "sideEffects": false,
   "main": "dist/icons.settings.cjs.js",
-  "module": "dist/icons.settings.es.js"
+  "module": "dist/icons.settings.es.js",
+  "version": "1.0.16-alpha.0"
 }

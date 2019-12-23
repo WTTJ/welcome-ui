@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.negative",
   "sideEffects": false,
   "main": "dist/icons.negative.cjs.js",
-  "module": "dist/icons.negative.es.js"
+  "module": "dist/icons.negative.es.js",
+  "version": "1.0.16-alpha.0"
 }

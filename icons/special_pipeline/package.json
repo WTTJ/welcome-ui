@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.special_pipeline",
   "sideEffects": false,
   "main": "dist/icons.special_pipeline.cjs.js",
-  "module": "dist/icons.special_pipeline.es.js"
+  "module": "dist/icons.special_pipeline.es.js",
+  "version": "1.0.16-alpha.0"
 }

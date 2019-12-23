@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.microship",
   "sideEffects": false,
   "main": "dist/icons.microship.cjs.js",
-  "module": "dist/icons.microship.es.js"
+  "module": "dist/icons.microship.es.js",
+  "version": "1.0.16-alpha.0"
 }

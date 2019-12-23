@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.computer",
   "sideEffects": false,
   "main": "dist/icons.computer.cjs.js",
-  "module": "dist/icons.computer.es.js"
+  "module": "dist/icons.computer.es.js",
+  "version": "1.0.16-alpha.0"
 }

@@ -2,5 +2,6 @@
   "name": "@welcome-ui/icons.spanner",
   "sideEffects": false,
   "main": "dist/icons.spanner.cjs.js",
-  "module": "dist/icons.spanner.es.js"
+  "module": "dist/icons.spanner.es.js",
+  "version": "1.0.16-alpha.0"
 }
