@@ -22,7 +22,7 @@ const getNewConfig = ({ componentName, config, pkgName }) => {
   console.debug({ componentName, config, pkgName })
   return {
     publishConfig: {
-      access: "public"
+      access: 'public'
     }
   }
 }

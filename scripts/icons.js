@@ -47,18 +47,30 @@ const writeContents = files => {
 }
 `
       )
+      let config = {}
+      const pkgFile = `${outputFolder}/package.json`
+      if (fs.existsSync(pkgFile)) {
+        config = fs.readFileSync(pkgFile)
+        config = JSON.parse(config.toString())
+      }
+
       fs.writeFileSync(
-        `${outputFolder}/package.json`,
-        JSON.stringify(
+        pkgFile,
+        `${JSON.stringify(
           {
+            ...config,
             name: `@welcome-ui/icons.${key}`,
             sideEffects: false,
             main: `dist/icons.${key}.cjs.js`,
-            module: `dist/icons.${key}.es.js`
+            module: `dist/icons.${key}.es.js`,
+            publishConfig: {
+              access: 'public'
+            }
           },
           0,
           2
-        )
+        )}
+`
       )
 
       return key
