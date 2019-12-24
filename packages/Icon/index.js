@@ -9,7 +9,7 @@ export const Icon = forwardRef((props, ref) => {
     return null
   }
 
-  const { default: iconConfig } = require(`@welcome-ui/icons.${name}`)
+  const { default: iconConfig } = require(`@welcome-icons/${name}`)
 
   if (!iconConfig) {
     return null
