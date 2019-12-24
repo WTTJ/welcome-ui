@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.anniversary",
+  "name": "@welcome-icons/anniversary",
   "sideEffects": false,
-  "main": "dist/icons.anniversary.cjs.js",
-  "module": "dist/icons.anniversary.es.js",
+  "main": "dist/anniversary.cjs.js",
+  "module": "dist/anniversary.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

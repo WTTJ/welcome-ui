@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.celebrate",
+  "name": "@welcome-icons/celebrate",
   "sideEffects": false,
-  "main": "dist/icons.celebrate.cjs.js",
-  "module": "dist/icons.celebrate.es.js",
+  "main": "dist/celebrate.cjs.js",
+  "module": "dist/celebrate.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

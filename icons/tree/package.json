@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.tree",
+  "name": "@welcome-icons/tree",
   "sideEffects": false,
-  "main": "dist/icons.tree.cjs.js",
-  "module": "dist/icons.tree.es.js",
+  "main": "dist/tree.cjs.js",
+  "module": "dist/tree.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

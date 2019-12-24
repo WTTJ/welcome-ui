@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.gear",
+  "name": "@welcome-icons/gear",
   "sideEffects": false,
-  "main": "dist/icons.gear.cjs.js",
-  "module": "dist/icons.gear.es.js",
+  "main": "dist/gear.cjs.js",
+  "module": "dist/gear.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

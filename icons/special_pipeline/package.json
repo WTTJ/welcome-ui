@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.special_pipeline",
+  "name": "@welcome-icons/special-pipeline",
   "sideEffects": false,
-  "main": "dist/icons.special_pipeline.cjs.js",
-  "module": "dist/icons.special_pipeline.es.js",
+  "main": "dist/special-pipeline.cjs.js",
+  "module": "dist/special-pipeline.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

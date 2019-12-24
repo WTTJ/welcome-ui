@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.date",
+  "name": "@welcome-icons/date",
   "sideEffects": false,
-  "main": "dist/icons.date.cjs.js",
-  "module": "dist/icons.date.es.js",
+  "main": "dist/date.cjs.js",
+  "module": "dist/date.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

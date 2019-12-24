@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.heading_2",
+  "name": "@welcome-icons/heading-2",
   "sideEffects": false,
-  "main": "dist/icons.heading_2.cjs.js",
-  "module": "dist/icons.heading_2.es.js",
+  "main": "dist/heading-2.cjs.js",
+  "module": "dist/heading-2.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.cross",
+  "name": "@welcome-icons/cross",
   "sideEffects": false,
-  "main": "dist/icons.cross.cjs.js",
-  "module": "dist/icons.cross.es.js",
+  "main": "dist/cross.cjs.js",
+  "module": "dist/cross.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

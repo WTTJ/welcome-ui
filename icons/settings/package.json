@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.settings",
+  "name": "@welcome-icons/settings",
   "sideEffects": false,
-  "main": "dist/icons.settings.cjs.js",
-  "module": "dist/icons.settings.es.js",
+  "main": "dist/settings.cjs.js",
+  "module": "dist/settings.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

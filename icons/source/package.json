@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.source",
+  "name": "@welcome-icons/source",
   "sideEffects": false,
-  "main": "dist/icons.source.cjs.js",
-  "module": "dist/icons.source.es.js",
+  "main": "dist/source.cjs.js",
+  "module": "dist/source.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

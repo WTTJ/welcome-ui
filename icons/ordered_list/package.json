@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.ordered_list",
+  "name": "@welcome-icons/ordered-list",
   "sideEffects": false,
-  "main": "dist/icons.ordered_list.cjs.js",
-  "module": "dist/icons.ordered_list.es.js",
+  "main": "dist/ordered-list.cjs.js",
+  "module": "dist/ordered-list.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

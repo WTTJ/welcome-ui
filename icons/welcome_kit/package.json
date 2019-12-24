@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.welcome_kit",
+  "name": "@welcome-icons/welcome-kit",
   "sideEffects": false,
-  "main": "dist/icons.welcome_kit.cjs.js",
-  "module": "dist/icons.welcome_kit.es.js",
+  "main": "dist/welcome-kit.cjs.js",
+  "module": "dist/welcome-kit.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

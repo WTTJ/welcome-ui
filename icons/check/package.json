@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.check",
+  "name": "@welcome-icons/check",
   "sideEffects": false,
-  "main": "dist/icons.check.cjs.js",
-  "module": "dist/icons.check.es.js",
+  "main": "dist/check.cjs.js",
+  "module": "dist/check.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.up",
+  "name": "@welcome-icons/up",
   "sideEffects": false,
-  "main": "dist/icons.up.cjs.js",
-  "module": "dist/icons.up.es.js",
+  "main": "dist/up.cjs.js",
+  "module": "dist/up.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

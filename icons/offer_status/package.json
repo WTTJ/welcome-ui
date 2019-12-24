@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.offer_status",
+  "name": "@welcome-icons/offer-status",
   "sideEffects": false,
-  "main": "dist/icons.offer_status.cjs.js",
-  "module": "dist/icons.offer_status.es.js",
+  "main": "dist/offer-status.cjs.js",
+  "module": "dist/offer-status.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

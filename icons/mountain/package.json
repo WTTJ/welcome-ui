@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.mountain",
+  "name": "@welcome-icons/mountain",
   "sideEffects": false,
-  "main": "dist/icons.mountain.cjs.js",
-  "module": "dist/icons.mountain.es.js",
+  "main": "dist/mountain.cjs.js",
+  "module": "dist/mountain.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

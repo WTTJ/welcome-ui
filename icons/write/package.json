@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.write",
+  "name": "@welcome-icons/write",
   "sideEffects": false,
-  "main": "dist/icons.write.cjs.js",
-  "module": "dist/icons.write.es.js",
+  "main": "dist/write.cjs.js",
+  "module": "dist/write.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

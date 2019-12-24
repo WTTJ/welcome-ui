@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.right",
+  "name": "@welcome-icons/right",
   "sideEffects": false,
-  "main": "dist/icons.right.cjs.js",
-  "module": "dist/icons.right.es.js",
+  "main": "dist/right.cjs.js",
+  "module": "dist/right.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

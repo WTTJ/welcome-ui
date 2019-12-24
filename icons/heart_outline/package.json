@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.heart_outline",
+  "name": "@welcome-icons/heart-outline",
   "sideEffects": false,
-  "main": "dist/icons.heart_outline.cjs.js",
-  "module": "dist/icons.heart_outline.es.js",
+  "main": "dist/heart-outline.cjs.js",
+  "module": "dist/heart-outline.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.music",
+  "name": "@welcome-icons/music",
   "sideEffects": false,
-  "main": "dist/icons.music.cjs.js",
-  "module": "dist/icons.music.es.js",
+  "main": "dist/music.cjs.js",
+  "module": "dist/music.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

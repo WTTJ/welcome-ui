@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.birthday",
+  "name": "@welcome-icons/birthday",
   "sideEffects": false,
-  "main": "dist/icons.birthday.cjs.js",
-  "module": "dist/icons.birthday.es.js",
+  "main": "dist/birthday.cjs.js",
+  "module": "dist/birthday.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

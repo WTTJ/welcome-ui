@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.hard_hat",
+  "name": "@welcome-icons/hard-hat",
   "sideEffects": false,
-  "main": "dist/icons.hard_hat.cjs.js",
-  "module": "dist/icons.hard_hat.es.js",
+  "main": "dist/hard-hat.cjs.js",
+  "module": "dist/hard-hat.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

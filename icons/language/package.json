@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.language",
+  "name": "@welcome-icons/language",
   "sideEffects": false,
-  "main": "dist/icons.language.cjs.js",
-  "module": "dist/icons.language.es.js",
+  "main": "dist/language.cjs.js",
+  "module": "dist/language.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

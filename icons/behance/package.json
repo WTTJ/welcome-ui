@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.behance",
+  "name": "@welcome-icons/behance",
   "sideEffects": false,
-  "main": "dist/icons.behance.cjs.js",
-  "module": "dist/icons.behance.es.js",
+  "main": "dist/behance.cjs.js",
+  "module": "dist/behance.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

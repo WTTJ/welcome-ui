@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.camera",
+  "name": "@welcome-icons/camera",
   "sideEffects": false,
-  "main": "dist/icons.camera.cjs.js",
-  "module": "dist/icons.camera.es.js",
+  "main": "dist/camera.cjs.js",
+  "module": "dist/camera.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

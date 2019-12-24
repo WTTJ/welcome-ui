@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.map",
+  "name": "@welcome-icons/map",
   "sideEffects": false,
-  "main": "dist/icons.map.cjs.js",
-  "module": "dist/icons.map.es.js",
+  "main": "dist/map.cjs.js",
+  "module": "dist/map.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

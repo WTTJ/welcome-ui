@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.cover_letter",
+  "name": "@welcome-icons/cover-letter",
   "sideEffects": false,
-  "main": "dist/icons.cover_letter.cjs.js",
-  "module": "dist/icons.cover_letter.es.js",
+  "main": "dist/cover-letter.cjs.js",
+  "module": "dist/cover-letter.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

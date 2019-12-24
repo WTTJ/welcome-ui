@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.dish",
+  "name": "@welcome-icons/dish",
   "sideEffects": false,
-  "main": "dist/icons.dish.cjs.js",
-  "module": "dist/icons.dish.es.js",
+  "main": "dist/dish.cjs.js",
+  "module": "dist/dish.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

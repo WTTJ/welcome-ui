@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.play",
+  "name": "@welcome-icons/play",
   "sideEffects": false,
-  "main": "dist/icons.play.cjs.js",
-  "module": "dist/icons.play.es.js",
+  "main": "dist/play.cjs.js",
+  "module": "dist/play.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

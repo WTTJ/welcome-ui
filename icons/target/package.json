@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.target",
+  "name": "@welcome-icons/target",
   "sideEffects": false,
-  "main": "dist/icons.target.cjs.js",
-  "module": "dist/icons.target.es.js",
+  "main": "dist/target.cjs.js",
+  "module": "dist/target.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

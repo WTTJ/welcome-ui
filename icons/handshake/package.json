@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.handshake",
+  "name": "@welcome-icons/handshake",
   "sideEffects": false,
-  "main": "dist/icons.handshake.cjs.js",
-  "module": "dist/icons.handshake.es.js",
+  "main": "dist/handshake.cjs.js",
+  "module": "dist/handshake.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

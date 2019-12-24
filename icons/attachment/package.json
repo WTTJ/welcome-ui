@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.attachment",
+  "name": "@welcome-icons/attachment",
   "sideEffects": false,
-  "main": "dist/icons.attachment.cjs.js",
-  "module": "dist/icons.attachment.es.js",
+  "main": "dist/attachment.cjs.js",
+  "module": "dist/attachment.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

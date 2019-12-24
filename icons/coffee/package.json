@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.coffee",
+  "name": "@welcome-icons/coffee",
   "sideEffects": false,
-  "main": "dist/icons.coffee.cjs.js",
-  "module": "dist/icons.coffee.es.js",
+  "main": "dist/coffee.cjs.js",
+  "module": "dist/coffee.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

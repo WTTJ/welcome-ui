@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.italic",
+  "name": "@welcome-icons/italic",
   "sideEffects": false,
-  "main": "dist/icons.italic.cjs.js",
-  "module": "dist/icons.italic.es.js",
+  "main": "dist/italic.cjs.js",
+  "module": "dist/italic.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

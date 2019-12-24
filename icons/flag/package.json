@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.flag",
+  "name": "@welcome-icons/flag",
   "sideEffects": false,
-  "main": "dist/icons.flag.cjs.js",
-  "module": "dist/icons.flag.es.js",
+  "main": "dist/flag.cjs.js",
+  "module": "dist/flag.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

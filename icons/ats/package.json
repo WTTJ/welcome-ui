@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.ats",
+  "name": "@welcome-icons/ats",
   "sideEffects": false,
-  "main": "dist/icons.ats.cjs.js",
-  "module": "dist/icons.ats.es.js",
+  "main": "dist/ats.cjs.js",
+  "module": "dist/ats.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

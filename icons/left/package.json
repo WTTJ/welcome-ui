@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.left",
+  "name": "@welcome-icons/left",
   "sideEffects": false,
-  "main": "dist/icons.left.cjs.js",
-  "module": "dist/icons.left.es.js",
+  "main": "dist/left.cjs.js",
+  "module": "dist/left.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

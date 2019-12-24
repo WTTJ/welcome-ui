@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.book",
+  "name": "@welcome-icons/book",
   "sideEffects": false,
-  "main": "dist/icons.book.cjs.js",
-  "module": "dist/icons.book.es.js",
+  "main": "dist/book.cjs.js",
+  "module": "dist/book.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

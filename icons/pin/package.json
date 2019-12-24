@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.pin",
+  "name": "@welcome-icons/pin",
   "sideEffects": false,
-  "main": "dist/icons.pin.cjs.js",
-  "module": "dist/icons.pin.es.js",
+  "main": "dist/pin.cjs.js",
+  "module": "dist/pin.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {

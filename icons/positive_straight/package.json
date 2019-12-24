@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.positive_straight",
+  "name": "@welcome-icons/positive-straight",
   "sideEffects": false,
-  "main": "dist/icons.positive_straight.cjs.js",
-  "module": "dist/icons.positive_straight.es.js",
+  "main": "dist/positive-straight.cjs.js",
+  "module": "dist/positive-straight.es.js",
   "version": "1.0.19-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
