@@ -237,6 +237,7 @@ export const Select = forwardRef(
             size,
             tabIndex: 0,
             variant: isOpen ? 'focused' : variant,
+            withPlaceholder: inputValue === EMPTY_STRING,
             ...rest
           })
 
