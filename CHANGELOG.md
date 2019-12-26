@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.32.1](https://github.com/WTTJ/welcome-ui/compare/v0.32.0...v0.32.1) (2019-12-26)
+
+
+### Bug Fixes
+
+* add box shadow on CustomPopper DateTimePicker ([7b96065](https://github.com/WTTJ/welcome-ui/commit/7b96065))
+* change hover on close icon tag ([355e21c](https://github.com/WTTJ/welcome-ui/commit/355e21c))
+* max-height of Select ([1dd6094](https://github.com/WTTJ/welcome-ui/commit/1dd6094))
+* overflowEllipsis on Tags ([5388f9e](https://github.com/WTTJ/welcome-ui/commit/5388f9e))
+
+
+
 ## [0.32.0](https://github.com/WTTJ/welcome-ui/compare/v0.31.2...v0.32.0) (2019-12-18)
 
 
