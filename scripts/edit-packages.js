@@ -15,6 +15,7 @@ const ROOT_PATH = path.join(__dirname, '../packages')
 // config: content of package.json
 // eslint-disable-next-line no-unused-vars
 const getNewConfig = ({ componentName, config, pkgName }) => {
+  console.debug('getNewConfig', pkgName)
   return {
     main: `dist/${pkgName}.cjs.js`,
     module: `dist/${pkgName}.es.js`
