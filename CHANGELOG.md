@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.32.2](https://github.com/WTTJ/welcome-ui/compare/v0.32.1...v0.32.2) (2019-12-26)
+
+
+### Bug Fixes
+
+* placeholder on Select is back! ([34a3def](https://github.com/WTTJ/welcome-ui/commit/34a3def))
+
+
+
 ### [0.32.1](https://github.com/WTTJ/welcome-ui/compare/v0.32.0...v0.32.1) (2019-12-26)
 
 
