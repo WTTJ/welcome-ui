@@ -23,7 +23,7 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
 ## Clearable
 
 <Playground>
-  <Form initialValues={{ welcome: ['github', 'twitter'] }}>
+  <Form initialValues={{ welcome2: ['github', 'twitter'] }}>
     <ConnectedField
       component={Select}
       isClearable
@@ -39,7 +39,7 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
 Just add the `isMultiple` prop. Note: to be able to choose multiple values you must pass an array for the `value`.
 
 <Playground>
-  <Form initialValues={{ welcome: ['github', 'twitter'] }}>
+  <Form initialValues={{ welcome3: ['github', 'twitter'] }}>
     <ConnectedField
       component={Select}
       isMultiple
@@ -53,7 +53,7 @@ Just add the `isMultiple` prop. Note: to be able to choose multiple values you m
 Passing a `renderMultiple` function allows you to format the selected items below the select.
 
 <Playground>
-  <Form initialValues={{ welcome: ['github', 'twitter'] }}>
+  <Form initialValues={{ welcome4: ['github', 'twitter'] }}>
     <ConnectedField
       component={Select}
       isMultiple
@@ -63,7 +63,7 @@ Passing a `renderMultiple` function allows you to format the selected items belo
       renderMultiple={(selected, handleRemove) => {
         return selected.map(option => (
           <Tag key={option.value} variant="primary" mr="sm" mt="sm">
-            <Icon name={option.value} mr="sm" />
+            <Icon name={option.value} />
             <Text variant="body3" m="0">
               {option.label}
             </Text>
@@ -115,7 +115,7 @@ Note: if you use `renderItem` with `isSearchable` or `isCreatable` the selected 
 Note: if you want to format the options _and_ the placeholder, create a dummy value as the first of your options with an empty string as the value (see code below).
 
 <Playground>
-  <Form initialValues={{ welcome: 'twitter' }}>
+  <Form initialValues={{ welcome7: 'twitter' }}>
     <ConnectedField
       component={Select}
       name="welcome7"
@@ -123,7 +123,8 @@ Note: if you want to format the options _and_ the placeholder, create a dummy va
       options={ITEMS}
       renderItem={option => (
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Icon name={option.value || 'link'} mr="xs" /> <span>{option.label}</span>
+          <Icon name={option.value || 'link'} mr="xs" />
+          <span>{option.label}</span>
         </div>
       )}
     />
@@ -153,7 +154,7 @@ You can _add_ items by passing the `isCreatable` prop. The returned item will be
 You can pass any combination of the props above. For example below, we have a `Select` that allows you to search the options, choose multiple options, and create new options.
 
 <Playground>
-  <Form initialValues={{ welcome: ['github', 'twitter'] }}>
+  <Form initialValues={{ welcome9: ['github', 'twitter'] }}>
     <ConnectedField
       component={Select}
       icon={<Icon name="link" label="Social networks" color="nude.500" />}

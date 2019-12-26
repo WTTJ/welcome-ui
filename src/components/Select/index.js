@@ -32,7 +32,7 @@ import {
 export const Select = forwardRef(
   (
     {
-      autoComplete = false,
+      autoComplete = 'off',
       autoFocus,
       dataTestId,
       disabled,
@@ -61,14 +61,12 @@ export const Select = forwardRef(
     },
     ref
   ) => {
-    const EMPTY_STRING = autoComplete ? '' : '\uFEFF'
-
     const defaultSelecteds = useMemo(
       () => getOptionsFromSelected(defaultSelected, defaultOptions),
       [defaultSelected, defaultOptions]
     )
     const selectedItem = (!isMultiple && defaultSelecteds[0]) || null
-    const defaultInputValue = selectedItem ? selectedItem.label : EMPTY_STRING
+    const defaultInputValue = selectedItem ? selectedItem.label : ''
 
     // We keep 3 things in state:
     // a. selected = currently selected item(s)
@@ -137,7 +135,7 @@ export const Select = forwardRef(
         isClearInput = isMultiple
       }
 
-      isClearInput && setInputValue(EMPTY_STRING)
+      isClearInput && setInputValue('')
       setOptions(defaultOptions)
       setSelected(newItems)
       handleChange(newItems)
@@ -152,7 +150,7 @@ export const Select = forwardRef(
     const handleOuterClick = e => {
       // Reset input value if not selecting a new item
       if (isMultiple && e.selectedItem) {
-        setInputValue(EMPTY_STRING)
+        setInputValue('')
       } else if (isSearchable && e.selectedItem) {
         setInputValue(e.selectedItem.label)
       }
@@ -171,7 +169,7 @@ export const Select = forwardRef(
 
     return (
       <Downshift
-        inputValue={isSearchable ? inputContent : EMPTY_STRING}
+        inputValue={isSearchable ? inputContent : ''}
         itemToString={itemToString}
         onInputValueChange={handleInputChange}
         onOuterClick={handleOuterClick}
@@ -221,7 +219,7 @@ export const Select = forwardRef(
 
           const rootProps = getRootProps(rest)
           const inputProps = getInputProps({
-            autoComplete: autoComplete.toString(),
+            autoComplete,
             autoFocus,
             'data-spacer': spacer || placeholder,
             'data-testid': dataTestId,
@@ -237,7 +235,7 @@ export const Select = forwardRef(
             size,
             tabIndex: 0,
             variant: isOpen ? 'focused' : variant,
-            withPlaceholder: inputValue === EMPTY_STRING,
+            withPlaceholder: inputValue === '',
             ...rest
           })
 
