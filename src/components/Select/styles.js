@@ -19,8 +19,10 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled(filterComponent('div', ['hasIcon', 'inputValue', 'renderMultiple']))(
-  ({ hasIcon, size }) => css`
+export const Input = styled(
+  filterComponent('div', ['hasIcon', 'inputValue', 'renderMultiple', 'withPlaceholder'])
+)(
+  ({ hasIcon, size, withPlaceholder }) => css`
     position: relative;
     ${fieldStyles};
     ${overflowEllipsis};
@@ -43,22 +45,23 @@ export const Input = styled(filterComponent('div', ['hasIcon', 'inputValue', 're
       height: 0;
     }
 
-    &:empty {
-      &::after {
-        content: attr(placeholder);
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        ${overflowEllipsis};
-        padding: inherit;
-        opacity: 0.5;
-      }
-      &::before {
-        height: auto;
-      }
-    }
+    ${withPlaceholder &&
+      css`
+        &::after {
+          content: attr(placeholder);
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          ${overflowEllipsis};
+          padding: inherit;
+          opacity: 0.5;
+        }
+        &::before {
+          height: auto;
+        }
+      `}
   `
 )
 
