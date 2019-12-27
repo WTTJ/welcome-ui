@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { func, node, oneOf } from 'prop-types'
-import { Icon } from '@welcome-ui/icon'
+import { CrossIcon } from '@welcome-ui/icons.cross'
 
 import { SHAPES_TYPE, SIZES_TYPE } from '../Core/utils/propTypes'
 import { wrap } from '../Core/utils/wrap'
@@ -30,7 +30,7 @@ export const Tag = forwardRef(
         {content}
         {!!onRemove && (
           <S.ActionIcon size={size}>
-            <Icon name="cross" onClick={onRemove} size="xs" title="Remove" />
+            <CrossIcon onClick={onRemove} size="xs" title="Remove" />
           </S.ActionIcon>
         )}
       </S.Tag>

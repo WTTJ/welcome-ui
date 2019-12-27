@@ -3,7 +3,8 @@ import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import capitalize from 'lodash.capitalize'
 import { ConnectedField } from '@welcome-ui/connected-field'
-import { Icon } from '@welcome-ui/icon'
+import { AvatarIcon } from '@welcome-ui/icons.avatar'
+import { DateIcon } from '@welcome-ui/icons.date'
 
 import { Form, getFormValues } from '../../docz/Form'
 import { render } from '../Core/utils/tests'
@@ -311,7 +312,7 @@ test('<Select renderItem> formats items', () => {
         options={MONTHS}
         renderItem={option => (
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Icon mr="xs" name="date" size="sm" title="Calendar" /> <span>{option.label}</span>
+            <DateIcon mr="xs" size="sm" title="Calendar" /> <span>{option.label}</span>
           </div>
         )}
       />
@@ -333,7 +334,7 @@ test('<Select icon> shows icon', () => {
       <ConnectedField
         component={Select}
         dataTestId="select"
-        icon={<Icon color="nude.500" name="avatar" />}
+        icon={<AvatarIcon color="nude.500" />}
         label="Select"
         name="select"
         options={MONTHS}

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { func, node } from 'prop-types'
-import { Icon } from '@welcome-ui/icon'
+import { CrossIcon } from '@welcome-ui/icons.cross'
 
 import * as S from './styles'
 
@@ -14,7 +14,7 @@ export const Growl = forwardRef(({ children, close, dataTestId, onClose }, ref) 
       <S.Close data-testid={dataTestId} onClick={onClose}>
         {close || (
           <S.CloseContent>
-            <Icon name="cross" size="xs" />
+            <CrossIcon size="xs" />
           </S.CloseContent>
         )}
       </S.Close>

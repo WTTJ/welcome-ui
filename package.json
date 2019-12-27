@@ -16,7 +16,7 @@
     "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
     "lint:js": "eslint packages scripts --max-warnings 0 --fix",
     "lint:css": "stylelint 'packages/**/styles.js'",
-    "lint:mdx": "prettier --parser mdx --check 'packages/**/*.mdx'",
+    "lint:mdx": "prettier --parser mdx --write 'packages/**/*.mdx'",
     "test": "jest ./packages",
     "docz:dev": "yarn docz:clean && docz dev",
     "docz:build": "yarn docz:clean && docz build",

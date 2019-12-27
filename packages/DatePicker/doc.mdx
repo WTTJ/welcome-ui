@@ -7,6 +7,7 @@ menu: Fields
 import fr from 'date-fns/locale/fr'
 import { Props, Playground } from 'docz'
 import { DatePicker } from './index.js'
+import { DateIcon } from '@welcome-ui/icons.date'
 
 # DatePicker
 
@@ -44,7 +45,7 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
   <Form initialValues={{ welcome: Date.now() }}>
     <ConnectedField
       component={DatePicker}
-      icon={<Icon name="date" color="nude.500" />}
+      icon={<DateIcon color="nude.500" />}
       label="Date"
       name="welcome"
     />

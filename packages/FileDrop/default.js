@@ -1,7 +1,8 @@
 import React from 'react'
 import { bool, func, string } from 'prop-types'
 import { Button } from '@welcome-ui/button'
-import { Icon } from '@welcome-ui/icon'
+import { NegativeIcon } from '@welcome-ui/icons.negative'
+import { PositiveIcon } from '@welcome-ui/icons.positive'
 
 import { Text } from '../Text'
 
@@ -9,9 +10,9 @@ import { FilePreviewImage } from './styles'
 
 export const DefaultContent = ({ error, fileUrl, isHoverAccept, isHoverReject, openFile }) => {
   if (isHoverAccept) {
-    return <Icon name="positive" />
+    return <PositiveIcon />
   } else if (isHoverReject) {
-    return <Icon name="negative" />
+    return <NegativeIcon />
   } else if (error) {
     return <Message openFile={openFile} />
   } else if (fileUrl) {

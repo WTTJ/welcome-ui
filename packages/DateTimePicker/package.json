@@ -38,7 +38,9 @@
     "@welcome-ui/clear-button": "^1.0.25-alpha.0",
     "@welcome-ui/date-picker": "^1.0.25-alpha.0",
     "@welcome-ui/field": "^1.0.25-alpha.0",
-    "@welcome-ui/icon": "^1.0.25-alpha.0",
+
+    "@welcome-ui/icons.left": "^1.0.25-alpha.0",
+    "@welcome-ui/icons.right": "^1.0.25-alpha.0",
     "@welcome-ui/select": "^1.0.25-alpha.0",
     "@welcome-ui/time-picker": "^1.0.25-alpha.0",
     "@xstyled/styled-components": "^1.8.3",

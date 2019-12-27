@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { func, number, object, oneOfType, string } from 'prop-types'
 import { Button } from '@welcome-ui/button'
-import { Icon } from '@welcome-ui/icon'
+import { LeftIcon } from '@welcome-ui/icons.left'
+import { RightIcon } from '@welcome-ui/icons.right'
 import { Select } from '@welcome-ui/select'
 
 import * as S from './styles'
@@ -40,7 +41,7 @@ export const CustomHeader = ({
         title="Previous month"
         variant="secondary"
       >
-        <Icon mr={2} name="left" />
+        <LeftIcon mr={2} />
       </Button>
       <S.Selects>
         <Select onChange={changeMonth} options={months} size="sm" value={month} />
@@ -53,7 +54,7 @@ export const CustomHeader = ({
         title="Next month"
         variant="secondary"
       >
-        <Icon ml={2} name="right" />
+        <RightIcon ml={2} />
       </Button>
     </S.CustomHeader>
   )

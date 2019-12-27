@@ -1,7 +1,11 @@
+/* eslint-disable react/no-multi-comp */
 import React from 'react'
 import { func, number, oneOfType, shape, string } from 'prop-types'
 import mime from 'mime/lite'
-import { Icon } from '@welcome-ui/icon'
+import { InstagramIcon } from '@welcome-ui/icons.instagram'
+import { MusicIcon } from '@welcome-ui/icons.music'
+import { YoutubeIcon } from '@welcome-ui/icons.youtube'
+import { AttachmentIcon } from '@welcome-ui/icons.attachment'
 import { Tag } from '@welcome-ui/tag'
 import { Box } from '@welcome-ui/box'
 
@@ -23,39 +27,39 @@ const getIcon = file => {
   const mimeType = getMimeType(file)
 
   if (!mimeType) {
-    return
+    return null
   }
 
   if (mimeType.startsWith('image/')) {
-    return 'instagram'
+    return <InstagramIcon />
   }
   if (mimeType.startsWith('audio/')) {
-    return 'music'
+    return <MusicIcon />
   }
   if (mimeType.startsWith('video/')) {
-    return 'youtube'
+    return <YoutubeIcon />
   }
 
   switch (mimeType) {
     case 'application/pdf':
-      return 'attachment'
+      return <AttachmentIcon />
     case 'application/msword':
     case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
     case 'application/vnd.oasis.opendocument.text':
-      return 'attachment'
+      return <AttachmentIcon />
     default:
-      return 'attachment'
+      return <AttachmentIcon />
   }
 }
 
 export const Preview = ({ file, onRemove }) => {
-  const icon = getIcon(file)
+  const Icon = getIcon(file)
   const name = getName(file)
   const size = getSize(file)
 
   return (
     <Tag data-id={name} key={name} mr="sm" mt="sm" onRemove={onRemove} size="lg">
-      {icon && <Icon name={icon} size="xs" />}
+      <Icon size="xs" />
       {name}
       {size && <Box color="nude.600">({size})</Box>}
     </Tag>

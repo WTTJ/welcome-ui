@@ -6,6 +6,8 @@ menu: Components
 
 import { Props, Link, Playground } from 'docz'
 import { Button } from './index'
+import { LanguageIcon } from '../../icons/Language'
+import { SunIcon } from '../../icons/Sun'
 
 # Button
 
@@ -56,19 +58,19 @@ All disabled buttons have the same style.
 
 <Playground>
   <Button>
-    <Icon name="language" />
+    <LanguageIcon />
     <span>Button</span>
   </Button>
   <Button variant="secondary">
-    <Icon name="language" />
+    <LanguageIcon />
     <span>Button</span>
   </Button>
   <Button variant="tertiary">
-    <Icon name="language" />
+    <LanguageIcon />
     <span>Button</span>
   </Button>
   <Button disabled>
-    <Icon name="language" />
+    <LanguageIcon />
     <span>Button</span>
   </Button>
 </Playground>
@@ -79,34 +81,34 @@ Get same size on `width` and `height`, can have a 'circle' or 'square' `shape`.
 
 <Playground>
   <Button shape="square" size="xs">
-    <Icon name="language" size="xs" />
+    <LanguageIcon size="xs" />
   </Button>
   <Button shape="circle" size="xs">
-    <Icon name="language" size="xs" />
+    <LanguageIcon size="xs" />
   </Button>
   <Button shape="square" size="sm">
-    <Icon name="language" size="sm" />
+    <LanguageIcon size="sm" />
   </Button>
   <Button shape="circle" size="sm">
-    <Icon name="language" size="sm" />
+    <LanguageIcon size="sm" />
   </Button>
   <Button shape="square">
-    <Icon name="language" />
+    <LanguageIcon />
   </Button>
   <Button shape="circle">
-    <Icon name="language" />
+    <LanguageIcon />
   </Button>
   <Button shape="square" size="lg">
-    <Icon name="language" size="lg" />
+    <LanguageIcon size="lg" />
   </Button>
   <Button shape="circle" size="lg">
-    <Icon name="language" size="lg" />
+    <LanguageIcon size="lg" />
   </Button>
   <Button shape="square" size="xl">
-    <Icon name="language" size="xl" />
+    <LanguageIcon size="xl" />
   </Button>
   <Button shape="circle" size="xl">
-    <Icon name="language" size="xl" />
+    <LanguageIcon size="xl" />
   </Button>
 </Playground>
 
@@ -116,7 +118,7 @@ You can transform your Button component with `as` property to add you linker, `h
 
 <Playground>
   <Button as="a" href="http://www.welcometothejungle.co" target="_blank" rel="noopener nofollow">
-    <Icon name="sun" />
+    <SunIcon />
     <span>Welcome</span>
   </Button>
 </Playground>

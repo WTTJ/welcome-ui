@@ -4,7 +4,7 @@ import Downshift from 'downshift'
 import matchSorter from 'match-sorter'
 import kebabCase from 'lodash.kebabcase'
 import isEqual from 'lodash.isequal'
-import { Icon } from '@welcome-ui/icon'
+import { DownIcon } from '@welcome-ui/icons.down'
 import { ClearButton } from '@welcome-ui/clear-button'
 
 import {
@@ -210,7 +210,7 @@ export const Select = forwardRef(
               tabIndex={-1}
               {...getToggleButtonProps()}
             >
-              <Icon color="nude.800" name="down" size="xs" />
+              <DownIcon color="nude.800" size="xs" />
             </S.DropDownIndicator>
           )
 
