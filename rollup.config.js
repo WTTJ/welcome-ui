@@ -7,6 +7,7 @@ const pkg = require(`${PACKAGE_ROOT_PATH}/package.json`)
 
 const input = 'index.js'
 const external = id => !id.startsWith('.') && !id.startsWith('/')
+
 const getBabelOptions = ({ useESModules }) => ({
   exclude: '**/node_modules/**',
   runtimeHelpers: true,

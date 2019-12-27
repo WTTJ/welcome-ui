@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/markdown-editor",
-  "version": "1.0.24-alpha.0",
+  "version": "1.0.25-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/markdown-editor.cjs.js",
   "module": "dist/markdown-editor.es.js",
@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@welcome-ui/icon": "^1.0.24-alpha.0",
+    "@welcome-ui/icon": "^1.0.25-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "emoji-mart": "=2.11.1",
