@@ -1,11 +1,15 @@
 {
-  "name": "@welcome-icons/compass",
+  "name": "@welcome-ui/icons.compass",
   "sideEffects": false,
-  "main": "dist/compass.cjs.js",
-  "module": "dist/compass.es.js",
+  "main": "dist/icons.compass.cjs.js",
+  "module": "dist/icons.compass.es.js",
   "version": "1.0.21-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   }
 }

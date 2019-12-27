@@ -1,11 +1,15 @@
 {
-  "name": "@welcome-icons/bulk",
+  "name": "@welcome-ui/icons.bulk",
   "sideEffects": false,
-  "main": "dist/bulk.cjs.js",
-  "module": "dist/bulk.es.js",
+  "main": "dist/icons.bulk.cjs.js",
+  "module": "dist/icons.bulk.es.js",
   "version": "1.0.21-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   }
 }

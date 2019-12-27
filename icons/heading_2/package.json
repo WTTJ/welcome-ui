@@ -1,11 +1,15 @@
 {
-  "name": "@welcome-icons/heading-2",
+  "name": "@welcome-ui/icons.heading_2",
   "sideEffects": false,
-  "main": "dist/heading-2.cjs.js",
-  "module": "dist/heading-2.es.js",
+  "main": "dist/icons.heading_2.cjs.js",
+  "module": "dist/icons.heading_2.es.js",
   "version": "1.0.21-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   }
 }

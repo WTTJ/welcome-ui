@@ -1,11 +1,15 @@
 {
-  "name": "@welcome-icons/behance",
+  "name": "@welcome-ui/icons.behance",
   "sideEffects": false,
-  "main": "dist/behance.cjs.js",
-  "module": "dist/behance.es.js",
+  "main": "dist/icons.behance.cjs.js",
+  "module": "dist/icons.behance.es.js",
   "version": "1.0.21-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   }
 }

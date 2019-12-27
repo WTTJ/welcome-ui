@@ -1,6 +1,7 @@
-export default {
-  width: 15,
-  height: 15,
-  block:
-    '<path d="M98.27 26.26a12.66 12.66 0 0 0-10.8-9.87C75.06 15 62.5 15 50.01 15c-12.5 0-25.05 0-37.45 1.4a12.65 12.65 0 0 0-10.8 9.86C.01 33.86 0 42.16 0 50c0 7.83 0 16.13 1.74 23.74a12.65 12.65 0 0 0 10.8 9.87C24.95 85 37.5 85 50 85s25.04 0 37.44-1.4a12.66 12.66 0 0 0 10.81-9.86C99.99 66.14 100 57.83 100 50c0-7.83.01-16.13-1.73-23.74zM37.1 65.59V32.38l31.79 16.65-31.8 16.56z" fill="currentColor"/>'
-}
+import React from 'react'
+
+import { Icon } from '../../packages/Icon'
+
+import content from './content.js'
+
+export const YoutubeIcon = props => <Icon content={content} {...props} />

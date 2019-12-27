@@ -1,11 +1,15 @@
 {
-  "name": "@welcome-icons/ordered-list",
+  "name": "@welcome-ui/icons.ordered_list",
   "sideEffects": false,
-  "main": "dist/ordered-list.cjs.js",
-  "module": "dist/ordered-list.es.js",
+  "main": "dist/icons.ordered_list.cjs.js",
+  "module": "dist/icons.ordered_list.es.js",
   "version": "1.0.21-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   }
 }

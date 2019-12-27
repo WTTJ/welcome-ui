@@ -1,6 +1,7 @@
-export default {
-  width: 15,
-  height: 15,
-  block:
-    '<path d="M50 80.5a6.52 6.52 0 0 1-4.32-1.63L2.2 40.63a6.43 6.43 0 0 1-.55-9.12 6.55 6.55 0 0 1 9.2-.55l38.64 33.98 39.16-43.3a6.55 6.55 0 0 1 9.2-.49 6.43 6.43 0 0 1 .5 9.13l-43.5 48.07A6.53 6.53 0 0 1 50 80.5" fill="currentColor"/>'
-}
+import React from 'react'
+
+import { Icon } from '../../packages/Icon'
+
+import content from './content.js'
+
+export const DownIcon = props => <Icon content={content} {...props} />

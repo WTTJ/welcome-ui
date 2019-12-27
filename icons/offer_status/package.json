@@ -1,11 +1,15 @@
 {
-  "name": "@welcome-icons/offer-status",
+  "name": "@welcome-ui/icons.offer_status",
   "sideEffects": false,
-  "main": "dist/offer-status.cjs.js",
-  "module": "dist/offer-status.es.js",
+  "main": "dist/icons.offer_status.cjs.js",
+  "module": "dist/icons.offer_status.es.js",
   "version": "1.0.21-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   }
 }
