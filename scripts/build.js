@@ -9,6 +9,8 @@ Usage: yarn build [component name...] [options] [lerna options]
     -a, --all                 build all packages
 */
 
+const ROOT_PATH = process.cwd()
+
 const { exec, spawnSync } = require('child_process')
 
 const { lernaOptions, tdsOptions, userPackageNames } = require('./parse-args')
@@ -45,7 +47,7 @@ getPackageNames(packageNames => {
       scopeGlob,
       '--no-private',
       '--',
-      'rollup --config ../../rollup.config.js'
+      `PROJECT_ROOT=${ROOT_PATH} rollup --config ${ROOT_PATH}/rollup.config.js`
     ],
     {
       stdio: 'inherit'
