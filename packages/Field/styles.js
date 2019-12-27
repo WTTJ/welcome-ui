@@ -37,8 +37,8 @@ export const IconWrapper = styled.div(
   ({ iconPlacement, size, ...rest }) => css`
     position: absolute;
     top: 0;
-    left: ${iconPlacement === 'left' ? 0 : null};
-    right: ${iconPlacement === 'right' ? 0 : null};
+    left: ${iconPlacement === 'left' ? 0 : 'auto'};
+    right: ${iconPlacement === 'right' ? 0 : 'auto'};
     bottom: 0;
     display: flex;
     width: ${size ? th(`fields.sizes.${size}.height`)(rest) : null};

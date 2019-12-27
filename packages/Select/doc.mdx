@@ -62,7 +62,7 @@ Passing a `renderMultiple` function allows you to format the selected items belo
       options={ITEMS}
       renderMultiple={(selected, handleRemove) => {
         return selected.map(option => {
-          const { [option.key]: Icon } = require(`../../icons/${option.label}`)
+          const Icon = option.icon
           return (
             <Tag
               key={option.value}
@@ -131,7 +131,7 @@ Note: if you want to format the options _and_ the placeholder, create a dummy va
       label="Social networks"
       options={ITEMS}
       renderItem={option => {
-        const { [option.key]: Icon } = require(`../../icons/${option.label}`)
+        const Icon = option.icon
         return (
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Icon mr="xs" /> <span>{option.label}</span>

@@ -31,24 +31,24 @@ const getIcon = file => {
   }
 
   if (mimeType.startsWith('image/')) {
-    return <InstagramIcon />
+    return InstagramIcon
   }
   if (mimeType.startsWith('audio/')) {
-    return <MusicIcon />
+    return MusicIcon
   }
   if (mimeType.startsWith('video/')) {
-    return <YoutubeIcon />
+    return YoutubeIcon
   }
 
   switch (mimeType) {
     case 'application/pdf':
-      return <AttachmentIcon />
+      return AttachmentIcon
     case 'application/msword':
     case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
     case 'application/vnd.oasis.opendocument.text':
-      return <AttachmentIcon />
+      return AttachmentIcon
     default:
-      return <AttachmentIcon />
+      return AttachmentIcon
   }
 }
 
@@ -59,7 +59,7 @@ export const Preview = ({ file, onRemove }) => {
 
   return (
     <Tag data-id={name} key={name} mr="sm" mt="sm" onRemove={onRemove} size="lg">
-      <Icon size="xs" />
+      <Icon size="sm" />
       {name}
       {size && <Box color="nude.600">({size})</Box>}
     </Tag>
