@@ -19,7 +19,6 @@ const ROOT_PATH = path.join(__dirname, '../packages')
 // config: content of package.json
 // eslint-disable-next-line no-unused-vars
 const getNewConfig = ({ componentName, config, pkgName }) => {
-  console.debug({ componentName, config, pkgName })
   return {
     publishConfig: {
       access: 'public'

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/textarea",
-  "version": "1.0.19-alpha.0",
+  "version": "1.0.25-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/textarea.cjs.js",
   "module": "dist/textarea.es.js",
