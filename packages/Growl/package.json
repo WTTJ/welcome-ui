@@ -34,7 +34,6 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-
     "@welcome-ui/icons.cross": "^1.0.25-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",

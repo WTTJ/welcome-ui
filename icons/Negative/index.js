@@ -3,4 +3,4 @@ import { Icon } from '@welcome-ui/icon'
 
 import content from './content.js'
 
-export const NegativeIcon = props => <Icon content={content} alt="Negative" {...props} />
+export const NegativeIcon = props => <Icon alt="Negative" content={content} {...props} />

@@ -22,22 +22,14 @@ const cjsConfig = {
   input,
   output: { file: pkg.main, format: 'cjs' },
   external,
-  plugins: [
-    babel(getBabelOptions({ useESModules: false })),
-    nodeResolve(),
-    postcss()
-  ]
+  plugins: [babel(getBabelOptions({ useESModules: false })), nodeResolve(), postcss()]
 }
 
 const esmConfig = {
   input,
   output: { file: pkg.module, format: 'esm' },
   external,
-  plugins: [
-    babel(getBabelOptions({ useESModules: true })),
-    nodeResolve(),
-    postcss()
-  ]
+  plugins: [babel(getBabelOptions({ useESModules: true })), nodeResolve(), postcss()]
 }
 
 export default [cjsConfig, esmConfig]

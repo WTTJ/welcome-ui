@@ -2,16 +2,6 @@
 import React from 'react'
 
 import { Button } from '../packages/Button'
-import { BehanceIcon } from '../icons/Behance'
-import { DribbbleIcon } from '../icons/Dribbble'
-import { FacebookIcon } from '../icons/Facebook'
-import { GithubIcon } from '../icons/Github'
-import { InstagramIcon } from '../icons/Instagram'
-import { LinkedinIcon } from '../icons/Linkedin'
-import { StackoverflowIcon } from '../icons/Stackoverflow'
-import { TwitterIcon } from '../icons/Twitter'
-import { XingIcon } from '../icons/Xing'
-import { YoutubeIcon } from '../icons/Youtube'
 
 export const DefaultFileDropView = ({ openFile }) => (
   <>
@@ -24,14 +14,14 @@ export const DefaultFileDropView = ({ openFile }) => (
 )
 
 export const ITEMS = [
-  { value: 'behance', label: 'Behance', icon: BehanceIcon },
-  { value: 'dribbble', label: 'Dribbble', icon: DribbbleIcon },
-  { value: 'facebook', label: 'Facebook', icon: FacebookIcon },
-  { value: 'github', label: 'Github', icon: GithubIcon },
-  { value: 'instagram', label: 'Instagram', icon: InstagramIcon },
-  { value: 'linkedin', label: 'Linkedin', icon: LinkedinIcon },
-  { value: 'stackoverflow', label: 'Stack Overflow', icon: StackoverflowIcon },
-  { value: 'twitter', label: 'Twitter', icon: TwitterIcon },
-  { value: 'xing', label: 'Xing', icon: XingIcon },
-  { value: 'youtube', label: 'Youtube', icon: YoutubeIcon }
+  { value: 'behance', label: 'Behance' },
+  { value: 'dribbble', label: 'Dribbble' },
+  { value: 'facebook', label: 'Facebook' },
+  { value: 'github', label: 'Github' },
+  { value: 'instagram', label: 'Instagram' },
+  { value: 'linkedin', label: 'Linkedin' },
+  { value: 'stackoverflow', label: 'Stack Overflow' },
+  { value: 'twitter', label: 'Twitter' },
+  { value: 'xing', label: 'Xing' },
+  { value: 'youtube', label: 'Youtube' }
 ]

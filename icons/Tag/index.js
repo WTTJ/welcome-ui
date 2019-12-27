@@ -3,4 +3,4 @@ import { Icon } from '@welcome-ui/icon'
 
 import content from './content.js'
 
-export const TagIcon = props => <Icon content={content} alt="Tag" {...props} />
+export const TagIcon = props => <Icon alt="Tag" content={content} {...props} />

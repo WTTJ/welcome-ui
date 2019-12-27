@@ -329,7 +329,7 @@ test('<Select renderItem> formats items', () => {
 })
 
 test('<Select icon> shows icon', () => {
-  const { debug, container } = render(
+  const { container, debug } = render(
     <Form initialValues={{ select: 'february' }}>
       <ConnectedField
         component={Select}

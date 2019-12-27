@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/repo",
-  "version": "0.31.2",
+  "version": "1.0.25-alpha.0",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",

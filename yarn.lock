@@ -2975,6 +2975,24 @@
     "@welcome-ui/tag" "^1.0.12-alpha.0"
     prop-types "^15.7.2"
 
+"@welcome-ui/box@^1.0.19-alpha.0":
+  version "1.0.19-alpha.0"
+  resolved "https://registry.yarnpkg.com/@welcome-ui/box/-/box-1.0.19-alpha.0.tgz#40cac4564b23b1d988ec12db73fb6a1d90e8a84c"
+  integrity sha512-JkZwYW26oWgRehIK9SPL66xUrFYslv12zIoyMXYD4O02uegVPoSUl3n9UQYJnNOyYt3cBEIwGvv/ITKdGhlZhQ==
+  dependencies:
+    "@xstyled/styled-components" "^1.8.3"
+    styled-components "^4.3.2"
+
+"@welcome-ui/button@^1.0.19-alpha.0":
+  version "1.0.19-alpha.0"
+  resolved "https://registry.yarnpkg.com/@welcome-ui/button/-/button-1.0.19-alpha.0.tgz#f2d9cc3ca19b98d0db317040e60cefd375405d5f"
+  integrity sha512-+pboFkPCk7Gd88NkzGzmZgsvYZ4wxUMlWgMwffiJMqu830uHoGeN0Q0JTLVu5QYgEgHYfz/+lDWjJ2C7RwFwfA==
+  dependencies:
+    "@xstyled/styled-components" "^1.8.3"
+    "@xstyled/system" "^1.8.2"
+    reakit "^1.0.0-beta.7"
+    styled-components "^4.4.1"
+
 "@welcome-ui/field-group@^1.0.12-alpha.0":
   version "1.0.12-alpha.0"
   resolved "https://registry.yarnpkg.com/@welcome-ui/field-group/-/field-group-1.0.12-alpha.0.tgz#9f102e42026bd510da5af31114bbbe90d8be5fe9"
@@ -3018,6 +3036,16 @@
     lodash.difference "=4.5.0"
     styled-components "^4.3.2"
 
+"@welcome-ui/icon@^1.0.22-alpha.0":
+  version "1.0.22-alpha.0"
+  resolved "https://registry.yarnpkg.com/@welcome-ui/icon/-/icon-1.0.22-alpha.0.tgz#5049c5fcb79721cc3eba1f99d76700f45e831622"
+  integrity sha512-bK12i11kuFooyE6k9ggicZXkg9UakPmqjbWdhBKkOyGD/Oq5MSwV1ontc5csPPsrOK67KDjqugb6UhprxgzTAA==
+  dependencies:
+    "@xstyled/styled-components" "^1.8.3"
+    "@xstyled/system" "^1.8.2"
+    lodash.difference "=4.5.0"
+    styled-components "^4.3.2"
+
 "@welcome-ui/label@^1.0.12-alpha.0":
   version "1.0.12-alpha.0"
   resolved "https://registry.yarnpkg.com/@welcome-ui/label/-/label-1.0.12-alpha.0.tgz#5d21980078b6f59fbdc07f5c24350082243259b4"
@@ -3040,6 +3068,15 @@
     "@xstyled/styled-components" "^1.8.3"
     "@xstyled/system" "^1.8.2"
     lodash.difference "=4.5.0"
+    styled-components "^4.3.2"
+
+"@welcome-ui/text@^1.0.24-alpha.0":
+  version "1.0.24-alpha.0"
+  resolved "https://registry.yarnpkg.com/@welcome-ui/text/-/text-1.0.24-alpha.0.tgz#e0e8c8f40bb8c8b0d4453d75e4f6443623afe578"
+  integrity sha512-lduAvOPjxE9v7WCfhxFsk5PK5jvFX0glTGhxaeJkRLO59ilZ3Lqimx3Or94h0aDVvTvBisGg9XMvCgZXxMrg7g==
+  dependencies:
+    "@xstyled/styled-components" "^1.8.3"
+    "@xstyled/system" "^1.8.2"
     styled-components "^4.3.2"
 
 "@welcome-ui/variant-icon@^1.0.12-alpha.0":
@@ -18440,9 +18477,9 @@ vm-browserify@^1.0.1:
   integrity sha512-iq+S7vZJE60yejDYM0ek6zg308+UZsdtPExWP9VZoCFCz1zkJoXFnAX7aZfd/ZwrkidzdUZL0C/ryW+JwAiIGw==
 
 vue-template-compiler@^2.6.10:
-  version "2.6.10"
-  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.6.10.tgz#323b4f3495f04faa3503337a82f5d6507799c9cc"
-  integrity sha512-jVZkw4/I/HT5ZMvRnhv78okGusqe0+qH2A0Em0Cp8aq78+NK9TII263CDVz2QXZsIT+yyV/gZc/j/vlwa+Epyg==
+  version "2.6.11"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.6.11.tgz#c04704ef8f498b153130018993e56309d4698080"
+  integrity sha512-KIq15bvQDrcCjpGjrAhx4mUlyyHfdmTaoNfeoATHLAiWB+MU3cx4lOzMwrnUh9cCxy0Lt1T11hAFY6TQgroUAA==
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"

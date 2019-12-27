@@ -11,7 +11,7 @@ const kebabCase = require('lodash.kebabcase')
 fs.readdirAsync = util.promisify(fs.readdir)
 fs.writeFileAsync = util.promisify(fs.writeFile)
 
-const ROOT_PATH = path.join(__dirname, '../icons')
+const ROOT_PATH = path.join(__dirname, '../packages')
 
 // UPDATE THIS FUNCTION TO RETURN NEW CONFIG FOR PACKAGE.JSON
 // componentName: ConnectedField
