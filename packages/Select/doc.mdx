@@ -61,20 +61,23 @@ Passing a `renderMultiple` function allows you to format the selected items belo
       label="Social networks"
       options={ITEMS}
       renderMultiple={(selected, handleRemove) => {
-        return selected.map(option => (
-          <Tag
-            key={option.value}
-            variant="primary"
-            onRemove={() => handleRemove(option.value)}
-            mr="sm"
-            mt="sm"
-          >
-            <Icon name={option.value} mr="sm" />
-            <Text variant="body3" m="0">
-              {option.label}
-            </Text>
-          </Tag>
-        ))
+        return selected.map(option => {
+          const Icon = option.icon
+          return (
+            <Tag
+              key={option.value}
+              variant="primary"
+              onRemove={() => handleRemove(option.value)}
+              mr="sm"
+              mt="sm"
+            >
+              <Icon mr="sm" />
+              <Text variant="body3" m="0">
+                {option.label}
+              </Text>
+            </Tag>
+          )
+        })
       }}
     />
   </Form>
@@ -104,7 +107,7 @@ Pass `icon` to decorate your `Select`
   <Form initialValues={{}}>
     <ConnectedField
       component={Select}
-      icon={<Icon name="link" label="Social networks" color="nude.500" />}
+      icon={<LinkIcon label="Social networks" color="nude.500" />}
       name="welcome"
       label="Social networks"
       options={ITEMS}
@@ -127,11 +130,14 @@ Note: if you want to format the options _and_ the placeholder, create a dummy va
       name="welcome"
       label="Social networks"
       options={ITEMS}
-      renderItem={option => (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Icon name={option.value || 'link'} mr="xs" /> <span>{option.label}</span>
-        </div>
-      )}
+      renderItem={option => {
+        const Icon = option.icon
+        return (
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Icon mr="xs" /> <span>{option.label}</span>
+          </div>
+        )
+      }}
     />
   </Form>
 </Playground>
@@ -162,7 +168,7 @@ You can pass any combination of the props above. For example below, we have a `S
   <Form initialValues={{ welcome: ['github', 'twitter'] }}>
     <ConnectedField
       component={Select}
-      icon={<Icon name="link" label="Social networks" color="nude.500" />}
+      icon={<LinkIcon label="Social networks" color="nude.500" />}
       isCreatable
       isMultiple
       isSearchable

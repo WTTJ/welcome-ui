@@ -1,6 +1,15 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { arrayOf, bool, func, node, oneOfType, shape, string } from 'prop-types'
-import { Icon } from '@welcome-ui/icon'
+import { BoldIcon } from '@welcome-ui/icons.bold'
+import { ItalicIcon } from '@welcome-ui/icons.italic'
+import { StrikethroughIcon } from '@welcome-ui/icons.strikethrough'
+import { LinkIcon } from '@welcome-ui/icons.link'
+import { Heading1Icon } from '@welcome-ui/icons.heading_1'
+import { Heading2Icon } from '@welcome-ui/icons.heading_2'
+import { CodeIcon } from '@welcome-ui/icons.code'
+import { QuoteIcon } from '@welcome-ui/icons.quote'
+import { UnorderedListIcon } from '@welcome-ui/icons.unordered_list'
+import { OrderedListIcon } from '@welcome-ui/icons.ordered_list'
 
 import { createEvent } from '../Core/utils/events'
 import { FINAL_FORM_INPUT_TYPES } from '../Core/utils/propTypes'
@@ -15,6 +24,20 @@ import { DEFAULT_TOOLBAR } from './constants'
 if (typeof window !== 'undefined') {
   require('emoji-mart/css/emoji-mart.css')
   require('easymde/dist/easymde.min.css')
+}
+
+const ICONS = {
+  bold: <BoldIcon />,
+  emoji: '😃',
+  italic: <ItalicIcon />,
+  strikethrough: <StrikethroughIcon />,
+  link: <LinkIcon />,
+  heading_1: <Heading1Icon />,
+  heading_2: <Heading2Icon />,
+  code: <CodeIcon />,
+  quote: <QuoteIcon />,
+  unordered_list: <UnorderedListIcon />,
+  ordered_list: <OrderedListIcon />
 }
 
 export const MarkdownEditor = forwardRef(
@@ -60,13 +83,13 @@ export const MarkdownEditor = forwardRef(
       italic: 'toggleItalic',
       strikethrough: 'toggleStrikethrough',
       link: 'drawLink',
-      'heading-1': 'toggleHeading1',
-      'heading-2': 'toggleHeading2',
+      heading_1: 'toggleHeading1',
+      heading_2: 'toggleHeading2',
       code: 'toggleCodeBlock',
       quote: 'toggleBlockquote',
-      'unordered-list': 'toggleUnorderedList',
-      'ordered-list': 'toggleOrderedList',
-      'horizontal-rule': 'drawHorizontalRule'
+      unordered_list: 'toggleUnorderedList',
+      ordered_list: 'toggleOrderedList',
+      horizontal_rule: 'drawHorizontalRule'
     }
 
     useEffect(() => {
@@ -74,7 +97,7 @@ export const MarkdownEditor = forwardRef(
       setToolbarItems(
         toolbar.map(({ action, icon, name }) => ({
           name: name,
-          icon: icon || <Icon name={name} />,
+          icon: icon || ICONS[name],
           action: action || DEFAULT_TOOLBAR_ACTIONS[name] || null
         }))
       )

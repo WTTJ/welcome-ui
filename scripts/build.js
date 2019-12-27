@@ -9,36 +9,37 @@ Usage: yarn build [component name...] [options] [lerna options]
     -a, --all                 build all packages
 */
 
+/* eslint-disable no-console */
+
 const ROOT_PATH = process.cwd()
 
 const { exec, spawnSync } = require('child_process')
 
 const { lernaOptions, tdsOptions, userPackageNames } = require('./parse-args')
 
-const getPackageNames = (callback, forceUpdatedPackages) => {
-  if (!forceUpdatedPackages && userPackageNames.length > 0) {
-    callback(userPackageNames)
-    return
-  }
-
-  const command = tdsOptions.all ? 'ls' : 'updated'
-
-  exec(`npx lerna ${command} --json ${lernaOptions.join(' ')}`, (error, stdout) => {
-    if (stdout === '') {
-      console.log('No components have been changed, nothing to do. Exiting.')
-      process.exit(0)
-    } else {
-      const packageNames = JSON.parse(stdout).map(pkg => pkg.name)
-
-      callback(packageNames)
+const getPackageNames = forceUpdatedPackages =>
+  new Promise((resolve, reject) => {
+    if (!forceUpdatedPackages && userPackageNames.length > 0) {
+      return resolve(userPackageNames)
     }
-  })
-}
 
-getPackageNames(packageNames => {
+    const command = tdsOptions.all ? 'ls' : 'updated'
+
+    exec(`npx lerna ${command} --json ${lernaOptions.join(' ')}`, (error, stdout) => {
+      if (stdout === '') {
+        console.log('No components have been changed, nothing to do. Exiting.')
+        return reject()
+      } else {
+        const packageNames = JSON.parse(stdout).map(pkg => pkg.name)
+        return resolve(packageNames)
+      }
+    })
+  })
+
+const runBuilds = packageNames => {
   const scopeGlob = packageNames.length === 1 ? packageNames[0] : `{${packageNames.join(',')}}`
 
-  spawnSync(
+  return spawnSync(
     'npx',
     [
       'lerna',
@@ -53,4 +54,11 @@ getPackageNames(packageNames => {
       stdio: 'inherit'
     }
   )
-})
+}
+
+getPackageNames()
+  .then(runBuilds)
+  .catch(e => {
+    console.error(e)
+    process.exit(0)
+  })

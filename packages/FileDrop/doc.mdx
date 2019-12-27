@@ -38,11 +38,11 @@ See your browser console for the real `File` object ready to upload.
       >
         {({ error, fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
           if (isHoverAccept) {
-            return <Icon name="positive" />
+            return <PositiveIcon />
           } else if (isHoverReject) {
-            return <Icon name="negative" />
+            return <NegativeIcon />
           } else if (error) {
-            return <Icon name="cross" />
+            return <CrossIcon />
           } else if (fileUrl) {
             return <FilePreviewImage src={fileUrl} />
           }

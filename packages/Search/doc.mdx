@@ -47,12 +47,12 @@ There are several core props you must pass through:
 
 ### `search`
 
-An async function (async/await or Promises) that takes a search string and returns an array of results (`items`). 
+An async function (async/await or Promises) that takes a search string and returns an array of results (`items`).
 
 For example, given an API call to https://www.omdbapi.com?s=fish that returns a payload like this:
 
 <Code language="json">
-{`{
+  {`{
   Search: [
     {Title: "Big Fish", Year: "2003", imdbID: "tt0319061", Type: "movie",…},
     {Title: "A Fish Called Wanda", Year: "1988", imdbID: "tt0095159", Type: "movie",…},
@@ -68,7 +68,7 @@ For example, given an API call to https://www.omdbapi.com?s=fish that returns a 
 We could pass the following prop to the `Search` component:
 
 <Code>
-{`search={async function asyncSearch(query) {
+  {`search={async function asyncSearch(query) {
   const response = await fetch('https://www.omdbapi.com?apikey=' + YOUR_API_KEY + '&s=' + query)
   const data = await response.json()
   return data.Search

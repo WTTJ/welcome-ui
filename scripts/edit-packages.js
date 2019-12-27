@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+/* eslint-disable no-console */
+
 const path = require('path')
 const fs = require('fs')
 const util = require('util')
@@ -16,8 +20,9 @@ const ROOT_PATH = path.join(__dirname, '../packages')
 // eslint-disable-next-line no-unused-vars
 const getNewConfig = ({ componentName, config, pkgName }) => {
   return {
-    main: `dist/${pkgName}.cjs.js`,
-    module: `dist/${pkgName}.es.js`
+    publishConfig: {
+      access: 'public'
+    }
   }
 }
 
@@ -27,11 +32,13 @@ const collectFolders = () =>
     .then(files => files.filter(f => f.isDirectory()))
 
 const collectPackages = folder =>
-  folder.map(({ name }) => ({
-    pkgName: kebabCase(name),
-    componentName: name,
-    config: require(`${ROOT_PATH}/${name}/package.json`)
-  }))
+  folder
+    .filter(({ name }) => !name.startsWith('_'))
+    .map(({ name }) => ({
+      pkgName: kebabCase(name),
+      componentName: name,
+      config: require(`${ROOT_PATH}/${name}/package.json`)
+    }))
 
 const updatePackageConfig = pkg => {
   const { componentName, config, pkgName } = pkg

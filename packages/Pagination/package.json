@@ -32,7 +32,9 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@welcome-ui/icon": "^1.0.25-alpha.0",
+
+    "@welcome-ui/icons.left": "^1.0.25-alpha.0",
+    "@welcome-ui/icons.right": "^1.0.25-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "prop-types": "^15.7.2",
@@ -43,5 +45,6 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
-  "gitHead": "815306603c6335082657045b3e8cf52424a3616f"
+  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
+  "sideEffects": false
 }

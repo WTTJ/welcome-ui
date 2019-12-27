@@ -1,0 +1,18 @@
+{
+  "name": "@welcome-ui/icons.avatar",
+  "sideEffects": false,
+  "main": "dist/icons.avatar.cjs.js",
+  "module": "dist/icons.avatar.es.js",
+  "version": "1.0.25-alpha.0",
+  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^1.0.22-alpha.0"
+  }
+}

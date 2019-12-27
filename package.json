@@ -6,17 +6,17 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "scripts": {
     "start": "yarn docz:dev",
-    "icons:optimize": "svgo --folder=packages/Icon/assets --pretty --indent=2 --multipass --quiet",
-    "icons:collect": "node scripts/icons.js && eslint packages/Icon/icons.js --fix",
+    "icons:optimize": "svgo --folder=icons/_assets --pretty --indent=2 --multipass --quiet",
+    "icons:collect": "node scripts/icons.js && eslint icons --fix",
     "pre-build": "yarn icons:optimize && yarn icons:collect",
     "build": "node scripts/build.js",
     "release:build": "yarn pre-build && yarn build && standard-version && conventional-github-releaser --preset angular",
     "release:publish": "git push --follow-tags origin master && npm publish",
     "release": "yarn release:build && npm run release:publish && yarn docz:build && yarn docz:deploy --domain welcome-ui.com",
     "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
-    "lint:js": "eslint packages --max-warnings 0 --fix",
+    "lint:js": "eslint packages scripts --max-warnings 0 --fix",
     "lint:css": "stylelint 'packages/**/styles.js'",
-    "lint:mdx": "prettier --parser mdx --check 'packages/**/*.mdx'",
+    "lint:mdx": "prettier --parser mdx --write 'packages/**/*.mdx'",
     "test": "jest ./packages",
     "docz:dev": "yarn docz:clean && docz dev",
     "docz:build": "yarn docz:clean && docz build",
@@ -27,7 +27,9 @@
   "private": true,
   "workspaces": [
     "packages/**/*",
-    "../packages/**/*"
+    "../packages/**/*",
+    "icons/**/*",
+    "../icons/**/*"
   ],
   "repository": {
     "type": "git",

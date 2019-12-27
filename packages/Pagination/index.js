@@ -2,7 +2,8 @@
 import { func, node, number, string } from 'prop-types'
 import React, { forwardRef, useCallback, useMemo, useRef } from 'react'
 import { Rover, useRoverState } from 'reakit/Rover'
-import { Icon } from '@welcome-ui/icon'
+import { LeftIcon } from '@welcome-ui/icons.left'
+import { RightIcon } from '@welcome-ui/icons.right'
 
 import * as S from './styles'
 
@@ -87,7 +88,7 @@ export const Pagination = forwardRef(
                   href={getHref && getHref(page - 1)}
                   onClick={handlePrevious}
                 >
-                  {leftArrow || <Icon name="left" size="xs" />}
+                  {leftArrow || <LeftIcon size="xs" />}
                 </S.ArrowLink>
               )}
             </Rover>
@@ -128,7 +129,7 @@ export const Pagination = forwardRef(
                   href={getHref && getHref(page + 1)}
                   onClick={handleNext}
                 >
-                  {rightArrow || <Icon name="right" size="xs" />}
+                  {rightArrow || <RightIcon size="xs" />}
                 </S.ArrowLink>
               )}
             </Rover>

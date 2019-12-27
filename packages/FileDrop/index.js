@@ -1,7 +1,8 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { bool, func, node, number, oneOfType, string } from 'prop-types'
 import { useDropzone } from 'react-dropzone'
-import { Icon } from '@welcome-ui/icon'
+import { CrossIcon } from '@welcome-ui/icons.cross'
+import { PencilIcon } from '@welcome-ui/icons.pencil'
 import { Button } from '@welcome-ui/button'
 
 // Common
@@ -157,12 +158,12 @@ export const FileDrop = forwardRef(
           <S.Actions>
             {(!!file || error) && isEditable && (
               <Button onClick={open} size="sm" type="button" variant="secondary">
-                <Icon name="pencil" />
+                <PencilIcon />
               </Button>
             )}
             {!!file && isClearable && (
               <Button onClick={handleRemoveFile} size="sm" type="button" variant="primary-danger">
-                <Icon name="cross" />
+                <CrossIcon />
               </Button>
             )}
           </S.Actions>

@@ -36,6 +36,9 @@ export * from '../packages/Tooltip/index'
 export * from '../packages/UniversalLink/index'
 export * from '../packages/VariantIcon/index'
 
+// Icons
+export * from '../icons/index'
+
 // Utils/theme
 export * from '../packages/Core/utils/base'
 export * from '../packages/Core'

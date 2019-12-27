@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from '@welcome-ui/icon'
+import { CrossIcon } from '@welcome-ui/icons.cross'
 
 import * as S from './styles'
 
@@ -12,7 +12,7 @@ export const ClearButton = props => (
     width={18}
     {...props}
   >
-    <Icon height={8} name="cross" width={8} />
+    <CrossIcon height={8} width={8} />
   </S.ClearButton>
 )
 

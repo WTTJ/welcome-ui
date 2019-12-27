@@ -23,7 +23,7 @@ describe('<Growl>', () => {
         </Growl>
       )
       const close = getByTestId('growl-close')
-      const closeIcon = close.querySelector('[title="cross"]')
+      const closeIcon = close.querySelector('[alt="Cross"]')
 
       fireEvent.click(close)
 
