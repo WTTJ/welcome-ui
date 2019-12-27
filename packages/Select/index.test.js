@@ -329,7 +329,7 @@ test('<Select renderItem> formats items', () => {
 })
 
 test('<Select icon> shows icon', () => {
-  const { container, debug } = render(
+  const { container } = render(
     <Form initialValues={{ select: 'february' }}>
       <ConnectedField
         component={Select}
@@ -342,7 +342,6 @@ test('<Select icon> shows icon', () => {
     </Form>
   )
 
-  debug(container)
   const icon = container.querySelector('[alt="Avatar"]')
   expect(icon).toBeInTheDocument()
 })

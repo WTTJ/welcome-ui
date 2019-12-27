@@ -3015,16 +3015,6 @@
     lodash.difference "=4.5.0"
     styled-components "^4.3.2"
 
-"@welcome-ui/icon@^1.0.22-alpha.0":
-  version "1.0.22-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/icon/-/icon-1.0.22-alpha.0.tgz#5049c5fcb79721cc3eba1f99d76700f45e831622"
-  integrity sha512-bK12i11kuFooyE6k9ggicZXkg9UakPmqjbWdhBKkOyGD/Oq5MSwV1ontc5csPPsrOK67KDjqugb6UhprxgzTAA==
-  dependencies:
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    lodash.difference "=4.5.0"
-    styled-components "^4.3.2"
-
 "@welcome-ui/tag@^1.0.17-alpha.0":
   version "1.0.17-alpha.0"
   resolved "https://registry.yarnpkg.com/@welcome-ui/tag/-/tag-1.0.17-alpha.0.tgz#d012a5350befb3f5949e8ac847618cec7289c20c"

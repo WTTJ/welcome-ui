@@ -13,6 +13,6 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.0.22-alpha.0"
+    "@welcome-ui/icon": "^1.0.25-alpha.0"
   }
 }

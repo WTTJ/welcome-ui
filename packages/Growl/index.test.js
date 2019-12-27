@@ -17,7 +17,7 @@ describe('<Growl>', () => {
   describe('Growl closing', () => {
     it('should call onClose', () => {
       const onClose = jest.fn()
-      const { getByTestId } = render(
+      const { container, debug, getByTestId } = render(
         <Growl dataTestId="growl-close" onClose={onClose}>
           {content}
         </Growl>
@@ -25,6 +25,7 @@ describe('<Growl>', () => {
       const close = getByTestId('growl-close')
       const closeIcon = close.querySelector('[alt="Cross"]')
 
+      debug(close)
       fireEvent.click(close)
 
       expect(closeIcon).toBeInTheDocument()

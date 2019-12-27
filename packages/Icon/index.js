@@ -1,30 +1,24 @@
 import React, { forwardRef } from 'react'
-import { oneOf, string } from 'prop-types'
+import { number, oneOf, shape, string } from 'prop-types'
 
 import * as S from './styles'
-import { icons } from './icons'
 
-export const Icon = forwardRef(({ dataTestId, name, size = 'md', title, ...props }, ref) => {
-  if (!name) {
-    return null
-  }
-
-  const iconConfig = icons[name]
-
-  if (!iconConfig) {
+export const Icon = forwardRef(({ content, dataTestId, size = 'md', title, ...props }, ref) => {
+  if (!content) {
     return null
   }
 
   return (
     <S.Icon
-      dangerouslySetInnerHTML={{ __html: iconConfig.block }}
+      alt={title}
+      dangerouslySetInnerHTML={{ __html: content.block }}
       data-testid={dataTestId && `icon-${dataTestId}`}
       ref={ref}
       role="img"
       size={size}
-      stroked={iconConfig.stroked}
-      title={title || name}
-      viewBox={iconConfig.viewBox || '0 0 100 100'}
+      stroked={content.stroked}
+      title={title}
+      viewBox={content.viewBox || '0 0 100 100'}
       {...props}
     />
   )
@@ -33,7 +27,11 @@ export const Icon = forwardRef(({ dataTestId, name, size = 'md', title, ...props
 Icon.displayName = 'Icon'
 
 Icon.propTypes = {
-  name: string,
+  content: shape({
+    width: number,
+    height: number,
+    block: string
+  }),
   size: oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   title: string
 }
