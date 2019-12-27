@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 
-import { Box } from '../../../../src/components/Box'
-import { Icon } from '../../../../src/components/Icon'
-import { Select } from '../../../../src/components/Select'
+import { Box } from '../../../../packages/Box'
+import { Icon } from '../../../../packages/Icon'
+import { Select } from '../../../../packages/Select'
 
 import { Logo } from './Logo'
 import { TagVersion } from './TagVersion'

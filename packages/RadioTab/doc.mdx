@@ -1,0 +1,44 @@
+---
+name: Radio Tab
+route: /fields/radio-tab
+menu: Fields
+---
+
+import { Props, Playground } from 'docz'
+import { ITEMS } from '../../scripts/tests'
+import { RadioGroup } from '../RadioGroup'
+import { Radio } from '../Radio'
+import { RadioTab } from './index'
+
+# Radio Tab
+
+<Playground>
+  <Form initialValues={{ social_1: 'twitter', social_2: 'xing' }}>
+    <>
+      <ConnectedField
+        component={RadioGroup}
+        flexDirection="row"
+        label="Social networks"
+        mb="xl"
+        name="social_1"
+        options={ITEMS}
+        renderOption={RadioTab}
+        required
+      />
+      <ConnectedField
+        component={RadioGroup}
+        label="Social networks"
+        mb="xl"
+        name="social_2"
+        options={ITEMS}
+        renderOption={RadioTab}
+        required
+        width={1 / 3}
+      />
+    </>
+  </Form>
+</Playground>
+
+## Properties
+
+<Props of={Radio} />

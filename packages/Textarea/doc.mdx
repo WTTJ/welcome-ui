@@ -1,0 +1,26 @@
+---
+name: Textarea
+route: /fields/textarea
+menu: Fields
+---
+
+import { Props, Playground } from 'docz'
+import { Textarea } from './index'
+
+# Textarea
+
+<Playground>
+  <Form initialValues={{}}>
+    <ConnectedField
+      name="textarea"
+      component={Textarea}
+      label="Description"
+      hint="Description must be <200 words"
+      required
+    />
+  </Form>
+</Playground>
+
+## Properties
+
+<Props of={Textarea} />

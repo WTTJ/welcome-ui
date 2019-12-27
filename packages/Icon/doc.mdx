@@ -1,0 +1,244 @@
+---
+name: Icon
+route: /components/icon
+menu: Components
+---
+
+import { Props, Playground } from 'docz'
+import { IconsList } from '../../docz/IconsList'
+import { Icon } from './index'
+
+# Icon
+
+## Formats
+
+Use size property with `xs`, `sm`, `md`, `lg` or `xl`.
+
+<Playground>
+  <Icon name="twitter" size="xs" />
+  <Icon name="twitter" size="sm" />
+  <Icon name="twitter" />
+  <Icon name="twitter" size="lg" />
+  <Icon name="twitter" size="xl" />
+</Playground>
+
+## Colour
+
+Icons inherit the colour from their parent
+
+<Playground>
+  <Icon color="blue" name="twitter" size="xl" />
+  <Icon color="orange" name="twitter" size="xl" />
+  <Icon color="green" name="twitter" size="xl" />
+</Playground>
+
+## Icons list
+
+### Products
+
+<Playground wrapper={false}>
+  {() => {
+    const icons = ['ats', 'employer_branding', 'marketplace', 'welcome_home', 'welcome_kit']
+    return IconsList(icons)
+  }}
+</Playground>
+
+### Directions
+
+<Playground wrapper={false}>
+  {() => {
+    const icons = ['left', 'right', 'up', 'down']
+    return IconsList(icons)
+  }}
+</Playground>
+
+### Actions
+
+<Playground wrapper={false}>
+  {() => {
+    const icons = [
+      'add',
+      'archive',
+      'attachment',
+      'bulk',
+      'check',
+      'collapse',
+      'cross',
+      'date',
+      'delete',
+      'expand',
+      'external_link',
+      'filters',
+      'heart',
+      'heart_outline',
+      'information',
+      'link',
+      'menu',
+      'more',
+      'pin',
+      'play',
+      'print',
+      'refuse_candidate',
+      'reset',
+      'search',
+      'settings',
+      'write'
+    ]
+    return IconsList(icons)
+  }}
+</Playground>
+
+### Appreciations
+
+<Playground wrapper={false}>
+  {() => {
+    const icons = [
+      'negative_outline',
+      'positive_outline',
+      'negative',
+      'positive',
+      'negative_straigth',
+      'positive_straigth'
+    ]
+    return IconsList(icons)
+  }}
+</Playground>
+
+### Categories
+
+<Playground wrapper={false}>
+  {() => {
+    const icons = ['actions', 'cover_letter', 'details', 'resume', 'questions']
+    return IconsList(icons)
+  }}
+</Playground>
+
+### Miscellaneous
+
+<Playground wrapper={false}>
+  {() => {
+    const icons = [
+      'activity',
+      'address',
+      'avatar',
+      'candidate_status',
+      'comment_outline',
+      'comment',
+      'cross_target',
+      'department',
+      'email_outline',
+      'email',
+      'language',
+      'location',
+      'offer_status',
+      'origine',
+      'phone_outline',
+      'phone',
+      'promote',
+      'review_outline',
+      'review',
+      'source',
+      'special_pipeline',
+      'tag',
+      'female',
+      'male',
+      'create',
+      'update'
+    ]
+    return IconsList(icons)
+  }}
+</Playground>
+
+### WTF
+
+<Playground wrapper={false}>
+  {() => {
+    const icons = [
+      'anniversary',
+      'basketball',
+      'birthday',
+      'book',
+      'bulb',
+      'calcul',
+      'camera',
+      'celebrate',
+      'chevron',
+      'coffee',
+      'compass',
+      'computer',
+      'crown',
+      'dish',
+      'flag',
+      'gear',
+      'handshake',
+      'hard_hat',
+      'hashtag',
+      'heart_shiny',
+      'lock',
+      'map',
+      'megaphone',
+      'mic',
+      'microship',
+      'money',
+      'mountain',
+      'music',
+      'paperplane',
+      'pencil',
+      'piechart',
+      'pizza',
+      'remote',
+      'shield',
+      'spanner',
+      'stackserver',
+      'sun',
+      'target',
+      'thumbup',
+      'tree'
+    ]
+    return IconsList(icons)
+  }}
+</Playground>
+
+### Markdown
+
+<Playground wrapper={false}>
+  {() => {
+    const icons = [
+      'bold',
+      'code',
+      'heading-1',
+      'heading-2',
+      'italic',
+      'link',
+      'unordered-list',
+      'ordered-list',
+      'quote',
+      'strikethrough'
+    ]
+    return IconsList(icons)
+  }}
+</Playground>
+
+### Social networks
+
+<Playground wrapper={false}>
+  {() => {
+    const icons = [
+      'behance',
+      'dribbble',
+      'facebook',
+      'github',
+      'instagram',
+      'linkedin',
+      'stackoverflow',
+      'twitter',
+      'xing',
+      'youtube'
+    ]
+    return IconsList(icons)
+  }}
+</Playground>
+
+## Properties
+
+<Props of={Icon} />

@@ -1,0 +1,45 @@
+---
+name: Tooltip
+route: /components/tooltip
+menu: Components
+---
+
+import { Props, Playground } from 'docz'
+import { Tooltip } from './index'
+
+# Tooltip
+
+## Example
+
+The tooltip follows the cursor.
+
+<Playground>
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>Show a beautiful tooltip 🔥</Button>
+  </Tooltip>
+</Playground>
+
+Maybe you don't want the tooltip to follow the cursor…
+
+<Playground>
+  <Tooltip fixed content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>Show a beautiful fixed tooltip 🔥</Button>
+  </Tooltip>
+</Playground>
+
+## With a long text and a custom placement
+
+Set a `max-width` for long text
+
+<Playground>
+  <Tooltip
+    placement="bottom-start"
+    content={<div>lorem ipsum dolor sit amet, consectetur adipiscing elit</div>}
+  >
+    <span>With long text</span>
+  </Tooltip>
+</Playground>
+
+## Properties
+
+<Props of={Tooltip} />

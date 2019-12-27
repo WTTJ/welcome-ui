@@ -1,0 +1,104 @@
+---
+name: Growl
+route: /components/growl
+menu: Components
+---
+
+import { Props, Playground } from 'docz'
+import { Growl, GrowlTitle } from './index'
+
+# Growl
+
+Customize with `<GrowlTitle>`, `<GrowlAction>` or `<GrowlClose>`.
+
+## Example
+
+<Playground>
+  <Growl onClose={() => console.log('close')}>
+    <GrowlTitle>
+      <Icon name="megaphone" /> Lorem ipsum dolor sit amet
+    </GrowlTitle>
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
+    <GrowlAction>
+      <Button size="sm" variant="tertiary">
+        Action button
+      </Button>
+    </GrowlAction>
+  </Growl>
+</Playground>
+
+## Variants
+
+Variant properties `info` (default), `error` or `warning` with automatic color.
+
+<Playground>
+  <Growl onClose={() => console.log('close')}>
+    <GrowlTitle variant="error">
+      <Icon name="flag" /> Error growl
+    </GrowlTitle>
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
+    <GrowlAction>
+      <Button size="sm" variant="secondary-danger">
+        Action button
+      </Button>
+    </GrowlAction>
+  </Growl>
+  <Growl onClose={() => console.log('close')}>
+    <GrowlTitle variant="warning">
+      <Icon name="shield" /> Warning growl
+    </GrowlTitle>
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
+    <GrowlAction>
+      <Button size="sm" variant="secondary-warning">
+        Action button
+      </Button>
+    </GrowlAction>
+  </Growl>
+  <Growl onClose={() => console.log('close')}>
+    <GrowlTitle>
+      <Icon name="megaphone" /> Info growl (default)
+    </GrowlTitle>
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
+    <GrowlAction>
+      <Button size="sm" variant="secondary">
+        Action button
+      </Button>
+    </GrowlAction>
+  </Growl>
+</Playground>
+
+## Customs
+
+Change close component, don't add icon on title, remove action button...
+
+<Playground>
+  <Growl>
+    <GrowlTitle>Without icon on title, action button and close button</GrowlTitle>
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
+  </Growl>
+  <Growl
+    onClose={() => console.log('close')}
+    close={
+      <GrowlClose>
+        <Icon name="positive" />
+      </GrowlClose>
+    }
+  >
+    <GrowlTitle>Custom close button with GrowlClose component</GrowlTitle>
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
+  </Growl>
+  <Growl onClose={() => console.log('close')} close={<Icon name="positive" size="lg" />}>
+    <GrowlTitle>Custom close button</GrowlTitle>
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
+  </Growl>
+</Playground>
+
+## Properties
+
+### Growl
+
+<Props of={Growl} />
+
+### GrowlTitle
+
+<Props of={GrowlTitle} />

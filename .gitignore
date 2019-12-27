@@ -8,6 +8,7 @@ node_modules/
 .DS_Store
 .size-snapshot.json
 yarn-error.log
+lerna-debug.log
 
 # Output of 'npm pack'
 *.tgz

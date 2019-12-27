@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 
-import { Box, Tag } from '../src/index'
+import { Box } from '../packages/Box/index'
+import { Tag } from '../packages/Tag/index'
 
 import * as S from './Props.styled'
 

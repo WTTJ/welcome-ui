@@ -1,0 +1,25 @@
+---
+name: Checkbox
+route: /fields/checkbox
+menu: Fields
+---
+
+import { Props, Playground } from 'docz'
+import { Toggle } from '../Toggle'
+import { Checkbox } from './index'
+
+# Checkbox
+
+<Playground>
+  <Form initialValues={{ vue: true }}>
+    <FieldGroup label="Check the frameworks you have already worked with">
+      <ConnectedField component={Checkbox} name="react" label="React" />
+      <ConnectedField component={Checkbox} label="Angular" name="angular" id="angular_custom_id" />
+      <ConnectedField component={Checkbox} name="vue" label="Vue" />
+    </FieldGroup>
+  </Form>
+</Playground>
+
+## Properties
+
+<Props of={Checkbox} />

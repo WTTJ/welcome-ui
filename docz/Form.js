@@ -4,7 +4,7 @@
 import React from 'react'
 import { Form as FinalForm } from 'react-final-form'
 
-import { Box } from '../src/components/Box'
+import { Box } from '../packages/Box'
 
 import { Code } from './Code'
 

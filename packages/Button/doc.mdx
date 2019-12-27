@@ -1,0 +1,144 @@
+---
+name: Button
+route: /components/button
+menu: Components
+---
+
+import { Props, Link, Playground } from 'docz'
+import { Button } from './index'
+
+# Button
+
+## Variants
+
+Admire these beautiful variants 🌈
+
+### Basics
+
+<Playground>
+  <Button>primary (default)</Button>
+  <Button variant="secondary">secondary</Button>
+  <Button variant="tertiary">tertiary</Button>
+</Playground>
+
+### States
+
+<Playground>
+  <Button variant="primary-warning">primary-warning</Button>
+  <Button variant="secondary-warning">secondary-warning</Button>
+  <Button variant="primary-danger">primary-danger</Button>
+  <Button variant="secondary-danger">secondary-danger</Button>
+</Playground>
+
+## Formats
+
+Use size property with `xs` `sm` `md`(default) `lg` or `xl`.
+
+<Playground>
+  <Button size="xs">Tiny</Button>
+  <Button size="sm">Small</Button>
+  <Button>Medium</Button>
+  <Button size="lg">Large</Button>
+  <Button size="xl">XLarge</Button>
+</Playground>
+
+## Disabled
+
+All disabled buttons have the same style.
+
+<Playground>
+  <Button variant="primary-danger" disabled>
+    Disabled
+  </Button>
+</Playground>
+
+## With icons
+
+<Playground>
+  <Button>
+    <Icon name="language" />
+    <span>Button</span>
+  </Button>
+  <Button variant="secondary">
+    <Icon name="language" />
+    <span>Button</span>
+  </Button>
+  <Button variant="tertiary">
+    <Icon name="language" />
+    <span>Button</span>
+  </Button>
+  <Button disabled>
+    <Icon name="language" />
+    <span>Button</span>
+  </Button>
+</Playground>
+
+## Shape
+
+Get same size on `width` and `height`, can have a 'circle' or 'square' `shape`.
+
+<Playground>
+  <Button shape="square" size="xs">
+    <Icon name="language" size="xs" />
+  </Button>
+  <Button shape="circle" size="xs">
+    <Icon name="language" size="xs" />
+  </Button>
+  <Button shape="square" size="sm">
+    <Icon name="language" size="sm" />
+  </Button>
+  <Button shape="circle" size="sm">
+    <Icon name="language" size="sm" />
+  </Button>
+  <Button shape="square">
+    <Icon name="language" />
+  </Button>
+  <Button shape="circle">
+    <Icon name="language" />
+  </Button>
+  <Button shape="square" size="lg">
+    <Icon name="language" size="lg" />
+  </Button>
+  <Button shape="circle" size="lg">
+    <Icon name="language" size="lg" />
+  </Button>
+  <Button shape="square" size="xl">
+    <Icon name="language" size="xl" />
+  </Button>
+  <Button shape="circle" size="xl">
+    <Icon name="language" size="xl" />
+  </Button>
+</Playground>
+
+## Transform to a link
+
+You can transform your Button component with `as` property to add you linker, `href` or `to`... all that you want.
+
+<Playground>
+  <Button as="a" href="http://www.welcometothejungle.co" target="_blank" rel="noopener nofollow">
+    <Icon name="sun" />
+    <span>Welcome</span>
+  </Button>
+</Playground>
+
+## Width
+
+You can add `width` property from [xstyled](https://www.smooth-code.com/open-source/xstyled/docs/system-props/#layout).
+
+<Playground>
+  <Button width={1}>full width</Button>
+  <Button width={1 / 2}>half width</Button>
+</Playground>
+
+## Radius
+
+You can add `borderRadius` property from [xstyled](https://www.smooth-code.com/open-source/xstyled/docs/system-props/#borders).
+
+<Playground>
+  <Button>default</Button>
+  <Button borderRadius="10px">10px</Button>
+</Playground>
+
+## Properties
+
+<Props of={Button} />
