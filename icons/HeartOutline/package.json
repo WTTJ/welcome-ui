@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.heart_outline.cjs.js",
   "module": "dist/icons.heart_outline.es.js",
-  "version": "1.0.21-alpha.0",
+  "version": "1.0.25-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,6 +13,6 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.0.22-alpha.0"
+    "@welcome-ui/icon": "^1.0.25-alpha.0"
   }
 }

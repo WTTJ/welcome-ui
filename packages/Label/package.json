@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/label",
-  "version": "1.0.22-alpha.0",
+  "version": "1.0.25-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/label.cjs.js",
   "module": "dist/label.es.js",
@@ -35,8 +35,8 @@
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "@welcome-ui/icon": "^1.0.22-alpha.0",
-    "@welcome-ui/variant-icon": "^1.0.22-alpha.0",
+    "@welcome-ui/icon": "^1.0.25-alpha.0",
+    "@welcome-ui/variant-icon": "^1.0.25-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "lodash.difference": "=4.5.0",
