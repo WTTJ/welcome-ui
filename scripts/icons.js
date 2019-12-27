@@ -32,106 +32,51 @@ const addAllFiles = files => {
   return Promise.all(promises)
 }
 
-const writeContents = ({ content, outputFolder }) => {
+const writeContents = (file, content) => {
   let svgContent = /<svg[^>]*>([\s\S]*)<\/svg>/g.exec(content)
   if (svgContent) {
     svgContent = svgContent[1].replace(/fill="#\w{6}"/g, 'fill="currentColor"').trim()
   }
-  if (!fs.existsSync(outputFolder)) {
-    fs.mkdirSync(outputFolder)
-  }
-  fs.writeFileSync(
-    `${outputFolder}/content.js`,
-    `export default {
-  width: 15,
-  height: 15,
-  block:
-    '${svgContent}'
-}
-`
-  )
+  fs.writeFileSync(file, getContent(svgContent))
 }
 
-const writePackageJson = ({ key, outputFolder }) => {
+const writePackageJson = (file, key) => {
   let config = {}
-  const pkgFile = `${outputFolder}/package.json`
-  if (fs.existsSync(pkgFile)) {
-    config = fs.readFileSync(pkgFile)
+  if (fs.existsSync(file)) {
+    config = fs.readFileSync(file)
     config = JSON.parse(config.toString())
   }
-
-  fs.writeFileSync(
-    pkgFile,
-    `${JSON.stringify(
-      {
-        ...config,
-        name: `@welcome-ui/icons.${key}`,
-        sideEffects: false,
-        main: `dist/icons.${key}.cjs.js`,
-        module: `dist/icons.${key}.es.js`,
-        publishConfig: {
-          access: 'public'
-        },
-        peerDependencies: {
-          react: '^16.10.2',
-          'react-dom': '^16.10.2'
-        }
-      },
-      0,
-      2
-    )}
-`
-  )
-}
-
-const writeNpmIgnore = ({ outputFolder }) => {
-  const npmFile = `${outputFolder}/.npmignore`
-  if (fs.existsSync(npmFile)) {
-    return
-  }
-
-  fs.writeFileSync(
-    npmFile,
-    `/*
-!/dist/*.js
-`
-  )
-}
-
-const writeIndex = ({ key, outputFolder }) => {
-  const indexFile = `${outputFolder}/index.js`
-
-  fs.writeFileSync(
-    indexFile,
-    `import React from 'react'
-
-import { Icon } from '../../packages/Icon'
-
-import content from './content.js'
-
-export const ${toPascalCase(key)}Icon = props => <Icon content={content} {...props} />
-`
-  )
+  fs.writeFileSync(file, getPackageJsonContent(config, key))
 }
 
 const updateIcons = files => {
   const svgContent = files
     .map(({ content, key }) => {
-      const outputFolder = `${iconsPath}/${key}`
-      writeContents({ content, outputFolder })
-      writePackageJson({ key, outputFolder })
-      writeNpmIgnore({ outputFolder })
-      writeIndex({ key, outputFolder })
+      // Create folder if necessary
+      const iconName = toPascalCase(key)
+      const outputFolder = `${iconsPath}/${iconName}`
+      if (!fs.existsSync(outputFolder)) {
+        fs.mkdirSync(outputFolder)
+      }
+      // package.json
+      writePackageJson(`${outputFolder}/package.json`, key)
+      // .npmignore
+      fs.writeFileSync(`${outputFolder}/.npmignore`, getNpmIgnoreContent())
+      // contents.js
+      writeContents(`${outputFolder}/content.js`, content)
+      // index.js
+      fs.writeFileSync(`${outputFolder}/index.js`, getIndexContent(iconName))
 
       return key
     })
     .reduce(
-      (acc, file) => `${acc}
-export { default as ${file} } from './${file}'`,
-      ''
-    )
-
-  fs.writeFileSync(`${iconsPath}/svg.js`, svgContent)
+      (acc, file) => {
+        const iconName = toPascalCase(file)
+        return `${acc}
+export { default as ${iconName} } from './${iconName}'`
+      }, '')
+  // Write main icons/index.js
+  fs.writeFileSync(`${iconsPath}/index.js`, svgContent)
 
   return
 }
@@ -144,6 +89,51 @@ const writeIcons = readIconFiles()
   .catch(err => {
     throw err
   })
+
+// .npmignore
+const getNpmIgnoreContent = () => `/*
+!/dist/*.js
+`
+
+// index.js
+const getIndexContent = iconName => `import React from 'react'
+import { Icon } from '@welcome-ui/icon'
+
+import content from './content.js'
+
+export const ${iconName}Icon = props => <Icon content={content} {...props} />
+`
+
+// package.json
+const getPackageJsonContent = (config, key) => {
+  const content = {
+    ...config,
+    name: `@welcome-ui/icons.${key}`,
+    sideEffects: false,
+    main: `dist/icons.${key}.cjs.js`,
+    module: `dist/icons.${key}.es.js`,
+    publishConfig: {
+      access: 'public'
+    },
+    dependencies: {
+      '@welcome-ui/icon': '^1.0.22-alpha.0'
+    },
+    peerDependencies: {
+      react: '^16.10.2',
+      'react-dom': '^16.10.2'
+    }
+  }
+  return JSON.stringify(content, 0, 2)
+}
+
+// content.js
+const getContent = svgContent => `export default {
+  width: 15,
+  height: 15,
+  block:
+    '${svgContent}'
+}
+`
 
 module.exports = {
   writeIcons,
