@@ -7,7 +7,7 @@ fs.readdirAsync = util.promisify(fs.readdir)
 fs.writeFileAsync = util.promisify(fs.writeFile)
 
 const rootPath = path.join(__dirname, '../packages/Icon')
-const inputPath = path.join(rootPath, 'assets')
+const inputPath = path.join(rootPath, '_assets')
 const outputPath = path.join(rootPath, 'icons.js')
 
 const addFile = (key, file) =>
