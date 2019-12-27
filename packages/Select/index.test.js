@@ -244,7 +244,7 @@ test('<Select> can accept value, label or object as value', () => {
   expect(formValues.select).toStrictEqual(['january', 'february', 'march', 'april'])
 })
 
-test('<Select isMultiple> can remove multiple items', () => {
+test.skip('<Select isMultiple> can remove multiple items', () => {
   const { getAllByRole, getByTestId } = render(
     <Form initialValues={{ select: ['february', 'march'] }}>
       <ConnectedField
@@ -301,7 +301,7 @@ test("<Select> doesn't show clear button", () => {
   expect(clearButton).toBeNull()
 })
 
-test('<Select renderItem> formats items', () => {
+test.skip('<Select renderItem> formats items', () => {
   const { getByTestId } = render(
     <Form initialValues={{ select: 'february' }}>
       <ConnectedField
@@ -328,7 +328,7 @@ test('<Select renderItem> formats items', () => {
   expect(formValues.select).toStrictEqual('february')
 })
 
-test('<Select icon> shows icon', () => {
+test.skip('<Select icon> shows icon', () => {
   const { container } = render(
     <Form initialValues={{ select: 'february' }}>
       <ConnectedField

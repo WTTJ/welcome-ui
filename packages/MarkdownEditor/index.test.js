@@ -108,7 +108,6 @@ describe('<EmojiPicker>', () => {
     waitForElement(() => getByLabelText('Search Results').querySelector('ul li').length, {
       container
     }).then(results => {
-      debug('fish', results)
       expect(results.children.length).toBe(0)
       const smile = results.children[0].querySelector('button')
       expect(smile.getAttribute('data-role')).toBe('😄, smile')

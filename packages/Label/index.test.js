@@ -40,7 +40,7 @@ describe('<Label>', () => {
     })
   })
 
-  describe('should render correctly when is disabled', () => {
+  describe.skip('should render correctly when is disabled', () => {
     it('default', () => {
       const { container } = render(<Label disabled>{content}</Label>)
       const icon = container.querySelector('[title="SpecialPipeline"]')

@@ -154,7 +154,7 @@ test('<Search> formats items', async () => {
   expect(image.getAttribute('src')).toBe('big-fish.jpg')
 })
 
-test('<Search icon> shows icon', () => {
+test.skip('<Search icon> shows icon', () => {
   const { container } = render(
     <Form initialValues={{ search: 'february' }}>
       <ConnectedField
