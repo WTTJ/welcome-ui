@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.money.cjs.js",
   "module": "dist/icons.money.es.js",
-  "version": "1.0.25-alpha.0",
+  "version": "1.0.27-alpha.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,6 +13,6 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.0.25-alpha.0"
+    "@welcome-ui/icon": "^1.0.27-alpha.0"
   }
 }
