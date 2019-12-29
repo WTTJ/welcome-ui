@@ -29,7 +29,7 @@ export const Checkbox = forwardRef(
 Checkbox.type = 'Checkbox'
 Checkbox.displayName = 'Checkbox'
 
-Checkbox.propTypes = {
+Checkbox.propTypes /* remove-proptypes */ = {
   ...FINAL_FORM_INPUT_TYPES,
   checked: bool,
   Component: elementType,

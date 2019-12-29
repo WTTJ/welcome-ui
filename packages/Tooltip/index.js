@@ -136,7 +136,7 @@ export const Tooltip = forwardRef(
   }
 )
 
-Tooltip.propTypes = {
+Tooltip.propTypes /* remove-proptypes */ = {
   children: oneOfType([func, node]),
   content: oneOfType(COMPONENT_TYPE),
   fixed: bool,

@@ -184,7 +184,7 @@ export const Search = forwardRef(
 Search.displayName = 'Search'
 Search.type = 'search'
 
-Search.propTypes = {
+Search.propTypes /* remove-proptypes */ = {
   autoComplete: string,
   autoFocus: bool,
   disabled: bool,

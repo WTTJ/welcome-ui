@@ -23,7 +23,7 @@ export const Button = forwardRef(
 
 Button.displayName = 'Button'
 
-Button.propTypes = {
+Button.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node.isRequired,
   disabled: bool,

@@ -120,10 +120,9 @@ export const FileUpload = forwardRef(
 FileUpload.type = 'FileUpload'
 FileUpload.displayName = 'FileUpload'
 
-FileUpload.propTypes = {
-  /** Can accept a string ie `image/png` or an array `['image/jpg', 'image/jpeg', 'image/png']` */ accept: oneOfType(
-    [string, array]
-  ),
+FileUpload.propTypes /* remove-proptypes */ = {
+  /** Can accept a string ie `'image/png,image/jpeg'` or an array `['image/jpg', 'image/jpeg', 'image/png']` */
+  accept: oneOfType([string, array]),
   children: func,
   disabled: bool,
   draggable: bool,

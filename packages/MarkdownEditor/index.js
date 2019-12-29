@@ -190,7 +190,7 @@ export const MarkdownEditor = forwardRef(
 MarkdownEditor.type = 'MarkdownEditor'
 MarkdownEditor.displayName = 'MarkdownEditor'
 
-MarkdownEditor.propTypes = {
+MarkdownEditor.propTypes /* remove-proptypes */ = {
   disabled: bool,
   placeholder: oneOfType([string, node]),
   toolbar: arrayOf(

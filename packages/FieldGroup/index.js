@@ -16,7 +16,7 @@ export const FieldGroup = forwardRef(({ children, label, required }, ref) => (
 ))
 
 FieldGroup.displayName = 'FieldGroup'
-FieldGroup.propTypes = {
+FieldGroup.propTypes /* remove-proptypes */ = {
   children: node,
   label: string,
   required: bool

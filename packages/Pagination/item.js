@@ -19,7 +19,7 @@ export const PageItem = forwardRef(({ activePage, handleChange, page }, ref) => 
 
 PageItem.displayName = 'PageItem'
 
-PageItem.propTypes = {
+PageItem.propTypes /* remove-proptypes */ = {
   activePage: number.isRequired,
   handleChange: func.isRequired,
   page: number.isRequired

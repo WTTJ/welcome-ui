@@ -143,7 +143,7 @@ export const DatePicker = forwardRef(
 
 DatePicker.displayName = 'DatePicker'
 
-DatePicker.propTypes = {
+DatePicker.propTypes /* remove-proptypes */ = {
   autoFocus: bool,
   dateFormat: string,
   endYear: number,

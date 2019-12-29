@@ -43,7 +43,7 @@ export const Label = forwardRef(
 
 Label.displayName = 'Label'
 
-Label.propTypes = {
+Label.propTypes /* remove-proptypes */ = {
   checkableField: bool,
   children: node,
   disabled: bool,

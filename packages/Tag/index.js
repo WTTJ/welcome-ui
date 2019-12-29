@@ -40,7 +40,7 @@ export const Tag = forwardRef(
 
 Tag.displayName = 'Tag'
 
-Tag.propTypes = {
+Tag.propTypes /* remove-proptypes */ = {
   children: node,
   onRemove: func,
   shape: oneOf(SHAPES_TYPE),

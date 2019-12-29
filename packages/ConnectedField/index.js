@@ -32,7 +32,7 @@ export const ConnectedField = forwardRef(({ children, component, type, ...rest }
 
 ConnectedField.displayName = 'WelcomeField'
 
-ConnectedField.propTypes = {
+ConnectedField.propTypes /* remove-proptypes */ = {
   ...FINAL_FORM_INPUT_TYPES,
   component: oneOfType(COMPONENT_TYPE),
   type: string

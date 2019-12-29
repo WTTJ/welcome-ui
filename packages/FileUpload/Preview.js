@@ -66,7 +66,7 @@ export const Preview = ({ file, onRemove }) => {
   )
 }
 
-Preview.propTypes = {
+Preview.propTypes /* remove-proptypes */ = {
   file: oneOfType([
     string,
     shape({

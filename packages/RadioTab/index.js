@@ -55,7 +55,7 @@ export const RadioTab = forwardRef((props, ref) => {
 RadioTab.type = 'RadioTab'
 RadioTab.displayName = 'RadioTab'
 
-RadioTab.propTypes = {
+RadioTab.propTypes /* remove-proptypes */ = {
   checked: bool,
   disabled: bool,
   disabledIcon: elementType,

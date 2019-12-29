@@ -20,7 +20,7 @@ export const VariantIcon = ({ errorWarningIcon, variant }) =>
 
 VariantIcon.displayName = 'VariantIcon'
 
-VariantIcon.propTypes = {
+VariantIcon.propTypes /* remove-proptypes */ = {
   errorWarningIcon: node,
   variant: oneOf(['warning', 'error'])
 }

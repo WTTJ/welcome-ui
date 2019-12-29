@@ -52,7 +52,7 @@ export const Radio = forwardRef((props, ref) => {
 Radio.type = 'Radio'
 Radio.displayName = 'Radio'
 
-Radio.propTypes = {
+Radio.propTypes /* remove-proptypes */ = {
   disabled: bool,
   disabledIcon: elementType,
   flexDirection: oneOf(DIRECTIONS_TYPE),

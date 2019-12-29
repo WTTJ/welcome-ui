@@ -41,7 +41,7 @@ export const Text = forwardRef(
 
 Text.displayName = 'Text'
 
-Text.propTypes = {
+Text.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node,
   lines: number,

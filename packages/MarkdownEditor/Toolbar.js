@@ -36,7 +36,7 @@ export const Toolbar = ({ active = [], dataTestId, items = [], onClick, ...rest 
   )
 }
 
-Toolbar.propTypes = {
+Toolbar.propTypes /* remove-proptypes */ = {
   active: arrayOf(string),
   items: arrayOf(
     shape({

@@ -69,7 +69,7 @@ export const DateTimePicker = forwardRef(
 
 DateTimePicker.displayName = 'DateTimePicker'
 
-DateTimePicker.propTypes = {
+DateTimePicker.propTypes /* remove-proptypes */ = {
   children: node,
   locale: object,
   onChange: func,

@@ -176,8 +176,8 @@ export const FileDrop = forwardRef(
 FileDrop.type = 'FileDrop'
 FileDrop.displayName = 'FileDrop'
 
-FileDrop.propTypes = {
-  /** Can accept a string ie `image/png` or an array `['image/jpg', 'image/jpeg', 'image/png']` */
+FileDrop.propTypes /* remove-proptypes */ = {
+  /** Can accept a string ie `'image/png,image/jpeg'` or an array `['image/jpg', 'image/jpeg', 'image/png']` */
   accept: oneOfType([string, array]),
   children: func,
   disabled: bool,

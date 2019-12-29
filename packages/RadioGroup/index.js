@@ -45,7 +45,7 @@ export const RadioGroup = ({
 RadioGroup.type = 'RadioGroup'
 RadioGroup.displayName = 'RadioGroup'
 
-RadioGroup.propTypes = {
+RadioGroup.propTypes /* remove-proptypes */ = {
   flexDirection: oneOf(DIRECTIONS_TYPE),
   label: string,
   name: string,

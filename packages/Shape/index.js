@@ -13,7 +13,7 @@ export const Shape = forwardRef(({ children, dataTestId, ...rest }, ref) => (
 
 Shape.displayName = 'Shape'
 
-Shape.propTypes = {
+Shape.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   height: oneOfType([string, number]),
   shape: oneOf(SHAPES_TYPE),

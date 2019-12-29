@@ -110,7 +110,7 @@ export const TimePicker = forwardRef(
 
 TimePicker.displayName = 'TimePicker'
 
-TimePicker.propTypes = {
+TimePicker.propTypes /* remove-proptypes */ = {
   autoFocus: bool,
   dateFormat: string,
   icon: oneOfType(COMPONENT_TYPE),

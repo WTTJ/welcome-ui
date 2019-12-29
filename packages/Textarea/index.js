@@ -50,7 +50,7 @@ export const Textarea = forwardRef(
 Textarea.type = 'Textarea'
 Textarea.displayName = 'Textarea'
 
-Textarea.propTypes = {
+Textarea.propTypes /* remove-proptypes */ = {
   autoFocus: bool,
   disabled: bool,
   maxLength: number,

@@ -78,7 +78,7 @@ export const InputText = forwardRef(
 
 InputText.displayName = 'InputText'
 
-InputText.propTypes = {
+InputText.propTypes /* remove-proptypes */ = {
   autoFocus: bool,
   connected: bool,
   disabled: bool,

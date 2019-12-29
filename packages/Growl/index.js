@@ -25,7 +25,7 @@ export const Growl = forwardRef(({ children, close, dataTestId, onClose }, ref) 
 
 Growl.displayName = 'Growl'
 
-Growl.propTypes = {
+Growl.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   close: node,
   onClose: func

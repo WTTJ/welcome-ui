@@ -1,6 +1,7 @@
 import babel from 'rollup-plugin-babel'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
+import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 
 const PACKAGE_ROOT_PATH = process.cwd()
 const pkg = require(`${PACKAGE_ROOT_PATH}/package.json`)
@@ -22,14 +23,24 @@ const cjsConfig = {
   input,
   output: { file: pkg.main, format: 'cjs' },
   external,
-  plugins: [babel(getBabelOptions({ useESModules: false })), nodeResolve(), postcss()]
+  plugins: [
+    babel(getBabelOptions({ useESModules: false })),
+    nodeResolve(),
+    postcss(),
+    sizeSnapshot()
+  ]
 }
 
 const esmConfig = {
   input,
   output: { file: pkg.module, format: 'esm' },
   external,
-  plugins: [babel(getBabelOptions({ useESModules: true })), nodeResolve(), postcss()]
+  plugins: [
+    babel(getBabelOptions({ useESModules: true })),
+    nodeResolve(),
+    postcss(),
+    sizeSnapshot()
+  ]
 }
 
 export default [cjsConfig, esmConfig]

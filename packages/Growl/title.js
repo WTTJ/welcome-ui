@@ -11,7 +11,7 @@ export const GrowlTitle = ({ children, dataTestId, variant = 'info' }) => (
   </Title>
 )
 
-GrowlTitle.propTypes = {
+GrowlTitle.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   variant: oneOf(VARIANTS_TYPE)
 }

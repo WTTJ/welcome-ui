@@ -139,7 +139,7 @@ export const Field = forwardRef(
 
 Field.displayName = 'Field'
 
-Field.propTypes = {
+Field.propTypes /* remove-proptypes */ = {
   checked: bool,
   children: func,
   component: oneOfType(COMPONENT_TYPE).isRequired,

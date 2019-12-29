@@ -49,7 +49,7 @@ const ActiveBar = ({ activeTab, listRef }) => {
   return <S.ActiveBar {...activeBar} />
 }
 ActiveBar.displayName = 'ActiveBar'
-ActiveBar.propTypes = {
+ActiveBar.propTypes /* remove-proptypes */ = {
   activeTab: oneOfType(COMPONENT_TYPE),
   listRef: shape({ current: any })
 }
@@ -71,7 +71,7 @@ export const TabList = React.forwardRef(({ as, children, ...props }, ref) => {
   )
 })
 TabList.displayName = 'TabList'
-TabList.propTypes = {
+TabList.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node
 }
@@ -88,7 +88,7 @@ export const Tab = React.forwardRef(({ as, children, stopId, ...props }, ref) =>
   )
 })
 Tab.displayName = 'Tab'
-Tab.propTypes = {
+Tab.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node,
   stopId: string.isRequired
@@ -106,7 +106,7 @@ export const TabPanel = React.forwardRef(({ as, children, stopId, ...props }, re
   )
 })
 TabPanel.displayName = 'TabPanel'
-TabPanel.propTypes = {
+TabPanel.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node,
   stopId: string.isRequired
