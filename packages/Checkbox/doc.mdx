@@ -7,8 +7,12 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { Toggle } from '../Toggle'
 import { Checkbox } from './index'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Checkbox
+
+<TagVersion version={version} name={name} />
 
 <Playground>
   <Form initialValues={{ vue: true }}>

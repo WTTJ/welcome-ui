@@ -6,8 +6,12 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Growl, GrowlTitle } from './index'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Growl
+
+<TagVersion version={version} name={name} />
 
 Customize with `<GrowlTitle>`, `<GrowlAction>` or `<GrowlClose>`.
 

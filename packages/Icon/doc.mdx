@@ -5,21 +5,25 @@ menu: Components
 ---
 
 import { Props, Playground } from 'docz'
-import { IconsList } from '../../docz/IconsList'
+import { IconsList, TagVersion } from '../../docz'
+import { TwitterIcon } from '../../icons/Twitter'
 import { Icon } from './index'
+const { name, version } = require('./package.json')
 
 # Icon
+
+<TagVersion version={version} name={name} />
 
 ## Formats
 
 Use size property with `xs`, `sm`, `md`, `lg` or `xl`.
 
 <Playground>
-  <Icon name="twitter" size="xs" />
-  <Icon name="twitter" size="sm" />
-  <Icon name="twitter" />
-  <Icon name="twitter" size="lg" />
-  <Icon name="twitter" size="xl" />
+  <TwitterIcon size="xs" />
+  <TwitterIcon size="sm" />
+  <TwitterIcon />
+  <TwitterIcon size="lg" />
+  <TwitterIcon size="xl" />
 </Playground>
 
 ## Colour
@@ -27,9 +31,9 @@ Use size property with `xs`, `sm`, `md`, `lg` or `xl`.
 Icons inherit the colour from their parent
 
 <Playground>
-  <Icon color="blue" name="twitter" size="xl" />
-  <Icon color="orange" name="twitter" size="xl" />
-  <Icon color="green" name="twitter" size="xl" />
+  <TwitterIcon color="blue" name="twitter" size="xl" />
+  <TwitterIcon color="orange" name="twitter" size="xl" />
+  <TwitterIcon color="green" name="twitter" size="xl" />
 </Playground>
 
 ## Icons list
@@ -38,7 +42,7 @@ Icons inherit the colour from their parent
 
 <Playground wrapper={false}>
   {() => {
-    const icons = ['ats', 'employer_branding', 'marketplace', 'welcome_home', 'welcome_kit']
+    const icons = ['ats', 'employerBranding', 'marketplace', 'welcomeHome', 'welcomeKit']
     return IconsList(icons)
   }}
 </Playground>
@@ -65,12 +69,11 @@ Icons inherit the colour from their parent
       'collapse',
       'cross',
       'date',
-      'delete',
       'expand',
-      'external_link',
+      'externalLink',
       'filters',
       'heart',
-      'heart_outline',
+      'heartOutline',
       'information',
       'link',
       'menu',
@@ -78,10 +81,11 @@ Icons inherit the colour from their parent
       'pin',
       'play',
       'print',
-      'refuse_candidate',
+      'refuseCandidate',
       'reset',
       'search',
       'settings',
+      'trash',
       'write'
     ]
     return IconsList(icons)
@@ -93,12 +97,12 @@ Icons inherit the colour from their parent
 <Playground wrapper={false}>
   {() => {
     const icons = [
-      'negative_outline',
-      'positive_outline',
+      'negativeOutline',
+      'positiveOutline',
       'negative',
       'positive',
-      'negative_straigth',
-      'positive_straigth'
+      'negativeStraight',
+      'positiveStraight'
     ]
     return IconsList(icons)
   }}
@@ -108,7 +112,7 @@ Icons inherit the colour from their parent
 
 <Playground wrapper={false}>
   {() => {
-    const icons = ['actions', 'cover_letter', 'details', 'resume', 'questions']
+    const icons = ['actions', 'coverLetter', 'details', 'resume', 'questions']
     return IconsList(icons)
   }}
 </Playground>
@@ -121,24 +125,24 @@ Icons inherit the colour from their parent
       'activity',
       'address',
       'avatar',
-      'candidate_status',
-      'comment_outline',
+      'candidateStatus',
+      'commentOutline',
       'comment',
-      'cross_target',
+      'crossTarget',
       'department',
-      'email_outline',
+      'emailOutline',
       'email',
       'language',
       'location',
-      'offer_status',
+      'offerStatus',
       'origine',
-      'phone_outline',
+      'phoneOutline',
       'phone',
       'promote',
-      'review_outline',
+      'reviewOutline',
       'review',
       'source',
-      'special_pipeline',
+      'specialPipeline',
       'tag',
       'female',
       'male',
@@ -171,9 +175,9 @@ Icons inherit the colour from their parent
       'flag',
       'gear',
       'handshake',
-      'hard_hat',
+      'hardHat',
       'hashtag',
-      'heart_shiny',
+      'heartShiny',
       'lock',
       'map',
       'megaphone',
@@ -206,12 +210,12 @@ Icons inherit the colour from their parent
     const icons = [
       'bold',
       'code',
-      'heading-1',
-      'heading-2',
+      'heading1',
+      'heading2',
       'italic',
       'link',
-      'unordered-list',
-      'ordered-list',
+      'unorderedList',
+      'orderedList',
       'quote',
       'strikethrough'
     ]

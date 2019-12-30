@@ -5,9 +5,13 @@ menu: Components
 ---
 
 import { Link, Playground, Props } from 'docz'
+import { TagVersion } from '../../docz'
 import { Alert, AlertTitle } from './index'
+const { name, version } = require('./package.json')
 
 # Alert
+
+<TagVersion version={version} name={name} />
 
 Simple feedback messages for user actions.
 

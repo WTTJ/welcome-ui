@@ -7,8 +7,12 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { ConnectedField } from '../ConnectedField'
 import { InputText } from '../InputText'
+import { TagVersion } from '../../docz'
+const { version } = require('../ConnectedField/package.json')
 
 # Field
+
+<TagVersion version={version} name={name} />
 
 We recommend using [Final Form](https://github.com/final-form/react-final-form), [Redux Form](https://github.com/erikras/redux-form) or [Formik](https://github.com/jaredpalmer/formik) with these components. If so, use `ConnectedField` for your fields (as in the examples below).
 

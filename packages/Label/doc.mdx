@@ -4,10 +4,16 @@ route: /components/label
 menu: Components
 ---
 
+import { useState } from 'react'
 import { Props, Playground } from 'docz'
 import { Label } from './index'
+import { Link } from '../Link'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Label
+
+<TagVersion version={version} name={name} />
 
 ## Default
 
@@ -40,10 +46,10 @@ Checkboxes and radio buttons are normally nested inside labels. If you do this, 
 
 <Playground>
   <Label variant="error">
-    <Checkbox />
+    <Checkbox name="labelExample" onChange={() => {}} />
     <div>
       <span>Error variant with </span>
-      <a href="#">a link</a>
+      <Link href="#">a link</Link>
       <span> and all of that jazz because of the fox</span>
     </div>
   </Label>

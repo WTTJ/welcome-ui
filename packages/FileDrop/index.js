@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import { bool, func, node, number, oneOfType, string } from 'prop-types'
+import { array, bool, func, node, number, oneOfType, string } from 'prop-types'
 import { useDropzone } from 'react-dropzone'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { PencilIcon } from '@welcome-ui/icons.pencil'
@@ -177,7 +177,8 @@ FileDrop.type = 'FileDrop'
 FileDrop.displayName = 'FileDrop'
 
 FileDrop.propTypes = {
-  accept: string,
+  /** Can accept a string ie `image/png` or an array `['image/jpg', 'image/jpeg', 'image/png']` */
+  accept: oneOfType([string, array]),
   children: func,
   disabled: bool,
   isClearable: bool,

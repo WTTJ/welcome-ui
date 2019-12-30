@@ -6,21 +6,19 @@ import * as S from './Navigation.styled'
 export const Navigation = ({ items }) => {
   const pathname = typeof window === 'undefined' ? undefined : window.location.pathname
   const activeRef = useRef(null)
-  const navRef = useRef()
 
   useEffect(() => {
     const activeRefElement = activeRef.current
-    const navRefElement = navRef.current
 
-    if (activeRefElement && navRefElement) {
-      if (activeRefElement.offsetTop - navRefElement.scrollTop > navRefElement.clientHeight) {
-        activeRefElement.scrollIntoView()
+    if (activeRefElement) {
+      if (activeRefElement.offsetTop + 100 > window.innerHeight) {
+        activeRefElement.scrollIntoView({ block: 'center' })
       }
     }
-  }, [activeRef, pathname, navRef])
+  }, [activeRef, pathname])
 
   return (
-    <nav ref={navRef}>
+    <nav>
       {items.map(item => (
         <S.Block key={`block_${item.name}`}>
           {item.menu ? (

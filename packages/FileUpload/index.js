@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react'
-import { bool, func, node, number, oneOfType, string } from 'prop-types'
+import { array, bool, func, node, number, oneOfType, string } from 'prop-types'
 import { Button } from '@welcome-ui/button'
 
 // Common
@@ -121,7 +121,9 @@ FileUpload.type = 'FileUpload'
 FileUpload.displayName = 'FileUpload'
 
 FileUpload.propTypes = {
-  accept: string,
+  /** Can accept a string ie `image/png` or an array `['image/jpg', 'image/jpeg', 'image/png']` */ accept: oneOfType(
+    [string, array]
+  ),
   children: func,
   disabled: bool,
   draggable: bool,

@@ -6,8 +6,12 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Text } from './index'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Text
+
+<TagVersion version={version} name={name} />
 
 The `Text` component allows you to remain consistent with your text sizing and line-height. To add additional padding/margins use the `space` values from [xstyled](https://www.smooth-code.com/open-source/xstyled/docs/system-props/#space).
 

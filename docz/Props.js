@@ -49,7 +49,14 @@ export const Props = ({ props }) => {
         return (
           <S.Item key={key}>
             <S.Name>{key}</S.Name>
-            <S.Type>{getType(item.type)}</S.Type>
+            <S.Type>
+              {getType(item.type)}
+              {item.description && (
+                <Box as="p" color="nude.700" fontSize="body4" m={0} mt="xs">
+                  {item.description[0].props.children}
+                </Box>
+              )}
+            </S.Type>
             <S.Value>
               {item.required ? (
                 <>

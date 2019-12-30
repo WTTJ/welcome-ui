@@ -7,8 +7,12 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { Toggle } from './index'
 import { Checkbox } from '../Checkbox'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Toggle
+
+<TagVersion version={version} name={name} />
 
 <Playground>
   <Form initialValues={{ swatch: true }}>

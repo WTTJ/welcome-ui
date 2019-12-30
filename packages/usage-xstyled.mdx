@@ -29,13 +29,14 @@ We split these props at the container level so that…
       { value: 'vue', label: 'Vue' }
     ]
     const [value, setValue] = useState()
-    const handleChange = e => setValue(e.target.value)
+    const handleChange = value => setValue(value)
     return (
       <Select
         options={ITEMS}
         name="default"
         onChange={handleChange}
         value={value}
+        label="JS Library"
         mt={50}
         width={150}
         height="auto"
@@ -111,6 +112,7 @@ We split these props at the container level so that…
       placeholder="Placeholder"
       component={Select}
       label="Label"
+      onChange={() => {}}
       options={[
         { value: 'carrot', label: 'Carrot' },
         { value: 'madeleine', label: 'Madeleine (made with farm-fresh eggs)' },

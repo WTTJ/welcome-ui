@@ -5,11 +5,14 @@ menu: Fields
 ---
 
 import { Props, Playground } from 'docz'
-import { Form } from '../../docz/Form'
 import { ConnectedField } from '../ConnectedField'
 import { InputText } from './index'
+import { Form, TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # InputText
+
+<TagVersion version={version} name={name} />
 
 ## Default
 
@@ -30,12 +33,12 @@ import { InputText } from './index'
 Use the `isClearable` prop to add a cross button to remove the content (value) of the `TextInput`
 
 <Playground>
-  <Form initialValues={{ firstName: 'Trevor' }}>
+  <Form initialValues={{ firstName2: 'Trevor' }}>
     <ConnectedField
       component={InputText}
       isClearable
       label="First name"
-      name="firstName"
+      name="firstName2"
       placeholder="Boaty"
     />
   </Form>
@@ -51,7 +54,7 @@ Pass an `icon` through to decorate your `InputText`
       component={InputText}
       icon={<AvatarIcon color="nude.500" />}
       label="First name"
-      name="firstName"
+      name="firstName3"
       placeholder="Boaty"
     />
   </Form>
@@ -92,13 +95,13 @@ Pass an `icon` through to decorate your `InputText`
 ## Inline
 
 <Playground>
-  <Form initialValues={{ firstName: 'Trevor' }}>
+  <Form initialValues={{ firstName4: 'Trevor' }}>
     <ConnectedField
       component={InputText}
       disabled
       flexDirection="row"
       label="First name"
-      name="firstName"
+      name="firstName4"
       placeholder="Boaty"
       required
     />
@@ -108,12 +111,12 @@ Pass an `icon` through to decorate your `InputText`
 ## Disabled
 
 <Playground>
-  <Form initialValues={{ firstName: 'Trevor' }}>
+  <Form initialValues={{ firstName5: 'Trevor' }}>
     <ConnectedField
       component={InputText}
       disabled
       label="First name"
-      name="firstName"
+      name="firstName5"
       placeholder="Boaty"
       required
     />

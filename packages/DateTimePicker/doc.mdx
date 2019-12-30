@@ -7,8 +7,12 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { DateTimePicker } from './index.js'
 import { DatePicker } from '../DatePicker/index.js'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # DateTimePicker
+
+<TagVersion version={version} name={name} />
 
 It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
 
@@ -27,12 +31,12 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 ## Pass props to DatePicker
 
 <Playground>
-  <Form initialValues={{ welcome: Date.now() }}>
+  <Form initialValues={{ welcome2: Date.now() }}>
     <ConnectedField
       component={DatePicker}
       dateFormat="MMM dd yyyy"
       label="Date"
-      name="welcome"
+      name="welcome2"
       popperProps={{ zIndex: 50 }}
       showMonthDropdown
       showYearDropdown
