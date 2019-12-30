@@ -5,7 +5,7 @@ menu: Components
 ---
 
 import { Link as LinkDocz, Playground } from 'docz'
-import { TagVersion } from '../../docz'
+import { Code, TagVersion } from '../../docz'
 const { name, version } = require('./package.json')
 
 # Link
@@ -65,3 +65,13 @@ For a target `_blank` we add `rel='noopener noreferrer'`
     with a target blank
   </Link>
 </Playground>
+
+## Example with React Router
+
+<Code>
+  {`import { Link as RouterLink, Switch } from 'react-router-dom'
+
+<Link as={RouterLink} to="/jobs">
+  Jobs
+</Link>`}
+</Code>
