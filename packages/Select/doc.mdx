@@ -27,12 +27,12 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
 ## Clearable
 
 <Playground>
-  <Form initialValues={{ welcome: ['github', 'twitter'] }}>
+  <Form initialValues={{ welcome2: ['github', 'twitter'] }}>
     <ConnectedField
       component={Select}
       isClearable
       options={ITEMS}
-      name="welcome"
+      name="welcome2"
       label="Social networks"
     />
   </Form>
@@ -43,12 +43,12 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
 Just add the `isMultiple` prop. Note: to be able to choose multiple values you must pass an array for the `value`.
 
 <Playground>
-  <Form initialValues={{ welcome: ['github', 'twitter'] }}>
+  <Form initialValues={{ welcome3: ['github', 'twitter'] }}>
     <ConnectedField
       component={Select}
       isMultiple
       options={ITEMS}
-      name="welcome"
+      name="welcome3"
       label="Social networks"
     />
   </Form>
@@ -57,11 +57,11 @@ Just add the `isMultiple` prop. Note: to be able to choose multiple values you m
 Passing a `renderMultiple` function allows you to format the selected items below the select.
 
 <Playground>
-  <Form initialValues={{ welcome: ['github', 'twitter'] }}>
+  <Form initialValues={{ welcome4: ['github', 'twitter'] }}>
     <ConnectedField
       component={Select}
       isMultiple
-      name="welcome"
+      name="welcome4"
       label="Social networks"
       options={ITEMS}
       renderMultiple={(selected, handleRemove) => {
@@ -97,7 +97,7 @@ To be able to filter (i.e. search) the results, add the `isSearchable` prop.
       component={Select}
       isSearchable
       options={ITEMS}
-      name="welcome"
+      name="welcome5"
       label="Social networks"
     />
   </Form>
@@ -112,7 +112,7 @@ Pass `icon` to decorate your `Select`
     <ConnectedField
       component={Select}
       icon={<LinkIcon label="Social networks" color="nude.500" />}
-      name="welcome"
+      name="welcome6"
       label="Social networks"
       options={ITEMS}
     />
@@ -128,10 +128,10 @@ Note: if you use `renderItem` with `isSearchable` or `isCreatable` the selected 
 Note: if you want to format the options _and_ the placeholder, create a dummy value as the first of your options with an empty string as the value (see code below).
 
 <Playground>
-  <Form initialValues={{ welcome: 'twitter' }}>
+  <Form initialValues={{ welcome7: 'twitter' }}>
     <ConnectedField
       component={Select}
-      name="welcome"
+      name="welcome7"
       label="Social networks"
       options={ITEMS}
       renderItem={option => {
@@ -158,7 +158,7 @@ You can _add_ items by passing the `isCreatable` prop. The returned item will be
       component={Select}
       isCreatable
       options={ITEMS}
-      name="welcome"
+      name="welcome8"
       label="Social networks"
     />
   </Form>
@@ -169,7 +169,7 @@ You can _add_ items by passing the `isCreatable` prop. The returned item will be
 You can pass any combination of the props above. For example below, we have a `Select` that allows you to search the options, choose multiple options, and create new options.
 
 <Playground>
-  <Form initialValues={{ welcome: ['github', 'twitter'] }}>
+  <Form initialValues={{ welcome9: ['github', 'twitter'] }}>
     <ConnectedField
       component={Select}
       icon={<LinkIcon label="Social networks" color="nude.500" />}
@@ -177,7 +177,7 @@ You can pass any combination of the props above. For example below, we have a `S
       isMultiple
       isSearchable
       options={ITEMS}
-      name="welcome"
+      name="welcome9"
       label="Social networks"
     />
   </Form>
