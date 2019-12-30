@@ -52,7 +52,7 @@ export const Props = ({ props }) => {
             <S.Type>
               {getType(item.type)}
               {item.description && (
-                <Box as="p" color="nude.700" fontSize="meta2" m={0} mt="xs">
+                <Box as="p" color="nude.700" fontSize="body4" m={0} mt="xs">
                   {item.description[0].props.children}
                 </Box>
               )}
