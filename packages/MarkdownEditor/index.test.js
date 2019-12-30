@@ -91,7 +91,7 @@ describe('<EmojiPicker>', () => {
   })
 
   it.skip('should filter emojis when searching', () => {
-    const { container, debug, getByLabelText, getByPlaceholderText, getByTitle } = render(
+    const { container, getByLabelText, getByPlaceholderText, getByTitle } = render(
       <MarkdownEditor name="description" placeholder="Placeholder" value={content} />
     )
 

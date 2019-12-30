@@ -28,6 +28,7 @@
   "workspaces": [
     "packages/**/*",
     "../packages/**/*",
+    "icons",
     "icons/**/*",
     "../icons/**/*"
   ],
