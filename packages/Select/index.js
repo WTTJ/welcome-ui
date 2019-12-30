@@ -299,6 +299,7 @@ export const Select = forwardRef(
 Select.displayName = 'Select'
 
 Select.propTypes = {
+  /** We need to add `autoComplete` off to avoid select UI issues when is an input */
   autoComplete: string,
   autoFocus: bool,
   disabled: bool,
@@ -315,6 +316,11 @@ Select.propTypes = {
   onCreate: func,
   onFocus: func,
   onKeyDown: func,
+  onKeyUp: func,
+  /** [{
+    label: `string` | `number`,
+    value: `string` | `number`
+  }] */
   options: arrayOf(OPTIONS_TYPE),
   placeholder: string,
   renderItem: func,
