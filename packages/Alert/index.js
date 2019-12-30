@@ -12,7 +12,7 @@ const Alert = ({ children, variant = 'error', ...rest }) => (
 
 Alert.propTypes = {
   children: node.isRequired,
-  variant: oneOf(['success', 'error', 'warning', 'info']).isRequired
+  variant: oneOf(['success', 'error', 'warning', 'info'])
 }
 
 const AlertTitle = ({ children, dataTestId }) => (

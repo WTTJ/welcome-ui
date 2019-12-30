@@ -5,12 +5,17 @@ import { useDialogState } from 'reakit/Dialog'
 
 import { Box } from '../../../../packages/Box'
 import { Button } from '../../../../packages/Button'
-import { Icon } from '../../../../packages/Icon'
+import { MenuIcon } from '../../../../icons/Menu'
+import { CrossIcon } from '../../../../icons/Cross'
+import { GithubIcon } from '../../../../icons/Github'
+import { TagVersion } from '../../../../docz/TagVersion'
 
 import { Navigation } from './Navigation'
 import { LogoLong } from './LogoLong'
-import { TagVersion } from './TagVersion'
+import { ThemeSelect } from './ThemeSelect'
 import * as S from './MobileMenu.styled'
+
+const { version } = require('../../../../package.json')
 
 export const MobileMenu = ({ items, theme, ...rest }) => {
   const dialog = useDialogState()
@@ -21,17 +26,17 @@ export const MobileMenu = ({ items, theme, ...rest }) => {
         <LogoLong />
       </S.Logo>
       <S.MenuCloseDisclosure {...dialog}>
-        <Icon color="light.100" name="menu" size="lg" />
+        <MenuIcon color="light.100" size="lg" />
       </S.MenuCloseDisclosure>
       <Portal>
         <S.MenuBackground {...dialog} />
       </Portal>
       <S.MenuDialog {...dialog} aria-label="Navigation">
         <S.CloseIcon onClick={() => dialog.hide()} shape="circle" size="sm">
-          <Icon name="cross" />
+          <CrossIcon />
         </S.CloseIcon>
         <Box alignItems="center" display="flex">
-          <TagVersion />
+          <TagVersion name="welcome-ui" size="lg" variant="dark" version={version} />
           <Button
             as="a"
             backgroundColor="transparent"
@@ -42,8 +47,11 @@ export const MobileMenu = ({ items, theme, ...rest }) => {
             size="sm"
             target="_blank"
           >
-            <Icon color="light.100" name="github" size="lg" />
+            <GithubIcon color="light.100" size="lg" />
           </Button>
+        </Box>
+        <Box mb="lg" mt="lg">
+          <ThemeSelect {...theme} />
         </Box>
         <Box mt="xl">
           <Navigation items={items} />

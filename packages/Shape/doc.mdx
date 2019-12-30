@@ -6,8 +6,12 @@ menu: Components
 
 import { Playground, Props } from 'docz'
 import { Shape } from './index'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Shape
+
+<TagVersion version={version} name={name} />
 
 Overflow child with hidden child.
 

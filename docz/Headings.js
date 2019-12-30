@@ -11,8 +11,11 @@ export const H3 = props => <H3Styled as="h3" variant="h4" {...props} />
 const H1Styled = styled(Text)`
   color: dark.200;
   margin: 0;
-  margin-bottom: 40;
   font-weight: bold;
+
+  + * {
+    margin-bottom: 40;
+  }
 `
 
 const H2Styled = styled(Text)`

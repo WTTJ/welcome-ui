@@ -5,8 +5,12 @@ menu: Components
 ---
 
 import { Link as LinkDocz, Playground } from 'docz'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Link
+
+<TagVersion version={version} name={name} />
 
 A link component who can get `as` property to pass custom linker.
 

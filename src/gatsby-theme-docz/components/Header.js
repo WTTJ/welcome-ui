@@ -2,12 +2,13 @@
 import React from 'react'
 
 import { Box } from '../../../../packages/Box'
-import { Icon } from '../../../../packages/Icon'
-import { Select } from '../../../../packages/Select'
+import { TagVersion } from '../../../../docz/TagVersion'
 
+import { ThemeSelect } from './ThemeSelect'
 import { Logo } from './Logo'
-import { TagVersion } from './TagVersion'
 import * as S from './Header.styled'
+
+const { version } = require('../../../../package.json')
 
 export const Header = ({ setTheme, value }) => {
   return (
@@ -23,22 +24,10 @@ export const Header = ({ setTheme, value }) => {
             <Logo />
           </S.Logo>
         </a>
-        <TagVersion />
+        <TagVersion name="welcome-ui" size="lg" variant="dark" version={version} />
       </Box>
       <Box mb={40} mt={40}>
-        <Select
-          icon={<Icon name="bulb" />}
-          name="theme"
-          onChange={setTheme}
-          options={[
-            { value: 'welcomekit', label: 'WelcomeKit Theme' },
-            { value: 'welcome', label: 'WelcomeToTheJungle Theme' },
-            { value: 'core', label: 'Core Theme (default)' }
-          ]}
-          placeholder="Choose a theme"
-          size="sm"
-          value={value}
-        />
+        <ThemeSelect setTheme={setTheme} value={value} />
       </Box>
     </div>
   )

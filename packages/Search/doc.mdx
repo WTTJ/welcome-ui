@@ -5,11 +5,14 @@ menu: Fields
 ---
 
 import { Playground, Props } from 'docz'
-import { Code } from '../../docz/Code'
 import { Search } from './index'
 import { Shape } from '../Shape'
+import { Code, TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Search
+
+<TagVersion version={version} name={name} />
 
 This allows you to search data from a remote API. It is based on the [downshift](https://github.com/downshift-js/downshift) library.
 
@@ -24,8 +27,8 @@ This allows you to search data from a remote API. It is based on the [downshift]
         const data = await response.json()
         return data.Search
       }}
-      label="Films"
-      name="films"
+      label="Movies"
+      name="movies"
       renderItem={item =>
         item && (
           <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -36,6 +39,7 @@ This allows you to search data from a remote API. It is based on the [downshift]
           </div>
         )
       }
+      placeholder="Search a movie"
       itemToString={item => item && item.Title}
     />
   </Form>
@@ -45,7 +49,7 @@ This allows you to search data from a remote API. It is based on the [downshift]
 
 There are several core props you must pass through:
 
-### `search`
+### search
 
 An async function (async/await or Promises) that takes a search string and returns an array of results (`items`).
 
@@ -75,19 +79,13 @@ We could pass the following prop to the `Search` component:
 }}`}
 </Code>
 
-<hr />
-
-### `renderItem`
+### renderItem
 
 A component that renders each of the results in the list e.g. `renderItem={item => <div>{item.Title} ({item.Year})</div>}`
 
-<hr />
-
-### `itemToString`
+### itemToString
 
 A function that converts a selected result to a string e.g. `itemToString={item => item && item.Title}`
-
-<hr />
 
 The rest of the props are below:
 

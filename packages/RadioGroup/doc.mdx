@@ -8,8 +8,12 @@ import { Props, Playground } from 'docz'
 import { ITEMS } from '../../scripts/tests'
 import { RadioGroup } from './index'
 import { Radio } from '../Radio'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Radio Group
+
+<TagVersion version={version} name={name} />
 
 <Playground>
   <Form

@@ -6,8 +6,12 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Tag } from './index'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Tag
+
+<TagVersion version={version} name={name} />
 
 ## Variants
 

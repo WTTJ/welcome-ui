@@ -5,8 +5,12 @@ menu: Components
 ---
 
 import { Playground, Props } from 'docz'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Badge
+
+<TagVersion version={version} name={name} />
 
 <!-- Badge is the `<Tag />` component with small size. Check the doc of <Link to="/components/tag">Tags</Link> component to see more examples. -->
 

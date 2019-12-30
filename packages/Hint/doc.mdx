@@ -6,8 +6,12 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Hint } from './index'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Hint
+
+<TagVersion version={version} name={name} />
 
 Said state information, use on Field.
 

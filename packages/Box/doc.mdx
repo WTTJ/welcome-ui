@@ -5,8 +5,12 @@ menu: Components
 ---
 
 import { Props, Playground } from 'docz'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Box
+
+<TagVersion version={version} name={name} />
 
 Use properties from [xstyled](https://www.smooth-code.com/open-source/xstyled/docs/system-props/).
 

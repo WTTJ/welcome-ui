@@ -8,8 +8,12 @@ import { Props, Link, Playground } from 'docz'
 import { Button } from './index'
 import { LanguageIcon } from '../../icons/Language'
 import { SunIcon } from '../../icons/Sun'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
 
 # Button
+
+<TagVersion version={version} name={name} />
 
 ## Variants
 
