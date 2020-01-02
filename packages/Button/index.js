@@ -42,3 +42,4 @@ Button.propTypes = {
 }
 
 export const StyledButton = S.Button
+export { ButtonGroup } from './ButtonGroup'

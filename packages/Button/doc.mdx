@@ -5,7 +5,7 @@ menu: Components
 ---
 
 import { Props, Link, Playground } from 'docz'
-import { Button } from './index'
+import { Button, ButtonGroup } from './index'
 import { LanguageIcon } from '../../icons/Language'
 import { SunIcon } from '../../icons/Sun'
 import { TagVersion } from '../../docz'
@@ -15,9 +15,9 @@ const { name, version } = require('./package.json')
 
 <TagVersion version={version} name={name} />
 
-## Variants
+Built with Reakit for a better accessibility 🥰
 
-Admire these beautiful variants 🌈
+## Variants
 
 ### Basics
 
@@ -145,6 +145,36 @@ You can add `borderRadius` property from [xstyled](https://www.smooth-code.com/o
   <Button borderRadius="10px">10px</Button>
 </Playground>
 
+## ButtonGroup
+
+Buttons grouped without space or radius.
+
+<Playground>
+  <ButtonGroup>
+    <Button>First</Button>
+    <Button>Second</Button>
+    <Button>Third</Button>
+    <Button>Fourth</Button>
+  </ButtonGroup>
+</Playground>
+
+And you can add properties for all the button directly on ButtonGroup
+
+<Playground>
+  <ButtonGroup variant="secondary" size="xs">
+    <Button>First</Button>
+    <Button>Second</Button>
+    <Button>Third</Button>
+    <Button>Fourth</Button>
+  </ButtonGroup>
+</Playground>
+
 ## Properties
 
+### Button
+
 <Props of={Button} />
+
+### ButtonGroup
+
+<Props of={ButtonGroup} />

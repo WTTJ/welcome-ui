@@ -51,3 +51,34 @@ export const Button = styled(filterComponent(ReakitButton))(
     }
   `
 )
+
+export const ButtonGroup = styled.div`
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: -3px;
+
+  ${Button} {
+    margin-top: 3px;
+
+    &:not(:only-child) {
+      border-radius: 0;
+
+      &:not(:last-child) {
+        border-right-color: rgba(255, 255, 255, 0.4);
+      }
+
+      &:first-child {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+    }
+  }
+
+  ${system}
+`
