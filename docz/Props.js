@@ -1,40 +1,52 @@
+/* eslint-disable react/no-multi-comp */
 /* eslint-disable react/prop-types */
 import React from 'react'
 
 import { Box } from '../packages/Box/index'
 import { Tag } from '../packages/Tag/index'
+import * as TYPES from '../packages/Core/utils/propTypes'
 
 import * as S from './Props.styled'
 
 const removeQuote = str => str.replace(/'/g, '')
 
-const getType = type => {
-  if (type.name === 'enum') {
-    if (Array(type.value).isArray) {
+const getType = ({ name, raw, value }) => {
+  if (name === 'enum') {
+    if (Array.isArray(value)) {
       return (
         <Box mb="-sm">
-          {type.value.map(val => (
+          {value.map(val => (
             <Tag key={val.value} mb="sm" mr="sm">
               {removeQuote(val.value)}
             </Tag>
           ))}
         </Box>
       )
+    } else if (Array.isArray(TYPES[value])) {
+      return (
+        <Box mb="-sm">
+          {TYPES[value].map(val => (
+            <Tag key={val} mb="sm" mr="sm">
+              {removeQuote(val)}
+            </Tag>
+          ))}
+        </Box>
+      )
     } else {
-      return type.name
+      return name
     }
-  } else if (type.name === 'union') {
-    if (Array(type.value).isArray) {
+  } else if (name === 'union') {
+    if (Array.isArray(value)) {
       let values = []
-      type.value.map(val => values.push(val.name))
+      value.map(val => values.push(val.name))
       return values.join(' | ')
     } else {
-      return type.name
+      return name
     }
-  } else if (type.name === 'custom') {
-    return type.raw
+  } else if (name === 'custom') {
+    return raw
   } else {
-    return type.name
+    return name
   }
 }
 
