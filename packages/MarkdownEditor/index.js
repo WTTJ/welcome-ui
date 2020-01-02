@@ -12,7 +12,6 @@ import { UnorderedListIcon } from '@welcome-ui/icons.unordered_list'
 import { OrderedListIcon } from '@welcome-ui/icons.ordered_list'
 
 import { createEvent } from '../Core/utils/events'
-import { FINAL_FORM_INPUT_TYPES } from '../Core/utils/propTypes'
 
 import { Toolbar } from './Toolbar'
 import { EmojiPicker } from './EmojiPicker'
@@ -199,6 +198,5 @@ MarkdownEditor.propTypes /* remove-proptypes */ = {
       icon: node,
       name: string.isRequired
     })
-  ),
-  ...FINAL_FORM_INPUT_TYPES
+  )
 }

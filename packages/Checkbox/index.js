@@ -1,8 +1,6 @@
 import React, { forwardRef } from 'react'
 import { bool, elementType, func, string } from 'prop-types'
 
-import { FINAL_FORM_INPUT_TYPES } from '../Core/utils/propTypes'
-
 import * as S from './styles'
 
 export const Checkbox = forwardRef(
@@ -30,7 +28,6 @@ Checkbox.type = 'Checkbox'
 Checkbox.displayName = 'Checkbox'
 
 Checkbox.propTypes /* remove-proptypes */ = {
-  ...FINAL_FORM_INPUT_TYPES,
   checked: bool,
   Component: elementType,
   name: string.isRequired,
