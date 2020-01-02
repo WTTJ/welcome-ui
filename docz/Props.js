@@ -57,7 +57,7 @@ export const Props = ({ props }) => {
   return (
     <S.Table>
       <S.Row fontWeight="bold">
-        <S.Head>Prop</S.Head>
+        <S.Head>Name</S.Head>
         <S.Head>Type(s)</S.Head>
         <S.Head>Default</S.Head>
         <S.Head>Required?</S.Head>
@@ -73,7 +73,7 @@ export const Props = ({ props }) => {
             <S.Cell width="45%">
               <Type type={item.type} />
               {item.description && (
-                <Box as="p" color="nude.700" fontSize="body4" m={0} mt="xs">
+                <Box as="p" color="nude.600" fontSize="body3" m={0} mt="xs">
                   {item.description[0].props.children}
                 </Box>
               )}

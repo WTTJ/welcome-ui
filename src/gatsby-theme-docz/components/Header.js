@@ -2,13 +2,13 @@
 import React from 'react'
 
 import { Box } from '../../../../packages/Box'
-import { TagVersion } from '../../../../docz/TagVersion'
+// import { TagVersion } from '../../../../docz/TagVersion'
 
 import { ThemeSelect } from './ThemeSelect'
 import { Logo } from './Logo'
 import * as S from './Header.styled'
 
-const { version } = require('../../../../package.json')
+// const { version } = require('../../../../package.json')
 
 export const Header = ({ setTheme, value }) => {
   return (
@@ -24,7 +24,7 @@ export const Header = ({ setTheme, value }) => {
             <Logo />
           </S.Logo>
         </a>
-        <TagVersion name="welcome-ui" size="lg" variant="dark" version={version} />
+        {/* <TagVersion name="welcome-ui" size="lg" variant="dark" version={version} /> */}
       </Box>
       <Box mb={40} mt={40}>
         <ThemeSelect setTheme={setTheme} value={value} />
