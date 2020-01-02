@@ -1,0 +1,48 @@
+{
+  "name": "@welcome-ui/system",
+  "version": "1.0.28-alpha.0",
+  "description": "Customizable design system with react • styled-components • styled-system and reakit.",
+  "main": "dist/system.cjs.js",
+  "module": "dist/system.es.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WTTJ/welcome-ui.git"
+  },
+  "keywords": [
+    "design-system",
+    "react",
+    "reakit",
+    "styled-components",
+    "styled-system",
+    "ui-library",
+    "ui",
+    "ux",
+    "jungle",
+    "welcome",
+    "WTTJ"
+  ],
+  "author": "WTTJ <tech@wttj.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WTTJ/welcome-ui/issues"
+  },
+  "homepage": "https://github.com/WTTJ/welcome-ui#readme",
+  "dependencies": {
+    "lodash.difference": "=4.5.0",
+    "@xstyled/styled-components": "^1.8.3",
+    "@xstyled/system": "^1.14.0",
+    "styled-components": "^4.3.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
+  "sideEffects": false
+}
