@@ -1,6 +1,5 @@
 import styled, { css } from '@xstyled/styled-components'
-
-import { system } from '../Core/utils/system'
+import { system } from '@welcome-ui/system'
 
 export const Box = styled.div(
   () =>

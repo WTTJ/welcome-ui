@@ -1,8 +1,8 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
+import { system } from '@welcome-ui/system'
 
 import { getVariantStateColor } from '../Core/utils/variants'
-import { system } from '../Core/utils/system'
 
 export const Growl = styled.div`
   position: relative;

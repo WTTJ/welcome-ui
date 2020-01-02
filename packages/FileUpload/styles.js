@@ -1,7 +1,8 @@
 import styled from '@xstyled/styled-components'
+import { filterFieldComponent } from '@welcome-ui/system'
 
-import { filterComponent } from '../Core/utils/system'
+const FILE_UPLOAD_PROPS = ['onAddFile', 'onRemoveFile']
 
-export const Input = styled(filterComponent('input'))`
+export const Input = styled(filterFieldComponent('input', FILE_UPLOAD_PROPS))`
   display: none;
 `
