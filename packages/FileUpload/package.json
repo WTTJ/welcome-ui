@@ -34,8 +34,8 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@welcome-ui/box": "^1.0.19-alpha.0",
-    "@welcome-ui/button": "^1.0.19-alpha.0",
+    "@welcome-ui/box": "1.0.28-alpha.0",
+    "@welcome-ui/button": "1.0.28-alpha.0",
     "@welcome-ui/icons.attachment": "^1.0.28-alpha.0",
     "@welcome-ui/icons.instagram": "^1.0.28-alpha.0",
     "@welcome-ui/icons.music": "^1.0.28-alpha.0",

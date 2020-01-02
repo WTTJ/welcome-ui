@@ -2966,66 +2966,6 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
-"@welcome-ui/box@^1.0.19-alpha.0":
-  version "1.0.19-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/box/-/box-1.0.19-alpha.0.tgz#40cac4564b23b1d988ec12db73fb6a1d90e8a84c"
-  integrity sha512-JkZwYW26oWgRehIK9SPL66xUrFYslv12zIoyMXYD4O02uegVPoSUl3n9UQYJnNOyYt3cBEIwGvv/ITKdGhlZhQ==
-  dependencies:
-    "@xstyled/styled-components" "^1.8.3"
-    styled-components "^4.3.2"
-
-"@welcome-ui/button@^1.0.17-alpha.0":
-  version "1.0.17-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/button/-/button-1.0.17-alpha.0.tgz#cb7f329d152a90a6749035b2faf4bcd34c928dfc"
-  integrity sha512-CUIm1cgQldkFLYJe9fkcwjJhL/yDVAAXoluKS7947cU3WC3Rov4h2ZuwbcGFEuHPD09Qilh7rSH2O5efbIWIkw==
-  dependencies:
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    reakit "^1.0.0-beta.7"
-    styled-components "^4.4.1"
-
-"@welcome-ui/button@^1.0.19-alpha.0":
-  version "1.0.19-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/button/-/button-1.0.19-alpha.0.tgz#f2d9cc3ca19b98d0db317040e60cefd375405d5f"
-  integrity sha512-+pboFkPCk7Gd88NkzGzmZgsvYZ4wxUMlWgMwffiJMqu830uHoGeN0Q0JTLVu5QYgEgHYfz/+lDWjJ2C7RwFwfA==
-  dependencies:
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    reakit "^1.0.0-beta.7"
-    styled-components "^4.4.1"
-
-"@welcome-ui/clear-button@^1.0.17-alpha.0":
-  version "1.0.17-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/clear-button/-/clear-button-1.0.17-alpha.0.tgz#e9020cfe79861c41630414b6cb9a54d10888fce2"
-  integrity sha512-X65e0K4dBzGep6SA4V+mqJTU8ShSsGEhjQuuZD0zN1QyOzM947zdX5f8oEv+gTTqZ9MrNkSU1yJ7Xhii6q4e6Q==
-  dependencies:
-    "@welcome-ui/button" "^1.0.17-alpha.0"
-    "@welcome-ui/icon" "^1.0.17-alpha.0"
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    styled-components "^4.3.2"
-
-"@welcome-ui/icon@^1.0.17-alpha.0":
-  version "1.0.17-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/icon/-/icon-1.0.17-alpha.0.tgz#a6e94657603126361ee8250a6f2091fb1324c52e"
-  integrity sha512-g/BjUnx7CaILX3DjHYRZunbg9bJ+vsfd2KSE5skFtbpgX1IzWc47BD4tQ+OODQiMuSrZGoopbDcs2I27HoqhQQ==
-  dependencies:
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    lodash.difference "=4.5.0"
-    styled-components "^4.3.2"
-
-"@welcome-ui/tag@^1.0.17-alpha.0":
-  version "1.0.17-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/tag/-/tag-1.0.17-alpha.0.tgz#d012a5350befb3f5949e8ac847618cec7289c20c"
-  integrity sha512-YvT8bYOM6uRYldBI3kY7ZLQhc1jDkM38K/0LYp0MUijH875iFGaxrVcoQDlVyH60W7N61pFP3Ux/guUUD8kv1w==
-  dependencies:
-    "@welcome-ui/icon" "^1.0.17-alpha.0"
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    lodash.difference "=4.5.0"
-    styled-components "^4.3.2"
-
 "@xstyled/core@^1.15.0":
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.15.0.tgz#0f67671f654d92d276a876edee6ef8878ee6694c"
