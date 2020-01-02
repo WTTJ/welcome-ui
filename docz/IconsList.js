@@ -26,6 +26,7 @@ export const IconsList = icons => (
             justifyContent="center"
             padding="15px 10px"
             width={1}
+            borderRadius="lg"
           >
             <Icon size="xl" />
           </Box>

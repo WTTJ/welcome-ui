@@ -49,6 +49,10 @@ RadioGroup.propTypes = {
   flexDirection: oneOf(DIRECTIONS_TYPE),
   label: string,
   name: string,
+  /** [{
+    label: `string` | `number`,
+    value: `string` | `number`
+  }] */
   options: arrayOf(OPTIONS_TYPE),
   renderOption: elementType,
   required: bool,
