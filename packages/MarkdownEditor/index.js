@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import { arrayOf, bool, func, node, oneOfType, shape, string } from 'prop-types'
+import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from 'prop-types'
 import { BoldIcon } from '@welcome-ui/icons.bold'
 import { ItalicIcon } from '@welcome-ui/icons.italic'
 import { StrikethroughIcon } from '@welcome-ui/icons.strikethrough'
@@ -12,6 +12,7 @@ import { UnorderedListIcon } from '@welcome-ui/icons.unordered_list'
 import { OrderedListIcon } from '@welcome-ui/icons.ordered_list'
 
 import { createEvent } from '../Core/utils/events'
+import { VARIANTS_TYPE } from '../Core/utils/propTypes'
 
 import { Toolbar } from './Toolbar'
 import { EmojiPicker } from './EmojiPicker'
@@ -190,7 +191,12 @@ MarkdownEditor.type = 'MarkdownEditor'
 MarkdownEditor.displayName = 'MarkdownEditor'
 
 MarkdownEditor.propTypes /* remove-proptypes */ = {
+  autoFocus: bool,
   disabled: bool,
+  name: string,
+  onBlur: func,
+  onChange: func,
+  onFocus: func,
   placeholder: oneOfType([string, node]),
   toolbar: arrayOf(
     shape({
@@ -198,5 +204,7 @@ MarkdownEditor.propTypes /* remove-proptypes */ = {
       icon: node,
       name: string.isRequired
     })
-  )
+  ),
+  value: string,
+  variant: oneOf(VARIANTS_TYPE)
 }

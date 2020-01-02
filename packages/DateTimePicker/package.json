@@ -41,7 +41,7 @@
     "@welcome-ui/icons.left": "^1.0.28-alpha.0",
     "@welcome-ui/icons.right": "^1.0.28-alpha.0",
     "@welcome-ui/select": "^1.0.28-alpha.0",
-    "@welcome-ui/system": "1.0.28-alpha.0",
+    "@welcome-ui/system": "1.0.29-alpha.0",
     "@welcome-ui/time-picker": "^1.0.28-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
