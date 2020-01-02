@@ -44,6 +44,7 @@
     "@welcome-ui/icons.quote": "^1.0.28-alpha.0",
     "@welcome-ui/icons.strikethrough": "^1.0.28-alpha.0",
     "@welcome-ui/icons.unordered_list": "^1.0.28-alpha.0",
+    "@welcome-ui/system": "1.0.28-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "emoji-mart": "=2.11.1",

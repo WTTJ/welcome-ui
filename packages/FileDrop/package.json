@@ -39,6 +39,7 @@
     "@welcome-ui/icons.negative": "^1.0.28-alpha.0",
     "@welcome-ui/icons.pencil": "^1.0.28-alpha.0",
     "@welcome-ui/icons.positive": "^1.0.28-alpha.0",
+    "@welcome-ui/system": "1.0.28-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "prop-types": "^15.7.2",
