@@ -5,13 +5,7 @@ import { componentSystem, filterFieldComponent, system } from '@welcome-ui/syste
 
 import { fieldStyles } from '../Core/styles/form'
 
-const FILE_DROP_PROPS = [
-  'onAddFile',
-  'onRemoveFile',
-  'isDragAccept',
-  'isDragActive',
-  'isDragReject'
-]
+const FILTER_PROPS = ['onAddFile', 'onRemoveFile', 'isDragAccept', 'isDragActive', 'isDragReject']
 
 const getBorderColor = ({ isDragAccept, isDragReject }) => {
   if (isDragAccept) {
@@ -33,7 +27,7 @@ const disabledStyles = css`
   }
 `
 
-export const FileDrop = styled(filterFieldComponent('div', FILE_DROP_PROPS))(
+export const FileDrop = styled(filterFieldComponent('div', FILTER_PROPS))(
   props => css`
     ${fieldStyles};
     ${th('fields.fileupload')};

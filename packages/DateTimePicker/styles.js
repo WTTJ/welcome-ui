@@ -9,7 +9,7 @@ import { StyledButton } from '@welcome-ui/button'
 import { StyledClearButton } from '@welcome-ui/clear-button'
 import { filterFieldComponent, wrapperSystem } from '@welcome-ui/system'
 
-import { DATE_PICKER_PROPS } from './propTypes'
+import { FILTER_PROPS } from './propTypes'
 
 // Only require CSS on client
 if (typeof window !== 'undefined') {
@@ -52,7 +52,7 @@ const iconPlacementStyles = (placement, size, rest) => {
   }
 }
 
-export const CustomInput = styled(filterFieldComponent('div', DATE_PICKER_PROPS))(
+export const CustomInput = styled(filterFieldComponent('div', FILTER_PROPS))(
   ({ focused, icon, iconPlacement, size, ...rest }) => {
     return css`
       position: relative;

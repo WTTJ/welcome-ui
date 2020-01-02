@@ -1,4 +1,4 @@
-export const DATE_PICKER_PROPS = [
+export const FILTER_PROPS = [
   'adjustDateOnChange',
   'allowSameDay',
   'calendarClassName',
