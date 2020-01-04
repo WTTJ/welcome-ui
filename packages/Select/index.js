@@ -6,6 +6,7 @@ import kebabCase from 'lodash.kebabcase'
 import isEqual from 'lodash.isequal'
 import { DownIcon } from '@welcome-ui/icons.down'
 import { ClearButton } from '@welcome-ui/clear-button'
+import { createEvent } from '@welcome-ui/utils'
 
 import {
   COMPONENT_TYPE,
@@ -14,7 +15,6 @@ import {
   SIZES_TYPE,
   VARIANTS_TYPE
 } from '../../src/utils/propTypes'
-import { createEvent } from '../Core/utils/events'
 
 import { MultipleSelections } from './MultipleSelections'
 import * as S from './styles'

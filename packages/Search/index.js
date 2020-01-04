@@ -3,9 +3,9 @@ import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'p
 import Downshift from 'downshift'
 import isEqual from 'lodash.isequal'
 import { ClearButton } from '@welcome-ui/clear-button'
+import { createEvent } from '@welcome-ui/utils'
 
 import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../src/utils/propTypes'
-import { createEvent } from '../Core/utils/events'
 
 import * as S from './styles'
 

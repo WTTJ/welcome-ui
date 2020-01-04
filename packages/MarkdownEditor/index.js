@@ -10,8 +10,8 @@ import { CodeIcon } from '@welcome-ui/icons.code'
 import { QuoteIcon } from '@welcome-ui/icons.quote'
 import { UnorderedListIcon } from '@welcome-ui/icons.unordered_list'
 import { OrderedListIcon } from '@welcome-ui/icons.ordered_list'
+import { createEvent } from '@welcome-ui/utils'
 
-import { createEvent } from '../Core/utils/events'
 import { VARIANTS_TYPE } from '../../src/utils/propTypes'
 
 import { Toolbar } from './Toolbar'

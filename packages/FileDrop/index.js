@@ -4,10 +4,7 @@ import { useDropzone } from 'react-dropzone'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { PencilIcon } from '@welcome-ui/icons.pencil'
 import { Button } from '@welcome-ui/button'
-import { validateFileSize, validateMimeType } from '@welcome-ui/utils'
-
-// Common
-import { createEvent } from '../Core/utils/events'
+import { createEvent, validateFileSize, validateMimeType } from '@welcome-ui/utils'
 
 // FileDrop
 import * as S from './styles'

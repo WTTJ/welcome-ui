@@ -1,9 +1,7 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import { array, bool, func, node, number, oneOfType, string } from 'prop-types'
 import { Button } from '@welcome-ui/button'
-
-// Common
-import { createEvent } from '../Core/utils/events'
+import { createEvent } from '@welcome-ui/utils'
 
 // FileUpload
 import { Preview } from './Preview'
