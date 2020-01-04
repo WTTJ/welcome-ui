@@ -13,7 +13,7 @@ import {
   OPTIONS_TYPE,
   SIZES_TYPE,
   VARIANTS_TYPE
-} from '../Core/utils/propTypes'
+} from '../../src/utils/propTypes'
 import { createEvent } from '../Core/utils/events'
 
 import { MultipleSelections } from './MultipleSelections'

@@ -12,7 +12,7 @@ import { UnorderedListIcon } from '@welcome-ui/icons.unordered_list'
 import { OrderedListIcon } from '@welcome-ui/icons.ordered_list'
 
 import { createEvent } from '../Core/utils/events'
-import { VARIANTS_TYPE } from '../Core/utils/propTypes'
+import { VARIANTS_TYPE } from '../../src/utils/propTypes'
 
 import { Toolbar } from './Toolbar'
 import { EmojiPicker } from './EmojiPicker'

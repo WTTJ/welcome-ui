@@ -4,7 +4,7 @@ import Downshift from 'downshift'
 import isEqual from 'lodash.isequal'
 import { ClearButton } from '@welcome-ui/clear-button'
 
-import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../Core/utils/propTypes'
+import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../src/utils/propTypes'
 import { createEvent } from '../Core/utils/events'
 
 import * as S from './styles'

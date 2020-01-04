@@ -5,7 +5,7 @@ import { Tab as ReakitTab, TabList as ReakitTabList, TabPanel as ReakitTabPanel 
 import flattenChildren from 'react-flatten-children'
 import { useViewportSize } from '@welcome-ui/utils'
 
-import { COMPONENT_TYPE } from '../Core/utils/propTypes'
+import { COMPONENT_TYPE } from '../../src/utils/propTypes'
 import { useForkRef } from '../Core/utils/ref'
 
 import * as S from './styles'

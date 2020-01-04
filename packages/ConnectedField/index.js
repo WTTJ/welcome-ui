@@ -3,7 +3,7 @@ import { node, oneOfType } from 'prop-types'
 import { Field as FinalField } from 'react-final-form'
 import { Field } from '@welcome-ui/field'
 
-import { COMPONENT_TYPE } from '../Core/utils/propTypes'
+import { COMPONENT_TYPE } from '../../src/utils/propTypes'
 
 export const ConnectedField = forwardRef(({ children, component, ...rest }, ref) => {
   if (!children && !component) {
