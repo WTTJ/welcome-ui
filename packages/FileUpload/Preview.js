@@ -8,8 +8,7 @@ import { YoutubeIcon } from '@welcome-ui/icons.youtube'
 import { AttachmentIcon } from '@welcome-ui/icons.attachment'
 import { Tag } from '@welcome-ui/tag'
 import { Box } from '@welcome-ui/box'
-
-import { formatBytes } from '../Core/utils/bytes'
+import { formatBytes } from '@welcome-ui/utils'
 
 const removeQueryString = name => name.split('?')[0]
 
