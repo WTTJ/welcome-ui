@@ -1,15 +1,15 @@
 import React, { forwardRef } from 'react'
 import { func, node, oneOf } from 'prop-types'
 import { CrossIcon } from '@welcome-ui/icons.cross'
+import { wrapChildren } from '@welcome-ui/utils'
 
 import { SHAPES_TYPE, SIZES_TYPE } from '../Core/utils/propTypes'
-import { wrap } from '../Core/utils/wrap'
 
 import * as S from './styles'
 
 export const Tag = forwardRef(
   ({ children, dataTestId, onRemove, size = 'md', variant = 'default', ...rest }, ref) => {
-    const content = wrap(children)
+    const content = wrapChildren(children)
     // get size children for int and string
     const childrenLength =
       !!(children || children === 0) &&
