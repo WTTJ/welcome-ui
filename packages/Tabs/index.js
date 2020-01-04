@@ -3,10 +3,10 @@ import React, { cloneElement, useLayoutEffect, useState } from 'react'
 import { any, node, oneOfType, shape, string } from 'prop-types'
 import { Tab as ReakitTab, TabList as ReakitTabList, TabPanel as ReakitTabPanel } from 'reakit/Tab'
 import flattenChildren from 'react-flatten-children'
+import { useViewportSize } from '@welcome-ui/utils'
 
 import { COMPONENT_TYPE } from '../Core/utils/propTypes'
 import { useForkRef } from '../Core/utils/ref'
-import { useViewportSize } from '../Core/utils/viewport'
 
 import * as S from './styles'
 
