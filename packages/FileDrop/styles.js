@@ -2,8 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledButton } from '@welcome-ui/button'
 import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
-
-import { fieldStyles } from '../Core/styles/form'
+import { fieldStyles } from '@welcome-ui/utils'
 
 const FILTER_PROPS = ['onAddFile', 'onRemoveFile', 'isDragAccept', 'isDragActive', 'isDragReject']
 

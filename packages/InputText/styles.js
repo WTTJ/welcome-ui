@@ -1,8 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
-
-import { fieldStyles } from '../Core/styles/form'
+import { fieldStyles } from '@welcome-ui/utils'
 
 export const InputText = styled(filterFieldComponent('input'))(
   ({ connected, icon, iconPlacement, isClearable, size, ...rest }) => css`

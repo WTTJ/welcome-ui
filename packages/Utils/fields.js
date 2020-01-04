@@ -1,6 +1,7 @@
 import { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { getVariantColor } from '@welcome-ui/utils'
+
+import { getVariantColor } from './variants'
 
 export const fieldStyles = ({ size, type, variant }) => css`
   ${th('fields.default')};

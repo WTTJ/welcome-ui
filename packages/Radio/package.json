@@ -36,6 +36,7 @@
   "dependencies": {
     "@welcome-ui/label": "^1.0.28-alpha.0",
     "@welcome-ui/system": "1.0.29-alpha.0",
+    "@welcome-ui/utils": "^1.0.29-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "reakit": "^1.0.0-beta.7",

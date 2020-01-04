@@ -2,8 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import SimpleMDE from 'react-simplemde-editor'
 import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
-
-import { fieldStyles } from '../Core/styles/form'
+import { fieldStyles } from '@welcome-ui/utils'
 
 export const Wrapper = styled(filterFieldComponent('div'))(
   ({ connected, disabled, focused }) => css`

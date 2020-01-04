@@ -2,8 +2,8 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
 import { system } from '@welcome-ui/system'
+import { overflowEllipsis } from '@welcome-ui/utils'
 
-import { overflowEllipsis } from '../Core/styles/text'
 import { getMax } from '../Core/utils/getMax'
 import { centerContent } from '../Core/utils/css'
 
