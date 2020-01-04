@@ -6,11 +6,20 @@ import { Hint } from '@welcome-ui/hint'
 // Common
 import { RowContainer } from '../Core/styles/layout'
 import { getBaseType } from '../Core/utils/fields'
-import { getVariant } from '../Core/utils/variants'
 import { COMPONENT_TYPE, DIRECTIONS_TYPE, INPUTS_TYPE, SIZES_TYPE } from '../Core/utils/propTypes'
 
 // Fields
 import * as S from './styles'
+
+const getVariant = ({ error, warning }) => {
+  if (error) {
+    return 'error'
+  }
+  if (warning) {
+    return 'warning'
+  }
+  return undefined
+}
 
 export const Field = forwardRef(
   (
@@ -45,7 +54,7 @@ export const Field = forwardRef(
     }
 
     const baseType = getBaseType(type || Component.displayName)
-    const variant = getVariant({ connected, touched, warning, error })
+    const variant = getVariant({ warning, error })
     const hintText = variant ? error || warning : hint
     const isRadio = baseType === 'radio'
     const isCheckbox = baseType === 'checkbox'

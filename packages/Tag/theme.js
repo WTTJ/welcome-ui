@@ -1,14 +1,9 @@
 import { th } from '@xstyled/system'
-
-import { variantColors } from '../Core/utils/variants'
+import { TAG_VARIANTS } from '@welcome-ui/utils'
 
 export const getVariantsTheme = theme => {
-  return Object.entries(variantColors).reduce((acc, [variant, color]) => {
-    if (variant !== '__filemeta') {
-      acc[variant] = {
-        'background-color': th(color)({ theme })
-      }
-    }
+  return Object.entries(TAG_VARIANTS).reduce((acc, [variant, color]) => {
+    acc[variant] = { 'background-color': th(color)({ theme }) }
     return acc
   }, {})
 }
