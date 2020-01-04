@@ -3,7 +3,7 @@ import { fireEvent } from '@testing-library/react'
 import { ConnectedField } from '@welcome-ui/connected-field'
 
 import { Form, getFormValues } from '../../docz/Form'
-import { render } from '../Core/utils/tests'
+import { render } from '../../src/utils/tests'
 
 import { Checkbox } from './index'
 

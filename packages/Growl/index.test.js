@@ -1,7 +1,7 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
-import { render } from '../Core/utils/tests'
+import { render } from '../../src/utils/tests'
 
 import { Growl } from './index'
 

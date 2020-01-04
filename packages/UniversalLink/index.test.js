@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '../Core/utils/tests'
+import { render } from '../../src/utils/tests'
 
 import { UniversalLink } from './index'
 
