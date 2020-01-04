@@ -1,5 +1,21 @@
 import { th } from '@xstyled/system'
-import { TAG_VARIANTS } from '@welcome-ui/utils'
+import { VARIANTS } from '@welcome-ui/utils'
+
+const TAG_VARIANTS = {
+  blue: 'colors.sub.blue',
+  dark: 'colors.dark.500',
+  default: 'colors.nude.100',
+  green: 'colors.sub.green',
+  orange: 'colors.sub.orange',
+  pink: 'colors.sub.pink',
+  primary: 'colors.primary.500',
+  purple: 'colors.sub.purple',
+  red: 'colors.sub.red',
+  secondary: 'colors.secondary.500',
+  turquoize: 'colors.sub.turquoize',
+  yellow: 'colors.sub.yellow',
+  ...VARIANTS
+}
 
 export const getVariantsTheme = theme => {
   return Object.entries(TAG_VARIANTS).reduce((acc, [variant, color]) => {

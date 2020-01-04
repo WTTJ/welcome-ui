@@ -1,6 +1,6 @@
 export * from './center-content'
 export * from './create-event'
-export * from './fields'
+export * from './field-styles'
 export * from './format-bytes'
 export * from './get-max-width-height'
 export * from './hex-to-rgb'
