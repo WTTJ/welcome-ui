@@ -4,7 +4,7 @@ import { RadioGroup as ReakitRadioGroup, useRadioState } from 'reakit/Radio'
 import { FieldGroup } from '@welcome-ui/field-group'
 import { Radio } from '@welcome-ui/radio'
 
-import { DIRECTIONS_TYPE, OPTIONS_TYPE } from '../Core/utils/propTypes'
+import { DIRECTIONS_TYPE, OPTIONS_TYPE } from '../../src/utils/propTypes'
 
 import * as S from './styles'
 

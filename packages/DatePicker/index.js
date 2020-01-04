@@ -18,7 +18,7 @@ import {
   getDate
 } from '@welcome-ui/date-time-picker'
 
-import { COMPONENT_TYPE, SIZES_TYPE } from '../Core/utils/propTypes'
+import { COMPONENT_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
 
 import * as S from './styles'
 
