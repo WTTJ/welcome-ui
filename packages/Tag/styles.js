@@ -2,9 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
 import { system } from '@welcome-ui/system'
-import { getMax, overflowEllipsis } from '@welcome-ui/utils'
-
-import { centerContent } from '../Core/utils/css'
+import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
 
 const shapeStyles = (size, width, height, shape = 'square') => css`
   ${th(`tags.shape.${shape}.${size}`)}

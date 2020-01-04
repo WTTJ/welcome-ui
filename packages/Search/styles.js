@@ -2,9 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
 import { componentSystem, filterFieldComponent, wrapperSystem } from '@welcome-ui/system'
-import { fieldStyles, overflowEllipsis } from '@welcome-ui/utils'
-
-import { centerContent } from '../Core/utils/css'
+import { centerContent, fieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 
 export const Wrapper = styled(filterFieldComponent('div'))(
   ({ connected }) => css`
