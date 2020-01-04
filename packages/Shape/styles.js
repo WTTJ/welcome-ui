@@ -1,7 +1,6 @@
 import styled, { css } from '@xstyled/styled-components'
 import { system } from '@welcome-ui/system'
-
-import { getMax } from '../Core/utils/getMax'
+import { getMax } from '@welcome-ui/utils'
 
 const shapeStyles = (width, height, shape) => css`
   width: ${getMax(width, height)};

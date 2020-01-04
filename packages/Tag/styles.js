@@ -2,9 +2,8 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
 import { system } from '@welcome-ui/system'
-import { overflowEllipsis } from '@welcome-ui/utils'
+import { getMax, overflowEllipsis } from '@welcome-ui/utils'
 
-import { getMax } from '../Core/utils/getMax'
 import { centerContent } from '../Core/utils/css'
 
 const shapeStyles = (size, width, height, shape = 'square') => css`
