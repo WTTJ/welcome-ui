@@ -7,6 +7,7 @@ fs.readdirAsync = util.promisify(fs.readdir)
 fs.writeFileAsync = util.promisify(fs.writeFile)
 
 const rootPath = path.join(__dirname, '..')
+const iconPath = path.join(rootPath, 'packages/Icon')
 const iconsPath = path.join(rootPath, 'icons')
 const inputPath = path.join(iconsPath, '_assets')
 
@@ -41,12 +42,15 @@ const writeContents = (file, content) => {
 }
 
 const writePackageJson = (file, key) => {
+  let iconConfig = fs.readFileSync(`${iconPath}/package.json`)
+  iconConfig = JSON.parse(iconConfig.toString())
+
   let config = {}
   if (fs.existsSync(file)) {
     config = fs.readFileSync(file)
     config = JSON.parse(config.toString())
   }
-  fs.writeFileSync(file, getPackageJsonContent(config, key))
+  fs.writeFileSync(file, getPackageJsonContent(config, key, iconConfig.version))
 }
 
 const updateIcons = files => {
@@ -102,7 +106,7 @@ export const ${iconName}Icon = props => <Icon content={content} alt="${iconName}
 `
 
 // package.json
-const getPackageJsonContent = (config, key) => {
+const getPackageJsonContent = (config, key, iconVersion) => {
   const content = {
     ...config,
     name: `@welcome-ui/icons.${key}`,
@@ -113,7 +117,7 @@ const getPackageJsonContent = (config, key) => {
       access: 'public'
     },
     dependencies: {
-      '@welcome-ui/icon': '^1.0.28-alpha.0'
+      '@welcome-ui/icon': `^${iconVersion}`
     },
     peerDependencies: {
       react: '^16.10.2',
