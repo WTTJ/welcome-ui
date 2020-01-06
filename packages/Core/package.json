@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/core",
-  "version": "1.0.30-alpha.0",
+  "version": "1.1.0",
   "description": "welcome-ui: Core utils",
   "main": "dist/core.cjs.js",
   "module": "dist/core.es.js",
@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@welcome-ui/utils": "^1.0.30-alpha.0",
+    "@welcome-ui/utils": "^1.1.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "lodash.difference": "=4.5.0",

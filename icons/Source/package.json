@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.source.cjs.js",
   "module": "dist/icons.source.es.js",
-  "version": "1.0.30-alpha.0",
+  "version": "1.1.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,6 +13,6 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.0.30-alpha.0"
+    "@welcome-ui/icon": "^1.1.0"
   }
 }
