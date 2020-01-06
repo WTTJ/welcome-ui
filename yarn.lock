@@ -2966,6 +2966,17 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
+"@welcome-ui/button@1.0.28-alpha.0":
+  version "1.0.28-alpha.0"
+  resolved "https://registry.yarnpkg.com/@welcome-ui/button/-/button-1.0.28-alpha.0.tgz#34fd1e1c6518c78505f818f2b51f1d61c94936de"
+  integrity sha512-Y7JMnWEMs40+/Hpopvu1OZv2olUfmDKJTUMuPnAxXHueRxhv25+FT+TOMwdJ5fmm9DNNaVMhedeahphhgv0Clw==
+  dependencies:
+    "@babel/runtime" "^7.4.5"
+    "@xstyled/styled-components" "^1.8.3"
+    "@xstyled/system" "^1.8.2"
+    reakit "^1.0.0-beta.7"
+    styled-components "^4.4.1"
+
 "@xstyled/core@^1.15.0":
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.15.0.tgz#0f67671f654d92d276a876edee6ef8878ee6694c"
@@ -3740,17 +3751,7 @@ babel-plugin-remove-graphql-queries@^2.7.14:
   resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.7.14.tgz#f60064d9711725768557096cb07988508e6616e3"
   integrity sha512-GnAZhBChCjAg0NyZMmZureWmBXijbAK7wreEpsoI1oP5hCuHcvWknDU4u5PjoVdLyJ+8ObJ86Y/Y4uzrqcg/qg==
 
-babel-plugin-styled-components@1.10.2:
-  version "1.10.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.10.2.tgz#0d9af9521ec99cf8e14182685162e09b119de176"
-  integrity sha512-gA67BkMbddFPkTjD2bBe7zE6NNEUNK/7A4uDxwSigA3h1+sL2b6mWhxPu9a5DKf+3TvmdoxvtJ4me2NE7k66Ng==
-  dependencies:
-    "@babel/helper-annotate-as-pure" "^7.0.0"
-    "@babel/helper-module-imports" "^7.0.0"
-    babel-plugin-syntax-jsx "^6.18.0"
-    lodash "^4.17.11"
-
-"babel-plugin-styled-components@>= 1":
+babel-plugin-styled-components@=1.10.6, "babel-plugin-styled-components@>= 1":
   version "1.10.6"
   resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.10.6.tgz#f8782953751115faf09a9f92431436912c34006b"
   integrity sha512-gyQj/Zf1kQti66100PhrCRjI5ldjaze9O0M3emXRPAN80Zsf8+e1thpTpaXJXVHXtaM4/+dJEgZHyS9Its+8SA==
