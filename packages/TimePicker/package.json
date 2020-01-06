@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/time-picker",
-  "version": "1.0.28-alpha.0",
+  "version": "1.0.30-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/time-picker.cjs.js",
   "module": "dist/time-picker.es.js",
@@ -34,9 +34,9 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@welcome-ui/date-time-picker": "^1.0.28-alpha.0",
-    "@welcome-ui/system": "1.0.29-alpha.0",
-    "@welcome-ui/utils": "^1.0.29-alpha.0",
+    "@welcome-ui/date-time-picker": "^1.0.30-alpha.0",
+    "@welcome-ui/system": "^1.0.30-alpha.0",
+    "@welcome-ui/utils": "^1.0.30-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "prop-types": "^15.7.2",
     "react-datepicker": "^2.9.6",
