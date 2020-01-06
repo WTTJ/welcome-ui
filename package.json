@@ -14,7 +14,7 @@
     "release:publish": "git push --follow-tags origin master && npm publish",
     "release": "yarn release:build && npm run release:publish && yarn docz:build && yarn docz:deploy --domain welcome-ui.com",
     "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
-    "lint:js": "eslint packages scripts --max-warnings 0 --fix",
+    "lint:js": "eslint packages icons scripts --max-warnings 0 --fix",
     "lint:css": "stylelint 'packages/**/styles.js'",
     "lint:mdx": "prettier --parser mdx --write 'packages/**/*.mdx'",
     "test": "jest ./packages",

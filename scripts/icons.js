@@ -124,7 +124,8 @@ const getPackageJsonContent = (config, key, iconVersion) => {
       'react-dom': '^16.10.2'
     }
   }
-  return JSON.stringify(content, 0, 2)
+  return `${JSON.stringify(content, 0, 2)}
+`
 }
 
 // content.js
