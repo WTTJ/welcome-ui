@@ -2977,6 +2977,19 @@
     reakit "^1.0.0-beta.7"
     styled-components "^4.4.1"
 
+"@welcome-ui/field@^1.0.28-alpha.0":
+  version "1.0.28-alpha.0"
+  resolved "https://registry.yarnpkg.com/@welcome-ui/field/-/field-1.0.28-alpha.0.tgz#958e444efe1847627fcc674b8a0a1c78af220649"
+  integrity sha512-SGvmXkjnrOTu62BtyE/zW7rowrXjZjomS6Dbyqme3JELmHrYif8vqwhNbSUEdmeIBdqcDGoiRyzHH4fxxhRSsA==
+  dependencies:
+    "@welcome-ui/field-group" "^1.0.28-alpha.0"
+    "@welcome-ui/hint" "^1.0.28-alpha.0"
+    "@welcome-ui/label" "^1.0.28-alpha.0"
+    "@xstyled/styled-components" "^1.8.3"
+    "@xstyled/system" "^1.8.2"
+    lodash.difference "=4.5.0"
+    styled-components "^4.3.2"
+
 "@xstyled/core@^1.15.0":
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.15.0.tgz#0f67671f654d92d276a876edee6ef8878ee6694c"

@@ -161,3 +161,4 @@ Field.propTypes /* remove-proptypes */ = {
 }
 
 export const IconWrapper = S.IconWrapper
+export { getBaseType }
