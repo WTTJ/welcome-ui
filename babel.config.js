@@ -7,7 +7,10 @@ module.exports = {
   presets: [['@babel/preset-env', { modules: false, loose: true }], '@babel/preset-react'],
   plugins: [
     ['transform-react-remove-prop-types', { removeImport: true }],
-    ['styled-components', { ssr: true, displayName: true }],
+    [
+      'styled-components',
+      { ssr: true, displayName: true, pure: true, transpileTemplateLiterals: true }
+    ],
     ['@babel/plugin-proposal-class-properties', { loose: true }]
   ]
 }

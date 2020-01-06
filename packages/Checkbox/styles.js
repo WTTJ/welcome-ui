@@ -1,11 +1,10 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
+import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
+import { fieldStyles } from '@welcome-ui/utils'
 
-import { componentSystem, filterComponent, system } from '../Core/utils/system'
-import { fieldStyles } from '../Core/styles/form'
-
-export const Checkbox = styled(filterComponent(ReakitCheckbox))(
+export const Checkbox = styled(filterFieldComponent(ReakitCheckbox))(
   ({ connected, order = '-1' }) => css`
     ${fieldStyles};
     ${th('fields.checkbox.default')}

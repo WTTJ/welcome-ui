@@ -62,7 +62,7 @@ export const CustomHeader = ({
 
 CustomHeader.displayName = 'CustomHeader'
 
-CustomHeader.propTypes = {
+CustomHeader.propTypes /* remove-proptypes */ = {
   changeMonth: func,
   changeYear: func,
   date: oneOfType([number, object, string]).isRequired,

@@ -2,8 +2,7 @@ import React, { forwardRef } from 'react'
 import { bool, node, oneOf } from 'prop-types'
 import { SpecialPipelineIcon } from '@welcome-ui/icons.special_pipeline'
 import { VariantIcon } from '@welcome-ui/variant-icon'
-
-import { wrap } from '../Core/utils/wrap'
+import { wrapChildren } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
@@ -22,7 +21,7 @@ export const Label = forwardRef(
     ref
   ) => {
     // Wrap strings in span to allow for required asterisk
-    const content = wrap(children)
+    const content = wrapChildren(children)
 
     return (
       <S.Label
@@ -43,7 +42,7 @@ export const Label = forwardRef(
 
 Label.displayName = 'Label'
 
-Label.propTypes = {
+Label.propTypes /* remove-proptypes */ = {
   checkableField: bool,
   children: node,
   disabled: bool,

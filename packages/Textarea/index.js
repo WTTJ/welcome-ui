@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { bool, func, number, oneOf, string } from 'prop-types'
 
-import { SIZES_TYPE, VARIANTS_TYPE } from '../Core/utils/propTypes'
+import { SIZES_TYPE, VARIANTS_TYPE } from '../../src/utils/propTypes'
 
 import * as S from './styles'
 
@@ -50,7 +50,7 @@ export const Textarea = forwardRef(
 Textarea.type = 'Textarea'
 Textarea.displayName = 'Textarea'
 
-Textarea.propTypes = {
+Textarea.propTypes /* remove-proptypes */ = {
   autoFocus: bool,
   disabled: bool,
   maxLength: number,

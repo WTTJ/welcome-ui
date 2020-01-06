@@ -21,7 +21,7 @@ export const DefaultContent = ({ error, fileUrl, isHoverAccept, isHoverReject, o
   return <Message openFile={openFile} />
 }
 
-DefaultContent.propTypes = {
+DefaultContent.propTypes /* remove-proptypes */ = {
   error: string,
   fileUrl: string,
   isHoverAccept: bool,
@@ -44,6 +44,6 @@ const Message = ({ openFile }) => {
   )
 }
 
-Message.propTypes = {
+Message.propTypes /* remove-proptypes */ = {
   openFile: func
 }

@@ -1,9 +1,10 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledButton } from '@welcome-ui/button'
+import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
+import { fieldStyles } from '@welcome-ui/utils'
 
-import { componentSystem, filterComponent, system } from '../Core/utils/system'
-import { fieldStyles } from '../Core/styles/form'
+const FILTER_PROPS = ['onAddFile', 'onRemoveFile', 'isDragAccept', 'isDragActive', 'isDragReject']
 
 const getBorderColor = ({ isDragAccept, isDragReject }) => {
   if (isDragAccept) {
@@ -25,7 +26,7 @@ const disabledStyles = css`
   }
 `
 
-export const FileDrop = styled(filterComponent('div'))(
+export const FileDrop = styled(filterFieldComponent('div', FILTER_PROPS))(
   props => css`
     ${fieldStyles};
     ${th('fields.fileupload')};

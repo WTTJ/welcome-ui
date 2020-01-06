@@ -36,6 +36,7 @@
   "dependencies": {
     "@welcome-ui/field-group": "^1.0.28-alpha.0",
     "@welcome-ui/radio": "^1.0.28-alpha.0",
+    "@welcome-ui/system": "1.0.29-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "prop-types": "^15.7.2",
     "reakit": "^1.0.0-beta.7",

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { node, number, oneOf, oneOfType } from 'prop-types'
 
-import { COMPONENT_TYPE } from '../Core/utils/propTypes'
+import { COMPONENT_TYPE } from '../../src/utils/propTypes'
 
 import * as S from './styles'
 
@@ -41,7 +41,7 @@ export const Text = forwardRef(
 
 Text.displayName = 'Text'
 
-Text.propTypes = {
+Text.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node,
   lines: number,

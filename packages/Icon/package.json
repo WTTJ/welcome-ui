@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
+    "@welcome-ui/system": "1.0.29-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "lodash.difference": "=4.5.0",

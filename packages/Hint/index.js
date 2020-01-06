@@ -15,7 +15,7 @@ export const Hint = forwardRef(({ checkableField, children, dataTestId, variant 
 
 Hint.displayName = 'Hint'
 
-Hint.propTypes = {
+Hint.propTypes /* remove-proptypes */ = {
   checkableField: bool,
   children: node,
   variant: oneOf(['warning', 'error'])

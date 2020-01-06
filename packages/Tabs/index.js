@@ -3,10 +3,9 @@ import React, { cloneElement, useLayoutEffect, useState } from 'react'
 import { any, node, oneOfType, shape, string } from 'prop-types'
 import { Tab as ReakitTab, TabList as ReakitTabList, TabPanel as ReakitTabPanel } from 'reakit/Tab'
 import flattenChildren from 'react-flatten-children'
+import { useForkRef, useViewportSize } from '@welcome-ui/utils'
 
-import { COMPONENT_TYPE } from '../Core/utils/propTypes'
-import { useForkRef } from '../Core/utils/ref'
-import { useViewportSize } from '../Core/utils/viewport'
+import { COMPONENT_TYPE } from '../../src/utils/propTypes'
 
 import * as S from './styles'
 
@@ -49,7 +48,7 @@ const ActiveBar = ({ activeTab, listRef }) => {
   return <S.ActiveBar {...activeBar} />
 }
 ActiveBar.displayName = 'ActiveBar'
-ActiveBar.propTypes = {
+ActiveBar.propTypes /* remove-proptypes */ = {
   activeTab: oneOfType(COMPONENT_TYPE),
   listRef: shape({ current: any })
 }
@@ -71,7 +70,7 @@ export const TabList = React.forwardRef(({ as, children, ...props }, ref) => {
   )
 })
 TabList.displayName = 'TabList'
-TabList.propTypes = {
+TabList.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node
 }
@@ -88,7 +87,7 @@ export const Tab = React.forwardRef(({ as, children, stopId, ...props }, ref) =>
   )
 })
 Tab.displayName = 'Tab'
-Tab.propTypes = {
+Tab.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node,
   stopId: string.isRequired
@@ -106,7 +105,7 @@ export const TabPanel = React.forwardRef(({ as, children, stopId, ...props }, re
   )
 })
 TabPanel.displayName = 'TabPanel'
-TabPanel.propTypes = {
+TabPanel.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node,
   stopId: string.isRequired

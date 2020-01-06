@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import { bool, elementType, func, oneOf, string } from 'prop-types'
 import { Label } from '@welcome-ui/label'
 
-import { DIRECTIONS_TYPE } from '../Core/utils/propTypes'
+import { DIRECTIONS_TYPE } from '../../src/utils/propTypes'
 
 import * as S from './styles'
 
@@ -52,7 +52,7 @@ export const Radio = forwardRef((props, ref) => {
 Radio.type = 'Radio'
 Radio.displayName = 'Radio'
 
-Radio.propTypes = {
+Radio.propTypes /* remove-proptypes */ = {
   disabled: bool,
   disabledIcon: elementType,
   flexDirection: oneOf(DIRECTIONS_TYPE),

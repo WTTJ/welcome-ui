@@ -1,10 +1,9 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
+import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
+import { fieldStyles } from '@welcome-ui/utils'
 
-import { fieldStyles } from '../Core/styles/form'
-import { componentSystem, filterComponent, system } from '../Core/utils/system'
-
-export const Textarea = styled(filterComponent('textarea'))(
+export const Textarea = styled(filterFieldComponent('textarea'))(
   ({ connected }) => css`
     ${fieldStyles};
     ${th('fields.textarea')};

@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { Link } from 'docz'
 
-import { filterComponent } from '../../../../packages/Core/utils/system'
+import { filterComponent } from '../../../../packages/System/index'
 
 export const Block = styled.ul`
   margin: 0;

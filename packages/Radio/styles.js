@@ -1,11 +1,10 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
+import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
+import { fieldStyles } from '@welcome-ui/utils'
 
-import { componentSystem, filterComponent, system } from '../Core/utils/system'
-import { fieldStyles } from '../Core/styles/form'
-
-export const Radio = styled(filterComponent(ReakitRadio))(
+export const Radio = styled(filterFieldComponent(ReakitRadio))(
   ({ connected, order = '-1' }) => css`
     ${fieldStyles};
     ${th('fields.radio.default')}

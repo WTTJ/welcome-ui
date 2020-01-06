@@ -11,7 +11,7 @@ export const CustomPopper = ({ children }) => {
   return <StyledCustomPopper popperStyles={popperProps}>{children}</StyledCustomPopper>
 }
 
-CustomPopper.propTypes = {
+CustomPopper.propTypes /* remove-proptypes */ = {
   children: shape({
     props: shape({
       children: func,

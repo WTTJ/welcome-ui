@@ -1,12 +1,10 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
+import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
+import { fieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 
-import { overflowEllipsis } from '../Core/styles/text'
-import { fieldStyles } from '../Core/styles/form'
-import { componentSystem, filterComponent, system } from '../Core/utils/system'
-
-export const Radio = styled(filterComponent(ReakitRadio))(({ connected }) => {
+export const Radio = styled(filterFieldComponent(ReakitRadio))(({ connected }) => {
   return css`
     position: absolute;
     top: 0;

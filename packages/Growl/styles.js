@@ -1,8 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-
-import { getVariantStateColor } from '../Core/utils/variants'
-import { system } from '../Core/utils/system'
+import { system } from '@welcome-ui/system'
+import { getVariantColor } from '@welcome-ui/utils'
 
 export const Growl = styled.div`
   position: relative;
@@ -17,7 +16,7 @@ export const Title = styled.div(
   ({ variant }) => css`
     display: flex;
     align-items: center;
-    color: ${getVariantStateColor(variant)};
+    color: ${getVariantColor(variant)};
     padding-bottom: md;
     ${th('growls.title')};
 

@@ -1,8 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-
-import { getVariantStateColor } from '../Core/utils/variants'
-import { system } from '../Core/utils/system'
+import { system } from '@welcome-ui/system'
+import { getVariantColor } from '@welcome-ui/utils'
 
 export const Label = styled.label(
   ({ required }) => css`
@@ -43,8 +42,8 @@ export const Icon = styled.div(
   ({ variant }) => css`
     display: inline-flex;
     margin-right: xxs;
-    color: ${getVariantStateColor(variant)};
-    fill: ${getVariantStateColor(variant)};
+    color: ${getVariantColor(variant)};
+    fill: ${getVariantColor(variant)};
     flex-shrink: 0;
   `
 )

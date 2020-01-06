@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { bool, elementType, func, oneOf, string } from 'prop-types'
 
-import { DIRECTIONS_TYPE, SIZES_TYPE } from '../Core/utils/propTypes'
+import { DIRECTIONS_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
 
 import * as S from './styles'
 
@@ -55,7 +55,7 @@ export const RadioTab = forwardRef((props, ref) => {
 RadioTab.type = 'RadioTab'
 RadioTab.displayName = 'RadioTab'
 
-RadioTab.propTypes = {
+RadioTab.propTypes /* remove-proptypes */ = {
   checked: bool,
   disabled: bool,
   disabledIcon: elementType,

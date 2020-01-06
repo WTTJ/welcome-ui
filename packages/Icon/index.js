@@ -26,7 +26,7 @@ export const Icon = forwardRef(({ content, dataTestId, size = 'md', title, ...pr
 
 Icon.displayName = 'Icon'
 
-Icon.propTypes = {
+Icon.propTypes /* remove-proptypes */ = {
   content: shape({
     width: number,
     height: number,

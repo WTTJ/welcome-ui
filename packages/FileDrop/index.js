@@ -4,10 +4,7 @@ import { useDropzone } from 'react-dropzone'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { PencilIcon } from '@welcome-ui/icons.pencil'
 import { Button } from '@welcome-ui/button'
-
-// Common
-import { createEvent } from '../Core/utils/events'
-import { validateFileSize, validateMimeType } from '../Core/utils/validations'
+import { createEvent, validateFileSize, validateMimeType } from '@welcome-ui/utils'
 
 // FileDrop
 import * as S from './styles'
@@ -176,8 +173,8 @@ export const FileDrop = forwardRef(
 FileDrop.type = 'FileDrop'
 FileDrop.displayName = 'FileDrop'
 
-FileDrop.propTypes = {
-  /** Can accept a string ie `image/png` or an array `['image/jpg', 'image/jpeg', 'image/png']` */
+FileDrop.propTypes /* remove-proptypes */ = {
+  /** Can accept a string ie `'image/png,image/jpeg'` or an array `['image/jpg', 'image/jpeg', 'image/png']` */
   accept: oneOfType([string, array]),
   children: func,
   disabled: bool,

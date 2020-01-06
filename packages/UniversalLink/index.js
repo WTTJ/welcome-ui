@@ -19,7 +19,7 @@ export const UniversalLink = forwardRef(({ children, dataTestId, target, ...rest
 ))
 
 UniversalLink.displayName = 'UniversalLink'
-UniversalLink.propTypes = {
+UniversalLink.propTypes /* remove-proptypes */ = {
   children: node,
   target: string
 }

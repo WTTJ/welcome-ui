@@ -11,7 +11,7 @@ import Popper from 'popper.js'
 import { TooltipReference, useDialogState, useTooltipState } from 'reakit'
 import { bool, func, node, oneOf, oneOfType } from 'prop-types'
 
-import { COMPONENT_TYPE } from '../Core/utils/propTypes'
+import { COMPONENT_TYPE } from '../../src/utils/propTypes'
 
 import * as S from './styles'
 
@@ -136,7 +136,7 @@ export const Tooltip = forwardRef(
   }
 )
 
-Tooltip.propTypes = {
+Tooltip.propTypes /* remove-proptypes */ = {
   children: oneOfType([func, node]),
   content: oneOfType(COMPONENT_TYPE),
   fixed: bool,

@@ -2,7 +2,7 @@ import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
 import { Form, getFormValues } from '../../docz/Form'
-import { render } from '../Core/utils/tests'
+import { render } from '../../src/utils/tests'
 import { ConnectedField } from '../ConnectedField'
 
 import { InputText } from './index'

@@ -1,9 +1,7 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import { array, bool, func, node, number, oneOfType, string } from 'prop-types'
 import { Button } from '@welcome-ui/button'
-
-// Common
-import { createEvent } from '../Core/utils/events'
+import { createEvent } from '@welcome-ui/utils'
 
 // FileUpload
 import { Preview } from './Preview'
@@ -120,10 +118,9 @@ export const FileUpload = forwardRef(
 FileUpload.type = 'FileUpload'
 FileUpload.displayName = 'FileUpload'
 
-FileUpload.propTypes = {
-  /** Can accept a string ie `image/png` or an array `['image/jpg', 'image/jpeg', 'image/png']` */ accept: oneOfType(
-    [string, array]
-  ),
+FileUpload.propTypes /* remove-proptypes */ = {
+  /** Can accept a string ie `'image/png,image/jpeg'` or an array `['image/jpg', 'image/jpeg', 'image/png']` */
+  accept: oneOfType([string, array]),
   children: func,
   disabled: bool,
   draggable: bool,

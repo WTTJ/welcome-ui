@@ -10,7 +10,7 @@ const Alert = ({ children, variant = 'error', ...rest }) => (
   </S.Alert>
 )
 
-Alert.propTypes = {
+Alert.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   variant: oneOf(['success', 'error', 'warning', 'info'])
 }
@@ -19,7 +19,7 @@ const AlertTitle = ({ children, dataTestId }) => (
   <S.Title data-testid={dataTestId}>{children}</S.Title>
 )
 
-AlertTitle.propTypes = {
+AlertTitle.propTypes /* remove-proptypes */ = {
   children: node.isRequired
 }
 

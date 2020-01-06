@@ -2,7 +2,7 @@ import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Dialog, DialogBackdrop, DialogDisclosure } from 'reakit/Dialog'
 
-import { system } from '../../../../packages/Core/utils/system'
+import { system } from '../../../../packages/System/index'
 import { Button } from '../../../../packages/Button'
 
 export const MobileMenu = styled.div`

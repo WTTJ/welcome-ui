@@ -3,7 +3,7 @@ import { elementType, func, oneOf, oneOfType, shape, string } from 'prop-types'
 import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
 
-import { COMPONENT_TYPE, SIZES_TYPE } from '../Core/utils/propTypes'
+import { COMPONENT_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
 
 import * as S from './styles'
 
@@ -49,7 +49,7 @@ export class CustomInput extends PureComponent {
 }
 
 // eslint-disable-next-line react/static-property-placement
-CustomInput.propTypes = {
+CustomInput.propTypes /* remove-proptypes */ = {
   focused: oneOf(['date', 'time', null]),
   handleBlur: func,
   handleFocus: func,

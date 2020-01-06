@@ -7,8 +7,9 @@ import { StyledIcon } from '@welcome-ui/icon'
 import { StyledSelect } from '@welcome-ui/select'
 import { StyledButton } from '@welcome-ui/button'
 import { StyledClearButton } from '@welcome-ui/clear-button'
+import { filterFieldComponent, wrapperSystem } from '@welcome-ui/system'
 
-import { wrapperSystem } from '../Core/utils/system'
+import { FILTER_PROPS } from './propTypes'
 
 // Only require CSS on client
 if (typeof window !== 'undefined') {
@@ -51,20 +52,22 @@ const iconPlacementStyles = (placement, size, rest) => {
   }
 }
 
-export const CustomInput = styled.div(({ focused, icon, iconPlacement, size, ...rest }) => {
-  return css`
-    position: relative;
-    ${StyledDatePicker}, ${StyledTimePicker} {
-      padding-right: ${th(`fields.sizes.${size}.height`)(rest)};
-    }
+export const CustomInput = styled(filterFieldComponent('div', FILTER_PROPS))(
+  ({ focused, icon, iconPlacement, size, ...rest }) => {
+    return css`
+      position: relative;
+      ${StyledDatePicker}, ${StyledTimePicker} {
+        padding-right: ${th(`fields.sizes.${size}.height`)(rest)};
+      }
 
-    ${icon && iconPlacementStyles(iconPlacement, size, rest)};
+      ${icon && iconPlacementStyles(iconPlacement, size, rest)};
 
-    ${StyledClearButton} {
-      z-index: ${focused ? 1 : null};
-    }
-  `
-})
+      ${StyledClearButton} {
+        z-index: ${focused ? 1 : null};
+      }
+    `
+  }
+)
 
 export const CustomHeader = styled.div`
   display: flex;

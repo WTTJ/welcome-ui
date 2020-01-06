@@ -36,7 +36,9 @@
   "dependencies": {
     "@babel/runtime": "^7.4.5",
     "@welcome-ui/icons.special_pipeline": "^1.0.28-alpha.0",
+    "@welcome-ui/system": "1.0.29-alpha.0",
     "@welcome-ui/variant-icon": "^1.0.28-alpha.0",
+    "@welcome-ui/utils": "^1.0.29-alpha.0",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "lodash.difference": "=4.5.0",

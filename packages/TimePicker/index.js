@@ -2,7 +2,7 @@ import React, { forwardRef, useEffect, useState } from 'react'
 import { bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 import { CustomInput, CustomPopper, DEFAULT_DATE, getDate } from '@welcome-ui/date-time-picker'
 
-import { COMPONENT_TYPE, SIZES_TYPE } from '../Core/utils/propTypes'
+import { COMPONENT_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
 
 import * as S from './styles'
 
@@ -110,7 +110,7 @@ export const TimePicker = forwardRef(
 
 TimePicker.displayName = 'TimePicker'
 
-TimePicker.propTypes = {
+TimePicker.propTypes /* remove-proptypes */ = {
   autoFocus: bool,
   dateFormat: string,
   icon: oneOfType(COMPONENT_TYPE),

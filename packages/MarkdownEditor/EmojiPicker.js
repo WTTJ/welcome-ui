@@ -18,6 +18,6 @@ export const EmojiPicker = ({ onSelect }) => (
   </S.EmojiPicker>
 )
 
-EmojiPicker.propTypes = {
+EmojiPicker.propTypes /* remove-proptypes */ = {
   onSelect: func
 }

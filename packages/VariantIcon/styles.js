@@ -1,13 +1,12 @@
 import styled, { css } from '@xstyled/styled-components'
-
-import { getVariantStateColor } from '../Core/utils/variants'
+import { getVariantColor } from '@welcome-ui/utils'
 
 export const VariantIcon = styled.div(
   ({ variant }) => css`
     display: inline-flex;
     margin-right: xxs;
-    color: ${getVariantStateColor(variant)};
-    fill: ${getVariantStateColor(variant)};
+    color: ${getVariantColor(variant)};
+    fill: ${getVariantColor(variant)};
     flex-shrink: 0;
   `
 )

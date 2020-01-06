@@ -1,13 +1,10 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
+import { componentSystem, filterFieldComponent, wrapperSystem } from '@welcome-ui/system'
+import { centerContent, fieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 
-import { overflowEllipsis } from '../Core/styles/text'
-import { fieldStyles } from '../Core/styles/form'
-import { componentSystem, filterComponent, wrapperSystem } from '../Core/utils/system'
-import { centerContent } from '../Core/utils/css'
-
-export const Wrapper = styled(filterComponent('div'))(
+export const Wrapper = styled(filterFieldComponent('div'))(
   ({ connected }) => css`
     position: relative;
     ${!connected && wrapperSystem};
@@ -18,9 +15,9 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled(
-  filterComponent('input', ['hasIcon', 'inputValue', 'renderMultiple', 'itemToString'])
-)(
+const FILTER_PROPS = ['hasIcon', 'inputValue', 'renderMultiple', 'itemToString']
+
+export const Input = styled(filterFieldComponent('input', FILTER_PROPS))(
   ({ hasIcon, size }) => css`
     position: relative;
     ${fieldStyles};

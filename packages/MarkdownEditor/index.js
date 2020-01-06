@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import { arrayOf, bool, func, node, oneOfType, shape, string } from 'prop-types'
+import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from 'prop-types'
 import { BoldIcon } from '@welcome-ui/icons.bold'
 import { ItalicIcon } from '@welcome-ui/icons.italic'
 import { StrikethroughIcon } from '@welcome-ui/icons.strikethrough'
@@ -10,9 +10,9 @@ import { CodeIcon } from '@welcome-ui/icons.code'
 import { QuoteIcon } from '@welcome-ui/icons.quote'
 import { UnorderedListIcon } from '@welcome-ui/icons.unordered_list'
 import { OrderedListIcon } from '@welcome-ui/icons.ordered_list'
+import { createEvent } from '@welcome-ui/utils'
 
-import { createEvent } from '../Core/utils/events'
-import { FINAL_FORM_INPUT_TYPES } from '../Core/utils/propTypes'
+import { VARIANTS_TYPE } from '../../src/utils/propTypes'
 
 import { Toolbar } from './Toolbar'
 import { EmojiPicker } from './EmojiPicker'
@@ -190,8 +190,13 @@ export const MarkdownEditor = forwardRef(
 MarkdownEditor.type = 'MarkdownEditor'
 MarkdownEditor.displayName = 'MarkdownEditor'
 
-MarkdownEditor.propTypes = {
+MarkdownEditor.propTypes /* remove-proptypes */ = {
+  autoFocus: bool,
   disabled: bool,
+  name: string,
+  onBlur: func,
+  onChange: func,
+  onFocus: func,
   placeholder: oneOfType([string, node]),
   toolbar: arrayOf(
     shape({
@@ -200,5 +205,6 @@ MarkdownEditor.propTypes = {
       name: string.isRequired
     })
   ),
-  ...FINAL_FORM_INPUT_TYPES
+  value: string,
+  variant: oneOf(VARIANTS_TYPE)
 }

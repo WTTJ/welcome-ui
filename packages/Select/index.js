@@ -6,6 +6,7 @@ import kebabCase from 'lodash.kebabcase'
 import isEqual from 'lodash.isequal'
 import { DownIcon } from '@welcome-ui/icons.down'
 import { ClearButton } from '@welcome-ui/clear-button'
+import { createEvent } from '@welcome-ui/utils'
 
 import {
   COMPONENT_TYPE,
@@ -13,8 +14,7 @@ import {
   OPTIONS_TYPE,
   SIZES_TYPE,
   VARIANTS_TYPE
-} from '../Core/utils/propTypes'
-import { createEvent } from '../Core/utils/events'
+} from '../../src/utils/propTypes'
 
 import { MultipleSelections } from './MultipleSelections'
 import * as S from './styles'
@@ -296,7 +296,7 @@ export const Select = forwardRef(
 
 Select.displayName = 'Select'
 
-Select.propTypes = {
+Select.propTypes /* remove-proptypes */ = {
   /** We need to add `autoComplete` off to avoid select UI issues when is an input */
   autoComplete: string,
   autoFocus: bool,

@@ -1,4 +1,4 @@
-import { hexToRGB } from '../Core/utils/hexToRGB'
+import { hexToRGB } from '@welcome-ui/utils'
 
 export const getButtons = theme => {
   const { colors, fontSizes, fontWeights, letterSpacings, radii, shadows, space } = theme

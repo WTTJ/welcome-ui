@@ -6,7 +6,7 @@ import { Icon } from '@welcome-ui/icon'
 import { Shape } from '@welcome-ui/shape'
 
 import { Form, getFormValues } from '../../docz/Form'
-import { render } from '../Core/utils/tests'
+import { render } from '../../src/utils/tests'
 
 import { Search } from './index'
 

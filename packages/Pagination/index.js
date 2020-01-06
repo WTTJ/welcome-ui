@@ -140,7 +140,7 @@ export const Pagination = forwardRef(
   }
 )
 
-Pagination.propTypes = {
+Pagination.propTypes /* remove-proptypes */ = {
   'aria-label': string.isRequired,
   children: node,
   getHref: func,

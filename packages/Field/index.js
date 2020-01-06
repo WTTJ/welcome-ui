@@ -4,13 +4,12 @@ import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 
 // Common
-import { RowContainer } from '../Core/styles/layout'
-import { getBaseType } from '../Core/utils/fields'
-import { getVariant } from '../Core/utils/variants'
-import { COMPONENT_TYPE, DIRECTIONS_TYPE, INPUTS_TYPE, SIZES_TYPE } from '../Core/utils/propTypes'
+import { COMPONENT_TYPE, DIRECTIONS_TYPE, INPUTS_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
 
 // Fields
+import { RowContainer } from './layout'
 import * as S from './styles'
+import { getBaseType, getVariant } from './utils'
 
 export const Field = forwardRef(
   (
@@ -45,7 +44,7 @@ export const Field = forwardRef(
     }
 
     const baseType = getBaseType(type || Component.displayName)
-    const variant = getVariant({ connected, touched, warning, error })
+    const variant = getVariant({ warning, error })
     const hintText = variant ? error || warning : hint
     const isRadio = baseType === 'radio'
     const isCheckbox = baseType === 'checkbox'
@@ -139,7 +138,7 @@ export const Field = forwardRef(
 
 Field.displayName = 'Field'
 
-Field.propTypes = {
+Field.propTypes /* remove-proptypes */ = {
   checked: bool,
   children: func,
   component: oneOfType(COMPONENT_TYPE).isRequired,
@@ -162,3 +161,4 @@ Field.propTypes = {
 }
 
 export const IconWrapper = S.IconWrapper
+export { getBaseType }

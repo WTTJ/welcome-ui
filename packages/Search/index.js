@@ -3,9 +3,9 @@ import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'p
 import Downshift from 'downshift'
 import isEqual from 'lodash.isequal'
 import { ClearButton } from '@welcome-ui/clear-button'
+import { createEvent } from '@welcome-ui/utils'
 
-import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../Core/utils/propTypes'
-import { createEvent } from '../Core/utils/events'
+import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../src/utils/propTypes'
 
 import * as S from './styles'
 
@@ -184,7 +184,7 @@ export const Search = forwardRef(
 Search.displayName = 'Search'
 Search.type = 'search'
 
-Search.propTypes = {
+Search.propTypes /* remove-proptypes */ = {
   autoComplete: string,
   autoFocus: bool,
   disabled: bool,

@@ -7,7 +7,7 @@ import { AvatarIcon } from '@welcome-ui/icons.avatar'
 import { DateIcon } from '@welcome-ui/icons.date'
 
 import { Form, getFormValues } from '../../docz/Form'
-import { render } from '../Core/utils/tests'
+import { render } from '../../src/utils/tests'
 
 import { Select } from './index'
 

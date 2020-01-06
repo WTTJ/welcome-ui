@@ -1,10 +1,9 @@
 import React, { forwardRef } from 'react'
-import { oneOfType, string } from 'prop-types'
+import { node, oneOfType, string } from 'prop-types'
 import { Field as FinalField } from 'react-final-form'
-import { Field } from '@welcome-ui/field'
+import { Field, getBaseType } from '@welcome-ui/field'
 
-import { COMPONENT_TYPE, FINAL_FORM_INPUT_TYPES } from '../Core/utils/propTypes'
-import { getBaseType } from '../Core/utils/fields'
+import { COMPONENT_TYPE } from '../../src/utils/propTypes'
 
 export const ConnectedField = forwardRef(({ children, component, type, ...rest }, ref) => {
   if (!children && !component) {
@@ -32,8 +31,8 @@ export const ConnectedField = forwardRef(({ children, component, type, ...rest }
 
 ConnectedField.displayName = 'WelcomeField'
 
-ConnectedField.propTypes = {
-  ...FINAL_FORM_INPUT_TYPES,
+ConnectedField.propTypes /* remove-proptypes */ = {
+  children: node.isRequired,
   component: oneOfType(COMPONENT_TYPE),
   type: string
 }

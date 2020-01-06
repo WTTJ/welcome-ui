@@ -3,7 +3,7 @@ import { func, node, number, object, oneOf, oneOfType, string } from 'prop-types
 import { DatePicker } from '@welcome-ui/date-picker'
 import { TimePicker } from '@welcome-ui/time-picker'
 
-import { SIZES_TYPE } from '../Core/utils/propTypes'
+import { SIZES_TYPE } from '../../src/utils/propTypes'
 
 import { getDate } from './utils'
 import * as S from './styles'
@@ -69,7 +69,7 @@ export const DateTimePicker = forwardRef(
 
 DateTimePicker.displayName = 'DateTimePicker'
 
-DateTimePicker.propTypes = {
+DateTimePicker.propTypes /* remove-proptypes */ = {
   children: node,
   locale: object,
   onChange: func,

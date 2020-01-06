@@ -1,6 +1,4 @@
-import { FINAL_FORM_META_TYPES } from './propTypes'
-
-const datePickerProps = [
+export const FILTER_PROPS = [
   'adjustDateOnChange',
   'allowSameDay',
   'calendarClassName',
@@ -87,49 +85,4 @@ const datePickerProps = [
   'inlineFocusSelectedMonth',
   'onDayMouseEnter',
   'onMonthMouseLeave'
-]
-
-const fileDropProps = ['onAddFile', 'onRemoveFile']
-
-const customProps = [
-  'checkableField',
-  'focused',
-  'handleRemoveFile',
-  'icon',
-  'iconPlacement',
-  'isClearable',
-  'isCreatable',
-  'isDragAccept',
-  'isDragActive',
-  'isDragReject',
-  'isEditable',
-  'isMultiple',
-  'isSearchable',
-  'maxSize',
-  'minRows',
-  'popperProps',
-  'renderItem'
-]
-
-const finalFormFieldProps = [
-  'afterSubmit',
-  'allowNull',
-  'beforeSubmit',
-  'component',
-  'format',
-  'formatOnBlur',
-  'initialValue',
-  'isEqual',
-  'onCreate',
-  'parse',
-  'validate',
-  'validateFields'
-]
-
-export const reservedProps = [
-  ...customProps,
-  ...datePickerProps,
-  ...fileDropProps,
-  ...finalFormFieldProps,
-  ...Object.keys(FINAL_FORM_META_TYPES)
 ]

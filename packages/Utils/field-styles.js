@@ -1,12 +1,12 @@
 import { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { getVariantStateColor } from '../utils/variants'
+import { getVariantColor } from './variants'
 
 export const fieldStyles = ({ size, type, variant }) => css`
   ${th('fields.default')};
   width: 100%;
-  border-color: ${getVariantStateColor(variant)};
+  border-color: ${getVariantColor(variant)};
   transition: medium;
   appearance: none;
   ${size && th(`fields.sizes.${size}`)};
