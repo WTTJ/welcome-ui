@@ -1,0 +1,48 @@
+---
+name: Group
+route: /components/group
+menu: Components
+---
+
+import { Props, Link, Playground } from 'docz'
+import { Group } from './index'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
+
+# Group
+
+<TagVersion version={version} name={name} />
+
+Children grouped without space or radius.
+
+## Example
+
+This works only with the `Button` component for now — more examples will be added soon.
+
+### Button
+
+<Playground>
+  <Group>
+    <Button>First</Button>
+    <Button>Second</Button>
+    <Button>Third</Button>
+    <Button>Last</Button>
+  </Group>
+</Playground>
+
+## Overload
+
+`Group` overloads the child components properties.
+
+<Playground>
+  <Group variant="tertiary" size="xs">
+    <Button>First</Button>
+    <Button variant="secondary">Second</Button>
+    <Button variant="tertiary">Third</Button>
+    <Button variant="tertiary">Last</Button>
+  </Group>
+</Playground>
+
+## Properties
+
+<Props of={Group} />

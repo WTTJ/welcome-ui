@@ -28,10 +28,13 @@ export const Head = styled.th`
   text-align: left;
   font-weight: bold;
   border-bottom: 1px solid ${th.color('nude.200')};
+  font-size: body2;
+  color: secondary.500;
 `
 
 export const Name = styled.p`
   color: primary.500;
+  margin: 0;
 `
 
 export const Required = styled.span`
