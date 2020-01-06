@@ -12,11 +12,5 @@ module.exports = {
       { ssr: true, displayName: true, pure: true, transpileTemplateLiterals: true }
     ],
     ['@babel/plugin-proposal-class-properties', { loose: true }]
-  ],
-  overrides: [
-    {
-      test: /styles.js$/,
-      presets: ['@babel/preset-react']
-    }
   ]
 }
