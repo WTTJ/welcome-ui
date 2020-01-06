@@ -11,6 +11,7 @@ import { getFields } from '../../Field/theme'
 import { getIcons } from '../../Icon/theme'
 import { getTags } from '../../Tag/theme'
 import { getTooltips } from '../../Tooltip/theme'
+import { getDropdownMenu } from '../../DropdownMenu/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -111,6 +112,7 @@ export const getBaseTheme = (options = {}) => {
   theme.texts = getTexts(theme)
   theme.tooltips = getTooltips(theme)
   theme.links = getLinks(theme)
+  theme.dropdownMenu = getDropdownMenu(theme)
 
   return theme
 }

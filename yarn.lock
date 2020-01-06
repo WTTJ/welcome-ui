@@ -2966,16 +2966,6 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
-"@welcome-ui/badge@^1.0.28-alpha.0":
-  version "1.0.28-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/badge/-/badge-1.0.28-alpha.0.tgz#11e87366edf9c0db80e1cbae6223ee17a87fd3c7"
-  integrity sha512-21ixzMX2Xr4jQxfm2t7z+4oFZzGHhQzEjO80EB2mDtGbNDgC0sXGMVizPnAL5covpQGbNdes0rBkWx9DOQQRDw==
-  dependencies:
-    "@babel/runtime" "^7.4.5"
-    "@welcome-ui/tag" "^1.0.28-alpha.0"
-    prop-types "^15.7.2"
-    styled-components "^4.4.1"
-
 "@welcome-ui/button@1.0.28-alpha.0":
   version "1.0.28-alpha.0"
   resolved "https://registry.yarnpkg.com/@welcome-ui/button/-/button-1.0.28-alpha.0.tgz#34fd1e1c6518c78505f818f2b51f1d61c94936de"
@@ -2986,99 +2976,6 @@
     "@xstyled/system" "^1.8.2"
     reakit "^1.0.0-beta.7"
     styled-components "^4.4.1"
-
-"@welcome-ui/field-group@^1.0.28-alpha.0":
-  version "1.0.28-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/field-group/-/field-group-1.0.28-alpha.0.tgz#41a5bebe4c78ad3011b73b70325df54df4532764"
-  integrity sha512-pKEMHxOSvvoySqUMhGK6HVQFTZ1jHL/kW9VcRIo4zzM4qpW8A37NPv58LfuilkjURVEBmZIWauXxO43iROlAWw==
-  dependencies:
-    "@welcome-ui/label" "^1.0.28-alpha.0"
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    styled-components "^4.3.2"
-
-"@welcome-ui/field@^1.0.28-alpha.0":
-  version "1.0.28-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/field/-/field-1.0.28-alpha.0.tgz#958e444efe1847627fcc674b8a0a1c78af220649"
-  integrity sha512-SGvmXkjnrOTu62BtyE/zW7rowrXjZjomS6Dbyqme3JELmHrYif8vqwhNbSUEdmeIBdqcDGoiRyzHH4fxxhRSsA==
-  dependencies:
-    "@welcome-ui/field-group" "^1.0.28-alpha.0"
-    "@welcome-ui/hint" "^1.0.28-alpha.0"
-    "@welcome-ui/label" "^1.0.28-alpha.0"
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    lodash.difference "=4.5.0"
-    styled-components "^4.3.2"
-
-"@welcome-ui/hint@^1.0.28-alpha.0":
-  version "1.0.28-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/hint/-/hint-1.0.28-alpha.0.tgz#b4a8c38e2ee9e6c7056494bb4d9c5a7ff3f7cd88"
-  integrity sha512-Ky33jFD9iGv2yi7etLCKO/AXAyPHH+XbI7vQ4Khe6kmP+GNBuxs6mz9AKdRqpgiv41Bf0Crnk9Ab59LXndxnhg==
-  dependencies:
-    "@babel/runtime" "^7.4.5"
-    "@welcome-ui/variant-icon" "^1.0.28-alpha.0"
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    styled-components "^4.3.2"
-
-"@welcome-ui/icon@^1.0.28-alpha.0":
-  version "1.0.28-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/icon/-/icon-1.0.28-alpha.0.tgz#104da6f2b9cd307bd7917667402af12fd137dcd2"
-  integrity sha512-L0FAbdnqiY76azG8QiVnvby5V0ZRwWKu2eWZEDPiKYn+SFjdvq8+vDIjUoOcGVsauM4d7HvmUnIybbmFJ5gsvw==
-  dependencies:
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    lodash.difference "=4.5.0"
-    styled-components "^4.3.2"
-
-"@welcome-ui/icons.cross@^1.0.28-alpha.0":
-  version "1.0.28-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/icons.cross/-/icons.cross-1.0.28-alpha.0.tgz#150ef2f81df9461cb98684aa3fdd30cacc79e651"
-  integrity sha512-dX2hVurX7/Q/VcMjJ1Lq5UJ/Zo9G6Z+o4WlYyHHlmKC7vuHToY9Mr4kol0VXiqB9gWmmJczS8Kmu5wr2KjYNvw==
-  dependencies:
-    "@welcome-ui/icon" "^1.0.28-alpha.0"
-
-"@welcome-ui/icons.special_pipeline@^1.0.28-alpha.0":
-  version "1.0.28-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/icons.special_pipeline/-/icons.special_pipeline-1.0.28-alpha.0.tgz#eef86a5fe87c4cc5a13f1a9411d12b645fa2e24e"
-  integrity sha512-tPTWSlA4+PtThnAjzCQ4CcjZQ2tsT9zHAieSCJctZ8P5N2Z/hIXQgfFTnj+JjpCHoFHZ6/Q4R4OkQR63wRZ5yg==
-  dependencies:
-    "@welcome-ui/icon" "^1.0.28-alpha.0"
-
-"@welcome-ui/label@^1.0.28-alpha.0":
-  version "1.0.28-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/label/-/label-1.0.28-alpha.0.tgz#ef6e3ffffc2bde0f08f53d29f1636ce5b67c6f71"
-  integrity sha512-SbgxQbgrwt6WRl6+oe/jcFCHUbv+EbuJU36XWqAIMC6RIFr0yLaApZ3XofZPQ6leEijWicTLebjvsYKGzXWttg==
-  dependencies:
-    "@babel/runtime" "^7.4.5"
-    "@welcome-ui/icons.special_pipeline" "^1.0.28-alpha.0"
-    "@welcome-ui/variant-icon" "^1.0.28-alpha.0"
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    lodash.difference "=4.5.0"
-    styled-components "^4.3.2"
-
-"@welcome-ui/tag@^1.0.28-alpha.0":
-  version "1.0.28-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/tag/-/tag-1.0.28-alpha.0.tgz#f779c92a70ee93908c4ea1f063ee9eb582513ccb"
-  integrity sha512-l9HspYz/HVbfNjEHLQfGjTilVqTp4twfA3rgUfe7/8PceuHQUMDdWdZ/ErQjNN6/IAcl6ZJnWfEiB3WexRlLbg==
-  dependencies:
-    "@welcome-ui/icons.cross" "^1.0.28-alpha.0"
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    lodash.difference "=4.5.0"
-    styled-components "^4.3.2"
-
-"@welcome-ui/variant-icon@^1.0.28-alpha.0":
-  version "1.0.28-alpha.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/variant-icon/-/variant-icon-1.0.28-alpha.0.tgz#134544f26301e2cab94992b38c1e0cf3a2dbc808"
-  integrity sha512-ZLsBmHqsumzf9TS/QnXW9vh5j4LC8EyAUcH9ZTWAZfNzLW2WKpZc4HTwXsQq0JeYRiDDiFzGWHC/dxWbX0prwg==
-  dependencies:
-    "@babel/runtime" "^7.4.5"
-    "@welcome-ui/badge" "^1.0.28-alpha.0"
-    "@xstyled/styled-components" "^1.8.3"
-    "@xstyled/system" "^1.8.2"
-    styled-components "^4.3.2"
 
 "@xstyled/core@^1.15.0":
   version "1.15.0"

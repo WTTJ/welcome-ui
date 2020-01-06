@@ -1,0 +1,94 @@
+---
+name: DropdownMenu
+route: /components/dropdown-menu
+menu: Components
+---
+
+import { Props, Link, Playground } from 'docz'
+import { DropdownMenu, useDropdownMenuState } from './index'
+import { TagVersion } from '../../docz'
+const { name, version } = require('./package.json')
+
+# DropdownMenu
+
+<TagVersion version={version} name={name} />
+
+Menu from [Reakit](https://reakit.io/docs/button/) with a really nice theme 👀
+
+## Example
+
+<Playground>
+  {() => {
+    const menu = useDropdownMenuState()
+    const handleClick = e => {
+      console.log(`Clicked on ${e.target.innerText}`);
+      menu.hide();
+    }
+    return (
+      <>
+        <DropdownMenu.Trigger {...menu} as={Button}>
+          Dropdown Menu
+        </DropdownMenu.Trigger>
+        <DropdownMenu {...menu} aria-label="Example">
+          <DropdownMenu.Item {...menu} onClick={handleClick}>
+            Twitter
+          </DropdownMenu.Item>
+          <DropdownMenu.Item {...menu} onClick={handleClick} disabled>
+            Facebook
+          </DropdownMenu.Item>
+          <DropdownMenu.Item {...menu} onClick={handleClick}>
+            Instagram
+          </DropdownMenu.Item>
+          <DropdownMenu.Separator {...menu} />
+          <DropdownMenu.Item {...menu} onClick={handleClick}>
+            Github
+          </DropdownMenu.Item>
+        </DropdownMenu>
+      </>
+    )
+}}
+
+</Playground>
+
+...or with more complexity
+
+<Playground>
+  {() => {
+    const menu = useDropdownMenuState({ placement: 'bottom-end' })
+    const handleClick = e => {
+      console.log(`Clicked on ${e.target.innerText}`)
+      menu.hide()
+    }
+    return (
+      <Box position="relative">
+        <Group variant="tertiary">
+          <Button onClick={handleClick}>
+            <AddIcon />
+            <span>First Action</span>
+          </Button>
+          <DropdownMenu.Trigger {...menu} as={Button}>
+            {menu.visible ? <UpIcon /> : <DownIcon />}
+          </DropdownMenu.Trigger>
+        </Group>
+        <DropdownMenu {...menu} mb={100} aria-label="Complexity">
+          <DropdownMenu.Item {...menu} onClick={handleClick}>
+            <Box mr="sm">
+              <TrashIcon size="sm" />
+            </Box>
+            <Box>Second Action</Box>
+          </DropdownMenu.Item>
+          <DropdownMenu.Item {...menu} onClick={handleClick}>
+            <Box mr="sm">
+              <AttachmentIcon size="sm" />
+            </Box>
+            <Box>Third Action</Box>
+          </DropdownMenu.Item>
+        </DropdownMenu>
+      </Box>
+    )
+  }}
+</Playground>
+
+## Properties
+
+<Props of={DropdownMenu} />
