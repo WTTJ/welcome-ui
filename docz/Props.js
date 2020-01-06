@@ -4,7 +4,7 @@ import React from 'react'
 
 import { Box } from '../packages/Box/index'
 import { Tag } from '../packages/Tag/index'
-import * as TYPES from '../packages/Core/utils/propTypes'
+import * as TYPES from '../src/utils/propTypes'
 
 import * as S from './Props.styled'
 
@@ -18,8 +18,11 @@ const Type = ({ type }) => {
   // Enum
   if (name === 'enum') {
     let values
-    if (isArray(value)) { values = value.map(v => v.value) }
-    else if (isArray(TYPES[value])) { values = TYPES[value] }
+    if (isArray(value)) {
+      values = value.map(v => v.value)
+    } else if (isArray(TYPES[value])) {
+      values = TYPES[value]
+    }
 
     if (values) {
       return (
@@ -52,33 +55,42 @@ export const Props = ({ props }) => {
   const keys = Object.keys(props)
 
   return (
-    <S.Props>
+    <S.Table>
+      <S.Row fontWeight="bold">
+        <S.Head>Prop</S.Head>
+        <S.Head>Type(s)</S.Head>
+        <S.Head>Default</S.Head>
+        <S.Head>Required?</S.Head>
+      </S.Row>
       {keys.map(key => {
         const item = props[key]
 
         return (
-          <S.Item key={key}>
-            <S.Name>{key}</S.Name>
-            <S.Type>
+          <S.Row key={key}>
+            <S.Cell width="25%">
+              <S.Name>{key}</S.Name>
+            </S.Cell>
+            <S.Cell width="45%">
               <Type type={item.type} />
               {item.description && (
                 <Box as="p" color="nude.700" fontSize="body4" m={0} mt="xs">
                   {item.description[0].props.children}
                 </Box>
               )}
-            </S.Type>
-            <S.Value>
-              {item.required ? (
+            </S.Cell>
+            <S.Cell width="15%">
+              {item.defaultValue && <Tag>{removeQuote(item.defaultValue.value)}</Tag>}
+            </S.Cell>
+            <S.Cell width="15%">
+              {item.required && (
                 <>
-                  required <S.ValueRequired>*</S.ValueRequired>
+                  Required <S.Required>*</S.Required>
                 </>
-              ) : (
-                item.defaultValue && removeQuote(item.defaultValue.value)
               )}
-            </S.Value>
-          </S.Item>
+            </S.Cell>
+          </S.Row>
         )
       })}
-    </S.Props>
+    </S.Table>
   )
 }
