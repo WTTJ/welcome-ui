@@ -81,19 +81,15 @@ We could pass the following prop to the `Search` component:
 
 ### renderItem
 
-A component that renders each of the results in the list e.g. 
+A component that renders each of the results in the list e.g.
 
-<Code>
-  {`renderItem={item => <div>{item.Title} ({item.Year})</div>}`}
-</Code>
+<Code>{`renderItem={item => <div>{item.Title} ({item.Year})</div>}`}</Code>
 
 ### itemToString
 
-A function that converts a selected result to a string e.g. 
+A function that converts a selected result to a string e.g.
 
-<Code>
-  {`itemToString={item => item && item.Title}`}
-</Code>
+<Code>{`itemToString={item => item && item.Title}`}</Code>
 
 <hr />
 

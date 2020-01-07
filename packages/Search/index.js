@@ -32,7 +32,7 @@ export const Search = forwardRef(
       renderItem,
       search,
       size = 'lg',
-      value: selected,
+      value: selected = EMPTY_STRING,
       variant,
       ...rest
     },
@@ -62,8 +62,7 @@ export const Search = forwardRef(
     }
 
     // Send event to parent when value(s) changes
-    const handleChange = results => {
-      const value = results[0]
+    const handleChange = value => {
       const event = createEvent({ name, value })
       onChange && onChange(value, event)
     }
@@ -71,10 +70,10 @@ export const Search = forwardRef(
     const handleSelect = result => {
       if (result) {
         // If selecting result
-        handleChange([result])
+        handleChange(result)
       } else {
         // If removing result
-        handleChange([])
+        handleChange()
         setResults([])
       }
     }
@@ -82,7 +81,6 @@ export const Search = forwardRef(
     const handleOuterClick = () => {
       // Reset input value if not selecting a new item
       if (!selected || !selected.length) {
-        setResults([])
         handleSelect()
       }
       setResults([])
@@ -111,7 +109,7 @@ export const Search = forwardRef(
         }) => {
           const handleClearClick = () => {
             setResults([])
-            handleChange([])
+            handleChange()
             clearSelection()
           }
           const isShowMenu = isOpen && results.length > 0
