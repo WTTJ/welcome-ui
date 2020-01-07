@@ -4,7 +4,8 @@ import { createTheme } from '../packages/Core/theme/core'
 export const exampleHome = `
   import React from 'react'
   import { ThemeProvider } from '@xstyled/styled-components'
-  import { createTheme, GlobalStyle, Text } from 'welcome-ui'
+  import { createTheme, GlobalStyle } from '@welcome-ui/core'
+  import { Button } from 'welcome-ui/button'
 
   const options = {
     defaultFontFamily: 'Helvetica',
@@ -18,15 +19,17 @@ export const exampleHome = `
       }
     }
   }
+
+  // Create your theme
   const theme = createTheme(options)
 
   export default function Root() {
-    // Wrap your component with ThemeProvider
+    // Wrap your component with <ThemeProvider/> (passing through your theme) and add <GlobalStyle/>
     return (
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyle />
-          <Text variant="h1">Welcome!</Text>
+          <Button variant="secondary">Welcome!</Button>
         </>
       </ThemeProvider>
     )

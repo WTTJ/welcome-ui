@@ -7,12 +7,18 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { Toggle } from './index'
 import { Checkbox } from '../Checkbox'
-import { TagVersion } from '../../docz'
+import { Code, TagVersion } from '../../docz'
 const { name, version } = require('./package.json')
 
 # Toggle
 
 <TagVersion version={version} name={name} />
+
+## Import
+
+<Code>{`import { Toggle } from '@welcome-ui/toggle'`}</Code>
+
+## Example
 
 <Playground>
   <Form initialValues={{ swatch: true }}>

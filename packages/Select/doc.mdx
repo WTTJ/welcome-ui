@@ -7,7 +7,7 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { ITEMS } from '../../scripts/tests'
 import { Select } from './index'
-import { TagVersion } from '../../docz'
+import { Code, TagVersion } from '../../docz'
 const { name, version } = require('./package.json')
 
 # Select
@@ -15,6 +15,10 @@ const { name, version } = require('./package.json')
 <TagVersion version={version} name={name} />
 
 It is based on the [downshift](https://github.com/downshift-js/downshift) library.
+
+## Import
+
+<Code>{`import { Select } from '@welcome-ui/select'`}</Code>
 
 ## Default
 

@@ -9,12 +9,18 @@ import { ITEMS } from '../../scripts/tests'
 import { RadioGroup } from '../RadioGroup'
 import { Radio } from '../Radio'
 import { RadioTab } from './index'
-import { TagVersion } from '../../docz'
+import { Code, TagVersion } from '../../docz'
 const { name, version } = require('./package.json')
 
 # Radio Tab
 
 <TagVersion version={version} name={name} />
+
+## Import
+
+<Code>{`import { RadioTab } from '@welcome-ui/radio-tab'`}</Code>
+
+## Example
 
 <Playground>
   <Form initialValues={{ social_1: 'twitter', social_2: 'xing' }}>

@@ -6,7 +6,7 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Text } from './index'
-import { TagVersion } from '../../docz'
+import { Code, TagVersion } from '../../docz'
 const { name, version } = require('./package.json')
 
 # Text
@@ -14,6 +14,10 @@ const { name, version } = require('./package.json')
 <TagVersion version={version} name={name} />
 
 The `Text` component allows you to remain consistent with your text sizing and line-height. To add additional padding/margins use the `space` values from [xstyled](https://xstyled.dev/docs/style-props/).
+
+## Import
+
+<Code>{`import { Text } from '@welcome-ui/text'`}</Code>
 
 ## Typography
 
