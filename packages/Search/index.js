@@ -9,6 +9,8 @@ import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../src/utils/propT
 
 import * as S from './styles'
 
+const EMPTY_STRING = ''
+
 export const Search = forwardRef(
   (
     {
@@ -18,7 +20,6 @@ export const Search = forwardRef(
       disabled,
       icon,
       id,
-      isMultiple,
       itemToString,
       minChars = 3,
       name,
@@ -37,9 +38,6 @@ export const Search = forwardRef(
     },
     ref
   ) => {
-    // Use `ZERO WIDTH NO-BREAK SPACE` to prevent browser autocomplete
-    const EMPTY_STRING = autoComplete ? '' : '\uFEFF'
-
     // Get initial value from selected value(s)
     const initialInputValue = selected ? itemToString(selected) : EMPTY_STRING
 
@@ -65,7 +63,7 @@ export const Search = forwardRef(
 
     // Send event to parent when value(s) changes
     const handleChange = results => {
-      const value = isMultiple ? results : results[0]
+      const value = results[0]
       const event = createEvent({ name, value })
       onChange && onChange(value, event)
     }
@@ -76,14 +74,14 @@ export const Search = forwardRef(
         handleChange([result])
       } else {
         // If removing result
-        handleChange(isMultiple ? selected : [])
+        handleChange([])
         setResults([])
       }
     }
 
     const handleOuterClick = () => {
       // Reset input value if not selecting a new item
-      if (!selected.length || (isMultiple && selected.length)) {
+      if (!selected || !selected.length) {
         setResults([])
         handleSelect()
       }
@@ -162,9 +160,8 @@ export const Search = forwardRef(
                       key={index}
                       {...getItemProps({
                         index,
-                        isExisting: isMultiple && selected.incluedes(item),
                         isHighlighted: highlightedIndex === index,
-                        isSelected: !isMultiple && isEqual(selectedItem, item),
+                        isSelected: isEqual(selectedItem, item),
                         item
                       })}
                     >
@@ -190,7 +187,6 @@ Search.propTypes /* remove-proptypes */ = {
   disabled: bool,
   icon: oneOfType(COMPONENT_TYPE),
   id: string,
-  isMultiple: bool,
   itemToString: func.isRequired,
   minChars: number,
   name: string,
