@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/file-drop",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/file-drop.cjs.js",
   "module": "dist/file-drop.es.js",
@@ -40,7 +40,7 @@
     "@welcome-ui/icons.pencil": "^1.1.0",
     "@welcome-ui/icons.positive": "^1.1.0",
     "@welcome-ui/system": "^1.1.0",
-    "@welcome-ui/utils": "^1.1.0",
+    "@welcome-ui/utils": "^1.1.1",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "prop-types": "^15.7.2",

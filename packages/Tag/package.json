@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/tag",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/tag.cjs.js",
   "module": "dist/tag.es.js",
@@ -36,7 +36,7 @@
   "dependencies": {
     "@welcome-ui/icons.cross": "^1.1.0",
     "@welcome-ui/system": "^1.1.0",
-    "@welcome-ui/utils": "^1.1.0",
+    "@welcome-ui/utils": "^1.1.1",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "lodash.difference": "=4.5.0",

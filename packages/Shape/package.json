@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/shape",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/shape.cjs.js",
   "module": "dist/shape.es.js",
@@ -35,7 +35,7 @@
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
     "@welcome-ui/system": "^1.1.0",
-    "@welcome-ui/utils": "^1.1.0",
+    "@welcome-ui/utils": "^1.1.1",
     "@xstyled/styled-components": "^1.8.3",
     "prop-types": "^15.7.2",
     "reakit": "^1.0.0-beta.7",

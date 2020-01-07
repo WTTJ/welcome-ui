@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/dropdown-menu",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "welcome-ui: A DropdownMenu component",
   "main": "dist/dropdown-menu.cjs.js",
   "module": "dist/dropdown-menu.es.js",
@@ -35,11 +35,11 @@
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
+    "@welcome-ui/system": "^1.1.0",
+    "@welcome-ui/utils": "^1.1.1",
     "@xstyled/styled-components": "^1.8.3",
-    "styled-components": "^4.4.1",
     "reakit": "^1.0.0-beta.7",
-    "@welcome-ui/utils": "^1.1.0",
-    "@welcome-ui/system": "^1.1.0"
+    "styled-components": "^4.4.1"
   },
   "peerDependencies": {
     "react": "^16.8.0",

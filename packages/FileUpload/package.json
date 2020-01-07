@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/file-upload",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/file-upload.cjs.js",
   "module": "dist/file-upload.es.js",
@@ -41,8 +41,8 @@
     "@welcome-ui/icons.music": "^1.1.0",
     "@welcome-ui/icons.youtube": "^1.1.0",
     "@welcome-ui/system": "^1.1.0",
-    "@welcome-ui/tag": "^1.1.0",
-    "@welcome-ui/utils": "^1.1.0",
+    "@welcome-ui/tag": "^1.1.1",
+    "@welcome-ui/utils": "^1.1.1",
     "@xstyled/styled-components": "^1.8.3",
     "mime": "=2.4.4",
     "prop-types": "^15.7.2",

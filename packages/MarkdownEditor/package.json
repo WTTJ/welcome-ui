@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/markdown-editor",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/markdown-editor.cjs.js",
   "module": "dist/markdown-editor.es.js",
@@ -45,7 +45,7 @@
     "@welcome-ui/icons.strikethrough": "^1.1.0",
     "@welcome-ui/icons.unordered_list": "^1.1.0",
     "@welcome-ui/system": "^1.1.0",
-    "@welcome-ui/utils": "^1.1.0",
+    "@welcome-ui/utils": "^1.1.1",
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "emoji-mart": "=2.11.1",
