@@ -6,7 +6,7 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Growl, GrowlTitle } from './index'
-import { TagVersion } from '../../docz'
+import { Code, TagVersion } from '../../docz'
 const { name, version } = require('./package.json')
 
 # Growl
@@ -14,6 +14,10 @@ const { name, version } = require('./package.json')
 <TagVersion version={version} name={name} />
 
 Customize with `<GrowlTitle>`, `<GrowlAction>` or `<GrowlClose>`.
+
+## Import
+
+<Code>{`import { Growl, GrowlTitle, GrowlAction, GrowlClose } from '@welcome-ui/growl'`}</Code>
 
 ## Example
 

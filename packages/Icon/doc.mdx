@@ -5,7 +5,7 @@ menu: Components
 ---
 
 import { Props, Playground } from 'docz'
-import { IconsList, TagVersion } from '../../docz'
+import { Code, IconsList, TagVersion } from '../../docz'
 import { TwitterIcon } from '../../icons/Twitter'
 import { Icon } from './index'
 const { name, version } = require('./package.json')
@@ -14,7 +14,15 @@ const { name, version } = require('./package.json')
 
 <TagVersion version={version} name={name} />
 
-## Formats
+## Import
+
+<Code>{`
+  import { AvatarIcon, PlayIcon } from '@welcome-ui/icons'
+  --OR--
+  import * as Icons from '@welcome-ui/icons'
+`}</Code>
+
+## Size
 
 Use size property with `xs`, `sm`, `md`, `lg` or `xl`.
 
@@ -36,7 +44,7 @@ Icons inherit the colour from their parent
   <TwitterIcon color="green" name="twitter" size="xl" />
 </Playground>
 
-## Icons list
+## Available icons
 
 ### Products
 

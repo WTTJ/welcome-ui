@@ -6,7 +6,7 @@ menu: Components
 
 import { Props, Link, Playground } from 'docz'
 import { Group } from './index'
-import { TagVersion } from '../../docz'
+import { Code, TagVersion } from '../../docz'
 const { name, version } = require('./package.json')
 
 # Group
@@ -14,6 +14,10 @@ const { name, version } = require('./package.json')
 <TagVersion version={version} name={name} />
 
 Children grouped without space or radius.
+
+## Import
+
+<Code>{`import { Group } from '@welcome-ui/group'`}</Code>
 
 ## Example
 
