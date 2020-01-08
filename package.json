@@ -125,15 +125,13 @@
     "svgo": "=1.2.2",
     "wttj-config-front": "=1.0.1"
   },
-  "dependencies": {
-    "reakit": "^1.0.0-beta.7"
-  },
+  "dependencies": {},
   "peerDependencies": {
-    "@xstyled/styled-components": "^1.8.3",
-    "@xstyled/system": "^1.8.2",
+    "@xstyled/styled-components": "^1.15.0",
+    "@xstyled/system": "^1.14.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.0.0"
   },
   "resolutions": {
     "docz/**/webpack": "4.41.1",

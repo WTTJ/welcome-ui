@@ -37,7 +37,7 @@
     "@welcome-ui/system": "^1.1.0"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^1.8.3",
+    "@xstyled/styled-components": "^1.15.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "styled-components": "^4.4.1"

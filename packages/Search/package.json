@@ -43,11 +43,11 @@
     "lodash.isequal": "=4.5.0"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^1.8.3",
-    "@xstyled/system": "^1.8.2",
+    "@xstyled/styled-components": "^1.15.0",
+    "@xstyled/system": "^1.14.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.0.0"
   }
 }
