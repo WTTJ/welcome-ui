@@ -7,8 +7,8 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { Toggle } from './index'
 import { Checkbox } from '../Checkbox'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Toggle
 
@@ -36,3 +36,11 @@ const { name, version } = require('./package.json')
 ## Properties
 
 <Props of={Checkbox} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

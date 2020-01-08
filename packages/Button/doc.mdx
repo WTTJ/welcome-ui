@@ -9,8 +9,8 @@ import { Button } from './index'
 import { LanguageIcon } from '../../icons/Language'
 import { SunIcon } from '../../icons/Sun'
 import { Link } from '../Link'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Button
 
@@ -163,3 +163,11 @@ You can add `borderRadius` property from [xstyled](https://xstyled.dev/docs/styl
 ## Properties
 
 <Props of={Button} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

@@ -7,8 +7,8 @@ menu: Fields
 import { Playground, Props } from 'docz'
 import { Search } from './index'
 import { Shape } from '../Shape'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Search
 
@@ -94,3 +94,11 @@ A function that converts a selected result to a string e.g. `itemToString={item 
 The rest of the props are below:
 
 <Props of={Search} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

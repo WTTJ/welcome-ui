@@ -4,20 +4,25 @@ route: /getting-started
 ---
 
 import { Component } from 'react'
-import { Code } from '../docz/Code'
+import { Code, Dependencies } from '../docz'
 import { exampleHome } from '../docz/CodeExamples'
+const { peerDependencies } = require('../package.json')
 
 # Getting Started
 
 ## Installation
 
-Install the components you need for your webapp
+1. Install the components you need for your webapp e.g.
 
-<Code language="bash">npm install @welcome-ui/core @welcome-ui/button</Code>
+<Code language="bash">{`
+  npm install @welcome-ui/core @welcome-ui/button
+  --OR--
+  yarn add @welcome-ui/core @welcome-ui/button
+`}</Code>
 
-or
+2. Install the **peer dependencies** listed below:
 
-<Code language="bash">yarn add @welcome-ui/core @welcome-ui/button</Code>
+<Dependencies dependencies={peerDependencies} />
 
 ## Usage
 

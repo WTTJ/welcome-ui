@@ -6,8 +6,8 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Tag } from './index'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Tag
 
@@ -95,3 +95,11 @@ Set `shape` prop to `circle` to set a border-radius `50%`.
 ## Properties
 
 <Props of={Tag} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

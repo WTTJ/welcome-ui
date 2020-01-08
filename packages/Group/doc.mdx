@@ -6,8 +6,8 @@ menu: Components
 
 import { Props, Link, Playground } from 'docz'
 import { Group } from './index'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Group
 
@@ -50,3 +50,11 @@ This works only with the `Button` component for now — more examples will be ad
 ## Properties
 
 <Props of={Group} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

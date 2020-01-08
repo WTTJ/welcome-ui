@@ -6,8 +6,8 @@ menu: Components
 
 import { Playground, Props } from 'docz'
 import { Shape } from './index'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Shape
 
@@ -114,3 +114,11 @@ also, using `shape` with unequal sizes will match the biggest value between widt
 ## Properties
 
 <Props of={Shape} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

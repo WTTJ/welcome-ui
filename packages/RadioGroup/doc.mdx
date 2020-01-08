@@ -8,8 +8,8 @@ import { Props, Playground } from 'docz'
 import { ITEMS } from '../../scripts/tests'
 import { RadioGroup } from './index'
 import { Radio } from '../Radio'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Radio Group
 
@@ -43,3 +43,11 @@ const { name, version } = require('./package.json')
 ## Properties
 
 <Props of={Radio} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

@@ -7,8 +7,8 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { DateTimePicker } from './index.js'
 import { DatePicker } from '../DatePicker/index.js'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # DateTimePicker
 
@@ -51,3 +51,11 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 ## Properties
 
 <Props of={DateTimePicker} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

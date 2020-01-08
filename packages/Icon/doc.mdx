@@ -8,7 +8,7 @@ import { Props, Playground } from 'docz'
 import { Code, IconsList, TagVersion } from '../../docz'
 import { TwitterIcon } from '../../icons/Twitter'
 import { Icon } from './index'
-const { name, version } = require('./package.json')
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Icon
 
@@ -254,3 +254,11 @@ Icons inherit the colour from their parent
 ## Properties
 
 <Props of={Icon} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

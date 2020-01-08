@@ -8,8 +8,8 @@ import fr from 'date-fns/locale/fr'
 import { Props, Playground } from 'docz'
 import { DatePicker } from './index.js'
 import { DateIcon } from '@welcome-ui/icons.date'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # DatePicker
 
@@ -71,3 +71,11 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 ## Properties
 
 <Props of={DatePicker} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

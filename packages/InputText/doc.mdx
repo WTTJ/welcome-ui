@@ -8,7 +8,7 @@ import { Props, Playground } from 'docz'
 import { ConnectedField } from '../ConnectedField'
 import { InputText } from './index'
 import { Code, Form, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # InputText
 
@@ -130,3 +130,11 @@ Pass an `icon` through to decorate your `InputText`
 ## Properties
 
 <Props of={InputText} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

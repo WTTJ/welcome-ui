@@ -9,8 +9,8 @@ import { ITEMS } from '../../scripts/tests'
 import { RadioGroup } from '../RadioGroup'
 import { Radio } from '../Radio'
 import { RadioTab } from './index'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Radio Tab
 
@@ -52,3 +52,11 @@ const { name, version } = require('./package.json')
 ## Properties
 
 <Props of={Radio} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

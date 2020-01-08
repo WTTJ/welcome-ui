@@ -7,7 +7,7 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { ConnectedField } from '../ConnectedField'
 import { InputText } from '../InputText'
-import { Code, TagVersion } from '../../docz'
+import { Code, Dependencies, TagVersion } from '../../docz'
 const { version, name } = require('../ConnectedField/package.json')
 
 # Field
@@ -120,3 +120,11 @@ You can find props for each field component in the other `Fields` pages.
 ## Properties
 
 <Props of={ConnectedField} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

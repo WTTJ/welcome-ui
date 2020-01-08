@@ -5,9 +5,9 @@ menu: Components
 ---
 
 import { Link, Playground, Props } from 'docz'
-import { Code, TagVersion } from '../../docz'
+import { Code, Dependencies, TagVersion } from '../../docz'
 import { Alert, AlertTitle } from './index'
-const { name, version } = require('./package.json')
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Alert
 
@@ -73,3 +73,11 @@ We remove the `margin-bottom`.
 ### AlertTitle
 
 <Props of={AlertTitle} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

@@ -6,8 +6,8 @@ menu: Fields
 
 import { Props, Playground } from 'docz'
 import { MarkdownEditor } from './index'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # MarkdownEditor
 
@@ -108,3 +108,11 @@ The default toolbar uses [Welcome UI icons](/components/icon) with the following
 ## Properties
 
 <Props of={MarkdownEditor} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />
