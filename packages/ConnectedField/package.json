@@ -40,8 +40,8 @@
     "@welcome-ui/field": "^1.1.2"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "react-final-form": "^6.3.3",
     "styled-components": "^4.0.0"
   },

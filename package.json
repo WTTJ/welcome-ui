@@ -107,8 +107,8 @@
     "minimist": "=1.2.0",
     "prettier": "=1.18.2",
     "prop-types": "^15.7.2",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "react-final-form": "=6.0.1",
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.1",
@@ -134,8 +134,8 @@
     "@xstyled/styled-components": "^1.15.0",
     "@xstyled/system": "^1.14.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "styled-components": "^4.0.0"
   },
   "resolutions": {
