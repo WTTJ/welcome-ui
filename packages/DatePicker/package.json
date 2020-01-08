@@ -38,14 +38,14 @@
     "@welcome-ui/icons.date": "^1.1.0",
     "@welcome-ui/system": "^1.1.0",
     "@welcome-ui/utils": "^1.1.1",
-    "@xstyled/styled-components": "^1.8.3",
-    "prop-types": "^15.7.2",
-    "react-datepicker": "^2.9.6",
-    "styled-components": "^4.3.2"
+    "react-datepicker": "^2.9.6"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "@xstyled/styled-components": "^1.15.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "styled-components": "^4.0.0"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false

@@ -36,14 +36,14 @@
   "dependencies": {
     "@welcome-ui/checkbox": "^1.1.1",
     "@welcome-ui/system": "^1.1.0",
-    "@xstyled/styled-components": "^1.8.3",
-    "@xstyled/system": "^1.8.2",
-    "reakit": "^1.0.0-beta.7",
-    "styled-components": "^4.4.1"
+    "reakit": "^1.0.0-beta.7"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "@xstyled/styled-components": "^1.15.0",
+    "@xstyled/system": "^1.14.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "styled-components": "^4.0.0"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false

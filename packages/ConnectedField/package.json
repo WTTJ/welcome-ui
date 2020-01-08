@@ -37,13 +37,13 @@
     "@welcome-ui/input-text": "^1.1.2"
   },
   "dependencies": {
-    "@welcome-ui/field": "^1.1.2",
-    "react-final-form": "^6.3.3",
-    "styled-components": "^4.4.1"
+    "@welcome-ui/field": "^1.1.2"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-final-form": "^6.3.3",
+    "styled-components": "^4.0.0"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false

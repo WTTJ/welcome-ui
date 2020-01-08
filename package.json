@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/repo",
-  "version": "1.0.25-alpha.0",
+  "version": "1.1.1",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
@@ -69,6 +69,8 @@
     "@testing-library/dom": "=6.7.0",
     "@testing-library/react": "^8.0.1",
     "@testing-library/user-event": "=7.0.1",
+    "@xstyled/styled-components": "^1.15.0",
+    "@xstyled/system": "^1.14.0",
     "babel-eslint": "=10.0.3",
     "babel-jest": "=24.7.1",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
@@ -104,6 +106,7 @@
     "lodash.capitalize": "=4.2.1",
     "minimist": "=1.2.0",
     "prettier": "=1.18.2",
+    "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-final-form": "=6.0.1",
@@ -117,6 +120,7 @@
     "rollup-plugin-size-snapshot": "^0.9.0",
     "standard-version": "^6.0.1",
     "style-loader": "=0.23.1",
+    "styled-components": "^4.0.0",
     "stylelint": "=12.0.0",
     "stylelint-config-recommended": "=3.0.0",
     "stylelint-config-styled-components": "=0.1.1",
@@ -125,15 +129,14 @@
     "svgo": "=1.2.2",
     "wttj-config-front": "=1.0.1"
   },
-  "dependencies": {
-    "@xstyled/styled-components": "^1.8.3",
-    "@xstyled/system": "^1.8.2",
-    "reakit": "^1.0.0-beta.7",
-    "styled-components": "^4.3.2"
-  },
+  "dependencies": {},
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "@xstyled/styled-components": "^1.15.0",
+    "@xstyled/system": "^1.14.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "styled-components": "^4.0.0"
   },
   "resolutions": {
     "docz/**/webpack": "4.41.1",
