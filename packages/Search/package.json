@@ -34,25 +34,25 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@babel/runtime": "^7.4.5",
+    
     "@welcome-ui/clear-button": "^1.1.0",
     "@welcome-ui/icon": "^1.1.0",
     "@welcome-ui/system": "^1.1.0",
     "@welcome-ui/tag": "^1.1.1",
     "@welcome-ui/utils": "^1.1.1",
-    "@xstyled/styled-components": "^1.8.3",
-    "@xstyled/system": "^1.8.2",
     "downshift": "=3.2.10",
     "lodash.differenceby": "=4.8.0",
     "lodash.isequal": "=4.5.0",
     "lodash.kebabcase": "=4.1.1",
     "lodash.uniqby": "=4.7.0",
-    "match-sorter": "=3.1.1",
-    "prop-types": "^15.7.2",
-    "styled-components": "^4.3.2"
+    "match-sorter": "=3.1.1"
   },
   "peerDependencies": {
+    "@xstyled/styled-components": "^1.8.3",
+    "@xstyled/system": "^1.8.2",
+    "prop-types": "^15.7.2",
     "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react-dom": "^16.8.0",
+    "styled-components": "^4.3.2"
   }
 }

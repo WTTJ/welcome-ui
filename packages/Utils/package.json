@@ -33,14 +33,13 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.14.0",
-    "styled-components": "^4.3.2"
-  },
-  "peerDependencies": {
     "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react-dom": "^16.8.0",
+    "styled-components": "^4.3.2"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false

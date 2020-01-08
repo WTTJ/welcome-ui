@@ -36,15 +36,15 @@
   "dependencies": {
     "@welcome-ui/icons.cross": "^1.1.0",
     "@welcome-ui/system": "^1.1.0",
-    "@welcome-ui/utils": "^1.1.1",
+    "@welcome-ui/utils": "^1.1.1"
+  },
+  "peerDependencies": {
     "@xstyled/styled-components": "^1.8.3",
     "@xstyled/system": "^1.8.2",
     "prop-types": "^15.7.2",
-    "styled-components": "^4.3.2"
-  },
-  "peerDependencies": {
     "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react-dom": "^16.8.0",
+    "styled-components": "^4.3.2"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false

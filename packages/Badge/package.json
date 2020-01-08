@@ -34,12 +34,11 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@babel/runtime": "^7.4.5",
     "@welcome-ui/tag": "^1.1.1",
-    "prop-types": "^15.7.2",
     "styled-components": "^4.4.1"
   },
   "peerDependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
