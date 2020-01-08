@@ -7,7 +7,7 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { ConnectedField } from '../ConnectedField'
 import { InputText } from '../InputText'
-import { TagVersion } from '../../docz'
+import { Code, Dependencies, TagVersion } from '../../docz'
 const { version, name } = require('../ConnectedField/package.json')
 
 # Field
@@ -19,6 +19,10 @@ We recommend using [Final Form](https://github.com/final-form/react-final-form),
 The examples below give you an overview of common props (e.g. `size`, `disable`, `required` etc.)
 
 You can find props for each field component in the other `Fields` pages.
+
+## Import
+
+<Code>{`import { Field } from '@welcome-ui/field'`}</Code>
 
 ## Sizes
 
@@ -116,3 +120,11 @@ You can find props for each field component in the other `Fields` pages.
 ## Properties
 
 <Props of={ConnectedField} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

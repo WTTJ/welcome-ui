@@ -6,14 +6,18 @@ menu: Components
 
 import { Props, Link, Playground } from 'docz'
 import { Group } from './index'
-import { TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Group
 
 <TagVersion version={version} name={name} />
 
 Children grouped without space or radius.
+
+## Import
+
+<Code>{`import { Group } from '@welcome-ui/group'`}</Code>
 
 ## Example
 
@@ -46,3 +50,11 @@ This works only with the `Button` component for now — more examples will be ad
 ## Properties
 
 <Props of={Group} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

@@ -7,14 +7,18 @@ menu: Fields
 import { Playground, Props } from 'docz'
 import { Search } from './index'
 import { Shape } from '../Shape'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Search
 
 <TagVersion version={version} name={name} />
 
 This allows you to search data from a remote API. It is based on the [downshift](https://github.com/downshift-js/downshift) library.
+
+## Import
+
+<Code>{`import { Search } from '@welcome-ui/search'`}</Code>
 
 ## Default
 
@@ -96,3 +100,11 @@ A function that converts a selected result to a string e.g.
 The rest of the props are below:
 
 <Props of={Search} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

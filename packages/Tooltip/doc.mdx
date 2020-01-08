@@ -6,12 +6,16 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Tooltip } from './index'
-import { TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Tooltip
 
 <TagVersion version={version} name={name} />
+
+## Import
+
+<Code>{`import { Tooltip } from '@welcome-ui/tooltip'`}</Code>
 
 ## Example
 
@@ -47,3 +51,11 @@ Set a `max-width` for long text
 ## Properties
 
 <Props of={Tooltip} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

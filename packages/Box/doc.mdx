@@ -5,14 +5,18 @@ menu: Components
 ---
 
 import { Props, Playground } from 'docz'
-import { TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Box
 
 <TagVersion version={version} name={name} />
 
 Use properties from [xstyled](https://xstyled.dev/docs/style-props/).
+
+## Import
+
+<Code>{`import { Box } from '@welcome-ui/box'`}</Code>
 
 ## Example
 

@@ -5,15 +5,19 @@ menu: Components
 ---
 
 import { Link, Playground, Props } from 'docz'
-import { TagVersion } from '../../docz'
+import { Code, Dependencies, TagVersion } from '../../docz'
 import { Alert, AlertTitle } from './index'
-const { name, version } = require('./package.json')
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Alert
 
 <TagVersion version={version} name={name} />
 
 Simple feedback messages for user actions.
+
+## Import
+
+<Code>{`import { Alert } from '@welcome-ui/alert'`}</Code>
 
 ## Variants
 
@@ -69,3 +73,11 @@ We remove the `margin-bottom`.
 ### AlertTitle
 
 <Props of={AlertTitle} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

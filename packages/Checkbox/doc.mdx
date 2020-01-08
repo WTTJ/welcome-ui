@@ -7,12 +7,18 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { Toggle } from '../Toggle'
 import { Checkbox } from './index'
-import { TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Checkbox
 
 <TagVersion version={version} name={name} />
+
+## Import
+
+<Code>{`import { Checkbox } from '@welcome-ui/checkbox'`}</Code>
+
+## Example
 
 <Playground>
   <Form initialValues={{ vue: true }}>
@@ -27,3 +33,11 @@ const { name, version } = require('./package.json')
 ## Properties
 
 <Props of={Checkbox} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

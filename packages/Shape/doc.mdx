@@ -6,14 +6,18 @@ menu: Components
 
 import { Playground, Props } from 'docz'
 import { Shape } from './index'
-import { TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Shape
 
 <TagVersion version={version} name={name} />
 
 Overflow child with hidden child.
+
+## Import
+
+<Code>{`import { Shape } from '@welcome-ui/shape'`}</Code>
 
 ## Default
 
@@ -110,3 +114,11 @@ also, using `shape` with unequal sizes will match the biggest value between widt
 ## Properties
 
 <Props of={Shape} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

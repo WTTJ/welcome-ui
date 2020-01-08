@@ -6,8 +6,8 @@ menu: Fields
 
 import { Props, Playground } from 'docz'
 import { TimePicker } from './index.js'
-import { TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # TimePicker
 
@@ -16,6 +16,10 @@ const { name, version } = require('./package.json')
 It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
 
 _Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
+
+## Import
+
+<Code>{`import { TimePicker } from '@welcome-ui/time-picker'`}</Code>
 
 ## Simple use case
 
@@ -60,3 +64,11 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 ## Properties
 
 <Props of={TimePicker} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

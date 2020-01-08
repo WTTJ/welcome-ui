@@ -6,14 +6,18 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Growl, GrowlTitle } from './index'
-import { TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Growl
 
 <TagVersion version={version} name={name} />
 
 Customize with `<GrowlTitle>`, `<GrowlAction>` or `<GrowlClose>`.
+
+## Import
+
+<Code>{`import { Growl, GrowlTitle, GrowlAction, GrowlClose } from '@welcome-ui/growl'`}</Code>
 
 ## Example
 
@@ -106,3 +110,11 @@ Change close component, don't add icon on title, remove action button...
 ### GrowlTitle
 
 <Props of={GrowlTitle} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

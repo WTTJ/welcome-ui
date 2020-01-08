@@ -6,14 +6,18 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Text } from './index'
-import { TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Text
 
 <TagVersion version={version} name={name} />
 
 The `Text` component allows you to remain consistent with your text sizing and line-height. To add additional padding/margins use the `space` values from [xstyled](https://xstyled.dev/docs/style-props/).
+
+## Import
+
+<Code>{`import { Text } from '@welcome-ui/text'`}</Code>
 
 ## Typography
 
@@ -87,3 +91,11 @@ You can add an underline to your text
 ## Properties
 
 <Props of={Text} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

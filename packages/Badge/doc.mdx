@@ -5,8 +5,8 @@ menu: Components
 ---
 
 import { Playground, Props } from 'docz'
-import { TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Badge
 
@@ -14,7 +14,11 @@ const { name, version } = require('./package.json')
 
 Badge is the `<Tag />` component with small size. Check the doc of Tags component to see more examples.
 
-### Examples
+## Import
+
+<Code>{`import { Badge } from '@welcome-ui/badge'`}</Code>
+
+## Examples
 
 <Playground>
   <Badge>{0}</Badge>
@@ -24,3 +28,15 @@ Badge is the `<Tag />` component with small size. Check the doc of Tags componen
   <Badge>4</Badge>
   <Badge variant="primary">New</Badge>
 </Playground>
+
+## Properties
+
+<Props of={Badge} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

@@ -6,12 +6,16 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Pagination } from './index'
-import { TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Pagination
 
 <TagVersion version={version} name={name} />
+
+## Import
+
+<Code>{`import { Pagination } from '@welcome-ui/pagination'`}</Code>
 
 ## Example
 
@@ -76,3 +80,11 @@ Set custom previous and next buttons using `leftArrow` and `rightArrow`.
 ## Properties
 
 <Props of={Pagination} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

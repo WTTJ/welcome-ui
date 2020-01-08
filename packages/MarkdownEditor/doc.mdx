@@ -6,8 +6,8 @@ menu: Fields
 
 import { Props, Playground } from 'docz'
 import { MarkdownEditor } from './index'
-import { Code, TagVersion } from '../../docz'
-const { name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # MarkdownEditor
 
@@ -19,6 +19,10 @@ We use [react-simplemde-editor](https://github.com/RIP21/react-simplemde-editor)
 - We've made the toolbar icons more flexible (see below)
 - The toolbar is sticky for when your Markdown gets really long
 - You can insert emojis! 💃
+
+## Import
+
+<Code>{`import { MarkdownEditor } from '@welcome-ui/markdown-editor'`}</Code>
 
 ## Example
 
@@ -104,3 +108,11 @@ The default toolbar uses [Welcome UI icons](/components/icon) with the following
 ## Properties
 
 <Props of={MarkdownEditor} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />
