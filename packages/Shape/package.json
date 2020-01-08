@@ -35,8 +35,7 @@
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
     "@welcome-ui/system": "^1.1.0",
-    "@welcome-ui/utils": "^1.1.1",
-    "reakit": "^1.0.0-beta.7"
+    "@welcome-ui/utils": "^1.1.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.8.3",

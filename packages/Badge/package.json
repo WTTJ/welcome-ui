@@ -34,13 +34,13 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@welcome-ui/tag": "^1.1.1",
-    "styled-components": "^4.4.1"
+    "@welcome-ui/tag": "^1.1.1"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react-dom": "^16.8.0",
+    "styled-components": "^4.4.1"
   },
   "sideEffects": false
 }
