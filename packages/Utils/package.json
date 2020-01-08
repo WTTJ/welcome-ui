@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/utils",
-  "version": "1.1.1",
+  "version": "1.1.4",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/utils.cjs.js",
   "module": "dist/utils.es.js",
@@ -33,7 +33,6 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
-  "dependencies": {},
   "peerDependencies": {
     "@xstyled/styled-components": "^1.15.0",
     "@xstyled/system": "^1.14.0",

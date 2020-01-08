@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/universal-link",
-  "version": "1.1.0",
+  "version": "1.1.4",
   "description": "welcome-ui: A UniversalLink component",
   "main": "dist/universal-link.cjs.js",
   "module": "dist/universal-link.es.js",
@@ -33,7 +33,6 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
-  "dependencies": {},
   "peerDependencies": {
     "@xstyled/styled-components": "^1.15.0",
     "prop-types": "^15.7.2",

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/text",
-  "version": "1.1.0",
+  "version": "1.1.4",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/text.cjs.js",
   "module": "dist/text.es.js",
@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@welcome-ui/system": "^1.1.0"
+    "@welcome-ui/system": "^1.1.4"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.15.0",
