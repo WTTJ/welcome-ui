@@ -6,7 +6,7 @@ import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 const PACKAGE_ROOT_PATH = process.cwd()
 const pkg = require(`${PACKAGE_ROOT_PATH}/package.json`)
 
-const input = 'index.js'
+const input = 'index.tsx'
 const external = id => !id.startsWith('.') && !id.startsWith('/')
 
 const getBabelOptions = ({ useESModules }) => ({
