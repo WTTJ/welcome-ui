@@ -25,13 +25,26 @@ export const Tag = styled.div(
     align-items: center;
     justify-content: center;
     border-radius: md;
+    ${overflowEllipsis}
+    ${system};
+    ${!shape &&
+      length !== 1 &&
+      css`
+        span,
+        p {
+          ${overflowEllipsis}
+        }
+      `}
+    ${(shape || length === 1) &&
+      css`
+        justify-content: center;
+        ${shapeStyles(size, width, height, shape)};
+      `};
     ${hasAction &&
       css`
         padding-right: xl;
       `}
-    ${overflowEllipsis};
-    ${system};
-    ${(shape || length === 1) && shapeStyles(size, width, height, shape)};
+    max-width: 100%;
 
     > *:not(:last-child) {
       margin-right: xxs;
@@ -39,17 +52,12 @@ export const Tag = styled.div(
 
     > *:not(:only-child) {
       ${/* sc-selector */ StyledIcon}:last-child {
+        opacity: 1;
+        transition: opacity ${th.transition('medium')};
         cursor: pointer;
 
-        path {
-          transition: fill ${th.transition('medium')};
-        }
-
         &:hover {
-          path,
-          g {
-            fill: ${th('colors.danger.500')};
-          }
+          opacity: 0.6;
         }
       }
     }
