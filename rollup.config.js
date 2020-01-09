@@ -1,5 +1,6 @@
 import babel from 'rollup-plugin-babel'
-import nodeResolve from 'rollup-plugin-node-resolve'
+import typescript from '@rollup/plugin-typescript'
+import resolve from 'rollup-plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 
@@ -24,8 +25,9 @@ const cjsConfig = {
   output: { file: pkg.main, format: 'cjs' },
   external,
   plugins: [
+    typescript(),
     babel(getBabelOptions({ useESModules: false })),
-    nodeResolve(),
+    resolve(),
     postcss(),
     sizeSnapshot()
   ]
@@ -36,8 +38,9 @@ const esmConfig = {
   output: { file: pkg.module, format: 'esm' },
   external,
   plugins: [
+    typescript(),
     babel(getBabelOptions({ useESModules: true })),
-    nodeResolve(),
+    resolve(),
     postcss(),
     sizeSnapshot()
   ]
