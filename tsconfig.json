@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    
+    "esModuleInterop": true,
+    "jsx": "react",
+    "baseUrl": "./packages",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "target": "es5",
+    "lib": ["es6", "DOM"],
+    "sourceMap": true,
+    "paths": { "@welcome-ui/*": ["*/index.tsx"] }
+  },
+  "include": ["packages/*", "packages/**/*", "icons/*", "icons/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.tsx"]
+}

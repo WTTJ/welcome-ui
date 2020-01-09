@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { ThemeProvider } from '@xstyled/styled-components'
 import { StaticRouter } from 'react-router-dom'
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
 import 'jest-styled-components'
 
 import { createTheme } from '../../packages/Core/theme/core'

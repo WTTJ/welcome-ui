@@ -9,6 +9,7 @@ node_modules/
 .size-snapshot.json
 yarn-error.log
 lerna-debug.log
+npm-debug.log
 
 # Output of 'npm pack'
 *.tgz
