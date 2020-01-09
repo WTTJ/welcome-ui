@@ -5,6 +5,7 @@
   "main": "dist/tag.cjs.js",
   "module": "dist/tag.es.js",
   "scripts": {
+    "compile": "tsc -p ../../tsconfig.json",
     "test": "jest"
   },
   "publishConfig": {
