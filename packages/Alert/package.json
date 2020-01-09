@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/alert",
-  "version": "1.2.0-alpha.0",
+  "version": "1.2.0-alpha.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/alert.cjs.js",
   "module": "dist/alert.es.js",
@@ -36,7 +36,7 @@
   "dependencies": {
     "@welcome-ui/box": "^1.2.0-alpha.0",
     "@welcome-ui/system": "^1.1.4",
-    "@welcome-ui/text": "^1.2.0-alpha.0"
+    "@welcome-ui/text": "^1.2.0-alpha.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.15.0",
