@@ -5,7 +5,7 @@
   "main": "dist/alert.cjs.js",
   "module": "dist/alert.es.js",
   "scripts": {
-    "compile": "tsc -p tsconfig.json"
+    "compile": "tsc -p ../../tsconfig.json"
   },
   "publishConfig": {
     "access": "public"
