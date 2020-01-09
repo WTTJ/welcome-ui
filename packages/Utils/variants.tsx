@@ -7,7 +7,7 @@ export const VARIANTS = {
   info: 'colors.info.500'
 }
 
-export const getVariantColor = variant => {
+export const getVariantColor = (variant: string): string => {
   const key = VARIANTS[variant]
   return key ? th(key) : null
 }
