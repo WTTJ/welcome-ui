@@ -30,6 +30,8 @@ const StyledCustomPopper = styled.div(
       padding: lg;
       font-family: inherit;
       border-color: nude.200;
+      box-shadow: sm;
+
       &--time-only {
         padding: 0;
         .react-datepicker__time-box {

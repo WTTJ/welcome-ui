@@ -31,7 +31,6 @@ export const getTags = theme => {
     default: {
       'font-size': fontSizes.meta2,
       'font-weight': fontWeights.medium,
-      'line-height': '1em',
       color: colors.light[100]
     },
     variants: {

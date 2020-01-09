@@ -130,7 +130,7 @@ export const getFields = theme => {
     },
     select: {
       default: {
-        'max-height': toRem(200)
+        'max-height': toRem(155)
       },
       existing: {
         color: colors.nude[500],
