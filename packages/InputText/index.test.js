@@ -52,7 +52,7 @@ test('<InputText isClearable> can remove value', () => {
     </Form>
   )
 
-  let input = getByTestId('input')
+  const input = getByTestId('input')
   let formValues = getFormValues(getByTestId('values'))
 
   expect(input.value).toBe('test')

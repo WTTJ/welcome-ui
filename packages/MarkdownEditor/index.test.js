@@ -98,7 +98,7 @@ describe('<EmojiPicker>', () => {
     const emojiButton = getByTitle('Emoji')
     fireEvent.click(emojiButton)
 
-    let results = getByLabelText('Search Results').querySelector('ul')
+    const results = getByLabelText('Search Results').querySelector('ul')
     expect(results.children.length).toBe(0)
 
     const search = getByPlaceholderText('Search')

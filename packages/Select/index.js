@@ -159,7 +159,7 @@ export const Select = forwardRef(
 
     const spacer = getSpacer(defaultOptions)
 
-    let inputContent = getInputValue({
+    const inputContent = getInputValue({
       inputValue,
       isMultiple,
       isSearchable,

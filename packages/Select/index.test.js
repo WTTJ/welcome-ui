@@ -292,7 +292,7 @@ test("<Select> doesn't show clear button", () => {
   const options = getByRole('listbox').querySelectorAll('li')
   fireEvent.click(options[1])
 
-  let formValues = getFormValues(getByTestId('values'))
+  const formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('February')
   expect(formValues.select).toStrictEqual('february')
 
@@ -538,7 +538,7 @@ test("<Select isCreatable> can't create an existing item", () => {
   userEvent.type(select, 'October')
 
   // Expect results to not have 'Create' item
-  let option = getByRole('listbox').querySelector('li')
+  const option = getByRole('listbox').querySelector('li')
   expect(option).toHaveTextContent('October')
 
   // Click on 'Create' item

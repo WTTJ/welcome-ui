@@ -23,7 +23,7 @@ const DEFAULT_FONT_FAMILY = 'welcomeweb'
 const HEADING_FONT_FAMILY = 'welcomeweb'
 
 export const getBaseTheme = (options = {}) => {
-  let {
+  const {
     defaultFontFamily = DEFAULT_FONT_FAMILY,
     headingFontFamily = HEADING_FONT_FAMILY,
     ...rest
