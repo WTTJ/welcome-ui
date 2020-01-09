@@ -16,7 +16,6 @@ export interface Props {
   disabledIcon?: ReactNode
   errorWarningIcon?: ReactNode
   variant?: typeof VARIANTS[number]
-  rest?: []
 }
 
 export const Label = forwardRef<HTMLLabelElement, Props>((props, ref) => {

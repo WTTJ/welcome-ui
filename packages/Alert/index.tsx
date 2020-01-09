@@ -8,7 +8,6 @@ const VARIANTS = ['success', 'error', 'warning', 'info'] as const
 export interface Props {
   children: ReactNode
   variant?: typeof VARIANTS[number]
-  rest?: []
 }
 
 export const Alert: React.FC<Props> = ({ children, variant = 'error', ...rest }) => (
