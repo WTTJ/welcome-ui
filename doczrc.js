@@ -4,7 +4,7 @@ export default {
   dest: '/docs',
   src: 'packages',
   menu: ['Introduction', 'Getting Started', 'Theming', 'Components', 'Fields'],
-  ignore: ['README.md', 'CHANGELOG.md', 'CONTRIBUTING.md'],
+  files: '**/*.{mdx}',
   port: 3020,
   // https://github.com/pedronauck/docz/issues/777#issuecomment-489947783
   filterComponents: files => files.filter(filepath => /w*.(js|jsx|ts|tsx)$/.test(filepath))
