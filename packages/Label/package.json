@@ -5,7 +5,8 @@
   "main": "dist/label.cjs.js",
   "module": "dist/label.es.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "compile": "tsc -p ../../tsconfig.json"
   },
   "publishConfig": {
     "access": "public"

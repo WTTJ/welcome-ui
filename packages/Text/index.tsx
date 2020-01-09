@@ -17,17 +17,27 @@ const TAG_NAMES = {
   meta2: 'p'
 }
 
-type Props = {
-  as: string
+export interface Props {
+  as?: string
   children: ReactNode
-  dataTestId: string
-  lines: number
-  variant: string
+  dataTestId?: string
+  lines?: number
+  variant?:
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'body1'
+    | 'body2'
+    | 'body3'
+    | 'body4'
+    | 'subtitle1'
+    | 'subtitle2'
+    | 'meta1'
+    | 'meta2'
 }
 
-export type Ref = HTMLParagraphElement
-
-export const Text = forwardRef<Ref, Props>((props, ref) => {
+export const Text = forwardRef<HTMLParagraphElement, Props>((props, ref) => {
   const { as, children, dataTestId, lines, variant = 'body1', ...rest } = props
   const tagName = as || TAG_NAMES[variant]
 
