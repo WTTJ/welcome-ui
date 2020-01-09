@@ -73,7 +73,7 @@ export const Menu = styled.ul`
   border: 1px solid;
   border-color: nude.200;
   border-radius: sm;
-  background-color: light.100;
+  background-color: light.900;
   transition: medium;
   box-shadow: sm;
   overflow: auto;

@@ -71,10 +71,10 @@ const colors = {
     500: palette.bluedefrance
   },
   light: {
-    100: '#FFFFFF',
-    200: palette.snow,
+    200: palette.timberwolf,
     500: palette.isabelline,
-    700: palette.timberwolf
+    700: palette.snow,
+    900: '#FFFFFF'
   },
   dark: {
     200: palette.metal,
@@ -104,23 +104,23 @@ export const welcomeTheme = {
   },
   buttons: {
     primary: {
-      color: colors.light[100]
+      color: colors.light[900]
     },
     secondary: {
       color: colors.nude[800]
     },
     tertiary: {
-      color: colors.light[100]
+      color: colors.light[900]
     },
     'primary-warning': {
-      color: colors.light[100]
+      color: colors.light[900]
     },
     'primary-danger': {
-      color: colors.light[100]
+      color: colors.light[900]
     },
     hover: {
       secondary: {
-        'background-color': colors.light[100]
+        'background-color': colors.light[900]
       }
     },
     focused: {

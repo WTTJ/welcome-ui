@@ -1,8 +1,10 @@
 import styled from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 
 import { system } from '../../../../packages/System/index'
 
 export const Menu = styled.aside`
+  ${th('docz.menu')};
   position: relative;
   display: flex;
   flex-direction: column;
@@ -11,8 +13,6 @@ export const Menu = styled.aside`
   box-sizing: border-box;
   height: 100vh;
   overflow-y: auto;
-  background-color: dark.700;
   padding: xl xl 80 xl;
-  box-sizing: border-box;
   ${system}
 `

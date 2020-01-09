@@ -9,7 +9,7 @@ export const getFields = theme => {
     'font-size': fontSizes.body3,
     'line-height': toRem(16),
     'font-weight': fontWeights.regular,
-    'background-color': colors.light[100],
+    'background-color': colors.light[900],
     'border-color': colors.nude[200],
     'border-width': '1px',
     'border-style': 'solid',
@@ -20,7 +20,7 @@ export const getFields = theme => {
   const checked = {
     'background-color': colors.primary[500],
     'border-color': colors.primary[500],
-    color: colors.light[100],
+    color: colors.light[900],
     '&::after': {
       opacity: 1
     }
@@ -117,14 +117,14 @@ export const getFields = theme => {
       },
       checked: {
         color: colors.dark[200],
-        'background-color': colors.light[200],
+        'background-color': colors.light[700],
         'border-color': colors.primary[500],
         '&:hover': {
           'box-shadow': 'none'
         }
       },
       hover: {
-        'background-color': colors.light[200],
+        'background-color': colors.light[700],
         'box-shadow': shadows.sm
       }
     },
@@ -157,7 +157,7 @@ export const getFields = theme => {
         'margin-top': `-${LINE_HEIGHT_ADJUSTMENTS}`,
         '&::after': {
           ...defaults,
-          'background-color': colors.light[200],
+          'background-color': colors.light[700],
           'border-color': colors.nude[400]
         }
       },
@@ -169,8 +169,8 @@ export const getFields = theme => {
         }
       },
       disabled: {
-        'border-color': colors.light[700],
-        'background-color': colors.light[700],
+        'border-color': colors.light[200],
+        'background-color': colors.light[200],
         '&::after': {
           'border-color': colors.nude[200]
         }

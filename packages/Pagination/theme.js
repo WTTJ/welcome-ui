@@ -13,11 +13,11 @@ export const getPaginations = ({ colors, fontSizes, fontWeights, toRem }) => ({
     }
   },
   active: {
-    color: colors.light[100],
+    color: colors.light[900],
     'background-color': colors.primary[500],
     'border-color': colors.primary[500],
     '&:hover, &:focus': {
-      color: colors.light[100],
+      color: colors.light[900],
       'border-color': colors.primary[500]
     }
   },
@@ -32,7 +32,7 @@ export const getPaginations = ({ colors, fontSizes, fontWeights, toRem }) => ({
     }
   },
   arrow: {
-    'background-color': colors.light[200],
+    'background-color': colors.light[700],
     'border-color': colors.nude[200]
   }
 })

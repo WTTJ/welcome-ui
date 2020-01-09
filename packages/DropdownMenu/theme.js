@@ -4,7 +4,7 @@ export const getDropdownMenu = theme => {
 
   return {
     inner: {
-      'background-color': colors.light[100],
+      'background-color': colors.light[900],
       'border-style': 'solid',
       'border-color': borderColor,
       'border-radius': radii.md,

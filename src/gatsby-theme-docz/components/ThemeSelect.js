@@ -6,13 +6,14 @@ import { Select } from '../../../../packages/Select'
 
 export const ThemeSelect = ({ setTheme, value }) => (
   <Select
-    icon={<BulbIcon />}
+    icon={<BulbIcon color="dark.900" />}
     name="theme"
     onChange={setTheme}
     options={[
+      { value: 'core', label: 'Core Theme (default)' },
+      { value: 'dark', label: 'Dark Core Theme' },
       { value: 'welcomekit', label: 'WelcomeKit Theme' },
-      { value: 'welcome', label: 'WelcomeToTheJungle Theme' },
-      { value: 'core', label: 'Core Theme (default)' }
+      { value: 'welcome', label: 'WelcomeToTheJungle Theme' }
     ]}
     placeholder="Choose a theme"
     size="sm"

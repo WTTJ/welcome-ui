@@ -58,7 +58,7 @@ const StyledCustomPopper = styled.div(
 
     .react-datepicker__header {
       padding: 0;
-      background-color: light.100;
+      background-color: light.900;
       border: none;
     }
 
@@ -124,11 +124,11 @@ const StyledCustomPopper = styled.div(
     .react-datepicker__month-text--selected,
     .react-datepicker__month-text--in-selecting-range,
     .react-datepicker__month-text--in-range {
-      color: light.100;
+      color: light.900;
       font-weight: bold;
       background-color: primary.500;
       &:hover {
-        color: light.100;
+        color: light.900;
         font-weight: bold;
         background-color: primary.500;
       }

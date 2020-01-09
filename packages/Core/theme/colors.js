@@ -33,10 +33,10 @@ export const colors = {
     500: '#1B57B2'
   },
   light: {
-    100: '#FFFFFF',
-    200: '#FAFAFA',
+    200: '#CCCCCC',
     500: '#EDEDED',
-    700: '#CCCCCC'
+    700: '#FAFAFA',
+    900: '#FFFFFF'
   },
   dark: {
     200: '#333333',

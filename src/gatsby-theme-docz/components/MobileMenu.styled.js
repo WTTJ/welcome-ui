@@ -6,13 +6,13 @@ import { system } from '../../../../packages/System/index'
 import { Button } from '../../../../packages/Button'
 
 export const MobileMenu = styled.div`
+  ${th('docz.menu')};
   position: sticky;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 60;
-  background-color: dark.700;
   padding: 0 md;
   box-sizing: border-box;
   ${system}
@@ -39,8 +39,8 @@ export const MenuBackground = styled(DialogBackdrop)`
 `
 
 export const MenuDialog = styled(Dialog)`
+  ${th('docz.menu')};
   position: fixed;
-  background-color: dark.700;
   top: 1rem;
   right: 1rem; /* 16px by default */
   left: 1rem; /* 16px by default */

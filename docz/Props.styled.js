@@ -6,7 +6,7 @@ export const Table = styled.table`
   border: 1px solid ${th.color('nude.200')};
   border-bottom: none;
   border-radius: md;
-  background-color: light.100;
+  background-color: light.900;
   color: nude.800;
 `
 

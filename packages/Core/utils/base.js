@@ -64,7 +64,7 @@ function baseFonts(props) {
 
 function baseSelection(props) {
   const selectionBgColor = getColor('primary.500')(props) || null
-  const selectionColor = getColor('light.100')(props) || null
+  const selectionColor = getColor('light.900')(props) || null
   return css`
     ::selection {
       ${selectionBgColor && `background-color: ${selectionBgColor}`};

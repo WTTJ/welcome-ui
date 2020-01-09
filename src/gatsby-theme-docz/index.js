@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ComponentsProvider, theme, useMenus } from 'docz'
 import { ThemeProvider } from '@xstyled/styled-components'
 import { Helmet } from 'react-helmet'
 
 import { GlobalStyle } from '../../../packages/Core/utils/base'
 import { createTheme } from '../../../packages/Core/theme/core'
+import { darkTheme } from '../../../packages/Core/theme/dark'
 import { welcomeTheme } from '../../../packages/Core/theme/welcome'
 import { welcomekitTheme } from '../../../packages/Core/theme/welcomekit'
 import { Code, CodeEditor, H1, H2, H3, InlineCode, Props } from '../../../docz/index'
@@ -24,14 +25,65 @@ const components = {
   props: Props
 }
 
-const themeOptions = name => {
+function doczThemeLight(colors) {
+  return {
+    docz: {
+      navigation: {
+        color: colors.light[900]
+      },
+      menu: {
+        'background-color': colors.dark[700]
+      },
+      github: {
+        'background-color': colors.dark[500],
+        '&:hover, &:focus': {
+          'background-color': colors.dark[200]
+        }
+      }
+    }
+  }
+}
+
+function doczThemeDark(colors) {
+  return {
+    docz: {
+      navigation: {
+        color: colors.dark[900]
+      },
+      menu: {
+        'background-color': colors.light[900]
+      },
+      github: {
+        'background-color': colors.light[500],
+        '&:hover, &:focus': {
+          'background-color': colors.light[200]
+        }
+      }
+    }
+  }
+}
+
+const getThemeOptions = name => {
+  let theming
+
   switch (name) {
     case 'welcomekit':
-      return welcomekitTheme
+      theming = createTheme(welcomekitTheme)
+      break
     case 'welcome':
-      return welcomeTheme
+      theming = createTheme(welcomeTheme)
+      break
+    case 'dark':
+      theming = createTheme(darkTheme)
+      break
     default:
-      return ''
+      theming = createTheme()
+  }
+
+  if (name === 'dark') {
+    return { ...theming, ...doczThemeDark(theming.colors) }
+  } else {
+    return { ...theming, ...doczThemeLight(theming.colors) }
   }
 }
 
@@ -52,7 +104,7 @@ const Theme = ({ children }) => {
   const [themeWUI, setThemeWUI] = useStateWithLocalStorage('welcomekit')
 
   return (
-    <ThemeProvider theme={createTheme(themeOptions(themeWUI))}>
+    <ThemeProvider theme={getThemeOptions(themeWUI)}>
       <ComponentsProvider components={components}>
         <Page>
           <Helmet>
