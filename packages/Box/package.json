@@ -5,6 +5,7 @@
   "main": "dist/box.cjs.js",
   "module": "dist/box.es.js",
   "scripts": {
+    "compile": "tsc -p tsconfig.json",
     "test": "jest"
   },
   "publishConfig": {
