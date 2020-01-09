@@ -5,6 +5,7 @@
   "main": "dist/badge.cjs.js",
   "module": "dist/badge.es.js",
   "scripts": {
+    "compile": "tsc -p ../../tsconfig.json",
     "test": "jest"
   },
   "publishConfig": {

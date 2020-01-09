@@ -1,18 +1,10 @@
-import React, {
-  ComponentType,
-  createRef,
-  forwardRef,
-  Fragment,
-  ReactNode,
-  Ref,
-  RefObject
-} from 'react'
-import { bool, func, node, oneOf, oneOfType, string } from 'prop-types'
+import React, { createRef, ElementType, forwardRef, Fragment, ReactNode, Ref } from 'react'
+import { bool, elementType, func, node, oneOf, string } from 'prop-types'
 import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 
 // Common
-import { COMPONENT_TYPE, DIRECTIONS_TYPE, INPUTS_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
+import { DIRECTIONS_TYPE, INPUTS_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
 
 // Fields
 import { RowContainer } from './layout'
@@ -22,7 +14,7 @@ import { getBaseType, getVariant, VARIANTS } from './utils'
 export interface Props {
   checked?: boolean
   children?: ReactNode
-  component: ComponentType
+  component: ElementType
   connected?: boolean
   dataTestId?: string
   disabled?: boolean
@@ -42,7 +34,7 @@ export interface Props {
   warning?: string
 }
 
-export const Field: React.FC = forwardRef<HTMLElement, Props>((props, ref) => {
+export const Field = forwardRef<HTMLElement, Props>((props, ref) => {
   const {
     checked = false,
     children,
@@ -166,7 +158,7 @@ Field.displayName = 'Field'
 Field.propTypes /* remove-proptypes */ = {
   checked: bool,
   children: func,
-  component: oneOfType(COMPONENT_TYPE).isRequired,
+  component: elementType.isRequired,
   connected: bool,
   disabled: bool,
   disabledIcon: node,

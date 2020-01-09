@@ -34,7 +34,7 @@ export interface Props {
   variant?: typeof VARIANTS[number]
 }
 
-export const Tag: React.FC = forwardRef<HTMLElement, Props>((props, ref) => {
+export const Tag = forwardRef<HTMLElement, Props>((props, ref) => {
   const { children, dataTestId, onRemove, size = 'md', variant = 'default', ...rest } = props
   const content = wrapChildren(children)
   // get size children for int and string
