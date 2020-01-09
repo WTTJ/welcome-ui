@@ -6,6 +6,7 @@ export default {
   menu: ['Introduction', 'Getting Started', 'Theming', 'Components', 'Fields'],
   ignore: ['README.md', 'CHANGELOG.md', 'CONTRIBUTING.md'],
   port: 3020,
+  typescript: true,
   // https://github.com/pedronauck/docz/issues/777#issuecomment-489947783
   filterComponents: files => files.filter(filepath => /w*.(js|jsx|ts|tsx)$/.test(filepath))
 }
