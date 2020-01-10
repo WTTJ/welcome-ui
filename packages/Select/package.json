@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/select",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/select.cjs.js",
   "module": "dist/select.es.js",
@@ -37,7 +37,7 @@
     "@welcome-ui/clear-button": "^1.1.4",
     "@welcome-ui/icons.down": "^1.1.4",
     "@welcome-ui/system": "^1.1.4",
-    "@welcome-ui/tag": "^1.1.4",
+    "@welcome-ui/tag": "^1.1.5",
     "@welcome-ui/utils": "^1.1.4",
     "downshift": "=3.2.10",
     "lodash.differenceby": "=4.8.0",
