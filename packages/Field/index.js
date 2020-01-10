@@ -44,7 +44,7 @@ export const Field = forwardRef(
     }
 
     const baseType = getBaseType(type || Component.displayName)
-    const variant = getVariant({ warning, error })
+    const variant = getVariant({ connected, touched, warning, error })
     const hintText = variant ? error || warning : hint
     const isRadio = baseType === 'radio'
     const isCheckbox = baseType === 'checkbox'
