@@ -9,12 +9,18 @@ const TYPES = {
 
 export const getBaseType = type => TYPES[type] || type
 
-export const getVariant = ({ error, warning }) => {
+const isPristine = (connected, touched) => connected && !touched
+
+export const getVariant = ({ connected, error, touched, warning }) => {
+  if (isPristine(connected, touched)) {
+    return undefined
+  }
   if (error) {
     return 'error'
   }
   if (warning) {
     return 'warning'
   }
+
   return undefined
 }
