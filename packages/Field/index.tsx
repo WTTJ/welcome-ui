@@ -1,4 +1,13 @@
-import React, { createRef, ElementType, forwardRef, Fragment, ReactNode, Ref } from 'react'
+import React, {
+  ComponentType,
+  createRef,
+  ElementType,
+  forwardRef,
+  Fragment,
+  ReactNode,
+  Ref,
+  RefObject
+} from 'react'
 import { bool, elementType, func, node, oneOf, string } from 'prop-types'
 import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
@@ -14,7 +23,7 @@ import { getBaseType, getVariant, VARIANTS } from './utils'
 export interface Props {
   checked?: boolean
   children?: ReactNode
-  component: ElementType
+  component: ComponentType
   connected?: boolean
   dataTestId?: string
   disabled?: boolean
@@ -34,7 +43,7 @@ export interface Props {
   warning?: string
 }
 
-export const Field = forwardRef<HTMLElement, Props>((props, ref) => {
+export const Field = forwardRef((props: Props, ref: RefObject<HTMLDivElement>) => {
   const {
     checked = false,
     children,

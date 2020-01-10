@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode } from 'react'
+import React, { forwardRef, ReactNode, RefObject } from 'react'
 import { func, node, oneOf } from 'prop-types'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { wrapChildren } from '@welcome-ui/utils'
@@ -34,7 +34,7 @@ export interface Props {
   variant?: typeof VARIANTS[number]
 }
 
-export const Tag = forwardRef<HTMLElement, Props>((props, ref) => {
+export const Tag = forwardRef((props: Props, ref: RefObject<HTMLDivElement>) => {
   const { children, dataTestId, onRemove, size = 'md', variant = 'default', ...rest } = props
   const content = wrapChildren(children)
   // get size children for int and string

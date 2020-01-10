@@ -16,9 +16,16 @@ export const INPUTS_TYPE = [
 ] as const
 
 export const OPTIONS_TYPE = shape({
-  label: oneOfType([number, string]),
-  value: oneOfType([number, string])
+  label: oneOfType([number, string]).isRequired,
+  value: oneOfType([number, string]).isRequired
 })
+
+export type OPTION_TYPE = {
+  label: string | number
+  value: string | number
+}
+
+export type VALUE_TYPE = string | number | (string | number)[]
 
 export const SHAPES_TYPE = ['square', 'circle'] as const
 

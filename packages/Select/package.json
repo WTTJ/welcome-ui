@@ -5,6 +5,7 @@
   "main": "dist/select.cjs.js",
   "module": "dist/select.es.js",
   "scripts": {
+    "compile": "tsc -p ../../tsconfig.json",
     "test": "jest"
   },
   "publishConfig": {
