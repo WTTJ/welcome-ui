@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/search",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/search.cjs.js",
   "module": "dist/search.es.js",
@@ -34,10 +34,10 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@welcome-ui/clear-button": "^1.1.6",
+    "@welcome-ui/clear-button": "^1.2.0",
     "@welcome-ui/icon": "^1.1.4",
     "@welcome-ui/system": "^1.1.4",
-    "@welcome-ui/tag": "^1.1.5",
+    "@welcome-ui/tag": "^1.2.0",
     "@welcome-ui/utils": "^1.1.4",
     "downshift": "=3.2.10",
     "lodash.isequal": "=4.5.0"
