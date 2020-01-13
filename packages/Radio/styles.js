@@ -25,7 +25,7 @@ export const Radio = styled(filterFieldComponent(ReakitRadio))(
       width: 10;
       margin: auto;
       text-align: center;
-      color: light.200;
+      color: light.700;
       opacity: 0;
       transition: medium;
     }

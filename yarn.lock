@@ -2966,6 +2966,17 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
+"@welcome-ui/button@1.0.28-alpha.0":
+  version "1.0.28-alpha.0"
+  resolved "https://registry.yarnpkg.com/@welcome-ui/button/-/button-1.0.28-alpha.0.tgz#34fd1e1c6518c78505f818f2b51f1d61c94936de"
+  integrity sha512-Y7JMnWEMs40+/Hpopvu1OZv2olUfmDKJTUMuPnAxXHueRxhv25+FT+TOMwdJ5fmm9DNNaVMhedeahphhgv0Clw==
+  dependencies:
+    "@babel/runtime" "^7.4.5"
+    "@xstyled/styled-components" "^1.8.3"
+    "@xstyled/system" "^1.8.2"
+    reakit "^1.0.0-beta.7"
+    styled-components "^4.4.1"
+
 "@xstyled/core@^1.15.1":
   version "1.15.1"
   resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.15.1.tgz#8b6d37e95b2abd95a396ab8d85b9e7c41c05249a"
@@ -2974,7 +2985,7 @@
     "@babel/runtime" "^7.7.2"
     "@xstyled/system" "^1.15.1"
 
-"@xstyled/styled-components@^1.15.0":
+"@xstyled/styled-components@^1.15.0", "@xstyled/styled-components@^1.8.3":
   version "1.15.1"
   resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.15.1.tgz#44cfeb9f8337bf0523469f00cbf158000455cd66"
   integrity sha512-dr8Q72gJdzGmOzbgwL9RKEJg9YRRjYaLAwJ9JeJsmPwvcSrReCaQE4oD+T8xrharJuH4dq60LJ/sqjDsfeYpDQ==
@@ -2984,7 +2995,7 @@
     "@xstyled/system" "^1.15.1"
     "@xstyled/util" "^1.15.1"
 
-"@xstyled/system@^1.14.0", "@xstyled/system@^1.15.1":
+"@xstyled/system@^1.14.0", "@xstyled/system@^1.15.1", "@xstyled/system@^1.8.2":
   version "1.15.1"
   resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.15.1.tgz#d5bc1034c7be6133fdf03e3874e9a16c2c3ed7e6"
   integrity sha512-6Cse4M6Zf+M8K7W8y/neD1lYPc5LqyTTVWeFhhpejOSvEarK8FvKO+iwTrKRFwAC+/m9jBjBdUs/k5hxFh4jJw==
@@ -14638,7 +14649,7 @@ react-docgen@^4.1.1:
     node-dir "^0.1.10"
     recast "^0.17.3"
 
-react-dom@^16.8.0:
+react-dom@^16.10.2:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.12.0.tgz#0da4b714b8d13c2038c9396b54a92baea633fe11"
   integrity sha512-LMxFfAGrcS3kETtQaCkTKjMiifahaMySFDn71fZUNpPHZQEzmk/GiAeIT8JSOrHB23fnuCOMruL2a8NYlw+8Gw==
@@ -14853,15 +14864,6 @@ react@^16.10.2:
   version "16.11.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.11.0.tgz#d294545fe62299ccee83363599bf904e4a07fdbb"
   integrity sha512-M5Y8yITaLmU0ynd0r1Yvfq98Rmll6q8AxaEe88c8e7LxO8fZ2cNgmFt0aGAS9wzf1Ao32NKXtCl+/tVVtkxq6g==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-
-react@^16.8.0:
-  version "16.12.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
-  integrity sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -16987,7 +16989,7 @@ style-to-object@0.2.3, style-to-object@^0.2.1, style-to-object@^0.2.3:
   dependencies:
     inline-style-parser "0.1.1"
 
-styled-components@4.4.1, styled-components@^4.0.0:
+styled-components@4.4.1, styled-components@^4.0.0, styled-components@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-4.4.1.tgz#e0631e889f01db67df4de576fedaca463f05c2f2"
   integrity sha512-RNqj14kYzw++6Sr38n7197xG33ipEOktGElty4I70IKzQF1jzaD1U4xQ+Ny/i03UUhHlC5NWEO+d8olRCDji6g==

@@ -3,7 +3,7 @@ import { hexToRGB } from '@welcome-ui/utils'
 export const getButtons = theme => {
   const { colors, fontSizes, fontWeights, letterSpacings, radii, shadows, space } = theme
   const defaults = {
-    color: colors.light[200],
+    color: colors.light[700],
     'font-size': fontSizes.button,
     'font-weight': fontWeights.bold,
     'text-transform': 'uppercase',
@@ -25,37 +25,37 @@ export const getButtons = theme => {
     secondary: {
       ...defaults,
       color: colors.secondary[700],
-      'background-color': colors.light[100],
+      'background-color': colors.light[900],
       'border-color': colors.nude[200]
     },
     tertiary: {
       ...defaults,
-      color: colors.light[200],
+      color: colors.light[700],
       'background-color': colors.secondary[500],
       'border-color': colors.secondary[500]
     },
     'primary-warning': {
       ...defaults,
-      color: colors.light[200],
+      color: colors.light[700],
       'background-color': colors.warning[500],
       'border-color': colors.warning[500]
     },
     'secondary-warning': {
       ...defaults,
       color: colors.warning[500],
-      'background-color': colors.light[100],
+      'background-color': colors.light[900],
       'border-color': colors.warning[500]
     },
     'primary-danger': {
       ...defaults,
-      color: colors.light[200],
+      color: colors.light[700],
       'background-color': colors.danger[500],
       'border-color': colors.danger[500]
     },
     'secondary-danger': {
       ...defaults,
       color: colors.danger[500],
-      'background-color': colors.light[100],
+      'background-color': colors.light[900],
       'border-color': colors.danger[500]
     },
     quaternary: {
@@ -70,7 +70,7 @@ export const getButtons = theme => {
         'border-color': colors.primary[200]
       },
       secondary: {
-        'background-color': colors.light[200],
+        'background-color': colors.light[700],
         'border-color': colors.nude[300]
       },
       tertiary: {
@@ -105,7 +105,7 @@ export const getButtons = theme => {
         'border-color': colors.primary[700]
       },
       secondary: {
-        'background-color': colors.light[200],
+        'background-color': colors.light[700],
         'border-color': colors.nude[500]
       },
       tertiary: {
@@ -117,7 +117,7 @@ export const getButtons = theme => {
         'border-color': colors.warning[700]
       },
       'secondary-warning': {
-        'background-color': colors.light[100],
+        'background-color': colors.light[900],
         'border-color': colors.warning[700]
       },
       'primary-danger': {
@@ -125,7 +125,7 @@ export const getButtons = theme => {
         'border-color': colors.danger[700]
       },
       'secondary-danger': {
-        'background-color': colors.light[100],
+        'background-color': colors.light[900],
         'border-color': colors.danger[700]
       },
       quaternary: {

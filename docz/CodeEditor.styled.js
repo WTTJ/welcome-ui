@@ -10,8 +10,8 @@ export const LiveEditor = styled(ReactLiveEditor)`
   textarea {
     border-radius: md;
     transition: medium;
-    border: 1px solid ${th.color('light.700')} !important;
-    background-color: light.100 !important;
+    border: 1px solid ${th.color('light.200')} !important;
+    background-color: light.900 !important;
 
     &:focus {
       outline: none;
@@ -34,8 +34,8 @@ export const LivePreview = styled.div`
   display: flex;
   flex-direction: column;
   padding: xl xl md;
-  background-color: light.100;
-  border: 1px solid ${th.color('light.700')};
+  background-color: light.900;
+  border: 1px solid ${th.color('light.200')};
   border-radius: md;
 `
 
@@ -58,5 +58,5 @@ export const LivePreviewContent = styled.div(
 
 export const ShowEditor = styled.div`
   padding-top: sm;
-  border-top: 1px solid ${th.color('light.700')};
+  border-top: 1px solid ${th.color('light.200')};
 `

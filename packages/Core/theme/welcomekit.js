@@ -89,10 +89,10 @@ const colors = {
     500: palette.bluedefrance
   },
   light: {
-    100: '#FFFFFF',
-    200: palette.soapstone,
+    200: palette.pampas,
     500: palette.vistawhite,
-    700: palette.pampas
+    700: palette.soapstone,
+    900: '#FFFFFF'
   },
   dark: {
     200: palette.aquadeep,
@@ -126,10 +126,10 @@ export const welcomekitTheme = {
   },
   fields: {
     default: {
-      'background-color': colors.light[200]
+      'background-color': colors.light[700]
     },
     focused: {
-      'background-color': colors.light[100]
+      'background-color': colors.light[900]
     }
   },
   tags: {

@@ -20,13 +20,15 @@ import * as S from './MobileMenu.styled'
 export const MobileMenu = ({ items, theme, ...rest }) => {
   const dialog = useDialogState()
 
+  const colorIcon = theme.value === 'dark' ? 'dark.900' : 'light.900'
+
   return (
     <S.MobileMenu {...rest}>
       <S.Logo>
         <LogoLong />
       </S.Logo>
       <S.MenuCloseDisclosure {...dialog}>
-        <MenuIcon color="light.100" size="lg" />
+        <MenuIcon color={colorIcon} size="lg" />
       </S.MenuCloseDisclosure>
       <Portal>
         <S.MenuBackground {...dialog} />
@@ -46,7 +48,7 @@ export const MobileMenu = ({ items, theme, ...rest }) => {
             shape="circle"
             target="_blank"
           >
-            <GithubIcon color="light.100" size="xl" />
+            <GithubIcon color={colorIcon} size="xl" />
           </Button>
         </Box>
         <Box mb="lg" mt="lg">

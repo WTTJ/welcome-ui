@@ -4,13 +4,13 @@ import fr from 'date-fns/locale/fr'
 import { Link as LinkDocz } from 'docz'
 import { Form as FinalForm } from 'react-final-form'
 import { LivePreview, LiveProvider } from 'react-live'
-import theme from 'prism-react-renderer/themes/github'
 
 import * as Wui from '../src/index.js'
 import { DefaultFileDropView, ITEMS } from '../scripts/tests'
 
 import { IconsList } from './IconsList'
 import { Form } from './Form'
+import { getTheme } from './CodeTheme'
 import * as S from './CodeEditor.styled'
 
 export const CodeEditor = ({ code, wrapper = true }) => {
@@ -41,7 +41,7 @@ export const CodeEditor = ({ code, wrapper = true }) => {
         useState,
         ITEMS
       }}
-      theme={theme}
+      theme={getTheme()}
       transformCode={transformCode}
     >
       <S.LivePreview className="codeEditor">

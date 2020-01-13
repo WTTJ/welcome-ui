@@ -38,7 +38,7 @@ export const Toolbar = styled.div(
     justify-content: flex-start;
     padding: md md;
     opacity: 1;
-    background-color: light.100;
+    background-color: light.900;
     border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude.200')};
     position: sticky;
     top: 0;

@@ -5,7 +5,7 @@ export const getGrowls = theme => {
   return {
     default: {
       ...getTexts(theme).body3,
-      'background-color': theme.colors.light[200],
+      'background-color': theme.colors.light[700],
       'border-color': colors.nude[200],
       'border-width': '1px',
       'border-style': 'solid',

@@ -21,12 +21,12 @@ export const IconsList = icons => (
         >
           <Box
             backgroundColor="light.500"
+            borderRadius="lg"
             color="dark.200"
             display="flex"
             justifyContent="center"
             padding="15px 10px"
             width={1}
-            borderRadius="lg"
           >
             <Icon size="xl" />
           </Box>
