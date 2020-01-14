@@ -92,6 +92,23 @@ Set `shape` prop to `circle` to set a border-radius `50%`.
   </Tag>
 </Playground>
 
+## OnRemove
+
+Simply add a function `onRemove` to reveal a cross icon with a remove action (or other).
+
+<Playground>
+  {() => {
+    const [isHide, setHide] = useState(false)
+    return isHide ? (
+      <Text fontSize="body3" fontWeight="bold" color="danger.500" m={0}>
+        Tag removed
+      </Text>
+    ) : (
+      <Tag onRemove={() => setHide(true)}>Example of remove tag</Tag>
+    )
+  }}
+</Playground>
+
 ## Properties
 
 <Props of={Tag} />
