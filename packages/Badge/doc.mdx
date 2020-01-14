@@ -4,7 +4,8 @@ route: /components/badge
 menu: Components
 ---
 
-import { Playground, Props } from 'docz'
+import { Playground, Link as LinkDocz, Props } from 'docz'
+import { Link } from '../Link'
 import { Code, Dependencies, TagVersion } from '../../docz'
 const { dependencies, peerDependencies, name, version } = require('./package.json')
 
@@ -12,7 +13,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 <TagVersion version={version} name={name} />
 
-Badge is the `<Tag />` component with small size. Check the doc of Tags component to see more examples.
+<div>
+  Badge is the{' '}
+  <Link as={LinkDocz} to="/components/tag">
+    Tag
+  </Link>{' '}
+  component with small size.
+</div>
 
 ## Import
 
@@ -28,10 +35,6 @@ Badge is the `<Tag />` component with small size. Check the doc of Tags componen
   <Badge>4</Badge>
   <Badge variant="primary">New</Badge>
 </Playground>
-
-## Properties
-
-<Props of={Badge} />
 
 ## Dependencies
 
