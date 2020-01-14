@@ -9,6 +9,7 @@ import * as Wui from '../src/index.js'
 import { DefaultFileDropView, ITEMS } from '../scripts/tests'
 
 import { IconsList } from './IconsList'
+import { InlineCode } from './InlineCode'
 import { Form } from './Form'
 import { getTheme } from './CodeTheme'
 import * as S from './CodeEditor.styled'
@@ -39,23 +40,26 @@ export const CodeEditor = ({ code, wrapper = true }) => {
         LinkDocz,
         useRef,
         useState,
-        ITEMS
+        ITEMS,
+        InlineCode
       }}
       theme={getTheme()}
       transformCode={transformCode}
     >
       <S.LivePreview className="codeEditor">
-        <S.LivePreviewContent wrapper={wrapper}>
-          <LivePreview />
-        </S.LivePreviewContent>
-        {wrapper && (
-          <S.ShowEditor>
-            <Wui.Button onClick={toggleEditor} size="sm" variant="secondary">
-              <Wui.Icon name="chevron" />
-              <span>{editorOpen ? 'Hide' : 'Show'} editor</span>
-            </Wui.Button>
-          </S.ShowEditor>
-        )}
+        <Wui.Card.Body padding="xl" paddingBottom="lg">
+          <S.LivePreviewContent wrapper={wrapper}>
+            <LivePreview />
+          </S.LivePreviewContent>
+          {wrapper && (
+            <S.ShowEditor>
+              <Wui.Button onClick={toggleEditor} size="sm" variant="secondary">
+                <Wui.Icon name="chevron" />
+                <span>{editorOpen ? 'Hide' : 'Show'} editor</span>
+              </Wui.Button>
+            </S.ShowEditor>
+          )}
+        </Wui.Card.Body>
       </S.LivePreview>
       {wrapper && editorOpen && <S.LiveEditor />}
       <S.LiveError />

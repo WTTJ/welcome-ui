@@ -2,6 +2,8 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { LiveEditor as ReactLiveEditor, LiveError as ReactLiveError } from 'react-live'
 
+import { Card } from '../packages/Card'
+
 export const LiveEditor = styled(ReactLiveEditor)`
   margin-top: md;
   line-height: h4;
@@ -30,13 +32,9 @@ export const LiveError = styled(ReactLiveError)`
   margin: xxs 0 lg;
 `
 
-export const LivePreview = styled.div`
+export const LivePreview = styled(Card)`
   display: flex;
   flex-direction: column;
-  padding: xl xl md;
-  background-color: light.900;
-  border: 1px solid ${th.color('light.200')};
-  border-radius: md;
 `
 
 export const LivePreviewContent = styled.div(
@@ -52,11 +50,14 @@ export const LivePreviewContent = styled.div(
           }
         }
       `}
-    ${wrapper !== false && `margin-bottom: xl;`}
+    ${wrapper !== false &&
+      css`
+        padding-bottom: xl;
+      `}
   `
 )
 
 export const ShowEditor = styled.div`
   padding-top: sm;
-  border-top: 1px solid ${th.color('light.200')};
+  border-top: 1px solid ${th.color('nude.200')};
 `

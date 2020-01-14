@@ -13,6 +13,7 @@ import { getTags } from '../../Tag/theme'
 import { getTooltips } from '../../Tooltip/theme'
 import { getDropdownMenu } from '../../DropdownMenu/theme'
 import { getTables } from '../../Table/theme'
+import { getCards } from '../../Card/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -115,6 +116,7 @@ export const getBaseTheme = (options = {}) => {
   theme.links = getLinks(theme)
   theme.dropdownMenu = getDropdownMenu(theme)
   theme.tables = getTables(theme)
+  theme.cards = getCards(theme)
 
   return theme
 }

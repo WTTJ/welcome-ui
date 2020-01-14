@@ -1,14 +1,11 @@
 import styled from '@xstyled/styled-components'
+import { cardStyles } from '@welcome-ui/utils'
 
 export const Pre = styled.pre`
-  background-color: light.900 !important;
+  ${cardStyles};
   padding: lg;
-  border-radius: md;
   font-size: body3;
   line-height: h4;
-  border-width: sm;
-  border-style: solid;
-  border-color: light.200;
 
   > div {
     width: 100%;

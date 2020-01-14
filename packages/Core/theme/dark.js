@@ -142,5 +142,10 @@ export const darkTheme = {
         color: colors.light[900]
       }
     }
+  },
+  cards: {
+    default: {
+      'border-color': colors.light[500]
+    }
   }
 }

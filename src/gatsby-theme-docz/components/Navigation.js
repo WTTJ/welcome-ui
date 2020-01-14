@@ -30,7 +30,7 @@ export const Navigation = ({ items }) => {
 
                   return (
                     <S.ItemLink
-                      active={isActiveRoute}
+                      isActive={isActiveRoute}
                       key={`block_${item.name}`}
                       ref={isActiveRoute ? activeRef : undefined}
                       to={item.route}
@@ -42,7 +42,7 @@ export const Navigation = ({ items }) => {
               </S.Items>
             </>
           ) : (
-            <S.TitleLink active={pathname === item.route} to={item.route}>
+            <S.TitleLink isActive={pathname === item.route} to={item.route}>
               {item.name}
             </S.TitleLink>
           )}
