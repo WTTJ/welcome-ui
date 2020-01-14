@@ -28,36 +28,28 @@ yarn add welcome-ui
 
 ## Import library & Theme
 
-You can find all the theme properties [here](http://welcome-ui.com/theming/theme-values).
+Getting started
 
 ```js
-import React from 'react'
-import { ThemeProvider } from '@xstyled/styled-components'
-import { createTheme, GlobalStyle, Text } from 'welcome-ui'
+  import React from "react"
+  import { ThemeProvider } from '@xstyled/styled-components'
+  import { createTheme, GlobalStyle } from '@welcome-ui/core'
+  import { Text } from '@welcome-ui/text'
 
-const options = {
-  defaultFontFamily: 'Helvetica',
-  headingFontFamily: 'Georgia',
-  colors: {
-    primary: {
-      500: '#FF0000'
-    },
-    secondary: {
-      500: '#00FF00'
-    }
+  const theme = createTheme()
+
+  export default function App() {
+    // Wrap your component with ThemeProvider
+    return (
+      <ThemeProvider theme={theme}>
+        <>
+          <GlobalStyle />
+          <Text variant="h1">Welcome!</Text>
+          <Text>
+            Here is how you can start with welcome-ui :)
+          </Text>
+        </>
+      </ThemeProvider>
+    )
   }
-}
-const theme = createTheme(options)
-
-export default function Root() {
-  // Wrap your component with ThemeProvider
-  return (
-    <ThemeProvider theme={theme}>
-      <>
-        <GlobalStyle />
-        <Text variant="h1">Welcome!</Text>
-      </>
-    </ThemeProvider>
-  )
-}
 ```
