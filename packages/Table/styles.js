@@ -1,0 +1,89 @@
+import styled, { css, th } from '@xstyled/styled-components'
+import { Box } from '@welcome-ui/box'
+import { system } from '@welcome-ui/system'
+
+export const Wrapper = styled(Box)(
+  ({ indent }) => css`
+    overflow: hidden;
+    width: 100%;
+
+    ${indent &&
+      css`
+        ${Td}, ${Th} {
+          &:first-child {
+            padding-left: xl;
+          }
+
+          &:last-child {
+            padding-right: xl;
+          }
+        }
+      `}
+
+    ${system}
+  `
+)
+
+export const Content = styled.div`
+  width: 100%;
+  overflow-x: auto;
+`
+
+export const Table = styled.table`
+  border: 0;
+  width: 100%;
+  border-collapse: collapse;
+  ${system}
+`
+export const Thead = styled.thead`
+  ${system}
+`
+
+export const Tbody = styled.tbody`
+  ${system}
+`
+
+export const Tr = styled.tr(
+  ({ variant }) => css`
+    ${th('tables.tr.default')};
+    ${variant &&
+      css`
+        ${th(`tables.tr.${variant}`)};
+      `}
+
+    ${system}
+  `
+)
+
+export const Th = styled.th`
+  ${th('tables.th')};
+  padding: xl;
+  vertical-align: middle;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  ${system}
+`
+
+export const Td = styled.td`
+  ${th('tables.td')};
+  position: relative;
+  vertical-align: middle;
+  padding: lg xl;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  ${system}
+`

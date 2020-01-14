@@ -4,9 +4,10 @@ import React from 'react'
 
 import { Box } from '../packages/Box/index'
 import { Tag } from '../packages/Tag/index'
+import { Table } from '../packages/Table/index'
+import { Tooltip } from '../packages/Tooltip/index'
+import { CheckIcon } from '../icons'
 import * as TYPES from '../src/utils/propTypes'
-
-import * as S from './Props.styled'
 
 const removeQuote = str => str.replace(/'/g, '')
 
@@ -55,42 +56,62 @@ export const Props = ({ props }) => {
   const keys = Object.keys(props)
 
   return (
-    <S.Table>
-      <S.Row fontWeight="bold">
-        <S.Head>Name</S.Head>
-        <S.Head>Type(s)</S.Head>
-        <S.Head>Default</S.Head>
-        <S.Head>Required?</S.Head>
-      </S.Row>
-      {keys.map(key => {
-        const item = props[key]
+    <Box
+      backgroundColor="light.900"
+      borderColor="light.200"
+      borderRadius="md"
+      borderStyle="solid"
+      borderWidth="1px"
+      paddingBottom="lg"
+      paddingLeft="xl"
+      paddingRight="xl"
+      paddingTop="sm"
+    >
+      <Table>
+        <Table.Thead>
+          <Table.Tr>
+            <Table.Th>Name</Table.Th>
+            <Table.Th>Type(s)</Table.Th>
+            <Table.Th>Default</Table.Th>
+            <Table.Th>Required</Table.Th>
+          </Table.Tr>
+        </Table.Thead>
+        <Table.Tbody>
+          {keys.map(key => {
+            const item = props[key]
 
-        return (
-          <S.Row key={key}>
-            <S.Cell width="25%">
-              <S.Name>{key}</S.Name>
-            </S.Cell>
-            <S.Cell width="45%">
-              <Type type={item.type} />
-              {item.description && (
-                <Box as="p" color="nude.600" fontSize="body3" m={0} mt="xs">
-                  {item.description[0].props.children}
-                </Box>
-              )}
-            </S.Cell>
-            <S.Cell width="15%">
-              {item.defaultValue && <Tag>{removeQuote(item.defaultValue.value)}</Tag>}
-            </S.Cell>
-            <S.Cell width="15%">
-              {item.required && (
-                <>
-                  Required <S.Required>*</S.Required>
-                </>
-              )}
-            </S.Cell>
-          </S.Row>
-        )
-      })}
-    </S.Table>
+            return (
+              <Table.Tr key={key}>
+                <Table.Td color="primary.500" width="20%">
+                  {key}
+                </Table.Td>
+                <Table.Td width="50%">
+                  <Box>
+                    <Type type={item.type} />
+                    {item.description && (
+                      <Box as="p" color="nude.600" fontSize="body3" m={0} mt="xs">
+                        {item.description[0].props.children}
+                      </Box>
+                    )}
+                  </Box>
+                </Table.Td>
+                <Table.Td width="15%">
+                  {item.defaultValue && <Tag>{removeQuote(item.defaultValue.value)}</Tag>}
+                </Table.Td>
+                <Table.Td width="15%">
+                  {item.required && (
+                    <Tooltip content="is required">
+                      <Box display="inline">
+                        <CheckIcon color="primary.500" />
+                      </Box>
+                    </Tooltip>
+                  )}
+                </Table.Td>
+              </Table.Tr>
+            )
+          })}
+        </Table.Tbody>
+      </Table>
+    </Box>
   )
 }
