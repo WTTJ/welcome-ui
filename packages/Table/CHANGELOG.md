@@ -9,11 +9,3 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * add Table component ([be42342](https://github.com/WTTJ/welcome-ui/commit/be423428309ba2cf065a19187bbf9b7478da3402))
-
-
-
-
-
-## [1.1.4](https://github.com/WTTJ/welcome-ui/compare/v1.1.3...v1.1.4) (2020-01-08)
-
-**Note:** Version bump only for package @welcome-ui/group

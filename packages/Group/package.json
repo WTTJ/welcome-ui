@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/group",
-  "version": "1.1.4",
+  "version": "1.3.0",
   "description": "welcome-ui: A Group component",
   "main": "dist/group.cjs.js",
   "module": "dist/group.es.js",
