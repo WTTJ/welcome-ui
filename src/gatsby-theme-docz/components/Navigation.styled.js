@@ -24,8 +24,8 @@ export const Title = styled.div`
   font-weight: bold;
 `
 
-export const TitleLink = styled(filterComponent(Link))(
-  ({ active }) => css`
+export const TitleLink = styled(filterComponent(Link, ['isActive']))(
+  ({ isActive }) => css`
     ${th('docz.navigation')};
     font-weight: bold;
     text-decoration: none;
@@ -36,14 +36,14 @@ export const TitleLink = styled(filterComponent(Link))(
       opacity: 1;
     }
 
-    ${active && `opacity: 1;`}
+    ${isActive && `opacity: 1;`}
   `
 )
 
-export const ItemLink = styled(filterComponent(Link))(
-  ({ active }) => css`
+export const ItemLink = styled(filterComponent(Link, ['isActive']))(
+  ({ isActive }) => css`
     text-decoration: none;
-    ${active &&
+    ${isActive &&
       css`
         ${Item} {
           opacity: 1;

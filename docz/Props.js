@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-depth */
 /* eslint-disable react/no-multi-comp */
 /* eslint-disable react/prop-types */
 import React from 'react'
@@ -6,6 +7,7 @@ import { Box } from '../packages/Box/index'
 import { Tag } from '../packages/Tag/index'
 import { Table } from '../packages/Table/index'
 import { Tooltip } from '../packages/Tooltip/index'
+import { Card } from '../packages/Card'
 import { CheckIcon } from '../icons'
 import * as TYPES from '../src/utils/propTypes'
 
@@ -56,62 +58,54 @@ export const Props = ({ props }) => {
   const keys = Object.keys(props)
 
   return (
-    <Box
-      backgroundColor="light.900"
-      borderColor="light.200"
-      borderRadius="md"
-      borderStyle="solid"
-      borderWidth="1px"
-      paddingBottom="lg"
-      paddingLeft="xl"
-      paddingRight="xl"
-      paddingTop="sm"
-    >
-      <Table>
-        <Table.Thead>
-          <Table.Tr>
-            <Table.Th>Name</Table.Th>
-            <Table.Th>Type(s)</Table.Th>
-            <Table.Th>Default</Table.Th>
-            <Table.Th>Required</Table.Th>
-          </Table.Tr>
-        </Table.Thead>
-        <Table.Tbody>
-          {keys.map(key => {
-            const item = props[key]
+    <Card>
+      <Card.Body padding="xl">
+        <Table marginBottom="-lg" marginTop="-xl">
+          <Table.Thead>
+            <Table.Tr>
+              <Table.Th>Name</Table.Th>
+              <Table.Th>Type(s)</Table.Th>
+              <Table.Th>Default</Table.Th>
+              <Table.Th textAlign="center">Required</Table.Th>
+            </Table.Tr>
+          </Table.Thead>
+          <Table.Tbody>
+            {keys.map(key => {
+              const item = props[key]
 
-            return (
-              <Table.Tr key={key}>
-                <Table.Td color="primary.500" width="20%">
-                  {key}
-                </Table.Td>
-                <Table.Td width="50%">
-                  <Box>
-                    <Type type={item.type} />
-                    {item.description && (
-                      <Box as="p" color="nude.600" fontSize="body3" m={0} mt="xs">
-                        {item.description[0].props.children}
-                      </Box>
+              return (
+                <Table.Tr key={key}>
+                  <Table.Td color="primary.500" width="20%">
+                    {key}
+                  </Table.Td>
+                  <Table.Td width="50%">
+                    <Box>
+                      <Type type={item.type} />
+                      {item.description && (
+                        <Box as="p" color="nude.600" fontSize="body3" m={0} mt="xs">
+                          {item.description[0].props.children}
+                        </Box>
+                      )}
+                    </Box>
+                  </Table.Td>
+                  <Table.Td width="15%">
+                    {item.defaultValue && <Tag>{removeQuote(item.defaultValue.value)}</Tag>}
+                  </Table.Td>
+                  <Table.Td textAlign="center" width="15%">
+                    {item.required && (
+                      <Tooltip content="is required">
+                        <Box display="inline">
+                          <CheckIcon color="primary.500" />
+                        </Box>
+                      </Tooltip>
                     )}
-                  </Box>
-                </Table.Td>
-                <Table.Td width="15%">
-                  {item.defaultValue && <Tag>{removeQuote(item.defaultValue.value)}</Tag>}
-                </Table.Td>
-                <Table.Td width="15%">
-                  {item.required && (
-                    <Tooltip content="is required">
-                      <Box display="inline">
-                        <CheckIcon color="primary.500" />
-                      </Box>
-                    </Tooltip>
-                  )}
-                </Table.Td>
-              </Table.Tr>
-            )
-          })}
-        </Table.Tbody>
-      </Table>
-    </Box>
+                  </Table.Td>
+                </Table.Tr>
+              )
+            })}
+          </Table.Tbody>
+        </Table>
+      </Card.Body>
+    </Card>
   )
 }
