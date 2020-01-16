@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { ComponentsProvider, theme, useMenus } from 'docz'
 import { ThemeProvider } from '@xstyled/styled-components'
 import { Helmet } from 'react-helmet'
