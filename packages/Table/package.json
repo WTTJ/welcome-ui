@@ -1,7 +1,7 @@
 {
   "name": "@welcome-ui/table",
   "version": "1.4.0",
-  "description": "Customizable design system with react • styled-components • styled-system and reakit.",
+  "description": "Welcome UI - Table | Repaint html for table tr td... etc with a scrollable table",
   "main": "dist/table.cjs.js",
   "module": "dist/table.es.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "url": "git+https://github.com/WTTJ/welcome-ui.git"
   },
   "keywords": [
+    "table",
     "design-system",
     "react",
     "reakit",
@@ -32,7 +33,7 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "homepage": "https://github.com/WTTJ/welcome-ui#readme",
+  "homepage": "http://welcome-ui.com/components/table",
   "dependencies": {
     "@welcome-ui/box": "^1.2.0",
     "@welcome-ui/system": "^1.1.4"

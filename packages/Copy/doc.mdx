@@ -25,7 +25,7 @@ Copy the window location.
 
 <Playground>
   {() => {
-    const [copy, copied] = useCopyText(window.location)
+    const [copy, copied] = useCopyText(typeof window !== 'undefined' && window.location)
     return (
       <Button onClick={copy}>
         {copied ? (
