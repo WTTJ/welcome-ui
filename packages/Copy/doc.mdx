@@ -1,0 +1,76 @@
+---
+name: useCopyText
+route: /utilities/copy
+menu: Utilities
+---
+
+import { Playground, Link as LinkDocz, Props } from 'docz'
+import { useCopyText } from './'
+import { Code, Dependencies, TagVersion } from '../../docz'
+const { dependencies, peerDependencies, name, version } = require('./package.json')
+
+# useCopyText
+
+A simple hook to copy on your clipboard with copyToClipboard library.
+
+<TagVersion version={version} name={name} />
+
+## Import
+
+<Code>{`import { useCopyText } from '@welcome-ui/utils-copy'`}</Code>
+
+## Example
+
+Copy the window location.
+
+<Playground>
+  {() => {
+    const [copy, copied] = useCopyText(window.location)
+    return (
+      <Button onClick={() => copy()}>
+        {copied ? (
+          <>
+            <CheckIcon />
+            <span>Copied!</span>
+          </>
+        ) : (
+          <>
+            <LinkIcon />
+            <span>Copy link</span>
+          </>
+        )}
+      </Button>
+    )
+  }}
+</Playground>
+
+## Remove timeout
+
+Add a second parameter to remove the copied element.
+
+<Playground>
+  {() => {
+    const [copy, copied] = useCopyText('<Button>Copied source</Button>', 2000)
+    return (
+      <>
+        <Button variant="primary-warning" onClick={() => copy()}>
+          <SourceIcon />
+          <span>Copy</span>
+        </Button>
+        {copied && (
+          <Box mt="sm">
+            <CheckIcon color="success.500" /> Copied!
+          </Box>
+        )}
+      </>
+    )
+  }}
+</Playground>
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

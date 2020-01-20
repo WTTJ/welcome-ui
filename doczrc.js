@@ -3,7 +3,7 @@ export default {
   description: 'Design system of @wttj with react, styled-components and styled-system',
   dest: '/docs',
   src: 'packages',
-  menu: ['Introduction', 'Getting Started', 'Theming', 'Components', 'Fields'],
+  menu: ['Introduction', 'Getting Started', 'Theming', 'Components', 'Fields', 'Utilities'],
   files: '**/*.{mdx}',
   port: 3020,
   // https://github.com/pedronauck/docz/issues/777#issuecomment-489947783
