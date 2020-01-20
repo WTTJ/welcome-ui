@@ -15,9 +15,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { RadioGroup } from '@welcome-ui/radio-group'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/radio-group ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { RadioGroup } from '@welcome-ui/radio-group'
+`}</Code>
 
 ## Example
 

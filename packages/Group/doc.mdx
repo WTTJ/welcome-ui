@@ -15,9 +15,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 Children grouped without space or radius.
 
-## Import
+## Install and import
 
-<Code>{`import { Group } from '@welcome-ui/group'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/group ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Group } from '@welcome-ui/group'
+`}</Code>
 
 ## Example
 

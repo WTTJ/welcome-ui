@@ -16,9 +16,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 This allows you to search data from a remote API. It is based on the [downshift](https://github.com/downshift-js/downshift) library.
 
-## Import
+## Install and import
 
-<Code>{`import { Search } from '@welcome-ui/search'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/search ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Search } from '@welcome-ui/search'
+`}</Code>
 
 ## Default
 

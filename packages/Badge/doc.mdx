@@ -21,9 +21,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
   component with small size.
 </div>
 
-## Import
+## Install and import
 
-<Code>{`import { Badge } from '@welcome-ui/badge'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/alert ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Badge } from '@welcome-ui/badge'
+`}</Code>
 
 ## Examples
 

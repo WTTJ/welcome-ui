@@ -13,9 +13,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { Tooltip } from '@welcome-ui/tooltip'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/tooltip ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Tooltip } from '@welcome-ui/tooltip'
+`}</Code>
 
 ## Example
 

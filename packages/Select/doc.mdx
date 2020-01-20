@@ -16,9 +16,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 It is based on the [downshift](https://github.com/downshift-js/downshift) library.
 
-## Import
+## Install and import
 
-<Code>{`import { Select } from '@welcome-ui/select'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/select ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Select } from '@welcome-ui/select'
+`}</Code>
 
 ## Default
 

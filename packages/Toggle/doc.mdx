@@ -14,9 +14,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { Toggle } from '@welcome-ui/toggle'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/toggle ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Toggle } from '@welcome-ui/toggle'
+`}</Code>
 
 ## Example
 

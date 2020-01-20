@@ -13,9 +13,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { FileDrop } from '@welcome-ui/file-drop'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/file-drop ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { FileDrop } from '@welcome-ui/file-drop'
+`}</Code>
 
 FileDrop uses render props to give you more flexibility on what to render at each state change:
 

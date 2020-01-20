@@ -18,9 +18,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 Built with [Reakit](https://reakit.io/docs/button/) for a better accessibility 🥰
 
-## Import
+## Install and import
 
-<Code>{`import { Button } from '@welcome-ui/button'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/button ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Button } from '@welcome-ui/button'
+`}</Code>
 
 ## Variants
 

@@ -14,9 +14,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 Use properties from [xstyled](https://xstyled.dev/docs/style-props/).
 
-## Import
+## Install and import
 
-<Code>{`import { Box } from '@welcome-ui/box'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/box ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Box } from '@welcome-ui/box'
+`}</Code>
 
 ## Example
 

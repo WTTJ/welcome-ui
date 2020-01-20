@@ -15,9 +15,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { Label } from '@welcome-ui/label'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/label ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Label } from '@welcome-ui/label'
+`}</Code>
 
 ## Default
 

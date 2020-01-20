@@ -15,9 +15,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 Said state information, use on Field.
 
-## Import
+## Install and import
 
-<Code>{`import { Hint } from '@welcome-ui/hint'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/hint ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Hint } from '@welcome-ui/hint'
+`}</Code>
 
 ## Variants
 

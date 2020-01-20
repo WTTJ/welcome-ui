@@ -15,9 +15,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 The `Text` component allows you to remain consistent with your text sizing and line-height. To add additional padding/margins use the `space` values from [xstyled](https://xstyled.dev/docs/style-props/).
 
-## Import
+## Install and import
 
-<Code>{`import { Text } from '@welcome-ui/text'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/text ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Text } from '@welcome-ui/text'
+`}</Code>
 
 ## Typography
 

@@ -13,9 +13,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { FileUpload } from '@welcome-ui/file-upload'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/file-upload ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { FileUpload } from '@welcome-ui/file-upload'
+`}</Code>
 
 FileUpload uses render props so you can pass a button through. You have access to `openFile` to open the native file chooser dialog box.
 

@@ -15,9 +15,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 Simple Box with specific style.
 
-## Import
+## Install and import
 
-<Code>{`import { Card } from '@welcome-ui/card'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/card ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Card } from '@welcome-ui/card'
+`}</Code>
 
 ## Basic
 

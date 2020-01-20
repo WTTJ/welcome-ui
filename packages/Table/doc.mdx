@@ -15,9 +15,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 Repaint html for `table` `tr` `td`... etc with a scrollable table 🎓
 
-## Import
+## Install and import
 
-<Code>{`import { Table } from '@welcome-ui/table'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/table ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Table } from '@welcome-ui/table'
+`}</Code>
 
 ## Example
 

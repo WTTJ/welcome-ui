@@ -14,9 +14,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { Checkbox } from '@welcome-ui/checkbox'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/checkbox ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Checkbox } from '@welcome-ui/checkbox'
+`}</Code>
 
 ## Example
 

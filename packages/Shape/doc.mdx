@@ -15,9 +15,13 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 Overflow child with hidden child.
 
-## Import
+## Install and import
 
-<Code>{`import { Shape } from '@welcome-ui/shape'`}</Code>
+<Code language="bash">{`
+  yarn add @welcome-ui/shape ${Object.keys(peerDependencies).join(' ')}
+  …
+  import { Shape } from '@welcome-ui/shape'
+`}</Code>
 
 ## Default
 
