@@ -44,12 +44,10 @@ export const Tbody = styled.tbody`
 `
 
 export const Tr = styled.tr(
-  ({ variant }) => css`
+  ({ onClick, variant }) => css`
     ${th('tables.tr.default')};
-    ${variant &&
-      css`
-        ${th(`tables.tr.${variant}`)};
-      `}
+    ${variant && th(`tables.tr.${variant}`)};
+    ${onClick && th(`tables.tr.clickable`)};
 
     ${system}
   `
