@@ -5,7 +5,7 @@ export const exampleHome = `
   import React from 'react'
   import { ThemeProvider } from '@xstyled/styled-components'
   import { createTheme, GlobalStyle } from '@welcome-ui/core'
-  import { Button } from 'welcome-ui/button'
+  import { Button } from '@welcome-ui/button'
 
   const options = {
     defaultFontFamily: 'Helvetica',
