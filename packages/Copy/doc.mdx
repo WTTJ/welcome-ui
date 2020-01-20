@@ -27,7 +27,7 @@ Copy the window location.
   {() => {
     const [copy, copied] = useCopyText(window.location)
     return (
-      <Button onClick={() => copy()}>
+      <Button onClick={copy}>
         {copied ? (
           <>
             <CheckIcon />
@@ -53,7 +53,7 @@ Add a second parameter to remove the copied element.
     const [copy, copied] = useCopyText('<Button>Copied source</Button>', 2000)
     return (
       <>
-        <Button variant="primary-warning" onClick={() => copy()}>
+        <Button variant="primary-warning" onClick={copy}>
           <SourceIcon />
           <span>Copy</span>
         </Button>
