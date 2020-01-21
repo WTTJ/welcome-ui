@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp */
-import React, { cloneElement, useLayoutEffect, useState } from 'react'
+import React, { cloneElement, useLayoutEffect, useRef, useState } from 'react'
 import { any, node, oneOfType, shape, string } from 'prop-types'
 import { Tab as ReakitTab, TabList as ReakitTabList, TabPanel as ReakitTabPanel } from 'reakit/Tab'
 import flattenChildren from 'react-flatten-children'
@@ -52,7 +52,7 @@ ActiveBar.propTypes /* remove-proptypes */ = {
 }
 
 export const TabList = React.forwardRef(({ as, children, ...props }, ref) => {
-  const listRef = React.useRef()
+  const listRef = useRef()
   const listForkedRef = useForkRef(ref, listRef)
   const [tabs, activeTab] = useTrackActiveTabs(props, children)
 

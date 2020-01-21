@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
-import React from 'react'
+import React, { useRef } from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 
 import { getTheme } from './CodeTheme'
@@ -10,7 +10,7 @@ import { Box } from '../packages/Box'
 import { Button } from '../packages/Button'
 
 export const Code = ({ children, language = 'jsx', isCopyable }) => {
-  const copyRef = React.useRef()
+  const copyRef = useRef()
   const [copy, copied] = useCopyText(copyRef, 5000)
 
   return (
