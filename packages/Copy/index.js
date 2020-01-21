@@ -1,22 +1,19 @@
 import React from 'react'
 import copyToClipboard from 'copy-to-clipboard'
 
-export function useCopyText(text, timeout) {
-  const copyableString = React.useRef(text)
-  const [copied, setCopied] = React.useState(false)
+export function useCopyText(copyRef, timeout) {
+  const [copied, setCopied] = React.useState()
+
   const copy = React.useCallback(() => {
-    const copiedString = copyToClipboard(copyableString.current)
+    const value =
+      copyRef && copyRef.current && (copyRef.current.textContent || copyRef.current.value)
+    const copiedString = copyToClipboard(value)
     setCopied(copiedString)
 
-    // add a timeout to remove copied
     if (timeout) {
-      setTimeout(() => setCopied(), timeout)
+      setTimeout(setCopied, timeout)
     }
-  }, [copyableString, timeout])
+  }, [copyRef, timeout])
 
-  React.useEffect(() => {
-    copyableString.current = text
-  }, [text])
-
-  return [copy, copied, setCopied]
+  return [copy, copied]
 }
