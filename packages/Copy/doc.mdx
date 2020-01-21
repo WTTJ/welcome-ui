@@ -13,23 +13,25 @@ const { dependencies, peerDependencies, component, name, version } = require('./
 
 <TagVersion version={version} name={name} />
 
-A simple hook to copy on your clipboard with copyToClipboard library.
+A simple hook to copy text from a given HTML element to your clipboard with [https://github.com/sudodoki/copy-to-clipboard](copy-to-clipboard) library.
 
 ## Install and import
 
 <Usage component={component} name={name} peerDependencies={peerDependencies} />
 
-## Example
+## Copy the content of an element
 
-Copy the window location.
+Copy the content from another HTML element by creating a `ref` and passing it to `useCopyText`.
+
+You can pass a `timeout` value (in milliseconds) to "reset" the `copied` value.
 
 <Playground>
   {() => {
     const copyRef = React.useRef()
-    const [copy, copied] = useCopyText(copyRef)
+    const [copy, copied] = useCopyText(copyRef, 2000)
     return (
       <>
-        <div ref={copyRef}>Fishcakes!</div>
+        <div ref={copyRef}>This text will be copied</div>
         <Button onClick={copy}>
           {copied ? (
             <>
@@ -39,7 +41,7 @@ Copy the window location.
           ) : (
             <>
               <LinkIcon />
-              <span>Copy link</span>
+              <span>Copy text</span>
             </>
           )}
         </Button>
@@ -48,24 +50,29 @@ Copy the window location.
   }}
 </Playground>
 
-## Remove timeout
+## Copy a string
 
-Add a second parameter to remove the copied element.
+You can also copy a simple string
 
 <Playground>
   {() => {
-    const [copy, copied] = useCopyText('<Button>Copied source</Button>', 2000)
+    const url = typeof window !== 'undefined' && window.location.href
+    const [copy, copied] = useCopyText(url, 2000)
     return (
       <>
-        <Button variant="primary-warning" onClick={copy}>
-          <SourceIcon />
-          <span>Copy</span>
+        <Button onClick={copy} variant={copied ? 'tertiary' : 'secondary'}>
+          {copied ? (
+            <>
+              <CheckIcon />
+              <span>Copied!</span>
+            </>
+          ) : (
+            <>
+              <LinkIcon />
+              <span>Copy URL</span>
+            </>
+          )}
         </Button>
-        {copied && (
-          <Box mt="sm">
-            <CheckIcon color="success.500" /> Copied!
-          </Box>
-        )}
       </>
     )
   }}
