@@ -5,21 +5,24 @@ menu: Components
 ---
 
 import { Props, Playground } from 'docz'
-import { Code, IconsList, TagVersion } from '../../docz'
+import { Code, Dependencies, IconsList, TagVersion } from '../../docz'
 import { TwitterIcon } from '../../icons/Twitter'
 import { Icon } from './index'
-const { dependencies, peerDependencies, component, name, version } = require('./package.json')
+const { dependencies, peerDependencies, name, version } = require('./package.json')
 
 # Icon
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import individual icons
 
-<Code>{`
-  import { AvatarIcon, PlayIcon } from '@welcome-ui/icons'
-  --OR--
-  import * as Icons from '@welcome-ui/icons'`}</Code>
+<Code language="bash" isCopyable>{`yarn add @welcome-ui/icons.avatar ${Object.keys(peerDependencies).join(' ')}`}</Code>
+<Code language="bash" isCopyable>{`import { AvatarIcon } from '@welcome-ui/icons.avatar'`}</Code>
+
+## Or… install and import all icons
+
+<Code language="bash" isCopyable>{`yarn add @welcome-ui/icons ${Object.keys(peerDependencies).join(' ')}`}</Code>
+<Code language="bash" isCopyable>{`import * as Icons from '@welcome-ui/icons'`}</Code>
 
 ## Size
 
@@ -44,6 +47,8 @@ Icons inherit the colour from their parent
 </Playground>
 
 ## Available icons
+
+**Note**: You can click on an icon to copy its name.
 
 ### Products
 

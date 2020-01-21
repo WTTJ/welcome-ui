@@ -14,7 +14,7 @@ export function Table({ children, indent, ...rest }) {
   )
 }
 
-Table.propTypes = {
+Table.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   /** Add space on first and last child on the Td and Th component */
   indent: bool
