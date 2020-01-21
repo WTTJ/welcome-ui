@@ -174,8 +174,8 @@ FileDrop.type = 'FileDrop'
 FileDrop.displayName = 'FileDrop'
 
 FileDrop.propTypes /* remove-proptypes */ = {
-  /** Can accept a string ie `'image/png,image/jpeg'` or an array `['image/jpg', 'image/jpeg', 'image/png']` */
-  accept: oneOfType([string, array]),
+  /** Can accept a string ie "image/png" or a string of strings ie "image/png,image/jpeg"  */
+  accept: string,
   children: func,
   disabled: bool,
   isClearable: bool,
