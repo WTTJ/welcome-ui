@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import { array, bool, func, node, number, oneOfType, string } from 'prop-types'
+import { bool, func, node, number, oneOfType, string } from 'prop-types'
 import { useDropzone } from 'react-dropzone'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { PencilIcon } from '@welcome-ui/icons.pencil'
@@ -150,7 +150,8 @@ export const FileDrop = forwardRef(
             isHoverReject: isDragReject,
             openFile: open,
             inputRef,
-            rootRef
+            rootRef,
+            disabled
           })}
           <S.Actions>
             {(!!file || error) && isEditable && (
