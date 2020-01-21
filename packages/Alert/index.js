@@ -23,4 +23,6 @@ AlertTitle.propTypes /* remove-proptypes */ = {
   children: node.isRequired
 }
 
+Alert.Title = AlertTitle
+
 export { Alert, AlertTitle }

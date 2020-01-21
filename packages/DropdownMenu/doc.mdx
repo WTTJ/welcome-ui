@@ -6,7 +6,7 @@ menu: Components
 
 import { Props, Link, Playground } from 'docz'
 import { DropdownMenu, useDropdownMenuState } from './index'
-import { TagVersion } from '../../docz'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
 const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # DropdownMenu
@@ -14,6 +14,10 @@ const { dependencies, peerDependencies, component, name, version } = require('./
 <TagVersion version={version} name={name} />
 
 Menu from [Reakit](https://reakit.io/docs/menu/) with a really nice theme 👀
+
+## Install and import
+
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Example
 

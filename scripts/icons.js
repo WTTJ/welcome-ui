@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const util = require('util')
+
 const toPascalCase = require('../src/utils/toPascalCase').toPascalCase
 
 fs.readFileAsync = util.promisify(fs.readFile)

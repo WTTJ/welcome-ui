@@ -1,6 +1,4 @@
-import React, { useCallback, useState } from 'react'
-import get from 'lodash.get'
-import { elementType, number, oneOfType, shape, string } from 'prop-types'
+import { useCallback, useState } from 'react'
 import copyToClipboard from 'copy-to-clipboard'
 
 export function useCopyText(content, timeout) {
