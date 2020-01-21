@@ -5,6 +5,7 @@ import styled, { css } from '@xstyled/styled-components'
 
 import { Box } from '../packages/Box/index'
 import { useCopyText } from '../packages/Copy'
+import { toPascalCase } from '../src/utils/toPascalCase'
 
 const Content = styled(Box)`
   background-color: light.500;
@@ -44,8 +45,8 @@ const Item = styled(Box)(
   `
 )
 
-function IconItem({ icon, name, nameComponent }) {
-  const [copy, copied] = useCopyText(nameComponent, 500)
+function IconItem({ icon, name, componentName }) {
+  const [copy, copied] = useCopyText(componentName, 500)
 
   return (
     <Item copied={copied} onClick={() => copy()}>
@@ -71,13 +72,13 @@ export function IconsList(icons) {
   return (
     <Box display="flex" flexWrap="wrap">
       {icons.map(key => {
-        const name = key[0].toUpperCase() + key.slice(1)
-        const nameComponent = `${name}Icon`
+        const name = toPascalCase(key)
+        const componentName = `${name}Icon`
 
         // Require the correct icon
-        const { [nameComponent]: Icon } = require(`../icons/${name}`)
+        const { [componentName]: Icon } = require(`../icons/${name}`)
         return (
-          <IconItem icon={<Icon size="xl" />} key={key} name={name} nameComponent={nameComponent} />
+          <IconItem icon={<Icon size="xl" />} key={key} name={name} componentName={componentName} />
         )
       })}
     </Box>
