@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/WTTJ/welcome-ui/compare/v1.5.2...v1.5.3) (2020-01-21)
+
+
+### Bug Fixes
+
+* disabled FileDrop button ([#498](https://github.com/WTTJ/welcome-ui/issues/498)) ([f040c8b](https://github.com/WTTJ/welcome-ui/commit/f040c8b150b214dc9665ab4b19b86172d6fe1eb2))
+
+
+
+
+
 ## [1.5.2](https://github.com/WTTJ/welcome-ui/compare/v1.5.1...v1.5.2) (2020-01-21)
 
 **Note:** Version bump only for package @welcome-ui/file-drop
