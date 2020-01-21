@@ -119,7 +119,7 @@ FileUpload.type = 'FileUpload'
 FileUpload.displayName = 'FileUpload'
 
 FileUpload.propTypes /* remove-proptypes */ = {
-  /** Can accept a string ie "image/png" or a string of strings ie "image/png,image/jpeg"  */
+  /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg"  */
   accept: string,
   children: func,
   disabled: bool,
