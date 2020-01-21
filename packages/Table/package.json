@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/table",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Welcome UI - Table | Repaint html for table tr td... etc with a scrollable table",
   "main": "dist/table.cjs.js",
   "module": "dist/table.es.js",
@@ -35,8 +35,8 @@
   },
   "homepage": "http://welcome-ui.com/components/table",
   "dependencies": {
-    "@welcome-ui/box": "^1.2.0",
-    "@welcome-ui/system": "^1.1.4"
+    "@welcome-ui/box": "^1.5.2",
+    "@welcome-ui/system": "^1.5.2"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.15.0",

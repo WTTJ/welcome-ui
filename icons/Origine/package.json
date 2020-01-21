@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.origine.cjs.js",
   "module": "dist/icons.origine.es.js",
-  "version": "1.1.4",
+  "version": "1.5.2",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,6 +13,6 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.1.4"
+    "@welcome-ui/icon": "^1.5.2"
   }
 }
