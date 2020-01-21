@@ -9,8 +9,6 @@ import { COMPONENT_TYPE } from '../../src/utils/propTypes'
 
 import * as S from './styles'
 
-export { useTabState } from 'reakit/Tab'
-
 function useTrackActiveTabs(state, children) {
   const [activeTab, setActiveTab] = useState(null)
   const tabs = flattenChildren(children).map(child => {
@@ -75,6 +73,24 @@ TabList.propTypes /* remove-proptypes */ = {
   children: node
 }
 
+export const TabPanel = React.forwardRef(({ as, children, stopId, ...props }, ref) => {
+  return (
+    <ReakitTabPanel ref={ref} stopId={stopId} {...props}>
+      {tabPanelProps => (
+        <S.TabPanel as={as} {...tabPanelProps}>
+          {children}
+        </S.TabPanel>
+      )}
+    </ReakitTabPanel>
+  )
+})
+TabPanel.displayName = 'TabPanel'
+TabPanel.propTypes /* remove-proptypes */ = {
+  as: oneOfType(COMPONENT_TYPE),
+  children: node,
+  stopId: string.isRequired
+}
+
 export const Tab = React.forwardRef(({ as, children, stopId, ...props }, ref) => {
   return (
     <ReakitTab ref={ref} stopId={stopId} {...props}>
@@ -93,20 +109,7 @@ Tab.propTypes /* remove-proptypes */ = {
   stopId: string.isRequired
 }
 
-export const TabPanel = React.forwardRef(({ as, children, stopId, ...props }, ref) => {
-  return (
-    <ReakitTabPanel ref={ref} stopId={stopId} {...props}>
-      {tabPanelProps => (
-        <S.TabPanel as={as} {...tabPanelProps}>
-          {children}
-        </S.TabPanel>
-      )}
-    </ReakitTabPanel>
-  )
-})
-TabPanel.displayName = 'TabPanel'
-TabPanel.propTypes /* remove-proptypes */ = {
-  as: oneOfType(COMPONENT_TYPE),
-  children: node,
-  stopId: string.isRequired
-}
+Tab.List = TabList
+Tab.Panel = TabPanel
+
+export { useTabState } from 'reakit/Tab'

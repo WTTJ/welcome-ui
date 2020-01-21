@@ -7,6 +7,7 @@ export const exampleHome = `
   import { createTheme, GlobalStyle } from '@welcome-ui/core'
   import { Button } from '@welcome-ui/button'
 
+  // Add theme options (if you want)
   const options = {
     defaultFontFamily: 'Helvetica',
     headingFontFamily: 'Georgia',

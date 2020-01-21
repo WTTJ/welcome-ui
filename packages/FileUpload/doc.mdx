@@ -6,8 +6,8 @@ menu: Fields
 
 import { Props, Playground } from 'docz'
 import { FileUpload } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # FileUpload
 
@@ -15,11 +15,7 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 ## Install and import
 
-<Code language="bash">{`
-  yarn add @welcome-ui/file-upload ${Object.keys(peerDependencies).join(' ')}
-  …
-  import { FileUpload } from '@welcome-ui/file-upload'
-`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 FileUpload uses render props so you can pass a button through. You have access to `openFile` to open the native file chooser dialog box.
 

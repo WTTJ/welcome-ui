@@ -6,8 +6,8 @@ menu: Components
 
 import { Playground, Props } from 'docz'
 import { Shape } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Shape
 
@@ -17,11 +17,7 @@ Overflow child with hidden child.
 
 ## Install and import
 
-<Code language="bash">{`
-  yarn add @welcome-ui/shape ${Object.keys(peerDependencies).join(' ')}
-  …
-  import { Shape } from '@welcome-ui/shape'
-`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Default
 

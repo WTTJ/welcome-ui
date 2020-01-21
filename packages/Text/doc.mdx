@@ -6,8 +6,8 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Text } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Text
 
@@ -17,11 +17,7 @@ The `Text` component allows you to remain consistent with your text sizing and l
 
 ## Install and import
 
-<Code language="bash">{`
-  yarn add @welcome-ui/text ${Object.keys(peerDependencies).join(' ')}
-  …
-  import { Text } from '@welcome-ui/text'
-`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Typography
 

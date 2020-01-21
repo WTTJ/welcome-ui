@@ -5,9 +5,9 @@ menu: Components
 ---
 
 import { Link, Playground, Props } from 'docz'
-import { Code, Dependencies, TagVersion } from '../../docz'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
 import { Alert, AlertTitle } from './index'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Alert
 
@@ -17,11 +17,7 @@ Simple feedback messages for user actions.
 
 ## Install and import
 
-<Code language="bash">{`
-  yarn add @welcome-ui/alert ${Object.keys(peerDependencies).join(' ')}
-  …
-  import { Alert } from '@welcome-ui/alert'
-`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Variants
 

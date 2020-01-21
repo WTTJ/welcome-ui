@@ -6,8 +6,8 @@ menu: Fields
 
 import { Props, Playground } from 'docz'
 import { MarkdownEditor } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # MarkdownEditor
 
@@ -22,11 +22,7 @@ We use [react-simplemde-editor](https://github.com/RIP21/react-simplemde-editor)
 
 ## Install and import
 
-<Code language="bash">{`
-  yarn add @welcome-ui/markdown-editor ${Object.keys(peerDependencies).join(' ')}
-  …
-  import { MarkdownEditor } from '@welcome-ui/markdown-editor'
-`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Example
 

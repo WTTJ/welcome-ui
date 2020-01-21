@@ -5,9 +5,9 @@ menu: Components
 ---
 
 import { Props, Playground } from 'docz'
-import { TabList, Tab, TabPanel } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Tab, useTabState } from './index'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Tabs
 
@@ -17,9 +17,9 @@ Tabs make it easy to explore and switch between different views.
 
 See [Reakit](https://reakit.io/docs/tab/) for documentation.
 
-## Import
+## Install and import
 
-<Code>{`import { Tab, TabList, TabPanel } from '@welcome-ui/tabs'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Default
 
@@ -30,7 +30,7 @@ Set the tab activated by default using `selectedId` on `useTabState`.
     const tab = useTabState({ selectedId: 'tab1' })
     return (
       <>
-        <TabList aria-label="Tabs" {...tab}>
+        <Tab.List aria-label="Tabs" {...tab}>
           <Tab {...tab} stopId="tab1">
             Tab 1
           </Tab>
@@ -46,22 +46,22 @@ Set the tab activated by default using `selectedId` on `useTabState`.
           <Tab {...tab} disabled stopId="tab5">
             Tab 5
           </Tab>
-        </TabList>
-        <TabPanel {...tab} stopId="tab1">
-          TabPanel 1
-        </TabPanel>
-        <TabPanel {...tab} stopId="tab2">
-          TabPanel 2
-        </TabPanel>
-        <TabPanel {...tab} stopId="tab3">
-          TabPanel 3
-        </TabPanel>
-        <TabPanel {...tab} stopId="tab4">
-          TabPanel 4
-        </TabPanel>
-        <TabPanel {...tab} disabled stopId="tab5">
-          TabPanel 5
-        </TabPanel>
+        </Tab.List>
+        <Tab.Panel {...tab} stopId="tab1">
+          Tab.Panel 1
+        </Tab.Panel>
+        <Tab.Panel {...tab} stopId="tab2">
+          Tab.Panel 2
+        </Tab.Panel>
+        <Tab.Panel {...tab} stopId="tab3">
+          Tab.Panel 3
+        </Tab.Panel>
+        <Tab.Panel {...tab} stopId="tab4">
+          Tab.Panel 4
+        </Tab.Panel>
+        <Tab.Panel {...tab} disabled stopId="tab5">
+          Tab.Panel 5
+        </Tab.Panel>
       </>
     )
   }}
@@ -77,7 +77,7 @@ Add badges in tab.
     const getVariant = item => (tab.selectedId === item ? 'primary' : 'default')
     return (
       <>
-        <TabList aria-label="Tabs" {...tab}>
+        <Tab.List aria-label="Tabs" {...tab}>
           <Tab {...tab} stopId="tab1">
             Tab 1
             <Badge ml="xs" variant={getVariant('tab1')}>
@@ -93,16 +93,16 @@ Add badges in tab.
           <Tab {...tab} stopId="tab3">
             Tab 3
           </Tab>
-        </TabList>
-        <TabPanel {...tab} stopId="tab1">
-          TabPanel 1
-        </TabPanel>
-        <TabPanel {...tab} stopId="tab2">
-          TabPanel 2
-        </TabPanel>
-        <TabPanel {...tab} stopId="tab3">
-          TabPanel 3
-        </TabPanel>
+        </Tab.List>
+        <Tab.Panel {...tab} stopId="tab1">
+          Tab.Panel 1
+        </Tab.Panel>
+        <Tab.Panel {...tab} stopId="tab2">
+          Tab.Panel 2
+        </Tab.Panel>
+        <Tab.Panel {...tab} stopId="tab3">
+          Tab.Panel 3
+        </Tab.Panel>
       </>
     )
   }}
@@ -117,7 +117,7 @@ Use another component in tab.
     const tab = useTabState({ selectedId: 'tab1' })
     return (
       <>
-        <TabList aria-label="Tabs" {...tab}>
+        <Tab.List aria-label="Tabs" {...tab}>
           <Tab {...tab} as="a" stopId="tab1">
             Tab 1
           </Tab>
@@ -127,16 +127,16 @@ Use another component in tab.
           <Tab {...tab} as="a" stopId="tab3">
             Tab 3
           </Tab>
-        </TabList>
-        <TabPanel {...tab} stopId="tab1">
-          TabPanel 1
-        </TabPanel>
-        <TabPanel {...tab} stopId="tab2">
-          TabPanel 2
-        </TabPanel>
-        <TabPanel {...tab} stopId="tab3">
-          TabPanel 3
-        </TabPanel>
+        </Tab.List>
+        <Tab.Panel {...tab} stopId="tab1">
+          Tab.Panel 1
+        </Tab.Panel>
+        <Tab.Panel {...tab} stopId="tab2">
+          Tab.Panel 2
+        </Tab.Panel>
+        <Tab.Panel {...tab} stopId="tab3">
+          Tab.Panel 3
+        </Tab.Panel>
       </>
     )
   }}
@@ -151,14 +151,14 @@ Active bar doesn't display with only one tab.
     const tab = useTabState({ selectedId: 'tab1' })
     return (
       <>
-        <TabList aria-label="Tabs" {...tab}>
+        <Tab.List aria-label="Tabs" {...tab}>
           <Tab {...tab} stopId="tab1">
             Tab 1
           </Tab>
-        </TabList>
-        <TabPanel {...tab} stopId="tab1">
-          TabPanel 1
-        </TabPanel>
+        </Tab.List>
+        <Tab.Panel {...tab} stopId="tab1">
+          Tab.Panel 1
+        </Tab.Panel>
       </>
     )
   }}
@@ -166,17 +166,17 @@ Active bar doesn't display with only one tab.
 
 ## Properties
 
-### TabList
-
-<Props of={TabList} />
-
 ### Tab
 
 <Props of={Tab} />
 
-### TabPanel
+### Tab.List
 
-<Props of={TabPanel} />
+<Props of={Tab.List} />
+
+### Tab.Panel
+
+<Props of={Tab.Panel} />
 
 ## Dependencies
 

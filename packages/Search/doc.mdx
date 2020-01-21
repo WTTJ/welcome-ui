@@ -7,8 +7,8 @@ menu: Fields
 import { Playground, Props } from 'docz'
 import { Search } from './index'
 import { Shape } from '../Shape'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Search
 
@@ -18,11 +18,7 @@ This allows you to search data from a remote API. It is based on the [downshift]
 
 ## Install and import
 
-<Code language="bash">{`
-  yarn add @welcome-ui/search ${Object.keys(peerDependencies).join(' ')}
-  …
-  import { Search } from '@welcome-ui/search'
-`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Default
 

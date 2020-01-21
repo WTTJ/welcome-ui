@@ -6,22 +6,18 @@ menu: Utilities
 
 import { Playground, Link as LinkDocz, Props } from 'docz'
 import { useCopyText } from './'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # useCopyText
 
-A simple hook to copy on your clipboard with copyToClipboard library.
-
 <TagVersion version={version} name={name} />
+
+A simple hook to copy on your clipboard with copyToClipboard library.
 
 ## Install and import
 
-<Code language="bash">{`
-  yarn add @welcome-ui/utils.copy ${Object.keys(peerDependencies).join(' ')}
-  …
-  import { useCopyText } from '@welcome-ui/utils.copy'
-`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Example
 
@@ -29,21 +25,25 @@ Copy the window location.
 
 <Playground>
   {() => {
-    const [copy, copied] = useCopyText(typeof window !== 'undefined' && window.location)
+    const copyRef = React.useRef()
+    const [copy, copied] = useCopyText(copyRef)
     return (
-      <Button onClick={copy}>
-        {copied ? (
-          <>
-            <CheckIcon />
-            <span>Copied!</span>
-          </>
-        ) : (
-          <>
-            <LinkIcon />
-            <span>Copy link</span>
-          </>
-        )}
-      </Button>
+      <>
+        <div ref={copyRef}>Fishcakes!</div>
+        <Button onClick={copy}>
+          {copied ? (
+            <>
+              <CheckIcon />
+              <span>Copied!</span>
+            </>
+          ) : (
+            <>
+              <LinkIcon />
+              <span>Copy link</span>
+            </>
+          )}
+        </Button>
+      </>
     )
   }}
 </Playground>

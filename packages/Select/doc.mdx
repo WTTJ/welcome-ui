@@ -7,8 +7,8 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { ITEMS } from '../../scripts/tests'
 import { Select } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Select
 
@@ -18,11 +18,7 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
 
 ## Install and import
 
-<Code language="bash">{`
-  yarn add @welcome-ui/select ${Object.keys(peerDependencies).join(' ')}
-  …
-  import { Select } from '@welcome-ui/select'
-`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Default
 

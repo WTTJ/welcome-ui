@@ -6,8 +6,8 @@ menu: Components
 
 import { Playground, Link as LinkDocz, Props } from 'docz'
 import { Link } from '../Link'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Badge
 
@@ -23,11 +23,7 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 ## Install and import
 
-<Code language="bash">{`
-  yarn add @welcome-ui/badge ${Object.keys(peerDependencies).join(' ')}
-  …
-  import { Badge } from '@welcome-ui/badge'
-`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Examples
 

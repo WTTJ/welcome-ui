@@ -9,8 +9,8 @@ import { ITEMS } from '../../scripts/tests'
 import { RadioGroup } from '../RadioGroup'
 import { Radio } from '../Radio'
 import { RadioTab } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Radio Tab
 
@@ -18,11 +18,7 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 ## Install and import
 
-<Code language="bash">{`
-  yarn add @welcome-ui/radio-tab ${Object.keys(peerDependencies).join(' ')}
-  …
-  import { RadioTab } from '@welcome-ui/radio-tab'
-`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Example
 

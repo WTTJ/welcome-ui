@@ -6,8 +6,8 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Group } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Group
 
@@ -17,11 +17,7 @@ Children grouped without space or radius.
 
 ## Install and import
 
-<Code language="bash">{`
-  yarn add @welcome-ui/group ${Object.keys(peerDependencies).join(' ')}
-  …
-  import { Group } from '@welcome-ui/group'
-`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Example
 

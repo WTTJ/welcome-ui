@@ -6,8 +6,8 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Tooltip } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Tooltip
 
@@ -15,11 +15,7 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 ## Install and import
 
-<Code language="bash">{`
-  yarn add @welcome-ui/tooltip ${Object.keys(peerDependencies).join(' ')}
-  …
-  import { Tooltip } from '@welcome-ui/tooltip'
-`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Example
 
