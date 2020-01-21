@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import { array, bool, func, node, number, oneOfType, string } from 'prop-types'
+import { bool, func, node, number, oneOfType, string } from 'prop-types'
 import { useDropzone } from 'react-dropzone'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { PencilIcon } from '@welcome-ui/icons.pencil'
@@ -150,7 +150,8 @@ export const FileDrop = forwardRef(
             isHoverReject: isDragReject,
             openFile: open,
             inputRef,
-            rootRef
+            rootRef,
+            disabled
           })}
           <S.Actions>
             {(!!file || error) && isEditable && (
@@ -174,8 +175,8 @@ FileDrop.type = 'FileDrop'
 FileDrop.displayName = 'FileDrop'
 
 FileDrop.propTypes /* remove-proptypes */ = {
-  /** Can accept a string ie `'image/png,image/jpeg'` or an array `['image/jpg', 'image/jpeg', 'image/png']` */
-  accept: oneOfType([string, array]),
+  /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg"  */
+  accept: string,
   children: func,
   disabled: bool,
   isClearable: bool,

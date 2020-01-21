@@ -8,7 +8,14 @@ import { Text } from '../Text'
 
 import { FilePreviewImage } from './styles'
 
-export const DefaultContent = ({ error, fileUrl, isHoverAccept, isHoverReject, openFile }) => {
+export const DefaultContent = ({
+  disabled,
+  error,
+  fileUrl,
+  isHoverAccept,
+  isHoverReject,
+  openFile
+}) => {
   if (isHoverAccept) {
     return <PositiveIcon />
   } else if (isHoverReject) {
@@ -18,10 +25,11 @@ export const DefaultContent = ({ error, fileUrl, isHoverAccept, isHoverReject, o
   } else if (fileUrl) {
     return <FilePreviewImage src={fileUrl} />
   }
-  return <Message openFile={openFile} />
+  return <Message disabled={disabled} openFile={openFile} />
 }
 
 DefaultContent.propTypes /* remove-proptypes */ = {
+  disabled: bool,
   error: string,
   fileUrl: string,
   isHoverAccept: bool,
@@ -30,14 +38,14 @@ DefaultContent.propTypes /* remove-proptypes */ = {
 }
 
 // eslint-disable-next-line react/no-multi-comp
-const Message = ({ openFile }) => {
+const Message = ({ disabled, openFile }) => {
   return (
     <>
       <Text m="0" variant="h3">
         Add file
       </Text>
       <Text variant="body1">Drag and drop a file here or…</Text>
-      <Button onClick={openFile} type="button">
+      <Button disabled={disabled} onClick={openFile} type="button">
         Choose file
       </Button>
     </>
@@ -45,5 +53,6 @@ const Message = ({ openFile }) => {
 }
 
 Message.propTypes /* remove-proptypes */ = {
+  disabled: bool,
   openFile: func
 }
