@@ -2,8 +2,6 @@ const path = require('path')
 const fs = require('fs')
 const util = require('util')
 
-const toPascalCase = require('../src/utils/toPascalCase').toPascalCase
-
 fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)
 fs.writeFileAsync = util.promisify(fs.writeFile)
@@ -12,6 +10,11 @@ const rootPath = path.join(__dirname, '..')
 const iconPath = path.join(rootPath, 'packages/Icon')
 const iconsPath = path.join(rootPath, 'icons')
 const inputPath = path.join(iconsPath, '_assets')
+
+const toPascalCase = str => {
+  const camelCase = str.replace(/_(\w)/g, ($, $1) => $1.toUpperCase())
+  return `${camelCase.charAt(0).toUpperCase()}${camelCase.substr(1)}`
+}
 
 const readIconFiles = () => fs.readdirAsync(inputPath)
 
