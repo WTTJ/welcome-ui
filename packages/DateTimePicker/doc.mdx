@@ -7,8 +7,8 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { DateTimePicker } from './index.js'
 import { DatePicker } from '../DatePicker/index.js'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # DateTimePicker
 
@@ -20,9 +20,9 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 
 _Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
 
-## Import
+## Install and import
 
-<Code>{`import { DateTimePicker } from '@welcome-ui/date-time-picker'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Simple use case
 

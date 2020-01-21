@@ -6,8 +6,8 @@ menu: Components
 
 import { Playground, Props } from 'docz'
 import { Shape } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Shape
 
@@ -15,9 +15,9 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 Overflow child with hidden child.
 
-## Import
+## Install and import
 
-<Code>{`import { Shape } from '@welcome-ui/shape'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Default
 

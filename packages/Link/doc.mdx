@@ -5,8 +5,8 @@ menu: Components
 ---
 
 import { Link as LinkDocz, Playground } from 'docz'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Link
 
@@ -16,9 +16,9 @@ A link component who can get `as` property to pass custom linker.
 
 This component is a child from `UniversalLink` component.
 
-## Import
+## Install and import
 
-<Code>{`import { Link } from '@welcome-ui/link'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Variants
 

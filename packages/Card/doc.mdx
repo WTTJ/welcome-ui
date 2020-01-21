@@ -6,8 +6,8 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Card, Cover } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Card
 
@@ -15,20 +15,20 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 Simple Box with specific style.
 
-## Import
+## Install and import
 
-<Code>{`import { Card } from '@welcome-ui/card'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Basic
 
-Add Card with a Card.Body component.
+Add Card with a `Card.Body` component.
 
 <Playground>
   <Card maxWidth={400} lineHeight="2">
     <Card.Body>
       A card doesn't have padding by default. To add padding to a card, you should wrap your content
-      in a <strong>Card.Body</strong> which has default <InlineCode>padding</InlineCode> of{' '}
-      <InlineCode>lg</InlineCode>.
+      in a <strong>Card.Body</strong> which has default <strong>padding</strong> of{' '}
+      <strong>lg</strong>.
     </Card.Body>
   </Card>
 </Playground>

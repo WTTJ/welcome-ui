@@ -9,16 +9,16 @@ import { ITEMS } from '../../scripts/tests'
 import { RadioGroup } from '../RadioGroup'
 import { Radio } from '../Radio'
 import { RadioTab } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Radio Tab
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { RadioTab } from '@welcome-ui/radio-tab'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Example
 

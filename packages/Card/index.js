@@ -8,7 +8,7 @@ export function Card({ children, ...rest }) {
   return <S.Card {...rest}>{children}</S.Card>
 }
 
-Card.propTypes = {
+Card.propTypes /* remove-proptypes */ = {
   children: node.isRequired
 }
 
@@ -20,7 +20,7 @@ export function Cover({ src }) {
   )
 }
 
-Cover.propTypes = {
+Cover.propTypes /* remove-proptypes */ = {
   src: string.isRequired
 }
 

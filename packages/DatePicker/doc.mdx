@@ -8,8 +8,8 @@ import fr from 'date-fns/locale/fr'
 import { Props, Playground } from 'docz'
 import { DatePicker } from './index.js'
 import { DateIcon } from '@welcome-ui/icons.date'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # DatePicker
 
@@ -19,9 +19,9 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 
 _Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
 
-## Import
+## Install and import
 
-<Code>{`import { DatePicker } from '@welcome-ui/date-picker'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Simple use case
 

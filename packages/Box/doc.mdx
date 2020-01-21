@@ -5,8 +5,8 @@ menu: Components
 ---
 
 import { Props, Playground } from 'docz'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Box
 
@@ -14,9 +14,9 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 Use properties from [xstyled](https://xstyled.dev/docs/style-props/).
 
-## Import
+## Install and import
 
-<Code>{`import { Box } from '@welcome-ui/box'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Example
 

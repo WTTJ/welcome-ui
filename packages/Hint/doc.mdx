@@ -6,8 +6,8 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Hint } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Hint
 
@@ -15,9 +15,9 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 Said state information, use on Field.
 
-## Import
+## Install and import
 
-<Code>{`import { Hint } from '@welcome-ui/hint'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Variants
 

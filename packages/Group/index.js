@@ -18,7 +18,7 @@ export const Group = ({ children, dataTestId, disabled, size, variant }) => {
   return <S.Group data-testid={dataTestId}>{setGlobalProps(children)}</S.Group>
 }
 
-Group.propTypes = {
+Group.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   /** Disable all your child components */
   disabled: bool,

@@ -8,16 +8,16 @@ import { Props, Playground } from 'docz'
 import { ITEMS } from '../../scripts/tests'
 import { RadioGroup } from './index'
 import { Radio } from '../Radio'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Radio Group
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { RadioGroup } from '@welcome-ui/radio-group'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Example
 

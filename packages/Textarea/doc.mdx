@@ -6,16 +6,16 @@ menu: Fields
 
 import { Props, Playground } from 'docz'
 import { Textarea } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Textarea
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { Textarea } from '@welcome-ui/textarea'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Example
 

@@ -5,33 +5,33 @@ menu: Components
 ---
 
 import { Props, Playground } from 'docz'
-import { Growl, GrowlTitle } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Growl } from './index'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Growl
 
 <TagVersion version={version} name={name} />
 
-Customize with `<GrowlTitle>`, `<GrowlAction>` or `<GrowlClose>`.
+Customize with `<Growl.Title>`, `<Growl.Action>` or `<Growl.Close>`.
 
-## Import
+## Install and import
 
-<Code>{`import { Growl, GrowlTitle, GrowlAction, GrowlClose } from '@welcome-ui/growl'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Example
 
 <Playground>
   <Growl onClose={() => console.log('close')}>
-    <GrowlTitle>
+    <Growl.Title>
       <MegaphoneIcon /> Lorem ipsum dolor sit amet
-    </GrowlTitle>
+    </Growl.Title>
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
-    <GrowlAction>
+    <Growl.Action>
       <Button size="sm" variant="tertiary">
         Action button
       </Button>
-    </GrowlAction>
+    </Growl.Action>
   </Growl>
 </Playground>
 
@@ -41,37 +41,37 @@ Variant properties `info` (default), `error` or `warning` with automatic color.
 
 <Playground>
   <Growl onClose={() => console.log('close')}>
-    <GrowlTitle variant="error">
+    <Growl.Title variant="error">
       <FlagIcon /> Error growl
-    </GrowlTitle>
+    </Growl.Title>
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
-    <GrowlAction>
+    <Growl.Action>
       <Button size="sm" variant="secondary-danger">
         Action button
       </Button>
-    </GrowlAction>
+    </Growl.Action>
   </Growl>
   <Growl onClose={() => console.log('close')}>
-    <GrowlTitle variant="warning">
+    <Growl.Title variant="warning">
       <ShieldIcon /> Warning growl
-    </GrowlTitle>
+    </Growl.Title>
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
-    <GrowlAction>
+    <Growl.Action>
       <Button size="sm" variant="secondary-warning">
         Action button
       </Button>
-    </GrowlAction>
+    </Growl.Action>
   </Growl>
   <Growl onClose={() => console.log('close')}>
-    <GrowlTitle>
+    <Growl.Title>
       <MegaphoneIcon /> Info growl (default)
-    </GrowlTitle>
+    </Growl.Title>
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
-    <GrowlAction>
+    <Growl.Action>
       <Button size="sm" variant="secondary">
         Action button
       </Button>
-    </GrowlAction>
+    </Growl.Action>
   </Growl>
 </Playground>
 
@@ -81,22 +81,22 @@ Change close component, don't add icon on title, remove action button...
 
 <Playground>
   <Growl>
-    <GrowlTitle>Without icon on title, action button and close button</GrowlTitle>
+    <Growl.Title>Without icon on title, action button and close button</Growl.Title>
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
   </Growl>
   <Growl
     onClose={() => console.log('close')}
     close={
-      <GrowlClose>
+      <Growl.Close>
         <PositiveIcon />
-      </GrowlClose>
+      </Growl.Close>
     }
   >
-    <GrowlTitle>Custom close button with GrowlClose component</GrowlTitle>
+    <Growl.Title>Custom close button with Growl.Close component</Growl.Title>
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
   </Growl>
   <Growl onClose={() => console.log('close')} close={<PositiveIcon size="lg" />}>
-    <GrowlTitle>Custom close button</GrowlTitle>
+    <Growl.Title>Custom close button</Growl.Title>
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
   </Growl>
 </Playground>
@@ -107,9 +107,9 @@ Change close component, don't add icon on title, remove action button...
 
 <Props of={Growl} />
 
-### GrowlTitle
+### Growl.Title
 
-<Props of={GrowlTitle} />
+<Props of={Growl.Title} />
 
 ## Dependencies
 

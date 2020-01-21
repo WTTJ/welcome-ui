@@ -7,8 +7,8 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { ConnectedField } from '../ConnectedField'
 import { InputText } from '../InputText'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Field
 
@@ -20,9 +20,9 @@ The examples below give you an overview of common props (e.g. `size`, `disable`,
 
 You can find props for each field component in the other `Fields` pages.
 
-## Import
+## Install and import
 
-<Code>{`import { Field } from '@welcome-ui/field'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Sizes
 

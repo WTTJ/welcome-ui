@@ -9,8 +9,8 @@ import { Button } from './index'
 import { LanguageIcon } from '../../icons/Language'
 import { SunIcon } from '../../icons/Sun'
 import { Link } from '../Link'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Button
 
@@ -18,9 +18,9 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 Built with [Reakit](https://reakit.io/docs/button/) for a better accessibility 🥰
 
-## Import
+## Install and import
 
-<Code>{`import { Button } from '@welcome-ui/button'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Variants
 

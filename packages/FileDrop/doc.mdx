@@ -6,16 +6,16 @@ menu: Fields
 
 import { Props, Playground } from 'docz'
 import { FileDrop } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # FileDrop
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { FileDrop } from '@welcome-ui/file-drop'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 FileDrop uses render props to give you more flexibility on what to render at each state change:
 

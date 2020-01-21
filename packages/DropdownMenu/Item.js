@@ -16,7 +16,7 @@ export function Item({ as, children, ...props }) {
   )
 }
 
-Item.propTypes = {
+Item.propTypes /* remove-proptypes */ = {
   /** replace button from another node component */
   as: node,
   children: node.isRequired

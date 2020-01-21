@@ -4,6 +4,7 @@
   "description": "welcome-ui: A button component",
   "main": "dist/button.cjs.js",
   "module": "dist/button.es.js",
+  "component": "Button",
   "scripts": {
     "test": "jest"
   },

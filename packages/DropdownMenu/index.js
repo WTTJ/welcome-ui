@@ -28,7 +28,7 @@ export function DropdownMenu({ children, dataTestId, innerProps, visible, ...pro
   )
 }
 
-DropdownMenu.propTypes = {
+DropdownMenu.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   /** add custom props from styled system on DropdownMenu inner */
   innerProps: object,

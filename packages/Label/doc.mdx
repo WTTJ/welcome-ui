@@ -8,16 +8,16 @@ import { useState } from 'react'
 import { Props, Playground } from 'docz'
 import { Label } from './index'
 import { Link } from '../Link'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Label
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { Label } from '@welcome-ui/label'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Default
 

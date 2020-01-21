@@ -6,8 +6,8 @@ menu: Components
 
 import { Props, Playground } from 'docz'
 import { Text } from './index'
-import { Code, Dependencies, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Text
 
@@ -15,9 +15,9 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 The `Text` component allows you to remain consistent with your text sizing and line-height. To add additional padding/margins use the `space` values from [xstyled](https://xstyled.dev/docs/style-props/).
 
-## Import
+## Install and import
 
-<Code>{`import { Text } from '@welcome-ui/text'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Typography
 

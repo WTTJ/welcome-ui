@@ -4,7 +4,7 @@ import { fireEvent } from '@testing-library/react'
 
 import { render } from '../../src/utils/tests'
 
-import { Tab, TabList, TabPanel, useTabState } from './index'
+import { Tab, useTabState } from './index'
 
 function getActiveBar({ getByRole }) {
   const tabList = getByRole('tablist')
@@ -17,7 +17,7 @@ describe('Tabs', () => {
       const tab = useTabState({ selectedId: 'tab1' })
       return (
         <>
-          <TabList aria-label="Tabs" {...tab}>
+          <Tab.List aria-label="Tabs" {...tab}>
             <Tab stopId="tab1" {...tab}>
               Tab 1
             </Tab>
@@ -27,16 +27,16 @@ describe('Tabs', () => {
             <Tab disabled stopId="tab3" {...tab}>
               Tab 3
             </Tab>
-          </TabList>
-          <TabPanel stopId="tab1" {...tab}>
+          </Tab.List>
+          <Tab.Panel stopId="tab1" {...tab}>
             Panel 1
-          </TabPanel>
-          <TabPanel stopId="tab2" {...tab}>
+          </Tab.Panel>
+          <Tab.Panel stopId="tab2" {...tab}>
             Panel 2
-          </TabPanel>
-          <TabPanel stopId="tab3" {...tab}>
+          </Tab.Panel>
+          <Tab.Panel stopId="tab3" {...tab}>
             Panel 3
-          </TabPanel>
+          </Tab.Panel>
         </>
       )
     }
@@ -81,14 +81,14 @@ describe('Tabs', () => {
         const tab = useTabState({ selectedId: 'tab1' })
         return (
           <>
-            <TabList aria-label="Tabs" {...tab}>
+            <Tab.List aria-label="Tabs" {...tab}>
               <Tab stopId="tab1" {...tab}>
                 Tab 1
               </Tab>
-            </TabList>
-            <TabPanel stopId="tab1" {...tab}>
+            </Tab.List>
+            <Tab.Panel stopId="tab1" {...tab}>
               Panel 1
-            </TabPanel>
+            </Tab.Panel>
           </>
         )
       }

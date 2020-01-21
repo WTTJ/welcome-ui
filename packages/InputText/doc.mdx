@@ -7,16 +7,16 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { ConnectedField } from '../ConnectedField'
 import { InputText } from './index'
-import { Code, Form, TagVersion } from '../../docz'
-const { dependencies, peerDependencies, name, version } = require('./package.json')
+import { Code, Dependencies, Form, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # InputText
 
 <TagVersion version={version} name={name} />
 
-## Import
+## Install and import
 
-<Code>{`import { InputText } from '@welcome-ui/input-text'`}</Code>
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Default
 
