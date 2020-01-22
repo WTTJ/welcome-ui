@@ -2,7 +2,7 @@
 
 <img src="assets/readme.png" width="500" />
 
-Welcome to the _Welcome UI library_ create by [Welcome to the jungle](https://www.welcometothejungle.co), a customizable design system with react • styled-components • styled-system and reakit.
+Welcome to the _Welcome UI library_ created by [Welcome to the jungle](https://www.welcometothejungle.co), a customizable design system with react • styled-components • styled-system and reakit.
 
 Here you'll find all the core components you need to create a delightful webapp.
 
