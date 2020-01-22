@@ -2,7 +2,7 @@
 
 <img src="assets/readme.png" width="500" />
 
-Welcome to the _Welcome UI library_ created by [Welcome to the jungle](https://www.welcometothejungle.co), a customizable design system with react • styled-components • styled-system and reakit.
+Welcome to the _Welcome UI library_ created by [Welcome to the jungle](https://www.welcometothejungle.com), a customizable design system with react • styled-components • styled-system and reakit.
 
 Here you'll find all the core components you need to create a delightful webapp.
 
@@ -31,25 +31,23 @@ yarn add welcome-ui
 Getting started
 
 ```js
-  import React from "react"
-  import { ThemeProvider } from '@xstyled/styled-components'
-  import { createTheme, GlobalStyle } from '@welcome-ui/core'
-  import { Text } from '@welcome-ui/text'
+import React from 'react'
+import { ThemeProvider } from '@xstyled/styled-components'
+import { createTheme, GlobalStyle } from '@welcome-ui/core'
+import { Text } from '@welcome-ui/text'
 
-  const theme = createTheme()
+const theme = createTheme()
 
-  export default function App() {
-    // Wrap your component with ThemeProvider
-    return (
-      <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyle />
-          <Text variant="h1">Welcome!</Text>
-          <Text>
-            Here is how you can start with welcome-ui :)
-          </Text>
-        </>
-      </ThemeProvider>
-    )
-  }
+export default function App() {
+  // Wrap your component with ThemeProvider
+  return (
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+        <Text variant="h1">Welcome!</Text>
+        <Text>Here is how you can start with welcome-ui :)</Text>
+      </>
+    </ThemeProvider>
+  )
+}
 ```
