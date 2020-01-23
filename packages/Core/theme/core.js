@@ -14,6 +14,7 @@ import { getTooltips } from '../../Tooltip/theme'
 import { getDropdownMenu } from '../../DropdownMenu/theme'
 import { getTables } from '../../Table/theme'
 import { getCards } from '../../Card/theme'
+import { getModals } from '../../Modal/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -79,7 +80,8 @@ export const getBaseTheme = (options = {}) => {
     sm: theme.toRem(10),
     md: theme.toRem(12),
     lg: theme.toRem(15),
-    xl: theme.toRem(24)
+    xl: theme.toRem(24),
+    xxl: theme.toRem(30)
   }
 
   theme.icons = getIcons(theme)
@@ -117,6 +119,7 @@ export const getBaseTheme = (options = {}) => {
   theme.dropdownMenu = getDropdownMenu(theme)
   theme.tables = getTables(theme)
   theme.cards = getCards(theme)
+  theme.modals = getModals(theme)
 
   return theme
 }
