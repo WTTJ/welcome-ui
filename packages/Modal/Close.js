@@ -1,5 +1,5 @@
 import React from 'react'
-import { CrossIcon } from '@welcome-ui/icons'
+import { CrossIcon } from '@welcome-ui/icons.cross'
 
 import * as S from './Close.styled'
 

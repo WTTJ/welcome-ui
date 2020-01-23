@@ -147,5 +147,10 @@ export const darkTheme = {
     default: {
       'border-color': colors.light[500]
     }
+  },
+  modals: {
+    backdrop: {
+      'background-color': colors.light[900]
+    }
   }
 }

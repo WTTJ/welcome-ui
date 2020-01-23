@@ -128,6 +128,19 @@ Use `Modal.Cover` and `Modal.Footer` to style your Modal.
   }}
 </Playground>
 
+## useModalState
+
+We use `useDialogState` from [Reakit Dialog](https://reakit.io/docs/dialog/#usedialogstate) for the state of the modal.
+
+Pass options to `useModalState` :
+
+- `visible`: e.g. `const modal = useModalState({ visible: true })`
+
+And the hook returns (among other things):
+
+- `visible` : whether the modal is currently visible
+- `hide` : a function to hide the modal
+
 ## Properties
 
 <Props of={Modal} />

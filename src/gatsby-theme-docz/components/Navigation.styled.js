@@ -20,6 +20,7 @@ export const Items = styled.ul`
 
 export const Title = styled.div`
   ${th('docz.navigation')};
+  ${p => p.mobile && th('docz.navigationmobile')};
   opacity: 0.7;
   font-weight: bold;
 `
@@ -27,6 +28,7 @@ export const Title = styled.div`
 export const TitleLink = styled(filterComponent(Link, ['isActive']))(
   ({ isActive }) => css`
     ${th('docz.navigation')};
+    ${p => p.mobile && th('docz.navigationmobile')};
     font-weight: bold;
     text-decoration: none;
     transition: medium;
@@ -55,6 +57,7 @@ export const ItemLink = styled(filterComponent(Link, ['isActive']))(
 
 export const Item = styled.li`
   ${th('docz.navigation')};
+  ${p => p.mobile && th('docz.navigationmobile')};
   transition: medium;
   opacity: 0.7;
   padding-bottom: sm;

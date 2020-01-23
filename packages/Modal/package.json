@@ -38,7 +38,7 @@
   "dependencies": {
     "@welcome-ui/box": "^1.5.2",
     "@welcome-ui/button": "^1.5.2",
-    "@welcome-ui/icons": "^1.1.4",
+    "@welcome-ui/icons.cross": "^1.5.2",
     "@welcome-ui/shape": "^1.5.2",
     "@welcome-ui/utils": "^1.4.0",
     "reakit": "^1.0.0-beta.7"
@@ -48,7 +48,8 @@
     "@xstyled/system": "^1.14.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "styled-components": "^4.0.0"
+    "styled-components": "^4.0.0",
+    "prop-types": "^15.7.2"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,

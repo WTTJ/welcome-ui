@@ -1,5 +1,6 @@
 import React from 'react'
 import { Dialog, DialogBackdrop, DialogDisclosure, useDialogState } from 'reakit/Dialog'
+import { Portal } from 'reakit/Portal'
 import { bool, func, node, oneOf, string } from 'prop-types'
 
 import * as S from './styled'
@@ -26,9 +27,11 @@ export function Modal({
 
   return (
     <>
-      <DialogBackdrop onClick={closeModal} {...rest}>
-        <S.Backdrop hideOnClickOutside={hideOnClickOutside} />
-      </DialogBackdrop>
+      <Portal>
+        <DialogBackdrop onClick={closeModal} {...rest}>
+          <S.Backdrop hideOnClickOutside={hideOnClickOutside} />
+        </DialogBackdrop>
+      </Portal>
       <Dialog aria-label={ariaLabel} hideOnClickOutside={hideOnClickOutside} {...rest}>
         <S.Dialog size={size}>
           <CloseElement onClick={closeModal} />
