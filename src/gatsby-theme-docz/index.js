@@ -31,6 +31,9 @@ function doczThemeLight(colors) {
       navigation: {
         color: colors.light[900]
       },
+      navigationmobile: {
+        color: colors.dark[900]
+      },
       menu: {
         'background-color': colors.dark[700]
       },
@@ -48,6 +51,9 @@ function doczThemeDark(colors) {
   return {
     docz: {
       navigation: {
+        color: colors.dark[900]
+      },
+      navigationmobile: {
         color: colors.dark[900]
       },
       menu: {

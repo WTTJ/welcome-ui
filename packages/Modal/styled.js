@@ -40,6 +40,7 @@ export const Dialog = styled.div(
 
 export const Content = styled(Box)`
   padding: xxl;
+  color: dark.900;
 `
 
 export const Cover = styled(Shape)`
