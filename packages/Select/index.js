@@ -214,7 +214,9 @@ export const Select = forwardRef(
 
           const handleInputClick = e => {
             onClick && onClick(e)
-            toggleMenu()
+            if (!disabled) {
+              toggleMenu()
+            }
           }
 
           const rootProps = getRootProps(rest)
