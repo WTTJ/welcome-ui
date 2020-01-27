@@ -45,7 +45,7 @@ const Item = styled(Box)(
   `
 )
 
-function IconItem({ icon, name, componentName }) {
+function IconItem({ componentName, icon, name }) {
   const [copy, copied] = useCopyText(componentName, 500)
 
   return (
@@ -78,7 +78,7 @@ export function IconsList(icons) {
         // Require the correct icon
         const { [componentName]: Icon } = require(`../icons/${name}`)
         return (
-          <IconItem icon={<Icon size="xl" />} key={key} name={name} componentName={componentName} />
+          <IconItem componentName={componentName} icon={<Icon size="xl" />} key={key} name={name} />
         )
       })}
     </Box>

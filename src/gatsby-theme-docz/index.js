@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ComponentsProvider, theme, useMenus } from 'docz'
 import { ThemeProvider } from '@xstyled/styled-components'
 import { Helmet } from 'react-helmet'
@@ -93,21 +93,27 @@ const getThemeOptions = name => {
   }
 }
 
-const useStateWithLocalStorage = defaultValue => {
-  const withWindow = typeof window !== 'undefined'
-  const defaultOrSaved = (withWindow && localStorage.getItem('themeWUI')) || defaultValue
-  const [themeWUI, setThemeWUI] = useState(defaultOrSaved)
-  const setAndPersistThemeWUI = val => {
-    setThemeWUI(val)
-    withWindow && localStorage.setItem('themeWUI', val)
-  }
-  return [themeWUI, setAndPersistThemeWUI]
-}
+// const useStateWithLocalStorage = defaultValue => {
+//   const withWindow = typeof window !== 'undefined'
+//   const defaultOrSaved = (withWindow && localStorage.getItem('themeWUI')) || defaultValue
+//   const [themeWUI, setThemeWUI] = useState(defaultOrSaved)
+//   const setAndPersistThemeWUI = val => {
+//     setThemeWUI(val)
+//     withWindow && localStorage.setItem('themeWUI', val)
+//   }
+//   return [themeWUI, setAndPersistThemeWUI]
+// }
 
 // eslint-disable-next-line react/prop-types
 const Theme = ({ children }) => {
   const menus = useMenus()
-  const [themeWUI, setThemeWUI] = useStateWithLocalStorage('welcomekit')
+  const themeLocal = typeof window !== 'undefined' && localStorage.getItem('themeWUI')
+  const [themeWUI, setThemeWUI] = useState(themeLocal || 'welcomekit')
+
+  useEffect(() => {
+    setThemeWUI(themeWUI)
+    localStorage.setItem('themeWUI', themeWUI)
+  }, [themeWUI, themeLocal])
 
   return (
     <ThemeProvider theme={getThemeOptions(themeWUI)}>
@@ -152,18 +158,22 @@ const Theme = ({ children }) => {
               property="og:image"
             />
           </Helmet>
-          <GlobalStyle />
-          <MobileMenu
-            display={{ lg: 'none' }}
-            items={menus}
-            theme={{ setTheme: setThemeWUI, value: themeWUI }}
-          />
-          <Menu
-            display={{ xs: 'none', lg: 'flex' }}
-            items={menus}
-            theme={{ setTheme: setThemeWUI, value: themeWUI }}
-          />
-          <Content>{children}</Content>
+          {themeWUI && (
+            <>
+              <GlobalStyle />
+              <MobileMenu
+                display={{ lg: 'none' }}
+                items={menus}
+                theme={{ setTheme: setThemeWUI, value: themeWUI }}
+              />
+              <Menu
+                display={{ xs: 'none', lg: 'flex' }}
+                items={menus}
+                theme={{ setTheme: setThemeWUI, value: themeWUI }}
+              />
+              <Content>{children}</Content>
+            </>
+          )}
         </Page>
       </ComponentsProvider>
     </ThemeProvider>
