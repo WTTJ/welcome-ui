@@ -119,6 +119,9 @@ export const Tooltip = forwardRef(
     { children, content, fixed = false, placement = fixed ? 'top' : 'bottom-start', ...props },
     ref
   ) => {
+    // if no content, simply return the children
+    if (!content) return children
+
     const useCorrectTooltipState = fixed ? useTooltipState : useMouseTooltipState
     const tooltip = useCorrectTooltipState({ placement })
     const visibilityStyles = useDelayedVisibility(tooltip.visible, TOOLTIP_VISIBILITY_DELAY)
