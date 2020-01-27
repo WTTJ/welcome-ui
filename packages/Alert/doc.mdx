@@ -6,7 +6,7 @@ menu: Components
 
 import { Link, Playground, Props } from 'docz'
 import { Code, Dependencies, TagVersion, Usage } from '../../docz'
-import { Alert, AlertTitle } from './index'
+import { Alert } from './index'
 const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Alert
@@ -25,28 +25,28 @@ Simple feedback messages for user actions.
 
 <Playground>
   <Alert>
-    <AlertTitle>Error variant</AlertTitle>
+    <Alert.Title>Error variant</Alert.Title>
     <span>
       Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
       ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
     </span>
   </Alert>
   <Alert variant="warning">
-    <AlertTitle>Warning variant</AlertTitle>
+    <Alert.Title>Warning variant</Alert.Title>
     <span>
       Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
       ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
     </span>
   </Alert>
   <Alert variant="success">
-    <AlertTitle>Success variant</AlertTitle>
+    <Alert.Title>Success variant</Alert.Title>
     <span>
       Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
       ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
     </span>
   </Alert>
   <Alert variant="info">
-    <AlertTitle>Info variant</AlertTitle>
+    <Alert.Title>Info variant</Alert.Title>
     <span>
       Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
       ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
@@ -54,13 +54,13 @@ Simple feedback messages for user actions.
   </Alert>
 </Playground>
 
-## With only AlertTitle
+## With only Alert.Title
 
 We remove the `margin-bottom`.
 
 <Playground>
   <Alert>
-    <AlertTitle>Welcome to the jungle</AlertTitle>
+    <Alert.Title>Welcome to the jungle</Alert.Title>
   </Alert>
 </Playground>
 
@@ -70,9 +70,9 @@ We remove the `margin-bottom`.
 
 <Props of={Alert} />
 
-### AlertTitle
+### Alert.Title
 
-<Props of={AlertTitle} />
+<Props of={Alert.Title} />
 
 ## Dependencies
 
