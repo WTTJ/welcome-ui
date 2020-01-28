@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/WTTJ/welcome-ui/compare/v1.6.0...v1.6.1) (2020-01-28)
+
+
+### Bug Fixes
+
+* not toggle menu on select disabled ([#505](https://github.com/WTTJ/welcome-ui/issues/505)) ([1ca7f3b](https://github.com/WTTJ/welcome-ui/commit/1ca7f3b73c33fdfa83ceadb5847e168aba4cef25))
+* tooltip when content is empty ([#506](https://github.com/WTTJ/welcome-ui/issues/506)) ([0ef30b0](https://github.com/WTTJ/welcome-ui/commit/0ef30b0a32e79ad1fbcfc47de80bf6c3baf1f037))
+
+
+
+
+
 # [1.6.0](https://github.com/WTTJ/welcome-ui/compare/v1.5.3...v1.6.0) (2020-01-28)
 
 
