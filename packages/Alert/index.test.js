@@ -2,7 +2,7 @@ import React from 'react'
 
 import { render } from '../../src/utils/tests'
 
-import { Alert, AlertTitle } from './index'
+import { Alert } from './index'
 
 const content = 'jungle'
 
@@ -13,10 +13,10 @@ describe('<Alert>', () => {
     expect(container).toHaveTextContent(content)
   })
 
-  it('should render correctly with AlertTitle', () => {
+  it('should render correctly with ', () => {
     const { container, getByTestId } = render(
       <Alert>
-        <AlertTitle dataTestId="alert-title">title</AlertTitle>
+        <Alert.Title dataTestId="alert-title">title</Alert.Title>
         <span>{content}</span>
       </Alert>
     )
@@ -26,10 +26,10 @@ describe('<Alert>', () => {
     expect(alertTitle).toHaveStyleRule('margin-bottom', '0.625rem')
   })
 
-  it('should render correctly with only an AlertTitle', () => {
+  it('should render correctly with only an Alert.Title', () => {
     const { getByTestId } = render(
       <Alert>
-        <AlertTitle dataTestId="alert-title">title</AlertTitle>
+        <Alert.Title dataTestId="alert-title">title</Alert.Title>
       </Alert>
     )
     const alertTitle = getByTestId('alert-title')
