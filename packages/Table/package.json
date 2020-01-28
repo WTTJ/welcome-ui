@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/table",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "description": "Welcome UI - Table | Repaint html for table tr td... etc with a scrollable table",
   "main": "dist/table.cjs.js",
   "module": "dist/table.es.js",
