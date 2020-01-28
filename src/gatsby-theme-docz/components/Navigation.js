@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 
 import * as S from './Navigation.styled'
 
-export const Navigation = ({ items }) => {
+export const Navigation = ({ items, mobile }) => {
   const pathname = typeof window === 'undefined' ? undefined : window.location.pathname
   const activeRef = useRef(null)
 
@@ -23,7 +23,7 @@ export const Navigation = ({ items }) => {
         <S.Block key={`block_${item.name}`}>
           {item.menu ? (
             <>
-              <S.Title>{item.name}</S.Title>
+              <S.Title mobile={mobile}>{item.name}</S.Title>
               <S.Items>
                 {item.menu.map(item => {
                   const isActiveRoute = pathname && pathname.indexOf(item.route) !== -1
@@ -35,14 +35,14 @@ export const Navigation = ({ items }) => {
                       ref={isActiveRoute ? activeRef : undefined}
                       to={item.route}
                     >
-                      <S.Item>{item.name}</S.Item>
+                      <S.Item mobile={mobile}>{item.name}</S.Item>
                     </S.ItemLink>
                   )
                 })}
               </S.Items>
             </>
           ) : (
-            <S.TitleLink isActive={pathname === item.route} to={item.route}>
+            <S.TitleLink isActive={pathname === item.route} mobile={mobile} to={item.route}>
               {item.name}
             </S.TitleLink>
           )}

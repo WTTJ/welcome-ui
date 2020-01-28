@@ -1,6 +1,5 @@
 import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { Dialog, DialogBackdrop, DialogDisclosure } from 'reakit/Dialog'
 
 import { system } from '../../../../packages/System/index'
 import { Button } from '../../../../packages/Button'
@@ -26,46 +25,6 @@ export const Logo = styled.div`
     height: 36;
     flex-shrink: 0;
   }
-`
-
-export const MenuBackground = styled(DialogBackdrop)`
-  background-color: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 999;
-`
-
-export const MenuDialog = styled(Dialog)`
-  ${th('docz.menu')};
-  position: fixed;
-  top: 1rem;
-  right: 1rem; /* 16px by default */
-  left: 1rem; /* 16px by default */
-  max-height: calc(100vh - 2rem); /* 16px top and bottom */
-  z-index: 999;
-  max-width: 680;
-  margin: auto;
-  overflow: auto;
-  border-radius: md;
-  outline: none;
-  padding: xl;
-  box-sizing: border-box;
-
-  * {
-    outline: none;
-  }
-`
-
-export const MenuCloseDisclosure = styled(DialogDisclosure)`
-  padding: 0;
-  border: none;
-  outline: none;
-  font: inherit;
-  color: inherit;
-  background: none;
 `
 
 export const CloseIcon = styled(Button)`

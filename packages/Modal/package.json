@@ -1,9 +1,9 @@
 {
-  "name": "@welcome-ui/clear-button",
-  "version": "1.5.2",
-  "description": "Customizable design system with react • styled-components • styled-system and reakit.",
-  "main": "dist/clear-button.cjs.js",
-  "module": "dist/clear-button.es.js",
+  "name": "@welcome-ui/modal",
+  "version": "1.0.0",
+  "description": "Modal from Reakit with a really nice theme 👀",
+  "main": "dist/modal.cjs.js",
+  "module": "dist/modal.es.js",
   "scripts": {
     "test": "jest"
   },
@@ -15,6 +15,8 @@
     "url": "git+https://github.com/WTTJ/welcome-ui.git"
   },
   "keywords": [
+    "modal",
+    "dialog",
     "design-system",
     "react",
     "reakit",
@@ -34,8 +36,11 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@welcome-ui/button": "^1.5.2",
-    "@welcome-ui/icons.cross": "^1.5.2"
+    "@welcome-ui/box": "^1.5.2",
+    "@welcome-ui/clear-button": "^1.5.2",
+    "@welcome-ui/shape": "^1.5.2",
+    "@welcome-ui/utils": "^1.4.0",
+    "reakit": "^1.0.0-beta.7"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.15.0",
@@ -47,5 +52,5 @@
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
-  "component": "ClearButton"
+  "component": "Link"
 }
