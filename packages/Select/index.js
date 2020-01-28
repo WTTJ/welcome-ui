@@ -228,7 +228,7 @@ export const Select = forwardRef(
             id,
             name,
             onBlur,
-            onClick: handleInputClick,
+            onClick: !disabled && handleInputClick,
             onFocus,
             placeholder,
             ref,
