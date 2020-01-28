@@ -1,12 +1,9 @@
-import React from 'react'
-import { CrossIcon } from '@welcome-ui/icons.cross'
+import styled, { th } from '@xstyled/styled-components'
+import { ClearButton } from '@welcome-ui/clear-button'
 
-import * as S from './Close.styled'
-
-export function Close(props) {
-  return (
-    <S.Close {...props} shape="circle" size="sm" variant="secondary">
-      <CrossIcon size="sm" />
-    </S.Close>
-  )
-}
+export const Close = styled(ClearButton)`
+  position: absolute;
+  z-index: 1;
+  right: ${th('space.sm')};
+  top: ${th('space.sm')};
+`

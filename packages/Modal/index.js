@@ -34,7 +34,7 @@ export function Modal({
       </Portal>
       <Dialog aria-label={ariaLabel} hideOnClickOutside={hideOnClickOutside} {...rest}>
         <S.Dialog size={size}>
-          <CloseElement onClick={closeModal} />
+          <CloseElement onClick={closeModal} size="sm" variant="secondary" />
           {children}
         </S.Dialog>
       </Dialog>
