@@ -43,5 +43,6 @@
     "styled-components": "^4.0.0"
   },
   "sideEffects": false,
-  "component": "Badge"
+  "component": "Badge",
+  "documentation": "http://welcome-ui.com/components/badge"
 }
