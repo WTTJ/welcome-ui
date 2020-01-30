@@ -15,16 +15,14 @@ import * as S from './MobileMenu.styled'
 export const MobileMenu = ({ items, theme, ...rest }) => {
   const modal = useModalState()
 
-  const colorIcon = theme.value === 'dark' ? 'dark.900' : 'light.900'
-
   return (
     <S.MobileMenu {...rest}>
       <S.Logo>
         <LogoLong />
       </S.Logo>
-      <Box as={Modal.Trigger} {...modal}>
-        <MenuIcon color={colorIcon} size="lg" />
-      </Box>
+      <Button as={Modal.Trigger} shape="circle" variant="secondary" {...modal}>
+        <MenuIcon size="lg" />
+      </Button>
       <Modal {...modal} aria-label="Navigation">
         <Modal.Content>
           <Box alignItems="center" display="flex">
