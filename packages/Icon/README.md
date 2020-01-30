@@ -1,6 +1,6 @@
 # @welcome-ui/icon v1.5.2
-  
-The **[Icon](http://welcome-ui.com/components/icon)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Icon](http://welcome-ui.com/components/icon) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

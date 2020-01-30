@@ -1,6 +1,6 @@
 # @welcome-ui/field-group v1.5.2
-  
-The **[FieldGroup](http://welcome-ui.com/components/field-group)** component from [@welcome-ui](http://welcome-ui.com).
+
+The FieldGroup component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 
@@ -12,4 +12,4 @@ The **[FieldGroup](http://welcome-ui.com/components/field-group)** component fro
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/components/field-group) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/FieldGroup) for more details.
+See the  [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/FieldGroup) for more details.

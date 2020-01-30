@@ -1,6 +1,6 @@
 # @welcome-ui/alert v1.6.1
-  
-The **[Alert](http://welcome-ui.com/components/alert)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Alert](http://welcome-ui.com/components/alert) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

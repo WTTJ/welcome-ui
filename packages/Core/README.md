@@ -1,6 +1,6 @@
 # @welcome-ui/core v1.6.0
-  
-The **[Core](http://welcome-ui.com/components/core)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Core](http://welcome-ui.com/components/core) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

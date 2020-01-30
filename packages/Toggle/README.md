@@ -1,6 +1,6 @@
 # @welcome-ui/toggle v1.5.2
-  
-The **[Toggle](http://welcome-ui.com/fields/toggle)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Toggle](http://welcome-ui.com/fields/toggle) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

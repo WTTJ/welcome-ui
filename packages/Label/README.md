@@ -1,6 +1,6 @@
 # @welcome-ui/label v1.5.2
-  
-The **[Label](http://welcome-ui.com/components/label)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Label](http://welcome-ui.com/components/label) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

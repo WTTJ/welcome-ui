@@ -1,6 +1,6 @@
 # @welcome-ui/radio-group v1.5.2
-  
-The **[RadioGroup](http://welcome-ui.com/fields/radio-group)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [RadioGroup](http://welcome-ui.com/fields/radio-group) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

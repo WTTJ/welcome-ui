@@ -1,6 +1,6 @@
 # @welcome-ui/input-text v1.6.0
-  
-The **[InputText](http://welcome-ui.com/fields/input-text)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [InputText](http://welcome-ui.com/fields/input-text) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

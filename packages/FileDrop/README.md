@@ -1,6 +1,6 @@
 # @welcome-ui/file-drop v1.5.3
-  
-The **[FileDrop](http://welcome-ui.com/fields/file-drop)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [FileDrop](http://welcome-ui.com/fields/file-drop) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

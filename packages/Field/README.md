@@ -1,6 +1,6 @@
 # @welcome-ui/field v1.5.2
-  
-The **[Field](http://welcome-ui.com/fields/field)** component from [@welcome-ui](http://welcome-ui.com).
+
+The Field component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 
@@ -12,4 +12,4 @@ The **[Field](http://welcome-ui.com/fields/field)** component from [@welcome-ui]
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/fields/field) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/Field) for more details.
+See the  [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/Field) for more details.

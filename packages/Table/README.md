@@ -1,6 +1,6 @@
 # @welcome-ui/table v1.6.0
-  
-The **[Table](http://welcome-ui.com/components/table)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Table](http://welcome-ui.com/components/table) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

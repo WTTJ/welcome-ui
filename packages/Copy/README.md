@@ -1,6 +1,6 @@
 # @welcome-ui/utils.copy v1.6.3
-  
-The **[Copy](http://welcome-ui.com/utils/copy)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Copy](http://welcome-ui.com/utils/copy) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

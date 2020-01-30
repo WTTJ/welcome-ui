@@ -1,6 +1,6 @@
 # @welcome-ui/tooltip v1.6.1
-  
-The **[Tooltip](http://welcome-ui.com/components/tooltip)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Tooltip](http://welcome-ui.com/components/tooltip) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

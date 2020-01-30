@@ -1,6 +1,6 @@
 # @welcome-ui/radio-tab v1.5.2
-  
-The **[RadioTab](http://welcome-ui.com/fields/radio-tab)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [RadioTab](http://welcome-ui.com/fields/radio-tab) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

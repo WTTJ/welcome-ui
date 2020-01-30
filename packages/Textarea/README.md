@@ -1,6 +1,6 @@
 # @welcome-ui/textarea v1.5.2
-  
-The **[Textarea](http://welcome-ui.com/fields/textarea)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Textarea](http://welcome-ui.com/fields/textarea) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

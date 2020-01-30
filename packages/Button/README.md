@@ -1,6 +1,6 @@
 # @welcome-ui/button v1.5.2
-  
-The **[Button](http://welcome-ui.com/components/button)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Button](http://welcome-ui.com/components/button) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

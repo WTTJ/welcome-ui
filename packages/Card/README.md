@@ -1,6 +1,6 @@
 # @welcome-ui/card v1.5.2
-  
-The **[Card](http://welcome-ui.com/components/card)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Card](http://welcome-ui.com/components/card) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

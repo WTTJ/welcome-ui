@@ -1,6 +1,6 @@
 # @welcome-ui/text v1.5.2
-  
-The **[Text](http://welcome-ui.com/components/text)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Text](http://welcome-ui.com/components/text) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

@@ -1,6 +1,6 @@
 # @welcome-ui/growl v1.5.2
-  
-The **[Growl](http://welcome-ui.com/components/growl)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Growl](http://welcome-ui.com/components/growl) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

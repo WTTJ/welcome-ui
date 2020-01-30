@@ -1,6 +1,6 @@
 # @welcome-ui/tabs v1.5.2
-  
-The **[Tabs](http://welcome-ui.com/components/tabs)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Tabs](http://welcome-ui.com/components/tabs) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

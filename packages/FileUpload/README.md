@@ -1,6 +1,6 @@
 # @welcome-ui/file-upload v1.5.3
-  
-The **[FileUpload](http://welcome-ui.com/fields/file-upload)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [FileUpload](http://welcome-ui.com/fields/file-upload) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

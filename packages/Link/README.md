@@ -1,6 +1,6 @@
 # @welcome-ui/link v1.5.2
-  
-The **[Link](http://welcome-ui.com/components/link)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Link](http://welcome-ui.com/components/link) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

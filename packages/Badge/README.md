@@ -1,6 +1,6 @@
 # @welcome-ui/badge v1.5.2
-  
-The **[Badge](http://welcome-ui.com/components/badge)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Badge](http://welcome-ui.com/components/badge) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

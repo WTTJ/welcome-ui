@@ -1,6 +1,6 @@
 # @welcome-ui/hint v1.5.2
-  
-The **[Hint](http://welcome-ui.com/components/hint)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Hint](http://welcome-ui.com/components/hint) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

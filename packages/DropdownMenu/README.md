@@ -1,6 +1,6 @@
 # @welcome-ui/dropdown-menu v1.5.2
-  
-The **[DropdownMenu](http://welcome-ui.com/components/dropdown-menu)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [DropdownMenu](http://welcome-ui.com/components/dropdown-menu) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

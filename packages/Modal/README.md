@@ -1,6 +1,6 @@
 # @welcome-ui/modal v1.6.1
-  
-The **[Modal](http://welcome-ui.com/components/modal)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Modal](http://welcome-ui.com/components/modal) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

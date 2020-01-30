@@ -41,6 +41,5 @@
     "styled-components": "^4.0.0"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
-  "sideEffects": false,
-  "documentation": "http://welcome-ui.com/components/utils"
+  "sideEffects": false
 }

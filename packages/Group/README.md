@@ -1,6 +1,6 @@
 # @welcome-ui/group v1.5.2
-  
-The **[Group](http://welcome-ui.com/components/group)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Group](http://welcome-ui.com/components/group) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

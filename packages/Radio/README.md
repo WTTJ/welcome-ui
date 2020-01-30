@@ -1,6 +1,6 @@
 # @welcome-ui/radio v1.5.2
-  
-The **[Radio](http://welcome-ui.com/fields/radio)** component from [@welcome-ui](http://welcome-ui.com).
+
+The [Radio](http://welcome-ui.com/fields/radio) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 
