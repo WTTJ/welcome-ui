@@ -49,5 +49,6 @@
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
-  "component": "DatePicker"
+  "component": "DatePicker",
+  "documentation": "http://welcome-ui.com/fields/date-picker"
 }

@@ -1,65 +1,15 @@
-# Table | Welcome UI
+# @welcome-ui/table v1.6.0
+  
+The **[Table](http://welcome-ui.com/components/table)** component from [@welcome-ui](http://welcome-ui.com).
 
-Repaint html for `table` `tr` `td`... etc with a scrollable table 🎓
+## Installation
 
----
+    yarn add @welcome-ui/table
 
-[![npm package](https://img.shields.io/npm/v/@welcome-ui/table/latest.svg)](https://www.npmjs.com/package/@welcome-ui/table) [![downloads npm](https://img.shields.io/npm/dw/@welcome-ui/table.svg)](https://www.npmjs.com/package/@welcome-ui/table) [![License](https://img.shields.io/npm/l/welcome-ui.svg)](https://github.com/WTTJ/welcome-ui/blob/master/LICENSE)
+## Import
 
----
+    import { Table } from '@welcome-ui/table'
 
-## Install
+## Documentation
 
-```bash
-npm install @welcome-ui/table
-```
-
-or
-
-```bash
-yarn add @welcome-ui/table
-```
-
-## Use it
-
-**Before to use, you need to [install core](http://welcome-ui.com/getting-started) 🚀**
-
-Then
-
-```js
-import React from 'react'
-import { Table } from '@welcome-ui/table'
-
-export function YourComponent() {
-  return (
-    <Table>
-      <Table.Thead>
-        <Table.Tr>
-          <Table.Th>Name</Table.Th>
-          <Table.Th>Description</Table.Th>
-        </Table.Tr>
-      </Table.Thead>
-      <Table.Tbody>
-        <Table.Tr>
-          <Table.Td>Consectetur</Table.Td>
-          <Table.Td>Lorem ipsum dolor sit amet</Table.Td>
-        </Table.Tr>
-        <Table.Tr>
-          <Table.Td>Suspendisse</Table.Td>
-          <Table.Td>Pellentesque a maximus magna</Table.Td>
-        </Table.Tr>
-      </Table.Tbody>
-    </Table>
-  )
-}
-```
-
-😍 [Documentation and examples](http://welcome-ui.com/components/table) 😍
-
----
-
-Welcome to the _Welcome UI library_ created by [Welcome to the jungle](https://www.welcometothejungle.com), a customizable design system with react • styled-components • styled-system and reakit.
-
-Here you'll find all the core components you need to create a delightful webapp.
-
-🌴 [Discover all the components](http://welcome-ui.com)
+See the [documentation](http://welcome-ui.com/components/table) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.6.0/packages/Table) for more details.

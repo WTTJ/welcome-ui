@@ -50,5 +50,6 @@
     "react-dom": "^16.10.2",
     "styled-components": "^4.0.0"
   },
-  "component": "Search"
+  "component": "Search",
+  "documentation": "http://welcome-ui.com/fields/search"
 }
