@@ -15,6 +15,8 @@ const MONTHS = [
   { value: 11, label: 'December' }
 ]
 
+export const DEFAULT_DATE = new Date()
+
 export const getDate = (date, interval) => {
   if (!date) {
     return null
