@@ -121,7 +121,7 @@
     "rollup-plugin-size-snapshot": "^0.9.0",
     "standard-version": "^6.0.1",
     "style-loader": "=0.23.1",
-    "styled-components": "^5.0.0",
+    "styled-components": "^4.0.0 || ^5.0.0",
     "stylelint": "=12.0.0",
     "stylelint-config-recommended": "=3.0.0",
     "stylelint-config-styled-components": "=0.1.1",
@@ -137,7 +137,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "styled-components": "^5.0.0"
+    "styled-components": "^4.0.0 || ^5.0.0"
   },
   "resolutions": {
     "docz/**/webpack": "4.41.1",

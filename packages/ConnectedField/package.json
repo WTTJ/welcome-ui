@@ -43,7 +43,7 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-final-form": "^6.3.3",
-    "styled-components": "^5.0.0"
+    "styled-components": "^4.0.0 || ^5.0.0"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
