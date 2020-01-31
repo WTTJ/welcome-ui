@@ -22,7 +22,6 @@ export const Input = styled(filterFieldComponent('input', FILTER_PROPS))(
     position: relative;
     ${fieldStyles};
     ${overflowEllipsis};
-    padding-right: ${th(`fields.sizes.${size}.height`)};
     ${hasIcon &&
       css`
         padding-left: ${th(`fields.sizes.${size}.height`)};
@@ -32,30 +31,6 @@ export const Input = styled(filterFieldComponent('input', FILTER_PROPS))(
 
     br {
       display: none;
-    }
-
-    &::before {
-      content: attr(data-spacer);
-      visibility: hidden;
-      display: block;
-      height: 0;
-    }
-
-    &:empty {
-      &::after {
-        content: attr(placeholder);
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        ${overflowEllipsis};
-        padding: inherit;
-        opacity: 0.5;
-      }
-      &::before {
-        height: auto;
-      }
     }
   `
 )

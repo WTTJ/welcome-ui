@@ -35,6 +35,7 @@ export const LiveError = styled(ReactLiveError)`
 export const LivePreview = styled(Card)`
   display: flex;
   flex-direction: column;
+  overflow: visible;
 `
 
 export const LivePreviewContent = styled.div(

@@ -51,7 +51,9 @@ const getReadmeContent = pkg => {
 
   const content = `# ${name} v${version}
 
-The ${documentation ? `[${componentName}](${documentation})` : componentName} component from [@welcome-ui](http://welcome-ui.com).
+The ${
+    documentation ? `[${componentName}](${documentation})` : componentName
+  } component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 
@@ -63,7 +65,9 @@ The ${documentation ? `[${componentName}](${documentation})` : componentName} co
 
 ## Documentation
 
-See the ${documentation ? `[documentation](${documentation}) or` : ''} [package source](https://github.com/WTTJ/welcome-ui/tree/v${version}/packages/${componentName}) for more details.
+See the ${
+    documentation ? `[documentation](${documentation}) or` : ''
+  } [package source](https://github.com/WTTJ/welcome-ui/tree/v${version}/packages/${componentName}) for more details.
 `
 
   return content
