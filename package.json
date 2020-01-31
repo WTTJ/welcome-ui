@@ -69,8 +69,8 @@
     "@testing-library/dom": "=6.7.0",
     "@testing-library/react": "^8.0.1",
     "@testing-library/user-event": "=7.0.1",
-    "@xstyled/styled-components": "^1.15.0",
-    "@xstyled/system": "^1.14.0",
+    "@xstyled/styled-components": "^1.15.1",
+    "@xstyled/system": "^1.15.1",
     "babel-eslint": "=10.0.3",
     "babel-jest": "=24.7.1",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
@@ -101,8 +101,9 @@
     "husky": "=3.1.0",
     "jest": "=24.7.1",
     "jest-dom": "^3.5.0",
-    "jest-styled-components": "=6.3.3",
+    "jest-styled-components": "=7.0.0",
     "lerna": "^3.19.0",
+    "lerna-update-wizard": "^0.17.7",
     "lodash.capitalize": "=4.2.1",
     "minimist": "=1.2.0",
     "prettier": "=1.18.2",
@@ -120,7 +121,7 @@
     "rollup-plugin-size-snapshot": "^0.9.0",
     "standard-version": "^6.0.1",
     "style-loader": "=0.23.1",
-    "styled-components": "^4.0.0",
+    "styled-components": "^4.0.0 || ^5.0.0",
     "stylelint": "=12.0.0",
     "stylelint-config-recommended": "=3.0.0",
     "stylelint-config-styled-components": "=0.1.1",
@@ -131,16 +132,16 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@xstyled/styled-components": "^1.15.0",
-    "@xstyled/system": "^1.14.0",
+    "@xstyled/styled-components": "^1.15.1",
+    "@xstyled/system": "^1.15.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "styled-components": "^4.0.0"
+    "styled-components": "^4.0.0 || ^5.0.0"
   },
   "resolutions": {
     "docz/**/webpack": "4.41.1",
-    "styled-components": "4.4.1"
+    "styled-components": "5.0.0"
   },
   "husky": {
     "hooks": {

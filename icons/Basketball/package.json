@@ -14,5 +14,6 @@
   },
   "dependencies": {
     "@welcome-ui/icon": "^1.5.2"
-  }
+  },
+  "license": "MIT"
 }
