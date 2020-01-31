@@ -72,6 +72,23 @@ jobs:
       - run: yarn add surge --dev -W
       - run: yarn docz:deploy --domain https://welcome-ui-${CIRCLE_BRANCH}.surge.sh
 
+  docs_deploy_prod:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - run: mkdir rel/
+      - run:
+          name: list files
+          command: ls docs/**/*
+      - run:
+          name: Make archive
+          command: tar -zcf rel/welcome-ui.tar.gz dist/client docs
+      - run:
+          name: Send releases to S3
+          command: aws s3 sync --metadata GitCommit=$CIRCLE_SHA1 rel/ s3://welcome-releases/projects/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BRANCH/
+
+
 workflows:
   version: 2
   btd:
@@ -93,4 +110,13 @@ workflows:
       - docs_deploy:
           requires:
             - docs_build
+          filters:
+            branches:
+              ignore: master
+      - docs_deploy_prod:
+          requires:
+            - docs_build
+          filters:
+            branches:
+              only: master
         
