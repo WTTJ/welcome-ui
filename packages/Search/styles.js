@@ -32,7 +32,6 @@ export const Input = styled(filterFieldComponent('input', FILTER_PROPS))(
     br {
       display: none;
     }
-
   `
 )
 
