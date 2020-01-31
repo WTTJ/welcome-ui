@@ -1,4 +1,4 @@
-# @welcome-ui/date-time-picker v1.6.2
+# @welcome-ui/date-time-picker
 
 The [DateTimePicker](http://welcome-ui.com/fields/date-time-picker) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [DateTimePicker](http://welcome-ui.com/fields/date-time-picker) component fr
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/fields/date-time-picker) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.6.2/packages/DateTimePicker) for more details.
+See the [documentation](http://welcome-ui.com/fields/date-time-picker) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/DateTimePicker) for more details.

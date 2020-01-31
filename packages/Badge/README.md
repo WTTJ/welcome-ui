@@ -1,4 +1,4 @@
-# @welcome-ui/badge v1.5.2
+# @welcome-ui/badge
 
 The [Badge](http://welcome-ui.com/components/badge) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Badge](http://welcome-ui.com/components/badge) component from [@welcome-ui]
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/components/badge) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/Badge) for more details.
+See the [documentation](http://welcome-ui.com/components/badge) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Badge) for more details.

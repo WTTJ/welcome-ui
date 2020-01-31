@@ -54,7 +54,7 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "homepage": "https://github.com/WTTJ/welcome-ui#readme",
+  "homepage": "http://welcome-ui.com",
   "devDependencies": {
     "@babel/cli": "=7.4.3",
     "@babel/core": "=7.4.3",

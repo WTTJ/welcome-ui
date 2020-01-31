@@ -1,4 +1,4 @@
-# @welcome-ui/dropdown-menu v1.5.2
+# @welcome-ui/dropdown-menu
 
 The [DropdownMenu](http://welcome-ui.com/components/dropdown-menu) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [DropdownMenu](http://welcome-ui.com/components/dropdown-menu) component fro
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/components/dropdown-menu) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/DropdownMenu) for more details.
+See the [documentation](http://welcome-ui.com/components/dropdown-menu) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/DropdownMenu) for more details.

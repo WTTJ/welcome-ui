@@ -1,4 +1,4 @@
-# @welcome-ui/radio-group v1.5.2
+# @welcome-ui/radio-group
 
 The [RadioGroup](http://welcome-ui.com/fields/radio-group) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [RadioGroup](http://welcome-ui.com/fields/radio-group) component from [@welc
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/fields/radio-group) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/RadioGroup) for more details.
+See the [documentation](http://welcome-ui.com/fields/radio-group) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/RadioGroup) for more details.

@@ -1,4 +1,4 @@
-# @welcome-ui/checkbox v1.5.2
+# @welcome-ui/checkbox
 
 The [Checkbox](http://welcome-ui.com/fields/checkbox) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Checkbox](http://welcome-ui.com/fields/checkbox) component from [@welcome-u
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/fields/checkbox) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/Checkbox) for more details.
+See the [documentation](http://welcome-ui.com/fields/checkbox) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Checkbox) for more details.

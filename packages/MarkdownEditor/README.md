@@ -1,4 +1,4 @@
-# @welcome-ui/markdown-editor v1.5.2
+# @welcome-ui/markdown-editor
 
 The [MarkdownEditor](http://welcome-ui.com/fields/markdown-editor) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [MarkdownEditor](http://welcome-ui.com/fields/markdown-editor) component fro
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/fields/markdown-editor) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/MarkdownEditor) for more details.
+See the [documentation](http://welcome-ui.com/fields/markdown-editor) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/MarkdownEditor) for more details.

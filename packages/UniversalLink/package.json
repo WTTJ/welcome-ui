@@ -32,7 +32,6 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "peerDependencies": {
     "@xstyled/styled-components": "^1.15.1",
     "prop-types": "^15.7.2",
@@ -42,5 +41,6 @@
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
-  "component": "UniversalLink"
+  "component": "UniversalLink",
+  "homepage": "http://welcome-ui.com"
 }

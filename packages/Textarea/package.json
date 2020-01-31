@@ -30,7 +30,6 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
     "@welcome-ui/system": "^1.5.2",
     "@welcome-ui/utils": "^1.4.0"
@@ -45,5 +44,5 @@
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
   "component": "Textarea",
-  "documentation": "http://welcome-ui.com/fields/textarea"
+  "homepage": "http://welcome-ui.com/fields/textarea"
 }

@@ -1,4 +1,4 @@
-# @welcome-ui/icon v1.5.2
+# @welcome-ui/icon
 
 The [Icon](http://welcome-ui.com/components/icon) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Icon](http://welcome-ui.com/components/icon) component from [@welcome-ui](h
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/components/icon) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/Icon) for more details.
+See the [documentation](http://welcome-ui.com/components/icon) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Icon) for more details.

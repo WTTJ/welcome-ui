@@ -46,13 +46,15 @@ const createReadme = pkg => {
 const getReadmeContent = pkg => {
   const {
     componentName,
-    config: { documentation, name, version }
+    config: { homepage: docs, name }
   } = pkg
 
-  const content = `# ${name} v${version}
+  const hasDocs = docs !== 'http://welcome-ui.com'
+
+  const content = `# ${name}
 
 The ${
-    documentation ? `[${componentName}](${documentation})` : componentName
+    hasDocs ? `[${componentName}](${docs})` : componentName
   } component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
@@ -66,8 +68,8 @@ The ${
 ## Documentation
 
 See the ${
-    documentation ? `[documentation](${documentation}) or` : ''
-  } [package source](https://github.com/WTTJ/welcome-ui/tree/v${version}/packages/${componentName}) for more details.
+    hasDocs ? `[documentation](${docs}) or ` : ''
+  }[package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/${componentName}) for more details.
 `
 
   return content

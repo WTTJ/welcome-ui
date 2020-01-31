@@ -1,4 +1,4 @@
-# @welcome-ui/tag v1.5.2
+# @welcome-ui/tag
 
 The [Tag](http://welcome-ui.com/components/tag) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Tag](http://welcome-ui.com/components/tag) component from [@welcome-ui](htt
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/components/tag) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/Tag) for more details.
+See the [documentation](http://welcome-ui.com/components/tag) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Tag) for more details.

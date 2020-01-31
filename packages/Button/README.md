@@ -1,4 +1,4 @@
-# @welcome-ui/button v1.5.2
+# @welcome-ui/button
 
 The [Button](http://welcome-ui.com/components/button) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Button](http://welcome-ui.com/components/button) component from [@welcome-u
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/components/button) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/Button) for more details.
+See the [documentation](http://welcome-ui.com/components/button) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Button) for more details.

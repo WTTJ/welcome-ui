@@ -1,4 +1,4 @@
-# @welcome-ui/link v1.5.2
+# @welcome-ui/link
 
 The [Link](http://welcome-ui.com/components/link) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Link](http://welcome-ui.com/components/link) component from [@welcome-ui](h
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/components/link) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/Link) for more details.
+See the [documentation](http://welcome-ui.com/components/link) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Link) for more details.
