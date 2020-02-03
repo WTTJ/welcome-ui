@@ -5,10 +5,9 @@ import { getVariantColor } from '@welcome-ui/utils'
 
 export const Growl = styled.div`
   position: relative;
-  width: 70%;
   max-width: 25rem;
   padding: lg;
-  ${th('growls.default')};
+  ${th('toasts.growls.default')};
   ${system};
 `
 
@@ -18,7 +17,7 @@ export const Title = styled.div(
     align-items: center;
     color: ${getVariantColor(variant)};
     padding-bottom: md;
-    ${th('growls.title')};
+    ${th('toasts.growls.title')};
 
     & > *:first-child {
       flex-shrink: 0;
@@ -26,24 +25,6 @@ export const Title = styled.div(
     }
   `
 )
-
-export const Close = styled.div`
-  float: right;
-  margin-left: sm;
-`
-
-export const CloseContent = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.87rem;
-  height: 1.87rem;
-  ${th('growls.close')};
-  border: none;
-  padding: 0;
-  transition: background ${th.transition('medium')};
-  cursor: pointer;
-`
 
 export const Action = styled.div`
   padding-top: md;

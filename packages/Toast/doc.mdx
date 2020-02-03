@@ -1,0 +1,259 @@
+---
+name: Toast
+route: /components/toast
+menu: Components
+---
+
+import { Props, Playground } from 'docz'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+import { useToast } from './'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
+
+# Toast
+
+<TagVersion version={version} name={name} />
+
+Notification component with [toasted-note](https://toasted-notes.netlify.com) and 2 components : Growl and Snackbar.
+
+## Install and import
+
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## useToast
+
+Use `useToast` hook to show the toast element. Example below with a custom component.
+
+<Playground>
+  {() => {
+    const toast = useToast()
+    return (
+      <Button
+        onClick={() =>
+          toast(
+            <Box
+              backgroundColor="light.900"
+              borderWidth="1px"
+              borderStyle="solid"
+              borderColor="nude.300"
+              borderRadius="sm"
+              padding="sm"
+            >
+              Lorem ipsum dolor sit amet
+            </Box>
+          )
+        }
+      >
+        Show Toast
+      </Button>
+    )
+  }}
+</Playground>
+
+## Options
+
+You can choose between 2 options :
+
+- **position** : one of `top-left`, `top`, `top-right`, `bottom-left`, `bottom` (default) or `bottom-right`
+- **duration** : before closing element, in ms, with default `3000`. Can also be set to `null` if not automatic close your element.
+
+<Playground>
+  {() => {
+    const toast = useToast()
+    return (
+      <>
+        {['top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right'].map(position => (
+          <Button
+            key={position}
+            onClick={() =>
+              toast(
+                <Box
+                  backgroundColor="light.900"
+                  borderWidth="1px"
+                  borderStyle="solid"
+                  borderColor="nude.300"
+                  borderRadius="sm"
+                  padding="sm"
+                >
+                  Lorem ipsum dolor sit amet
+                </Box>,
+                { position, duration: 6000 }
+              )
+            }
+          >
+            {position}
+          </Button>
+        ))}
+      </>
+    )
+}}
+
+</Playground>
+
+## Snackbar
+
+Use `Snackbar` component to show action notification.
+
+<Playground>
+  {() => {
+    const toast = useToast()
+    return (
+      <>
+        <Button
+          onClick={() =>
+            toast(
+              <Snackbar>
+                <CelebrateIcon />
+                <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+              </Snackbar>
+            )
+          }
+        >
+          Info (Default)
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Snackbar variant="error">
+                <NegativeIcon />
+                <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+              </Snackbar>
+            )
+          }
+        >
+          Error
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Snackbar variant="warning">
+                <MegaphoneIcon />
+                <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+              </Snackbar>
+            )
+          }
+        >
+          Warning
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Snackbar variant="success">
+                <CheckIcon />
+                <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+              </Snackbar>
+            )
+          }
+        >
+          Success
+        </Button>
+      </>
+    )
+  }}
+</Playground>
+
+## Growl
+
+Use `Growl` component to show information notification.
+
+<Playground>
+  {() => {
+    const toast = useToast()
+    return (
+      <>
+        <Button
+          onClick={() =>
+            toast(
+              <Growl>
+                <Growl.Title>
+                  <CelebrateIcon /> Lorem ipsum dolor sit amet
+                </Growl.Title>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos
+                <Growl.Action>
+                  <Button size="sm" variant="secondary" onClick={() => console.log('action')}>
+                    Close
+                  </Button>
+                </Growl.Action>
+              </Growl>,
+              { position: 'top-right' }
+            )
+          }
+        >
+          Info (Default)
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Growl>
+                <Growl.Title variant="error">
+                  <NegativeIcon /> Lorem ipsum dolor sit amet
+                </Growl.Title>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos
+                <Growl.Action>
+                  <Button size="sm" variant="secondary-danger" onClick={() => console.log('action')}>
+                    Close
+                  </Button>
+                </Growl.Action>
+              </Growl>,
+              { position: 'top-right' }
+            )
+          }
+        >
+          Error
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Growl>
+                <Growl.Title variant="warning">
+                  <MegaphoneIcon /> Lorem ipsum dolor sit amet
+                </Growl.Title>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos
+                <Growl.Action>
+                  <Button size="sm" variant="secondary-warning" onClick={() => console.log('action')}>
+                    Close
+                  </Button>
+                </Growl.Action>
+              </Growl>,
+              { position: 'top-right' }
+            )
+          }
+        >
+          Warning
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Growl>
+                <Growl.Title variant="success">
+                  <CheckIcon /> Lorem ipsum dolor sit amet
+                </Growl.Title>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos
+                <Growl.Action>
+                  <Button size="sm" variant="secondary" onClick={() => console.log('action')}>
+                    Close
+                  </Button>
+                </Growl.Action>
+              </Growl>,
+              { position: 'top-right' }
+            )
+          }
+        >
+          Success
+        </Button>
+      </>
+    )
+}}
+
+</Playground>
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />
