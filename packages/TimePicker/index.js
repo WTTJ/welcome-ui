@@ -1,10 +1,14 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
-import { CustomInput, CustomPopper, DEFAULT_DATE, getDate } from '@welcome-ui/date-time-picker'
+import {
+  CustomInput,
+  CustomPopper,
+  DEFAULT_DATE,
+  getDate,
+  S
+} from '@welcome-ui/date-time-picker-common'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
-
-import * as S from './styles'
 
 export const TimePicker = forwardRef(
   (
@@ -125,5 +129,3 @@ TimePicker.propTypes /* remove-proptypes */ = {
   timeIntervals: number,
   value: oneOfType([number, object, string]).isRequired
 }
-
-export const StyledTimePicker = S.TimePicker

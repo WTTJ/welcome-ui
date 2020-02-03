@@ -15,12 +15,11 @@ import {
   CustomInput,
   CustomPopper,
   DEFAULT_DATE,
-  getDate
-} from '@welcome-ui/date-time-picker'
+  getDate,
+  S
+} from '@welcome-ui/date-time-picker-common'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
-
-import * as S from './styles'
 
 export const DatePicker = forwardRef(
   (
@@ -161,5 +160,3 @@ DatePicker.propTypes /* remove-proptypes */ = {
   useWeekdaysShort: bool,
   value: oneOfType([number, object, string]).isRequired
 }
-
-export const StyledDatePicker = S.DatePicker

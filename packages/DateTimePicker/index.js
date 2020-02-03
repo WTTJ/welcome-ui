@@ -2,13 +2,11 @@ import React, { cloneElement, forwardRef, useEffect, useState } from 'react'
 import { func, node, number, object, oneOf, oneOfType, string } from 'prop-types'
 import { DatePicker } from '@welcome-ui/date-picker'
 import { TimePicker } from '@welcome-ui/time-picker'
+import { DEFAULT_DATE, getDate } from '@welcome-ui/date-time-picker-common'
 
 import { SIZES_TYPE } from '../../src/utils/propTypes'
 
-import { getDate } from './utils'
 import * as S from './styles'
-
-export const DEFAULT_DATE = new Date()
 
 export const DateTimePicker = forwardRef(
   ({ children, dataTestId, locale, onChange, size = 'lg', value = DEFAULT_DATE }, ref) => {
@@ -76,8 +74,3 @@ DateTimePicker.propTypes /* remove-proptypes */ = {
   size: oneOf(SIZES_TYPE),
   value: oneOfType([number, object, string]).isRequired
 }
-
-export * from './CustomHeader'
-export * from './CustomPopper'
-export * from './CustomInput'
-export * from './utils'
