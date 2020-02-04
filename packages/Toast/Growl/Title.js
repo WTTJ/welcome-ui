@@ -3,12 +3,12 @@ import { node, oneOf } from 'prop-types'
 
 import { VARIANTS_TYPE } from '../../../src/utils/propTypes'
 
-import { Title as StyledTitle } from './styles'
+import * as S from './styles'
 
 export const Title = ({ children, dataTestId, variant = 'info' }) => (
-  <StyledTitle data-testid={dataTestId} variant={variant}>
+  <S.Title data-testid={dataTestId} variant={variant}>
     {children}
-  </StyledTitle>
+  </S.Title>
 )
 
 Title.propTypes /* remove-proptypes */ = {

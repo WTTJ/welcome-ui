@@ -1,6 +1,6 @@
 # @welcome-ui/toast v1.0.0
 
-The [Growl](http://welcome-ui.com/components/toast) component from [@welcome-ui](http://welcome-ui.com).
+The [Toast](http://welcome-ui.com/components/toast) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 

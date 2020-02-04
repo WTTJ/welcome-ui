@@ -26,32 +26,30 @@ Use `useToast` hook to show the toast element. Example below with a custom compo
 <Playground>
   {() => {
     const toast = useToast()
-    return (
-      <Button
-        onClick={() =>
-          toast(
-            <Box
-              backgroundColor="light.900"
-              borderWidth="1px"
-              borderStyle="solid"
-              borderColor="nude.300"
-              borderRadius="sm"
-              padding="sm"
-            >
-              Lorem ipsum dolor sit amet
-            </Box>
-          )
-        }
+    const Notification = () => (
+      <Box
+        backgroundColor="light.900"
+        borderWidth="1px"
+        borderStyle="solid"
+        borderColor="nude.300"
+        borderRadius="sm"
+        padding="sm"
       >
+        Lorem ipsum dolor sit amet
+      </Box>
+    )
+    return (
+      <Button onClick={() => toast(<Notification />)}>
         Show Toast
       </Button>
     )
-  }}
+}}
+
 </Playground>
 
 ## Options
 
-You can choose between 2 options :
+The `toast` function takes a component to be displayed and an `options` object:
 
 - **position** : one of `top-left`, `top`, `top-right`, `bottom-left`, `bottom` (default) or `bottom-right`
 - **duration** : before closing element, in ms, with default `3000`. Can also be set to `null` if not automatic close your element.
@@ -59,6 +57,18 @@ You can choose between 2 options :
 <Playground>
   {() => {
     const toast = useToast()
+    const Notification = () => (
+      <Box
+        backgroundColor="light.900"
+        borderWidth="1px"
+        borderStyle="solid"
+        borderColor="nude.300"
+        borderRadius="sm"
+        padding="sm"
+      >
+        Lorem ipsum dolor sit amet
+      </Box>
+    )
     return (
       <>
         {['top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right'].map(position => (
@@ -66,16 +76,7 @@ You can choose between 2 options :
             key={position}
             onClick={() =>
               toast(
-                <Box
-                  backgroundColor="light.900"
-                  borderWidth="1px"
-                  borderStyle="solid"
-                  borderColor="nude.300"
-                  borderRadius="sm"
-                  padding="sm"
-                >
-                  Lorem ipsum dolor sit amet
-                </Box>,
+                <Notification />,
                 { position, duration: 6000 }
               )
             }
@@ -89,9 +90,16 @@ You can choose between 2 options :
 
 </Playground>
 
-## Snackbar
+## Supplied components
 
-Use `Snackbar` component to show action notification.
+You can create your own notification component to display in the Toast or one of our default components: `Snackbar` and `Growl`.
+
+In general :
+
+- `Snackbar` is used to display a temporary, information-only notification, and
+- `Growl` is used to display a more important notification with an action (that requires the user to close the notification)
+
+### Snackbar
 
 <Playground>
   {() => {
@@ -151,9 +159,7 @@ Use `Snackbar` component to show action notification.
   }}
 </Playground>
 
-## Growl
-
-Use `Growl` component to show information notification.
+### Growl
 
 <Playground>
   {() => {
@@ -171,7 +177,7 @@ Use `Growl` component to show information notification.
                 himenaeos
                 <Growl.Action>
                   <Button size="sm" variant="secondary" onClick={() => console.log('action')}>
-                    Close
+                    Action
                   </Button>
                 </Growl.Action>
               </Growl>,
@@ -192,7 +198,7 @@ Use `Growl` component to show information notification.
                 himenaeos
                 <Growl.Action>
                   <Button size="sm" variant="secondary-danger" onClick={() => console.log('action')}>
-                    Close
+                    Action
                   </Button>
                 </Growl.Action>
               </Growl>,
@@ -213,7 +219,7 @@ Use `Growl` component to show information notification.
                 himenaeos
                 <Growl.Action>
                   <Button size="sm" variant="secondary-warning" onClick={() => console.log('action')}>
-                    Close
+                    Action
                   </Button>
                 </Growl.Action>
               </Growl>,
@@ -234,7 +240,7 @@ Use `Growl` component to show information notification.
                 himenaeos
                 <Growl.Action>
                   <Button size="sm" variant="secondary" onClick={() => console.log('action')}>
-                    Close
+                    Action
                   </Button>
                 </Growl.Action>
               </Growl>,

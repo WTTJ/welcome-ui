@@ -8,13 +8,13 @@ export function useToast() {
   const themeContext = useContext(ThemeContext)
 
   function createToast(children, options) {
-    const getOptions = {
+    const toastOptions = {
       position: 'bottom',
       duration: 3000,
       ...options
     }
 
-    const isBottomPosition = getOptions.position.startsWith('bottom')
+    const isBottomPosition = toastOptions.position.startsWith('bottom')
 
     if (children) {
       toast.notify(
@@ -30,7 +30,7 @@ export function useToast() {
             </ThemeProvider>
           )
         },
-        { ...getOptions }
+        { ...toastOptions }
       )
     }
   }
