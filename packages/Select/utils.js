@@ -1,5 +1,4 @@
 import kebabCase from 'lodash.kebabcase'
-import uniqBy from 'lodash.uniqby'
 
 const EMPTY_STRING = ''
 
@@ -11,7 +10,10 @@ export const getSpacer = options =>
     EMPTY_STRING
   )
 
-export const getUniqueValue = (item, values) => uniqBy([...values, item], item => item.value)
+export const getUniqueValue = (item, values) => {
+  const isExisting = values.find(value => item.value === value.value)
+  return isExisting ? values : [...values, item]
+}
 
 export const isValueSelected = (value, options) => !!options.find(item => item.value === value)
 
