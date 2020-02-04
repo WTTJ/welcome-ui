@@ -1,4 +1,4 @@
-# @welcome-ui/connected-field v1.6.0
+# @welcome-ui/connected-field
 
 The ConnectedField component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The ConnectedField component from [@welcome-ui](http://welcome-ui.com).
 
 ## Documentation
 
-See the  [package source](https://github.com/WTTJ/welcome-ui/tree/v1.6.0/packages/ConnectedField) for more details.
+See the [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/ConnectedField) for more details.

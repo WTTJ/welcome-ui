@@ -1,4 +1,4 @@
-# @welcome-ui/alert v1.6.1
+# @welcome-ui/alert
 
 The [Alert](http://welcome-ui.com/components/alert) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Alert](http://welcome-ui.com/components/alert) component from [@welcome-ui]
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/components/alert) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.6.1/packages/Alert) for more details.
+See the [documentation](http://welcome-ui.com/components/alert) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Alert) for more details.

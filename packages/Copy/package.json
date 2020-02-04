@@ -35,7 +35,6 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
     "copy-to-clipboard": "^3.2.0"
   },
@@ -47,5 +46,5 @@
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
   "component": "useCopyText",
-  "documentation": "http://welcome-ui.com/utils/copy"
+  "homepage": "http://welcome-ui.com/utils/copy"
 }

@@ -1,4 +1,4 @@
-# @welcome-ui/label v1.5.2
+# @welcome-ui/label
 
 The [Label](http://welcome-ui.com/components/label) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Label](http://welcome-ui.com/components/label) component from [@welcome-ui]
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/components/label) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/Label) for more details.
+See the [documentation](http://welcome-ui.com/components/label) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Label) for more details.

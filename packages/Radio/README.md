@@ -1,4 +1,4 @@
-# @welcome-ui/radio v1.5.2
+# @welcome-ui/radio
 
 The [Radio](http://welcome-ui.com/fields/radio) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Radio](http://welcome-ui.com/fields/radio) component from [@welcome-ui](htt
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/fields/radio) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/Radio) for more details.
+See the [documentation](http://welcome-ui.com/fields/radio) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Radio) for more details.

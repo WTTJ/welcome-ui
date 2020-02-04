@@ -1,4 +1,4 @@
-# @welcome-ui/file-upload v1.5.3
+# @welcome-ui/file-upload
 
 The [FileUpload](http://welcome-ui.com/fields/file-upload) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [FileUpload](http://welcome-ui.com/fields/file-upload) component from [@welc
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/fields/file-upload) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.3/packages/FileUpload) for more details.
+See the [documentation](http://welcome-ui.com/fields/file-upload) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/FileUpload) for more details.

@@ -1,4 +1,4 @@
-# @welcome-ui/utils v1.4.0
+# @welcome-ui/utils
 
 The Utils component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The Utils component from [@welcome-ui](http://welcome-ui.com).
 
 ## Documentation
 
-See the  [package source](https://github.com/WTTJ/welcome-ui/tree/v1.4.0/packages/Utils) for more details.
+See the [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Utils) for more details.

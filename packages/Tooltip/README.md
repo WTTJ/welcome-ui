@@ -1,4 +1,4 @@
-# @welcome-ui/tooltip v1.6.1
+# @welcome-ui/tooltip
 
 The [Tooltip](http://welcome-ui.com/components/tooltip) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Tooltip](http://welcome-ui.com/components/tooltip) component from [@welcome
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/components/tooltip) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.6.1/packages/Tooltip) for more details.
+See the [documentation](http://welcome-ui.com/components/tooltip) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Tooltip) for more details.

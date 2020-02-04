@@ -34,7 +34,6 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
     "@welcome-ui/box": "^1.5.2",
     "@welcome-ui/clear-button": "^1.6.0",
@@ -53,5 +52,5 @@
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
   "component": "Modal",
-  "documentation": "http://welcome-ui.com/components/modal"
+  "homepage": "http://welcome-ui.com/components/modal"
 }

@@ -1,4 +1,4 @@
-# @welcome-ui/utils.copy v1.6.3
+# @welcome-ui/utils.copy
 
 The [Copy](http://welcome-ui.com/utils/copy) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Copy](http://welcome-ui.com/utils/copy) component from [@welcome-ui](http:/
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/utils/copy) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.6.3/packages/Copy) for more details.
+See the [documentation](http://welcome-ui.com/utils/copy) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Copy) for more details.

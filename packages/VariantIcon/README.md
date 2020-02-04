@@ -1,4 +1,4 @@
-# @welcome-ui/variant-icon v1.5.2
+# @welcome-ui/variant-icon
 
 The VariantIcon component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The VariantIcon component from [@welcome-ui](http://welcome-ui.com).
 
 ## Documentation
 
-See the  [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/VariantIcon) for more details.
+See the [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/VariantIcon) for more details.

@@ -1,4 +1,4 @@
-# @welcome-ui/textarea v1.5.2
+# @welcome-ui/textarea
 
 The [Textarea](http://welcome-ui.com/fields/textarea) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Textarea](http://welcome-ui.com/fields/textarea) component from [@welcome-u
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/fields/textarea) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/Textarea) for more details.
+See the [documentation](http://welcome-ui.com/fields/textarea) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Textarea) for more details.

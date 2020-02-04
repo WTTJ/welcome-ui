@@ -1,4 +1,4 @@
-# @welcome-ui/input-text v1.6.0
+# @welcome-ui/input-text
 
 The [InputText](http://welcome-ui.com/fields/input-text) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [InputText](http://welcome-ui.com/fields/input-text) component from [@welcom
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/fields/input-text) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.6.0/packages/InputText) for more details.
+See the [documentation](http://welcome-ui.com/fields/input-text) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/InputText) for more details.

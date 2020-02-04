@@ -54,7 +54,6 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "devDependencies": {
     "@babel/cli": "=7.4.3",
     "@babel/core": "=7.4.3",
@@ -148,5 +147,6 @@
       "pre-push": "yarn lint && yarn icons:optimize && yarn icons:collect && yarn test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  }
+  },
+  "homepage": "http://welcome-ui.com"
 }

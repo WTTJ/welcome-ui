@@ -32,7 +32,6 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "devDependencies": {
     "@welcome-ui/input-text": "^1.6.0"
   },
@@ -47,5 +46,6 @@
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
-  "component": "ConnectedField"
+  "component": "ConnectedField",
+  "homepage": "http://welcome-ui.com"
 }

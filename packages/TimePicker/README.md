@@ -1,4 +1,4 @@
-# @welcome-ui/time-picker v1.6.2
+# @welcome-ui/time-picker
 
 The [TimePicker](http://welcome-ui.com/fields/time-picker) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [TimePicker](http://welcome-ui.com/fields/time-picker) component from [@welc
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/fields/time-picker) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.6.2/packages/TimePicker) for more details.
+See the [documentation](http://welcome-ui.com/fields/time-picker) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/TimePicker) for more details.

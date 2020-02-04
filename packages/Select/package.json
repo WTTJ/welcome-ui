@@ -32,7 +32,6 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
     "@welcome-ui/clear-button": "^1.6.0",
     "@welcome-ui/icons.down": "^1.5.2",
@@ -57,5 +56,5 @@
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
   "component": "Select",
-  "documentation": "http://welcome-ui.com/fields/select"
+  "homepage": "http://welcome-ui.com/fields/select"
 }

@@ -1,4 +1,4 @@
-# @welcome-ui/search v1.6.0
+# @welcome-ui/search
 
 The [Search](http://welcome-ui.com/fields/search) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Search](http://welcome-ui.com/fields/search) component from [@welcome-ui](h
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/fields/search) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.6.0/packages/Search) for more details.
+See the [documentation](http://welcome-ui.com/fields/search) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Search) for more details.

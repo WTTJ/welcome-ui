@@ -33,7 +33,6 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "homepage": "http://welcome-ui.com/components/table",
   "dependencies": {
     "@welcome-ui/box": "^1.5.2",
     "@welcome-ui/system": "^1.5.2"
@@ -48,5 +47,5 @@
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
   "component": "Table",
-  "documentation": "http://welcome-ui.com/components/table"
+  "homepage": "http://welcome-ui.com/components/table"
 }

@@ -1,4 +1,4 @@
-# @welcome-ui/box v1.5.2
+# @welcome-ui/box
 
 The [Box](http://welcome-ui.com/components/box) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Box](http://welcome-ui.com/components/box) component from [@welcome-ui](htt
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/components/box) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.5.2/packages/Box) for more details.
+See the [documentation](http://welcome-ui.com/components/box) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Box) for more details.
