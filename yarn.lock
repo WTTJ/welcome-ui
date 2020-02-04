@@ -1062,6 +1062,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.8.3":
+  version "7.8.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
+  integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/standalone@^7.4.5":
   version "7.6.4"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.6.4.tgz#10686768f27aa4ce4b5927b9791776738f6cb0e1"
@@ -3108,38 +3115,38 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
-"@xstyled/core@^1.15.1":
-  version "1.15.1"
-  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.15.1.tgz#8b6d37e95b2abd95a396ab8d85b9e7c41c05249a"
-  integrity sha512-9wHNFwHMySFMoJxnqdbN/ugcKQJ1aUsIdmcQHxas58n40piEmHDkjFB6mZ/TsOHn2kn5Hy/T1dDk1OAGSo0T4A==
+"@xstyled/core@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.16.0.tgz#ba261f35672a4a41920e820a9113c08d60b1fec3"
+  integrity sha512-3bRxIcrD6UhyCEbJo228MInStOmuhKs4WkbwIhSAsqjSqDbW3zkwKJqjYxcsn0r0HAGUE08+b5COqEVkjObpnA==
   dependencies:
-    "@babel/runtime" "^7.7.2"
-    "@xstyled/system" "^1.15.1"
+    "@babel/runtime" "^7.8.3"
+    "@xstyled/system" "^1.16.0"
 
-"@xstyled/styled-components@^1.15.1":
-  version "1.15.1"
-  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.15.1.tgz#44cfeb9f8337bf0523469f00cbf158000455cd66"
-  integrity sha512-dr8Q72gJdzGmOzbgwL9RKEJg9YRRjYaLAwJ9JeJsmPwvcSrReCaQE4oD+T8xrharJuH4dq60LJ/sqjDsfeYpDQ==
+"@xstyled/styled-components@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.16.0.tgz#c2da6f1fc1850e1f38f7cecbedb4cbe845fcac88"
+  integrity sha512-AytKNoXchXYeIoLMcM/elycW2/bTDNIeVpqgNJ+EpRZsEYG7vyikEcvKKy4q1J6WG+2zHFiPPuTiOGaDLAW8VA==
   dependencies:
-    "@babel/runtime" "^7.7.2"
-    "@xstyled/core" "^1.15.1"
-    "@xstyled/system" "^1.15.1"
-    "@xstyled/util" "^1.15.1"
+    "@babel/runtime" "^7.8.3"
+    "@xstyled/core" "^1.16.0"
+    "@xstyled/system" "^1.16.0"
+    "@xstyled/util" "^1.16.0"
 
-"@xstyled/system@^1.15.1":
-  version "1.15.1"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.15.1.tgz#d5bc1034c7be6133fdf03e3874e9a16c2c3ed7e6"
-  integrity sha512-6Cse4M6Zf+M8K7W8y/neD1lYPc5LqyTTVWeFhhpejOSvEarK8FvKO+iwTrKRFwAC+/m9jBjBdUs/k5hxFh4jJw==
+"@xstyled/system@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.16.0.tgz#6db4dfd27d0972d9ca8fceab1fb7ec10b16ce210"
+  integrity sha512-9Ro/GkScv8B2yiFtpkz2Atz9ayfuG3SLCvBcM6C7DHK0Jm+9BP0WVBDDB6GO9+bRD99ThN5labsW4Kw2vJUHHA==
   dependencies:
-    "@babel/runtime" "^7.7.2"
-    "@xstyled/util" "^1.15.1"
+    "@babel/runtime" "^7.8.3"
+    "@xstyled/util" "^1.16.0"
 
-"@xstyled/util@^1.15.1":
-  version "1.15.1"
-  resolved "https://registry.yarnpkg.com/@xstyled/util/-/util-1.15.1.tgz#bd509dab8c52dc4c03bf994ca14ec59049d12db6"
-  integrity sha512-mi2eTWtwNCYXB3WOqVdkYE7Q1RU1rlMNH7GqGBO4gqKcNISyOyr7LrFovF6sP6wO4GlVlj1ZQAib28pBRNjMig==
+"@xstyled/util@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/util/-/util-1.16.0.tgz#c0a4ef253d519a9148faacb3e407087feafc57f4"
+  integrity sha512-tyU3VQhnGgqeftSwruk/5+ndOSB+nTbYE77LNQZ0/dsOk48urZrLIBBBfz7jDOwx2zOtw68LpS1D4rtae9SjOA==
   dependencies:
-    "@babel/runtime" "^7.7.2"
+    "@babel/runtime" "^7.8.3"
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"

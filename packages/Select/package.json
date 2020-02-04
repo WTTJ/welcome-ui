@@ -46,8 +46,8 @@
     "match-sorter": "=3.1.1"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^1.15.1",
-    "@xstyled/system": "^1.15.1",
+    "@xstyled/styled-components": "^1.16.0",
+    "@xstyled/system": "^1.16.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
