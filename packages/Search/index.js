@@ -1,7 +1,6 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
-import isEqual from 'lodash.isequal'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { createEvent } from '@welcome-ui/utils'
 
@@ -159,7 +158,7 @@ export const Search = forwardRef(
                       {...getItemProps({
                         index,
                         isHighlighted: highlightedIndex === index,
-                        isSelected: isEqual(selectedItem, item),
+                        isSelected: selectedItem && itemToString(selectedItem) === itemToString(item),
                         item
                       })}
                     >

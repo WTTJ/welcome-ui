@@ -38,8 +38,7 @@
     "@welcome-ui/system": "^1.7.1",
     "@welcome-ui/tag": "^1.9.2",
     "@welcome-ui/utils": "^1.7.1",
-    "downshift": "=3.2.10",
-    "lodash.isequal": "=4.5.0"
+    "downshift": "=3.2.10"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.16.0",
