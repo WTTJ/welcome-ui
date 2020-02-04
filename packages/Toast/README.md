@@ -1,4 +1,4 @@
-# @welcome-ui/toast v1.0.0
+# @welcome-ui/toast
 
 The [Toast](http://welcome-ui.com/components/toast) component from [@welcome-ui](http://welcome-ui.com).
 
@@ -12,4 +12,4 @@ The [Toast](http://welcome-ui.com/components/toast) component from [@welcome-ui]
 
 ## Documentation
 
-See the [documentation](http://welcome-ui.com/components/toast) or [package source](https://github.com/WTTJ/welcome-ui/tree/v1.0.0/packages/Toast) for more details.
+See the [documentation](http://welcome-ui.com/components/toast) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/Toast) for more details.
