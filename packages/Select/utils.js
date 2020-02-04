@@ -1,6 +1,5 @@
 import kebabCase from 'lodash.kebabcase'
 import uniqBy from 'lodash.uniqby'
-import differenceBy from 'lodash.differenceby'
 
 const EMPTY_STRING = ''
 
@@ -49,7 +48,8 @@ export const getNewOptions = (selected, options) => {
   if (!selected) {
     return
   }
-  return differenceBy(selected, options, 'value')
+  // Find selected items that aren't in original items
+  return selected.filter(item => !options.find(option => option.value === item.value))
 }
 
 export const getInputValue = ({ inputValue, isMultiple, isSearchable, options, renderItem }) => {

@@ -1,5 +1,4 @@
 import React from 'react'
-import difference from 'lodash.difference'
 import { compose, createSystemComponent } from '@xstyled/system'
 import * as S from '@xstyled/system'
 
@@ -89,10 +88,9 @@ const WRAPPER_PROPS = Object.freeze([
 
 export const system = compose(...SYSTEM_PROPS)
 export const wrapperSystem = compose(...WRAPPER_PROPS)
-const componentProps = difference(system.meta.props, wrapperSystem.meta.props)
+const componentProps = system.meta.props.filter(prop => !wrapperSystem.meta.props.includes(prop))
   .map(prop => S[prop])
-  .filter(prop => prop)
-
+  .filter(Boolean)
 export const componentSystem = compose(...componentProps)
 
 // Remove (final) field props from DOM
