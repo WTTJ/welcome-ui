@@ -1,12 +1,9 @@
 {
-  "name": "@welcome-ui/growl",
-  "version": "1.5.2",
+  "name": "@welcome-ui/toast",
+  "version": "1.0.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
-  "main": "dist/growl.cjs.js",
-  "module": "dist/growl.es.js",
-  "scripts": {
-    "test": "jest"
-  },
+  "main": "dist/toast.cjs.js",
+  "module": "dist/toast.es.js",
   "publishConfig": {
     "access": "public"
   },
@@ -15,6 +12,9 @@
     "url": "git+https://github.com/WTTJ/welcome-ui.git"
   },
   "keywords": [
+    "toast",
+    "growl",
+    "snackbar",
     "design-system",
     "react",
     "reakit",
@@ -34,20 +34,24 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@welcome-ui/icons.cross": "^1.5.2",
+    "@welcome-ui/alert": "^1.6.1",
+    "@welcome-ui/box": "^1.5.2",
+    "@welcome-ui/clear-button": "^1.6.0",
     "@welcome-ui/system": "^1.5.2",
-    "@welcome-ui/utils": "^1.4.0"
+    "@welcome-ui/utils": "1.4.0",
+    "react-spring": "^8.0.27",
+    "toasted-notes": "^3.2.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.15.1",
     "@xstyled/system": "^1.15.1",
     "prop-types": "^15.7.2",
-    "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react": "^16.10.2",
     "styled-components": "^4.0.0 || ^5.0.0"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
-  "component": "Growl",
-  "documentation": "http://welcome-ui.com/components/growl"
+  "component": "useToast, Toast",
+  "documentation": "http://welcome-ui.com/components/toast"
 }

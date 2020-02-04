@@ -3,13 +3,13 @@ import React from 'react'
 import { render } from '../../src/utils/tests'
 import { colors } from '../Core/theme/colors'
 
-import { GrowlTitle } from './index'
+import { Title } from './Title'
 
 const content = 'Jungle'
 
-describe('<GrowlTitle>', () => {
+describe('<Title>', () => {
   it('should render correctly', () => {
-    const { getByTestId } = render(<GrowlTitle dataTestId="growl-title">{content}</GrowlTitle>)
+    const { getByTestId } = render(<Title dataTestId="growl-title">{content}</Title>)
     const title = getByTestId('growl-title')
 
     expect(title).toHaveTextContent(content)
@@ -18,9 +18,9 @@ describe('<GrowlTitle>', () => {
 
   it('should render correctly with a state', () => {
     const { getByTestId } = render(
-      <GrowlTitle dataTestId="growl-title" variant="error">
+      <Title dataTestId="growl-title" variant="error">
         {content}
-      </GrowlTitle>
+      </Title>
     )
     const title = getByTestId('growl-title')
 

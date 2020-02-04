@@ -1,7 +1,7 @@
 import merge from 'lodash.merge'
 import { rpxTransformers } from '@xstyled/system'
 
-import { getGrowls } from '../../Growl/theme'
+import { getToasts } from '../../Toast/theme'
 import { getLinks } from '../../Link/theme'
 import { getPaginations } from '../../Pagination/theme'
 import { getTabs } from '../../Tabs/theme'
@@ -109,7 +109,7 @@ export const getBaseTheme = (options = {}) => {
   theme.alerts = getAlerts(theme)
   theme.buttons = getButtons(theme)
   theme.fields = getFields(theme)
-  theme.growls = getGrowls(theme)
+  theme.toasts = getToasts(theme)
   theme.paginations = getPaginations(theme)
   theme.tabs = getTabs(theme)
   theme.tags = getTags(theme)
