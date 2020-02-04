@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/WTTJ/welcome-ui/compare/v1.6.3...v1.7.0) (2020-02-04)
+
+
+### Bug Fixes
+
+* double cross on search ([#520](https://github.com/WTTJ/welcome-ui/issues/520)) ([f9b2d52](https://github.com/WTTJ/welcome-ui/commit/f9b2d5265617e51ac34186b9c99df1cea19e7aac))
+* remove circular dependency on datetime/date/time pickers ([#522](https://github.com/WTTJ/welcome-ui/issues/522)) ([da32e8f](https://github.com/WTTJ/welcome-ui/commit/da32e8feca07a6e4dab47f7cad544a9cb25b3427))
+
+
+### Features
+
+* add Toast component ([#523](https://github.com/WTTJ/welcome-ui/issues/523)) ([c9fa7f5](https://github.com/WTTJ/welcome-ui/commit/c9fa7f5694494523aaaff422fc20c028a645c96f))
+
+
+
+
+
 ## [1.6.3](https://github.com/WTTJ/welcome-ui/compare/v1.6.2...v1.6.3) (2020-01-30)
 
 **Note:** Version bump only for package @welcome-ui/repo

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/variant-icon",
-  "version": "1.5.2",
+  "version": "1.7.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/variant-icon.cjs.js",
   "module": "dist/variant-icon.es.js",
@@ -33,8 +33,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/badge": "^1.5.2",
-    "@welcome-ui/utils": "^1.4.0"
+    "@welcome-ui/badge": "^1.7.0",
+    "@welcome-ui/utils": "^1.7.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.15.1",

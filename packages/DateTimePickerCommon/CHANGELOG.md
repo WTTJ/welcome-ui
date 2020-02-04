@@ -5,12 +5,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.7.0](https://github.com/WTTJ/welcome-ui/compare/v1.6.3...v1.7.0) (2020-02-04)
 
-**Note:** Version bump only for package @welcome-ui/icons
 
+### Bug Fixes
 
-
-
-
-## [1.1.4](https://github.com/WTTJ/welcome-ui/compare/v1.1.3...v1.1.4) (2020-01-08)
-
-**Note:** Version bump only for package @welcome-ui/icons
+* remove circular dependency on datetime/date/time pickers ([#522](https://github.com/WTTJ/welcome-ui/issues/522)) ([da32e8f](https://github.com/WTTJ/welcome-ui/commit/da32e8feca07a6e4dab47f7cad544a9cb25b3427))

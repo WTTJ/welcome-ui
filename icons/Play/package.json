@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.play.cjs.js",
   "module": "dist/icons.play.es.js",
-  "version": "1.5.2",
+  "version": "1.7.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,7 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.5.2"
+    "@welcome-ui/icon": "^1.7.0"
   },
   "license": "MIT"
 }
