@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/textarea",
-  "version": "1.7.1",
+  "version": "1.7.2-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/textarea.cjs.js",
   "module": "dist/textarea.es.js",
@@ -31,7 +31,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^1.7.1",
+    "@welcome-ui/system": "^1.7.2-alpha.0",
     "@welcome-ui/utils": "^1.7.1"
   },
   "peerDependencies": {

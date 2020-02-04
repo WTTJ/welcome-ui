@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/tag",
-  "version": "1.7.1",
+  "version": "1.7.2-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/tag.cjs.js",
   "module": "dist/tag.es.js",
@@ -33,8 +33,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/icons.cross": "^1.7.1",
-    "@welcome-ui/system": "^1.7.1",
+    "@welcome-ui/icons.cross": "^1.7.2-alpha.0",
+    "@welcome-ui/system": "^1.7.2-alpha.0",
     "@welcome-ui/utils": "^1.7.1"
   },
   "peerDependencies": {
