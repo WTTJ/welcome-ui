@@ -158,7 +158,8 @@ export const Search = forwardRef(
                       {...getItemProps({
                         index,
                         isHighlighted: highlightedIndex === index,
-                        isSelected: selectedItem && itemToString(selectedItem) === itemToString(item),
+                        isSelected:
+                          selectedItem && itemToString(selectedItem) === itemToString(item),
                         item
                       })}
                     >
