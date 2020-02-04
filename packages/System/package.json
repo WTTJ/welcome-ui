@@ -32,9 +32,6 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "dependencies": {
-    "lodash.difference": "=4.5.0"
-  },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.16.0",
     "@xstyled/system": "^1.16.0",
