@@ -243,8 +243,8 @@ export const Select = forwardRef(
                 {isSearchable ? (
                   <S.Input as="input" type="text" {...inputProps} />
                 ) : (
-                    <S.Input {...inputProps}>{inputContent}</S.Input>
-                  )}
+                  <S.Input {...inputProps}>{inputContent}</S.Input>
+                )}
                 {icon && <S.Icon size={size}>{icon}</S.Icon>}
                 <S.Indicators size={size}>
                   {isShowDeleteIcon && DeleteIcon}
@@ -260,7 +260,8 @@ export const Select = forwardRef(
                         index,
                         isExisting: isMultiple && isValueSelected(item.value, selected),
                         isHighlighted: highlightedIndex === index,
-                        isSelected: !isMultiple && selectedItem && selectedItem.value === item.value,
+                        isSelected:
+                          !isMultiple && selectedItem && selectedItem.value === item.value,
                         item
                       })}
                     >
