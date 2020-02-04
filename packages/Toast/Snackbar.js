@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import { func, node, oneOf } from 'prop-types'
 import { ClearButton } from '@welcome-ui/clear-button'
 
-import * as S from './styled'
+import * as S from './styles'
 
 export const Snackbar = forwardRef(({ children, onClose, variant = 'info' }, ref) => (
   <S.Snackbar ref={ref} variant={variant}>

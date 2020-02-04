@@ -109,10 +109,10 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Snackbar>
+              <Toast.Snackbar>
                 <CelebrateIcon />
                 <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
-              </Snackbar>
+              </Toast.Snackbar>
             )
           }
         >
@@ -121,10 +121,10 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Snackbar variant="error">
+              <Toast.Snackbar variant="error">
                 <NegativeIcon />
                 <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
-              </Snackbar>
+              </Toast.Snackbar>
             )
           }
         >
@@ -133,10 +133,10 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Snackbar variant="warning">
+              <Toast.Snackbar variant="warning">
                 <MegaphoneIcon />
                 <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
-              </Snackbar>
+              </Toast.Snackbar>
             )
           }
         >
@@ -145,10 +145,10 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Snackbar variant="success">
+              <Toast.Snackbar variant="success">
                 <CheckIcon />
                 <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
-              </Snackbar>
+              </Toast.Snackbar>
             )
           }
         >
@@ -169,18 +169,18 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Growl>
-                <Growl.Title>
+              <Toast.Growl>
+                <Toast.Title>
                   <CelebrateIcon /> Lorem ipsum dolor sit amet
-                </Growl.Title>
+                </Toast.Title>
                 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos
-                <Growl.Action>
+                <Box mt="sm">
                   <Button size="sm" variant="secondary" onClick={() => console.log('action')}>
                     Action
                   </Button>
-                </Growl.Action>
-              </Growl>,
+                </Box>
+              </Toast.Growl>,
               { position: 'top-right' }
             )
           }
@@ -190,18 +190,13 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Growl>
-                <Growl.Title variant="error">
+              <Toast.Growl>
+                <Toast.Title variant="error">
                   <NegativeIcon /> Lorem ipsum dolor sit amet
-                </Growl.Title>
+                </Toast.Title>
                 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos
-                <Growl.Action>
-                  <Button size="sm" variant="secondary-danger" onClick={() => console.log('action')}>
-                    Action
-                  </Button>
-                </Growl.Action>
-              </Growl>,
+              </Toast.Growl>,
               { position: 'top-right' }
             )
           }
@@ -211,18 +206,13 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Growl>
-                <Growl.Title variant="warning">
+              <Toast.Growl>
+                <Toast.Title variant="warning">
                   <MegaphoneIcon /> Lorem ipsum dolor sit amet
-                </Growl.Title>
+                </Toast.Title>
                 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos
-                <Growl.Action>
-                  <Button size="sm" variant="secondary-warning" onClick={() => console.log('action')}>
-                    Action
-                  </Button>
-                </Growl.Action>
-              </Growl>,
+              </Toast.Growl>,
               { position: 'top-right' }
             )
           }
@@ -232,18 +222,13 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Growl>
-                <Growl.Title variant="success">
+              <Toast.Growl>
+                <Toast.Title variant="success">
                   <CheckIcon /> Lorem ipsum dolor sit amet
-                </Growl.Title>
+                </Toast.Title>
                 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos
-                <Growl.Action>
-                  <Button size="sm" variant="secondary" onClick={() => console.log('action')}>
-                    Action
-                  </Button>
-                </Growl.Action>
-              </Growl>,
+              </Toast.Growl>,
               { position: 'top-right' }
             )
           }

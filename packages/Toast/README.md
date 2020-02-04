@@ -8,7 +8,7 @@ The [Toast](http://welcome-ui.com/components/toast) component from [@welcome-ui]
 
 ## Import
 
-    import { useToast, Growl, Snackbar } from '@welcome-ui/toast'
+    import { useToast, Toast } from '@welcome-ui/toast'
 
 ## Documentation
 

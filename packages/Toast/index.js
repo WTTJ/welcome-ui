@@ -2,6 +2,9 @@ import React, { cloneElement, useContext } from 'react'
 import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
 import toast from 'toasted-notes'
 
+import { Growl } from './Growl'
+import { Title } from './Title'
+import { Snackbar } from './Snackbar'
 import * as S from './styles'
 
 export function useToast() {
@@ -38,5 +41,8 @@ export function useToast() {
   return createToast
 }
 
-export * from './Growl'
-export * from './Snackbar'
+export const Toast = () => {}
+
+Toast.Title = Title
+Toast.Growl = Growl
+Toast.Snackbar = Snackbar

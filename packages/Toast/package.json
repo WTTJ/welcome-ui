@@ -43,8 +43,8 @@
     "toasted-notes": "^3.2.0"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^1.15.0",
-    "@xstyled/system": "^1.14.0",
+    "@xstyled/styled-components": "^1.15.1",
+    "@xstyled/system": "^1.15.1",
     "prop-types": "^15.7.2",
     "react-dom": "^16.10.2",
     "react": "^16.10.2",
@@ -52,6 +52,6 @@
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
-  "component": "useToast, Growl, Snackbar",
+  "component": "useToast, Toast",
   "documentation": "http://welcome-ui.com/components/toast"
 }
