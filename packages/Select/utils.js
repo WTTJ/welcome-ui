@@ -1,6 +1,16 @@
-import kebabCase from 'lodash.kebabcase'
-
 const EMPTY_STRING = ''
+
+export const kebabCase = str => {
+  const type = typeof str
+  if (type === 'number') {
+    return String(str)
+  }
+  if (type !== 'string') {
+    return str
+  }
+  const match = str.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+  return match && match.map(x => x.toLowerCase()).join('-')
+}
 
 export const itemToString = item => (item ? item.label : EMPTY_STRING)
 
