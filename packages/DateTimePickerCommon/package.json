@@ -41,6 +41,7 @@
     "@welcome-ui/icons.right": "^1.7.1",
     "@welcome-ui/select": "^1.7.1",
     "@welcome-ui/system": "^1.7.1",
+    "@welcome-ui/utils": "^1.7.1",
     "lodash.range": "^3.2.0"
   },
   "peerDependencies": {

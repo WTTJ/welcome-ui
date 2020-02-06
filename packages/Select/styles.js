@@ -4,6 +4,7 @@ import { StyledIcon } from '@welcome-ui/icon'
 import { StyledTag } from '@welcome-ui/tag'
 import { componentSystem, filterFieldComponent, wrapperSystem } from '@welcome-ui/system'
 import { centerContent, fieldStyles, overflowEllipsis } from '@welcome-ui/utils'
+import { cardStyles } from '@welcome-ui/utils'
 
 export const Wrapper = styled(filterFieldComponent('div'))(
   ({ connected }) => css`
@@ -63,6 +64,7 @@ export const Input = styled(filterFieldComponent('div', FILTER_PROPS))(
 
 export const Menu = styled.ul`
   ${th('fields.select.default')};
+  ${cardStyles};
   position: absolute;
   z-index: 2;
   right: 0;
@@ -70,12 +72,7 @@ export const Menu = styled.ul`
   margin: 0;
   margin-top: md;
   padding: 0;
-  border: 1px solid;
-  border-color: nude.200;
-  border-radius: sm;
-  background-color: light.900;
   transition: medium;
-  box-shadow: sm;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 `

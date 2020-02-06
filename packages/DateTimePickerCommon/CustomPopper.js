@@ -1,6 +1,7 @@
 import React from 'react'
 import { func, object, shape, string } from 'prop-types'
 import styled, { css } from '@xstyled/styled-components'
+import { cardStyles } from '@welcome-ui/utils'
 
 export const CustomPopper = ({ children }) => {
   if (!children) {
@@ -29,8 +30,7 @@ const StyledCustomPopper = styled.div(
     .react-datepicker {
       padding: lg;
       font-family: inherit;
-      border-color: nude.200;
-      box-shadow: sm;
+      ${cardStyles};
 
       &--time-only {
         padding: 0;
