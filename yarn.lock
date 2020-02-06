@@ -1173,6 +1173,70 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@bit/ramda.ramda.internal._curry1@0.26.1":
+  version "0.26.1"
+  resolved "https://node.bit.dev/ramda.ramda.internal._curry1/-/ramda.ramda.internal._curry1-0.26.1.tgz#c115be3440ae3a3bd63bbde9a176c76df0408012"
+  integrity sha1-wRW+NECuOjvWO73poXbHbfBAgBI=
+  dependencies:
+    "@bit/ramda.ramda.internal._is-placeholder" "0.26.1"
+
+"@bit/ramda.ramda.internal._curry2@0.26.1":
+  version "0.26.1"
+  resolved "https://node.bit.dev/ramda.ramda.internal._curry2/-/ramda.ramda.internal._curry2-0.26.1.tgz#91765e419f0353697b9917e4367a1d86caa1ca1c"
+  integrity sha1-kXZeQZ8DU2l7mRfkNnodhsqhyhw=
+  dependencies:
+    "@bit/ramda.ramda.internal._curry1" "0.26.1"
+    "@bit/ramda.ramda.internal._is-placeholder" "0.26.1"
+
+"@bit/ramda.ramda.internal._curry3@0.26.1":
+  version "0.26.1"
+  resolved "https://node.bit.dev/ramda.ramda.internal._curry3/-/ramda.ramda.internal._curry3-0.26.1.tgz#34b6fe37f276d3ed50e222647ceb3212a3b7f366"
+  integrity sha1-NLb+N/J20+1Q4iJkfOsyEqO382Y=
+  dependencies:
+    "@bit/ramda.ramda.internal._curry1" "0.26.1"
+    "@bit/ramda.ramda.internal._curry2" "0.26.1"
+    "@bit/ramda.ramda.internal._is-placeholder" "0.26.1"
+
+"@bit/ramda.ramda.internal._has@0.26.1":
+  version "0.26.1"
+  resolved "https://node.bit.dev/ramda.ramda.internal._has/-/ramda.ramda.internal._has-0.26.1.tgz#157d8427bda69a9488e397b8c57f16fa3723d887"
+  integrity sha1-FX2EJ72mmpSI45e4xX8W+jcj2Ic=
+
+"@bit/ramda.ramda.internal._is-object@0.26.1":
+  version "0.26.1"
+  resolved "https://node.bit.dev/ramda.ramda.internal._is-object/-/ramda.ramda.internal._is-object-0.26.1.tgz#1e061694805dd631c714d3dbef195984b0ceb4f0"
+  integrity sha1-HgYWlIBd1jHHFNPb7xlZhLDOtPA=
+
+"@bit/ramda.ramda.internal._is-placeholder@0.26.1":
+  version "0.26.1"
+  resolved "https://node.bit.dev/ramda.ramda.internal._is-placeholder/-/ramda.ramda.internal._is-placeholder-0.26.1.tgz#7b9d90316e7b553cd1138601e498cf0cf2bed6a9"
+  integrity sha1-e52QMW57VTzRE4YB5JjPDPK+1qk=
+
+"@bit/ramda.ramda.merge-deep-right@^0.26.1":
+  version "0.26.1"
+  resolved "https://node.bit.dev/ramda.ramda.merge-deep-right/-/ramda.ramda.merge-deep-right-0.26.1.tgz#fa21d67ae6af91ed67df613c703434d3262c5146"
+  integrity sha1-+iHWeuavke1n32E8cDQ00yYsUUY=
+  dependencies:
+    "@bit/ramda.ramda.internal._curry2" "0.26.1"
+    "@bit/ramda.ramda.merge-deep-with-key" "0.26.1"
+
+"@bit/ramda.ramda.merge-deep-with-key@0.26.1":
+  version "0.26.1"
+  resolved "https://node.bit.dev/ramda.ramda.merge-deep-with-key/-/ramda.ramda.merge-deep-with-key-0.26.1.tgz#296916552eb69d2a5a835699df75716c79247eff"
+  integrity sha1-KWkWVS62nSpag1aZ33VxbHkkfv8=
+  dependencies:
+    "@bit/ramda.ramda.internal._curry3" "0.26.1"
+    "@bit/ramda.ramda.internal._is-object" "0.26.1"
+    "@bit/ramda.ramda.merge-with-key" "0.26.1"
+
+"@bit/ramda.ramda.merge-with-key@0.26.1":
+  version "0.26.1"
+  resolved "https://node.bit.dev/ramda.ramda.merge-with-key/-/ramda.ramda.merge-with-key-0.26.1.tgz#25204abefa59ac15d9fddb6a9797441c9dd44b01"
+  integrity sha1-JSBKvvpZrBXZ/dtql5dEHJ3USwE=
+  dependencies:
+    "@bit/ramda.ramda.internal._curry3" "0.26.1"
+    "@bit/ramda.ramda.internal._has" "0.26.1"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
@@ -11616,7 +11680,7 @@ lodash.memoize@^4.1.2:
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
 
-lodash.merge@^4.0.2, lodash.merge@^4.4.0, lodash.merge@^4.6.1:
+lodash.merge@^4.0.2, lodash.merge@^4.4.0:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
