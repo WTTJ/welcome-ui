@@ -35,7 +35,6 @@
   "dependencies": {
     "@bit/ramda.ramda.merge-deep-right": "^0.26.1",
     "@welcome-ui/utils": "^1.7.1",
-    "lodash.get": "^4.4.2",
     "polished": "^3.4.1"
   },
   "peerDependencies": {
