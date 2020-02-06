@@ -8,7 +8,7 @@ import React, {
   useState
 } from 'react'
 import Popper from 'popper.js'
-import { TooltipReference, useDialogState, useTooltipState } from 'reakit'
+import { TooltipReference, useDialogState, useTooltipState } from 'reakit/Tooltip'
 import { bool, func, node, oneOf, oneOfType } from 'prop-types'
 
 import { COMPONENT_TYPE } from '../../src/utils/propTypes'
