@@ -33,7 +33,7 @@ export const Dialog = styled.div(
     transform: translate3d(-50%, -50%, 0);
 
     &:focus {
-      outline: none;
+      outline: none !important; /* important for firefox */
     }
   `
 )

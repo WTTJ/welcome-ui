@@ -24,7 +24,7 @@ export const Content = styled.article`
       &:hover,
       &:focus {
         opacity: 0.6;
-        outline: none;
+        outline: none !important; /* important for firefox */
       }
 
       ${th('links.default')};

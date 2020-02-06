@@ -80,5 +80,10 @@ export const GlobalStyle = createGlobalStyle(
     ${fonts()};
     ${baseFonts};
     ${baseSelection};
+
+    /* for firefox */
+    &[type='search'] {
+      -webkit-appearance: none;
+    }
   `
 )

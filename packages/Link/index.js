@@ -16,7 +16,7 @@ export const Link = styled(UniversalLink)(
     &:hover,
     &:focus {
       opacity: 0.6;
-      outline: none;
+      outline: none !important; /* important for firefox */
     }
 
     &[disabled] {
