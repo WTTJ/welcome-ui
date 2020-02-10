@@ -31,7 +31,7 @@ export const Tab = styled.button`
   cursor: pointer;
 
   &:focus {
-    outline: none;
+    outline: none !important; /* important for firefox */
     &:not([aria-selected='true']) {
       ${th('tabs.item.focus')};
     }

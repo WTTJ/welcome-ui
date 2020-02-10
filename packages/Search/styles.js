@@ -28,7 +28,7 @@ export const Input = styled(filterFieldComponent('input', FILTER_PROPS))(
         padding-left: ${th(`fields.sizes.${size}.height`)};
       `};
     cursor: default;
-    ${componentSystem}
+    ${componentSystem};
 
     br {
       display: none;
@@ -93,7 +93,7 @@ export const DropDownIndicator = styled.button(
     height: 100%;
     width: ${th(`fields.sizes.${size}.height`)};
     padding: 0;
-    outline: none;
+    outline: none !important; /* important for firefox */
     appearance: none;
     cursor: pointer;
     border: none;

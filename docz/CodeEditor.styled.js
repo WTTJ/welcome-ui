@@ -16,7 +16,7 @@ export const LiveEditor = styled(ReactLiveEditor)`
     background-color: light.900 !important;
 
     &:focus {
-      outline: none;
+      outline: none !important; /* important for firefox */
       border: 1px solid ${th.color('primary.500')} !important;
     }
   }

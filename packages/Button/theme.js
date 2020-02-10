@@ -12,11 +12,11 @@ export const getButtons = theme => {
     'border-color': colors.primary[500],
     'border-radius': radii.md,
     'line-height': '100%',
-    '&:focus': {
-      'box-shadow': `0 0 0 3px rgba(${hexToRGB(colors.info[500])}, 0.5)`
-    },
     '&:hover': {
       'box-shadow': shadows.sm
+    },
+    '&:focus': {
+      'box-shadow': `0 0 0 3px rgba(${hexToRGB(colors.info[500])}, 0.5)`
     }
   }
 

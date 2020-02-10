@@ -11,7 +11,7 @@ export const Inner = styled.box`
   transition: opacity 200ms;
 
   &:focus {
-    outline: none;
+    outline: none !important; /* important for firefox */
   }
 
   &[hidden] {

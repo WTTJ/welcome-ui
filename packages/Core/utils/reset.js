@@ -138,7 +138,7 @@ export const resetStyles = css`
     display: none;
   }
   :focus {
-    outline: none;
+    outline: none !important; /* important for firefox */
   }
   *,
   *::after,

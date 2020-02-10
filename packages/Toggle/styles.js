@@ -28,7 +28,7 @@ export const Toggle = styled(filterFieldComponent(ReakitCheckbox))(
       appearance: none;
       background: transparent;
       border: ${th.borderWidth('sm')} solid;
-      outline: none;
+      outline: none !important; /* important for firefox */
       ${th('fields.toggles.default')};
       ${disabled && th('fields.toggles.disabled')};
       position: relative;

@@ -22,7 +22,7 @@ export const Button = styled(filterComponent(ReakitButton))(
     text-align: center;
     white-space: nowrap;
     cursor: pointer;
-    outline: none;
+    outline: none !important; /* important for firefox */
     border-width: sm;
     border-style: solid;
     appearance: none;

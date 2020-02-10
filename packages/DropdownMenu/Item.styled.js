@@ -19,7 +19,7 @@ export const Item = styled.button`
 
   &:hover,
   &:focus {
-    outline: none;
+    outline: none !important; /* important for firefox */
   }
 
   ${system}

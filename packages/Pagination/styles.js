@@ -42,7 +42,7 @@ const AbstractLink = styled.a`
   text-decoration: none;
 
   &:focus {
-    outline: none;
+    outline: none !important; /* important for firefox */
     transition: none;
   }
 `
