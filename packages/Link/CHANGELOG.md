@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/WTTJ/welcome-ui/compare/v1.7.1...v1.8.0) (2020-02-11)
+
+
+### Bug Fixes
+
+* remove focus on firefox ([#529](https://github.com/WTTJ/welcome-ui/issues/529)) ([03511e6](https://github.com/WTTJ/welcome-ui/commit/03511e65d6aa812f28c297c46a0927c683028da0))
+
+
+
+
+
 ## [1.7.1](https://github.com/WTTJ/welcome-ui/compare/v1.7.0...v1.7.1) (2020-02-04)
 
 **Note:** Version bump only for package @welcome-ui/link

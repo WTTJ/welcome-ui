@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/pagination",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/pagination.cjs.js",
   "module": "dist/pagination.es.js",

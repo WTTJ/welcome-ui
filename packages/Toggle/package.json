@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/toggle",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "description": "welcome-ui: A toggle component",
   "main": "dist/toggle.cjs.js",
   "module": "dist/toggle.es.js",
