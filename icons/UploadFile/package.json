@@ -1,8 +1,9 @@
 {
-  "name": "@welcome-ui/icons.download",
+  "name": "@welcome-ui/icons.upload_file",
   "sideEffects": false,
-  "main": "dist/icons.download.cjs.js",
-  "module": "dist/icons.download.es.js",
+  "main": "dist/icons.upload_file.cjs.js",
+  "module": "dist/icons.upload_file.es.js",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -13,6 +14,5 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },
-  "license": "MIT",
-  "version": "1.9.0"
+  "license": "MIT"
 }
