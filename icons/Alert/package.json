@@ -7,12 +7,12 @@
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.7.1"
+    "@welcome-ui/icon": "^1.9.0"
   },
   "peerDependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },
   "license": "MIT",
-  "version": "1.0.0"
+  "version": "1.9.0"
 }
