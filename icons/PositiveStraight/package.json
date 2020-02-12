@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.positive_straight.cjs.js",
   "module": "dist/icons.positive_straight.es.js",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,7 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.9.0"
+    "@welcome-ui/icon": "^1.9.1"
   },
   "license": "MIT"
 }

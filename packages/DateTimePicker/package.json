@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-time-picker",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/date-time-picker.cjs.js",
   "module": "dist/date-time-picker.es.js",
@@ -34,15 +34,15 @@
   },
   "dependencies": {
     "@welcome-ui/button": "^1.9.0",
-    "@welcome-ui/clear-button": "^1.9.0",
-    "@welcome-ui/date-picker": "^1.9.0",
-    "@welcome-ui/date-time-picker-common": "^1.9.0",
-    "@welcome-ui/field": "^1.9.0",
-    "@welcome-ui/icons.left": "^1.9.0",
-    "@welcome-ui/icons.right": "^1.9.0",
-    "@welcome-ui/select": "^1.9.0",
+    "@welcome-ui/clear-button": "^1.9.1",
+    "@welcome-ui/date-picker": "^1.9.1",
+    "@welcome-ui/date-time-picker-common": "^1.9.1",
+    "@welcome-ui/field": "^1.9.1",
+    "@welcome-ui/icons.left": "^1.9.1",
+    "@welcome-ui/icons.right": "^1.9.1",
+    "@welcome-ui/select": "^1.9.1",
     "@welcome-ui/system": "^1.7.1",
-    "@welcome-ui/time-picker": "^1.9.0",
+    "@welcome-ui/time-picker": "^1.9.1",
     "react-datepicker": "^2.9.6"
   },
   "peerDependencies": {
