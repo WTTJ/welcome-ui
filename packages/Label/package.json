@@ -33,7 +33,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/icons.special_pipeline": "^1.7.1",
+    "@welcome-ui/icons.lock": "^1.7.1",
     "@welcome-ui/system": "^1.7.1",
     "@welcome-ui/utils": "^1.7.1",
     "@welcome-ui/variant-icon": "^1.7.1"

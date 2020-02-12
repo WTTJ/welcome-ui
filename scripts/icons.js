@@ -122,7 +122,8 @@ const getPackageJsonContent = (config, key, iconVersion) => {
     peerDependencies: {
       react: '^16.10.2',
       'react-dom': '^16.10.2'
-    }
+    },
+    license: 'MIT'
   }
   return `${JSON.stringify(content, 0, 2)}
 `
