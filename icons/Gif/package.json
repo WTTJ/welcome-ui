@@ -1,0 +1,17 @@
+{
+  "name": "@welcome-ui/icons.gif",
+  "sideEffects": false,
+  "main": "dist/icons.gif.cjs.js",
+  "module": "dist/icons.gif.es.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^1.7.1"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "license": "MIT"
+}

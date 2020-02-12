@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { bool, node, oneOf } from 'prop-types'
-import { SpecialPipelineIcon } from '@welcome-ui/icons.special_pipeline'
+import { LockIcon } from '@welcome-ui/icons.lock'
 import { VariantIcon } from '@welcome-ui/variant-icon'
 import { wrapChildren } from '@welcome-ui/utils'
 
@@ -33,7 +33,7 @@ export const Label = forwardRef(
         {...rest}
       >
         {!checkableField && <VariantIcon errorWarningIcon={errorWarningIcon} variant={variant} />}
-        {disabled && <S.Disabled>{disabledIcon || <SpecialPipelineIcon />}</S.Disabled>}
+        {disabled && <S.Disabled>{disabledIcon || <LockIcon />}</S.Disabled>}
         {content}
       </S.Label>
     )
