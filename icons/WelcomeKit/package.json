@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.welcome_kit.cjs.js",
   "module": "dist/icons.welcome_kit.es.js",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,7 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.9.1"
+    "@welcome-ui/icon": "^1.9.2"
   },
   "license": "MIT"
 }

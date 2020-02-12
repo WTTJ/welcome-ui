@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.2](https://github.com/WTTJ/welcome-ui/compare/v1.9.1...v1.9.2) (2020-02-12)
+
+
+### Bug Fixes
+
+* remove for now Download icon ([#534](https://github.com/WTTJ/welcome-ui/issues/534)) ([9940176](https://github.com/WTTJ/welcome-ui/commit/99401768878932d648adfcb12cf402b22e098bed))
+
+
+
+
+
 ## [1.9.1](https://github.com/WTTJ/welcome-ui/compare/v1.9.0...v1.9.1) (2020-02-12)
 
 
