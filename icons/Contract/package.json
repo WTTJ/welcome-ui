@@ -13,5 +13,6 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "version": "1.0.0"
 }

@@ -113,6 +113,7 @@ const getPackageJsonContent = (config, key, iconVersion) => {
     sideEffects: false,
     main: `dist/icons.${key}.cjs.js`,
     module: `dist/icons.${key}.es.js`,
+    version: config.version || '1.0.0',
     publishConfig: {
       access: 'public'
     },
