@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/button",
-  "version": "1.9.0",
+  "version": "1.9.3",
   "description": "welcome-ui: A button component",
   "main": "dist/button.cjs.js",
   "module": "dist/button.es.js",
@@ -34,7 +34,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^1.7.1",
+    "@welcome-ui/system": "^1.9.3",
     "@welcome-ui/utils": "^1.7.1",
     "reakit": "^1.0.0-beta.7"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/dropdown-menu",
-  "version": "1.8.0",
+  "version": "1.9.3",
   "description": "welcome-ui: A DropdownMenu component",
   "main": "dist/dropdown-menu.cjs.js",
   "module": "dist/dropdown-menu.es.js",
@@ -33,7 +33,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^1.7.1",
+    "@welcome-ui/system": "^1.9.3",
     "@welcome-ui/utils": "^1.7.1",
     "reakit": "^1.0.0-beta.7"
   },

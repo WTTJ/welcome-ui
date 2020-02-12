@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.upload_file.cjs.js",
   "module": "dist/icons.upload_file.es.js",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.9.2"
+    "@welcome-ui/icon": "^1.9.3"
   },
   "peerDependencies": {
     "react": "^16.10.2",

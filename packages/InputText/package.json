@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/input-text",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "description": "welcome-ui: Text input",
   "main": "dist/input-text.cjs.js",
   "module": "dist/input-text.es.js",
@@ -33,9 +33,9 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/clear-button": "^1.9.2",
-    "@welcome-ui/field": "^1.9.2",
-    "@welcome-ui/system": "^1.7.1",
+    "@welcome-ui/clear-button": "^1.9.3",
+    "@welcome-ui/field": "^1.9.3",
+    "@welcome-ui/system": "^1.9.3",
     "@welcome-ui/utils": "^1.7.1"
   },
   "peerDependencies": {
