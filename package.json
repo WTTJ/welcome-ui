@@ -104,6 +104,7 @@
     "lerna": "^3.19.0",
     "lerna-update-wizard": "^0.17.7",
     "lodash.capitalize": "=4.2.1",
+    "lodash.kebabcase": "^4.1.1",
     "minimist": "=1.2.0",
     "prettier": "=1.18.2",
     "prop-types": "^15.7.2",

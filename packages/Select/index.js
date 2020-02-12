@@ -2,8 +2,6 @@ import React, { forwardRef, useEffect, useMemo, useState } from 'react'
 import { arrayOf, bool, func, number, oneOf, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import matchSorter from 'match-sorter'
-import kebabCase from 'lodash.kebabcase'
-import isEqual from 'lodash.isequal'
 import { DownIcon } from '@welcome-ui/icons.down'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { createEvent } from '@welcome-ui/utils'
@@ -16,6 +14,7 @@ import {
   VARIANTS_TYPE
 } from '../../src/utils/propTypes'
 
+import { kebabCase } from './utils'
 import { MultipleSelections } from './MultipleSelections'
 import * as S from './styles'
 import {
@@ -261,7 +260,8 @@ export const Select = forwardRef(
                         index,
                         isExisting: isMultiple && isValueSelected(item.value, selected),
                         isHighlighted: highlightedIndex === index,
-                        isSelected: !isMultiple && isEqual(selectedItem, item),
+                        isSelected:
+                          !isMultiple && selectedItem && selectedItem.value === item.value,
                         item
                       })}
                     >

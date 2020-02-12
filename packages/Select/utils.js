@@ -1,8 +1,16 @@
-import kebabCase from 'lodash.kebabcase'
-import uniqBy from 'lodash.uniqby'
-import differenceBy from 'lodash.differenceby'
-
 const EMPTY_STRING = ''
+
+export const kebabCase = str => {
+  const type = typeof str
+  if (type === 'number') {
+    return String(str)
+  }
+  if (type !== 'string') {
+    return str
+  }
+  const match = str.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+  return match && match.map(x => x.toLowerCase()).join('-')
+}
 
 export const itemToString = item => (item ? item.label : EMPTY_STRING)
 
@@ -12,7 +20,10 @@ export const getSpacer = options =>
     EMPTY_STRING
   )
 
-export const getUniqueValue = (item, values) => uniqBy([...values, item], item => item.value)
+export const getUniqueValue = (item, values) => {
+  const isExisting = values.find(value => item.value === value.value)
+  return isExisting ? values : [...values, item]
+}
 
 export const isValueSelected = (value, options) => !!options.find(item => item.value === value)
 
@@ -49,7 +60,8 @@ export const getNewOptions = (selected, options) => {
   if (!selected) {
     return
   }
-  return differenceBy(selected, options, 'value')
+  // Find selected items that aren't in original items
+  return selected.filter(item => !options.find(option => option.value === item.value))
 }
 
 export const getInputValue = ({ inputValue, isMultiple, isSearchable, options, renderItem }) => {

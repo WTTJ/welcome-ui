@@ -1,4 +1,4 @@
-import merge from 'lodash.merge'
+import merge from '@bit/ramda.ramda.merge-deep-right'
 import { rpxTransformers } from '@xstyled/system'
 
 import { getToasts } from '../../Toast/theme'
@@ -101,7 +101,7 @@ export const getBaseTheme = (options = {}) => {
     'border-bottom-width': theme.borderWidths.sm
   }
 
-  theme = merge({}, theme, rest)
+  theme = merge(theme, rest)
 
   // CSS blocks
   // These attributes depend on colors and fontSizes and must come last
