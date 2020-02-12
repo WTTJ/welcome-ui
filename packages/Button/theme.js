@@ -11,7 +11,6 @@ export const getButtons = theme => {
     'background-color': colors.primary[500],
     'border-color': colors.primary[500],
     'border-radius': radii.md,
-    'line-height': '100%',
     '&:hover': {
       'box-shadow': shadows.sm
     },

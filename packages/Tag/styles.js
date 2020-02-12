@@ -5,7 +5,7 @@ import { system } from '@welcome-ui/system'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
 
 const shapeStyles = (size, width, height, shape = 'square') => css`
-  ${th(`tags.shape.${shape}.${size}`)}
+  ${th(`tags.shape.${size}`)}
   padding: 0;
   ${(width || height) &&
     css`
@@ -25,6 +25,7 @@ export const Tag = styled.div(
     align-items: center;
     justify-content: center;
     border-radius: md;
+    line-height: initial; /* avoid cropped font */
     ${overflowEllipsis}
     ${system};
     ${!shape &&

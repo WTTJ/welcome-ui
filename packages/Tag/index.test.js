@@ -14,7 +14,7 @@ describe('<Tag>', () => {
     expect(tag).toHaveTextContent(content)
     expect(tag).toHaveStyleRule('background-color', '#EDEDED')
     expect(tag).toHaveStyleRule('color', '#727272')
-    expect(tag).toHaveStyleRule('padding', '0.28125rem 0.375rem')
+    expect(tag).toHaveStyleRule('padding', '0 0.375rem')
   })
 
   it('should have correct size', () => {
@@ -25,7 +25,7 @@ describe('<Tag>', () => {
     )
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('padding', '0.40625rem 0.5rem')
+    expect(tag).toHaveStyleRule('padding', '0 0.5rem')
   })
 
   it('should have correct color', () => {
@@ -45,8 +45,8 @@ describe('<Tag>', () => {
       const { getByTestId } = render(<Tag dataTestId="tag">1</Tag>)
       const tag = getByTestId('tag')
 
-      expect(tag).toHaveStyleRule('width', '1.82em')
-      expect(tag).toHaveStyleRule('height', '1.82em')
+      expect(tag).toHaveStyleRule('width', '1.3125rem')
+      expect(tag).toHaveStyleRule('height', '1.3125rem')
       expect(tag).toHaveStyleRule('padding', '0')
     })
 
@@ -54,8 +54,8 @@ describe('<Tag>', () => {
       const { getByTestId } = render(<Tag dataTestId="tag">{1}</Tag>)
       const tag = getByTestId('tag')
 
-      expect(tag).toHaveStyleRule('width', '1.82em')
-      expect(tag).toHaveStyleRule('height', '1.82em')
+      expect(tag).toHaveStyleRule('width', '1.3125rem')
+      expect(tag).toHaveStyleRule('height', '1.3125rem')
       expect(tag).toHaveStyleRule('padding', '0')
     })
 
@@ -63,8 +63,8 @@ describe('<Tag>', () => {
       const { getByTestId } = render(<Tag dataTestId="tag">{0}</Tag>)
       const tag = getByTestId('tag')
 
-      expect(tag).toHaveStyleRule('width', '1.82em')
-      expect(tag).toHaveStyleRule('height', '1.82em')
+      expect(tag).toHaveStyleRule('width', '1.3125rem')
+      expect(tag).toHaveStyleRule('height', '1.3125rem')
       expect(tag).toHaveStyleRule('padding', '0')
     })
   })
@@ -77,8 +77,8 @@ describe('<Tag>', () => {
     )
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('width', '1.82em')
-    expect(tag).toHaveStyleRule('height', '1.82em')
+    expect(tag).toHaveStyleRule('width', '1.3125rem')
+    expect(tag).toHaveStyleRule('height', '1.3125rem')
   })
 
   it('should have same height and width when prop `shape` set to `square` and different width / height props', () => {

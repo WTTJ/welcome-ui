@@ -27,6 +27,12 @@ export const getVariantsTheme = theme => {
 export const getTags = theme => {
   const { colors, fontSizes, fontWeights, space, toRem } = theme
 
+  const sizes = {
+    sm: toRem(19),
+    md: toRem(21),
+    lg: toRem(27)
+  }
+
   return {
     default: {
       'font-size': fontSizes.meta2,
@@ -42,44 +48,31 @@ export const getTags = theme => {
     },
     sizes: {
       sm: {
-        padding: `${toRem(3.5)} ${space.xxs}`
+        padding: `0 ${space.xxs}`,
+        height: sizes.sm
       },
       md: {
-        padding: `${toRem(4.5)} ${space.xxs}`
+        padding: `0 ${space.xxs}`,
+        height: sizes.md
       },
       lg: {
-        padding: `${toRem(6.5)} ${space.xs}`,
+        padding: `0 ${space.xs}`,
+        height: sizes.lg,
         'font-size': fontSizes.meta1
       }
     },
     shape: {
-      square: {
-        sm: {
-          width: '1.6363em',
-          height: '1.6363em'
-        },
-        md: {
-          width: '1.82em',
-          height: '1.82em'
-        },
-        lg: {
-          width: '2em',
-          height: '2em'
-        }
+      sm: {
+        width: sizes.sm,
+        height: sizes.sm
       },
-      circle: {
-        sm: {
-          width: '1.6363em',
-          height: '1.6363em'
-        },
-        md: {
-          width: '1.82em',
-          height: '1.82em'
-        },
-        lg: {
-          width: '2em',
-          height: '2em'
-        }
+      md: {
+        width: sizes.md,
+        height: sizes.md
+      },
+      lg: {
+        width: sizes.lg,
+        height: sizes.lg
       }
     }
   }
