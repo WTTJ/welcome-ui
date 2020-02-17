@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.get.cjs.js",
   "module": "dist/icons.get.es.js",
-  "version": "1.0.0",
+  "version": "1.10.0",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.9.3"
+    "@welcome-ui/icon": "^1.10.0"
   },
   "peerDependencies": {
     "react": "^16.10.2",

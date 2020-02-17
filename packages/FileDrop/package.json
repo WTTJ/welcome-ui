@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/file-drop",
-  "version": "1.9.3",
+  "version": "1.10.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/file-drop.cjs.js",
   "module": "dist/file-drop.es.js",
@@ -33,11 +33,11 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/button": "^1.9.3",
-    "@welcome-ui/icons.cross": "^1.9.3",
-    "@welcome-ui/icons.negative": "^1.9.3",
-    "@welcome-ui/icons.pencil": "^1.9.3",
-    "@welcome-ui/icons.positive": "^1.9.3",
+    "@welcome-ui/button": "^1.10.0",
+    "@welcome-ui/icons.cross": "^1.10.0",
+    "@welcome-ui/icons.negative": "^1.10.0",
+    "@welcome-ui/icons.pencil": "^1.10.0",
+    "@welcome-ui/icons.positive": "^1.10.0",
     "@welcome-ui/system": "^1.9.3",
     "@welcome-ui/utils": "^1.7.1",
     "react-dropzone": "^10.1.8"

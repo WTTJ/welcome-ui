@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/button",
-  "version": "1.9.3",
+  "version": "1.10.0",
   "description": "welcome-ui: A button component",
   "main": "dist/button.cjs.js",
   "module": "dist/button.es.js",
