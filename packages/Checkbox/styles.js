@@ -27,6 +27,7 @@ export const Checkbox = styled(filterFieldComponent(ReakitCheckbox))(
       color: light.700;
       opacity: 0;
       transition: medium;
+      line-height: 1em;
     }
     ${connected ? componentSystem : system};
   `

@@ -84,4 +84,5 @@ export const Input = styled.div`
 
 export const Content = styled.div`
   ${overflowEllipsis};
+  line-height: initial; /* avoid cropped font */
 `

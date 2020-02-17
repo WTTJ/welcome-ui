@@ -56,9 +56,15 @@ Admire these beautiful colors 💅
 Use size property with `sm` `md` or `lg`.
 
 <Playground>
-  <Tag size="sm">Small</Tag>
-  <Tag size="md">Medium</Tag>
-  <Tag size="lg">Large</Tag>
+  <Tag size="sm" variant="secondary">
+    Small
+  </Tag>
+  <Tag size="md" variant="secondary">
+    Medium
+  </Tag>
+  <Tag size="lg" variant="secondary">
+    Large
+  </Tag>
 </Playground>
 
 ## One character style
@@ -66,9 +72,15 @@ Use size property with `sm` `md` or `lg`.
 When we have only one character, we apply same size for the width and height (it implicitely sets `shape` prop to `square`)
 
 <Playground>
-  <Tag size="sm">1</Tag>
-  <Tag size="md">1</Tag>
-  <Tag size="lg">1</Tag>
+  <Tag size="sm" variant="secondary">
+    1
+  </Tag>
+  <Tag size="md" variant="secondary">
+    1
+  </Tag>
+  <Tag size="lg" variant="secondary">
+    1
+  </Tag>
 </Playground>
 
 ## Shape
@@ -76,10 +88,10 @@ When we have only one character, we apply same size for the width and height (it
 Set `shape` prop to `square` to get a square no matter the content.
 
 <Playground>
-  <Tag size="lg" shape="square">
+  <Tag size="lg" shape="square" variant="secondary">
     1
   </Tag>
-  <Tag size="lg" shape="square" width={50}>
+  <Tag size="lg" shape="square" variant="secondary" width={50}>
     Long text
   </Tag>
 </Playground>
@@ -87,7 +99,7 @@ Set `shape` prop to `square` to get a square no matter the content.
 Set `shape` prop to `circle` to set a border-radius `50%`.
 
 <Playground>
-  <Tag size="lg" shape="circle">
+  <Tag size="lg" shape="circle" variant="secondary">
     1
   </Tag>
 </Playground>

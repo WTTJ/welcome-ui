@@ -31,6 +31,7 @@ export const Input = styled(filterFieldComponent('div', FILTER_PROPS))(
       `};
     cursor: default;
     ${componentSystem}
+    line-height: 1em;
 
     br {
       display: none;
