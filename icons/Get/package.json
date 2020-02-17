@@ -1,9 +1,9 @@
 {
-  "name": "@welcome-ui/icons.upload_file",
+  "name": "@welcome-ui/icons.get",
   "sideEffects": false,
-  "main": "dist/icons.upload_file.cjs.js",
-  "module": "dist/icons.upload_file.es.js",
-  "version": "1.9.3",
+  "main": "dist/icons.get.cjs.js",
+  "module": "dist/icons.get.es.js",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
