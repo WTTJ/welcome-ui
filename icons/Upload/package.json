@@ -1,0 +1,18 @@
+{
+  "name": "@welcome-ui/icons.upload",
+  "sideEffects": false,
+  "main": "dist/icons.upload.cjs.js",
+  "module": "dist/icons.upload.es.js",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^1.9.3"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "license": "MIT"
+}
