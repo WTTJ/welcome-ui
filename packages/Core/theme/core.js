@@ -1,4 +1,4 @@
-import merge from '@bit/ramda.ramda.merge-deep-right'
+import merge from 'ramda/src/mergeDeepRight'
 import { rpxTransformers } from '@xstyled/system'
 
 import { getToasts } from '../../Toast/theme'

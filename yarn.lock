@@ -1173,70 +1173,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bit/ramda.ramda.internal._curry1@0.26.1":
-  version "0.26.1"
-  resolved "https://node.bit.dev/ramda.ramda.internal._curry1/-/ramda.ramda.internal._curry1-0.26.1.tgz#c115be3440ae3a3bd63bbde9a176c76df0408012"
-  integrity sha1-wRW+NECuOjvWO73poXbHbfBAgBI=
-  dependencies:
-    "@bit/ramda.ramda.internal._is-placeholder" "0.26.1"
-
-"@bit/ramda.ramda.internal._curry2@0.26.1":
-  version "0.26.1"
-  resolved "https://node.bit.dev/ramda.ramda.internal._curry2/-/ramda.ramda.internal._curry2-0.26.1.tgz#91765e419f0353697b9917e4367a1d86caa1ca1c"
-  integrity sha1-kXZeQZ8DU2l7mRfkNnodhsqhyhw=
-  dependencies:
-    "@bit/ramda.ramda.internal._curry1" "0.26.1"
-    "@bit/ramda.ramda.internal._is-placeholder" "0.26.1"
-
-"@bit/ramda.ramda.internal._curry3@0.26.1":
-  version "0.26.1"
-  resolved "https://node.bit.dev/ramda.ramda.internal._curry3/-/ramda.ramda.internal._curry3-0.26.1.tgz#34b6fe37f276d3ed50e222647ceb3212a3b7f366"
-  integrity sha1-NLb+N/J20+1Q4iJkfOsyEqO382Y=
-  dependencies:
-    "@bit/ramda.ramda.internal._curry1" "0.26.1"
-    "@bit/ramda.ramda.internal._curry2" "0.26.1"
-    "@bit/ramda.ramda.internal._is-placeholder" "0.26.1"
-
-"@bit/ramda.ramda.internal._has@0.26.1":
-  version "0.26.1"
-  resolved "https://node.bit.dev/ramda.ramda.internal._has/-/ramda.ramda.internal._has-0.26.1.tgz#157d8427bda69a9488e397b8c57f16fa3723d887"
-  integrity sha1-FX2EJ72mmpSI45e4xX8W+jcj2Ic=
-
-"@bit/ramda.ramda.internal._is-object@0.26.1":
-  version "0.26.1"
-  resolved "https://node.bit.dev/ramda.ramda.internal._is-object/-/ramda.ramda.internal._is-object-0.26.1.tgz#1e061694805dd631c714d3dbef195984b0ceb4f0"
-  integrity sha1-HgYWlIBd1jHHFNPb7xlZhLDOtPA=
-
-"@bit/ramda.ramda.internal._is-placeholder@0.26.1":
-  version "0.26.1"
-  resolved "https://node.bit.dev/ramda.ramda.internal._is-placeholder/-/ramda.ramda.internal._is-placeholder-0.26.1.tgz#7b9d90316e7b553cd1138601e498cf0cf2bed6a9"
-  integrity sha1-e52QMW57VTzRE4YB5JjPDPK+1qk=
-
-"@bit/ramda.ramda.merge-deep-right@^0.26.1":
-  version "0.26.1"
-  resolved "https://node.bit.dev/ramda.ramda.merge-deep-right/-/ramda.ramda.merge-deep-right-0.26.1.tgz#fa21d67ae6af91ed67df613c703434d3262c5146"
-  integrity sha1-+iHWeuavke1n32E8cDQ00yYsUUY=
-  dependencies:
-    "@bit/ramda.ramda.internal._curry2" "0.26.1"
-    "@bit/ramda.ramda.merge-deep-with-key" "0.26.1"
-
-"@bit/ramda.ramda.merge-deep-with-key@0.26.1":
-  version "0.26.1"
-  resolved "https://node.bit.dev/ramda.ramda.merge-deep-with-key/-/ramda.ramda.merge-deep-with-key-0.26.1.tgz#296916552eb69d2a5a835699df75716c79247eff"
-  integrity sha1-KWkWVS62nSpag1aZ33VxbHkkfv8=
-  dependencies:
-    "@bit/ramda.ramda.internal._curry3" "0.26.1"
-    "@bit/ramda.ramda.internal._is-object" "0.26.1"
-    "@bit/ramda.ramda.merge-with-key" "0.26.1"
-
-"@bit/ramda.ramda.merge-with-key@0.26.1":
-  version "0.26.1"
-  resolved "https://node.bit.dev/ramda.ramda.merge-with-key/-/ramda.ramda.merge-with-key-0.26.1.tgz#25204abefa59ac15d9fddb6a9797441c9dd44b01"
-  integrity sha1-JSBKvvpZrBXZ/dtql5dEHJ3USwE=
-  dependencies:
-    "@bit/ramda.ramda.internal._curry3" "0.26.1"
-    "@bit/ramda.ramda.internal._has" "0.26.1"
-
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
@@ -14767,6 +14703,11 @@ raf-schd@^4.0.2:
   resolved "https://registry.yarnpkg.com/raf-schd/-/raf-schd-4.0.2.tgz#bd44c708188f2e84c810bf55fcea9231bcaed8a0"
   integrity sha512-VhlMZmGy6A6hrkJWHLNTGl5gtgMUm+xfGza6wbwnE914yeQ5Ybm18vgM734RZhMgfw4tacUrWseGZlpUrrakEQ==
 
+ramda@^0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.27.0.tgz#915dc29865c0800bf3f69b8fd6c279898b59de43"
+  integrity sha512-pVzZdDpWwWqEVVLshWUHjNwuVP7SfcmPraYuqocJp1yo2U1R7P+5QAfDhdItkuoGqIBnBYrtPp7rEPqDn9HlZA==
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
@@ -17259,7 +17200,7 @@ style-to-object@0.2.3, style-to-object@^0.2.1, style-to-object@^0.2.3:
   dependencies:
     inline-style-parser "0.1.1"
 
-styled-components@5.0.0, "styled-components@^4.0.0 || ^5.0.0":
+"styled-components@^4.0.0 || ^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-5.0.0.tgz#fc59932c9b574571fa3cd462c862af1956114ff2"
   integrity sha512-F7VhIXIbUXJ8KO3pU9wap2Hxdtqa6PZ1uHrx+YXTgRjyxGlwvBHb8LULXPabmDA+uEliTXRJM5WcZntJnKNn3g==
@@ -18812,10 +18753,10 @@ webpack-stats-plugin@^0.3.0:
   resolved "https://registry.yarnpkg.com/webpack-stats-plugin/-/webpack-stats-plugin-0.3.0.tgz#6952f63feb9a5393a328d774fb3eccac78d2f51b"
   integrity sha512-4a6mEl9HLtMukVjEPY8QPCSmtX2EDFJNhDTX5ZE2CLch2adKAZf53nUrpG6m7NattwigS0AodNcwNxlu9kMSDQ==
 
-webpack@4.41.1, webpack@~4.41.1:
-  version "4.41.1"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.1.tgz#5388dd3047d680d5d382a84249fd4750e87372fd"
-  integrity sha512-ak7u4tUu/U63sCVxA571IuPZO/Q0pZ9cEXKg+R/woxkDzVovq57uB6L2Hlg/pC8LCU+TWpvtcYwsstivQwMJmw==
+webpack@^4.28.4:
+  version "4.41.2"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.2.tgz#c34ec76daa3a8468c9b61a50336d8e3303dce74e"
+  integrity sha512-Zhw69edTGfbz9/8JJoyRQ/pq8FYUoY0diOXqW0T6yhgdhCv6wr0hra5DwwWexNRns2Z2+gsnrNcbe9hbGBgk/A==
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"
@@ -18841,10 +18782,10 @@ webpack@4.41.1, webpack@~4.41.1:
     watchpack "^1.6.0"
     webpack-sources "^1.4.1"
 
-webpack@^4.28.4:
-  version "4.41.2"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.2.tgz#c34ec76daa3a8468c9b61a50336d8e3303dce74e"
-  integrity sha512-Zhw69edTGfbz9/8JJoyRQ/pq8FYUoY0diOXqW0T6yhgdhCv6wr0hra5DwwWexNRns2Z2+gsnrNcbe9hbGBgk/A==
+webpack@~4.41.1:
+  version "4.41.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.1.tgz#5388dd3047d680d5d382a84249fd4750e87372fd"
+  integrity sha512-ak7u4tUu/U63sCVxA571IuPZO/Q0pZ9cEXKg+R/woxkDzVovq57uB6L2Hlg/pC8LCU+TWpvtcYwsstivQwMJmw==
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"

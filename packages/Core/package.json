@@ -33,9 +33,9 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@bit/ramda.ramda.merge-deep-right": "^0.26.1",
     "@welcome-ui/utils": "^1.7.1",
-    "polished": "^3.4.1"
+    "polished": "^3.4.1",
+    "ramda": "^0.27.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.16.0",
