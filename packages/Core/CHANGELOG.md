@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1](https://github.com/WTTJ/welcome-ui/compare/v1.10.0...v1.10.1) (2020-02-18)
+
+
+### Bug Fixes
+
+* **core:** use correct ramda import ([#541](https://github.com/WTTJ/welcome-ui/issues/541)) ([0f72839](https://github.com/WTTJ/welcome-ui/commit/0f72839047321a7951511715e9d0c2fc477fdade))
+
+
+
+
+
 # [1.10.0](https://github.com/WTTJ/welcome-ui/compare/v1.9.3...v1.10.0) (2020-02-17)
 
 
