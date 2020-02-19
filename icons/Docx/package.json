@@ -3,6 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.docx.cjs.js",
   "module": "dist/icons.docx.es.js",
+  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
   },
@@ -14,5 +15,5 @@
     "react-dom": "^16.10.2"
   },
   "license": "MIT",
-  "version": "1.10.0"
+  "version": "1.10.2"
 }
