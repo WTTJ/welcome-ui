@@ -3,6 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.flag_pointed.cjs.js",
   "module": "dist/icons.flag_pointed.es.js",
+  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
   },
