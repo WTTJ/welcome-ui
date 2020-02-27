@@ -25,7 +25,7 @@ const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'welcomefont'
 const HEADING_FONT_FAMILY = 'welcomefont'
 
-export const getBaseTheme = (options = {}) => {
+export const createTheme = (options = {}) => {
   let {
     defaultFontFamily = DEFAULT_FONT_FAMILY,
     headingFontFamily = HEADING_FONT_FAMILY,
@@ -121,11 +121,5 @@ export const getBaseTheme = (options = {}) => {
   theme.cards = getCards(theme)
   theme.modals = getModals(theme)
 
-  return theme
-}
-
-export const createTheme = options => {
-  const base = getBaseTheme(options)
-  const theme = merge({}, base, options)
   return theme
 }

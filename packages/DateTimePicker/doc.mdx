@@ -7,6 +7,8 @@ menu: Fields
 import { Props, Playground } from 'docz'
 import { DateTimePicker } from './index.js'
 import { DatePicker } from '../DatePicker/index.js'
+import { TimePicker } from '../DatePicker/index.js'
+import { DateIcon } from '../../icons/Date'
 import { Code, Dependencies, TagVersion, Usage } from '../../docz'
 const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
@@ -37,14 +39,17 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 <Playground>
   <Form initialValues={{ welcome2: Date.now() }}>
     <ConnectedField
-      component={DatePicker}
+      component={DateTimePicker}
       dateFormat="MMM dd yyyy"
       label="Date"
       name="welcome2"
       popperProps={{ zIndex: 50 }}
       showMonthDropdown
       showYearDropdown
-    />
+    >
+      <DatePicker icon={<DateIcon />} iconPlacement="right" />
+      <TimePicker />
+    </ConnectedField>
   </Form>
 </Playground>
 

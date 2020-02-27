@@ -1,5 +1,5 @@
-import { getBaseTheme } from './core'
-const theme = getBaseTheme()
+import { createTheme } from './core'
+const theme = createTheme()
 
 const palette = {
   jade: '#00A772',

@@ -38,8 +38,8 @@
     "reakit": "^1.0.0-beta.7"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^1.16.0",
-    "@xstyled/system": "^1.16.0",
+    "@xstyled/styled-components": "^1.17.0",
+    "@xstyled/system": "^1.17.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "styled-components": "^4.0.0 || ^5.0.0"
