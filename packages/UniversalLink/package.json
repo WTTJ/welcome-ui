@@ -33,7 +33,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^1.16.0",
+    "@xstyled/styled-components": "^1.17.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

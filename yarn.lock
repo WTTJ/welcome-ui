@@ -3115,28 +3115,28 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
-"@xstyled/core@^1.16.0":
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.16.0.tgz#ba261f35672a4a41920e820a9113c08d60b1fec3"
-  integrity sha512-3bRxIcrD6UhyCEbJo228MInStOmuhKs4WkbwIhSAsqjSqDbW3zkwKJqjYxcsn0r0HAGUE08+b5COqEVkjObpnA==
+"@xstyled/core@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.17.0.tgz#2e821d7595479e4578917ad1682ce40310ef40cf"
+  integrity sha512-vWf6QTFhCIuh0TP9Zo31RsjJogNZ87Z2L9aQ5MvpZYvHvlCvVM39kHdNJPXzCXv7FDN4ef9gbJGvs9QJA5fdgg==
   dependencies:
     "@babel/runtime" "^7.8.3"
-    "@xstyled/system" "^1.16.0"
+    "@xstyled/system" "^1.17.0"
 
-"@xstyled/styled-components@^1.16.0":
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.16.0.tgz#c2da6f1fc1850e1f38f7cecbedb4cbe845fcac88"
-  integrity sha512-AytKNoXchXYeIoLMcM/elycW2/bTDNIeVpqgNJ+EpRZsEYG7vyikEcvKKy4q1J6WG+2zHFiPPuTiOGaDLAW8VA==
+"@xstyled/styled-components@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.17.0.tgz#c30aca56ad0c200ea08e7ea5a8f20bcdaf6bf41e"
+  integrity sha512-oZBiSvziTb4L0xpIx1Sf+GCuzqrShKz/QNWQg5ltUNzWXyY4FV4e2v4ZHZ6Piux+pyQ7P9aYYazcwTisJcaQYg==
   dependencies:
     "@babel/runtime" "^7.8.3"
-    "@xstyled/core" "^1.16.0"
-    "@xstyled/system" "^1.16.0"
+    "@xstyled/core" "^1.17.0"
+    "@xstyled/system" "^1.17.0"
     "@xstyled/util" "^1.16.0"
 
-"@xstyled/system@^1.16.0":
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.16.0.tgz#6db4dfd27d0972d9ca8fceab1fb7ec10b16ce210"
-  integrity sha512-9Ro/GkScv8B2yiFtpkz2Atz9ayfuG3SLCvBcM6C7DHK0Jm+9BP0WVBDDB6GO9+bRD99ThN5labsW4Kw2vJUHHA==
+"@xstyled/system@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.17.0.tgz#627d01c41dcade0c21148932a85f4f1a6bac5d7a"
+  integrity sha512-vYAwzhljKB2hxi5azKfpvrB8PsiEzVdfGoAbFdUZQ+86C1ccgYoCcr58/ugbaA+0GQ+wvGDBOYQCYB7HrozCzA==
   dependencies:
     "@babel/runtime" "^7.8.3"
     "@xstyled/util" "^1.16.0"
