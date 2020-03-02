@@ -2,7 +2,7 @@
 import React, { forwardRef } from 'react'
 import { node, string } from 'prop-types'
 
-import * as S from './styled'
+import * as S from './styles'
 
 export const UniversalLink = forwardRef(({ children, dataTestId, target, ...rest }, ref) => (
   <S.UniversalLink

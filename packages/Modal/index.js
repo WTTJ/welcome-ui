@@ -3,7 +3,7 @@ import { Dialog, DialogBackdrop, DialogDisclosure, useDialogState } from 'reakit
 import { Portal } from 'reakit/Portal'
 import { bool, func, node, oneOf, string } from 'prop-types'
 
-import * as S from './styled'
+import * as S from './styles'
 import { Close } from './Close'
 
 export function useModalState(options) {
