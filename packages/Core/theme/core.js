@@ -121,5 +121,7 @@ export const createTheme = (options = {}) => {
   theme.cards = getCards(theme)
   theme.modals = getModals(theme)
 
+  theme = merge(theme, rest)
+
   return theme
 }
