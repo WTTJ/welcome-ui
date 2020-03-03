@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/alert",
-  "version": "1.9.3",
+  "version": "1.11.0-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/alert.cjs.js",
   "module": "dist/alert.es.js",
@@ -30,9 +30,9 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^1.9.3",
-    "@welcome-ui/system": "^1.9.3",
-    "@welcome-ui/text": "^1.9.3"
+    "@welcome-ui/box": "^1.11.0-alpha.0",
+    "@welcome-ui/system": "^1.11.0-alpha.0",
+    "@welcome-ui/text": "^1.11.0-alpha.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",

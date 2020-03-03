@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/field",
-  "version": "1.10.0",
+  "version": "1.11.0-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/field.cjs.js",
   "module": "dist/field.es.js",
@@ -33,10 +33,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/field-group": "^1.10.0",
-    "@welcome-ui/hint": "^1.10.0",
-    "@welcome-ui/label": "^1.10.0",
-    "@welcome-ui/system": "^1.9.3"
+    "@welcome-ui/field-group": "^1.11.0-alpha.0",
+    "@welcome-ui/hint": "^1.11.0-alpha.0",
+    "@welcome-ui/label": "^1.11.0-alpha.0",
+    "@welcome-ui/system": "^1.11.0-alpha.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",
