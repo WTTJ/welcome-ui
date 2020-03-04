@@ -74,7 +74,6 @@ const updateIcons = files => {
       return key
     })
     .reduce((acc, file) => {
-      const iconName = toPascalCase(file)
       return `${acc}
 export * from '@welcome-ui/${file}'`
     }, '')
