@@ -39,6 +39,7 @@
     "@welcome-ui/icons.pencil": "^1.11.0-alpha.0",
     "@welcome-ui/icons.positive": "^1.11.0-alpha.0",
     "@welcome-ui/system": "^1.11.0-alpha.0",
+    "@welcome-ui/text": "^1.11.0-alpha.0",
     "@welcome-ui/utils": "^1.11.0-alpha.0",
     "react-dropzone": "^10.1.8"
   },
@@ -50,7 +51,6 @@
     "react-dom": "^16.10.2",
     "styled-components": "^4.0.0 || ^5.0.0"
   },
-  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
   "component": "FileDrop",
   "homepage": "http://welcome-ui.com/fields/file-drop"

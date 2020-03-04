@@ -1,10 +1,9 @@
 import React from 'react'
 import { bool, func, string } from 'prop-types'
 import { Button } from '@welcome-ui/button'
+import { Text } from '@welcome-ui/text'
 import { NegativeIcon } from '@welcome-ui/icons.negative'
 import { PositiveIcon } from '@welcome-ui/icons.positive'
-
-import { Text } from '../Text'
 
 import { FilePreviewImage } from './styles'
 
