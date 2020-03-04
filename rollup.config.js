@@ -4,6 +4,8 @@ import postcss from 'rollup-plugin-postcss'
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 
 const PACKAGE_ROOT_PATH = process.cwd()
+const PROJECT_ROOT = process.env.PROJECT_ROOT
+
 const pkg = require(`${PACKAGE_ROOT_PATH}/package.json`)
 
 const input = 'index.js'
@@ -12,7 +14,7 @@ const external = id => !id.startsWith('.') && !id.startsWith('/')
 const getBabelOptions = ({ useESModules }) => ({
   exclude: '**/node_modules/**',
   runtimeHelpers: true,
-  configFile: `${process.env.PROJECT_ROOT}/babel.config.js` || '../../babel.config.js',
+  configFile: PROJECT_ROOT ? `${PROJECT_ROOT}/babel.config.js` : '../../babel.config.js',
   plugins: [
     'babel-plugin-annotate-pure-calls',
     ['@babel/plugin-transform-runtime', { useESModules }]

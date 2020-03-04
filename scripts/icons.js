@@ -76,7 +76,7 @@ const updateIcons = files => {
     .reduce((acc, file) => {
       const iconName = toPascalCase(file)
       return `${acc}
-export * from './${iconName}'`
+export * from '@welcome-ui/${file}'`
     }, '')
   // Write main icons/index.js
   fs.writeFileSync(`${iconsPath}/index.js`, svgContent)
