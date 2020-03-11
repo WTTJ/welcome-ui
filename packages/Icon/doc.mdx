@@ -24,9 +24,21 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 <Code language="bash" isCopyable>{`yarn add @welcome-ui/icons ${Object.keys(peerDependencies).join(' ')}`}</Code>
 <Code language="bash" isCopyable>{`import * as Icons from '@welcome-ui/icons'`}</Code>
 
+## Webfont
+
+Use webfont and HTML tags instead of inline SVG.
+
+<Playground>
+  <Icon webfont name="twitter" size="xs" />
+  <Icon webfont name="twitter" size="sm" />
+  <Icon webfont name="twitter" />
+  <Icon webfont name="twitter" size="lg" />
+  <Icon webfont name="twitter" size="xl" />
+</Playground>
+
 ## Size
 
-Use size property with `xs`, `sm`, `md`, `lg` or `xl`.
+Use size property with `xs`, `sm`, `md`, `lg` or `xl`. _Works both with SVG and webfont icons._
 
 <Playground>
   <TwitterIcon size="xs" />
@@ -38,12 +50,12 @@ Use size property with `xs`, `sm`, `md`, `lg` or `xl`.
 
 ## Colour
 
-Icons inherit the colour from their parent
+Icons inherit the colour from their parent. _Works both with SVG and webfont icons._
 
 <Playground>
-  <TwitterIcon color="blue" name="twitter" size="xl" />
-  <TwitterIcon color="orange" name="twitter" size="xl" />
-  <TwitterIcon color="green" name="twitter" size="xl" />
+  <TwitterIcon color="blue" size="xl" />
+  <TwitterIcon color="orange" size="xl" />
+  <TwitterIcon color="green" size="xl" />
 </Playground>
 
 ## Available icons
