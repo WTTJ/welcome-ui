@@ -28,7 +28,7 @@ export function Modal({
   return (
     <>
       <Portal>
-        <DialogBackdrop onClick={closeModal} {...rest}>
+        <DialogBackdrop {...rest}>
           <S.Backdrop hideOnClickOutside={hideOnClickOutside} />
         </DialogBackdrop>
       </Portal>
