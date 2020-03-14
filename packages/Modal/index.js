@@ -32,7 +32,12 @@ export function Modal({
           <S.Backdrop hideOnClickOutside={hideOnClickOutside} />
         </DialogBackdrop>
       </Portal>
-      <Dialog aria-label={ariaLabel} hideOnClickOutside={hideOnClickOutside} {...rest}>
+      <Dialog
+        aria-label={ariaLabel}
+        hide={closeModal}
+        hideOnClickOutside={hideOnClickOutside}
+        {...rest}
+      >
         <S.Dialog size={size}>
           <CloseElement onClick={closeModal} size="sm" variant="secondary" />
           {children}
