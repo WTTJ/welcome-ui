@@ -1,6 +1,6 @@
 import { bool, node, object } from 'prop-types'
 import React from 'react'
-import { MenuDisclosure, Menu as ReakitMenu, useMenuState } from 'reakit/Menu'
+import { MenuButton, Menu as ReakitMenu, useMenuState } from 'reakit/Menu'
 import { useNextFrame } from '@welcome-ui/utils'
 
 import { Item } from './Item'
@@ -15,7 +15,7 @@ export function DropdownMenu({ children, dataTestId, innerProps, visible, ...pro
       {menuProps => (
         <S.Inner
           {...menuProps}
-          innerProps={innerProps}
+          {...innerProps}
           style={{
             ...menuProps.style,
             opacity: delayedVisible ? 1 : 0
@@ -36,7 +36,7 @@ DropdownMenu.propTypes /* remove-proptypes */ = {
   visible: bool
 }
 
-DropdownMenu.Trigger = MenuDisclosure
+DropdownMenu.Trigger = MenuButton
 DropdownMenu.Item = Item
 DropdownMenu.Separator = Separator
 export { useMenuState as useDropdownMenuState }

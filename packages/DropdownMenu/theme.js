@@ -5,7 +5,6 @@ export const getDropdownMenu = theme => {
   return {
     inner: {
       'font-size': fontSizes.body3,
-      margin: `${space.xs} 0`,
       'min-width': toRem(130)
     },
     item: {

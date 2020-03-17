@@ -23,7 +23,9 @@ Menu from [Reakit](https://reakit.io/docs/menu/) with a really nice theme 👀
 
 <Playground>
   {() => {
-    const menu = useDropdownMenuState()
+    const menu = useDropdownMenuState({
+      gutter: 10
+    })
     const handleClick = e => {
       console.log(`Clicked on ${e.target.innerText}`);
       menu.hide();
@@ -58,7 +60,7 @@ Menu from [Reakit](https://reakit.io/docs/menu/) with a really nice theme 👀
 
 <Playground>
   {() => {
-    const menu = useDropdownMenuState({ placement: 'bottom-end' })
+    const menu = useDropdownMenuState({ gutter: 10, placement: 'bottom-end' })
     const handleClick = e => {
       console.log(`Clicked on ${e.target.innerText}`)
       menu.hide()
@@ -74,7 +76,7 @@ Menu from [Reakit](https://reakit.io/docs/menu/) with a really nice theme 👀
             {menu.visible ? <UpIcon /> : <DownIcon />}
           </DropdownMenu.Trigger>
         </Group>
-        <DropdownMenu {...menu} mb={100} aria-label="Complexity">
+        <DropdownMenu {...menu} aria-label="Complexity">
           <DropdownMenu.Item {...menu} onClick={handleClick}>
             <TrashIcon mr="sm" size="sm" />
             <Box>Second Action</Box>
