@@ -3,6 +3,7 @@ import { th } from '@xstyled/system'
 import { LiveEditor as ReactLiveEditor, LiveError as ReactLiveError } from 'react-live'
 
 import { Card } from '../packages/Card'
+import { DropdownMenu } from '../packages/DropdownMenu'
 
 export const LiveEditor = styled(ReactLiveEditor)`
   margin-top: md;
@@ -45,7 +46,7 @@ export const LivePreviewContent = styled.div(
         & > div {
           margin-bottom: -sm;
 
-          & > * {
+          & > *:not(${DropdownMenu.Menu}) {
             margin-right: sm;
             margin-bottom: sm;
           }

@@ -25,7 +25,7 @@ export const Title = styled.div`
   font-weight: bold;
 `
 
-export const TitleLink = styled(filterComponent(Link, ['isActive']))(
+export const TitleLink = styled(filterComponent(Link, ['isActive', 'mobile']))(
   ({ isActive }) => css`
     ${th('docz.navigation')};
     ${p => p.mobile && th('docz.navigationmobile')};
