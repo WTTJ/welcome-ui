@@ -1,49 +1,41 @@
 ---
-name: Icon
-route: /components/icon
+name: IconFont
+route: /components/icon-font
 menu: Components
 ---
 
 import { Props, Playground } from 'docz'
 import { Code, Dependencies, IconsList, TagVersion } from '../../docz'
-import { TwitterIcon } from '../../icons/Twitter'
-import { Icon } from './index'
+import { IconFont, Icons } from './index'
 const { dependencies, peerDependencies, name, version } = require('./package.json')
 
-# Icon
+# IconFont
+
+If you want to use a font of icons and HTML tags instead of inline SVG, use IconFont !
 
 <TagVersion version={version} name={name} />
 
-## Install and import individual icons
+## Use icon font
 
-<Code language="bash" isCopyable>{`yarn add @welcome-ui/icons.avatar ${Object.keys(peerDependencies).join(' ')}`}</Code>
-<Code language="bash" isCopyable>{`import { AvatarIcon } from '@welcome-ui/icons.avatar'`}</Code>
+<Code language="bash" isCopyable>{`yarn add @welcome-ui/icons.font ${Object.keys(peerDependencies).join(' ')}`}</Code>
+<Code language="bash" isCopyable>{`import { Icons } from '@welcome-ui/icons.font'`}</Code>
+or
+<Code language="bash" isCopyable>{`import { IconFont } from '@welcome-ui/icons.font'`}</Code>
 
-## Or… install and import all icons
-
-<Code language="bash" isCopyable>{`yarn add @welcome-ui/icons ${Object.keys(peerDependencies).join(' ')}`}</Code>
-<Code language="bash" isCopyable>{`import * as Icons from '@welcome-ui/icons'`}</Code>
-
-## Size
-
-Use size property with `xs`, `sm`, `md`, `lg` or `xl`.
+## Call Icon from Icons import
 
 <Playground>
-  <TwitterIcon size="xs" />
-  <TwitterIcon size="sm" />
-  <TwitterIcon />
-  <TwitterIcon size="lg" />
-  <TwitterIcon size="xl" />
+  <Icons.Twitter />
+  <Icons.Right />
+  <Icons.Facebook />
 </Playground>
 
-## Colour
-
-Icons inherit the colour from their parent.
+## Call Icon from IconFont import
 
 <Playground>
-  <TwitterIcon color="blue" size="xl" />
-  <TwitterIcon color="orange" size="xl" />
-  <TwitterIcon color="green" size="xl" />
+  <IconFont name="facebook" />
+  <IconFont name="left" />
+  <IconFont name="twitter" />
 </Playground>
 
 ## Available icons
@@ -54,8 +46,8 @@ Icons inherit the colour from their parent.
 
 <Playground wrapper={false}>
   {() => {
-    const icons = ['ats', 'employerBranding', 'marketplace', 'welcomeHome', 'welcomeKit']
-    return IconsList(icons)
+    const icons = ['ats', 'employer_branding', 'marketplace', 'welcome_home', 'welcome_kit']
+    return IconsList(icons, true)
   }}
 </Playground>
 
@@ -64,7 +56,7 @@ Icons inherit the colour from their parent.
 <Playground wrapper={false}>
   {() => {
     const icons = ['left', 'right', 'up', 'down']
-    return IconsList(icons)
+    return IconsList(icons, true)
   }}
 </Playground>
 
@@ -80,15 +72,15 @@ Icons inherit the colour from their parent.
       'check',
       'collapse',
       'cross',
-      'dragAndDrop',
+      'drag_and_drop',
       'edit',
       'eye',
       'expand',
-      'externalLink',
+      'external_link',
       'filters',
       'get',
       'heart',
-      'heartOutline',
+      'heart_outline',
       'information',
       'link',
       'log_out',
@@ -97,20 +89,19 @@ Icons inherit the colour from their parent.
       'notification',
       'pin',
       'play',
-      'playOutline',
+      'play_outline',
       'print',
       'promote',
-      'refuseCandidate',
+      'refuse_candidate',
       'remote',
       'reset',
       'search',
       'settings',
       'trash',
       'upload',
-      'video',
       'write'
     ]
-    return IconsList(icons)
+    return IconsList(icons, true)
   }}
 </Playground>
 
@@ -121,12 +112,12 @@ Icons inherit the colour from their parent.
     const icons = [
       'negative',
       'positive',
-      'negativeOutline',
-      'positiveOutline',
-      'negativeStraight',
-      'positiveStraight'
+      'negative_outline',
+      'positive_outline',
+      'negative_straight',
+      'positive_straight'
     ]
-    return IconsList(icons)
+    return IconsList(icons, true)
   }}
 </Playground>
 
@@ -134,8 +125,8 @@ Icons inherit the colour from their parent.
 
 <Playground wrapper={false}>
   {() => {
-    const icons = ['actions', 'coverLetter', 'details', 'resume', 'questions']
-    return IconsList(icons)
+    const icons = ['actions', 'cover_letter', 'details', 'resume', 'questions']
+    return IconsList(icons, true)
   }}
 </Playground>
 
@@ -150,41 +141,37 @@ Icons inherit the colour from their parent.
       'attachment',
       'avatar',
       'birthday',
-      'candidateStatus',
+      'candidate_status',
       'celebrate',
-      'clock',
       'comment',
-      'commentOutline',
+      'comment_outline',
       'contract',
       'create',
       'date',
       'department',
       'earth',
-      'educationLevel',
+      'education_level',
       'email',
-      'emailOutline',
+      'email_outline',
       'female',
-      'folder',
       'information',
       'location',
       'male',
-      'offerStatus',
+      'offer_status',
       'origine',
       'phone',
-      'phoneOutline',
+      'phone_outline',
       'podcast',
       'question',
       'review',
-      'reviewOutline',
-      'salary',
+      'review_outline',
       'source',
       'star',
       'suitcase',
       'tag',
-      'tags',
       'update'
     ]
-    return IconsList(icons)
+    return IconsList(icons, true)
   }}
 </Playground>
 
@@ -211,7 +198,7 @@ Icons inherit the colour from their parent.
       'xlsx',
       'zip'
     ]
-    return IconsList(icons)
+    return IconsList(icons, true)
   }}
 </Playground>
 
@@ -227,21 +214,20 @@ Icons inherit the colour from their parent.
       'camera',
       'chevron',
       'coffee',
-      'company',
       'compass',
       'computer',
-      'crossTarget',
+      'cross_target',
       'crown',
       'dish',
       'flag',
-      'flagPointed',
+      'flag_pointed',
       'gear',
       'handshake',
-      'hardHat',
+      'hard_hat',
       'hashtag',
-      'heartShiny',
+      'heart_shiny',
       'lock',
-      'lockRounded',
+      'lock_rounded',
       'map',
       'megaphone',
       'mic',
@@ -253,7 +239,6 @@ Icons inherit the colour from their parent.
       'pencil',
       'piechart',
       'pizza',
-      'refresh',
       'shield',
       'spanner',
       'stackserver',
@@ -262,7 +247,7 @@ Icons inherit the colour from their parent.
       'thumbup',
       'tree'
     ]
-    return IconsList(icons)
+    return IconsList(icons, true)
   }}
 </Playground>
 
@@ -273,16 +258,16 @@ Icons inherit the colour from their parent.
     const icons = [
       'bold',
       'code',
-      'heading1',
-      'heading2',
+      'heading_1',
+      'heading_2',
       'italic',
       'link',
-      'unorderedList',
-      'orderedList',
+      'unordered_list',
+      'ordered_list',
       'quote',
       'strikethrough'
     ]
-    return IconsList(icons)
+    return IconsList(icons, true)
   }}
 </Playground>
 
@@ -297,20 +282,19 @@ Icons inherit the colour from their parent.
       'github',
       'instagram',
       'linkedin',
-      'pinterest',
       'stackoverflow',
       'twitch',
       'twitter',
       'xing',
       'youtube'
     ]
-    return IconsList(icons)
+    return IconsList(icons, true)
   }}
 </Playground>
 
 ## Properties
 
-<Props of={Icon} />
+<Props of={IconFont} />
 
 ## Dependencies
 

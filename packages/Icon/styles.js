@@ -26,11 +26,3 @@ export const Icon = styled.svg(
     ${system};
   `
 )
-
-export const FontIcon = styled.i(
-  ({ size = 'md' }) => css`
-    display: inline-block;
-    font-size: ${th(`icons.${size}`)};
-    ${system};
-  `
-)

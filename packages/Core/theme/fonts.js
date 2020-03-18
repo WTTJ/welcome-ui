@@ -44,5 +44,11 @@ export const fontFaces = {
       style: 'italic',
       extensions: ['woff2', 'woff', 'ttf']
     }
+  ],
+  welcomeiconicfont: [
+    {
+      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/WttjIcons',
+      extensions: ['woff2', 'woff', 'ttf', 'eot', 'svg']
+    }
   ]
 }
