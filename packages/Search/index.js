@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState, useRef } from 'react'
+import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import { ClearButton } from '@welcome-ui/clear-button'
