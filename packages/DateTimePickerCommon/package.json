@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-time-picker-common",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/date-time-picker-common.cjs.js",
   "module": "dist/date-time-picker-common.es.js",
@@ -34,14 +34,14 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@welcome-ui/button": "^1.11.0",
-    "@welcome-ui/clear-button": "^1.11.0",
-    "@welcome-ui/field": "^1.11.0",
-    "@welcome-ui/icons.left": "^1.11.0",
-    "@welcome-ui/icons.right": "^1.11.0",
-    "@welcome-ui/select": "^1.11.0",
+    "@welcome-ui/button": "^1.12.0",
+    "@welcome-ui/clear-button": "^1.12.0",
+    "@welcome-ui/field": "^1.12.0",
+    "@welcome-ui/icons.left": "^1.12.0",
+    "@welcome-ui/icons.right": "^1.12.0",
+    "@welcome-ui/select": "^1.12.0",
     "@welcome-ui/system": "^1.11.0",
-    "@welcome-ui/utils": "^1.11.0",
+    "@welcome-ui/utils": "^1.12.0",
     "lodash.range": "^3.2.0"
   },
   "peerDependencies": {

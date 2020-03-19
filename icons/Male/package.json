@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.male.cjs.js",
   "module": "dist/icons.male.es.js",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,7 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.11.0"
+    "@welcome-ui/icon": "^1.12.0"
   },
   "license": "MIT"
 }
