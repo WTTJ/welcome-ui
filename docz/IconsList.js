@@ -77,8 +77,18 @@ export function IconsList(icons, iconFont) {
         const name = toPascalCase(key)
         const componentName = iconFont ? `Icons.${name}` : `${name}Icon`
         const Icon = iconFont ? FontIcons[name] : Icons[componentName]
+        if (!Icon) {
+          console.error(`The "${key}" icon is generating this issue`)
+        }
 
-        return <IconItem componentName={componentName} icon={Icon} key={key} name={name} />
+        return (
+          <IconItem
+            componentName={componentName}
+            icon={Icon || Icons.CrossIcon}
+            key={key}
+            name={name}
+          />
+        )
       })}
     </Box>
   )
