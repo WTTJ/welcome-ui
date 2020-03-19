@@ -1,8 +1,9 @@
-import React, { forwardRef, useEffect, useState } from 'react'
+import React, { forwardRef, useEffect, useState, useRef } from 'react'
 import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { createEvent } from '@welcome-ui/utils'
+import handleThrottle from 'lodash.throttle'
 
 import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../src/utils/propTypes'
 
@@ -31,6 +32,7 @@ export const Search = forwardRef(
       renderItem,
       search,
       size = 'lg',
+      throttle = 500,
       value: selected = EMPTY_STRING,
       variant,
       ...rest
@@ -43,6 +45,9 @@ export const Search = forwardRef(
     // Keep results in state
     const [results, setResults] = useState([])
 
+    // persist thottled function
+    const handleInputChangeRef = useRef(null)
+
     // Autofocus
     useEffect(() => {
       if (autoFocus) {
@@ -51,13 +56,15 @@ export const Search = forwardRef(
     }, [autoFocus, ref])
 
     // Update results when searching
-    const handleInputChange = async value => {
-      if (!value || value.length < minChars) {
-        setResults([])
-      } else {
-        const data = await search(value)
-        setResults(data || [])
-      }
+    if (!handleInputChangeRef.current) {
+      handleInputChangeRef.current = handleThrottle(async value => {
+        if (!value || value.length < minChars) {
+          setResults([])
+        } else {
+          const data = await search(value)
+          setResults(data || [])
+        }
+      }, throttle)
     }
 
     // Send event to parent when value(s) changes
@@ -89,7 +96,7 @@ export const Search = forwardRef(
       <Downshift
         initialInputValue={initialInputValue}
         itemToString={itemToString}
-        onInputValueChange={handleInputChange}
+        onInputValueChange={handleInputChangeRef.current}
         onOuterClick={handleOuterClick}
         onSelect={handleSelect}
         selectedItem={selected}
@@ -197,6 +204,7 @@ Search.propTypes /* remove-proptypes */ = {
   renderItem: func.isRequired,
   search: func.isRequired,
   size: oneOf(SIZES_TYPE),
+  throttle: number,
   value: oneOfType([object, arrayOf(object), string, arrayOf(string), number, arrayOf(number)]),
   variant: oneOf(VARIANTS_TYPE)
 }
