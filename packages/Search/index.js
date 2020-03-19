@@ -3,7 +3,7 @@ import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'p
 import Downshift from 'downshift'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { createEvent } from '@welcome-ui/utils'
-import handleThrottle from 'lodash.throttle'
+import { throttle as handleThrottle } from '@welcome-ui/utils'
 
 import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../src/utils/propTypes'
 
