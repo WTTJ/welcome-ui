@@ -1,0 +1,18 @@
+{
+  "name": "@welcome-ui/icons.tags",
+  "sideEffects": false,
+  "main": "dist/icons.tags.cjs.js",
+  "module": "dist/icons.tags.es.js",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^1.11.0"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "license": "MIT"
+}
