@@ -24,11 +24,13 @@ import { transitionCurves, transitions } from './transitions'
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'welcomefont'
 const HEADING_FONT_FAMILY = 'welcomefont'
+const ICON_FONT_FAMILY = 'welcomeiconicfont'
 
 export const createTheme = (options = {}) => {
   let {
     defaultFontFamily = DEFAULT_FONT_FAMILY,
     headingFontFamily = HEADING_FONT_FAMILY,
+    iconFontFamily = ICON_FONT_FAMILY,
     ...rest
   } = options
 
@@ -58,7 +60,8 @@ export const createTheme = (options = {}) => {
   }
   theme.fonts = {
     texts: defaultFontFamily,
-    headings: headingFontFamily
+    headings: headingFontFamily,
+    icons: iconFontFamily
   }
 
   theme.borderWidths = {

@@ -26,7 +26,7 @@ export const Navigation = ({ items, mobile }) => {
               <S.Title mobile={mobile}>{item.name}</S.Title>
               <S.Items>
                 {item.menu.map(item => {
-                  const isActiveRoute = pathname && pathname.indexOf(item.route) !== -1
+                  const isActiveRoute = pathname === item.route
 
                   return (
                     <S.ItemLink

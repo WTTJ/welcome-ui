@@ -5,6 +5,8 @@ import styled, { css } from '@xstyled/styled-components'
 
 import { Box } from '../packages/Box/index'
 import { useCopyText } from '../packages/Copy'
+import * as Icons from '../icons'
+import { Icons as FontIcons } from '../packages/IconFont'
 import { toPascalCase } from '../src/utils/toPascalCase'
 
 const Content = styled(Box)`
@@ -45,7 +47,7 @@ const Item = styled(Box)(
   `
 )
 
-function IconItem({ icon, name, componentName }) {
+function IconItem({ componentName, icon: Icon, name }) {
   const [copy, copied] = useCopyText(componentName, 500)
 
   return (
@@ -59,7 +61,7 @@ function IconItem({ icon, name, componentName }) {
         padding="15px 10px"
         width={1}
       >
-        {icon}
+        <Icon size="xl" />
       </Content>
       <Box fontSize="meta1" fontWeight="medium" padding="5px 0" textAlign="center" width={1}>
         {name}
@@ -68,17 +70,24 @@ function IconItem({ icon, name, componentName }) {
   )
 }
 
-export function IconsList(icons) {
+export function IconsList(icons, iconFont) {
   return (
     <Box display="flex" flexWrap="wrap">
       {icons.map(key => {
         const name = toPascalCase(key)
-        const componentName = `${name}Icon`
+        const componentName = iconFont ? `Icons.${name}` : `${name}Icon`
+        const Icon = iconFont ? FontIcons[name] : Icons[componentName]
+        if (!Icon) {
+          console.error(`The "${key}" icon is generating this issue`)
+        }
 
-        // Require the correct icon
-        const { [componentName]: Icon } = require(`../icons/${name}`)
         return (
-          <IconItem icon={<Icon size="xl" />} key={key} name={name} componentName={componentName} />
+          <IconItem
+            componentName={componentName}
+            icon={Icon || Icons.CrossIcon}
+            key={key}
+            name={name}
+          />
         )
       })}
     </Box>

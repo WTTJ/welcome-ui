@@ -32,6 +32,7 @@ Icon.propTypes /* remove-proptypes */ = {
     height: number,
     block: string
   }),
+  name: string,
   size: oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   title: string
 }
