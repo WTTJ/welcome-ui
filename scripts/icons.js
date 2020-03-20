@@ -36,7 +36,7 @@ const addAllFiles = files => {
 const writeContents = (file, content) => {
   let svgContent = /<svg[^>]*>([\s\S]*)<\/svg>/g.exec(content)
   if (svgContent) {
-    svgContent = svgContent[1].replace(/fill="#\w{6}"/g, 'fill="currentColor"').trim()
+    svgContent = svgContent[1].replace(/fill="#134B45"/g, 'fill="currentColor"').trim()
   }
   fs.writeFileSync(file, getContent(svgContent))
 }
