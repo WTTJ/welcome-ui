@@ -6,7 +6,7 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "scripts": {
     "start": "yarn docz:dev",
-    "icons:optimize": "svgo --folder=icons/_assets --indent=0 --multipass --quiet",
+    "icons:optimize": "svgo --folder=icons/_assets --config='{ \"plugins\": [ { \"cleanupIDs\": false } ] }' --indent=0 --multipass --quiet",
     "icons:collect": "node scripts/icons.js && eslint icons --fix",
     "pre-build": "yarn icons:optimize && yarn icons:collect",
     "build": "node scripts/build.js",
