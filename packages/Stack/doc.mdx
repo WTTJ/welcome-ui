@@ -1,0 +1,64 @@
+---
+name: Stack
+route: /components/stack
+menu: Components
+---
+
+import { Props, Playground } from 'docz'
+import { Stack } from './index'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
+
+# Stack
+
+<TagVersion version={version} name={name} />
+
+The `Stack` component is a layout component that allows you to easily stack elements with space between them.
+
+## Install and import
+
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+The default use of `Stack` will stack its children vertically.
+
+<Playground>
+  <Stack>
+    <div>Foo</div>
+    <div>Bar</div>
+    <div>Baz</div>
+  </Stack>
+</Playground>
+
+You can change the `direction` & the `spacing`.
+
+<Playground>
+  <Stack direction="row" spacing="xl">
+    <div>Foo</div>
+    <div>Bar</div>
+    <div>Baz</div>
+  </Stack>
+</Playground>
+
+It will ensure that its children are `li`s when is rendered as an `ul` or an `ol`.
+
+<Playground>
+  <Stack as="ul">
+    <div>Foo</div>
+    <div>Bar</div>
+    <div>Baz</div>
+  </Stack>
+</Playground>
+
+## Properties
+
+<Props of={Stack} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />
