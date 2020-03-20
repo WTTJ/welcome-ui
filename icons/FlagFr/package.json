@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.flag_fr.cjs.js",
   "module": "dist/icons.flag_fr.es.js",
-  "version": "1.0.0",
+  "version": "1.11.1-alpha.0",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.11.0"
+    "@welcome-ui/icon": "^1.11.1-alpha.0"
   },
   "peerDependencies": {
     "react": "^16.10.2",
