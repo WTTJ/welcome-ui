@@ -61,25 +61,24 @@ const writePackageJson = (file, key) => {
 }
 
 const updateIcons = files => {
-  files
-    .forEach(({ content, key }) => {
-      // Create folder if necessary
-      const iconName = toPascalCase(key)
-      const outputFolder = `${iconsPath}/${iconName}`
-      if (!fs.existsSync(outputFolder)) {
-        fs.mkdirSync(outputFolder)
-      }
-      // package.json
-      writePackageJson(`${outputFolder}/package.json`, key)
-      // .npmignore
-      fs.writeFileSync(`${outputFolder}/.npmignore`, getNpmIgnoreContent())
-      // contents.js
-      writeContents(`${outputFolder}/content.js`, content)
-      // index.js
-      fs.writeFileSync(`${outputFolder}/index.js`, getIndexContent(iconName))
+  files.forEach(({ content, key }) => {
+    // Create folder if necessary
+    const iconName = toPascalCase(key)
+    const outputFolder = `${iconsPath}/${iconName}`
+    if (!fs.existsSync(outputFolder)) {
+      fs.mkdirSync(outputFolder)
+    }
+    // package.json
+    writePackageJson(`${outputFolder}/package.json`, key)
+    // .npmignore
+    fs.writeFileSync(`${outputFolder}/.npmignore`, getNpmIgnoreContent())
+    // contents.js
+    writeContents(`${outputFolder}/content.js`, content)
+    // index.js
+    fs.writeFileSync(`${outputFolder}/index.js`, getIndexContent(iconName))
 
-      return key
-    })
+    return key
+  })
 
   // Write main icons/index.js
   const rootIndexContent = files.reduce((acc, { key }) => {
@@ -88,11 +87,11 @@ const updateIcons = files => {
     export { ${iconName}Icon } from '@welcome-ui/icons.${key}'`
   }, '')
   fs.writeFileSync(`${iconsPath}/index.js`, rootIndexContent)
-  
+
   // Write main icons/package.json
   let config = fs.readFileSync(`${iconsPath}/package.json`)
   config = JSON.parse(config.toString())
-  
+
   // Get versions of each icon
   const dependencies = files.reduce((acc, { key }) => {
     acc[`icons.${key}`] = icons[key].version
