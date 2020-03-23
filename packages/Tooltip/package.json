@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/tooltip",
-  "version": "1.11.0",
+  "version": "1.15.3-alpha.0",
   "description": "welcome-ui: A tooltip component",
   "main": "dist/tooltip.cjs.js",
   "module": "dist/tooltip.es.js",
@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@welcome-ui/system": "^1.11.0",
+    "popper.js": "^1.14.4",
     "reakit": "^1.0.0-beta.7"
   },
   "peerDependencies": {

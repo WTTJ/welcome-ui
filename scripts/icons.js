@@ -11,6 +11,9 @@ const iconPath = path.join(rootPath, 'packages/Icon')
 const iconsPath = path.join(rootPath, 'icons')
 const inputPath = path.join(iconsPath, '_assets')
 
+// State to hold all icons so we don't have to keep reading all the files
+let icons = {}
+
 const toPascalCase = str => {
   const camelCase = str.replace(/_(\w)/g, ($, $1) => $1.toUpperCase())
   return `${camelCase.charAt(0).toUpperCase()}${camelCase.substr(1)}`
@@ -50,36 +53,56 @@ const writePackageJson = (file, key) => {
     config = fs.readFileSync(file)
     config = JSON.parse(config.toString())
   }
+  icons[key] = {
+    name: toPascalCase(key),
+    version: iconConfig.version
+  }
   fs.writeFileSync(file, getPackageJsonContent(config, key, iconConfig.version))
 }
 
 const updateIcons = files => {
-  const svgContent = files
-    .map(({ content, key }) => {
-      // Create folder if necessary
-      const iconName = toPascalCase(key)
-      const outputFolder = `${iconsPath}/${iconName}`
-      if (!fs.existsSync(outputFolder)) {
-        fs.mkdirSync(outputFolder)
-      }
-      // package.json
-      writePackageJson(`${outputFolder}/package.json`, key)
-      // .npmignore
-      fs.writeFileSync(`${outputFolder}/.npmignore`, getNpmIgnoreContent())
-      // contents.js
-      writeContents(`${outputFolder}/content.js`, content)
-      // index.js
-      fs.writeFileSync(`${outputFolder}/index.js`, getIndexContent(iconName))
+  files.forEach(({ content, key }) => {
+    // Create folder if necessary
+    const iconName = toPascalCase(key)
+    const outputFolder = `${iconsPath}/${iconName}`
+    if (!fs.existsSync(outputFolder)) {
+      fs.mkdirSync(outputFolder)
+    }
+    // package.json
+    writePackageJson(`${outputFolder}/package.json`, key)
+    // .npmignore
+    fs.writeFileSync(`${outputFolder}/.npmignore`, getNpmIgnoreContent())
+    // contents.js
+    writeContents(`${outputFolder}/content.js`, content)
+    // index.js
+    fs.writeFileSync(`${outputFolder}/index.js`, getIndexContent(iconName))
 
-      return key
-    })
-    .reduce((acc, file) => {
-      const iconName = toPascalCase(file)
-      return `${acc}
-export * from './${iconName}'`
-    }, '')
+    return key
+  })
+
   // Write main icons/index.js
-  fs.writeFileSync(`${iconsPath}/index.js`, svgContent)
+  const rootIndexContent = files.reduce((acc, { key }) => {
+    const iconName = toPascalCase(key)
+    return `${acc}
+    export { ${iconName}Icon } from '@welcome-ui/icons.${key}'`
+  }, '')
+  fs.writeFileSync(`${iconsPath}/index.js`, rootIndexContent)
+
+  // Write main icons/package.json
+  let config = fs.readFileSync(`${iconsPath}/package.json`)
+  config = JSON.parse(config.toString())
+
+  // Get versions of each icon
+  const dependencies = files.reduce((acc, { key }) => {
+    acc[`@welcome-ui/icons.${key}`] = `^${icons[key].version}`
+    return acc
+  }, {})
+  const rootPackageJsonContent = {
+    ...config,
+    dependencies
+  }
+  fs.writeFileSync(`${iconsPath}/package.json`, `${JSON.stringify(rootPackageJsonContent, 0, 2)}
+`)
 
   return
 }
