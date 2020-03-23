@@ -101,7 +101,8 @@ const updateIcons = files => {
     ...config,
     dependencies
   }
-  fs.writeFileSync(`${iconsPath}/package.json`, JSON.stringify(rootPackageJsonContent, 0, 2))
+  fs.writeFileSync(`${iconsPath}/package.json`, `${JSON.stringify(rootPackageJsonContent, 0, 2)}
+`)
 
   return
 }
