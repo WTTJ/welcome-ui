@@ -94,7 +94,7 @@ const updateIcons = files => {
 
   // Get versions of each icon
   const dependencies = files.reduce((acc, { key }) => {
-    acc[`icons.${key}`] = icons[key].version
+    acc[`@welcome-ui/icons.${key}`] = `^${icons[key].version}`
     return acc
   }, {})
   const rootPackageJsonContent = {
