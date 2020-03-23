@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.3](https://github.com/WTTJ/welcome-ui/compare/v1.14.1...v1.15.3) (2020-03-23)
+
+
+### Bug Fixes
+
+* esm in icons cjs build ([#558](https://github.com/WTTJ/welcome-ui/issues/558)) ([40f91c4](https://github.com/WTTJ/welcome-ui/commit/40f91c420070d57621b13b3f87d9a1e39fd13372))
+
+
+
+
+
 ## [1.9.3](https://github.com/WTTJ/welcome-ui/compare/v1.9.2...v1.9.3) (2020-02-12)
 
 **Note:** Version bump only for package @welcome-ui/tooltip
