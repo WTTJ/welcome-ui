@@ -43,18 +43,79 @@ It can also be `disabled`
   </Link>
 </Playground>
 
-## Special case
-
-Use `<Text>` with `underline` props to add specific style _(here a border line)_
+## It works on multiple lines too
 
 <Playground>
   <Box>
-    <Link as={LinkDocz} to="/components/shape" variant="secondary">
+    <Link as={LinkDocz} to="/components/shape" variant="primary">
+      Ipsum ipsam fugiat doloribus sit hic ducimus dolorem Aperiam unde adipisci deserunt corporis
+      neque commodi. Quasi odit esse molestias reprehenderit incidunt Velit non expedita atque
+      exercitationem enim! Quidem quasi nihil.
+    </Link>
+  </Box>
+</Playground>
+
+## If you want to apply variant styles on specific css selector
+
+Can be a tag like _span_ or _div_
+
+<Playground>
+  <Box>
+    <Link
+      alignItems="center"
+      applyOn="span"
+      as={LinkDocz}
+      display="inline-flex"
+      to="/components/shape"
+      variant="primary"
+    >
       <Shape height="30px" shape="circle" width="30px">
         <img src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4" />
       </Shape>
-      <Text as="span" underline variant="body2">
+      <Text as="span" variant="body2">
         see shape component
+      </Text>
+    </Link>
+  </Box>
+  <Box>
+    <Link
+      alignItems="center"
+      applyOn="div"
+      as={LinkDocz}
+      display="inline-flex"
+      to="/components/shape"
+      variant="secondary"
+    >
+      <Shape height="30px" shape="circle" width="30px">
+        <img src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4" />
+      </Shape>
+      <Text as="span" variant="body2">
+        see shape component
+      </Text>
+    </Link>
+  </Box>
+</Playground>
+
+Can be any css selector _span:last-child_
+
+<Playground>
+  <Box>
+    <Link
+      alignItems="center"
+      applyOn="span:last-child"
+      as={LinkDocz}
+      display="inline-flex"
+      to="/components/shape"
+      variant="primary"
+    >
+      <Shape height="30px" shape="circle" width="30px">
+        <img src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4" />
+      </Shape>
+      <Text as="span" variant="body2">
+        first span
+      </Text>
+      <Text as="span" variant="body2">
+        second span
       </Text>
     </Link>
   </Box>

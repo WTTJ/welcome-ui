@@ -6,6 +6,7 @@ import { fieldStyles } from '@welcome-ui/utils'
 export const InputText = styled(filterFieldComponent('input'))(
   ({ connected, icon, iconPlacement, isClearable, size, ...rest }) => css`
     ${fieldStyles};
+    text-overflow: ellipsis;
 
     ${icon &&
       iconPlacement === 'left' &&

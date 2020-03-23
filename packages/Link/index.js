@@ -1,21 +1,25 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { UniversalLink } from '@welcome-ui/universal-link'
-import { system } from '@welcome-ui/system'
+import { filterComponent, system } from '@welcome-ui/system'
 
-export const Link = styled(UniversalLink)(
-  ({ variant }) => css`
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
+export const Link = styled(filterComponent(UniversalLink))(
+  ({ applyOn, variant }) => css`
     opacity: 1;
     text-decoration: none;
     cursor: pointer;
-    transition: opacity 300ms;
+    transition: medium;
+    transition-property: opacity;
 
     &:hover,
     &:focus {
-      opacity: 0.6;
+      ${applyOn &&
+        css`
+          > ${applyOn} {
+            ${th(`links.${variant || 'primary'}.hover`)};
+          }
+        `}
+      ${!applyOn && th(`links.${variant || 'primary'}.hover`)};
       outline: none !important; /* important for firefox */
     }
 
@@ -25,7 +29,14 @@ export const Link = styled(UniversalLink)(
     }
 
     ${th('links.default')};
-    ${th(`links.${variant || 'primary'}`)};
+    ${applyOn &&
+      css`
+        > ${applyOn} {
+          transition: inherit;
+          ${th(`links.${variant || 'primary'}.default`)};
+        }
+      `}
+    ${!applyOn && th(`links.${variant || 'primary'}.default`)}
     ${system};
 
     & > *:not(:only-child):not(:last-child) {

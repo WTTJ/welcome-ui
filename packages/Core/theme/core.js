@@ -1,3 +1,4 @@
+import { css } from '@xstyled/styled-components'
 import merge from 'ramda/src/mergeDeepRight'
 import { rpxTransformers } from '@xstyled/system'
 
@@ -99,16 +100,26 @@ export const createTheme = (options = {}) => {
     md: '3px 4px 10px 0 rgba(0,0,0,0.07)'
   }
 
-  theme.underline = {
-    'border-bottom-style': 'solid',
-    'border-bottom-width': theme.borderWidths.sm
-  }
-
   theme = merge(theme, rest)
+
+  theme.underline = css`
+    background-image: linear-gradient(
+      0deg,
+      ${theme.colors.primary[500]},
+      ${theme.colors.primary[500]} 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+    background-position-y: calc(200% - ${theme.borderWidths.sm});
+    transition: background-position-y ${theme.transitions.medium};
+  `
+
+  theme.underlineHover = css`
+    background-position-y: 100%;
+  `
 
   // CSS blocks
   // These attributes depend on colors and fontSizes and must come last
-  theme.underline['border-bottom-color'] = theme.colors.primary[500]
   theme.alerts = getAlerts(theme)
   theme.buttons = getButtons(theme)
   theme.fields = getFields(theme)

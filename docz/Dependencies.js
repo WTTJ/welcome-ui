@@ -17,12 +17,13 @@ export const Dependencies = ({ dependencies }) => {
         return (
           <li as={Button} key={dependency}>
             <Link
+              applyOn="span"
               border="none"
               href={`https://npmjs.com/package/${dependency}/v/${baseVersion}`}
               rel="nofollow"
               target="_npm"
             >
-              {dependency}
+              <span>{dependency}</span>
               <Tag ml="sm" size="md">
                 {version}
               </Tag>

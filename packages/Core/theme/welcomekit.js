@@ -1,6 +1,3 @@
-import { createTheme } from './core'
-const theme = createTheme()
-
 const palette = {
   jade: '#00A772',
   mountainmeadow: '#23C28F',
@@ -120,9 +117,6 @@ export const welcomekitTheme = {
       'background-color': colors.primary[100],
       color: colors.secondary[700]
     }
-  },
-  underline: {
-    'border-bottom-width': theme.borderWidths.md
   },
   fields: {
     default: {
