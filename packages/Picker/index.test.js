@@ -27,3 +27,24 @@ test('<Picker> renders', () => {
 
   expect(formValues.value).toStrictEqual('foo')
 })
+
+test('<Picker> selected prop is passed to elements', () => {
+  const { getByText } = render(
+    <Form initialValues={{ value: 'foo' }}>
+      <ConnectedField
+        component={Picker}
+        label="Values"
+        name="value"
+        options={[
+          { element: ({ selected }) => (selected ? 'foo-selected' : 'foo'), value: 'foo' },
+          { element: () => 'bar', value: 'bar' },
+          { element: () => 'baz', value: 'baz' }
+        ]}
+        required
+      />
+    </Form>
+  )
+
+  const selectedNode = getByText('foo-selected')
+  expect(selectedNode).toHaveTextContent('foo-selected')
+})
