@@ -1,0 +1,67 @@
+---
+name: Picker
+route: /fields/picker
+menu: Fields
+---
+
+import { Props, Playground } from 'docz'
+import { ConnectedField } from '../ConnectedField'
+import { Picker } from './index'
+import { Code, Dependencies, Form, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
+
+# Picker
+
+<TagVersion version={version} name={name} />
+
+## Install and import
+
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## With icons
+
+<Playground>
+  <Form initialValues={{}}>
+    <ConnectedField
+      component={Picker}
+      options={[
+        { element: ({ selected }) => <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}><EditIcon/></Shape>, value: 'edit' },
+        { element: ({ selected }) => <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}><TwitterIcon/></Shape>, value: 'twitter' },
+        { element: ({ selected }) => <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}><PencilIcon/></Shape>, value: 'pencil' }
+      ]}
+      name="icon"
+      label="Icons"
+      required
+    />
+  </Form>
+</Playground>
+
+## With colors and a default value
+
+<Playground>
+  <Form initialValues={{ color: '3' }}>
+    <ConnectedField
+      component={Picker}
+      options={[
+        { element: ({ selected }) => <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}><Shape borderRadius={2} height={15} width={15} backgroundColor="danger.200" /></Shape>, value: '1' },
+        { element: ({ selected }) => <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}><Shape borderRadius={2} height={15} width={15} backgroundColor="success.200" /></Shape>, value: '2' },
+        { element: ({ selected }) => <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}><Shape borderRadius={2} height={15} width={15} backgroundColor="warning.200" /></Shape>, value: '3' }
+      ]}
+      name="color"
+      label="Colors"
+      required
+    />
+  </Form>
+</Playground>
+
+## Properties
+
+<Props of={Picker} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

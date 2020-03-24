@@ -42,6 +42,7 @@ export * from '../packages/Toggle/index'
 export * from '../packages/Tooltip/index'
 export * from '../packages/UniversalLink/index'
 export * from '../packages/VariantIcon/index'
+export * from '../packages/Picker/index'
 
 // Icons
 export * from '../icons/index'
