@@ -25,9 +25,30 @@ const { dependencies, peerDependencies, component, name, version } = require('./
     <ConnectedField
       component={Picker}
       options={[
-        { element: ({ selected }) => <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}><EditIcon/></Shape>, value: 'edit' },
-        { element: ({ selected }) => <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}><TwitterIcon/></Shape>, value: 'twitter' },
-        { element: ({ selected }) => <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}><PencilIcon/></Shape>, value: 'pencil' }
+        {
+          element: ({ selected }) => (
+            <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
+              <EditIcon />
+            </Shape>
+          ),
+          value: 'edit'
+        },
+        {
+          element: ({ selected }) => (
+            <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
+              <TwitterIcon />
+            </Shape>
+          ),
+          value: 'twitter'
+        },
+        {
+          element: ({ selected }) => (
+            <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
+              <PencilIcon />
+            </Shape>
+          ),
+          value: 'pencil'
+        }
       ]}
       name="icon"
       label="Icons"
@@ -43,9 +64,30 @@ const { dependencies, peerDependencies, component, name, version } = require('./
     <ConnectedField
       component={Picker}
       options={[
-        { element: ({ selected }) => <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}><Shape borderRadius={2} height={15} width={15} backgroundColor="danger.200" /></Shape>, value: '1' },
-        { element: ({ selected }) => <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}><Shape borderRadius={2} height={15} width={15} backgroundColor="success.200" /></Shape>, value: '2' },
-        { element: ({ selected }) => <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}><Shape borderRadius={2} height={15} width={15} backgroundColor="warning.200" /></Shape>, value: '3' }
+        {
+          element: ({ selected }) => (
+            <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
+              <Shape borderRadius={2} height={15} width={15} backgroundColor="danger.200" />
+            </Shape>
+          ),
+          value: '1'
+        },
+        {
+          element: ({ selected }) => (
+            <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
+              <Shape borderRadius={2} height={15} width={15} backgroundColor="success.200" />
+            </Shape>
+          ),
+          value: '2'
+        },
+        {
+          element: ({ selected }) => (
+            <Shape shape="circle" height={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
+              <Shape borderRadius={2} height={15} width={15} backgroundColor="warning.200" />
+            </Shape>
+          ),
+          value: '3'
+        }
       ]}
       name="color"
       label="Colors"
