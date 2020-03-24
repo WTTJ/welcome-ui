@@ -32,7 +32,7 @@ export const Picker = forwardRef(
   }
 )
 
-Picker.displayName = 'IconColorPicker'
+Picker.displayName = 'Picker'
 
 Picker.propTypes /* remove-proptypes */ = {
   connected: bool,

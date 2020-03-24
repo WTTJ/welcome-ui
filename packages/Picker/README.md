@@ -1,4 +1,4 @@
-# @welcome-ui/icon-color-picker
+# @welcome-ui/picker
 
 The [InputText](http://welcome-ui.com/fields/picker) component from [@welcome-ui](http://welcome-ui.com).
 
