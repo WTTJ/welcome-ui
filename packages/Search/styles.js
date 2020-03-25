@@ -27,7 +27,7 @@ export const Input = styled(filterFieldComponent('input', FILTER_PROPS))(
       css`
         padding-left: ${th(`fields.sizes.${size}.height`)};
       `};
-    cursor: default;
+    cursor: text;
     ${componentSystem};
 
     br {
