@@ -117,25 +117,25 @@ export const welcomekitTheme = {
   palette,
   alerts: {
     success: {
-      'background-color': colors.primary[100],
+      backgroundColor: colors.primary[100],
       color: colors.secondary[700]
     }
   },
   underline: {
-    'border-bottom-width': theme.borderWidths.md
+    borderBottomWidth: theme.borderWidths.md
   },
   fields: {
     default: {
-      'background-color': colors.light[700]
+      backgroundColor: colors.light[700]
     },
     focused: {
-      'background-color': colors.light[900]
+      backgroundColor: colors.light[900]
     }
   },
   tags: {
     variants: {
       default: {
-        'background-color': colors.nude[200]
+        backgroundColor: colors.nude[200]
       }
     }
   }

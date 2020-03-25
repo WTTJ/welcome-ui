@@ -98,7 +98,7 @@ export const welcomeTheme = {
   colors,
   alerts: {
     success: {
-      'background-color': colors.primary[100],
+      backgroundColor: colors.primary[100],
       color: colors.primary[500]
     }
   },
@@ -120,17 +120,17 @@ export const welcomeTheme = {
     },
     hover: {
       secondary: {
-        'background-color': colors.light[900]
+        backgroundColor: colors.light[900]
       }
     },
     focused: {
       secondary: {
-        'border-color': colors.nude[400]
+        borderColor: colors.nude[400]
       }
     },
     disabled: {
-      'background-color': colors.nude[300],
-      'border-color': colors.nude[300]
+      backgroundColor: colors.nude[300],
+      borderColor: colors.nude[300]
     }
   },
   palette

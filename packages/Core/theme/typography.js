@@ -43,9 +43,9 @@ export const getTexts = theme => {
     return {
       ...acc,
       [key]: {
-        'font-weight': fontWeights.regular,
-        'font-size': fontSizes[key],
-        'line-height': lineHeights[key] || lineHeights.body1
+        fontWeight: fontWeights.regular,
+        fontSize: fontSizes[key],
+        lineHeight: lineHeights[key] || lineHeights.body1
       }
     }
   }, {})

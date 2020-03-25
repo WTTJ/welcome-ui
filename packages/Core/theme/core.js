@@ -100,15 +100,15 @@ export const createTheme = (options = {}) => {
   }
 
   theme.underline = {
-    'border-bottom-style': 'solid',
-    'border-bottom-width': theme.borderWidths.sm
+    borderBottomWidth: theme.borderWidths.sm,
+    borderBottomStyle: 'solid'
   }
 
   theme = merge(theme, rest)
 
   // CSS blocks
   // These attributes depend on colors and fontSizes and must come last
-  theme.underline['border-bottom-color'] = theme.colors.primary[500]
+  theme.underline.borderBottomColor = theme.colors.primary[500]
   theme.alerts = getAlerts(theme)
   theme.buttons = getButtons(theme)
   theme.fields = getFields(theme)
