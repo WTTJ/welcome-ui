@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { array, bool, func, string } from 'prop-types'
+import { arrayOf, bool, elementType, func, shape, string } from 'prop-types'
 import { Box } from '@xstyled/styled-components'
 import { RadioGroup as ReakitRadioGroup, useRadioState } from 'reakit/Radio'
 import { FieldGroup } from '@welcome-ui/field-group'
@@ -39,7 +39,12 @@ Picker.propTypes /* remove-proptypes */ = {
   label: string,
   name: string.isRequired,
   onChange: func,
-  options: array.isRequired,
+  options: arrayOf(
+    shape({
+      element: elementType,
+      value: string
+    })
+  ).isRequired,
   required: bool,
   value: string
 }
