@@ -1,10 +1,21 @@
 export const getLinks = theme => {
-  const { colors, underline } = theme
+  const { colors, transitions, underline } = theme
   return {
     default: {
-      color: colors.dark[500]
+      color: colors.dark[500],
+      transition: transitions.medium
     },
-    primary: underline,
-    secondary: {}
+    primary: {
+      default: underline,
+      hover: {
+        opacity: 0.6
+      }
+    },
+    secondary: {
+      default: '',
+      hover: {
+        opacity: 0.6
+      }
+    }
   }
 }

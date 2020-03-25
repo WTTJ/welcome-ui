@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { node, number, oneOf, oneOfType } from 'prop-types'
+import { bool, node, number, oneOf, oneOfType } from 'prop-types'
 
 import { COMPONENT_TYPE } from '../../src/utils/propTypes'
 
@@ -21,7 +21,7 @@ const TAG_NAMES = {
 }
 
 export const Text = forwardRef(
-  ({ as, children, dataTestId, lines, variant = 'body1', ...rest }, ref) => {
+  ({ as, children, dataTestId, lines, underline = false, variant = 'body1', ...rest }, ref) => {
     const tagName = as || TAG_NAMES[variant]
 
     return (
@@ -30,6 +30,7 @@ export const Text = forwardRef(
         data-testid={dataTestId}
         lines={lines}
         ref={ref}
+        underline={underline}
         variant={variant}
         {...rest}
       >
@@ -45,5 +46,6 @@ Text.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node,
   lines: number,
+  underline: bool,
   variant: oneOf(Object.keys(TAG_NAMES))
 }

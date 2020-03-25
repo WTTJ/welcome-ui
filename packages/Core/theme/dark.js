@@ -33,7 +33,7 @@ const defaultButtons = {
 const borderDark = colors.nude[100]
 
 const defaultFields = {
-  'border-color': borderDark
+  borderColor: borderDark
 }
 
 export const darkTheme = {
@@ -42,7 +42,7 @@ export const darkTheme = {
     primary: defaultButtons,
     secondary: {
       ...defaultButtons,
-      'border-color': colors.light[500]
+      borderColor: colors.light[500]
     },
     tertiary: {
       ...defaultButtons
@@ -58,13 +58,13 @@ export const darkTheme = {
     },
     hover: {
       secondary: {
-        'border-color': colors.light[200]
+        borderColor: colors.light[200]
       }
     },
     disabled: {
       color: colors.nude[800],
-      'background-color': colors.light[700],
-      'border-color': colors.light[700]
+      backgroundColor: colors.light[700],
+      borderColor: colors.light[700]
     }
   },
   tags: {
@@ -73,16 +73,16 @@ export const darkTheme = {
     },
     variants: {
       default: {
-        'background-color': colors.light[200]
+        backgroundColor: colors.light[200]
       },
       dark: {
-        'background-color': colors.light[700]
+        backgroundColor: colors.light[700]
       }
     }
   },
   dropdownMenu: {
     inner: {
-      'border-color': borderDark
+      borderColor: borderDark
     },
     item: {
       color: colors.nude[800],
@@ -97,12 +97,12 @@ export const darkTheme = {
       }
     },
     separator: {
-      'background-color': borderDark
+      backgroundColor: borderDark
     }
   },
   growls: {
     default: {
-      'border-color': borderDark
+      borderColor: borderDark
     }
   },
   paginations: {
@@ -115,7 +115,7 @@ export const darkTheme = {
   },
   tabs: {
     tabsBorder: {
-      'background-color': borderDark
+      backgroundColor: borderDark
     },
     item: {
       disabled: {
@@ -126,7 +126,7 @@ export const darkTheme = {
   fields: {
     default: defaultFields,
     disabled: {
-      'background-color': colors.light[700],
+      backgroundColor: colors.light[700],
       color: colors.nude[100]
     },
     placeholder: {
@@ -145,12 +145,12 @@ export const darkTheme = {
   },
   cards: {
     default: {
-      'border-color': colors.light[500]
+      borderColor: colors.light[500]
     }
   },
   modals: {
     backdrop: {
-      'background-color': colors.light[900]
+      backgroundColor: colors.light[900]
     }
   }
 }
