@@ -8,7 +8,7 @@ import { Label } from '@welcome-ui/label'
 import * as S from './styles'
 
 export const Picker = forwardRef(
-  ({ connected, label, name, onChange, options, required, value }, ref) => {
+  ({ connected, label, name, onChange, options, required, value, ...rest }, ref) => {
     const radio = useRadioState({ state: value })
 
     const handleClick = e => {
@@ -18,7 +18,7 @@ export const Picker = forwardRef(
     }
 
     return (
-      <FieldGroup as={ReakitRadioGroup} mb={0} ref={ref} required={required}>
+      <FieldGroup {...rest} as={ReakitRadioGroup} mb={0} ref={ref} required={required}>
         <Box display="flex" flexWrap="wrap">
           {options.map(({ element: Component, value: optValue }) => (
             <Label checkableField key={`${label}-${name}-${optValue}`} onClick={handleClick}>

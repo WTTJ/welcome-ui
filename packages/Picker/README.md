@@ -1,6 +1,6 @@
 # @welcome-ui/picker
 
-The [InputText](http://welcome-ui.com/fields/picker) component from [@welcome-ui](http://welcome-ui.com).
+The [Picker](http://welcome-ui.com/fields/picker) component from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 
