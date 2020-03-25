@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/link",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/link.cjs.js",
   "module": "dist/link.es.js",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@welcome-ui/system": "^1.11.0",
-    "@welcome-ui/universal-link": "^1.16.0"
+    "@welcome-ui/universal-link": "^1.17.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",

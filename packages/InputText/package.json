@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/input-text",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "description": "welcome-ui: Text input",
   "main": "dist/input-text.cjs.js",
   "module": "dist/input-text.es.js",

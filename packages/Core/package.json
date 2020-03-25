@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/core",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "description": "welcome-ui: Core utils",
   "main": "dist/core.cjs.js",
   "module": "dist/core.es.js",
