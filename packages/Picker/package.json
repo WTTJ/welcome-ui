@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/picker",
-  "version": "1.13.0",
+  "version": "1.16.0",
   "description": "welcome-ui: Picker",
   "main": "dist/picker.cjs.js",
   "module": "dist/picker.es.js",
