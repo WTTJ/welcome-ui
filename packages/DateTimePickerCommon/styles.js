@@ -9,6 +9,11 @@ import { componentSystem, filterFieldComponent } from '@welcome-ui/system'
 import { StyledSelect } from '@welcome-ui/select'
 import { fieldStyles } from '@welcome-ui/utils'
 
+// Only require CSS on client
+if (typeof window !== 'undefined') {
+  require('react-datepicker/dist/react-datepicker.css')
+}
+
 import { FILTER_PROPS } from './propTypes'
 
 export const DatePicker = styled(ReactDatePicker)`
