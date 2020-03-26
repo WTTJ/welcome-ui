@@ -22,15 +22,17 @@ const toPascalCase = str => {
 const readIconFiles = () => fs.readdirAsync(inputPath)
 
 const addAllFiles = files => {
-  const promises = files.map(file => {
-    const [key, type] = file.split('.')
-    if (type === 'svg') {
-      const fileConf = fs
-        .readFileAsync(path.join(inputPath, file), 'utf8')
-        .then(content => ({ key, content }))
-      return fileConf
-    }
-  })
+  const promises = files
+    .map(file => {
+      const [key, type] = file.split('.')
+      if (type === 'svg') {
+        const fileConf = fs
+          .readFileAsync(path.join(inputPath, file), 'utf8')
+          .then(content => ({ key, content }))
+        return fileConf
+      }
+    })
+    .filter(Boolean)
 
   // eslint-disable-next-line no-undef
   return Promise.all(promises)
@@ -45,8 +47,8 @@ const writeContents = (file, content) => {
 }
 
 const writePackageJson = (file, key) => {
-  let iconConfig = fs.readFileSync(`${iconPath}/package.json`)
-  iconConfig = JSON.parse(iconConfig.toString())
+  let iconRootConfig = fs.readFileSync(`${iconPath}/package.json`)
+  iconRootConfig = JSON.parse(iconRootConfig.toString())
 
   let config = {}
   if (fs.existsSync(file)) {
@@ -55,9 +57,9 @@ const writePackageJson = (file, key) => {
   }
   icons[key] = {
     name: toPascalCase(key),
-    version: iconConfig.version
+    version: config.version
   }
-  fs.writeFileSync(file, getPackageJsonContent(config, key, iconConfig.version))
+  fs.writeFileSync(file, getPackageJsonContent(config, key, iconRootConfig.version))
 }
 
 const updateIcons = files => {
@@ -101,8 +103,11 @@ const updateIcons = files => {
     ...config,
     dependencies
   }
-  fs.writeFileSync(`${iconsPath}/package.json`, `${JSON.stringify(rootPackageJsonContent, 0, 2)}
-`)
+  fs.writeFileSync(
+    `${iconsPath}/package.json`,
+    `${JSON.stringify(rootPackageJsonContent, 0, 2)}
+`
+  )
 
   return
 }
