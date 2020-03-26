@@ -2,11 +2,6 @@ import styled, { css } from '@xstyled/styled-components'
 import { S } from '@welcome-ui/date-time-picker-common'
 import { wrapperSystem } from '@welcome-ui/system'
 
-// Only require CSS on client
-if (typeof window !== 'undefined') {
-  require('react-datepicker/dist/react-datepicker.css')
-}
-
 const focusStyles = css`
   &:focus {
     position: relative;
