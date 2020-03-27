@@ -6,7 +6,10 @@ import { filterComponent, system } from '@welcome-ui/system'
 const shapeStyles = (size, shape) => css`
   width: ${th(`buttons.sizes.${size}.height`)};
   padding: 0;
-  border-radius: ${shape === 'circle' && th(`buttons.sizes.${size}.height`)};
+  ${shape === 'circle' &&
+    css`
+      border-radius: ${th(`buttons.sizes.${size}.height`)};
+    `};
 `
 
 export const Button = styled(filterComponent(ReakitButton))(
