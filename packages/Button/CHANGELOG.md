@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/WTTJ/welcome-ui/compare/v1.18.0...v1.18.1) (2020-03-27)
+
+
+### Bug Fixes
+
+* add border radius on shape square button ([#565](https://github.com/WTTJ/welcome-ui/issues/565)) ([39cad19](https://github.com/WTTJ/welcome-ui/commit/39cad198b522eda19d72bfc58eabb2f03e96f159))
+
+
+
+
+
 # [1.10.0](https://github.com/WTTJ/welcome-ui/compare/v1.9.3...v1.10.0) (2020-02-17)
 
 
