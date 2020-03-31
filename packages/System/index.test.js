@@ -17,6 +17,6 @@ describe('<Box>', () => {
 
     expect(container).toHaveTextContent(content)
     // check if font-style is set to italic
-    expect(box).toHaveStyleRule('font-style', 'italic')
+    expect(getComputedStyle(box).fontStyle).toBe('italic')
   })
 })
