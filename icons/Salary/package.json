@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.salary.cjs.js",
   "module": "dist/icons.salary.es.js",
-  "version": "1.19.0",
+  "version": "1.19.1",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.19.0"
+    "@welcome-ui/icon": "^1.19.1"
   },
   "peerDependencies": {
     "react": "^16.10.2",

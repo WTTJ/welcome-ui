@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/tabs",
-  "version": "1.19.0",
+  "version": "1.19.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/tabs.cjs.js",
   "module": "dist/tabs.es.js",
@@ -33,8 +33,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^1.19.0",
-    "@welcome-ui/utils": "^1.12.0",
+    "@welcome-ui/system": "^1.19.1",
+    "@welcome-ui/utils": "^1.19.1",
     "react-flatten-children": "^1.0.0",
     "reakit": "^1.0.0-beta.7"
   },

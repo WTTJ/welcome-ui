@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/connected-field",
-  "version": "1.19.0",
+  "version": "1.19.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/connected-field.cjs.js",
   "module": "dist/connected-field.es.js",
@@ -33,10 +33,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "devDependencies": {
-    "@welcome-ui/input-text": "^1.19.0"
+    "@welcome-ui/input-text": "^1.19.1"
   },
   "dependencies": {
-    "@welcome-ui/field": "^1.19.0"
+    "@welcome-ui/field": "^1.19.1"
   },
   "peerDependencies": {
     "react": "^16.10.2",

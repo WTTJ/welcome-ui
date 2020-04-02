@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/card",
-  "version": "1.19.0",
+  "version": "1.19.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/card.cjs.js",
   "module": "dist/card.es.js",
@@ -33,10 +33,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^1.19.0",
-    "@welcome-ui/shape": "^1.19.0",
-    "@welcome-ui/system": "^1.19.0",
-    "@welcome-ui/utils": "^1.12.0"
+    "@welcome-ui/box": "^1.19.1",
+    "@welcome-ui/shape": "^1.19.1",
+    "@welcome-ui/system": "^1.19.1",
+    "@welcome-ui/utils": "^1.19.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",
