@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/WTTJ/welcome-ui/compare/v1.18.1...v1.19.0) (2020-04-02)
+
+
+### Features
+
+* **radio:** add hint on each element ([#568](https://github.com/WTTJ/welcome-ui/issues/568)) ([72e914f](https://github.com/WTTJ/welcome-ui/commit/72e914fdff81f0c6c936bfd306ffdaa58078e9a8))
+
+
+
+
+
 # [1.13.0](https://github.com/WTTJ/welcome-ui/compare/v1.12.0...v1.13.0) (2020-03-20)
 
 **Note:** Version bump only for package @welcome-ui/radio-group
