@@ -40,6 +40,37 @@ const { dependencies, peerDependencies, component, name, version } = require('./
   </Form>
 </Playground>
 
+## With hint on radio
+
+<Playground>
+  <Form
+    initialValues={{}}
+    validate={values => (!values.social ? { social: 'You must choose a social network' } : {})}
+  >
+    <ConnectedField
+      component={RadioGroup}
+      flexDirection="row"
+      mb="xl"
+      name="social"
+      maxWidth="30%"
+      options={[
+        {
+          value: 'behance',
+          label: 'Behance',
+          hint: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+        },
+        {
+          value: 'dribbble',
+          label: 'Dribbble',
+          hint: 'Aenean a tristique turpis, in elementum est.'
+        }
+      ]}
+      required
+    />
+    <Button type="submit">Submit</Button>
+  </Form>
+</Playground>
+
 ## Properties
 
 <Props of={Radio} />

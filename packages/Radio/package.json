@@ -36,6 +36,7 @@
     "@welcome-ui/label": "^1.13.0",
     "@welcome-ui/system": "^1.11.0",
     "@welcome-ui/utils": "^1.12.0",
+    "@welcome-ui/hint": "^1.12.0",
     "reakit": "^1.0.0-beta.7"
   },
   "peerDependencies": {
