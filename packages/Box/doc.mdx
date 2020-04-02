@@ -12,7 +12,7 @@ const { dependencies, peerDependencies, component, name, version } = require('./
 
 <TagVersion version={version} name={name} />
 
-Use properties from [xstyled](https://xstyled.dev/docs/style-props/).
+Is an export of [xstyled's `<Box>` component](https://xstyled.dev/docs/style-using-props/#use-the-box-component).
 
 ## Install and import
 
@@ -27,9 +27,9 @@ Use properties from [xstyled](https://xstyled.dev/docs/style-props/).
     height="500px"
     justifyContent="center"
     alignItems="center"
-    backgroundColor="primary.100"
+    backgroundColor="nude.100"
   >
-    <Box backgroundColor="light.900" padding="50px">
+    <Box backgroundColor="light.900" borderRadius="sm" padding="50px" boxShadow="sm">
       Centered Box
     </Box>
   </Box>

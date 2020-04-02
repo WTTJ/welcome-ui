@@ -12,8 +12,8 @@ describe('<Stack>', () => {
     const foo = getByText('Foo')
     const bar = getByText('Bar')
 
-    expect(foo.parentElement).toHaveStyleRule('margin-bottom', '0.75rem')
-    expect(bar.parentElement).not.toHaveStyleRule()
+    expect(getComputedStyle(foo.parentElement).marginBottom).toBe('0.75rem')
+    expect(getComputedStyle(bar.parentElement).marginBottom).toBe('')
   })
 
   it('should render correctly with custom props', () => {
@@ -24,7 +24,7 @@ describe('<Stack>', () => {
     )
     const foo = getByText('Foo')
 
-    expect(foo.parentElement).toHaveStyleRule('margin-right', '1.5rem')
+    expect(getComputedStyle(foo.parentElement).marginRight).toBe('1.5rem')
     expect(foo.parentElement.tagName).toBe('LI')
   })
 })
