@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
-import { bool, elementType, func, oneOf, string } from 'prop-types'
+import { bool, elementType, func, number, oneOf, string } from 'prop-types'
 import { Label } from '@welcome-ui/label'
+import { Hint } from '@welcome-ui/hint'
 
 import { DIRECTIONS_TYPE } from '../../src/utils/propTypes'
 
@@ -12,7 +13,9 @@ export const Radio = forwardRef((props, ref) => {
     disabled,
     disabledIcon,
     flexDirection,
+    hint,
     label,
+    maxWidth,
     onChange,
     onClick,
     variant,
@@ -30,21 +33,25 @@ export const Radio = forwardRef((props, ref) => {
       checkableField
       disabled={disabled}
       disabledIcon={disabledIcon}
-      flexDirection={flexDirection}
+      flexDirection="column"
+      maxWidth={maxWidth}
       onClick={handleClick}
       variant={variant}
     >
-      <S.Input>
-        <S.Radio
-          data-testid={dataTestId}
-          disabled={disabled}
-          label={label}
-          ref={ref}
-          variant={variant}
-          {...rest}
-        />
-      </S.Input>
-      <S.Content>{label}</S.Content>
+      <S.Wrapper flexDirection={flexDirection}>
+        <S.Input>
+          <S.Radio
+            data-testid={dataTestId}
+            disabled={disabled}
+            label={label}
+            ref={ref}
+            variant={variant}
+            {...rest}
+          />
+        </S.Input>
+        <S.Content>{label}</S.Content>
+      </S.Wrapper>
+      {hint && <Hint marginTop="0">{hint}</Hint>}
     </Label>
   )
 })
@@ -56,7 +63,9 @@ Radio.propTypes /* remove-proptypes */ = {
   disabled: bool,
   disabledIcon: elementType,
   flexDirection: oneOf(DIRECTIONS_TYPE),
+  hint: string,
   label: string,
+  maxWidth: oneOf([(number, string)]),
   name: string,
   onChange: func,
   onClick: func,

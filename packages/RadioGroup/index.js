@@ -1,5 +1,5 @@
 import React from 'react'
-import { arrayOf, bool, elementType, oneOf, string } from 'prop-types'
+import { arrayOf, bool, elementType, number, oneOf, string } from 'prop-types'
 import { RadioGroup as ReakitRadioGroup, useRadioState } from 'reakit/Radio'
 import { FieldGroup } from '@welcome-ui/field-group'
 import { Radio } from '@welcome-ui/radio'
@@ -10,6 +10,7 @@ import * as S from './styles'
 
 export const RadioGroup = ({
   flexDirection,
+  maxWidth,
   label,
   name,
   options = [],
@@ -28,9 +29,11 @@ export const RadioGroup = ({
             {...rest}
             checked={option.value === value}
             flexDirection={flexDirection}
+            hint={option.hint}
             id={`${name}.${option.value}`}
             key={option.value}
             label={option.label}
+            maxWidth={maxWidth}
             name={name}
             type="radio"
             value={option.value}
@@ -48,6 +51,7 @@ RadioGroup.displayName = 'RadioGroup'
 RadioGroup.propTypes /* remove-proptypes */ = {
   flexDirection: oneOf(DIRECTIONS_TYPE),
   label: string,
+  maxWidth: oneOf([number, string]),
   name: string,
   /** [{
     label: `string` | `number`,

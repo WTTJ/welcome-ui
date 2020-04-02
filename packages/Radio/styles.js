@@ -38,4 +38,14 @@ export const Input = styled.div`
   position: relative;
 `
 
+export const Wrapper = styled.div`
+  display: flex;
+
+  > * {
+    &:not(:last-child) {
+      margin-right: xxs;
+    }
+  }
+`
+
 export const Content = styled.div``
