@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/utils",
-  "version": "1.19.1",
+  "version": "1.19.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/utils.cjs.js",
   "module": "dist/utils.es.js",

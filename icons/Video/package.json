@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.video.cjs.js",
   "module": "dist/icons.video.es.js",
-  "version": "1.19.1",
+  "version": "1.19.2",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.19.1"
+    "@welcome-ui/icon": "^1.19.2"
   },
   "peerDependencies": {
     "react": "^16.10.2",
