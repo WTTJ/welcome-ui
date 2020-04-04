@@ -37,7 +37,7 @@
     "@welcome-ui/label": "^1.19.2",
     "@welcome-ui/system": "^1.19.2",
     "@welcome-ui/utils": "^1.19.2",
-    "reakit": "^1.0.0-beta.16"
+    "reakit": "^1.0.0-rc.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",

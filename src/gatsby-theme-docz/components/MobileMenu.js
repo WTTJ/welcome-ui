@@ -23,7 +23,7 @@ export const MobileMenu = ({ items, theme, ...rest }) => {
       <Button as={Modal.Trigger} shape="circle" variant="secondary" {...modal}>
         <MenuIcon size="lg" />
       </Button>
-      <Modal {...modal} aria-label="Navigation">
+      <Modal {...modal} ariaLabel="Navigation">
         <Modal.Content>
           <Box alignItems="center" display="flex">
             <Button

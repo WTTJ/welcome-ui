@@ -6,7 +6,7 @@ import * as S from './styles'
 
 export function Table({ children, indent, ...rest }) {
   return (
-    <S.Wrapper indent={indent} {...rest}>
+    <S.Wrapper indent={indent && indent.toString()} {...rest}>
       <S.Content>
         <S.Table>{children}</S.Table>
       </S.Content>

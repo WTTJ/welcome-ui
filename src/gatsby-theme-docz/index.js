@@ -114,11 +114,11 @@ const Theme = ({ children }) => {
       <ComponentsProvider components={components}>
         <Page>
           <Helmet>
-            <link
+            {/* <link
               href="https://wh-front-production.s3-eu-west-1.amazonaws.com/production/home/assets/favicon.png"
               rel="shortcut icon"
               type="image/png"
-            />
+            /> */}
             <link
               href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
               rel="stylesheet"
