@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react'
 import { bool, elementType, func, number, oneOf, oneOfType, string } from 'prop-types'
-import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 
 import { DIRECTIONS_TYPE } from '../../src/utils/propTypes'
@@ -29,7 +28,7 @@ export const Radio = forwardRef((props, ref) => {
   }
 
   return (
-    <Label
+    <S.Label
       checkableField
       disabled={disabled}
       disabledIcon={disabledIcon}
@@ -49,10 +48,10 @@ export const Radio = forwardRef((props, ref) => {
             {...rest}
           />
         </S.Input>
-        <S.Content>{label}</S.Content>
+        <div>{label}</div>
       </S.Wrapper>
       {hint && <Hint marginTop="0">{hint}</Hint>}
-    </Label>
+    </S.Label>
   )
 })
 

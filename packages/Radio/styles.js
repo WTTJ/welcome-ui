@@ -3,6 +3,7 @@ import { th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
 import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
 import { fieldStyles } from '@welcome-ui/utils'
+import { Label as LabelWUI } from '@welcome-ui/label'
 
 export const Radio = styled(filterFieldComponent(ReakitRadio))(
   ({ connected, order = '-1' }) => css`
@@ -33,6 +34,11 @@ export const Radio = styled(filterFieldComponent(ReakitRadio))(
   `
 )
 
+// force label to max width to 100% here, because if we add a styled system prop maxWidth {{ md: '30%' }} we need to have a max-width on mobile by default
+export const Label = styled(LabelWUI)`
+  max-width: 100%;
+`
+
 export const Input = styled.div`
   flex-shrink: 0;
   position: relative;
@@ -47,5 +53,3 @@ export const Wrapper = styled.div`
     }
   }
 `
-
-export const Content = styled.div``
