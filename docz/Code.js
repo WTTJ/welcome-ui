@@ -3,13 +3,14 @@
 import React, { useRef } from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 
-import { getTheme } from './CodeTheme'
-import { Pre } from './Pre'
 import { useCopyText } from '../packages/Copy'
 import { Box } from '../packages/Box'
 import { Button } from '../packages/Button'
 
-export const Code = ({ children, language = 'jsx', isCopyable }) => {
+import { Pre } from './Pre'
+import { getTheme } from './CodeTheme'
+
+export const Code = ({ children, isCopyable, language = 'jsx' }) => {
   const copyRef = useRef()
   const [copy, copied] = useCopyText(copyRef, 5000)
 
@@ -28,13 +29,13 @@ export const Code = ({ children, language = 'jsx', isCopyable }) => {
           </Pre>
           {isCopyable && (
             <Button
-              position="absolute"
-              top={0}
-              mt="lg"
               mr="lg"
-              right={0}
+              mt="lg"
               onClick={copy}
+              position="absolute"
+              right={0}
               size="xs"
+              top={0}
               variant={copied ? 'secondary' : 'tertiary'}
             >
               {copied ? 'Copied!' : 'Copy'}

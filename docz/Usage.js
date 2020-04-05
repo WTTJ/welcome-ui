@@ -7,8 +7,8 @@ export const Usage = ({ component = '', name = '', peerDependencies = [] }) => {
   const dependencyList = Object.keys(peerDependencies).join(' ')
   return (
     <>
-      <Code language="bash" isCopyable>{`yarn add ${name} ${dependencyList}`}</Code>
-      <Code language="bash" isCopyable>{`import { ${component} } from '${name}'`}</Code>
+      <Code isCopyable language="bash">{`yarn add ${name} ${dependencyList}`}</Code>
+      <Code isCopyable language="bash">{`import { ${component} } from '${name}'`}</Code>
     </>
   )
 }
