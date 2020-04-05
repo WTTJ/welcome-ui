@@ -78,6 +78,7 @@ export function IconsList(icons, iconFont) {
         const componentName = iconFont ? `Icons.${name}` : `${name}Icon`
         const Icon = iconFont ? FontIcons[name] : Icons[componentName]
         if (!Icon) {
+          // eslint-disable-next-line no-console
           console.error(`The "${key}" icon is generating this issue`)
         }
 
