@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/radio-group",
-  "version": "1.20.2-alpha.0",
+  "version": "1.20.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/radio-group.cjs.js",
   "module": "dist/radio-group.es.js",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@welcome-ui/field-group": "^1.20.0",
-    "@welcome-ui/radio": "^1.20.2-alpha.0",
+    "@welcome-ui/radio": "^1.20.2",
     "@welcome-ui/system": "^1.20.0",
     "reakit": "^1.0.0-rc.0"
   },
