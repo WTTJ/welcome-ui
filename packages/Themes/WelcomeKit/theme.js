@@ -1,4 +1,4 @@
-import { createTheme } from './core'
+import { createTheme } from '@welcome-ui/core'
 const theme = createTheme()
 
 const palette = {
