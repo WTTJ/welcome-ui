@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/radio",
-  "version": "1.20.0",
+  "version": "1.20.2-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/radio.cjs.js",
   "module": "dist/radio.es.js",
