@@ -2,7 +2,7 @@ import { func, number, object, oneOfType, shape, string } from 'prop-types'
 
 export const COMPONENT_TYPE = [func, object, string]
 
-export const DIRECTIONS_TYPE = ['row', 'container']
+export const DIRECTIONS_TYPE = ['row', 'container', 'column']
 
 export const INPUTS_TYPE = [
   'checkbox',

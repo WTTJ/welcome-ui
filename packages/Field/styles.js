@@ -17,7 +17,22 @@ const checkableFieldStyles = css`
   margin-bottom: sm;
 `
 
-const FILTER_PROPS = ['options', 'value', 'renderMultiple']
+const FILTER_PROPS = [
+  'options',
+  'value',
+  'renderMultiple',
+  'renderOption',
+  'itemToString',
+  'search',
+  'timeIntervals',
+  'onAddFile',
+  'onRemoveFile',
+  'showMonthDropdown',
+  'showYearDropdown',
+  'dateFormat',
+  'maxDate',
+  'yearDropdownItemNumber'
+]
 
 export const Field = styled(filterFieldComponent('div', FILTER_PROPS))(
   props => css`

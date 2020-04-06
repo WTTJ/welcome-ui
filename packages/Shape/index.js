@@ -14,7 +14,7 @@ export const Shape = forwardRef(({ children, dataTestId, ...rest }, ref) => (
 Shape.displayName = 'Shape'
 
 Shape.propTypes /* remove-proptypes */ = {
-  children: node.isRequired,
+  children: node,
   height: oneOfType([string, number]),
   shape: oneOf(SHAPES_TYPE),
   width: oneOfType([string, number]).isRequired

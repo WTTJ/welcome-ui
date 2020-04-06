@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { bool, elementType, func, number, oneOf, string } from 'prop-types'
+import { bool, elementType, func, number, oneOf, oneOfType, string } from 'prop-types'
 import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 
@@ -65,7 +65,7 @@ Radio.propTypes /* remove-proptypes */ = {
   flexDirection: oneOf(DIRECTIONS_TYPE),
   hint: string,
   label: string,
-  maxWidth: oneOf([(number, string)]),
+  maxWidth: oneOfType([number, string]),
   name: string,
   onChange: func,
   onClick: func,

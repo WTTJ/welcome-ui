@@ -32,7 +32,7 @@ export const ConnectedField = forwardRef(({ children, component, type, ...rest }
 ConnectedField.displayName = 'WelcomeField'
 
 ConnectedField.propTypes /* remove-proptypes */ = {
-  children: node.isRequired,
+  children: node,
   component: oneOfType(COMPONENT_TYPE),
   type: string
 }

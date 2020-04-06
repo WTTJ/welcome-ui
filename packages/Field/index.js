@@ -4,7 +4,7 @@ import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 
 // Common
-import { COMPONENT_TYPE, DIRECTIONS_TYPE, INPUTS_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
+import { COMPONENT_TYPE, DIRECTIONS_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
 
 // Fields
 import { RowContainer } from './layout'
@@ -156,7 +156,7 @@ Field.propTypes /* remove-proptypes */ = {
   required: bool,
   size: oneOf(SIZES_TYPE),
   touched: bool,
-  type: oneOf(INPUTS_TYPE),
+  type: string,
   warning: string
 }
 
