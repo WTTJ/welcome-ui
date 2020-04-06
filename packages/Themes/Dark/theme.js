@@ -1,7 +1,8 @@
-import { colors as colorParentTheme } from './colors'
+import { createTheme } from '@welcome-ui/core'
+const theme = createTheme()
 
 export const colors = {
-  ...colorParentTheme,
+  ...theme.colors,
   light: {
     200: '#333333',
     500: '#2d2d2d',
