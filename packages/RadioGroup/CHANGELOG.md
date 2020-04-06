@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/WTTJ/welcome-ui/compare/v1.19.2...v1.20.0) (2020-04-06)
+
+
+### Bug Fixes
+
+* radioGroup spaces and Radio hint ([#572](https://github.com/WTTJ/welcome-ui/issues/572)) ([1ff064d](https://github.com/WTTJ/welcome-ui/commit/1ff064def49ce1afbd83fd5c886ab605ba2bb09c))
+
+
+
+
+
 # [1.19.0](https://github.com/WTTJ/welcome-ui/compare/v1.18.1...v1.19.0) (2020-04-02)
 
 

@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.quote.cjs.js",
   "module": "dist/icons.quote.es.js",
-  "version": "1.19.2",
+  "version": "1.20.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,7 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^1.19.2"
+    "@welcome-ui/icon": "^1.20.0"
   },
   "license": "MIT"
 }

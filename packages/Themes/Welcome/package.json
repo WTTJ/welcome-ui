@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/themes.welcome",
-  "version": "1.19.2",
+  "version": "1.20.0",
   "description": "welcome-ui: Welcome theme",
   "main": "dist/themes.welcome.cjs.js",
   "module": "dist/themes.welcome.es.js",
