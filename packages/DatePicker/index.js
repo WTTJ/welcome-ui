@@ -61,7 +61,8 @@ export const DatePicker = forwardRef(
     // Ensure values are controlled by parent
     useEffect(() => {
       const formattedDate = formatDate(value)
-      if (new Date(Date.parse(value)) - formattedDate !== 0 && onChange) {
+      const valueToParse = typeof value === 'object' ? value.toISOString() : value
+      if (new Date(Date.parse(valueToParse)) - formattedDate !== 0 && onChange) {
         onChange(formattedDate)
       }
       setDate(formattedDate)
