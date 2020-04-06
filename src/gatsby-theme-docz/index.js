@@ -5,9 +5,9 @@ import { Helmet } from 'react-helmet'
 
 import { GlobalStyle } from '../../../packages/Core/utils/base'
 import { createTheme } from '../../../packages/Core/theme/core'
-import { darkTheme } from '../../../packages/Core/theme/dark'
-import { welcomeTheme } from '../../../packages/Core/theme/welcome'
-import { welcomekitTheme } from '../../../packages/Core/theme/welcomekit'
+import { darkTheme } from '../../../packages/Themes/Dark'
+import { wttjTheme } from '../../../packages/Themes/Wttj'
+import { welcomeKitTheme } from '../../../packages/Themes/WelcomeKit'
 import { Code, CodeEditor, H1, H2, H3, InlineCode, Props } from '../../../docz/index'
 
 import { Content } from './components/Content.styled'
@@ -74,10 +74,10 @@ const getThemeOptions = name => {
 
   switch (name) {
     case 'welcomekit':
-      theming = createTheme(welcomekitTheme)
+      theming = createTheme(welcomeKitTheme)
       break
     case 'welcome':
-      theming = createTheme(welcomeTheme)
+      theming = createTheme(wttjTheme)
       break
     case 'dark':
       theming = createTheme(darkTheme)
