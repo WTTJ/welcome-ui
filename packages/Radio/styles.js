@@ -37,6 +37,7 @@ export const Radio = styled(filterFieldComponent(ReakitRadio))(
 // force label to max width to 100% here, because if we add a styled system prop maxWidth {{ md: '30%' }} we need to have a max-width on mobile by default
 export const Label = styled(LabelWUI)`
   max-width: 100%;
+  ${system}
 `
 
 export const Input = styled.div`
