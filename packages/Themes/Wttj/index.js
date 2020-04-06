@@ -1,0 +1,1 @@
+export { wttjTheme } from './theme'
