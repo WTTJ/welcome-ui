@@ -54,6 +54,7 @@ export const MarkdownEditor = forwardRef(
       toolbar = DEFAULT_TOOLBAR,
       value,
       variant,
+      minHeight = '8rem',
       ...rest
     },
     ref
@@ -177,7 +178,8 @@ export const MarkdownEditor = forwardRef(
             toolbar: false,
             tabSize: 4,
             spellChecker: false,
-            status: false
+            status: false,
+            minHeight
           }}
           ref={ref}
           value={value}
@@ -193,6 +195,7 @@ MarkdownEditor.displayName = 'MarkdownEditor'
 MarkdownEditor.propTypes /* remove-proptypes */ = {
   autoFocus: bool,
   disabled: bool,
+  minHeight: string,
   name: string,
   onBlur: func,
   onChange: func,
