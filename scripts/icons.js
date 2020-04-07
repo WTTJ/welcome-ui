@@ -19,36 +19,55 @@ const toPascalCase = str => {
   return `${camelCase.charAt(0).toUpperCase()}${camelCase.substr(1)}`
 }
 
-const readIconFiles = () => fs.readdirAsync(inputPath)
-
-const addAllFiles = files => {
-  const promises = files
-    .map(file => {
+// Read icons/assets/*.svg
+const readIconsFromAssets = () => {
+  return fs
+    .readdirAsync(inputPath)
+    .then(files => Promise.all(files.map(file => {
       const [key, type] = file.split('.')
       if (type === 'svg') {
-        const fileConf = fs
+        return fs
           .readFileAsync(path.join(inputPath, file), 'utf8')
           .then(content => ({ key, content }))
-        return fileConf
       }
-    })
-    .filter(Boolean)
-
-  // eslint-disable-next-line no-undef
-  return Promise.all(promises)
+    })))
+    .then(files => files.filter(Boolean))
 }
 
-const writeContents = (file, content) => {
+// Write content.js for a given icon
+const writeIconContentsJs = (outputFolder, content) => {
   let svgContent = /<svg[^>]*>([\s\S]*)<\/svg>/g.exec(content)
   if (svgContent) {
     svgContent = svgContent[1].replace(/fill="#134B45"/g, 'fill="currentColor"').trim()
   }
-  fs.writeFileSync(file, getContent(svgContent))
+
+  const fileContent = `export default {
+    width: 15,
+    height: 15,
+    block:
+      '${svgContent}'
+  }
+`
+
+  fs.writeFileSync(`${outputFolder}/content.js`, fileContent)
 }
 
-const writePackageJson = (file, key) => {
-  let iconRootConfig = fs.readFileSync(`${iconPath}/package.json`)
-  iconRootConfig = JSON.parse(iconRootConfig.toString())
+// Write .npmignore for a given icon
+const writeIconNpmIgnore = outputFolder => {
+  const fileContent = `/*
+!/dist/*.js
+`
+
+  fs.writeFileSync(`${outputFolder}/.npmignore`, fileContent)
+}
+
+// Write package.json for a given icon
+const writeIconPackageJson = (outputFolder, key) => {
+  const file = `${outputFolder}/package.json`
+
+  // Get root icon config
+  const iconRootConfig = fs.readFileSync(`${iconPath}/package.json`)
+  const { version } = JSON.parse(iconRootConfig.toString())
 
   let config = {}
   if (fs.existsSync(file)) {
@@ -59,10 +78,46 @@ const writePackageJson = (file, key) => {
     name: toPascalCase(key),
     version: config.version
   }
-  fs.writeFileSync(file, getPackageJsonContent(config, key, iconRootConfig.version))
+
+  const content = {
+    ...config,
+    name: `@welcome-ui/icons.${key}`,
+    sideEffects: false,
+    main: `dist/icons.${key}.cjs.js`,
+    module: `dist/icons.${key}.es.js`,
+    version: config.version || '1.0.0',
+    publishConfig: {
+      access: 'public'
+    },
+    dependencies: {
+      '@welcome-ui/icon': `^${version}`
+    },
+    peerDependencies: {
+      react: '^16.10.2',
+      'react-dom': '^16.10.2'
+    },
+    license: 'MIT'
+  }
+
+  const fileContent = `${JSON.stringify(content, 0, 2)}
+`
+
+  fs.writeFileSync(file, fileContent)
 }
 
-const updateIcons = files => {
+// Write index.js for a given icon
+const writeIconIndexJs = (outputFolder, iconName) => {
+  const file = `${outputFolder}/index.js`
+  const content = `import React from 'react'
+  import { Icon } from '@welcome-ui/icon'
+  import content from './content.js'
+  export const ${iconName}Icon = props => <Icon content={content} alt="${iconName}" {...props} />
+`
+}
+
+// Write icons 
+const writeIconPackages = files => {
+  console.debug('writeIconPackages', files)
   files.forEach(({ content, key }) => {
     // Create folder if necessary
     const iconName = toPascalCase(key)
@@ -71,15 +126,13 @@ const updateIcons = files => {
       fs.mkdirSync(outputFolder)
     }
     // package.json
-    writePackageJson(`${outputFolder}/package.json`, key)
+    writeIconPackageJson(outputFolder, key)
     // .npmignore
-    fs.writeFileSync(`${outputFolder}/.npmignore`, getNpmIgnoreContent())
+    writeIconNpmIgnore(outputFolder)
     // contents.js
-    writeContents(`${outputFolder}/content.js`, content)
+    writeIconContentsJs(outputFolder, content)
     // index.js
-    fs.writeFileSync(`${outputFolder}/index.js`, getIndexContent(iconName))
-
-    return key
+    writeIconIndexJs(outputFolder, iconName)
   })
 
   // Write main icons/index.js
@@ -99,6 +152,8 @@ const updateIcons = files => {
     acc[`@welcome-ui/icons.${key}`] = `^${icons[key].version}`
     return acc
   }, {})
+
+  // Add dependencies (all individual icons) to icons/package.json
   const rootPackageJsonContent = {
     ...config,
     dependencies
@@ -112,63 +167,11 @@ const updateIcons = files => {
   return
 }
 
-const writeIcons = readIconFiles()
-  .then(addAllFiles)
-  .then(updateIcons)
+// Main function: Read icons from folder and update all icon (packages)
+readIconsFromAssets()
+  .then(writeIconPackages)
   // eslint-disable-next-line no-console
   .then(() => console.log('SVGs successfully written to json'))
   .catch(err => {
     throw err
   })
-
-// .npmignore
-const getNpmIgnoreContent = () => `/*
-!/dist/*.js
-`
-
-// index.js
-const getIndexContent = iconName => `import React from 'react'
-import { Icon } from '@welcome-ui/icon'
-import content from './content.js'
-export const ${iconName}Icon = props => <Icon content={content} alt="${iconName}" {...props} />
-`
-
-// package.json
-const getPackageJsonContent = (config, key, iconVersion) => {
-  const content = {
-    ...config,
-    name: `@welcome-ui/icons.${key}`,
-    sideEffects: false,
-    main: `dist/icons.${key}.cjs.js`,
-    module: `dist/icons.${key}.es.js`,
-    version: config.version || '1.0.0',
-    publishConfig: {
-      access: 'public'
-    },
-    dependencies: {
-      '@welcome-ui/icon': `^${iconVersion}`
-    },
-    peerDependencies: {
-      react: '^16.10.2',
-      'react-dom': '^16.10.2'
-    },
-    license: 'MIT'
-  }
-  return `${JSON.stringify(content, 0, 2)}
-`
-}
-
-// content.js
-const getContent = svgContent => `export default {
-  width: 15,
-  height: 15,
-  block:
-    '${svgContent}'
-}
-`
-
-module.exports = {
-  writeIcons,
-  readIconFiles,
-  addAllFiles
-}
