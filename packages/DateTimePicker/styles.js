@@ -1,5 +1,5 @@
 import styled, { css } from '@xstyled/styled-components'
-import { S } from '@welcome-ui/date-time-picker-common'
+import { StyledDatePicker, StyledTimePicker } from '@welcome-ui/date-time-picker-common'
 import { wrapperSystem } from '@welcome-ui/system'
 
 const focusStyles = css`
@@ -17,12 +17,12 @@ export const DateTimePicker = styled.div(
 
     .react-datepicker-wrapper {
       flex-grow: 1;
-      ${S.DatePicker} {
+      ${StyledDatePicker} {
         ${focusStyles};
         border-top-right-radius: ${datePickerOnly ? null : 0};
         border-bottom-right-radius: ${datePickerOnly ? null : 0};
       }
-      ${S.TimePicker} {
+      ${StyledTimePicker} {
         ${focusStyles};
         border-top-left-radius: ${timePickerOnly ? null : 0};
         border-bottom-left-radius: ${timePickerOnly ? null : 0};

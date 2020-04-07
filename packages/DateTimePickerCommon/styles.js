@@ -16,12 +16,12 @@ if (typeof window !== 'undefined') {
 
 import { FILTER_PROPS } from './propTypes'
 
-export const DatePicker = styled(ReactDatePicker)`
+export const StyledDatePicker = styled(ReactDatePicker)`
   ${fieldStyles};
   ${componentSystem};
 `
 
-export const TimePicker = styled(ReactDatePicker)`
+export const StyledTimePicker = styled(ReactDatePicker)`
   ${fieldStyles};
   text-align: center;
   ${componentSystem};
@@ -30,7 +30,7 @@ export const TimePicker = styled(ReactDatePicker)`
 const iconPlacementStyles = (placement, size, rest) => {
   if (placement === 'right') {
     return css`
-      ${DatePicker}, ${TimePicker} {
+      ${StyledDatePicker}, ${StyledTimePicker} {
         padding-right: ${`calc(1.5 * ${th(`fields.sizes.${size}.height`)(rest)})`};
       }
 
@@ -49,7 +49,7 @@ const iconPlacementStyles = (placement, size, rest) => {
   }
   if (placement === 'left') {
     return css`
-      ${DatePicker}, ${TimePicker} {
+      ${StyledDatePicker}, ${StyledTimePicker} {
         padding-left: ${th(`fields.sizes.${size}.height`)(rest)};
       }
     `
@@ -60,7 +60,7 @@ export const CustomInput = styled(filterFieldComponent('div', FILTER_PROPS))(
   ({ focused, icon, iconPlacement, size, ...rest }) => {
     return css`
       position: relative;
-      ${DatePicker}, ${TimePicker} {
+      ${StyledDatePicker}, ${StyledTimePicker} {
         padding-right: ${th(`fields.sizes.${size}.height`)(rest)};
       }
 
