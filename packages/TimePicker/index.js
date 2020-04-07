@@ -5,7 +5,7 @@ import {
   CustomPopper,
   DEFAULT_DATE,
   getDate,
-  S
+  StyledTimePicker
 } from '@welcome-ui/date-time-picker-common'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
@@ -79,7 +79,7 @@ export const TimePicker = forwardRef(
     }
 
     return (
-      <S.TimePicker
+      <StyledTimePicker
         calendarClassName="time-picker-popper"
         customInput={
           <CustomInput

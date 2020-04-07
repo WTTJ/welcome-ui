@@ -1,7 +1,7 @@
-import * as S from './styles'
-
 export * from './CustomHeader'
 export * from './CustomPopper'
 export * from './CustomInput'
 export * from './utils'
-export { S }
+
+// no export * as S here because of crash on gatsby
+export { StyledDatePicker, StyledTimePicker } from './styles'

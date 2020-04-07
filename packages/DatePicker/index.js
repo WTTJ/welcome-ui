@@ -16,7 +16,7 @@ import {
   CustomPopper,
   DEFAULT_DATE,
   getDate,
-  S
+  StyledDatePicker
 } from '@welcome-ui/date-time-picker-common'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
@@ -104,7 +104,7 @@ export const DatePicker = forwardRef(
     }
 
     return (
-      <S.DatePicker
+      <StyledDatePicker
         autoComplete="off"
         calendarClassName="date-picker-popper"
         customInput={
