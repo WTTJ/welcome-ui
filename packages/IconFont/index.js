@@ -3,7 +3,7 @@ import React from 'react'
 import { toPascalCase } from '../../src/utils/toPascalCase'
 
 import { Icon } from './styles'
-import { unicodeMap } from './unicode'
+import unicodeMap from './unicode.json'
 
 export const IconFont = Icon
 

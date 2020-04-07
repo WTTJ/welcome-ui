@@ -2,6 +2,8 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { system } from '@welcome-ui/system'
 
+import unicodeMap from './unicode.json'
+
 // stylelint-disable font-family-no-missing-generic-family-keyword
 export const Icon = styled.i(
   ({ name, size = 'md' }) => css`

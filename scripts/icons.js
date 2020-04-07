@@ -2,14 +2,16 @@ const path = require('path')
 const fs = require('fs')
 const util = require('util')
 
+const difference = require('lodash.difference')
+
 fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)
-fs.writeFileAsync = util.promisify(fs.writeFile)
 
 const rootPath = path.join(__dirname, '..')
 const iconPath = path.join(rootPath, 'packages/Icon')
 const iconsPath = path.join(rootPath, 'icons')
 const inputPath = path.join(iconsPath, '_assets')
+const iconFontPath = path.join(rootPath, 'packages/IconFont')
 
 // State to hold all icons so we don't have to keep reading all the files
 let icons = {}
@@ -23,14 +25,18 @@ const toPascalCase = str => {
 const readIconsFromAssets = () => {
   return fs
     .readdirAsync(inputPath)
-    .then(files => Promise.all(files.map(file => {
-      const [key, type] = file.split('.')
-      if (type === 'svg') {
-        return fs
-          .readFileAsync(path.join(inputPath, file), 'utf8')
-          .then(content => ({ key, content }))
-      }
-    })))
+    .then(files =>
+      Promise.all(
+        files.map(file => {
+          const [key, type] = file.split('.')
+          if (type === 'svg') {
+            return fs
+              .readFileAsync(path.join(inputPath, file), 'utf8')
+              .then(content => ({ key, content }))
+          }
+        })
+      )
+    )
     .then(files => files.filter(Boolean))
 }
 
@@ -66,17 +72,17 @@ const writeIconPackageJson = (outputFolder, key) => {
   const file = `${outputFolder}/package.json`
 
   // Get root icon config
-  const iconRootConfig = fs.readFileSync(`${iconPath}/package.json`)
-  const { version } = JSON.parse(iconRootConfig.toString())
+  const { version } = require(`${iconPath}/package.json`)
 
   let config = {}
   if (fs.existsSync(file)) {
-    config = fs.readFileSync(file)
-    config = JSON.parse(config.toString())
+    config = require(file)
+    // config = JSON.parse(config.toString())
   }
+  // Save icons in global 'state'
   icons[key] = {
     name: toPascalCase(key),
-    version: config.version
+    version: config.version || '1.0.0'
   }
 
   const content = {
@@ -108,16 +114,17 @@ const writeIconPackageJson = (outputFolder, key) => {
 // Write index.js for a given icon
 const writeIconIndexJs = (outputFolder, iconName) => {
   const file = `${outputFolder}/index.js`
-  const content = `import React from 'react'
+  const fileContent = `import React from 'react'
   import { Icon } from '@welcome-ui/icon'
   import content from './content.js'
   export const ${iconName}Icon = props => <Icon content={content} alt="${iconName}" {...props} />
 `
+
+  fs.writeFileSync(file, fileContent)
 }
 
-// Write icons 
+// Write icons
 const writeIconPackages = files => {
-  console.debug('writeIconPackages', files)
   files.forEach(({ content, key }) => {
     // Create folder if necessary
     const iconName = toPascalCase(key)
@@ -135,17 +142,21 @@ const writeIconPackages = files => {
     writeIconIndexJs(outputFolder, iconName)
   })
 
+  return files
+}
+
+// Write root icon files
+const writeRootIconPackage = files => {
   // Write main icons/index.js
-  const rootIndexContent = files.reduce((acc, { key }) => {
+  const rootIndexContent = files.map(({ key }) => {
     const iconName = toPascalCase(key)
-    return `${acc}
-    export { ${iconName}Icon } from '@welcome-ui/icons.${key}'`
-  }, '')
+    return `export { ${iconName}Icon } from '@welcome-ui/icons.${key}'`
+  }).join(`
+`)
   fs.writeFileSync(`${iconsPath}/index.js`, rootIndexContent)
 
   // Write main icons/package.json
-  let config = fs.readFileSync(`${iconsPath}/package.json`)
-  config = JSON.parse(config.toString())
+  let config = require(`${iconsPath}/package.json`)
 
   // Get versions of each icon
   const dependencies = files.reduce((acc, { key }) => {
@@ -158,18 +169,45 @@ const writeIconPackages = files => {
     ...config,
     dependencies
   }
-  fs.writeFileSync(
-    `${iconsPath}/package.json`,
-    `${JSON.stringify(rootPackageJsonContent, 0, 2)}
+  const fileContent = `${JSON.stringify(rootPackageJsonContent, 0, 2)}
 `
-  )
 
-  return
+  fs.writeFileSync(`${iconsPath}/package.json`, fileContent)
+
+  return files
+}
+
+// Write icon font
+const writeIconFont = files => {
+  const file = `${iconFontPath}/unicode.json`
+  let unicodeMap = require(file)
+  const newIcons = difference(files.map(file => file.key), Object.keys(unicodeMap))
+
+  if (!newIcons) {
+    return files
+  }
+
+  // Add new icons to unicodeMap (adding one to hex value for each new icon)
+  const newUnicodeMap = newIcons.reduce((arr, key) => {
+    const lastUnicodeEntry = arr[Object.keys(unicodeMap).pop()]
+    const newUnicodeEntry = (parseInt(lastUnicodeEntry, 16) + 0x1).toString(16)
+    arr[key] = `\f${newUnicodeEntry}`
+    return arr
+  }, unicodeMap)
+
+  const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
+`
+
+  fs.writeFileSync(file, fileContent)
+
+  return files
 }
 
 // Main function: Read icons from folder and update all icon (packages)
 readIconsFromAssets()
   .then(writeIconPackages)
+  .then(writeRootIconPackage)
+  .then(writeIconFont)
   // eslint-disable-next-line no-console
   .then(() => console.log('SVGs successfully written to json'))
   .catch(err => {
