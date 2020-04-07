@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.4](https://github.com/WTTJ/welcome-ui/compare/v1.20.3...v1.20.4) (2020-04-07)
+
+
+### Bug Fixes
+
+* min height on mde textarea ([#582](https://github.com/WTTJ/welcome-ui/issues/582)) ([02f62c0](https://github.com/WTTJ/welcome-ui/commit/02f62c088399876b5004eb10805438d626718401))
+
+
+
+
+
 ## [1.20.3](https://github.com/WTTJ/welcome-ui/compare/v1.20.2...v1.20.3) (2020-04-07)
 
 
