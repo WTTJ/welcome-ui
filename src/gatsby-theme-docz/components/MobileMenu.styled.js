@@ -8,6 +8,7 @@ export const MobileMenu = styled.div`
   ${th('docz.menu')};
   position: sticky;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
   width: 100%;

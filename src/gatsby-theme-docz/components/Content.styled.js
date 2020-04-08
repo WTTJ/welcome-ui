@@ -8,10 +8,9 @@ export const ContentWrapper = styled.section`
 
 export const Content = styled.article`
   width: 100%;
-  height: 100vh;
   max-width: 1200;
   margin: 0 auto;
-  padding: 20;
+  padding: 20 20 50 20;
   color: nude.800;
 
   @media (min-width: 1300px) {
