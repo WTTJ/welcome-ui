@@ -28,19 +28,20 @@ const toPascalCase = str => {
 const readIconsFromAssets = () => {
   return fs
     .readdirAsync(inputPath)
+    .then(files => files.filter(file => {
+      const [, type] = file.split('.')
+      return type === 'svg'
+    }))
     .then(files =>
       Promise.all(
         files.map(file => {
-          const [key, type] = file.split('.')
-          if (type === 'svg') {
-            return fs
-              .readFileAsync(path.join(inputPath, file), 'utf8')
-              .then(content => ({ key, content }))
-          }
+          const [key] = file.split('.')
+          return fs
+            .readFileAsync(path.join(inputPath, file), 'utf8')
+            .then(content => ({ key, content }))
         })
       )
     )
-    .then(files => files.filter(Boolean))
 }
 
 // Write content.js for a given icon
