@@ -1,5 +1,5 @@
 export const fontFaces = {
-  welcomefont: [
+  'welcome-font': [
     {
       url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcome-font-regular',
       weight: '400',
@@ -45,7 +45,7 @@ export const fontFaces = {
       extensions: ['woff2', 'woff', 'ttf']
     }
   ],
-  welcomeiconicfont: [
+  'welcome-icon-font': [
     {
       url: 'https://cdn.welcometothejungle.co/common/assets/fonts/WttjIcons',
       extensions: ['woff2', 'woff', 'ttf', 'eot', 'svg']

@@ -1,7 +1,10 @@
+/* eslint-disable no-console */
+
 const path = require('path')
 const fs = require('fs')
 const util = require('util')
 
+const webfontsGenerator = require('webfonts-generator')
 const difference = require('lodash.difference')
 
 fs.readFileAsync = util.promisify(fs.readFile)
@@ -125,6 +128,7 @@ const writeIconIndexJs = (outputFolder, iconName) => {
 
 // Write icons
 const writeIconPackages = files => {
+  console.log('*** Writing individual icon packages ***')
   files.forEach(({ content, key }) => {
     // Create folder if necessary
     const iconName = toPascalCase(key)
@@ -142,11 +146,13 @@ const writeIconPackages = files => {
     writeIconIndexJs(outputFolder, iconName)
   })
 
+  console.log('SVGs successfully written to json')
   return files
 }
 
 // Write root icon files
 const writeRootIconPackage = files => {
+  console.log('*** Writing root icon files ***')
   // Write main icons/index.js
   const rootIndexContent = files.map(({ key }) => {
     const iconName = toPascalCase(key)
@@ -174,11 +180,13 @@ const writeRootIconPackage = files => {
 
   fs.writeFileSync(`${iconsPath}/package.json`, fileContent)
 
+  console.log('Icon font successfully written')
   return files
 }
 
 // Write icon font
 const writeIconFont = files => {
+  console.log('*** Writing icon font ***')
   const file = `${iconFontPath}/unicode.json`
   let unicodeMap = require(file)
   const newIcons = difference(files.map(file => file.key), Object.keys(unicodeMap))
@@ -200,6 +208,22 @@ const writeIconFont = files => {
 
   fs.writeFileSync(file, fileContent)
 
+  webfontsGenerator(
+    {
+      files: files.map(file => `${inputPath}/${file.key}.svg`),
+      dest: `${iconFontPath}/fonts`,
+      fontName: 'welcome-icon-font',
+      codepoints: newUnicodeMap
+    },
+    error => {
+      if (error) {
+        console.error('Fail!', error)
+      } else {
+        console.log('Icon font successfully written')
+      }
+    }
+  )
+
   return files
 }
 
@@ -208,8 +232,6 @@ readIconsFromAssets()
   .then(writeIconPackages)
   .then(writeRootIconPackage)
   .then(writeIconFont)
-  // eslint-disable-next-line no-console
-  .then(() => console.log('SVGs successfully written to json'))
   .catch(err => {
     throw err
   })

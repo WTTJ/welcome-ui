@@ -65,6 +65,7 @@
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
     "@emotion/core": "^10.0.9",
+    "@rollup/plugin-json": "^4.0.2",
     "@testing-library/dom": "=6.7.0",
     "@testing-library/react": "^8.0.1",
     "@testing-library/user-event": "=7.0.1",
@@ -130,6 +131,7 @@
     "stylelint-processor-styled-components": "=1.9.0",
     "surge": "=0.21.3",
     "svgo": "=1.2.2",
+    "webfonts-generator": "^0.4.0",
     "wttj-config-front": "=1.0.1"
   },
   "dependencies": {},
