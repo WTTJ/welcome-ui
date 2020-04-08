@@ -28,10 +28,12 @@ const toPascalCase = str => {
 const readIconsFromAssets = () => {
   return fs
     .readdirAsync(inputPath)
-    .then(files => files.filter(file => {
-      const [, type] = file.split('.')
-      return type === 'svg'
-    }))
+    .then(files =>
+      files.filter(file => {
+        const [, type] = file.split('.')
+        return type === 'svg'
+      })
+    )
     .then(files =>
       Promise.all(
         files.map(file => {
@@ -192,7 +194,7 @@ const writeIconFont = files => {
   let unicodeMap = require(file)
   const newIcons = difference(files.map(file => file.key), Object.keys(unicodeMap))
 
-  if (!newIcons) {
+  if (!newIcons.length) {
     return files
   }
 
