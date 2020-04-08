@@ -2,5 +2,5 @@ export default {
   width: 15,
   height: 15,
   block:
-    '<defs><mask id="es-a" x="0" y="0" width="14" height="10"><rect width="14" height="10" rx="2" fill="#FFF"/></mask></defs><g mask="url(#es-a)" transform="scale(7.14209 7.51806) translate(0 4)"><path fill="#D80027" d="M0 0h14v3.33H0z"/><path fill="#FFDA44" d="M0 3.33h14v3.34H0z"/><path fill="#D80027" d="M0 6.67h14V10H0z"/></g>'
+    '<defs><rect id="path-1" x="0" y="0" width="100" height="71.43" rx="6"/></defs><g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="flag_es" transform="translate(0 14)"><mask id="mask-2" fill="#fff"><use xlink:href="#path-1"/></mask><g id="Group" mask="url(#mask-2)" fill-rule="nonzero"><path id="Path" fill="#D80027" d="M0 0h100v23.786H0z"/><path id="Path" fill="#FFDA44" d="M0 23.786h100v23.858H0z"/><path id="Path" fill="#D80027" d="M0 47.644h100V71.43H0z"/></g></g></g>'
 }
