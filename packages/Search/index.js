@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react'
+import React, { forwardRef, useCallback, useEffect, useState } from 'react'
 import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import { ClearButton } from '@welcome-ui/clear-button'
@@ -45,9 +45,6 @@ export const Search = forwardRef(
     // Keep results in state
     const [results, setResults] = useState([])
 
-    // persist thottled function
-    const handleInputChangeRef = useRef(null)
-
     // Autofocus
     useEffect(() => {
       if (autoFocus) {
@@ -56,16 +53,17 @@ export const Search = forwardRef(
     }, [autoFocus, ref])
 
     // Update results when searching
-    if (!handleInputChangeRef.current) {
-      handleInputChangeRef.current = handleThrottle(async value => {
+    const handleInputChange = useCallback(
+      handleThrottle(async value => {
         if (!value || value.length < minChars) {
           setResults([])
         } else {
           const data = await search(value)
           setResults(data || [])
         }
-      }, throttle)
-    }
+      }, throttle),
+      [minChars, search, throttle]
+    )
 
     // Send event to parent when value(s) changes
     const handleChange = value => {
@@ -96,7 +94,7 @@ export const Search = forwardRef(
       <Downshift
         initialInputValue={initialInputValue}
         itemToString={itemToString}
-        onInputValueChange={handleInputChangeRef.current}
+        onInputValueChange={handleInputChange}
         onOuterClick={handleOuterClick}
         onSelect={handleSelect}
         selectedItem={selected}
