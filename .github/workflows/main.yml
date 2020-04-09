@@ -5,9 +5,27 @@ on:
     branches: [ feat-cd ]
 
 jobs:
-  build:
-
+  install:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: yarn
+    - name: caching deps
+      uses: actions/cache@master
+      with:
+        path: node_modules
+        key: $GITHUB_SHA
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: install
     strategy:
       matrix:
         node-version: [12.x]
@@ -18,16 +36,17 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: restore deps
+      uses: actions/cache@master
+      with:
+        path: node_modules
+        key: $GITHUB_SHA
     - run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-    - run: cat .npmrc
-    - name: whoami
-      run: env && npm whoami
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
     - run: rm .npmrc
-    - run: yarn
     - run: yarn build
     - run: yarn lerna link
     - run: yarn lerna changed
+    - name: publish
+      run: env && npm whoami
       env:
-        CI: true
+        NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
