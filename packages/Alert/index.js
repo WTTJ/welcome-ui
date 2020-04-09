@@ -4,6 +4,7 @@ import React from 'react'
 
 import * as S from './styles'
 
+// super commponent
 const Alert = ({ children, variant = 'error', ...rest }) => (
   <S.Alert variant={variant} {...rest}>
     {children}
