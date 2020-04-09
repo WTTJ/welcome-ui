@@ -55,13 +55,11 @@ export const colors = {
     800: '#727272'
   },
   sub: {
-    blue: '#559AF1',
-    green: '#4AB519',
-    orange: '#EA724C',
-    pink: '#F0AABF',
-    purple: '#965FE6',
-    red: '#D04232',
-    turquoize: '#3FD1C1',
-    yellow: '#F4CF70'
+    1: '#3FD1C1',
+    2: '#4AB519',
+    3: '#EA724C',
+    4: '#F0AABF',
+    5: '#965FE6',
+    6: '#F4CF70'
   }
 }

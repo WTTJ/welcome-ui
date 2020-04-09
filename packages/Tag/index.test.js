@@ -30,7 +30,7 @@ describe('<Tag>', () => {
 
   it('should have correct color', () => {
     const { getByTestId } = render(
-      <Tag dataTestId="tag" variant="turquoize">
+      <Tag dataTestId="tag" variant="1">
         {content}
       </Tag>
     )
