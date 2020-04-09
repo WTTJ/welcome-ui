@@ -1,4 +1,4 @@
-# @welcome-ui/theme.wttj
+# @welcome-ui/themes.wttj
 
 The Wttj theme from [@welcome-ui](http://welcome-ui.com).
 
@@ -6,11 +6,11 @@ The Wttj theme from [@welcome-ui](http://welcome-ui.com).
 
 ## Installation
 
-    yarn add @welcome-ui/theme.wttj
+    yarn add @welcome-ui/themes.wttj
 
 ## Import
 
-    import { themeWttj } from '@welcome-ui/theme.wttj'
+    import { themeWttj } from '@welcome-ui/themes.wttj'
 
 ## Documentation
 
