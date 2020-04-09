@@ -18,11 +18,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
     - run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
     - run: cat .npmrc
-    - run: npm whoami
+    - name: whoami
+      run: env && npm whoami
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - run: rm .npmrc
     - run: yarn
     - run: yarn build
     - run: yarn lerna link
