@@ -82,7 +82,7 @@ jobs:
       with:
         path: node_modules
         key: ${{ github.sha }}
-    - run: echo ${{ github.event.toJSON() }}
+    - run: echo ${{ toJSON(github.event) }}
     - run: yarn build
     - run: yarn lerna link
     - run: yarn lerna changed
