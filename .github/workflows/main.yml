@@ -90,17 +90,17 @@ jobs:
     - run: yarn lerna link
     - run: yarn lerna changed
     - run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-    - name: publish
+    - name: publish major
       if: contains(github.event.head_commit.message, 'CI-RELEASE:major')
       run: echo "major release" && npm whoami
       env:
         NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-    - name: publish
+    - name: publish minor
       if: contains(github.event.head_commit.message, 'CI-RELEASE:minor')
       run: echo "major minor" && npm whoami
       env:
         NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-    - name: publish
+    - name: publish patch
       if: contains(github.event.head_commit.message, 'CI-RELEASE:patch')
       run: echo "major patch" && npm whoami
       env:
