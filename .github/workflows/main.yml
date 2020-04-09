@@ -21,7 +21,7 @@ jobs:
       uses: actions/cache@master
       with:
         path: node_modules
-        key: $GITHUB_SHA
+        key: ${{ github.sha }}
 
   publish:
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
       uses: actions/cache@master
       with:
         path: node_modules
-        key: $GITHUB_SHA
+        key: ${{ github.sha }}
     - run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
     - run: yarn build
     - run: yarn lerna link
