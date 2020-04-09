@@ -18,23 +18,23 @@ describe('Tabs', () => {
       return (
         <>
           <Tab.List aria-label="Tabs" {...tab}>
-            <Tab stopId="tab1" {...tab}>
+            <Tab id="tab1" {...tab}>
               Tab 1
             </Tab>
-            <Tab stopId="tab2" {...tab}>
+            <Tab id="tab2" {...tab}>
               Tab 2
             </Tab>
-            <Tab disabled stopId="tab3" {...tab}>
+            <Tab disabled id="tab3" {...tab}>
               Tab 3
             </Tab>
           </Tab.List>
-          <Tab.Panel stopId="tab1" {...tab}>
+          <Tab.Panel id="tab1" {...tab}>
             Panel 1
           </Tab.Panel>
-          <Tab.Panel stopId="tab2" {...tab}>
+          <Tab.Panel id="tab2" {...tab}>
             Panel 2
           </Tab.Panel>
-          <Tab.Panel stopId="tab3" {...tab}>
+          <Tab.Panel id="tab3" {...tab}>
             Panel 3
           </Tab.Panel>
         </>
@@ -82,11 +82,11 @@ describe('Tabs', () => {
         return (
           <>
             <Tab.List aria-label="Tabs" {...tab}>
-              <Tab stopId="tab1" {...tab}>
+              <Tab id="tab1" {...tab}>
                 Tab 1
               </Tab>
             </Tab.List>
-            <Tab.Panel stopId="tab1" {...tab}>
+            <Tab.Panel id="tab1" {...tab}>
               Panel 1
             </Tab.Panel>
           </>

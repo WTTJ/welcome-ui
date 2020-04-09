@@ -31,35 +31,35 @@ Set the tab activated by default using `selectedId` on `useTabState`.
     return (
       <>
         <Tab.List aria-label="Tabs" {...tab}>
-          <Tab {...tab} stopId="tab1">
+          <Tab {...tab} id="tab1">
             Tab 1
           </Tab>
-          <Tab {...tab} stopId="tab2">
+          <Tab {...tab} id="tab2">
             Tab 2
           </Tab>
-          <Tab {...tab} stopId="tab3">
+          <Tab {...tab} id="tab3">
             Tab 3
           </Tab>
-          <Tab {...tab} stopId="tab4">
+          <Tab {...tab} id="tab4">
             Tab 4
           </Tab>
-          <Tab {...tab} disabled stopId="tab5">
+          <Tab {...tab} disabled id="tab5">
             Tab 5
           </Tab>
         </Tab.List>
-        <Tab.Panel {...tab} stopId="tab1">
+        <Tab.Panel {...tab} id="tab1">
           Tab.Panel 1
         </Tab.Panel>
-        <Tab.Panel {...tab} stopId="tab2">
+        <Tab.Panel {...tab} id="tab2">
           Tab.Panel 2
         </Tab.Panel>
-        <Tab.Panel {...tab} stopId="tab3">
+        <Tab.Panel {...tab} id="tab3">
           Tab.Panel 3
         </Tab.Panel>
-        <Tab.Panel {...tab} stopId="tab4">
+        <Tab.Panel {...tab} id="tab4">
           Tab.Panel 4
         </Tab.Panel>
-        <Tab.Panel {...tab} disabled stopId="tab5">
+        <Tab.Panel {...tab} disabled id="tab5">
           Tab.Panel 5
         </Tab.Panel>
       </>
@@ -78,29 +78,29 @@ Add badges in tab.
     return (
       <>
         <Tab.List aria-label="Tabs" {...tab}>
-          <Tab {...tab} stopId="tab1">
+          <Tab {...tab} id="tab1">
             Tab 1
             <Badge ml="xs" variant={getVariant('tab1')}>
               new
             </Badge>
           </Tab>
-          <Tab {...tab} stopId="tab2">
+          <Tab {...tab} id="tab2">
             Tab 2
             <Badge ml="xs" variant={getVariant('tab2')}>
               old
             </Badge>
           </Tab>
-          <Tab {...tab} stopId="tab3">
+          <Tab {...tab} id="tab3">
             Tab 3
           </Tab>
         </Tab.List>
-        <Tab.Panel {...tab} stopId="tab1">
+        <Tab.Panel {...tab} id="tab1">
           Tab.Panel 1
         </Tab.Panel>
-        <Tab.Panel {...tab} stopId="tab2">
+        <Tab.Panel {...tab} id="tab2">
           Tab.Panel 2
         </Tab.Panel>
-        <Tab.Panel {...tab} stopId="tab3">
+        <Tab.Panel {...tab} id="tab3">
           Tab.Panel 3
         </Tab.Panel>
       </>
@@ -118,23 +118,23 @@ Use another component in tab.
     return (
       <>
         <Tab.List aria-label="Tabs" {...tab}>
-          <Tab {...tab} as="a" stopId="tab1">
+          <Tab {...tab} as="a" id="tab1">
             Tab 1
           </Tab>
-          <Tab {...tab} as="a" stopId="tab2">
+          <Tab {...tab} as="a" id="tab2">
             Tab 2
           </Tab>
-          <Tab {...tab} as="a" stopId="tab3">
+          <Tab {...tab} as="a" id="tab3">
             Tab 3
           </Tab>
         </Tab.List>
-        <Tab.Panel {...tab} stopId="tab1">
+        <Tab.Panel {...tab} id="tab1">
           Tab.Panel 1
         </Tab.Panel>
-        <Tab.Panel {...tab} stopId="tab2">
+        <Tab.Panel {...tab} id="tab2">
           Tab.Panel 2
         </Tab.Panel>
-        <Tab.Panel {...tab} stopId="tab3">
+        <Tab.Panel {...tab} id="tab3">
           Tab.Panel 3
         </Tab.Panel>
       </>
@@ -152,11 +152,11 @@ Active bar doesn't display with only one tab.
     return (
       <>
         <Tab.List aria-label="Tabs" {...tab}>
-          <Tab {...tab} stopId="tab1">
+          <Tab {...tab} id="tab1">
             Tab 1
           </Tab>
         </Tab.List>
-        <Tab.Panel {...tab} stopId="tab1">
+        <Tab.Panel {...tab} id="tab1">
           Tab.Panel 1
         </Tab.Panel>
       </>
