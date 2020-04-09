@@ -35,7 +35,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: restore deps
+    - name: restore cache
       uses: actions/cache@master
       with:
         path: node_modules
@@ -54,7 +54,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: restore deps
+    - name: restore cache
       uses: actions/cache@master
       with:
         path: node_modules
@@ -76,11 +76,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: restore deps
+    - name: restore cache
       uses: actions/cache@master
       with:
         path: node_modules
         key: ${{ github.sha }}
+    - run: echo ${{ github.event.head_commit.message }}
     - run: yarn build
     - run: yarn lerna link
     - run: yarn lerna changed
