@@ -19,8 +19,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn
-    # - run: yarn build
-    # - run: yarn lerna link
-    - run: yarn lerna changed -l
+    - run: yarn build
+    - run: yarn lerna link
+    - run: yarn lerna changed
       env:
         CI: true
