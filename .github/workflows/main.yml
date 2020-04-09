@@ -21,7 +21,6 @@ jobs:
       with:
         path: node_modules
         key: ${{ github.sha }}
-    - run: echo '${{ toJSON(github.event) }}'
     - run: yarn
     
   test:
@@ -92,7 +91,18 @@ jobs:
     - run: yarn lerna changed
     - run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
     - name: publish
-      run: env && npm whoami
+      if: contains(github.event.head_commit.message, 'CI-RELEASE:major')
+      run: echo "major release" && npm whoami
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - name: publish
+      if: contains(github.event.head_commit.message, 'CI-RELEASE:minor')
+      run: echo "major minor" && npm whoami
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - name: publish
+      if: contains(github.event.head_commit.message, 'CI-RELEASE:patch')
+      run: echo "major patch" && npm whoami
       env:
         NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
     - run: rm .npmrc
