@@ -18,6 +18,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - run: npm whoami
     - run: yarn
     - run: yarn build
     - run: yarn lerna link
