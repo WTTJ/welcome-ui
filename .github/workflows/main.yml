@@ -16,14 +16,15 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn
     - name: caching deps
       uses: actions/cache@master
       with:
         path: node_modules
         key: ${{ github.sha }}
+    - run: yarn
 
-  install:
+  test:
+    needs: install
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -34,16 +35,37 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn
-    - name: caching deps
+    - name: restore deps
       uses: actions/cache@master
       with:
         path: node_modules
         key: ${{ github.sha }}
+    - run: yarn test
+
+  lint:
+    needs: install
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: restore deps
+      uses: actions/cache@master
+      with:
+        path: node_modules
+        key: ${{ github.sha }}
+    - run: yarn lint
 
   publish:
     runs-on: ubuntu-latest
-    needs: install
+    needs:
+    - test
+    - lint
     strategy:
       matrix:
         node-version: [12.x]
