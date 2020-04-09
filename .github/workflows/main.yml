@@ -1,4 +1,4 @@
-name: Deploy
+name: BTD
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
         path: node_modules
         key: ${{ github.sha }}
     - run: yarn
-
+    
   test:
     needs: install
     runs-on: ubuntu-latest
@@ -63,6 +63,7 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
+    # if: contains(github.event.head_commit.message, 'release') 
     needs:
     - test
     - lint
@@ -81,7 +82,7 @@ jobs:
       with:
         path: node_modules
         key: ${{ github.sha }}
-    - run: echo ${{ github.event.head_commit.message }}
+    - run: echo ${{ github.event.toJSON() }}
     - run: yarn build
     - run: yarn lerna link
     - run: yarn lerna changed
