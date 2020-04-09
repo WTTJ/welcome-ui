@@ -42,7 +42,6 @@ jobs:
         path: node_modules
         key: $GITHUB_SHA
     - run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-    - run: rm .npmrc
     - run: yarn build
     - run: yarn lerna link
     - run: yarn lerna changed
@@ -50,3 +49,4 @@ jobs:
       run: env && npm whoami
       env:
         NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - run: rm .npmrc
