@@ -163,8 +163,8 @@ const Theme = ({ children }) => {
             items={menus}
             theme={{ setTheme: setThemeWUI, value: themeWUI }}
           />
-            <ContentWrapper>
-              <Content>{children}</Content>
+          <ContentWrapper>
+            <Content>{children}</Content>
           </ContentWrapper>
         </Page>
       </ComponentsProvider>
