@@ -2,18 +2,16 @@ import { th } from '@xstyled/system'
 import { VARIANTS } from '@welcome-ui/utils'
 
 const TAG_VARIANTS = {
-  blue: 'colors.sub.blue',
-  dark: 'colors.dark.500',
   default: 'colors.nude.100',
-  green: 'colors.sub.green',
-  orange: 'colors.sub.orange',
-  pink: 'colors.sub.pink',
   primary: 'colors.primary.500',
-  purple: 'colors.sub.purple',
-  red: 'colors.sub.red',
   secondary: 'colors.secondary.500',
-  turquoize: 'colors.sub.turquoize',
-  yellow: 'colors.sub.yellow',
+  dark: 'colors.dark.500',
+  1: 'colors.sub.1',
+  2: 'colors.sub.2',
+  3: 'colors.sub.3',
+  4: 'colors.sub.4',
+  5: 'colors.sub.5',
+  6: 'colors.sub.6',
   ...VARIANTS
 }
 
