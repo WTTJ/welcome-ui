@@ -65,7 +65,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     if: |
-      github.ref == refs/heads/feat-cd && (
+      github.ref == 'refs/heads/feat-cd' && (
       contains(github.event.head_commit.message, 'CI-RELEASE:major') ||
       contains(github.event.head_commit.message, 'CI-RELEASE:minor') ||
       contains(github.event.head_commit.message, 'CI-RELEASE:patch'))
