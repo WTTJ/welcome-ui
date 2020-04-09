@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/file-upload",
-  "version": "1.20.0",
+  "version": "1.21.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/file-upload.cjs.js",
   "module": "dist/file-upload.es.js",
@@ -40,7 +40,7 @@
     "@welcome-ui/icons.music": "^1.20.0",
     "@welcome-ui/icons.youtube": "^1.20.0",
     "@welcome-ui/system": "^1.20.0",
-    "@welcome-ui/tag": "^1.20.0",
+    "@welcome-ui/tag": "^1.21.2",
     "@welcome-ui/utils": "^1.20.0",
     "mime": "=2.4.4"
   },

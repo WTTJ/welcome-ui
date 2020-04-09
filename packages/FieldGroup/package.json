@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/field-group",
-  "version": "1.20.0",
+  "version": "1.21.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/field-group.cjs.js",
   "module": "dist/field-group.es.js",
@@ -33,7 +33,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/label": "^1.20.0",
+    "@welcome-ui/label": "^1.21.2",
     "@welcome-ui/system": "^1.20.0"
   },
   "peerDependencies": {
