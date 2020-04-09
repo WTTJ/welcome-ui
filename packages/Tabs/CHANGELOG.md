@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.1](https://github.com/WTTJ/welcome-ui/compare/v1.21.0...v1.21.1) (2020-04-09)
+
+
+### Bug Fixes
+
+* tabs component stopId deprecated ([#589](https://github.com/WTTJ/welcome-ui/issues/589)) ([9e2ab7d](https://github.com/WTTJ/welcome-ui/commit/9e2ab7d5533c69fa758e9b89bbecc469130e4710))
+
+
+
+
+
 # [1.20.0](https://github.com/WTTJ/welcome-ui/compare/v1.19.2...v1.20.0) (2020-04-06)
 
 **Note:** Version bump only for package @welcome-ui/tabs
