@@ -1,4 +1,4 @@
-# @welcome-ui/theme.welcome-kit
+# @welcome-ui/themes.welcome-kit
 
 The WelcomeKit theme from [@welcome-ui](http://welcome-ui.com).
 

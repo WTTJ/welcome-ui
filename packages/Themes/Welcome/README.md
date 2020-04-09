@@ -1,4 +1,4 @@
-# @welcome-ui/theme.welcome
+# @welcome-ui/themes.welcome
 
 The Welcome theme from [@welcome-ui](http://welcome-ui.com).
 

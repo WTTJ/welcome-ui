@@ -1,4 +1,4 @@
-# @welcome-ui/theme.dark
+# @welcome-ui/themes.dark
 
 The Dark theme from [@welcome-ui](http://welcome-ui.com).
 
