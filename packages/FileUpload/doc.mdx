@@ -23,6 +23,8 @@ See your browser console for the real `File` object ready to upload.
 
 ## Default
 
+See more about [media type](http://www.iana.org/assignments/media-types/media-types.xhtml).
+
 <Playground>
   <Form initialValues={{}}>
     <ConnectedField
@@ -41,49 +43,49 @@ See your browser console for the real `File` object ready to upload.
   </Form>
 </Playground>
 
+## Show preview if value exists
+
+<Playground>
+  <Form
+    initialValues={{
+      file: 'https://doc-exemple/example.docx?v=63731713698'
+    }}
+  >
+    <ConnectedField
+      component={FileUpload}
+      accept="image/*"
+      name="file"
+      label="File"
+      hint="Files must be <200MB"
+      required
+      onAddFile={console.debug}
+      onRemoveFile={console.debug}
+    />
+  </Form>
+</Playground>
+
 ## Multiple
+
+Add `multiple` property.
 
 <Playground>
   <Form initialValues={{}}>
     <ConnectedField
       component={FileUpload}
       accept="application/pdf"
-      name="avatar"
-      label="Avatar"
+      name="files"
+      label="Files"
       hint="Files must be <200MB"
       multiple
       onAddFile={console.debug}
       onRemoveFile={console.debug}
       required
     >
-      {({ openFile }) => (
-        <Button onClick={openFile} variant="secondary">
+      {({ openFile, disabled }) => (
+        <Button onClick={openFile} variant="secondary" disabled={disabled}>
           Choose file(s)
         </Button>
       )}
-    </ConnectedField>
-  </Form>
-</Playground>
-
-## Show preview if value exists
-
-<Playground>
-  <Form
-    initialValues={{
-      avatar:
-        'https://cdn-development.welcometothejungle.co/uploads/robert/applicants/303416437e/avatars/0.jpg?v=63731713698'
-    }}
-  >
-    <ConnectedField
-      component={FileUpload}
-      name="avatar"
-      label="Avatar"
-      hint="Files must be <200MB"
-      required
-      onAddFile={console.debug}
-      onRemoveFile={console.debug}
-    >
-      {({ openFile }) => <Button onClick={openFile}>Upload file</Button>}
     </ConnectedField>
   </Form>
 </Playground>
@@ -93,7 +95,27 @@ See your browser console for the real `File` object ready to upload.
 <Playground wrapper="withoutMargin">
   <Form initialValues={{}}>
     <ConnectedField component={FileUpload} disabled name="disabled">
-      {({ openFile }) => <Button onClick={openFile}>Choose file</Button>}
+      {({ openFile, disabled }) => (
+        <Button onClick={openFile} disabled={disabled}>
+          Choose file
+        </Button>
+      )}
+    </ConnectedField>
+  </Form>
+</Playground>
+
+## Change Button
+
+You can change the upload button component.
+
+<Playground wrapper="withoutMargin">
+  <Form initialValues={{}}>
+    <ConnectedField component={FileUpload} name="custom">
+      {({ openFile, disabled }) => (
+        <Button size="xl" shape="circle" onClick={openFile} disabled={disabled}>
+          <UploadIcon size="xl" />
+        </Button>
+      )}
     </ConnectedField>
   </Form>
 </Playground>

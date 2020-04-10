@@ -95,7 +95,7 @@ export const getFields = theme => {
     },
     fileupload: {
       'border-style': 'dashed',
-      height: toRem(300)
+      'min-height': toRem(200)
     },
     mde: {
       icons: {
