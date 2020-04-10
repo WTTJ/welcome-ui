@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@welcome-ui/button": "^1.20.0",
+    "@welcome-ui/group": "^1.20.0",
     "@welcome-ui/icons.cross": "^1.20.0",
     "@welcome-ui/icons.negative": "^1.20.0",
     "@welcome-ui/icons.pencil": "^1.20.0",
@@ -41,6 +42,8 @@
     "@welcome-ui/system": "^1.20.0",
     "@welcome-ui/text": "^1.20.0",
     "@welcome-ui/utils": "^1.20.0",
+    "@welcome-ui/files": "^1.20.0",
+    "@welcome-ui/icons.external_link": "^1.20.0",
     "react-dropzone": "^10.1.8"
   },
   "peerDependencies": {

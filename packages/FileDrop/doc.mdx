@@ -28,40 +28,31 @@ You also have access to:
 - `openFile`: To open the native file chooser dialog box
 - `fileUrl`: URL of file if one has been opened/dropped (to show a preview)
 
-See your browser console for the real `File` object ready to upload.
-
 ## Default
+
+By default, `accept`: is set to `image/*`, see more about [media type](http://www.iana.org/assignments/media-types/media-types.xhtml).
 
 <Playground>
   {() => (
     <Form initialValues={{}}>
       <ConnectedField
         component={FileDrop}
-        name="avatar"
-        label="Default"
+        name="file"
+        label="Your file"
         hint="Files must be < 2MB"
         required
+        isClearable
+        isEditable
         onAddFile={console.debug}
         onRemoveFile={console.debug}
-      >
-        {({ error, fileUrl, isDefault, isHoverAccept, isHoverReject, openFile }) => {
-          if (isHoverAccept) {
-            return <PositiveIcon />
-          } else if (isHoverReject) {
-            return <NegativeIcon />
-          } else if (error) {
-            return <CrossIcon />
-          } else if (fileUrl) {
-            return <FilePreviewImage src={fileUrl} />
-          }
-          return <DefaultFileDropView openFile={openFile} />
-        }}
-      </ConnectedField>
+      />
     </Form>
   )}
 </Playground>
 
 ## Show preview if value exists
+
+### Image
 
 <Playground>
   {() => (
@@ -78,6 +69,31 @@ See your browser console for the real `File` object ready to upload.
         isClearable
         label="Avatar"
         name="avatar"
+        onAddFile={console.debug}
+        onRemoveFile={console.debug}
+        required
+      />
+    </Form>
+  )}
+</Playground>
+
+### Other files
+
+<Playground>
+  {() => (
+    <Form
+      initialValues={{
+        file: 'https://test-documents-file/file.docx?v=63731713698'
+      }}
+    >
+      <ConnectedField
+        component={FileDrop}
+        hint="Files must be < 2MB"
+        accept="application/*, audio/*, video/*, text/*"
+        isEditable
+        isClearable
+        label="File"
+        name="file"
         onAddFile={console.debug}
         onRemoveFile={console.debug}
         required

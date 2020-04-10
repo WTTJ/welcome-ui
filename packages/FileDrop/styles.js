@@ -1,6 +1,5 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { StyledButton } from '@welcome-ui/button'
 import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
 import { fieldStyles } from '@welcome-ui/utils'
 
@@ -56,7 +55,7 @@ export const FilePreview = styled.div`
   justify-content: center;
 `
 
-export const FilePreviewImage = styled.img`
+export const ImagePreview = styled.img`
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
@@ -64,12 +63,8 @@ export const FilePreviewImage = styled.img`
 
 export const Actions = styled.div`
   position: absolute;
-  top: ${th.space('xl')};
-  right: ${th.space('xl')};
+  top: ${th.space('md')};
+  right: ${th.space('md')};
   display: flex;
   flex-direction: column;
-
-  ${StyledButton} {
-    margin-bottom: md;
-  }
 `

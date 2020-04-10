@@ -1,38 +1,26 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import { bool, func, node, number, oneOfType, string } from 'prop-types'
+import { bool, func, node, number, object, oneOfType, string } from 'prop-types'
 import { useDropzone } from 'react-dropzone'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { PencilIcon } from '@welcome-ui/icons.pencil'
 import { Button } from '@welcome-ui/button'
+import { Group } from '@welcome-ui/group'
 import { createEvent, validateFileSize, validateMimeType } from '@welcome-ui/utils'
 
 // FileDrop
 import * as S from './styles'
-import { DefaultContent } from './default.js'
-
-// Export `FilePreviewImage` from styles
-export const FilePreviewImage = S.FilePreviewImage
+import { Preview } from './Preview'
+import { getPreviewUrl, isAnImage } from './utils'
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
 const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
 
-const getPreviewUrl = file => {
-  const url = file.preview || file
-  if (typeof url !== 'string' || url.startsWith('blob:')) {
-    return url
-  }
-  if (typeof window !== 'undefined') {
-    return new URL(url)
-  }
-  return undefined
-}
-
 export const FileDrop = forwardRef(
   (
     {
       accept = 'image/*',
-      children = DefaultContent,
+      children = Preview,
       dataTestId,
       disabled,
       isEditable,
@@ -144,6 +132,8 @@ export const FileDrop = forwardRef(
         <S.FilePreview>
           {children({
             error,
+            file,
+            isAnImage: isAnImage(file),
             fileUrl: file && getPreviewUrl(file),
             isDefault: !file && !isDragActive,
             isHoverAccept: isDragAccept,
@@ -153,18 +143,28 @@ export const FileDrop = forwardRef(
             rootRef,
             disabled
           })}
-          <S.Actions>
-            {(!!file || error) && isEditable && (
-              <Button onClick={open} size="sm" type="button" variant="secondary">
-                <PencilIcon />
-              </Button>
-            )}
-            {!!file && isClearable && (
-              <Button onClick={handleRemoveFile} size="sm" type="button" variant="primary-danger">
-                <CrossIcon />
-              </Button>
-            )}
-          </S.Actions>
+          {!!file && (error || isEditable || isClearable) && (
+            <S.Actions>
+              <Group>
+                {(error || isEditable) && (
+                  <Button onClick={open} shape="square" size="sm" type="button" variant="secondary">
+                    <PencilIcon />
+                  </Button>
+                )}
+                {isClearable && (
+                  <Button
+                    onClick={handleRemoveFile}
+                    shape="square"
+                    size="sm"
+                    type="button"
+                    variant="primary-danger"
+                  >
+                    <CrossIcon />
+                  </Button>
+                )}
+              </Group>
+            </S.Actions>
+          )}
         </S.FilePreview>
       </S.FileDrop>
     )
@@ -174,7 +174,7 @@ export const FileDrop = forwardRef(
 FileDrop.type = 'FileDrop'
 FileDrop.displayName = 'FileDrop'
 
-FileDrop.propTypes /* remove-proptypes */ = {
+FileDrop.propTypes = {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg"  */
   accept: string,
   children: func,
@@ -191,5 +191,8 @@ FileDrop.propTypes /* remove-proptypes */ = {
   onFocus: func,
   onRemoveFile: func,
   title: oneOfType([string, node]),
-  value: string
+  value: oneOfType([string, object])
 }
+
+// Export `ImagePreview` from styles
+export const ImagePreview = S.ImagePreview

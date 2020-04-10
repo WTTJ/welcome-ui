@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react'
-import { bool, func, node, number, oneOfType, string } from 'prop-types'
+import { bool, func, node, number, object, oneOfType, string } from 'prop-types'
 import { Button } from '@welcome-ui/button'
 import { createEvent } from '@welcome-ui/utils'
 
@@ -90,14 +90,17 @@ export const FileUpload = forwardRef(
     return (
       <>
         {children ? (
-          children({ openFile: handleClick })
+          children({ openFile: handleClick, disabled })
         ) : (
-          <Button onClick={handleClick}>Upload file</Button>
+          <Button disabled={disabled} onClick={handleClick}>
+            Upload file
+          </Button>
         )}
         <br />
         <S.Input
           accept={accept}
           data-testid={dataTestId}
+          disabled={disabled}
           maxSize={maxSize}
           multiple={multiple}
           name={name}
@@ -133,5 +136,5 @@ FileUpload.propTypes /* remove-proptypes */ = {
   onError: func,
   onRemoveFile: func,
   title: oneOfType([string, node]),
-  value: string
+  value: oneOfType([string, object])
 }
