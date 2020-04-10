@@ -2,4 +2,6 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.js'
-export const ComputerIcon = props => <Icon alt="Computer" content={content} {...props} />
+export const ComputerIcon = props => (
+  <Icon alt="Computer" content={content} {...props} />
+)
