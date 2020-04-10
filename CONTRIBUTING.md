@@ -39,3 +39,15 @@ Each component will consist of:
 ## Reporting issues
 
 You can report issues on our [github project](https://github.com/WTTJ/welcome-ui/issues) 🐛
+
+## Adding icons
+
+If you add or update an icon (by adding/updating an SVG to `icons/_assets`), the build process will:
+
+- optimise the icon (using SVGO)
+- write it to the main `Icon` package
+- write it to the `IconFont` package
+
+You can also process the icons using `yarn icons:optimize && yarn icons:collect`.
+
+Note: Writing to the `IconFont` package will only happen if there are new icons added or if you pass `--force` e.g. `yarn icons:optimize && yarn icons:collect --force`.

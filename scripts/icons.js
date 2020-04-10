@@ -4,8 +4,10 @@ const path = require('path')
 const fs = require('fs')
 const util = require('util')
 
+const argv = require('yargs').argv
 const webfontsGenerator = require('webfonts-generator')
 const difference = require('lodash.difference')
+require('colors')
 
 fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)
@@ -54,11 +56,11 @@ const writeIconContentsJs = (outputFolder, content) => {
   }
 
   const fileContent = `export default {
-    width: 15,
-    height: 15,
-    block:
-      '${svgContent}'
-  }
+  width: 15,
+  height: 15,
+  block:
+    '${svgContent}'
+}
 `
 
   fs.writeFileSync(`${outputFolder}/content.js`, fileContent)
@@ -121,9 +123,12 @@ const writeIconPackageJson = (outputFolder, key) => {
 const writeIconIndexJs = (outputFolder, iconName) => {
   const file = `${outputFolder}/index.js`
   const fileContent = `import React from 'react'
-  import { Icon } from '@welcome-ui/icon'
-  import content from './content.js'
-  export const ${iconName}Icon = props => <Icon content={content} alt="${iconName}" {...props} />
+import { Icon } from '@welcome-ui/icon'
+
+import content from './content.js'
+export const ${iconName}Icon = props => (
+  <Icon alt="${iconName}" content={content} {...props} />
+)
 `
 
   fs.writeFileSync(file, fileContent)
@@ -131,7 +136,7 @@ const writeIconIndexJs = (outputFolder, iconName) => {
 
 // Write icons
 const writeIconPackages = files => {
-  console.log('*** Writing individual icon packages ***')
+  console.log('Started'.blue, 'Writing individual icon packages'.grey)
   files.forEach(({ content, key }) => {
     // Create folder if necessary
     const iconName = toPascalCase(key)
@@ -149,20 +154,24 @@ const writeIconPackages = files => {
     writeIconIndexJs(outputFolder, iconName)
   })
 
-  console.log('Success: Writing individual icon packages')
+  console.log('Success'.green, 'Writing individual icon packages')
   return files
 }
 
 // Write root icon files
 const writeRootIconPackage = files => {
-  console.log('*** Writing root icon files ***')
+  console.log('Started'.blue, 'Writing root icon files'.grey)
   // Write main icons/index.js
   const rootIndexContent = files.map(({ key }) => {
     const iconName = toPascalCase(key)
     return `export { ${iconName}Icon } from '@welcome-ui/icons.${key}'`
   }).join(`
 `)
-  fs.writeFileSync(`${iconsPath}/index.js`, rootIndexContent)
+  fs.writeFileSync(
+    `${iconsPath}/index.js`,
+    `${rootIndexContent}
+`
+  )
 
   // Write main icons/package.json
   let config = require(`${iconsPath}/package.json`)
@@ -183,32 +192,34 @@ const writeRootIconPackage = files => {
 
   fs.writeFileSync(`${iconsPath}/package.json`, fileContent)
 
-  console.log('Success: Writing root icon files')
+  console.log('Success'.green, 'Writing root icon files')
   return files
 }
 
 // Write icon font
 const writeIconFont = files => {
-  console.log('*** Writing icon font ***')
+  console.log('Started'.blue, 'Writing icon font'.grey)
   const file = `${iconFontPath}/unicode.json`
   let unicodeMap = require(file)
   const newIcons = difference(files.map(file => file.key), Object.keys(unicodeMap))
-  let newUnicodeMap = unicodeMap
 
-  if (newIcons.length) {
-    // Add new icons to unicodeMap (adding one to hex value for each new icon)
-    newUnicodeMap = newIcons.reduce((arr, key) => {
-      const lastUnicodeEntry = arr[Object.keys(unicodeMap).pop()]
-      const newUnicodeEntry = (parseInt(lastUnicodeEntry, 16) + 0x1).toString(16)
-      arr[key] = `\f${newUnicodeEntry}`
-      return arr
-    }, unicodeMap)
-
-    // Write the updated unicode map
-    const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
-`
-    fs.writeFileSync(file, fileContent)
+  if (!newIcons.length && !argv.force) {
+    console.log('Success'.yellow, 'No new icons to write to icon font')
+    return files
   }
+
+  // Add new icons to unicodeMap (adding one to hex value for each new icon)
+  const newUnicodeMap = newIcons.reduce((arr, key) => {
+    const lastUnicodeEntry = arr[Object.keys(unicodeMap).pop()]
+    const newUnicodeEntry = (parseInt(lastUnicodeEntry, 16) + 0x1).toString(16)
+    arr[key] = `\f${newUnicodeEntry}`
+    return arr
+  }, unicodeMap)
+
+  // Write the updated unicode map
+  const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
+`
+  fs.writeFileSync(file, fileContent)
 
   // Generate web fonts
   webfontsGenerator(
@@ -222,7 +233,7 @@ const writeIconFont = files => {
       if (error) {
         console.error('Fail!', error)
       } else {
-        console.log('Success: Writing icon font')
+        console.log('Success'.green, 'Writing icon font')
       }
     }
   )
