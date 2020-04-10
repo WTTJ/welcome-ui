@@ -149,7 +149,7 @@ const writeIconPackages = files => {
     writeIconIndexJs(outputFolder, iconName)
   })
 
-  console.log('SVGs successfully written to json')
+  console.log('Success: Writing individual icon packages')
   return files
 }
 
@@ -183,7 +183,7 @@ const writeRootIconPackage = files => {
 
   fs.writeFileSync(`${iconsPath}/package.json`, fileContent)
 
-  console.log('Icon font successfully written')
+  console.log('Success: Writing root icon files')
   return files
 }
 
@@ -193,24 +193,24 @@ const writeIconFont = files => {
   const file = `${iconFontPath}/unicode.json`
   let unicodeMap = require(file)
   const newIcons = difference(files.map(file => file.key), Object.keys(unicodeMap))
+  let newUnicodeMap = unicodeMap
 
-  if (!newIcons.length) {
-    return files
+  if (newIcons.length) {
+    // Add new icons to unicodeMap (adding one to hex value for each new icon)
+    newUnicodeMap = newIcons.reduce((arr, key) => {
+      const lastUnicodeEntry = arr[Object.keys(unicodeMap).pop()]
+      const newUnicodeEntry = (parseInt(lastUnicodeEntry, 16) + 0x1).toString(16)
+      arr[key] = `\f${newUnicodeEntry}`
+      return arr
+    }, unicodeMap)
+
+    // Write the updated unicode map
+    const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
+`
+    fs.writeFileSync(file, fileContent)
   }
 
-  // Add new icons to unicodeMap (adding one to hex value for each new icon)
-  const newUnicodeMap = newIcons.reduce((arr, key) => {
-    const lastUnicodeEntry = arr[Object.keys(unicodeMap).pop()]
-    const newUnicodeEntry = (parseInt(lastUnicodeEntry, 16) + 0x1).toString(16)
-    arr[key] = `\f${newUnicodeEntry}`
-    return arr
-  }, unicodeMap)
-
-  const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
-`
-
-  fs.writeFileSync(file, fileContent)
-
+  // Generate web fonts
   webfontsGenerator(
     {
       files: files.map(file => `${inputPath}/${file.key}.svg`),
@@ -222,7 +222,7 @@ const writeIconFont = files => {
       if (error) {
         console.error('Fail!', error)
       } else {
-        console.log('Icon font successfully written')
+        console.log('Success: Writing icon font')
       }
     }
   )
