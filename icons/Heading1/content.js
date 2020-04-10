@@ -2,5 +2,5 @@ export default {
   width: 15,
   height: 15,
   block:
-    '<path d="M0 96.5v-93h17.367v38.062h34.497V3.5H69.23v93H51.864V58.56H17.367V96.5H0zm91.421 0V58.851h-6.806V50H100v46.5h-8.579z" fill="currentColor"/>'
+    '<g fill="none" fill-rule="evenodd"><g id="markdown-/-h1"><path d="M62.743 16v62.063l-12.808 1.454V57.245l-26.627 3.027v22.273L10.5 84V21.939l12.808-1.455v28.379l26.627-3.025V17.456L62.743 16zM89.5 28.989v45.997l-5.39.561V38.982L71.473 47.34v-6.72L89.5 28.989z" id="icon" fill="currentColor" opacity=".99"/></g></g>'
 }
