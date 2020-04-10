@@ -6640,10 +6640,10 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-docz-core@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/docz-core/-/docz-core-2.3.0.tgz#c1511b4cd0625bc243576029c3ddb6ffb2cb1d98"
-  integrity sha512-5ixNp/fNuI5NauIfVhQYLPxemhLx8Q387vc5jrkeCfpMYvzoGWKnOWqc1L57hOJRIsvwDb1HtXhr/lWHBjYGMw==
+docz-core@2.3.2-alpha.0:
+  version "2.3.2-alpha.0"
+  resolved "https://registry.yarnpkg.com/docz-core/-/docz-core-2.3.2-alpha.0.tgz#9293ce3b8181dfca78e60cbb3671c3d95febf889"
+  integrity sha512-p/z/6GckvNmXXoSBn/HsG0Fl2CBD8pGqo7L0h1qijap6YgODxvLM/qMoNj/selA5fiJsBJck0q6bYAlFbwu6wA==
   dependencies:
     "@sindresorhus/slugify" "^0.9.1"
     chalk "^2.4.2"
@@ -6704,16 +6704,16 @@ docz-utils@^2.3.0:
     unist-util-is "^3.0.0"
     unist-util-visit "^1.4.1"
 
-docz@2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/docz/-/docz-2.3.1.tgz#931cd840e2f9a25691fb7c67fa48d4a6ef1476a3"
-  integrity sha512-HlbLqpizhieqvjD6xxNr6Nj8sk00vnHbLh4wHabXUpOi8ZkILBDSLmnfGzozAgmT+HN18CbszYMXCOlbcr4MXQ==
+docz@2.3.2-alpha.0:
+  version "2.3.2-alpha.0"
+  resolved "https://registry.yarnpkg.com/docz/-/docz-2.3.2-alpha.0.tgz#efe86229eebafc7b3c975821217a411979bcc704"
+  integrity sha512-Gt9HJIJP/5kE569XzzelPo6Fd2vADUgeIt73pcyJYDmX0nIgFZjdR08BdO3aBKNOKzgrOh/VhzIeQ64LnYJO2w==
   dependencies:
     "@emotion/core" "^10.0.16"
     "@mdx-js/react" "^1.0.27"
     array-sort "^1.0.0"
     capitalize "^2.0.0"
-    docz-core "^2.3.0"
+    docz-core "2.3.2-alpha.0"
     fast-deep-equal "^2.0.1"
     gatsby "^2.13.27"
     gatsby-plugin-eslint "^2.0.5"

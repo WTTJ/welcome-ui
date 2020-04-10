@@ -1,12 +1,16 @@
 import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
+export const ContentWrapper = styled.section`
+  flex-grow: 1;
+  overflow-y: auto;
+`
+
 export const Content = styled.article`
   width: 100%;
-  height: 100vh;
-  overflow-y: auto;
   max-width: 1200;
-  padding: 20;
+  margin: 0 auto;
+  padding: 20 20 50 20;
   color: nude.800;
 
   @media (min-width: 1300px) {

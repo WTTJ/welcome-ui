@@ -80,7 +80,7 @@
     "css-loader": "=2.1.1",
     "date-fns": "=2.8.1",
     "depcheck": "=0.9.1",
-    "docz": "2.3.1",
+    "docz": "2.3.2-alpha.0",
     "eslint": "=6.5.1",
     "eslint-config-prettier": "=6.4.0",
     "eslint-config-react-app": "=5.0.2",

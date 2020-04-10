@@ -10,7 +10,7 @@ import { wttjTheme } from '../../../packages/Themes/Wttj'
 import { welcomeKitTheme } from '../../../packages/Themes/WelcomeKit'
 import { Code, CodeEditor, H1, H2, H3, InlineCode, Props } from '../../../docz/index'
 
-import { Content } from './components/Content.styled'
+import { ContentWrapper, Content } from './components/Content.styled'
 import { Menu } from './components/Menu'
 import { MobileMenu } from './components/MobileMenu'
 import { Page } from './components/Page'
@@ -163,7 +163,9 @@ const Theme = ({ children }) => {
             items={menus}
             theme={{ setTheme: setThemeWUI, value: themeWUI }}
           />
-          <Content>{children}</Content>
+          <ContentWrapper>
+            <Content>{children}</Content>
+          </ContentWrapper>
         </Page>
       </ComponentsProvider>
     </ThemeProvider>

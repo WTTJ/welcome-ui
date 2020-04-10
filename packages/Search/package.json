@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/search",
-  "version": "1.20.0",
+  "version": "1.21.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/search.cjs.js",
   "module": "dist/search.es.js",
@@ -36,7 +36,7 @@
     "@welcome-ui/clear-button": "^1.20.0",
     "@welcome-ui/icon": "^1.20.0",
     "@welcome-ui/system": "^1.20.0",
-    "@welcome-ui/tag": "^1.20.0",
+    "@welcome-ui/tag": "^1.21.2",
     "@welcome-ui/utils": "^1.20.0",
     "downshift": "=3.2.10"
   },
