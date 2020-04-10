@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0](https://github.com/WTTJ/welcome-ui/compare/v1.21.2...v1.22.0) (2020-04-10)
+
+
+### Bug Fixes
+
+* fix typo in theme imports ([#592](https://github.com/WTTJ/welcome-ui/issues/592)) ([dd17ae7](https://github.com/WTTJ/welcome-ui/commit/dd17ae73e57c5b3f6adb0518ddd0f098affd86e7))
+
+
+### Features
+
+* add new icon for Markdown ([#594](https://github.com/WTTJ/welcome-ui/issues/594)) ([c640894](https://github.com/WTTJ/welcome-ui/commit/c6408943a0a5323ffdddf228e0dc37fb91602742))
+* **files:** add preview for others files than image ([#593](https://github.com/WTTJ/welcome-ui/issues/593)) ([09a8ace](https://github.com/WTTJ/welcome-ui/commit/09a8aced5a836cf6e44a3f6030cb7a31382938ac))
+* automate icon font ([#583](https://github.com/WTTJ/welcome-ui/issues/583)) ([e0e92c6](https://github.com/WTTJ/welcome-ui/commit/e0e92c6f7a37d7eccb4a31817811be84c50ec5fb))
+
+
+
+
+
 ## [1.21.2](https://github.com/WTTJ/welcome-ui/compare/v1.21.1...v1.21.2) (2020-04-09)
 
 

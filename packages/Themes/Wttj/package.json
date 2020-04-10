@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/themes.wttj",
-  "version": "1.20.0",
+  "version": "1.22.0",
   "description": "welcome-ui: Wttj theme",
   "main": "dist/themes.wttj.cjs.js",
   "module": "dist/themes.wttj.es.js",

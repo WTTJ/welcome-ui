@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.tags.cjs.js",
   "module": "dist/icons.tags.es.js",
-  "version": "1.20.0",
+  "version": "1.22.0",
   "publishConfig": {
     "access": "public"
   },

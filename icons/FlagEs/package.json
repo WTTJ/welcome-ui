@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.flag_es.cjs.js",
   "module": "dist/icons.flag_es.es.js",
-  "version": "1.20.0",
+  "version": "1.22.0",
   "publishConfig": {
     "access": "public"
   },

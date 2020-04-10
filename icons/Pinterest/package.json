@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.pinterest.cjs.js",
   "module": "dist/icons.pinterest.es.js",
-  "version": "1.20.0",
+  "version": "1.22.0",
   "publishConfig": {
     "access": "public"
   },
