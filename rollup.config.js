@@ -2,6 +2,7 @@ import babel from 'rollup-plugin-babel'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
+import json from '@rollup/plugin-json'
 
 const PACKAGE_ROOT_PATH = process.cwd()
 const pkg = require(`${PACKAGE_ROOT_PATH}/package.json`)
@@ -27,6 +28,7 @@ const cjsConfig = {
     babel(getBabelOptions({ useESModules: false })),
     nodeResolve(),
     postcss(),
+    json(),
     sizeSnapshot()
   ]
 }
@@ -39,6 +41,7 @@ const esmConfig = {
     babel(getBabelOptions({ useESModules: true })),
     nodeResolve(),
     postcss(),
+    json(),
     sizeSnapshot()
   ]
 }
