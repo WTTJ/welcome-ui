@@ -28,13 +28,13 @@ describe('Tabs', () => {
               Tab 3
             </Tab>
           </Tab.List>
-          <Tab.Panel id="tab1" {...tab}>
+          <Tab.Panel tabId="tab1" {...tab}>
             Panel 1
           </Tab.Panel>
-          <Tab.Panel id="tab2" {...tab}>
+          <Tab.Panel tabId="tab2" {...tab}>
             Panel 2
           </Tab.Panel>
-          <Tab.Panel id="tab3" {...tab}>
+          <Tab.Panel tabId="tab3" {...tab}>
             Panel 3
           </Tab.Panel>
         </>
@@ -86,7 +86,7 @@ describe('Tabs', () => {
                 Tab 1
               </Tab>
             </Tab.List>
-            <Tab.Panel id="tab1" {...tab}>
+            <Tab.Panel tabId="tab1" {...tab}>
               Panel 1
             </Tab.Panel>
           </>

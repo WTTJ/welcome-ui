@@ -73,9 +73,9 @@ TabList.propTypes /* remove-proptypes */ = {
   children: node
 }
 
-export const TabPanel = React.forwardRef(({ as, children, id, ...props }, ref) => {
+export const TabPanel = React.forwardRef(({ as, children, tabId, ...props }, ref) => {
   return (
-    <ReakitTabPanel id={id} ref={ref} {...props}>
+    <ReakitTabPanel ref={ref} tabId={tabId} {...props}>
       {tabPanelProps => (
         <S.TabPanel as={as} {...tabPanelProps}>
           {children}
@@ -88,7 +88,7 @@ TabPanel.displayName = 'TabPanel'
 TabPanel.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node,
-  id: string.isRequired
+  tabId: string
 }
 
 export const Tab = React.forwardRef(({ as, children, id, ...props }, ref) => {
