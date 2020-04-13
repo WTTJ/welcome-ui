@@ -3,15 +3,13 @@ import { oneOf, string } from 'prop-types'
 
 import * as S from './styles'
 
-export const Loader = forwardRef(({ color, size = 'sm', ...rest }, ref) => {
-  return (
-    <S.LoaderWrapper ref={ref} {...rest}>
-      <S.LoadingDot backgroundColor={color} shape="circle" size={size} />
-      <S.LoadingDot backgroundColor={color} shape="circle" size={size} />
-      <S.LoadingDot backgroundColor={color} shape="circle" size={size} />
-    </S.LoaderWrapper>
-  )
-})
+export const Loader = forwardRef(({ color, dataTestId, size = 'sm', ...rest }, ref) => (
+  <S.LoaderWrapper data-testid={dataTestId} ref={ref} {...rest}>
+    <S.LoadingDot backgroundColor={color} shape="circle" size={size} />
+    <S.LoadingDot backgroundColor={color} shape="circle" size={size} />
+    <S.LoadingDot backgroundColor={color} shape="circle" size={size} />
+  </S.LoaderWrapper>
+))
 
 Loader.displayName = 'Loader'
 
