@@ -1,0 +1,47 @@
+{
+  "name": "@welcome-ui/loader",
+  "version": "1.20.0",
+  "description": "Customizable design system with react • styled-components • styled-system and reakit.",
+  "main": "dist/loader.cjs.js",
+  "module": "dist/loader.es.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WTTJ/welcome-ui.git"
+  },
+  "keywords": [
+    "design-system",
+    "react",
+    "reakit",
+    "styled-components",
+    "styled-system",
+    "ui-library",
+    "ui",
+    "ux",
+    "jungle",
+    "welcome",
+    "WTTJ"
+  ],
+  "author": "WTTJ <tech@wttj.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WTTJ/welcome-ui/issues"
+  },
+  "dependencies": {
+    "@welcome-ui/shape": "^1.20.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "styled-components": "^4.0.0 || ^5.0.0"
+  },
+  "sideEffects": false,
+  "component": "Loader",
+  "homepage": "http://welcome-ui.com/components/loader"
+}

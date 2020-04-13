@@ -1,0 +1,38 @@
+---
+name: Loader
+route: /components/loader
+menu: Components
+---
+
+import { Playground, Link as LinkDocz, Props } from 'docz'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
+import { Loader } from '.'
+
+# Loader
+
+<TagVersion version={version} name={name} />
+
+## Install and import
+
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Examples
+
+<Playground>
+  <Loader color="black" />
+  <Loader color="black" size="md" />
+  <Loader color="black" size="lg" />
+</Playground>
+
+## Properties
+
+<Props of={Loader} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />
