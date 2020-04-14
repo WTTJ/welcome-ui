@@ -1,0 +1,95 @@
+---
+name: Avatar
+route: /components/avatar
+menu: Components
+---
+
+import { Link, Playground, Props } from 'docz'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+import { Avatar } from './index'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
+
+# Avatar
+
+<TagVersion version={version} name={name} />
+
+Avatar component with initials letter when have no image.
+
+## Install and import
+
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## With image
+
+We use `Shape` component. You can use size from theme or override with `width` and `height` size.
+
+<Playground>
+  <Avatar
+    name="Welcome jungle"
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    size="sm"
+  />
+  <Avatar src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4" name="Welcome jungle" />
+  <Avatar
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    name="Welcome jungle"
+    size="lg"
+  />
+  <Avatar
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    name="Welcome jungle"
+    size="xl"
+  />
+  <Avatar
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    name="Welcome jungle"
+    size="xxl"
+  />
+  <Avatar
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    name="Custom"
+    width={130}
+    height={130}
+    color="warning.500"
+    fontSize={20}
+  />
+</Playground>
+
+## Without image
+
+Without image we add initials on the avatar with property `name`. We get by default ramdom color from sub colors to create the background, based on the name string. You can override with `color`. Font size is calculated automatically and can be override with `fontSize`property.
+
+<Playground>
+  <Avatar name="Welcome jungle" size="sm" />
+  <Avatar name="Welcome jungle" />
+  <Avatar name="Welcome jungle" size="lg" />
+  <Avatar name="Welcome jungle" size="xl" />
+  <Avatar name="Welcome jungle" size="xxl" />
+  <Avatar name="Custom" width={130} height={130} color="warning.500" fontSize={20} />
+</Playground>
+
+## With shape square
+
+By default Avatar is a circle shape, change with property `shape`.
+
+<Playground>
+  <Avatar
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    name="Welcome jungle"
+    shape="square"
+    size="xxl"
+  />
+  <Avatar name="Welcome jungle" shape="square" size="xxl" />
+</Playground>
+
+## Properties
+
+<Props of={Avatar} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

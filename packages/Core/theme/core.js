@@ -6,6 +6,7 @@ import { getLinks } from '../../Link/theme'
 import { getPaginations } from '../../Pagination/theme'
 import { getTabs } from '../../Tabs/theme'
 import { getAlerts } from '../../Alert/theme'
+import { getAvatars } from '../../Avatar/theme'
 import { getButtons } from '../../Button/theme'
 import { getFields } from '../../Field/theme'
 import { getIcons } from '../../Icon/theme'
@@ -110,6 +111,7 @@ export const createTheme = (options = {}) => {
   // These attributes depend on colors and fontSizes and must come last
   theme.underline.borderBottomColor = theme.colors.primary[500]
   theme.alerts = getAlerts(theme)
+  theme.avatars = getAvatars(theme)
   theme.buttons = getButtons(theme)
   theme.fields = getFields(theme)
   theme.toasts = getToasts(theme)
