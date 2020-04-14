@@ -1,0 +1,63 @@
+---
+name: Breadcrumb
+route: /components/breadcrumb
+menu: Components
+---
+
+import { Props, Playground } from 'docz'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
+import { Breadcrumb } from './index'
+import { Link } from '../Link/index'
+
+# Breadcrumb
+
+<TagVersion version={version} name={name} />
+
+## Install and import
+
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+<Playground>
+  <Breadcrumb>
+    <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+    <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+  </Breadcrumb>
+</Playground>
+
+## Separator
+
+You can customize your separator.
+
+<Playground>
+  <Breadcrumb separator="/">
+    <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+    <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+  </Breadcrumb>
+
+  <Breadcrumb separator="-">
+    <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+    <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+  </Breadcrumb>
+</Playground>
+
+## Add global Link component
+
+Add a global link component for the items with `renderChildrenAs`. Exemple with an `import { Link } from '@welcome-ui/link'`.
+
+<Playground>
+  <Breadcrumb renderChildrenAs={Link}>
+    <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+    <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+  </Breadcrumb>
+</Playground>
+
+## Properties
+
+<Props of={Breadcrumb} />

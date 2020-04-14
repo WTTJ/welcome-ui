@@ -2,6 +2,7 @@
 export * from '../packages/Alert/index'
 export * from '../packages/Avatar/index'
 export * from '../packages/Badge/index'
+export * from '../packages/Breadcrumb/index'
 export * from '../packages/Box/index'
 export * from '../packages/Button/index'
 export * from '../packages/Card/index'
