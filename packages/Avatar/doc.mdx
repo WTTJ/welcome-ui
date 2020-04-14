@@ -1,0 +1,110 @@
+---
+name: Avatar
+route: /components/avatar
+menu: Components
+---
+
+import { Link, Playground, Props } from 'docz'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+import { Avatar } from './index'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
+
+# Avatar
+
+<TagVersion version={version} name={name} />
+
+Avatar component with initials letter when have no image.
+
+## Install and import
+
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## With image
+
+We use `Shape` component. You can use size from theme or override with `width` and `height` size.
+
+<Playground>
+  <Avatar
+    alt="Avatar with image"
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    words={['Welcome', 'Jungle']}
+    size="sm"
+  />
+  <Avatar
+    alt="Avatar with image"
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    words={['Welcome', 'Jungle']}
+  />
+  <Avatar
+    alt="Avatar with image"
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    words={['Welcome', 'Jungle']}
+    size="lg"
+  />
+  <Avatar
+    alt="Avatar with image"
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    words={['Welcome', 'Jungle']}
+    size="xl"
+  />
+  <Avatar
+    alt="Avatar with image"
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    words={['Welcome', 'Jungle']}
+    size="xxl"
+  />
+  <Avatar
+    alt="Avatar with image"
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    words={['Custom', 'Avatar']}
+    width={130}
+    height={130}
+    color="warning.500"
+    fontSize={20}
+  />
+</Playground>
+
+## Without image
+
+Without image we add initials on the avatar with array property `words`. We get by default ramdom color from sub colors to create the background. You can override with `color`. Font size is calculated automatically and can be override with `fontSize`property.
+
+<Playground>
+  <Avatar alt="Avatar with image" words={['Welcome', 'Jungle']} size="sm" />
+  <Avatar alt="Avatar with image" words={['Welcome', 'Jungle']} />
+  <Avatar alt="Avatar with image" words={['Welcome', 'Jungle']} size="lg" />
+  <Avatar alt="Avatar with image" words={['Welcome', 'Jungle']} size="xl" />
+  <Avatar alt="Avatar with image" words={['Welcome', 'Jungle']} size="xxl" />
+  <Avatar
+    alt="Avatar with image"
+    words={['Custom', 'Avatar']}
+    width={130}
+    height={130}
+    color="warning.500"
+    fontSize={20}
+  />
+</Playground>
+
+## With shape circle
+
+<Playground>
+  <Avatar
+    alt="Avatar with image"
+    src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    words={['Welcome', 'Jungle']}
+    shape="circle"
+    size="xxl"
+  />
+  <Avatar alt="Avatar with image" words={['Welcome', 'Jungle']} shape="circle" size="xxl" />
+</Playground>
+
+## Properties
+
+<Props of={Avatar} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

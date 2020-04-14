@@ -1,5 +1,6 @@
 // Components
 export * from '../packages/Alert/index'
+export * from '../packages/Avatar/index'
 export * from '../packages/Badge/index'
 export * from '../packages/Box/index'
 export * from '../packages/Button/index'
