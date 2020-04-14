@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from '@xstyled/styled-components'
 import { Shape } from '@welcome-ui/shape'
 import { th } from '@xstyled/system'
+import { system } from '@welcome-ui/system'
 
 const animation = keyframes`
   0%, 100% {
@@ -18,24 +19,19 @@ export const LoadingDot = styled(Shape)(
     css`
       width: ${th(`loaders.sizes.${size}`)};
       height: ${th(`loaders.sizes.${size}`)};
+      animation: ${animation} 1.5s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+      ${system}
+      &:not(:first-child) {
+        margin-left: sm;
+      }
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.125s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.25s;
+      }
     `
 )
-
-export const LoaderWrapper = styled.div`
-  display: flex;
-  > ${LoadingDot} {
-    animation: ${animation} 1.5s cubic-bezier(0.86, 0, 0.07, 1) infinite;
-    &:not(:first-child) {
-      margin-left: sm;
-    }
-    &:nth-child(1) {
-      animation-delay: 0s;
-    }
-    &:nth-child(2) {
-      animation-delay: 0.125s;
-    }
-    &:nth-child(3) {
-      animation-delay: 0.25s;
-    }
-  }
-`
