@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/breadcrumb",
-  "version": "1.20.0",
+  "version": "1.23.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/breadcrumb.cjs.js",
   "module": "dist/breadcrumb.es.js",
@@ -33,7 +33,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^1.20.0",
+    "@welcome-ui/box": "^1.23.0",
     "@welcome-ui/icons.right": "^1.22.0"
   },
   "peerDependencies": {
