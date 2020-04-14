@@ -1,5 +1,15 @@
-export function randomColor(colors) {
+export function getSeededColor(colors, seed) {
   const colorKeys = Object.keys(colors)
-  const randomIndex = Math.floor(Math.random() * (colorKeys.length - 1))
-  return colors[colorKeys.find((color, i) => i === randomIndex)]
+  const index = seed.length % colorKeys.length
+  return colors[colorKeys[index]]
+}
+
+export function getInitials(name) {
+  let [firstWord, lastWord] = name.split(' ')
+
+  if (firstWord && lastWord) {
+    return `${firstWord.charAt(0).toUpperCase()}${lastWord.charAt(0).toUpperCase()}`
+  } else {
+    return firstWord.substring(0, 2).toUpperCase()
+  }
 }

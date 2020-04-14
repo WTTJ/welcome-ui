@@ -1,45 +1,42 @@
-import { array, number, oneOf, string } from 'prop-types'
+import { number, oneOf, string } from 'prop-types'
 import React, { memo } from 'react'
 import { Box } from '@welcome-ui/box'
 import { useTheme } from '@xstyled/styled-components'
 
-import { randomColor } from './utils'
+import { getInitials, getSeededColor } from './utils'
 import * as S from './styles'
 
 export const Avatar = memo(function Avatar({
-  alt,
   color,
   fontSize,
   height,
+  name,
+  shape = 'circle',
   size = 'md',
   src,
   width,
-  words,
   ...rest
 }) {
   const theme = useTheme()
-  const backgroundColor = color || randomColor(theme && theme.colors && theme.colors.sub)
+  const backgroundColor = color || getSeededColor(theme && theme.colors && theme.colors.sub, name)
   const avatarSize = theme.avatars.sizes[size]
   const avatarFontSize = fontSize || `calc(${width ? theme.toRem(width) : avatarSize} / 2.5)`
 
-  function getInitials() {
-    const initials = words[1] ? `${words[0][0]}${words[1][0]}` : words[0][0]
-    return initials && initials.toUpperCase()
-  }
-
   return (
     <S.Avatar
-      arial-label={alt}
+      aria-label={name}
       backgroundColor={backgroundColor}
       height={height || avatarSize}
+      role="img"
+      shape={shape}
       width={width || avatarSize}
       {...rest}
     >
-      {src && <img alt={alt} src={src} />}
+      {src && <img alt={name} src={src} />}
       {!src && (
         <Box>
           <S.Text fontSize={avatarFontSize} m={0}>
-            {getInitials()}
+            {getInitials(name)}
           </S.Text>
         </Box>
       )}
@@ -50,12 +47,12 @@ export const Avatar = memo(function Avatar({
 Avatar.displayName = 'Avatar'
 
 Avatar.propTypes = {
-  alt: string.isRequired,
   color: string,
   fontSize: string,
   height: number,
+  name: string.isRequired,
+  shape: oneOf(['circle', 'square']),
   size: oneOf(['sm', 'md', 'lg', 'xl', 'xxl']),
   src: string,
-  width: number,
-  words: array.isRequired
+  width: number
 }

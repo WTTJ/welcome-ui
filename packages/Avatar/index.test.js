@@ -6,20 +6,21 @@ import { Avatar } from './index'
 
 describe('<Badge>', () => {
   it('should render correctly', () => {
-    const { container } = render(<Avatar alt="welcome" src="src" words={['welcome', 'jungle']} />)
+    const { container } = render(<Avatar name="welcome jungle" src="src" />)
 
     expect(container).not.toHaveTextContent('WJ')
   })
 
   it('should render without image and 2 words', () => {
-    const { container } = render(<Avatar alt="welcome" words={['welcome', 'jungle']} />)
+    const { container } = render(<Avatar name="welcome jungle" />)
 
     expect(container).toHaveTextContent('WJ')
   })
 
   it('should render without image and 1 word', () => {
-    const { container, debug } = render(<Avatar alt="welcome" words={['welcome']} />)
-    debug(container)
-    expect(container).toHaveTextContent('W')
+    const { container } = render(<Avatar name="welcomejungle" />)
+
+    expect(container).toHaveTextContent('WE')
+    expect(container).not.toHaveTextContent('WJ')
   })
 })
