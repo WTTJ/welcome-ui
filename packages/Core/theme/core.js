@@ -8,6 +8,7 @@ import { getTabs } from '../../Tabs/theme'
 import { getAlerts } from '../../Alert/theme'
 import { getAvatars } from '../../Avatar/theme'
 import { getButtons } from '../../Button/theme'
+import { getBreadcrumbs } from '../../Breadcrumb/theme'
 import { getFields } from '../../Field/theme'
 import { getIcons } from '../../Icon/theme'
 import { getTags } from '../../Tag/theme'
@@ -113,6 +114,7 @@ export const createTheme = (options = {}) => {
   theme.alerts = getAlerts(theme)
   theme.avatars = getAvatars(theme)
   theme.buttons = getButtons(theme)
+  theme.breadcrumbs = getBreadcrumbs(theme)
   theme.fields = getFields(theme)
   theme.toasts = getToasts(theme)
   theme.paginations = getPaginations(theme)
