@@ -2,18 +2,18 @@ import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 
 export const Item = styled(Box)(
-  ({ separator }) => css`
+  ({ withSeparator }) => css`
     ${th('breadcrumbs.item.default')};
     align-items: center;
 
-    ${separator &&
+    ${withSeparator &&
       css`
         &:hover {
           ${th('breadcrumbs.item.hover')};
         }
       `};
 
-    ${!separator &&
+    ${!withSeparator &&
       css`
         ${th('breadcrumbs.item.active')};
       `}

@@ -48,10 +48,10 @@ You can customize your separator.
 
 ## Add global Link component
 
-Exemple with an `import { Link } from '@welcome-ui/link'`.
+Add a global link component for the items with `renderChildrenAs`. Exemple with an `import { Link } from '@welcome-ui/link'`.
 
 <Playground>
-  <Breadcrumb as={Link}>
+  <Breadcrumb renderChildrenAs={Link}>
     <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
     <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
     <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>

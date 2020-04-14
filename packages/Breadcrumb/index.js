@@ -8,14 +8,14 @@ import { Item } from './Item'
 import * as S from './styles'
 
 export const Breadcrumb = forwardRef(
-  ({ as = 'a', children, separator = <RightIcon size="sm" />, ...rest }, ref) => {
+  ({ renderChildrenAs = 'a', children, separator = <RightIcon size="sm" />, ...rest }, ref) => {
     const clones = children.map((child, index) => {
       const isLastChild = children.length === index + 1
 
       return cloneElement(child, {
         key: `breadcrumb-${index}`,
         separator: isLastChild ? undefined : separator,
-        as: isLastChild ? 'span' : as,
+        as: isLastChild ? 'span' : renderChildrenAs,
         ...child.props
       })
     })
@@ -31,8 +31,8 @@ export const Breadcrumb = forwardRef(
 Breadcrumb.displayName = 'Breadcrumb'
 
 Breadcrumb.propTypes = {
-  as: oneOfType(COMPONENT_TYPE),
   children: node.isRequired,
+  renderChildrenAs: oneOfType(COMPONENT_TYPE),
   separator: oneOfType([node, string])
 }
 

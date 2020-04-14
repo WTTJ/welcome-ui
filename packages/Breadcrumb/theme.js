@@ -10,7 +10,6 @@ export const getBreadcrumbs = () => {
       default: css`
         color: inherit;
         text-decoration: none;
-        padding-right: 0 md;
         transition: medium;
       `,
       hover: css`
