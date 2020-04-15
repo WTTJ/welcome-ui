@@ -71,7 +71,6 @@ By default, `accept`: is set to `image/*`, see more about [media type](http://ww
         name="avatar"
         onAddFile={console.debug}
         onRemoveFile={console.debug}
-        required
       />
     </Form>
   )}
@@ -96,7 +95,41 @@ By default, `accept`: is set to `image/*`, see more about [media type](http://ww
         name="file"
         onAddFile={console.debug}
         onRemoveFile={console.debug}
-        required
+      />
+    </Form>
+  )}
+</Playground>
+
+## File without type
+
+Sometime in the url we don't have the type of the file, you can override with `forceFileType` set to `image`, `audio` or `video`.
+
+<Playground>
+  {() => (
+    <Form
+      initialValues={{
+        file1:
+          'https://cdn-images.welcomehome.io/zn9KvR98haoYRV6m1T-LR4c5h0HPZtVtvzwKPv02wgA/rs:auto:600::/q:100/czM6Ly93aC1wcml2YXRlLXByb2R1Y3Rpb24vcHJvZHVjdGlvbi91cGxvYWRzL3doL2Jsb2Nrcy9iZTI2MTc4OC1mYjc5LTRlZTQtYjQ4OC04ZDhiYTk4YTY3NDIvY292ZXIvdHdpdHRlckB4Mi5wbmc',
+        file2:
+          'https://cdn-images.welcomehome.io/zn9KvR98haoYRV6m1T-LR4c5h0HPZtVtvzwKPv02wgA/rs:auto:600::/q:100/czM6Ly93aC1wcml2YXRlLXByb2R1Y3Rpb24vcHJvZHVjdGlvbi91cGxvYWRzL3doL2Jsb2Nrcy9iZTI2MTc4OC1mYjc5LTRlZTQtYjQ4OC04ZDhiYTk4YTY3NDIvY292ZXIvdHdpdHRlckB4Mi5wbmc'
+      }}
+    >
+      <ConnectedField
+        component={FileDrop}
+        label="Image file"
+        name="file1"
+        onAddFile={console.debug}
+        onRemoveFile={console.debug}
+        forceFileType="image"
+      />
+      <ConnectedField
+        component={FileDrop}
+        mt="xl"
+        label="Music file"
+        name="file2"
+        onAddFile={console.debug}
+        onRemoveFile={console.debug}
+        forceFileType="audio"
       />
     </Form>
   )}

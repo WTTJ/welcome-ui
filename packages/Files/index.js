@@ -24,20 +24,20 @@ const getMimeType = file => file.type || getType(getFileName(file).split('.')[1]
 
 export const getFileSize = file => (file.size ? formatBytes(file.size, 0) : null)
 
-export const getFileIcon = file => {
+export const getFileIcon = (file, forceFileType) => {
   const mimeType = getMimeType(file)
 
-  if (!mimeType) {
+  if (!forceFileType && !mimeType) {
     return AttachmentIcon
   }
 
-  if (mimeType.startsWith('image/')) {
+  if (forceFileType === 'image' || (mimeType && mimeType.startsWith('image/'))) {
     return CameraIcon
   }
-  if (mimeType.startsWith('audio/')) {
+  if (forceFileType === 'audio' || (mimeType && mimeType.startsWith('audio/'))) {
     return MusicIcon
   }
-  if (mimeType.startsWith('video/')) {
+  if (forceFileType === 'video' || (mimeType && mimeType.startsWith('video/'))) {
     return VideoIcon
   }
 
