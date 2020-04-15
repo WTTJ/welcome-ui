@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, func, object, oneOfType, string } from 'prop-types'
+import { bool, func, object, oneOf, oneOfType, string } from 'prop-types'
 import { NegativeIcon } from '@welcome-ui/icons.negative'
 import { PositiveIcon } from '@welcome-ui/icons.positive'
 
@@ -12,6 +12,7 @@ export const Preview = ({
   error,
   file,
   fileUrl,
+  forceFileType,
   isAnImage,
   isHoverAccept,
   isHoverReject,
@@ -27,7 +28,7 @@ export const Preview = ({
     if (isAnImage) {
       return <ImagePreview src={fileUrl} />
     } else {
-      return <FilePreview file={file} />
+      return <FilePreview file={file} forceFileType={forceFileType} />
     }
   }
   return <Message disabled={disabled} openFile={openFile} />
@@ -38,6 +39,7 @@ Preview.propTypes /* remove-proptypes */ = {
   error: string,
   file: oneOfType([string, object]),
   fileUrl: string,
+  forceFileType: oneOf(['image', 'audio', 'video']),
   isAnImage: bool,
   isHoverAccept: bool,
   isHoverReject: bool,

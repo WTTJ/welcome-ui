@@ -1,20 +1,20 @@
 import React from 'react'
-import { object, oneOfType, string } from 'prop-types'
+import { object, oneOf, oneOfType, string } from 'prop-types'
 import { Button } from '@welcome-ui/button'
 import { Text } from '@welcome-ui/text'
 import { ExternalLinkIcon } from '@welcome-ui/icons.external_link'
 import { getFileIcon, getFileName, getFileSize } from '@welcome-ui/files'
 
-export const FilePreview = ({ file }) => {
+export const FilePreview = ({ file, forceFileType }) => {
   const isUrl = typeof file === 'string'
-  const Icon = getFileIcon(file)
+  const Icon = getFileIcon(file, forceFileType)
   const size = getFileSize(file)
   const name = getFileName(file)
 
   return (
     <>
       <Icon color="dark.200" height={50} mb="md" width={50} />
-      <Text color="dark.200" fontWeight="bold" lines={1} m={0}>
+      <Text color="dark.200" fontWeight="bold" lines={1} m={0} maxWidth={600}>
         {name}
       </Text>
       {!isUrl && (
@@ -33,5 +33,6 @@ export const FilePreview = ({ file }) => {
 }
 
 FilePreview.propTypes /* remove-proptypes */ = {
-  file: oneOfType([string, object])
+  file: oneOfType([string, object]),
+  forceFileType: oneOf(['image', 'audio', 'video'])
 }

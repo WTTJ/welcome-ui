@@ -3,7 +3,14 @@ import { th } from '@xstyled/system'
 import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
 import { fieldStyles } from '@welcome-ui/utils'
 
-const FILTER_PROPS = ['onAddFile', 'onRemoveFile', 'isDragAccept', 'isDragActive', 'isDragReject']
+const FILTER_PROPS = [
+  'onAddFile',
+  'onRemoveFile',
+  'isDragAccept',
+  'isDragActive',
+  'isDragReject',
+  'forceFileType'
+]
 
 const getBorderColor = ({ isDragAccept, isDragReject }) => {
   if (isDragAccept) {

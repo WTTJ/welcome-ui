@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import { bool, func, node, number, object, oneOfType, string } from 'prop-types'
+import { bool, func, node, number, object, oneOf, oneOfType, string } from 'prop-types'
 import { useDropzone } from 'react-dropzone'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { PencilIcon } from '@welcome-ui/icons.pencil'
@@ -34,6 +34,7 @@ export const FileDrop = forwardRef(
       onError,
       onRemoveFile,
       value,
+      forceFileType,
       ...rest
     },
     ref
@@ -133,7 +134,8 @@ export const FileDrop = forwardRef(
           {children({
             error,
             file,
-            isAnImage: isAnImage(file),
+            forceFileType,
+            isAnImage: forceFileType === 'image' || isAnImage(file),
             fileUrl: file && getPreviewUrl(file),
             isDefault: !file && !isDragActive,
             isHoverAccept: isDragAccept,
@@ -174,11 +176,12 @@ export const FileDrop = forwardRef(
 FileDrop.type = 'FileDrop'
 FileDrop.displayName = 'FileDrop'
 
-FileDrop.propTypes = {
+FileDrop.propTypes = /* remove-proptypes */ {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg"  */
   accept: string,
   children: func,
   disabled: bool,
+  forceFileType: oneOf(['image', 'audio', 'video']),
   isClearable: bool,
   isEditable: bool,
   maxSize: number,
