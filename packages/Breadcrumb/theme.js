@@ -17,6 +17,7 @@ export const getBreadcrumbs = () => {
       `,
       active: css`
         color: primary.500;
+        padding-right: sm;
       `
     },
     separator: css`
