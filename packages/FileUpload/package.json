@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/file-upload",
-  "version": "1.23.0",
+  "version": "1.23.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/file-upload.cjs.js",
   "module": "dist/file-upload.es.js",
@@ -35,7 +35,7 @@
   "dependencies": {
     "@welcome-ui/box": "^1.23.0",
     "@welcome-ui/button": "^1.20.0",
-    "@welcome-ui/files": "^1.22.0",
+    "@welcome-ui/files": "^1.23.2",
     "@welcome-ui/system": "^1.20.0",
     "@welcome-ui/tag": "^1.22.0",
     "@welcome-ui/utils": "^1.20.0"

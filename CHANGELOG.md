@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.23.2](https://github.com/WTTJ/welcome-ui/compare/v1.23.1...v1.23.2) (2020-04-15)
+
+
+### Bug Fixes
+
+* add fforceFileType on fileDrop ([#602](https://github.com/WTTJ/welcome-ui/issues/602)) ([7df906b](https://github.com/WTTJ/welcome-ui/commit/7df906bfdc38aab37d59d411099367c84b816a5a))
+
+
+
+
+
 ## [1.23.1](https://github.com/WTTJ/welcome-ui/compare/v1.23.0...v1.23.1) (2020-04-15)
 
 
