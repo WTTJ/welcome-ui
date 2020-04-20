@@ -11,13 +11,13 @@ export const getBreadcrumbs = () => {
         color: inherit;
         text-decoration: none;
         transition: medium;
+        padding: sm 0;
       `,
       hover: css`
         color: primary.200;
       `,
       active: css`
         color: primary.500;
-        padding-right: sm;
       `
     },
     separator: css`
