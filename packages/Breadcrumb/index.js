@@ -18,7 +18,6 @@ export const Breadcrumb = forwardRef(
     },
     ref
   ) => {
-    const wrapperRef = ref || useRef(null)
     const [listRef, setListRef] = useState(useRef(null))
     const [scrollLeft, setScrollLeft] = useState()
     const [scrollRight, setScrollRight] = useState()
@@ -60,7 +59,7 @@ export const Breadcrumb = forwardRef(
     }, [])
 
     return (
-      <S.Breadcrumb as="nav" ref={wrapperRef} {...rest}>
+      <S.Breadcrumb as="nav" ref={ref} {...rest}>
         <S.GradientLeft
           gradientBackground={gradientBackground}
           show={scrollLeft && scrollLeft > 0}
