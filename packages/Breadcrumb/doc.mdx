@@ -24,8 +24,6 @@ import { Link } from '../Link/index'
   <Breadcrumb>
     <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
     <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
-    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
-    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
     <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
   </Breadcrumb>
 </Playground>
@@ -44,8 +42,6 @@ You can customize your separator.
   <Breadcrumb separator="-">
     <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
     <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
-    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
-    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
     <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
   </Breadcrumb>
 </Playground>
@@ -58,10 +54,25 @@ Add a global link component for the items with `renderChildrenAs`. Example with 
   <Breadcrumb renderChildrenAs={Link}>
     <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
     <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
-    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
-    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
     <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
   </Breadcrumb>
+</Playground>
+
+## Wrong width
+
+On your project maybe you can have the wrong width of your scroll, to avoid this set a new `ref` to the component.
+
+<Playground>
+  {() => {
+    const ref = useRef()
+    return (
+      <Breadcrumb ref={ref}>
+        <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+        <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+        <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+      </Breadcrumb>
+    )
+  }}
 </Playground>
 
 ## Properties

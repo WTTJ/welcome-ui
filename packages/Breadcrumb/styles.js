@@ -1,11 +1,30 @@
 import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
+import { hexToRGBA } from '@welcome-ui/utils'
 
-export const Breadcrumb = styled(Box)`
-  ${th('breadcrumbs.list')};
-  height: 100%;
-  position: relative;
-`
+export const Breadcrumb = styled(Box)(
+  ({ gradientBackground, isAtEnd, isAtStart, theme }) => css`
+    ${th('breadcrumbs.list')};
+    height: 100%;
+    position: relative;
+
+    ${!isAtStart &&
+      css`
+        &::before {
+          ${gradient(theme, gradientBackground)};
+          left: 0;
+        }
+      `}
+
+    ${!isAtEnd &&
+      css`
+        &::after {
+          ${gradient(theme, gradientBackground, 'left')};
+          right: 0;
+        }
+      `}
+  `
+)
 
 export const List = styled.ol`
   display: flex;
@@ -17,35 +36,16 @@ export const List = styled.ol`
   list-style: none;
 `
 
-export const GradientLeft = styled.div(
-  ({ gradientBackground, show }) => css`
+const gradient = (theme, gradientBackground, position = 'right') => {
+  const colorGradient = th(`colors.${gradientBackground}`)({ theme })
+  const transparent = hexToRGBA(colorGradient, 0)
+
+  return css`
+    content: '';
     position: absolute;
     bottom: 0;
     top: 0;
-    left: 0;
     width: 30;
-    background: linear-gradient(
-      to right,
-      ${th(`colors.${gradientBackground}`)} 0%,
-      rgba(0, 0, 0, 0) 100%
-    );
-    display: none;
-
-    ${show &&
-      css`
-        display: block;
-      `}
+    background: linear-gradient(to ${position}, ${colorGradient} 0%, ${transparent} 100%);
   `
-)
-
-export const GradientRight = styled(GradientLeft)(
-  ({ gradientBackground }) => css`
-    left: auto;
-    right: 0;
-    background: linear-gradient(
-      to left,
-      ${th(`colors.${gradientBackground}`)} 0%,
-      rgba(0, 0, 0, 0) 100%
-    );
-  `
-)
+}
