@@ -2,50 +2,50 @@ import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { hexToRGBA } from '@welcome-ui/utils'
 
-export const Breadcrumb = styled(Box)(
-  ({ gradientBackground, isAtEnd, isAtStart, theme }) => css`
-    ${th('breadcrumbs.list')};
-    height: 100%;
-    position: relative;
-
-    ${!isAtStart &&
-      css`
-        &::before {
-          ${gradient(theme, gradientBackground)};
-          left: 0;
-        }
-      `}
-
-    ${!isAtEnd &&
-      css`
-        &::after {
-          ${gradient(theme, gradientBackground, 'left')};
-          right: 0;
-        }
-      `}
+export const StartGradient = styled.span(
+  ({ gradientBackground, theme }) => css`
+    right: 100%;
+    background-image: ${gradient(theme, gradientBackground)};
   `
 )
 
+export const EndGradient = styled.span(
+  ({ gradientBackground, theme }) => css`
+    left: 100%;
+    background-image: ${gradient(theme, gradientBackground, 'left')};
+  `
+)
+
+export const Breadcrumb = styled(Box)`
+  ${th('breadcrumbs.list')};
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+
+  ${StartGradient},
+  ${EndGradient} {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 30;
+  }
+`
+
 export const List = styled.ol`
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  max-width: 100%;
   height: 100%;
   overflow-x: auto;
   margin: 0;
   padding: 0;
   list-style: none;
+  white-space: nowrap;
 `
 
 const gradient = (theme, gradientBackground, position = 'right') => {
-  const colorGradient = th(`colors.${gradientBackground}`)({ theme })
-  const transparent = hexToRGBA(colorGradient, 0)
-
-  return css`
-    content: '';
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    width: 30;
-    background: linear-gradient(to ${position}, ${colorGradient} 0%, ${transparent} 100%);
-  `
+  // const gradientColor = th(`colors.${gradientBackground}`)({ theme })
+  const gradientColor = '#FF0000'
+  const transparent = hexToRGBA(gradientColor, 0)
+  return `linear-gradient(to ${position}, ${gradientColor}, ${transparent} 100%)`
 }

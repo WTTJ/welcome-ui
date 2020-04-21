@@ -32,49 +32,6 @@ import { Link } from '../Link/index'
 
 You can customize your separator.
 
-<Playground>
-  <Breadcrumb separator="/">
-    <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
-    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
-    <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
-  </Breadcrumb>
-
-  <Breadcrumb separator="-">
-    <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
-    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
-    <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
-  </Breadcrumb>
-</Playground>
-
-## Add global Link component
-
-Add a global link component for the items with `renderChildrenAs`. Example with an `import { Link } from '@welcome-ui/link'`.
-
-<Playground>
-  <Breadcrumb renderChildrenAs={Link}>
-    <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
-    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
-    <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
-  </Breadcrumb>
-</Playground>
-
-## Wrong width
-
-On your project maybe you can have the wrong width of your scroll, to avoid this set a new `ref` to the component.
-
-<Playground>
-  {() => {
-    const ref = useRef()
-    return (
-      <Breadcrumb ref={ref}>
-        <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
-        <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
-        <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
-      </Breadcrumb>
-    )
-  }}
-</Playground>
-
 ## Properties
 
 <Props of={Breadcrumb} />

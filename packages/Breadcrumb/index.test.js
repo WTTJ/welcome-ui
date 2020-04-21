@@ -4,7 +4,7 @@ import { render } from '../../src/utils/tests'
 
 import { Breadcrumb } from './index'
 
-describe('<Breadcrumb>', () => {
+describe.skip('<Breadcrumb>', () => {
   it('should render correctly', () => {
     const { container } = render(
       <Breadcrumb>

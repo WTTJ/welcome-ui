@@ -1,13 +1,8 @@
-import React, {
-  cloneElement,
-  forwardRef,
-  useCallback,
-  useLayoutEffect,
-  useRef,
-  useState
-} from 'react'
+import React, { cloneElement, forwardRef, useCallback, useEffect, useRef, useState } from 'react'
 import { RightIcon } from '@welcome-ui/icons.right'
 import { node, oneOfType, string } from 'prop-types'
+import { clamp, throttle } from '@welcome-ui/utils'
+import { ResizeObserver } from '@juggle/resize-observer'
 
 import { COMPONENT_TYPE } from '../../src/utils/propTypes'
 
@@ -25,11 +20,11 @@ export const Breadcrumb = forwardRef(
     },
     ref
   ) => {
-    const listRef = ref || useRef()
-    const listWidth = listRef && listRef.current && listRef.current.scrollWidth
-
-    const [isAtStart, setIsAtStart] = useState(false)
-    const [isAtEnd, setIsAtEnd] = useState(true)
+    const listRef = useRef()
+    const startGradient = useRef()
+    const endGradient = useRef()
+    const [isOverflowing, setIsOverflowing] = useState(false)
+    const [initialOffset, setInitialOffset] = useState()
 
     const clones = children.map((child, index) => {
       const isLastChild = children.length === index + 1
@@ -42,33 +37,69 @@ export const Breadcrumb = forwardRef(
       })
     })
 
+    function translate(element, value) {
+      element.style.transform = `translate3d(${value}%, 0, 0)`
+    }
+
+    const updateGradients = useCallback(completion => {
+      translate(startGradient.current, 100 - completion)
+      translate(endGradient.current, -completion)
+    }, [])
+
     const onListScroll = useCallback(() => {
       const {
-        current: { clientWidth, scrollLeft, scrollWidth }
+        current: { offsetWidth, scrollLeft, scrollWidth }
       } = listRef
+      const diff = scrollWidth - offsetWidth
+      const scroll = clamp(Math.abs(scrollLeft - initialOffset), 0, diff)
+      const completionPercentage = (scroll * 100) / diff
+      updateGradients(completionPercentage)
+    }, [initialOffset, updateGradients])
 
-      setIsAtStart(scrollLeft === 0)
-      setIsAtEnd(scrollWidth - (scrollLeft + clientWidth) === 0)
-    }, [listRef])
+    const handleResize = useCallback(
+      throttle(
+        entries => {
+          const [
+            {
+              target: { offsetWidth, scrollLeft, scrollWidth }
+            }
+          ] = entries
+          const diff = scrollWidth - offsetWidth
+          if (!initialOffset) {
+            setInitialOffset(scrollLeft === 0 ? 0 : diff)
+          }
+          setIsOverflowing(diff > 0)
+        },
+        300,
+        { leading: false }
+      ),
+      [initialOffset]
+    )
 
-    useLayoutEffect(() => {
-      onListScroll()
-      setTimeout(() => {
-        listRef.current.scrollTo(10000, 0)
-      }, 200)
-    }, [listRef, listWidth, onListScroll])
+    useEffect(() => {
+      const resizeObserver = new ResizeObserver(handleResize)
+      resizeObserver.observe(listRef.current)
+      return () => resizeObserver.disconnect()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    useEffect(() => {
+      if (startGradient.current && endGradient.current) {
+        updateGradients(0)
+      }
+    }, [isOverflowing, updateGradients])
 
     return (
-      <S.Breadcrumb
-        as="nav"
-        gradientBackground={gradientBackground}
-        isAtEnd={isAtEnd}
-        isAtStart={isAtStart}
-        {...rest}
-      >
-        <S.List onScroll={onListScroll} ref={listRef}>
-          {clones}
+      <S.Breadcrumb as="nav" ref={ref} {...rest}>
+        {isOverflowing && (
+          <S.StartGradient gradientBackground={gradientBackground} ref={startGradient} />
+        )}
+        <S.List dir="rtl" onScroll={onListScroll} ref={listRef}>
+          {clones.reverse()}
         </S.List>
+        {isOverflowing && (
+          <S.EndGradient gradientBackground={gradientBackground} ref={endGradient} />
+        )}
       </S.Breadcrumb>
     )
   }
