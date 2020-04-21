@@ -10,7 +10,6 @@ export const Breadcrumb = styled(Box)`
 export const List = styled.ol`
   display: flex;
   align-items: center;
-  max-width: 100%;
   height: 100%;
   overflow-x: auto;
   margin: 0;
