@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-picker",
-  "version": "1.22.0",
+  "version": "1.24.1-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/date-picker.cjs.js",
   "module": "dist/date-picker.es.js",
@@ -33,10 +33,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/date-time-picker-common": "^1.22.0",
+    "@welcome-ui/date-time-picker-common": "^1.24.1-alpha.0",
     "@welcome-ui/icons.date": "^1.22.0",
     "@welcome-ui/system": "^1.20.0",
-    "@welcome-ui/utils": "^1.20.0",
+    "@welcome-ui/utils": "^1.24.1-alpha.0",
     "react-datepicker": "^2.9.6"
   },
   "peerDependencies": {
