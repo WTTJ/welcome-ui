@@ -1,4 +1,11 @@
-import React, { cloneElement, forwardRef, useEffect, useRef, useState } from 'react'
+import React, {
+  cloneElement,
+  forwardRef,
+  useCallback,
+  useLayoutEffect,
+  useRef,
+  useState
+} from 'react'
 import { RightIcon } from '@welcome-ui/icons.right'
 import { node, oneOfType, string } from 'prop-types'
 
@@ -18,9 +25,11 @@ export const Breadcrumb = forwardRef(
     },
     ref
   ) => {
-    const [listRef, setListRef] = useState(useRef(null))
-    const [scrollLeft, setScrollLeft] = useState()
-    const [scrollRight, setScrollRight] = useState()
+    const listRef = ref || useRef()
+    const listWidth = listRef && listRef.current && listRef.current.scrollWidth
+
+    const [isAtStart, setIsAtStart] = useState(false)
+    const [isAtEnd, setIsAtEnd] = useState(true)
 
     const clones = children.map((child, index) => {
       const isLastChild = children.length === index + 1
@@ -33,44 +42,33 @@ export const Breadcrumb = forwardRef(
       })
     })
 
-    function onListScroll() {
-      setScrollLeft(listRef.current.scrollLeft)
-      setScrollRight(
-        listRef.current.scrollWidth - (listRef.current.scrollLeft + listRef.current.clientWidth)
-      )
-    }
+    const onListScroll = useCallback(() => {
+      const {
+        current: { clientWidth, scrollLeft, scrollWidth }
+      } = listRef
 
-    useEffect(() => {
-      setListRef(listRef)
+      setIsAtStart(scrollLeft === 0)
+      setIsAtEnd(scrollWidth - (scrollLeft + clientWidth) === 0)
+    }, [listRef])
 
-      const scrollToLeft =
-        listRef.current.scrollWidth === listRef.current.offsetWidth
-          ? undefined
-          : listRef.current.scrollWidth
-
+    useLayoutEffect(() => {
+      onListScroll()
       setTimeout(() => {
-        listRef.current.scrollLeft = scrollToLeft
-      }, 500)
-      setScrollLeft(scrollToLeft)
-      setScrollRight(
-        listRef.current.scrollWidth - (listRef.current.scrollLeft + listRef.current.clientWidth)
-      )
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+        listRef.current.scrollTo(10000, 0)
+      }, 200)
+    }, [listRef, listWidth, onListScroll])
 
     return (
-      <S.Breadcrumb as="nav" ref={ref} {...rest}>
-        <S.GradientLeft
-          gradientBackground={gradientBackground}
-          show={scrollLeft && scrollLeft > 0}
-        />
+      <S.Breadcrumb
+        as="nav"
+        gradientBackground={gradientBackground}
+        isAtEnd={isAtEnd}
+        isAtStart={isAtStart}
+        {...rest}
+      >
         <S.List onScroll={onListScroll} ref={listRef}>
           {clones}
         </S.List>
-        <S.GradientRight
-          gradientBackground={gradientBackground}
-          show={scrollRight && scrollRight > 0}
-        />
       </S.Breadcrumb>
     )
   }
