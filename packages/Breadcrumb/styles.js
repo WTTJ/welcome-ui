@@ -44,8 +44,7 @@ export const List = styled.ol`
 `
 
 const gradient = (theme, gradientBackground, position = 'right') => {
-  // const gradientColor = th(`colors.${gradientBackground}`)({ theme })
-  const gradientColor = '#FF0000'
+  const gradientColor = th(`colors.${gradientBackground}`)({ theme })
   const transparent = hexToRGBA(gradientColor, 0)
   return `linear-gradient(to ${position}, ${gradientColor}, ${transparent} 100%)`
 }
