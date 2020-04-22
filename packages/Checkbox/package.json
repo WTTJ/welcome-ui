@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/checkbox",
-  "version": "1.25.0",
+  "version": "1.25.1-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/checkbox.cjs.js",
   "module": "dist/checkbox.es.js",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@welcome-ui/system": "^1.20.0",
-    "@welcome-ui/utils": "^1.25.0",
+    "@welcome-ui/utils": "^1.25.1-alpha.0",
     "reakit": "^1.0.0-rc.0"
   },
   "peerDependencies": {

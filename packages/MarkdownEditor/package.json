@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/markdown-editor",
-  "version": "1.25.0",
+  "version": "1.25.1-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/markdown-editor.cjs.js",
   "module": "dist/markdown-editor.es.js",
@@ -44,7 +44,7 @@
     "@welcome-ui/icons.strikethrough": "^1.22.0",
     "@welcome-ui/icons.unordered_list": "^1.22.0",
     "@welcome-ui/system": "^1.20.0",
-    "@welcome-ui/utils": "^1.25.0",
+    "@welcome-ui/utils": "^1.25.1-alpha.0",
     "emoji-mart": "=2.11.1",
     "react-simplemde-editor": "=4.0.2"
   },
