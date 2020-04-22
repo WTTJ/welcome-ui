@@ -4,6 +4,16 @@ import { render } from '../../src/utils/tests'
 
 import { Breadcrumb } from './index'
 
+beforeEach(() => {
+  window.MutationObserver = function() {
+    return { disconnect: () => {}, observe: () => {}, takeRecords: () => {} }
+  }
+})
+
+afterEach(() => {
+  delete window.MutationObserver
+})
+
 describe('<Breadcrumb>', () => {
   it('should render correctly', () => {
     const { container } = render(
