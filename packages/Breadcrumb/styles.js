@@ -4,15 +4,17 @@ import { hexToRGBA } from '@welcome-ui/utils'
 
 export const StartGradient = styled.span(
   ({ gradientBackground, theme }) => css`
-    right: 100%;
+    left: 0;
     background-image: ${gradient(theme, gradientBackground)};
+    transform-origin: left;
   `
 )
 
 export const EndGradient = styled.span(
   ({ gradientBackground, theme }) => css`
-    left: 100%;
+    right: 0;
     background-image: ${gradient(theme, gradientBackground, 'left')};
+    transform-origin: right;
   `
 )
 

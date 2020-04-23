@@ -38,12 +38,13 @@ export const Breadcrumb = forwardRef(
     })
 
     function translate(element, value) {
-      element.style.transform = `translate3d(${value}%, 0, 0)`
+      element.style.transform = `scale3d(${value}, 1, 1)`
     }
 
-    const updateGradients = useCallback(completion => {
-      translate(startGradient.current, 100 - completion)
-      translate(endGradient.current, -completion)
+    const updateGradients = useCallback(completionRatio => {
+      const uncompleteRatio = 1 - completionRatio
+      translate(startGradient.current, uncompleteRatio)
+      translate(endGradient.current, completionRatio)
     }, [])
 
     const onListScroll = useCallback(() => {
@@ -52,8 +53,9 @@ export const Breadcrumb = forwardRef(
       } = listRef
       const diff = scrollWidth - offsetWidth
       const scroll = clamp(Math.abs(scrollLeft - initialOffset), 0, diff)
-      const completionPercentage = (scroll * 100) / diff
-      updateGradients(completionPercentage)
+      // scroll completion Ratio between 0 (not scrolled) and 1 (fully scrolled)
+      const completionRatio = scroll / diff
+      updateGradients(completionRatio)
     }, [initialOffset, updateGradients])
 
     const handleResize = useCallback(
