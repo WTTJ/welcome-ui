@@ -1,5 +1,6 @@
 export * from './card-styles'
 export * from './center-content'
+export * from './clamp'
 export * from './create-event'
 export * from './field-styles'
 export * from './format-bytes'
