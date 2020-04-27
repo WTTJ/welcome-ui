@@ -26,9 +26,11 @@ export const Field = forwardRef(
       hint,
       id,
       label,
+      modified,
       name,
       onChange,
       onClick,
+      pristine,
       required,
       size = 'lg',
       touched,
@@ -44,11 +46,20 @@ export const Field = forwardRef(
     }
 
     const baseType = getBaseType(type || Component.displayName)
-    const variant = getVariant({ connected, touched, warning, error })
-    const hintText = variant ? error || warning : hint
     const isRadio = baseType === 'radio'
     const isCheckbox = baseType === 'checkbox'
     const isCheckable = isRadio || isCheckbox
+    const variant = getVariant({
+      pristine,
+      warning,
+      error,
+      modified,
+      isCheckbox,
+      isRadio,
+      touched,
+      connected
+    })
+    const hintText = variant ? error || warning : hint
     const isGroup = ['FieldGroup', 'RadioGroup'].includes(baseType)
 
     const isShowRequired = isRadio ? null : required
@@ -150,9 +161,11 @@ Field.propTypes /* remove-proptypes */ = {
   hint: string,
   id: string,
   label: string,
+  modified: bool,
   name: string.isRequired,
   onChange: func.isRequired,
   onClick: func,
+  pristine: bool,
   required: bool,
   size: oneOf(SIZES_TYPE),
   touched: bool,
