@@ -186,8 +186,8 @@ export const welcomeTheme = {
     }
   },
   radii: {
-    sm: 0,
-    md: 0,
-    lg: 0
+    sm: undefined,
+    md: undefined,
+    lg: undefined
   }
 }
