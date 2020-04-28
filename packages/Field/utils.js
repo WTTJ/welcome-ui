@@ -7,12 +7,23 @@ const TYPES = {
   Toggle: 'checkbox'
 }
 
-export const getBaseType = type => TYPES[type] || type
-
 const isPristine = (connected, touched) => connected && !touched
 
-export const getVariant = ({ connected, error, touched, warning }) => {
-  if (isPristine(connected, touched)) {
+export const getBaseType = type => TYPES[type] || type
+
+export const getVariant = ({
+  connected,
+  error,
+  isCheckbox,
+  isRadio,
+  modified,
+  touched,
+  warning
+}) => {
+  if (
+    ((isCheckbox || isRadio) && !modified) ||
+    (!isCheckbox && !isRadio && isPristine(connected, touched))
+  ) {
     return undefined
   }
   if (error) {
