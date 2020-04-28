@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.25.2](https://github.com/WTTJ/welcome-ui/compare/v1.25.1...v1.25.2) (2020-04-28)
+
+
+### Bug Fixes
+
+* display errors on change for checkbox & radio ([#611](https://github.com/WTTJ/welcome-ui/issues/611)) ([f2235b4](https://github.com/WTTJ/welcome-ui/commit/f2235b4e3d8386946a05497b0da876ac8d1197b1))
+
+
+
+
+
 ## [1.25.1](https://github.com/WTTJ/welcome-ui/compare/v1.25.0...v1.25.1) (2020-04-23)
 
 **Note:** Version bump only for package @welcome-ui/field
