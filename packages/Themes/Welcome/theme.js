@@ -133,6 +133,23 @@ export const welcomeTheme = {
   buttons: {
     primary: {
       color: colors.dark[700]
+    },
+    secondary: {
+      color: colors.light[900],
+      'background-color': colors.dark[900],
+      'border-color': colors.dark[900]
+    },
+    hover: {
+      secondary: {
+        'background-color': colors.dark[700],
+        'border-color': colors.dark[700]
+      }
+    },
+    focus: {
+      secondary: {
+        'background-color': colors.dark[700],
+        'border-color': colors.dark[700]
+      }
     }
   },
   underline: underlineStyles,
@@ -167,5 +184,10 @@ export const welcomeTheme = {
         'background-color': colors.nude[100]
       }
     }
+  },
+  radii: {
+    sm: 0,
+    md: 0,
+    lg: 0
   }
 }
