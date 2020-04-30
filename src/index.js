@@ -48,6 +48,7 @@ export * from '../packages/UniversalLink/index'
 export * from '../packages/VariantIcon/index'
 export * from '../packages/Picker/index'
 export * from '../packages/Loader/index'
+export * from '../packages/Accordion/index'
 
 // Icons
 export * from '../icons/index'
