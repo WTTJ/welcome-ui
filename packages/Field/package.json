@@ -36,7 +36,8 @@
     "@welcome-ui/field-group": "^1.25.1",
     "@welcome-ui/hint": "^1.25.1",
     "@welcome-ui/label": "^1.25.1",
-    "@welcome-ui/system": "^1.20.0"
+    "@welcome-ui/system": "^1.20.0",
+    "polished": "^3.4.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",

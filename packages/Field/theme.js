@@ -1,3 +1,5 @@
+import { darken } from 'polished'
+
 // To allow for line-height of text in label
 const LINE_HEIGHT_ADJUSTMENTS = '0.15rem'
 
@@ -139,6 +141,9 @@ export const getFields = theme => {
       highlighted: {
         'background-color': colors.light[500],
         cursor: 'default'
+      },
+      selectedAndHighlighted: {
+        'background-color': darken(0.1, colors.primary[100])
       },
       selected: {
         color: colors.dark[200],
