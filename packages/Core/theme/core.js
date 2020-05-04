@@ -18,6 +18,7 @@ import { getTables } from '../../Table/theme'
 import { getCards } from '../../Card/theme'
 import { getModals } from '../../Modal/theme'
 import { getLoaders } from '../../Loader/theme'
+import { getAccordions } from '../../Accordion/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -129,6 +130,7 @@ export const createTheme = (options = {}) => {
   theme.cards = getCards(theme)
   theme.modals = getModals(theme)
   theme.loaders = getLoaders(theme)
+  theme.accordions = getAccordions(theme)
 
   theme = merge(theme, rest)
 
