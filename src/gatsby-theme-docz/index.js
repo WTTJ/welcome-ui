@@ -7,10 +7,11 @@ import { GlobalStyle } from '../../../packages/Core/utils/base'
 import { createTheme } from '../../../packages/Core/theme/core'
 import { darkTheme } from '../../../packages/Themes/Dark'
 import { wttjTheme } from '../../../packages/Themes/Wttj'
+import { welcomeTheme } from '../../../packages/Themes/Welcome'
 import { welcomeKitTheme } from '../../../packages/Themes/WelcomeKit'
 import { Code, CodeEditor, H1, H2, H3, InlineCode, Props } from '../../../docz/index'
 
-import { ContentWrapper, Content } from './components/Content.styled'
+import { Content, ContentWrapper } from './components/Content.styled'
 import { Menu } from './components/Menu'
 import { MobileMenu } from './components/MobileMenu'
 import { Page } from './components/Page'
@@ -77,6 +78,9 @@ const getThemeOptions = name => {
       theming = createTheme(welcomeKitTheme)
       break
     case 'welcome':
+      theming = createTheme(welcomeTheme)
+      break
+    case 'wttj':
       theming = createTheme(wttjTheme)
       break
     case 'dark':
