@@ -13,7 +13,8 @@ export const ThemeSelect = ({ setTheme, value }) => (
       { value: 'core', label: 'Core Theme (default)' },
       { value: 'dark', label: 'Dark Core Theme' },
       { value: 'welcomekit', label: 'WelcomeKit Theme' },
-      { value: 'welcome', label: 'WelcomeToTheJungle Theme' }
+      { value: 'welcome', label: 'Welcomehome Theme' },
+      { value: 'wttj', label: 'WelcomeToTheJungle Theme' }
     ]}
     placeholder="Choose a theme"
     size="sm"
