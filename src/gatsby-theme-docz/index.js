@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import { ComponentsProvider, theme, useMenus } from 'docz'
-import { ThemeProvider } from '@xstyled/styled-components'
 import { Helmet } from 'react-helmet'
 
-import { GlobalStyle } from '../../../packages/Core/utils/base'
-import { createTheme } from '../../../packages/Core/theme/core'
+import { createTheme, WuiWrapper } from '../../../packages/Core/index'
 import { darkTheme } from '../../../packages/Themes/Dark'
 import { wttjTheme } from '../../../packages/Themes/Wttj'
 import { welcomeKitTheme } from '../../../packages/Themes/WelcomeKit'
 import { Code, CodeEditor, H1, H2, H3, InlineCode, Props } from '../../../docz/index'
 
-import { ContentWrapper, Content } from './components/Content.styled'
+import { Content, ContentWrapper } from './components/Content.styled'
 import { Menu } from './components/Menu'
 import { MobileMenu } from './components/MobileMenu'
 import { Page } from './components/Page'
@@ -110,7 +108,7 @@ const Theme = ({ children }) => {
   const [themeWUI, setThemeWUI] = useStateWithLocalStorage('welcomekit')
 
   return (
-    <ThemeProvider theme={getThemeOptions(themeWUI)}>
+    <WuiWrapper theme={getThemeOptions(themeWUI)}>
       <ComponentsProvider components={components}>
         <Page>
           <Helmet>
@@ -152,7 +150,6 @@ const Theme = ({ children }) => {
               property="og:image"
             />
           </Helmet>
-          <GlobalStyle />
           <MobileMenu
             display={{ lg: 'none' }}
             items={menus}
@@ -168,7 +165,7 @@ const Theme = ({ children }) => {
           </ContentWrapper>
         </Page>
       </ComponentsProvider>
-    </ThemeProvider>
+    </WuiWrapper>
   )
 }
 
