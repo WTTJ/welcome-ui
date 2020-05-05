@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/input-text",
-  "version": "1.26.1",
+  "version": "1.26.2",
   "description": "welcome-ui: Text input",
   "main": "dist/input-text.cjs.js",
   "module": "dist/input-text.es.js",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@welcome-ui/clear-button": "^1.25.1",
-    "@welcome-ui/field": "^1.26.1",
+    "@welcome-ui/field": "^1.26.2",
     "@welcome-ui/system": "^1.20.0",
     "@welcome-ui/utils": "^1.25.1"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/search",
-  "version": "1.26.1",
+  "version": "1.26.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/search.cjs.js",
   "module": "dist/search.es.js",
