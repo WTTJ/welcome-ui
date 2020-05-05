@@ -1,5 +1,3 @@
-import { darken } from 'polished'
-
 // To allow for line-height of text in label
 const LINE_HEIGHT_ADJUSTMENTS = '0.15rem'
 
@@ -143,7 +141,7 @@ export const getFields = theme => {
         cursor: 'default'
       },
       selectedAndHighlighted: {
-        'background-color': darken(0.1, colors.primary[100])
+        'background-image': 'linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%)'
       },
       selected: {
         color: colors.dark[200],
