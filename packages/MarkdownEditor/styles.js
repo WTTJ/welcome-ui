@@ -53,6 +53,8 @@ export const Toolbar = styled.div(
 
 export const ToolbarIcon = styled.a(
   props => css`
+    display: flex;
+    align-items: center;
     padding: 0 xxs;
     margin-right: xxs;
     cursor: pointer;
