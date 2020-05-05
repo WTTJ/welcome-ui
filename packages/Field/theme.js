@@ -140,6 +140,9 @@ export const getFields = theme => {
         'background-color': colors.light[500],
         cursor: 'default'
       },
+      selectedAndHighlighted: {
+        'background-image': 'linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%)'
+      },
       selected: {
         color: colors.dark[200],
         'font-weight': fontWeights.bold,

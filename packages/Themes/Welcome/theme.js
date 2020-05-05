@@ -136,6 +136,13 @@ export const welcomeTheme = {
     }
   },
   underline: underlineStyles,
+  fields: {
+    select: {
+      highlighted: {
+        'background-color': colors.light[200]
+      }
+    }
+  },
   links: {
     primary: { hover: linksPrimaryHoverStyles },
     'primary-underline-span': {

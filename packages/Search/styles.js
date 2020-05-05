@@ -56,6 +56,7 @@ export const Item = styled.li(
     ${isHighlighted && th('fields.select.highlighted')};
     ${isSelected && th('fields.select.selected')};
     ${isExisting && th('fields.select.existing')};
+    ${isSelected && isHighlighted && th('fields.select.selectedAndHighlighted')};
     ${overflowEllipsis};
     padding: sm;
     list-style: none;
