@@ -23,7 +23,7 @@ export const FilePreview = ({ file, forceFileType }) => {
         </Text>
       )}
       {isUrl && (
-        <Button as="a" href={file} mt="sm" rel="noopenner" size="sm" target="_blank">
+        <Button as="a" href={file} mt="sm" rel="noopener" size="sm" target="_blank">
           <span>Preview</span>
           <ExternalLinkIcon />
         </Button>
