@@ -98,6 +98,7 @@ export const Search = forwardRef(
         onOuterClick={handleOuterClick}
         onSelect={handleSelect}
         selectedItem={selected}
+        {...rest}
       >
         {({
           clearSelection,
