@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.1](https://github.com/WTTJ/welcome-ui/compare/v1.26.0...v1.26.1) (2020-05-05)
+
+
+### Bug Fixes
+
+* add welcome-home theme to docz ([#619](https://github.com/WTTJ/welcome-ui/issues/619)) ([eaa3003](https://github.com/WTTJ/welcome-ui/commit/eaa30038169a2c3110ef2c2941fda6d4ef61cd0f))
+* allow downshit props to be forwarded ([#617](https://github.com/WTTJ/welcome-ui/issues/617)) ([cdb51dc](https://github.com/WTTJ/welcome-ui/commit/cdb51dc0e82c2ccbc0eb70e29940bf183d2ee96b))
+* center toolbar icon ([#621](https://github.com/WTTJ/welcome-ui/issues/621)) ([9a278c7](https://github.com/WTTJ/welcome-ui/commit/9a278c7409c4eb84d4f248bee96896982e8e99d9))
+* noopener wrong on FileDrop file preview ([#620](https://github.com/WTTJ/welcome-ui/issues/620)) ([340da17](https://github.com/WTTJ/welcome-ui/commit/340da17431ad07d507b8b9e858f0ebfea4eb96ec))
+* welcome theme select highlight color was too light ([#618](https://github.com/WTTJ/welcome-ui/issues/618)) ([f4ddcdf](https://github.com/WTTJ/welcome-ui/commit/f4ddcdf5a706b9e7e8a2303057e0d836902549ff))
+
+
+### Features
+
+* add babel optional chaining ([#615](https://github.com/WTTJ/welcome-ui/issues/615)) ([77b51e4](https://github.com/WTTJ/welcome-ui/commit/77b51e48d2c609539f055963be7072d73b0229c3))
+
+
+
+
+
 # [1.26.0](https://github.com/WTTJ/welcome-ui/compare/v1.25.2...v1.26.0) (2020-05-04)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.1](https://github.com/WTTJ/welcome-ui/compare/v1.26.0...v1.26.1) (2020-05-05)
+
+
+### Bug Fixes
+
+* allow downshit props to be forwarded ([#617](https://github.com/WTTJ/welcome-ui/issues/617)) ([cdb51dc](https://github.com/WTTJ/welcome-ui/commit/cdb51dc0e82c2ccbc0eb70e29940bf183d2ee96b))
+* welcome theme select highlight color was too light ([#618](https://github.com/WTTJ/welcome-ui/issues/618)) ([f4ddcdf](https://github.com/WTTJ/welcome-ui/commit/f4ddcdf5a706b9e7e8a2303057e0d836902549ff))
+
+
+
+
+
 ## [1.25.1](https://github.com/WTTJ/welcome-ui/compare/v1.25.0...v1.25.1) (2020-04-23)
 
 **Note:** Version bump only for package @welcome-ui/search

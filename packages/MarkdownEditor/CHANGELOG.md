@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.1](https://github.com/WTTJ/welcome-ui/compare/v1.26.0...v1.26.1) (2020-05-05)
+
+
+### Bug Fixes
+
+* center toolbar icon ([#621](https://github.com/WTTJ/welcome-ui/issues/621)) ([9a278c7](https://github.com/WTTJ/welcome-ui/commit/9a278c7409c4eb84d4f248bee96896982e8e99d9))
+
+
+
+
+
 ## [1.25.1](https://github.com/WTTJ/welcome-ui/compare/v1.25.0...v1.25.1) (2020-04-23)
 
 **Note:** Version bump only for package @welcome-ui/markdown-editor
