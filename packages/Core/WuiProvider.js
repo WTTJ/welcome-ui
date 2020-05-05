@@ -5,7 +5,7 @@ import { HideFocusRingsRoot } from '@welcome-ui/utils/hide-focus-rings-root'
 
 import { GlobalStyle } from './utils/base'
 
-export const WuiWrapper = ({
+export const WuiProvider = ({
   children,
   hasGlobalStyle = true,
   shouldHideFocusRingOnClick = true,
@@ -25,9 +25,9 @@ export const WuiWrapper = ({
   )
 }
 
-WuiWrapper.displayName = 'WuiWrapper'
+WuiProvider.displayName = 'WuiProvider'
 
-WuiWrapper.propTypes /* remove-proptypes */ = {
+WuiProvider.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   hasGlobalStyle: bool,
   shouldHideFocusRingOnClick: bool,

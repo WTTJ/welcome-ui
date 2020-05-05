@@ -3,7 +3,7 @@ import { createTheme } from '../packages/Core/theme/core'
 
 export const exampleHome = `
   import React from 'react'
-  import { createTheme, WuiWrapper } from '@welcome-ui/core'
+  import { createTheme, WuiProvider } from '@welcome-ui/core'
   import { Button } from '@welcome-ui/button'
 
   // Add theme options (if you want)
@@ -25,8 +25,8 @@ export const exampleHome = `
 
   export default function Root() {
     return (
-      // Wrap your components with <WuiWrapper /> with your theme
-      <WuiWrapper
+      // Wrap your components with <WuiProvider /> with your theme
+      <WuiProvider
         theme={theme}
         // Will inject a CSS reset with normalizer
         hasGlobalStyle
@@ -34,7 +34,7 @@ export const exampleHome = `
         shouldHideFocusRingOnClick
       >
         <Button variant="secondary">Welcome!</Button>
-      </WuiWrapper>
+      </WuiProvider>
     )
   }
 `

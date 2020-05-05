@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ComponentsProvider, theme, useMenus } from 'docz'
 import { Helmet } from 'react-helmet'
 
-import { createTheme, WuiWrapper } from '../../../packages/Core/index'
+import { createTheme, WuiProvider } from '../../../packages/Core/index'
 import { darkTheme } from '../../../packages/Themes/Dark'
 import { wttjTheme } from '../../../packages/Themes/Wttj'
 import { welcomeKitTheme } from '../../../packages/Themes/WelcomeKit'
@@ -108,7 +108,7 @@ const Theme = ({ children }) => {
   const [themeWUI, setThemeWUI] = useStateWithLocalStorage('welcomekit')
 
   return (
-    <WuiWrapper theme={getThemeOptions(themeWUI)}>
+    <WuiProvider theme={getThemeOptions(themeWUI)}>
       <ComponentsProvider components={components}>
         <Page>
           <Helmet>
@@ -165,7 +165,7 @@ const Theme = ({ children }) => {
           </ContentWrapper>
         </Page>
       </ComponentsProvider>
-    </WuiWrapper>
+    </WuiProvider>
   )
 }
 

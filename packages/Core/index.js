@@ -5,4 +5,4 @@ export { createTheme } from './theme/core'
 export { GlobalStyle } from './utils/base'
 
 // Wrapper helper
-export { WuiWrapper } from './WuiWrapper'
+export { WuiProvider } from './WuiProvider'
