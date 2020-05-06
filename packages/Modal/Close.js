@@ -1,4 +1,5 @@
-import styled, { th } from '@xstyled/styled-components'
+import styled from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 import { ClearButton } from '@welcome-ui/clear-button'
 
 export const Close = styled(ClearButton)`

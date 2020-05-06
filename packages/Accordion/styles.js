@@ -1,4 +1,5 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 import { DisclosureContent, Disclosure as ReakitDisclosure } from 'reakit/Disclosure'
 import { filterComponent, system } from '@welcome-ui/system'
 
