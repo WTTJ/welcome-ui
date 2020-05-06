@@ -1,4 +1,5 @@
 import { css } from '@xstyled/styled-components'
+import { hideFocusRingsDataAttribute } from '@welcome-ui/utils/hide-focus-rings-root'
 
 export const resetStyles = css`
   html,
@@ -90,6 +91,10 @@ export const resetStyles = css`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+
+    [${hideFocusRingsDataAttribute}] & {
+      outline: none;
+    }
   }
   article,
   aside,

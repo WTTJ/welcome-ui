@@ -3,8 +3,7 @@ import { createTheme } from '../packages/Core/theme/core'
 
 export const exampleHome = `
   import React from 'react'
-  import { ThemeProvider } from '@xstyled/styled-components'
-  import { createTheme, GlobalStyle } from '@welcome-ui/core'
+  import { createTheme, WuiProvider } from '@welcome-ui/core'
   import { Button } from '@welcome-ui/button'
 
   // Add theme options (if you want)
@@ -25,14 +24,17 @@ export const exampleHome = `
   const theme = createTheme(options)
 
   export default function Root() {
-    // Wrap your component with <ThemeProvider/> (passing through your theme) and add <GlobalStyle/>
     return (
-      <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyle />
-          <Button variant="secondary">Welcome!</Button>
-        </>
-      </ThemeProvider>
+      // Wrap your components with <WuiProvider /> with your theme
+      <WuiProvider
+        theme={theme}
+        // Will inject a CSS reset with normalizer
+        hasGlobalStyle
+        // Will show the focus ring on keyboard navigation only
+        shouldHideFocusRingOnClick
+      >
+        <Button variant="secondary">Welcome!</Button>
+      </WuiProvider>
     )
   }
 `
