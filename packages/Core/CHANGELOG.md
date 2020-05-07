@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.4](https://github.com/WTTJ/welcome-ui/compare/v1.26.3...v1.26.4) (2020-05-07)
+
+
+### Bug Fixes
+
+* import whole utils package rather than sub-package ([#623](https://github.com/WTTJ/welcome-ui/issues/623)) ([bcd56d6](https://github.com/WTTJ/welcome-ui/commit/bcd56d601df4ff7c9b3aba7915fea92f1cddea57))
+
+
+
+
+
 ## [1.26.3](https://github.com/WTTJ/welcome-ui/compare/v1.26.2...v1.26.3) (2020-05-07)
 
 **Note:** Version bump only for package @welcome-ui/core

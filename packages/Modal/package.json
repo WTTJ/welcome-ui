@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/modal",
-  "version": "1.26.3",
+  "version": "1.26.4",
   "description": "Modal from Reakit with a really nice theme 👀",
   "main": "dist/modal.cjs.js",
   "module": "dist/modal.es.js",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^1.23.0",
-    "@welcome-ui/clear-button": "^1.26.3",
+    "@welcome-ui/clear-button": "^1.26.4",
     "@welcome-ui/shape": "^1.26.3",
     "@welcome-ui/utils": "^1.26.3",
     "reakit": "^1.0.0-rc.0"
