@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/accordion",
-  "version": "1.26.0",
+  "version": "1.26.3",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/accordion.cjs.js",
   "module": "dist/accordion.es.js",
