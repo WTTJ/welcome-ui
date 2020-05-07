@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { Button as ReakitButton } from 'reakit/Button'
 import { th } from '@xstyled/system'
 import { filterComponent, system } from '@welcome-ui/system'
-import { hideFocusRingsDataAttribute } from '@welcome-ui/utils/hide-focus-rings-root'
+import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 
 const shapeStyles = (size, shape) => css`
   width: ${th(`buttons.sizes.${size}.height`)};

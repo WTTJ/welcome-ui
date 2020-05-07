@@ -1,5 +1,5 @@
 import { css } from '@xstyled/styled-components'
-import { hideFocusRingsDataAttribute } from '@welcome-ui/utils/hide-focus-rings-root'
+import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 
 export const resetStyles = css`
   html,

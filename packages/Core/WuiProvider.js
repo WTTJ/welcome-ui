@@ -1,7 +1,7 @@
 import React from 'react'
 import { bool, node, object } from 'prop-types'
 import { ThemeProvider } from '@xstyled/styled-components'
-import { HideFocusRingsRoot } from '@welcome-ui/utils/hide-focus-rings-root'
+import { HideFocusRingsRoot } from '@welcome-ui/utils'
 
 import { GlobalStyle } from './utils/base'
 
