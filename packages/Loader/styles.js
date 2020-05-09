@@ -14,12 +14,16 @@ const animation = keyframes`
   }
 `
 
+const animationRule = css`
+  ${animation} 1.5s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+`
+
 export const LoadingDot = styled(Shape)(
   ({ size }) =>
     css`
       width: ${th(`loaders.sizes.${size}`)};
       height: ${th(`loaders.sizes.${size}`)};
-      animation: ${animation} 1.5s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+      animation: ${animationRule};
       background-color: currentColor;
       ${system}
       &:not(:first-child) {
