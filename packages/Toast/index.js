@@ -14,7 +14,7 @@ export function useToast() {
     (children, options) => {
       const toastOptions = {
         position: 'bottom',
-        duration: 3000,
+        duration: 5000,
         ...options
       }
 
