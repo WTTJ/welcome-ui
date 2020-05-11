@@ -1,4 +1,4 @@
-export const throttle = (callback, wait) => {
+export const throttle = (callback, wait, leading = true) => {
   let timeout = null
   let lastArgs = null
 
@@ -11,7 +11,9 @@ export const throttle = (callback, wait) => {
     lastArgs = args
 
     if (!timeout) {
-      next()
+      if (leading) {
+        next()
+      }
       timeout = setTimeout(next, wait)
     }
   }
