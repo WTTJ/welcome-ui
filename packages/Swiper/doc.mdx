@@ -1,0 +1,105 @@
+---
+name: Swiper
+route: /components/Swiper
+menu: Components
+---
+
+import { Props, Playground } from 'docz'
+import { Swiper } from './index'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
+
+# Swiper
+
+<TagVersion version={version} name={name} />
+
+The `Swiper` component is a component that allows you to build a carousel.
+
+## Install and import
+
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Default
+
+<Playground>
+  <Swiper>
+    <Swiper.Page>
+      <Text variant="h1" textAlign="center">
+        page1
+      </Text>
+    </Swiper.Page>
+    <Swiper.Page>
+      <Text variant="h1" textAlign="center">
+        page2
+      </Text>
+    </Swiper.Page>
+    <Swiper.Page>
+      <Text variant="h1" textAlign="center">
+        page3
+      </Text>
+    </Swiper.Page>
+  </Swiper>
+</Playground>
+
+## With next and prev buttons
+
+<Playground>
+  <Swiper
+    keyPrefix="example2"
+    renderNextButton={() => <RightIcon size="lg" />}
+    renderPrevButton={() => <LeftIcon size="lg" />}
+  >
+    <Swiper.Page>
+      <Text variant="h1" textAlign="center">
+        page1
+      </Text>
+    </Swiper.Page>
+    <Swiper.Page>
+      <Text variant="h1" textAlign="center">
+        page2
+      </Text>
+    </Swiper.Page>
+    <Swiper.Page>
+      <Text variant="h1" textAlign="center">
+        page3
+      </Text>
+    </Swiper.Page>
+  </Swiper>
+</Playground>
+
+## With custom pagination items
+
+<Playground>
+  <Swiper
+    renderPaginationItem={(idx, { active, onClick }) => <span onClick={onClick}>{idx + 1}</span>}
+    keyPrefix="example3"
+  >
+    <Swiper.Page>
+      <Text variant="h1" textAlign="center">
+        page1
+      </Text>
+    </Swiper.Page>
+    <Swiper.Page>
+      <Text variant="h1" textAlign="center">
+        page2
+      </Text>
+    </Swiper.Page>
+    <Swiper.Page>
+      <Text variant="h1" textAlign="center">
+        page3
+      </Text>
+    </Swiper.Page>
+  </Swiper>
+</Playground>
+
+## Properties
+
+<Props of={Swiper} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />
