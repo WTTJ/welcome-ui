@@ -1,0 +1,51 @@
+---
+name: Slider
+route: /components/slider
+menu: Components
+---
+
+import { Props, Playground } from 'docz'
+import { Slider } from './index'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
+
+# Slider
+
+<TagVersion version={version} name={name} />
+
+The `Slider` component is a layout component that allows you to easily slider elements with space between them.
+
+## Install and import
+
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+<Playground>
+  <Slider
+    renderNextButton={() => <RightIcon size="lg" />}
+    renderPrevButton={() => <LeftIcon size="lg" />}
+  >
+    <Text variant="h1" textAlign="center">
+      page1
+    </Text>
+    <Text variant="h1" textAlign="center">
+      page2
+    </Text>
+    <Text variant="h1" textAlign="center">
+      page3
+    </Text>
+  </Slider>
+</Playground>
+
+## Properties
+
+<Props of={Slider} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />
