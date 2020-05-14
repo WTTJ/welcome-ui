@@ -1,0 +1,62 @@
+import { Stack } from '@welcome-ui/stack'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/stack/package.json')
+
+# Stack
+
+<tagversion version={version} name={name} />
+
+The `Stack` component is a layout component that allows you to easily stack elements with space between them.
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+The default use of `Stack` will stack its children vertically.
+
+```jsx
+<Stack>
+  <div>Foo</div>
+  <div>Bar</div>
+  <div>Baz</div>
+</Stack>
+```
+
+You can change the `direction` & the `spacing`.
+
+```jsx
+<Stack direction="row" spacing="xl">
+  <div>Foo</div>
+  <div>Bar</div>
+  <div>Baz</div>
+</Stack>
+```
+
+It will ensure that its children are `li`s when is rendered as an `ul` or an `ol`.
+
+```jsx
+<Stack as="ul">
+  <div>Foo</div>
+  <div>Bar</div>
+  <div>Baz</div>
+</Stack>
+```
+
+## Properties
+
+<props of={Stack} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

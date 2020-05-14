@@ -1,0 +1,34 @@
+# Breakpoints
+
+We use [breakpoints from xstyled](https://xstyled.dev/docs/responsive/).
+
+## Sizes
+
+Default size from core theme (values from [this article](https://medium.com/@uiuxlab/the-most-used-responsive-breakpoints-in-2017-of-mine-9588e9bd3a8a)).
+
+<code>
+  {`theme.breakpoints = {
+  xs: 0,
+  sm: 480,
+  md: 736,
+  lg: 980,
+  xl: 1280
+}`}
+</code>
+
+## Example
+
+```jsx column
+<Box
+  display="flex"
+  alignItems="center"
+  justifyContent="center"
+  textAlign="center"
+  color={{ xs: 'warning.500', lg: 'primary.500' }}
+  fontSize={{ lg: 'h2' }}
+  height={{ xs: '10rem', lg: '20rem' }}
+  backgroundColor={{ xs: 'warning.100', lg: 'primary.100' }}
+>
+  Resize screen to change this Box 🌝
+</Box>
+```

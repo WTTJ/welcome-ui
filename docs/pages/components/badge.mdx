@@ -1,0 +1,37 @@
+import { Badge } from '@welcome-ui/badge'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/badge/package.json')
+
+# Badge
+
+<tagversion version={version} name={name} />
+
+Badge is the [Tag](/components/tag) component with small size.
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Examples
+
+```jsx
+<Badge>{0}</Badge>
+<Badge>{1}</Badge>
+<Badge>2</Badge>
+<Badge>3</Badge>
+<Badge>4</Badge>
+<Badge variant="primary">New</Badge>
+```
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

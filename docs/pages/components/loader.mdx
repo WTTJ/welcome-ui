@@ -1,0 +1,37 @@
+import { Loader } from '@welcome-ui/loader'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/loader/package.json')
+
+# Loader
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Examples
+
+```jsx column
+<Loader />
+<Loader color="primary.500" size="md" />
+<Loader color="primary.500" size="lg" />
+<Loader color="primary.500" width={40} height={40} />
+```
+
+## Properties
+
+<props of={Loader} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

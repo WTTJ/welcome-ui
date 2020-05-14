@@ -1,0 +1,35 @@
+import Illustration from '../components/Illustration'
+import { Button } from '@welcome-ui/button'
+import { Box } from '@welcome-ui/box'
+import { GithubIcon, HardHatIcon } from '@welcome-ui/icons'
+import NextLink from 'next/link'
+
+# Welcome UI
+
+<Box color="primary.500" fontSize={{ xs: 230, md: 500 }} mb={{ xs: -80, md: -150 }}>
+  <Illustration />
+</Box>
+
+Customizable design system with react • styled-components • styled-system and reakit.
+
+Here you'll find all the core components you need to create a delightful webapp.
+
+<Box display="flex" mt={{ xs: 30, md: 50 }}>
+  <NextLink href="/getting-started">
+    <Button size="lg">
+      <HardHatIcon size="lg" />
+      <span>Get Started</span>
+    </Button>
+  </NextLink>
+  <Button
+    as="a"
+    size="lg"
+    variant="secondary"
+    ml="md"
+    href="https://github.com/WTTJ/welcome-ui"
+    target="_blank"
+  >
+    <GithubIcon size="lg" />
+    <span>Github</span>
+  </Button>
+</Box>

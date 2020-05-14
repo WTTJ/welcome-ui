@@ -1,0 +1,45 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "Documentation for @welcome-ui components",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WTTJ/welcome-ui.git"
+  },
+  "keywords": [
+    "design-system",
+    "react",
+    "reakit",
+    "styled-components",
+    "styled-system",
+    "ui-library",
+    "ui",
+    "ux",
+    "jungle",
+    "welcome",
+    "WTTJ"
+  ],
+  "author": "WTTJ <tech@wttj.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WTTJ/welcome-ui/issues"
+  },
+  "homepage": "http://welcome-ui.com",
+  "dependencies": {
+    "@mdx-js/loader": "1.6.1",
+    "@mdx-js/react": "1.6.1",
+    "@next/mdx": "9.4.0",
+    "@xstyled/styled-components": "^1.15.1",
+    "babel-plugin-styled-components": "^1.10.7",
+    "next": "9.4.0",
+    "prism-react-renderer": "1.1.0",
+    "react-dom": "^16.10.2",
+    "react": "^16.10.2",
+    "styled-components": "^4.0.0 || ^5.0.0"
+  }
+}

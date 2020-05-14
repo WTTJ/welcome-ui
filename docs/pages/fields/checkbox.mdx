@@ -1,0 +1,47 @@
+import { Checkbox } from '@welcome-ui/checkbox'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/checkbox/package.json')
+
+# Checkbox
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+```jsx
+<Form initialValues={{ vue: true }}>
+  <FieldGroup label="Check the frameworks you have already worked with">
+    <ConnectedField component={Checkbox} name="react" label="React" />
+    <ConnectedField component={Checkbox} label="Angular" name="angular" id="angular_custom_id" />
+    <ConnectedField component={Checkbox} name="vue" label="Vue" />
+  </FieldGroup>
+</Form>
+```
+
+## Standalone
+
+```jsx
+<Checkbox checked type="checkbox" />
+<Checkbox type="checkbox" />
+```
+
+## Properties
+
+<props of={Checkbox} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

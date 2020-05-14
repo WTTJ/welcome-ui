@@ -1,0 +1,58 @@
+import { Group } from '@welcome-ui/group'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/group/package.json')
+
+# Group
+
+<tagversion version={version} name={name} />
+
+Children grouped without space or radius.
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+This works only with the `Button` component for now — more examples will be added soon.
+
+### Button
+
+```jsx
+<Group>
+  <Button>First</Button>
+  <Button>Second</Button>
+  <Button>Third</Button>
+  <Button>Last</Button>
+</Group>
+```
+
+## Overload
+
+`Group` overloads the child components properties.
+
+```jsx
+<Group variant="tertiary" size="xs">
+  <Button>First</Button>
+  <Button variant="secondary">Second</Button>
+  <Button variant="tertiary">Third</Button>
+  <Button variant="tertiary">Last</Button>
+</Group>
+```
+
+## Properties
+
+<props of={Group} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

@@ -1,0 +1,56 @@
+# Getting Started
+
+## Installation
+
+1. Install the **peer dependencies** listed below:
+
+```bash
+yarn add @xstyled/styled-components @xstyled/system prop-types react react-dom styled-components
+```
+
+2. Install the the `core` component and any other components you need for your webapp e.g. if you need just a button…
+
+```bash
+yarn add @welcome-ui/core @welcome-ui/button
+```
+
+## Usage
+
+Welcome UI provides an helper to help you setup your project: `<WuiProvider />`.
+
+```jsx live=false
+import React from 'react'
+import { createTheme, WuiProvider } from '@welcome-ui/core'
+import { Button } from '@welcome-ui/button'
+
+// Add theme options (if you want)
+const options = {
+  defaultFontFamily: 'Helvetica',
+  headingFontFamily: 'Georgia',
+  colors: {
+    primary: {
+      500: '#FF0000'
+    },
+    secondary: {
+      500: '#00FF00'
+    }
+  }
+}
+
+// Create your theme
+const theme = createTheme(options)
+export default function Root() {
+  return (
+    // Wrap your components with <WuiProvider /> with your theme
+    <WuiProvider
+      theme={theme}
+      // Will inject a CSS reset with normalizer
+      hasGlobalStyle
+      // Will show the focus ring on keyboard navigation only
+      shouldHideFocusRingOnClick
+    >
+      <Button variant="secondary">Welcome!</Button>
+    </WuiProvider>
+  )
+}
+```

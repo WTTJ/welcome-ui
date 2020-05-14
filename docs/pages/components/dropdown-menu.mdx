@@ -1,0 +1,104 @@
+import { DropdownMenu } from '@welcome-ui/dropdown-menu'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/dropdown-menu/package.json')
+
+# DropdownMenu
+
+<tagversion version={version} name={name} />
+Menu from [Reakit](https://reakit.io/docs/menu/) with a really nice theme 👀
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+```jsx
+function() {
+  const menu = useDropdownMenuState({
+    gutter: 10
+  })
+
+  const handleClick = e => {
+    console.log(`Clicked on ${e.target.innerText}`)
+    menu.hide()
+  }
+
+  return (
+    <>
+      <DropdownMenu.Trigger {...menu} as={Button}>
+        Dropdown Menu
+      </DropdownMenu.Trigger>
+      <DropdownMenu {...menu} aria-label="Example">
+        <DropdownMenu.Item {...menu} onClick={handleClick}>
+          Twitter
+        </DropdownMenu.Item>
+        <DropdownMenu.Item {...menu} onClick={handleClick} disabled>
+          Facebook
+        </DropdownMenu.Item>
+        <DropdownMenu.Item {...menu} onClick={handleClick}>
+          Instagram
+        </DropdownMenu.Item>
+        <DropdownMenu.Separator {...menu} />
+        <DropdownMenu.Item {...menu} onClick={handleClick}>
+          Github
+        </DropdownMenu.Item>
+      </DropdownMenu>
+    </>
+  )
+}
+```
+
+...or with more complexity
+
+```jsx
+function() {
+  const menu = useDropdownMenuState({ gutter: 10, placement: 'bottom-end' })
+
+  const handleClick = e => {
+    console.log(`Clicked on ${e.target.innerText}`)
+    menu.hide()
+  }
+
+  return (
+    <Box position="relative">
+      <Group variant="tertiary">
+        <Button onClick={handleClick}>
+          <AddIcon />
+          <span>First Action</span>
+        </Button>
+        <DropdownMenu.Trigger {...menu} as={Button}>
+          {menu.visible ? <UpIcon /> : <DownIcon />}
+        </DropdownMenu.Trigger>
+      </Group>
+      <DropdownMenu {...menu} aria-label="Complexity">
+        <DropdownMenu.Item {...menu} onClick={handleClick}>
+          <TrashIcon mr="sm" size="sm" />
+          <Box>Second Action</Box>
+        </DropdownMenu.Item>
+        <DropdownMenu.Item {...menu} onClick={handleClick}>
+          <AttachmentIcon mr="sm" size="sm" />
+          <Box>Third Action</Box>
+        </DropdownMenu.Item>
+      </DropdownMenu>
+    </Box>
+  )
+}
+```
+
+## Properties
+
+<props of={DropdownMenu} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

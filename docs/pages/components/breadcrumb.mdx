@@ -1,0 +1,69 @@
+import { Link } from '@welcome-ui/link'
+import { Breadcrumb } from '@welcome-ui/breadcrumb'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/breadcrumb/package.json')
+
+# Breadcrumb
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+```jsx column
+<Breadcrumb>
+  <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+  <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+  <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+</Breadcrumb>
+```
+
+## Separator
+
+You can customize your separator.
+
+```jsx column
+<Breadcrumb separator="/">
+  <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+  <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+  <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+</Breadcrumb>
+
+<Breadcrumb separator="-">
+  <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+  <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+  <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+</Breadcrumb>
+```
+
+## Add global Link component
+
+Add a global link component for the items with `renderChildrenAs`. Example with an `import { Link } from '@welcome-ui/link'`.
+
+```jsx column
+<Breadcrumb renderChildrenAs={Link}>
+  <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+  <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+  <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+</Breadcrumb>
+```
+
+## Properties
+
+<props of={Breadcrumb} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

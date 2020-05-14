@@ -1,0 +1,59 @@
+import { Tooltip } from '@welcome-ui/tooltip'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/tooltip/package.json')
+
+# Tooltip
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+The tooltip follows the cursor.
+
+```jsx
+<Tooltip content="🔥🔥🔥🔥🔥🔥🔥">
+  <Button>Show a beautiful tooltip 🔥</Button>
+</Tooltip>
+```
+
+Maybe you don't want the tooltip to follow the cursor…
+
+```jsx
+<Tooltip fixed content="🔥🔥🔥🔥🔥🔥🔥">
+  <Button>Show a beautiful fixed tooltip 🔥</Button>
+</Tooltip>
+```
+
+## With a long text and a custom placement
+
+Set a `max-width` for long text
+
+```jsx
+<Tooltip
+  placement="bottom-start"
+  content={<div>lorem ipsum dolor sit amet, consectetur adipiscing elit</div>}
+>
+  <span>With long text</span>
+</Tooltip>
+```
+
+## Properties
+
+<props of={Tooltip} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />
