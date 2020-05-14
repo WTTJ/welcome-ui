@@ -5,24 +5,22 @@
   "module": "dist/welcome-ui.es.js",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "scripts": {
-    "start": "yarn docz:dev",
+    "start": "yarn docs:dev",
     "icons:optimize": "svgo --folder=icons/_assets --config='{ \"plugins\": [ { \"cleanupIDs\": false } ] }' --indent=0 --multipass --quiet",
     "icons:collect": "node -r esm scripts/icons.js",
     "pre-build": "yarn icons:optimize && yarn icons:collect",
     "build": "node scripts/build.js",
     "release:publish": "yarn lerna publish --conventional-commits",
     "release:prerelease": "yarn build && yarn lerna publish --conventional-prerelease --pre-dist-tag next --yes",
-    "release": "yarn build && yarn release:publish && yarn docz:build && yarn docz:deploy --domain welcome-ui.com",
+    "release": "yarn build && yarn release:publish && yarn docs:build",
     "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
     "lint:js": "eslint packages icons scripts --max-warnings 0 --fix",
     "lint:css": "stylelint 'packages/**/styles.js'",
     "lint:mdx": "prettier --parser mdx --write 'packages/**/*.mdx'",
     "test": "jest ./packages",
-    "docz:dev": "yarn docz:clean && docz dev",
-    "docz:build": "yarn docz:clean && docz build",
-    "docz:deploy": "surge --project ./docs",
-    "docz:clean": "rm -rf .docz && rm -rf docs && gatsby clean",
-    "clean": "lerna clean"
+    "clean": "lerna clean",
+    "docs:dev": "next",
+    "docs:build": "next build"
   },
   "private": true,
   "workspaces": [
@@ -30,7 +28,8 @@
     "../packages/**/*",
     "icons",
     "icons/**/*",
-    "../icons/**/*"
+    "../icons/**/*",
+    "docs"
   ],
   "repository": {
     "type": "git",
@@ -58,8 +57,8 @@
     "@babel/cli": "=7.4.3",
     "@babel/core": "=7.4.3",
     "@babel/plugin-proposal-class-properties": "=7.4.0",
-    "@babel/plugin-transform-modules-commonjs": "=7.4.0",
     "@babel/plugin-proposal-optional-chaining": "=7.9.0",
+    "@babel/plugin-transform-modules-commonjs": "=7.4.0",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "=7.4.3",
     "@babel/preset-react": "=7.0.0",
@@ -82,7 +81,6 @@
     "css-loader": "=2.1.1",
     "date-fns": "=2.8.1",
     "depcheck": "=0.9.1",
-    "docz": "2.3.2-alpha.0",
     "eslint": "=6.5.1",
     "eslint-config-prettier": "=6.4.0",
     "eslint-config-react-app": "=5.0.2",
@@ -100,7 +98,6 @@
     "gatsby-plugin-google-analytics": "^2.1.31",
     "gatsby-plugin-react-helmet": "^3.1.13",
     "gatsby-plugin-styled-components": "=3.1.13",
-    "gatsby-theme-docz": "2.3.1",
     "husky": "=3.1.0",
     "jest": "=24.7.1",
     "jest-dom": "^3.5.0",
@@ -131,13 +128,14 @@
     "stylelint-config-recommended": "=3.0.0",
     "stylelint-config-styled-components": "=0.1.1",
     "stylelint-processor-styled-components": "=1.9.0",
-    "surge": "=0.21.3",
     "svgo": "=1.2.2",
     "webfonts-generator": "^0.4.0",
     "wttj-config-front": "=1.0.1",
     "yargs": "^15.3.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "next": "^9.4.0"
+  },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.15.1",
     "@xstyled/system": "^1.15.1",

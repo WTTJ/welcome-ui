@@ -1,0 +1,143 @@
+{
+  "config": {
+    "title": "Breadcrumb",
+    "description": "Customizable design system with react • styled-components • styled-system and reakit.",
+    "menu": [],
+    "version": "1.24.0",
+    "repository": "https://github.com/WTTJ/welcome-ui",
+    "native": false,
+    "themeConfig": {},
+    "separator": "-"
+  },
+  "entries": [
+    {
+      "key": "CHANGELOG.md",
+      "value": {
+        "id": "4ac32a78649ca5bdd8e0ba38b7006a1e",
+        "filepath": "CHANGELOG.md",
+        "fullpath": "/Users/mesniltheo/Documents/development/wttj/welcome-ui/packages/Breadcrumb/CHANGELOG.md",
+        "link": "https://github.com/WTTJ/welcome-ui/edit/master/packages/Breadcrumb/CHANGELOG.md",
+        "hidden": false,
+        "slug": "changelog",
+        "route": "/changelog",
+        "name": "Changelog",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "change-log",
+            "depth": 1,
+            "value": "Change Log"
+          },
+          {
+            "slug": "1240-2020-04-20",
+            "depth": 1,
+            "value": "1.24.0  (2020-04-20)"
+          },
+          {
+            "slug": "bug-fixes",
+            "depth": 3,
+            "value": "Bug Fixes"
+          },
+          {
+            "slug": "features",
+            "depth": 3,
+            "value": "Features"
+          },
+          {
+            "slug": "1231-2020-04-15",
+            "depth": 2,
+            "value": "1.23.1  (2020-04-15)"
+          },
+          {
+            "slug": "bug-fixes-1",
+            "depth": 3,
+            "value": "Bug Fixes"
+          },
+          {
+            "slug": "1230-2020-04-14",
+            "depth": 1,
+            "value": "1.23.0  (2020-04-14)"
+          },
+          {
+            "slug": "features-1",
+            "depth": 3,
+            "value": "Features"
+          }
+        ]
+      }
+    },
+    {
+      "key": "README.md",
+      "value": {
+        "id": "04c6e90faac2675aa89e2176d2eec7d8",
+        "filepath": "README.md",
+        "fullpath": "/Users/mesniltheo/Documents/development/wttj/welcome-ui/packages/Breadcrumb/README.md",
+        "link": "https://github.com/WTTJ/welcome-ui/edit/master/packages/Breadcrumb/README.md",
+        "hidden": false,
+        "slug": "readme",
+        "route": "/readme",
+        "name": "Readme",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "welcome-uibreadcrumb",
+            "depth": 1,
+            "value": "@welcome-ui/breadcrumb"
+          },
+          {
+            "slug": "installation",
+            "depth": 2,
+            "value": "Installation"
+          },
+          {
+            "slug": "import",
+            "depth": 2,
+            "value": "Import"
+          },
+          {
+            "slug": "documentation",
+            "depth": 2,
+            "value": "Documentation"
+          }
+        ]
+      }
+    },
+    {
+      "key": "doc.mdx",
+      "value": {
+        "name": "Breadcrumb",
+        "route": "/components/breadcrumb",
+        "menu": "Components",
+        "id": "bc4464e8c5b1bc214702181c2140b0a4",
+        "filepath": "doc.mdx",
+        "fullpath": "/Users/mesniltheo/Documents/development/wttj/welcome-ui/packages/Breadcrumb/doc.mdx",
+        "link": "https://github.com/WTTJ/welcome-ui/edit/master/packages/Breadcrumb/doc.mdx",
+        "hidden": false,
+        "slug": "doc",
+        "headings": [
+          {
+            "slug": "breadcrumb",
+            "depth": 1,
+            "value": "Breadcrumb"
+          },
+          {
+            "slug": "install-and-import",
+            "depth": 2,
+            "value": "Install and import"
+          },
+          {
+            "slug": "example",
+            "depth": 2,
+            "value": "Example"
+          },
+          {
+            "slug": "properties",
+            "depth": 2,
+            "value": "Properties"
+          }
+        ]
+      }
+    }
+  ],
+  "props": []
+}
