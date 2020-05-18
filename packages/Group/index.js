@@ -5,14 +5,16 @@ import * as S from './styles'
 
 export const Group = ({ children, dataTestId, disabled, size, variant }) => {
   function setGlobalProps(children) {
-    return Children.map(children, child => {
-      return cloneElement(child, {
-        ...child.props,
-        disabled: disabled || child.props.disabled,
-        size: size || child.props.size,
-        variant: variant || child.props.variant
+    return Children.toArray(children)
+      .filter(Boolean)
+      .map(child => {
+        return cloneElement(child, {
+          ...child.props,
+          disabled: disabled || child.props.disabled,
+          size: size || child.props.size,
+          variant: variant || child.props.variant
+        })
       })
-    })
   }
 
   return <S.Group data-testid={dataTestId}>{setGlobalProps(children)}</S.Group>
