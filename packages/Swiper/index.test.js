@@ -8,9 +8,9 @@ describe('<Swiper>', () => {
   it('should render correctly with no props', () => {
     const { container } = render(
       <Swiper>
-        <Swiper.Page>page1</Swiper.Page>
-        <Swiper.Page>page2</Swiper.Page>
-        <Swiper.Page>page3</Swiper.Page>
+        <Swiper.Slide>page1</Swiper.Slide>
+        <Swiper.Slide>page2</Swiper.Slide>
+        <Swiper.Slide>page3</Swiper.Slide>
       </Swiper>
     )
 

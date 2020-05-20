@@ -1,10 +1,10 @@
 import styled, { css } from '@xstyled/styled-components'
 import { system, th } from '@xstyled/system'
 
-export const SwiperWrapper = styled.div`
-  ${system}
+export const Wrapper = styled.div`
   overflow: hidden;
   position: relative;
+  ${system}
 `
 
 export const Swiper = styled.ul(
@@ -20,13 +20,14 @@ export const Swiper = styled.ul(
   `
 )
 
-export const SwiperPage = styled.li`
+export const Slide = styled.li`
   width: 100%;
   height: 100%;
   flex: 0 0 auto;
+  ${system}
 `
 
-export const PaginationWrapper = styled.div`
+export const Pagination = styled.div`
   display: flex;
   justify-content: center;
   position: absolute;
@@ -36,18 +37,18 @@ export const PaginationWrapper = styled.div`
   margin-bottom: sm;
 `
 
-export const PaginationBullet = styled.div(
+export const Bullet = styled.div(
   ({ active }) => css`
-    height: 10px;
-    width: 10px;
+    height: 10;
+    width: 10;
     border-radius: 50%;
     cursor: pointer;
-    margin: 0 5px 0 5px;
-    ${active ? th('swipers.navigationActiveBullet') : th('swipers.navigationBullet')}
+    margin: 0 xxs;
+    ${active ? th('swipers.navigation.bullet.active') : th('swipers.navigation.bullet.default')}
   `
 )
 
-const NavigationStyles = css`
+const navigationStyles = css`
   position: absolute;
   height: 100%;
   top: 0;
@@ -57,14 +58,14 @@ const NavigationStyles = css`
   z-index: 20;
 `
 
-export const NextWrapper = styled.div`
-  ${NavigationStyles}
+export const Next = styled.div`
+  ${navigationStyles}
   margin-right: sm;
   right: 0;
 `
 
-export const PrevWrapper = styled.div`
-  ${NavigationStyles}
+export const Prev = styled.div`
+  ${navigationStyles}
   margin-left: sm;
   left: 0;
 `

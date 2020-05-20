@@ -2,11 +2,11 @@ export const getSwipers = theme => {
   const { colors } = theme
 
   return {
-    navigationActiveBullet: {
-      'background-color': colors.primary[500]
-    },
-    navigationBullet: {
-      'background-color': colors.nude[500]
+    navigation: {
+      bullet: {
+        active: { 'background-color': colors.primary[500] },
+        default: { 'background-color': colors.nude[500] }
+      }
     }
   }
 }
