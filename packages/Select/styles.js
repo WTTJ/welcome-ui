@@ -79,11 +79,11 @@ export const Menu = styled.ul`
 `
 
 export const Item = styled.li(
-  ({ isExisting, isHighlighted, isSelected }) => css`
+  ({ allowUnselectFromList, isHighlighted, isMultiple, isSelected }) => css`
     color: nude.800;
     ${isHighlighted && th('fields.select.highlighted')};
-    ${isSelected && th('fields.select.selected')};
-    ${isExisting && th('fields.select.existing')};
+    ${isSelected && !isMultiple && th('fields.select.selected')};
+    ${isSelected && isMultiple && !allowUnselectFromList && th('fields.select.existing')};
     ${overflowEllipsis};
     padding: sm;
     list-style: none;

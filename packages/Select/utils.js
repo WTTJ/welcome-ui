@@ -20,8 +20,12 @@ export const getSpacer = options =>
     EMPTY_STRING
   )
 
-export const getUniqueValue = (item, values) => {
+export const getUniqueValue = (item, values, allowUnselectFromList) => {
   const isExisting = values.find(value => item.value === value.value)
+
+  if (isExisting && allowUnselectFromList) {
+    return values.filter(value => item.value !== value.value)
+  }
   return isExisting ? values : [...values, item]
 }
 
