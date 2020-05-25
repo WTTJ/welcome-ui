@@ -1,0 +1,125 @@
+---
+name: Swiper
+route: /components/Swiper
+menu: Components
+---
+
+import styled from '@xstyled/styled-components'
+import { Props, Playground } from 'docz'
+import { Swiper } from './index'
+import { Code, Dependencies, TagVersion, Usage } from '../../docz'
+const { dependencies, peerDependencies, component, name, version } = require('./package.json')
+
+# Swiper
+
+<TagVersion version={version} name={name} />
+
+The `Swiper` component is a component that allows you to build a simple swiper.
+
+## Install and import
+
+<Usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Default
+
+<Playground>
+  <Swiper height={400}>
+    <Swiper.Slide textAlign="center">
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </Swiper.Slide>
+    <Swiper.Slide textAlign="center">
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+      />
+    </Swiper.Slide>
+    <Swiper.Slide textAlign="center">
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </Swiper.Slide>
+  </Swiper>
+</Playground>
+
+## With next and prev buttons
+
+Providing `renderNextButton` and `renderPrevButton` enables prev and next navigation with the component you're returning from the callback.
+
+<Playground>
+  <Swiper
+    keyPrefix="example2"
+    height={400}
+    renderNextButton={() => <RightIcon size="lg" />}
+    renderPrevButton={() => <LeftIcon size="lg" />}
+  >
+    <Swiper.Slide textAlign="center">
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </Swiper.Slide>
+    <Swiper.Slide textAlign="center">
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+      />
+    </Swiper.Slide>
+    <Swiper.Slide textAlign="center">
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </Swiper.Slide>
+  </Swiper>
+</Playground>
+
+## With custom pagination items
+
+By providing the optional `renderPaginationItem` you can customise the defaults pagination bullets and render your own component. This callback takes two params: `index` and `props` which is an object containning an `onClick` callback to pass to your custom bullet and an `active` prop which is true when the bullet index matches the current page index.
+
+<Playground>
+  <Swiper
+    height={400}
+    renderPaginationItem={(idx, { active, onClick }) => (
+      <Text onClick={onClick} mx="xxs" color={active ? 'primary.500' : 'light.500'}>
+        Page {idx + 1}
+      </Text>
+    )}
+    keyPrefix="example3"
+  >
+    <Swiper.Slide textAlign="center">
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </Swiper.Slide>
+    <Swiper.Slide textAlign="center">
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+      />
+    </Swiper.Slide>
+    <Swiper.Slide textAlign="center">
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </Swiper.Slide>
+  </Swiper>
+</Playground>
+
+## Properties
+
+<Props of={Swiper} />
+
+## Dependencies
+
+<Dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />
