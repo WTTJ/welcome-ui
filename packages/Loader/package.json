@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/loader",
-  "version": "1.26.3",
+  "version": "1.27.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/loader.cjs.js",
   "module": "dist/loader.es.js",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^1.23.0",
-    "@welcome-ui/shape": "^1.26.3",
+    "@welcome-ui/shape": "^1.27.0",
     "@welcome-ui/system": "^1.20.0"
   },
   "peerDependencies": {

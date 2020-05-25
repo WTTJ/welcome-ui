@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/avatar",
-  "version": "1.26.3",
+  "version": "1.27.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/avatar.cjs.js",
   "module": "dist/avatar.es.js",
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^1.23.0",
-    "@welcome-ui/shape": "^1.26.3",
+    "@welcome-ui/shape": "^1.27.0",
     "@welcome-ui/text": "^1.20.0"
   },
   "peerDependencies": {

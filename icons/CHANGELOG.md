@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0](https://github.com/WTTJ/welcome-ui/compare/v1.26.4...v1.27.0) (2020-05-25)
+
+
+### Bug Fixes
+
+* make french flag match other flags ([#627](https://github.com/WTTJ/welcome-ui/issues/627)) ([8d03db4](https://github.com/WTTJ/welcome-ui/commit/8d03db4b2cf31eac52f39b15af0e3e47e3ce2fd7))
+
+
+
+
+
 # [1.22.0](https://github.com/WTTJ/welcome-ui/compare/v1.21.2...v1.22.0) (2020-04-10)
 
 

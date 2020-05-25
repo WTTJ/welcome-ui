@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/icons",
-  "version": "1.22.0",
+  "version": "1.27.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/icons.cjs.js",
   "module": "dist/icons.es.js",
@@ -101,7 +101,7 @@
     "@welcome-ui/icons.flag_cs": "^1.22.0",
     "@welcome-ui/icons.flag_en": "^1.22.0",
     "@welcome-ui/icons.flag_es": "^1.22.0",
-    "@welcome-ui/icons.flag_fr": "^1.22.0",
+    "@welcome-ui/icons.flag_fr": "^1.27.0",
     "@welcome-ui/icons.flag_pointed": "^1.22.0",
     "@welcome-ui/icons.flag_sk": "^1.22.0",
     "@welcome-ui/icons.folder": "^1.22.0",

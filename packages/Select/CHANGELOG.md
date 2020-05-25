@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0](https://github.com/WTTJ/welcome-ui/compare/v1.26.4...v1.27.0) (2020-05-25)
+
+
+### Features
+
+* add two new options on select to allow building search filters ([#634](https://github.com/WTTJ/welcome-ui/issues/634)) ([812f976](https://github.com/WTTJ/welcome-ui/commit/812f976e91face477ff606296b5cf84167e5e3f7))
+
+
+
+
+
 ## [1.26.4](https://github.com/WTTJ/welcome-ui/compare/v1.26.3...v1.26.4) (2020-05-07)
 
 **Note:** Version bump only for package @welcome-ui/select

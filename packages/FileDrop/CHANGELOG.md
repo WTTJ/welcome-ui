@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0](https://github.com/WTTJ/welcome-ui/compare/v1.26.4...v1.27.0) (2020-05-25)
+
+
+### Bug Fixes
+
+* prevent error when some group children are undefined ([#630](https://github.com/WTTJ/welcome-ui/issues/630)) ([37f7271](https://github.com/WTTJ/welcome-ui/commit/37f7271c81fcc90368c0631b0ccece55c46beba7))
+
+
+
+
+
 ## [1.26.4](https://github.com/WTTJ/welcome-ui/compare/v1.26.3...v1.26.4) (2020-05-07)
 
 **Note:** Version bump only for package @welcome-ui/file-drop

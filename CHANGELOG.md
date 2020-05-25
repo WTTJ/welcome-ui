@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0](https://github.com/WTTJ/welcome-ui/compare/v1.26.4...v1.27.0) (2020-05-25)
+
+
+### Bug Fixes
+
+* make french flag match other flags ([#627](https://github.com/WTTJ/welcome-ui/issues/627)) ([8d03db4](https://github.com/WTTJ/welcome-ui/commit/8d03db4b2cf31eac52f39b15af0e3e47e3ce2fd7))
+* prevent error when some group children are undefined ([#630](https://github.com/WTTJ/welcome-ui/issues/630)) ([37f7271](https://github.com/WTTJ/welcome-ui/commit/37f7271c81fcc90368c0631b0ccece55c46beba7))
+* use callback on toast hook ([#624](https://github.com/WTTJ/welcome-ui/issues/624)) ([6b65b83](https://github.com/WTTJ/welcome-ui/commit/6b65b83c8f09902f2cc27ea5fd5012c641a3ab40))
+
+
+### Features
+
+* add leading option to throttle ([#628](https://github.com/WTTJ/welcome-ui/issues/628)) ([f546f95](https://github.com/WTTJ/welcome-ui/commit/f546f953763d4b4ef29ff95df1bceca0132a6846))
+* add two new options on select to allow building search filters ([#634](https://github.com/WTTJ/welcome-ui/issues/634)) ([812f976](https://github.com/WTTJ/welcome-ui/commit/812f976e91face477ff606296b5cf84167e5e3f7))
+* swiper component ([#633](https://github.com/WTTJ/welcome-ui/issues/633)) ([e212942](https://github.com/WTTJ/welcome-ui/commit/e21294266efd42ccdf5899c9ccfd4cca87e97e8a))
+
+
+
+
+
 ## [1.26.4](https://github.com/WTTJ/welcome-ui/compare/v1.26.3...v1.26.4) (2020-05-07)
 
 

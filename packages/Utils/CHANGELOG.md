@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0](https://github.com/WTTJ/welcome-ui/compare/v1.26.4...v1.27.0) (2020-05-25)
+
+
+### Features
+
+* add leading option to throttle ([#628](https://github.com/WTTJ/welcome-ui/issues/628)) ([f546f95](https://github.com/WTTJ/welcome-ui/commit/f546f953763d4b4ef29ff95df1bceca0132a6846))
+
+
+
+
+
 ## [1.26.3](https://github.com/WTTJ/welcome-ui/compare/v1.26.2...v1.26.3) (2020-05-07)
 
 **Note:** Version bump only for package @welcome-ui/utils

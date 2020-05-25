@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/toast",
-  "version": "1.26.4",
+  "version": "1.27.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/toast.cjs.js",
   "module": "dist/toast.es.js",
@@ -35,9 +35,9 @@
   "dependencies": {
     "@welcome-ui/alert": "^1.23.0",
     "@welcome-ui/box": "^1.23.0",
-    "@welcome-ui/clear-button": "^1.26.4",
+    "@welcome-ui/clear-button": "^1.27.0",
     "@welcome-ui/system": "^1.20.0",
-    "@welcome-ui/utils": "^1.26.3",
+    "@welcome-ui/utils": "^1.27.0",
     "react-spring": "^8.0.27",
     "toasted-notes": "^3.2.0"
   },
