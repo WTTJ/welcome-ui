@@ -169,12 +169,42 @@ You can _add_ items by passing the `isCreatable` prop. The returned item will be
   </Form>
 </Playground>
 
+## Using allowUnselectFromList and disableCloseOnSelect
+
+These two options combined allows you, for example, to build a filter dropdown with checkboxes on each items.
+
+<Playground>
+  <Form initialValues={{ welcome9: ['github', 'twitter'] }}>
+    <ConnectedField
+      component={Select}
+      icon={<LinkIcon label="Social networks" color="nude.500" />}
+      isMultiple
+      isSearchable
+      options={ITEMS}
+      name="welcome9"
+      label="Filters"
+      allowUnselectFromList
+      disableCloseOnSelect
+      renderItem={(item, selected) => {
+        return (
+          <Box display="flex" justifyContent="space-between">
+            {item.label}
+            <Box>
+              <Checkbox type="checkbox" checked={selected} />
+            </Box>
+          </Box>
+        )
+      }}
+    />
+  </Form>
+</Playground>
+
 ## Combining props
 
 You can pass any combination of the props above. For example below, we have a `Select` that allows you to search the options, choose multiple options, and create new options.
 
 <Playground>
-  <Form initialValues={{ welcome9: ['github', 'twitter'] }}>
+  <Form initialValues={{ welcome10: ['github', 'twitter'] }}>
     <ConnectedField
       component={Select}
       icon={<LinkIcon label="Social networks" color="nude.500" />}
@@ -182,7 +212,7 @@ You can pass any combination of the props above. For example below, we have a `S
       isMultiple
       isSearchable
       options={ITEMS}
-      name="welcome9"
+      name="welcome10"
       label="Social networks"
     />
   </Form>

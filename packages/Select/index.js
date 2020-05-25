@@ -56,6 +56,8 @@ export const Select = forwardRef(
       type,
       value: defaultSelected,
       variant,
+      allowUnselectFromList,
+      disableCloseOnSelect,
       ...rest
     },
     ref
@@ -71,9 +73,11 @@ export const Select = forwardRef(
     // a. selected = currently selected item(s)
     // b. inputValue = text in the select/search box
     // c. options = options in the dropdown
+    // d. isOpen = the state of the dropdown menu
     const [selected, setSelected] = useState(defaultSelecteds)
     const [inputValue, setInputValue] = useState(defaultInputValue)
     const [options, setOptions] = useState(defaultOptions)
+    const [isOpen, setIsOpen] = useState(false)
 
     // Set default isSearchable
     isSearchable = isCreatable || isSearchable
@@ -99,6 +103,7 @@ export const Select = forwardRef(
         const options = matchSorter(defaultOptions, value, { keys: ['label'] })
         setInputValue(value)
         setOptions(options)
+        setIsOpen(true)
       }
     }
 
@@ -130,7 +135,7 @@ export const Select = forwardRef(
         isClearInput = true
       } else {
         // If adding option
-        newItems = isMultiple ? getUniqueValue(option, selected) : [option]
+        newItems = isMultiple ? getUniqueValue(option, selected, allowUnselectFromList) : [option]
         isClearInput = isMultiple
       }
 
@@ -138,6 +143,9 @@ export const Select = forwardRef(
       setOptions(defaultOptions)
       setSelected(newItems)
       handleChange(newItems)
+      if (!disableCloseOnSelect) {
+        setIsOpen(false)
+      }
     }
 
     const handleRemove = value => {
@@ -154,6 +162,7 @@ export const Select = forwardRef(
         setInputValue(e.selectedItem.label)
       }
       setOptions(defaultOptions)
+      setIsOpen(false)
     }
 
     const spacer = getSpacer(defaultOptions)
@@ -169,6 +178,7 @@ export const Select = forwardRef(
     return (
       <Downshift
         inputValue={isSearchable ? inputContent : ''}
+        isOpen={isOpen}
         itemToString={itemToString}
         onInputValueChange={handleInputChange}
         onOuterClick={handleOuterClick}
@@ -182,9 +192,7 @@ export const Select = forwardRef(
           getMenuProps,
           getRootProps,
           getToggleButtonProps,
-          highlightedIndex,
-          isOpen,
-          toggleMenu
+          highlightedIndex
         }) => {
           const isShowCreate = !!(
             isCreatable &&
@@ -213,7 +221,7 @@ export const Select = forwardRef(
 
           const handleInputClick = e => {
             onClick && onClick(e)
-            toggleMenu()
+            setIsOpen(!isOpen)
           }
 
           const rootProps = getRootProps(rest)
@@ -253,21 +261,24 @@ export const Select = forwardRef(
               </S.InputWrapper>
               {isShowMenu && (
                 <S.Menu {...getMenuProps()}>
-                  {options.map((item, index) => (
-                    <S.Item
-                      key={item.value}
-                      {...getItemProps({
-                        index,
-                        isExisting: isMultiple && isValueSelected(item.value, selected),
-                        isHighlighted: highlightedIndex === index,
-                        isSelected:
-                          !isMultiple && selectedItem && selectedItem.value === item.value,
-                        item
-                      })}
-                    >
-                      {renderItem(item)}
-                    </S.Item>
-                  ))}
+                  {options.map((item, index) => {
+                    const isItemSelected = isValueSelected(item.value, selected)
+                    return (
+                      <S.Item
+                        key={item.value}
+                        {...getItemProps({
+                          index,
+                          isHighlighted: highlightedIndex === index,
+                          isSelected: isItemSelected,
+                          allowUnselectFromList,
+                          isMultiple,
+                          item
+                        })}
+                      >
+                        {renderItem(item, isItemSelected)}
+                      </S.Item>
+                    )
+                  })}
                   {isShowCreate && inputValue.length && (
                     <S.Item
                       key="add"
@@ -298,8 +309,10 @@ Select.displayName = 'Select'
 
 Select.propTypes /* remove-proptypes */ = {
   /** We need to add `autoComplete` off to avoid select UI issues when is an input */
+  allowUnselectFromList: bool,
   autoComplete: string,
   autoFocus: bool,
+  disableCloseOnSelect: bool,
   disabled: bool,
   icon: oneOfType(COMPONENT_TYPE),
   id: string,
