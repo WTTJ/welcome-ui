@@ -103,7 +103,9 @@ export const Select = forwardRef(
         const options = matchSorter(defaultOptions, value, { keys: ['label'] })
         setInputValue(value)
         setOptions(options)
-        setIsOpen(true)
+        if (value) {
+          setIsOpen(true)
+        }
       }
     }
 
