@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.27.1](https://github.com/WTTJ/welcome-ui/compare/v1.27.0...v1.27.1) (2020-05-25)
+
+
+### Bug Fixes
+
+* prevent opening when value is reset ([#635](https://github.com/WTTJ/welcome-ui/issues/635)) ([050fc46](https://github.com/WTTJ/welcome-ui/commit/050fc46b349ed87f24f8b07673f64a3a1a131aba))
+
+
+
+
+
 # [1.27.0](https://github.com/WTTJ/welcome-ui/compare/v1.26.4...v1.27.0) (2020-05-25)
 
 
