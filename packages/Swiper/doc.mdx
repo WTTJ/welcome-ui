@@ -85,9 +85,7 @@ By providing the optional `renderPaginationItem` you can customise the defaults 
   <Swiper
     height={400}
     renderPaginationItem={(idx, { active, onClick }) => (
-      <Text onClick={onClick} mx="xxs" color={active ? 'primary.500' : 'light.500'}>
-        Page {idx + 1}
-      </Text>
+      <Swiper.Bullet width={50} height={50} active={active} onClick={onClick} />
     )}
     keyPrefix="example3"
   >
