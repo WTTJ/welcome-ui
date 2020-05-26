@@ -45,6 +45,7 @@ export const Bullet = styled.div(
     cursor: pointer;
     margin: 0 xxs;
     ${active ? th('swipers.navigation.bullet.active') : th('swipers.navigation.bullet.default')}
+    ${system}
   `
 )
 

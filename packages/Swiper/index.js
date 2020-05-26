@@ -57,6 +57,7 @@ export const Swiper = memo(function Swiper({
 })
 
 Swiper.Slide = S.Slide
+Swiper.Bullet = S.Bullet
 
 Swiper.propTypes = {
   children: node,
