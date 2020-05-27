@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.28.0](https://github.com/WTTJ/welcome-ui/compare/v1.27.2...v1.28.0) (2020-05-27)
+
+
+### Bug Fixes
+
+* open select on click on arrow indicator ([#639](https://github.com/WTTJ/welcome-ui/issues/639)) ([67798b0](https://github.com/WTTJ/welcome-ui/commit/67798b0854d9e0b54f073136cceff87156b4e2e7))
+
+
+### Features
+
+* enable swiper loop ([#638](https://github.com/WTTJ/welcome-ui/issues/638)) ([28c6c66](https://github.com/WTTJ/welcome-ui/commit/28c6c66928da61f1820dce6d135a81041b29bc46))
+
+
+
+
+
 ## [1.27.2](https://github.com/WTTJ/welcome-ui/compare/v1.27.1...v1.27.2) (2020-05-26)
 
 
