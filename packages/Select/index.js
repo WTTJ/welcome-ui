@@ -103,9 +103,12 @@ export const Select = forwardRef(
         const options = matchSorter(defaultOptions, value, { keys: ['label'] })
         setInputValue(value)
         setOptions(options)
-        if (value) {
-          setIsOpen(true)
-        }
+      }
+    }
+
+    const handleInputKeyDown = () => {
+      if (isSearchable && !isOpen) {
+        setIsOpen(true)
       }
     }
 
@@ -211,11 +214,14 @@ export const Select = forwardRef(
           )
           const ArrowIcon = (
             <S.DropDownIndicator
+              data-testid={`${dataTestId}-arrow-icon`}
               disabled={disabled}
               isOpen={isOpen}
               size={size}
               tabIndex={-1}
-              {...getToggleButtonProps()}
+              {...getToggleButtonProps({
+                onClick: () => setIsOpen(!isOpen)
+              })}
             >
               <DownIcon color="nude.800" size="xs" />
             </S.DropDownIndicator>
@@ -239,6 +245,7 @@ export const Select = forwardRef(
             onBlur,
             onClick: disabled ? undefined : handleInputClick,
             onFocus,
+            onKeyDown: handleInputKeyDown,
             placeholder,
             ref,
             size,
