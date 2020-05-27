@@ -103,9 +103,12 @@ export const Select = forwardRef(
         const options = matchSorter(defaultOptions, value, { keys: ['label'] })
         setInputValue(value)
         setOptions(options)
-        if (value) {
-          setIsOpen(true)
-        }
+      }
+    }
+
+    const handleInputKeyDown = () => {
+      if (isSearchable && !isOpen) {
+        setIsOpen(true)
       }
     }
 
@@ -242,6 +245,7 @@ export const Select = forwardRef(
             onBlur,
             onClick: disabled ? undefined : handleInputClick,
             onFocus,
+            onKeyDown: handleInputKeyDown,
             placeholder,
             ref,
             size,
