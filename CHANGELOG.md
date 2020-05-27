@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.29.0](https://github.com/WTTJ/welcome-ui/compare/v1.28.0...v1.29.0) (2020-05-27)
+
+
+### Bug Fixes
+
+* keyframe  on clearbutton ([0240c84](https://github.com/WTTJ/welcome-ui/commit/0240c84c39ec56bf416aa52de53f0ee1a5e2d55e))
+
+
+### Features
+
+* update en flag ([#640](https://github.com/WTTJ/welcome-ui/issues/640)) ([3fe6ca2](https://github.com/WTTJ/welcome-ui/commit/3fe6ca2b45a6e4a080231038f345f37593079aa3))
+
+
+
+
+
 # [1.28.0](https://github.com/WTTJ/welcome-ui/compare/v1.27.2...v1.28.0) (2020-05-27)
 
 

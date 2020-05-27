@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.29.0](https://github.com/WTTJ/welcome-ui/compare/v1.28.0...v1.29.0) (2020-05-27)
+
+
+### Features
+
+* update en flag ([#640](https://github.com/WTTJ/welcome-ui/issues/640)) ([3fe6ca2](https://github.com/WTTJ/welcome-ui/commit/3fe6ca2b45a6e4a080231038f345f37593079aa3))
+
+
+
+
+
 # [1.27.0](https://github.com/WTTJ/welcome-ui/compare/v1.26.4...v1.27.0) (2020-05-25)
 
 
