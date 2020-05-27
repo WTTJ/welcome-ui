@@ -1,8 +1,8 @@
 @font-face {
 	font-family: "welcome-icon-font";
-	src: url("welcome-icon-font.eot?ada7d95811677fb962ce60b223b6fbc0?#iefix") format("embedded-opentype"),
-url("welcome-icon-font.woff2?ada7d95811677fb962ce60b223b6fbc0") format("woff2"),
-url("welcome-icon-font.woff?ada7d95811677fb962ce60b223b6fbc0") format("woff");
+	src: url("welcome-icon-font.eot?9886a076e732adcd05f1958a1336b88b?#iefix") format("embedded-opentype"),
+url("welcome-icon-font.woff2?9886a076e732adcd05f1958a1336b88b") format("woff2"),
+url("welcome-icon-font.woff?9886a076e732adcd05f1958a1336b88b") format("woff");
 }
 
 .icon {
@@ -519,21 +519,6 @@ url("welcome-icon-font.woff?ada7d95811677fb962ce60b223b6fbc0") format("woff");
 }
 .icon-clock:before {
 	content: "\1a8";
-}
-.icon-flag_cs:before {
-	content: "\1a9";
-}
-.icon-flag_en:before {
-	content: "\1aa";
-}
-.icon-flag_es:before {
-	content: "\1ab";
-}
-.icon-flag_fr:before {
-	content: "\1ac";
-}
-.icon-flag_sk:before {
-	content: "\1ad";
 }
 .icon-folder:before {
 	content: "\1ae";
