@@ -77,6 +77,39 @@ Providing `renderNextButton` and `renderPrevButton` enables prev and next naviga
   </Swiper>
 </Playground>
 
+## With loop enabled
+
+Providing `loop` enables the swiper to loop the last and first page.
+
+<Playground>
+  <Swiper
+    keyPrefix="example2"
+    height={400}
+    loop
+    renderNextButton={() => <RightIcon size="lg" />}
+    renderPrevButton={() => <LeftIcon size="lg" />}
+  >
+    <Swiper.Slide textAlign="center">
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </Swiper.Slide>
+    <Swiper.Slide textAlign="center">
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+      />
+    </Swiper.Slide>
+    <Swiper.Slide textAlign="center">
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </Swiper.Slide>
+  </Swiper>
+</Playground>
+
 ## With custom pagination items
 
 By providing the optional `renderPaginationItem` you can customise the defaults pagination bullets and render your own component. This callback takes two params: `index` and `props` which is an object containning an `onClick` callback to pass to your custom bullet and an `active` prop which is true when the bullet index matches the current page index.

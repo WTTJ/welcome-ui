@@ -1,11 +1,12 @@
 import React, { memo, useState } from 'react'
-import { func, node, string } from 'prop-types'
+import { bool, func, node, string } from 'prop-types'
 
 import * as S from './styles'
 
 export const Swiper = memo(function Swiper({
   children,
   keyPrefix = 'swiper',
+  loop,
   renderNextButton,
   renderPaginationItem,
   renderPrevButton,
@@ -20,6 +21,8 @@ export const Swiper = memo(function Swiper({
 
     if (nextPageIdx < maxSlides) {
       setPageIdx(nextPageIdx)
+    } else if (loop) {
+      setPageIdx(0)
     }
   }
 
@@ -28,6 +31,8 @@ export const Swiper = memo(function Swiper({
 
     if (prevPageIdx >= 0) {
       setPageIdx(prevPageIdx)
+    } else if (maxSlides - 1 >= 0 && loop) {
+      setPageIdx(maxSlides - 1)
     }
   }
 
@@ -62,6 +67,7 @@ Swiper.Bullet = S.Bullet
 Swiper.propTypes = {
   children: node,
   keyPrefix: string,
+  loop: bool,
   renderNextButton: func,
   renderPaginationItem: func,
   renderPrevButton: func
