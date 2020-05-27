@@ -211,11 +211,14 @@ export const Select = forwardRef(
           )
           const ArrowIcon = (
             <S.DropDownIndicator
+              data-testid={`${dataTestId}-arrow-icon`}
               disabled={disabled}
               isOpen={isOpen}
               size={size}
               tabIndex={-1}
-              {...getToggleButtonProps()}
+              {...getToggleButtonProps({
+                onClick: () => setIsOpen(!isOpen)
+              })}
             >
               <DownIcon color="nude.800" size="xs" />
             </S.DropDownIndicator>

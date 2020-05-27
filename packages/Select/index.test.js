@@ -69,7 +69,7 @@ test('<Select> has default attributes', () => {
   expect(select).toHaveTextContent('January')
 })
 
-test('<Select> shows options on click', () => {
+test('<Select> shows options on click (input)', () => {
   const { getByRole, getByTestId } = render(
     <Form initialValues={{}}>
       <ConnectedField
@@ -83,6 +83,27 @@ test('<Select> shows options on click', () => {
   )
 
   const select = getByTestId('select')
+  fireEvent.click(select)
+
+  const options = getByRole('listbox').querySelectorAll('li')
+  expect(options.length).toBe(12)
+  expect(options[0]).toHaveTextContent('January')
+})
+
+test('<Select> shows options on click (arrow indicator)', () => {
+  const { getByRole, getByTestId } = render(
+    <Form initialValues={{}}>
+      <ConnectedField
+        component={Select}
+        dataTestId="select"
+        label="Select"
+        name="select"
+        options={MONTHS}
+      />
+    </Form>
+  )
+
+  const select = getByTestId('select-arrow-icon')
   fireEvent.click(select)
 
   const options = getByRole('listbox').querySelectorAll('li')
