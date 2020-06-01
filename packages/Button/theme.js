@@ -6,7 +6,6 @@ export const getButtons = theme => {
     color: colors.light[700],
     'font-size': fontSizes.button,
     'font-weight': fontWeights.bold,
-    'text-transform': 'uppercase',
     'letter-spacing': letterSpacings.md,
     'background-color': colors.primary[500],
     'border-color': colors.primary[500],

@@ -45,6 +45,41 @@ export const fontFaces = {
       extensions: ['woff2', 'woff', 'ttf']
     }
   ],
+  'work-sans': [
+    {
+      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/work-sans-regular',
+      weight: '400',
+      extensions: ['woff2', 'woff', 'ttf']
+    },
+    {
+      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/work-sans-medium',
+      weight: '500',
+      extensions: ['woff2', 'woff', 'ttf']
+    },
+    {
+      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/work-sans-bold',
+      weight: '600',
+      extensions: ['woff2', 'woff', 'ttf']
+    },
+    {
+      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/work-sans-regular-italic',
+      weight: '400',
+      style: 'italic',
+      extensions: ['woff2', 'woff', 'ttf']
+    },
+    {
+      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/work-sans-medium-italic',
+      weight: '500',
+      style: 'italic',
+      extensions: ['woff2', 'woff', 'ttf']
+    },
+    {
+      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/work-sans-bold-italic',
+      weight: '600',
+      style: 'italic',
+      extensions: ['woff2', 'woff', 'ttf']
+    }
+  ],
   'welcome-icon-font': [
     {
       url: 'https://cdn.welcometothejungle.co/common/assets/fonts/WttjIcons',
