@@ -90,10 +90,13 @@ export const Search = forwardRef(
       setResults([])
     }
 
+    // prevents controlled to uncontrolled switch when itemToString returns falsy value
+    const handleItemToString = item => itemToString(item) || ''
+
     return (
       <Downshift
         initialInputValue={initialInputValue}
-        itemToString={itemToString}
+        itemToString={handleItemToString}
         onInputValueChange={handleInputChange}
         onOuterClick={handleOuterClick}
         onSelect={handleSelect}
