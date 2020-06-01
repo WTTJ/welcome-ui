@@ -1,115 +1,125 @@
 import { css } from '@xstyled/styled-components'
+import { hexToRGBA } from '@welcome-ui/utils'
 
 const palette = {
-  yukongold: '#B99606',
-  mustard: '#FFCD00',
-  capehoney: '#FFF0B2',
+  gold: '#997B00',
   capehoneylight: '#fff8d9',
 
-  //greens
-  nero: '#252525',
-  gondola: '#353535',
-  charcoal: '#3F3F3F',
-  tundora: '#4B4B4B',
-  dovegrey: '#6F6F6F',
-  shadylady: '#969696',
-  darkgray: '#ACACAC',
+  // primary
+  black: '#000000',
+  softblack: '#151515',
+  white: '#FFFFFF',
+  yellow: '#FFCD00',
 
-  //nudes
-  concord: '#7F7C7A',
-  zorba: '#97938F',
-  silverchalice: '#AFABA7',
-  silversand: '#BFBDB9',
-  quillgray: '#D7D5D1',
-  gainsboro: '#E1DFDB',
-  cararra: '#EEECE8',
-  isabelline: '#F2F0ED',
-  pampas: '#F6F4F2',
-  vistawhite: '#FBF9F7',
-  soapstone: '#FFFDFB',
+  // greys
+  nero: '#1A1A1A',
+  mineshaft: '#2B2B2B',
+  dune: '#474543',
+  tundora: '#4C4C4C',
+  ironside: '#6B6966',
+  granite: '#666666',
+  empress: '#737373',
+  naturalgrey: '#8F8C88',
+  nobel: '#999999',
+  battleship: '#8C8C8C',
+  silverchalice: '#B3B3B3',
+  pampas: '#EFEAE4',
+  timberwolf: '#D6D2CC',
+  mercury: '#E5E5E5',
+  isabelline: '#F6F3EF',
+  isabellinelight: '#fcfbfa',
 
-  // states : infos, warning & danger
-  bluedefrance: '#3790F0',
-  bluejeans: '#5EAAFC',
-  bronze: '#CA8E2A',
-  anzac: '#DDA343',
-  casablanca: '#F1B85B',
-  sweetbrown: '#A53626',
-  carmen: '#BF4C3B',
-  flamingo: '#E16654',
+  // blue
+  celticblue: '#106DD1',
+  blueverry: '#4B9BF1',
+  aliceblue: '#EDF3FE',
+
+  // red
+  carmen: '#AF4636',
+  valencia: '#CE5947',
+  mistyrose: '#FFE7E7',
+
+  // yellow
+  burbon: '#B97F22',
+  sunray: '#E4AE56',
+  floralwhite: '#FFF2DC',
+
+  // green
+  spanishviridian: '#00875C',
+  jade: '#00A772',
+  gin: '#E3F0EC',
 
   //subs
   blue: '#3B52D0',
   pink: '#EE4B65',
   green: '#267566',
-  salmon: '#F79D85',
-  babygreen: '#A5D0A8',
-  babyblue: '#8CB3DB',
-
-  // pastel
-  mint: '#DFF5EB',
-  aliceblue: '#DFEAFF',
-  floralwhite: '#FFF2DC',
-  rosewhite: '#FFE7E7'
+  vividtangerine: '#F79D85',
+  springrain: '#A5D0A8',
+  palecerulean: '#8CB3DB'
 }
 
 const colors = {
   primary: {
     100: palette.capehoneylight,
-    200: palette.capehoney,
-    500: palette.mustard,
-    700: palette.yukongold
+    200: '#FFE166',
+    500: palette.yellow,
+    700: palette.gold
   },
   secondary: {
-    200: palette.shadylady,
-    500: palette.dovegrey,
-    700: palette.tundora
+    200: palette.granite,
+    500: palette.dune,
+    700: palette.nero
+  },
+  success: {
+    100: palette.gin,
+    200: palette.jade,
+    500: palette.spanishviridian
   },
   danger: {
-    100: palette.rosewhite,
-    200: palette.flamingo,
-    500: palette.carmen,
-    700: palette.sweetbrown
+    100: palette.mistyrose,
+    200: '#D87C6E',
+    500: palette.valencia,
+    700: palette.carmen
   },
   warning: {
     100: palette.floralwhite,
-    200: palette.casablanca,
-    500: palette.anzac,
-    700: palette.bronze
+    200: '#EBC484',
+    500: palette.sunray,
+    700: palette.burbon
   },
   info: {
     100: palette.aliceblue,
-    200: palette.bluejeans,
-    500: palette.bluedefrance
+    200: palette.blueverry,
+    500: palette.celticblue
   },
   light: {
     200: palette.pampas,
-    500: palette.vistawhite,
-    700: palette.soapstone,
-    900: '#FFFFFF'
+    500: palette.isabelline,
+    700: palette.isabellinelight,
+    900: palette.white
   },
   dark: {
-    200: palette.charcoal,
-    500: palette.gondola,
+    200: palette.mineshaft,
+    500: palette.softblack,
     700: palette.nero,
-    900: '#000'
+    900: palette.black
   },
   nude: {
-    100: palette.isabelline,
-    200: palette.cararra,
-    300: palette.gainsboro,
-    400: palette.quillgray,
-    500: palette.silversand,
-    600: palette.silverchalice,
-    700: palette.zorba,
-    800: palette.concord
+    100: '#F2F2F2',
+    200: palette.mercury,
+    300: palette.timberwolf,
+    400: palette.silverchalice,
+    500: palette.nobel,
+    600: palette.battleship,
+    700: palette.naturalgrey,
+    800: palette.empress
   },
   sub: {
-    1: palette.babyblue,
+    1: palette.palecerulean,
     2: palette.blue,
     3: palette.pink,
-    4: palette.salmon,
-    5: palette.babygreen,
+    4: palette.vividtangerine,
+    5: palette.springrain,
     6: palette.green
   }
 }
@@ -130,9 +140,63 @@ const linksPrimaryHoverStyles = css`
 export const welcomeTheme = {
   colors,
   palette,
+  radii: {
+    sm: undefined,
+    md: undefined,
+    lg: undefined
+  },
   buttons: {
     primary: {
       color: colors.dark[700]
+    },
+    secondary: {
+      color: colors.light[900],
+      'background-color': colors.dark[900],
+      'border-color': colors.dark[900]
+    },
+    tertiary: {
+      color: colors.dark[900],
+      'background-color': 'transparent',
+      'border-color': colors.dark[900]
+    },
+    quaternary: {
+      color: colors.dark[900],
+      'background-color': colors.light[900],
+      'border-color': colors.light[900]
+    },
+    hover: {
+      secondary: {
+        'background-color': colors.dark[200],
+        'border-color': colors.dark[200]
+      },
+      tertiary: {
+        'background-color': hexToRGBA(colors.dark[900], 0.1),
+        'border-color': colors.dark[900]
+      },
+      quaternary: {
+        color: colors.dark[900],
+        'background-color': colors.nude[100],
+        'border-color': colors.nude[100]
+      }
+    },
+    focus: {
+      secondary: {
+        'background-color': colors.dark[200],
+        'border-color': colors.dark[200]
+      },
+      tertiary: {
+        'background-color': hexToRGBA(colors.dark[900], 0.4),
+        'border-color': colors.dark[900]
+      },
+      quaternary: {
+        'background-color': colors.nude[200],
+        'border-color': colors.nude[200]
+      }
+    },
+    disabled: {
+      color: colors.nude[700],
+      'background-color': colors.nude[300],
+      'border-color': colors.nude[300]
     }
   },
   underline: underlineStyles,
@@ -174,5 +238,8 @@ export const welcomeTheme = {
         'background-color': colors.nude[100]
       }
     }
+  },
+  fontSizes: {
+    button: 13
   }
 }

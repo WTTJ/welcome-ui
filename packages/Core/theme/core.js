@@ -27,7 +27,7 @@ import { getFontSizes, getLineHeights, getTexts } from './typography'
 import { transitionCurves, transitions } from './transitions'
 
 const DEFAULT_FONT_SIZE = 16
-const DEFAULT_FONT_FAMILY = 'welcome-font'
+const DEFAULT_FONT_FAMILY = 'work-sans'
 const HEADING_FONT_FAMILY = 'welcome-font'
 const ICON_FONT_FAMILY = 'welcome-icon-font'
 
