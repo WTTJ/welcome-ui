@@ -19,7 +19,7 @@ const results = [
 ]
 
 const defaultProps = {
-  itemToString: item => item.Title,
+  itemToString: item => item.Title || '',
   // eslint-disable-next-line react/display-name
   renderItem: item => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
