@@ -27,6 +27,7 @@ export const DatePicker = forwardRef(
       autoFocus,
       dataTestId,
       dateFormat = 'dd/MM/yyyy',
+      disabled,
       endYear = DEFAULT_DATE.getFullYear(),
       icon,
       iconPlacement = 'left',
@@ -122,6 +123,7 @@ export const DatePicker = forwardRef(
           />
         }
         dateFormat={dateFormat}
+        disabled={disabled}
         locale={locale}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
@@ -146,6 +148,7 @@ DatePicker.displayName = 'DatePicker'
 DatePicker.propTypes /* remove-proptypes */ = {
   autoFocus: bool,
   dateFormat: string,
+  disabled: bool,
   endYear: number,
   icon: oneOfType(COMPONENT_TYPE),
   iconPlacement: oneOf(['right', 'left']),

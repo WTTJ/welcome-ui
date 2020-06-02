@@ -16,6 +16,7 @@ export const TimePicker = forwardRef(
       autoFocus,
       dataTestId,
       dateFormat = 'HH:mm',
+      disabled,
       value = DEFAULT_DATE,
       onBlur,
       onChange,
@@ -96,6 +97,7 @@ export const TimePicker = forwardRef(
           />
         }
         dateFormat={dateFormat}
+        disabled={disabled}
         onChange={handleChange}
         placeholderText={placeholderText}
         popperContainer={CustomPopper}
@@ -117,6 +119,7 @@ TimePicker.displayName = 'TimePicker'
 TimePicker.propTypes /* remove-proptypes */ = {
   autoFocus: bool,
   dateFormat: string,
+  disabled: bool,
   icon: oneOfType(COMPONENT_TYPE),
   iconPlacement: oneOf(['right', 'left']),
   inputRef: func,
