@@ -22,10 +22,13 @@ The `Text` component allows you to remain consistent with your text sizing and l
 ## Typography
 
 <Playground>
+  <Text variant="h0">Heading 0</Text>
   <Text variant="h1">Heading 1</Text>
   <Text variant="h2">Heading 2</Text>
   <Text variant="h3">Heading 3</Text>
   <Text variant="h4">Heading 4</Text>
+  <Text variant="h5">Heading 5</Text>
+  <Text variant="h6">Heading 6</Text>
   <Text variant="body1">Body 1</Text>
   <Text variant="body2">Body 2</Text>
   <Text variant="body3">Body 3</Text>
@@ -41,8 +44,8 @@ The `Text` component allows you to remain consistent with your text sizing and l
 You can pass a tag name with `as` to use that tag type with the styling from another tag. For example…
 
 <Playground>
-  <Text variant="h1" as="p">
-    `p` tag styled as an `H1`
+  <Text variant="h3" as="p" mt="0" mb="xl">
+    `p` tag styled as an `H3`
   </Text>
   <Text variant="body3" as="h1">
     `H1` tag styled as a `body3`
@@ -83,7 +86,7 @@ Set the number of lines you want to display with `lines`. Your text will be disp
 You can add an underline to your text
 
 <Playground>
-  <Text variant="body1" display="inline" underline>
+  <Text display="inline" underline>
     text with an underline
   </Text>
 </Playground>

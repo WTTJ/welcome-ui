@@ -21,7 +21,7 @@ const TAG_NAMES = {
 }
 
 export const Text = forwardRef(
-  ({ as, children, dataTestId, lines, underline = false, variant = 'body1', ...rest }, ref) => {
+  ({ as, children, dataTestId, lines, underline = false, variant = 'body2', ...rest }, ref) => {
     const tagName = as || TAG_NAMES[variant]
 
     return (
