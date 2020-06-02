@@ -10,7 +10,7 @@ import * as S from './styles'
 
 export const DateTimePicker = forwardRef(
   (
-    { children, dataTestId, disabled = false, locale, onChange, size = 'lg', value = DEFAULT_DATE },
+    { children, dataTestId, disabled, locale, onChange, size = 'lg', value = DEFAULT_DATE },
     ref
   ) => {
     const formatDate = date => getDate(date, 15)

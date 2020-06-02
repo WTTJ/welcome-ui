@@ -27,7 +27,7 @@ export const DatePicker = forwardRef(
       autoFocus,
       dataTestId,
       dateFormat = 'dd/MM/yyyy',
-      disabled = false,
+      disabled,
       endYear = DEFAULT_DATE.getFullYear(),
       icon,
       iconPlacement = 'left',

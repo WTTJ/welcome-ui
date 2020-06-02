@@ -16,7 +16,7 @@ export const TimePicker = forwardRef(
       autoFocus,
       dataTestId,
       dateFormat = 'HH:mm',
-      disabled = false,
+      disabled,
       value = DEFAULT_DATE,
       onBlur,
       onChange,
