@@ -23,7 +23,15 @@ import { getSwipers } from '../../Swiper/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
-import { getFontSizes, getLineHeights, getTexts } from './typography'
+import {
+  getFontSizes,
+  getLetterSpacings,
+  getLineHeights,
+  getTexts,
+  getTextsFontFamily,
+  getTextsFontWeights,
+  getTextsTextTransform
+} from './typography'
 import { transitionCurves, transitions } from './transitions'
 
 const DEFAULT_FONT_SIZE = 16
@@ -58,11 +66,7 @@ export const createTheme = (options = {}) => {
     bold: '600',
     black: '700'
   }
-  theme.letterSpacings = {
-    sm: '0.5px',
-    md: '1px',
-    lg: '2px'
-  }
+  theme.letterSpacings = getLetterSpacings(theme)
   theme.fonts = {
     texts: defaultFontFamily,
     headings: headingFontFamily,
@@ -113,6 +117,10 @@ export const createTheme = (options = {}) => {
 
   // CSS blocks
   // These attributes depend on colors and fontSizes and must come last
+  theme.textsFontWeights = getTextsFontWeights(theme)
+  theme.textsFontFamily = getTextsFontFamily(theme)
+  theme.textsTextTransform = getTextsTextTransform(theme)
+  theme.textsTextTransform = getTextsTextTransform(theme)
   theme.underline.borderBottomColor = theme.colors.primary[500]
   theme.alerts = getAlerts(theme)
   theme.avatars = getAvatars(theme)

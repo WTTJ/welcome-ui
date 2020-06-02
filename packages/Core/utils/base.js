@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from '@xstyled/styled-components'
-import { getColor, getFont } from '@xstyled/system'
+import { getColor, getFont, th } from '@xstyled/system'
 import { normalize } from 'polished'
 
 import { fonts } from './font'
@@ -49,6 +49,8 @@ function baseFonts(props) {
     textarea {
       font-family: ${getFontFamilies(texts, sansSerif)};
       -webkit-font-smoothing: antialiased;
+      letter-spacing: ${th('letterSpacings.html')};
+      line-height: ${th('lineHeights.html')};
     }
 
     h1,
