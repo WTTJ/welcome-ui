@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-max-depth */
 /* eslint-disable react/prop-types */
 import React from 'react'
+import { Link } from 'docz'
 
 import { Modal, useModalState } from '../../../../packages/Modal'
 import { Box } from '../../../../packages/Box'
@@ -9,7 +10,7 @@ import { MenuIcon } from '../../../../icons/Menu'
 import { GithubIcon } from '../../../../icons/Github'
 
 import { Navigation } from './Navigation'
-import { LogoLong } from './LogoLong'
+import { Logo } from './Logo'
 import { ThemeSelect } from './ThemeSelect'
 import * as S from './MobileMenu.styled'
 
@@ -18,8 +19,8 @@ export const MobileMenu = ({ items, theme, ...rest }) => {
 
   return (
     <S.MobileMenu {...rest}>
-      <S.Logo>
-        <LogoLong />
+      <S.Logo as={Link} to="/">
+        <Logo />
       </S.Logo>
       <Button as={Modal.Trigger} shape="circle" variant="secondary" {...modal}>
         <MenuIcon size="lg" />

@@ -22,8 +22,8 @@ export const Logo = styled.div`
   display: flex;
 
   svg {
-    width: 100;
-    height: 36;
+    width: 64;
+    height: 37;
     flex-shrink: 0;
   }
 `

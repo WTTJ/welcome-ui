@@ -12,9 +12,7 @@ export const ThemeSelect = ({ setTheme, value }) => (
     options={[
       { value: 'core', label: 'Core Theme (default)' },
       { value: 'dark', label: 'Dark Core Theme' },
-      { value: 'welcomekit', label: 'WelcomeKit Theme' },
-      { value: 'welcome', label: 'Welcomehome Theme' },
-      { value: 'wttj', label: 'WelcomeToTheJungle Theme' }
+      { value: 'welcome', label: 'Welcome Theme' }
     ]}
     placeholder="Choose a theme"
     size="sm"
