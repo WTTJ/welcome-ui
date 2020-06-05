@@ -7,9 +7,9 @@ import * as S from './styles'
 export const UniversalLink = forwardRef(({ children, dataTestId, target, ...rest }, ref) => (
   <S.UniversalLink
     color="inherit"
-    // for security
     data-testid={dataTestId}
     ref={ref}
+    // for security
     rel={target === '_blank' ? 'noopener noreferrer' : undefined}
     target={target}
     {...rest}

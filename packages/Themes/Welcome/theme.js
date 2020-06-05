@@ -1,5 +1,3 @@
-import { css } from '@xstyled/styled-components'
-
 const palette = {
   // primary
   capehoneylight: '#FFF8D9',
@@ -127,21 +125,9 @@ const colors = {
     4: palette.vividtangerine,
     5: palette.springrain,
     6: palette.green
-  }
+  },
+  underline: palette.yellow
 }
-
-const underlineStyles = css`
-  background-image: linear-gradient(0deg, ${colors.primary[500]}, ${colors.primary[500]} 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 50%;
-  background-position-y: calc(200% - 1px);
-  transition: background-position-y 0.25s;
-`
-
-const linksPrimaryHoverStyles = css`
-  opacity: 1;
-  background-position-y: 100%;
-`
 
 export const welcomeTheme = {
   colors,
@@ -154,22 +140,6 @@ export const welcomeTheme = {
   buttons: {
     primary: {
       color: colors.dark[900]
-    }
-  },
-  underline: underlineStyles,
-  links: {
-    primary: { hover: linksPrimaryHoverStyles },
-    'primary-underline-span': {
-      default: css`
-        > span {
-          ${underlineStyles};
-        }
-      `,
-      hover: css`
-        > span {
-          ${linksPrimaryHoverStyles};
-        }
-      `
     }
   }
 }
