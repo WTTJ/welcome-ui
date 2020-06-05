@@ -13,9 +13,8 @@ const getBlockHeight = lines => css`
 `
 
 export const Text = styled.p(
-  ({ lines, underline, variant }) => css`
+  ({ lines, variant }) => css`
     ${th(`texts.${variant}`)};
-    ${underline && th('underline')};
 
     /* Start fallback for non-webkit */
     display: block;
