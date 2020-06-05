@@ -5,6 +5,5 @@ export const cardStyles = () => css`
   border-radius: md;
   border-style: solid;
   border-width: sm;
-  border-color: nude.200;
-  box-shadow: sm;
+  border-color: light.800;
 `
