@@ -151,6 +151,11 @@ export const welcomeTheme = {
     md: undefined,
     lg: undefined
   },
+  buttons: {
+    primary: {
+      color: colors.dark[900]
+    }
+  },
   underline: underlineStyles,
   links: {
     primary: { hover: linksPrimaryHoverStyles },
