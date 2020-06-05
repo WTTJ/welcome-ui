@@ -12,7 +12,7 @@ describe('<Link>', () => {
     const button = getByTestId('link')
 
     expect(button).toHaveTextContent(content)
-    expect(button).toHaveStyleRule('color', '#2d2d2d')
+    expect(button).toHaveStyleRule('color', '#4B4B4B')
   })
 
   it('should render correctly with a target blank', () => {

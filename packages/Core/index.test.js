@@ -1,22 +1,22 @@
-import { wttjTheme } from '../Themes/Wttj'
+import { welcomeTheme } from '../Themes/Welcome'
 
 import { createTheme } from './theme/core'
 
 test('core theme has the correct color for buttons.primary.color', () => {
   const theme = createTheme()
 
-  expect(theme.buttons.primary.color).toBe('#FAFAFA')
+  expect(theme.buttons.primary.color).toBe('#C8C8C8')
 })
 
-test('wttjTheme correctly overwrites core theme.buttons with its custom styles', () => {
-  const theme = createTheme(wttjTheme)
+test('welcomeTheme correctly overwrites core theme.buttons with its custom styles', () => {
+  const theme = createTheme(welcomeTheme)
 
-  expect(theme.buttons.primary.color).toBe('#FFFFFF')
+  expect(theme.buttons.primary.color).toBe('#B3B3B3')
 })
 
-test('Can overwrite wttjTheme.buttons with custom button styles', () => {
+test('Can overwrite welcomeTheme.buttons with custom button styles', () => {
   const theme = createTheme({
-    ...wttjTheme,
+    ...welcomeTheme,
     buttons: {
       primary: {
         color: 'red'

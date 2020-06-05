@@ -5,7 +5,7 @@ export const Page = styled.main`
   display: flex;
   overflow: hidden;
   height: 100vh;
-  background-color: light.700;
+  background-color: nude.100;
   flex-direction: column;
 
   ${up(

@@ -22,15 +22,15 @@ export const getButtons = theme => {
     primary: defaults,
     secondary: {
       ...defaults,
-      color: colors.secondary[700],
+      // color: colors.secondary[700],
       'background-color': colors.light[900],
       'border-color': colors.nude[200]
     },
     tertiary: {
       ...defaults,
-      color: colors.light[700],
-      'background-color': colors.secondary[500],
-      'border-color': colors.secondary[500]
+      color: colors.light[700]
+      // 'background-color': colors.secondary[500],
+      // 'border-color': colors.secondary[500]
     },
     'primary-warning': {
       ...defaults,
@@ -72,8 +72,8 @@ export const getButtons = theme => {
         'border-color': colors.nude[300]
       },
       tertiary: {
-        'background-color': colors.secondary[200],
-        'border-color': colors.secondary[200]
+        // 'background-color': colors.secondary[200],
+        // 'border-color': colors.secondary[200]
       },
       'primary-warning': {
         'background-color': colors.warning[200],
@@ -107,8 +107,8 @@ export const getButtons = theme => {
         'border-color': colors.nude[500]
       },
       tertiary: {
-        'background-color': colors.secondary[700],
-        'border-color': colors.secondary[700]
+        // 'background-color': colors.secondary[700],
+        // 'border-color': colors.secondary[700]
       },
       'primary-warning': {
         'background-color': colors.warning[700],

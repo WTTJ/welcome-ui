@@ -14,7 +14,7 @@ export const getAccordions = theme => {
       'font-size': fontSizes.body2
     },
     title: {
-      color: colors.secondary[500],
+      // color: colors.secondary[500],
       'font-weight': fontWeights.medium
     }
   }

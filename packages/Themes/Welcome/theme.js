@@ -1,53 +1,60 @@
 import { css } from '@xstyled/styled-components'
-import { hexToRGBA } from '@welcome-ui/utils'
 
 const palette = {
-  gold: '#997B00',
-  capehoneylight: '#fff8d9',
-
   // primary
-  black: '#000000',
-  softblack: '#151515',
-  white: '#FFFFFF',
+  capehoneylight: '#FFF8D9',
+  yellowlight: '#FFE166',
   yellow: '#FFCD00',
+  corn: '#E5B800',
+  gold: '#997B00',
+  cinnamon: '#735C00',
+  olive: '#4C3D00',
 
-  // greys
-  nero: '#1A1A1A',
-  mineshaft: '#2B2B2B',
-  dune: '#474543',
-  tundora: '#4C4C4C',
-  ironside: '#6B6966',
+  // dark
   granite: '#666666',
-  empress: '#737373',
-  naturalgrey: '#8F8C88',
+  tundora: '#4C4C4C',
+  mineshaft: '#2B2B2B',
+  nero: '#1A1A1A',
+  softblack: '#151515',
+  black: '#000000',
+
+  // light
+  white: '#FFFFFF',
+  mercury: '#E5E5E5',
+  silverchalice: '#B3B3B3',
   nobel: '#999999',
   battleship: '#8C8C8C',
-  silverchalice: '#B3B3B3',
+  empress: '#737373',
+
+  // nudes
+  isabelline: '#F6F3EF',
   pampas: '#EFEAE4',
   timberwolf: '#D6D2CC',
-  mercury: '#E5E5E5',
-  isabelline: '#F6F3EF',
-  isabellinelight: '#fcfbfa',
+  naturalgrey: '#8F8C88',
+  ironside: '#6B6966',
+  dune: '#474543',
 
-  // blue
+  // success
+  spanishviridian: '#00875C',
+  jade: '#00A772',
+  gin: '#E3F0EC',
+
+  // danger
+  mistyrose: '#FFE7E7',
+  valencialight: '#D87C6E',
+  valencia: '#CE5947',
+  carmen: '#AF4636',
+
+  // info
   celticblue: '#106DD1',
   blueverry: '#4B9BF1',
   aliceblue: '#EDF3FE',
 
-  // red
-  carmen: '#AF4636',
-  valencia: '#CE5947',
-  mistyrose: '#FFE7E7',
-
-  // yellow
-  burbon: '#B97F22',
-  sunray: '#E4AE56',
+  // warning
   floralwhite: '#FFF2DC',
-
-  // green
-  spanishviridian: '#00875C',
-  jade: '#00A772',
-  gin: '#E3F0EC',
+  sunraylight: '#EBC484',
+  sunray: '#E4AE56',
+  burbon: '#B97F22',
 
   //subs
   blue: '#3B52D0',
@@ -61,14 +68,11 @@ const palette = {
 const colors = {
   primary: {
     100: palette.capehoneylight,
-    200: '#FFE166',
+    200: palette.yellowlight,
     500: palette.yellow,
-    700: palette.gold
-  },
-  secondary: {
-    200: palette.granite,
-    500: palette.dune,
-    700: palette.nero
+    700: palette.corn,
+    800: palette.cinnamon,
+    900: palette.olive
   },
   success: {
     100: palette.gin,
@@ -77,13 +81,13 @@ const colors = {
   },
   danger: {
     100: palette.mistyrose,
-    200: '#D87C6E',
+    200: palette.valencialight,
     500: palette.valencia,
     700: palette.carmen
   },
   warning: {
     100: palette.floralwhite,
-    200: '#EBC484',
+    200: palette.sunraylight,
     500: palette.sunray,
     700: palette.burbon
   },
@@ -93,26 +97,28 @@ const colors = {
     500: palette.celticblue
   },
   light: {
-    200: palette.pampas,
-    500: palette.isabelline,
-    700: palette.isabellinelight,
+    100: palette.empress,
+    200: palette.battleship,
+    500: palette.nobel,
+    700: palette.silverchalice,
+    800: palette.mercury,
     900: palette.white
   },
   dark: {
-    200: palette.mineshaft,
-    500: palette.softblack,
+    100: palette.granite,
+    200: palette.tundora,
+    500: palette.mineshaft,
     700: palette.nero,
+    800: palette.softblack,
     900: palette.black
   },
   nude: {
-    100: '#F2F2F2',
-    200: palette.mercury,
-    300: palette.timberwolf,
-    400: palette.silverchalice,
-    500: palette.nobel,
-    600: palette.battleship,
+    100: palette.isabelline,
+    200: palette.pampas,
+    500: palette.timberwolf,
     700: palette.naturalgrey,
-    800: palette.empress
+    800: palette.ironside,
+    900: palette.dune
   },
   sub: {
     1: palette.palecerulean,
@@ -145,68 +151,7 @@ export const welcomeTheme = {
     md: undefined,
     lg: undefined
   },
-  buttons: {
-    primary: {
-      color: colors.dark[700]
-    },
-    secondary: {
-      color: colors.light[900],
-      'background-color': colors.dark[900],
-      'border-color': colors.dark[900]
-    },
-    tertiary: {
-      color: colors.dark[900],
-      'background-color': 'transparent',
-      'border-color': colors.dark[900]
-    },
-    quaternary: {
-      color: colors.dark[900],
-      'background-color': colors.light[900],
-      'border-color': colors.light[900]
-    },
-    hover: {
-      secondary: {
-        'background-color': colors.dark[200],
-        'border-color': colors.dark[200]
-      },
-      tertiary: {
-        'background-color': hexToRGBA(colors.dark[900], 0.1),
-        'border-color': colors.dark[900]
-      },
-      quaternary: {
-        color: colors.dark[900],
-        'background-color': colors.nude[100],
-        'border-color': colors.nude[100]
-      }
-    },
-    focus: {
-      secondary: {
-        'background-color': colors.dark[200],
-        'border-color': colors.dark[200]
-      },
-      tertiary: {
-        'background-color': hexToRGBA(colors.dark[900], 0.4),
-        'border-color': colors.dark[900]
-      },
-      quaternary: {
-        'background-color': colors.nude[200],
-        'border-color': colors.nude[200]
-      }
-    },
-    disabled: {
-      color: colors.nude[700],
-      'background-color': colors.nude[300],
-      'border-color': colors.nude[300]
-    }
-  },
   underline: underlineStyles,
-  fields: {
-    select: {
-      highlighted: {
-        'background-color': colors.light[200]
-      }
-    }
-  },
   links: {
     primary: { hover: linksPrimaryHoverStyles },
     'primary-underline-span': {
@@ -221,25 +166,5 @@ export const welcomeTheme = {
         }
       `
     }
-  },
-  tabs: {
-    item: {
-      default: {
-        'text-decoration': 'none'
-      }
-    },
-    tabsBorder: {
-      'background-color': 'transparent'
-    }
-  },
-  tags: {
-    variants: {
-      default: {
-        'background-color': colors.nude[100]
-      }
-    }
-  },
-  fontSizes: {
-    button: 13
   }
 }
