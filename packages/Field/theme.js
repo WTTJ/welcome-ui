@@ -100,7 +100,7 @@ export const getFields = theme => {
     mde: {
       icons: {
         'font-size': fontSizes.body3,
-        color: colors.secondary[500],
+        // color: colors.secondary[500],
         '&.active': {
           color: colors.primary[200],
           'border-color': colors.nude[300]
@@ -179,11 +179,11 @@ export const getFields = theme => {
         }
       },
       checkedDisabled: {
-        'border-color': colors.secondary[200],
-        'background-color': colors.secondary[200],
-        '&::after': {
-          'border-color': colors.secondary[200]
-        }
+        // 'border-color': colors.secondary[200],
+        // 'background-color': colors.secondary[200],
+        // '&::after': {
+        //   'border-color': colors.secondary[200]
+        // }
       }
     },
     fieldset: {

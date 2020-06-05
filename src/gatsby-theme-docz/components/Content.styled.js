@@ -11,7 +11,6 @@ export const Content = styled.article`
   max-width: 1200;
   margin: 0 auto;
   padding: 20 20 50 20;
-  color: nude.800;
 
   @media (min-width: 1300px) {
     padding: 50 100;

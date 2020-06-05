@@ -12,8 +12,8 @@ describe('<Tag>', () => {
     const tag = getByTestId('tag')
 
     expect(tag).toHaveTextContent(content)
-    expect(tag).toHaveStyleRule('background-color', '#EDEDED')
-    expect(tag).toHaveStyleRule('color', '#727272')
+    expect(tag).toHaveStyleRule('background-color', '#AFAFAF')
+    expect(tag).toHaveStyleRule('color', '#939388')
     expect(tag).toHaveStyleRule('padding', '0 0.375rem')
   })
 
