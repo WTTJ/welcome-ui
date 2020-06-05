@@ -33,6 +33,7 @@ import {
   getTextsTextTransform
 } from './typography'
 import { transitionCurves, transitions } from './transitions'
+import { getUnderline } from './underline'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'work-sans'
@@ -54,7 +55,7 @@ export const createTheme = (options = {}) => {
   theme.toEm = px => `${px / DEFAULT_FONT_SIZE}em`
   theme.toRem = px => `${px / DEFAULT_FONT_SIZE}rem`
 
-  theme.colors = colors
+  theme.colors = { ...colors, underline: colors.primary[100] }
 
   // fonts
   theme.fontFaces = fontFaces
@@ -110,20 +111,14 @@ export const createTheme = (options = {}) => {
     md: '3px 4px 10px 0 rgba(0,0,0,0.07)'
   }
 
-  theme.underline = {
-    borderBottomWidth: theme.borderWidths.sm,
-    borderBottomStyle: 'solid'
-  }
-
   theme = merge(theme, rest)
 
-  // CSS blocks
   // These attributes depend on colors and fontSizes and must come last
+  theme.underline = getUnderline(theme)
   theme.textsFontWeights = getTextsFontWeights(theme)
   theme.textsFontFamily = getTextsFontFamily(theme)
   theme.textsTextTransform = getTextsTextTransform(theme)
   theme.textsTextTransform = getTextsTextTransform(theme)
-  theme.underline.borderBottomColor = theme.colors.primary[500]
   theme.alerts = getAlerts(theme)
   theme.avatars = getAvatars(theme)
   theme.buttons = getButtons(theme)

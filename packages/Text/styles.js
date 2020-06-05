@@ -15,7 +15,17 @@ const getBlockHeight = lines => css`
 export const Text = styled.p(
   ({ lines, underline, variant }) => css`
     ${th(`texts.${variant}`)};
-    ${underline && th('underline')};
+
+    /* to get the same style as a primary link */
+    ${underline &&
+      css`
+        font-weight: ${th('links.default.font-weight')};
+        ${th('underline.default')};
+
+        &:hover {
+          ${th('underline.hover')};
+        }
+      `}
 
     /* Start fallback for non-webkit */
     display: block;

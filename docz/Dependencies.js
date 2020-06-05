@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Tag } from '../packages/Tag/index'
 import { Link } from '../packages/Link/index'
-import { Button } from '../packages/Button/index'
+import { Box } from '../packages/Box/index'
 
 export const Dependencies = ({ dependencies }) => {
   if (!dependencies) {
@@ -15,7 +15,7 @@ export const Dependencies = ({ dependencies }) => {
       {Object.entries(dependencies).map(([dependency, version]) => {
         const baseVersion = version.replace(/[\^=~]/, '')
         return (
-          <li as={Button} key={dependency}>
+          <Box as="li" key={dependency} mb="xxs">
             <Link
               border="none"
               href={`https://npmjs.com/package/${dependency}/v/${baseVersion}`}
@@ -23,11 +23,11 @@ export const Dependencies = ({ dependencies }) => {
               target="_npm"
             >
               {dependency}
-              <Tag ml="sm" size="md">
-                {version}
-              </Tag>
             </Link>
-          </li>
+            <Tag ml="sm" size="md">
+              {version}
+            </Tag>
+          </Box>
         )
       })}
     </ul>
