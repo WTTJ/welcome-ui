@@ -75,7 +75,7 @@ export const Props = ({ props }) => {
 
               return (
                 <Table.Tr key={key}>
-                  <Table.Td color="primary.500" width="20%">
+                  <Table.Td color="dark.900" fontWeight="bold" width="20%">
                     {key}
                   </Table.Td>
                   <Table.Td width="50%">

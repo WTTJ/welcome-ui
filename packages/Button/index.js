@@ -33,6 +33,7 @@ Button.propTypes /* remove-proptypes */ = {
     'primary',
     'secondary',
     'tertiary',
+    'tertiary-negative',
     'quaternary',
     'primary-warning',
     'secondary-warning',

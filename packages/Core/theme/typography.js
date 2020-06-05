@@ -13,7 +13,7 @@ export const getFontSizes = (unit, theme) => {
     body2: convert(16),
     body3: convert(14),
     body4: convert(12),
-    button: convert(11),
+    button: convert(12),
     subtitle1: convert(13),
     subtitle2: convert(11),
     meta1: convert(14),

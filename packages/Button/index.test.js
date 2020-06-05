@@ -1,7 +1,7 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
-import { colors } from '../Core/theme/colors'
+import { createTheme } from '../Core/theme/core'
 import { render } from '../../src/utils/tests'
 
 import { Button } from './index'
@@ -10,13 +10,14 @@ const content = 'Jungle'
 
 describe('<Button>', () => {
   it('should render correctly', () => {
+    const theme = createTheme()
     const { getByTestId } = render(<Button dataTestId="button">{content}</Button>)
     const button = getByTestId('button')
 
     expect(button).toHaveTextContent(content)
     expect(button).not.toBeDisabled()
-    expect(button).toHaveStyleRule('background-color', colors.primary[500])
-    expect(button).toHaveStyleRule('height', '2.25rem')
+    expect(button).toHaveStyleRule('background-color', theme.colors.primary[500])
+    expect(button).toHaveStyleRule('height', theme.buttons.sizes.md.height)
   })
 
   it('should call onClick property', () => {
@@ -34,6 +35,7 @@ describe('<Button>', () => {
   })
 
   it('should look like a square', () => {
+    const theme = createTheme()
     const { getByTestId } = render(
       <Button dataTestId="button" shape="square" size="sm">
         {content}
@@ -41,11 +43,12 @@ describe('<Button>', () => {
     )
     const button = getByTestId('button')
 
-    expect(button).toHaveStyleRule('width', '2rem')
-    expect(button).toHaveStyleRule('height', '2rem')
+    expect(button).toHaveStyleRule('width', theme.buttons.sizes.sm.height)
+    expect(button).toHaveStyleRule('height', theme.buttons.sizes.sm.height)
   })
 
   it('should have correct size', () => {
+    const theme = createTheme()
     const { getByTestId } = render(
       <Button dataTestId="button" size="sm">
         {content}
@@ -53,7 +56,7 @@ describe('<Button>', () => {
     )
     const button = getByTestId('button')
 
-    expect(button).toHaveStyleRule('height', '2rem')
+    expect(button).toHaveStyleRule('height', theme.buttons.sizes.sm.height)
   })
 
   describe('disabled', () => {
@@ -72,6 +75,7 @@ describe('<Button>', () => {
     })
 
     it('should have disabled attribute', () => {
+      const theme = createTheme()
       const { getByTestId } = render(
         <Button dataTestId="button" disabled>
           {content}
@@ -81,8 +85,8 @@ describe('<Button>', () => {
       const button = getByTestId('button')
 
       expect(button).toBeDisabled()
-      expect(button).toHaveStyleRule('background-color', '#E8E8E6')
-      expect(button).toHaveStyleRule('border-color', '#E8E8E6')
+      expect(button).toHaveStyleRule('background-color', theme.colors.nude[500])
+      expect(button).toHaveStyleRule('border-color', theme.colors.nude[500])
     })
   })
 })

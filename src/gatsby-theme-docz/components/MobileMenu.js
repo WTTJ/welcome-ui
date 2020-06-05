@@ -22,7 +22,7 @@ export const MobileMenu = ({ items, theme, ...rest }) => {
       <S.Logo as={Link} to="/">
         <Logo />
       </S.Logo>
-      <Button as={Modal.Trigger} shape="circle" variant="secondary" {...modal}>
+      <Button as={Modal.Trigger} shape="circle" size="sm" variant="quaternary" {...modal}>
         <MenuIcon size="lg" />
       </Button>
       <Modal {...modal} ariaLabel="Navigation">

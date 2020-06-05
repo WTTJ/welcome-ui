@@ -41,15 +41,17 @@ export const Button = styled(filterComponent(ReakitButton))(
 
     ${!disabled &&
       css`
-        /* Remove reakit default style, show the box-shadow only on keyboard navigation */
         [${hideFocusRingsDataAttribute}] &:focus {
           box-shadow: none;
         }
-        :not([${hideFocusRingsDataAttribute}]) &:focus {
+        &:focus {
           ${th(`buttons.focus.${variant || 'primary'}`)};
         }
         &:hover {
           ${th(`buttons.hover.${variant || 'primary'}`)};
+        }
+        &:active {
+          ${th(`buttons.active.${variant || 'primary'}`)};
         }
       `};
 
