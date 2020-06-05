@@ -92,8 +92,10 @@ export const createTheme = (options = {}) => {
     sm: theme.toRem(10),
     md: theme.toRem(12),
     lg: theme.toRem(15),
-    xl: theme.toRem(24),
-    xxl: theme.toRem(30)
+    xl: theme.toRem(20),
+    xxl: theme.toRem(24),
+    '2lg': theme.toRem(30),
+    '2xl': theme.toRem(40)
   }
 
   theme.icons = getIcons(theme)

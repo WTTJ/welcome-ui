@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { render } from '../../src/utils/tests'
+import { createTheme } from '../Core/theme/core'
 
 import { Tag } from './index'
 
@@ -8,12 +9,13 @@ const content = 'Jungle'
 
 describe('<Tag>', () => {
   it('should render correctly', () => {
+    const theme = createTheme()
     const { getByTestId } = render(<Tag dataTestId="tag">{content}</Tag>)
     const tag = getByTestId('tag')
 
     expect(tag).toHaveTextContent(content)
-    expect(tag).toHaveStyleRule('background-color', '#AFAFAF')
-    expect(tag).toHaveStyleRule('color', '#939388')
+    expect(tag).toHaveStyleRule('background-color', theme.colors.light[500])
+    expect(tag).toHaveStyleRule('color', theme.colors.nude[800])
     expect(tag).toHaveStyleRule('padding', '0 0.375rem')
   })
 
