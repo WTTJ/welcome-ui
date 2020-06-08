@@ -7,6 +7,7 @@ menu: Components
 import { Link, Playground, Props } from 'docz'
 import { Code, Dependencies, TagVersion, Usage } from '../../docz'
 import { Alert } from './index'
+import { HeartIcon } from '@welcome-ui/icons.heart'
 const { dependencies, peerDependencies, component, name, version } = require('./package.json')
 
 # Alert
@@ -56,9 +57,20 @@ The default is `error`.
 
 ## With only Alert.Title
 
+We're adding an icon matching the `variant` (see above examples) but you can remove it or add a custom node instead
+
 <Playground>
   <Alert>
     <Alert.Title>Welcome to the jungle</Alert.Title>
+  </Alert>
+  <Alert>
+    <Alert.Title icon={<HeartIcon />}>Welcome to the jungle</Alert.Title>
+  </Alert>
+  <Alert>
+    <Alert.Title icon="😵">Welcome to the jungle</Alert.Title>
+  </Alert>
+  <Alert>
+    <Alert.Title icon={null}>Welcome to the jungle</Alert.Title>
   </Alert>
 </Playground>
 

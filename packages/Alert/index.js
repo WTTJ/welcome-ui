@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
-import { node, oneOf } from 'prop-types'
-import React, { Children, cloneElement } from 'react'
+import { element, node, oneOf } from 'prop-types'
+import React, { Children, cloneElement, useMemo } from 'react'
 import { Stack } from '@welcome-ui/stack'
 import { Button } from '@welcome-ui/button'
 import { CheckIcon } from '@welcome-ui/icons.check'
@@ -44,19 +44,25 @@ Alert.propTypes /* remove-proptypes */ = {
   variant: oneOf(['success', 'error', 'warning', 'info'])
 }
 
-const AlertTitle = ({ children, variant, ...rest }) => (
-  <S.Title variant={variant} {...rest}>
-    <S.Icon>
-      {variant === 'success' && <CheckIcon />}
-      {variant === 'info' && <InformationIcon />}
-      {(variant === 'error' || variant === 'warning') && <AlertIcon />}
-    </S.Icon>
-    {children}
-  </S.Title>
-)
+const AlertTitle = ({ children, icon, variant, ...rest }) => {
+  const Icon = useMemo(() => {
+    if (icon === null) return null
+    if (icon) return icon
+    if (variant === 'success') return <CheckIcon />
+    if (variant === 'info') return <InformationIcon />
+    if (variant === 'error' || variant === 'warning') return <AlertIcon />
+  }, [icon, variant])
+  return (
+    <S.Title variant={variant} {...rest}>
+      {Icon && <S.Icon>{Icon}</S.Icon>}
+      {children}
+    </S.Title>
+  )
+}
 
 AlertTitle.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
+  icon: element,
   variant: oneOf(['success', 'error', 'warning', 'info'])
 }
 
