@@ -1,19 +1,15 @@
 import React from 'react'
 import { node, oneOf } from 'prop-types'
-import { Badge } from '@welcome-ui/badge'
+import { AlertIcon } from '@welcome-ui/icons.alert'
 
 import * as S from './styles'
 
 export const VariantIcon = ({ errorWarningIcon, variant }) =>
   ['error', 'warning'].includes(variant) ? (
-    <S.VariantIcon>
+    <S.VariantIcon variant={variant}>
       <>
         {errorWarningIcon && errorWarningIcon}
-        {!errorWarningIcon && (
-          <Badge shape="circle" variant={variant}>
-            !
-          </Badge>
-        )}
+        {!errorWarningIcon && <AlertIcon />}
       </>
     </S.VariantIcon>
   ) : null

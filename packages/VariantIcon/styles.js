@@ -6,7 +6,7 @@ export const VariantIcon = styled.div(
     display: inline-flex;
     margin-right: xxs;
     color: ${getVariantColor(variant)};
-    fill: ${getVariantColor(variant)};
     flex-shrink: 0;
+    align-self: center;
   `
 )
