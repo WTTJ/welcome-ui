@@ -21,7 +21,7 @@ Simple feedback messages for user actions.
 
 ## Variants
 
-`error` is set by default.
+The default is `error`.
 
 <Playground>
   <Alert>
@@ -56,11 +56,31 @@ Simple feedback messages for user actions.
 
 ## With only Alert.Title
 
-We remove the `margin-bottom`.
+<Playground>
+  <Alert>
+    <Alert.Title>Welcome to the jungle</Alert.Title>
+  </Alert>
+</Playground>
+
+## With Button
+
+When usin `Alert.Button`, we will show it in a column on the right
 
 <Playground>
   <Alert>
     <Alert.Title>Welcome to the jungle</Alert.Title>
+    <span>
+      Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
+      ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
+    </span>
+    <Alert.Button variant="secondary">Button</Alert.Button>
+  </Alert>
+</Playground>
+
+<Playground>
+  <Alert>
+    <Alert.Title>Welcome to the jungle</Alert.Title>
+    <Alert.Button variant="secondary">Button</Alert.Button>
   </Alert>
 </Playground>
 
