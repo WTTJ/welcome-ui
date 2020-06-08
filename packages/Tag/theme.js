@@ -14,9 +14,16 @@ export const getTags = theme => {
     'border-style': 'solid'
   }
 
+  const withoutVisibleBorder = color => ({
+    ...border,
+    'border-color': color,
+    'background-color': color
+  })
+
   return {
     default: {
       'font-weight': fontWeights.medium,
+      'background-color': colors.light[900],
       color: colors.light[900]
     },
     variants: {
@@ -26,14 +33,14 @@ export const getTags = theme => {
         'border-color': hexToRGBA(colors.dark[900], 0.1),
         ...border
       },
-      primary: { 'background-color': colors.primary[500], color: colors.dark[900] },
+      primary: { ...withoutVisibleBorder(colors.primary[500]), color: colors.dark[900] },
       secondary: {
         'background-color': colors.sub[4],
         color: colors.light[900],
         'border-color': hexToRGBA(colors.dark[900], 0.1),
         ...border
       },
-      dark: { 'background-color': colors.dark[900] },
+      dark: { ...withoutVisibleBorder(colors.dark[900]) },
       success: {
         'background-color': colors.success[100],
         color: colors.success[500],
@@ -58,12 +65,12 @@ export const getTags = theme => {
         'border-color': colors.info[200],
         ...border
       },
-      1: { 'background-color': colors.sub[1] },
-      2: { 'background-color': colors.sub[2] },
-      3: { 'background-color': colors.sub[3] },
-      4: { 'background-color': colors.sub[4] },
-      5: { 'background-color': colors.sub[5] },
-      6: { 'background-color': colors.sub[6] }
+      1: { ...withoutVisibleBorder(colors.sub[1]) },
+      2: { ...withoutVisibleBorder(colors.sub[2]) },
+      3: { ...withoutVisibleBorder(colors.sub[3]) },
+      4: { ...withoutVisibleBorder(colors.sub[4]) },
+      5: { ...withoutVisibleBorder(colors.sub[5]) },
+      6: { ...withoutVisibleBorder(colors.sub[6]) }
     },
     sizes: {
       sm: {
