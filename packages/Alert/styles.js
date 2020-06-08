@@ -12,14 +12,25 @@ export const Alert = styled(Box)(
   `
 )
 
-export const Title = styled(Text)`
-  margin: 0;
-  margin-bottom: sm;
-  font-size: inherit;
-  font-weight: medium;
-  ${system}
+export const Title = styled(Text).attrs(({ variant }) => ({
+  variant: 'h5',
+  // We're renaming the prop because it'll be overridden by Text's variant
+  alertVariant: variant
+}))(
+  ({ alertVariant }) => css`
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-bottom: sm;
+    ${th(`alerts.title.${alertVariant}`)};
+    ${system}
 
-  &:only-child {
-    margin-bottom: 0;
-  }
+    &:only-child {
+      margin-bottom: 0;
+    }
+  `
+)
+
+export const Icon = styled(Box)`
+  margin-right: xs;
 `
