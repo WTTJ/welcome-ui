@@ -33,7 +33,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/badge": "^1.27.0",
+    "@welcome-ui/icons.alert": "^1.22.0",
     "@welcome-ui/utils": "^1.27.0"
   },
   "peerDependencies": {

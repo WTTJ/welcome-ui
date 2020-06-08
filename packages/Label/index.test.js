@@ -25,7 +25,6 @@ describe('<Label>', () => {
       const { container } = render(<Label variant="error">{content}</Label>)
 
       expect(container).toHaveTextContent(content)
-      expect(container).toHaveTextContent('!')
     })
 
     it('with custom warning icon', () => {

@@ -59,7 +59,7 @@ export const getFields = theme => {
       'font-weight': fontWeights.regular
     },
     label: {
-      color: colors.nude[800],
+      color: colors.light[100],
       'font-size': fontSizes.body3,
       'font-weight': fontWeights.medium,
       'min-height': '1.4em'
