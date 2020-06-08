@@ -37,9 +37,33 @@ function doczThemeLight(colors) {
         'background-color': colors.dark[700]
       },
       github: {
-        'background-color': colors.dark[500],
+        'background-color': colors.primary[500],
+        color: colors.light[900],
         '&:hover, &:focus': {
-          'background-color': colors.dark[200]
+          'background-color': colors.primary[200]
+        }
+      }
+    }
+  }
+}
+
+function doczThemeWelcome(colors) {
+  return {
+    docz: {
+      navigation: {
+        color: colors.light[900]
+      },
+      navigationmobile: {
+        color: colors.dark[900]
+      },
+      menu: {
+        'background-color': colors.dark[700]
+      },
+      github: {
+        'background-color': colors.primary[500],
+        color: colors.dark[900],
+        '&:hover, &:focus': {
+          'background-color': colors.primary[200]
         }
       }
     }
@@ -84,6 +108,8 @@ const getThemeOptions = name => {
 
   if (name === 'dark') {
     return { ...theming, ...doczThemeDark(theming.colors) }
+  } else if (name === 'welcome') {
+    return { ...theming, ...doczThemeWelcome(theming.colors) }
   } else {
     return { ...theming, ...doczThemeLight(theming.colors) }
   }

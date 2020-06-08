@@ -9,7 +9,7 @@ import * as S from './Github.styled'
 export const Github = () => (
   <S.Github href="https://github.com/WTTJ/welcome-ui" rel="noreferrer noopener" target="_blank">
     <Box alignItems="center" display="flex">
-      <GithubIcon mr="sm" size="lg" />
+      <GithubIcon mr="sm" size="xl" />
       <span>Show repository</span>
     </Box>
     <ExternalLinkIcon />
