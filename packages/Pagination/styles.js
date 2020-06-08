@@ -34,7 +34,7 @@ export const Dots = styled.span`
   cursor: pointer;
 `
 
-const AbstractLink = styled.a`
+export const AbstractLink = styled.a`
   ${th('paginations.default')};
   display: flex;
   align-items: center;
@@ -48,8 +48,6 @@ const AbstractLink = styled.a`
     transition: none;
   }
 `
-
-export const ArrowLink = styled(AbstractLink)``
 
 export const PageLink = styled(AbstractLink)`
   ${th('paginations.number')}
