@@ -13,7 +13,7 @@ export const LiveEditor = styled(ReactLiveEditor)`
   textarea {
     border-radius: md;
     transition: medium;
-    border: 1px solid ${th.color('light.200')} !important;
+    border: 1px solid ${th.color('light.800')} !important;
     background-color: light.900 !important;
 
     &:focus {
@@ -61,5 +61,5 @@ export const LivePreviewContent = styled.div(
 
 export const ShowEditor = styled.div`
   padding-top: sm;
-  border-top: 1px solid ${th.color('nude.200')};
+  border-top: 1px solid ${th.color('light.800')};
 `

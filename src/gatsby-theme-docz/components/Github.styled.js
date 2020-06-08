@@ -10,8 +10,7 @@ export const Github = styled.a`
   bottom: 0;
   width: inherit;
   border: none;
-  padding: xl;
-  color: white;
+  padding: lg xl;
   box-sizing: border-box;
   justify-content: space-between;
   text-decoration: none;

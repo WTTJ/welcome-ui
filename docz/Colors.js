@@ -5,7 +5,7 @@ import { withTheme } from '@xstyled/styled-components'
 import { Box } from '../packages/Box/index'
 import { Card } from '../packages/Card/index'
 
-const Wrapper = ({ name, theme, withBorder }) => {
+const Wrapper = ({ name, theme }) => {
   const colors = theme.colors[name]
 
   return (
