@@ -20,6 +20,7 @@ import { getModals } from '../../Modal/theme'
 import { getLoaders } from '../../Loader/theme'
 import { getAccordions } from '../../Accordion/theme'
 import { getSwipers } from '../../Swiper/theme'
+import { getCheckboxes } from '../../Checkbox/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -34,6 +35,7 @@ import {
 } from './typography'
 import { transitionCurves, transitions } from './transitions'
 import { getUnderline } from './underline'
+import { getDefaultFields } from './defaultFields'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'work-sans'
@@ -123,6 +125,7 @@ export const createTheme = (options = {}) => {
   theme.avatars = getAvatars(theme)
   theme.buttons = getButtons(theme)
   theme.breadcrumbs = getBreadcrumbs(theme)
+  // TODO: should be removed when all fields have been migrated to their own packageName/theme.js file
   theme.fields = getFields(theme)
   theme.toasts = getToasts(theme)
   theme.paginations = getPaginations(theme)
@@ -138,6 +141,9 @@ export const createTheme = (options = {}) => {
   theme.loaders = getLoaders(theme)
   theme.accordions = getAccordions(theme)
   theme.swipers = getSwipers(theme)
+  // fields
+  theme.defaultFields = getDefaultFields(theme)
+  theme.checkboxes = getCheckboxes(theme)
 
   theme = merge(theme, rest)
 
