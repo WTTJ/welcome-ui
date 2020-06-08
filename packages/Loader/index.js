@@ -16,5 +16,5 @@ Loader.displayName = 'Loader'
 
 Loader.propTypes = {
   color: string.isRequired,
-  size: oneOf(['sm', 'md', 'lg'])
+  size: oneOf(['xs', 'sm', 'md', 'lg'])
 }
