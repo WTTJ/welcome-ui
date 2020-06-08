@@ -53,12 +53,12 @@ export const Tag = styled.div(
 
     > *:not(:only-child) {
       ${/* sc-selector */ StyledIcon}:last-child {
-        opacity: 1;
+        opacity: 0.7;
         transition: opacity ${th.transition('medium')};
         cursor: pointer;
 
         &:hover {
-          opacity: 0.6;
+          opacity: 1;
         }
       }
     }
