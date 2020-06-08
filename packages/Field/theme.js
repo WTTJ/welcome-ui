@@ -51,11 +51,11 @@ export const getFields = theme => {
       }
     },
     placeholder: {
-      color: colors.nude[600]
+      color: colors.light[500]
     },
     hint: {
-      color: colors.nude[600],
-      'font-size': fontSizes.body3,
+      color: colors.light[500],
+      'font-size': fontSizes.body4,
       'font-weight': fontWeights.regular
     },
     label: {
