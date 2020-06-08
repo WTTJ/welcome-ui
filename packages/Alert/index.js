@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import { node, oneOf } from 'prop-types'
-import React, { Children } from 'react'
+import React, { Children, cloneElement } from 'react'
 import { Stack } from '@welcome-ui/stack'
 import { Button } from '@welcome-ui/button'
 import { CheckIcon } from '@welcome-ui/icons.check'
@@ -17,7 +17,7 @@ const Alert = ({ children, variant = 'error', ...rest }) => {
     .map(child => {
       // Add variant to AlertTitle to show the correct icon
       if (child.type === AlertTitle) {
-        return React.cloneElement(child, { variant })
+        return cloneElement(child, { variant })
       }
       return child
     })
