@@ -7,5 +7,5 @@ export const InlineCode = styled.code`
   font-size: body3;
   border-width: sm;
   border-style: solid;
-  border-color: light.200;
+  border-color: nude.200;
 `

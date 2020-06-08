@@ -10,15 +10,13 @@ import * as S from './Header.styled'
 
 export const Header = ({ setTheme, value }) => {
   return (
-    <div>
-      <Box alignItems="flex-start" display="flex" justifyContent="space-between">
-        <S.Logo as={Link} to="/">
-          <Logo />
-        </S.Logo>
-      </Box>
+    <>
+      <S.Logo as={Link} to="/">
+        <Logo />
+      </S.Logo>
       <Box mb={40} mt={40}>
         <ThemeSelect setTheme={setTheme} value={value} />
       </Box>
-    </div>
+    </>
   )
 }
