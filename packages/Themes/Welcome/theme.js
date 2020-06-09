@@ -133,9 +133,9 @@ export const welcomeTheme = {
   colors,
   palette,
   radii: {
-    sm: undefined,
-    md: undefined,
-    lg: undefined
+    sm: 0,
+    md: 0,
+    lg: 0
   },
   buttons: {
     primary: {
@@ -149,6 +149,13 @@ export const welcomeTheme = {
     active: {
       color: colors.dark[900],
       '&:hover, &:focus': {
+        color: colors.dark[900]
+      }
+    }
+  },
+  dateTimePickerCommon: {
+    item: {
+      selected: {
         color: colors.dark[900]
       }
     }

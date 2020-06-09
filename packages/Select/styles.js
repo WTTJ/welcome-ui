@@ -64,7 +64,7 @@ export const Input = styled(filterFieldComponent('div', FILTER_PROPS))(
 )
 
 export const Menu = styled.ul`
-  ${th('fields.select.default')};
+  ${th('defaultFields.select.default')};
   ${cardStyles};
   position: absolute;
   z-index: 2;
@@ -81,9 +81,9 @@ export const Menu = styled.ul`
 export const Item = styled.li(
   ({ allowUnselectFromList, isHighlighted, isMultiple, isSelected }) => css`
     color: nude.800;
-    ${isHighlighted && th('fields.select.highlighted')};
-    ${isSelected && !isMultiple && th('fields.select.selected')};
-    ${isSelected && isMultiple && !allowUnselectFromList && th('fields.select.existing')};
+    ${isHighlighted && th('defaultFields.select.highlighted')};
+    ${isSelected && !isMultiple && th('defaultFields.select.selected')};
+    ${isSelected && isMultiple && !allowUnselectFromList && th('defaultFields.select.existing')};
     ${overflowEllipsis};
     padding: sm;
     list-style: none;

@@ -24,6 +24,7 @@ import { checkboxes } from '../../Checkbox/theme'
 import { tables } from '../../Table/theme'
 import { labels } from '../../Label/theme'
 import { toggles } from '../../Toggle/theme'
+import { dateTimePickerCommon } from '../../DateTimePickerCommon/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -38,7 +39,7 @@ import {
 } from './typography'
 import { transitionCurves, transitions } from './transitions'
 import { getUnderline } from './underline'
-import { defaultFields } from './defaultFields'
+import { getDefaultFields } from './defaultFields'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'work-sans'
@@ -150,9 +151,10 @@ export const createTheme = (options = {}) => {
   theme.swipers = getSwipers(theme)
   theme.labels = labels
   // fields
-  theme.defaultFields = defaultFields
+  theme.defaultFields = getDefaultFields(theme)
   theme.checkboxes = checkboxes
   theme.toggles = toggles
+  theme.dateTimePickerCommon = dateTimePickerCommon
 
   theme = merge(theme, rest)
 
