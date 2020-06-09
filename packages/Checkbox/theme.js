@@ -1,6 +1,6 @@
 import { css } from '@xstyled/styled-components'
 
-export const getCheckboxes = () => ({
+export const checkboxes = {
   default: css`
     width: 20;
     height: 20;
@@ -14,4 +14,4 @@ export const getCheckboxes = () => ({
     border-color: primary.500;
     color: dark.900;
   `
-})
+}
