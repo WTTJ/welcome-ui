@@ -6,22 +6,22 @@ export const getTabs = theme => {
       bottom: borderWidths.sm,
       width: '100%',
       height: borderWidths.sm,
-      'background-color': colors.nude[200]
+      'background-color': colors.light[800]
     },
     item: {
       default: {
-        color: colors.nude[600],
-        'font-size': fontSizes.body2,
-        'font-weight': fontWeights.medium
+        color: colors.light[100],
+        'font-weight': fontWeights.medium,
+        'font-size': fontSizes.body1
       },
       active: {
-        color: colors.dark[700]
+        color: colors.dark[900]
       },
       focus: {
-        color: colors.nude[800]
+        color: colors.dark[900]
       },
       disabled: {
-        color: colors.nude[400]
+        color: colors.light[700]
       }
     },
     panel: {
@@ -31,10 +31,9 @@ export const getTabs = theme => {
       }
     },
     activeBar: {
-      bottom: 0,
+      bottom: '1px',
       background: colors.primary[500],
-      height: '3px',
-      'border-radius': '3px'
+      height: '1px'
     }
   }
 }
