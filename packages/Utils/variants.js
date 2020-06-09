@@ -5,7 +5,7 @@ export const VARIANTS = {
   focused: 'colors.primary.500',
   info: 'colors.info.500',
   success: 'colors.success.500',
-  warning: 'colors.warning.500'
+  warning: 'colors.warning.700'
 }
 
 export const getVariantColor = variant => {

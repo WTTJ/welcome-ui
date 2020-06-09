@@ -9,7 +9,7 @@ const content = 'Jungle'
 
 describe('<Title>', () => {
   it('should render correctly', () => {
-    const { getByTestId } = render(<Title dataTestId="growl-title">{content}</Title>)
+    const { getByTestId } = render(<Title data-testid="growl-title">{content}</Title>)
     const title = getByTestId('growl-title')
 
     expect(title).toHaveTextContent(content)
@@ -18,7 +18,7 @@ describe('<Title>', () => {
 
   it('should render correctly with a state', () => {
     const { getByTestId } = render(
-      <Title dataTestId="growl-title" variant="error">
+      <Title data-testid="growl-title" variant="error">
         {content}
       </Title>
     )

@@ -1,11 +1,9 @@
 /* eslint-disable react/no-multi-comp */
 import { element, node, oneOf } from 'prop-types'
-import React, { Children, cloneElement, useMemo } from 'react'
+import React, { Children, cloneElement } from 'react'
 import { Stack } from '@welcome-ui/stack'
 import { Button } from '@welcome-ui/button'
-import { CheckIcon } from '@welcome-ui/icons.check'
-import { InformationIcon } from '@welcome-ui/icons.information'
-import { AlertIcon } from '@welcome-ui/icons.alert'
+import { VariantIcon } from '@welcome-ui/variant-icon'
 
 import * as S from './styles'
 
@@ -45,16 +43,9 @@ Alert.propTypes /* remove-proptypes */ = {
 }
 
 const AlertTitle = ({ children, icon, variant, ...rest }) => {
-  const Icon = useMemo(() => {
-    if (icon === null) return null
-    if (icon) return icon
-    if (variant === 'success') return <CheckIcon />
-    if (variant === 'info') return <InformationIcon />
-    if (variant === 'error' || variant === 'warning') return <AlertIcon />
-  }, [icon, variant])
   return (
     <S.Title variant={variant} {...rest}>
-      {Icon && <S.Icon>{Icon}</S.Icon>}
+      <VariantIcon icon={icon} mr="xs" variant={variant} />
       {children}
     </S.Title>
   )
