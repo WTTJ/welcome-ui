@@ -110,26 +110,6 @@ export const getFields = theme => {
         'box-shadow': shadows.sm
       }
     },
-    select: {
-      default: {
-        'max-height': toRem(155)
-      },
-      existing: {
-        color: colors.nude[500],
-        cursor: 'not-allowed'
-      },
-      highlighted: {
-        'background-color': colors.nude[100],
-        cursor: 'default'
-      },
-      selectedAndHighlighted: {
-        'background-image': 'linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%)'
-      },
-      selected: {
-        color: colors.dark[200],
-        'font-weight': fontWeights.bold
-      }
-    },
     textarea: {
       'min-height': '8rem'
     },

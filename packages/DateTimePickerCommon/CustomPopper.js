@@ -116,7 +116,7 @@ const StyledCustomPopper = styled.div(
     .react-datepicker__month-text--keyboard-selected,
     .react-datepicker__time-container
       .react-datepicker__time
-      .react-datepickter__time-box
+      .react-datepicker__time-box
       ul.react-datepicker__time-list
       li.react-datepicker__time-list-item--selected,
     .react-datepicker__day--selected,
