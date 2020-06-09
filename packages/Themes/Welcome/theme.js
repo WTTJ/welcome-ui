@@ -141,5 +141,16 @@ export const welcomeTheme = {
     primary: {
       color: colors.dark[900]
     }
+  },
+  paginations: {
+    default: {
+      'border-radius': 0
+    },
+    active: {
+      color: colors.dark[900],
+      '&:hover, &:focus': {
+        color: colors.dark[900]
+      }
+    }
   }
 }

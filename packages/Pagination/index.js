@@ -83,13 +83,13 @@ export const Pagination = forwardRef(
           <S.Item hidden={page === 1}>
             <Rover disabled={page === 1} {...rover}>
               {roverProps => (
-                <S.ArrowLink
+                <S.AbstractLink
                   {...roverProps}
                   href={getHref && getHref(page - 1)}
                   onClick={handlePrevious}
                 >
                   {leftArrow || <LeftIcon size="xs" />}
-                </S.ArrowLink>
+                </S.AbstractLink>
               )}
             </Rover>
           </S.Item>
@@ -124,13 +124,13 @@ export const Pagination = forwardRef(
           <S.Item hidden={page === pageCount}>
             <Rover disabled={page === pageCount} {...rover}>
               {roverProps => (
-                <S.ArrowLink
+                <S.AbstractLink
                   {...roverProps}
                   href={getHref && getHref(page + 1)}
                   onClick={handleNext}
                 >
                   {rightArrow || <RightIcon size="xs" />}
-                </S.ArrowLink>
+                </S.AbstractLink>
               )}
             </Rover>
           </S.Item>
