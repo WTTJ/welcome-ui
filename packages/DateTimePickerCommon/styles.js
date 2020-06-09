@@ -7,7 +7,7 @@ import { StyledButton } from '@welcome-ui/button'
 import { StyledClearButton } from '@welcome-ui/clear-button'
 import { componentSystem, filterFieldComponent } from '@welcome-ui/system'
 import { StyledSelect } from '@welcome-ui/select'
-import { fieldStyles } from '@welcome-ui/utils'
+import { defaultFieldStyles } from '@welcome-ui/utils'
 
 // Only require CSS on client
 if (typeof window !== 'undefined') {
@@ -17,12 +17,12 @@ if (typeof window !== 'undefined') {
 import { FILTER_PROPS } from './propTypes'
 
 export const StyledDatePicker = styled(ReactDatePicker)`
-  ${fieldStyles};
+  ${defaultFieldStyles};
   ${componentSystem};
 `
 
 export const StyledTimePicker = styled(ReactDatePicker)`
-  ${fieldStyles};
+  ${defaultFieldStyles};
   text-align: center;
   ${componentSystem};
 `
