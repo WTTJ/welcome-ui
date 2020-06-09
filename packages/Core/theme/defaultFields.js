@@ -1,42 +1,40 @@
-export const getDefaultFields = theme => {
-  const { colors, fontSizes, fontWeights, space, toRem } = theme
+import { css } from '@xstyled/styled-components'
 
-  return {
-    default: {
-      color: colors.nude[800],
-      'font-size': fontSizes.body3,
-      'line-height': toRem(16),
-      'font-weight': fontWeights.regular,
-      'background-color': colors.light[900],
-      'border-color': colors.nude[200],
-      'border-width': '1px',
-      'border-style': 'solid',
-      outline: 'none'
-    },
-    sizes: {
-      sm: {
-        height: '2rem',
-        padding: `${space.xs} ${space.md}`
-      },
-      md: {
-        height: '2.25rem',
-        padding: `${space.sm} ${space.md}`
-      },
-      lg: {
-        height: '2.5rem',
-        padding: space.md
-      }
-    },
-    disabled: {
-      'background-color': colors.nude[500],
-      color: colors.nude[700],
-      cursor: 'not-allowed'
-    },
-    placeholder: {
-      color: colors.nude[600]
-    },
-    focused: {
-      'border-color': colors.primary[500]
-    }
-  }
-}
+export const getDefaultFields = () => ({
+  default: css`
+    color: nude.800;
+    font-size: body3;
+    line-height: 16;
+    font-weight: regular;
+    background-color: light.900;
+    border-color: nude.200;
+    border-width: 1px;
+    border-style: solid;
+    outline: none;
+  `,
+  sizes: {
+    sm: css`
+      height: 32;
+      padding: xs md;
+    `,
+    md: css`
+      height: 36;
+      padding: sm md;
+    `,
+    lg: css`
+      height: 40;
+      padding: md;
+    `
+  },
+  disabled: css`
+    background-color: nude.500;
+    color: nude.700;
+    cursor: not-allowed;
+  `,
+  placeholder: css`
+    color: nude.600;
+  `,
+  focused: css`
+    border-color: primary.500;
+  `
+})

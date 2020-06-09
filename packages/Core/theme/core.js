@@ -142,7 +142,7 @@ export const createTheme = (options = {}) => {
   theme.accordions = getAccordions(theme)
   theme.swipers = getSwipers(theme)
   // fields
-  theme.defaultFields = getDefaultFields(theme)
+  theme.defaultFields = getDefaultFields()
   theme.checkboxes = getCheckboxes(theme)
 
   theme = merge(theme, rest)
