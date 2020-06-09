@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { getVariantColor } from '@welcome-ui/utils'
 
-export const VariantIcon = styled.div(
+export const VariantIcon = styled.divBox(
   ({ variant }) => css`
     display: inline-flex;
     margin-right: xxs;

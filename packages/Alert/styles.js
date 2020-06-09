@@ -30,7 +30,3 @@ export const Title = styled(Text).attrs(({ variant }) => ({
     }
   `
 )
-
-export const Icon = styled(Box)`
-  margin-right: xs;
-`

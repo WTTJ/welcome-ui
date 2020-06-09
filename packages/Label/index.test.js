@@ -29,13 +29,13 @@ describe('<Label>', () => {
 
     it('with custom warning icon', () => {
       const { container } = render(
-        <Label errorWarningIcon={<span>errorWarningIcon</span>} variant="error">
+        <Label icon={<span>custom icon</span>} variant="error">
           {content}
         </Label>
       )
 
       expect(container).toHaveTextContent(content)
-      expect(container).toHaveTextContent('errorWarningIcon')
+      expect(container).toHaveTextContent('custom icon')
     })
   })
 
