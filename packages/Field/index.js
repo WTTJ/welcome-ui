@@ -47,6 +47,7 @@ export const Field = forwardRef(
 
     const baseType = getBaseType(type || Component.displayName)
     const isRadio = baseType === 'radio'
+    const isToggle = Component.displayName === 'Toggle'
     const isCheckbox = baseType === 'checkbox'
     const isCheckable = isRadio || isCheckbox
     const variant = getVariant({
@@ -129,6 +130,7 @@ export const Field = forwardRef(
               onClick={handleLabelClick}
               required={isShowRequired}
               variant={variant}
+              withDisabledIcon={!isToggle}
             >
               {isCheckable && <S.Input>{Field}</S.Input>}
               <S.Content>{label}</S.Content>
