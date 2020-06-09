@@ -1,5 +1,6 @@
 import merge from 'ramda/src/mergeDeepRight'
 import { rpxTransformers } from '@xstyled/system'
+import { hexToRGBA } from '@welcome-ui/utils'
 
 import { getToasts } from '../../Toast/theme'
 import { getLinks } from '../../Link/theme'
@@ -57,7 +58,11 @@ export const createTheme = (options = {}) => {
   theme.toEm = px => `${px / DEFAULT_FONT_SIZE}em`
   theme.toRem = px => `${px / DEFAULT_FONT_SIZE}rem`
 
-  theme.colors = { ...colors, underline: colors.primary[100] }
+  theme.colors = {
+    ...colors,
+    underline: colors.primary[100],
+    overlay: hexToRGBA(colors.dark[900], 0.55)
+  }
 
   // fonts
   theme.fontFaces = fontFaces
