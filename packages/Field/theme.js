@@ -73,15 +73,6 @@ export const getFields = theme => {
         '-webkit-text-stroke': '0.04em'
       }
     },
-    checkbox: {
-      default: {
-        width: toRem(15),
-        height: toRem(15),
-        'flex-shrink': 0,
-        'margin-top': LINE_HEIGHT_ADJUSTMENTS
-      },
-      checked
-    },
     radio: {
       default: {
         width: toRem(18),
