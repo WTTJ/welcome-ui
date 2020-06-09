@@ -50,6 +50,10 @@ export const Tr = styled.tr(
     ${variant && th(`tables.tr.${variant}`)};
     ${onClick && th(`tables.tr.clickable`)};
 
+    &:last-child {
+      border: 0;
+    }
+
     ${system}
   `
 )
@@ -74,7 +78,6 @@ export const Td = styled.td`
   ${th('tables.td')};
   position: relative;
   vertical-align: middle;
-  padding: lg xl;
 
   &:first-child {
     padding-left: 0;
