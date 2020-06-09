@@ -135,7 +135,7 @@ export const createTheme = (options = {}) => {
   theme.tooltips = getTooltips(theme)
   theme.links = getLinks(theme)
   theme.dropdownMenu = getDropdownMenu(theme)
-  theme.tables = getTables(theme)
+  theme.tables = getTables
   theme.cards = getCards(theme)
   theme.modals = getModals(theme)
   theme.loaders = getLoaders(theme)

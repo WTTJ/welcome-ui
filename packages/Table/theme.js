@@ -1,39 +1,42 @@
-export const getTables = theme => {
-  const { borderWidths, colors, fontSizes, fontWeights } = theme
+import { css } from '@xstyled/styled-components'
 
-  return {
-    th: {
-      'font-size': fontSizes.body3,
-      color: colors.nude[800],
-      'font-weight': fontWeights.bold,
-      'text-align': 'left'
-    },
-    td: {
-      'border-top-color': colors.nude[200],
-      'border-top-width': borderWidths.sm,
-      'border-top-style': 'solid',
-      'text-align': 'left'
-    },
-    tr: {
-      default: {
-        'font-size': fontSizes.body3,
-        color: colors.nude[800]
-      },
-      error: {
-        'background-color': colors.danger[100]
-      },
-      warning: {
-        'background-color': colors.warning[100]
-      },
-      info: {
-        'background-color': colors.info[100]
-      },
-      success: {
-        'background-color': colors.success[100]
-      },
-      clickable: {
-        cursor: 'pointer'
-      }
+export const getTables = {
+  th: css`
+    color: light.100;
+    font-weight: medium;
+    text-align: left;
+    border-bottom-color: dark.900;
+    border-bottom-width: sm;
+    border-bottom-style: solid;
+  `,
+  td: css`
+    text-align: left;
+    padding: xl;
+  `,
+  tr: {
+    default: css`
+      border-bottom-color: light.800;
+      border-bottom-width: sm;
+      border-bottom-style: solid;
+    `,
+    error: css`
+      background-color: danger.100;
+      color: danger.700;
+    `,
+    warning: css`
+      background-color: warning.100;
+      color: warning.700;
+    `,
+    info: css`
+      background-color: info.100;
+      color: info.500;
+    `,
+    success: css`
+      background-color: success.100;
+      color: success.500;
+    `,
+    clickable: {
+      cursor: 'pointer'
     }
   }
 }

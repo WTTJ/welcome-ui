@@ -94,9 +94,9 @@ export const Props = ({ props }) => {
                   <Table.Td textAlign="center" width="15%">
                     {item.required && (
                       <Tooltip content="is required">
-                        <Box display="inline">
-                          <CheckIcon color="primary.500" />
-                        </Box>
+                        <Tag shape="circle" variant="primary">
+                          <CheckIcon />
+                        </Tag>
                       </Tooltip>
                     )}
                   </Table.Td>
