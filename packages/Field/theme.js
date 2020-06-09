@@ -58,12 +58,6 @@ export const getFields = theme => {
       'font-size': fontSizes.body4,
       'font-weight': fontWeights.regular
     },
-    label: {
-      color: colors.light[100],
-      'font-size': fontSizes.body3,
-      'font-weight': fontWeights.medium,
-      'min-height': '1.4em'
-    },
     checkablelabel: {
       default: {
         'font-weight': fontWeights.regular

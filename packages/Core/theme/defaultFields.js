@@ -1,6 +1,6 @@
 import { css } from '@xstyled/styled-components'
 
-export const getDefaultFields = () => ({
+export const defaultFields = {
   default: css`
     color: nude.800;
     font-size: body3;
@@ -37,4 +37,4 @@ export const getDefaultFields = () => ({
   focused: css`
     border-color: primary.500;
   `
-})
+}

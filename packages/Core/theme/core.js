@@ -14,13 +14,14 @@ import { getIcons } from '../../Icon/theme'
 import { getTags } from '../../Tag/theme'
 import { getTooltips } from '../../Tooltip/theme'
 import { getDropdownMenu } from '../../DropdownMenu/theme'
-import { getTables } from '../../Table/theme'
 import { getCards } from '../../Card/theme'
 import { getModals } from '../../Modal/theme'
 import { getLoaders } from '../../Loader/theme'
 import { getAccordions } from '../../Accordion/theme'
 import { getSwipers } from '../../Swiper/theme'
-import { getCheckboxes } from '../../Checkbox/theme'
+import { checkboxes } from '../../Checkbox/theme'
+import { tables } from '../../Table/theme'
+import { labels } from '../../Label/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -35,7 +36,7 @@ import {
 } from './typography'
 import { transitionCurves, transitions } from './transitions'
 import { getUnderline } from './underline'
-import { getDefaultFields } from './defaultFields'
+import { defaultFields } from './defaultFields'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'work-sans'
@@ -135,15 +136,16 @@ export const createTheme = (options = {}) => {
   theme.tooltips = getTooltips(theme)
   theme.links = getLinks(theme)
   theme.dropdownMenu = getDropdownMenu(theme)
-  theme.tables = getTables
+  theme.tables = tables
   theme.cards = getCards(theme)
   theme.modals = getModals(theme)
   theme.loaders = getLoaders(theme)
   theme.accordions = getAccordions(theme)
   theme.swipers = getSwipers(theme)
+  theme.labels = labels
   // fields
-  theme.defaultFields = getDefaultFields()
-  theme.checkboxes = getCheckboxes(theme)
+  theme.defaultFields = defaultFields
+  theme.checkboxes = checkboxes
 
   theme = merge(theme, rest)
 
