@@ -1,6 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Box } from '@welcome-ui/box'
+import { Text } from '@welcome-ui/Text'
 import { system } from '@welcome-ui/system'
 import { getVariantColor } from '@welcome-ui/utils'
 import { Alert } from '@welcome-ui/alert'
@@ -43,3 +44,14 @@ export const Snackbar = styled(Alert)`
     margin-right: sm;
   }
 `
+
+export const SnackbarTitle = styled(Text).attrs(({ variant }) => ({
+  variant: 'h5',
+  // We're renaming the prop because it'll be overridden by Text's variant
+  toastVariant: variant
+}))(
+  ({ toastVariant }) => css`
+    margin: 0;
+    color: ${getVariantColor(toastVariant)};
+  `
+)

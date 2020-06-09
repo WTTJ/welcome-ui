@@ -110,7 +110,6 @@ In general :
           onClick={() =>
             toast(
               <Toast.Snackbar>
-                <CelebrateIcon />
                 <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
               </Toast.Snackbar>
             )
@@ -122,7 +121,6 @@ In general :
           onClick={() =>
             toast(
               <Toast.Snackbar variant="error">
-                <NegativeIcon />
                 <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
               </Toast.Snackbar>
             )
@@ -134,7 +132,6 @@ In general :
           onClick={() =>
             toast(
               <Toast.Snackbar variant="warning">
-                <MegaphoneIcon />
                 <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
               </Toast.Snackbar>
             )
@@ -146,13 +143,23 @@ In general :
           onClick={() =>
             toast(
               <Toast.Snackbar variant="success">
-                <CheckIcon />
                 <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
               </Toast.Snackbar>
             )
           }
         >
           Success
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Toast.Snackbar variant="error" icon="🤯">
+                <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+              </Toast.Snackbar>
+            )
+          }
+        >
+          Custom icon
         </Button>
       </>
     )
