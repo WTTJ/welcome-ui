@@ -23,7 +23,7 @@ export const Growl = styled.div(
   `
 )
 
-export const Title = styled.divBox(
+export const Title = styled(Box)(
   ({ variant }) => css`
     display: flex;
     align-items: center;

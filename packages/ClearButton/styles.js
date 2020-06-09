@@ -18,8 +18,8 @@ const fadeRule = css`
 `
 
 export const ClearButton = styled(Button)`
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 20;
+  height: 20;
   pointer-events: auto;
   animation: ${th('transitions.medium')};
   animation-name: ${fadeRule};
@@ -27,6 +27,6 @@ export const ClearButton = styled(Button)`
 `
 
 export const Icon = styled(CrossIcon)`
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 8;
+  height: 8;
 `
