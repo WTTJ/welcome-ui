@@ -161,6 +161,17 @@ In general :
         >
           Custom icon
         </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Toast.Snackbar variant="error" icon={null}>
+                <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+              </Toast.Snackbar>
+            )
+          }
+        >
+          No icon
+        </Button>
       </>
     )
   }}
@@ -178,7 +189,7 @@ In general :
             toast(
               <Toast.Growl>
                 <Toast.Title>
-                  <CelebrateIcon /> Lorem ipsum dolor sit amet
+                  Lorem ipsum dolor sit amet
                 </Toast.Title>
                 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos
@@ -197,9 +208,9 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Toast.Growl>
-                <Toast.Title variant="error">
-                  <NegativeIcon /> Lorem ipsum dolor sit amet
+              <Toast.Growl variant="error">
+                <Toast.Title>
+                  Lorem ipsum dolor sit amet
                 </Toast.Title>
                 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos
@@ -213,9 +224,9 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Toast.Growl>
-                <Toast.Title variant="warning">
-                  <MegaphoneIcon /> Lorem ipsum dolor sit amet
+              <Toast.Growl variant="warning">
+                <Toast.Title>
+                  Lorem ipsum dolor sit amet
                 </Toast.Title>
                 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos
@@ -229,9 +240,9 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Toast.Growl>
-                <Toast.Title variant="success">
-                  <CheckIcon /> Lorem ipsum dolor sit amet
+              <Toast.Growl variant="success">
+                <Toast.Title>
+                  Lorem ipsum dolor sit amet
                 </Toast.Title>
                 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos
@@ -241,6 +252,38 @@ In general :
           }
         >
           Success
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Toast.Growl variant="success">
+                <Toast.Title icon="🎉">
+                  Lorem ipsum dolor sit amet
+                </Toast.Title>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos
+              </Toast.Growl>,
+              { position: 'top-right' }
+            )
+          }
+        >
+          Custom icon
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Toast.Growl variant="warning">
+                <Toast.Title icon={null}>
+                  Lorem ipsum dolor sit amet
+                </Toast.Title>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos
+              </Toast.Growl>,
+              { position: 'top-right' }
+            )
+          }
+        >
+          No icon
         </Button>
       </>
     )
