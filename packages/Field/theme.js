@@ -1,6 +1,3 @@
-// To allow for line-height of text in label
-const LINE_HEIGHT_ADJUSTMENTS = '0.15rem'
-
 export const getFields = theme => {
   const { colors, fontSizes, fontWeights, radii, shadows, space, toRem } = theme
 
@@ -136,40 +133,6 @@ export const getFields = theme => {
     },
     textarea: {
       'min-height': '8rem'
-    },
-    toggles: {
-      default: {
-        width: toRem(22),
-        'background-color': colors.nude[200],
-        'border-color': colors.nude[200],
-        'margin-top': `-${LINE_HEIGHT_ADJUSTMENTS}`,
-        '&::after': {
-          ...defaults,
-          'background-color': colors.light[700],
-          'border-color': colors.nude[400]
-        }
-      },
-      checked: {
-        'background-color': colors.primary[500],
-        'border-color': colors.primary[500],
-        '&::after': {
-          'border-color': colors.primary[500]
-        }
-      },
-      disabled: {
-        'border-color': colors.light[200],
-        'background-color': colors.light[200],
-        '&::after': {
-          'border-color': colors.nude[200]
-        }
-      },
-      checkedDisabled: {
-        // 'border-color': colors.secondary[200],
-        // 'background-color': colors.secondary[200],
-        // '&::after': {
-        //   'border-color': colors.secondary[200]
-        // }
-      }
     },
     fieldset: {
       'border-width': '0'

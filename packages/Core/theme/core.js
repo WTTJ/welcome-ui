@@ -23,6 +23,7 @@ import { getSwipers } from '../../Swiper/theme'
 import { checkboxes } from '../../Checkbox/theme'
 import { tables } from '../../Table/theme'
 import { labels } from '../../Label/theme'
+import { toggles } from '../../Toggle/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -151,6 +152,7 @@ export const createTheme = (options = {}) => {
   // fields
   theme.defaultFields = defaultFields
   theme.checkboxes = checkboxes
+  theme.toggles = toggles
 
   theme = merge(theme, rest)
 
