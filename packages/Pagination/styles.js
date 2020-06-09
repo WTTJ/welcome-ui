@@ -12,8 +12,12 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   display: inline-block;
+  vertical-align: bottom;
   padding: 0;
-  margin: 0 xxs;
+  margin-right: xxs;
+  &:last-child {
+    margin-right: 0;
+  }
   ${p =>
     p.hidden &&
     css`
@@ -30,25 +34,19 @@ export const Dots = styled.span`
   cursor: pointer;
 `
 
-const AbstractLink = styled.a`
+export const AbstractLink = styled.a`
   ${th('paginations.default')};
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 50%;
   transition: medium;
-  transition-property: color;
   text-decoration: none;
 
   &:focus {
     outline: none !important; /* important for firefox */
     transition: none;
   }
-`
-
-export const ArrowLink = styled(AbstractLink)`
-  ${th('paginations.arrow')};
 `
 
 export const PageLink = styled(AbstractLink)`
