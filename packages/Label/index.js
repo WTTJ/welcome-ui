@@ -16,6 +16,7 @@ export const Label = forwardRef(
       disabledIcon,
       errorWarningIcon,
       variant,
+      withDisabledIcon = true,
       ...rest
     },
     ref
@@ -33,7 +34,7 @@ export const Label = forwardRef(
         {...rest}
       >
         {!checkableField && <VariantIcon errorWarningIcon={errorWarningIcon} variant={variant} />}
-        {disabled && <S.Disabled>{disabledIcon || <LockIcon />}</S.Disabled>}
+        {disabled && withDisabledIcon && <S.Disabled>{disabledIcon || <LockIcon />}</S.Disabled>}
         {content}
       </S.Label>
     )
@@ -48,7 +49,8 @@ Label.propTypes /* remove-proptypes */ = {
   disabled: bool,
   disabledIcon: node,
   errorWarningIcon: node,
-  variant: oneOf(['error', 'warning'])
+  variant: oneOf(['error', 'warning']),
+  withDisabledIcon: bool
 }
 
 export const StyledLabel = S.Label
