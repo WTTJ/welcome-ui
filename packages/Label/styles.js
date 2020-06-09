@@ -9,7 +9,7 @@ export const Label = styled.label(
     flex-shrink: 0;
     align-items: flex-start;
     line-height: body1;
-    ${th('fields.label')};
+    ${th('labels')};
     ${system};
     user-select: none;
 

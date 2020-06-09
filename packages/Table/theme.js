@@ -1,6 +1,6 @@
 import { css } from '@xstyled/styled-components'
 
-export const getTables = {
+export const tables = {
   th: css`
     color: light.100;
     font-weight: medium;
