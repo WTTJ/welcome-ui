@@ -133,9 +133,9 @@ export const welcomeTheme = {
   colors,
   palette,
   radii: {
-    sm: undefined,
-    md: undefined,
-    lg: undefined
+    sm: 0,
+    md: 0,
+    lg: 0
   },
   buttons: {
     primary: {

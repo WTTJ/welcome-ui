@@ -119,7 +119,7 @@ export const getFields = theme => {
         cursor: 'not-allowed'
       },
       highlighted: {
-        'background-color': colors.light[500],
+        'background-color': colors.nude[100],
         cursor: 'default'
       },
       selectedAndHighlighted: {
@@ -127,8 +127,7 @@ export const getFields = theme => {
       },
       selected: {
         color: colors.dark[200],
-        'font-weight': fontWeights.bold,
-        'background-color': colors.primary[100]
+        'font-weight': fontWeights.bold
       }
     },
     textarea: {
