@@ -152,5 +152,12 @@ export const welcomeTheme = {
         color: colors.dark[900]
       }
     }
+  },
+  dateTimePickerCommon: {
+    item: {
+      selected: {
+        color: colors.dark[900]
+      }
+    }
   }
 }

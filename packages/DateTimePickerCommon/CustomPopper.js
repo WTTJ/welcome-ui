@@ -1,5 +1,6 @@
 import React from 'react'
 import { func, object, shape, string } from 'prop-types'
+import { th } from '@xstyled/system'
 import styled, { css } from '@xstyled/styled-components'
 import { cardStyles } from '@welcome-ui/utils'
 
@@ -115,7 +116,7 @@ const StyledCustomPopper = styled.div(
     .react-datepicker__month-text--keyboard-selected,
     .react-datepicker__time-container
       .react-datepicker__time
-      .react-datepicker__time-box
+      .react-datepickter__time-box
       ul.react-datepicker__time-list
       li.react-datepicker__time-list-item--selected,
     .react-datepicker__day--selected,
@@ -124,15 +125,9 @@ const StyledCustomPopper = styled.div(
     .react-datepicker__month-text--selected,
     .react-datepicker__month-text--in-selecting-range,
     .react-datepicker__month-text--in-range {
-      /* TODO: put back light.900 & add dark.900 in Welcome's theme */
-      color: dark.900;
-      font-weight: bold;
-      background-color: primary.500;
+      ${th('dateTimePickerCommon.item.selected')};
       &:hover {
-        /* TODO: put back light.900 & add dark.900 in Welcome's theme */
-        color: dark.900;
-        font-weight: bold;
-        background-color: primary.500;
+        ${th('dateTimePickerCommon.item.selected')};
       }
     }
 
