@@ -12,15 +12,18 @@ export const Toast = styled(Box)(
   `
 )
 
-export const Growl = styled.div`
-  position: relative;
-  max-width: 25rem;
-  padding: lg;
-  ${th('toasts.growls.default')};
-  ${system};
-`
+export const Growl = styled.div(
+  ({ variant }) => css`
+    position: relative;
+    max-width: 25rem;
+    padding: lg;
+    ${th('toasts.growls.default')};
+    ${th(`toasts.growls.${variant}`)};
+    ${system};
+  `
+)
 
-export const Title = styled.div(
+export const Title = styled(Box)(
   ({ variant }) => css`
     display: flex;
     align-items: center;
@@ -39,7 +42,7 @@ export const Snackbar = styled(Alert)`
   display: flex;
   align-items: center;
 
-  & > *:not(:only-child):not(:last-child) {
+  ${Title} > *:not(:only-child):not(:last-child) {
     margin-right: sm;
   }
 `
