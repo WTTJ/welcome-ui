@@ -15,20 +15,17 @@ export const Checkbox = styled(filterFieldComponent(ReakitCheckbox))(
     transition: medium;
 
     &[aria-checked='true'] {
+      ${th(`defaultFields.checkableField.checked`)};
       &:not([disabled]) {
         ${th(`checkboxes.checked`)};
-      }
-      &::after {
-        opacity: 1;
       }
     }
 
     &[disabled] {
+      ${th(`defaultFields.checkableField.disabled`)};
       ${th('checkboxes.disabled')}
-      &[aria-checked='true']::after {
-        opacity: 0.4;
-      }
     }
+
 
     &::after {
       content: url('data:image/svg+xml; utf8, <svg viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg"><path d="M2.711 6.328L7.487.8A.844.844 0 0 1 8.712.73l-.273.318.273-.317a.927.927 0 0 1 .066 1.274L3.427 8.2a.847.847 0 0 1-1.221.073L.291 6.511a.928.928 0 0 1-.074-1.274.845.845 0 0 1 1.225-.076L2.71 6.328z" fill="black" fill-rule="nonzero"/></svg>');

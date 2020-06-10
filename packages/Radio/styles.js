@@ -17,19 +17,15 @@ export const Radio = styled(filterFieldComponent(ReakitRadio))(
     transition: medium;
 
     &[aria-checked='true'] {
+      ${th(`defaultFields.checkableField.checked`)};
       &:not([disabled]) {
         ${th(`radios.checked`)};
-      }
-      &::after {
-        opacity: 1;
       }
     }
 
     &[disabled] {
+      ${th(`defaultFields.checkableField.disabled`)};
       ${th('radios.disabled')}
-      &[aria-checked='true']::after {
-        opacity: 0.4;
-      }
     }
 
     &::after {
