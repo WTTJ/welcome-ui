@@ -15,19 +15,15 @@ export const Checkbox = styled(filterFieldComponent(ReakitCheckbox))(
     transition: medium;
 
     &[aria-checked='true'] {
+      ${th(`defaultFields.checkableField.checked`)};
       &:not([disabled]) {
         ${th(`checkboxes.checked`)};
-      }
-      &::after {
-        opacity: 1;
       }
     }
 
     &[disabled] {
+      ${th(`defaultFields.checkableField.disabled`)};
       ${th('checkboxes.disabled')}
-      &[aria-checked='true']::after {
-        opacity: 0.4;
-      }
     }
 
     &::after {

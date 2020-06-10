@@ -30,6 +30,18 @@ export const getDefaultFields = theme => {
         padding: `${space.md}`
       }
     },
+    checkableField: {
+      checked: css`
+        &::after {
+          opacity: 1;
+        }
+      `,
+      disabled: css`
+        &[aria-checked='true']::after {
+          opacity: 0.4;
+        }
+      `
+    },
     disabled: css`
       background-color: nude.500;
       color: nude.700;
