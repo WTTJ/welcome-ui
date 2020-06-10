@@ -87,5 +87,13 @@ export const GlobalStyle = createGlobalStyle(
     &[type='search'] {
       -webkit-appearance: none;
     }
+
+    /* to remove x on macos */
+    input[type='search']::-webkit-search-decoration,
+    input[type='search']::-webkit-search-cancel-button,
+    input[type='search']::-webkit-search-results-button,
+    input[type='search']::-webkit-search-results-decoration {
+      -webkit-appearance: none;
+    }
   `
 )
