@@ -137,6 +137,10 @@ export const welcomeTheme = {
     md: 0,
     lg: 0
   },
+  shadows: {
+    sm: 'none',
+    md: 'none'
+  },
   buttons: {
     primary: {
       color: colors.dark[900]
@@ -158,11 +162,6 @@ export const welcomeTheme = {
       selected: {
         color: colors.dark[900]
       }
-    }
-  },
-  radioTabs: {
-    hover: {
-      'box-shadow': 'none'
     }
   }
 }

@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
 import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
-import { fieldStyles, overflowEllipsis } from '@welcome-ui/utils'
+import { defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 
 export const Radio = styled(filterFieldComponent(ReakitRadio))(({ connected }) => {
   return css`
@@ -15,8 +15,13 @@ export const Radio = styled(filterFieldComponent(ReakitRadio))(({ connected }) =
 })
 
 const checkedStyles = css`
-  ${th('radioTabs.checked')};
+  color: dark.200;
+  background-color: nude.200;
+  border-color: primary.500;
   z-index: 2;
+  &:hover {
+    box-shadow: none;
+  }
 `
 
 const columnStyles = css`
@@ -68,7 +73,7 @@ export const Label = styled.label(
     cursor: pointer;
     transition: medium;
 
-    ${fieldStyles};
+    ${defaultFieldStyles};
     ${checked && checkedStyles};
     ${flexDirection === 'column' && columnStyles};
     ${flexDirection === 'row' && rowStyles};
@@ -77,7 +82,8 @@ export const Label = styled.label(
     padding-bottom: 0;
 
     &:hover {
-      ${th('radioTabs.hover')};
+      background-color: nude.200;
+      box-shadow: sm;
     }
   `
 )
