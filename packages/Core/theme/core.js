@@ -25,6 +25,7 @@ import { tables } from '../../Table/theme'
 import { labels } from '../../Label/theme'
 import { toggles } from '../../Toggle/theme'
 import { dateTimePickerCommon } from '../../DateTimePickerCommon/theme'
+import { textareas } from '../../Textarea/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -155,6 +156,7 @@ export const createTheme = (options = {}) => {
   theme.checkboxes = checkboxes
   theme.toggles = toggles
   theme.dateTimePickerCommon = dateTimePickerCommon
+  theme.textareas = textareas
 
   theme = merge(theme, rest)
 

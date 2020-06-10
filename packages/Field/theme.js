@@ -110,9 +110,6 @@ export const getFields = theme => {
         'box-shadow': shadows.sm
       }
     },
-    textarea: {
-      'min-height': '8rem'
-    },
     fieldset: {
       'border-width': '0'
     }
