@@ -1,7 +1,7 @@
 import { css } from '@xstyled/styled-components'
 
 export const getDefaultFields = theme => {
-  const { toRem } = theme
+  const { space, toRem } = theme
 
   return {
     default: css`
@@ -16,18 +16,18 @@ export const getDefaultFields = theme => {
       outline: none;
     `,
     sizes: {
-      sm: css`
-        height: 32;
-        padding: xs md;
-      `,
-      md: css`
-        height: 36;
-        padding: sm md;
-      `,
-      lg: css`
-        height: 40;
-        padding: md;
-      `
+      sm: {
+        height: toRem(32),
+        padding: `${space.xs} ${space.md}`
+      },
+      md: {
+        height: toRem(36),
+        padding: `${space.sm} ${space.md}`
+      },
+      lg: {
+        height: toRem(40),
+        padding: `${space.md}`
+      }
     },
     disabled: css`
       background-color: nude.500;
