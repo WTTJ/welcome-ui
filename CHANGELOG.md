@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.29.1](https://github.com/WTTJ/welcome-ui/compare/v1.29.0...v1.29.1) (2020-06-10)
+
+
+### Bug Fixes
+
+* add all sizes into example ([#653](https://github.com/WTTJ/welcome-ui/issues/653)) ([18defa6](https://github.com/WTTJ/welcome-ui/commit/18defa64d774a0647380eaec8be8fe8432e3282c))
+* add new loader size ([#648](https://github.com/WTTJ/welcome-ui/issues/648)) ([6c7d5ff](https://github.com/WTTJ/welcome-ui/commit/6c7d5ffb770ebfde5b5de1c3e1cf5f1564d7678a))
+* mde errors catch ([#647](https://github.com/WTTJ/welcome-ui/issues/647)) ([ac6a315](https://github.com/WTTJ/welcome-ui/commit/ac6a315e97e9b50c87ef85244756bb611e07d7cd))
+* missing disabled prop on DateTimePicker ([#643](https://github.com/WTTJ/welcome-ui/issues/643)) ([01c569f](https://github.com/WTTJ/welcome-ui/commit/01c569f10d42cbf8d9927698402b93556039a47e))
+
+
+
+
+
 # [1.29.0](https://github.com/WTTJ/welcome-ui/compare/v1.28.0...v1.29.0) (2020-05-27)
 
 

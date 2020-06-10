@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/loader",
-  "version": "1.29.0",
+  "version": "1.29.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/loader.cjs.js",
   "module": "dist/loader.es.js",
