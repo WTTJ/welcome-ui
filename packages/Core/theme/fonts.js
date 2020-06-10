@@ -16,11 +16,6 @@ export const fontFaces = {
       extensions: ['woff2', 'woff', 'ttf']
     },
     {
-      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcome-font-black',
-      weight: '700',
-      extensions: ['woff2', 'woff', 'ttf']
-    },
-    {
       url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcome-font-regular-italic',
       weight: '400',
       style: 'italic',
@@ -37,12 +32,6 @@ export const fontFaces = {
       weight: '600',
       style: 'italic',
       extensions: ['woff2', 'woff', 'ttf']
-    },
-    {
-      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/welcome-font-black-italic',
-      weight: '700',
-      style: 'italic',
-      extensions: ['woff2', 'woff', 'ttf']
     }
   ],
   'work-sans': [
@@ -57,7 +46,7 @@ export const fontFaces = {
       extensions: ['woff2', 'woff', 'ttf']
     },
     {
-      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/work-sans-bold',
+      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/work-sans-semibold',
       weight: '600',
       extensions: ['woff2', 'woff', 'ttf']
     },
@@ -74,7 +63,7 @@ export const fontFaces = {
       extensions: ['woff2', 'woff', 'ttf']
     },
     {
-      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/work-sans-bold-italic',
+      url: 'https://cdn.welcometothejungle.co/common/assets/fonts/work-sans-semibold-italic',
       weight: '600',
       style: 'italic',
       extensions: ['woff2', 'woff', 'ttf']

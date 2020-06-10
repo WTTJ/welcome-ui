@@ -76,8 +76,7 @@ export const createTheme = (options = {}) => {
   theme.fontWeights = {
     regular: '400',
     medium: '500',
-    bold: '600',
-    black: '700'
+    bold: '600'
   }
   theme.letterSpacings = getLetterSpacings(theme)
   theme.fonts = {
