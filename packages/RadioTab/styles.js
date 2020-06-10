@@ -15,7 +15,7 @@ export const Radio = styled(filterFieldComponent(ReakitRadio))(({ connected }) =
 })
 
 const checkedStyles = css`
-  ${th('fields.radiotabs.checked')};
+  ${th('radioTabs.checked')};
   z-index: 2;
 `
 
@@ -56,8 +56,11 @@ const rowStyles = css`
 export const Label = styled.label(
   ({ checked, flexDirection }) => css`
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-width: 0;
-    min-height: 0;
+    min-height: 40;
     max-width: 100%;
     margin: 0;
     text-align: center;
@@ -70,9 +73,11 @@ export const Label = styled.label(
     ${flexDirection === 'column' && columnStyles};
     ${flexDirection === 'row' && rowStyles};
     ${componentSystem};
+    padding-top: 0;
+    padding-bottom: 0;
 
     &:hover {
-      ${th('fields.radiotabs.hover')};
+      ${th('radioTabs.hover')};
     }
   `
 )

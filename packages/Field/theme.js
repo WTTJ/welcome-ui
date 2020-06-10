@@ -1,5 +1,5 @@
 export const getFields = theme => {
-  const { colors, fontSizes, fontWeights, radii, shadows, space, toRem } = theme
+  const { colors, fontSizes, fontWeights, radii, space, toRem } = theme
 
   const defaults = {
     color: colors.nude[800],
@@ -71,23 +71,6 @@ export const getFields = theme => {
           color: colors.primary[200],
           'border-color': colors.nude[300]
         }
-      }
-    },
-    radiotabs: {
-      default: {
-        ...defaults
-      },
-      checked: {
-        color: colors.dark[200],
-        'background-color': colors.light[700],
-        'border-color': colors.primary[500],
-        '&:hover': {
-          'box-shadow': 'none'
-        }
-      },
-      hover: {
-        'background-color': colors.light[700],
-        'box-shadow': shadows.sm
       }
     },
     fieldset: {

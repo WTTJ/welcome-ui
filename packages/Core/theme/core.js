@@ -28,6 +28,7 @@ import { dateTimePickerCommon } from '../../DateTimePickerCommon/theme'
 import { textareas } from '../../Textarea/theme'
 import { filedrops } from '../../FileDrop/theme'
 import { radios } from '../../Radio/theme'
+import { getRadioTabs } from '../../RadioTab/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -161,6 +162,7 @@ export const createTheme = (options = {}) => {
   theme.textareas = textareas
   theme.filedrops = filedrops
   theme.radios = radios
+  theme.radioTabs = getRadioTabs(theme)
 
   theme = merge(theme, rest)
 

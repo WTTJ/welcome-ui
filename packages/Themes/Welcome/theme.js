@@ -159,5 +159,10 @@ export const welcomeTheme = {
         color: colors.dark[900]
       }
     }
+  },
+  radioTabs: {
+    hover: {
+      'box-shadow': 'none'
+    }
   }
 }
