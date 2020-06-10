@@ -6,13 +6,13 @@ import { Text } from '@welcome-ui/text'
 export const Message = ({ disabled, openFile }) => {
   return (
     <>
-      <Text color="dark.900" fontWeight="bold" m="0" variant="body1">
+      <Text color="nude.800" m="0" variant="h5">
         Add file
       </Text>
-      <Text m="0" variant="body3">
-        Drag and drop a file here or
+      <Text color="nude.700" m="0" mt="sm" variant="body3">
+        Drag & drop a file here or
       </Text>
-      <Button disabled={disabled} mt="lg" onClick={openFile} type="button">
+      <Button disabled={disabled} mt="xl" onClick={openFile} type="button">
         Browse file
       </Button>
     </>
