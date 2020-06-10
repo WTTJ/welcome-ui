@@ -13,17 +13,17 @@ export const FilePreview = ({ file, forceFileType }) => {
 
   return (
     <>
-      <Icon color="dark.200" height={50} mb="md" width={50} />
-      <Text color="dark.200" fontWeight="bold" lines={1} m={0} maxWidth={600}>
+      <Icon color="dark.900" height={50} mb="lg" width={50} />
+      <Text color="dark.800" lines={1} m={0} maxWidth={600} variant="h5">
         {name}
       </Text>
       {!isUrl && (
-        <Text fontWeight="medium" lines={1} m={0} variant="body3">
+        <Text color="nude.700" fontWeight="medium" lines={1} m={0} variant="body3">
           {size}
         </Text>
       )}
       {isUrl && (
-        <Button as="a" href={file} mt="sm" rel="noopener" size="sm" target="_blank">
+        <Button as="a" href={file} mt="md" rel="noopener" size="sm" target="_blank">
           <span>Preview</span>
           <ExternalLinkIcon />
         </Button>
