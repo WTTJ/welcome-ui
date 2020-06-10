@@ -26,6 +26,7 @@ import { labels } from '../../Label/theme'
 import { toggles } from '../../Toggle/theme'
 import { dateTimePickerCommon } from '../../DateTimePickerCommon/theme'
 import { textareas } from '../../Textarea/theme'
+import { filedrops } from '../../FileDrop/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -157,6 +158,7 @@ export const createTheme = (options = {}) => {
   theme.toggles = toggles
   theme.dateTimePickerCommon = dateTimePickerCommon
   theme.textareas = textareas
+  theme.filedrops = filedrops
 
   theme = merge(theme, rest)
 

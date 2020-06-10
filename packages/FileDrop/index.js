@@ -1,8 +1,8 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { bool, func, node, number, object, oneOf, oneOfType, string } from 'prop-types'
 import { useDropzone } from 'react-dropzone'
-import { CrossIcon } from '@welcome-ui/icons.cross'
-import { PencilIcon } from '@welcome-ui/icons.pencil'
+import { TrashIcon } from '@welcome-ui/icons.trash'
+import { EditIcon } from '@welcome-ui/icons.edit'
 import { Button } from '@welcome-ui/button'
 import { Group } from '@welcome-ui/group'
 import { createEvent, validateFileSize, validateMimeType } from '@welcome-ui/utils'
@@ -121,6 +121,7 @@ export const FileDrop = forwardRef(
           isDragAccept,
           isDragReject,
           isClearable,
+          disabled,
           ref
         })}
         {...rest}
@@ -149,8 +150,14 @@ export const FileDrop = forwardRef(
             <S.Actions>
               <Group>
                 {(error || isEditable) && (
-                  <Button onClick={open} shape="square" size="sm" type="button" variant="secondary">
-                    <PencilIcon />
+                  <Button
+                    onClick={open}
+                    shape="square"
+                    size="sm"
+                    type="button"
+                    variant="quaternary"
+                  >
+                    <EditIcon />
                   </Button>
                 )}
                 {isClearable && (
@@ -161,7 +168,7 @@ export const FileDrop = forwardRef(
                     type="button"
                     variant="primary-danger"
                   >
-                    <CrossIcon />
+                    <TrashIcon />
                   </Button>
                 )}
               </Group>

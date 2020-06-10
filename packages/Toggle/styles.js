@@ -4,7 +4,7 @@ import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
 import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
 
 export const Toggle = styled(filterFieldComponent(ReakitCheckbox))(
-  ({ checked, connected, disabled, order = '-1' }) => css`
+  ({ checked, connected, disabled, order = '-1', theme }) => css`
     ${th('toggles.item.default')};
     position: relative;
     display: block;
@@ -18,8 +18,8 @@ export const Toggle = styled(filterFieldComponent(ReakitCheckbox))(
     &::after {
       ${th('toggles.after.default')};
       content: '';
-      top: 1px;
-      left: 1px;
+      top: 1;
+      left: 1;
       position: absolute;
       transition: medium;
     }
@@ -28,7 +28,7 @@ export const Toggle = styled(filterFieldComponent(ReakitCheckbox))(
       css`
         &::after {
           left: 100%;
-          transform: translateX(calc(-100% - 1px));
+          transform: translateX(calc(-100% - ${theme.toRem(1)}));
         }
       `};
 
