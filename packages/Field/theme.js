@@ -14,15 +14,6 @@ export const getFields = theme => {
     outline: 'none'
   }
 
-  const checked = {
-    'background-color': colors.primary[500],
-    'border-color': colors.primary[500],
-    color: colors.light[900],
-    '&::after': {
-      opacity: 1
-    }
-  }
-
   return {
     default: defaults,
     disabled: {
@@ -62,17 +53,6 @@ export const getFields = theme => {
       checked: {
         color: colors.dark[200],
         '-webkit-text-stroke': '0.04em'
-      }
-    },
-    radio: {
-      default: {
-        width: toRem(18),
-        height: toRem(18),
-        'border-radius': '50%'
-      },
-      checked: {
-        ...checked,
-        'border-radius': '50%'
       }
     },
     fileupload: {
