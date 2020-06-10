@@ -15,7 +15,7 @@ export const RadioTab = forwardRef((props, ref) => {
     label,
     onChange,
     onClick,
-    size,
+    size = 'lg',
     variant,
     ...rest
   } = props

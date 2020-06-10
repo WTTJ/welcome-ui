@@ -59,13 +59,13 @@ const rowStyles = css`
 `
 
 export const Label = styled.label(
-  ({ checked, flexDirection }) => css`
+  ({ checked, flexDirection, size }) => css`
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: 0;
-    min-height: 40;
+    min-height: ${th(`defaultFields.sizes.${size}.height`)};
     max-width: 100%;
     margin: 0;
     text-align: center;
@@ -95,5 +95,5 @@ export const Input = styled.div`
 
 export const Content = styled.div`
   ${overflowEllipsis};
-  line-height: initial; /* avoid cropped font */
+  max-width: 100%;
 `
