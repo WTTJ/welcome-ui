@@ -7,7 +7,8 @@ export const getDefaultFields = theme => {
     default: css`
       color: nude.800;
       font-size: body3;
-      line-height: 16;
+      /* Can't use 16 because that's a valid line-height value (16em) */
+      line-height: 1rem;
       font-weight: regular;
       background-color: light.900;
       border-color: nude.200;
