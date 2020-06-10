@@ -125,8 +125,13 @@ export const MarkdownEditor = forwardRef(
 
     const handleToolbarClick = item => {
       let { action } = toolbarItems.find(toolbarItem => toolbarItem.name === item)
-      // Use actions from the MDE instance or provided action
-      action && typeof action === 'string' ? instance[action]() : action()
+      // catch errors of mde actions (bad regex on their side)
+      try {
+        // Use actions from the MDE instance or provided action
+        action && typeof action === 'string' ? instance[action]() : action()
+      } catch (e) {
+        return
+      }
       updateCurrentTools(instance.codemirror)
     }
 
