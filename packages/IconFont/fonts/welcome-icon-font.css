@@ -1,8 +1,8 @@
 @font-face {
 	font-family: "welcome-icon-font";
-	src: url("welcome-icon-font.eot?9886a076e732adcd05f1958a1336b88b?#iefix") format("embedded-opentype"),
-url("welcome-icon-font.woff2?9886a076e732adcd05f1958a1336b88b") format("woff2"),
-url("welcome-icon-font.woff?9886a076e732adcd05f1958a1336b88b") format("woff");
+	src: url("welcome-icon-font.eot?1e6059cf298f0e39e4ea7336c13091ee?#iefix") format("embedded-opentype"),
+url("welcome-icon-font.woff2?1e6059cf298f0e39e4ea7336c13091ee") format("woff2"),
+url("welcome-icon-font.woff?1e6059cf298f0e39e4ea7336c13091ee") format("woff");
 }
 
 .icon {
@@ -540,4 +540,19 @@ url("welcome-icon-font.woff?9886a076e732adcd05f1958a1336b88b") format("woff");
 }
 .icon-video:before {
 	content: "\1b4";
+}
+.icon-expand_text:before {
+	content: "\1b5";
+}
+.icon-fingerprint:before {
+	content: "\1b6";
+}
+.icon-mansanory:before {
+	content: "\1b7";
+}
+.icon-pictures:before {
+	content: "\1b8";
+}
+.icon-teepee:before {
+	content: "\1b9";
 }

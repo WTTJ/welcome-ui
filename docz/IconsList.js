@@ -5,14 +5,17 @@ import styled, { css } from '@xstyled/styled-components'
 
 import { Box } from '../packages/Box/index'
 import { useCopyText } from '../packages/Copy'
+import { Toast, useToast } from '../packages/Toast'
 import * as Icons from '../icons'
 import { Icons as FontIcons } from '../packages/IconFont'
 import { toPascalCase } from '../src/utils/toPascalCase'
 
 const Content = styled(Box)`
-  background-color: light.500;
+  background-color: light.900;
+  border-color: light.800;
+  border-width: sm;
+  border-style: solid;
   border-radius: lg;
-  color: dark.200;
   display: flex;
   justify-content: center;
   padding: lg md;
@@ -33,7 +36,8 @@ const Item = styled(Box)(
       css`
         &:hover {
           ${Content} {
-            background-color: light.200;
+            background-color: light.800;
+            border-color: light.800;
           }
         }
       `}
@@ -42,6 +46,7 @@ const Item = styled(Box)(
       css`
         ${Content} {
           background-color: success.100;
+          border-color: success.100;
         }
       `}
   `
@@ -49,21 +54,24 @@ const Item = styled(Box)(
 
 function IconItem({ componentName, icon: Icon, name }) {
   const [copy, copied] = useCopyText(componentName, 500)
+  const toast = useToast()
+
+  function handleCopy() {
+    copy()
+    toast(
+      <Toast.Snackbar variant="success">
+        <span>Copied</span>
+      </Toast.Snackbar>,
+      { duration: 1000 }
+    )
+  }
 
   return (
-    <Item copied={copied} onClick={() => copy()}>
-      <Content
-        backgroundColor="light.500"
-        borderRadius="lg"
-        color="dark.200"
-        display="flex"
-        justifyContent="center"
-        padding="15px 10px"
-        width={1}
-      >
+    <Item copied={copied} onClick={handleCopy}>
+      <Content>
         <Icon size="xl" />
       </Content>
-      <Box fontSize="meta1" fontWeight="medium" padding="5px 0" textAlign="center" width={1}>
+      <Box fontSize="meta1" fontWeight="medium" pt="xs" px="xs" textAlign="center" width={1}>
         {name}
       </Box>
     </Item>
