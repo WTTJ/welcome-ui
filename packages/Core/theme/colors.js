@@ -1,3 +1,5 @@
+import { hexToRGBA } from '@welcome-ui/utils'
+
 export const colors = {
   primary: {
     100: '#C6CAFF',
@@ -60,5 +62,7 @@ export const colors = {
     4: '#F0AABF',
     5: '#965FE6',
     6: '#F4CF70'
-  }
+  },
+  underline: '#C6CAFF',
+  overlay: hexToRGBA('#000000', 0.55)
 }

@@ -5,21 +5,17 @@ export const getLinks = theme => {
   return {
     default: {
       color: colors.dark[500],
-      'font-weight': fontWeights.medium,
+      fontWeight: fontWeights.medium,
       transition: transitions.medium
     },
     primary: {
-      default: underline.default,
-      hover: underline.hover
-    },
-    'primary-underline-span': {
       default: css`
-        > span {
+        .wui-text {
           ${underline.default};
         }
       `,
       hover: css`
-        > span {
+        .wui-text {
           ${underline.hover};
         }
       `

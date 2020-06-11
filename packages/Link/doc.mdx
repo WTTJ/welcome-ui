@@ -56,17 +56,25 @@ It can also be `disabled`
   </Box>
 </Playground>
 
-## Special case
+## What is underlined by default?
 
-Use variant to `primary-underline-span` to add undeline primary link style on span
+`Link` will add an underline to text nodes & `Text` components
 
 <Playground>
   <Box>
-    <Link as={LinkDocz} to="/components/shape" variant="primary-underline-span">
+    <Link as={LinkDocz} to="/components/shape">
       <Shape height="30px" shape="circle" width="30px">
         <img src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4" />
       </Shape>
-      <span>see shape component</span>
+      This is a text node
+    </Link>
+  </Box>
+  <Box>
+    <Link as={LinkDocz} to="/components/shape">
+      <Shape height="30px" shape="circle" width="30px">
+        <img src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4" />
+      </Shape>
+      <Text>This is a text in a Text component</Text>
     </Link>
   </Box>
 </Playground>
