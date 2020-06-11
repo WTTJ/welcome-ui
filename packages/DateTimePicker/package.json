@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-time-picker",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/date-time-picker.cjs.js",
   "module": "dist/date-time-picker.es.js",
@@ -33,16 +33,16 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/button": "^2.0.0-alpha.0",
-    "@welcome-ui/clear-button": "^2.0.0-alpha.0",
-    "@welcome-ui/date-picker": "^2.0.0-alpha.0",
-    "@welcome-ui/date-time-picker-common": "^2.0.0-alpha.0",
-    "@welcome-ui/field": "^2.0.0-alpha.0",
-    "@welcome-ui/icons.left": "^2.0.0-alpha.0",
-    "@welcome-ui/icons.right": "^2.0.0-alpha.0",
-    "@welcome-ui/select": "^2.0.0-alpha.0",
+    "@welcome-ui/button": "^2.0.0-alpha.2",
+    "@welcome-ui/clear-button": "^2.0.0-alpha.2",
+    "@welcome-ui/date-picker": "^2.0.0-alpha.2",
+    "@welcome-ui/date-time-picker-common": "^2.0.0-alpha.2",
+    "@welcome-ui/field": "^2.0.0-alpha.2",
+    "@welcome-ui/icons.left": "^2.0.0-alpha.2",
+    "@welcome-ui/icons.right": "^2.0.0-alpha.2",
+    "@welcome-ui/select": "^2.0.0-alpha.2",
     "@welcome-ui/system": "^1.20.0",
-    "@welcome-ui/time-picker": "^2.0.0-alpha.0",
+    "@welcome-ui/time-picker": "^2.0.0-alpha.2",
     "react-datepicker": "^2.9.6"
   },
   "peerDependencies": {
