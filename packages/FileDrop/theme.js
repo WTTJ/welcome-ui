@@ -1,14 +1,13 @@
-import { css } from '@xstyled/styled-components'
-import { getVariantColor } from '@welcome-ui/utils'
+export const getFiledrops = theme => {
+  const { toRem } = theme
 
-export const filedrops = {
-  default: css`
-    border-style: dashed;
-    min-height: 200;
-  `,
-  dragAccept: css``,
-  dragReject: css`
-    border-color: ${getVariantColor('error')};
-  `,
-  disabled: css``
+  return {
+    default: {
+      borderStyle: 'dashed',
+      minHeight: toRem(200)
+    },
+    dragAccept: {},
+    dragReject: {},
+    disabled: {}
+  }
 }

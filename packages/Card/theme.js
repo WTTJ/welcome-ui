@@ -5,8 +5,8 @@ export const getCards = theme => {
       overflow: 'hidden'
     },
     cover: {
-      'border-top-left-radius': radii.sm,
-      'border-top-right-radius': radii.sm
+      borderTopLeftRadius: radii.sm,
+      borderTopRightRadius: radii.sm
     }
   }
 }

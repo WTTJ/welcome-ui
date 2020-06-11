@@ -3,27 +3,27 @@ export const getAlerts = theme => {
 
   return {
     default: {
-      'font-size': fontSizes.body3,
-      'border-width': borderWidths.sm,
-      'border-style': 'solid',
-      'border-radius': radii.md,
+      fontSize: fontSizes.body3,
+      borderWidth: borderWidths.sm,
+      borderStyle: 'solid',
+      borderRadius: radii.md,
       padding: space.xl
     },
     error: {
-      'background-color': colors.danger[100],
-      'border-color': colors.danger[500]
+      backgroundColor: colors.danger[100],
+      borderColor: colors.danger[500]
     },
     warning: {
-      'background-color': colors.warning[100],
-      'border-color': colors.warning[500]
+      backgroundColor: colors.warning[100],
+      borderColor: colors.warning[500]
     },
     info: {
-      'background-color': colors.info[100],
-      'border-color': colors.info[500]
+      backgroundColor: colors.info[100],
+      borderColor: colors.info[500]
     },
     success: {
-      'background-color': colors.success[100],
-      'border-color': colors.success[500]
+      backgroundColor: colors.success[100],
+      borderColor: colors.success[500]
     },
     title: {
       error: {

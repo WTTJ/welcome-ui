@@ -1,42 +1,44 @@
-import { css } from '@xstyled/styled-components'
+export const getTables = theme => {
+  const { borderWidths, colors, fontWeights, space } = theme
 
-export const tables = {
-  th: css`
-    color: light.100;
-    font-weight: medium;
-    text-align: left;
-    border-bottom-color: dark.900;
-    border-bottom-width: sm;
-    border-bottom-style: solid;
-  `,
-  td: css`
-    text-align: left;
-    padding: xl;
-  `,
-  tr: {
-    default: css`
-      border-bottom-color: light.800;
-      border-bottom-width: sm;
-      border-bottom-style: solid;
-    `,
-    error: css`
-      background-color: danger.100;
-      color: danger.700;
-    `,
-    warning: css`
-      background-color: warning.100;
-      color: warning.700;
-    `,
-    info: css`
-      background-color: info.100;
-      color: info.500;
-    `,
-    success: css`
-      background-color: success.100;
-      color: success.500;
-    `,
-    clickable: {
-      cursor: 'pointer'
+  return {
+    th: {
+      color: colors.light[100],
+      fontWeight: fontWeights.medium,
+      textAlign: 'left',
+      borderBottomColor: colors.dark[900],
+      borderBottomWidth: borderWidths.sm,
+      borderBottomStyle: 'solid'
+    },
+    td: {
+      textAlign: 'left',
+      padding: space.xl
+    },
+    tr: {
+      default: {
+        borderBottomColor: colors.light[800],
+        borderBottomWidth: borderWidths.sm,
+        borderBottomStyle: 'solid'
+      },
+      error: {
+        backgroundColor: colors.danger[100],
+        color: colors.danger[700]
+      },
+      warning: {
+        backgroundColor: colors.warning[100],
+        color: colors.warning[700]
+      },
+      info: {
+        backgroundColor: colors.info[100],
+        color: colors.info[500]
+      },
+      success: {
+        backgroundColor: colors.success[100],
+        color: colors.success[500]
+      },
+      clickable: {
+        cursor: 'pointer'
+      }
     }
   }
 }

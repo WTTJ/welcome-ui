@@ -6,13 +6,13 @@ export const getTabs = theme => {
       bottom: borderWidths.sm,
       width: '100%',
       height: borderWidths.sm,
-      'background-color': colors.light[800]
+      backgroundColor: colors.light[800]
     },
     item: {
       default: {
         color: colors.light[100],
-        'font-weight': fontWeights.medium,
-        'font-size': fontSizes.body1
+        fontWeight: fontWeights.medium,
+        fontSize: fontSizes.body1
       },
       active: {
         color: colors.dark[900]
@@ -25,7 +25,7 @@ export const getTabs = theme => {
       }
     },
     panel: {
-      'margin-top': space.xl,
+      marginTop: space.xl,
       '&:focus': {
         outline: 'none'
       }

@@ -1,21 +1,19 @@
-import { css } from '@xstyled/styled-components'
-
 export const getDefaultFields = theme => {
-  const { space, toRem } = theme
+  const { borderWidths, colors, fontSizes, fontWeights, space, toRem } = theme
 
   return {
-    default: css`
-      color: nude.800;
-      font-size: body3;
+    default: {
+      color: colors.nude[800],
+      fontSize: fontSizes.body3,
       /* Can't use 16 because that's a valid line-height value (16em) */
-      line-height: 1rem;
-      font-weight: regular;
-      background-color: light.900;
-      border-color: nude.200;
-      border-width: 1px;
-      border-style: solid;
-      outline: none;
-    `,
+      lineHeight: '1rem',
+      fontWeight: fontWeights.regular,
+      backgroundColor: colors.light[900],
+      borderColor: colors.nude[200],
+      borderWidth: borderWidths.sm,
+      borderStyle: 'solid',
+      outline: 'none'
+    },
     sizes: {
       sm: {
         height: toRem(32),
@@ -31,47 +29,47 @@ export const getDefaultFields = theme => {
       }
     },
     checkableField: {
-      checked: css`
-        &::after {
-          opacity: 1;
+      checked: {
+        '&::after': {
+          opacity: 1
         }
-      `,
-      disabled: css`
-        &[aria-checked='true']::after {
-          opacity: 0.4;
+      },
+      disabled: {
+        "&[aria-checked='true']::after": {
+          opacity: 0.4
         }
-      `
+      }
     },
-    disabled: css`
-      background-color: nude.500;
-      color: nude.700;
-      cursor: not-allowed;
-    `,
-    placeholder: css`
-      color: nude.600;
-    `,
-    focused: css`
-      border-color: primary.500;
-    `,
+    disabled: {
+      backgroundColor: colors.nude[500],
+      color: colors.nude[700],
+      cursor: 'not-allowed'
+    },
+    placeholder: {
+      color: colors.nude[600]
+    },
+    focused: {
+      borderColor: colors.primary[500]
+    },
     select: {
-      default: css`
-        max-height: ${toRem(155)};
-      `,
-      existing: css`
-        color: nude.500;
-        cursor: not-allowed;
-      `,
-      highlighted: css`
-        background-color: nude.100;
-        cursor: default;
-      `,
-      selectedAndHighlighted: css`
-        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%);
-      `,
-      selected: css`
-        color: dark.200;
-        font-weight: bold;
-      `
+      default: {
+        maxHeight: toRem(155)
+      },
+      existing: {
+        color: colors.nude[500],
+        cursor: 'not-allowed'
+      },
+      highlighted: {
+        backgroundColor: colors.nude[100],
+        cursor: 'default'
+      },
+      selectedAndHighlighted: {
+        backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%)'
+      },
+      selected: {
+        color: colors.dark[200],
+        fontWeight: fontWeights.bold
+      }
     }
   }
 }

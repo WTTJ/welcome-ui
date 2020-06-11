@@ -1,11 +1,13 @@
-import { css } from '@xstyled/styled-components'
+export const getDateTimePickerCommon = theme => {
+  const { colors, fontWeights } = theme
 
-export const dateTimePickerCommon = {
-  item: {
-    selected: css`
-      color: light.900;
-      font-weight: bold;
-      background-color: primary.500;
-    `
+  return {
+    item: {
+      selected: {
+        color: colors.light[900],
+        fontWeight: fontWeights.bold,
+        backgroundColor: colors.primary[500]
+      }
+    }
   }
 }

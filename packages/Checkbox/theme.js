@@ -1,17 +1,19 @@
-import { css } from '@xstyled/styled-components'
+export const getCheckboxes = theme => {
+  const { colors, toRem } = theme
 
-export const checkboxes = {
-  default: css`
-    width: 20;
-    height: 20;
-    flex-shrink: 0;
-  `,
-  disabled: css`
-    border-color: nude.700;
-  `,
-  checked: css`
-    background-color: primary.500;
-    border-color: primary.500;
-    color: dark.900;
-  `
+  return {
+    default: {
+      width: toRem(20),
+      height: toRem(20),
+      flexShrink: 0
+    },
+    disabled: {
+      borderColor: colors.nude[700]
+    },
+    checked: {
+      backgroundColor: colors.primary[500],
+      borderColor: colors.primary[500],
+      color: colors.dark[900]
+    }
+  }
 }
