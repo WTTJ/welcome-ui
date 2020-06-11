@@ -21,7 +21,6 @@ const baseBoxSizing = css`
 
 function baseFonts(props) {
   const texts = getFont('texts')(props)
-  const headings = getFont('headings')(props)
   const sansSerif = 'sans-serif'
   return css`
     @media (max-width: 1200px) {
@@ -51,15 +50,6 @@ function baseFonts(props) {
       -webkit-font-smoothing: antialiased;
       letter-spacing: ${th('letterSpacings.html')};
       line-height: ${th('lineHeights.html')};
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: ${getFontFamilies(headings, texts, sansSerif)};
     }
   `
 }
