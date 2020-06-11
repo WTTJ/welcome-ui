@@ -1,5 +1,5 @@
 export const getDefaultFields = theme => {
-  const { colors, fontSizes, fontWeights, space, toRem } = theme
+  const { borderWidths, colors, fontSizes, fontWeights, space, toRem } = theme
 
   return {
     default: {
@@ -10,7 +10,7 @@ export const getDefaultFields = theme => {
       fontWeight: fontWeights.regular,
       backgroundColor: colors.light[900],
       borderColor: colors.nude[200],
-      borderWidth: '1px',
+      borderWidth: borderWidths.sm,
       borderStyle: 'solid',
       outline: 'none'
     },

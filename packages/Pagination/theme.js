@@ -1,13 +1,13 @@
 import { hexToRGB } from '@welcome-ui/utils'
 
 export const getPaginations = theme => {
-  const { colors, fontSizes, fontWeights, toRem } = theme
+  const { borderWidths, colors, fontSizes, fontWeights, toRem } = theme
 
   return {
     default: {
       color: colors.dark[900],
       fontWeight: fontWeights.bold,
-      borderWidth: '1px',
+      borderWidth: borderWidths.sm,
       borderStyle: 'solid',
       borderRadius: '50%',
       width: toRem(30),

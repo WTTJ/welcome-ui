@@ -1,7 +1,7 @@
 import { getTexts } from '../Core/theme/typography'
 
 export const getToasts = theme => {
-  const { colors, fontWeights, radii, space } = theme
+  const { borderWidths, colors, fontWeights, radii, space } = theme
 
   return {
     default: {
@@ -19,7 +19,7 @@ export const getToasts = theme => {
         ...getTexts(theme).body3,
         backgroundColor: theme.colors.light[700],
         borderColor: colors.nude[200],
-        borderWidth: '1px',
+        borderWidth: borderWidths.sm,
         borderStyle: 'solid',
         borderRadius: radii.md
       },

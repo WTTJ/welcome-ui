@@ -1,6 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
+import { getVariantColor } from '@welcome-ui/utils'
 
 const FILTER_PROPS = [
   'onAddFile',
@@ -16,7 +17,11 @@ export const FileDrop = styled(filterFieldComponent('div', FILTER_PROPS))(
     ${th('defaultFields.default')};
     ${th('filedrops.default')};
     ${isDragAccept && th('filedrops.dragAccept')};
-    ${isDragReject && th('filedrops.dragReject')};
+    ${isDragReject &&
+      `
+      border-color: ${getVariantColor('error')};
+      ${th('filedrops.dragReject')}
+    `};
     position: relative;
     display: flex;
     justify-content: center;
