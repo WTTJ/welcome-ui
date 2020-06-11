@@ -12,14 +12,16 @@ export const getDropdownMenu = theme => {
       backgroundColor: 'transparent',
       color: colors.nude[800],
       '&:hover': {
-        backgroundColor: colors.primary[100]
+        backgroundColor: colors.nude[200],
+        color: colors.dark[900]
       },
       '&:focus': {
-        backgroundColor: colors.primary[100]
+        backgroundColor: colors.nude[200],
+        color: colors.dark[900]
       },
       '&[disabled]': {
         backgroundColor: 'transparent',
-        color: colors.nude[600],
+        color: colors.nude[500],
         cursor: 'not-allowed'
       }
     },

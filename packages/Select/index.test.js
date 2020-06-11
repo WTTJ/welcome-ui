@@ -355,7 +355,7 @@ test.skip('<Select icon> shows icon', () => {
       <ConnectedField
         component={Select}
         dataTestId="select"
-        icon={<AvatarIcon color="nude.500" />}
+        icon={<AvatarIcon color="light.100" />}
         label="Select"
         name="select"
         options={MONTHS}

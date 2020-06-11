@@ -31,9 +31,9 @@ export const getTabs = theme => {
       }
     },
     activeBar: {
-      bottom: '1px',
+      bottom: 0,
       background: colors.primary[500],
-      height: '1px'
+      height: borderWidths.lg
     }
   }
 }

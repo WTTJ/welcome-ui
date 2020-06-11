@@ -1,23 +1,25 @@
 export const getBreadcrumbs = theme => {
-  const { colors, fontSizes, fontWeights, space } = theme
+  const { borderWidths, colors, fontSizes, fontWeights, space } = theme
 
   return {
     list: {
       fontSize: fontSizes.body3,
-      fontWeight: fontWeights.medium
+      fontWeight: fontWeights.medium,
+      padding: `${space.sm} 0`
     },
     item: {
       default: {
-        color: 'inherit',
         textDecoration: 'none',
         transition: fontWeights.medium,
-        padding: `${space.sm} 0`
+        color: colors.light[100],
+        borderBottom: `${borderWidths.sm} solid transparent`
       },
       hover: {
-        color: colors.primary[200]
+        color: colors.dark[900],
+        borderBottomColor: colors.underline
       },
       active: {
-        color: colors.primary[500]
+        color: colors.dark[900]
       }
     },
     separator: {

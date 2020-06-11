@@ -1,7 +1,7 @@
 import { th } from '@xstyled/system'
 
 export const VARIANTS = {
-  error: 'colors.danger.500',
+  error: 'colors.danger.700',
   focused: 'colors.primary.500',
   info: 'colors.info.500',
   success: 'colors.success.500',

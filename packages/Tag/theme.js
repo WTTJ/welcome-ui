@@ -40,7 +40,12 @@ export const getTags = theme => {
         borderColor: hexToRGBA(colors.dark[900], 0.1),
         ...border
       },
-      dark: { ...withoutVisibleBorder(colors.dark[900]) },
+      dark: {
+        backgroundColor: colors.dark[700],
+        color: colors.light[700],
+        borderColor: colors.dark[500],
+        ...border
+      },
       success: {
         'background-Color': colors.success[100],
         color: colors.success[500],

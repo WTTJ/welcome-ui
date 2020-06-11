@@ -11,6 +11,7 @@ export const getAccordions = theme => {
       color: colors.dark[900]
     },
     content: {
+      color: colors.dark[200],
       fontSize: fontSizes.body3
     },
     title: {

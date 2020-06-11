@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from '@xstyled/styled-components'
-import { getColor, getFont, th } from '@xstyled/system'
+import { getFont, th } from '@xstyled/system'
 import { normalize } from 'polished'
 
 import { fonts } from './font'
@@ -54,24 +54,16 @@ function baseFonts(props) {
   `
 }
 
-function baseSelection(props) {
-  const selectionBgColor = getColor('primary.500')(props) || null
-  const selectionColor = getColor('light.900')(props) || null
-  return css`
-    ::selection {
-      ${selectionBgColor && `background-color: ${selectionBgColor}`};
-      ${selectionColor && `color: ${selectionColor}`};
-    }
-  `
-}
-
 export const GlobalStyle = createGlobalStyle(
   ({ useReset }) => css`
     ${normalize()};
     ${useReset ? resetStyles : baseBoxSizing};
     ${fonts()};
     ${baseFonts};
-    ${baseSelection};
+
+    ::selection {
+      ${th('selection')};
+    }
 
     /* for firefox */
     &[type='search'] {

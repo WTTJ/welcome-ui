@@ -25,6 +25,6 @@ describe('<Hint>', () => {
     const button = getByTestId('hint')
 
     expect(button).toHaveTextContent(content)
-    expect(button).toHaveStyleRule('color', colors.danger[500])
+    expect(button).toHaveStyleRule('color', colors.danger[700])
   })
 })

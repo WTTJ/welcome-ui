@@ -137,6 +137,7 @@ const StyledCustomPopper = styled.div(
     }
 
     .react-datepicker__day--today {
+      color: primary.500;
       font-weight: bold;
     }
 

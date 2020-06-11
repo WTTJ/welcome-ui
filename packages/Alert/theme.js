@@ -7,7 +7,8 @@ export const getAlerts = theme => {
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
       borderRadius: radii.md,
-      padding: space.xl
+      padding: space.xl,
+      color: colors.dark[200]
     },
     error: {
       backgroundColor: colors.danger[100],
@@ -27,10 +28,10 @@ export const getAlerts = theme => {
     },
     title: {
       error: {
-        color: colors.danger[500]
+        color: colors.danger[700]
       },
       warning: {
-        color: colors.warning[500]
+        color: colors.warning[700]
       },
       info: {
         color: colors.info[500]

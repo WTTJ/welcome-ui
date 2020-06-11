@@ -43,7 +43,7 @@ export const getButtons = theme => {
     },
     'secondary-warning': {
       ...defaults,
-      color: colors.warning[500],
+      color: colors.warning[700],
       backgroundColor: colors.light[900],
       borderColor: colors.warning[500]
     },
@@ -54,7 +54,7 @@ export const getButtons = theme => {
     },
     'secondary-danger': {
       ...defaults,
-      color: colors.danger[500],
+      color: colors.danger[700],
       backgroundColor: colors.light[900],
       borderColor: colors.danger[500]
     },
@@ -85,7 +85,7 @@ export const getButtons = theme => {
       },
       'secondary-warning': {
         backgroundColor: colors.warning[100],
-        borderColor: colors.warning[200]
+        borderColor: colors.warning[700]
       },
       'primary-danger': {
         backgroundColor: colors.danger[200],
@@ -93,7 +93,7 @@ export const getButtons = theme => {
       },
       'secondary-danger': {
         backgroundColor: colors.danger[100],
-        borderColor: colors.danger[200]
+        borderColor: colors.danger[700]
       },
       quaternary: {
         backgroundColor: colors.light[800],
