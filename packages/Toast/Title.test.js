@@ -25,6 +25,6 @@ describe('<Title>', () => {
     const title = getByTestId('growl-title')
 
     expect(title).toHaveTextContent(content)
-    expect(title).toHaveStyleRule('color', colors.danger[500])
+    expect(title).toHaveStyleRule('color', colors.danger[700])
   })
 })

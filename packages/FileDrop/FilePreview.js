@@ -14,7 +14,7 @@ export const FilePreview = ({ file, forceFileType }) => {
   return (
     <>
       <Icon color="dark.900" height={50} mb="lg" width={50} />
-      <Text color="dark.800" lines={1} m={0} maxWidth={600} variant="h5">
+      <Text color="dark.900" lines={1} m={0} maxWidth={600} variant="h5">
         {name}
       </Text>
       {!isUrl && (

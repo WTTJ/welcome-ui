@@ -20,7 +20,6 @@ export const Item = styled.button`
   &:hover,
   &:focus {
     outline: none !important; /* important for firefox */
-    color: dark.900;
   }
 
   ${system}

@@ -160,7 +160,7 @@ test.skip('<Search icon> shows icon', () => {
       <ConnectedField
         component={Search}
         dataTestId="search"
-        icon={<Icon color="nude.500" name="avatar" />}
+        icon={<Icon color="light.100" name="avatar" />}
         label="Search"
         name="search"
         {...defaultProps}

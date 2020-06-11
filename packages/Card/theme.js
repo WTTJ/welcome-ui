@@ -1,8 +1,9 @@
 export const getCards = theme => {
-  const { radii } = theme
+  const { colors, radii } = theme
   return {
     default: {
-      overflow: 'hidden'
+      overflow: 'hidden',
+      color: colors.dark[200]
     },
     cover: {
       borderTopLeftRadius: radii.sm,

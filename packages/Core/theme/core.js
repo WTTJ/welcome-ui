@@ -83,7 +83,8 @@ export const createTheme = (options = {}) => {
 
   theme.borderWidths = {
     sm: '1px',
-    md: '2px'
+    md: '2px',
+    lg: '3px'
   }
 
   theme.breakpoints = {
@@ -121,6 +122,10 @@ export const createTheme = (options = {}) => {
   theme = merge(theme, rest)
 
   // These attributes depend on colors and fontSizes and must come last
+  theme.selection = {
+    backgroundColor: theme.colors.primary[500],
+    color: theme.colors.light[900]
+  }
   theme.underline = getUnderline(theme)
   theme.textsFontWeights = getTextsFontWeights(theme)
   theme.textsFontFamily = getTextsFontFamily(theme)

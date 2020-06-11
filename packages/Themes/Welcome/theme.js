@@ -141,6 +141,9 @@ export const welcomeTheme = {
     sm: 'none',
     md: 'none'
   },
+  selection: {
+    color: colors.dark[900]
+  },
   buttons: {
     primary: {
       color: colors.dark[900]

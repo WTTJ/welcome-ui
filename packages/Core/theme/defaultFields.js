@@ -3,7 +3,7 @@ export const getDefaultFields = theme => {
 
   return {
     default: {
-      color: colors.nude[800],
+      color: colors.dark[900],
       fontSize: fontSizes.body3,
       /* Can't use 16 because that's a valid line-height value (16em) */
       lineHeight: '1rem',

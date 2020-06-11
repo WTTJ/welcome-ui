@@ -46,17 +46,17 @@ You can customize your separator.
   </Breadcrumb>
 </Playground>
 
-## Add global Link component
+## Example with React Router
 
-Add a global link component for the items with `renderChildrenAs`. Example with an `import { Link } from '@welcome-ui/link'`.
+<Code>
+  {`import { Link as RouterLink } from 'react-router-dom'
 
-<Playground>
-  <Breadcrumb renderChildrenAs={Link}>
-    <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
-    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
-    <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
-  </Breadcrumb>
-</Playground>
+<Breadcrumb renderChildrenAs={RouterLink}>
+    <Breadcrumb.Item to="/">Introduction</Breadcrumb.Item>
+    <Breadcrumb.Item to="/components">Components</Breadcrumb.Item>
+    <Breadcrumb.Item to='/components/breadcrumb'>Breadcrumb</Breadcrumb.Item>
+  </Breadcrumb>`}
+</Code>
 
 ## Properties
 

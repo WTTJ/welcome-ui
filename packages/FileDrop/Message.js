@@ -6,7 +6,7 @@ import { Text } from '@welcome-ui/text'
 export const Message = ({ disabled, openFile }) => {
   return (
     <>
-      <Text color="nude.800" m="0" variant="h5">
+      <Text color="dark.900" m="0" variant="h5">
         Add file
       </Text>
       <Text color="nude.700" m="0" mt="sm" variant="body3">
