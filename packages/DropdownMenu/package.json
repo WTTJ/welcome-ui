@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/dropdown-menu",
-  "version": "1.27.0",
+  "version": "2.0.0-alpha.0",
   "description": "welcome-ui: A DropdownMenu component",
   "main": "dist/dropdown-menu.cjs.js",
   "module": "dist/dropdown-menu.es.js",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@welcome-ui/system": "^1.20.0",
-    "@welcome-ui/utils": "^1.27.0",
+    "@welcome-ui/utils": "^2.0.0-alpha.0",
     "reakit": "^1.0.0-rc.0"
   },
   "peerDependencies": {
