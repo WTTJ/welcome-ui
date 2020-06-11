@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
 import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
-import { fieldStyles, overflowEllipsis } from '@welcome-ui/utils'
+import { defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 
 export const Radio = styled(filterFieldComponent(ReakitRadio))(({ connected }) => {
   return css`
@@ -15,8 +15,13 @@ export const Radio = styled(filterFieldComponent(ReakitRadio))(({ connected }) =
 })
 
 const checkedStyles = css`
-  ${th('fields.radiotabs.checked')};
+  color: dark.200;
+  background-color: nude.200;
+  border-color: primary.500;
   z-index: 2;
+  &:hover {
+    box-shadow: none;
+  }
 `
 
 const columnStyles = css`
@@ -54,10 +59,13 @@ const rowStyles = css`
 `
 
 export const Label = styled.label(
-  ({ checked, flexDirection }) => css`
+  ({ checked, flexDirection, size }) => css`
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-width: 0;
-    min-height: 0;
+    min-height: ${th(`defaultFields.sizes.${size}.height`)};
     max-width: 100%;
     margin: 0;
     text-align: center;
@@ -65,14 +73,17 @@ export const Label = styled.label(
     cursor: pointer;
     transition: medium;
 
-    ${fieldStyles};
+    ${defaultFieldStyles};
     ${checked && checkedStyles};
     ${flexDirection === 'column' && columnStyles};
     ${flexDirection === 'row' && rowStyles};
     ${componentSystem};
+    padding-top: 0;
+    padding-bottom: 0;
 
     &:hover {
-      ${th('fields.radiotabs.hover')};
+      background-color: nude.200;
+      box-shadow: sm;
     }
   `
 )
@@ -84,5 +95,5 @@ export const Input = styled.div`
 
 export const Content = styled.div`
   ${overflowEllipsis};
-  line-height: initial; /* avoid cropped font */
+  max-width: 100%;
 `

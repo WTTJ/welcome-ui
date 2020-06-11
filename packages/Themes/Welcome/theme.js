@@ -137,6 +137,10 @@ export const welcomeTheme = {
     md: 0,
     lg: 0
   },
+  shadows: {
+    sm: 'none',
+    md: 'none'
+  },
   buttons: {
     primary: {
       color: colors.dark[900]
