@@ -1,39 +1,40 @@
-import { css } from '@xstyled/styled-components'
-
-export const getModals = ({ toRem }) => ({
-  backdrop: css`
-    background-color: overlay;
-    z-index: 999;
-  `,
-  default: css`
-    z-index: 999;
-  `,
-  footer: css`
-    border-top-color: light.800;
-    border-top-style: solid;
-    border-top-width: sm;
-    padding: lg xxl;
-  `,
-  title: css`
-    border-bottom-color: light.800;
-    border-bottom-style: solid;
-    border-bottom-width: sm;
-    padding: lg xxl;
-    /** space of close button */
-    padding-right: 50;
-  `,
-  gutter: toRem(32),
-  sizes: {
-    sm: css`
-      width: 400;
-    `,
-    md: css`
-      width: 550;
-    `,
-    lg: css`
-      width: 680;
-    `,
-    auto: css``
-  },
-  cover: css``
-})
+export const getModals = theme => {
+  const { borderWidths, colors, space, toRem } = theme
+  return {
+    backdrop: {
+      backgroundColor: 'overlay',
+      zIndex: 999
+    },
+    default: {
+      zIndex: 999
+    },
+    footer: {
+      borderTopColor: colors.light[800],
+      borderTopStyle: 'solid',
+      borderTopWidth: borderWidths.sm,
+      padding: `${space.lg} ${space.xxl}`
+    },
+    title: {
+      borderBottomColor: colors.light[800],
+      borderBottomStyle: 'solid',
+      borderBottomWidth: borderWidths.sm,
+      padding: `${space.lg} ${space.xxl}`,
+      /** space of close button */
+      paddingRight: toRem(50)
+    },
+    gutter: toRem(32),
+    sizes: {
+      sm: {
+        width: toRem(400)
+      },
+      md: {
+        width: toRem(550)
+      },
+      lg: {
+        width: toRem(680)
+      },
+      auto: {}
+    },
+    cover: {}
+  }
+}

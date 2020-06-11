@@ -55,10 +55,6 @@ export const getFields = theme => {
         '-webkit-text-stroke': '0.04em'
       }
     },
-    fileupload: {
-      'border-style': 'dashed',
-      'min-height': toRem(200)
-    },
     mde: {
       icons: {
         'font-size': fontSizes.body3,

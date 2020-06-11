@@ -1,7 +1,8 @@
-import { css } from 'styled-components'
+import { css } from '@xstyled/styled-components'
 
 export const getLinks = theme => {
   const { colors, fontWeights, transitions, underline } = theme
+
   return {
     default: {
       color: colors.dark[500],

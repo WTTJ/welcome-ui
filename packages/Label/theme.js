@@ -1,7 +1,9 @@
-import { css } from '@xstyled/styled-components'
+export const getLabels = theme => {
+  const { colors, fontSizes, fontWeights } = theme
 
-export const labels = css`
-  color: light.100;
-  font-size: body3;
-  font-weight: medium;
-`
+  return {
+    color: colors.light[100],
+    fontSize: fontSizes.body3,
+    fontWeight: fontWeights.medium
+  }
+}

@@ -2,45 +2,46 @@ import { getTexts } from '../Core/theme/typography'
 
 export const getToasts = theme => {
   const { colors, fontWeights, radii, space } = theme
+
   return {
     default: {
-      'padding-left': space.sm,
-      'padding-right': space.sm
+      paddingLeft: space.sm,
+      paddingRight: space.sm
     },
     top: {
-      'padding-top': space.lg
+      paddingTop: space.lg
     },
     bottom: {
-      'padding-bottom': space.lg
+      paddingBottom: space.lg
     },
     growls: {
       default: {
         ...getTexts(theme).body3,
-        'background-color': theme.colors.light[700],
-        'border-color': colors.nude[200],
-        'border-width': '1px',
-        'border-style': 'solid',
-        'border-radius': radii.md
+        backgroundColor: theme.colors.light[700],
+        borderColor: colors.nude[200],
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderRadius: radii.md
       },
       error: {
-        'background-color': colors.danger[100],
-        'border-color': colors.danger[500]
+        backgroundColor: colors.danger[100],
+        borderColor: colors.danger[500]
       },
       warning: {
-        'background-color': colors.warning[100],
-        'border-color': colors.warning[500]
+        backgroundColor: colors.warning[100],
+        borderColor: colors.warning[500]
       },
       info: {
-        'background-color': colors.info[100],
-        'border-color': colors.info[500]
+        backgroundColor: colors.info[100],
+        borderColor: colors.info[500]
       },
       success: {
-        'background-color': colors.success[100],
-        'border-color': colors.success[500]
+        backgroundColor: colors.success[100],
+        borderColor: colors.success[500]
       },
       title: {
         ...getTexts(theme).h5,
-        'font-weight': fontWeights.bold
+        fontWeight: fontWeights.bold
       }
     }
   }

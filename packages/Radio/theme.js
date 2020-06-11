@@ -1,13 +1,15 @@
-import { css } from '@xstyled/styled-components'
+export const getRadios = theme => {
+  const { colors, toRem } = theme
 
-export const radios = {
-  default: css`
-    width: 18;
-    height: 18;
-  `,
-  checked: css`
-    background-color: primary.500;
-    border-color: primary.500;
-    color: dark.900;
-  `
+  return {
+    default: {
+      width: toRem(18),
+      height: toRem(18)
+    },
+    checked: {
+      backgroundColor: colors.primary[500],
+      borderColor: colors.primary[500],
+      color: colors.dark[900]
+    }
+  }
 }

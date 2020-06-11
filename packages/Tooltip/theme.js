@@ -1,6 +1,10 @@
-export const getTooltips = ({ colors, radii, toRem }) => ({
-  'max-width': toRem(200),
-  color: colors.light[700],
-  background: colors.dark[700],
-  'border-radius': radii.md
-})
+export const getTooltips = theme => {
+  const { colors, radii, toRem } = theme
+
+  return {
+    maxWidth: toRem(200),
+    color: colors.light[700],
+    background: colors.dark[700],
+    borderRadius: radii.md
+  }
+}

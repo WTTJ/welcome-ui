@@ -1,5 +1,7 @@
-import { css } from '@xstyled/styled-components'
+export const getTextareas = theme => {
+  const { toRem } = theme
 
-export const textareas = css`
-  min-height: 130;
-`
+  return {
+    minHeight: toRem(130)
+  }
+}

@@ -19,14 +19,14 @@ import { getModals } from '../../Modal/theme'
 import { getLoaders } from '../../Loader/theme'
 import { getAccordions } from '../../Accordion/theme'
 import { getSwipers } from '../../Swiper/theme'
-import { checkboxes } from '../../Checkbox/theme'
-import { tables } from '../../Table/theme'
-import { labels } from '../../Label/theme'
-import { toggles } from '../../Toggle/theme'
-import { dateTimePickerCommon } from '../../DateTimePickerCommon/theme'
-import { textareas } from '../../Textarea/theme'
-import { filedrops } from '../../FileDrop/theme'
-import { radios } from '../../Radio/theme'
+import { getCheckboxes } from '../../Checkbox/theme'
+import { getTables } from '../../Table/theme'
+import { getLabels } from '../../Label/theme'
+import { getToggles } from '../../Toggle/theme'
+import { getDateTimePickerCommon } from '../../DateTimePickerCommon/theme'
+import { getTextareas } from '../../Textarea/theme'
+import { getFiledrops } from '../../FileDrop/theme'
+import { getRadios } from '../../Radio/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -140,21 +140,21 @@ export const createTheme = (options = {}) => {
   theme.tooltips = getTooltips(theme)
   theme.links = getLinks(theme)
   theme.dropdownMenu = getDropdownMenu(theme)
-  theme.tables = tables
+  theme.tables = getTables(theme)
   theme.cards = getCards(theme)
   theme.modals = getModals(theme)
   theme.loaders = getLoaders(theme)
   theme.accordions = getAccordions(theme)
   theme.swipers = getSwipers(theme)
-  theme.labels = labels
+  theme.labels = getLabels(theme)
   // fields
   theme.defaultFields = getDefaultFields(theme)
-  theme.checkboxes = checkboxes
-  theme.toggles = toggles
-  theme.dateTimePickerCommon = dateTimePickerCommon
-  theme.textareas = textareas
-  theme.filedrops = filedrops
-  theme.radios = radios
+  theme.checkboxes = getCheckboxes(theme)
+  theme.toggles = getToggles(theme)
+  theme.dateTimePickerCommon = getDateTimePickerCommon(theme)
+  theme.textareas = getTextareas(theme)
+  theme.filedrops = getFiledrops(theme)
+  theme.radios = getRadios(theme)
 
   theme = merge(theme, rest)
 

@@ -9,8 +9,8 @@ export const Wrapper = styled(filterFieldComponent('div'))(
     ${defaultFieldStyles};
     position: relative;
     pointer-events: ${disabled && 'none'};
-    ${focused && th('fields.focused')};
-    ${disabled && th('fields.disabled')};
+    ${focused && th('defaultFields.focused')};
+    ${disabled && th('defaultFields.disabled')};
     height: auto;
     padding: 0;
 
