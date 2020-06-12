@@ -28,11 +28,6 @@ export const Link = styled(filterComponent(UniversalLink))(
     ${th(`links.${variant || 'primary'}.default`)}
     ${system};
 
-    .wui-text {
-      font-weight: inherit;
-      line-height: inherit;
-    }
-
     & > *:not(:only-child):not(:last-child) {
       margin-right: xs;
     }

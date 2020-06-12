@@ -1,6 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React, { Children, cloneElement, forwardRef, useEffect, useRef, useState } from 'react'
 import { node, oneOf } from 'prop-types'
+import { useTheme } from '@xstyled/styled-components'
 
 import * as S from './styles'
 
@@ -8,6 +9,7 @@ const isString = value => typeof value === 'string'
 
 export const Link = forwardRef(({ children, variant = 'primary', ...props }, ref) => {
   let clones
+  const theme = useTheme()
   const linkRef = useRef()
   const [isChildrenString, setIsChildrenString] = useState(isString(children))
 
@@ -23,13 +25,19 @@ export const Link = forwardRef(({ children, variant = 'primary', ...props }, ref
       if (isString(child)) {
         return <WrapWithText key={key}>{child}</WrapWithText>
       }
-      return cloneElement(child, { key })
+      return cloneElement(child, {
+        color: theme.links.default.color,
+        fontWeight: theme.links.default.fontWeight,
+        key,
+        lineHeight: '1.5',
+        ...child.props
+      })
     })
   }
 
   useEffect(() => {
     const innerRef = ref || linkRef
-    if (innerRef) {
+    if (innerRef && innerRef.current) {
       setIsChildrenString(innerRef.current.childElementCount === 0)
     }
   }, [linkRef, ref])
