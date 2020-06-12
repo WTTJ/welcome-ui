@@ -2,7 +2,7 @@ export const getModals = theme => {
   const { borderWidths, colors, space, toRem } = theme
   return {
     backdrop: {
-      backgroundColor: 'overlay',
+      backgroundColor: colors.overlay,
       zIndex: 999
     },
     default: {
