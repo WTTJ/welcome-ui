@@ -12,7 +12,7 @@ export const getTabs = theme => {
       default: {
         color: colors.light[100],
         fontWeight: fontWeights.medium,
-        fontSize: fontSizes.body1
+        fontSize: fontSizes.body2
       },
       active: {
         color: colors.dark[900]
