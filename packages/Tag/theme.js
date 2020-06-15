@@ -47,7 +47,7 @@ export const getTags = theme => {
         ...border
       },
       success: {
-        'background-Color': colors.success[100],
+        backgroundColor: colors.success[100],
         color: colors.success[500],
         borderColor: colors.success[200],
         ...border
