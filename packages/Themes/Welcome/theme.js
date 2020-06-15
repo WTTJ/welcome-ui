@@ -144,6 +144,16 @@ export const welcomeTheme = {
   selection: {
     color: colors.dark[900]
   },
+  radios: {
+    checked: {
+      color: colors.dark[900]
+    }
+  },
+  checkboxes: {
+    checked: {
+      color: colors.dark[900]
+    }
+  },
   buttons: {
     primary: {
       color: colors.dark[900]
