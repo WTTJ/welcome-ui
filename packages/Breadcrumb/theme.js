@@ -5,6 +5,7 @@ export const getBreadcrumbs = theme => {
     list: {
       fontSize: fontSizes.body3,
       fontWeight: fontWeights.medium,
+      lineHeight: '1.92',
       padding: `${space.sm} 0`
     },
     item: {

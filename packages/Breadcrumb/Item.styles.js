@@ -7,7 +7,6 @@ export const Item = styled(Box)(
     ${th('breadcrumbs.item.default')};
     align-items: center;
     transition: medium;
-    padding-bottom: xxs;
 
     ${withSeparator &&
       css`
@@ -27,5 +26,4 @@ export const Separator = styled.span`
   ${th('breadcrumbs.separator')};
   display: flex;
   align-items: center;
-  padding-bottom: xxs;
 `
