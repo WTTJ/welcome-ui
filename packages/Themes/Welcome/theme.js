@@ -149,6 +149,13 @@ export const welcomeTheme = {
       color: colors.dark[900]
     }
   },
+  tags: {
+    variants: {
+      primary: {
+        color: colors.dark[900]
+      }
+    }
+  },
   paginations: {
     default: {
       'border-radius': 0
