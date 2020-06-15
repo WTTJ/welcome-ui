@@ -1,18 +1,21 @@
 import React from 'react'
 
 import { render } from '../../src/utils/tests'
+import { createTheme } from '../Core/theme/core'
 
 import { Link } from './index'
 
 const content = 'Jungle'
 
+const theme = createTheme()
+
 describe('<Link>', () => {
   it('should render correctly', () => {
     const { getByTestId } = render(<Link dataTestId="link">{content}</Link>)
-    const button = getByTestId('link')
+    const link = getByTestId('link')
 
-    expect(button).toHaveTextContent(content)
-    expect(button).toHaveStyleRule('color', '#4B4B4B')
+    expect(link).toHaveTextContent(content)
+    expect(link).toHaveStyleRule('color', theme.colors.dark[500])
   })
 
   it('should render correctly with a target blank', () => {

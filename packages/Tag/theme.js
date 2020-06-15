@@ -33,7 +33,7 @@ export const getTags = theme => {
         borderColor: hexToRGBA(colors.dark[900], 0.1),
         ...border
       },
-      primary: { ...withoutVisibleBorder(colors.primary[500]), color: colors.dark[900] },
+      primary: { ...withoutVisibleBorder(colors.primary[500]), color: colors.light[900] },
       secondary: {
         backgroundColor: colors.sub[4],
         color: colors.light[900],
