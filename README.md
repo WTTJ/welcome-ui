@@ -1,6 +1,6 @@
 # Welcome UI
 
-<img src="assets/readme.png" width="500" />
+<img src="assets/illustration.png" width="500" />
 
 Welcome to the _Welcome UI library_ created by [Welcome to the jungle](https://www.welcometothejungle.com), a customizable design system with react • styled-components • styled-system and reakit.
 
