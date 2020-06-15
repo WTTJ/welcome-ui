@@ -9,7 +9,7 @@ export const FieldGroup = styled(filterFieldComponent('fieldset'))`
   min-height: 0;
   margin: 0;
   padding: 0;
-  ${th('fields.fieldset')};
+  ${th('defaultFields.fieldset')};
   ${system};
 
   & > ${StyledLabel} {

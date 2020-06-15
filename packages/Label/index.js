@@ -49,7 +49,7 @@ Label.propTypes /* remove-proptypes */ = {
   disabled: bool,
   disabledIcon: node,
   icon: node,
-  variant: oneOf(['error', 'warning']),
+  variant: oneOf(['error', 'warning', 'info', 'success']),
   withDisabledIcon: bool
 }
 

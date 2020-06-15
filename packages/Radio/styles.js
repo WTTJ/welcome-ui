@@ -25,7 +25,6 @@ export const Radio = styled(filterFieldComponent(ReakitRadio))(
 
     &[disabled] {
       ${th(`defaultFields.checkableField.disabled`)};
-      ${th('radios.disabled')}
     }
 
     &::after {

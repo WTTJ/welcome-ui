@@ -46,8 +46,14 @@ Tag.propTypes /* remove-proptypes */ = {
   shape: oneOf(SHAPES_TYPE),
   size: oneOf(SIZES_TYPE),
   variant: oneOf([
-    'dark',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
     'blue',
+    'dark',
     'default',
     'error',
     'green',
@@ -58,6 +64,7 @@ Tag.propTypes /* remove-proptypes */ = {
     'purple',
     'red',
     'secondary',
+    'success',
     'turquoize',
     'warning',
     'yellow'

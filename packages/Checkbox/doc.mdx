@@ -33,8 +33,25 @@ const { dependencies, peerDependencies, component, name, version } = require('./
 ## Standalone
 
 <Playground>
-  <Checkbox checked type="checkbox" />
-  <Checkbox type="checkbox" />
+  {() => {
+    const [checkbox, setCheckbox] = useState(false)
+    const [checkboxChecked, setCheckboxChecked] = useState(true)
+    return (
+      <>
+        <Checkbox
+          mr="lg"
+          name="checked"
+          checked={checkbox}
+          onChange={() => setCheckbox(!checkbox)}
+        />
+        <Checkbox
+          checked={checkboxChecked}
+          name="not-checked"
+          onChange={() => setCheckboxChecked(!checkboxChecked)}
+        />
+      </>
+    )
+  }}
 </Playground>
 
 ## Properties

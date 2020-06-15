@@ -51,6 +51,15 @@ export const getDefaultFields = theme => {
     focused: {
       borderColor: colors.primary[500]
     },
+    checkablelabel: {
+      default: {
+        'font-weight': fontWeights.regular
+      },
+      checked: {
+        color: colors.dark[200],
+        '-webkit-text-stroke': '0.04em'
+      }
+    },
     select: {
       default: {
         maxHeight: toRem(155)
@@ -70,6 +79,9 @@ export const getDefaultFields = theme => {
         color: colors.dark[200],
         fontWeight: fontWeights.bold
       }
+    },
+    fieldset: {
+      'border-width': '0'
     }
   }
 }

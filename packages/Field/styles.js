@@ -13,7 +13,7 @@ const columnStyles = css`
 `
 
 const checkableFieldStyles = css`
-  ${th('fields.checkablelabel.default')};
+  ${th('defaultFields.checkablelabel.default')};
   margin-bottom: sm;
 `
 
@@ -43,7 +43,7 @@ export const Field = styled(filterFieldComponent('div', FILTER_PROPS))(
       ${props.flexDirection === 'row' && rowStyles};
       ${props.flexDirection === 'column' && columnStyles};
       ${props.checkableField && checkableFieldStyles};
-      ${props.checked && th('fields.checkablelabel.checked')}
+      ${props.checked && th('defaultFields.checkablelabel.checked')}
     }
     ${wrapperSystem};
   `
@@ -57,7 +57,7 @@ export const IconWrapper = styled.div(
     right: ${iconPlacement === 'right' ? 0 : 'auto'};
     bottom: 0;
     display: flex;
-    width: ${size ? th(`fields.sizes.${size}.height`)(rest) : null};
+    width: ${size ? th(`defaultFields.sizes.${size}.height`)(rest) : null};
     justify-content: center;
     align-items: center;
     pointer-events: none;
