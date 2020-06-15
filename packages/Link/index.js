@@ -27,7 +27,7 @@ export const Link = forwardRef(({ children, variant = 'primary', ...props }, ref
       }
       return cloneElement(child, {
         color: theme.links.default.color,
-        fontWeight: child.props.variant ? null : theme.links.default.fontWeight,
+        fontWeight: child.props.variant ? undefined : theme.links.default.fontWeight,
         key,
         lineHeight: '1.5',
         ...child.props
