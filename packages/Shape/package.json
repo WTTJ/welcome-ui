@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/shape",
-  "version": "2.0.0-alpha.2",
+  "version": "2.0.0-alpha.5",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/shape.cjs.js",
   "module": "dist/shape.es.js",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@welcome-ui/system": "^1.20.0",
-    "@welcome-ui/utils": "^2.0.0-alpha.2"
+    "@welcome-ui/utils": "^2.0.0-alpha.5"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",

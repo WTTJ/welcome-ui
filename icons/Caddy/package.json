@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.caddy.cjs.js",
   "module": "dist/icons.caddy.es.js",
-  "version": "1.0.0",
+  "version": "2.0.0-alpha.5",
   "publishConfig": {
     "access": "public"
   },
