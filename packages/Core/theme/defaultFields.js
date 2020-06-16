@@ -1,5 +1,5 @@
 export const getDefaultFields = theme => {
-  const { borderWidths, colors, fontSizes, fontWeights, space, toRem } = theme
+  const { borderWidths, colors, focus, fontSizes, fontWeights, space, toRem } = theme
 
   return {
     default: {
@@ -49,7 +49,12 @@ export const getDefaultFields = theme => {
       color: colors.nude[600]
     },
     focused: {
-      borderColor: colors.primary[500]
+      default: {
+        ...focus(),
+        borderColor: colors.primary[500]
+      },
+      error: focus(colors.danger[700]),
+      warning: focus(colors.warning[700])
     },
     checkablelabel: {
       default: {

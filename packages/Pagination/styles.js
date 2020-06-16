@@ -1,6 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { system } from '@welcome-ui/system'
+import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 
 export const Pagination = styled.nav(system)
 
@@ -51,5 +52,8 @@ export const AbstractLink = styled.a`
 
 export const PageLink = styled(AbstractLink)`
   ${th('paginations.number')}
+  [${hideFocusRingsDataAttribute}] &:focus {
+    box-shadow: none;
+  }
   ${p => p['aria-current'] && th('paginations.active')(p)}
 `

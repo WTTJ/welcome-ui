@@ -31,7 +31,7 @@ export const FileDrop = styled(filterFieldComponent('div', FILTER_PROPS))(
     ${connected ? componentSystem : system};
 
     &:focus {
-      ${th('defaultFields.focused')};
+      ${th('defaultFields.focused.default')};
     }
 
     ${disabled &&

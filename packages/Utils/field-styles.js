@@ -16,7 +16,10 @@ export const defaultFieldStyles = ({ size, variant }) => css`
   }
 
   &:focus {
-    ${th('defaultFields.focused')};
+    ${th('defaultFields.focused.default')};
+    border-color: ${getVariantColor(variant)};
+    ${variant === 'error' && th('defaultFields.focused.error')};
+    ${variant === 'warning' && th('defaultFields.focused.warning')};
   }
 
   &[disabled] {

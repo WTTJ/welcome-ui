@@ -1,11 +1,7 @@
 import { hexToRGB } from '@welcome-ui/utils'
 
-const focusShadow = color => ({
-  boxShadow: `0 0 0 3px rgba(${hexToRGB(color)}, 0.5)`
-})
-
 export const getButtons = theme => {
-  const { colors, fontSizes, fontWeights, radii, space, toRem } = theme
+  const { colors, focus, fontSizes, fontWeights, radii, space, toRem } = theme
   const defaults = {
     color: colors.light[900],
     fontSize: fontSizes.button,
@@ -101,33 +97,15 @@ export const getButtons = theme => {
       }
     },
     focus: {
-      primary: {
-        ...focusShadow(colors.primary[500])
-      },
-      secondary: {
-        ...focusShadow(colors.dark[900])
-      },
-      tertiary: {
-        ...focusShadow(colors.dark[900])
-      },
-      'tertiary-negative': {
-        ...focusShadow(colors.light[900])
-      },
-      quaternary: {
-        ...focusShadow(colors.light[800])
-      },
-      'primary-warning': {
-        ...focusShadow(colors.warning[500])
-      },
-      'secondary-warning': {
-        ...focusShadow(colors.warning[500])
-      },
-      'primary-danger': {
-        ...focusShadow(colors.danger[500])
-      },
-      'secondary-danger': {
-        ...focusShadow(colors.danger[500])
-      }
+      primary: focus(),
+      secondary: focus(colors.dark[900]),
+      tertiary: focus(colors.dark[900]),
+      'tertiary-negative': focus(colors.light[900]),
+      quaternary: focus(colors.light[800]),
+      'primary-warning': focus(colors.warning[500]),
+      'secondary-warning': focus(colors.warning[500]),
+      'primary-danger': focus(colors.danger[500]),
+      'secondary-danger': focus(colors.danger[500])
     },
     active: {
       primary: {
@@ -170,9 +148,7 @@ export const getButtons = theme => {
       color: colors.nude[700],
       backgroundColor: colors.nude[500],
       borderColor: colors.nude[500],
-      '&:focus': {
-        ...focusShadow(colors.nude[500])
-      }
+      '&:focus': focus(colors.nude[500])
     },
     sizes: {
       xs: {
