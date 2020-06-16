@@ -1,5 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import styled, { css, useTheme } from '@xstyled/styled-components'
 import { system } from '@welcome-ui/system'
 
 const iconSvgStrokedStyles = css`
@@ -17,11 +16,13 @@ const iconSvgFilledStyles = css`
   }
 `
 
-export const Icon = styled.svg(
-  ({ size = 'md', stroked }) => css`
+export const Icon = styled.svg(({ size = 'md', stroked }) => {
+  const theme = useTheme()
+  const formattedSize = theme.icons[size] || size
+  return css`
     ${stroked ? iconSvgStrokedStyles : iconSvgFilledStyles};
-    width: ${th(`icons.${size}`)};
-    height: ${th(`icons.${size}`)};
+    width: ${formattedSize};
+    height: ${formattedSize};
     ${system};
   `
-)
+})
