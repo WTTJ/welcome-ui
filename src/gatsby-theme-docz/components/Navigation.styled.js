@@ -12,10 +12,9 @@ export const Block = styled.ul`
 `
 
 export const Items = styled.ul`
-  margin: lg 0 0 0;
+  margin: md 0 0 0;
   padding: 0;
   list-style: none;
-  margin-bottom: -sm;
 `
 
 export const Title = styled.div`
@@ -60,7 +59,8 @@ export const Item = styled.li`
   ${p => p.mobile && th('docz.navigationmobile')};
   transition: medium;
   opacity: 0.7;
-  padding-bottom: sm;
+  padding-bottom: 3;
+  padding-top: 3;
   padding-left: xl;
 
   &:hover {
