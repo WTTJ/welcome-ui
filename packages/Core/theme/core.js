@@ -28,6 +28,7 @@ import { getTextareas } from '../../Textarea/theme'
 import { getFiledrops } from '../../FileDrop/theme'
 import { getRadios } from '../../Radio/theme'
 import { getHints } from '../../Hint/theme'
+import { getRadioTabs } from '../../RadioTab/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -164,6 +165,7 @@ export const createTheme = (options = {}) => {
   theme.textareas = getTextareas(theme)
   theme.filedrops = getFiledrops(theme)
   theme.radios = getRadios(theme)
+  theme.radioTabs = getRadioTabs(theme)
 
   theme = merge(theme, rest)
 

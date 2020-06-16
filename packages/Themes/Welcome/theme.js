@@ -149,6 +149,11 @@ export const welcomeTheme = {
       color: colors.dark[900]
     }
   },
+  radioTabs: {
+    checked: {
+      color: colors.dark[900]
+    }
+  },
   checkboxes: {
     checked: {
       color: colors.dark[900]
