@@ -1,5 +1,5 @@
 export const getBreadcrumbs = theme => {
-  const { borderWidths, colors, fontSizes, fontWeights, space } = theme
+  const { colors, fontSizes, fontWeights, space } = theme
 
   return {
     list: {
@@ -11,8 +11,7 @@ export const getBreadcrumbs = theme => {
     item: {
       default: {
         textDecoration: 'none',
-        color: colors.light[100],
-        borderBottom: `${borderWidths.sm} solid transparent`
+        color: colors.light[100]
       },
       hover: {
         color: colors.dark[900]
