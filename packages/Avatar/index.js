@@ -1,4 +1,4 @@
-import { number, oneOf, string } from 'prop-types'
+import { number, oneOf, oneOfType, string } from 'prop-types'
 import React, { memo } from 'react'
 import { Box } from '@welcome-ui/box'
 import { useTheme } from '@xstyled/styled-components'
@@ -48,7 +48,7 @@ Avatar.displayName = 'Avatar'
 
 Avatar.propTypes = {
   color: string,
-  fontSize: string,
+  fontSize: oneOfType([string, number]),
   height: number,
   name: string.isRequired,
   shape: oneOf(['circle', 'square']),

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp */
-import { element, node, oneOf } from 'prop-types'
+import { node, oneOf } from 'prop-types'
 import React, { Children, cloneElement } from 'react'
 import { Stack } from '@welcome-ui/stack'
 import { Button } from '@welcome-ui/button'
@@ -53,7 +53,7 @@ const AlertTitle = ({ children, icon, variant, ...rest }) => {
 
 AlertTitle.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
-  icon: element,
+  icon: node,
   variant: oneOf(['success', 'error', 'warning', 'info'])
 }
 

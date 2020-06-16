@@ -86,6 +86,10 @@ const StyledCustomPopper = styled.div(
       }
     }
 
+    .react-datepicker__day--today {
+      ${th('dateTimePickerCommon.item.today')};
+    }
+
     .react-datepicker__day:hover,
     .react-datepicker__month-text:hover,
     .react-datepicker__time-container
@@ -134,11 +138,6 @@ const StyledCustomPopper = styled.div(
     .react-datepicker__day-names,
     .react-datepicker__month {
       margin: 0 -0.45rem;
-    }
-
-    .react-datepicker__day--today {
-      color: primary.500;
-      font-weight: bold;
     }
 
     .react-datepicker__month-text--today,

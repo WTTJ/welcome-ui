@@ -1,7 +1,7 @@
 import { hexToRGB } from '@welcome-ui/utils'
 
 export const getPaginations = theme => {
-  const { borderWidths, colors, fontSizes, fontWeights, toRem } = theme
+  const { borderWidths, colors, focus, fontSizes, fontWeights, toRem } = theme
 
   return {
     default: {
@@ -14,7 +14,8 @@ export const getPaginations = theme => {
       height: toRem(30),
       '&:hover, &:focus': {
         backgroundColor: `rgba(${hexToRGB(colors.dark[900])}, 0.1)`
-      }
+      },
+      '&:focus': focus(colors.dark[900])
     },
     active: {
       color: colors.light[900],
@@ -24,7 +25,8 @@ export const getPaginations = theme => {
         color: colors.light[900],
         borderColor: colors.primary[500],
         backgroundColor: colors.primary[500]
-      }
+      },
+      '&:focus': focus()
     },
     number: {
       fontSize: fontSizes.body3

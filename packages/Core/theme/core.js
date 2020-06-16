@@ -1,5 +1,6 @@
 import merge from 'ramda/src/mergeDeepRight'
 import { rpxTransformers } from '@xstyled/system'
+import { hexToRGBA } from '@welcome-ui/utils'
 
 import { getToasts } from '../../Toast/theme'
 import { getLinks } from '../../Link/theme'
@@ -9,7 +10,6 @@ import { getAlerts } from '../../Alert/theme'
 import { getAvatars } from '../../Avatar/theme'
 import { getButtons } from '../../Button/theme'
 import { getBreadcrumbs } from '../../Breadcrumb/theme'
-import { getFields } from '../../Field/theme'
 import { getIcons } from '../../Icon/theme'
 import { getTags } from '../../Tag/theme'
 import { getTooltips } from '../../Tooltip/theme'
@@ -27,6 +27,7 @@ import { getDateTimePickerCommon } from '../../DateTimePickerCommon/theme'
 import { getTextareas } from '../../Textarea/theme'
 import { getFiledrops } from '../../FileDrop/theme'
 import { getRadios } from '../../Radio/theme'
+import { getHints } from '../../Hint/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -103,8 +104,8 @@ export const createTheme = (options = {}) => {
     lg: theme.toRem(15),
     xl: theme.toRem(20),
     xxl: theme.toRem(24),
-    '2lg': theme.toRem(30),
-    '2xl': theme.toRem(40)
+    '3xl': theme.toRem(30),
+    '4xl': theme.toRem(36)
   }
 
   theme.icons = getIcons(theme)
@@ -127,6 +128,9 @@ export const createTheme = (options = {}) => {
     color: theme.colors.light[900]
   }
   theme.underline = getUnderline(theme)
+  theme.focus = (color = theme.colors.primary[500]) => ({
+    boxShadow: `0 0 0 3px ${hexToRGBA(color, 0.5)}`
+  })
   theme.textsFontWeights = getTextsFontWeights(theme)
   theme.textsFontFamily = getTextsFontFamily(theme)
   theme.textsTextTransform = getTextsTextTransform(theme)
@@ -136,7 +140,6 @@ export const createTheme = (options = {}) => {
   theme.buttons = getButtons(theme)
   theme.breadcrumbs = getBreadcrumbs(theme)
   // TODO: should be removed when all fields have been migrated to their own packageName/theme.js file
-  theme.fields = getFields(theme)
   theme.toasts = getToasts(theme)
   theme.paginations = getPaginations(theme)
   theme.tabs = getTabs(theme)
@@ -154,6 +157,7 @@ export const createTheme = (options = {}) => {
   theme.labels = getLabels(theme)
   // fields
   theme.defaultFields = getDefaultFields(theme)
+  theme.hints = getHints(theme)
   theme.checkboxes = getCheckboxes(theme)
   theme.toggles = getToggles(theme)
   theme.dateTimePickerCommon = getDateTimePickerCommon(theme)

@@ -31,13 +31,13 @@ const iconPlacementStyles = (placement, size, rest) => {
   if (placement === 'right') {
     return css`
       ${StyledDatePicker}, ${StyledTimePicker} {
-        padding-right: ${`calc(1.5 * ${th(`fields.sizes.${size}.height`)(rest)})`};
+        padding-right: ${`calc(1.5 * ${th(`defaultFields.sizes.${size}.height`)(rest)})`};
       }
 
       ${IconWrapper} {
         &:not(:last-child) {
-          right: ${th(`fields.sizes.${size}.height`)(rest)};
-          width: ${`calc(0.5 * ${th(`fields.sizes.${size}.height`)(rest)})`};
+          right: ${th(`defaultFields.sizes.${size}.height`)(rest)};
+          width: ${`calc(0.5 * ${th(`defaultFields.sizes.${size}.height`)(rest)})`};
           justify-content: flex-end;
         }
 
@@ -50,7 +50,7 @@ const iconPlacementStyles = (placement, size, rest) => {
   if (placement === 'left') {
     return css`
       ${StyledDatePicker}, ${StyledTimePicker} {
-        padding-left: ${th(`fields.sizes.${size}.height`)(rest)};
+        padding-left: ${th(`defaultFields.sizes.${size}.height`)(rest)};
       }
     `
   }
@@ -61,7 +61,7 @@ export const CustomInput = styled(filterFieldComponent('div', FILTER_PROPS))(
     return css`
       position: relative;
       ${StyledDatePicker}, ${StyledTimePicker} {
-        padding-right: ${th(`fields.sizes.${size}.height`)(rest)};
+        padding-right: ${th(`defaultFields.sizes.${size}.height`)(rest)};
       }
 
       ${icon && iconPlacementStyles(iconPlacement, size, rest)};

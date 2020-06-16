@@ -2,7 +2,7 @@
 const LINE_HEIGHT_ADJUSTMENTS = '0.15rem'
 
 export const getToggles = theme => {
-  const { borderWidths, colors, toRem } = theme
+  const { borderWidths, colors, focus, toRem } = theme
 
   return {
     item: {
@@ -17,7 +17,8 @@ export const getToggles = theme => {
         marginTop: LINE_HEIGHT_ADJUSTMENTS,
 
         '&:focus': {
-          borderColor: colors.primary[500]
+          borderColor: colors.primary[500],
+          ...focus()
         }
       },
       checked: {

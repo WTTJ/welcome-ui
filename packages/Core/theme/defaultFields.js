@@ -1,5 +1,5 @@
 export const getDefaultFields = theme => {
-  const { borderWidths, colors, fontSizes, fontWeights, space, toRem } = theme
+  const { borderWidths, colors, focus, fontSizes, fontWeights, space, toRem } = theme
 
   return {
     default: {
@@ -49,7 +49,21 @@ export const getDefaultFields = theme => {
       color: colors.nude[600]
     },
     focused: {
-      borderColor: colors.primary[500]
+      default: {
+        ...focus(),
+        borderColor: colors.primary[500]
+      },
+      error: focus(colors.danger[700]),
+      warning: focus(colors.warning[700])
+    },
+    checkablelabel: {
+      default: {
+        fontWeight: fontWeights.regular
+      },
+      checked: {
+        color: colors.dark[200],
+        '-webkit-text-stroke': '0.04em'
+      }
     },
     select: {
       default: {
@@ -70,6 +84,9 @@ export const getDefaultFields = theme => {
         color: colors.dark[200],
         fontWeight: fontWeights.bold
       }
+    },
+    fieldset: {
+      'border-width': '0'
     }
   }
 }
