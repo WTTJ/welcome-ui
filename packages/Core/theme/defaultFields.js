@@ -58,7 +58,7 @@ export const getDefaultFields = theme => {
     },
     checkablelabel: {
       default: {
-        'font-weight': fontWeights.regular
+        fontWeight: fontWeights.regular
       },
       checked: {
         color: colors.dark[200],
