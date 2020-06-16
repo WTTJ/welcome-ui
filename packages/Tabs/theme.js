@@ -12,7 +12,8 @@ export const getTabs = theme => {
       default: {
         color: colors.light[100],
         fontWeight: fontWeights.medium,
-        fontSize: fontSizes.body2
+        fontSize: fontSizes.body2,
+        textDecoration: 'none'
       },
       active: {
         color: colors.dark[900]
@@ -31,7 +32,7 @@ export const getTabs = theme => {
       }
     },
     activeBar: {
-      bottom: 0,
+      bottom: 1,
       background: colors.primary[500],
       height: borderWidths.lg
     }
