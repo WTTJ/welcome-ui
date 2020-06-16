@@ -11,12 +11,12 @@ export const getLinks = theme => {
     },
     primary: {
       default: css`
-        .wui-text {
+        > .wui-text {
           ${underline.default};
         }
       `,
       hover: css`
-        .wui-text {
+        > .wui-text {
           ${underline.hover};
         }
       `
