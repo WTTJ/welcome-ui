@@ -11,13 +11,11 @@ export const getBreadcrumbs = theme => {
     item: {
       default: {
         textDecoration: 'none',
-        transition: fontWeights.medium,
         color: colors.light[100],
         borderBottom: `${borderWidths.sm} solid transparent`
       },
       hover: {
-        color: colors.dark[900],
-        borderBottomColor: colors.underline
+        color: colors.dark[900]
       },
       active: {
         color: colors.dark[900]
