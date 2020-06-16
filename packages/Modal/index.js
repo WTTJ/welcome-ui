@@ -12,7 +12,7 @@ export function useModalState(options) {
 }
 
 export function ModalTitle(props) {
-  return <S.Title as={Text} m="0" variant="h3" {...props} />
+  return <S.Title as={Text} m="0" variant="h4" {...props} />
 }
 
 export function Modal({
