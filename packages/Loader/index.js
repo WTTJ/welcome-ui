@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { oneOf, string } from 'prop-types'
+import { number, oneOf, oneOfType, string } from 'prop-types'
 import { Box } from '@welcome-ui/box'
 
 import * as S from './styles'
@@ -16,5 +16,5 @@ Loader.displayName = 'Loader'
 
 Loader.propTypes = {
   color: string,
-  size: oneOf(['xs', 'sm', 'md', 'lg'])
+  size: oneOfType([oneOf(['xs', 'sm', 'md', 'lg']), number, string])
 }

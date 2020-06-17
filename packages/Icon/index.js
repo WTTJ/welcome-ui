@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { number, oneOf, shape, string } from 'prop-types'
+import { number, oneOf, oneOfType, shape, string } from 'prop-types'
 
 import * as S from './styles'
 
@@ -33,7 +33,7 @@ Icon.propTypes /* remove-proptypes */ = {
     block: string
   }),
   name: string,
-  size: oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  size: oneOfType([oneOf(['xxs', 'xs', 'sm', 'md', 'lg', 'xl']), number, string]),
   title: string
 }
 

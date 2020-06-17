@@ -26,14 +26,17 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 ## Size
 
-Use size property with `xs`, `sm`, `md`, `lg` or `xl`.
+Use size property with `xxs`, `xs`, `sm`, `md`, `lg`, `xl`, a string `35px` or a number `50` that will convert the value into rem
 
 <Playground>
+  <TwitterIcon size="xxs" />
   <TwitterIcon size="xs" />
   <TwitterIcon size="sm" />
   <TwitterIcon />
   <TwitterIcon size="lg" />
   <TwitterIcon size="xl" />
+  <TwitterIcon size="35px" />
+  <TwitterIcon size={50} />
 </Playground>
 
 ## Colour
