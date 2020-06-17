@@ -8,13 +8,8 @@ export const TabList = styled.div`
   overflow-x: auto;
   display: flex;
   border: 0;
+  ${th('tabs.tabsBorder')};
   ${system};
-
-  &::before {
-    content: '';
-    position: absolute;
-    ${th('tabs.tabsBorder')};
-  }
 `
 
 export const Tab = styled.button`
