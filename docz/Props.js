@@ -59,7 +59,7 @@ export const Props = ({ props }) => {
 
   return (
     <Card>
-      <Card.Body padding="xl">
+      <Card.Body padding="xl" color="dark.900">
         <Table marginBottom="-lg" marginTop="-xl">
           <Table.Thead>
             <Table.Tr>

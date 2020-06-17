@@ -21,7 +21,8 @@ export const getBreadcrumbs = theme => {
       }
     },
     separator: {
-      padding: `0 ${space.sm}`
+      padding: `0 ${space.sm}`,
+      color: colors.light[100]
     }
   }
 }
