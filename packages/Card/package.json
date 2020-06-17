@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/card",
-  "version": "2.0.0-alpha.5",
+  "version": "2.0.0-alpha.9",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/card.cjs.js",
   "module": "dist/card.es.js",
@@ -34,8 +34,8 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^1.23.0",
-    "@welcome-ui/shape": "^2.0.0-alpha.5",
-    "@welcome-ui/system": "^1.20.0",
+    "@welcome-ui/shape": "^2.0.0-alpha.9",
+    "@welcome-ui/system": "^2.0.0-alpha.9",
     "@welcome-ui/utils": "^2.0.0-alpha.5"
   },
   "peerDependencies": {
