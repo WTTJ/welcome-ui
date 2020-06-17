@@ -47,7 +47,7 @@ export const CodeEditor = ({ code, wrapper = true }) => {
       transformCode={transformCode}
     >
       <S.LivePreview className="codeEditor">
-        <Wui.Card.Body padding="xl" paddingBottom="lg">
+        <Wui.Card.Body padding="xl" paddingBottom="lg" color="dark.900">
           <S.LivePreviewContent wrapper={wrapper}>
             <LivePreview />
           </S.LivePreviewContent>
