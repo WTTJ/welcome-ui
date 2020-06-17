@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.house.cjs.js",
   "module": "dist/icons.house.es.js",
-  "version": "2.0.0-alpha.5",
+  "version": "2.0.0-alpha.7",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^2.0.0-alpha.2"
+    "@welcome-ui/icon": "^2.0.0-alpha.7"
   },
   "peerDependencies": {
     "react": "^16.10.2",
