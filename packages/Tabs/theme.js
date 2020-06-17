@@ -3,7 +3,7 @@ export const getTabs = theme => {
 
   return {
     tabsBorder: {
-      bottom: borderWidths.sm,
+      bottom: 0,
       width: '100%',
       height: borderWidths.sm,
       backgroundColor: colors.light[800]
@@ -32,7 +32,7 @@ export const getTabs = theme => {
       }
     },
     activeBar: {
-      bottom: 1,
+      bottom: 0,
       background: colors.primary[500],
       height: borderWidths.lg
     }
