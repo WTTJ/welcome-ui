@@ -3,10 +3,7 @@ export const getTabs = theme => {
 
   return {
     tabsBorder: {
-      bottom: 0,
-      width: '100%',
-      height: borderWidths.sm,
-      backgroundColor: colors.light[800]
+      boxShadow: `inset 0 -${borderWidths.sm} 0 ${colors.light[800]}`
     },
     item: {
       default: {
