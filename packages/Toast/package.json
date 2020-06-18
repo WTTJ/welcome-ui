@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/toast",
-  "version": "2.0.0-alpha.14",
+  "version": "2.0.0-alpha.15",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/toast.cjs.js",
   "module": "dist/toast.es.js",
@@ -33,7 +33,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/alert": "^2.0.0-alpha.14",
+    "@welcome-ui/alert": "^2.0.0-alpha.15",
     "@welcome-ui/box": "^1.23.0",
     "@welcome-ui/clear-button": "^2.0.0-alpha.9",
     "@welcome-ui/system": "^2.0.0-alpha.9",
