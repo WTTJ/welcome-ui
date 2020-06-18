@@ -53,6 +53,8 @@ export const Label = styled(LabelWUI)`
 export const Input = styled.div`
   flex-shrink: 0;
   position: relative;
+  align-items: center;
+  display: flex;
 `
 
 export const Wrapper = styled.div`
