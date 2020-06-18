@@ -21,58 +21,46 @@ export const getFontSizes = (unit, theme) => {
   }
 }
 
-export const getLineHeights = theme => {
-  const { toRem } = theme
+export const getLineHeights = ({ defaultLineHeight, headingLineHeight }) => ({
+  html: defaultLineHeight,
+  h0: headingLineHeight,
+  h1: headingLineHeight,
+  h2: headingLineHeight,
+  h3: headingLineHeight,
+  h4: headingLineHeight,
+  h5: headingLineHeight,
+  h6: headingLineHeight,
+  body1: defaultLineHeight,
+  body2: defaultLineHeight,
+  body3: defaultLineHeight,
+  body4: defaultLineHeight,
+  subtitle1: headingLineHeight,
+  subtitle2: headingLineHeight,
+  meta1: defaultLineHeight,
+  meta2: defaultLineHeight
+})
 
-  const defaultLineHeight = toRem(21)
-
-  return {
-    html: defaultLineHeight,
-    h0: toRem(78),
-    h1: toRem(54),
-    h2: toRem(43),
-    h3: toRem(31),
-    h4: toRem(24),
-    h5: toRem(21),
-    h6: toRem(19),
-    body1: toRem(23),
-    body2: defaultLineHeight,
-    body3: toRem(18),
-    body4: toRem(15),
-    subtitle1: 'auto',
-    subtitle2: 'auto',
-    meta1: toRem(18),
-    meta2: toRem(16)
-  }
-}
-
-export const getLetterSpacings = theme => {
-  const { toRem } = theme
-
-  const defaultSpacing = toRem(-0.3)
-
-  return {
-    sm: '0.5px',
-    md: '1px',
-    lg: '2px',
-    html: defaultSpacing,
-    h0: toRem(-1.7),
-    h1: toRem(-1.2),
-    h2: toRem(-1),
-    h3: toRem(-0.9),
-    h4: toRem(-0.6),
-    h5: toRem(-0.5),
-    h6: toRem(-0.4),
-    body1: defaultSpacing,
-    body2: defaultSpacing,
-    body3: defaultSpacing,
-    body4: toRem(-0.2),
-    subtitle1: defaultSpacing,
-    subtitle2: toRem(-0.2),
-    meta1: defaultSpacing,
-    meta2: toRem(-0.2)
-  }
-}
+export const getLetterSpacings = ({ defaultLetterSpacing, headingLetterSpacing }) => ({
+  sm: '0.5px',
+  md: '1px',
+  lg: '2px',
+  html: defaultLetterSpacing,
+  h0: headingLetterSpacing,
+  h1: headingLetterSpacing,
+  h2: headingLetterSpacing,
+  h3: headingLetterSpacing,
+  h4: headingLetterSpacing,
+  h5: headingLetterSpacing,
+  h6: headingLetterSpacing,
+  body1: defaultLetterSpacing,
+  body2: defaultLetterSpacing,
+  body3: defaultLetterSpacing,
+  body4: defaultLetterSpacing,
+  subtitle1: headingLetterSpacing,
+  subtitle2: headingLetterSpacing,
+  meta1: defaultLetterSpacing,
+  meta2: defaultLetterSpacing
+})
 
 export const getTextsFontWeights = theme => {
   const { fontWeights } = theme
