@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/clear-button",
-  "version": "2.0.0-alpha.9",
+  "version": "2.0.0-alpha.16",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/clear-button.cjs.js",
   "module": "dist/clear-button.es.js",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@welcome-ui/button": "^2.0.0-alpha.9",
-    "@welcome-ui/icons.cross": "^2.0.0-alpha.9"
+    "@welcome-ui/icons.cross": "^2.0.0-alpha.16"
   },
   "peerDependencies": {
     "@welcome-ui/system": "^1.5.2",
