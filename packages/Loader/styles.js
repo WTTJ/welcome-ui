@@ -1,4 +1,4 @@
-import styled, { css, keyframes, useTheme } from '@xstyled/styled-components'
+import styled, { css, keyframes } from '@xstyled/styled-components'
 import { Shape } from '@welcome-ui/shape'
 import { system } from '@welcome-ui/system'
 
@@ -17,8 +17,7 @@ const animationRule = css`
   animation: ${animation} 1.5s cubic-bezier(0.86, 0, 0.07, 1) infinite;
 `
 
-export const LoadingDot = styled(Shape)(({ size }) => {
-  const theme = useTheme()
+export const LoadingDot = styled(Shape)(({ size, theme }) => {
   const sizeValue = theme.loaders[size] || size
   const formattedSize = typeof sizeValue === 'number' ? theme.toRem(sizeValue) : sizeValue
   return css`
