@@ -9,6 +9,7 @@ const getBlockHeight = lines => css`
   -webkit-box-orient: vertical;
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-line-clamp: ${lines || 'none'};
+  line-height: 'normal';
   overflow: hidden;
 `
 

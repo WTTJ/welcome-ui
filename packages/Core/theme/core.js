@@ -47,13 +47,21 @@ import { getDefaultFields } from './defaultFields'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'work-sans'
+const DEFAULT_LINE_HEIGHT = 1.15
+const DEFAULT_LETTER_SPACING = 0
 const HEADING_FONT_FAMILY = 'welcome-font'
+const HEADING_LINE_HEIGHT = 1.2
+const HEADING_LETTER_SPACING = 0
 const ICON_FONT_FAMILY = 'welcome-icon-font'
 
 export const createTheme = (options = {}) => {
   let {
     defaultFontFamily = DEFAULT_FONT_FAMILY,
+    defaultLineHeight = DEFAULT_LINE_HEIGHT,
+    defaultLetterSpacing = DEFAULT_LETTER_SPACING,
     headingFontFamily = HEADING_FONT_FAMILY,
+    headingLineHeight = HEADING_LINE_HEIGHT,
+    headingLetterSpacing = HEADING_LETTER_SPACING,
     iconFontFamily = ICON_FONT_FAMILY,
     ...rest
   } = options
@@ -70,6 +78,10 @@ export const createTheme = (options = {}) => {
   // fonts
   theme.fontFaces = fontFaces
   theme.fontSizes = getFontSizes('rem', theme)
+  theme.defaultLineHeight = defaultLineHeight
+  theme.defaultLetterSpacing = defaultLetterSpacing
+  theme.headingLineHeight = headingLineHeight
+  theme.headingLetterSpacing = headingLetterSpacing
   theme.lineHeights = getLineHeights(theme)
   theme.fontWeights = {
     regular: '400',
@@ -134,7 +146,6 @@ export const createTheme = (options = {}) => {
   })
   theme.textsFontWeights = getTextsFontWeights(theme)
   theme.textsFontFamily = getTextsFontFamily(theme)
-  theme.textsTextTransform = getTextsTextTransform(theme)
   theme.textsTextTransform = getTextsTextTransform(theme)
   theme.alerts = getAlerts(theme)
   theme.avatars = getAvatars(theme)

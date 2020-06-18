@@ -48,8 +48,8 @@ function baseFonts(props) {
     textarea {
       font-family: ${getFontFamilies(texts, sansSerif)};
       -webkit-font-smoothing: antialiased;
-      letter-spacing: ${th('letterSpacings.html')};
-      line-height: ${th('lineHeights.html')};
+      line-height: html;
+      letter-spacing: html;
     }
   `
 }
@@ -67,7 +67,7 @@ export const GlobalStyle = createGlobalStyle(
 
     /* for firefox */
     &[type='search'] {
-      -webkit-appearance: none;
+      appearance: none;
     }
 
     /* to remove x on macos */
@@ -75,7 +75,7 @@ export const GlobalStyle = createGlobalStyle(
     input[type='search']::-webkit-search-cancel-button,
     input[type='search']::-webkit-search-results-button,
     input[type='search']::-webkit-search-results-decoration {
-      -webkit-appearance: none;
+      appearance: none;
     }
   `
 )

@@ -19,6 +19,13 @@ export const Link = forwardRef(({ children, variant = 'primary', ...props }, ref
     </span>
   )
 
+  useEffect(() => {
+    const innerRef = ref || linkRef
+    if (innerRef && innerRef.current) {
+      setIsChildrenString(innerRef.current.childElementCount === 0)
+    }
+  }, [linkRef, ref])
+
   if (!isChildrenString) {
     clones = Children.map(children, (child, index) => {
       const key = `link-child-${index}`
@@ -34,13 +41,6 @@ export const Link = forwardRef(({ children, variant = 'primary', ...props }, ref
       })
     })
   }
-
-  useEffect(() => {
-    const innerRef = ref || linkRef
-    if (innerRef && innerRef.current) {
-      setIsChildrenString(innerRef.current.childElementCount === 0)
-    }
-  }, [linkRef, ref])
 
   return (
     <S.Link ref={ref || linkRef} variant={variant} {...props}>
