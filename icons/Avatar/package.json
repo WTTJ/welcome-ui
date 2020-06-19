@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.avatar.cjs.js",
   "module": "dist/icons.avatar.es.js",
-  "version": "2.0.0-alpha.16",
+  "version": "2.0.0-alpha.17",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,7 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^2.0.0-alpha.16"
+    "@welcome-ui/icon": "^2.0.0-alpha.17"
   },
   "license": "MIT"
 }

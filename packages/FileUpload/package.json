@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/file-upload",
-  "version": "2.0.0-alpha.16",
+  "version": "2.0.0-alpha.17",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/file-upload.cjs.js",
   "module": "dist/file-upload.es.js",
@@ -34,11 +34,11 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^1.23.0",
-    "@welcome-ui/button": "^2.0.0-alpha.9",
-    "@welcome-ui/files": "^2.0.0-alpha.16",
-    "@welcome-ui/system": "^2.0.0-alpha.9",
-    "@welcome-ui/tag": "^2.0.0-alpha.16",
-    "@welcome-ui/utils": "^2.0.0-alpha.5"
+    "@welcome-ui/button": "^2.0.0-alpha.17",
+    "@welcome-ui/files": "^2.0.0-alpha.17",
+    "@welcome-ui/system": "^2.0.0-alpha.17",
+    "@welcome-ui/tag": "^2.0.0-alpha.17",
+    "@welcome-ui/utils": "^2.0.0-alpha.17"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",
