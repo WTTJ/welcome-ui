@@ -1,5 +1,6 @@
 import merge from 'ramda/src/mergeDeepRight'
 import { rpxTransformers } from '@xstyled/system'
+import { hexToRGBA } from '@welcome-ui/utils'
 
 import { getToasts } from '../../Toast/theme'
 import { getLinks } from '../../Link/theme'
@@ -9,32 +10,59 @@ import { getAlerts } from '../../Alert/theme'
 import { getAvatars } from '../../Avatar/theme'
 import { getButtons } from '../../Button/theme'
 import { getBreadcrumbs } from '../../Breadcrumb/theme'
-import { getFields } from '../../Field/theme'
 import { getIcons } from '../../Icon/theme'
 import { getTags } from '../../Tag/theme'
 import { getTooltips } from '../../Tooltip/theme'
 import { getDropdownMenu } from '../../DropdownMenu/theme'
-import { getTables } from '../../Table/theme'
 import { getCards } from '../../Card/theme'
 import { getModals } from '../../Modal/theme'
 import { getLoaders } from '../../Loader/theme'
 import { getAccordions } from '../../Accordion/theme'
 import { getSwipers } from '../../Swiper/theme'
+import { getCheckboxes } from '../../Checkbox/theme'
+import { getTables } from '../../Table/theme'
+import { getLabels } from '../../Label/theme'
+import { getToggles } from '../../Toggle/theme'
+import { getDateTimePickerCommon } from '../../DateTimePickerCommon/theme'
+import { getTextareas } from '../../Textarea/theme'
+import { getFiledrops } from '../../FileDrop/theme'
+import { getRadios } from '../../Radio/theme'
+import { getHints } from '../../Hint/theme'
+import { getRadioTabs } from '../../RadioTab/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
-import { getFontSizes, getLineHeights, getTexts } from './typography'
+import {
+  getFontSizes,
+  getLetterSpacings,
+  getLineHeights,
+  getTexts,
+  getTextsFontFamily,
+  getTextsFontWeights,
+  getTextsTextTransform
+} from './typography'
 import { transitionCurves, transitions } from './transitions'
+import { getUnderline } from './underline'
+import { getDefaultFields } from './defaultFields'
+import { getDefaultCards } from './defaultCards'
 
 const DEFAULT_FONT_SIZE = 16
-const DEFAULT_FONT_FAMILY = 'welcome-font'
+const DEFAULT_FONT_FAMILY = 'work-sans'
+const DEFAULT_LINE_HEIGHT = 1.15
+const DEFAULT_LETTER_SPACING = 0
 const HEADING_FONT_FAMILY = 'welcome-font'
+const HEADING_LINE_HEIGHT = 1.2
+const HEADING_LETTER_SPACING = 0
 const ICON_FONT_FAMILY = 'welcome-icon-font'
 
 export const createTheme = (options = {}) => {
   let {
     defaultFontFamily = DEFAULT_FONT_FAMILY,
+    defaultLineHeight = DEFAULT_LINE_HEIGHT,
+    defaultLetterSpacing = DEFAULT_LETTER_SPACING,
     headingFontFamily = HEADING_FONT_FAMILY,
+    headingLineHeight = HEADING_LINE_HEIGHT,
+    headingLetterSpacing = HEADING_LETTER_SPACING,
     iconFontFamily = ICON_FONT_FAMILY,
     ...rest
   } = options
@@ -51,18 +79,17 @@ export const createTheme = (options = {}) => {
   // fonts
   theme.fontFaces = fontFaces
   theme.fontSizes = getFontSizes('rem', theme)
+  theme.defaultLineHeight = defaultLineHeight
+  theme.defaultLetterSpacing = defaultLetterSpacing
+  theme.headingLineHeight = headingLineHeight
+  theme.headingLetterSpacing = headingLetterSpacing
   theme.lineHeights = getLineHeights(theme)
   theme.fontWeights = {
     regular: '400',
     medium: '500',
-    bold: '600',
-    black: '700'
+    bold: '600'
   }
-  theme.letterSpacings = {
-    sm: '0.5px',
-    md: '1px',
-    lg: '2px'
-  }
+  theme.letterSpacings = getLetterSpacings(theme)
   theme.fonts = {
     texts: defaultFontFamily,
     headings: headingFontFamily,
@@ -71,7 +98,8 @@ export const createTheme = (options = {}) => {
 
   theme.borderWidths = {
     sm: '1px',
-    md: '2px'
+    md: '2px',
+    lg: '3px'
   }
 
   theme.breakpoints = {
@@ -88,8 +116,10 @@ export const createTheme = (options = {}) => {
     sm: theme.toRem(10),
     md: theme.toRem(12),
     lg: theme.toRem(15),
-    xl: theme.toRem(24),
-    xxl: theme.toRem(30)
+    xl: theme.toRem(20),
+    xxl: theme.toRem(24),
+    '3xl': theme.toRem(30),
+    '4xl': theme.toRem(36)
   }
 
   theme.icons = getIcons(theme)
@@ -104,21 +134,26 @@ export const createTheme = (options = {}) => {
     md: '3px 4px 10px 0 rgba(0,0,0,0.07)'
   }
 
-  theme.underline = {
-    borderBottomWidth: theme.borderWidths.sm,
-    borderBottomStyle: 'solid'
-  }
-
   theme = merge(theme, rest)
 
-  // CSS blocks
   // These attributes depend on colors and fontSizes and must come last
-  theme.underline.borderBottomColor = theme.colors.primary[500]
+  theme.selection = {
+    backgroundColor: theme.colors.primary[500],
+    color: theme.colors.light[900]
+  }
+  theme.underline = getUnderline(theme)
+  theme.focus = (color = theme.colors.primary[500]) => ({
+    boxShadow: `0 0 0 3px ${hexToRGBA(color, 0.5)}`
+  })
+  theme.defaultCards = getDefaultCards(theme)
+  theme.textsFontWeights = getTextsFontWeights(theme)
+  theme.textsFontFamily = getTextsFontFamily(theme)
+  theme.textsTextTransform = getTextsTextTransform(theme)
   theme.alerts = getAlerts(theme)
   theme.avatars = getAvatars(theme)
   theme.buttons = getButtons(theme)
   theme.breadcrumbs = getBreadcrumbs(theme)
-  theme.fields = getFields(theme)
+  // TODO: should be removed when all fields have been migrated to their own packageName/theme.js file
   theme.toasts = getToasts(theme)
   theme.paginations = getPaginations(theme)
   theme.tabs = getTabs(theme)
@@ -133,6 +168,17 @@ export const createTheme = (options = {}) => {
   theme.loaders = getLoaders(theme)
   theme.accordions = getAccordions(theme)
   theme.swipers = getSwipers(theme)
+  theme.labels = getLabels(theme)
+  // fields
+  theme.defaultFields = getDefaultFields(theme)
+  theme.hints = getHints(theme)
+  theme.checkboxes = getCheckboxes(theme)
+  theme.toggles = getToggles(theme)
+  theme.dateTimePickerCommon = getDateTimePickerCommon(theme)
+  theme.textareas = getTextareas(theme)
+  theme.filedrops = getFiledrops(theme)
+  theme.radios = getRadios(theme)
+  theme.radioTabs = getRadioTabs(theme)
 
   theme = merge(theme, rest)
 

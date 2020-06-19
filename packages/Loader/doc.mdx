@@ -7,7 +7,7 @@ menu: Components
 import { Playground, Link as LinkDocz, Props } from 'docz'
 import { Code, Dependencies, TagVersion, Usage } from '../../docz'
 const { dependencies, peerDependencies, component, name, version } = require('./package.json')
-import { Loader } from '.'
+import { Loader } from './index'
 
 # Loader
 
@@ -24,7 +24,8 @@ import { Loader } from '.'
   <Loader />
   <Loader color="primary.500" size="md" />
   <Loader color="primary.500" size="lg" />
-  <Loader color="primary.500" width={40} height={40} />
+  <Loader color="primary.500" size="40px" />
+  <Loader color="primary.500" size={50} />
 </Playground>
 
 ## Properties

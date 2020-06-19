@@ -12,7 +12,7 @@ export const TagVersion = ({ href, name, version, ...rest }) => (
       style={{ textDecoration: 'none' }}
       target="_blank"
     >
-      <Tag size="md" {...rest}>
+      <Tag mt="md" size="md" variant="secondary" {...rest}>
         {`v${version}`}
       </Tag>
     </a>

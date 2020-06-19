@@ -173,5 +173,14 @@
   "salary": "\f1b1",
   "show": "\f1b2",
   "tags": "\f1b3",
-  "video": "\f1b4"
+  "video": "\f1b4",
+  "expand_text": "\f1b5",
+  "fingerprint": "\f1b6",
+  "mansanory": "\f1b7",
+  "pictures": "\f1b8",
+  "teepee": "\f1b9",
+  "caddy": "\f1ba",
+  "diamond": "\f1bb",
+  "factory": "\f1bc",
+  "house": "\f1bd"
 }

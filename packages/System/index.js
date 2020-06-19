@@ -58,6 +58,7 @@ const SYSTEM_PROPS = Object.freeze([
   S.backgrounds,
   S.basics,
   S.borders,
+  S.boxShadow,
   S.color,
   S.display,
   S.flexboxes,

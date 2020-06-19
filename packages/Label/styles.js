@@ -9,7 +9,7 @@ export const Label = styled.label(
     flex-shrink: 0;
     align-items: flex-start;
     line-height: body1;
-    ${th('fields.label')};
+    ${th('labels')};
     ${system};
     user-select: none;
 
@@ -28,8 +28,13 @@ export const Label = styled.label(
 export const requiredStyles = css`
   &::after {
     content: '*';
+    margin-left: 0.125rem;
+    /* It prevents the element to shift the layout and it allows us to put it properly on top with super */
+    line-height: 0;
+    vertical-align: super;
+    font-size: subtitle2;
+    font-weight: bold;
     color: primary.500;
-    margin-left: xxs;
   }
 `
 

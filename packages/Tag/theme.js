@@ -1,62 +1,96 @@
-import { th } from '@xstyled/system'
-import { VARIANTS } from '@welcome-ui/utils'
-
-const TAG_VARIANTS = {
-  default: 'colors.nude.100',
-  primary: 'colors.primary.500',
-  secondary: 'colors.secondary.500',
-  dark: 'colors.dark.500',
-  1: 'colors.sub.1',
-  2: 'colors.sub.2',
-  3: 'colors.sub.3',
-  4: 'colors.sub.4',
-  5: 'colors.sub.5',
-  6: 'colors.sub.6',
-  ...VARIANTS
-}
-
-export const getVariantsTheme = theme => {
-  return Object.entries(TAG_VARIANTS).reduce((acc, [variant, color]) => {
-    acc[variant] = { 'background-color': th(color)({ theme }) }
-    return acc
-  }, {})
-}
+import { hexToRGBA } from '@welcome-ui/utils'
 
 export const getTags = theme => {
-  const { colors, fontSizes, fontWeights, space, toRem } = theme
+  const { borderWidths, colors, fontSizes, fontWeights, space, toRem } = theme
 
   const sizes = {
-    sm: toRem(19),
-    md: toRem(21),
-    lg: toRem(27)
+    sm: toRem(22),
+    md: toRem(28),
+    lg: toRem(34)
   }
+
+  const border = {
+    borderWidth: borderWidths.sm,
+    borderStyle: 'solid'
+  }
+
+  const withoutVisibleBorder = color => ({
+    ...border,
+    borderColor: color,
+    backgroundColor: color
+  })
 
   return {
     default: {
-      'font-size': fontSizes.meta2,
-      'font-weight': fontWeights.medium,
+      fontWeight: fontWeights.medium,
+      backgroundColor: colors.light[900],
       color: colors.light[900]
     },
     variants: {
-      ...getVariantsTheme(theme),
       default: {
-        'background-color': colors.light[500],
-        color: colors.nude[800]
-      }
+        backgroundColor: colors.nude[200],
+        color: colors.light[100],
+        borderColor: hexToRGBA(colors.dark[900], 0.1),
+        ...border
+      },
+      primary: { ...withoutVisibleBorder(colors.primary[500]), color: colors.light[900] },
+      secondary: {
+        backgroundColor: colors.sub[4],
+        color: colors.light[900],
+        borderColor: hexToRGBA(colors.dark[900], 0.1),
+        ...border
+      },
+      dark: {
+        backgroundColor: colors.dark[700],
+        color: colors.light[700],
+        borderColor: colors.dark[500],
+        ...border
+      },
+      success: {
+        backgroundColor: colors.success[100],
+        color: colors.success[500],
+        borderColor: colors.success[200],
+        ...border
+      },
+      error: {
+        backgroundColor: colors.danger[100],
+        color: colors.danger[700],
+        borderColor: colors.danger[500],
+        ...border
+      },
+      warning: {
+        backgroundColor: colors.warning[100],
+        color: colors.warning[700],
+        borderColor: colors.warning[500],
+        ...border
+      },
+      info: {
+        backgroundColor: colors.info[100],
+        color: colors.info[500],
+        borderColor: colors.info[200],
+        ...border
+      },
+      1: { ...withoutVisibleBorder(colors.sub[1]) },
+      2: { ...withoutVisibleBorder(colors.sub[2]) },
+      3: { ...withoutVisibleBorder(colors.sub[3]) },
+      4: { ...withoutVisibleBorder(colors.sub[4]) },
+      5: { ...withoutVisibleBorder(colors.sub[5]) },
+      6: { ...withoutVisibleBorder(colors.sub[6]) }
     },
     sizes: {
       sm: {
         padding: `0 ${space.xxs}`,
-        height: sizes.sm
+        height: sizes.sm,
+        fontSize: fontSizes.meta2
       },
       md: {
-        padding: `0 ${space.xxs}`,
-        height: sizes.md
+        padding: `0 ${space.xs}`,
+        height: sizes.md,
+        fontSize: fontSizes.meta1
       },
       lg: {
-        padding: `0 ${space.xs}`,
-        height: sizes.lg,
-        'font-size': fontSizes.meta1
+        padding: `0 ${space.sm}`,
+        height: sizes.lg
       }
     },
     shape: {

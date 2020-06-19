@@ -33,6 +33,7 @@ Admire these beautiful colors 💅
 ### States
 
 <Playground>
+  <Tag variant="success">Success</Tag>
   <Tag variant="error">Error</Tag>
   <Tag variant="warning">Warning</Tag>
   <Tag variant="info">Info</Tag>
@@ -54,13 +55,13 @@ Admire these beautiful colors 💅
 Use size property with `sm` `md` or `lg`.
 
 <Playground>
-  <Tag size="sm" variant="secondary">
+  <Tag size="sm" variant="primary">
     Small
   </Tag>
-  <Tag size="md" variant="secondary">
+  <Tag size="md" variant="primary">
     Medium
   </Tag>
-  <Tag size="lg" variant="secondary">
+  <Tag size="lg" variant="primary">
     Large
   </Tag>
 </Playground>
@@ -70,13 +71,13 @@ Use size property with `sm` `md` or `lg`.
 When we have only one character, we apply same size for the width and height (it implicitely sets `shape` prop to `square`)
 
 <Playground>
-  <Tag size="sm" variant="secondary">
+  <Tag size="sm" variant="primary">
     1
   </Tag>
-  <Tag size="md" variant="secondary">
+  <Tag size="md" variant="primary">
     1
   </Tag>
-  <Tag size="lg" variant="secondary">
+  <Tag size="lg" variant="primary">
     1
   </Tag>
 </Playground>
@@ -86,10 +87,10 @@ When we have only one character, we apply same size for the width and height (it
 Set `shape` prop to `square` to get a square no matter the content.
 
 <Playground>
-  <Tag size="lg" shape="square" variant="secondary">
+  <Tag size="lg" shape="square" variant="primary">
     1
   </Tag>
-  <Tag size="lg" shape="square" variant="secondary" width={50}>
+  <Tag size="lg" shape="square" variant="primary" width={50}>
     Long text
   </Tag>
 </Playground>
@@ -97,7 +98,7 @@ Set `shape` prop to `square` to get a square no matter the content.
 Set `shape` prop to `circle` to set a border-radius `50%`.
 
 <Playground>
-  <Tag size="lg" shape="circle" variant="secondary">
+  <Tag size="lg" shape="circle" variant="primary">
     1
   </Tag>
 </Playground>

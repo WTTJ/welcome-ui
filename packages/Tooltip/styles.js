@@ -5,7 +5,5 @@ import { filterComponent, system } from '@welcome-ui/system'
 
 export const Tooltip = styled(filterComponent(ReakitTooltip))`
   ${th('tooltips')};
-  padding: sm;
-  font-size: body4;
   ${system};
 `

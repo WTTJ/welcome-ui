@@ -1,27 +1,40 @@
-export const getModals = ({ colors, radii, toRem }) => ({
-  backdrop: {
-    'background-color': colors.dark[900],
-    opacity: 0.6,
-    'z-index': '999'
-  },
-  default: {
-    'z-index': '999'
-  },
-  gutter: toRem(32),
-  sizes: {
-    sm: {
-      width: 400
+export const getModals = theme => {
+  const { borderWidths, colors, space, toRem } = theme
+  return {
+    backdrop: {
+      backgroundColor: colors.overlay,
+      zIndex: 999
     },
-    md: {
-      width: 550
+    default: {
+      zIndex: 999
     },
-    lg: {
-      width: 680
+    footer: {
+      borderTopColor: colors.light[800],
+      borderTopStyle: 'solid',
+      borderTopWidth: borderWidths.sm,
+      padding: `${space.lg} ${space.xxl}`
     },
-    auto: {}
-  },
-  cover: {
-    'border-top-left-radius': radii.sm,
-    'border-top-right-radius': radii.sm
+    title: {
+      borderBottomColor: colors.light[800],
+      borderBottomStyle: 'solid',
+      borderBottomWidth: borderWidths.sm,
+      padding: `${space.lg} ${space.xxl}`,
+      /** space of close button */
+      paddingRight: toRem(50)
+    },
+    gutter: toRem(32),
+    sizes: {
+      sm: {
+        width: toRem(400)
+      },
+      md: {
+        width: toRem(550)
+      },
+      lg: {
+        width: toRem(680)
+      },
+      auto: {}
+    },
+    cover: {}
   }
-})
+}

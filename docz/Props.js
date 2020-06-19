@@ -59,7 +59,7 @@ export const Props = ({ props }) => {
 
   return (
     <Card>
-      <Card.Body padding="xl">
+      <Card.Body padding="xl" color="dark.900">
         <Table marginBottom="-lg" marginTop="-xl">
           <Table.Thead>
             <Table.Tr>
@@ -75,7 +75,7 @@ export const Props = ({ props }) => {
 
               return (
                 <Table.Tr key={key}>
-                  <Table.Td color="primary.500" width="20%">
+                  <Table.Td color="dark.900" fontWeight="bold" width="20%">
                     {key}
                   </Table.Td>
                   <Table.Td width="50%">
@@ -94,9 +94,9 @@ export const Props = ({ props }) => {
                   <Table.Td textAlign="center" width="15%">
                     {item.required && (
                       <Tooltip content="is required">
-                        <Box display="inline">
-                          <CheckIcon color="primary.500" />
-                        </Box>
+                        <Tag shape="circle" variant="primary">
+                          <CheckIcon />
+                        </Tag>
                       </Tooltip>
                     )}
                   </Table.Td>

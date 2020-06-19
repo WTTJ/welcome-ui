@@ -1,164 +1,179 @@
 import { hexToRGB } from '@welcome-ui/utils'
 
 export const getButtons = theme => {
-  const { colors, fontSizes, fontWeights, letterSpacings, radii, shadows, space } = theme
+  const { colors, focus, fontSizes, fontWeights, radii, space, toRem } = theme
   const defaults = {
-    color: colors.light[700],
-    'font-size': fontSizes.button,
-    'font-weight': fontWeights.bold,
-    'text-transform': 'uppercase',
-    'letter-spacing': letterSpacings.md,
-    'background-color': colors.primary[500],
-    'border-color': colors.primary[500],
-    'border-radius': radii.md,
-    '&:hover': {
-      'box-shadow': shadows.sm
-    },
-    '&:focus': {
-      'box-shadow': `0 0 0 3px rgba(${hexToRGB(colors.info[500])}, 0.5)`
-    }
+    color: colors.light[900],
+    fontSize: fontSizes.button,
+    fontWeight: fontWeights.bold,
+    letterSpacing: 0,
+    borderRadius: radii.md
   }
 
   return {
-    primary: defaults,
+    primary: {
+      ...defaults,
+      backgroundColor: colors.primary[500],
+      borderColor: colors.primary[500]
+    },
     secondary: {
       ...defaults,
-      color: colors.secondary[700],
-      'background-color': colors.light[900],
-      'border-color': colors.nude[200]
+      backgroundColor: colors.dark[900],
+      borderColor: colors.dark[900]
     },
     tertiary: {
       ...defaults,
-      color: colors.light[700],
-      'background-color': colors.secondary[500],
-      'border-color': colors.secondary[500]
+      color: colors.dark[900],
+      backgroundColor: 'transparent',
+      borderColor: colors.dark[900]
+    },
+    'tertiary-negative': {
+      ...defaults,
+      backgroundColor: 'transparent',
+      borderColor: colors.light[900]
     },
     'primary-warning': {
       ...defaults,
-      color: colors.light[700],
-      'background-color': colors.warning[500],
-      'border-color': colors.warning[500]
+      backgroundColor: colors.warning[500],
+      borderColor: colors.warning[500]
     },
     'secondary-warning': {
       ...defaults,
-      color: colors.warning[500],
-      'background-color': colors.light[900],
-      'border-color': colors.warning[500]
+      color: colors.warning[700],
+      backgroundColor: colors.light[900],
+      borderColor: colors.warning[500]
     },
     'primary-danger': {
       ...defaults,
-      color: colors.light[700],
-      'background-color': colors.danger[500],
-      'border-color': colors.danger[500]
+      backgroundColor: colors.danger[500],
+      borderColor: colors.danger[500]
     },
     'secondary-danger': {
       ...defaults,
-      color: colors.danger[500],
-      'background-color': colors.light[900],
-      'border-color': colors.danger[500]
+      color: colors.danger[700],
+      backgroundColor: colors.light[900],
+      borderColor: colors.danger[500]
     },
     quaternary: {
       ...defaults,
-      color: colors.nude[700],
-      'background-color': colors.nude[200],
-      'border-color': colors.nude[200]
+      color: colors.dark[900],
+      backgroundColor: colors.light[900],
+      borderColor: colors.light[900]
     },
     hover: {
       primary: {
-        'background-color': colors.primary[200],
-        'border-color': colors.primary[200]
+        backgroundColor: colors.primary[200],
+        borderColor: colors.primary[200]
       },
       secondary: {
-        'background-color': colors.light[700],
-        'border-color': colors.nude[300]
+        backgroundColor: colors.dark[500],
+        borderColor: colors.dark[500]
       },
       tertiary: {
-        'background-color': colors.secondary[200],
-        'border-color': colors.secondary[200]
+        backgroundColor: `rgba(${hexToRGB(colors.dark[900])}, 0.1)`
+      },
+      'tertiary-negative': {
+        backgroundColor: `rgba(${hexToRGB(colors.light[900])}, 0.1)`
       },
       'primary-warning': {
-        'background-color': colors.warning[200],
-        'border-color': colors.warning[200]
+        backgroundColor: colors.warning[200],
+        borderColor: colors.warning[200]
       },
       'secondary-warning': {
-        'background-color': colors.warning[100],
-        'border-color': colors.warning[200]
+        backgroundColor: colors.warning[100],
+        borderColor: colors.warning[700]
       },
       'primary-danger': {
-        'background-color': colors.danger[200],
-        'border-color': colors.danger[200]
+        backgroundColor: colors.danger[200],
+        borderColor: colors.danger[200]
       },
       'secondary-danger': {
-        'background-color': colors.danger[100],
-        'border-color': colors.danger[200]
+        backgroundColor: colors.danger[100],
+        borderColor: colors.danger[700]
       },
       quaternary: {
-        color: colors.nude[800],
-        'background-color': colors.nude[400],
-        'border-color': colors.nude[400]
+        backgroundColor: colors.light[800],
+        borderColor: colors.light[800]
       }
     },
     focus: {
+      primary: focus(),
+      secondary: focus(colors.dark[900]),
+      tertiary: focus(colors.dark[900]),
+      'tertiary-negative': focus(colors.light[900]),
+      quaternary: focus(colors.light[800]),
+      'primary-warning': focus(colors.warning[500]),
+      'secondary-warning': focus(colors.warning[500]),
+      'primary-danger': focus(colors.danger[500]),
+      'secondary-danger': focus(colors.danger[500])
+    },
+    active: {
       primary: {
-        'background-color': colors.primary[700],
-        'border-color': colors.primary[700]
+        backgroundColor: colors.primary[700],
+        borderColor: colors.primary[700]
       },
       secondary: {
-        'background-color': colors.light[700],
-        'border-color': colors.nude[500]
+        backgroundColor: colors.dark[200],
+        borderColor: colors.dark[200]
       },
       tertiary: {
-        'background-color': colors.secondary[700],
-        'border-color': colors.secondary[700]
+        backgroundColor: `rgba(${hexToRGB(colors.dark[900])}, 0.4)`
+      },
+      'tertiary-negative': {
+        backgroundColor: `rgba(${hexToRGB(colors.light[900])}, 0.4)`
       },
       'primary-warning': {
-        'background-color': colors.warning[700],
-        'border-color': colors.warning[700]
+        backgroundColor: colors.warning[700],
+        borderColor: colors.warning[700]
       },
       'secondary-warning': {
-        'background-color': colors.light[900],
-        'border-color': colors.warning[700]
+        color: colors.warning[700],
+        borderColor: colors.warning[700]
       },
       'primary-danger': {
-        'background-color': colors.danger[700],
-        'border-color': colors.danger[700]
+        backgroundColor: colors.danger[700],
+        borderColor: colors.danger[700]
       },
       'secondary-danger': {
-        'background-color': colors.light[900],
-        'border-color': colors.danger[700]
+        color: colors.danger[700],
+        borderColor: colors.danger[700]
       },
       quaternary: {
-        color: colors.nude[800],
-        'background-color': colors.nude[400],
-        'border-color': colors.nude[400]
+        backgroundColor: colors.light[700],
+        borderColor: colors.light[700]
       }
     },
     disabled: {
       ...defaults,
-      color: colors.nude[600],
-      'background-color': colors.nude[100],
-      'border-color': colors.nude[100]
+      color: colors.nude[700],
+      backgroundColor: colors.nude[500],
+      borderColor: colors.nude[500],
+      '&:focus': focus(colors.nude[500])
     },
     sizes: {
       xs: {
-        height: '1.25rem',
-        padding: `0 ${space.sm}`
+        height: toRem(20),
+        padding: `0 ${space.xxs}`
       },
       sm: {
-        height: '2rem',
-        padding: `0 ${space.sm}`
+        height: toRem(34),
+        padding: `0 ${space.md}`,
+        fontSize: toRem()
       },
       md: {
-        height: '2.25rem',
-        padding: `0 ${space.md}`
+        height: toRem(42),
+        padding: `0 ${space.lg}`,
+        fontSize: fontSizes.body3
       },
       lg: {
-        height: '2.5rem',
-        padding: `0 ${space.lg}`
+        height: toRem(49),
+        padding: `0 ${space.xl}`,
+        fontSize: fontSizes.body2
       },
       xl: {
-        height: '4.375rem',
-        padding: `0 ${space.lg}`
+        height: toRem(70),
+        padding: `0 ${space.xxl}`,
+        fontSize: fontSizes.body1
       }
     }
   }

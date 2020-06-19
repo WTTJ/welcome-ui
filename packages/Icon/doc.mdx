@@ -26,14 +26,17 @@ const { dependencies, peerDependencies, name, version } = require('./package.jso
 
 ## Size
 
-Use size property with `xs`, `sm`, `md`, `lg` or `xl`.
+Use size property with `xxs`, `xs`, `sm`, `md`, `lg`, `xl`, a string `35px` or a number `50` that will convert the value into rem
 
 <Playground>
+  <TwitterIcon size="xxs" />
   <TwitterIcon size="xs" />
   <TwitterIcon size="sm" />
   <TwitterIcon />
   <TwitterIcon size="lg" />
   <TwitterIcon size="xl" />
+  <TwitterIcon size="35px" />
+  <TwitterIcon size={50} />
 </Playground>
 
 ## Colour
@@ -49,15 +52,6 @@ Icons inherit the colour from their parent.
 ## Available icons
 
 **Note**: You can click on an icon to copy its name.
-
-### Products
-
-<Playground wrapper={false}>
-  {() => {
-    const icons = ['ats', 'employer_branding', 'marketplace', 'welcome_home', 'welcome_kit']
-    return IconsList(icons)
-  }}
-</Playground>
 
 ### Directions
 
@@ -83,6 +77,7 @@ Icons inherit the colour from their parent.
       'drag_and_drop',
       'edit',
       'eye',
+      'expand_text',
       'expand',
       'external_link',
       'filters',
@@ -153,35 +148,39 @@ Icons inherit the colour from their parent.
       'candidate_status',
       'celebrate',
       'clock',
-      'comment',
       'comment_outline',
+      'comment',
       'contract',
       'create',
       'date',
       'department',
       'earth',
       'education_level',
-      'email',
       'email_outline',
+      'email',
       'female',
+      'fingerprint',
       'folder',
       'information',
       'location',
       'male',
+      'mansanory',
       'offer_status',
       'origine',
-      'phone',
       'phone_outline',
+      'phone',
+      'pictures',
       'podcast',
       'question',
-      'review',
       'review_outline',
+      'review',
       'salary',
       'source',
       'star',
       'suitcase',
       'tag',
       'tags',
+      'teepee',
       'update'
     ]
     return IconsList(icons)
@@ -223,6 +222,7 @@ Icons inherit the colour from their parent.
       'basketball',
       'book',
       'bulb',
+      'caddy',
       'calcul',
       'camera',
       'chevron',
@@ -231,7 +231,9 @@ Icons inherit the colour from their parent.
       'computer',
       'cross_target',
       'crown',
+      'diamond',
       'dish',
+      'factory',
       'flag',
       'flag_pointed',
       'gear',
@@ -239,6 +241,7 @@ Icons inherit the colour from their parent.
       'hard_hat',
       'hashtag',
       'heart_shiny',
+      'house',
       'lock',
       'lock_rounded',
       'map',

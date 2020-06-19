@@ -6,6 +6,7 @@ export const Item = styled(Box)(
   ({ withSeparator }) => css`
     ${th('breadcrumbs.item.default')};
     align-items: center;
+    transition: medium;
 
     ${withSeparator &&
       css`

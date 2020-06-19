@@ -3,7 +3,7 @@ import { th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledTag } from '@welcome-ui/tag'
 import { componentSystem, filterFieldComponent, wrapperSystem } from '@welcome-ui/system'
-import { centerContent, fieldStyles, overflowEllipsis } from '@welcome-ui/utils'
+import { centerContent, defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 import { cardStyles } from '@welcome-ui/utils'
 
 export const Wrapper = styled(filterFieldComponent('div'))(
@@ -22,12 +22,12 @@ const FILTER_PROPS = ['hasIcon', 'inputValue', 'renderMultiple']
 export const Input = styled(filterFieldComponent('div', FILTER_PROPS))(
   ({ hasIcon, size }) => css`
     position: relative;
-    ${fieldStyles};
+    ${defaultFieldStyles};
     ${overflowEllipsis};
-    padding-right: ${th(`fields.sizes.${size}.height`)};
+    padding-right: ${th(`defaultFields.sizes.${size}.height`)};
     ${hasIcon &&
       css`
-        padding-left: ${th(`fields.sizes.${size}.height`)};
+        padding-left: ${th(`defaultFields.sizes.${size}.height`)};
       `};
     cursor: default;
     ${componentSystem}
@@ -64,7 +64,7 @@ export const Input = styled(filterFieldComponent('div', FILTER_PROPS))(
 )
 
 export const Menu = styled.ul`
-  ${th('fields.select.default')};
+  ${th('defaultFields.select.default')};
   ${cardStyles};
   position: absolute;
   z-index: 2;
@@ -81,9 +81,9 @@ export const Menu = styled.ul`
 export const Item = styled.li(
   ({ allowUnselectFromList, isHighlighted, isMultiple, isSelected }) => css`
     color: nude.800;
-    ${isHighlighted && th('fields.select.highlighted')};
-    ${isSelected && !isMultiple && th('fields.select.selected')};
-    ${isSelected && isMultiple && !allowUnselectFromList && th('fields.select.existing')};
+    ${isHighlighted && th('defaultFields.select.highlighted')};
+    ${isSelected && !isMultiple && th('defaultFields.select.selected')};
+    ${isSelected && isMultiple && !allowUnselectFromList && th('defaultFields.select.existing')};
     ${overflowEllipsis};
     padding: sm;
     list-style: none;
@@ -96,7 +96,7 @@ export const Item = styled.li(
 export const Icon = styled.div(
   ({ size }) => css`
     position: absolute;
-    width: ${th(`fields.sizes.${size}.height`)};
+    width: ${th(`defaultFields.sizes.${size}.height`)};
     padding: 0;
     top: 0;
     bottom: 0;
@@ -118,7 +118,7 @@ export const DropDownIndicator = styled.button(
   ({ isOpen, size }) => css`
     position: relative;
     height: 100%;
-    width: ${th(`fields.sizes.${size}.height`)};
+    width: ${th(`defaultFields.sizes.${size}.height`)};
     padding: 0;
     outline: none !important; /* important for firefox */
     appearance: none;

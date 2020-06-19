@@ -1,18 +1,18 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { useState } from 'react'
 import { ComponentsProvider, theme, useMenus } from 'docz'
 import { Helmet } from 'react-helmet'
 
 import { createTheme, WuiProvider } from '../../../packages/Core/index'
 import { darkTheme } from '../../../packages/Themes/Dark'
-import { wttjTheme } from '../../../packages/Themes/Wttj'
 import { welcomeTheme } from '../../../packages/Themes/Welcome'
-import { welcomeKitTheme } from '../../../packages/Themes/WelcomeKit'
 import { Code, CodeEditor, H1, H2, H3, InlineCode, Props } from '../../../docz/index'
 
 import { Content, ContentWrapper } from './components/Content.styled'
 import { Menu } from './components/Menu'
 import { MobileMenu } from './components/MobileMenu'
 import { Page } from './components/Page'
+import { Footer } from './components/Footer'
 
 const components = {
   h1: H1,
@@ -27,6 +27,9 @@ const components = {
 function doczThemeLight(colors) {
   return {
     docz: {
+      page: {
+        backgroundColor: colors.nude[100]
+      },
       navigation: {
         color: colors.light[900]
       },
@@ -37,9 +40,36 @@ function doczThemeLight(colors) {
         'background-color': colors.dark[700]
       },
       github: {
-        'background-color': colors.dark[500],
+        'background-color': colors.primary[500],
+        color: colors.light[900],
         '&:hover, &:focus': {
-          'background-color': colors.dark[200]
+          'background-color': colors.primary[200]
+        }
+      }
+    }
+  }
+}
+
+function doczThemeWelcome(colors) {
+  return {
+    docz: {
+      page: {
+        backgroundColor: colors.nude[100]
+      },
+      navigation: {
+        color: colors.light[900]
+      },
+      navigationmobile: {
+        color: colors.dark[900]
+      },
+      menu: {
+        'background-color': colors.dark[700]
+      },
+      github: {
+        'background-color': colors.primary[500],
+        color: colors.dark[900],
+        '&:hover, &:focus': {
+          'background-color': colors.primary[200]
         }
       }
     }
@@ -49,6 +79,10 @@ function doczThemeLight(colors) {
 function doczThemeDark(colors) {
   return {
     docz: {
+      page: {
+        backgroundColor: colors.light[500],
+        color: colors.dark[900]
+      },
       navigation: {
         color: colors.dark[900]
       },
@@ -59,9 +93,10 @@ function doczThemeDark(colors) {
         'background-color': colors.light[900]
       },
       github: {
-        'background-color': colors.light[500],
+        'background-color': colors.primary[500],
+        color: colors.dark[900],
         '&:hover, &:focus': {
-          'background-color': colors.light[200]
+          'background-color': colors.primary[200]
         }
       }
     }
@@ -72,14 +107,8 @@ const getThemeOptions = name => {
   let theming
 
   switch (name) {
-    case 'welcomekit':
-      theming = createTheme(welcomeKitTheme)
-      break
     case 'welcome':
       theming = createTheme(welcomeTheme)
-      break
-    case 'wttj':
-      theming = createTheme(wttjTheme)
       break
     case 'dark':
       theming = createTheme(darkTheme)
@@ -90,6 +119,8 @@ const getThemeOptions = name => {
 
   if (name === 'dark') {
     return { ...theming, ...doczThemeDark(theming.colors) }
+  } else if (name === 'welcome') {
+    return { ...theming, ...doczThemeWelcome(theming.colors) }
   } else {
     return { ...theming, ...doczThemeLight(theming.colors) }
   }
@@ -109,18 +140,18 @@ const useStateWithLocalStorage = defaultValue => {
 // eslint-disable-next-line react/prop-types
 const Theme = ({ children }) => {
   const menus = useMenus()
-  const [themeWUI, setThemeWUI] = useStateWithLocalStorage('welcomekit')
+  const [themeWUI, setThemeWUI] = useStateWithLocalStorage('welcome')
 
   return (
     <WuiProvider theme={getThemeOptions(themeWUI)}>
       <ComponentsProvider components={components}>
         <Page>
           <Helmet>
-            {/* <link
-              href="https://wh-front-production.s3-eu-west-1.amazonaws.com/production/home/assets/favicon.png"
+            <link
+              href="https://cdn.welcomehome.io/production/assets/favicon.png"
               rel="shortcut icon"
               type="image/png"
-            /> */}
+            />
             <link
               href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
               rel="stylesheet"
@@ -165,7 +196,10 @@ const Theme = ({ children }) => {
             theme={{ setTheme: setThemeWUI, value: themeWUI }}
           />
           <ContentWrapper>
-            <Content>{children}</Content>
+            <Content>
+              {children}
+              <Footer themeWUI={themeWUI} />
+            </Content>
           </ContentWrapper>
         </Page>
       </ComponentsProvider>

@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { oneOf, string } from 'prop-types'
+import { number, oneOf, oneOfType, string } from 'prop-types'
 import { Box } from '@welcome-ui/box'
 
 import * as S from './styles'
@@ -15,6 +15,6 @@ export const Loader = forwardRef(({ color, dataTestId, size = 'sm', ...rest }, r
 Loader.displayName = 'Loader'
 
 Loader.propTypes = {
-  color: string.isRequired,
-  size: oneOf(['xs', 'sm', 'md', 'lg'])
+  color: string,
+  size: oneOfType([oneOf(['xs', 'sm', 'md', 'lg']), number, string])
 }

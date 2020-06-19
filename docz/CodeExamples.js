@@ -14,7 +14,7 @@ export const exampleHome = `
       primary: {
         500: '#FF0000'
       },
-      secondary: {
+      success: {
         500: '#00FF00'
       }
     }

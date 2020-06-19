@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
-import { fieldStyles } from '@welcome-ui/utils'
+import { getVariantColor } from '@welcome-ui/utils'
 
 const FILTER_PROPS = [
   'onAddFile',
@@ -12,44 +12,33 @@ const FILTER_PROPS = [
   'forceFileType'
 ]
 
-const getBorderColor = ({ isDragAccept, isDragReject }) => {
-  if (isDragAccept) {
-    return 'primary.default'
-  }
-  if (isDragReject) {
-    return 'danger.default'
-  }
-
-  return null
-}
-
-const disabledStyles = css`
-  background: light.500;
-
-  h3,
-  p {
-    color: nude.700;
-  }
-`
-
 export const FileDrop = styled(filterFieldComponent('div', FILTER_PROPS))(
-  props => css`
-    ${fieldStyles};
-    ${th('fields.fileupload')};
-    border-color: ${getBorderColor(props)};
+  ({ connected, disabled, isDragAccept, isDragReject }) => css`
+    ${th('defaultFields.default')};
+    ${th('filedrops.default')};
+    ${isDragAccept && th('filedrops.dragAccept')};
+    ${isDragReject &&
+      `
+      border-color: ${getVariantColor('error')};
+      ${th('filedrops.dragReject')}
+    `};
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: md;
-    ${props.connected ? componentSystem : system};
+    transition: medium;
+    ${connected ? componentSystem : system};
 
-    h3 {
-      font-size: h3;
-      font-weight: normal;
+    &:focus {
+      ${th('defaultFields.focused.default')};
     }
 
-    ${props.disabled && disabledStyles};
+    ${disabled &&
+      css`
+        ${th('defaultFields.disabled')};
+        ${th('filedrops.disabled')};
+      `};
   `
 )
 

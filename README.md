@@ -1,6 +1,6 @@
 # Welcome UI
 
-<img src="assets/readme.png" width="500" />
+<img src="assets/illustration.png" width="500" />
 
 Welcome to the _Welcome UI library_ created by [Welcome to the jungle](https://www.welcometothejungle.com), a customizable design system with react • styled-components • styled-system and reakit.
 
@@ -14,16 +14,18 @@ Here you'll find all the core components you need to create a delightful webapp.
 
 ---
 
-## Install
+## Installation
+
+1 - Install the **peer dependencies** listed below:
 
 ```bash
-npm install welcome-ui
+yarn add @xstyled/styled-components @xstyled/system prop-types react react-dom styled-components
 ```
 
-or
+2 - Install the the **core** component and any other components you need for your webapp e.g. if you need just a button…
 
 ```bash
-yarn add welcome-ui
+yarn add @welcome-ui/core @welcome-ui/button
 ```
 
 ## Import library & Theme
@@ -32,22 +34,37 @@ Getting started
 
 ```js
 import React from 'react'
-import { ThemeProvider } from '@xstyled/styled-components'
-import { createTheme, GlobalStyle } from '@welcome-ui/core'
-import { Text } from '@welcome-ui/text'
+import { createTheme, WuiProvider } from '@welcome-ui/core'
+import { Button } from '@welcome-ui/button'
 
-const theme = createTheme()
+// Add theme options (if you want)
+const options = {
+  defaultFontFamily: 'Helvetica',
+  headingFontFamily: 'Georgia',
+  colors: {
+    primary: {
+      500: '#124C80'
+    },
+    success: {
+      500: '#32CD32'
+    }
+  }
+}
 
-export default function App() {
-  // Wrap your component with ThemeProvider
+// Create your theme
+const theme = createTheme(options)
+export default function Root() {
   return (
-    <ThemeProvider theme={theme}>
-      <>
-        <GlobalStyle />
-        <Text variant="h1">Welcome!</Text>
-        <Text>Here is how you can start with welcome-ui :)</Text>
-      </>
-    </ThemeProvider>
+    // Wrap your components with <WuiProvider /> with your theme
+    <WuiProvider
+      theme={theme}
+      // Will inject a CSS reset with normalizer
+      hasGlobalStyle
+      // Will show the focus ring on keyboard navigation only
+      shouldHideFocusRingOnClick
+    >
+      <Button>Welcome!</Button>
+    </WuiProvider>
   )
 }
 ```

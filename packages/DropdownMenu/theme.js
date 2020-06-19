@@ -4,27 +4,29 @@ export const getDropdownMenu = theme => {
 
   return {
     inner: {
-      'font-size': fontSizes.body3,
-      'min-width': toRem(130)
+      fontSize: fontSizes.body3,
+      minWidth: toRem(130)
     },
     item: {
       padding: `${space.sm} ${space.md}`,
-      'background-color': 'transparent',
+      backgroundColor: 'transparent',
       color: colors.nude[800],
       '&:hover': {
-        'background-color': colors.primary[100]
+        backgroundColor: colors.nude[200],
+        color: colors.dark[900]
       },
       '&:focus': {
-        'background-color': colors.primary[100]
+        backgroundColor: colors.nude[200],
+        color: colors.dark[900]
       },
       '&[disabled]': {
-        'background-color': 'transparent',
-        color: colors.nude[600],
+        backgroundColor: 'transparent',
+        color: colors.nude[500],
         cursor: 'not-allowed'
       }
     },
     separator: {
-      'background-color': borderColor
+      backgroundColor: borderColor
     }
   }
 }

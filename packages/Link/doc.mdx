@@ -4,9 +4,10 @@ route: /components/link
 menu: Components
 ---
 
-import { Link as LinkDocz, Playground } from 'docz'
+import { Link as LinkDocz, Playground, Props } from 'docz'
 import { Code, Dependencies, TagVersion, Usage } from '../../docz'
 const { dependencies, peerDependencies, component, name, version } = require('./package.json')
+import { Link } from './index'
 
 # Link
 
@@ -55,19 +56,25 @@ It can also be `disabled`
   </Box>
 </Playground>
 
-## Special case
+## What is underlined by default?
 
-Use `<Text>` with `underline` props to add specific style _(here a border line)_
+`Link` will add an underline to text nodes & `Text` components
 
 <Playground>
   <Box>
-    <Link as={LinkDocz} to="/components/shape" variant="secondary">
-      <Shape height="30px" shape="circle" width="30px">
-        <img src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4" />
-      </Shape>
-      <Text underline variant="body2">
-        see shape component
-      </Text>
+    <Link as={LinkDocz} to="/components/shape">
+      <Avatar
+        name="jungle"
+        size="lg"
+        src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+      />
+      This is a text node
+    </Link>
+  </Box>
+  <Box>
+    <Link as={LinkDocz} to="/components/shape">
+      <Avatar name="jungle" size="lg" />
+      <Text>This is a text in a Text component</Text>
     </Link>
   </Box>
 </Playground>
@@ -91,6 +98,10 @@ For a target `_blank` we add `rel='noopener noreferrer'`
   Jobs
 </Link>`}
 </Code>
+
+## Props
+
+<Props of={Link} />
 
 ## Dependencies
 

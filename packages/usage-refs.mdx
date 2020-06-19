@@ -19,6 +19,7 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
     const nakedInputRef = useRef(null)
     const fileUploadRef = useRef(null)
     const buttonRef = useRef(null)
+    const linkRef = useRef(null)
     //
     const handleConnectedClick = () => {
       connectedInputRef.current.focus()
@@ -34,6 +35,9 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
     }
     const handleButtonClick = () => {
       console.debug('<Button> ref', buttonRef)
+    }
+    const handleLinkClick = () => {
+      console.debug('<Link> ref', linkRef)
     }
     //
     return (
@@ -81,6 +85,12 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
         <Button as="a" ref={buttonRef} onClick={handleButtonClick}>
           Test button
         </Button>
+        <Box mt="xl" mb="sm">
+          Click the link below to read the link's ref in the console
+        </Box>
+        <Link ref={linkRef} onClick={handleLinkClick}>
+          Test link
+        </Link>
       </Form>
     )
   }}

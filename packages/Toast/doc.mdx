@@ -34,6 +34,7 @@ Use `useToast` hook to show the toast element. Example below with a custom compo
         borderColor="nude.300"
         borderRadius="sm"
         padding="sm"
+        color="dark.900"
       >
         Lorem ipsum dolor sit amet
       </Box>
@@ -65,6 +66,7 @@ The `toast` function takes a component to be displayed and an `options` object:
         borderColor="nude.300"
         borderRadius="sm"
         padding="sm"
+        color="dark.900"
       >
         Lorem ipsum dolor sit amet
       </Box>
@@ -110,7 +112,6 @@ In general :
           onClick={() =>
             toast(
               <Toast.Snackbar>
-                <CelebrateIcon />
                 <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
               </Toast.Snackbar>
             )
@@ -122,7 +123,6 @@ In general :
           onClick={() =>
             toast(
               <Toast.Snackbar variant="error">
-                <NegativeIcon />
                 <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
               </Toast.Snackbar>
             )
@@ -134,7 +134,6 @@ In general :
           onClick={() =>
             toast(
               <Toast.Snackbar variant="warning">
-                <MegaphoneIcon />
                 <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
               </Toast.Snackbar>
             )
@@ -146,13 +145,34 @@ In general :
           onClick={() =>
             toast(
               <Toast.Snackbar variant="success">
-                <CheckIcon />
                 <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
               </Toast.Snackbar>
             )
           }
         >
           Success
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Toast.Snackbar variant="error" icon="🤯">
+                <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+              </Toast.Snackbar>
+            )
+          }
+        >
+          Custom icon
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Toast.Snackbar variant="error" icon={null}>
+                <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+              </Toast.Snackbar>
+            )
+          }
+        >
+          No icon
         </Button>
       </>
     )
@@ -171,7 +191,7 @@ In general :
             toast(
               <Toast.Growl>
                 <Toast.Title>
-                  <CelebrateIcon /> Lorem ipsum dolor sit amet
+                  Lorem ipsum dolor sit amet
                 </Toast.Title>
                 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos
@@ -190,9 +210,9 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Toast.Growl>
-                <Toast.Title variant="error">
-                  <NegativeIcon /> Lorem ipsum dolor sit amet
+              <Toast.Growl variant="error">
+                <Toast.Title>
+                  Lorem ipsum dolor sit amet
                 </Toast.Title>
                 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos
@@ -206,9 +226,9 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Toast.Growl>
-                <Toast.Title variant="warning">
-                  <MegaphoneIcon /> Lorem ipsum dolor sit amet
+              <Toast.Growl variant="warning">
+                <Toast.Title>
+                  Lorem ipsum dolor sit amet
                 </Toast.Title>
                 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos
@@ -222,9 +242,9 @@ In general :
         <Button
           onClick={() =>
             toast(
-              <Toast.Growl>
-                <Toast.Title variant="success">
-                  <CheckIcon /> Lorem ipsum dolor sit amet
+              <Toast.Growl variant="success">
+                <Toast.Title>
+                  Lorem ipsum dolor sit amet
                 </Toast.Title>
                 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos
@@ -234,6 +254,38 @@ In general :
           }
         >
           Success
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Toast.Growl variant="success">
+                <Toast.Title icon="🎉">
+                  Lorem ipsum dolor sit amet
+                </Toast.Title>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos
+              </Toast.Growl>,
+              { position: 'top-right' }
+            )
+          }
+        >
+          Custom icon
+        </Button>
+        <Button
+          onClick={() =>
+            toast(
+              <Toast.Growl variant="warning">
+                <Toast.Title icon={null}>
+                  Lorem ipsum dolor sit amet
+                </Toast.Title>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos
+              </Toast.Growl>,
+              { position: 'top-right' }
+            )
+          }
+        >
+          No icon
         </Button>
       </>
     )

@@ -1,30 +1,47 @@
 import { getTexts } from '../Core/theme/typography'
 
 export const getToasts = theme => {
-  const { colors, fontWeights, radii, space } = theme
+  const { borderWidths, colors, fontWeights, radii, space } = theme
+
   return {
     default: {
-      'padding-left': space.sm,
-      'padding-right': space.sm
+      paddingLeft: space.sm,
+      paddingRight: space.sm
     },
     top: {
-      'padding-top': space.lg
+      paddingTop: space.lg
     },
     bottom: {
-      'padding-bottom': space.lg
+      paddingBottom: space.lg
     },
     growls: {
       default: {
         ...getTexts(theme).body3,
-        'background-color': theme.colors.light[700],
-        'border-color': colors.nude[200],
-        'border-width': '1px',
-        'border-style': 'solid',
-        'border-radius': radii.md
+        backgroundColor: theme.colors.light[700],
+        borderColor: colors.nude[200],
+        borderWidth: borderWidths.sm,
+        borderStyle: 'solid',
+        borderRadius: radii.md
+      },
+      error: {
+        backgroundColor: colors.danger[100],
+        borderColor: colors.danger[500]
+      },
+      warning: {
+        backgroundColor: colors.warning[100],
+        borderColor: colors.warning[500]
+      },
+      info: {
+        backgroundColor: colors.info[100],
+        borderColor: colors.info[500]
+      },
+      success: {
+        backgroundColor: colors.success[100],
+        borderColor: colors.success[500]
       },
       title: {
-        ...getTexts(theme).body2,
-        'font-weight': fontWeights.bold
+        ...getTexts(theme).h5,
+        fontWeight: fontWeights.bold
       }
     }
   }
