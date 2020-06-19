@@ -27,6 +27,9 @@ const components = {
 function doczThemeLight(colors) {
   return {
     docz: {
+      page: {
+        backgroundColor: colors.nude[100]
+      },
       navigation: {
         color: colors.light[900]
       },
@@ -50,6 +53,9 @@ function doczThemeLight(colors) {
 function doczThemeWelcome(colors) {
   return {
     docz: {
+      page: {
+        backgroundColor: colors.nude[100]
+      },
       navigation: {
         color: colors.light[900]
       },
@@ -73,6 +79,10 @@ function doczThemeWelcome(colors) {
 function doczThemeDark(colors) {
   return {
     docz: {
+      page: {
+        backgroundColor: colors.light[500],
+        color: colors.dark[900]
+      },
       navigation: {
         color: colors.dark[900]
       },
@@ -83,9 +93,10 @@ function doczThemeDark(colors) {
         'background-color': colors.light[900]
       },
       github: {
-        'background-color': colors.light[500],
+        'background-color': colors.primary[500],
+        color: colors.dark[900],
         '&:hover, &:focus': {
-          'background-color': colors.light[200]
+          'background-color': colors.primary[200]
         }
       }
     }
