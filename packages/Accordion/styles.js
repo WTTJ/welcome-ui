@@ -8,7 +8,7 @@ export const Accordion = styled.div`
   ${system}
 `
 
-export const Icon = styled(filterComponent('div', 'isVisible'))(
+export const Icon = styled(filterComponent('div', ['isVisible']))(
   ({ isVisible }) => css`
     flex-shrink: 0;
     ${th('accordions.icon')};
@@ -41,7 +41,7 @@ export const Disclosure = styled(ReakitDisclosure)`
   }
 `
 
-export const Content = styled(filterComponent(DisclosureContent, 'isVisible'))(
+export const Content = styled(filterComponent(DisclosureContent, ['isVisible']))(
   ({ isVisible }) => css`
     ${th('accordions.content')};
     margin-top: -sm;
