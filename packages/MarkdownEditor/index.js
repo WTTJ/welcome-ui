@@ -164,7 +164,6 @@ export const MarkdownEditor = forwardRef(
       >
         <Toolbar
           active={currentTools}
-          borderRadius={rest.borderRadius}
           items={toolbarItems}
           onClick={handleToolbarClick}
           role="toolbar"

@@ -12,8 +12,7 @@ export const getCheckboxes = theme => {
     },
     checked: {
       backgroundColor: colors.primary[500],
-      borderColor: colors.primary[500],
-      color: colors.light[900]
+      borderColor: colors.primary[500]
     }
   }
 }

@@ -13,6 +13,7 @@ export const Wrapper = styled(filterFieldComponent('div'))(
     ${disabled && th('defaultFields.disabled')};
     height: auto;
     padding: 0;
+    border-radius: sm;
 
     .editor-statusbar {
       display: none;
@@ -22,6 +23,7 @@ export const Wrapper = styled(filterFieldComponent('div'))(
       border: none;
       background: inherit;
       z-index: 0;
+      color: inherit;
     }
 
     .cm-strong {
@@ -31,24 +33,19 @@ export const Wrapper = styled(filterFieldComponent('div'))(
   `
 )
 
-export const Toolbar = styled.div(
-  ({ borderRadius = 'sm' }) => css`
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: md md;
-    opacity: 1;
-    background-color: nude.200;
-    border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude.200')};
-    position: sticky;
-    top: 0;
-    overflow: auto;
-    z-index: 1;
-    border-radius: ${borderRadius};
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  `
-)
+export const Toolbar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: md md;
+  opacity: 1;
+  background-color: nude.200;
+  border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude.200')};
+  position: sticky;
+  top: 0;
+  overflow: auto;
+  z-index: 1;
+`
 
 export const ToolbarIcon = styled.a(
   props => css`

@@ -30,14 +30,10 @@ export const getDefaultFields = theme => {
     },
     checkableField: {
       checked: {
-        '&::after': {
-          opacity: 1
-        }
+        color: 'white' // not hex color, only color from browser because is on a content svg
       },
       disabled: {
-        "&[aria-checked='true']::after": {
-          opacity: 0.4
-        }
+        opacity: 0.4
       }
     },
     disabled: {

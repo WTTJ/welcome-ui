@@ -44,6 +44,7 @@ import {
 import { transitionCurves, transitions } from './transitions'
 import { getUnderline } from './underline'
 import { getDefaultFields } from './defaultFields'
+import { getDefaultCards } from './defaultCards'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'work-sans'
@@ -144,6 +145,7 @@ export const createTheme = (options = {}) => {
   theme.focus = (color = theme.colors.primary[500]) => ({
     boxShadow: `0 0 0 3px ${hexToRGBA(color, 0.5)}`
   })
+  theme.defaultCards = getDefaultCards(theme)
   theme.textsFontWeights = getTextsFontWeights(theme)
   theme.textsFontFamily = getTextsFontFamily(theme)
   theme.textsTextTransform = getTextsTextTransform(theme)

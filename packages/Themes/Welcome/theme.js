@@ -202,5 +202,12 @@ export const welcomeTheme = {
         color: colors.dark[900]
       }
     }
+  },
+  defaultFields: {
+    checkableField: {
+      checked: {
+        color: 'black'
+      }
+    }
   }
 }
