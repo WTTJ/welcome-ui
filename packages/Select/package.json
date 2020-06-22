@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/select",
-  "version": "2.0.0-alpha.17",
+  "version": "2.0.0-alpha.18",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/select.cjs.js",
   "module": "dist/select.es.js",
@@ -33,11 +33,11 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/clear-button": "^2.0.0-alpha.17",
-    "@welcome-ui/icons.down": "^2.0.0-alpha.17",
-    "@welcome-ui/system": "^2.0.0-alpha.17",
-    "@welcome-ui/tag": "^2.0.0-alpha.17",
-    "@welcome-ui/utils": "^2.0.0-alpha.17",
+    "@welcome-ui/clear-button": "^2.0.0-alpha.18",
+    "@welcome-ui/icons.down": "^2.0.0-alpha.18",
+    "@welcome-ui/system": "^2.0.0-alpha.18",
+    "@welcome-ui/tag": "^2.0.0-alpha.18",
+    "@welcome-ui/utils": "^2.0.0-alpha.18",
     "downshift": "=3.2.10",
     "match-sorter": "=3.1.1"
   },
