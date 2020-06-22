@@ -96,8 +96,9 @@ export const MarkdownEditor = forwardRef(
     useEffect(() => {
       // Set toolbar items on mount
       setToolbarItems(
-        toolbar.map(({ action, icon, name }) => ({
+        toolbar.map(({ action, icon, name, title }) => ({
           name: name,
+          title: title || name,
           icon: icon || ICONS[name],
           action: action || DEFAULT_TOOLBAR_ACTIONS[name] || null
         }))

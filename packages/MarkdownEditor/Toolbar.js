@@ -14,7 +14,7 @@ export const Toolbar = ({ active = [], dataTestId, items = [], onClick, ...rest 
 
   return (
     <S.Toolbar data-testid={dataTestId} {...rest}>
-      {items.map(({ icon, name }, i) => {
+      {items.map(({ icon, name, title }, i) => {
         if (name === 'divider') {
           // eslint-disable-next-line react/no-array-index-key
           return <S.Divider key={i} />
@@ -26,7 +26,7 @@ export const Toolbar = ({ active = [], dataTestId, items = [], onClick, ...rest 
             data-id={name}
             key={name}
             onClick={handleClick}
-            title={getTooltip(name)}
+            title={getTooltip(title)}
           >
             {icon}
           </S.ToolbarIcon>
