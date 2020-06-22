@@ -19,7 +19,7 @@ const results = [
 ]
 
 const defaultProps = {
-  itemToString: item => item.Title,
+  itemToString: item => item.title,
   // eslint-disable-next-line react/display-name
   renderItem: item => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -95,8 +95,7 @@ test('<Search> can choose option', async () => {
   const options = await waitForElement(() => getByRole('listbox').querySelectorAll('li'))
   fireEvent.click(options[1])
 
-  // TODO: Fix this
-  // expect(search.value).toEqual(results[1].title)
+  expect(search.value).toEqual(results[1].title)
 
   const formValues = getFormValues(getByTestId('values'))
   expect(formValues.search).toStrictEqual(results[1])
