@@ -39,6 +39,10 @@ const StyledCustomPopper = styled.div(
           border-radius: 0;
         }
       }
+
+      &__time {
+        background-color: inherit;
+      }
     }
 
     .react-datepicker-time__header,
