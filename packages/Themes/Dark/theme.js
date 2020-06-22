@@ -102,6 +102,11 @@ export const darkTheme = {
       }
     }
   },
+  accordions: {
+    wrapper: {
+      borderColor: colors.light[500]
+    }
+  },
   tags: {
     variants: {
       default: {
@@ -127,6 +132,18 @@ export const darkTheme = {
   radios: {
     checked: {
       color: colors.dark[900]
+    }
+  },
+  radioTabs: {
+    checked: {
+      color: colors.dark[900]
+    }
+  },
+  dateTimePickerCommon: {
+    item: {
+      selected: {
+        color: colors.dark[900]
+      }
     }
   },
   checkboxes: {
