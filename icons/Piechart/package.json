@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.piechart.cjs.js",
   "module": "dist/icons.piechart.es.js",
-  "version": "2.0.0-alpha.18",
+  "version": "2.0.0-alpha.20",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,7 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^2.0.0-alpha.18"
+    "@welcome-ui/icon": "^2.0.0-alpha.20"
   },
   "license": "MIT"
 }
