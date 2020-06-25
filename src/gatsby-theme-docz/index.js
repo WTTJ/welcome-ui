@@ -181,7 +181,7 @@ const Theme = ({ children }) => {
               property="og:description"
             />
             <meta
-              content="https://cdn.welcometothejungle.co/images/welcome-ui-og-image.png"
+              content="https://cdn.welcometothejungle.co/images/welcome-ui-og-image-2.png"
               property="og:image"
             />
           </Helmet>
