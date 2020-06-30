@@ -3,7 +3,12 @@ export const getTabs = theme => {
 
   return {
     tabsBorder: {
-      boxShadow: `inset 0 -${borderWidths.sm} 0 ${colors.light[800]}`
+      horizontal: {
+        boxShadow: `inset 0 -${borderWidths.sm} 0 ${colors.light[800]}`
+      },
+      vertical: {
+        boxShadow: `inset -${borderWidths.sm} 0 0 ${colors.light[800]}`
+      }
     },
     item: {
       default: {
@@ -29,9 +34,14 @@ export const getTabs = theme => {
       }
     },
     activeBar: {
-      bottom: 0,
-      background: colors.primary[500],
-      height: borderWidths.lg
+      horizontal: {
+        background: colors.primary[500],
+        height: borderWidths.lg
+      },
+      vertical: {
+        background: colors.primary[500],
+        width: borderWidths.lg
+      }
     }
   }
 }

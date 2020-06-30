@@ -8,7 +8,13 @@ export const TabList = styled.div`
   overflow-x: auto;
   display: flex;
   border: 0;
-  ${th('tabs.tabsBorder')};
+
+  &[aria-orientation='vertical'] {
+    flex-direction: column;
+    ${th('tabs.tabsBorder.vertical')};
+  }
+
+  ${th('tabs.tabsBorder.horizontal')};
   ${system};
 `
 
@@ -50,13 +56,26 @@ export const TabPanel = styled.div`
   ${th('tabs.panel')};
 `
 
+const activeBarHorizontalStyles = ({ offset = 0, size = 0 }) => css`
+  ${th('tabs.activeBar.horizontal')};
+  left: 0;
+  bottom: 0;
+  width: ${size}px;
+  transform: translateX(${offset}px);
+`
+
+const activeBarVerticalStyles = ({ offset = 0, size = 0 }) => css`
+  ${th('tabs.activeBar.vertical')};
+  right: 0;
+  top: 0;
+  height: ${size}px;
+  transform: translateY(${offset}px);
+`
+
 export const ActiveBar = styled.span(
-  ({ left = 0, width = 0 }) => css`
-    ${th('tabs.activeBar')};
+  ({ orientation, ...rest }) => css`
     position: absolute;
-    left: 0;
-    width: ${`${width}px`};
-    transform: translateX(${left}px);
+    ${orientation === 'vertical' ? activeBarVerticalStyles(rest) : activeBarHorizontalStyles(rest)}
     will-change: width, transform;
     transition: medium;
     transition-property: transform, width;
