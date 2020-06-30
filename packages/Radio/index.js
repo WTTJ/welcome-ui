@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react'
 import { bool, elementType, func, number, oneOf, oneOfType, string } from 'prop-types'
-import { Hint } from '@welcome-ui/hint'
 
 import { DIRECTIONS_TYPE } from '../../src/utils/propTypes'
 
@@ -36,6 +35,7 @@ export const Radio = forwardRef((props, ref) => {
       maxWidth={maxWidth}
       onClick={handleClick}
       variant={variant}
+      withHint={!!hint}
     >
       <S.Wrapper flexDirection={flexDirection}>
         <S.Input>
@@ -50,7 +50,7 @@ export const Radio = forwardRef((props, ref) => {
         </S.Input>
         <div>{label}</div>
       </S.Wrapper>
-      {hint && <Hint marginTop="0">{hint}</Hint>}
+      {hint && <S.Hint>{hint}</S.Hint>}
     </S.Label>
   )
 })
