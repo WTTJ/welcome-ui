@@ -50,6 +50,7 @@ export const Select = forwardRef(
       onFocus,
       onKeyDown,
       placeholder = 'Choose from…',
+      renderCreateItem = inputValue => `Create "${inputValue}"`,
       renderItem = itemToString,
       renderMultiple = MultipleSelections,
       size = 'lg',
@@ -300,7 +301,7 @@ export const Select = forwardRef(
                         }
                       })}
                     >
-                      {`Create "${inputValue}"`}
+                      {renderCreateItem(inputValue)}
                     </S.Item>
                   )}
                 </S.Menu>
@@ -343,6 +344,7 @@ Select.propTypes /* remove-proptypes */ = {
   }] */
   options: arrayOf(OPTIONS_TYPE),
   placeholder: string,
+  renderCreateItem: func,
   renderItem: func,
   renderMultiple: func,
   size: oneOf(SIZES_TYPE),
