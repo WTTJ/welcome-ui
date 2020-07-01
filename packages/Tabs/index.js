@@ -89,11 +89,11 @@ TabList.propTypes /* remove-proptypes */ = {
   orientation: oneOf(['vertical', 'horizontal'])
 }
 
-export const TabPanel = React.forwardRef(({ as, children, tabId, ...props }, ref) => {
+export const TabPanel = React.forwardRef(({ as, children, orientation, tabId, ...props }, ref) => {
   return (
-    <ReakitTabPanel ref={ref} tabId={tabId} {...props}>
+    <ReakitTabPanel orientation={orientation} ref={ref} tabId={tabId} {...props}>
       {tabPanelProps => (
-        <S.TabPanel as={as} {...tabPanelProps}>
+        <S.TabPanel as={as} orientation={orientation} {...tabPanelProps}>
           {children}
         </S.TabPanel>
       )}
@@ -104,6 +104,7 @@ TabPanel.displayName = 'TabPanel'
 TabPanel.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node,
+  orientation: oneOf(['vertical', 'horizontal']),
   tabId: string
 }
 

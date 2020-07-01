@@ -52,9 +52,11 @@ export const Tab = styled.button`
   }
 `
 
-export const TabPanel = styled.div`
-  ${th('tabs.panel')};
-`
+export const TabPanel = styled.div(
+  ({ orientation }) => css`
+    ${orientation === 'vertical' ? th('tabs.panel.vertical') : th('tabs.panel.horizontal')};
+  `
+)
 
 const activeBarHorizontalStyles = ({ offset = 0, size = 0 }) => css`
   ${th('tabs.activeBar.horizontal')};

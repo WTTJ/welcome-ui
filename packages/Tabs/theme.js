@@ -28,9 +28,16 @@ export const getTabs = theme => {
       }
     },
     panel: {
-      marginTop: space.xl,
-      '&:focus': {
-        outline: 'none'
+      vertical: {
+        '&:focus': {
+          outline: 'none'
+        }
+      },
+      horizontal: {
+        marginTop: space.xl,
+        '&:focus': {
+          outline: 'none'
+        }
       }
     },
     activeBar: {
