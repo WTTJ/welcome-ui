@@ -61,7 +61,7 @@ ActiveBar.displayName = 'ActiveBar'
 ActiveBar.propTypes /* remove-proptypes */ = {
   activeTab: oneOfType(COMPONENT_TYPE),
   listRef: shape({ current: any }),
-  orientation: oneOf(['veritcal', 'horizontal'])
+  orientation: oneOf(['vertical', 'horizontal'])
 }
 
 export const TabList = React.forwardRef(({ as, children, orientation, ...props }, ref) => {
@@ -86,7 +86,7 @@ TabList.displayName = 'TabList'
 TabList.propTypes /* remove-proptypes */ = {
   as: oneOfType(COMPONENT_TYPE),
   children: node,
-  orientation: oneOf(['veritcal', 'horizontal'])
+  orientation: oneOf(['vertical', 'horizontal'])
 }
 
 export const TabPanel = React.forwardRef(({ as, children, tabId, ...props }, ref) => {
