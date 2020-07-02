@@ -1,12 +1,12 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
-import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
+import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
-import { Label as LabelWUI } from '@welcome-ui/label'
+import { Label as WUILabel } from '@welcome-ui/label'
 import { Hint as HintWUI } from '@welcome-ui/hint'
 
-export const Radio = styled(filterFieldComponent(ReakitRadio))(
+export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })(
   ({ connected, order = '-1', theme }) => css`
     ${defaultFieldStyles};
     ${th('radios.default')}
@@ -41,7 +41,7 @@ export const Radio = styled(filterFieldComponent(ReakitRadio))(
 )
 
 // force label to max width to 100% here, because if we add a styled system prop maxWidth {{ md: '30%' }} we need to have a max-width on mobile by default
-export const Label = styled(LabelWUI)(
+export const Label = styled(WUILabel).withConfig({ shouldForwardProp })(
   ({ withHint }) => css`
     ${withHint && th(`radios.withHint.default`)};
     max-width: 100%;

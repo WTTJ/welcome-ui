@@ -1,14 +1,14 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { DisclosureContent, Disclosure as ReakitDisclosure } from 'reakit/Disclosure'
-import { filterComponent, system } from '@welcome-ui/system'
+import { shouldForwardProp, system } from '@welcome-ui/system'
 
 export const Accordion = styled.div`
   ${th('accordions.wrapper')};
   ${system}
 `
 
-export const Icon = styled(filterComponent('div', ['isVisible']))(
+export const Icon = styled('div').withConfig({ shouldForwardProp })(
   ({ isVisible }) => css`
     flex-shrink: 0;
     ${th('accordions.icon')};
@@ -41,7 +41,7 @@ export const Disclosure = styled(ReakitDisclosure)`
   }
 `
 
-export const Content = styled(filterComponent(DisclosureContent, ['isVisible']))(
+export const Content = styled(DisclosureContent).withConfig({ shouldForwardProp })(
   ({ isVisible }) => css`
     ${th('accordions.content')};
     margin-top: -sm;

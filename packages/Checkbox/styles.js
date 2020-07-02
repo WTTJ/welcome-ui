@@ -1,10 +1,10 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
-import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
+import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
-export const Checkbox = styled(filterFieldComponent(ReakitCheckbox))(
+export const Checkbox = styled(ReakitCheckbox).withConfig({ shouldForwardProp })(
   ({ connected, order = '-1', theme }) => css`
     ${defaultFieldStyles};
     ${th('checkboxes.default')}

@@ -1,10 +1,10 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
-import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
+import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 
-export const Radio = styled(filterFieldComponent(ReakitRadio))(({ connected }) => {
+export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })(({ connected }) => {
   return css`
     position: absolute;
     top: 0;

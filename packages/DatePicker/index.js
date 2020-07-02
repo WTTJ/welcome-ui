@@ -1,15 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import {
-  bool,
-  elementType,
-  func,
-  number,
-  object,
-  oneOf,
-  oneOfType,
-  shape,
-  string
-} from 'prop-types'
+import { bool, func, number, object, oneOf, oneOfType, shape, string } from 'prop-types'
 import {
   CustomHeader,
   CustomInput,
@@ -152,7 +142,7 @@ DatePicker.propTypes /* remove-proptypes */ = {
   endYear: number,
   icon: oneOfType(COMPONENT_TYPE),
   iconPlacement: oneOf(['right', 'left']),
-  inputRef: shape({ current: elementType }),
+  inputRef: oneOfType([func, shape({ current: object })]),
   locale: object,
   onBlur: func,
   onChange: func,
@@ -162,5 +152,5 @@ DatePicker.propTypes /* remove-proptypes */ = {
   size: oneOf(SIZES_TYPE),
   startYear: number,
   useWeekdaysShort: bool,
-  value: oneOfType([number, object, string]).isRequired
+  value: oneOfType([number, object, string])
 }

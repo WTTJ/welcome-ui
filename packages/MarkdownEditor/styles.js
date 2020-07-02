@@ -1,10 +1,10 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import SimpleMDE from 'react-simplemde-editor'
-import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
+import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
-export const Wrapper = styled(filterFieldComponent('div'))(
+export const Wrapper = styled('div').withConfig({ shouldForwardProp })(
   ({ connected, disabled, focused }) => css`
     ${defaultFieldStyles};
     position: relative;

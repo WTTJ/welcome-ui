@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from '@xstyled/styled-components'
 import { Shape } from '@welcome-ui/shape'
 import { system } from '@welcome-ui/system'
+import { shouldForwardProp } from '@welcome-ui/system'
 
 const animation = keyframes`
   0%, 100% {
@@ -17,7 +18,7 @@ const animationRule = css`
   animation: ${animation} 1.5s cubic-bezier(0.86, 0, 0.07, 1) infinite;
 `
 
-export const LoadingDot = styled(Shape)(({ size, theme }) => {
+export const LoadingDot = styled(Shape).withConfig({ shouldForwardProp })(({ size, theme }) => {
   const sizeValue = theme.loaders[size] || size
   const formattedSize = typeof sizeValue === 'number' ? theme.toRem(sizeValue) : sizeValue
   return css`

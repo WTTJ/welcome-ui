@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { arrayOf, bool, elementType, number, oneOf, oneOfType, string } from 'prop-types'
+import { arrayOf, bool, elementType, number, object, oneOf, oneOfType, string } from 'prop-types'
 import { RadioGroup as ReakitRadioGroup, useRadioState } from 'reakit/Radio'
 import { FieldGroup } from '@welcome-ui/field-group'
 import { Radio } from '@welcome-ui/radio'
@@ -56,7 +56,7 @@ RadioGroup.displayName = 'RadioGroup'
 RadioGroup.propTypes /* remove-proptypes */ = {
   flexDirection: oneOf(DIRECTIONS_TYPE),
   label: string,
-  maxWidth: oneOfType([number, string]),
+  maxWidth: oneOfType([number, object, string]),
   name: string,
   /** [{
     label: `string` | `number`,

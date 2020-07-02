@@ -28,9 +28,9 @@ Use `useModalState`, `Modal`, `Modal.Trigger` and `<Modal.Content />` to create 
     const modal = useModalState()
     return (
       <>
-        <Button as={Modal.Trigger} {...modal}>
+        <Modal.Trigger as={Button} {...modal}>
           Open modal
-        </Button>
+        </Modal.Trigger>
         <Modal {...modal} ariaLabel="example">
           <Modal.Content>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -59,18 +59,18 @@ By default size is set to `lg`. If you don't want a size (fit on content), set s
     const [size, setSize] = useState()
     return (
       <>
-        <Button as={Modal.Trigger} {...modal} onClick={() => setSize('sm')}>
+        <Modal.Trigger as={Button} {...modal} onClick={() => setSize('sm')}>
           sm
-        </Button>
-        <Button as={Modal.Trigger} {...modal} onClick={() => setSize('md')}>
+        </Modal.Trigger>
+        <Modal.Trigger as={Button} {...modal} onClick={() => setSize('md')}>
           md
-        </Button>
-        <Button as={Modal.Trigger} {...modal} onClick={() => setSize('lg')}>
+        </Modal.Trigger>
+        <Modal.Trigger as={Button} {...modal} onClick={() => setSize('lg')}>
           lg
-        </Button>
-        <Button as={Modal.Trigger} {...modal} onClick={() => setSize('auto')}>
+        </Modal.Trigger>
+        <Modal.Trigger as={Button} {...modal} onClick={() => setSize('auto')}>
           auto
-        </Button>
+        </Modal.Trigger>
         <Modal {...modal} size={size} ariaLabel="size example">
           <Modal.Content>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -98,9 +98,9 @@ Use `Modal.Title` and `Modal.Footer` to style your Modal.
     const modal = useModalState()
     return (
       <>
-        <Button as={Modal.Trigger} {...modal}>
+        <Modal.Trigger as={Button} {...modal}>
           Open modal
-        </Button>
+        </Modal.Trigger>
         <Modal {...modal} ariaLabel="example">
           <Modal.Title>Nullam non lacinia</Modal.Title>
           <Modal.Content>
@@ -138,9 +138,9 @@ Use `Modal.Cover` to style your Modal.
     const modal = useModalState()
     return (
       <>
-        <Button as={Modal.Trigger} {...modal}>
+        <Modal.Trigger as={Button} {...modal}>
           Open modal
-        </Button>
+        </Modal.Trigger>
         <Modal {...modal} ariaLabel="example">
           <Modal.Cover width={1} height={200}>
             <img src="https://m.media-amazon.com/images/M/MV5BMzE0NzgyODIxN15BMl5BanBnXkFtZTgwNDU0NjU5NzE@._V1_SX1777_CR0,0,1777,994_AL_.jpg" />

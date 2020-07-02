@@ -5,7 +5,9 @@ import { cardStyles } from '@welcome-ui/utils'
 import { Shape } from '@welcome-ui/shape'
 import { DialogBackdrop, Dialog as ReakitDialog } from 'reakit/Dialog'
 
-export const Backdrop = styled(DialogBackdrop)(
+export const Backdrop = styled(DialogBackdrop).withConfig({
+  shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop)
+})(
   ({ hideOnClickOutside }) => css`
     ${th('modals.backdrop')};
     display: flex;

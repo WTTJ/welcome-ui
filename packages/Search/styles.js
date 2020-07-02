@@ -1,11 +1,11 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
-import { componentSystem, filterFieldComponent, wrapperSystem } from '@welcome-ui/system'
+import { componentSystem, shouldForwardProp, wrapperSystem } from '@welcome-ui/system'
 import { centerContent, defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 import { cardStyles } from '@welcome-ui/utils'
 
-export const Wrapper = styled(filterFieldComponent('div'))(
+export const Wrapper = styled('div').withConfig({ shouldForwardProp })(
   ({ connected }) => css`
     position: relative;
     ${!connected && wrapperSystem};
@@ -16,9 +16,7 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-const FILTER_PROPS = ['hasIcon', 'inputValue', 'renderMultiple', 'itemToString']
-
-export const Input = styled(filterFieldComponent('input', FILTER_PROPS))(
+export const Input = styled('input').withConfig({ shouldForwardProp })(
   ({ hasIcon, size }) => css`
     position: relative;
     ${defaultFieldStyles};
