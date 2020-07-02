@@ -43,6 +43,7 @@ export const Dialog = styled(ReakitDialog)(
     max-height: calc(100% - ${theme.toRem(20)});
     max-width: calc(100% - ${theme.toRem(20)});
     transition: opacity 250ms ease-in-out, margin-top 250ms ease-in-out;
+    cursor: auto;
 
     &:focus {
       outline: none !important; /* important for firefox */
