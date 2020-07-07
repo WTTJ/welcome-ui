@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react'
-import { bool, func, node, string } from 'prop-types'
+import { bool, func, node, number, string } from 'prop-types'
 
 import * as S from './styles'
 
@@ -10,6 +10,8 @@ export const Swiper = memo(function Swiper({
   renderNextButton,
   renderPaginationItem,
   renderPrevButton,
+  slidesToShow = 1,
+  slidesToSwipe = slidesToShow,
   ...props
 }) {
   const [pageIdx, setPageIdx] = useState(0)
@@ -17,7 +19,7 @@ export const Swiper = memo(function Swiper({
   const maxSlides = children.length
 
   const nextPage = () => {
-    const nextPageIdx = pageIdx + 1
+    const nextPageIdx = pageIdx + slidesToSwipe
 
     if (nextPageIdx < maxSlides) {
       setPageIdx(nextPageIdx)
@@ -27,7 +29,7 @@ export const Swiper = memo(function Swiper({
   }
 
   const prevPage = () => {
-    const prevPageIdx = pageIdx - 1
+    const prevPageIdx = pageIdx - slidesToSwipe
 
     if (prevPageIdx >= 0) {
       setPageIdx(prevPageIdx)
@@ -40,7 +42,9 @@ export const Swiper = memo(function Swiper({
 
   return (
     <S.Wrapper {...props}>
-      <S.Swiper translateX={translateX}>{children}</S.Swiper>
+      <S.Swiper slidesToShow={slidesToShow} translateX={translateX}>
+        {children}
+      </S.Swiper>
       <S.Pagination>
         {children.map((_, idx) =>
           renderPaginationItem ? (
@@ -70,5 +74,7 @@ Swiper.propTypes = {
   loop: bool,
   renderNextButton: func,
   renderPaginationItem: func,
-  renderPrevButton: func
+  renderPrevButton: func,
+  slidesToShow: number,
+  slidesToSwipe: number
 }
