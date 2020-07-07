@@ -6,7 +6,7 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "scripts": {
     "start": "yarn docs:dev",
-    "docs:dev": "yarn next docs",
+    "docs:dev": "yarn next docs -p 3020",
     "docs:build": "yarn next build docs && yarn next export docs",
     "docs:deploy": "yarn && yarn docs:build",
     "homerun": "yarn clean --yes && rm -rf node_modules/ && yarn cache clean && yarn && yarn build --all && yarn start",
@@ -141,7 +141,6 @@
     "styled-components": "^4.0.0 || ^5.0.0"
   },
   "resolutions": {
-    "docz/**/webpack": "4.41.1",
     "styled-components": "5.1.1"
   },
   "husky": {

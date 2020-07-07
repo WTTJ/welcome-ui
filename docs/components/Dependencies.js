@@ -18,7 +18,8 @@ export const Dependency = ({ dependency, version }) => {
     toast(
       <Toast.Snackbar variant="success">
         <span>Copied</span>
-      </Toast.Snackbar>
+      </Toast.Snackbar>,
+      { duration: 1000 }
     )
   }
 
@@ -37,7 +38,7 @@ export const Dependency = ({ dependency, version }) => {
       <Tag ml="xs" size="md">
         {version}
       </Tag>
-      <AttachmentIcon ml="xxs" onClick={handleCopy} />
+      <AttachmentIcon cursor="pointer" ml="xxs" onClick={handleCopy} />
     </Box>
   )
 }
