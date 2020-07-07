@@ -4,7 +4,7 @@ import { node, oneOfType, string } from 'prop-types'
 import { clamp, throttle } from '@welcome-ui/utils'
 import { ResizeObserver } from '@juggle/resize-observer'
 
-import { COMPONENT_TYPE } from '../../src/utils/propTypes'
+import { COMPONENT_TYPE } from '../../utils/propTypes'
 
 import { Item } from './Item'
 import * as S from './styles'

@@ -1,0 +1,83 @@
+import { DatePicker } from '@welcome-ui/date-picker'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/date-picker/package.json')
+
+# DatePicker
+
+<tagversion version={version} name={name} />
+
+It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
+
+_Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+<br />
+<strong>/!\ Be carefull, you need to import this css on your project to get the correct style</strong>
+
+<code>{`
+  import 'react-datepicker/dist/react-datepicker.css'
+`}</code>
+
+## Simple use case
+
+```jsx
+<Form initialValues={{ welcome: Date.now() }}>
+  <ConnectedField component={DatePicker} label="Date" name="welcome" />
+</Form>
+```
+
+## Pass props from the original library.
+
+```jsx
+<Form initialValues={{ welcome2: Date.now() }}>
+  <ConnectedField
+    component={DatePicker}
+    dateFormat="MMM dd yyyy"
+    label="Date"
+    maxDate={new Date()}
+    name="welcome2"
+    popperProps={{ zIndex: 50 }}
+    yearDropdownItemNumber={30}
+  />
+</Form>
+```
+
+## Give an Icon
+
+```jsx
+<Form initialValues={{ welcome3: Date.now() }}>
+  <ConnectedField
+    component={DatePicker}
+    icon={<DateIcon color="light.100" />}
+    label="Date"
+    name="welcome3"
+  />
+</Form>
+```
+
+## fr locale
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField component={DatePicker} label="Date" locale={dateFR} name="welcome4" />
+</Form>
+```
+
+## Properties
+
+<props of={DatePicker} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

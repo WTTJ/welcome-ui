@@ -9,7 +9,7 @@ import {
   StyledDatePicker
 } from '@welcome-ui/date-time-picker-common'
 
-import { COMPONENT_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
+import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 
 export const DatePicker = forwardRef(
   (

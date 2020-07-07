@@ -1,0 +1,157 @@
+import { FileDrop } from '@welcome-ui/file-drop'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/file-drop/package.json')
+
+# FileDrop
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+FileDrop uses render props to give you more flexibility on what to render at each state change:
+
+- `isDefault`: No file uploaded and no user interaction
+- `isHoverAccept`: File is being dragged over and matches the `accept` string
+- `isHoverReject`: File is being dragged over but does _not_ match the `accept` string
+
+You also have access to:
+
+- `openFile`: To open the native file chooser dialog box
+- `fileUrl`: URL of file if one has been opened/dropped (to show a preview)
+
+## Default
+
+By default, `accept`: is set to `image/*`, see more about [media type](http://www.iana.org/assignments/media-types/media-types.xhtml).
+
+```jsx
+function() {
+  return (
+  <Form initialValues={{}}>
+    <ConnectedField
+      component={FileDrop}
+      name="file"
+      label="Your file"
+      hint="Files must be < 2MB"
+      required
+      isClearable
+      isEditable
+      handleAddFile={console.debug}
+      handleRemoveFile={console.debug}
+    />
+  </Form>
+)}
+```
+
+## Show preview if value exists
+
+### Image
+
+```jsx
+<Form
+  initialValues={{
+    avatar:
+      'https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif'
+  }}
+>
+  <ConnectedField
+    component={FileDrop}
+    hint="Files must be < 2MB"
+    isEditable
+    isClearable
+    label="Avatar"
+    name="avatar"
+    handleAddFile={console.debug}
+    handleRemoveFile={console.debug}
+  />
+</Form>
+```
+
+### Other files
+
+```jsx
+<Form
+  initialValues={{
+    file: 'https://test-documents-file/file.docx?v=63731713698'
+  }}
+>
+  <ConnectedField
+    component={FileDrop}
+    hint="Files must be < 2MB"
+    accept="application/*, audio/*, video/*, text/*"
+    isEditable
+    isClearable
+    label="File"
+    name="file"
+    handleAddFile={console.debug}
+    handleRemoveFile={console.debug}
+  />
+</Form>
+```
+
+## File without type
+
+Sometime in the url we don't have the type of the file, you can override with `forceFileType` set to `image`, `audio` or `video`.
+
+```jsx
+<Form
+  initialValues={{
+    file1:
+      'https://cdn-images.welcomehome.io/zn9KvR98haoYRV6m1T-LR4c5h0HPZtVtvzwKPv02wgA/rs:auto:600::/q:100/czM6Ly93aC1wcml2YXRlLXByb2R1Y3Rpb24vcHJvZHVjdGlvbi91cGxvYWRzL3doL2Jsb2Nrcy9iZTI2MTc4OC1mYjc5LTRlZTQtYjQ4OC04ZDhiYTk4YTY3NDIvY292ZXIvdHdpdHRlckB4Mi5wbmc',
+    file2:
+      'https://cdn-images.welcomehome.io/zn9KvR98haoYRV6m1T-LR4c5h0HPZtVtvzwKPv02wgA/rs:auto:600::/q:100/czM6Ly93aC1wcml2YXRlLXByb2R1Y3Rpb24vcHJvZHVjdGlvbi91cGxvYWRzL3doL2Jsb2Nrcy9iZTI2MTc4OC1mYjc5LTRlZTQtYjQ4OC04ZDhiYTk4YTY3NDIvY292ZXIvdHdpdHRlckB4Mi5wbmc'
+  }}
+>
+  <ConnectedField
+    component={FileDrop}
+    label="Image file"
+    name="file1"
+    handleAddFile={console.debug}
+    handleRemoveFile={console.debug}
+    forceFileType="image"
+  />
+  <ConnectedField
+    component={FileDrop}
+    mt="xl"
+    label="Music file"
+    name="file2"
+    handleAddFile={console.debug}
+    handleRemoveFile={console.debug}
+    forceFileType="audio"
+  />
+</Form>
+```
+
+## Disabled
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField name="avatar" component={FileDrop} disabled />
+</Form>
+```
+
+## Bare example
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField name="avatar" component={FileDrop} />
+</Form>
+```
+
+## Properties
+
+<props of={FileDrop} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

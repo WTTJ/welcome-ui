@@ -1,0 +1,35 @@
+import { Box } from '@welcome-ui/box'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/box/package.json')
+
+# Box
+
+<tagversion version={version} name={name} />
+
+Is an export of [xstyled's `<Box>` component](https://xstyled.dev/docs/style-using-props/#use-the-box-component).
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+```jsx
+<Box
+  display="flex"
+  width={1}
+  height="500px"
+  justifyContent="center"
+  alignItems="center"
+  backgroundColor="nude.100"
+>
+  <Box backgroundColor="light.900" borderRadius="sm" padding="50px" boxShadow="sm">
+    Centered Box
+  </Box>
+</Box>
+```

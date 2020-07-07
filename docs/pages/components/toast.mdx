@@ -1,0 +1,303 @@
+import { useToast } from '@welcome-ui/toast'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/toast/package.json')
+
+# Toast
+
+<tagversion version={version} name={name} />
+
+Notification component with [toasted-note](https://toasted-notes.netlify.com) and 2 components : Growl and Snackbar.
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## useToast
+
+Use `useToast` hook to show the toast element. Example below with a custom component.
+
+```jsx
+function() {
+  const toast = useToast()
+
+  const Notification = () => (
+    <Box
+      backgroundColor="light.900"
+      borderWidth="1px"
+      borderStyle="solid"
+      borderColor="nude.300"
+      borderRadius="sm"
+      padding="sm"
+      color="dark.900"
+    >
+      Lorem ipsum dolor sit amet
+    </Box>
+  )
+
+  return (
+    <Button onClick={() => toast(<Notification />)}>
+      Show Toast
+    </Button>
+  )
+}
+```
+
+## Options
+
+The `toast` function takes a component to be displayed and an `options` object:
+
+- **position** : one of `top-left`, `top`, `top-right`, `bottom-left`, `bottom` (default) or `bottom-right`
+- **duration** : before closing element, in ms, with default `5000`. Can also be set to `null` if not automatic close your element.
+
+```jsx
+function() {
+  const toast = useToast()
+
+  const Notification = () => (
+    <Box
+      backgroundColor="light.900"
+      borderWidth="1px"
+      borderStyle="solid"
+      borderColor="nude.300"
+      borderRadius="sm"
+      padding="sm"
+      color="dark.900"
+    >
+      Lorem ipsum dolor sit amet
+    </Box>
+  )
+
+  return (
+    <Stack direction="row">
+      {['top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right'].map(position => (
+        <Button
+          key={position}
+          onClick={() =>
+            toast(
+              <Notification />,
+              { position, duration: 6000 }
+            )
+          }
+        >
+          {position}
+        </Button>
+      ))}
+    </Stack>
+  )
+}
+```
+
+## Supplied components
+
+You can create your own notification component to display in the Toast or one of our default components: `Snackbar` and `Growl`.
+
+In general :
+
+- `Snackbar` is used to display a temporary, information-only notification, and
+- `Growl` is used to display a more important notification with an action (that requires the user to close the notification)
+
+### Snackbar
+
+```jsx
+function() {
+  const toast = useToast()
+
+  return (
+    <Stack direction="row">
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Snackbar>
+              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+            </Toast.Snackbar>
+          )
+        }
+      >
+        Info (Default)
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Snackbar variant="error">
+              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+            </Toast.Snackbar>
+          )
+        }
+      >
+        Error
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Snackbar variant="warning">
+              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+            </Toast.Snackbar>
+          )
+        }
+      >
+        Warning
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Snackbar variant="success">
+              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+            </Toast.Snackbar>
+          )
+        }
+      >
+        Success
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Snackbar variant="error" icon="🤯">
+              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+            </Toast.Snackbar>
+          )
+        }
+      >
+        Custom icon
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Snackbar variant="error" icon={null}>
+              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+            </Toast.Snackbar>
+          )
+        }
+      >
+        No icon
+      </Button>
+    </Stack>
+  )
+}
+```
+
+### Growl
+
+```jsx
+function() {
+  const toast = useToast()
+
+  return (
+    <Stack direction="row">
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Growl>
+              <Toast.Title>
+                Lorem ipsum dolor sit amet
+              </Toast.Title>
+              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos
+              <Box mt="sm">
+                <Button size="sm" variant="secondary" onClick={() => console.log('action')}>
+                  Action
+                </Button>
+              </Box>
+            </Toast.Growl>,
+            { position: 'top-right' }
+          )
+        }
+      >
+        Info (Default)
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Growl variant="error">
+              <Toast.Title>
+                Lorem ipsum dolor sit amet
+              </Toast.Title>
+              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos
+            </Toast.Growl>,
+            { position: 'top-right' }
+          )
+        }
+      >
+        Error
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Growl variant="warning">
+              <Toast.Title>
+                Lorem ipsum dolor sit amet
+              </Toast.Title>
+              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos
+            </Toast.Growl>,
+            { position: 'top-right' }
+          )
+        }
+      >
+        Warning
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Growl variant="success">
+              <Toast.Title>
+                Lorem ipsum dolor sit amet
+              </Toast.Title>
+              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos
+            </Toast.Growl>,
+            { position: 'top-right' }
+          )
+        }
+      >
+        Success
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Growl variant="success">
+              <Toast.Title icon="🎉">
+                Lorem ipsum dolor sit amet
+              </Toast.Title>
+              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos
+            </Toast.Growl>,
+            { position: 'top-right' }
+          )
+        }
+      >
+        Custom icon
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Growl variant="warning">
+              <Toast.Title icon={null}>
+                Lorem ipsum dolor sit amet
+              </Toast.Title>
+              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos
+            </Toast.Growl>,
+            { position: 'top-right' }
+          )
+        }
+      >
+        No icon
+      </Button>
+    </Stack>
+  )
+}
+```
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

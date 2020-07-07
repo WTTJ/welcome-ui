@@ -1,0 +1,78 @@
+import { TimePicker } from '@welcome-ui/time-picker'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/time-picker/package.json')
+
+# TimePicker
+
+<tagversion version={version} name={name} />
+
+It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
+
+_Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+<br />
+<strong>/!\ Be carefull, you need to import this css on your project to get the correct style</strong>
+
+<code>{`
+  import 'react-datepicker/dist/react-datepicker.css'
+`}</code>
+
+## Simple use case
+
+```jsx
+<Form initialValues={{ welcome: Date.now() }}>
+  <ConnectedField
+    component={TimePicker}
+    label="Time"
+    name="welcome"
+    onChange={date => console.log('date: ', date)}
+  />
+</Form>
+```
+
+## Add an icon on the right
+
+```jsx
+<Form initialValues={{ welcome2: Date.now() }}>
+  <ConnectedField
+    component={TimePicker}
+    icon={<DateIcon color="light.100" />}
+    iconPlacement="right"
+    label="Time"
+    name="welcome2"
+  />
+</Form>
+```
+
+## Pass props to TimePicker
+
+```jsx
+<Form initialValues={{ welcome3: Date.now() }}>
+  <ConnectedField
+    name="welcome3"
+    component={TimePicker}
+    popperProps={{ zIndex: 50 }}
+    timeIntervals={30}
+  />
+</Form>
+```
+
+## Properties
+
+<props of={TimePicker} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<Dependencies dependencies={peerDependencies} />

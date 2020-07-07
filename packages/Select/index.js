@@ -12,7 +12,7 @@ import {
   OPTIONS_TYPE,
   SIZES_TYPE,
   VARIANTS_TYPE
-} from '../../src/utils/propTypes'
+} from '../../utils/propTypes'
 
 import { kebabCase } from './utils'
 import { MultipleSelections } from './MultipleSelections'

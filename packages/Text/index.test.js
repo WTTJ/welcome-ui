@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '../../src/utils/tests'
+import { render } from '../../utils/tests'
 
 import { Text } from './index'
 

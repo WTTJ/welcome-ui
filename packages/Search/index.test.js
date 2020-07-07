@@ -5,8 +5,8 @@ import { ConnectedField } from '@welcome-ui/connected-field'
 import { Icon } from '@welcome-ui/icon'
 import { Shape } from '@welcome-ui/shape'
 
-import { Form, getFormValues } from '../../docz/Form'
-import { render } from '../../src/utils/tests'
+import { Form, getFormValues } from '../../utils/Form'
+import { render } from '../../utils/tests'
 
 import { Search } from './index'
 

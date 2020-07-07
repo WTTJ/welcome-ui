@@ -1,0 +1,80 @@
+import { Radio } from '@welcome-ui/radio'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/radio-group/package.json')
+
+# Radio Group
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+```jsx
+<Form
+  initialValues={{}}
+  validate={values => (!values.social ? { social: 'You must choose a social network' } : {})}
+>
+  <ConnectedField
+    component={RadioGroup}
+    flexDirection="row"
+    hint="Most popular is Twitter"
+    label="Social networks"
+    mb="xl"
+    name="social"
+    options={constants.ITEMS}
+    required
+  />
+  <Button type="submit">Submit</Button>
+</Form>
+```
+
+## With hint on radio
+
+```jsx
+<Form
+  initialValues={{}}
+  validate={values => (!values.social ? { social: 'You must choose a social network' } : {})}
+>
+  <ConnectedField
+    component={RadioGroup}
+    flexDirection="row"
+    mb="xl"
+    name="social"
+    maxWidth={{ md: 0.3 }}
+    options={[
+      {
+        value: 'behance',
+        label: 'Behance',
+        hint: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      },
+      {
+        value: 'dribbble',
+        label: 'Dribbble',
+        hint: 'Aenean a tristique turpis, in elementum est.'
+      }
+    ]}
+    required
+  />
+  <Button type="submit">Submit</Button>
+</Form>
+```
+
+## Properties
+
+<props of={Radio} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

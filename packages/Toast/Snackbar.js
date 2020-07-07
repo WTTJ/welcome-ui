@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import { func, node, oneOf } from 'prop-types'
 import { ClearButton } from '@welcome-ui/clear-button'
 
-import { VARIANTS_TYPE } from '../../src/utils/propTypes'
+import { VARIANTS_TYPE } from '../../utils/propTypes'
 
 import { Title } from './Title'
 import * as S from './styles'

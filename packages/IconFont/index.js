@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { toPascalCase } from '../../src/utils/toPascalCase'
+import { toPascalCase } from '../../utils/toPascalCase'
 
 import { Icon } from './styles'
 import unicodeMap from './unicode.json'

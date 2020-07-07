@@ -5,7 +5,7 @@ import { ClearButton } from '@welcome-ui/clear-button'
 import { createEvent } from '@welcome-ui/utils'
 import { throttle as handleThrottle } from '@welcome-ui/utils'
 
-import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../src/utils/propTypes'
+import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 

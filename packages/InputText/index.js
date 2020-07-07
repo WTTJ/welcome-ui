@@ -4,7 +4,7 @@ import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { createEvent } from '@welcome-ui/utils'
 
-import { SIZES_TYPE, VARIANTS_TYPE } from '../../src/utils/propTypes'
+import { SIZES_TYPE, VARIANTS_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 

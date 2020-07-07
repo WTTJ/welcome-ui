@@ -3,7 +3,7 @@ import { func, node, oneOf } from 'prop-types'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { wrapChildren } from '@welcome-ui/utils'
 
-import { SHAPES_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
+import { SHAPES_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 

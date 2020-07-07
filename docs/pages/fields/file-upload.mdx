@@ -1,0 +1,131 @@
+import { FileUpload } from '@welcome-ui/file-upload'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/file-upload/package.json')
+
+# FileUpload
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+FileUpload uses render props so you can pass a button through. You have access to `openFile` to open the native file chooser dialog box.
+
+See your browser console for the real `File` object ready to upload.
+
+## Default
+
+See more about [media type](http://www.iana.org/assignments/media-types/media-types.xhtml).
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField
+    component={FileUpload}
+    accept="image/*"
+    name="avatar"
+    label="Avatar"
+    hint="Files must be <200MB"
+    required
+    handleAddFile={console.debug}
+    handleRemoveFile={console.debug}
+    onError={console.error}
+  >
+    {({ openFile }) => <Button onClick={openFile}>Upload avatar</Button>}
+  </ConnectedField>
+</Form>
+```
+
+## Show preview if value exists
+
+```jsx
+<Form
+  initialValues={{
+    file: 'https://doc-exemple/example.docx?v=63731713698'
+  }}
+>
+  <ConnectedField
+    component={FileUpload}
+    accept="image/*"
+    name="file"
+    label="File"
+    hint="Files must be <200MB"
+    required
+    handleAddFile={console.debug}
+    handleRemoveFile={console.debug}
+  />
+</Form>
+```
+
+## Multiple
+
+Add `multiple` property.
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField
+    component={FileUpload}
+    accept="application/pdf"
+    name="files"
+    label="Files"
+    hint="Files must be <200MB"
+    multiple
+    handleAddFile={console.debug}
+    handleRemoveFile={console.debug}
+    required
+  >
+    {({ openFile, disabled }) => (
+      <Button onClick={openFile} variant="secondary" disabled={disabled}>
+        Choose file(s)
+      </Button>
+    )}
+  </ConnectedField>
+</Form>
+```
+
+## Disabled
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField component={FileUpload} disabled name="disabled">
+    {({ openFile, disabled }) => (
+      <Button onClick={openFile} disabled={disabled}>
+        Choose file
+      </Button>
+    )}
+  </ConnectedField>
+</Form>
+```
+
+## Change Button
+
+You can change the upload button component.
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField component={FileUpload} name="custom">
+    {({ openFile, disabled }) => (
+      <Button size="xl" shape="circle" onClick={openFile} disabled={disabled}>
+        <UploadIcon size="xl" />
+      </Button>
+    )}
+  </ConnectedField>
+</Form>
+```
+
+## Properties
+
+<props of={FileUpload} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

@@ -1,0 +1,68 @@
+import { Breadcrumb } from '@welcome-ui/breadcrumb'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/breadcrumb/package.json')
+
+# Breadcrumb
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+```jsx
+<Breadcrumb>
+  <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+  <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+  <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+</Breadcrumb>
+```
+
+## Separator
+
+You can customize your separator.
+
+```jsx
+  <Breadcrumb separator="/">
+    <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+    <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+  </Breadcrumb>
+
+  <Breadcrumb separator="-">
+    <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+    <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+    <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+  </Breadcrumb>
+```
+
+## Example with React Router
+
+<code>
+  {`import { Link as RouterLink } from 'react-router-dom'
+
+<Breadcrumb renderChildrenAs={RouterLink}>
+  <Breadcrumb.Item to="/">Introduction</Breadcrumb.Item>
+  <Breadcrumb.Item to="/components">Components</Breadcrumb.Item>
+  <Breadcrumb.Item to='/components/breadcrumb'>Breadcrumb</Breadcrumb.Item>
+</Breadcrumb>`}
+</code>
+
+## Properties
+
+<props of={Breadcrumb} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

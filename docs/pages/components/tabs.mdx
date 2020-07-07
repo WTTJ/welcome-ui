@@ -1,0 +1,277 @@
+import { Tab, useTabState } from '@welcome-ui/tabs'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/tabs/package.json')
+
+# Tabs
+
+<tagversion version={version} name={name} />
+
+Tabs make it easy to explore and switch between different views.
+
+See [Reakit](https://reakit.io/docs/tab/) for documentation.
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Default
+
+Set the tab activated by default using `selectedId` on `useTabState`.
+
+```jsx
+function() {
+  const tab = useTabState({ selectedId: 'tab1' })
+
+  return (
+    <>
+      <Tab.List aria-label="Tabs" {...tab}>
+        <Tab {...tab} id="tab1">
+          Tab 1
+        </Tab>
+        <Tab {...tab} id="tab2">
+          Tab 2
+        </Tab>
+        <Tab {...tab} id="tab3">
+          Tab 3
+        </Tab>
+        <Tab {...tab} id="tab4">
+          Tab 4
+        </Tab>
+        <Tab {...tab} disabled id="tab5">
+          Tab 5
+        </Tab>
+      </Tab.List>
+      <Tab.Panel {...tab} tabId="tab1">
+        Tab.Panel 1
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab2">
+        Tab.Panel 2
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab3">
+        Tab.Panel 3
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab4">
+        Tab.Panel 4
+      </Tab.Panel>
+      <Tab.Panel {...tab} disabled tabId="tab5">
+        Tab.Panel 5
+      </Tab.Panel>
+    </>
+  )
+}
+```
+
+## With no border
+
+The border on `Tab.List` is an inset shadow that you can customize or disable via the `boxShadow` style prop
+
+```jsx
+function() {
+  const tab = useTabState({ selectedId: 'tab1' })
+
+  return (
+    <>
+      <Tab.List aria-label="Tabs" boxShadow="none" {...tab}>
+        <Tab {...tab} id="tab1">
+          Tab 1
+        </Tab>
+        <Tab {...tab} id="tab2">
+          Tab 2
+        </Tab>
+        <Tab {...tab} id="tab3">
+          Tab 3
+        </Tab>
+        <Tab {...tab} id="tab4">
+          Tab 4
+        </Tab>
+        <Tab {...tab} disabled id="tab5">
+          Tab 5
+        </Tab>
+      </Tab.List>
+      <Tab.Panel {...tab} tabId="tab1">
+        Tab.Panel 1
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab2">
+        Tab.Panel 2
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab3">
+        Tab.Panel 3
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab4">
+        Tab.Panel 4
+      </Tab.Panel>
+      <Tab.Panel {...tab} disabled tabId="tab5">
+        Tab.Panel 5
+      </Tab.Panel>
+    </>
+  )
+}
+```
+
+## With a badge
+
+Add badges in tab.
+
+```jsx
+function() {
+  const tab = useTabState({ selectedId: 'tab2' })
+  const getVariant = item => (tab.selectedId === item ? 'primary' : 'default')
+
+  return (
+    <>
+      <Tab.List aria-label="Tabs" {...tab}>
+        <Tab {...tab} id="tab1">
+          Tab 1
+          <Badge ml="xs" variant={getVariant('tab1')}>
+            new
+          </Badge>
+        </Tab>
+        <Tab {...tab} id="tab2">
+          Tab 2
+          <Badge ml="xs" variant={getVariant('tab2')}>
+            old
+          </Badge>
+        </Tab>
+        <Tab {...tab} id="tab3">
+          Tab 3
+        </Tab>
+      </Tab.List>
+      <Tab.Panel {...tab} tabId="tab1">
+        Tab.Panel 1
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab2">
+        Tab.Panel 2
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab3">
+        Tab.Panel 3
+      </Tab.Panel>
+    </>
+  )
+}
+```
+
+## Use another component
+
+Use another component in tab.
+
+```jsx
+function() {
+  const tab = useTabState({ selectedId: 'tab1' })
+
+  return (
+    <>
+      <Tab.List aria-label="Tabs" {...tab}>
+        <Tab {...tab} as="a" id="tab1">
+          Tab 1
+        </Tab>
+        <Tab {...tab} as="a" id="tab2">
+          Tab 2
+        </Tab>
+        <Tab {...tab} as="a" id="tab3">
+          Tab 3
+        </Tab>
+      </Tab.List>
+      <Tab.Panel {...tab} tabId="tab1">
+        Tab.Panel 1
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab2">
+        Tab.Panel 2
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab3">
+        Tab.Panel 3
+      </Tab.Panel>
+    </>
+  )
+}
+```
+
+## One tab
+
+Active bar doesn't display with only one tab.
+
+```jsx
+function() {
+  const tab = useTabState({ selectedId: 'tab1' })
+
+  return (
+    <>
+      <Tab.List aria-label="Tabs" {...tab}>
+        <Tab {...tab} id="tab1">
+          Tab 1
+        </Tab>
+      </Tab.List>
+      <Tab.Panel {...tab} tabId="tab1">
+        Tab.Panel 1
+      </Tab.Panel>
+    </>
+  )
+}
+```
+
+## Vertical
+
+Set the tab orientation by providing the `orientation` prop to the tab state
+
+```jsx
+function() {
+  const tab = useTabState({ orientation: 'vertical', selectedId: 'tab2' })
+
+  return (
+    <Box display="flex">
+      <Tab.List width={200} mr="lg" aria-label="Tabs" {...tab}>
+        <Tab {...tab} id="tab1">
+          Tab 1
+        </Tab>
+        <Tab {...tab} id="tab2">
+          Tab 2
+        </Tab>
+        <Tab {...tab} id="tab3">
+          Tab 3
+        </Tab>
+        <Tab {...tab} id="tab4">
+          Tab 4
+        </Tab>
+      </Tab.List>
+      <Tab.Panel {...tab} tabId="tab1">
+        Tab.Panel 1
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab2">
+        Tab.Panel 2
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab3">
+        Tab.Panel 3
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab4">
+        Tab.Panel 4
+      </Tab.Panel>
+    </Box>
+  )
+}
+```
+
+## Properties
+
+### Tab
+
+<props of={Tab} />
+
+### Tab.List
+
+<props of={Tab.List} />
+
+### Tab.Panel
+
+<props of={Tab.Panel} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

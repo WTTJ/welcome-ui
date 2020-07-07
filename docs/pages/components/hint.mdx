@@ -1,0 +1,40 @@
+import { Hint } from '@welcome-ui/hint'
+const {
+  dependencies,
+  peerDependencies,
+  component,
+  name,
+  version
+} = require('@welcome-ui/hint/package.json')
+
+# Hint
+
+<tagversion version={version} name={name} />
+
+Said state information, use on Field.
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Variants
+
+```jsx
+<Hint>default</Hint>
+<Hint variant="warning">warning</Hint>
+<Hint variant="error">error</Hint>
+<Hint variant="info">info</Hint>
+<Hint variant="success">success</Hint>
+```
+
+## Properties
+
+<props of={Hint} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />
