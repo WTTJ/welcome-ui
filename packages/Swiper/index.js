@@ -1,5 +1,7 @@
 import React, { memo, useState } from 'react'
 import { bool, func, node, number, string } from 'prop-types'
+import { useTheme } from '@xstyled/styled-components'
+import { useViewportSize } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
@@ -17,6 +19,14 @@ export const Swiper = memo(function Swiper({
   const [pageIdx, setPageIdx] = useState(0)
 
   const maxSlides = children.length
+
+  // Set slidesToShow to 1 for mobile
+  const theme = useTheme()
+  const { width: viewportWidth } = useViewportSize()
+  if (viewportWidth <= theme.breakpoints.sm) {
+    slidesToShow = 1
+    slidesToSwipe = 1
+  }
 
   const nextPage = () => {
     const nextPageIdx = pageIdx + slidesToSwipe
