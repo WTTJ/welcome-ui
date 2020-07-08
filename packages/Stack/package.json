@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/stack",
-  "version": "2.0.0-alpha.22",
+  "version": "2.0.0-alpha.26",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/stack.cjs.js",
   "module": "dist/stack.es.js",
@@ -30,8 +30,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^2.0.0-alpha.22",
-    "@welcome-ui/system": "^2.0.0-alpha.22"
+    "@welcome-ui/box": "^2.0.0-alpha.26",
+    "@welcome-ui/system": "^2.0.0-alpha.26"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",
