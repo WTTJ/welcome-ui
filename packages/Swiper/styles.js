@@ -8,12 +8,12 @@ export const Wrapper = styled.div`
 `
 
 export const Swiper = styled.ul(
-  ({ translateX }) => css`
+  ({ slidesToShow, translateX }) => css`
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    width: 100%;
+    width: ${100 / slidesToShow}%;
     height: 100%;
     transition: transform 0.5s ease-out;
     transform: translateX(${translateX}%);
