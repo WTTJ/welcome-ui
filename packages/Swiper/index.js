@@ -23,7 +23,8 @@ export const Swiper = forwardRef((props, ref) => {
   const translateX = -(pageIdx * 100)
 
   useEffect(() => {
-    setNumberOfSlides(children.length)
+    // TODO: Allow for immutable objects - remove when no longer needed
+    setNumberOfSlides(children.length || children.size)
   }, [children, setNumberOfSlides])
 
   return (
