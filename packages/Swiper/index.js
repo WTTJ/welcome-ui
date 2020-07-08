@@ -1,5 +1,5 @@
-import React, { forwardRef, useEffect, useState } from 'react'
-import { bool, func, node, number } from 'prop-types'
+import React, { cloneElement, forwardRef, useEffect, useState } from 'react'
+import { bool, func, node, number, string } from 'prop-types'
 import { useTheme } from '@xstyled/styled-components'
 import { useViewportSize } from '@welcome-ui/utils'
 
@@ -8,8 +8,10 @@ import * as S from './styles'
 export const Swiper = forwardRef((props, ref) => {
   const {
     children,
+    dataTestId,
     goNext,
     goPrev,
+    id = 'swiper',
     nextButton,
     pageIdx,
     prevButton,
@@ -28,12 +30,29 @@ export const Swiper = forwardRef((props, ref) => {
   }, [children, setNumberOfSlides])
 
   return (
-    <S.Wrapper {...rest} ref={ref}>
+    <S.Wrapper
+      {...rest}
+      aria-live="off"
+      aria-roledescription="carousel"
+      id={id}
+      ref={ref}
+      role="region"
+    >
       <S.Swiper slidesToShow={slidesToShow} translateX={translateX}>
-        {children}
+        {children.map((child, i) =>
+          cloneElement(child, {
+            key: i,
+            role: 'group',
+            'aria-hidden': i !== pageIdx,
+            'aria-readonly': true,
+            'aria-roledescription': 'slide',
+            'aria-label': `${i + 1} of ${children.length || children.size}`
+          })
+        )}
       </S.Swiper>
-      <S.Pagination>
+      <S.Pagination data-testid={dataTestId && `${dataTestId}-pagination`}>
         <Pagination
+          id={id}
           pageIdx={pageIdx}
           renderPaginationItem={renderPaginationItem}
           setPageIdx={setPageIdx}
@@ -41,22 +60,46 @@ export const Swiper = forwardRef((props, ref) => {
           {children}
         </Pagination>
       </S.Pagination>
-      {prevButton && <S.Prev onClick={goPrev}>{prevButton}</S.Prev>}
-      {nextButton && <S.Next onClick={goNext}>{nextButton}</S.Next>}
+      {prevButton && (
+        <S.Prev
+          aria-controls={id}
+          aria-label="Previous slide"
+          data-testid={dataTestId && `${dataTestId}-button-prev`}
+          onClick={goPrev}
+        >
+          {prevButton}
+        </S.Prev>
+      )}
+      {nextButton && (
+        <S.Next
+          aria-controls={id}
+          aria-label="Next slide"
+          data-testid={dataTestId && `${dataTestId}-button-next`}
+          onClick={goNext}
+        >
+          {nextButton}
+        </S.Next>
+      )}
     </S.Wrapper>
   )
 })
 
-const Pagination = ({ children, pageIdx, renderPaginationItem, setPageIdx }) => {
+const Pagination = ({ children, id, pageIdx, renderPaginationItem, setPageIdx }) => {
   return children.map((_, idx) => {
     if (renderPaginationItem) {
-      return renderPaginationItem(idx, { onClick: () => setPageIdx(idx), active: idx === pageIdx })
+      return renderPaginationItem(idx, {
+        onClick: () => setPageIdx(idx),
+        active: idx === pageIdx
+      })
     }
     return (
       <S.Bullet
         active={idx === pageIdx}
+        aria-controls={id}
+        aria-label={`${idx + 1} of ${children.length || children.size}`}
+        aria-selected={idx === pageIdx}
         // eslint-disable-next-line react/no-array-index-key
-        key={`swiper-bullet-${idx}`}
+        key={idx}
         onClick={() => setPageIdx(idx)}
       />
     )
@@ -106,8 +149,10 @@ export const useSwiper = (props = {}) => {
 
 Swiper.propTypes = {
   children: node,
+  dataTestId: string,
   goNext: func,
   goPrev: func,
+  id: string,
   loop: bool,
   nextButton: func,
   pageIdx: number,
