@@ -33,24 +33,35 @@ export const Swiper = forwardRef((props, ref) => {
         {children}
       </S.Swiper>
       <S.Pagination>
-        {children.map((_, idx) =>
-          renderPaginationItem ? (
-            renderPaginationItem(idx, { onClick: () => setPageIdx(idx), active: idx === pageIdx })
-          ) : (
-            <S.Bullet
-              active={idx === pageIdx}
-              // eslint-disable-next-line react/no-array-index-key
-              key={`swiper-bullet-${idx}`}
-              onClick={() => setPageIdx(idx)}
-            />
-          )
-        )}
+        <Pagination
+          pageIdx={pageIdx}
+          renderPaginationItem={renderPaginationItem}
+          setPageIdx={setPageIdx}
+        >
+          {children}
+        </Pagination>
       </S.Pagination>
       {prevButton && <S.Prev onClick={goPrev}>{prevButton}</S.Prev>}
       {nextButton && <S.Next onClick={goNext}>{nextButton}</S.Next>}
     </S.Wrapper>
   )
 })
+
+const Pagination = ({ children, pageIdx, renderPaginationItem, setPageIdx }) => {
+  return children.map((_, idx) => {
+    if (renderPaginationItem) {
+      return renderPaginationItem(idx, { onClick: () => setPageIdx(idx), active: idx === pageIdx })
+    }
+    return (
+      <S.Bullet
+        active={idx === pageIdx}
+        // eslint-disable-next-line react/no-array-index-key
+        key={`swiper-bullet-${idx}`}
+        onClick={() => setPageIdx(idx)}
+      />
+    )
+  })
+}
 
 Swiper.Slide = S.Slide
 Swiper.Bullet = S.Bullet
