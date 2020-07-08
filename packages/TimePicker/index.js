@@ -130,5 +130,5 @@ TimePicker.propTypes /* remove-proptypes */ = {
   popperProps: object,
   size: oneOf(SIZES_TYPE),
   timeIntervals: number,
-  value: oneOfType([number, object, string]).isRequired
+  value: oneOfType([number, object, string])
 }

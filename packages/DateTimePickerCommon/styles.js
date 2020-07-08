@@ -5,7 +5,7 @@ import { IconWrapper } from '@welcome-ui/field'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledButton } from '@welcome-ui/button'
 import { StyledClearButton } from '@welcome-ui/clear-button'
-import { componentSystem, filterFieldComponent } from '@welcome-ui/system'
+import { componentSystem, shouldForwardProp } from '@welcome-ui/system'
 import { StyledSelect } from '@welcome-ui/select'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
@@ -13,8 +13,6 @@ import { defaultFieldStyles } from '@welcome-ui/utils'
 if (typeof window !== 'undefined') {
   require('react-datepicker/dist/react-datepicker.css')
 }
-
-import { FILTER_PROPS } from './propTypes'
 
 export const StyledDatePicker = styled(ReactDatePicker)`
   ${defaultFieldStyles};
@@ -56,7 +54,7 @@ const iconPlacementStyles = (placement, size, rest) => {
   }
 }
 
-export const CustomInput = styled(filterFieldComponent('div', FILTER_PROPS))(
+export const CustomInput = styled('div').withConfig({ shouldForwardProp })(
   ({ focused, icon, iconPlacement, size, ...rest }) => {
     return css`
       position: relative;

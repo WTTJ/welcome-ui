@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { Link } from 'docz'
 import { th } from '@xstyled/system'
 
-import { filterComponent } from '../../../../packages/System/index'
+import { shouldForwardProp } from '../../../../packages/System/index'
 
 export const Block = styled.ul`
   margin: 0;
@@ -24,7 +24,7 @@ export const Title = styled.div`
   font-weight: bold;
 `
 
-export const TitleLink = styled(filterComponent(Link, ['isActive', 'mobile']))(
+export const TitleLink = styled(Link).withConfig({ shouldForwardProp })(
   ({ isActive }) => css`
     ${th('docz.navigation')};
     ${p => p.mobile && th('docz.navigationmobile')};
@@ -41,7 +41,7 @@ export const TitleLink = styled(filterComponent(Link, ['isActive', 'mobile']))(
   `
 )
 
-export const ItemLink = styled(filterComponent(Link, ['isActive']))(
+export const ItemLink = styled(Link).withConfig({ shouldForwardProp })(
   ({ isActive }) => css`
     text-decoration: none;
     ${isActive &&

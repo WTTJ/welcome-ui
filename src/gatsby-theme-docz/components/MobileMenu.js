@@ -25,7 +25,7 @@ export const MobileMenu = ({ items, theme, ...rest }) => {
       <Box>
         <Button
           as="a"
-          borderRadius="50px"
+          borderRadius={50}
           href="https://github.com/WTTJ/welcome-ui"
           mr="xs"
           rel="noopener"
@@ -34,9 +34,9 @@ export const MobileMenu = ({ items, theme, ...rest }) => {
           <GithubIcon size="lg" />
           <span>Source</span>
         </Button>
-        <Button as={Modal.Trigger} shape="circle" size="sm" variant="quaternary" {...modal}>
+        <Modal.Trigger as={Button} shape="circle" size="sm" variant="quaternary" {...modal}>
           <MenuIcon size="lg" />
-        </Button>
+        </Modal.Trigger>
       </Box>
       <Modal {...modal} ariaLabel="Navigation">
         <Modal.Content>

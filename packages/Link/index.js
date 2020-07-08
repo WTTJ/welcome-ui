@@ -7,7 +7,7 @@ import * as S from './styles'
 
 const isString = value => typeof value === 'string'
 
-export const Link = forwardRef(({ children, variant = 'primary', ...props }, ref) => {
+export const Link = forwardRef(({ children, dataTestId, variant = 'primary', ...props }, ref) => {
   let clones
   const theme = useTheme()
   const linkRef = useRef()
@@ -43,7 +43,7 @@ export const Link = forwardRef(({ children, variant = 'primary', ...props }, ref
   }
 
   return (
-    <S.Link ref={ref || linkRef} variant={variant} {...props}>
+    <S.Link data-testid={dataTestId} ref={ref || linkRef} variant={variant} {...props}>
       {isChildrenString && <WrapWithText>{children}</WrapWithText>}
       {clones}
     </S.Link>

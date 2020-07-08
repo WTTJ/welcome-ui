@@ -34,8 +34,8 @@ See more about [media type](http://www.iana.org/assignments/media-types/media-ty
       label="Avatar"
       hint="Files must be <200MB"
       required
-      onAddFile={console.debug}
-      onRemoveFile={console.debug}
+      handleAddFile={console.debug}
+      handleRemoveFile={console.debug}
       onError={console.error}
     >
       {({ openFile }) => <Button onClick={openFile}>Upload avatar</Button>}
@@ -58,8 +58,8 @@ See more about [media type](http://www.iana.org/assignments/media-types/media-ty
       label="File"
       hint="Files must be <200MB"
       required
-      onAddFile={console.debug}
-      onRemoveFile={console.debug}
+      handleAddFile={console.debug}
+      handleRemoveFile={console.debug}
     />
   </Form>
 </Playground>
@@ -77,8 +77,8 @@ Add `multiple` property.
       label="Files"
       hint="Files must be <200MB"
       multiple
-      onAddFile={console.debug}
-      onRemoveFile={console.debug}
+      handleAddFile={console.debug}
+      handleRemoveFile={console.debug}
       required
     >
       {({ openFile, disabled }) => (

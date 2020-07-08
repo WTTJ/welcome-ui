@@ -28,11 +28,11 @@ export const FileDrop = forwardRef(
       maxSize = DEFAULT_MAX_FILE_SIZE,
       multiple,
       name,
-      onAddFile,
+      handleAddFile,
       onBlur,
       onChange,
       onError,
-      onRemoveFile,
+      handleRemoveFile,
       value,
       forceFileType,
       ...rest
@@ -59,7 +59,7 @@ export const FileDrop = forwardRef(
 
       const event = createEvent({ name, value: file })
       onChange && onChange(event)
-      onAddFile && onAddFile(event)
+      handleAddFile && handleAddFile(event)
     }
 
     const handleDropRejected = files => {
@@ -81,14 +81,14 @@ export const FileDrop = forwardRef(
       onBlur && onBlur() // Trigger field touch
     }
 
-    const handleRemoveFile = e => {
+    const handleRemoveClick = e => {
       e.preventDefault()
       setFile(null)
       setError(null)
 
       const event = createEvent({ name, value: null })
       onChange && onChange(event)
-      onRemoveFile && onRemoveFile(event)
+      handleRemoveFile && handleRemoveFile(event)
     }
 
     const {
@@ -162,7 +162,7 @@ export const FileDrop = forwardRef(
                 )}
                 {isClearable && (
                   <Button
-                    onClick={handleRemoveFile}
+                    onClick={handleRemoveClick}
                     shape="square"
                     size="sm"
                     type="button"
@@ -189,17 +189,17 @@ FileDrop.propTypes = /* remove-proptypes */ {
   children: func,
   disabled: bool,
   forceFileType: oneOf(['image', 'audio', 'video']),
+  handleAddFile: func,
+  handleRemoveFile: func,
   isClearable: bool,
   isEditable: bool,
   maxSize: number,
   multiple: bool,
   name: string.isRequired,
-  onAddFile: func,
   onBlur: func,
   onChange: func,
   onError: func,
   onFocus: func,
-  onRemoveFile: func,
   title: oneOfType([string, node]),
   value: oneOfType([string, object])
 }

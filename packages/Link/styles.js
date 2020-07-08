@@ -1,9 +1,9 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { UniversalLink } from '@welcome-ui/universal-link'
-import { filterComponent, system } from '@welcome-ui/system'
+import { shouldForwardProp, system } from '@welcome-ui/system'
 
-export const Link = styled(filterComponent(UniversalLink))(
+export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })(
   ({ variant }) => css`
     display: inline-flex;
     flex-direction: row;

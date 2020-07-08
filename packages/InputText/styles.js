@@ -1,9 +1,9 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
+import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
-export const InputText = styled(filterFieldComponent('input'))(
+export const InputText = styled('input').withConfig({ shouldForwardProp })(
   ({ connected, icon, iconPlacement, isClearable, size, ...rest }) => css`
     ${defaultFieldStyles};
     text-overflow: ellipsis;

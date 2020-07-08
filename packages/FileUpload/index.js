@@ -30,11 +30,11 @@ export const FileUpload = forwardRef(
       maxSize = DEFAULT_MAX_FILE_SIZE,
       multiple,
       name,
-      onAddFile,
+      handleAddFile,
       onBlur,
       onChange,
       onError,
-      onRemoveFile,
+      handleRemoveFile,
       value = [],
       ...rest
     },
@@ -54,7 +54,7 @@ export const FileUpload = forwardRef(
       return () => files && files.map(file => file && URL.revokeObjectURL(file.preview))
     }, [files])
 
-    const handleAddFile = e => {
+    const handleChange = e => {
       let newFiles = Array.from(e.target.files).map(file => {
         file.preview = URL.createObjectURL(file)
         return file
@@ -67,11 +67,11 @@ export const FileUpload = forwardRef(
 
       const event = createEvent({ name, value: newFiles })
       onChange && onChange(event)
-      onAddFile && onAddFile(newFiles)
+      handleAddFile && handleAddFile(newFiles)
       onBlur && onBlur()
     }
 
-    const handleRemoveFile = index => {
+    const handleRemove = index => {
       const newFiles = [...files]
       const file = newFiles.splice(index, 1)
       const value = multiple ? newFiles : undefined
@@ -79,7 +79,7 @@ export const FileUpload = forwardRef(
 
       const event = createEvent({ name, value })
       onChange && onChange(event)
-      onRemoveFile && onRemoveFile(file)
+      handleRemoveFile && handleRemoveFile(file)
       onBlur && onBlur()
     }
 
@@ -105,13 +105,13 @@ export const FileUpload = forwardRef(
           multiple={multiple}
           name={name}
           onBlur={onBlur}
-          onChange={handleAddFile}
+          onChange={handleChange}
           ref={inputRef}
           {...rest}
           type="file"
         />
         {files.map(file => (
-          <Preview file={file} key={file.name || file} onRemove={handleRemoveFile} />
+          <Preview file={file} key={file.name || file} onRemove={handleRemove} />
         ))}
       </>
     )
@@ -127,14 +127,14 @@ FileUpload.propTypes /* remove-proptypes */ = {
   children: func,
   disabled: bool,
   draggable: bool,
+  handleAddFile: func,
+  handleRemoveFile: func,
   maxSize: number,
   multiple: bool,
   name: string.isRequired,
-  onAddFile: func,
   onBlur: func,
   onChange: func,
   onError: func,
-  onRemoveFile: func,
   title: oneOfType([string, node]),
   value: oneOfType([string, object])
 }

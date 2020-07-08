@@ -1,58 +1,5 @@
-import React from 'react'
-import { compose, createSystemComponent } from '@xstyled/system'
+import { compose } from '@xstyled/system'
 import * as S from '@xstyled/system'
-
-const FINAL_FORM_META_PROPS = Object.freeze([
-  'active',
-  'data',
-  'dirty',
-  'dirtySinceLastSubmit',
-  'error',
-  'initial',
-  'invalid',
-  'modified',
-  'pristine',
-  'submitError',
-  'submitFailed',
-  'submitSucceeded',
-  'submitting',
-  'touched',
-  'valid',
-  'validating',
-  'visited'
-])
-
-const CUSTOM_FIELD_PROPS = Object.freeze([
-  'checkableField',
-  'focused',
-  'handleRemoveFile',
-  'icon',
-  'iconPlacement',
-  'isClearable',
-  'isCreatable',
-  'isEditable',
-  'isMultiple',
-  'isSearchable',
-  'maxSize',
-  'minRows',
-  'popperProps',
-  'renderItem'
-])
-
-const FINAL_FORM_FIELD_PROPS = Object.freeze([
-  'afterSubmit',
-  'allowNull',
-  'beforeSubmit',
-  'component',
-  'format',
-  'formatOnBlur',
-  'initialValue',
-  'isEqual',
-  'onCreate',
-  'parse',
-  'validate',
-  'validateFields'
-])
 
 const SYSTEM_PROPS = Object.freeze([
   S.backgrounds,
@@ -95,21 +42,5 @@ const componentProps = system.meta.props
   .filter(Boolean)
 export const componentSystem = compose(...componentProps)
 
-// Remove (final) field props from DOM
-export const filterFieldComponent = (Component, omitProps = []) =>
-  filterComponent(Component, [
-    ...omitProps,
-    ...CUSTOM_FIELD_PROPS,
-    ...FINAL_FORM_FIELD_PROPS,
-    ...FINAL_FORM_META_PROPS
-  ])
-
-// Remove supplied props from DOM
-export const filterComponent = (Component, omitProps = []) => {
-  const unallowedProps = {
-    meta: {
-      props: ['connected', ...omitProps, ...system.meta.props]
-    }
-  }
-  return createSystemComponent(React, Component, unallowedProps)
-}
+export const filterSystemProps = prop => !system.meta.props.includes(prop)
+export const shouldForwardProp = (prop, defaultValidatorFn) => defaultValidatorFn(prop)

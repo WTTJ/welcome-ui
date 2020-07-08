@@ -2,8 +2,9 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { system } from '@welcome-ui/system'
 import { getVariantColor } from '@welcome-ui/utils'
+import { shouldForwardProp } from '@welcome-ui/system'
 
-export const Label = styled.label(
+export const Label = styled('label').withConfig({ shouldForwardProp })(
   ({ required }) => css`
     display: flex;
     flex-shrink: 0;
