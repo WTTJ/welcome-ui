@@ -12,13 +12,16 @@ export const Swiper = forwardRef((props, ref) => {
     goNext,
     goPrev,
     id = 'swiper',
+    loop,
     nextButton,
+    numberOfSlides,
     pageIdx,
     prevButton,
     renderPaginationItem,
     setNumberOfSlides,
     setPageIdx,
     slidesToShow,
+    slidesToSwipe,
     ...rest
   } = props
 
@@ -46,25 +49,32 @@ export const Swiper = forwardRef((props, ref) => {
             'aria-hidden': i !== pageIdx,
             'aria-readonly': true,
             'aria-roledescription': 'slide',
-            'aria-label': `${i + 1} of ${children.length || children.size}`
+            'aria-label': `${i + 1} of ${numberOfSlides}`
           })
         )}
       </S.Swiper>
       <S.Pagination data-testid={dataTestId && `${dataTestId}-pagination`}>
-        <Pagination
-          id={id}
-          pageIdx={pageIdx}
-          renderPaginationItem={renderPaginationItem}
-          setPageIdx={setPageIdx}
-        >
-          {children}
-        </Pagination>
+        {children.map((_, idx) => {
+          const props = {
+            active: idx === pageIdx,
+            'aria-controls': id,
+            'aria-label': `${idx + 1} of ${numberOfSlides}`,
+            'aria-selected': idx === pageIdx,
+            onClick: () => setPageIdx(idx)
+          }
+          if (renderPaginationItem) {
+            return renderPaginationItem(idx, props)
+          }
+          // eslint-disable-next-line react/no-array-index-key
+          return <S.Bullet key={idx} {...props} />
+        })}
       </S.Pagination>
       {prevButton && (
         <S.Prev
           aria-controls={id}
           aria-label="Previous slide"
           data-testid={dataTestId && `${dataTestId}-button-prev`}
+          disabled={!loop && pageIdx === 0}
           onClick={goPrev}
         >
           {prevButton}
@@ -75,6 +85,7 @@ export const Swiper = forwardRef((props, ref) => {
           aria-controls={id}
           aria-label="Next slide"
           data-testid={dataTestId && `${dataTestId}-button-next`}
+          disabled={!loop && pageIdx >= numberOfSlides - slidesToSwipe}
           onClick={goNext}
         >
           {nextButton}
@@ -83,28 +94,6 @@ export const Swiper = forwardRef((props, ref) => {
     </S.Wrapper>
   )
 })
-
-const Pagination = ({ children, id, pageIdx, renderPaginationItem, setPageIdx }) => {
-  return children.map((_, idx) => {
-    if (renderPaginationItem) {
-      return renderPaginationItem(idx, {
-        onClick: () => setPageIdx(idx),
-        active: idx === pageIdx
-      })
-    }
-    return (
-      <S.Bullet
-        active={idx === pageIdx}
-        aria-controls={id}
-        aria-label={`${idx + 1} of ${children.length || children.size}`}
-        aria-selected={idx === pageIdx}
-        // eslint-disable-next-line react/no-array-index-key
-        key={idx}
-        onClick={() => setPageIdx(idx)}
-      />
-    )
-  })
-}
 
 Swiper.Slide = S.Slide
 Swiper.Bullet = S.Bullet
@@ -125,7 +114,12 @@ export const useSwiper = (props = {}) => {
   const [pageIdx, setPageIdx] = useState(0)
 
   const goNext = () => {
-    const nextPageIdx = pageIdx + slidesToSwipe
+    let nextPageIdx
+    if (loop) {
+      nextPageIdx = pageIdx + slidesToSwipe
+    } else {
+      nextPageIdx = Math.min(pageIdx + slidesToSwipe, numberOfSlides - slidesToSwipe)
+    }
 
     if (nextPageIdx < numberOfSlides) {
       setPageIdx(nextPageIdx)
@@ -144,7 +138,18 @@ export const useSwiper = (props = {}) => {
     }
   }
 
-  return { goNext, goPrev, pageIdx, setNumberOfSlides, setPageIdx, slidesToShow, ...rest }
+  return {
+    goNext,
+    goPrev,
+    loop,
+    numberOfSlides,
+    pageIdx,
+    setNumberOfSlides,
+    setPageIdx,
+    slidesToShow,
+    slidesToSwipe,
+    ...rest
+  }
 }
 
 Swiper.propTypes = {
@@ -154,9 +159,10 @@ Swiper.propTypes = {
   goPrev: func,
   id: string,
   loop: bool,
-  nextButton: func,
+  nextButton: node,
+  numberOfSlides: number,
   pageIdx: number,
-  prevButton: func,
+  prevButton: node,
   renderPaginationItem: func,
   setNumberOfSlides: func,
   setPageIdx: func,
