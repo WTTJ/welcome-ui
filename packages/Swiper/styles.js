@@ -34,7 +34,7 @@ export const Pagination = styled.div`
   z-index: 10;
   bottom: 0;
   width: 100%;
-  margin-bottom: sm;
+  padding: sm;
 `
 
 export const Bullet = styled.div(
