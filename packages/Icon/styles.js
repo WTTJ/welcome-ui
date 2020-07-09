@@ -16,10 +16,10 @@ const iconSvgFilledStyles = css`
   }
 `
 
-export const Icon = styled.svg(({ size = 'md', stroked, theme }) => {
+export const Icon = styled.svg(({ isFlag, size = 'md', stroked, theme }) => {
   const formattedSize = theme.icons[size] || size
   return css`
-    ${stroked ? iconSvgStrokedStyles : iconSvgFilledStyles};
+    ${!isFlag && (stroked ? iconSvgStrokedStyles : iconSvgFilledStyles)};
     width: ${formattedSize};
     height: ${formattedSize};
     ${system};
