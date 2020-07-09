@@ -176,13 +176,14 @@ You can create your own buttons outside of the Swiper and control it externally.
   }}
 </Playground>
 
-## With loop enabled
+## Autoplay
 
-Providing `loop` enables the swiper to loop the last and first page.
+Providing `autoplay` lets the slides advance automatically. Pass `duration` to control the amount of time each slide shows for.
 
 <Playground>
   {() => {
     const swiper = useSwiper({
+      autoplay: true,
       loop: true,
       nextButton: <RightIcon size="lg" />,
       prevButton: <LeftIcon size="lg" />

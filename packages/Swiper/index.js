@@ -3,6 +3,7 @@ import { bool, func, node, number, string } from 'prop-types'
 import { useTheme } from '@xstyled/styled-components'
 import { useViewportSize } from '@welcome-ui/utils'
 
+import { useInterval } from './use-interval'
 import * as S from './styles'
 
 export const Swiper = forwardRef((props, ref) => {
@@ -100,7 +101,14 @@ Swiper.Bullet = S.Bullet
 Swiper.displayName = 'Swiper'
 
 export const useSwiper = (props = {}) => {
-  let { loop, slidesToShow = 1, slidesToSwipe = slidesToShow, ...rest } = props
+  let {
+    autoplay,
+    duration = 5000,
+    loop,
+    slidesToShow = 1,
+    slidesToSwipe = slidesToShow,
+    ...rest
+  } = props
 
   // Set slidesToShow to 1 for mobile
   const theme = useTheme()
@@ -112,6 +120,16 @@ export const useSwiper = (props = {}) => {
 
   const [numberOfSlides, setNumberOfSlides] = useState(0)
   const [pageIdx, setPageIdx] = useState(0)
+
+  // Add autoplay
+  useInterval(
+    () => {
+      if (autoplay) {
+        goNext()
+      }
+    },
+    autoplay ? duration : null
+  )
 
   const goNext = () => {
     let nextPageIdx
@@ -153,8 +171,10 @@ export const useSwiper = (props = {}) => {
 }
 
 Swiper.propTypes = {
+  autoplay: bool,
   children: node,
   dataTestId: string,
+  duration: number,
   goNext: func,
   goPrev: func,
   id: string,
