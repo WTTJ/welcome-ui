@@ -34,7 +34,7 @@ export const Pagination = styled.div`
   z-index: 10;
   bottom: 0;
   width: 100%;
-  margin-bottom: sm;
+  padding: sm;
 `
 
 export const Bullet = styled.div(
@@ -55,7 +55,8 @@ const navigationStyles = css`
   top: 0;
   display: flex;
   align-items: center;
-  cursor: pointer;
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${props => (props.disabled ? 0.25 : 1)};
   z-index: 20;
 `
 
