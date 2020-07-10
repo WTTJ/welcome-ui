@@ -23,11 +23,14 @@ A clear and concise description of what you expected to happen.
 
 ### Environment
 
-- Welcome-UI version: [e.g. 0.32.2]
-- Browser: [e.g. Chrome 79, IE11]
-- OS: [e.g. OSX 10.13.4, Windows 10]
-- Device: [iphone 11, oneplus 7t]
-- Node/npm version: [e.g. Node 8/npm 5]
+- `@welcome-ui/the_component` [e.g. 1.30.1]
+- `@welcome-ui/core` [e.g. 1.30.1]
+
+Run `npx envinfo --system --binaries --markdown` and copy/paste the results here
+
+```bash
+
+```
 
 ### Additional context/Screenshots
 Add any other context about the problem here. If applicable, add screenshots to help explain.
