@@ -12,7 +12,7 @@
     "homerun": "yarn clean --yes && rm -rf node_modules/ && yarn cache clean && yarn && yarn build --all && yarn start",
     "icons:optimize": "svgo --folder=icons/_assets --config='{ \"plugins\": [ { \"cleanupIDs\": false } ] }' --indent=0 --multipass --quiet",
     "icons:collect": "node -r esm scripts/icons.js",
-    "pre-build": "yarn icons:optimize && yarn icons:collect",
+    "pre-build": "yarn icons:collect",
     "build": "node scripts/build.js",
     "release:publish": "yarn lerna publish --conventional-commits",
     "release:prerelease": "yarn build && yarn lerna publish --conventional-prerelease --pre-dist-tag next --yes",
@@ -145,7 +145,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn lint && yarn icons:optimize && yarn icons:collect && yarn test",
+      "pre-push": "yarn lint && yarn icons:collect && yarn test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
