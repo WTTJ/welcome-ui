@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { ConnectedField } from '@welcome-ui/connected-field'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/field/package.json')
-
+} from '@welcome-ui/field/package.json'
 # Field
-
 <tagversion version={version} name={name} />
 
 We recommend using [Final Form](https://github.com/final-form/react-final-form), [Redux Form](https://github.com/erikras/redux-form) or [Formik](https://github.com/jaredpalmer/formik) with these components. If so, use `ConnectedField` for your fields (as in the examples below).
@@ -116,7 +116,7 @@ You can find props for each field component in the other `Fields` pages.
 
 ## Properties
 
-<props of={ConnectedField} />
+<props of="ConnectedField" propTypes={props.propTypes} />
 
 ## Dependencies
 

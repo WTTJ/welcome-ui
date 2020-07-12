@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { useToast } from '@welcome-ui/toast'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/toast/package.json')
-
+} from '@welcome-ui/toast/package.json'
 # Toast
-
 <tagversion version={version} name={name} />
 
 Notification component with [toasted-note](https://toasted-notes.netlify.com) and 2 components : Growl and Snackbar.
@@ -293,6 +293,10 @@ function() {
   )
 }
 ```
+
+## Properties
+
+<props of="Toast" propTypes={props.propTypes} />
 
 ## Dependencies
 

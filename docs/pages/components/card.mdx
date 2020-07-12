@@ -1,14 +1,12 @@
 import { Card, Cover } from '@welcome-ui/card'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/card/package.json')
-
+} from '@welcome-ui/card/package.json'
 # Card
-
 <tagversion version={version} name={name} />
 
 Simple Box with specific style.
@@ -77,11 +75,11 @@ A picture card, if you add a `backgroundImage` on Card, it's displayed on cover.
 
 ### Card
 
-<props of={Card} />
+<props of="Card" propTypes={props.propTypes} />
 
 ### Card.Cover
 
-<props of={Cover} />
+<props of="Cover" propTypes={props.propTypes} />
 
 ## Dependencies
 

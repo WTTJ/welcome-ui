@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Icon } from '@welcome-ui/icon'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/icon/package.json')
-
+} from '@welcome-ui/icon/package.json'
 # Icon
-
 <tagversion version={version} name={name} />
 
 ## Install and import individual icons
@@ -319,7 +319,7 @@ function() {
 
 ## Properties
 
-<props of={Icon} />
+<props of="Icon" propTypes={props.propTypes} />
 
 ## Dependencies
 

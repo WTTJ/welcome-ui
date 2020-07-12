@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { InputText } from '@welcome-ui/input-text'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/input-text/package.json')
-
+} from '@welcome-ui/input-text/package.json'
 # InputText
-
 <tagversion version={version} name={name} />
 
 ## Install and import
@@ -122,7 +122,7 @@ Pass an `icon` through to decorate your `InputText`
 
 ## Properties
 
-<props of={InputText} />
+<props of="InputText" propTypes={props.propTypes} />
 
 ## Dependencies
 

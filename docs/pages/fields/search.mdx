@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Search } from '@welcome-ui/search'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/search/package.json')
-
+} from '@welcome-ui/search/package.json'
 # Search
-
 <tagversion version={version} name={name} />
 
 This allows you to search data from a remote API. It is based on the [downshift](https://github.com/downshift-js/downshift) library.
@@ -96,7 +96,7 @@ A function that converts a selected result to a string e.g.
 
 The rest of the props are below:
 
-<props of={Search} />
+<props of="Search" propTypes={props.propTypes} />
 
 ## Dependencies
 

@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Text } from '@welcome-ui/text'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/text/package.json')
-
+} from '@welcome-ui/text/package.json'
 # Text
-
 <tagversion version={version} name={name} />
 
 The `Text` component allows you to remain consistent with your text sizing and line-height. To add additional padding/margins use the `space` values from [xstyled](https://xstyled.dev/docs/style-props/).
@@ -81,7 +81,7 @@ Set the number of lines you want to display with `lines`. Your text will be disp
 
 ## Properties
 
-<props of={Text} />
+<props of="Text" propTypes={props.propTypes} />
 
 ## Dependencies
 

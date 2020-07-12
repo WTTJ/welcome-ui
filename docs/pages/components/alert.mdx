@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Alert } from '@welcome-ui/alert'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/alert/package.json')
-
+} from '@welcome-ui/alert/package.json'
 # Alert
-
 <tagversion version={version} name={name} />
 
 Simple feedback messages for user actions.
@@ -97,11 +97,11 @@ When usin `Alert.Button`, we will show it in a column on the right
 
 ### Alert
 
-<props of={Alert} />
+<props of="Alert" propTypes={props.propTypes} />
 
 ### Alert.Title
 
-<props of={Alert.Title} />
+<props of="Alert.Title" propTypes={props.propTypes} />
 
 ## Dependencies
 

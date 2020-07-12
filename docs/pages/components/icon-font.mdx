@@ -1,14 +1,12 @@
 import { Icons, IconFont } from '@welcome-ui/icons.font'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/icons.font/package.json')
-
+} from '@welcome-ui/icons.font/package.json'
 # IconFont
-
 <tagversion version={version} name={name} />
 
 ## Install and import icon font
@@ -300,7 +298,7 @@ function() {
 
 ## Properties
 
-<props of={IconFont} />
+<props of="IconFont" propTypes={props.propTypes} />
 
 ## Dependencies
 

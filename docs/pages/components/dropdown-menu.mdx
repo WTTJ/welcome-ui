@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { DropdownMenu } from '@welcome-ui/dropdown-menu'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/dropdown-menu/package.json')
-
+} from '@welcome-ui/dropdown-menu/package.json'
 # DropdownMenu
-
 <tagversion version={version} name={name} />
 Menu from [Reakit](https://reakit.io/docs/menu/) with a really nice theme 👀
 
@@ -93,7 +93,7 @@ function() {
 
 ## Properties
 
-<props of={DropdownMenu} />
+<props of="DropdownMenu" propTypes={props.propTypes} />
 
 ## Dependencies
 

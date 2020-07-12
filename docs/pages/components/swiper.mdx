@@ -1,14 +1,12 @@
 import { Swiper, useSwiper } from '@welcome-ui/swiper'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/swiper/package.json')
-
+} from '@welcome-ui/swiper/package.json'
 # Swiper
-
 <tagversion version={version} name={name} />
 
 The `Swiper` component is a component that allows you to build a simple swiper.
@@ -253,7 +251,7 @@ function() {
 
 ## Properties
 
-<props of={Swiper} />
+<props of="Swiper" propTypes={props.propTypes} />
 
 ## Dependencies
 

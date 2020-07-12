@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Textarea } from '@welcome-ui/textarea'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/textarea/package.json')
-
+} from '@welcome-ui/textarea/package.json'
 # Textarea
-
 <tagversion version={version} name={name} />
 
 ## Install and import
@@ -31,7 +31,7 @@ const {
 
 ## Properties
 
-<props of={Textarea} />
+<props of="Textarea" propTypes={props.propTypes} />
 
 ## Dependencies
 

@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Avatar } from '@welcome-ui/avatar'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/avatar/package.json')
-
+} from '@welcome-ui/avatar/package.json'
 # Avatar
-
 <tagversion version={version} name={name} />
 
 Avatar component with initials letter when have no image.
@@ -82,7 +82,7 @@ By default Avatar is a circle shape, change with property `shape`.
 
 ## Properties
 
-<props of={Avatar} />
+<props of="Avatar" propTypes={props.propTypes} />
 
 ## Dependencies
 

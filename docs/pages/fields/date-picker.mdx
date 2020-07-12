@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { DatePicker } from '@welcome-ui/date-picker'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/date-picker/package.json')
-
+} from '@welcome-ui/date-picker/package.json'
 # DatePicker
-
 <tagversion version={version} name={name} />
 
 It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
@@ -72,7 +72,7 @@ _Note_: Pass a value of `null` if you don't want the default value of `Date.now(
 
 ## Properties
 
-<props of={DatePicker} />
+<props of="DatePicker" propTypes={props.propTypes} />
 
 ## Dependencies
 

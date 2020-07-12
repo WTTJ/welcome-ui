@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { RadioTab } from '@welcome-ui/radio-tab'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/radio-tab/package.json')
-
+} from '@welcome-ui/radio-tab/package.json'
 # Radio Tab
-
 <tagversion version={version} name={name} />
 
 ## Install and import
@@ -44,7 +44,7 @@ const {
 
 ## Properties
 
-<props of={RadioTab} />
+<props of="RadioTab" propTypes={props.propTypes} />
 
 ## Dependencies
 

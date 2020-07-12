@@ -1,11 +1,13 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Box } from '@welcome-ui/box'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/box/package.json')
+} from '@welcome-ui/box/package.json'
 
 # Box
 
@@ -33,3 +35,7 @@ Is an export of [xstyled's `<Box>` component](https://xstyled.dev/docs/style-usi
   </Box>
 </Box>
 ```
+
+## Properties
+
+<props of="Box" propTypes={props.propTypes} />

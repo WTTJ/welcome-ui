@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Picker } from '@welcome-ui/picker'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/picker/package.json')
-
+} from '@welcome-ui/picker/package.json'
 # Picker
-
 <tagversion version={version} name={name} />
 
 ## Install and import
@@ -95,7 +95,7 @@ const {
 
 ## Properties
 
-<props of={Picker} />
+<props of="Picker" propTypes={props.propTypes} />
 
 ## Dependencies
 

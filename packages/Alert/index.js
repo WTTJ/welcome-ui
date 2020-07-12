@@ -1,11 +1,11 @@
 /* eslint-disable react/no-multi-comp */
-import { node, oneOf } from 'prop-types'
 import React, { Children, cloneElement } from 'react'
+import { node, oneOf } from 'prop-types'
 import { Stack } from '@welcome-ui/stack'
 import { Button } from '@welcome-ui/button'
-import { VariantIcon } from '@welcome-ui/variant-icon'
 
 import * as S from './styles'
+import { AlertTitle } from './AlertTitle'
 
 const Alert = ({ children, variant = 'error', ...rest }) => {
   const hasTitle = Children.toArray(children).some(child => child.type === AlertTitle)
@@ -42,21 +42,6 @@ Alert.propTypes /* remove-proptypes */ = {
   variant: oneOf(['success', 'error', 'warning', 'info'])
 }
 
-const AlertTitle = ({ children, icon, variant, ...rest }) => {
-  return (
-    <S.Title variant={variant} {...rest}>
-      <VariantIcon icon={icon} mr="xs" variant={variant} />
-      {children}
-    </S.Title>
-  )
-}
-
-AlertTitle.propTypes /* remove-proptypes */ = {
-  children: node.isRequired,
-  icon: node,
-  variant: oneOf(['success', 'error', 'warning', 'info'])
-}
-
 Alert.Title = AlertTitle
 
 // We need this component to check its existence in <Alert> and to allow uses to add Button in <Alert> content
@@ -64,4 +49,4 @@ const AlertButton = props => <Button size="sm" {...props} />
 
 Alert.Button = AlertButton
 
-export { Alert, AlertTitle, AlertButton }
+export { Alert }

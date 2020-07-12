@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Checkbox } from '@welcome-ui/checkbox'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/checkbox/package.json')
-
+} from '@welcome-ui/checkbox/package.json'
 # Checkbox
-
 <tagversion version={version} name={name} />
 
 ## Install and import
@@ -54,7 +54,7 @@ function() {
 
 ## Properties
 
-<props of={Checkbox} />
+<props of="Checkbox" propTypes={props.propTypes} />
 
 ## Dependencies
 

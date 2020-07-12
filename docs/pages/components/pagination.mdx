@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Pagination } from '@welcome-ui/pagination'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/pagination/package.json')
-
+} from '@welcome-ui/pagination/package.json'
 # Pagination
-
 <tagversion version={version} name={name} />
 
 ## Install and import
@@ -80,7 +80,7 @@ function() {
 
 ## Properties
 
-<props of={Pagination} />
+<props of="Pagination" propTypes={props.propTypes} />
 
 ## Dependencies
 

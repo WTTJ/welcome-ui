@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Group } from '@welcome-ui/group'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/group/package.json')
-
+} from '@welcome-ui/group/package.json'
 # Group
-
 <tagversion version={version} name={name} />
 
 Children grouped without space or radius.
@@ -47,7 +47,7 @@ This works only with the `Button` component for now — more examples will be ad
 
 ## Properties
 
-<props of={Group} />
+<props of="Group" propTypes={props.propTypes} />
 
 ## Dependencies
 

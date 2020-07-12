@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Select } from '@welcome-ui/select'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/select/package.json')
-
+} from '@welcome-ui/select/package.json'
 # Select
-
 <tagversion version={version} name={name} />
 
 It is based on the [downshift](https://github.com/downshift-js/downshift) library.
@@ -248,7 +248,7 @@ You can pass any combination of the props above. For example below, we have a `S
 
 ## Properties
 
-<props of={Select} />
+<props of="Select" propTypes={props.propTypes} />
 
 ## Dependencies
 

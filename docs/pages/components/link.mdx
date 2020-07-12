@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Link } from '@welcome-ui/link'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/link/package.json')
-
+} from '@welcome-ui/link/package.json'
 # Link
-
 <tagversion version={version} name={name} />
 
 A link component who can get `as` property to pass custom linker.
@@ -99,7 +99,7 @@ For a target `_blank` we add `rel='noopener noreferrer'`
 
 ## Properties
 
-<props of={Link} />
+<props of="Link" propTypes={props.propTypes} />
 
 ## Dependencies
 

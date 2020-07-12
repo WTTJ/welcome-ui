@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Label } from '@welcome-ui/label'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/label/package.json')
-
+} from '@welcome-ui/label/package.json'
 # Label
-
 <tagversion version={version} name={name} />
 
 ## Install and import
@@ -74,7 +74,7 @@ Customize label for disabled elements.
 
 ## Properties
 
-<props of={Label} />
+<props of="Label" propTypes={props.propTypes} />
 
 ## Dependencies
 

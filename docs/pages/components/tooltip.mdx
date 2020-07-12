@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Tooltip } from '@welcome-ui/tooltip'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/tooltip/package.json')
-
+} from '@welcome-ui/tooltip/package.json'
 # Tooltip
-
 <tagversion version={version} name={name} />
 
 ## Install and import
@@ -48,7 +48,7 @@ Set a `max-width` for long text
 
 ## Properties
 
-<props of={Tooltip} />
+<props of="Tooltip" propTypes={props.propTypes} />
 
 ## Dependencies
 

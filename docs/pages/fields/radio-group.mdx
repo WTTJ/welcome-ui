@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Radio } from '@welcome-ui/radio'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/radio-group/package.json')
-
+} from '@welcome-ui/radio-group/package.json'
 # Radio Group
-
 <tagversion version={version} name={name} />
 
 ## Install and import
@@ -69,7 +69,7 @@ const {
 
 ## Properties
 
-<props of={Radio} />
+<props of="Radio" propTypes={props.propTypes} />
 
 ## Dependencies
 

@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Modal } from '@welcome-ui/modal'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/modal/package.json')
-
+} from '@welcome-ui/modal/package.json'
 # Modal
-
 <tagversion version={version} name={name} />
 
 Modal from [Reakit](https://reakit.io/docs/dialog/) with a really nice theme 👀
@@ -179,7 +179,7 @@ And the hook returns (among other things):
 
 ## Properties
 
-<props of={Modal} />
+<props of="Modal" propTypes={props.propTypes} />
 
 ## Dependencies
 

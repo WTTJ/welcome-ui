@@ -1,11 +1,13 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Accordion } from '@welcome-ui/accordion'
-const {
+import {
   dependencies,
   peerDependencies,
   component,
   name,
   version
-} = require('@welcome-ui/accordion/package.json')
+} from '@welcome-ui/accordion/package.json'
 
 # Accordion
 
@@ -67,7 +69,7 @@ Customize the icon with a node element on property `icon`
 
 ## Properties
 
-<props of={Accordion} />
+<props of="Accordion" propTypes={props.propTypes} />
 
 ## Dependencies
 

@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Hint } from '@welcome-ui/hint'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/hint/package.json')
-
+} from '@welcome-ui/hint/package.json'
 # Hint
-
 <tagversion version={version} name={name} />
 
 Said state information, use on Field.
@@ -29,7 +29,7 @@ Said state information, use on Field.
 
 ## Properties
 
-<props of={Hint} />
+<props of="Hint" propTypes={props.propTypes} />
 
 ## Dependencies
 

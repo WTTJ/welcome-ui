@@ -1,18 +1,16 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Badge } from '@welcome-ui/badge'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/badge/package.json')
-
+} from '@welcome-ui/badge/package.json'
 # Badge
-
 <tagversion version={version} name={name} />
-
 Badge is the [Tag](/components/tag) component with small size.
-
 ## Install and import
 
 <usage component={component} name={name} peerDependencies={peerDependencies} />
@@ -27,6 +25,10 @@ Badge is the [Tag](/components/tag) component with small size.
 <Badge>4</Badge>
 <Badge variant="primary">New</Badge>
 ```
+
+## Properties
+
+<props of="Badge" propTypes={props.propTypes} />
 
 ## Dependencies
 

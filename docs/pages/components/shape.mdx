@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Shape } from '@welcome-ui/shape'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/shape/package.json')
-
+} from '@welcome-ui/shape/package.json'
 # Shape
-
 <tagversion version={version} name={name} />
 
 Overflow child with hidden child.
@@ -65,7 +65,7 @@ also, using `shape` with unequal sizes will match the biggest value between widt
 
 ## Properties
 
-<props of={Shape} />
+<props of="Shape" propTypes={props.propTypes} />
 
 ## Dependencies
 

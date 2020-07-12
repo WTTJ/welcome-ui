@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Table } from '@welcome-ui/table'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/table/package.json')
-
+} from '@welcome-ui/table/package.json'
 # Table
-
 <tagversion version={version} name={name} />
 
 Repaint html for `table` `tr` `td`... etc with a scrollable table 🎓
@@ -129,7 +129,7 @@ You can use one of `success`, `error`, `warning` or `info` and add `indent` on T
 
 ## Properties
 
-<props of={Table} />
+<props of="Table" propTypes={props.propTypes} />
 
 ## Dependencies
 

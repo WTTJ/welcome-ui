@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { MarkdownEditor } from '@welcome-ui/markdown-editor'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/markdown-editor/package.json')
-
+} from '@welcome-ui/markdown-editor/package.json'
 # MarkdownEditor
-
 <tagversion version={version} name={name} />
 
 We use [react-simplemde-editor](https://github.com/RIP21/react-simplemde-editor) as a base with the following changes:
@@ -103,7 +103,7 @@ The default toolbar uses [Welcome UI icons](/components/icon) with the following
 
 ## Properties
 
-<props of={MarkdownEditor} />
+<props of="MarkdownEditor" propTypes={props.propTypes} />
 
 ## Dependencies
 

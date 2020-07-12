@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Button } from '@welcome-ui/button'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/button/package.json')
-
+} from '@welcome-ui/button/package.json'
 # Button
-
 <tagversion version={version} name={name} />
 
 Built with [Reakit](https://reakit.io/docs/button/) for a better accessibility 🥰
@@ -155,7 +155,7 @@ See documentation from [Group](/components/group) component.
 
 ## Properties
 
-<props of={Button} />
+<props of="Button" propTypes={props.propTypes} />
 
 ## Dependencies
 

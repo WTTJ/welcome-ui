@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Breadcrumb } from '@welcome-ui/breadcrumb'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/breadcrumb/package.json')
-
+} from '@welcome-ui/breadcrumb/package.json'
 # Breadcrumb
-
 <tagversion version={version} name={name} />
 
 ## Install and import
@@ -57,7 +57,7 @@ You can customize your separator.
 
 ## Properties
 
-<props of={Breadcrumb} />
+<props of="Breadcrumb" propTypes={props.propTypes} />
 
 ## Dependencies
 

@@ -1,14 +1,14 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { FileUpload } from '@welcome-ui/file-upload'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/file-upload/package.json')
-
+} from '@welcome-ui/file-upload/package.json'
 # FileUpload
-
 <tagversion version={version} name={name} />
 
 ## Install and import
@@ -120,7 +120,7 @@ You can change the upload button component.
 
 ## Properties
 
-<props of={FileUpload} />
+<props of="FileUpload" propTypes={props.propTypes} />
 
 ## Dependencies
 

@@ -1,11 +1,13 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import { Tab, useTabState } from '@welcome-ui/tabs'
-const {
-  dependencies,
-  peerDependencies,
+import {
   component,
+  dependencies,
   name,
+  peerDependencies,
   version
-} = require('@welcome-ui/tabs/package.json')
+} from '@welcome-ui/tabs/package.json'
 
 # Tabs
 
@@ -258,15 +260,15 @@ function() {
 
 ### Tab
 
-<props of={Tab} />
+<props of="Tab" propTypes={props.propTypes} />
 
 ### Tab.List
 
-<props of={Tab.List} />
+<props of="Tab.List" propTypes={props.propTypes} />
 
 ### Tab.Panel
 
-<props of={Tab.Panel} />
+<props of="Tab.Panel" propTypes={props.propTypes} />
 
 ## Dependencies
 
