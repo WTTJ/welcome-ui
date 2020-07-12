@@ -1,6 +1,5 @@
 import React from 'react'
 import { node, oneOf } from 'prop-types'
-
 import { VariantIcon } from '@welcome-ui/variant-icon'
 
 import * as S from './styles'
