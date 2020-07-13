@@ -7,6 +7,7 @@ const util = require('util')
 const argv = require('yargs').argv
 const webfontsGenerator = require('webfonts-generator')
 const difference = require('lodash.difference')
+const { toPascalCase } = require('@welcome-ui/utils')
 require('colors')
 
 fs.readFileAsync = util.promisify(fs.readFile)
@@ -22,11 +23,6 @@ const iconFontPath = path.join(rootPath, 'packages/IconFont')
 
 // State to hold all icons so we don't have to keep reading all the files
 let icons = {}
-
-const toPascalCase = str => {
-  const camelCase = str.replace(/_(\w)/g, ($, $1) => $1.toUpperCase())
-  return `${camelCase.charAt(0).toUpperCase()}${camelCase.substr(1)}`
-}
 
 // Read icons/assets/*.svg
 const readIconsFromAssets = () => {
