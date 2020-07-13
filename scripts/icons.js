@@ -12,6 +12,8 @@ require('colors')
 fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)
 
+const FLAG_ICONS = ['flag_cs', 'flag_en', 'flag_es', 'flag_fr', 'flag_sk']
+
 const rootPath = path.join(__dirname, '..')
 const iconPath = path.join(rootPath, 'packages/Icon')
 const iconsPath = path.join(rootPath, 'icons')
@@ -48,22 +50,25 @@ const readIconsFromAssets = () => {
     )
 }
 
-// Write content.js for a given icon
-const writeIconContentsJs = (outputFolder, content) => {
+// Write content.json for a given icon
+const writeIconContentsJson = (outputFolder, content, key) => {
   let svgContent = /<svg[^>]*>([\s\S]*)<\/svg>/g.exec(content)
   if (svgContent) {
     svgContent = svgContent[1].replace(/fill="#134B45"/g, 'fill="currentColor"').trim()
   }
 
-  const fileContent = `export default {
-  width: 15,
-  height: 15,
-  block:
-    '${svgContent}'
-}
-`
+  const isFlag = FLAG_ICONS.includes(key)
+  let fileContent = {
+    width: 15,
+    height: 15,
+    block: svgContent
+  }
 
-  fs.writeFileSync(`${outputFolder}/content.js`, fileContent)
+  if (isFlag) {
+    fileContent.isFlag = true
+  }
+
+  fs.writeFileSync(`${outputFolder}/content.json`, JSON.stringify(fileContent, 0, 2))
 }
 
 // Write .npmignore for a given icon
@@ -125,10 +130,8 @@ const writeIconIndexJs = (outputFolder, iconName) => {
   const fileContent = `import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
-import content from './content.js'
-export const ${iconName}Icon = props => (
-  <Icon alt="${iconName}" content={content} {...props} />
-)
+import content from './content.json'
+export const ${iconName}Icon = props => <Icon alt="${iconName}" content={content} {...props} />
 `
 
   fs.writeFileSync(file, fileContent)
@@ -149,7 +152,7 @@ const writeIconPackages = files => {
     // .npmignore
     writeIconNpmIgnore(outputFolder)
     // contents.js
-    writeIconContentsJs(outputFolder, content)
+    writeIconContentsJson(outputFolder, content, key)
     // index.js
     writeIconIndexJs(outputFolder, iconName)
   })
@@ -199,8 +202,7 @@ const writeRootIconPackage = files => {
 // Write icon font
 const writeIconFont = files => {
   console.log('Started'.blue, 'Writing icon font'.grey)
-  const IGNORE_ICONS = ['flag_cs', 'flag_en', 'flag_es', 'flag_fr', 'flag_sk']
-  const filteredFiles = files.filter(file => !IGNORE_ICONS.includes(file.key))
+  const filteredFiles = files.filter(file => !FLAG_ICONS.includes(file.key))
   const file = `${iconFontPath}/unicode.json`
   let unicodeMap = require(file)
   const newIcons = difference(filteredFiles.map(file => file.key), Object.keys(unicodeMap))
