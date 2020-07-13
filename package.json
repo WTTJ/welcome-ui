@@ -14,7 +14,7 @@
     "icons:collect": "node -r esm scripts/icons.js",
     "pre-build": "yarn icons:collect",
     "build": "lerna run --ignore docs build",
-    "watch": "lerna run --parallel --stream watch",
+    "watch": "lerna run --parallel --stream --ignore docs watch",
     "release:publish": "yarn lerna publish --conventional-commits",
     "release:prerelease": "yarn build && yarn lerna publish --conventional-prerelease --pre-dist-tag next --yes",
     "release": "yarn build && yarn release:publish",
