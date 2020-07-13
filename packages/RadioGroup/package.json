@@ -5,6 +5,8 @@
   "main": "dist/radio-group.cjs.js",
   "module": "dist/radio-group.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {

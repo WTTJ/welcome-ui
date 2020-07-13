@@ -5,6 +5,8 @@
   "main": "dist/radio-tab.cjs.js",
   "module": "dist/radio-tab.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {

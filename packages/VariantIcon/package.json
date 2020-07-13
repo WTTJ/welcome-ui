@@ -5,6 +5,8 @@
   "main": "dist/variant-icon.cjs.js",
   "module": "dist/variant-icon.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {

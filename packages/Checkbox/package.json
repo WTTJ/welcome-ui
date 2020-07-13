@@ -5,6 +5,8 @@
   "main": "dist/checkbox.cjs.js",
   "module": "dist/checkbox.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {

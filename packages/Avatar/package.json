@@ -4,6 +4,11 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/avatar.cjs.js",
   "module": "dist/avatar.es.js",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "test": "jest"
+  },
   "publishConfig": {
     "access": "public"
   },

@@ -5,6 +5,8 @@
   "main": "dist/tabs.cjs.js",
   "module": "dist/tabs.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {

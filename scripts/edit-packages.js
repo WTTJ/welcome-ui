@@ -11,7 +11,7 @@ const kebabCase = require('lodash.kebabcase')
 fs.readdirAsync = util.promisify(fs.readdir)
 fs.writeFileAsync = util.promisify(fs.writeFile)
 
-const DIRECTORIES = [path.join(__dirname, '../packages'), path.join(__dirname, '../icons')]
+const DIRECTORIES = [path.join(__dirname, '../packages')]
 
 // UPDATE THIS FUNCTION TO RETURN NEW CONFIG FOR PACKAGE.JSON
 // componentName: ConnectedField
@@ -20,9 +20,10 @@ const DIRECTORIES = [path.join(__dirname, '../packages'), path.join(__dirname, '
 // eslint-disable-next-line no-unused-vars
 const getNewConfig = ({ componentName, config, pkgName }) => {
   return {
-    license: 'MIT',
-    publishConfig: {
-      access: 'public'
+    scripts: {
+      build: 'rollup -c',
+      watch: 'rollup -c -w',
+      test: 'jest'
     }
   }
 }

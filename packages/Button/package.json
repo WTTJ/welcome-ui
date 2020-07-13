@@ -6,6 +6,8 @@
   "module": "dist/button.es.js",
   "component": "Button",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {

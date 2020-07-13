@@ -5,6 +5,8 @@
   "main": "dist/modal.cjs.js",
   "module": "dist/modal.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {
