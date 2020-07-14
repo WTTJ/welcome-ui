@@ -9,6 +9,7 @@ import { rollup } from 'rollup'
 import 'colors'
 
 import { getRollupConfig } from '../rollup.config.js'
+import { toKebabCase } from '../utils/strings'
 
 fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)
@@ -30,13 +31,21 @@ const readIconsFromFolders = () => {
 
       const pwd = `${iconsPath}/${key}`
       const configs = getRollupConfig({ babelConfigFile: './babel.config.js', pwd })
+      const packageName = toKebabCase(key)
 
       configs.forEach(config => {
         const { output: outputOptions, ...inputOptions } = config
         exec(`cd ${pwd}`)
         rollup({ ...inputOptions })
           .then(bundle => bundle.write(outputOptions))
-          .then(() => console.log(`✔ ${key} (${outputOptions.format}) built`.green))
+          .then(() =>
+            console.log(
+              'build',
+              'success'.green.bold,
+              '-',
+              `@welcome-ui/icons.${packageName}.${outputOptions.format}`
+            )
+          )
           // .then(output => console.debug(output))
           .catch(console.error)
       })

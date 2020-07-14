@@ -6,7 +6,7 @@ const path = require('path')
 const fs = require('fs')
 const util = require('util')
 
-const kebabCase = require('lodash.kebabcase')
+const { toKebabCase } = require('../utils/strings')
 
 fs.readdirAsync = util.promisify(fs.readdir)
 fs.writeFileAsync = util.promisify(fs.writeFile)
@@ -40,7 +40,7 @@ const collectPackages = folder =>
     )
     .map(({ dir, folder: { name } }) => ({
       dir,
-      pkgName: kebabCase(name),
+      pkgName: toKebabCase(name),
       componentName: name,
       config: require(`${dir}/${name}/package.json`)
     }))

@@ -1,21 +1,21 @@
+/* eslint-disable no-console */
 import { exec } from 'child_process'
 
-import kebabCase from 'lodash.kebabcase'
+import { toKebabCase } from '../utils/strings'
 import 'colors'
 
 const handleFileChange = () => {
   const args = process.argv.slice(2).filter(arg => arg !== '')
   const [dir, packageFolder] = args[0].split('/')
   if (dir === 'packages') {
-    const packageName = kebabCase(packageFolder)
+    const packageName = toKebabCase(packageFolder)
     console.log(`Building ${packageFolder}…`.grey)
     exec(`yarn build --scope @welcome-ui/${packageName}`, err => {
       if (err) {
-        // node couldn't execute the command
         console.error(err)
         return
       }
-      console.log(`✔ ${packageFolder} built`.green)
+      console.log('build', 'success'.green.bold, '-', `@welcome-ui/${packageName}`)
     })
   }
 }

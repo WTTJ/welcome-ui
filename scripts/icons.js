@@ -7,8 +7,9 @@ const util = require('util')
 const argv = require('yargs').argv
 const webfontsGenerator = require('webfonts-generator')
 const difference = require('lodash.difference')
-const { toPascalCase } = require('@welcome-ui/utils')
 require('colors')
+
+const { toPascalCase } = require('../utils/strings')
 
 fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)

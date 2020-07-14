@@ -8,7 +8,7 @@ import { Box } from '@welcome-ui/box'
 import { useCopyText } from '@welcome-ui/utils.copy'
 import { Toast, useToast } from '@welcome-ui/toast'
 
-import { toPascalCase } from '../utils/toPascalCase'
+import { toPascalCase } from '../utils/strings'
 
 const Content = styled(Box)`
   background-color: light.900;
