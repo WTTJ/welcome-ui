@@ -1,6 +1,5 @@
-import { exec } from 'child_process'
-
 import kebabCase from 'lodash.kebabcase'
+import { exec } from 'child_process'
 import 'colors'
 
 const handleFileChange = () => {

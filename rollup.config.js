@@ -4,10 +4,10 @@ import nodeResolve from 'rollup-plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import json from '@rollup/plugin-json'
 
-const getBabelOptions = ({ babelConfigFile = '../../babel.config.js', useESModules }) => ({
+const getBabelOptions = ({ useESModules }) => ({
   exclude: '**/node_modules/**',
   runtimeHelpers: true,
-  configFile: babelConfigFile,
+  configFile: '../../babel.config.js',
   plugins: [
     'babel-plugin-annotate-pure-calls',
     ['@babel/plugin-transform-runtime', { useESModules }]
@@ -16,33 +16,23 @@ const getBabelOptions = ({ babelConfigFile = '../../babel.config.js', useESModul
 
 const external = id => !id.startsWith('.') && !id.startsWith('/')
 
-export const getRollupConfig = ({ pwd, babelConfigFile }) => {
+export const getRollupConfig = ({ pwd }) => {
   const SOURCE_DIR = path.resolve(pwd)
   const pkg = require(`${SOURCE_DIR}/package.json`)
   const input = `${SOURCE_DIR}/index.js`
 
   const cjsConfig = {
     input,
-    output: { file: `${SOURCE_DIR}/${pkg.main}`, format: 'cjs' },
+    output: { file: pkg.main, format: 'cjs' },
     external,
-    plugins: [
-      babel(getBabelOptions({ babelConfigFile, useESModules: false })),
-      nodeResolve(),
-      postcss(),
-      json()
-    ]
+    plugins: [babel(getBabelOptions({ useESModules: false })), nodeResolve(), postcss(), json()]
   }
 
   const esmConfig = {
     input,
-    output: { file: `${SOURCE_DIR}/${pkg.module}`, format: 'esm' },
+    output: { file: pkg.main, format: 'esm' },
     external,
-    plugins: [
-      babel(getBabelOptions({ babelConfigFile, useESModules: true })),
-      nodeResolve(),
-      postcss(),
-      json()
-    ]
+    plugins: [babel(getBabelOptions({ useESModules: true })), nodeResolve(), postcss(), json()]
   }
 
   if (process.env.WATCH_MODE) {
