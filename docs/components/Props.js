@@ -2,13 +2,13 @@
 /* eslint-disable react/no-multi-comp */
 /* eslint-disable react/prop-types */
 import React from 'react'
-
 import { Box } from '@welcome-ui/box'
 import { Tag } from '@welcome-ui/tag'
 import { Table } from '@welcome-ui/table'
 import { Tooltip } from '@welcome-ui/tooltip'
 import { Card } from '@welcome-ui/card'
 import { CheckIcon } from '@welcome-ui/icons'
+
 import * as TYPES from '../../utils/propTypes'
 
 const removeQuote = str => str.replace(/'/g, '')
@@ -61,13 +61,12 @@ export const Props = ({ of, propTypes }) => {
   const types = propTypes?.[of]
 
   if (!types) {
-    console.debug(of, propTypes)
     return 'No propTypes specified'
   }
 
   return (
     <Card>
-      <Card.Body padding="xl" color="dark.900">
+      <Card.Body color="dark.900" padding="xl">
         <Table marginBottom="-lg" marginTop="-xl">
           <Table.Thead>
             <Table.Tr>
@@ -79,7 +78,7 @@ export const Props = ({ of, propTypes }) => {
           </Table.Thead>
           <Table.Tbody>
             {Object.keys(types).map(key => {
-              const { type, description, defaultValue, required } = types[key]
+              const { defaultValue, description, required, type } = types[key]
 
               if (!type) {
                 return null

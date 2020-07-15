@@ -1,9 +1,15 @@
 import styled, { css } from '@xstyled/styled-components'
-import { color } from '@xstyled/system'
+import { th, up } from '@xstyled/system'
 
 export const Nav = styled.nav`
-  color: light.900;
-  ${color};
+  ${th('docs.navigationMobile')};
+
+  ${up(
+    'md',
+    css`
+      ${th('docs.navigation')};
+    `
+  )};
 `
 
 export const Ul = styled.ul`

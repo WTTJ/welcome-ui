@@ -7,27 +7,19 @@ import { MenuIcon } from '@welcome-ui/icons.menu'
 import NextLink from 'next/link'
 import { Modal, useModalState } from '@welcome-ui/modal'
 
+import { useThemeContext } from '../context/theme'
+
 import { Logo } from './Logo'
 import { Navigation } from './Navigation'
+import { SelectTheme } from './SelectTheme'
+import * as S from './Header.styled'
 
 export const Header = () => {
   const modal = useModalState()
+  const theme = useThemeContext()
 
   return (
-    <Box
-      as="header"
-      backgroundColor="dark.700"
-      fontSize="body2"
-      height={{ xs: 60, md: '100vh' }}
-      left="0"
-      maxWidth={{ md: 270 }}
-      position="fixed"
-      px={{ xs: 'md', md: 'xxl' }}
-      py={{ md: 'xl' }}
-      top="0"
-      width={1}
-      zIndex={1}
-    >
+    <S.Header>
       <Box
         alignItems="center"
         display="flex"
@@ -49,7 +41,7 @@ export const Header = () => {
             rel="noopener noreferrer"
             size="sm"
             target="_blank"
-            variant="quaternary"
+            variant={theme === 'dark' ? 'secondary' : 'quaternary'}
           >
             <GithubIcon size="lg" />
             <span>Source</span>
@@ -66,9 +58,12 @@ export const Header = () => {
           </Modal.Trigger>
         </Box>
       </Box>
+      <Box display={{ xs: 'none', md: 'block' }} mt="md">
+        <SelectTheme id="navigation" />
+      </Box>
       <Box
         display={{ xs: 'none', md: 'block' }}
-        height="calc(100% - 6.25rem)"
+        height="calc(100% - 6.5rem)"
         mt="xl"
         style={{ overflowY: 'auto' }}
       >
@@ -76,9 +71,12 @@ export const Header = () => {
       </Box>
       <Modal {...modal} ariaLabel="navigation">
         <Modal.Content>
-          <Navigation color="dark.900" hideModal={modal.hide} />
+          <Box maxWidth="calc(100% - 1rem)" mb="xl">
+            <SelectTheme id="modal" />
+          </Box>
+          <Navigation hideModal={modal.hide} />
         </Modal.Content>
       </Modal>
-    </Box>
+    </S.Header>
   )
 }
