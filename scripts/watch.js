@@ -6,7 +6,7 @@ import 'colors'
 
 const handleFileChange = () => {
   const args = process.argv.slice(2).filter(arg => arg !== '')
-  const [dir, packageFolder] = args[0].split('/')
+  const [dir, packageFolder, file] = args[0].split('/')
   if (dir === 'packages') {
     const packageName = toKebabCase(packageFolder)
     console.log(`Building ${packageFolder}…`.grey)
@@ -17,6 +17,16 @@ const handleFileChange = () => {
       }
       console.log('build', 'success'.green.bold, '-', `@welcome-ui/${packageName}`)
     })
+    if (file === 'theme.js') {
+      console.log(`Building Core…`.grey)
+      exec(`yarn build --scope @welcome-ui/core`, err => {
+        if (err) {
+          console.error(err)
+          return
+        }
+        console.log('build', 'success'.green.bold, '-', `@welcome-ui/core`)
+      })
+    }
   }
 }
 
