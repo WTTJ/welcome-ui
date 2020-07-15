@@ -4,12 +4,17 @@ import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { HeartIcon } from '@welcome-ui/icons.heart'
 
+import { useThemeContext } from '../context/theme'
+
 import { Header } from './Header'
 import { LogoWttj } from './LogoWttj'
+import * as S from './Layout.styled'
 
 export const Layout = ({ children }) => {
+  const theme = useThemeContext()
+
   return (
-    <Box backgroundColor="nude.100" display="flex" flexDirection={{ xs: 'column', md: 'row' }}>
+    <S.Layout>
       <Header />
       <Box margin="0 auto" maxWidth={1} paddingLeft={{ md: 270 }} width={1280}>
         <Box
@@ -23,7 +28,7 @@ export const Layout = ({ children }) => {
           <Box
             alignItems="center"
             borderTop="1px solid"
-            borderTopColor="light.800"
+            borderTopColor="nude.200"
             display="flex"
             justifyContent="center"
             mt="3xl"
@@ -40,11 +45,11 @@ export const Layout = ({ children }) => {
               rel="noopener"
               target="_blank"
             >
-              <LogoWttj black height={24} width={74} />
+              <LogoWttj black={theme !== 'dark'} height={24} width={74} />
             </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
+    </S.Layout>
   )
 }
