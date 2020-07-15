@@ -8,7 +8,7 @@ export const LiveEditor = styled(ReactLiveEditor)`
   border-radius: md;
 
   textarea {
-    background-color: dark.700 !important;
+    background-color: ${th('docs.code.background')} !important;
   }
 `
 
@@ -32,7 +32,7 @@ export const LivePreview = styled(Card)`
 export const ShowEditor = styled.div`
   padding-top: sm;
   margin-top: xl;
-  border-top: 1px solid ${th.color('nude.200')};
+  border-top: 1px solid ${th.color('light.800')};
 `
 
 export const CodeContent = styled.div`
