@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react'
 import { object } from 'prop-types'
 
-const themeStorage = process.browser && localStorage.getItem('theme')
+const themeStorage = (process.browser && localStorage.getItem('theme')) || 'welcome'
 
 const ThemeContext = createContext({
   theme: themeStorage,
