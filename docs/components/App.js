@@ -77,7 +77,7 @@ export const App = ({ component: Component, pageProps }) => {
     <WuiProvider theme={createTheme(allTheme)}>
       <MDXProvider components={MDXComponents}>
         <Head>
-          <title>Welcome UI</title>
+          <title>Welcome UI |</title>
         </Head>
         <Layout>
           <Component {...pageProps} />
