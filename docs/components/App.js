@@ -55,28 +55,26 @@ const darkDocTheme = colors => ({
 
 const initialTheme = createTheme()
 
+const getTheme = themeStorage => {
+  if (themeStorage === 'welcome') {
+    return merge(welcomeTheme, baseDocTheme(welcomeTheme.colors))
+  } else if (themeStorage === 'dark') {
+    return merge(darkTheme, darkDocTheme(darkTheme.colors))
+  } else {
+    return baseDocTheme(initialTheme.colors)
+  }
+}
+
 export const App = ({ component: Component, pageProps }) => {
   const themeStorage = useThemeContext()
-  const [allTheme, setAllTheme] = useState()
+  const [allTheme, setAllTheme] = useState(baseDocTheme(initialTheme.colors))
 
   useEffect(() => {
-    const getTheme = themeStorage => {
-      if (themeStorage === 'welcome') {
-        return merge(welcomeTheme, baseDocTheme(welcomeTheme.colors))
-      } else if (themeStorage === 'dark') {
-        return merge(darkTheme, darkDocTheme(darkTheme.colors))
-      } else {
-        return baseDocTheme(initialTheme.colors)
-      }
-    }
-
     setAllTheme(getTheme(themeStorage))
   }, [themeStorage])
 
   return (
-    <WuiProvider
-      theme={createTheme(merge(allTheme || welcomeTheme, baseDocTheme(initialTheme.colors)))}
-    >
+    <WuiProvider theme={createTheme(allTheme)}>
       <MDXProvider components={MDXComponents}>
         <Head>
           <title>Welcome UI</title>
