@@ -15,7 +15,9 @@ export const Form = ({ children, initialValues, validate }) => (
         <form onSubmit={handleSubmit}>{children}</form>
         <Box data-testid="values">
           {Object.keys(values).length > 0 && (
-            <Code language="json">{JSON.stringify(values, 0, 2)}</Code>
+            <Code isCopyable={false} language="json">
+              {JSON.stringify(values, 0, 2)}
+            </Code>
           )}
         </Box>
       </>

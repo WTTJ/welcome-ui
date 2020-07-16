@@ -35,20 +35,21 @@ By default, `accept`: is set to `image/*`, see more about [media type](http://ww
 ```jsx
 function() {
   return (
-  <Form initialValues={{}}>
-    <ConnectedField
-      component={FileDrop}
-      name="file"
-      label="Your file"
-      hint="Files must be < 2MB"
-      required
-      isClearable
-      isEditable
-      handleAddFile={console.debug}
-      handleRemoveFile={console.debug}
-    />
-  </Form>
-)}
+    <Form initialValues={{}}>
+      <ConnectedField
+        component={FileDrop}
+        name="file"
+        label="Your file"
+        hint="Files must be < 2MB"
+        required
+        isClearable
+        isEditable
+        handleAddFile={console.debug}
+        handleRemoveFile={console.debug}
+      />
+    </Form>
+  )
+}
 ```
 
 ## Show preview if value exists
