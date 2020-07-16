@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import { createTheme, WuiProvider } from '@welcome-ui/core'
 import { MDXProvider } from '@mdx-js/react'
-import Head from 'next/head'
 import { welcomeTheme } from '@welcome-ui/themes.welcome'
 import { darkTheme } from '@welcome-ui/themes.dark'
 import merge from 'lodash.merge'
@@ -11,6 +10,7 @@ import { useThemeContext } from '../context/theme'
 
 import { Layout } from './Layout'
 import { MDXComponents } from './MDXComponents'
+import { Head } from './Head'
 
 const baseDocTheme = colors => ({
   docs: {
@@ -53,7 +53,7 @@ const darkDocTheme = colors => ({
   }
 })
 
-const initialTheme = createTheme()
+const coreTheme = createTheme()
 
 const getTheme = themeStorage => {
   if (themeStorage === 'welcome') {
@@ -61,13 +61,14 @@ const getTheme = themeStorage => {
   } else if (themeStorage === 'dark') {
     return merge(darkTheme, darkDocTheme(darkTheme.colors))
   } else {
-    return baseDocTheme(initialTheme.colors)
+    return baseDocTheme(coreTheme.colors)
   }
 }
 
 export const App = ({ component: Component, pageProps }) => {
   const themeStorage = useThemeContext()
-  const [allTheme, setAllTheme] = useState(baseDocTheme(initialTheme.colors))
+  const initialTheme = merge(welcomeTheme, baseDocTheme(welcomeTheme.colors))
+  const [allTheme, setAllTheme] = useState(initialTheme)
 
   useEffect(() => {
     setAllTheme(getTheme(themeStorage))
@@ -76,9 +77,7 @@ export const App = ({ component: Component, pageProps }) => {
   return (
     <WuiProvider theme={createTheme(allTheme)}>
       <MDXProvider components={MDXComponents}>
-        <Head>
-          <title>Welcome UI</title>
-        </Head>
+        <Head />
         <Layout>
           <Component {...pageProps} />
         </Layout>
