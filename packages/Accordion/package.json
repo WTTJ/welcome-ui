@@ -37,8 +37,8 @@
   "dependencies": {
     "@welcome-ui/icons.right": "^2.0.0-alpha.26",
     "@welcome-ui/system": "^2.0.0-alpha.26",
-    "react-animate-height": "^2.0.21",
-    "reakit": "^1.0.0-rc.0"
+    "react-animate-height": "^2.0.22",
+    "reakit": "^1.1.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",
