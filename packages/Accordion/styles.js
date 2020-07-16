@@ -9,10 +9,10 @@ export const Accordion = styled.div`
 `
 
 export const Icon = styled('div').withConfig({ shouldForwardProp })(
-  ({ isVisible }) => css`
+  ({ visible }) => css`
     flex-shrink: 0;
     ${th('accordions.icon')};
-    transform: ${isVisible ? 'rotate3d(0, 0, 1, 90deg)' : 'rotate3d(0)'};
+    transform: ${visible ? 'rotate3d(0, 0, 1, 90deg)' : 'rotate3d(0)'};
     transition: medium;
   `
 )
@@ -41,15 +41,15 @@ export const Disclosure = styled(ReakitDisclosure)`
   }
 `
 
-export const Content = styled(DisclosureContent).withConfig({ shouldForwardProp })(
-  ({ isVisible }) => css`
+export const Content = styled(DisclosureContent)(
+  ({ visible }) => css`
     ${th('accordions.content')};
     margin-top: -sm;
     padding-left: ${th('accordions.padding')};
     padding-right: ${th('accordions.padding')};
     padding-bottom: sm;
 
-    ${isVisible &&
+    ${visible &&
       css`
         padding-bottom: ${th('accordions.padding')};
       `}
