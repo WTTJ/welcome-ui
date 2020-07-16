@@ -12,27 +12,32 @@ function() {
   const fileUploadRef = useRef(null)
   const buttonRef = useRef(null)
   const linkRef = useRef(null)
-  //
+
   const handleConnectedClick = () => {
     connectedInputRef.current.focus()
   }
+
   const handleNormalClick = () => {
     normalInputRef.current.focus()
   }
+
   const handleNakedClick = () => {
     nakedInputRef.current.focus()
   }
+
   const handleFileUploadClick = () => {
     fileUploadRef.current.focus()
   }
+
   const handleButtonClick = () => {
     console.debug('<Button> ref', buttonRef)
   }
+
   const handleLinkClick = () => {
     console.debug('<Link> ref', linkRef)
   }
-  //
-  return (
+
+return (
     <Form>
       <ConnectedField
         component={InputText}

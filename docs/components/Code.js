@@ -1,3 +1,4 @@
+/* eslint-disable react/no-multi-comp */
 /* eslint-disable react/jsx-max-depth */
 /* eslint-disable react/prop-types */
 import * as React from 'react'
@@ -65,7 +66,9 @@ import * as S from './Code.styled'
 const liveEditorStyle = {
   fontFamily: 'Menlo, monospace',
   fontSize: 14,
-  margin: 0
+  margin: 0,
+  padding: 20,
+  paddingRight: 90
 }
 
 const transformCode = (code, row) => {
@@ -73,9 +76,27 @@ const transformCode = (code, row) => {
   return row ? `<CodeContentRow>${code}</CodeContentRow>` : `<CodeContent>${code}</CodeContent>`
 }
 
-export const Code = ({ children, className, live = true, row }) => {
+const CopyButton = ({ copied, copy }) => {
+  return (
+    <Button
+      mr="lg"
+      mt="lg"
+      onClick={copy}
+      position="absolute"
+      right={0}
+      size="xs"
+      top={0}
+      variant={copied ? 'quaternary' : 'tertiary-negative'}
+    >
+      {copied ? 'Copied!' : 'Copy'}
+    </Button>
+  )
+}
+
+export const Code = ({ children, className, isCopyable = true, live = true, row }) => {
   const [editorOpen, setEditorOpen] = React.useState(false)
   const language = className && className.replace(/language-/, '')
+  const [copy, copied] = useCopyText(children.trim(), 5000)
 
   const [editorCode, setEditorCode] = React.useState(children.trim())
 
@@ -172,7 +193,10 @@ export const Code = ({ children, className, live = true, row }) => {
           </Card.Body>
         </S.LivePreview>
         {editorOpen && (
-          <S.LiveEditor onChange={handleChange} padding={20} style={liveEditorStyle} />
+          <Box position="relative">
+            <S.LiveEditor onChange={handleChange} padding={0} style={liveEditorStyle} />
+            {isCopyable && <CopyButton copied={copied} copy={copy} />}
+          </Box>
         )}
         <S.LiveError />
       </LiveProvider>
@@ -180,9 +204,10 @@ export const Code = ({ children, className, live = true, row }) => {
   }
 
   return (
-    <Box mt="lg" style={{ overflow: 'auto' }}>
+    <Box mt="lg" overflow="auto" position="relative">
       <LiveProvider disabled {...liveProviderProps}>
-        <S.LiveEditor padding={20} style={liveEditorStyle} />
+        <S.LiveEditor padding={0} style={liveEditorStyle} />
+        {isCopyable && <CopyButton copied={copied} copy={copy} />}
       </LiveProvider>
     </Box>
   )

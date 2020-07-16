@@ -22,21 +22,21 @@ The `Text` component allows you to remain consistent with your text sizing and l
 ## Typography
 
 ```jsx
-  <Text variant="h0">Heading 0</Text>
-  <Text variant="h1">Heading 1</Text>
-  <Text variant="h2">Heading 2</Text>
-  <Text variant="h3">Heading 3</Text>
-  <Text variant="h4">Heading 4</Text>
-  <Text variant="h5">Heading 5</Text>
-  <Text variant="h6">Heading 6</Text>
-  <Text variant="body1">Body 1</Text>
-  <Text variant="body2">Body 2</Text>
-  <Text variant="body3">Body 3</Text>
-  <Text variant="body4">Body 4</Text>
-  <Text variant="subtitle1">Subtitle 1</Text>
-  <Text variant="subtitle2">Subtitle 2</Text>
-  <Text variant="meta1">Meta 1</Text>
-  <Text variant="meta2">Meta 2</Text>
+<Text variant="h0">Heading 0</Text>
+<Text variant="h1">Heading 1</Text>
+<Text variant="h2">Heading 2</Text>
+<Text variant="h3">Heading 3</Text>
+<Text variant="h4">Heading 4</Text>
+<Text variant="h5">Heading 5</Text>
+<Text variant="h6">Heading 6</Text>
+<Text variant="body1">Body 1</Text>
+<Text variant="body2">Body 2</Text>
+<Text variant="body3">Body 3</Text>
+<Text variant="body4">Body 4</Text>
+<Text variant="subtitle1">Subtitle 1</Text>
+<Text variant="subtitle2">Subtitle 2</Text>
+<Text variant="meta1">Meta 1</Text>
+<Text variant="meta2">Meta 2</Text>
 ```
 
 ## Bring your own tag
@@ -44,12 +44,12 @@ The `Text` component allows you to remain consistent with your text sizing and l
 You can pass a tag name with `as` to use that tag type with the styling from another tag. For example…
 
 ```jsx
-  <Text variant="h3" as="p" mt="0" mb="xl">
-    p tag styled as an H3
-  </Text>
-  <Text variant="body3" as="h1">
-    H1 tag styled as a body3
-  </Text>
+<Text variant="h3" as="p" mt="0" mb="xl">
+  p tag styled as an H3
+</Text>
+<Text variant="body3" as="h1">
+  H1 tag styled as a body3
+</Text>
 ```
 
 ## Truncation
@@ -57,28 +57,28 @@ You can pass a tag name with `as` to use that tag type with the styling from ano
 Set the number of lines you want to display with `lines`. Your text will be displayed truncated with an ellipsis (`...`) at the end (if necessary).
 
 ```jsx
-  <Text lines={1}>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis viverra lectus, vel
-    tristique turpis. Vivamus magna nulla, elementum in feugiat feugiat, egestas eget nibh. Ut ac
-    justo vitae dolor iaculis gravida. In eu nisl lorem. Cras eu mauris et tortor suscipit accumsan.
-    Duis ullamcorper nisl a justo ultricies, eu consequat risus imperdiet. Phasellus at metus
-    cursus, fringilla tortor eu, scelerisque quam. Donec efficitur porta elit ac malesuada.
-  </Text>
-  <Text lines={3}>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis viverra lectus, vel
-    tristique turpis. Vivamus magna nulla, elementum in feugiat feugiat, egestas eget nibh. Ut ac
-    justo vitae dolor iaculis gravida. In eu nisl lorem. Cras eu mauris et tortor suscipit accumsan.
-    Duis ullamcorper nisl a justo ultricies, eu consequat risus imperdiet. Phasellus at metus
-    cursus, fringilla tortor eu, scelerisque quam. Donec efficitur porta elit ac malesuada.
-  </Text>
-  <Text lines={Infinity}>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis viverra lectus, vel
-    tristique turpis. Vivamus magna nulla, elementum in feugiat feugiat, egestas eget nibh. Ut ac
-    justo vitae dolor iaculis gravida. In eu nisl lorem. Cras eu mauris et tortor suscipit accumsan.
-    Duis ullamcorper nisl a justo ultricies, eu consequat risus imperdiet. Phasellus at metus
-    cursus, fringilla tortor eu, scelerisque quam. Donec efficitur porta elit ac malesuada.
-  </Text>
-  <Text lines={3}>Lorem ipsum dolor sit amet</Text>
+<Text lines={1}>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis viverra lectus, vel
+  tristique turpis. Vivamus magna nulla, elementum in feugiat feugiat, egestas eget nibh. Ut ac
+  justo vitae dolor iaculis gravida. In eu nisl lorem. Cras eu mauris et tortor suscipit accumsan.
+  Duis ullamcorper nisl a justo ultricies, eu consequat risus imperdiet. Phasellus at metus
+  cursus, fringilla tortor eu, scelerisque quam. Donec efficitur porta elit ac malesuada.
+</Text>
+<Text lines={3}>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis viverra lectus, vel
+  tristique turpis. Vivamus magna nulla, elementum in feugiat feugiat, egestas eget nibh. Ut ac
+  justo vitae dolor iaculis gravida. In eu nisl lorem. Cras eu mauris et tortor suscipit accumsan.
+  Duis ullamcorper nisl a justo ultricies, eu consequat risus imperdiet. Phasellus at metus
+  cursus, fringilla tortor eu, scelerisque quam. Donec efficitur porta elit ac malesuada.
+</Text>
+<Text lines={Infinity}>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis viverra lectus, vel
+  tristique turpis. Vivamus magna nulla, elementum in feugiat feugiat, egestas eget nibh. Ut ac
+  justo vitae dolor iaculis gravida. In eu nisl lorem. Cras eu mauris et tortor suscipit accumsan.
+  Duis ullamcorper nisl a justo ultricies, eu consequat risus imperdiet. Phasellus at metus
+  cursus, fringilla tortor eu, scelerisque quam. Donec efficitur porta elit ac malesuada.
+</Text>
+<Text lines={3}>Lorem ipsum dolor sit amet</Text>
 ```
 
 ## Properties
