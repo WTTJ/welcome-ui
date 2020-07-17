@@ -58,13 +58,13 @@ export const Header = () => {
           </Modal.Trigger>
         </Box>
       </Box>
-      <Box display={{ xs: 'none', md: 'block' }} mt="md">
+      <Box display={{ xs: 'none', md: 'block' }} mt="3xl">
         <SelectTheme id="navigation" />
       </Box>
       <Box
         display={{ xs: 'none', md: 'block' }}
-        height="calc(100% - 6.5rem)"
-        mt="xl"
+        height="calc(100% - 8.4rem)"
+        mt="3xl"
         style={{ overflowY: 'auto' }}
       >
         <Navigation />
