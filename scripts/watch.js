@@ -7,6 +7,10 @@ import 'colors'
 const handleFileChange = () => {
   const args = process.argv.slice(2).filter(arg => arg !== '')
   const [dir, packageFolder, file] = args[0].split('/')
+  const date = new Date()
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
+
   if (dir === 'packages') {
     const packageName = toKebabCase(packageFolder)
     console.log(`Building ${packageFolder}…`.grey)
@@ -15,7 +19,13 @@ const handleFileChange = () => {
         console.error(err)
         return
       }
-      console.log('build', 'success'.green.bold, '-', `@welcome-ui/${packageName}`)
+      console.log(
+        `${hours}:${minutes} -`,
+        'build',
+        'success'.green.bold,
+        '-',
+        `@welcome-ui/${packageName}`
+      )
     })
     if (file === 'theme.js') {
       console.log(`Building Core…`.grey)
@@ -24,7 +34,7 @@ const handleFileChange = () => {
           console.error(err)
           return
         }
-        console.log('build', 'success'.green.bold, '-', `@welcome-ui/core`)
+        console.log(`${hours}:${minutes} -`, 'build', 'success'.green.bold, '-', `@welcome-ui/core`)
       })
     }
   }
