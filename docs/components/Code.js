@@ -66,9 +66,7 @@ import * as S from './Code.styled'
 const liveEditorStyle = {
   fontFamily: 'Menlo, monospace',
   fontSize: 14,
-  margin: 0,
-  padding: 20,
-  paddingRight: 90
+  margin: 0
 }
 
 const transformCode = (code, row) => {
@@ -193,10 +191,10 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
           </Card.Body>
         </S.LivePreview>
         {editorOpen && (
-          <Box position="relative">
-            <S.LiveEditor onChange={handleChange} padding={0} style={liveEditorStyle} />
+          <S.LiveEditor>
+            <S.LiveEditorContent onChange={handleChange} padding={20} style={liveEditorStyle} />
             {isCopyable && <CopyButton copied={copied} copy={copy} />}
-          </Box>
+          </S.LiveEditor>
         )}
         <S.LiveError />
       </LiveProvider>
@@ -204,10 +202,12 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
   }
 
   return (
-    <Box mt="lg" overflow="auto" position="relative">
+    <Box mt="lg" overflow="auto">
       <LiveProvider disabled {...liveProviderProps}>
-        <S.LiveEditor padding={0} style={liveEditorStyle} />
-        {isCopyable && <CopyButton copied={copied} copy={copy} />}
+        <S.LiveEditor>
+          <S.LiveEditorContent padding={20} style={liveEditorStyle} />
+          {isCopyable && <CopyButton copied={copied} copy={copy} />}
+        </S.LiveEditor>
       </LiveProvider>
     </Box>
   )
