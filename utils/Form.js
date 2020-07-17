@@ -4,8 +4,6 @@
 import React from 'react'
 import { Form as FinalForm } from 'react-final-form'
 
-import { Code } from './Code'
-
 // eslint-disable-next-line react/prop-types
 export const Form = ({ children, initialValues, validate }) => (
   <FinalForm initialValues={initialValues} onSubmit={console.debug} validate={validate}>
@@ -13,9 +11,7 @@ export const Form = ({ children, initialValues, validate }) => (
       <>
         <form onSubmit={handleSubmit}>{children}</form>
         <div data-testid="values">
-          {Object.keys(values).length > 0 && (
-            <Code language="json">{JSON.stringify(values, 0, 2)}</Code>
-          )}
+          {Object.keys(values).length > 0 && <pre>{JSON.stringify(values, 0, 2)}</pre>}
         </div>
       </>
     )}
