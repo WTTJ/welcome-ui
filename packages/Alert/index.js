@@ -7,7 +7,7 @@ import { Button } from '@welcome-ui/button'
 import * as S from './styles'
 import { AlertTitle } from './AlertTitle'
 
-const Alert = ({ children, variant = 'error', ...rest }) => {
+export const Alert = ({ children, variant = 'error', ...rest }) => {
   const hasTitle = Children.toArray(children).some(child => child.type === AlertTitle)
   const buttonChild = Children.toArray(children).find(child => child.type === AlertButton)
   const content = Children.toArray(children)
@@ -48,5 +48,3 @@ Alert.Title = AlertTitle
 const AlertButton = props => <Button size="sm" {...props} />
 
 Alert.Button = AlertButton
-
-export { Alert }

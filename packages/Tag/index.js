@@ -59,7 +59,7 @@ Tag.propTypes /* remove-proptypes */ = {
     'primary',
     'secondary',
     'success',
-    'warning',
+    'warning'
   ])
 }
 
