@@ -34,7 +34,7 @@
     "@mdx-js/loader": "1.6.1",
     "@mdx-js/react": "1.6.1",
     "@next/mdx": "9.4.0",
-    "@xstyled/styled-components": "^1.15.1",
+    "@xstyled/styled-components": "^1.17.0",
     "babel-plugin-styled-components": "^1.10.7",
     "date-fns": "^2.14.0",
     "lodash.merge": "^4.6.2",
