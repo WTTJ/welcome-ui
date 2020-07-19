@@ -37,7 +37,7 @@
   "dependencies": {
     "@welcome-ui/system": "^2.0.0-alpha.26",
     "popper.js": "^1.14.4",
-    "reakit": "^1.0.0-rc.0"
+    "reakit": "^1.1.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",
