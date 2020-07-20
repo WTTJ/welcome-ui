@@ -1,10 +1,10 @@
-/* eslint-disable react/no-multi-comp */
-import { node, string } from 'prop-types'
+import { node } from 'prop-types'
 import React from 'react'
 
 import * as S from './styles'
+import { Cover } from './Cover'
 
-const Card = ({ children, ...rest }) => {
+export const Card = ({ children, ...rest }) => {
   return <S.Card {...rest}>{children}</S.Card>
 }
 
@@ -12,19 +12,6 @@ Card.propTypes /* remove-proptypes */ = {
   children: node.isRequired
 }
 
-const Cover = ({ src, ...rest }) => {
-  return (
-    <S.Cover {...rest}>
-      <img src={src} />
-    </S.Cover>
-  )
-}
-
-Cover.propTypes /* remove-proptypes */ = {
-  src: string.isRequired
-}
-
+// Nested exports
 Card.Body = S.Body
 Card.Cover = Cover
-
-export { Card }

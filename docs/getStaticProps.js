@@ -38,7 +38,7 @@ export async function getStaticProps() {
       try {
         const { props } = reactDocs.parse(content)
         if (!props) {
-          return undefined
+          return
         }
 
         let key = packageName
@@ -48,7 +48,8 @@ export async function getStaticProps() {
         }
         propTypes[key] = props
       } catch (e) {
-        return undefined
+        console.error({ packageName, file, e: e.message })
+        return
       }
     })
   })

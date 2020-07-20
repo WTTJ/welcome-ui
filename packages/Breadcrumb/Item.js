@@ -21,7 +21,7 @@ export function Item({ children, dataTestId, separator, ...rest }) {
   )
 }
 
-Item.propTypes = {
+Item.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   separator: oneOfType([node, string])
 }

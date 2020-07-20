@@ -23,6 +23,6 @@ export const HideFocusRingsRoot = ({ children }) => {
   return <div {...props}>{children}</div>
 }
 
-HideFocusRingsRoot.propTypes = {
+HideFocusRingsRoot.propTypes /* remove-proptypes */ = {
   children: PropTypes.node.isRequired
 }

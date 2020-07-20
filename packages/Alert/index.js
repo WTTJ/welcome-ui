@@ -42,9 +42,9 @@ Alert.propTypes /* remove-proptypes */ = {
   variant: oneOf(['success', 'error', 'warning', 'info'])
 }
 
-Alert.Title = Title
-
 // We need this component to check its existence in <Alert> and to allow users to add Button in <Alert> content
 const AlertButton = props => <Button size="sm" {...props} />
 
+// Nested exports
+Alert.Title = Title
 Alert.Button = AlertButton

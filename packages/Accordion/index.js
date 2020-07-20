@@ -29,7 +29,7 @@ export function Accordion({
   )
 }
 
-Accordion.propTypes = {
+Accordion.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   icon: node,
   title: node.isRequired,

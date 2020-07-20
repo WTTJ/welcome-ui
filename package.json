@@ -20,7 +20,7 @@
     "release:prerelease": "yarn build && yarn lerna publish --conventional-prerelease --pre-dist-tag next --yes",
     "release": "yarn build && yarn release:publish",
     "lint": "yarn lint:mdx & yarn lint:js && yarn lint:css",
-    "lint:js": "eslint packages icons scripts docs --max-warnings 0 --fix",
+    "lint:js": "eslint packages icons scripts --max-warnings 0 --fix",
     "lint:css": "stylelint 'packages/**/styles.js'",
     "lint:mdx": "prettier --parser mdx --write 'docs/**/*.mdx'",
     "test": "jest ./packages",
