@@ -5,16 +5,16 @@ import { Stack } from '@welcome-ui/stack'
 import { Button } from '@welcome-ui/button'
 
 import * as S from './styles'
-import { AlertTitle } from './AlertTitle'
+import { Title } from './Title'
 
 export const Alert = ({ children, variant = 'error', ...rest }) => {
-  const hasTitle = Children.toArray(children).some(child => child.type === AlertTitle)
+  const hasTitle = Children.toArray(children).some(child => child.type === Title)
   const buttonChild = Children.toArray(children).find(child => child.type === AlertButton)
   const content = Children.toArray(children)
     .filter(child => child.type !== AlertButton)
     .map(child => {
-      // Add variant to AlertTitle to show the correct icon
-      if (child.type === AlertTitle) {
+      // Add variant to Title to show the correct icon
+      if (child.type === Title) {
         return cloneElement(child, { variant })
       }
       return child
@@ -42,9 +42,9 @@ Alert.propTypes /* remove-proptypes */ = {
   variant: oneOf(['success', 'error', 'warning', 'info'])
 }
 
-Alert.Title = AlertTitle
+Alert.Title = Title
 
-// We need this component to check its existence in <Alert> and to allow uses to add Button in <Alert> content
+// We need this component to check its existence in <Alert> and to allow users to add Button in <Alert> content
 const AlertButton = props => <Button size="sm" {...props} />
 
 Alert.Button = AlertButton
