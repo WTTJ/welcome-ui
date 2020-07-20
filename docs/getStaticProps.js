@@ -52,6 +52,7 @@ export async function getStaticProps() {
       }
     })
   })
+  // eslint-disable-next-line no-console
   console.log('PropTypes found for', Object.keys(propTypes))
   return { props: { propTypes } }
 }

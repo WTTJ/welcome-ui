@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-max-depth */
 /* eslint-disable react/no-multi-comp */
 /* eslint-disable react/prop-types */
+/* eslint-disable react/forbid-foreign-prop-types */
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Tag } from '@welcome-ui/tag'
