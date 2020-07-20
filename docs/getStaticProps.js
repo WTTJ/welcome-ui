@@ -1,17 +1,20 @@
-const getComponentFile = ({ file, packageName }) => {
+const isComponentFile = file => {
   if (file === 'index.js') {
-    return packageName
+    return true
   }
+
   const [name, extension] = file.split('.')
   const firstLetter = name[0]
 
-  if (extension === 'js' && firstLetter == firstLetter.toUpperCase()) {
-    return `${packageName}.${name}`
+  // Components start with capital letter e.g. Title.js
+  if (extension === 'js' && firstLetter === firstLetter.toUpperCase()) {
+    return true
   }
-  return undefined
+
+  return false
 }
 
-export async function getStaticProps(ctx, x) {
+export async function getStaticProps() {
   // Only import on server
   const reactDocs = require('react-docgen')
   const path = require('path')
@@ -20,38 +23,35 @@ export async function getStaticProps(ctx, x) {
   let propTypes = {}
 
   // Use react-docgen to get proptypes
-  // Loop through all packages and add object with all propTypes?
-  try {
-    const cwd = process.cwd()
-    const packages = fs.readdirSync(path.join(cwd, 'packages'))
-    const files = packages.flatMap(packageName =>
-      fs
-        .readdirSync(path.join(cwd, `packages/${packageName}`))
-        .map(file => getComponentFile({ file, packageName }))
-        .filter(Boolean)
-    )
+  const cwd = process.cwd()
+  const packages = fs.readdirSync(path.join(cwd, 'packages'))
 
-    propTypes = files.reduce((prev, fileName) => {
+  // Loop through all packages…
+  packages.forEach(packageName => {
+    const componentFiles = fs
+      .readdirSync(path.join(cwd, `packages/${packageName}`))
+      .filter(isComponentFile)
+
+    // Loop through all component files for a package and add to prepped propTypes object
+    componentFiles.forEach(file => {
+      const content = fs.readFileSync(path.join(cwd, `packages/${packageName}/${file}`), 'utf8')
       try {
-        const [packageName, file] = fileName.split('.')
-        const content = fs.readFileSync(
-          path.join(cwd, `packages/${packageName}/${file || 'index'}.js`),
-          'utf8'
-        )
         const { props } = reactDocs.parse(content)
         if (!props) {
-          return prev
+          return undefined
         }
-        const key = file ? `${packageName}.${file}` : packageName
-        return { ...prev, [key]: props }
+
+        let key = packageName
+        if (file !== 'index.js') {
+          const [filename] = file.split('.')
+          key = `${key}.${filename}`
+        }
+        propTypes[key] = props
       } catch (e) {
-        return prev
+        return undefined
       }
-    }, {})
-    console.debug({ propTypes: Object.keys(propTypes) })
-  } catch (e) {
-    console.error(e)
-  } finally {
-    return { props: { propTypes } }
-  }
+    })
+  })
+  console.log('PropTypes found for', Object.keys(propTypes))
+  return { props: { propTypes } }
 }
