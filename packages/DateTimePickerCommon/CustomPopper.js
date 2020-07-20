@@ -4,6 +4,8 @@ import { th } from '@xstyled/system'
 import styled, { css } from '@xstyled/styled-components'
 import { cardStyles } from '@welcome-ui/utils'
 
+import { datePickerStyles } from './datePickerStyles'
+
 export const CustomPopper = ({ children }) => {
   if (!children) {
     return null
@@ -25,6 +27,7 @@ CustomPopper.propTypes /* remove-proptypes */ = {
 
 const StyledCustomPopper = styled.div(
   ({ popperStyles }) => css`
+    ${datePickerStyles};
     .react-datepicker-popper {
       ${popperStyles};
     }
