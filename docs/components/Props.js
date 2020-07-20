@@ -57,10 +57,8 @@ const Type = ({ type }) => {
   return name
 }
 
-export const Props = ({ of, propTypes }) => {
-  const types = propTypes?.[of]
-
-  if (!types) {
+export const Props = ({ propTypes }) => {
+  if (!propTypes) {
     return 'No propTypes specified'
   }
 
@@ -77,8 +75,8 @@ export const Props = ({ of, propTypes }) => {
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
-            {Object.keys(types).map(key => {
-              const { defaultValue, description, required, type } = types[key]
+            {Object.keys(propTypes).map(key => {
+              const { defaultValue, description, required, type } = propTypes[key]
 
               if (!type) {
                 return null
