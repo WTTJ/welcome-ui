@@ -1,6 +1,5 @@
 export { getStaticProps } from '../../getStaticProps'
 
-import { Tag } from '@welcome-ui/tag'
 import {
   component,
   dependencies,
@@ -55,13 +54,13 @@ Admire these beautiful colors 💅
 Use size property with `sm` `md` or `lg`.
 
 ```jsx row
-<Tag size="sm" variant="secondary">
+<Tag size="sm">
   Small
 </Tag>
-<Tag size="md" variant="secondary">
+<Tag size="md">
   Medium
 </Tag>
-<Tag size="lg" variant="secondary">
+<Tag size="lg">
   Large
 </Tag>
 ```
@@ -71,13 +70,13 @@ Use size property with `sm` `md` or `lg`.
 When we have only one character, we apply same size for the width and height (it implicitely sets `shape` prop to `square`)
 
 ```jsx row
-<Tag size="sm" variant="secondary">
+<Tag size="sm">
   1
 </Tag>
-<Tag size="md" variant="secondary">
+<Tag size="md">
   1
 </Tag>
-<Tag size="lg" variant="secondary">
+<Tag size="lg">
   1
 </Tag>
 ```
@@ -87,10 +86,10 @@ When we have only one character, we apply same size for the width and height (it
 Set `shape` prop to `square` to get a square no matter the content.
 
 ```jsx row
-<Tag size="lg" shape="square" variant="secondary">
+<Tag size="lg" shape="square">
   1
 </Tag>
-<Tag size="lg" shape="square" variant="secondary" width={50}>
+<Tag size="lg" shape="square" width={50}>
   Long text
 </Tag>
 ```
@@ -98,7 +97,7 @@ Set `shape` prop to `square` to get a square no matter the content.
 Set `shape` prop to `circle` to set a border-radius `50%`.
 
 ```jsx
-<Tag size="lg" shape="circle" variant="secondary">
+<Tag size="lg" shape="circle">
   1
 </Tag>
 ```

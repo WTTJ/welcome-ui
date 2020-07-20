@@ -4,7 +4,7 @@ import React from 'react'
 
 import * as S from './styles'
 
-export function Card({ children, ...rest }) {
+const Card = ({ children, ...rest }) => {
   return <S.Card {...rest}>{children}</S.Card>
 }
 
@@ -12,7 +12,7 @@ Card.propTypes /* remove-proptypes */ = {
   children: node.isRequired
 }
 
-export function Cover({ src, ...rest }) {
+const Cover = ({ src, ...rest }) => {
   return (
     <S.Cover {...rest}>
       <img src={src} />
@@ -26,3 +26,5 @@ Cover.propTypes /* remove-proptypes */ = {
 
 Card.Body = S.Body
 Card.Cover = Cover
+
+export { Card }

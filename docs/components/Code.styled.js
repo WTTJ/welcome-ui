@@ -3,12 +3,23 @@ import { th } from '@xstyled/system'
 import { LiveEditor as ReactLiveEditor, LiveError as ReactLiveError } from 'react-live'
 import { Card } from '@welcome-ui/card'
 
-export const LiveEditor = styled(ReactLiveEditor)`
+export const LiveEditor = styled.box`
+  position: relative;
+  background-color: ${th('docs.code.background')};
   margin: xl 0;
   border-radius: md;
+  overflow: hidden;
+`
+
+export const LiveEditorContent = styled(ReactLiveEditor)`
+  width: calc(100% - 4rem) !important;
 
   textarea {
     background-color: ${th('docs.code.background')} !important;
+
+    &:focus {
+      outline: none;
+    }
   }
 `
 
