@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { render } from '../../src/utils/tests'
+import { render } from '../../utils/tests'
+import { createTheme } from '../Core/theme/core'
 
 import { Stack } from './index'
 
@@ -17,6 +18,7 @@ describe('<Stack>', () => {
   })
 
   it('should render correctly with custom props', () => {
+    const theme = createTheme()
     const { getByText } = render(
       <Stack as="ul" direction="row" spacing="xl">
         {content}
@@ -24,7 +26,7 @@ describe('<Stack>', () => {
     )
     const foo = getByText('Foo')
 
-    expect(getComputedStyle(foo.parentElement).marginRight).toBe('1.5rem')
+    expect(getComputedStyle(foo.parentElement).marginRight).toBe(theme.space.xl)
     expect(foo.parentElement.tagName).toBe('LI')
   })
 })

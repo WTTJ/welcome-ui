@@ -6,8 +6,8 @@ import { ConnectedField } from '@welcome-ui/connected-field'
 import { AvatarIcon } from '@welcome-ui/icons.avatar'
 import { DateIcon } from '@welcome-ui/icons.date'
 
-import { Form, getFormValues } from '../../docz/Form'
-import { render } from '../../src/utils/tests'
+import { Form, getFormValues } from '../../utils/Form'
+import { render } from '../../utils/tests'
 
 import { Select } from './index'
 
@@ -355,7 +355,7 @@ test.skip('<Select icon> shows icon', () => {
       <ConnectedField
         component={Select}
         dataTestId="select"
-        icon={<AvatarIcon color="nude.500" />}
+        icon={<AvatarIcon color="light.100" />}
         label="Select"
         name="select"
         options={MONTHS}

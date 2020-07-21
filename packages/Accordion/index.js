@@ -6,7 +6,13 @@ import { RightIcon } from '@welcome-ui/icons.right'
 
 import * as S from './styles'
 
-export function Accordion({ children, icon = <RightIcon size="sm" />, title, visible, ...rest }) {
+export function Accordion({
+  children,
+  icon = <RightIcon size="sm" />,
+  title,
+  visible = false,
+  ...rest
+}) {
   const disclosure = useDisclosureState({ visible, animated: true })
   const isVisible = disclosure.visible
 
@@ -14,16 +20,16 @@ export function Accordion({ children, icon = <RightIcon size="sm" />, title, vis
     <S.Accordion {...rest}>
       <S.Disclosure {...disclosure}>
         {title}
-        <S.Icon isVisible={isVisible}>{icon}</S.Icon>
+        <S.Icon visible={isVisible}>{icon}</S.Icon>
       </S.Disclosure>
-      <S.Content isVisible={isVisible} {...disclosure}>
+      <S.Content {...disclosure}>
         <AnimateHeight height={isVisible ? 'auto' : 0}>{children}</AnimateHeight>
       </S.Content>
     </S.Accordion>
   )
 }
 
-Accordion.propTypes = {
+Accordion.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   icon: node,
   title: node.isRequired,

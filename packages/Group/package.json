@@ -1,10 +1,12 @@
 {
   "name": "@welcome-ui/group",
-  "version": "1.27.0",
+  "version": "2.0.0-alpha.26",
   "description": "welcome-ui: A Group component",
   "main": "dist/group.cjs.js",
   "module": "dist/group.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {
@@ -33,7 +35,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^1.20.0"
+    "@welcome-ui/system": "^2.0.0-alpha.26"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",

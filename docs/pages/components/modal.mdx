@@ -1,0 +1,191 @@
+export { getStaticProps } from '../../getStaticProps'
+
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version
+} from '@welcome-ui/modal/package.json'
+
+# Modal
+
+<tagversion version={version} name={name} />
+
+Modal from [Reakit](https://reakit.io/docs/dialog/) with a really nice theme 👀
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+Use `useModalState`, `Modal`, `Modal.Trigger` and `<Modal.Content />` to create a simple Modal.
+
+```jsx
+function() {
+  const modal = useModalState()
+
+  return (
+    <>
+      <Modal.Trigger as={Button} {...modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal {...modal} ariaLabel="example">
+        <Modal.Content>
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+          nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
+          felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
+          eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
+          orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
+          In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
+          quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
+          ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
+        </Modal.Content>
+      </Modal>
+    </>
+  )
+}
+```
+
+## Sizes
+
+By default size is set to `lg`. If you don't want a size (fit on content), set size to `auto`.
+
+```jsx
+function() {
+  const modal = useModalState()
+  const [size, setSize] = useState()
+
+  return (
+    <Stack direction="row">
+      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('sm')}>
+        sm
+      </Modal.Trigger>
+      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('md')}>
+        md
+      </Modal.Trigger>
+      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('lg')}>
+        lg
+      </Modal.Trigger>
+      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('auto')}>
+        auto
+      </Modal.Trigger>
+      <Modal {...modal} size={size} ariaLabel="size example">
+        <Modal.Content>
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+          nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
+          felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
+          eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
+          orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
+          In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
+          quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
+          ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
+        </Modal.Content>
+      </Modal>
+    </Stack>
+  )
+}
+```
+
+## Header and Footer
+
+Use `Modal.Title` and `Modal.Footer` to style your Modal.
+
+```jsx
+function() {
+  const modal = useModalState()
+
+  return (
+    <>
+      <Modal.Trigger as={Button} {...modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal {...modal} ariaLabel="example">
+        <Modal.Title>Nullam non lacinia</Modal.Title>
+        <Modal.Content>
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+          nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
+          felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
+          eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
+          orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
+          In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
+          quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
+          ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+          nunc.
+        </Modal.Content>
+        <Modal.Footer>
+          <Box width={1} display="flex" justifyContent="space-between">
+            <Button variant="secondary">Lorem dolir</Button>
+            <Button onClick={() => modal.hide()}>Close</Button>
+          </Box>
+        </Modal.Footer>
+      </Modal>
+    </>
+  )
+}
+```
+
+## Cover
+
+Use `Modal.Cover` to style your Modal.
+
+```jsx
+function() {
+  const modal = useModalState()
+
+  return (
+    <>
+      <Modal.Trigger as={Button} {...modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal {...modal} ariaLabel="example">
+        <Modal.Cover width={1} height={200}>
+          <img src="https://m.media-amazon.com/images/M/MV5BMzE0NzgyODIxN15BMl5BanBnXkFtZTgwNDU0NjU5NzE@._V1_SX1777_CR0,0,1777,994_AL_.jpg" />
+        </Modal.Cover>
+        <Modal.Content>
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+          nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
+          felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
+          eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
+          orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
+          In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
+          quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
+          ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
+        </Modal.Content>
+      </Modal>
+    </>
+  )
+}
+```
+
+## useModalState
+
+We use `useDialogState` from [Reakit Dialog](https://reakit.io/docs/dialog/#usedialogstate) for the state of the modal.
+
+Pass options to `useModalState` :
+
+- `visible`: e.g. `const modal = useModalState({ visible: true })`
+
+And the hook returns (among other things):
+
+- `visible` : whether the modal is currently visible
+- `hide` : a function to hide the modal
+
+## Properties
+
+<props propTypes={props.propTypes.Modal} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

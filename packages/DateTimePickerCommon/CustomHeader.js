@@ -37,9 +37,9 @@ export const CustomHeader = ({
       <Button
         disabled={month === months[0].label && year === startYear}
         onClick={decreaseMonth}
-        shape="circle"
+        shape="square"
         title="Previous month"
-        variant="secondary"
+        variant="tertiary"
       >
         <LeftIcon mr={2} />
       </Button>
@@ -50,9 +50,9 @@ export const CustomHeader = ({
       <Button
         disabled={month === months[months.length - 1].label && year === endYear}
         onClick={increaseMonth}
-        shape="circle"
+        shape="square"
         title="Next month"
-        variant="secondary"
+        variant="tertiary"
       >
         <RightIcon ml={2} />
       </Button>

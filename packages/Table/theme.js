@@ -1,35 +1,40 @@
 export const getTables = theme => {
-  const { borderWidths, colors, fontSizes, fontWeights } = theme
+  const { borderWidths, colors, fontWeights, space } = theme
 
   return {
     th: {
-      'font-size': fontSizes.body3,
-      color: colors.nude[800],
-      'font-weight': fontWeights.bold,
-      'text-align': 'left'
+      color: colors.light[100],
+      fontWeight: fontWeights.medium,
+      textAlign: 'left',
+      borderBottomColor: colors.dark[900],
+      borderBottomWidth: borderWidths.sm,
+      borderBottomStyle: 'solid'
     },
     td: {
-      'border-top-color': colors.nude[200],
-      'border-top-width': borderWidths.sm,
-      'border-top-style': 'solid',
-      'text-align': 'left'
+      textAlign: 'left',
+      padding: space.xl
     },
     tr: {
       default: {
-        'font-size': fontSizes.body3,
-        color: colors.nude[800]
+        borderBottomColor: colors.light[800],
+        borderBottomWidth: borderWidths.sm,
+        borderBottomStyle: 'solid'
       },
       error: {
-        'background-color': colors.danger[100]
+        backgroundColor: colors.danger[100],
+        color: colors.danger[700]
       },
       warning: {
-        'background-color': colors.warning[100]
+        backgroundColor: colors.warning[100],
+        color: colors.warning[700]
       },
       info: {
-        'background-color': colors.info[100]
+        backgroundColor: colors.info[100],
+        color: colors.info[500]
       },
       success: {
-        'background-color': colors.success[100]
+        backgroundColor: colors.success[100],
+        color: colors.success[500]
       },
       clickable: {
         cursor: 'pointer'

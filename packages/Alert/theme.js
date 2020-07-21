@@ -1,27 +1,44 @@
 export const getAlerts = theme => {
-  const { colors, fontSizes, radii, space } = theme
+  const { borderWidths, colors, fontSizes, radii, space } = theme
 
   return {
     default: {
-      'font-size': fontSizes.body3,
-      'border-radius': radii.md,
-      padding: space.lg
+      fontSize: fontSizes.body3,
+      borderWidth: borderWidths.sm,
+      borderStyle: 'solid',
+      borderRadius: radii.md,
+      padding: space.xl,
+      color: colors.dark[200]
     },
     error: {
-      'background-color': colors.danger[100],
-      color: colors.danger[500]
+      backgroundColor: colors.danger[100],
+      borderColor: colors.danger[500]
     },
     warning: {
-      'background-color': colors.warning[100],
-      color: colors.warning[500]
+      backgroundColor: colors.warning[100],
+      borderColor: colors.warning[500]
     },
     info: {
-      'background-color': colors.info[100],
-      color: colors.info[500]
+      backgroundColor: colors.info[100],
+      borderColor: colors.info[500]
     },
     success: {
-      'background-color': colors.success[100],
-      color: colors.success[500]
+      backgroundColor: colors.success[100],
+      borderColor: colors.success[500]
+    },
+    title: {
+      error: {
+        color: colors.danger[700]
+      },
+      warning: {
+        color: colors.warning[700]
+      },
+      info: {
+        color: colors.info[500]
+      },
+      success: {
+        color: colors.success[500]
+      }
     }
   }
 }

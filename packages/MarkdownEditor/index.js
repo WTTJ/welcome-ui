@@ -12,19 +12,13 @@ import { UnorderedListIcon } from '@welcome-ui/icons.unordered_list'
 import { OrderedListIcon } from '@welcome-ui/icons.ordered_list'
 import { createEvent } from '@welcome-ui/utils'
 
-import { VARIANTS_TYPE } from '../../src/utils/propTypes'
+import { VARIANTS_TYPE } from '../../utils/propTypes'
 
 import { Toolbar } from './Toolbar'
 import { EmojiPicker } from './EmojiPicker'
 import * as S from './styles'
 import { getCurrentToolsFromEditor } from './utils'
 import { DEFAULT_TOOLBAR } from './constants'
-
-// Only require CSS on client
-if (typeof window !== 'undefined') {
-  require('emoji-mart/css/emoji-mart.css')
-  require('easymde/dist/easymde.min.css')
-}
 
 const ICONS = {
   bold: <BoldIcon />,
@@ -96,8 +90,9 @@ export const MarkdownEditor = forwardRef(
     useEffect(() => {
       // Set toolbar items on mount
       setToolbarItems(
-        toolbar.map(({ action, icon, name }) => ({
+        toolbar.map(({ action, icon, name, title }) => ({
           name: name,
+          title: title || name,
           icon: icon || ICONS[name],
           action: action || DEFAULT_TOOLBAR_ACTIONS[name] || null
         }))
@@ -125,8 +120,13 @@ export const MarkdownEditor = forwardRef(
 
     const handleToolbarClick = item => {
       let { action } = toolbarItems.find(toolbarItem => toolbarItem.name === item)
-      // Use actions from the MDE instance or provided action
-      action && typeof action === 'string' ? instance[action]() : action()
+      // catch errors of mde actions (bad regex on their side)
+      try {
+        // Use actions from the MDE instance or provided action
+        action && typeof action === 'string' ? instance[action]() : action()
+      } catch (e) {
+        return
+      }
       updateCurrentTools(instance.codemirror)
     }
 
@@ -159,7 +159,6 @@ export const MarkdownEditor = forwardRef(
       >
         <Toolbar
           active={currentTools}
-          borderRadius={rest.borderRadius}
           items={toolbarItems}
           onClick={handleToolbarClick}
           role="toolbar"

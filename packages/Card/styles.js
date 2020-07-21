@@ -16,7 +16,6 @@ export const Card = styled(Box)`
 
 export const Body = styled(Box)`
   padding: lg;
-  word-break: break-word;
 
   ${system}
 `

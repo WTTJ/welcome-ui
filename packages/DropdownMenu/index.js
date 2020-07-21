@@ -11,7 +11,13 @@ export function DropdownMenu({ children, dataTestId, innerProps, visible, ...pro
   const delayedVisible = useNextFrame(visible)
 
   return (
-    <ReakitMenu data-testid={dataTestId} tabIndex={0} visible={visible} {...props}>
+    <ReakitMenu
+      aria-label="dropdown-menu"
+      data-testid={dataTestId}
+      tabIndex={0}
+      visible={visible}
+      {...props}
+    >
       {menuProps => (
         <S.Inner
           {...menuProps}

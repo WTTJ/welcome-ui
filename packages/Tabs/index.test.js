@@ -2,7 +2,7 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
-import { render } from '../../src/utils/tests'
+import { render } from '../../utils/tests'
 
 import { Tab, useTabState } from './index'
 

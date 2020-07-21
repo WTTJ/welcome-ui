@@ -1,10 +1,10 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
-import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
-import { fieldStyles, overflowEllipsis } from '@welcome-ui/utils'
+import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
+import { defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 
-export const Radio = styled(filterFieldComponent(ReakitRadio))(({ connected }) => {
+export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })(({ connected }) => {
   return css`
     position: absolute;
     top: 0;
@@ -13,11 +13,6 @@ export const Radio = styled(filterFieldComponent(ReakitRadio))(({ connected }) =
     ${connected ? componentSystem : system};
   `
 })
-
-const checkedStyles = css`
-  ${th('fields.radiotabs.checked')};
-  z-index: 2;
-`
 
 const columnStyles = css`
   margin-top: -${th.borderWidth('sm')};
@@ -54,10 +49,14 @@ const rowStyles = css`
 `
 
 export const Label = styled.label(
-  ({ checked, flexDirection }) => css`
+  ({ checked, flexDirection, size }) => css`
+    ${th(`radioTabs.default`)};
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-width: 0;
-    min-height: 0;
+    min-height: ${th(`defaultFields.sizes.${size}.height`)};
     max-width: 100%;
     margin: 0;
     text-align: center;
@@ -65,15 +64,17 @@ export const Label = styled.label(
     cursor: pointer;
     transition: medium;
 
-    ${fieldStyles};
-    ${checked && checkedStyles};
+    ${defaultFieldStyles};
+    ${checked &&
+      css`
+        ${th(`radioTabs.checked`)};
+        z-index: 2;
+      `};
     ${flexDirection === 'column' && columnStyles};
     ${flexDirection === 'row' && rowStyles};
     ${componentSystem};
-
-    &:hover {
-      ${th('fields.radiotabs.hover')};
-    }
+    padding-top: 0;
+    padding-bottom: 0;
   `
 )
 
@@ -84,5 +85,5 @@ export const Input = styled.div`
 
 export const Content = styled.div`
   ${overflowEllipsis};
-  line-height: initial; /* avoid cropped font */
+  max-width: 100%;
 `

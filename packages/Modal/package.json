@@ -1,10 +1,12 @@
 {
   "name": "@welcome-ui/modal",
-  "version": "1.29.0",
+  "version": "2.0.0-alpha.26",
   "description": "Modal from Reakit with a really nice theme 👀",
   "main": "dist/modal.cjs.js",
   "module": "dist/modal.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {
@@ -35,11 +37,12 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^1.23.0",
-    "@welcome-ui/clear-button": "^1.29.0",
-    "@welcome-ui/shape": "^1.27.0",
-    "@welcome-ui/utils": "^1.27.0",
-    "reakit": "^1.0.0-rc.0"
+    "@welcome-ui/box": "^2.0.0-alpha.26",
+    "@welcome-ui/clear-button": "^2.0.0-alpha.26",
+    "@welcome-ui/shape": "^2.0.0-alpha.26",
+    "@welcome-ui/text": "^2.0.0-alpha.26",
+    "@welcome-ui/utils": "^2.0.0-alpha.22",
+    "reakit": "^1.1.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",

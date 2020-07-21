@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.29.1](https://github.com/WTTJ/welcome-ui/compare/v1.29.0...v1.29.1) (2020-06-10)
+
+
+### Bug Fixes
+
+* mde errors catch ([#647](https://github.com/WTTJ/welcome-ui/issues/647)) ([ac6a315](https://github.com/WTTJ/welcome-ui/commit/ac6a315e97e9b50c87ef85244756bb611e07d7cd))
+
+
+
+
+
 # [1.27.0](https://github.com/WTTJ/welcome-ui/compare/v1.26.4...v1.27.0) (2020-05-25)
 
 **Note:** Version bump only for package @welcome-ui/markdown-editor

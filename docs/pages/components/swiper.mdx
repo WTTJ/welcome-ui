@@ -1,0 +1,265 @@
+export { getStaticProps } from '../../getStaticProps'
+
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version
+} from '@welcome-ui/swiper/package.json'
+
+# Swiper
+
+<tagversion version={version} name={name} />
+
+The `Swiper` component is a component that allows you to build a simple swiper.
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Default
+
+```jsx
+function() {
+  const swiper = useSwiper()
+
+  return (
+    <Swiper height={400} {...swiper}>
+      <Swiper.Slide textAlign="center">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+      <Swiper.Slide textAlign="center">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+      <Swiper.Slide textAlign="center">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+    </Swiper>
+  )
+}
+```
+
+## Slides to show
+
+The number of slides that are visible in one view. _Note: On mobile this is always 1_
+
+```jsx
+function() {
+  const swiper = useSwiper({
+      slidesToShow: 2,
+      slidesToSwipe: 2,
+      nextButton: <RightIcon size="lg" />,
+      prevButton: <LeftIcon size="lg" />
+    })
+
+  return (
+    <Swiper height={400} {...swiper}>
+      <Swiper.Slide textAlign="center" pr="xl">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+      <Swiper.Slide textAlign="center" pr="xl">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+        />
+      </Swiper.Slide>
+      <Swiper.Slide textAlign="center" pr="xl">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+      <Swiper.Slide textAlign="center" pr="xl">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+      <Swiper.Slide textAlign="center" pr="xl">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+    </Swiper>
+  )
+}
+```
+
+## With next and prev buttons
+
+Providing `nextButton` and `prevButton` enables prev and next navigation with the component you're returning from the callback.
+
+```jsx
+function() {
+  const swiper = useSwiper({
+    nextButton: <RightIcon size="lg" />,
+    prevButton: <LeftIcon size="lg" />
+  })
+
+  return (
+    <Swiper {...swiper} height={400}>
+      <Swiper.Slide textAlign="center">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+      <Swiper.Slide textAlign="center">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+        />
+      </Swiper.Slide>
+      <Swiper.Slide textAlign="center">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+    </Swiper>
+  )
+}
+```
+
+## Controlling externally
+
+You can create your own buttons outside of the Swiper and control it externally.
+
+```jsx
+function() {
+  const swiper = useSwiper()
+
+  return (
+    <>
+      <Box display="flex" w={1} justifyContent="center" mb="sm">
+        <Button mr="xs" onClick={swiper.goPrev}>
+          <LeftIcon size="lg"  />
+        </Button>
+        <Button onClick={swiper.goNext}>
+          <RightIcon size="lg"  />
+        </Button>
+      </Box>
+      <Swiper height={400} {...swiper}>
+        <Swiper.Slide textAlign="center">
+          <img
+            style={{ maxWidth: '100%', maxHeight: '100%' }}
+            src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+          />
+        </Swiper.Slide>
+        <Swiper.Slide textAlign="center">
+          <img
+            style={{ maxWidth: '100%', maxHeight: '100%' }}
+            src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+          />
+        </Swiper.Slide>
+        <Swiper.Slide textAlign="center">
+          <img
+            style={{ maxWidth: '100%', maxHeight: '100%' }}
+            src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+          />
+        </Swiper.Slide>
+      </Swiper>
+    </>
+  )
+}
+```
+
+## Autoplay
+
+Providing `autoplay` lets the slides advance automatically. Pass `duration` to control the amount of time each slide shows for.
+
+```jsx
+function() {
+  const swiper = useSwiper({
+    autoplay: true,
+    nextButton: <RightIcon size="lg" />,
+    prevButton: <LeftIcon size="lg" />
+  })
+
+  return (
+    <Swiper {...swiper} height={400}>
+      <Swiper.Slide textAlign="center">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+      <Swiper.Slide textAlign="center">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+        />
+      </Swiper.Slide>
+      <Swiper.Slide textAlign="center">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+    </Swiper>
+  )
+}
+```
+
+## With custom pagination items
+
+By providing the optional `renderPaginationItem` you can customise the defaults pagination bullets and render your own component. This callback takes two params: `index` and `props` which is an object containning an `onClick` callback to pass to your custom bullet and an `active` prop which is true when the bullet index matches the current page index.
+
+```jsx
+function() {
+  const swiper = useSwiper({
+    renderPaginationItem: (idx, { active, onClick }) => (
+      <Swiper.Bullet width={50} height={50} active={active} onClick={onClick} />
+    )
+  })
+
+  return (
+    <Swiper height={400} {...swiper}>
+      <Swiper.Slide textAlign="center">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+      <Swiper.Slide textAlign="center">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+        />
+      </Swiper.Slide>
+      <Swiper.Slide textAlign="center">
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        />
+      </Swiper.Slide>
+    </Swiper>
+  )
+}
+```
+
+## Properties
+
+<props propTypes={props.propTypes.Swiper} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react'
-import { bool, elementType, func, number, oneOf, oneOfType, string } from 'prop-types'
-import { Hint } from '@welcome-ui/hint'
+import { bool, elementType, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 
-import { DIRECTIONS_TYPE } from '../../src/utils/propTypes'
+import { DIRECTIONS_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 
@@ -36,6 +35,7 @@ export const Radio = forwardRef((props, ref) => {
       maxWidth={maxWidth}
       onClick={handleClick}
       variant={variant}
+      withHint={!!hint}
     >
       <S.Wrapper flexDirection={flexDirection}>
         <S.Input>
@@ -50,7 +50,7 @@ export const Radio = forwardRef((props, ref) => {
         </S.Input>
         <div>{label}</div>
       </S.Wrapper>
-      {hint && <Hint marginTop="0">{hint}</Hint>}
+      {hint && <S.Hint>{hint}</S.Hint>}
     </S.Label>
   )
 })
@@ -64,7 +64,7 @@ Radio.propTypes /* remove-proptypes */ = {
   flexDirection: oneOf(DIRECTIONS_TYPE),
   hint: string,
   label: string,
-  maxWidth: oneOfType([number, string]),
+  maxWidth: oneOfType([number, object, string]),
   name: string,
   onChange: func,
   onClick: func,

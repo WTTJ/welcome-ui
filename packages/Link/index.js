@@ -1,35 +1,59 @@
-import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
-import { UniversalLink } from '@welcome-ui/universal-link'
-import { filterComponent, system } from '@welcome-ui/system'
+/* eslint-disable react/no-multi-comp */
+import React, { Children, cloneElement, forwardRef, useEffect, useRef, useState } from 'react'
+import { node, oneOf } from 'prop-types'
+import { useTheme } from '@xstyled/styled-components'
 
-export const Link = styled(filterComponent(UniversalLink))(
-  ({ variant }) => css`
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    opacity: 1;
-    line-height: 1.5;
-    text-decoration: none;
-    cursor: pointer;
+import * as S from './styles'
 
-    &:hover,
-    &:focus {
-      ${th(`links.${variant || 'primary'}.hover`)};
-      outline: none !important; /* important for firefox */
+const isString = value => typeof value === 'string'
+
+export const Link = forwardRef((props, ref) => {
+  const { children, dataTestId, variant = 'primary', ...rest } = props
+  let clones
+  const theme = useTheme()
+  const linkRef = useRef()
+  const [isChildrenString, setIsChildrenString] = useState(isString(children))
+
+  const WrapWithText = ({ children, ...rest }) => (
+    <span className="wui-text" {...rest}>
+      {children}
+    </span>
+  )
+
+  useEffect(() => {
+    const innerRef = ref || linkRef
+    if (innerRef && innerRef.current) {
+      setIsChildrenString(innerRef.current.childElementCount === 0)
     }
+  }, [linkRef, ref])
 
-    &[disabled] {
-      opacity: 0.5;
-      pointer-events: none;
-    }
+  if (!isChildrenString) {
+    clones = Children.map(children, (child, index) => {
+      const key = `link-child-${index}`
+      if (isString(child)) {
+        return <WrapWithText key={key}>{child}</WrapWithText>
+      }
+      return cloneElement(child, {
+        color: theme.links.default.color,
+        fontWeight: child.props.variant ? undefined : theme.links.default.fontWeight,
+        key,
+        lineHeight: '1.5',
+        ...child.props
+      })
+    })
+  }
 
-    ${th('links.default')};
-    ${th(`links.${variant || 'primary'}.default`)}
-    ${system};
+  return (
+    <S.Link data-testid={dataTestId} ref={ref || linkRef} variant={variant} {...rest}>
+      {isChildrenString && <WrapWithText>{children}</WrapWithText>}
+      {clones}
+    </S.Link>
+  )
+})
 
-    & > *:not(:only-child):not(:last-child) {
-      margin-right: xs;
-    }
-  `
-)
+Link.displayName = 'Link'
+
+Link.propTypes /* remove-proptypes */ = {
+  children: node.isRequired,
+  variant: oneOf(['primary', 'secondary'])
+}

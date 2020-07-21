@@ -1,157 +1,165 @@
 import { createTheme } from '@welcome-ui/core'
+import { hexToRGBA } from '@welcome-ui/utils'
 const theme = createTheme()
 
 export const colors = {
   ...theme.colors,
+  danger: {
+    100: '#250304'
+  },
+  success: {
+    100: '#102412'
+  },
+  warning: {
+    100: '#2A1205'
+  },
+  info: {
+    100: '#051123'
+  },
   light: {
-    200: '#333333',
-    500: '#2d2d2d',
-    700: '#191919',
+    100: '#737373',
+    200: '#4C4C4C',
+    500: '#252525',
+    700: '#1B1B1B',
+    800: '#111111',
     900: '#000000'
   },
   dark: {
-    200: '#CCCCCC',
-    500: '#EDEDED',
-    700: '#FAFAFA',
+    100: '#7D7D7D',
+    200: '#969696',
+    500: '#AFAFAF',
+    700: '#C8C8C8',
+    800: '#E1E1E1',
     900: '#FFFFFF'
   },
   nude: {
-    100: '#727272',
-    200: '#828282',
-    300: '#8e8e8e',
-    400: '#a3a3a3',
-    500: '#b7b7b7',
-    600: '#c4c4c4',
-    700: '#d6d6d6',
-    800: '#E5E5E5'
-  }
-}
-
-const defaultButtons = {
-  color: colors.dark[900]
-}
-
-const borderDark = colors.nude[100]
-
-const defaultFields = {
-  borderColor: borderDark
+    900: '#F1F1F0',
+    800: '#E8E8E6',
+    700: '#C3C3BE',
+    500: '#818177',
+    200: '#585851',
+    100: '#444441'
+  },
+  underline: theme.colors.primary[500]
 }
 
 export const darkTheme = {
   colors,
-  buttons: {
-    primary: defaultButtons,
-    secondary: {
-      ...defaultButtons,
-      borderColor: colors.light[500]
-    },
-    tertiary: {
-      ...defaultButtons
-    },
-    'primary-warning': {
-      ...defaultButtons
-    },
-    'primary-danger': {
-      ...defaultButtons
-    },
-    quaternary: {
-      color: colors.nude[800]
-    },
-    hover: {
-      secondary: {
-        borderColor: colors.light[200]
-      }
-    },
-    disabled: {
-      color: colors.nude[800],
-      backgroundColor: colors.light[700],
-      borderColor: colors.light[700]
-    }
+  selection: {
+    color: colors.dark[900]
   },
-  tags: {
-    default: {
+  buttons: {
+    primary: {
       color: colors.dark[900]
     },
-    variants: {
-      default: {
-        backgroundColor: colors.light[200]
-      },
-      dark: {
-        backgroundColor: colors.light[700]
-      }
-    }
-  },
-  dropdownMenu: {
-    inner: {
-      borderColor: borderDark
-    },
-    item: {
-      color: colors.nude[800],
-      '&:hover': {
-        color: colors.light[900]
-      },
-      '&:focus': {
-        color: colors.light[900]
-      },
-      '&[disabled]': {
-        color: colors.nude[100]
+    hover: {
+      quaternary: {
+        backgroundColor: colors.light[700],
+        borderColor: colors.light[700]
       }
     },
-    separator: {
-      backgroundColor: borderDark
-    }
-  },
-  growls: {
-    default: {
-      borderColor: borderDark
-    }
-  },
-  paginations: {
+    focus: {
+      quaternary: theme.focus(colors.light[700])
+    },
     active: {
-      color: colors.dark[900],
-      '&:hover, &:focus': {
-        color: colors.dark[900]
+      quaternary: {
+        backgroundColor: colors.light[500],
+        borderColor: colors.light[500]
       }
+    }
+  },
+  defaultCards: {
+    borderColor: colors.light[500]
+  },
+  hints: {
+    color: colors.dark[500]
+  },
+  modals: {
+    default: {
+      color: colors.dark[500]
+    },
+    footer: {
+      color: colors.dark[900],
+      borderTopColor: colors.light[500]
+    },
+    title: {
+      color: colors.dark[900],
+      borderBottomColor: colors.light[500]
+    }
+  },
+  tables: {
+    th: {
+      borderBottomColor: colors.light[100]
     }
   },
   tabs: {
     tabsBorder: {
-      backgroundColor: borderDark
+      boxShadow: `inset 0 -${theme.borderWidths.sm} 0 ${colors.light[500]}`
     },
     item: {
       disabled: {
-        color: colors.nude[100]
+        color: colors.light[200]
       }
     }
   },
-  fields: {
-    default: defaultFields,
-    disabled: {
-      backgroundColor: colors.light[700],
-      color: colors.nude[100]
-    },
-    placeholder: {
-      color: colors.nude[300]
-    },
-    radiotabs: {
-      default: {
-        ...defaultFields
-      }
-    },
-    select: {
-      selected: {
-        color: colors.light[900]
-      }
-    }
-  },
-  cards: {
-    default: {
+  accordions: {
+    wrapper: {
       borderColor: colors.light[500]
     }
   },
-  modals: {
-    backdrop: {
-      backgroundColor: colors.light[900]
+  tags: {
+    variants: {
+      default: {
+        backgroundColor: colors.nude[100],
+        color: colors.dark[500],
+        borderColor: hexToRGBA(colors.dark[900], 0.3)
+      },
+      primary: {
+        color: colors.dark[900]
+      }
+    }
+  },
+  toasts: {
+    growls: {
+      default: {
+        color: colors.dark[500]
+      }
+    }
+  },
+  labels: {
+    color: colors.dark[500]
+  },
+  radios: {
+    checked: {
+      color: colors.dark[900]
+    }
+  },
+  radioTabs: {
+    checked: {
+      color: colors.dark[900]
+    }
+  },
+  dateTimePickerCommon: {
+    item: {
+      selected: {
+        color: colors.dark[900]
+      }
+    }
+  },
+  checkboxes: {
+    checked: {
+      color: colors.dark[900]
+    }
+  },
+  toggles: {
+    item: {
+      default: {
+        borderColor: colors.light[100]
+      }
+    },
+    after: {
+      default: { backgroundColor: colors.dark[900], borderColor: colors.dark[900] },
+      checked: { backgroundColor: colors.dark[900], borderColor: colors.dark[900] }
     }
   }
 }

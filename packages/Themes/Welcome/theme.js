@@ -1,177 +1,212 @@
-import { css } from '@xstyled/styled-components'
-
 const palette = {
-  yukongold: '#B99606',
-  mustard: '#FFCD00',
-  capehoney: '#FFF0B2',
-  capehoneylight: '#fff8d9',
+  // primary
+  capehoneylight: '#FFF8D9',
+  yellowlight: '#FFE166',
+  yellow: '#FFCD00',
+  corn: '#E5B800',
+  gold: '#997B00',
+  cinnamon: '#735C00',
+  olive: '#4C3D00',
 
-  //greens
-  nero: '#252525',
-  gondola: '#353535',
-  charcoal: '#3F3F3F',
-  tundora: '#4B4B4B',
-  dovegrey: '#6F6F6F',
-  shadylady: '#969696',
-  darkgray: '#ACACAC',
+  // dark
+  granite: '#666666',
+  tundora: '#4C4C4C',
+  mineshaft: '#2B2B2B',
+  nero: '#1A1A1A',
+  softblack: '#151515',
+  black: '#000000',
 
-  //nudes
-  concord: '#7F7C7A',
-  zorba: '#97938F',
-  silverchalice: '#AFABA7',
-  silversand: '#BFBDB9',
-  quillgray: '#D7D5D1',
-  gainsboro: '#E1DFDB',
-  cararra: '#EEECE8',
-  isabelline: '#F2F0ED',
-  pampas: '#F6F4F2',
-  vistawhite: '#FBF9F7',
-  soapstone: '#FFFDFB',
+  // light
+  white: '#FFFFFF',
+  mercury: '#E5E5E5',
+  silverchalice: '#B3B3B3',
+  nobel: '#999999',
+  battleship: '#8C8C8C',
+  empress: '#737373',
 
-  // states : infos, warning & danger
-  bluedefrance: '#3790F0',
-  bluejeans: '#5EAAFC',
-  bronze: '#CA8E2A',
-  anzac: '#DDA343',
-  casablanca: '#F1B85B',
-  sweetbrown: '#A53626',
-  carmen: '#BF4C3B',
-  flamingo: '#E16654',
+  // nudes
+  isabelline: '#F6F3EF',
+  pampas: '#EFEAE4',
+  timberwolf: '#D6D2CC',
+  naturalgrey: '#8F8C88',
+  ironside: '#6B6966',
+  dune: '#474543',
+
+  // success
+  spanishviridian: '#00875C',
+  jade: '#00A772',
+  gin: '#E3F0EC',
+
+  // danger
+  mistyrose: '#FFE7E7',
+  valencialight: '#D87C6E',
+  valencia: '#CE5947',
+  carmen: '#AF4636',
+
+  // info
+  celticblue: '#106DD1',
+  blueverry: '#4B9BF1',
+  aliceblue: '#EDF3FE',
+
+  // warning
+  floralwhite: '#FFF2DC',
+  sunraylight: '#EBC484',
+  sunray: '#E4AE56',
+  burbon: '#B97F22',
 
   //subs
   blue: '#3B52D0',
   pink: '#EE4B65',
   green: '#267566',
-  salmon: '#F79D85',
-  babygreen: '#A5D0A8',
-  babyblue: '#8CB3DB',
-
-  // pastel
-  mint: '#DFF5EB',
-  aliceblue: '#DFEAFF',
-  floralwhite: '#FFF2DC',
-  rosewhite: '#FFE7E7'
+  vividtangerine: '#F79D85',
+  springrain: '#A5D0A8',
+  palecerulean: '#8CB3DB'
 }
 
 const colors = {
   primary: {
     100: palette.capehoneylight,
-    200: palette.capehoney,
-    500: palette.mustard,
-    700: palette.yukongold
+    200: palette.yellowlight,
+    500: palette.yellow,
+    700: palette.corn,
+    800: palette.cinnamon,
+    900: palette.olive
   },
-  secondary: {
-    200: palette.shadylady,
-    500: palette.dovegrey,
-    700: palette.tundora
+  success: {
+    100: palette.gin,
+    200: palette.jade,
+    500: palette.spanishviridian
   },
   danger: {
-    100: palette.rosewhite,
-    200: palette.flamingo,
-    500: palette.carmen,
-    700: palette.sweetbrown
+    100: palette.mistyrose,
+    200: palette.valencialight,
+    500: palette.valencia,
+    700: palette.carmen
   },
   warning: {
     100: palette.floralwhite,
-    200: palette.casablanca,
-    500: palette.anzac,
-    700: palette.bronze
+    200: palette.sunraylight,
+    500: palette.sunray,
+    700: palette.burbon
   },
   info: {
     100: palette.aliceblue,
-    200: palette.bluejeans,
-    500: palette.bluedefrance
+    200: palette.blueverry,
+    500: palette.celticblue
   },
   light: {
-    200: palette.pampas,
-    500: palette.vistawhite,
-    700: palette.soapstone,
-    900: '#FFFFFF'
+    100: palette.empress,
+    200: palette.battleship,
+    500: palette.nobel,
+    700: palette.silverchalice,
+    800: palette.mercury,
+    900: palette.white
   },
   dark: {
-    200: palette.charcoal,
-    500: palette.gondola,
+    100: palette.granite,
+    200: palette.tundora,
+    500: palette.mineshaft,
     700: palette.nero,
-    900: '#000'
+    800: palette.softblack,
+    900: palette.black
   },
   nude: {
     100: palette.isabelline,
-    200: palette.cararra,
-    300: palette.gainsboro,
-    400: palette.quillgray,
-    500: palette.silversand,
-    600: palette.silverchalice,
-    700: palette.zorba,
-    800: palette.concord
+    200: palette.pampas,
+    500: palette.timberwolf,
+    700: palette.naturalgrey,
+    800: palette.ironside,
+    900: palette.dune
   },
   sub: {
-    1: palette.babyblue,
+    1: palette.palecerulean,
     2: palette.blue,
     3: palette.pink,
-    4: palette.salmon,
-    5: palette.babygreen,
+    4: palette.vividtangerine,
+    5: palette.springrain,
     6: palette.green
-  }
+  },
+  underline: palette.yellow
 }
 
-const underlineStyles = css`
-  background-image: linear-gradient(0deg, ${colors.primary[500]}, ${colors.primary[500]} 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 50%;
-  background-position-y: calc(200% - 1px);
-  transition: background-position-y 0.25s;
-`
-
-const linksPrimaryHoverStyles = css`
-  opacity: 1;
-  background-position-y: 100%;
-`
-
 export const welcomeTheme = {
+  defaultLineHeight: 1.3,
+  defaultLetterSpacing: -0.3,
+  headingLetterSpacing: -0.4,
   colors,
   palette,
+  radii: {
+    sm: 0,
+    md: 0,
+    lg: 0
+  },
+  shadows: {
+    sm: 'none',
+    md: 'none'
+  },
+  selection: {
+    color: colors.dark[900]
+  },
+  radios: {
+    checked: {
+      color: colors.dark[900]
+    }
+  },
+  radioTabs: {
+    checked: {
+      color: colors.dark[900]
+    }
+  },
+  checkboxes: {
+    checked: {
+      color: colors.dark[900]
+    }
+  },
   buttons: {
     primary: {
-      color: colors.dark[700]
+      color: colors.dark[900]
     }
   },
-  underline: underlineStyles,
-  fields: {
-    select: {
-      highlighted: {
-        'background-color': colors.light[200]
-      }
-    }
-  },
-  links: {
-    primary: { hover: linksPrimaryHoverStyles },
-    'primary-underline-span': {
-      default: css`
-        > span {
-          ${underlineStyles};
-        }
-      `,
-      hover: css`
-        > span {
-          ${linksPrimaryHoverStyles};
-        }
-      `
-    }
-  },
-  tabs: {
-    item: {
-      default: {
-        'text-decoration': 'none'
-      }
-    },
-    tabsBorder: {
-      'background-color': 'transparent'
-    }
+  letterSpacings: {
+    h0: -1.7,
+    h1: -1.2,
+    h2: -1,
+    h3: -0.9,
+    h4: -0.6,
+    h5: -0.5,
+    body4: -0.2,
+    subtitle2: -0.2,
+    meta2: -0.2
   },
   tags: {
     variants: {
-      default: {
-        'background-color': colors.nude[100]
+      primary: {
+        color: colors.dark[900]
+      }
+    }
+  },
+  paginations: {
+    default: {
+      borderRadius: 0
+    },
+    active: {
+      color: colors.dark[900],
+      '&:hover, &:focus': {
+        color: colors.dark[900]
+      }
+    }
+  },
+  dateTimePickerCommon: {
+    item: {
+      selected: {
+        color: colors.dark[900]
+      }
+    }
+  },
+  defaultFields: {
+    checkableField: {
+      checked: {
+        color: 'black'
       }
     }
   }

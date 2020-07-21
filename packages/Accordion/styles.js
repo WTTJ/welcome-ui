@@ -1,18 +1,18 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { DisclosureContent, Disclosure as ReakitDisclosure } from 'reakit/Disclosure'
-import { filterComponent, system } from '@welcome-ui/system'
+import { shouldForwardProp, system } from '@welcome-ui/system'
 
 export const Accordion = styled.div`
   ${th('accordions.wrapper')};
   ${system}
 `
 
-export const Icon = styled(filterComponent('div', 'isVisible'))(
-  ({ isVisible }) => css`
+export const Icon = styled('div').withConfig({ shouldForwardProp })(
+  ({ visible }) => css`
     flex-shrink: 0;
     ${th('accordions.icon')};
-    transform: ${isVisible ? 'rotate3d(0, 0, 1, 90deg)' : 'rotate3d(0)'};
+    transform: ${visible ? 'rotate3d(0, 0, 1, 90deg)' : 'rotate3d(0)'};
     transition: medium;
   `
 )
@@ -41,15 +41,15 @@ export const Disclosure = styled(ReakitDisclosure)`
   }
 `
 
-export const Content = styled(filterComponent(DisclosureContent, 'isVisible'))(
-  ({ isVisible }) => css`
+export const Content = styled(DisclosureContent)(
+  ({ visible }) => css`
     ${th('accordions.content')};
     margin-top: -sm;
     padding-left: ${th('accordions.padding')};
     padding-right: ${th('accordions.padding')};
     padding-bottom: sm;
 
-    ${isVisible &&
+    ${visible &&
       css`
         padding-bottom: ${th('accordions.padding')};
       `}

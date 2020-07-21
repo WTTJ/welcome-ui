@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '../../src/utils/tests'
+import { render } from '../../utils/tests'
 import { colors } from '../Core/theme/colors'
 
 import { Title } from './Title'
@@ -9,7 +9,7 @@ const content = 'Jungle'
 
 describe('<Title>', () => {
   it('should render correctly', () => {
-    const { getByTestId } = render(<Title dataTestId="growl-title">{content}</Title>)
+    const { getByTestId } = render(<Title data-testid="growl-title">{content}</Title>)
     const title = getByTestId('growl-title')
 
     expect(title).toHaveTextContent(content)
@@ -18,13 +18,13 @@ describe('<Title>', () => {
 
   it('should render correctly with a state', () => {
     const { getByTestId } = render(
-      <Title dataTestId="growl-title" variant="error">
+      <Title data-testid="growl-title" variant="error">
         {content}
       </Title>
     )
     const title = getByTestId('growl-title')
 
     expect(title).toHaveTextContent(content)
-    expect(title).toHaveStyleRule('color', colors.danger[500])
+    expect(title).toHaveStyleRule('color', colors.danger[700])
   })
 })

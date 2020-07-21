@@ -3,7 +3,7 @@ import { elementType, func, oneOf, oneOfType, shape, string } from 'prop-types'
 import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
 
-import { COMPONENT_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
+import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 

@@ -1,34 +1,42 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
-import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
-import { fieldStyles } from '@welcome-ui/utils'
+import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
+import { defaultFieldStyles } from '@welcome-ui/utils'
 
-export const Checkbox = styled(filterFieldComponent(ReakitCheckbox))(
-  ({ connected, order = '-1' }) => css`
-    ${fieldStyles};
-    ${th('fields.checkbox.default')}
+export const Checkbox = styled(ReakitCheckbox).withConfig({ shouldForwardProp })(
+  ({ connected, order = '-1', theme }) => css`
+    ${defaultFieldStyles};
+    ${th('checkboxes.default')}
     position: relative;
     padding: 0;
     order: ${order};
     cursor: pointer;
     transition: medium;
 
-    &::after {
-      content: url('data:image/svg+xml; utf8, <svg viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg"><path d="M2.711 6.328L7.487.8A.844.844 0 0 1 8.712.73l-.273.318.273-.317a.927.927 0 0 1 .066 1.274L3.427 8.2a.847.847 0 0 1-1.221.073L.291 6.511a.928.928 0 0 1-.074-1.274.845.845 0 0 1 1.225-.076L2.71 6.328z" fill="white" fill-rule="nonzero"/></svg>');
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 9;
-      margin: auto;
-      text-align: center;
-      color: light.700;
-      opacity: 0;
-      transition: medium;
-      line-height: 1em;
+    &[aria-checked='true'] {
+      &::after {
+        content: url(${`'data:image/svg+xml; utf8, <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M10.113 1.273a1.085 1.085 0 011.526-.082c.433.386.481 1.041.118 1.485l-.035.04-7.245 8.01a1.083 1.083 0 01-1.474.126l-.047-.039-2.59-2.277A1.076 1.076 0 01.274 7.01a1.085 1.085 0 011.483-.126l.042.035 1.786 1.57 6.528-7.216z" fill="${theme.defaultFields.checkableField.checked.color}" /></svg>'`});
+        position: absolute;
+        top: 2px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 12px;
+        margin: auto;
+        text-align: center;
+        transition: medium;
+      }
+
+      &:not([disabled]) {
+        ${th(`checkboxes.checked`)};
+      }
     }
+
+    &[disabled] {
+      ${th('checkboxes.disabled')}
+    }
+
     ${connected ? componentSystem : system};
   `
 )

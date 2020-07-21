@@ -1,10 +1,12 @@
 {
   "name": "@welcome-ui/files",
-  "version": "1.23.2",
+  "version": "2.0.0-alpha.26",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/files.cjs.js",
   "module": "dist/files.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {
@@ -33,17 +35,17 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/icons.attachment": "^1.22.0",
-    "@welcome-ui/icons.camera": "^1.22.0",
-    "@welcome-ui/icons.csv": "^1.22.0",
-    "@welcome-ui/icons.doc": "^1.22.0",
-    "@welcome-ui/icons.docx": "^1.22.0",
-    "@welcome-ui/icons.music": "^1.22.0",
-    "@welcome-ui/icons.pdf": "^1.22.0",
-    "@welcome-ui/icons.video": "^1.22.0",
-    "@welcome-ui/icons.xls": "^1.22.0",
-    "@welcome-ui/icons.xlsx": "^1.22.0",
-    "@welcome-ui/icons.zip": "^1.22.0",
+    "@welcome-ui/icons.attachment": "^2.0.0-alpha.26",
+    "@welcome-ui/icons.camera": "^2.0.0-alpha.26",
+    "@welcome-ui/icons.csv": "^2.0.0-alpha.26",
+    "@welcome-ui/icons.doc": "^2.0.0-alpha.26",
+    "@welcome-ui/icons.docx": "^2.0.0-alpha.26",
+    "@welcome-ui/icons.music": "^2.0.0-alpha.26",
+    "@welcome-ui/icons.pdf": "^2.0.0-alpha.26",
+    "@welcome-ui/icons.video": "^2.0.0-alpha.26",
+    "@welcome-ui/icons.xls": "^2.0.0-alpha.26",
+    "@welcome-ui/icons.xlsx": "^2.0.0-alpha.26",
+    "@welcome-ui/icons.zip": "^2.0.0-alpha.26",
     "mime": "=2.4.4"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",

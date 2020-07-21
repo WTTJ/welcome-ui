@@ -1,17 +1,17 @@
 import { oneOf } from 'prop-types'
 import React from 'react'
-import { CrossIcon } from '@welcome-ui/icons.cross'
 
 import * as S from './styles'
 
-export const ClearButton = ({ size = 'xs', ...rest }) => (
-  <S.ClearButton shape="circle" size={size} title="Clear" variant="quaternary" {...rest}>
-    <CrossIcon size={size} />
+export const ClearButton = props => (
+  <S.ClearButton shape="circle" title="Clear" variant="tertiary" {...props}>
+    <S.Icon />
   </S.ClearButton>
 )
 
-ClearButton.propTypes = {
+ClearButton.propTypes /* remove-proptypes */ = {
   size: oneOf(['xs', 'sm', 'md', 'lg', 'xl'])
 }
 
+// Nested exports
 export const StyledClearButton = S.ClearButton

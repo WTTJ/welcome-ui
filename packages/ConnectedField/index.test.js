@@ -1,8 +1,8 @@
 import React, { createRef } from 'react'
 import { InputText } from '@welcome-ui/input-text'
 
-import { Form } from '../../docz/Form'
-import { render } from '../../src/utils/tests'
+import { Form } from '../../utils/Form'
+import { render } from '../../utils/tests'
 
 import { ConnectedField } from './index'
 

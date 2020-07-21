@@ -3,38 +3,52 @@ export const getTabs = theme => {
 
   return {
     tabsBorder: {
-      bottom: borderWidths.sm,
-      width: '100%',
-      height: borderWidths.sm,
-      'background-color': colors.nude[200]
+      horizontal: {
+        boxShadow: `inset 0 -${borderWidths.sm} 0 ${colors.light[800]}`
+      },
+      vertical: {
+        boxShadow: `inset -${borderWidths.sm} 0 0 ${colors.light[800]}`
+      }
     },
     item: {
       default: {
-        color: colors.nude[600],
-        'font-size': fontSizes.body2,
-        'font-weight': fontWeights.medium
+        color: colors.light[100],
+        fontWeight: fontWeights.medium,
+        fontSize: fontSizes.body2,
+        textDecoration: 'none'
       },
       active: {
-        color: colors.dark[700]
+        color: colors.dark[900]
       },
       focus: {
-        color: colors.nude[800]
+        color: colors.dark[900]
       },
       disabled: {
-        color: colors.nude[400]
+        color: colors.light[700]
       }
     },
     panel: {
-      'margin-top': space.xl,
-      '&:focus': {
-        outline: 'none'
+      vertical: {
+        '&:focus': {
+          outline: 'none'
+        }
+      },
+      horizontal: {
+        marginTop: space.xl,
+        '&:focus': {
+          outline: 'none'
+        }
       }
     },
     activeBar: {
-      bottom: 0,
-      background: colors.primary[500],
-      height: '3px',
-      'border-radius': '3px'
+      horizontal: {
+        background: colors.primary[500],
+        height: borderWidths.lg
+      },
+      vertical: {
+        background: colors.primary[500],
+        width: borderWidths.lg
+      }
     }
   }
 }

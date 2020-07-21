@@ -1,8 +1,8 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import { bool, func, node, number, object, oneOf, oneOfType, string } from 'prop-types'
 import { useDropzone } from 'react-dropzone'
-import { CrossIcon } from '@welcome-ui/icons.cross'
-import { PencilIcon } from '@welcome-ui/icons.pencil'
+import { TrashIcon } from '@welcome-ui/icons.trash'
+import { EditIcon } from '@welcome-ui/icons.edit'
 import { Button } from '@welcome-ui/button'
 import { Group } from '@welcome-ui/group'
 import { createEvent, validateFileSize, validateMimeType } from '@welcome-ui/utils'
@@ -28,11 +28,11 @@ export const FileDrop = forwardRef(
       maxSize = DEFAULT_MAX_FILE_SIZE,
       multiple,
       name,
-      onAddFile,
+      handleAddFile,
       onBlur,
       onChange,
       onError,
-      onRemoveFile,
+      handleRemoveFile,
       value,
       forceFileType,
       ...rest
@@ -59,7 +59,7 @@ export const FileDrop = forwardRef(
 
       const event = createEvent({ name, value: file })
       onChange && onChange(event)
-      onAddFile && onAddFile(event)
+      handleAddFile && handleAddFile(event)
     }
 
     const handleDropRejected = files => {
@@ -81,14 +81,14 @@ export const FileDrop = forwardRef(
       onBlur && onBlur() // Trigger field touch
     }
 
-    const handleRemoveFile = e => {
+    const handleRemoveClick = e => {
       e.preventDefault()
       setFile(null)
       setError(null)
 
       const event = createEvent({ name, value: null })
       onChange && onChange(event)
-      onRemoveFile && onRemoveFile(event)
+      handleRemoveFile && handleRemoveFile(event)
     }
 
     const {
@@ -121,6 +121,7 @@ export const FileDrop = forwardRef(
           isDragAccept,
           isDragReject,
           isClearable,
+          disabled,
           ref
         })}
         {...rest}
@@ -149,19 +150,25 @@ export const FileDrop = forwardRef(
             <S.Actions>
               <Group>
                 {(error || isEditable) && (
-                  <Button onClick={open} shape="square" size="sm" type="button" variant="secondary">
-                    <PencilIcon />
+                  <Button
+                    onClick={open}
+                    shape="square"
+                    size="sm"
+                    type="button"
+                    variant="quaternary"
+                  >
+                    <EditIcon />
                   </Button>
                 )}
                 {isClearable && (
                   <Button
-                    onClick={handleRemoveFile}
+                    onClick={handleRemoveClick}
                     shape="square"
                     size="sm"
                     type="button"
                     variant="primary-danger"
                   >
-                    <CrossIcon />
+                    <TrashIcon />
                   </Button>
                 )}
               </Group>
@@ -176,23 +183,23 @@ export const FileDrop = forwardRef(
 FileDrop.type = 'FileDrop'
 FileDrop.displayName = 'FileDrop'
 
-FileDrop.propTypes = /* remove-proptypes */ {
+FileDrop.propTypes /* remove-proptypes */ = {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg"  */
   accept: string,
   children: func,
   disabled: bool,
   forceFileType: oneOf(['image', 'audio', 'video']),
+  handleAddFile: func,
+  handleRemoveFile: func,
   isClearable: bool,
   isEditable: bool,
   maxSize: number,
   multiple: bool,
   name: string.isRequired,
-  onAddFile: func,
   onBlur: func,
   onChange: func,
   onError: func,
   onFocus: func,
-  onRemoveFile: func,
   title: oneOfType([string, node]),
   value: oneOfType([string, object])
 }

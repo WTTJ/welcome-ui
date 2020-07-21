@@ -1,6 +1,0 @@
-export default {
-  width: 15,
-  height: 15,
-  block:
-    '<defs><path id="gb-a" d="M0 0h100v71.429H0z"/></defs><g fill="none" fill-rule="evenodd" transform="translate(0 14)"><mask id="gb-b" fill="#fff"><use xlink:href="#gb-a"/></mask><use fill="#FFF" xlink:href="#gb-a"/><path fill="#0A17A7" mask="url(#gb-b)" d="M0 0h100v71.429H0z"/><path fill="#FFF" d="M104.58-6.844l5.326 7.895-33.74 22.758H100v23.81H76.165l33.74 22.758-5.325 7.896-42.676-28.785V76.19H38.096V49.488L-4.58 78.273l-5.326-7.896 33.74-22.758H0v-23.81h23.834L-9.906 1.05l5.326-7.895L38.095 21.94V-4.762h23.81v26.703L104.58-6.844z" mask="url(#gb-b)"/><path stroke="#DB1F35" stroke-linecap="round" stroke-width="2.381" mask="url(#gb-b)" d="M66.671 22.615l45.234-29.758"/><path stroke="#DB1F35" stroke-linecap="round" stroke-width="2.381" mask="url(#gb-b)" transform="matrix(1 0 0 -1 0 125.17)" d="M71.474 76.251l40.55-27.331"/><path stroke="#DB1F35" stroke-linecap="round" stroke-width="2.381" mask="url(#gb-b)" d="M28.591 22.537L-13.705-5.968"/><path stroke="#DB1F35" stroke-linecap="round" stroke-width="2.381" mask="url(#gb-b)" transform="matrix(1 0 0 -1 0 128.27)" d="M33.179 79.68l-46.884-31.091"/><path fill="#E6273E" mask="url(#gb-b)" d="M0 42.857h42.857v28.572h14.286V42.857H100V28.571H57.143V0H42.857v28.571H0z"/></g>'
-}

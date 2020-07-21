@@ -1,0 +1,56 @@
+export { getStaticProps } from '../../getStaticProps'
+
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version
+} from '@welcome-ui/radio-tab/package.json'
+
+# Radio Tab
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+```jsx
+<Form initialValues={{ social_1: 'twitter', social_2: 'xing' }}>
+  <ConnectedField
+    component={RadioGroup}
+    flexDirection="row"
+    label="Social networks"
+    mb="xl"
+    name="social_1"
+    options={constants.ITEMS}
+    renderOption={RadioTab}
+    required
+  />
+  <ConnectedField
+    component={RadioGroup}
+    label="Social networks"
+    mb="xl"
+    name="social_2"
+    options={constants.ITEMS}
+    renderOption={RadioTab}
+    required
+    width={1 / 3}
+  />
+</Form>
+```
+
+## Properties
+
+<props propTypes={props.propTypes.RadioTab} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

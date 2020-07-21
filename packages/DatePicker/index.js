@@ -1,15 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import {
-  bool,
-  elementType,
-  func,
-  number,
-  object,
-  oneOf,
-  oneOfType,
-  shape,
-  string
-} from 'prop-types'
+import { bool, func, number, object, oneOf, oneOfType, shape, string } from 'prop-types'
 import {
   CustomHeader,
   CustomInput,
@@ -19,7 +9,7 @@ import {
   StyledDatePicker
 } from '@welcome-ui/date-time-picker-common'
 
-import { COMPONENT_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
+import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 
 export const DatePicker = forwardRef(
   (
@@ -27,6 +17,7 @@ export const DatePicker = forwardRef(
       autoFocus,
       dataTestId,
       dateFormat = 'dd/MM/yyyy',
+      disabled,
       endYear = DEFAULT_DATE.getFullYear(),
       icon,
       iconPlacement = 'left',
@@ -122,6 +113,7 @@ export const DatePicker = forwardRef(
           />
         }
         dateFormat={dateFormat}
+        disabled={disabled}
         locale={locale}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
@@ -146,10 +138,11 @@ DatePicker.displayName = 'DatePicker'
 DatePicker.propTypes /* remove-proptypes */ = {
   autoFocus: bool,
   dateFormat: string,
+  disabled: bool,
   endYear: number,
   icon: oneOfType(COMPONENT_TYPE),
   iconPlacement: oneOf(['right', 'left']),
-  inputRef: shape({ current: elementType }),
+  inputRef: oneOfType([func, shape({ current: object })]),
   locale: object,
   onBlur: func,
   onChange: func,
@@ -159,5 +152,5 @@ DatePicker.propTypes /* remove-proptypes */ = {
   size: oneOf(SIZES_TYPE),
   startYear: number,
   useWeekdaysShort: bool,
-  value: oneOfType([number, object, string]).isRequired
+  value: oneOfType([number, object, string])
 }

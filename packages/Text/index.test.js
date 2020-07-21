@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '../../src/utils/tests'
+import { render } from '../../utils/tests'
 
 import { Text } from './index'
 
@@ -16,7 +16,7 @@ describe('<Text>', () => {
     expect(text).toHaveTextContent(content)
     // check if is a p element
     expect(container.querySelector('p')).toBeInTheDocument()
-    expect(text).toHaveStyleRule('font-size', '1.0625rem')
+    expect(text).toHaveStyleRule('font-size', '1rem')
   })
 
   it('should render correctly with a variant', () => {
@@ -30,7 +30,7 @@ describe('<Text>', () => {
     expect(text).toHaveTextContent(content)
     // check if is a h1 element
     expect(container.querySelector('h1')).toBeInTheDocument()
-    expect(text).toHaveStyleRule('font-size', '2.25rem')
+    expect(text).toHaveStyleRule('font-size', '2.8125rem')
   })
 
   it('should render correctly with a as property', () => {

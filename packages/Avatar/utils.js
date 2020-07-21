@@ -5,7 +5,8 @@ export function getSeededColor(colors, seed) {
 }
 
 export function getInitials(name) {
-  let [firstWord, lastWord] = name.split(' ')
+  const formattedName = name && name.replace(/\W+/gm, ' ')
+  let [firstWord, lastWord] = formattedName.split(' ')
 
   if (firstWord && lastWord) {
     return `${firstWord.charAt(0).toUpperCase()}${lastWord.charAt(0).toUpperCase()}`

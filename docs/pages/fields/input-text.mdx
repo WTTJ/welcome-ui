@@ -1,0 +1,134 @@
+export { getStaticProps } from '../../getStaticProps'
+
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version
+} from '@welcome-ui/input-text/package.json'
+
+# InputText
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Default
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField
+    name="firstName"
+    component={InputText}
+    placeholder="Boaty"
+    label="First name"
+    required
+  />
+</Form>
+```
+
+## Clearable
+
+Use the `isClearable` prop to add a cross button to remove the content (value) of the `TextInput`
+
+```jsx
+<Form initialValues={{ firstName2: 'Trevor' }}>
+  <ConnectedField
+    component={InputText}
+    isClearable
+    label="First name"
+    name="firstName2"
+    placeholder="Boaty"
+  />
+</Form>
+```
+
+## Icon
+
+Pass an `icon` through to decorate your `InputText`
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField
+    component={InputText}
+    icon={<AvatarIcon color="light.100" />}
+    label="First name"
+    name="firstName3"
+    placeholder="Boaty"
+  />
+</Form>
+```
+
+## Sizes
+
+```jsx
+<Form initialValues={{}}>
+  <Stack spacing="xl">
+    <ConnectedField
+      component={InputText}
+      label="I'm a small sized field"
+      name="small"
+      placeholder="Placeholder"
+      size="sm"
+    />
+    <ConnectedField
+      component={InputText}
+      label="I'm a medium sized field"
+      name="medium"
+      placeholder="Placeholder"
+      size="md"
+    />
+    <ConnectedField
+      component={InputText}
+      label="I'm a large sized field which is my default size"
+      name="large"
+      placeholder="Placeholder"
+    />
+  </Stack>
+</Form>
+```
+
+## Inline
+
+```jsx
+<Form initialValues={{ firstName4: 'Trevor' }}>
+  <ConnectedField
+    component={InputText}
+    flexDirection="row"
+    label="First name"
+    name="firstName4"
+    placeholder="Boaty"
+    required
+  />
+</Form>
+```
+
+## Disabled
+
+```jsx
+<Form initialValues={{ firstName5: 'Trevor' }}>
+  <ConnectedField
+    component={InputText}
+    disabled
+    label="First name"
+    name="firstName5"
+    placeholder="Boaty"
+    required
+  />
+</Form>
+```
+
+## Properties
+
+<props propTypes={props.propTypes.InputText} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

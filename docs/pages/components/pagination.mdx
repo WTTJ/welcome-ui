@@ -1,0 +1,92 @@
+export { getStaticProps } from '../../getStaticProps'
+
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version
+} from '@welcome-ui/pagination/package.json'
+
+# Pagination
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+`onChange` return page selected.
+
+```jsx
+function() {
+  const [page, setPage] = useState(8)
+
+  return (
+    <Pagination
+      aria-label="Pagination"
+      getHref={page => `?page=${page}`}
+      page={page}
+      onChange={setPage}
+      pageCount={10}
+    />
+  )
+}
+```
+
+## Range display
+
+When your range display is above your pageCount, all the pages are shown.<br />Change range with `rangeDisplay`, by default it is `5`.
+
+```jsx
+function() {
+  const [page, setPage] = useState(1)
+
+  return (
+    <Pagination
+      aria-label="Pagination"
+      getHref={page => `?page=${page}`}
+      page={page}
+      onChange={setPage}
+      pageCount={5}
+      rangeDisplay={10}
+    />
+  )
+}
+```
+
+## Custom previous & next
+
+Set custom previous and next buttons using `leftArrow` and `rightArrow`.
+
+```jsx
+function() {
+  const [page, setPage] = useState(5)
+
+  return (
+    <Pagination
+      aria-label="Pagination"
+      getHref={page => `?page=${page}`}
+      page={page}
+      onChange={setPage}
+      pageCount={10}
+      leftArrow={<CrownIcon size="xs" />}
+      rightArrow={<CrownIcon size="xs" />}
+    />
+  )
+}
+```
+
+## Properties
+
+<props propTypes={props.propTypes.Pagination} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

@@ -5,8 +5,8 @@ import { ConnectedField } from '@welcome-ui/connected-field'
 import { Icon } from '@welcome-ui/icon'
 import { Shape } from '@welcome-ui/shape'
 
-import { Form, getFormValues } from '../../docz/Form'
-import { render } from '../../src/utils/tests'
+import { Form, getFormValues } from '../../utils/Form'
+import { render } from '../../utils/tests'
 
 import { Search } from './index'
 
@@ -19,7 +19,7 @@ const results = [
 ]
 
 const defaultProps = {
-  itemToString: item => item.Title,
+  itemToString: item => item.title,
   // eslint-disable-next-line react/display-name
   renderItem: item => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -95,8 +95,7 @@ test('<Search> can choose option', async () => {
   const options = await waitForElement(() => getByRole('listbox').querySelectorAll('li'))
   fireEvent.click(options[1])
 
-  // TODO: Fix this
-  // expect(search.value).toEqual(results[1].title)
+  expect(search.value).toEqual(results[1].title)
 
   const formValues = getFormValues(getByTestId('values'))
   expect(formValues.search).toStrictEqual(results[1])
@@ -160,7 +159,7 @@ test.skip('<Search icon> shows icon', () => {
       <ConnectedField
         component={Search}
         dataTestId="search"
-        icon={<Icon color="nude.500" name="avatar" />}
+        icon={<Icon color="light.100" name="avatar" />}
         label="Search"
         name="search"
         {...defaultProps}

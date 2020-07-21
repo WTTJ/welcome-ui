@@ -1,10 +1,12 @@
 {
   "name": "@welcome-ui/themes.welcome",
-  "version": "1.26.2",
+  "version": "2.0.0-alpha.22",
   "description": "welcome-ui: Welcome theme",
   "main": "dist/themes.welcome.cjs.js",
   "module": "dist/themes.welcome.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {

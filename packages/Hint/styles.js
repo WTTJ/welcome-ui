@@ -5,7 +5,7 @@ import { getVariantColor } from '@welcome-ui/utils'
 
 export const Hint = styled.div(
   ({ variant }) => css`
-    ${th('fields.hint')};
+    ${th('hints')};
     color: ${getVariantColor(variant)};
     margin-top: sm;
     display: flex;

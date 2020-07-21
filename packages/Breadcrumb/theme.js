@@ -1,27 +1,28 @@
-import { css } from '@xstyled/styled-components'
+export const getBreadcrumbs = theme => {
+  const { colors, fontSizes, fontWeights, space } = theme
 
-export const getBreadcrumbs = () => {
   return {
-    list: css`
-      font-size: body3;
-      font-weight: medium;
-    `,
-    item: {
-      default: css`
-        color: inherit;
-        text-decoration: none;
-        transition: medium;
-        padding: sm 0;
-      `,
-      hover: css`
-        color: primary.200;
-      `,
-      active: css`
-        color: primary.500;
-      `
+    list: {
+      fontSize: fontSizes.body3,
+      fontWeight: fontWeights.medium,
+      lineHeight: '1.92',
+      padding: `${space.sm} 0`
     },
-    separator: css`
-      padding: 0 sm;
-    `
+    item: {
+      default: {
+        textDecoration: 'none',
+        color: colors.light[100]
+      },
+      hover: {
+        color: colors.dark[900]
+      },
+      active: {
+        color: colors.dark[900]
+      }
+    },
+    separator: {
+      padding: `0 ${space.sm}`,
+      color: colors.light[100]
+    }
   }
 }

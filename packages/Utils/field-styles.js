@@ -3,28 +3,27 @@ import { th } from '@xstyled/system'
 
 import { getVariantColor } from './variants'
 
-export const fieldStyles = ({ size, type, variant }) => css`
-  ${th('fields.default')};
+export const defaultFieldStyles = ({ size, variant }) => css`
+  ${th('defaultFields.default')};
   width: 100%;
   border-color: ${getVariantColor(variant)};
   transition: medium;
   appearance: none;
-  ${size && th(`fields.sizes.${size}`)};
+  ${size && th(`defaultFields.sizes.${size}`)};
 
   &::placeholder {
-    ${th('fields.placeholder')};
+    ${th('defaultFields.placeholder')};
   }
 
   &:focus {
-    ${th('fields.focused')};
+    ${th('defaultFields.focused.default')};
+    border-color: ${getVariantColor(variant)};
+    ${variant === 'error' && th('defaultFields.focused.error')};
+    ${variant === 'warning' && th('defaultFields.focused.warning')};
   }
 
   &[disabled] {
-    ${th('fields.disabled')};
-  }
-
-  &[aria-checked='true'] {
-    ${['radio', 'checkbox'].includes(type) && th(`fields.${type}.checked`)};
+    ${th('defaultFields.disabled')};
   }
 
   &:invalid,

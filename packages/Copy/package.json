@@ -1,10 +1,12 @@
 {
   "name": "@welcome-ui/utils.copy",
-  "version": "1.20.0",
+  "version": "2.0.0-alpha.22",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/copy.cjs.js",
   "module": "dist/copy.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {

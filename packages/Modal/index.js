@@ -1,13 +1,14 @@
+/* eslint-disable react/no-multi-comp */
 import React from 'react'
-import { Dialog, DialogBackdrop, DialogDisclosure, useDialogState } from 'reakit/Dialog'
-import { Portal } from 'reakit/Portal'
+import { DialogDisclosure, useDialogState } from 'reakit/Dialog'
 import { bool, func, node, oneOf, string } from 'prop-types'
+import { Text } from '@welcome-ui/text'
 
 import * as S from './styles'
 import { Close } from './Close'
 
 export function useModalState(options) {
-  return useDialogState(options)
+  return useDialogState({ animated: true, ...options })
 }
 
 export function Modal({
@@ -26,33 +27,24 @@ export function Modal({
   }
 
   return (
-    <>
-      <Portal>
-        <DialogBackdrop {...rest}>
-          <S.Backdrop hideOnClickOutside={hideOnClickOutside} />
-        </DialogBackdrop>
-      </Portal>
-      <Dialog
+    <S.Backdrop {...rest} hideOnClickOutside={hideOnClickOutside}>
+      <S.Dialog
         aria-label={ariaLabel}
         hide={closeModal}
         hideOnClickOutside={hideOnClickOutside}
+        size={size}
         {...rest}
       >
-        <S.Dialog size={size}>
-          <CloseElement onClick={closeModal} size="sm" variant="secondary" />
-          {children}
-        </S.Dialog>
-      </Dialog>
-    </>
+        <CloseElement onClick={closeModal} size="sm" variant="tertiary" />
+        {children}
+      </S.Dialog>
+    </S.Backdrop>
   )
 }
 
-Modal.Trigger = DialogDisclosure
-Modal.Content = S.Content
-Modal.Footer = S.Footer
-Modal.Cover = S.Cover
+Modal.displayName = 'Modal'
 
-Modal.propTypes = {
+Modal.propTypes /* remove-proptypes */ = {
   ariaLabel: string.isRequired,
   children: node.isRequired,
   /** Replace the default close button */
@@ -66,3 +58,12 @@ Modal.propTypes = {
   /**  auto adapt on the width of child element */
   size: oneOf(['sm', 'md', 'lg', 'auto'])
 }
+
+const Title = props => <S.Title as={Text} m="0" variant="h4" {...props} />
+
+// Nested exports
+Modal.Trigger = DialogDisclosure
+Modal.Content = S.Content
+Modal.Title = Title
+Modal.Footer = S.Footer
+Modal.Cover = S.Cover

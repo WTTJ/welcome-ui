@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { bool, elementType, func, oneOf, string } from 'prop-types'
 
-import { DIRECTIONS_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
+import { DIRECTIONS_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 
@@ -15,7 +15,7 @@ export const RadioTab = forwardRef((props, ref) => {
     label,
     onChange,
     onClick,
-    size,
+    size = 'lg',
     variant,
     ...rest
   } = props

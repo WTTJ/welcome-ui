@@ -4,7 +4,7 @@ import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 
 // Common
-import { COMPONENT_TYPE, DIRECTIONS_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
+import { COMPONENT_TYPE, DIRECTIONS_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 
 // Fields
 import { RowContainer } from './layout'
@@ -47,6 +47,7 @@ export const Field = forwardRef(
 
     const baseType = getBaseType(type || Component.displayName)
     const isRadio = baseType === 'radio'
+    const isToggle = Component.displayName === 'Toggle'
     const isCheckbox = baseType === 'checkbox'
     const isCheckable = isRadio || isCheckbox
     const variant = getVariant({
@@ -129,6 +130,7 @@ export const Field = forwardRef(
               onClick={handleLabelClick}
               required={isShowRequired}
               variant={variant}
+              withDisabledIcon={!isToggle}
             >
               {isCheckable && <S.Input>{Field}</S.Input>}
               <S.Content>{label}</S.Content>

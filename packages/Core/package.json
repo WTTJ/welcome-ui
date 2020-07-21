@@ -1,10 +1,12 @@
 {
   "name": "@welcome-ui/core",
-  "version": "1.27.0",
+  "version": "2.0.0-alpha.23",
   "description": "welcome-ui: Core utils",
   "main": "dist/core.cjs.js",
   "module": "dist/core.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {
@@ -33,7 +35,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/utils": "^1.27.0",
+    "@welcome-ui/utils": "^2.0.0-alpha.22",
     "polished": "^3.4.1",
     "ramda": "^0.27.0"
   },

@@ -10,7 +10,7 @@ The Themes component from [@welcome-ui](http://welcome-ui.com).
 
 ## Import
 
-    import { darkTheme, welcomeTheme, welcomeKitTheme, wttjTheme } from '@welcome-ui/themes'
+    import { darkTheme, welcomeTheme, wttjTheme } from '@welcome-ui/themes'
 
 ## Documentation
 

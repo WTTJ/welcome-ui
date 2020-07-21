@@ -8,12 +8,12 @@ export const Wrapper = styled.div`
 `
 
 export const Swiper = styled.ul(
-  ({ translateX }) => css`
+  ({ slidesToShow, translateX }) => css`
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    width: 100%;
+    width: ${100 / slidesToShow}%;
     height: 100%;
     transition: transform 0.5s ease-out;
     transform: translateX(${translateX}%);
@@ -34,7 +34,7 @@ export const Pagination = styled.div`
   z-index: 10;
   bottom: 0;
   width: 100%;
-  margin-bottom: sm;
+  padding: sm;
 `
 
 export const Bullet = styled.div(
@@ -55,7 +55,9 @@ const navigationStyles = css`
   top: 0;
   display: flex;
   align-items: center;
-  cursor: pointer;
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${props => (props.disabled ? 0.25 : 1)};
+  pointer-events: ${props => (props.disabled ? 'none' : null)};
   z-index: 20;
 `
 

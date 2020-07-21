@@ -1,21 +1,23 @@
 export const getAccordions = theme => {
-  const { colors, fontSizes, fontWeights, radii, toRem } = theme
+  const { borderWidths, colors, fontSizes, fontWeights, toRem } = theme
 
   return {
     padding: toRem(20),
     wrapper: {
-      'background-color': colors.light[500],
-      'border-radius': radii.md
+      backgroundColor: colors.light[900],
+      border: `${borderWidths.sm} solid ${colors.light[800]}`
     },
     icon: {
-      color: colors.nude[600]
+      color: colors.dark[900]
     },
     content: {
-      'font-size': fontSizes.body2
+      color: colors.dark[200],
+      fontSize: fontSizes.body3
     },
     title: {
-      color: colors.secondary[500],
-      'font-weight': fontWeights.medium
+      color: colors.dark[900],
+      fontSize: fontSizes.h5,
+      fontWeight: fontWeights.bold
     }
   }
 }

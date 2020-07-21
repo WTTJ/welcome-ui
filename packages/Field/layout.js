@@ -7,11 +7,13 @@ const getFlexStyles = (align, justify, direction) => css`
   justify-content: ${justify || 'flex-start'};
 `
 
-export const FlexContainer = styled.div`
-  flex-direction: ${props => props.direction || null};
-  flex: ${props => props.flex || null};
-  ${({ align, direction, justify }) => getFlexStyles(align, justify, direction)};
-`
+export const FlexContainer = styled.div(
+  ({ align, direction, flex, justify }) => css`
+    flex-direction: ${direction || null};
+    flex: ${flex || null};
+    ${getFlexStyles(align, justify, direction)};
+  `
+)
 
 export const RowContainer = styled(({ direction, ...rest }) => (
   <FlexContainer {...rest} direction="row" />

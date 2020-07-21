@@ -1,7 +1,10 @@
 import React from 'react'
 import { func, object, shape, string } from 'prop-types'
+import { th } from '@xstyled/system'
 import styled, { css } from '@xstyled/styled-components'
 import { cardStyles } from '@welcome-ui/utils'
+
+import { datePickerStyles } from './datePickerStyles'
 
 export const CustomPopper = ({ children }) => {
   if (!children) {
@@ -24,6 +27,7 @@ CustomPopper.propTypes /* remove-proptypes */ = {
 
 const StyledCustomPopper = styled.div(
   ({ popperStyles }) => css`
+    ${datePickerStyles};
     .react-datepicker-popper {
       ${popperStyles};
     }
@@ -37,6 +41,10 @@ const StyledCustomPopper = styled.div(
         .react-datepicker__time-box {
           border-radius: 0;
         }
+      }
+
+      &__time {
+        background-color: inherit;
       }
     }
 
@@ -85,6 +93,10 @@ const StyledCustomPopper = styled.div(
       }
     }
 
+    .react-datepicker__day--today {
+      ${th('dateTimePickerCommon.item.today')};
+    }
+
     .react-datepicker__day:hover,
     .react-datepicker__month-text:hover,
     .react-datepicker__time-container
@@ -124,23 +136,15 @@ const StyledCustomPopper = styled.div(
     .react-datepicker__month-text--selected,
     .react-datepicker__month-text--in-selecting-range,
     .react-datepicker__month-text--in-range {
-      color: light.900;
-      font-weight: bold;
-      background-color: primary.500;
+      ${th('dateTimePickerCommon.item.selected')};
       &:hover {
-        color: light.900;
-        font-weight: bold;
-        background-color: primary.500;
+        ${th('dateTimePickerCommon.item.selected')};
       }
     }
 
     .react-datepicker__day-names,
     .react-datepicker__month {
       margin: 0 -0.45rem;
-    }
-
-    .react-datepicker__day--today {
-      font-weight: bold;
     }
 
     .react-datepicker__month-text--today,

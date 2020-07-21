@@ -20,5 +20,5 @@ Hint.displayName = 'Hint'
 Hint.propTypes /* remove-proptypes */ = {
   checkableField: bool,
   children: node,
-  variant: oneOf(['warning', 'error'])
+  variant: oneOf(['warning', 'error', 'info', 'success'])
 }

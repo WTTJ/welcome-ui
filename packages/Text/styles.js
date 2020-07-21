@@ -9,13 +9,13 @@ const getBlockHeight = lines => css`
   -webkit-box-orient: vertical;
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-line-clamp: ${lines || 'none'};
+  line-height: normal;
   overflow: hidden;
 `
 
 export const Text = styled.p(
-  ({ lines, underline, variant }) => css`
+  ({ lines, variant }) => css`
     ${th(`texts.${variant}`)};
-    ${underline && th('underline')};
 
     /* Start fallback for non-webkit */
     display: block;

@@ -1,12 +1,12 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { componentSystem, filterFieldComponent, system } from '@welcome-ui/system'
-import { fieldStyles } from '@welcome-ui/utils'
+import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
+import { defaultFieldStyles } from '@welcome-ui/utils'
 
-export const Textarea = styled(filterFieldComponent('textarea'))(
+export const Textarea = styled('textarea').withConfig({ shouldForwardProp })(
   ({ connected }) => css`
-    ${fieldStyles};
-    ${th('fields.textarea')};
+    ${defaultFieldStyles};
+    ${th('textareas')};
     line-height: body1;
     padding: sm;
     ${connected ? componentSystem : system};

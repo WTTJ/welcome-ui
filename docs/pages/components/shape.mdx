@@ -1,0 +1,77 @@
+export { getStaticProps } from '../../getStaticProps'
+
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version
+} from '@welcome-ui/shape/package.json'
+
+# Shape
+
+<tagversion version={version} name={name} />
+
+Overflow child with hidden child.
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Default
+
+Add `width` and `height` to set size of shape.
+
+```jsx
+<Shape width="150px" height="150px">
+  <img src="https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif" />
+</Shape>
+```
+
+## Border radius
+
+Add `borderRadius` from theme or what you want.
+
+```jsx
+<Shape width="150px" height="150px" borderRadius="lg">
+  <img src="https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif" />
+</Shape>
+```
+
+## Shape
+
+Set `shape` prop to `square`…
+
+```jsx
+<Shape width="150px" height="150px" shape="square">
+  <img src="https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif" />
+</Shape>
+```
+
+… or set it to `circle`.
+
+```jsx
+<Shape width="150px" height="150px" shape="circle">
+  <img src="https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif" />
+</Shape>
+```
+
+also, using `shape` with unequal sizes will match the biggest value between width / height.
+
+```jsx
+<Shape width="1px" height="50px" shape="circle">
+  <img src="https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif" />
+</Shape>
+```
+
+## Properties
+
+<props propTypes={props.propTypes.Shape} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />
