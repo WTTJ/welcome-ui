@@ -16,7 +16,7 @@ export const Layout = ({ children }) => {
   return (
     <S.Layout>
       <Header />
-      <Box margin="0 auto" maxWidth={1} paddingLeft={{ xs: 0, md: 270 }} width={1280}>
+      <Box margin="0 auto" maxWidth={1} paddingLeft={{ md: 270 }} width={1280}>
         <Box
           as="main"
           mb={{ xs: '3xl', md: 0 }}
