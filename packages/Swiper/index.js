@@ -121,6 +121,10 @@ export const useSwiper = (props = {}) => {
   const [numberOfSlides, setNumberOfSlides] = useState(0)
   const [pageIdx, setPageIdx] = useState(0)
 
+  const lastSlideIdx = numberOfSlides
+    ? Math.ceil((numberOfSlides - slidesToShow) / slidesToSwipe) + 1
+    : 0
+
   // Add autoplay
   useInterval(
     () => {
@@ -132,14 +136,9 @@ export const useSwiper = (props = {}) => {
   )
 
   const goNext = () => {
-    let nextPageIdx
-    if (loop) {
-      nextPageIdx = pageIdx + slidesToSwipe
-    } else {
-      nextPageIdx = Math.min(pageIdx + slidesToSwipe, numberOfSlides - slidesToSwipe)
-    }
+    const nextPageIdx = pageIdx + slidesToSwipe
 
-    if (nextPageIdx < numberOfSlides) {
+    if (nextPageIdx < lastSlideIdx) {
       setPageIdx(nextPageIdx)
     } else if (loop) {
       setPageIdx(0)
@@ -151,8 +150,8 @@ export const useSwiper = (props = {}) => {
 
     if (prevPageIdx >= 0) {
       setPageIdx(prevPageIdx)
-    } else if (numberOfSlides - 1 >= 0 && loop) {
-      setPageIdx(numberOfSlides - 1)
+    } else if (loop) {
+      setPageIdx(lastSlideIdx - 1)
     }
   }
 

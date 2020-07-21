@@ -57,6 +57,7 @@ const navigationStyles = css`
   align-items: center;
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   opacity: ${props => (props.disabled ? 0.25 : 1)};
+  pointer-events: ${props => (props.disabled ? 'none' : null)};
   z-index: 20;
 `
 
