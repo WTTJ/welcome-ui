@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+import { createGlobalStyle, css } from '@xstyled/styled-components'
+import { node, string } from 'prop-types'
 
 export const hideFocusRingsDataAttribute = 'data-wui-hidefocusrings'
 
 // Based on braid's solution:
 // https://github.com/seek-oss/braid-design-system/blob/9ea04cade0303309e956d943e88a9e613a19c333/lib/components/private/hideFocusRings/HideFocusRingsRoot.tsx
-export const HideFocusRingsRoot = ({ children }) => {
+
+const HideFocusRingGlobalStyles = createGlobalStyle(
+  () => css`
+  [${hideFocusRingsDataAttribute}] *:focus {
+    outline: none
+  }
+`
+)
+
+export const HideFocusRingsRoot = ({ children, reactRootId }) => {
   const [hideFocusRings, setHideFocusRings] = useState(false)
 
   useEffect(() => {
@@ -14,15 +24,27 @@ export const HideFocusRingsRoot = ({ children }) => {
 
     window.addEventListener(eventName, toggleFocusRings)
 
+    const rootElement = document.getElementById(reactRootId)
+    if (rootElement) {
+      hideFocusRings
+        ? rootElement.setAttribute(hideFocusRingsDataAttribute, true)
+        : rootElement.removeAttribute(hideFocusRingsDataAttribute)
+    }
+
     return () => {
       window.removeEventListener(eventName, toggleFocusRings)
     }
-  }, [hideFocusRings])
+  }, [hideFocusRings, reactRootId])
 
-  const props = hideFocusRings ? { [hideFocusRingsDataAttribute]: true } : {}
-  return <div {...props}>{children}</div>
+  return (
+    <>
+      <HideFocusRingGlobalStyles />
+      {children}
+    </>
+  )
 }
 
 HideFocusRingsRoot.propTypes /* remove-proptypes */ = {
-  children: PropTypes.node.isRequired
+  children: node.isRequired,
+  reactRootId: string
 }

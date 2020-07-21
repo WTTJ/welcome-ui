@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, node, object } from 'prop-types'
+import { bool, node, object, string } from 'prop-types'
 import { ThemeProvider } from '@xstyled/styled-components'
 import { HideFocusRingsRoot } from '@welcome-ui/utils'
 
@@ -8,6 +8,7 @@ import { GlobalStyle } from './utils/base'
 export const WuiProvider = ({
   children,
   hasGlobalStyle = true,
+  reactRootId = 'root',
   shouldHideFocusRingOnClick = true,
   theme
 }) => {
@@ -16,7 +17,7 @@ export const WuiProvider = ({
       <>
         {hasGlobalStyle && <GlobalStyle />}
         {shouldHideFocusRingOnClick ? (
-          <HideFocusRingsRoot>{children}</HideFocusRingsRoot>
+          <HideFocusRingsRoot reactRootId={reactRootId}>{children}</HideFocusRingsRoot>
         ) : (
           children
         )}
@@ -30,6 +31,7 @@ WuiProvider.displayName = 'WuiProvider'
 WuiProvider.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   hasGlobalStyle: bool,
+  reactRootId: string,
   shouldHideFocusRingOnClick: bool,
   theme: object
 }
