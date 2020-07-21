@@ -183,7 +183,7 @@ export const FileDrop = forwardRef(
 FileDrop.type = 'FileDrop'
 FileDrop.displayName = 'FileDrop'
 
-FileDrop.propTypes = /* remove-proptypes */ {
+FileDrop.propTypes /* remove-proptypes */ = {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg"  */
   accept: string,
   children: func,

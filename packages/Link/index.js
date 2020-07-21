@@ -7,14 +7,15 @@ import * as S from './styles'
 
 const isString = value => typeof value === 'string'
 
-export const Link = forwardRef(({ children, dataTestId, variant = 'primary', ...props }, ref) => {
+export const Link = forwardRef((props, ref) => {
+  const { children, dataTestId, variant = 'primary', ...rest } = props
   let clones
   const theme = useTheme()
   const linkRef = useRef()
   const [isChildrenString, setIsChildrenString] = useState(isString(children))
 
-  const WrapWithText = ({ children, ...props }) => (
-    <span className="wui-text" {...props}>
+  const WrapWithText = ({ children, ...rest }) => (
+    <span className="wui-text" {...rest}>
       {children}
     </span>
   )
@@ -43,7 +44,7 @@ export const Link = forwardRef(({ children, dataTestId, variant = 'primary', ...
   }
 
   return (
-    <S.Link data-testid={dataTestId} ref={ref || linkRef} variant={variant} {...props}>
+    <S.Link data-testid={dataTestId} ref={ref || linkRef} variant={variant} {...rest}>
       {isChildrenString && <WrapWithText>{children}</WrapWithText>}
       {clones}
     </S.Link>
@@ -52,7 +53,7 @@ export const Link = forwardRef(({ children, dataTestId, variant = 'primary', ...
 
 Link.displayName = 'Link'
 
-Link.propTypes = {
+Link.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   variant: oneOf(['primary', 'secondary'])
 }

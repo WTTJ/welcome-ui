@@ -1,4 +1,5 @@
-/* eslint-disable react/no-multi-comp, react/no-array-index-key, react/jsx-max-depth */
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/jsx-max-depth */
 import { func, node, number, string } from 'prop-types'
 import React, { forwardRef, useCallback, useMemo, useRef } from 'react'
 import { Rover, useRoverState } from 'reakit/Rover'

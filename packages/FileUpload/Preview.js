@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react'
 import { func, number, oneOfType, shape, string } from 'prop-types'
 import { Tag } from '@welcome-ui/tag'

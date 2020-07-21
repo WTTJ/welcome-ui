@@ -170,7 +170,7 @@ export const useSwiper = (props = {}) => {
   }
 }
 
-Swiper.propTypes = {
+Swiper.propTypes /* remove-proptypes */ = {
   autoplay: bool,
   children: node,
   dataTestId: string,

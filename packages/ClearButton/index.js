@@ -3,14 +3,15 @@ import React from 'react'
 
 import * as S from './styles'
 
-export const ClearButton = ({ ...rest }) => (
-  <S.ClearButton shape="circle" title="Clear" variant="tertiary" {...rest}>
+export const ClearButton = props => (
+  <S.ClearButton shape="circle" title="Clear" variant="tertiary" {...props}>
     <S.Icon />
   </S.ClearButton>
 )
 
-ClearButton.propTypes = {
+ClearButton.propTypes /* remove-proptypes */ = {
   size: oneOf(['xs', 'sm', 'md', 'lg', 'xl'])
 }
 
+// Nested exports
 export const StyledClearButton = S.ClearButton

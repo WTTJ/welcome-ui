@@ -109,7 +109,7 @@ export const Breadcrumb = forwardRef(
 
 Breadcrumb.displayName = 'Breadcrumb'
 
-Breadcrumb.propTypes = /* remove-proptypes */ {
+Breadcrumb.propTypes /* remove-proptypes */ = {
   children: node.isRequired,
   /** color from theme, add for scroll gradient on mobile */
   gradientBackground: string,
@@ -117,4 +117,5 @@ Breadcrumb.propTypes = /* remove-proptypes */ {
   separator: oneOfType([node, string])
 }
 
+// Nested exports
 Breadcrumb.Item = Item
