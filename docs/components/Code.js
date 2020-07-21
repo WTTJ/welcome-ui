@@ -180,7 +180,7 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
     return (
       <LiveProvider {...liveProviderProps}>
         <S.LivePreview className="codeEditor">
-          <Card.Body padding="xl" paddingBottom="lg">
+          <Card.Body color="dark.900" padding="xl" paddingBottom="lg">
             <LivePreview />
             <S.ShowEditor>
               <Button onClick={toggleEditor} size="sm" variant="secondary">
