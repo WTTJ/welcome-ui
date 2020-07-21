@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/pagination",
-  "version": "2.0.0-alpha.26",
+  "version": "2.0.0-alpha.29",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/pagination.cjs.js",
   "module": "dist/pagination.es.js",
@@ -35,10 +35,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/icons.left": "^2.0.0-alpha.26",
-    "@welcome-ui/icons.right": "^2.0.0-alpha.26",
-    "@welcome-ui/system": "^2.0.0-alpha.26",
-    "@welcome-ui/utils": "^2.0.0-alpha.22",
+    "@welcome-ui/icons.left": "^2.0.0-alpha.29",
+    "@welcome-ui/icons.right": "^2.0.0-alpha.29",
+    "@welcome-ui/system": "^2.0.0-alpha.29",
+    "@welcome-ui/utils": "^2.0.0-alpha.29",
     "reakit": "^1.1.1"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/time-picker",
-  "version": "2.0.0-alpha.26",
+  "version": "2.0.0-alpha.29",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/time-picker.cjs.js",
   "module": "dist/time-picker.es.js",
@@ -35,9 +35,9 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/date-time-picker-common": "^2.0.0-alpha.26",
-    "@welcome-ui/system": "^2.0.0-alpha.26",
-    "@welcome-ui/utils": "^2.0.0-alpha.22",
+    "@welcome-ui/date-time-picker-common": "^2.0.0-alpha.29",
+    "@welcome-ui/system": "^2.0.0-alpha.29",
+    "@welcome-ui/utils": "^2.0.0-alpha.29",
     "react-datepicker": "^2.9.6"
   },
   "peerDependencies": {

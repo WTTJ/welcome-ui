@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/universal-link",
-  "version": "2.0.0-alpha.26",
+  "version": "2.0.0-alpha.29",
   "description": "welcome-ui: A UniversalLink component",
   "main": "dist/universal-link.cjs.js",
   "module": "dist/universal-link.es.js",
