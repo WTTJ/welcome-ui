@@ -4,8 +4,12 @@ import SimpleMDE from 'react-simplemde-editor'
 import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
+import { emojiMartStyles } from './emojiMartStyles'
+import { easyMdeStyles } from './easyMdeStyles'
+
 export const Wrapper = styled('div').withConfig({ shouldForwardProp })(
   ({ connected, disabled, focused }) => css`
+    ${easyMdeStyles};
     ${defaultFieldStyles};
     position: relative;
     pointer-events: ${disabled && 'none'};
@@ -72,6 +76,7 @@ export const Divider = styled.div`
 `
 
 export const EmojiPicker = styled.div`
+  ${emojiMartStyles};
   position: absolute;
   z-index: 2;
   top: ${th('space.md')};

@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "Documentation for @welcome-ui components",
   "scripts": {
-    "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next -p 3020"
   },
   "repository": {
     "type": "git",
