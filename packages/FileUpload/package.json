@@ -5,6 +5,8 @@
   "main": "dist/file-upload.cjs.js",
   "module": "dist/file-upload.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {

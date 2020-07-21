@@ -5,6 +5,8 @@
   "main": "dist/badge.cjs.js",
   "module": "dist/badge.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {

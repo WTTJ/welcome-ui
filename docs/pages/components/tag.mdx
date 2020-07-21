@@ -1,0 +1,133 @@
+export { getStaticProps } from '../../getStaticProps'
+
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version
+} from '@welcome-ui/tag/package.json'
+
+# Tag
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Variants
+
+Admire these beautiful colors 💅
+
+### Basics
+
+```jsx row
+<Tag>Default</Tag>
+<Tag variant="primary">Primary</Tag>
+<Tag variant="secondary">Secondary</Tag>
+<Tag variant="dark">Dark</Tag>
+```
+
+### States
+
+```jsx row
+<Tag variant="success">Success</Tag>
+<Tag variant="error">Error</Tag>
+<Tag variant="warning">Warning</Tag>
+<Tag variant="info">Info</Tag>
+```
+
+### Subs
+
+```jsx row
+<Tag variant="1">1</Tag>
+<Tag variant="2">2</Tag>
+<Tag variant="3">3</Tag>
+<Tag variant="4">4</Tag>
+<Tag variant="5">5</Tag>
+<Tag variant="6">6</Tag>
+```
+
+## Sizes
+
+Use size property with `sm` `md` or `lg`.
+
+```jsx row
+<Tag size="sm">
+  Small
+</Tag>
+<Tag size="md">
+  Medium
+</Tag>
+<Tag size="lg">
+  Large
+</Tag>
+```
+
+## One character style
+
+When we have only one character, we apply same size for the width and height (it implicitely sets `shape` prop to `square`)
+
+```jsx row
+<Tag size="sm">
+  1
+</Tag>
+<Tag size="md">
+  1
+</Tag>
+<Tag size="lg">
+  1
+</Tag>
+```
+
+## Shape
+
+Set `shape` prop to `square` to get a square no matter the content.
+
+```jsx row
+<Tag size="lg" shape="square">
+  1
+</Tag>
+<Tag size="lg" shape="square" width={50}>
+  Long text
+</Tag>
+```
+
+Set `shape` prop to `circle` to set a border-radius `50%`.
+
+```jsx
+<Tag size="lg" shape="circle">
+  1
+</Tag>
+```
+
+## OnRemove
+
+Simply add a function `onRemove` to reveal a cross icon with a remove action (or other).
+
+```jsx
+function() {
+  const [isHide, setHide] = useState(false)
+
+  return isHide ? (
+    <Text fontSize="body3" fontWeight="bold" color="danger.500" m={0}>
+      Tag removed
+    </Text>
+  ) : (
+    <Tag onRemove={() => setHide(true)}>Example of remove tag</Tag>
+  )
+}
+```
+
+## Properties
+
+<props propTypes={props.propTypes.Tag} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

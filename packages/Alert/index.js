@@ -1,20 +1,20 @@
 /* eslint-disable react/no-multi-comp */
-import { node, oneOf } from 'prop-types'
 import React, { Children, cloneElement } from 'react'
+import { node, oneOf } from 'prop-types'
 import { Stack } from '@welcome-ui/stack'
 import { Button } from '@welcome-ui/button'
-import { VariantIcon } from '@welcome-ui/variant-icon'
 
 import * as S from './styles'
+import { Title } from './Title'
 
-const Alert = ({ children, variant = 'error', ...rest }) => {
-  const hasTitle = Children.toArray(children).some(child => child.type === AlertTitle)
+export const Alert = ({ children, variant = 'error', ...rest }) => {
+  const hasTitle = Children.toArray(children).some(child => child.type === Title)
   const buttonChild = Children.toArray(children).find(child => child.type === AlertButton)
   const content = Children.toArray(children)
     .filter(child => child.type !== AlertButton)
     .map(child => {
-      // Add variant to AlertTitle to show the correct icon
-      if (child.type === AlertTitle) {
+      // Add variant to Title to show the correct icon
+      if (child.type === Title) {
         return cloneElement(child, { variant })
       }
       return child
@@ -42,26 +42,9 @@ Alert.propTypes /* remove-proptypes */ = {
   variant: oneOf(['success', 'error', 'warning', 'info'])
 }
 
-const AlertTitle = ({ children, icon, variant, ...rest }) => {
-  return (
-    <S.Title variant={variant} {...rest}>
-      <VariantIcon icon={icon} mr="xs" variant={variant} />
-      {children}
-    </S.Title>
-  )
-}
-
-AlertTitle.propTypes /* remove-proptypes */ = {
-  children: node.isRequired,
-  icon: node,
-  variant: oneOf(['success', 'error', 'warning', 'info'])
-}
-
-Alert.Title = AlertTitle
-
-// We need this component to check its existence in <Alert> and to allow uses to add Button in <Alert> content
+// We need this component to check its existence in <Alert> and to allow users to add Button in <Alert> content
 const AlertButton = props => <Button size="sm" {...props} />
 
+// Nested exports
+Alert.Title = Title
 Alert.Button = AlertButton
-
-export { Alert, AlertTitle, AlertButton }

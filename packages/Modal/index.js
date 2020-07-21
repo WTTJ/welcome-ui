@@ -11,10 +11,6 @@ export function useModalState(options) {
   return useDialogState({ animated: true, ...options })
 }
 
-export function ModalTitle(props) {
-  return <S.Title as={Text} m="0" variant="h4" {...props} />
-}
-
 export function Modal({
   ariaLabel,
   children,
@@ -46,13 +42,9 @@ export function Modal({
   )
 }
 
-Modal.Trigger = DialogDisclosure
-Modal.Content = S.Content
-Modal.Title = ModalTitle
-Modal.Footer = S.Footer
-Modal.Cover = S.Cover
+Modal.displayName = 'Modal'
 
-Modal.propTypes = {
+Modal.propTypes /* remove-proptypes */ = {
   ariaLabel: string.isRequired,
   children: node.isRequired,
   /** Replace the default close button */
@@ -66,3 +58,12 @@ Modal.propTypes = {
   /**  auto adapt on the width of child element */
   size: oneOf(['sm', 'md', 'lg', 'auto'])
 }
+
+const Title = props => <S.Title as={Text} m="0" variant="h4" {...props} />
+
+// Nested exports
+Modal.Trigger = DialogDisclosure
+Modal.Content = S.Content
+Modal.Title = Title
+Modal.Footer = S.Footer
+Modal.Cover = S.Cover

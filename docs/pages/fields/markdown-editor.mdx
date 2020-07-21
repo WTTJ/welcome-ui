@@ -1,0 +1,116 @@
+export { getStaticProps } from '../../getStaticProps'
+
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version
+} from '@welcome-ui/markdown-editor/package.json'
+
+# MarkdownEditor
+
+<tagversion version={version} name={name} />
+
+We use [react-simplemde-editor](https://github.com/RIP21/react-simplemde-editor) as a base with the following changes:
+
+- We've added simple styles around it to keep it consistent with our other form fields
+- We've made the toolbar icons more flexible (see below)
+- The toolbar is sticky for when your Markdown gets really long
+- You can insert emojis! 💃
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+````jsx
+<Form
+  initialValues={{
+    welcome:
+      "# Hi!\n## Look at me!\n\nWe've got some **bold** and *italic* text, a cheeky bit of ~~strikethrough~~, some `inline code` and a [link](https://welcometothejungle.com). We can also do inline images by hand ![Milou](https://fr.tintin.com/images/tintin/persos/images/milou.png 'Milou') as well as:\n\n* Unordered lists\n* Unordered lists\n\n1. Ordered lists\n1. Ordered lists\n\nAnd of course the classics:\n\n```\nA code block\nwith multiple lines\n```\n\n> And a quote"
+  }}
+>
+  <ConnectedField
+    component={MarkdownEditor}
+    label="Markdown Editor"
+    name="welcome"
+    placeholder="Placeholder"
+  />
+</Form>
+````
+
+## Toolbar
+
+You can send an array of toolbar items with the shape:
+
+`{ name: 'bold', icon: <i className="fa fa-bold" />, action={item => { // Do something with item }}, title: 'Bold 🌴' }`.
+
+For example, in the toolbar below we're using icons from:
+
+- [FontAwesome](https://fontawesome.com/icons?d=gallery) (bold, italic)
+- [Material Design Iconic Font](https://zavoloklom.github.io/material-design-iconic-font/icons.html): (strikethrough, link)
+- our own [Icons](/icons): (code, quote)
+- and plain text (emoji)
+
+Note: to use FontAwesome or Material Design icons (or any other 3rd-party icon font), you'll have to include the font stylesheet somewhere in your app.
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField
+    component={MarkdownEditor}
+    label="Markdown Editor"
+    name="welcome"
+    placeholder="Placeholder"
+    toolbar={[
+      { name: 'bold', icon: <i className="fa fa-bold" />, title: 'Bold 🌴' },
+      { name: 'italic', icon: <i className="fa fa-italic" /> },
+      { name: 'divider' },
+      { name: 'strikethrough', icon: <i className="zmdi zmdi-format-strikethrough-s" /> },
+      { name: 'link', icon: <i className="zmdi zmdi-link" /> },
+      { name: 'divider' },
+      { name: 'code' },
+      { name: 'quote', title: 'Quote 🌴' },
+      { name: 'divider' },
+      { name: 'emoji', icon: '👌' }
+    ]}
+  />
+</Form>
+```
+
+The default toolbar uses [Welcome UI icons](/components/icon) with the following items:
+
+<code>
+  {`[
+  { name: 'bold', title: 'Bold' },
+  { name: 'italic', title: 'Italic' },
+  { name: 'strikethrough', title: 'Strikethrough' },
+  { name: 'link', title: 'Link' },
+  { name: 'divider' },
+  { name: 'heading_1', title: 'Heading 1' },
+  { name: 'heading_2', title: 'Heading 2' },
+  { name: 'divider' },
+  { name: 'unordered_list', title: 'Unordered list' },
+  { name: 'ordered_list', title: 'Ordered list' },
+  { name: 'divider' },
+  { name: 'code', title: 'Code' },
+  { name: 'quote', title: 'Quote' },
+  { name: 'divider' },
+  { name: 'emoji', icon: '🙂', title: 'Emoji' }
+]`}
+</code>
+
+## Properties
+
+### MarkdownEditor
+
+<props propTypes={props.propTypes.MarkdownEditor} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

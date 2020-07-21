@@ -4,7 +4,7 @@ import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 
 // Common
-import { COMPONENT_TYPE, DIRECTIONS_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
+import { COMPONENT_TYPE, DIRECTIONS_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 
 // Fields
 import { RowContainer } from './layout'

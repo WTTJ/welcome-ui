@@ -12,7 +12,7 @@ import { TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import { useDialogState } from 'reakit/Dialog'
 import { bool, func, node, oneOf, oneOfType } from 'prop-types'
 
-import { COMPONENT_TYPE } from '../../src/utils/propTypes'
+import { COMPONENT_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 

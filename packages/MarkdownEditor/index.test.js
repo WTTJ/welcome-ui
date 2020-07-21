@@ -2,7 +2,7 @@ import React from 'react'
 import { fireEvent, waitForElement } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { render } from '../../src/utils/tests'
+import { render } from '../../utils/tests'
 
 import { DEFAULT_TOOLBAR } from './constants'
 

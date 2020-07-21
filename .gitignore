@@ -1,8 +1,7 @@
 .env
 dist/
-docs/
-public/
-.docz/
+docs/out
+docs/.next
 .cache/
 node_modules/
 .DS_Store

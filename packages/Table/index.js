@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import { bool, node } from 'prop-types'
 import React from 'react'
 
@@ -20,6 +19,7 @@ Table.propTypes /* remove-proptypes */ = {
   indent: bool
 }
 
+// Nested exports
 Table.Thead = S.Thead
 Table.Tbody = S.Tbody
 Table.Th = S.Th

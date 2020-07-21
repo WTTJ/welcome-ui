@@ -3,7 +3,7 @@ import { func, node, oneOf } from 'prop-types'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { wrapChildren } from '@welcome-ui/utils'
 
-import { SHAPES_TYPE, SIZES_TYPE } from '../../src/utils/propTypes'
+import { SHAPES_TYPE, SIZES_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 
@@ -52,22 +52,14 @@ Tag.propTypes /* remove-proptypes */ = {
     '4',
     '5',
     '6',
-    'blue',
     'dark',
     'default',
     'error',
-    'green',
     'info',
-    'orange',
-    'pink',
     'primary',
-    'purple',
-    'red',
     'secondary',
     'success',
-    'turquoize',
-    'warning',
-    'yellow'
+    'warning'
   ])
 }
 

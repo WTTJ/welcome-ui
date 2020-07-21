@@ -1,0 +1,43 @@
+export { getStaticProps } from '../../getStaticProps'
+
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version
+} from '@welcome-ui/textarea/package.json'
+
+# Textarea
+
+<tagversion version={version} name={name} />
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField
+    name="textarea"
+    component={Textarea}
+    label="Description"
+    hint="Description must be <200 words"
+    required
+  />
+</Form>
+```
+
+## Properties
+
+<props propTypes={props.propTypes.Textarea} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

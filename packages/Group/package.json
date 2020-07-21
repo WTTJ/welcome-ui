@@ -5,6 +5,8 @@
   "main": "dist/group.cjs.js",
   "module": "dist/group.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {

@@ -46,7 +46,7 @@ export const Avatar = memo(function Avatar({
 
 Avatar.displayName = 'Avatar'
 
-Avatar.propTypes = {
+Avatar.propTypes /* remove-proptypes */ = {
   color: string,
   fontSize: oneOfType([string, number]),
   height: number,

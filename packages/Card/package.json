@@ -5,6 +5,8 @@
   "main": "dist/card.cjs.js",
   "module": "dist/card.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {

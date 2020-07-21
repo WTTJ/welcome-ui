@@ -4,7 +4,7 @@ import { DatePicker } from '@welcome-ui/date-picker'
 import { TimePicker } from '@welcome-ui/time-picker'
 import { DEFAULT_DATE, getDate } from '@welcome-ui/date-time-picker-common'
 
-import { SIZES_TYPE } from '../../src/utils/propTypes'
+import { SIZES_TYPE } from '../../utils/propTypes'
 
 import * as S from './styles'
 

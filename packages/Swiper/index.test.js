@@ -1,7 +1,7 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
-import { render } from '../../src/utils/tests'
+import { render } from '../../utils/tests'
 import { LeftIcon, RightIcon } from '../../icons'
 
 import { Swiper, useSwiper } from './index'

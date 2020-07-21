@@ -1,0 +1,297 @@
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version
+} from '@welcome-ui/icons.font/package.json'
+
+# IconFont
+
+<tagversion version={version} name={name} />
+
+## Install and import icon font
+
+<code language="bash">
+  {`yarn add @welcome-ui/icons.font ${Object.keys(peerDependencies).join(' ')}`}
+</code>
+<code language="bash">{`import { Icons } from '@welcome-ui/icons.font'`}</code>
+<br />
+or
+<code language="bash">{`import { IconFont } from '@welcome-ui/icons.font'`}</code>
+
+## Call Icon from Icons import
+
+```jsx row
+<Icons.Twitter />
+<Icons.Right />
+<Icons.Facebook />
+```
+
+## Call Icon from IconFont import
+
+```jsx row
+<IconFont name="facebook" />
+<IconFont name="left" />
+<IconFont name="twitter" />
+```
+
+## Available icons
+
+**Note**: You can click on an icon to copy its name.
+
+### Directions
+
+```jsx
+function() {
+  const icons = ['left', 'right', 'up', 'down']
+  return IconsList(icons, true)
+}
+```
+
+### Actions
+
+```jsx
+function() {
+  const icons = [
+    'activity',
+    'add',
+    'archive',
+    'bulk',
+    'check',
+    'collapse',
+    'cross',
+    'drag_and_drop',
+    'edit',
+    'eye',
+    'expand',
+    'external_link',
+    'filters',
+    'get',
+    'heart',
+    'heart_outline',
+    'information',
+    'link',
+    'log_out',
+    'menu',
+    'more',
+    'notification',
+    'pin',
+    'play',
+    'play_outline',
+    'print',
+    'promote',
+    'refuse_candidate',
+    'remote',
+    'reset',
+    'search',
+    'settings',
+    'trash',
+    'upload',
+    'video',
+    'write'
+  ]
+  return IconsList(icons, true)
+}
+```
+
+### Appreciations
+
+```jsx
+function() {
+  const icons = [
+    'negative',
+    'positive',
+    'negative_outline',
+    'positive_outline',
+    'negative_straight',
+    'positive_straight'
+  ]
+  return IconsList(icons, true)
+}
+```
+
+### Categories
+
+```jsx
+function() {
+  const icons = ['actions', 'cover_letter', 'details', 'resume', 'questions']
+  return IconsList(icons, true)
+}
+```
+
+### Miscellaneous
+
+```jsx
+function() {
+  const icons = [
+    'address',
+    'alert',
+    'anniversary',
+    'attachment',
+    'avatar',
+    'birthday',
+    'candidate_status',
+    'celebrate',
+    'clock',
+    'comment',
+    'comment_outline',
+    'contract',
+    'create',
+    'date',
+    'department',
+    'earth',
+    'education_level',
+    'email',
+    'email_outline',
+    'female',
+    'folder',
+    'information',
+    'location',
+    'male',
+    'offer_status',
+    'origine',
+    'phone',
+    'phone_outline',
+    'podcast',
+    'question',
+    'review',
+    'review_outline',
+    'salary',
+    'source',
+    'star',
+    'suitcase',
+    'tag',
+    'tags',
+    'update'
+  ]
+  return IconsList(icons, true)
+}
+```
+
+### Files
+
+```jsx
+function() {
+  const icons = [
+    'csv',
+    'doc',
+    'docx',
+    'eot',
+    'gif',
+    'jpeg',
+    'jpg',
+    'pdf',
+    'png',
+    'svg',
+    'ttf',
+    'txt',
+    'woff',
+    'woff2',
+    'xls',
+    'xlsx',
+    'zip'
+  ]
+  return IconsList(icons, true)
+}
+```
+
+### WTF
+
+```jsx
+function() {
+  const icons = [
+    'basketball',
+    'book',
+    'bulb',
+    'calcul',
+    'camera',
+    'chevron',
+    'coffee',
+    'compass',
+    'computer',
+    'cross_target',
+    'crown',
+    'dish',
+    'flag',
+    'flag_pointed',
+    'gear',
+    'handshake',
+    'hard_hat',
+    'hashtag',
+    'heart_shiny',
+    'lock',
+    'lock_rounded',
+    'map',
+    'megaphone',
+    'mic',
+    'microship',
+    'money',
+    'mountain',
+    'music',
+    'paperplane',
+    'pencil',
+    'piechart',
+    'pizza',
+    'refresh',
+    'shield',
+    'spanner',
+    'stackserver',
+    'sun',
+    'target',
+    'thumbup',
+    'tree'
+  ]
+  return IconsList(icons, true)
+}
+```
+
+### Markdown
+
+```jsx
+function() {
+  const icons = [
+    'bold',
+    'code',
+    'heading_1',
+    'heading_2',
+    'italic',
+    'link',
+    'unordered_list',
+    'ordered_list',
+    'quote',
+    'strikethrough'
+  ]
+  return IconsList(icons, true)
+}
+```
+
+### Social networks
+
+```jsx
+function() {
+  const icons = [
+    'behance',
+    'dribbble',
+    'facebook',
+    'github',
+    'instagram',
+    'linkedin',
+    'pinterest',
+    'stackoverflow',
+    'twitch',
+    'twitter',
+    'xing',
+    'youtube'
+  ]
+  return IconsList(icons, true)
+}
+```
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

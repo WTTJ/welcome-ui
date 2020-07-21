@@ -1,0 +1,109 @@
+export { getStaticProps } from '../../getStaticProps'
+
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version
+} from '@welcome-ui/link/package.json'
+
+# Link
+
+<tagversion version={version} name={name} />
+
+A link component who can get `as` property to pass custom linker. This component is a child from `UniversalLink` component.
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Variants
+
+Can be `primary` by default or `secondary`
+
+```jsx
+<Box>
+  <Link href="#">primary link</Link>
+</Box>
+<Box>
+  <Link href="#" variant="secondary">
+    secondary link
+  </Link>
+</Box>
+```
+
+It can also be `disabled`
+
+```jsx
+<Link disabled href="#">
+  primary link
+</Link>
+```
+
+## It works on multiple lines too
+
+```jsx
+<Box>
+  <Link href="#" display="inline" variant="primary">
+    Ipsum ipsam fugiat doloribus sit hic ducimus dolorem Aperiam unde adipisci deserunt corporis
+    neque commodi. Quasi odit esse molestias reprehenderit incidunt Velit non expedita atque
+    exercitationem enim! Quidem quasi nihil.
+  </Link>
+</Box>
+```
+
+## What is underlined by default?
+
+`Link` will add an underline to text nodes & `Text` components
+
+```jsx
+<Box>
+  <Link href="#">
+    <Avatar
+      name="jungle"
+      size="lg"
+      src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+    />
+    This is a text node
+  </Link>
+</Box>
+<Box>
+  <Link href="#">
+    <Avatar name="jungle" size="lg" />
+    <Text>This is a text in a Text component</Text>
+  </Link>
+</Box>
+```
+
+## Security
+
+For a target `_blank` we add `rel='noopener noreferrer'`
+
+```jsx
+<Link href="#" target="_blank">
+  with a target blank
+</Link>
+```
+
+## Example with React Router
+
+<code>
+  {`import { Link as RouterLink } from 'react-router-dom'
+
+<Link as={RouterLink} to="/jobs">
+  Jobs
+</Link>`}
+</code>
+
+## Properties
+
+<props propTypes={props.propTypes.Link} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />

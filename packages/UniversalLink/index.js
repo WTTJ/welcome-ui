@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React, { forwardRef } from 'react'
 import { node, string } from 'prop-types'
 
@@ -19,6 +18,7 @@ export const UniversalLink = forwardRef(({ children, dataTestId, target, ...rest
 ))
 
 UniversalLink.displayName = 'UniversalLink'
+
 UniversalLink.propTypes /* remove-proptypes */ = {
   children: node,
   target: string

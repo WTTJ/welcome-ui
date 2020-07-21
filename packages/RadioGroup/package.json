@@ -5,6 +5,8 @@
   "main": "dist/radio-group.cjs.js",
   "module": "dist/radio-group.es.js",
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "jest"
   },
   "publishConfig": {
@@ -36,7 +38,7 @@
     "@welcome-ui/field-group": "^2.0.0-alpha.26",
     "@welcome-ui/radio": "^2.0.0-alpha.26",
     "@welcome-ui/system": "^2.0.0-alpha.26",
-    "reakit": "^1.0.0-rc.0"
+    "reakit": "^1.1.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0",

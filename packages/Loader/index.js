@@ -14,7 +14,7 @@ export const Loader = forwardRef(({ color, dataTestId, size = 'sm', ...rest }, r
 
 Loader.displayName = 'Loader'
 
-Loader.propTypes = {
+Loader.propTypes /* remove-proptypes */ = {
   color: string,
   size: oneOfType([oneOf(['xs', 'sm', 'md', 'lg']), number, string])
 }

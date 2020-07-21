@@ -1,8 +1,8 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
-import { Form, getFormValues } from '../../docz/Form'
-import { render } from '../../src/utils/tests'
+import { Form, getFormValues } from '../../utils/Form'
+import { render } from '../../utils/tests'
 import { ConnectedField } from '../ConnectedField'
 
 import { InputText } from './index'

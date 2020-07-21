@@ -9,11 +9,6 @@ import { componentSystem, shouldForwardProp } from '@welcome-ui/system'
 import { StyledSelect } from '@welcome-ui/select'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
-// Only require CSS on client
-if (typeof window !== 'undefined') {
-  require('react-datepicker/dist/react-datepicker.css')
-}
-
 export const StyledDatePicker = styled(ReactDatePicker)`
   ${defaultFieldStyles};
   ${componentSystem};

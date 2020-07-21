@@ -2,7 +2,7 @@ import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
 import { createTheme } from '../Core/theme/core'
-import { render } from '../../src/utils/tests'
+import { render } from '../../utils/tests'
 
 import { Button } from './index'
 

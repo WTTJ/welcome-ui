@@ -2,8 +2,8 @@ import React from 'react'
 import { fireEvent } from '@testing-library/react'
 import { ConnectedField } from '@welcome-ui/connected-field'
 
-import { Form, getFormValues } from '../../docz/Form'
-import { render } from '../../src/utils/tests'
+import { Form, getFormValues } from '../../utils/Form'
+import { render } from '../../utils/tests'
 
 import { Checkbox } from './index'
 
