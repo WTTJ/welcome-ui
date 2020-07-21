@@ -20,6 +20,11 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
   padding: sm 0 0 xl;
+
+  a {
+    display: block;
+    width: 90%;
+  }
 `
 
 const linkStyle = css`
