@@ -1,6 +1,7 @@
 {
   "name": "docs",
   "version": "2.0.0-alpha.29",
+  "private": true,
   "description": "Documentation for @welcome-ui components",
   "scripts": {
     "build": "next build",
