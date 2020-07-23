@@ -48,14 +48,14 @@ export const Swiper = forwardRef((props, ref) => {
       role="region"
     >
       <S.Swiper slidesToShow={slidesToShow} translateX={translateX}>
-        {children.map((child, i) =>
+        {children.map((child, idx) =>
           cloneElement(child, {
-            key: i,
+            key: idx,
             role: 'group',
-            'aria-hidden': !visibleSlides.includes(i),
+            'aria-hidden': !visibleSlides.includes(idx),
             'aria-readonly': true,
             'aria-roledescription': 'slide',
-            'aria-label': `${i + 1} of ${numberOfSlides}`
+            'aria-label': `${idx + 1} of ${numberOfSlides}`
           })
         )}
       </S.Swiper>
