@@ -34,11 +34,9 @@ export const Swiper = forwardRef((props, ref) => {
   }, [children, setNumberOfSlides])
 
   // Get array with indexes of visible slides so we know which ones are (aria-)hidden
-  const isVisible = slide =>
-    Array(slidesToShow)
-      .fill()
-      .map((_, idx) => pageIdx + idx)
-      .includes(slide)
+  const visibleSlides = Array(slidesToShow)
+    .fill()
+    .map((_, idx) => pageIdx + idx)
 
   return (
     <S.Wrapper
@@ -54,7 +52,7 @@ export const Swiper = forwardRef((props, ref) => {
           cloneElement(child, {
             key: i,
             role: 'group',
-            'aria-hidden': !isVisible(i),
+            'aria-hidden': !visibleSlides.includes(i),
             'aria-readonly': true,
             'aria-roledescription': 'slide',
             'aria-label': `${i + 1} of ${numberOfSlides}`
