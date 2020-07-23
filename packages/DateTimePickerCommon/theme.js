@@ -6,7 +6,8 @@ export const getDateTimePickerCommon = theme => {
       selected: {
         color: colors.light[900],
         fontWeight: fontWeights.bold,
-        backgroundColor: colors.primary[500]
+        backgroundColor: colors.primary[500],
+        outline: 'none'
       },
       today: {
         color: colors.dark[900],
