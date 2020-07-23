@@ -58,6 +58,7 @@ function() {
   const swiper = useSwiper({
       slidesToShow: 2,
       slidesToSwipe: 2,
+      loop: true,
       nextButton: <RightIcon size="lg" />,
       prevButton: <LeftIcon size="lg" />
     })
@@ -106,6 +107,7 @@ Providing `nextButton` and `prevButton` enables prev and next navigation with th
 ```jsx
 function() {
   const swiper = useSwiper({
+    loop: true,
     nextButton: <RightIcon size="lg" />,
     prevButton: <LeftIcon size="lg" />
   })
@@ -186,6 +188,7 @@ Providing `autoplay` lets the slides advance automatically. Pass `duration` to c
 function() {
   const swiper = useSwiper({
     autoplay: true,
+    loop: true,
     nextButton: <RightIcon size="lg" />,
     prevButton: <LeftIcon size="lg" />
   })

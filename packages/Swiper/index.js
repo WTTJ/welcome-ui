@@ -33,6 +33,13 @@ export const Swiper = forwardRef((props, ref) => {
     setNumberOfSlides(children.length || children.size)
   }, [children, setNumberOfSlides])
 
+  // Get array with indexes of visible slides so we know which ones are (aria-)hidden
+  const isVisible = slide =>
+    Array(slidesToShow)
+      .fill()
+      .map((_, idx) => pageIdx + idx)
+      .includes(slide)
+
   return (
     <S.Wrapper
       {...rest}
@@ -47,7 +54,7 @@ export const Swiper = forwardRef((props, ref) => {
           cloneElement(child, {
             key: i,
             role: 'group',
-            'aria-hidden': i !== pageIdx,
+            'aria-hidden': !isVisible(i),
             'aria-readonly': true,
             'aria-roledescription': 'slide',
             'aria-label': `${i + 1} of ${numberOfSlides}`
@@ -121,9 +128,7 @@ export const useSwiper = (props = {}) => {
   const [numberOfSlides, setNumberOfSlides] = useState(0)
   const [pageIdx, setPageIdx] = useState(0)
 
-  const lastSlideIdx = numberOfSlides
-    ? Math.ceil((numberOfSlides - slidesToShow) / slidesToSwipe) + 1
-    : 0
+  const lastSlideIdx = numberOfSlides ? numberOfSlides - slidesToShow : 0
 
   // Add autoplay
   useInterval(
@@ -136,22 +141,22 @@ export const useSwiper = (props = {}) => {
   )
 
   const goNext = () => {
-    const nextPageIdx = pageIdx + slidesToSwipe
+    const nextPageIdx = Math.min(pageIdx + slidesToSwipe, lastSlideIdx)
 
-    if (nextPageIdx < lastSlideIdx) {
-      setPageIdx(nextPageIdx)
-    } else if (loop) {
+    if (pageIdx === lastSlideIdx && loop) {
       setPageIdx(0)
+    } else if (nextPageIdx <= lastSlideIdx) {
+      setPageIdx(nextPageIdx)
     }
   }
 
   const goPrev = () => {
-    const prevPageIdx = pageIdx - slidesToSwipe
+    const prevPageIdx = Math.max(pageIdx - slidesToSwipe, 0)
 
-    if (prevPageIdx >= 0) {
+    if (pageIdx === 0 && loop) {
+      setPageIdx(lastSlideIdx)
+    } else if (prevPageIdx >= 0) {
       setPageIdx(prevPageIdx)
-    } else if (loop) {
-      setPageIdx(lastSlideIdx - 1)
     }
   }
 
