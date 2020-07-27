@@ -76,7 +76,7 @@ export const Swiper = forwardRef((props, ref) => {
             return renderPaginationItem(props)
           }
           // eslint-disable-next-line react/no-array-index-key
-          return <S.Bullet key={idx} {...props} />
+          return <S.Bullet active={idx === pageIdx} key={idx} {...props} />
         })}
       </S.Pagination>
       {prevButton && (
