@@ -59,17 +59,21 @@ export const Swiper = forwardRef((props, ref) => {
           })
         )}
       </S.Swiper>
-      <S.Pagination data-testid={dataTestId && `${dataTestId}-pagination`}>
+      <S.Pagination
+        className="swiper-pagination"
+        data-testid={dataTestId && `${dataTestId}-pagination`}
+      >
         {children.map((_, idx) => {
           const props = {
-            active: idx === pageIdx,
+            idx,
             'aria-controls': id,
             'aria-label': `${idx + 1} of ${numberOfSlides}`,
             'aria-selected': idx === pageIdx,
-            onClick: () => setPageIdx(idx)
+            onClick: () => setPageIdx(idx),
+            pageIdx
           }
           if (renderPaginationItem) {
-            return renderPaginationItem(idx, props)
+            return renderPaginationItem(props)
           }
           // eslint-disable-next-line react/no-array-index-key
           return <S.Bullet key={idx} {...props} />
@@ -79,6 +83,7 @@ export const Swiper = forwardRef((props, ref) => {
         <S.Prev
           aria-controls={id}
           aria-label="Previous slide"
+          className="swiper-prev"
           data-testid={dataTestId && `${dataTestId}-button-prev`}
           disabled={!loop && pageIdx === 0}
           onClick={goPrev}
@@ -90,6 +95,7 @@ export const Swiper = forwardRef((props, ref) => {
         <S.Next
           aria-controls={id}
           aria-label="Next slide"
+          className="swiper-next"
           data-testid={dataTestId && `${dataTestId}-button-next`}
           disabled={!loop && pageIdx >= numberOfSlides - slidesToSwipe}
           onClick={goNext}

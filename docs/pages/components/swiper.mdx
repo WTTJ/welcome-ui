@@ -220,13 +220,17 @@ function() {
 
 ## With custom pagination items
 
-By providing the optional `renderPaginationItem` you can customise the defaults pagination bullets and render your own component. This callback takes two params: `index` and `props` which is an object containning an `onClick` callback to pass to your custom bullet and an `active` prop which is true when the bullet index matches the current page index.
+By providing the optional `renderPaginationItem` you can customise the defaults pagination bullets and render your own component. This callback takes a `props` param which is an object containning:
+
+- `idx`: the current pagination item
+- `pageIdx`: the currently selected slide (which you can use to show the active state for your pagination items)
+- `onClick`: callback to pass to your custom bullet
 
 ```jsx
 function() {
   const swiper = useSwiper({
-    renderPaginationItem: (idx, { active, onClick }) => (
-      <Swiper.Bullet width={50} height={50} active={active} onClick={onClick} />
+    renderPaginationItem: ({idx,  active, onClick, pageIdx }) => (
+      <Swiper.Bullet width={50} height={50} active={idx === pageIdx} onClick={onClick} />
     )
   })
 
