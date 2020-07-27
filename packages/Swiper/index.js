@@ -62,11 +62,12 @@ export const Swiper = forwardRef((props, ref) => {
       <S.Pagination data-testid={dataTestId && `${dataTestId}-pagination`}>
         {children.map((_, idx) => {
           const props = {
-            active: idx === pageIdx,
+            idx,
             'aria-controls': id,
             'aria-label': `${idx + 1} of ${numberOfSlides}`,
             'aria-selected': idx === pageIdx,
-            onClick: () => setPageIdx(idx)
+            onClick: () => setPageIdx(idx),
+            pageIdx
           }
           if (renderPaginationItem) {
             return renderPaginationItem(idx, props)
