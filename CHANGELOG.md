@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/WTTJ/welcome-ui/compare/v2.0.0...v2.0.1) (2020-07-27)
+
+
+### Bug Fixes
+
+* replace active state in Swiper pagination ([#754](https://github.com/WTTJ/welcome-ui/issues/754)) ([7b311ac](https://github.com/WTTJ/welcome-ui/commit/7b311acb44e1fb59eb330868d75f9f35814d2df7))
+
+
+### Features
+
+* add page to explain  migration to V2 ([#753](https://github.com/WTTJ/welcome-ui/issues/753)) ([9de9d65](https://github.com/WTTJ/welcome-ui/commit/9de9d65177a92bd8dbd84514672cf1d690c6645a))
+
+
+
+
+
 ## [1.29.2](https://github.com/WTTJ/welcome-ui/compare/v1.29.1...v1.29.2) (2020-06-10)
 
 **Note:** Version bump only for package @welcome-ui/repo
