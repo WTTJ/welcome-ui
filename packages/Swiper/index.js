@@ -59,7 +59,10 @@ export const Swiper = forwardRef((props, ref) => {
           })
         )}
       </S.Swiper>
-      <S.Pagination data-testid={dataTestId && `${dataTestId}-pagination`}>
+      <S.Pagination
+        data-testid={dataTestId && `${dataTestId}-pagination`}
+        className="swiper-pagination"
+      >
         {children.map((_, idx) => {
           const props = {
             idx,
@@ -83,6 +86,7 @@ export const Swiper = forwardRef((props, ref) => {
           data-testid={dataTestId && `${dataTestId}-button-prev`}
           disabled={!loop && pageIdx === 0}
           onClick={goPrev}
+          className="swiper-prev"
         >
           {prevButton}
         </S.Prev>
@@ -94,6 +98,7 @@ export const Swiper = forwardRef((props, ref) => {
           data-testid={dataTestId && `${dataTestId}-button-next`}
           disabled={!loop && pageIdx >= numberOfSlides - slidesToSwipe}
           onClick={goNext}
+          className="swiper-next"
         >
           {nextButton}
         </S.Next>
