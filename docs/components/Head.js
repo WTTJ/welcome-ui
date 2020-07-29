@@ -32,7 +32,7 @@ export const Head = () => {
         content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react • styled-components • styled-system and reakit."
         property="twitter:description"
       />
-      <meta content="http://welcome-ui.com" property="og:url" />
+      <meta content="https://welcome-ui.com" property="og:url" />
       <meta content="Welcome UI - Customizable design system with react" property="og:title" />
       <meta
         content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react • styled-components • styled-system and reakit."
