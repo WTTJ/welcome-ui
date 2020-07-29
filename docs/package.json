@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "homepage": "http://welcome-ui.com",
+  "homepage": "https://welcome-ui.com",
   "dependencies": {
     "@mdx-js/loader": "1.6.1",
     "@mdx-js/react": "1.6.1",

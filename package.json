@@ -149,5 +149,5 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "homepage": "http://welcome-ui.com"
+  "homepage": "https://welcome-ui.com"
 }

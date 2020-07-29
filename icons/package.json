@@ -37,7 +37,7 @@
     "react-dom": "^16.10.2"
   },
   "gitHead": "94b81a57c072de90a333f0e3a7a9a845b6c759be",
-  "homepage": "http://welcome-ui.com",
+  "homepage": "https://welcome-ui.com",
   "dependencies": {
     "@welcome-ui/icons.actions": "^2.0.0",
     "@welcome-ui/icons.activity": "^2.0.0",
