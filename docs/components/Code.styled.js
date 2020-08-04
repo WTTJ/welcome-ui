@@ -59,6 +59,7 @@ export const CodeContentRow = styled.div`
   align-items: center;
   margin-bottom: -md;
   margin-right: -md;
+  flex-wrap: wrap;
 
   > * {
     margin-bottom: md;
