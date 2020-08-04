@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/accordion",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/accordion.cjs.js",
   "module": "dist/accordion.es.js",
@@ -35,8 +35,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/icons.right": "^2.0.0",
-    "@welcome-ui/system": "^2.0.0",
+    "@welcome-ui/icons.right": "^2.0.2",
+    "@welcome-ui/system": "^2.0.2",
     "react-animate-height": "^2.0.22",
     "reakit": "^1.1.1"
   },

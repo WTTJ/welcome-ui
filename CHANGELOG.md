@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/WTTJ/welcome-ui/compare/v2.0.1...v2.0.2) (2020-08-04)
+
+
+### Bug Fixes
+
+* **docs:** mobile responsive ([#760](https://github.com/WTTJ/welcome-ui/issues/760)) ([c570d43](https://github.com/WTTJ/welcome-ui/commit/c570d4334fc14dad8b64a6a05d42910baafe8105))
+* https for all links ([#755](https://github.com/WTTJ/welcome-ui/issues/755)) ([6b8e0ea](https://github.com/WTTJ/welcome-ui/commit/6b8e0ea7807486510169437bb909cb65038ff6f5))
+* reset breadcrumb item direction ([#758](https://github.com/WTTJ/welcome-ui/issues/758)) ([211545d](https://github.com/WTTJ/welcome-ui/commit/211545dcd87daa774fd69fc42572155e8bd74dba))
+
+
+
+
+
 ## [2.0.1](https://github.com/WTTJ/welcome-ui/compare/v2.0.0...v2.0.1) (2020-07-27)
 
 

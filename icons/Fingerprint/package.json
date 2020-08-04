@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.fingerprint.cjs.js",
   "module": "dist/icons.fingerprint.es.js",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^2.0.0"
+    "@welcome-ui/icon": "^2.0.2"
   },
   "peerDependencies": {
     "react": "^16.10.2",
