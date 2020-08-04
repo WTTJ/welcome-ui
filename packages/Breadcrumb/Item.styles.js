@@ -8,6 +8,7 @@ export const Item = styled(Box).withConfig({ shouldForwardProp })(
     ${th('breadcrumbs.item.default')};
     align-items: center;
     transition: medium;
+    direction: initial;
 
     ${withSeparator &&
       css`
