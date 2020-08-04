@@ -68,3 +68,25 @@ export default function Root() {
   )
 }
 ```
+
+## Develop on local
+
+1. First install and build the packages _(only the first time)_
+
+```bash
+yarn first:install
+```
+
+2. Start documentation website
+
+```bash
+yarn start
+```
+
+3. Start a watch on all packages to rebuild them easely
+
+```bash
+yarn watch
+```
+
+4. and go to https://localhost:3020
