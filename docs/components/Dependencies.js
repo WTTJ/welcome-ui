@@ -6,7 +6,7 @@ import { Link } from '@welcome-ui/link'
 import { Box } from '@welcome-ui/box'
 import { useCopyText } from '@welcome-ui/utils.copy'
 import { Toast, useToast } from '@welcome-ui/toast'
-import { AttachmentIcon } from '@welcome-ui/icons.attachment'
+import { CopyIcon } from '@welcome-ui/icons.copy'
 
 export const Dependency = ({ dependency, version }) => {
   const baseVersion = version.replace(/[\^=~]/, '')
@@ -38,7 +38,7 @@ export const Dependency = ({ dependency, version }) => {
       <Tag ml="xs" size="md">
         {version}
       </Tag>
-      <AttachmentIcon cursor="pointer" ml="xxs" onClick={handleCopy} />
+      <CopyIcon cursor="pointer" ml="xxs" onClick={handleCopy} />
     </Box>
   )
 }
