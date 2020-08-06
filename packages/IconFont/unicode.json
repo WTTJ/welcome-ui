@@ -182,5 +182,15 @@
   "caddy": "\f1ba",
   "diamond": "\f1bb",
   "factory": "\f1bc",
-  "house": "\f1bd"
+  "house": "\f1bd",
+  "aspect_ratio_fill": "\f1be",
+  "aspect_ratio_fit": "\f1bf",
+  "card_view": "\f1c0",
+  "copy": "\f1c1",
+  "justice_hammer": "\f1c2",
+  "mention": "\f1c3",
+  "share1": "\f1c4",
+  "share2": "\f1c5",
+  "subtitle": "\f1c6",
+  "trophy": "\f1c7"
 }

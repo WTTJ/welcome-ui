@@ -2,7 +2,7 @@
 import React from 'react'
 import { Tag } from '@welcome-ui/tag'
 import { Box } from '@welcome-ui/box'
-import { AttachmentIcon } from '@welcome-ui/icons'
+import { CopyIcon } from '@welcome-ui/icons.copy'
 import { Toast, useToast } from '@welcome-ui/toast'
 import { useCopyText } from '@welcome-ui/utils.copy'
 
@@ -34,7 +34,7 @@ export const TagVersion = ({ href, name, version, ...rest }) => {
           {`v${version}`}
         </Tag>
       </Box>
-      <AttachmentIcon color="dark.900" cursor="pointer" ml="xxs" onClick={handleCopy} size="lg" />
+      <CopyIcon color="dark.900" cursor="pointer" ml="xxs" onClick={handleCopy} size="lg" />
     </Box>
   )
 }

@@ -1,8 +1,8 @@
 @font-face {
 	font-family: "welcome-icon-font";
-	src: url("welcome-icon-font.eot?30d54a96832b0ff05011c1097a96b3c4?#iefix") format("embedded-opentype"),
-url("welcome-icon-font.woff2?30d54a96832b0ff05011c1097a96b3c4") format("woff2"),
-url("welcome-icon-font.woff?30d54a96832b0ff05011c1097a96b3c4") format("woff");
+	src: url("welcome-icon-font.eot?455800bd0ce07fedd204575617a7e3a4?#iefix") format("embedded-opentype"),
+url("welcome-icon-font.woff2?455800bd0ce07fedd204575617a7e3a4") format("woff2"),
+url("welcome-icon-font.woff?455800bd0ce07fedd204575617a7e3a4") format("woff");
 }
 
 .icon {
@@ -567,4 +567,34 @@ url("welcome-icon-font.woff?30d54a96832b0ff05011c1097a96b3c4") format("woff");
 }
 .icon-house:before {
 	content: "\1bd";
+}
+.icon-aspect_ratio_fill:before {
+	content: "\1be";
+}
+.icon-aspect_ratio_fit:before {
+	content: "\1bf";
+}
+.icon-card_view:before {
+	content: "\1c0";
+}
+.icon-copy:before {
+	content: "\1c1";
+}
+.icon-justice_hammer:before {
+	content: "\1c2";
+}
+.icon-mention:before {
+	content: "\1c3";
+}
+.icon-share1:before {
+	content: "\1c4";
+}
+.icon-share2:before {
+	content: "\1c5";
+}
+.icon-subtitle:before {
+	content: "\1c6";
+}
+.icon-trophy:before {
+	content: "\1c7";
 }
