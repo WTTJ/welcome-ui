@@ -1,8 +1,8 @@
 @font-face {
 	font-family: "welcome-icon-font";
-	src: url("welcome-icon-font.eot?455800bd0ce07fedd204575617a7e3a4?#iefix") format("embedded-opentype"),
-url("welcome-icon-font.woff2?455800bd0ce07fedd204575617a7e3a4") format("woff2"),
-url("welcome-icon-font.woff?455800bd0ce07fedd204575617a7e3a4") format("woff");
+	src: url("welcome-icon-font.eot?4ce2fb001b8a94aa59a04d84b9e17420?#iefix") format("embedded-opentype"),
+url("welcome-icon-font.woff2?4ce2fb001b8a94aa59a04d84b9e17420") format("woff2"),
+url("welcome-icon-font.woff?4ce2fb001b8a94aa59a04d84b9e17420") format("woff");
 }
 
 .icon {
@@ -597,4 +597,7 @@ url("welcome-icon-font.woff?455800bd0ce07fedd204575617a7e3a4") format("woff");
 }
 .icon-trophy:before {
 	content: "\1c7";
+}
+.icon-remove:before {
+	content: "\1c8";
 }
