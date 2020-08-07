@@ -42,6 +42,7 @@ jobs:
 
   test:
     <<: *defaults
+    resource_class: large
     steps:
       - attach_workspace:
           at: ~/welcome-ui
