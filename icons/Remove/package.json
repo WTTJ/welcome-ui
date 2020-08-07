@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.remove.cjs.js",
   "module": "dist/icons.remove.es.js",
-  "version": "1.0.0",
+  "version": "2.1.1",
   "publishConfig": {
     "access": "public"
   },
