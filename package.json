@@ -24,7 +24,7 @@
     "lint:js": "eslint packages icons scripts --max-warnings 0 --fix",
     "lint:css": "stylelint 'packages/**/styles.js'",
     "lint:mdx": "prettier --parser mdx --write 'docs/**/*.mdx'",
-    "test": "jest ./packages",
+    "test": "node --expose-gc ./node_modules/.bin/jest ./packages --logHeapUsage",
     "clean": "lerna clean"
   },
   "private": true,
