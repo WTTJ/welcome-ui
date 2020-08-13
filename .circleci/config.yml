@@ -1,11 +1,7 @@
 defaults: &defaults
   working_directory: ~/welcome-ui
   docker:
-    - image: circleci/node:10.15.1-browsers
-
-defaults_deploy: &defaults_deploy
-  working_directory: ~/welcome-ui
-  machine: true
+    - image: circleci/node:10.22.0-browsers
 
 version: 2
 jobs:
@@ -50,6 +46,28 @@ jobs:
           key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn test
 
+  docs_build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: yarn docs:deploy
+      - persist_to_workspace:
+          root: ~/welcome-ui
+          paths:
+            - docs/out
+
+  docs_deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: node_modules/.bin/netlify deploy --dir=docs/out --prod
+
 workflows:
   version: 2
   btd:
@@ -64,3 +82,11 @@ workflows:
       - test:
           requires:
             - yarn_install
+      - docs_build:
+          requires:
+            - yarn_install
+      - docs_deploy:
+          requires:
+            - docs_build
+            - test
+            - lint
