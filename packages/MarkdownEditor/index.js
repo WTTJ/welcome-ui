@@ -124,6 +124,7 @@ export const MarkdownEditor = forwardRef(
       try {
         // Use actions from the MDE instance or provided action
         action && typeof action === 'string' ? instance[action]() : action()
+        handleChange(instance.codemirror.getValue())
       } catch (e) {
         return
       }
