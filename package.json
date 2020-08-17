@@ -106,6 +106,7 @@
     "lodash.capitalize": "=4.2.1",
     "lodash.difference": "^4.5.0",
     "minimist": "=1.2.0",
+    "netlify-cli": "^2.59.1",
     "onchange": "^7.0.2",
     "prettier": "=1.18.2",
     "prop-types": "^15.7.2",
