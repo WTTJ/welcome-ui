@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/WTTJ/welcome-ui/compare/v2.1.1...v2.1.2) (2020-08-17)
+
+
+### Bug Fixes
+
+* force handle change on toolbar action ([#769](https://github.com/WTTJ/welcome-ui/issues/769)) ([42c8933](https://github.com/WTTJ/welcome-ui/commit/42c893367ba047f172b922865221f42642acae2c))
+
+
+
+
+
 ## [2.1.1](https://github.com/WTTJ/welcome-ui/compare/v2.1.0...v2.1.1) (2020-08-07)
 
 
