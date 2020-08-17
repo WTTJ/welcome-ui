@@ -74,12 +74,21 @@ workflows:
     jobs:
       - checkout
       - yarn_install:
+          filters:
+            tags:
+              only: /.*/
           requires:
             - checkout
       - lint:
+          filters:
+            tags:
+              only: /.*/
           requires:
             - yarn_install
       - test:
+          filters:
+            tags:
+              only: /.*/
           requires:
             - yarn_install
       - docs_build:
