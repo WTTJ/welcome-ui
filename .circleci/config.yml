@@ -88,7 +88,10 @@ workflows:
   version: 2
   btd:
     jobs:
-      - checkout
+      - checkout:
+          filters:
+            tags:
+              only: /.*/
       - yarn_install:
           filters:
             tags:
