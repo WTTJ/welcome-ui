@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/WTTJ/welcome-ui/compare/v2.1.2...v2.1.3) (2020-08-27)
+
+
+### Bug Fixes
+
+* add missing dependencies ([#772](https://github.com/WTTJ/welcome-ui/issues/772)) ([e3b68f1](https://github.com/WTTJ/welcome-ui/commit/e3b68f12219edf5c8071a703d8da29be7000585e))
+* docs cd ([#770](https://github.com/WTTJ/welcome-ui/issues/770)) ([aa6b8ce](https://github.com/WTTJ/welcome-ui/commit/aa6b8ce48bb4da016ecabc9034e1cf2cf7bcea8b))
+
+
+
+
+
 ## [2.1.2](https://github.com/WTTJ/welcome-ui/compare/v2.1.1...v2.1.2) (2020-08-17)
 
 
