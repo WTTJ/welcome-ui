@@ -36,6 +36,8 @@
   },
   "dependencies": {
     "@welcome-ui/icons.alert": "^2.0.2",
+    "@welcome-ui/icons.check": "^2.0.2",
+    "@welcome-ui/icons.information": "^2.0.2",
     "@welcome-ui/utils": "^2.0.2"
   },
   "peerDependencies": {
