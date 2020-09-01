@@ -72,7 +72,7 @@ export const fontFaces = {
   'welcome-icon-font': [
     {
       url: 'https://cdn.welcometothejungle.com/common/assets/fonts/welcome-icon-font',
-      extensions: ['woff2', 'woff', 'ttf', 'eot', 'svg']
+      extensions: ['woff2', 'woff', 'ttf']
     }
   ]
 }
