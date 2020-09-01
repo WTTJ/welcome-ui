@@ -4,7 +4,9 @@ const path = require('path')
 const fs = require('fs')
 const util = require('util')
 
+const argv = require('yargs').argv
 const css = require('css')
+const difference = require('lodash.difference')
 const webfontsGenerator = require('webfonts-generator')
 require('colors')
 
@@ -200,6 +202,13 @@ const writeIconFont = files => {
   console.log('Started'.blue, 'Writing icon font'.grey)
   const filteredFiles = files.filter(file => !FLAG_ICONS.includes(file.key))
   const unicodeFile = `${ICON_FONT_PATH}/unicode.json`
+  const unicodeMap = require(unicodeFile)
+  const newIcons = difference(filteredFiles.map(file => file.key), Object.keys(unicodeMap))
+
+  if (!newIcons.length && !argv.force) {
+    console.log('Success'.yellow, 'No new icons to write to icon font')
+    return files
+  }
 
   // Generate web fonts
   webfontsGenerator(
@@ -220,7 +229,7 @@ const writeIconFont = files => {
       const parsed = css.parse(styles)
       const rules = parsed.stylesheet.rules
 
-      const unicodeMap = rules
+      const newUnicodeMap = rules
         .filter(rule => rule && rule.selectors && rule.selectors[0].startsWith('.icon-'))
         .reduce((prev, rule) => {
           const key = rule.selectors[0].replace(/\.icon-|:before/g, '')
@@ -229,7 +238,7 @@ const writeIconFont = files => {
         }, {})
 
       // Write the updated unicode map
-      const fileContent = `${JSON.stringify(unicodeMap, 0, 2)}
+      const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
 `
       fs.writeFileSync(unicodeFile, fileContent)
     }
