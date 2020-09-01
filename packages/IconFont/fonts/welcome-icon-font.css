@@ -1,8 +1,8 @@
 @font-face {
 	font-family: "welcome-icon-font";
-	src: url("welcome-icon-font.eot?b9593bd2d9b8f3447a3d31026b1d1c90?#iefix") format("embedded-opentype"),
-url("welcome-icon-font.woff2?b9593bd2d9b8f3447a3d31026b1d1c90") format("woff2"),
-url("welcome-icon-font.woff?b9593bd2d9b8f3447a3d31026b1d1c90") format("woff");
+	src: url("welcome-icon-font.woff2?1a37568b5879c0c11d2c33fa63d77be8") format("woff2"),
+url("welcome-icon-font.woff?1a37568b5879c0c11d2c33fa63d77be8") format("woff"),
+url("welcome-icon-font.ttf?1a37568b5879c0c11d2c33fa63d77be8") format("truetype");
 }
 
 .icon {

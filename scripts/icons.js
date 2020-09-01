@@ -3,11 +3,9 @@
 const path = require('path')
 const fs = require('fs')
 const util = require('util')
-const css = require('css')
 
-const argv = require('yargs').argv
+const css = require('css')
 const webfontsGenerator = require('webfonts-generator')
-const difference = require('lodash.difference')
 require('colors')
 
 const { toPascalCase } = require('../utils/strings')
@@ -217,23 +215,23 @@ const writeIconFont = files => {
         return
       }
       console.log('Success'.green, 'Writing icon font')
-        // Parse CSS to get unicode JSON
-        const styles = result.generateCss().toString()
-        const parsed = css.parse(styles)
-        const rules = parsed.stylesheet.rules
-        const unicodeMap = rules
-          .filter(rule => rule && rule.selectors && rule.selectors[0].startsWith('.icon-'))
-          .reduce((prev, rule) => {
-            const key = rule.selectors[0].replace(/\.icon-|:before/g, '')
-            const value = JSON.parse(rule.declarations[0].value).slice(0)
-            return { ...prev, [key]: value }
-          }, {})
-        console.debug(unicodeMap)
-        // Write the updated unicode map
-        const fileContent = `${JSON.stringify(unicodeMap, 0, 2)}
-        `
-        fs.writeFileSync(unicodeFile, fileContent)
+      // Parse CSS to get unicode JSON
+      const styles = result.generateCss().toString()
+      const parsed = css.parse(styles)
+      const rules = parsed.stylesheet.rules
 
+      const unicodeMap = rules
+        .filter(rule => rule && rule.selectors && rule.selectors[0].startsWith('.icon-'))
+        .reduce((prev, rule) => {
+          const key = rule.selectors[0].replace(/\.icon-|:before/g, '')
+          const value = JSON.parse(rule.declarations[0].value).slice(0)
+          return { ...prev, [key]: value }
+        }, {})
+
+      // Write the updated unicode map
+      const fileContent = `${JSON.stringify(unicodeMap, 0, 2)}
+`
+      fs.writeFileSync(unicodeFile, fileContent)
     }
   )
 
