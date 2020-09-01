@@ -200,35 +200,13 @@ const writeRootIconPackage = files => {
 const writeIconFont = files => {
   console.log('Started'.blue, 'Writing icon font'.grey)
   const filteredFiles = files.filter(file => !FLAG_ICONS.includes(file.key))
-  const unicodeFile = `${ICON_FONT_PATH}/unicode.json`
-  let unicodeMap = require(unicodeFile)
-  const newIcons = difference(filteredFiles.map(file => file.key), Object.keys(unicodeMap))
-
-  if (!newIcons.length && !argv.force) {
-    console.log('Success'.yellow, 'No new icons to write to icon font')
-    return files
-  }
-
-  // Add new icons to unicodeMap (adding one to hex value for each new icon)
-  const newUnicodeMap = newIcons.reduce((arr, key) => {
-    const lastUnicodeEntry = arr[Object.keys(unicodeMap).pop()]
-    const newUnicodeEntry = (parseInt(lastUnicodeEntry, 16) + 0x1).toString(16)
-    arr[key] = `\f${newUnicodeEntry}`
-    return arr
-  }, unicodeMap)
-
-  // Write the updated unicode map
-  const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
-`
-  fs.writeFileSync(unicodeFile, fileContent)
 
   // Generate web fonts
   webfontsGenerator(
     {
       files: filteredFiles.map(file => `${INPUT_PATH}/${file.key}.svg`),
       dest: `${ICON_FONT_PATH}/fonts`,
-      fontName: 'welcome-icon-font',
-      codepoints: newUnicodeMap
+      fontName: 'welcome-icon-font'
     },
     error => {
       if (error) {
