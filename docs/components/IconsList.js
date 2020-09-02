@@ -78,13 +78,13 @@ function IconItem({ componentName, icon: Icon, name }) {
   )
 }
 
-export function IconsList(icons, iconFont) {
+export function IconsList({ icons, isIconFont }) {
   return (
     <Box display="flex" flexWrap="wrap">
       {icons.map(key => {
         const name = toPascalCase(key)
-        const componentName = iconFont ? `Icons.${name}` : `${name}Icon`
-        const Icon = iconFont ? FontIcons[name] : Icons[componentName]
+        const componentName = isIconFont ? `Icons.${name}` : `${name}Icon`
+        const Icon = isIconFont ? FontIcons[name] : Icons[componentName]
         if (!Icon) {
           // eslint-disable-next-line no-console
           console.error(`The "${key}" icon is generating this issue`)
