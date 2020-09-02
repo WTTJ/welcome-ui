@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.share2.cjs.js",
   "module": "dist/icons.share2.es.js",
-  "version": "2.1.0",
+  "version": "2.1.4",
   "publishConfig": {
     "access": "public"
   },

@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.justice_hammer.cjs.js",
   "module": "dist/icons.justice_hammer.es.js",
-  "version": "2.1.0",
+  "version": "2.1.4",
   "publishConfig": {
     "access": "public"
   },

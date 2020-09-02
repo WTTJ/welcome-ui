@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.card_view.cjs.js",
   "module": "dist/icons.card_view.es.js",
-  "version": "2.1.0",
+  "version": "2.1.4",
   "publishConfig": {
     "access": "public"
   },

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/WTTJ/welcome-ui/compare/v2.1.3...v2.1.4) (2020-09-02)
+
+
+### Features
+
+* add release iconfont to s3 ([#773](https://github.com/WTTJ/welcome-ui/issues/773)) ([2bb6ef6](https://github.com/WTTJ/welcome-ui/commit/2bb6ef63e8ed99e481682f28e80d7efcc1109ffd))
+
+
+
+
+
 ## [2.1.3](https://github.com/WTTJ/welcome-ui/compare/v2.1.2...v2.1.3) (2020-08-27)
 
 
