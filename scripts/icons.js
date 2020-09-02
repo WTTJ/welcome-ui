@@ -5,8 +5,9 @@ const fs = require('fs')
 const util = require('util')
 
 const argv = require('yargs').argv
-const webfontsGenerator = require('webfonts-generator')
+const css = require('css')
 const difference = require('lodash.difference')
+const webfontsGenerator = require('webfonts-generator')
 require('colors')
 
 const { toPascalCase } = require('../utils/strings')
@@ -16,11 +17,11 @@ fs.readdirAsync = util.promisify(fs.readdir)
 
 const FLAG_ICONS = ['flag_cs', 'flag_en', 'flag_es', 'flag_fr', 'flag_sk']
 
-const rootPath = path.join(__dirname, '..')
-const iconPath = path.join(rootPath, 'packages/Icon')
-const iconsPath = path.join(rootPath, 'icons')
-const inputPath = path.join(iconsPath, '_assets')
-const iconFontPath = path.join(rootPath, 'packages/IconFont')
+const ROOT_PATH = path.join(__dirname, '..')
+const ICON_PATH = path.join(ROOT_PATH, 'packages/Icon')
+const ICONS_PATH = path.join(ROOT_PATH, 'icons')
+const INPUT_PATH = path.join(ICONS_PATH, '_assets')
+const ICON_FONT_PATH = path.join(ROOT_PATH, 'packages/IconFont')
 
 // State to hold all icons so we don't have to keep reading all the files
 let icons = {}
@@ -28,7 +29,7 @@ let icons = {}
 // Read icons/assets/*.svg
 const readIconsFromAssets = () => {
   return fs
-    .readdirAsync(inputPath)
+    .readdirAsync(INPUT_PATH)
     .then(files =>
       files.filter(file => {
         const [, type] = file.split('.')
@@ -40,7 +41,7 @@ const readIconsFromAssets = () => {
         files.map(file => {
           const [key] = file.split('.')
           return fs
-            .readFileAsync(path.join(inputPath, file), 'utf8')
+            .readFileAsync(path.join(INPUT_PATH, file), 'utf8')
             .then(content => ({ key, content }))
         })
       )
@@ -82,7 +83,7 @@ const writeIconPackageJson = (outputFolder, key) => {
   const file = `${outputFolder}/package.json`
 
   // Get root icon config
-  const { version } = require(`${iconPath}/package.json`)
+  const { version } = require(`${ICON_PATH}/package.json`)
 
   let config = {}
   if (fs.existsSync(file)) {
@@ -140,7 +141,7 @@ const writeIconPackages = files => {
   files.forEach(({ content, key }) => {
     // Create folder if necessary
     const iconName = toPascalCase(key)
-    const outputFolder = `${iconsPath}/${iconName}`
+    const outputFolder = `${ICONS_PATH}/${iconName}`
     if (!fs.existsSync(outputFolder)) {
       fs.mkdirSync(outputFolder)
     }
@@ -168,13 +169,13 @@ const writeRootIconPackage = files => {
   }).join(`
 `)
   fs.writeFileSync(
-    `${iconsPath}/index.js`,
+    `${ICONS_PATH}/index.js`,
     `${rootIndexContent}
 `
   )
 
   // Write main icons/package.json
-  let config = require(`${iconsPath}/package.json`)
+  let config = require(`${ICONS_PATH}/package.json`)
 
   // Get versions of each icon
   const dependencies = files.reduce((acc, { key }) => {
@@ -190,7 +191,7 @@ const writeRootIconPackage = files => {
   const fileContent = `${JSON.stringify(rootPackageJsonContent, 0, 2)}
 `
 
-  fs.writeFileSync(`${iconsPath}/package.json`, fileContent)
+  fs.writeFileSync(`${ICONS_PATH}/package.json`, fileContent)
 
   console.log('Success'.green, 'Writing root icon files')
   return files
@@ -200,8 +201,8 @@ const writeRootIconPackage = files => {
 const writeIconFont = files => {
   console.log('Started'.blue, 'Writing icon font'.grey)
   const filteredFiles = files.filter(file => !FLAG_ICONS.includes(file.key))
-  const file = `${iconFontPath}/unicode.json`
-  let unicodeMap = require(file)
+  const unicodeFile = `${ICON_FONT_PATH}/unicode.json`
+  const unicodeMap = require(unicodeFile)
   const newIcons = difference(filteredFiles.map(file => file.key), Object.keys(unicodeMap))
 
   if (!newIcons.length && !argv.force) {
@@ -209,33 +210,37 @@ const writeIconFont = files => {
     return files
   }
 
-  // Add new icons to unicodeMap (adding one to hex value for each new icon)
-  const newUnicodeMap = newIcons.reduce((arr, key) => {
-    const lastUnicodeEntry = arr[Object.keys(unicodeMap).pop()]
-    const newUnicodeEntry = (parseInt(lastUnicodeEntry, 16) + 0x1).toString(16)
-    arr[key] = `\f${newUnicodeEntry}`
-    return arr
-  }, unicodeMap)
-
-  // Write the updated unicode map
-  const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
-`
-  fs.writeFileSync(file, fileContent)
-
   // Generate web fonts
   webfontsGenerator(
     {
-      files: filteredFiles.map(file => `${inputPath}/${file.key}.svg`),
-      dest: `${iconFontPath}/fonts`,
-      fontName: 'welcome-icon-font',
-      codepoints: newUnicodeMap
+      files: filteredFiles.map(file => `${INPUT_PATH}/${file.key}.svg`),
+      dest: `${ICON_FONT_PATH}/fonts`,
+      types: ['woff', 'woff2', 'ttf'],
+      fontName: 'welcome-icon-font'
     },
-    error => {
+    (error, result) => {
       if (error) {
         console.error('Fail!', error)
-      } else {
-        console.log('Success'.green, 'Writing icon font')
+        return
       }
+      console.log('Success'.green, 'Writing icon font')
+      // Parse CSS to get unicode JSON
+      const styles = result.generateCss().toString()
+      const parsed = css.parse(styles)
+      const rules = parsed.stylesheet.rules
+
+      const newUnicodeMap = rules
+        .filter(rule => rule && rule.selectors && rule.selectors[0].startsWith('.icon-'))
+        .reduce((prev, rule) => {
+          const key = rule.selectors[0].replace(/\.icon-|:before/g, '')
+          const value = JSON.parse(rule.declarations[0].value).slice(0)
+          return { ...prev, [key]: value }
+        }, {})
+
+      // Write the updated unicode map
+      const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
+`
+      fs.writeFileSync(unicodeFile, fileContent)
     }
   )
 
