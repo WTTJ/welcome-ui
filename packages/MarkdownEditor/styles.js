@@ -1,6 +1,5 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import SimpleMDE from 'react-simplemde-editor'
 import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
@@ -83,4 +82,13 @@ export const EmojiPicker = styled.div`
   right: ${th('space.md')};
 `
 
-export const Editor = styled(SimpleMDE)``
+export const Editor = styled.box``
+
+export const Actions = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: md;
+  background-color: light.900;
+`

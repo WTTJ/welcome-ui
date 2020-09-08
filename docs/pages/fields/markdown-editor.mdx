@@ -101,6 +101,34 @@ The default toolbar uses [Welcome UI icons](/components/icon) with the following
 ]`}
 </code>
 
+## Actions
+
+You can add some actions on the bottom of the textarea with `actions` childrens. We calculate automatically the height of actions.
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField
+    component={MarkdownEditor}
+    label="Markdown Editor"
+    name="welcome-actions"
+    placeholder="Placeholder"
+    actions={
+      <>
+        <Button variant="quaternary" shape="square" size="sm">
+          <HashtagIcon />
+        </Button>
+        <Button variant="quaternary" shape="square" size="sm">
+          <MentionIcon />
+        </Button>
+        <Button variant="quaternary" shape="square" size="sm">
+          <AttachmentIcon />
+        </Button>
+      </>
+    }
+  />
+</Form>
+```
+
 ## Properties
 
 ### MarkdownEditor
