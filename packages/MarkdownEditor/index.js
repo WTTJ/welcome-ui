@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from 'react'
+import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from 'prop-types'
 import { BoldIcon } from '@welcome-ui/icons.bold'
 import { ItalicIcon } from '@welcome-ui/icons.italic'
@@ -11,6 +11,7 @@ import { QuoteIcon } from '@welcome-ui/icons.quote'
 import { UnorderedListIcon } from '@welcome-ui/icons.unordered_list'
 import { OrderedListIcon } from '@welcome-ui/icons.ordered_list'
 import { createEvent } from '@welcome-ui/utils'
+import SimpleMDE from 'react-simplemde-editor'
 
 import { VARIANTS_TYPE } from '../../utils/propTypes'
 
@@ -49,6 +50,7 @@ export const MarkdownEditor = forwardRef(
       value,
       variant,
       minHeight = '8rem',
+      actions,
       ...rest
     },
     ref
@@ -58,6 +60,7 @@ export const MarkdownEditor = forwardRef(
     const [showEmojiPicker, setShowEmojiPicker] = useState(false)
     const [currentTools, setCurrentTools] = useState([])
     const [toolbarItems, setToolbarItems] = useState([])
+    const actionsRef = useRef()
 
     /* EMOJI PICKER */
     const toggleEmojiPicker = () => {
@@ -166,6 +169,7 @@ export const MarkdownEditor = forwardRef(
         />
         {showEmojiPicker && <EmojiPicker onSelect={addEmoji} />}
         <S.Editor
+          as={SimpleMDE}
           events={{ blur: handleBlur, focus: handleFocus, cursorActivity: updateCurrentTools }}
           extraKeys={{ Tab: false }}
           getMdeInstance={setInstance}
@@ -181,9 +185,11 @@ export const MarkdownEditor = forwardRef(
             status: false,
             minHeight
           }}
+          pb={actionsRef?.current?.offsetHeight}
           ref={ref}
           value={value}
         />
+        {actions && <S.Actions ref={actionsRef}>{actions}</S.Actions>}
       </S.Wrapper>
     )
   }
@@ -193,6 +199,7 @@ MarkdownEditor.type = 'MarkdownEditor'
 MarkdownEditor.displayName = 'MarkdownEditor'
 
 MarkdownEditor.propTypes /* remove-proptypes */ = {
+  actions: node,
   autoFocus: bool,
   disabled: bool,
   minHeight: string,
