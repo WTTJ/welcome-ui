@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/WTTJ/welcome-ui/compare/v2.1.4...v2.2.0) (2020-09-08)
+
+
+### Features
+
+* **markdown-editor:** add actions ([#775](https://github.com/WTTJ/welcome-ui/issues/775)) ([2c6e599](https://github.com/WTTJ/welcome-ui/commit/2c6e5994d5a1d7d9d2247a34beaf56e035c56266))
+
+
+
+
+
 ## [2.1.2](https://github.com/WTTJ/welcome-ui/compare/v2.1.1...v2.1.2) (2020-08-17)
 
 

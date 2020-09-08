@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/markdown-editor",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/markdown-editor.cjs.js",
   "module": "dist/markdown-editor.es.js",
