@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/WTTJ/welcome-ui/compare/v2.2.0...v2.3.0) (2020-09-08)
+
+
+### Features
+
+* **icons:** add new attachements icon ([#776](https://github.com/WTTJ/welcome-ui/issues/776)) ([64b8157](https://github.com/WTTJ/welcome-ui/commit/64b8157441b7541780df410893733938c637857d))
+
+
+
+
+
 ## [2.1.4](https://github.com/WTTJ/welcome-ui/compare/v2.1.3...v2.1.4) (2020-09-02)
 
 **Note:** Version bump only for package @welcome-ui/icons

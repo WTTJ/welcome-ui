@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/icons",
-  "version": "2.1.4",
+  "version": "2.3.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/icons.cjs.js",
   "module": "dist/icons.es.js",
@@ -48,7 +48,7 @@
     "@welcome-ui/icons.archive": "^2.0.2",
     "@welcome-ui/icons.aspect_ratio_fill": "^2.1.4",
     "@welcome-ui/icons.aspect_ratio_fit": "^2.1.4",
-    "@welcome-ui/icons.attachment": "^2.0.2",
+    "@welcome-ui/icons.attachment": "^2.3.0",
     "@welcome-ui/icons.avatar": "^2.0.2",
     "@welcome-ui/icons.basketball": "^2.0.2",
     "@welcome-ui/icons.behance": "^2.0.2",

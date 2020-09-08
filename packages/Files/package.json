@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/files",
-  "version": "2.0.2",
+  "version": "2.3.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/files.cjs.js",
   "module": "dist/files.es.js",
@@ -35,7 +35,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/icons.attachment": "^2.0.2",
+    "@welcome-ui/icons.attachment": "^2.3.0",
     "@welcome-ui/icons.camera": "^2.0.2",
     "@welcome-ui/icons.csv": "^2.0.2",
     "@welcome-ui/icons.doc": "^2.0.2",
