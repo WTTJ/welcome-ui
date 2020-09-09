@@ -24,6 +24,7 @@ import * as DropdownMenu from '@welcome-ui/dropdown-menu'
 import { Field } from '@welcome-ui/field'
 import { FieldGroup } from '@welcome-ui/field-group'
 import { FileDrop } from '@welcome-ui/file-drop'
+import * as Files from '@welcome-ui/files'
 import { FileUpload } from '@welcome-ui/file-upload'
 import { Group } from '@welcome-ui/group'
 import { Hint } from '@welcome-ui/hint'
@@ -136,6 +137,7 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
       Field,
       FieldGroup,
       FileDrop,
+      ...Files,
       FileUpload,
       FinalForm,
       Form,

@@ -4,7 +4,7 @@ import { Button } from '@welcome-ui/button'
 import { createEvent } from '@welcome-ui/utils'
 
 // FileUpload
-import { Preview } from './Preview'
+import { Preview as DefaultPreview } from './Preview'
 import * as S from './styles'
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
@@ -36,6 +36,7 @@ export const FileUpload = forwardRef(
       onError,
       handleRemoveFile,
       value = [],
+      preview: Preview = DefaultPreview,
       ...rest
     },
     ref
@@ -135,6 +136,7 @@ FileUpload.propTypes /* remove-proptypes */ = {
   onBlur: func,
   onChange: func,
   onError: func,
+  preview: node,
   title: oneOfType([string, node]),
   value: oneOfType([string, object])
 }
