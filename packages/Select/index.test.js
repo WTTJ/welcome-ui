@@ -31,6 +31,21 @@ const MONTHS_WITH_INTEGER_VALUES = MONTHS.map((item, index) => ({
   value: index
 }))
 
+export const SOCIAL_OPT_GROUP = [
+  {
+    label: 'Professional networks',
+    options: [
+      { value: 'behance', label: 'Behance' },
+      { value: 'dribbble', label: 'Dribbble' },
+      { value: 'github', label: 'Github' }
+    ]
+  },
+  {
+    label: 'Personal networks',
+    options: [{ value: 'instagram', label: 'Instagram' }, { value: 'facebook', label: 'Facebook' }]
+  }
+]
+
 test('<Select> accepts falsy option values (such as 0)', () => {
   const { getByTestId } = render(
     <Form initialValues={{ select: 0 }}>
@@ -571,4 +586,37 @@ test("<Select isCreatable> can't create an existing item", () => {
   const formValues = getFormValues(getByTestId('values'))
   expect(select.value).toBe('October')
   expect(formValues.select).toStrictEqual('october')
+})
+
+test('<Select groupsEnabled> shows groups header', () => {
+  const { getAllByTestId, getByTestId } = render(
+    <Form initialValues={{}}>
+      <ConnectedField
+        component={Select}
+        dataTestId="select"
+        groupsEnabled
+        label="Social networks"
+        name="select"
+        options={SOCIAL_OPT_GROUP}
+        renderGroupHeader={({ label, options }) => (
+          <div data-testid="group-header">
+            <h4>{label}</h4>
+            <span>{options.length}</span>
+          </div>
+        )}
+      />
+    </Form>
+  )
+
+  const select = getByTestId('select')
+  fireEvent.click(select)
+
+  const headers = getAllByTestId('group-header')
+
+  expect(headers.length).toBe(SOCIAL_OPT_GROUP.length)
+
+  headers.forEach((header, i) => {
+    expect(header.querySelector('h4')).toHaveTextContent(SOCIAL_OPT_GROUP[i].label)
+    expect(header.querySelector('span')).toHaveTextContent(SOCIAL_OPT_GROUP[i].options.length)
+  })
 })

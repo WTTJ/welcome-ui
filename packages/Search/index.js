@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useState } from 'react'
+import React, { forwardRef, Fragment, useCallback, useEffect, useState } from 'react'
 import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import { ClearButton } from '@welcome-ui/clear-button'
@@ -35,6 +35,8 @@ export const Search = forwardRef(
       throttle = 500,
       value: selected = EMPTY_STRING,
       variant,
+      groupsEnabled,
+      renderGroupHeader,
       ...rest
     },
     ref
@@ -160,21 +162,60 @@ export const Search = forwardRef(
               </S.InputWrapper>
               {isShowMenu && (
                 <S.Menu {...getMenuProps()}>
-                  {results.map((item, index) => (
-                    <S.Item
-                      // eslint-disable-next-line react/no-array-index-key
-                      key={index}
-                      {...getItemProps({
-                        index,
-                        isHighlighted: highlightedIndex === index,
-                        isSelected:
-                          selectedItem && itemToString(selectedItem) === itemToString(item),
-                        item
-                      })}
-                    >
-                      {renderItem(item)}
-                    </S.Item>
-                  ))}
+                  {
+                    results.reduce(
+                      (acc, result, resultIndex) => {
+                        if (groupsEnabled) {
+                          acc.itemsToRender.push(
+                            // eslint-disable-next-line react/no-array-index-key
+                            <Fragment key={resultIndex}>
+                              {renderGroupHeader(result)}
+                              {result.options &&
+                                result.options.map((option, optionIndex) => {
+                                  const index = acc.itemIndex++
+                                  return (
+                                    <S.Item
+                                      // eslint-disable-next-line react/no-array-index-key
+                                      key={optionIndex}
+                                      {...getItemProps({
+                                        index,
+                                        isHighlighted: highlightedIndex === index,
+                                        isSelected:
+                                          selectedItem &&
+                                          itemToString(selectedItem) === itemToString(option),
+                                        item: option
+                                      })}
+                                    >
+                                      {renderItem(option)}
+                                    </S.Item>
+                                  )
+                                })}
+                            </Fragment>
+                          )
+                        } else {
+                          acc.itemsToRender.push(
+                            <S.Item
+                              // eslint-disable-next-line react/no-array-index-key
+                              key={resultIndex}
+                              {...getItemProps({
+                                index: resultIndex,
+                                isHighlighted: highlightedIndex === resultIndex,
+                                isSelected:
+                                  selectedItem &&
+                                  itemToString(selectedItem) === itemToString(result),
+                                item: result
+                              })}
+                            >
+                              {renderItem(result)}
+                            </S.Item>
+                          )
+                        }
+
+                        return acc
+                      },
+                      { itemsToRender: [], itemIndex: 0 }
+                    ).itemsToRender
+                  }
                 </S.Menu>
               )}
             </S.Wrapper>
@@ -192,6 +233,7 @@ Search.propTypes /* remove-proptypes */ = {
   autoComplete: string,
   autoFocus: bool,
   disabled: bool,
+  groupsEnabled: bool,
   icon: oneOfType(COMPONENT_TYPE),
   id: string,
   itemToString: func.isRequired,
@@ -203,6 +245,7 @@ Search.propTypes /* remove-proptypes */ = {
   onFocus: func,
   onKeyDown: func,
   placeholder: string,
+  renderGroupHeader: func,
   renderItem: func.isRequired,
   search: func.isRequired,
   size: oneOf(SIZES_TYPE),

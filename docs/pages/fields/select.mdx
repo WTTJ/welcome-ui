@@ -247,6 +247,33 @@ You can pass any combination of the props above. For example below, we have a `S
 </Form>
 ```
 
+## With option groups
+
+To use option groups, you must provide two additional props: `groupsEnabled` that allow nested options and `renderGroupHeader` that renders the header of a specific group
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField
+    component={Select}
+    options={constants.OPT_GROUP_ITEMS}
+    name="welcome11"
+    label="Social networks"
+    groupsEnabled
+    renderGroupHeader={({ label, options }) => (
+      <Box p="xxs">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <Text variant="body3" m="0">
+            {label}
+          </Text>
+          <Tag>{options.length}</Tag>
+        </Box>
+        {options.length === 0 && <Text variant="body4">No results found</Text>}
+      </Box>
+    )}
+  />
+</Form>
+```
+
 ## Properties
 
 <props propTypes={props.propTypes.Select} />

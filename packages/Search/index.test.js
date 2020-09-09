@@ -18,6 +18,24 @@ const results = [
   { title: 'Cold Fish', year: '2010', poster: 'cold-fish.jpg' }
 ]
 
+export const opt_group_results = [
+  {
+    label: 'Good movies',
+    options: [
+      { title: 'Big Fish', year: '2003', poster: 'big-fish.jpg' },
+      { title: 'A Fish Called Wanda', year: '1988', poster: 'wanda.jpg' },
+      { title: 'Food Tank', year: '2009', poster: 'food-tank.jpg' } // Doesn't match 'fish'
+    ]
+  },
+  {
+    label: 'Bad movies',
+    options: [
+      { title: 'Rumble Fish', year: '1983', poster: 'rumble-fish.jpg' },
+      { title: 'Cold Fish', year: '2010', poster: 'cold-fish.jpg' }
+    ]
+  }
+]
+
 const defaultProps = {
   itemToString: item => item.title,
   // eslint-disable-next-line react/display-name
@@ -189,4 +207,38 @@ test("<Search> doesn't show list if no results", () => {
 
   const options = queryByRole('listbox')
   expect(options).toBeNull()
+})
+
+test('<Search groupsEnabled> shows groups header', async () => {
+  const { getAllByTestId, getByTestId } = render(
+    <Form initialValues={{}}>
+      <ConnectedField
+        component={Search}
+        dataTestId="select"
+        groupsEnabled
+        label="Social networks"
+        name="search"
+        renderGroupHeader={({ label, options }) => (
+          <div data-testid="group-header">
+            <h4>{label}</h4>
+            <span>{options.length}</span>
+          </div>
+        )}
+        {...defaultProps}
+        search={() => opt_group_results}
+      />
+    </Form>
+  )
+
+  const search = getByTestId('select')
+  userEvent.type(search, 'fish')
+
+  const headers = await waitForElement(() => getAllByTestId('group-header'))
+
+  expect(headers.length).toBe(opt_group_results.length)
+
+  headers.forEach((header, i) => {
+    expect(header.querySelector('h4')).toHaveTextContent(opt_group_results[i].label)
+    expect(header.querySelector('span')).toHaveTextContent(opt_group_results[i].options.length)
+  })
 })
