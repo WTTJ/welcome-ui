@@ -103,7 +103,9 @@ Add `multiple` property.
 </Form>
 ```
 
-## Change Button
+## Customize
+
+### Change Button
 
 You can change the upload button component.
 
@@ -117,6 +119,57 @@ You can change the upload button component.
     )}
   </ConnectedField>
 </Form>
+```
+
+### Change Preview
+
+You can change the preview component.
+
+```jsx
+function() {
+  const Preview = ({ file, onRemove }) => {
+    const Icon = getFileIcon(file)
+    const name = getFileName(file)
+    const size = getFileSize(file)
+
+    return (
+      <Tag
+        backgroundColor="light.900"
+        data-id={name}
+        key={name}
+        mt="sm"
+        px="xl"
+        height={60}
+        size="lg"
+        alignItems='center'
+      >
+        <Icon size="lg" mr="sm" />
+        {name}
+        {size && <Box color="nude.600">({size})</Box>}
+        <Button onClick={onRemove} variant="quaternary" shape="square" ml="xxl" size="sm">
+          <CrossIcon size="sm" />
+        </Button>
+      </Tag>
+    )
+  }
+
+  return (
+    <Form initialValues={{ file: 'https://doc-exemple/example.docx?v=63731713698' }}>
+      <ConnectedField
+          component={FileUpload}
+          name="file"
+          label="File"
+          preview={Preview}
+        >
+        {({ openFile, disabled }) => (
+          <Button onClick={openFile} disabled={disabled}>
+            Custom preview
+          </Button>
+        )}
+      </ConnectedField>
+    </Form>
+  )
+}
 ```
 
 ## Properties
