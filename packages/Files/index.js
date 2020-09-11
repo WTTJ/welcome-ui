@@ -20,7 +20,7 @@ export const getFileName = file =>
     .split('/')
     .pop()
 
-const getMimeType = file => file.type || getType(getFileName(file).split('.')[1])
+export const getMimeType = file => file.type || getType(getFileName(file).split('.')[1])
 
 export const getFileSize = file => (file.size ? formatBytes(file.size, 0) : null)
 
