@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/WTTJ/welcome-ui/compare/v2.3.0...v2.4.0) (2020-09-11)
+
+
+### Features
+
+* **fields:** export getMimeType ([#779](https://github.com/WTTJ/welcome-ui/issues/779)) ([2d157cd](https://github.com/WTTJ/welcome-ui/commit/2d157cd540cffb1e9131ddf85fc13c3261c0dd12))
+* **file-upload:** add custom Preview ([#778](https://github.com/WTTJ/welcome-ui/issues/778)) ([8b678d9](https://github.com/WTTJ/welcome-ui/commit/8b678d9320a6fd8a5689e9b1ec3d5d7108992b6a))
+* optgroups on search & select component ([#771](https://github.com/WTTJ/welcome-ui/issues/771)) ([0ea0fd7](https://github.com/WTTJ/welcome-ui/commit/0ea0fd72c4b159e6690b79a40b112b4b2ec9610c))
+
+
+
+
+
 # [2.3.0](https://github.com/WTTJ/welcome-ui/compare/v2.2.0...v2.3.0) (2020-09-08)
 
 

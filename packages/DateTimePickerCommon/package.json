@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-time-picker-common",
-  "version": "2.1.3",
+  "version": "2.4.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/date-time-picker-common.cjs.js",
   "module": "dist/date-time-picker-common.es.js",
@@ -41,7 +41,7 @@
     "@welcome-ui/field": "^2.1.3",
     "@welcome-ui/icons.left": "^2.0.2",
     "@welcome-ui/icons.right": "^2.0.2",
-    "@welcome-ui/select": "^2.0.2",
+    "@welcome-ui/select": "^2.4.0",
     "@welcome-ui/system": "^2.0.2",
     "@welcome-ui/utils": "^2.0.2",
     "lodash.range": "^3.2.0",

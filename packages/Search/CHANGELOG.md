@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/WTTJ/welcome-ui/compare/v2.3.0...v2.4.0) (2020-09-11)
+
+
+### Features
+
+* optgroups on search & select component ([#771](https://github.com/WTTJ/welcome-ui/issues/771)) ([0ea0fd7](https://github.com/WTTJ/welcome-ui/commit/0ea0fd72c4b159e6690b79a40b112b4b2ec9610c))
+
+
+
+
+
 ## [2.0.2](https://github.com/WTTJ/welcome-ui/compare/v2.0.1...v2.0.2) (2020-08-04)
 
 
