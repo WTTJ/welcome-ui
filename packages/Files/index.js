@@ -10,7 +10,8 @@ import { VideoIcon } from '@welcome-ui/icons.video'
 import { XlsIcon } from '@welcome-ui/icons.xls'
 import { XlsxIcon } from '@welcome-ui/icons.xlsx'
 import { ZipIcon } from '@welcome-ui/icons.zip'
-import { getType } from 'mime'
+
+import { types } from './types'
 
 const removeQueryString = name => name.split('?')[0]
 
@@ -20,7 +21,16 @@ export const getFileName = file =>
     .split('/')
     .pop()
 
-export const getMimeType = file => file.type || getType(getFileName(file).split('.')[1])
+export const getMimeType = file => {
+  return (
+    file.type ||
+    types[
+      getFileName(file)
+        .split('.')
+        .pop()
+    ]
+  )
+}
 
 export const getFileSize = file => (file.size ? formatBytes(file.size, 0) : null)
 
@@ -53,6 +63,11 @@ export const getFileIcon = (file, forceFileType) => {
     case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
       return XlsxIcon
     case 'application/zip':
+    case 'application/x-bzip':
+    case 'application/x-bzip2':
+    case 'application/x-7z-compressed':
+    case 'application/gzip':
+    case 'application/vnd.rar':
       return ZipIcon
     case 'text/csv':
       return CsvIcon
