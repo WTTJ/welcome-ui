@@ -88,9 +88,10 @@ export const Select = forwardRef(
     // Autofocus
     useEffect(() => {
       if (autoFocus) {
-        ref.current.focus()
+        ref?.current?.focus()
+        isSearchable && setIsOpen(true)
       }
-    }, [autoFocus, ref])
+    }, [isSearchable, autoFocus, ref])
 
     // Ensure values are controlled by parent
     useEffect(() => {

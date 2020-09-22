@@ -50,7 +50,7 @@ export const Search = forwardRef(
     // Autofocus
     useEffect(() => {
       if (autoFocus) {
-        ref.current.focus()
+        ref?.current?.focus()
       }
     }, [autoFocus, ref])
 
