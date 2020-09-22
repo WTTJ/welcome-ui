@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/WTTJ/welcome-ui/compare/v2.4.0...v2.4.1) (2020-09-22)
+
+
+### Bug Fixes
+
+* do not crash when autofocus is enabled and ref is not already set ([#781](https://github.com/WTTJ/welcome-ui/issues/781)) ([178098c](https://github.com/WTTJ/welcome-ui/commit/178098c0338497384cb460ca85c21b0cf1490f97))
+
+
+
+
+
 # [2.4.0](https://github.com/WTTJ/welcome-ui/compare/v2.3.0...v2.4.0) (2020-09-11)
 
 
