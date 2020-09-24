@@ -42,11 +42,11 @@
     "@welcome-ui/icons.docx": "^2.0.2",
     "@welcome-ui/icons.music": "^2.0.2",
     "@welcome-ui/icons.pdf": "^2.0.2",
+    "@welcome-ui/icons.ppt": "^1.0.0",
     "@welcome-ui/icons.video": "^2.0.2",
     "@welcome-ui/icons.xls": "^2.0.2",
     "@welcome-ui/icons.xlsx": "^2.0.2",
-    "@welcome-ui/icons.zip": "^2.0.2",
-    "mime": "=2.4.4"
+    "@welcome-ui/icons.zip": "^2.0.2"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
