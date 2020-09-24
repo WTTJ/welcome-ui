@@ -6,6 +6,7 @@ import { DocxIcon } from '@welcome-ui/icons.docx'
 import { formatBytes } from '@welcome-ui/utils'
 import { MusicIcon } from '@welcome-ui/icons.music'
 import { PdfIcon } from '@welcome-ui/icons.pdf'
+import { PptIcon } from '@welcome-ui/icons.ppt'
 import { VideoIcon } from '@welcome-ui/icons.video'
 import { XlsIcon } from '@welcome-ui/icons.xls'
 import { XlsxIcon } from '@welcome-ui/icons.xlsx'
@@ -62,6 +63,9 @@ export const getFileIcon = (file, forceFileType) => {
       return XlsIcon
     case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
       return XlsxIcon
+    case 'application/vnd.ms-powerpoint':
+    case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
+      return PptIcon
     case 'application/zip':
     case 'application/x-bzip':
     case 'application/x-bzip2':

@@ -1,5 +1,6 @@
 import { CameraIcon } from '@welcome-ui/icons.camera'
 import { PdfIcon } from '@welcome-ui/icons.pdf'
+import { PptIcon } from '@welcome-ui/icons.ppt'
 
 import { getFileIcon, getFileName, getFileSize, getMimeType } from './index'
 
@@ -26,6 +27,13 @@ describe.only('File utils', () => {
       const result = getMimeType(file)
 
       expect(result).toEqual('application/pdf')
+    })
+
+    it('should return ppt type', () => {
+      const file = { name: 'jungle.test-name.ppt' }
+      const result = getMimeType(file)
+
+      expect(result).toEqual('application/vnd.ms-powerpoint')
     })
 
     it('should return docx type', () => {
@@ -81,6 +89,13 @@ describe.only('File utils', () => {
       const result = getFileIcon(file)
 
       expect(result).toEqual(PdfIcon)
+    })
+
+    it('should return correct ppt icon', () => {
+      const file = { name: 'jungle.test-name.ppt' }
+      const result = getFileIcon(file)
+
+      expect(result).toEqual(PptIcon)
     })
 
     it('should return correct icon with forceFileType', () => {
