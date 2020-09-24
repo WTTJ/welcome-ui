@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/files",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/files.cjs.js",
   "module": "dist/files.es.js",
@@ -42,7 +42,7 @@
     "@welcome-ui/icons.docx": "^2.0.2",
     "@welcome-ui/icons.music": "^2.0.2",
     "@welcome-ui/icons.pdf": "^2.0.2",
-    "@welcome-ui/icons.ppt": "^1.0.0",
+    "@welcome-ui/icons.ppt": "^2.5.0",
     "@welcome-ui/icons.video": "^2.0.2",
     "@welcome-ui/icons.xls": "^2.0.2",
     "@welcome-ui/icons.xlsx": "^2.0.2",

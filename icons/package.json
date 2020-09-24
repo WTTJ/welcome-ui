@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/icons",
-  "version": "2.3.0",
+  "version": "2.5.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/icons.cjs.js",
   "module": "dist/icons.es.js",
@@ -176,7 +176,7 @@
     "@welcome-ui/icons.positive": "^2.0.2",
     "@welcome-ui/icons.positive_outline": "^2.0.2",
     "@welcome-ui/icons.positive_straight": "^2.0.2",
-    "@welcome-ui/icons.ppt": "^1.0.0",
+    "@welcome-ui/icons.ppt": "^2.5.0",
     "@welcome-ui/icons.print": "^2.0.2",
     "@welcome-ui/icons.promote": "^2.0.2",
     "@welcome-ui/icons.question": "^2.0.2",

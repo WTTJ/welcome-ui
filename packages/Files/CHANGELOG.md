@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/WTTJ/welcome-ui/compare/v2.4.1...v2.5.0) (2020-09-24)
+
+
+### Bug Fixes
+
+* **files:** getMimeType problem with dot on name ([#780](https://github.com/WTTJ/welcome-ui/issues/780)) ([af2e8b2](https://github.com/WTTJ/welcome-ui/commit/af2e8b267fc7904faa97478bc5ddfe779d0a31d0))
+
+
+
+
+
 # [2.4.0](https://github.com/WTTJ/welcome-ui/compare/v2.3.0...v2.4.0) (2020-09-11)
 
 
