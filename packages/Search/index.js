@@ -56,14 +56,18 @@ export const Search = forwardRef(
 
     // Update results when searching
     const handleInputChange = useCallback(
-      handleThrottle(async value => {
-        if (!value || value.length < minChars) {
-          setResults([])
-        } else {
-          const data = await search(value)
-          setResults(data || [])
-        }
-      }, throttle),
+      handleThrottle(
+        async value => {
+          if (minChars === 0 || value?.length >= minChars) {
+            const data = await search(value)
+            setResults(data || [])
+          } else {
+            setResults([])
+          }
+        },
+        throttle,
+        false
+      ),
       [minChars, search, throttle]
     )
 
@@ -133,6 +137,10 @@ export const Search = forwardRef(
             onClick && onClick(e)
             toggleMenu()
           }
+          const handleInputFocus = e => {
+            onFocus && onFocus(e)
+            handleInputChange('')
+          }
 
           const inputProps = getInputProps({
             autoComplete,
@@ -144,7 +152,7 @@ export const Search = forwardRef(
             name,
             onBlur,
             onClick: handleInputClick,
-            onFocus,
+            onFocus: handleInputFocus,
             placeholder,
             ref,
             size,
