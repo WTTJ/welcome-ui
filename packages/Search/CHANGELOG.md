@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.1](https://github.com/WTTJ/welcome-ui/compare/v2.5.0...v2.5.1) (2020-10-05)
+
+
+### Bug Fixes
+
+* allow search to make suggestions ([#784](https://github.com/WTTJ/welcome-ui/issues/784)) ([08d5155](https://github.com/WTTJ/welcome-ui/commit/08d5155606ef934f758a330f05a0a9ca67c18792))
+
+
+
+
+
 ## [2.4.1](https://github.com/WTTJ/welcome-ui/compare/v2.4.0...v2.4.1) (2020-09-22)
 
 
