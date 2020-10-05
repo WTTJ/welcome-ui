@@ -133,13 +133,10 @@ export const Search = forwardRef(
               <ClearButton onClick={handleClearClick} />
             </S.DropDownIndicator>
           )
-          const handleInputClick = e => {
-            onClick && onClick(e)
-            toggleMenu()
-          }
           const handleInputFocus = e => {
             onFocus && onFocus(e)
             handleInputChange('')
+            toggleMenu()
           }
 
           const inputProps = getInputProps({
@@ -151,7 +148,7 @@ export const Search = forwardRef(
             id,
             name,
             onBlur,
-            onClick: handleInputClick,
+            onClick: onClick,
             onFocus: handleInputFocus,
             placeholder,
             ref,
