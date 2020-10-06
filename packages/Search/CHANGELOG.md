@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.2](https://github.com/WTTJ/welcome-ui/compare/v2.5.1...v2.5.2) (2020-10-06)
+
+
+### Bug Fixes
+
+* support autofocus prop when minChars=0 ([#785](https://github.com/WTTJ/welcome-ui/issues/785)) ([019021d](https://github.com/WTTJ/welcome-ui/commit/019021d4dac890a413591f5934b79d83285b6282))
+
+
+
+
+
 ## [2.5.1](https://github.com/WTTJ/welcome-ui/compare/v2.5.0...v2.5.1) (2020-10-05)
 
 
