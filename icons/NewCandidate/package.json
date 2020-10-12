@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.new_candidate.cjs.js",
   "module": "dist/icons.new_candidate.es.js",
-  "version": "1.0.0",
+  "version": "2.6.0",
   "publishConfig": {
     "access": "public"
   },
