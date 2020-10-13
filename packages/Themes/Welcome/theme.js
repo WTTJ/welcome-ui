@@ -209,5 +209,11 @@ export const welcomeTheme = {
         color: 'black'
       }
     }
+  },
+  modals: {
+    footer: {
+      paddingTop: 0,
+      borderTopWidth: 0
+    }
   }
 }

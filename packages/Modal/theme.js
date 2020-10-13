@@ -1,5 +1,5 @@
 export const getModals = theme => {
-  const { borderWidths, colors, space, toRem } = theme
+  const { borderWidths, colors, space, texts, toRem } = theme
   return {
     backdrop: {
       backgroundColor: colors.overlay,
@@ -19,6 +19,7 @@ export const getModals = theme => {
       borderBottomStyle: 'solid',
       borderBottomWidth: borderWidths.sm,
       padding: `${space.lg} ${space.xxl}`,
+      ...texts.h4,
       /** space of close button */
       paddingRight: toRem(50)
     },
