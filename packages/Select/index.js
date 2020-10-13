@@ -218,7 +218,7 @@ export const Select = forwardRef(
           )
           const ArrowIcon = (
             <S.DropDownIndicator
-              data-testid={`${dataTestId}-arrow-icon`}
+              data-testid={dataTestId && `${dataTestId}-arrow-icon`}
               disabled={disabled}
               isOpen={isOpen}
               size={size}
