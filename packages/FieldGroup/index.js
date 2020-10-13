@@ -4,8 +4,8 @@ import { Label } from '@welcome-ui/label'
 
 import * as S from './styles'
 
-export const FieldGroup = forwardRef(({ children, label, required }, ref) => (
-  <S.FieldGroup ref={ref}>
+export const FieldGroup = forwardRef(({ children, dataTestId, label, required }, ref) => (
+  <S.FieldGroup data-testid={dataTestId} ref={ref}>
     {label && (
       <Label as="legend" required={required}>
         {label}
