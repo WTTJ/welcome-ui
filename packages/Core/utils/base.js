@@ -1,6 +1,5 @@
 import { createGlobalStyle, css } from '@xstyled/styled-components'
 import { getFont, th } from '@xstyled/system'
-import { normalize } from 'polished'
 
 import { fonts } from './font'
 import { resetStyles } from './reset'
@@ -56,7 +55,6 @@ function baseFonts(props) {
 
 export const GlobalStyle = createGlobalStyle(
   ({ useReset }) => css`
-    ${normalize()};
     ${useReset ? resetStyles : baseBoxSizing};
     ${fonts()};
     ${baseFonts};
