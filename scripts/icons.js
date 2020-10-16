@@ -5,7 +5,6 @@ const fs = require('fs')
 const util = require('util')
 
 const argv = require('yargs').argv
-const css = require('css')
 const difference = require('lodash.difference')
 const webfontsGenerator = require('webfonts-generator')
 require('colors')
