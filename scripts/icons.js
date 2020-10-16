@@ -210,37 +210,36 @@ const writeIconFont = files => {
     return files
   }
 
+  // Add new icons to unicodeMap (adding one to hex value for each new icon)
+  const newUnicodeMap = newIcons.reduce((arr, key) => {
+    const lastUnicodeEntry = arr[Object.keys(unicodeMap).pop()]
+    const newUnicodeEntry = (parseInt(lastUnicodeEntry, 16) + 0x1).toString(16)
+    arr[key] = `\f${newUnicodeEntry}`
+    return arr
+  }, unicodeMap)
+
+  // Write the updated unicode map
+  const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
+`
+  fs.writeFileSync(unicodeFile, fileContent)
+
+  console.debug(unicodeFile)
+
   // Generate web fonts
   webfontsGenerator(
     {
       files: filteredFiles.map(file => `${INPUT_PATH}/${file.key}.svg`),
       dest: `${ICON_FONT_PATH}/fonts`,
-      types: ['woff', 'woff2', 'ttf'],
-      fontName: 'welcome-icon-font'
+      fontName: 'welcome-icon-font',
+      css: false,
+      codepoints: newUnicodeMap
     },
-    (error, result) => {
+    error => {
       if (error) {
         console.error('Fail!', error)
-        return
+      } else {
+        console.log('Success'.green, 'Writing icon font')
       }
-      console.log('Success'.green, 'Writing icon font')
-      // Parse CSS to get unicode JSON
-      const styles = result.generateCss().toString()
-      const parsed = css.parse(styles)
-      const rules = parsed.stylesheet.rules
-
-      const newUnicodeMap = rules
-        .filter(rule => rule && rule.selectors && rule.selectors[0].startsWith('.icon-'))
-        .reduce((prev, rule) => {
-          const key = rule.selectors[0].replace(/\.icon-|:before/g, '')
-          const value = JSON.parse(rule.declarations[0].value).slice(0)
-          return { ...prev, [key]: value }
-        }, {})
-
-      // Write the updated unicode map
-      const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
-`
-      fs.writeFileSync(unicodeFile, fileContent)
     }
   )
 
