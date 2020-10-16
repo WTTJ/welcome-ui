@@ -83,7 +83,7 @@ yarn first:install
 yarn start
 ```
 
-3. Start a watch on all packages to rebuild them easely
+3. Start a watch on all packages to rebuild them easily
 
 ```bash
 yarn watch
