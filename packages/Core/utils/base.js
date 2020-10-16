@@ -1,12 +1,9 @@
 import { createGlobalStyle, css } from '@xstyled/styled-components'
-import { getFont, th } from '@xstyled/system'
+import { th } from '@xstyled/system'
 
 import { fonts } from './font'
 import { resetStyles } from './reset'
-
-function getFontFamilies(...fonts) {
-  return fonts.filter(Boolean).join(', ')
-}
+import WorkSans from './work-sans.css'
 
 const baseBoxSizing = css`
   * {
@@ -18,9 +15,7 @@ const baseBoxSizing = css`
   }
 `
 
-function baseFonts(props) {
-  const texts = getFont('texts')(props)
-  const sansSerif = 'sans-serif'
+function baseFonts() {
   return css`
     @media (max-width: 1200px) {
       html {
@@ -45,7 +40,7 @@ function baseFonts(props) {
     input,
     select,
     textarea {
-      font-family: ${getFontFamilies(texts, sansSerif)};
+      font-family: texts;
       -webkit-font-smoothing: antialiased;
       line-height: html;
       letter-spacing: html;
@@ -55,9 +50,10 @@ function baseFonts(props) {
 
 export const GlobalStyle = createGlobalStyle(
   ({ useReset }) => css`
-    ${useReset ? resetStyles : baseBoxSizing};
+    ${WorkSans};
     ${fonts()};
-    ${baseFonts};
+    ${baseFonts()};
+    ${useReset ? resetStyles : baseBoxSizing};
 
     ::selection {
       ${th('selection')};
