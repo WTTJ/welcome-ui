@@ -90,7 +90,6 @@ export const datePickerStyles = css`
   }
 
   .react-datepicker {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 0.8rem;
     background-color: #fff;
     color: #000;

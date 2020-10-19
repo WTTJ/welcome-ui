@@ -17,7 +17,7 @@ function getFont(descriptor) {
     @font-face {
       font-family: ${descriptor.name};
       src: ${getSrc(descriptor)};
-      font-display: fallback;
+      font-display: ${descriptor.display || 'fallback'};
       ${descriptor.weight &&
         css`
           font-weight: ${descriptor.weight};
@@ -32,10 +32,7 @@ function getFont(descriptor) {
 
 export const fonts = () => ({ theme }) => {
   if (!theme || !theme.fontFaces) return null
-  return (
-    Object.entries(theme.fontFaces)
-      // Ignore anything else than array
-      .filter(([, variations]) => Array.isArray(variations))
-      .map(([name, variations]) => variations.map(variation => getFont({ name, ...variation })))
+  return Object.entries(theme.fontFaces).map(([name, variations]) =>
+    variations.map(variation => getFont({ name, ...variation }))
   )
 }

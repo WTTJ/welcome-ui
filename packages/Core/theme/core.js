@@ -47,7 +47,7 @@ import { getDefaultFields } from './defaultFields'
 import { getDefaultCards } from './defaultCards'
 
 const DEFAULT_FONT_SIZE = 16
-const DEFAULT_FONT_FAMILY = 'work-sans'
+const DEFAULT_FONT_FAMILY = 'Work Sans'
 const DEFAULT_LINE_HEIGHT = 1.15
 const DEFAULT_LETTER_SPACING = 0
 const HEADING_FONT_FAMILY = 'welcome-font'
@@ -91,8 +91,8 @@ export const createTheme = (options = {}) => {
   }
   theme.letterSpacings = getLetterSpacings(theme)
   theme.fonts = {
-    texts: defaultFontFamily,
-    headings: headingFontFamily,
+    texts: [defaultFontFamily, 'sans-serif'].join(', '),
+    headings: [headingFontFamily, 'sans-serif'].join(', '),
     icons: iconFontFamily
   }
 

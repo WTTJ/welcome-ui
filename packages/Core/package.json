@@ -36,7 +36,6 @@
   },
   "dependencies": {
     "@welcome-ui/utils": "^2.0.2",
-    "polished": "^3.4.1",
     "ramda": "^0.27.0"
   },
   "peerDependencies": {
