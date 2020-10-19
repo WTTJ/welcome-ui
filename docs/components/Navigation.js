@@ -90,11 +90,6 @@ export const Navigation = ({ hideModal }) => {
         </NavigationLink>
       </S.Ul>
       <S.Ul>
-        <NavigationLink href="/migrate-to-v2" passHref>
-          <S.Main onClick={closeModal}>Migrate to V2</S.Main>
-        </NavigationLink>
-      </S.Ul>
-      <S.Ul>
         <S.MainTitle as="div">Theming</S.MainTitle>
         {ITEMS.theming.map((item, key) => (
           <S.Li key={`theming_${key}`} onClick={closeModal}>
@@ -133,6 +128,11 @@ export const Navigation = ({ hideModal }) => {
             </NavigationLink>
           </S.Li>
         ))}
+      </S.Ul>
+      <S.Ul>
+        <NavigationLink href="/migrate-to-v2" passHref>
+          <S.Main onClick={closeModal}>Migrate to V2</S.Main>
+        </NavigationLink>
       </S.Ul>
     </S.Nav>
   )
