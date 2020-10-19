@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.3](https://github.com/WTTJ/welcome-ui/compare/v2.6.2...v2.6.3) (2020-10-19)
+
+
+### Bug Fixes
+
+* updating icon font ([#793](https://github.com/WTTJ/welcome-ui/issues/793)) ([e89fd19](https://github.com/WTTJ/welcome-ui/commit/e89fd1942081bcc2975c4cf999ed403d202aabb3))
+
+
+
+
+
 ## [2.6.1](https://github.com/WTTJ/welcome-ui/compare/v2.6.0...v2.6.1) (2020-10-13)
 
 
