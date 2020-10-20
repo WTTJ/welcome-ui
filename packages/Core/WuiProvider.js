@@ -10,12 +10,13 @@ export const WuiProvider = ({
   hasGlobalStyle = true,
   reactRootId = 'root',
   shouldHideFocusRingOnClick = true,
-  theme
+  theme,
+  useReset
 }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-        {hasGlobalStyle && <GlobalStyle />}
+        {hasGlobalStyle && <GlobalStyle useReset={useReset} />}
         {shouldHideFocusRingOnClick ? (
           <HideFocusRingsRoot reactRootId={reactRootId}>{children}</HideFocusRingsRoot>
         ) : (
@@ -33,5 +34,6 @@ WuiProvider.propTypes /* remove-proptypes */ = {
   hasGlobalStyle: bool,
   reactRootId: string,
   shouldHideFocusRingOnClick: bool,
-  theme: object
+  theme: object,
+  useReset: bool
 }
