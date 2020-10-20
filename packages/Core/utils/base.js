@@ -2,7 +2,7 @@ import { createGlobalStyle, css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
 import { fonts } from './font'
-import { resetStyles } from './reset'
+import { normalizeStyle, resetStyles } from './reset'
 import WorkSans from './work-sans.css'
 
 const baseBoxSizing = css`
@@ -40,6 +40,7 @@ function baseFonts() {
     input,
     select,
     textarea {
+      /* stylelint-disable-next-line */
       font-family: texts;
       -webkit-font-smoothing: antialiased;
       line-height: html;
@@ -50,6 +51,7 @@ function baseFonts() {
 
 export const GlobalStyle = createGlobalStyle(
   ({ useReset }) => css`
+    ${normalizeStyle};
     ${WorkSans};
     ${fonts()};
     ${baseFonts()};
