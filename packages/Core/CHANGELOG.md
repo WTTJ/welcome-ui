@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/WTTJ/welcome-ui/compare/v2.6.3...v2.7.0) (2020-10-20)
+
+
+### Features
+
+* add useReset on WuiProvider for GlobalStyle ([#794](https://github.com/WTTJ/welcome-ui/issues/794)) ([9e21bb4](https://github.com/WTTJ/welcome-ui/commit/9e21bb454dab54d60380fb959f5fe2a4fcca560b))
+
+
+
+
+
 ## [2.6.3](https://github.com/WTTJ/welcome-ui/compare/v2.6.2...v2.6.3) (2020-10-19)
 
 **Note:** Version bump only for package @welcome-ui/core
