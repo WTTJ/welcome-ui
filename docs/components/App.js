@@ -75,7 +75,7 @@ export const App = ({ component: Component, pageProps }) => {
   }, [themeStorage])
 
   return (
-    <WuiProvider reactRootId="__next" theme={createTheme(allTheme)}>
+    <WuiProvider reactRootId="__next" theme={createTheme(allTheme)} useReset>
       <MDXProvider components={MDXComponents}>
         <Head />
         <Layout>

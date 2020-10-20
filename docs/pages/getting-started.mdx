@@ -44,8 +44,10 @@ export default function Root() {
     // Wrap your components with <WuiProvider /> with your theme
     <WuiProvider
       theme={theme}
-      // Will inject a CSS reset with normalizer
+      // Will inject our global style with fonts
       hasGlobalStyle
+      // Will inject our global style with normalizer reset
+      useReset
     >
       <Button variant="secondary">Welcome!</Button>
     </WuiProvider>
