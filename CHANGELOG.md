@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.1](https://github.com/WTTJ/welcome-ui/compare/v2.7.0...v2.7.1) (2020-10-20)
+
+
+### Bug Fixes
+
+* put back normalize for now ([#795](https://github.com/WTTJ/welcome-ui/issues/795)) ([2ec3e74](https://github.com/WTTJ/welcome-ui/commit/2ec3e744103f87d0e31ea6ff7fe99918987eccb7))
+
+
+
+
+
 # [2.7.0](https://github.com/WTTJ/welcome-ui/compare/v2.6.3...v2.7.0) (2020-10-20)
 
 
