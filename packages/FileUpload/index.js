@@ -87,6 +87,10 @@ export const FileUpload = forwardRef(
       inputRef.current.click()
     }
 
+    // We need to add this key on the input[file] because we can't change it's value programmatically for security reasons
+    // Changing its key means that we can add a file, remove it & re-add it
+    const inputKey = files.map(file => file.preview)
+
     return (
       <>
         {children ? (
@@ -101,6 +105,7 @@ export const FileUpload = forwardRef(
           accept={accept}
           data-testid={dataTestId}
           disabled={disabled}
+          key={inputKey}
           maxSize={maxSize}
           multiple={multiple}
           name={name}
