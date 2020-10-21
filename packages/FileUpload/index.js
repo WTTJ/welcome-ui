@@ -90,7 +90,7 @@ export const FileUpload = forwardRef(
     return (
       <>
         {children ? (
-          children({ openFile: handleClick, disabled })
+          children({ openFile: handleClick, disabled, files, onRemoveFile: handleRemove })
         ) : (
           <Button disabled={disabled} onClick={handleClick}>
             Upload file
@@ -110,9 +110,10 @@ export const FileUpload = forwardRef(
           {...rest}
           type="file"
         />
-        {files.map(file => (
-          <Preview file={file} key={file.name || file} onRemove={() => handleRemove(file)} />
-        ))}
+        {Preview &&
+          files.map(file => (
+            <Preview file={file} key={file.name || file} onRemove={() => handleRemove(file)} />
+          ))}
       </>
     )
   }
