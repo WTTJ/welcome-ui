@@ -72,15 +72,14 @@ export const FileUpload = forwardRef(
       onBlur && onBlur()
     }
 
-    const handleRemove = index => {
-      const newFiles = [...files]
-      const file = newFiles.splice(index, 1)
+    const handleRemove = removedFile => {
+      const newFiles = files.filter(file => file !== removedFile)
       const value = multiple ? newFiles : undefined
       setFiles(newFiles)
 
       const event = createEvent({ name, value })
       onChange && onChange(event)
-      handleRemoveFile && handleRemoveFile(file)
+      handleRemoveFile && handleRemoveFile(removedFile)
       onBlur && onBlur()
     }
 
@@ -112,7 +111,7 @@ export const FileUpload = forwardRef(
           type="file"
         />
         {files.map(file => (
-          <Preview file={file} key={file.name || file} onRemove={handleRemove} />
+          <Preview file={file} key={file.name || file} onRemove={() => handleRemove(file)} />
         ))}
       </>
     )
