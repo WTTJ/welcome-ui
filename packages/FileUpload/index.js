@@ -72,15 +72,14 @@ export const FileUpload = forwardRef(
       onBlur && onBlur()
     }
 
-    const handleRemove = index => {
-      const newFiles = [...files]
-      const file = newFiles.splice(index, 1)
+    const handleRemove = removedFile => {
+      const newFiles = files.filter(file => file !== removedFile)
       const value = multiple ? newFiles : undefined
       setFiles(newFiles)
 
       const event = createEvent({ name, value })
       onChange && onChange(event)
-      handleRemoveFile && handleRemoveFile(file)
+      handleRemoveFile && handleRemoveFile(removedFile)
       onBlur && onBlur()
     }
 
@@ -88,10 +87,14 @@ export const FileUpload = forwardRef(
       inputRef.current.click()
     }
 
+    // We need to add this key on the input[file] because we can't change it's value programmatically for security reasons
+    // Changing its key means that we can add a file, remove it & re-add it
+    const inputKey = files.map(file => file.preview)
+
     return (
       <>
         {children ? (
-          children({ openFile: handleClick, disabled })
+          children({ openFile: handleClick, disabled, files, onRemoveFile: handleRemove })
         ) : (
           <Button disabled={disabled} onClick={handleClick}>
             Upload file
@@ -102,6 +105,7 @@ export const FileUpload = forwardRef(
           accept={accept}
           data-testid={dataTestId}
           disabled={disabled}
+          key={inputKey}
           maxSize={maxSize}
           multiple={multiple}
           name={name}
@@ -111,9 +115,10 @@ export const FileUpload = forwardRef(
           {...rest}
           type="file"
         />
-        {files.map(file => (
-          <Preview file={file} key={file.name || file} onRemove={handleRemove} />
-        ))}
+        {Preview &&
+          files.map(file => (
+            <Preview file={file} key={file.name || file} onRemove={() => handleRemove(file)} />
+          ))}
       </>
     )
   }

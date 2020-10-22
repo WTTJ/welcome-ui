@@ -172,6 +172,28 @@ function() {
 }
 ```
 
+You can also set the `preview` prop to `null` and handle your own preview in place of the upload button with `files` & `onRemoveFile` render props:
+
+```jsx
+<Form initialValues={{}}>
+  <ConnectedField component={FileUpload} name="file" label="File" multiple preview={null}>
+    {({ openFile, files, onRemoveFile }) =>
+      files.length === 0 ? (
+        <Button onClick={openFile}>Upload files</Button>
+      ) : (
+        <Stack direction="row">
+          {files.map(file => (
+            <Button key={file.preview} onClick={() => onRemoveFile(file)}>
+              {getFileIcon(file)} Click to remove {file.name}
+            </Button>
+          ))}
+        </Stack>
+      )
+    }
+  </ConnectedField>
+</Form>
+```
+
 ## Properties
 
 ### FileUpload
