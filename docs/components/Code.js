@@ -39,6 +39,7 @@ import { MarkdownEditor } from '@welcome-ui/markdown-editor'
 import * as Modal from '@welcome-ui/modal'
 import { Pagination } from '@welcome-ui/pagination'
 import { Picker } from '@welcome-ui/picker'
+import * as Popover from '@welcome-ui/popover'
 import { Radio } from '@welcome-ui/radio'
 import { RadioGroup } from '@welcome-ui/radio-group'
 import { RadioTab } from '@welcome-ui/radio-tab'
@@ -155,6 +156,7 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
       ...Modal,
       Pagination,
       Picker,
+      ...Popover,
       NextLink,
       Radio,
       RadioGroup,

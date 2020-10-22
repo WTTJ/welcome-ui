@@ -1,0 +1,112 @@
+export { getStaticProps } from '../../getStaticProps'
+
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version
+} from '@welcome-ui/popover/package.json'
+
+# Popover
+
+<tagversion version={version} name={name} />
+
+Popover from [Reakit](https://reakit.io/docs/popover/) with a really nice theme 👀
+
+## Install and import
+
+<usage component={component} name={name} peerDependencies={peerDependencies} />
+
+## Example
+
+Use `usePopoverState`, `Popover` and `Popover.Trigger` to create a simple Popover.
+
+```jsx
+function() {
+  const popover = usePopoverState()
+
+  return (
+    <>
+      <Popover.Trigger as={Button} {...popover}>
+        Open Popover
+      </Popover.Trigger>
+      <Popover {...popover}>
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
+      </Popover>
+    </>
+  )
+}
+```
+
+## Title
+
+Use `title` props to create a predefined title block.
+
+```jsx
+function() {
+  const popover = usePopoverState()
+
+  return (
+    <>
+      <Popover.Trigger as={Button} {...popover}>
+        Open Popover
+      </Popover.Trigger>
+      <Popover {...popover} title="Amazing title">
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
+      </Popover>
+    </>
+  )
+}
+```
+
+## Close button
+
+`withCloseButton` show close button.
+
+```jsx
+function() {
+  const popover = usePopoverState()
+
+  return (
+    <>
+      <Popover.Trigger as={Button} {...popover}>
+        Open Popover
+      </Popover.Trigger>
+      <Popover {...popover} title="Amazing title" withCloseButton>
+          Praesent sit amet quam ac velit faucibus dapibus.<br />
+          Quisque sapien ligula, rutrum quis aliquam nec, convallis sit amet erat.<br />
+          Mauris auctor blandit porta.
+      </Popover>
+    </>
+  )
+}
+```
+
+## usePopoverState
+
+We use `usePopoverState` from [Reakit Popover](https://reakit.io/docs/popover/#usepopoverstate) for the state of the popover.
+
+Pass options to `usePopoverState` :
+
+- `visible`: e.g. `const popover = usePopoverState({ visible: true })`
+
+And the hook returns (among other things):
+
+- `visible` : whether the popover is currently visible
+- `hide` : a function to hide the popover
+- for the others options, go to [Reakit Popover](https://reakit.io/docs/popover/#usepopoverstate)
+
+## Properties
+
+<props propTypes={props.propTypes.Popover} />
+
+## Dependencies
+
+<dependencies dependencies={dependencies} />
+
+## Peer dependencies
+
+<dependencies dependencies={peerDependencies} />
