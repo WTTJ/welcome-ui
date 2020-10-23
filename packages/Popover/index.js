@@ -1,22 +1,29 @@
 import React, { memo } from 'react'
-import { bool, func, node, object } from 'prop-types'
-import { PopoverDisclosure } from 'reakit/Popover'
+import { bool, func, node, object, oneOf } from 'prop-types'
 import { Box } from '@welcome-ui/box'
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 
 import * as S from './styles'
+import { Trigger } from './Trigger'
 
 export const Popover = memo(function Popover({
   arrowStyle,
   children,
   onClose,
+  triggerMethod = 'click',
   withCloseButton = false,
   ...rest
 }) {
+  const hoverable = triggerMethod === 'hover' || undefined
+
   function closePopover() {
     if (onClose) onClose()
     rest?.hide()
+  }
+
+  function openPopover() {
+    rest?.show()
   }
 
   // get the correct transform style for arrow
@@ -30,7 +37,12 @@ export const Popover = memo(function Popover({
   const transform = transformMap[placement]
 
   return (
-    <S.Popover {...rest} withCloseButton={withCloseButton}>
+    <S.Popover
+      {...rest}
+      onMouseEnter={hoverable && openPopover}
+      onMouseLeave={hoverable && closePopover}
+      withCloseButton={withCloseButton}
+    >
       <Box position="relative">
         <S.Arrow {...rest} style={{ ...arrowStyle }}>
           <S.ArrowItem
@@ -69,11 +81,14 @@ Popover.propTypes = {
   children: node,
   /** call an function when popover closed */
   onClose: func,
+  /** the method to open and close the popover */
+  triggerMethod: oneOf(['click', 'hover']),
   /** show or hide a close button */
   withCloseButton: bool
 }
 
-Popover.Trigger = PopoverDisclosure
 Popover.Content = S.Content
 Popover.Title = S.Title
+Popover.Trigger = Trigger
+
 export * from './usePopoverState'

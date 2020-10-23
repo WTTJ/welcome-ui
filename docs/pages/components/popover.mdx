@@ -93,6 +93,28 @@ function() {
 }
 ```
 
+## Hover to open
+
+Use `triggerMethod='hover'` on `usePopoverState` to open and close the popover by hovering it.
+
+```jsx
+function() {
+  const popover = usePopoverState({ triggerMethod: 'hover' })
+
+  return (
+    <>
+      <Popover.Trigger as={Button} {...popover}>
+        Open Popover
+      </Popover.Trigger>
+      <Popover {...popover}>
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
+      </Popover>
+    </>
+  )
+}
+```
+
 ## usePopoverState
 
 We use `usePopoverState` from [Reakit Popover](https://reakit.io/docs/popover/#usepopoverstate) for the state of the popover.
