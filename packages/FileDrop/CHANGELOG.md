@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.3](https://github.com/WTTJ/welcome-ui/compare/v2.7.2...v2.7.3) (2020-10-23)
+
+
+### Bug Fixes
+
+* **file-drop:** don't crash if invalid url passed to filedrop ([#798](https://github.com/WTTJ/welcome-ui/issues/798)) ([04c9c19](https://github.com/WTTJ/welcome-ui/commit/04c9c1998b31b4c8f68760702da890b504780a81))
+
+
+
+
+
 # [2.5.0](https://github.com/WTTJ/welcome-ui/compare/v2.4.1...v2.5.0) (2020-09-24)
 
 **Note:** Version bump only for package @welcome-ui/file-drop
