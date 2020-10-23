@@ -18,7 +18,11 @@ export const getPreviewUrl = file => {
     return url
   }
   if (typeof window !== 'undefined') {
-    return new URL(url)
+    try {
+      return new URL(url)
+    } catch (error) {
+      return undefined
+    }
   }
   return undefined
 }
