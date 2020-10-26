@@ -27,6 +27,7 @@ const ITEMS = {
     'Loader',
     'Modal',
     'Pagination',
+    'Popover',
     'Shape',
     'Stack',
     'Swiper',

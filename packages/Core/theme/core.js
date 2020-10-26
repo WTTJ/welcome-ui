@@ -29,6 +29,7 @@ import { getFiledrops } from '../../FileDrop/theme'
 import { getRadios } from '../../Radio/theme'
 import { getHints } from '../../Hint/theme'
 import { getRadioTabs } from '../../RadioTab/theme'
+import { getPopovers } from '../../Popover/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -169,6 +170,7 @@ export const createTheme = (options = {}) => {
   theme.accordions = getAccordions(theme)
   theme.swipers = getSwipers(theme)
   theme.labels = getLabels(theme)
+  theme.popovers = getPopovers(theme)
   // fields
   theme.defaultFields = getDefaultFields(theme)
   theme.hints = getHints(theme)
