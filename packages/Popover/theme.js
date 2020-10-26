@@ -5,10 +5,7 @@ export const getPopovers = theme => {
     default: {
       backgroundColor: colors.dark[800],
       color: colors.light[900],
-      borderWidth: 0,
-      borderTopColor: colors.dark[800],
-      borderTopWidth: borderWidths.sm,
-      borderTopStyle: 'solid',
+      borderColor: colors.dark[800],
       maxWidth: toRem(700),
       zIndex: 1
     },

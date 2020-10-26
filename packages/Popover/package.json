@@ -38,6 +38,7 @@
     "@welcome-ui/box": "^2.0.2",
     "@welcome-ui/button": "^2.0.2",
     "@welcome-ui/icons.cross": "^2.0.2",
+    "@welcome-ui/system": "^2.0.2",
     "reakit": "^1.1.1"
   },
   "peerDependencies": {

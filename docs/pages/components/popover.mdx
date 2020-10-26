@@ -20,7 +20,7 @@ Popover from [Reakit](https://reakit.io/docs/popover/) with a really nice theme 
 
 ## Example
 
-Use `usePopoverState`, `Popover` and `Popover.Trigger` to create a simple Popover.
+Use `usePopoverState`, `Popover`, `Popover.Content` and `Popover.Trigger` to create a simple Popover.
 
 ```jsx
 function() {
@@ -32,8 +32,10 @@ function() {
         Open Popover
       </Popover.Trigger>
       <Popover {...popover}>
+        <Popover.Content>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
+        </Popover.Content>
       </Popover>
     </>
   )
@@ -42,20 +44,23 @@ function() {
 
 ## Title
 
-Use `title` props to create a predefined title block.
+Use `Popover.Title` props to create a predefined title block.
 
 ```jsx
 function() {
-  const popover = usePopoverState()
+  const popover = usePopoverState({ placement: 'top' })
 
   return (
     <>
       <Popover.Trigger as={Button} {...popover}>
         Open Popover
       </Popover.Trigger>
-      <Popover {...popover} title="Amazing title">
-          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
-          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
+      <Popover {...popover}>
+          <Popover.Title>Amazing title</Popover.Title>
+          <Popover.Content>
+            Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+            aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
+          </Popover.Content>
       </Popover>
     </>
   )
@@ -68,17 +73,20 @@ function() {
 
 ```jsx
 function() {
-  const popover = usePopoverState()
+  const popover = usePopoverState({ withCloseButton: true })
 
   return (
     <>
       <Popover.Trigger as={Button} {...popover}>
         Open Popover
       </Popover.Trigger>
-      <Popover {...popover} title="Amazing title" withCloseButton>
-          Praesent sit amet quam ac velit faucibus dapibus.<br />
-          Quisque sapien ligula, rutrum quis aliquam nec, convallis sit amet erat.<br />
-          Mauris auctor blandit porta.
+      <Popover {...popover}>
+          <Popover.Title>Amazing title</Popover.Title>
+          <Popover.Content>
+            Praesent sit amet quam ac velit faucibus dapibus.<br />
+            Quisque sapien ligula, rutrum quis aliquam nec, convallis sit amet erat.<br />
+            Mauris auctor blandit porta.
+          </Popover.Content>
       </Popover>
     </>
   )
