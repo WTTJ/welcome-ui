@@ -92,8 +92,8 @@ export const Props = ({ propTypes }) => {
                     <Box>
                       <Type type={type} />
                       {description && (
-                        <Box as="p" color="nude.600" fontSize="body3" m={0} mt="xs">
-                          {description[0]?.propTypes?.children}
+                        <Box as="p" color="light.100" fontSize="body4" m={0} mt="xs">
+                          {description}
                         </Box>
                       )}
                     </Box>
