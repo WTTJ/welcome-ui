@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/WTTJ/welcome-ui/compare/v2.7.3...v2.8.0) (2020-10-27)
+
+
+### Features
+
+* add Popover component ([#797](https://github.com/WTTJ/welcome-ui/issues/797)) ([5442882](https://github.com/WTTJ/welcome-ui/commit/544288263d699ad1bc2e42eeb49f75aeb8b5100a))
+
+
+
+
+
 ## [2.7.1](https://github.com/WTTJ/welcome-ui/compare/v2.7.0...v2.7.1) (2020-10-20)
 
 
