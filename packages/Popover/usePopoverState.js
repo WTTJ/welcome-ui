@@ -7,7 +7,7 @@ export const usePopoverState = ({
   withCloseButton = false,
   ...options
 } = {}) => {
-  const popover = useReakitPopoverState(options)
+  const popover = useReakitPopoverState({ animated, ...options })
   const closeCountdownRef = useRef()
   const isHoverable = triggerMethod === 'hover'
 
@@ -37,7 +37,6 @@ export const usePopoverState = ({
     hide,
     show,
     triggerMethod,
-    withCloseButton,
-    animated
+    withCloseButton
   }
 }
