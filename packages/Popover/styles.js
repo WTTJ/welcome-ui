@@ -26,7 +26,14 @@ export const Popover = styled(BasePopover)(
   ({ withCloseButton }) => css`
     ${th('popovers.default')};
     outline: none;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
     ${system}
+
+    /* on open popover for animation */
+    &[data-enter] {
+      opacity: 1;
+    }
 
     ${withCloseButton &&
       css`

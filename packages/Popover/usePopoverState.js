@@ -2,6 +2,7 @@ import { useCallback, useRef } from 'react'
 import { usePopoverState as useReakitPopoverState } from 'reakit/Popover'
 
 export const usePopoverState = ({
+  animated = 150,
   triggerMethod = 'click',
   withCloseButton = false,
   ...options
@@ -35,6 +36,7 @@ export const usePopoverState = ({
     hide,
     show,
     triggerMethod,
-    withCloseButton
+    withCloseButton,
+    animated
   }
 }
