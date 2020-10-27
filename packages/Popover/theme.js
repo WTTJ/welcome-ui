@@ -3,6 +3,7 @@ export const getPopovers = theme => {
 
   return {
     default: {
+      ...texts.body3,
       backgroundColor: colors.dark[800],
       color: colors.light[900],
       borderColor: colors.dark[800],
