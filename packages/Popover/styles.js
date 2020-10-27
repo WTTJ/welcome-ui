@@ -27,7 +27,7 @@ export const Popover = styled(BasePopover)(
     ${th('popovers.default')};
     outline: none;
     opacity: 0;
-    transition: opacity 250ms ease-in-out;
+    transition: opacity 150ms ease-in-out;
     ${system}
 
     /* on open popover for animation */
