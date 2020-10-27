@@ -9,27 +9,28 @@ export const usePopoverState = ({
 } = {}) => {
   const popover = useReakitPopoverState(options)
   const closeCountdownRef = useRef()
+  const isHoverable = triggerMethod === 'hover'
 
   const hide = useCallback(() => {
     if (!popover.visible) {
       return
     }
 
-    if (triggerMethod === 'hover') {
+    if (isHoverable) {
       closeCountdownRef.current = setTimeout(() => popover.hide(), 300)
     } else {
       popover.hide()
     }
-  }, [popover, triggerMethod])
+  }, [popover, isHoverable])
 
   const show = useCallback(() => {
     if (!popover.visible) {
       popover.show()
     }
-    if (triggerMethod === 'hover' && closeCountdownRef.current) {
+    if (isHoverable && closeCountdownRef.current) {
       clearTimeout(closeCountdownRef.current)
     }
-  }, [popover, triggerMethod])
+  }, [popover, isHoverable])
 
   return {
     ...popover,

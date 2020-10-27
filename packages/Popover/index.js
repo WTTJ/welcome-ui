@@ -15,7 +15,7 @@ export const Popover = memo(function Popover({
   withCloseButton = false,
   ...rest
 }) {
-  const hoverable = triggerMethod === 'hover' || undefined
+  const hoverable = triggerMethod === 'hover'
 
   function closePopover() {
     if (onClose) onClose()
