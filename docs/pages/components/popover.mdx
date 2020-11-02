@@ -126,6 +126,13 @@ We use `usePopoverState` from [Reakit Popover](https://reakit.io/docs/popover/#u
 Pass options to `usePopoverState` :
 
 - `visible`: e.g. `const popover = usePopoverState({ visible: true })`
+- `triggerMethod` : `click` or `hover`
+- `withCloseButton` : `bool, show/hide cross to close popover
+
+When `triggerMethod` is set to hover
+
+- `showTimeout`: `number` by default to `500`, show after x milliseconds on hover the trigger
+- `hideTimeout`: `number` by default to `300`, close after x milliseconds on mouse lease popover
 
 And the hook returns (among other things):
 
