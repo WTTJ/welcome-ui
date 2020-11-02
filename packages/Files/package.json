@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/files",
-  "version": "2.5.0",
+  "version": "2.8.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/files.cjs.js",
   "module": "dist/files.es.js",

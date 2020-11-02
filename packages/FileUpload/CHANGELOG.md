@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.2](https://github.com/WTTJ/welcome-ui/compare/v2.8.1...v2.8.2) (2020-11-02)
+
+**Note:** Version bump only for package @welcome-ui/file-upload
+
+
+
+
+
 ## [2.7.2](https://github.com/WTTJ/welcome-ui/compare/v2.7.1...v2.7.2) (2020-10-22)
 
 **Note:** Version bump only for package @welcome-ui/file-upload

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.2](https://github.com/WTTJ/welcome-ui/compare/v2.8.1...v2.8.2) (2020-11-02)
+
+
+### Bug Fixes
+
+* **files:** add svg and ico mime types ([#802](https://github.com/WTTJ/welcome-ui/issues/802)) ([a06e09f](https://github.com/WTTJ/welcome-ui/commit/a06e09fce5be83c1fc15865251167ecb3180ebde))
+
+
+
+
+
 # [2.8.0](https://github.com/WTTJ/welcome-ui/compare/v2.7.3...v2.8.0) (2020-10-27)
 
 
