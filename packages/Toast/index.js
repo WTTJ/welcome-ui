@@ -15,10 +15,18 @@ export function useToast() {
       const toastOptions = {
         position: 'bottom',
         duration: 5000,
+        onClose: undefined,
         ...options
       }
 
       const isBottomPosition = toastOptions.position.startsWith('bottom')
+      const customOnClose = toastOptions.onClose
+
+      function onCloseToast(onClose) {
+        // custom action onClose
+        customOnClose && customOnClose()
+        onClose()
+      }
 
       if (children) {
         toast.notify(
@@ -28,7 +36,7 @@ export function useToast() {
                 <S.Toast isBottom={isBottomPosition}>
                   {cloneElement(children, {
                     ...children.props,
-                    onClose: onClose
+                    onClose: () => onCloseToast(onClose)
                   })}
                 </S.Toast>
               </ThemeProvider>

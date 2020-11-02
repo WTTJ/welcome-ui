@@ -295,6 +295,38 @@ function() {
 }
 ```
 
+## Custom close function
+
+You can add your custom function when user click on close button
+
+```jsx
+function() {
+  const toast = useToast()
+
+  function onClose() {
+    alert('Toast hidden!')
+  }
+
+  return (
+    <Button
+      onClick={() =>
+        toast(
+          <Toast.Growl>
+            <Toast.Title>
+              Lorem ipsum dolor sit amet
+            </Toast.Title>
+            Class aptent taciti sociosqu ad
+          </Toast.Growl>,
+          { onClose, position: 'top-right' }
+        )
+      }
+    >
+      Open
+    </Button>
+  )
+}
+```
+
 ## Properties
 
 ### Toast
