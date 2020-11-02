@@ -12,6 +12,20 @@ describe.only('File utils', () => {
 
       expect(result).toEqual(file.name)
     })
+
+    it('should return correct name with /', () => {
+      const file = 'https://url.com/assets/jungle.svg'
+      const result = getFileName(file)
+
+      expect(result).toEqual('jungle.svg')
+    })
+
+    it('should return correct name with ?', () => {
+      const file = 'https://url.com/assets/jungle.svg?v=3a3dbd7122a01600fb67e66b889bb47c'
+      const result = getFileName(file)
+
+      expect(result).toEqual('jungle.svg')
+    })
   })
 
   describe('getMimeType', () => {
@@ -57,6 +71,21 @@ describe.only('File utils', () => {
       const result = getMimeType(file)
 
       expect(result).toEqual('image/jpeg')
+    })
+
+    it('should return correct type of file without name and /', () => {
+      const file = 'jungle/jungle.test-name.ico'
+      const result = getMimeType(file)
+
+      expect(result).toEqual('image/x-icon')
+    })
+
+    it('should return correct type of file without name and ?', () => {
+      const file =
+        'https://cdn.welcometothejungle.co/wttj-front/production/assets/images/logos/wttj.svg?v=3a3dbd7122a01600fb67e66b889bb47c'
+      const result = getMimeType(file)
+
+      expect(result).toEqual('image/svg+xml')
     })
   })
 
