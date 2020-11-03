@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/WTTJ/welcome-ui/compare/v2.9.0...v2.10.0) (2020-11-03)
+
+
+### Features
+
+* **toastr:** add your custom onClose function ([#804](https://github.com/WTTJ/welcome-ui/issues/804)) ([341b72d](https://github.com/WTTJ/welcome-ui/commit/341b72d36b7ef5c8fde590efb98f60a6e7e22c98))
+
+
+
+
+
 ## [2.1.3](https://github.com/WTTJ/welcome-ui/compare/v2.1.2...v2.1.3) (2020-08-27)
 
 **Note:** Version bump only for package @welcome-ui/toast
