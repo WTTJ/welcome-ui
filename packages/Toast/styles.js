@@ -29,6 +29,8 @@ export const Title = styled(Box)(
     align-items: center;
     color: ${getVariantColor(variant)};
     padding-bottom: md;
+    /* stylelint-disable-next-line */
+    padding-right: 3xl;
     ${th('toasts.growls.title')};
 
     & > *:first-child {
