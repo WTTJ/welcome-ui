@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.copy.cjs.js",
   "module": "dist/icons.copy.es.js",
-  "version": "2.1.4",
+  "version": "2.11.0",
   "publishConfig": {
     "access": "public"
   },

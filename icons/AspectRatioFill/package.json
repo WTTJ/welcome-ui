@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.aspect_ratio_fill.cjs.js",
   "module": "dist/icons.aspect_ratio_fill.es.js",
-  "version": "2.1.4",
+  "version": "2.11.0",
   "publishConfig": {
     "access": "public"
   },
