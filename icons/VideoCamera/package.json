@@ -1,0 +1,18 @@
+{
+  "name": "@welcome-ui/icons.video_camera",
+  "sideEffects": false,
+  "main": "dist/icons.video_camera.cjs.js",
+  "module": "dist/icons.video_camera.es.js",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^2.0.2"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "license": "MIT"
+}

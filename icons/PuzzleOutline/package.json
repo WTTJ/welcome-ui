@@ -1,0 +1,18 @@
+{
+  "name": "@welcome-ui/icons.puzzle_outline",
+  "sideEffects": false,
+  "main": "dist/icons.puzzle_outline.cjs.js",
+  "module": "dist/icons.puzzle_outline.es.js",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^2.0.2"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "license": "MIT"
+}

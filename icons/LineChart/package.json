@@ -1,0 +1,18 @@
+{
+  "name": "@welcome-ui/icons.line_chart",
+  "sideEffects": false,
+  "main": "dist/icons.line_chart.cjs.js",
+  "module": "dist/icons.line_chart.es.js",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^2.0.2"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "license": "MIT"
+}
