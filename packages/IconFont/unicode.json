@@ -214,5 +214,10 @@
   "type": "\f1d5",
   "video_camera": "\f1d6",
   "video_camera_2": "\f1d7",
-  "heading": "\f1d8"
+  "heading": "\f1d8",
+  "heading_3": "\f1d9",
+  "heading_4": "\f1da",
+  "heading_5": "\f1db",
+  "heading_6": "\f1dc",
+  "underline": "\f1dd"
 }
