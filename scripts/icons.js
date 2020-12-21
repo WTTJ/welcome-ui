@@ -213,7 +213,7 @@ const writeIconFont = files => {
   const newUnicodeMap = newIcons.reduce((arr, key) => {
     const lastUnicodeEntry = arr[Object.keys(unicodeMap).pop()]
     const newUnicodeEntry = (parseInt(lastUnicodeEntry, 16) + 0x1).toString(16)
-    arr[key] = `\f${newUnicodeEntry}`
+    arr[key] = `0x${newUnicodeEntry}`
     return arr
   }, unicodeMap)
 
@@ -221,8 +221,6 @@ const writeIconFont = files => {
   const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
 `
   fs.writeFileSync(unicodeFile, fileContent)
-
-  console.debug(unicodeFile)
 
   // Generate web fonts
   webfontsGenerator(
