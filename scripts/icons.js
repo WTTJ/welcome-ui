@@ -229,6 +229,7 @@ const writeIconFont = files => {
       dest: `${ICON_FONT_PATH}/fonts`,
       fontName: 'welcome-icon-font',
       css: false,
+      types: ['ttf', 'woff'],
       codepoints: newUnicodeMap
     },
     error => {
