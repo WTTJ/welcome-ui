@@ -90,3 +90,7 @@ yarn watch
 ```
 
 4. and go to https://localhost:3020
+
+## Add some new icons
+
+Follow the steps of [icons/README.md](icons/README.md)

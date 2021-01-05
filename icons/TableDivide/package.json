@@ -1,0 +1,18 @@
+{
+  "name": "@welcome-ui/icons.table_divide",
+  "sideEffects": false,
+  "main": "dist/icons.table_divide.cjs.js",
+  "module": "dist/icons.table_divide.es.js",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^2.0.2"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "license": "MIT"
+}
