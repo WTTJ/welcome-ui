@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.table_column_remove.cjs.js",
   "module": "dist/icons.table_column_remove.es.js",
-  "version": "1.0.0",
+  "version": "2.14.0",
   "publishConfig": {
     "access": "public"
   },
