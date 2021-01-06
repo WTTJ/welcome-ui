@@ -243,6 +243,7 @@
     "@welcome-ui/icons.table_column_remove": "^2.14.1",
     "@welcome-ui/icons.table_delete": "^2.14.1",
     "@welcome-ui/icons.table_divide": "^2.14.1",
+    "@welcome-ui/icons.table_merge_cells": "^1.0.0",
     "@welcome-ui/icons.table_row_add_above": "^2.14.1",
     "@welcome-ui/icons.table_row_add_below": "^2.14.1",
     "@welcome-ui/icons.table_row_remove": "^2.14.1",
