@@ -220,5 +220,14 @@
   "heading_5": "\f1db",
   "heading_6": "\f1dc",
   "underline": "\f1dd",
-  "code_block": "\f1de"
+  "code_block": "\f1de",
+  "table": "\f1df",
+  "table_column_add_after": "\f1e0",
+  "table_column_add_before": "\f1e1",
+  "table_column_remove": "\f1e2",
+  "table_delete": "\f1e3",
+  "table_divide": "\f1e4",
+  "table_row_add_above": "\f1e5",
+  "table_row_add_below": "\f1e6",
+  "table_row_remove": "\f1e7"
 }
