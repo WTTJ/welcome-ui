@@ -202,6 +202,7 @@ export { TableColumnAddBeforeIcon } from '@welcome-ui/icons.table_column_add_bef
 export { TableColumnRemoveIcon } from '@welcome-ui/icons.table_column_remove'
 export { TableDeleteIcon } from '@welcome-ui/icons.table_delete'
 export { TableDivideIcon } from '@welcome-ui/icons.table_divide'
+export { TableMergeCellsIcon } from '@welcome-ui/icons.table_merge_cells'
 export { TableRowAddAboveIcon } from '@welcome-ui/icons.table_row_add_above'
 export { TableRowAddBelowIcon } from '@welcome-ui/icons.table_row_add_below'
 export { TableRowRemoveIcon } from '@welcome-ui/icons.table_row_remove'
