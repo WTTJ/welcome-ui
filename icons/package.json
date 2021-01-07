@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/icons",
-  "version": "2.15.0",
+  "version": "2.15.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/icons.cjs.js",
   "module": "dist/icons.es.js",
@@ -243,7 +243,7 @@
     "@welcome-ui/icons.table_column_remove": "^2.14.1",
     "@welcome-ui/icons.table_delete": "^2.14.1",
     "@welcome-ui/icons.table_divide": "^2.14.1",
-    "@welcome-ui/icons.table_merge_cells": "^2.15.0",
+    "@welcome-ui/icons.table_merge_cells": "^2.15.1",
     "@welcome-ui/icons.table_row_add_above": "^2.14.1",
     "@welcome-ui/icons.table_row_add_below": "^2.14.1",
     "@welcome-ui/icons.table_row_remove": "^2.14.1",
