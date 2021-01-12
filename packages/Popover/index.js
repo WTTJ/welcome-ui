@@ -39,8 +39,8 @@ export const Popover = memo(function Popover({
   return (
     <S.Popover
       {...rest}
-      onMouseEnter={hoverable && openPopover}
-      onMouseLeave={hoverable && closePopover}
+      onMouseEnter={hoverable ? openPopover : undefined}
+      onMouseLeave={hoverable ? closePopover : undefined}
       withCloseButton={withCloseButton}
     >
       <Box position="relative">
