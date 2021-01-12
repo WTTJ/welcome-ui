@@ -3,7 +3,9 @@ import { Popover as BasePopover, PopoverArrow } from 'reakit/Popover'
 import { th } from '@xstyled/system'
 import { shouldForwardProp, system } from '@welcome-ui/system'
 
-export const Arrow = styled(PopoverArrow)`
+export const Arrow = styled(PopoverArrow).withConfig({
+  shouldForwardProp: prop => ['size', 'placement'].includes(prop)
+})`
   color: ${th('popovers.default.backgroundColor')};
 `
 
@@ -22,7 +24,9 @@ export const Title = styled.h6`
   ${th('popovers.title')};
 `
 
-export const Popover = styled(BasePopover)(
+export const Popover = styled(BasePopover).withConfig({
+  shouldForwardProp: prop => prop !== 'withCloseButton'
+})(
   ({ withCloseButton }) => css`
     ${th('popovers.default')};
     outline: none;
