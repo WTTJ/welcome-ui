@@ -39,15 +39,15 @@ export const Popover = memo(function Popover({
   return (
     <S.Popover
       {...rest}
+      $withCloseButton={withCloseButton}
       onMouseEnter={hoverable ? openPopover : undefined}
       onMouseLeave={hoverable ? closePopover : undefined}
-      withCloseButton={withCloseButton}
     >
       <Box position="relative">
         <S.Arrow {...rest} style={{ ...arrowStyle }}>
           <S.ArrowItem
+            $transform={transform}
             height="30"
-            transform={transform}
             width="30"
             xmlns="http://www.w3.org/2000/svg"
           >
