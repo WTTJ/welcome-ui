@@ -104,8 +104,8 @@ export const MarkdownEditor = forwardRef(
     }, [])
 
     const handleFocus = () => {
-      instance && instance.codemirror.focus()
-      onFocus && onFocus(value)
+      instance?.codemirror.focus()
+      onFocus?.(value)
       setFocused(true)
       setShowEmojiPicker(false)
     }
@@ -168,8 +168,7 @@ export const MarkdownEditor = forwardRef(
           role="toolbar"
         />
         {showEmojiPicker && <EmojiPicker onSelect={addEmoji} />}
-        <S.Editor
-          as={SimpleMDE}
+        <SimpleMDE
           events={{ blur: handleBlur, focus: handleFocus, cursorActivity: updateCurrentTools }}
           extraKeys={{ Tab: false }}
           getMdeInstance={setInstance}

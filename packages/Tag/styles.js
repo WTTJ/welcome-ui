@@ -4,19 +4,19 @@ import { StyledIcon } from '@welcome-ui/icon'
 import { system } from '@welcome-ui/system'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
 
-const shapeStyles = (size, width, height, shape = 'square') => css`
+const shapeStyles = (size, w, h, shape = 'square') => css`
   ${th(`tags.shape.${size}`)}
   padding: 0;
-  ${(width || height) &&
+  ${(w || h) &&
     css`
-      width: ${getMax(width || 0, height)};
-      height: ${getMax(width || 0, height)};
+      width: ${getMax(w || 0, h)};
+      height: ${getMax(w || 0, h)};
     `}
   ${shape === 'circle' && 'border-radius: 50%'};
 `
 
 export const Tag = styled.div(
-  ({ hasAction, height, length, shape, size, variant, width }) => css`
+  ({ h, hasAction, length, shape, size, variant, w }) => css`
     ${th('tags.default')};
     ${th(`tags.variants.${variant}`)};
     ${th(`tags.sizes.${size}`)}
@@ -39,7 +39,7 @@ export const Tag = styled.div(
     ${(shape || length === 1) &&
       css`
         justify-content: center;
-        ${shapeStyles(size, width, height, shape)};
+        ${shapeStyles(size, w, h, shape)};
       `};
     ${hasAction &&
       css`

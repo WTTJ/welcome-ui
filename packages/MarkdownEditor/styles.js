@@ -82,8 +82,6 @@ export const EmojiPicker = styled.div`
   right: ${th('space.md')};
 `
 
-export const Editor = styled.box``
-
 export const Actions = styled.div`
   position: absolute;
   bottom: 0;

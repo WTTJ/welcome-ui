@@ -43,12 +43,18 @@
     "downshift": "=3.2.10"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^1.17.0",
-    "@xstyled/system": "^1.17.0",
+    "@xstyled/styled-components": "^2.1.0",
+    "@xstyled/system": "^2.1.0",
     "prop-types": "^15.7.2",
+<<<<<<< HEAD
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
-    "styled-components": "^4.0.0 || ^5.0.0"
+    "styled-components": "^5.0.0"
+=======
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "styled-components": "^5.0.0"
+>>>>>>> chore: update xstyled
   },
   "component": "Search",
   "homepage": "https://welcome-ui.com/fields/search"

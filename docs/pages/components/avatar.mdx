@@ -20,7 +20,7 @@ Avatar component with initials letter when have no image.
 
 ## With image
 
-We use `Shape` component. You can use size from theme or override with `width` and `height` size.
+We use `Shape` component. You can use size from theme or override with `w` and `h` size.
 
 ```jsx row
 <Avatar
@@ -47,8 +47,8 @@ We use `Shape` component. You can use size from theme or override with `width` a
 <Avatar
   src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
   name="Custom"
-  width={130}
-  height={130}
+  w={130}
+  h={130}
   color="warning.500"
   fontSize={20}
 />
@@ -64,7 +64,7 @@ Without image we add initials on the avatar with property `name`. We get by defa
 <Avatar name="Welcome jungle" size="lg" />
 <Avatar name="Welcome jungle" size="xl" />
 <Avatar name="Welcome jungle" size="xxl" />
-<Avatar name="Custom" width={130} height={130} color="warning.500" fontSize={20} />
+<Avatar name="Custom" w={130} h={130} color="warning.500" fontSize={20} />
 ```
 
 ## With shape square

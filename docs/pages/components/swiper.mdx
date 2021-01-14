@@ -25,7 +25,7 @@ function() {
   const swiper = useSwiper()
 
   return (
-    <Swiper height={400} {...swiper}>
+    <Swiper h={400} {...swiper}>
       <Swiper.Slide textAlign="center">
         <img
           style={{ maxWidth: '100%', maxHeight: '100%' }}
@@ -64,7 +64,7 @@ function() {
     })
 
   return (
-    <Swiper height={400} {...swiper}>
+    <Swiper h={400} {...swiper}>
       <Swiper.Slide textAlign="center" pr="xl">
         <img
           style={{ maxWidth: '100%', maxHeight: '100%' }}
@@ -113,7 +113,7 @@ function() {
   })
 
   return (
-    <Swiper {...swiper} height={400}>
+    <Swiper {...swiper} h={400}>
       <Swiper.Slide textAlign="center">
         <img
           style={{ maxWidth: '100%', maxHeight: '100%' }}
@@ -155,7 +155,7 @@ function() {
           <RightIcon size="lg"  />
         </Button>
       </Box>
-      <Swiper height={400} {...swiper}>
+      <Swiper h={400} {...swiper}>
         <Swiper.Slide textAlign="center">
           <img
             style={{ maxWidth: '100%', maxHeight: '100%' }}
@@ -194,7 +194,7 @@ function() {
   })
 
   return (
-    <Swiper {...swiper} height={400}>
+    <Swiper {...swiper} h={400}>
       <Swiper.Slide textAlign="center">
         <img
           style={{ maxWidth: '100%', maxHeight: '100%' }}
@@ -230,12 +230,12 @@ By providing the optional `renderPaginationItem` you can customise the defaults 
 function() {
   const swiper = useSwiper({
     renderPaginationItem: ({idx,  active, onClick, pageIdx }) => (
-      <Swiper.Bullet width={50} height={50} active={idx === pageIdx} onClick={onClick} />
+      <Swiper.Bullet w={50} h={50} active={idx === pageIdx} onClick={onClick} />
     )
   })
 
   return (
-    <Swiper height={400} {...swiper}>
+    <Swiper h={400} {...swiper}>
       <Swiper.Slide textAlign="center">
         <img
           style={{ maxWidth: '100%', maxHeight: '100%' }}

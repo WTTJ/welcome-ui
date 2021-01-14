@@ -16,7 +16,7 @@ export const Layout = ({ children }) => {
   return (
     <S.Layout>
       <Header />
-      <Box margin="0 auto" maxWidth={1} paddingLeft={{ md: 270 }} width={1280}>
+      <Box margin="0 auto" maxWidth={1} paddingLeft={{ md: 270 }} w={1280}>
         <Box
           as="main"
           mb={{ xs: '3xl', md: 0 }}
@@ -45,7 +45,7 @@ export const Layout = ({ children }) => {
               rel="noopener"
               target="_blank"
             >
-              <LogoWttj black={theme !== 'dark'} height={24} width={74} />
+              <LogoWttj black={theme !== 'dark'} h={24} w={74} />
             </Box>
           </Box>
         </Box>

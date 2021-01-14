@@ -124,7 +124,7 @@ export const useSwiper = (props = {}) => {
   // Set slidesToShow to 1 for mobile
   const theme = useTheme()
   const { width: viewportWidth } = useViewportSize()
-  if (viewportWidth <= theme.breakpoints.sm) {
+  if (viewportWidth <= theme.screens.sm) {
     slidesToShow = 1
     slidesToSwipe = 1
   }

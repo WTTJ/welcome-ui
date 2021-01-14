@@ -41,7 +41,7 @@ const defaultProps = {
   // eslint-disable-next-line react/display-name
   renderItem: item => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <Shape mr="xs" size="sm" width="20px">
+      <Shape mr="xs" size="sm" w="20px">
         <img src={item.poster} />
       </Shape>
       <span>{item.title}</span>

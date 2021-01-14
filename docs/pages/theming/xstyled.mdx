@@ -1,10 +1,10 @@
 # xstyled
 
-With [xstyled/system](https://xstyled.dev/docs/style-props/) you can easily override styles for your components. When you use a component (e.g. `Select`) that is wrapped by a container component (e.g. `Field` or `ConnectedField`), we want to make sure that the correct style props are passed to the correct component i.e. which props affect `ConnectedField` and which props affect `Select`.
+With [xstyled/system](https://xstyled.dev/docs/composing-utilities/) you can easily override styles for your components. When you use a component (e.g. `Select`) that is wrapped by a container component (e.g. `Field` or `ConnectedField`), we want to make sure that the correct style props are passed to the correct component i.e. which props affect `ConnectedField` and which props affect `Select`.
 
 We split these props at the container level so that…
 
-1. width, margin and positioning props are applied to the container (e.g. `width`, `margin`, `mt`, `position`, `top` etc), and
+1. width, margin and positioning props are applied to the container (e.g. `w`, `margin`, `mt`, `position`, `top` etc), and
 2. all the rest are applied to the underlying component (e.g. `padding`, `borderColor`, `fontSize` etc).
 
 ## Naked Select
@@ -30,8 +30,8 @@ function() {
       value={value}
       label="JS Library"
       mt={50}
-      width={150}
-      height="auto"
+      w={150}
+      h="auto"
       borderColor="papayaWhip"
       borderWidth={2}
       borderRadius={15}
@@ -79,8 +79,8 @@ function() {
               label="Social network"
               placeholder="Choose network"
               mt={50}
-              width={150}
-              height="auto"
+              w={150}
+              h="auto"
               borderColor="papayaWhip"
               borderWidth={2}
               borderRadius={15}
@@ -109,8 +109,8 @@ function() {
     { value: 'pumpkin', label: 'Pumpkin' }
   ]}
   mt={50}
-  width={150}
-  height="auto"
+  w={150}
+  h="auto"
   borderColor="papayaWhip"
   borderWidth={2}
   borderRadius={15}

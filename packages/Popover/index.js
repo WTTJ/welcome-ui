@@ -45,12 +45,7 @@ export const Popover = memo(function Popover({
     >
       <Box position="relative">
         <S.Arrow {...rest} style={{ ...arrowStyle }}>
-          <S.ArrowItem
-            height="30"
-            transform={transform}
-            width="30"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <S.ArrowItem h="30" transform={transform} w="30" xmlns="http://www.w3.org/2000/svg">
             <path d="M6 30l9-10 9 10z" fill="currentColor" fillRule="nonzero" />
           </S.ArrowItem>
         </S.Arrow>

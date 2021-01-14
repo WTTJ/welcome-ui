@@ -85,10 +85,10 @@ export const Props = ({ propTypes }) => {
 
               return (
                 <Table.Tr key={key}>
-                  <Table.Td color="dark.900" fontWeight="bold" width="20%">
+                  <Table.Td color="dark.900" fontWeight="bold" w="20%">
                     {key}
                   </Table.Td>
-                  <Table.Td width="50%">
+                  <Table.Td w="50%">
                     <Box>
                       <Type type={type} />
                       {description && (
@@ -98,10 +98,10 @@ export const Props = ({ propTypes }) => {
                       )}
                     </Box>
                   </Table.Td>
-                  <Table.Td width="15%">
+                  <Table.Td w="15%">
                     {defaultValue && <Tag>{removeQuote(defaultValue?.value)}</Tag>}
                   </Table.Td>
-                  <Table.Td textAlign="center" width="15%">
+                  <Table.Td textAlign="center" w="15%">
                     {required && (
                       <Tooltip content="is required">
                         <Tag shape="circle" variant="primary">

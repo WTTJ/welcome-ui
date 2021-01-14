@@ -103,7 +103,7 @@ export const createTheme = (options = {}) => {
     lg: '3px'
   }
 
-  theme.breakpoints = {
+  theme.screens = {
     xs: 0,
     sm: 480,
     md: 736,
