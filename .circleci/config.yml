@@ -56,13 +56,14 @@ jobs:
       - restore_cache:
           key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn icons:collect
+      - run: yarn webfont:build
       - run:
           name: prepare font hash
           command: |
             echo 'export BRANCH=$CIRCLE_BRANCH' >> $BASH_ENV
             echo "export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')" >> $BASH_ENV
             source $BASH_ENV
-            yarn build --scope @welcome-ui/core
+            yarn build:core
       - aws-s3/sync:
           from: packages/IconFont/fonts
           to: s3://welcome-ui/public/fonts/$BRANCH/$ICON_FONT_HASH/

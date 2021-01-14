@@ -20,7 +20,7 @@ const external = id => !id.startsWith('.') && !id.startsWith('/')
 
 const PLUGINS = [
   replace({
-    __BRANCH__: process.env.BRANCH || 'dev',
+    __BRANCH__: process.env.BRANCH,
     __ICON_FONT_HASH__: process.env.ICON_FONT_HASH
   }),
   nodeResolve(),
