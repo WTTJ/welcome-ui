@@ -16232,7 +16232,7 @@ style-to-object@0.3.0, style-to-object@^0.3.0:
   dependencies:
     inline-style-parser "0.1.1"
 
-styled-components@5.1.1, "styled-components@^4.0.0 || ^5.0.0":
+styled-components@5.1.1, styled-components@^5.0.0:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-5.1.1.tgz#96dfb02a8025794960863b9e8e365e3b6be5518d"
   integrity sha512-1ps8ZAYu2Husx+Vz8D+MvXwEwvMwFv+hqqUwhNlDN5ybg6A+3xyW1ECrAgywhvXapNfXiz79jJyU0x22z0FFTg==
@@ -18121,10 +18121,10 @@ ws@^5.2.0:
   dependencies:
     async-limiter "~1.0.0"
 
-wttj-config-front@=1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/wttj-config-front/-/wttj-config-front-1.0.1.tgz#13c629cbb9d37a45c585ab0fc2748f0516415d47"
-  integrity sha512-gLj0K4M1b1My7xPfLO/r5pXcE+c8fWV/OVuF7ALOpYPQC0VWQIvtlgbU8/qKu5xwwO8ICFnjjs0gOo//6KxLqw==
+wttj-config-front@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/wttj-config-front/-/wttj-config-front-1.1.5.tgz#efb73a2e265e8c78e1683106e3998c274bd0cbac"
+  integrity sha512-K2QKYfd2xKoLJMjtnp63CGH5RpA/U6P8RNhlVr+jYUCA5zZ2Bqmbt3zsg/CPr2A9uaFGoya8jmCUERyzbaE9ew==
 
 x-is-string@^0.1.0:
   version "0.1.0"
