@@ -11,8 +11,8 @@
     "@welcome-ui/icon": "^2.15.3"
   },
   "peerDependencies": {
-    "react": "^16.10.20 || ^17.0.1",
-    "react-dom": "^16.10.20 || ^17.0.1"
+    "react": "^16.10.2 || ^17.0.1",
+    "react-dom": "^16.10.2 || ^17.0.1"
   },
   "license": "MIT",
   "version": "2.15.3"
