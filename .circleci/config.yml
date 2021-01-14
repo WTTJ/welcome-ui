@@ -58,7 +58,7 @@ jobs:
       - run: yarn icons:collect
       - run:
           name: prepare font hash
-          cmd: |
+          command: |
             export BRANCH=$CIRCLE_BRANCH
             export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')
             yarn build --scope @welcome-ui/core
