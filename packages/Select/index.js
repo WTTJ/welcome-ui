@@ -186,6 +186,7 @@ export const Select = forwardRef(
 
     return (
       <Downshift
+        id={id}
         inputValue={isSearchable ? inputContent : ''}
         isOpen={isOpen}
         itemToString={itemToString}

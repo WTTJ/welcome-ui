@@ -16,7 +16,14 @@ export const SelectTheme = props => {
   ]
 
   return (
-    <Select onChange={handleSetTheme} options={options} size="sm" value={theme} {...props}>
+    <Select
+      id="select-theme"
+      onChange={handleSetTheme}
+      options={options}
+      size="sm"
+      value={theme}
+      {...props}
+    >
       select
     </Select>
   )
