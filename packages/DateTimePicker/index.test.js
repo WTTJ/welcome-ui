@@ -136,7 +136,7 @@ describe('<DateTimePicker />', () => {
     expect(yearSelect).toHaveTextContent('2001')
   })
 
-  test('<DateTimePicker> updating text updates selects', () => {
+  test.only('<DateTimePicker> updating text updates selects', () => {
     const { container, getAllByRole } = render(
       <Form initialValues={{ welcome: new Date('09/11/2001') }}>
         <ConnectedField component={DateTimePicker} name="welcome" />
@@ -144,8 +144,8 @@ describe('<DateTimePicker />', () => {
     )
     const datePicker = container.querySelector('.date-picker')
 
-    userEvent.type(datePicker, '20/06/2018')
-    fireEvent.click(datePicker)
+    userEvent.type(datePicker, '20\/06\/2018{enter}')
+    // fireEvent.click(datePicker)
 
     const [monthSelect, yearSelect] = getAllByRole('combobox')
     expect(monthSelect).toHaveTextContent('June')
