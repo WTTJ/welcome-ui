@@ -40,7 +40,7 @@
     "@welcome-ui/system": "^2.15.3",
     "@welcome-ui/tag": "^2.15.3",
     "@welcome-ui/utils": "^2.15.3",
-    "downshift": "=3.2.10"
+    "downshift": "^6.0.15"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^2.1.0",
