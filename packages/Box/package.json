@@ -39,12 +39,6 @@
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
     "styled-components": "^5.0.0"
-=======
-    "@xstyled/styled-components": "^2.1.0",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "styled-components": "^5.0.0"
->>>>>>> chore: update xstyled
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
