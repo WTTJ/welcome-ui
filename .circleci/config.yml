@@ -56,9 +56,15 @@ jobs:
       - restore_cache:
           key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn icons:collect
+      - run:
+          name: prepare font hash
+          cmd: |
+            export BRANCH=$CIRCLE_BRANCH
+            export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')
+            yarn build --scope @welcome-ui/core
       - aws-s3/sync:
           from: packages/IconFont/fonts
-          to: s3://welcome-ui/projects/$CIRCLE_PROJECT_REPONAME-iconfont/$CIRCLE_BRANCH/
+          to: s3://welcome-ui/fonts/$BRANCH/$ICON_FONT_HASH/
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
 

@@ -1,5 +1,7 @@
 import path from 'path'
+
 import babel from 'rollup-plugin-babel'
+import replace from '@rollup/plugin-replace'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import json from '@rollup/plugin-json'
@@ -16,7 +18,17 @@ const getBabelOptions = ({ babelConfigFile = '../../babel.config.js', useESModul
 
 const external = id => !id.startsWith('.') && !id.startsWith('/')
 
-export const getRollupConfig = ({ pwd, babelConfigFile }) => {
+const PLUGINS = [
+  replace({
+    __BRANCH__: process.env.BRANCH,
+    __ICON_FONT_HASH__: process.env.ICON_FONT_HASH
+  }),
+  nodeResolve(),
+  postcss(),
+  json()
+]
+
+export const getRollupConfig = ({ babelConfigFile, pwd }) => {
   const SOURCE_DIR = path.resolve(pwd)
   const pkg = require(`${SOURCE_DIR}/package.json`)
   const input = `${SOURCE_DIR}/index.js`
@@ -25,24 +37,14 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
     input,
     output: { file: `${SOURCE_DIR}/${pkg.main}`, format: 'cjs' },
     external,
-    plugins: [
-      babel(getBabelOptions({ babelConfigFile, useESModules: false })),
-      nodeResolve(),
-      postcss(),
-      json()
-    ]
+    plugins: [...PLUGINS, babel(getBabelOptions({ babelConfigFile, useESModules: false }))]
   }
 
   const esmConfig = {
     input,
     output: { file: `${SOURCE_DIR}/${pkg.module}`, format: 'esm' },
     external,
-    plugins: [
-      babel(getBabelOptions({ babelConfigFile, useESModules: true })),
-      nodeResolve(),
-      postcss(),
-      json()
-    ]
+    plugins: [...PLUGINS, babel(getBabelOptions({ babelConfigFile, useESModules: true }))]
   }
 
   if (process.env.WATCH_MODE) {
