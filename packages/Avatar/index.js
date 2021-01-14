@@ -9,12 +9,12 @@ import * as S from './styles'
 export const Avatar = memo(function Avatar({
   color,
   fontSize,
-  height,
+  h,
   name,
   shape = 'circle',
   size = 'md',
   src,
-  width: w,
+  w,
   ...rest
 }) {
   const theme = useTheme()
@@ -26,7 +26,7 @@ export const Avatar = memo(function Avatar({
     <S.Avatar
       aria-label={name}
       backgroundColor={backgroundColor}
-      h={height || avatarSize}
+      h={h || avatarSize}
       role="img"
       shape={shape}
       w={w || avatarSize}
