@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, waitForElement } from '@testing-library/react'
+import { fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { render } from '../../utils/tests'
@@ -105,7 +105,7 @@ describe('<EmojiPicker>', () => {
     userEvent.type(search, 'smile')
 
     // TODO: Fix `waitForElement` which never gets called :(
-    waitForElement(() => getByLabelText('Search Results').querySelector('ul li').length, {
+    waitFor(() => getByLabelText('Search Results').querySelector('ul li').length, {
       container
     }).then(results => {
       expect(results.children.length).toBe(0)
