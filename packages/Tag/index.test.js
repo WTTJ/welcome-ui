@@ -87,7 +87,7 @@ describe('<Tag>', () => {
 
   it('should have same height and width when prop `shape` set to `square` and different width / height props', () => {
     const { getByTestId } = render(
-      <Tag dataTestId="tag" height={10} shape="square" width={50}>
+      <Tag dataTestId="tag" h={10} shape="square" w={50}>
         {content}
       </Tag>
     )
@@ -99,7 +99,7 @@ describe('<Tag>', () => {
 
   it('should have same height and width when prop `shape` set to `square` and width prop only', () => {
     const { getByTestId } = render(
-      <Tag dataTestId="tag" shape="square" width="4rem">
+      <Tag dataTestId="tag" shape="square" w="4rem">
         {content}
       </Tag>
     )
@@ -111,7 +111,7 @@ describe('<Tag>', () => {
 
   it('should have same height and width when prop `shape` set to `square` and height prop only', () => {
     const { getByTestId } = render(
-      <Tag dataTestId="tag" height={10} shape="square">
+      <Tag dataTestId="tag" h={10} shape="square">
         {content}
       </Tag>
     )

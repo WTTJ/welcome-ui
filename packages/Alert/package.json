@@ -42,11 +42,11 @@
     "@welcome-ui/variant-icon": "^2.15.3"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^1.17.0",
-    "@xstyled/system": "^1.17.0",
+    "@xstyled/styled-components": "^2.1.0",
+    "@xstyled/system": "^2.1.0",
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
-    "styled-components": "^4.0.0 || ^5.0.0"
+    "styled-components": "^5.0.0"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,

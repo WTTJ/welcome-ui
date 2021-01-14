@@ -71,7 +71,7 @@ function IconItem({ componentName, icon: Icon, name }) {
       <Content>
         <Icon size="xl" />
       </Content>
-      <Box fontSize="meta1" fontWeight="medium" pt="xs" px="xs" textAlign="center" width={1}>
+      <Box fontSize="meta1" fontWeight="medium" pt="xs" px="xs" textAlign="center" w={1}>
         {name}
       </Box>
     </Item>

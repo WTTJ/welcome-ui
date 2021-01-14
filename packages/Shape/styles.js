@@ -2,21 +2,21 @@ import styled, { css } from '@xstyled/styled-components'
 import { system } from '@welcome-ui/system'
 import { getMax } from '@welcome-ui/utils'
 
-const shapeStyles = (width, height, shape) => css`
-  width: ${getMax(width, height)};
-  height: ${getMax(width, height)};
+const shapeStyles = (w, h, shape) => css`
+  width: ${getMax(w, h)};
+  height: ${getMax(w, h)};
   border-radius: ${shape === 'circle' && '50%'};
 `
 
 export const Shape = styled.div(
-  ({ height, shape, width }) => css`
+  ({ h, shape, w }) => css`
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     ${system}
-    ${shape && shapeStyles(width, height, shape)}
+    ${shape && shapeStyles(w, h, shape)}
 
   img {
       object-fit: cover;

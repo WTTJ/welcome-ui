@@ -15,7 +15,7 @@ Shape.displayName = 'Shape'
 
 Shape.propTypes /* remove-proptypes */ = {
   children: node,
-  height: oneOfType([string, number]),
+  h: oneOfType([string, number]),
   shape: oneOf(SHAPES_TYPE),
-  width: oneOfType([string, number]).isRequired
+  w: oneOfType([string, number]).isRequired
 }
