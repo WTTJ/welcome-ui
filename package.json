@@ -110,8 +110,8 @@
     "onchange": "^7.0.2",
     "prettier": "=1.18.2",
     "prop-types": "^15.7.2",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-final-form": "=6.0.1",
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.1",
@@ -134,14 +134,6 @@
     "yargs": "^15.3.1"
   },
   "dependencies": {},
-  "peerDependencies": {
-    "@xstyled/styled-components": "^1.17.0",
-    "@xstyled/system": "^1.17.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "styled-components": "^4.0.0 || ^5.0.0"
-  },
   "resolutions": {
     "styled-components": "5.1.1"
   },
