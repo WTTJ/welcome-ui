@@ -18120,10 +18120,10 @@ ws@^5.2.0:
   dependencies:
     async-limiter "~1.0.0"
 
-wttj-config-front@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/wttj-config-front/-/wttj-config-front-1.1.5.tgz#efb73a2e265e8c78e1683106e3998c274bd0cbac"
-  integrity sha512-K2QKYfd2xKoLJMjtnp63CGH5RpA/U6P8RNhlVr+jYUCA5zZ2Bqmbt3zsg/CPr2A9uaFGoya8jmCUERyzbaE9ew==
+wttj-config-front@1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/wttj-config-front/-/wttj-config-front-1.1.4.tgz#6522a0574b3f42b82d4b5dacb60fbb4727b1b243"
+  integrity sha512-aVncF9A5laevbv9VU2kma7D10CQWcFw8wPfr4ffGdVmmdqyYGe101JoBaj7SKP67Cf0LQh15xEZY88Wq9T0BDA==
 
 x-is-string@^0.1.0:
   version "0.1.0"
