@@ -11,3 +11,6 @@ lerna-debug.log
 
 # Output of 'npm pack'
 *.tgz
+
+# Fonts
+packages/IconFont/fonts/
