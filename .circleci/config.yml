@@ -59,12 +59,13 @@ jobs:
       - run:
           name: prepare font hash
           command: |
-            export BRANCH=$CIRCLE_BRANCH
-            export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')
+            echo 'export BRANCH=$CIRCLE_BRANCH' >> $BASH_ENV
+            echo 'export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')' >> $BASH_ENV
+            source $BASH_ENV
             yarn build --scope @welcome-ui/core
       - aws-s3/sync:
           from: packages/IconFont/fonts
-          to: s3://welcome-ui/fonts/$BRANCH/$ICON_FONT_HASH/
+          to: s3://welcome-ui/fonts/${BRANCH}/${ICON_FONT_HASH}/
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
 
