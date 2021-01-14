@@ -9,8 +9,8 @@
     "access": "public"
   },
   "peerDependencies": {
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "dependencies": {
     "@welcome-ui/icon": "^2.15.3"
