@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FONTS_DIR=packages/IconFont/fonts
-FONT_FILE="$FONTS_DIR/welcome-icon-font.woff2"
+FONT_FILE="$FONTS_DIR/welcome-icon-font.woff"
 
 if [[ -f "$FONT_FILE" ]]; then
   BRANCH=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
