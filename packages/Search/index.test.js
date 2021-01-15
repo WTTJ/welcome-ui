@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, waitForElement } from '@testing-library/react'
+import { fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { ConnectedField } from '@welcome-ui/connected-field'
 import { Icon } from '@welcome-ui/icon'
@@ -89,7 +89,7 @@ test('<Search> shows options when searching', async () => {
   const search = getByTestId('search')
   userEvent.type(search, 'fish')
 
-  const options = await waitForElement(() => getByRole('listbox').querySelectorAll('li'))
+  const options = await waitFor(() => getByRole('listbox').querySelectorAll('li'))
   expect(options.length).toBe(4)
   expect(options[0]).toHaveTextContent(results[0].title)
 })
@@ -110,7 +110,7 @@ test('<Search> can choose option', async () => {
   const search = getByTestId('search')
   userEvent.type(search, 'fish')
 
-  const options = await waitForElement(() => getByRole('listbox').querySelectorAll('li'))
+  const options = await waitFor(() => getByRole('listbox').querySelectorAll('li'))
   fireEvent.click(options[1])
 
   expect(search.value).toEqual(results[1].title)
@@ -137,7 +137,7 @@ test('<Search> calls onChange with correct (object) values', async () => {
   const search = getByTestId('search')
   userEvent.type(search, 'fish')
 
-  const options = await waitForElement(() => getByRole('listbox').querySelectorAll('li'))
+  const options = await waitFor(() => getByRole('listbox').querySelectorAll('li'))
   fireEvent.click(options[1])
 
   expect(handleChange).toHaveBeenCalledTimes(1)
@@ -165,7 +165,7 @@ test('<Search> formats items', async () => {
   const search = getByTestId('search')
   userEvent.type(search, 'fish')
 
-  const options = await waitForElement(() => getByRole('listbox').querySelectorAll('li'))
+  const options = await waitFor(() => getByRole('listbox').querySelectorAll('li'))
   const image = options[0].querySelector('img')
 
   expect(image.getAttribute('src')).toBe('big-fish.jpg')
@@ -233,7 +233,7 @@ test('<Search groupsEnabled> shows groups header', async () => {
   const search = getByTestId('select')
   userEvent.type(search, 'fish')
 
-  const headers = await waitForElement(() => getAllByTestId('group-header'))
+  const headers = await waitFor(() => getAllByTestId('group-header'))
 
   expect(headers.length).toBe(opt_group_results.length)
 
@@ -243,25 +243,24 @@ test('<Search groupsEnabled> shows groups header', async () => {
   })
 })
 
-// FIXME doesn't work with react^17
-// test('<Search> shows options with minChars to 0', async () => {
-//   const { getByRole, getByTestId } = render(
-//     <Form initialValues={{}}>
-//       <ConnectedField
-//         component={Search}
-//         dataTestId="search"
-//         label="Search"
-//         minChars={0}
-//         name="search"
-//         {...defaultProps}
-//       />
-//     </Form>
-//   )
+test('<Search> shows options with minChars to 0', async () => {
+  const { getByRole, getByTestId } = render(
+    <Form initialValues={{}}>
+      <ConnectedField
+        component={Search}
+        dataTestId="search"
+        label="Search"
+        minChars={0}
+        name="search"
+        {...defaultProps}
+      />
+    </Form>
+  )
 
-//   const search = getByTestId('search')
-//   userEvent.click(search)
+  const search = getByTestId('search')
+  userEvent.click(search)
 
-//   const options = await waitForElement(() => getByRole('listbox').querySelectorAll('li'))
-//   expect(options.length).toBe(results.length)
-//   expect(options[0]).toHaveTextContent(results[0].title)
-// })
+  const options = await waitFor(() => getByRole('listbox').querySelectorAll('li'))
+  expect(options.length).toBe(results.length)
+  expect(options[0]).toHaveTextContent(results[0].title)
+})

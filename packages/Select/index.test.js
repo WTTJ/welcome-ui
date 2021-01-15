@@ -477,6 +477,7 @@ test('<Select isCreatable> can create new items', () => {
 
   // Add another item
   // Type again in search box
+  userEvent.clear(select)
   userEvent.type(select, secondItem.label)
   expect(select.value).toBe(secondItem.label)
 
