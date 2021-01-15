@@ -55,7 +55,7 @@ jobs:
           at: ~/welcome-ui
       - restore_cache:
           key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - run: yarn icons:collect
+      - run: yarn icons:collect --force
       - run: yarn webfont:build
       - run:
           name: prepare font hash
