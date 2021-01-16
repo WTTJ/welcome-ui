@@ -14,7 +14,7 @@
     "icons:optimize": "svgo --folder=icons/_assets --config='{ \"plugins\": [ { \"cleanupIDs\": false } ] }' --indent=0 --multipass --quiet",
     "icons:collect": "node -r esm scripts/icons.js",
     "icons:build": "node -r esm ./scripts/build-icons.js",
-    "webfont:build": "node -r esm scripts/webfont.js",
+    "webfont:build": "node -r esm scripts/webfont.js --force && yarn build:packages --scope @welcome-ui/icons.font",
     "webfont:deploy": "./scripts/webfont.sh",
     "pre-build": "yarn icons:collect",
     "build": "yarn webfont:deploy && yarn build:core && yarn build:packages",
