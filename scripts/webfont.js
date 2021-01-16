@@ -30,12 +30,14 @@ const writeIconFont = files => {
   if (!newIcons.length && !argv.force) {
     console.log('Success'.yellow, 'No new icons to write to icon font')
     return files
+  } else if (newIcons.length) {
+    console.log('Adding'.yellow, newIcons.join(', '))
   }
 
   // Add new icons to unicodeMap (adding one to hex value for each new icon)
   const newUnicodeMap = newIcons.reduce((arr, key) => {
     const lastUnicodeEntry = arr[Object.keys(unicodeMap).pop()]
-    const newUnicodeEntry = (parseInt(lastUnicodeEntry, 16) + 0x1).toString(16)
+    const newUnicodeEntry = (parseInt(lastUnicodeEntry, 16) + 1).toString(16).toUpperCase()
     arr[key] = `0x${newUnicodeEntry}`
     return arr
   }, unicodeMap)
@@ -52,7 +54,7 @@ const writeIconFont = files => {
       dest: `${ICON_FONT_PATH}/fonts`,
       fontName: 'welcome-icon-font',
       codepoints: newUnicodeMap,
-      types: ['woff']
+      types: ['woff', 'woff2']
     },
     error => {
       if (error) {

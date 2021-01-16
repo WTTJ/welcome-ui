@@ -33,7 +33,7 @@ const Item = styled(Box)(
     width: 130;
 
     ${!copied &&
-      css`
+    css`
         &:hover {
           ${Content} {
             background-color: light.800;
@@ -43,7 +43,7 @@ const Item = styled(Box)(
       `}
 
     ${copied &&
-      css`
+    css`
         ${Content} {
           background-color: success.100;
           border-color: success.100;
@@ -87,7 +87,7 @@ export function IconsList({ icons, isIconFont }) {
         const Icon = isIconFont ? FontIcons[name] : Icons[componentName]
         if (!Icon) {
           // eslint-disable-next-line no-console
-          console.error(`The "${key}" icon is generating this issue`)
+          console.error(`The "${key}" icon is missing`)
         }
 
         return (

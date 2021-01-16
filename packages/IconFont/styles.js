@@ -12,7 +12,7 @@ export const Icon = styled.i(
     font-size: ${th(`icons.${size}`)};
     ${system};
     &::before {
-      content: ${`'${unicodeMap[name]}'`};
+      content: ${`'${unicodeMap[name].replace('0xF', '\\F')}'`};
       display: block;
       font-style: normal;
       font-variant: normal;
