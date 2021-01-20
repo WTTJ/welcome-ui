@@ -1,20 +1,24 @@
 import { node } from 'prop-types'
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { MenuItem } from 'reakit/Menu'
 
 import * as S from './Item.styled'
 
-export function Item({ as, children, ...props }) {
+export const Item = forwardRef(({ as, children, ...props }, ref) => {
   return (
-    <MenuItem type="button" {...props}>
-      {menuItemProps => (
-        <S.Item as={as} {...menuItemProps}>
-          {children}
-        </S.Item>
-      )}
+    <MenuItem type="button" {...props} ref={ref}>
+      {menuItemProps => {
+        return (
+          <S.Item as={as} {...menuItemProps}>
+            {children}
+          </S.Item>
+        )
+      }}
     </MenuItem>
   )
-}
+})
+
+Item.displayName = 'Item'
 
 Item.propTypes /* remove-proptypes */ = {
   /** replace button from another node component */
