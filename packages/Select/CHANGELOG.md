@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.2](https://github.com/WTTJ/welcome-ui/compare/v2.15.1...v2.15.2) (2021-01-20)
+
+
+### Bug Fixes
+
+* remove ref warning on dropdown menu item ([#817](https://github.com/WTTJ/welcome-ui/issues/817)) ([5654379](https://github.com/WTTJ/welcome-ui/commit/5654379a8c6b8c97926e741653e2db0772b28471))
+
+
+
+
+
 ## [2.6.1](https://github.com/WTTJ/welcome-ui/compare/v2.6.0...v2.6.1) (2020-10-13)
 
 
