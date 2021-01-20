@@ -3,12 +3,12 @@ import React from 'react'
 import { PopoverDisclosure } from 'reakit/Popover'
 
 export function Trigger({ triggerMethod = 'click', ...rest }) {
-  const hoverable = triggerMethod === 'hover' || undefined
+  const hoverable = triggerMethod === 'hover'
 
   return (
     <PopoverDisclosure
-      onMouseEnter={hoverable && rest.show}
-      onMouseLeave={hoverable && rest.hide}
+      onMouseEnter={hoverable ? rest.show : undefined}
+      onMouseLeave={hoverable ? rest.hide : undefined}
       {...rest}
     />
   )

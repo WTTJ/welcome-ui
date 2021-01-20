@@ -1,15 +1,15 @@
 import styled, { css } from '@xstyled/styled-components'
 import { Popover as BasePopover, PopoverArrow } from 'reakit/Popover'
 import { th } from '@xstyled/system'
-import { shouldForwardProp, system } from '@welcome-ui/system'
+import { system } from '@welcome-ui/system'
 
 export const Arrow = styled(PopoverArrow)`
   color: ${th('popovers.default.backgroundColor')};
 `
 
-export const ArrowItem = styled('svg').withConfig({ shouldForwardProp })(
-  ({ transform }) => css`
-    transform: ${transform};
+export const ArrowItem = styled('svg')(
+  ({ $transform }) => css`
+    transform: ${$transform};
   `
 )
 
@@ -23,7 +23,7 @@ export const Title = styled.h6`
 `
 
 export const Popover = styled(BasePopover)(
-  ({ withCloseButton }) => css`
+  ({ $withCloseButton }) => css`
     ${th('popovers.default')};
     outline: none;
     opacity: 0;
@@ -35,7 +35,7 @@ export const Popover = styled(BasePopover)(
       opacity: 1;
     }
 
-    ${withCloseButton &&
+    ${$withCloseButton &&
       css`
         ${Title} {
           padding-right: 50;
