@@ -1,0 +1,115 @@
+# Getting Started
+
+## Installation
+
+Inside your react project install Welcome UI:
+
+<br />
+
+1. Install the core component and **peer dependencies** listed below:
+
+```bash
+yarn add @welcome-ui/core @xstyled/styled-components @xstyled/system prop-types react react-dom styled-components
+```
+
+2. Install any other components you need for your webapp e.g. if you need just a button…
+
+```bash
+yarn add @welcome-ui/button
+```
+
+## Setup Provider
+
+For work correctly, Welcome UI provides an helper to help you setup your project `<WuiProvider />` to put on the root of your application.
+
+```jsx live=false
+import React from 'react'
+// 1. import the theme provider and create theme util
+import { createTheme, WuiProvider } from '@welcome-ui/core'
+import { Button } from '@welcome-ui/button'
+
+// 2. Create your theme with specific colors etc...
+const customTheme = {
+  colors: {
+    primary: {
+      500: '#FF0000'
+    },
+    secondary: {
+      500: '#00FF00'
+    }
+  }
+}
+const theme = createTheme(customTheme)
+
+export default function Root() {
+  return (
+    // 3. Wrap your components with <WuiProvider /> and your theme at the root of your app
+    <WuiProvider theme={theme}>
+      <Button variant="secondary">Welcome!</Button>
+    </WuiProvider>
+  )
+}
+```
+
+### WuiProvider Props
+
+<props
+  propTypes={{
+    children: {
+      description: '',
+      required: true,
+      type: { name: 'node' }
+    },
+    hasGlobalStyle: {
+      defaultValue: { value: 'true', computed: false },
+      description: 'Will inject our global style with normalize and fonts',
+      required: false,
+      type: { name: 'bool' }
+    },
+    reactRootId: {
+      defaultValue: { value: 'root' },
+      description: 'Id of your react root',
+      required: false,
+      type: { name: 'string' }
+    },
+    shouldHideFocusRingOnClick: {
+      defaultValue: { value: 'true', computed: false },
+      description:
+        'It hides the focus ring on mouse move, click or on keydown. (explanation below)',
+      required: false,
+      type: { name: 'bool' }
+    },
+    theme: {
+      description: 'Your custom theme from createTheme()',
+      required: true,
+      type: { name: 'object' }
+    },
+    useReset: {
+      defaultValue: { value: 'false', computed: false },
+      description:
+        'Will inject our global style with https://meyerweb.com/eric/tools/css/reset/ reset.',
+      required: false,
+      type: { name: 'bool' }
+    }
+  }}
+/>
+
+## Hide Focus Ring
+
+WuiProvider takes a `shouldHideFocusRingOnClick` prop which defaults to `true`. It hides the focus ring on mouse move, click or on keydown.
+
+It only adds styles to remove the outline on focus. If you need to remove another css property, you have to write your own styles using the data-attribute `hideFocusRingsDataAttribute` exported from `@welcome-ui/utils`.
+
+⚠️ Troubleshooting
+
+If it doesn't work for you, check that the id of your react root is set to `root`. If you have another id (nextjs uses `__next`), just use the `reactRootId` prop on `WuiProvider` to change it:
+
+```
+<WuiProvider
+  theme={theme}
+  hasGlobalStyle
+  reactRootId="__next"
+>
+  {your app}
+</WuiProvider>
+```

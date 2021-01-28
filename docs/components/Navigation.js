@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
 import React, { useCallback } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
 
 import { NavigationLink } from './NavigationLink'
 import * as S from './Navigation.styled'
@@ -57,7 +55,8 @@ const ITEMS = {
     'TimePicker',
     'Toggle'
   ],
-  theming: ['Breakpoints', 'Colors', 'Theming', 'Xstyled'],
+  gettingStarted: ['Installation', 'Contributing', 'Upgrade'],
+  theming: ['Basics', 'Custom', 'XStyled'],
   utilities: ['Copy']
 }
 
@@ -70,25 +69,21 @@ const slugify = name => {
 }
 
 export const Navigation = ({ hideModal }) => {
-  const { asPath } = useRouter()
-
   const closeModal = useCallback(() => {
     hideModal && hideModal()
   }, [hideModal])
 
   return (
-    <S.Nav>
+    <nav>
       <S.Ul>
-        <Link as="/" href="/" passHref>
-          <S.Main aria-current={asPath === '/' ? 'page' : undefined} onClick={closeModal}>
-            Introduction
-          </S.Main>
-        </Link>
-      </S.Ul>
-      <S.Ul>
-        <NavigationLink href="/getting-started" passHref>
-          <S.Main onClick={closeModal}>Getting started</S.Main>
-        </NavigationLink>
+        <S.MainTitle as="div">Getting started</S.MainTitle>
+        {ITEMS.gettingStarted.map((item, key) => (
+          <S.Li key={`getting_started_${key}`} onClick={closeModal}>
+            <NavigationLink href={`/${slugify(item)}`} passHref>
+              <S.Item>{item}</S.Item>
+            </NavigationLink>
+          </S.Li>
+        ))}
       </S.Ul>
       <S.Ul>
         <S.MainTitle as="div">Theming</S.MainTitle>
@@ -130,11 +125,6 @@ export const Navigation = ({ hideModal }) => {
           </S.Li>
         ))}
       </S.Ul>
-      <S.Ul>
-        <NavigationLink href="/migrate-to-v2" passHref>
-          <S.Main onClick={closeModal}>Migrate to V2</S.Main>
-        </NavigationLink>
-      </S.Ul>
-    </S.Nav>
+    </nav>
   )
 }
