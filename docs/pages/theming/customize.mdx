@@ -1,0 +1,136 @@
+import { createTheme } from '@welcome-ui/core'
+
+export const themeValues = () => {
+  const theme = createTheme()
+  return JSON.stringify(theme, null, 2)
+}
+
+export const themeTag = () => {
+  const theme = createTheme()
+  return JSON.stringify(theme.tags, null, 2)
+}
+
+# Customize
+
+By default, we use our default theme create by `createTheme()` function. We also also create a [dark theme](https://github.com/WTTJ/welcome-ui/blob/master/packages/Themes/Dark/theme.js) and a [welcome theme](https://github.com/WTTJ/welcome-ui/blob/master/packages/Themes/Welcome/theme.js) for our products.
+
+You can customize your theme with some options:
+
+- customize the theme values like colors, fonts, spacing etc.
+- customize the component styles, changing the variants, sizes etc.
+- customize the global style if you want to disable or not our reset css
+
+## Customize theme values
+
+To create your theme, use need to add some values from object on `createTheme()` function.
+
+```jsx live=false
+import React from 'react'
+// import the theme provider and create theme util
+import { createTheme, WuiProvider } from '@welcome-ui/core'
+import { Button } from '@welcome-ui/button'
+
+// Create your theme with specific colors, spacing etc.
+const yourTheme = {
+  colors: {
+    primary: {
+      500: '#FF0000'
+    },
+    secondary: {
+      500: '#00FF00'
+    }
+  },
+  spacing: {
+    3xl: 50,
+    4xl: 70
+  },
+  // example if you need to remove border radius
+  radii: {
+    sm: 0,
+    md: 0,
+    lg: 0
+  },
+  space: {
+    lg: 24
+  },
+  breakpoints: {
+    xl: 1024
+  }
+}
+const theme = createTheme(yourTheme)
+
+export default function Root() {
+  return (
+    // Wrap your components with <WuiProvider /> and your theme at the root of your app
+    // Here we add reset css to have a good style everywhere
+    <WuiProvider theme={theme} useReset>
+      <Button variant="secondary">Welcome!</Button>
+    </WuiProvider>
+  )
+}
+```
+
+## Customize component
+
+An example of the `theme.js` file for the Tag component. You can customize the variants, sizes and shapes.
+
+<code language="json">{themeTag()}</code>
+
+You can check all our theme objects on each packages/component on file `theme.js`.
+
+### How to customize the component
+
+The entry is always in plurial (tags, buttons, etc.)
+
+```jsx live=false
+import React from 'react'
+import { createTheme, WuiProvider } from '@welcome-ui/core'
+import { Button } from '@welcome-ui/button'
+
+const yourTheme = {
+  tags: {
+    variants: {
+      default: {
+        backgroundColor: '#010101',
+        color: '#FFF'
+      },
+      primary: {
+        backgroundColor: '#FFF000',
+        color: '#000'
+      }
+    },
+    sizes: {
+      sm: {
+        padding: 10,
+        height: 10,
+        fontSize: 12
+      },
+      md: {
+        padding: 10,
+        height: 14,
+        fontSize: 14
+      },
+      lg: {
+        padding: 12,
+        height: 16,
+        fontSize: 16
+      }
+    }
+  }
+}
+const theme = createTheme(yourTheme)
+
+export default function Root() {
+  return (
+    <WuiProvider theme={theme}>
+      <Button variant="secondary">Welcome!</Button>
+    </WuiProvider>
+  )
+}
+```
+
+## All theme values
+
+Here are all the [possible values for your theme](https://github.com/WTTJ/welcome-ui/blob/master/packages/Core/theme/core.js).<br />These will be merged with the default theme.
+
+<code language="json">{themeValues()}</code>

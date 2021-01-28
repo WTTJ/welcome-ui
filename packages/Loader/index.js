@@ -16,5 +16,6 @@ Loader.displayName = 'Loader'
 
 Loader.propTypes /* remove-proptypes */ = {
   color: string,
+  /** Predefined size xs, sm, md, lg or custom size */
   size: oneOfType([oneOf(['xs', 'sm', 'md', 'lg']), number, string])
 }

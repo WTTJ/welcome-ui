@@ -179,6 +179,7 @@
     "@welcome-ui/icons.negative_straight": "^2.0.2",
     "@welcome-ui/icons.new_candidate": "^2.6.0",
     "@welcome-ui/icons.notification": "^2.0.2",
+    "@welcome-ui/icons.npm": "^1.0.0",
     "@welcome-ui/icons.offer_status": "^2.0.2",
     "@welcome-ui/icons.office": "^2.11.0",
     "@welcome-ui/icons.ordered_list": "^2.0.2",

@@ -6,7 +6,7 @@ import { Provider } from 'reakit'
 import { ThemeProvider } from '../context/theme'
 import { App } from '../components/App'
 
-export default ({ Component, pageProps }) => {
+const NextApp = ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
       <Provider>
@@ -15,3 +15,5 @@ export default ({ Component, pageProps }) => {
     </ThemeProvider>
   )
 }
+
+export default NextApp

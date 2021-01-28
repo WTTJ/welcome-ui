@@ -2,7 +2,7 @@ import styled from '@xstyled/styled-components'
 
 export const Pre = styled.pre`
   font-size: body3;
-  line-height: h4;
+  line-height: 1.5;
   font-family: texts; /* stylelint-disable-line */
 
   > div {

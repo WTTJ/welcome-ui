@@ -1,42 +1,44 @@
-# Migrate to version 2.0 🎉
+# Upgrade
 
-<br /><br />
+## Version 2
 
-### We have changed the core theme on this new version of Welcome UI, and created our new theme ‘Welcome’.
+#### 27 July 2020
 
-## Typography
+We have changed the core theme on this new version of Welcome UI, and created our new theme `Welcome`.
+
+### Typography
 
 - Added new font : Work Sans on texts
 - Reworked Text components with new sizes for Headings
 - Added default line height and letter spacing
 
-## Colors
+### Colors
 
-### Added
+#### Added
 
 - Primary: 800 / 900
 - Light: 100 / 800
 - Dark: 100 / 800
 - Nude: 900
 
-### Removed
+#### Removed
 
 - Secondary colors
 - Nude: 300 / 400 / 600
 
-## Spacing
+### Spacing
 
 - `xxl` is smaller (now 20) and `3xl` replaces the old `xxl`
 - Added `3xl` and `4xl`
 
-## Buttons
+### Buttons
 
 - secondary have become tertiary style and vice versa
 - Added tertiary-negative
 
-## Icons
+### Icons
 
-### Added
+#### Added
 
 - ExpandText
 - Diamond
@@ -44,45 +46,43 @@
 - Factory
 - House
 
-### Renamed
+#### Renamed
 
 - EmployerBranding > Fingerprint
 - Ats > Pictures
 - Marketplace > Mansanory
 - WelcomeHome > Teepee
 
-### Removed
+#### Removed
 
 - WelcomeKit
 
-## Modal
+### Modal
 
 - Added animation on open/close
 - Added `Modal.Title` component
 - Changed the way of use trigger : before `<Button as={Modal.Trigger} {...modal}>` and now `<Modal.Trigger as={Button} {...modal}>`
 
-## Link
+### Link
 
 - Removed underline for Text component on a Link, and fixed animation
 
-## Tabs
+### Tabs
 
 - Removed the `::before` border element on theme and added the ability to remove the border on tab item from style props
 
-## Swiper
+### Swiper
 
 - Completely changed the way the Swiper works (now uses hooks)
 
-## Other theming
+### Other theming
 
 - Added global focus on`theme.focus()`
 - Added global card style on `theme.defaultCards`
 - Added global fields style on `theme.defaultFields`
 
-## styled-components
+### styled-components
 
 - Added shouldForwardProps from styled components v5.1
 
-<br /><br />
-
-### And lots of small fixes 🙃
+#### And lots of small fixes 🙃

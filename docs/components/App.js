@@ -12,7 +12,7 @@ import { Layout } from './Layout'
 import { MDXComponents } from './MDXComponents'
 import { Head } from './Head'
 
-const baseDocTheme = colors => ({
+const baseDocTheme = ({ colors }) => ({
   docs: {
     page: {
       backgroundColor: colors.nude[100]
@@ -24,15 +24,35 @@ const baseDocTheme = colors => ({
       backgroundColor: colors.dark[700]
     },
     navigation: {
-      color: colors.light[900]
+      item: {
+        color: colors.light[700],
+        '&:hover': {
+          color: colors.light[900]
+        },
+        "&[aria-current='page']": {
+          color: colors.light[900],
+          backgroundColor: colors.dark[500]
+        }
+      },
+      main: { color: colors.light[900] }
     },
     navigationMobile: {
-      color: colors.dark[900]
+      item: {
+        color: colors.dark[700],
+        '&:hover': {
+          color: colors.dark[900]
+        },
+        "&[aria-current='page']": {
+          color: colors.dark[900],
+          backgroundColor: colors.light[800]
+        }
+      },
+      main: { color: colors.dark[900] }
     }
   }
 })
 
-const darkDocTheme = colors => ({
+const darkDocTheme = ({ colors }) => ({
   docs: {
     page: {
       backgroundColor: colors.light[500],
@@ -45,10 +65,30 @@ const darkDocTheme = colors => ({
       backgroundColor: colors.light[900]
     },
     navigation: {
-      color: colors.dark[900]
+      item: {
+        color: colors.dark[700],
+        '&:hover': {
+          color: colors.dark[900]
+        },
+        "&[aria-current='page']": {
+          color: colors.dark[900],
+          backgroundColor: colors.light[700]
+        }
+      },
+      main: { color: colors.dark[900] }
     },
     navigationMobile: {
-      color: colors.dark[900]
+      item: {
+        color: colors.dark[700],
+        '&:hover': {
+          color: colors.dark[900]
+        },
+        "&[aria-current='page']": {
+          color: colors.dark[900],
+          backgroundColor: colors.light[700]
+        }
+      },
+      main: { color: colors.dark[900] }
     }
   }
 })
@@ -57,17 +97,17 @@ const coreTheme = createTheme()
 
 const getTheme = themeStorage => {
   if (themeStorage === 'welcome') {
-    return merge(welcomeTheme, baseDocTheme(welcomeTheme.colors))
+    return merge(welcomeTheme, baseDocTheme(welcomeTheme))
   } else if (themeStorage === 'dark') {
-    return merge(darkTheme, darkDocTheme(darkTheme.colors))
+    return merge(darkTheme, darkDocTheme(darkTheme))
   } else {
-    return baseDocTheme(coreTheme.colors)
+    return baseDocTheme(coreTheme)
   }
 }
 
 export const App = ({ component: Component, pageProps }) => {
   const themeStorage = useThemeContext()
-  const initialTheme = merge(welcomeTheme, baseDocTheme(welcomeTheme.colors))
+  const initialTheme = merge(welcomeTheme, baseDocTheme(welcomeTheme))
   const [allTheme, setAllTheme] = useState(initialTheme)
 
   useEffect(() => {
