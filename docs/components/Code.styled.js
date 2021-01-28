@@ -6,8 +6,8 @@ import { Card } from '@welcome-ui/card'
 export const LiveEditor = styled.box`
   position: relative;
   background-color: ${th('docs.code.background')};
+  margin: xl 0;
   border-radius: md;
-  margin-bottom: md;
   overflow: hidden;
 `
 
@@ -25,12 +25,8 @@ export const LiveEditorContent = styled(ReactLiveEditor)`
 
 export const LiveError = styled(ReactLiveError)`
   background-color: danger.100;
-  border-color: danger.500;
-  border-width: sm;
-  border-style: solid;
   color: danger.500;
   padding: md;
-  white-space: pre-wrap;
   border-radius: md;
   font-size: body3;
   line-height: h4;

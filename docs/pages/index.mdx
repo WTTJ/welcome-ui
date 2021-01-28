@@ -1,43 +1,35 @@
 import Illustration from '../components/Illustration'
 import { Button } from '@welcome-ui/button'
-import { Text } from '@welcome-ui/text'
 import { Box } from '@welcome-ui/box'
-import { GithubIcon, RightIcon } from '@welcome-ui/icons'
+import { GithubIcon, HardHatIcon } from '@welcome-ui/icons'
 import NextLink from 'next/link'
 
-<Box display={{ md: 'flex' }} textAlign={{ xs: 'center', md: 'left' }} alignItems="center">
-  <Box>
-    <Text variant="h1">Welcome UI</Text>
-    <Text variant="h3">All the core components you need to create a delightful webapp</Text>
-    <Text variant="body1">
-      Welcome UI is a customizable design system library made with react, styled-components,
-      styled-system, reakit and lot of love.
-    </Text>
-    <Box
-      display="flex"
-      justifyContent={{ xs: 'center', md: 'flex-start' }}
-      mt={{ xs: '3xl', md: '4xl' }}
-    >
-      <NextLink href="/getting-started">
-        <Button size="lg">
-          <span>Get Started</span>
-          <RightIcon />
-        </Button>
-      </NextLink>
-      <Button
-        as="a"
-        size="lg"
-        variant="secondary"
-        ml="md"
-        href="https://github.com/WTTJ/welcome-ui"
-        target="_blank"
-      >
-        <GithubIcon size="lg" />
-        <span>Github</span>
-      </Button>
-    </Box>
-  </Box>
-  <Box flex="0 0 auto" mt={{ xs: 60, md: 0 }} mb={{ xs: '3xl', md: 0 }}>
-    <Illustration />
-  </Box>
+# Welcome UI
+
+<Box my={{ xs: '3xl', md: '4xl' }}>
+  <Illustration />
+</Box>
+
+## Customizable design system with react • styled-components • styled-system and reakit.
+
+Here you'll find all the core components you need to create a delightful webapp.
+
+<Box display="flex" mt={{ xs: '3xl', md: '4xl' }}>
+  <NextLink href="/getting-started">
+    <Button size="lg">
+      <HardHatIcon size="lg" />
+      <span>Get Started</span>
+    </Button>
+  </NextLink>
+  <Button
+    as="a"
+    size="lg"
+    variant="secondary"
+    ml="md"
+    href="https://github.com/WTTJ/welcome-ui"
+    target="_blank"
+  >
+    <GithubIcon size="lg" />
+    <span>Github</span>
+  </Button>
 </Box>

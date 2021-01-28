@@ -1,0 +1,76 @@
+# Getting Started
+
+## Installation
+
+1. Install the **peer dependencies** listed below:
+
+```bash
+yarn add @xstyled/styled-components @xstyled/system prop-types react react-dom styled-components
+```
+
+2. Install the the `core` component and any other components you need for your webapp e.g. if you need just a button…
+
+```bash
+yarn add @welcome-ui/core @welcome-ui/button
+```
+
+## Usage
+
+Welcome UI provides an helper to help you setup your project: `<WuiProvider />`.
+
+```jsx live=false
+import React from 'react'
+import { createTheme, WuiProvider } from '@welcome-ui/core'
+import { Button } from '@welcome-ui/button'
+
+// Add theme options (if you want)
+const options = {
+  defaultFontFamily: 'Helvetica',
+  headingFontFamily: 'Georgia',
+  colors: {
+    primary: {
+      500: '#FF0000'
+    },
+    secondary: {
+      500: '#00FF00'
+    }
+  }
+}
+
+// Create your theme
+const theme = createTheme(options)
+export default function Root() {
+  return (
+    // Wrap your components with <WuiProvider /> with your theme
+    <WuiProvider
+      theme={theme}
+      // Will inject our global style with normalize and fonts
+      hasGlobalStyle
+      // Will inject our global style with https://meyerweb.com/eric/tools/css/reset/ reset
+      useReset
+    >
+      <Button variant="secondary">Welcome!</Button>
+    </WuiProvider>
+  )
+}
+```
+
+## Hide the focus ring on mouse move or on keydown
+
+WuiProvider takes a `shouldHideFocusRingOnClick` prop which defaults to `true`. It hides the focus ring on mouse move, click or on keydown.
+
+It only adds styles to remove the outline on focus. If you need to remove another css property, you have to write your own styles using the data-attribute `hideFocusRingsDataAttribute` exported from `@welcome-ui/utils`.
+
+⚠️ Troubleshooting
+
+If it doesn't work for you, check that the id of your react root is set to `root`. If you have another id (nextjs uses `__next`), just use the `reactRootId` prop on `WuiProvider` to change it:
+
+```
+<WuiProvider
+  theme={theme}
+  hasGlobalStyle
+  reactRootId="__next"
+>
+  {your app}
+</WuiProvider>
+```
