@@ -10,7 +10,7 @@ import {
 
 <tagversion version={version} name={name} component={component} />
 
-Box is the low level component of Welcome UI, it build all other components on our design system. By default, it’s a div element.
+Box is the most basic component of Welcome UI — all other components make use of it for styling. By default, it’s a div element.
 
 ## Install and import
 
@@ -18,7 +18,7 @@ Box is the low level component of Welcome UI, it build all other components on o
 
 ## Usage
 
-You can simply create a card item.
+You can create a simple card item using Boxes (and a couple of other components).
 
 ```jsx
 <Box
@@ -47,7 +47,7 @@ You can simply create a card item.
         Jungle House in the middle of nowhere
       </Text>
       <Text mb="0" mt="xs" variant="body3" color="dark.200">
-        890$/w{' • '}2 beds
+        890€/week{' • '}2 beds
       </Text>
     </Box>
   </Box>

@@ -2,48 +2,35 @@
 
 ## Installation
 
-Inside your react project install Welcome UI:
+### 1. Install Welcome UI
 
-<br />
-
-1. Install the core component and **peer dependencies** listed below:
+Install the `@welcome-ui/core` component and **peer dependencies** listed below:
 
 ```bash
 yarn add @welcome-ui/core @xstyled/styled-components @xstyled/system prop-types react react-dom styled-components
 ```
 
-2. Install any other components you need for your webapp e.g. if you need just a button…
+### 2. Install UI components 
+
+Install any other components you need for your webapp e.g. if you need just a button…
 
 ```bash
 yarn add @welcome-ui/button
 ```
 
-## Setup Provider
+### 3. Set up the Provider
 
-For work correctly, Welcome UI provides an helper to help you setup your project `<WuiProvider />` to put on the root of your application.
+Use the `<WuiProvider />` at the root of your application to set the theme and styled components for your project
 
 ```jsx live=false
 import React from 'react'
-// 1. import the theme provider and create theme util
 import { createTheme, WuiProvider } from '@welcome-ui/core'
 import { Button } from '@welcome-ui/button'
 
-// 2. Create your theme with specific colors etc.
-const customTheme = {
-  colors: {
-    primary: {
-      500: '#FF0000'
-    },
-    secondary: {
-      500: '#00FF00'
-    }
-  }
-}
-const theme = createTheme(customTheme)
+const theme = createTheme()
 
 export default function Root() {
   return (
-    // 3. Wrap your components with <WuiProvider /> and your theme at the root of your app
     <WuiProvider theme={theme}>
       <Button variant="secondary">Welcome!</Button>
     </WuiProvider>

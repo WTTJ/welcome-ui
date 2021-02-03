@@ -31,7 +31,7 @@ import { createTheme, WuiProvider } from '@welcome-ui/core'
 import { Button } from '@welcome-ui/button'
 
 // Create your theme with specific colors, spacing etc.
-const yourTheme = {
+const theme = createTheme({
   colors: {
     primary: {
       500: '#FF0000'
@@ -56,13 +56,12 @@ const yourTheme = {
   breakpoints: {
     xl: 1024
   }
-}
-const theme = createTheme(yourTheme)
+})
 
 export default function Root() {
   return (
     // Wrap your components with <WuiProvider /> and your theme at the root of your app
-    // Here we add reset css to have a good style everywhere
+    // Here we add reset styles to have consistency across different browsers (https://github.com/WTTJ/welcome-ui/blob/master/packages/Core/utils/reset.js)
     <WuiProvider theme={theme} useReset>
       <Button variant="secondary">Welcome!</Button>
     </WuiProvider>
@@ -70,9 +69,27 @@ export default function Root() {
 }
 ```
 
-## Customize component
+## Reset styles
 
-An example of the `theme.js` file for the Tag component. You can customize the variants, sizes and shapes.
+To provide consistency across browsers we provide two options:
+
+1. Pass `useReset` in the `WuiProvider` to use a [custom reset](https://github.com/WTTJ/welcome-ui/blob/master/packages/Core/utils/reset.js)
+
+1. Don't pass `useReset` to just reset `box-sizing` e.g.
+
+```
+const baseBoxSizing = css`
+  * {
+    &, &::before, &::after {
+      box-sizing: border-box;
+    }
+  }
+`
+```
+
+## Customizing component
+
+An example of the `theme.js` file for the `Tag` component. You can customize the variants, sizes and shapes.
 
 <code language="json">{themeTag()}</code>
 

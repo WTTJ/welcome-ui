@@ -13,13 +13,13 @@ We follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 The commit contains the following structural elements, to communicate intent to the consumers of your library:
 
-- fix: patches a bug in your codebase
-- feat: introduces a new feature to the codebase
-- BREAKING CHANGE: introduces a breaking API change
-- refactor: introduce code refactor
-- docs: changes into documentation
-- test: adding or updating tests
-- chore: tooling changes, chore changes
+- <strong>fix</strong>: patches a bug in your codebase
+- <strong>feat</strong>: introduces a new feature to the codebase
+- <strong>BREAKING CHANGE</strong>: introduces a breaking API change
+- <strong>refactor</strong>: introduce code refactor
+- <strong>docs</strong>: changes into documentation
+- <strong>test</strong>: adding or updating tests
+- <strong>chore</strong>: tooling changes, chore changes
 
 We have a pre-commit hook to verify if your commit is correct 🚔
 
@@ -29,14 +29,13 @@ Each component will consist of:
 
 - `ComponentName`: Folder with name of component (PascalCase)
   - `index.js`: The React component
-  - `index.test.js`: Jest tests for this component
+  - `index.test.js`: Jest / react-testing-library tests for this component
   - `styles.js`: Any related `styled-components`
-  - `doc.mdx`: Documentation on `Docz`
-  - `utils.js` : util for this component
+  - `utils.js` : utils for this component
 
 ## Adding icons
 
-Check the [readme of Icon](https://github.com/WTTJ/welcome-ui/blob/master/icons/README.md)
+Check the [Icon README](https://github.com/WTTJ/welcome-ui/blob/master/icons/README.md)
 
 ## Reporting issues
 
