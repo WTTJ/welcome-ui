@@ -5,12 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [2.15.3](https://github.com/WTTJ/welcome-ui/compare/v2.15.2...v2.15.3) (2021-02-04)
 
-**Note:** Version bump only for package @welcome-ui/icons.pictures
-
-
-
-
-
-## [2.0.2](https://github.com/WTTJ/welcome-ui/compare/v2.0.1...v2.0.2) (2020-08-04)
-
-**Note:** Version bump only for package @welcome-ui/icons.pictures
+**Note:** Version bump only for package @welcome-ui/icons.npm

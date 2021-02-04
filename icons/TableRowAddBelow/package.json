@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.table_row_add_below.cjs.js",
   "module": "dist/icons.table_row_add_below.es.js",
-  "version": "2.14.1",
+  "version": "2.15.3",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^2.0.2"
+    "@welcome-ui/icon": "^2.15.3"
   },
   "peerDependencies": {
     "react": "^16.10.2",
