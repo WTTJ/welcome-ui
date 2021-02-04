@@ -47,6 +47,6 @@
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
-  "component": "useCopyText",
-  "homepage": "https://welcome-ui.com/utils/copy"
+  "component": "Copy",
+  "homepage": "https://welcome-ui.com/utilities/use-copy-text"
 }

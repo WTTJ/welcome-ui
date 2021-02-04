@@ -1,8 +1,8 @@
 # @welcome-ui/time-picker
 
-The [TimePicker](https://welcome-ui.com/fields/time-picker) component from [@welcome-ui](https://welcome-ui.com).
+The [TimePicker](https://welcome-ui.com/components/time-picker) component from [@welcome-ui](https://welcome-ui.com).
 
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/@welcome-ui/time-picker) [![License](https://img.shields.io/npm/l/welcome-ui.svg)](https://github.com/WTTJ/welcome-ui/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-mediumspringgreen.svg)](ttps://github.com/WTTJ/welcome-ui/blob/master/CONTRIBUTING.md)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/@welcome-ui/time-picker) [![License](https://img.shields.io/npm/l/welcome-ui.svg)](https://github.com/WTTJ/welcome-ui/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-mediumspringgreen.svg)](ttps://github.com/WTTJ/welcome-ui/blob/master/CONTRIBUTING.mdx)
 
 ## Installation
 
@@ -14,4 +14,4 @@ The [TimePicker](https://welcome-ui.com/fields/time-picker) component from [@wel
 
 ## Documentation
 
-See the [documentation](https://welcome-ui.com/fields/time-picker) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/TimePicker) for more details.
+See the [documentation](https://welcome-ui.com/components/time-picker) or [package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/TimePicker) for more details.

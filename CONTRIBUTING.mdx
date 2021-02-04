@@ -1,0 +1,42 @@
+# Contributing
+
+## Workflow
+
+- Create your branch from master
+- Run `yarn` to setup the development environment.
+- Make the changes you want and test them out in the demo website before sending a pull request.
+- Add all necessary information and examples in your pull request.
+
+## Commit message convention
+
+We follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) convention ✨
+
+The commit contains the following structural elements, to communicate intent to the consumers of your library:
+
+- <strong>fix</strong>: patches a bug in your codebase
+- <strong>feat</strong>: introduces a new feature to the codebase
+- <strong>BREAKING CHANGE</strong>: introduces a breaking API change
+- <strong>refactor</strong>: introduce code refactor
+- <strong>docs</strong>: changes into documentation
+- <strong>test</strong>: adding or updating tests
+- <strong>chore</strong>: tooling changes, chore changes
+
+We have a pre-commit hook to verify if your commit is correct 🚔
+
+## Writing components
+
+Each component will consist of:
+
+- `ComponentName`: Folder with name of component (PascalCase)
+  - `index.js`: The React component
+  - `index.test.js`: Jest / react-testing-library tests for this component
+  - `styles.js`: Any related `styled-components`
+  - `utils.js` : utils for this component
+
+## Adding icons
+
+Check the [Icon README](https://github.com/WTTJ/welcome-ui/blob/master/icons/README.md)
+
+## Reporting issues
+
+You can report issues on our [github project](https://github.com/WTTJ/welcome-ui/issues) 🐛

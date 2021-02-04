@@ -10,7 +10,7 @@ import {
 
 # FileUpload
 
-<tagversion version={version} name={name} />
+<tagversion version={version} name={name} component={component} />
 
 ## Install and import
 
@@ -47,7 +47,7 @@ See more about [media type](https://www.iana.org/assignments/media-types/media-t
 ```jsx
 <Form
   initialValues={{
-    file: 'https://doc-exemple/example.docx?v=63731713698'
+    file: 'https://doc-example/example.docx?v=63731713698'
   }}
 >
   <ConnectedField
@@ -154,7 +154,7 @@ function() {
   }
 
   return (
-    <Form initialValues={{ file: 'https://doc-exemple/example.docx?v=63731713698' }}>
+    <Form initialValues={{ file: 'https://doc-example/example.docx?v=63731713698' }}>
       <ConnectedField
           component={FileUpload}
           name="file"

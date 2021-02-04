@@ -51,5 +51,5 @@
     "styled-components": "^4.0.0 || ^5.0.0"
   },
   "component": "Search",
-  "homepage": "https://welcome-ui.com/fields/search"
+  "homepage": "https://welcome-ui.com/components/search"
 }

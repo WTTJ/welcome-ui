@@ -230,5 +230,6 @@
   "table_row_add_above": "\f1e5",
   "table_row_add_below": "\f1e6",
   "table_row_remove": "\f1e7",
-  "table_merge_cells": "\f1e8"
+  "table_merge_cells": "\f1e8",
+  "npm": "\f1e9"
 }
