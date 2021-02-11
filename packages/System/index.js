@@ -1,9 +1,22 @@
 import { compose } from '@xstyled/system'
+import { getPx, getTransition, getZIndex, style } from '@xstyled/styled-components'
 import * as S from '@xstyled/system'
+
+// Those are styles that were in v1 but not in v2
+const oldProps = compose(
+  style({ prop: 'opacity' }),
+  style({ prop: 'overflow' }),
+  style({ prop: 'transition', themeGet: getTransition }),
+  style({ prop: 'position' }),
+  style({ prop: 'zIndex', themeGet: getZIndex }),
+  style({ prop: 'top', themeGet: getPx }),
+  style({ prop: 'right', themeGet: getPx }),
+  style({ prop: 'bottom', themeGet: getPx }),
+  style({ prop: 'left', themeGet: getPx })
+)
 
 const SYSTEM_PROPS = Object.freeze([
   S.backgrounds,
-  S.basics,
   S.borders,
   S.boxShadow,
   S.color,
@@ -15,11 +28,11 @@ const SYSTEM_PROPS = Object.freeze([
   S.maxWidth,
   S.minHeight,
   S.minWidth,
-  S.positioning,
   S.space,
   S.typography,
   S.verticalAlign,
-  S.width
+  S.width,
+  oldProps
 ])
 
 const WRAPPER_PROPS = Object.freeze([
@@ -30,15 +43,19 @@ const WRAPPER_PROPS = Object.freeze([
   S.marginTop,
   S.mx,
   S.my,
-  S.positioning,
-  S.width
+  S.width,
+  oldProps
 ])
 
 export const system = compose(...SYSTEM_PROPS)
 export const wrapperSystem = compose(...WRAPPER_PROPS)
 const componentProps = system.meta.props
   .filter(prop => !wrapperSystem.meta.props.includes(prop))
-  .map(prop => S[prop])
+  .map(prop => {
+    if (prop === 'w') return S['width']
+    if (prop === 'h') return S['height']
+    return S[prop]
+  })
   .filter(Boolean)
 export const componentSystem = compose(...componentProps)
 

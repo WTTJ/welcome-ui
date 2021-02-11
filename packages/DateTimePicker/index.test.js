@@ -144,6 +144,7 @@ describe('<DateTimePicker />', () => {
     )
     const datePicker = container.querySelector('.date-picker')
 
+    userEvent.clear(datePicker)
     userEvent.type(datePicker, '20/06/2018')
     fireEvent.click(datePicker)
 

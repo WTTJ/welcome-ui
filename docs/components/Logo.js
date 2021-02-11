@@ -2,8 +2,8 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 
-export const Logo = ({ height, width }) => (
-  <Box as="svg" height={height} viewBox="0 0 101 59" width={width}>
+export const Logo = ({ h, w }) => (
+  <Box as="svg" h={h} viewBox="0 0 101 59" w={w}>
     <title>WUI logo</title>
     <g fill="none" fillRule="nonzero">
       <path

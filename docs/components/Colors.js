@@ -21,8 +21,8 @@ const Wrapper = ({ name, theme }) => {
                 borderRadius="lg"
                 borderStyle={withBorder && 'solid'}
                 borderWidth={withBorder && '1px'}
-                height={40}
-                width={90}
+                h={40}
+                w={90}
               />
               <Box pt="xs" px="xs" textAlign="center">
                 <Box color="dark.900" fontWeight="medium">

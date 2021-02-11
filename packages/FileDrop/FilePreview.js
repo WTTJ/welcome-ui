@@ -13,7 +13,7 @@ export const FilePreview = ({ file, forceFileType }) => {
 
   return (
     <>
-      <Icon color="dark.900" height={50} mb="lg" width={50} />
+      <Icon color="dark.900" h={50} mb="lg" w={50} />
       <Text color="dark.900" lines={1} m={0} maxWidth={600} variant="h5">
         {name}
       </Text>

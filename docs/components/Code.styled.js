@@ -2,8 +2,9 @@ import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { LiveEditor as ReactLiveEditor, LiveError as ReactLiveError } from 'react-live'
 import { Card } from '@welcome-ui/card'
+import { Box } from '@welcome-ui/box'
 
-export const LiveEditor = styled.box`
+export const LiveEditor = styled(Box)`
   position: relative;
   background-color: ${th('docs.code.background')};
   border-radius: md;

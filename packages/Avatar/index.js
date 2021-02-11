@@ -9,27 +9,27 @@ import * as S from './styles'
 export const Avatar = memo(function Avatar({
   color,
   fontSize,
-  height,
+  h,
   name,
   shape = 'circle',
   size = 'md',
   src,
-  width,
+  w,
   ...rest
 }) {
   const theme = useTheme()
   const backgroundColor = color || getSeededColor(theme && theme.colors && theme.colors.sub, name)
   const avatarSize = theme.avatars.sizes[size]
-  const avatarFontSize = fontSize || `calc(${width ? theme.toRem(width) : avatarSize} / 2.5)`
+  const avatarFontSize = fontSize || `calc(${w ? theme.toRem(w) : avatarSize} / 2.5)`
 
   return (
     <S.Avatar
       aria-label={name}
       backgroundColor={backgroundColor}
-      height={height || avatarSize}
+      h={h || avatarSize}
       role="img"
       shape={shape}
-      width={width || avatarSize}
+      w={w || avatarSize}
       {...rest}
     >
       {src && <img alt={name} src={src} />}
@@ -49,10 +49,10 @@ Avatar.displayName = 'Avatar'
 Avatar.propTypes /* remove-proptypes */ = {
   color: string,
   fontSize: oneOfType([string, number]),
-  height: number,
+  h: number,
   name: string.isRequired,
   shape: oneOf(['circle', 'square']),
   size: oneOf(['sm', 'md', 'lg', 'xl', 'xxl']),
   src: string,
-  width: number
+  w: number
 }

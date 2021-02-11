@@ -7,7 +7,7 @@ import NextLink from 'next/link'
 
 import Illustration404 from '../components/Illustration404'
 
-export default function() {
+export default function Error404() {
   return (
     <Box
       alignItems={{ lg: 'center' }}

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { render } from '../../utils/tests'
 
@@ -18,61 +18,65 @@ describe('Tabs', () => {
       return (
         <>
           <Tab.List aria-label="Tabs" {...tab}>
-            <Tab id="tab1" {...tab}>
+            <Tab data-testid="tab1" id="tab1" {...tab}>
               Tab 1
             </Tab>
-            <Tab id="tab2" {...tab}>
+            <Tab data-testid="tab2" id="tab2" {...tab}>
               Tab 2
             </Tab>
-            <Tab disabled id="tab3" {...tab}>
+            <Tab data-testid="tab3" disabled id="tab3" {...tab}>
               Tab 3
             </Tab>
           </Tab.List>
-          <Tab.Panel tabId="tab1" {...tab}>
+          <Tab.Panel data-testid="panel1" tabId="tab1" {...tab}>
             Panel 1
           </Tab.Panel>
-          <Tab.Panel tabId="tab2" {...tab}>
+          <Tab.Panel data-testid="panel2" tabId="tab2" {...tab}>
             Panel 2
           </Tab.Panel>
-          <Tab.Panel tabId="tab3" {...tab}>
+          <Tab.Panel data-testid="panel3" tabId="tab3" {...tab}>
             Panel 3
           </Tab.Panel>
         </>
       )
     }
-    const { getAllByRole, getByRole } = render(<Tabs />)
-    const tabs = getAllByRole('tab')
-    expect(tabs[0]).toHaveTextContent('Tab 1')
-    expect(tabs[0]).toHaveAttribute('aria-selected', 'true')
-    expect(tabs[0]).not.toHaveAttribute('aria-disabled')
-    expect(tabs[1]).toHaveTextContent('Tab 2')
-    expect(tabs[1]).toHaveAttribute('aria-selected', 'false')
-    expect(tabs[1]).not.toHaveAttribute('aria-disabled')
-    expect(tabs[2]).toHaveTextContent('Tab 3')
-    expect(tabs[2]).toHaveAttribute('aria-selected', 'false')
-    expect(tabs[2]).toHaveAttribute('aria-disabled')
+    const { getByRole, getByTestId } = render(<Tabs />)
+    const tab1 = getByTestId('tab1')
+    const tab2 = getByTestId('tab2')
+    const tab3 = getByTestId('tab3')
+    expect(tab1).toHaveTextContent('Tab 1')
+    expect(tab1).toHaveAttribute('aria-selected', 'true')
+    expect(tab1).not.toHaveAttribute('aria-disabled')
+    expect(tab2).toHaveTextContent('Tab 2')
+    expect(tab2).toHaveAttribute('aria-selected', 'false')
+    expect(tab2).not.toHaveAttribute('aria-disabled')
+    expect(tab3).toHaveTextContent('Tab 3')
+    expect(tab3).toHaveAttribute('aria-selected', 'false')
+    expect(tab3).toHaveAttribute('aria-disabled')
 
-    const panels = getAllByRole('tabpanel')
-    expect(panels[0]).toHaveTextContent('Panel 1')
-    expect(panels[0]).not.toHaveAttribute('hidden')
-    expect(panels[1]).toHaveTextContent('Panel 2')
-    expect(panels[1]).toHaveAttribute('hidden')
-    expect(panels[2]).toHaveTextContent('Panel 3')
-    expect(panels[2]).toHaveAttribute('hidden')
+    const panel1 = getByTestId('panel1')
+    const panel2 = getByTestId('panel2')
+    const panel3 = getByTestId('panel3')
+    expect(panel1).toHaveTextContent('Panel 1')
+    expect(panel1).not.toHaveAttribute('hidden')
+    expect(panel2).toHaveTextContent('Panel 2')
+    expect(panel2).toHaveAttribute('hidden')
+    expect(panel3).toHaveTextContent('Panel 3')
+    expect(panel3).toHaveAttribute('hidden')
 
     const activeBar = getActiveBar({ getByRole })
     expect(activeBar).toBeInTheDocument()
 
     // Simulate click on second tab
-    fireEvent.click(tabs[1])
+    userEvent.click(tab2)
 
-    expect(tabs[0]).toHaveAttribute('aria-selected', 'false')
-    expect(tabs[1]).toHaveAttribute('aria-selected', 'true')
-    expect(tabs[2]).toHaveAttribute('aria-selected', 'false')
+    expect(tab1).toHaveAttribute('aria-selected', 'false')
+    expect(tab2).toHaveAttribute('aria-selected', 'true')
+    expect(tab3).toHaveAttribute('aria-selected', 'false')
 
-    expect(panels[0]).toHaveAttribute('hidden')
-    expect(panels[1]).not.toHaveAttribute('hidden')
-    expect(panels[2]).toHaveAttribute('hidden')
+    expect(panel1).toHaveAttribute('hidden')
+    expect(panel2).not.toHaveAttribute('hidden')
+    expect(panel3).toHaveAttribute('hidden')
   })
 
   describe('with one tab', () => {

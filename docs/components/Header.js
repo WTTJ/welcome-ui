@@ -23,13 +23,13 @@ export const Header = () => {
       <Box
         alignItems="center"
         display="flex"
-        height={{ xs: 1, md: 'auto' }}
+        h={{ xs: 1, md: 'auto' }}
         justifyContent="space-between"
         w={1}
       >
         <NextLink href="/" passHref>
           <Box alignItems="center" alt="Homepage" as="a" display="flex">
-            <Logo height={{ xs: '2.3rem', md: '3.9rem' }} width={{ xs: '4rem', md: '6.75rem' }} />
+            <Logo h={{ xs: '2.3rem', md: '3.9rem' }} w={{ xs: '4rem', md: '6.75rem' }} />
           </Box>
         </NextLink>
         <Box alignItems={{ xs: 'center', md: 'flex-start' }} display="flex">
@@ -63,7 +63,7 @@ export const Header = () => {
       </Box>
       <Box
         display={{ xs: 'none', md: 'block' }}
-        height="calc(100% - 8.4rem)"
+        h="calc(100% - 8.4rem)"
         mt="3xl"
         style={{ overflowY: 'auto' }}
       >

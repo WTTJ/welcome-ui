@@ -30,6 +30,6 @@ describe('<ConnectedField>', () => {
     )
 
     const form = container.querySelector('form')
-    expect(form).toBeEmpty()
+    expect(form).toBeEmptyDOMElement()
   })
 })

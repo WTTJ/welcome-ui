@@ -1,6 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import '@testing-library/jest-dom/extend-expect'
 
 import { render } from '../../utils/tests'
 import { LeftIcon, RightIcon } from '../../icons'
@@ -46,31 +47,33 @@ describe('<Swiper>', () => {
 
   it('should change page using pagination', () => {
     // Arrange
-    const { container, getAllByRole } = render(<TestSwiper />)
-    const slides = getAllByRole('group')
+    const { container, getByText } = render(<TestSwiper />)
+    const slide1 = getByText('page1')
+    const slide2 = getByText('page2')
     const pagination = container.querySelectorAll('[aria-controls=swiper]')
     const firstPaginationButton = pagination[1]
 
     // Act
-    fireEvent.click(firstPaginationButton)
+    userEvent.click(firstPaginationButton)
 
     // Assert
-    expect(slides[0]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[1]).toHaveAttribute('aria-hidden', 'false')
+    expect(slide1).toHaveAttribute('aria-hidden', 'true')
+    expect(slide2).toHaveAttribute('aria-hidden', 'false')
     expect(pagination[0]).toHaveAttribute('aria-selected', 'false')
     expect(pagination[1]).toHaveAttribute('aria-selected', 'true')
   })
 
   it('should change page using buttons', () => {
-    const { container, getAllByRole, getByTestId } = render(<TestSwiper />)
+    const { container, getByTestId, getByText } = render(<TestSwiper />)
 
     const nextButton = getByTestId('swiper-button-next')
-    fireEvent.click(nextButton)
+    userEvent.click(nextButton)
 
-    const slides = getAllByRole('group')
+    const slide1 = getByText('page1')
+    const slide2 = getByText('page2')
     const pagination = container.querySelectorAll('[aria-controls=swiper]')
-    expect(slides[0]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[1]).toHaveAttribute('aria-hidden', 'false')
+    expect(slide1).toHaveAttribute('aria-hidden', 'true')
+    expect(slide2).toHaveAttribute('aria-hidden', 'false')
     expect(pagination[0]).toHaveAttribute('aria-selected', 'false')
     expect(pagination[1]).toHaveAttribute('aria-selected', 'true')
   })
@@ -79,83 +82,91 @@ describe('<Swiper>', () => {
 describe('<LoopingSwiper>', () => {
   it('should change page (and loop) using next button', () => {
     // Arrange
-    const { container, getAllByRole, getByTestId } = render(<TestLoopingSwiper />)
-    const slides = getAllByRole('group')
+    const { container, getByTestId, getByText } = render(<TestLoopingSwiper />)
+    const slide1 = getByText('page1')
+    const slide2 = getByText('page2')
+    const slide3 = getByText('page3')
+    const slide4 = getByText('page4')
+    const slide5 = getByText('page5')
     const nextButton = getByTestId('swiper-button-next')
     const pagination = container.querySelectorAll('[aria-controls=swiper]')
 
     // Act
-    fireEvent.click(nextButton)
+    userEvent.click(nextButton)
 
     // Assert
-    expect(slides[0]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[1]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[2]).toHaveAttribute('aria-hidden', 'false')
-    expect(slides[3]).toHaveAttribute('aria-hidden', 'false')
-    expect(slides[4]).toHaveAttribute('aria-hidden', 'true')
+    expect(slide1).toHaveAttribute('aria-hidden', 'true')
+    expect(slide2).toHaveAttribute('aria-hidden', 'true')
+    expect(slide3).toHaveAttribute('aria-hidden', 'false')
+    expect(slide4).toHaveAttribute('aria-hidden', 'false')
+    expect(slide5).toHaveAttribute('aria-hidden', 'true')
     expect(pagination[2]).toHaveAttribute('aria-selected', 'true')
 
     // Act
-    fireEvent.click(nextButton)
+    userEvent.click(nextButton)
 
     // Assert
-    expect(slides[0]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[1]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[2]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[3]).toHaveAttribute('aria-hidden', 'false')
-    expect(slides[4]).toHaveAttribute('aria-hidden', 'false')
+    expect(slide1).toHaveAttribute('aria-hidden', 'true')
+    expect(slide2).toHaveAttribute('aria-hidden', 'true')
+    expect(slide3).toHaveAttribute('aria-hidden', 'true')
+    expect(slide4).toHaveAttribute('aria-hidden', 'false')
+    expect(slide5).toHaveAttribute('aria-hidden', 'false')
     expect(pagination[3]).toHaveAttribute('aria-selected', 'true')
 
     // Act
-    fireEvent.click(nextButton)
+    userEvent.click(nextButton)
 
     // Assert
-    expect(slides[0]).toHaveAttribute('aria-hidden', 'false')
-    expect(slides[1]).toHaveAttribute('aria-hidden', 'false')
-    expect(slides[2]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[3]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[4]).toHaveAttribute('aria-hidden', 'true')
+    expect(slide1).toHaveAttribute('aria-hidden', 'false')
+    expect(slide2).toHaveAttribute('aria-hidden', 'false')
+    expect(slide3).toHaveAttribute('aria-hidden', 'true')
+    expect(slide4).toHaveAttribute('aria-hidden', 'true')
+    expect(slide5).toHaveAttribute('aria-hidden', 'true')
     expect(pagination[0]).toHaveAttribute('aria-selected', 'true')
   })
 
   it('should change page (and loop) using prev button', () => {
     // Arrange
-    const { container, getAllByRole, getByTestId } = render(<TestLoopingSwiper />)
-    const slides = getAllByRole('group')
+    const { container, getByTestId, getByText } = render(<TestLoopingSwiper />)
+    const slide1 = getByText('page1')
+    const slide2 = getByText('page2')
+    const slide3 = getByText('page3')
+    const slide4 = getByText('page4')
+    const slide5 = getByText('page5')
     const nextButton = getByTestId('swiper-button-prev')
     const pagination = container.querySelectorAll('[aria-controls=swiper]')
 
     // Act
-    fireEvent.click(nextButton)
+    userEvent.click(nextButton)
 
     // Assert
-    expect(slides[0]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[1]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[2]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[3]).toHaveAttribute('aria-hidden', 'false')
-    expect(slides[4]).toHaveAttribute('aria-hidden', 'false')
+    expect(slide1).toHaveAttribute('aria-hidden', 'true')
+    expect(slide2).toHaveAttribute('aria-hidden', 'true')
+    expect(slide3).toHaveAttribute('aria-hidden', 'true')
+    expect(slide4).toHaveAttribute('aria-hidden', 'false')
+    expect(slide5).toHaveAttribute('aria-hidden', 'false')
     expect(pagination[3]).toHaveAttribute('aria-selected', 'true')
 
     // Act
-    fireEvent.click(nextButton)
+    userEvent.click(nextButton)
 
     // Assert
-    expect(slides[0]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[1]).toHaveAttribute('aria-hidden', 'false')
-    expect(slides[2]).toHaveAttribute('aria-hidden', 'false')
-    expect(slides[3]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[4]).toHaveAttribute('aria-hidden', 'true')
+    expect(slide1).toHaveAttribute('aria-hidden', 'true')
+    expect(slide2).toHaveAttribute('aria-hidden', 'false')
+    expect(slide3).toHaveAttribute('aria-hidden', 'false')
+    expect(slide4).toHaveAttribute('aria-hidden', 'true')
+    expect(slide5).toHaveAttribute('aria-hidden', 'true')
     expect(pagination[1]).toHaveAttribute('aria-selected', 'true')
 
     // Act
-    fireEvent.click(nextButton)
+    userEvent.click(nextButton)
 
     // Assert
-    expect(slides[0]).toHaveAttribute('aria-hidden', 'false')
-    expect(slides[1]).toHaveAttribute('aria-hidden', 'false')
-    expect(slides[2]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[3]).toHaveAttribute('aria-hidden', 'true')
-    expect(slides[4]).toHaveAttribute('aria-hidden', 'true')
+    expect(slide1).toHaveAttribute('aria-hidden', 'false')
+    expect(slide2).toHaveAttribute('aria-hidden', 'false')
+    expect(slide3).toHaveAttribute('aria-hidden', 'true')
+    expect(slide4).toHaveAttribute('aria-hidden', 'true')
+    expect(slide5).toHaveAttribute('aria-hidden', 'true')
     expect(pagination[0]).toHaveAttribute('aria-selected', 'true')
   })
 })
