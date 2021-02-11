@@ -51,7 +51,11 @@ export const system = compose(...SYSTEM_PROPS)
 export const wrapperSystem = compose(...WRAPPER_PROPS)
 const componentProps = system.meta.props
   .filter(prop => !wrapperSystem.meta.props.includes(prop))
-  .map(prop => S[prop])
+  .map(prop => {
+    if (prop === 'w') return S['width']
+    if (prop === 'h') return S['height']
+    return S[prop]
+  })
   .filter(Boolean)
 export const componentSystem = compose(...componentProps)
 
