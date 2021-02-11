@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/icons.font",
-  "version": "3.0.0-alpha.0",
+  "version": "3.0.0-alpha.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/icons.font.cjs.js",
   "module": "dist/icons.font.es.js",
@@ -35,7 +35,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^3.0.0-alpha.0"
+    "@welcome-ui/system": "^3.0.0-alpha.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^2.1.0",

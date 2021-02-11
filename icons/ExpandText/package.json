@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.expand_text.cjs.js",
   "module": "dist/icons.expand_text.es.js",
-  "version": "3.0.0-alpha.0",
+  "version": "3.0.0-alpha.1",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^3.0.0-alpha.0"
+    "@welcome-ui/icon": "^3.0.0-alpha.1"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",
