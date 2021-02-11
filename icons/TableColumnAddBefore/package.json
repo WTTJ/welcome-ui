@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.table_column_add_before.cjs.js",
   "module": "dist/icons.table_column_add_before.es.js",
-  "version": "2.15.3",
+  "version": "3.0.0-alpha.0",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^2.15.3"
+    "@welcome-ui/icon": "^3.0.0-alpha.0"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",

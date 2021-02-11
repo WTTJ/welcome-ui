@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/file-upload",
-  "version": "2.15.3",
+  "version": "3.0.0-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/file-upload.cjs.js",
   "module": "dist/file-upload.es.js",
@@ -35,12 +35,12 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^2.15.3",
-    "@welcome-ui/button": "^2.15.3",
-    "@welcome-ui/files": "^2.15.3",
-    "@welcome-ui/system": "^2.15.3",
-    "@welcome-ui/tag": "^2.15.3",
-    "@welcome-ui/utils": "^2.15.3"
+    "@welcome-ui/box": "^3.0.0-alpha.0",
+    "@welcome-ui/button": "^3.0.0-alpha.0",
+    "@welcome-ui/files": "^3.0.0-alpha.0",
+    "@welcome-ui/system": "^3.0.0-alpha.0",
+    "@welcome-ui/tag": "^3.0.0-alpha.0",
+    "@welcome-ui/utils": "^3.0.0-alpha.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^2.1.0",
