@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react'
 import { object } from 'prop-types'
 
-const themeStorage = (process.browser && localStorage.getItem('theme')) || 'welcome'
+const themeStorage = (typeof window !== 'undefined' && localStorage.getItem('theme')) || 'welcome'
 
 const ThemeContext = createContext({
   theme: themeStorage,
@@ -20,7 +20,7 @@ export function useSetThemeContext() {
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(themeStorage)
-  process.browser && localStorage.setItem('theme', theme)
+  typeof window !== 'undefined' && localStorage.setItem('theme', theme)
 
   const value = {
     theme,
