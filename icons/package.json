@@ -120,6 +120,7 @@
     "@welcome-ui/icons.flag_cs": "^3.0.0-alpha.2",
     "@welcome-ui/icons.flag_en": "^3.0.0-alpha.2",
     "@welcome-ui/icons.flag_es": "^3.0.0-alpha.2",
+    "@welcome-ui/icons.flag_fill": "^1.0.0",
     "@welcome-ui/icons.flag_fr": "^3.0.0-alpha.2",
     "@welcome-ui/icons.flag_pointed": "^3.0.0-alpha.2",
     "@welcome-ui/icons.flag_sk": "^3.0.0-alpha.2",
