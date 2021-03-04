@@ -45,7 +45,6 @@ const readIconsFromFolders = () => {
               `@welcome-ui/icons.${packageName}.${outputOptions.format}`
             )
           )
-          // .then(output => console.debug(output))
           .catch(console.error)
       })
     })
