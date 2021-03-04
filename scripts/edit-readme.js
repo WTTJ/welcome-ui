@@ -4,7 +4,6 @@ const util = require('util')
 
 const { toKebabCase } = require('../utils/strings')
 
-fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)
 fs.writeFileAsync = util.promisify(fs.writeFile)
 
@@ -53,9 +52,8 @@ const getReadmeContent = pkg => {
 
   const content = `# ${name}
 
-The ${
-    hasDocs ? `[${componentName}](${docs})` : componentName
-  } component from [@welcome-ui](https://welcome-ui.com).
+The ${hasDocs ? `[${componentName}](${docs})` : componentName
+    } component from [@welcome-ui](https://welcome-ui.com).
 
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/${name}) [![License](https://img.shields.io/npm/l/welcome-ui.svg)](https://github.com/WTTJ/welcome-ui/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-mediumspringgreen.svg)](ttps://github.com/WTTJ/welcome-ui/blob/master/CONTRIBUTING.mdx)
 
@@ -69,9 +67,8 @@ The ${
 
 ## Documentation
 
-See the ${
-    hasDocs ? `[documentation](${docs}) or ` : ''
-  }[package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/${componentName}) for more details.
+See the ${hasDocs ? `[documentation](${docs}) or ` : ''
+    }[package source](https://github.com/WTTJ/welcome-ui/tree/master/packages/${componentName}) for more details.
 `
 
   return content

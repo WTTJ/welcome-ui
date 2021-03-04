@@ -6,14 +6,11 @@ const util = require('util')
 
 const { toPascalCase } = require('../utils/strings')
 
-const { readIconsFromAssets } = require('./utils')
+const { FLAG_ICONS, readIconsFromAssets } = require('./utils')
 
 require('colors')
 
-fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)
-
-const FLAG_ICONS = ['flag_cs', 'flag_en', 'flag_es', 'flag_fr', 'flag_sk']
 
 const ROOT_PATH = path.join(__dirname, '..')
 const ICON_PATH = path.join(ROOT_PATH, 'packages/Icon')

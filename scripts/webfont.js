@@ -8,11 +8,9 @@ const difference = require('lodash.difference')
 const webfontsGenerator = require('webfonts-generator')
 require('colors')
 
-const { readIconsFromAssets } = require('./utils')
+const { FLAG_ICONS, readIconsFromAssets } = require('./utils')
 
 fs.readdirAsync = util.promisify(fs.readdir)
-
-const FLAG_ICONS = ['flag_cs', 'flag_en', 'flag_es', 'flag_fr', 'flag_sk']
 
 const ROOT_PATH = path.join(__dirname, '..')
 const ICONS_PATH = path.join(ROOT_PATH, 'icons')

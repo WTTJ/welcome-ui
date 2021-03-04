@@ -11,7 +11,6 @@ import 'colors'
 import { getRollupConfig } from '../rollup.config.js'
 import { toKebabCase } from '../utils/strings'
 
-fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)
 
 const ROOT_PATH = path.join(__dirname, '..')
