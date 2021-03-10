@@ -9,7 +9,7 @@
     "start": "yarn docs:dev",
     "docs:dev": "yarn next docs -p 3020",
     "docs:build": "yarn next build docs && yarn next export docs",
-    "docs:deploy": "yarn && yarn build:icons && yarn build && yarn docs:build",
+    "docs:deploy": "yarn && yarn icons:build && yarn build && yarn docs:build",
     "homerun": "yarn clean --yes && rm -rf node_modules/ docs/.next/ && yarn cache clean && yarn && yarn build --all && yarn start",
     "icons:optimize": "node -r esm scripts/icons-optimize.js",
     "icons:collect": "node -r esm scripts/icons-collect.js",
