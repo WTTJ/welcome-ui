@@ -12,7 +12,10 @@ const handleFileChange = () => {
   const minutes = date.getMinutes()
 
   if (dir === 'packages') {
-    const packageName = toKebabCase(packageFolder)
+    let packageName = toKebabCase(packageFolder)
+    if (packageName === 'icon-font') {
+      packageName = 'icons.font'
+    }
     console.log(`Building ${packageFolder}…`.grey)
     exec(`yarn build --scope @welcome-ui/${packageName}`, err => {
       if (err) {
