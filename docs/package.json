@@ -33,16 +33,16 @@
   "dependencies": {
     "@mdx-js/loader": "1.6.22",
     "@mdx-js/react": "1.6.22",
-    "@next/mdx": "10.0.5",
-    "@xstyled/styled-components": "^1.17.0",
-    "babel-plugin-styled-components": "^1.10.7",
-    "date-fns": "^2.14.0",
+    "@next/mdx": "10.0.8",
+    "@xstyled/styled-components": "^2.2.3",
+    "babel-plugin-styled-components": "^1.12.0",
+    "date-fns": "^2.19.0",
     "lodash.merge": "^4.6.2",
-    "next": "10.0.5",
-    "prism-react-renderer": "1.1.1",
+    "next": "10.0.8",
+    "prism-react-renderer": "1.2.0",
     "react": "^17.0.1",
     "react-docgen": "^5.3.1",
     "react-dom": "^17.0.1",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.2.1"
   }
 }

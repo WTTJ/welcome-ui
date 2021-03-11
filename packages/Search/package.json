@@ -40,15 +40,15 @@
     "@welcome-ui/system": "^3.0.0-alpha.2",
     "@welcome-ui/tag": "^3.0.0-alpha.2",
     "@welcome-ui/utils": "^3.0.0-alpha.2",
-    "downshift": "^6.0.15"
+    "downshift": "^6.1.0"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^2.1.0",
-    "@xstyled/system": "^2.1.0",
+    "@xstyled/styled-components": "^2.2.3",
+    "@xstyled/system": "^2.2.3",
     "prop-types": "^15.7.2",
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.2.1"
   },
   "component": "Search",
   "homepage": "https://welcome-ui.com/components/search"
