@@ -108,7 +108,10 @@ export const createTheme = (options = {}) => {
     sm: 480,
     md: 736,
     lg: 980,
-    xl: 1280
+    xl: 1280,
+    xxl: 1440,
+    '3xl': 1620,
+    '4xl': 1920
   }
 
   theme.space = {
