@@ -1,39 +1,51 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import {
   component,
   dependencies,
   name,
   peerDependencies,
   version
-} from '@welcome-ui/icons.font/package.json'
+} from '@welcome-ui/icons/package.json'
 
-# IconFont
+# Icons
 
 <tagversion version={version} name={name} component={component} />
 
-## Install and import icon font
+## Install and import individual icons
 
 <code language="bash">
-  {`yarn add @welcome-ui/icons.font ${Object.keys(peerDependencies).join(' ')}`}
+  {`yarn add @welcome-ui/icons.avatar ${Object.keys(peerDependencies).join(' ')}`}
 </code>
-<code language="bash">{`import { Icons } from '@welcome-ui/icons.font'`}</code>
-<br />
-or
-<code language="bash">{`import { IconFont } from '@welcome-ui/icons.font'`}</code>
+<code language="bash">{`import { AvatarIcon } from '@welcome-ui/icons.avatar'`}</code>
 
-## Call Icon from Icons import
+## Or… install and import all icons
+
+<code language="bash" isCopyable>
+  {`yarn add @welcome-ui/icons ${Object.keys(peerDependencies).join(' ')}`}
+</code>
+<code language="bash" isCopyable>{`import * as Icons from '@welcome-ui/icons'`}</code>
+
+## Size
+
+Use size property with `xs`, `sm`, `md`, `lg` or `xl`.
 
 ```jsx row
-<Icons.Twitter />
-<Icons.Right />
-<Icons.Facebook />
+<TwitterIcon size="xs" />
+<TwitterIcon size="sm" />
+<TwitterIcon />
+<TwitterIcon size="lg" />
+<TwitterIcon size="xl" />
 ```
 
-## Call Icon from IconFont import
+## Colour
+
+Icons inherit the colour from their parent.
 
 ```jsx row
-<IconFont name="facebook" />
-<IconFont name="left" />
-<IconFont name="twitter" />
+<TwitterIcon color="blue" size="xl" />
+<TwitterIcon color="orange" size="xl" />
+<TwitterIcon color="green" size="xl" />
 ```
 
 ## Available icons
@@ -45,7 +57,7 @@ or
 ```jsx
 function() {
   const icons = ['left', 'right', 'up', 'down']
-  return IconsList({icons, isIconFont: true})
+  return IconsList({icons})
 }
 ```
 
@@ -99,7 +111,7 @@ function() {
     'video',
     'write'
   ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({icons})
 }
 ```
 
@@ -115,7 +127,7 @@ function() {
     'negative_straight',
     'positive_straight'
   ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({icons})
 }
 ```
 
@@ -124,7 +136,7 @@ function() {
 ```jsx
 function() {
   const icons = ['actions', 'cover_letter', 'details', 'resume', 'questions']
-  return IconsList({icons, isIconFont: true})
+  return IconsList({icons})
 }
 ```
 
@@ -193,7 +205,7 @@ function() {
     'video_camera',
     'video_camera_2',
   ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({icons})
 }
 ```
 
@@ -221,7 +233,7 @@ function() {
     'xlsx',
     'zip'
   ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({icons})
 }
 ```
 
@@ -289,7 +301,7 @@ function() {
     'tree',
     'trophy'
   ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({icons})
 }
 ```
 
@@ -317,7 +329,7 @@ function() {
     'type',
     'underline'
   ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({icons})
 }
 ```
 
@@ -337,7 +349,7 @@ function() {
     'table_row_add_below',
     'table_row_remove'
   ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({icons})
 }
 ```
 
@@ -360,9 +372,22 @@ function() {
     'xing',
     'youtube'
   ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({icons})
 }
 ```
+
+### Flags
+
+```jsx
+function() {
+  const icons = ['flag_fr', 'flag_en', 'flag_cs', 'flag_sk', 'flag_es']
+  return IconsList({icons})
+}
+```
+
+## Properties
+
+<props propTypes={props.propTypes.Icon} />
 
 ## Dependencies
 

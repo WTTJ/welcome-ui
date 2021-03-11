@@ -37,7 +37,8 @@
     "react-dom": "^16.10.2 || ^17.0.1"
   },
   "gitHead": "94b81a57c072de90a333f0e3a7a9a845b6c759be",
-  "homepage": "https://welcome-ui.com",
+  "homepage": "https://welcome-ui.com/components/icons",
+  "component": "Icons",
   "dependencies": {
     "@welcome-ui/icons.actions": "^3.0.0-alpha.2",
     "@welcome-ui/icons.activity": "^3.0.0-alpha.2",
