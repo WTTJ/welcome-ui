@@ -42,7 +42,7 @@ import {
   getTextsFontWeights,
   getTextsTextTransform
 } from './typography'
-import { transitionCurves, transitions } from './transitions'
+import { timingFunctions, transitions } from './transitions'
 import { getUnderline } from './underline'
 import { getDefaultFields } from './defaultFields'
 import { getDefaultCards } from './defaultCards'
@@ -123,12 +123,14 @@ export const createTheme = (options = {}) => {
     '4xl': theme.toRem(36)
   }
 
+  theme.inset = theme.space
+
   theme.icons = getIcons(theme)
 
   theme.radii = { sm: '4px', md: '6px', lg: '10px' }
 
   theme.transitions = transitions
-  theme.transitionCurves = transitionCurves
+  theme.timingFunctions = timingFunctions
 
   theme.shadows = {
     sm: '1px 2px 4px 0 rgba(0,0,0,0.05)',
