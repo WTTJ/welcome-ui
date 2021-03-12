@@ -11,19 +11,15 @@ export const Popover = memo(function Popover({
   arrowStyle,
   children,
   onClose,
+  // catch triggerMethod for it not to appear in the dom
+  // eslint-disable-next-line no-unused-vars
   triggerMethod = 'click',
   withCloseButton = false,
   ...rest
 }) {
-  const hoverable = triggerMethod === 'hover'
-
   function closePopover() {
     if (onClose) onClose()
     rest?.hide()
-  }
-
-  function openPopover() {
-    rest?.show()
   }
 
   // get the correct transform style for arrow
@@ -37,12 +33,7 @@ export const Popover = memo(function Popover({
   const transform = transformMap[placement]
 
   return (
-    <S.Popover
-      {...rest}
-      $withCloseButton={withCloseButton}
-      onMouseEnter={hoverable ? openPopover : undefined}
-      onMouseLeave={hoverable ? closePopover : undefined}
-    >
+    <S.Popover {...rest} $withCloseButton={withCloseButton}>
       <Box position="relative">
         <S.Arrow {...rest} style={{ ...arrowStyle }}>
           <S.ArrowItem $transform={transform} h="30" w="30" xmlns="http://www.w3.org/2000/svg">
