@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/popover",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "welcome-ui: A popover component",
   "main": "dist/popover.cjs.js",
   "module": "dist/popover.es.js",

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/WTTJ/welcome-ui/compare/v3.0.0...v3.0.1) (2021-03-15)
+
+
+### Bug Fixes
+
+* checkbox error on field without connected ([#832](https://github.com/WTTJ/welcome-ui/issues/832)) ([6fce1de](https://github.com/WTTJ/welcome-ui/commit/6fce1dea2a6828f7340d1b473ace5962d50188f1))
+* mimic reakit behaviour on popover trigger hover ([#834](https://github.com/WTTJ/welcome-ui/issues/834)) ([a6172d5](https://github.com/WTTJ/welcome-ui/commit/a6172d57901f87212518ca4496e8223fb5e7384d)), closes [#833](https://github.com/WTTJ/welcome-ui/issues/833)
+
+
+
+
+
 ## [2.15.3](https://github.com/WTTJ/welcome-ui/compare/v2.15.2...v2.15.3) (2021-02-04)
 
 **Note:** Version bump only for package @welcome-ui/repo
