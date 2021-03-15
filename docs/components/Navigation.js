@@ -10,6 +10,7 @@ const ITEMS = {
   feedback: ['Alert', 'Toast'],
   forms: [
     'Field',
+    'HookForm',
     'Button',
     'Checkbox',
     'DatePicker',

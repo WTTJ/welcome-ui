@@ -7,6 +7,9 @@ import theme from 'prism-react-renderer/themes/nightOwl'
 import NextLink from 'next/link'
 import { Form as FinalForm } from 'react-final-form'
 import dateFR from 'date-fns/locale/fr'
+import * as yup from 'yup'
+import { Controller } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 // Welcome UI
 import { Accordion } from '@welcome-ui/accordion'
 import { Alert } from '@welcome-ui/alert'
@@ -62,6 +65,7 @@ import { useCopyText } from '@welcome-ui/utils.copy'
 import * as constants from '../constants'
 
 import { Form } from './Form'
+import { HookForm } from './HookForm'
 import { IconsList } from './IconsList'
 import * as S from './Code.styled'
 
@@ -131,6 +135,7 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
       CodeContentRow: S.CodeContentRow,
       ConnectedField,
       constants,
+      Controller,
       dateFR,
       DatePicker,
       DateTimePicker,
@@ -144,6 +149,7 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
       Form,
       Group,
       Hint,
+      HookForm,
       Icon,
       ...IconFont,
       ...Icons,
@@ -176,7 +182,9 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
       Toggle,
       Tooltip,
       useCopyText,
-      ...React
+      ...React,
+      yup,
+      yupResolver
     }
   }
 

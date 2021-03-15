@@ -21,7 +21,7 @@ export const getVariant = ({
   warning
 }) => {
   if (
-    ((isCheckbox || isRadio) && !modified) ||
+    ((isCheckbox || isRadio) && isPristine(connected, modified)) ||
     (!isCheckbox && !isRadio && isPristine(connected, touched))
   ) {
     return undefined
