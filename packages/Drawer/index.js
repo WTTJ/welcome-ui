@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
-import React from 'react'
-import { func, node, oneOf } from 'prop-types'
+import React, { cloneElement } from 'react'
+import { bool, func, node, oneOf } from 'prop-types'
 import { Dialog, DialogBackdrop, DialogDisclosure, useDialogState } from 'reakit/Dialog'
 
 import * as S from './styles'
@@ -31,16 +31,27 @@ export function useDrawerState(options) {
 
 // Needed to allow to style the backdrop
 // see: https://reakit.io/docs/styling/#css-in-js
-export function DrawerBackdrop({ children, ...rest }) {
+export function DrawerBackdrop({ children, hideOnClickOutside = true, ...rest }) {
+  if (children.type !== Drawer) {
+    throw new Error('<Drawer.Backdrop /> children as to be <Drawer />.')
+  }
+
   return (
-    <DialogBackdrop {...rest}>
-      {props => <S.Backdrop {...props}>{children}</S.Backdrop>}
+    <DialogBackdrop {...rest} hideOnClickOutside={hideOnClickOutside}>
+      {props => (
+        <S.Backdrop isClickable={hideOnClickOutside} {...props}>
+          {cloneElement(children, { hideOnClickOutside })}
+        </S.Backdrop>
+      )}
     </DialogBackdrop>
   )
 }
 
-DrawerBackdrop.propTypes = {
-  children: node.isRequired
+DrawerBackdrop.propTypes /* remove-proptypes */ = {
+  /** Has to be a <Drawer /> */
+  children: node.isRequired,
+  /** Used to show the correct cursor on the backdrop, will be passed down to Drawer */
+  hideOnClickOutside: bool.isRequired
 }
 
 export function DrawerClose({ hide, ...rest }) {

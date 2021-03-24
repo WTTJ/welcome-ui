@@ -5,7 +5,7 @@ import { cardStyles } from '@welcome-ui/utils'
 import { ClearButton } from '@welcome-ui/clear-button'
 
 export const Backdrop = styled(Box)(
-  ({ hideOnClickOutside }) => css`
+  ({ isClickable }) => css`
     ${th('drawers.backdrop')};
     display: flex;
     align-items: center;
@@ -17,7 +17,7 @@ export const Backdrop = styled(Box)(
     bottom: 0;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
-    ${hideOnClickOutside &&
+    ${isClickable &&
       css`
         cursor: pointer;
       `}
@@ -97,6 +97,7 @@ export const Drawer = styled(Box)(
     max-width: 100%;
     max-height: 100%;
     transition: transform 250ms ease-in-out;
+    cursor: auto;
 
     &:focus {
       /* important for firefox */
