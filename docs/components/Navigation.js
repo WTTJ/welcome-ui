@@ -34,7 +34,7 @@ const ITEMS = {
   icons: ['Icons', 'IconsFont'],
   layout: ['Box', 'Group', 'Loader', 'Shape', 'Stack'],
   navigation: ['Breadcrumb', 'DropdownMenu', 'Link', 'Pagination', 'Tabs'],
-  overlay: ['Modal', 'Popover', 'Tooltip'],
+  overlay: ['Modal', 'Drawer', 'Popover', 'Tooltip'],
   theming: ['Basics', 'Customize', 'XStyled'],
   typography: ['Text'],
   utilities: ['useCopyText']
