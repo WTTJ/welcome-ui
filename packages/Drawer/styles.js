@@ -16,7 +16,7 @@ export const Backdrop = styled(Box)(
     left: 0;
     bottom: 0;
     opacity: 0;
-    transition: opacity 150ms ease-in-out;
+    transition: fast;
     ${isClickable &&
       css`
         cursor: pointer;
@@ -96,7 +96,7 @@ export const Drawer = styled(Box)(
     flex-direction: column;
     max-width: 100%;
     max-height: 100%;
-    transition: transform 250ms ease-in-out;
+    transition: medium;
     cursor: auto;
 
     &:focus {
@@ -110,7 +110,7 @@ export const Drawer = styled(Box)(
     }
 
     &[data-leave] {
-      transition: transform 100ms ease-in-out;
+      transition: fast;
     }
   `
 )
