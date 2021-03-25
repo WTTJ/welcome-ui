@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/WTTJ/welcome-ui/compare/v3.1.0...v3.1.1) (2021-03-25)
+
+
+### Bug Fixes
+
+* break all words on Text component with lines set to 1 ([#837](https://github.com/WTTJ/welcome-ui/issues/837)) ([5bcf786](https://github.com/WTTJ/welcome-ui/commit/5bcf7863e772eb59ae7087397b13c7e6a1b476a7))
+
+
+
+
+
 # [3.1.0](https://github.com/WTTJ/welcome-ui/compare/v3.0.1...v3.1.0) (2021-03-25)
 
 
