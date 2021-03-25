@@ -11,6 +11,7 @@ const getBlockHeight = lines => css`
   -webkit-line-clamp: ${lines || 'none'};
   line-height: normal;
   overflow: hidden;
+  word-break: ${lines === 1 ? 'break-all' : null};
 `
 
 export const Text = styled.p(
