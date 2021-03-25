@@ -16,6 +16,7 @@ import { getTooltips } from '../../Tooltip/theme'
 import { getDropdownMenu } from '../../DropdownMenu/theme'
 import { getCards } from '../../Card/theme'
 import { getModals } from '../../Modal/theme'
+import { getDrawers } from '../../Drawer/theme'
 import { getLoaders } from '../../Loader/theme'
 import { getAccordions } from '../../Accordion/theme'
 import { getSwipers } from '../../Swiper/theme'
@@ -171,6 +172,7 @@ export const createTheme = (options = {}) => {
   theme.tables = getTables(theme)
   theme.cards = getCards(theme)
   theme.modals = getModals(theme)
+  theme.drawers = getDrawers(theme)
   theme.loaders = getLoaders(theme)
   theme.accordions = getAccordions(theme)
   theme.swipers = getSwipers(theme)
