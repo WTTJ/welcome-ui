@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](https://github.com/WTTJ/welcome-ui/compare/v3.1.1...v3.1.2) (2021-04-06)
+
+
+### Bug Fixes
+
+* **popover:** add system to ArrowItem in order to process h & w prop ([#838](https://github.com/WTTJ/welcome-ui/issues/838)) ([1f53eb0](https://github.com/WTTJ/welcome-ui/commit/1f53eb0b5c8ceaf104682aa0ae3ef20f9aa8fcef))
+
+
+
+
+
 ## [3.1.1](https://github.com/WTTJ/welcome-ui/compare/v3.1.0...v3.1.1) (2021-03-25)
 
 
