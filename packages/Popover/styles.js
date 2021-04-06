@@ -7,7 +7,7 @@ export const Arrow = styled(PopoverArrow)`
   color: ${th('popovers.default.backgroundColor')};
 `
 
-export const ArrowItem = styled('svg')(
+export const ArrowItem = styled.svgBox(
   ({ $transform }) => css`
     transform: ${$transform};
   `
