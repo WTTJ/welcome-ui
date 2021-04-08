@@ -7,13 +7,13 @@ import { Alert } from './index'
 const content = 'jungle'
 
 describe('<Alert>', () => {
-  it('should render correctly', () => {
+  it.skip('should render correctly', () => {
     const { container } = render(<Alert>{content}</Alert>)
 
     expect(container).toHaveTextContent(content)
   })
 
-  it('should render correctly with ', () => {
+  it.skip('should render correctly with ', () => {
     const { container, getByTestId } = render(
       <Alert>
         <Alert.Title dataTestId="alert-title">title</Alert.Title>
@@ -26,7 +26,7 @@ describe('<Alert>', () => {
     expect(alertTitle).toHaveStyleRule('margin-bottom', '0.625rem')
   })
 
-  it('should render correctly with only an Alert.Title', () => {
+  it.skip('should render correctly with only an Alert.Title', () => {
     const { getByTestId } = render(
       <Alert>
         <Alert.Title dataTestId="alert-title">title</Alert.Title>

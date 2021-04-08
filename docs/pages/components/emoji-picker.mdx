@@ -21,7 +21,44 @@ Simple feedback messages for user actions.
 ## Basic
 
 ```jsx
-<EmojiPicker />
+<EmojiPicker>
+  <EmojiPicker.Tab name="Basic">
+    <EmojiPicker.List
+      emojis={[
+        {
+          name: 'GRINNING FACE',
+          alias: 'grinning',
+          category: 'Smileys & Emotion'
+        },
+        {
+          name: 'SMILING FACE WITH OPEN MOUTH',
+          alias: 'smiley',
+          category: 'Smileys & Emotion'
+        },
+        {
+          name: 'SMILING FACE WITH OPEN MOUTH AND SMILING EYES',
+          alias: 'smile',
+          category: 'Smileys & Emotion'
+        },
+        {
+          name: 'GRINNING FACE WITH SMILING EYES',
+          alias: 'grin',
+          category: 'Smileys & Emotion'
+        },
+        {
+          name: 'SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES',
+          alias: 'laughing',
+          category: 'Smileys & Emotion'
+        },
+        {
+          name: 'SMILING FACE WITH OPEN MOUTH AND COLD SWEAT',
+          alias: 'sweat_smile',
+          category: 'Smileys & Emotion'
+        }
+      ]}
+    />
+  </EmojiPicker.Tab>
+</EmojiPicker>
 ```
 
 ## Properties

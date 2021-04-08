@@ -1,32 +1,53 @@
-import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
-import { Box } from '@welcome-ui/box'
-import { Text } from '@welcome-ui/text'
+import styled from '@xstyled/styled-components'
 import { system } from '@welcome-ui/system'
+import { Tab } from '@welcome-ui/tabs'
+import { Popover as WUIPopover } from '@welcome-ui/popover'
+import { Box } from '@welcome-ui/box'
 
-export const Alert = styled(Box)(
-  ({ variant }) => css`
-    ${th('alerts.default')};
-    ${th(`alerts.${variant}`)};
-    ${system}
-  `
-)
-
-export const Title = styled(Text).attrs(({ variant }) => ({
-  variant: 'h5',
-  // We're renaming the prop because it'll be overridden by Text's variant
-  alertVariant: variant
-}))(
-  ({ alertVariant }) => css`
-    display: flex;
-    align-items: center;
-    margin: 0;
-    margin-bottom: sm;
-    ${th(`alerts.title.${alertVariant}`)};
-    ${system}
-
-    &:only-child {
-      margin-bottom: 0;
+export const EmojiButton = styled(Box).attrs({
+  as: 'button'
+})`
+  padding: 0;
+  border: 0;
+  background: none;
+  transition: fast;
+  /*
+   * Taken from slack's emoji picker
+   * The delay prevents flickering when hovering
+   */
+  transition-property: background;
+  transition-timing-function: ease-out;
+  transition-delay: 0.05s;
+  cursor: pointer;
+  &[data-active] {
+    outline: none;
+    border-radius: 4px;
+    &:nth-child(3n) {
+      background-color: sub.4;
     }
-  `
-)
+    &:nth-child(3n + 1) {
+      background-color: sub.1;
+    }
+    &:nth-child(3n + 2) {
+      background-color: sub.5;
+    }
+  }
+`
+
+export const TabList = styled(Tab.List)`
+  padding: 0 md;
+  ${system};
+`
+
+export const TabPanel = styled(Tab.Panel)`
+  color: dark.900;
+  ${system};
+`
+
+export const Popover = styled(WUIPopover)`
+  background-color: light.900;
+  border-width: sm;
+  border-style: solid;
+  border-color: light.800;
+  ${system};
+`
