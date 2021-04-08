@@ -1,0 +1,55 @@
+{
+  "name": "@welcome-ui/emoji-picker",
+  "version": "3.2.0",
+  "description": "Customizable design system with react • styled-components • styled-system and reakit.",
+  "main": "dist/emoji-picker.cjs.js",
+  "module": "dist/emoji-picker.es.js",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "test": "jest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WTTJ/welcome-ui.git"
+  },
+  "keywords": [
+    "design-system",
+    "react",
+    "reakit",
+    "styled-components",
+    "styled-system",
+    "ui-library",
+    "ui",
+    "ux",
+    "jungle",
+    "welcome",
+    "WTTJ"
+  ],
+  "author": "WTTJ <tech@wttj.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WTTJ/welcome-ui/issues"
+  },
+  "dependencies": {
+    "@welcome-ui/box": "^3.0.0",
+    "@welcome-ui/stack": "^3.0.0",
+    "@welcome-ui/system": "^3.0.0",
+    "@welcome-ui/text": "^3.1.1",
+    "@welcome-ui/variant-icon": "^3.0.0"
+  },
+  "peerDependencies": {
+    "@xstyled/styled-components": "^2.2.3",
+    "@xstyled/system": "^2.2.3",
+    "react": "^16.10.2 || ^17.0.1",
+    "react-dom": "^16.10.2 || ^17.0.1",
+    "styled-components": "^5.2.1"
+  },
+  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
+  "sideEffects": false,
+  "component": "Alert",
+  "homepage": "https://welcome-ui.com/components/emoji-picker"
+}

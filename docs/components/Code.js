@@ -62,6 +62,7 @@ import { Toggle } from '@welcome-ui/toggle'
 import { Tooltip } from '@welcome-ui/tooltip'
 import { useCopyText } from '@welcome-ui/utils.copy'
 import * as Drawer from '@welcome-ui/drawer'
+import * as EmojiPicker from '@welcome-ui/emoji-picker'
 
 import * as constants from '../constants'
 
@@ -142,6 +143,7 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
       DateTimePicker,
       ...Drawer,
       ...DropdownMenu,
+      ...EmojiPicker,
       Field,
       FieldGroup,
       FileDrop,
