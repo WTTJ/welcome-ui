@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/WTTJ/welcome-ui/compare/v3.1.2...v3.2.0) (2021-04-08)
+
+
+### Features
+
+* add possibility to set custom initial function on avatar ([#840](https://github.com/WTTJ/welcome-ui/issues/840)) ([c08c16a](https://github.com/WTTJ/welcome-ui/commit/c08c16ad16a0e3c44c045ed08c993f2f937ca1e0))
+
+
+
+
+
 ## [3.1.1](https://github.com/WTTJ/welcome-ui/compare/v3.1.0...v3.1.1) (2021-03-25)
 
 **Note:** Version bump only for package @welcome-ui/avatar
