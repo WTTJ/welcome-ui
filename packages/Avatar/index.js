@@ -1,14 +1,15 @@
-import { number, oneOf, oneOfType, string } from 'prop-types'
+import { func, number, oneOf, oneOfType, string } from 'prop-types'
 import React, { memo } from 'react'
 import { Box } from '@welcome-ui/box'
 import { useTheme } from '@xstyled/styled-components'
 
-import { getInitials, getSeededColor } from './utils'
+import { getInitials as defaultGetInitials, getSeededColor } from './utils'
 import * as S from './styles'
 
 export const Avatar = memo(function Avatar({
   color,
   fontSize,
+  getInitials = defaultGetInitials,
   h,
   name,
   shape = 'circle',
@@ -49,6 +50,7 @@ Avatar.displayName = 'Avatar'
 Avatar.propTypes /* remove-proptypes */ = {
   color: string,
   fontSize: oneOfType([string, number]),
+  getInitials: func,
   h: number,
   name: string.isRequired,
   shape: oneOf(['circle', 'square']),
