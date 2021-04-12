@@ -1,8 +1,24 @@
-import styled from '@xstyled/styled-components'
+import styled, { th } from '@xstyled/styled-components'
 import { system } from '@welcome-ui/system'
 import { Tab } from '@welcome-ui/tabs'
 import { Popover as WUIPopover } from '@welcome-ui/popover'
 import { Box } from '@welcome-ui/box'
+
+export const Popover = styled(WUIPopover)`
+  background-color: light.900;
+  border-width: sm;
+  border-style: solid;
+  border-color: light.800;
+  color: dark.900;
+  ${system};
+`
+
+export const TabList = styled(Tab.List)`
+  padding: 0 md;
+  // Remove margin from Tab.List
+  margin-bottom: -xl;
+  ${system};
+`
 
 export const EmojiButton = styled(Box).attrs({
   as: 'button'
@@ -10,6 +26,7 @@ export const EmojiButton = styled(Box).attrs({
   padding: 0;
   border: 0;
   background: none;
+  border-radius: 4;
   transition: fast;
   /*
    * Taken from slack's emoji picker
@@ -21,7 +38,6 @@ export const EmojiButton = styled(Box).attrs({
   cursor: pointer;
   &[data-active] {
     outline: none;
-    border-radius: 4px;
     &:nth-child(3n) {
       background-color: sub.4;
     }
@@ -33,21 +49,11 @@ export const EmojiButton = styled(Box).attrs({
     }
   }
 `
-
-export const TabList = styled(Tab.List)`
-  padding: 0 md;
-  ${system};
-`
-
-export const TabPanel = styled(Tab.Panel)`
-  color: dark.900;
-  ${system};
-`
-
-export const Popover = styled(WUIPopover)`
-  background-color: light.900;
-  border-width: sm;
-  border-style: solid;
-  border-color: light.800;
-  ${system};
+export const Tooltip = styled(Box)`
+  ${th('tooltips')};
+  position: absolute;
+  pointer-events: none;
+  &:empty {
+    display: none;
+  }
 `
