@@ -25,20 +25,20 @@ import {
 } from './utils'
 import { Emoji } from './Emoji'
 
-export function List({ emojis, isCurrentTab, onChange }) {
+export function List({ emojis, isVisible, onChange }) {
   const [currentColIndex, setCurrentColIndex] = useState(-1)
   const [currentRowIndex, setCurrentRowIndex] = useState(-1)
 
   const inputRef = useRef()
   useEffect(() => {
-    if (!isCurrentTab) {
+    if (!isVisible) {
       setCurrentColIndex(-1)
       setCurrentRowIndex(-1)
       return
     }
 
     inputRef.current.focus()
-  }, [isCurrentTab])
+  }, [isVisible])
 
   const [query, setQuery] = useState()
   const handleChangeQuery = useCallback(e => {
@@ -185,7 +185,7 @@ export function List({ emojis, isCurrentTab, onChange }) {
   const isFirstRender = useRef(true)
   const listRef = useRef()
   useIsomorphicLayoutEffect(() => {
-    if (!isCurrentTab || !listRef.current) return
+    if (!isVisible || !listRef.current) return
 
     // We can't use `currentRowIndex` directly because we would skip the categories
     const index = filteredEmojis.findIndex(emojis =>
@@ -195,10 +195,10 @@ export function List({ emojis, isCurrentTab, onChange }) {
     const align = isFirstRender.current ? 'start' : 'auto'
     listRef.current.scrollToItem(index, align)
     isFirstRender.current = false
-  }, [currentColIndex, currentRowIndex, emojis, isCurrentTab])
+  }, [currentColIndex, currentRowIndex, emojis, isVisible])
 
   const initialScrollOffset = useMemo(() => {
-    if (!isCurrentTab) return 0
+    if (!isVisible) return 0
 
     // We can't use `currentPosition[0]` directly because we would skip the categories
     const index = filteredEmojis.findIndex(emojis =>
@@ -231,7 +231,7 @@ export function List({ emojis, isCurrentTab, onChange }) {
             rows,
             currentColIndex,
             currentRowIndex,
-            isCurrentTab,
+            isVisible,
             onClick: onChange,
             onMouseMove: handleMouseMove
           }}
@@ -254,7 +254,7 @@ export function List({ emojis, isCurrentTab, onChange }) {
 
 List.propTypes = {
   emojis: array.isRequired,
-  isCurrentTab: bool.isRequired,
+  isVisible: bool.isRequired,
   onChange: func.isRequired
 }
 
@@ -285,7 +285,7 @@ function EmojiRow({ data, index, style }) {
         const alias = getEmojiAlias(emoji)
         // We want `null` instead of false to prevent to add the attribute to be in the DOM
         const isActive =
-          data.isCurrentTab &&
+          data.isVisible &&
           emoji.rowIndex === data.currentRowIndex &&
           emoji.colIndex === data.currentColIndex
             ? true

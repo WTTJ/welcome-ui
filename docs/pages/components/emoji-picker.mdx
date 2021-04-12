@@ -8,38 +8,75 @@ import {
   version
 } from '@welcome-ui/emoji-picker/package.json'
 
-# emoji-picker
+# EmojiPicker
 
 <tagversion version={version} name={name} component={component} />
 
-Simple feedback messages for user actions.
+EmojiPicker is a field element that extends [Popover](https://www.welcome-ui.com/components/popover) and [react-window](https://github.com/bvaughn/react-window) to efficiently render large list of images.  
+It takes `value` & `onChange` props, its value being an emoji wrapped with colon, using the same pattern as Slack. The data is from [emoji-data](https://github.com/iamcal/emoji-data).
 
 ## Install and import
 
 <usage component={component} name={name} peerDependencies={peerDependencies} />
 
-## Basic
+## Default
 
-EmojiPicker is a field element that extends [Popover](https://www.welcome-ui.com/components/popover).  
-The most basic emoji picker needs `useEmojiPicker()`, `<EmojiPicker.Trigger />` and `<EmojiPicker />`.
-
-## Custom
+The most basic emoji picker needs `useEmojiPicker()`, `<EmojiPicker.Trigger />` and `<EmojiPicker />`.  
+It will show a predefined list of emojis
 
 ```jsx
-function Custom() {
-  const emojiPicker = useEmojiPicker({ visible: true })
+function Default() {
+  const emojiPicker = useEmojiPicker()
   const [emoji, setEmoji] = useState()
 
   return (
     <>
       <EmojiPicker.Trigger as={Button} {...emojiPicker}>
-        {emoji ? emoji.alias : 'Open Picker'}
+        {emoji || 'Open Emoji Picker'}
+      </EmojiPicker.Trigger>
+      <EmojiPicker onChange={setEmoji} {...emojiPicker} />
+    </>
+  )
+}
+```
+
+## Basic
+
+```jsx
+function Basic() {
+  const emojiPicker = useEmojiPicker()
+  const [emoji, setEmoji] = useState()
+
+  return (
+    <>
+      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+        {emoji || 'Open Emoji Picker'}
       </EmojiPicker.Trigger>
       <EmojiPicker onChange={setEmoji} {...emojiPicker}>
-        <EmojiPicker.Tab name="Smileys">
-          <EmojiPicker.List
-            emojis={constants.EMOJIS.filter(emoji => emoji.category === 'Smileys & Emotion')}
-          />
+        <EmojiPicker.Tab name="Basic">
+          <EmojiPicker.BasicList />
+        </EmojiPicker.Tab>
+      </EmojiPicker>
+    </>
+  )
+}
+```
+
+## Custom
+
+```jsx
+function Custom() {
+  const emojiPicker = useEmojiPicker()
+  const [emoji, setEmoji] = useState()
+
+  return (
+    <>
+      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+        {emoji || 'Open Emoji Picker'}
+      </EmojiPicker.Trigger>
+      <EmojiPicker onChange={setEmoji} {...emojiPicker}>
+        <EmojiPicker.Tab name="Basic">
+          <EmojiPicker.BasicList />
         </EmojiPicker.Tab>
         <EmojiPicker.Tab name="Animals">
           <EmojiPicker.List

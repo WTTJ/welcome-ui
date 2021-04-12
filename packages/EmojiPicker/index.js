@@ -1,31 +1,46 @@
-import React, { Children, cloneElement, forwardRef, useMemo } from 'react'
+import React, { Children, cloneElement, forwardRef, useCallback, useMemo } from 'react'
 import { func, node, object } from 'prop-types'
 import { useTabState } from '@welcome-ui/tabs'
 import { Popover, usePopoverState } from '@welcome-ui/popover'
 import { Tab } from '@welcome-ui/tabs'
 
-import { List } from './List'
 import * as S from './styles'
+import { List } from './List'
+import { BasicList } from './BasicList'
 
 export const EmojiPicker = forwardRef(
   ({ children, defaultTabState = {}, onChange, ...popoverState }, ref) => {
     const tabState = useTabState(defaultTabState)
-    const tabs = useMemo(
-      () =>
-        Children.toArray(children)
-          .filter(child => child.type === Tab)
-          .map(tab => ({
-            name: tab.props.name,
-            content: cloneElement(tab.props.children, {
-              isCurrentTab: popoverState.visible && tabState.selectedId === tab.props.name,
-              onChange: value => {
-                popoverState.hide()
-                onChange(value)
-              }
-            })
-          })),
-      [children, onChange, popoverState, tabState.selectedId]
+
+    const hidePopover = useMemo(() => popoverState.hide, [popoverState.hide])
+    const handleChange = useCallback(
+      value => {
+        hidePopover()
+        onChange(value)
+      },
+      [hidePopover, onChange]
     )
+
+    const tabs = useMemo(() => {
+      if (Children.count(children) === 0) {
+        return [
+          {
+            name: 'basic',
+            content: <BasicList isVisible={popoverState.visible} onChange={handleChange} />
+          }
+        ]
+      }
+
+      return Children.toArray(children)
+        .filter(child => child.type === Tab || child.type === BasicList)
+        .map(tab => ({
+          name: tab.props.name,
+          content: cloneElement(tab.props.children, {
+            isVisible: popoverState.visible && tabState.selectedId === tab.props.name,
+            onChange: handleChange
+          })
+        }))
+    }, [children, handleChange, popoverState.visible, tabState.selectedId])
     const hasTabs = tabs.length > 1
     const onlyTabContent = tabs[0].content
 
@@ -55,8 +70,8 @@ export const EmojiPicker = forwardRef(
 
 EmojiPicker.displayName = 'EmojiPicker'
 EmojiPicker.propTypes = {
-  /** Has to be a list of `<EmojiPicker.Tab />` */
-  children: node.isRequired,
+  /** Has to be a list of `<EmojiPicker.Tab />` or can be empty to show only basic emojis */
+  children: node,
   /** See useTabState */
   defaultTabState: object,
   onChange: func.isRequired
@@ -71,3 +86,4 @@ export const useEmojiPicker = options =>
 EmojiPicker.Trigger = Popover.Trigger
 EmojiPicker.Tab = Tab
 EmojiPicker.List = List
+EmojiPicker.BasicList = BasicList
