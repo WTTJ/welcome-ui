@@ -1,15 +1,29 @@
 import React, { Children, cloneElement, forwardRef, useCallback, useMemo } from 'react'
-import { func, node, object } from 'prop-types'
+import { func, node, object, string } from 'prop-types'
 import { useTabState } from '@welcome-ui/tabs'
 import { Popover, usePopoverState } from '@welcome-ui/popover'
 import { Tab } from '@welcome-ui/tabs'
 
 import * as S from './styles'
 import { List } from './List'
+import { Panel } from './Panel'
 import { BasicList } from './BasicList'
 
 export const EmojiPicker = forwardRef(
-  ({ children, defaultTabState = {}, onChange, ...popoverState }, ref) => {
+  (
+    {
+      children,
+      defaultTabState = {},
+      emptyList = 'No emojis found for your query 😔',
+      inputSearchPlaceholder = 'Search an emoji',
+      onChange,
+      popoverAriaLabel = 'Emoji picker',
+      tabListAriaLabel = 'Emoji picker tabs',
+      value,
+      ...popoverState
+    },
+    ref
+  ) => {
     const tabState = useTabState(defaultTabState)
 
     const hidePopover = useMemo(() => popoverState.hide, [popoverState.hide])
@@ -26,43 +40,75 @@ export const EmojiPicker = forwardRef(
         return [
           {
             name: 'basic',
-            content: <BasicList isVisible={popoverState.visible} onChange={handleChange} />
+            content: (
+              <BasicList isVisible={popoverState.visible} onChange={handleChange} value={value} />
+            )
           }
         ]
       }
 
       return Children.toArray(children)
-        .filter(child => child.type === Tab || child.type === BasicList)
-        .map(tab => ({
-          name: tab.props.name,
-          content: cloneElement(tab.props.children, {
-            isVisible: popoverState.visible && tabState.selectedId === tab.props.name,
-            onChange: handleChange
-          })
-        }))
-    }, [children, handleChange, popoverState.visible, tabState.selectedId])
+        .filter(child => child.type === Tab)
+        .map(tab => {
+          const name = tab.props.name
+
+          if ([BasicList, List].includes(tab.props.children.type)) {
+            return {
+              name,
+              content: cloneElement(tab.props.children, {
+                emptyList,
+                inputSearchPlaceholder,
+                isVisible:
+                  popoverState.visible &&
+                  (!tabState.selectedId || tabState.selectedId === tab.props.name),
+                onChange: handleChange,
+                value,
+                ...tab.props.children.props
+              })
+            }
+          }
+
+          return {
+            name,
+            content: tab.props.children
+          }
+        })
+    }, [
+      children,
+      emptyList,
+      handleChange,
+      inputSearchPlaceholder,
+      popoverState.visible,
+      tabState.selectedId,
+      value
+    ])
     const hasTabs = tabs.length > 1
     const onlyTabContent = tabs[0].content
 
     return (
-      <S.Popover aria-label="TODO:" arrowStyle={{ display: 'none' }} ref={ref} {...popoverState}>
+      <S.Popover
+        aria-label={popoverAriaLabel}
+        arrowStyle={{ display: 'none' }}
+        ref={ref}
+        {...popoverState}
+      >
         {hasTabs && (
           <>
-            <S.TabList aria-label="TODO:" {...tabState}>
+            <S.TabList aria-label={tabListAriaLabel} {...tabState}>
               {tabs.map(tab => (
-                <Tab id={tab.name} key={tab.name} {...tabState}>
+                <Tab id={tab.name} key={tab.name} type="button" {...tabState}>
                   {tab.name}
                 </Tab>
               ))}
             </S.TabList>
             {tabs.map(tab => (
               <Tab.Panel key={tab.name} tabId={tab.name} {...tabState}>
-                {tab.content}
+                <Panel>{tab.content}</Panel>
               </Tab.Panel>
             ))}
           </>
         )}
-        {!hasTabs && onlyTabContent}
+        {!hasTabs && <Panel>{onlyTabContent}</Panel>}
       </S.Popover>
     )
   }
@@ -74,7 +120,12 @@ EmojiPicker.propTypes = {
   children: node,
   /** See useTabState */
   defaultTabState: object,
-  onChange: func.isRequired
+  emptyList: node,
+  inputSearchPlaceholder: string,
+  onChange: func.isRequired,
+  popoverAriaLabel: string,
+  tabListAriaLabel: string,
+  value: string
 }
 
 export const useEmojiPicker = options =>

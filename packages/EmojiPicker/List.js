@@ -1,43 +1,31 @@
 /* eslint-disable react/no-multi-comp */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { array, bool, func, number, object, shape } from 'prop-types'
+import { array, bool, func, node, number, object, shape, string } from 'prop-types'
 import { InputText } from '@welcome-ui/input-text'
 import { FixedSizeList } from 'react-window'
 import { Text } from '@welcome-ui/text'
 import { Box } from '@welcome-ui/box'
+import { Emoji, getEmojiName } from '@welcome-ui/emoji'
 import { SearchIcon } from '@welcome-ui/icons'
 import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
-import groupBy from 'lodash.groupby'
 import debounce from 'lodash.debounce'
 import escapeRegExp from 'lodash.escaperegexp'
 import Popper from 'popper.js'
 
 import * as S from './styles'
-import {
-  formatEmojis,
-  getEmojiAlias,
-  getEmojiName,
-  getEmojiValue,
-  HEIGHT,
-  NB_EMOJIS_PER_ROW,
-  ROW_HEIGHT,
-  WIDTH
-} from './utils'
-import { Emoji } from './Emoji'
+import { formatEmojis, getEmojiAlias, HEIGHT, NB_EMOJIS_PER_ROW, ROW_HEIGHT, WIDTH } from './utils'
 
-export function List({ emojis, isVisible, onChange }) {
+getEmojiName
+
+export function List({ emojis, emptyList, inputSearchPlaceholder, isVisible, onChange, value }) {
   const [currentColIndex, setCurrentColIndex] = useState(-1)
   const [currentRowIndex, setCurrentRowIndex] = useState(-1)
 
   const inputRef = useRef()
   useEffect(() => {
-    if (!isVisible) {
-      setCurrentColIndex(-1)
-      setCurrentRowIndex(-1)
-      return
+    if (isVisible) {
+      inputRef.current.focus()
     }
-
-    inputRef.current.focus()
   }, [isVisible])
 
   const [query, setQuery] = useState()
@@ -60,7 +48,7 @@ export function List({ emojis, isVisible, onChange }) {
 
     if (filteredEmojis.length === 0) return []
 
-    return formatEmojis(groupBy(filteredEmojis, 'category'))
+    return formatEmojis(filteredEmojis)
   }, [emojis, query])
   const hasRows = rows.length > 0
   const filteredEmojis = useMemo(() => {
@@ -89,7 +77,7 @@ export function List({ emojis, isVisible, onChange }) {
       const emoji = filteredEmojis
         .flat()
         .find(emoji => emoji.rowIndex === currentRowIndex && emoji.colIndex === currentColIndex)
-      onChange(getEmojiValue(emoji))
+      onChange(getEmojiAlias(emoji))
       return
     }
 
@@ -181,33 +169,39 @@ export function List({ emojis, isVisible, onChange }) {
     return () => popper.destroy()
   }, [currentColIndex, currentRowIndex, filteredEmojis])
 
-  // Scroll to the selected emoji if using the arrows
-  const isFirstRender = useRef(true)
+  // Scroll to the selected emoji on first render & when using arrows
+  const isJustOpened = useRef(true)
   const listRef = useRef()
   useIsomorphicLayoutEffect(() => {
     if (!isVisible || !listRef.current) return
 
+    let rowIndex = currentRowIndex
+    // Show the value on open
+    if (isJustOpened.current) {
+      const name = getEmojiName(value)
+      const emoji = filteredEmojis.flat().find(emoji => emoji.alias === name)
+      if (emoji) {
+        setCurrentColIndex(emoji.colIndex)
+        setCurrentRowIndex(emoji.rowIndex)
+        rowIndex = emoji.rowIndex
+      }
+    }
+
     // We can't use `currentRowIndex` directly because we would skip the categories
-    const index = filteredEmojis.findIndex(emojis =>
-      emojis.some(emoji => emoji.rowIndex === currentRowIndex)
-    )
+    const index = rows.findIndex(emojis => emojis.some(emoji => emoji.rowIndex === rowIndex))
     // When opening the picker, we want the current selected emoji to be at the top
-    const align = isFirstRender.current ? 'start' : 'auto'
+    const align = isJustOpened.current ? 'start' : 'auto'
     listRef.current.scrollToItem(index, align)
-    isFirstRender.current = false
-  }, [currentColIndex, currentRowIndex, emojis, isVisible])
+    isJustOpened.current = false
+  }, [currentColIndex, currentRowIndex, isVisible])
 
   const initialScrollOffset = useMemo(() => {
     if (!isVisible) return 0
 
     // We can't use `currentPosition[0]` directly because we would skip the categories
-    const index = filteredEmojis.findIndex(emojis =>
-      emojis.some(emoji => emoji.rowIndex === currentRowIndex)
-    )
+    const index = rows.findIndex(emojis => emojis.some(emoji => emoji.rowIndex === currentRowIndex))
     return index * ROW_HEIGHT
-    // We want to calculate this only on mount on purpose
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [currentRowIndex, isVisible, rows])
 
   return (
     <Box ref={wrapperRef}>
@@ -218,7 +212,7 @@ export function List({ emojis, isVisible, onChange }) {
           icon={<SearchIcon color="light.100" />}
           onChange={debouncedHandleChangeQuery}
           onKeyDown={handleKeyDown}
-          placeholder="TODO: i18n"
+          placeholder={inputSearchPlaceholder}
           ref={inputRef}
         />
       </Box>
@@ -244,7 +238,7 @@ export function List({ emojis, isVisible, onChange }) {
       )}
       {!hasRows && (
         <Box alignItems="center" display="flex" h={HEIGHT} justifyContent="center" w={WIDTH}>
-          Nothing @TODO: i18n
+          {emptyList}
         </Box>
       )}
       <S.Tooltip ref={tooltipRef}>{hasTooltip && tooltipContent}</S.Tooltip>
@@ -254,8 +248,16 @@ export function List({ emojis, isVisible, onChange }) {
 
 List.propTypes = {
   emojis: array.isRequired,
+  /** Passed down by <EmojiPicker />, can be overridden */
+  emptyList: node,
+  /** Passed down by <EmojiPicker />, can be overridden */
+  inputSearchPlaceholder: string,
+  /** Passed down by <EmojiPicker /> */
   isVisible: bool.isRequired,
-  onChange: func.isRequired
+  /** Passed down by <EmojiPicker /> */
+  onChange: func.isRequired,
+  /** Passed down by <EmojiPicker /> */
+  value: string
 }
 
 function EmojiRow({ data, index, style }) {
@@ -290,18 +292,20 @@ function EmojiRow({ data, index, style }) {
           emoji.colIndex === data.currentColIndex
             ? true
             : null
+        const emojiImage = emoji.url || alias
 
         return (
           <S.EmojiButton
             data-active={isActive}
             data-testid={`emoji-${alias}`}
             key={alias}
-            onClick={() => data.onClick(getEmojiValue(emoji))}
+            onClick={() => data.onClick(getEmojiAlias(emoji))}
             onMouseMove={() => data.onMouseMove(emoji)}
             tabIndex="-1"
+            type="button"
             w={`${100 / NB_EMOJIS_PER_ROW}%`}
           >
-            <Emoji emoji={getEmojiName(alias)} height={24} width={24} />
+            <Emoji emoji={emojiImage} />
           </S.EmojiButton>
         )
       })}

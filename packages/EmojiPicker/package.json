@@ -40,7 +40,6 @@
     "@welcome-ui/system": "^3.0.0",
     "@welcome-ui/text": "^3.1.1",
     "@welcome-ui/variant-icon": "^3.0.0",
-    "bowser": "^2.11.0",
     "lodash.debounce": "^4.0.8",
     "lodash.escaperegexp": "^4.1.2",
     "lodash.groupby": "^4.6.0",
@@ -55,6 +54,6 @@
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
-  "component": "Alert",
+  "component": "EmojiPicker",
   "homepage": "https://welcome-ui.com/components/emoji-picker"
 }

@@ -2,40 +2,23 @@ import React from 'react'
 
 import { render } from '../../utils/tests'
 
-import { Alert } from './index'
+import { EmojiPicker, useEmojiPicker } from './index'
 
-const content = 'jungle'
+describe('<EmojiPicker>', () => {
+  it('should render correctly', () => {
+    const Test = () => {
+      const emojiPicker = useEmojiPicker()
+      return (
+        <>
+          <EmojiPicker.Trigger {...emojiPicker}>open</EmojiPicker.Trigger>
+          <EmojiPicker aria-label="emoji-picker" {...emojiPicker} />
+        </>
+      )
+    }
 
-describe('<Alert>', () => {
-  it.skip('should render correctly', () => {
-    const { container } = render(<Alert>{content}</Alert>)
-
-    expect(container).toHaveTextContent(content)
-  })
-
-  it.skip('should render correctly with ', () => {
-    const { container, getByTestId } = render(
-      <Alert>
-        <Alert.Title dataTestId="alert-title">title</Alert.Title>
-        <span>{content}</span>
-      </Alert>
-    )
-    const alertTitle = getByTestId('alert-title')
-
-    expect(container).toHaveTextContent(content)
-    expect(alertTitle).toHaveStyleRule('margin-bottom', '0.625rem')
-  })
-
-  it.skip('should render correctly with only an Alert.Title', () => {
-    const { getByTestId } = render(
-      <Alert>
-        <Alert.Title dataTestId="alert-title">title</Alert.Title>
-      </Alert>
-    )
-    const alertTitle = getByTestId('alert-title')
-
-    expect(alertTitle).toHaveStyleRule('margin-bottom', '0', {
-      modifier: ':only-child'
-    })
+    const { getByText, queryByRole } = render(<Test />)
+    expect(queryByRole('dialog')).toBeNull()
+    getByText('open').click()
+    expect(queryByRole('dialog')).toHaveTextContent('Smileys & Emotion')
   })
 })
