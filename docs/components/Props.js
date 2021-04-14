@@ -12,7 +12,7 @@ import { CheckIcon } from '@welcome-ui/icons'
 
 import * as TYPES from '../../utils/propTypes'
 
-const removeQuote = str => str.replace(/'/g, '')
+const removeQuote = str => str?.replace(/'/g, '')
 
 const isArray = Array.isArray
 
@@ -83,6 +83,8 @@ export const Props = ({ propTypes }) => {
                 return null
               }
 
+              const defaultLabel = removeQuote(defaultValue?.value)
+
               return (
                 <Table.Tr key={key}>
                   <Table.Td color="dark.900" fontWeight="bold" w="20%">
@@ -98,8 +100,8 @@ export const Props = ({ propTypes }) => {
                       )}
                     </Box>
                   </Table.Td>
-                  <Table.Td w="15%">
-                    {defaultValue && <Tag>{removeQuote(defaultValue?.value)}</Tag>}
+                  <Table.Td maxW={250} w="15%">
+                    {defaultValue && <Tag title={defaultLabel}>{defaultLabel}</Tag>}
                   </Table.Td>
                   <Table.Td textAlign="center" w="15%">
                     {required && (
