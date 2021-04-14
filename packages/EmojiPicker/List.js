@@ -15,8 +15,6 @@ import Popper from 'popper.js'
 import * as S from './styles'
 import { formatEmojis, getEmojiAlias, HEIGHT, NB_EMOJIS_PER_ROW, ROW_HEIGHT, WIDTH } from './utils'
 
-getEmojiName
-
 export function List({ emojis, emptyList, inputSearchPlaceholder, isVisible, onChange, value }) {
   const [currentColIndex, setCurrentColIndex] = useState(-1)
   const [currentRowIndex, setCurrentRowIndex] = useState(-1)
