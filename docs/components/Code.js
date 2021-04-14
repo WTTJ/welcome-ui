@@ -63,6 +63,7 @@ import { Tooltip } from '@welcome-ui/tooltip'
 import { useCopyText } from '@welcome-ui/utils.copy'
 import * as Drawer from '@welcome-ui/drawer'
 import * as EmojiPicker from '@welcome-ui/emoji-picker'
+import * as Emoji from '@welcome-ui/emoji'
 
 import * as constants from '../constants'
 
@@ -144,6 +145,7 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
       ...Drawer,
       ...DropdownMenu,
       ...EmojiPicker,
+      ...Emoji,
       Field,
       FieldGroup,
       FileDrop,

@@ -32,7 +32,7 @@ const ITEMS = {
     'Toggle'
   ],
   gettingStarted: ['Installation', 'Contributing', 'Upgrade'],
-  icons: ['Icons', 'IconsFont'],
+  icons: ['Emoji', 'Icons', 'IconsFont'],
   layout: ['Box', 'Group', 'Loader', 'Shape', 'Stack'],
   navigation: ['Breadcrumb', 'DropdownMenu', 'Link', 'Pagination', 'Tabs'],
   overlay: ['Drawer', 'Modal', 'Popover', 'Tooltip'],
