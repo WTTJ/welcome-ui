@@ -15,7 +15,7 @@ export const Popover = styled(WUIPopover)`
 
 export const TabList = styled(Tab.List)`
   padding: 0 md;
-  // Remove margin from Tab.List
+  /* Remove margin from Tab.List */
   margin-bottom: -xl;
   ${system};
 `
