@@ -28,15 +28,7 @@ export function Emoji({
     : `${EMOJI_PATH}${useAppleEmoji ? 'apple/' : 'google/'}${encodeURIComponent(emojiName)}.png`
 
   return (
-    <Box
-      alt={alt}
-      as="img"
-      height={size || height}
-      src={src}
-      verticalAlign="text-bottom"
-      width={size || width}
-      {...rest}
-    />
+    <Box alt={alt} as="img" height={size || height} src={src} width={size || width} {...rest} />
   )
 }
 
