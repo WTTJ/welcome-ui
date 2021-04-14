@@ -36,7 +36,6 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^3.0.0",
-    "@welcome-ui/emoji": "^3.2.0",
     "@welcome-ui/icons": "^3.0.0",
     "@welcome-ui/input-text": "^3.0.1",
     "@welcome-ui/popover": "^3.1.2",
