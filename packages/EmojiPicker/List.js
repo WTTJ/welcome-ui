@@ -203,7 +203,7 @@ export function List({ emojis, emptyList, inputSearchPlaceholder, isVisible, onC
 
   return (
     <Box ref={wrapperRef}>
-      <Box mx="xl" pt="xl">
+      <Box mx="xl" pb="sm" pt="xl">
         <InputText
           autoFocus
           data-testid="emoji-search-input"
