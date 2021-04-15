@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { bool, number, string } from 'prop-types'
 import { Box } from '@welcome-ui/box'
 import Bowser from 'bowser'
@@ -18,9 +18,17 @@ export function Emoji({
   height = 24,
   ...rest
 }) {
+  const isUrl = useMemo(() => {
+    try {
+      new URL(emoji)
+      return true
+    } catch (_) {
+      return false
+    }
+  }, [emoji])
+
   if (!emoji) return null
 
-  const isUrl = /^https?:\/\//.test(emoji)
   const emojiName = !isUrl && getEmojiName(emoji)
   const alt = isUrl ? null : emojiName
   const src = isUrl
