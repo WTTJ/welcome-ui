@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.ppt.cjs.js",
   "module": "dist/icons.ppt.es.js",
-  "version": "3.0.0",
+  "version": "3.4.0",
   "publishConfig": {
     "access": "public"
   },

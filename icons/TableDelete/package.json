@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.table_delete.cjs.js",
   "module": "dist/icons.table_delete.es.js",
-  "version": "3.0.0",
+  "version": "3.4.0",
   "publishConfig": {
     "access": "public"
   },

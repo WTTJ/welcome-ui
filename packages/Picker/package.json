@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/picker",
-  "version": "3.0.0",
+  "version": "3.4.0",
   "description": "welcome-ui: Picker",
   "main": "dist/picker.cjs.js",
   "module": "dist/picker.es.js",
@@ -35,8 +35,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/field-group": "^3.0.0",
-    "@welcome-ui/label": "^3.0.0",
+    "@welcome-ui/field-group": "^3.4.0",
+    "@welcome-ui/label": "^3.4.0",
     "@welcome-ui/system": "^3.0.0",
     "@welcome-ui/utils": "^3.0.0",
     "reakit": "^1.3.6"

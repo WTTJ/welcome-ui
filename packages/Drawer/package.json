@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/drawer",
-  "version": "3.1.1",
+  "version": "3.4.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/drawer.cjs.js",
   "module": "dist/drawer.es.js",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^3.0.0",
-    "@welcome-ui/clear-button": "^3.0.0",
+    "@welcome-ui/clear-button": "^3.4.0",
     "@welcome-ui/text": "^3.1.1",
     "@welcome-ui/utils": "^3.0.0",
     "reakit": "^1.3.6"

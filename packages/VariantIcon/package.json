@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/variant-icon",
-  "version": "3.0.0",
+  "version": "3.4.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/variant-icon.cjs.js",
   "module": "dist/variant-icon.es.js",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@welcome-ui/icons.alert": "^3.0.0",
-    "@welcome-ui/icons.check": "^3.0.0",
+    "@welcome-ui/icons.check": "^3.4.0",
     "@welcome-ui/icons.information": "^3.0.0",
     "@welcome-ui/utils": "^3.0.0"
   },

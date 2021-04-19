@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/hint",
-  "version": "3.0.0",
+  "version": "3.4.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/hint.cjs.js",
   "module": "dist/hint.es.js",
@@ -37,7 +37,7 @@
   "dependencies": {
     "@welcome-ui/system": "^3.0.0",
     "@welcome-ui/utils": "^3.0.0",
-    "@welcome-ui/variant-icon": "^3.0.0"
+    "@welcome-ui/variant-icon": "^3.4.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^2.2.3",

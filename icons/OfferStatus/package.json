@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.offer_status.cjs.js",
   "module": "dist/icons.offer_status.es.js",
-  "version": "3.0.0",
+  "version": "3.4.0",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
