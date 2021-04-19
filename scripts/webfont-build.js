@@ -52,7 +52,9 @@ const writeIconFont = files => {
       dest: `${ICON_FONT_PATH}/fonts`,
       fontName: 'welcome-icon-font',
       codepoints: newUnicodeMap,
-      types: ['woff', 'woff2']
+      types: ['woff', 'woff2'],
+      // Pass timestamp so that hash doesn't change between (non-changing) builds
+      formatOptions: { ttf: { ts: 0 } }
     },
     error => {
       if (error) {
