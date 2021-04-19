@@ -4,7 +4,6 @@ const util = require('util')
 
 const { toKebabCase } = require('../utils/strings')
 
-fs.readFileAsync = util.promisify(fs.readFile)
 fs.readdirAsync = util.promisify(fs.readdir)
 fs.writeFileAsync = util.promisify(fs.writeFile)
 

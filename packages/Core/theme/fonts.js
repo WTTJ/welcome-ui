@@ -42,7 +42,7 @@ export const fontFaces = {
   ],
   'welcome-icon-font': [
     {
-      url: 'https://cdn.welcometothejungle.com/common/assets/fonts/welcome-icon-font',
+      url: 'https://cdn.welcome-ui.com/fonts/__BRANCH__/__ICON_FONT_HASH__/welcome-icon-font',
       display: 'block',
       extensions: ['woff2', 'woff']
     }

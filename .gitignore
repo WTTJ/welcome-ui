@@ -13,6 +13,4 @@ lerna-debug.log
 *.tgz
 
 # Fonts
-packages/IconFont/fonts/*.svg
-packages/IconFont/fonts/*.ttf
-packages/IconFont/fonts/*.css
+packages/IconFont/fonts/
