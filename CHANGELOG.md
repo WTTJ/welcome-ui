@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.2](https://github.com/WTTJ/welcome-ui/compare/v3.4.1...v3.4.2) (2021-04-19)
+
+
+
+# 3.4.0 (2021-04-19)
+
+
+### Bug Fixes
+
+* default branch to master on tag build ([fd7570c](https://github.com/WTTJ/welcome-ui/commit/fd7570c36d0c1429922f645923267508e1db2e66))
+
+
+
+
+
 ## [3.4.1](https://github.com/WTTJ/welcome-ui/compare/v3.4.0...v3.4.1) (2021-04-19)
 
 
