@@ -51,4 +51,4 @@ Emoji.propTypes = {
   width: number
 }
 
-export const getEmojiName = alias => alias?.replace(/:/g, '')
+export const getEmojiName = alias => alias?.replace?.(/:/g, '')
