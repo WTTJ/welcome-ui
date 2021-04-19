@@ -50,6 +50,9 @@ const readIconsFromAssets = () => {
 // Write content.json for a given icon
 const writeIconContentsJson = (outputFolder, content, key) => {
   let svgContent = /<svg[^>]*>([\s\S]*)<\/svg>/g.exec(content)
+  let viewBoxMatch = content.match(/viewBox="(.*?)"/)
+  let viewBox = viewBoxMatch ? viewBoxMatch[1] : undefined
+
   if (svgContent) {
     svgContent = svgContent[1].replace(/fill="#134B45"/g, 'fill="currentColor"').trim()
   }
@@ -58,6 +61,7 @@ const writeIconContentsJson = (outputFolder, content, key) => {
   let fileContent = {
     width: 15,
     height: 15,
+    viewBox,
     block: svgContent
   }
 
