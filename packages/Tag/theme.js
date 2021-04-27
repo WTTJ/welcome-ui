@@ -75,7 +75,8 @@ export const getTags = theme => {
       3: { ...withoutVisibleBorder(colors.sub[3]) },
       4: { ...withoutVisibleBorder(colors.sub[4]) },
       5: { ...withoutVisibleBorder(colors.sub[5]) },
-      6: { ...withoutVisibleBorder(colors.sub[6]) }
+      6: { ...withoutVisibleBorder(colors.sub[6]) },
+      7: { ...withoutVisibleBorder(colors.sub[7]) }
     },
     sizes: {
       sm: {

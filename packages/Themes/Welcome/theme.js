@@ -60,7 +60,8 @@ const palette = {
   green: '#267566',
   vividtangerine: '#F79D85',
   springrain: '#A5D0A8',
-  palecerulean: '#8CB3DB'
+  palecerulean: '#8CB3DB',
+  mountainsmajesty: '#9B8CC0'
 }
 
 const colors = {
@@ -124,7 +125,8 @@ const colors = {
     3: palette.pink,
     4: palette.vividtangerine,
     5: palette.springrain,
-    6: palette.green
+    6: palette.green,
+    7: palette.mountainsmajesty
   },
   underline: palette.yellow
 }
