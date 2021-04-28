@@ -61,7 +61,8 @@ export const colors = {
     3: '#EA724C',
     4: '#F0AABF',
     5: '#965FE6',
-    6: '#F4CF70'
+    6: '#F4CF70',
+    7: '#FE6D73'
   },
   underline: '#C6CAFF',
   overlay: hexToRGBA('#000000', 0.55)
