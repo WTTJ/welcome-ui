@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/breadcrumb",
-  "version": "3.0.0",
+  "version": "3.4.3",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/breadcrumb.cjs.js",
   "module": "dist/breadcrumb.es.js",
@@ -39,7 +39,7 @@
     "@welcome-ui/box": "^3.0.0",
     "@welcome-ui/icons.right": "^3.0.0",
     "@welcome-ui/system": "^3.0.0",
-    "@welcome-ui/utils": "^3.0.0"
+    "@welcome-ui/utils": "^3.4.3"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^2.2.3",

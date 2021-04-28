@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/button",
-  "version": "3.0.0",
+  "version": "3.4.3",
   "description": "welcome-ui: A button component",
   "main": "dist/button.cjs.js",
   "module": "dist/button.es.js",
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@welcome-ui/system": "^3.0.0",
-    "@welcome-ui/utils": "^3.0.0",
+    "@welcome-ui/utils": "^3.4.3",
     "reakit": "^1.3.6"
   },
   "peerDependencies": {

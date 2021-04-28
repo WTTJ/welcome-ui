@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.3](https://github.com/WTTJ/welcome-ui/compare/v3.4.2...v3.4.3) (2021-04-28)
+
+**Note:** Version bump only for package @welcome-ui/avatar
+
+
+
+
+
 # [3.2.0](https://github.com/WTTJ/welcome-ui/compare/v3.1.2...v3.2.0) (2021-04-08)
 
 

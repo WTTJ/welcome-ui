@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/tag",
-  "version": "3.4.0",
+  "version": "3.4.3",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/tag.cjs.js",
   "module": "dist/tag.es.js",
@@ -37,7 +37,7 @@
   "dependencies": {
     "@welcome-ui/icons.cross": "^3.4.0",
     "@welcome-ui/system": "^3.0.0",
-    "@welcome-ui/utils": "^3.0.0"
+    "@welcome-ui/utils": "^3.4.3"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^2.2.3",
