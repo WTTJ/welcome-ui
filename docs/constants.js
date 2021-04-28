@@ -33,8 +33,8 @@ export const OPT_GROUP_ITEMS = [
       { value: 'github', label: 'Github', icon: GithubIcon },
       { value: 'linkedin', label: 'Linkedin', icon: LinkedinIcon },
       { value: 'stackoverflow', label: 'Stack Overflow', icon: StackoverflowIcon },
-      { value: 'xing', label: 'Xing', icon: XingIcon },
-    ],
+      { value: 'xing', label: 'Xing', icon: XingIcon }
+    ]
   },
   {
     label: 'Personal networks',
@@ -46,3 +46,5 @@ export const OPT_GROUP_ITEMS = [
     ]
   }
 ]
+
+export { default as EMOJIS } from '../packages/EmojiPicker/basicEmojis.json'
