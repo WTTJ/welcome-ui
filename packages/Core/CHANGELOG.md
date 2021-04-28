@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/WTTJ/welcome-ui/compare/v3.4.3...v3.5.0) (2021-04-28)
+
+
+### Features
+
+* add new sub color 7 ([#844](https://github.com/WTTJ/welcome-ui/issues/844)) ([81a9770](https://github.com/WTTJ/welcome-ui/commit/81a9770e9310e7ae44d5d0ef6d6ed0a507ce603e))
+
+
+
+
+
 ## [3.4.3](https://github.com/WTTJ/welcome-ui/compare/v3.4.2...v3.4.3) (2021-04-28)
 
 **Note:** Version bump only for package @welcome-ui/core

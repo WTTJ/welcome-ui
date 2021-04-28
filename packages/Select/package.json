@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/select",
-  "version": "3.4.3",
+  "version": "3.5.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/select.cjs.js",
   "module": "dist/select.es.js",
@@ -38,7 +38,7 @@
     "@welcome-ui/clear-button": "^3.4.3",
     "@welcome-ui/icons.down": "^3.0.0",
     "@welcome-ui/system": "^3.0.0",
-    "@welcome-ui/tag": "^3.4.3",
+    "@welcome-ui/tag": "^3.5.0",
     "@welcome-ui/utils": "^3.4.3",
     "downshift": "^6.1.0",
     "match-sorter": "=3.1.1"
