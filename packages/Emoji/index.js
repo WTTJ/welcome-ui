@@ -3,8 +3,7 @@ import { bool, number, string } from 'prop-types'
 import { Box } from '@welcome-ui/box'
 import Bowser from 'bowser'
 
-// TODO: change path to not use our cdn
-const EMOJI_PATH = 'https://cdn.welcometothejungle.com/common/assets/emojis/'
+const EMOJI_PATH = 'https://cdn.welcome-ui.com/emojis/'
 
 // Apple by default for SSR
 const IS_APPLE_OS =
