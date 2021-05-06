@@ -2,6 +2,8 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useCallback } from 'react'
 
+import { slugify } from '../utils'
+
 import { NavigationLink } from './NavigationLink'
 import * as S from './Navigation.styled'
 
@@ -51,15 +53,6 @@ const CATEGORIES = [
   { name: 'Navigation', value: ITEMS.navigation },
   { name: 'Icons', value: ITEMS.icons }
 ]
-
-const slugify = name => {
-  const nameFormatted = name
-    .replace(/([A-Z])/g, '-$1')
-    .trim()
-    .toLowerCase()
-
-  return nameFormatted.startsWith('-') ? nameFormatted.substr(1) : nameFormatted
-}
 
 export const Navigation = ({ hideModal }) => {
   const closeModal = useCallback(() => {
