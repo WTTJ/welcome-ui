@@ -19,20 +19,14 @@ See the [documentation](https://welcome-ui.com/components/icons) or [package sou
 
 ## How to add icons in welcome-ui (from abstract)
 
-1.  Download the svg from abstract into the `icons/_assets/` folder, using snake_case for the name
+1. Download the svg from abstract into the `icons/_assets/` folder, using snake_case for the name
 
-7.  Run `yarn icons:collect`
+2. If your icon is monochrome, check the presence of `fill="#134B45"` in the svg. If it is not present, change the `fill` attribute.
 
-7.  Run `yarn icons:build`
+3. Run `yarn icons`
 
-7.  Run `yarn webfont:build`
+4. Add your new icon(s) in the doc for `Icons` and `IconsFont` respectively in `docs/pages/components/icons.mdx` and `docs/pages/components/icons-font.mdx`
 
-8.  Run `yarn build`
+5. Start/Restart your front server
 
-9.  Run `yarn`
-
-10. Add your new icon(s) in the doc for `Icons` and `IconsFont` respectively in `docs/pages/components/icons.mdx` and `docs/pages/components/icons-font.mdx`
-
-11. Start/Restart your front server
-
-12. Go fetch a 🍺, you're done!
+6. Go fetch a 🍺, you're done!
