@@ -11,7 +11,7 @@
     "docs:build": "yarn next build docs && yarn next export docs",
     "docs:deploy": "yarn && yarn icons:build && yarn webfont:build && yarn build && yarn docs:build",
     "homerun": "yarn clean --yes && rm -rf node_modules/ docs/.next/ && yarn cache clean && yarn && yarn build --all && yarn start",
-    "icons": "yarn icons:optimize && yarn icons:collect && yarn icons:build",
+    "icons": "yarn icons:optimize && yarn icons:collect && yarn icons:build && yarn webfont:build && yarn build && yarn",
     "icons:optimize": "node -r esm scripts/icons-optimize.js",
     "icons:collect": "node -r esm scripts/icons-collect.js",
     "icons:build": "node -r esm ./scripts/icons-build.js",

@@ -1,7 +1,7 @@
 @font-face {
 	font-family: "welcome-icon-font";
-	src: url("welcome-icon-font.woff2?776889edde1619b5a1698a77c0618d94") format("woff2"),
-url("welcome-icon-font.woff?776889edde1619b5a1698a77c0618d94") format("woff");
+	src: url("welcome-icon-font.woff2?03a2c81bb0235021fdda0cf98deac38e") format("woff2"),
+url("welcome-icon-font.woff?03a2c81bb0235021fdda0cf98deac38e") format("woff");
 }
 
 .icon {
@@ -716,4 +716,10 @@ url("welcome-icon-font.woff?776889edde1619b5a1698a77c0618d94") format("woff");
 }
 .icon-flag_fill:before {
 	content: "\0x1ea";
+}
+.icon-wttj:before {
+	content: "\0x1eb";
+}
+.icon-sound_on:before {
+	content: "\0x1EC";
 }

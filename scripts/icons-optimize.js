@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 
 const { extendDefaultPlugins, optimize } = require('svgo')
 
@@ -40,10 +41,12 @@ const optimizeIcons = files => {
     .forEach(({ content, key }) => {
       // eslint-disable-next-line no-console
       console.log('Optimizing'.yellow, key)
-      optimize(content, {
-        path: `${ICONS_PATH}/${key}.svg`,
+      const svgPath = `${ICONS_PATH}/${key}.svg`
+      const optimizedString = optimize(content, {
+        path: svgPath,
         ...svgoConfig
-      })
+      }).data
+      fs.writeFileSync(svgPath, optimizedString)
     })
 
   // eslint-disable-next-line no-console

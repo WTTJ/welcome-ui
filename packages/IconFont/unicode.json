@@ -233,5 +233,6 @@
   "table_merge_cells": "0x1e8",
   "npm": "0x1e9",
   "flag_fill": "0x1ea",
-  "wttj": "0x1eb"
+  "wttj": "0x1eb",
+  "sound_on": "0x1EC"
 }
