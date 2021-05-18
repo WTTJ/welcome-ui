@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.fullscreen_off.cjs.js",
   "module": "dist/icons.fullscreen_off.es.js",
-  "version": "1.0.0",
+  "version": "3.7.0",
   "publishConfig": {
     "access": "public"
   },
