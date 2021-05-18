@@ -234,5 +234,7 @@
   "npm": "0x1e9",
   "flag_fill": "0x1ea",
   "wttj": "0x1eb",
-  "sound_on": "0x1EC"
+  "sound_on": "0x1EC",
+  "fullscreen_off": "0x1ED",
+  "fullscreen_on": "0x1EE"
 }
