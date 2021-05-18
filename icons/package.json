@@ -126,6 +126,8 @@
     "@welcome-ui/icons.flag_pointed": "^3.0.0",
     "@welcome-ui/icons.flag_sk": "^3.0.0",
     "@welcome-ui/icons.folder": "^3.0.0",
+    "@welcome-ui/icons.fullscreen_off": "^1.0.0",
+    "@welcome-ui/icons.fullscreen_on": "^1.0.0",
     "@welcome-ui/icons.gear": "^3.4.0",
     "@welcome-ui/icons.get": "^3.0.0",
     "@welcome-ui/icons.gif": "^3.4.0",
