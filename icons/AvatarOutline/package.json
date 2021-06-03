@@ -1,0 +1,18 @@
+{
+  "name": "@welcome-ui/icons.avatar_outline",
+  "sideEffects": false,
+  "main": "dist/icons.avatar_outline.cjs.js",
+  "module": "dist/icons.avatar_outline.es.js",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2 || ^17.0.1",
+    "react-dom": "^16.10.2 || ^17.0.1"
+  },
+  "license": "MIT"
+}
