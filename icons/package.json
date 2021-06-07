@@ -271,6 +271,8 @@
     "@welcome-ui/icons.up": "^3.0.0",
     "@welcome-ui/icons.update": "^3.0.0",
     "@welcome-ui/icons.upload": "^3.0.0",
+    "@welcome-ui/icons.user": "^1.0.0",
+    "@welcome-ui/icons.user_outline": "^1.0.0",
     "@welcome-ui/icons.video": "^3.4.0",
     "@welcome-ui/icons.video_camera": "^3.4.0",
     "@welcome-ui/icons.video_camera_2": "^3.4.0",
