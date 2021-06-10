@@ -1,4 +1,5 @@
-import styled, { Box, css } from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
+import { Box } from '@welcome-ui/box'
 import { getVariantColor } from '@welcome-ui/utils'
 
 import { Variant } from './index'

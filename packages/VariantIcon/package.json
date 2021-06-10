@@ -36,6 +36,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
+    "@welcome-ui/box": "^3.0.0",
     "@welcome-ui/icons.alert": "^3.0.0",
     "@welcome-ui/icons.check": "^3.4.0",
     "@welcome-ui/icons.information": "^3.0.0",
