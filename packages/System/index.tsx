@@ -54,10 +54,12 @@ const componentProps = system.meta.props
   .map(prop => {
     if (prop === 'w') return S['width']
     if (prop === 'h') return S['height']
+    // @ts-ignore
     return S[prop]
   })
   .filter(Boolean)
 export const componentSystem = compose(...componentProps)
 
-export const filterSystemProps = prop => !system.meta.props.includes(prop)
-export const shouldForwardProp = (prop, defaultValidatorFn) => defaultValidatorFn(prop)
+export const filterSystemProps = (prop: string) => !system.meta.props.includes(prop)
+export const shouldForwardProp = (prop: string, defaultValidatorFn: (prop: string) => boolean) =>
+  defaultValidatorFn(prop)
