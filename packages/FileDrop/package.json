@@ -49,7 +49,7 @@
     "react-dropzone": "^10.1.8"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^2.2.3",
+    "@xstyled/styled-components": "^3.0.1",
     "@xstyled/system": "^2.2.3",
     "prop-types": "^15.7.2",
     "react": "^16.10.2 || ^17.0.1",
