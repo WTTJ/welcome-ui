@@ -24,7 +24,7 @@ export type Variant =
   | 'success'
   | 'warning'
 
-interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   dataTestId?: string
   onRemove?: () => void
   size?: Size
