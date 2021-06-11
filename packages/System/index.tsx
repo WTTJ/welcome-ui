@@ -1,6 +1,7 @@
 import { compose } from '@xstyled/system'
 import { getPx, getTransition, getZIndex, style } from '@xstyled/styled-components'
 import * as S from '@xstyled/system'
+import { StyledConfig } from 'styled-components'
 
 // Those are styles that were in v1 but not in v2
 const oldProps = compose(
@@ -61,5 +62,5 @@ const componentProps = system.meta.props
 export const componentSystem = compose(...componentProps)
 
 export const filterSystemProps = (prop: string) => !system.meta.props.includes(prop)
-export const shouldForwardProp = (prop: string, defaultValidatorFn: (prop: string) => boolean) =>
+export const shouldForwardProp: StyledConfig['shouldForwardProp'] = (prop, defaultValidatorFn) =>
   defaultValidatorFn(prop)
