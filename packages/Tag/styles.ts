@@ -1,10 +1,12 @@
 import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import { HeightProps, system, SystemProps, th, WidthProps } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
-import { system } from '@welcome-ui/system'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
+import { Box } from '@welcome-ui/box'
 
-const shapeStyles = (size, w, h, shape = 'square') => css`
+import type { Shape, Size, Variant } from './index'
+
+const shapeStyles = (size: Size, w: WidthProps['w'], h: HeightProps['h'], shape = 'square') => css`
   ${th(`tags.shape.${size}`)}
   padding: 0;
   ${(w || h) &&
@@ -15,7 +17,15 @@ const shapeStyles = (size, w, h, shape = 'square') => css`
   ${shape === 'circle' && 'border-radius: 50%'};
 `
 
-export const Tag = styled.div(
+export interface StyledTagProps {
+  hasAction: boolean
+  length: number
+  size: Size
+  variant: Variant
+  shape: Shape
+}
+
+export const Tag = styled.div<StyledTagProps & SystemProps>(
   ({ h, hasAction, length, shape, size, variant, w }) => css`
     ${th('tags.default')};
     ${th(`tags.variants.${variant}`)};
@@ -27,7 +37,7 @@ export const Tag = styled.div(
     border-radius: md;
     line-height: initial; /* avoid cropped font */
     ${overflowEllipsis}
-    ${system};
+    ${system}
     ${!shape &&
       length !== 1 &&
       css`
@@ -65,7 +75,7 @@ export const Tag = styled.div(
   `
 )
 
-export const ActionIcon = styled.div(
+export const ActionIcon = styled.div<{ size: Size }>(
   ({ size }) => css`
     position: absolute;
     ${th(`tags.sizes.${size}`)};

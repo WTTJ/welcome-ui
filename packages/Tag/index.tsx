@@ -1,14 +1,39 @@
 import React, { forwardRef } from 'react'
-import { func, node, oneOf } from 'prop-types'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { wrapChildren } from '@welcome-ui/utils'
-
-import { SHAPES_TYPE, SIZES_TYPE } from '../../utils/propTypes'
+import { SystemProps } from '@xstyled/system'
 
 import * as S from './styles'
 
-export const Tag = forwardRef(
-  ({ children, dataTestId, onRemove, size = 'md', variant = 'default', ...rest }, ref) => {
+export type Shape = 'cricle' | 'square'
+export type Size = 'sm' | 'md' | 'lg'
+export type Variant =
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | 'dark'
+  | 'default'
+  | 'error'
+  | 'info'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+
+interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
+  dataTestId?: string
+  onRemove?: () => void
+  size?: Size
+  variant?: Variant
+  shape?: Shape
+}
+
+export const Tag = forwardRef<HTMLDivElement, TagProps & SystemProps>(
+  ({ children, dataTestId, onRemove, size = 'md', variant = 'default', shape, ...rest }, ref) => {
     const content = wrapChildren(children)
     // get size children for int and string
     const childrenLength =
@@ -25,6 +50,7 @@ export const Tag = forwardRef(
         role="listitem"
         size={size}
         variant={variant}
+        shape={shape}
         {...rest}
       >
         {content}
@@ -39,29 +65,5 @@ export const Tag = forwardRef(
 )
 
 Tag.displayName = 'Tag'
-
-Tag.propTypes /* remove-proptypes */ = {
-  children: node,
-  onRemove: func,
-  shape: oneOf(SHAPES_TYPE),
-  size: oneOf(SIZES_TYPE),
-  variant: oneOf([
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    'dark',
-    'default',
-    'error',
-    'info',
-    'primary',
-    'secondary',
-    'success',
-    'warning'
-  ])
-}
 
 export const StyledTag = S.Tag
