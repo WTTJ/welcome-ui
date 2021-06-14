@@ -1,4 +1,4 @@
-import { compose } from '@xstyled/system'
+import { compose, IProps } from '@xstyled/system'
 import { getPx, getTransition, getZIndex, style } from '@xstyled/styled-components'
 import * as S from '@xstyled/system'
 import { StyledConfig } from 'styled-components'
@@ -55,8 +55,7 @@ const componentProps = system.meta.props
   .map(prop => {
     if (prop === 'w') return S['width']
     if (prop === 'h') return S['height']
-    // @ts-ignore
-    return S[prop]
+    return (S as IProps)[prop]
   })
   .filter(Boolean)
 export const componentSystem = compose(...componentProps)
