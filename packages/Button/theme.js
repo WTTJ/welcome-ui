@@ -32,6 +32,17 @@ export const getButtons = theme => {
       backgroundColor: 'transparent',
       borderColor: colors.light[900]
     },
+    'primary-success': {
+      ...defaults,
+      backgroundColor: colors.success[500],
+      borderColor: colors.success[500]
+    },
+    'secondary-success': {
+      ...defaults,
+      color: colors.success[700],
+      backgroundColor: colors.light[900],
+      borderColor: colors.success[500]
+    },
     'primary-warning': {
       ...defaults,
       backgroundColor: colors.warning[500],
@@ -54,6 +65,17 @@ export const getButtons = theme => {
       backgroundColor: colors.light[900],
       borderColor: colors.danger[500]
     },
+    'primary-info': {
+      ...defaults,
+      backgroundColor: colors.info[500],
+      borderColor: colors.info[500]
+    },
+    'secondary-info': {
+      ...defaults,
+      color: colors.info[700],
+      backgroundColor: colors.light[900],
+      borderColor: colors.info[500]
+    },
     quaternary: {
       ...defaults,
       color: colors.dark[900],
@@ -75,6 +97,14 @@ export const getButtons = theme => {
       'tertiary-negative': {
         backgroundColor: `rgba(${hexToRGB(colors.light[900])}, 0.1)`
       },
+      'primary-success': {
+        backgroundColor: colors.success[200],
+        borderColor: colors.success[200]
+      },
+      'secondary-success': {
+        backgroundColor: colors.success[100],
+        borderColor: colors.success[700]
+      },
       'primary-warning': {
         backgroundColor: colors.warning[200],
         borderColor: colors.warning[200]
@@ -91,6 +121,14 @@ export const getButtons = theme => {
         backgroundColor: colors.danger[100],
         borderColor: colors.danger[700]
       },
+      'primary-info': {
+        backgroundColor: colors.info[200],
+        borderColor: colors.info[200]
+      },
+      'secondary-info': {
+        backgroundColor: colors.info[100],
+        borderColor: colors.info[700]
+      },
       quaternary: {
         backgroundColor: colors.light[800],
         borderColor: colors.light[800]
@@ -102,10 +140,14 @@ export const getButtons = theme => {
       tertiary: focus(colors.dark[900]),
       'tertiary-negative': focus(colors.light[900]),
       quaternary: focus(colors.light[800]),
+      'primary-success': focus(colors.success[500]),
+      'secondary-success': focus(colors.success[500]),
       'primary-warning': focus(colors.warning[500]),
       'secondary-warning': focus(colors.warning[500]),
       'primary-danger': focus(colors.danger[500]),
-      'secondary-danger': focus(colors.danger[500])
+      'secondary-danger': focus(colors.danger[500]),
+      'primary-info': focus(colors.info[500]),
+      'secondary-info': focus(colors.info[500])
     },
     active: {
       primary: {
@@ -122,6 +164,14 @@ export const getButtons = theme => {
       'tertiary-negative': {
         backgroundColor: `rgba(${hexToRGB(colors.light[900])}, 0.4)`
       },
+      'primary-success': {
+        backgroundColor: colors.success[700],
+        borderColor: colors.success[700]
+      },
+      'secondary-success': {
+        backgroundColor: colors.success[700],
+        borderColor: colors.success[700]
+      },
       'primary-warning': {
         backgroundColor: colors.warning[700],
         borderColor: colors.warning[700]
@@ -137,6 +187,14 @@ export const getButtons = theme => {
       'secondary-danger': {
         color: colors.danger[700],
         borderColor: colors.danger[700]
+      },
+      'primary-info': {
+        backgroundColor: colors.info[700],
+        borderColor: colors.info[700]
+      },
+      'secondary-info': {
+        color: colors.info[700],
+        borderColor: colors.info[700]
       },
       quaternary: {
         backgroundColor: colors.light[700],
