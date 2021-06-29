@@ -1,7 +1,7 @@
 const palette = {
   // primary
-  capehoneylight: '#FFF8D9',
-  yellowlight: '#FFE166',
+  dandelion: '#FFF8D9',
+  cornsilk: '#FFE166',
   yellow: '#FFCD00',
   corn: '#E5B800',
   gold: '#997B00',
@@ -35,22 +35,24 @@ const palette = {
   // success
   spanishviridian: '#00875C',
   jade: '#00A772',
+  puertorico: '#45BE98',
   gin: '#E3F0EC',
 
   // danger
-  mistyrose: '#FFE7E7',
-  valencialight: '#D87C6E',
+  rosewhite: '#FFE7E7',
+  japonica: '#D87C6E',
   valencia: '#CE5947',
   carmen: '#AF4636',
 
   // info
   celticblue: '#106DD1',
-  blueverry: '#4B9BF1',
+  blueberry: '#4B9BF1',
+  lightsky: '#9AC7F7',
   aliceblue: '#EDF3FE',
 
   // warning
   floralwhite: '#FFF2DC',
-  sunraylight: '#EBC484',
+  marzipan: '#EBC484',
   sunray: '#E4AE56',
   burbon: '#B97F22',
 
@@ -66,8 +68,8 @@ const palette = {
 
 const colors = {
   primary: {
-    100: palette.capehoneylight,
-    200: palette.yellowlight,
+    100: palette.dandelion,
+    200: palette.cornsilk,
     500: palette.yellow,
     700: palette.corn,
     800: palette.cinnamon,
@@ -75,25 +77,27 @@ const colors = {
   },
   success: {
     100: palette.gin,
-    200: palette.jade,
-    500: palette.spanishviridian
+    200: palette.puertorico,
+    500: palette.jade,
+    700: palette.spanishviridian
   },
   danger: {
-    100: palette.mistyrose,
-    200: palette.valencialight,
+    100: palette.rosewhite,
+    200: palette.japonica,
     500: palette.valencia,
     700: palette.carmen
   },
   warning: {
     100: palette.floralwhite,
-    200: palette.sunraylight,
+    200: palette.marzipan,
     500: palette.sunray,
     700: palette.burbon
   },
   info: {
     100: palette.aliceblue,
-    200: palette.blueverry,
-    500: palette.celticblue
+    200: palette.lightsky,
+    500: palette.blueberry,
+    700: palette.celticblue
   },
   light: {
     100: palette.empress,
