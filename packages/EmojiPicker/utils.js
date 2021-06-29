@@ -18,7 +18,7 @@ export const formatEmojis = emojis => {
       const row = emojis.slice(i, i + NB_EMOJIS_PER_ROW).map(emoji => ({
         ...emoji,
         rowIndex,
-        colIndex: colIndex++
+        colIndex: colIndex++,
       }))
       splittedEmojis.push(row)
       rowIndex++

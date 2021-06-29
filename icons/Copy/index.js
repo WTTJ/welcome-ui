@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const CopyIcon = props => <Icon alt="Copy" content={content} {...props} />
+
+export function CopyIcon(props) {
+  return <Icon alt="Copy" content={content} {...props} />
+}

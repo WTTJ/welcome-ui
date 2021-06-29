@@ -41,6 +41,6 @@ export const usePopoverState = ({
     hide,
     show,
     triggerMethod,
-    withCloseButton
+    withCloseButton,
   }
 }

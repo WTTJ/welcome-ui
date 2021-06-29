@@ -9,10 +9,10 @@ export const FileDrop = styled('div').withConfig({ shouldForwardProp })(
     ${th('filedrops.default')};
     ${isDragAccept && th('filedrops.dragAccept')};
     ${isDragReject &&
-      css`
-        border-color: ${getVariantColor('error')};
-        ${th('filedrops.dragReject')}
-      `};
+    css`
+      border-color: ${getVariantColor('error')};
+      ${th('filedrops.dragReject')}
+    `};
     position: relative;
     display: flex;
     justify-content: center;
@@ -26,10 +26,10 @@ export const FileDrop = styled('div').withConfig({ shouldForwardProp })(
     }
 
     ${disabled &&
-      css`
-        ${th('defaultFields.disabled')};
-        ${th('filedrops.disabled')};
-      `};
+    css`
+      ${th('defaultFields.disabled')};
+      ${th('filedrops.disabled')};
+    `};
   `
 )
 

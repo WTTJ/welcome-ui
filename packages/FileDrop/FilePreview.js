@@ -5,7 +5,7 @@ import { Text } from '@welcome-ui/text'
 import { ExternalLinkIcon } from '@welcome-ui/icons.external_link'
 import { getFileIcon, getFileName, getFileSize } from '@welcome-ui/files'
 
-export const FilePreview = ({ file, forceFileType }) => {
+export function FilePreview({ file, forceFileType }) {
   const isUrl = typeof file === 'string'
   const Icon = getFileIcon(file, forceFileType)
   const size = getFileSize(file)
@@ -34,5 +34,5 @@ export const FilePreview = ({ file, forceFileType }) => {
 
 FilePreview.propTypes /* remove-proptypes */ = {
   file: oneOfType([string, object]),
-  forceFileType: oneOf(['image', 'audio', 'video'])
+  forceFileType: oneOf(['image', 'audio', 'video']),
 }

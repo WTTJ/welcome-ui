@@ -13,15 +13,17 @@ import { TwitterIcon } from '../icons/Twitter'
 import { XingIcon } from '../icons/Xing'
 import { YoutubeIcon } from '../icons/Youtube'
 
-export const DefaultFileDropView = ({ openFile }) => (
-  <>
-    <h3>Add picture</h3>
-    <p>Drag and drop a file here or…</p>
-    <Button onClick={openFile} type="button">
-      Choose file
-    </Button>
-  </>
-)
+export function DefaultFileDropView({ openFile }) {
+  return (
+    <>
+      <h3>Add picture</h3>
+      <p>Drag and drop a file here or…</p>
+      <Button onClick={openFile} type="button">
+        Choose file
+      </Button>
+    </>
+  )
+}
 
 export const ITEMS = [
   { value: 'behance', label: 'Behance', icon: BehanceIcon },
@@ -33,5 +35,5 @@ export const ITEMS = [
   { value: 'stackoverflow', label: 'Stack Overflow', icon: StackoverflowIcon },
   { value: 'twitter', label: 'Twitter', icon: TwitterIcon },
   { value: 'xing', label: 'Xing', icon: XingIcon },
-  { value: 'youtube', label: 'Youtube', icon: YoutubeIcon }
+  { value: 'youtube', label: 'Youtube', icon: YoutubeIcon },
 ]

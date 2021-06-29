@@ -58,5 +58,5 @@ CustomInput.propTypes /* remove-proptypes */ = {
   inputRef: shape({ current: elementType }),
   onReset: func,
   size: oneOf(SIZES_TYPE),
-  value: string
+  value: string,
 }

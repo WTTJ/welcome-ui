@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-time-picker-common",
-  "version": "3.11.0",
+  "version": "4.0.0-alpha.5",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/date-time-picker-common.cjs.js",
   "module": "dist/date-time-picker-common.es.js",
@@ -36,24 +36,24 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@welcome-ui/button": "^3.4.3",
-    "@welcome-ui/clear-button": "^3.8.4",
-    "@welcome-ui/field": "^3.11.0",
-    "@welcome-ui/icons.left": "^3.0.0",
-    "@welcome-ui/icons.right": "^3.0.0",
-    "@welcome-ui/select": "^3.11.0",
-    "@welcome-ui/system": "^3.0.0",
-    "@welcome-ui/utils": "^3.4.3",
+    "@welcome-ui/button": "^4.0.0-alpha.3",
+    "@welcome-ui/clear-button": "^4.0.0-alpha.4",
+    "@welcome-ui/field": "^4.0.0-alpha.5",
+    "@welcome-ui/icons.left": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.right": "^4.0.0-alpha.4",
+    "@welcome-ui/select": "^4.0.0-alpha.4",
+    "@welcome-ui/system": "^4.0.0-alpha.3",
+    "@welcome-ui/utils": "^4.0.0-alpha.3",
     "lodash.range": "^3.2.0",
     "react-datepicker": "^3.6.0"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^2.2.3",
-    "@xstyled/system": "^2.2.3",
+    "@xstyled/styled-components": "^3.0.1",
+    "@xstyled/system": "^3.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.3.0"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
