@@ -15,7 +15,7 @@ export const getCurrentToolsFromEditor = editor => {
     link: 'link',
     tag: 'image',
     'header-1': 'heading_1',
-    'header-2': 'heading_2'
+    'header-2': 'heading_2',
   }
 
   if (!token.type) {

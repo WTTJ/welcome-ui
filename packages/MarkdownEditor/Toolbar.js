@@ -6,7 +6,7 @@ import * as S from './styles'
 const getTooltip = item =>
   `${item.charAt(0).toUpperCase()}${item.substr(1).toLowerCase()}`.replace('-', ' ')
 
-export const Toolbar = ({ active = [], dataTestId, items = [], onClick, ...rest }) => {
+export function Toolbar({ active = [], dataTestId, items = [], onClick, ...rest }) {
   const handleClick = e => {
     const item = e.currentTarget.dataset.id
     onClick(item, e)
@@ -42,8 +42,8 @@ Toolbar.propTypes /* remove-proptypes */ = {
     shape({
       action: oneOfType([func, string]),
       icon: node,
-      name: string.isRequired
+      name: string.isRequired,
     })
   ),
-  onClick: func
+  onClick: func,
 }

@@ -33,6 +33,6 @@ test('getYears(1990, 2000) should be an array of options (reversed) between 1990
     { label: 1993, value: 1993 },
     { label: 1992, value: 1992 },
     { label: 1991, value: 1991 },
-    { label: 1990, value: 1990 }
+    { label: 1990, value: 1990 },
   ])
 })

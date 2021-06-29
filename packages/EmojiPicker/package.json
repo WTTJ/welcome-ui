@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/emoji-picker",
-  "version": "3.11.0",
+  "version": "4.0.0-alpha.5",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/emoji-picker.cjs.js",
   "module": "dist/emoji-picker.es.js",
@@ -35,16 +35,16 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^3.0.0",
-    "@welcome-ui/icons": "^3.9.0",
-    "@welcome-ui/input-text": "^3.11.0",
-    "@welcome-ui/popover": "^3.4.3",
-    "@welcome-ui/stack": "^3.0.0",
-    "@welcome-ui/system": "^3.0.0",
-    "@welcome-ui/tabs": "^3.4.3",
-    "@welcome-ui/text": "^3.1.1",
-    "@welcome-ui/utils": "^3.4.3",
-    "@welcome-ui/variant-icon": "^3.4.3",
+    "@welcome-ui/box": "^4.0.0-alpha.3",
+    "@welcome-ui/icons": "^4.0.0-alpha.5",
+    "@welcome-ui/input-text": "^4.0.0-alpha.5",
+    "@welcome-ui/popover": "^4.0.0-alpha.4",
+    "@welcome-ui/stack": "^4.0.0-alpha.3",
+    "@welcome-ui/system": "^4.0.0-alpha.3",
+    "@welcome-ui/tabs": "^4.0.0-alpha.3",
+    "@welcome-ui/text": "^4.0.0-alpha.3",
+    "@welcome-ui/utils": "^4.0.0-alpha.3",
+    "@welcome-ui/variant-icon": "^4.0.0-alpha.4",
     "lodash.debounce": "^4.0.8",
     "lodash.escaperegexp": "^4.1.2",
     "lodash.groupby": "^4.6.0",
@@ -52,11 +52,11 @@
     "react-window": "^1.8.6"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^2.2.3",
-    "@xstyled/system": "^2.2.3",
+    "@xstyled/styled-components": "^3.0.1",
+    "@xstyled/system": "^3.0.1",
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.3.0"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,

@@ -15,7 +15,7 @@ export const themeValues = () => {
     letterSpacings,
     space,
     radii,
-    borderWidths
+    borderWidths,
   } = theme
   return {
     fonts: JSON.stringify(
@@ -28,13 +28,13 @@ export const themeValues = () => {
         headingLetterSpacing,
         lineHeights,
         fontWeights,
-        letterSpacings
+        letterSpacings,
       },
       null,
       2
     ),
     space: JSON.stringify({ space }, null, 2),
-    radii: JSON.stringify({ radii, borderWidths }, null, 2)
+    radii: JSON.stringify({ radii, borderWidths }, null, 2),
   }
 }
 

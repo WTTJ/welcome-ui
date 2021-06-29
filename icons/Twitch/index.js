@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const TwitchIcon = props => <Icon alt="Twitch" content={content} {...props} />
+
+export function TwitchIcon(props) {
+  return <Icon alt="Twitch" content={content} {...props} />
+}

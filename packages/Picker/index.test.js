@@ -16,7 +16,7 @@ test('<Picker> renders', () => {
         options={[
           { element: () => 'foo', value: 'foo' },
           { element: () => 'bar', value: 'bar' },
-          { element: () => 'baz', value: 'baz' }
+          { element: () => 'baz', value: 'baz' },
         ]}
         required
       />
@@ -38,7 +38,7 @@ test('<Picker> selected prop is passed to elements', () => {
         options={[
           { element: ({ selected }) => (selected ? 'foo-selected' : 'foo'), value: 'foo' },
           { element: () => 'bar', value: 'bar' },
-          { element: () => 'baz', value: 'baz' }
+          { element: () => 'baz', value: 'baz' },
         ]}
         required
       />

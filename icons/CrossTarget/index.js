@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const CrossTargetIcon = props => <Icon alt="CrossTarget" content={content} {...props} />
+
+export function CrossTargetIcon(props) {
+  return <Icon alt="CrossTarget" content={content} {...props} />
+}

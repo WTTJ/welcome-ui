@@ -20,7 +20,7 @@ const collectPackages = folder =>
     .map(({ name }) => ({
       pkgName: toKebabCase(name),
       componentName: name,
-      config: require(`${ROOT_PATH}/${name}/package.json`)
+      config: require(`${ROOT_PATH}/${name}/package.json`),
     }))
 
 const handleError = err => {
@@ -45,7 +45,7 @@ const createReadme = pkg => {
 const getReadmeContent = pkg => {
   const {
     componentName,
-    config: { homepage: docs, name }
+    config: { homepage: docs, name },
   } = pkg
 
   const hasDocs = docs !== 'https://welcome-ui.com'
