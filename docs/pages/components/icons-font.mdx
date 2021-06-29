@@ -3,7 +3,7 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/icons.font/package.json'
 
 # IconsFont
@@ -58,7 +58,7 @@ Here is an example on how to use css class to display icons:
 
 ```jsx
 function() {
-  const icons = ['left', 'right', 'up', 'down']
+  const icons = ['left', 'right', 'up', 'down', 'arrow_left', 'arrow_right', 'arrow_up', 'arrow_down' ]
   return IconsList({icons, isIconFont: true})
 }
 ```
@@ -79,22 +79,24 @@ function() {
     'copy',
     'cross',
     'drag_and_drop',
+    'duplicate',
     'edit',
     'eye',
     'expand_text',
     'expand',
     'external_link',
     'filters',
-    'fullscreen_off',
-    'fullscreen_on',
     'get',
     'heart',
     'heart_outline',
+    'hide',
+    'home',
     'information',
     'link',
     'log_out',
     'menu',
     'more',
+    'more_android',
     'notification',
     'pin',
     'play',
@@ -111,6 +113,7 @@ function() {
     'share1',
     'share2',
     'trash',
+    'unavailable',
     'upload',
     'user_outline',
     'user',
@@ -146,6 +149,15 @@ function() {
 }
 ```
 
+### Controls
+
+```jsx
+function() {
+  const icons = ['control_stop', 'control_pause', 'control_forward', 'control_backward', 'fullscreen_off', 'fullscreen_on', 'screenshare_off', 'screenshare_on', 'microphone_on', 'microphone_off', 'cast', 'cast_connected', 'cast_unavailable', 'camera_on', 'camera_off', 'airplay', 'watch_later', 'playlist', 'sound_on', 'sound_off']
+  return IconsList({icons, isIconFont: true})
+}
+```
+
 ### Miscellaneous
 
 ```jsx
@@ -166,6 +178,7 @@ function() {
     'clock',
     'comment_outline',
     'comment',
+    'common_area',
     'contract',
     'create',
     'date',
@@ -185,6 +198,7 @@ function() {
     'location',
     'male',
     'mansanory',
+    'meeting_room',
     'mention',
     'new_candidate',
     'offer_status',
@@ -199,7 +213,6 @@ function() {
     'review',
     'salary',
     'search_people',
-    'sound_on',
     'source',
     'star',
     'star_outline',
@@ -211,6 +224,22 @@ function() {
     'update',
     'video_camera',
     'video_camera_2',
+  ]
+  return IconsList({icons, isIconFont: true})
+}
+```
+
+### Avatar
+
+```jsx
+function() {
+  const icons = [
+    'avatar_accessory',
+    'avatar_body',
+    'avatar_bottom',
+    'avatar_costume',
+    'avatar_head',
+    'avatar_top'
   ]
   return IconsList({icons, isIconFont: true})
 }

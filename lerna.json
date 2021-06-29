@@ -1,9 +1,6 @@
 {
-  "packages": [
-    "packages/*",
-    "icons/*"
-  ],
-  "version": "3.9.0",
+  "packages": ["packages/*", "icons/*"],
+  "version": "4.0.0-alpha.5",
   "npmClient": "yarn",
   "useWorkspaces": true
 }

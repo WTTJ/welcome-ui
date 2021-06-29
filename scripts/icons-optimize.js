@@ -12,24 +12,24 @@ const svgoConfig = {
     {
       name: 'convertPathData',
       params: {
-        noSpaceAfterFlags: false
-      }
+        noSpaceAfterFlags: false,
+      },
     },
     {
       name: 'convertTransform',
-      active: false
+      active: false,
     },
     {
       name: 'mergePaths',
       params: {
-        noSpaceAfterFlags: false
-      }
+        noSpaceAfterFlags: false,
+      },
     },
     {
       name: 'removeViewBox',
-      active: false
-    }
-  ])
+      active: false,
+    },
+  ]),
 }
 
 const ROOT_PATH = path.join(__dirname, '..')
@@ -48,7 +48,7 @@ const optimizeIcons = files => {
       const svgPath = `${ICONS_PATH}/${key}.svg`
       const optimizedString = optimize(content, {
         path: svgPath,
-        ...svgoConfig
+        ...svgoConfig,
       }).data
       fs.writeFileSync(svgPath, optimizedString)
     })

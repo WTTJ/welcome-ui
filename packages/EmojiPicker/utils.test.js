@@ -9,17 +9,17 @@ describe('EmojiPicker utils', () => {
 
       emojis = [
         {
-          alias: 'test'
-        }
+          alias: 'test',
+        },
       ]
       formattedEmojis = [
         [
           {
             alias: 'test',
             colIndex: 0,
-            rowIndex: 0
-          }
-        ]
+            rowIndex: 0,
+          },
+        ],
       ]
       expect(formatEmojis(emojis)).toEqual(formattedEmojis)
 
@@ -27,12 +27,12 @@ describe('EmojiPicker utils', () => {
         {
           alias: 'foo',
           category: 'foo',
-          test: 'ok'
+          test: 'ok',
         },
         {
           alias: 'bar',
-          category: 'bar'
-        }
+          category: 'bar',
+        },
       ]
       formattedEmojis = [
         ['foo'],
@@ -42,8 +42,8 @@ describe('EmojiPicker utils', () => {
             category: 'foo',
             test: 'ok',
             colIndex: 0,
-            rowIndex: 0
-          }
+            rowIndex: 0,
+          },
         ],
         ['bar'],
         [
@@ -51,31 +51,31 @@ describe('EmojiPicker utils', () => {
             alias: 'bar',
             category: 'bar',
             colIndex: 0,
-            rowIndex: 1
-          }
-        ]
+            rowIndex: 1,
+          },
+        ],
       ]
       expect(formatEmojis(emojis)).toEqual(formattedEmojis)
 
       emojis = Array.from({ length: 20 }).map((_, i) => ({
-        alias: i
+        alias: i,
       }))
       formattedEmojis = [
         Array.from({ length: 8 }).map((_, i) => ({
           alias: i,
           colIndex: i,
-          rowIndex: 0
+          rowIndex: 0,
         })),
         Array.from({ length: 8 }).map((_, i) => ({
           alias: 8 + i,
           colIndex: i,
-          rowIndex: 1
+          rowIndex: 1,
         })),
         Array.from({ length: 4 }).map((_, i) => ({
           alias: 16 + i,
           colIndex: i,
-          rowIndex: 2
-        }))
+          rowIndex: 2,
+        })),
       ]
       expect(formatEmojis(emojis)).toEqual(formattedEmojis)
     })

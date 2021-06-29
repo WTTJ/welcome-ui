@@ -34,9 +34,10 @@ export function List({ emojis, emptyList, inputSearchPlaceholder, isVisible, onC
     setCurrentColIndex(currentIndex)
     setCurrentRowIndex(currentIndex)
   }, [])
-  const debouncedHandleChangeQuery = useMemo(() => debounce(handleChangeQuery, 200), [
-    handleChangeQuery
-  ])
+  const debouncedHandleChangeQuery = useMemo(
+    () => debounce(handleChangeQuery, 200),
+    [handleChangeQuery]
+  )
 
   const rows = useMemo(() => {
     const queryRegex = new RegExp(escapeRegExp(query), 'i')
@@ -162,7 +163,7 @@ export function List({ emojis, emptyList, inputSearchPlaceholder, isVisible, onC
         if (!isReferenceInDom) {
           setTooltipEmoji(null)
         }
-      }
+      },
     })
     return () => popper.destroy()
   }, [currentColIndex, currentRowIndex, filteredEmojis])
@@ -225,7 +226,7 @@ export function List({ emojis, emptyList, inputSearchPlaceholder, isVisible, onC
             currentRowIndex,
             isVisible,
             onClick: onChange,
-            onMouseMove: handleMouseMove
+            onMouseMove: handleMouseMove,
           }}
           itemSize={ROW_HEIGHT}
           ref={listRef}
@@ -255,7 +256,7 @@ List.propTypes = {
   /** Passed down by <EmojiPicker /> */
   onChange: func.isRequired,
   /** Passed down by <EmojiPicker /> */
-  value: string
+  value: string,
 }
 
 function EmojiRow({ data, index, style }) {
@@ -316,8 +317,8 @@ EmojiRow.propTypes = {
     onClick: func.isRequired,
     onMouseMove: func.isRequired,
     currentColIndex: number.isRequired,
-    currentRowIndex: number.isRequired
+    currentRowIndex: number.isRequired,
   }).isRequired,
   index: number.isRequired,
-  style: object.isRequired
+  style: object.isRequired,
 }

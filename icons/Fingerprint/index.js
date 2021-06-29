@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const FingerprintIcon = props => <Icon alt="Fingerprint" content={content} {...props} />
+
+export function FingerprintIcon(props) {
+  return <Icon alt="Fingerprint" content={content} {...props} />
+}

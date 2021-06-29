@@ -24,7 +24,10 @@ const writeIconFont = files => {
   const filteredFiles = files.filter(file => !FLAG_ICONS.includes(file.key))
   const unicodeFile = `${ICON_FONT_PATH}/unicode.json`
   const unicodeMap = require(unicodeFile)
-  const newIcons = difference(filteredFiles.map(file => file.key), Object.keys(unicodeMap))
+  const newIcons = difference(
+    filteredFiles.map(file => file.key),
+    Object.keys(unicodeMap)
+  )
 
   if (!newIcons.length && !argv.force) {
     console.log('Success'.yellow, 'No new icons to write to icon font')
@@ -58,8 +61,8 @@ const writeIconFont = files => {
       formatOptions: { ttf: { ts: 0 } },
       templateOptions: {
         classPrefix: 'wui-icon-',
-        baseSelector: 'i'
-      }
+        baseSelector: 'i',
+      },
     },
     error => {
       if (error) {
@@ -68,13 +71,13 @@ const writeIconFont = files => {
         console.log('Success'.green, 'Writing icon font')
       }
       const cssFilePath = `${ICON_FONT_PATH}/fonts/${FONT_NAME}.css`
-      fs.readFile(cssFilePath, 'utf8', function(err, data) {
+      fs.readFile(cssFilePath, 'utf8', function (err, data) {
         if (err) {
           return console.log(err)
         }
         var result = data.replace(/content: "\\0x([^"]+)"/g, 'content: "\\$1"')
 
-        fs.writeFile(cssFilePath, result, 'utf8', function(err) {
+        fs.writeFile(cssFilePath, result, 'utf8', function (err) {
           if (err) return console.log(err)
         })
       })

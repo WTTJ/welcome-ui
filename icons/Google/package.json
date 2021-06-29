@@ -3,12 +3,13 @@
   "sideEffects": false,
   "main": "dist/icons.google.cjs.js",
   "module": "dist/icons.google.es.js",
+  "types": "dist/index.d.ts",
   "version": "3.9.0",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^3.0.0"
+    "@welcome-ui/icon": "^4.0.0-alpha.4"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",

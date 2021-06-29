@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment, useCallback, useEffect, useState } from 'react'
+import React, { forwardRef, Fragment, useEffect, useMemo, useState } from 'react'
 import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
 import Downshift from 'downshift'
 import { ClearButton } from '@welcome-ui/clear-button'
@@ -55,19 +55,20 @@ export const Search = forwardRef(
     }, [autoFocus, ref])
 
     // Update results when searching
-    const handleInputChange = useCallback(
-      handleThrottle(
-        async value => {
-          if (minChars === 0 || value?.length >= minChars) {
-            const data = await search(value)
-            setResults(data || [])
-          } else {
-            setResults([])
-          }
-        },
-        throttle,
-        false
-      ),
+    const handleInputChange = useMemo(
+      () =>
+        handleThrottle(
+          async value => {
+            if (minChars === 0 || value?.length >= minChars) {
+              const data = await search(value)
+              setResults(data || [])
+            } else {
+              setResults([])
+            }
+          },
+          throttle,
+          false
+        ),
       [minChars, search, throttle]
     )
 
@@ -119,7 +120,7 @@ export const Search = forwardRef(
           inputValue,
           isOpen,
           selectedItem,
-          toggleMenu
+          toggleMenu,
         }) => {
           const handleClearClick = () => {
             setResults([])
@@ -155,7 +156,7 @@ export const Search = forwardRef(
             size,
             tabIndex: 0,
             variant: isOpen ? 'focused' : variant,
-            ...rest
+            ...rest,
           })
 
           return (
@@ -188,7 +189,7 @@ export const Search = forwardRef(
                                         isSelected:
                                           selectedItem &&
                                           itemToString(selectedItem) === itemToString(option),
-                                        item: option
+                                        item: option,
                                       })}
                                     >
                                       {renderItem(option)}
@@ -208,7 +209,7 @@ export const Search = forwardRef(
                                 isSelected:
                                   selectedItem &&
                                   itemToString(selectedItem) === itemToString(result),
-                                item: result
+                                item: result,
                               })}
                             >
                               {renderItem(result)}
@@ -256,7 +257,7 @@ Search.propTypes /* remove-proptypes */ = {
   size: oneOf(SIZES_TYPE),
   throttle: number,
   value: oneOfType([object, arrayOf(object), string, arrayOf(string), number, arrayOf(number)]),
-  variant: oneOf(VARIANTS_TYPE)
+  variant: oneOf(VARIANTS_TYPE),
 }
 
 export const StyledSearch = S.Wrapper
