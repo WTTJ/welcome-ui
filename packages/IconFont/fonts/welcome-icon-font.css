@@ -1,7 +1,7 @@
 @font-face {
 	font-family: "welcome-icon-font";
-	src: url("welcome-icon-font.woff2?d31f914ab86c660413102fbb0b169102") format("woff2"),
-url("welcome-icon-font.woff?d31f914ab86c660413102fbb0b169102") format("woff");
+	src: url("welcome-icon-font.woff2?af808013d4a2c8df4e16b2503adfa391") format("woff2"),
+url("welcome-icon-font.woff?af808013d4a2c8df4e16b2503adfa391") format("woff");
 }
 
 .icon {
@@ -728,4 +728,10 @@ url("welcome-icon-font.woff?d31f914ab86c660413102fbb0b169102") format("woff");
 }
 .icon-fullscreen_on:before {
 	content: "\0x1EE";
+}
+.icon-user:before {
+	content: "\0x1EF";
+}
+.icon-user_outline:before {
+	content: "\0x1F0";
 }

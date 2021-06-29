@@ -236,5 +236,7 @@
   "wttj": "0x1eb",
   "sound_on": "0x1EC",
   "fullscreen_off": "0x1ED",
-  "fullscreen_on": "0x1EE"
+  "fullscreen_on": "0x1EE",
+  "user": "0x1EF",
+  "user_outline": "0x1F0"
 }
