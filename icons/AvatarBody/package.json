@@ -1,0 +1,19 @@
+{
+  "name": "@welcome-ui/icons.avatar_body",
+  "sideEffects": false,
+  "main": "dist/icons.avatar_body.cjs.js",
+  "module": "dist/icons.avatar_body.es.js",
+  "version": "4.0.0-alpha.5",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^4.0.0-alpha.4"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2 || ^17.0.1",
+    "react-dom": "^16.10.2 || ^17.0.1"
+  },
+  "license": "MIT",
+  "types": "dist/index.d.ts"
+}

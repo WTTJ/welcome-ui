@@ -22,9 +22,9 @@ export const Input = styled('input').withConfig({ shouldForwardProp })(
     ${defaultFieldStyles};
     ${overflowEllipsis};
     ${hasIcon &&
-      css`
-        padding-left: ${th(`defaultFields.sizes.${size}.height`)};
-      `};
+    css`
+      padding-left: ${th(`defaultFields.sizes.${size}.height`)};
+    `};
     ${componentSystem};
 
     br {
