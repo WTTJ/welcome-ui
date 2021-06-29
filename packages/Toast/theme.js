@@ -33,11 +33,11 @@ export const getToasts = theme => {
       },
       info: {
         backgroundColor: colors.info[100],
-        borderColor: colors.info[500]
+        borderColor: colors.info[700]
       },
       success: {
         backgroundColor: colors.success[100],
-        borderColor: colors.success[500]
+        borderColor: colors.success[700]
       },
       title: {
         ...getTexts(theme).h5,

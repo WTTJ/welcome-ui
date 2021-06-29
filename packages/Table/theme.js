@@ -30,11 +30,11 @@ export const getTables = theme => {
       },
       info: {
         backgroundColor: colors.info[100],
-        color: colors.info[500]
+        color: colors.info[700]
       },
       success: {
         backgroundColor: colors.success[100],
-        color: colors.success[500]
+        color: colors.success[700]
       },
       clickable: {
         cursor: 'pointer'
