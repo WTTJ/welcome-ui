@@ -6,27 +6,19 @@ import { defaultFieldStyles } from '@welcome-ui/utils'
 import { InputTextOptions } from './index'
 
 export const InputText = styled('input').withConfig({ shouldForwardProp })<InputTextOptions>(
-  ({ connected, icon, iconPlacement, isClearable, size, variant }) => css`
-    ${defaultFieldStyles({ size, variant })};
+  ({ connected, icon, iconPlacement, isClearable, size, ...rest }) => css`
+    ${defaultFieldStyles({})};
     text-overflow: ellipsis;
 
-    /* With icon */
     ${icon &&
     iconPlacement === 'left' &&
     css`
-      padding-left: ${th(`defaultFields.sizes.${size}.height`)};
-    `};
-    ${icon &&
-    iconPlacement === 'right' &&
+      padding-left: ${icon ? th(`defaultFields.sizes.${size}.height`)(rest) : null};
+    `}
+    ${((icon && iconPlacement === 'right') || isClearable) &&
     css`
-      padding-right: ${th(`defaultFields.sizes.${size}.height`)};
-    `};
-
-    /* With clear button */
-    ${isClearable &&
-    css`
-      padding-right: ${th(`defaultFields.sizes.${size}.height`)};
-    `};
+      padding-right: ${icon ? th(`defaultFields.sizes.${size}.height`)(rest) : null};
+    `}
 
     ${connected ? componentSystem : system};
   `

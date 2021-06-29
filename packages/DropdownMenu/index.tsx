@@ -1,7 +1,7 @@
 import React from 'react'
-import { MenuButton, MenuOptions, Menu as ReakitMenu, useMenuState } from 'reakit/Menu'
+import { MenuButton, MenuProps, Menu as ReakitMenu, useMenuState } from 'reakit/Menu'
 import { useNextFrame } from '@welcome-ui/utils'
-import { CreateWuiProps, WuiProps } from '@welcome-ui/system'
+import { WuiProps, WuiSystemProps, WuiTestProps } from '@welcome-ui/system'
 
 import { Item } from './Item'
 import { Separator } from './Separator'
@@ -12,7 +12,7 @@ export interface DropdownMenuOptions {
   visible?: boolean
 }
 
-export type DropdownMenuProps = CreateWuiProps<typeof ReakitMenu, DropdownMenuOptions & MenuOptions>
+export type DropdownMenuProps = DropdownMenuOptions & MenuProps & WuiSystemProps & WuiTestProps
 
 const DropdownMenuComponent: React.FC<DropdownMenuProps> = ({
   children,
@@ -35,7 +35,7 @@ const DropdownMenuComponent: React.FC<DropdownMenuProps> = ({
       {menuProps => (
         <S.Inner
           {...menuProps}
-          {...(innerProps as Omit<WuiProps, keyof typeof menuProps>)}
+          {...innerProps}
           style={{
             ...menuProps.style,
             opacity: delayedVisible ? 1 : 0,
