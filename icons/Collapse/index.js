@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const CollapseIcon = props => <Icon alt="Collapse" content={content} {...props} />
+
+export function CollapseIcon(props) {
+  return <Icon alt="Collapse" content={content} {...props} />
+}

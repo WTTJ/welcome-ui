@@ -11,11 +11,11 @@ import {
   INPUTS_TYPE,
   OPTIONS_TYPE,
   SIZES_TYPE,
-  VARIANTS_TYPE
+  VARIANTS_TYPE,
 } from '../../utils/propTypes'
 
 import { kebabCase } from './utils'
-import { MultipleSelections } from './MultipleSelections'
+import { multipleSelections } from './multipleSelections'
 import * as S from './styles'
 import {
   getInputValue,
@@ -25,7 +25,7 @@ import {
   getUniqueValue,
   getValuesFromOptions,
   isValueSelected,
-  itemToString
+  itemToString,
 } from './utils'
 
 export const Select = forwardRef(
@@ -52,7 +52,7 @@ export const Select = forwardRef(
       placeholder = 'Choose from…',
       renderCreateItem = inputValue => `Create "${inputValue}"`,
       renderItem = itemToString,
-      renderMultiple = MultipleSelections,
+      renderMultiple = multipleSelections,
       size = 'lg',
       type,
       value: defaultSelected,
@@ -181,7 +181,7 @@ export const Select = forwardRef(
       isMultiple,
       isSearchable,
       options: defaultOptions,
-      renderItem
+      renderItem,
     })
 
     return (
@@ -202,7 +202,7 @@ export const Select = forwardRef(
           getMenuProps,
           getRootProps,
           getToggleButtonProps,
-          highlightedIndex
+          highlightedIndex,
         }) => {
           const isShowCreate = !!(
             isCreatable &&
@@ -225,7 +225,7 @@ export const Select = forwardRef(
               size={size}
               tabIndex={-1}
               {...getToggleButtonProps({
-                onClick: () => setIsOpen(!isOpen)
+                onClick: () => setIsOpen(!isOpen),
               })}
             >
               <DownIcon color="nude.800" size="xs" />
@@ -256,7 +256,7 @@ export const Select = forwardRef(
             size,
             tabIndex: 0,
             variant: isOpen ? 'focused' : variant,
-            ...rest
+            ...rest,
           })
 
           return (
@@ -297,7 +297,7 @@ export const Select = forwardRef(
                                         isSelected: isItemSelected,
                                         allowUnselectFromList,
                                         isMultiple,
-                                        item: option
+                                        item: option,
                                       })}
                                     >
                                       {renderItem(option, isItemSelected)}
@@ -318,7 +318,7 @@ export const Select = forwardRef(
                                 isSelected: isItemSelected,
                                 allowUnselectFromList,
                                 isMultiple,
-                                item: result
+                                item: result,
                               })}
                             >
                               {renderItem(result, isItemSelected)}
@@ -339,8 +339,8 @@ export const Select = forwardRef(
                         isHighlighted: highlightedIndex === options.length,
                         item: {
                           value: kebabCase(inputValue),
-                          label: inputValue
-                        }
+                          label: inputValue,
+                        },
                       })}
                     >
                       {renderCreateItem(inputValue)}
@@ -398,9 +398,9 @@ Select.propTypes /* remove-proptypes */ = {
     string,
     arrayOf(string),
     number,
-    arrayOf(number)
+    arrayOf(number),
   ]),
-  variant: oneOf(VARIANTS_TYPE)
+  variant: oneOf(VARIANTS_TYPE),
 }
 
 export const StyledSelect = S.Wrapper

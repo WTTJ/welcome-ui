@@ -21,7 +21,7 @@ export const TabList = styled(Tab.List)`
 `
 
 export const EmojiButton = styled(Box).attrs({
-  as: 'button'
+  as: 'button',
 })`
   padding: 0;
   border: 0;

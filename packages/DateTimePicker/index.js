@@ -48,7 +48,7 @@ export const DateTimePicker = forwardRef(
               // give ref only to the first child
               inputRef: i < 1 ? ref : null,
               locale: locale,
-              value: date
+              value: date,
             })
           )}
         {!children && (
@@ -83,5 +83,5 @@ DateTimePicker.propTypes /* remove-proptypes */ = {
   locale: object,
   onChange: func,
   size: oneOf(SIZES_TYPE),
-  value: oneOfType([number, object, string])
+  value: oneOfType([number, object, string]),
 }

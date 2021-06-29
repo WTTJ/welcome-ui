@@ -38,7 +38,7 @@ export const Header = () => {
         display="flex"
         h={{ xs: 1, md: 'auto' }}
         justifyContent="space-between"
-        w={1}
+        w="100%"
       >
         <NextLink href="/" passHref>
           <Box alignItems="center" alt="Homepage" as="a" display="flex">
@@ -71,10 +71,10 @@ export const Header = () => {
           </Modal.Trigger>
         </Box>
       </Box>
-      <Box display={{ xs: 'none', md: 'block' }} mt="xl" w={1}>
+      <Box display={{ xs: 'none', md: 'block' }} mt="xl" w="100%">
         <SelectTheme id="navigation" />
       </Box>
-      <Box display={{ xs: 'none', md: 'block' }} mt="md" w={1}>
+      <Box display={{ xs: 'none', md: 'block' }} mt="md" w="100%">
         <Field
           component={InputText}
           icon={<SearchIcon color="light.100" size="sm" />}

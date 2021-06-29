@@ -34,5 +34,5 @@ ConnectedField.displayName = 'WelcomeField'
 ConnectedField.propTypes /* remove-proptypes */ = {
   children: node,
   component: oneOfType(COMPONENT_TYPE),
-  type: string
+  type: string,
 }

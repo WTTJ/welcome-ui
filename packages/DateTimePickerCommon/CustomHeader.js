@@ -8,7 +8,7 @@ import { Select } from '@welcome-ui/select'
 import * as S from './styles'
 import { getMonths, getYears } from './utils'
 
-export const CustomHeader = ({
+export function CustomHeader({
   changeMonth,
   changeYear,
   date,
@@ -16,8 +16,8 @@ export const CustomHeader = ({
   endYear,
   increaseMonth,
   locale,
-  startYear
-}) => {
+  startYear,
+}) {
   const [month, setMonth] = useState(null)
   const [year, setYear] = useState(null)
 
@@ -70,5 +70,5 @@ CustomHeader.propTypes /* remove-proptypes */ = {
   endYear: number,
   increaseMonth: func,
   locale: object,
-  startYear: number
+  startYear: number,
 }

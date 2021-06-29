@@ -32,7 +32,7 @@ const ICONS = {
   code: <CodeIcon />,
   quote: <QuoteIcon />,
   unordered_list: <UnorderedListIcon />,
-  ordered_list: <OrderedListIcon />
+  ordered_list: <OrderedListIcon />,
 }
 
 export const MarkdownEditor = forwardRef(
@@ -87,7 +87,7 @@ export const MarkdownEditor = forwardRef(
       quote: 'toggleBlockquote',
       unordered_list: 'toggleUnorderedList',
       ordered_list: 'toggleOrderedList',
-      horizontal_rule: 'drawHorizontalRule'
+      horizontal_rule: 'drawHorizontalRule',
     }
 
     useEffect(() => {
@@ -97,7 +97,7 @@ export const MarkdownEditor = forwardRef(
           name: name,
           title: title || name,
           icon: icon || ICONS[name],
-          action: action || DEFAULT_TOOLBAR_ACTIONS[name] || null
+          action: action || DEFAULT_TOOLBAR_ACTIONS[name] || null,
         }))
       )
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -182,7 +182,7 @@ export const MarkdownEditor = forwardRef(
             tabSize: 4,
             spellChecker: false,
             status: false,
-            minHeight
+            minHeight,
           }}
           pb={actionsRef?.current?.offsetHeight}
           ref={ref}
@@ -211,9 +211,9 @@ MarkdownEditor.propTypes /* remove-proptypes */ = {
     shape({
       action: oneOfType([func, string]),
       icon: node,
-      name: string.isRequired
+      name: string.isRequired,
     })
   ),
   value: string,
-  variant: oneOf(VARIANTS_TYPE)
+  variant: oneOf(VARIANTS_TYPE),
 }

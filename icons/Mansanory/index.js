@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const MansanoryIcon = props => <Icon alt="Mansanory" content={content} {...props} />
+
+export function MansanoryIcon(props) {
+  return <Icon alt="Mansanory" content={content} {...props} />
+}

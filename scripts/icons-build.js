@@ -20,7 +20,7 @@ const IGNORE_DIRS = ['_assets', 'dist', 'node_modules']
 
 // Read icons/assets/*.svg
 const readIconsFromFolders = () => {
-  console.log(`Building individual icons…`.grey)
+  console.log('Building individual icons…'.grey)
   return fs.readdirAsync(ICONS_PATH).then(keys => {
     keys.forEach(key => {
       const isDirectory = fs.lstatSync(`${ICONS_PATH}/${key}`).isDirectory()
@@ -37,6 +37,9 @@ const readIconsFromFolders = () => {
         exec(`cd ${pwd}`)
         rollup({ ...inputOptions })
           .then(bundle => bundle.write(outputOptions))
+          .then(() => {
+            exec(`cd ${pwd} && cp index.d.ts dist/index.d.ts`)
+          })
           .then(() =>
             console.log(
               'build',

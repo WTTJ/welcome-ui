@@ -3,7 +3,7 @@ import { bool, func } from 'prop-types'
 import { Button } from '@welcome-ui/button'
 import { Text } from '@welcome-ui/text'
 
-export const Message = ({ disabled, openFile }) => {
+export function Message({ disabled, openFile }) {
   return (
     <>
       <Text color="dark.900" m="0" variant="h5">
@@ -21,5 +21,5 @@ export const Message = ({ disabled, openFile }) => {
 
 Message.propTypes /* remove-proptypes */ = {
   disabled: bool,
-  openFile: func
+  openFile: func,
 }

@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const ClipboardIcon = props => <Icon alt="Clipboard" content={content} {...props} />
+
+export function ClipboardIcon(props) {
+  return <Icon alt="Clipboard" content={content} {...props} />
+}

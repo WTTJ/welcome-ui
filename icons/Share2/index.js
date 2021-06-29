@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const Share2Icon = props => <Icon alt="Share2" content={content} {...props} />
+
+export function Share2Icon(props) {
+  return <Icon alt="Share2" content={content} {...props} />
+}

@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const UploadIcon = props => <Icon alt="Upload" content={content} {...props} />
+
+export function UploadIcon(props) {
+  return <Icon alt="Upload" content={content} {...props} />
+}
