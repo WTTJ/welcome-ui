@@ -11,8 +11,9 @@ export const colors = {
   },
   success: {
     100: '#E6FAE7',
-    200: '#52B45A',
-    500: '#2F9237'
+    200: '#7EC784',
+    500: '#52B45A',
+    700: '#2F9237'
   },
   danger: {
     100: '#FFECEC',
@@ -28,8 +29,9 @@ export const colors = {
   },
   info: {
     100: '#EAF2FE',
-    200: '#3E7BD7',
-    500: '#1B57B2'
+    200: '#6696DF',
+    500: '#3E7BD7',
+    700: '#1B57B2'
   },
   light: {
     100: '#7D7D7D',
