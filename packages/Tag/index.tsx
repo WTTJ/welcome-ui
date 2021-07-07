@@ -5,7 +5,7 @@ import { SystemProps } from '@xstyled/system'
 
 import * as S from './styles'
 
-export type Shape = 'cricle' | 'square'
+export type Shape = 'circle' | 'square'
 export type Size = 'sm' | 'md' | 'lg'
 export type Variant =
   | '1'
