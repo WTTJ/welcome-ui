@@ -9,7 +9,7 @@ export const Header = styled.header`
   position: fixed;
   padding: 0 md;
   top: 0;
-  width: 1;
+  width: 100%;
   z-index: 1;
 
   ${up(
