@@ -4,8 +4,8 @@ import { WuiProps } from '@welcome-ui/system'
 
 export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   dataTestId?: string
-  direction: 'column' | 'row'
-  spacing: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+  direction?: 'column' | 'row'
+  spacing?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 }
 
 export const Stack = forwardRef<HTMLDivElement, StackProps & WuiProps>(
@@ -25,8 +25,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps & WuiProps>(
       >
         {validChildrenArray.map((child, i) => {
           const isLastChild = validChildrenArray.length === i + 1
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const childAs: React.ElementType<any> = as === 'ol' || as === 'ul' ? 'li' : 'div'
+          const childAs: React.ElementType = as === 'ol' || as === 'ul' ? 'li' : 'div'
 
           const childProps = {
             as: childAs,
