@@ -3,7 +3,14 @@ import { th } from '@xstyled/system'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
 import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
 
-export const Toggle = styled(ReakitCheckbox).withConfig({ shouldForwardProp })(
+export interface StyledToggleProps {
+  checked?: boolean
+  connected?: boolean
+  disabled?: boolean
+  order: string
+}
+
+export const Toggle = styled(ReakitCheckbox).withConfig({ shouldForwardProp })<StyledToggleProps>(
   ({ checked, connected, disabled, order = '-1', theme }) => css`
     ${th('toggles.item.default')};
     position: relative;
