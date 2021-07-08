@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
-import { componentSystem, shouldForwardProp, system, WuiProps } from '@welcome-ui/system'
+import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 export interface StyledCheckboxProps {
@@ -19,7 +19,7 @@ export interface StyledCheckboxProps {
 }
 
 export const Checkbox = styled(ReakitCheckbox).withConfig({ shouldForwardProp })<
-  StyledCheckboxProps & WuiProps
+  StyledCheckboxProps
 >(
   ({ connected, order = '-1', theme }) => css`
     ${defaultFieldStyles};
