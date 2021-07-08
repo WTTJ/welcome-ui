@@ -1,7 +1,5 @@
 import React, { forwardRef } from 'react'
-import { node, number, oneOf, oneOfType } from 'prop-types'
-
-import { COMPONENT_TYPE } from '../../utils/propTypes'
+import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -23,7 +21,30 @@ const TAG_NAMES = {
   meta2: 'p'
 }
 
-export const Text = forwardRef(
+export type Variant =
+  | 'h0'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'body1'
+  | 'body2'
+  | 'body3'
+  | 'body4'
+  | 'subtitle1'
+  | 'subtitle2'
+  | 'meta1'
+  | 'meta2'
+
+export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
+  lines?: number
+  variant?: Variant
+  dataTestId?: string
+}
+
+export const Text = forwardRef<HTMLParagraphElement, TextProps & WuiProps>(
   ({ as, children, dataTestId, lines, variant = 'body2', ...rest }, ref) => {
     const tagName = as || TAG_NAMES[variant]
     const className = rest.className || ''
@@ -45,10 +66,3 @@ export const Text = forwardRef(
 )
 
 Text.displayName = 'Text'
-
-Text.propTypes /* remove-proptypes */ = {
-  as: oneOfType(COMPONENT_TYPE),
-  children: node,
-  lines: number,
-  variant: oneOf(Object.keys(TAG_NAMES))
-}

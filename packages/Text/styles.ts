@@ -2,7 +2,9 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { system } from '@welcome-ui/system'
 
-const getBlockHeight = lines => css`
+import { Variant } from './index'
+
+const getBlockHeight = (lines: number) => css`
   /* stylelint-disable-next-line value-no-vendor-prefix */
   display: -webkit-box;
   /* stylelint-disable-next-line property-no-vendor-prefix */
@@ -14,7 +16,7 @@ const getBlockHeight = lines => css`
   word-break: ${lines === 1 ? 'break-all' : null};
 `
 
-export const Text = styled.p(
+export const Text = styled.p<{ lines: number; variant: Variant }>(
   ({ lines, variant }) => css`
     ${th(`texts.${variant}`)};
 
@@ -23,6 +25,6 @@ export const Text = styled.p(
     ${lines && lines !== Infinity && getBlockHeight(lines)};
     /* End fallback for non-webkit */
 
-    ${system};
+    ${system}
   `
 )
