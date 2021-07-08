@@ -3,7 +3,9 @@ import { th } from '@xstyled/system'
 import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
-export const Textarea = styled('textarea').withConfig({ shouldForwardProp })(
+export const Textarea = styled('textarea').withConfig({ shouldForwardProp })<{
+  connected?: boolean
+}>(
   ({ connected }) => css`
     ${defaultFieldStyles};
     ${th('textareas')};
