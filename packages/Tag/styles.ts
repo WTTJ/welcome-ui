@@ -1,7 +1,8 @@
 import styled, { css } from '@xstyled/styled-components'
-import { HeightProps, system, SystemProps, th, WidthProps } from '@xstyled/system'
+import { HeightProps, system, th, WidthProps } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
+import { WuiProps } from '@welcome-ui/system'
 
 import { Shape, Size, Variant } from './index'
 
@@ -24,7 +25,7 @@ export interface StyledTagProps {
   shape: Shape
 }
 
-export const Tag = styled.div<StyledTagProps & SystemProps>(
+export const Tag = styled.div<StyledTagProps & WuiProps>(
   ({ h, hasAction, length, shape, size, variant, w }) => css`
     ${th('tags.default')};
     ${th(`tags.variants.${variant}`)};

@@ -1,4 +1,4 @@
-import { compose, IProps } from '@xstyled/system'
+import { compose, IProps, SystemProps } from '@xstyled/system'
 import { getPx, getTransition, getZIndex, style } from '@xstyled/styled-components'
 import * as S from '@xstyled/system'
 import { StyledConfig } from 'styled-components'
@@ -63,3 +63,7 @@ export const componentSystem = compose(...componentProps)
 export const filterSystemProps = (prop: string): boolean => !system.meta.props.includes(prop)
 export const shouldForwardProp: StyledConfig['shouldForwardProp'] = (prop, defaultValidatorFn) =>
   defaultValidatorFn(prop)
+
+export interface WuiProps extends SystemProps {
+  as?: React.ElementType
+}

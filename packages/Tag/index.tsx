@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { wrapChildren } from '@welcome-ui/utils'
-import { SystemProps } from '@xstyled/system'
+import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -32,7 +32,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   shape?: Shape
 }
 
-export const Tag = forwardRef<HTMLDivElement, TagProps & SystemProps>(
+export const Tag = forwardRef<HTMLDivElement, TagProps & WuiProps>(
   ({ children, dataTestId, onRemove, shape, size = 'md', variant = 'default', ...rest }, ref) => {
     const content = wrapChildren(children)
     // get size children for int and string
