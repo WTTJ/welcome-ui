@@ -1,10 +1,12 @@
 import styled, { css } from '@xstyled/styled-components'
+import { system, SystemProps, th } from '@xstyled/system'
 import { Button as ReakitButton } from 'reakit/Button'
-import { th } from '@xstyled/system'
-import { shouldForwardProp, system } from '@welcome-ui/system'
+import { shouldForwardProp } from '@welcome-ui/system'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 
-const shapeStyles = (size, shape) => css`
+import { Shape, Size, Variant } from './index'
+
+const shapeStyles = (size: Size, shape = 'square') => css`
   width: ${th(`buttons.sizes.${size}.height`)};
   padding: 0;
   ${shape === 'circle' &&
@@ -13,7 +15,16 @@ const shapeStyles = (size, shape) => css`
     `};
 `
 
-export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })(
+export interface StyledButtonProps {
+  disabled?: boolean
+  shape?: Shape
+  size?: Size
+  variant?: Variant
+}
+
+export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<
+  StyledButtonProps & SystemProps
+>(
   ({ disabled, shape, size = 'md', variant }) => css`
     ${th(`buttons.${variant}`)};
     position: relative;

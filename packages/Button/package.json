@@ -4,6 +4,7 @@
   "description": "welcome-ui: A button component",
   "main": "dist/button.cjs.js",
   "module": "dist/button.es.js",
+  "types": "dist/index.d.ts",
   "component": "Button",
   "scripts": {
     "build": "rollup -c",
