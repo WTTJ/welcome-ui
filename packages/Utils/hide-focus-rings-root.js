@@ -9,10 +9,10 @@ export const hideFocusRingsDataAttribute = 'data-wui-hidefocusrings'
 
 const HideFocusRingGlobalStyles = createGlobalStyle(
   () => css`
-  [${hideFocusRingsDataAttribute}] *:focus {
-    outline: none
-  }
-`
+    [${hideFocusRingsDataAttribute}] *:focus {
+      outline: none;
+    }
+  `
 )
 
 export const HideFocusRingsRoot = ({ children, reactRootId }) => {

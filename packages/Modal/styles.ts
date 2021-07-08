@@ -1,5 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { cardStyles } from '@welcome-ui/utils'
 import { Shape } from '@welcome-ui/shape'
@@ -7,7 +6,7 @@ import { DialogBackdrop, Dialog as ReakitDialog } from 'reakit/Dialog'
 
 export const Backdrop = styled(DialogBackdrop).withConfig({
   shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop)
-})(
+})<{ hideOnClickOutside: boolean }>(
   ({ hideOnClickOutside }) => css`
     ${th('modals.backdrop')};
     display: flex;
@@ -32,7 +31,7 @@ export const Backdrop = styled(DialogBackdrop).withConfig({
   `
 )
 
-export const Dialog = styled(ReakitDialog)(
+export const Dialog = styled(ReakitDialog)<{ size: string }>(
   ({ size, theme }) => css`
     ${cardStyles};
     ${th('modals.default')};

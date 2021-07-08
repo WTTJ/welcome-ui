@@ -10,7 +10,7 @@ const shapeStyles = (size: Size, shape = 'square') => css`
   width: ${th(`buttons.sizes.${size}.height`)};
   padding: 0;
   ${shape === 'circle' &&
-    css`
+  css`
       border-radius: ${th(`buttons.sizes.${size}.height`)};
     `};
 `
@@ -51,7 +51,7 @@ export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<
     }
 
     ${!disabled &&
-      css`
+    css`
         [${hideFocusRingsDataAttribute}] &:focus {
           box-shadow: none;
         }
