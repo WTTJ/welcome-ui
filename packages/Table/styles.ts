@@ -3,7 +3,7 @@ import { th } from '@xstyled/system'
 import { Box } from '@welcome-ui/box'
 import { system } from '@welcome-ui/system'
 
-export const Wrapper = styled(Box)(
+export const Wrapper = styled(Box)<{ indent: boolean }>(
   ({ indent }) => css`
     overflow: hidden;
     width: 100%;
@@ -44,7 +44,9 @@ export const Tbody = styled.tbody`
   ${system}
 `
 
-export const Tr = styled.tr(
+type Variant = 'default' | 'error' | 'warning' | 'info' | 'success' | 'clickable'
+
+export const Tr = styled.tr<{ variant?: Variant }>(
   ({ onClick, variant }) => css`
     ${th('tables.tr.default')};
     ${variant && th(`tables.tr.${variant}`)};
