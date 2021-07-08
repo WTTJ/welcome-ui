@@ -1,14 +1,35 @@
 import React, { forwardRef } from 'react'
-import { bool, func, node, oneOf, string } from 'prop-types'
 import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { createEvent } from '@welcome-ui/utils'
-
-import { SIZES_TYPE, VARIANTS_TYPE } from '../../utils/propTypes'
+import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export const InputText = forwardRef(
+type Size = 'sm' | 'md' | 'lg'
+type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
+
+export interface InputTextProps extends React.HTMLAttributes<HTMLInputElement> {
+  autoFocus?: boolean
+  connected?: boolean
+  dataTestId?: string
+  disabled?: boolean
+  icon?: JSX.Element
+  iconPlacement?: 'left' | 'right'
+  isClearable?: boolean
+  name?: string
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void
+  placeholder?: string
+  size?: Size
+  type?: string
+  value?: string
+  variant?: Variant
+}
+
+export const InputText = forwardRef<HTMLInputElement, InputTextProps & WuiProps>(
   (
     {
       autoFocus,
@@ -33,7 +54,7 @@ export const InputText = forwardRef(
     ref
   ) => {
     const handleReset = () => {
-      const event = createEvent({ name, value: '' })
+      const event = createEvent({ name, value: '' }) as React.ChangeEvent<HTMLInputElement>
       onChange && onChange(event)
     }
 
@@ -77,22 +98,3 @@ export const InputText = forwardRef(
 )
 
 InputText.displayName = 'InputText'
-
-InputText.propTypes /* remove-proptypes */ = {
-  autoFocus: bool,
-  connected: bool,
-  disabled: bool,
-  icon: node,
-  iconPlacement: oneOf(['left', 'right']),
-  isClearable: bool,
-  name: string,
-  onBlur: func,
-  onChange: func,
-  onFocus: func,
-  onKeyDown: func,
-  placeholder: string,
-  size: oneOf(SIZES_TYPE),
-  type: string,
-  value: string,
-  variant: oneOf(VARIANTS_TYPE)
-}
