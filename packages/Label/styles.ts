@@ -1,10 +1,9 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { system } from '@welcome-ui/system'
+import { shouldForwardProp, system } from '@welcome-ui/system'
 import { getVariantColor } from '@welcome-ui/utils'
-import { shouldForwardProp } from '@welcome-ui/system'
 
-export const Label = styled('label').withConfig({ shouldForwardProp })(
+export const Label = styled('label').withConfig({ shouldForwardProp })<{ required: boolean }>(
   ({ required }) => css`
     display: flex;
     flex-shrink: 0;
@@ -44,7 +43,8 @@ export const Disabled = styled.div`
   margin-right: xxs;
 `
 
-export const Icon = styled.div(
+// todo get Variant from @welcome-ui/utils -> getVariantColor
+export const Icon = styled.div<{ variant: string }>(
   ({ variant }) => css`
     display: inline-flex;
     margin-right: xxs;

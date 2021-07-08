@@ -1,12 +1,25 @@
 import React, { forwardRef } from 'react'
-import { bool, node, oneOf } from 'prop-types'
 import { LockIcon } from '@welcome-ui/icons.lock'
 import { VariantIcon } from '@welcome-ui/variant-icon'
 import { wrapChildren } from '@welcome-ui/utils'
+import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export const Label = forwardRef(
+export type Variant = 'error' | 'warning' | 'info' | 'success'
+
+export interface LabelProps extends React.HTMLAttributes<HTMLLabelElement> {
+  checkableField?: boolean
+  disabled?: boolean
+  dataTestId?: string
+  disabledIcon?: JSX.Element
+  icon?: JSX.Element
+  variant?: Variant
+  required?: boolean
+  withDisabledIcon?: boolean
+}
+
+export const Label = forwardRef<HTMLLabelElement, LabelProps & WuiProps>(
   (
     {
       checkableField,
@@ -42,15 +55,5 @@ export const Label = forwardRef(
 )
 
 Label.displayName = 'Label'
-
-Label.propTypes /* remove-proptypes */ = {
-  checkableField: bool,
-  children: node,
-  disabled: bool,
-  disabledIcon: node,
-  icon: node,
-  variant: oneOf(['error', 'warning', 'info', 'success']),
-  withDisabledIcon: bool
-}
 
 export const StyledLabel = S.Label
