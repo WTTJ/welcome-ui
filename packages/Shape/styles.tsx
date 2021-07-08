@@ -1,14 +1,19 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css, HeightProps, SystemProps, WidthProps } from '@xstyled/styled-components'
 import { system } from '@welcome-ui/system'
 import { getMax } from '@welcome-ui/utils'
+import { ShapeType } from 'Shape'
 
-const shapeStyles = (w, h, shape) => css`
+const shapeStyles = (w: WidthProps['w'], h: HeightProps['h'], shape: ShapeType) => css`
   width: ${getMax(w, h)};
   height: ${getMax(w, h)};
   border-radius: ${shape === 'circle' && '50%'};
 `
 
-export const Shape = styled.div(
+interface ShapeProps {
+  shape: ShapeType
+}
+
+export const Shape = styled.div<ShapeProps & SystemProps>(
   ({ h, shape, w }) => css`
     position: relative;
     overflow: hidden;
