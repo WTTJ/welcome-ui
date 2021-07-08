@@ -60,6 +60,6 @@ const componentProps = system.meta.props
   .filter(Boolean)
 export const componentSystem = compose(...componentProps)
 
-export const filterSystemProps = (prop: string) => !system.meta.props.includes(prop)
+export const filterSystemProps = (prop: string): boolean => !system.meta.props.includes(prop)
 export const shouldForwardProp: StyledConfig['shouldForwardProp'] = (prop, defaultValidatorFn) =>
   defaultValidatorFn(prop)

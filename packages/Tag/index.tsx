@@ -33,7 +33,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Tag = forwardRef<HTMLDivElement, TagProps & SystemProps>(
-  ({ children, dataTestId, onRemove, size = 'md', variant = 'default', shape, ...rest }, ref) => {
+  ({ children, dataTestId, onRemove, shape, size = 'md', variant = 'default', ...rest }, ref) => {
     const content = wrapChildren(children)
     // get size children for int and string
     const childrenLength =
@@ -48,9 +48,9 @@ export const Tag = forwardRef<HTMLDivElement, TagProps & SystemProps>(
         length={childrenLength}
         ref={ref}
         role="listitem"
+        shape={shape}
         size={size}
         variant={variant}
-        shape={shape}
         {...rest}
       >
         {content}

@@ -1,9 +1,2 @@
 **/node_modules/**
 **/dist/**
-
-
-
-
-# todo
-packages/**/*.tsx 
-packages/**/*.ts 
