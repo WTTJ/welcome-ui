@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { SystemProps } from '@xstyled/system'
+import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -29,7 +29,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   shape?: Shape
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps & SystemProps>(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps & WuiProps>(
   ({ children, dataTestId, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
     <S.Button
       data-testid={dataTestId}

@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
-import { system, SystemProps, th } from '@xstyled/system'
+import { system, th } from '@xstyled/system'
 import { Button as ReakitButton } from 'reakit/Button'
-import { shouldForwardProp } from '@welcome-ui/system'
+import { shouldForwardProp, WuiProps } from '@welcome-ui/system'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 
 import { Shape, Size, Variant } from './index'
@@ -23,7 +23,7 @@ export interface StyledButtonProps {
 }
 
 export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<
-  StyledButtonProps & SystemProps
+  StyledButtonProps & WuiProps
 >(
   ({ disabled, shape, size = 'md', variant }) => css`
     ${th(`buttons.${variant}`)};
