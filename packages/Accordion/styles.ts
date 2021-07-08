@@ -20,7 +20,7 @@ export const Icon = styled(Box)<{ visible: boolean }>(
 
 export const Disclosure = styled(ReakitDisclosure)`
   ${th('accordions.title')};
-  width: 1;
+  width: 100%;
   padding: ${th('accordions.padding')};
   background-color: transparent;
   border: 0;

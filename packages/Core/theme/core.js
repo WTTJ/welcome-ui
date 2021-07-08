@@ -43,7 +43,7 @@ import {
   getTextsFontWeights,
   getTextsTextTransform
 } from './typography'
-import { timingFunctions, transitions } from './transitions'
+import { timingFunction, transitions } from './transitions'
 import { getUnderline } from './underline'
 import { getDefaultFields } from './defaultFields'
 import { getDefaultCards } from './defaultCards'
@@ -134,7 +134,7 @@ export const createTheme = (options = {}) => {
   theme.radii = { sm: '4px', md: '6px', lg: '10px' }
 
   theme.transitions = transitions
-  theme.timingFunctions = timingFunctions
+  theme.timingFunction = timingFunction
 
   theme.shadows = {
     sm: '1px 2px 4px 0 rgba(0,0,0,0.05)',
