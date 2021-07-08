@@ -3,7 +3,9 @@ import { th } from '@xstyled/system'
 import { UniversalLink } from '@welcome-ui/universal-link'
 import { shouldForwardProp, system } from '@welcome-ui/system'
 
-export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })(
+import { Variant } from './index'
+
+export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{ variant: Variant }>(
   ({ variant }) => css`
     display: inline-flex;
     flex-direction: row;

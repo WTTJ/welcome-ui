@@ -1,34 +1,42 @@
 /* eslint-disable react/no-multi-comp */
 import React, { Children, cloneElement, forwardRef, useEffect, useRef, useState } from 'react'
-import { node, oneOf } from 'prop-types'
 import { useTheme } from '@xstyled/styled-components'
+import { WuiProps } from '@welcome-ui/system'
+import { UniversalLinkProps } from '@welcome-ui/universal-link'
 
 import * as S from './styles'
 
-const isString = value => typeof value === 'string'
+const isString = (value: unknown): boolean => typeof value === 'string'
 
-export const Link = forwardRef((props, ref) => {
+export type Variant = 'primary' | 'secondary'
+
+export interface LinkProps extends UniversalLinkProps {
+  dataTestId?: string
+  variant?: Variant
+}
+
+export const Link = forwardRef<HTMLLinkElement, LinkProps & WuiProps>((props, ref) => {
   const { children, dataTestId, variant = 'primary', ...rest } = props
   let clones
   const theme = useTheme()
-  const linkRef = useRef()
+  const linkRef = useRef<HTMLLinkElement>(null)
   const [isChildrenString, setIsChildrenString] = useState(isString(children))
 
-  const WrapWithText = ({ children, ...rest }) => (
+  const WrapWithText: React.FC = ({ children, ...rest }) => (
     <span className="wui-text" {...rest}>
       {children}
     </span>
   )
 
   useEffect(() => {
-    const innerRef = ref || linkRef
+    const innerRef = (ref || linkRef) as React.MutableRefObject<HTMLLinkElement>
     if (innerRef && innerRef.current) {
       setIsChildrenString(innerRef.current.childElementCount === 0)
     }
   }, [linkRef, ref])
 
   if (!isChildrenString) {
-    clones = Children.map(children, (child, index) => {
+    clones = Children.map(children, (child: React.ReactElement, index) => {
       const key = `link-child-${index}`
       if (isString(child)) {
         return <WrapWithText key={key}>{child}</WrapWithText>
@@ -52,8 +60,3 @@ export const Link = forwardRef((props, ref) => {
 })
 
 Link.displayName = 'Link'
-
-Link.propTypes /* remove-proptypes */ = {
-  children: node.isRequired,
-  variant: oneOf(['primary', 'secondary'])
-}
