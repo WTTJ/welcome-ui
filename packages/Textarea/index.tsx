@@ -23,7 +23,7 @@ export interface TextareaProps extends React.HTMLAttributes<HTMLTextAreaElement>
   variant?: Variant
 }
 
-export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps & WuiProps>(
+const TextareaComponent = forwardRef<HTMLTextAreaElement, TextareaProps & WuiProps>(
   (
     {
       autoFocus,
@@ -65,7 +65,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps & WuiProps
   )
 )
 
-// todo: usefull ?
-// Textarea.type = 'Textarea'
+TextareaComponent.displayName = 'Textarea'
 
-Textarea.displayName = 'Textarea'
+export const Textarea = Object.assign(TextareaComponent, {
+  type: 'Textarea'
+})
