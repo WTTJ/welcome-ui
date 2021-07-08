@@ -1,8 +1,14 @@
 import React, { Children, forwardRef, isValidElement } from 'react'
-import { node, oneOf, string } from 'prop-types'
 import { Box } from '@welcome-ui/box'
+import { WuiProps } from '@welcome-ui/system'
 
-export const Stack = forwardRef(
+export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
+  dataTestId?: string
+  direction: 'column' | 'row'
+  spacing: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+}
+
+export const Stack = forwardRef<HTMLDivElement, StackProps & WuiProps>(
   ({ as = 'div', children, dataTestId, direction = 'column', spacing = 'md', ...rest }, ref) => {
     const validChildrenArray = Children.toArray(children).filter(isValidElement)
 
@@ -19,9 +25,11 @@ export const Stack = forwardRef(
       >
         {validChildrenArray.map((child, i) => {
           const isLastChild = validChildrenArray.length === i + 1
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const childAs: React.ElementType<any> = as === 'ol' || as === 'ul' ? 'li' : 'div'
 
           const childProps = {
-            as: as === 'ol' || as === 'ul' ? 'li' : 'div',
+            as: childAs,
             key: `stack-item-${i}`,
             [marginType]: isLastChild ? null : spacing
           }
@@ -35,10 +43,3 @@ export const Stack = forwardRef(
 )
 
 Stack.displayName = 'Stack'
-
-Stack.propTypes /* remove-proptypes */ = {
-  as: string,
-  children: node,
-  direction: oneOf(['column', 'row']),
-  spacing: oneOf(['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'])
-}
