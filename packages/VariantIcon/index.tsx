@@ -1,12 +1,18 @@
 import React, { useMemo } from 'react'
-import { node, oneOf } from 'prop-types'
 import { AlertIcon } from '@welcome-ui/icons.alert'
 import { CheckIcon } from '@welcome-ui/icons.check'
 import { InformationIcon } from '@welcome-ui/icons.information'
 
 import * as S from './styles'
 
-export const VariantIcon = ({ icon, variant, ...rest }) => {
+export type Variant = 'info' | 'success' | 'warning' | 'error'
+
+export interface VariantIconProps {
+  icon?: JSX.Element
+  variant?: Variant
+}
+
+export const VariantIcon: React.FC<VariantIconProps> = ({ icon, variant, ...rest }) => {
   const Icon = useMemo(() => {
     if (icon === null) return null
     if (icon) return icon
@@ -23,8 +29,3 @@ export const VariantIcon = ({ icon, variant, ...rest }) => {
 }
 
 VariantIcon.displayName = 'VariantIcon'
-
-VariantIcon.propTypes /* remove-proptypes */ = {
-  icon: node,
-  variant: oneOf(['info', 'success', 'warning', 'error'])
-}
