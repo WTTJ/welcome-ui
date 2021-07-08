@@ -4,6 +4,7 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/checkbox.cjs.js",
   "module": "dist/checkbox.es.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
