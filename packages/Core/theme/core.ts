@@ -64,6 +64,8 @@ import { getCheckboxes } from './checkboxes'
 import { getModals } from './modals'
 import { getToggles } from './toggles'
 import { getHints } from './hints'
+import { getAccordions } from './accordions'
+import { getIcons } from './icons'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'Work Sans'
@@ -119,7 +121,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
 
   theme.inset = theme.space
 
-  // theme.icons = getIcons(theme)
+  theme.icons = getIcons(theme)
 
   theme.radii = radii
 
@@ -156,7 +158,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.modals = getModals(theme)
   // theme.drawers = getDrawers(theme)
   // theme.loaders = getLoaders(theme)
-  // theme.accordions = getAccordions(theme)
+  theme.accordions = getAccordions(theme)
   // theme.swipers = getSwipers(theme)
   // theme.labels = getLabels(theme)
   // theme.popovers = getPopovers(theme)

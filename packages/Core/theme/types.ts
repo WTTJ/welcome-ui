@@ -4,6 +4,7 @@ import {
   DefaultTheme as XStyledDefaultTheme
 } from '@xstyled/styled-components'
 
+import { ThemeAccordions } from './accordions'
 import { ThemeBorderWidths } from './borders'
 import { ThemeButtons } from './buttons'
 import { ThemeCheckboxes } from './checkboxes'
@@ -13,6 +14,7 @@ import { ThemeDefaultFields } from './defaultFields'
 import { ThemeFocus } from './focus'
 import { ThemeFontFaces } from './fonts'
 import { ThemeHints } from './hints'
+import { ThemeIcons } from './icons'
 import { ThemeModals } from './modals'
 import { ThemeRadii } from './radii'
 import { ThemeScreens } from './screens'
@@ -95,8 +97,9 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   modals: ThemeModals
   toggles: ThemeToggles
   hints: ThemeHints
+  accordions: ThemeAccordions
+  icons: ThemeIcons
   // todo
-  icons: unknown
   alerts: unknown
   avatars: unknown
   breadcrumbs: unknown
@@ -109,7 +112,6 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   cards: unknown
   drawers: unknown
   loaders: unknown
-  accordions: unknown
   swipers: unknown
   labels: unknown
   popovers: unknown
