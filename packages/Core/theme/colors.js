@@ -1,42 +1,6 @@
 import { hexToRGBA } from '@welcome-ui/utils'
 
-type SmallPalette = {
-  100: string
-  200: string
-  500: string
-  700: string
-}
-
-type BigPalette = SmallPalette & {
-  800: string
-  900: string
-}
-
-type SubPalette = {
-  1: string
-  2: string
-  3: string
-  4: string
-  5: string
-  6: string
-  7: string
-}
-
-export type ThemeColors = {
-  primary: BigPalette
-  success: SmallPalette
-  danger: SmallPalette
-  warning: SmallPalette
-  info: SmallPalette
-  light: BigPalette
-  dark: BigPalette
-  nude: BigPalette
-  sub: SubPalette
-  underline: string
-  overlay: string
-}
-
-export const colors: ThemeColors = {
+export const colors = {
   primary: {
     100: '#C6CAFF',
     200: '#5650EC',

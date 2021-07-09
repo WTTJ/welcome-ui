@@ -1,13 +1,6 @@
 import { css } from 'styled-components'
 
-import { ThemeColors } from './colors'
-
-export type UnderlineTheme = {
-  default: ReturnType<typeof css>
-  hover: ReturnType<typeof css>
-}
-
-export const getUnderline = ({ colors }: { colors: ThemeColors }): UnderlineTheme => {
+export const getUnderline = ({ colors }) => {
   return {
     default: css`
       background-image: linear-gradient(0deg, ${colors.underline}, ${colors.underline} 100%);
