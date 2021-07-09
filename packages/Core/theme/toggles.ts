@@ -1,7 +1,34 @@
+import { WuiTheme } from './types'
+
 // To allow for line-height of text in label
 const LINE_HEIGHT_ADJUSTMENTS = '0.15rem'
 
-export const getToggles = theme => {
+type State = 'default' | 'checked' | 'disabled'
+
+type CommonAttributesToggle = {
+  width?: string | number
+  height?: string | number
+  backgroundColor?: string
+  borderColor?: string
+  borderWidth?: string
+  borderStyle?: string
+  borderRadius?: string
+  marginTop?: string
+}
+
+type FocusAttributesToggle = {
+  '&:focus'?: {
+    borderColor?: string
+    boxShadow?: string
+  }
+}
+
+export type ThemeToggles = {
+  item: Record<State, CommonAttributesToggle & FocusAttributesToggle>
+  after: Record<State, CommonAttributesToggle & FocusAttributesToggle>
+}
+
+export const getToggles = (theme: WuiTheme): ThemeToggles => {
   const { borderWidths, colors, focus, toRem } = theme
 
   return {

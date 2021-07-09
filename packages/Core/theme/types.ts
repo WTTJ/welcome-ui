@@ -19,6 +19,7 @@ import { ThemeSelection } from './selection'
 import { ThemeShadows } from './shadows'
 import { ThemeSpace } from './space'
 import { ThemeTags } from './tags'
+import { ThemeToggles } from './toggles'
 import { ThemeTooltips } from './tooltips'
 import { ThemeTimingFunction, ThemeTransitions } from './transitions'
 import {
@@ -91,6 +92,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   defaultFields: ThemeDefaultFields
   checkboxes: ThemeCheckboxes
   modals: ThemeModals
+  toggles: ThemeToggles
   // todo
   icons: unknown
   alerts: unknown
@@ -110,7 +112,6 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   labels: unknown
   popovers: unknown
   hints: unknown
-  toggles: unknown
   dateTimePickerCommon: unknown
   textareas: unknown
   filedrops: unknown
