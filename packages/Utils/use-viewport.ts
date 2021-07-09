@@ -6,7 +6,7 @@ type Size = {
 }
 
 export function useViewportSize(): Size {
-  const [size, setSize] = useState<Size>(null)
+  const [size, setSize] = useState<Size>({ height: undefined, width: undefined })
 
   useLayoutEffect(() => {
     setSize({ width: window.innerWidth, height: window.innerHeight })
