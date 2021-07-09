@@ -16,6 +16,7 @@ import { ThemeSelection } from './selection'
 import { ThemeShadows } from './shadows'
 import { ThemeSpace } from './space'
 import { ThemeTags } from './tags'
+import { ThemeTooltips } from './tooltips'
 import { ThemeTimingFunction, ThemeTransitions } from './transitions'
 import {
   ThemeFonts,
@@ -83,6 +84,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   texts: ThemeTexts
   buttons: ThemeButtons
   tags: ThemeTags
+  tooltips: ThemeTooltips
   // todo
   icons: unknown
   alerts: unknown
@@ -91,7 +93,6 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   toasts: unknown
   paginations: unknown
   tabs: unknown
-  tooltips: unknown
   links: unknown
   dropdownMenu: unknown
   tables: unknown

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {
   cloneElement,
   forwardRef,
@@ -159,7 +158,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps & WuiProps>(
     const tooltip = useCorrectTooltipState({ placement })
     const visibilityStyles = useDelayedVisibility(tooltip.visible, TOOLTIP_VISIBILITY_DELAY)
 
-    const child = React.Children.only(children) as React.ReactElement<any>
+    const child = React.Children.only(children) as React.ReactElement
 
     return (
       <div>
