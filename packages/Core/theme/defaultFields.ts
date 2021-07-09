@@ -1,7 +1,84 @@
 import { WuiTheme } from './types'
 
-// todo
-export const getDefaultFields = (theme: WuiTheme): Record<string, unknown> => {
+type CommonAttributesField = {
+  color?: string
+  fontSize?: string
+  lineHeight?: string
+  fontWeight?: string
+  backgroundColor?: string
+  borderColor?: string
+  borderWidth?: string
+  borderStyle?: string
+  outline?: string
+}
+
+type SizeAttributesField = {
+  height?: string
+  padding?: string
+}
+
+type Size = 'sm' | 'md' | 'lg'
+
+export type ThemeDefaultFields = {
+  default: CommonAttributesField
+  sizes: Record<Size, SizeAttributesField>
+  checkableField: {
+    checked: {
+      color: string
+    }
+    disabled: {
+      opacity: number
+    }
+  }
+  disabled: {
+    backgroundColor: string
+    color: string
+    cursor: string
+  }
+  placeholder: {
+    color: string
+  }
+  // todo fix focus props
+  focused: {
+    default: unknown
+    error: unknown
+    warning: unknown
+  }
+  checkablelabel: {
+    default: {
+      fontWeight: string
+    }
+    checked: {
+      color: string
+      '-webkit-text-stroke': string
+    }
+  }
+  select: {
+    default: {
+      maxHeight: string
+    }
+    existing: {
+      color: string
+      cursor: string
+    }
+    highlighted: {
+      backgroundColor: string
+      cursor: string
+    }
+    selectedAndHighlighted: {
+      backgroundImage: string
+    }
+    selected: {
+      color: string
+      fontWeight: string
+    }
+  }
+  fieldset: {
+    'border-width': string
+  }
+}
+
+export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
   const { borderWidths, colors, focus, fontSizes, fontWeights, space, toRem } = theme
 
   return {

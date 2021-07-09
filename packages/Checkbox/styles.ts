@@ -7,15 +7,6 @@ import { defaultFieldStyles } from '@welcome-ui/utils'
 export interface StyledCheckboxProps {
   connected?: boolean
   order: string
-  theme: {
-    defaultFields: {
-      checkableField: {
-        checked: {
-          color: string
-        }
-      }
-    }
-  }
 }
 
 export const Checkbox = styled(ReakitCheckbox).withConfig({ shouldForwardProp })<

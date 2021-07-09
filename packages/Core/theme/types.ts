@@ -9,6 +9,7 @@ import { ThemeButtons } from './buttons'
 import { ThemeCheckboxes } from './checkboxes'
 import { ThemeColors } from './colors'
 import { ThemeDefaultCards } from './defaultCards'
+import { ThemeDefaultFields } from './defaultFields'
 import { ThemeFocus } from './focus'
 import { ThemeFontFaces } from './fonts'
 import { ThemeRadii } from './radii'
@@ -86,6 +87,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   buttons: ThemeButtons
   tags: ThemeTags
   tooltips: ThemeTooltips
+  defaultFields: ThemeDefaultFields
   checkboxes: ThemeCheckboxes
   // todo
   icons: unknown
@@ -106,7 +108,6 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   swipers: unknown
   labels: unknown
   popovers: unknown
-  defaultFields: unknown
   hints: unknown
   toggles: unknown
   dateTimePickerCommon: unknown
