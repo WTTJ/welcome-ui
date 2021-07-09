@@ -12,6 +12,7 @@ import { ThemeDefaultCards } from './defaultCards'
 import { ThemeDefaultFields } from './defaultFields'
 import { ThemeFocus } from './focus'
 import { ThemeFontFaces } from './fonts'
+import { ThemeHints } from './hints'
 import { ThemeModals } from './modals'
 import { ThemeRadii } from './radii'
 import { ThemeScreens } from './screens'
@@ -93,6 +94,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   checkboxes: ThemeCheckboxes
   modals: ThemeModals
   toggles: ThemeToggles
+  hints: ThemeHints
   // todo
   icons: unknown
   alerts: unknown
@@ -111,7 +113,6 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   swipers: unknown
   labels: unknown
   popovers: unknown
-  hints: unknown
   dateTimePickerCommon: unknown
   textareas: unknown
   filedrops: unknown

@@ -1,8 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { system } from '@welcome-ui/system'
-import { getVariantColor } from '@welcome-ui/utils'
-import { Variant } from '@welcome-ui/variant-icon'
+import { getVariantColor, Variant } from '@welcome-ui/utils'
 
 export const Hint = styled.div<{ variant: Variant }>(
   ({ variant }) => css`
