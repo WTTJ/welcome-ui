@@ -15,6 +15,7 @@ import { ThemeFocus } from './focus'
 import { ThemeFontFaces } from './fonts'
 import { ThemeHints } from './hints'
 import { ThemeIcons } from './icons'
+import { ThemeLinks } from './links'
 import { ThemeModals } from './modals'
 import { ThemeRadii } from './radii'
 import { ThemeScreens } from './screens'
@@ -99,6 +100,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   hints: ThemeHints
   accordions: ThemeAccordions
   icons: ThemeIcons
+  links: ThemeLinks
   // todo
   alerts: unknown
   avatars: unknown
@@ -106,7 +108,6 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   toasts: unknown
   paginations: unknown
   tabs: unknown
-  links: unknown
   dropdownMenu: unknown
   tables: unknown
   cards: unknown
