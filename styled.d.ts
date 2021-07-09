@@ -4,16 +4,23 @@ import 'styled-components'
 import '@xstyled/system'
 import { DefaultTheme as XStyledDefaultTheme } from '@xstyled/styled-components'
 
-interface AppTheme extends XStyledDefaultTheme {
+import { ThemeColors } from './packages/Core/theme/colors'
+import { UnderlineTheme } from './packages/Core/theme/underline'
+
+interface AppTheme extends Omit<XStyledDefaultTheme, 'colors'> {
   /* Customize your theme */
   toRem: (int: number) => string
+  colors: ThemeColors
+  underline: UnderlineTheme
 }
 
 // and extend them!
 declare module '@xstyled/system' {
-  export interface Theme extends AppTheme { }
+  export interface Theme extends AppTheme {}
 }
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends AppTheme { }
+  export interface DefaultTheme extends AppTheme {
+    colors: ThemeColors
+  }
 }
