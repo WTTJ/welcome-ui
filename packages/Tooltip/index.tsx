@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {
   cloneElement,
   forwardRef,
@@ -7,34 +8,35 @@ import React, {
   useRef,
   useState
 } from 'react'
-import Popper from 'popper.js'
+import Popper, { Placement } from 'popper.js'
 import { TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import { useDialogState } from 'reakit/Dialog'
-import { bool, func, node, oneOf, oneOfType } from 'prop-types'
-
-import { COMPONENT_TYPE } from '../../utils/propTypes'
+import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
 const TOOLTIP_VISIBILITY_DELAY = 50
 
-const useDelayedVisibility = (value, duration) => {
+const useDelayedVisibility = (value: boolean, duration: number) => {
   const [visibility, setVisibility] = useState(null)
   useEffect(() => {
-    let id
+    let id: number | null = null
     if (value) {
-      id = setTimeout(() => {
+      id = window.setTimeout(() => {
         setVisibility({ visibility: 'visible' })
       }, duration)
     } else {
       setVisibility({ visibility: 'hidden' })
     }
-    return () => id && clearTimeout(id)
+    return () => id && window.clearTimeout(id)
   }, [value, duration])
   return visibility
 }
 
-const useMouseTooltipState = ({ placement: originalPlacement, ...rest } = {}) => {
+const useMouseTooltipState = ({
+  placement: originalPlacement,
+  ...rest
+}: { placement?: Placement } = {}) => {
   const popper = useRef(null)
   const referenceRef = useRef(null)
   const mouseRef = useRef(null)
@@ -83,7 +85,7 @@ const useMouseTooltipState = ({ placement: originalPlacement, ...rest } = {}) =>
     const paddingLeft = placement.startsWith('left') ? 5 : 0
     const paddingRight = placement.startsWith('right') ? 15 : 0
 
-    const onMouseMove = event => {
+    const onMouseMove = (event: MouseEvent) => {
       mouseRef.current = {
         getBoundingClientRect: () => ({
           ...reference.getBoundingClientRect(),
@@ -115,50 +117,64 @@ const useMouseTooltipState = ({ placement: originalPlacement, ...rest } = {}) =>
   }
 }
 
-export const Tooltip = forwardRef(
-  (
-    { children, content, fixed = false, placement = fixed ? 'top' : 'bottom-start', ...props },
-    ref
-  ) => {
-    // if no content, simply return the children
-    if (!content) return children
+export type PlacementOptions =
+  | 'auto-start'
+  | 'auto'
+  | 'auto-end'
+  | 'top-start'
+  | 'top'
+  | 'top-end'
+  | 'right-start'
+  | 'right'
+  | 'right-end'
+  | 'bottom-end'
+  | 'bottom'
+  | 'bottom-start'
+  | 'left-end'
+  | 'left'
+  | 'left-start'
+
+export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactElement
+  content: React.ReactElement
+  fixed?: boolean
+  placement?: PlacementOptions
+}
+
+export const Tooltip = forwardRef<HTMLDivElement, TooltipProps & WuiProps>(
+  (props, ref): React.ReactElement => {
+    const {
+      children,
+      content,
+      fixed = false,
+      placement = fixed ? 'top' : 'bottom-start',
+      ...rest
+    } = props
+    // If no content, simply return the children
+    if (!content) {
+      return children
+    }
 
     const useCorrectTooltipState = fixed ? useTooltipState : useMouseTooltipState
     const tooltip = useCorrectTooltipState({ placement })
     const visibilityStyles = useDelayedVisibility(tooltip.visible, TOOLTIP_VISIBILITY_DELAY)
 
+    const child = React.Children.only(children) as React.ReactElement<any>
+
     return (
-      <>
+      <div>
         <TooltipReference {...tooltip}>
-          {referenceProps => cloneElement(React.Children.only(children), referenceProps)}
+          {referenceProps => cloneElement(child, referenceProps)}
         </TooltipReference>
-        <S.Tooltip ref={ref} style={visibilityStyles} {...tooltip} {...props}>
+        <S.Tooltip
+          ref={ref as React.Ref<HTMLDivElement>}
+          style={visibilityStyles}
+          {...tooltip}
+          {...rest}
+        >
           {content}
         </S.Tooltip>
-      </>
+      </div>
     )
   }
 )
-
-Tooltip.propTypes /* remove-proptypes */ = {
-  children: oneOfType([func, node]),
-  content: oneOfType(COMPONENT_TYPE),
-  fixed: bool,
-  placement: oneOf([
-    'auto-start',
-    'auto',
-    'auto-end',
-    'top-start',
-    'top',
-    'top-end',
-    'right-start',
-    'right',
-    'right-end',
-    'bottom-end',
-    'bottom',
-    'bottom-start',
-    'left-end',
-    'left',
-    'left-start'
-  ])
-}
