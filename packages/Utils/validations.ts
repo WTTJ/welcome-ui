@@ -1,8 +1,8 @@
-export const validateImage = file => {
+export const validateImage = (file: File): boolean => {
   return validateMimeType(file, 'image/*')
 }
 
-export const validateMimeType = (file, mimeTypes) => {
+export const validateMimeType = (file: File, mimeTypes: string): boolean => {
   if (!file || !file.type) {
     return false
   }
@@ -11,6 +11,6 @@ export const validateMimeType = (file, mimeTypes) => {
   return mimeTypeRegex.test(file.type)
 }
 
-export const validateFileSize = (file, size) => {
+export const validateFileSize = (file: File, size: number): boolean => {
   return file && file.size <= size
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { createGlobalStyle, css } from '@xstyled/styled-components'
-import { node, string } from 'prop-types'
 
 export const hideFocusRingsDataAttribute = 'data-wui-hidefocusrings'
 
@@ -15,7 +14,14 @@ const HideFocusRingGlobalStyles = createGlobalStyle(
   `
 )
 
-export const HideFocusRingsRoot = ({ children, reactRootId }) => {
+interface HideFocusRingsRootProps {
+  reactRootId: string
+}
+
+export const HideFocusRingsRoot: React.FC<HideFocusRingsRootProps> = ({
+  children,
+  reactRootId
+}) => {
   const [hideFocusRings, setHideFocusRings] = useState(false)
 
   useEffect(() => {
@@ -27,7 +33,7 @@ export const HideFocusRingsRoot = ({ children, reactRootId }) => {
     const rootElement = document.getElementById(reactRootId)
     if (rootElement) {
       hideFocusRings
-        ? rootElement.setAttribute(hideFocusRingsDataAttribute, true)
+        ? rootElement.setAttribute(hideFocusRingsDataAttribute, 'true')
         : rootElement.removeAttribute(hideFocusRingsDataAttribute)
     }
 
@@ -42,9 +48,4 @@ export const HideFocusRingsRoot = ({ children, reactRootId }) => {
       {children}
     </>
   )
-}
-
-HideFocusRingsRoot.propTypes /* remove-proptypes */ = {
-  children: node.isRequired,
-  reactRootId: string
 }

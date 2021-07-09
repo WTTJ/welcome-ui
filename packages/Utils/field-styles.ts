@@ -1,9 +1,17 @@
 import { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { getVariantColor } from './variants'
+import { getVariantColor, Variant } from './variants'
 
-export const defaultFieldStyles = ({ size, variant }) => css`
+type Size = unknown
+
+export const defaultFieldStyles = ({
+  size,
+  variant
+}: {
+  size: Size
+  variant: Variant
+}): ReturnType<typeof css> => css`
   ${th('defaultFields.default')};
   width: 100%;
   border-color: ${getVariantColor(variant)};

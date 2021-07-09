@@ -17,6 +17,6 @@ describe('wrap', () => {
 
   it('should not wrap undefined', () => {
     const container = wrapChildren()
-    expect(container.length).toBe(0)
+    expect((container as string).length).toBe(0)
   })
 })

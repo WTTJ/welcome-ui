@@ -1,7 +1,12 @@
 import { useLayoutEffect, useState } from 'react'
 
-export function useViewportSize() {
-  const [size, setSize] = useState({})
+type Size = {
+  height: number
+  width: number
+}
+
+export function useViewportSize(): Size {
+  const [size, setSize] = useState<Size>(null)
 
   useLayoutEffect(() => {
     setSize({ width: window.innerWidth, height: window.innerHeight })
