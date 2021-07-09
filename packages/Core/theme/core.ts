@@ -61,6 +61,7 @@ import { getButtons } from './buttons'
 import { getTags } from './tags'
 import { getTooltips } from './tooltips'
 import { getCheckboxes } from './checkboxes'
+import { getModals } from './modals'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'Work Sans'
@@ -150,7 +151,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   // theme.dropdownMenu = getDropdownMenu(theme)
   // theme.tables = getTables(theme)
   // theme.cards = getCards(theme)
-  // theme.modals = getModals(theme)
+  theme.modals = getModals(theme)
   // theme.drawers = getDrawers(theme)
   // theme.loaders = getLoaders(theme)
   // theme.accordions = getAccordions(theme)

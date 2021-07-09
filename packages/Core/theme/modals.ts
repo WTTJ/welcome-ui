@@ -1,4 +1,34 @@
-export const getModals = theme => {
+import { WuiTheme } from './types'
+
+type Sizes = 'sm' | 'md' | 'lg' | 'auto'
+
+export type ThemeModals = {
+  backdrop: {
+    backgroundColor: string
+    zIndex: number
+  }
+  default: {
+    zIndex: number
+  }
+  footer: {
+    borderTopColor: string
+    borderTopStyle: string
+    borderTopWidth: string
+    padding: string
+  }
+  title: {
+    borderBottomColor: string
+    borderBottomStyle: string
+    borderBottomWidth: string
+    padding: string
+    paddingRight: string
+  }
+  gutter: string
+  sizes: Record<Sizes, { width?: string }>
+  cover: Record<string, unknown>
+}
+
+export const getModals = (theme: WuiTheme): ThemeModals => {
   const { borderWidths, colors, space, texts, toRem } = theme
   return {
     backdrop: {

@@ -14,8 +14,7 @@ import { Close } from './Close'
 
 export interface ModalProps {
   ariaLabel: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  closeElement?: React.FunctionComponent<any>
+  closeElement?: React.ElementType
   hide?: DisclosureActions['hide']
   hideOnClickOutside?: boolean
   onClose?: () => void

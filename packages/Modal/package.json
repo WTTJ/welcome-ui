@@ -4,6 +4,7 @@
   "description": "Modal from Reakit with a really nice theme 👀",
   "main": "dist/modal.cjs.js",
   "module": "dist/modal.es.js",
+  "types": "dist/index.d.js",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
