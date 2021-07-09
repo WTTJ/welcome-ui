@@ -1,19 +1,15 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
-// import original module declarations
 import 'styled-components'
 import '@xstyled/system'
-import { DefaultTheme as XStyledDefaultTheme } from '@xstyled/styled-components'
 
-interface AppTheme extends Omit<XStyledDefaultTheme, 'colors'> {
-  /* Customize your theme */
-  toRem: (int: number) => string
-}
+import { WuiTheme } from './packages/Core/theme/types'
 
-// and extend them!
 declare module '@xstyled/system' {
-  export interface Theme extends AppTheme {}
+  export interface Theme extends WuiTheme {}
 }
 
+// todo add custom keys like colors, radii...
+/* we need to override values if keys are already exist in DefaultTheme of styled-components */
 declare module 'styled-components' {
-  export interface DefaultTheme extends AppTheme {}
+  export interface DefaultTheme extends WuiTheme {}
 }

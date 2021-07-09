@@ -1,6 +1,49 @@
 import { hexToRGB } from '@welcome-ui/utils'
 
-export const getButtons = theme => {
+import { WuiTheme } from './types'
+
+type CommonAttributesButton = {
+  color?: string
+  fontSize?: string
+  fontWeight?: string
+  letterSpacing?: number
+  borderRadius?: string
+  backgroundColor?: string
+  borderColor?: string
+}
+
+type SizeAttributesButton = {
+  height?: string
+  padding?: string
+  fontSize?: string
+}
+
+type Variant =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'tertiary-negative'
+  | 'primary-success'
+  | 'secondary-success'
+  | 'primary-warning'
+  | 'secondary-warning'
+  | 'primary-danger'
+  | 'secondary-danger'
+  | 'primary-info'
+  | 'secondary-info'
+  | 'quaternary'
+
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+
+// todo types :focus props
+export type ThemeButtons = Record<Variant, CommonAttributesButton> &
+  Record<'hover', Record<Variant, CommonAttributesButton>> &
+  Record<'focus', Record<Variant, unknown>> &
+  Record<'active', Record<Variant, CommonAttributesButton>> &
+  Record<'disabled', CommonAttributesButton & { '&:focus': unknown }> &
+  Record<'sizes', Record<Size, SizeAttributesButton>>
+
+export const getButtons = (theme: WuiTheme): ThemeButtons => {
   const { colors, focus, fontSizes, fontWeights, radii, space, toRem } = theme
   const defaults = {
     color: colors.light[900],

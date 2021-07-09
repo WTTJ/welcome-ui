@@ -1,4 +1,19 @@
-export const fontFaces = {
+type FontFaceExtension = 'woff' | 'woff2'
+
+type FontFace = {
+  url: string
+  weight?: string
+  style?: 'italic'
+  display: 'swap' | 'block'
+  extensions: FontFaceExtension[]
+}
+
+export type ThemeFontFaces = {
+  'welcome-font': FontFace[]
+  'welcome-icon-font': FontFace[]
+}
+
+export const fontFaces: ThemeFontFaces = {
   'welcome-font': [
     {
       url: 'https://cdn.welcometothejungle.com/common/assets/fonts/welcome-font-regular',

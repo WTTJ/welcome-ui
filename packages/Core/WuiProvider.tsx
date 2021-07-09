@@ -1,11 +1,19 @@
 import React from 'react'
-import { bool, node, object, string } from 'prop-types'
 import { ThemeProvider } from '@xstyled/styled-components'
 import { HideFocusRingsRoot } from '@welcome-ui/utils'
 
+import { WuiTheme } from './theme/types'
 import { GlobalStyle } from './utils/base'
 
-export const WuiProvider = ({
+export interface WuiProviderProps {
+  hasGlobalStyle?: boolean
+  reactRootId?: string
+  shouldHideFocusRingOnClick?: boolean
+  theme: WuiTheme
+  useReset: boolean
+}
+
+export const WuiProvider: React.FC<WuiProviderProps> = ({
   children,
   hasGlobalStyle = true,
   reactRootId = 'root',
@@ -16,6 +24,8 @@ export const WuiProvider = ({
   return (
     <ThemeProvider theme={theme}>
       <>
+        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+        {/* @ts-ignore */}
         {hasGlobalStyle && <GlobalStyle useReset={useReset} />}
         {shouldHideFocusRingOnClick ? (
           <HideFocusRingsRoot reactRootId={reactRootId}>{children}</HideFocusRingsRoot>
@@ -28,12 +38,3 @@ export const WuiProvider = ({
 }
 
 WuiProvider.displayName = 'WuiProvider'
-
-WuiProvider.propTypes /* remove-proptypes */ = {
-  children: node.isRequired,
-  hasGlobalStyle: bool,
-  reactRootId: string,
-  shouldHideFocusRingOnClick: bool,
-  theme: object,
-  useReset: bool
-}

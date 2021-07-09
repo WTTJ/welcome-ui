@@ -87,6 +87,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "12.6.0",
+    "@types/ramda": "^0.27.44",
     "@types/react": "^17.0.11",
     "@types/styled-components": "^5.1.11",
     "@typescript-eslint/eslint-plugin": "^4.28.2",

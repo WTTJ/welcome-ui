@@ -1,4 +1,7 @@
-export const getDefaultFields = theme => {
+import { WuiTheme } from './types'
+
+// todo
+export const getDefaultFields = (theme: WuiTheme): Record<string, unknown> => {
   const { borderWidths, colors, focus, fontSizes, fontWeights, space, toRem } = theme
 
   return {
@@ -42,7 +45,7 @@ export const getDefaultFields = theme => {
       cursor: 'not-allowed'
     },
     placeholder: {
-      color: colors.nude[600]
+      color: colors.nude[500]
     },
     focused: {
       default: {

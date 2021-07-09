@@ -1,18 +1,31 @@
 import { css } from '@xstyled/styled-components'
 
-function getFormat(extension) {
+import { WuiTheme } from '../theme/types'
+
+function getFormat(extension: string) {
   return extension === 'ttf' ? 'truetype' : extension
 }
 
-function getUrl(url, extension) {
+function getUrl(url: string, extension: string) {
   return `url('${url}.${extension}') format('${getFormat(extension)}')`
 }
 
-function getSrc(descriptor) {
-  return descriptor.extensions.map(extension => getUrl(descriptor.url, extension)).join(', ')
+type Descriptor = {
+  name: string
+  url: string
+  extensions: string[]
+  display?: string
+  weight?: string
+  style?: string
 }
 
-function getFont(descriptor) {
+function getSrc(descriptor: Descriptor) {
+  return descriptor.extensions
+    .map((extension: string) => getUrl(descriptor.url, extension))
+    .join(', ')
+}
+
+function getFont(descriptor: Descriptor) {
   return css`
     @font-face {
       font-family: ${descriptor.name};
@@ -30,7 +43,7 @@ function getFont(descriptor) {
   `
 }
 
-export const fonts = () => ({ theme }) => {
+export const fonts = () => ({ theme }: { theme: WuiTheme }): ReturnType<typeof css> => {
   if (!theme || !theme.fontFaces) return null
   return Object.entries(theme.fontFaces).map(([name, variations]) =>
     variations.map(variation => getFont({ name, ...variation }))
