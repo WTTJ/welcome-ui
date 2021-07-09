@@ -15,6 +15,7 @@ import { ThemeScreens } from './screens'
 import { ThemeSelection } from './selection'
 import { ThemeShadows } from './shadows'
 import { ThemeSpace } from './space'
+import { ThemeTags } from './tags'
 import { ThemeTimingFunction, ThemeTransitions } from './transitions'
 import {
   ThemeFonts,
@@ -81,6 +82,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   textsTextTransform: ThemeTextsTextTransform
   texts: ThemeTexts
   buttons: ThemeButtons
+  tags: ThemeTags
   // todo
   icons: unknown
   alerts: unknown
@@ -89,7 +91,6 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   toasts: unknown
   paginations: unknown
   tabs: unknown
-  tags: unknown
   tooltips: unknown
   links: unknown
   dropdownMenu: unknown

@@ -1,6 +1,62 @@
 import { hexToRGBA } from '@welcome-ui/utils'
 
-export const getTags = theme => {
+import { WuiTheme } from './types'
+
+type CommonAttributesTag = {
+  color?: string
+  fontSize?: string
+  fontWeight?: string
+  letterSpacing?: number
+  borderRadius?: string
+  backgroundColor?: string
+  borderColor?: string
+}
+
+type BorderAttributesTag = {
+  borderWidth?: string
+  borderStyle?: string
+  borderColor?: string
+  backgroundColor?: string
+}
+
+type SizeAttributesTag = {
+  padding?: string
+  height?: string
+  fontSize?: string
+}
+
+type ShapeAttributesTag = {
+  height?: string
+  width?: string
+}
+
+type Variant =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'dark'
+  | 'success'
+  | 'error'
+  | 'warning'
+  | 'info'
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+
+type Size = 'sm' | 'md' | 'lg'
+
+export type ThemeTags = {
+  default: CommonAttributesTag
+  variants: Record<Variant, CommonAttributesTag & BorderAttributesTag>
+  sizes: Record<Size, SizeAttributesTag>
+  shape: Record<Size, ShapeAttributesTag>
+}
+
+export const getTags = (theme: WuiTheme): ThemeTags => {
   const { borderWidths, colors, fontSizes, fontWeights, space, toRem } = theme
 
   const sizes = {
@@ -14,7 +70,7 @@ export const getTags = theme => {
     borderStyle: 'solid'
   }
 
-  const withoutVisibleBorder = color => ({
+  const withoutVisibleBorder = (color: string) => ({
     ...border,
     borderColor: color,
     backgroundColor: color

@@ -58,6 +58,7 @@ import { getSpace } from './space'
 import { getSelection } from './selection'
 import { getFocus } from './focus'
 import { getButtons } from './buttons'
+import { getTags } from './tags'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'Work Sans'
@@ -140,7 +141,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   // theme.toasts = getToasts(theme)
   // theme.paginations = getPaginations(theme)
   // theme.tabs = getTabs(theme)
-  // theme.tags = getTags(theme)
+  theme.tags = getTags(theme)
   theme.texts = getTexts(theme)
   // theme.tooltips = getTooltips(theme)
   // theme.links = getLinks(theme)

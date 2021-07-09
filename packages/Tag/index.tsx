@@ -34,7 +34,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Tag = forwardRef<HTMLDivElement, TagProps & WuiProps>(
   ({ children, dataTestId, onRemove, shape, size = 'md', variant = 'default', ...rest }, ref) => {
-    const content = wrapChildren(children)
+    const content = wrapChildren(children as JSX.Element)
     // get size children for int and string
     const childrenLength =
       !!(children || children === 0) &&

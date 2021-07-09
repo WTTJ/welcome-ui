@@ -1,18 +1,18 @@
 import styled, { css } from '@xstyled/styled-components'
-import { HeightProps, system, th, WidthProps } from '@xstyled/system'
+import { system, th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
 
 import { Shape, Size, Variant } from './index'
 
-const shapeStyles = (size: Size, w: WidthProps['w'], h: HeightProps['h'], shape = 'square') => css`
+const shapeStyles = (size: Size, w: string, h: string, shape = 'square') => css`
   ${th(`tags.shape.${size}`)}
   padding: 0;
   ${(w || h) &&
     css`
-      width: ${getMax(w || 0, h)};
-      height: ${getMax(w || 0, h)};
+      width: ${getMax(w || '0', h)};
+      height: ${getMax(w || '0', h)};
     `}
   ${shape === 'circle' && 'border-radius: 50%'};
 `
@@ -49,7 +49,7 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
     ${(shape || length === 1) &&
       css`
         justify-content: center;
-        ${shapeStyles(size, w, h, shape)};
+        ${shapeStyles(size, w as string, h as string, shape)};
       `};
     ${hasAction &&
       css`
