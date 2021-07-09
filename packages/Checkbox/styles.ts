@@ -22,7 +22,7 @@ export const Checkbox = styled(ReakitCheckbox).withConfig({ shouldForwardProp })
   StyledCheckboxProps
 >(
   ({ connected, order = '-1', theme }) => css`
-    ${defaultFieldStyles};
+    ${defaultFieldStyles({})};
     ${th('checkboxes.default')}
     position: relative;
     padding: 0;

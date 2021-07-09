@@ -60,6 +60,7 @@ import { getFocus } from './focus'
 import { getButtons } from './buttons'
 import { getTags } from './tags'
 import { getTooltips } from './tooltips'
+import { getCheckboxes } from './checkboxes'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'Work Sans'
@@ -159,7 +160,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   // fields
   theme.defaultFields = getDefaultFields(theme)
   // theme.hints = getHints(theme)
-  // theme.checkboxes = getCheckboxes(theme)
+  theme.checkboxes = getCheckboxes(theme)
   // theme.toggles = getToggles(theme)
   // theme.dateTimePickerCommon = getDateTimePickerCommon(theme)
   // theme.textareas = getTextareas(theme)

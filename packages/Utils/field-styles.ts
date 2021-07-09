@@ -9,8 +9,8 @@ export const defaultFieldStyles = ({
   size,
   variant
 }: {
-  size: Size
-  variant: Variant
+  size?: Size
+  variant?: Variant
 }): ReturnType<typeof css> => css`
   ${th('defaultFields.default')};
   width: 100%;
