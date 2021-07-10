@@ -35,7 +35,7 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps & WuiProps>(
     ref
   ) => {
     // Wrap strings in span to allow for required asterisk
-    const content = wrapChildren(children)
+    const content = wrapChildren(children as JSX.Element)
 
     return (
       <S.Label

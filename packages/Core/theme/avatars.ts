@@ -1,4 +1,16 @@
-export const getAvatars = theme => {
+import { WuiTheme } from './types'
+
+type Size = 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+
+export type ThemeAvatars = {
+  sizes: Record<Size, string>
+  text: {
+    color: string
+    fontWeight: string
+  }
+}
+
+export const getAvatars = (theme: WuiTheme): ThemeAvatars => {
   const { colors, fontWeights, toRem } = theme
 
   return {

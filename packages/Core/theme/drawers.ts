@@ -1,4 +1,37 @@
-export const getDrawers = theme => {
+import { WuiTheme } from './types'
+
+type Size = 'sm' | 'md' | 'lg'
+
+export type ThemeDrawers = {
+  backdrop: {
+    backgroundColor: string
+    zIndex: number
+  }
+  default: {
+    zIndex: number
+  }
+  closeButton: {
+    top: string
+    right: string
+  }
+  title: {
+    margin: number
+    padding: string
+    paddingRight: string
+  }
+  content: {
+    padding: string
+  }
+  footer: {
+    padding: string
+  }
+  sizes: {
+    horizontal: Record<Size, Record<'width', string>>
+    vertical: Record<Size, Record<'height', string>>
+  }
+}
+
+export const getDrawers = (theme: WuiTheme): ThemeDrawers => {
   const { colors, space, texts, toRem } = theme
   return {
     backdrop: {

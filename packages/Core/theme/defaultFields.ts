@@ -1,3 +1,4 @@
+import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
 
 type CommonAttributesField = {
@@ -38,11 +39,10 @@ export type ThemeDefaultFields = {
   placeholder: {
     color: string
   }
-  // todo fix focus props
   focused: {
-    default: unknown
-    error: unknown
-    warning: unknown
+    default: { borderColor: string } & ReturnType<ThemeFocus>
+    error: ReturnType<ThemeFocus>
+    warning: ReturnType<ThemeFocus>
   }
   checkablelabel: {
     default: {

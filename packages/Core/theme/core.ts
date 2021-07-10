@@ -1,37 +1,6 @@
 import merge from 'ramda/src/mergeDeepRight'
 import { rpxTransformers } from '@xstyled/system'
 
-// todo -> import js files crash build
-// import { getToasts } from '../../Toast/theme'
-// import { getLinks } from '../../Link/theme'
-// import { getPaginations } from '../../Pagination/theme'
-// import { getTabs } from '../../Tabs/theme'
-// import { getAlerts } from '../../Alert/theme'
-// import { getAvatars } from '../../Avatar/theme'
-// import { getButtons } from '../../Button/theme'
-// import { getBreadcrumbs } from '../../Breadcrumb/theme'
-// import { getIcons } from '../../Icon/theme'
-// import { getTags } from '../../Tag/theme'
-// import { getTooltips } from '../../Tooltip/theme'
-// import { getDropdownMenu } from '../../DropdownMenu/theme'
-// import { getCards } from '../../Card/theme'
-// import { getModals } from '../../Modal/theme'
-// import { getDrawers } from '../../Drawer/theme'
-// import { getLoaders } from '../../Loader/theme'
-// import { getAccordions } from '../../Accordion/theme'
-// import { getSwipers } from '../../Swiper/theme'
-// import { getCheckboxes } from '../../Checkbox/theme'
-// import { getTables } from '../../Table/theme'
-// import { getLabels } from '../../Label/theme'
-// import { getToggles } from '../../Toggle/theme'
-// import { getDateTimePickerCommon } from '../../DateTimePickerCommon/theme'
-// import { getTextareas } from '../../Textarea/theme'
-// import { getFiledrops } from '../../FileDrop/theme'
-// import { getRadios } from '../../Radio/theme'
-// import { getHints } from '../../Hint/theme'
-// import { getRadioTabs } from '../../RadioTab/theme'
-// import { getPopovers } from '../../Popover/theme'
-
 import { WuiTheme } from './types'
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -73,6 +42,19 @@ import { getFiledrops } from './filedrops'
 import { getRadios } from './radios'
 import { getRadioTabs } from './radiosTabs'
 import { getDateTimePickerCommon } from './dateTimePickerCommon'
+import { getPopovers } from './popovers'
+import { getLabels } from './labels'
+import { getSwipers } from './swipers'
+import { getLoaders } from './loaders'
+import { getDrawers } from './drawers'
+import { getCards } from './cards'
+import { getDropdownMenu } from './dropdownMenu'
+import { getAlerts } from './alerts'
+import { getAvatars } from './avatars'
+import { getBreadcrumbs } from './breadcrumbs'
+import { getToasts } from './toasts'
+import { getPaginations } from './paginations'
+import { getTabs } from './tabs'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'Work Sans'
@@ -147,28 +129,28 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.textsFontWeights = getTextsFontWeights(theme)
   theme.textsFontFamily = getTextsFontFamily(theme)
   theme.textsTextTransform = getTextsTextTransform()
-  // theme.alerts = getAlerts(theme)
-  // theme.avatars = getAvatars(theme)
+  theme.alerts = getAlerts(theme)
+  theme.avatars = getAvatars(theme)
   theme.buttons = getButtons(theme)
-  // theme.breadcrumbs = getBreadcrumbs(theme)
+  theme.breadcrumbs = getBreadcrumbs(theme)
   // TODO: should be removed when all fields have been migrated to their own packageName/theme.js file
-  // theme.toasts = getToasts(theme)
-  // theme.paginations = getPaginations(theme)
-  // theme.tabs = getTabs(theme)
+  theme.toasts = getToasts(theme)
+  theme.paginations = getPaginations(theme)
+  theme.tabs = getTabs(theme)
   theme.tags = getTags(theme)
   theme.texts = getTexts(theme)
   theme.tooltips = getTooltips(theme)
   theme.links = getLinks(theme)
-  // theme.dropdownMenu = getDropdownMenu(theme)
+  theme.dropdownMenu = getDropdownMenu(theme)
   theme.tables = getTables(theme)
-  // theme.cards = getCards(theme)
+  theme.cards = getCards(theme)
   theme.modals = getModals(theme)
-  // theme.drawers = getDrawers(theme)
-  // theme.loaders = getLoaders(theme)
+  theme.drawers = getDrawers(theme)
+  theme.loaders = getLoaders(theme)
   theme.accordions = getAccordions(theme)
-  // theme.swipers = getSwipers(theme)
-  // theme.labels = getLabels(theme)
-  // theme.popovers = getPopovers(theme)
+  theme.swipers = getSwipers(theme)
+  theme.labels = getLabels(theme)
+  theme.popovers = getPopovers(theme)
   // fields
   theme.defaultFields = getDefaultFields(theme)
   theme.hints = getHints(theme)

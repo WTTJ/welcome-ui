@@ -1,4 +1,27 @@
-export const getDropdownMenu = theme => {
+import { WuiTheme } from './types'
+
+type ColorAttributes = {
+  backgroundColor: string
+  color: string
+}
+
+export type ThemeDropdownMenu = {
+  inner: {
+    fontSize: string
+    minWidth: string
+  }
+  item: {
+    padding: string
+    '&:hover': ColorAttributes
+    '&:focus': ColorAttributes
+    '&[disabled]': {
+      cursor: 'not-allowed'
+    } & ColorAttributes
+  } & ColorAttributes
+  separator: Omit<ColorAttributes, 'color'>
+}
+
+export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {
   const { colors, fontSizes, space, toRem } = theme
   const borderColor = colors.nude[200]
 

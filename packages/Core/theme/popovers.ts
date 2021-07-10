@@ -1,4 +1,26 @@
-export const getPopovers = theme => {
+import { WuiTheme } from './types'
+
+export type ThemePopovers = {
+  default: {
+    backgroundColor: string
+    color: string
+    borderColor: string
+    maxWidth: string
+    zIndex: number
+  }
+  content: {
+    display: string
+    padding: string
+  }
+  title: {
+    padding: string
+    borderBottomColor: string
+    borderBottomWidth: string
+    borderBottomStyle: string
+  }
+}
+
+export const getPopovers = (theme: WuiTheme): ThemePopovers => {
   const { borderWidths, colors, space, texts, toRem } = theme
 
   return {

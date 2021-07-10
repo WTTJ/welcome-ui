@@ -1,5 +1,6 @@
 import { hexToRGB } from '@welcome-ui/utils'
 
+import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
 
 type CommonAttributesButton = {
@@ -35,12 +36,11 @@ type Variant =
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
-// todo types :focus props
 export type ThemeButtons = Record<Variant, CommonAttributesButton> &
   Record<'hover', Record<Variant, CommonAttributesButton>> &
   Record<'focus', Record<Variant, unknown>> &
   Record<'active', Record<Variant, CommonAttributesButton>> &
-  Record<'disabled', CommonAttributesButton & { '&:focus': unknown }> &
+  Record<'disabled', CommonAttributesButton & { '&:focus': ReturnType<ThemeFocus> }> &
   Record<'sizes', Record<Size, SizeAttributesButton>>
 
 export const getButtons = (theme: WuiTheme): ThemeButtons => {

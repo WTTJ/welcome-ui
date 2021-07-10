@@ -1,4 +1,57 @@
-export const getTabs = theme => {
+import { WuiTheme } from './types'
+
+export type ThemeTabs = {
+  tabsBorder: {
+    horizontal: {
+      boxShadow: string
+    }
+    vertical: {
+      boxShadow: string
+    }
+  }
+  item: {
+    default: {
+      color: string
+      fontWeight: string
+      fontSize: string
+      textDecoration: string
+    }
+    active: {
+      color: string
+    }
+    focus: {
+      color: string
+    }
+    disabled: {
+      color: string
+    }
+  }
+  panel: {
+    vertical: {
+      '&:focus': {
+        outline: string
+      }
+    }
+    horizontal: {
+      marginTop: string
+      '&:focus': {
+        outline: string
+      }
+    }
+  }
+  activeBar: {
+    horizontal: {
+      background: string
+      height: string
+    }
+    vertical: {
+      background: string
+      width: string
+    }
+  }
+}
+
+export const getTabs = (theme: WuiTheme): ThemeTabs => {
   const { borderWidths, colors, fontSizes, fontWeights, space } = theme
 
   return {

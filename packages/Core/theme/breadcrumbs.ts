@@ -1,4 +1,31 @@
-export const getBreadcrumbs = theme => {
+import { WuiTheme } from './types'
+
+export type ThemeBreadcrumbs = {
+  list: {
+    fontSize: string
+    fontWeight: string
+    lineHeight: string
+    padding: string
+  }
+  item: {
+    default: {
+      textDecoration: string
+      color: string
+    }
+    hover: {
+      color: string
+    }
+    active: {
+      color: string
+    }
+  }
+  separator: {
+    padding: string
+    color: string
+  }
+}
+
+export const getBreadcrumbs = (theme: WuiTheme): ThemeBreadcrumbs => {
   const { colors, fontSizes, fontWeights, space } = theme
 
   return {

@@ -1,6 +1,47 @@
 import { hexToRGB } from '@welcome-ui/utils'
 
-export const getPaginations = theme => {
+import { ThemeFocus } from './focus'
+import { WuiTheme } from './types'
+
+export interface ThemePaginations {
+  default: {
+    color: string
+    fontWeight: string
+    borderWidth: string
+    borderStyle: string
+    borderRadius: string
+    width: string
+    height: string
+    '&:hover, &:focus': {
+      backgroundColor: string
+    }
+    '&:focus': ReturnType<ThemeFocus>
+  }
+  active: {
+    color: string
+    backgroundColor: string
+    borderColor: string
+    '&:hover, &:focus': {
+      color: string
+      borderColor: string
+      backgroundColor: string
+    }
+    '&:focus': ReturnType<ThemeFocus>
+  }
+  number: {
+    fontSize: string
+  }
+  dots: {
+    color: string
+    fontSize: string
+    borderColor: string
+    '&:hover, &:focus': {
+      border: string
+    }
+  }
+}
+
+export const getPaginations = (theme: WuiTheme): ThemePaginations => {
   const { borderWidths, colors, focus, fontSizes, fontWeights, toRem } = theme
 
   return {
@@ -32,7 +73,7 @@ export const getPaginations = theme => {
       fontSize: fontSizes.body3
     },
     dots: {
-      color: colors.nude[600],
+      color: colors.nude[500],
       fontSize: fontSizes.body3,
       borderColor: 'transparent',
       '&:hover, &:focus': {

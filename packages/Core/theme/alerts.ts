@@ -1,4 +1,25 @@
-export const getAlerts = theme => {
+import { WuiTheme } from './types'
+
+type State = 'error' | 'warning' | 'info' | 'success'
+
+type AttributesState = {
+  backgroundColor: string
+  borderColor: string
+}
+
+export type ThemeAlerts = {
+  default: {
+    fontSize: string
+    borderWidth: string
+    borderStyle: string
+    borderRadius: string
+    padding: string
+    color: string
+  }
+  title: Record<State, { color: string }>
+} & Record<State, AttributesState>
+
+export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
   const { borderWidths, colors, fontSizes, radii, space } = theme
 
   return {

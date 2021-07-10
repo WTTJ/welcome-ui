@@ -1,6 +1,39 @@
-import { getTexts } from '../Core/theme/typography'
+import { WuiTheme } from './types'
+import { getTexts } from './typography'
 
-export const getToasts = theme => {
+type Variant = 'error' | 'warning' | 'info' | 'success'
+
+type VariantAttributes = {
+  borderColor: string
+  backgroundColor: string
+}
+
+export type ThemeToasts = {
+  default: {
+    paddingLeft: string
+    paddingRight: string
+  }
+  top: {
+    paddingTop: string
+  }
+  bottom: {
+    paddingBottom: string
+  }
+  growls: {
+    default: {
+      backgroundColor: string
+      borderColor: string
+      borderWidth: string
+      borderStyle: string
+      borderRadius: string
+    }
+    title: {
+      fontWeight: string
+    }
+  } & Record<Variant, VariantAttributes>
+}
+
+export const getToasts = (theme: WuiTheme): ThemeToasts => {
   const { borderWidths, colors, fontWeights, radii, space } = theme
 
   return {
