@@ -51,9 +51,7 @@ function baseFonts() {
   `
 }
 
-export const GlobalStyle = createGlobalStyle(
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+export const GlobalStyle = createGlobalStyle<{ useReset?: boolean }>(
   ({ useReset }) => css`
     ${normalizeStyle};
     ${WorkSans};

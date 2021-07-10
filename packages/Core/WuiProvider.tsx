@@ -24,8 +24,6 @@ export const WuiProvider: React.FC<WuiProviderProps> = ({
   return (
     <ThemeProvider theme={theme}>
       <>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-        {/* @ts-ignore */}
         {hasGlobalStyle && <GlobalStyle useReset={useReset} />}
         {shouldHideFocusRingOnClick ? (
           <HideFocusRingsRoot reactRootId={reactRootId}>{children}</HideFocusRingsRoot>
