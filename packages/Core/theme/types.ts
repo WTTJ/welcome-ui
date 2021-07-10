@@ -22,6 +22,7 @@ import { ThemeScreens } from './screens'
 import { ThemeSelection } from './selection'
 import { ThemeShadows } from './shadows'
 import { ThemeSpace } from './space'
+import { ThemeTables } from './tables'
 import { ThemeTags } from './tags'
 import { ThemeToggles } from './toggles'
 import { ThemeTooltips } from './tooltips'
@@ -101,6 +102,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   accordions: ThemeAccordions
   icons: ThemeIcons
   links: ThemeLinks
+  tables: ThemeTables
   // todo
   alerts: unknown
   avatars: unknown
@@ -109,7 +111,6 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   paginations: unknown
   tabs: unknown
   dropdownMenu: unknown
-  tables: unknown
   cards: unknown
   drawers: unknown
   loaders: unknown

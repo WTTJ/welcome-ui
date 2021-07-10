@@ -1,4 +1,38 @@
-export const getTables = theme => {
+import { WuiTheme } from './types'
+
+type CommonAttributes = {
+  color?: string
+  fontWeight?: string
+  textAlign?: string
+  borderBottomColor: string
+  borderBottomWidth: string
+  borderBottomStyle: string
+}
+
+type VariantAttributes = {
+  backgroundColor: string
+  color: string
+}
+
+export type ThemeTables = {
+  th: CommonAttributes
+  td: {
+    textAlign: string
+    padding: string
+  }
+  tr: {
+    default: CommonAttributes
+    error: VariantAttributes
+    warning: VariantAttributes
+    info: VariantAttributes
+    success: VariantAttributes
+    clickable: {
+      cursor: string
+    }
+  }
+}
+
+export const getTables = (theme: WuiTheme): ThemeTables => {
   const { borderWidths, colors, fontWeights, space } = theme
 
   return {

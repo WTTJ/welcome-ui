@@ -67,6 +67,7 @@ import { getHints } from './hints'
 import { getAccordions } from './accordions'
 import { getIcons } from './icons'
 import { getLinks } from './links'
+import { getTables } from './tables'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'Work Sans'
@@ -154,7 +155,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.tooltips = getTooltips(theme)
   theme.links = getLinks(theme)
   // theme.dropdownMenu = getDropdownMenu(theme)
-  // theme.tables = getTables(theme)
+  theme.tables = getTables(theme)
   // theme.cards = getCards(theme)
   theme.modals = getModals(theme)
   // theme.drawers = getDrawers(theme)
