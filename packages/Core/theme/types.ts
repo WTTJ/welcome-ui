@@ -9,8 +9,10 @@ import { ThemeBorderWidths } from './borders'
 import { ThemeButtons } from './buttons'
 import { ThemeCheckboxes } from './checkboxes'
 import { ThemeColors } from './colors'
+import { ThemeDateTimePickerCommon } from './dateTimePickerCommon'
 import { ThemeDefaultCards } from './defaultCards'
 import { ThemeDefaultFields } from './defaultFields'
+import { ThemeFiledrops } from './filedrops'
 import { ThemeFocus } from './focus'
 import { ThemeFontFaces } from './fonts'
 import { ThemeHints } from './hints'
@@ -18,12 +20,15 @@ import { ThemeIcons } from './icons'
 import { ThemeLinks } from './links'
 import { ThemeModals } from './modals'
 import { ThemeRadii } from './radii'
+import { ThemeRadios } from './radios'
+import { ThemeRadioTabs } from './radiosTabs'
 import { ThemeScreens } from './screens'
 import { ThemeSelection } from './selection'
 import { ThemeShadows } from './shadows'
 import { ThemeSpace } from './space'
 import { ThemeTables } from './tables'
 import { ThemeTags } from './tags'
+import { ThemeTextareas } from './textareas'
 import { ThemeToggles } from './toggles'
 import { ThemeTooltips } from './tooltips'
 import { ThemeTimingFunction, ThemeTransitions } from './transitions'
@@ -117,9 +122,9 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   swipers: unknown
   labels: unknown
   popovers: unknown
-  dateTimePickerCommon: unknown
-  textareas: unknown
-  filedrops: unknown
-  radios: unknown
-  radioTabs: unknown
+  dateTimePickerCommon: ThemeDateTimePickerCommon
+  textareas: ThemeTextareas
+  filedrops: ThemeFiledrops
+  radios: ThemeRadios
+  radioTabs: ThemeRadioTabs
 }

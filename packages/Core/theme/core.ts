@@ -68,6 +68,11 @@ import { getAccordions } from './accordions'
 import { getIcons } from './icons'
 import { getLinks } from './links'
 import { getTables } from './tables'
+import { getTextareas } from './textareas'
+import { getFiledrops } from './filedrops'
+import { getRadios } from './radios'
+import { getRadioTabs } from './radiosTabs'
+import { getDateTimePickerCommon } from './dateTimePickerCommon'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'Work Sans'
@@ -169,11 +174,11 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.hints = getHints(theme)
   theme.checkboxes = getCheckboxes(theme)
   theme.toggles = getToggles(theme)
-  // theme.dateTimePickerCommon = getDateTimePickerCommon(theme)
-  // theme.textareas = getTextareas(theme)
-  // theme.filedrops = getFiledrops(theme)
-  // theme.radios = getRadios(theme)
-  // theme.radioTabs = getRadioTabs(theme)
+  theme.dateTimePickerCommon = getDateTimePickerCommon(theme)
+  theme.textareas = getTextareas(theme)
+  theme.filedrops = getFiledrops(theme)
+  theme.radios = getRadios(theme)
+  theme.radioTabs = getRadioTabs(theme)
 
   theme = merge(theme, rest) as WuiTheme
 

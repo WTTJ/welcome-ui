@@ -1,4 +1,21 @@
-export const getRadioTabs = theme => {
+import { WuiTheme } from './types'
+
+type HoverAttributes = {
+  '&:hover': {
+    backgroundColor: string
+  }
+}
+
+export type ThemeRadioTabs = {
+  default: HoverAttributes
+  checked: {
+    backgroundColor: string
+    color: string
+    borderColor: string
+  } & HoverAttributes
+}
+
+export const getRadioTabs = (theme: WuiTheme): ThemeRadioTabs => {
   const { colors } = theme
 
   return {
