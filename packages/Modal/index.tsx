@@ -21,7 +21,7 @@ export interface ModalProps {
   size?: 'sm' | 'md' | 'lg' | 'auto'
 }
 
-export function useModalState({ options }: { options: DialogInitialState }): DialogStateReturn {
+export function useModalState(options ?:DialogInitialState): DialogStateReturn {
   return useDialogState({ animated: true, ...options })
 }
 

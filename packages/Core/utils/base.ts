@@ -3,9 +3,7 @@ import { th } from '@xstyled/system'
 
 import { fonts } from './font'
 import { normalizeStyle, resetStyles } from './reset'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import * as WorkSans from './work-sans.css'
+import { workSans } from './work-sans'
 
 const baseBoxSizing = css`
   * {
@@ -54,7 +52,7 @@ function baseFonts() {
 export const GlobalStyle = createGlobalStyle<{ useReset?: boolean }>(
   ({ useReset }) => css`
     ${normalizeStyle};
-    ${WorkSans};
+    ${workSans}
     ${fonts()};
     ${baseFonts()};
     ${useReset ? resetStyles : baseBoxSizing};
