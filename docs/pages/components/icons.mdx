@@ -84,8 +84,6 @@ function() {
     'expand',
     'external_link',
     'filters',
-    'fullscreen_off',
-    'fullscreen_on',
     'get',
     'heart',
     'heart_outline',
@@ -153,8 +151,8 @@ function() {
 
 ```jsx
 function() {
-  const icons = ['control_stop', 'control_pause', 'control_forward', 'control_backward', 'microphone_on', 'microphone_off', 'cast', 'cast_connected', 'cast_unavailable', 'camera_on', 'camera_off', 'airplay', 'watch_later', 'playlist', 'sound_on', 'sound_off']
-  return IconsList({icons, isIconFont: true})
+  const icons = ['control_stop', 'control_pause', 'control_forward', 'control_backward', 'fullscreen_off', 'fullscreen_on', 'microphone_on', 'microphone_off', 'cast', 'cast_connected', 'cast_unavailable', 'camera_on', 'camera_off', 'airplay', 'watch_later', 'playlist', 'sound_on', 'sound_off']
+  return IconsList({icons})
 }
 ```
 
