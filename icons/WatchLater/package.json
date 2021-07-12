@@ -1,0 +1,18 @@
+{
+  "name": "@welcome-ui/icons.watch_later",
+  "sideEffects": false,
+  "main": "dist/icons.watch_later.cjs.js",
+  "module": "dist/icons.watch_later.es.js",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2 || ^17.0.1",
+    "react-dom": "^16.10.2 || ^17.0.1"
+  },
+  "license": "MIT"
+}

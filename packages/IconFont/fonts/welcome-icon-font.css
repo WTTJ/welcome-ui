@@ -1,7 +1,7 @@
 @font-face {
 	font-family: "welcome-icon-font";
-	src: url("welcome-icon-font.woff2?af808013d4a2c8df4e16b2503adfa391") format("woff2"),
-url("welcome-icon-font.woff?af808013d4a2c8df4e16b2503adfa391") format("woff");
+	src: url("welcome-icon-font.woff2?e273a5ec1d8220e4dcadfe471b7691af") format("woff2"),
+url("welcome-icon-font.woff?e273a5ec1d8220e4dcadfe471b7691af") format("woff");
 }
 
 .icon {
@@ -734,4 +734,82 @@ url("welcome-icon-font.woff?af808013d4a2c8df4e16b2503adfa391") format("woff");
 }
 .icon-user_outline:before {
 	content: "\0x1F0";
+}
+.icon-airplay:before {
+	content: "\0x1F1";
+}
+.icon-arrow_down:before {
+	content: "\0x1F2";
+}
+.icon-arrow_left:before {
+	content: "\0x1F3";
+}
+.icon-arrow_right:before {
+	content: "\0x1F4";
+}
+.icon-arrow_up:before {
+	content: "\0x1F5";
+}
+.icon-camera_off:before {
+	content: "\0x1F6";
+}
+.icon-camera_on:before {
+	content: "\0x1F7";
+}
+.icon-cast:before {
+	content: "\0x1F8";
+}
+.icon-cast_connected:before {
+	content: "\0x1F9";
+}
+.icon-cast_unavailable:before {
+	content: "\0x1FA";
+}
+.icon-control_backward:before {
+	content: "\0x1FB";
+}
+.icon-control_forward:before {
+	content: "\0x1FC";
+}
+.icon-control_pause:before {
+	content: "\0x1FD";
+}
+.icon-control_stop:before {
+	content: "\0x1FE";
+}
+.icon-duplicate:before {
+	content: "\0x1FF";
+}
+.icon-hide:before {
+	content: "\0x200";
+}
+.icon-home:before {
+	content: "\0x201";
+}
+.icon-microphone_off:before {
+	content: "\0x202";
+}
+.icon-microphone_on:before {
+	content: "\0x203";
+}
+.icon-more_android:before {
+	content: "\0x204";
+}
+.icon-pen:before {
+	content: "\0x205";
+}
+.icon-playlist:before {
+	content: "\0x206";
+}
+.icon-screenshare_off:before {
+	content: "\0x207";
+}
+.icon-screenshare_on:before {
+	content: "\0x208";
+}
+.icon-sound_off:before {
+	content: "\0x209";
+}
+.icon-watch_later:before {
+	content: "\0x20A";
 }
