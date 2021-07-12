@@ -33,12 +33,15 @@ export const Emoji = function ({
       return false
     }
   }, [emoji])
+
   if (!emoji) return null
+
   const emojiName = !isUrl && getEmojiName(emoji)
   const alt = isUrl ? null : emojiName
   const src = isUrl
     ? emoji
     : `${EMOJI_PATH}${useAppleEmoji ? 'apple/' : 'google/'}${encodeURIComponent(emojiName)}.png`
+
   return (
     <Box alt={alt} as="img" height={size || height} src={src} width={size || width} {...rest} />
   )
