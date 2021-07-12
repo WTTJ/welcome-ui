@@ -9,7 +9,7 @@ const EMOJI_PATH = 'https://cdn.welcome-ui.com/emojis/'
 const IS_APPLE_OS =
   !process.browser || Bowser.parse(window.navigator.userAgent).platform.vendor === 'Apple'
 
-export interface EmojiProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface EmojiProps extends React.HTMLAttributes<HTMLImageElement> {
   emoji?: string
   height?: number
   size?: number
@@ -44,4 +44,5 @@ export const Emoji = function ({
   )
 }
 
+// eslint-disable-next-line prettier/prettier
 export const getEmojiName = (alias: string): string => alias?.replace?.(/:/g, '')
