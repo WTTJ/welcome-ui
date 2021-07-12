@@ -4,7 +4,9 @@ import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import { system } from '@welcome-ui/system'
 
-export const Alert = styled(Box)(
+import { AlertProps } from '.'
+
+export const Alert = styled(Box)<AlertProps>(
   ({ variant }) => css`
     ${th('alerts.default')};
     ${th(`alerts.${variant}`)};
@@ -12,7 +14,7 @@ export const Alert = styled(Box)(
   `
 )
 
-export const Title = styled(Text).attrs(({ variant }) => ({
+export const Title = styled(Text).attrs(({ variant }: AlertProps) => ({
   variant: 'h5',
   // We're renaming the prop because it'll be overridden by Text's variant
   alertVariant: variant
