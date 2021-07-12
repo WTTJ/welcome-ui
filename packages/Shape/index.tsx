@@ -3,11 +3,11 @@ import React, { forwardRef } from 'react'
 
 import * as S from './styles'
 
-export type ShapeType = 'square' | 'circle'
+export type Shape = 'square' | 'circle'
 
 export interface ShapeProps extends React.HTMLAttributes<HTMLDivElement> {
   dataTestId?: string
-  shape: ShapeType
+  shape: Shape
 }
 
 export const Shape = forwardRef<HTMLDivElement, ShapeProps & WuiProps>(

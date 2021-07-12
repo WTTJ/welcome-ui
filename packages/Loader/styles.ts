@@ -3,7 +3,7 @@ import { Shape } from '@welcome-ui/shape'
 import { system } from '@welcome-ui/system'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { ShapeProps } from 'Shape'
-import { sizeType } from 'Loader'
+import { Size } from 'Loader'
 
 const animation = keyframes`
   0%, 100% {
@@ -20,8 +20,8 @@ const animationRule = css`
   animation: ${animation} 1.5s cubic-bezier(0.86, 0, 0.07, 1) infinite;
 `
 
-interface LoadingDotProps {
-  size: sizeType
+export interface LoadingDotProps {
+  size: Size
 }
 
 export const LoadingDot = styled(Shape).withConfig({ shouldForwardProp })<
