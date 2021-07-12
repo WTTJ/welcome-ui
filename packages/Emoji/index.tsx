@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Box } from '@welcome-ui/box'
 import Bowser from 'bowser'
-import { WuiProps } from 'System'
+import { WuiProps } from '@welcome-ui/system'
 
 const EMOJI_PATH = 'https://cdn.welcome-ui.com/emojis/'
 
