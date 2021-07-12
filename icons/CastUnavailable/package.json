@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.cast_unavailable.cjs.js",
   "module": "dist/icons.cast_unavailable.es.js",
-  "version": "1.0.0",
+  "version": "4.0.0-alpha.1",
   "publishConfig": {
     "access": "public"
   },

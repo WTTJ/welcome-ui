@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.microphone_on.cjs.js",
   "module": "dist/icons.microphone_on.es.js",
-  "version": "1.0.0",
+  "version": "4.0.0-alpha.1",
   "publishConfig": {
     "access": "public"
   },
