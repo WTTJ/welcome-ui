@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
-import { bool, number, string } from 'prop-types'
 import { Box } from '@welcome-ui/box'
 import Bowser from 'bowser'
+import { WuiProps } from 'System'
 
 const EMOJI_PATH = 'https://cdn.welcome-ui.com/emojis/'
 
@@ -9,14 +9,22 @@ const EMOJI_PATH = 'https://cdn.welcome-ui.com/emojis/'
 const IS_APPLE_OS =
   !process.browser || Bowser.parse(window.navigator.userAgent).platform.vendor === 'Apple'
 
-export function Emoji({
+export interface EmojiProps extends React.HTMLAttributes<HTMLButtonElement> {
+  emoji?: string
+  height?: number
+  size?: number
+  useAppleEmoji?: boolean
+  width?: number
+}
+
+export const Emoji = function ({
   emoji,
-  useAppleEmoji = IS_APPLE_OS,
-  size,
-  width = 24,
   height = 24,
+  size,
+  useAppleEmoji = IS_APPLE_OS,
+  width = 24,
   ...rest
-}) {
+}: EmojiProps & WuiProps): JSX.Element {
   const isUrl = useMemo(() => {
     try {
       new URL(emoji)
@@ -25,29 +33,15 @@ export function Emoji({
       return false
     }
   }, [emoji])
-
   if (!emoji) return null
-
   const emojiName = !isUrl && getEmojiName(emoji)
   const alt = isUrl ? null : emojiName
   const src = isUrl
     ? emoji
     : `${EMOJI_PATH}${useAppleEmoji ? 'apple/' : 'google/'}${encodeURIComponent(emojiName)}.png`
-
   return (
     <Box alt={alt} as="img" height={size || height} src={src} width={size || width} {...rest} />
   )
 }
 
-Emoji.propTypes = {
-  /** The slack emoji, e.g: :sweat-smile: or a URL */
-  emoji: string,
-  height: number,
-  /** Helper to prevent to set width & height */
-  size: number,
-  /** Needed for SSR, it defaults to true on the server */
-  useAppleEmoji: bool,
-  width: number
-}
-
-export const getEmojiName = alias => alias?.replace?.(/:/g, '')
+export const getEmojiName = (alias: string): string => alias?.replace?.(/:/g, '')
