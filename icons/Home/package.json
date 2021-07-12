@@ -1,0 +1,18 @@
+{
+  "name": "@welcome-ui/icons.home",
+  "sideEffects": false,
+  "main": "dist/icons.home.cjs.js",
+  "module": "dist/icons.home.es.js",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2 || ^17.0.1",
+    "react-dom": "^16.10.2 || ^17.0.1"
+  },
+  "license": "MIT"
+}

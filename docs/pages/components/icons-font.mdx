@@ -58,7 +58,7 @@ Here is an example on how to use css class to display icons:
 
 ```jsx
 function() {
-  const icons = ['left', 'right', 'up', 'down']
+  const icons = ['left', 'right', 'up', 'down', 'arrow_left', 'arrow_right', 'arrow_up', 'arrow_down' ]
   return IconsList({icons, isIconFont: true})
 }
 ```
@@ -79,6 +79,7 @@ function() {
     'copy',
     'cross',
     'drag_and_drop',
+    'duplicate',
     'edit',
     'eye',
     'expand_text',
@@ -90,12 +91,16 @@ function() {
     'get',
     'heart',
     'heart_outline',
+    'hide',
+    'home',
     'information',
     'link',
     'log_out',
     'menu',
     'more',
+    'more_android',
     'notification',
+    'pen',
     'pin',
     'play',
     'play_outline',
@@ -142,6 +147,15 @@ function() {
 ```jsx
 function() {
   const icons = ['actions', 'cover_letter', 'details', 'resume', 'questions']
+  return IconsList({icons, isIconFont: true})
+}
+```
+
+### Controls
+
+```jsx
+function() {
+  const icons = ['control_stop', 'control_pause', 'control_forward', 'control_backward', 'microphone_on', 'microphone_off', 'cast', 'cast_connected', 'cast_unavailable', 'camera_on', 'camera_off', 'airplay', 'watch_later', 'playlist', 'sound_on', 'sound_off']
   return IconsList({icons, isIconFont: true})
 }
 ```
@@ -199,7 +213,6 @@ function() {
     'review',
     'salary',
     'search_people',
-    'sound_on',
     'source',
     'star',
     'star_outline',
