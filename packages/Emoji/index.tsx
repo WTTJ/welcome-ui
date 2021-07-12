@@ -17,14 +17,14 @@ export interface EmojiProps extends React.HTMLAttributes<HTMLImageElement> {
   width?: number
 }
 
-export const Emoji = function ({
+export const Emoji: React.FC<EmojiProps & WuiProps> = ({
   emoji,
   height = 24,
   size,
   useAppleEmoji = IS_APPLE_OS,
   width = 24,
   ...rest
-}: EmojiProps & WuiProps): JSX.Element {
+}) => {
   const isUrl = useMemo(() => {
     try {
       new URL(emoji)
