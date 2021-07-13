@@ -16,7 +16,7 @@ export const Layout = ({ children }) => {
   return (
     <S.Layout>
       <Header />
-      <Box margin="0 auto" maxWidth={1} paddingLeft={{ md: 270 }} w={1280}>
+      <Box margin="0 auto" maxWidth="100%" paddingLeft={{ md: 270 }} w={1280}>
         <Box
           as="main"
           mb={{ xs: '3xl', md: 0 }}
@@ -33,7 +33,7 @@ export const Layout = ({ children }) => {
             justifyContent="center"
             mt="3xl"
             pt="md"
-            w={1}
+            w="100%"
           >
             Made with <HeartIcon color="primary.500" mx="xxs" /> by{' '}
             <Box

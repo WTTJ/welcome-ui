@@ -33,7 +33,7 @@ const Item = styled(Box)(
     width: 130;
 
     ${!copied &&
-    css`
+      css`
         &:hover {
           ${Content} {
             background-color: light.800;
@@ -43,7 +43,7 @@ const Item = styled(Box)(
       `}
 
     ${copied &&
-    css`
+      css`
         ${Content} {
           background-color: success.100;
           border-color: success.100;
@@ -71,7 +71,7 @@ function IconItem({ componentName, icon: Icon, name }) {
       <Content>
         <Icon size="xl" />
       </Content>
-      <Box fontSize="meta1" fontWeight="medium" pt="xs" px="xs" textAlign="center" w={1}>
+      <Box fontSize="meta1" fontWeight="medium" pt="xs" px="xs" textAlign="center" w="100%">
         {name}
       </Box>
     </Item>
