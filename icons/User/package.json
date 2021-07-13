@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.user.cjs.js",
   "module": "dist/icons.user.es.js",
-  "version": "4.0.0-alpha.0",
+  "version": "4.0.0-alpha.2",
   "publishConfig": {
     "access": "public"
   },

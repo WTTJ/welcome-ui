@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/icons",
-  "version": "4.0.0-alpha.1",
+  "version": "4.0.0-alpha.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/icons.cjs.js",
   "module": "dist/icons.es.js",
@@ -296,8 +296,8 @@
     "@welcome-ui/icons.up": "^3.0.0",
     "@welcome-ui/icons.update": "^3.0.0",
     "@welcome-ui/icons.upload": "^3.0.0",
-    "@welcome-ui/icons.user": "^4.0.0-alpha.0",
-    "@welcome-ui/icons.user_outline": "^4.0.0-alpha.0",
+    "@welcome-ui/icons.user": "^4.0.0-alpha.2",
+    "@welcome-ui/icons.user_outline": "^4.0.0-alpha.2",
     "@welcome-ui/icons.video": "^3.4.0",
     "@welcome-ui/icons.video_camera": "^3.4.0",
     "@welcome-ui/icons.video_camera_2": "^3.4.0",
