@@ -67,3 +67,5 @@ export const shouldForwardProp: StyledConfig['shouldForwardProp'] = (prop, defau
 export interface WuiProps extends SystemProps {
   as?: React.ElementType
 }
+
+export type ExtraSize = number | string
