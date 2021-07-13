@@ -48,8 +48,8 @@ export const getTags = theme => {
       },
       success: {
         backgroundColor: colors.success[100],
-        color: colors.success[500],
-        borderColor: colors.success[200],
+        color: colors.success[700],
+        borderColor: colors.success[500],
         ...border
       },
       error: {
@@ -66,8 +66,8 @@ export const getTags = theme => {
       },
       info: {
         backgroundColor: colors.info[100],
-        color: colors.info[500],
-        borderColor: colors.info[200],
+        color: colors.info[700],
+        borderColor: colors.info[500],
         ...border
       },
       1: { ...withoutVisibleBorder(colors.sub[1]) },

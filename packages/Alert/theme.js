@@ -20,11 +20,11 @@ export const getAlerts = theme => {
     },
     info: {
       backgroundColor: colors.info[100],
-      borderColor: colors.info[500]
+      borderColor: colors.info[700]
     },
     success: {
       backgroundColor: colors.success[100],
-      borderColor: colors.success[500]
+      borderColor: colors.success[700]
     },
     title: {
       error: {
@@ -34,10 +34,10 @@ export const getAlerts = theme => {
         color: colors.warning[700]
       },
       info: {
-        color: colors.info[500]
+        color: colors.info[700]
       },
       success: {
-        color: colors.success[500]
+        color: colors.success[700]
       }
     }
   }
