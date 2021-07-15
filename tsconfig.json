@@ -12,8 +12,21 @@
     "baseUrl": "./packages",
     "resolveJsonModule": true,
     "sourceMap": false,
-    "declaration": true
+    "declaration": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "types": [],
+    "typeRoots": [],
+    "noLib": true
   },
-  "include": ["packages/*", "packages/**/*", "icons/*", "icons/**/*", "./styled.d.ts", "./global.d.ts"],
-  "exclude": ["node_modules", "dist", "**/*.test.tsx"]
+  "include": ["packages/**/*", "./styled.d.ts", "./global.d.ts"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "packages/**/node_modules",
+    "packages/**/dist",
+    "**/*.test.tsx",
+    "icons/**/*",
+    "rollup.config.js"
+  ]
 }
