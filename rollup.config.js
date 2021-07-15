@@ -52,12 +52,12 @@ export const getRollupConfig = ({ babelConfigFile, pwd, ts }) => {
   if (ts) {
     cjsConfig.plugins.push(
       typescript({
-        tsconfig: '../../tsconfig.json'
+        tsconfig: '../../tsconfig.build.json'
       })
     )
     esmConfig.plugins.push(
       typescript({
-        tsconfig: '../../tsconfig.json'
+        tsconfig: '../../tsconfig.build.json'
       })
     )
   }
