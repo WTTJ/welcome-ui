@@ -29,6 +29,10 @@ const PLUGINS = [
   json()
 ]
 
+const tsConfig = {
+  tsconfig: '../../tsconfig.build.json'
+}
+
 export const getRollupConfig = ({ babelConfigFile, pwd, ts }) => {
   const SOURCE_DIR = path.resolve(pwd)
   const pkg = require(`${SOURCE_DIR}/package.json`)
@@ -50,16 +54,8 @@ export const getRollupConfig = ({ babelConfigFile, pwd, ts }) => {
   }
 
   if (ts) {
-    cjsConfig.plugins.push(
-      typescript({
-        tsconfig: '../../tsconfig.json'
-      })
-    )
-    esmConfig.plugins.push(
-      typescript({
-        tsconfig: '../../tsconfig.json'
-      })
-    )
+    cjsConfig.plugins.push(typescript(tsConfig))
+    esmConfig.plugins.push(typescript(tsConfig))
   }
 
   if (process.env.WATCH_MODE) {
