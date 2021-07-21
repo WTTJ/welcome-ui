@@ -5,8 +5,9 @@ import { render } from '../../utils/tests'
 import { Breadcrumb } from './index'
 
 beforeEach(() => {
-  window.MutationObserver = function() {
-    return { disconnect: () => {}, observe: () => {}, takeRecords: () => {} }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-extra-semi
+  ;(window as any).MutationObserver = function() {
+    return { disconnect: () => null, observe: () => null, takeRecords: () => null }
   }
 })
 
