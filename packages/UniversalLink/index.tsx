@@ -4,7 +4,6 @@ import { WuiProps } from '@welcome-ui/system'
 import * as S from './styles'
 
 export interface UniversalLinkProps extends React.HTMLAttributes<HTMLLinkElement> {
-  dataTestId?: string
   target?: string
 }
 

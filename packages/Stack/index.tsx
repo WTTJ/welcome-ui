@@ -3,7 +3,6 @@ import { Box } from '@welcome-ui/box'
 import { WuiProps } from '@welcome-ui/system'
 
 export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
-  dataTestId?: string
   direction?: 'column' | 'row'
   spacing?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 }

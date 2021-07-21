@@ -41,7 +41,6 @@ export type Variant =
 export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   lines?: number
   variant?: Variant
-  dataTestId?: string
 }
 
 export const Text = forwardRef<HTMLParagraphElement, TextProps & WuiProps>(

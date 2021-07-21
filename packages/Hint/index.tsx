@@ -6,7 +6,6 @@ import * as S from './styles'
 
 export interface HintProps extends React.HTMLAttributes<HTMLDivElement> {
   checkableField?: boolean
-  dataTestId?: string
   variant?: Variant
 }
 

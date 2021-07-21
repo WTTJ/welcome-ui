@@ -11,7 +11,6 @@ const isString = (value: unknown): boolean => typeof value === 'string'
 export type Variant = 'primary' | 'secondary'
 
 export interface LinkProps extends UniversalLinkProps {
-  dataTestId?: string
   variant?: Variant
 }
 

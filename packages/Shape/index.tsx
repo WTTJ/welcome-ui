@@ -6,7 +6,6 @@ import * as S from './styles'
 export type Shape = 'square' | 'circle'
 
 export interface ShapeProps extends React.HTMLAttributes<HTMLDivElement> {
-  dataTestId?: string
   shape: Shape
 }
 

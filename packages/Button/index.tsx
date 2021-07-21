@@ -22,7 +22,6 @@ export type Variant =
   | 'disabled'
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  dataTestId?: string
   disabled?: boolean
   size?: Size
   variant?: Variant

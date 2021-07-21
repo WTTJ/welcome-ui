@@ -12,7 +12,6 @@ type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
 export interface InputTextProps extends React.HTMLAttributes<HTMLInputElement> {
   autoFocus?: boolean
   connected?: boolean
-  dataTestId?: string
   disabled?: boolean
   icon?: JSX.Element
   iconPlacement?: 'left' | 'right'
