@@ -3,7 +3,11 @@ import { th } from '@xstyled/system'
 import { Box } from '@welcome-ui/box'
 import { shouldForwardProp } from '@welcome-ui/system'
 
-export const Item = styled(Box).withConfig({ shouldForwardProp })(
+interface ItemProps {
+  withSeparator: boolean
+}
+
+export const Item = styled(Box).withConfig({ shouldForwardProp })<ItemProps>(
   ({ withSeparator }) => css`
     ${th('breadcrumbs.item.default')};
     align-items: center;

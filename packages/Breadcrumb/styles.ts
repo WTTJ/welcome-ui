@@ -2,8 +2,15 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Box } from '@welcome-ui/box'
 import { hexToRGBA } from '@welcome-ui/utils'
+import { WuiTheme } from '@welcome-ui/core'
 
-export const StartGradient = styled.span(
+import { Colors } from './index'
+
+interface Gradient {
+  gradientBackground: Colors
+}
+
+export const StartGradient = styled.span<Gradient>(
   ({ gradientBackground, theme }) => css`
     left: 0;
     background-image: ${gradient(theme, gradientBackground)};
@@ -11,7 +18,7 @@ export const StartGradient = styled.span(
   `
 )
 
-export const EndGradient = styled.span(
+export const EndGradient = styled.span<Gradient>(
   ({ gradientBackground, theme }) => css`
     right: 0;
     background-image: ${gradient(theme, gradientBackground, 'left')};
@@ -46,8 +53,8 @@ export const List = styled.ol`
   white-space: nowrap;
 `
 
-const gradient = (theme, gradientBackground, position = 'right') => {
-  const gradientColor = th(`colors.${gradientBackground}`)({ theme })
+const gradient = (theme: WuiTheme, gradientBackground: Colors, position = 'right') => {
+  const gradientColor = th(`colors.${gradientBackground}`)({ theme }) as string
   const transparent = hexToRGBA(gradientColor, 0)
   return `linear-gradient(to ${position}, ${gradientColor}, ${transparent} 100%)`
 }

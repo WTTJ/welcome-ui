@@ -1,4 +1,8 @@
-export const throttle = (callback: () => unknown, wait: number, leading = true): (() => void) => {
+export const throttle = (
+  callback: (entries?: unknown) => unknown,
+  wait: number,
+  leading = true
+): (() => void) => {
   let timeout: NodeJS.Timeout = null
   let lastArgs: unknown = null
 

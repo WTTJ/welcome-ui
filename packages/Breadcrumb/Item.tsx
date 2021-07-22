@@ -1,10 +1,21 @@
 import React from 'react'
-import { node, oneOfType, string } from 'prop-types'
 import { Box } from '@welcome-ui/box'
+import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './Item.styles'
 
-export function Item({ children, dataTestId, separator, ...rest }) {
+export interface ItemProps {
+  children: React.ReactNode
+  dataTestId?: string
+  separator?: string | React.ReactNode
+}
+
+export const Item: React.FC<ItemProps & WuiProps> = ({
+  children,
+  dataTestId,
+  separator,
+  ...rest
+}) => {
   return (
     <Box
       aria-label="breadcrumb"
@@ -19,9 +30,4 @@ export function Item({ children, dataTestId, separator, ...rest }) {
       </S.Item>
     </Box>
   )
-}
-
-Item.propTypes /* remove-proptypes */ = {
-  children: node.isRequired,
-  separator: oneOfType([node, string])
 }

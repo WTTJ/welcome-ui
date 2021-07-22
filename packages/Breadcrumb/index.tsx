@@ -1,15 +1,36 @@
-import React, { cloneElement, forwardRef, useCallback, useEffect, useRef, useState } from 'react'
-import { RightIcon } from '@welcome-ui/icons.right'
-import { node, oneOfType, string } from 'prop-types'
+import React, {
+  Children,
+  cloneElement,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
 import { clamp, throttle } from '@welcome-ui/utils'
 import { ResizeObserver } from '@juggle/resize-observer'
-
-import { COMPONENT_TYPE } from '../../utils/propTypes'
+import { RightIcon } from '@welcome-ui/icons.right'
+import { WuiProps } from '@welcome-ui/system'
+import { WuiTheme } from '@welcome-ui/core'
 
 import { Item } from './Item'
 import * as S from './styles'
 
-export const Breadcrumb = forwardRef(
+export type Colors = WuiTheme['colors']
+
+export interface BreadcrumbProps {
+  children: React.ReactNode | React.ReactNode[]
+  /** color from theme, add for scroll gradient on mobile */
+  gradientBackground?: Colors
+  renderChildrenAs?: string | React.ReactNode
+  separator?: string | React.ReactNode
+}
+
+interface Entry {
+  target: HTMLElement
+}
+
+export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps & WuiProps>(
   (
     {
       renderChildrenAs = 'a',
@@ -20,14 +41,15 @@ export const Breadcrumb = forwardRef(
     },
     ref
   ) => {
-    const listRef = useRef()
+    const listRef = useRef<HTMLOListElement>(null)
     const startGradient = useRef()
     const endGradient = useRef()
     const [isOverflowing, setIsOverflowing] = useState(false)
-    const [initialOffset, setInitialOffset] = useState()
+    const [initialOffset, setInitialOffset] = useState(0)
+    const childrenLength = Children.toArray(children).length
 
-    const clones = children.map((child, index) => {
-      const isLastChild = children.length === index + 1
+    const clones = Children.map(children, (child: React.ReactElement, index) => {
+      const isLastChild = childrenLength === 1 || childrenLength === index + 1
 
       return cloneElement(child, {
         key: `breadcrumb-${index}`,
@@ -37,7 +59,7 @@ export const Breadcrumb = forwardRef(
       })
     })
 
-    function translate(element, value) {
+    function translate(element: HTMLElement, value: number) {
       element.style.transform = `scale3d(${value}, 1, 1)`
     }
 
@@ -60,7 +82,7 @@ export const Breadcrumb = forwardRef(
 
     const handleResize = useCallback(
       throttle(
-        entries => {
+        (entries: Entry[]) => {
           const [
             {
               target: { offsetWidth, scrollLeft, scrollWidth }
@@ -73,7 +95,7 @@ export const Breadcrumb = forwardRef(
           setIsOverflowing(diff > 0)
         },
         300,
-        { leading: false }
+        false
       ),
       [initialOffset]
     )
@@ -107,15 +129,9 @@ export const Breadcrumb = forwardRef(
   }
 )
 
-Breadcrumb.displayName = 'Breadcrumb'
-
-Breadcrumb.propTypes /* remove-proptypes */ = {
-  children: node.isRequired,
-  /** color from theme, add for scroll gradient on mobile */
-  gradientBackground: string,
-  renderChildrenAs: oneOfType(COMPONENT_TYPE),
-  separator: oneOfType([node, string])
-}
+BreadcrumbComponent.displayName = 'Breadcrumb'
 
 // Nested exports
-Breadcrumb.Item = Item
+export const Breadcrumb = Object.assign(BreadcrumbComponent, {
+  Item
+})
