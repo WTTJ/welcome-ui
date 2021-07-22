@@ -8,7 +8,6 @@ export type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
 
 export interface TextareaProps extends React.HTMLAttributes<HTMLTextAreaElement> {
   autoFocus?: boolean
-  dataTestId?: string
   disabled?: boolean
   maxLength?: number
   minRows?: number

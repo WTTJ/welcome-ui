@@ -25,7 +25,6 @@ export type Variant =
   | 'warning'
 
 export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
-  dataTestId?: string
   onRemove?: () => void
   size?: Size
   variant?: Variant

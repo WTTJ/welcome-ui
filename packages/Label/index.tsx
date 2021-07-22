@@ -11,7 +11,6 @@ export type Variant = 'error' | 'warning' | 'info' | 'success'
 export interface LabelProps extends React.HTMLAttributes<HTMLLabelElement> {
   checkableField?: boolean
   disabled?: boolean
-  dataTestId?: string
   disabledIcon?: JSX.Element
   icon?: JSX.Element
   variant?: Variant

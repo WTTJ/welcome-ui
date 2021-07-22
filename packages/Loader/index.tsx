@@ -8,7 +8,6 @@ export type Size = 'xs' | 'sm' | 'md' | 'lg' | ExtraSize
 
 interface LoaderProps extends React.HTMLAttributes<HTMLDivElement> {
   color: string
-  dataTestId: string
   size?: Size
 }
 

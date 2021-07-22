@@ -6,7 +6,6 @@ import * as S from './Item.styles'
 
 export interface ItemProps {
   children: React.ReactNode
-  dataTestId?: string
   separator?: string | React.ReactNode
 }
 

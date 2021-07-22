@@ -4,7 +4,6 @@ import { WuiProps } from '@welcome-ui/system'
 import * as S from './styles'
 
 export interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
-  dataTestId?: string
   checked?: boolean
   Component?: React.ElementType
   disabled?: boolean
