@@ -3,7 +3,6 @@ import { Box } from '@welcome-ui/box'
 import { system } from '@welcome-ui/system'
 import { th } from '@xstyled/system'
 import { cardStyles } from '@welcome-ui/utils'
-import { Shape } from '@welcome-ui/shape'
 
 export const Card = styled(Box)`
   ${cardStyles};
@@ -16,12 +15,6 @@ export const Card = styled(Box)`
 
 export const Body = styled(Box)`
   padding: lg;
-
-  ${system}
-`
-
-export const Cover = styled(Shape)`
-  ${th('cards.cover')};
 
   ${system}
 `
