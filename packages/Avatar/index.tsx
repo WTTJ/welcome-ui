@@ -1,12 +1,26 @@
-import { func, number, oneOf, oneOfType, string } from 'prop-types'
 import React, { memo } from 'react'
 import { Box } from '@welcome-ui/box'
+import { Shape } from '@welcome-ui/shape'
 import { useTheme } from '@xstyled/styled-components'
+import { WuiProps } from '@welcome-ui/system'
+import { WuiTheme } from '@welcome-ui/core'
 
 import { getInitials as defaultGetInitials, getSeededColor } from './utils'
 import * as S from './styles'
 
-export const Avatar = memo(function Avatar({
+type SubColor = WuiTheme['colors']['sub']
+type Size = 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+
+export interface AvatarProps {
+  color?: string | SubColor
+  getInitials?: (name: string) => string
+  name: string
+  shape?: Shape
+  size?: Size
+  src?: string
+}
+
+export const Avatar: React.FC<AvatarProps & WuiProps> = memo(function Avatar({
   color,
   fontSize,
   getInitials = defaultGetInitials,
@@ -19,7 +33,7 @@ export const Avatar = memo(function Avatar({
   ...rest
 }) {
   const theme = useTheme()
-  const backgroundColor = color || getSeededColor(theme && theme.colors && theme.colors.sub, name)
+  const backgroundColor = color || getSeededColor(theme.colors.sub, name)
   const avatarSize = theme.avatars.sizes[size]
   const avatarFontSize = fontSize || `calc(${w ? theme.toRem(w) : avatarSize} / 2.5)`
 
@@ -46,15 +60,3 @@ export const Avatar = memo(function Avatar({
 })
 
 Avatar.displayName = 'Avatar'
-
-Avatar.propTypes /* remove-proptypes */ = {
-  color: string,
-  fontSize: oneOfType([string, number]),
-  getInitials: func,
-  h: number,
-  name: string.isRequired,
-  shape: oneOf(['circle', 'square']),
-  size: oneOf(['sm', 'md', 'lg', 'xl', 'xxl']),
-  src: string,
-  w: number
-}

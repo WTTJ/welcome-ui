@@ -4,7 +4,7 @@ import { render } from '../../utils/tests'
 
 import { Avatar } from './index'
 
-describe('<Badge>', () => {
+describe('<Avatar>', () => {
   it('should render correctly', () => {
     const { container } = render(<Avatar name="welcome jungle" src="src" />)
 
