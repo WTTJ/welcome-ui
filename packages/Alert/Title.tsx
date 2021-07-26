@@ -5,9 +5,13 @@ import { AlertProps } from '@welcome-ui/alert'
 
 import * as S from './styles'
 
-export const Title: React.FC<
-  VariantIconProps & AlertProps & WuiProps & { dataTestId?: string }
-> = ({ children, dataTestId, icon, variant, ...rest }) => {
+export const Title: React.FC<VariantIconProps & AlertProps & WuiProps> = ({
+  children,
+  dataTestId,
+  icon,
+  variant,
+  ...rest
+}) => {
   return (
     <S.Title data-testid={dataTestId} variant={variant} {...rest}>
       <VariantIcon icon={icon} mr="xs" variant={variant} />
