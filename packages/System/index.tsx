@@ -48,8 +48,8 @@ const WRAPPER_PROPS = Object.freeze([
   oldProps
 ])
 
-export const system = compose(...SYSTEM_PROPS)
-export const wrapperSystem = compose(...WRAPPER_PROPS)
+export const system = compose<WuiSystemProps>(...SYSTEM_PROPS)
+export const wrapperSystem = compose<WuiWrapperSystemProps>(...WRAPPER_PROPS)
 const componentProps = system.meta.props
   .filter(prop => !wrapperSystem.meta.props.includes(prop))
   .map(prop => {
@@ -63,6 +63,43 @@ export const componentSystem = compose(...componentProps)
 export const filterSystemProps = (prop: string): boolean => !system.meta.props.includes(prop)
 export const shouldForwardProp: StyledConfig['shouldForwardProp'] = (prop, defaultValidatorFn) =>
   defaultValidatorFn(prop)
+
+export type WuiOldProps = S.OpacityProps &
+  S.OverflowProps &
+  S.TransitionProps &
+  S.ZIndexProps &
+  S.TopProps &
+  S.RightProps &
+  S.BottomProps &
+  S.LeftProps
+
+export type WuiSystemProps = S.BackgroundsProps &
+  S.BorderProps &
+  S.BoxShadowProps &
+  S.ColorProps &
+  S.DisplayProps &
+  S.FlexboxesProps &
+  S.GridsProps &
+  S.HeightProps &
+  S.MaxHeightProps &
+  S.MaxWidthProps &
+  S.MinHeightProps &
+  S.MinWidthProps &
+  S.SpaceProps &
+  S.TypographyProps &
+  S.VerticalAlignProps &
+  S.WidthProps &
+  WuiOldProps
+
+export type WuiWrapperSystemProps = S.MarginProps &
+  S.MarginBottomProps &
+  S.MarginLeftProps &
+  S.MarginRightProps &
+  S.MarginTopProps &
+  S.MarginXProps &
+  S.MarginYProps &
+  S.WidthProps &
+  WuiOldProps
 
 export interface WuiTestProps {
   dataTestId?: string
