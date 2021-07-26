@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "outDir": ".",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": "./packages",
+    "resolveJsonModule": true,
+    "sourceMap": false,
+    "declaration": true
+  },
+  "include": ["packages/**/*", "packages/*", "./styled.d.ts", "./global.d.ts"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.tsx",
+    "utils/**.js",
+    "icons/**/*",
+    "packages/**/node_modules",
+    "packages/**/dist",
+    "packages/**/**.js"
+  ]
+}

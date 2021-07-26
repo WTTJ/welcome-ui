@@ -5,6 +5,7 @@ import replace from '@rollup/plugin-replace'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import json from '@rollup/plugin-json'
+import typescript from '@rollup/plugin-typescript'
 
 const getBabelOptions = ({ babelConfigFile = '../../babel.config.js', useESModules }) => ({
   exclude: '**/node_modules/**',
@@ -28,10 +29,15 @@ const PLUGINS = [
   json()
 ]
 
-export const getRollupConfig = ({ babelConfigFile, pwd }) => {
+const tsConfig = {
+  tsconfig: '../../tsconfig.build.json'
+}
+
+export const getRollupConfig = ({ babelConfigFile, pwd, ts }) => {
   const SOURCE_DIR = path.resolve(pwd)
   const pkg = require(`${SOURCE_DIR}/package.json`)
-  const input = `${SOURCE_DIR}/index.js`
+  const extension = ts ? '.tsx' : '.js'
+  const input = `${SOURCE_DIR}/index${extension}`
 
   const cjsConfig = {
     input,
@@ -45,6 +51,11 @@ export const getRollupConfig = ({ babelConfigFile, pwd }) => {
     output: { file: `${SOURCE_DIR}/${pkg.module}`, format: 'esm' },
     external,
     plugins: [...PLUGINS, babel(getBabelOptions({ babelConfigFile, useESModules: true }))]
+  }
+
+  if (ts) {
+    cjsConfig.plugins.push(typescript(tsConfig))
+    esmConfig.plugins.push(typescript(tsConfig))
   }
 
   if (process.env.WATCH_MODE) {

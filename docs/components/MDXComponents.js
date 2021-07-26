@@ -5,7 +5,7 @@ import React from 'react'
 import { Text } from '@welcome-ui/text'
 import { Table } from '@welcome-ui/table'
 import { Link } from '@welcome-ui/link'
-import { Box } from '@xstyled/styled-components'
+import { Box } from '@welcome-ui/box'
 
 import { H1, H2, H3 } from './Headings'
 import { Code } from './Code'
