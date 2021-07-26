@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import { AlertIcon } from '@welcome-ui/icons.alert'
+import { WuiProps } from '@welcome-ui/system'
 import { CheckIcon } from '@welcome-ui/icons.check'
 import { InformationIcon } from '@welcome-ui/icons.information'
 
@@ -12,7 +13,7 @@ export interface VariantIconProps {
   variant?: Variant
 }
 
-export const VariantIcon: React.FC<VariantIconProps> = ({ icon, variant, ...rest }) => {
+export const VariantIcon: React.FC<VariantIconProps & WuiProps> = ({ icon, variant, ...rest }) => {
   const Icon = useMemo(() => {
     if (icon === null) return null
     if (icon) return icon

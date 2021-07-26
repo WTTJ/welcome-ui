@@ -1,18 +1,32 @@
 /* eslint-disable react/no-multi-comp */
 import React, { Children, cloneElement } from 'react'
-import { node, oneOf } from 'prop-types'
 import { Stack } from '@welcome-ui/stack'
-import { Button } from '@welcome-ui/button'
+import { Button, ButtonProps } from '@welcome-ui/button'
+import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 import { Title } from './Title'
 
-export const Alert = ({ children, variant = 'error', ...rest }) => {
-  const hasTitle = Children.toArray(children).some(child => child.type === Title)
-  const buttonChild = Children.toArray(children).find(child => child.type === AlertButton)
+export type Variant = 'error' | 'warning' | 'info' | 'success'
+
+export interface AlertProps {
+  variant?: Variant
+}
+
+const AlertComponent: React.FC<AlertProps & WuiProps> = ({
+  children,
+  variant = 'error',
+  ...rest
+}) => {
+  const hasTitle = Children.toArray(children).some(
+    (child: React.ReactElement) => child.type === Title
+  )
+  const buttonChild = Children.toArray(children).find(
+    (child: React.ReactElement) => child.type === AlertButton
+  )
   const content = Children.toArray(children)
-    .filter(child => child.type !== AlertButton)
-    .map(child => {
+    .filter((child: React.ReactElement) => child.type !== AlertButton)
+    .map((child: React.ReactElement) => {
       // Add variant to Title to show the correct icon
       if (child.type === Title) {
         return cloneElement(child, { variant })
@@ -37,14 +51,7 @@ export const Alert = ({ children, variant = 'error', ...rest }) => {
   )
 }
 
-Alert.propTypes /* remove-proptypes */ = {
-  children: node.isRequired,
-  variant: oneOf(['success', 'error', 'warning', 'info'])
-}
-
 // We need this component to check its existence in <Alert> and to allow users to add Button in <Alert> content
-const AlertButton = props => <Button size="sm" {...props} />
+const AlertButton: React.FC<ButtonProps & WuiProps> = props => <Button size="sm" {...props} />
 
-// Nested exports
-Alert.Title = Title
-Alert.Button = AlertButton
+export const Alert = Object.assign(AlertComponent, { Title, Button: AlertButton })
