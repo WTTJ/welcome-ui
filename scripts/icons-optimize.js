@@ -24,6 +24,10 @@ const svgoConfig = {
       params: {
         noSpaceAfterFlags: false
       }
+    },
+    {
+      name: 'removeViewBox',
+      active: false
     }
   ])
 }
