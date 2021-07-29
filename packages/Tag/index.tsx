@@ -24,14 +24,16 @@ export type Variant =
   | 'success'
   | 'warning'
 
-export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TagOptions {
   onRemove?: () => void
   size?: Size
   variant?: Variant
   shape?: Shape
 }
 
-export const Tag = forwardRef<HTMLDivElement, TagProps & WuiProps>(
+export type TagProps = TagOptions & React.HTMLAttributes<HTMLDivElement> & WuiProps
+
+export const Tag = forwardRef<HTMLDivElement, TagProps>(
   ({ children, dataTestId, onRemove, shape, size = 'md', variant = 'default', ...rest }, ref) => {
     const content = wrapChildren(children as JSX.Element)
     // get size children for int and string

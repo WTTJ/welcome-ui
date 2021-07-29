@@ -8,7 +8,7 @@ import * as S from './styles'
 
 export type Variant = 'error' | 'warning' | 'info' | 'success'
 
-export interface LabelProps extends React.HTMLAttributes<HTMLLabelElement> {
+export interface LabelOptions {
   checkableField?: boolean
   disabled?: boolean
   disabledIcon?: JSX.Element
@@ -18,7 +18,9 @@ export interface LabelProps extends React.HTMLAttributes<HTMLLabelElement> {
   withDisabledIcon?: boolean
 }
 
-export const Label = forwardRef<HTMLLabelElement, LabelProps & WuiProps>(
+export type LabelProps = LabelOptions & React.HTMLAttributes<HTMLLabelElement> & WuiProps
+
+export const Label = forwardRef<HTMLLabelElement, LabelProps>(
   (
     {
       checkableField,

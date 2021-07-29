@@ -6,12 +6,14 @@ import * as S from './styles'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | ExtraSize
 
-interface LoaderProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface LoaderOptions {
   color: string
   size?: Size
 }
 
-export const Loader = forwardRef<HTMLDivElement, WuiProps & LoaderProps>(
+export type LoaderProps = LoaderOptions & React.HTMLAttributes<HTMLDivElement> & WuiProps
+
+export const Loader = forwardRef<HTMLDivElement, LoaderProps>(
   ({ color, dataTestId, size = 'sm', ...rest }, ref) => (
     <Box color={color} data-testid={dataTestId} display="flex" ref={ref}>
       <S.LoadingDot shape="circle" size={size} {...rest} />

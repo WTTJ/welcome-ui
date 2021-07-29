@@ -5,11 +5,13 @@ import * as S from './styles'
 
 export type Shape = 'square' | 'circle'
 
-export interface ShapeProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ShapeOptions {
   shape: Shape
 }
 
-export const Shape = forwardRef<HTMLDivElement, ShapeProps & WuiProps>(
+export type ShapeProps = ShapeOptions & React.HTMLAttributes<HTMLDivElement> & WuiProps
+
+export const Shape = forwardRef<HTMLDivElement, ShapeProps>(
   ({ children, dataTestId, shape, ...rest }, ref) => (
     <S.Shape data-testid={dataTestId} ref={ref} shape={shape} {...rest}>
       {children}

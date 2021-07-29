@@ -9,7 +9,7 @@ import * as S from './styles'
 type Size = 'sm' | 'md' | 'lg'
 type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
 
-export interface InputTextProps extends React.HTMLAttributes<HTMLInputElement> {
+export interface InputTextOptions {
   autoFocus?: boolean
   connected?: boolean
   disabled?: boolean
@@ -28,7 +28,9 @@ export interface InputTextProps extends React.HTMLAttributes<HTMLInputElement> {
   variant?: Variant
 }
 
-export const InputText = forwardRef<HTMLInputElement, InputTextProps & WuiProps>(
+export type InputTextProps = InputTextOptions & React.HTMLAttributes<HTMLInputElement> & WuiProps
+
+export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
   (
     {
       autoFocus,

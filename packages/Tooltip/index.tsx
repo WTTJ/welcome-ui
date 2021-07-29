@@ -133,14 +133,16 @@ export type PlacementOptions =
   | 'left'
   | 'left-start'
 
-export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TooltipOptions {
   children: React.ReactElement
   content: React.ReactElement
   fixed?: boolean
   placement?: PlacementOptions
 }
 
-export const Tooltip = forwardRef<HTMLDivElement, TooltipProps & WuiProps>(
+export type TooltipProps = TooltipOptions & React.HTMLAttributes<HTMLDivElement> & WuiProps
+
+export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   (props, ref): React.ReactElement => {
     const {
       children,

@@ -3,12 +3,14 @@ import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export interface TableProps {
+export interface TableOptions {
   /* Add space on first and last child on the Td and Th component */
   indent?: boolean
 }
 
-export const TableComponent: React.FC<TableProps & WuiProps> = ({ children, indent, ...rest }) => {
+export type TableProps = TableOptions & WuiProps
+
+export const TableComponent: React.FC<TableProps> = ({ children, indent, ...rest }) => {
   return (
     <S.Wrapper indent={indent && indent.toString()} {...rest}>
       <S.Content>

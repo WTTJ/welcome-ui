@@ -6,11 +6,11 @@ import { WuiTheme } from '@welcome-ui/core'
 
 import { Colors } from './index'
 
-interface Gradient {
+interface GradientProps {
   gradientBackground: Colors
 }
 
-export const StartGradient = styled.span<Gradient>(
+export const StartGradient = styled.span<GradientProps>(
   ({ gradientBackground, theme }) => css`
     left: 0;
     background-image: ${gradient(theme, gradientBackground)};
@@ -18,7 +18,7 @@ export const StartGradient = styled.span<Gradient>(
   `
 )
 
-export const EndGradient = styled.span<Gradient>(
+export const EndGradient = styled.span<GradientProps>(
   ({ gradientBackground, theme }) => css`
     right: 0;
     background-image: ${gradient(theme, gradientBackground, 'left')};

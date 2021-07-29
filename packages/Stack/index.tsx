@@ -2,12 +2,14 @@ import React, { Children, forwardRef, isValidElement } from 'react'
 import { Box } from '@welcome-ui/box'
 import { WuiProps } from '@welcome-ui/system'
 
-export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface StackOptions {
   direction?: 'column' | 'row'
   spacing?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 }
 
-export const Stack = forwardRef<HTMLDivElement, StackProps & WuiProps>(
+export type StackProps = StackOptions & React.HTMLAttributes<HTMLDivElement> & WuiProps
+
+export const Stack = forwardRef<HTMLDivElement, StackProps>(
   ({ as = 'div', children, dataTestId, direction = 'column', spacing = 'md', ...rest }, ref) => {
     const validChildrenArray = Children.toArray(children).filter(isValidElement)
 

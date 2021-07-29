@@ -18,7 +18,7 @@ import * as S from './styles'
 
 export type Colors = WuiTheme['colors']
 
-export interface BreadcrumbProps {
+export interface BreadcrumbOptions {
   children: React.ReactNode | React.ReactNode[]
   /** color from theme, add for scroll gradient on mobile */
   gradientBackground?: Colors
@@ -26,11 +26,13 @@ export interface BreadcrumbProps {
   separator?: string | React.ReactNode
 }
 
+export type BreadcrumbProps = BreadcrumbOptions & WuiProps
+
 interface Entry {
   target: HTMLElement
 }
 
-export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps & WuiProps>(
+export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
   (
     {
       renderChildrenAs = 'a',

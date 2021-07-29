@@ -9,15 +9,13 @@ import { Title } from './Title'
 
 export type Variant = 'error' | 'warning' | 'info' | 'success'
 
-export interface AlertProps {
+export interface AlertOptions {
   variant?: Variant
 }
 
-const AlertComponent: React.FC<AlertProps & WuiProps> = ({
-  children,
-  variant = 'error',
-  ...rest
-}) => {
+export type AlertProps = AlertOptions & WuiProps
+
+const AlertComponent: React.FC<AlertProps> = ({ children, variant = 'error', ...rest }) => {
   const hasTitle = Children.toArray(children).some(
     (child: React.ReactElement) => child.type === Title
   )
@@ -51,7 +49,9 @@ const AlertComponent: React.FC<AlertProps & WuiProps> = ({
   )
 }
 
+export type AlertButtonProps = ButtonProps
+
 // We need this component to check its existence in <Alert> and to allow users to add Button in <Alert> content
-const AlertButton: React.FC<ButtonProps & WuiProps> = props => <Button size="sm" {...props} />
+const AlertButton: React.FC<AlertButtonProps> = props => <Button size="sm" {...props} />
 
 export const Alert = Object.assign(AlertComponent, { Title, Button: AlertButton })

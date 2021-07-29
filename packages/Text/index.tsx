@@ -38,12 +38,14 @@ export type Variant =
   | 'meta1'
   | 'meta2'
 
-export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
+export interface TextOptions {
   lines?: number
   variant?: Variant
 }
 
-export const Text = forwardRef<HTMLParagraphElement, TextProps & WuiProps>(
+export type TextProps = TextOptions & React.HTMLAttributes<HTMLParagraphElement> & WuiProps
+
+export const Text = forwardRef<HTMLParagraphElement, TextProps>(
   ({ as, children, dataTestId, lines, variant = 'body2', ...rest }, ref) => {
     const tagName = as || TAG_NAMES[variant]
     const className = rest.className || ''
