@@ -12,13 +12,15 @@ import { Text } from '@welcome-ui/text'
 import * as S from './styles'
 import { Close } from './Close'
 
+export type Size = 'sm' | 'md' | 'lg' | 'auto'
+
 export interface ModalProps {
   ariaLabel: string
   closeElement?: React.ElementType
   hide?: DisclosureActions['hide']
   hideOnClickOutside?: boolean
   onClose?: () => void
-  size?: 'sm' | 'md' | 'lg' | 'auto'
+  size?: Size
 }
 
 export function useModalState(options ?:DialogInitialState): DialogStateReturn {
@@ -61,7 +63,11 @@ const ModalComponent: React.FC<ModalProps> = props => {
 
 ModalComponent.displayName = 'Modal'
 
-const Title: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+export interface ModalTitleProps {
+  children: React.ReactNode
+}
+
+const Title: React.FC<ModalTitleProps> = ({ children }) => (
   <S.Title as={Text} m="0" variant="h4">
     {children}
   </S.Title>

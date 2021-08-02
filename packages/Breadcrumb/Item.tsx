@@ -4,17 +4,14 @@ import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './Item.styles'
 
-export interface ItemProps {
+export interface ItemOptions {
   children: React.ReactNode
   separator?: string | React.ReactNode
 }
 
-export const Item: React.FC<ItemProps & WuiProps> = ({
-  children,
-  dataTestId,
-  separator,
-  ...rest
-}) => {
+export type ItemProps = ItemOptions & WuiProps
+
+export const Item: React.FC<ItemProps> = ({ children, dataTestId, separator, ...rest }) => {
   return (
     <Box
       aria-label="breadcrumb"

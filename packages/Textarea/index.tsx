@@ -6,7 +6,7 @@ import * as S from './styles'
 export type Size = 'sm' | 'md' | 'lg'
 export type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
 
-export interface TextareaProps extends React.HTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaOptions {
   autoFocus?: boolean
   disabled?: boolean
   maxLength?: number
@@ -22,7 +22,9 @@ export interface TextareaProps extends React.HTMLAttributes<HTMLTextAreaElement>
   variant?: Variant
 }
 
-const TextareaComponent = forwardRef<HTMLTextAreaElement, TextareaProps & WuiProps>(
+export type TextareaProps = TextareaOptions & React.HTMLAttributes<HTMLParagraphElement> & WuiProps
+
+const TextareaComponent = forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
     {
       autoFocus,

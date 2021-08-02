@@ -3,11 +3,15 @@ import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export interface UniversalLinkProps extends React.HTMLAttributes<HTMLLinkElement> {
+export interface UniversalLinkOptions {
   target?: string
 }
 
-export const UniversalLink = forwardRef<HTMLLinkElement, UniversalLinkProps & WuiProps>(
+export type UniversalLinkProps = UniversalLinkOptions &
+  React.HTMLAttributes<HTMLLinkElement> &
+  WuiProps
+
+export const UniversalLink = forwardRef<HTMLLinkElement, UniversalLinkProps>(
   ({ children, dataTestId, target, ...rest }, ref) => (
     <S.UniversalLink
       color="inherit"

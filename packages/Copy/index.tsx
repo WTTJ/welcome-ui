@@ -1,10 +1,11 @@
 import { useCallback, useState } from 'react'
 import copyToClipboard from 'copy-to-clipboard'
 
-export function useCopyText(
-  content: React.RefObject<HTMLElement | HTMLInputElement> | number | string,
-  timeout: number
-): [() => void, boolean] {
+export type Content = React.RefObject<HTMLElement | HTMLInputElement> | number | string
+export type Timeout = number
+export type useCopyTextReturn = [() => void, boolean]
+
+export function useCopyText(content: Content, timeout: Timeout): useCopyTextReturn {
   const [copied, setCopied] = useState<boolean>()
 
   const copy = useCallback(() => {
