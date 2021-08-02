@@ -8,12 +8,14 @@ import * as S from './styles'
 
 export type Variant = 'info' | 'success' | 'warning' | 'error'
 
-export interface VariantIconProps {
+export interface VariantIconOptions {
   icon?: JSX.Element
   variant?: Variant
 }
 
-export const VariantIcon: React.FC<VariantIconProps & WuiProps> = ({ icon, variant, ...rest }) => {
+export type VariantIconProps = VariantIconOptions & WuiProps
+
+export const VariantIcon: React.FC<VariantIconProps> = ({ icon, variant, ...rest }) => {
   const Icon = useMemo(() => {
     if (icon === null) return null
     if (icon) return icon

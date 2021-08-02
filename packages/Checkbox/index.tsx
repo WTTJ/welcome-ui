@@ -3,7 +3,7 @@ import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
+export interface CheckboxOptions {
   checked?: boolean
   Component?: React.ElementType
   disabled?: boolean
@@ -11,7 +11,9 @@ export interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const CheckboxComponent = forwardRef<HTMLInputElement, CheckboxProps & WuiProps>(
+export type CheckboxProps = CheckboxOptions & React.HTMLAttributes<HTMLInputElement> & WuiProps
+
+const CheckboxComponent = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     { checked = false, Component = S.Checkbox, dataTestId, disabled, name, onChange, ...rest },
     ref

@@ -1,7 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import React, { Children, cloneElement, forwardRef, useEffect, useRef, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
-import { WuiProps } from '@welcome-ui/system'
 import { UniversalLinkProps } from '@welcome-ui/universal-link'
 
 import * as S from './styles'
@@ -10,11 +9,13 @@ const isString = (value: unknown): boolean => typeof value === 'string'
 
 export type Variant = 'primary' | 'secondary'
 
-export interface LinkProps extends UniversalLinkProps {
+export interface LinkOptions {
   variant?: Variant
 }
 
-export const Link = forwardRef<HTMLLinkElement, LinkProps & WuiProps>((props, ref) => {
+export type LinkProps = LinkOptions & UniversalLinkProps
+
+export const Link = forwardRef<HTMLLinkElement, LinkProps>((props, ref) => {
   const { children, dataTestId, variant = 'primary', ...rest } = props
   let clones
   const theme = useTheme()

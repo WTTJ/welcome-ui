@@ -4,7 +4,9 @@ import { WuiProps } from '@welcome-ui/system'
 import { Cover } from './Cover'
 import * as S from './styles'
 
-export const CardComponent: React.FC<WuiProps> = ({ children, ...rest }) => {
+export type CardProps = WuiProps
+
+export const CardComponent: React.FC<CardProps> = ({ children, ...rest }) => {
   return <S.Card {...rest}>{children}</S.Card>
 }
 

@@ -21,14 +21,16 @@ export type Variant =
   | 'secondary-danger'
   | 'disabled'
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonOptions {
   disabled?: boolean
   size?: Size
   variant?: Variant
   shape?: Shape
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps & WuiProps>(
+export type ButtonProps = ButtonOptions & React.HTMLAttributes<HTMLButtonElement> & WuiProps
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, dataTestId, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
     <S.Button
       data-testid={dataTestId}

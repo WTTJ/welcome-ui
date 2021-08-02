@@ -4,6 +4,8 @@ import { cardStyles } from '@welcome-ui/utils'
 import { Shape } from '@welcome-ui/shape'
 import { DialogBackdrop, Dialog as ReakitDialog } from 'reakit/Dialog'
 
+import { Size } from '.'
+
 export const Backdrop = styled(DialogBackdrop).withConfig({
   shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop)
 })<{ hideOnClickOutside: boolean }>(
@@ -31,7 +33,7 @@ export const Backdrop = styled(DialogBackdrop).withConfig({
   `
 )
 
-export const Dialog = styled(ReakitDialog)<{ size: string }>(
+export const Dialog = styled(ReakitDialog)<{ size: Size }>(
   ({ size, theme }) => css`
     ${cardStyles};
     ${th('modals.default')};
