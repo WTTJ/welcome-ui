@@ -12,19 +12,21 @@ import {
 } from 'reakit/Dialog'
 import { SealedInitialState } from 'reakit-utils/ts/useSealedState'
 import { ClearButtonProps } from '@welcome-ui/clear-button'
-import { WuiProps } from '@welcome-ui/system'
+import { WuiProps, WuiSystemProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
 export type Placement = 'top' | 'right' | 'bottom' | 'left'
 export type Size = 'sm' | 'md' | 'lg' | 'auto' | string
 
-export interface DrawerProps {
+export interface DrawerOptions {
   placement?: Placement
   size?: Size
 }
 
-const DrawerComponent: React.FC<DrawerProps & DialogProps> = ({
+export type DrawerProps = DrawerOptions & DialogProps & WuiSystemProps
+
+const DrawerComponent: React.FC<DrawerProps> = ({
   children,
   placement = 'right',
   size = 'lg',
@@ -49,14 +51,16 @@ export function useDrawerState(
   return useDialogState({ animated: true, ...options })
 }
 
-export interface DrawerBackdropProps {
+export interface DrawerBackdropOptions {
   hideOnClickOutside?: boolean
   children: React.ReactElement
 }
 
+export type DrawerBackdropProps = DrawerBackdropOptions & DialogBackdropProps
+
 // Needed to allow to style the backdrop
 // see: https://reakit.io/docs/styling/#css-in-js
-export const DrawerBackdrop: React.FC<DrawerBackdropProps & DialogBackdropProps> = ({
+export const DrawerBackdrop: React.FC<DrawerBackdropProps> = ({
   children,
   hideOnClickOutside = true,
   ...rest
@@ -76,14 +80,13 @@ export const DrawerBackdrop: React.FC<DrawerBackdropProps & DialogBackdropProps>
   )
 }
 
-export interface DrawerCloseProps {
+export interface DrawerCloseOptions {
   hide: () => void
 }
 
-export const DrawerClose: React.FC<DrawerCloseProps & ClearButtonProps & WuiProps> = ({
-  hide,
-  ...rest
-}) => {
+export type DrawerCloseProps = DrawerCloseOptions & ClearButtonProps & WuiProps
+
+export const DrawerClose: React.FC<DrawerCloseProps> = ({ hide, ...rest }) => {
   return <S.Close onClick={hide} {...rest} />
 }
 
