@@ -12,7 +12,7 @@ import {
 } from 'reakit/Dialog'
 import { SealedInitialState } from 'reakit-utils/ts/useSealedState'
 import { ClearButtonProps } from '@welcome-ui/clear-button'
-import { WuiProps, WuiSystemProps } from '@welcome-ui/system'
+import { WuiSystemProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -84,7 +84,7 @@ export interface DrawerCloseOptions {
   hide: () => void
 }
 
-export type DrawerCloseProps = DrawerCloseOptions & ClearButtonProps & WuiProps
+export type DrawerCloseProps = DrawerCloseOptions & ClearButtonProps
 
 export const DrawerClose: React.FC<DrawerCloseProps> = ({ hide, ...rest }) => {
   return <S.Close onClick={hide} {...rest} />
