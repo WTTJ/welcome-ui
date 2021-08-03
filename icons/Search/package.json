@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.search.cjs.js",
   "module": "dist/icons.search.es.js",
-  "version": "3.0.0",
+  "version": "4.0.0-alpha.3",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,7 @@
     "react-dom": "^16.10.2 || ^17.0.1"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^3.0.0"
+    "@welcome-ui/icon": "^4.0.0-alpha.3"
   },
   "license": "MIT"
 }

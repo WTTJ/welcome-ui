@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.fullscreen_off.cjs.js",
   "module": "dist/icons.fullscreen_off.es.js",
-  "version": "3.7.0",
+  "version": "4.0.0-alpha.3",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^3.0.0"
+    "@welcome-ui/icon": "^4.0.0-alpha.3"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",
