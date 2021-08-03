@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.crescent_moon_outline.cjs.js",
   "module": "dist/icons.crescent_moon_outline.es.js",
-  "version": "3.4.0",
+  "version": "4.0.0-alpha.3",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^3.0.0"
+    "@welcome-ui/icon": "^4.0.0-alpha.3"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",
