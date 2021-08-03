@@ -4,7 +4,9 @@ import { Text } from '@welcome-ui/text'
 import { cardStyles } from '@welcome-ui/utils'
 import { ClearButton } from '@welcome-ui/clear-button'
 
-export const Backdrop = styled(Box)(
+import { DrawerProps, Placement, Size } from '.'
+
+export const Backdrop = styled(Box)<{ isClickable: boolean }>(
   ({ isClickable }) => css`
     ${th('drawers.backdrop')};
     display: flex;
@@ -29,7 +31,7 @@ export const Backdrop = styled(Box)(
   `
 )
 
-const getPlacementStyle = placement => {
+const getPlacementStyle = (placement: Placement) => {
   switch (placement) {
     case 'top':
       return {
@@ -64,7 +66,7 @@ const getPlacementStyle = placement => {
 }
 
 const SIZES = ['sm', 'md', 'lg']
-const getSizeStyle = (size, placement) => {
+const getSizeStyle = (size: Size, placement: Placement) => {
   switch (placement) {
     case 'top':
     case 'bottom':
@@ -85,7 +87,7 @@ const getSizeStyle = (size, placement) => {
   }
 }
 
-export const Drawer = styled(Box)(
+export const Drawer = styled(Box)<DrawerProps>(
   ({ placement, size }) => css`
     ${cardStyles};
     ${th('drawers.default')};
