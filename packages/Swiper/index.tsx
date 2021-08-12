@@ -1,12 +1,55 @@
-import React, { cloneElement, forwardRef, useEffect, useState } from 'react'
-import { bool, func, node, number, string } from 'prop-types'
+import React, { cloneElement, forwardRef, ReactNode, useEffect, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
 import { useViewportSize } from '@welcome-ui/utils'
+import { WuiProps } from '@welcome-ui/system'
 
 import { useInterval } from './use-interval'
 import * as S from './styles'
 
-export const Swiper = forwardRef((props, ref) => {
+export interface RenderPaginationProps {
+  idx: number
+  'aria-controls': React.HTMLAttributes<HTMLElement>['aria-controls']
+  'aria-label': React.HTMLAttributes<HTMLElement>['aria-label']
+  'aria-selected': React.HTMLAttributes<HTMLElement>['aria-selected']
+  onClick: () => void
+  pageIdx: number
+}
+
+export interface UseSwiperProps {
+  autoplay?: boolean
+  duration?: number
+  loop?: boolean
+  slidesToShow?: number
+  slidesToSwipe?: number
+  nextButton?: ReactNode
+  prevButton?: ReactNode
+}
+
+export interface UseSwiperState {
+  goNext: React.MouseEventHandler<HTMLDivElement>
+  goPrev: React.MouseEventHandler<HTMLDivElement>
+  loop: boolean
+  numberOfSlides: number
+  pageIdx: number
+  setNumberOfSlides: (slidesLength: number) => void
+  setPageIdx: (idx: number) => void
+  slidesToShow: number
+  slidesToSwipe: number
+  nextButton?: ReactNode
+  prevButton?: ReactNode
+}
+
+export interface SwiperOptions {
+  renderPaginationItem?: (props: RenderPaginationProps) => ReactNode
+  children: React.ReactNode[]
+}
+
+export type SwiperProps = SwiperOptions &
+  UseSwiperState &
+  React.HTMLAttributes<HTMLDivElement> &
+  WuiProps
+
+export const SwiperComponent = forwardRef<HTMLDivElement, SwiperProps>((props, ref) => {
   const {
     children,
     dataTestId,
@@ -25,7 +68,6 @@ export const Swiper = forwardRef((props, ref) => {
     slidesToSwipe,
     ...rest
   } = props
-
   const translateX = -(pageIdx * 100)
 
   useEffect(() => {
@@ -35,7 +77,7 @@ export const Swiper = forwardRef((props, ref) => {
 
   // Get array with indexes of visible slides so we know which ones are (aria-)hidden
   const visibleSlides = Array(slidesToShow)
-    .fill()
+    .fill('')
     .map((_, idx) => pageIdx + idx)
 
   return (
@@ -49,7 +91,7 @@ export const Swiper = forwardRef((props, ref) => {
     >
       <S.Swiper slidesToShow={slidesToShow} translateX={translateX}>
         {children.map((child, idx) =>
-          cloneElement(child, {
+          cloneElement(child as React.ReactElement, {
             key: idx,
             role: 'group',
             'aria-hidden': !visibleSlides.includes(idx),
@@ -64,7 +106,7 @@ export const Swiper = forwardRef((props, ref) => {
         data-testid={dataTestId && `${dataTestId}-pagination`}
       >
         {children.map((_, idx) => {
-          const props = {
+          const props: RenderPaginationProps = {
             idx,
             'aria-controls': id,
             'aria-label': `${idx + 1} of ${numberOfSlides}`,
@@ -107,19 +149,13 @@ export const Swiper = forwardRef((props, ref) => {
   )
 })
 
-Swiper.Slide = S.Slide
-Swiper.Bullet = S.Bullet
-Swiper.displayName = 'Swiper'
+SwiperComponent.displayName = 'Swiper'
 
-export const useSwiper = (props = {}) => {
-  let {
-    autoplay,
-    duration = 5000,
-    loop,
-    slidesToShow = 1,
-    slidesToSwipe = slidesToShow,
-    ...rest
-  } = props
+export const Swiper = Object.assign(SwiperComponent, { Slide: S.Slide, Bullet: S.Bullet })
+
+export const useSwiper = (props: UseSwiperProps = {}): UseSwiperState => {
+  const { autoplay, duration = 5000, loop, ...rest } = props
+  let { slidesToShow = 1, slidesToSwipe = slidesToShow } = props
 
   // Set slidesToShow to 1 for mobile
   const theme = useTheme()
@@ -176,24 +212,4 @@ export const useSwiper = (props = {}) => {
     slidesToSwipe,
     ...rest,
   }
-}
-
-Swiper.propTypes /* remove-proptypes */ = {
-  autoplay: bool,
-  children: node,
-  dataTestId: string,
-  duration: number,
-  goNext: func,
-  goPrev: func,
-  id: string,
-  loop: bool,
-  nextButton: node,
-  numberOfSlides: number,
-  pageIdx: number,
-  prevButton: node,
-  renderPaginationItem: func,
-  setNumberOfSlides: func,
-  setPageIdx: func,
-  slidesToShow: number,
-  slidesToSwipe: number,
 }
