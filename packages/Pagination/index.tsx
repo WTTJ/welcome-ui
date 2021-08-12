@@ -20,7 +20,7 @@ export interface PaginationOptions {
 
 export type PaginationProps = PaginationOptions & WuiProps
 
-export const Pagination = forwardRef<HTMLNavElement, PaginationProps>(
+export const Pagination = forwardRef<HTMLUListElement, PaginationProps>(
   (
     {
       'aria-label': ariaLabel,

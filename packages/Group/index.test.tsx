@@ -5,17 +5,15 @@ import { Button } from '../Button'
 
 import { Group } from './index'
 
-const content = (
-  <>
-    <Button>One</Button>
-    <Button>Two</Button>
-    <Button>Tree</Button>
-  </>
-)
-
 describe('<Group>', () => {
   it('should render correctly', () => {
-    const { getByTestId } = render(<Group dataTestId="group">{content}</Group>)
+    const { getByTestId } = render(
+      <Group dataTestId="group">
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Tree</Button>
+      </Group>
+    )
     const group = getByTestId('group')
 
     expect(group).toHaveTextContent('OneTwoTree')
