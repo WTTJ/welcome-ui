@@ -1,18 +1,23 @@
 import React, { cloneElement, forwardRef, useRef, useState } from 'react'
-import { node, oneOf, oneOfType } from 'prop-types'
-import { TabList as ReakitTabList } from 'reakit/Tab'
+import {
+  TabList as ReakitTabList,
+  TabListProps as ReakitTabListProps,
+  TabStateReturn
+} from 'reakit/Tab'
 import flattenChildren from 'react-flatten-children'
 import { useForkRef } from '@welcome-ui/utils'
-
-import { COMPONENT_TYPE } from '../../utils/propTypes'
+import { WuiProps } from '@welcome-ui/system'
 
 import { ActiveBar } from './ActiveBar'
 import * as S from './styles'
 
-function useTrackActiveTabs(state, children) {
-  const [activeTab, setActiveTab] = useState(null)
+function useTrackActiveTabs(
+  state: Pick<TabStateReturn, 'selectedId'>,
+  children: React.ReactNode
+): [ReturnType<typeof flattenChildren>, HTMLElement] {
+  const [activeTab, setActiveTab] = useState<HTMLElement>(null)
 
-  const tabs = flattenChildren(children).map(child => {
+  const tabs = flattenChildren(children).map((child: React.ReactElement) => {
     if (child.props.id === state.selectedId) {
       return cloneElement(child, { ref: setActiveTab })
     }
@@ -21,11 +26,16 @@ function useTrackActiveTabs(state, children) {
   return [tabs, activeTab]
 }
 
-export const TabList = forwardRef((props, ref) => {
+export type TabListProps = React.HTMLAttributes<HTMLDivElement> &
+  Pick<TabStateReturn, 'orientation' | 'selectedId'> &
+  ReakitTabListProps &
+  WuiProps
+
+export const TabList = forwardRef<HTMLDivElement, TabListProps>((props, ref) => {
   const { as, children, orientation, ...rest } = props
   const listRef = useRef()
   const listForkedRef = useForkRef(ref, listRef)
-  const [tabs, activeTab] = useTrackActiveTabs(rest, children)
+  const [tabs, activeTab] = useTrackActiveTabs({ selectedId: rest.selectedId }, children)
 
   return (
     <ReakitTabList orientation={orientation} ref={listForkedRef} {...rest}>
@@ -42,9 +52,3 @@ export const TabList = forwardRef((props, ref) => {
 })
 
 TabList.displayName = 'TabList'
-
-TabList.propTypes /* remove-proptypes */ = {
-  as: oneOfType(COMPONENT_TYPE),
-  children: node,
-  orientation: oneOf(['vertical', 'horizontal'])
-}

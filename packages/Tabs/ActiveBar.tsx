@@ -1,12 +1,20 @@
 import React, { useLayoutEffect, useState } from 'react'
-import { any, oneOf, oneOfType, shape } from 'prop-types'
 import { useViewportSize } from '@welcome-ui/utils'
-
-import { COMPONENT_TYPE } from '../../utils/propTypes'
+import { TabStateReturn } from 'reakit/Tab'
 
 import * as S from './styles'
 
-function useActiveBarState(listRef, activeTab, orientation) {
+export interface ActiveBarStateReturn {
+  offset?: number
+  size?: number
+  orientation?: TabStateReturn['orientation']
+}
+
+function useActiveBarState(
+  listRef: React.MutableRefObject<HTMLElement>,
+  activeTab: HTMLElement,
+  orientation: TabStateReturn['orientation']
+): ActiveBarStateReturn {
   const [state, setState] = useState({})
   const { height: viewportHeight, width: viewportWidth } = useViewportSize()
   useLayoutEffect(() => {
@@ -38,15 +46,16 @@ function useActiveBarState(listRef, activeTab, orientation) {
   return state
 }
 
-export const ActiveBar = ({ activeTab, listRef, orientation }) => {
+export interface ActiveBarOptions {
+  activeTab: HTMLElement
+  listRef: React.MutableRefObject<undefined>
+}
+
+export type ActiveBarProps = Pick<TabStateReturn, 'orientation'> & ActiveBarOptions
+
+export const ActiveBar: React.FC<ActiveBarProps> = ({ activeTab, listRef, orientation }) => {
   const activeBar = useActiveBarState(listRef, activeTab, orientation)
   return <S.ActiveBar {...activeBar} />
 }
 
 ActiveBar.displayName = 'ActiveBar'
-
-ActiveBar.propTypes /* remove-proptypes */ = {
-  activeTab: oneOfType(COMPONENT_TYPE),
-  listRef: shape({ current: any }),
-  orientation: oneOf(['vertical', 'horizontal'])
-}
