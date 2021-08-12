@@ -3,6 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.line_chart.cjs.js",
   "module": "dist/icons.line_chart.es.js",
+  "types": "dist/index.d.ts",
   "version": "4.0.0-alpha.3",
   "publishConfig": {
     "access": "public"

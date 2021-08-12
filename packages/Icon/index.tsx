@@ -19,6 +19,7 @@ export interface IconOptions {
   name?: string
   size?: Size
   title?: string
+  alt?: string
 }
 
 export type IconProps = IconOptions & WuiProps

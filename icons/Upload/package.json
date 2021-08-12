@@ -3,6 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.upload.cjs.js",
   "module": "dist/icons.upload.es.js",
+  "types": "dist/index.d.ts",
   "version": "4.0.0-alpha.3",
   "publishConfig": {
     "access": "public"

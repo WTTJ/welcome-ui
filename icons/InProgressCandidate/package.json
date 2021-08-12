@@ -3,6 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.in_progress_candidate.cjs.js",
   "module": "dist/icons.in_progress_candidate.es.js",
+  "types": "dist/index.d.ts",
   "version": "4.0.0-alpha.3",
   "publishConfig": {
     "access": "public"

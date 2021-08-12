@@ -3,6 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.table_column_add_after.cjs.js",
   "module": "dist/icons.table_column_add_after.es.js",
+  "types": "dist/index.d.ts",
   "version": "4.0.0-alpha.3",
   "publishConfig": {
     "access": "public"
