@@ -1,13 +1,16 @@
 import React, { forwardRef } from 'react'
-import { func, node, oneOf } from 'prop-types'
 import { ClearButton } from '@welcome-ui/clear-button'
 
-import { VARIANTS_TYPE } from '../../utils/propTypes'
-
-import { Title } from './Title'
+import { Title, TitleOptions } from './Title'
 import * as S from './styles'
 
-export const Snackbar = forwardRef(
+export interface SnackbarOptions {
+  onClose: () => void
+}
+
+export type SnackbarProps = React.HTMLAttributes<HTMLDivElement> & SnackbarOptions & TitleOptions
+
+export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
   ({ children, icon, onClose, variant = 'info', ...rest }, ref) => (
     <S.Snackbar ref={ref} variant={variant} {...rest}>
       <Title icon={icon} pb="0" variant={variant}>
@@ -21,10 +24,3 @@ export const Snackbar = forwardRef(
 )
 
 Snackbar.displayName = 'Snackbar'
-
-Snackbar.propTypes /* remove-proptypes */ = {
-  children: node.isRequired,
-  icon: node,
-  onClose: func,
-  variant: oneOf(VARIANTS_TYPE)
-}
