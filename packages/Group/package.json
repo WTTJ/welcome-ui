@@ -4,7 +4,7 @@
   "description": "welcome-ui: A Group component",
   "main": "dist/group.cjs.js",
   "module": "dist/group.es.js",
-  "types": "dist/index.d.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
