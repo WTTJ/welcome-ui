@@ -1,43 +1,26 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/jsx-max-depth */
-import { func, node, number, string } from 'prop-types'
-import React, { forwardRef, useCallback, useMemo, useRef } from 'react'
+import React, { forwardRef, useCallback, useRef } from 'react'
 import { Rover, useRoverState } from 'reakit/Rover'
 import { LeftIcon } from '@welcome-ui/icons.left'
 import { RightIcon } from '@welcome-ui/icons.right'
+import { WuiProps } from '@welcome-ui/system'
 
+import { usePages } from './utils'
 import * as S from './styles'
 
-function fill(length, transform) {
-  return Array.from({ length }, (_, i) => transform(i))
+export interface PaginationOptions {
+  'aria-label': string
+  getHref?: (page: string | number) => string
+  leftArrow?: React.ReactElement
+  onChange: (page: string | number) => void
+  page: number
+  pageCount: number
+  rangeDisplay?: number
+  rightArrow?: React.ReactElement
 }
 
-function joinArrays(arrays, separator) {
-  return arrays.reduce((all, array, i) => {
-    const next = [...all, ...array]
-    if (array.length && i < arrays.length - 1) next.push(separator)
-    return next
-  }, [])
-}
+export type PaginationProps = PaginationOptions & WuiProps
 
-const RANGE = 4
-function usePages({ page, pageCount, rangeDisplay }) {
-  return useMemo(() => {
-    if (pageCount <= rangeDisplay) {
-      return fill(pageCount, i => i + 1)
-    }
-    const before = page < RANGE ? fill(Math.min(pageCount, page + 1), i => i + 1) : [1]
-    const center =
-      page >= RANGE && page <= pageCount - RANGE + 1 ? fill(RANGE - 1, i => i + page - 1) : []
-    const after =
-      page > pageCount - RANGE + 1
-        ? fill(Math.min(RANGE, pageCount - page + RANGE / 2), i => i + page - 1)
-        : [pageCount]
-    return joinArrays([before, center, after], '-')
-  }, [page, pageCount, rangeDisplay])
-}
-
-export const Pagination = forwardRef(
+export const Pagination = forwardRef<HTMLNavElement, PaginationProps>(
   (
     {
       'aria-label': ariaLabel,
@@ -53,8 +36,8 @@ export const Pagination = forwardRef(
   ) => {
     const rover = useRoverState()
     const pages = usePages({ page, pageCount, rangeDisplay })
-    const firstPageRef = useRef()
-    const lastPageRef = useRef()
+    const firstPageRef = useRef<HTMLButtonElement>(null)
+    const lastPageRef = useRef<HTMLButtonElement>(null)
     const handlePrevious = useCallback(
       event => {
         event.preventDefault()
@@ -94,8 +77,9 @@ export const Pagination = forwardRef(
               )}
             </Rover>
           </S.Item>
-          {pages.map((iPage, i) =>
+          {pages.map((iPage: string | number, i: number) =>
             iPage === '-' ? (
+              // eslint-disable-next-line react/no-array-index-key
               <S.Item key={`${i}-`}>
                 <S.Dots>...</S.Dots>
               </S.Item>
@@ -140,15 +124,3 @@ export const Pagination = forwardRef(
     )
   }
 )
-
-Pagination.propTypes /* remove-proptypes */ = {
-  'aria-label': string.isRequired,
-  children: node,
-  getHref: func,
-  leftArrow: node,
-  onChange: func.isRequired,
-  page: number.isRequired,
-  pageCount: number.isRequired,
-  rangeDisplay: number,
-  rightArrow: node
-}
