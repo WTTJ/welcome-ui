@@ -4,6 +4,7 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/date-time-picker-common.cjs.js",
   "module": "dist/date-time-picker-common.es.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
@@ -57,5 +58,8 @@
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
-  "component": "DateTimePickerCommon"
+  "component": "DateTimePickerCommon",
+  "devDependencies": {
+    "@types/react-datepicker": "^4.1.4"
+  }
 }

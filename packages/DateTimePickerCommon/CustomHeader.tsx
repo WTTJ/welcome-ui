@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { func, number, object, oneOfType, string } from 'prop-types'
 import { Button } from '@welcome-ui/button'
 import { LeftIcon } from '@welcome-ui/icons.left'
 import { RightIcon } from '@welcome-ui/icons.right'
@@ -8,7 +7,24 @@ import { Select } from '@welcome-ui/select'
 import * as S from './styles'
 import { getMonths, getYears } from './utils'
 
-export const CustomHeader = ({
+export type LocaleProps = {
+  localize: {
+    month: (index: number) => string
+  }
+}
+
+export interface CustomHeaderProps {
+  changeMonth?: (value: string, event: React.ChangeEvent<HTMLInputElement>) => void
+  changeYear?: (value: string, event: React.ChangeEvent<HTMLInputElement>) => void
+  date: number | string | Date
+  decreaseMonth?: () => void
+  endYear?: number
+  increaseMonth?: () => void
+  locale?: LocaleProps
+  startYear?: number
+}
+
+export const CustomHeader: React.FC<CustomHeaderProps> = ({
   changeMonth,
   changeYear,
   date,
@@ -61,14 +77,3 @@ export const CustomHeader = ({
 }
 
 CustomHeader.displayName = 'CustomHeader'
-
-CustomHeader.propTypes /* remove-proptypes */ = {
-  changeMonth: func,
-  changeYear: func,
-  date: oneOfType([number, object, string]).isRequired,
-  decreaseMonth: func,
-  endYear: number,
-  increaseMonth: func,
-  locale: object,
-  startYear: number
-}

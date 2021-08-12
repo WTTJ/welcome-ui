@@ -1,4 +1,6 @@
-import range from 'lodash.range'
+import { range } from 'lodash'
+
+import { LocaleProps } from './CustomHeader'
 
 const MONTHS = [
   { value: 0, label: 'January' },
@@ -17,7 +19,7 @@ const MONTHS = [
 
 export const DEFAULT_DATE = new Date()
 
-export const getDate = (date, interval) => {
+export const getDate = (date: number | string | Date, interval: number): Date => {
   if (!date) {
     return null
   }
@@ -34,7 +36,12 @@ export const getDate = (date, interval) => {
   return new Date(newDate.setMinutes(nextInterval, 0, 0))
 }
 
-export const getMonths = locale => {
+type GetMonthsReturnProps = {
+  value: number
+  label: string
+}[]
+
+export const getMonths = (locale: LocaleProps): GetMonthsReturnProps => {
   if (!locale) {
     return MONTHS
   }
@@ -45,7 +52,12 @@ export const getMonths = locale => {
   }))
 }
 
-export const getYears = (startYear, endYear) =>
+type GetYearssReturnProps = {
+  label: number
+  value: number
+}[]
+
+export const getYears = (startYear: number, endYear: number): GetYearssReturnProps =>
   range(startYear, endYear + 1)
     .map(year => ({
       label: year,

@@ -9,6 +9,8 @@ import { componentSystem, shouldForwardProp } from '@welcome-ui/system'
 import { StyledSelect } from '@welcome-ui/select'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
+import { CustomInputProps, IconPlacement, Size } from './CustomInput'
+
 export const StyledDatePicker = styled(ReactDatePicker)`
   ${defaultFieldStyles};
   ${componentSystem};
@@ -20,7 +22,7 @@ export const StyledTimePicker = styled(ReactDatePicker)`
   ${componentSystem};
 `
 
-const iconPlacementStyles = (placement, size, rest) => {
+const iconPlacementStyles = (placement: IconPlacement, size: Size, rest: unknown) => {
   if (placement === 'right') {
     return css`
       ${StyledDatePicker}, ${StyledTimePicker} {
@@ -49,7 +51,7 @@ const iconPlacementStyles = (placement, size, rest) => {
   }
 }
 
-export const CustomInput = styled('div').withConfig({ shouldForwardProp })(
+export const CustomInput = styled('div').withConfig({ shouldForwardProp })<CustomInputProps>(
   ({ focused, icon, iconPlacement, size, ...rest }) => {
     return css`
       position: relative;

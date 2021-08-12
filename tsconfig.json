@@ -12,7 +12,8 @@
     "baseUrl": "./packages",
     "resolveJsonModule": true,
     "sourceMap": false,
-    "declaration": true
+    "declaration": true,
+    "lib": ["ES2015"]
   },
   "include": ["packages/**/*", "packages/*", "./styled.d.ts", "./global.d.ts"],
   "exclude": [

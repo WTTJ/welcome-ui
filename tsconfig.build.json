@@ -4,7 +4,6 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "types": [],
-    "typeRoots": [],
-    "noLib": true
+    "typeRoots": []
   }
 }

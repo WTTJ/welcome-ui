@@ -1,31 +1,31 @@
 import React from 'react'
-import { func, object, shape, string } from 'prop-types'
 import { th } from '@xstyled/system'
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css, CSSObject } from '@xstyled/styled-components'
 import { cardStyles } from '@welcome-ui/utils'
 
 import { datePickerStyles } from './datePickerStyles'
 
-export const CustomPopper = ({ children }) => {
+export interface CustomPopperProps {
+  children?: {
+    props?: {
+      children?: React.FC
+      modifiers?: unknown
+      placement: string
+      popperProps: CSSObject
+    }
+  }
+}
+
+export const CustomPopper: React.FC<CustomPopperProps> = ({ children }) => {
   if (!children) {
     return null
   }
   // Get any styles passed via `popperProps`
-  const { children: nested, modifiers, placement, ...popperProps } = children.props
+  const { popperProps } = children.props
   return <StyledCustomPopper popperStyles={popperProps}>{children}</StyledCustomPopper>
 }
 
-CustomPopper.propTypes /* remove-proptypes */ = {
-  children: shape({
-    props: shape({
-      children: func,
-      modifiers: object,
-      placement: string
-    })
-  })
-}
-
-const StyledCustomPopper = styled.div(
+const StyledCustomPopper = styled.div<{ popperStyles: CSSObject }>(
   ({ popperStyles }) => css`
     ${datePickerStyles};
     .react-datepicker-popper {
