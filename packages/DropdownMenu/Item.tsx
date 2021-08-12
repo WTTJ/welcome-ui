@@ -1,10 +1,12 @@
-import { node } from 'prop-types'
 import React, { forwardRef } from 'react'
-import { MenuItem } from 'reakit/Menu'
+import { MenuItem, MenuItemProps } from 'reakit/Menu'
+import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './Item.styled'
 
-export const Item = forwardRef(({ as, children, ...props }, ref) => {
+export type ItemProps = React.HTMLAttributes<HTMLButtonElement> & MenuItemProps & WuiProps
+
+export const Item = forwardRef<HTMLButtonElement, ItemProps>(({ as, children, ...props }, ref) => {
   return (
     <MenuItem type="button" {...props} ref={ref}>
       {menuItemProps => {
@@ -19,9 +21,3 @@ export const Item = forwardRef(({ as, children, ...props }, ref) => {
 })
 
 Item.displayName = 'Item'
-
-Item.propTypes /* remove-proptypes */ = {
-  /** replace button from another node component */
-  as: node,
-  children: node.isRequired
-}
