@@ -1,4 +1,8 @@
-export const types = {
+interface Types {
+  [key: string]: string
+}
+
+export const types: Types = {
   '7z': 'application/x-7z-compressed',
   aac: 'audio/aac',
   aif: 'audio/x-aiff',
