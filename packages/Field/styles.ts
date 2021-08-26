@@ -4,6 +4,8 @@ import { StyledLabel } from '@welcome-ui/label'
 import { StyledFieldGroup } from '@welcome-ui/field-group'
 import { shouldForwardProp, system, wrapperSystem } from '@welcome-ui/system'
 
+import { flexDirection, Size } from './index'
+
 const rowStyles = css`
   margin-right: sm;
 `
@@ -17,7 +19,14 @@ const checkableFieldStyles = css`
   margin-bottom: sm;
 `
 
-export const Field = styled('div').withConfig({ shouldForwardProp })(
+type StyledFieldProps = {
+  checkableField: boolean
+  flexDirection: flexDirection
+  checked: boolean
+  size: Size
+}
+
+export const Field = styled('div').withConfig({ shouldForwardProp })<StyledFieldProps>(
   props => css`
     ${StyledFieldGroup} {
       margin-bottom: ${props.checkableField && 'xxs'};
@@ -32,7 +41,12 @@ export const Field = styled('div').withConfig({ shouldForwardProp })(
   `
 )
 
-export const IconWrapper = styled.div(
+type IconWrapperProps = {
+  iconPlacement: 'left' | 'right'
+  size: Size
+}
+
+export const IconWrapper = styled.div<IconWrapperProps>(
   ({ iconPlacement, size, ...rest }) => css`
     position: absolute;
     top: 0;

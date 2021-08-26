@@ -16,6 +16,7 @@ export interface LabelOptions {
   variant?: Variant
   required?: boolean
   withDisabledIcon?: boolean
+  htmlFor?: string
 }
 
 export type LabelProps = LabelOptions & React.HTMLAttributes<HTMLLabelElement> & WuiProps
