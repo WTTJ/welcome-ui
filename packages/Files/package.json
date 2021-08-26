@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/files",
-  "version": "4.0.0-alpha.3",
+  "version": "4.0.0-alpha.4",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/files.cjs.js",
   "module": "dist/files.es.js",
@@ -35,18 +35,18 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/icons.attachment": "^4.0.0-alpha.3",
-    "@welcome-ui/icons.camera": "^4.0.0-alpha.3",
-    "@welcome-ui/icons.csv": "^4.0.0-alpha.3",
-    "@welcome-ui/icons.doc": "^4.0.0-alpha.3",
-    "@welcome-ui/icons.docx": "^4.0.0-alpha.3",
-    "@welcome-ui/icons.music": "^4.0.0-alpha.3",
-    "@welcome-ui/icons.pdf": "^4.0.0-alpha.3",
-    "@welcome-ui/icons.ppt": "^4.0.0-alpha.3",
-    "@welcome-ui/icons.video": "^4.0.0-alpha.3",
-    "@welcome-ui/icons.xls": "^4.0.0-alpha.3",
-    "@welcome-ui/icons.xlsx": "^4.0.0-alpha.3",
-    "@welcome-ui/icons.zip": "^4.0.0-alpha.3"
+    "@welcome-ui/icons.attachment": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.camera": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.csv": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.doc": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.docx": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.music": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.pdf": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.ppt": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.video": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.xls": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.xlsx": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.zip": "^4.0.0-alpha.4"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
