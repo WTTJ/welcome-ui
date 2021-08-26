@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/group",
-  "version": "4.0.0-alpha.3",
+  "version": "4.0.0-alpha.4",
   "description": "welcome-ui: A Group component",
   "main": "dist/group.cjs.js",
   "module": "dist/group.es.js",
@@ -39,11 +39,11 @@
     "@welcome-ui/system": "^4.0.0-alpha.3"
   },
   "peerDependencies": {
+    "@welcome-ui/button": "^4.0.0-alpha.3",
     "@xstyled/styled-components": "^3.0.1",
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
-    "styled-components": "^5.3.0",
-    "@welcome-ui/button": "^4.0.0-alpha.3"
+    "styled-components": "^5.3.0"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,

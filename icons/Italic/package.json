@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.italic.cjs.js",
   "module": "dist/icons.italic.es.js",
-  "version": "4.0.0-alpha.3",
+  "version": "4.0.0-alpha.4",
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,7 @@
     "react-dom": "^16.10.2 || ^17.0.1"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^4.0.0-alpha.3"
+    "@welcome-ui/icon": "^4.0.0-alpha.4"
   },
   "license": "MIT"
 }

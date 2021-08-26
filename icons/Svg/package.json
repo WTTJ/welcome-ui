@@ -8,12 +8,12 @@
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^4.0.0-alpha.3"
+    "@welcome-ui/icon": "^4.0.0-alpha.4"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1"
   },
   "license": "MIT",
-  "version": "4.0.0-alpha.3"
+  "version": "4.0.0-alpha.4"
 }
