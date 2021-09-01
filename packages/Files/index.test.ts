@@ -2,9 +2,11 @@ import { CameraIcon } from '@welcome-ui/icons.camera'
 import { PdfIcon } from '@welcome-ui/icons.pdf'
 import { PptIcon } from '@welcome-ui/icons.ppt'
 
+import { Type } from './types'
+
 import { getFileIcon, getFileName, getFileSize, getMimeType } from './index'
 
-function generateFile(name: string, type: string) {
+function generateFile(name: string, type: Type) {
   const file = new File(['we-hire-at-welcome-to-the-jungle'], name, { type })
   return file
 }
