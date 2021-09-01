@@ -9,6 +9,8 @@ const EMOJI_PATH = 'https://cdn.welcome-ui.com/emojis/'
 const IS_APPLE_OS =
   !process.browser || Bowser.parse(window.navigator.userAgent).platform.vendor === 'Apple'
 
+const DEFAULT_SIZE = 64
+
 export interface EmojiOptions {
   emoji?: string
   height?: number
@@ -40,9 +42,12 @@ export const Emoji: React.FC<EmojiProps> = ({
 
   const emojiName = !isUrl && getEmojiName(emoji)
   const alt = isUrl ? null : emojiName
+  const isLarge = size > DEFAULT_SIZE || width > DEFAULT_SIZE || height > DEFAULT_SIZE
   const src = isUrl
     ? emoji
-    : `${EMOJI_PATH}${useAppleEmoji ? 'apple/' : 'google/'}${encodeURIComponent(emojiName)}.png`
+    : `${EMOJI_PATH}${useAppleEmoji ? 'apple/' : 'google/'}${
+      isLarge ? 'originals/' : ''
+    }${encodeURIComponent(emojiName)}.png`
 
   return (
     <Box alt={alt} as="img" height={size || height} src={src} width={size || width} {...rest} />
