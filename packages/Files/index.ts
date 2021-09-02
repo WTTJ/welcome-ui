@@ -1,3 +1,4 @@
+import React from 'react'
 import { AttachmentIcon } from '@welcome-ui/icons.attachment'
 import { CameraIcon } from '@welcome-ui/icons.camera'
 import { CsvIcon } from '@welcome-ui/icons.csv'
@@ -14,28 +15,41 @@ import { ZipIcon } from '@welcome-ui/icons.zip'
 
 import { types } from './types'
 
-const removeQueryString = name => name.split('?')[0]
+export type FileType = string | File
 
-export const getFileName = file =>
-  file.name ||
-  removeQueryString(file)
-    .split('/')
-    .pop()
-
-export const getMimeType = file => {
-  return (
-    file.type ||
-    types[
-      getFileName(file)
-        .split('.')
-        .pop()
-    ]
-  )
+function removeQueryString(name: string): string {
+  return name.split('?')[0]
 }
 
-export const getFileSize = file => (file.size ? formatBytes(file.size, 0) : null)
+export function getFileName(file: FileType): string {
+  if (typeof file === 'string') {
+    return removeQueryString(file)
+      .split('/')
+      .pop()
+  } else {
+    return file.name
+  }
+}
 
-export const getFileIcon = (file, forceFileType) => {
+export function getMimeType(file: FileType): string {
+  if (typeof file === 'string') {
+    const fileName = getFileName(file)
+      .split('.')
+      .pop()
+    return types[fileName] || null
+  } else {
+    return file.type
+  }
+}
+
+export function getFileSize(file: File): string {
+  return file.size ? formatBytes(file.size, 0) : null
+}
+
+export function getFileIcon(
+  file: FileType,
+  forceFileType?: 'image' | 'audio' | 'video'
+): React.ReactElement {
   const mimeType = getMimeType(file)
 
   if (!forceFileType && !mimeType) {
