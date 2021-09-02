@@ -4,6 +4,7 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/files.cjs.js",
   "module": "dist/files.es.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
