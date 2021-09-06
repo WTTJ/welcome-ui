@@ -36,8 +36,8 @@ const tsConfig = {
 export const getRollupConfig = ({ babelConfigFile, inputFile, pwd, ts }) => {
   const SOURCE_DIR = path.resolve(pwd)
   const pkg = require(`${SOURCE_DIR}/package.json`)
-  const ext = ts ? '.tsx' : '.js'
-  const input = `${SOURCE_DIR}/${inputFile || `index${ext}`}`
+  const extension = ts ? '.tsx' : '.js'
+  const input = `${SOURCE_DIR}/${inputFile || `index${extension}`}`
 
   const cjsConfig = {
     input,
