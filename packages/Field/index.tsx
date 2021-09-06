@@ -2,26 +2,25 @@ import React, { forwardRef, Fragment } from 'react'
 import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 import SimpleMDEEditor from 'react-simplemde-editor'
+import { WuiProps } from '@welcome-ui/system'
 
 // Fields
 import { RowContainer } from './layout'
 import * as S from './styles'
 import { getBaseType, getVariant, VariantReturn } from './utils'
 
-export type flexDirection = 'row' | 'container' | 'column'
-
 export type Size = 'sm' | 'md' | 'lg'
 
 export interface FieldProps {
   checked?: boolean
-  children?: React.ReactNode
-  component: React.ForwardRefRenderFunction<HTMLInputElement, Omit<FieldProps, 'component'>>
+  component: React.ForwardRefRenderFunction<
+    HTMLInputElement,
+    Omit<FieldProps, 'component'> & WuiProps
+  >
   connected?: boolean
-  dataTestId?: string
   disabled?: boolean
   disabledIcon?: JSX.Element
   error?: string
-  flexDirection?: flexDirection
   hint?: string
   id?: string
   label?: string
@@ -38,7 +37,7 @@ export interface FieldProps {
   variant?: VariantReturn
 }
 
-export const Field = forwardRef<HTMLInputElement, FieldProps>(
+export const Field = forwardRef<HTMLInputElement, FieldProps & WuiProps>(
   (
     {
       checked,

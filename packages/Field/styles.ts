@@ -3,8 +3,9 @@ import { th } from '@xstyled/system'
 import { StyledLabel } from '@welcome-ui/label'
 import { StyledFieldGroup } from '@welcome-ui/field-group'
 import { shouldForwardProp, system, wrapperSystem } from '@welcome-ui/system'
+import { WuiProps } from '@welcome-ui/system'
 
-import { flexDirection, Size } from './index'
+import { Size } from './index'
 
 const rowStyles = css`
   margin-right: sm;
@@ -21,21 +22,21 @@ const checkableFieldStyles = css`
 
 type StyledFieldProps = {
   checkableField: boolean
-  flexDirection: flexDirection
+  flexDirection: WuiProps['flexDirection']
   checked: boolean
   size: Size
 }
 
 export const Field = styled('div').withConfig({ shouldForwardProp })<StyledFieldProps>(
-  props => css`
+  ({ checkableField, checked, flexDirection }) => css`
     ${StyledFieldGroup} {
-      margin-bottom: ${props.checkableField && 'xxs'};
+      margin-bottom: ${checkableField && 'xxs'};
     }
     ${StyledLabel} {
-      ${props.flexDirection === 'row' && rowStyles};
-      ${props.flexDirection === 'column' && columnStyles};
-      ${props.checkableField && checkableFieldStyles};
-      ${props.checked && th('defaultFields.checkablelabel.checked')}
+      ${flexDirection === 'row' && rowStyles};
+      ${flexDirection === 'column' && columnStyles};
+      ${checkableField && checkableFieldStyles};
+      ${checked && th('defaultFields.checkablelabel.checked')}
     }
     ${wrapperSystem};
   `

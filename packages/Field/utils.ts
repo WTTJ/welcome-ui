@@ -12,13 +12,13 @@ const isPristine = (connected: boolean, touched: boolean) => connected && !touch
 export const getBaseType = (type: string): string => TYPES[type] || type
 
 type VariantProps = {
-  connected: boolean
-  error: string
+  connected?: boolean
+  error?: string
   isCheckbox: boolean
   isRadio: boolean
-  modified: boolean
-  touched: boolean
-  warning: string
+  modified?: boolean
+  touched?: boolean
+  warning?: string
 }
 
 export type VariantReturn = 'error' | 'warning' | undefined
