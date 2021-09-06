@@ -46,10 +46,7 @@ export function getFileSize(file: File): string {
   return file.size ? formatBytes(file.size, 0) : null
 }
 
-export function getFileIcon(
-  file: FileType,
-  forceFileType?: 'image' | 'audio' | 'video'
-): React.ReactElement {
+export function getFileIcon(file: FileType, forceFileType?: 'image' | 'audio' | 'video'): React.FC {
   const mimeType = getMimeType(file)
 
   if (!forceFileType && !mimeType) {
