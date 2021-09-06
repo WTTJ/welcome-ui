@@ -33,11 +33,11 @@ const tsConfig = {
   tsconfig: '../../tsconfig.build.json'
 }
 
-export const getRollupConfig = ({ babelConfigFile, pwd, ts }) => {
+export const getRollupConfig = ({ babelConfigFile, inputFile, pwd, ts }) => {
   const SOURCE_DIR = path.resolve(pwd)
   const pkg = require(`${SOURCE_DIR}/package.json`)
   const extension = ts ? '.tsx' : '.js'
-  const input = `${SOURCE_DIR}/index${extension}`
+  const input = `${SOURCE_DIR}/${inputFile || `index${extension}`}`
 
   const cjsConfig = {
     input,
