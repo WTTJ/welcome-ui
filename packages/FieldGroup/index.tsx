@@ -5,6 +5,8 @@ import { WuiProps } from '@welcome-ui/system'
 import * as S from './styles'
 
 export interface FieldGroupOptions {
+  // specific to fieldset, we need to override children
+  children: React.ReactNode
   label?: React.ReactElement
   required?: LabelOptions['required']
 }

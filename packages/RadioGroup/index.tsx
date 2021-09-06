@@ -1,14 +1,32 @@
 import React, { forwardRef } from 'react'
-import { arrayOf, bool, elementType, number, object, oneOf, oneOfType, string } from 'prop-types'
-import { RadioGroup as ReakitRadioGroup, useRadioState } from 'reakit/Radio'
-import { FieldGroup } from '@welcome-ui/field-group'
+import {
+  RadioGroup as ReakitRadioGroup,
+  RadioGroupOptions as ReakitRadioGroupOptions,
+  useRadioState,
+} from 'reakit/Radio'
+import { FieldGroup, FieldGroupOptions } from '@welcome-ui/field-group'
 import { Radio } from '@welcome-ui/radio'
-
-import { DIRECTIONS_TYPE, OPTIONS_TYPE } from '../../utils/propTypes'
+import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export const RadioGroup = forwardRef(
+export interface RadioGroupOptions {
+  name?: string
+  options?: {
+    label: string | number
+    value: string | number
+    hint?: string
+  }[]
+  renderOption?: React.ElementType
+  value?: string
+}
+
+export type RadioGroupProps = FieldGroupOptions &
+  ReakitRadioGroupOptions &
+  RadioGroupOptions &
+  WuiProps
+
+export const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(
   (
     {
       flexDirection,
@@ -50,20 +68,4 @@ export const RadioGroup = forwardRef(
   }
 )
 
-RadioGroup.type = 'RadioGroup'
 RadioGroup.displayName = 'RadioGroup'
-
-RadioGroup.propTypes /* remove-proptypes */ = {
-  flexDirection: oneOf(DIRECTIONS_TYPE),
-  label: string,
-  maxWidth: oneOfType([number, object, string]),
-  name: string,
-  /** [{
-    label: `string` | `number`,
-    value: `string` | `number`
-  }] */
-  options: arrayOf(OPTIONS_TYPE),
-  renderOption: elementType,
-  required: bool,
-  value: string,
-}

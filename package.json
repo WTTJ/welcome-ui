@@ -23,7 +23,7 @@
     "build:packages": "lerna run build --ignore docs --ignore @welcome-ui/core",
     "build:core": "./scripts/core.sh",
     "build:types": "lerna run types --scope @welcome-ui/core && lerna run types --ignore @welcome-ui/core",
-    "watch": "onchange 'packages/**/*.js' -e '**/dist/**' -- node -r esm scripts/watch.js {{changed}}",
+    "watch": "onchange 'packages/**/*.ts*' -e '**/dist/**' -- node -r esm scripts/watch.js {{changed}}",
     "release:publish": "yarn lerna publish --conventional-commits --no-private",
     "release:prerelease": "yarn -s check:ssh && yarn build && yarn webfont:deploy && yarn lerna publish --conventional-prerelease --no-private --pre-dist-tag next --yes || yarn -s check:ssh-error",
     "release": "yarn -s check:ssh && yarn build && yarn webfont:deploy && yarn release:publish || yarn -s check:ssh-error",
