@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
 import { WuiProps } from '@welcome-ui/system'
+import { ButtonOptions as ReakitButtonOptions } from 'reakit/Button'
 
 import * as S from './styles'
 
@@ -22,13 +23,18 @@ export type Variant =
   | 'disabled'
 
 export interface ButtonOptions {
+  onClick?: (event?: React.MouseEvent) => void
   disabled?: boolean
   size?: Size
   variant?: Variant
   shape?: Shape
+  target?: string
 }
 
-export type ButtonProps = ButtonOptions & React.HTMLAttributes<HTMLButtonElement> & WuiProps
+export type ButtonProps = ButtonOptions &
+  ReakitButtonOptions &
+  React.ButtonHTMLAttributes<HTMLButtonElement> &
+  WuiProps
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, dataTestId, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (

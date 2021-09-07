@@ -1,2 +1,4 @@
 /*
 !/dist/*.js
+!/dist/*.d.ts
+

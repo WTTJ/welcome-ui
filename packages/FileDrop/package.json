@@ -4,6 +4,7 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/file-drop.cjs.js",
   "module": "dist/file-drop.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
@@ -46,7 +47,7 @@
     "@welcome-ui/system": "^4.0.0-alpha.3",
     "@welcome-ui/text": "^4.0.0-alpha.3",
     "@welcome-ui/utils": "^4.0.0-alpha.3",
-    "react-dropzone": "^10.1.8"
+    "react-dropzone": "^11.3.4"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.0.1",

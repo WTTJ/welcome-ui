@@ -1,5 +1,4 @@
 import React from 'react'
-import { bool, func, object, oneOf, oneOfType, string } from 'prop-types'
 import { NegativeIcon } from '@welcome-ui/icons.negative'
 import { PositiveIcon } from '@welcome-ui/icons.positive'
 
@@ -7,7 +6,9 @@ import { ImagePreview } from './styles'
 import { Message } from './Message'
 import { FilePreview } from './FilePreview'
 
-export function Preview({
+import { ChildrenType } from './index'
+
+export const Preview: React.FC<ChildrenType> = ({
   disabled,
   error,
   file,
@@ -17,7 +18,7 @@ export function Preview({
   isHoverAccept,
   isHoverReject,
   openFile,
-}) {
+}) => {
   if (isHoverAccept) {
     return <PositiveIcon />
   } else if (isHoverReject) {
@@ -26,22 +27,10 @@ export function Preview({
     return <Message openFile={openFile} />
   } else if (fileUrl) {
     if (isAnImage) {
-      return <ImagePreview src={fileUrl} />
+      return <ImagePreview src={fileUrl as string} />
     } else {
       return <FilePreview file={file} forceFileType={forceFileType} />
     }
   }
   return <Message disabled={disabled} openFile={openFile} />
-}
-
-Preview.propTypes /* remove-proptypes */ = {
-  disabled: bool,
-  error: string,
-  file: oneOfType([string, object]),
-  fileUrl: string,
-  forceFileType: oneOf(['image', 'audio', 'video']),
-  isAnImage: bool,
-  isHoverAccept: bool,
-  isHoverReject: bool,
-  openFile: func,
 }

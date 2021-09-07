@@ -3,7 +3,14 @@ import { th } from '@xstyled/system'
 import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
 import { getVariantColor } from '@welcome-ui/utils'
 
-export const FileDrop = styled('div').withConfig({ shouldForwardProp })(
+export interface StyledFileDropProps {
+  connected?: boolean
+  disabled?: boolean
+  isDragAccept?: boolean
+  isDragReject?: boolean
+}
+
+export const FileDrop = styled('div').withConfig({ shouldForwardProp })<StyledFileDropProps>(
   ({ connected, disabled, isDragAccept, isDragReject }) => css`
     ${th('defaultFields.default')};
     ${th('filedrops.default')};
