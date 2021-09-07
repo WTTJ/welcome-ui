@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.avatar_costume.cjs.js",
   "module": "dist/icons.avatar_costume.es.js",
-  "version": "1.0.0",
+  "version": "4.0.0-alpha.5",
   "publishConfig": {
     "access": "public"
   },

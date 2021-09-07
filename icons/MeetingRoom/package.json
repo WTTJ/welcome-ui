@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.meeting_room.cjs.js",
   "module": "dist/icons.meeting_room.es.js",
-  "version": "1.0.0",
+  "version": "4.0.0-alpha.5",
   "publishConfig": {
     "access": "public"
   },

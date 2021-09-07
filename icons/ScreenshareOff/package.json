@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.screenshare_off.cjs.js",
   "module": "dist/icons.screenshare_off.es.js",
-  "version": "4.0.0-alpha.4",
+  "version": "4.0.0-alpha.5",
   "publishConfig": {
     "access": "public"
   },
