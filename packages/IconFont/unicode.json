@@ -265,5 +265,13 @@
   "screenshare_on": "0x208",
   "sound_off": "0x209",
   "watch_later": "0x20A",
-  "unavailable": "0x20B"
+  "unavailable": "0x20B",
+  "avatar_accessory": "0x20C",
+  "avatar_body": "0x20D",
+  "avatar_bottom": "0x20E",
+  "avatar_costume": "0x20F",
+  "avatar_head": "0x210",
+  "avatar_top": "0x211",
+  "common_area": "0x212",
+  "meeting_room": "0x213"
 }
