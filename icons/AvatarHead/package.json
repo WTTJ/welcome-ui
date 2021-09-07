@@ -1,9 +1,9 @@
 {
-  "name": "@welcome-ui/icons.pen",
+  "name": "@welcome-ui/icons.avatar_head",
   "sideEffects": false,
-  "main": "dist/icons.pen.cjs.js",
-  "module": "dist/icons.pen.es.js",
-  "version": "4.0.0-alpha.4",
+  "main": "dist/icons.avatar_head.cjs.js",
+  "module": "dist/icons.avatar_head.es.js",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
