@@ -264,5 +264,6 @@
   "screenshare_off": "0x207",
   "screenshare_on": "0x208",
   "sound_off": "0x209",
-  "watch_later": "0x20A"
+  "watch_later": "0x20A",
+  "unavailable": "0x20B"
 }

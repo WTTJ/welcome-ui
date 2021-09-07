@@ -290,6 +290,7 @@
     "@welcome-ui/icons.twitter": "^4.0.0-alpha.4",
     "@welcome-ui/icons.txt": "^4.0.0-alpha.4",
     "@welcome-ui/icons.type": "^4.0.0-alpha.4",
+    "@welcome-ui/icons.unavailable": "^1.0.0",
     "@welcome-ui/icons.underline": "^4.0.0-alpha.4",
     "@welcome-ui/icons.unordered_list": "^4.0.0-alpha.4",
     "@welcome-ui/icons.up": "^4.0.0-alpha.4",
