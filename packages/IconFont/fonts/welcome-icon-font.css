@@ -1,7 +1,7 @@
 @font-face {
 	font-family: "welcome-icon-font";
-	src: url("welcome-icon-font.woff2?e273a5ec1d8220e4dcadfe471b7691af") format("woff2"),
-url("welcome-icon-font.woff?e273a5ec1d8220e4dcadfe471b7691af") format("woff");
+	src: url("welcome-icon-font.woff2?2d200c65231a8abdbf80453c52fda1a0") format("woff2"),
+url("welcome-icon-font.woff?2d200c65231a8abdbf80453c52fda1a0") format("woff");
 }
 
 .icon {
@@ -812,4 +812,31 @@ url("welcome-icon-font.woff?e273a5ec1d8220e4dcadfe471b7691af") format("woff");
 }
 .icon-watch_later:before {
 	content: "\0x20A";
+}
+.icon-unavailable:before {
+	content: "\0x20B";
+}
+.icon-avatar_accessory:before {
+	content: "\0x20C";
+}
+.icon-avatar_body:before {
+	content: "\0x20D";
+}
+.icon-avatar_bottom:before {
+	content: "\0x20E";
+}
+.icon-avatar_costume:before {
+	content: "\0x20F";
+}
+.icon-avatar_head:before {
+	content: "\0x210";
+}
+.icon-avatar_top:before {
+	content: "\0x211";
+}
+.icon-common_area:before {
+	content: "\0x212";
+}
+.icon-meeting_room:before {
+	content: "\0x213";
 }
