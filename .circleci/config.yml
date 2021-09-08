@@ -74,28 +74,6 @@ jobs:
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
 
-  docs_build:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/welcome-ui
-      - restore_cache:
-          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - run: yarn docs:deploy
-      - persist_to_workspace:
-          root: ~/welcome-ui
-          paths:
-            - docs/out
-
-  docs_deploy:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/welcome-ui
-      - restore_cache:
-          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - run: node_modules/.bin/netlify deploy --dir=docs/out --prod
-
 workflows:
   version: 2
   btd:
@@ -126,21 +104,4 @@ workflows:
           requires:
             - lint
             - test
-      - docs_build:
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /.*/
-          requires:
-            - yarn_install
-      - docs_deploy:
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /.*/
-          requires:
-            - docs_build
-            - test
-            - lint
+
