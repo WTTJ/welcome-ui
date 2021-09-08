@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.1](https://github.com/WTTJ/welcome-ui/compare/v3.8.0...v3.8.1) (2021-09-08)
+
+
+### Bug Fixes
+
+* webfont sync on build ([#899](https://github.com/WTTJ/welcome-ui/issues/899)) ([030eaca](https://github.com/WTTJ/welcome-ui/commit/030eaca4dbdec22ed60b4a9667cbc9f42ccbd407))
+
+
+
+
+
 # [3.8.0](https://github.com/WTTJ/welcome-ui/compare/v3.7.0...v3.8.0) (2021-08-25)
 
 
