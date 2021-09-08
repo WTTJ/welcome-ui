@@ -15,10 +15,10 @@ import {
 <code language="bash">
   {`yarn add @welcome-ui/icons.font ${Object.keys(peerDependencies).join(' ')}`}
 </code>
-<code language="bash">{`import { Icons } from '@welcome-ui/icons.font'`}</code>
+<code language="javascript">{`import { Icons } from '@welcome-ui/icons.font'`}</code>
 <br />
 or
-<code language="bash">{`import { IconFont } from '@welcome-ui/icons.font'`}</code>
+<code language="javascript">{`import { IconFont } from '@welcome-ui/icons.font'`}</code>
 
 ## Call Icon from Icons import
 
@@ -34,6 +34,20 @@ or
 <IconFont name="facebook" />
 <IconFont name="left" />
 <IconFont name="twitter" />
+```
+
+## Call Icon from css import
+
+To import IconFont css stylesheet, you should use this import path:
+
+<code language="javascript">{`require('@welcome-ui/icons.font/fonts/welcome-icon-font.css')`}</code>
+
+Here is an example on how to use css class to display icons:
+
+```jsx row
+<i className="wui-icon-facebook" />
+<i className="wui-icon-left" />
+<i className="wui-icon-twitter" />
 ```
 
 ## Available icons
