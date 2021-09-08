@@ -16,7 +16,7 @@
     "icons:collect": "node -r esm scripts/icons-collect.js",
     "icons:build": "node -r esm ./scripts/icons-build.js",
     "webfont": "yarn webfont:build && yarn webfont:deploy",
-    "webfont:build": "node -r esm scripts/webfont-build.js --force && git checkout packages/IconFont/fonts && yarn build:packages --scope @welcome-ui/icons.font",
+    "webfont:build": "node -r esm scripts/webfont-build.js --force && yarn build:packages --scope @welcome-ui/icons.font",
     "webfont:deploy": "./scripts/webfont-deploy.sh",
     "pre-build": "yarn icons:collect",
     "build": "yarn webfont:build && yarn build:core && yarn build:packages",

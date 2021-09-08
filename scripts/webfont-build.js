@@ -16,6 +16,7 @@ const ROOT_PATH = path.join(__dirname, '..')
 const ICONS_PATH = path.join(ROOT_PATH, 'icons')
 const INPUT_PATH = path.join(ICONS_PATH, '_assets')
 const ICON_FONT_PATH = path.join(ROOT_PATH, 'packages/IconFont')
+const FONT_NAME = 'welcome-icon-font'
 
 // Write icon font
 const writeIconFont = files => {
@@ -50,11 +51,15 @@ const writeIconFont = files => {
     {
       files: filteredFiles.map(file => `${INPUT_PATH}/${file.key}.svg`),
       dest: `${ICON_FONT_PATH}/fonts`,
-      fontName: 'welcome-icon-font',
+      fontName: FONT_NAME,
       codepoints: newUnicodeMap,
       types: ['woff', 'woff2'],
       // Pass timestamp so that hash doesn't change between (non-changing) builds
-      formatOptions: { ttf: { ts: 0 } }
+      formatOptions: { ttf: { ts: 0 } },
+      templateOptions: {
+        classPrefix: 'wui-icon-',
+        baseSelector: 'i'
+      }
     },
     error => {
       if (error) {
@@ -62,6 +67,17 @@ const writeIconFont = files => {
       } else {
         console.log('Success'.green, 'Writing icon font')
       }
+      const cssFilePath = `${ICON_FONT_PATH}/fonts/${FONT_NAME}.css`
+      fs.readFile(cssFilePath, 'utf8', function(err, data) {
+        if (err) {
+          return console.log(err)
+        }
+        var result = data.replace(/content: "\\0x([^"]+)"/g, 'content: "\\$1"')
+
+        fs.writeFile(cssFilePath, result, 'utf8', function(err) {
+          if (err) return console.log(err)
+        })
+      })
     }
   )
 
