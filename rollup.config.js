@@ -5,7 +5,7 @@ import replace from '@rollup/plugin-replace'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import json from '@rollup/plugin-json'
-import typescript from '@rollup/plugin-typescript'
+import typescript from 'rollup-plugin-typescript2'
 
 const getBabelOptions = ({ babelConfigFile = '../../babel.config.js', useESModules }) => ({
   exclude: '**/node_modules/**',
@@ -38,6 +38,11 @@ export const getRollupConfig = ({ babelConfigFile, inputFile, pwd, ts, tsConfigF
 
   const tsConfig = {
     tsconfig: tsConfigFile || '../../tsconfig.build.json',
+    useTsconfigDeclarationDir: false,
+    tsconfigOverride: {
+      include: [SOURCE_DIR],
+      outDir: 'dist',
+    },
   }
 
   const cjsConfig = {

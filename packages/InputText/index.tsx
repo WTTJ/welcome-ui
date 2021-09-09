@@ -55,7 +55,10 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
     ref
   ) => {
     const handleReset = () => {
-      const event = createEvent({ name, value: '' }) as React.ChangeEvent<HTMLInputElement>
+      const event = createEvent({
+        name,
+        value: '',
+      }) as unknown as React.ChangeEvent<HTMLInputElement>
       onChange && onChange(event)
     }
 

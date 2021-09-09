@@ -12,7 +12,7 @@ export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })<{
   order?: string
 }>(
   ({ connected, order = '-1', theme }) => css`
-    ${defaultFieldStyles};
+    ${defaultFieldStyles({})};
     ${th('radios.default')}
     position: relative;
     padding: 0;

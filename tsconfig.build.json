@@ -2,9 +2,9 @@
   "extends": "./tsconfig",
   "compilerOptions": {
     "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "types": [],
-    "typeRoots": [],
-    "noLib": true
+    "skipDefaultLibCheck": true
+    // "types": [],
+    // "typeRoots": []
+    // "noLib": true
   }
 }

@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { ClearButton } from '@welcome-ui/clear-button'
 
 import { Title, TitleOptions } from './Title'
@@ -8,19 +8,23 @@ export interface SnackbarOptions {
   onClose: () => void
 }
 
-export type SnackbarProps = React.HTMLAttributes<HTMLDivElement> & SnackbarOptions & TitleOptions
+export type SnackbarProps = SnackbarOptions & TitleOptions
 
-export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
-  ({ children, icon, onClose, variant = 'info', ...rest }, ref) => (
-    <S.Snackbar ref={ref} variant={variant} {...rest}>
-      <Title icon={icon} pb="0" variant={variant}>
-        <>
-          {children}
-          {onClose && <ClearButton onClick={onClose} />}
-        </>
-      </Title>
-    </S.Snackbar>
-  )
+export const Snackbar: React.FC<SnackbarProps> = ({
+  children,
+  icon,
+  onClose,
+  variant = 'info',
+  ...rest
+}) => (
+  <S.Snackbar variant={variant} {...rest}>
+    <Title icon={icon} pb="0" variant={variant}>
+      <>
+        {children}
+        {onClose && <ClearButton onClick={onClose} />}
+      </>
+    </Title>
+  </S.Snackbar>
 )
 
 Snackbar.displayName = 'Snackbar'

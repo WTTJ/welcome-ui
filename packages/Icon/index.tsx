@@ -19,6 +19,7 @@ export interface IconOptions {
   name?: string
   size?: Size
   title?: string
+  onClick?: (event: React.MouseEvent<SVGSVGElement>) => void
 }
 
 export type IconProps = IconOptions & WuiProps
