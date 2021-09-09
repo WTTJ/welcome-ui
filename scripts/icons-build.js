@@ -37,6 +37,9 @@ const readIconsFromFolders = () => {
         exec(`cd ${pwd}`)
         rollup({ ...inputOptions })
           .then(bundle => bundle.write(outputOptions))
+          .then(() => {
+            exec(`cd ${pwd} && cp index.d.ts dist/index.d.ts`)
+          })
           .then(() =>
             console.log(
               'build',

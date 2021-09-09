@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const AirplayIcon = props => <Icon alt="Airplay" content={content} {...props} />
+
+export function AirplayIcon(props) {
+  return <Icon alt="Airplay" content={content} {...props} />
+}

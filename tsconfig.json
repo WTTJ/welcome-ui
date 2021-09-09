@@ -18,9 +18,9 @@
   "exclude": [
     "node_modules",
     "dist",
+    "icons/**/*",
     "**/*.test.tsx",
     "utils/**.js",
-    "icons/**/*",
     "packages/**/node_modules",
     "packages/**/dist",
     "packages/**/**.js"

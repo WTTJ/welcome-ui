@@ -48,9 +48,20 @@ const writeIconContentsJson = (outputFolder, content, key) => {
 const writeIconNpmIgnore = outputFolder => {
   const fileContent = `/*
 !/dist/*.js
+!/dist/*.d.ts
 `
 
   fs.writeFileSync(`${outputFolder}/.npmignore`, fileContent)
+}
+
+// Write index.d.ts for a given icon
+const writeIndexDTS = (outputFolder, iconName) => {
+  const fileContent = `import React from 'react'
+import { IconProps } from '@welcome-ui/icon'
+export declare const ${iconName}Icon: React.FC<IconProps>
+`
+
+  fs.writeFileSync(`${outputFolder}/index.d.ts`, fileContent)
 }
 
 // Write package.json for a given icon
@@ -77,6 +88,7 @@ const writeIconPackageJson = (outputFolder, key) => {
     sideEffects: false,
     main: `dist/icons.${key}.cjs.js`,
     module: `dist/icons.${key}.es.js`,
+    types: 'dist/index.d.ts',
     version: config.version || '1.0.0',
     publishConfig: {
       access: 'public',
@@ -104,7 +116,10 @@ const writeIconIndexJs = (outputFolder, iconName) => {
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const ${iconName}Icon = props => <Icon alt="${iconName}" content={content} {...props} />
+
+export function ${iconName}Icon(props) {
+  return <Icon alt="${iconName}" content={content} {...props} />
+}
 `
 
   fs.writeFileSync(file, fileContent)
@@ -124,10 +139,12 @@ const writeIconPackages = files => {
     writeIconPackageJson(outputFolder, key)
     // .npmignore
     writeIconNpmIgnore(outputFolder)
-    // contents.js
+    // contents.json
     writeIconContentsJson(outputFolder, content, key)
     // index.js
     writeIconIndexJs(outputFolder, iconName)
+    // index.d.ts
+    writeIndexDTS(outputFolder, iconName)
   })
 
   console.log('Success'.green, 'Writing individual icon packages')

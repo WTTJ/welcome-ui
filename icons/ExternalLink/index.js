@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const ExternalLinkIcon = props => <Icon alt="ExternalLink" content={content} {...props} />
+
+export function ExternalLinkIcon(props) {
+  return <Icon alt="ExternalLink" content={content} {...props} />
+}

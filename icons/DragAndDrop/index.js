@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const DragAndDropIcon = props => <Icon alt="DragAndDrop" content={content} {...props} />
+
+export function DragAndDropIcon(props) {
+  return <Icon alt="DragAndDrop" content={content} {...props} />
+}

@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const FullscreenOnIcon = props => <Icon alt="FullscreenOn" content={content} {...props} />
+
+export function FullscreenOnIcon(props) {
+  return <Icon alt="FullscreenOn" content={content} {...props} />
+}

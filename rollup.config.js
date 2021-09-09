@@ -13,8 +13,8 @@ const getBabelOptions = ({ babelConfigFile = '../../babel.config.js', useESModul
   configFile: babelConfigFile,
   plugins: [
     'babel-plugin-annotate-pure-calls',
-    ['@babel/plugin-transform-runtime', { useESModules }]
-  ]
+    ['@babel/plugin-transform-runtime', { useESModules }],
+  ],
 })
 
 const external = id => !id.startsWith('.') && !id.startsWith('/')
@@ -22,35 +22,36 @@ const external = id => !id.startsWith('.') && !id.startsWith('/')
 const PLUGINS = [
   replace({
     __BRANCH__: process.env.BRANCH,
-    __ICON_FONT_HASH__: process.env.ICON_FONT_HASH
+    __ICON_FONT_HASH__: process.env.ICON_FONT_HASH,
+    preventAssignment: true,
   }),
   nodeResolve(),
   postcss(),
-  json()
+  json(),
 ]
 
-const tsConfig = {
-  tsconfig: '../../tsconfig.build.json'
-}
-
-export const getRollupConfig = ({ babelConfigFile, inputFile, pwd, ts }) => {
+export const getRollupConfig = ({ babelConfigFile, inputFile, pwd, ts, tsConfigFile }) => {
   const SOURCE_DIR = path.resolve(pwd)
   const pkg = require(`${SOURCE_DIR}/package.json`)
   const extension = ts ? '.tsx' : '.js'
   const input = `${SOURCE_DIR}/${inputFile || `index${extension}`}`
 
+  const tsConfig = {
+    tsconfig: tsConfigFile || '../../tsconfig.build.json',
+  }
+
   const cjsConfig = {
     input,
     output: { file: `${SOURCE_DIR}/${pkg.main}`, format: 'cjs' },
     external,
-    plugins: [...PLUGINS, babel(getBabelOptions({ babelConfigFile, useESModules: false }))]
+    plugins: [...PLUGINS, babel(getBabelOptions({ babelConfigFile, useESModules: false }))],
   }
 
   const esmConfig = {
     input,
     output: { file: `${SOURCE_DIR}/${pkg.module}`, format: 'esm' },
     external,
-    plugins: [...PLUGINS, babel(getBabelOptions({ babelConfigFile, useESModules: true }))]
+    plugins: [...PLUGINS, babel(getBabelOptions({ babelConfigFile, useESModules: true }))],
   }
 
   if (ts) {

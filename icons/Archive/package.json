@@ -15,5 +15,6 @@
   "dependencies": {
     "@welcome-ui/icon": "^4.0.0-alpha.4"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "types": "dist/index.d.ts"
 }

@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const CameraOffIcon = props => <Icon alt="CameraOff" content={content} {...props} />
+
+export function CameraOffIcon(props) {
+  return <Icon alt="CameraOff" content={content} {...props} />
+}
