@@ -107,9 +107,9 @@ import { Icon, IconProps } from '@welcome-ui/icon'
 
 import content from './content.json'
 
-export const ${iconName}Icon: React.FC<IconProps> = props => (
+export const ${iconName}Icon: React.FC<IconProps> = props => {
   return <Icon alt="${iconName}" content={content} {...props} />
-)
+}
 `
 
   fs.writeFileSync(file, fileContent)
