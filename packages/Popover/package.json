@@ -4,6 +4,7 @@
   "description": "welcome-ui: A popover component",
   "main": "dist/popover.cjs.js",
   "module": "dist/popover.es.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
