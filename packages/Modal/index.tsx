@@ -23,7 +23,7 @@ export interface ModalProps {
   size?: Size
 }
 
-export function useModalState(options ?:DialogInitialState): DialogStateReturn {
+export function useModalState(options?: DialogInitialState): DialogStateReturn {
   return useDialogState({ animated: true, ...options })
 }
 
@@ -40,7 +40,6 @@ const ModalComponent: React.FC<ModalProps> = props => {
   } = props
 
   function closeModal() {
-    // eslint-disable-next-line prettier/prettier
     onClose?.()
     hide()
   }
