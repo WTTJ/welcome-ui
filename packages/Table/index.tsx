@@ -26,5 +26,5 @@ export const Table = Object.assign(TableComponent, {
   Tbody: S.Tbody,
   Th: S.Th,
   Tr: S.Tr,
-  Td: S.Td
+  Td: S.Td,
 })

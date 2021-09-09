@@ -69,5 +69,5 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, TextareaProps>(
 TextareaComponent.displayName = 'Textarea'
 
 export const Textarea = Object.assign(TextareaComponent, {
-  type: 'Textarea'
+  type: 'Textarea',
 })

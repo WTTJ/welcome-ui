@@ -106,7 +106,7 @@ describe('<EmojiPicker>', () => {
 
     // TODO: Fix `waitForElement` which never gets called :(
     waitFor(() => getByLabelText('Search Results').querySelector('ul li').length, {
-      container
+      container,
     }).then(results => {
       expect(results.children.length).toBe(0)
       const smile = results.children[0].querySelector('button')

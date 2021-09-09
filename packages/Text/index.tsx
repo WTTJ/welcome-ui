@@ -18,7 +18,7 @@ const TAG_NAMES = {
   subtitle1: 'p',
   subtitle2: 'p',
   meta1: 'p',
-  meta2: 'p'
+  meta2: 'p',
 }
 
 export type Variant =

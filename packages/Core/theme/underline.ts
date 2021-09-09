@@ -19,6 +19,6 @@ export const getUnderline = ({ colors }: { colors: ThemeColors }): ThemeUnderlin
     hover: css`
       opacity: 1;
       background-position-y: 100%;
-    `
+    `,
   }
 }

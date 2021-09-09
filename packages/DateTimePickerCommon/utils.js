@@ -12,7 +12,7 @@ const MONTHS = [
   { value: 8, label: 'September' },
   { value: 9, label: 'October' },
   { value: 10, label: 'November' },
-  { value: 11, label: 'December' }
+  { value: 11, label: 'December' },
 ]
 
 export const DEFAULT_DATE = new Date()
@@ -41,7 +41,7 @@ export const getMonths = locale => {
 
   return MONTHS.map((item, index) => ({
     ...item,
-    label: locale.localize.month(index)
+    label: locale.localize.month(index),
   }))
 }
 
@@ -49,6 +49,6 @@ export const getYears = (startYear, endYear) =>
   range(startYear, endYear + 1)
     .map(year => ({
       label: year,
-      value: year
+      value: year,
     }))
     .reverse()

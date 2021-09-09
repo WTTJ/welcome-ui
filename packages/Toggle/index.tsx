@@ -12,5 +12,5 @@ const ToggleComponent = forwardRef<HTMLInputElement, ToggleProps>((props, ref) =
 ToggleComponent.displayName = 'Toggle'
 
 export const Toggle = Object.assign(ToggleComponent, {
-  type: 'Toggle'
+  type: 'Toggle',
 })

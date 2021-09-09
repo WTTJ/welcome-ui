@@ -17,7 +17,7 @@ export const Popover = memo(function Popover({
   withCloseButton = false,
   ...rest
 }) {
-  function closePopover() {
+  const closePopover = () => {
     if (onClose) onClose()
     rest?.hide()
   }
@@ -28,7 +28,7 @@ export const Popover = memo(function Popover({
     top: 'rotateZ(180deg)',
     right: 'rotateZ(-90deg)',
     bottom: 'rotateZ(360deg)',
-    left: 'rotateZ(90deg)'
+    left: 'rotateZ(90deg)',
   }
   const transform = transformMap[placement]
 
@@ -70,7 +70,7 @@ Popover.propTypes = {
   /** the method to open and close the popover */
   triggerMethod: oneOf(['click', 'hover']),
   /** show or hide a close button */
-  withCloseButton: bool
+  withCloseButton: bool,
 }
 
 Popover.Content = S.Content

@@ -24,9 +24,9 @@ export const Input = styled('div').withConfig({ shouldForwardProp })(
     ${overflowEllipsis};
     padding-right: ${th(`defaultFields.sizes.${size}.height`)};
     ${hasIcon &&
-      css`
-        padding-left: ${th(`defaultFields.sizes.${size}.height`)};
-      `};
+    css`
+      padding-left: ${th(`defaultFields.sizes.${size}.height`)};
+    `};
     cursor: default;
     ${componentSystem}
     line-height: 1em;

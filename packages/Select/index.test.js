@@ -23,12 +23,12 @@ const MONTHS = [
   'september',
   'october',
   'november',
-  'december'
+  'december',
 ].map(month => ({ label: capitalize(month), value: month }))
 
 const MONTHS_WITH_INTEGER_VALUES = MONTHS.map((item, index) => ({
   label: item.label,
-  value: index
+  value: index,
 }))
 
 export const SOCIAL_OPT_GROUP = [
@@ -37,13 +37,16 @@ export const SOCIAL_OPT_GROUP = [
     options: [
       { value: 'behance', label: 'Behance' },
       { value: 'dribbble', label: 'Dribbble' },
-      { value: 'github', label: 'Github' }
-    ]
+      { value: 'github', label: 'Github' },
+    ],
   },
   {
     label: 'Personal networks',
-    options: [{ value: 'instagram', label: 'Instagram' }, { value: 'facebook', label: 'Facebook' }]
-  }
+    options: [
+      { value: 'instagram', label: 'Instagram' },
+      { value: 'facebook', label: 'Facebook' },
+    ],
+  },
 ]
 
 test('<Select> accepts falsy option values (such as 0)', () => {
@@ -181,7 +184,7 @@ test('<Select> calls onChange with correct (object) values', () => {
   expect(handleChange).toHaveBeenCalledWith(
     'february',
     expect.objectContaining({
-      target: { name: 'select', value: { label: 'February', value: 'february' } }
+      target: { name: 'select', value: { label: 'February', value: 'february' } },
     }) // Ignore preventDefault
   )
 })
@@ -539,9 +542,9 @@ test('<Select isCreatable isMultiple> can create new items', () => {
         value: [
           { label: 'February', value: 'february' },
           { label: 'March', value: 'march' },
-          { label: 'Kayab', value: 'kayab' }
-        ]
-      }
+          { label: 'Kayab', value: 'kayab' },
+        ],
+      },
     }) // Ignore preventDefault
   )
 

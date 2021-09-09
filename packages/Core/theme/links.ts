@@ -27,7 +27,7 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
     default: {
       color: colors.dark[500],
       fontWeight: fontWeights.medium,
-      transition: transitions.medium
+      transition: transitions.medium,
     },
     primary: {
       default: css`
@@ -39,13 +39,13 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
         > .wui-text {
           ${underline.hover};
         }
-      `
+      `,
     },
     secondary: {
       default: '',
       hover: {
-        opacity: 0.6
-      }
-    }
+        opacity: 0.6,
+      },
+    },
   }
 }

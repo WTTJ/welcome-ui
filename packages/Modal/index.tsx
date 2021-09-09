@@ -4,7 +4,7 @@ import {
   DialogDisclosure,
   DialogInitialState,
   DialogStateReturn,
-  useDialogState
+  useDialogState,
 } from 'reakit/Dialog'
 import { DisclosureActions } from 'reakit/Disclosure'
 import { Text } from '@welcome-ui/text'
@@ -39,7 +39,7 @@ const ModalComponent: React.FC<ModalProps> = props => {
     ...rest
   } = props
 
-  function closeModal() {
+  const closeModal = () => {
     onClose?.()
     hide()
   }
@@ -78,5 +78,5 @@ export const Modal = Object.assign(ModalComponent, {
   Content: S.Content,
   Title: Title,
   Footer: S.Footer,
-  Cover: S.Cover
+  Cover: S.Cover,
 })

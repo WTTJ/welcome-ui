@@ -43,31 +43,31 @@ export const colors: ThemeColors = {
     500: '#3B35DC',
     700: '#241DBB',
     800: '#1C168F',
-    900: '#171379'
+    900: '#171379',
   },
   success: {
     100: '#E6FAE7',
     200: '#7EC784',
     500: '#52B45A',
-    700: '#2F9237'
+    700: '#2F9237',
   },
   danger: {
     100: '#FFECEC',
     200: '#E02F32',
     500: '#BB1316',
-    700: '#94080A'
+    700: '#94080A',
   },
   warning: {
     100: '#FFF5EF',
     200: '#F17D39',
     500: '#D35E1A',
-    700: '#B34607'
+    700: '#B34607',
   },
   info: {
     100: '#EAF2FE',
     200: '#6696DF',
     500: '#3E7BD7',
-    700: '#1B57B2'
+    700: '#1B57B2',
   },
   light: {
     100: '#7D7D7D',
@@ -75,7 +75,7 @@ export const colors: ThemeColors = {
     500: '#AFAFAF',
     700: '#C8C8C8',
     800: '#E1E1E1',
-    900: '#FFFFFF'
+    900: '#FFFFFF',
   },
   dark: {
     100: '#737373',
@@ -83,7 +83,7 @@ export const colors: ThemeColors = {
     500: '#252525',
     700: '#1B1B1B',
     800: '#111111',
-    900: '#000000'
+    900: '#000000',
   },
   nude: {
     100: '#F1F1F0',
@@ -91,7 +91,7 @@ export const colors: ThemeColors = {
     500: '#C3C3BE',
     700: '#818177',
     800: '#585851',
-    900: '#444441'
+    900: '#444441',
   },
   sub: {
     1: '#3FD1C1',
@@ -100,8 +100,8 @@ export const colors: ThemeColors = {
     4: '#F0AABF',
     5: '#965FE6',
     6: '#F4CF70',
-    7: '#FE6D73'
+    7: '#FE6D73',
   },
   underline: '#C6CAFF',
-  overlay: hexToRGBA('#000000', 0.55)
+  overlay: hexToRGBA('#000000', 0.55),
 }

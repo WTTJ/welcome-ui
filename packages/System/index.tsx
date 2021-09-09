@@ -33,7 +33,7 @@ const SYSTEM_PROPS = Object.freeze([
   S.typography,
   S.verticalAlign,
   S.width,
-  oldProps
+  oldProps,
 ])
 
 const WRAPPER_PROPS = Object.freeze([
@@ -45,7 +45,7 @@ const WRAPPER_PROPS = Object.freeze([
   S.mx,
   S.my,
   S.width,
-  oldProps
+  oldProps,
 ])
 
 export const system = compose<WuiSystemProps>(...SYSTEM_PROPS)

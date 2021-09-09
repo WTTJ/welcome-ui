@@ -17,5 +17,5 @@ export const screens: ThemeScreens = {
   xl: 1280,
   xxl: 1440,
   '3xl': 1620,
-  '4xl': 1920
+  '4xl': 1920,
 }

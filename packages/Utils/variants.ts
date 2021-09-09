@@ -7,7 +7,7 @@ export const VARIANTS: Record<Variant, string> = {
   focused: 'colors.primary.500',
   info: 'colors.info.700',
   success: 'colors.success.700',
-  warning: 'colors.warning.700'
+  warning: 'colors.warning.700',
 }
 
 export const getVariantColor = (variant: Variant): ReturnType<typeof th> => {

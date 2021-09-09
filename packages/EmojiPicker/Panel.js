@@ -13,5 +13,5 @@ export function Panel({ children }) {
 }
 
 Panel.propTypes = {
-  children: node.isRequired
+  children: node.isRequired,
 }

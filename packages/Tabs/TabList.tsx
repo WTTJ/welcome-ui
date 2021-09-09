@@ -2,7 +2,7 @@ import React, { cloneElement, forwardRef, useRef, useState } from 'react'
 import {
   TabList as ReakitTabList,
   TabListProps as ReakitTabListProps,
-  TabStateReturn
+  TabStateReturn,
 } from 'reakit/Tab'
 import flattenChildren from 'react-flatten-children'
 import { useForkRef } from '@welcome-ui/utils'

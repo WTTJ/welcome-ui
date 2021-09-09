@@ -99,7 +99,7 @@ export const FileDrop = forwardRef(
       isDragActive,
       isDragReject,
       open,
-      rootRef
+      rootRef,
     } = useDropzone({
       onDropAccepted: handleDropAccepted,
       onDropRejected: handleDropRejected,
@@ -108,7 +108,7 @@ export const FileDrop = forwardRef(
       accept,
       disabled,
       maxSize,
-      children
+      children,
     })
 
     return (
@@ -122,7 +122,7 @@ export const FileDrop = forwardRef(
           isDragReject,
           isClearable,
           disabled,
-          ref
+          ref,
         })}
         {...rest}
       >
@@ -144,7 +144,7 @@ export const FileDrop = forwardRef(
             openFile: open,
             inputRef,
             rootRef,
-            disabled
+            disabled,
           })}
           {!!file && (error || isEditable || isClearable) && (
             <S.Actions>
@@ -201,7 +201,7 @@ FileDrop.propTypes /* remove-proptypes */ = {
   onError: func,
   onFocus: func,
   title: oneOfType([string, node]),
-  value: oneOfType([string, object])
+  value: oneOfType([string, object]),
 }
 
 // Export `ImagePreview` from styles

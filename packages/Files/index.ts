@@ -23,9 +23,7 @@ function removeQueryString(name: string): string {
 
 export function getFileName(file: FileType): string {
   if (typeof file === 'string') {
-    return removeQueryString(file)
-      .split('/')
-      .pop()
+    return removeQueryString(file).split('/').pop()
   } else {
     return file.name
   }
@@ -33,9 +31,7 @@ export function getFileName(file: FileType): string {
 
 export function getMimeType(file: FileType): string {
   if (typeof file === 'string') {
-    const fileName = getFileName(file)
-      .split('.')
-      .pop()
+    const fileName = getFileName(file).split('.').pop()
     return types[fileName] || null
   } else {
     return file.type

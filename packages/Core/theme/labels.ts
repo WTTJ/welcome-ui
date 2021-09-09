@@ -12,6 +12,6 @@ export const getLabels = (theme: WuiTheme): ThemeLabels => {
   return {
     color: colors.light[100],
     fontSize: fontSizes.body3,
-    fontWeight: fontWeights.medium
+    fontWeight: fontWeights.medium,
   }
 }

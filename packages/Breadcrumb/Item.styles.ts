@@ -15,16 +15,16 @@ export const Item = styled(Box).withConfig({ shouldForwardProp })<ItemProps>(
     direction: initial;
 
     ${withSeparator &&
-      css`
-        &:hover {
-          ${th('breadcrumbs.item.hover')};
-        }
-      `};
+    css`
+      &:hover {
+        ${th('breadcrumbs.item.hover')};
+      }
+    `};
 
     ${!withSeparator &&
-      css`
-        ${th('breadcrumbs.item.active')};
-      `}
+    css`
+      ${th('breadcrumbs.item.active')};
+    `}
   `
 )
 

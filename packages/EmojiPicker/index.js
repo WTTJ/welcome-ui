@@ -42,8 +42,8 @@ export const EmojiPicker = forwardRef(
             name: 'basic',
             content: (
               <BasicList isVisible={popoverState.visible} onChange={handleChange} value={value} />
-            )
-          }
+            ),
+          },
         ]
       }
 
@@ -63,14 +63,14 @@ export const EmojiPicker = forwardRef(
                   (!tabState.selectedId || tabState.selectedId === tab.props.name),
                 onChange: handleChange,
                 value,
-                ...tab.props.children.props
-              })
+                ...tab.props.children.props,
+              }),
             }
           }
 
           return {
             name,
-            content: tab.props.children
+            content: tab.props.children,
           }
         })
     }, [
@@ -80,7 +80,7 @@ export const EmojiPicker = forwardRef(
       inputSearchPlaceholder,
       popoverState.visible,
       tabState.selectedId,
-      value
+      value,
     ])
     const hasTabs = tabs.length > 1
     const onlyTabContent = tabs[0].content
@@ -125,13 +125,13 @@ EmojiPicker.propTypes = {
   onChange: func.isRequired,
   popoverAriaLabel: string,
   tabListAriaLabel: string,
-  value: string
+  value: string,
 }
 
 export const useEmojiPicker = options =>
   usePopoverState({
     placement: 'bottom-start',
-    ...options
+    ...options,
   })
 
 EmojiPicker.Trigger = Popover.Trigger

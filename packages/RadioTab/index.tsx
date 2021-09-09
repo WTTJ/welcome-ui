@@ -35,7 +35,7 @@ export const RadioTab = forwardRef<HTMLInputElement, RadioTabsProps>((props, ref
     ...radioProps
   } = props
 
-  function handleClick(event: React.MouseEvent<HTMLLabelElement>) {
+  const handleClick = (event: React.MouseEvent<HTMLLabelElement>) => {
     event.stopPropagation()
     onClick && onClick(event)
     onChange && onChange(event)

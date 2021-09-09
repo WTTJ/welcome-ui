@@ -54,9 +54,9 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
       width: toRem(30),
       height: toRem(30),
       '&:hover, &:focus': {
-        backgroundColor: `rgba(${hexToRGB(colors.dark[900])}, 0.1)`
+        backgroundColor: `rgba(${hexToRGB(colors.dark[900])}, 0.1)`,
       },
-      '&:focus': focus(colors.dark[900])
+      '&:focus': focus(colors.dark[900]),
     },
     active: {
       color: colors.light[900],
@@ -65,20 +65,20 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
       '&:hover, &:focus': {
         color: colors.light[900],
         borderColor: colors.primary[500],
-        backgroundColor: colors.primary[500]
+        backgroundColor: colors.primary[500],
       },
-      '&:focus': focus()
+      '&:focus': focus(),
     },
     number: {
-      fontSize: fontSizes.body3
+      fontSize: fontSizes.body3,
     },
     dots: {
       color: colors.nude[500],
       fontSize: fontSizes.body3,
       borderColor: 'transparent',
       '&:hover, &:focus': {
-        border: 'none'
-      }
-    }
+        border: 'none',
+      },
+    },
   }
 }

@@ -51,8 +51,8 @@ export const Content = styled(DisclosureContent)(
     padding-bottom: sm;
 
     ${visible &&
-      css`
-        padding-bottom: ${th('accordions.padding')};
-      `}
+    css`
+      padding-bottom: ${th('accordions.padding')};
+    `}
   `
 )

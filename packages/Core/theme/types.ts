@@ -1,7 +1,7 @@
 import {
   CSSScalar,
   ITheme as StyledComponentDefaultTheme,
-  DefaultTheme as XStyledDefaultTheme
+  DefaultTheme as XStyledDefaultTheme,
 } from '@xstyled/styled-components'
 
 import { ThemeAccordions } from './accordions'
@@ -54,7 +54,7 @@ import {
   ThemeTexts,
   ThemeTextsFontFamily,
   ThemeTextsFontWeights,
-  ThemeTextsTextTransform
+  ThemeTextsTextTransform,
 } from './typography'
 import { ThemeUnderline } from './underline'
 

@@ -5,7 +5,7 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/emoji-picker/package.json'
 
 # EmojiPicker
@@ -72,7 +72,7 @@ function Tabs() {
   const emojiPicker = useEmojiPicker()
   const [emoji, setEmoji] = useState()
   const defaultTabState = {
-    selectedId: 'Second tab'
+    selectedId: 'Second tab',
   }
 
   return (
@@ -127,15 +127,15 @@ function Custom() {
 
   const emojis = [
     {
-      alias: 'grinning'
+      alias: 'grinning',
     },
     {
-      alias: 'dog'
+      alias: 'dog',
     },
     {
       alias: 'slack',
-      url: 'https://emoji.slack-edge.com/TSTNFTZAP/slack/7d462d2443.png'
-    }
+      url: 'https://emoji.slack-edge.com/TSTNFTZAP/slack/7d462d2443.png',
+    },
   ]
   const currentEmoji = emojis.find(({ alias }) => `:${alias}:` === emoji)
 

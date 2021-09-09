@@ -28,7 +28,7 @@ export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {
   return {
     inner: {
       fontSize: fontSizes.body3,
-      minWidth: toRem(130)
+      minWidth: toRem(130),
     },
     item: {
       padding: `${space.sm} ${space.md}`,
@@ -36,20 +36,20 @@ export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {
       color: colors.nude[800],
       '&:hover': {
         backgroundColor: colors.nude[200],
-        color: colors.dark[900]
+        color: colors.dark[900],
       },
       '&:focus': {
         backgroundColor: colors.nude[200],
-        color: colors.dark[900]
+        color: colors.dark[900],
       },
       '&[disabled]': {
         backgroundColor: 'transparent',
         color: colors.nude[500],
-        cursor: 'not-allowed'
-      }
+        cursor: 'not-allowed',
+      },
     },
     separator: {
-      backgroundColor: borderColor
-    }
+      backgroundColor: borderColor,
+    },
   }
 }

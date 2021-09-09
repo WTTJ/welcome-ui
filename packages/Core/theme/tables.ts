@@ -42,37 +42,37 @@ export const getTables = (theme: WuiTheme): ThemeTables => {
       textAlign: 'left',
       borderBottomColor: colors.dark[900],
       borderBottomWidth: borderWidths.sm,
-      borderBottomStyle: 'solid'
+      borderBottomStyle: 'solid',
     },
     td: {
       textAlign: 'left',
-      padding: space.xl
+      padding: space.xl,
     },
     tr: {
       default: {
         borderBottomColor: colors.light[800],
         borderBottomWidth: borderWidths.sm,
-        borderBottomStyle: 'solid'
+        borderBottomStyle: 'solid',
       },
       error: {
         backgroundColor: colors.danger[100],
-        color: colors.danger[700]
+        color: colors.danger[700],
       },
       warning: {
         backgroundColor: colors.warning[100],
-        color: colors.warning[700]
+        color: colors.warning[700],
       },
       info: {
         backgroundColor: colors.info[100],
-        color: colors.info[700]
+        color: colors.info[700],
       },
       success: {
         backgroundColor: colors.success[100],
-        color: colors.success[700]
+        color: colors.success[700],
       },
       clickable: {
-        cursor: 'pointer'
-      }
-    }
+        cursor: 'pointer',
+      },
+    },
   }
 }

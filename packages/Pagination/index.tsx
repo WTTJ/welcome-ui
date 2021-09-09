@@ -30,7 +30,7 @@ export const Pagination = forwardRef<HTMLUListElement, PaginationProps>(
       page,
       pageCount,
       rangeDisplay = 5,
-      rightArrow
+      rightArrow,
     },
     ref
   ) => {

@@ -12,5 +12,5 @@ export const CardComponent: React.FC<CardProps> = ({ children, ...rest }) => {
 
 export const Card = Object.assign(CardComponent, {
   Body: S.Body,
-  Cover
+  Cover,
 })

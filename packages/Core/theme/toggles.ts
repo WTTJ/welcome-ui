@@ -45,17 +45,17 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
 
         '&:focus': {
           borderColor: colors.primary[500],
-          ...focus()
-        }
+          ...focus(),
+        },
       },
       checked: {
         backgroundColor: colors.primary[500],
-        borderColor: colors.primary[500]
+        borderColor: colors.primary[500],
       },
       disabled: {
         borderColor: colors.nude[700],
-        backgroundColor: colors.nude[500]
-      }
+        backgroundColor: colors.nude[500],
+      },
     },
     after: {
       default: {
@@ -65,16 +65,16 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
         borderColor: colors.light[500],
         borderWidth: borderWidths.sm,
         borderStyle: 'solid',
-        borderRadius: '50%'
+        borderRadius: '50%',
       },
       checked: {
         backgroundColor: colors.light[900],
-        borderColor: colors.light[900]
+        borderColor: colors.light[900],
       },
       disabled: {
         borderColor: colors.nude[700],
-        backgroundColor: colors.nude[700]
-      }
-    }
+        backgroundColor: colors.nude[700],
+      },
+    },
   }
 }

@@ -13,7 +13,7 @@ import {
   getTexts,
   getTextsFontFamily,
   getTextsFontWeights,
-  getTextsTextTransform
+  getTextsTextTransform,
 } from './typography'
 import { timingFunction, transitions } from './transitions'
 import { getUnderline } from './underline'

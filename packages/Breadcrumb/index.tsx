@@ -4,8 +4,9 @@ import React, {
   forwardRef,
   useCallback,
   useEffect,
+  useMemo,
   useRef,
-  useState
+  useState,
 } from 'react'
 import { clamp, throttle } from '@welcome-ui/utils'
 import { ResizeObserver } from '@juggle/resize-observer'
@@ -57,7 +58,7 @@ export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
         key: `breadcrumb-${index}`,
         separator: isLastChild ? undefined : separator,
         as: isLastChild ? 'span' : renderChildrenAs,
-        ...child.props
+        ...child.props,
       })
     })
 
@@ -73,7 +74,7 @@ export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
 
     const onListScroll = useCallback(() => {
       const {
-        current: { offsetWidth, scrollLeft, scrollWidth }
+        current: { offsetWidth, scrollLeft, scrollWidth },
       } = listRef
       const diff = scrollWidth - offsetWidth
       const scroll = clamp(Math.abs(scrollLeft - initialOffset), 0, diff)
@@ -82,23 +83,24 @@ export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
       updateGradients(completionRatio)
     }, [initialOffset, updateGradients])
 
-    const handleResize = useCallback(
-      throttle(
-        (entries: Entry[]) => {
-          const [
-            {
-              target: { offsetWidth, scrollLeft, scrollWidth }
+    const handleResize = useMemo(
+      () =>
+        throttle(
+          (entries: Entry[]) => {
+            const [
+              {
+                target: { offsetWidth, scrollLeft, scrollWidth },
+              },
+            ] = entries
+            const diff = scrollWidth - offsetWidth
+            if (!initialOffset) {
+              setInitialOffset(scrollLeft === 0 ? 0 : diff)
             }
-          ] = entries
-          const diff = scrollWidth - offsetWidth
-          if (!initialOffset) {
-            setInitialOffset(scrollLeft === 0 ? 0 : diff)
-          }
-          setIsOverflowing(diff > 0)
-        },
-        300,
-        false
-      ),
+            setIsOverflowing(diff > 0)
+          },
+          300,
+          false
+        ),
       [initialOffset]
     )
 
@@ -135,5 +137,5 @@ BreadcrumbComponent.displayName = 'Breadcrumb'
 
 // Nested exports
 export const Breadcrumb = Object.assign(BreadcrumbComponent, {
-  Item
+  Item,
 })

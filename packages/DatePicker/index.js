@@ -6,7 +6,7 @@ import {
   CustomPopper,
   DEFAULT_DATE,
   getDate,
-  StyledDatePicker
+  StyledDatePicker,
 } from '@welcome-ui/date-time-picker-common'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils/propTypes'
@@ -152,5 +152,5 @@ DatePicker.propTypes /* remove-proptypes */ = {
   size: oneOf(SIZES_TYPE),
   startYear: number,
   useWeekdaysShort: bool,
-  value: oneOfType([number, object, string])
+  value: oneOfType([number, object, string]),
 }

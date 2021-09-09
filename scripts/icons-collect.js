@@ -34,7 +34,7 @@ const writeIconContentsJson = (outputFolder, content, key) => {
     width: 15,
     height: 15,
     viewBox,
-    block: svgContent
+    block: svgContent,
   }
 
   if (isFlag) {
@@ -68,7 +68,7 @@ const writeIconPackageJson = (outputFolder, key) => {
   // Save icons in global 'state'
   icons[key] = {
     name: toPascalCase(key),
-    version: config.version || '1.0.0'
+    version: config.version || '1.0.0',
   }
 
   const content = {
@@ -79,16 +79,16 @@ const writeIconPackageJson = (outputFolder, key) => {
     module: `dist/icons.${key}.es.js`,
     version: config.version || '1.0.0',
     publishConfig: {
-      access: 'public'
+      access: 'public',
     },
     dependencies: {
-      '@welcome-ui/icon': `^${version}`
+      '@welcome-ui/icon': `^${version}`,
     },
     peerDependencies: {
       react: '^16.10.2 || ^17.0.1',
-      'react-dom': '^16.10.2 || ^17.0.1'
+      'react-dom': '^16.10.2 || ^17.0.1',
     },
-    license: 'MIT'
+    license: 'MIT',
   }
 
   const fileContent = `${JSON.stringify(content, 0, 2)}
@@ -161,7 +161,7 @@ const writeRootIconPackage = files => {
   // Add dependencies (all individual icons) to icons/package.json
   const rootPackageJsonContent = {
     ...config,
-    dependencies
+    dependencies,
   }
   const fileContent = `${JSON.stringify(rootPackageJsonContent, 0, 2)}
 `
