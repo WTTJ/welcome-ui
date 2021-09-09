@@ -17,7 +17,7 @@ export const Alert = styled(Box)<AlertOptions>(
 export const Title = styled(Text).attrs(({ variant }: AlertOptions) => ({
   variant: 'h5',
   // We're renaming the prop because it'll be overridden by Text's variant
-  alertVariant: variant
+  alertVariant: variant,
 }))(
   ({ alertVariant }) => css`
     display: flex;

@@ -30,7 +30,7 @@ function useActiveBarState(
       setState({
         size: height,
         offset: top,
-        orientation
+        orientation,
       })
     } else {
       const left = activeTabRect.left - listRect.left + list.scrollLeft
@@ -38,7 +38,7 @@ function useActiveBarState(
       setState({
         size: width,
         offset: left,
-        orientation
+        orientation,
       })
     }
   }, [listRef, activeTab, viewportWidth, viewportHeight, orientation])

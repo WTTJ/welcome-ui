@@ -20,7 +20,7 @@ interface HideFocusRingsRootProps {
 
 export const HideFocusRingsRoot: React.FC<HideFocusRingsRootProps> = ({
   children,
-  reactRootId
+  reactRootId,
 }) => {
   const [hideFocusRings, setHideFocusRings] = useState(false)
 

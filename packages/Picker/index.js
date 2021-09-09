@@ -54,9 +54,9 @@ Picker.propTypes /* remove-proptypes */ = {
   options: arrayOf(
     shape({
       element: elementType,
-      value: string
+      value: string,
     })
   ).isRequired,
   required: bool,
-  value: string
+  value: string,
 }

@@ -20,6 +20,6 @@ export const getTooltips = (theme: WuiTheme): ThemeTooltips => {
     border: `${borderWidths.sm} solid ${colors.dark[500]}`,
     padding: `${space.xxs} ${space.sm}`,
     fontSize: fontSizes.body4,
-    borderRadius: radii.md
+    borderRadius: radii.md,
   }
 }

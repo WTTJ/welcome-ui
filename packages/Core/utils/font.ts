@@ -32,20 +32,22 @@ function getFont(descriptor: Descriptor) {
       src: ${getSrc(descriptor)};
       font-display: ${descriptor.display || 'fallback'};
       ${descriptor.weight &&
-        css`
-          font-weight: ${descriptor.weight};
-        `}
+      css`
+        font-weight: ${descriptor.weight};
+      `}
       ${descriptor.style &&
-        css`
-          font-style: ${descriptor.style};
-        `}
+      css`
+        font-style: ${descriptor.style};
+      `}
     }
   `
 }
 
-export const fonts = () => ({ theme }: { theme: WuiTheme }): ReturnType<typeof css> => {
-  if (!theme || !theme.fontFaces) return null
-  return Object.entries(theme.fontFaces).map(([name, variations]) =>
-    variations.map(variation => getFont({ name, ...variation }))
-  )
-}
+export const fonts =
+  () =>
+  ({ theme }: { theme: WuiTheme }): ReturnType<typeof css> => {
+    if (!theme || !theme.fontFaces) return null
+    return Object.entries(theme.fontFaces).map(([name, variations]) =>
+      variations.map(variation => getFont({ name, ...variation }))
+    )
+  }

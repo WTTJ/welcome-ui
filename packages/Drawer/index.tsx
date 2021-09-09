@@ -8,7 +8,7 @@ import {
   DialogInitialState,
   DialogProps,
   DialogStateReturn,
-  useDialogState
+  useDialogState,
 } from 'reakit/Dialog'
 import { SealedInitialState } from 'reakit-utils/ts/useSealedState'
 import { ClearButtonProps } from '@welcome-ui/clear-button'
@@ -96,5 +96,5 @@ export const Drawer = Object.assign(DrawerComponent, {
   Close: DrawerClose,
   Title: S.Title,
   Content: S.Content,
-  Footer: S.Footer
+  Footer: S.Footer,
 })

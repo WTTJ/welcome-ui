@@ -36,7 +36,7 @@ export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })<{
       }
 
       &:not([disabled]) {
-        ${th(`radios.checked`)};
+        ${th('radios.checked')};
       }
     }
 
@@ -49,14 +49,14 @@ export const Label = styled(WUILabel).withConfig({ shouldForwardProp })<{
   withHint?: boolean
 }>(
   ({ withHint }) => css`
-    ${withHint && th(`radios.withHint.default`)};
+    ${withHint && th('radios.withHint.default')};
     max-width: 100%;
     ${system}
   `
 )
 
 export const Hint = styled(HintWUI)`
-  ${th(`radios.withHint.hint`)};
+  ${th('radios.withHint.hint')};
 `
 
 export const Input = styled.div`

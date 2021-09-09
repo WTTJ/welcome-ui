@@ -92,77 +92,77 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       borderColor: colors.nude[200],
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
-      outline: 'none'
+      outline: 'none',
     },
     sizes: {
       sm: {
         height: toRem(32),
-        padding: `${space.xs} ${space.md}`
+        padding: `${space.xs} ${space.md}`,
       },
       md: {
         height: toRem(36),
-        padding: `${space.sm} ${space.md}`
+        padding: `${space.sm} ${space.md}`,
       },
       lg: {
         height: toRem(40),
-        padding: `${space.md}`
-      }
+        padding: `${space.md}`,
+      },
     },
     checkableField: {
       checked: {
-        color: 'white' // not hex color, only color from browser because is on a content svg
+        color: 'white', // not hex color, only color from browser because is on a content svg
       },
       disabled: {
-        opacity: 0.4
-      }
+        opacity: 0.4,
+      },
     },
     disabled: {
       backgroundColor: colors.nude[500],
       color: colors.nude[700],
-      cursor: 'not-allowed'
+      cursor: 'not-allowed',
     },
     placeholder: {
-      color: colors.nude[500]
+      color: colors.nude[500],
     },
     focused: {
       default: {
         ...focus(),
-        borderColor: colors.primary[500]
+        borderColor: colors.primary[500],
       },
       error: focus(colors.danger[700]),
-      warning: focus(colors.warning[700])
+      warning: focus(colors.warning[700]),
     },
     checkablelabel: {
       default: {
-        fontWeight: fontWeights.regular
+        fontWeight: fontWeights.regular,
       },
       checked: {
         color: colors.dark[200],
-        '-webkit-text-stroke': '0.04em'
-      }
+        '-webkit-text-stroke': '0.04em',
+      },
     },
     select: {
       default: {
-        maxHeight: toRem(155)
+        maxHeight: toRem(155),
       },
       existing: {
         color: colors.nude[500],
-        cursor: 'not-allowed'
+        cursor: 'not-allowed',
       },
       highlighted: {
         backgroundColor: colors.nude[100],
-        cursor: 'default'
+        cursor: 'default',
       },
       selectedAndHighlighted: {
-        backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%)'
+        backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%)',
       },
       selected: {
         color: colors.dark[200],
-        fontWeight: fontWeights.bold
-      }
+        fontWeight: fontWeights.bold,
+      },
     },
     fieldset: {
-      'border-width': '0'
-    }
+      'border-width': '0',
+    },
   }
 }

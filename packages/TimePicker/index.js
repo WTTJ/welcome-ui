@@ -5,7 +5,7 @@ import {
   CustomPopper,
   DEFAULT_DATE,
   getDate,
-  StyledTimePicker
+  StyledTimePicker,
 } from '@welcome-ui/date-time-picker-common'
 
 import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils/propTypes'
@@ -130,5 +130,5 @@ TimePicker.propTypes /* remove-proptypes */ = {
   popperProps: object,
   size: oneOf(SIZES_TYPE),
   timeIntervals: number,
-  value: oneOfType([number, object, string])
+  value: oneOfType([number, object, string]),
 }

@@ -41,5 +41,5 @@ const CheckboxComponent = forwardRef<HTMLInputElement, CheckboxProps>(
 CheckboxComponent.displayName = 'Checkbox'
 
 export const Checkbox = Object.assign(CheckboxComponent, {
-  type: 'Checkbox'
+  type: 'Checkbox',
 })

@@ -32,32 +32,32 @@ export const Toggle = styled(ReakitCheckbox).withConfig({ shouldForwardProp })<S
     }
 
     ${checked &&
-      css`
-        &::after {
-          left: 100%;
-          transform: translateX(calc(-100% - ${theme.toRem(1)}));
-        }
-      `};
+    css`
+      &::after {
+        left: 100%;
+        transform: translateX(calc(-100% - ${theme.toRem(1)}));
+      }
+    `};
 
     ${checked &&
-      !disabled &&
-      css`
-        ${th('toggles.item.checked')};
+    !disabled &&
+    css`
+      ${th('toggles.item.checked')};
 
-        &::after {
-          ${th('toggles.after.checked')};
-        }
-      `};
+      &::after {
+        ${th('toggles.after.checked')};
+      }
+    `};
 
     ${disabled &&
-      css`
-        ${th('toggles.item.disabled')};
-        cursor: not-allowed;
+    css`
+      ${th('toggles.item.disabled')};
+      cursor: not-allowed;
 
-        &::after {
-          ${th('toggles.after.disabled')};
-        }
-      `};
+      &::after {
+        ${th('toggles.after.disabled')};
+      }
+    `};
 
     ${connected ? componentSystem : system};
   `

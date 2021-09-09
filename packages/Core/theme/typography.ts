@@ -38,7 +38,7 @@ export const getFontSizes = (unit: string, theme: WuiTheme): ThemeFontSizes => {
     subtitle1: convert(13),
     subtitle2: convert(11),
     meta1: convert(14),
-    meta2: convert(12)
+    meta2: convert(12),
   }
 }
 
@@ -63,7 +63,7 @@ export type ThemeLineHeights = {
 
 export const getLineHeights = ({
   defaultLineHeight,
-  headingLineHeight
+  headingLineHeight,
 }: {
   defaultLineHeight: number
   headingLineHeight: number
@@ -83,7 +83,7 @@ export const getLineHeights = ({
   subtitle1: headingLineHeight,
   subtitle2: headingLineHeight,
   meta1: defaultLineHeight,
-  meta2: defaultLineHeight
+  meta2: defaultLineHeight,
 })
 
 export type ThemeFontWeights = {
@@ -95,7 +95,7 @@ export type ThemeFontWeights = {
 export const fontWeights: ThemeFontWeights = {
   regular: '400',
   medium: '500',
-  bold: '600'
+  bold: '600',
 }
 
 export type ThemeLetterSpacings = {
@@ -122,7 +122,7 @@ export type ThemeLetterSpacings = {
 
 export const getLetterSpacings = ({
   defaultLetterSpacing,
-  headingLetterSpacing
+  headingLetterSpacing,
 }: {
   defaultLetterSpacing: string
   headingLetterSpacing: string
@@ -145,7 +145,7 @@ export const getLetterSpacings = ({
   subtitle1: headingLetterSpacing,
   subtitle2: headingLetterSpacing,
   meta1: defaultLetterSpacing,
-  meta2: defaultLetterSpacing
+  meta2: defaultLetterSpacing,
 })
 
 export type ThemeTextsFontWeights = {
@@ -186,7 +186,7 @@ export const getTextsFontWeights = (theme: WuiTheme): ThemeTextsFontWeights => {
     subtitle1: fontWeights.bold,
     subtitle2: fontWeights.medium,
     meta1: fontWeights.regular,
-    meta2: fontWeights.regular
+    meta2: fontWeights.regular,
   }
 }
 
@@ -214,7 +214,7 @@ export const getTextsFontFamily = (theme: WuiTheme): ThemeTextsFontFamily => {
     h5: fonts.headings,
     h6: fonts.headings,
     subtitle1: fonts.headings,
-    subtitle2: fonts.headings
+    subtitle2: fonts.headings,
   }
 }
 
@@ -224,7 +224,7 @@ export type ThemeTextsTextTransform = {
 
 export const getTextsTextTransform = (): ThemeTextsTextTransform => {
   return {
-    h0: 'uppercase'
+    h0: 'uppercase',
   }
 }
 
@@ -246,7 +246,7 @@ export const getTexts = (theme: WuiTheme): ThemeTexts => {
     lineHeights,
     textsFontFamily,
     textsFontWeights,
-    textsTextTransform
+    textsTextTransform,
   } = theme
 
   return Object.keys(fontSizes).reduce((acc, key) => {
@@ -258,8 +258,8 @@ export const getTexts = (theme: WuiTheme): ThemeTexts => {
         fontSize: fontSizes[key as keyof ThemeFontSizes],
         lineHeight: lineHeights[key as keyof ThemeLineHeights] || lineHeights.body1,
         textTransform: textsTextTransform[key as keyof ThemeTextsTextTransform] || undefined,
-        letterSpacing: letterSpacings[key as keyof ThemeLetterSpacings] || undefined
-      }
+        letterSpacing: letterSpacings[key as keyof ThemeLetterSpacings] || undefined,
+      },
     }
   }, {})
 }
@@ -278,6 +278,6 @@ export const getFonts = (
   return {
     texts: [defaultFontFamily, 'sans-serif'].join(', '),
     headings: [headingFontFamily, 'sans-serif'].join(', '),
-    icons: iconFontFamily
+    icons: iconFontFamily,
   }
 }

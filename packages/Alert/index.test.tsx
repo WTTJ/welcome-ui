@@ -35,7 +35,7 @@ describe('<Alert>', () => {
     const alertTitle = getByTestId('alert-title')
 
     expect(alertTitle).toHaveStyleRule('margin-bottom', '0', {
-      modifier: ':only-child'
+      modifier: ':only-child',
     })
   })
 })

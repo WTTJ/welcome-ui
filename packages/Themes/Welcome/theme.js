@@ -63,7 +63,7 @@ const palette = {
   vividtangerine: '#F79D85',
   springrain: '#A5D0A8',
   palecerulean: '#8CB3DB',
-  mountainsmajesty: '#9B8CC0'
+  mountainsmajesty: '#9B8CC0',
 }
 
 const colors = {
@@ -73,31 +73,31 @@ const colors = {
     500: palette.yellow,
     700: palette.corn,
     800: palette.cinnamon,
-    900: palette.olive
+    900: palette.olive,
   },
   success: {
     100: palette.gin,
     200: palette.puertorico,
     500: palette.jade,
-    700: palette.spanishviridian
+    700: palette.spanishviridian,
   },
   danger: {
     100: palette.rosewhite,
     200: palette.japonica,
     500: palette.valencia,
-    700: palette.carmen
+    700: palette.carmen,
   },
   warning: {
     100: palette.floralwhite,
     200: palette.marzipan,
     500: palette.sunray,
-    700: palette.burbon
+    700: palette.burbon,
   },
   info: {
     100: palette.aliceblue,
     200: palette.lightsky,
     500: palette.blueberry,
-    700: palette.celticblue
+    700: palette.celticblue,
   },
   light: {
     100: palette.empress,
@@ -105,7 +105,7 @@ const colors = {
     500: palette.nobel,
     700: palette.silverchalice,
     800: palette.mercury,
-    900: palette.white
+    900: palette.white,
   },
   dark: {
     100: palette.granite,
@@ -113,7 +113,7 @@ const colors = {
     500: palette.mineshaft,
     700: palette.nero,
     800: palette.softblack,
-    900: palette.black
+    900: palette.black,
   },
   nude: {
     100: palette.isabelline,
@@ -121,7 +121,7 @@ const colors = {
     500: palette.timberwolf,
     700: palette.naturalgrey,
     800: palette.ironside,
-    900: palette.dune
+    900: palette.dune,
   },
   sub: {
     1: palette.palecerulean,
@@ -130,9 +130,9 @@ const colors = {
     4: palette.vividtangerine,
     5: palette.springrain,
     6: palette.green,
-    7: palette.mountainsmajesty
+    7: palette.mountainsmajesty,
   },
-  underline: palette.yellow
+  underline: palette.yellow,
 }
 
 export const welcomeTheme = {
@@ -144,34 +144,34 @@ export const welcomeTheme = {
   radii: {
     sm: 0,
     md: 0,
-    lg: 0
+    lg: 0,
   },
   shadows: {
     sm: 'none',
-    md: 'none'
+    md: 'none',
   },
   selection: {
-    color: colors.dark[900]
+    color: colors.dark[900],
   },
   radios: {
     checked: {
-      color: colors.dark[900]
-    }
+      color: colors.dark[900],
+    },
   },
   radioTabs: {
     checked: {
-      color: colors.dark[900]
-    }
+      color: colors.dark[900],
+    },
   },
   checkboxes: {
     checked: {
-      color: colors.dark[900]
-    }
+      color: colors.dark[900],
+    },
   },
   buttons: {
     primary: {
-      color: colors.dark[900]
-    }
+      color: colors.dark[900],
+    },
   },
   letterSpacings: {
     h0: -1.7,
@@ -182,44 +182,44 @@ export const welcomeTheme = {
     h5: -0.5,
     body4: -0.2,
     subtitle2: -0.2,
-    meta2: -0.2
+    meta2: -0.2,
   },
   tags: {
     variants: {
       primary: {
-        color: colors.dark[900]
-      }
-    }
+        color: colors.dark[900],
+      },
+    },
   },
   paginations: {
     default: {
-      borderRadius: 0
+      borderRadius: 0,
     },
     active: {
       color: colors.dark[900],
       '&:hover, &:focus': {
-        color: colors.dark[900]
-      }
-    }
+        color: colors.dark[900],
+      },
+    },
   },
   dateTimePickerCommon: {
     item: {
       selected: {
-        color: colors.dark[900]
-      }
-    }
+        color: colors.dark[900],
+      },
+    },
   },
   defaultFields: {
     checkableField: {
       checked: {
-        color: 'black'
-      }
-    }
+        color: 'black',
+      },
+    },
   },
   modals: {
     footer: {
       paddingTop: 0,
-      borderTopWidth: 0
-    }
-  }
+      borderTopWidth: 0,
+    },
+  },
 }

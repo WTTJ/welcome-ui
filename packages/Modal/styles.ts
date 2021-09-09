@@ -7,7 +7,7 @@ import { DialogBackdrop, Dialog as ReakitDialog } from 'reakit/Dialog'
 import { Size } from '.'
 
 export const Backdrop = styled(DialogBackdrop).withConfig({
-  shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop)
+  shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop),
 })<{ hideOnClickOutside: boolean }>(
   ({ hideOnClickOutside }) => css`
     ${th('modals.backdrop')};
@@ -22,9 +22,9 @@ export const Backdrop = styled(DialogBackdrop).withConfig({
     opacity: 0;
     transition: opacity 150ms ease-in-out;
     ${hideOnClickOutside &&
-      css`
-        cursor: pointer;
-      `}
+    css`
+      cursor: pointer;
+    `}
 
     /* on open dialog for animation */
     &[data-enter] {

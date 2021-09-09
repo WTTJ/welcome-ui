@@ -19,7 +19,7 @@ export interface EmojiOptions {
   width?: number
 }
 
-export type EmojiProps =  EmojiOptions & React.HTMLAttributes<HTMLImageElement> & WuiProps
+export type EmojiProps = EmojiOptions & React.HTMLAttributes<HTMLImageElement> & WuiProps
 
 export const Emoji: React.FC<EmojiProps> = ({
   emoji,
@@ -46,13 +46,12 @@ export const Emoji: React.FC<EmojiProps> = ({
   const src = isUrl
     ? emoji
     : `${EMOJI_PATH}${useAppleEmoji ? 'apple/' : 'google/'}${
-      isLarge ? 'originals/' : ''
-    }${encodeURIComponent(emojiName)}.png`
+        isLarge ? 'originals/' : ''
+      }${encodeURIComponent(emojiName)}.png`
 
   return (
     <Box alt={alt} as="img" height={size || height} src={src} width={size || width} {...rest} />
   )
 }
 
-// eslint-disable-next-line prettier/prettier
 export const getEmojiName = (alias: string): string => alias?.replace?.(/:/g, '')

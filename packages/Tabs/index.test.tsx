@@ -13,7 +13,7 @@ function getActiveBar({ getByRole }) {
 
 describe('Tabs', () => {
   it('renders an accessible structure', () => {
-    function Tabs() {
+    const Tabs = () => {
       const tab = useTabState({ selectedId: 'tab1' })
       return (
         <>
@@ -81,7 +81,7 @@ describe('Tabs', () => {
 
   describe('with one tab', () => {
     it('does not render active bar', () => {
-      function Tabs() {
+      const Tabs = () => {
         const tab = useTabState({ selectedId: 'tab1' })
         return (
           <>

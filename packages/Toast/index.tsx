@@ -28,7 +28,7 @@ export function useToast(): UseToastReturn {
         position: 'bottom',
         duration: 5000,
         onClose: undefined,
-        ...options
+        ...options,
       }
 
       const isBottomPosition = toastOptions.position.startsWith('bottom')
@@ -48,7 +48,7 @@ export function useToast(): UseToastReturn {
                 <S.Toast isBottom={isBottomPosition}>
                   {cloneElement(children, {
                     ...children.props,
-                    onClose: () => onCloseToast(onClose)
+                    onClose: () => onCloseToast(onClose),
                   })}
                 </S.Toast>
               </ThemeProvider>

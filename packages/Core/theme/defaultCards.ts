@@ -13,7 +13,7 @@ export type ThemeDefaultCards = {
 export const getDefaultCards = ({
   borderWidths,
   colors,
-  radii
+  radii,
 }: {
   borderWidths: ThemeBorderWidths
   colors: ThemeColors
@@ -23,5 +23,5 @@ export const getDefaultCards = ({
   borderRadius: radii.md,
   borderStyle: 'solid',
   borderWidth: borderWidths.sm,
-  borderColor: colors.light[800]
+  borderColor: colors.light[800],
 })

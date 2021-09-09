@@ -24,7 +24,7 @@ export const Group: React.FC<GroupProps> = ({ children, dataTestId, disabled, si
           ...child.props,
           disabled: disabled || child.props.disabled,
           size: size || child.props.size,
-          variant: variant || child.props.variant
+          variant: variant || child.props.variant,
         })
       })
   }

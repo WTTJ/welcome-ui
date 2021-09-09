@@ -7,7 +7,7 @@ import { ImagePreview } from './styles'
 import { Message } from './Message'
 import { FilePreview } from './FilePreview'
 
-export const Preview = ({
+export function Preview({
   disabled,
   error,
   file,
@@ -16,8 +16,8 @@ export const Preview = ({
   isAnImage,
   isHoverAccept,
   isHoverReject,
-  openFile
-}) => {
+  openFile,
+}) {
   if (isHoverAccept) {
     return <PositiveIcon />
   } else if (isHoverReject) {
@@ -43,5 +43,5 @@ Preview.propTypes /* remove-proptypes */ = {
   isAnImage: bool,
   isHoverAccept: bool,
   isHoverReject: bool,
-  openFile: func
+  openFile: func,
 }

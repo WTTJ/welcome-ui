@@ -11,14 +11,14 @@ export const InputText = styled('input').withConfig({ shouldForwardProp })<Input
     text-overflow: ellipsis;
 
     ${icon &&
-      iconPlacement === 'left' &&
-      css`
-        padding-left: ${icon ? th(`defaultFields.sizes.${size}.height`)(rest) : null};
-      `}
+    iconPlacement === 'left' &&
+    css`
+      padding-left: ${icon ? th(`defaultFields.sizes.${size}.height`)(rest) : null};
+    `}
     ${((icon && iconPlacement === 'right') || isClearable) &&
-      css`
-        padding-right: ${icon ? th(`defaultFields.sizes.${size}.height`)(rest) : null};
-      `}
+    css`
+      padding-right: ${icon ? th(`defaultFields.sizes.${size}.height`)(rest) : null};
+    `}
 
     ${connected ? componentSystem : system};
   `

@@ -58,7 +58,7 @@ export const Field = forwardRef(
       isCheckbox,
       isRadio,
       touched,
-      connected
+      connected,
     })
     const hintText = variant ? error || warning : hint
     const isGroup = ['FieldGroup', 'RadioGroup'].includes(baseType)
@@ -172,7 +172,7 @@ Field.propTypes /* remove-proptypes */ = {
   size: oneOf(SIZES_TYPE),
   touched: bool,
   type: string,
-  warning: string
+  warning: string,
 }
 
 export const IconWrapper = S.IconWrapper

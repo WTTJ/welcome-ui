@@ -19,11 +19,11 @@ export const getAvatars = (theme: WuiTheme): ThemeAvatars => {
       md: toRem(30),
       lg: toRem(40),
       xl: toRem(50),
-      xxl: toRem(60)
+      xxl: toRem(60),
     },
     text: {
       color: colors.light[900],
-      fontWeight: fontWeights.bold
-    }
+      fontWeight: fontWeights.bold,
+    },
   }
 }

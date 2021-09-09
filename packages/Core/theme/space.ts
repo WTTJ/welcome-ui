@@ -22,6 +22,6 @@ export const getSpace = (theme: WuiTheme): ThemeSpace => {
     xl: theme.toRem(20),
     xxl: theme.toRem(24),
     '3xl': theme.toRem(30),
-    '4xl': theme.toRem(36)
+    '4xl': theme.toRem(36),
   }
 }

@@ -19,7 +19,7 @@ export const WuiProvider: React.FC<WuiProviderProps> = ({
   reactRootId = 'root',
   shouldHideFocusRingOnClick = true,
   theme,
-  useReset
+  useReset,
 }) => {
   return (
     <ThemeProvider theme={theme}>

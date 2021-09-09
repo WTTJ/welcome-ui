@@ -9,9 +9,9 @@ export interface StyledCheckboxProps {
   order: string
 }
 
-export const Checkbox = styled(ReakitCheckbox).withConfig({ shouldForwardProp })<
-  StyledCheckboxProps
->(
+export const Checkbox = styled(ReakitCheckbox).withConfig({
+  shouldForwardProp,
+})<StyledCheckboxProps>(
   ({ connected, order = '-1', theme }) => css`
     ${defaultFieldStyles({})};
     ${th('checkboxes.default')}
@@ -36,7 +36,7 @@ export const Checkbox = styled(ReakitCheckbox).withConfig({ shouldForwardProp })
       }
 
       &:not([disabled]) {
-        ${th(`checkboxes.checked`)};
+        ${th('checkboxes.checked')};
       }
     }
 

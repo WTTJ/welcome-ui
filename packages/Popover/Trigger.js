@@ -52,5 +52,5 @@ export function Trigger({ triggerMethod = 'click', ...rest }) {
 }
 
 Trigger.propTypes = {
-  triggerMethod: oneOf(['click', 'hover'])
+  triggerMethod: oneOf(['click', 'hover']),
 }

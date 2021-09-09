@@ -62,7 +62,7 @@ export const Label = styled.label<{
   variant?: Variant
 }>(
   ({ checked, flexDirection, size, variant }) => css`
-    ${th(`radioTabs.default`)};
+    ${th('radioTabs.default')};
     flex: 1;
     display: flex;
     align-items: center;
@@ -78,10 +78,10 @@ export const Label = styled.label<{
 
     ${defaultFieldStyles({ size, variant })};
     ${checked &&
-      css`
-        ${th(`radioTabs.checked`)};
-        z-index: 2;
-      `};
+    css`
+      ${th('radioTabs.checked')};
+      z-index: 2;
+    `};
     ${flexDirection === 'column' && columnStyles};
     ${flexDirection === 'row' && rowStyles};
     ${componentSystem};

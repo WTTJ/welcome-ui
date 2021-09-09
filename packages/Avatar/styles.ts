@@ -8,5 +8,5 @@ export const Avatar = styled(Shape)`
 `
 
 export const Text = styled(TextWUI)`
-  ${th(`avatars.text`)};
+  ${th('avatars.text')};
 `

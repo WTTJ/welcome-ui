@@ -137,5 +137,5 @@ export const types: TypesWithString = {
   xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   xpm: 'image/x-xpixmap',
   xwd: 'image/x-xwindowdump',
-  zip: 'application/zip'
+  zip: 'application/zip',
 }

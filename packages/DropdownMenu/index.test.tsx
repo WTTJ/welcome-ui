@@ -11,7 +11,7 @@ describe('<DropdownMenu>', () => {
   it('should render correctly', () => {
     const dataTestId = 'dropdownMenu'
     const {
-      result: { current: menu }
+      result: { current: menu },
     } = renderHook(() => useDropdownMenuState())
 
     const { getByTestId } = render(

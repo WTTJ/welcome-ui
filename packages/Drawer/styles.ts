@@ -20,9 +20,9 @@ export const Backdrop = styled(Box)<{ isClickable: boolean }>(
     opacity: 0;
     transition: fast;
     ${isClickable &&
-      css`
-        cursor: pointer;
-      `}
+    css`
+      cursor: pointer;
+    `}
 
     /* on open dialog for animation */
     &[data-enter] {
@@ -39,28 +39,28 @@ const getPlacementStyle = (placement: Placement) => {
         right: 0,
         left: 0,
         // Used for animation
-        transform: 'translateY(-100%)'
+        transform: 'translateY(-100%)',
       }
     case 'right':
       return {
         top: 0,
         right: 0,
         bottom: 0,
-        transform: 'translateX(100%)'
+        transform: 'translateX(100%)',
       }
     case 'bottom':
       return {
         right: 0,
         bottom: 0,
         left: 0,
-        transform: 'translateY(100%)'
+        transform: 'translateY(100%)',
       }
     case 'left':
       return {
         top: 0,
         bottom: 0,
         left: 0,
-        transform: 'translateX(-100%)'
+        transform: 'translateX(-100%)',
       }
   }
 }
@@ -74,7 +74,7 @@ const getSizeStyle = (size: Size, placement: Placement) => {
         return th(`drawers.sizes.vertical.${size}`)
       }
       return {
-        height: size
+        height: size,
       }
     case 'right':
     case 'left':
@@ -82,7 +82,7 @@ const getSizeStyle = (size: Size, placement: Placement) => {
         return th(`drawers.sizes.horizontal.${size}`)
       }
       return {
-        width: size
+        width: size,
       }
   }
 }

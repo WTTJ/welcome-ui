@@ -4,7 +4,7 @@ const TYPES = {
   InputText: 'text',
   RadioTab: 'radio',
   Select: 'text',
-  Toggle: 'checkbox'
+  Toggle: 'checkbox',
 }
 
 const isPristine = (connected, touched) => connected && !touched
@@ -18,7 +18,7 @@ export const getVariant = ({
   isRadio,
   modified,
   touched,
-  warning
+  warning,
 }) => {
   if (
     ((isCheckbox || isRadio) && isPristine(connected, modified)) ||

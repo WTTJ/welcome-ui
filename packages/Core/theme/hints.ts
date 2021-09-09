@@ -12,6 +12,6 @@ export const getHints = (theme: WuiTheme): ThemeHints => {
   return {
     color: colors.light[500],
     fontSize: fontSizes.body4,
-    fontWeight: fontWeights.regular
+    fontWeight: fontWeights.regular,
   }
 }

@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import {
   TabPanel as ReakitTabPanel,
   TabPanelProps as ReakitTabPanelProps,
-  TabStateReturn
+  TabStateReturn,
 } from 'reakit/Tab'
 import { WuiProps } from '@welcome-ui/system'
 

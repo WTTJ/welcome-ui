@@ -24,13 +24,13 @@ const handleFileChange = () => {
     })
 
     if (file === 'theme.js') {
-      console.log(`Building Core…`.grey)
-      exec(`yarn build --scope @welcome-ui/core`, err => {
+      console.log('Building Core…'.grey)
+      exec('yarn build --scope @welcome-ui/core', err => {
         if (err) {
           console.error(err)
           return
         }
-        console.log('build', 'success'.green.bold, '-', `@welcome-ui/core`)
+        console.log('build', 'success'.green.bold, '-', '@welcome-ui/core')
       })
     }
   }

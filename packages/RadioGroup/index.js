@@ -65,5 +65,5 @@ RadioGroup.propTypes /* remove-proptypes */ = {
   options: arrayOf(OPTIONS_TYPE),
   renderOption: elementType,
   required: bool,
-  value: string
+  value: string,
 }

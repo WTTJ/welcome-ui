@@ -15,18 +15,18 @@ export interface LinkOptions {
 
 export type LinkProps = LinkOptions & UniversalLinkProps
 
+const WrapWithText: React.FC = ({ children, ...rest }) => (
+  <span className="wui-text" {...rest}>
+    {children}
+  </span>
+)
+
 export const Link = forwardRef<HTMLLinkElement, LinkProps>((props, ref) => {
   const { children, dataTestId, variant = 'primary', ...rest } = props
   let clones
   const theme = useTheme()
   const linkRef = useRef<HTMLLinkElement>(null)
   const [isChildrenString, setIsChildrenString] = useState(isString(children))
-
-  const WrapWithText: React.FC = ({ children, ...rest }) => (
-    <span className="wui-text" {...rest}>
-      {children}
-    </span>
-  )
 
   useEffect(() => {
     const innerRef = (ref || linkRef) as React.MutableRefObject<HTMLLinkElement>
@@ -46,7 +46,7 @@ export const Link = forwardRef<HTMLLinkElement, LinkProps>((props, ref) => {
         fontWeight: child.props.variant ? undefined : theme.links.default.fontWeight,
         key,
         lineHeight: '1.5',
-        ...child.props
+        ...child.props,
       })
     })
   }

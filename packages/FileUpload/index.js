@@ -43,6 +43,7 @@ export const FileUpload = forwardRef(
   ) => {
     // We always keep an array of files
     const [files, setFiles] = useState(ensureArray(value))
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const inputRef = ref || useRef()
 
     // Ensure component is controlled
@@ -143,5 +144,5 @@ FileUpload.propTypes /* remove-proptypes */ = {
   onError: func,
   preview: node,
   title: oneOfType([string, node]),
-  value: oneOfType([string, object])
+  value: oneOfType([string, object]),
 }

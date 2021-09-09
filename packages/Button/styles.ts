@@ -10,9 +10,9 @@ const shapeStyles = (size: Size, shape = 'square') => css`
   width: ${th(`buttons.sizes.${size}.height`)};
   padding: 0;
   ${shape === 'circle' &&
-    css`
-      border-radius: ${th(`buttons.sizes.${size}.height`)};
-    `};
+  css`
+    border-radius: ${th(`buttons.sizes.${size}.height`)};
+  `};
 `
 
 export interface StyledButtonProps {
@@ -51,20 +51,20 @@ export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<
     }
 
     ${!disabled &&
-      css`
-        [${hideFocusRingsDataAttribute}] &:focus {
-          box-shadow: none;
-        }
-        &:focus {
-          ${th(`buttons.focus.${variant || 'primary'}`)};
-        }
-        &:hover {
-          ${th(`buttons.hover.${variant || 'primary'}`)};
-        }
-        &:active {
-          ${th(`buttons.active.${variant || 'primary'}`)};
-        }
-      `};
+    css`
+      [${hideFocusRingsDataAttribute}] &:focus {
+        box-shadow: none;
+      }
+      &:focus {
+        ${th(`buttons.focus.${variant || 'primary'}`)};
+      }
+      &:hover {
+        ${th(`buttons.hover.${variant || 'primary'}`)};
+      }
+      &:active {
+        ${th(`buttons.active.${variant || 'primary'}`)};
+      }
+    `};
 
     &[disabled] {
       cursor: not-allowed;

@@ -7,7 +7,7 @@ type Size = unknown
 
 export const defaultFieldStyles = ({
   size,
-  variant
+  variant,
 }: {
   size?: Size
   variant?: Variant

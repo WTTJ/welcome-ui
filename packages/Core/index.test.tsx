@@ -20,9 +20,9 @@ test('Can overwrite welcomeTheme.buttons with custom button styles', () => {
     ...welcomeTheme,
     buttons: {
       primary: {
-        color: 'red'
-      }
-    }
+        color: 'red',
+      },
+    },
   })
 
   expect(theme.buttons.primary.color).toBe('red')

@@ -38,7 +38,7 @@ const DropdownMenuComponent: React.FC<DropdownMenuProps> = ({
           {...innerProps}
           style={{
             ...menuProps.style,
-            opacity: delayedVisible ? 1 : 0
+            opacity: delayedVisible ? 1 : 0,
           }}
         >
           {children}
@@ -51,7 +51,7 @@ const DropdownMenuComponent: React.FC<DropdownMenuProps> = ({
 export const DropdownMenu = Object.assign(DropdownMenuComponent, {
   Trigger: MenuButton,
   Item,
-  Separator
+  Separator,
 })
 
 export { useMenuState as useDropdownMenuState }

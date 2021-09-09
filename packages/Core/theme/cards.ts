@@ -16,11 +16,11 @@ export const getCards = (theme: WuiTheme): ThemeCards => {
   return {
     default: {
       overflow: 'hidden',
-      color: colors.dark[200]
+      color: colors.dark[200],
     },
     cover: {
       borderTopLeftRadius: radii.sm,
-      borderTopRightRadius: radii.sm
-    }
+      borderTopRightRadius: radii.sm,
+    },
   }
 }

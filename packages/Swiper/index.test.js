@@ -8,7 +8,7 @@ import { LeftIcon, RightIcon } from '../../icons'
 
 import { Swiper, useSwiper } from './index'
 
-const TestSwiper = () => {
+function TestSwiper() {
   const swiper = useSwiper({ prevButton: <LeftIcon />, nextButton: <RightIcon /> })
   return (
     <Swiper {...swiper} dataTestId="swiper">
@@ -19,13 +19,13 @@ const TestSwiper = () => {
   )
 }
 
-const TestLoopingSwiper = () => {
+function TestLoopingSwiper() {
   const swiper = useSwiper({
     prevButton: <LeftIcon />,
     nextButton: <RightIcon />,
     loop: true,
     slidesToShow: 2,
-    slidesToSwipe: 2
+    slidesToSwipe: 2,
   })
   return (
     <Swiper {...swiper} dataTestId="swiper">

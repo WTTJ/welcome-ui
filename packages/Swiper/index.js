@@ -55,7 +55,7 @@ export const Swiper = forwardRef((props, ref) => {
             'aria-hidden': !visibleSlides.includes(idx),
             'aria-readonly': true,
             'aria-roledescription': 'slide',
-            'aria-label': `${idx + 1} of ${numberOfSlides}`
+            'aria-label': `${idx + 1} of ${numberOfSlides}`,
           })
         )}
       </S.Swiper>
@@ -70,7 +70,7 @@ export const Swiper = forwardRef((props, ref) => {
             'aria-label': `${idx + 1} of ${numberOfSlides}`,
             'aria-selected': idx === pageIdx,
             onClick: () => setPageIdx(idx),
-            pageIdx
+            pageIdx,
           }
           if (renderPaginationItem) {
             return renderPaginationItem(props)
@@ -174,7 +174,7 @@ export const useSwiper = (props = {}) => {
     setPageIdx,
     slidesToShow,
     slidesToSwipe,
-    ...rest
+    ...rest,
   }
 }
 
@@ -195,5 +195,5 @@ Swiper.propTypes /* remove-proptypes */ = {
   setNumberOfSlides: func,
   setPageIdx: func,
   slidesToShow: number,
-  slidesToSwipe: number
+  slidesToSwipe: number,
 }

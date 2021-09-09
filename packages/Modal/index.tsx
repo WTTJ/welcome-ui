@@ -4,7 +4,7 @@ import {
   DialogDisclosure,
   DialogInitialState,
   DialogStateReturn,
-  useDialogState
+  useDialogState,
 } from 'reakit/Dialog'
 import { DisclosureActions } from 'reakit/Disclosure'
 import { Text } from '@welcome-ui/text'
@@ -23,7 +23,7 @@ export interface ModalProps {
   size?: Size
 }
 
-export function useModalState(options ?:DialogInitialState): DialogStateReturn {
+export function useModalState(options?: DialogInitialState): DialogStateReturn {
   return useDialogState({ animated: true, ...options })
 }
 
@@ -39,8 +39,7 @@ const ModalComponent: React.FC<ModalProps> = props => {
     ...rest
   } = props
 
-  function closeModal() {
-    // eslint-disable-next-line prettier/prettier
+  const closeModal = () => {
     onClose?.()
     hide()
   }
@@ -79,5 +78,5 @@ export const Modal = Object.assign(ModalComponent, {
   Content: S.Content,
   Title: Title,
   Footer: S.Footer,
-  Cover: S.Cover
+  Cover: S.Cover,
 })

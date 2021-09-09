@@ -31,7 +31,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(
           const childProps = {
             as: childAs,
             key: `stack-item-${i}`,
-            [marginType]: isLastChild ? null : spacing
+            [marginType]: isLastChild ? null : spacing,
           }
 
           // eslint-disable-next-line react/jsx-key

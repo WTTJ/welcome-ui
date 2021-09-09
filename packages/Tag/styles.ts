@@ -10,10 +10,10 @@ const shapeStyles = (size: Size, w: string, h: string, shape = 'square') => css`
   ${th(`tags.shape.${size}`)}
   padding: 0;
   ${(w || h) &&
-    css`
-      width: ${getMax(w || '0', h)};
-      height: ${getMax(w || '0', h)};
-    `}
+  css`
+    width: ${getMax(w || '0', h)};
+    height: ${getMax(w || '0', h)};
+  `}
   ${shape === 'circle' && 'border-radius: 50%'};
 `
 
@@ -39,22 +39,22 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
     ${overflowEllipsis}
     ${system}
     ${!shape &&
-      length !== 1 &&
-      css`
-        span,
-        p {
-          ${overflowEllipsis}
-        }
-      `}
+    length !== 1 &&
+    css`
+      span,
+      p {
+        ${overflowEllipsis}
+      }
+    `}
     ${(shape || length === 1) &&
-      css`
-        justify-content: center;
-        ${shapeStyles(size, w as string, h as string, shape)};
-      `};
+    css`
+      justify-content: center;
+      ${shapeStyles(size, w as string, h as string, shape)};
+    `};
     ${hasAction &&
-      css`
-        padding-right: xl;
-      `}
+    css`
+      padding-right: xl;
+    `}
     max-width: 100%;
 
     > *:not(:last-child) {

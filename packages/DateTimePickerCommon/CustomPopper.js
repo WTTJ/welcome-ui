@@ -6,7 +6,7 @@ import { cardStyles } from '@welcome-ui/utils'
 
 import { datePickerStyles } from './datePickerStyles'
 
-export const CustomPopper = ({ children }) => {
+export function CustomPopper({ children }) {
   if (!children) {
     return null
   }
@@ -20,9 +20,9 @@ CustomPopper.propTypes /* remove-proptypes */ = {
     props: shape({
       children: func,
       modifiers: object,
-      placement: string
-    })
-  })
+      placement: string,
+    }),
+  }),
 }
 
 const StyledCustomPopper = styled.div(

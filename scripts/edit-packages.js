@@ -23,8 +23,8 @@ const getNewConfig = ({ componentName, config, pkgName }) => {
     scripts: {
       build: 'rollup -c',
       watch: 'rollup -c -w',
-      test: 'jest'
-    }
+      test: 'jest',
+    },
   }
 }
 
@@ -42,14 +42,14 @@ const collectPackages = folder =>
       dir,
       pkgName: toKebabCase(name),
       componentName: name,
-      config: require(`${dir}/${name}/package.json`)
+      config: require(`${dir}/${name}/package.json`),
     }))
 
 const updatePackageConfig = pkg => {
   const { componentName, config, dir, pkgName } = pkg
   const newConfig = {
     ...config,
-    ...getNewConfig(pkg)
+    ...getNewConfig(pkg),
   }
   fs.writeFileAsync(`${dir}/${componentName}/package.json`, JSON.stringify(newConfig, 0, 2))
     // eslint-disable-next-line no-console

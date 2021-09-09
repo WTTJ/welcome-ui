@@ -24,12 +24,12 @@ export const getDateTimePickerCommon = (theme: WuiTheme): ThemeDateTimePickerCom
         color: colors.light[900],
         fontWeight: fontWeights.bold,
         backgroundColor: colors.primary[500],
-        outline: 'none'
+        outline: 'none',
       },
       today: {
         color: colors.dark[900],
-        fontWeight: fontWeights.bold
-      }
-    }
+        fontWeight: fontWeights.bold,
+      },
+    },
   }
 }

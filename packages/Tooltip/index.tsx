@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useLayoutEffect,
   useRef,
-  useState
+  useState,
 } from 'react'
 import Popper, { Placement } from 'popper.js'
 import { TooltipReference, useTooltipState } from 'reakit/Tooltip'
@@ -60,9 +60,9 @@ const useMouseTooltipState = ({
               setPlacement(data.placement)
               setPopoverStyles(data.styles)
               return data
-            }
-          }
-        }
+            },
+          },
+        },
       })
     }
   }, [originalPlacement, dialog.visible])
@@ -91,8 +91,8 @@ const useMouseTooltipState = ({
           top: event.clientY - paddingTop,
           bottom: event.clientY + paddingBottom,
           left: event.clientX - paddingLeft,
-          right: event.clientX + paddingRight
-        })
+          right: event.clientX + paddingRight,
+        }),
       }
       createPopper()
     }
@@ -112,7 +112,7 @@ const useMouseTooltipState = ({
     unstable_referenceRef: referenceRef,
     unstable_popoverRef: popoverRef,
     unstable_popoverStyles: popoverStyles,
-    placement
+    placement,
   }
 }
 
@@ -151,14 +151,14 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       placement = fixed ? 'top' : 'bottom-start',
       ...rest
     } = props
+    const useCorrectTooltipState = fixed ? useTooltipState : useMouseTooltipState
+    const tooltip = useCorrectTooltipState({ placement })
+    const visibilityStyles = useDelayedVisibility(tooltip.visible, TOOLTIP_VISIBILITY_DELAY)
+
     // If no content, simply return the children
     if (!content) {
       return children
     }
-
-    const useCorrectTooltipState = fixed ? useTooltipState : useMouseTooltipState
-    const tooltip = useCorrectTooltipState({ placement })
-    const visibilityStyles = useDelayedVisibility(tooltip.visible, TOOLTIP_VISIBILITY_DELAY)
 
     const child = React.Children.only(children) as React.ReactElement
 

@@ -9,17 +9,17 @@ export const Wrapper = styled(Box)<{ indent: boolean }>(
     width: 100%;
 
     ${indent &&
-      css`
-        ${Td}, ${Th} {
-          &:first-child {
-            padding-left: xl;
-          }
-
-          &:last-child {
-            padding-right: xl;
-          }
+    css`
+      ${Td}, ${Th} {
+        &:first-child {
+          padding-left: xl;
         }
-      `}
+
+        &:last-child {
+          padding-right: xl;
+        }
+      }
+    `}
 
     ${system}
   `
@@ -50,7 +50,7 @@ export const Tr = styled.tr<{ variant?: Variant }>(
   ({ onClick, variant }) => css`
     ${th('tables.tr.default')};
     ${variant && th(`tables.tr.${variant}`)};
-    ${onClick && th(`tables.tr.clickable`)};
+    ${onClick && th('tables.tr.clickable')};
 
     &:last-child {
       border: 0;

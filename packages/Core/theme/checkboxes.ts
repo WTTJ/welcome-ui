@@ -22,14 +22,14 @@ export const getCheckboxes = (theme: WuiTheme): ThemeCheckboxes => {
     default: {
       width: toRem(20),
       height: toRem(20),
-      flexShrink: 0
+      flexShrink: 0,
     },
     disabled: {
-      borderColor: colors.nude[700]
+      borderColor: colors.nude[700],
     },
     checked: {
       backgroundColor: colors.primary[500],
-      borderColor: colors.primary[500]
-    }
+      borderColor: colors.primary[500],
+    },
   }
 }

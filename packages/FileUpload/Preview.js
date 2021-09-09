@@ -4,7 +4,7 @@ import { Tag } from '@welcome-ui/tag'
 import { Box } from '@welcome-ui/box'
 import { getFileIcon, getFileName, getFileSize } from '@welcome-ui/files'
 
-export const Preview = ({ file, onRemove }) => {
+export function Preview({ file, onRemove }) {
   const Icon = getFileIcon(file)
   const name = getFileName(file)
   const size = getFileSize(file)
@@ -25,8 +25,8 @@ Preview.propTypes /* remove-proptypes */ = {
       name: string,
       preview: string,
       size: number,
-      type: string
-    })
+      type: string,
+    }),
   ]).isRequired,
-  onRemove: func
+  onRemove: func,
 }

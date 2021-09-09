@@ -8,7 +8,7 @@ import {
   getUniqueValue,
   getValuesFromOptions,
   isValueSelected,
-  itemToString
+  itemToString,
 } from './utils'
 
 const OPTIONS = [
@@ -23,7 +23,7 @@ const OPTIONS = [
   'september',
   'october',
   'november',
-  'december'
+  'december',
 ].map(month => ({ label: capitalize(month), value: month }))
 
 const SELECTED = ['february', 'march'].map(month => ({ label: capitalize(month), value: month }))
@@ -55,7 +55,7 @@ const DEFAULT_INPUT_VALUE_ARGS = {
   isMultiple: undefined,
   isSearchable: undefined,
   options: OPTIONS,
-  renderItem: itemToString
+  renderItem: itemToString,
 }
 
 test('getInputValue returns original string if simple select', () => {
@@ -77,7 +77,7 @@ test('getInputValue returns empty string if isMultiple && isSearchable', () => {
   const inputValue = getInputValue({
     ...DEFAULT_INPUT_VALUE_ARGS,
     isMultiple: true,
-    isSearchable: true
+    isSearchable: true,
   })
   expect(inputValue).toBe('February')
 })
@@ -85,7 +85,7 @@ test('getInputValue returns empty string if isMultiple && isSearchable', () => {
 test('getInputValue returns rendered string if renderItem is supplied', () => {
   const inputValue = getInputValue({
     ...DEFAULT_INPUT_VALUE_ARGS,
-    renderItem: () => `Hello February`
+    renderItem: () => 'Hello February',
   })
   expect(inputValue).toBe('Hello February')
 })
@@ -94,7 +94,7 @@ test('getInputValue returns original string if isSearchable and renderItem is su
   const inputValue = getInputValue({
     ...DEFAULT_INPUT_VALUE_ARGS,
     isSearchable: true,
-    renderItem: () => `Hello February`
+    renderItem: () => 'Hello February',
   })
   expect(inputValue).toBe('February')
 })
