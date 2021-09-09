@@ -48,6 +48,7 @@ const writeIconContentsJson = (outputFolder, content, key) => {
 const writeIconNpmIgnore = outputFolder => {
   const fileContent = `/*
 !/dist/*.js
+!/dist/*.d.ts
 `
 
   fs.writeFileSync(`${outputFolder}/.npmignore`, fileContent)
@@ -77,6 +78,7 @@ const writeIconPackageJson = (outputFolder, key) => {
     sideEffects: false,
     main: `dist/icons.${key}.cjs.js`,
     module: `dist/icons.${key}.es.js`,
+    types: 'dist/index.d.ts',
     version: config.version || '1.0.0',
     publishConfig: {
       access: 'public',
@@ -97,14 +99,17 @@ const writeIconPackageJson = (outputFolder, key) => {
   fs.writeFileSync(file, fileContent)
 }
 
-// Write index.js for a given icon
+// Write index.tsx for a given icon
 const writeIconIndexJs = (outputFolder, iconName) => {
-  const file = `${outputFolder}/index.js`
+  const file = `${outputFolder}/index.tsx`
   const fileContent = `import React from 'react'
-import { Icon } from '@welcome-ui/icon'
+import { Icon, IconProps } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const ${iconName}Icon = props => <Icon alt="${iconName}" content={content} {...props} />
+
+export const ${iconName}Icon: React.FC<IconProps> = props => (
+  return <Icon alt="${iconName}" content={content} {...props} />
+)
 `
 
   fs.writeFileSync(file, fileContent)
@@ -124,9 +129,9 @@ const writeIconPackages = files => {
     writeIconPackageJson(outputFolder, key)
     // .npmignore
     writeIconNpmIgnore(outputFolder)
-    // contents.js
+    // contents.json
     writeIconContentsJson(outputFolder, content, key)
-    // index.js
+    // index.tsx
     writeIconIndexJs(outputFolder, iconName)
   })
 
@@ -137,14 +142,14 @@ const writeIconPackages = files => {
 // Write root icon files
 const writeRootIconPackage = files => {
   console.log('Started'.blue, 'Writing root icon files'.grey)
-  // Write main icons/index.js
+  // Write main icons/index.tsx
   const rootIndexContent = files.map(({ key }) => {
     const iconName = toPascalCase(key)
     return `export { ${iconName}Icon } from '@welcome-ui/icons.${key}'`
   }).join(`
 `)
   fs.writeFileSync(
-    `${ICONS_PATH}/index.js`,
+    `${ICONS_PATH}/index.tsx`,
     `${rootIndexContent}
 `
   )

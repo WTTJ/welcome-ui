@@ -29,15 +29,15 @@ const PLUGINS = [
   json()
 ]
 
-const tsConfig = {
-  tsconfig: '../../tsconfig.build.json'
-}
-
-export const getRollupConfig = ({ babelConfigFile, inputFile, pwd, ts }) => {
+export const getRollupConfig = ({ babelConfigFile, inputFile, pwd, ts, tsConfigFile }) => {
   const SOURCE_DIR = path.resolve(pwd)
   const pkg = require(`${SOURCE_DIR}/package.json`)
   const extension = ts ? '.tsx' : '.js'
   const input = `${SOURCE_DIR}/${inputFile || `index${extension}`}`
+
+  const tsConfig = {
+    tsconfig: tsConfigFile || '../../tsconfig.build.json'
+  }
 
   const cjsConfig = {
     input,
