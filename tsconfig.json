@@ -14,10 +14,11 @@
     "sourceMap": false,
     "declaration": true
   },
-  "include": ["packages/**/*", "packages/*", "icons/**/*", "./styled.d.ts", "./global.d.ts"],
+  "include": ["packages/**/*", "packages/*", "./styled.d.ts", "./global.d.ts"],
   "exclude": [
     "node_modules",
     "dist",
+    "icons/**/*",
     "**/*.test.tsx",
     "utils/**.js",
     "packages/**/node_modules",

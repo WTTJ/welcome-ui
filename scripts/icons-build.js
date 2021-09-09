@@ -29,12 +29,7 @@ const readIconsFromFolders = () => {
       }
 
       const pwd = `${ICONS_PATH}/${key}`
-      const configs = getRollupConfig({
-        babelConfigFile: './babel.config.js',
-        pwd,
-        ts: true,
-        tsConfigFile: './tsconfig.build.json',
-      })
+      const configs = getRollupConfig({ babelConfigFile: './babel.config.js', pwd })
       const packageName = toKebabCase(key)
 
       configs.forEach(config => {
@@ -42,6 +37,9 @@ const readIconsFromFolders = () => {
         exec(`cd ${pwd}`)
         rollup({ ...inputOptions })
           .then(bundle => bundle.write(outputOptions))
+          .then(() => {
+            exec(`cd ${pwd} && cp index.d.ts dist/index.d.ts`)
+          })
           .then(() =>
             console.log(
               'build',
