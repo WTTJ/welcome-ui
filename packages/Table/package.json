@@ -4,7 +4,7 @@
   "description": "Welcome UI - Table | Repaint html for table tr td... etc with a scrollable table",
   "main": "dist/table.cjs.js",
   "module": "dist/table.es.js",
-  "types": "dist/index.d.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",

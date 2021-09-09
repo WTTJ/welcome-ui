@@ -1,6 +1,9 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { system } from '@welcome-ui/system'
+import { TabStateReturn } from 'reakit/Tab'
+
+import { ActiveBarStateReturn } from './ActiveBar'
 
 export const TabList = styled.div`
   position: relative;
@@ -52,7 +55,7 @@ export const Tab = styled.button`
   }
 `
 
-export const TabPanel = styled.div(
+export const TabPanel = styled.div<Pick<TabStateReturn, 'orientation'>>(
   ({ orientation }) => css`
     ${orientation === 'vertical' ? th('tabs.panel.vertical') : th('tabs.panel.horizontal')};
   `
@@ -74,7 +77,7 @@ const activeBarVerticalStyles = ({ offset = 0, size = 0 }) => css`
   transform: translateY(${offset}px);
 `
 
-export const ActiveBar = styled.span(
+export const ActiveBar = styled.span<ActiveBarStateReturn>(
   ({ orientation, ...rest }) => css`
     position: absolute;
     ${orientation === 'vertical' ? activeBarVerticalStyles(rest) : activeBarHorizontalStyles(rest)}
