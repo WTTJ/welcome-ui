@@ -33,7 +33,7 @@ const readIconsFromFolders = () => {
         babelConfigFile: './babel.config.js',
         pwd,
         ts: true,
-        tsConfigFile: './tsconfig.build.json'
+        tsConfigFile: './tsconfig.build.json',
       })
       const packageName = toKebabCase(key)
 
