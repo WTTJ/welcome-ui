@@ -5,14 +5,16 @@ import { system } from '@welcome-ui/system'
 import { getVariantColor } from '@welcome-ui/utils'
 import { Alert } from '@welcome-ui/alert'
 
-export const Toast = styled(Box)(
+import { Variant } from '.'
+
+export const Toast = styled(Box)<{ isBottom: boolean }>(
   ({ isBottom }) => css`
     ${th('toasts.default')}
     ${isBottom ? th('toasts.bottom') : th('toasts.top')}
   `
 )
 
-export const Growl = styled.div(
+export const Growl = styled.div<{ variant: Variant }>(
   ({ variant }) => css`
     position: relative;
     max-width: 25rem;
@@ -23,7 +25,7 @@ export const Growl = styled.div(
   `
 )
 
-export const Title = styled(Box)(
+export const Title = styled(Box)<{ variant: Variant }>(
   ({ variant }) => css`
     display: flex;
     align-items: center;

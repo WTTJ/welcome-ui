@@ -1,18 +1,25 @@
-import React, { Children, cloneElement, forwardRef } from 'react'
-import { func, node, oneOf, string } from 'prop-types'
+import React, { Children, cloneElement, forwardRef, HTMLAttributes } from 'react'
 import { ClearButton } from '@welcome-ui/clear-button'
-
-import { VARIANTS_TYPE } from '../../utils/propTypes'
 
 import { Title } from './Title'
 import * as S from './styles'
 
-export const Growl = forwardRef(
+import { Variant } from '.'
+
+export interface GrowlOptions {
+  variant?: Variant
+  closeButtonDataTestId: string
+  onClose: () => void
+}
+
+export type GrowlProps = HTMLAttributes<HTMLDivElement> & GrowlOptions
+
+export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
   ({ children, closeButtonDataTestId, onClose, variant = 'info' }, ref) => {
     const content = Children.map(children, child => {
       // Add variant to AlertTitle to show the correct icon/color
-      if (child.type === Title) {
-        return cloneElement(child, { variant })
+      if ((child as React.ReactElement).type === Title) {
+        return cloneElement(child as React.ReactElement, { variant })
       }
       return child
     })
@@ -35,10 +42,3 @@ export const Growl = forwardRef(
 )
 
 Growl.displayName = 'Growl'
-
-Growl.propTypes /* remove-proptypes */ = {
-  children: node.isRequired,
-  closeButtonDataTestId: string,
-  onClose: func,
-  variant: oneOf(VARIANTS_TYPE)
-}
