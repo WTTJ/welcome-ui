@@ -3,7 +3,6 @@ const { dtsPlugin } = require('esbuild-plugin-d.ts')
 const { nodeExternalsPlugin } = require('esbuild-node-externals')
 
 const commonConfig = {
-  entryPoints: ['index.tsx'],
   bundle: true,
   minify: true,
   target: ['esnext'],
@@ -16,11 +15,12 @@ const commonConfig = {
   ],
 }
 
-const build = (name, config) => {
+const build = (name, entryPoints = ['index.tsx'], config) => {
   esbuild
     .build({
       outfile: `dist/${name}.es.js`,
       format: 'esm',
+      entryPoints,
       ...commonConfig,
       ...config,
     })
