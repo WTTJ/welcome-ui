@@ -1,12 +1,14 @@
 const esbuild = require('esbuild')
 const { dtsPlugin } = require('esbuild-plugin-d.ts')
+const { nodeExternalsPlugin } = require('esbuild-node-externals')
 
 const commonConfig = {
   entryPoints: ['index.tsx'],
-  bundle: false,
+  bundle: true,
   minify: true,
   target: ['esnext'],
   plugins: [
+    nodeExternalsPlugin(),
     dtsPlugin({
       outDir: 'dist',
       tsconfig: 'tsconfig.json',
