@@ -15,7 +15,7 @@
     "declaration": true,
     "skipLibCheck": true
   },
-  "include": ["packages", "./styled.d.ts", "./global.d.ts"],
+  "include": ["packages"],
   "exclude": [
     "node_modules",
     "dist",
