@@ -4,10 +4,12 @@
   "description": "welcome-ui: A button component",
   "main": "dist/button.cjs.js",
   "module": "dist/button.es.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "component": "Button",
   "scripts": {
-    "build": "node ./esbuild.js",
+    "prebuild": "rimraf dist",
+    "build": "node ../../scripts/build.js --name button",
+    "types": "tsc index.tsx --emitDeclarationOnly --declaration --declarationDir types --jsx react --esModuleInterop --skipLibCheck --skipDefaultLibCheck",
     "watch": "rollup -c -w",
     "test": "jest"
   },

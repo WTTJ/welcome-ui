@@ -1,21 +1,21 @@
+const { exec } = require('child_process')
+
 const esbuild = require('esbuild')
-const { dtsPlugin } = require('esbuild-plugin-d.ts')
 const { nodeExternalsPlugin } = require('esbuild-node-externals')
+const { argv } = require('yargs')
 
 const commonConfig = {
   bundle: true,
   minify: true,
   target: ['esnext'],
-  plugins: [
-    nodeExternalsPlugin(),
-    dtsPlugin({
-      outDir: 'dist',
-      tsconfig: 'tsconfig.json',
-    }),
-  ],
+  plugins: [nodeExternalsPlugin()],
 }
 
+const { config, entryPoints, name } = argv
+
 const build = (name, entryPoints = ['index.tsx'], config) => {
+  exec('mkdir -p dist/types && cp -R types dist/types')
+
   esbuild
     .build({
       ...commonConfig,
@@ -37,4 +37,4 @@ const build = (name, entryPoints = ['index.tsx'], config) => {
     .catch(() => process.exit(1))
 }
 
-module.exports = { build }
+build(name, entryPoints, config)
