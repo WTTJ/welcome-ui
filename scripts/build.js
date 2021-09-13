@@ -18,19 +18,20 @@ const commonConfig = {
 const build = (name, entryPoints = ['index.tsx'], config) => {
   esbuild
     .build({
+      ...commonConfig,
       outfile: `dist/${name}.es.js`,
       format: 'esm',
       entryPoints,
-      ...commonConfig,
       ...config,
     })
     .catch(() => process.exit(1))
 
   esbuild
     .build({
+      ...commonConfig,
       outfile: `dist/${name}.cjs.js`,
       format: 'cjs',
-      ...commonConfig,
+      entryPoints,
       ...config,
     })
     .catch(() => process.exit(1))
