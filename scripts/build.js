@@ -11,9 +11,9 @@ const commonConfig = {
   plugins: [nodeExternalsPlugin()],
 }
 
-const { config, entryPoints, name } = argv
+const { config, input, name } = argv
 
-const build = (name, entryPoints = ['index.tsx'], config) => {
+const build = (name, input = 'index.tsx', config) => {
   exec('mkdir -p dist/types && cp -R types dist/types')
 
   esbuild
@@ -21,7 +21,7 @@ const build = (name, entryPoints = ['index.tsx'], config) => {
       ...commonConfig,
       outfile: `dist/${name}.es.js`,
       format: 'esm',
-      entryPoints,
+      entryPoints: [input],
       ...config,
     })
     .catch(() => process.exit(1))
@@ -31,10 +31,10 @@ const build = (name, entryPoints = ['index.tsx'], config) => {
       ...commonConfig,
       outfile: `dist/${name}.cjs.js`,
       format: 'cjs',
-      entryPoints,
+      entryPoints: [input],
       ...config,
     })
     .catch(() => process.exit(1))
 }
 
-build(name, entryPoints, config)
+build(name, input, config)
