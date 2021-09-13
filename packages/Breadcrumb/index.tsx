@@ -120,13 +120,13 @@ export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
     return (
       <S.Breadcrumb as="nav" ref={ref} {...rest}>
         {isOverflowing && (
-          <S.StartGradient gradientBackground={gradientBackground} ref={startGradient} />
+          <S.StartGradient gradientBackground={gradientBackground as Colors} ref={startGradient} />
         )}
         <S.List dir="rtl" onScroll={onListScroll} ref={listRef}>
           {clones.reverse()}
         </S.List>
         {isOverflowing && (
-          <S.EndGradient gradientBackground={gradientBackground} ref={endGradient} />
+          <S.EndGradient gradientBackground={gradientBackground as Colors} ref={endGradient} />
         )}
       </S.Breadcrumb>
     )

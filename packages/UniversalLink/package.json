@@ -4,11 +4,12 @@
   "description": "welcome-ui: A UniversalLink component",
   "main": "dist/universal-link.cjs.js",
   "module": "dist/universal-link.es.js",
-  "types": "dist/types.d.ts",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"

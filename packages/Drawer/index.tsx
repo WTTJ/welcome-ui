@@ -36,7 +36,7 @@ const DrawerComponent: React.FC<DrawerProps> = ({
     // Needed to allow to style the backdrop
     // see: https://reakit.io/docs/styling/#css-in-js
     <Dialog {...rest}>
-      {props => (
+      {(props: DrawerProps) => (
         <S.Drawer {...props} placement={placement} size={size}>
           {children}
         </S.Drawer>

@@ -7,7 +7,8 @@ const EMOJI_PATH = 'https://cdn.welcome-ui.com/emojis/'
 
 // Apple by default for SSR
 const IS_APPLE_OS =
-  !process.browser || Bowser.parse(window.navigator.userAgent).platform.vendor === 'Apple'
+  typeof window === 'undefined' ||
+  Bowser.parse(window.navigator.userAgent).platform.vendor === 'Apple'
 
 const DEFAULT_SIZE = 64
 

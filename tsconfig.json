@@ -12,9 +12,10 @@
     "baseUrl": "./packages",
     "resolveJsonModule": true,
     "sourceMap": false,
-    "declaration": true
+    "declaration": true,
+    "skipLibCheck": true
   },
-  "include": ["packages/**/*", "packages/*", "./styled.d.ts", "./global.d.ts"],
+  "include": ["packages", "./styled.d.ts", "./global.d.ts"],
   "exclude": [
     "node_modules",
     "dist",

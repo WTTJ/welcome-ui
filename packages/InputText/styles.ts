@@ -7,7 +7,7 @@ import { InputTextOptions } from './index'
 
 export const InputText = styled('input').withConfig({ shouldForwardProp })<InputTextOptions>(
   ({ connected, icon, iconPlacement, isClearable, size, ...rest }) => css`
-    ${defaultFieldStyles};
+    ${defaultFieldStyles({})};
     text-overflow: ellipsis;
 
     ${icon &&
