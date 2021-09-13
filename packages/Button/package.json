@@ -7,7 +7,7 @@
   "types": "dist/index.d.ts",
   "component": "Button",
   "scripts": {
-    "build": "rollup -c",
+    "build": "node ./esbuild.js",
     "watch": "rollup -c -w",
     "test": "jest"
   },
