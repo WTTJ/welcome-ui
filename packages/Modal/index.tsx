@@ -53,7 +53,7 @@ const ModalComponent: React.FC<ModalProps> = props => {
         size={size}
         {...rest}
       >
-        <CloseElement onClick={closeModal} size="sm" variant="tertiary" />
+        <CloseElement onClick={closeModal} />
         {children}
       </S.Dialog>
     </S.Backdrop>
