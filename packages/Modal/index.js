@@ -35,7 +35,7 @@ export function Modal({
         size={size}
         {...rest}
       >
-        <CloseElement onClick={closeModal} size="sm" variant="tertiary" />
+        <CloseElement onClick={closeModal} />
         {children}
       </S.Dialog>
     </S.Backdrop>
@@ -59,7 +59,9 @@ Modal.propTypes /* remove-proptypes */ = {
   size: oneOf(['sm', 'md', 'lg', 'auto'])
 }
 
-const Title = props => <S.Title as={Text} m="0" variant="h4" {...props} />
+function Title(props) {
+  return <S.Title as={Text} m="0" variant="h4" {...props} />
+}
 
 // Nested exports
 Modal.Trigger = DialogDisclosure
