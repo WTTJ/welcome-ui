@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.3](https://github.com/WTTJ/welcome-ui/compare/v3.8.2...v3.8.3) (2021-09-14)
+
+
+### Bug Fixes
+
+* close element on Modal ([#921](https://github.com/WTTJ/welcome-ui/issues/921)) ([33053bf](https://github.com/WTTJ/welcome-ui/commit/33053bf52b4b595b76a9638f41dc2b4d2dcca855))
+
+
+
+
+
 ## [3.8.1](https://github.com/WTTJ/welcome-ui/compare/v3.8.0...v3.8.1) (2021-09-08)
 
 
