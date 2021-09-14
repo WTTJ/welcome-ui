@@ -1,10 +1,6 @@
-import styled from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
 import { ClearButton } from '@welcome-ui/clear-button'
+import React from 'react'
 
-export const Close = styled(ClearButton)`
-  position: absolute;
-  z-index: 1;
-  right: ${th('space.sm')};
-  top: ${th('space.sm')};
-`
+export function Close(props) {
+  return <ClearButton position="absolute" right={10} size="xs" top={10} zIndex="1" {...props} />
+}
