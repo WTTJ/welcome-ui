@@ -3,7 +3,7 @@ export const throttle = (
   wait: number,
   leading = true
 ): (() => void) => {
-  let timeout: NodeJS.Timeout = null
+  let timeout: ReturnType<typeof setTimeout> = null
   let lastArgs: unknown = null
 
   return (...args) => {

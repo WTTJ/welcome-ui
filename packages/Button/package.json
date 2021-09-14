@@ -4,12 +4,13 @@
   "description": "welcome-ui: A button component",
   "main": "dist/button.cjs.js",
   "module": "dist/button.es.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "component": "Button",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"

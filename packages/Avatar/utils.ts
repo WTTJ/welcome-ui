@@ -1,12 +1,12 @@
 import { WuiTheme } from '@welcome-ui/core'
 
-type SubColor = WuiTheme['colors']['sub']
+type SubPalette = WuiTheme['colors']['sub']
 
-export function getSeededColor(colors: SubColor, seed: string): string {
+export function getSeededColor(colors: SubPalette, seed: string): string {
   const colorKeys = Object.keys(colors)
   const index = seed.length % colorKeys.length
 
-  return colors[colorKeys[index]]
+  return colors[index as keyof SubPalette]
 }
 
 export function getInitials(name: string): string {

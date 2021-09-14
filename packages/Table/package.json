@@ -4,11 +4,12 @@
   "description": "Welcome UI - Table | Repaint html for table tr td... etc with a scrollable table",
   "main": "dist/table.cjs.js",
   "module": "dist/table.es.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"

@@ -7,7 +7,7 @@ export const Textarea = styled('textarea').withConfig({ shouldForwardProp })<{
   connected?: boolean
 }>(
   ({ connected }) => css`
-    ${defaultFieldStyles};
+    ${defaultFieldStyles({})};
     ${th('textareas')};
     line-height: body1;
     padding: sm;

@@ -4,11 +4,12 @@
   "description": "welcome-ui: A Group component",
   "main": "dist/group.cjs.js",
   "module": "dist/group.es.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"

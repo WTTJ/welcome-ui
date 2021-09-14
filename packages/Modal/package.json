@@ -4,11 +4,12 @@
   "description": "Modal from Reakit with a really nice theme 👀",
   "main": "dist/modal.cjs.js",
   "module": "dist/modal.es.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"

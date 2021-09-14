@@ -1,3 +1,3 @@
 import { useEffect, useLayoutEffect } from 'react'
 
-export const useIsomorphicLayoutEffect = process.browser ? useLayoutEffect : useEffect
+export const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect

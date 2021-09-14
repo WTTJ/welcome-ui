@@ -13,7 +13,7 @@ interface GradientProps {
 export const StartGradient = styled.span<GradientProps>(
   ({ gradientBackground, theme }) => css`
     left: 0;
-    background-image: ${gradient(theme, gradientBackground)};
+    background-image: ${gradient(theme as WuiTheme, gradientBackground)};
     transform-origin: left;
   `
 )
@@ -21,7 +21,7 @@ export const StartGradient = styled.span<GradientProps>(
 export const EndGradient = styled.span<GradientProps>(
   ({ gradientBackground, theme }) => css`
     right: 0;
-    background-image: ${gradient(theme, gradientBackground, 'left')};
+    background-image: ${gradient(theme as WuiTheme, gradientBackground, 'left')};
     transform-origin: right;
   `
 )
