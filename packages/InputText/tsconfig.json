@@ -1,8 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "types": ["./types"],
-    "target": "es2016"
-  },
   "include": ["index.tsx"]
 }
