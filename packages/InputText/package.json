@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/input-text",
-  "version": "3.4.3",
+  "version": "3.8.4",
   "description": "welcome-ui: Text input",
   "main": "dist/input-text.cjs.js",
   "module": "dist/input-text.es.js",
@@ -35,7 +35,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/clear-button": "^3.4.3",
+    "@welcome-ui/clear-button": "^3.8.4",
     "@welcome-ui/field": "^3.4.3",
     "@welcome-ui/system": "^3.0.0",
     "@welcome-ui/utils": "^3.4.3"
