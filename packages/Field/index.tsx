@@ -11,7 +11,7 @@ import { getBaseType, getVariant, VariantReturn } from './utils'
 
 export type Size = 'sm' | 'md' | 'lg'
 
-export interface FieldProps {
+export interface FieldOptions {
   checked?: boolean
   component: React.ForwardRefRenderFunction<
     HTMLInputElement,
@@ -27,7 +27,7 @@ export interface FieldProps {
   modified?: boolean
   name: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  onClick?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onClick?: (event: React.MouseEvent<HTMLInputElement>) => void
   size?: Size
   touched?: boolean
   type?: string
@@ -37,7 +37,9 @@ export interface FieldProps {
   variant?: VariantReturn
 }
 
-export const Field = forwardRef<HTMLInputElement, FieldProps & WuiProps>(
+export type FieldProps = FieldOptions & React.HTMLAttributes<HTMLInputElement> & WuiProps
+
+export const Field = forwardRef<HTMLInputElement, FieldProps>(
   (
     {
       checked,
@@ -93,11 +95,12 @@ export const Field = forwardRef<HTMLInputElement, FieldProps & WuiProps>(
     const uniqueId = isRadio ? id : id || name
     const inputRef = ref || React.createRef()
 
-    const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
+      const target = e.target as HTMLInputElement
       e.stopPropagation()
       onClick && onClick(e)
       if (isCheckbox) {
-        e.target.checked = !e.target.checked
+        target.checked = !target.checked
       }
       if (isCheckbox || isGroup) {
         onChange && onChange(e)
