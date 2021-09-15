@@ -74,6 +74,56 @@ jobs:
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
 
+  build:
+    <<: *defaults
+    resource_class: large
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: yarn icons:build
+      - run: yarn build
+      - persist_to_workspace:
+          root: ~/welcome-ui
+          paths:
+            - packages/**/dist
+            - icons/**/dist
+            - packages/IconFont/fonts
+
+  docs_build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: yarn docs:build
+      - persist_to_workspace:
+          root: ~/welcome-ui
+          paths:
+            - docs/out
+
+  docs_deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: node_modules/.bin/netlify deploy --dir=docs/out --alias $CIRCLE_BRANCH
+
+  docs_deploy_prod:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: node_modules/.bin/netlify deploy --dir=docs/out --prod
+
+
+
 workflows:
   version: 2
   btd:
@@ -104,3 +154,30 @@ workflows:
           requires:
             - lint
             - test
+      - build:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - yarn_install
+      - docs_build:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - build
+      - docs_deploy_prod:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
+          requires:
+            - test
+            - lint
+            - docs_build
+      - docs_deploy:
+          requires:
+            - test
+            - lint
+            - docs_build
