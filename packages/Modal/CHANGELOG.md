@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.4](https://github.com/WTTJ/welcome-ui/compare/v3.8.3...v3.8.4) (2021-09-15)
+
+
+### Bug Fixes
+
+* size of ClearButton component ([#923](https://github.com/WTTJ/welcome-ui/issues/923)) ([603690a](https://github.com/WTTJ/welcome-ui/commit/603690aebfbb057452bc1a108dd73ac08e059ee5))
+
+
+
+
+
 ## [3.8.3](https://github.com/WTTJ/welcome-ui/compare/v3.8.2...v3.8.3) (2021-09-14)
 
 

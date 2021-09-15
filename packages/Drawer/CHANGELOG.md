@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.4](https://github.com/WTTJ/welcome-ui/compare/v3.8.3...v3.8.4) (2021-09-15)
+
+**Note:** Version bump only for package @welcome-ui/drawer
+
+
+
+
+
 ## [3.4.3](https://github.com/WTTJ/welcome-ui/compare/v3.4.2...v3.4.3) (2021-04-28)
 
 **Note:** Version bump only for package @welcome-ui/drawer
