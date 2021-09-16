@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, ReactNode, useEffect, useState } from 'react'
+import React, { cloneElement, forwardRef, useEffect, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
 import { useViewportSize } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
@@ -21,8 +21,8 @@ export interface UseSwiperProps {
   loop?: boolean
   slidesToShow?: number
   slidesToSwipe?: number
-  nextButton?: ReactNode
-  prevButton?: ReactNode
+  nextButton?: React.ReactNode
+  prevButton?: React.ReactNode
 }
 
 export interface UseSwiperState {
@@ -35,12 +35,12 @@ export interface UseSwiperState {
   setPageIdx: (idx: number) => void
   slidesToShow: number
   slidesToSwipe: number
-  nextButton?: ReactNode
-  prevButton?: ReactNode
+  nextButton?: React.ReactNode
+  prevButton?: React.ReactNode
 }
 
 export interface SwiperOptions {
-  renderPaginationItem?: (props: RenderPaginationProps) => ReactNode
+  renderPaginationItem?: (props: RenderPaginationProps) => React.ReactNode
   children: React.ReactNode[]
 }
 
@@ -71,8 +71,7 @@ export const SwiperComponent = forwardRef<HTMLDivElement, SwiperProps>((props, r
   const translateX = -(pageIdx * 100)
 
   useEffect(() => {
-    // TODO: Allow for immutable objects - remove when no longer needed
-    setNumberOfSlides(children.length || children.size)
+    setNumberOfSlides(children.length)
   }, [children, setNumberOfSlides])
 
   // Get array with indexes of visible slides so we know which ones are (aria-)hidden
