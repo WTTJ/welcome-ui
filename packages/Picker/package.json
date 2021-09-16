@@ -4,6 +4,7 @@
   "description": "welcome-ui: Picker",
   "main": "dist/picker.cjs.js",
   "module": "dist/picker.es.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
