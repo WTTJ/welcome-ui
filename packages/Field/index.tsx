@@ -1,17 +1,45 @@
 import React, { forwardRef, Fragment } from 'react'
-import { bool, func, node, oneOf, oneOfType, string } from 'prop-types'
 import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
-
-// Common
-import { COMPONENT_TYPE, DIRECTIONS_TYPE, SIZES_TYPE } from '../../utils/propTypes'
+import SimpleMDEEditor from 'react-simplemde-editor'
+import { WuiProps } from '@welcome-ui/system'
 
 // Fields
 import { RowContainer } from './layout'
 import * as S from './styles'
-import { getBaseType, getVariant } from './utils'
+import { getBaseType, getVariant, VariantReturn } from './utils'
 
-export const Field = forwardRef(
+export type Size = 'sm' | 'md' | 'lg'
+
+export interface FieldOptions {
+  checked?: boolean
+  component: React.ForwardRefRenderFunction<
+    HTMLInputElement,
+    Omit<FieldProps, 'component'> & WuiProps
+  >
+  connected?: boolean
+  disabled?: boolean
+  disabledIcon?: JSX.Element
+  error?: string
+  hint?: string
+  id?: string
+  label?: string
+  modified?: boolean
+  name: string
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onClick?: (event: React.MouseEvent<HTMLInputElement>) => void
+  size?: Size
+  touched?: boolean
+  type?: string
+  warning?: string
+  required?: boolean
+  ref: React.ForwardedRef<HTMLDivElement>
+  variant?: VariantReturn
+}
+
+export type FieldProps = FieldOptions & React.HTMLAttributes<HTMLInputElement> & WuiProps
+
+export const Field = forwardRef<HTMLInputElement, FieldProps>(
   (
     {
       checked,
@@ -30,7 +58,6 @@ export const Field = forwardRef(
       name,
       onChange,
       onClick,
-      pristine,
       required,
       size = 'lg',
       touched,
@@ -51,7 +78,6 @@ export const Field = forwardRef(
     const isCheckbox = baseType === 'checkbox'
     const isCheckable = isRadio || isCheckbox
     const variant = getVariant({
-      pristine,
       warning,
       error,
       modified,
@@ -69,11 +95,12 @@ export const Field = forwardRef(
     const uniqueId = isRadio ? id : id || name
     const inputRef = ref || React.createRef()
 
-    const handleClick = e => {
+    const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
+      const target = e.target as HTMLInputElement
       e.stopPropagation()
       onClick && onClick(e)
       if (isCheckbox) {
-        e.target.checked = !e.target.checked
+        target.checked = !target.checked
       }
       if (isCheckbox || isGroup) {
         onChange && onChange(e)
@@ -81,11 +108,11 @@ export const Field = forwardRef(
     }
 
     const handleLabelClick = () => {
-      const input = inputRef.current
+      const input = (inputRef as React.MutableRefObject<unknown>).current
       if (input) {
         Component.displayName === 'MarkdownEditor'
-          ? input.simpleMde.codemirror.focus()
-          : input.focus()
+          ? (input as SimpleMDEEditor).simpleMde.codemirror.focus()
+          : (input as HTMLInputElement).focus()
       }
     }
 
@@ -150,30 +177,6 @@ export const Field = forwardRef(
 )
 
 Field.displayName = 'Field'
-
-Field.propTypes /* remove-proptypes */ = {
-  checked: bool,
-  children: func,
-  component: oneOfType(COMPONENT_TYPE).isRequired,
-  connected: bool,
-  disabled: bool,
-  disabledIcon: node,
-  error: string,
-  flexDirection: oneOf(DIRECTIONS_TYPE),
-  hint: string,
-  id: string,
-  label: string,
-  modified: bool,
-  name: string.isRequired,
-  onChange: func.isRequired,
-  onClick: func,
-  pristine: bool,
-  required: bool,
-  size: oneOf(SIZES_TYPE),
-  touched: bool,
-  type: string,
-  warning: string,
-}
 
 export const IconWrapper = S.IconWrapper
 export { getBaseType }

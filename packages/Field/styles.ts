@@ -3,6 +3,9 @@ import { th } from '@xstyled/system'
 import { StyledLabel } from '@welcome-ui/label'
 import { StyledFieldGroup } from '@welcome-ui/field-group'
 import { shouldForwardProp, system, wrapperSystem } from '@welcome-ui/system'
+import { WuiProps } from '@welcome-ui/system'
+
+import { Size } from './index'
 
 const rowStyles = css`
   margin-right: sm;
@@ -17,22 +20,34 @@ const checkableFieldStyles = css`
   margin-bottom: sm;
 `
 
-export const Field = styled('div').withConfig({ shouldForwardProp })(
-  props => css`
+type StyledFieldProps = {
+  checkableField: boolean
+  flexDirection: WuiProps['flexDirection']
+  checked: boolean
+  size: Size
+}
+
+export const Field = styled('div').withConfig({ shouldForwardProp })<StyledFieldProps>(
+  ({ checkableField, checked, flexDirection }) => css`
     ${StyledFieldGroup} {
-      margin-bottom: ${props.checkableField && 'xxs'};
+      margin-bottom: ${checkableField && 'xxs'};
     }
     ${StyledLabel} {
-      ${props.flexDirection === 'row' && rowStyles};
-      ${props.flexDirection === 'column' && columnStyles};
-      ${props.checkableField && checkableFieldStyles};
-      ${props.checked && th('defaultFields.checkablelabel.checked')}
+      ${flexDirection === 'row' && rowStyles};
+      ${flexDirection === 'column' && columnStyles};
+      ${checkableField && checkableFieldStyles};
+      ${checked && th('defaultFields.checkablelabel.checked')}
     }
     ${wrapperSystem};
   `
 )
 
-export const IconWrapper = styled.div(
+type IconWrapperProps = {
+  iconPlacement: 'left' | 'right'
+  size: Size
+}
+
+export const IconWrapper = styled.div<IconWrapperProps>(
   ({ iconPlacement, size, ...rest }) => css`
     position: absolute;
     top: 0;
