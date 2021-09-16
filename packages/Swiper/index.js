@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, useEffect, useState } from 'react'
+import React, { cloneElement, forwardRef, useEffect, useMemo, useState } from 'react'
 import { bool, func, node, number, string } from 'prop-types'
 import { useTheme } from '@xstyled/styled-components'
 import { useViewportSize } from '@welcome-ui/utils'
@@ -12,7 +12,7 @@ export const Swiper = forwardRef((props, ref) => {
     dataTestId,
     goNext,
     goPrev,
-    id = 'swiper',
+    id: defaultId,
     loop,
     nextButton,
     numberOfSlides,
@@ -25,6 +25,7 @@ export const Swiper = forwardRef((props, ref) => {
     slidesToSwipe,
     ...rest
   } = props
+  const id = useMemo(() => defaultId || `swiper-${Date.now()}`, [defaultId])
 
   const translateX = -(pageIdx * 100)
 
@@ -51,9 +52,9 @@ export const Swiper = forwardRef((props, ref) => {
         {children.map((child, idx) =>
           cloneElement(child, {
             key: idx,
-            role: 'group',
+            id: `${id}-${idx}`,
+            role: 'tabpanel',
             'aria-hidden': !visibleSlides.includes(idx),
-            'aria-readonly': true,
             'aria-roledescription': 'slide',
             'aria-label': `${idx + 1} of ${numberOfSlides}`
           })
@@ -62,11 +63,13 @@ export const Swiper = forwardRef((props, ref) => {
       <S.Pagination
         className="swiper-pagination"
         data-testid={dataTestId && `${dataTestId}-pagination`}
+        role="tablist"
       >
         {children.map((_, idx) => {
           const props = {
             idx,
-            'aria-controls': id,
+            role: 'tab',
+            'aria-controls': `${id}-${idx}`,
             'aria-label': `${idx + 1} of ${numberOfSlides}`,
             'aria-selected': idx === pageIdx,
             onClick: () => setPageIdx(idx),
