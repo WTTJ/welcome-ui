@@ -22,7 +22,6 @@ export const Tag = forwardRef(
         hasAction={!!onRemove}
         length={childrenLength}
         ref={ref}
-        role="listitem"
         size={size}
         variant={variant}
         {...rest}

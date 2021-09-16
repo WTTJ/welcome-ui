@@ -4,9 +4,9 @@ import { Tag } from '@welcome-ui/tag'
 import * as S from './styles'
 
 export const MultipleSelections = (values, handleRemove) => (
-  <S.Tags>
+  <S.Tags role="list">
     {values.map(tag => (
-      <Tag key={tag.value} onRemove={() => handleRemove(tag.value)}>
+      <Tag key={tag.value} onRemove={() => handleRemove(tag.value)} role="listitem">
         {tag.label}
       </Tag>
     ))}
