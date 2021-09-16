@@ -50,7 +50,7 @@ describe('<Swiper>', () => {
     const { container, getByText } = render(<TestSwiper />)
     const slide1 = getByText('page1')
     const slide2 = getByText('page2')
-    const pagination = container.querySelectorAll('[aria-controls=swiper]')
+    const pagination = container.querySelectorAll('[role=tab]')
     const firstPaginationButton = pagination[1]
 
     // Act
@@ -71,7 +71,7 @@ describe('<Swiper>', () => {
 
     const slide1 = getByText('page1')
     const slide2 = getByText('page2')
-    const pagination = container.querySelectorAll('[aria-controls=swiper]')
+    const pagination = container.querySelectorAll('[role=tab]')
     expect(slide1).toHaveAttribute('aria-hidden', 'true')
     expect(slide2).toHaveAttribute('aria-hidden', 'false')
     expect(pagination[0]).toHaveAttribute('aria-selected', 'false')
@@ -89,7 +89,7 @@ describe('<LoopingSwiper>', () => {
     const slide4 = getByText('page4')
     const slide5 = getByText('page5')
     const nextButton = getByTestId('swiper-button-next')
-    const pagination = container.querySelectorAll('[aria-controls=swiper]')
+    const pagination = container.querySelectorAll('[role=tab]')
 
     // Act
     userEvent.click(nextButton)
@@ -134,7 +134,7 @@ describe('<LoopingSwiper>', () => {
     const slide4 = getByText('page4')
     const slide5 = getByText('page5')
     const nextButton = getByTestId('swiper-button-prev')
-    const pagination = container.querySelectorAll('[aria-controls=swiper]')
+    const pagination = container.querySelectorAll('[role=tab]')
 
     // Act
     userEvent.click(nextButton)
