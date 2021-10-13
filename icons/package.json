@@ -132,6 +132,7 @@
     "@welcome-ui/icons.get": "^3.0.0",
     "@welcome-ui/icons.gif": "^3.4.0",
     "@welcome-ui/icons.github": "^3.0.0",
+    "@welcome-ui/icons.google": "^1.0.0",
     "@welcome-ui/icons.handshake": "^3.0.0",
     "@welcome-ui/icons.hard_hat": "^3.4.0",
     "@welcome-ui/icons.hashtag": "^3.0.0",
