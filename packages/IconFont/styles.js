@@ -4,6 +4,14 @@ import { system } from '@welcome-ui/system'
 
 import unicodeMap from './unicode.json'
 
+function getIconContentByName(name) {
+  const content = unicodeMap[name]
+  if (content) return content.replace('0x', '\\')
+  // eslint-disable-next-line no-console
+  console.warn(`Invalid icon name '${name}'`)
+  return null
+}
+
 // stylelint-disable font-family-no-missing-generic-family-keyword
 export const Icon = styled.i(
   ({ name, size = 'md' }) => css`
@@ -12,7 +20,7 @@ export const Icon = styled.i(
     font-size: ${th(`icons.${size}`)};
     ${system};
     &::before {
-      content: '${unicodeMap[name].replace('0x', '\\')}';
+      content: '${getIconContentByName(name)}';
       display: block;
       font-style: normal;
       font-variant: normal;
