@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.9.0](https://github.com/WTTJ/welcome-ui/compare/v3.8.4...v3.9.0) (2021-10-13)
+
+**Note:** Version bump only for package @welcome-ui/badge
+
+
+
+
+
 # [3.5.0](https://github.com/WTTJ/welcome-ui/compare/v3.4.3...v3.5.0) (2021-04-28)
 
 **Note:** Version bump only for package @welcome-ui/badge

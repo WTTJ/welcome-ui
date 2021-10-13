@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.9.0](https://github.com/WTTJ/welcome-ui/compare/v3.8.4...v3.9.0) (2021-10-13)
+
+
+### Bug Fixes
+
+* silently fail render unknown icon ([#930](https://github.com/WTTJ/welcome-ui/issues/930)) ([#935](https://github.com/WTTJ/welcome-ui/issues/935)) ([4cd77fb](https://github.com/WTTJ/welcome-ui/commit/4cd77fb3f47b1aab92354127686d4c06629c3da5))
+* swiper roles & arias attributes ([#928](https://github.com/WTTJ/welcome-ui/issues/928)) ([75f1688](https://github.com/WTTJ/welcome-ui/commit/75f1688a2ec8cc9e4e527b54f5f68b963e4c713e))
+* tag role attributes ([#929](https://github.com/WTTJ/welcome-ui/issues/929)) ([c9846dc](https://github.com/WTTJ/welcome-ui/commit/c9846dcd04198456a0f94615a9589b414c1354fe))
+* wttj icon viewbox ([#875](https://github.com/WTTJ/welcome-ui/issues/875)) ([8f6acae](https://github.com/WTTJ/welcome-ui/commit/8f6acae26bfb27c2d5acfc933f30beac875acf91))
+
+
+### Features
+
+* add google icon ([#936](https://github.com/WTTJ/welcome-ui/issues/936)) ([3c37371](https://github.com/WTTJ/welcome-ui/commit/3c37371c14b2b6b1fbeb0f72db4615b13959cd34))
+
+
+
+
+
 ## [3.8.4](https://github.com/WTTJ/welcome-ui/compare/v3.8.3...v3.8.4) (2021-09-15)
 
 

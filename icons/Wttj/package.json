@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.wttj.cjs.js",
   "module": "dist/icons.wttj.es.js",
-  "version": "3.6.0",
+  "version": "3.9.0",
   "publishConfig": {
     "access": "public"
   },

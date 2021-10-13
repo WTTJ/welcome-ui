@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.9.0](https://github.com/WTTJ/welcome-ui/compare/v3.8.4...v3.9.0) (2021-10-13)
+
+
+### Bug Fixes
+
+* wttj icon viewbox ([#875](https://github.com/WTTJ/welcome-ui/issues/875)) ([8f6acae](https://github.com/WTTJ/welcome-ui/commit/8f6acae26bfb27c2d5acfc933f30beac875acf91))
+
+
+
+
+
 # [3.6.0](https://github.com/WTTJ/welcome-ui/compare/v3.5.0...v3.6.0) (2021-05-17)
 
 
