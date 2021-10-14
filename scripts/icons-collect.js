@@ -154,14 +154,14 @@ const writeIconPackages = files => {
 // Write root icon files
 const writeRootIconPackage = files => {
   console.log('Started'.blue, 'Writing root icon files'.grey)
-  // Write main icons/index.js
+  // Write main icons/index.ts
   const rootIndexContent = files.map(({ key }) => {
     const iconName = toPascalCase(key)
     return `export { ${iconName}Icon } from '@welcome-ui/icons.${key}'`
   }).join(`
 `)
   fs.writeFileSync(
-    `${ICONS_PATH}/index.js`,
+    `${ICONS_PATH}/index.tsx`,
     `${rootIndexContent}
 `
   )

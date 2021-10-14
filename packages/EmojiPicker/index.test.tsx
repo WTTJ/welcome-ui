@@ -6,7 +6,7 @@ import { EmojiPicker, useEmojiPicker } from './index'
 
 describe('<EmojiPicker>', () => {
   it('should render correctly', () => {
-    function Test() {
+    const Test = () => {
       const emojiPicker = useEmojiPicker()
       return (
         <>

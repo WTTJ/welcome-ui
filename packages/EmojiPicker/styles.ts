@@ -20,7 +20,7 @@ export const TabList = styled(Tab.List)`
   ${system};
 `
 
-export const EmojiButton = styled(Box).attrs({
+export const EmojiButton = styled.buttonBox.attrs({
   as: 'button',
 })`
   padding: 0;

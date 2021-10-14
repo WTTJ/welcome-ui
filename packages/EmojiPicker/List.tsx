@@ -1,8 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { array, bool, func, node, number, object, shape, string } from 'prop-types'
 import { InputText } from '@welcome-ui/input-text'
-import { FixedSizeList } from 'react-window'
+import { FixedSizeList, ListChildComponentProps } from 'react-window'
 import { Text } from '@welcome-ui/text'
 import { Box } from '@welcome-ui/box'
 import { Emoji, getEmojiName } from '@welcome-ui/emoji'
@@ -13,16 +12,49 @@ import escapeRegExp from 'lodash.escaperegexp'
 import Popper from 'popper.js'
 
 import * as S from './styles'
-import { formatEmojis, getEmojiAlias, HEIGHT, NB_EMOJIS_PER_ROW, ROW_HEIGHT, WIDTH } from './utils'
+import {
+  formatEmojis,
+  getEmojiAlias,
+  HEIGHT,
+  InternalEmoji,
+  NB_EMOJIS_PER_ROW,
+  ROW_HEIGHT,
+  WIDTH,
+} from './utils'
 
-export function List({ emojis, emptyList, inputSearchPlaceholder, isVisible, onChange, value }) {
+export interface Emoji {
+  name: string
+  alias: string
+  category: string
+  url?: string
+}
+
+export interface ListOptions {
+  emojis: Emoji[]
+  emptyList: React.ReactNode
+  inputSearchPlaceholder: string
+  isVisible: boolean
+  onChange: (value: string) => void
+  value: string
+}
+
+export type ListProps = ListOptions
+
+export const List: React.FC<ListProps> = ({
+  emojis,
+  emptyList,
+  inputSearchPlaceholder,
+  isVisible,
+  onChange,
+  value,
+}) => {
   const [currentColIndex, setCurrentColIndex] = useState(-1)
   const [currentRowIndex, setCurrentRowIndex] = useState(-1)
 
-  const inputRef = useRef()
+  const inputRef = useRef(null)
   useEffect(() => {
     if (isVisible) {
-      inputRef.current.focus()
+      inputRef?.current?.focus()
     }
   }, [isVisible])
 
@@ -50,12 +82,12 @@ export function List({ emojis, emptyList, inputSearchPlaceholder, isVisible, onC
     return formatEmojis(filteredEmojis)
   }, [emojis, query])
   const hasRows = rows.length > 0
-  const filteredEmojis = useMemo(() => {
+  const filteredEmojis = useMemo<InternalEmoji[][]>(() => {
     // Rows without categories
     return rows?.filter(row => typeof row[0] !== 'string') || []
   }, [rows])
 
-  const handleKeyDown = e => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Enter'].includes(e.key)) return
     e.preventDefault()
 
@@ -133,19 +165,19 @@ export function List({ emojis, emptyList, inputSearchPlaceholder, isVisible, onC
     setCurrentColIndex(newColIndex)
     setCurrentRowIndex(newRowIndex)
   }
-  const handleMouseMove = emoji => {
+  const handleMouseMove: (emoji: InternalEmoji) => void = emoji => {
     setCurrentColIndex(emoji.colIndex)
     setCurrentRowIndex(emoji.rowIndex)
   }
 
   // Custom tooltip to prevent having a tooltip per emoji
-  const wrapperRef = useRef()
-  const tooltipRef = useRef()
-  const [tooltipEmoji, setTooltipEmoji] = useState()
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const tooltipRef = useRef<HTMLDivElement>(null)
+  const [tooltipEmoji, setTooltipEmoji] = useState<InternalEmoji>()
   const hasTooltip = !!tooltipEmoji
   const tooltipContent = getEmojiAlias(tooltipEmoji)
   useEffect(() => {
-    const currentEl = wrapperRef.current.querySelector('[data-active]')
+    const currentEl = wrapperRef?.current?.querySelector('[data-active]')
     if (!currentEl) {
       setTooltipEmoji(null)
       return
@@ -155,11 +187,11 @@ export function List({ emojis, emptyList, inputSearchPlaceholder, isVisible, onC
       .flat()
       .find(emoji => emoji.rowIndex === currentRowIndex && emoji.colIndex === currentColIndex)
     setTooltipEmoji(emoji)
-    const popper = new Popper(currentEl, tooltipRef.current, {
+    const popper = new Popper(currentEl, tooltipRef?.current, {
       placement: 'top',
       onUpdate: ({ instance }) => {
         // We check the grandparent because the parent is the row
-        const isReferenceInDom = !!instance.reference.parentElement.parentElement
+        const isReferenceInDom = !!(instance.reference as HTMLElement).parentElement.parentElement
         if (!isReferenceInDom) {
           setTooltipEmoji(null)
         }
@@ -170,7 +202,7 @@ export function List({ emojis, emptyList, inputSearchPlaceholder, isVisible, onC
 
   // Scroll to the selected emoji on first render & when using arrows
   const isJustOpened = useRef(true)
-  const listRef = useRef()
+  const listRef = useRef<FixedSizeList<EmojiRowData>>()
   useIsomorphicLayoutEffect(() => {
     if (!isVisible || !listRef.current) return
 
@@ -245,21 +277,18 @@ export function List({ emojis, emptyList, inputSearchPlaceholder, isVisible, onC
   )
 }
 
-List.propTypes = {
-  emojis: array.isRequired,
-  /** Passed down by <EmojiPicker />, can be overridden */
-  emptyList: node,
-  /** Passed down by <EmojiPicker />, can be overridden */
-  inputSearchPlaceholder: string,
-  /** Passed down by <EmojiPicker /> */
-  isVisible: bool.isRequired,
-  /** Passed down by <EmojiPicker /> */
-  onChange: func.isRequired,
-  /** Passed down by <EmojiPicker /> */
-  value: string,
+interface EmojiRowData {
+  rows: InternalEmoji[][]
+  currentRowIndex: number
+  currentColIndex: number
+  isVisible: boolean
+  onClick: (alias: string) => void
+  onMouseMove: (emoji: InternalEmoji) => void
 }
 
-function EmojiRow({ data, index, style }) {
+type EmojiRowProps = ListChildComponentProps<EmojiRowData>
+
+const EmojiRow: React.FC<EmojiRowProps> = ({ data, index, style }) => {
   const row = data.rows[index]
 
   // Category
@@ -300,7 +329,7 @@ function EmojiRow({ data, index, style }) {
             key={alias}
             onClick={() => data.onClick(getEmojiAlias(emoji))}
             onMouseMove={() => data.onMouseMove(emoji)}
-            tabIndex="-1"
+            tabIndex={-1}
             type="button"
             w={`${100 / NB_EMOJIS_PER_ROW}%`}
           >
@@ -310,15 +339,4 @@ function EmojiRow({ data, index, style }) {
       })}
     </Box>
   )
-}
-EmojiRow.propTypes = {
-  data: shape({
-    rows: array.isRequired,
-    onClick: func.isRequired,
-    onMouseMove: func.isRequired,
-    currentColIndex: number.isRequired,
-    currentRowIndex: number.isRequired,
-  }).isRequired,
-  index: number.isRequired,
-  style: object.isRequired,
 }
