@@ -52,8 +52,8 @@ test('isValueSelected returns false if value is not in selected values', () => {
 
 const DEFAULT_INPUT_VALUE_ARGS = {
   inputValue: 'February',
-  isMultiple: undefined,
-  isSearchable: undefined,
+  isMultiple: false,
+  isSearchable: false,
   options: OPTIONS,
   renderItem: itemToString,
 }
@@ -117,11 +117,6 @@ test('getOptionsFromSelected returns empty array if no SELECTED', () => {
 test('getOptionsFromSelected returns empty array if no SELECTED', () => {
   const options = getOptionsFromSelected('', OPTIONS)
   expect(options).toStrictEqual([])
-})
-
-test('getOptionsFromSelected returns empty array if no SELECTED', () => {
-  const options = getOptionsFromSelected(0, OPTIONS)
-  expect(options).toStrictEqual([{ value: '0', label: 0 }])
 })
 
 test('getUniqueValue returns options with duplicates removed', () => {

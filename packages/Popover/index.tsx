@@ -19,12 +19,12 @@ export type PopoverProps = CreateWuiProps<
   PopoverOptions & ReakitPopoverOptions & UsePopoverStateReturn
 >
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export const PopoverComponent: React.FC<PopoverProps> = ({
   arrowStyle,
   children,
   onClose,
   // catch triggerMethod for it not to appear in the dom
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   triggerMethod = 'click',
   withCloseButton = false,
   ...rest
