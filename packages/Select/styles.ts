@@ -5,9 +5,10 @@ import { StyledTag } from '@welcome-ui/tag'
 import { componentSystem, shouldForwardProp, wrapperSystem } from '@welcome-ui/system'
 import { centerContent, defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 import { cardStyles } from '@welcome-ui/utils'
+import { Size } from 'Select'
 
 export const Wrapper = styled('div').withConfig({ shouldForwardProp })(
-  ({ connected }) => css`
+  ({ connected }: { connected: boolean }) => css`
     position: relative;
     ${!connected && wrapperSystem};
   `
@@ -18,9 +19,9 @@ export const InputWrapper = styled.div`
 `
 
 export const Input = styled('div').withConfig({ shouldForwardProp })(
-  ({ hasIcon, size }) => css`
+  ({ hasIcon, size }: { hasIcon: boolean; size: Size }) => css`
     position: relative;
-    ${defaultFieldStyles};
+    ${defaultFieldStyles({ size })};
     ${overflowEllipsis};
     padding-right: ${th(`defaultFields.sizes.${size}.height`)};
     ${hasIcon &&
@@ -77,7 +78,17 @@ export const Menu = styled.ul`
 `
 
 export const Item = styled.li(
-  ({ allowUnselectFromList, isHighlighted, isMultiple, isSelected }) => css`
+  ({
+    allowUnselectFromList,
+    isHighlighted,
+    isMultiple,
+    isSelected,
+  }: {
+    allowUnselectFromList: boolean
+    isHighlighted: boolean
+    isMultiple: boolean
+    isSelected: boolean
+  }) => css`
     color: nude.800;
     ${isHighlighted && th('defaultFields.select.highlighted')};
     ${isSelected && !isMultiple && th('defaultFields.select.selected')};
@@ -92,7 +103,7 @@ export const Item = styled.li(
 )
 
 export const Icon = styled.div(
-  ({ size }) => css`
+  ({ size }: { size: Size }) => css`
     position: absolute;
     width: ${th(`defaultFields.sizes.${size}.height`)};
     padding: 0;
@@ -112,8 +123,8 @@ export const Indicators = styled.div`
   display: flex;
 `
 
-export const DropDownIndicator = styled.button(
-  ({ isOpen, size }) => css`
+export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })(
+  ({ isOpen, size }: { isOpen?: boolean; size: Size }) => css`
     position: relative;
     height: 100%;
     width: ${th(`defaultFields.sizes.${size}.height`)};
