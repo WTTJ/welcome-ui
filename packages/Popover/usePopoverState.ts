@@ -1,7 +1,23 @@
 import { useCallback, useRef } from 'react'
-import { usePopoverState as useReakitPopoverState } from 'reakit/Popover'
+import {
+  PopoverInitialState as ReakitPopoverInitialState,
+  PopoverStateReturn as ReakitPopoverStateReturn,
+  usePopoverState as useReakitPopoverState,
+} from 'reakit/Popover'
 
-export const usePopoverState = ({
+export interface UsePopoverStateOptions {
+  hideTimeout?: number
+  showTimeout?: number
+  triggerMethod?: 'hover' | 'click'
+  withCloseButton?: boolean
+}
+
+export type UsePopoverStateReturn = ReakitPopoverStateReturn &
+  Pick<UsePopoverStateOptions, 'triggerMethod' | 'withCloseButton'>
+
+export type UsePopoverStateProps = ReakitPopoverInitialState & UsePopoverStateOptions
+
+export const usePopoverState: (props: UsePopoverStateProps) => UsePopoverStateReturn = ({
   animated = 150,
   hideTimeout = 300,
   showTimeout = 500,
@@ -10,8 +26,8 @@ export const usePopoverState = ({
   ...options
 } = {}) => {
   const popover = useReakitPopoverState({ animated, ...options })
-  const closeCountdownRef = useRef()
-  const openCountdownRef = useRef()
+  const closeCountdownRef = useRef<NodeJS.Timeout>()
+  const openCountdownRef = useRef<NodeJS.Timeout>()
   const isHoverable = triggerMethod === 'hover'
 
   const hide = useCallback(() => {
