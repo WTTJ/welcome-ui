@@ -4,11 +4,12 @@
   "description": "welcome-ui: Picker",
   "main": "dist/picker.cjs.js",
   "module": "dist/picker.es.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"
