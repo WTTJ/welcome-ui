@@ -59,6 +59,7 @@ const Type = ({ type }) => {
 }
 
 export const Props = ({ propTypes }) => {
+  console.log(propTypes)
   if (!propTypes) {
     return 'No propTypes specified'
   }
