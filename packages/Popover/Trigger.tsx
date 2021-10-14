@@ -1,13 +1,17 @@
-import React, { useCallback, useLayoutEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 import { oneOf } from 'prop-types'
 import { PopoverDisclosure } from 'reakit/Popover'
 
-export function Trigger({ triggerMethod = 'click', ...rest }) {
+import { UsePopoverStateReturn } from './usePopoverState'
+
+export type TriggerProps = UsePopoverStateReturn
+
+export const Trigger: React.FC<TriggerProps> = ({ triggerMethod = 'click', ...rest }) => {
   const hoverable = triggerMethod === 'hover'
-  const disclosureRef = useRef(null)
+  const disclosureRef = useRef<HTMLButtonElement>(null)
   const popoverRef = rest.unstable_popoverRef
 
-  const showPopover = useCallback(() => {
+  const showPopover: () => void = () => {
     if (hoverable) {
       // remove listeners on mouseenter
       disclosureRef.current?.removeEventListener('mouseenter', showPopover)
@@ -18,9 +22,9 @@ export function Trigger({ triggerMethod = 'click', ...rest }) {
       // show popover
       rest.show()
     }
-  }, [hidePopover, hoverable, popoverRef, rest])
+  }
 
-  const hidePopover = useCallback(() => {
+  const hidePopover: () => void = () => {
     if (hoverable) {
       // remove listeners on mouseleave
       disclosureRef.current?.removeEventListener('mouseleave', hidePopover)
@@ -31,7 +35,7 @@ export function Trigger({ triggerMethod = 'click', ...rest }) {
       // hide popover
       rest.hide()
     }
-  }, [hoverable, popoverRef, rest, showPopover])
+  }
 
   useLayoutEffect(() => {
     const disclosure = disclosureRef.current
