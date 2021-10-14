@@ -1,19 +1,31 @@
 import React, { forwardRef } from 'react'
-import { arrayOf, bool, elementType, func, shape, string } from 'prop-types'
-import { RadioGroup as ReakitRadioGroup, useRadioState } from 'reakit/Radio'
-import { FieldGroup } from '@welcome-ui/field-group'
+import { RadioGroup as ReakitRadioGroup } from 'reakit/Radio'
+import { FieldGroup, FieldGroupOptions } from '@welcome-ui/field-group'
 import { Label } from '@welcome-ui/label'
 import { Box } from '@welcome-ui/box'
+import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export const Picker = forwardRef(
-  ({ connected, dataTestId, label, name, onChange, options, required, value, ...rest }, ref) => {
-    const radio = useRadioState({ state: value })
+export interface PickerOption {
+  element: React.JSXElementConstructor<{ selected: boolean }>
+  value: string
+}
 
-    const handleClick = e => {
+export interface PickerOptions {
+  connected: boolean
+  name: string
+  onChange: React.MouseEventHandler<HTMLLabelElement>
+  options: PickerOption[]
+  value: string
+}
+
+export type PickerProps = FieldGroupOptions & PickerOptions & WuiProps
+
+export const Picker = forwardRef<HTMLFieldSetElement, PickerProps>(
+  ({ connected, dataTestId, label, name, onChange, options, required, value, ...rest }, ref) => {
+    const handleClick: React.MouseEventHandler<HTMLLabelElement> = e => {
       e.stopPropagation()
-      radio.onClick && radio.onClick(e)
       onChange && onChange(e)
     }
 
@@ -45,18 +57,3 @@ export const Picker = forwardRef(
 )
 
 Picker.displayName = 'Picker'
-
-Picker.propTypes /* remove-proptypes */ = {
-  connected: bool,
-  label: string,
-  name: string.isRequired,
-  onChange: func,
-  options: arrayOf(
-    shape({
-      element: elementType,
-      value: string,
-    })
-  ).isRequired,
-  required: bool,
-  value: string,
-}
