@@ -1,22 +1,30 @@
-import React, { memo } from 'react'
-import { bool, func, node, object, oneOf } from 'prop-types'
+import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons.cross'
+import { PopoverProps as ReakitPopoverProps } from 'reakit/Popover'
 
 import * as S from './styles'
 import { Trigger } from './Trigger'
+import { UsePopoverStateReturn } from './usePopoverState'
 
-export const Popover = memo(function Popover({
+interface PopoverOptions {
+  arrowStyle: React.CSSProperties
+  onClose: () => void
+}
+
+type PopoverProps = PopoverOptions & ReakitPopoverProps & UsePopoverStateReturn
+
+export const PopoverComponent: React.FC<PopoverProps> = ({
   arrowStyle,
   children,
   onClose,
   // catch triggerMethod for it not to appear in the dom
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   triggerMethod = 'click',
   withCloseButton = false,
   ...rest
-}) {
+}) => {
   const closePopover = () => {
     if (onClose) onClose()
     rest?.hide()
@@ -24,7 +32,7 @@ export const Popover = memo(function Popover({
 
   // get the correct transform style for arrow
   const [placement] = rest.placement.split('-')
-  const transformMap = {
+  const transformMap: { [key: string]: string } = {
     top: 'rotateZ(180deg)',
     right: 'rotateZ(-90deg)',
     bottom: 'rotateZ(360deg)',
@@ -59,22 +67,12 @@ export const Popover = memo(function Popover({
       </Box>
     </S.Popover>
   )
-})
-
-Popover.propTypes = {
-  /** add style to arrow */
-  arrowStyle: object,
-  children: node,
-  /** call an function when popover closed */
-  onClose: func,
-  /** the method to open and close the popover */
-  triggerMethod: oneOf(['click', 'hover']),
-  /** show or hide a close button */
-  withCloseButton: bool,
 }
 
-Popover.Content = S.Content
-Popover.Title = S.Title
-Popover.Trigger = Trigger
+export const Popover = Object.assign(PopoverComponent, {
+  Content: S.Content,
+  Title: S.Title,
+  Trigger: Trigger,
+})
 
 export * from './usePopoverState'

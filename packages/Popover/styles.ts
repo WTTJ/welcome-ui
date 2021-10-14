@@ -7,7 +7,7 @@ export const Arrow = styled(PopoverArrow)`
   color: ${th('popovers.default.backgroundColor')};
 `
 
-export const ArrowItem = styled.svgBox(
+export const ArrowItem = styled.svgBox<{ $transform: string }>(
   ({ $transform }) => css`
     transform: ${$transform};
   `
@@ -22,7 +22,7 @@ export const Title = styled.h6`
   ${th('popovers.title')};
 `
 
-export const Popover = styled(BasePopover)(
+export const Popover = styled(BasePopover)<{ $withCloseButton: boolean }>(
   ({ $withCloseButton }) => css`
     ${th('popovers.default')};
     outline: none;
