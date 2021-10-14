@@ -161,7 +161,7 @@ const writeRootIconPackage = files => {
   }).join(`
 `)
   fs.writeFileSync(
-    `${ICONS_PATH}/index.tsx`,
+    `${ICONS_PATH}/index.js`,
     `${rootIndexContent}
 `
   )

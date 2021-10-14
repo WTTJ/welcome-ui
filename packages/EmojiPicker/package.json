@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^4.0.0-alpha.6",
-    "@welcome-ui/icons": "^4.0.0-alpha.6",
+    "@welcome-ui/icons.search": "^4.0.0-alpha.6",
     "@welcome-ui/input-text": "^4.0.0-alpha.6",
     "@welcome-ui/popover": "^4.0.0-alpha.6",
     "@welcome-ui/stack": "^4.0.0-alpha.6",
