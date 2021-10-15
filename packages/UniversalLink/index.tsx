@@ -4,7 +4,7 @@ import { CreateWuiProps } from '@welcome-ui/system'
 import * as S from './styles'
 
 export interface UniversalLinkOptions {
-  target?: string
+  target?: React.HTMLAttributeAnchorTarget
 }
 
 export type UniversalLinkProps = CreateWuiProps<'a', UniversalLinkOptions>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
+import { Link } from '@welcome-ui/link'
 
 import { createTheme } from '../Core/theme/core'
 import { render } from '../../utils/tests'
@@ -88,5 +89,41 @@ describe('<Button>', () => {
       expect(button).toHaveStyleRule('background-color', theme.colors.nude[500])
       expect(button).toHaveStyleRule('border-color', theme.colors.nude[500])
     })
+  })
+
+  it('should forward as div', () => {
+    const { getByTestId } = render(
+      <Button as="div" dataTestId="button">
+        {content}
+      </Button>
+    )
+
+    const button = getByTestId('button')
+    expect(button.tagName.toLowerCase()).toBe('div')
+  })
+
+  it('should forward as a', () => {
+    const { getByTestId } = render(
+      <Button as={props => <a {...props} href={content} />} dataTestId="button">
+        {content}
+      </Button>
+    )
+
+    const button = getByTestId('button')
+
+    expect(button.tagName.toLowerCase()).toBe('a')
+    expect(button).toHaveAttribute('href', content)
+  })
+
+  it('should forward as Link', () => {
+    const { getByTestId } = render(
+      <Button as={props => <Link {...props} target="_blank" />} dataTestId="button">
+        {content}
+      </Button>
+    )
+
+    const button = getByTestId('button')
+    expect(button.tagName.toLowerCase()).toBe('a')
+    expect(button).toHaveAttribute('rel', 'noopener noreferrer') // added by target="_blank" on Link
   })
 })
