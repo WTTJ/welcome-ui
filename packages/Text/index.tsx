@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { As, CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -32,7 +32,7 @@ export type TextProps = CreateWuiProps<'p', TextOptions>
 
 export const Text = forwardRef<HTMLParagraphElement, TextProps>(
   ({ as, children, dataTestId, lines, variant = 'body2', ...rest }, ref) => {
-    const tagName = as || (TAG_NAMES[variant] as As)
+    const tagName = as || TAG_NAMES[variant]
     const className = rest.className || ''
 
     return (

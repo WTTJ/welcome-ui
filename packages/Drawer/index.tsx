@@ -6,7 +6,7 @@ import {
   DialogBackdropProps,
   DialogDisclosure,
   DialogInitialState,
-  DialogProps,
+  DialogOptions,
   DialogStateReturn,
   useDialogState,
 } from 'reakit/Dialog'
@@ -24,7 +24,7 @@ export interface DrawerOptions {
   size?: Size
 }
 
-export type DrawerProps = CreateWuiProps<typeof Dialog, DrawerOptions & DialogProps>
+export type DrawerProps = CreateWuiProps<typeof Dialog, DrawerOptions & DialogOptions>
 
 const DrawerComponent: React.FC<DrawerProps> = ({
   children,

@@ -7,7 +7,7 @@ import { CreateWuiProps } from '@welcome-ui/system'
 import * as S from './styles'
 
 export interface AccordionOptions {
-  title?: string | JSX.Element
+  title: string | JSX.Element
   icon?: JSX.Element
   visible?: boolean
 }

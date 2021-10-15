@@ -17,8 +17,6 @@ const toPascalCase = (str: string) => {
 export const Icons = Object.keys(unicodeMap).reduce(
   (prev: Record<string, (props: IconProps) => JSX.Element>, name: keyof typeof unicodeMap) => {
     const key = toPascalCase(name) as keyof typeof unicodeMap
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     prev[key] = (props: IconProps) => <Icon {...props} name={name} />
     return prev
   },

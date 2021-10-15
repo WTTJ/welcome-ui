@@ -3,7 +3,7 @@ import { Box } from '@welcome-ui/box'
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { CreateWuiProps } from '@welcome-ui/system'
-import { PopoverProps as ReakitPopoverProps } from 'reakit/Popover'
+import { PopoverOptions as ReakitPopoverOptions } from 'reakit/Popover'
 
 import * as S from './styles'
 import { Trigger } from './Trigger'
@@ -16,7 +16,7 @@ export interface PopoverOptions {
 
 export type PopoverProps = CreateWuiProps<
   typeof S.Popover,
-  PopoverOptions & ReakitPopoverProps & UsePopoverStateReturn
+  PopoverOptions & ReakitPopoverOptions & UsePopoverStateReturn
 >
 
 export const PopoverComponent: React.FC<PopoverProps> = ({

@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuButton, MenuProps, Menu as ReakitMenu, useMenuState } from 'reakit/Menu'
+import { MenuButton, MenuOptions, Menu as ReakitMenu, useMenuState } from 'reakit/Menu'
 import { useNextFrame } from '@welcome-ui/utils'
 import { CreateWuiProps, WuiProps } from '@welcome-ui/system'
 
@@ -12,7 +12,7 @@ export interface DropdownMenuOptions {
   visible?: boolean
 }
 
-export type DropdownMenuProps = CreateWuiProps<typeof ReakitMenu, DropdownMenuOptions & MenuProps>
+export type DropdownMenuProps = CreateWuiProps<typeof ReakitMenu, DropdownMenuOptions & MenuOptions>
 
 const DropdownMenuComponent: React.FC<DropdownMenuProps> = ({
   children,
@@ -33,12 +33,9 @@ const DropdownMenuComponent: React.FC<DropdownMenuProps> = ({
       {...props}
     >
       {menuProps => (
-        // todo why colors are incompatible between WuiProps & StyledComponent
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         <S.Inner
           {...menuProps}
-          {...innerProps}
+          {...(innerProps as Omit<WuiProps, keyof typeof menuProps>)}
           style={{
             ...menuProps.style,
             opacity: delayedVisible ? 1 : 0,
