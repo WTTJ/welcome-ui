@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react'
 import { RadioGroup as ReakitRadioGroup } from 'reakit/Radio'
 import { FieldGroup, FieldGroupOptions } from '@welcome-ui/field-group'
-import { Label } from '@welcome-ui/label'
+import { Label, LabelProps } from '@welcome-ui/label'
 import { Box } from '@welcome-ui/box'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -20,11 +20,11 @@ export interface PickerOptions {
   value: string
 }
 
-export type PickerProps = FieldGroupOptions & PickerOptions & WuiProps
+export type PickerProps = CreateWuiProps<typeof FieldGroup, FieldGroupOptions & PickerOptions>
 
 export const Picker = forwardRef<HTMLFieldSetElement, PickerProps>(
   ({ connected, dataTestId, label, name, onChange, options, required, value, ...rest }, ref) => {
-    const handleClick: React.MouseEventHandler<HTMLLabelElement> = e => {
+    const handleClick: LabelProps['onClick'] = e => {
       e.stopPropagation()
       onChange && onChange(e)
     }

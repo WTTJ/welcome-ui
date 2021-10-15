@@ -2,18 +2,22 @@ import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons.cross'
+import { CreateWuiProps } from '@welcome-ui/system'
 import { PopoverProps as ReakitPopoverProps } from 'reakit/Popover'
 
 import * as S from './styles'
 import { Trigger } from './Trigger'
 import { UsePopoverStateReturn } from './usePopoverState'
 
-interface PopoverOptions {
+export interface PopoverOptions {
   arrowStyle: React.CSSProperties
   onClose: () => void
 }
 
-type PopoverProps = PopoverOptions & ReakitPopoverProps & UsePopoverStateReturn
+export type PopoverProps = CreateWuiProps<
+  typeof S.Popover,
+  PopoverOptions & ReakitPopoverProps & UsePopoverStateReturn
+>
 
 export const PopoverComponent: React.FC<PopoverProps> = ({
   arrowStyle,

@@ -12,7 +12,7 @@ import {
 } from 'reakit/Dialog'
 import { SealedInitialState } from 'reakit-utils/ts/useSealedState'
 import { ClearButtonProps } from '@welcome-ui/clear-button'
-import { WuiSystemProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -24,7 +24,7 @@ export interface DrawerOptions {
   size?: Size
 }
 
-export type DrawerProps = DrawerOptions & DialogProps & WuiSystemProps
+export type DrawerProps = CreateWuiProps<typeof Dialog, DrawerOptions & DialogProps>
 
 const DrawerComponent: React.FC<DrawerProps> = ({
   children,

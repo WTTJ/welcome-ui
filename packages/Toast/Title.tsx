@@ -1,6 +1,6 @@
 import React from 'react'
 import { VariantIcon } from '@welcome-ui/variant-icon'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -11,7 +11,7 @@ export interface TitleOptions {
   icon?: JSX.Element
 }
 
-export type TitleProps = TitleOptions & WuiProps
+export type TitleProps = CreateWuiProps<'div', TitleOptions>
 
 export const Title: React.FC<TitleProps> = ({ children, icon, variant = 'info', ...rest }) => (
   <S.Title variant={variant} {...rest}>

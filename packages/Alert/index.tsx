@@ -1,8 +1,8 @@
 /* eslint-disable react/no-multi-comp */
 import React, { Children, cloneElement } from 'react'
 import { Stack } from '@welcome-ui/stack'
-import { Button, ButtonProps } from '@welcome-ui/button'
-import { WuiProps } from '@welcome-ui/system'
+import { Button, ButtonOptions } from '@welcome-ui/button'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 import { Title } from './Title'
@@ -13,7 +13,7 @@ export interface AlertOptions {
   variant?: Variant
 }
 
-export type AlertProps = AlertOptions & WuiProps
+export type AlertProps = CreateWuiProps<'div', AlertOptions>
 
 const AlertComponent: React.FC<AlertProps> = ({ children, variant = 'error', ...rest }) => {
   const hasTitle = Children.toArray(children).some(
@@ -49,7 +49,7 @@ const AlertComponent: React.FC<AlertProps> = ({ children, variant = 'error', ...
   )
 }
 
-export type AlertButtonProps = ButtonProps
+export type AlertButtonProps = CreateWuiProps<typeof Button, ButtonOptions>
 
 // We need this component to check its existence in <Alert> and to allow users to add Button in <Alert> content
 const AlertButton: React.FC<AlertButtonProps> = props => <Button size="sm" {...props} />

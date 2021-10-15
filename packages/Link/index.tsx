@@ -2,6 +2,7 @@
 import React, { Children, cloneElement, forwardRef, useEffect, useRef, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
 import { UniversalLinkProps } from '@welcome-ui/universal-link'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -13,7 +14,7 @@ export interface LinkOptions {
   variant?: Variant
 }
 
-export type LinkProps = LinkOptions & UniversalLinkProps
+export type LinkProps = CreateWuiProps<'a', LinkOptions & UniversalLinkProps>
 
 const WrapWithText: React.FC = ({ children, ...rest }) => (
   <span className="wui-text" {...rest}>

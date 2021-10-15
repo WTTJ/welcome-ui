@@ -1,17 +1,17 @@
 import React, { forwardRef } from 'react'
 import {
+  TabPanelOptions as ReakitTabOptionsProps,
   TabPanel as ReakitTabPanel,
-  TabPanelProps as ReakitTabPanelProps,
   TabStateReturn,
 } from 'reakit/Tab'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type TabPanelProps = React.HTMLAttributes<HTMLDivElement> &
-  Pick<TabStateReturn, 'orientation'> &
-  ReakitTabPanelProps &
-  WuiProps
+export type TabPanelProps = CreateWuiProps<
+  typeof ReakitTabPanel,
+  Pick<TabStateReturn, 'orientation'> & ReakitTabOptionsProps
+>
 
 export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>((props, ref) => {
   const { as, children, orientation, tabId, ...rest } = props

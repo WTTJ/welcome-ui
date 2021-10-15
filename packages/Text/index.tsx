@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { WuiProps } from '@welcome-ui/system'
+import { As, CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -21,33 +21,18 @@ const TAG_NAMES = {
   meta2: 'p',
 }
 
-export type Variant =
-  | 'h0'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'body1'
-  | 'body2'
-  | 'body3'
-  | 'body4'
-  | 'subtitle1'
-  | 'subtitle2'
-  | 'meta1'
-  | 'meta2'
+export type Variant = keyof typeof TAG_NAMES
 
 export interface TextOptions {
   lines?: number
   variant?: Variant
 }
 
-export type TextProps = TextOptions & React.HTMLAttributes<HTMLParagraphElement> & WuiProps
+export type TextProps = CreateWuiProps<'p', TextOptions>
 
 export const Text = forwardRef<HTMLParagraphElement, TextProps>(
   ({ as, children, dataTestId, lines, variant = 'body2', ...rest }, ref) => {
-    const tagName = as || TAG_NAMES[variant]
+    const tagName = as || (TAG_NAMES[variant] as As)
     const className = rest.className || ''
 
     return (

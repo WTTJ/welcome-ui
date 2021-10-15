@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import { LockIcon } from '@welcome-ui/icons.lock'
 import { VariantIcon } from '@welcome-ui/variant-icon'
 import { wrapChildren } from '@welcome-ui/utils'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -19,7 +19,7 @@ export interface LabelOptions {
   htmlFor?: string
 }
 
-export type LabelProps = LabelOptions & React.HTMLAttributes<HTMLLabelElement> & WuiProps
+export type LabelProps = CreateWuiProps<'label', LabelOptions>
 
 export const Label = forwardRef<HTMLLabelElement, LabelProps>(
   (

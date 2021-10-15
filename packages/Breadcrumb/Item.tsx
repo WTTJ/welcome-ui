@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './Item.styles'
 
@@ -9,7 +9,7 @@ export interface ItemOptions {
   separator?: string | React.ReactNode
 }
 
-export type ItemProps = ItemOptions & WuiProps
+export type ItemProps = CreateWuiProps<'div', ItemOptions>
 
 export const Item: React.FC<ItemProps> = ({ children, dataTestId, separator, ...rest }) => {
   return (

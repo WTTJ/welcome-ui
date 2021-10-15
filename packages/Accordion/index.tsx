@@ -2,17 +2,17 @@ import React from 'react'
 import { useDisclosureState } from 'reakit/Disclosure'
 import AnimateHeight from 'react-animate-height'
 import { RightIcon } from '@welcome-ui/icons.right'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
 export interface AccordionOptions {
-  title: string | JSX.Element
+  title?: string | JSX.Element
   icon?: JSX.Element
   visible?: boolean
 }
 
-export type AccordionProps = AccordionOptions & WuiProps
+export type AccordionProps = CreateWuiProps<'div', AccordionOptions>
 
 export const Accordion: React.FC<AccordionProps> = ({
   children,
