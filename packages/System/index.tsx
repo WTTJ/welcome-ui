@@ -99,8 +99,7 @@ export type WuiWrapperSystemProps = S.MarginProps &
   S.MarginTopProps &
   S.MarginXProps &
   S.MarginYProps &
-  S.WidthProps &
-  WuiOldProps
+  S.WidthProps
 
 export interface WuiTestProps {
   dataTestId?: string
