@@ -117,13 +117,18 @@ describe('<Button>', () => {
 
   it('should forward as Link', () => {
     const { getByTestId } = render(
-      <Button as={props => <Link {...props} target="_blank" />} dataTestId="button">
+      <Button
+        as={props => <Link {...props} target="_blank" />}
+        className="wui-test"
+        dataTestId="button"
+      >
         {content}
       </Button>
     )
 
     const button = getByTestId('button')
     expect(button.tagName.toLowerCase()).toBe('a')
+    expect(button).toHaveClass('wui-test')
     expect(button).toHaveAttribute('rel', 'noopener noreferrer') // added by target="_blank" on Link
   })
 })
