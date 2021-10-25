@@ -47,6 +47,11 @@ export const IconWrapper = styled.div(
     transition: medium;
     transition-timing-function: primary;
     ${system};
+
+    /* for button action */
+    & > button {
+      pointer-events: auto;
+    }
   `
 )
 

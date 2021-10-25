@@ -3608,6 +3608,25 @@
   resolved "https://registry.yarnpkg.com/@ungap/from-entries/-/from-entries-0.2.1.tgz#7e86196b8b2e99d73106a8f25c2a068326346354"
   integrity sha512-CAqefTFAfnUPwYqsWHXpOxHaq1Zo5UQ3m9Zm2p09LggGe57rqHoBn3c++xcoomzXKynAUuiBMDUCQvKMnXjUpA==
 
+"@welcome-ui/icon@^4.0.0-alpha.4":
+  version "4.0.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/@welcome-ui/icon/-/icon-4.0.0-alpha.4.tgz#8ac930ab435eaf3eecb8a3742bbb66fefa514d6d"
+  integrity sha512-n5ospHIFghAa6HgeMAWicDEkTzEl36dAyPYQLUsPyDfELU4TtLHwOAKUANfvJ+eze/3H7DErV8Uv1w9tRPG2NA==
+  dependencies:
+    "@welcome-ui/system" "^4.0.0-alpha.3"
+
+"@welcome-ui/icons.hide@^4.0.0-alpha.4":
+  version "4.0.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/@welcome-ui/icons.hide/-/icons.hide-4.0.0-alpha.4.tgz#dec2ec6606d9a30b9538bd9cc0127a690e7470a7"
+  integrity sha512-qZ8EtTxNccdvpxQeHr9XDJ9Qpx8PKQ/te57vnC3AczchGTLQ/EW7RS7iVqCWomTuFp1j/NgpP3D0BrSeYhR4Tw==
+  dependencies:
+    "@welcome-ui/icon" "^4.0.0-alpha.4"
+
+"@welcome-ui/system@^4.0.0-alpha.3":
+  version "4.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@welcome-ui/system/-/system-4.0.0-alpha.3.tgz#d1c486329e81054785b75c62bb1e00450c24b60c"
+  integrity sha512-Poqm5CeVeBVpyv2EfcU+pKbNQgXgQJcGUR3krOETzjl1/hG8sRhZIasoHMG5pweSdnDY4F+k3PjxS0EP49vl7g==
+
 "@xstyled/core@^2.2.3":
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-2.2.3.tgz#c156c0656cfc99286524af5643b1b87c3917c3ec"

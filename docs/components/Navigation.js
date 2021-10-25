@@ -24,6 +24,7 @@ const ITEMS = {
     'InputText',
     'Label',
     'MarkdownEditor',
+    'PasswordInput',
     'Picker',
     'RadioGroup',
     'RadioTab',
