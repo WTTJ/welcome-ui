@@ -239,5 +239,6 @@
   "fullscreen_on": "0x1EE",
   "user": "0x1EF",
   "user_outline": "0x1F0",
-  "google": "0x1F1"
+  "google": "0x1F1",
+  "hide": "0x1F2"
 }
