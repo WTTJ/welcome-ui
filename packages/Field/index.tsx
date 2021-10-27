@@ -2,7 +2,7 @@ import React, { forwardRef, Fragment } from 'react'
 import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 import SimpleMDEEditor from 'react-simplemde-editor'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 // Fields
 import { RowContainer } from './layout'
@@ -15,7 +15,7 @@ export interface FieldOptions {
   checked?: boolean
   component: React.ForwardRefRenderFunction<
     HTMLInputElement,
-    Omit<FieldProps, 'component'> & WuiProps
+    CreateWuiProps<'input', Omit<FieldProps, 'component'>>
   >
   connected?: boolean
   disabled?: boolean
@@ -26,7 +26,7 @@ export interface FieldOptions {
   label?: string
   modified?: boolean
   name: string
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onChange: (event: React.MouseEvent<HTMLInputElement>) => void
   onClick?: (event: React.MouseEvent<HTMLInputElement>) => void
   size?: Size
   touched?: boolean
@@ -37,7 +37,7 @@ export interface FieldOptions {
   variant?: VariantReturn
 }
 
-export type FieldProps = FieldOptions & React.HTMLAttributes<HTMLInputElement> & WuiProps
+export type FieldProps = CreateWuiProps<'input', FieldOptions>
 
 export const Field = forwardRef<HTMLInputElement, FieldProps>(
   (

@@ -3,7 +3,9 @@ import { th } from '@xstyled/system'
 import { Box } from '@welcome-ui/box'
 import { system } from '@welcome-ui/system'
 
-export const Wrapper = styled(Box)<{ indent: boolean }>(
+import { TableOptions } from './index'
+
+export const Wrapper = styled(Box)<TableOptions>(
   ({ indent }) => css`
     overflow: hidden;
     width: 100%;

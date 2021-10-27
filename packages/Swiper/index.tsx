@@ -1,7 +1,7 @@
 import React, { cloneElement, forwardRef, useEffect, useMemo, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
 import { useViewportSize } from '@welcome-ui/utils'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import { useInterval } from './use-interval'
 import * as S from './styles'
@@ -45,10 +45,7 @@ export interface SwiperOptions {
   children: React.ReactNode[]
 }
 
-export type SwiperProps = SwiperOptions &
-  UseSwiperState &
-  React.HTMLAttributes<HTMLDivElement> &
-  WuiProps
+export type SwiperProps = CreateWuiProps<'div', SwiperOptions & UseSwiperState>
 
 export const SwiperComponent = forwardRef<HTMLDivElement, SwiperProps>((props, ref) => {
   const {

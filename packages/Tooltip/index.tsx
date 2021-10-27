@@ -10,7 +10,7 @@ import React, {
 import Popper, { Placement } from 'popper.js'
 import { TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import { useDialogState } from 'reakit/Dialog'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -140,7 +140,7 @@ export interface TooltipOptions {
   placement?: PlacementOptions
 }
 
-export type TooltipProps = TooltipOptions & React.HTMLAttributes<HTMLDivElement> & WuiProps
+export type TooltipProps = CreateWuiProps<typeof S.Tooltip, TooltipOptions>
 
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   (props, ref): React.ReactElement => {

@@ -1,12 +1,12 @@
 import React, { cloneElement, forwardRef, useRef, useState } from 'react'
 import {
   TabList as ReakitTabList,
-  TabListProps as ReakitTabListProps,
+  TabListOptions as ReakitTabListOptions,
   TabStateReturn,
 } from 'reakit/Tab'
 import flattenChildren from 'react-flatten-children'
 import { useForkRef } from '@welcome-ui/utils'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import { ActiveBar } from './ActiveBar'
 import * as S from './styles'
@@ -26,10 +26,10 @@ function useTrackActiveTabs(
   return [tabs, activeTab]
 }
 
-export type TabListProps = React.HTMLAttributes<HTMLDivElement> &
-  Pick<TabStateReturn, 'orientation' | 'selectedId'> &
-  ReakitTabListProps &
-  WuiProps
+export type TabListProps = CreateWuiProps<
+  'div',
+  Pick<TabStateReturn, 'orientation' | 'selectedId'> & ReakitTabListOptions
+>
 
 export const TabList = forwardRef<HTMLDivElement, TabListProps>((props, ref) => {
   const { as, children, orientation, ...rest } = props

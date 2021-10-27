@@ -105,8 +105,22 @@ export interface WuiTestProps {
   dataTestId?: string
 }
 
-export interface WuiProps extends SystemProps, WuiTestProps {
-  as?: React.ElementType
-}
+export type WuiProps = SystemProps
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type As<Props = any> = React.ElementType<Props>
+
+export type RightJoinProps<SourceProps, OverrideProps> = Omit<SourceProps, keyof OverrideProps> &
+  OverrideProps
+
+export type MergeProps<ComponentProps, Props, WuiProps> = RightJoinProps<ComponentProps, Props> &
+  RightJoinProps<WuiProps, Props>
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type CreateWuiProps<Component extends As, Props = {}> = MergeProps<
+  React.ComponentProps<Component>,
+  Props,
+  WuiProps & WuiTestProps & { as?: As }
+>
 
 export type ExtraSize = number | string

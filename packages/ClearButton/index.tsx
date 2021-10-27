@@ -1,10 +1,14 @@
 import React from 'react'
 import { CrossIcon } from '@welcome-ui/icons.cross'
-import { ButtonProps } from '@welcome-ui/button'
+import { Button, ButtonOptions } from '@welcome-ui/button'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type ClearButtonProps = Omit<ButtonProps, 'shape' | 'title' | 'variant'>
+export type ClearButtonProps = CreateWuiProps<
+  typeof Button,
+  Omit<ButtonOptions, 'shape' | 'title' | 'variant'>
+>
 
 export const ClearButton: React.FC<ClearButtonProps> = ({ size = 'xs', ...rest }) => (
   <S.ClearButton shape="circle" size={size} title="Clear" variant="tertiary" {...rest}>
