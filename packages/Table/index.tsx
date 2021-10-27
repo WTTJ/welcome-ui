@@ -1,5 +1,5 @@
 import React from 'react'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -8,11 +8,11 @@ export interface TableOptions {
   indent?: boolean
 }
 
-export type TableProps = TableOptions & WuiProps
+export type TableProps = CreateWuiProps<'div', TableOptions>
 
 export const TableComponent: React.FC<TableProps> = ({ children, indent, ...rest }) => {
   return (
-    <S.Wrapper indent={indent && indent.toString()} {...rest}>
+    <S.Wrapper indent={indent} {...rest}>
       <S.Content>
         <S.Table>{children}</S.Table>
       </S.Content>

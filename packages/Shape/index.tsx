@@ -1,5 +1,5 @@
-import { WuiProps } from '@welcome-ui/system'
 import React, { forwardRef } from 'react'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -9,7 +9,7 @@ export interface ShapeOptions {
   shape: Shape
 }
 
-export type ShapeProps = ShapeOptions & React.HTMLAttributes<HTMLDivElement> & WuiProps
+export type ShapeProps = CreateWuiProps<'div', ShapeOptions>
 
 export const Shape = forwardRef<HTMLDivElement, ShapeProps>(
   ({ children, dataTestId, shape, ...rest }, ref) => (

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { CrossIcon } from '@welcome-ui/icons.cross'
 import { wrapChildren } from '@welcome-ui/utils'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -31,7 +31,7 @@ export interface TagOptions {
   shape?: Shape
 }
 
-export type TagProps = TagOptions & React.HTMLAttributes<HTMLDivElement> & WuiProps
+export type TagProps = CreateWuiProps<'div', TagOptions>
 
 export const Tag = forwardRef<HTMLDivElement, TagProps>(
   ({ children, dataTestId, onRemove, shape, size = 'md', variant = 'default', ...rest }, ref) => {

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { Box } from '@welcome-ui/box'
-import { ExtraSize, WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, ExtraSize } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -11,7 +11,7 @@ export interface LoaderOptions {
   size?: Size
 }
 
-export type LoaderProps = LoaderOptions & React.HTMLAttributes<HTMLDivElement> & WuiProps
+export type LoaderProps = CreateWuiProps<'div', LoaderOptions>
 
 export const Loader = forwardRef<HTMLDivElement, LoaderProps>(
   ({ color, dataTestId, size = 'sm', ...rest }, ref) => (

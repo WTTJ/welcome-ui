@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { Variant, VariantIcon } from '@welcome-ui/variant-icon'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -9,7 +9,7 @@ export interface HintOptions {
   variant?: Variant
 }
 
-export type HintProps = HintOptions & React.HTMLAttributes<HTMLDivElement> & WuiProps
+export type HintProps = CreateWuiProps<'div', HintOptions>
 
 export const Hint = forwardRef<HTMLDivElement, HintProps>(
   ({ checkableField, children, dataTestId, variant, ...rest }, ref) => {
