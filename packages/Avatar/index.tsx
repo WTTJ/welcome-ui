@@ -1,8 +1,9 @@
 import React, { memo } from 'react'
 import { Box } from '@welcome-ui/box'
-import { ShapeProps } from '@welcome-ui/shape'
+import { ShapeOptions } from '@welcome-ui/shape'
 import { useTheme } from '@xstyled/styled-components'
 import { WuiTheme } from '@welcome-ui/core'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import { getInitials as defaultGetInitials, getSeededColor } from './utils'
 import * as S from './styles'
@@ -18,7 +19,7 @@ export interface AvatarOptions {
   src?: string
 }
 
-export type AvatarProps = AvatarOptions & ShapeProps
+export type AvatarProps = CreateWuiProps<'div', AvatarOptions & ShapeOptions>
 
 export const Avatar: React.FC<AvatarProps> = memo(function Avatar({
   color,

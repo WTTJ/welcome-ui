@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { system } from '@welcome-ui/system'
 
-import { Variant } from './index'
+import { TextOptions } from './index'
 
 const getBlockHeight = (lines: number) => css`
   /* stylelint-disable-next-line value-no-vendor-prefix */
@@ -16,7 +16,7 @@ const getBlockHeight = (lines: number) => css`
   word-break: ${lines === 1 ? 'break-all' : null};
 `
 
-export const Text = styled.p<{ lines: number; variant: Variant }>(
+export const Text = styled.p<TextOptions>(
   ({ lines, variant }) => css`
     ${th(`texts.${variant}`)};
 

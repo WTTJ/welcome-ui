@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -11,7 +11,7 @@ export interface CheckboxOptions {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export type CheckboxProps = CheckboxOptions & React.HTMLAttributes<HTMLInputElement> & WuiProps
+export type CheckboxProps = CreateWuiProps<'input', CheckboxOptions>
 
 const CheckboxComponent = forwardRef<HTMLInputElement, CheckboxProps>(
   (

@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { createEvent } from '@welcome-ui/utils'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -28,7 +28,7 @@ export interface InputTextOptions {
   variant?: Variant
 }
 
-export type InputTextProps = InputTextOptions & React.HTMLAttributes<HTMLInputElement> & WuiProps
+export type InputTextProps = CreateWuiProps<'input', InputTextOptions>
 
 export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
   (

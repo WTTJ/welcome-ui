@@ -1,5 +1,6 @@
-import React, { Children, cloneElement, forwardRef, HTMLAttributes } from 'react'
+import React, { Children, cloneElement, forwardRef } from 'react'
 import { ClearButton } from '@welcome-ui/clear-button'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import { Title } from './Title'
 import * as S from './styles'
@@ -12,7 +13,7 @@ export interface GrowlOptions {
   onClose: () => void
 }
 
-export type GrowlProps = HTMLAttributes<HTMLDivElement> & GrowlOptions
+export type GrowlProps = CreateWuiProps<'div', GrowlOptions>
 
 export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
   ({ children, closeButtonDataTestId, onClose, variant = 'info' }, ref) => {

@@ -8,13 +8,14 @@ import {
 } from 'reakit/Dialog'
 import { DisclosureActions } from 'reakit/Disclosure'
 import { Text } from '@welcome-ui/text'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 import { Close } from './Close'
 
 export type Size = 'sm' | 'md' | 'lg' | 'auto'
 
-export interface ModalProps {
+export interface ModalOptions {
   ariaLabel: string
   closeElement?: React.ElementType
   hide?: DisclosureActions['hide']
@@ -22,6 +23,8 @@ export interface ModalProps {
   onClose?: () => void
   size?: Size
 }
+
+export type ModalProps = CreateWuiProps<'div', ModalOptions>
 
 export function useModalState(options?: DialogInitialState): DialogStateReturn {
   return useDialogState({ animated: true, ...options })

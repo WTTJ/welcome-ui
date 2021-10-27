@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Box } from '@welcome-ui/box'
 import Bowser from 'bowser'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 const EMOJI_PATH = 'https://cdn.welcome-ui.com/emojis/'
 
@@ -20,7 +20,7 @@ export interface EmojiOptions {
   width?: number
 }
 
-export type EmojiProps = EmojiOptions & React.HTMLAttributes<HTMLImageElement> & WuiProps
+export type EmojiProps = CreateWuiProps<'img', EmojiOptions>
 
 export const Emoji: React.FC<EmojiProps> = ({
   emoji,
@@ -50,9 +50,7 @@ export const Emoji: React.FC<EmojiProps> = ({
         isLarge ? 'originals/' : ''
       }${encodeURIComponent(emojiName)}.png`
 
-  return (
-    <Box alt={alt} as="img" height={size || height} src={src} width={size || width} {...rest} />
-  )
+  return <Box alt={alt} as="img" h={size || height} src={src} w={size || width} {...rest} />
 }
 
 export const getEmojiName = (alias: string): string => alias?.replace?.(/:/g, '')

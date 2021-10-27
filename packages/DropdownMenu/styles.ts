@@ -1,6 +1,5 @@
 import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { system } from '@welcome-ui/system'
 import { cardStyles } from '@welcome-ui/utils'
 import { Box } from '@welcome-ui/box'
 
@@ -18,6 +17,4 @@ export const Inner = styled(Box)`
   &[hidden] {
     display: none;
   }
-
-  ${system}
 `
