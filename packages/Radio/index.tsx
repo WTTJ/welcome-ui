@@ -1,17 +1,18 @@
 import React, { forwardRef } from 'react'
-import { LabelProps } from '@welcome-ui/label'
-import { WuiProps } from '@welcome-ui/system'
+import { LabelOptions } from '@welcome-ui/label'
+import { CreateWuiProps } from '@welcome-ui/system'
+import { Radio as ReakitRadio } from 'reakit/Radio'
 
 import * as S from './styles'
 
 export interface RadioOptions {
   hint?: string
   label: string
-  onChange?: (event: React.ChangeEvent<HTMLLabelElement>) => void
+  onChange?: (event: React.MouseEvent<HTMLLabelElement>) => void
   onClick?: (event: React.MouseEvent<HTMLLabelElement>) => void
 }
 
-export type RadioProps = RadioOptions & LabelProps & WuiProps
+export type RadioProps = CreateWuiProps<typeof ReakitRadio, RadioOptions & LabelOptions>
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
   (

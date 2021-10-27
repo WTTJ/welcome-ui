@@ -11,7 +11,7 @@ import React, {
 import { clamp, throttle } from '@welcome-ui/utils'
 import { ResizeObserver } from '@juggle/resize-observer'
 import { RightIcon } from '@welcome-ui/icons.right'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 import { WuiTheme } from '@welcome-ui/core'
 
 import { Item } from './Item'
@@ -27,7 +27,7 @@ export interface BreadcrumbOptions {
   separator?: string | React.ReactNode
 }
 
-export type BreadcrumbProps = BreadcrumbOptions & WuiProps
+export type BreadcrumbProps = CreateWuiProps<'div', BreadcrumbOptions>
 
 interface Entry {
   target: HTMLElement

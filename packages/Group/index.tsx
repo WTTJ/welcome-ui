@@ -1,5 +1,5 @@
 import React, { Children, cloneElement } from 'react'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 import { Button, ButtonProps, Size, Variant } from '@welcome-ui/button'
 
 import * as S from './styles'
@@ -13,7 +13,7 @@ export interface GroupOptions {
   variant?: Variant
 }
 
-export type GroupProps = GroupOptions & WuiProps
+export type GroupProps = CreateWuiProps<'div', GroupOptions>
 
 export const Group: React.FC<GroupProps> = ({ children, dataTestId, disabled, size, variant }) => {
   function setGlobalProps(children: ChildrenProps) {

@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -22,7 +22,7 @@ export interface IconOptions {
   onClick?: (event: React.MouseEvent<SVGSVGElement>) => void
 }
 
-export type IconProps = IconOptions & WuiProps
+export type IconProps = CreateWuiProps<'svg', IconOptions>
 
 export const Icon = forwardRef<SVGSVGElement, IconProps>(
   ({ content, dataTestId, size = 'md', title, ...props }, ref) => {

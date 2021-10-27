@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -8,6 +8,7 @@ export type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
 
 export interface TextareaOptions {
   autoFocus?: boolean
+  connected?: boolean
   disabled?: boolean
   maxLength?: number
   minRows?: number
@@ -22,7 +23,7 @@ export interface TextareaOptions {
   variant?: Variant
 }
 
-export type TextareaProps = TextareaOptions & React.HTMLAttributes<HTMLParagraphElement> & WuiProps
+export type TextareaProps = CreateWuiProps<'textarea', TextareaOptions>
 
 const TextareaComponent = forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
@@ -50,7 +51,6 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, TextareaProps>(
       data-testid={dataTestId}
       disabled={disabled}
       maxLength={maxLength}
-      minRows={minRows}
       name={name}
       onBlur={onBlur}
       onChange={onChange}
@@ -58,6 +58,7 @@ const TextareaComponent = forwardRef<HTMLTextAreaElement, TextareaProps>(
       onKeyDown={onKeyDown}
       placeholder={placeholder}
       ref={ref}
+      rows={minRows}
       size={size}
       value={value}
       variant={variant}

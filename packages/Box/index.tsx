@@ -1,4 +1,5 @@
 import styled from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import { CreateWuiProps, shouldForwardProp } from '@welcome-ui/system'
 
-export const Box = styled.box.withConfig({ shouldForwardProp })``
+export type BoxProps = CreateWuiProps<'div'>
+export const Box: React.FC<BoxProps> = styled.box.withConfig({ shouldForwardProp })``

@@ -2,7 +2,7 @@ import React, { forwardRef, useCallback, useRef } from 'react'
 import { Rover, useRoverState } from 'reakit/Rover'
 import { LeftIcon } from '@welcome-ui/icons.left'
 import { RightIcon } from '@welcome-ui/icons.right'
-import { WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import { usePages } from './utils'
 import * as S from './styles'
@@ -18,7 +18,7 @@ export interface PaginationOptions {
   rightArrow?: React.ReactElement
 }
 
-export type PaginationProps = PaginationOptions & WuiProps
+export type PaginationProps = CreateWuiProps<'ul', PaginationOptions>
 
 export const Pagination = forwardRef<HTMLUListElement, PaginationProps>(
   (
