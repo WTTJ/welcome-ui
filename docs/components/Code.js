@@ -41,6 +41,7 @@ import { Loader } from '@welcome-ui/loader'
 import { MarkdownEditor } from '@welcome-ui/markdown-editor'
 import * as Modal from '@welcome-ui/modal'
 import { Pagination } from '@welcome-ui/pagination'
+import { PasswordInput } from '@welcome-ui/password-input'
 import { Picker } from '@welcome-ui/picker'
 import * as Popover from '@welcome-ui/popover'
 import { Radio } from '@welcome-ui/radio'
@@ -167,6 +168,7 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
       MarkdownEditor,
       ...Modal,
       Pagination,
+      PasswordInput,
       Picker,
       ...Popover,
       NextLink,

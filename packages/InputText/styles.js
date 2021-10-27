@@ -4,19 +4,27 @@ import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 export const InputText = styled('input').withConfig({ shouldForwardProp })(
-  ({ connected, icon, iconPlacement, isClearable, size, ...rest }) => css`
+  ({ connected, icon, iconPlacement, isClearable, size }) => css`
     ${defaultFieldStyles};
     text-overflow: ellipsis;
 
+    /* With icon */
     ${icon &&
       iconPlacement === 'left' &&
       css`
-        padding-left: ${icon ? th(`defaultFields.sizes.${size}.height`)(rest) : null};
-      `}
-    ${((icon && iconPlacement === 'right') || isClearable) &&
+        padding-left: ${th(`defaultFields.sizes.${size}.height`)};
+      `};
+    ${icon &&
+      iconPlacement === 'right' &&
       css`
-        padding-right: ${icon ? th(`defaultFields.sizes.${size}.height`)(rest) : null};
-      `}
+        padding-right: ${th(`defaultFields.sizes.${size}.height`)};
+      `};
+
+    /* With clear button */
+    ${isClearable &&
+      css`
+        padding-right: ${th(`defaultFields.sizes.${size}.height`)};
+      `};
 
     ${connected ? componentSystem : system};
   `
