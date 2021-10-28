@@ -36,5 +36,5 @@ export const PasswordInput = forwardRef(({ dataTestId, title, ...rest }, ref) =>
 PasswordInput.displayName = 'PasswordInput'
 
 PasswordInput.propTypes = {
-  title: string
+  title: string,
 }
