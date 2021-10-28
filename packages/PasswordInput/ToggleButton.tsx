@@ -1,10 +1,21 @@
 import React from 'react'
-import { bool, func, string } from 'prop-types'
 import { EyeIcon } from '@welcome-ui/icons.eye'
 import { HideIcon } from '@welcome-ui/icons.hide'
 import { Button } from '@welcome-ui/button'
+import { CreateWuiProps } from '@welcome-ui/system'
 
-export function ToggleButton({ dataTestId, isHidden, onClick, title }) {
+interface ToggleButtonOptions {
+  isHidden: boolean
+}
+
+type ToggleButtonProps = CreateWuiProps<typeof Button, ToggleButtonOptions>
+
+export const ToggleButton: React.FC<ToggleButtonProps> = ({
+  dataTestId,
+  isHidden,
+  onClick,
+  title,
+}) => {
   return (
     <Button
       aria-controls="password"
@@ -19,10 +30,4 @@ export function ToggleButton({ dataTestId, isHidden, onClick, title }) {
       {isHidden ? <EyeIcon /> : <HideIcon />}
     </Button>
   )
-}
-
-ToggleButton.propTypes = {
-  isHidden: bool,
-  onClick: func,
-  title: string,
 }
