@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.11.0](https://github.com/WTTJ/welcome-ui/compare/v3.10.0...v3.11.0) (2021-11-02)
+
+**Note:** Version bump only for package @welcome-ui/field-group
+
+
+
+
+
 ## [3.4.3](https://github.com/WTTJ/welcome-ui/compare/v3.4.2...v3.4.3) (2021-04-28)
 
 **Note:** Version bump only for package @welcome-ui/field-group

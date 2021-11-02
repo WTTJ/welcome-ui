@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.11.0](https://github.com/WTTJ/welcome-ui/compare/v3.10.0...v3.11.0) (2021-11-02)
+
+
+### Bug Fixes
+
+*  add proptypes for  size ([3322b1f](https://github.com/WTTJ/welcome-ui/commit/3322b1f4e3a31fba9f62b35c8c575dd39d5a7957))
+
+
+### Features
+
+* add tiny size for tag component ([fe82a9a](https://github.com/WTTJ/welcome-ui/commit/fe82a9a2bb92c51d4fdc2d7b7bb08300b568f919))
+
+
+
+
+
 # [3.9.0](https://github.com/WTTJ/welcome-ui/compare/v3.8.4...v3.9.0) (2021-10-13)
 
 
