@@ -6,8 +6,8 @@ import { defaultFieldStyles } from '@welcome-ui/utils'
 import { InputTextOptions } from './index'
 
 export const InputText = styled('input').withConfig({ shouldForwardProp })<InputTextOptions>(
-  ({ connected, icon, iconPlacement, isClearable, size }) => css`
-    ${defaultFieldStyles({})};
+  ({ connected, icon, iconPlacement, isClearable, size, variant }) => css`
+    ${defaultFieldStyles({ size, variant })};
     text-overflow: ellipsis;
 
     /* With icon */

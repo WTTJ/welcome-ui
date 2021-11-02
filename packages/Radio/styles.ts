@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
-import { defaultFieldStyles } from '@welcome-ui/utils'
+import { defaultFieldStyles, Variant } from '@welcome-ui/utils'
 import { Hint as HintWUI } from '@welcome-ui/hint'
 import { Label as WUILabel } from '@welcome-ui/label'
 import { Radio as ReakitRadio } from 'reakit/Radio'
@@ -10,9 +10,10 @@ import { th } from '@xstyled/system'
 export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })<{
   connected?: boolean
   order?: string
+  variant?: Variant
 }>(
-  ({ connected, order = '-1', theme }) => css`
-    ${defaultFieldStyles({})};
+  ({ connected, order = '-1', size, theme, variant }) => css`
+    ${defaultFieldStyles({ size, variant })};
     ${th('radios.default')}
     position: relative;
     padding: 0;
