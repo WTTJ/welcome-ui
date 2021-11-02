@@ -6,7 +6,7 @@ import { CreateWuiProps } from '@welcome-ui/system'
 import * as S from './styles'
 
 export type Shape = 'circle' | 'square'
-export type Size = 'sm' | 'md' | 'lg'
+export type Size = 'xs' | 'sm' | 'md' | 'lg'
 export type Variant =
   | '1'
   | '2'

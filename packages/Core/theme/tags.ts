@@ -47,7 +47,7 @@ type Variant =
   | '6'
   | '7'
 
-type Size = 'sm' | 'md' | 'lg'
+type Size = 'xs' | 'sm' | 'md' | 'lg'
 
 export type ThemeTags = {
   default: CommonAttributesTag
@@ -139,7 +139,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
       xs: {
         padding: `0 ${space.xxs}`,
         height: sizes.xs,
-        fontSize: toRem(10)
+        fontSize: toRem(10),
       },
       sm: {
         padding: `0 ${space.xxs}`,
@@ -159,7 +159,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
     shape: {
       xs: {
         width: sizes.xs,
-        height: sizes.xs
+        height: sizes.xs,
       },
       sm: {
         width: sizes.sm,
