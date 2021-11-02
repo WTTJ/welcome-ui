@@ -1,13 +1,12 @@
 import React, { forwardRef } from 'react'
 import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
-import { createEvent } from '@welcome-ui/utils'
+import { createEvent, Variant } from '@welcome-ui/utils'
 import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
 type Size = 'sm' | 'md' | 'lg'
-type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
 
 export interface InputTextOptions {
   autoFocus?: boolean
