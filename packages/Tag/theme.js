@@ -4,6 +4,7 @@ export const getTags = theme => {
   const { borderWidths, colors, fontSizes, fontWeights, space, toRem } = theme
 
   const sizes = {
+    xs: toRem(17),
     sm: toRem(22),
     md: toRem(28),
     lg: toRem(34)
@@ -79,6 +80,11 @@ export const getTags = theme => {
       7: { ...withoutVisibleBorder(colors.sub[7]) }
     },
     sizes: {
+      xs: {
+        padding: `0 ${space.xxs}`,
+        height: sizes.xs,
+        fontSize: toRem(10)
+      },
       sm: {
         padding: `0 ${space.xxs}`,
         height: sizes.sm,
@@ -95,6 +101,10 @@ export const getTags = theme => {
       }
     },
     shape: {
+      xs: {
+        width: sizes.xs,
+        height: sizes.xs
+      },
       sm: {
         width: sizes.sm,
         height: sizes.sm

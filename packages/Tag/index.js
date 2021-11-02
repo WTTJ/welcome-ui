@@ -43,7 +43,7 @@ Tag.propTypes /* remove-proptypes */ = {
   children: node,
   onRemove: func,
   shape: oneOf(SHAPES_TYPE),
-  size: oneOf(SIZES_TYPE),
+  size: oneOf(['xs', ...SIZES_TYPE]),
   variant: oneOf([
     '1',
     '2',
