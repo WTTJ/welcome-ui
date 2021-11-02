@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/group",
-  "version": "4.0.0-alpha.4",
+  "version": "4.0.0-alpha.6",
   "description": "welcome-ui: A Group component",
   "main": "dist/group.cjs.js",
   "module": "dist/group.es.js",
@@ -37,7 +37,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^4.0.0-alpha.3"
+    "@welcome-ui/system": "^4.0.0-alpha.6"
   },
   "peerDependencies": {
     "@welcome-ui/button": "^4.0.0-alpha.3",
