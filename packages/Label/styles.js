@@ -6,6 +6,7 @@ import { shouldForwardProp } from '@welcome-ui/system'
 
 export const Label = styled('label').withConfig({ shouldForwardProp })(
   ({ required }) => css`
+    position: relative;
     display: flex;
     flex-shrink: 0;
     align-items: flex-start;
