@@ -4,12 +4,12 @@
   "main": "dist/icons.google.cjs.js",
   "module": "dist/icons.google.es.js",
   "types": "dist/index.d.ts",
-  "version": "3.9.0",
+  "version": "4.0.0-alpha.6",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^4.0.0-alpha.4"
+    "@welcome-ui/icon": "^4.0.0-alpha.6"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",
