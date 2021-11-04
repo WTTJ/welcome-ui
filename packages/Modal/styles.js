@@ -1,4 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css, up } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Box } from '@welcome-ui/box'
 import { cardStyles } from '@welcome-ui/utils'
@@ -33,17 +33,17 @@ export const Backdrop = styled(DialogBackdrop).withConfig({
 )
 
 export const Dialog = styled(ReakitDialog)(
-  ({ size, theme }) => css`
+  ({ size }) => css`
     ${cardStyles};
     ${th('modals.default')};
-    ${th(`modals.sizes.${size}`)};
     position: relative;
     display: flex;
     flex-direction: column;
     margin-top: 20;
     opacity: 0;
-    max-height: calc(100% - ${theme.toRem(20)});
-    max-width: calc(100% - ${theme.toRem(20)});
+    height: 100%;
+    width: 100%;
+
     transition: opacity 250ms ease-in-out, margin-top 250ms ease-in-out;
     cursor: auto;
 
@@ -56,6 +56,14 @@ export const Dialog = styled(ReakitDialog)(
       opacity: 1;
       margin-top: 0;
     }
+
+    ${up(
+      'md',
+      css`
+        height: auto;
+        ${th(`modals.sizes.${size}`)};
+      `
+    )}
   `
 )
 
