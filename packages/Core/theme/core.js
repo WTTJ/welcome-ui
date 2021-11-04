@@ -31,6 +31,7 @@ import { getRadios } from '../../Radio/theme'
 import { getHints } from '../../Hint/theme'
 import { getRadioTabs } from '../../RadioTab/theme'
 import { getPopovers } from '../../Popover/theme'
+import { getCloseButton } from '../../CloseButton/theme'
 
 import { colors } from './colors'
 import { fontFaces } from './fonts'
@@ -159,6 +160,7 @@ export const createTheme = (options = {}) => {
   theme.alerts = getAlerts(theme)
   theme.avatars = getAvatars(theme)
   theme.buttons = getButtons(theme)
+  theme.closeButton = getCloseButton(theme)
   theme.breadcrumbs = getBreadcrumbs(theme)
   // TODO: should be removed when all fields have been migrated to their own packageName/theme.js file
   theme.toasts = getToasts(theme)

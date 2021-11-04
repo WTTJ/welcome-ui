@@ -1,6 +1,6 @@
-import { ClearButton } from '@welcome-ui/clear-button'
+import { CloseButton } from '@welcome-ui/close-button'
 import React from 'react'
 
 export function Close(props) {
-  return <ClearButton position="absolute" right={10} top={10} zIndex="1" {...props} />
+  return <CloseButton position="absolute" right={20} top={20} zIndex="1" {...props} />
 }

@@ -2,7 +2,7 @@ import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import { cardStyles } from '@welcome-ui/utils'
-import { ClearButton } from '@welcome-ui/clear-button'
+import { CloseButton } from '@welcome-ui/close-button'
 
 export const Backdrop = styled(Box)(
   ({ isClickable }) => css`
@@ -115,7 +115,7 @@ export const Drawer = styled(Box)(
   `
 )
 
-export const Close = styled(ClearButton)`
+export const Close = styled(CloseButton)`
   ${th('drawers.closeButton')};
   position: absolute;
 `

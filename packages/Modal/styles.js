@@ -68,7 +68,7 @@ export const Dialog = styled(ReakitDialog)(
 )
 
 export const Content = styled(Box)`
-  padding: xxl;
+  padding: 50;
   flex: 1;
   overflow-y: auto;
 `
@@ -80,6 +80,7 @@ export const Cover = styled(Shape)`
 export const Title = styled(Box)`
   ${th('modals.title')};
   width: 100%;
+  padding: xxl 50 xxl xxl;
 `
 
 export const Footer = styled(Box)`
