@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.12.0](https://github.com/WTTJ/welcome-ui/compare/v3.11.0...v3.12.0) (2021-11-08)
+
+
+### Features
+
+*  add close button on modal and drawer ([#952](https://github.com/WTTJ/welcome-ui/issues/952)) ([40a26d9](https://github.com/WTTJ/welcome-ui/commit/40a26d9a540dcbbdce16e61f80740fe7428a1f70))
+* full screen modal on mobile ([#951](https://github.com/WTTJ/welcome-ui/issues/951)) ([3b11aab](https://github.com/WTTJ/welcome-ui/commit/3b11aabdf86aa4429485b8bd99f95a0202172044))
+
+
+
+
+
 ## [3.8.4](https://github.com/WTTJ/welcome-ui/compare/v3.8.3...v3.8.4) (2021-09-15)
 
 
