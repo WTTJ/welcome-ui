@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.1](https://github.com/WTTJ/welcome-ui/compare/v3.12.0...v3.12.1) (2021-11-09)
+
+
+### Bug Fixes
+
+* close button dependency for modal and drawer ([#954](https://github.com/WTTJ/welcome-ui/issues/954)) ([6889f1c](https://github.com/WTTJ/welcome-ui/commit/6889f1c146d11dd323856b49adbf4fff121c2817))
+
+
+
+
+
 # [3.12.0](https://github.com/WTTJ/welcome-ui/compare/v3.11.0...v3.12.0) (2021-11-08)
 
 
