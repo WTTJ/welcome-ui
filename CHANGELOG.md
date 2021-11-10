@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/WTTJ/welcome-ui/compare/v3.12.1...v3.13.0) (2021-11-10)
+
+
+### Features
+
+* change modal defaults sizes ([#955](https://github.com/WTTJ/welcome-ui/issues/955)) ([7eb7afe](https://github.com/WTTJ/welcome-ui/commit/7eb7afedc07b3a2ca239e50d30a2010fed2b9509))
+
+
+
+
+
 ## [3.12.1](https://github.com/WTTJ/welcome-ui/compare/v3.12.0...v3.12.1) (2021-11-09)
 
 
