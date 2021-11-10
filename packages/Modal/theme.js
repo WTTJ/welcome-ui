@@ -26,13 +26,13 @@ export const getModals = theme => {
     gutter: toRem(32),
     sizes: {
       sm: {
-        width: toRem(400)
+        width: toRem(450)
       },
       md: {
-        width: toRem(550)
+        width: toRem(600)
       },
       lg: {
-        width: toRem(680)
+        width: toRem(730)
       },
       auto: {}
     },
