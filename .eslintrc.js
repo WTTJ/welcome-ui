@@ -17,6 +17,7 @@ const local = {
             unnamedComponents: 'arrow-function',
           },
         ],
+        'react/no-unstable-nested-components': ['warn', { allowAsProps: true }],
       },
     },
   ],

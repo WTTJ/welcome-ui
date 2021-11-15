@@ -13,9 +13,12 @@ import { XlsIcon } from '@welcome-ui/icons.xls'
 import { XlsxIcon } from '@welcome-ui/icons.xlsx'
 import { ZipIcon } from '@welcome-ui/icons.zip'
 
+import { IconProps } from '../Icon'
+
 import { types } from './types'
 
 export type FileType = string | File
+export type ForceFileType = 'image' | 'audio' | 'video'
 
 function removeQueryString(name: string): string {
   return name.split('?')[0]
@@ -42,7 +45,7 @@ export function getFileSize(file: File): string {
   return file.size ? formatBytes(file.size, 0) : null
 }
 
-export function getFileIcon(file: FileType, forceFileType?: 'image' | 'audio' | 'video'): React.FC {
+export function getFileIcon(file: FileType, forceFileType?: ForceFileType): React.FC<IconProps> {
   const mimeType = getMimeType(file)
 
   if (!forceFileType && !mimeType) {
