@@ -1,9 +1,9 @@
 {
-  "name": "@welcome-ui/icons.mansanory",
+  "name": "@welcome-ui/icons.masonry",
   "sideEffects": false,
-  "main": "dist/icons.mansanory.cjs.js",
-  "module": "dist/icons.mansanory.es.js",
-  "version": "3.0.0",
+  "main": "dist/icons.masonry.cjs.js",
+  "module": "dist/icons.masonry.es.js",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
