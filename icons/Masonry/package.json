@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.masonry.cjs.js",
   "module": "dist/icons.masonry.es.js",
-  "version": "1.0.0",
+  "version": "3.13.1",
   "publishConfig": {
     "access": "public"
   },

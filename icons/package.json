@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/icons",
-  "version": "3.9.0",
+  "version": "3.13.1",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/icons.cjs.js",
   "module": "dist/icons.es.js",
@@ -169,7 +169,7 @@
     "@welcome-ui/icons.log_out": "^3.0.0",
     "@welcome-ui/icons.male": "^3.4.0",
     "@welcome-ui/icons.map": "^3.0.0",
-    "@welcome-ui/icons.masonry": "^1.0.0",
+    "@welcome-ui/icons.masonry": "^3.13.1",
     "@welcome-ui/icons.megaphone": "^3.0.0",
     "@welcome-ui/icons.mention": "^3.4.0",
     "@welcome-ui/icons.menu": "^3.4.0",
