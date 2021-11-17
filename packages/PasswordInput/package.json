@@ -39,7 +39,8 @@
     "@welcome-ui/button": "^4.0.0-alpha.6",
     "@welcome-ui/icons.eye": "^4.0.0-alpha.6",
     "@welcome-ui/icons.hide": "^4.0.0-alpha.6",
-    "@welcome-ui/input-text": "^4.0.0-alpha.6"
+    "@welcome-ui/input-text": "^4.0.0-alpha.6",
+    "@welcome-ui/system": "^4.0.0-alpha.6"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.0.1",
