@@ -25,7 +25,7 @@ export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 export type SelectValue = string
 
-export interface Props {
+export interface SelectOptions {
   autoComplete: string
   autoFocus: boolean
   dataTestId: string
@@ -62,8 +62,9 @@ export interface Props {
   renderGroupHeader: (option: OptionGroup) => void
 }
 
-export type SelectProps = Props & WuiProps & DownshiftProps<Option>
+export type SelectProps = SelectOptions & WuiProps & DownshiftProps<Option>
 
+/** We need to add autoComplete off to avoid select UI issues when is an input */
 export const SelectInner = (
   {
     autoComplete = 'off',
