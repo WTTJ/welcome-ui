@@ -7,8 +7,8 @@ import Downshift, {
 import { matchSorter } from 'match-sorter'
 import { DownIcon } from '@welcome-ui/icons.down'
 import { ClearButton } from '@welcome-ui/clear-button'
+import { CreateWuiProps } from '@welcome-ui/system'
 import { createEvent, CreateEvent, Variant } from '@welcome-ui/utils'
-import { WuiProps } from 'System'
 
 import { kebabCase, OptionGroup, OptionItem, Options } from './utils'
 import { multipleSelections } from './multipleSelections'
@@ -60,7 +60,7 @@ export interface SelectOptions {
   renderGroupHeader: (option: OptionGroup) => void
 }
 
-export type SelectProps = SelectOptions & WuiProps & DownshiftProps<Option>
+export type SelectProps = CreateWuiProps<typeof Downshift, SelectOptions & DownshiftProps<Option>>
 
 /** We need to add autoComplete off to avoid select UI issues when is an input */
 export const SelectInner = (
