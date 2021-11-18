@@ -1,5 +1,9 @@
 import React, { forwardRef, Fragment, useEffect, useMemo, useState } from 'react'
-import Downshift, { ControllerStateAndHelpers, DownshiftProps } from 'downshift'
+import Downshift, {
+  ControllerStateAndHelpers,
+  DownshiftProps,
+  GetRootPropsOptions,
+} from 'downshift'
 import { matchSorter } from 'match-sorter'
 import { DownIcon } from '@welcome-ui/icons.down'
 import { ClearButton } from '@welcome-ui/clear-button'
@@ -269,7 +273,7 @@ export const SelectInner = (
           setIsOpen(!isOpen)
         }
 
-        const rootProps = getRootProps({ refKey: '', ...rest })
+        const rootProps = getRootProps(rest as GetRootPropsOptions)
         const inputProps = getInputProps({
           autoComplete,
           autoFocus,

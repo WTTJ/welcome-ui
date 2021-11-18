@@ -49,7 +49,7 @@ export const SOCIAL_OPT_GROUP = [
   },
 ]
 
-test.skip('<Select> accepts falsy option values (such as 0)', () => {
+test('<Select> accepts falsy option values (such as 0)', () => {
   const { getByTestId } = render(
     <Form initialValues={{ select: 0 }} validate={false}>
       <ConnectedField
@@ -250,7 +250,7 @@ test('<Select isMultiple> can select multiple items', () => {
   expect(formValues.select).toStrictEqual(['february', 'march', 'april'])
 })
 
-test.skip('<Select> can accept value, label or object as value', () => {
+test('<Select> can accept value, label or object as value', () => {
   const { getAllByRole, getByRole, getByTestId } = render(
     <Form
       initialValues={{ select: [{ label: 'January', value: 'january' }, 'february', 'March'] }}
@@ -410,7 +410,7 @@ test('<Select isSearchable> filters results', () => {
 
   fireEvent.click(options[1])
   const formValues = getFormValues(getByTestId('values'))
-  expect(select.value).toBe('November')
+  expect((select as HTMLInputElement).value).toBe('November')
   expect(formValues.select).toStrictEqual('november')
 })
 
@@ -435,7 +435,7 @@ test("<Select isSearchable> doesn't show list if no results", () => {
   expect(options).toBeNull()
 })
 
-test.skip('<Select isCreatable> can create new items', () => {
+test('<Select isCreatable> can create new items', () => {
   const handleCreate = jest.fn()
 
   const firstItem = { label: 'Kayab', value: 'kayab' }
@@ -475,7 +475,7 @@ test.skip('<Select isCreatable> can create new items', () => {
   )
 
   // Expect content to be new item
-  expect(select.value).toBe(firstItem.label)
+  expect((select as HTMLInputElement).value).toBe(firstItem.label)
 
   // Expect form values to have new item
   let formValues = getFormValues(getByTestId('values'))
@@ -485,7 +485,7 @@ test.skip('<Select isCreatable> can create new items', () => {
   // Type again in search box
   userEvent.clear(select)
   userEvent.type(select, secondItem.label)
-  expect(select.value).toBe(secondItem.label)
+  expect((select as HTMLInputElement).value).toBe(secondItem.label)
 
   option = getByRole('listbox').querySelector('li')
   expect(option).toHaveTextContent(`Create "${secondItem.label}"`)
@@ -501,7 +501,7 @@ test.skip('<Select isCreatable> can create new items', () => {
   )
 
   // Expect content to be new item
-  expect(select.value).toBe(secondItem.label)
+  expect((select as HTMLInputElement).value).toBe(secondItem.label)
 
   // Expect form values to have new item
   formValues = getFormValues(getByTestId('values'))
@@ -552,7 +552,7 @@ test('<Select isCreatable isMultiple> can create new items', () => {
   )
 
   // Expect content to be new item
-  expect(select.value).toBe('')
+  expect((select as HTMLInputElement).value).toBe('')
 
   // Expect form values to have new item
   const formValues = getFormValues(getByTestId('values'))
@@ -591,7 +591,7 @@ test("<Select isCreatable> can't create an existing item", () => {
   expect(handleCreate).toHaveBeenCalledTimes(0)
 
   const formValues = getFormValues(getByTestId('values'))
-  expect(select.value).toBe('October')
+  expect((select as HTMLInputElement).value).toBe('October')
   expect(formValues.select).toStrictEqual('october')
 })
 

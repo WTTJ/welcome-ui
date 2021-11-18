@@ -8,7 +8,7 @@ export type OptionItem = Option | OptionGroup
 
 export type Options = Array<Option | OptionGroup>
 
-export const kebabCase = (str: string | number): string => {
+export const kebabCase = (str: string | number | Option): string => {
   if (typeof str === 'number') {
     return String(str)
   } else if (typeof str === 'string') {
@@ -43,16 +43,21 @@ export const getUniqueValue = (
 export const isValueSelected = (value: string, options: Option[]): boolean =>
   !!options.find(item => item.value === value)
 
-export const getOption = (value: string, options: Options = []): Option => {
+export const getOption = (value: string | number | Option, options: Options = []): Option => {
   const option = options.find(
-    option => option.label === value || (option as Option).value === value
+    option =>
+      option.label === ((value as Option).label || value) ||
+      (option as Option).value === ((value as Option).value || value)
   )
   // Create the option if it doesn't exist
-  return (option as Option) || ({ value: kebabCase(value as string), label: value } as Option)
+  return (option as Option) || ({ value: kebabCase(value), label: value } as Option)
 }
 
-export const getOptionsFromSelected = (selected: string | string[], options: Options): Option[] => {
-  if (!selected) {
+export const getOptionsFromSelected = (
+  selected: string | string[] | number,
+  options: Options
+): Option[] => {
+  if (!selected && selected !== 0) {
     return []
   } else if (Array.isArray(selected)) {
     return selected.map(value => getOption(value, options))
