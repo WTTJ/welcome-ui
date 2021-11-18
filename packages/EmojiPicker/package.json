@@ -4,10 +4,12 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/emoji-picker.cjs.js",
   "module": "dist/emoji-picker.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"
@@ -36,7 +38,7 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^4.0.0-alpha.6",
-    "@welcome-ui/icons": "^4.0.0-alpha.6",
+    "@welcome-ui/icons.search": "^4.0.0-alpha.6",
     "@welcome-ui/input-text": "^4.0.0-alpha.6",
     "@welcome-ui/popover": "^4.0.0-alpha.6",
     "@welcome-ui/stack": "^4.0.0-alpha.6",
