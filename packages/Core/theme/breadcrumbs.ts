@@ -1,28 +1,15 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 export type ThemeBreadcrumbs = {
-  list: {
-    fontSize: string
-    fontWeight: string
-    lineHeight: string
-    padding: string
-  }
+  list: CSSObject
   item: {
-    default: {
-      textDecoration: string
-      color: string
-    }
-    hover: {
-      color: string
-    }
-    active: {
-      color: string
-    }
+    default: CSSObject
+    hover: CSSObject
+    active: CSSObject
   }
-  separator: {
-    padding: string
-    color: string
-  }
+  separator: CSSObject
 }
 
 export const getBreadcrumbs = (theme: WuiTheme): ThemeBreadcrumbs => {

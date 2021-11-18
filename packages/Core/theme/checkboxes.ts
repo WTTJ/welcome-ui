@@ -1,18 +1,11 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 export type ThemeCheckboxes = {
-  default: {
-    width: string
-    height: string
-    flexShrink: number
-  }
-  disabled: {
-    borderColor: string
-  }
-  checked: {
-    backgroundColor: string
-    borderColor: string
-  }
+  default: CSSObject
+  disabled: CSSObject
+  checked: CSSObject
 }
 
 export const getCheckboxes = (theme: WuiTheme): ThemeCheckboxes => {

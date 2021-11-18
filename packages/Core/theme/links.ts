@@ -1,22 +1,17 @@
 import { css } from '@xstyled/styled-components'
+import { CSSObject } from '@xstyled/system'
 
 import { WuiTheme } from './types'
 
 export type ThemeLinks = {
-  default: {
-    color: string
-    fontWeight: string
-    transition: string
-  }
+  default: CSSObject
   primary: {
     default: ReturnType<typeof css>
     hover: ReturnType<typeof css>
   }
   secondary: {
-    default: string
-    hover: {
-      opacity: number
-    }
+    default: CSSObject
+    hover: CSSObject
   }
 }
 
@@ -42,7 +37,7 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
       `,
     },
     secondary: {
-      default: '',
+      default: null,
       hover: {
         opacity: 0.6,
       },

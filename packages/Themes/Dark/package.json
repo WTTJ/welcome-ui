@@ -4,10 +4,12 @@
   "description": "welcome-ui: Dark theme",
   "main": "dist/themes.dark.cjs.js",
   "module": "dist/themes.dark.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"

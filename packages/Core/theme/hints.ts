@@ -1,10 +1,8 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
-export type ThemeHints = {
-  color: string
-  fontSize: string
-  fontWeight: string
-}
+export type ThemeHints = CSSObject
 
 export const getHints = (theme: WuiTheme): ThemeHints => {
   const { colors, fontSizes, fontWeights } = theme

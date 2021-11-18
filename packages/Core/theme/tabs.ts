@@ -1,53 +1,25 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 export type ThemeTabs = {
   tabsBorder: {
-    horizontal: {
-      boxShadow: string
-    }
-    vertical: {
-      boxShadow: string
-    }
+    horizontal: CSSObject
+    vertical: CSSObject
   }
   item: {
-    default: {
-      color: string
-      fontWeight: string
-      fontSize: string
-      textDecoration: string
-    }
-    active: {
-      color: string
-    }
-    focus: {
-      color: string
-    }
-    disabled: {
-      color: string
-    }
+    default: CSSObject
+    active: CSSObject
+    focus: CSSObject
+    disabled: CSSObject
   }
   panel: {
-    vertical: {
-      '&:focus': {
-        outline: string
-      }
-    }
-    horizontal: {
-      marginTop: string
-      '&:focus': {
-        outline: string
-      }
-    }
+    vertical: CSSObject
+    horizontal: CSSObject
   }
   activeBar: {
-    horizontal: {
-      background: string
-      height: string
-    }
-    vertical: {
-      background: string
-      width: string
-    }
+    horizontal: CSSObject
+    vertical: CSSObject
   }
 }
 

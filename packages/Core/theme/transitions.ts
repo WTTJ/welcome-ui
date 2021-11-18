@@ -1,7 +1,9 @@
+import { CSSObject } from '@xstyled/system'
+
 export type ThemeTimingFunction = {
-  primary: string
-  secondary: string
-  tertiary: string
+  primary: CSSObject['transition-timing-function']
+  secondary: CSSObject['transition-timing-function']
+  tertiary: CSSObject['transition-timing-function']
 }
 
 export const timingFunction: ThemeTimingFunction = {
@@ -11,9 +13,9 @@ export const timingFunction: ThemeTimingFunction = {
 }
 
 export type ThemeTransitions = {
-  slow: string
-  medium: string
-  fast: string
+  slow: CSSObject['transition']
+  medium: CSSObject['transition']
+  fast: CSSObject['transition']
 }
 
 export const transitions: ThemeTransitions = {

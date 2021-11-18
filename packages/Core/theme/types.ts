@@ -3,6 +3,7 @@ import {
   ITheme as StyledComponentDefaultTheme,
   DefaultTheme as XStyledDefaultTheme,
 } from '@xstyled/styled-components'
+import { CSSObject } from '@xstyled/system'
 
 import { ThemeAccordions } from './accordions'
 import { ThemeAlerts } from './alerts'
@@ -43,7 +44,6 @@ import { ThemeTags } from './tags'
 import { ThemeTextareas } from './textareas'
 import { ThemeToasts } from './toasts'
 import { ThemeToggles } from './toggles'
-import { ThemeTooltips } from './tooltips'
 import { ThemeTimingFunction, ThemeTransitions } from './transitions'
 import {
   ThemeFonts,
@@ -118,7 +118,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   tabs: ThemeTabs
   tags: ThemeTags
   texts: ThemeTexts
-  tooltips: ThemeTooltips
+  tooltips: CSSObject
   links: ThemeLinks
   dropdownMenu: ThemeDropdownMenu
   tables: ThemeTables
