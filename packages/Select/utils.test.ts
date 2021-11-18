@@ -52,8 +52,8 @@ test('isValueSelected returns false if value is not in selected values', () => {
 
 const DEFAULT_INPUT_VALUE_ARGS = {
   inputValue: 'February',
-  isMultiple: undefined,
-  isSearchable: undefined,
+  isMultiple: false,
+  isSearchable: false,
   options: OPTIONS,
   renderItem: itemToString,
 }

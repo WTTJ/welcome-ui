@@ -4,10 +4,12 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/select.cjs.js",
   "module": "dist/select.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"
@@ -41,7 +43,7 @@
     "@welcome-ui/tag": "^4.0.0-alpha.6",
     "@welcome-ui/utils": "^4.0.0-alpha.6",
     "downshift": "^6.1.0",
-    "match-sorter": "=3.1.1"
+    "match-sorter": "^6.3.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.0.1",
@@ -53,5 +55,9 @@
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
   "component": "Select",
-  "homepage": "https://welcome-ui.com/components/select"
+  "homepage": "https://welcome-ui.com/components/select",
+  "devDependencies": {
+    "@types/lodash.capitalize": "^4.2.6",
+    "lodash.capitalize": "^4.2.1"
+  }
 }

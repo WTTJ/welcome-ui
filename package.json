@@ -122,7 +122,6 @@
     "jest-styled-components": "7.0.3",
     "lerna": "^3.22.1",
     "lerna-update-wizard": "^0.17.8",
-    "lodash.capitalize": "=4.2.1",
     "lodash.difference": "^4.5.0",
     "minimist": "1.2.5",
     "netlify-cli": "^2.59.1",
@@ -154,7 +153,6 @@
     "wttj-config-front": "^1.1.5",
     "yargs": "^15.3.1"
   },
-  "dependencies": {},
   "resolutions": {
     "styled-components": "5.3.0"
   },
