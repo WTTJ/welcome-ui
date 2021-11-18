@@ -18,6 +18,7 @@ import { Badge } from '@welcome-ui/badge'
 import { Box } from '@welcome-ui/box'
 import { Breadcrumb } from '@welcome-ui/breadcrumb'
 import { Button } from '@welcome-ui/button'
+import { ButtonLink } from '@welcome-ui/button-link'
 import { Card } from '@welcome-ui/card'
 import { Checkbox } from '@welcome-ui/checkbox'
 import { ConnectedField } from '@welcome-ui/connected-field'
@@ -133,6 +134,7 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
       Box,
       Breadcrumb,
       Button,
+      ButtonLink,
       Card,
       Checkbox,
       CodeContent: S.CodeContent,
