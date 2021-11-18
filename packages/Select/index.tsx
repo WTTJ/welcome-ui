@@ -10,9 +10,6 @@ import { ClearButton } from '@welcome-ui/clear-button'
 import { CreateWuiProps } from '@welcome-ui/system'
 import { createEvent, CreateEvent, Variant } from '@welcome-ui/utils'
 
-import { kebabCase, OptionGroup, OptionItem, Options } from './utils'
-import { multipleSelections } from './multipleSelections'
-import * as S from './styles'
 import {
   getInputValue,
   getNewOptions,
@@ -22,44 +19,47 @@ import {
   getValuesFromOptions,
   isValueSelected,
   itemToString,
-  Option,
+  kebabCase,
 } from './utils'
+import { multipleSelections } from './multipleSelections'
+import * as S from './styles'
 
+export type OptionValue = string | number
+export type Option = { label: string; value: OptionValue; icon?: React.ReactElement }
+export type OptionGroup = { label: string; options: Option[] }
+export type OptionItem = Option | OptionGroup
+export type Options = Array<Option | OptionGroup>
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-
 export type SelectValue = string
-
 export interface SelectOptions {
-  autoComplete: string
-  autoFocus: boolean
-  dataTestId: string
-  disabled: boolean
-  icon: string
+  autoComplete?: string
+  autoFocus?: boolean
+  disabled?: boolean
+  icon?: string
   id: string
-  isClearable: boolean
-  isCreatable: boolean
-  isMultiple: boolean
-  isSearchable: boolean
+  isClearable?: boolean
+  isCreatable?: boolean
+  isMultiple?: boolean
+  isSearchable?: boolean
   options: Options
   name: string
-  onBlur: () => void
-  onClick: (event: React.MouseEvent<HTMLElement>) => void
-  onChange: (value: string | string[], event: CreateEvent) => void
-  onCreate: (option: string, event: CreateEvent) => void
-  onFocus: () => void
-  placeholder: string
-  renderCreateItem: (inputValue: SelectValue) => void
-  renderItem: (item: Option, isItemSelected?: boolean) => string
-  renderMultiple: (values: Option[], handleRemove: (value: string) => void) => React.ReactElement
-  size: Size
-  value: SelectValue
-  variant: Variant
-  allowUnselectFromList: boolean
-  disableCloseOnSelect: boolean
-  groupsEnabled: boolean
-  renderGroupHeader: (option: OptionGroup) => void
+  onBlur?: () => void
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
+  onChange?: (value: OptionValue | OptionValue[], event: CreateEvent) => void
+  onCreate?: (option: string, event: CreateEvent) => void
+  onFocus?: () => void
+  placeholder?: string
+  renderCreateItem?: (inputValue: SelectValue) => void
+  renderItem?: (item: Option, isItemSelected?: boolean) => string
+  renderMultiple?: (values: Option[], handleRemove: (value: string) => void) => React.ReactElement
+  size?: Size
+  value?: SelectValue
+  variant?: Variant
+  allowUnselectFromList?: boolean
+  disableCloseOnSelect?: boolean
+  groupsEnabled?: boolean
+  renderGroupHeader?: (option: OptionGroup) => void
 }
-
 export type SelectProps = CreateWuiProps<typeof Downshift, SelectOptions & DownshiftProps<Option>>
 
 /** We need to add autoComplete off to avoid select UI issues when is an input */

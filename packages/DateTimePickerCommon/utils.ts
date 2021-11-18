@@ -1,10 +1,6 @@
 import range from 'lodash.range'
 import { Locale } from 'date-fns'
-
-type Months = {
-  label: string
-  value: number
-}[]
+import { Option, SelectOptions } from '@welcome-ui/select'
 
 const MONTHS = [
   { value: 0, label: 'January' },
@@ -40,7 +36,7 @@ export const getDate = (date: Date, interval: number): Date => {
   return new Date(newDate.setMinutes(nextInterval, 0, 0))
 }
 
-export const getMonths = (locale: Locale): Months => {
+export const getMonths = (locale: Locale): SelectOptions['options'] => {
   if (!locale) {
     return MONTHS
   }
@@ -51,16 +47,10 @@ export const getMonths = (locale: Locale): Months => {
   }))
 }
 
-export const getYears = (
-  startYear: number,
-  endYear: number
-): {
-  label: number
-  value: number
-}[] =>
+export const getYears = (startYear: number, endYear: number): Option[] =>
   range(startYear, endYear + 1)
     .map(year => ({
-      label: year,
+      label: year.toString(),
       value: year,
     }))
     .reverse()

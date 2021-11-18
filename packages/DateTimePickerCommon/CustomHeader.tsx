@@ -10,8 +10,8 @@ import * as S from './styles'
 import { getMonths, getYears } from './utils'
 
 export interface CustomHeaderOptions {
-  changeMonth?: () => void
-  changeYear?: () => void
+  changeMonth: () => void
+  changeYear: () => void
   date: Date
   decreaseMonth?: () => void
   endYear: number
@@ -58,8 +58,22 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
         <LeftIcon mr={2} />
       </Button>
       <S.Selects>
-        <Select onChange={changeMonth} options={months} size="sm" value={month} />
-        <Select onChange={changeYear} options={years} size="sm" value={year} />
+        <Select
+          id="month"
+          name="month"
+          onChange={changeMonth}
+          options={months}
+          size="sm"
+          value={month}
+        />
+        <Select
+          id="year"
+          name="year"
+          onChange={changeYear}
+          options={years}
+          size="sm"
+          value={year}
+        />
       </S.Selects>
       <Button
         disabled={month === months[months.length - 1].label && year === endYear}

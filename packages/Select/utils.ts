@@ -1,12 +1,6 @@
-import React from 'react'
+import { Option, OptionItem, Options, OptionValue } from './index'
 
 const EMPTY_STRING = ''
-
-export type Option = { label: string; value: string; icon?: React.ReactElement }
-export type OptionGroup = { label: string; options: Option[] }
-export type OptionItem = Option | OptionGroup
-
-export type Options = Array<Option | OptionGroup>
 
 export const kebabCase = (str: string | number | Option): string => {
   if (typeof str === 'number') {
@@ -40,7 +34,7 @@ export const getUniqueValue = (
   return isExisting ? values : [...values, item]
 }
 
-export const isValueSelected = (value: string, options: Option[]): boolean =>
+export const isValueSelected = (value: OptionValue, options: Option[]): boolean =>
   !!options.find(item => item.value === value)
 
 export const getOption = (value: string | number | Option, options: Options = []): Option => {
@@ -69,10 +63,10 @@ export const getOptionsFromSelected = (
 const getIsExisting = (option: Option, options: Options): boolean =>
   !!options.find((item: Option) => item.value === option.value)
 
-const getValue = (option: Option, options: Options): string =>
+const getValue = (option: Option, options: Options): OptionValue =>
   getIsExisting(option, options) ? option.value : option.label
 
-export const getValuesFromOptions = (selected: Option[], options: Options): string[] => {
+export const getValuesFromOptions = (selected: Option[], options: Options): OptionValue[] => {
   if (!selected) {
     return
   }
