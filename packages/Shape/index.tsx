@@ -6,7 +6,7 @@ import * as S from './styles'
 export type Shape = 'square' | 'circle'
 
 export interface ShapeOptions {
-  shape: Shape
+  shape?: Shape
 }
 
 export type ShapeProps = CreateWuiProps<'div', ShapeOptions>

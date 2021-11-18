@@ -10,7 +10,7 @@ const shapeStyles = (w: string, h: string, shape: ShapeType) => css`
   border-radius: ${shape === 'circle' && '50%'};
 `
 
-export const Shape = styled(Box)<{ shape: ShapeType }>(
+export const Shape = styled(Box)<{ shape?: ShapeType }>(
   ({ h, shape, w }) => css`
     position: relative;
     overflow: hidden;
