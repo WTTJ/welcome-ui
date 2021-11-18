@@ -25,6 +25,7 @@
     "utils/**.js",
     "packages/**/node_modules",
     "packages/**/dist",
-    "packages/**/**.js"
+    "packages/**/**.js",
+    "docs"
   ]
 }

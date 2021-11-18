@@ -4,6 +4,7 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/file-drop.cjs.js",
   "module": "dist/file-drop.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
@@ -36,6 +37,7 @@
   },
   "dependencies": {
     "@welcome-ui/button": "^4.0.0-alpha.6",
+    "@welcome-ui/button-link": "^4.0.0-alpha.6",
     "@welcome-ui/files": "^4.0.0-alpha.6",
     "@welcome-ui/group": "^4.0.0-alpha.6",
     "@welcome-ui/icons.edit": "^4.0.0-alpha.6",
@@ -46,7 +48,7 @@
     "@welcome-ui/system": "^4.0.0-alpha.6",
     "@welcome-ui/text": "^4.0.0-alpha.6",
     "@welcome-ui/utils": "^4.0.0-alpha.6",
-    "react-dropzone": "^10.1.8"
+    "react-dropzone": "^11.4.2"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.0.1",

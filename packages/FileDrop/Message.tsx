@@ -1,9 +1,15 @@
 import React from 'react'
-import { bool, func } from 'prop-types'
 import { Button } from '@welcome-ui/button'
 import { Text } from '@welcome-ui/text'
 
-export function Message({ disabled, openFile }) {
+import { DisabledType, OpenType } from './index'
+
+export interface MessageProps {
+  disabled?: DisabledType
+  openFile?: OpenType
+}
+
+export const Message: React.FC<MessageProps> = ({ disabled, openFile }) => {
   return (
     <>
       <Text color="dark.900" m="0" variant="h5">
@@ -17,9 +23,4 @@ export function Message({ disabled, openFile }) {
       </Button>
     </>
   )
-}
-
-Message.propTypes /* remove-proptypes */ = {
-  disabled: bool,
-  openFile: func,
 }
