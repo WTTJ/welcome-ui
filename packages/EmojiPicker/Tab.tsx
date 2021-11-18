@@ -6,7 +6,7 @@ export interface EmojiTabOptions {
   name: string
 }
 
-export type EmojiTabProps = CreateWuiProps<typeof Tab, EmojiTabOptions & TabProps>
+export type EmojiTabProps = CreateWuiProps<typeof Tab, EmojiTabOptions & Omit<TabProps, 'ref'>>
 
 export const EmojiTab: React.FC<EmojiTabProps> = ({
   // We disable it for 'name' since it is only used to sort children in EmojiPicker component
