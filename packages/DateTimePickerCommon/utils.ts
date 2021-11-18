@@ -1,4 +1,10 @@
 import range from 'lodash.range'
+import { Locale } from 'date-fns'
+
+type Months = {
+  label: string
+  value: number
+}[]
 
 const MONTHS = [
   { value: 0, label: 'January' },
@@ -17,7 +23,7 @@ const MONTHS = [
 
 export const DEFAULT_DATE = new Date()
 
-export const getDate = (date, interval) => {
+export const getDate = (date: Date, interval: number): Date => {
   if (!date) {
     return null
   }
@@ -34,7 +40,7 @@ export const getDate = (date, interval) => {
   return new Date(newDate.setMinutes(nextInterval, 0, 0))
 }
 
-export const getMonths = locale => {
+export const getMonths = (locale: Locale): Months => {
   if (!locale) {
     return MONTHS
   }
@@ -45,7 +51,13 @@ export const getMonths = locale => {
   }))
 }
 
-export const getYears = (startYear, endYear) =>
+export const getYears = (
+  startYear: number,
+  endYear: number
+): {
+  label: number
+  value: number
+}[] =>
   range(startYear, endYear + 1)
     .map(year => ({
       label: year,

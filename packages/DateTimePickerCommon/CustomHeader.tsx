@@ -1,14 +1,28 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { func, number, object, oneOfType, string } from 'prop-types'
 import { Button } from '@welcome-ui/button'
 import { LeftIcon } from '@welcome-ui/icons.left'
 import { RightIcon } from '@welcome-ui/icons.right'
 import { Select } from '@welcome-ui/select'
+import { Locale } from 'date-fns'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 import { getMonths, getYears } from './utils'
 
-export function CustomHeader({
+export interface CustomHeaderOptions {
+  changeMonth?: () => void
+  changeYear?: () => void
+  date: Date
+  decreaseMonth?: () => void
+  endYear: number
+  increaseMonth?: () => void
+  locale?: Locale
+  startYear: number
+}
+
+export type CustomHeaderProps = CreateWuiProps<'div', CustomHeaderOptions>
+
+export const CustomHeader: React.FC<CustomHeaderProps> = ({
   changeMonth,
   changeYear,
   date,
@@ -17,7 +31,7 @@ export function CustomHeader({
   increaseMonth,
   locale,
   startYear,
-}) {
+}) => {
   const [month, setMonth] = useState(null)
   const [year, setYear] = useState(null)
 
@@ -61,14 +75,3 @@ export function CustomHeader({
 }
 
 CustomHeader.displayName = 'CustomHeader'
-
-CustomHeader.propTypes /* remove-proptypes */ = {
-  changeMonth: func,
-  changeYear: func,
-  date: oneOfType([number, object, string]).isRequired,
-  decreaseMonth: func,
-  endYear: number,
-  increaseMonth: func,
-  locale: object,
-  startYear: number,
-}
