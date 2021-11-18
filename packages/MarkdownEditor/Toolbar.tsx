@@ -1,15 +1,30 @@
 import React from 'react'
-import { arrayOf, func, node, oneOfType, shape, string } from 'prop-types'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
+import { DefaultToolbarItem } from './constants'
 
-const getTooltip = item =>
+const getTooltip = (item: string) =>
   `${item.charAt(0).toUpperCase()}${item.substr(1).toLowerCase()}`.replace('-', ' ')
 
-export function Toolbar({ active = [], dataTestId, items = [], onClick, ...rest }) {
-  const handleClick = e => {
-    const item = e.currentTarget.dataset.id
-    onClick(item, e)
+export interface ToolbarOptions {
+  active?: string[]
+  items: DefaultToolbarItem[]
+  onClick: (item: string, event: React.MouseEvent<HTMLAnchorElement>) => void
+}
+
+export type MarkdownEditorProps = CreateWuiProps<'div', ToolbarOptions>
+
+export const Toolbar: React.FC<MarkdownEditorProps> = ({
+  active = [],
+  dataTestId,
+  items = [],
+  onClick,
+  ...rest
+}) => {
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const item = event.currentTarget.dataset.id
+    onClick(item, event)
   }
 
   return (
@@ -34,16 +49,4 @@ export function Toolbar({ active = [], dataTestId, items = [], onClick, ...rest 
       })}
     </S.Toolbar>
   )
-}
-
-Toolbar.propTypes /* remove-proptypes */ = {
-  active: arrayOf(string),
-  items: arrayOf(
-    shape({
-      action: oneOfType([func, string]),
-      icon: node,
-      name: string.isRequired,
-    })
-  ),
-  onClick: func,
 }

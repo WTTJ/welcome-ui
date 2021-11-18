@@ -12,7 +12,7 @@ const content =
   "# Hi!\n## Look at me!\n\nWe've got some **bold** and *italic* text, a cheeky bit of ~~strikethrough~~, some `inline code` and a [link](https://welcometothejungle.com). We can also do inline images by hand ![Milou](https://fr.tintin.com/images/tintin/persos/images/milou.png 'Milou') as well as:\n\n* Unordered lists\n* Unordered lists\n\n1. Ordered lists\n1. Ordered lists\n\nAnd of course the classics:\n\n```\nA code block\nwith multiple lines\n```\n\n> And a quote"
 
 const getToolbarItems = toolbar => {
-  return Array.from(toolbar.childNodes).map(item => item.dataset.id || 'divider')
+  return Array.from(toolbar.childNodes).map(item => (item as HTMLElement).dataset.id || 'divider')
 }
 
 describe('<MarkdownEditor>', () => {
@@ -98,14 +98,14 @@ describe('<EmojiPicker>', () => {
     const emojiButton = getByTitle('Emoji')
     fireEvent.click(emojiButton)
 
-    let results = getByLabelText('Search Results').querySelector('ul')
+    const results = getByLabelText('Search Results').querySelector('ul')
     expect(results.children.length).toBe(0)
 
     const search = getByPlaceholderText('Search')
     userEvent.type(search, 'smile')
 
     // TODO: Fix `waitForElement` which never gets called :(
-    waitFor(() => getByLabelText('Search Results').querySelector('ul li').length, {
+    waitFor(() => getByLabelText('Search Results').querySelector('ul li'), {
       container,
     }).then(results => {
       expect(results.children.length).toBe(0)

@@ -1,4 +1,15 @@
-export const DEFAULT_TOOLBAR = [
+import React from 'react'
+
+export type Action = string | (() => void)
+export type DefaultToolbarItem = {
+  name: string
+  title?: string
+  icon?: React.ReactElement | string
+  action?: Action
+}
+export type DefaultToolbar = DefaultToolbarItem[]
+
+export const DEFAULT_TOOLBAR: DefaultToolbar = [
   { name: 'bold', title: 'Bold' },
   { name: 'italic', title: 'Italic' },
   { name: 'strikethrough', title: 'Strikethrough' },
