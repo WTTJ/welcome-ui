@@ -4,10 +4,12 @@
   "description": "welcome-ui: Welcome theme",
   "main": "dist/themes.welcome.cjs.js",
   "module": "dist/themes.welcome.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"
@@ -33,6 +35,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
+  },
+  "dependencies": {
+    "@welcome-ui/core": "^4.0.0-alpha.6"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^1.17.0"

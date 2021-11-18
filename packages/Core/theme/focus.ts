@@ -1,7 +1,8 @@
 import { hexToRGBA } from '@welcome-ui/utils'
+import { CSSObject } from '@xstyled/system'
 
 export type ThemeFocus = (color?: string) => {
-  boxShadow: string
+  boxShadow: CSSObject['boxShadow']
 }
 
 export const getFocus =

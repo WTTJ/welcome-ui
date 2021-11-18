@@ -1,9 +1,8 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
-export type ThemeSelection = {
-  backgroundColor: string
-  color: string
-}
+export type ThemeSelection = CSSObject
 
 export const getSelection = (theme: WuiTheme): ThemeSelection => {
   return {

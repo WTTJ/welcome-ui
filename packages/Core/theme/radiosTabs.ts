@@ -1,18 +1,10 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
-type HoverAttributes = {
-  '&:hover': {
-    backgroundColor: string
-  }
-}
-
 export type ThemeRadioTabs = {
-  default: HoverAttributes
-  checked: {
-    backgroundColor: string
-    color: string
-    borderColor: string
-  } & HoverAttributes
+  default: CSSObject
+  checked: CSSObject
 }
 
 export const getRadioTabs = (theme: WuiTheme): ThemeRadioTabs => {

@@ -1,17 +1,11 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 export type ThemeDateTimePickerCommon = {
   item: {
-    selected: {
-      color: string
-      fontWeight: string
-      backgroundColor: string
-      outline: string
-    }
-    today: {
-      color: string
-      fontWeight: string
-    }
+    selected: CSSObject
+    today: CSSObject
   }
 }
 

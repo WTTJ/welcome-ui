@@ -1,14 +1,10 @@
+import { CSSObject } from '@xstyled/system'
+
 import { ThemeBorderWidths } from './borders'
 import { ThemeColors } from './colors'
 import { ThemeRadii } from './radii'
 
-export type ThemeDefaultCards = {
-  backgroundColor: string
-  borderRadius: string
-  borderStyle: string
-  borderWidth: string
-  borderColor: string
-}
+export type ThemeDefaultCards = CSSObject
 
 export const getDefaultCards = ({
   borderWidths,

@@ -1,3 +1,9 @@
+import { WuiTheme } from '@welcome-ui/core'
+
+type RecursivePartial<T> = {
+  [P in keyof T]?: T[P] | RecursivePartial<T[P]>
+}
+
 const palette = {
   // primary
   dandelion: '#FFF8D9',
@@ -66,7 +72,7 @@ const palette = {
   mountainsmajesty: '#9B8CC0',
 }
 
-const colors = {
+const colors: Partial<WuiTheme['colors']> = {
   primary: {
     100: palette.dandelion,
     200: palette.cornsilk,
@@ -135,16 +141,15 @@ const colors = {
   underline: palette.yellow,
 }
 
-export const welcomeTheme = {
+export const welcomeTheme: RecursivePartial<WuiTheme> = {
   defaultLineHeight: 1.3,
-  defaultLetterSpacing: -0.3,
-  headingLetterSpacing: -0.4,
+  defaultLetterSpacing: '-0.3',
+  headingLetterSpacing: '-0.4',
   colors,
-  palette,
   radii: {
-    sm: 0,
-    md: 0,
-    lg: 0,
+    sm: '0',
+    md: '0',
+    lg: '0',
   },
   shadows: {
     sm: 'none',
@@ -174,15 +179,15 @@ export const welcomeTheme = {
     },
   },
   letterSpacings: {
-    h0: -1.7,
-    h1: -1.2,
-    h2: -1,
-    h3: -0.9,
-    h4: -0.6,
-    h5: -0.5,
-    body4: -0.2,
-    subtitle2: -0.2,
-    meta2: -0.2,
+    h0: '-1.7',
+    h1: '-1.2',
+    h2: '-1',
+    h3: '-0.9',
+    h4: '-0.6',
+    h5: '-0.5',
+    body4: '-0.2',
+    subtitle2: '-0.2',
+    meta2: '-0.2',
   },
   tags: {
     variants: {

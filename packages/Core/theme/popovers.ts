@@ -1,23 +1,11 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 export type ThemePopovers = {
-  default: {
-    backgroundColor: string
-    color: string
-    borderColor: string
-    maxWidth: string
-    zIndex: number
-  }
-  content: {
-    display: string
-    padding: string
-  }
-  title: {
-    padding: string
-    borderBottomColor: string
-    borderBottomWidth: string
-    borderBottomStyle: string
-  }
+  default: CSSObject
+  content: CSSObject
+  title: CSSObject
 }
 
 export const getPopovers = (theme: WuiTheme): ThemePopovers => {

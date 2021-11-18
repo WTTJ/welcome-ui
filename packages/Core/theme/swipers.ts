@@ -1,14 +1,12 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 export type ThemeSwipers = {
   navigation: {
     bullet: {
-      active: {
-        backgroundColor: string
-      }
-      default: {
-        backgroundColor: string
-      }
+      active: CSSObject
+      default: CSSObject
     }
   }
 }

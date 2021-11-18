@@ -1,44 +1,13 @@
 import { hexToRGB } from '@welcome-ui/utils'
+import { CSSObject } from '@xstyled/system'
 
-import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
 
 export interface ThemePaginations {
-  default: {
-    color: string
-    fontWeight: string
-    borderWidth: string
-    borderStyle: string
-    borderRadius: string
-    width: string
-    height: string
-    '&:hover, &:focus': {
-      backgroundColor: string
-    }
-    '&:focus': ReturnType<ThemeFocus>
-  }
-  active: {
-    color: string
-    backgroundColor: string
-    borderColor: string
-    '&:hover, &:focus': {
-      color: string
-      borderColor: string
-      backgroundColor: string
-    }
-    '&:focus': ReturnType<ThemeFocus>
-  }
-  number: {
-    fontSize: string
-  }
-  dots: {
-    color: string
-    fontSize: string
-    borderColor: string
-    '&:hover, &:focus': {
-      border: string
-    }
-  }
+  default: CSSObject
+  active: CSSObject
+  number: CSSObject
+  dots: CSSObject
 }
 
 export const getPaginations = (theme: WuiTheme): ThemePaginations => {

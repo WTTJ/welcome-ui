@@ -1,81 +1,36 @@
+import { CSSObject } from '@xstyled/system'
+
 import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
-
-type CommonAttributesField = {
-  color?: string
-  fontSize?: string
-  lineHeight?: string
-  fontWeight?: string
-  backgroundColor?: string
-  borderColor?: string
-  borderWidth?: string
-  borderStyle?: string
-  outline?: string
-}
-
-type SizeAttributesField = {
-  height?: string
-  padding?: string
-}
 
 type Size = 'sm' | 'md' | 'lg'
 
 export type ThemeDefaultFields = {
-  default: CommonAttributesField
-  sizes: Record<Size, SizeAttributesField>
+  default: CSSObject
+  sizes: Record<Size, CSSObject>
   checkableField: {
-    checked: {
-      color: string
-    }
-    disabled: {
-      opacity: number
-    }
+    checked: CSSObject
+    disabled: CSSObject
   }
-  disabled: {
-    backgroundColor: string
-    color: string
-    cursor: string
-  }
-  placeholder: {
-    color: string
-  }
+  disabled: CSSObject
+  placeholder: CSSObject
   focused: {
-    default: { borderColor: string } & ReturnType<ThemeFocus>
+    default: CSSObject & ReturnType<ThemeFocus>
     error: ReturnType<ThemeFocus>
     warning: ReturnType<ThemeFocus>
   }
   checkablelabel: {
-    default: {
-      fontWeight: string
-    }
-    checked: {
-      color: string
-      '-webkit-text-stroke': string
-    }
+    default: CSSObject
+    checked: CSSObject
   }
   select: {
-    default: {
-      maxHeight: string
-    }
-    existing: {
-      color: string
-      cursor: string
-    }
-    highlighted: {
-      backgroundColor: string
-      cursor: string
-    }
-    selectedAndHighlighted: {
-      backgroundImage: string
-    }
-    selected: {
-      color: string
-      fontWeight: string
-    }
+    default: CSSObject
+    existing: CSSObject
+    highlighted: CSSObject
+    selectedAndHighlighted: CSSObject
+    selected: CSSObject
   }
-  fieldset: {
-    'border-width': string
-  }
+  fieldset: CSSObject
 }
 
 export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {

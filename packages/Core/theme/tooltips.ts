@@ -1,16 +1,8 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
-export type ThemeTooltips = {
-  maxWidth: string
-  backgroundColor: string
-  color: string
-  border: string
-  padding: string
-  fontSize: string
-  borderRadius: string
-}
-
-export const getTooltips = (theme: WuiTheme): ThemeTooltips => {
+export const getTooltips = (theme: WuiTheme): CSSObject => {
   const { borderWidths, colors, fontSizes, radii, space, toRem } = theme
 
   return {

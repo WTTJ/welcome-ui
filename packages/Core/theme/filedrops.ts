@@ -1,10 +1,9 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 export type ThemeFiledrops = {
-  default: {
-    borderStyle: string
-    minHeight: string
-  }
+  default: CSSObject
   dragAccept: Record<string, unknown>
   dragReject: Record<string, unknown>
   disabled: Record<string, unknown>
