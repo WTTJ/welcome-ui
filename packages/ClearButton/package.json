@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/clear-button",
-  "version": "4.0.0-alpha.6",
+  "version": "4.0.0-alpha.7",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/clear-button.cjs.js",
   "module": "dist/clear-button.es.js",
@@ -37,8 +37,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/button": "^4.0.0-alpha.6",
-    "@welcome-ui/icons.cross": "^4.0.0-alpha.6"
+    "@welcome-ui/button": "^4.0.0-alpha.7",
+    "@welcome-ui/icons.cross": "^4.0.0-alpha.7"
   },
   "peerDependencies": {
     "@welcome-ui/system": "^1.5.2",
