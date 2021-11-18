@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { List } from './List'
+import { List, ListProps } from './List'
 import basicEmojis from './basicEmojis.json'
 
-export function BasicList(props) {
+export const BasicList: React.FC<ListProps> = props => {
   return <List emojis={basicEmojis} {...props} />
 }
