@@ -1,24 +1,11 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
-type ColorAttributes = {
-  backgroundColor: string
-  color: string
-}
-
 export type ThemeDropdownMenu = {
-  inner: {
-    fontSize: string
-    minWidth: string
-  }
-  item: {
-    padding: string
-    '&:hover': ColorAttributes
-    '&:focus': ColorAttributes
-    '&[disabled]': {
-      cursor: 'not-allowed'
-    } & ColorAttributes
-  } & ColorAttributes
-  separator: Omit<ColorAttributes, 'color'>
+  inner: CSSObject
+  item: CSSObject
+  separator: CSSObject
 }
 
 export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {

@@ -1,23 +1,12 @@
 import { hexToRGB } from '@welcome-ui/utils'
+import { CSSObject } from '@xstyled/system'
 
 import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
 
-type CommonAttributesButton = {
-  color?: string
-  fontSize?: string
-  fontWeight?: string
-  letterSpacing?: number
-  borderRadius?: string
-  backgroundColor?: string
-  borderColor?: string
-}
+type CommonAttributesButton = CSSObject
 
-type SizeAttributesButton = {
-  height?: string
-  padding?: string
-  fontSize?: string
-}
+type SizeAttributesButton = CSSObject
 
 type Variant =
   | 'primary'

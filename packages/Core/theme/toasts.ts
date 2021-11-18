@@ -1,36 +1,18 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 import { getTexts } from './typography'
 
 type Variant = 'error' | 'warning' | 'info' | 'success'
 
-type VariantAttributes = {
-  borderColor: string
-  backgroundColor: string
-}
-
 export type ThemeToasts = {
-  default: {
-    paddingLeft: string
-    paddingRight: string
-  }
-  top: {
-    paddingTop: string
-  }
-  bottom: {
-    paddingBottom: string
-  }
+  default: CSSObject
+  top: CSSObject
+  bottom: CSSObject
   growls: {
-    default: {
-      backgroundColor: string
-      borderColor: string
-      borderWidth: string
-      borderStyle: string
-      borderRadius: string
-    }
-    title: {
-      fontWeight: string
-    }
-  } & Record<Variant, VariantAttributes>
+    default: CSSObject
+    title: CSSObject
+  } & Record<Variant, CSSObject>
 }
 
 export const getToasts = (theme: WuiTheme): ThemeToasts => {

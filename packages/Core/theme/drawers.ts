@@ -1,30 +1,16 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 type Size = 'sm' | 'md' | 'lg'
 
 export type ThemeDrawers = {
-  backdrop: {
-    backgroundColor: string
-    zIndex: number
-  }
-  default: {
-    zIndex: number
-  }
-  closeButton: {
-    top: string
-    right: string
-  }
-  title: {
-    margin: number
-    padding: string
-    paddingRight: string
-  }
-  content: {
-    padding: string
-  }
-  footer: {
-    padding: string
-  }
+  backdrop: CSSObject
+  default: CSSObject
+  closeButton: CSSObject
+  title: CSSObject
+  content: CSSObject
+  footer: CSSObject
   sizes: {
     horizontal: Record<Size, Record<'width', string>>
     vertical: Record<Size, Record<'height', string>>

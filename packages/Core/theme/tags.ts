@@ -1,34 +1,7 @@
 import { hexToRGBA } from '@welcome-ui/utils'
+import { CSSObject } from '@xstyled/system'
 
 import { WuiTheme } from './types'
-
-type CommonAttributesTag = {
-  color?: string
-  fontSize?: string
-  fontWeight?: string
-  letterSpacing?: number
-  borderRadius?: string
-  backgroundColor?: string
-  borderColor?: string
-}
-
-type BorderAttributesTag = {
-  borderWidth?: string
-  borderStyle?: string
-  borderColor?: string
-  backgroundColor?: string
-}
-
-type SizeAttributesTag = {
-  padding?: string
-  height?: string
-  fontSize?: string
-}
-
-type ShapeAttributesTag = {
-  height?: string
-  width?: string
-}
 
 type Variant =
   | 'default'
@@ -50,10 +23,10 @@ type Variant =
 type Size = 'xs' | 'sm' | 'md' | 'lg'
 
 export type ThemeTags = {
-  default: CommonAttributesTag
-  variants: Record<Variant, CommonAttributesTag & BorderAttributesTag>
-  sizes: Record<Size, SizeAttributesTag>
-  shape: Record<Size, ShapeAttributesTag>
+  default: CSSObject
+  variants: Record<Variant, CSSObject>
+  sizes: Record<Size, CSSObject>
+  shape: Record<Size, CSSObject>
 }
 
 export const getTags = (theme: WuiTheme): ThemeTags => {

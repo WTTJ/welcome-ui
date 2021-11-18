@@ -1,21 +1,13 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 type State = 'error' | 'warning' | 'info' | 'success'
 
-type AttributesState = {
-  backgroundColor: string
-  borderColor: string
-}
+type AttributesState = CSSObject
 
 export type ThemeAlerts = {
-  default: {
-    fontSize: string
-    borderWidth: string
-    borderStyle: string
-    borderRadius: string
-    padding: string
-    color: string
-  }
+  default: CSSObject
   title: Record<State, { color: string }>
 } & Record<State, AttributesState>
 

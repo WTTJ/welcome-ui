@@ -1,23 +1,13 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 export type ThemeRadios = {
-  default: {
-    width: string
-    height: string
-  }
-  checked: {
-    backgroundColor: string
-    borderColor: string
-  }
+  default: CSSObject
+  checked: CSSObject
   withHint: {
-    default: {
-      fontSize: string
-      color: string
-    }
-    hint: {
-      marginTop: string
-      color: string
-    }
+    default: CSSObject
+    hint: CSSObject
   }
 }
 

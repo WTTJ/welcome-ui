@@ -1,13 +1,12 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 type Size = 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
 export type ThemeAvatars = {
   sizes: Record<Size, string>
-  text: {
-    color: string
-    fontWeight: string
-  }
+  text: CSSObject
 }
 
 export const getAvatars = (theme: WuiTheme): ThemeAvatars => {

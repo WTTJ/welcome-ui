@@ -1,14 +1,10 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 export type ThemeCards = {
-  default: {
-    overflow: string
-    color: string
-  }
-  cover: {
-    borderTopLeftRadius: string
-    borderTopRightRadius: string
-  }
+  default: CSSObject
+  cover: CSSObject
 }
 
 export const getCards = (theme: WuiTheme): ThemeCards => {

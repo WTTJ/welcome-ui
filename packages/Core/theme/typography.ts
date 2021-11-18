@@ -1,3 +1,5 @@
+import { CSSObject } from '@xstyled/system'
+
 import { WuiTheme } from './types'
 
 export type ThemeFontSizes = {
@@ -87,15 +89,15 @@ export const getLineHeights = ({
 })
 
 export type ThemeFontWeights = {
-  regular: string
-  medium: string
-  bold: string
+  regular: number
+  medium: number
+  bold: number
 }
 
 export const fontWeights: ThemeFontWeights = {
-  regular: '400',
-  medium: '500',
-  bold: '600',
+  regular: 400,
+  medium: 500,
+  bold: 600,
 }
 
 export type ThemeLetterSpacings = {
@@ -149,22 +151,22 @@ export const getLetterSpacings = ({
 })
 
 export type ThemeTextsFontWeights = {
-  h0: string
-  h1: string
-  h2: string
-  h3: string
-  h4: string
-  h5: string
-  h6: string
-  body1: string
-  body2: string
-  body3: string
-  body4: string
-  button: string
-  subtitle1: string
-  subtitle2: string
-  meta1: string
-  meta2: string
+  h0: number
+  h1: number
+  h2: number
+  h3: number
+  h4: number
+  h5: number
+  h6: number
+  body1: number
+  body2: number
+  body3: number
+  body4: number
+  button: number
+  subtitle1: number
+  subtitle2: number
+  meta1: number
+  meta2: number
 }
 
 export const getTextsFontWeights = (theme: WuiTheme): ThemeTextsFontWeights => {
@@ -229,14 +231,14 @@ export const getTextsTextTransform = (): ThemeTextsTextTransform => {
 }
 
 export type ThemeTexts = {
-  [key: string]: {
-    fontFamily: string
-    fontWeight: string
-    fontSize: string
-    lineHeight: string
-    textTransform: string
-    letterSpacing: string
-  }
+  [key: string]: Partial<{
+    fontFamily: CSSObject['fontFamily']
+    fontWeight: CSSObject['fontWeight']
+    fontSize: CSSObject['fontSize']
+    lineHeight: CSSObject['lineHeight']
+    textTransform: CSSObject['textTransform']
+    letterSpacing: CSSObject['letterSpacing']
+  }>
 }
 
 export const getTexts = (theme: WuiTheme): ThemeTexts => {

@@ -1,6 +1,10 @@
-import { createTheme } from '@welcome-ui/core'
+import { createTheme, WuiTheme } from '@welcome-ui/core'
 import { hexToRGBA } from '@welcome-ui/utils'
 const theme = createTheme()
+
+type RecursivePartial<T> = {
+  [P in keyof T]?: T[P] | RecursivePartial<T[P]>
+}
 
 export const colors = {
   ...theme.colors,
@@ -43,7 +47,7 @@ export const colors = {
   underline: theme.colors.primary[500],
 }
 
-export const darkTheme = {
+export const darkTheme: RecursivePartial<WuiTheme> = {
   colors,
   selection: {
     color: colors.dark[900],
@@ -94,7 +98,12 @@ export const darkTheme = {
   },
   tabs: {
     tabsBorder: {
-      boxShadow: `inset 0 -${theme.borderWidths.sm} 0 ${colors.light[500]}`,
+      vertical: {
+        boxShadow: `inset -${theme.borderWidths.sm} 0 0 ${colors.light[500]}`,
+      },
+      horizontal: {
+        boxShadow: `inset 0 -${theme.borderWidths.sm} 0 ${colors.light[500]}`,
+      },
     },
     item: {
       disabled: {
