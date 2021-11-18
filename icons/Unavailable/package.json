@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.unavailable.cjs.js",
   "module": "dist/icons.unavailable.es.js",
-  "version": "4.0.0-alpha.6",
+  "version": "4.0.0-alpha.7",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^4.0.0-alpha.6"
+    "@welcome-ui/icon": "^4.0.0-alpha.7"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/close-button",
-  "version": "3.12.0",
+  "version": "4.0.0-alpha.7",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/close-button.cjs.js",
   "module": "dist/close-button.es.js",

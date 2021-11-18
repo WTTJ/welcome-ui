@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/link",
-  "version": "4.0.0-alpha.6",
+  "version": "4.0.0-alpha.7",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/link.cjs.js",
   "module": "dist/link.es.js",
@@ -37,8 +37,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^4.0.0-alpha.6",
-    "@welcome-ui/universal-link": "^4.0.0-alpha.6"
+    "@welcome-ui/system": "^4.0.0-alpha.7",
+    "@welcome-ui/universal-link": "^4.0.0-alpha.7"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.0.1",
