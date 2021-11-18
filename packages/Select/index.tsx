@@ -7,7 +7,7 @@ import Downshift, {
 import { matchSorter } from 'match-sorter'
 import { DownIcon } from '@welcome-ui/icons.down'
 import { ClearButton } from '@welcome-ui/clear-button'
-import { createEvent, Variant } from '@welcome-ui/utils'
+import { createEvent, CreateEvent, Variant } from '@welcome-ui/utils'
 import { WuiProps } from 'System'
 
 import { kebabCase, OptionGroup, OptionItem, Options } from './utils'
@@ -44,14 +44,8 @@ export interface SelectOptions {
   name: string
   onBlur: () => void
   onClick: (event: React.MouseEvent<HTMLElement>) => void
-  onChange: (
-    value: string | string[],
-    event: { preventDefault: () => void; target: Record<string, unknown> }
-  ) => void
-  onCreate: (
-    option: string,
-    event: { preventDefault: () => void; target: Record<string, unknown> }
-  ) => void
+  onChange: (value: string | string[], event: CreateEvent) => void
+  onCreate: (option: string, event: CreateEvent) => void
   onFocus: () => void
   placeholder: string
   renderCreateItem: (inputValue: SelectValue) => void
