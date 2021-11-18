@@ -10,7 +10,7 @@ export interface WuiProviderProps {
   reactRootId?: string
   shouldHideFocusRingOnClick?: boolean
   theme: WuiTheme
-  useReset: boolean
+  useReset?: boolean
 }
 
 export const WuiProvider: React.FC<WuiProviderProps> = ({

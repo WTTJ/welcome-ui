@@ -13,20 +13,18 @@ export type Size = 'sm' | 'md' | 'lg'
 
 export interface FieldOptions {
   checked?: boolean
-  component: React.ForwardRefRenderFunction<
-    HTMLInputElement,
-    CreateWuiProps<'input', Omit<FieldProps, 'component'>>
-  >
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  component: React.ComponentType<any>
   connected?: boolean
   disabled?: boolean
   disabledIcon?: JSX.Element
-  error?: string
+  error?: string | JSX.Element
   hint?: string
   id?: string
   label?: string
   modified?: boolean
   name: string
-  onChange: (event: React.MouseEvent<HTMLInputElement>) => void
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   onClick?: (event: React.MouseEvent<HTMLInputElement>) => void
   size?: Size
   touched?: boolean
@@ -103,7 +101,7 @@ export const Field = forwardRef<HTMLInputElement, FieldProps>(
         target.checked = !target.checked
       }
       if (isCheckbox || isGroup) {
-        onChange && onChange(e)
+        onChange && onChange(e as never as React.ChangeEvent<HTMLInputElement>)
       }
     }
 
@@ -126,7 +124,6 @@ export const Field = forwardRef<HTMLInputElement, FieldProps>(
         id={uniqueId}
         label={label}
         name={name}
-        onChange={onChange}
         onClick={handleClick}
         ref={inputRef}
         required={required}

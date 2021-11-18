@@ -9,8 +9,8 @@ import { Variant } from '.'
 
 export interface GrowlOptions {
   variant?: Variant
-  closeButtonDataTestId: string
-  onClose: () => void
+  closeButtonDataTestId?: string
+  onClose?: () => void
 }
 
 export type GrowlProps = CreateWuiProps<'div', GrowlOptions>

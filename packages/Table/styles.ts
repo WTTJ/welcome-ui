@@ -1,7 +1,6 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Box } from '@welcome-ui/box'
-import { system } from '@welcome-ui/system'
 
 import { TableOptions } from './index'
 
@@ -22,8 +21,6 @@ export const Wrapper = styled(Box)<TableOptions>(
         }
       }
     `}
-
-    ${system}
   `
 )
 
@@ -32,23 +29,18 @@ export const Content = styled.div`
   overflow-x: auto;
 `
 
-export const Table = styled.table`
+export const Table = styled.tableBox`
   border: 0;
   width: 100%;
   border-collapse: collapse;
-  ${system}
 `
-export const Thead = styled.thead`
-  ${system}
-`
+export const Thead = styled.theadBox``
 
-export const Tbody = styled.tbody`
-  ${system}
-`
+export const Tbody = styled.tbodyBox``
 
 type Variant = 'default' | 'error' | 'warning' | 'info' | 'success' | 'clickable'
 
-export const Tr = styled.tr<{ variant?: Variant }>(
+export const Tr = styled.trBox<{ variant?: Variant }>(
   ({ onClick, variant }) => css`
     ${th('tables.tr.default')};
     ${variant && th(`tables.tr.${variant}`)};
@@ -57,12 +49,10 @@ export const Tr = styled.tr<{ variant?: Variant }>(
     &:last-child {
       border: 0;
     }
-
-    ${system}
   `
 )
 
-export const Th = styled.th`
+export const Th = styled.thBox`
   ${th('tables.th')};
   padding: xl;
   vertical-align: middle;
@@ -74,11 +64,9 @@ export const Th = styled.th`
   &:last-child {
     padding-right: 0;
   }
-
-  ${system}
 `
 
-export const Td = styled.td`
+export const Td = styled.tdBox`
   ${th('tables.td')};
   position: relative;
   vertical-align: middle;
@@ -90,6 +78,4 @@ export const Td = styled.td`
   &:last-child {
     padding-right: 0;
   }
-
-  ${system}
 `

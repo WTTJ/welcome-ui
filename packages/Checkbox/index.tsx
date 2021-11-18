@@ -7,7 +7,7 @@ export interface CheckboxOptions {
   checked?: boolean
   Component?: React.ElementType
   disabled?: boolean
-  name: string
+  name?: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 

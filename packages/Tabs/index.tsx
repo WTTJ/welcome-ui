@@ -10,6 +10,7 @@ export type TabProps = CreateWuiProps<typeof ReakitTab, ReakitTabOptions>
 
 export const TabComponent = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
   const { as, children, id, ...rest } = props
+
   return (
     <ReakitTab id={id} ref={ref} {...rest}>
       {tabProps => (
