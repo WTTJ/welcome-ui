@@ -9,28 +9,30 @@ import { componentSystem, shouldForwardProp } from '@welcome-ui/system'
 import { StyledSelect } from '@welcome-ui/select'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
+import { Focused, Icon, IconPlacement, Size } from './CustomInput'
+
 export const StyledDatePicker = styled(ReactDatePicker)`
-  ${defaultFieldStyles};
+  ${defaultFieldStyles({})};
   ${componentSystem};
 `
 
 export const StyledTimePicker = styled(ReactDatePicker)`
-  ${defaultFieldStyles};
+  ${defaultFieldStyles({})};
   text-align: center;
   ${componentSystem};
 `
 
-const iconPlacementStyles = (placement, size, rest) => {
+const iconPlacementStyles = (placement: IconPlacement, size: Size) => {
   if (placement === 'right') {
     return css`
       ${StyledDatePicker}, ${StyledTimePicker} {
-        padding-right: ${`calc(1.5 * ${th(`defaultFields.sizes.${size}.height`)(rest)})`};
+        padding-right: ${`calc(1.5 * ${th(`defaultFields.sizes.${size}.height`)})`};
       }
 
       ${IconWrapper} {
         &:not(:last-child) {
-          right: ${th(`defaultFields.sizes.${size}.height`)(rest)};
-          width: ${`calc(0.5 * ${th(`defaultFields.sizes.${size}.height`)(rest)})`};
+          right: ${th(`defaultFields.sizes.${size}.height`)};
+          width: ${`calc(0.5 * ${th(`defaultFields.sizes.${size}.height`)})`};
           justify-content: flex-end;
         }
 
@@ -43,21 +45,31 @@ const iconPlacementStyles = (placement, size, rest) => {
   if (placement === 'left') {
     return css`
       ${StyledDatePicker}, ${StyledTimePicker} {
-        padding-left: ${th(`defaultFields.sizes.${size}.height`)(rest)};
+        padding-left: ${th(`defaultFields.sizes.${size}.height`)};
       }
     `
   }
 }
 
 export const CustomInput = styled('div').withConfig({ shouldForwardProp })(
-  ({ focused, icon, iconPlacement, size, ...rest }) => {
+  ({
+    focused,
+    icon,
+    iconPlacement,
+    size,
+  }: {
+    focused: Focused
+    icon: Icon
+    iconPlacement: IconPlacement
+    size: Size
+  }) => {
     return css`
       position: relative;
       ${StyledDatePicker}, ${StyledTimePicker} {
-        padding-right: ${th(`defaultFields.sizes.${size}.height`)(rest)};
+        padding-right: ${th(`defaultFields.sizes.${size}.height`)};
       }
 
-      ${icon && iconPlacementStyles(iconPlacement, size, rest)};
+      ${icon && iconPlacementStyles(iconPlacement, size)};
 
       ${StyledClearButton} {
         z-index: ${focused ? 1 : null};
