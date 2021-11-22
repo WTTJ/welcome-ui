@@ -23,8 +23,8 @@ export interface FieldOptions {
   id?: string
   label?: string
   modified?: boolean
-  name: string
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  name?: string
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   onClick?: (event: React.MouseEvent<HTMLInputElement>) => void
   size?: Size
   touched?: boolean
