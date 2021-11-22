@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment, useCallback, useState } from 'react'
+import React, { forwardRef, Fragment, useCallback, useMemo, useState } from 'react'
 import Downshift, { DownshiftProps, GetRootPropsOptions } from 'downshift'
 import { CreateWuiProps } from '@welcome-ui/system'
 import { ClearButton } from '@welcome-ui/clear-button'
@@ -65,21 +65,21 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     const [results, setResults] = useState<Option[] | OptionGroup[]>([])
 
     // Update results when searching
-    const handleInputChange = useCallback(
-      (value: string) =>
-        handleThrottle(
-          async () => {
-            if (minChars === 0 || value?.length >= minChars) {
-              const data = await search(value)
-              setResults(data || [])
-            } else {
-              setResults([])
-            }
-          },
-          throttle,
-          false
-        ),
-      [minChars, search, throttle]
+    const searchResults = useCallback(
+      async (value: string) => {
+        if (minChars === 0 || value?.length >= minChars) {
+          const data = await search(value)
+          setResults(data || [])
+        } else {
+          setResults([])
+        }
+      },
+      [minChars, search]
+    )
+
+    const handleInputChange = useMemo(
+      () => handleThrottle(searchResults, throttle, false),
+      [searchResults, throttle]
     )
 
     // Send event to parent when value(s) changes
