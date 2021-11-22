@@ -88,6 +88,7 @@ jobs:
           root: ~/welcome-ui
           paths:
             - packages/**/dist
+            - packages/Themes/**/dist
             - icons/**/dist
             - packages/IconFont/fonts
 
