@@ -41,7 +41,8 @@
     "@welcome-ui/icons.alert": "^4.0.0-alpha.7",
     "@welcome-ui/icons.check": "^4.0.0-alpha.7",
     "@welcome-ui/icons.information": "^4.0.0-alpha.7",
-    "@welcome-ui/utils": "^4.0.0-alpha.7"
+    "@welcome-ui/utils": "^4.0.0-alpha.7",
+    "@welcome-ui/system": "^4.0.0-alpha.7"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.0.1",

@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^4.0.0-alpha.7",
+    "@welcome-ui/system": "^4.0.0-alpha.7",
     "bowser": "^2.11.0"
   },
   "peerDependencies": {
