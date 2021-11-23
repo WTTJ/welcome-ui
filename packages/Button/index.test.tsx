@@ -104,7 +104,7 @@ describe('<Button>', () => {
 
   it('should forward as a', () => {
     const { getByTestId } = render(
-      <Button as={props => <a {...props} href={content} />} dataTestId="button">
+      <Button as="a" dataTestId="button" href={content}>
         {content}
       </Button>
     )
@@ -117,11 +117,7 @@ describe('<Button>', () => {
 
   it('should forward as Link', () => {
     const { getByTestId } = render(
-      <Button
-        as={props => <Link {...props} target="_blank" />}
-        className="wui-test"
-        dataTestId="button"
-      >
+      <Button as={Link} className="wui-test" dataTestId="button" target="_blank">
         {content}
       </Button>
     )
