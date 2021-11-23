@@ -118,6 +118,13 @@ export type MergeProps<ComponentProps, Props, WuiProps> = RightJoinProps<Compone
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type CreateWuiProps<Component extends As, Props = {}> = MergeProps<
+  Omit<React.ComponentPropsWithoutRef<Component>, 'as'>,
+  Props,
+  WuiProps & WuiTestProps & { as?: As }
+>
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type CreateWuiPropsWithRef<Component extends As, Props = {}> = MergeProps<
   Omit<React.ComponentProps<Component>, 'as'>,
   Props,
   WuiProps & WuiTestProps & { as?: As }

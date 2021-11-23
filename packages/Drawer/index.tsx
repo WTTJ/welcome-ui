@@ -27,6 +27,7 @@ export interface DrawerOptions {
 export type DrawerProps = CreateWuiProps<typeof Dialog, DrawerOptions & DialogOptions>
 
 const DrawerComponent: React.FC<DrawerProps> = ({
+  as,
   children,
   placement = 'right',
   size = 'lg',
@@ -35,7 +36,7 @@ const DrawerComponent: React.FC<DrawerProps> = ({
   return (
     // Needed to allow to style the backdrop
     // see: https://reakit.io/docs/styling/#css-in-js
-    <Dialog {...rest}>
+    <Dialog as={as} {...rest}>
       {(props: DrawerProps) => (
         <S.Drawer {...props} placement={placement} size={size}>
           {children}
