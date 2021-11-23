@@ -29,10 +29,6 @@ export interface BreadcrumbOptions {
 
 export type BreadcrumbProps = CreateWuiProps<'div', BreadcrumbOptions>
 
-interface Entry {
-  target: HTMLElement
-}
-
 export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
   (
     {
@@ -83,12 +79,15 @@ export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
       updateGradients(completionRatio)
     }, [initialOffset, updateGradients])
 
-    const handleResize = useMemo(
+    const handleResize = useMemo<(entries: ResizeObserverEntry[]) => void>(
       () =>
         throttle(
-          (entries: Entry[]) => {
+          (entries: ResizeObserverEntry[]) => {
             const [
               {
+                // Is offsetWidth really needed ?
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 target: { offsetWidth, scrollLeft, scrollWidth },
               },
             ] = entries

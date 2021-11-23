@@ -1,17 +1,35 @@
-import React, { forwardRef, Fragment, useEffect, useMemo, useState } from 'react'
-import { arrayOf, bool, func, number, object, oneOf, oneOfType, string } from 'prop-types'
-import Downshift from 'downshift'
+import React, { forwardRef, Fragment, useCallback, useMemo, useState } from 'react'
+import Downshift, { DownshiftProps, GetRootPropsOptions } from 'downshift'
+import { CreateWuiProps } from '@welcome-ui/system'
 import { ClearButton } from '@welcome-ui/clear-button'
-import { createEvent } from '@welcome-ui/utils'
-import { throttle as handleThrottle } from '@welcome-ui/utils'
-
-import { COMPONENT_TYPE, SIZES_TYPE, VARIANTS_TYPE } from '../../utils/propTypes'
+import { createEvent, throttle as handleThrottle } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
 const EMPTY_STRING = ''
 
-export const Search = forwardRef(
+export type Option = { label: string; value: string }
+export type OptionGroup = { label: string; options: Option[] }
+type Item = Option | OptionGroup | string
+
+export interface SearchOptions {
+  groupsEnabled: boolean
+  icon?: React.ReactElement
+  itemToString: (item: Item) => string
+  minChars?: number
+  onChange: (item: Item, event: ReturnType<typeof createEvent>) => void
+  renderGroupHeader: (result: OptionGroup) => React.ReactElement
+  renderItem: (item: Item) => React.ReactElement | string
+  search: (query: string) => Promise<Option[]>
+  size: 'sm' | 'md' | 'lg'
+  throttle?: number
+  value: Item
+  variant?: 'error' | 'info' | 'success' | 'valid' | 'warning'
+}
+
+export type SearchProps = CreateWuiProps<'input', SearchOptions & DownshiftProps<Option>>
+
+export const Search = forwardRef<HTMLInputElement, SearchProps>(
   (
     {
       autoComplete = 'off',
@@ -27,7 +45,6 @@ export const Search = forwardRef(
       onChange,
       onClick,
       onFocus,
-      onKeyDown,
       placeholder = 'Search…',
       renderItem,
       search,
@@ -45,40 +62,33 @@ export const Search = forwardRef(
     const initialInputValue = selected ? itemToString(selected) : EMPTY_STRING
 
     // Keep results in state
-    const [results, setResults] = useState([])
-
-    // Autofocus
-    useEffect(() => {
-      if (autoFocus) {
-        ref?.current?.focus()
-      }
-    }, [autoFocus, ref])
+    const [results, setResults] = useState<Option[] | OptionGroup[]>([])
 
     // Update results when searching
+    const searchResults = useCallback(
+      async (value: string) => {
+        if (minChars === 0 || value?.length >= minChars) {
+          const data = await search(value)
+          setResults(data || [])
+        } else {
+          setResults([])
+        }
+      },
+      [minChars, search]
+    )
+
     const handleInputChange = useMemo(
-      () =>
-        handleThrottle(
-          async value => {
-            if (minChars === 0 || value?.length >= minChars) {
-              const data = await search(value)
-              setResults(data || [])
-            } else {
-              setResults([])
-            }
-          },
-          throttle,
-          false
-        ),
-      [minChars, search, throttle]
+      () => handleThrottle(searchResults, throttle, false),
+      [searchResults, throttle]
     )
 
     // Send event to parent when value(s) changes
-    const handleChange = value => {
+    const handleChange = (value?: Item) => {
       const event = createEvent({ name, value })
       onChange && onChange(value, event)
     }
 
-    const handleSelect = result => {
+    const handleSelect = (result?: Item) => {
       if (result) {
         // If selecting result
         handleChange(result)
@@ -91,14 +101,14 @@ export const Search = forwardRef(
 
     const handleOuterClick = () => {
       // Reset input value if not selecting a new item
-      if (!selected || !selected.length) {
+      if (!selected) {
         handleSelect()
       }
       setResults([])
     }
 
     // prevents controlled to uncontrolled switch when itemToString returns falsy value
-    const handleItemToString = item => itemToString(item) || ''
+    const handleItemToString = (item: Item) => itemToString(item) || ''
 
     return (
       <Downshift
@@ -108,7 +118,7 @@ export const Search = forwardRef(
         onOuterClick={handleOuterClick}
         onSelect={handleSelect}
         selectedItem={selected}
-        {...rest}
+        {...(rest as DownshiftProps<Item>)}
       >
         {({
           clearSelection,
@@ -134,8 +144,8 @@ export const Search = forwardRef(
               <ClearButton onClick={handleClearClick} />
             </S.DropDownIndicator>
           )
-          const handleInputFocus = e => {
-            onFocus && onFocus(e)
+          const handleInputFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+            onFocus && onFocus(event)
             handleInputChange('')
             toggleMenu()
           }
@@ -160,24 +170,24 @@ export const Search = forwardRef(
           })
 
           return (
-            <S.Wrapper {...getRootProps(rest)}>
+            <S.Wrapper {...getRootProps(rest as GetRootPropsOptions)}>
               <S.InputWrapper>
                 <S.Input {...inputProps} />
                 {icon && <S.Icon size={size}>{icon}</S.Icon>}
-                <S.Indicators size={size}>{inputValue && DeleteIcon}</S.Indicators>
+                <S.Indicators>{inputValue && DeleteIcon}</S.Indicators>
               </S.InputWrapper>
               {isShowMenu && (
                 <S.Menu {...getMenuProps()}>
                   {
-                    results.reduce(
+                    (results as OptionGroup[]).reduce(
                       (acc, result, resultIndex) => {
                         if (groupsEnabled) {
                           acc.itemsToRender.push(
                             // eslint-disable-next-line react/no-array-index-key
                             <Fragment key={resultIndex}>
-                              {renderGroupHeader(result)}
-                              {result.options &&
-                                result.options.map((option, optionIndex) => {
+                              {renderGroupHeader(result as OptionGroup)}
+                              {(result as OptionGroup).options &&
+                                (result as OptionGroup).options.map((option, optionIndex) => {
                                   const index = acc.itemIndex++
                                   return (
                                     <S.Item
@@ -185,12 +195,12 @@ export const Search = forwardRef(
                                       key={optionIndex}
                                       {...getItemProps({
                                         index,
-                                        isHighlighted: highlightedIndex === index,
                                         isSelected:
                                           selectedItem &&
                                           itemToString(selectedItem) === itemToString(option),
                                         item: option,
                                       })}
+                                      isHighlighted={highlightedIndex === index}
                                     >
                                       {renderItem(option)}
                                     </S.Item>
@@ -205,12 +215,12 @@ export const Search = forwardRef(
                               key={resultIndex}
                               {...getItemProps({
                                 index: resultIndex,
-                                isHighlighted: highlightedIndex === resultIndex,
                                 isSelected:
                                   selectedItem &&
                                   itemToString(selectedItem) === itemToString(result),
                                 item: result,
                               })}
+                              isHighlighted={highlightedIndex === resultIndex}
                             >
                               {renderItem(result)}
                             </S.Item>
@@ -233,31 +243,5 @@ export const Search = forwardRef(
 )
 
 Search.displayName = 'Search'
-Search.type = 'search'
-
-Search.propTypes /* remove-proptypes */ = {
-  autoComplete: string,
-  autoFocus: bool,
-  disabled: bool,
-  groupsEnabled: bool,
-  icon: oneOfType(COMPONENT_TYPE),
-  id: string,
-  itemToString: func.isRequired,
-  minChars: number,
-  name: string,
-  onBlur: func,
-  onChange: func,
-  onClick: func,
-  onFocus: func,
-  onKeyDown: func,
-  placeholder: string,
-  renderGroupHeader: func,
-  renderItem: func.isRequired,
-  search: func.isRequired,
-  size: oneOf(SIZES_TYPE),
-  throttle: number,
-  value: oneOfType([object, arrayOf(object), string, arrayOf(string), number, arrayOf(number)]),
-  variant: oneOf(VARIANTS_TYPE),
-}
 
 export const StyledSearch = S.Wrapper

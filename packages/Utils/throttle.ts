@@ -1,20 +1,20 @@
-export const throttle = (
-  callback: (entries?: unknown) => unknown,
-  wait: number,
+interface ThrottledFunc<T extends (...args: unknown[]) => unknown> {
+  (...args: Parameters<T>): void
+}
+
+export const throttle = <T extends (...args: unknown[]) => unknown>(
+  callback: T,
+  wait?: number,
   leading = true
-): (() => void) => {
+): ThrottledFunc<T> => {
   let timeout: ReturnType<typeof setTimeout> = null
-  let lastArgs: unknown = null
+  let lastArgs: unknown[] = null
 
   return (...args) => {
     const next = () => {
-      // todo
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       callback(...lastArgs)
       timeout = null
     }
-
     lastArgs = args
 
     if (!timeout) {
