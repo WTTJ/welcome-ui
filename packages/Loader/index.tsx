@@ -7,7 +7,7 @@ import * as S from './styles'
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | ExtraSize
 
 export interface LoaderOptions {
-  color: string
+  color?: string
   size?: Size
 }
 
