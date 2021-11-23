@@ -3,10 +3,8 @@ import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type Shape = 'square' | 'circle'
-
 export interface ShapeOptions {
-  shape: Shape
+  shape?: 'square' | 'circle'
 }
 
 export type ShapeProps = CreateWuiProps<'div', ShapeOptions>

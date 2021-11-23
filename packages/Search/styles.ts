@@ -5,7 +5,9 @@ import { componentSystem, shouldForwardProp, wrapperSystem } from '@welcome-ui/s
 import { centerContent, defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 import { cardStyles } from '@welcome-ui/utils'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })(
+import { SearchOptions } from './index'
+
+export const Wrapper = styled('div').withConfig({ shouldForwardProp })<{ connected?: boolean }>(
   ({ connected }) => css`
     position: relative;
     ${!connected && wrapperSystem};
@@ -16,10 +18,13 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled('input').withConfig({ shouldForwardProp })(
+export const Input = styled('input').withConfig({ shouldForwardProp })<{
+  hasIcon?: boolean
+  size?: SearchOptions['size']
+}>(
   ({ hasIcon, size }) => css`
     position: relative;
-    ${defaultFieldStyles};
+    ${defaultFieldStyles({})};
     ${overflowEllipsis};
     ${hasIcon &&
     css`
@@ -48,7 +53,11 @@ export const Menu = styled.ul`
   -webkit-overflow-scrolling: touch;
 `
 
-export const Item = styled.li(
+export const Item = styled.li<{
+  isExisting?: boolean
+  isHighlighted?: boolean
+  isSelected?: boolean
+}>(
   ({ isExisting, isHighlighted, isSelected }) => css`
     color: nude.800;
     ${isHighlighted && th('defaultFields.select.highlighted')};
@@ -64,7 +73,7 @@ export const Item = styled.li(
   `
 )
 
-export const Icon = styled.div(
+export const Icon = styled.div<{ size: SearchOptions['size'] }>(
   ({ size }) => css`
     position: absolute;
     width: ${th(`defaultFields.sizes.${size}.height`)};
@@ -85,7 +94,7 @@ export const Indicators = styled.div`
   display: flex;
 `
 
-export const DropDownIndicator = styled.button(
+export const DropDownIndicator = styled.button<{ size: SearchOptions['size']; isOpen?: boolean }>(
   ({ isOpen, size }) => css`
     position: relative;
     height: 100%;
