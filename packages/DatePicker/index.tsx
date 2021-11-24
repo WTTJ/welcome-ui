@@ -1,17 +1,27 @@
-import React, { forwardRef, useEffect, useState } from 'react'
-import { bool, func, number, object, oneOf, oneOfType, shape, string } from 'prop-types'
+import React, { useEffect, useState } from 'react'
 import {
   CustomHeader,
+  CustomHeaderProps,
   CustomInput,
+  CustomInputProps,
   CustomPopper,
   DEFAULT_DATE,
+  Focused,
   getDate,
   StyledDatePicker,
 } from '@welcome-ui/date-time-picker-common'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
-import { COMPONENT_TYPE, SIZES_TYPE } from '../../utils/propTypes'
+export interface DatePickerOptions {
+  onChange?: (date?: Date) => void
+}
 
-export const DatePicker = forwardRef(
+export type DatePickerProps = CreateWuiProps<
+  typeof StyledDatePicker,
+  CustomHeaderProps & CustomInputProps & DatePickerOptions
+>
+
+export const DatePicker = forwardRef<'input', DatePickerProps>(
   (
     {
       autoFocus,
@@ -36,10 +46,10 @@ export const DatePicker = forwardRef(
     },
     ref
   ) => {
-    const formatDate = date => getDate(date, 15)
+    const formatDate = (date: string | number | Date) => getDate(date, 15)
     const placeholderText = placeholder || rest.placeholderText
 
-    const [focused, setFocused] = useState((autoFocus && 'date') || null)
+    const [focused, setFocused] = useState<Focused>((autoFocus && 'date') || null)
     const [date, setDate] = useState(formatDate(value))
     const inputReference = inputRef || ref
 
@@ -62,34 +72,34 @@ export const DatePicker = forwardRef(
 
     const blur = () => inputReference?.current.blur()
 
-    const handleFocus = e => {
+    const handleFocus = (e: CustomInputProps['handleFocus']) => {
       setFocused('date')
       onFocus && onFocus(e)
     }
 
-    const handleBlur = e => {
+    const handleBlur = (e: CustomInputProps['handleBlur']) => {
       setFocused(null)
       onBlur && onBlur(e)
     }
 
-    const handleKeyDown = e => {
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
       if (['Escape', 'Enter'].includes(e.key)) {
         blur()
       }
     }
 
-    const handleReset = e => {
+    const handleReset = (e: CustomInputProps['onReset']) => {
       e.preventDefault()
       blur()
       setDate(null)
       onChange && onChange(null)
     }
 
-    const handleChange = newDate => {
+    const handleChange = (newDate: Date) => {
       if (!newDate) return
       const date = formatDate(newDate)
 
-      newDate = newDate.setHours(date.getHours(), date.getMinutes())
+      newDate.setHours(date.getHours(), date.getMinutes())
       setDate(newDate)
       onChange && onChange(new Date(newDate))
     }
@@ -120,7 +130,7 @@ export const DatePicker = forwardRef(
         placeholderText={placeholderText}
         popperContainer={CustomPopper}
         popperProps={popperProps}
-        renderCustomHeader={props => (
+        renderCustomHeader={(props: CustomHeaderProps) => (
           <CustomHeader endYear={endYear} locale={locale} startYear={startYear} {...props} />
         )}
         selected={date}
@@ -134,23 +144,3 @@ export const DatePicker = forwardRef(
 )
 
 DatePicker.displayName = 'DatePicker'
-
-DatePicker.propTypes /* remove-proptypes */ = {
-  autoFocus: bool,
-  dateFormat: string,
-  disabled: bool,
-  endYear: number,
-  icon: oneOfType(COMPONENT_TYPE),
-  iconPlacement: oneOf(['right', 'left']),
-  inputRef: oneOfType([func, shape({ current: object })]),
-  locale: object,
-  onBlur: func,
-  onChange: func,
-  onFocus: func,
-  placeholder: string,
-  popperProps: object,
-  size: oneOf(SIZES_TYPE),
-  startYear: number,
-  useWeekdaysShort: bool,
-  value: oneOfType([number, object, string]),
-}
