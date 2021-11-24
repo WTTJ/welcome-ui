@@ -1,5 +1,5 @@
 import React from 'react'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -10,15 +10,17 @@ export interface TableOptions {
 
 export type TableProps = CreateWuiProps<'div', TableOptions>
 
-export const TableComponent: React.FC<TableProps> = ({ children, indent, ...rest }) => {
-  return (
-    <S.Wrapper indent={indent} {...rest}>
-      <S.Content>
-        <S.Table>{children}</S.Table>
-      </S.Content>
-    </S.Wrapper>
-  )
-}
+export const TableComponent = forwardRef<'div', TableProps>(
+  ({ children, indent, ...rest }, ref) => {
+    return (
+      <S.Wrapper indent={indent} ref={ref} {...rest}>
+        <S.Content>
+          <S.Table>{children}</S.Table>
+        </S.Content>
+      </S.Wrapper>
+    )
+  }
+)
 
 // Nested exports
 export const Table = Object.assign(TableComponent, {

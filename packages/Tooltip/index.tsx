@@ -1,6 +1,5 @@
 import React, {
   cloneElement,
-  forwardRef,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -10,7 +9,7 @@ import React, {
 import Popper, { Placement } from 'popper.js'
 import { TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import { useDialogState } from 'reakit/Dialog'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -140,42 +139,35 @@ export interface TooltipOptions {
   placement?: PlacementOptions
 }
 
-export type TooltipProps = CreateWuiProps<typeof S.Tooltip, TooltipOptions>
+export type TooltipProps = CreateWuiProps<'div', TooltipOptions>
 
-export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
-  (props, ref): React.ReactElement => {
-    const {
-      children,
-      content,
-      fixed = false,
-      placement = fixed ? 'top' : 'bottom-start',
-      ...rest
-    } = props
-    const useCorrectTooltipState = fixed ? useTooltipState : useMouseTooltipState
-    const tooltip = useCorrectTooltipState({ placement })
-    const visibilityStyles = useDelayedVisibility(tooltip.visible, TOOLTIP_VISIBILITY_DELAY)
+export const Tooltip = forwardRef<'div', TooltipProps>((props, ref): React.ReactElement => {
+  const {
+    children,
+    content,
+    fixed = false,
+    placement = fixed ? 'top' : 'bottom-start',
+    ...rest
+  } = props
+  const useCorrectTooltipState = fixed ? useTooltipState : useMouseTooltipState
+  const tooltip = useCorrectTooltipState({ placement })
+  const visibilityStyles = useDelayedVisibility(tooltip.visible, TOOLTIP_VISIBILITY_DELAY)
 
-    // If no content, simply return the children
-    if (!content) {
-      return children
-    }
-
-    const child = React.Children.only(children) as React.ReactElement
-
-    return (
-      <div>
-        <TooltipReference {...tooltip}>
-          {referenceProps => cloneElement(child, referenceProps)}
-        </TooltipReference>
-        <S.Tooltip
-          ref={ref as React.Ref<HTMLDivElement>}
-          style={visibilityStyles}
-          {...tooltip}
-          {...rest}
-        >
-          {content}
-        </S.Tooltip>
-      </div>
-    )
+  // If no content, simply return the children
+  if (!content) {
+    return children
   }
-)
+
+  const child = React.Children.only(children) as React.ReactElement
+
+  return (
+    <div>
+      <TooltipReference {...tooltip}>
+        {referenceProps => cloneElement(child, referenceProps)}
+      </TooltipReference>
+      <S.Tooltip ref={ref} style={visibilityStyles} {...tooltip} {...rest}>
+        {content}
+      </S.Tooltip>
+    </div>
+  )
+})
