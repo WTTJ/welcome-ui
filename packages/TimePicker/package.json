@@ -4,10 +4,12 @@
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/time-picker.cjs.js",
   "module": "dist/time-picker.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"

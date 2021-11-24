@@ -16,10 +16,10 @@ export interface CustomInputOptions {
   handleFocus?: (event: React.FocusEvent<HTMLDivElement>) => void
   icon?: Icon
   iconPlacement?: IconPlacement
-  inputRef: React.MutableRefObject<HTMLInputElement>
+  inputRef: React.Ref<HTMLInputElement>
   onReset?: (event: React.MouseEvent<HTMLButtonElement>) => void
   size?: DefaultFieldStylesProps['size']
-  value: string | null
+  value?: string | null
 }
 
 export type CustomInputProps = CreateWuiProps<'div', CustomInputOptions>
