@@ -6,10 +6,20 @@ import { defaultFieldStyles } from '@welcome-ui/utils'
 import { emojiMartStyles } from './emojiMartStyles'
 import { easyMdeStyles } from './easyMdeStyles'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })(
+interface WrapperOptions {
+  connected?: boolean
+  disabled?: boolean
+  focused?: boolean
+}
+
+interface ToolbarIconOptions {
+  active?: boolean
+}
+
+export const Wrapper = styled('div').withConfig({ shouldForwardProp })<WrapperOptions>(
   ({ connected, disabled, focused }) => css`
     ${easyMdeStyles};
-    ${defaultFieldStyles};
+    ${defaultFieldStyles({})};
     position: relative;
     pointer-events: ${disabled && 'none'};
     ${focused && th('defaultFields.focused.default')};
@@ -50,14 +60,14 @@ export const Toolbar = styled.div`
   z-index: 1;
 `
 
-export const ToolbarIcon = styled.a(
-  props => css`
+export const ToolbarIcon = styled.a.withConfig({ shouldForwardProp })<ToolbarIconOptions>(
+  ({ active }) => css`
     display: flex;
     align-items: center;
     padding: 0 xxs;
     margin-right: xxs;
     cursor: pointer;
-    color: ${props.active ? th('colors.dark.900') : th('colors.nude.900')};
+    color: ${active ? th('colors.dark.900') : th('colors.nude.900')};
     transition: medium;
 
     &:hover {

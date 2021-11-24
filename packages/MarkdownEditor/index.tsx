@@ -1,5 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react'
-import { arrayOf, bool, func, node, oneOf, oneOfType, shape, string } from 'prop-types'
+import React, { useEffect, useRef, useState } from 'react'
 import { BoldIcon } from '@welcome-ui/icons.bold'
 import { ItalicIcon } from '@welcome-ui/icons.italic'
 import { StrikethroughIcon } from '@welcome-ui/icons.strikethrough'
@@ -10,18 +9,45 @@ import { CodeIcon } from '@welcome-ui/icons.code'
 import { QuoteIcon } from '@welcome-ui/icons.quote'
 import { UnorderedListIcon } from '@welcome-ui/icons.unordered_list'
 import { OrderedListIcon } from '@welcome-ui/icons.ordered_list'
-import { createEvent } from '@welcome-ui/utils'
-import SimpleMDE from 'react-simplemde-editor'
-
-import { VARIANTS_TYPE } from '../../utils/propTypes'
+import { createEvent, CreateEvent } from '@welcome-ui/utils'
+import SimpleMDE, { SimpleMDEEditorProps } from 'react-simplemde-editor'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { BaseEmoji } from 'emoji-mart'
 
 import { Toolbar } from './Toolbar'
 import { EmojiPicker } from './EmojiPicker'
 import * as S from './styles'
-import { getCurrentToolsFromEditor } from './utils'
-import { DEFAULT_TOOLBAR } from './constants'
+import { CurrentToolsFromEditor, getCurrentToolsFromEditor } from './utils'
+import { Action, DEFAULT_TOOLBAR, DefaultToolbar } from './constants'
 
-const ICONS = {
+interface Icons {
+  [key: string]: React.ReactElement | string
+}
+interface Actions {
+  [key: string]: Action
+}
+export type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
+export interface MarkdownEditorOptions {
+  actions?: React.ReactElement
+  autoFocus?: SimpleMDEEditorProps['options']['autofocus']
+  disabled?: boolean
+  minHeight?: SimpleMDEEditorProps['options']['minHeight']
+  name: string
+  onBlur?: (value: string | null) => void
+  onChange?: (event: React.MouseEvent<HTMLDivElement> | CreateEvent) => void
+  onFocus?: (value: string | null) => void
+  placeholder: SimpleMDEEditorProps['options']['placeholder']
+  toolbar?: DefaultToolbar
+  value: string | null
+  variant?: Variant
+}
+
+export type MarkdownEditorProps = CreateWuiProps<
+  'div',
+  MarkdownEditorOptions & Omit<SimpleMDEEditorProps, keyof MarkdownEditorOptions>
+>
+
+const ICONS: Icons = {
   bold: <BoldIcon />,
   emoji: '😃',
   italic: <ItalicIcon />,
@@ -35,12 +61,14 @@ const ICONS = {
   ordered_list: <OrderedListIcon />,
 }
 
-export const MarkdownEditor = forwardRef(
+export const MarkdownEditor = forwardRef<'div', MarkdownEditorProps>(
   (
     {
+      actions,
       autoFocus,
       dataTestId,
       disabled,
+      minHeight = '8rem',
       name,
       onBlur,
       onChange,
@@ -49,8 +77,6 @@ export const MarkdownEditor = forwardRef(
       toolbar = DEFAULT_TOOLBAR,
       value,
       variant,
-      minHeight = '8rem',
-      actions,
       ...rest
     },
     ref
@@ -60,22 +86,15 @@ export const MarkdownEditor = forwardRef(
     const [showEmojiPicker, setShowEmojiPicker] = useState(false)
     const [currentTools, setCurrentTools] = useState([])
     const [toolbarItems, setToolbarItems] = useState([])
-    const actionsRef = useRef()
+    const actionsRef = useRef<HTMLDivElement>(null)
 
     /* EMOJI PICKER */
     const toggleEmojiPicker = () => {
       setShowEmojiPicker(!showEmojiPicker)
     }
 
-    useEffect(() => {
-      // Add emoji to currentTools if we're showing emoji picker
-      if (showEmojiPicker && !currentTools.includes('emoji')) {
-        setCurrentTools([...currentTools, 'emoji'])
-      }
-    }, [currentTools, showEmojiPicker])
-
     /* TOOLBAR */
-    const DEFAULT_TOOLBAR_ACTIONS = {
+    const DEFAULT_TOOLBAR_ACTIONS: Actions = {
       bold: 'toggleBold',
       emoji: toggleEmojiPicker,
       italic: 'toggleItalic',
@@ -90,19 +109,6 @@ export const MarkdownEditor = forwardRef(
       horizontal_rule: 'drawHorizontalRule',
     }
 
-    useEffect(() => {
-      // Set toolbar items on mount
-      setToolbarItems(
-        toolbar.map(({ action, icon, name, title }) => ({
-          name: name,
-          title: title || name,
-          icon: icon || ICONS[name],
-          action: action || DEFAULT_TOOLBAR_ACTIONS[name] || null,
-        }))
-      )
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
     const handleFocus = () => {
       instance?.codemirror.focus()
       onFocus?.(value)
@@ -115,14 +121,14 @@ export const MarkdownEditor = forwardRef(
       setFocused(false)
     }
 
-    const handleChange = value => {
+    const handleChange = (value: string) => {
       const event = createEvent({ name, value })
       onChange && onChange(event)
       updateCurrentTools(instance.codemirror)
     }
 
-    const handleToolbarClick = item => {
-      let { action } = toolbarItems.find(toolbarItem => toolbarItem.name === item)
+    const handleToolbarClick = (item: string) => {
+      const { action } = toolbarItems.find(toolbarItem => toolbarItem.name === item)
       // catch errors of mde actions (bad regex on their side)
       try {
         // Use actions from the MDE instance or provided action
@@ -134,11 +140,11 @@ export const MarkdownEditor = forwardRef(
       updateCurrentTools(instance.codemirror)
     }
 
-    const updateCurrentTools = cm => {
+    const updateCurrentTools = (cm: CurrentToolsFromEditor) => {
       setCurrentTools(getCurrentToolsFromEditor(cm))
     }
 
-    const addEmoji = emoji => {
+    const addEmoji = (emoji: BaseEmoji) => {
       const cm = instance.codemirror
       const doc = cm.getDoc()
       const position = doc.getCursor()
@@ -152,6 +158,26 @@ export const MarkdownEditor = forwardRef(
       cm.focus()
       setTimeout(() => doc.setCursor({ line: position.line, ch: position.ch + 2 }), 50)
     }
+
+    useEffect(() => {
+      // Add emoji to currentTools if we're showing emoji picker
+      if (showEmojiPicker && !currentTools.includes('emoji')) {
+        setCurrentTools([...currentTools, 'emoji'])
+      }
+    }, [currentTools, showEmojiPicker])
+
+    useEffect(() => {
+      // Set toolbar items on mount
+      setToolbarItems(
+        toolbar.map(({ action, icon, name, title }) => ({
+          name: name,
+          title: title || name,
+          icon: icon || ICONS[name],
+          action: action || DEFAULT_TOOLBAR_ACTIONS[name] || null,
+        }))
+      )
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
       <S.Wrapper
@@ -169,6 +195,8 @@ export const MarkdownEditor = forwardRef(
         />
         {showEmojiPicker && <EmojiPicker onSelect={addEmoji} />}
         <SimpleMDE
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           events={{ blur: handleBlur, focus: handleFocus, cursorActivity: updateCurrentTools }}
           extraKeys={{ Tab: false }}
           getMdeInstance={setInstance}
@@ -185,7 +213,7 @@ export const MarkdownEditor = forwardRef(
             minHeight,
           }}
           pb={actionsRef?.current?.offsetHeight}
-          ref={ref}
+          ref={ref as unknown as React.LegacyRef<SimpleMDE>}
           value={value}
         />
         {actions && <S.Actions ref={actionsRef}>{actions}</S.Actions>}
@@ -194,26 +222,4 @@ export const MarkdownEditor = forwardRef(
   }
 )
 
-MarkdownEditor.type = 'MarkdownEditor'
 MarkdownEditor.displayName = 'MarkdownEditor'
-
-MarkdownEditor.propTypes /* remove-proptypes */ = {
-  actions: node,
-  autoFocus: bool,
-  disabled: bool,
-  minHeight: string,
-  name: string,
-  onBlur: func,
-  onChange: func,
-  onFocus: func,
-  placeholder: oneOfType([string, node]),
-  toolbar: arrayOf(
-    shape({
-      action: oneOfType([func, string]),
-      icon: node,
-      name: string.isRequired,
-    })
-  ),
-  value: string,
-  variant: oneOf(VARIANTS_TYPE),
-}

@@ -1,11 +1,14 @@
 import React from 'react'
-import { func } from 'prop-types'
-import { NimblePicker } from 'emoji-mart'
+import { NimblePicker, PickerProps } from 'emoji-mart'
 import data from 'emoji-mart/data/apple.json'
 
 import * as S from './styles'
 
-export function EmojiPicker({ onSelect }) {
+export interface EmojiPicketOptions {
+  onSelect?: PickerProps['onSelect']
+}
+
+export const EmojiPicker: React.FC<EmojiPicketOptions> = ({ onSelect }) => {
   return (
     <S.EmojiPicker>
       <NimblePicker
@@ -18,8 +21,4 @@ export function EmojiPicker({ onSelect }) {
       />
     </S.EmojiPicker>
   )
-}
-
-EmojiPicker.propTypes /* remove-proptypes */ = {
-  onSelect: func,
 }

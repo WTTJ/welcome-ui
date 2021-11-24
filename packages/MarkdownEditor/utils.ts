@@ -1,10 +1,22 @@
+import { Doc, Editor } from 'codemirror'
+
+export interface CurrentToolsFromEditor {
+  getCursor: Doc['getCursor']
+  getTokenAt: Editor['getTokenAt']
+  getLine: Doc['getLine']
+}
+// interface ToolsFrom
+interface CodeMirrorTypes {
+  [key: string]: string
+}
+
 // Taken from https://github.com/sparksuite/simplemde-markdown-editor/blob/6abda7ab68cc20f4aca870eb243747951b90ab04/src/js/simplemde.js#L140
-export const getCurrentToolsFromEditor = editor => {
+export const getCurrentToolsFromEditor = (editor: CurrentToolsFromEditor): string[] => {
   const pos = editor.getCursor('start')
   const token = editor.getTokenAt(pos)
   const line = editor.getLine(pos.line)
 
-  const CODE_MIRROR_TYPES = {
+  const CODE_MIRROR_TYPES: CodeMirrorTypes = {
     strong: 'bold',
     atom: 'quote',
     em: 'italic',
