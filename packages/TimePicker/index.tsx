@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   CustomInput,
   CustomInputProps,
@@ -8,7 +8,7 @@ import {
   getDate,
   StyledTimePicker,
 } from '@welcome-ui/date-time-picker-common'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ReactDatePickerProps } from 'react-datepicker'
 
 export interface TimePickerOptions {
@@ -21,7 +21,7 @@ export type TimePickerProps = CreateWuiProps<
   Omit<ReactDatePickerProps, 'onChange'> & CustomInputProps & TimePickerOptions
 >
 
-export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
+export const TimePicker = forwardRef<'input', TimePickerProps>(
   (
     {
       autoFocus,
