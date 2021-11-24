@@ -9,7 +9,7 @@ export interface ItemOptions {
   separator?: string | React.ReactNode
 }
 
-export type ItemProps = CreateWuiProps<'div', ItemOptions>
+export type ItemProps = CreateWuiProps<'li', ItemOptions>
 
 export const Item: React.FC<ItemProps> = ({ children, dataTestId, separator, ...rest }) => {
   return (

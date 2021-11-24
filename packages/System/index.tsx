@@ -125,6 +125,13 @@ export type CreateWuiProps<Component extends As, Props = {}> = MergeProps<
 >
 
 // eslint-disable-next-line @typescript-eslint/ban-types
+export type CreateWuiPropsWithoutRef<Component extends As, Props = {}> = MergeProps<
+  React.ComponentPropsWithoutRef<Component>,
+  Props,
+  WuiProps & WuiTestProps & { as?: As }
+>
+
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type CreateWuiComponent<Component extends As, Options = {}> = {
   <AsComponent extends As>(
     props: CreateWuiProps<AsComponent, Options> & { as: AsComponent }

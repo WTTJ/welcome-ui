@@ -1,10 +1,10 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { Tag, TagOptions } from '@welcome-ui/tag'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
-export type BadgeProps = CreateWuiProps<typeof Tag, Omit<TagOptions, 'size'>>
+export type BadgeProps = CreateWuiProps<'div', Omit<TagOptions, 'size'>>
 
-export const Badge = forwardRef<HTMLDivElement, BadgeProps>((props, ref) => (
+export const Badge = forwardRef<'div', BadgeProps>((props, ref) => (
   <Tag ref={ref} size="sm" {...props} />
 ))
 

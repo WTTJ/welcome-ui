@@ -1,11 +1,12 @@
 import React from 'react'
-import { VariantIcon, VariantIconProps } from '@welcome-ui/variant-icon'
+import { VariantIcon, VariantIconOptions } from '@welcome-ui/variant-icon'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
 import { AlertOptions } from '.'
 
-export type AlertTitleProps = VariantIconProps & AlertOptions
+export type AlertTitleProps = CreateWuiProps<'h5', VariantIconOptions & AlertOptions>
 
 export const Title: React.FC<AlertTitleProps> = ({
   children,
