@@ -1,8 +1,8 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { LockIcon } from '@welcome-ui/icons.lock'
 import { VariantIcon } from '@welcome-ui/variant-icon'
 import { wrapChildren } from '@welcome-ui/utils'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -21,7 +21,7 @@ export interface LabelOptions {
 
 export type LabelProps = CreateWuiProps<'label', LabelOptions>
 
-export const Label = forwardRef<HTMLLabelElement, LabelProps>(
+export const Label = forwardRef<'label', LabelProps>(
   (
     {
       checkableField,

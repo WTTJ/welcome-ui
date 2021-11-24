@@ -1,8 +1,8 @@
-import React, { forwardRef, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 import SimpleMDEEditor from 'react-simplemde-editor'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 // Fields
 import { RowContainer } from './layout'
@@ -39,7 +39,7 @@ export interface FieldOptions {
 
 export type FieldProps = CreateWuiProps<'input', FieldOptions>
 
-export const Field = forwardRef<HTMLInputElement, FieldProps>(
+export const Field = forwardRef<'input', FieldProps>(
   (
     {
       checked,

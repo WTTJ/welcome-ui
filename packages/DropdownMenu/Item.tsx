@@ -1,12 +1,12 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { MenuItem, MenuItemOptions } from 'reakit/Menu'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './Item.styled'
 
-export type ItemProps = CreateWuiProps<typeof MenuItem, MenuItemOptions>
+export type ItemProps = CreateWuiProps<'button', MenuItemOptions>
 
-export const Item = forwardRef<HTMLButtonElement, ItemProps>(({ as, children, ...props }, ref) => {
+export const Item = forwardRef<'button', ItemProps>(({ as, children, ...props }, ref) => {
   return (
     <MenuItem type="button" {...props} ref={ref}>
       {menuItemProps => {

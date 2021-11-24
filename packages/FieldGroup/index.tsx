@@ -1,6 +1,6 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { Label, LabelOptions } from '@welcome-ui/label'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -13,7 +13,7 @@ export interface FieldGroupOptions {
 
 export type FieldGroupProps = CreateWuiProps<'fieldset', FieldGroupOptions>
 
-export const FieldGroup = forwardRef<HTMLFieldSetElement, FieldGroupProps>(
+export const FieldGroup = forwardRef<'fieldset', FieldGroupProps>(
   ({ children, dataTestId, label, required }, ref) => (
     <S.FieldGroup data-testid={dataTestId} ref={ref}>
       {label && (

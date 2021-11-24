@@ -12,7 +12,7 @@ import {
 } from 'reakit/Dialog'
 import { SealedInitialState } from 'reakit-utils/ts/useSealedState'
 import { CloseButtonProps } from '@welcome-ui/close-button'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -24,26 +24,23 @@ export interface DrawerOptions {
   size?: Size
 }
 
-export type DrawerProps = CreateWuiProps<typeof Dialog, DrawerOptions & DialogOptions>
+export type DrawerProps = CreateWuiProps<'div', DrawerOptions & DialogOptions>
 
-const DrawerComponent: React.FC<DrawerProps> = ({
-  children,
-  placement = 'right',
-  size = 'lg',
-  ...rest
-}) => {
-  return (
-    // Needed to allow to style the backdrop
-    // see: https://reakit.io/docs/styling/#css-in-js
-    <Dialog {...rest}>
-      {(props: DrawerProps) => (
-        <S.Drawer {...props} placement={placement} size={size}>
-          {children}
-        </S.Drawer>
-      )}
-    </Dialog>
-  )
-}
+const DrawerComponent = forwardRef<'div', DrawerProps>(
+  ({ as, children, placement = 'right', size = 'lg', ...rest }, ref) => {
+    return (
+      // Needed to allow to style the backdrop
+      // see: https://reakit.io/docs/styling/#css-in-js
+      <Dialog as={as} ref={ref} {...rest}>
+        {(props: DrawerProps) => (
+          <S.Drawer {...props} placement={placement} size={size}>
+            {children}
+          </S.Drawer>
+        )}
+      </Dialog>
+    )
+  }
+)
 
 export function useDrawerState(
   options?: SealedInitialState<DialogInitialState>

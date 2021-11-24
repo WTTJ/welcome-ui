@@ -1,8 +1,8 @@
-import React, { forwardRef, useCallback, useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import { Rover, useRoverState } from 'reakit/Rover'
 import { LeftIcon } from '@welcome-ui/icons.left'
 import { RightIcon } from '@welcome-ui/icons.right'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import { usePages } from './utils'
 import * as S from './styles'
@@ -20,7 +20,7 @@ export interface PaginationOptions {
 
 export type PaginationProps = CreateWuiProps<'ul', PaginationOptions>
 
-export const Pagination = forwardRef<HTMLUListElement, PaginationProps>(
+export const Pagination = forwardRef<'ul', PaginationProps>(
   (
     {
       'aria-label': ariaLabel,

@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react'
-import { CreateWuiProps } from '@welcome-ui/system'
+import React from 'react'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { RadioProps } from 'reakit/Radio'
 
 import * as S from './styles'
@@ -19,11 +19,11 @@ export interface RadioTabsOptions {
 }
 
 export type RadioTabsProps = CreateWuiProps<
-  typeof S.Radio,
+  'input',
   RadioTabsOptions & Omit<RadioProps, 'onChange' | 'onClick'>
 >
 
-export const RadioTab = forwardRef<HTMLInputElement, RadioTabsProps>((props, ref) => {
+export const RadioTab = forwardRef<'input', RadioTabsProps>((props, ref) => {
   const {
     checked,
     dataTestId,

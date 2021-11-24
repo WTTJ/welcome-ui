@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, forwardRef, useCallback, useMemo } from 'react'
+import React, { Children, cloneElement, useCallback, useMemo } from 'react'
 import { useTabState } from '@welcome-ui/tabs'
 import {
   Popover,
@@ -9,6 +9,7 @@ import {
 } from '@welcome-ui/popover'
 import { Tab } from '@welcome-ui/tabs'
 import { TabInitialState } from 'reakit/Tab'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 import { List } from './List'
@@ -26,9 +27,9 @@ export interface EmojiPickerOptions {
   value: string
 }
 
-export type EmojiPickerProps = PopoverProps & EmojiPickerOptions
+export type EmojiPickerProps = CreateWuiProps<'div', PopoverProps & EmojiPickerOptions>
 
-const EmojiPickerComponent = forwardRef<HTMLDivElement, EmojiPickerProps>(
+const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
   (
     {
       children,

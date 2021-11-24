@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import {
   RadioGroup as ReakitRadioGroup,
   RadioGroupOptions as ReakitRadioGroupOptions,
@@ -6,7 +6,7 @@ import {
 } from 'reakit/Radio'
 import { FieldGroup, FieldGroupOptions } from '@welcome-ui/field-group'
 import { Radio } from '@welcome-ui/radio'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -22,11 +22,11 @@ export interface RadioGroupOptions {
 }
 
 export type RadioGroupProps = CreateWuiProps<
-  typeof FieldGroup,
+  'fieldset',
   FieldGroupOptions & ReakitRadioGroupOptions & RadioGroupOptions
 >
 
-export const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(
+export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
   (
     {
       flexDirection,

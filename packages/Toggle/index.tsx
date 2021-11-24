@@ -1,11 +1,12 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { Checkbox, CheckboxProps } from '@welcome-ui/checkbox'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type ToggleProps = Omit<CheckboxProps, 'Component'>
+export type ToggleProps = CreateWuiProps<'input', Omit<CheckboxProps, 'Component'>>
 
-const ToggleComponent = forwardRef<HTMLInputElement, ToggleProps>((props, ref) => (
+const ToggleComponent = forwardRef<'input', ToggleProps>((props, ref) => (
   <Checkbox {...props} Component={S.Toggle} ref={ref} />
 ))
 
