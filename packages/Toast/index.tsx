@@ -11,7 +11,7 @@ import * as S from './styles'
 export type Variant = 'error' | 'warning' | 'info' | 'success'
 
 export interface CreateToastOptions {
-  onClose: () => void
+  onClose?: () => void
 }
 
 export type UseToastReturn = (
