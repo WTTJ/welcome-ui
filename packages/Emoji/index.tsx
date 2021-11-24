@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Box } from '@welcome-ui/box'
 import Bowser from 'bowser'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 const EMOJI_PATH = 'https://cdn.welcome-ui.com/emojis/'
 
@@ -22,35 +22,32 @@ export interface EmojiOptions {
 
 export type EmojiProps = CreateWuiProps<'img', EmojiOptions>
 
-export const Emoji: React.FC<EmojiProps> = ({
-  emoji,
-  height = 24,
-  size,
-  useAppleEmoji = IS_APPLE_OS,
-  width = 24,
-  ...rest
-}) => {
-  const isUrl = useMemo(() => {
-    try {
-      new URL(emoji)
-      return true
-    } catch (_) {
-      return false
-    }
-  }, [emoji])
+export const Emoji: React.FC<EmojiProps> = forwardRef<'img', EmojiProps>(
+  ({ emoji, height = 24, size, useAppleEmoji = IS_APPLE_OS, width = 24, ...rest }, ref) => {
+    const isUrl = useMemo(() => {
+      try {
+        new URL(emoji)
+        return true
+      } catch (_) {
+        return false
+      }
+    }, [emoji])
 
-  if (!emoji) return null
+    if (!emoji) return null
 
-  const emojiName = !isUrl && getEmojiName(emoji)
-  const alt = isUrl ? null : emojiName
-  const isLarge = size > DEFAULT_SIZE || width > DEFAULT_SIZE || height > DEFAULT_SIZE
-  const src = isUrl
-    ? emoji
-    : `${EMOJI_PATH}${useAppleEmoji ? 'apple/' : 'google/'}${
-        isLarge ? 'originals/' : ''
-      }${encodeURIComponent(emojiName)}.png`
+    const emojiName = !isUrl && getEmojiName(emoji)
+    const alt = isUrl ? null : emojiName
+    const isLarge = size > DEFAULT_SIZE || width > DEFAULT_SIZE || height > DEFAULT_SIZE
+    const src = isUrl
+      ? emoji
+      : `${EMOJI_PATH}${useAppleEmoji ? 'apple/' : 'google/'}${
+          isLarge ? 'originals/' : ''
+        }${encodeURIComponent(emojiName)}.png`
 
-  return <Box alt={alt} as="img" h={size || height} src={src} w={size || width} {...rest} />
-}
+    return (
+      <Box alt={alt} as="img" h={size || height} ref={ref} src={src} w={size || width} {...rest} />
+    )
+  }
+)
 
 export const getEmojiName = (alias: string): string => alias?.replace?.(/:/g, '')

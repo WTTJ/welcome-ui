@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react'
-import { CreateWuiProps } from '@welcome-ui/system'
+import React from 'react'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -9,7 +9,7 @@ export interface UniversalLinkOptions {
 
 export type UniversalLinkProps = CreateWuiProps<'a', UniversalLinkOptions>
 
-export const UniversalLink = forwardRef<HTMLLinkElement, UniversalLinkProps>(
+export const UniversalLink = forwardRef<'a', UniversalLinkProps>(
   ({ children, dataTestId, target, ...rest }, ref) => (
     <S.UniversalLink
       color="inherit"

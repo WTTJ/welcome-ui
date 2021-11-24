@@ -1,6 +1,6 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { Box } from '@welcome-ui/box'
-import { CreateWuiProps, ExtraSize } from '@welcome-ui/system'
+import { CreateWuiProps, ExtraSize, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -13,7 +13,7 @@ export interface LoaderOptions {
 
 export type LoaderProps = CreateWuiProps<'div', LoaderOptions>
 
-export const Loader = forwardRef<HTMLDivElement, LoaderProps>(
+export const Loader = forwardRef<'div', LoaderProps>(
   ({ color, dataTestId, size = 'sm', ...rest }, ref) => (
     <Box color={color} data-testid={dataTestId} display="flex" ref={ref}>
       <S.LoadingDot shape="circle" size={size} {...rest} />

@@ -1,7 +1,6 @@
 import React, {
   Children,
   cloneElement,
-  forwardRef,
   useCallback,
   useEffect,
   useMemo,
@@ -11,7 +10,7 @@ import React, {
 import { clamp, throttle } from '@welcome-ui/utils'
 import { ResizeObserver } from '@juggle/resize-observer'
 import { RightIcon } from '@welcome-ui/icons.right'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { WuiTheme } from '@welcome-ui/core'
 
 import { Item } from './Item'
@@ -29,7 +28,7 @@ export interface BreadcrumbOptions {
 
 export type BreadcrumbProps = CreateWuiProps<'div', BreadcrumbOptions>
 
-export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
+export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
   (
     {
       renderChildrenAs = 'a',

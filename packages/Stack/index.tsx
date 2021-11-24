@@ -1,6 +1,6 @@
-import React, { Children, forwardRef, isValidElement } from 'react'
+import React, { Children, isValidElement } from 'react'
 import { Box } from '@welcome-ui/box'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 export interface StackOptions {
   direction?: 'column' | 'row'
@@ -9,7 +9,7 @@ export interface StackOptions {
 
 export type StackProps = CreateWuiProps<'div', StackOptions>
 
-export const Stack = forwardRef<HTMLDivElement, StackProps>(
+export const Stack = forwardRef<'div', StackProps>(
   ({ as = 'div', children, dataTestId, direction = 'column', spacing = 'md', ...rest }, ref) => {
     const validChildrenArray = Children.toArray(children).filter(isValidElement)
 

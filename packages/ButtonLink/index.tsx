@@ -1,10 +1,10 @@
-import React, { forwardRef } from 'react'
-import { CreateWuiProps } from '@welcome-ui/system'
+import React from 'react'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ButtonOptions, StyledButton } from '@welcome-ui/button'
 
 export type ButtonLinkProps = CreateWuiProps<'a', ButtonOptions>
 
-export const ButtonLink = forwardRef<HTMLLinkElement, ButtonLinkProps>(
+export const ButtonLink = forwardRef<'a', ButtonLinkProps>(
   ({ children, dataTestId, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
     <StyledButton
       as="a"

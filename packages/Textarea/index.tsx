@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react'
-import { CreateWuiProps } from '@welcome-ui/system'
+import React from 'react'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -25,7 +25,7 @@ export interface TextareaOptions {
 
 export type TextareaProps = CreateWuiProps<'textarea', TextareaOptions>
 
-const TextareaComponent = forwardRef<HTMLTextAreaElement, TextareaProps>(
+const TextareaComponent = forwardRef<'textarea', TextareaProps>(
   (
     {
       autoFocus,

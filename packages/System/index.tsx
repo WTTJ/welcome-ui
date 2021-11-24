@@ -1,3 +1,4 @@
+import React from 'react'
 import { compose, Props, SystemProps } from '@xstyled/system'
 import { getPx, getTransition, getZIndex, style } from '@xstyled/styled-components'
 import * as S from '@xstyled/system'
@@ -123,4 +124,28 @@ export type CreateWuiProps<Component extends As, Props = {}> = MergeProps<
   WuiProps & WuiTestProps & { as?: As }
 >
 
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type CreateWuiPropsWithoutRef<Component extends As, Props = {}> = MergeProps<
+  React.ComponentPropsWithoutRef<Component>,
+  Props,
+  WuiProps & WuiTestProps & { as?: As }
+>
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type CreateWuiComponent<Component extends As, Options = {}> = {
+  <AsComponent extends As>(
+    props: CreateWuiProps<AsComponent, Options> & { as: AsComponent }
+  ): JSX.Element
+  (props: CreateWuiProps<Component, Options>): JSX.Element
+  displayName?: string
+}
+
 export type ExtraSize = number | string
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export const forwardRef = <Component extends As, Props = {}>(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  component: React.ForwardRefRenderFunction<any, Props>
+): CreateWuiComponent<Component, Props> => {
+  return React.forwardRef(component)
+}

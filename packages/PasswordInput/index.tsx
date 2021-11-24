@@ -1,12 +1,12 @@
-import React, { forwardRef, useState } from 'react'
+import React, { useState } from 'react'
 import { InputText, InputTextOptions } from '@welcome-ui/input-text'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import { ToggleButton } from './ToggleButton'
 
-export type PasswordInputProps = CreateWuiProps<typeof InputText, InputTextOptions>
+export type PasswordInputProps = CreateWuiProps<'input', InputTextOptions>
 
-export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
+export const PasswordInput = forwardRef<'input', PasswordInputProps>(
   ({ dataTestId, title, ...rest }, ref) => {
     const [type, setType] = useState<'password' | 'text'>('password')
     const isHidden = type === 'password'

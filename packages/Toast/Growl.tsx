@@ -1,6 +1,6 @@
-import React, { Children, cloneElement, forwardRef } from 'react'
+import React, { Children, cloneElement } from 'react'
 import { ClearButton } from '@welcome-ui/clear-button'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import { Title } from './Title'
 import * as S from './styles'
@@ -15,7 +15,7 @@ export interface GrowlOptions {
 
 export type GrowlProps = CreateWuiProps<'div', GrowlOptions>
 
-export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
+export const Growl = forwardRef<'div', GrowlProps>(
   ({ children, closeButtonDataTestId, onClose, variant = 'info' }, ref) => {
     const content = Children.map(children, child => {
       // Add variant to AlertTitle to show the correct icon/color

@@ -39,7 +39,8 @@
   "dependencies": {
     "@welcome-ui/box": "^4.0.0-alpha.7",
     "@welcome-ui/shape": "^4.0.0-alpha.7",
-    "@welcome-ui/text": "^4.0.0-alpha.7"
+    "@welcome-ui/text": "^4.0.0-alpha.7",
+    "@welcome-ui/system": "^4.0.0-alpha.7"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.0.1",

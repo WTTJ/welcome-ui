@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   DropEvent,
   DropzoneProps,
@@ -12,7 +12,7 @@ import { EditIcon } from '@welcome-ui/icons.edit'
 import { Button } from '@welcome-ui/button'
 import { Group } from '@welcome-ui/group'
 import { CreateEvent, createEvent } from '@welcome-ui/utils'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ForceFileType } from '@welcome-ui/files'
 
 import * as S from './styles'
@@ -60,7 +60,7 @@ export interface FileDropOptions {
 
 export type FileDropProps = CreateWuiProps<'div', FileDropOptions> & Omit<DropzoneProps, 'children'>
 
-export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
+export const FileDrop = forwardRef<'div', FileDropProps>(
   (
     {
       accept = 'image/*',

@@ -1,11 +1,11 @@
 import React from 'react'
 import { MenuSeparator, MenuSeparatorProps } from 'reakit/Menu'
-import { WuiSystemProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './Separator.styled'
 
-export type SeparatorProps = MenuSeparatorProps & WuiSystemProps
+export type SeparatorProps = CreateWuiProps<'div', MenuSeparatorProps>
 
-export const Separator: React.FC<SeparatorProps> = props => {
-  return <MenuSeparator as={S.Separator} {...props} />
-}
+export const Separator = forwardRef<'div', SeparatorProps>((props, ref) => {
+  return <MenuSeparator as={S.Separator} ref={ref} {...props} />
+})

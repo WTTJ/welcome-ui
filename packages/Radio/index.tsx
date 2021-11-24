@@ -1,8 +1,7 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { LabelOptions } from '@welcome-ui/label'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { Variant } from '@welcome-ui/utils'
-import { Radio as ReakitRadio } from 'reakit/Radio'
 
 import * as S from './styles'
 
@@ -14,9 +13,9 @@ export interface RadioOptions {
   variant?: Variant
 }
 
-export type RadioProps = CreateWuiProps<typeof ReakitRadio, RadioOptions & LabelOptions>
+export type RadioProps = CreateWuiProps<'input', RadioOptions & LabelOptions>
 
-export const Radio = forwardRef<HTMLInputElement, RadioProps>(
+export const Radio = forwardRef<'input', RadioProps>(
   (
     {
       dataTestId,
