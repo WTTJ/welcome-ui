@@ -25,9 +25,11 @@ export const Toggle = styled(ReakitCheckbox).withConfig({ shouldForwardProp })<S
     &::after {
       ${th('toggles.after.default')};
       content: '';
-      top: 1;
+      top: 0;
+      bottom: 0;
       left: 1;
       position: absolute;
+      margin: auto;
       transition: medium;
     }
 
