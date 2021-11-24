@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/toggle",
-  "version": "4.0.0-alpha.7",
+  "version": "4.0.0-alpha.8",
   "description": "welcome-ui: A toggle component",
   "main": "dist/toggle.cjs.js",
   "module": "dist/toggle.es.js",
@@ -37,8 +37,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/checkbox": "^4.0.0-alpha.7",
-    "@welcome-ui/system": "^4.0.0-alpha.7",
+    "@welcome-ui/checkbox": "^4.0.0-alpha.8",
+    "@welcome-ui/system": "^4.0.0-alpha.8",
     "reakit": "^1.3.6"
   },
   "peerDependencies": {
