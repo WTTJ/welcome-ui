@@ -13,7 +13,7 @@ export const getBaseType = (type: string): string => TYPES[type] || type
 
 type VariantProps = {
   connected?: boolean
-  error?: string
+  error?: string | JSX.Element
   isCheckbox: boolean
   isRadio: boolean
   modified?: boolean
