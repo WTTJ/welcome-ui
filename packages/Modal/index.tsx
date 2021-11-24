@@ -8,7 +8,7 @@ import {
 } from 'reakit/Dialog'
 import { DisclosureActions } from 'reakit/Disclosure'
 import { Text } from '@welcome-ui/text'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 import { Close } from './Close'
@@ -30,7 +30,7 @@ export function useModalState(options?: DialogInitialState): DialogStateReturn {
   return useDialogState({ animated: true, ...options })
 }
 
-const ModalComponent: React.FC<ModalProps> = props => {
+const ModalComponent = forwardRef<'div', ModalProps>((props, ref) => {
   const {
     ariaLabel,
     children,
@@ -53,6 +53,7 @@ const ModalComponent: React.FC<ModalProps> = props => {
         aria-label={ariaLabel}
         hide={closeModal}
         hideOnClickOutside={hideOnClickOutside}
+        ref={ref}
         size={size}
         {...rest}
       >
@@ -61,7 +62,7 @@ const ModalComponent: React.FC<ModalProps> = props => {
       </S.Dialog>
     </S.Backdrop>
   )
-}
+})
 
 ModalComponent.displayName = 'Modal'
 

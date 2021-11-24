@@ -1,6 +1,6 @@
-import React, { forwardRef, Fragment, useCallback, useMemo, useState } from 'react'
+import React, { Fragment, useCallback, useMemo, useState } from 'react'
 import Downshift, { DownshiftProps, GetRootPropsOptions } from 'downshift'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { createEvent, throttle as handleThrottle } from '@welcome-ui/utils'
 
@@ -29,7 +29,7 @@ export interface SearchOptions {
 
 export type SearchProps = CreateWuiProps<'input', SearchOptions & DownshiftProps<Option>>
 
-export const Search = forwardRef<HTMLInputElement, SearchProps>(
+export const Search = forwardRef<'input', SearchProps>(
   (
     {
       autoComplete = 'off',

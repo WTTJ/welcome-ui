@@ -1,8 +1,8 @@
 /* eslint-disable react/no-multi-comp */
-import React, { Children, cloneElement, forwardRef, useEffect, useRef, useState } from 'react'
+import React, { Children, cloneElement, useEffect, useRef, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
 import { UniversalLinkOptions } from '@welcome-ui/universal-link'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -22,7 +22,7 @@ const WrapWithText: React.FC = ({ children, ...rest }) => (
   </span>
 )
 
-export const Link = forwardRef<HTMLLinkElement, LinkProps>((props, ref) => {
+export const Link = forwardRef<'a', LinkProps>((props, ref) => {
   const { children, dataTestId, variant = 'primary', ...rest } = props
   let clones
   const theme = useTheme()
