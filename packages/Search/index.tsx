@@ -10,7 +10,7 @@ const EMPTY_STRING = ''
 
 export type Option = { label: string; value: string }
 export type OptionGroup = { label: string; options: Option[] }
-type Item = Option | OptionGroup | string
+type Item = Option | OptionGroup | string | unknown
 
 export interface SearchOptions {
   groupsEnabled: boolean

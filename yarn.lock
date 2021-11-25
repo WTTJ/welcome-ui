@@ -4058,39 +4058,6 @@
   resolved "https://registry.yarnpkg.com/@ungap/from-entries/-/from-entries-0.2.1.tgz#7e86196b8b2e99d73106a8f25c2a068326346354"
   integrity sha512-CAqefTFAfnUPwYqsWHXpOxHaq1Zo5UQ3m9Zm2p09LggGe57rqHoBn3c++xcoomzXKynAUuiBMDUCQvKMnXjUpA==
 
-"@welcome-ui/button@^3.4.3":
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/button/-/button-3.4.3.tgz#6995250b23de45b0b23f65e0ca5a92bc44fcadbc"
-  integrity sha512-Zakl5gDvs09GcWPDJnrekf9E+wF65NRWYRuB0DxAtp65S/dT/phyopIKvDtRoONs5pPke1M2MX/dPl+R9C3cXw==
-  dependencies:
-    "@welcome-ui/system" "^3.0.0"
-    "@welcome-ui/utils" "^3.4.3"
-    reakit "^1.3.6"
-
-"@welcome-ui/icon@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/icon/-/icon-3.0.0.tgz#3915d1a8c22be94503f3e27bd40017cdfec15417"
-  integrity sha512-8WALUnw1yftYJ67tFkpXPM2wTX1ARsG5BfUsdZul+SsYhAbi29fDB9rk6YFtlBn+nNRgnkayi0JEAu7SjnHvkg==
-  dependencies:
-    "@welcome-ui/system" "^3.0.0"
-
-"@welcome-ui/icons.cross@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/icons.cross/-/icons.cross-3.4.0.tgz#063b339118a0c6983faac9edad91a53d1dfb5e49"
-  integrity sha512-jWE5bOI0pw+/D8wRuRkj4vtzBN/1uYFAqsya8eeOT5ot/kmN7owMGD6JKyOURKpjIeqLu78FC4O14tIVAa4sag==
-  dependencies:
-    "@welcome-ui/icon" "^3.0.0"
-
-"@welcome-ui/system@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/system/-/system-3.0.0.tgz#38aad04a08cfd5deb0123b3a5dcd8147d7bc5a6c"
-  integrity sha512-Zn9IGOrbYi3QYu3SgEe+4VZqTxTrDLo5w/mvIIPzVoLqBR2lTAqrD77/VdSwe8/lKJAAtQah901gdgZDrP6QCQ==
-
-"@welcome-ui/utils@^3.4.3":
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/utils/-/utils-3.4.3.tgz#8ea8cd10b2914240642ae245ebfd7f7360e1dd69"
-  integrity sha512-BsJkLPNp5aSG1IaTTb4RDS2dZjbmM8uUKKh0p8iHL7PFuoPJYzohcihORnNCEFJCKlk0Qi4ja3W+zC6wx5/dLw==
-
 "@xstyled/core@^3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-3.0.2.tgz#01578c65947664a80552a7180c78d3e54c5e9a3d"
