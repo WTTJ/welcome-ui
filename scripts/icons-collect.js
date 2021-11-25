@@ -166,6 +166,21 @@ const writeRootIconPackage = files => {
 `
   )
 
+  // Write main icons/index.d.ts
+  let rootIndexDTSContent = `import React from 'react'
+import { IconProps } from '@welcome-ui/icon'
+`
+  rootIndexDTSContent += files.map(({ key }) => {
+    const iconName = toPascalCase(key)
+    return `export declare const ${iconName}Icon: React.FC<IconProps>`
+  }).join(`
+`)
+  fs.writeFileSync(
+    `${ICONS_PATH}/index.d.ts`,
+    `${rootIndexDTSContent}
+`
+  )
+
   // Write main icons/package.json
   let config = require(`${ICONS_PATH}/package.json`)
 
