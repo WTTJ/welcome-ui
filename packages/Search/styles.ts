@@ -2,7 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
 import { componentSystem, shouldForwardProp, wrapperSystem } from '@welcome-ui/system'
-import { centerContent, defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
+import { centerContent, defaultFieldStyles, overflowEllipsis, Variant } from '@welcome-ui/utils'
 import { cardStyles } from '@welcome-ui/utils'
 
 import { SearchOptions } from './index'
@@ -21,10 +21,11 @@ export const InputWrapper = styled.div`
 export const Input = styled('input').withConfig({ shouldForwardProp })<{
   hasIcon?: boolean
   size?: SearchOptions['size']
+  variant?: Variant
 }>(
-  ({ hasIcon, size }) => css`
+  ({ hasIcon, size, variant }) => css`
     position: relative;
-    ${defaultFieldStyles({})};
+    ${defaultFieldStyles({ size, variant })};
     ${overflowEllipsis};
     ${hasIcon &&
     css`
