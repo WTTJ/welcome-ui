@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 import SimpleMDEEditor from 'react-simplemde-editor'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiProps, forwardFieldRef } from '@welcome-ui/system'
 
 // Fields
 import { RowContainer } from './layout'
@@ -23,7 +23,7 @@ export interface FieldOptions {
   id?: string
   label?: string
   modified?: boolean
-  name: string
+  name?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   onClick?: (event: React.MouseEvent<HTMLInputElement>) => void
   size?: Size
@@ -31,13 +31,12 @@ export interface FieldOptions {
   type?: string
   warning?: string
   required?: boolean
-  ref: React.ForwardedRef<HTMLDivElement>
   variant?: VariantReturn
 }
 
 export type FieldProps = CreateWuiProps<'input', FieldOptions>
 
-export const Field = forwardRef<'input', FieldProps>(
+export const Field = forwardFieldRef<'input', FieldProps>(
   (
     {
       checked,

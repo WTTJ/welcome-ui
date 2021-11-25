@@ -134,7 +134,7 @@ export type PlacementOptions =
 
 export interface TooltipOptions {
   children: React.ReactElement
-  content: React.ReactElement
+  content: string | JSX.Element
   fixed?: boolean
   placement?: PlacementOptions
 }

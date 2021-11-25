@@ -140,7 +140,14 @@ export type CreateWuiComponent<Component extends As, Options = {}> = {
   displayName?: string
 }
 
-export type ExtraSize = number | string
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type CreateWuiFieldComponent<Component extends As, Options = {}> = {
+  <InputComponent extends As>(
+    props: CreateWuiProps<InputComponent, Options> & { component: InputComponent }
+  ): JSX.Element
+  (props: CreateWuiProps<Component, Options>): JSX.Element
+  displayName?: string
+}
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export const forwardRef = <Component extends As, Props = {}>(
@@ -149,3 +156,13 @@ export const forwardRef = <Component extends As, Props = {}>(
 ): CreateWuiComponent<Component, Props> => {
   return React.forwardRef(component)
 }
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export const forwardFieldRef = <Component extends As, Props = {}>(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  component: React.ForwardRefRenderFunction<any, Props>
+): CreateWuiFieldComponent<Component, Props> => {
+  return React.forwardRef(component)
+}
+
+export type ExtraSize = number | string
