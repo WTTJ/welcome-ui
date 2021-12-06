@@ -50,5 +50,6 @@
   },
   "sideEffects": false,
   "component": "Loader",
-  "homepage": "https://welcome-ui.com/components/loader"
+  "homepage": "https://welcome-ui.com/components/loader",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462"
 }

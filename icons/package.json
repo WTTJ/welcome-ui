@@ -38,7 +38,7 @@
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1"
   },
-  "gitHead": "94b81a57c072de90a333f0e3a7a9a845b6c759be",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "homepage": "https://welcome-ui.com/components/icons",
   "component": "Icons",
   "dependencies": {

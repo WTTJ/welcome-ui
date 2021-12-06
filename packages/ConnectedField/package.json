@@ -46,7 +46,7 @@
     "react-final-form": "^6.5.2",
     "styled-components": "^5.3.0"
   },
-  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "sideEffects": false,
   "component": "ConnectedField",
   "homepage": "https://welcome-ui.com"

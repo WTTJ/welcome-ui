@@ -47,5 +47,6 @@
   },
   "sideEffects": false,
   "component": "Badge",
-  "homepage": "https://welcome-ui.com/components/badge"
+  "homepage": "https://welcome-ui.com/components/badge",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462"
 }

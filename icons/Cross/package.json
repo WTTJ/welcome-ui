@@ -4,7 +4,7 @@
   "main": "dist/icons.cross.cjs.js",
   "module": "dist/icons.cross.es.js",
   "version": "4.0.0-alpha.9",
-  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "publishConfig": {
     "access": "public"
   },
