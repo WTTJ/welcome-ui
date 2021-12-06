@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.avatar_body.cjs.js",
   "module": "dist/icons.avatar_body.es.js",
-  "version": "4.0.0-alpha.9",
+  "version": "4.0.0-alpha.10",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^4.0.0-alpha.9"
+    "@welcome-ui/icon": "^4.0.0-alpha.10"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",
