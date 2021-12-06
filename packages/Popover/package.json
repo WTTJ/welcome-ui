@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/popover",
-  "version": "4.0.0-alpha.9",
+  "version": "4.0.0-alpha.10",
   "description": "welcome-ui: A popover component",
   "main": "dist/popover.cjs.js",
   "module": "dist/popover.es.js",
@@ -37,10 +37,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^4.0.0-alpha.9",
-    "@welcome-ui/button": "^4.0.0-alpha.9",
-    "@welcome-ui/icons.cross": "^4.0.0-alpha.9",
-    "@welcome-ui/system": "^4.0.0-alpha.9",
+    "@welcome-ui/box": "^4.0.0-alpha.10",
+    "@welcome-ui/button": "^4.0.0-alpha.10",
+    "@welcome-ui/icons.cross": "^4.0.0-alpha.10",
+    "@welcome-ui/system": "^4.0.0-alpha.10",
     "reakit": "^1.3.6"
   },
   "peerDependencies": {
