@@ -48,7 +48,8 @@
     "@welcome-ui/icons.video": "^4.0.0-alpha.8",
     "@welcome-ui/icons.xls": "^4.0.0-alpha.8",
     "@welcome-ui/icons.xlsx": "^4.0.0-alpha.8",
-    "@welcome-ui/icons.zip": "^4.0.0-alpha.8"
+    "@welcome-ui/icons.zip": "^4.0.0-alpha.8",
+    "@welcome-ui/utils": "^4.0.0-alpha.8"
   },
   "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
   "sideEffects": false,
