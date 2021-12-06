@@ -5,8 +5,9 @@ type SubPalette = WuiTheme['colors']['sub']
 export function getSeededColor(colors: SubPalette, seed: string): string {
   const colorKeys = Object.keys(colors)
   const index = seed.length % colorKeys.length
+  const colorsIndex = Number(colorKeys[index]) as keyof SubPalette
 
-  return colors[index as keyof SubPalette]
+  return colors[colorsIndex]
 }
 
 export function getInitials(name: string): string {
