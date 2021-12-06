@@ -27,7 +27,7 @@ export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{ va
     }
 
     ${th('links.default')};
-    ${th(`links.${variant || 'primary'}.default`)}
+    ${th(`links.${variant || 'primary'}.default`)};
     ${system};
 
     & > *:not(:only-child):not(:last-child) {
