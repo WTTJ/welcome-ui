@@ -48,7 +48,7 @@
     "react-dom": "^16.10.2 || ^17.0.1",
     "styled-components": "^5.3.0"
   },
-  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "sideEffects": false,
   "component": "DropdownMenu, useDropdownMenuState",
   "homepage": "https://welcome-ui.com/components/dropdown-menu"

@@ -3,7 +3,7 @@
   "sideEffects": false,
   "main": "dist/icons.edit.cjs.js",
   "module": "dist/icons.edit.es.js",
-  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "publishConfig": {
     "access": "public"
   },

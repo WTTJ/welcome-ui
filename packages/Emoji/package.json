@@ -49,5 +49,6 @@
   },
   "sideEffects": false,
   "component": "Emoji",
-  "homepage": "https://welcome-ui.com/components/emoji"
+  "homepage": "https://welcome-ui.com/components/emoji",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462"
 }
