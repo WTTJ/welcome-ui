@@ -30,27 +30,27 @@ export type OptionGroup = { label: string; options: Option[] }
 export type OptionItem = Option | OptionGroup
 export type Options = Array<Option | OptionGroup>
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-export type SelectValue = string
+export type SelectValue = string | string[]
 export interface SelectOptions {
   autoComplete?: string
   autoFocus?: boolean
   disabled?: boolean
   icon?: string
-  id: string
+  id?: string
   isClearable?: boolean
   isCreatable?: boolean
   isMultiple?: boolean
   isSearchable?: boolean
   options: Options
-  name: string
+  name?: string
   onBlur?: () => void
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
-  onChange?: (value: OptionValue | OptionValue[], event: CreateEvent) => void
+  onChange?: (value: OptionValue | OptionValue[], event?: CreateEvent) => void
   onCreate?: (option: string, event: CreateEvent) => void
   onFocus?: () => void
   placeholder?: string
   renderCreateItem?: (inputValue: SelectValue) => void
-  renderItem?: (item: Option, isItemSelected?: boolean) => string
+  renderItem?: (item: Option | unknown, isItemSelected?: boolean) => string | React.ReactElement
   renderMultiple?: (values: Option[], handleRemove: (value: string) => void) => React.ReactElement
   size?: Size
   value?: SelectValue
@@ -60,7 +60,10 @@ export interface SelectOptions {
   groupsEnabled?: boolean
   renderGroupHeader?: (option: OptionGroup) => void
 }
-export type SelectProps = CreateWuiProps<'input', SelectOptions & DownshiftProps<Option>>
+export type SelectProps = CreateWuiProps<
+  'input',
+  SelectOptions & Omit<DownshiftProps<Option>, keyof SelectOptions | 'children'>
+>
 
 /** We need to add autoComplete off to avoid select UI issues when is an input */
 export const Select = forwardRef<'input', SelectProps>(
@@ -220,7 +223,7 @@ export const Select = forwardRef<'input', SelectProps>(
     return (
       <Downshift
         id={id}
-        inputValue={isSearchable ? inputContent : ''}
+        inputValue={isSearchable ? (inputContent as string) : ''}
         isOpen={isOpen}
         itemToString={itemToString}
         onInputValueChange={handleInputChange}

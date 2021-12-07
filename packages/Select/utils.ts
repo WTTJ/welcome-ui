@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Option, OptionItem, Options, OptionValue } from './index'
 
 const EMPTY_STRING = ''
@@ -92,8 +94,8 @@ export const getInputValue = ({
   isMultiple: boolean
   isSearchable: boolean
   options: Option[]
-  renderItem: (option: Option) => string
-}): string => {
+  renderItem: (option: Option) => string | React.ReactElement
+}): string | React.ReactElement => {
   const option = getOption(inputValue, options)
 
   if (isMultiple) {
