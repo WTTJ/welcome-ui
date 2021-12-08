@@ -45,13 +45,13 @@ export type ChildrenType = {
 export interface FileDropOptions {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg"  */
   accept?: string
-  children: (state: ChildrenType) => JSX.Element
+  children?: (state: ChildrenType) => JSX.Element
   isClearable?: boolean
   isEditable?: boolean
   forceFileType?: ForceFileType
   handleAddFile?: (event: DropEvent | React.ChangeEvent<HTMLInputElement> | CreateEvent) => void
   handleRemoveFile?: (event: DropEvent | React.ChangeEvent<HTMLInputElement> | CreateEvent) => void
-  name: string
+  name?: string
   onBlur?: () => void
   onChange?: (event: DropEvent | React.ChangeEvent<HTMLInputElement> | CreateEvent) => void
   onError?: (event?: string) => void
