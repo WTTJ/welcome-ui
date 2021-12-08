@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.new_candidate.cjs.js",
   "module": "dist/icons.new_candidate.es.js",
-  "version": "4.0.0-alpha.10",
+  "version": "4.0.0-alpha.11",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^4.0.0-alpha.10"
+    "@welcome-ui/icon": "^4.0.0-alpha.11"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",
