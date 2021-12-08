@@ -13,21 +13,24 @@ export type OptionGroup = { label: string; options: Option[] }
 type Item = Option | OptionGroup | string | unknown
 
 export interface SearchOptions {
-  groupsEnabled: boolean
+  groupsEnabled?: boolean
   icon?: React.ReactElement
   itemToString: (item: Item) => string
   minChars?: number
-  onChange: (item: Item, event: ReturnType<typeof createEvent>) => void
-  renderGroupHeader: (result: OptionGroup) => React.ReactElement
+  onChange?: (item: Item, event: ReturnType<typeof createEvent>) => void
+  renderGroupHeader?: (result: OptionGroup) => React.ReactElement
   renderItem: (item: Item) => React.ReactElement | string
-  search: (query: string) => Promise<Option[]>
-  size: 'sm' | 'md' | 'lg'
+  search: (query: string) => Promise<unknown>
+  size?: 'sm' | 'md' | 'lg'
   throttle?: number
-  value: Item
+  value?: Item
   variant?: 'error' | 'info' | 'success' | 'valid' | 'warning'
 }
 
-export type SearchProps = CreateWuiProps<'input', SearchOptions & DownshiftProps<Option>>
+export type SearchProps = CreateWuiProps<
+  'input',
+  SearchOptions & Omit<DownshiftProps<Option>, keyof SearchOptions | 'children'>
+>
 
 export const Search = forwardRef<'input', SearchProps>(
   (
@@ -69,7 +72,7 @@ export const Search = forwardRef<'input', SearchProps>(
       async (value: string) => {
         if (minChars === 0 || value?.length >= minChars) {
           const data = await search(value)
-          setResults(data || [])
+          setResults((data as Option[] | OptionGroup[]) || [])
         } else {
           setResults([])
         }
