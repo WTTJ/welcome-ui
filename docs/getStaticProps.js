@@ -27,13 +27,15 @@ const propFilter = prop => {
 
 export async function getStaticProps() {
   // Only import on server
-  const reactDocs = require('react-docgen-typescript')
   const path = require('path')
   const fs = require('fs')
+  const reactDocs = require('react-docgen-typescript').withCustomConfig(
+    path.join(process.cwd(), './tsconfig.json'),
+    { propFilter }
+  )
 
   let propTypes = {}
 
-  // Use react-docgen to get proptypes
   const cwd = process.cwd()
   const packages = fs.readdirSync(path.join(cwd, 'packages'))
 
@@ -46,9 +48,7 @@ export async function getStaticProps() {
 
     // Loop through all component files for a package and add to prepped propTypes object
     componentFiles.forEach(file => {
-      const [result] = reactDocs.parse(path.join(cwd, `packages/${packageName}/${file}`), {
-        propFilter,
-      })
+      const [result] = reactDocs.parse(path.join(cwd, `packages/${packageName}/${file}`))
       const { props } = result || {}
 
       if (!props) return
