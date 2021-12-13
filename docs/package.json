@@ -41,10 +41,10 @@
     "lodash.merge": "^4.6.2",
     "next": "10.0.8",
     "prism-react-renderer": "1.2.0",
-    "react-docgen": "^5.3.1",
+    "react": "^17.0.1",
+    "react-docgen-typescript": "^2.1.1",
     "react-dom": "^17.0.1",
     "react-hook-form": "~6.15.4",
-    "react": "^17.0.1",
     "styled-components": "^5.3.0",
     "yup": "0.32.9"
   }

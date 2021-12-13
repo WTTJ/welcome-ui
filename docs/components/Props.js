@@ -16,7 +16,7 @@ const removeQuote = str => str?.replace(/'/g, '')
 
 const isArray = Array.isArray
 
-const Type = ({ type }) => {
+function Type({ type }) {
   if (!type) {
     return null
   }
@@ -58,7 +58,7 @@ const Type = ({ type }) => {
   return name
 }
 
-export const Props = ({ propTypes }) => {
+export function Props({ propTypes }) {
   if (!propTypes) {
     return 'No propTypes specified'
   }
@@ -83,7 +83,7 @@ export const Props = ({ propTypes }) => {
                 return null
               }
 
-              const defaultLabel = removeQuote(defaultValue?.value)
+              const defaultLabel = removeQuote(defaultValue?.value?.toString())
 
               return (
                 <Table.Tr key={key}>
