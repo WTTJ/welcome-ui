@@ -19,13 +19,15 @@ export interface DatePickerOptions {
   onBlur?: CustomInputOptions['handleBlur']
   onFocus?: CustomInputOptions['handleFocus']
   useWeekdaysShort?: boolean
-  placeholder: ReactDatePickerProps['placeholderText']
+  placeholder?: ReactDatePickerProps['placeholderText']
+  value: string | Date
 }
 
 export type DatePickerProps = CreateWuiProps<
   typeof StyledDatePicker,
-  Omit<ReactDatePickerProps, 'onChange' | 'onBlur' | 'onFocus' | 'locale'> &
-    Pick<CustomHeaderOptions, 'endYear' | 'startYear' | 'locale'> &
+  Omit<ReactDatePickerProps, 'onChange' | 'onBlur' | 'onFocus' | 'locale' | 'value'> &
+    Partial<Pick<CustomHeaderOptions, 'endYear' | 'startYear'>> &
+    Pick<CustomHeaderOptions, 'locale'> &
     Omit<CustomInputOptions, 'handleBlur' | 'handleFocus' | 'onReset' | 'focused' | 'value'> &
     DatePickerOptions
 >

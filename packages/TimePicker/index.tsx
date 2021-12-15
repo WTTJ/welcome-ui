@@ -15,13 +15,13 @@ export interface TimePickerOptions {
   onChange?: (date?: Date) => void
   onBlur?: CustomInputOptions['handleBlur']
   onFocus?: CustomInputOptions['handleFocus']
-  placeholder: ReactDatePickerProps['placeholderText']
-  value: string | number | Date
+  placeholder?: ReactDatePickerProps['placeholderText']
+  value: string | Date
 }
 
 export type TimePickerProps = CreateWuiProps<
   typeof StyledTimePicker,
-  Omit<ReactDatePickerProps, 'onChange' | 'onBlur' | 'onFocus'> &
+  Omit<ReactDatePickerProps, 'onChange' | 'onBlur' | 'onFocus' | 'value'> &
     Omit<CustomInputOptions, 'handleBlur' | 'handleFocus' | 'onReset' | 'focused' | 'value'> &
     TimePickerOptions
 >
