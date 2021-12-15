@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {
   CustomInput,
-  CustomInputProps,
+  CustomInputOptions,
   CustomPopper,
   DEFAULT_DATE,
   Focused,
@@ -13,12 +13,17 @@ import { ReactDatePickerProps } from 'react-datepicker'
 
 export interface TimePickerOptions {
   onChange?: (date?: Date) => void
+  onBlur?: CustomInputOptions['handleBlur']
+  onFocus?: CustomInputOptions['handleFocus']
   placeholder: ReactDatePickerProps['placeholderText']
+  value: string | number | Date
 }
 
 export type TimePickerProps = CreateWuiProps<
   typeof StyledTimePicker,
-  Omit<ReactDatePickerProps, 'onChange'> & CustomInputProps & TimePickerOptions
+  Omit<ReactDatePickerProps, 'onChange' | 'onBlur' | 'onFocus'> &
+    Omit<CustomInputOptions, 'handleBlur' | 'handleFocus' | 'onReset' | 'focused' | 'value'> &
+    TimePickerOptions
 >
 
 export const TimePicker = forwardRef<'input', TimePickerProps>(
@@ -35,7 +40,6 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
       size = 'lg',
       icon,
       iconPlacement = 'left',
-      inputRef,
       placeholder,
       popperProps,
       timeIntervals = 15,
@@ -65,17 +69,17 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
       //eslint-disable-next-line
     }, [value])
 
-    const handleFocus: CustomInputProps['handleFocus'] = e => {
+    const handleFocus: CustomInputOptions['handleFocus'] = e => {
       setFocused('time')
       onFocus && onFocus(e)
     }
 
-    const handleBlur: CustomInputProps['handleBlur'] = e => {
+    const handleBlur: CustomInputOptions['handleBlur'] = e => {
       setFocused(null)
       onBlur && onBlur(e)
     }
 
-    const handleReset: CustomInputProps['onReset'] = e => {
+    const handleReset: CustomInputOptions['onReset'] = e => {
       e.preventDefault()
       setDate(null)
       onChange && onChange()
@@ -102,8 +106,8 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
             handleFocus={handleFocus}
             icon={icon}
             iconPlacement={iconPlacement}
-            inputRef={inputRef || ref}
             onReset={handleReset}
+            ref={ref}
             size={size}
           />
         }

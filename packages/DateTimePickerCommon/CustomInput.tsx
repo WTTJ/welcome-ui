@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { CreateWuiProps } from '@welcome-ui/system'
@@ -16,47 +16,42 @@ export interface CustomInputOptions {
   handleFocus?: (event: React.FocusEvent<HTMLDivElement>) => void
   icon?: Icon
   iconPlacement?: IconPlacement
-  inputRef: React.Ref<HTMLInputElement>
   onReset?: (event: React.MouseEvent<HTMLButtonElement>) => void
   size?: DefaultFieldStylesProps['size']
   value?: string | null
 }
 
-export type CustomInputProps = CreateWuiProps<'div', CustomInputOptions>
+export type CustomInputProps = CreateWuiProps<'input', CustomInputOptions>
 
 // eslint-disable-next-line react/prefer-stateless-function
-export const CustomInput: React.FC<CustomInputProps> = ({
-  focused,
-  handleBlur,
-  handleFocus,
-  icon,
-  iconPlacement,
-  inputRef,
-  onReset,
-  size,
-  value,
-  ...rest
-}) => {
-  return (
-    <S.CustomInput
-      focused={focused}
-      icon={icon}
-      iconPlacement={iconPlacement}
-      onBlur={handleBlur}
-      onFocus={handleFocus}
-      size={size}
-    >
-      {icon && (
-        <IconWrapper iconPlacement={iconPlacement} size={size}>
-          {icon}
-        </IconWrapper>
-      )}
-      <input value={value} {...rest} ref={inputRef} />
-      {value && (
-        <IconWrapper iconPlacement="right" size={size}>
-          <ClearButton aria-label="clear date" onClick={onReset} />
-        </IconWrapper>
-      )}
-    </S.CustomInput>
-  )
-}
+export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
+  (
+    { focused, handleBlur, handleFocus, icon, iconPlacement, onReset, size, value, ...rest },
+    ref
+  ) => {
+    return (
+      <S.CustomInput
+        focused={focused}
+        icon={icon}
+        iconPlacement={iconPlacement}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
+        size={size}
+      >
+        {icon && (
+          <IconWrapper iconPlacement={iconPlacement} size={size}>
+            {icon}
+          </IconWrapper>
+        )}
+        <input value={value} {...rest} ref={ref} />
+        {value && (
+          <IconWrapper iconPlacement="right" size={size}>
+            <ClearButton aria-label="clear date" onClick={onReset} />
+          </IconWrapper>
+        )}
+      </S.CustomInput>
+    )
+  }
+)
+
+CustomInput.displayName = 'CustomInput'

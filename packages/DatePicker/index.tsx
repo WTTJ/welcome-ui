@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   CustomHeader,
+  CustomHeaderOptions,
   CustomHeaderProps,
   CustomInput,
-  CustomInputProps,
+  CustomInputOptions,
   CustomPopper,
   DEFAULT_DATE,
   Focused,
@@ -11,14 +12,22 @@ import {
   StyledDatePicker,
 } from '@welcome-ui/date-time-picker-common'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { ReactDatePickerProps } from 'react-datepicker'
 
 export interface DatePickerOptions {
   onChange?: (date?: Date) => void
+  onBlur?: CustomInputOptions['handleBlur']
+  onFocus?: CustomInputOptions['handleFocus']
+  useWeekdaysShort?: boolean
+  placeholder: ReactDatePickerProps['placeholderText']
 }
 
 export type DatePickerProps = CreateWuiProps<
   typeof StyledDatePicker,
-  CustomHeaderProps & CustomInputProps & DatePickerOptions
+  Omit<ReactDatePickerProps, 'onChange' | 'onBlur' | 'onFocus' | 'locale'> &
+    Pick<CustomHeaderOptions, 'endYear' | 'startYear' | 'locale'> &
+    Omit<CustomInputOptions, 'handleBlur' | 'handleFocus' | 'onReset' | 'focused' | 'value'> &
+    DatePickerOptions
 >
 
 export const DatePicker = forwardRef<'input', DatePickerProps>(
@@ -31,7 +40,6 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
       endYear = DEFAULT_DATE.getFullYear(),
       icon,
       iconPlacement = 'left',
-      inputRef,
       locale,
       onBlur,
       onChange,
@@ -51,7 +59,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
 
     const [focused, setFocused] = useState<Focused>((autoFocus && 'date') || null)
     const [date, setDate] = useState(formatDate(value))
-    const inputReference = inputRef || ref
+    const inputRef = useRef<HTMLInputElement>()
 
     // format date at component mount
     useEffect(() => {
@@ -63,21 +71,24 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
     useEffect(() => {
       const formattedDate = formatDate(value)
       const valueToParse = typeof value === 'object' ? value?.toISOString() : value
-      if (new Date(Date.parse(valueToParse)) - formattedDate !== 0 && onChange) {
+      if (
+        new Date(Date.parse(valueToParse))?.getTime() - formattedDate?.getTime() !== 0 &&
+        onChange
+      ) {
         onChange(formattedDate)
       }
       setDate(formattedDate)
       //eslint-disable-next-line
     }, [value])
 
-    const blur = () => inputReference?.current.blur()
+    const blur = () => inputRef.current?.blur()
 
-    const handleFocus = (e: CustomInputProps['handleFocus']) => {
+    const handleFocus: CustomInputOptions['handleFocus'] = e => {
       setFocused('date')
       onFocus && onFocus(e)
     }
 
-    const handleBlur = (e: CustomInputProps['handleBlur']) => {
+    const handleBlur: CustomInputOptions['handleBlur'] = e => {
       setFocused(null)
       onBlur && onBlur(e)
     }
@@ -88,7 +99,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
       }
     }
 
-    const handleReset = (e: CustomInputProps['onReset']) => {
+    const handleReset: CustomInputOptions['onReset'] = e => {
       e.preventDefault()
       blur()
       setDate(null)
@@ -113,12 +124,21 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
             className="date-picker"
             data-testid={dataTestId}
             focused={focused}
-            handleBlur={e => handleBlur('date', e)}
-            handleFocus={e => handleFocus('date', e)}
+            handleBlur={e => handleBlur(e)}
+            handleFocus={e => handleFocus(e)}
             icon={icon}
             iconPlacement={iconPlacement}
-            inputRef={inputReference}
             onReset={handleReset}
+            ref={instance => {
+              // for internal use only
+              inputRef.current = instance
+              // for external use
+              if (typeof ref === 'function') {
+                ref(instance)
+              } else {
+                ref.current = instance
+              }
+            }}
             size={size}
           />
         }

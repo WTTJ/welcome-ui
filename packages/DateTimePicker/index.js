@@ -55,9 +55,9 @@ export const DateTimePicker = forwardRef(
           <>
             <DatePicker
               disabled={disabled}
-              inputRef={ref}
               locale={locale}
               onChange={handleChange}
+              ref={ref}
               size={size}
               value={value}
             />
