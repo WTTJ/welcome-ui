@@ -41,8 +41,8 @@ export function getMimeType(file: FileType): string {
   }
 }
 
-export function getFileSize(file: File): string {
-  return file.size ? formatBytes(file.size, 0) : null
+export function getFileSize(file: FileType): string {
+  return file instanceof File && file.size ? formatBytes(file.size, 0) : null
 }
 
 export function getFileIcon(file: FileType, forceFileType?: ForceFileType): React.FC<IconProps> {

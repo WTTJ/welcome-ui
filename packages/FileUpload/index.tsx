@@ -1,7 +1,7 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react'
-import { bool, func, node, number, object, oneOfType, string } from 'prop-types'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button } from '@welcome-ui/button'
 import { createEvent } from '@welcome-ui/utils'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 // FileUpload
 import { Preview as DefaultPreview } from './Preview'
@@ -10,7 +10,32 @@ import * as S from './styles'
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const DEFAULT_FILE_TYPES = '*/*'
 
-const ensureArray = value => {
+interface FileWithPreview extends File {
+  preview?: string
+}
+
+type FileWithPreviewType = FileWithPreview | string
+
+type HandleRemoveType = (file: FileWithPreviewType) => void
+
+export interface FileUploadOptions {
+  maxSize?: number
+  handleAddFile?: (files: FileWithPreviewType[] | FileWithPreviewType) => void
+  handleRemoveFile?: HandleRemoveType
+  preview?: typeof DefaultPreview
+  onBlur?: () => void
+  onChange?: (event: ReturnType<typeof createEvent>) => void
+  children?: (props: {
+    openFile: () => void
+    disabled: boolean
+    files: FileWithPreviewType[]
+    onRemoveFile: HandleRemoveType
+  }) => React.ReactNode
+}
+
+export type FileUploadProps = CreateWuiProps<'input', FileUploadOptions>
+
+const ensureArray: (value: unknown[] | unknown) => FileWithPreviewType[] = value => {
   if (Array.isArray(value)) {
     return value
   } else if (value) {
@@ -19,13 +44,14 @@ const ensureArray = value => {
   return []
 }
 
-export const FileUpload = forwardRef(
+export const FileUpload = forwardRef<'input', FileUploadProps>(
   (
     {
       accept = DEFAULT_FILE_TYPES,
       children,
       dataTestId,
       disabled,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       draggable,
       maxSize = DEFAULT_MAX_FILE_SIZE,
       multiple,
@@ -33,6 +59,7 @@ export const FileUpload = forwardRef(
       handleAddFile,
       onBlur,
       onChange,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       onError,
       handleRemoveFile,
       value = [],
@@ -42,9 +69,9 @@ export const FileUpload = forwardRef(
     ref
   ) => {
     // We always keep an array of files
-    const [files, setFiles] = useState(ensureArray(value))
+    const [files, setFiles] = useState<FileWithPreviewType[]>(ensureArray(value))
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const inputRef = ref || useRef()
+    const inputRef = useRef<HTMLInputElement>()
 
     // Ensure component is controlled
     useEffect(() => {
@@ -53,14 +80,19 @@ export const FileUpload = forwardRef(
 
     // Clean up URL on unmount
     useEffect(() => {
-      return () => files && files.map(file => file && URL.revokeObjectURL(file.preview))
+      return () => {
+        files &&
+          files.map(file => (file instanceof File ? URL.revokeObjectURL(file.preview) : file))
+      }
     }, [files])
 
-    const handleChange = e => {
-      let newFiles = Array.from(e.target.files).map(file => {
-        file.preview = URL.createObjectURL(file)
-        return file
-      })
+    const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
+      let newFiles: FileWithPreview[] | FileWithPreview = Array.from(e.target.files).map(
+        (file: FileWithPreview) => {
+          file.preview = URL.createObjectURL(file)
+          return file
+        }
+      )
       setFiles(newFiles)
 
       if (newFiles.length === 1) {
@@ -73,7 +105,7 @@ export const FileUpload = forwardRef(
       onBlur && onBlur()
     }
 
-    const handleRemove = removedFile => {
+    const handleRemove: FileUploadProps['handleRemoveFile'] = removedFile => {
       const newFiles = files.filter(file => file !== removedFile)
       const value = multiple ? newFiles : undefined
       setFiles(newFiles)
@@ -90,7 +122,7 @@ export const FileUpload = forwardRef(
 
     // We need to add this key on the input[file] because we can't change it's value programmatically for security reasons
     // Changing its key means that we can add a file, remove it & re-add it
-    const inputKey = files.map(file => file.preview)
+    const inputKey = files.map(file => (file instanceof File ? file.preview : undefined)).join('')
 
     return (
       <>
@@ -112,37 +144,30 @@ export const FileUpload = forwardRef(
           name={name}
           onBlur={onBlur}
           onChange={handleChange}
-          ref={inputRef}
+          ref={(instance: HTMLInputElement) => {
+            // for internal use only
+            inputRef.current = instance
+            // for external use
+            if (typeof ref === 'function') {
+              ref(instance)
+            } else {
+              ref.current = instance
+            }
+          }}
           {...rest}
           type="file"
         />
         {Preview &&
           files.map(file => (
-            <Preview file={file} key={file.name || file} onRemove={() => handleRemove(file)} />
+            <Preview
+              file={file}
+              key={file instanceof File ? file.name : file}
+              onRemove={() => handleRemove(file)}
+            />
           ))}
       </>
     )
   }
 )
 
-FileUpload.type = 'FileUpload'
 FileUpload.displayName = 'FileUpload'
-
-FileUpload.propTypes /* remove-proptypes */ = {
-  /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg"  */
-  accept: string,
-  children: func,
-  disabled: bool,
-  draggable: bool,
-  handleAddFile: func,
-  handleRemoveFile: func,
-  maxSize: number,
-  multiple: bool,
-  name: string.isRequired,
-  onBlur: func,
-  onChange: func,
-  onError: func,
-  preview: node,
-  title: oneOfType([string, node]),
-  value: oneOfType([string, object]),
-}
