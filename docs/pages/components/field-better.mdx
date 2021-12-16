@@ -20,52 +20,117 @@ You can find props for each field component in the other `Forms` pages.
 
 <usage component={component} name={name} peerDependencies={peerDependencies} />
 
-## Sizes
+## Classic
 
 ```jsx
-<Form initialValues={{}}>
-  <>
-    <ConnectedField
-      name="small"
-      placeholder="Placeholder"
-      component={InputText}
-      label="I'm a small sized field"
-      size="sm"
-      mb="xl"
-    />
-    <ConnectedField
-      name="medium"
-      placeholder="Placeholder"
-      component={InputText}
-      label="I'm a medium sized field"
-      size="md"
-      mb="xl"
-    />
-    <ConnectedField
-      name="large"
-      placeholder="Placeholder"
-      component={InputText}
-      label="I'm a large sized field which is my default size"
-      mb="xl"
-    />
-  </>
-</Form>
+<FieldBetterBetter label="I'm a small sized field" p="xl" backgroundColor="tomato">
+  <InputText />
+</FieldBetterBetter>
+<FieldBetterBetter label="I'm a disabled field" disabled>
+  <InputText placeholder="placeholder" />
+</FieldBetterBetter>
+<FieldBetterBetter label="I'm a field with a hint" hint="I'm a hint">
+  <InputText />
+</FieldBetterBetter>
+<FieldBetterBetter label="I'm a field with an error" error="Invalid field">
+  <InputText />
+</FieldBetterBetter>
+<FieldBetterBetter label="I'm a field with a warning" warning={<p>Invalid field</p>}>
+  <InputText />
+</FieldBetterBetter>
+<FieldBetterBetter label="I'm a required field" required>
+  <InputText />
+</FieldBetterBetter>
+```
+
+```jsx
+function () {
+  const ref = React.useRef(null)
+
+  const handleClick = () => {
+    ref.current.focus()
+  }
+
+  return (
+    <>
+      <FieldBetterBetter label="I'm a field with a custom inputRef" inputRef={ref}>
+        <InputText />
+      </FieldBetterBetter>
+      <Button onClick={handleClick}>Click me</Button>
+    </>
+  )
+}
+```
+
+```jsx
+function () {
+  const [state, setState] = React.useState('')
+
+  const handleChange = (event) => {
+    setState(event.target.value + 'a')
+  }
+
+  return (
+    <FieldBetterBetter label="I'm a field with a state">
+      <InputText onChange={handleChange} value={state} />
+    </FieldBetterBetter>
+  )
+}
+```
+
+```jsx
+function () {
+  const [state, setState] = React.useState(false)
+
+  const handleChange = (event) => {
+    setState(s => !s)
+  }
+
+  return (
+    <FieldBetterBetter label="I'm a field with a state" id="yolo">
+      <Checkbox onChange={handleChange} checked={state} />
+    </FieldBetterBetter>
+  )
+}
+```
+
+## Disabled
+
+```jsx
+
 ```
 
 ## Variants
 
 ```jsx
-<>
-  <Field name="default" placeholder="Placeholder" label="Label" hint="A hint" mb="xl">
-    <InputText />
-  </Field>
-  <Field name="warning" placeholder="Placeholder" label="Label" warning="A warning" mb="xl">
-    <InputText />
-  </Field>
-  <Field name="error" placeholder="Placeholder" label="Label" error="An error" mb="xl">
-    <InputText />
-  </Field>
-</>
+<Form initialValues={{}}>
+  <>
+    <ConnectedField
+      name="default"
+      placeholder="Placeholder"
+      component={InputText}
+      label="Label"
+      hint="A hint"
+      mb="xl"
+    />
+    <ConnectedField
+      name="warning"
+      placeholder="Placeholder"
+      component={InputText}
+      label="Label"
+      warning="A warning"
+      mb="xl"
+    />
+    <ConnectedField
+      name="error"
+      placeholder="Placeholder"
+      component={InputText}
+      label="Label"
+      error="An error"
+      mb="xl"
+    />
+  </>
+</Form>
 ```
 
 ## Disabled

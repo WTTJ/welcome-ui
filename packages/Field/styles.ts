@@ -2,8 +2,7 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { StyledLabel } from '@welcome-ui/label'
 import { StyledFieldGroup } from '@welcome-ui/field-group'
-import { shouldForwardProp, system, wrapperSystem } from '@welcome-ui/system'
-import { WuiProps } from '@welcome-ui/system'
+import { shouldForwardProp, system, WuiProps } from '@welcome-ui/system'
 
 import { Size } from './index'
 
@@ -38,7 +37,7 @@ export const Field = styled('div').withConfig({ shouldForwardProp })<StyledField
       ${checkableField && checkableFieldStyles};
       ${checked && th('defaultFields.checkablelabel.checked')}
     }
-    ${wrapperSystem};
+    ${system};
   `
 )
 

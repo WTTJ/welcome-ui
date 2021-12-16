@@ -1,49 +1,33 @@
 import React, { Fragment } from 'react'
 import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
-import SimpleMDEEditor from 'react-simplemde-editor'
-import { CreateWuiProps, forwardFieldRef } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 // Fields
 import { RowContainer } from './layout'
 import * as S from './styles'
-import { getBaseType, getVariant, VariantReturn } from './utils'
+import { getBaseType, getVariant } from './utils'
 
 export type Size = 'sm' | 'md' | 'lg'
 
-export interface FieldOptions {
-  checked?: boolean
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  component: React.ComponentType<any>
-  connected?: boolean
+type FieldOptions = {
+  children: JSX.Element
   disabled?: boolean
   disabledIcon?: JSX.Element
   error?: string | JSX.Element
-  hint?: string
-  id?: string
+  id: string
   label?: string
-  modified?: boolean
-  name?: string
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  onClick?: (event: React.MouseEvent<HTMLInputElement>) => void
-  size?: Size
-  touched?: boolean
-  type?: string
-  warning?: string
+  hint?: string
   required?: boolean
-  variant?: VariantReturn
+  warning?: string | JSX.Element
 }
 
-export type FieldProps = CreateWuiProps<'input', FieldOptions>
+type FieldProps = CreateWuiProps<'div', FieldOptions>
 
-export const Field = forwardFieldRef<'input', FieldProps>(
+export const Field = forwardRef<'div', FieldProps>(
   (
     {
-      checked,
       children,
-      component: Component,
-      connected,
-      dataTestId,
       disabled,
       disabledIcon,
       error,
@@ -51,121 +35,49 @@ export const Field = forwardFieldRef<'input', FieldProps>(
       hint,
       id,
       label,
-      modified,
-      name,
-      onChange,
-      onClick,
       required,
-      size = 'lg',
-      touched,
-      type,
       warning,
       ...rest
     },
     ref
   ) => {
-    // Return early if no component
-    if (!Component) {
-      return null
-    }
-
-    const baseType = getBaseType(type || Component.displayName)
+    const baseType = getBaseType(children.props.type || children.type.displayName)
     const isRadio = baseType === 'radio'
-    const isToggle = Component.displayName === 'Toggle'
+    const isToggle = children.type.displayName === 'Toggle'
     const isCheckbox = baseType === 'checkbox'
     const isCheckable = isRadio || isCheckbox
-    const variant = getVariant({
-      warning,
-      error,
-      modified,
-      isCheckbox,
-      isRadio,
-      touched,
-      connected,
-    })
-    const hintText = variant ? error || warning : hint
-    const isGroup = ['FieldGroup', 'RadioGroup'].includes(baseType)
-
-    const isShowRequired = isRadio ? null : required
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
-    const Container = flexDirection === 'row' ? RowContainer : Fragment
-    const uniqueId = isRadio ? id : id || name
-    const inputRef = ref || React.createRef()
+    const Container = layout === 'row' ? RowContainer : Fragment
+    const variant = getVariant({ error, warning })
 
-    const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
-      const target = e.target as HTMLInputElement
-      e.stopPropagation()
-      onClick && onClick(e)
-      if (isCheckbox) {
-        target.checked = !target.checked
-      }
-      if (isCheckbox || isGroup) {
-        onChange && onChange(e as unknown as React.ChangeEvent<HTMLInputElement>)
-      }
-    }
-
-    const handleLabelClick = () => {
-      const input = (inputRef as React.MutableRefObject<unknown>).current
-      if (input) {
-        Component.displayName === 'MarkdownEditor'
-          ? (input as SimpleMDEEditor).simpleMde.codemirror.focus()
-          : (input as HTMLInputElement).focus()
-      }
-    }
-
-    const Field = (
-      <Component
-        checked={checked}
-        connected
-        dataTestId={dataTestId}
-        disabled={disabled}
-        flexDirection={layout}
-        id={uniqueId}
-        label={label}
-        name={name}
-        onChange={onChange}
-        onClick={handleClick}
-        ref={inputRef}
-        required={required}
-        size={size}
-        type={baseType}
-        variant={variant}
-        {...rest}
-      >
-        {children}
-      </Component>
-    )
+    const child = React.cloneElement(React.Children.only(children), {
+      disabled,
+      variant,
+      required,
+      id,
+    })
 
     return (
-      <S.Field
-        checkableField={isCheckable}
-        checked={checked}
-        flexDirection={layout}
-        size={size}
-        {...rest}
-      >
+      <S.Field ref={ref} {...rest} flexDirection={layout}>
         <Container>
-          {label && !isGroup && (
+          {isCheckable && child}
+          {label && (
             <Label
-              checkableField={isCheckable}
               disabled={disabled}
               disabledIcon={disabledIcon}
-              htmlFor={isCheckable ? null : uniqueId}
-              onClick={handleLabelClick}
-              required={isShowRequired}
+              htmlFor={id}
+              required={required}
               variant={variant}
               withDisabledIcon={!isToggle}
             >
-              {isCheckable && <S.Input>{Field}</S.Input>}
-              <S.Content>{label}</S.Content>
+              {label}
             </Label>
           )}
-          {!isCheckable && Field}
-          {!label && isCheckable && Field}
+          {!isCheckable && child}
         </Container>
-        {hintText && (
+        {hint && (
           <Hint checkableField={isCheckable} variant={variant}>
-            {hintText}
+            {hint}
           </Hint>
         )}
       </S.Field>
