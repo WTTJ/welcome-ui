@@ -87,4 +87,5 @@ export const Field = forwardRef<'div', FieldProps>(
 
 Field.displayName = 'Field'
 
+export const IconWrapper = S.IconWrapper
 export { getBaseType }
