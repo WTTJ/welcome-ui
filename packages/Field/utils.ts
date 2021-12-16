@@ -17,12 +17,7 @@ type VariantProps = {
 export type VariantReturn = 'error' | 'warning'
 
 export const getVariant = ({ error, warning }: VariantProps): VariantReturn => {
-  if (error) {
-    return 'error'
-  }
-  if (warning) {
-    return 'warning'
-  }
-
+  if (error) return 'error'
+  if (warning) return 'warning'
   return undefined
 }

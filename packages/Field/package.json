@@ -37,7 +37,6 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/field-group": "^4.0.0-alpha.12",
     "@welcome-ui/hint": "^4.0.0-alpha.12",
     "@welcome-ui/label": "^4.0.0-alpha.12",
     "@welcome-ui/system": "^4.0.0-alpha.11",
