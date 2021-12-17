@@ -1,11 +1,9 @@
 import React from 'react'
 import { fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { ConnectedField } from '@welcome-ui/connected-field'
 import { Icon } from '@welcome-ui/icon'
 import { Shape } from '@welcome-ui/shape'
 
-import { Form, getFormValues } from '../../utils/Form'
 import { render } from '../../utils/tests'
 
 import { Search } from './index'
@@ -38,10 +36,9 @@ export const opt_group_results = [
 
 const defaultProps = {
   itemToString: item => item.title,
-  // eslint-disable-next-line react/display-name
   renderItem: item => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <Shape mr="xs" size="sm" w="20px">
+      <Shape mr="xs" w="20px">
         <img src={item.poster} />
       </Shape>
       <span>{item.title}</span>
@@ -54,36 +51,15 @@ const defaultProps = {
 }
 
 test('<Search> has default attributes', () => {
-  const { container, getByTestId } = render(
-    <Form>
-      <ConnectedField
-        component={Search}
-        dataTestId="search"
-        label="Search"
-        name="search"
-        {...defaultProps}
-      />
-    </Form>
-  )
+  const { getByTestId } = render(<Search dataTestId="search" name="search" {...defaultProps} />)
   const search = getByTestId('search')
-  const label = container.querySelector('label')
-
-  expect(label).toHaveTextContent('Search')
   expect(search.getAttribute('placeholder')).toBe('Search…')
   expect(search).toHaveTextContent('')
 })
 
 test('<Search> shows options when searching', async () => {
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{}}>
-      <ConnectedField
-        component={Search}
-        dataTestId="search"
-        label="Search"
-        name="search"
-        {...defaultProps}
-      />
-    </Form>
+    <Search dataTestId="search" name="search" {...defaultProps} />
   )
 
   const search = getByTestId('search')
@@ -96,42 +72,22 @@ test('<Search> shows options when searching', async () => {
 
 test('<Search> can choose option', async () => {
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{}}>
-      <ConnectedField
-        component={Search}
-        dataTestId="search"
-        label="Search"
-        name="search"
-        {...defaultProps}
-      />
-    </Form>
+    <Search dataTestId="search" name="search" {...defaultProps} />
   )
 
-  const search = getByTestId('search')
+  const search = getByTestId('search') as HTMLInputElement
   userEvent.type(search, 'fish')
 
   const options = await waitFor(() => getByRole('listbox').querySelectorAll('li'))
   fireEvent.click(options[1])
 
   expect(search.value).toEqual(results[1].title)
-
-  const formValues = getFormValues(getByTestId('values'))
-  expect(formValues.search).toStrictEqual(results[1])
 })
 
 test('<Search> calls onChange with correct (object) values', async () => {
   const handleChange = jest.fn()
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{}}>
-      <ConnectedField
-        component={Search}
-        dataTestId="search"
-        label="Search"
-        name="search"
-        {...defaultProps}
-        onChange={handleChange}
-      />
-    </Form>
+    <Search dataTestId="search" name="search" {...defaultProps} onChange={handleChange} />
   )
 
   const search = getByTestId('search')
@@ -151,15 +107,7 @@ test('<Search> calls onChange with correct (object) values', async () => {
 
 test('<Search> formats items', async () => {
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{ search: 'february' }}>
-      <ConnectedField
-        component={Search}
-        dataTestId="search"
-        label="Search"
-        name="search"
-        {...defaultProps}
-      />
-    </Form>
+    <Search dataTestId="search" name="search" {...defaultProps} />
   )
 
   const search = getByTestId('search')
@@ -173,16 +121,13 @@ test('<Search> formats items', async () => {
 
 test.skip('<Search icon> shows icon', () => {
   const { container } = render(
-    <Form initialValues={{ search: 'february' }}>
-      <ConnectedField
-        component={Search}
-        dataTestId="search"
-        icon={<Icon color="light.100" name="avatar" />}
-        label="Search"
-        name="search"
-        {...defaultProps}
-      />
-    </Form>
+    <Search
+      dataTestId="search"
+      icon={<Icon color="light.100" name="avatar" />}
+      name="search"
+      value="february"
+      {...defaultProps}
+    />
   )
 
   const icon = container.querySelector('[title="avatar"]')
@@ -191,15 +136,7 @@ test.skip('<Search icon> shows icon', () => {
 
 test("<Search> doesn't show list if no results", () => {
   const { getByTestId, queryByRole } = render(
-    <Form initialValues={{}}>
-      <ConnectedField
-        component={Search}
-        dataTestId="search"
-        label="Search"
-        name="search"
-        {...defaultProps}
-      />
-    </Form>
+    <Search dataTestId="search" name="search" {...defaultProps} />
   )
 
   const search = getByTestId('search')
@@ -211,23 +148,19 @@ test("<Search> doesn't show list if no results", () => {
 
 test('<Search groupsEnabled> shows groups header', async () => {
   const { getAllByTestId, getByTestId } = render(
-    <Form initialValues={{}}>
-      <ConnectedField
-        component={Search}
-        dataTestId="select"
-        groupsEnabled
-        label="Social networks"
-        name="search"
-        renderGroupHeader={({ label, options }) => (
-          <div data-testid="group-header">
-            <h4>{label}</h4>
-            <span>{options.length}</span>
-          </div>
-        )}
-        {...defaultProps}
-        search={() => opt_group_results}
-      />
-    </Form>
+    <Search
+      dataTestId="select"
+      groupsEnabled
+      name="search"
+      renderGroupHeader={({ label, options }) => (
+        <div data-testid="group-header">
+          <h4>{label}</h4>
+          <span>{options.length}</span>
+        </div>
+      )}
+      {...defaultProps}
+      search={() => Promise.resolve(opt_group_results)}
+    />
   )
 
   const search = getByTestId('select')
@@ -239,22 +172,15 @@ test('<Search groupsEnabled> shows groups header', async () => {
 
   headers.forEach((header, i) => {
     expect(header.querySelector('h4')).toHaveTextContent(opt_group_results[i].label)
-    expect(header.querySelector('span')).toHaveTextContent(opt_group_results[i].options.length)
+    expect(header.querySelector('span')).toHaveTextContent(
+      opt_group_results[i].options.length.toString()
+    )
   })
 })
 
 test('<Search> shows options with minChars to 0', async () => {
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{}}>
-      <ConnectedField
-        component={Search}
-        dataTestId="search"
-        label="Search"
-        minChars={0}
-        name="search"
-        {...defaultProps}
-      />
-    </Form>
+    <Search dataTestId="search" minChars={0} name="search" {...defaultProps} />
   )
 
   const search = getByTestId('search')
