@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Option, OptionItem, Options, OptionValue } from './index'
+import { Option, OptionItem, Options, OptionValue, SelectValue } from './index'
 
 const EMPTY_STRING = ''
 
@@ -49,10 +49,7 @@ export const getOption = (value: string | number | Option, options: Options = []
   return (option as Option) || ({ value: kebabCase(value), label: value } as Option)
 }
 
-export const getOptionsFromSelected = (
-  selected: string | string[] | number,
-  options: Options
-): Option[] => {
+export const getOptionsFromSelected = (selected: SelectValue, options: Options): Option[] => {
   if (!selected && selected !== 0) {
     return []
   } else if (Array.isArray(selected)) {

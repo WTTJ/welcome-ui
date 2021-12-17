@@ -30,12 +30,12 @@ export type OptionGroup = { label: string; options: Option[] }
 export type OptionItem = Option | OptionGroup
 export type Options = Array<Option | OptionGroup>
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-export type SelectValue = string | string[]
+export type SelectValue = string | number | string[] | Option | (string | Option)[]
 export interface SelectOptions {
   autoComplete?: string
   autoFocus?: boolean
   disabled?: boolean
-  icon?: string
+  icon?: string | JSX.Element
   id?: string
   isClearable?: boolean
   isCreatable?: boolean
