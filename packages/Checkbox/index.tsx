@@ -8,7 +8,7 @@ export interface CheckboxOptions {
   Component?: React.ElementType
   disabled?: boolean
   name?: string
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export type CheckboxProps = CreateWuiProps<'input', CheckboxOptions>
