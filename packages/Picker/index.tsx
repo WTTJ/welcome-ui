@@ -8,22 +8,24 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import * as S from './styles'
 
 export interface PickerOption {
-  element: React.JSXElementConstructor<{ selected: boolean }>
+  element: React.ComponentType<{ selected: boolean }>
   value: string
 }
 
 export interface PickerOptions {
-  connected: boolean
-  name: string
-  onChange: React.MouseEventHandler<HTMLLabelElement>
-  options: PickerOption[]
-  value: string
+  name?: string
+  onChange?: React.MouseEventHandler<HTMLLabelElement>
+  options?: PickerOption[]
+  value?: string
 }
 
-export type PickerProps = CreateWuiProps<'fieldset', FieldGroupOptions & PickerOptions>
+export type PickerProps = CreateWuiProps<
+  'fieldset',
+  Omit<FieldGroupOptions, 'children'> & PickerOptions
+>
 
 export const Picker = forwardRef<'fieldset', PickerProps>(
-  ({ connected, dataTestId, label, name, onChange, options, required, value, ...rest }, ref) => {
+  ({ dataTestId, label, name, onChange, options, required, value, ...rest }, ref) => {
     const handleClick: React.MouseEventHandler<HTMLLabelElement> = e => {
       e.stopPropagation()
       onChange && onChange(e)
@@ -46,7 +48,7 @@ export const Picker = forwardRef<'fieldset', PickerProps>(
               key={`${label}-${name}-${optValue}`}
               onClick={handleClick}
             >
-              <S.Radio connected={connected} name={name} value={optValue} />
+              <S.Radio name={name} value={optValue} />
               <Component selected={value === optValue} />
             </Label>
           ))}
