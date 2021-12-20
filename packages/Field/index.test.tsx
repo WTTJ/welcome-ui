@@ -101,7 +101,7 @@ describe('<Field />', () => {
     expect(field.childNodes[1].nodeName.toLowerCase()).toBe('input')
   })
 
-  it('should display checkable input before label', () => {
+  it('should display checkable input inside label', () => {
     const { getByTestId } = render(
       <Field dataTestId="field" label={labelText}>
         <Input type="checkbox" />
@@ -112,14 +112,30 @@ describe('<Field />', () => {
     expect(field).toBeInTheDocument()
     const container = field.childNodes[0]
 
-    expect(container.childNodes[0].nodeName.toLowerCase()).toBe('input')
-    expect(container.childNodes[1].nodeName.toLowerCase()).toBe('label')
+    expect(container.childNodes[0].nodeName.toLowerCase()).toBe('label')
+    expect(container.childNodes[0].childNodes[0].nodeName.toLowerCase()).toBe('input')
   })
 
-  it('should focus input when click on label', async () => {
+  it('should focus input when click on label when using id on input', async () => {
     const { getByTestId } = render(
-      <Field dataTestId="field" id="test" label={labelText}>
-        <Input />
+      <Field dataTestId="field" label={labelText}>
+        <Input id="field" />
+      </Field>
+    )
+
+    const field = getByTestId('field')
+    const label = field.querySelector('label')
+    const input = field.querySelector('input')
+
+    userEvent.click(label)
+    expect(input).toHaveFocus()
+    expect(document.activeElement).toBe(input)
+  })
+
+  it('should focus input when click on label when using name on input (the fallback value of the id is the name prop)', async () => {
+    const { getByTestId } = render(
+      <Field dataTestId="field" label={labelText}>
+        <Input name="field" />
       </Field>
     )
 

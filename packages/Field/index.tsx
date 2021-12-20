@@ -18,6 +18,7 @@ type FieldOptions = {
   label?: string
   hint?: string
   required?: boolean
+  size?: Size
   warning?: string | JSX.Element
 }
 
@@ -35,6 +36,7 @@ export const Field = forwardRef<'div', FieldProps>(
       hint,
       label,
       required,
+      size = 'lg',
       warning,
       ...rest
     },
@@ -49,21 +51,24 @@ export const Field = forwardRef<'div', FieldProps>(
     const Container = layout === 'row' ? RowContainer : Fragment
     const variant = getVariant({ error, warning })
     const hintText = variant ? error || warning : hint
+    const htmlFor = children.props.id || children.props.name
 
     const child = React.cloneElement(React.Children.only(children), {
       disabled,
-      variant,
+      id: htmlFor,
       required,
+      size,
+      variant,
     })
 
     return (
-      <S.Field ref={ref} {...rest} data-testid={dataTestId} flexDirection={layout}>
+      <S.Field ref={ref} {...rest} data-testid={dataTestId} flexDirection={layout} size={size}>
         <Container>
           {label && (
             <Label
               disabled={disabled}
               disabledIcon={disabledIcon}
-              htmlFor={children.props.id || children.props.name}
+              htmlFor={htmlFor}
               required={required}
               variant={variant}
               withDisabledIcon={!isToggle}

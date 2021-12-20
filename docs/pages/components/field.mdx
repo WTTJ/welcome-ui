@@ -23,23 +23,23 @@ You can find props for each field component in the other `Forms` pages.
 ## Classic
 
 ```jsx
-<Field label="I'm a small sized field" p="xl" backgroundColor="tomato">
-  <InputText />
+<Field label="I'm a small sized field" size="sm">
+  <InputText name="small-sized-field" />
 </Field>
 <Field label="I'm a disabled field" disabled>
-  <InputText placeholder="placeholder" />
+  <InputText name="disabled-field" placeholder="placeholder" />
 </Field>
 <Field label="I'm a field with a hint" hint="I'm a hint">
-  <InputText />
+  <InputText name="hint-field" />
 </Field>
 <Field label="I'm a field with an error" error="Invalid field">
-  <InputText />
+  <InputText name="error-field" />
 </Field>
 <Field label="I'm a field with a warning" warning={<p>Invalid field</p>}>
-  <InputText />
+  <InputText name="warning-field" />
 </Field>
 <Field label="I'm a required field" required>
-  <InputText />
+  <InputText name="required-field" />
 </Field>
 ```
 
