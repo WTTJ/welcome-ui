@@ -19,19 +19,70 @@ import {
 ## Usage
 
 ```jsx
-<Form initialValues={{ vue: true }}>
-  <FieldGroup label="Check the frameworks you have already worked with">
-    <Field label="React">
-      <Checkbox name="react" />
-    </Field>
-    <Field label="Angular" id="angular_custom_id">
-      <Checkbox name="angular" />
-    </Field>
-    <Field label="Vue">
-      <Checkbox name="vue" />
-    </Field>
-  </FieldGroup>
-</Form>
+function() {
+  const FormChildren = ({ control, register }) => (
+    <FieldGroup label="Check the frameworks you have already worked with">
+      <Controller
+        name="react"
+        control={control}
+        render={({ onChange, value}) => (
+            <Field label="React">
+              <Checkbox
+                name="react"
+                onChange={e => onChange(!e.target.checked)}
+                checked={value}
+              />
+            </Field>
+          )
+         }
+      />
+      <Controller
+        name="angular"
+        control={control}
+        render={({ onChange, value}) => (
+            <Field label="Angular">
+              <Checkbox
+                name="angular"
+                onChange={e => onChange(!e.target.checked)}
+                checked={value}
+              />
+            </Field>
+          )
+         }
+      />
+      <Controller
+        name="vue"
+        control={control}
+        render={({ onChange, value}) => (
+            <Field label="Vue">
+              <Checkbox
+                name="vue"
+                onChange={e => onChange(!e.target.checked)}
+                checked={value}
+              />
+            </Field>
+          )
+         }
+      />
+    </FieldGroup>
+  )
+
+  return (
+    <HookForm
+      defaultValues={{ vue: true }}
+      schemaValidate={() =>
+        yup.object().shape({
+          react: yup.boolean().required().oneOf([true, false]),
+          angular: yup.boolean().required().oneOf([true, false]),
+          vue: yup.boolean().required().oneOf([true, false]),
+        })
+      }
+    >
+      <FormChildren />
+    </HookForm>
+  )
+}
+
 ```
 
 ## Standalone

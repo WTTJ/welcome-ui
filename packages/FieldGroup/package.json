@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@welcome-ui/label": "^4.0.0-alpha.12",
-    "@welcome-ui/system": "^4.0.0-alpha.11"
+    "@welcome-ui/system": "^4.0.0-alpha.12"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.0.1",

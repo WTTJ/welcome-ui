@@ -8,7 +8,7 @@ Example with [React Hook Form](https://react-hook-form.com/) form library, `yup`
 function() {
   function FormChildren({ errors, register }) {
     return (
-      <Field>
+      <>
         <Field
           error={errors && errors.input_text && errors.input_text.message}
           label="Input Text"

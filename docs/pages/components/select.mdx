@@ -234,24 +234,22 @@ To use option groups, you must provide two additional props: `groupsEnabled` tha
 
 ```jsx
 <Form initialValues={{}}>
-  <Field
-    label="Social networks"
-  >
+  <Field label="Social networks">
     <Select
-    options={constants.OPT_GROUP_ITEMS}
-    name="welcome11"
-    groupsEnabled
-    renderGroupHeader={({ label, options }) => (
-      <Box p="xxs">
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Text variant="body3" m="0">
-            {label}
-          </Text>
-          <Tag>{options.length}</Tag>
+      options={constants.OPT_GROUP_ITEMS}
+      name="welcome11"
+      groupsEnabled
+      renderGroupHeader={({ label, options }) => (
+        <Box p="xxs">
+          <Box display="flex" justifyContent="space-between" alignItems="center">
+            <Text variant="body3" m="0">
+              {label}
+            </Text>
+            <Tag>{options.length}</Tag>
+          </Box>
+          {options.length === 0 && <Text variant="body4">No results found</Text>}
         </Box>
-        {options.length === 0 && <Text variant="body4">No results found</Text>}
-      </Box>
-    )}
+      )}
     />
   </Field>
 </Form>

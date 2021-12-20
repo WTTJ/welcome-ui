@@ -15,7 +15,6 @@ type FieldOptions = {
   disabled?: boolean
   disabledIcon?: JSX.Element
   error?: string | JSX.Element
-  id?: string
   label?: string
   hint?: string
   required?: boolean
@@ -34,7 +33,6 @@ export const Field = forwardRef<'div', FieldProps>(
       error,
       flexDirection,
       hint,
-      id,
       label,
       required,
       warning,
@@ -56,22 +54,21 @@ export const Field = forwardRef<'div', FieldProps>(
       disabled,
       variant,
       required,
-      id,
     })
 
     return (
       <S.Field ref={ref} {...rest} data-testid={dataTestId} flexDirection={layout}>
         <Container>
-          {isCheckable && child}
           {label && (
             <Label
               disabled={disabled}
               disabledIcon={disabledIcon}
-              htmlFor={id}
+              htmlFor={children.props.id || children.props.name}
               required={required}
               variant={variant}
               withDisabledIcon={!isToggle}
             >
+              {isCheckable && child}
               {label}
             </Label>
           )}

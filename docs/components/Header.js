@@ -75,7 +75,7 @@ export function Header() {
         <SelectTheme id="navigation" />
       </Box>
       <Box display={{ xs: 'none', md: 'block' }} mt="md" w="100%">
-        <Field id="search-algolia" size="sm">
+        <Field size="sm">
           <InputText
             icon={<SearchIcon color="light.100" size="sm" />}
             isClearable
