@@ -49,6 +49,7 @@ export const Field = forwardRef<'div', FieldProps>(
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
     const Container = layout === 'row' ? RowContainer : Fragment
     const variant = getVariant({ error, warning })
+    const hintText = variant ? error || warning : hint
 
     const child = React.cloneElement(React.Children.only(children), {
       disabled,
@@ -75,9 +76,9 @@ export const Field = forwardRef<'div', FieldProps>(
           )}
           {!isCheckable && child}
         </Container>
-        {hint && (
+        {hintText && (
           <Hint checkableField={isCheckable} variant={variant}>
-            {hint}
+            {hintText}
           </Hint>
         )}
       </S.Field>

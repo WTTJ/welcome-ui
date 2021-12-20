@@ -35,17 +35,19 @@ By default, `accept`: is set to `image/*`, see more about [media type](https://w
 function() {
   return (
     <Form initialValues={{}}>
-      <ConnectedField
-        component={FileDrop}
-        name="file"
+      <Field
         label="Your file"
         hint="Files must be < 2MB"
         required
-        isClearable
-        isEditable
-        handleAddFile={console.debug}
-        handleRemoveFile={console.debug}
-      />
+      >
+        <FileDrop
+          name="file"
+          isClearable
+          isEditable
+          handleAddFile={console.debug}
+          handleRemoveFile={console.debug}
+        />
+      </Field>
     </Form>
   )
 }
@@ -62,16 +64,15 @@ function() {
       'https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif',
   }}
 >
-  <ConnectedField
-    component={FileDrop}
-    hint="Files must be < 2MB"
-    isEditable
-    isClearable
-    label="Avatar"
-    name="avatar"
-    handleAddFile={console.debug}
-    handleRemoveFile={console.debug}
-  />
+  <Field hint="Files must be < 2MB" label="Avatar">
+    <FileDrop
+      name="avatar"
+      handleAddFile={console.debug}
+      handleRemoveFile={console.debug}
+      isEditable
+      isClearable
+    />
+  </Field>
 </Form>
 ```
 
@@ -83,17 +84,16 @@ function() {
     file: 'https://test-documents-file/file.docx?v=63731713698',
   }}
 >
-  <ConnectedField
-    component={FileDrop}
-    hint="Files must be < 2MB"
-    accept="application/*, audio/*, video/*, text/*"
-    isEditable
-    isClearable
-    label="File"
-    name="file"
-    handleAddFile={console.debug}
-    handleRemoveFile={console.debug}
-  />
+  <Field hint="Files must be < 2MB" label="File">
+    <FileDrop
+      accept="application/*, audio/*, video/*, text/*"
+      isEditable
+      isClearable
+      name="file"
+      handleAddFile={console.debug}
+      handleRemoveFile={console.debug}
+    />
+  </Field>
 </Form>
 ```
 
@@ -110,23 +110,22 @@ Sometime in the url we don't have the type of the file, you can override with `f
       'https://cdn-images.welcomehome.io/zn9KvR98haoYRV6m1T-LR4c5h0HPZtVtvzwKPv02wgA/rs:auto:600::/q:100/czM6Ly93aC1wcml2YXRlLXByb2R1Y3Rpb24vcHJvZHVjdGlvbi91cGxvYWRzL3doL2Jsb2Nrcy9iZTI2MTc4OC1mYjc5LTRlZTQtYjQ4OC04ZDhiYTk4YTY3NDIvY292ZXIvdHdpdHRlckB4Mi5wbmc',
   }}
 >
-  <ConnectedField
-    component={FileDrop}
-    label="Image file"
-    name="file1"
-    handleAddFile={console.debug}
-    handleRemoveFile={console.debug}
-    forceFileType="image"
-  />
-  <ConnectedField
-    component={FileDrop}
-    mt="xl"
-    label="Music file"
-    name="file2"
-    handleAddFile={console.debug}
-    handleRemoveFile={console.debug}
-    forceFileType="audio"
-  />
+  <Field label="Image file">
+    <FileDrop
+      name="file1"
+      handleAddFile={console.debug}
+      handleRemoveFile={console.debug}
+      forceFileType="image"
+    />
+  </Field>
+  <Field mt="xl" label="Music file">
+    <FileDrop
+      name="file2"
+      handleAddFile={console.debug}
+      handleRemoveFile={console.debug}
+      forceFileType="audio"
+    />
+  </Field>
 </Form>
 ```
 
@@ -134,7 +133,9 @@ Sometime in the url we don't have the type of the file, you can override with `f
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField name="avatar" component={FileDrop} disabled />
+  <Field disabled>
+    <FileDrop name="avatar" />
+  <Field>
 </Form>
 ```
 
@@ -142,7 +143,9 @@ Sometime in the url we don't have the type of the file, you can override with `f
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField name="avatar" component={FileDrop} />
+  <Field>
+    <FileDrop name="avatar" />
+  </Field>
 </Form>
 ```
 

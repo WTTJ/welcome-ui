@@ -20,13 +20,9 @@ import {
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField
-    name="firstName"
-    component={InputText}
-    placeholder="Boaty"
-    label="First name"
-    required
-  />
+  <Field label="First name" required>
+    <InputText name="firstName" placeholder="Boaty" />
+  </Field>
 </Form>
 ```
 
@@ -36,13 +32,9 @@ Use the `isClearable` prop to add a cross button to remove the content (value) o
 
 ```jsx
 <Form initialValues={{ firstName2: 'Trevor' }}>
-  <ConnectedField
-    component={InputText}
-    isClearable
-    label="First name"
-    name="firstName2"
-    placeholder="Boaty"
-  />
+  <Field label="First name">
+    <InputText isClearable name="firstName2" placeholder="Boaty" />
+  </Field>
 </Form>
 ```
 
@@ -52,13 +44,9 @@ Pass an `icon` through to decorate your `InputText`
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField
-    component={InputText}
-    icon={<AvatarIcon color="light.100" />}
-    label="First name"
-    name="firstName3"
-    placeholder="Boaty"
-  />
+  <Field label="First name">
+    <InputText icon={<AvatarIcon color="light.100" />} name="firstName3" placeholder="Boaty" />
+  </Field>
 </Form>
 ```
 
@@ -67,26 +55,15 @@ Pass an `icon` through to decorate your `InputText`
 ```jsx
 <Form initialValues={{}}>
   <Stack spacing="xl">
-    <ConnectedField
-      component={InputText}
-      label="I'm a small sized field"
-      name="small"
-      placeholder="Placeholder"
-      size="sm"
-    />
-    <ConnectedField
-      component={InputText}
-      label="I'm a medium sized field"
-      name="medium"
-      placeholder="Placeholder"
-      size="md"
-    />
-    <ConnectedField
-      component={InputText}
-      label="I'm a large sized field which is my default size"
-      name="large"
-      placeholder="Placeholder"
-    />
+    <Field label="I'm a small sized field">
+      <InputText name="small" placeholder="Placeholder" size="sm" />
+    </Field>
+    <Field label="I'm a medium sized field">
+      <InputText name="medium" placeholder="Placeholder" size="md" />
+    </Field>
+    <Field label="I'm a large sized field which is my default size">
+      <InputText name="large" placeholder="Placeholder" />
+    </Field>
   </Stack>
 </Form>
 ```
@@ -95,14 +72,9 @@ Pass an `icon` through to decorate your `InputText`
 
 ```jsx
 <Form initialValues={{ firstName4: 'Trevor' }}>
-  <ConnectedField
-    component={InputText}
-    flexDirection="row"
-    label="First name"
-    name="firstName4"
-    placeholder="Boaty"
-    required
-  />
+  <Field flexDirection="row" label="First name" required>
+    <InputText name="firstName4" placeholder="Boaty" />
+  </Field>
 </Form>
 ```
 
@@ -110,14 +82,9 @@ Pass an `icon` through to decorate your `InputText`
 
 ```jsx
 <Form initialValues={{ firstName5: 'Trevor' }}>
-  <ConnectedField
-    component={InputText}
-    disabled
-    label="First name"
-    name="firstName5"
-    placeholder="Boaty"
-    required
-  />
+  <Field disabled label="First name" required>
+    <InputText name="firstName5" placeholder="Boaty" />
+  </Field>
 </Form>
 ```
 

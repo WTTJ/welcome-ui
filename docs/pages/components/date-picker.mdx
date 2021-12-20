@@ -22,7 +22,9 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 
 ```jsx
 <Form initialValues={{ welcome: Date.now() }}>
-  <ConnectedField component={DatePicker} label="Date" name="welcome" />
+  <Field label="Date">
+    <DatePicker name="welcome" />
+  </Field>
 </Form>
 ```
 
@@ -30,15 +32,15 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 
 ```jsx
 <Form initialValues={{ welcome2: Date.now() }}>
-  <ConnectedField
-    component={DatePicker}
-    dateFormat="MMM dd yyyy"
-    label="Date"
-    maxDate={new Date()}
-    name="welcome2"
-    popperProps={{ zIndex: 50 }}
-    yearDropdownItemNumber={30}
-  />
+  <Field label="Date">
+    <DatePicker
+      dateFormat="MMM dd yyyy"
+      name="welcome2"
+      maxDate={new Date()}
+      popperProps={{ zIndex: 50 }}
+      yearDropdownItemNumber={30}
+    />
+  </Field>
 </Form>
 ```
 
@@ -46,12 +48,9 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 
 ```jsx
 <Form initialValues={{ welcome3: Date.now() }}>
-  <ConnectedField
-    component={DatePicker}
-    icon={<DateIcon color="light.100" />}
-    label="Date"
-    name="welcome3"
-  />
+  <Field label="Date">
+    <DatePicker icon={<DateIcon color="light.100" />} name="welcome3" />
+  </Field>
 </Form>
 ```
 
@@ -59,7 +58,9 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField component={DatePicker} label="Date" locale={dateFR} name="welcome4" />
+  <Field label="Date">
+    <DatePicker locale={dateFR} name="welcome4" />
+  </Field>
 </Form>
 ```
 

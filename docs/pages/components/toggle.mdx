@@ -52,9 +52,9 @@ function() {
 }
 ```
 
-## ConnectedField
+## Field
 
-Examples with `ConnectedField`
+Examples with `Field`
 
 ```jsx
 <Form
@@ -67,12 +67,22 @@ Examples with `ConnectedField`
   }}
 >
   <Box display="flex" mb="lg">
-    <ConnectedField name="toggle" component={Toggle} mr="lg" />
-    <ConnectedField name="toggle-checked" component={Toggle} mr="lg" />
-    <ConnectedField name="toggle-disabled" component={Toggle} disabled />
+    <Field mr="lg">
+      <Toggle name="toggle" />
+    </Field>
+    <Field mr="lg">
+      <Toggle name="toggle-checked" />
+    </Field>
+    <Field disabled>
+      <Toggle name="toggle-disabled" />
+    </Field>
   </Box>
-  <ConnectedField name="toggle-label" component={Toggle} label="Toggle with a label" mb="lg" />
-  <ConnectedField name="disabled-label" component={Toggle} label="Disabled with a label" disabled />
+  <Field label="Toggle with a label" mb="lg">
+    <Toggle name="toggle-label" />
+  </Field>
+  <Field label="Disabled with a label" disabled>
+    <Toggle name="disabled-label" />
+  </Field>
 </Form>
 ```
 

@@ -32,12 +32,9 @@ We use [react-simplemde-editor](https://github.com/RIP21/react-simplemde-editor)
       "# Hi!\n## Look at me!\n\nWe've got some **bold** and *italic* text, a cheeky bit of ~~strikethrough~~, some `inline code` and a [link](https://welcometothejungle.com). We can also do inline images by hand ![Milou](https://fr.tintin.com/images/tintin/persos/images/milou.png 'Milou') as well as:\n\n* Unordered lists\n* Unordered lists\n\n1. Ordered lists\n1. Ordered lists\n\nAnd of course the classics:\n\n```\nA code block\nwith multiple lines\n```\n\n> And a quote",
   }}
 >
-  <ConnectedField
-    component={MarkdownEditor}
-    label="Markdown Editor"
-    name="welcome"
-    placeholder="Placeholder"
-  />
+  <Field label="Markdown Editor">
+    <MarkdownEditor name="welcome" placeholder="Placeholder" />
+  </Field>
 </Form>
 ````
 
@@ -58,24 +55,24 @@ Note: to use FontAwesome or Material Design icons (or any other 3rd-party icon f
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField
-    component={MarkdownEditor}
-    label="Markdown Editor"
-    name="welcome"
-    placeholder="Placeholder"
-    toolbar={[
-      { name: 'bold', icon: <i className="fa fa-bold" />, title: 'Bold 🌴' },
-      { name: 'italic', icon: <i className="fa fa-italic" /> },
-      { name: 'divider' },
-      { name: 'strikethrough', icon: <i className="zmdi zmdi-format-strikethrough-s" /> },
-      { name: 'link', icon: <i className="zmdi zmdi-link" /> },
-      { name: 'divider' },
-      { name: 'code' },
-      { name: 'quote', title: 'Quote 🌴' },
-      { name: 'divider' },
-      { name: 'emoji', icon: '👌' },
-    ]}
-  />
+  <Field label="Markdown Editor">
+    <MarkdownEditor
+      name="welcome"
+      placeholder="Placeholder"
+      toolbar={[
+        { name: 'bold', icon: <i className="fa fa-bold" />, title: 'Bold 🌴' },
+        { name: 'italic', icon: <i className="fa fa-italic" /> },
+        { name: 'divider' },
+        { name: 'strikethrough', icon: <i className="zmdi zmdi-format-strikethrough-s" /> },
+        { name: 'link', icon: <i className="zmdi zmdi-link" /> },
+        { name: 'divider' },
+        { name: 'code' },
+        { name: 'quote', title: 'Quote 🌴' },
+        { name: 'divider' },
+        { name: 'emoji', icon: '👌' },
+      ]}
+    />
+  </Field>
 </Form>
 ```
 
@@ -107,25 +104,25 @@ You can add some actions on the bottom of the textarea with `actions` childrens.
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField
-    component={MarkdownEditor}
-    label="Markdown Editor"
-    name="welcome-actions"
-    placeholder="Placeholder"
-    actions={
-      <>
-        <Button variant="quaternary" shape="square" size="sm">
-          <HashtagIcon />
-        </Button>
-        <Button variant="quaternary" shape="square" size="sm">
-          <MentionIcon />
-        </Button>
-        <Button variant="quaternary" shape="square" size="sm">
-          <AttachmentIcon />
-        </Button>
-      </>
-    }
-  />
+  <Field label="Markdown Editor">
+    <MarkdownEditor
+      actions={
+        <>
+          <Button variant="quaternary" shape="square" size="sm">
+            <HashtagIcon />
+          </Button>
+          <Button variant="quaternary" shape="square" size="sm">
+            <MentionIcon />
+          </Button>
+          <Button variant="quaternary" shape="square" size="sm">
+            <AttachmentIcon />
+          </Button>
+        </>
+      }
+      name="welcome-actions"
+      placeholder="Placeholder"
+    />
+  </Field>
 </Form>
 ```
 

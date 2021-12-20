@@ -20,13 +20,9 @@ import {
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField
-    name="textarea"
-    component={Textarea}
-    label="Description"
-    hint="Description must be <200 words"
-    required
-  />
+  <Field label="Description" hint="Description must be <200 words" required>
+    <Textarea name="textarea" />
+  </Field>
 </Form>
 ```
 

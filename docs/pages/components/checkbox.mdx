@@ -21,9 +21,15 @@ import {
 ```jsx
 <Form initialValues={{ vue: true }}>
   <FieldGroup label="Check the frameworks you have already worked with">
-    <ConnectedField component={Checkbox} name="react" label="React" />
-    <ConnectedField component={Checkbox} label="Angular" name="angular" id="angular_custom_id" />
-    <ConnectedField component={Checkbox} name="vue" label="Vue" />
+    <Field label="React">
+      <Checkbox name="react" />
+    </Field>
+    <Field label="Angular" id="angular_custom_id">
+      <Checkbox name="angular" />
+    </Field>
+    <Field label="Vue">
+      <Checkbox name="vue" />
+    </Field>
   </FieldGroup>
 </Form>
 ```

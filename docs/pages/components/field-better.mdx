@@ -12,7 +12,7 @@ import {
 
 <tagversion version={version} name={name} component={component} />
 
-We recommend using [Final Form](https://github.com/final-form/react-final-form), [Redux Form](https://github.com/erikras/redux-form) or [Formik](https://github.com/jaredpalmer/formik) with these components. If so, use `ConnectedField` for your fields (as in the examples below). The examples below give you an overview of common props (e.g. `size`, `disable`, `required` etc.)
+We recommend using [React-hook-form](https://react-hook-form.com/) or [Formik](https://github.com/jaredpalmer/formik) with these components. If so, use `Field` for your fields (as in the examples below). The examples below give you an overview of common props (e.g. `size`, `disable`, `required` etc.)
 
 You can find props for each field component in the other `Forms` pages.
 
@@ -23,24 +23,24 @@ You can find props for each field component in the other `Forms` pages.
 ## Classic
 
 ```jsx
-<FieldBetterBetter label="I'm a small sized field" p="xl" backgroundColor="tomato">
+<Field label="I'm a small sized field" p="xl" backgroundColor="tomato">
   <InputText />
-</FieldBetterBetter>
-<FieldBetterBetter label="I'm a disabled field" disabled>
+</Field>
+<Field label="I'm a disabled field" disabled>
   <InputText placeholder="placeholder" />
-</FieldBetterBetter>
-<FieldBetterBetter label="I'm a field with a hint" hint="I'm a hint">
+</Field>
+<Field label="I'm a field with a hint" hint="I'm a hint">
   <InputText />
-</FieldBetterBetter>
-<FieldBetterBetter label="I'm a field with an error" error="Invalid field">
+</Field>
+<Field label="I'm a field with an error" error="Invalid field">
   <InputText />
-</FieldBetterBetter>
-<FieldBetterBetter label="I'm a field with a warning" warning={<p>Invalid field</p>}>
+</Field>
+<Field label="I'm a field with a warning" warning={<p>Invalid field</p>}>
   <InputText />
-</FieldBetterBetter>
-<FieldBetterBetter label="I'm a required field" required>
+</Field>
+<Field label="I'm a required field" required>
   <InputText />
-</FieldBetterBetter>
+</Field>
 ```
 
 ```jsx
@@ -53,9 +53,9 @@ function () {
 
   return (
     <>
-      <FieldBetterBetter label="I'm a field with a custom inputRef" inputRef={ref}>
-        <InputText />
-      </FieldBetterBetter>
+      <Field label="I'm a field with a custom inputRef">
+        <InputText inputRef={ref} />
+      </Field>
       <Button onClick={handleClick}>Click me</Button>
     </>
   )
@@ -71,9 +71,9 @@ function () {
   }
 
   return (
-    <FieldBetterBetter label="I'm a field with a state">
+    <Field label="I'm a field with a state">
       <InputText onChange={handleChange} value={state} />
-    </FieldBetterBetter>
+    </Field>
   )
 }
 ```
@@ -87,9 +87,9 @@ function () {
   }
 
   return (
-    <FieldBetterBetter label="I'm a field with a state" id="yolo">
+    <Field label="I'm a field with a state" id="yolo">
       <Checkbox onChange={handleChange} checked={state} />
-    </FieldBetterBetter>
+    </Field>
   )
 }
 ```
@@ -105,30 +105,15 @@ function () {
 ```jsx
 <Form initialValues={{}}>
   <>
-    <ConnectedField
-      name="default"
-      placeholder="Placeholder"
-      component={InputText}
-      label="Label"
-      hint="A hint"
-      mb="xl"
-    />
-    <ConnectedField
-      name="warning"
-      placeholder="Placeholder"
-      component={InputText}
-      label="Label"
-      warning="A warning"
-      mb="xl"
-    />
-    <ConnectedField
-      name="error"
-      placeholder="Placeholder"
-      component={InputText}
-      label="Label"
-      error="An error"
-      mb="xl"
-    />
+    <Field label="Label" hint="A hint" mb="xl">
+      <InputText name="default" placeholder="Placeholder" />
+    </Field>
+    <Field label="Label" warning="A warning" mb="xl">
+      <InputText name="warning" placeholder="Placeholder" />
+    </Field>
+    <Field label="Label" error="An error" mb="xl">
+      <InputText name="error" placeholder="Placeholder" />
+    </Field>
   </>
 </Form>
 ```
@@ -137,13 +122,9 @@ function () {
 
 ```jsx
 <Form initialValues={{ disabled: 'Disabled value' }}>
-  <ConnectedField
-    name="disabled"
-    placeholder="Placeholder"
-    component={InputText}
-    label="Label"
-    disabled
-  />
+  <Field label="Label" disabled>
+    <InputText name="disabled" placeholder="Placeholder" />
+  </Field>
 </Form>
 ```
 
@@ -151,13 +132,9 @@ function () {
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField
-    name="required"
-    placeholder="Placeholder"
-    component={InputText}
-    label="Label"
-    required
-  />
+  <Field label="Label" required>
+    <InputText name="required" placeholder="Placeholder" />
+  </Field>
 </Form>
 ```
 
@@ -169,19 +146,14 @@ Note: `ref`s can be created with either `React.createRef()` or `React.useRef(nul
 
 ```jsx
 function() {
-  const connectedInputRef = createRef()
-  const normalInputRef = useRef(null)
+  const InputRef = useRef(null)
   const nakedInputRef = useRef(null)
   const fileUploadRef = useRef(null)
   const buttonRef = useRef(null)
   const linkRef = useRef(null)
 
-  const handleConnectedClick = () => {
-    connectedInputRef.current.focus()
-  }
-
   const handleNormalClick = () => {
-    normalInputRef.current.focus()
+    InputRef.current.focus()
   }
 
   const handleNakedClick = () => {
@@ -202,34 +174,26 @@ function() {
 
 return (
     <Form>
-      <ConnectedField
-        component={InputText}
-        label="Connected field"
-        name="firstName"
-        ref={connectedInputRef}
-      />
-      <Field
-        name="lastName"
-        component={InputText}
-        label="Normal field"
-        ref={normalInputRef}
-        onChange={() => console.log('changed!')}
-        mb="sm"
-      />
+      <Field label="Normal field" mb="sm">
+        <InputText
+          name="lastName"
+          onChange={() => console.log('changed!')}
+          placeholder="Placeholder"
+          ref={InputRef}
+        />
+      </Field>
       <Label>Naked field</Label>
       <InputText name="naked" ref={nakedInputRef} mb="sm" />
-      <Field
-        name="avatar"
-        component={FileUpload}
-        label="Complex field"
-        onChange={() => console.log('changed!')}
-        ref={fileUploadRef}
-        mb="sm"
-      />
+      <Field label="Complex field" mb="sm">
+        <FileUpload
+          name="avatar"
+          onChange={() => console.log('changed!')}
+          ref={fileUploadRef}
+        />
+      </Field>
       <Box mt="xl" mb="sm">
         Click a button below to focus the relevant field above
       </Box>
-      <Button onClick={handleConnectedClick}>Connected field</Button>
       <Button onClick={handleNormalClick} ml={20}>
         Normal field
       </Button>
@@ -258,7 +222,7 @@ return (
 
 ## Properties
 
-<props propTypes={props.propTypes.ConnectedField} />
+<props propTypes={props.propTypes.Field} />
 
 ## Dependencies
 

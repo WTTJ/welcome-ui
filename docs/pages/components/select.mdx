@@ -22,12 +22,9 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField
-    component={Select}
-    options={constants.ITEMS}
-    name="welcome"
-    label="Social networks"
-  />
+  <Field label="Social networks">
+    <Select options={constants.ITEMS} name="welcome" />
+  </Field>
 </Form>
 ```
 
@@ -35,13 +32,9 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
 
 ```jsx
 <Form initialValues={{ welcome2: ['github', 'twitter'] }}>
-  <ConnectedField
-    component={Select}
-    isClearable
-    options={constants.ITEMS}
-    name="welcome2"
-    label="Social networks"
-  />
+  <Field label="Social networks">
+    <Select isClearable options={constants.ITEMS} name="welcome2" />
+  </Field>
 </Form>
 ```
 
@@ -51,13 +44,9 @@ Just add the `isMultiple` prop. Note: to be able to choose multiple values you m
 
 ```jsx
 <Form initialValues={{ welcome3: ['github', 'twitter'] }}>
-  <ConnectedField
-    component={Select}
-    isMultiple
-    options={constants.ITEMS}
-    name="welcome3"
-    label="Social networks"
-  />
+  <Field label="Social networks">
+    <Select isMultiple options={constants.ITEMS} name="welcome3" />
+  </Field>
 </Form>
 ```
 
@@ -65,33 +54,33 @@ Passing a `renderMultiple` function allows you to format the selected items belo
 
 ```jsx
 <Form initialValues={{ welcome4: ['github', 'twitter'] }}>
-  <ConnectedField
-    component={Select}
-    isMultiple
-    name="welcome4"
-    label="Social networks"
-    options={constants.ITEMS}
-    renderMultiple={(selected, handleRemove) => {
-      return selected.map(option => {
-        const Icon = option.icon
-        return (
-          <Tag
-            key={option.value}
-            variant="primary"
-            onRemove={() => handleRemove(option.value)}
-            mr="sm"
-            mt="sm"
-            size="lg"
-          >
-            <Icon mr="sm" />
-            <Text variant="body3" m="0">
-              {option.label}
-            </Text>
-          </Tag>
-        )
-      })
-    }}
-  />
+  <Field label="Social networks">
+    <Select
+      isMultiple
+      name="welcome4"
+      options={constants.ITEMS}
+      renderMultiple={(selected, handleRemove) => {
+        return selected.map(option => {
+          const Icon = option.icon
+          return (
+            <Tag
+              key={option.value}
+              variant="primary"
+              onRemove={() => handleRemove(option.value)}
+              mr="sm"
+              mt="sm"
+              size="lg"
+            >
+              <Icon mr="sm" />
+              <Text variant="body3" m="0">
+                {option.label}
+              </Text>
+            </Tag>
+          )
+        })
+      }}
+    />
+  </Field>
 </Form>
 ```
 
@@ -101,13 +90,9 @@ To be able to filter (i.e. search) the results, add the `isSearchable` prop.
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField
-    component={Select}
-    isSearchable
-    options={constants.ITEMS}
-    name="welcome5"
-    label="Social networks"
-  />
+  <Field label="Social networks">
+    <Select isSearchable options={constants.ITEMS} name="welcome5" />
+  </Field>
 </Form>
 ```
 
@@ -117,13 +102,13 @@ Pass `icon` to decorate your `Select`
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField
-    component={Select}
-    icon={<LinkIcon label="Social networks" color="light.100" />}
-    name="welcome6"
-    label="Social networks"
-    options={constants.ITEMS}
-  />
+  <Field label="Social networks">
+    <Select
+      icon={<LinkIcon label="Social networks" color="light.100" />}
+      name="welcome6"
+      options={constants.ITEMS}
+    />
+  </Field>
 </Form>
 ```
 
@@ -137,20 +122,20 @@ Note: if you want to format the options _and_ the placeholder, create a dummy va
 
 ```jsx
 <Form initialValues={{ welcome7: 'twitter' }}>
-  <ConnectedField
-    component={Select}
-    name="welcome7"
-    label="Social networks"
-    options={constants.ITEMS}
-    renderItem={option => {
-      const Icon = option.icon
-      return (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Icon mr="xs" /> <span>{option.label}</span>
-        </div>
-      )
-    }}
-  />
+  <Field label="Social networks">
+    <Select
+      name="welcome7"
+      options={constants.ITEMS}
+      renderItem={option => {
+        const Icon = option.icon
+        return (
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Icon mr="xs" /> <span>{option.label}</span>
+          </div>
+        )
+      }}
+    />
+  </Field>
 </Form>
 ```
 
@@ -162,13 +147,9 @@ You can _add_ items by passing the `isCreatable` prop. The returned item will be
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField
-    component={Select}
-    isCreatable
-    options={constants.ITEMS}
-    name="welcome8"
-    label="Social networks"
-  />
+  <Field label="Social networks">
+    <Select isCreatable options={constants.ITEMS} name="welcome8" />
+  </Field>
 </Form>
 ```
 
@@ -178,23 +159,23 @@ Passing a `renderCreateItem` function allows you to format the create button in 
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField
-    component={Select}
-    isCreatable
-    label="Social networks"
-    name="welcome8"
-    options={constants.ITEMS}
-    renderCreateItem={value => {
-      return (
-        <Box alignItems="center" display="flex">
-          <AddIcon mr="sm" />
-          <Text m={0}>
-            Add <b>{value}</b> as a new social network
-          </Text>
-        </Box>
-      )
-    }}
-  />
+  <Field label="Social networks">
+    <Select
+      isCreatable
+      name="welcome8"
+      options={constants.ITEMS}
+      renderCreateItem={value => {
+        return (
+          <Box alignItems="center" display="flex">
+            <AddIcon mr="sm" />
+            <Text m={0}>
+              Add <b>{value}</b> as a new social network
+            </Text>
+          </Box>
+        )
+      }}
+    />
+  </Field>
 </Form>
 ```
 
@@ -204,27 +185,27 @@ These two options combined allows you, for example, to build a filter dropdown w
 
 ```jsx
 <Form initialValues={{ welcome9: ['github', 'twitter'] }}>
-  <ConnectedField
-    component={Select}
-    icon={<LinkIcon label="Social networks" color="light.100" />}
-    isMultiple
-    isSearchable
-    options={constants.ITEMS}
-    name="welcome9"
-    label="Filters"
-    allowUnselectFromList
-    disableCloseOnSelect
-    renderItem={(item, selected) => {
-      return (
-        <Box display="flex" justifyContent="space-between">
-          {item.label}
-          <Box>
-            <Checkbox type="checkbox" checked={selected} />
+  <Field label="Filters">
+    <Select
+      icon={<LinkIcon label="Social networks" color="light.100" />}
+      isMultiple
+      isSearchable
+      options={constants.ITEMS}
+      name="welcome9"
+      allowUnselectFromList
+      disableCloseOnSelect
+      renderItem={(item, selected) => {
+        return (
+          <Box display="flex" justifyContent="space-between">
+            {item.label}
+            <Box>
+              <Checkbox type="checkbox" checked={selected} />
+            </Box>
           </Box>
-        </Box>
-      )
-    }}
-  />
+        )
+      }}
+    />
+  </Field>
 </Form>
 ```
 
@@ -234,16 +215,16 @@ You can pass any combination of the props above. For example below, we have a `S
 
 ```jsx
 <Form initialValues={{ welcome10: ['github', 'twitter'] }}>
-  <ConnectedField
-    component={Select}
-    icon={<LinkIcon label="Social networks" color="light.100" />}
-    isCreatable
-    isMultiple
-    isSearchable
-    options={constants.ITEMS}
-    name="welcome10"
-    label="Social networks"
-  />
+  <Field label="Social networks">
+    <Select
+      icon={<LinkIcon label="Social networks" color="light.100" />}
+      isCreatable
+      isMultiple
+      isSearchable
+      options={constants.ITEMS}
+      name="welcome10"
+    />
+  </Field>
 </Form>
 ```
 
@@ -253,11 +234,12 @@ To use option groups, you must provide two additional props: `groupsEnabled` tha
 
 ```jsx
 <Form initialValues={{}}>
-  <ConnectedField
-    component={Select}
+  <Field
+    label="Social networks"
+  >
+    <Select
     options={constants.OPT_GROUP_ITEMS}
     name="welcome11"
-    label="Social networks"
     groupsEnabled
     renderGroupHeader={({ label, options }) => (
       <Box p="xxs">
@@ -270,7 +252,8 @@ To use option groups, you must provide two additional props: `groupsEnabled` tha
         {options.length === 0 && <Text variant="body4">No results found</Text>}
       </Box>
     )}
-  />
+    />
+  </Field>
 </Form>
 ```
 

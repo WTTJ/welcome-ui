@@ -22,12 +22,9 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 
 ```jsx
 <Form initialValues={{ welcome: Date.now() }}>
-  <ConnectedField
-    component={TimePicker}
-    label="Time"
-    name="welcome"
-    onChange={date => console.log('date: ', date)}
-  />
+  <Field label="Time">
+    <TimePicker name="welcome" onChange={date => console.log('date: ', date)} />
+  </Field>
 </Form>
 ```
 
@@ -35,13 +32,9 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 
 ```jsx
 <Form initialValues={{ welcome2: Date.now() }}>
-  <ConnectedField
-    component={TimePicker}
-    icon={<DateIcon color="light.100" />}
-    iconPlacement="right"
-    label="Time"
-    name="welcome2"
-  />
+  <Field label="Time">
+    <TimePicker icon={<DateIcon color="light.100" />} iconPlacement="right" name="welcome2" />
+  </Field>
 </Form>
 ```
 
@@ -49,12 +42,9 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 
 ```jsx
 <Form initialValues={{ welcome3: Date.now() }}>
-  <ConnectedField
-    name="welcome3"
-    component={TimePicker}
-    popperProps={{ zIndex: 50 }}
-    timeIntervals={30}
-  />
+  <Field>
+    <TimePicker name="welcome3" popperProps={{ zIndex: 50 }} timeIntervals={30} />
+  </Field>
 </Form>
 ```
 

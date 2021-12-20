@@ -20,7 +20,6 @@ import { Breadcrumb } from '@welcome-ui/breadcrumb'
 import { Button } from '@welcome-ui/button'
 import { Card } from '@welcome-ui/card'
 import { Checkbox } from '@welcome-ui/checkbox'
-import { ConnectedField } from '@welcome-ui/connected-field'
 import { DatePicker } from '@welcome-ui/date-picker'
 import { DateTimePicker } from '@welcome-ui/date-time-picker'
 import * as DropdownMenu from '@welcome-ui/dropdown-menu'
@@ -137,7 +136,6 @@ export function Code({ children, className, isCopyable = true, live = true, row 
       Checkbox,
       CodeContent: S.CodeContent,
       CodeContentRow: S.CodeContentRow,
-      ConnectedField,
       constants,
       Controller,
       dateFR,
