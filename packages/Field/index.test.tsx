@@ -147,4 +147,20 @@ describe('<Field />', () => {
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)
   })
+
+  it.skip('should focus input when click on label when using neither name nor id on input (the fallback value of the id is created randomly)', async () => {
+    const { getByTestId } = render(
+      <Field dataTestId="field" label={labelText}>
+        <Input />
+      </Field>
+    )
+
+    const field = getByTestId('field')
+    const label = field.querySelector('label')
+    const input = field.querySelector('input')
+
+    userEvent.click(label)
+    expect(input).toHaveFocus()
+    expect(document.activeElement).toBe(input)
+  })
 })

@@ -23,8 +23,8 @@ You can find props for each field component in the other `Forms` pages.
 ## Classic
 
 ```jsx
-<Field label="I'm a small sized field" size="sm">
-  <InputText name="small-sized-field" />
+<Field label="I'm a small sized field">
+  <InputText name="small-sized-field" size="sm" />
 </Field>
 <Field label="I'm a disabled field" disabled>
   <InputText name="disabled-field" placeholder="placeholder" />
@@ -194,7 +194,7 @@ return (
       <Box mt="xl" mb="sm">
         Click a button below to focus the relevant field above
       </Box>
-      <Button onClick={handleNormalClick} ml={20}>
+      <Button onClick={handleNormalClick}>
         Normal field
       </Button>
       <Button onClick={handleNakedClick} ml={20}>
