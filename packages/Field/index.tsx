@@ -18,7 +18,6 @@ type FieldOptions = {
   label?: string
   hint?: string
   required?: boolean
-  size?: Size
   warning?: string | JSX.Element
 }
 
@@ -36,7 +35,6 @@ export const Field = forwardRef<'div', FieldProps>(
       hint,
       label,
       required,
-      size = 'lg',
       warning,
       ...rest
     },
@@ -57,12 +55,11 @@ export const Field = forwardRef<'div', FieldProps>(
       disabled,
       id: htmlFor,
       required,
-      size,
       variant,
     })
 
     return (
-      <S.Field ref={ref} {...rest} data-testid={dataTestId} flexDirection={layout} size={size}>
+      <S.Field ref={ref} {...rest} data-testid={dataTestId} flexDirection={layout}>
         <Container>
           {label && (
             <Label
