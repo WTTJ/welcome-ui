@@ -327,6 +327,51 @@ function() {
 }
 ```
 
+## Without close button on Growl or Snackbar
+
+You can choose not to show a close button on Growl or Snackbar with the `hasCloseButton` prop (defaults to `true`).
+
+```jsx
+function() {
+  const toast = useToast()
+
+  function onClose() {
+    alert('Toast hidden!')
+  }
+
+  return (
+    <Stack direction="row">
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Snackbar  hasCloseButton={false}>
+                Lorem ipsum dolor sit amet
+            </Toast.Snackbar>
+          )
+        }
+      >
+        Snackbar with no close button
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Growl hasCloseButton={false}>
+              <Toast.Title>
+                Lorem ipsum dolor sit amet
+              </Toast.Title>
+              Class aptent taciti sociosqu ad
+            </Toast.Growl>,
+            { position: 'top-right' }
+          )
+        }
+      >
+        Growl with no close button
+      </Button>
+    </Stack>
+  )
+}
+```
+
 ## Properties
 
 ### Toast
