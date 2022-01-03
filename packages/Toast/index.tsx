@@ -27,7 +27,6 @@ export function useToast(): UseToastReturn {
       const toastOptions = {
         position: 'bottom',
         duration: 5000,
-        onClose: undefined,
         ...options,
       }
 

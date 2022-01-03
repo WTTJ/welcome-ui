@@ -11,12 +11,13 @@ export interface GrowlOptions {
   variant?: Variant
   closeButtonDataTestId?: string
   onClose?: () => void
+  hasCloseButton?: boolean
 }
 
 export type GrowlProps = CreateWuiProps<'div', GrowlOptions>
 
 export const Growl = forwardRef<'div', GrowlProps>(
-  ({ children, closeButtonDataTestId, onClose, variant = 'info' }, ref) => {
+  ({ children, closeButtonDataTestId, hasCloseButton = true, onClose, variant = 'info' }, ref) => {
     const content = Children.map(children, child => {
       // Add variant to AlertTitle to show the correct icon/color
       if ((child as React.ReactElement).type === Title) {
@@ -26,8 +27,8 @@ export const Growl = forwardRef<'div', GrowlProps>(
     })
 
     return (
-      <S.Growl ref={ref} variant={variant}>
-        {onClose && (
+      <S.Growl hasCloseButton={hasCloseButton} ref={ref} variant={variant}>
+        {hasCloseButton && (
           <ClearButton
             data-testid={closeButtonDataTestId}
             onClick={onClose}
