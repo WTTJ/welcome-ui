@@ -44,7 +44,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       lineHeight: '1rem',
       fontWeight: fontWeights.regular,
       backgroundColor: colors.light[900],
-      borderColor: colors.nude[200],
+      borderColor: colors.light[800],
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
       outline: 'none',
@@ -77,7 +77,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       cursor: 'not-allowed',
     },
     placeholder: {
-      color: colors.nude[500],
+      color: colors.light[500],
     },
     focused: {
       default: {
