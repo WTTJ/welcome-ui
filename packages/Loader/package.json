@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/loader",
-  "version": "4.0.0-alpha.11",
+  "version": "4.0.0-alpha.12",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/loader.cjs.js",
   "module": "dist/loader.es.js",
@@ -37,7 +37,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^4.0.0-alpha.11",
+    "@welcome-ui/box": "^4.0.0-alpha.12",
     "@welcome-ui/shape": "^4.0.0-alpha.11",
     "@welcome-ui/system": "^4.0.0-alpha.11"
   },

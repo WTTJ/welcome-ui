@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/label",
-  "version": "4.0.0-alpha.11",
+  "version": "4.0.0-alpha.12",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/label.cjs.js",
   "module": "dist/label.es.js",
@@ -40,7 +40,7 @@
     "@welcome-ui/icons.lock": "^4.0.0-alpha.11",
     "@welcome-ui/system": "^4.0.0-alpha.11",
     "@welcome-ui/utils": "^4.0.0-alpha.8",
-    "@welcome-ui/variant-icon": "^4.0.0-alpha.11"
+    "@welcome-ui/variant-icon": "^4.0.0-alpha.12"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.0.1",
