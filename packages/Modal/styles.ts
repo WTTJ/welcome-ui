@@ -1,4 +1,4 @@
-import styled, { css, th, up } from '@xstyled/styled-components'
+import styled, { css, system, th, up } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { cardStyles } from '@welcome-ui/utils'
 import { Shape } from '@welcome-ui/shape'
@@ -72,6 +72,8 @@ export const Content = styled(Box)`
   padding: 50;
   flex: 1;
   overflow-y: auto;
+  // ${system} is usefull for fix this https://github.com/gregberge/xstyled/issues/340
+  ${system};
 `
 
 export const Cover = styled(Shape)`
