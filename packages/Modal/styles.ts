@@ -72,7 +72,7 @@ export const Content = styled(Box)`
   padding: 50;
   flex: 1;
   overflow-y: auto;
-  // ${system} is usefull for fix this https://github.com/gregberge/xstyled/issues/340
+  /* ${system} is usefull for fix this https://github.com/gregberge/xstyled/issues/340 */
   ${system};
 `
 
