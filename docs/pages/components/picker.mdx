@@ -19,77 +19,97 @@ import {
 ## With icons
 
 ```jsx
-<Form initialValues={{}}>
-  <Field label="Icons" required>
-    <Picker
-      name="icon"
-      options={[
-        {
-          element: ({ selected }) => (
-            <Shape shape="circle" w={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
-              <EditIcon color="dark.900" />
-            </Shape>
-          ),
-          value: 'edit',
-        },
-        {
-          element: ({ selected }) => (
-            <Shape shape="circle" w={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
-              <TwitterIcon color="dark.900" />
-            </Shape>
-          ),
-          value: 'twitter',
-        },
-        {
-          element: ({ selected }) => (
-            <Shape shape="circle" w={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
-              <PencilIcon color="dark.900" />
-            </Shape>
-          ),
-          value: 'pencil',
-        },
-      ]}
-    />
-  </Field>
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = event => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field label="Icons" required>
+      <Picker
+        name="icon"
+        options={[
+          {
+            element: ({ selected }) => (
+              <Shape shape="circle" w={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
+                <EditIcon color="dark.900" />
+              </Shape>
+            ),
+            value: 'edit',
+          },
+          {
+            element: ({ selected }) => (
+              <Shape shape="circle" w={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
+                <TwitterIcon color="dark.900" />
+              </Shape>
+            ),
+            value: 'twitter',
+          },
+          {
+            element: ({ selected }) => (
+              <Shape shape="circle" w={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
+                <PencilIcon color="dark.900" />
+              </Shape>
+            ),
+            value: 'pencil',
+          },
+        ]}
+        onChange={handleChange}
+        value={value}
+      />
+    </Field>
+  )
+}
 ```
 
 ## With colors and a default value
 
 ```jsx
-<Form initialValues={{ color: '3' }}>
-  <Field label="Colors" required>
-    <Picker
-      name="color"
-      options={[
-        {
-          element: ({ selected }) => (
-            <Shape shape="circle" w={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
-              <Shape borderRadius={2} h={15} w={15} backgroundColor="danger.200" />
-            </Shape>
-          ),
-          value: '1',
-        },
-        {
-          element: ({ selected }) => (
-            <Shape shape="circle" w={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
-              <Shape borderRadius={2} h={15} w={15} backgroundColor="success.500" />
-            </Shape>
-          ),
-          value: '2',
-        },
-        {
-          element: ({ selected }) => (
-            <Shape shape="circle" w={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
-              <Shape borderRadius={2} h={15} w={15} backgroundColor="warning.200" />
-            </Shape>
-          ),
-          value: '3',
-        },
-      ]}
-    />
-  </Field>
-</Form>
+function () {
+  const [value, setValue] = useState('3')
+
+  const handleChange = event => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field label="Colors" required>
+      <Picker
+        name="color"
+        options={[
+          {
+            element: ({ selected }) => (
+              <Shape shape="circle" w={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
+                <Shape borderRadius={2} h={15} w={15} backgroundColor="danger.200" />
+              </Shape>
+            ),
+            value: '1',
+          },
+          {
+            element: ({ selected }) => (
+              <Shape shape="circle" w={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
+                <Shape borderRadius={2} h={15} w={15} backgroundColor="success.500" />
+              </Shape>
+            ),
+            value: '2',
+          },
+          {
+            element: ({ selected }) => (
+              <Shape shape="circle" w={30} backgroundColor={selected ? 'nude.200' : 'unset'}>
+                <Shape borderRadius={2} h={15} w={15} backgroundColor="warning.200" />
+              </Shape>
+            ),
+            value: '3',
+          },
+        ]}
+        onChange={handleChange}
+        value={value}
+      />
+    </Field>
+  )
+}
 ```
 
 ## Properties
