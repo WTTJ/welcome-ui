@@ -20,202 +20,53 @@ You can find props for each field component in the other `Forms` pages.
 
 <usage component={component} name={name} peerDependencies={peerDependencies} />
 
-## Classic
-
-```jsx
-<Field label="I'm a small sized field">
-  <InputText name="small-sized-field" size="sm" />
-</Field>
-<Field label="I'm a disabled field" disabled>
-  <InputText name="disabled-field" placeholder="placeholder" />
-</Field>
-<Field label="I'm a field with a hint" hint="I'm a hint">
-  <InputText name="hint-field" />
-</Field>
-<Field label="I'm a field with an error" error="Invalid field">
-  <InputText name="error-field" />
-</Field>
-<Field label="I'm a field with a warning" warning={<p>Invalid field</p>}>
-  <InputText name="warning-field" />
-</Field>
-<Field label="I'm a required field" required>
-  <InputText name="required-field" />
-</Field>
-```
-
-```jsx
-function () {
-  const ref = React.useRef(null)
-
-  const handleClick = () => {
-    ref.current.focus()
-  }
-
-  return (
-    <>
-      <Field label="I'm a field with a ref on my child component">
-        <InputText ref={ref} />
-      </Field>
-      <Button mt="md" onClick={handleClick}>Click me</Button>
-    </>
-  )
-}
-```
-
-```jsx
-function () {
-  const [state, setState] = React.useState('')
-
-  const handleChange = (event) => {
-    setState(event.target.value + 'a')
-  }
-
-  return (
-    <Field label="I'm a field with a state">
-      <InputText onChange={handleChange} value={state} />
-    </Field>
-  )
-}
-```
-
-```jsx
-function () {
-  const [state, setState] = React.useState(false)
-
-  const handleChange = (event) => {
-    setState(s => !s)
-  }
-
-  return (
-    <Field label="I'm a field with a state" id="yolo">
-      <Checkbox onChange={handleChange} checked={state} />
-    </Field>
-  )
-}
-```
-
-## Disabled
-
-```jsx
-
-```
-
 ## Variants
 
 ```jsx
-<Form initialValues={{}}>
-  <>
-    <Field label="Label" hint="A hint" mb="xl">
-      <InputText name="default" placeholder="Placeholder" />
-    </Field>
-    <Field label="Label" warning="A warning" mb="xl">
-      <InputText name="warning" placeholder="Placeholder" />
-    </Field>
-    <Field label="Label" error="An error" mb="xl">
-      <InputText name="error" placeholder="Placeholder" />
-    </Field>
-  </>
-</Form>
+<Field label="Label" hint="A hint">
+  <InputText name="default" placeholder="Placeholder" />
+</Field>
+<Field label="Label" warning="A warning">
+  <InputText name="warning" placeholder="Placeholder" />
+</Field>
+<Field label="Label" error="An error">
+  <InputText name="error" placeholder="Placeholder" />
+</Field>
 ```
 
 ## Disabled
 
 ```jsx
-<Form initialValues={{ disabled: 'Disabled value' }}>
-  <Field label="Label" disabled>
-    <InputText name="disabled" placeholder="Placeholder" />
-  </Field>
-</Form>
+<Field label="Label" disabled>
+  <InputText name="disabled" placeholder="Placeholder" />
+</Field>
 ```
 
 ## Required
 
 ```jsx
-<Form initialValues={{}}>
-  <Field label="Label" required>
-    <InputText name="required" placeholder="Placeholder" />
-  </Field>
-</Form>
+<Field label="Label" required>
+  <InputText name="required" placeholder="Placeholder" />
+</Field>
 ```
 
 ## Refs
 
-You can create a `ref`\* and pass it to a component to access the underlying DOM element.
-
-Note: `ref`s can be created with either `React.createRef()` or `React.useRef(null)` for functional components or a callback ref if using a React `class`.
-
 ```jsx
-function() {
-  const InputRef = useRef(null)
-  const nakedInputRef = useRef(null)
-  const fileUploadRef = useRef(null)
-  const buttonRef = useRef(null)
-  const linkRef = useRef(null)
+function () {
+  const inputRef = React.useRef(null)
 
-  const handleNormalClick = () => {
-    InputRef.current.focus()
+  const handleClick = () => {
+    inputRef.current.focus()
   }
 
-  const handleNakedClick = () => {
-    nakedInputRef.current.focus()
-  }
-
-  const handleFileUploadClick = () => {
-    fileUploadRef.current.focus()
-  }
-
-  const handleButtonClick = () => {
-    console.debug('<Button> ref', buttonRef)
-  }
-
-  const handleLinkClick = () => {
-    console.debug('<Link> ref', linkRef)
-  }
-
-return (
-    <Form>
-      <Field label="Normal field" mb="sm">
-        <InputText
-          name="lastName"
-          onChange={() => console.log('changed!')}
-          placeholder="Placeholder"
-          ref={InputRef}
-        />
+  return (
+    <>
+      <Field label="I'm a field with a ref on my child component">
+        <InputText ref={inputRef} />
       </Field>
-      <Label>Naked field</Label>
-      <InputText name="naked" ref={nakedInputRef} mb="sm" />
-      <Field label="Complex field" mb="sm">
-        <FileUpload
-          name="avatar"
-          onChange={() => console.log('changed!')}
-          ref={fileUploadRef}
-        />
-      </Field>
-      <Box mt="xl" mb="sm">
-        Click a button below to focus the relevant field above
-      </Box>
-      <Button onClick={handleNormalClick}>
-        Normal field
-      </Button>
-      <Button onClick={handleNakedClick} ml={20}>
-        Naked field
-      </Button>
-      <Button onClick={handleFileUploadClick} ml={20}>
-        File upload field
-      </Button>
-      <Box mt="xl" mb="sm">
-        Click the button below to read the button's ref in the console
-      </Box>
-      <Button ref={buttonRef} onClick={handleButtonClick}>
-        Test button
-      </Button>
-      <Box mt="xl" mb="sm">
-        Click the link below to read the link's ref in the console
-      </Box>
-      <Link ref={linkRef} onClick={handleLinkClick}>
-        Test link
-      </Link>
-    </Form>
+      <Button mt="md" onClick={handleClick}>Focus InputText</Button>
+    </>
   )
 }
 ```
