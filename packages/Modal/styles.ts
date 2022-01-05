@@ -1,7 +1,5 @@
 import styled, { css, th, up } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
 import { cardStyles } from '@welcome-ui/utils'
-import { Shape } from '@welcome-ui/shape'
 import { DialogBackdrop, Dialog as ReakitDialog } from 'reakit/Dialog'
 
 import { Size } from '.'
@@ -67,24 +65,3 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
     )}
   `
 )
-
-export const Content = styled(Box)`
-  padding: 50;
-  flex: 1;
-  overflow-y: auto;
-`
-
-export const Cover = styled(Shape)`
-  ${th('modals.cover')};
-`
-
-export const Title = styled(Box)`
-  ${th('modals.title')};
-  width: 100%;
-  padding: xxl 50 xxl xxl;
-`
-
-export const Footer = styled(Box)`
-  ${th('modals.footer')};
-  width: 100%;
-`

@@ -7,8 +7,11 @@ import {
   useDialogState,
 } from 'reakit/Dialog'
 import { DisclosureActions } from 'reakit/Disclosure'
-import { Text } from '@welcome-ui/text'
+import { Box, BoxProps } from '@welcome-ui/box'
+import { Text, TextProps } from '@welcome-ui/text'
+import { Shape, ShapeProps } from '@welcome-ui/shape'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { useTheme } from '@xstyled/styled-components'
 
 import * as S from './styles'
 import { Close } from './Close'
@@ -66,21 +69,30 @@ const ModalComponent = forwardRef<'div', ModalProps>((props, ref) => {
 
 ModalComponent.displayName = 'Modal'
 
-export interface ModalTitleProps {
-  children: React.ReactNode
+const Title: React.FC<TextProps> = props => {
+  const { modals } = useTheme()
+  return <Text {...modals.title} m="0" p="xxl 50 xxl xxl" variant="h4" width="100%" {...props} />
 }
 
-const Title: React.FC<ModalTitleProps> = ({ children }) => (
-  <S.Title as={Text} m="0" variant="h4">
-    {children}
-  </S.Title>
+const Content: React.FC<BoxProps> = props => (
+  <Box flex={1} overflowY="auto" padding={50} {...props} />
 )
+
+const Cover: React.FC<ShapeProps> = props => {
+  const { modals } = useTheme()
+  return <Shape {...modals.cover} {...props} />
+}
+
+const Footer: React.FC<BoxProps> = props => {
+  const { modals } = useTheme()
+  return <Box {...modals.footer} width="100%" {...props} />
+}
 
 // Nested exports
 export const Modal = Object.assign(ModalComponent, {
   Trigger: DialogDisclosure,
-  Content: S.Content,
-  Title: Title,
-  Footer: S.Footer,
-  Cover: S.Cover,
+  Content,
+  Title,
+  Footer,
+  Cover,
 })
