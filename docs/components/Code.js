@@ -197,7 +197,13 @@ export function Code({ children, className, isCopyable = true, live = true, row 
   if (live === true && language === 'jsx') {
     return (
       <LiveProvider {...liveProviderProps}>
-        <S.LivePreview className="codeEditor">
+        <Card
+          className="codeEditor"
+          display="flex"
+          flexDirection="column"
+          mb="md"
+          overflow="visible"
+        >
           <Card.Body color="dark.900" padding="xl" paddingBottom="lg">
             <LivePreview />
             <S.ShowEditor>
@@ -207,7 +213,7 @@ export function Code({ children, className, isCopyable = true, live = true, row 
               </Button>
             </S.ShowEditor>
           </Card.Body>
-        </S.LivePreview>
+        </Card>
         {editorOpen && (
           <S.LiveEditor>
             <S.LiveEditorContent onChange={handleChange} padding={20} style={liveEditorStyle} />
