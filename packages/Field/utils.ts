@@ -21,3 +21,5 @@ export const getVariant = ({ error, warning }: VariantProps): VariantReturn => {
   if (warning) return 'warning'
   return undefined
 }
+
+export const generateRandomId = (): string => `wui-field-${Math.random().toString(36).slice(2)}`

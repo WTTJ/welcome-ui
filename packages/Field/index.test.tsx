@@ -127,6 +127,8 @@ describe('<Field />', () => {
     const label = field.querySelector('label')
     const input = field.querySelector('input')
 
+    expect(label.htmlFor).toBe('field')
+    expect(label.htmlFor).toBe(input.id)
     userEvent.click(label)
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)
@@ -143,12 +145,14 @@ describe('<Field />', () => {
     const label = field.querySelector('label')
     const input = field.querySelector('input')
 
+    expect(label.htmlFor).toBe('field')
+    expect(label.htmlFor).toBe(input.id)
     userEvent.click(label)
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)
   })
 
-  it.skip('should focus input when click on label when using neither name nor id on input (the fallback value of the id is created randomly)', async () => {
+  it('should focus input when click on label when using neither name nor id on input (the fallback value of the id is created randomly)', async () => {
     const { getByTestId } = render(
       <Field dataTestId="field" label={labelText}>
         <Input />
@@ -159,6 +163,8 @@ describe('<Field />', () => {
     const label = field.querySelector('label')
     const input = field.querySelector('input')
 
+    expect(label.htmlFor.substring(0, 10)).toBe('wui-field-')
+    expect(label.htmlFor).toBe(input.id)
     userEvent.click(label)
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)

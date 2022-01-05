@@ -6,7 +6,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 // Fields
 import { RowContainer } from './layout'
 import * as S from './styles'
-import { getBaseType, getVariant } from './utils'
+import { generateRandomId, getBaseType, getVariant } from './utils'
 
 export type Size = 'sm' | 'md' | 'lg'
 
@@ -49,7 +49,7 @@ export const Field = forwardRef<'div', FieldProps>(
     const Container = layout === 'row' ? RowContainer : Fragment
     const variant = getVariant({ error, warning })
     const hintText = variant ? error || warning : hint
-    const htmlFor = children.props.id || children.props.name
+    const htmlFor = children.props.id || children.props.name || generateRandomId()
 
     const child = React.cloneElement(React.Children.only(children), {
       disabled,
