@@ -57,33 +57,19 @@ function() {
 Examples with `Field`
 
 ```jsx
-<Form
-  initialValues={{
-    toggle: true,
-    'toogle-checked': true,
-    'toogle-disabled': true,
-    'toggle-label': false,
-    'disabled-label': true,
-  }}
->
-  <Box display="flex" mb="lg">
-    <Field mr="lg">
-      <Toggle name="toggle" />
+function () {
+  const [checked, setChecked] = useState(false)
+
+  const handleToggle = () => {
+    setChecked(!checked)
+  }
+
+  return (
+    <Field label="Toggle">
+      <Toggle mr="lg" checked={checked} onClick={handleToggle} disabled />
     </Field>
-    <Field mr="lg">
-      <Toggle name="toggle-checked" />
-    </Field>
-    <Field disabled>
-      <Toggle name="toggle-disabled" />
-    </Field>
-  </Box>
-  <Field label="Toggle with a label" mb="lg">
-    <Toggle name="toggle-label" />
-  </Field>
-  <Field label="Disabled with a label" disabled>
-    <Toggle name="disabled-label" />
-  </Field>
-</Form>
+  )
+}
 ```
 
 ## Properties
@@ -97,3 +83,4 @@ Examples with `Field`
 ## Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+```
