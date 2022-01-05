@@ -19,11 +19,33 @@ import {
 ## Default
 
 ```jsx
-<Form initialValues={{}}>
-  <Field label="First name" required>
-    <InputText name="firstName" placeholder="Boaty" />
-  </Field>
-</Form>
+function () {
+  const [value, setValue] = React.useState('')
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return <InputText name="firstName" placeholder="Boaty" value={value} onChange={handleChange} />
+}
+```
+
+## With Field
+
+```jsx
+function () {
+  const [value, setValue] = React.useState('')
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field label="First name" required>
+      <InputText placeholder="Boaty" value={value} onChange={handleChange} />
+    </Field>
+  )
+}
 ```
 
 ## Clearable
@@ -31,11 +53,15 @@ import {
 Use the `isClearable` prop to add a cross button to remove the content (value) of the `TextInput`
 
 ```jsx
-<Form initialValues={{ firstName2: 'Trevor' }}>
-  <Field label="First name">
-    <InputText isClearable name="firstName2" placeholder="Boaty" />
-  </Field>
-</Form>
+function () {
+  const [value, setValue] = React.useState('')
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return <InputText name="firstName2" placeholder="Boaty" value={value} onChange={handleChange} isClearable />
+}
 ```
 
 ## Icon
@@ -43,49 +69,43 @@ Use the `isClearable` prop to add a cross button to remove the content (value) o
 Pass an `icon` through to decorate your `InputText`
 
 ```jsx
-<Form initialValues={{}}>
-  <Field label="First name">
-    <InputText icon={<AvatarIcon color="light.100" />} name="firstName3" placeholder="Boaty" />
-  </Field>
-</Form>
+function () {
+  const [value, setValue] = React.useState('')
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return <InputText icon={<AvatarIcon color="light.100" />} name="firstName3" placeholder="Boaty" value={value} onChange={handleChange} />
+}
 ```
 
 ## Sizes
 
 ```jsx
-<Form initialValues={{}}>
-  <Stack spacing="xl">
-    <Field label="I'm a small sized field">
-      <InputText name="small" placeholder="Placeholder" size="sm" />
-    </Field>
-    <Field label="I'm a medium sized field">
-      <InputText name="medium" placeholder="Placeholder" size="md" />
-    </Field>
-    <Field label="I'm a large sized field which is my default size">
-      <InputText name="large" placeholder="Placeholder" />
-    </Field>
-  </Stack>
-</Form>
+<Stack spacing="xl">
+  <InputText name="small" placeholder="Placeholder" size="sm" />
+  <InputText name="medium" placeholder="Placeholder" size="md" />
+  <InputText name="large" placeholder="Placeholder" />
+</Stack>
 ```
 
 ## Inline
 
 ```jsx
-<Form initialValues={{ firstName4: 'Trevor' }}>
-  <Field flexDirection="row" label="First name" required>
-    <InputText name="firstName4" placeholder="Boaty" />
-  </Field>
-</Form>
+<Field flexDirection="row" label="First name" required>
+  <InputText name="firstName4" placeholder="Boaty" />
+</Field>
 ```
 
 ## Disabled
 
 ```jsx
-<Form initialValues={{ firstName5: 'Trevor' }}>
-  <Field disabled label="First name" required>
-    <InputText name="firstName5" placeholder="Boaty" />
-  </Field>
-</Form>
+<InputText disabled name="firstName5" placeholder="Boaty" />
+
+<Field disabled label="First name" required>
+  <InputText name="firstName6" placeholder="Boaty" />
+</Field>
 ```
 
 ## Properties
