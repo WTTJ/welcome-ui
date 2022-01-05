@@ -5,7 +5,6 @@ import * as React from 'react'
 import { LivePreview, LiveProvider } from 'react-live'
 import theme from 'prism-react-renderer/themes/nightOwl'
 import NextLink from 'next/link'
-import { Form as FinalForm } from 'react-final-form'
 import dateFR from 'date-fns/locale/fr'
 import * as yup from 'yup'
 import { Controller } from 'react-hook-form'
@@ -67,7 +66,6 @@ import * as Emoji from '@welcome-ui/emoji'
 
 import * as constants from '../constants'
 
-import { Form } from './Form'
 import { HookForm } from './HookForm'
 import { IconsList } from './IconsList'
 import * as S from './Code.styled'
@@ -150,8 +148,6 @@ export function Code({ children, className, isCopyable = true, live = true, row 
       FileDrop,
       ...Files,
       FileUpload,
-      FinalForm,
-      Form,
       Group,
       Hint,
       HookForm,
