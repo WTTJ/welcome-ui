@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonLink } from '@welcome-ui/button-link'
+import { Button } from '@welcome-ui/button'
 import { Text } from '@welcome-ui/text'
 import { ExternalLinkIcon } from '@welcome-ui/icons.external_link'
 import { ForceFileType, getFileIcon, getFileName, getFileSize } from '@welcome-ui/files'
@@ -29,10 +29,10 @@ export const FilePreview: React.FC<MessageProps> = ({ file, forceFileType }) => 
         </Text>
       )}
       {isUrl && (
-        <ButtonLink href={file} mt="md" rel="noopener" size="sm" target="_blank">
+        <Button as="a" href={file} mt="md" rel="noopener" size="sm" target="_blank">
           <span>Preview</span>
           <ExternalLinkIcon />
-        </ButtonLink>
+        </Button>
       )}
     </>
   )

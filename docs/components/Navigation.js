@@ -11,6 +11,7 @@ const ITEMS = {
   dataDisplay: ['Accordion', 'Avatar', 'Badge', 'Card', 'Swiper', 'Table', 'Tag'],
   feedback: ['Alert', 'Toast'],
   forms: [
+    'Button',
     'Checkbox',
     'DatePicker',
     'DateTimePicker',
@@ -31,9 +32,8 @@ const ITEMS = {
     'Select',
     'Textarea',
     'TimePicker',
-    'Toggle'
+    'Toggle',
   ],
-  button: ['Button', 'ButtonLink'],
   gettingStarted: ['Installation', 'Contributing', 'Upgrade'],
   icons: ['Emoji', 'Icons', 'IconsFont'],
   layout: ['Box', 'Group', 'Loader', 'Shape', 'Stack'],
@@ -41,22 +41,21 @@ const ITEMS = {
   overlay: ['Drawer', 'Modal', 'Popover', 'Tooltip'],
   theming: ['Basics', 'Customize', 'XStyled'],
   typography: ['Text'],
-  utilities: ['useCopyText']
+  utilities: ['useCopyText'],
 }
 
 const CATEGORIES = [
   { name: 'Layout', value: ITEMS.layout },
-  { name: 'Button', value: ITEMS.button },
   { name: 'Forms', value: ITEMS.forms },
   { name: 'Typography', value: ITEMS.typography },
   { name: 'Data Display', value: ITEMS.dataDisplay },
   { name: 'Feedback', value: ITEMS.feedback },
   { name: 'Overlay', value: ITEMS.overlay },
   { name: 'Navigation', value: ITEMS.navigation },
-  { name: 'Icons', value: ITEMS.icons }
+  { name: 'Icons', value: ITEMS.icons },
 ]
 
-export const Navigation = ({ hideModal }) => {
+export function Navigation({ hideModal }) {
   const closeModal = useCallback(() => {
     hideModal && hideModal()
   }, [hideModal])
