@@ -2,22 +2,16 @@ import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
 import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
-import { defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
+import { defaultFieldStyles, DefaultFieldStylesProps, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
 
-import { Size, Variant } from './index'
-
-export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })<{ connected?: boolean }>(
-  ({ connected }) => {
-    return css`
-      position: absolute;
-      top: 0;
-      left: 0;
-      visibility: hidden;
-      ${connected ? componentSystem : system};
-    `
-  }
-)
+export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })`
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  ${system};
+`
 
 const columnStyles = css`
   margin-top: -${th.borderWidth('sm')};
@@ -53,14 +47,14 @@ const rowStyles = css`
   }
 `
 
-export const Label = styled.label<{
-  checked?: boolean
-  flexDirection?: WuiProps['flexDirection']
-  size?: Size
-  disabled?: boolean
-  disabledIcon?: React.ReactElement
-  variant?: Variant
-}>(
+export const Label = styled.label<
+  {
+    checked?: boolean
+    flexDirection?: WuiProps['flexDirection']
+    disabled?: boolean
+    disabledIcon?: React.ReactElement
+  } & DefaultFieldStylesProps
+>(
   ({ checked, flexDirection, size, variant }) => css`
     ${th('radioTabs.default')};
     flex: 1;

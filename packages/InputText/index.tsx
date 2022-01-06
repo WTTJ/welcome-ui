@@ -1,16 +1,13 @@
 import React from 'react'
 import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
-import { createEvent, Variant } from '@welcome-ui/utils'
+import { createEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-type Size = 'sm' | 'md' | 'lg'
-
-export interface InputTextOptions {
+export type InputTextOptions = {
   autoFocus?: boolean
-  connected?: boolean
   disabled?: boolean
   icon?: JSX.Element
   iconPlacement?: 'left' | 'right'
@@ -21,11 +18,9 @@ export interface InputTextOptions {
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void
   placeholder?: string
-  size?: Size
   type?: string
   value?: string
-  variant?: Variant
-}
+} & DefaultFieldStylesProps
 
 export type InputTextProps = CreateWuiProps<'input', InputTextOptions>
 
@@ -33,7 +28,6 @@ export const InputText = forwardRef<'input', InputTextProps>(
   (
     {
       autoFocus,
-      connected,
       dataTestId,
       disabled,
       icon,
@@ -65,7 +59,6 @@ export const InputText = forwardRef<'input', InputTextProps>(
       <S.Wrapper>
         <S.InputText
           autoFocus={autoFocus}
-          connected={connected}
           data-testid={dataTestId}
           disabled={disabled}
           icon={!!icon}

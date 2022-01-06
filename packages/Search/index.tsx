@@ -2,7 +2,7 @@ import React, { Fragment, useCallback, useMemo, useState } from 'react'
 import Downshift, { DownshiftProps, GetRootPropsOptions } from 'downshift'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ClearButton } from '@welcome-ui/clear-button'
-import { createEvent, throttle as handleThrottle } from '@welcome-ui/utils'
+import { createEvent, DefaultFieldStylesProps, throttle as handleThrottle } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
@@ -12,7 +12,7 @@ export type Option = { label: string; value: string }
 export type OptionGroup = { label: string; options: Option[] }
 type Item = Option | OptionGroup | string | unknown
 
-export interface SearchOptions {
+export type SearchOptions = {
   groupsEnabled?: boolean
   icon?: React.ReactElement
   itemToString: (item: Item) => string
@@ -21,11 +21,9 @@ export interface SearchOptions {
   renderGroupHeader?: (result: OptionGroup) => React.ReactElement
   renderItem: (item: Item) => React.ReactElement | string
   search: (query: string) => Promise<unknown>
-  size?: 'sm' | 'md' | 'lg'
   throttle?: number
   value?: Item
-  variant?: 'error' | 'info' | 'success' | 'valid' | 'warning'
-}
+} & DefaultFieldStylesProps
 
 export type SearchProps = CreateWuiProps<
   'input',

@@ -7,22 +7,26 @@ import { StyledButton } from '@welcome-ui/button'
 import { StyledClearButton } from '@welcome-ui/clear-button'
 import { componentSystem, shouldForwardProp } from '@welcome-ui/system'
 import { StyledSelect } from '@welcome-ui/select'
-import { defaultFieldStyles } from '@welcome-ui/utils'
+import { defaultFieldStyles, DefaultFieldStylesProps } from '@welcome-ui/utils'
 
-import { Focused, Icon, IconPlacement, Size } from './CustomInput'
+import { Focused, Icon, IconPlacement } from './CustomInput'
 
-export const StyledDatePicker = styled(ReactDatePicker)`
-  ${defaultFieldStyles({})};
-  ${componentSystem};
-`
+export const StyledDatePicker = styled(ReactDatePicker)<DefaultFieldStylesProps>(
+  ({ size, variant }) => css`
+    ${defaultFieldStyles({ size, variant })};
+    ${componentSystem};
+  `
+)
 
-export const StyledTimePicker = styled(ReactDatePicker)`
-  ${defaultFieldStyles({})};
-  text-align: center;
-  ${componentSystem};
-`
+export const StyledTimePicker = styled(ReactDatePicker)<DefaultFieldStylesProps>(
+  ({ size, variant }) => css`
+    ${defaultFieldStyles({ size, variant })};
+    text-align: center;
+    ${componentSystem};
+  `
+)
 
-const iconPlacementStyles = (placement: IconPlacement, size: Size) => {
+const iconPlacementStyles = (placement: IconPlacement, size: DefaultFieldStylesProps['size']) => {
   if (placement === 'right') {
     return css`
       ${StyledDatePicker}, ${StyledTimePicker} {
@@ -61,7 +65,7 @@ export const CustomInput = styled('div').withConfig({ shouldForwardProp })(
     focused: Focused
     icon: Icon
     iconPlacement: IconPlacement
-    size: Size
+    size: DefaultFieldStylesProps['size']
   }) => {
     return css`
       position: relative;

@@ -1,12 +1,12 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
+import { shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { InputTextOptions } from './index'
 
 export const InputText = styled('input').withConfig({ shouldForwardProp })<InputTextOptions>(
-  ({ connected, icon, iconPlacement, isClearable, size, variant }) => css`
+  ({ icon, iconPlacement, isClearable, size, variant }) => css`
     ${defaultFieldStyles({ size, variant })};
     text-overflow: ellipsis;
 
@@ -28,7 +28,7 @@ export const InputText = styled('input').withConfig({ shouldForwardProp })<Input
       padding-right: ${th(`defaultFields.sizes.${size}.height`)};
     `};
 
-    ${connected ? componentSystem : system};
+    ${system};
   `
 )
 

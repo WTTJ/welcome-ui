@@ -3,10 +3,9 @@ import { AlertIcon } from '@welcome-ui/icons.alert'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { CheckIcon } from '@welcome-ui/icons.check'
 import { InformationIcon } from '@welcome-ui/icons.information'
+import { Variant } from '@welcome-ui/utils'
 
 import * as S from './styles'
-
-export type Variant = 'info' | 'success' | 'warning' | 'error'
 
 export interface VariantIconOptions {
   icon?: JSX.Element

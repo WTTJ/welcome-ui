@@ -1,6 +1,7 @@
 import React from 'react'
-import { Variant, VariantIcon } from '@welcome-ui/variant-icon'
+import { VariantIcon } from '@welcome-ui/variant-icon'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { Variant } from '@welcome-ui/utils'
 
 import * as S from './styles'
 

@@ -1,17 +1,16 @@
 import React from 'react'
 import { LabelOptions } from '@welcome-ui/label'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { Variant } from '@welcome-ui/utils'
+import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
-export interface RadioOptions {
+export type RadioOptions = {
   hint?: string
-  label: string
+  label?: string
   onChange?: (event: React.MouseEvent<HTMLLabelElement>) => void
   onClick?: (event: React.MouseEvent<HTMLLabelElement>) => void
-  variant?: Variant
-}
+} & DefaultFieldStylesProps
 
 export type RadioProps = CreateWuiProps<'input', RadioOptions & LabelOptions>
 

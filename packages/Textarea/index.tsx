@@ -1,14 +1,11 @@
 import React from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
-export type Size = 'sm' | 'md' | 'lg'
-export type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
-
-export interface TextareaOptions {
+export type TextareaOptions = {
   autoFocus?: boolean
-  connected?: boolean
   disabled?: boolean
   maxLength?: number
   minRows?: number
@@ -18,14 +15,12 @@ export interface TextareaOptions {
   onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => void
   onKeyDown?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void
   placeholder?: string
-  size?: Size
   value: string
-  variant?: Variant
-}
+} & DefaultFieldStylesProps
 
 export type TextareaProps = CreateWuiProps<'textarea', TextareaOptions>
 
-const TextareaComponent = forwardRef<'textarea', TextareaProps>(
+export const Textarea = forwardRef<'textarea', TextareaProps>(
   (
     {
       autoFocus,
@@ -67,8 +62,4 @@ const TextareaComponent = forwardRef<'textarea', TextareaProps>(
   )
 )
 
-TextareaComponent.displayName = 'Textarea'
-
-export const Textarea = Object.assign(TextareaComponent, {
-  type: 'Textarea',
-})
+Textarea.displayName = 'Textarea'
