@@ -133,7 +133,7 @@ describe('<DateTimePicker />', () => {
     expect(yearSelect).toHaveTextContent('2018')
   })
 
-  test.skip('<DatePicker> can be cleared and has no `ClearButton` when no value', () => {
+  test('<DatePicker> can be cleared and has no `ClearButton` when no value', () => {
     const { container, getAllByRole } = render(<DateTimePicker name="welcome" value={new Date()} />)
 
     const datePicker = container.querySelector('.date-picker')
