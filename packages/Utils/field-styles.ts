@@ -3,15 +3,13 @@ import { th } from '@xstyled/system'
 
 import { getVariantColor, Variant } from './variants'
 
-type Size = unknown
+export type Size = 'sm' | 'md' | 'lg'
 
-export const defaultFieldStyles = ({
-  size,
-  variant,
-}: {
-  size?: Size
-  variant?: Variant
-}): ReturnType<typeof css> => css`
+export type DefaultFieldStylesProps = Partial<{ size: Size; variant: Variant }>
+
+type DefaultFieldStyles = (args: DefaultFieldStylesProps) => ReturnType<typeof css>
+
+export const defaultFieldStyles: DefaultFieldStyles = ({ size, variant }) => css`
   ${th('defaultFields.default')};
   width: 100%;
   border-color: ${getVariantColor(variant)};

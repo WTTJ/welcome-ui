@@ -2,13 +2,13 @@ import React from 'react'
 import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { CreateWuiProps } from '@welcome-ui/system'
+import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
 export type Focused = 'date' | 'time' | null
 export type Icon = JSX.Element
 export type IconPlacement = 'right' | 'left'
-export type Size = 'sm' | 'md' | 'lg'
 
 export interface CustomInputOptions {
   focused: Focused
@@ -18,7 +18,7 @@ export interface CustomInputOptions {
   iconPlacement?: IconPlacement
   inputRef: React.MutableRefObject<HTMLInputElement>
   onReset?: (event: React.MouseEvent<HTMLButtonElement>) => void
-  size?: Size
+  size?: DefaultFieldStylesProps['size']
   value: string | null
 }
 

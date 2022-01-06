@@ -3,8 +3,7 @@ import { th } from '@xstyled/system'
 import { StyledLabel } from '@welcome-ui/label'
 import { StyledFieldGroup } from '@welcome-ui/field-group'
 import { shouldForwardProp, system, WuiProps } from '@welcome-ui/system'
-
-import { Size } from './index'
+import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 const rowStyles = css`
   margin-right: sm;
@@ -42,7 +41,7 @@ export const Field = styled('div').withConfig({ shouldForwardProp })<StyledField
 
 type IconWrapperProps = {
   iconPlacement: 'left' | 'right'
-  size: Size
+  size: DefaultFieldStylesProps['size']
 }
 
 export const IconWrapper = styled.div<IconWrapperProps>(

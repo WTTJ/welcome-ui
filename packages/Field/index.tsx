@@ -8,8 +8,6 @@ import { RowContainer } from './layout'
 import * as S from './styles'
 import { generateRandomId, getBaseType, getVariant } from './utils'
 
-export type Size = 'sm' | 'md' | 'lg'
-
 type FieldOptions = {
   children: JSX.Element
   disabled?: boolean

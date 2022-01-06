@@ -4,14 +4,11 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type ToggleProps = CreateWuiProps<'input', Omit<CheckboxProps, 'Component'>>
+export type ToggleOptions = Omit<CheckboxProps, 'Component'>
+export type ToggleProps = CreateWuiProps<'input', ToggleOptions>
 
-const ToggleComponent = forwardRef<'input', ToggleProps>((props, ref) => (
+export const Toggle = forwardRef<'input', ToggleProps>((props, ref) => (
   <Checkbox {...props} Component={S.Toggle} ref={ref} />
 ))
 
-ToggleComponent.displayName = 'Toggle'
-
-export const Toggle = Object.assign(ToggleComponent, {
-  type: 'Toggle',
-})
+Toggle.displayName = 'Toggle'

@@ -8,7 +8,7 @@ import { matchSorter } from 'match-sorter'
 import { DownIcon } from '@welcome-ui/icons.down'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { createEvent, CreateEvent, Variant } from '@welcome-ui/utils'
+import { createEvent, CreateEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 import {
   getInputValue,
@@ -29,9 +29,9 @@ export type Option = { label: string; value: OptionValue; icon?: React.ReactElem
 export type OptionGroup = { label: string; options: Option[] }
 export type OptionItem = Option | OptionGroup
 export type Options = Array<Option | OptionGroup>
-export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 export type SelectValue = string | number | string[] | Option | (string | Option)[]
-export interface SelectOptions {
+
+export type SelectOptions = {
   autoComplete?: string
   autoFocus?: boolean
   disabled?: boolean
@@ -52,14 +52,12 @@ export interface SelectOptions {
   renderCreateItem?: (inputValue: SelectValue) => void
   renderItem?: (item: Option | unknown, isItemSelected?: boolean) => string | React.ReactElement
   renderMultiple?: (values: Option[], handleRemove: (value: string) => void) => React.ReactElement
-  size?: Size
   value?: SelectValue
-  variant?: Variant
   allowUnselectFromList?: boolean
   disableCloseOnSelect?: boolean
   groupsEnabled?: boolean
   renderGroupHeader?: (option: OptionGroup) => void
-}
+} & DefaultFieldStylesProps
 export type SelectProps = CreateWuiProps<
   'input',
   SelectOptions & Omit<DownshiftProps<Option>, keyof SelectOptions | 'children'>
