@@ -38,7 +38,6 @@
   },
   "dependencies": {
     "@welcome-ui/button": "^4.0.0-alpha.11",
-    "@welcome-ui/button-link": "^4.0.0-alpha.11",
     "@welcome-ui/files": "^4.0.0-alpha.12",
     "@welcome-ui/group": "^4.0.0-alpha.11",
     "@welcome-ui/icons.edit": "^4.0.0-alpha.11",

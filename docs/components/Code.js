@@ -18,7 +18,6 @@ import { Badge } from '@welcome-ui/badge'
 import { Box } from '@welcome-ui/box'
 import { Breadcrumb } from '@welcome-ui/breadcrumb'
 import { Button } from '@welcome-ui/button'
-import { ButtonLink } from '@welcome-ui/button-link'
 import { Card } from '@welcome-ui/card'
 import { Checkbox } from '@welcome-ui/checkbox'
 import { ConnectedField } from '@welcome-ui/connected-field'
@@ -77,7 +76,7 @@ import * as S from './Code.styled'
 const liveEditorStyle = {
   fontFamily: 'Menlo, monospace',
   fontSize: 14,
-  margin: 0
+  margin: 0,
 }
 
 const transformCode = (code, row) => {
@@ -85,7 +84,7 @@ const transformCode = (code, row) => {
   return row ? `<CodeContentRow>${code}</CodeContentRow>` : `<CodeContent>${code}</CodeContent>`
 }
 
-const CopyButton = ({ copied, copy }) => {
+function CopyButton({ copied, copy }) {
   return (
     <Button
       mr="lg"
@@ -102,7 +101,7 @@ const CopyButton = ({ copied, copy }) => {
   )
 }
 
-export const Code = ({ children, className, isCopyable = true, live = true, row }) => {
+export function Code({ children, className, isCopyable = true, live = true, row }) {
   const [editorOpen, setEditorOpen] = React.useState(false)
   const language = className && className.replace(/language-/, '')
   const [copy, copied] = useCopyText(children.trim(), 5000)
@@ -134,7 +133,6 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
       Box,
       Breadcrumb,
       Button,
-      ButtonLink,
       Card,
       Checkbox,
       CodeContent: S.CodeContent,
@@ -194,8 +192,8 @@ export const Code = ({ children, className, isCopyable = true, live = true, row 
       useCopyText,
       ...React,
       yup,
-      yupResolver
-    }
+      yupResolver,
+    },
   }
 
   if (live === true && language === 'jsx') {
