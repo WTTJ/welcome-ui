@@ -2,7 +2,6 @@ import React from 'react'
 import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-// import { Form, getFormValues } from '../../utils/Form'
 import { render } from '../../utils/tests'
 
 import { DateTimePicker } from './index'
