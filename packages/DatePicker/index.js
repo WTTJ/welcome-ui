@@ -60,7 +60,7 @@ export const DatePicker = forwardRef(
       //eslint-disable-next-line
     }, [value])
 
-    const blur = () => inputReference.current.blur()
+    const blur = () => inputReference?.current.blur()
 
     const handleFocus = e => {
       setFocused('date')
@@ -82,7 +82,7 @@ export const DatePicker = forwardRef(
       e.preventDefault()
       blur()
       setDate(null)
-      onChange && onChange()
+      onChange && onChange(null)
     }
 
     const handleChange = newDate => {

@@ -5,7 +5,6 @@ import * as React from 'react'
 import { LivePreview, LiveProvider } from 'react-live'
 import theme from 'prism-react-renderer/themes/nightOwl'
 import NextLink from 'next/link'
-import { Form as FinalForm } from 'react-final-form'
 import dateFR from 'date-fns/locale/fr'
 import * as yup from 'yup'
 import { Controller } from 'react-hook-form'
@@ -20,7 +19,6 @@ import { Breadcrumb } from '@welcome-ui/breadcrumb'
 import { Button } from '@welcome-ui/button'
 import { Card } from '@welcome-ui/card'
 import { Checkbox } from '@welcome-ui/checkbox'
-import { ConnectedField } from '@welcome-ui/connected-field'
 import { DatePicker } from '@welcome-ui/date-picker'
 import { DateTimePicker } from '@welcome-ui/date-time-picker'
 import * as DropdownMenu from '@welcome-ui/dropdown-menu'
@@ -68,7 +66,6 @@ import * as Emoji from '@welcome-ui/emoji'
 
 import * as constants from '../constants'
 
-import { Form } from './Form'
 import { HookForm } from './HookForm'
 import { IconsList } from './IconsList'
 import * as S from './Code.styled'
@@ -137,7 +134,6 @@ export function Code({ children, className, isCopyable = true, live = true, row 
       Checkbox,
       CodeContent: S.CodeContent,
       CodeContentRow: S.CodeContentRow,
-      ConnectedField,
       constants,
       Controller,
       dateFR,
@@ -152,8 +148,6 @@ export function Code({ children, className, isCopyable = true, live = true, row 
       FileDrop,
       ...Files,
       FileUpload,
-      FinalForm,
-      Form,
       Group,
       Hint,
       HookForm,
@@ -199,7 +193,13 @@ export function Code({ children, className, isCopyable = true, live = true, row 
   if (live === true && language === 'jsx') {
     return (
       <LiveProvider {...liveProviderProps}>
-        <S.LivePreview className="codeEditor">
+        <Card
+          className="codeEditor"
+          display="flex"
+          flexDirection="column"
+          mb="md"
+          overflow="visible"
+        >
           <Card.Body color="dark.900" padding="xl" paddingBottom="lg">
             <LivePreview />
             <S.ShowEditor>
@@ -209,7 +209,7 @@ export function Code({ children, className, isCopyable = true, live = true, row 
               </Button>
             </S.ShowEditor>
           </Card.Body>
-        </S.LivePreview>
+        </Card>
         {editorOpen && (
           <S.LiveEditor>
             <S.LiveEditorContent onChange={handleChange} padding={20} style={liveEditorStyle} />

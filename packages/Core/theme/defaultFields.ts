@@ -1,9 +1,8 @@
 import { CSSObject } from '@xstyled/system'
+import { Size } from '@welcome-ui/utils'
 
 import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
-
-type Size = 'sm' | 'md' | 'lg'
 
 export type ThemeDefaultFields = {
   default: CSSObject

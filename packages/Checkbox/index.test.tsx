@@ -1,62 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { fireEvent } from '@testing-library/react'
-import { ConnectedField } from '@welcome-ui/connected-field'
 
-import { Form, getFormValues } from '../../utils/Form'
 import { render } from '../../utils/tests'
 
-import { Checkbox } from './index'
+import { Checkbox, CheckboxOptions } from './index'
 
-const expectChecked = (element, valuesElement, value) => {
-  const formValues = getFormValues(valuesElement)
-  expect(element.getAttribute('aria-checked')).toBe(`${value}`)
-  expect(!!formValues.checkbox).toBe(value)
+const CheckboxWrapper: React.FC<CheckboxOptions> = props => {
+  const [value, setValue] = useState(false)
+
+  const handleChange = () => {
+    setValue(!value)
+  }
+
+  return (
+    <Checkbox
+      checked={value}
+      dataTestId="checkbox"
+      name="checkbox"
+      onChange={handleChange}
+      {...props}
+    />
+  )
 }
 
 test('<Checkbox> toggles on input click', () => {
-  const { container, getByTestId } = render(
-    <Form initialValues={{}}>
-      <ConnectedField
-        component={Checkbox}
-        dataTestId="inputCheckbox"
-        label="Checkbox"
-        name="checkbox"
-      />
-    </Form>
-  )
-  const inputCheckbox = getByTestId('inputCheckbox')
-  const label = container.querySelector('label')
+  const { getByTestId } = render(<CheckboxWrapper />)
+  const checkbox = getByTestId('checkbox')
 
-  expect(label).toHaveTextContent('Checkbox')
-  expectChecked(inputCheckbox, container, false)
+  expect(checkbox.getAttribute('aria-checked')).toBe('false')
 
-  fireEvent.click(inputCheckbox)
-  expectChecked(inputCheckbox, container, true)
+  fireEvent.click(checkbox)
+  expect(checkbox.getAttribute('aria-checked')).toBe('true')
 
-  fireEvent.click(inputCheckbox)
-  expectChecked(inputCheckbox, container, false)
-})
-
-test('<Checkbox> toggles on label click', () => {
-  const { container, getByTestId } = render(
-    <Form initialValues={{}}>
-      <ConnectedField
-        component={Checkbox}
-        dataTestId="inputCheckbox"
-        label="Checkbox"
-        name="checkbox"
-      />
-    </Form>
-  )
-  const inputCheckbox = getByTestId('inputCheckbox')
-  const label = container.querySelector('label')
-
-  expect(label).toHaveTextContent('Checkbox')
-  expectChecked(inputCheckbox, container, false)
-
-  fireEvent.click(label)
-  expectChecked(inputCheckbox, container, true)
-
-  fireEvent.click(label)
-  expectChecked(inputCheckbox, container, false)
+  fireEvent.click(checkbox)
+  expect(checkbox.getAttribute('aria-checked')).toBe('false')
 })

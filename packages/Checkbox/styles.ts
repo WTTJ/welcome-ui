@@ -1,19 +1,16 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
-import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
+import { shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
-export interface StyledCheckboxProps {
-  connected?: boolean
-  order: string
-}
+import { CheckboxProps } from './index'
 
 export const Checkbox = styled(ReakitCheckbox).withConfig({
   shouldForwardProp,
-})<StyledCheckboxProps>(
-  ({ connected, order = '-1', theme }) => css`
-    ${defaultFieldStyles({})};
+})<CheckboxProps>(
+  ({ order = '-1', size, theme, variant }) => css`
+    ${defaultFieldStyles({ size, variant })};
     ${th('checkboxes.default')}
     position: relative;
     padding: 0;
@@ -44,6 +41,6 @@ export const Checkbox = styled(ReakitCheckbox).withConfig({
       ${th('checkboxes.disabled')}
     }
 
-    ${connected ? componentSystem : system};
+    ${system};
   `
 )

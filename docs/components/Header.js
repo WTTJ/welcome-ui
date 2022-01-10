@@ -17,7 +17,7 @@ import { Navigation } from './Navigation'
 import { SelectTheme } from './SelectTheme'
 import * as S from './Header.styled'
 
-export const Header = () => {
+export function Header() {
   const modal = useModalState()
   const theme = useThemeContext()
 
@@ -26,7 +26,7 @@ export const Header = () => {
       window.docsearch({
         apiKey: '85801aa252bde17259c4a5a61c1e84db',
         indexName: 'welcome-ui',
-        inputSelector: '#search-algolia'
+        inputSelector: '#search-algolia',
       })
     }
   }, [])
@@ -75,14 +75,14 @@ export const Header = () => {
         <SelectTheme id="navigation" />
       </Box>
       <Box display={{ xs: 'none', md: 'block' }} mt="md" w="100%">
-        <Field
-          component={InputText}
-          icon={<SearchIcon color="light.100" size="sm" />}
-          isClearable
-          name="search-algolia"
-          placeholder="Search"
-          size="sm"
-        />
+        <Field size="sm">
+          <InputText
+            icon={<SearchIcon color="light.100" size="sm" />}
+            isClearable
+            name="search-algolia"
+            placeholder="Search"
+          />
+        </Field>
       </Box>
       <Box
         display={{ xs: 'none', md: 'block' }}

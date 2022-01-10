@@ -10,38 +10,45 @@ function() {
     return (
       <>
         <Field
-          component={InputText}
           error={errors && errors.input_text && errors.input_text.message}
           label="Input Text"
-          name="input_text"
           maxWidth={300}
-          ref={register}
-        />
+        >
+          <InputText
+            name="input_text"
+            ref={register}
+          />
+        </Field>
         <Field
-          component={InputText}
           error={errors && errors.email && errors.email.message}
           label="Email"
           mt="lg"
-          name="email"
           maxWidth={300}
-          ref={register}
-        />
+        >
+          <InputText
+            name="email"
+            ref={register}
+          />
+        </Field>
         <Controller
           name="submit_checkbox"
           render={({ name, onBlur, onChange, value }) => {
             return (
               <Field
-                checked={value}
-                component={Checkbox}
                 error={errors && errors[name] && errors[name].message}
                 label="You need to check this checkbox to submit"
-                name={name}
                 mt="xl"
-                onBlur={onBlur}
-                onChange={e => onChange(e && e.target && e.target.checked)}
                 required
-                value={value}
-              />
+              >
+                <Checkbox
+                  checked={value}
+                  name={name}
+                  onBlur={onBlur}
+                  onChange={e => onChange(e && e.target && e.target.checked)}
+                  ref={register}
+                  value={value}
+                />
+              </Field>
             )
           }}
         />

@@ -70,7 +70,6 @@ export const FileUpload = forwardRef<'input', FileUploadProps>(
   ) => {
     // We always keep an array of files
     const [files, setFiles] = useState<FileWithPreviewType[]>(ensureArray(value))
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const inputRef = useRef<HTMLInputElement>()
 
     // Ensure component is controlled
@@ -150,7 +149,7 @@ export const FileUpload = forwardRef<'input', FileUploadProps>(
             // for external use
             if (typeof ref === 'function') {
               ref(instance)
-            } else {
+            } else if (ref?.current) {
               ref.current = instance
             }
           }}

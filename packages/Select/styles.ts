@@ -3,9 +3,15 @@ import { th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledTag } from '@welcome-ui/tag'
 import { componentSystem, shouldForwardProp, wrapperSystem } from '@welcome-ui/system'
-import { centerContent, defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
-import { cardStyles } from '@welcome-ui/utils'
-import { Size } from 'Select'
+import {
+  cardStyles,
+  centerContent,
+  defaultFieldStyles,
+  DefaultFieldStylesProps,
+  overflowEllipsis,
+} from '@welcome-ui/utils'
+
+import { SelectOptions } from './index'
 
 export const Wrapper = styled('div').withConfig({ shouldForwardProp })(
   ({ connected }: { connected: boolean }) => css`
@@ -19,9 +25,9 @@ export const InputWrapper = styled.div`
 `
 
 export const Input = styled('div').withConfig({ shouldForwardProp })(
-  ({ hasIcon, size }: { hasIcon: boolean; size: Size }) => css`
+  ({ hasIcon, size, variant }: { hasIcon: boolean } & SelectOptions) => css`
     position: relative;
-    ${defaultFieldStyles({ size })};
+    ${defaultFieldStyles({ size, variant })};
     ${overflowEllipsis};
     padding-right: ${th(`defaultFields.sizes.${size}.height`)};
     ${hasIcon &&
@@ -103,7 +109,7 @@ export const Item = styled.li(
 )
 
 export const Icon = styled.div(
-  ({ size }: { size: Size }) => css`
+  ({ size }: { size: DefaultFieldStylesProps['size'] }) => css`
     position: absolute;
     width: ${th(`defaultFields.sizes.${size}.height`)};
     padding: 0;
@@ -124,7 +130,7 @@ export const Indicators = styled.div`
 `
 
 export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })(
-  ({ isOpen, size }: { isOpen?: boolean; size: Size }) => css`
+  ({ isOpen, size }: { isOpen?: boolean; size: DefaultFieldStylesProps['size'] }) => css`
     position: relative;
     height: 100%;
     width: ${th(`defaultFields.sizes.${size}.height`)};

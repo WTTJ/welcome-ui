@@ -19,15 +19,33 @@ import {
 ## Default
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    name="firstName"
-    component={InputText}
-    placeholder="Boaty"
-    label="First name"
-    required
-  />
-</Form>
+function () {
+  const [value, setValue] = React.useState('')
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return <InputText name="firstName" placeholder="Boaty" value={value} onChange={handleChange} />
+}
+```
+
+## With Field
+
+```jsx
+function () {
+  const [value, setValue] = React.useState('')
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field label="First name" required>
+      <InputText placeholder="Boaty" value={value} onChange={handleChange} />
+    </Field>
+  )
+}
 ```
 
 ## Clearable
@@ -35,15 +53,15 @@ import {
 Use the `isClearable` prop to add a cross button to remove the content (value) of the `TextInput`
 
 ```jsx
-<Form initialValues={{ firstName2: 'Trevor' }}>
-  <ConnectedField
-    component={InputText}
-    isClearable
-    label="First name"
-    name="firstName2"
-    placeholder="Boaty"
-  />
-</Form>
+function () {
+  const [value, setValue] = React.useState('')
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return <InputText name="firstName2" placeholder="Boaty" value={value} onChange={handleChange} isClearable />
+}
 ```
 
 ## Icon
@@ -51,74 +69,43 @@ Use the `isClearable` prop to add a cross button to remove the content (value) o
 Pass an `icon` through to decorate your `InputText`
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    component={InputText}
-    icon={<AvatarIcon color="light.100" />}
-    label="First name"
-    name="firstName3"
-    placeholder="Boaty"
-  />
-</Form>
+function () {
+  const [value, setValue] = React.useState('')
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return <InputText icon={<AvatarIcon color="light.100" />} name="firstName3" placeholder="Boaty" value={value} onChange={handleChange} />
+}
 ```
 
 ## Sizes
 
 ```jsx
-<Form initialValues={{}}>
-  <Stack spacing="xl">
-    <ConnectedField
-      component={InputText}
-      label="I'm a small sized field"
-      name="small"
-      placeholder="Placeholder"
-      size="sm"
-    />
-    <ConnectedField
-      component={InputText}
-      label="I'm a medium sized field"
-      name="medium"
-      placeholder="Placeholder"
-      size="md"
-    />
-    <ConnectedField
-      component={InputText}
-      label="I'm a large sized field which is my default size"
-      name="large"
-      placeholder="Placeholder"
-    />
-  </Stack>
-</Form>
+<Stack spacing="xl">
+  <InputText name="small" placeholder="Placeholder" size="sm" />
+  <InputText name="medium" placeholder="Placeholder" size="md" />
+  <InputText name="large" placeholder="Placeholder" />
+</Stack>
 ```
 
 ## Inline
 
 ```jsx
-<Form initialValues={{ firstName4: 'Trevor' }}>
-  <ConnectedField
-    component={InputText}
-    flexDirection="row"
-    label="First name"
-    name="firstName4"
-    placeholder="Boaty"
-    required
-  />
-</Form>
+<Field flexDirection="row" label="First name" required>
+  <InputText name="firstName4" placeholder="Boaty" />
+</Field>
 ```
 
 ## Disabled
 
 ```jsx
-<Form initialValues={{ firstName5: 'Trevor' }}>
-  <ConnectedField
-    component={InputText}
-    disabled
-    label="First name"
-    name="firstName5"
-    placeholder="Boaty"
-    required
-  />
-</Form>
+<InputText disabled name="firstName5" placeholder="Boaty" />
+
+<Field disabled label="First name" required>
+  <InputText name="firstName6" placeholder="Boaty" />
+</Field>
 ```
 
 ## Properties

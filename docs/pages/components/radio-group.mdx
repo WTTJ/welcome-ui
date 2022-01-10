@@ -19,53 +19,59 @@ import {
 ## Usage
 
 ```jsx
-<Form
-  initialValues={{}}
-  validate={values => (!values.social ? { social: 'You must choose a social network' } : {})}
->
-  <ConnectedField
-    component={RadioGroup}
-    flexDirection="row"
-    hint="Most popular is Twitter"
-    label="Social networks"
-    mb="xl"
-    name="social"
-    options={constants.ITEMS}
-    required
-  />
-  <Button type="submit">Submit</Button>
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = event => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field
+      hint="Most popular is Twitter"
+      label="Social networks"
+      mb="xl"
+      required
+    >
+      <RadioGroup name="social" options={constants.ITEMS} onChange={handleChange} value={value} />
+    </Field>
+  )
+}
 ```
 
 ## With hint on radio
 
 ```jsx
-<Form
-  initialValues={{}}
-  validate={values => (!values.social ? { social: 'You must choose a social network' } : {})}
->
-  <ConnectedField
-    component={RadioGroup}
-    flexDirection="row"
-    mb="xl"
-    name="social"
-    maxWidth={{ md: 0.3 }}
-    options={[
-      {
-        value: 'behance',
-        label: 'Behance',
-        hint: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      },
-      {
-        value: 'dribbble',
-        label: 'Dribbble',
-        hint: 'Aenean a tristique turpis, in elementum est.',
-      },
-    ]}
-    required
-  />
-  <Button type="submit">Submit</Button>
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = event => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field flexDirection="row" mb="xl" required>
+      <RadioGroup
+        name="social"
+        maxWidth={{ md: 0.3 }}
+        options={[
+          {
+            value: 'behance',
+            label: 'Behance',
+            hint: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          },
+          {
+            value: 'dribbble',
+            label: 'Dribbble',
+            hint: 'Aenean a tristique turpis, in elementum est.',
+          },
+        ]}
+        onChange={handleChange}
+        value={value}
+      />
+    </Field>
+  )
+}
 ```
 
 ## Properties

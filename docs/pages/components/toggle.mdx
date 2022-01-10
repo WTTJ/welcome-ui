@@ -52,28 +52,24 @@ function() {
 }
 ```
 
-## ConnectedField
+## Field
 
-Examples with `ConnectedField`
+Examples with `Field`
 
 ```jsx
-<Form
-  initialValues={{
-    toggle: true,
-    'toogle-checked': true,
-    'toogle-disabled': true,
-    'toggle-label': false,
-    'disabled-label': true,
-  }}
->
-  <Box display="flex" mb="lg">
-    <ConnectedField name="toggle" component={Toggle} mr="lg" />
-    <ConnectedField name="toggle-checked" component={Toggle} mr="lg" />
-    <ConnectedField name="toggle-disabled" component={Toggle} disabled />
-  </Box>
-  <ConnectedField name="toggle-label" component={Toggle} label="Toggle with a label" mb="lg" />
-  <ConnectedField name="disabled-label" component={Toggle} label="Disabled with a label" disabled />
-</Form>
+function () {
+  const [checked, setChecked] = useState(false)
+
+  const handleToggle = () => {
+    setChecked(!checked)
+  }
+
+  return (
+    <Field label="Toggle">
+      <Toggle mr="lg" checked={checked} onClick={handleToggle} disabled />
+    </Field>
+  )
+}
 ```
 
 ## Properties
@@ -87,3 +83,4 @@ Examples with `ConnectedField`
 ## Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+```

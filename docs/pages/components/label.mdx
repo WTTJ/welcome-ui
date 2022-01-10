@@ -49,14 +49,22 @@ With `required` property.
 Checkboxes and radio buttons are normally nested inside labels. If you do this, make sure there is only one other child (in this example, a `div`).
 
 ```jsx
-<Label variant="error">
-  <Checkbox name="labelExample" onChange={() => {}} />
-  <div>
-    <span>Error variant with </span>
-    <Link href="#">a link</Link>
-    <span> and all of that jazz because of the fox</span>
-  </div>
-</Label>
+function () {
+  const [checked, setChecked] = useState(false)
+
+  const handleToggle = () => setChecked(!checked)
+
+  return (
+    <Label variant="error">
+      <Checkbox name="labelExample" checked={checked} onChange={handleToggle} />
+      <div>
+        <span>Error variant with </span>
+        <Link href="#">a link</Link>
+        <span> and all of that jazz because of the fox</span>
+      </div>
+    </Label>
+  )
+}
 ```
 
 ## Disabled

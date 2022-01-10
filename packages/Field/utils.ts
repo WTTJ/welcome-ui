@@ -7,43 +7,19 @@ const TYPES: { [key: string]: string } = {
   Toggle: 'checkbox',
 }
 
-const isPristine = (connected: boolean, touched: boolean) => connected && !touched
-
 export const getBaseType = (type: string): string => TYPES[type] || type
 
 type VariantProps = {
-  connected?: boolean
   error?: string | JSX.Element
-  isCheckbox: boolean
-  isRadio: boolean
-  modified?: boolean
-  touched?: boolean
-  warning?: string
+  warning?: string | JSX.Element
 }
 
-export type VariantReturn = 'error' | 'warning' | undefined
+export type VariantReturn = 'error' | 'warning'
 
-export const getVariant = ({
-  connected,
-  error,
-  isCheckbox,
-  isRadio,
-  modified,
-  touched,
-  warning,
-}: VariantProps): VariantReturn => {
-  if (
-    ((isCheckbox || isRadio) && isPristine(connected, modified)) ||
-    (!isCheckbox && !isRadio && isPristine(connected, touched))
-  ) {
-    return undefined
-  }
-  if (error) {
-    return 'error'
-  }
-  if (warning) {
-    return 'warning'
-  }
-
+export const getVariant = ({ error, warning }: VariantProps): VariantReturn => {
+  if (error) return 'error'
+  if (warning) return 'warning'
   return undefined
 }
+
+export const generateRandomId = (): string => `wui-field-${Math.random().toString(36).slice(2)}`

@@ -1,8 +1,6 @@
 import styled, { css } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
-import { getVariantColor } from '@welcome-ui/utils'
-
-import { Variant } from './index'
+import { getVariantColor, Variant } from '@welcome-ui/utils'
 
 export const VariantIcon = styled(Box)<{ variant: Variant }>(
   ({ variant }) => css`

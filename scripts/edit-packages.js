@@ -13,10 +13,6 @@ fs.writeFileAsync = util.promisify(fs.writeFile)
 
 const DIRECTORIES = [path.join(__dirname, '../packages')]
 
-// UPDATE THIS FUNCTION TO RETURN NEW CONFIG FOR PACKAGE.JSON
-// componentName: ConnectedField
-// pkgName: connected-field
-// config: content of package.json
 // eslint-disable-next-line no-unused-vars
 const getNewConfig = ({ componentName, config, pkgName }) => {
   return {

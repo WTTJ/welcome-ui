@@ -1,25 +1,23 @@
 import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
-import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
+import { shouldForwardProp, system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { emojiMartStyles } from './emojiMartStyles'
 import { easyMdeStyles } from './easyMdeStyles'
 
-interface WrapperOptions {
-  connected?: boolean
-  disabled?: boolean
-  focused?: boolean
-}
+import { MarkdownEditorOptions } from './index'
 
 interface ToolbarIconOptions {
   active?: boolean
 }
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })<WrapperOptions>(
-  ({ connected, disabled, focused }) => css`
+export const Wrapper = styled('div').withConfig({ shouldForwardProp })<
+  { focused: boolean } & MarkdownEditorOptions
+>(
+  ({ disabled, focused, size, variant }) => css`
     ${easyMdeStyles};
-    ${defaultFieldStyles({})};
+    ${defaultFieldStyles({ size, variant })};
     position: relative;
     pointer-events: ${disabled && 'none'};
     ${focused && th('defaultFields.focused.default')};
@@ -42,7 +40,7 @@ export const Wrapper = styled('div').withConfig({ shouldForwardProp })<WrapperOp
     .cm-strong {
       font-weight: bold;
     }
-    ${connected ? componentSystem : system};
+    ${system};
   `
 )
 

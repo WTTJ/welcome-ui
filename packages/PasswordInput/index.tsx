@@ -4,6 +4,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import { ToggleButton } from './ToggleButton'
 
+export type PasswordInputOptions = InputTextOptions
 export type PasswordInputProps = CreateWuiProps<'input', InputTextOptions>
 
 export const PasswordInput = forwardRef<'input', PasswordInputProps>(
