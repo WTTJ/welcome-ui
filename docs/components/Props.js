@@ -16,11 +16,17 @@ const removeQuote = str => str?.toString()?.replace(/'/g, '')
 
 const isArray = Array.isArray
 
+const reactTypes = ['ElementType<any>']
+
 function Type({ type }) {
   if (!type) {
     return null
   }
   const { name, raw, value } = type
+
+  if (reactTypes.includes(raw)) {
+    return `React.${raw}`
+  }
 
   if (raw === 'boolean') return 'Boolean'
 
