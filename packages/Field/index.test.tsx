@@ -163,7 +163,7 @@ describe('<Field />', () => {
     const label = field.querySelector('label')
     const input = field.querySelector('input')
 
-    expect(label.htmlFor.substring(0, 10)).toBe('wui-field-')
+    expect(label.htmlFor).toContain('wui-field-')
     expect(label.htmlFor).toBe(input.id)
     userEvent.click(label)
     expect(input).toHaveFocus()
