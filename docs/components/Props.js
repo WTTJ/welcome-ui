@@ -12,7 +12,7 @@ import { CheckIcon } from '@welcome-ui/icons'
 
 import * as TYPES from '../../utils/propTypes'
 
-const removeQuote = str => str?.replace(/'/g, '')
+const removeQuote = str => str?.toString()?.replace(/'/g, '')
 
 const isArray = Array.isArray
 

@@ -69,6 +69,11 @@ const writePropsFile = async content => {
 }
 
 ;(async () => {
+  if (!packageName) {
+    console.error('No package name provided, please add a `--name` option')
+    return
+  }
+
   const files = await getComponentFiles(packageName)
   const componentProps = {}
 
