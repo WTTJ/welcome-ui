@@ -19,28 +19,35 @@ import {
 ## Usage
 
 ```jsx
-<Form initialValues={{ social_1: 'twitter', social_2: 'xing' }}>
-  <ConnectedField
-    component={RadioGroup}
-    flexDirection="row"
-    label="Social networks"
-    mb="xl"
-    name="social_1"
-    options={constants.ITEMS}
-    renderOption={RadioTab}
-    required
-  />
-  <ConnectedField
-    component={RadioGroup}
-    label="Social networks"
-    mb="xl"
-    name="social_2"
-    options={constants.ITEMS}
-    renderOption={RadioTab}
-    required
-    w={1 / 3}
-  />
-</Form>
+function () {
+  const  [value, setValue] = useState('twitter')
+
+  const handleChange = event => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field label="Social networks" mb="xl" required>
+      <RadioGroup name="social_1" options={constants.ITEMS} renderOption={RadioTab} value={value} onChange={handleChange} />
+    </Field>
+  )
+}
+```
+
+```jsx
+function () {
+  const  [value, setValue] = useState('twitter')
+
+  const handleChange = event => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field label="Social networks" mb="xl" required w={1 / 3}>
+      <RadioGroup name="social_1" options={constants.ITEMS} flexDirection="column" renderOption={RadioTab} value={value} onChange={handleChange} />
+    </Field>
+  )
+}
 ```
 
 ## Properties

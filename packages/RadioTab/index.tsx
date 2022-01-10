@@ -1,26 +1,22 @@
 import React from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 import { RadioProps } from 'reakit/Radio'
 
 import * as S from './styles'
 
-export type Size = 'sm' | 'md' | 'lg'
-export type Variant = 'error' | 'warning' | 'info' | 'success'
-
-export interface RadioTabsOptions {
+export type RadioTabsOptions = {
   checked?: boolean
   disabled?: boolean
   disabledIcon?: React.ReactElement
   label: React.ReactElement
   onChange?: (event: React.MouseEvent<HTMLLabelElement>) => void
   onClick?: (event: React.MouseEvent<HTMLLabelElement>) => void
-  size?: Size
-  variant?: Variant
-}
+} & DefaultFieldStylesProps
 
 export type RadioTabsProps = CreateWuiProps<
   'input',
-  RadioTabsOptions & Omit<RadioProps, 'onChange' | 'onClick'>
+  RadioTabsOptions & Omit<RadioProps, keyof RadioTabsOptions>
 >
 
 export const RadioTab = forwardRef<'input', RadioTabsProps>((props, ref) => {

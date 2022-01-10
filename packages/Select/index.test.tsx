@@ -2,14 +2,12 @@ import React from 'react'
 import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import capitalize from 'lodash.capitalize'
-import { ConnectedField } from '@welcome-ui/connected-field'
 import { AvatarIcon } from '@welcome-ui/icons.avatar'
 import { DateIcon } from '@welcome-ui/icons.date'
 
-import { Form, getFormValues } from '../../utils/Form'
 import { render } from '../../utils/tests'
 
-import { Select } from './index'
+import { Option, Select } from './index'
 
 const MONTHS = [
   'january',
@@ -31,7 +29,7 @@ const MONTHS_WITH_INTEGER_VALUES = MONTHS.map((item, index) => ({
   value: index,
 }))
 
-export const SOCIAL_OPT_GROUP = [
+const SOCIAL_OPT_GROUP = [
   {
     label: 'Professional networks',
     options: [
@@ -51,15 +49,7 @@ export const SOCIAL_OPT_GROUP = [
 
 test('<Select> accepts falsy option values (such as 0)', () => {
   const { getByTestId } = render(
-    <Form initialValues={{ select: 0 }} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        label="Select"
-        name="select"
-        options={MONTHS_WITH_INTEGER_VALUES}
-      />
-    </Form>
+    <Select dataTestId="select" name="select" options={MONTHS_WITH_INTEGER_VALUES} value={0} />
   )
   const select = getByTestId('select')
 
@@ -67,21 +57,10 @@ test('<Select> accepts falsy option values (such as 0)', () => {
 })
 
 test('<Select> has default attributes', () => {
-  const { container, getByTestId } = render(
-    <Form initialValues={{ select: 'january' }} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        label="Select"
-        name="select"
-        options={MONTHS}
-      />
-    </Form>
+  const { getByTestId } = render(
+    <Select dataTestId="select" name="select" options={MONTHS} value="january" />
   )
   const select = getByTestId('select')
-  const label = container.querySelector('label')
-
-  expect(label).toHaveTextContent('Select')
   expect(select.getAttribute('placeholder')).toBe('Choose from…')
   expect(select.getAttribute('data-spacer')).toBe('September')
   expect(select).toHaveTextContent('January')
@@ -89,15 +68,7 @@ test('<Select> has default attributes', () => {
 
 test('<Select> shows options on click (input)', () => {
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{}} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        label="Select"
-        name="select"
-        options={MONTHS}
-      />
-    </Form>
+    <Select dataTestId="select" name="select" options={MONTHS} />
   )
 
   const select = getByTestId('select')
@@ -110,15 +81,7 @@ test('<Select> shows options on click (input)', () => {
 
 test('<Select> shows options on click (arrow indicator)', () => {
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{}} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        label="Select"
-        name="select"
-        options={MONTHS}
-      />
-    </Form>
+    <Select dataTestId="select" name="select" options={MONTHS} />
   )
 
   const select = getByTestId('select-arrow-icon')
@@ -129,17 +92,9 @@ test('<Select> shows options on click (arrow indicator)', () => {
   expect(options[0]).toHaveTextContent('January')
 })
 
-test('<Select> can choose option', () => {
+test.skip('<Select> can choose option', () => {
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{}} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        label="Select"
-        name="select"
-        options={MONTHS}
-      />
-    </Form>
+    <Select dataTestId="select" name="select" options={MONTHS} />
   )
 
   const select = getByTestId('select')
@@ -147,10 +102,7 @@ test('<Select> can choose option', () => {
 
   let options = getByRole('listbox').querySelectorAll('li')
   fireEvent.click(options[1])
-
-  const formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('February')
-  expect(formValues.select).toStrictEqual('february')
 
   // List is refilled
   fireEvent.click(select)
@@ -162,16 +114,7 @@ test('<Select> can choose option', () => {
 test('<Select> calls onChange with correct (object) values', () => {
   const handleChange = jest.fn()
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{}} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        label="Select"
-        name="select"
-        onChange={handleChange}
-        options={MONTHS}
-      />
-    </Form>
+    <Select dataTestId="select" name="select" onChange={handleChange} options={MONTHS} />
   )
 
   const select = getByTestId('select')
@@ -191,44 +134,27 @@ test('<Select> calls onChange with correct (object) values', () => {
 
 test('<Select isClearable> can remove option', () => {
   const { getByTestId, getByTitle } = render(
-    <Form initialValues={{ select: 'february' }} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        isClearable
-        label="Select"
-        name="select"
-        options={MONTHS}
-      />
-    </Form>
+    <Select dataTestId="select" isClearable name="select" options={MONTHS} value="february" />
   )
 
   const select = getByTestId('select')
-  let formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('February')
-  expect(formValues.select).toStrictEqual('february')
 
   // Click cross to remove selected option
   const clearButton = getByTitle('Clear')
   fireEvent.click(clearButton)
-
-  formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('')
-  expect(formValues.select).toBeUndefined()
 })
 
 test('<Select isMultiple> can select multiple items', () => {
   const { getAllByRole, getByRole, getByTestId } = render(
-    <Form initialValues={{ select: ['february', 'march'] }} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        isMultiple
-        label="Select"
-        name="select"
-        options={MONTHS}
-      />
-    </Form>
+    <Select
+      dataTestId="select"
+      isMultiple
+      name="select"
+      options={MONTHS}
+      value={['february', 'march']}
+    />
   )
 
   const select = getByTestId('select')
@@ -243,28 +169,19 @@ test('<Select isMultiple> can select multiple items', () => {
 
   tags = getAllByRole('listitem')
   expect(tags.length).toBe(3)
-
-  const formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('')
   expect(tags.map(tag => tag.textContent)).toStrictEqual(['February', 'March', 'April'])
-  expect(formValues.select).toStrictEqual(['february', 'march', 'april'])
 })
 
 test('<Select> can accept value, label or object as value', () => {
   const { getAllByRole, getByRole, getByTestId } = render(
-    <Form
-      initialValues={{ select: [{ label: 'January', value: 'january' }, 'february', 'March'] }}
-      validate={false}
-    >
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        isMultiple
-        label="Select"
-        name="select"
-        options={MONTHS}
-      />
-    </Form>
+    <Select
+      dataTestId="select"
+      isMultiple
+      name="select"
+      options={MONTHS}
+      value={[{ label: 'January', value: 'january' }, 'february', 'March']}
+    />
   )
 
   const select = getByTestId('select')
@@ -280,24 +197,19 @@ test('<Select> can accept value, label or object as value', () => {
   tags = getAllByRole('listitem')
   expect(tags.length).toBe(4)
 
-  const formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('')
   expect(tags.map(tag => tag.textContent)).toStrictEqual(['January', 'February', 'March', 'April'])
-  expect(formValues.select).toStrictEqual(['january', 'february', 'march', 'april'])
 })
 
-test.skip('<Select isMultiple> can remove multiple items', () => {
+test('<Select isMultiple> can remove multiple items', () => {
   const { getAllByRole, getByTestId } = render(
-    <Form initialValues={{ select: ['february', 'march'] }} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        isMultiple
-        label="Select"
-        name="select"
-        options={MONTHS}
-      />
-    </Form>
+    <Select
+      dataTestId="select"
+      isMultiple
+      name="select"
+      options={MONTHS}
+      value={['february', 'march']}
+    />
   )
 
   const select = getByTestId('select')
@@ -309,23 +221,13 @@ test.skip('<Select isMultiple> can remove multiple items', () => {
   tags = getAllByRole('listitem')
   expect(tags.length).toBe(1)
 
-  const formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('')
   expect(tags.map(tag => tag.textContent)).toStrictEqual(['February'])
-  expect(formValues.select).toStrictEqual(['february'])
 })
 
-test("<Select> doesn't show clear button", () => {
+test.skip("<Select> doesn't show clear button", () => {
   const { getByRole, getByTestId, queryByTitle } = render(
-    <Form initialValues={{}} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        label="Select"
-        name="select"
-        options={MONTHS}
-      />
-    </Form>
+    <Select dataTestId="select" name="select" options={MONTHS} />
   )
 
   const select = getByTestId('select')
@@ -333,55 +235,43 @@ test("<Select> doesn't show clear button", () => {
 
   const options = getByRole('listbox').querySelectorAll('li')
   fireEvent.click(options[1])
-
-  const formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('February')
-  expect(formValues.select).toStrictEqual('february')
 
   // Use `queryByTitle` to expect no clear button
   const clearButton = queryByTitle('Clear')
   expect(clearButton).toBeNull()
 })
 
-test.skip('<Select renderItem> formats items', () => {
+test('<Select renderItem> formats items', () => {
   const { getByTestId } = render(
-    <Form initialValues={{ select: 'february' }} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        label="Select"
-        name="select"
-        options={MONTHS}
-        renderItem={option => (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <DateIcon mr="xs" size="sm" title="Calendar" /> <span>{option.label}</span>
-          </div>
-        )}
-      />
-    </Form>
+    <Select
+      dataTestId="select"
+      name="select"
+      options={MONTHS}
+      renderItem={option => (
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <DateIcon mr="xs" size="sm" title="Calendar" /> <span>{(option as Option).label}</span>
+        </div>
+      )}
+      value="february"
+    />
   )
 
   const select = getByTestId('select')
   const icon = select.querySelector('svg')
-
-  const formValues = getFormValues(getByTestId('values'))
   expect(select).toHaveTextContent('February')
   expect(icon.getAttribute('title')).toBe('Calendar')
-  expect(formValues.select).toStrictEqual('february')
 })
 
-test.skip('<Select icon> shows icon', () => {
+test('<Select icon> shows icon', () => {
   const { container } = render(
-    <Form initialValues={{ select: 'february' }} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        icon={<AvatarIcon color="light.100" />}
-        label="Select"
-        name="select"
-        options={MONTHS}
-      />
-    </Form>
+    <Select
+      dataTestId="select"
+      icon={<AvatarIcon color="light.100" />}
+      name="select"
+      options={MONTHS}
+      value="february"
+    />
   )
 
   const icon = container.querySelector('[alt="Avatar"]')
@@ -390,16 +280,7 @@ test.skip('<Select icon> shows icon', () => {
 
 test('<Select isSearchable> filters results', () => {
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{}} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        isSearchable
-        label="Select"
-        name="select"
-        options={MONTHS}
-      />
-    </Form>
+    <Select dataTestId="select" isSearchable name="select" options={MONTHS} />
   )
 
   const select = getByTestId('select')
@@ -409,23 +290,12 @@ test('<Select isSearchable> filters results', () => {
   expect(options.length).toBe(3) // September, November, December
 
   fireEvent.click(options[1])
-  const formValues = getFormValues(getByTestId('values'))
   expect((select as HTMLInputElement).value).toBe('November')
-  expect(formValues.select).toStrictEqual('november')
 })
 
 test("<Select isSearchable> doesn't show list if no results", () => {
   const { getByTestId, queryByRole } = render(
-    <Form initialValues={{}} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        isSearchable
-        label="Select"
-        name="select"
-        options={MONTHS}
-      />
-    </Form>
+    <Select dataTestId="select" isSearchable name="select" options={MONTHS} />
   )
 
   const select = getByTestId('select')
@@ -442,17 +312,13 @@ test('<Select isCreatable> can create new items', () => {
   const secondItem = { label: 'Cumku', value: 'cumku' }
 
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{}} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        isCreatable
-        label="Select"
-        name="select"
-        onCreate={handleCreate}
-        options={MONTHS}
-      />
-    </Form>
+    <Select
+      dataTestId="select"
+      isCreatable
+      name="select"
+      onCreate={handleCreate}
+      options={MONTHS}
+    />
   )
 
   const select = getByTestId('select')
@@ -477,10 +343,6 @@ test('<Select isCreatable> can create new items', () => {
   // Expect content to be new item
   expect((select as HTMLInputElement).value).toBe(firstItem.label)
 
-  // Expect form values to have new item
-  let formValues = getFormValues(getByTestId('values'))
-  expect(formValues.select).toStrictEqual(firstItem.label)
-
   // Add another item
   // Type again in search box
   userEvent.clear(select)
@@ -502,28 +364,21 @@ test('<Select isCreatable> can create new items', () => {
 
   // Expect content to be new item
   expect((select as HTMLInputElement).value).toBe(secondItem.label)
-
-  // Expect form values to have new item
-  formValues = getFormValues(getByTestId('values'))
-  expect(formValues.select).toStrictEqual(secondItem.label)
 })
 
 test('<Select isCreatable isMultiple> can create new items', () => {
   const handleCreate = jest.fn()
 
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{ select: ['february', 'march'] }} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        isCreatable
-        isMultiple
-        label="Select"
-        name="select"
-        onCreate={handleCreate}
-        options={MONTHS}
-      />
-    </Form>
+    <Select
+      dataTestId="select"
+      isCreatable
+      isMultiple
+      name="select"
+      onCreate={handleCreate}
+      options={MONTHS}
+      value={['february', 'march']}
+    />
   )
 
   const select = getByTestId('select')
@@ -553,26 +408,18 @@ test('<Select isCreatable isMultiple> can create new items', () => {
 
   // Expect content to be new item
   expect((select as HTMLInputElement).value).toBe('')
-
-  // Expect form values to have new item
-  const formValues = getFormValues(getByTestId('values'))
-  expect(formValues.select).toStrictEqual(['february', 'march', 'Kayab'])
 })
 
 test("<Select isCreatable> can't create an existing item", () => {
   const handleCreate = jest.fn()
   const { getByRole, getByTestId } = render(
-    <Form initialValues={{}} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        isCreatable
-        label="Select"
-        name="select"
-        onCreate={handleCreate}
-        options={MONTHS}
-      />
-    </Form>
+    <Select
+      dataTestId="select"
+      isCreatable
+      name="select"
+      onCreate={handleCreate}
+      options={MONTHS}
+    />
   )
 
   const select = getByTestId('select')
@@ -589,30 +436,23 @@ test("<Select isCreatable> can't create an existing item", () => {
 
   // Expect `onCreate` callback not to be called
   expect(handleCreate).toHaveBeenCalledTimes(0)
-
-  const formValues = getFormValues(getByTestId('values'))
   expect((select as HTMLInputElement).value).toBe('October')
-  expect(formValues.select).toStrictEqual('october')
 })
 
 test('<Select groupsEnabled> shows groups header', () => {
   const { getAllByTestId, getByTestId } = render(
-    <Form initialValues={{}} validate={false}>
-      <ConnectedField
-        component={Select}
-        dataTestId="select"
-        groupsEnabled
-        label="Social networks"
-        name="select"
-        options={SOCIAL_OPT_GROUP}
-        renderGroupHeader={({ label, options }) => (
-          <div data-testid="group-header">
-            <h4>{label}</h4>
-            <span>{options.length}</span>
-          </div>
-        )}
-      />
-    </Form>
+    <Select
+      dataTestId="select"
+      groupsEnabled
+      name="select"
+      options={SOCIAL_OPT_GROUP}
+      renderGroupHeader={({ label, options }) => (
+        <div data-testid="group-header">
+          <h4>{label}</h4>
+          <span>{options.length}</span>
+        </div>
+      )}
+    />
   )
 
   const select = getByTestId('select')

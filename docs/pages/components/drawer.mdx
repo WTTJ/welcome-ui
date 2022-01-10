@@ -107,19 +107,18 @@ function PlacementDrawer() {
   return (
     <>
       <Box mb="xl">
-        <Field
-          label="Placement"
-          component={RadioGroup}
-          value={placement}
-          onChange={e => setPlacement(e.target.value)}
-          options={[
-            { value: 'top', label: 'Top' },
-            { value: 'right', label: 'Right' },
-            { value: 'bottom', label: 'Bottom' },
-            { value: 'left', label: 'Left' },
-          ]}
-          flexDirection="row"
-        />
+        <Field label="Placement" flexDirection="row">
+          <RadioGroup
+            value={placement}
+            onChange={e => setPlacement(e.target.value)}
+            options={[
+              { value: 'top', label: 'Top' },
+              { value: 'right', label: 'Right' },
+              { value: 'bottom', label: 'Bottom' },
+              { value: 'left', label: 'Left' },
+            ]}
+          />
+        </Field>
       </Box>
       <Drawer.Trigger as={Button} {...drawer}>
         Open Drawer
@@ -148,41 +147,39 @@ function SizeDrawer() {
   return (
     <>
       <Box mb="xl">
-        <Field
-          label="Size"
-          component={RadioGroup}
-          value={size}
-          onChange={e => setSize(e.target.value)}
-          options={[
-            { value: 'sm', label: 'sm' },
-            { value: 'md', label: 'md' },
-            { value: 'lg', label: 'lg' },
-            {
-              value: '50%',
-              label: (
-                <>
-                  50% <small>(width or height depending on the placement</small>
-                </>
-              ),
-            },
-          ]}
-          flexDirection="row"
-        />
+        <Field label="Size" flexDirection="row">
+          <RadioGroup
+            value={size}
+            onChange={e => setSize(e.target.value)}
+            options={[
+              { value: 'sm', label: 'sm' },
+              { value: 'md', label: 'md' },
+              { value: 'lg', label: 'lg' },
+              {
+                value: '50%',
+                label: (
+                  <>
+                    50% <small>(width or height depending on the placement</small>
+                  </>
+                ),
+              },
+            ]}
+          />
+        </Field>
       </Box>
       <Box mb="xl">
-        <Field
-          label="Placement"
-          component={RadioGroup}
-          value={placement}
-          onChange={e => setPlacement(e.target.value)}
-          options={[
-            { value: 'top', label: 'Top' },
-            { value: 'right', label: 'Right' },
-            { value: 'bottom', label: 'Bottom' },
-            { value: 'left', label: 'Left' },
-          ]}
-          flexDirection="row"
-        />
+        <Field label="Placement" flexDirection="row">
+          <RadioGroup
+            value={placement}
+            onChange={e => setPlacement(e.target.value)}
+            options={[
+              { value: 'top', label: 'Top' },
+              { value: 'right', label: 'Right' },
+              { value: 'bottom', label: 'Bottom' },
+              { value: 'left', label: 'Left' },
+            ]}
+          />
+        </Field>
       </Box>
       <Drawer.Trigger as={Button} {...drawer}>
         Open Drawer

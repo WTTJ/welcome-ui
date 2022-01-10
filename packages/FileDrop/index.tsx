@@ -175,7 +175,7 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
         <input
           {...getInputProps({ disabled, multiple, name, onError: inputPropsOnError })}
           // for extern validator we need to have access to this input
-          style={{ display: 'block', opacity: 0, height: 0 }}
+          style={{ display: 'block', opacity: 0, height: 0, width: 0 }}
         />
         <S.FilePreview>
           {children({

@@ -21,41 +21,55 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 ## Simple use case
 
 ```jsx
-<Form initialValues={{ welcome: Date.now() }}>
-  <ConnectedField
-    component={TimePicker}
-    label="Time"
-    name="welcome"
-    onChange={date => console.log('date: ', date)}
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Time">
+      <TimePicker name="welcome" onChange={handleChange} value={value} />
+    </Field>
+  )
+}
 ```
 
 ## Add an icon on the right
 
 ```jsx
-<Form initialValues={{ welcome2: Date.now() }}>
-  <ConnectedField
-    component={TimePicker}
-    icon={<DateIcon color="light.100" />}
-    iconPlacement="right"
-    label="Time"
-    name="welcome2"
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Time">
+      <TimePicker icon={<DateIcon color="light.100" />} iconPlacement="right" name="welcome2" onChange={handleChange} value={value} />
+    </Field>
+  )
+}
 ```
 
 ## Pass props to TimePicker
 
 ```jsx
-<Form initialValues={{ welcome3: Date.now() }}>
-  <ConnectedField
-    name="welcome3"
-    component={TimePicker}
-    popperProps={{ zIndex: 50 }}
-    timeIntervals={30}
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field>
+      <TimePicker name="welcome3" popperProps={{ zIndex: 50 }} timeIntervals={30} onChange={handleChange} value={value} />
+    </Field>
+  )
+}
 ```
 
 ## Properties

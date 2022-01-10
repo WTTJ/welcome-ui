@@ -1,19 +1,20 @@
 import React from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
-export interface CheckboxOptions {
+export type CheckboxOptions = {
   checked?: boolean
   Component?: React.ElementType
   disabled?: boolean
   name?: string
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-}
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+} & DefaultFieldStylesProps
 
 export type CheckboxProps = CreateWuiProps<'input', CheckboxOptions>
 
-const CheckboxComponent = forwardRef<'input', CheckboxProps>(
+export const Checkbox = forwardRef<'input', CheckboxProps>(
   (
     { checked = false, Component = S.Checkbox, dataTestId, disabled, name, onChange, ...rest },
     ref
@@ -38,8 +39,4 @@ const CheckboxComponent = forwardRef<'input', CheckboxProps>(
   }
 )
 
-CheckboxComponent.displayName = 'Checkbox'
-
-export const Checkbox = Object.assign(CheckboxComponent, {
-  type: 'Checkbox',
-})
+Checkbox.displayName = 'Checkbox'

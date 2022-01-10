@@ -9,7 +9,7 @@ import { CodeIcon } from '@welcome-ui/icons.code'
 import { QuoteIcon } from '@welcome-ui/icons.quote'
 import { UnorderedListIcon } from '@welcome-ui/icons.unordered_list'
 import { OrderedListIcon } from '@welcome-ui/icons.ordered_list'
-import { createEvent, CreateEvent } from '@welcome-ui/utils'
+import { createEvent, CreateEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'
 import SimpleMDE, { SimpleMDEEditorProps } from 'react-simplemde-editor'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { BaseEmoji } from 'emoji-mart'
@@ -27,7 +27,7 @@ interface Actions {
   [key: string]: Action
 }
 export type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
-export interface MarkdownEditorOptions {
+export type MarkdownEditorOptions = {
   actions?: React.ReactElement
   autoFocus?: SimpleMDEEditorProps['options']['autofocus']
   disabled?: boolean
@@ -39,8 +39,7 @@ export interface MarkdownEditorOptions {
   placeholder: SimpleMDEEditorProps['options']['placeholder']
   toolbar?: DefaultToolbar
   value: string | null
-  variant?: Variant
-}
+} & DefaultFieldStylesProps
 
 export type MarkdownEditorProps = CreateWuiProps<
   'div',

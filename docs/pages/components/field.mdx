@@ -12,7 +12,7 @@ import {
 
 <tagversion version={version} name={name} component={component} />
 
-We recommend using [Final Form](https://github.com/final-form/react-final-form), [Redux Form](https://github.com/erikras/redux-form) or [Formik](https://github.com/jaredpalmer/formik) with these components. If so, use `ConnectedField` for your fields (as in the examples below). The examples below give you an overview of common props (e.g. `size`, `disable`, `required` etc.)
+We recommend using [React-hook-form](https://react-hook-form.com/) or [Formik](https://github.com/jaredpalmer/formik) with these components. If so, use `Field` for your fields (as in the examples below). The examples below give you an overview of common props (e.g. `size`, `disable`, `required` etc.)
 
 You can find props for each field component in the other `Forms` pages.
 
@@ -20,197 +20,60 @@ You can find props for each field component in the other `Forms` pages.
 
 <usage component={component} name={name} peerDependencies={peerDependencies} />
 
-## Sizes
-
-```jsx
-<Form initialValues={{}}>
-  <>
-    <ConnectedField
-      name="small"
-      placeholder="Placeholder"
-      component={InputText}
-      label="I'm a small sized field"
-      size="sm"
-      mb="xl"
-    />
-    <ConnectedField
-      name="medium"
-      placeholder="Placeholder"
-      component={InputText}
-      label="I'm a medium sized field"
-      size="md"
-      mb="xl"
-    />
-    <ConnectedField
-      name="large"
-      placeholder="Placeholder"
-      component={InputText}
-      label="I'm a large sized field which is my default size"
-      mb="xl"
-    />
-  </>
-</Form>
-```
-
 ## Variants
 
 ```jsx
-<Form initialValues={{}}>
-  <>
-    <ConnectedField
-      name="default"
-      placeholder="Placeholder"
-      component={InputText}
-      label="Label"
-      hint="A hint"
-      mb="xl"
-    />
-    <ConnectedField
-      name="warning"
-      placeholder="Placeholder"
-      component={InputText}
-      label="Label"
-      warning="A warning"
-      mb="xl"
-    />
-    <ConnectedField
-      name="error"
-      placeholder="Placeholder"
-      component={InputText}
-      label="Label"
-      error="An error"
-      mb="xl"
-    />
-  </>
-</Form>
+<Field label="Label" hint="A hint">
+  <InputText name="default" placeholder="Placeholder" />
+</Field>
+<Field label="Label" warning="A warning">
+  <InputText name="warning" placeholder="Placeholder" />
+</Field>
+<Field label="Label" error="An error">
+  <InputText name="error" placeholder="Placeholder" />
+</Field>
 ```
 
 ## Disabled
 
 ```jsx
-<Form initialValues={{ disabled: 'Disabled value' }}>
-  <ConnectedField
-    name="disabled"
-    placeholder="Placeholder"
-    component={InputText}
-    label="Label"
-    disabled
-  />
-</Form>
+<Field label="Label" disabled>
+  <InputText name="disabled" placeholder="Placeholder" />
+</Field>
 ```
 
 ## Required
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    name="required"
-    placeholder="Placeholder"
-    component={InputText}
-    label="Label"
-    required
-  />
-</Form>
+<Field label="Label" required>
+  <InputText name="required" placeholder="Placeholder" />
+</Field>
 ```
 
 ## Refs
 
-You can create a `ref`\* and pass it to a component to access the underlying DOM element.
-
-Note: `ref`s can be created with either `React.createRef()` or `React.useRef(null)` for functional components or a callback ref if using a React `class`.
-
 ```jsx
-function() {
-  const connectedInputRef = createRef()
-  const normalInputRef = useRef(null)
-  const nakedInputRef = useRef(null)
-  const fileUploadRef = useRef(null)
-  const buttonRef = useRef(null)
-  const linkRef = useRef(null)
+function () {
+  const inputRef = React.useRef(null)
 
-  const handleConnectedClick = () => {
-    connectedInputRef.current.focus()
+  const handleClick = () => {
+    inputRef.current.focus()
   }
 
-  const handleNormalClick = () => {
-    normalInputRef.current.focus()
-  }
-
-  const handleNakedClick = () => {
-    nakedInputRef.current.focus()
-  }
-
-  const handleFileUploadClick = () => {
-    fileUploadRef.current.focus()
-  }
-
-  const handleButtonClick = () => {
-    console.debug('<Button> ref', buttonRef)
-  }
-
-  const handleLinkClick = () => {
-    console.debug('<Link> ref', linkRef)
-  }
-
-return (
-    <Form>
-      <ConnectedField
-        component={InputText}
-        label="Connected field"
-        name="firstName"
-        ref={connectedInputRef}
-      />
-      <Field
-        name="lastName"
-        component={InputText}
-        label="Normal field"
-        ref={normalInputRef}
-        onChange={() => console.log('changed!')}
-        mb="sm"
-      />
-      <Label>Naked field</Label>
-      <InputText name="naked" ref={nakedInputRef} mb="sm" />
-      <Field
-        name="avatar"
-        component={FileUpload}
-        label="Complex field"
-        onChange={() => console.log('changed!')}
-        ref={fileUploadRef}
-        mb="sm"
-      />
-      <Box mt="xl" mb="sm">
-        Click a button below to focus the relevant field above
-      </Box>
-      <Button onClick={handleConnectedClick}>Connected field</Button>
-      <Button onClick={handleNormalClick} ml={20}>
-        Normal field
-      </Button>
-      <Button onClick={handleNakedClick} ml={20}>
-        Naked field
-      </Button>
-      <Button onClick={handleFileUploadClick} ml={20}>
-        File upload field
-      </Button>
-      <Box mt="xl" mb="sm">
-        Click the button below to read the button's ref in the console
-      </Box>
-      <Button ref={buttonRef} onClick={handleButtonClick}>
-        Test button
-      </Button>
-      <Box mt="xl" mb="sm">
-        Click the link below to read the link's ref in the console
-      </Box>
-      <Link ref={linkRef} onClick={handleLinkClick}>
-        Test link
-      </Link>
-    </Form>
+  return (
+    <>
+      <Field label="I'm a field with a ref on my child component">
+        <InputText ref={inputRef} />
+      </Field>
+      <Button mt="md" onClick={handleClick}>Focus InputText</Button>
+    </>
   )
 }
 ```
 
 ## Properties
 
-<props propTypes={props.propTypes.ConnectedField} />
+<props propTypes={props.propTypes.Field} />
 
 ## Dependencies
 

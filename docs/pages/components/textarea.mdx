@@ -16,18 +16,36 @@ import {
 
 <usage component={component} name={name} peerDependencies={peerDependencies} />
 
-## Usage
+## Default
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    name="textarea"
-    component={Textarea}
-    label="Description"
-    hint="Description must be <200 words"
-    required
-  />
-</Form>
+function () {
+  const [value, setValue] = useState('')
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return <Textarea name="textarea" onChange={handleChange} value={value} />
+}
+```
+
+## With Field
+
+```jsx
+function () {
+  const [value, setValue] = useState('')
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field label="Description" hint="Description must be <200 words" required>
+      <Textarea name="textarea2" onChange={handleChange} value={value} />
+    </Field>
+  )
+}
 ```
 
 ## Properties
