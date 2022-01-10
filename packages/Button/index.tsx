@@ -30,6 +30,9 @@ export interface ButtonOptions {
 
 export type ButtonProps = CreateWuiProps<'button', ButtonOptions>
 
+/**
+ * @tag button
+ */
 export const Button = forwardRef<'button', ButtonProps>(
   ({ children, dataTestId, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
     <S.Button

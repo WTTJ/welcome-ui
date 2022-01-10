@@ -1,0 +1,88 @@
+const path = require('path')
+const fs = require('fs/promises')
+
+const { argv } = require('yargs')
+const docgen = require('react-docgen-typescript')
+
+const { name: packageName } = argv
+const tsConfigPath = path.join(process.cwd(), 'tsconfig.json')
+
+// Get only ComponentOptions declarations for prevent all WuiProps
+const propFilter = prop => {
+  if (prop.declarations?.length > 0) {
+    const isOptionDeclaration = prop.declarations.find(declaration => {
+      return declaration.name.includes('Options')
+    })
+    return Boolean(isOptionDeclaration)
+  }
+  return true
+}
+
+const { parse } = docgen.withCustomConfig(tsConfigPath, {
+  propFilter,
+  shouldRemoveUndefinedFromOptional: true,
+  shouldExtractValuesFromUnion: true,
+})
+
+const isComponentFile = file => {
+  if (file === 'index.tsx') {
+    return true
+  }
+
+  const [name, extension] = file.split('.')
+  const firstLetter = name[0]
+
+  // Components start with capital letter e.g. Title.js
+  if (extension === 'tsx' && firstLetter === firstLetter.toUpperCase()) {
+    return true
+  }
+
+  return false
+}
+
+const getComponentFiles = async () => {
+  const componentFiles = await fs.readdir('.')
+
+  return componentFiles.filter(isComponentFile)
+}
+
+const getFileProps = file => {
+  const absolutePath = path.join(process.cwd(), file)
+  const [{ displayName, props, tags }] = parse(absolutePath)
+
+  return { props, tags, displayName }
+}
+
+const getKey = file => {
+  if (file === 'index.tsx') {
+    return packageName
+  }
+
+  const [filename] = file.split('.')
+  return `${packageName}.${filename}`
+}
+
+const writePropsFile = async content => {
+  const destPath = path.join(process.cwd(), 'dist', `${packageName.toLowerCase()}.doc.json`)
+
+  await fs.writeFile(destPath, JSON.stringify(content, null, 2))
+}
+
+;(async () => {
+  const files = await getComponentFiles(packageName)
+  const componentProps = {}
+
+  files.forEach(file => {
+    const { props, tags } = getFileProps(file)
+    const key = getKey(file)
+
+    if (props) {
+      componentProps[key] = {
+        tag: tags?.tag,
+        props,
+      }
+    }
+  })
+
+  await writePropsFile(componentProps)
+})()
