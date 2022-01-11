@@ -15,7 +15,7 @@ export interface TextareaOptions extends DefaultFieldStylesProps {
   onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => void
   onKeyDown?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void
   placeholder?: string
-  value: string
+  value?: string
 }
 
 export type TextareaProps = CreateWuiProps<'textarea', TextareaOptions>
