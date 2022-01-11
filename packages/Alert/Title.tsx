@@ -8,6 +8,9 @@ import { AlertOptions } from '.'
 
 export type AlertTitleProps = CreateWuiProps<'h5', VariantIconOptions & AlertOptions>
 
+/**
+ * @name Alert.Title
+ */
 export const Title: React.FC<AlertTitleProps> = ({
   children,
   dataTestId,

@@ -8,7 +8,7 @@ import { RowContainer } from './layout'
 import * as S from './styles'
 import { generateRandomId, getBaseType, getVariant } from './utils'
 
-type FieldOptions = {
+export interface FieldOptions {
   children: JSX.Element
   disabled?: boolean
   disabledIcon?: JSX.Element
@@ -19,7 +19,7 @@ type FieldOptions = {
   warning?: string | JSX.Element
 }
 
-type FieldProps = CreateWuiProps<'div', FieldOptions>
+export type FieldProps = CreateWuiProps<'div', FieldOptions>
 
 export const Field = forwardRef<'div', FieldProps>(
   (

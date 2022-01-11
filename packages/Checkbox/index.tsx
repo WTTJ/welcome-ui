@@ -4,13 +4,13 @@ import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
-export type CheckboxOptions = {
+export interface CheckboxOptions extends DefaultFieldStylesProps {
   checked?: boolean
   Component?: React.ElementType
   disabled?: boolean
   name?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-} & DefaultFieldStylesProps
+}
 
 export type CheckboxProps = CreateWuiProps<'input', CheckboxOptions>
 

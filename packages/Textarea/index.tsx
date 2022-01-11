@@ -4,7 +4,7 @@ import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
-export type TextareaOptions = {
+export interface TextareaOptions extends DefaultFieldStylesProps {
   autoFocus?: boolean
   disabled?: boolean
   maxLength?: number
@@ -16,7 +16,7 @@ export type TextareaOptions = {
   onKeyDown?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void
   placeholder?: string
   value: string
-} & DefaultFieldStylesProps
+}
 
 export type TextareaProps = CreateWuiProps<'textarea', TextareaOptions>
 

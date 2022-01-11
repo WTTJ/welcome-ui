@@ -27,7 +27,7 @@ interface Actions {
   [key: string]: Action
 }
 export type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
-export type MarkdownEditorOptions = {
+export interface MarkdownEditorOptions extends DefaultFieldStylesProps {
   actions?: React.ReactElement
   autoFocus?: SimpleMDEEditorProps['options']['autofocus']
   disabled?: boolean
@@ -39,7 +39,7 @@ export type MarkdownEditorOptions = {
   placeholder: SimpleMDEEditorProps['options']['placeholder']
   toolbar?: DefaultToolbar
   value: string | null
-} & DefaultFieldStylesProps
+}
 
 export type MarkdownEditorProps = CreateWuiProps<
   'div',

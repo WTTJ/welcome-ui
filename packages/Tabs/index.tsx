@@ -6,8 +6,12 @@ import { TabList } from './TabList'
 import { TabPanel } from './TabPanel'
 import * as S from './styles'
 
-export type TabProps = CreateWuiProps<'button', ReakitTabOptions>
+export type TabOptions = ReakitTabOptions
+export type TabProps = CreateWuiProps<'button', TabOptions>
 
+/**
+ * @name Tabs
+ */
 export const TabComponent = forwardRef<'button', TabProps>((props, ref) => {
   const { as, children, id, ...rest } = props
   return (
