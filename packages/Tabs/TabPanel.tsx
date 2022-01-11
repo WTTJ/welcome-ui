@@ -8,11 +8,12 @@ import { CreateWuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type TabPanelProps = CreateWuiProps<
-  typeof ReakitTabPanel,
-  Pick<TabStateReturn, 'orientation'> & ReakitTabOptions
->
+export type TabPanelOptions = Pick<TabStateReturn, 'orientation'> & ReakitTabOptions
+export type TabPanelProps = CreateWuiProps<typeof ReakitTabPanel, TabPanelOptions>
 
+/**
+ * @name Tabs.TabPanel
+ */
 export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>((props, ref) => {
   const { as, children, orientation, tabId, ...rest } = props
   return (

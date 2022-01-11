@@ -16,6 +16,9 @@ export interface GrowlOptions {
 
 export type GrowlProps = CreateWuiProps<'div', GrowlOptions>
 
+/**
+ * @name Toast.Growl
+ */
 export const Growl = forwardRef<'div', GrowlProps>(
   ({ children, closeButtonDataTestId, hasCloseButton = true, onClose, variant = 'info' }, ref) => {
     const content = Children.map(children, child => {

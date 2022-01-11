@@ -14,6 +14,7 @@ const shouldDisplayPropsFiles = [
   'packages/Utils/dist/types/field-styles.d.ts',
   'packages/Button/dist/types/index.d.ts',
   'packages/InputText/dist/types/index.d.ts',
+  'welcome-ui/node_modules/reakit/ts/Tab/TabState.d.ts',
 ]
 
 // Get only ComponentOptions declarations for prevent all WuiProps
@@ -57,20 +58,11 @@ const getComponentFiles = async () => {
   return componentFiles.filter(isComponentFile)
 }
 
-const getFileProps = file => {
+const getFileDefinitions = file => {
   const absolutePath = path.join(process.cwd(), file)
-  const [{ displayName, props, tags }] = parse(absolutePath)
+  const definitions = parse(absolutePath)
 
-  return { props, tags, displayName }
-}
-
-const getKey = file => {
-  if (file === 'index.tsx') {
-    return packageName
-  }
-
-  const [filename] = file.split('.')
-  return `${packageName}.${filename}`
+  return definitions
 }
 
 const writePropsFile = async content => {
@@ -89,16 +81,22 @@ const writePropsFile = async content => {
   const componentProps = {}
 
   files.forEach(file => {
-    const { props, tags } = getFileProps(file)
-    const key = getKey(file)
+    const definitions = getFileDefinitions(file)
 
-    if (props) {
-      componentProps[key] = {
-        tag: tags?.tag,
-        props,
+    definitions.forEach(definition => {
+      const { displayName, props, tags } = definition
+      const name = tags.name || displayName
+
+      if (props) {
+        componentProps[name] = {
+          tag: tags?.tag,
+          props,
+        }
       }
-    }
+    })
   })
+
+  console.log('componentProps', componentProps)
 
   await writePropsFile(componentProps)
 })()
