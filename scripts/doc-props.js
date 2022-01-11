@@ -96,7 +96,5 @@ const writePropsFile = async content => {
     })
   })
 
-  console.log('componentProps', componentProps)
-
   await writePropsFile(componentProps)
 })()

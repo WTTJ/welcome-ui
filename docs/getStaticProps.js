@@ -15,6 +15,7 @@ export async function getStaticProps() {
         propTypes[key] = packageProps[key]
       })
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(`@welcome-ui/${packageName}/dist/${packageName}.doc.json is missing`)
     }
   })
