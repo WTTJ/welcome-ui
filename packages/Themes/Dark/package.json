@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/themes.dark",
-  "version": "4.0.0-alpha.12",
+  "version": "4.0.0-alpha.13",
   "description": "welcome-ui: Dark theme",
   "main": "dist/themes.dark.cjs.js",
   "module": "dist/themes.dark.es.js",
@@ -37,8 +37,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/core": "^4.0.0-alpha.12",
-    "@welcome-ui/utils": "^4.0.0-alpha.8"
+    "@welcome-ui/core": "^4.0.0-alpha.13",
+    "@welcome-ui/utils": "^4.0.0-alpha.13"
   },
   "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "sideEffects": false,
