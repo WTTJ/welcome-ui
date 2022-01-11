@@ -9,7 +9,8 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "test": "jest",
-    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist"
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist",
+    "doc": "node -r esm ../../scripts/doc-props.js --name Accordion"
   },
   "publishConfig": {
     "access": "public"

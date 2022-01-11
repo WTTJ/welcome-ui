@@ -12,7 +12,7 @@ export type Option = { label: string; value: string }
 export type OptionGroup = { label: string; options: Option[] }
 type Item = Option | OptionGroup | string | unknown
 
-export type SearchOptions = {
+export interface SearchOptions extends DefaultFieldStylesProps {
   groupsEnabled?: boolean
   icon?: React.ReactElement
   itemToString: (item: Item) => string
@@ -23,7 +23,7 @@ export type SearchOptions = {
   search: (query: string) => Promise<unknown>
   throttle?: number
   value?: Item
-} & DefaultFieldStylesProps
+}
 
 export type SearchProps = CreateWuiProps<
   'input',

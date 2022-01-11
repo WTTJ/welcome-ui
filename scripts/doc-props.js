@@ -10,11 +10,19 @@ const { toKebabCase } = require('../utils/strings')
 const { name: packageName } = argv
 const tsConfigPath = path.join(process.cwd(), 'tsconfig.json')
 
+const shouldDisplayPropsFiles = [
+  'packages/Utils/dist/types/field-styles.d.ts',
+  'packages/Button/dist/types/index.d.ts',
+  'packages/InputText/dist/types/index.d.ts',
+]
+
 // Get only ComponentOptions declarations for prevent all WuiProps
 const propFilter = prop => {
   if (prop.declarations?.length > 0) {
     const isOptionDeclaration = prop.declarations.find(declaration => {
-      return declaration.name.includes('Options')
+      if (declaration.name.includes('Options')) return true
+
+      return shouldDisplayPropsFiles.includes(declaration.fileName)
     })
     return Boolean(isOptionDeclaration)
   }
