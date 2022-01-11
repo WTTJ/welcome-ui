@@ -8,15 +8,14 @@ import {
   version,
 } from '@welcome-ui/loader/package.json'
 
-# Loader
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to waiting information prefetch data or your page."
+/>
 
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
-
-## Examples
+## Usage
 
 Predefined size `xs`, `sm`, `md`, `lg` or custom size. You can also change the color of loader.
 
@@ -33,10 +32,14 @@ Predefined size `xs`, `sm`, `md`, `lg` or custom size. You can also change the c
 
 <props propTypes={props.propTypes.Loader} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

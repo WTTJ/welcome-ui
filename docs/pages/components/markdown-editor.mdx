@@ -8,9 +8,14 @@ import {
   version,
 } from '@welcome-ui/markdown-editor/package.json'
 
-# MarkdownEditor
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to edit a page with markdown."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
 We use [react-simplemde-editor](https://github.com/RIP21/react-simplemde-editor) as a base with the following changes:
 
@@ -18,10 +23,6 @@ We use [react-simplemde-editor](https://github.com/RIP21/react-simplemde-editor)
 - We've made the toolbar icons more flexible (see below)
 - The toolbar is sticky for when your Markdown gets really long
 - You can insert emojis! 💃
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Usage
 
@@ -155,10 +156,14 @@ function () {
 
 <props propTypes={props.propTypes.MarkdownEditor} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

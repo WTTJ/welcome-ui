@@ -8,13 +8,12 @@ import {
   version,
 } from '@welcome-ui/label/package.json'
 
-# Label
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to represents a caption for an item in a user interface."
+/>
 
 ## Default
 
@@ -85,10 +84,14 @@ Customize label for disabled elements.
 
 <props propTypes={props.propTypes.Label} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

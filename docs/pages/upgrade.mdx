@@ -1,8 +1,8 @@
 # Upgrade
 
-## Version 4 - Alpha : Welcome to Typescript!
+## Version 4: Welcome to Typescript!
 
-#### In Progress - Early 2022
+Stable version comming - Early 2022
 
 ### Typescript!
 
@@ -22,14 +22,10 @@ Check the migration here : [Changelog of xstyled v3](https://xstyled.dev/docs/up
 - `theme.colors.success[200]` becomes `theme.colors.success[500]`
 - `theme.colors.info[500]` becomes `theme.colors.info[700]`
 - `theme.colors.info[200]` becomes `theme.colors.info[500]`
-
 - for welcome theme:
-
   - `theme.colors.success[200]` has been changed for the new color `#45BE98`
   - `theme.colors.info[200]` has been changed for the new color `#9AC7F7`
-
 - for the core theme:
-
   - `theme.colors.success[200]` has been changed for the new color `#7EC784`
   - `theme.colors.info[200]` has been changed for the new color `#6696DF`
 
@@ -40,135 +36,24 @@ Check the migration here : [Changelog of xstyled v3](https://xstyled.dev/docs/up
 
 ### Icons
 
-1 icon deleted (doublon with `EditIcon`)
+- 1 icon deleted (doublon with `EditIcon`)
+  - `pen`
+- 9 new icons added:
+  - `avatar_accessory`
+  - `avatar_body`
+  - `avatar_bottom`
+  - `avatar_costume`
+  - `avatar_head`
+  - `avatar_top`
+  - `common_area`
+  - `meeting_room`
+- 2 icons modified :
+  - `screenshare_off`
+  - `screenshare_on`
 
-- `pen`
+## Other versions
 
-9 new icons added:
+- [Version 3](upgrades/v3)
+- [Version 2](upgrades/v2)
 
-- `avatar_accessory`
-- `avatar_body`
-- `avatar_bottom`
-- `avatar_costume`
-- `avatar_head`
-- `avatar_top`
-- `common_area`
-- `meeting_room`
-
-2 icons modified
-
-- `screenshare_off`
-- `screenshare_on`
-
-## Version 3
-
-#### 11 March 2021
-
-We upgraded some core libraries:
-
-- React: 17
-- xStyled: 2
-- Reakit: 1.3.6
-- React Final Form: 6.5.2
-- DatePicker: 3.6.0
-- Downshift: 6.1.0
-
-### Breaking Changes
-
-After the upgrade to xStyled 2 there are some breaking changes:
-
-- Change `width` & `height` props to `w` & `h`, except for DOM elements (e.g. images)
-- Change `gridGap` prop to `gap`
-- Add `theme.inset` (equal to space) for `top`, `left`, `right`, `bottom`
-- `theme.breakpoints` is now `theme.screens`
-- `theme.transitionCurves` is now `theme.timingFunctions`
-- `styled.box` might not work as expected anymore
-
-[Changelog of xstyled v2](https://xstyled.dev/docs/upgrade-guide/)
-
-## Version 2
-
-#### 27 July 2020
-
-We have changed the core theme on this new version of Welcome UI, and created our new theme `Welcome`.
-
-### Typography
-
-- Added new font : Work Sans on texts
-- Reworked Text components with new sizes for Headings
-- Added default line height and letter spacing
-
-### Colors
-
-#### Added
-
-- Primary: 800 / 900
-- Light: 100 / 800
-- Dark: 100 / 800
-- Nude: 900
-
-#### Removed
-
-- Secondary colors
-- Nude: 300 / 400 / 600
-
-### Spacing
-
-- `xxl` is smaller (now 20) and `3xl` replaces the old `xxl`
-- Added `3xl` and `4xl`
-
-### Buttons
-
-- secondary have become tertiary style and vice versa
-- Added tertiary-negative
-
-### Icons
-
-#### Added
-
-- ExpandText
-- Diamond
-- Caddy
-- Factory
-- House
-
-#### Renamed
-
-- EmployerBranding > Fingerprint
-- Ats > Pictures
-- Marketplace > Masonry
-- WelcomeHome > Teepee
-
-#### Removed
-
-- WelcomeKit
-
-### Modal
-
-- Added animation on open/close
-- Added `Modal.Title` component
-- Changed the way of use trigger : before `<Button as={Modal.Trigger} {...modal}>` and now `<Modal.Trigger as={Button} {...modal}>`
-
-### Link
-
-- Removed underline for Text component on a Link, and fixed animation
-
-### Tabs
-
-- Removed the `::before` border element on theme and added the ability to remove the border on tab item from style props
-
-### Swiper
-
-- Completely changed the way the Swiper works (now uses hooks)
-
-### Other theming
-
-- Added global focus on`theme.focus()`
-- Added global card style on `theme.defaultCards`
-- Added global fields style on `theme.defaultFields`
-
-### styled-components
-
-- Added shouldForwardProps from styled components v5.1
-
-#### And lots of small fixes 🙃
+<pagination />

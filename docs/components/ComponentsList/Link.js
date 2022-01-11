@@ -3,7 +3,7 @@ import React, { cloneElement } from 'react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
-export const NavigationLink = ({ children, href, ...props }) => {
+export function Link({ children, href, ...props }) {
   const router = useRouter()
   let isActive = false
 
@@ -13,7 +13,7 @@ export const NavigationLink = ({ children, href, ...props }) => {
 
   const childrenCloned = cloneElement(children, {
     'aria-current': isActive ? 'page' : undefined,
-    ...children.props
+    ...children.props,
   })
 
   return (

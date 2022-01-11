@@ -8,15 +8,12 @@ import {
   version,
 } from '@welcome-ui/group/package.json'
 
-# Group
-
-<tagversion version={version} name={name} component={component} />
-
-Children grouped without space or radius.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Children grouped without space or radius."
+/>
 
 ## Usage
 
@@ -50,10 +47,14 @@ This works only with the `Button` component for now — more examples will be ad
 
 <props propTypes={props.propTypes.Group} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

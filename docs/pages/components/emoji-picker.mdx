@@ -8,21 +8,22 @@ import {
   version,
 } from '@welcome-ui/emoji-picker/package.json'
 
-# EmojiPicker
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allow user to select predefined cute emojis 😍"
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
-EmojiPicker is a form element that extends [Popover](https://www.welcome-ui.com/components/popover) and [react-window](https://github.com/bvaughn/react-window) to efficiently render large list of images.  
+EmojiPicker is a form element that extends [Popover](https://www.welcome-ui.com/components/popover) and [react-window](https://github.com/bvaughn/react-window) to efficiently render large list of images.
+
 It takes `value` & `onChange` props, its value being an emoji wrapped with colon, using the same pattern as Slack. The data is from [emoji-data](https://github.com/iamcal/emoji-data).
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Default
 
-The most basic emoji picker needs `useEmojiPicker()`, `<EmojiPicker.Trigger />` and `<EmojiPicker />`.  
-It will show a predefined list of emojis
+The most basic emoji picker needs `useEmojiPicker()`, `<EmojiPicker.Trigger />` and `<EmojiPicker />`. It will show a predefined list of emojis
 
 ```jsx
 function Default() {
@@ -64,8 +65,7 @@ function Default() {
 
 ## Tabs
 
-`<EmojiPicker />` can take multiple children that have to be instances of `<EmojiPicker.Tab />`. They have a `name` prop which will be used for the content of the tab, their children will be the wrapped in `< Tab.Panel />`.  
-`<EmojiPicker />` also takes a `defaultTabState` prop that will be passed to `useTabState`, it can be useful to choose a default tab for instance.
+`<EmojiPicker />` can take multiple children that have to be instances of `<EmojiPicker.Tab />`. They have a `name` prop which will be used for the content of the tab, their children will be the wrapped in `< Tab.Panel />`. `<EmojiPicker />` also takes a `defaultTabState` prop that will be passed to `useTabState`, it can be useful to choose a default tab for instance.
 
 ```jsx
 function Tabs() {
@@ -235,10 +235,14 @@ function BasicList() {
 
 <props propTypes={props.propTypes['EmojiPicker.List']} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

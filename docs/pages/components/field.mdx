@@ -8,17 +8,13 @@ import {
   version,
 } from '@welcome-ui/field/package.json'
 
-# Field
+<showcase version={version} name={name} component={component} />
 
-<tagversion version={version} name={name} component={component} />
+## About
 
 We recommend using [React-hook-form](https://react-hook-form.com/) or [Formik](https://github.com/jaredpalmer/formik) with these components. If so, use `Field` for your fields (as in the examples below). The examples below give you an overview of common props (e.g. `size`, `disable`, `required` etc.)
 
 You can find props for each field component in the other `Forms` pages.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Variants
 
@@ -75,10 +71,14 @@ function () {
 
 <props propTypes={props.propTypes.Field} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

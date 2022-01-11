@@ -1,5 +1,6 @@
 import styled from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
+import { system } from '@xstyled/system'
+import { Text } from '@welcome-ui/text'
 
 export const Link = styled.a`
   opacity: 0;
@@ -7,7 +8,9 @@ export const Link = styled.a`
   text-decoration: none;
   transition: medium;
 `
-export const Title = styled(Box)`
+export const Title = styled(Text)`
+  ${system};
+
   &:hover {
     ${Link} {
       opacity: 1;

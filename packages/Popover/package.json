@@ -53,6 +53,6 @@
   },
   "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "sideEffects": false,
-  "component": "Tooltip",
+  "component": "Popover, usePopoverState",
   "homepage": "https://welcome-ui.com/components/popover"
 }
