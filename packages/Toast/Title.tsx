@@ -13,6 +13,9 @@ export interface TitleOptions {
 
 export type TitleProps = CreateWuiProps<'div', TitleOptions>
 
+/**
+ * @name Toast.Title
+ */
 export const Title: React.FC<TitleProps> = ({ children, icon, variant = 'info', ...rest }) => (
   <S.Title variant={variant} {...rest}>
     <VariantIcon icon={icon} variant={variant} />

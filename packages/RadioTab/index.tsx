@@ -5,14 +5,14 @@ import { RadioProps } from 'reakit/Radio'
 
 import * as S from './styles'
 
-export type RadioTabsOptions = {
+export interface RadioTabsOptions extends DefaultFieldStylesProps {
   checked?: boolean
   disabled?: boolean
   disabledIcon?: React.ReactElement
   label: React.ReactElement
   onChange?: (event: React.MouseEvent<HTMLLabelElement>) => void
   onClick?: (event: React.MouseEvent<HTMLLabelElement>) => void
-} & DefaultFieldStylesProps
+}
 
 export type RadioTabsProps = CreateWuiProps<
   'input',

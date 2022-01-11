@@ -15,6 +15,9 @@ export interface SnackbarOptions {
 
 export type SnackbarProps = CreateWuiProps<'div', SnackbarOptions & TitleOptions>
 
+/**
+ * @name Toast.Snackbar
+ */
 export const Snackbar = forwardRef<'div', SnackbarProps>(
   ({ children, hasCloseButton = true, icon, onClose, variant = 'info', ...rest }, ref) => (
     <S.Snackbar hasCloseButton={hasCloseButton} ref={ref} variant={variant} {...rest}>

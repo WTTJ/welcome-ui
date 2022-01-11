@@ -6,7 +6,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type InputTextOptions = {
+export interface InputTextOptions extends DefaultFieldStylesProps {
   autoFocus?: boolean
   disabled?: boolean
   icon?: JSX.Element
@@ -20,7 +20,7 @@ export type InputTextOptions = {
   placeholder?: string
   type?: string
   value?: string
-} & DefaultFieldStylesProps
+}
 
 export type InputTextProps = CreateWuiProps<'input', InputTextOptions>
 

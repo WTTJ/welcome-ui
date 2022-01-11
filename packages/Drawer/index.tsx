@@ -57,6 +57,9 @@ export type DrawerBackdropProps = DrawerBackdropOptions & DialogBackdropProps
 
 // Needed to allow to style the backdrop
 // see: https://reakit.io/docs/styling/#css-in-js
+/**
+ * @name Drawer.Backdrop
+ */
 export const DrawerBackdrop: React.FC<DrawerBackdropProps> = ({
   children,
   hideOnClickOutside = true,

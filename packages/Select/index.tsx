@@ -31,7 +31,7 @@ export type OptionItem = Option | OptionGroup
 export type Options = Array<Option | OptionGroup>
 export type SelectValue = string | number | string[] | Option | (string | Option)[]
 
-export type SelectOptions = {
+export interface SelectOptions extends DefaultFieldStylesProps {
   autoComplete?: string
   autoFocus?: boolean
   disabled?: boolean
@@ -57,7 +57,7 @@ export type SelectOptions = {
   disableCloseOnSelect?: boolean
   groupsEnabled?: boolean
   renderGroupHeader?: (option: OptionGroup) => void
-} & DefaultFieldStylesProps
+}
 export type SelectProps = CreateWuiProps<
   'input',
   SelectOptions & Omit<DownshiftProps<Option>, keyof SelectOptions | 'children'>

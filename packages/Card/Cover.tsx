@@ -9,6 +9,9 @@ export interface CoverOptions {
 
 export type CoverProps = CoverOptions & ShapeProps
 
+/**
+ * @name Card.Cover
+ */
 export const Cover: React.FC<CoverProps> = ({ src, ...rest }) => (
   <S.Cover {...rest}>
     <img src={src} />

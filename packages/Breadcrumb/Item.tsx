@@ -11,6 +11,9 @@ export interface ItemOptions {
 
 export type ItemProps = CreateWuiProps<'li', ItemOptions>
 
+/**
+ * @name Breadcrumb.Item
+ */
 export const Item: React.FC<ItemProps> = ({ children, dataTestId, separator, ...rest }) => {
   return (
     <Box

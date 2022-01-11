@@ -12,15 +12,23 @@ import { CheckIcon } from '@welcome-ui/icons'
 
 import * as TYPES from '../../utils/propTypes'
 
-const removeQuote = str => str?.replace(/'/g, '')
+const removeQuote = str => str?.toString()?.replace(/'/g, '')
 
 const isArray = Array.isArray
 
-const Type = ({ type }) => {
+const reactTypes = ['ElementType<any>']
+
+function Type({ type }) {
   if (!type) {
     return null
   }
   const { name, raw, value } = type
+
+  if (reactTypes.includes(raw)) {
+    return `React.${raw}`
+  }
+
+  if (raw === 'boolean') return 'Boolean'
 
   // Enum
   if (name === 'enum') {
@@ -58,10 +66,12 @@ const Type = ({ type }) => {
   return name
 }
 
-export const Props = ({ propTypes }) => {
+export function Props({ propTypes }) {
   if (!propTypes) {
-    return 'No propTypes specified'
+    return 'No props specified'
   }
+
+  const { props } = propTypes
 
   return (
     <Card>
@@ -76,8 +86,8 @@ export const Props = ({ propTypes }) => {
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
-            {Object.keys(propTypes).map(key => {
-              const { defaultValue, description, required, type } = propTypes[key]
+            {Object.keys(props).map(key => {
+              const { defaultValue, description, required, type } = props[key]
 
               if (!type) {
                 return null

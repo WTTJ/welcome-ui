@@ -26,11 +26,13 @@ function useTrackActiveTabs(
   return [tabs, activeTab]
 }
 
-export type TabListProps = CreateWuiProps<
-  'div',
-  Pick<TabStateReturn, 'orientation' | 'selectedId'> & ReakitTabListOptions
->
+export type TabListOptions = Pick<TabStateReturn, 'orientation' | 'selectedId'> &
+  ReakitTabListOptions
+export type TabListProps = CreateWuiProps<'div', TabListOptions>
 
+/**
+ * @name Tabs.TabList
+ */
 export const TabList = forwardRef<HTMLDivElement, TabListProps>((props, ref) => {
   const { as, children, orientation, ...rest } = props
   const listRef = useRef()
