@@ -38,7 +38,7 @@ export interface MarkdownEditorOptions extends DefaultFieldStylesProps {
   onFocus?: (value: string | null) => void
   placeholder: SimpleMDEEditorProps['options']['placeholder']
   toolbar?: DefaultToolbar
-  value: string | null
+  value?: string
 }
 
 export type MarkdownEditorProps = CreateWuiProps<
