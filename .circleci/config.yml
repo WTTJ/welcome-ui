@@ -106,18 +106,13 @@ jobs:
             - docs/out
 
   # only for previews
-  docs_deploy:
+  docs_deploy_preview:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
           key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - aws-s3/sync:
-          from: docs/out
-          to: s3://welcome-ui/docs_production/
-          arguments: |
-            --metadata GitCommit=$CIRCLE_SHA1 --delete
       - run: node_modules/.bin/netlify deploy --dir=docs/out --alias $CIRCLE_BRANCH
 
   # current version deploy
@@ -214,7 +209,7 @@ workflows:
             - test
             - lint
             - docs_build
-      - docs_deploy:
+      - docs_deploy_preview:
           requires:
             - test
             - lint
