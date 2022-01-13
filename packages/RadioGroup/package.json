@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/radio-group",
-  "version": "4.0.0-alpha.13",
+  "version": "4.0.0-alpha.15",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/radio-group.cjs.js",
   "module": "dist/radio-group.es.js",
