@@ -23,7 +23,7 @@ export interface RadioGroupOptions {
 
 export type RadioGroupProps = CreateWuiProps<
   'fieldset',
-  FieldGroupOptions & ReakitRadioGroupOptions & RadioGroupOptions
+  Omit<FieldGroupOptions & ReakitRadioGroupOptions & RadioGroupOptions, 'children'>
 >
 
 export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
