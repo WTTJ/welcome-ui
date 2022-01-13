@@ -13,8 +13,8 @@ export interface FieldOptions {
   disabled?: boolean
   disabledIcon?: JSX.Element
   error?: string | JSX.Element
-  label?: string
-  hint?: string
+  label?: string | JSX.Element
+  hint?: string | JSX.Element
   required?: boolean
   warning?: string | JSX.Element
 }
