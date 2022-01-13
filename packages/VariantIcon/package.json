@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/variant-icon",
-  "version": "4.0.0-alpha.13",
+  "version": "4.0.0-alpha.16",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/variant-icon.cjs.js",
   "module": "dist/variant-icon.es.js",
@@ -38,9 +38,9 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^4.0.0-alpha.13",
-    "@welcome-ui/icons.alert": "^4.0.0-alpha.13",
-    "@welcome-ui/icons.check": "^4.0.0-alpha.13",
-    "@welcome-ui/icons.information": "^4.0.0-alpha.13",
+    "@welcome-ui/icons.alert": "^4.0.0-alpha.16",
+    "@welcome-ui/icons.check": "^4.0.0-alpha.16",
+    "@welcome-ui/icons.information": "^4.0.0-alpha.16",
     "@welcome-ui/system": "^4.0.0-alpha.13",
     "@welcome-ui/utils": "^4.0.0-alpha.13"
   },

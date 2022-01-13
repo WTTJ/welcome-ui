@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/breadcrumb",
-  "version": "4.0.0-alpha.13",
+  "version": "4.0.0-alpha.16",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/breadcrumb.cjs.js",
   "module": "dist/breadcrumb.es.js",
@@ -40,7 +40,7 @@
   "dependencies": {
     "@juggle/resize-observer": "^3.3.0",
     "@welcome-ui/box": "^4.0.0-alpha.13",
-    "@welcome-ui/icons.right": "^4.0.0-alpha.13",
+    "@welcome-ui/icons.right": "^4.0.0-alpha.16",
     "@welcome-ui/system": "^4.0.0-alpha.13",
     "@welcome-ui/utils": "^4.0.0-alpha.13"
   },
