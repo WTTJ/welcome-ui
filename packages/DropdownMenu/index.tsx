@@ -52,3 +52,4 @@ export const DropdownMenu = Object.assign(DropdownMenuComponent, {
 })
 
 export { useMenuState as useDropdownMenuState }
+export type DropdownMenuStateReturn = ReturnType<typeof useMenuState>
