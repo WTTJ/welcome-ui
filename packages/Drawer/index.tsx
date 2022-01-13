@@ -42,9 +42,11 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
   }
 )
 
+export type DrawerStateReturn = DialogStateReturn
+
 export function useDrawerState(
   options?: SealedInitialState<DialogInitialState>
-): DialogStateReturn {
+): DrawerStateReturn {
   return useDialogState({ animated: true, ...options })
 }
 
