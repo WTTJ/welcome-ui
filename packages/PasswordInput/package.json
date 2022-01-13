@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/password-input",
-  "version": "4.0.0-alpha.14",
+  "version": "4.0.0-alpha.15",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/password-input.cjs.js",
   "module": "dist/password-input.es.js",
@@ -41,7 +41,7 @@
     "@welcome-ui/button": "^4.0.0-alpha.13",
     "@welcome-ui/icons.eye": "^4.0.0-alpha.13",
     "@welcome-ui/icons.hide": "^4.0.0-alpha.13",
-    "@welcome-ui/input-text": "^4.0.0-alpha.14",
+    "@welcome-ui/input-text": "^4.0.0-alpha.15",
     "@welcome-ui/system": "^4.0.0-alpha.13"
   },
   "peerDependencies": {
