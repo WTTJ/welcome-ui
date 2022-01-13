@@ -22,7 +22,7 @@ export interface IconOptions {
   onClick?: (event: React.MouseEvent<SVGSVGElement>) => void
 }
 
-export type IconProps = CreateWuiProps<'svg', IconOptions>
+export type IconProps = CreateWuiProps<typeof S.Icon, IconOptions>
 
 export const Icon = forwardRef<'svg', IconProps>(
   ({ content, dataTestId, size = 'md', title, ...props }, ref) => {
