@@ -1,0 +1,50 @@
+name: NPM Deploy
+
+on:
+  # Defines how to run this workflow manually from the Actions tab
+  workflow_dispatch:  
+    inputs:
+      bump_type:
+        type: choice
+        description: Release type
+        options: 
+        - major
+        - minor
+        - patch
+        required: true
+        default: patch
+      mode:
+        type: choice
+        description: Mode 
+        options: 
+        - dry_run
+        - production
+        required: true
+        default: dry_run
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install
+        run: yarn
+      - name: Build
+        run: yarn webfont:build && yarn build:core && yarn build:packages && yarn build:types
+
+      # dry run
+      - name: "[DRY RUN] NPM Deploy"
+        if: ${{ github.event.inputs.mode == 'dry_run' }}
+        run: yarn lerna version ${{ github.event.inputs.bump_type }} --conventional-commits --no-private --no-git-tag-version --no-push
+
+      # production run, publishes to npm registry, aws and git.
+      - name: NPM Deploy
+        if: ${{ github.event.inputs.mode == 'production' }}
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
+          yarn lerna publish ${{ github.event.inputs.bump_type }} --conventional-commits --no-private
