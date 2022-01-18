@@ -39,9 +39,6 @@
   "dependencies": {
     "@welcome-ui/core": "^4.0.0-alpha.13"
   },
-  "peerDependencies": {
-    "@xstyled/styled-components": "^1.17.0"
-  },
   "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "sideEffects": false,
   "component": "Welcome",
