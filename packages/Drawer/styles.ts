@@ -1,8 +1,6 @@
 import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
-import { Text } from '@welcome-ui/text'
 import { cardStyles } from '@welcome-ui/utils'
-import { CloseButton } from '@welcome-ui/close-button'
 
 import { DrawerProps, Placement, Size } from '.'
 
@@ -116,24 +114,3 @@ export const Drawer = styled(Box)<DrawerProps>(
     }
   `
 )
-
-export const Close = styled(CloseButton)`
-  ${th('drawers.closeButton')};
-  position: absolute;
-`
-
-export const Title = styled(Text)`
-  ${th('drawers.title')};
-  width: 100%;
-`
-
-export const Content = styled(Box)`
-  ${th('drawers.content')};
-  flex: 1;
-  overflow-y: auto;
-`
-
-export const Footer = styled(Box)`
-  ${th('drawers.footer')};
-  width: 100%;
-`
