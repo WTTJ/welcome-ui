@@ -28,8 +28,10 @@ export interface ModalOptions {
 }
 
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
+export type ModalInitialState = DialogInitialState
+export type ModalStateReturn = DialogStateReturn
 
-export function useModalState(options?: DialogInitialState): DialogStateReturn {
+export function useModalState(options?: ModalInitialState): ModalStateReturn {
   return useDialogState({ animated: true, ...options })
 }
 
