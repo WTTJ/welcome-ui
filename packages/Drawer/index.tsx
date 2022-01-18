@@ -11,8 +11,11 @@ import {
   useDialogState,
 } from 'reakit/Dialog'
 import { SealedInitialState } from 'reakit-utils/ts/useSealedState'
-import { CloseButtonProps } from '@welcome-ui/close-button'
+import { Box, BoxProps } from '@welcome-ui/box'
+import { CloseButton, CloseButtonProps } from '@welcome-ui/close-button'
+import { Text, TextProps } from '@welcome-ui/text'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { useTheme } from '@xstyled/styled-components'
 
 import * as S from './styles'
 
@@ -82,21 +85,34 @@ export const DrawerBackdrop: React.FC<DrawerBackdropProps> = ({
   )
 }
 
-export interface DrawerCloseOptions {
-  hide: () => void
+export type CloseOptions = { hide: VoidFunction }
+export type CloseProps = CloseOptions & CloseButtonProps
+
+export const Close: React.FC<CloseProps> = ({ hide, ...props }) => {
+  const { drawers } = useTheme()
+  return <CloseButton {...drawers.closeButton} onClick={hide} position="absolute" {...props} />
 }
 
-export type DrawerCloseProps = DrawerCloseOptions & CloseButtonProps
+export const Title: React.FC<TextProps> = props => {
+  const { drawers } = useTheme()
+  return <Text {...drawers.title} w="100%" {...props} />
+}
 
-export const DrawerClose: React.FC<DrawerCloseProps> = ({ hide, ...rest }) => {
-  return <S.Close onClick={hide} {...rest} />
+export const Content: React.FC<BoxProps> = props => {
+  const { drawers } = useTheme()
+  return <Box {...drawers.content} flex="1" overflowY="auto" {...props} />
+}
+
+export const Footer: React.FC<BoxProps> = props => {
+  const { drawers } = useTheme()
+  return <Box {...drawers.footer} w="100%" {...props} />
 }
 
 export const Drawer = Object.assign(DrawerComponent, {
   Trigger: DialogDisclosure,
   Backdrop: DrawerBackdrop,
-  Close: DrawerClose,
-  Title: S.Title,
-  Content: S.Content,
-  Footer: S.Footer,
+  Close,
+  Title,
+  Content,
+  Footer,
 })
