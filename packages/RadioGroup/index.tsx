@@ -50,7 +50,6 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
             <Component
               {...rest}
               checked={option.value === value}
-              flexDirection={flexDirection}
               hint={option.hint}
               id={`${name}.${option.value}`}
               key={option.value}

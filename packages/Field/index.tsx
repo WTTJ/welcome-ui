@@ -44,6 +44,7 @@ export const Field = forwardRef<'div', FieldProps>(
     const isCheckbox = baseType === 'checkbox'
     const isCheckable = isRadio || isCheckbox
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
+    const isGroup = ['FieldGroup', 'RadioGroup'].includes(baseType)
     const Container = layout === 'row' ? RowContainer : Fragment
     const variant = getVariant({ error, warning })
     const hintText = variant ? error || warning : hint
@@ -54,12 +55,13 @@ export const Field = forwardRef<'div', FieldProps>(
       id: htmlFor,
       required,
       variant,
+      ...(isGroup ? { label, flexDirection: layout } : {}),
     })
 
     return (
       <S.Field ref={ref} {...rest} data-testid={dataTestId} flexDirection={layout}>
         <Container>
-          {label && (
+          {label && !isGroup && (
             <Label
               disabled={disabled}
               disabledIcon={disabledIcon}
