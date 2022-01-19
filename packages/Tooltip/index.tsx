@@ -133,7 +133,7 @@ export type PlacementOptions =
   | 'left-start'
 
 export interface TooltipOptions {
-  children: React.ReactElement
+  children: React.ReactElement | React.ReactNode
   content: string | JSX.Element
   fixed?: boolean
   placement?: PlacementOptions
@@ -155,19 +155,19 @@ export const Tooltip = forwardRef<'div', TooltipProps>((props, ref): React.React
 
   // If no content, simply return the children
   if (!content) {
-    return children
+    return children as React.ReactElement
   }
 
   const child = React.Children.only(children) as React.ReactElement
 
   return (
-    <div>
+    <>
       <TooltipReference {...tooltip}>
         {referenceProps => cloneElement(child, referenceProps)}
       </TooltipReference>
       <S.Tooltip ref={ref} style={visibilityStyles} {...tooltip} {...rest}>
         {content}
       </S.Tooltip>
-    </div>
+    </>
   )
 })
