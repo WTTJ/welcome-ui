@@ -8,13 +8,12 @@ import {
   version,
 } from '@welcome-ui/radio-tab/package.json'
 
-# Radio Tab
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to choose between some options and only one can be return."
+/>
 
 ## Usage
 
@@ -54,10 +53,14 @@ function () {
 
 <props propTypes={props.propTypes.RadioTab} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

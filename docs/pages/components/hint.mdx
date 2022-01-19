@@ -8,15 +8,12 @@ import {
   version,
 } from '@welcome-ui/hint/package.json'
 
-# Hint
-
-<tagversion version={version} name={name} component={component} />
-
-Said state information, use on Field.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to said an information state, specialy use on Field."
+/>
 
 ## Variants
 
@@ -32,10 +29,14 @@ Said state information, use on Field.
 
 <props propTypes={props.propTypes.Hint} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

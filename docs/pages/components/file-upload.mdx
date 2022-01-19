@@ -8,13 +8,14 @@ import {
   version,
 } from '@welcome-ui/file-upload/package.json'
 
-# FileUpload
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to upload a file easily."
+/>
 
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+## About
 
 FileUpload uses render props so you can pass a button through. You have access to `openFile` to open the native file chooser dialog box.
 
@@ -237,10 +238,14 @@ function () {
 
 <props propTypes={props.propTypes.FileUpload} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

@@ -8,15 +8,18 @@ import {
   version,
 } from '@welcome-ui/link/package.json'
 
-# Link
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to get our customize anchor element."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
-A link component who can get `as` property to pass custom linker. This component is a child from `UniversalLink` component.
+A link component who can get `as` property to pass custom linker.
 
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+This component is a child from `UniversalLink` component.
 
 ## Variants
 
@@ -100,10 +103,14 @@ For a target `_blank` we add `rel='noopener noreferrer'`
 
 <props propTypes={props.propTypes.Link} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

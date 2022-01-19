@@ -8,15 +8,16 @@ import {
   version,
 } from '@welcome-ui/search/package.json'
 
-# Search
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="This allows you to search data from a remote API."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
-This allows you to search data from a remote API. It is based on the [downshift](https://github.com/downshift-js/downshift) library.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+It is based on the [downshift](https://github.com/downshift-js/downshift) library.
 
 ## Default
 
@@ -184,10 +185,14 @@ The rest of the props are below:
 
 <props propTypes={props.propTypes.Search} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

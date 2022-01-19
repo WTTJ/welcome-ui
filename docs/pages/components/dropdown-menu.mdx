@@ -8,15 +8,17 @@ import {
   version,
 } from '@welcome-ui/dropdown-menu/package.json'
 
-# DropdownMenu
+<showcase
+  version={version}
+  pageName="DropdownMenu"
+  name={name}
+  component={component}
+  description="Allows user to select between multiple actions."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
 Menu from [Reakit](https://reakit.io/docs/menu/) with a really nice theme 👀
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Usage
 
@@ -97,10 +99,14 @@ function() {
 
 <props propTypes={props.propTypes.DropdownMenu} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

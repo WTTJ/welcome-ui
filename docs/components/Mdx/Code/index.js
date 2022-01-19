@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 /* eslint-disable react/jsx-max-depth */
 /* eslint-disable react/prop-types */
 import * as React from 'react'
@@ -64,11 +63,12 @@ import * as Drawer from '@welcome-ui/drawer'
 import * as EmojiPicker from '@welcome-ui/emoji-picker'
 import * as Emoji from '@welcome-ui/emoji'
 
-import * as constants from '../constants'
+import * as constants from '../../../constants'
+import { HookForm } from '../../HookForm'
+import { IconsList } from '../../IconsList'
 
-import { HookForm } from './HookForm'
-import { IconsList } from './IconsList'
-import * as S from './Code.styled'
+import * as S from './styles'
+import { CopyButton } from './CopyButton'
 
 const liveEditorStyle = {
   fontFamily: 'Menlo, monospace',
@@ -81,35 +81,18 @@ const transformCode = (code, row) => {
   return row ? `<CodeContentRow>${code}</CodeContentRow>` : `<CodeContent>${code}</CodeContent>`
 }
 
-function CopyButton({ copied, copy }) {
-  return (
-    <Button
-      mr="lg"
-      mt="lg"
-      onClick={copy}
-      position="absolute"
-      right={0}
-      size="xs"
-      top={0}
-      variant={copied ? 'quaternary' : 'tertiary-negative'}
-    >
-      {copied ? 'Copied!' : 'Copy'}
-    </Button>
-  )
-}
-
 export function Code({ children, className, isCopyable = true, live = true, row }) {
   const [editorOpen, setEditorOpen] = React.useState(false)
   const language = className && className.replace(/language-/, '')
-  const [copy, copied] = useCopyText(children.trim(), 5000)
+  const [copy, copied] = useCopyText(children.trim(), 3000)
 
   const [editorCode, setEditorCode] = React.useState(children.trim())
 
-  function toggleEditor() {
+  const toggleEditor = () => {
     setEditorOpen(!editorOpen)
   }
 
-  function handleChange(code) {
+  const handleChange = code => {
     setEditorCode(code.trim())
   }
 
@@ -197,16 +180,37 @@ export function Code({ children, className, isCopyable = true, live = true, row 
           className="codeEditor"
           display="flex"
           flexDirection="column"
-          mb="md"
+          mt="md"
           overflow="visible"
         >
-          <Card.Body color="dark.900" padding="xl" paddingBottom="lg">
-            <LivePreview />
+          <Card.Body color="dark.900" p="0">
+            <Box p="xl" pb="lg">
+              <LivePreview />
+            </Box>
             <S.ShowEditor>
-              <Button onClick={toggleEditor} size="sm" variant="secondary">
-                <Icon name="chevron" />
-                <span>{editorOpen ? 'Hide' : 'Show'} editor</span>
+              <Button
+                border="none"
+                h={25}
+                onClick={toggleEditor}
+                shape="circle"
+                variant="tertiary"
+                w={25}
+              >
+                <Icons.ChevronIcon />
               </Button>
+              {isCopyable && (
+                <Button
+                  border="none"
+                  h={25}
+                  ml="xxs"
+                  onClick={copy}
+                  shape="circle"
+                  variant="tertiary"
+                  w={25}
+                >
+                  {copied ? <Icons.CheckIcon color="success.500" /> : <Icons.CopyIcon />}
+                </Button>
+              )}
             </S.ShowEditor>
           </Card.Body>
         </Card>
@@ -222,13 +226,15 @@ export function Code({ children, className, isCopyable = true, live = true, row 
   }
 
   return (
-    <Box mt="lg" overflow="auto">
-      <LiveProvider disabled {...liveProviderProps}>
-        <S.LiveEditor>
-          <S.LiveEditorContent padding={20} style={liveEditorStyle} />
-          {isCopyable && <CopyButton copied={copied} copy={copy} />}
-        </S.LiveEditor>
-      </LiveProvider>
+    <Box>
+      <Box mt="lg" overflow="auto">
+        <LiveProvider disabled {...liveProviderProps}>
+          <S.LiveEditor>
+            <S.LiveEditorContent padding={20} style={liveEditorStyle} />
+            {isCopyable && <CopyButton copied={copied} copy={copy} />}
+          </S.LiveEditor>
+        </LiveProvider>
+      </Box>
     </Box>
   )
 }

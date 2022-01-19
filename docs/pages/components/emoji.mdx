@@ -8,21 +8,22 @@ import {
   version,
 } from '@welcome-ui/emoji/package.json'
 
-# Emoji
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to use emojis easily."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
-Our emojis are using the same naming convention as Slack, the data is taken from [emoji-data], we use Google & Apple variants.  
+Our emojis are using the same naming convention as Slack, the data is taken from [emoji-data], we use Google & Apple variants.
+
 They're used internally in our [EmojiPicker component](https://www.welcome-ui.com/components/emoji-picker)
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Default
 
-`<Emoji />` takes an `emoji` prop that is the name of the emoji following Slack & [emoji-data] naming convention, it can be wrapped with colon or not.  
-It can also take a url instead, it can be usefull when creating custom `<EmojiPicker.List />`.
+`<Emoji />` takes an `emoji` prop that is the name of the emoji following Slack & [emoji-data] naming convention, it can be wrapped with colon or not. It can also take a url instead, it can be usefull when creating custom `<EmojiPicker.List />`.
 
 ```jsx
 <Stack direction="horizontal">
@@ -46,8 +47,7 @@ It can also take a url instead, it can be usefull when creating custom `<EmojiPi
 
 ## Theming & SSR
 
-We rely on [bowser](https://www.npmjs.com/package/bowser/v/2.11.0) to check the user's OS, if it's an Apple one then we will display Apple's emojis, otherwise Google's (like Slack).  
-You can override this with the `useAppleEmoji` prop, it can be useful to force Google or Apple emojis and is needed for SSR.
+We rely on [bowser](https://www.npmjs.com/package/bowser/v/2.11.0) to check the user's OS, if it's an Apple one then we will display Apple's emojis, otherwise Google's (like Slack). You can override this with the `useAppleEmoji` prop, it can be useful to force Google or Apple emojis and is needed for SSR.
 
 ```jsx
 <Stack direction="horizontal">
@@ -60,12 +60,16 @@ You can override this with the `useAppleEmoji` prop, it can be useful to force G
 
 <props propTypes={props.propTypes.Emoji} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />
 
 [emoji-data]: https://github.com/iamcal/emoji-data

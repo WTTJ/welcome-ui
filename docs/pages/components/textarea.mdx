@@ -8,13 +8,12 @@ import {
   version,
 } from '@welcome-ui/textarea/package.json'
 
-# Textarea
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to get some text informations in multiples lines."
+/>
 
 ## Default
 
@@ -26,7 +25,7 @@ function () {
     setValue(event.target.value)
   }
 
-  return <Textarea name="textarea" onChange={handleChange} value={value} />
+  return <Textarea name="textarea" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit." onChange={handleChange} value={value} />
 }
 ```
 
@@ -52,10 +51,14 @@ function () {
 
 <props propTypes={props.propTypes.Textarea} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />
