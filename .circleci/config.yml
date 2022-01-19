@@ -72,7 +72,8 @@ jobs:
           from: packages/IconFont/fonts
           to: s3://welcome-ui/public/fonts/$BRANCH/$ICON_FONT_HASH/
           arguments: |
-            --metadata GitCommit=$CIRCLE_SHA1 --delete
+            --metadata GitCommit=$CIRCLE_SHA1 --delete \
+            --cache-control "max-age=2678400"
 
   build:
     <<: *defaults
