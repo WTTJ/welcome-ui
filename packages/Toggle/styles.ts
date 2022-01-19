@@ -6,7 +6,7 @@ import { shouldForwardProp, system } from '@welcome-ui/system'
 import { ToggleOptions } from './index'
 
 export const Toggle = styled(ReakitCheckbox).withConfig({ shouldForwardProp })<ToggleOptions>(
-  ({ checked, disabled, order = '-1', theme }) => css`
+  ({ order = '-1', theme }) => css`
     ${th('toggles.item.default')};
     position: relative;
     display: block;
@@ -28,33 +28,29 @@ export const Toggle = styled(ReakitCheckbox).withConfig({ shouldForwardProp })<T
       transition: medium;
     }
 
-    ${checked &&
-    css`
-      &::after {
-        left: 100%;
-        transform: translateX(calc(-100% - ${theme.toRem(1)}));
-      }
-    `};
-
-    ${checked &&
-    !disabled &&
-    css`
-      ${th('toggles.item.checked')};
-
-      &::after {
-        ${th('toggles.after.checked')};
-      }
-    `};
-
-    ${disabled &&
-    css`
+    &:disabled {
       ${th('toggles.item.disabled')};
       cursor: not-allowed;
 
       &::after {
         ${th('toggles.after.disabled')};
       }
-    `};
+    }
+
+    &:checked {
+      &::after {
+        /* 3 is border + left padding + right padding */
+        transform: translateX(calc(${th('toggles.item.default.width')} - 100% - ${theme.toRem(3)}));
+      }
+
+      &:not(:disabled) {
+        ${th('toggles.item.checked')};
+
+        &::after {
+          ${th('toggles.after.checked')};
+        }
+      }
+    }
 
     ${system};
   `
