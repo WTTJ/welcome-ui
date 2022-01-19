@@ -133,7 +133,7 @@ export type PlacementOptions =
   | 'left-start'
 
 export interface TooltipOptions {
-  children: React.ReactElement | React.ReactNode
+  children: React.ReactNode
   content: string | JSX.Element
   fixed?: boolean
   placement?: PlacementOptions
