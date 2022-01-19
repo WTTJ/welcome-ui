@@ -1,10 +1,11 @@
 import React, { useLayoutEffect, useRef } from 'react'
 import { oneOf } from 'prop-types'
 import { PopoverDisclosure } from 'reakit/Popover'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import { UsePopoverStateReturn } from './usePopoverState'
 
-export type TriggerProps = UsePopoverStateReturn
+export type TriggerProps = CreateWuiProps<typeof PopoverDisclosure, UsePopoverStateReturn>
 
 export const Trigger: React.FC<TriggerProps> = ({ triggerMethod = 'click', ...rest }) => {
   const hoverable = triggerMethod === 'hover'
