@@ -8,15 +8,12 @@ import {
   version,
 } from '@welcome-ui/table/package.json'
 
-# Table
-
-<tagversion version={version} name={name} component={component} />
-
-Repaint html for `table` `tr` `td`... etc with a scrollable table 🎓
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to organize informations with a scrollable table 🎓"
+/>
 
 ## Usage
 
@@ -132,10 +129,14 @@ You can use one of `success`, `error`, `warning` or `info` and add `indent` on T
 
 <props propTypes={props.propTypes.Table} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

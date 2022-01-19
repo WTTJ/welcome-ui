@@ -8,17 +8,20 @@ import {
   version,
 } from '@welcome-ui/date-picker/package.json'
 
-# DatePicker
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to select a predefined date."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
-It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library. _Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
+It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
 
-## Install and import
+_Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
 
-<usage component={component} name={name} peerDependencies={peerDependencies} />
-
-## Simple use case
+## Simple usecase
 
 ```jsx
 function () {
@@ -102,10 +105,14 @@ function () {
 
 <props propTypes={props.propTypes.DatePicker} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

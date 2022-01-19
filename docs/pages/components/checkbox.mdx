@@ -8,13 +8,12 @@ import {
   version,
 } from '@welcome-ui/checkbox/package.json'
 
-# Checkbox
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to select one or more items from several options."
+/>
 
 ## Usage
 
@@ -28,6 +27,7 @@ function() {
         render={({ onChange, value}) => (
             <Field label="React">
               <Checkbox
+                mb="xxs"
                 name="react"
                 onChange={e => onChange(!e.target.checked)}
                 checked={value}
@@ -42,6 +42,7 @@ function() {
         render={({ onChange, value}) => (
             <Field label="Angular">
               <Checkbox
+                mb="xxs"
                 name="angular"
                 onChange={e => onChange(!e.target.checked)}
                 checked={value}
@@ -114,10 +115,14 @@ function() {
 
 <props propTypes={props.propTypes.Checkbox} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

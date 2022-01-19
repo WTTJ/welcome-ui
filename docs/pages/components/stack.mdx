@@ -8,15 +8,12 @@ import {
   version,
 } from '@welcome-ui/stack/package.json'
 
-# Stack
-
-<tagversion version={version} name={name} component={component} />
-
-The `Stack` component is a layout component that allows you to easily stack elements with space between them.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to easily stack elements with space between them."
+/>
 
 ## Usage
 
@@ -54,10 +51,14 @@ It will ensure that its children are `li`s when is rendered as an `ul` or an `ol
 
 <props propTypes={props.propTypes.Stack} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

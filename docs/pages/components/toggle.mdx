@@ -8,13 +8,12 @@ import {
   version,
 } from '@welcome-ui/toggle/package.json'
 
-# Toggle
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to activate or desactivate an option."
+/>
 
 ## Examples
 
@@ -27,7 +26,7 @@ function() {
 
   return (
     <>
-      <Toggle mr="lg" checked={toggle} onClick={() => setToggle(!toggle)} />
+      <Toggle mb="md" checked={toggle} onClick={() => setToggle(!toggle)} />
       <Toggle checked={toggleChecked} onClick={() => setToggleChecked(!toggleChecked)} />
     </>
   )
@@ -45,7 +44,7 @@ function() {
 
   return (
     <>
-      <Toggle mr="lg" checked={toggle} onClick={() => setToggle(!toggle)} disabled />
+      <Toggle mb="md" checked={toggle} onClick={() => setToggle(!toggle)} disabled />
       <Toggle checked={toggleChecked} onClick={() => setToggleChecked(!toggleChecked)} disabled />
     </>
   )
@@ -66,7 +65,7 @@ function () {
 
   return (
     <Field label="Toggle">
-      <Toggle mr="lg" checked={checked} onClick={handleToggle} disabled />
+      <Toggle checked={checked} onClick={handleToggle} disabled />
     </Field>
   )
 }
@@ -76,11 +75,15 @@ function () {
 
 <props propTypes={props.propTypes.Toggle} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />
 ```

@@ -8,23 +8,13 @@ import {
   version,
 } from '@welcome-ui/icons/package.json'
 
-# Icons
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import individual icons
-
-<code language="bash">
-  {`yarn add @welcome-ui/icons.avatar ${Object.keys(peerDependencies).join(' ')}`}
-</code>
-<code language="bash">{`import { AvatarIcon } from '@welcome-ui/icons.avatar'`}</code>
-
-## Or… install and import all icons
-
-<code language="bash" isCopyable>
-  {`yarn add @welcome-ui/icons ${Object.keys(peerDependencies).join(' ')}`}
-</code>
-<code language="bash" isCopyable>{`import * as Icons from '@welcome-ui/icons'`}</code>
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  customInstall={'yarn add @welcome-ui/icons.avatar'}
+  customUsage={`import { AvatarIcon } from '@welcome-ui/icons.avatar'`}
+/>
 
 ## Size
 
@@ -425,10 +415,14 @@ function() {
 
 <props propTypes={props.propTypes.Icon} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

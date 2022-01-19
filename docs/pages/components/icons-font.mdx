@@ -6,21 +6,14 @@ import {
   version,
 } from '@welcome-ui/icons.font/package.json'
 
-# IconsFont
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  customUsage={`import { Icons } from '@welcome-ui/icons.font'`}
+/>
 
-<tagversion version={version} name={name} component={component} />
-
-## Install and import icon font
-
-<code language="bash">
-  {`yarn add @welcome-ui/icons.font ${Object.keys(peerDependencies).join(' ')}`}
-</code>
-<code language="javascript">{`import { Icons } from '@welcome-ui/icons.font'`}</code>
-<br />
-or
-<code language="javascript">{`import { IconFont } from '@welcome-ui/icons.font'`}</code>
-
-## Call Icon from Icons import
+## Icons import
 
 ```jsx row
 <Icons.Twitter />
@@ -28,7 +21,7 @@ or
 <Icons.Facebook />
 ```
 
-## Call Icon from IconFont import
+## IconFont import
 
 ```jsx row
 <IconFont name="facebook" />
@@ -36,7 +29,7 @@ or
 <IconFont name="twitter" />
 ```
 
-## Call Icon from css import
+## Css import
 
 To import IconFont css stylesheet, you should use this import path:
 
@@ -421,3 +414,5 @@ function() {
 ## Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

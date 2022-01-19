@@ -3,13 +3,13 @@ import { Box } from '@welcome-ui/box'
 import { FormProvider, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { Code } from './Code'
+import { Code } from './Mdx/Code'
 
 // eslint-disable-next-line react/prop-types
-export const HookForm = ({ children, defaultValues, schemaValidate }) => {
+export function HookForm({ children, defaultValues, schemaValidate }) {
   const formMethods = useForm({
     resolver: yupResolver(schemaValidate()),
-    defaultValues
+    defaultValues,
   })
   const { errors, handleSubmit, register, watch } = formMethods
   const values = watch()
@@ -26,7 +26,7 @@ export const HookForm = ({ children, defaultValues, schemaValidate }) => {
           errors,
           register,
           // eslint-disable-next-line react/prop-types
-          ...children.props
+          ...children.props,
         })}
       </form>
       <Box data-testid="values">

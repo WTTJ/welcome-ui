@@ -7,17 +7,14 @@ import {
   version,
 } from '@welcome-ui/utils.copy/package.json'
 
-# useCopyText
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="A simple hook to copy text from a given HTML element to your clipboard with copy-to-clipboard library."
+/>
 
-<tagversion version={version} name={name} component={component} />
-
-A simple hook to copy text from a given HTML element to your clipboard with [copy-to-clipboard](https://github.com/sudodoki/copy-to-clipboard) library.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
-
-## Copy the content of an element
+## Copy an element
 
 Copy the content from another HTML element by creating a `ref` and passing it to `useCopyText`.
 
@@ -78,10 +75,14 @@ function() {
 }
 ```
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

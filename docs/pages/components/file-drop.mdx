@@ -8,13 +8,14 @@ import {
   version,
 } from '@welcome-ui/file-drop/package.json'
 
-# FileDrop
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to drop or upload a file easily."
+/>
 
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+## About
 
 FileDrop uses render props to give you more flexibility on what to render at each state change:
 
@@ -162,10 +163,14 @@ function () {
 
 <props propTypes={props.propTypes.FileDrop} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

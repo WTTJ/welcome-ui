@@ -8,13 +8,12 @@ import {
   version,
 } from '@welcome-ui/input-text/package.json'
 
-# InputText
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to get some text informations in one line."
+/>
 
 ## Default
 
@@ -112,10 +111,14 @@ function () {
 
 <props propTypes={props.propTypes.InputText} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

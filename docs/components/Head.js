@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 import { generateTitle } from '../utils'
 
-export const Head = () => {
+export function Head() {
   const router = useRouter()
   const title = generateTitle(router?.pathname)
 
@@ -52,7 +52,7 @@ export const Head = () => {
           gtag('js', new Date());
 
           gtag('config', 'UA-56009608-24');
-          `
+          `,
         }}
       />
     </NextHead>

@@ -8,15 +8,16 @@ import {
   version,
 } from '@welcome-ui/select/package.json'
 
-# Select
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to select one or mutilple choices."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
 It is based on the [downshift](https://github.com/downshift-js/downshift) library.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Default
 
@@ -383,10 +384,14 @@ function () {
 
 <props propTypes={props.propTypes.Select} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />
