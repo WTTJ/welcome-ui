@@ -10,8 +10,7 @@ import { Trigger } from './Trigger'
 import { UsePopoverStateReturn } from './usePopoverState'
 
 export interface PopoverOptions {
-  arrowStyle: React.CSSProperties
-  onClose: () => void
+  onClose?: () => void
 }
 
 export type PopoverProps = CreateWuiProps<
@@ -23,11 +22,11 @@ export type PopoverProps = CreateWuiProps<
 export const PopoverComponent = forwardRef<'div', PopoverProps>(
   (
     {
-      arrowStyle,
       children,
       onClose,
-      // catch triggerMethod for it not to appear in the dom
       triggerMethod = 'click',
+      // catch triggerMethod for it not to appear in the dom
+      unstable_arrowStyles,
       withCloseButton = false,
       ...rest
     },
@@ -51,7 +50,7 @@ export const PopoverComponent = forwardRef<'div', PopoverProps>(
     return (
       <S.Popover {...rest} $withCloseButton={withCloseButton} ref={ref}>
         <Box position="relative">
-          <S.Arrow {...rest} style={{ ...arrowStyle }}>
+          <S.Arrow {...rest} style={{ ...unstable_arrowStyles }}>
             <S.ArrowItem $transform={transform} h={30} w={30} xmlns="http://www.w3.org/2000/svg">
               <path d="M6 30l9-10 9 10z" fill="currentColor" fillRule="nonzero" />
             </S.ArrowItem>
