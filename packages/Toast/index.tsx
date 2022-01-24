@@ -16,14 +16,14 @@ export interface CreateToastOptions {
 
 export type UseToastReturn = (
   children: React.ReactNode,
-  options: MessageOptionalOptions & CreateToastOptions
+  options?: MessageOptionalOptions & CreateToastOptions
 ) => void
 
 export function useToast(): UseToastReturn {
   const themeContext = useContext(ThemeContext)
 
   const createToast = useCallback(
-    (children, options) => {
+    (children, options = {}) => {
       const toastOptions = {
         position: 'bottom',
         duration: 5000,
