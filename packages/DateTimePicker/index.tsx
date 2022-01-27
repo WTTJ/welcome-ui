@@ -1,16 +1,18 @@
-import React, { Children, cloneElement, forwardRef, useEffect, useState } from 'react'
+import React, { Children, cloneElement, useEffect, useState } from 'react'
 import { DatePicker, DatePickerProps } from '@welcome-ui/date-picker'
 import { TimePicker, TimePickerProps } from '@welcome-ui/time-picker'
 import { DEFAULT_DATE, getDate } from '@welcome-ui/date-time-picker-common'
-import { WuiTestProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type DateTimePickerProps = WuiTestProps &
+export type DateTimePickerProps = CreateWuiProps<
+  'input',
   Pick<DatePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value'> &
-  Pick<TimePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value'>
+    Pick<TimePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value'>
+>
 
-export const DateTimePicker = forwardRef<HTMLInputElement, DateTimePickerProps>(
+export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
   (
     { children, dataTestId, disabled, locale, onChange, size = 'lg', value = DEFAULT_DATE },
     ref

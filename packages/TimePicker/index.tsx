@@ -21,8 +21,8 @@ export interface TimePickerOptions {
 
 export type TimePickerProps = CreateWuiProps<
   typeof StyledTimePicker,
-  Omit<ReactDatePickerProps, 'onChange' | 'onBlur' | 'onFocus' | 'value'> &
-    Omit<CustomInputOptions, 'handleBlur' | 'handleFocus' | 'onReset' | 'focused' | 'value'> &
+  Omit<ReactDatePickerProps, keyof TimePickerOptions> &
+    Pick<CustomInputOptions, 'size' | 'icon' | 'iconPlacement'> &
     TimePickerOptions
 >
 

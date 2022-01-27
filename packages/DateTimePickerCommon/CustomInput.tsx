@@ -1,7 +1,7 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 import * as S from './styles'
@@ -23,8 +23,7 @@ export interface CustomInputOptions {
 
 export type CustomInputProps = CreateWuiProps<'input', CustomInputOptions>
 
-// eslint-disable-next-line react/prefer-stateless-function
-export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
+export const CustomInput = forwardRef<'input', CustomInputProps>(
   (
     { focused, handleBlur, handleFocus, icon, iconPlacement, onReset, size, value, ...rest },
     ref
