@@ -5,7 +5,12 @@ import { IconOptions } from '@welcome-ui/icon'
 
 import unicodeMap from './unicode.json'
 
-function getIconContentByName(name: StyledIcon['name']) {
+export type StyledIconProps = {
+  name: keyof typeof unicodeMap
+  size: IconOptions['size']
+}
+
+function getIconContentByName(name: StyledIconProps['name']) {
   const content = unicodeMap[name]
   if (content) return content.replace('0x', '\\')
   // eslint-disable-next-line no-console
@@ -13,13 +18,8 @@ function getIconContentByName(name: StyledIcon['name']) {
   return null
 }
 
-type StyledIcon = {
-  name: keyof typeof unicodeMap
-  size: IconOptions['size']
-}
-
 // stylelint-disable font-family-no-missing-generic-family-keyword
-export const Icon = styled.i<StyledIcon>(
+export const Icon = styled.i<StyledIconProps>(
   ({ name, size = 'md' }) => css`
     display: inline-block;
     font-family: icons;
