@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useLayoutEffect } from 'react'
 import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -6,7 +6,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 // Fields
 import { RowContainer } from './layout'
 import * as S from './styles'
-import { generateRandomId, getBaseType, getVariant } from './utils'
+import { forwardedProps, generateRandomId, getBaseType, getVariant } from './utils'
 
 export interface FieldOptions {
   children: JSX.Element
@@ -57,6 +57,16 @@ export const Field = forwardRef<'div', FieldProps>(
       variant,
       ...(isGroup ? { label, flexDirection: layout } : {}),
     })
+
+    useLayoutEffect(() => {
+      Object.keys(children.props).forEach(prop => {
+        if (forwardedProps.includes(prop)) {
+          const element = document.getElementById(htmlFor)
+          // eslint-disable-next-line no-console
+          console.warn(`You must pass the "${prop}" prop to the <Field /> instead of`, element)
+        }
+      })
+    }, [children.props, children.type.displayName, htmlFor])
 
     return (
       <S.Field ref={ref} {...rest} data-testid={dataTestId} flexDirection={layout}>
