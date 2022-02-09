@@ -1,9 +1,10 @@
 import React from 'react'
 import { IconProps } from '@welcome-ui/icon'
 
-import { Icon } from './styles'
+import { Icon, StyledIconProps } from './styles'
 import unicodeMap from './unicode.json'
 
+export type IconFontProps = StyledIconProps
 export const IconFont = Icon
 
 // todo move toCamelCase/toPascalCase on ts file
