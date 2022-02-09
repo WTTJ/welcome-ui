@@ -15,10 +15,8 @@ export interface CreateToastOptions {
   onClose?: () => void
 }
 
-export type UseToastReturn = (
-  children: React.ReactNode,
-  options?: MessageOptionalOptions & CreateToastOptions
-) => void
+export type UseToastOptions = MessageOptionalOptions & CreateToastOptions
+export type UseToastReturn = (children: React.ReactNode, options?: UseToastOptions) => void
 
 export function useToast(): UseToastReturn {
   const themeContext = useContext(ThemeContext)
