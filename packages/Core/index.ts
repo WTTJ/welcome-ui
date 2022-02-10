@@ -4,7 +4,7 @@ export * from './theme/core'
 // Base
 export * from './utils/base'
 
-// Wrapper helper
+// WuiProvider & useTheme
 export * from './WuiProvider'
 
 // export WuiTheme and all ThemeProps
