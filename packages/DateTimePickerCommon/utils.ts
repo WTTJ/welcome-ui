@@ -19,7 +19,7 @@ const MONTHS = [
 
 export const DEFAULT_DATE = new Date()
 
-export const getDate = (date: Date, interval: number): Date => {
+export const getDate = (date: string | number | Date, interval: number): Date => {
   if (!date) {
     return null
   }
