@@ -92,6 +92,7 @@ jobs:
             - icons/**/dist
             - packages/IconFont/fonts
 
+  # current version build (common to previews & prod)
   docs_build:
     <<: *defaults
     steps:
@@ -105,7 +106,7 @@ jobs:
           paths:
             - docs/out
 
-  # only for previews
+  # current version deploy for previews
   docs_deploy_preview:
     <<: *defaults
     steps:
@@ -115,7 +116,7 @@ jobs:
           key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: node_modules/.bin/netlify deploy --dir=docs/out --alias $CIRCLE_BRANCH
 
-  # current version deploy
+  # current version deploy for production
   docs_deploy_prod:
     <<: *defaults
     steps:
@@ -133,7 +134,7 @@ jobs:
           to: docs_production
       - run: node_modules/.bin/netlify deploy --dir=docs_production --prod
 
-  # previous versions of the docs deploy process
+  # previous versions build & deploy for production
   previous_docs_versions_build_deploy_prod:
     <<: *defaults
     steps:
@@ -217,6 +218,7 @@ workflows:
 
       - previous_docs_versions_build_deploy_prod:
           filters:
+            # should add branches here to keep previous doc version of future majors
             branches:
               only: v3
           requires:
