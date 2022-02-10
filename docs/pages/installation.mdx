@@ -102,4 +102,23 @@ If it doesn't work for you, check that the id of your react root is set to `root
 </WuiProvider>
 ```
 
+## Typescript
+
+In order to get your theme object typed with our theme, you have to override the default theme by adding this in a "styled.d.ts" file at the root of your project:
+
+```
+/* eslint-disable @typescript-eslint/no-empty-interface */
+import 'styled-components'
+import '@xstyled/system'
+import { WuiTheme } from '@welcome-ui/core'
+
+declare module '@xstyled/system' {
+  export interface Theme extends WuiTheme {}
+}
+
+declare module 'styled-components' {
+  export interface DefaultTheme extends WuiTheme {}
+}
+```
+
 <pagination />
