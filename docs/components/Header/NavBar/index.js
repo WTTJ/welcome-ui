@@ -1,16 +1,20 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import NextLink from 'next/link'
+import { useRouter } from 'next/router'
 
 import * as S from './styles'
 
 export function NavBar({ isMobileMenu, ...props }) {
+  const { pathname } = useRouter()
+  const isHomepage = pathname === '/'
+
   return (
     <S.NavBar isMobileMenu={isMobileMenu} {...props}>
       {!isMobileMenu && (
         <li>
-          <NextLink href="/" passHref>
-            <S.Item className="active">Documentation</S.Item>
+          <NextLink href="/installation" passHref>
+            <S.Item className={!isHomepage ? 'active' : undefined}>Documentation</S.Item>
           </NextLink>
         </li>
       )}
