@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.puzzle.cjs.js",
   "module": "dist/icons.puzzle.es.js",
-  "version": "4.0.0-alpha.16",
+  "version": "4.0.0-rc.0",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^4.0.0-alpha.16"
+    "@welcome-ui/icon": "^4.0.0-rc.0"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",

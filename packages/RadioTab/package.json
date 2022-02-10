@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/radio-tab",
-  "version": "4.0.0-alpha.17",
+  "version": "4.0.0-rc.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/radio-tab.cjs.js",
   "module": "dist/radio-tab.es.js",
@@ -38,8 +38,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^4.0.0-alpha.13",
-    "@welcome-ui/utils": "^4.0.0-alpha.13",
+    "@welcome-ui/system": "^4.0.0-rc.0",
+    "@welcome-ui/utils": "^4.0.0-rc.0",
     "reakit": "^1.3.6"
   },
   "peerDependencies": {
@@ -49,8 +49,8 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
-    "@welcome-ui/radio": "^4.0.0-alpha.16",
-    "@welcome-ui/radio-group": "^4.0.0-alpha.17"
+    "@welcome-ui/radio": "^4.0.0-rc.0",
+    "@welcome-ui/radio-group": "^4.0.0-rc.0"
   },
   "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "sideEffects": false,

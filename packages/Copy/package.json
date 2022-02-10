@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/utils.copy",
-  "version": "4.0.0-alpha.7",
+  "version": "4.0.0-rc.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/copy.cjs.js",
   "module": "dist/copy.es.js",

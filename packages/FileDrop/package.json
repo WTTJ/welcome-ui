@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/file-drop",
-  "version": "4.0.0-alpha.16",
+  "version": "4.0.0-rc.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/file-drop.cjs.js",
   "module": "dist/file-drop.es.js",
@@ -38,17 +38,17 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/button": "^4.0.0-alpha.13",
-    "@welcome-ui/files": "^4.0.0-alpha.16",
-    "@welcome-ui/group": "^4.0.0-alpha.13",
-    "@welcome-ui/icons.edit": "^4.0.0-alpha.16",
-    "@welcome-ui/icons.external_link": "^4.0.0-alpha.16",
-    "@welcome-ui/icons.negative": "^4.0.0-alpha.16",
-    "@welcome-ui/icons.positive": "^4.0.0-alpha.16",
-    "@welcome-ui/icons.trash": "^4.0.0-alpha.16",
-    "@welcome-ui/system": "^4.0.0-alpha.13",
-    "@welcome-ui/text": "^4.0.0-alpha.13",
-    "@welcome-ui/utils": "^4.0.0-alpha.13",
+    "@welcome-ui/button": "^4.0.0-rc.0",
+    "@welcome-ui/files": "^4.0.0-rc.0",
+    "@welcome-ui/group": "^4.0.0-rc.0",
+    "@welcome-ui/icons.edit": "^4.0.0-rc.0",
+    "@welcome-ui/icons.external_link": "^4.0.0-rc.0",
+    "@welcome-ui/icons.negative": "^4.0.0-rc.0",
+    "@welcome-ui/icons.positive": "^4.0.0-rc.0",
+    "@welcome-ui/icons.trash": "^4.0.0-rc.0",
+    "@welcome-ui/system": "^4.0.0-rc.0",
+    "@welcome-ui/text": "^4.0.0-rc.0",
+    "@welcome-ui/utils": "^4.0.0-rc.0",
     "react-dropzone": "^11.4.2"
   },
   "peerDependencies": {
