@@ -92,6 +92,7 @@ jobs:
             - icons/**/dist
             - packages/IconFont/fonts
 
+  # current version build (common to previews & prod)
   docs_build:
     <<: *defaults
     steps:
@@ -105,7 +106,8 @@ jobs:
           paths:
             - docs/out
 
-  docs_deploy:
+  # current version deploy for previews
+  docs_deploy_preview:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -114,6 +116,7 @@ jobs:
           key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: node_modules/.bin/netlify deploy --dir=docs/out --alias $CIRCLE_BRANCH
 
+  # current version deploy for production
   docs_deploy_prod:
     <<: *defaults
     steps:
@@ -121,8 +124,38 @@ jobs:
           at: ~/welcome-ui
       - restore_cache:
           key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - run: node_modules/.bin/netlify deploy --dir=docs/out --prod
+      - aws-s3/sync:
+          from: docs/out
+          to: s3://welcome-ui/docs_production
+          arguments: |
+            --metadata GitCommit=$CIRCLE_SHA1
+      - aws-s3/sync:
+          from: s3://welcome-ui/docs_production
+          to: docs_production
+      - run: node_modules/.bin/netlify deploy --dir=docs_production --prod
 
+  # previous versions build & deploy for production
+  previous_docs_versions_build_deploy_prod:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: build w/ prefix
+          command: |
+            VERSION=$CIRCLE_BRANCH
+            yarn docs:build
+      - aws-s3/sync:
+          from: docs/out
+          to: s3://welcome-ui/docs_production/$CIRCLE_BRANCH
+          arguments: |
+            --metadata GitCommit=$CIRCLE_SHA1 --delete
+      - aws-s3/sync:
+          from: s3://welcome-ui/docs_production
+          to: docs_production
+      - run: node_modules/.bin/netlify deploy --dir=docs_production --prod
 
 
 workflows:
@@ -164,7 +197,7 @@ workflows:
       - docs_build:
           filters:
             tags:
-              only: /^\d+.\d+.\d+$/
+              only: /^v\d+.\d+.\d+$/
           requires:
             - build
       - docs_deploy_prod:
@@ -172,13 +205,23 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^\d+.\d+.\d+$/
+              only: /^v\d+.\d+.\d+$/
           requires:
             - test
             - lint
             - docs_build
-      - docs_deploy:
+      - docs_deploy_preview:
           requires:
             - test
             - lint
             - docs_build
+
+      - previous_docs_versions_build_deploy_prod:
+          filters:
+            # should add branches here to keep previous doc version of future majors
+            branches:
+              only: v3
+          requires:
+            - test
+            - lint
+            - build

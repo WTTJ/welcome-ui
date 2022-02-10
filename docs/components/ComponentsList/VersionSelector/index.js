@@ -13,7 +13,7 @@ const versions = [
 export function VersionSelector() {
   const handleChange = value => {
     if (value === v3) {
-      window.open('http://v3.welcome-ui.com', '_self')
+      window.open('http://welcome-ui.com/v3', '_self')
     }
   }
 
