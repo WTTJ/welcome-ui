@@ -4212,14 +4212,6 @@
     "@xstyled/system" "^3.5.1"
     "@xstyled/util" "^3.5.1"
 
-"@xstyled/system@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-3.0.2.tgz#118932294394912643c6e4ade52ec5a7c299e75f"
-  integrity sha512-wtYKlRxHb7jTRx5aXjCp6jlWkuBUGT3jhdyF6t9lRR3hfr0fvBsyjtUIfppccFBQWgADs9q9RflIphlksPOB+Q==
-  dependencies:
-    "@xstyled/util" "^3.0.2"
-    csstype "^3.0.8"
-
 "@xstyled/system@^3.5.1":
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-3.5.1.tgz#7c788c3e44750e768b9f49b34458198c6fc04f3e"
@@ -4227,11 +4219,6 @@
   dependencies:
     "@xstyled/util" "^3.5.1"
     csstype "^3.0.8"
-
-"@xstyled/util@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@xstyled/util/-/util-3.0.2.tgz#97365cf80c44768ec86df82cf1e2f9a15e66c3a3"
-  integrity sha512-rkfxuwyvneiTfS+V5lH8doRtvmUW2hbL02ePKIFhpzX8yQdUoeBC13T6BYUQqnwq3ASxsyoMp/tON8+N/zG0XA==
 
 "@xstyled/util@^3.5.1":
   version "3.5.1"
