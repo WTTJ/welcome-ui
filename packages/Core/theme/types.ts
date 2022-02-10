@@ -45,6 +45,7 @@ import { ThemeTextareas } from './textareas'
 import { ThemeToasts } from './toasts'
 import { ThemeToggles } from './toggles'
 import { ThemeTimingFunction, ThemeTransitions } from './transitions'
+import { ThemeSizes } from './sizes'
 import {
   ThemeFonts,
   ThemeFontSizes,
@@ -67,6 +68,7 @@ type OverrideKeys =
   | 'fontWeights'
   | 'letterSpacings'
   | 'fonts'
+  | 'sizes'
   | 'screens'
   | 'space'
   | 'shadows'
@@ -130,6 +132,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   swipers: ThemeSwipers
   labels: ThemeLabels
   popovers: ThemePopovers
+  sizes: ThemeSizes
   // fields
   defaultFields: ThemeDefaultFields
   hints: ThemeHints

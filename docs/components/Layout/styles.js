@@ -30,7 +30,7 @@ export const Content = styled.main`
   width: 100%;
   min-height: ${`calc(100vh - ${headerHeight})`};
 
-  > * :not(footer) {
+  > :not(footer) {
     max-width: 970;
     padding-left: md;
     padding-right: md;
