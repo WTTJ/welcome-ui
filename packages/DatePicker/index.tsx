@@ -25,10 +25,10 @@ export interface DatePickerOptions {
 
 export type DatePickerProps = CreateWuiProps<
   typeof StyledDatePicker,
-  Omit<ReactDatePickerProps, 'onChange' | 'onBlur' | 'onFocus' | 'locale' | 'value'> &
+  Omit<ReactDatePickerProps, keyof DatePickerOptions | 'locale'> &
     Partial<Pick<CustomHeaderOptions, 'endYear' | 'startYear'>> &
     Pick<CustomHeaderOptions, 'locale'> &
-    Omit<CustomInputOptions, 'handleBlur' | 'handleFocus' | 'onReset' | 'focused' | 'value'> &
+    Omit<CustomInputOptions, keyof DatePickerOptions> &
     DatePickerOptions
 >
 
