@@ -1,23 +1,28 @@
-import React, { cloneElement, forwardRef, useEffect, useState } from 'react'
-import { bool, func, node, number, object, oneOf, oneOfType, string } from 'prop-types'
-import { DatePicker } from '@welcome-ui/date-picker'
-import { TimePicker } from '@welcome-ui/time-picker'
+import React, { Children, cloneElement, useEffect, useState } from 'react'
+import { DatePicker, DatePickerProps } from '@welcome-ui/date-picker'
+import { TimePicker, TimePickerProps } from '@welcome-ui/time-picker'
 import { DEFAULT_DATE, getDate } from '@welcome-ui/date-time-picker-common'
-
-import { SIZES_TYPE } from '../../utils/propTypes'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export const DateTimePicker = forwardRef(
+export type DateTimePickerProps = CreateWuiProps<
+  'input',
+  Pick<DatePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value'> &
+    Pick<TimePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value'>
+>
+
+export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
   (
     { children, dataTestId, disabled, locale, onChange, size = 'lg', value = DEFAULT_DATE },
     ref
   ) => {
-    const formatDate = date => getDate(date, 15)
+    const formatDate: (date: DateTimePickerProps['value']) => ReturnType<typeof getDate> = date =>
+      getDate(date, 15)
 
     const [date, setDate] = useState(formatDate(value))
 
-    const handleChange = newDate => {
+    const handleChange: DateTimePickerProps['onChange'] = newDate => {
       setDate(newDate || null)
       onChange && onChange(newDate && new Date(newDate))
     }
@@ -31,7 +36,7 @@ export const DateTimePicker = forwardRef(
     // Ensure values are controlled by parent
     useEffect(() => {
       const formattedDate = formatDate(value)
-      if (new Date(value) - formattedDate !== 0 && onChange) {
+      if (new Date(value)?.getTime() - formattedDate?.getTime() !== 0 && onChange) {
         handleChange(formattedDate)
       }
       setDate(formattedDate)
@@ -39,9 +44,9 @@ export const DateTimePicker = forwardRef(
     }, [value])
 
     return (
-      <S.DateTimePicker data-testid={dataTestId} size={size}>
+      <S.DateTimePicker data-testid={dataTestId}>
         {children &&
-          children.map((child, i) =>
+          Children.map(children, (child: React.ReactElement, i) =>
             cloneElement(child, {
               key: i,
               onChange: handleChange,
@@ -55,9 +60,9 @@ export const DateTimePicker = forwardRef(
           <>
             <DatePicker
               disabled={disabled}
-              inputRef={ref}
               locale={locale}
               onChange={handleChange}
+              ref={ref}
               size={size}
               value={value}
             />
@@ -76,12 +81,3 @@ export const DateTimePicker = forwardRef(
 )
 
 DateTimePicker.displayName = 'DateTimePicker'
-
-DateTimePicker.propTypes /* remove-proptypes */ = {
-  children: node,
-  disabled: bool,
-  locale: object,
-  onChange: func,
-  size: oneOf(SIZES_TYPE),
-  value: oneOfType([number, object, string]),
-}
