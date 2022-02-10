@@ -16,7 +16,7 @@
     "skipLibCheck": true,
     "lib": ["dom", "esnext"]
   },
-  "include": ["packages"],
+  "include": ["packages", "syled.d.ts"],
   "exclude": [
     "node_modules",
     "dist",

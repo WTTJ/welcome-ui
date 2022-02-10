@@ -4196,34 +4196,34 @@
   resolved "https://registry.yarnpkg.com/@ungap/from-entries/-/from-entries-0.2.1.tgz#7e86196b8b2e99d73106a8f25c2a068326346354"
   integrity sha512-CAqefTFAfnUPwYqsWHXpOxHaq1Zo5UQ3m9Zm2p09LggGe57rqHoBn3c++xcoomzXKynAUuiBMDUCQvKMnXjUpA==
 
-"@xstyled/core@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-3.0.2.tgz#01578c65947664a80552a7180c78d3e54c5e9a3d"
-  integrity sha512-+WPJ//PselaFa2C1VgTIvE4C65+Zub0T7/vSmaRmliE68lhhFwkxvCyElj/u3fmWzoDQcUECiAME+AJSv8fO7g==
+"@xstyled/core@^3.5.1":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-3.5.1.tgz#a5af87a272a9f8fc7422a4d5c45a566779031d09"
+  integrity sha512-pUFgEii1NMEuIKwAujS1/5zuRnq655/YSLcQ8A/mD6IqWM2YxG3dXTPBa0bavJbUA1RSDKEVPDALhLC50dipQQ==
   dependencies:
-    "@xstyled/system" "^3.0.2"
+    "@xstyled/system" "^3.5.1"
 
-"@xstyled/styled-components@^3.0.1", "@xstyled/styled-components@^3.0.3":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-3.0.3.tgz#a872bd6ad41a43ca25547402ba429a9b645aa2ee"
-  integrity sha512-Lm916dkm4EsknwdrGPpD6NXpclUw1s7F5SoBWpnFdMBlheLrxPHuiAT7kMU15j0Asf2Sqsmfh1ZAbPHK2UX+aA==
+"@xstyled/styled-components@^3.5.1":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-3.5.1.tgz#0c0f1f50cb66bff76193489b8570fa375436e322"
+  integrity sha512-siSBEjddGqIRMKNt25LMRHwfV89RbVWdop8zzspNds1BCNeP0P53DKEauflHTC/XozYOR7NnvhUukWF7jeRSRg==
   dependencies:
-    "@xstyled/core" "^3.0.2"
-    "@xstyled/system" "^3.0.2"
-    "@xstyled/util" "^3.0.2"
+    "@xstyled/core" "^3.5.1"
+    "@xstyled/system" "^3.5.1"
+    "@xstyled/util" "^3.5.1"
 
-"@xstyled/system@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-3.0.2.tgz#118932294394912643c6e4ade52ec5a7c299e75f"
-  integrity sha512-wtYKlRxHb7jTRx5aXjCp6jlWkuBUGT3jhdyF6t9lRR3hfr0fvBsyjtUIfppccFBQWgADs9q9RflIphlksPOB+Q==
+"@xstyled/system@^3.5.1":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-3.5.1.tgz#7c788c3e44750e768b9f49b34458198c6fc04f3e"
+  integrity sha512-dsYsHaSu4cm/45M0MQz+ju3Nxpp3glGW1xxSfUsN2NIYKuBWnncY+ZoheWETG4kSnOL8Clv2W8v2dyhBHgp/MA==
   dependencies:
-    "@xstyled/util" "^3.0.2"
+    "@xstyled/util" "^3.5.1"
     csstype "^3.0.8"
 
-"@xstyled/util@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@xstyled/util/-/util-3.0.2.tgz#97365cf80c44768ec86df82cf1e2f9a15e66c3a3"
-  integrity sha512-rkfxuwyvneiTfS+V5lH8doRtvmUW2hbL02ePKIFhpzX8yQdUoeBC13T6BYUQqnwq3ASxsyoMp/tON8+N/zG0XA==
+"@xstyled/util@^3.5.1":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/@xstyled/util/-/util-3.5.1.tgz#ab8118652b28bb86bbdaf14fa04b4e61905ff86b"
+  integrity sha512-Pf3/t+Xkp+2kKN+vfzBEeyIlO2M1HSOGgb47apgntcqTxYiVms/GrXR4ROKUoMtcLscY9+6xduA+7febPehY1g==
 
 "@zkochan/cmd-shim@^3.1.0":
   version "3.1.0"
