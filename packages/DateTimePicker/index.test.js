@@ -1,6 +1,8 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { DatePicker } from '@welcome-ui/date-picker'
+import { TimePicker } from '@welcome-ui/time-picker'
 
 import { render } from '../../utils/tests'
 
@@ -131,6 +133,53 @@ describe('<DateTimePicker />', () => {
     const [monthSelect, yearSelect] = getAllByRole('combobox')
     expect(monthSelect).toHaveTextContent('June')
     expect(yearSelect).toHaveTextContent('2018')
+  })
+
+  test('<DateTimePicker> timeIntervals prop defaults to 15', () => {
+    const { baseElement, container } = render(
+      <DateTimePicker name="welcome" value={new Date('11/23/1987')} />
+    )
+
+    const datePicker = container.querySelector('.date-picker')
+    const timePicker = container.querySelector('.time-picker')
+
+    expect(datePicker).toHaveValue('23/11/1987')
+    expect(timePicker).toHaveValue('00:00')
+
+    fireEvent.click(timePicker)
+
+    const timePickerPopperItems = baseElement.querySelectorAll('.react-datepicker__time-list-item')
+    const firstTimeValueEl = timePickerPopperItems[0]
+    const secondTimeValueEl = timePickerPopperItems[1]
+    expect(firstTimeValueEl).toHaveTextContent('12:00 AM')
+    expect(secondTimeValueEl).toHaveTextContent('12:15 AM')
+  })
+
+  test('<DateTimePicker> timeIntervals works properly', () => {
+    const { baseElement, container } = render(
+      <DateTimePicker name="welcome" value={new Date('11/23/1987')}>
+        <DatePicker />
+        <TimePicker timeIntervals={5} />
+      </DateTimePicker>
+    )
+
+    const datePicker = container.querySelector('.date-picker')
+    const timePicker = container.querySelector('.time-picker')
+
+    expect(datePicker).toHaveValue('23/11/1987')
+    expect(timePicker).toHaveValue('00:00')
+
+    fireEvent.click(timePicker)
+
+    const timePickerPopperItems = baseElement.querySelectorAll('.react-datepicker__time-list-item')
+    const firstTimeValueEl = timePickerPopperItems[0]
+    const secondTimeValueEl = timePickerPopperItems[1]
+    expect(firstTimeValueEl).toHaveTextContent('12:00 AM')
+    expect(secondTimeValueEl).toHaveTextContent('12:05 AM')
+
+    fireEvent.click(secondTimeValueEl)
+
+    expect(timePicker).toHaveValue('00:05')
   })
 
   test('<DatePicker> can be cleared and has no `ClearButton` when no value', () => {
