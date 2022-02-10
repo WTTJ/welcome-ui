@@ -5,27 +5,85 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/checkbox/package.json'
 
-# Checkbox
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to select one or more items from several options."
+/>
 
 ## Usage
 
 ```jsx
-<Form initialValues={{ vue: true }}>
-  <FieldGroup label="Check the frameworks you have already worked with">
-    <ConnectedField component={Checkbox} name="react" label="React" />
-    <ConnectedField component={Checkbox} label="Angular" name="angular" id="angular_custom_id" />
-    <ConnectedField component={Checkbox} name="vue" label="Vue" />
-  </FieldGroup>
-</Form>
+function() {
+  const FormChildren = ({ control, register }) => (
+    <FieldGroup label="Check the frameworks you have already worked with">
+      <Controller
+        name="react"
+        control={control}
+        render={({ onChange, value}) => (
+            <Field label="React">
+              <Checkbox
+                mb="xxs"
+                name="react"
+                onChange={e => onChange(!e.target.checked)}
+                checked={value}
+              />
+            </Field>
+          )
+         }
+      />
+      <Controller
+        name="angular"
+        control={control}
+        render={({ onChange, value}) => (
+            <Field label="Angular">
+              <Checkbox
+                mb="xxs"
+                name="angular"
+                onChange={e => onChange(!e.target.checked)}
+                checked={value}
+              />
+            </Field>
+          )
+         }
+      />
+      <Controller
+        name="vue"
+        control={control}
+        render={({ onChange, value}) => (
+            <Field label="Vue">
+              <Checkbox
+                name="vue"
+                onChange={e => onChange(!e.target.checked)}
+                checked={value}
+              />
+            </Field>
+          )
+         }
+      />
+    </FieldGroup>
+  )
+
+  return (
+    <HookForm
+      defaultValues={{ vue: true }}
+      schemaValidate={() =>
+        yup.object().shape({
+          react: yup.boolean().required().oneOf([true, false]),
+          angular: yup.boolean().required().oneOf([true, false]),
+          vue: yup.boolean().required().oneOf([true, false]),
+        })
+      }
+    >
+      <FormChildren />
+    </HookForm>
+  )
+}
+
 ```
 
 ## Standalone
@@ -57,10 +115,14 @@ function() {
 
 <props propTypes={props.propTypes.Checkbox} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

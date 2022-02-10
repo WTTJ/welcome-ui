@@ -5,16 +5,15 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/label/package.json'
 
-# Label
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to represents a caption for an item in a user interface."
+/>
 
 ## Default
 
@@ -49,14 +48,22 @@ With `required` property.
 Checkboxes and radio buttons are normally nested inside labels. If you do this, make sure there is only one other child (in this example, a `div`).
 
 ```jsx
-<Label variant="error">
-  <Checkbox name="labelExample" onChange={() => {}} />
-  <div>
-    <span>Error variant with </span>
-    <Link href="#">a link</Link>
-    <span> and all of that jazz because of the fox</span>
-  </div>
-</Label>
+function () {
+  const [checked, setChecked] = useState(false)
+
+  const handleToggle = () => setChecked(!checked)
+
+  return (
+    <Label variant="error">
+      <Checkbox name="labelExample" checked={checked} onChange={handleToggle} />
+      <div>
+        <span>Error variant with </span>
+        <Link href="#">a link</Link>
+        <span> and all of that jazz because of the fox</span>
+      </div>
+    </Label>
+  )
+}
 ```
 
 ## Disabled
@@ -77,10 +84,14 @@ Customize label for disabled elements.
 
 <props propTypes={props.propTypes.Label} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

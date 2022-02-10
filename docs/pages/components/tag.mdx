@@ -5,16 +5,15 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/tag/package.json'
 
-# Tag
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to categorized or organized keywords."
+/>
 
 ## Variants
 
@@ -52,7 +51,7 @@ Admire these beautiful colors 💅
 
 ## Sizes
 
-Use size property with `xs` `sm` `md` or `lg`.
+Use size property with `xs`, `sm`, `md` or `lg`.
 
 ```jsx row
 <Tag size="xs">
@@ -135,3 +134,5 @@ function() {
 ## Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

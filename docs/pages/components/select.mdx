@@ -5,44 +5,68 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/select/package.json'
 
-# Select
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to select one or mutilple choices."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
 It is based on the [downshift](https://github.com/downshift-js/downshift) library.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Default
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    component={Select}
-    options={constants.ITEMS}
-    name="welcome"
-    label="Social networks"
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return <Select options={constants.ITEMS} name="welcome" value={value} onChange={handleChange} />
+}
+```
+
+## With Field
+
+```jsx
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Social networks" required>
+      <Select options={constants.ITEMS} name="welcome2" value={value} onChange={handleChange} />
+    </Field>
+  )
+}
 ```
 
 ## Clearable
 
 ```jsx
-<Form initialValues={{ welcome2: ['github', 'twitter'] }}>
-  <ConnectedField
-    component={Select}
-    isClearable
-    options={constants.ITEMS}
-    name="welcome2"
-    label="Social networks"
-  />
-</Form>
+function () {
+  const [value, setValue] = useState('github')
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Social networks">
+      <Select isClearable options={constants.ITEMS} name="welcome3" value={value} onChange={handleChange} />
+    </Field>
+  )
+}
 ```
 
 ## Multiple values
@@ -50,49 +74,63 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
 Just add the `isMultiple` prop. Note: to be able to choose multiple values you must pass an array for the `value`.
 
 ```jsx
-<Form initialValues={{ welcome3: ['github', 'twitter'] }}>
-  <ConnectedField
-    component={Select}
-    isMultiple
-    options={constants.ITEMS}
-    name="welcome3"
-    label="Social networks"
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(['github', 'twitter'])
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Social networks">
+      <Select isMultiple options={constants.ITEMS} name="welcome3" value={value} onChange={handleChange} />
+    </Field>
+  )
+}
 ```
 
 Passing a `renderMultiple` function allows you to format the selected items below the select.
 
 ```jsx
-<Form initialValues={{ welcome4: ['github', 'twitter'] }}>
-  <ConnectedField
-    component={Select}
-    isMultiple
-    name="welcome4"
-    label="Social networks"
-    options={constants.ITEMS}
-    renderMultiple={(selected, handleRemove) => {
-      return selected.map(option => {
-        const Icon = option.icon
-        return (
-          <Tag
-            key={option.value}
-            variant="primary"
-            onRemove={() => handleRemove(option.value)}
-            mr="sm"
-            mt="sm"
-            size="lg"
-          >
-            <Icon mr="sm" />
-            <Text variant="body3" m="0">
-              {option.label}
-            </Text>
-          </Tag>
-        )
-      })
-    }}
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(['github', 'twitter'])
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Social networks">
+      <Select
+        isMultiple
+        name="welcome4"
+        options={constants.ITEMS}
+        value={value}
+        onChange={handleChange}
+        renderMultiple={(selected, handleRemove) => {
+          return selected.map(option => {
+            const Icon = option.icon
+            return (
+              <Tag
+                key={option.value}
+                variant="primary"
+                onRemove={() => handleRemove(option.value)}
+                mr="sm"
+                mt="sm"
+                size="lg"
+              >
+                <Icon mr="sm" />
+                <Text variant="body3" m="0">
+                  {option.label}
+                </Text>
+              </Tag>
+            )
+          })
+        }}
+      />
+    </Field>
+  )
+}
 ```
 
 ## Searchable
@@ -100,15 +138,19 @@ Passing a `renderMultiple` function allows you to format the selected items belo
 To be able to filter (i.e. search) the results, add the `isSearchable` prop.
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    component={Select}
-    isSearchable
-    options={constants.ITEMS}
-    name="welcome5"
-    label="Social networks"
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Social networks">
+      <Select isSearchable options={constants.ITEMS} name="welcome5" value={value} onChange={handleChange} />
+    </Field>
+  )
+}
 ```
 
 ## Add an icon
@@ -116,15 +158,25 @@ To be able to filter (i.e. search) the results, add the `isSearchable` prop.
 Pass `icon` to decorate your `Select`
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    component={Select}
-    icon={<LinkIcon label="Social networks" color="light.100" />}
-    name="welcome6"
-    label="Social networks"
-    options={constants.ITEMS}
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Social networks">
+      <Select
+        icon={<LinkIcon label="Social networks" color="light.100" />}
+        name="welcome6"
+        options={constants.ITEMS}
+        value={value}
+        onChange={handleChange}
+      />
+    </Field>
+  )
+}
 ```
 
 ## Formatting options
@@ -136,22 +188,32 @@ Note: if you use `renderItem` with `isSearchable` or `isCreatable` the selected 
 Note: if you want to format the options _and_ the placeholder, create a dummy value as the first of your options with an empty string as the value (see code below).
 
 ```jsx
-<Form initialValues={{ welcome7: 'twitter' }}>
-  <ConnectedField
-    component={Select}
-    name="welcome7"
-    label="Social networks"
-    options={constants.ITEMS}
-    renderItem={option => {
-      const Icon = option.icon
-      return (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Icon mr="xs" /> <span>{option.label}</span>
-        </div>
-      )
-    }}
-  />
-</Form>
+function () {
+  const [value, setValue] = useState('github')
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Social networks">
+      <Select
+        name="welcome7"
+        options={constants.ITEMS}
+        value={value}
+        onChange={handleChange}
+        renderItem={option => {
+          const Icon = option.icon
+          return (
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Icon mr="xs" /> <span>{option.label}</span>
+            </div>
+          )
+        }}
+      />
+    </Field>
+  )
+}
 ```
 
 ## Creatable
@@ -161,15 +223,19 @@ You can _add_ items by passing the `isCreatable` prop. The returned item will be
 `{ value: 'name-to-be-kebab-cased', label: 'Name to be kebab-cased' }`
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    component={Select}
-    isCreatable
-    options={constants.ITEMS}
-    name="welcome8"
-    label="Social networks"
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Social networks">
+      <Select isCreatable options={constants.ITEMS} name="welcome8" value={value} onChange={handleChange} />
+    </Field>
+  )
+}
 ```
 
 ## Creatable with custom create button
@@ -177,25 +243,35 @@ You can _add_ items by passing the `isCreatable` prop. The returned item will be
 Passing a `renderCreateItem` function allows you to format the create button in the list. It is a function and receives the input value as argument
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    component={Select}
-    isCreatable
-    label="Social networks"
-    name="welcome8"
-    options={constants.ITEMS}
-    renderCreateItem={value => {
-      return (
-        <Box alignItems="center" display="flex">
-          <AddIcon mr="sm" />
-          <Text m={0}>
-            Add <b>{value}</b> as a new social network
-          </Text>
-        </Box>
-      )
-    }}
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Social networks">
+      <Select
+        isCreatable
+        name="welcome9"
+        options={constants.ITEMS}
+        onChange={handleChange}
+        value={value}
+        renderCreateItem={value => {
+          return (
+            <Box alignItems="center" display="flex">
+              <AddIcon mr="sm" />
+              <Text m={0}>
+                Add <b>{value}</b> as a new social network
+              </Text>
+            </Box>
+          )
+        }}
+      />
+    </Field>
+  )
+}
 ```
 
 ## Using allowUnselectFromList and disableCloseOnSelect
@@ -203,29 +279,39 @@ Passing a `renderCreateItem` function allows you to format the create button in 
 These two options combined allows you, for example, to build a filter dropdown with checkboxes on each items.
 
 ```jsx
-<Form initialValues={{ welcome9: ['github', 'twitter'] }}>
-  <ConnectedField
-    component={Select}
-    icon={<LinkIcon label="Social networks" color="light.100" />}
-    isMultiple
-    isSearchable
-    options={constants.ITEMS}
-    name="welcome9"
-    label="Filters"
-    allowUnselectFromList
-    disableCloseOnSelect
-    renderItem={(item, selected) => {
-      return (
-        <Box display="flex" justifyContent="space-between">
-          {item.label}
-          <Box>
-            <Checkbox type="checkbox" checked={selected} />
-          </Box>
-        </Box>
-      )
-    }}
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Filters">
+      <Select
+        icon={<LinkIcon label="Social networks" color="light.100" />}
+        isMultiple
+        isSearchable
+        options={constants.ITEMS}
+        name="welcome10"
+        allowUnselectFromList
+        disableCloseOnSelect
+        onChange={handleChange}
+        value={value}
+        renderItem={(item, selected) => {
+          return (
+            <Box display="flex" justifyContent="space-between">
+              {item.label}
+              <Box>
+                <Checkbox type="checkbox" checked={selected} />
+              </Box>
+            </Box>
+          )
+        }}
+      />
+    </Field>
+  )
+}
 ```
 
 ## Combining props
@@ -233,18 +319,28 @@ These two options combined allows you, for example, to build a filter dropdown w
 You can pass any combination of the props above. For example below, we have a `Select` that allows you to search the options, choose multiple options, and create new options.
 
 ```jsx
-<Form initialValues={{ welcome10: ['github', 'twitter'] }}>
-  <ConnectedField
-    component={Select}
-    icon={<LinkIcon label="Social networks" color="light.100" />}
-    isCreatable
-    isMultiple
-    isSearchable
-    options={constants.ITEMS}
-    name="welcome10"
-    label="Social networks"
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(['github', 'twitter'])
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Social networks">
+      <Select
+        icon={<LinkIcon label="Social networks" color="light.100" />}
+        isCreatable
+        isMultiple
+        isSearchable
+        options={constants.ITEMS}
+        name="welcome11"
+        value={value}
+        onChange={handleChange}
+      />
+    </Field>
+  )
+}
 ```
 
 ## With option groups
@@ -252,36 +348,50 @@ You can pass any combination of the props above. For example below, we have a `S
 To use option groups, you must provide two additional props: `groupsEnabled` that allow nested options and `renderGroupHeader` that renders the header of a specific group
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    component={Select}
-    options={constants.OPT_GROUP_ITEMS}
-    name="welcome11"
-    label="Social networks"
-    groupsEnabled
-    renderGroupHeader={({ label, options }) => (
-      <Box p="xxs">
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Text variant="body3" m="0">
-            {label}
-          </Text>
-          <Tag>{options.length}</Tag>
-        </Box>
-        {options.length === 0 && <Text variant="body4">No results found</Text>}
-      </Box>
-    )}
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(['github', 'twitter'])
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Social networks">
+      <Select
+        options={constants.OPT_GROUP_ITEMS}
+        name="welcome12"
+        groupsEnabled
+        onChange={handleChange}
+        value={value}
+        renderGroupHeader={({ label, options }) => (
+          <Box p="xxs">
+            <Box display="flex" justifyContent="space-between" alignItems="center">
+              <Text variant="body3" m="0">
+                {label}
+              </Text>
+              <Tag>{options.length}</Tag>
+            </Box>
+            {options.length === 0 && <Text variant="body4">No results found</Text>}
+          </Box>
+        )}
+      />
+    </Field>
+  )
+}
 ```
 
 ## Properties
 
 <props propTypes={props.propTypes.Select} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

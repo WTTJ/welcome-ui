@@ -5,18 +5,19 @@ import {
   peerDependencies,
   component,
   name,
-  version
+  version,
 } from '@welcome-ui/accordion/package.json'
 
-# Accordion
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows the user to show and hide sections of related content on a page."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
 Built with [Reakit](https://reakit.io/docs/disclosure/) for a better accessibility 🌈
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Usage
 
@@ -68,10 +69,14 @@ Customize the icon with a node element on property `icon`
 
 <props propTypes={props.propTypes.Accordion} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

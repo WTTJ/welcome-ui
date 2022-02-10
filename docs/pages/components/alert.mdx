@@ -5,18 +5,15 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/alert/package.json'
 
-# Alert
-
-<tagversion version={version} name={name} component={component} />
-
-Simple feedback messages for user actions.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to display a short, important message to get attention."
+/>
 
 ## Variants
 
@@ -104,10 +101,14 @@ When usin `Alert.Button`, we will show it in a column on the right
 
 <props propTypes={props.propTypes['Alert.Title']} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

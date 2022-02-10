@@ -8,7 +8,7 @@ import {
   StackoverflowIcon,
   TwitterIcon,
   XingIcon,
-  YoutubeIcon
+  YoutubeIcon,
 } from '@welcome-ui/icons'
 
 export const ITEMS = [
@@ -21,7 +21,7 @@ export const ITEMS = [
   { value: 'stackoverflow', label: 'Stack Overflow', icon: StackoverflowIcon },
   { value: 'twitter', label: 'Twitter', icon: TwitterIcon },
   { value: 'xing', label: 'Xing', icon: XingIcon },
-  { value: 'youtube', label: 'Youtube', icon: YoutubeIcon }
+  { value: 'youtube', label: 'Youtube', icon: YoutubeIcon },
 ]
 
 export const OPT_GROUP_ITEMS = [
@@ -33,8 +33,8 @@ export const OPT_GROUP_ITEMS = [
       { value: 'github', label: 'Github', icon: GithubIcon },
       { value: 'linkedin', label: 'Linkedin', icon: LinkedinIcon },
       { value: 'stackoverflow', label: 'Stack Overflow', icon: StackoverflowIcon },
-      { value: 'xing', label: 'Xing', icon: XingIcon }
-    ]
+      { value: 'xing', label: 'Xing', icon: XingIcon },
+    ],
   },
   {
     label: 'Personal networks',
@@ -42,9 +42,9 @@ export const OPT_GROUP_ITEMS = [
       { value: 'instagram', label: 'Instagram', icon: InstagramIcon },
       { value: 'facebook', label: 'Facebook', icon: FacebookIcon },
       { value: 'twitter', label: 'Twitter', icon: TwitterIcon },
-      { value: 'youtube', label: 'Youtube', icon: YoutubeIcon }
-    ]
-  }
+      { value: 'youtube', label: 'Youtube', icon: YoutubeIcon },
+    ],
+  },
 ]
 
 export { default as EMOJIS } from '../packages/EmojiPicker/basicEmojis.json'

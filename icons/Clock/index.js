@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const ClockIcon = props => <Icon alt="Clock" content={content} {...props} />
+
+export function ClockIcon(props) {
+  return <Icon alt="Clock" content={content} {...props} />
+}

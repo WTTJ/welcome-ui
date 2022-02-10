@@ -5,72 +5,114 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/date-picker/package.json'
 
-# DatePicker
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to select a predefined date."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
-It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library. _Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
+It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
 
-## Install and import
+_Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
 
-<usage component={component} name={name} peerDependencies={peerDependencies} />
-
-## Simple use case
+## Simple usecase
 
 ```jsx
-<Form initialValues={{ welcome: Date.now() }}>
-  <ConnectedField component={DatePicker} label="Date" name="welcome" />
-</Form>
+function () {
+  const [value, setValue] = useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Date">
+      <DatePicker name="welcome" onChange={handleChange} value={value} />
+    </Field>
+  )
+}
 ```
 
 ## Pass props from the original library.
 
 ```jsx
-<Form initialValues={{ welcome2: Date.now() }}>
-  <ConnectedField
-    component={DatePicker}
-    dateFormat="MMM dd yyyy"
-    label="Date"
-    maxDate={new Date()}
-    name="welcome2"
-    popperProps={{ zIndex: 50 }}
-    yearDropdownItemNumber={30}
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Date">
+      <DatePicker
+        dateFormat="MMM dd yyyy"
+        name="welcome2"
+        maxDate={new Date()}
+        popperProps={{ zIndex: 50 }}
+        yearDropdownItemNumber={30}
+        onChange={handleChange}
+        value={value}
+      />
+    </Field>
+  )
+}
 ```
 
 ## Give an Icon
 
 ```jsx
-<Form initialValues={{ welcome3: Date.now() }}>
-  <ConnectedField
-    component={DatePicker}
-    icon={<DateIcon color="light.100" />}
-    label="Date"
-    name="welcome3"
-  />
-</Form>
+function () {
+  const [value, setValue] = useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Date">
+      <DatePicker icon={<DateIcon color="light.100" />} name="welcome3" value={value} onChange={handleChange} />
+    </Field>
+  )
+}
 ```
 
 ## fr locale
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField component={DatePicker} label="Date" locale={dateFR} name="welcome4" />
-</Form>
+function () {
+  const [value, setValue] = useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Date">
+      <DatePicker locale={dateFR} name="welcome4" value={value} onChange={handleChange} />
+    </Field>
+  )
+}
 ```
 
 ## Properties
 
 <props propTypes={props.propTypes.DatePicker} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

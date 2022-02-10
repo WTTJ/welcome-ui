@@ -3,8 +3,8 @@
   "sideEffects": false,
   "main": "dist/icons.music.cjs.js",
   "module": "dist/icons.music.es.js",
-  "version": "3.0.0",
-  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
+  "version": "4.0.0-alpha.16",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "publishConfig": {
     "access": "public"
   },
@@ -13,7 +13,8 @@
     "react-dom": "^16.10.2 || ^17.0.1"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^3.0.0"
+    "@welcome-ui/icon": "^4.0.0-alpha.16"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "types": "dist/index.d.ts"
 }

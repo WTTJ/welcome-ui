@@ -5,46 +5,55 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/search/package.json'
 
-# Search
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="This allows you to search data from a remote API."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
-This allows you to search data from a remote API. It is based on the [downshift](https://github.com/downshift-js/downshift) library.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+It is based on the [downshift](https://github.com/downshift-js/downshift) library.
 
 ## Default
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    component={Search}
-    search={async function asyncSearch(s) {
-      const response = await fetch(`https://www.omdbapi.com?apikey=41514363&s=${s}`)
-      const data = await response.json()
-      return data.Search
-    }}
-    label="Movies"
-    name="movies"
-    renderItem={item =>
-      item && (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Shape w="40px" h="40px" shape="circle" mr="sm">
-            <img src={item.Poster} />
-          </Shape>
-          {item.Title} ({item.Year})
-        </div>
-      )
-    }
-    placeholder="Search a movie"
-    itemToString={item => item && item.Title}
-  />
-</Form>
+function () {
+  const [value, setValue] = useState('')
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Search
+      name="movies"
+      renderItem={item =>
+        item && (
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Shape w="40px" h="40px" shape="circle" mr="sm">
+              <img src={item.Poster} />
+            </Shape>
+            {item.Title} ({item.Year})
+          </div>
+        )
+      }
+      placeholder="Search a movie"
+      itemToString={item => item && item.Title}
+      onChange={handleChange}
+      value={value}
+      search={async function asyncSearch(s) {
+        const response = await fetch(`https://www.omdbapi.com?apikey=41514363&s=${s}`)
+        const data = await response.json()
+        return data.Search
+      }}
+    />
+  )
+}
 ```
 
 ## With option groups
@@ -52,57 +61,67 @@ This allows you to search data from a remote API. It is based on the [downshift]
 To use option groups, you must provide two additional props: `groupsEnabled` that allow nested options and `renderGroupHeader` that renders the header of a specific group
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    component={Search}
-    search={async function asyncSearch(s) {
-      const response = await fetch(`https://www.omdbapi.com?apikey=41514363&s=${s}`)
-      const data = await response.json()
-      const searchResults = (data.Search || []).reduce(
-        (acc, item) => {
-          if (item.Type === 'movie') {
-            acc.movies.push(item)
-          } else {
-            acc.series.push(item)
-          }
-          return acc
-        },
-        { movies: [], series: [] }
-      )
+function () {
+  const [value, setValue] = useState('')
 
-      return [
-        { label: 'Movies', options: searchResults.movies },
-        { label: 'Series', options: searchResults.series }
-      ]
-    }}
-    label="Movies & Series"
-    name="movies_series"
-    renderItem={item =>
-      item && (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Shape w="40px" h="40px" shape="circle" mr="sm">
-            <img src={item.Poster} />
-          </Shape>
-          {item.Title} ({item.Year})
-        </div>
-      )
-    }
-    placeholder="Search a movie or series"
-    itemToString={item => item && item.Title}
-    groupsEnabled
-    renderGroupHeader={({ label, options }) => (
-      <Box p="xxs">
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Text variant="body3" m="0">
-            {label}
-          </Text>
-          <Tag>{options.length}</Tag>
-        </Box>
-        {options.length === 0 && <Text variant="body4">No results found</Text>}
-      </Box>
-    )}
-  />
-</Form>
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Movies & Series">
+      <Search
+        name="movies_series"
+        renderItem={item =>
+          item && (
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Shape w="40px" h="40px" shape="circle" mr="sm">
+                <img src={item.Poster} />
+              </Shape>
+              {item.Title} ({item.Year})
+            </div>
+          )
+        }
+        placeholder="Search a movie or series"
+        itemToString={item => item && item.Title}
+        groupsEnabled
+        renderGroupHeader={({ label, options }) => (
+          <Box p="xxs">
+            <Box display="flex" justifyContent="space-between" alignItems="center">
+              <Text variant="body3" m="0">
+                {label}
+              </Text>
+              <Tag>{options.length}</Tag>
+            </Box>
+            {options.length === 0 && <Text variant="body4">No results found</Text>}
+          </Box>
+        )}
+        onChange={handleChange}
+        value={value}
+        search={async function asyncSearch(s) {
+          const response = await fetch(`https://www.omdbapi.com?apikey=41514363&s=${s}`)
+          const data = await response.json()
+          const searchResults = (data.Search || []).reduce(
+            (acc, item) => {
+              if (item.Type === 'movie') {
+                acc.movies.push(item)
+              } else {
+                acc.series.push(item)
+              }
+              return acc
+            },
+            { movies: [], series: [] }
+          )
+
+          return [
+            { label: 'Movies', options: searchResults.movies },
+            { label: 'Series', options: searchResults.series },
+          ]
+        }}
+      />
+    </Field>
+  )
+}
 ```
 
 ## Properties
@@ -166,10 +185,14 @@ The rest of the props are below:
 
 <props propTypes={props.propTypes.Search} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

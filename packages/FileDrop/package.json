@@ -1,13 +1,16 @@
 {
   "name": "@welcome-ui/file-drop",
-  "version": "3.4.3",
+  "version": "4.0.0-alpha.16",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/file-drop.cjs.js",
   "module": "dist/file-drop.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
+    "doc": "node -r esm ../../scripts/doc-props.js --name FileDrop"
   },
   "publishConfig": {
     "access": "public"
@@ -35,28 +38,29 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/button": "^3.4.3",
-    "@welcome-ui/files": "^3.4.0",
-    "@welcome-ui/group": "^3.0.0",
-    "@welcome-ui/icons.edit": "^3.0.0",
-    "@welcome-ui/icons.external_link": "^3.0.0",
-    "@welcome-ui/icons.negative": "^3.0.0",
-    "@welcome-ui/icons.positive": "^3.0.0",
-    "@welcome-ui/icons.trash": "^3.0.0",
-    "@welcome-ui/system": "^3.0.0",
-    "@welcome-ui/text": "^3.1.1",
-    "@welcome-ui/utils": "^3.4.3",
-    "react-dropzone": "^10.1.8"
+    "@welcome-ui/button": "^4.0.0-alpha.13",
+    "@welcome-ui/files": "^4.0.0-alpha.16",
+    "@welcome-ui/group": "^4.0.0-alpha.13",
+    "@welcome-ui/icons.edit": "^4.0.0-alpha.16",
+    "@welcome-ui/icons.external_link": "^4.0.0-alpha.16",
+    "@welcome-ui/icons.negative": "^4.0.0-alpha.16",
+    "@welcome-ui/icons.positive": "^4.0.0-alpha.16",
+    "@welcome-ui/icons.trash": "^4.0.0-alpha.16",
+    "@welcome-ui/system": "^4.0.0-alpha.13",
+    "@welcome-ui/text": "^4.0.0-alpha.13",
+    "@welcome-ui/utils": "^4.0.0-alpha.13",
+    "react-dropzone": "^11.4.2"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^2.2.3",
-    "@xstyled/system": "^2.2.3",
+    "@xstyled/styled-components": "^3.5.1",
+    "@xstyled/system": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.3.3"
   },
   "sideEffects": false,
   "component": "FileDrop",
-  "homepage": "https://welcome-ui.com/components/file-drop"
+  "homepage": "https://welcome-ui.com/components/file-drop",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462"
 }

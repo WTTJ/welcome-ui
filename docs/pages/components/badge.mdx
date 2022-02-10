@@ -1,22 +1,21 @@
+export { getStaticProps } from '../../getStaticProps'
+
 import {
   component,
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/badge/package.json'
 
-# Badge
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Badge is the Tag component with small size."
+/>
 
-<tagversion version={version} name={name} component={component} />
-
-Badge is the [Tag](/components/tag) component with small size.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
-
-## Examples
+## Usage
 
 ```jsx row
 <Badge>{0}</Badge>
@@ -27,10 +26,18 @@ Badge is the [Tag](/components/tag) component with small size.
 <Badge variant="primary">New</Badge>
 ```
 
-## Dependencies
+## Properties
+
+<props propTypes={props.propTypes.Badge} />
+
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

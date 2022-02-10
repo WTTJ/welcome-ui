@@ -5,18 +5,20 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/popover/package.json'
 
-# Popover
+<showcase
+  version={version}
+  pageName="Popover"
+  name={name}
+  component={component}
+  description="Allows user to show more information on hover or click an element."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
 Popover from [Reakit](https://reakit.io/docs/popover/) with a really nice theme 👀
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Usage
 
@@ -144,10 +146,14 @@ And the hook returns (among other things):
 
 <props propTypes={props.propTypes.Popover} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

@@ -10,7 +10,10 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+          enhanceApp: App =>
+            function enhanceApp(props) {
+              return sheet.collectStyles(<App {...props} />)
+            },
         })
 
       const initialProps = await Document.getInitialProps(ctx)
@@ -21,7 +24,7 @@ export default class MyDocument extends Document {
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        )
+        ),
       }
     } finally {
       sheet.seal()
@@ -31,19 +34,10 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <link
-            href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
-            rel="stylesheet"
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
-          <script
-            src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"
-            type="text/javascript"
-          />
         </body>
       </Html>
     )

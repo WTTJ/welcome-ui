@@ -5,26 +5,16 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/icons/package.json'
 
-# Icons
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import individual icons
-
-<code language="bash">
-  {`yarn add @welcome-ui/icons.avatar ${Object.keys(peerDependencies).join(' ')}`}
-</code>
-<code language="bash">{`import { AvatarIcon } from '@welcome-ui/icons.avatar'`}</code>
-
-## Or… install and import all icons
-
-<code language="bash" isCopyable>
-  {`yarn add @welcome-ui/icons ${Object.keys(peerDependencies).join(' ')}`}
-</code>
-<code language="bash" isCopyable>{`import * as Icons from '@welcome-ui/icons'`}</code>
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  customInstall={'yarn add @welcome-ui/icons.avatar'}
+  customUsage={`import { AvatarIcon } from '@welcome-ui/icons.avatar'`}
+/>
 
 ## Size
 
@@ -56,7 +46,7 @@ Icons inherit the colour from their parent.
 
 ```jsx
 function() {
-  const icons = ['left', 'right', 'up', 'down']
+  const icons = ['left', 'right', 'up', 'down', 'arrow_left', 'arrow_right', 'arrow_up', 'arrow_down' ]
   return IconsList({icons})
 }
 ```
@@ -77,22 +67,24 @@ function() {
     'copy',
     'cross',
     'drag_and_drop',
+    'duplicate',
     'edit',
     'eye',
     'expand_text',
     'expand',
     'external_link',
     'filters',
-    'fullscreen_off',
-    'fullscreen_on',
     'get',
     'heart',
     'heart_outline',
+    'hide',
+    'home',
     'information',
     'link',
     'log_out',
     'menu',
     'more',
+    'more_android',
     'notification',
     'pin',
     'play',
@@ -109,6 +101,7 @@ function() {
     'share1',
     'share2',
     'trash',
+    'unavailable',
     'upload',
     'user_outline',
     'user',
@@ -144,6 +137,15 @@ function() {
 }
 ```
 
+### Controls
+
+```jsx
+function() {
+  const icons = ['control_stop', 'control_pause', 'control_forward', 'control_backward', 'fullscreen_off', 'fullscreen_on', 'screenshare_off', 'screenshare_on', 'microphone_on', 'microphone_off', 'cast', 'cast_connected', 'cast_unavailable', 'camera_on', 'camera_off', 'airplay', 'watch_later', 'playlist', 'sound_on', 'sound_off']
+  return IconsList({icons})
+}
+```
+
 ### Miscellaneous
 
 ```jsx
@@ -164,6 +166,7 @@ function() {
     'clock',
     'comment_outline',
     'comment',
+    'common_area',
     'contract',
     'create',
     'date',
@@ -183,6 +186,7 @@ function() {
     'location',
     'male',
     'masonry',
+    'meeting_room',
     'mention',
     'new_candidate',
     'offer_status',
@@ -197,7 +201,6 @@ function() {
     'review',
     'salary',
     'search_people',
-    'sound_on',
     'source',
     'star',
     'star_outline',
@@ -209,6 +212,22 @@ function() {
     'update',
     'video_camera',
     'video_camera_2',
+  ]
+  return IconsList({icons})
+}
+```
+
+### Avatar
+
+```jsx
+function() {
+  const icons = [
+    'avatar_accessory',
+    'avatar_body',
+    'avatar_bottom',
+    'avatar_costume',
+    'avatar_head',
+    'avatar_top'
   ]
   return IconsList({icons})
 }
@@ -396,10 +415,14 @@ function() {
 
 <props propTypes={props.propTypes.Icon} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

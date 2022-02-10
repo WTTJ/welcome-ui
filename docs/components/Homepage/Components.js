@@ -1,0 +1,115 @@
+/* eslint-disable react/prop-types */
+import React from 'react'
+import { Alert } from '@welcome-ui/alert'
+import { Avatar } from '@welcome-ui/avatar'
+import { Box } from '@welcome-ui/box'
+import { Card } from '@welcome-ui/card'
+import { Pagination } from '@welcome-ui/pagination'
+import { Stack } from '@welcome-ui/stack'
+import { Tag } from '@welcome-ui/tag'
+import { Text } from '@welcome-ui/text'
+import { Toggle } from '@welcome-ui/toggle'
+import { Link } from '@welcome-ui/link'
+
+const components = [
+  {
+    title: 'Tag',
+    children: (
+      <Stack direction="row" spacing="md">
+        <Tag>Default</Tag>
+        <Tag variant="primary">Primary</Tag>
+        <Tag variant="secondary">Secondary</Tag>
+      </Stack>
+    ),
+    description: 'Allows user to categorized or organized keywords.',
+  },
+  {
+    title: 'Toggle',
+    children: (
+      <Stack direction="row" spacing="md">
+        <Toggle mb="md" />
+        <Toggle checked />
+      </Stack>
+    ),
+    description: 'Allows user to activate or deactivate an option.',
+  },
+  {
+    title: 'Alert',
+    children: (
+      <Alert m="md" variant="info">
+        <Alert.Title>Info variant</Alert.Title>
+        <span>Nunc laoreet egestas nulla, et dapibus sem malesuada in</span>
+      </Alert>
+    ),
+    description: 'Allows user to display a short, important message to get attention.',
+  },
+  {
+    title: 'Pagination',
+    children: (
+      <Pagination
+        aria-label="Pagination"
+        getHref={page => `?page=${page}`}
+        // eslint-disable-next-line no-console
+        onChange={page => console.log(page)}
+        page={2}
+        pageCount={10}
+      />
+    ),
+    description: 'Allows user to switch between pages of a list items.',
+  },
+  {
+    title: 'Avatar',
+    children: (
+      <Stack direction="row" spacing="md">
+        <Avatar name="Welcome jungle" size="lg" />
+        <Avatar name="Other name" size="lg" />
+        <Avatar
+          name="Welcome logo"
+          size="lg"
+          src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+        />
+      </Stack>
+    ),
+    description: 'Allow user to get an avatar with initials letter when have no image.',
+  },
+  {
+    title: 'Link',
+    children: (
+      <Stack direction="row" spacing="md">
+        <Link>Primary</Link>
+        <Link variant="secondary">Secondary</Link>
+      </Stack>
+    ),
+    description: 'Allows user to get our customize anchor element.',
+  },
+]
+
+function Component({ children, description, title }) {
+  return (
+    <div>
+      <Card alignItems="center" display="flex" h={170} justifyContent="center" w="100%">
+        {children}
+      </Card>
+      <Text mb="0" mt="md" textTransform="uppercase" variant="subtitle1">
+        {title}
+      </Text>
+      <Text color="dark.200" mb="0" mt="xxs" variant="body3">
+        {description}
+      </Text>
+    </div>
+  )
+}
+
+export function Components() {
+  return (
+    <Box
+      display="grid"
+      gap="3xl"
+      gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr 1fr' }}
+    >
+      {components.map(component => (
+        <Component key={component.title} {...component} />
+      ))}
+    </Box>
+  )
+}

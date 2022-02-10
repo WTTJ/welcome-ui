@@ -5,20 +5,20 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/tabs/package.json'
 
-# Tabs
+<showcase
+  version={version}
+  pageName="Tabs"
+  name={name}
+  component={component}
+  description="Allows user to make it easy explore and switch between different views."
+/>
 
-<tagversion version={version} name={name} component={component} />
-
-Tabs make it easy to explore and switch between different views.
+## About
 
 See [Reakit](https://reakit.io/docs/tab/) for documentation.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Default
 
@@ -269,10 +269,14 @@ function() {
 
 <props propTypes={props.propTypes['Tabs.TabPanel']} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

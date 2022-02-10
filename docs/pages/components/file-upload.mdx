@@ -5,16 +5,17 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/file-upload/package.json'
 
-# FileUpload
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to upload a file easily."
+/>
 
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+## About
 
 FileUpload uses render props so you can pass a button through. You have access to `openFile` to open the native file chooser dialog box.
 
@@ -25,42 +26,52 @@ See your browser console for the real `File` object ready to upload.
 See more about [media type](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    component={FileUpload}
-    accept="image/*"
-    name="avatar"
-    label="Avatar"
-    hint="Files must be <200MB"
-    required
-    handleAddFile={console.debug}
-    handleRemoveFile={console.debug}
-    onError={console.error}
-  >
-    {({ openFile }) => <Button onClick={openFile}>Upload avatar</Button>}
-  </ConnectedField>
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = file => {
+    setValue(file)
+  }
+
+  return (
+    <Field label="Avatar" hint="Files must be <200MB" required>
+      <FileUpload
+        accept="image/*"
+        handleAddFile={handleChange}
+        handleRemoveFile={handleChange}
+        name="avatar"
+        onError={console.error}
+        value={value}
+      >
+        {({ openFile }) => <Button onClick={openFile}>Upload avatar</Button>}
+      </FileUpload>
+    </Field>
+  )
+}
 ```
 
 ## Show preview if value exists
 
 ```jsx
-<Form
-  initialValues={{
-    file: 'https://doc-example/example.docx?v=63731713698'
-  }}
->
-  <ConnectedField
-    component={FileUpload}
-    accept="image/*"
-    name="file"
-    label="File"
-    hint="Files must be <200MB"
-    required
-    handleAddFile={console.debug}
-    handleRemoveFile={console.debug}
-  />
-</Form>
+function () {
+  const [value, setValue] = useState('https://doc-example/example.docx?v=63731713698')
+
+  const handleChange = file => {
+    setValue(file)
+  }
+
+  return (
+    <Field label="File" hint="Files must be <200MB" required>
+      <FileUpload
+        accept="image/*"
+        handleAddFile={handleChange}
+        handleRemoveFile={handleChange}
+        name="file"
+        value={value}
+      />
+    </Field>
+  )
+}
 ```
 
 ## Multiple
@@ -68,39 +79,45 @@ See more about [media type](https://www.iana.org/assignments/media-types/media-t
 Add `multiple` property.
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    component={FileUpload}
-    accept="application/pdf"
-    name="files"
-    label="Files"
-    hint="Files must be <200MB"
-    multiple
-    handleAddFile={console.debug}
-    handleRemoveFile={console.debug}
-    required
-  >
-    {({ openFile, disabled }) => (
-      <Button onClick={openFile} variant="secondary" disabled={disabled}>
-        Choose file(s)
-      </Button>
-    )}
-  </ConnectedField>
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = file => {
+    setValue(file)
+  }
+
+  return (
+    <Field label="Files" hint="Files must be <200MB" required>
+      <FileUpload
+        accept="application/pdf"
+        name="files"
+        multiple
+        handleAddFile={handleChange}
+        handleRemoveFile={handleChange}
+      >
+        {({ openFile, disabled }) => (
+          <Button onClick={openFile} variant="secondary" disabled={disabled}>
+            Choose file(s)
+          </Button>
+        )}
+      </FileUpload>
+    </Field>
+  )
+}
 ```
 
 ## Disabled
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField component={FileUpload} disabled name="disabled">
+<Field disabled>
+  <FileUpload name="disabled">
     {({ openFile, disabled }) => (
       <Button onClick={openFile} disabled={disabled}>
         Choose file
       </Button>
     )}
-  </ConnectedField>
-</Form>
+  </FileUpload>
+</Field>
 ```
 
 ## Customize
@@ -110,15 +127,25 @@ Add `multiple` property.
 You can change the upload button component.
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField component={FileUpload} name="custom">
-    {({ openFile, disabled }) => (
-      <Button size="xl" shape="circle" onClick={openFile} disabled={disabled}>
-        <UploadIcon size="xl" />
-      </Button>
-    )}
-  </ConnectedField>
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = file => {
+    setValue(file)
+  }
+
+  return (
+    <Field>
+      <FileUpload name="custom" handleAddFile={handleChange} handleRemoveFile={handleChange} value={value}>
+        {({ openFile, disabled }) => (
+          <Button size="xl" shape="circle" onClick={openFile} disabled={disabled}>
+            <UploadIcon size="xl" />
+          </Button>
+        )}
+      </FileUpload>
+    </Field>
+  )
+}
 ```
 
 ### Change Preview
@@ -127,6 +154,12 @@ You can change the preview component.
 
 ```jsx
 function() {
+  const [value, setValue] = useState('https://doc-example/example.docx?v=63731713698')
+
+  const handleChange = file => {
+    setValue(file)
+  }
+
   const Preview = ({ file, onRemove }) => {
     const Icon = getFileIcon(file)
     const name = getFileName(file)
@@ -154,20 +187,15 @@ function() {
   }
 
   return (
-    <Form initialValues={{ file: 'https://doc-example/example.docx?v=63731713698' }}>
-      <ConnectedField
-          component={FileUpload}
-          name="file"
-          label="File"
-          preview={Preview}
-        >
+    <Field label="File">
+      <FileUpload name="file" preview={Preview} handleAddFile={handleChange} handleRemoveFile={handleChange} value={value}>
         {({ openFile, disabled }) => (
           <Button onClick={openFile} disabled={disabled}>
             Custom preview
           </Button>
         )}
-      </ConnectedField>
-    </Form>
+      </FileUpload>
+    </Field>
   )
 }
 ```
@@ -175,23 +203,33 @@ function() {
 You can also set the `preview` prop to `null` and handle your own preview in place of the upload button with `files` & `onRemoveFile` render props:
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField component={FileUpload} name="file" label="File" multiple preview={null}>
-    {({ openFile, files, onRemoveFile }) =>
-      files.length === 0 ? (
-        <Button onClick={openFile}>Upload files</Button>
-      ) : (
-        <Stack direction="row">
-          {files.map(file => (
-            <Button key={file.preview} onClick={() => onRemoveFile(file)}>
-              {getFileIcon(file)} Click to remove {file.name}
-            </Button>
-          ))}
-        </Stack>
-      )
-    }
-  </ConnectedField>
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = file => {
+    setValue(file)
+  }
+
+  return (
+    <Field label="File">
+      <FileUpload name="file" multiple preview={null} handleAddFile={handleChange} handleRemoveFile={handleChange} value={value}>
+        {({ openFile, files, onRemoveFile }) =>
+          files.length === 0 ? (
+            <Button onClick={openFile}>Upload files</Button>
+          ) : (
+            <Stack direction="row">
+              {files.map(file => (
+                <Button key={file.preview} onClick={() => onRemoveFile(file)}>
+                  {getFileIcon(file)} Click to remove {file.name}
+                </Button>
+              ))}
+            </Stack>
+          )
+        }
+      </FileUpload>
+    </Field>
+  )
+}
 ```
 
 ## Properties
@@ -200,10 +238,14 @@ You can also set the `preview` prop to `null` and handle your own preview in pla
 
 <props propTypes={props.propTypes.FileUpload} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

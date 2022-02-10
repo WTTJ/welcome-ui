@@ -5,56 +5,81 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/date-time-picker/package.json'
 
-# DateTimePicker
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to select a predefined date and time."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
 It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library. [All the props](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) the library exposes can be passed to either DatePicker or TimePicker.
 
 _Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
 
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
-
 ## Simple use case
 
 ```jsx
-<Form initialValues={{ welcome: Date.now() }}>
-  <ConnectedField component={DateTimePicker} label="Date" name="welcome" />
-</Form>
+function () {
+  const [value, setValue] = useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Date">
+      <DateTimePicker name="welcome" onChange={handleChange} value={value} />
+    </Field>
+  )
+}
 ```
 
 ## Pass props to DatePicker
 
 ```jsx
-<Form initialValues={{ welcome2: Date.now() }}>
-  <ConnectedField
-    component={DateTimePicker}
-    dateFormat="MMM dd yyyy"
-    label="Date"
-    name="welcome2"
-    popperProps={{ zIndex: 50 }}
-    showMonthDropdown
-    showYearDropdown
-  >
-    <DatePicker icon={<DateIcon />} iconPlacement="right" />
-    <TimePicker />
-  </ConnectedField>
-</Form>
+function () {
+  const [value, setValue] = useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Date">
+      <DateTimePicker
+        dateFormat="MMM dd yyyy"
+        name="welcome2"
+        popperProps={{ zIndex: 50 }}
+        showMonthDropdown
+        showYearDropdown
+        onChange={handleChange}
+        value={value}
+      >
+        <DatePicker icon={<DateIcon />} iconPlacement="right" />
+        <TimePicker />
+      </DateTimePicker>
+    </Field>
+  )
+}
 ```
 
 ## Properties
 
 <props propTypes={props.propTypes.DateTimePicker} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

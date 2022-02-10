@@ -5,16 +5,15 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/toggle/package.json'
 
-# Toggle
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to activate or deactivate an option."
+/>
 
 ## Examples
 
@@ -27,7 +26,7 @@ function() {
 
   return (
     <>
-      <Toggle mr="lg" checked={toggle} onClick={() => setToggle(!toggle)} />
+      <Toggle mb="md" checked={toggle} onClick={() => setToggle(!toggle)} />
       <Toggle checked={toggleChecked} onClick={() => setToggleChecked(!toggleChecked)} />
     </>
   )
@@ -45,45 +44,46 @@ function() {
 
   return (
     <>
-      <Toggle mr="lg" checked={toggle} onClick={() => setToggle(!toggle)} disabled />
+      <Toggle mb="md" checked={toggle} onClick={() => setToggle(!toggle)} disabled />
       <Toggle checked={toggleChecked} onClick={() => setToggleChecked(!toggleChecked)} disabled />
     </>
   )
 }
 ```
 
-## ConnectedField
+## Field
 
-Examples with `ConnectedField`
+Examples with `Field`
 
 ```jsx
-<Form
-  initialValues={{
-    toggle: true,
-    'toogle-checked': true,
-    'toogle-disabled': true,
-    'toggle-label': false,
-    'disabled-label': true
-  }}
->
-  <Box display="flex" mb="lg">
-    <ConnectedField name="toggle" component={Toggle} mr="lg" />
-    <ConnectedField name="toggle-checked" component={Toggle} mr="lg" />
-    <ConnectedField name="toggle-disabled" component={Toggle} disabled />
-  </Box>
-  <ConnectedField name="toggle-label" component={Toggle} label="Toggle with a label" mb="lg" />
-  <ConnectedField name="disabled-label" component={Toggle} label="Disabled with a label" disabled />
-</Form>
+function () {
+  const [checked, setChecked] = useState(false)
+
+  const handleToggle = () => {
+    setChecked(!checked)
+  }
+
+  return (
+    <Field label="Toggle">
+      <Toggle checked={checked} onClick={handleToggle} disabled />
+    </Field>
+  )
+}
 ```
 
 ## Properties
 
-<props propTypes={props.propTypes.Checkbox} />
+<props propTypes={props.propTypes.Toggle} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />
+```

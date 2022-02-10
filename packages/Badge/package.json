@@ -1,13 +1,16 @@
 {
   "name": "@welcome-ui/badge",
-  "version": "3.11.0",
+  "version": "4.0.0-alpha.16",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/badge.cjs.js",
   "module": "dist/badge.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
+    "doc": "node -r esm ../../scripts/doc-props.js --name Badge"
   },
   "publishConfig": {
     "access": "public"
@@ -35,15 +38,16 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/tag": "^3.11.0"
+    "@welcome-ui/system": "^4.0.0-alpha.13",
+    "@welcome-ui/tag": "^4.0.0-alpha.16"
   },
   "peerDependencies": {
-    "prop-types": "^15.7.2",
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.3.3"
   },
   "sideEffects": false,
   "component": "Badge",
-  "homepage": "https://welcome-ui.com/components/badge"
+  "homepage": "https://welcome-ui.com/components/badge",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462"
 }

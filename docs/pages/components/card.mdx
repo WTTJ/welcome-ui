@@ -5,18 +5,15 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/card/package.json'
 
-# Card
-
-<tagversion version={version} name={name} component={component} />
-
-Simple Box with specific style.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to show content and action with specific style."
+/>
 
 ## Basic
 
@@ -39,7 +36,7 @@ A content card.
 ```jsx
 <Card maxWidth={400}>
   <Card.Cover
-    w={1}
+    w="100%"
     src="https://m.media-amazon.com/images/M/MV5BMzE0NzgyODIxN15BMl5BanBnXkFtZTgwNDU0NjU5NzE@._V1_SX1777_CR0,0,1777,994_AL_.jpg"
   />
   <Card.Body>
@@ -64,7 +61,7 @@ A picture card, if you add a `backgroundImage` on Card, it's displayed on cover.
 >
   <Box
     padding="xl"
-    w={1}
+    w="100%"
     background="linear-gradient(0deg, rgba(0,0, 0, 0.7) 0%, rgba(0,0,0,0) 100%)"
   >
     <Text as="h4" fontWeight="bold" m={0} color="light.900">
@@ -84,10 +81,14 @@ A picture card, if you add a `backgroundImage` on Card, it's displayed on cover.
 
 <props propTypes={props.propTypes['Card.Cover']} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

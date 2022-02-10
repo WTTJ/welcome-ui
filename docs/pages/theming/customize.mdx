@@ -74,8 +74,7 @@ export default function Root() {
 To provide consistency across browsers we provide two options:
 
 1. Pass `useReset` in the `WuiProvider` to use a [custom reset](https://github.com/WTTJ/welcome-ui/blob/master/packages/Core/utils/reset.js)
-
-1. Don't pass `useReset` to just reset `box-sizing` e.g.
+2. Don't pass `useReset` to just reset `box-sizing` e.g.
 
 ```
 const baseBoxSizing = css`
@@ -109,31 +108,31 @@ const yourTheme = {
     variants: {
       default: {
         backgroundColor: '#010101',
-        color: '#FFF'
+        color: '#FFF',
       },
       primary: {
         backgroundColor: '#FFF000',
-        color: '#000'
-      }
+        color: '#000',
+      },
     },
     sizes: {
       sm: {
         padding: 10,
         height: 10,
-        fontSize: 12
+        fontSize: 12,
       },
       md: {
         padding: 10,
         height: 14,
-        fontSize: 14
+        fontSize: 14,
       },
       lg: {
         padding: 12,
         height: 16,
-        fontSize: 16
-      }
-    }
-  }
+        fontSize: 16,
+      },
+    },
+  },
 }
 const theme = createTheme(yourTheme)
 
@@ -151,3 +150,5 @@ export default function Root() {
 Here are all the [possible values for your theme](https://github.com/WTTJ/welcome-ui/blob/master/packages/Core/theme/core.js).<br />These will be merged with the default theme.
 
 <code language="json">{themeValues()}</code>
+
+<pagination />

@@ -8,7 +8,7 @@ import { App } from '../components/App'
 
 require('@welcome-ui/icons.font/fonts/welcome-icon-font.css')
 
-const NextApp = ({ Component, pageProps }) => {
+function NextApp({ Component, pageProps }) {
   return (
     <ThemeProvider>
       <Provider>

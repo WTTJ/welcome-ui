@@ -5,18 +5,15 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/text/package.json'
 
-# Text
-
-<tagversion version={version} name={name} component={component} />
-
-The `Text` component allows you to remain consistent with your text sizing and line-height. To add additional padding/margins use the `space` values from [xstyled](https://xstyled.dev/docs/theme/#spacing).
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to remain consistent with our text sizing and line-height"
+/>
 
 ## Typography
 
@@ -84,10 +81,14 @@ Set the number of lines you want to display with `lines`. Your text will be disp
 
 <props propTypes={props.propTypes.Text} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

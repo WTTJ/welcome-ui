@@ -5,18 +5,15 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/shape/package.json'
 
-# Shape
-
-<tagversion version={version} name={name} component={component} />
-
-Overflow child with hidden child.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Overflow child with hidden child."
+/>
 
 ## Default
 
@@ -68,10 +65,14 @@ also, using `shape` with unequal sizes will match the biggest value between widt
 
 <props propTypes={props.propTypes.Shape} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

@@ -5,39 +5,60 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/textarea/package.json'
 
-# Textarea
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to get some text informations in multiples lines."
+/>
 
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
-
-## Usage
+## Default
 
 ```jsx
-<Form initialValues={{}}>
-  <ConnectedField
-    name="textarea"
-    component={Textarea}
-    label="Description"
-    hint="Description must be <200 words"
-    required
-  />
-</Form>
+function () {
+  const [value, setValue] = useState('')
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return <Textarea name="textarea" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit." onChange={handleChange} value={value} />
+}
+```
+
+## With Field
+
+```jsx
+function () {
+  const [value, setValue] = useState('')
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field label="Description" hint="Description must be <200 words" required>
+      <Textarea name="textarea2" onChange={handleChange} value={value} />
+    </Field>
+  )
+}
 ```
 
 ## Properties
 
 <props propTypes={props.propTypes.Textarea} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

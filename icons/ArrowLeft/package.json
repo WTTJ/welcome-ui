@@ -1,0 +1,20 @@
+{
+  "name": "@welcome-ui/icons.arrow_left",
+  "sideEffects": false,
+  "main": "dist/icons.arrow_left.cjs.js",
+  "module": "dist/icons.arrow_left.es.js",
+  "version": "4.0.0-alpha.16",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^4.0.0-alpha.16"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2 || ^17.0.1",
+    "react-dom": "^16.10.2 || ^17.0.1"
+  },
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462"
+}

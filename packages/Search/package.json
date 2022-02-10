@@ -1,13 +1,16 @@
 {
   "name": "@welcome-ui/search",
-  "version": "3.11.0",
+  "version": "4.0.0-alpha.16",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/search.cjs.js",
   "module": "dist/search.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
+    "doc": "node -r esm ../../scripts/doc-props.js --name Search"
   },
   "publishConfig": {
     "access": "public"
@@ -35,21 +38,22 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/clear-button": "^3.8.4",
-    "@welcome-ui/icon": "^3.0.0",
-    "@welcome-ui/system": "^3.0.0",
-    "@welcome-ui/tag": "^3.11.0",
-    "@welcome-ui/utils": "^3.4.3",
+    "@welcome-ui/clear-button": "^4.0.0-alpha.16",
+    "@welcome-ui/icon": "^4.0.0-alpha.16",
+    "@welcome-ui/system": "^4.0.0-alpha.13",
+    "@welcome-ui/tag": "^4.0.0-alpha.16",
+    "@welcome-ui/utils": "^4.0.0-alpha.13",
     "downshift": "^6.1.0"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^2.2.3",
-    "@xstyled/system": "^2.2.3",
+    "@xstyled/styled-components": "^3.5.1",
+    "@xstyled/system": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.3.3"
   },
   "component": "Search",
-  "homepage": "https://welcome-ui.com/components/search"
+  "homepage": "https://welcome-ui.com/components/search",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462"
 }

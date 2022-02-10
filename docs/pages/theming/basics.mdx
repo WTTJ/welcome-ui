@@ -15,7 +15,7 @@ export const themeValues = () => {
     letterSpacings,
     space,
     radii,
-    borderWidths
+    borderWidths,
   } = theme
   return {
     fonts: JSON.stringify(
@@ -28,13 +28,13 @@ export const themeValues = () => {
         headingLetterSpacing,
         lineHeights,
         fontWeights,
-        letterSpacings
+        letterSpacings,
       },
       null,
       2
     ),
     space: JSON.stringify({ space }, null, 2),
-    radii: JSON.stringify({ radii, borderWidths }, null, 2)
+    radii: JSON.stringify({ radii, borderWidths }, null, 2),
   }
 }
 
@@ -133,7 +133,7 @@ We use [breakpoints from xstyled](https://xstyled.dev/docs/responsive-design/). 
 }`}
 </code>
 
-### Usage
+## Usage
 
 ```jsx column
 <Box
@@ -149,3 +149,5 @@ We use [breakpoints from xstyled](https://xstyled.dev/docs/responsive-design/). 
   Resize screen to change this Box 🌝
 </Box>
 ```
+
+<pagination />

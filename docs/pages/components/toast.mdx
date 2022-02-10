@@ -5,18 +5,23 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/toast/package.json'
 
-# Toast
+<showcase
+  version={version}
+  pageName="Toast"
+  name={name}
+  component={component}
+  description="Allows user to provide brief notifications."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
-Notification component with [toasted-note](https://toasted-notes.netlify.com) and 2 components : Growl and Snackbar.
+Notification component with [toasted-note](https://toasted-notes.netlify.com) and 2 components:
 
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+- Growl
+- Snackbar
 
 ## useToast
 
@@ -327,6 +332,51 @@ function() {
 }
 ```
 
+## Without close button on Growl or Snackbar
+
+You can choose not to show a close button on Growl or Snackbar with the `hasCloseButton` prop (defaults to `true`).
+
+```jsx
+function() {
+  const toast = useToast()
+
+  function onClose() {
+    alert('Toast hidden!')
+  }
+
+  return (
+    <Stack direction="row">
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Snackbar  hasCloseButton={false}>
+                Lorem ipsum dolor sit amet
+            </Toast.Snackbar>
+          )
+        }
+      >
+        Snackbar with no close button
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Growl hasCloseButton={false}>
+              <Toast.Title>
+                Lorem ipsum dolor sit amet
+              </Toast.Title>
+              Class aptent taciti sociosqu ad
+            </Toast.Growl>,
+            { position: 'top-right' }
+          )
+        }
+      >
+        Growl with no close button
+      </Button>
+    </Stack>
+  )
+}
+```
+
 ## Properties
 
 ### Toast
@@ -337,10 +387,14 @@ function() {
 
 <props propTypes={props.propTypes['Toast.Title']} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

@@ -5,18 +5,15 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/avatar/package.json'
 
-# Avatar
-
-<tagversion version={version} name={name} component={component} />
-
-Avatar component with initials letter when have no image.
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allow user to get an avatar with initials letter when have no image."
+/>
 
 ## With image
 
@@ -85,10 +82,14 @@ By default Avatar is a circle shape, change with property `shape`.
 
 <props propTypes={props.propTypes.Avatar} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

@@ -5,77 +5,86 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/radio-group/package.json'
 
-# Radio Group
-
-<tagversion version={version} name={name} component={component} />
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to choose between some options and only one can be return."
+/>
 
 ## Usage
 
 ```jsx
-<Form
-  initialValues={{}}
-  validate={values => (!values.social ? { social: 'You must choose a social network' } : {})}
->
-  <ConnectedField
-    component={RadioGroup}
-    flexDirection="row"
-    hint="Most popular is Twitter"
-    label="Social networks"
-    mb="xl"
-    name="social"
-    options={constants.ITEMS}
-    required
-  />
-  <Button type="submit">Submit</Button>
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = event => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field
+      hint="Most popular is Twitter"
+      label="Social networks"
+      mb="xl"
+      required
+    >
+      <RadioGroup name="social" options={constants.ITEMS} onChange={handleChange} value={value} />
+    </Field>
+  )
+}
 ```
 
 ## With hint on radio
 
 ```jsx
-<Form
-  initialValues={{}}
-  validate={values => (!values.social ? { social: 'You must choose a social network' } : {})}
->
-  <ConnectedField
-    component={RadioGroup}
-    flexDirection="row"
-    mb="xl"
-    name="social"
-    maxWidth={{ md: 0.3 }}
-    options={[
-      {
-        value: 'behance',
-        label: 'Behance',
-        hint: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-      },
-      {
-        value: 'dribbble',
-        label: 'Dribbble',
-        hint: 'Aenean a tristique turpis, in elementum est.'
-      }
-    ]}
-    required
-  />
-  <Button type="submit">Submit</Button>
-</Form>
+function () {
+  const [value, setValue] = useState(null)
+
+  const handleChange = event => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field flexDirection="row" mb="xl" required>
+      <RadioGroup
+        name="social"
+        maxWidth={{ md: 0.3 }}
+        options={[
+          {
+            value: 'behance',
+            label: 'Behance',
+            hint: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          },
+          {
+            value: 'dribbble',
+            label: 'Dribbble',
+            hint: 'Aenean a tristique turpis, in elementum est.',
+          },
+        ]}
+        onChange={handleChange}
+        value={value}
+      />
+    </Field>
+  )
+}
 ```
 
 ## Properties
 
-<props propTypes={props.propTypes.Radio} />
+<props propTypes={props.propTypes.RadioGroup} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

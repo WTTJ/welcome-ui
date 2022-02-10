@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const FlagEnIcon = props => <Icon alt="FlagEn" content={content} {...props} />
+
+export function FlagEnIcon(props) {
+  return <Icon alt="FlagEn" content={content} {...props} />
+}

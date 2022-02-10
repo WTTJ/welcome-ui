@@ -38,48 +38,49 @@ export default function Root() {
 }
 ```
 
-### WuiProvider Props
+<!-- todo ### WuiProvider Props
 
 <props
   propTypes={{
     children: {
       description: '',
       required: true,
-      type: { name: 'node' }
+      type: { name: 'node' },
     },
     hasGlobalStyle: {
       defaultValue: { value: 'true', computed: false },
       description: 'Will inject our global style with normalize and fonts',
       required: false,
-      type: { name: 'bool' }
+      type: { name: 'bool' },
     },
     reactRootId: {
       defaultValue: { value: 'root' },
       description: 'Id of your react root',
       required: false,
-      type: { name: 'string' }
+      type: { name: 'string' },
     },
     shouldHideFocusRingOnClick: {
       defaultValue: { value: 'true', computed: false },
       description:
         'It hides the focus ring on mouse move, click or on keydown. (explanation below)',
       required: false,
-      type: { name: 'bool' }
+      type: { name: 'bool' },
     },
     theme: {
       description: 'Your custom theme from createTheme()',
       required: true,
-      type: { name: 'object' }
+      type: { name: 'object' },
     },
     useReset: {
       defaultValue: { value: 'false', computed: false },
       description:
         'Will inject our global style with https://meyerweb.com/eric/tools/css/reset/ reset.',
       required: false,
-      type: { name: 'bool' }
-    }
+      type: { name: 'bool' },
+    },
   }}
 />
+-->
 
 ## Hide Focus Ring
 
@@ -100,3 +101,24 @@ If it doesn't work for you, check that the id of your react root is set to `root
   {your app}
 </WuiProvider>
 ```
+
+## Typescript
+
+In order to get your theme object typed with our theme, you have to override the default theme by adding this in a "styled.d.ts" file at the root of your project:
+
+```
+/* eslint-disable @typescript-eslint/no-empty-interface */
+import 'styled-components'
+import '@xstyled/system'
+import { WuiTheme } from '@welcome-ui/core'
+
+declare module '@xstyled/system' {
+  export interface Theme extends WuiTheme {}
+}
+
+declare module 'styled-components' {
+  export interface DefaultTheme extends WuiTheme {}
+}
+```
+
+<pagination />

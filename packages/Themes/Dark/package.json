@@ -1,13 +1,15 @@
 {
   "name": "@welcome-ui/themes.dark",
-  "version": "3.13.2",
+  "version": "4.0.0-alpha.13",
   "description": "welcome-ui: Dark theme",
   "main": "dist/themes.dark.cjs.js",
   "module": "dist/themes.dark.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"
@@ -35,10 +37,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/core": "^3.13.2",
-    "@welcome-ui/utils": "^3.4.3"
+    "@welcome-ui/core": "^4.0.0-alpha.13",
+    "@welcome-ui/utils": "^4.0.0-alpha.13"
   },
-  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "sideEffects": false,
   "component": "Welcome",
   "homepage": "https://welcome-ui.com"

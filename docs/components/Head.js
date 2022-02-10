@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 import { generateTitle } from '../utils'
 
-export const Head = () => {
+export function Head() {
   const router = useRouter()
   const title = generateTitle(router?.pathname)
 
@@ -29,13 +29,13 @@ export const Head = () => {
       <meta content="@wttj_fr" name="twitter:create" />
       <meta content="Welcome UI - Customizable design system with react" property="twitter:title" />
       <meta
-        content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react • styled-components • styled-system and reakit."
+        content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react, typescript, styled-components, reakit and a lot of love 💛"
         property="twitter:description"
       />
       <meta content="https://welcome-ui.com" property="og:url" />
       <meta content="Welcome UI - Customizable design system with react" property="og:title" />
       <meta
-        content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react • styled-components • styled-system and reakit."
+        content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react, typescript, styled-components, reakit and a lot of love 💛"
         property="og:description"
       />
       <meta
@@ -52,7 +52,7 @@ export const Head = () => {
           gtag('js', new Date());
 
           gtag('config', 'UA-56009608-24');
-          `
+          `,
         }}
       />
     </NextHead>

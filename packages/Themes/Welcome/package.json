@@ -1,13 +1,15 @@
 {
   "name": "@welcome-ui/themes.welcome",
-  "version": "3.5.0",
+  "version": "4.0.0-alpha.17",
   "description": "welcome-ui: Welcome theme",
   "main": "dist/themes.welcome.cjs.js",
   "module": "dist/themes.welcome.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "publishConfig": {
     "access": "public"
@@ -34,10 +36,10 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "peerDependencies": {
-    "@xstyled/styled-components": "^1.17.0"
+  "dependencies": {
+    "@welcome-ui/core": "^4.0.0-alpha.13"
   },
-  "gitHead": "5e05d638c444651c818138903aef4a68cbbb5747",
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "sideEffects": false,
   "component": "Welcome",
   "homepage": "https://welcome-ui.com"

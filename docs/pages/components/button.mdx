@@ -5,18 +5,19 @@ import {
   dependencies,
   name,
   peerDependencies,
-  version
+  version,
 } from '@welcome-ui/button/package.json'
 
-# Button
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to take actions or event, and make choices."
+/>
 
-<tagversion version={version} name={name} component={component} />
+## About
 
 Built with [Reakit](https://reakit.io/docs/button/) for a better accessibility ðŸ¥°
-
-## Install and import
-
-<usage component={component} name={name} peerDependencies={peerDependencies} />
 
 ## Variants
 
@@ -35,15 +36,19 @@ Built with [Reakit](https://reakit.io/docs/button/) for a better accessibility ð
 ### States
 
 ```jsx row
+<Button variant="primary-success">Primary success</Button>
 <Button variant="primary-warning">Primary warning</Button>
-<Button variant="secondary-warning">Secondary warning</Button>
 <Button variant="primary-danger">Primary danger</Button>
+<Button variant="primary-info">Primary info</Button>
+<Button variant="secondary-success">Secondary success</Button>
+<Button variant="secondary-warning">Secondary warning</Button>
 <Button variant="secondary-danger">Secondary danger</Button>
+<Button variant="secondary-info">Secondary info</Button>
 ```
 
 ## Formats
 
-Use size property with `xs` `sm` `md`(default) `lg` or `xl`.
+Use size property with `xs`, `sm`, `md`(default), `lg` or `xl`.
 
 ```jsx row
 <Button size="xs">Tiny</Button>
@@ -137,7 +142,7 @@ You can transform your Button component with `as` property to add you linker, `h
 You can add `w` property from [xstyled](https://xstyled.dev/docs/width/).
 
 ```jsx
-<Button w={1}>full width</Button>
+<Button w="100%">full width</Button>
 <Button w={1 / 2}>half width</Button>
 ```
 
@@ -158,10 +163,14 @@ See documentation from [Group](/components/group) component.
 
 <props propTypes={props.propTypes.Button} />
 
-## Dependencies
+## Packages
+
+### Dependencies
 
 <dependencies dependencies={dependencies} />
 
-## Peer dependencies
+### Peer dependencies
 
 <dependencies dependencies={peerDependencies} />
+
+<pagination />

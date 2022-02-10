@@ -2,4 +2,7 @@ import React from 'react'
 import { Icon } from '@welcome-ui/icon'
 
 import content from './content.json'
-export const TwitterIcon = props => <Icon alt="Twitter" content={content} {...props} />
+
+export function TwitterIcon(props) {
+  return <Icon alt="Twitter" content={content} {...props} />
+}
