@@ -23,3 +23,5 @@ export const getVariant = ({ error, warning }: VariantProps): VariantReturn => {
 }
 
 export const generateRandomId = (): string => `wui-field-${Math.random().toString(36).slice(2)}`
+
+export const forwardedProps = ['disabled', 'required', 'variant']
