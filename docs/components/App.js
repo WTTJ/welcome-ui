@@ -7,7 +7,7 @@ import { darkTheme } from '@welcome-ui/themes.dark'
 
 import { useThemeContext } from '../context/theme'
 
-import { Layout } from './Layout'
+import { Layouts } from './Layouts'
 import { MDXComponents } from './Mdx'
 import { Head } from './Head'
 import { GlobalStyle } from './GlobalStyle'
@@ -38,9 +38,9 @@ export function App({ component: Component, pageProps }) {
       <MDXProvider components={MDXComponents}>
         <GlobalStyle />
         <Head />
-        <Layout>
+        <Layouts>
           <Component {...pageProps} />
-        </Layout>
+        </Layouts>
       </MDXProvider>
     </WuiProvider>
   )

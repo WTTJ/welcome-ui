@@ -6,7 +6,7 @@ import { Drawer, useDrawerState } from '@welcome-ui/drawer'
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons'
 import { DocSearch } from '@docsearch/react'
-import '@docsearch/css'
+import { useRouter } from 'next/router'
 
 import { ComponentsList } from '../ComponentsList'
 import { Logo } from '../Logo'
@@ -17,13 +17,18 @@ import { NavBar } from './NavBar'
 
 export function Header() {
   const mobileMenuDrawer = useDrawerState()
+  const { pathname } = useRouter()
+  const variants = {
+    '/': 'gray',
+  }
+  const variant = variants[pathname]
 
   return (
-    <S.Header>
+    <S.Header variant={variant}>
       <Box alignItems="center" display="flex">
         <NextLink href="/" passHref>
           <Box alignItems="center" alt="Homepage" as="a" display="flex">
-            <Logo h={37} w={63} />
+            <Logo h={37} isDark={variant === 'gray'} w={63} />
           </Box>
         </NextLink>
         <Box ml="lg" w={{ xs: 180, md: 220 }}>

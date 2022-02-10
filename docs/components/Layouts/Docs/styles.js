@@ -1,13 +1,9 @@
 import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 
-import { headerHeight } from '../Header/styles'
+import { headerHeight } from '../../Header/styles'
 
 const navigationWidth = '16.875rem' // 270
-
-export const Layout = styled.div`
-  background-color: light.900;
-`
 
 export const Navigation = styled.nav`
   display: none;
