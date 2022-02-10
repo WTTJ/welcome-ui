@@ -21,6 +21,7 @@ const components = [
         <Tag variant="secondary">Secondary</Tag>
       </Stack>
     ),
+    description: 'Allows user to categorized or organized keywords.',
   },
   {
     title: 'Toggle',
@@ -30,6 +31,7 @@ const components = [
         <Toggle checked />
       </Stack>
     ),
+    description: 'Allows user to activate or deactivate an option.',
   },
   {
     title: 'Alert',
@@ -39,6 +41,7 @@ const components = [
         <span>Nunc laoreet egestas nulla, et dapibus sem malesuada in</span>
       </Alert>
     ),
+    description: 'Allows user to display a short, important message to get attention.',
   },
   {
     title: 'Pagination',
@@ -52,6 +55,7 @@ const components = [
         pageCount={10}
       />
     ),
+    description: 'Allows user to switch between pages of a list items.',
   },
   {
     title: 'Avatar',
@@ -66,6 +70,7 @@ const components = [
         />
       </Stack>
     ),
+    description: 'Allow user to get an avatar with initials letter when have no image.',
   },
   {
     title: 'Link',
@@ -75,17 +80,21 @@ const components = [
         <Link variant="secondary">Secondary</Link>
       </Stack>
     ),
+    description: 'Allows user to get our customize anchor element.',
   },
 ]
 
-function Component({ children, title }) {
+function Component({ children, description, title }) {
   return (
     <div>
       <Card alignItems="center" display="flex" h={170} justifyContent="center" w="100%">
         {children}
       </Card>
-      <Text mt="md" textTransform="uppercase" variant="subtitle1">
+      <Text mb="0" mt="md" textTransform="uppercase" variant="subtitle1">
         {title}
+      </Text>
+      <Text color="dark.200" mb="0" mt="xxs" variant="body3">
+        {description}
       </Text>
     </div>
   )
@@ -95,11 +104,11 @@ export function Components() {
   return (
     <Box
       display="grid"
-      gap="xl"
+      gap="3xl"
       gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr 1fr' }}
     >
       {components.map(component => (
-        <Component key={component.link} {...component} />
+        <Component key={component.title} {...component} />
       ))}
     </Box>
   )

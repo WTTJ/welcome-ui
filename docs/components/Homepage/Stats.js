@@ -36,7 +36,7 @@ const stats = [
         Downloads
       </>
     ),
-    number: '350+',
+    number: '450+',
     icon: <GetIcon h={24} w={24} />,
   },
 ]

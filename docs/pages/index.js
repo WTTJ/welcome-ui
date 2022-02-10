@@ -22,7 +22,7 @@ export default function Home() {
         <Text as="span" textTransform="uppercase" variant="subtitle1">
           Welcome UI
         </Text>
-        <Text maxWidth={820} mb="xl" mt="md" variant="h1">
+        <Text maxWidth={820} mb="xl" mt="sm" variant="h1">
           All components you need to create a delightful React webapp
         </Text>
         <Text color="dark.100" maxWidth={640} variant="body1">
@@ -53,7 +53,7 @@ export default function Home() {
             <Text as="span" textTransform="uppercase" variant="subtitle1">
               Open source
             </Text>
-            <Text mb="xl" mt="md" variant="h1">
+            <Text as="h2" mb="xl" mt="sm" variant="h1">
               Contribute!
             </Text>
             <Text color="dark.100" maxWidth={640} variant="body1">
@@ -71,12 +71,11 @@ export default function Home() {
         </Box>
       </Section>
       <Section>
-        <Text maxWidth={500} mb="xl" mt="0" variant="h1">
-          All you’d expect from a design system
+        <Text as="h2" maxWidth={500} mb="xl" mt="0" variant="h1">
+          All you’d expect from a design system...
         </Text>
         <Text color="dark.100" maxWidth={640} mb={50} variant="body1">
-          Donec augue turpis, iaculis vel mattis ac, dictum vel sem. Quisque non dolor est.
-          Curabitur placerat ligula id ex sollicitudin sodales.
+          ...and a lot more!
         </Text>
         <Expectations />
       </Section>
@@ -84,12 +83,11 @@ export default function Home() {
         <Text as="span" textTransform="uppercase" variant="subtitle1">
           Example
         </Text>
-        <Text mb="xl" mt="md" variant="h1">
-          Less code. More speed!
+        <Text as="h2" mb="xl" mt="sm" variant="h1">
+          Going straight to the point!
         </Text>
-        <Text color="dark.100" maxWidth={640} variant="body1">
-          Spend less time writing UI code and more time building a great experience for your
-          customers.
+        <Text color="dark.100" maxWidth={450} variant="body1">
+          Leave the UI code to our team and focus on building your astonishing project.
         </Text>
         <Box
           allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -98,7 +96,7 @@ export default function Home() {
           h={{ xs: 300, md: 600 }}
           mt="3xl"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-          src="https://codesandbox.io/embed/homepage-example-mcypy?autoresize=1&hidenavigation=1&moduleview=1&theme=dark"
+          src="https://codesandbox.io/embed/homepage-example-mcypy?autoresize=1&hidenavigation=1&initialpath=src&module=%2Fsrc%2FExample.tsx&theme=dark&view=split"
           title="homepage-example"
           w="100%"
         />
@@ -107,20 +105,19 @@ export default function Home() {
         <Box textAlign="center" w="100%">
           <LogoWttj h={67} w={210} />
         </Box>
-        <Text as="span" mt={50} textTransform="uppercase" variant="subtitle1">
+        <Text as="span" mb="0" mt={50} textTransform="uppercase" variant="subtitle1">
           Who we are?
         </Text>
-        <Text maxWidth={950} mb="xl" mt="md" variant="h1">
-          We build products that transform every step of the experience at work
+        <Text as="h2" maxWidth={950} mb="xl" mt="sm" variant="h1">
+          The new experience at work
         </Text>
         <Text color="light.700" maxWidth={640} variant="body1">
-          Donec augue turpis, iaculis vel mattis ac, dictum vel sem. Quisque non dolor est.
-          Curabitur placerat ligula id ex sollicitudin sodales.
+          Welcome to the jungle build products that transform every step of the experience at work.
         </Text>
         <Box display="flex" mt={50}>
           <NextLink href="https://www.welcometothejungle.com/en/companies/wttj/jobs" passHref>
             <Button as="a" mr="md" size="lg" target="_blank">
-              <span>We hire engineers</span>
+              <span>We are recruiting</span>
               <HeartIcon size="lg" />
             </Button>
           </NextLink>

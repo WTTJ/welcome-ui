@@ -14,7 +14,7 @@ export function Footer(props) {
 
   return (
     <Box alignItems="center" as="footer" display="flex" justifyContent="space-between" {...props}>
-      <Box display={{ xs: 'none', md: ' block' }}>
+      <Box display={{ xs: 'none', md: 'block' }}>
         <Logo h={37} isDark w={63} />
       </Box>
       <Box alignItems="center" display="flex">

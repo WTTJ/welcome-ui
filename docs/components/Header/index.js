@@ -7,6 +7,7 @@ import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons'
 import { DocSearch } from '@docsearch/react'
 import { useRouter } from 'next/router'
+import '@docsearch/css'
 
 import { ComponentsList } from '../ComponentsList'
 import { Logo } from '../Logo'

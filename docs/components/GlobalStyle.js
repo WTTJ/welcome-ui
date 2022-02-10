@@ -8,6 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     --docsearch-hit-shadow: none;
     --docsearch-key-shadow: none;
     --docsearch-footer-shadow: none;
+    --docsearch-highlight-color: ${th('colors.dark.500')};
+    --docsearch-primary-color: ${th('colors.dark.500')};
+    --docsearch-logo-color: ${th('colors.dark.100')};
   }
 
   .DocSearch {
@@ -39,6 +42,7 @@ export const GlobalStyle = createGlobalStyle`
         border-radius: none;
         ${th('tags.default')};
         ${th('tags.variants.default')};
+        background: ${th('tags.variants.default.backgroundColor')};
       }
     }
   }
