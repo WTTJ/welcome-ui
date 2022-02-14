@@ -7,6 +7,8 @@ export type ThemeScreens = {
   xxl: number
   '3xl': number
   '4xl': number
+  [key: string]: number
+  [key: number]: number
 }
 
 export const screens: ThemeScreens = {
