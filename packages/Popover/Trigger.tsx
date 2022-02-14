@@ -1,5 +1,4 @@
 import React, { useLayoutEffect, useRef } from 'react'
-import { oneOf } from 'prop-types'
 import { PopoverDisclosure } from 'reakit/Popover'
 import { CreateWuiProps } from '@welcome-ui/system'
 
@@ -54,8 +53,4 @@ export const Trigger: React.FC<TriggerProps> = ({ triggerMethod = 'click', ...re
   }, [disclosureRef])
 
   return <PopoverDisclosure {...rest} ref={disclosureRef} />
-}
-
-Trigger.propTypes = {
-  triggerMethod: oneOf(['click', 'hover']),
 }
