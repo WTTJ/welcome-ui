@@ -48,7 +48,6 @@
   "peerDependencies": {
     "@xstyled/styled-components": "^3.5.1",
     "@xstyled/system": "^3.5.1",
-    "prop-types": "^15.7.2",
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
     "styled-components": "^5.3.3"
