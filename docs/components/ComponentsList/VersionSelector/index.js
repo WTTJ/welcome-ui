@@ -3,11 +3,11 @@ import React from 'react'
 
 import { version } from '../../../../lerna.json'
 
-const v3 = '3.13.1'
+const v3 = 'v3 latest'
 const v4 = `${version}`
 const versions = [
-  { value: v3, label: v3 },
   { value: v4, label: v4 },
+  { value: v3, label: v3 },
 ]
 
 export function VersionSelector() {
