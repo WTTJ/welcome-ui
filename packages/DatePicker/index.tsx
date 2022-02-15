@@ -56,7 +56,9 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
     },
     ref
   ) => {
-    const formatDate = (date: string | number | Date) => getDate(date, 15)
+    const timeIntervals = rest?.timeIntervals
+    const formatDate = (date: string | number | Date) => getDate(date, timeIntervals)
+
     const placeholderText = placeholder || rest.placeholderText
 
     const [focused, setFocused] = useState<Focused>((autoFocus && 'date') || null)

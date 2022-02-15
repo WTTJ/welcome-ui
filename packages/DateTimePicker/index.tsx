@@ -17,8 +17,17 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
     { children, dataTestId, disabled, locale, onChange, size = 'lg', value = DEFAULT_DATE },
     ref
   ) => {
+    const TimePickerNode =
+      Children.count(children) > 1 &&
+      Children.toArray(children).find(
+        (child: JSX.Element): boolean => child.type.displayName === 'TimePicker'
+      )
+    const timeIntervals = React.isValidElement(TimePickerNode)
+      ? TimePickerNode.props.timeIntervals
+      : undefined
+
     const formatDate: (date: DateTimePickerProps['value']) => ReturnType<typeof getDate> = date =>
-      getDate(date, 15)
+      getDate(date, timeIntervals)
 
     const [date, setDate] = useState(formatDate(value))
 
@@ -53,6 +62,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
               // give ref only to the first child
               inputRef: i < 1 ? ref : null,
               locale: locale,
+              timeIntervals,
               value: date,
             })
           )}
