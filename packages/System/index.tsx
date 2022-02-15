@@ -3,7 +3,6 @@ import { compose, Props, SystemProps } from '@xstyled/system'
 import { getPx, getTransition, getZIndex, style } from '@xstyled/styled-components'
 import * as S from '@xstyled/system'
 import { StyledConfig } from 'styled-components'
-import { WuiTheme } from '@welcome-ui/core'
 
 // Those are styles that were in v1 but not in v2
 const oldProps = compose(
@@ -107,7 +106,7 @@ export interface WuiTestProps {
   dataTestId?: string
 }
 
-export type WuiProps = SystemProps<WuiTheme>
+export type WuiProps = SystemProps
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type As<Props = any> = React.ElementType<Props>

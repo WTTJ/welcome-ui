@@ -36,9 +36,6 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
-  "dependencies": {
-    "@welcome-ui/core": "^4.0.0-rc.1"
-  },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.5.1",
     "@xstyled/system": "^3.5.1",
