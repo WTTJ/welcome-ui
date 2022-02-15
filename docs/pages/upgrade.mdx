@@ -1,20 +1,20 @@
 # Upgrade
 
-## Version 4: Welcome to Typescript!
+Version 4: Welcome to Typescript!
 
-Stable version comming - Early 2022
-
-### Typescript!
+## Typescript!
 
 We are excited to add Typescript on Welcome UI 😍
 
 You can check our progression on [github typescript project](https://github.com/WTTJ/welcome-ui/projects/1) 👀
 
-### Breaking Changes
+## Breaking Changes
 
 We upgraded xStyled core libraries to V3.
 
 Check the migration here : [Changelog of xstyled v3](https://xstyled.dev/docs/upgrade-guide/)
+
+### Theme
 
 #### Colors
 
@@ -29,10 +29,9 @@ Check the migration here : [Changelog of xstyled v3](https://xstyled.dev/docs/up
   - `theme.colors.success[200]` has been changed for the new color `#7EC784`
   - `theme.colors.info[200]` has been changed for the new color `#6696DF`
 
-#### Others
+#### textsTextTransform
 
-- Use `w="100%"` instead of `w={1}`
-- Use `h="100%"` instead of `h={1}`
+We removed useless entry textsTextTransform on global theme.
 
 ### Icons
 
@@ -50,6 +49,22 @@ Check the migration here : [Changelog of xstyled v3](https://xstyled.dev/docs/up
 - 2 icons modified :
   - `screenshare_off`
   - `screenshare_on`
+
+### Text component
+
+We reduce the size (and variant) of headings on mobile :
+
+- h0 > h1
+- h1 > h2
+- h2 > h3
+- h3 > h4
+- h4 > h5
+- h5 > h6
+
+### Others
+
+- Use `w="100%"` instead of `w={1}`
+- Use `h="100%"` instead of `h={1}`
 
 ## Other versions
 

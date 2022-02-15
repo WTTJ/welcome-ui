@@ -19,7 +19,7 @@ export type ThemeFontSizes = {
   subtitle2: string
   meta1: string
   meta2: string
-  [key: number]: string;
+  [key: number]: string
 }
 
 export const getFontSizes = (unit: string, theme: WuiTheme): ThemeFontSizes => {
@@ -221,16 +221,6 @@ export const getTextsFontFamily = (theme: WuiTheme): ThemeTextsFontFamily => {
   }
 }
 
-export type ThemeTextsTextTransform = {
-  h0: string
-}
-
-export const getTextsTextTransform = (): ThemeTextsTextTransform => {
-  return {
-    h0: 'uppercase',
-  }
-}
-
 export type ThemeTexts = {
   [key: string]: Partial<{
     fontFamily: CSSObject['fontFamily']
@@ -243,14 +233,7 @@ export type ThemeTexts = {
 }
 
 export const getTexts = (theme: WuiTheme): ThemeTexts => {
-  const {
-    fontSizes,
-    letterSpacings,
-    lineHeights,
-    textsFontFamily,
-    textsFontWeights,
-    textsTextTransform,
-  } = theme
+  const { fontSizes, letterSpacings, lineHeights, textsFontFamily, textsFontWeights } = theme
 
   return Object.keys(fontSizes).reduce((acc, key) => {
     return {
@@ -260,7 +243,6 @@ export const getTexts = (theme: WuiTheme): ThemeTexts => {
         fontWeight: textsFontWeights[key as keyof ThemeTextsFontFamily],
         fontSize: fontSizes[key as keyof ThemeFontSizes],
         lineHeight: lineHeights[key as keyof ThemeLineHeights] || lineHeights.body1,
-        textTransform: textsTextTransform[key as keyof ThemeTextsTextTransform] || undefined,
         letterSpacing: letterSpacings[key as keyof ThemeLetterSpacings] || undefined,
       },
     }
