@@ -19,6 +19,7 @@ export type ThemeFontSizes = {
   subtitle2: string
   meta1: string
   meta2: string
+  [key: number]: string;
 }
 
 export const getFontSizes = (unit: string, theme: WuiTheme): ThemeFontSizes => {
