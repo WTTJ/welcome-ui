@@ -30,7 +30,7 @@ describe('<Text>', () => {
     expect(text).toHaveTextContent(content)
     // check if is a h1 element
     expect(container.querySelector('h1')).toBeInTheDocument()
-    expect(text).toHaveStyleRule('font-size', '2.8125rem')
+    expect(text).toHaveStyleRule('font-size', '2.25rem')
   })
 
   it('should render correctly with a as property', () => {
