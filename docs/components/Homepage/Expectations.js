@@ -86,7 +86,7 @@ export function Expectations() {
     <Box
       display="grid"
       gap="xl"
-      gridTemplateColumns={{ xs: '1fr 1fr', md: '1fr 1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}
+      gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}
     >
       {expectations.map(component => (
         <Expectation key={component.link} {...component} />

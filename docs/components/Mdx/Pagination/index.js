@@ -16,7 +16,7 @@ export function Pagination() {
       <Box>
         {previous && (
           <>
-            <Text mb="xxs" variant="meta1">
+            <Text fontWeight="bold" mb="xxs" variant="meta1">
               Previous
             </Text>
             <NextLink href={previous.route} passHref>
@@ -30,7 +30,7 @@ export function Pagination() {
       <Box textAlign="right">
         {next && (
           <>
-            <Text mb="xxs" variant="meta1">
+            <Text fontWeight="bold" mb="xxs" variant="meta1">
               Next
             </Text>
             <NextLink href={next.route} passHref>

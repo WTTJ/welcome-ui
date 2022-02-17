@@ -49,7 +49,8 @@ export function Stats() {
       display="flex"
       justifyContent="space-between"
       maxWidth={470}
-      p="3xl 60"
+      px={{ xs: '3xl', md: '60' }}
+      py="3xl"
       w="100%"
     >
       {stats?.map(stat => (
