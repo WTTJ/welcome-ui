@@ -114,7 +114,7 @@ export default function Home() {
         <Text color="light.700" maxWidth={640} variant="body1">
           Welcome to the jungle build products that transform every step of the experience at work.
         </Text>
-        <Box display="flex" mt={50}>
+        <Box display={{ md: 'flex' }} mt={50}>
           <NextLink href="https://www.welcometothejungle.com/en/companies/wttj/jobs" passHref>
             <Button as="a" mr="md" size="lg" target="_blank">
               <span>We are recruiting</span>
@@ -122,7 +122,7 @@ export default function Home() {
             </Button>
           </NextLink>
           <NextLink href="https://www.welcometothejungle.com/en" passHref>
-            <Button as="a" size="lg" target="_blank" variant="quaternary">
+            <Button as="a" mt={{ xs: 'md', md: 0 }} size="lg" target="_blank" variant="quaternary">
               <span>Visit our website</span>
               <RightIcon size="lg" />
             </Button>

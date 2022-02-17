@@ -38,8 +38,9 @@ export const Text = styled.p<TextOptions>(({ lines, variant }) => {
 
     @media (min-width: lg) {
       ${th(`texts.${variant}`)};
+      ${system};
     }
 
-    ${system}
+    ${system};
   `
 })
