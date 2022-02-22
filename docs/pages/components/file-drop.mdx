@@ -65,8 +65,8 @@ By default:
 
 - `title`: is set to `"Add file"`
 - `hint`: is set to `"Drag & drop a file here or"`
-- `cta`: is set to `"Browse file"`
-- `preview`: is set to `"Preview"`
+- `fileButtonText`: is set to `"Browse file"`
+- `previewButtonText`: is set to `"Preview"`
 
 You can override translations with a `wordings` object.
 
@@ -92,7 +92,7 @@ function() {
         wordings={{
           title:"My custom title",
           hint:"My custom hint",
-          cta:"My custom cta"
+          fileButtonText:"My custom cta"
         }}
       />
     </Field>
@@ -118,7 +118,7 @@ function () {
         handleRemoveFile={handleChange}
         value={value}
         wordings={{
-          preview:"My custom preview",
+          previewButtonText:"My custom preview",
         }}
       />
     </Field>

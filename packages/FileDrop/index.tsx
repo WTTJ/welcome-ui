@@ -31,10 +31,10 @@ export type FileUrlType = string | URL
 export type OpenType = DropzoneState['open']
 export type DisabledType = DropzoneProps['disabled']
 export type WordingsType = {
-  cta?: string | JSX.Element
+  fileButtonText?: string | JSX.Element
   hint?: string | JSX.Element
+  previewButtonText?: string | JSX.Element
   title?: string | JSX.Element
-  preview?: string | JSX.Element
 }
 export type ChildrenType = {
   disabled?: boolean
@@ -63,7 +63,7 @@ export interface FileDropOptions {
   onChange?: (event: DropEvent | React.ChangeEvent<HTMLInputElement> | CreateEvent) => void
   onError?: (event?: string) => void
   value: FileType
-  /** Pass an object with optional fields title, hint, cta and/or preview (string or JSX.Element) */
+  /** Pass an object with optional fields title, hint, fileButtonText and/or previewButtonText (string or JSX.Element) */
   wordings?: WordingsType
 }
 

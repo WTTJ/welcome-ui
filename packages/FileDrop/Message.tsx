@@ -10,8 +10,8 @@ export interface MessageProps {
 }
 
 export const Message: React.FC<MessageProps & WordingsType> = ({
-  cta = 'Browse file',
   disabled,
+  fileButtonText = 'Browse file',
   hint = 'Drag & drop a file here or',
   openFile,
   title = 'Add file',
@@ -25,7 +25,7 @@ export const Message: React.FC<MessageProps & WordingsType> = ({
         {hint}
       </Text>
       <Button disabled={disabled} mt="xl" onClick={openFile} type="button">
-        {cta}
+        {fileButtonText}
       </Button>
     </>
   )

@@ -14,7 +14,7 @@ export interface MessageProps {
 export const FilePreview: React.FC<MessageProps & WordingsType> = ({
   file,
   forceFileType,
-  preview = 'Preview',
+  previewButtonText = 'Preview',
 }) => {
   const isUrl = typeof file === 'string'
   const Icon = getFileIcon(file, forceFileType)
@@ -34,7 +34,7 @@ export const FilePreview: React.FC<MessageProps & WordingsType> = ({
       )}
       {isUrl && (
         <Button as="a" href={file} mt="md" rel="noopener" size="sm" target="_blank">
-          <span>{preview}</span>
+          <span>{previewButtonText}</span>
           <ExternalLinkIcon />
         </Button>
       )}
