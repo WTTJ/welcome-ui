@@ -10,6 +10,7 @@ export type RadioOptions = {
   label?: string
   onChange?: (event: React.MouseEvent<HTMLLabelElement>) => void
   onClick?: (event: React.MouseEvent<HTMLLabelElement>) => void
+  withHint?: boolean
 } & DefaultFieldStylesProps
 
 export type RadioProps = CreateWuiProps<'input', RadioOptions & LabelOptions>
@@ -27,6 +28,7 @@ export const Radio = forwardRef<'input', RadioProps>(
       onChange,
       onClick,
       variant,
+      withHint,
       ...rest
     },
     ref
@@ -46,7 +48,7 @@ export const Radio = forwardRef<'input', RadioProps>(
         maxWidth={maxWidth}
         onClick={handleClick}
         variant={variant}
-        withHint={!!hint}
+        withHint={withHint || !!hint}
       >
         <S.Wrapper flexDirection={flexDirection}>
           <S.Input>

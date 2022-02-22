@@ -42,6 +42,7 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
     ref
   ) => {
     const radio = useRadioState({ currentId: value })
+    const withHint = options.findIndex(obj => Object.keys(obj).includes('hint')) !== -1
 
     return (
       <FieldGroup as={ReakitRadioGroup} label={label} mb={0} ref={ref} required={required}>
@@ -58,6 +59,7 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
               name={name}
               type="radio"
               value={option.value}
+              withHint={withHint}
               {...radio}
             />
           ))}
