@@ -2,7 +2,7 @@
 import React from 'react'
 import { useCopyText } from '@welcome-ui/utils.copy'
 import { Toast, useToast } from '@welcome-ui/toast'
-import { Box } from '@welcome-ui/box'
+import { Text } from '@welcome-ui/text'
 
 import * as S from './Item.styles'
 
@@ -24,10 +24,10 @@ export function Item({ componentName, icon: Icon, name }) {
     <S.Item copied={copied} onClick={handleCopy}>
       <S.Content>
         <Icon size="xl" />
+        <Text as="span" color="nude.800" lines={2} pt="md" px="xs" variant="meta1">
+          {name}
+        </Text>
       </S.Content>
-      <Box fontSize="meta1" fontWeight="medium" pt="xs" px="xs" textAlign="center" w="100%">
-        {name}
-      </Box>
     </S.Item>
   )
 }

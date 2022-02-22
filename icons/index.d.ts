@@ -30,6 +30,8 @@ export declare const BirthdayIcon: React.FC<IconProps>
 export declare const BoldIcon: React.FC<IconProps>
 export declare const BookIcon: React.FC<IconProps>
 export declare const Book2Icon: React.FC<IconProps>
+export declare const BookmarkIcon: React.FC<IconProps>
+export declare const BookmarkOutlineIcon: React.FC<IconProps>
 export declare const BulbIcon: React.FC<IconProps>
 export declare const BulkIcon: React.FC<IconProps>
 export declare const BuoyIcon: React.FC<IconProps>
@@ -90,6 +92,7 @@ export declare const EducationLevelIcon: React.FC<IconProps>
 export declare const EmailIcon: React.FC<IconProps>
 export declare const EmailOutlineIcon: React.FC<IconProps>
 export declare const EotIcon: React.FC<IconProps>
+export declare const EqualIcon: React.FC<IconProps>
 export declare const ExpandIcon: React.FC<IconProps>
 export declare const ExpandTextIcon: React.FC<IconProps>
 export declare const ExternalLinkIcon: React.FC<IconProps>

@@ -21,7 +21,7 @@ See the [documentation](https://welcome-ui.com/components/icons) or [package sou
 
 1. Download the svg from abstract into the `icons/_assets/` folder, using snake_case for the name
 
-2. If your icon is monochrome, check the presence of `fill="#134B45"` in the svg. If it is not present, change the `fill` attribute.
+2. If your icon is monochrome, check the presence of `fill="black"` in the svg. If it is not present, change the `fill` attribute.
 
 3. Run `yarn icons`
 

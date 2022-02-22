@@ -29,7 +29,7 @@ function Wrapper({ name, theme }) {
                   <Box color="dark.900" fontWeight="medium">
                     {key}
                   </Box>
-                  <Box color="nude.700" fontSize="meta2" mt={3}>
+                  <Box color="nude.800" fontSize="meta1" mt={3}>
                     {depth}
                   </Box>
                 </Box>

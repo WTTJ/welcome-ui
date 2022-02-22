@@ -1,0 +1,19 @@
+{
+  "name": "@welcome-ui/icons.bookmark_outline",
+  "sideEffects": false,
+  "main": "dist/icons.bookmark_outline.cjs.js",
+  "module": "dist/icons.bookmark_outline.es.js",
+  "types": "dist/index.d.ts",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@welcome-ui/icon": "^4.0.0-rc.2"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2 || ^17.0.1",
+    "react-dom": "^16.10.2 || ^17.0.1"
+  },
+  "license": "MIT"
+}

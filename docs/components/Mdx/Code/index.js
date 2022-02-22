@@ -81,11 +81,17 @@ const transformCode = (code, row) => {
   return row ? `<CodeContentRow>${code}</CodeContentRow>` : `<CodeContent>${code}</CodeContent>`
 }
 
-export function Code({ children, className, isCopyable = true, live = true, row }) {
+export function Code({
+  children,
+  className,
+  isCopyable = true,
+  live = true,
+  row,
+  withCode = true,
+}) {
   const [editorOpen, setEditorOpen] = React.useState(false)
   const language = className && className.replace(/language-/, '')
   const [copy, copied] = useCopyText(children.trim(), 3000)
-
   const [editorCode, setEditorCode] = React.useState(children.trim())
 
   const toggleEditor = () => {
@@ -187,31 +193,33 @@ export function Code({ children, className, isCopyable = true, live = true, row 
             <Box p="xl" pb="lg">
               <LivePreview />
             </Box>
-            <S.ShowEditor>
-              <Button
-                border="none"
-                h={25}
-                onClick={toggleEditor}
-                shape="circle"
-                variant="tertiary"
-                w={25}
-              >
-                <Icons.ChevronIcon />
-              </Button>
-              {isCopyable && (
+            {withCode === true && (
+              <S.ShowEditor>
                 <Button
                   border="none"
                   h={25}
-                  ml="xxs"
-                  onClick={copy}
+                  onClick={toggleEditor}
                   shape="circle"
                   variant="tertiary"
                   w={25}
                 >
-                  {copied ? <Icons.CheckIcon color="success.500" /> : <Icons.CopyIcon />}
+                  <Icons.ChevronIcon />
                 </Button>
-              )}
-            </S.ShowEditor>
+                {isCopyable && (
+                  <Button
+                    border="none"
+                    h={25}
+                    ml="xxs"
+                    onClick={copy}
+                    shape="circle"
+                    variant="tertiary"
+                    w={25}
+                  >
+                    {copied ? <Icons.CheckIcon color="success.500" /> : <Icons.CopyIcon />}
+                  </Button>
+                )}
+              </S.ShowEditor>
+            )}
           </Card.Body>
         </Card>
         {editorOpen && (
