@@ -7,11 +7,38 @@ import { Box } from '@welcome-ui/box'
 import { toPascalCase } from '../../../utils/strings'
 
 import { Item } from './Item'
+import {
+  actions,
+  arrows,
+  avatar,
+  brands,
+  files,
+  flags,
+  markdown,
+  miscellaneous,
+  player,
+  table,
+  wtf,
+} from './icons'
 
-export function IconsList({ icons, isIconFont }) {
+export function IconsList({ isIconFont, name }) {
+  const iconsByName = {
+    arrows: arrows,
+    actions: actions,
+    miscellaneous: miscellaneous,
+    player: player,
+    avatar: avatar,
+    wtf: wtf,
+    files: files,
+    markdown: markdown,
+    table: table,
+    brands: brands,
+    flags: flags,
+  }
+
   return (
-    <Box display="flex" flexWrap="wrap">
-      {icons.map(key => {
+    <Box display="grid" gap="xl" gridTemplateColumns={{ xs: '1fr 1fr', lg: '1fr 1fr 1fr 1fr 1fr' }}>
+      {iconsByName[name]?.map(key => {
         const name = toPascalCase(key)
         const componentName = isIconFont ? `Icons.${name}` : `${name}Icon`
         const Icon = isIconFont ? FontIcons[name] : Icons[componentName]

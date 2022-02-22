@@ -47,363 +47,83 @@ Here is an example on how to use css class to display icons:
 
 **Note**: You can click on an icon to copy its name.
 
-### Directions
+### Arrows
 
-```jsx
+```jsx withCode=false
 function() {
-  const icons = ['left', 'right', 'up', 'down', 'arrow_left', 'arrow_right', 'arrow_up', 'arrow_down' ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({ name: 'arrows', isIconFont: true })
 }
 ```
 
 ### Actions
 
-```jsx
+```jsx withCode=false
 function() {
-  const icons = [
-    'activity',
-    'add',
-    'archive',
-    'aspect_ratio_fill',
-    'aspect_ratio_fit',
-    'bulk',
-    'check',
-    'collapse',
-    'copy',
-    'cross',
-    'drag_and_drop',
-    'duplicate',
-    'edit',
-    'eye',
-    'expand_text',
-    'expand',
-    'external_link',
-    'filters',
-    'get',
-    'heart',
-    'heart_outline',
-    'hide',
-    'home',
-    'information',
-    'link',
-    'log_out',
-    'menu',
-    'more',
-    'more_android',
-    'notification',
-    'pin',
-    'play',
-    'play_outline',
-    'print',
-    'promote',
-    'refuse_candidate',
-    'remote',
-    'remove',
-    'reset',
-    'save',
-    'search',
-    'settings',
-    'share1',
-    'share2',
-    'trash',
-    'unavailable',
-    'upload',
-    'user_outline',
-    'user',
-    'video',
-    'write'
-  ]
-  return IconsList({icons, isIconFont: true})
-}
-```
-
-### Appreciations
-
-```jsx
-function() {
-  const icons = [
-    'negative',
-    'positive',
-    'negative_outline',
-    'positive_outline',
-    'negative_straight',
-    'positive_straight'
-  ]
-  return IconsList({icons, isIconFont: true})
-}
-```
-
-### Categories
-
-```jsx
-function() {
-  const icons = ['actions', 'cover_letter', 'details', 'resume', 'questions']
-  return IconsList({icons, isIconFont: true})
-}
-```
-
-### Controls
-
-```jsx
-function() {
-  const icons = ['control_stop', 'control_pause', 'control_forward', 'control_backward', 'fullscreen_off', 'fullscreen_on', 'screenshare_off', 'screenshare_on', 'microphone_on', 'microphone_off', 'cast', 'cast_connected', 'cast_unavailable', 'camera_on', 'camera_off', 'airplay', 'watch_later', 'playlist', 'sound_on', 'sound_off']
-  return IconsList({icons, isIconFont: true})
+  return IconsList({ name: 'actions', isIconFont: true })
 }
 ```
 
 ### Miscellaneous
 
-```jsx
+```jsx withCode=false
 function() {
-  const icons = [
-    'address',
-    'alert',
-    'analytics',
-    'anniversary',
-    'attachment',
-    'avatar',
-    'bar_chart',
-    'birthday',
-    'burn',
-    'candidate_status',
-    'card_view',
-    'celebrate',
-    'clock',
-    'comment_outline',
-    'comment',
-    'common_area',
-    'contract',
-    'create',
-    'date',
-    'department',
-    'earth',
-    'education_level',
-    'email_outline',
-    'email',
-    'female',
-    'fingerprint',
-    'folder',
-    'information',
-    'in_progress_candidate',
-    'kanban',
-    'language',
-    'line_chart',
-    'location',
-    'male',
-    'masonry',
-    'meeting_room',
-    'mention',
-    'new_candidate',
-    'offer_status',
-    'office',
-    'origine',
-    'phone_outline',
-    'phone',
-    'pictures',
-    'podcast',
-    'question',
-    'review_outline',
-    'review',
-    'salary',
-    'search_people',
-    'source',
-    'star',
-    'star_outline',
-    'subtitle',
-    'suitcase',
-    'tag',
-    'tags',
-    'teepee',
-    'update',
-    'video_camera',
-    'video_camera_2',
-  ]
-  return IconsList({icons, isIconFont: true})
-}
-```
-
-### Avatar
-
-```jsx
-function() {
-  const icons = [
-    'avatar_accessory',
-    'avatar_body',
-    'avatar_bottom',
-    'avatar_costume',
-    'avatar_head',
-    'avatar_top'
-  ]
-  return IconsList({icons, isIconFont: true})
-}
-```
-
-### Files
-
-```jsx
-function() {
-  const icons = [
-    'csv',
-    'doc',
-    'docx',
-    'eot',
-    'gif',
-    'jpeg',
-    'jpg',
-    'pdf',
-    'png',
-    'ppt',
-    'svg',
-    'ttf',
-    'txt',
-    'woff',
-    'woff2',
-    'xls',
-    'xlsx',
-    'zip'
-  ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({ name: 'miscellaneous', isIconFont: true })
 }
 ```
 
 ### WTF
 
-```jsx
+```jsx withCode=false
 function() {
-  const icons = [
-    'basketball',
-    'book',
-    'book2',
-    'bulb',
-    'buoy',
-    'caddy',
-    'calcul',
-    'camera',
-    'chevron',
-    'clipboard',
-    'coffee',
-    'compass',
-    'computer',
-    'credit_card',
-    'crescent_moon',
-    'crescent_moon_outline',
-    'cross_target',
-    'crown',
-    'diamond',
-    'dish',
-    'factory',
-    'flag',
-    'flag_fill',
-    'flag_pointed',
-    'gear',
-    'handshake',
-    'hard_hat',
-    'hashtag',
-    'headset',
-    'heart_shiny',
-    'house',
-    'justice_hammer',
-    'key',
-    'leaf',
-    'lock',
-    'lock_rounded',
-    'map',
-    'megaphone',
-    'mic',
-    'microship',
-    'money',
-    'mountain',
-    'music',
-    'paperplane',
-    'pencil',
-    'piechart',
-    'pizza',
-    'puzzle',
-    'puzzle_outline',
-    'refresh',
-    'shield',
-    'spanner',
-    'stackserver',
-    'sun',
-    'target',
-    'thumbup',
-    'tree',
-    'trophy'
-  ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({ name: "wtf", isIconFont: true })
+}
+```
+
+### Files
+
+```jsx withCode=false
+function() {
+  return IconsList({ name: 'files', isIconFont: true })
+}
+```
+
+### Player
+
+```jsx withCode=false
+function() {
+  return IconsList({ name: 'player', isIconFont: true })
+}
+```
+
+### Avatar
+
+```jsx withCode=false
+function() {
+  return IconsList({ name: 'avatar', isIconFont: true })
 }
 ```
 
 ### Markdown
 
-```jsx
+```jsx withCode=false
 function() {
-  const icons = [
-    'bold',
-    'code',
-    'code_block',
-    'heading',
-    'heading_1',
-    'heading_2',
-    'heading_3',
-    'heading_4',
-    'heading_5',
-    'heading_6',
-    'italic',
-    'link',
-    'unordered_list',
-    'ordered_list',
-    'quote',
-    'strikethrough',
-    'type',
-    'underline'
-  ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({ name: 'markdown', isIconFont: true })
 }
 ```
 
 ### Table
 
-```jsx
+```jsx withCode=false
 function() {
-  const icons = [
-    'table',
-    'table_column_add_after',
-    'table_column_add_before',
-    'table_column_remove',
-    'table_delete',
-    'table_divide',
-    'table_merge_cells',
-    'table_row_add_above',
-    'table_row_add_below',
-    'table_row_remove'
-  ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({ name: 'table', isIconFont: true })
 }
 ```
 
 ### Brands
 
-```jsx
+```jsx withCode=false
 function() {
-  const icons = [
-    'behance',
-    'dribbble',
-    'facebook',
-    'github',
-    'google',
-    'instagram',
-    'linkedin',
-    'npm',
-    'pinterest',
-    'stackoverflow',
-    'twitch',
-    'twitter',
-    'xing',
-    'youtube',
-    'wttj'
-  ]
-  return IconsList({icons, isIconFont: true})
+  return IconsList({ name: 'brands', isIconFont: true })
 }
 ```
 

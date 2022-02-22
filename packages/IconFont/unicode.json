@@ -274,5 +274,8 @@
   "avatar_top": "0x211",
   "common_area": "0x212",
   "meeting_room": "0x213",
-  "google": "0x214"
+  "google": "0x214",
+  "bookmark": "0x215",
+  "bookmark_outline": "0x216",
+  "equal": "0x217"
 }

@@ -7,10 +7,9 @@ export const Content = styled(Box)`
   border-width: sm;
   border-style: solid;
   border-radius: lg;
-  display: flex;
-  justify-content: center;
-  padding: lg md;
+  padding: xl sm lg;
   width: 100%;
+  text-align: center;
   transition: medium;
 `
 
@@ -19,9 +18,7 @@ export const Item = styled(Box)(
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin: md;
     cursor: pointer;
-    width: 130;
 
     ${!copied &&
     css`
