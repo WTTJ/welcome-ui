@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/alert",
-  "version": "4.0.0-rc.2",
+  "version": "4.0.0-rc.3",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/alert.cjs.js",
   "module": "dist/alert.es.js",
@@ -41,7 +41,7 @@
     "@welcome-ui/box": "^4.0.0-rc.2",
     "@welcome-ui/stack": "^4.0.0-rc.2",
     "@welcome-ui/system": "^4.0.0-rc.2",
-    "@welcome-ui/text": "^4.0.0-rc.2",
+    "@welcome-ui/text": "^4.0.0-rc.3",
     "@welcome-ui/variant-icon": "^4.0.0-rc.2"
   },
   "peerDependencies": {

@@ -4,7 +4,7 @@
   "main": "dist/icons.equal.cjs.js",
   "module": "dist/icons.equal.es.js",
   "types": "dist/index.d.ts",
-  "version": "1.0.0",
+  "version": "4.0.0-rc.3",
   "publishConfig": {
     "access": "public"
   },

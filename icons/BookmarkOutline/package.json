@@ -4,7 +4,7 @@
   "main": "dist/icons.bookmark_outline.cjs.js",
   "module": "dist/icons.bookmark_outline.es.js",
   "types": "dist/index.d.ts",
-  "version": "1.0.0",
+  "version": "4.0.0-rc.3",
   "publishConfig": {
     "access": "public"
   },
