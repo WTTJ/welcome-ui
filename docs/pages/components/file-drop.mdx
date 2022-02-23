@@ -59,6 +59,73 @@ function() {
 }
 ```
 
+## Custom wordings
+
+By default:
+
+- `title`: is set to `"Add file"`
+- `hint`: is set to `"Drag & drop a file here or"`
+- `fileButtonText`: is set to `"Browse file"`
+- `previewButtonText`: is set to `"Preview"`
+
+You can override translations with a `wordings` object.
+
+```jsx
+function() {
+  const [value, setValue] = useState(null)
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+  return (
+    <Field
+      label="Your file"
+      hint="Files must be < 2MB"
+      required
+    >
+      <FileDrop
+        isEditable
+        isClearable
+        name="file"
+        handleAddFile={handleChange}
+        handleRemoveFile={handleChange}
+        value={value}
+        wordings={{
+          title:"My custom title",
+          hint:"My custom hint",
+          fileButtonText:"My custom file button"
+        }}
+      />
+    </Field>
+  )
+}
+```
+
+### With preview
+
+```jsx
+function () {
+  const [value, setValue] = useState('https://test-documents-file/file.docx?v=63731713698')
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+  return (
+    <Field hint="Files must be < 2MB" label="File">
+      <FileDrop
+        isEditable
+        isClearable
+        name="file"
+        handleAddFile={handleChange}
+        handleRemoveFile={handleChange}
+        value={value}
+        wordings={{
+          previewButtonText:"My custom preview button",
+        }}
+      />
+    </Field>
+  )
+}
+```
+
 ## Show preview if value exists
 
 ### Image

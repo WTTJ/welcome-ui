@@ -4,14 +4,18 @@ import { Text } from '@welcome-ui/text'
 import { ExternalLinkIcon } from '@welcome-ui/icons.external_link'
 import { ForceFileType, getFileIcon, getFileName, getFileSize } from '@welcome-ui/files'
 
-import { FileType } from './index'
+import { FileType, WordingsType } from './index'
 
 export interface MessageProps {
   file: FileType
   forceFileType?: ForceFileType
 }
 
-export const FilePreview: React.FC<MessageProps> = ({ file, forceFileType }) => {
+export const FilePreview: React.FC<MessageProps & WordingsType> = ({
+  file,
+  forceFileType,
+  previewButtonText = 'Preview',
+}) => {
   const isUrl = typeof file === 'string'
   const Icon = getFileIcon(file, forceFileType)
   const size = file instanceof File ? getFileSize(file) : null
@@ -30,7 +34,7 @@ export const FilePreview: React.FC<MessageProps> = ({ file, forceFileType }) => 
       )}
       {isUrl && (
         <Button as="a" href={file} mt="md" rel="noopener" size="sm" target="_blank">
-          <span>Preview</span>
+          <span>{previewButtonText}</span>
           <ExternalLinkIcon />
         </Button>
       )}

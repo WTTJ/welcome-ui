@@ -18,19 +18,20 @@ export const Preview: React.FC<ChildrenType> = ({
   isHoverAccept,
   isHoverReject,
   openFile,
+  wordings,
 }) => {
   if (isHoverAccept) {
     return <PositiveIcon />
   } else if (isHoverReject) {
     return <NegativeIcon />
   } else if (error) {
-    return <Message openFile={openFile} />
+    return <Message openFile={openFile} {...wordings} />
   } else if (fileUrl) {
     if (isAnImage) {
       return <ImagePreview src={fileUrl as string} />
     } else {
-      return <FilePreview file={file} forceFileType={forceFileType} />
+      return <FilePreview file={file} forceFileType={forceFileType} {...wordings} />
     }
   }
-  return <Message disabled={disabled} openFile={openFile} />
+  return <Message disabled={disabled} openFile={openFile} {...wordings} />
 }

@@ -30,6 +30,12 @@ export type FileType = string | FileWithPreview
 export type FileUrlType = string | URL
 export type OpenType = DropzoneState['open']
 export type DisabledType = DropzoneProps['disabled']
+export type WordingsType = {
+  fileButtonText?: string | JSX.Element
+  hint?: string | JSX.Element
+  previewButtonText?: string | JSX.Element
+  title?: string | JSX.Element
+}
 export type ChildrenType = {
   disabled?: boolean
   error?: string
@@ -40,6 +46,7 @@ export type ChildrenType = {
   isHoverAccept?: DropzoneState['isDragAccept']
   isHoverReject?: DropzoneState['isDragReject']
   openFile?: OpenType
+  wordings?: WordingsType
 }
 
 export interface FileDropOptions {
@@ -56,6 +63,8 @@ export interface FileDropOptions {
   onChange?: (event: DropEvent | React.ChangeEvent<HTMLInputElement> | CreateEvent) => void
   onError?: (event?: string) => void
   value: FileType
+  /** Pass an object with optional fields title, hint, fileButtonText and/or previewButtonText (string or JSX.Element) */
+  wordings?: WordingsType
 }
 
 export type FileDropProps = CreateWuiProps<'div', FileDropOptions> & Omit<DropzoneProps, 'children'>
@@ -79,6 +88,7 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
       onChange,
       onError,
       value,
+      wordings,
       ...rest
     },
     ref
@@ -188,6 +198,7 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
             isHoverAccept: isDragAccept,
             isHoverReject: isDragReject,
             openFile: open,
+            wordings,
           })}
           {!!file && (error || isEditable || isClearable) && (
             <S.Actions>
