@@ -36,7 +36,8 @@
     "test": "node --expose-gc ./node_modules/.bin/jest ./packages --logHeapUsage",
     "check:ssh": "ssh-add -L >> /dev/null",
     "check:ssh-error": "tput setaf 1; echo 'Warning ! Your ssh key is not correctly set ( or forwarded if you work on a remote machine )'; tput sgr0",
-    "clean": "lerna clean"
+    "clean": "lerna clean",
+    "postinstall": "husky install"
   },
   "private": true,
   "workspaces": [
@@ -125,7 +126,7 @@
     "eslint-plugin-sort-destructure-keys": "^1.4.0",
     "esm": "^3.2.25",
     "final-form": "^4.20.6",
-    "husky": "=3.1.0",
+    "husky": "7.0.4",
     "jest": "27.5.1",
     "jest-styled-components": "7.0.8",
     "lerna": "^3.22.1",
@@ -163,12 +164,6 @@
   },
   "resolutions": {
     "styled-components": "5.3.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn icons:collect && yarn lint && yarn test",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "homepage": "https://welcome-ui.com"
 }
