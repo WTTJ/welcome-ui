@@ -98,7 +98,7 @@
     "@types/lodash.escaperegexp": "^4.1.6",
     "@types/lodash.groupby": "^4.6.6",
     "@types/lodash.range": "^3.2.6",
-    "@types/ramda": "^0.27.44",
+    "@types/ramda": "^0.28.0",
     "@types/react": "^17.0.11",
     "@types/react-datepicker": "^4.3.2",
     "@types/react-window": "^1.8.5",
