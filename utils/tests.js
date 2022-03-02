@@ -2,14 +2,14 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { ThemeProvider } from '@xstyled/styled-components'
-import { StaticRouter } from 'react-router-dom'
+import { StaticRouter } from 'react-router-dom/server'
 import '@testing-library/jest-dom/extend-expect'
 import 'jest-styled-components'
 
 import { createTheme } from '../packages/Core/theme/core'
 const theme = createTheme()
 
-const AllTheProviders = ({ children }) => {
+function AllTheProviders({ children }) {
   return (
     <ThemeProvider theme={theme}>
       <StaticRouter context={{}}>{children}</StaticRouter>
@@ -35,7 +35,7 @@ global.document.createRange = () => ({
     top: 0,
     left: 0,
     right: 100,
-    bottom: 100
+    bottom: 100,
   }),
-  getClientRects: () => ({ width: 100, height: 100, top: 0, left: 0, right: 100, bottom: 100 })
+  getClientRects: () => ({ width: 100, height: 100, top: 0, left: 0, right: 100, bottom: 100 }),
 })
