@@ -91,6 +91,7 @@ export const SwiperComponent = forwardRef<'div', SwiperProps>((props, ref) => {
       <S.Swiper slidesToShow={slidesToShow} translateX={translateX}>
         {children.map((child, idx) =>
           cloneElement(child as React.ReactElement, {
+            // eslint-disable-next-line react/no-array-index-key
             key: idx,
             id: `${id}-${idx}`,
             role: 'tabpanel',

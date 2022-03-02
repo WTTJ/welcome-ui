@@ -50,6 +50,7 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
       const isLastChild = childrenLength === 1 || childrenLength === index + 1
 
       return cloneElement(child, {
+        // eslint-disable-next-line react/no-array-index-key
         key: `breadcrumb-${index}`,
         separator: isLastChild ? undefined : separator,
         as: isLastChild ? 'span' : renderChildrenAs,

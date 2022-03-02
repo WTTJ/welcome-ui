@@ -29,7 +29,10 @@ const readIconsFromFolders = () => {
       }
 
       const pwd = `${ICONS_PATH}/${key}`
-      const configs = getRollupConfig({ babelConfigFile: './babel.config.js', pwd })
+      const configs = getRollupConfig({
+        babelConfigFile: path.join(__dirname, '../babel.config.js'),
+        pwd,
+      })
       const packageName = toKebabCase(key)
 
       configs.forEach(config => {

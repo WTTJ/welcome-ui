@@ -11,7 +11,6 @@ module.exports = {
   ],
   plugins: [
     '@babel/plugin-proposal-optional-chaining',
-    ['transform-react-remove-prop-types', { removeImport: true }],
     [
       'styled-components',
       { ssr: true, displayName: true, pure: true, transpileTemplateLiterals: true },
