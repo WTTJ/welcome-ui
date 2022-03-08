@@ -1,8 +1,8 @@
 import path from 'path'
 
-import babel from 'rollup-plugin-babel'
+import babel from '@rollup/plugin-babel'
 import replace from '@rollup/plugin-replace'
-import nodeResolve from 'rollup-plugin-node-resolve'
+import nodeResolve from '@rollup/plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import json from '@rollup/plugin-json'
 
@@ -10,10 +10,10 @@ const extensions = ['.js', '.ts', '.tsx']
 
 const getBabelOptions = ({ babelConfigFile = '../../babel.config.js' }) => ({
   exclude: '**/node_modules/**',
-  runtimeHelpers: true,
   configFile: babelConfigFile,
   extensions,
   plugins: ['babel-plugin-annotate-pure-calls'],
+  babelHelpers: 'inline',
 })
 
 const external = id => !id.startsWith('.') && !id.startsWith('/')

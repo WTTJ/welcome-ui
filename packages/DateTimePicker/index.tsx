@@ -57,6 +57,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
         {children &&
           Children.map(children, (child: React.ReactElement, i) =>
             cloneElement(child, {
+              // eslint-disable-next-line react/no-array-index-key
               key: i,
               onChange: handleChange,
               // give ref only to the first child

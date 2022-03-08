@@ -39,7 +39,7 @@
   "dependencies": {
     "@welcome-ui/system": "^4.0.0-rc.2",
     "@welcome-ui/utils": "^4.0.0-rc.0",
-    "ramda": "^0.27.0"
+    "ramda": "^0.28.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.5.1",
