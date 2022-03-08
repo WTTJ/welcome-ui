@@ -11,7 +11,10 @@ export function ThemeSelector(props) {
   const menu = useDropdownMenuState({ gutter: 10 })
   const theme = useThemeContext()
 
-  const handleSetTheme = theme => setTheme(theme)
+  const handleSetTheme = theme => {
+    setTheme(theme)
+    menu.hide()
+  }
 
   const options = [
     { value: 'core', label: 'Core Theme', icon: SunIcon },

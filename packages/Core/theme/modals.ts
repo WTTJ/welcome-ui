@@ -25,10 +25,12 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
       zIndex: 999,
     },
     footer: {
+      backgroundColor: colors.light[900],
       borderTop: `${borderWidths.sm} solid ${colors.light[800]}`,
       padding: `${space.lg} ${space.xxl}`,
     },
     title: {
+      backgroundColor: colors.light[900],
       borderBottom: `${borderWidths.sm} solid ${colors.light[800]}`,
       padding: `${space.lg} ${space.xxl}`,
       ...texts.h4,
