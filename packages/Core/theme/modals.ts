@@ -33,7 +33,7 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
       padding: `${space.lg} ${space.xxl}`,
       ...texts.h4,
       /** space of close button */
-      paddingRight: toRem(50),
+      paddingRight: space['5xl'],
     },
     gutter: toRem(32),
     sizes: {

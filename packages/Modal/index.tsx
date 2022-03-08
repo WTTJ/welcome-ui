@@ -73,11 +73,11 @@ ModalComponent.displayName = 'Modal'
 
 const Title: React.FC<TextProps> = props => {
   const { modals } = useTheme()
-  return <Text {...modals.title} m="0" p="xxl 50 xxl xxl" variant="h4" width="100%" {...props} />
+  return <Text {...modals.title} m="0" p="xxl 5xl xxl xxl" variant="h4" w="100%" {...props} />
 }
 
 const Content: React.FC<BoxProps> = props => (
-  <Box flex={1} overflowY="auto" padding={50} {...props} />
+  <Box flex={1} overflowY="auto" padding="5xl" {...props} />
 )
 
 const Cover: React.FC<ShapeProps> = props => {
@@ -87,7 +87,7 @@ const Cover: React.FC<ShapeProps> = props => {
 
 const Footer: React.FC<BoxProps> = props => {
   const { modals } = useTheme()
-  return <Box {...modals.footer} width="100%" {...props} />
+  return <Box {...modals.footer} w="100%" {...props} />
 }
 
 // Nested exports

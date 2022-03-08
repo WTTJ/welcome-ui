@@ -49,7 +49,7 @@ export default function Home() {
           flexDirection={{ xs: 'column', lg: 'row' }}
           justifyContent="space-between"
         >
-          <Box flex="0 0 auto" maxWidth={{ md: 600 }} mb={{ xs: 50, lg: 0 }}>
+          <Box flex="0 0 auto" maxWidth={{ md: 600 }} mb={{ xs: '5xl', lg: 0 }}>
             <Text as="span" textTransform="uppercase" variant="subtitle1">
               Open source
             </Text>
@@ -74,7 +74,7 @@ export default function Home() {
         <Text as="h2" maxWidth={500} mb="xl" mt="0" variant="h1">
           All you’d expect from a design system...
         </Text>
-        <Text color="dark.100" maxWidth={640} mb={50} variant="body1">
+        <Text color="dark.100" maxWidth={640} mb="5xl" variant="body1">
           ...and a lot more!
         </Text>
         <Expectations />
@@ -101,11 +101,11 @@ export default function Home() {
           w="100%"
         />
       </Section>
-      <Section backgroundColor="dark.900" color="light.900" pt={{ xs: '3xl', md: 60 }}>
+      <Section backgroundColor="dark.900" color="light.900" pt={{ xs: '3xl', md: '6xl' }}>
         <Box textAlign="center" w="100%">
           <LogoWttj h={67} w={210} />
         </Box>
-        <Text as="span" mb="0" mt={50} textTransform="uppercase" variant="subtitle1">
+        <Text as="span" mb="0" mt="5xl" textTransform="uppercase" variant="subtitle1">
           Who we are?
         </Text>
         <Text as="h2" maxWidth={950} mb="xl" mt="sm" variant="h1">
@@ -114,7 +114,7 @@ export default function Home() {
         <Text color="light.700" maxWidth={640} variant="body1">
           Welcome to the jungle build products that transform every step of the experience at work.
         </Text>
-        <Box display={{ md: 'flex' }} mt={50}>
+        <Box display={{ md: 'flex' }} mt="5xl">
           <NextLink href="https://www.welcometothejungle.com/en/companies/wttj/jobs" passHref>
             <Button as="a" mr="md" size="lg" target="_blank">
               <span>We are recruiting</span>
