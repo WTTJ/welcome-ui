@@ -221,10 +221,4 @@ export const welcomeTheme: RecursivePartial<WuiTheme> = {
       },
     },
   },
-  modals: {
-    footer: {
-      paddingTop: 0,
-      borderTopWidth: 0,
-    },
-  },
 }

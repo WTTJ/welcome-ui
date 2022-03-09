@@ -38,10 +38,12 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-top: 20;
+    margin-top: xl;
     opacity: 0;
     height: 100%;
     width: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 
     transition: opacity 250ms ease-in-out, margin-top 250ms ease-in-out;
     cursor: auto;
@@ -60,6 +62,7 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
       'md',
       css`
         height: auto;
+        max-height: 90%;
         ${th(`modals.sizes.${size}`)};
       `
     )}
