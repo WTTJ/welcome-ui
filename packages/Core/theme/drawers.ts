@@ -33,9 +33,7 @@ export const getDrawers = (theme: WuiTheme): ThemeDrawers => {
     },
     title: {
       margin: 0,
-      padding: `${space['3xl']}`,
-      /** space of close button */
-      paddingRight: toRem(50),
+      padding: `${space['3xl']} ${space['5xl']} ${space['3xl']} ${space['3xl']}`,
       ...texts.h3,
     },
     content: {

@@ -20,7 +20,7 @@ export function DocsLayout({ children }) {
           borderTop="1px solid"
           borderTopColor="nude.200"
           mb="md"
-          mt={50}
+          mt="5xl"
           mx={{ xs: 'md', md: 'xxl' }}
           pt="xxl"
         />
