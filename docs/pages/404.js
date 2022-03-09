@@ -14,6 +14,7 @@ export default function Error404() {
       display="flex"
       flexDirection={{ xs: 'column', lg: 'row' }}
       justifyContent="center"
+      py="5xl"
     >
       <Box mb={{ xs: '3xl', lg: 0 }}>
         <Text variant="h1">Error 404 🥺</Text>

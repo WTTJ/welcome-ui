@@ -62,6 +62,7 @@ import { useCopyText } from '@welcome-ui/utils.copy'
 import * as Drawer from '@welcome-ui/drawer'
 import * as EmojiPicker from '@welcome-ui/emoji-picker'
 import * as Emoji from '@welcome-ui/emoji'
+import { Flex } from '@welcome-ui/flex'
 
 import * as constants from '../../../constants'
 import { HookForm } from '../../HookForm'
@@ -137,6 +138,7 @@ export function Code({
       FileDrop,
       ...Files,
       FileUpload,
+      Flex,
       Group,
       Hint,
       HookForm,
