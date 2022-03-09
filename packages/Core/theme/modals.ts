@@ -7,6 +7,7 @@ type Sizes = 'sm' | 'md' | 'lg' | 'auto'
 export type ThemeModals = {
   backdrop: CSSObject
   default: CSSObject
+  content: CSSObject
   footer: CSSObject
   title: CSSObject
   gutter: string
@@ -24,15 +25,18 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
     default: {
       zIndex: 999,
     },
+    content: {
+      padding: space.xxl,
+    },
     footer: {
       backgroundColor: colors.light[900],
       borderTop: `${borderWidths.sm} solid ${colors.light[800]}`,
-      padding: `${space.lg} ${space.xxl}`,
+      padding: space.xxl,
     },
     title: {
       backgroundColor: colors.light[900],
       borderBottom: `${borderWidths.sm} solid ${colors.light[800]}`,
-      padding: `${space.lg} ${space.xxl}`,
+      padding: space.xxl,
       ...texts.h4,
       /** space of close button */
       paddingRight: space['5xl'],

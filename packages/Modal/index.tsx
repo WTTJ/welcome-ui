@@ -25,7 +25,7 @@ export interface ModalOptions {
   hideOnClickOutside?: boolean
   onClose?: () => void
   size?: Size
-  children: React.ReactNode[]
+  children: JSX.Element[]
 }
 
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
@@ -66,6 +66,18 @@ const ModalComponent = forwardRef<'div', ModalProps>((props, ref) => {
     return undefined
   }
 
+  function getContentStyles(name?: string) {
+    if (name === 'Content') {
+      return {
+        mt: { xs: headerHeight, md: 0 },
+        mb: { xs: footerHeight, md: 0 },
+        pr: !headerHeight ? '5xl' : undefined,
+      }
+    }
+
+    return {}
+  }
+
   const closeModal = () => {
     onClose?.()
     hide()
@@ -88,8 +100,8 @@ const ModalComponent = forwardRef<'div', ModalProps>((props, ref) => {
 
           return cloneElement(child, {
             ref: setRef(name),
-            mt: { xs: name === 'Content' ? headerHeight : undefined, md: 0 },
-            mb: { xs: name === 'Content' ? footerHeight : undefined, md: 0 },
+            ...getContentStyles(name),
+            ...child.props,
           })
         })}
       </S.Dialog>
@@ -106,7 +118,6 @@ const Title = forwardRef<'h4', TextProps>((props, ref) => {
     <Text
       {...modals.title}
       m="0"
-      p="xxl 5xl xxl xxl"
       position={{ xs: 'fixed', md: 'relative' }}
       ref={ref}
       top="0"
@@ -119,12 +130,15 @@ const Title = forwardRef<'h4', TextProps>((props, ref) => {
 
 Title.displayName = 'ModalTitle'
 
-const Content: React.FC<BoxProps> = props => (
-  <Box flex="1" overflowY={{ md: 'auto' }} padding="5xl" {...props} />
-)
+const Content: React.FC<BoxProps> = props => {
+  const { modals } = useTheme()
+
+  return <Box {...modals.content} flex="1" overflowY={{ md: 'auto' }} {...props} />
+}
 
 const Cover: React.FC<ShapeProps> = props => {
   const { modals } = useTheme()
+
   return (
     <div>
       <Shape {...modals.cover} {...props} />
@@ -134,6 +148,7 @@ const Cover: React.FC<ShapeProps> = props => {
 
 const Footer = forwardRef<'div', BoxProps>((props, ref) => {
   const { modals } = useTheme()
+
   return (
     <Box
       {...modals.footer}
