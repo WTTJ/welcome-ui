@@ -10,7 +10,12 @@ import { Trigger } from './Trigger'
 import { UsePopoverStateReturn } from './usePopoverState'
 
 export interface PopoverOptions {
+  /** call a function when popover closed */
   onClose?: () => void
+  /** the method to open and close the popover */
+  triggerMethod?: UsePopoverStateReturn['triggerMethod']
+  /** show or hide a close button */
+  withCloseButton?: boolean
 }
 
 export type PopoverProps = CreateWuiProps<

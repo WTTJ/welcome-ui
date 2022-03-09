@@ -50,7 +50,7 @@ export type ChildrenType = {
 }
 
 export interface FileDropOptions {
-  /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg"  */
+  /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg" */
   accept?: string
   children?: (state: ChildrenType) => JSX.Element
   isClearable?: boolean

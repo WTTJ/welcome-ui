@@ -19,6 +19,8 @@ type FileWithPreviewType = FileWithPreview | string
 type HandleRemoveType = (file: FileWithPreviewType) => void
 
 export interface FileUploadOptions {
+  /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg" */
+  accept?: string
   maxSize?: number
   handleAddFile?: (files: FileWithPreviewType[] | FileWithPreviewType) => void
   handleRemoveFile?: HandleRemoveType
