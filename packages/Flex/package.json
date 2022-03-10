@@ -1,0 +1,55 @@
+{
+  "name": "@welcome-ui/flex",
+  "version": "4.0.0-rc.2",
+  "description": "Customizable design system with react • styled-components • styled-system and reakit.",
+  "main": "dist/flex.cjs.js",
+  "module": "dist/flex.es.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "test": "jest",
+    "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
+    "doc": "node -r esm ../../scripts/doc-props.js --name Flex"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WTTJ/welcome-ui.git"
+  },
+  "keywords": [
+    "design-system",
+    "react",
+    "reakit",
+    "styled-components",
+    "styled-system",
+    "ui-library",
+    "ui",
+    "ux",
+    "jungle",
+    "welcome",
+    "WTTJ"
+  ],
+  "author": "WTTJ <tech@wttj.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WTTJ/welcome-ui/issues"
+  },
+  "dependencies": {
+    "@welcome-ui/box": "^4.0.0-rc.2",
+    "@welcome-ui/system": "^4.0.0-rc.2"
+  },
+  "peerDependencies": {
+    "@xstyled/styled-components": "^3.5.1",
+    "@xstyled/system": "^3.5.1",
+    "react": "^16.10.2 || ^17.0.1",
+    "react-dom": "^16.10.2 || ^17.0.1",
+    "styled-components": "^5.3.3"
+  },
+  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
+  "sideEffects": false,
+  "component": "Flex",
+  "homepage": "https://welcome-ui.com/components/flex"
+}
