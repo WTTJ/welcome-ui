@@ -17,24 +17,6 @@ const baseBoxSizing = css`
 
 function baseFonts() {
   return css`
-    @media (max-width: 1200px) {
-      html {
-        font-size: 87.5%;
-      }
-    }
-
-    @media (max-width: 1300px) and (max-height: 700px) {
-      html {
-        font-size: 87.5%;
-      }
-    }
-
-    @media (max-width: 600px) {
-      html {
-        font-size: 100%;
-      }
-    }
-
     body,
     button,
     input,
