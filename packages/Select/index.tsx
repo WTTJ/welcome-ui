@@ -32,6 +32,7 @@ export type Options = Array<Option | OptionGroup>
 export type SelectValue = string | number | string[] | Option | (string | Option)[]
 
 export interface SelectOptions extends DefaultFieldStylesProps {
+  /** We need to add `autoComplete` off to avoid select UI issues when is an input */
   autoComplete?: string
   autoFocus?: boolean
   disabled?: boolean

@@ -13,9 +13,12 @@ const IS_APPLE_OS =
 const DEFAULT_SIZE = 64
 
 export interface EmojiOptions {
+  /** The slack emoji, e.g: :sweat-smile: or a URL */
   emoji?: string
   height?: number
+  /** Helper to prevent to set width & height */
   size?: number
+  /** Needed for SSR, it defaults to true on the server */
   useAppleEmoji?: boolean
   width?: number
 }

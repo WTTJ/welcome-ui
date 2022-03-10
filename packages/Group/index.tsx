@@ -8,6 +8,7 @@ type ChildrenProps = React.ReactElement<typeof Button> | React.ReactElement<type
 
 export interface GroupOptions {
   children: ChildrenProps
+  /** Disable all your buttons components */
   disabled?: boolean
   size?: Size
   variant?: Variant

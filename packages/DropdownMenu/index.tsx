@@ -8,6 +8,7 @@ import { Separator } from './Separator'
 import * as S from './styles'
 
 export interface DropdownMenuOptions {
+  /** add custom props from styled system on DropdownMenu inner */
   innerProps?: WuiProps
   visible?: boolean
 }

@@ -8,6 +8,7 @@ export type Size = 'xs' | 'sm' | 'md' | 'lg' | ExtraSize
 
 export interface LoaderOptions {
   color?: string
+  /** Predefined size xs, sm, md, lg or custom size */
   size?: Size
 }
 

@@ -142,7 +142,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
 
 EmojiPickerComponent.displayName = 'EmojiPicker'
 
-export const useEmojiPicker: (options: UsePopoverStateProps) => UsePopoverStateReturn = options =>
+export const useEmojiPicker: (options?: UsePopoverStateProps) => UsePopoverStateReturn = options =>
   usePopoverState({
     placement: 'bottom-start',
     ...options,
