@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider, useTheme as useXstyledTheme } from '@xstyled/styled-components'
+import { ThemeProvider } from '@xstyled/styled-components'
 import { HideFocusRingsRoot } from '@welcome-ui/utils'
 
 import { WuiTheme } from './theme/types'
@@ -36,15 +36,3 @@ export const WuiProvider: React.FC<WuiProviderProps> = ({
 }
 
 WuiProvider.displayName = 'WuiProvider'
-
-export const useTheme = (): WuiTheme => {
-  const theme = useXstyledTheme() as WuiTheme
-
-  if (!theme) {
-    throw Error(
-      'useTheme: `theme` is undefined. Seems you forgot to wrap your app in <WuiProvider />'
-    )
-  }
-
-  return theme
-}
