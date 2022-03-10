@@ -55,6 +55,7 @@ import {
   ThemeTexts,
   ThemeTextsFontFamily,
   ThemeTextsFontWeights,
+  ThemeTextsTextTransform,
 } from './typography'
 import { ThemeUnderline } from './underline'
 
@@ -109,6 +110,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   defaultCards: ThemeDefaultCards
   textsFontWeights: ThemeTextsFontWeights
   textsFontFamily: ThemeTextsFontFamily
+  textsTextTransform: ThemeTextsTextTransform
   alerts: ThemeAlerts
   avatars: ThemeAvatars
   buttons: ThemeButtons
