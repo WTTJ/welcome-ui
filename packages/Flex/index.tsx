@@ -4,33 +4,19 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { SystemProps } from '@xstyled/system'
 
 export interface FlexOptions {
-  /**
-   * same as alignItems
-   */
+  /** same as alignItems */
   align?: SystemProps['alignItems']
-  /**
-   * same as justifyContent
-   */
+  /** same as justifyContent */
   justify?: SystemProps['justifyContent']
-  /**
-   * same as flexWrap
-   */
+  /** same as flexWrap */
   wrap?: SystemProps['flexWrap']
-  /**
-   * same as flexDirection
-   */
+  /** same as flexDirection */
   direction?: SystemProps['flexDirection']
-  /**
-   * same as flexBasis
-   */
+  /** same as flexBasis */
   basis?: SystemProps['flexBasis']
-  /**
-   * same as flexGrow
-   */
+  /** same as flexGrow */
   grow?: SystemProps['flexGrow']
-  /**
-   * same as flexShrink
-   */
+  /** same as flexShrink */
   shrink?: SystemProps['flexShrink']
 }
 
