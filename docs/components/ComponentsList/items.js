@@ -32,7 +32,7 @@ export const ITEMS = {
   ],
   gettingStarted: ['Installation', 'Contributing', 'Upgrade'],
   icons: ['Emoji', 'Icons', 'IconsFont'],
-  layout: ['Box', 'Flex', 'Loader', 'Shape', 'Stack'],
+  layout: ['Box', 'Flex', 'Grid', 'Loader', 'Shape', 'Stack'],
   navigation: ['Breadcrumb', 'DropdownMenu', 'Link', 'Pagination', 'Tabs'],
   overlay: ['Drawer', 'Modal', 'Popover', 'Tooltip'],
   theming: ['Basics', 'Customize'],

@@ -27,6 +27,7 @@ import { FieldGroup } from '@welcome-ui/field-group'
 import { FileDrop } from '@welcome-ui/file-drop'
 import * as Files from '@welcome-ui/files'
 import { FileUpload } from '@welcome-ui/file-upload'
+import { Grid } from '@welcome-ui/grid'
 import { Hint } from '@welcome-ui/hint'
 import { Icon } from '@welcome-ui/icon'
 import * as Icons from '@welcome-ui/icons'
@@ -140,6 +141,7 @@ export function Code({
       ...Files,
       FileUpload,
       Flex,
+      Grid,
       Hint,
       HookForm,
       Icon,
