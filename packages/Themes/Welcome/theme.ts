@@ -197,14 +197,11 @@ export const welcomeTheme: RecursivePartial<WuiTheme> = {
     },
   },
   paginations: {
-    default: {
+    item: {
       borderRadius: 0,
     },
     active: {
       color: colors.dark[900],
-      '&:hover, &:focus': {
-        color: colors.dark[900],
-      },
     },
   },
   dateTimePickerCommon: {

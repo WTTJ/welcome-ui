@@ -5,6 +5,7 @@ import { WuiTheme } from './types'
 
 export interface ThemePaginations {
   default: CSSObject
+  item: CSSObject
   active: CSSObject
   number: CSSObject
   dots: CSSObject
@@ -15,24 +16,25 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
 
   return {
     default: {
+      width: toRem(30),
+      height: toRem(30),
       color: colors.dark[900],
       fontWeight: fontWeights.bold,
+    },
+    item: {
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
       borderRadius: '50%',
-      width: toRem(30),
-      height: toRem(30),
       '&:hover, &:focus': {
         backgroundColor: `rgba(${hexToRGB(colors.dark[900])}, 0.1)`,
       },
       '&:focus': focus(colors.dark[900]),
     },
     active: {
-      color: colors.light[900],
       backgroundColor: colors.primary[500],
       borderColor: colors.primary[500],
+      color: colors.light[900],
       '&:hover, &:focus': {
-        color: colors.light[900],
         borderColor: colors.primary[500],
         backgroundColor: colors.primary[500],
       },
@@ -42,12 +44,7 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
       fontSize: fontSizes.body3,
     },
     dots: {
-      color: colors.nude[500],
       fontSize: fontSizes.body3,
-      borderColor: 'transparent',
-      '&:hover, &:focus': {
-        border: 'none',
-      },
     },
   }
 }

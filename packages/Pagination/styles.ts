@@ -11,20 +11,23 @@ export const List = styled.ul`
   margin: 0;
 `
 
-export const Item = styled.li`
-  display: inline-block;
-  vertical-align: bottom;
-  padding: 0;
-  margin-right: xxs;
-  &:last-child {
-    margin-right: 0;
-  }
-  ${p =>
-    p.hidden &&
+export const Item = styled.li(
+  ({ hidden }) => css`
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 0;
+    margin-right: xxs;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    ${hidden &&
     css`
       display: none;
     `}
-`
+  `
+)
 
 export const Dots = styled.span`
   ${th('paginations.default')};
@@ -32,11 +35,11 @@ export const Dots = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 `
 
 export const AbstractLink = styled.a`
   ${th('paginations.default')};
+  ${th('paginations.item')};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,10 +53,14 @@ export const AbstractLink = styled.a`
   }
 `
 
-export const PageLink = styled(AbstractLink)`
-  ${th('paginations.number')}
-  [${hideFocusRingsDataAttribute}] &:focus {
-    box-shadow: none;
-  }
-  ${p => p['aria-current'] && th('paginations.active')(p)}
-`
+export const PageLink = styled(AbstractLink)(
+  props => css`
+    ${th('paginations.number')}
+
+    [${hideFocusRingsDataAttribute}] &:focus {
+      box-shadow: none;
+    }
+
+    ${props['aria-current'] && th('paginations.active')}
+  `
+)
