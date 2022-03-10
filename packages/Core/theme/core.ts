@@ -13,6 +13,7 @@ import {
   getTexts,
   getTextsFontFamily,
   getTextsFontWeights,
+  getTextsTextTransform,
 } from './typography'
 import { timingFunction, transitions } from './transitions'
 import { getUnderline } from './underline'
@@ -128,6 +129,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.defaultCards = getDefaultCards(theme)
   theme.textsFontWeights = getTextsFontWeights(theme)
   theme.textsFontFamily = getTextsFontFamily(theme)
+  theme.textsTextTransform = getTextsTextTransform()
   theme.alerts = getAlerts(theme)
   theme.avatars = getAvatars(theme)
   theme.buttons = getButtons(theme)
