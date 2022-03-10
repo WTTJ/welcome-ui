@@ -64,6 +64,14 @@ We reduce the size (and variant) of headings on mobile :
 - h4 > h5
 - h5 > h6
 
+### ConnectedField component
+
+The ConnectedField component was built to work with react-final-form and was not generic enough so we have decided to remove it on v4.
+
+### Field component
+
+The Field component will not accept `component` prop anymore but wrap your input directly, this makes it possible to give styled props to the Wrapper **and** the Input component. For more information on the new syntax, [check the documentation](/components/field)
+
 ### Others
 
 - Use `w="100%"` instead of `w={1}`
