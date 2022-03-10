@@ -40,7 +40,7 @@
   "dependencies": {
     "@welcome-ui/button": "^4.0.0-rc.2",
     "@welcome-ui/files": "^4.0.0-rc.2",
-    "@welcome-ui/group": "^4.0.0-rc.2",
+    "@welcome-ui/button-group": "^4.0.0-rc.2",
     "@welcome-ui/icons.edit": "^4.0.0-rc.2",
     "@welcome-ui/icons.external_link": "^4.0.0-rc.2",
     "@welcome-ui/icons.negative": "^4.0.0-rc.2",

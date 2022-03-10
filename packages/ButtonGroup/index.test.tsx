@@ -3,16 +3,16 @@ import React from 'react'
 import { render } from '../../utils/tests'
 import { Button } from '../Button'
 
-import { Group } from './index'
+import { ButtonGroup } from './index'
 
-describe('<Group>', () => {
+describe('<ButtonGroup>', () => {
   it('should render correctly', () => {
     const { getByTestId } = render(
-      <Group dataTestId="group">
+      <ButtonGroup dataTestId="group">
         <Button>One</Button>
         <Button>Two</Button>
         <Button>Tree</Button>
-      </Group>
+      </ButtonGroup>
     )
     const group = getByTestId('group')
 

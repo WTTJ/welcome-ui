@@ -6,46 +6,44 @@ import {
   name,
   peerDependencies,
   version,
-} from '@welcome-ui/group/package.json'
+} from '@welcome-ui/button-group/package.json'
 
 <showcase
   version={version}
   name={name}
   component={component}
-  description="Children grouped without space or radius."
+  description="Buttons grouped without space."
 />
 
 ## Usage
 
-This works only with the `Button` component for now — more examples will be added soon.
-
-### Button
+ButtonGroup component allows you to set the size and variant of all buttons within it and removing the border radius of the its button childrens.
 
 ```jsx
-<Group>
+<ButtonGroup>
   <Button>First</Button>
   <Button>Second</Button>
   <Button>Third</Button>
   <Button>Last</Button>
-</Group>
+</ButtonGroup>
 ```
 
 ## Overload
 
-`Group` overloads the child components properties.
+`ButtonGroup` overloads the child components properties.
 
 ```jsx
-<Group variant="tertiary" size="xs">
+<ButtonGroup variant="tertiary" size="sm">
   <Button>First</Button>
   <Button variant="secondary">Second</Button>
   <Button variant="tertiary">Third</Button>
   <Button variant="tertiary">Last</Button>
-</Group>
+</ButtonGroup>
 ```
 
 ## Properties
 
-<props propTypes={props.propTypes.Group} />
+<props propTypes={props.propTypes.ButtonGroup} />
 
 ## Packages
 

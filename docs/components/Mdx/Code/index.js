@@ -16,6 +16,7 @@ import { Badge } from '@welcome-ui/badge'
 import { Box } from '@welcome-ui/box'
 import { Breadcrumb } from '@welcome-ui/breadcrumb'
 import { Button } from '@welcome-ui/button'
+import { ButtonGroup } from '@welcome-ui/button-group'
 import { Card } from '@welcome-ui/card'
 import { Checkbox } from '@welcome-ui/checkbox'
 import { DatePicker } from '@welcome-ui/date-picker'
@@ -26,7 +27,6 @@ import { FieldGroup } from '@welcome-ui/field-group'
 import { FileDrop } from '@welcome-ui/file-drop'
 import * as Files from '@welcome-ui/files'
 import { FileUpload } from '@welcome-ui/file-upload'
-import { Group } from '@welcome-ui/group'
 import { Hint } from '@welcome-ui/hint'
 import { Icon } from '@welcome-ui/icon'
 import * as Icons from '@welcome-ui/icons'
@@ -120,6 +120,7 @@ export function Code({
       Box,
       Breadcrumb,
       Button,
+      ButtonGroup,
       Card,
       Checkbox,
       CodeContent: S.CodeContent,
@@ -139,7 +140,6 @@ export function Code({
       ...Files,
       FileUpload,
       Flex,
-      Group,
       Hint,
       HookForm,
       Icon,

@@ -1,7 +1,7 @@
 import styled from '@xstyled/styled-components'
 import { system } from '@welcome-ui/system'
 
-export const Group = styled.div`
+export const ButtonGroup = styled.div`
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
