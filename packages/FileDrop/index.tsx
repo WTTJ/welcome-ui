@@ -10,7 +10,7 @@ import {
 import { TrashIcon } from '@welcome-ui/icons.trash'
 import { EditIcon } from '@welcome-ui/icons.edit'
 import { Button } from '@welcome-ui/button'
-import { Group } from '@welcome-ui/group'
+import { ButtonGroup } from '@welcome-ui/button-group'
 import { CreateEvent, createEvent } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ForceFileType } from '@welcome-ui/files'
@@ -202,7 +202,7 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
           })}
           {!!file && (error || isEditable || isClearable) && (
             <S.Actions>
-              <Group>
+              <ButtonGroup>
                 {(error || isEditable) && (
                   <Button
                     onClick={open}
@@ -225,7 +225,7 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
                     <TrashIcon />
                   </Button>
                 )}
-              </Group>
+              </ButtonGroup>
             </S.Actions>
           )}
         </S.FilePreview>

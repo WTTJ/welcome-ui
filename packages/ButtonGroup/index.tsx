@@ -6,7 +6,7 @@ import * as S from './styles'
 
 type ChildrenProps = React.ReactElement<typeof Button> | React.ReactElement<typeof Button>[]
 
-export interface GroupOptions {
+export interface ButtonGroupOptions {
   children: ChildrenProps
   /** Disable all your buttons components */
   disabled?: boolean
@@ -14,9 +14,9 @@ export interface GroupOptions {
   variant?: Variant
 }
 
-export type GroupProps = CreateWuiProps<'div', GroupOptions>
+export type ButtonGroupProps = CreateWuiProps<'div', ButtonGroupOptions>
 
-export const Group = forwardRef<'div', GroupProps>(
+export const ButtonGroup = forwardRef<'div', ButtonGroupProps>(
   ({ children, dataTestId, disabled, size, variant }, ref) => {
     function setGlobalProps(children: ChildrenProps) {
       return Children.toArray(children)
@@ -32,9 +32,9 @@ export const Group = forwardRef<'div', GroupProps>(
     }
 
     return (
-      <S.Group data-testid={dataTestId} ref={ref}>
+      <S.ButtonGroup data-testid={dataTestId} ref={ref}>
         {setGlobalProps(children)}
-      </S.Group>
+      </S.ButtonGroup>
     )
   }
 )

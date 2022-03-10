@@ -1,16 +1,16 @@
 {
-  "name": "@welcome-ui/group",
+  "name": "@welcome-ui/button-group",
   "version": "4.0.0-rc.2",
-  "description": "welcome-ui: A Group component",
-  "main": "dist/group.cjs.js",
-  "module": "dist/group.es.js",
+  "description": "welcome-ui: A ButtonGroup component",
+  "main": "dist/button-group.cjs.js",
+  "module": "dist/button-group.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "doc": "node -r esm ../../scripts/doc-props.js --name Group"
+    "doc": "node -r esm ../../scripts/doc-props.js --name ButtonGroup"
   },
   "publishConfig": {
     "access": "public"
@@ -49,6 +49,6 @@
   },
   "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "sideEffects": false,
-  "component": "Group",
-  "homepage": "https://welcome-ui.com/components/group"
+  "component": "ButtonGroup",
+  "homepage": "https://welcome-ui.com/components/button-group"
 }

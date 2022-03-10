@@ -71,7 +71,7 @@ function() {
 
   return (
     <Box position="relative">
-      <Group variant="tertiary">
+      <ButtonGroup variant="tertiary">
         <Button onClick={handleClick}>
           <AddIcon />
           <span>First Action</span>
@@ -79,7 +79,7 @@ function() {
         <DropdownMenu.Trigger {...menu} as={Button}>
           {menu.visible ? <UpIcon /> : <DownIcon />}
         </DropdownMenu.Trigger>
-      </Group>
+      </ButtonGroup>
       <DropdownMenu {...menu} aria-label="Complexity">
         <DropdownMenu.Item {...menu} onClick={handleClick}>
           <TrashIcon mr="sm" size="sm" />

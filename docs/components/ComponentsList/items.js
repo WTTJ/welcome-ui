@@ -7,6 +7,7 @@ export const ITEMS = {
   feedback: ['Alert', 'Toast'],
   forms: [
     'Button',
+    'ButtonGroup',
     'Checkbox',
     'DatePicker',
     'DateTimePicker',
@@ -31,7 +32,7 @@ export const ITEMS = {
   ],
   gettingStarted: ['Installation', 'Contributing', 'Upgrade'],
   icons: ['Emoji', 'Icons', 'IconsFont'],
-  layout: ['Box', 'Flex', 'Group', 'Loader', 'Shape', 'Stack'],
+  layout: ['Box', 'Flex', 'Loader', 'Shape', 'Stack'],
   navigation: ['Breadcrumb', 'DropdownMenu', 'Link', 'Pagination', 'Tabs'],
   overlay: ['Drawer', 'Modal', 'Popover', 'Tooltip'],
   theming: ['Basics', 'Customize'],
