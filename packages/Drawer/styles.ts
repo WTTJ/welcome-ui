@@ -4,6 +4,8 @@ import { cardStyles } from '@welcome-ui/utils'
 
 import { DrawerProps, Placement, Size } from '.'
 
+const SIZES = ['sm', 'md', 'lg']
+
 export const Backdrop = styled(Box)<{ isClickable: boolean }>(
   ({ isClickable }) => css`
     ${th('drawers.backdrop')};
@@ -17,6 +19,7 @@ export const Backdrop = styled(Box)<{ isClickable: boolean }>(
     bottom: 0;
     opacity: 0;
     transition: fast;
+
     ${isClickable &&
     css`
       cursor: pointer;
@@ -63,7 +66,6 @@ const getPlacementStyle = (placement: Placement) => {
   }
 }
 
-const SIZES = ['sm', 'md', 'lg']
 const getSizeStyle = (size: Size, placement: Placement) => {
   switch (placement) {
     case 'top':
@@ -85,15 +87,21 @@ const getSizeStyle = (size: Size, placement: Placement) => {
   }
 }
 
+export const Content = styled(Box)`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+`
+
 export const Drawer = styled(Box)<DrawerProps>(
   ({ placement, size }) => css`
     ${cardStyles};
     ${th('drawers.default')};
-    ${getPlacementStyle(placement)}
-    ${getSizeStyle(size, placement)}
+    ${getPlacementStyle(placement)};
+    ${getSizeStyle(size, placement)};
     position: fixed;
-    display: flex;
-    flex-direction: column;
     max-width: 100%;
     max-height: 100%;
     transition: medium;
@@ -112,5 +120,12 @@ export const Drawer = styled(Box)<DrawerProps>(
     &[data-leave] {
       transition: fast;
     }
+
+    ${['top', 'bottom'].includes(placement) &&
+    css`
+      ${Content} {
+        height: ${SIZES.includes(size) ? th(`drawers.sizes.vertical.${size}.height`) : size};
+      }
+    `}
   `
 )

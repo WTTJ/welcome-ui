@@ -32,14 +32,16 @@ export const getDrawers = (theme: WuiTheme): ThemeDrawers => {
       right: `${space.xl}`,
     },
     title: {
+      backgroundColor: colors.light[900],
       margin: 0,
-      padding: `${space['3xl']} ${space['5xl']} ${space['3xl']} ${space['3xl']}`,
+      padding: `${space['xxl']} ${space['5xl']} ${space['xxl']} ${space['xxl']}`,
       ...texts.h3,
     },
     content: {
-      padding: `${space['3xl']}`,
+      padding: space.xxl,
     },
     footer: {
+      backgroundColor: colors.light[900],
       padding: `${space['3xl']}`,
     },
     sizes: {

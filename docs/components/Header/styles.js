@@ -1,5 +1,4 @@
 import styled, { css } from '@xstyled/styled-components'
-import { Drawer as WUIDrawer } from '@welcome-ui/drawer'
 
 import { Item } from './NavBar/styles'
 
@@ -41,15 +40,3 @@ export const Header = styled.header(
     `}
   `
 )
-
-// best hack ever 🙈 need to fix drawer and modal for mobile scrolling
-export const MenuMobileDrawer = styled(WUIDrawer)`
-  top: ${`calc(${headerHeight} - 1px)`} !important;
-  width: 100% !important;
-  overflow: scroll;
-  padding: xl;
-
-  @media (min-width: md) {
-    display: none;
-  }
-`
