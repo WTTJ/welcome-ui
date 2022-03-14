@@ -11,6 +11,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 // Welcome UI
 import { Accordion } from '@welcome-ui/accordion'
 import { Alert } from '@welcome-ui/alert'
+import { AspectRatio } from '@welcome-ui/aspect-ratio'
 import { Avatar } from '@welcome-ui/avatar'
 import { Badge } from '@welcome-ui/badge'
 import { Box } from '@welcome-ui/box'
@@ -116,6 +117,7 @@ export function Code({
     scope: {
       Accordion,
       Alert,
+      AspectRatio,
       Avatar,
       Badge,
       Box,
