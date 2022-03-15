@@ -83,7 +83,6 @@
     "@babel/preset-typescript": "^7.16.7",
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
-    "@emotion/core": "^10.0.9",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^13.1.3",
