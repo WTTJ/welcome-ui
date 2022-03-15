@@ -10,6 +10,7 @@ import { Tag } from '@welcome-ui/tag'
 import { Text } from '@welcome-ui/text'
 import { Toggle } from '@welcome-ui/toggle'
 import { Link } from '@welcome-ui/link'
+import NextLink from 'next/link'
 
 const components = [
   {
@@ -22,6 +23,7 @@ const components = [
       </Stack>
     ),
     description: 'Allows user to categorized or organized keywords.',
+    link: 'components/tag',
   },
   {
     title: 'Toggle',
@@ -32,6 +34,7 @@ const components = [
       </Stack>
     ),
     description: 'Allows user to activate or deactivate an option.',
+    link: 'components/toggle',
   },
   {
     title: 'Alert',
@@ -42,6 +45,7 @@ const components = [
       </Alert>
     ),
     description: 'Allows user to display a short, important message to get attention.',
+    link: 'components/alert',
   },
   {
     title: 'Pagination',
@@ -56,6 +60,7 @@ const components = [
       />
     ),
     description: 'Allows user to switch between pages of a list items.',
+    link: 'components/pagination',
   },
   {
     title: 'Avatar',
@@ -71,6 +76,7 @@ const components = [
       </Stack>
     ),
     description: 'Allow user to get an avatar with initials letter when have no image.',
+    link: 'components/avatar',
   },
   {
     title: 'Link',
@@ -81,18 +87,21 @@ const components = [
       </Stack>
     ),
     description: 'Allows user to get our customize anchor element.',
+    link: 'components/link',
   },
 ]
 
-function Component({ children, description, title }) {
+function Component({ children, description, link, title }) {
   return (
     <div>
       <Card alignItems="center" display="flex" h={170} justifyContent="center" w="100%">
         {children}
       </Card>
-      <Text mb="0" mt="md" textTransform="uppercase" variant="subtitle1">
-        {title}
-      </Text>
+      <NextLink href={link} passHref>
+        <Link fontWeight="bold" mt="md" textTransform="uppercase">
+          {title}
+        </Link>
+      </NextLink>
       <Text color="dark.200" mb="0" mt="xxs" variant="body3">
         {description}
       </Text>
