@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/button-group",
-  "version": "4.0.0-rc.2",
+  "version": "4.0.0-rc.4",
   "description": "welcome-ui: A ButtonGroup component",
   "main": "dist/button-group.cjs.js",
   "module": "dist/button-group.es.js",

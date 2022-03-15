@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/emoji",
-  "version": "4.0.0-rc.2",
+  "version": "4.0.0-rc.4",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/emoji.cjs.js",
   "module": "dist/emoji.es.js",

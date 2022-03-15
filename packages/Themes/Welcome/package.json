@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/themes.welcome",
-  "version": "4.0.0-rc.3",
+  "version": "4.0.0-rc.4",
   "description": "welcome-ui: Welcome theme",
   "main": "dist/themes.welcome.cjs.js",
   "module": "dist/themes.welcome.es.js",
@@ -37,7 +37,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/core": "^4.0.0-rc.3"
+    "@welcome-ui/core": "^4.0.0-rc.4"
   },
   "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "sideEffects": false,

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/swiper",
-  "version": "4.0.0-rc.2",
+  "version": "4.0.0-rc.4",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/swiper.cjs.js",
   "module": "dist/swiper.es.js",
