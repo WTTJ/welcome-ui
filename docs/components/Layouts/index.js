@@ -9,9 +9,9 @@ import { DocsLayout } from './Docs'
 
 function Layout({ children }) {
   const { pathname } = useRouter()
+  const isSimpleLayout = pathname === '/' || pathname === '/blog'
 
-  // Homepage
-  if (pathname === '/') {
+  if (isSimpleLayout) {
     return children
   }
 

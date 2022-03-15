@@ -1,4 +1,4 @@
-import styled from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import { system, th } from '@xstyled/system'
 
 export const NavBar = styled.ul`
@@ -17,19 +17,33 @@ export const NavBar = styled.ul`
   }
 `
 
-export const Item = styled.a`
-  ${th('texts.subtitle1')};
-  text-transform: uppercase;
-  color: dark.100;
-  transition: medium;
-  text-decoration: none;
+const activeItem = css`
+  color: dark.900;
 
-  &.active,
-  &:hover {
-    color: dark.900;
-
-    @media (min-width: md) {
-      color: light.900;
-    }
+  @media (min-width: md) {
+    color: light.900;
   }
 `
+
+export const Item = styled.a(
+  ({ isActive }) => css`
+    ${th('texts.subtitle1')};
+    text-transform: uppercase;
+    color: light.100;
+    transition: medium;
+    text-decoration: none;
+
+    @media (min-width: md) {
+      color: light.200;
+    }
+
+    ${isActive &&
+    css`
+      ${activeItem};
+    `};
+
+    &:hover {
+      ${activeItem};
+    }
+  `
+)
