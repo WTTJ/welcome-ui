@@ -11,7 +11,13 @@ export function HookForm({ children, defaultValues, schemaValidate }) {
     resolver: yupResolver(schemaValidate()),
     defaultValues,
   })
-  const { errors, handleSubmit, register, watch } = formMethods
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+    register,
+    watch,
+  } = formMethods
   const values = watch()
 
   const onSubmit = async values => {
@@ -25,6 +31,7 @@ export function HookForm({ children, defaultValues, schemaValidate }) {
         {cloneElement(children, {
           errors,
           register,
+          control,
           // eslint-disable-next-line react/prop-types
           ...children.props,
         })}

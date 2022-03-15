@@ -6,7 +6,7 @@ Example with [React Hook Form](https://react-hook-form.com/) form library, `yup`
 
 ```jsx
 function() {
-  function FormChildren({ errors, register }) {
+  function FormChildren({ errors, register, control }) {
     return (
       <>
         <Field
@@ -14,10 +14,7 @@ function() {
           label="Input Text"
           maxWidth={300}
         >
-          <InputText
-            name="input_text"
-            ref={register}
-          />
+          <InputText {...register('input_text')} />
         </Field>
         <Field
           error={errors && errors.email && errors.email.message}
@@ -25,28 +22,26 @@ function() {
           mt="lg"
           maxWidth={300}
         >
-          <InputText
-            name="email"
-            ref={register}
-          />
+          <InputText {...register('email')} />
         </Field>
         <Controller
           name="submit_checkbox"
-          render={({ name, onBlur, onChange, value }) => {
+          control={control}
+          render={({
+            field: { onChange, value, ...field },
+            fieldState: { error }
+          }) => {
             return (
               <Field
-                error={errors && errors[name] && errors[name].message}
+                error={error && error.message}
                 label="You need to check this checkbox to submit"
                 mt="xl"
                 required
               >
                 <Checkbox
                   checked={value}
-                  name={name}
-                  onBlur={onBlur}
-                  onChange={e => onChange(e && e.target && e.target.checked)}
-                  ref={register}
-                  value={value}
+                  onClick={onChange}
+                  {...field}
                 />
               </Field>
             )
@@ -63,8 +58,7 @@ function() {
         input_text: 'Jungle',
         submit_checkbox: false
       }}
-      schemaValidate={() =>
-        yup.object().shape({
+      schemaValidate={() => yup.object().shape({
           submit_checkbox: yup.boolean().required().oneOf([true]),
           email: yup.string().email().min(6).required()
         })
