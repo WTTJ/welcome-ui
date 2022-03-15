@@ -34,7 +34,8 @@ export function Header() {
         </NextLink>
         <Box ml="lg" w={{ xs: 180, md: 220 }}>
           <DocSearch
-            apiKey="85801aa252bde17259c4a5a61c1e84db"
+            apiKey="32543c62b03cbc6b714a873dca1feec4"
+            appId="1ZI5OZ0946"
             disableUserPersonalization
             indexName="welcome-ui"
             placeholder="Search the docs"
