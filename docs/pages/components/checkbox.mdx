@@ -65,7 +65,7 @@ function() {
 
   return (
     <HookForm
-      defaultValues={{ vue: true }}
+      defaultValues={{ react: true, angular: false, vue: false  }}
       schemaValidate={() => yup.object().shape({
           react: yup.boolean().required().oneOf([true, false]),
           angular: yup.boolean().required().oneOf([true, false]),

@@ -138,7 +138,6 @@
     "react": "^17.0.1",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^17.0.1",
-    "react-live": "^2.2.1",
     "react-router-dom": "6.2.2",
     "rimraf": "^3.0.2",
     "rollup": "2.69.0",
