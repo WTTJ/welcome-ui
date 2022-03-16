@@ -1,0 +1,33 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  pull-request-branch-name:
+    separator: "-"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 3
+  ignore:
+      - dependency-name: "@mdx-js/loader"
+        versions: ["2.x"]
+      - dependency-name: "@mdx-js/react"
+        versions: ["2.x"]
+      - dependency-name: "@next/mdx"
+        versions: ["11.x", "12.x"]
+      - dependency-name: "next"
+        versions: ["11.x", "12.x"]
+      - dependency-name: "react-dropzone"
+        versions: ["12.x"]
+      - dependency-name: "react-simplemde-editor"
+        versions: ["5.x"]
+      - dependency-name: "react-spring"
+        versions: ["9.x"]
+      - dependency-name: "react-types"
+      - dependency-name: "lerna"
+        versions: ["5.x"]
+      - dependency-name: "lerna-update-wizard"
+        versions: ["5.x"]
+      - dependency-name: "standard-version"
+  reviewers:
+      - "theo-mesnil"
