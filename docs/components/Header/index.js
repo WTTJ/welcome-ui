@@ -52,10 +52,12 @@ export function Header() {
       >
         {mobileMenuDrawer.visible ? <CrossIcon /> : <MenuIcon />}
       </Drawer.Trigger>
-      <S.MenuMobileDrawer aria-label="Menu backdrop" {...mobileMenuDrawer}>
-        <NavBar isMobileMenu mb="xl" />
-        <ComponentsList onClick={() => mobileMenuDrawer.hide()} />
-      </S.MenuMobileDrawer>
+      <Drawer.Backdrop {...mobileMenuDrawer} backdropVisible={false}>
+        <S.MenuMobileDrawer aria-label="Menu backdrop" {...mobileMenuDrawer}>
+          <NavBar isMobileMenu mb="xl" />
+          <ComponentsList onClick={() => mobileMenuDrawer.hide()} />
+        </S.MenuMobileDrawer>
+      </Drawer.Backdrop>
     </S.Header>
   )
 }

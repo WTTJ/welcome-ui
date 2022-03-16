@@ -2,7 +2,6 @@
 import React, { cloneElement } from 'react'
 import {
   Dialog,
-  DialogBackdrop,
   DialogBackdropProps,
   DialogDisclosure,
   DialogInitialState,
@@ -30,11 +29,11 @@ export interface DrawerOptions {
 export type DrawerProps = CreateWuiProps<'div', DrawerOptions & DialogOptions>
 
 const DrawerComponent = forwardRef<'div', DrawerProps>(
-  ({ as, children, placement = 'right', size = 'lg', ...rest }, ref) => {
+  ({ as, children, placement = 'right', size = 'lg', tabIndex, ...rest }, ref) => {
     return (
       // Needed to allow to style the backdrop
       // see: https://reakit.io/docs/styling/#css-in-js
-      <Dialog as={as} ref={ref} {...rest}>
+      <Dialog as={as} ref={ref} tabIndex={tabIndex} {...rest}>
         {(props: DrawerProps) => (
           <S.Drawer {...props} placement={placement} size={size}>
             {children}
@@ -55,6 +54,7 @@ export function useDrawerState(
 
 export interface DrawerBackdropOptions {
   hideOnClickOutside?: boolean
+  backdropVisible?: boolean
   children: React.ReactElement
 }
 
@@ -66,22 +66,23 @@ export type DrawerBackdropProps = DrawerBackdropOptions & DialogBackdropProps
  * @name Drawer.Backdrop
  */
 export const DrawerBackdrop: React.FC<DrawerBackdropProps> = ({
+  backdropVisible = true,
   children,
   hideOnClickOutside = true,
   ...rest
 }) => {
-  if (children.type !== Drawer) {
-    throw new Error('<Drawer.Backdrop /> children has to be <Drawer />.')
+  const Wrapper = backdropVisible ? S.Backdrop : S.NoBackdropWrapper
+  const placement = children?.props?.placement || 'right'
+  const size = children?.props?.size || 'lg'
+  const optionalWrapperProps = {
+    size,
+    placement,
   }
 
   return (
-    <DialogBackdrop {...rest}>
-      {props => (
-        <S.Backdrop isClickable={hideOnClickOutside} {...props}>
-          {cloneElement(children, { hideOnClickOutside })}
-        </S.Backdrop>
-      )}
-    </DialogBackdrop>
+    <Wrapper {...rest} hideOnClickOutside={hideOnClickOutside} {...optionalWrapperProps}>
+      {cloneElement(children, { hideOnClickOutside })}
+    </Wrapper>
   )
 }
 
@@ -90,22 +91,55 @@ export type CloseProps = CloseOptions & CloseButtonProps
 
 export const Close: React.FC<CloseProps> = ({ hide, ...props }) => {
   const { drawers } = useTheme()
-  return <CloseButton {...drawers.closeButton} onClick={hide} position="absolute" {...props} />
+  return (
+    <Box
+      display="flex"
+      h="0"
+      justifyContent="flex-end"
+      position="sticky"
+      top="0"
+      w="auto"
+      zIndex="1"
+    >
+      <CloseButton {...drawers.closeButton} onClick={hide} {...props} />
+    </Box>
+  )
 }
 
 export const Title: React.FC<TextProps> = props => {
   const { drawers } = useTheme()
-  return <Text {...drawers.title} w="100%" {...props} />
+  return (
+    <Box
+      alignItems="center"
+      backgroundColor="light.900"
+      display="flex"
+      justifyContent="space-between"
+      position={{ xs: 'sticky', md: 'static' }}
+      top={{ xs: 0, md: 'auto' }}
+      w="100%"
+    >
+      <Text {...drawers.title} w="100%" {...props} />
+    </Box>
+  )
 }
 
 export const Content: React.FC<BoxProps> = props => {
   const { drawers } = useTheme()
-  return <Box {...drawers.content} flex="1" overflowY="auto" {...props} />
+  return <Box {...drawers.content} flex="1" overflowY={{ md: 'auto' }} {...props} />
 }
 
 export const Footer: React.FC<BoxProps> = props => {
   const { drawers } = useTheme()
-  return <Box {...drawers.footer} w="100%" {...props} />
+  return (
+    <Box
+      backgroundColor={{ xs: 'white', md: 'transparent' }}
+      bottom={{ xs: 0, md: 'auto' }}
+      position={{ xs: 'sticky', md: 'static' }}
+      {...drawers.footer}
+      w="100%"
+      {...props}
+    />
+  )
 }
 
 export const Drawer = Object.assign(DrawerComponent, {

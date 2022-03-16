@@ -28,19 +28,19 @@ export const getDrawers = (theme: WuiTheme): ThemeDrawers => {
       zIndex: 999,
     },
     closeButton: {
-      top: `${space.xl}`,
-      right: `${space.xl}`,
+      marginRight: `${space.xl}`,
+      marginTop: `${space.xl}`,
     },
     title: {
       margin: 0,
-      padding: `${space['3xl']} ${space['5xl']} ${space['3xl']} ${space['3xl']}`,
+      padding: `${space['xl']} ${space['5xl']} ${space['xl']} ${space['xl']}`,
       ...texts.h3,
     },
     content: {
       padding: `${space['3xl']}`,
     },
     footer: {
-      padding: `${space['3xl']}`,
+      padding: `${space['xl']}`,
     },
     sizes: {
       horizontal: {

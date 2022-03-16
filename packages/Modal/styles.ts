@@ -42,7 +42,7 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
     opacity: 0;
     height: 100%;
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
     transition: opacity 250ms ease-in-out, margin-top 250ms ease-in-out;
