@@ -27,9 +27,9 @@ function() {
         render={({ field: { onChange, value, ...field } }) => (
           <Field label="React" mb="xxs">
             <Checkbox
+              {...field}
               checked={value}
               onClick={onChange}
-              {...field}
             />
           </Field>
         )}
@@ -40,9 +40,9 @@ function() {
         render={({ field: { onChange, value, ...field } }) => (
           <Field label="Angular" mb="xxs">
             <Checkbox
+              {...field}
               checked={value}
               onClick={onChange}
-              {...field}
             />
           </Field>
         )}
@@ -53,9 +53,9 @@ function() {
         render={({ field: { onChange, value, ...field } }) => (
           <Field label="Vue">
             <Checkbox
+              {...field}
               onClick={onChange}
               checked={value}
-              {...field}
             />
           </Field>
         )}
