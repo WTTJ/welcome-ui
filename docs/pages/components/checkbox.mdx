@@ -24,55 +24,49 @@ function() {
       <Controller
         name="react"
         control={control}
-        render={({ onChange, value}) => (
-            <Field label="React">
-              <Checkbox
-                mb="xxs"
-                name="react"
-                onChange={e => onChange(!e.target.checked)}
-                checked={value}
-              />
-            </Field>
-          )
-         }
+        render={({ field: { onChange, value, ...field } }) => (
+          <Field label="React" mb="xxs">
+            <Checkbox
+              {...field}
+              checked={value}
+              onClick={onChange}
+            />
+          </Field>
+        )}
       />
       <Controller
         name="angular"
         control={control}
-        render={({ onChange, value}) => (
-            <Field label="Angular">
-              <Checkbox
-                mb="xxs"
-                name="angular"
-                onChange={e => onChange(!e.target.checked)}
-                checked={value}
-              />
-            </Field>
-          )
-         }
+        render={({ field: { onChange, value, ...field } }) => (
+          <Field label="Angular" mb="xxs">
+            <Checkbox
+              {...field}
+              checked={value}
+              onClick={onChange}
+            />
+          </Field>
+        )}
       />
       <Controller
         name="vue"
         control={control}
-        render={({ onChange, value}) => (
-            <Field label="Vue">
-              <Checkbox
-                name="vue"
-                onChange={e => onChange(!e.target.checked)}
-                checked={value}
-              />
-            </Field>
-          )
-         }
+        render={({ field: { onChange, value, ...field } }) => (
+          <Field label="Vue">
+            <Checkbox
+              {...field}
+              onClick={onChange}
+              checked={value}
+            />
+          </Field>
+        )}
       />
     </FieldGroup>
   )
 
   return (
     <HookForm
-      defaultValues={{ vue: true }}
-      schemaValidate={() =>
-        yup.object().shape({
+      defaultValues={{ react: true, angular: false, vue: false  }}
+      schemaValidate={() => yup.object().shape({
           react: yup.boolean().required().oneOf([true, false]),
           angular: yup.boolean().required().oneOf([true, false]),
           vue: yup.boolean().required().oneOf([true, false]),
