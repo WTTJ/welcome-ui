@@ -4453,17 +4453,19 @@
     "@types/node" "*"
     "@types/responselike" "*"
 
-"@types/codemirror@0.0.109":
-  version "0.0.109"
-  resolved "https://registry.yarnpkg.com/@types/codemirror/-/codemirror-0.0.109.tgz#89d575ff1c7b462c4c3b8654f8bb38e5622e9036"
-  integrity sha512-cSdiHeeLjvGn649lRTNeYrVCDOgDrtP+bDDSFDd1TF+i0jKGPDRozno2NOJ9lTniso+taiv4kiVS8dgM8Jm5lg==
+"@types/codemirror@^0.0.88":
+  version "0.0.88"
+  resolved "https://registry.yarnpkg.com/@types/codemirror/-/codemirror-0.0.88.tgz#429e3462ce22865dc40cc1cb27862edaeda0bbab"
+  integrity sha512-FI9BvlO+SIEmKoIdrS9uphasiHJ/JbeUsAbVTdklBOcmnr/bQpJ6QaCw540FY98LGdDNl1Nyn7erGxo0eD2gOg==
   dependencies:
     "@types/tern" "*"
 
-"@types/codemirror@^0.0.65":
-  version "0.0.65"
-  resolved "https://registry.yarnpkg.com/@types/codemirror/-/codemirror-0.0.65.tgz#5f8d546d40c9d2acb1166167aae9e70d1b9a83b7"
-  integrity sha512-XJo1mbkiLI0M4zR1LqpM6ljDgnpIoDkqs3JPp0jLZ8DHbqbha+YNWemhlqQyJrLIame+eOkefrL8U+NNPB4FAQ==
+"@types/codemirror@^5.60.4":
+  version "5.60.5"
+  resolved "https://registry.yarnpkg.com/@types/codemirror/-/codemirror-5.60.5.tgz#5b989a3b4bbe657458cf372c92b6bfda6061a2b7"
+  integrity sha512-TiECZmm8St5YxjFUp64LK0c8WU5bxMDt9YaAek1UqUb9swrSCoJhh92fWu1p3mTEqlHjhB5sY7OFBhWroJXZVg==
+  dependencies:
+    "@types/tern" "*"
 
 "@types/decompress@*":
   version "4.2.4"
@@ -4644,10 +4646,15 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.180.tgz#4ab7c9ddfc92ec4a887886483bc14c79fb380670"
   integrity sha512-XOKXa1KIxtNXgASAnwj7cnttJxS4fksBRywK/9LzRV5YxrF80BXZIGeQSuoESQ/VkUj30Ae0+YcuHc15wJCB2g==
 
-"@types/marked@^2.0.2":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@types/marked/-/marked-2.0.5.tgz#453e27f1e97199d45bb25297b0dd2b9bbc1e05ea"
-  integrity sha512-shRZ7XnYFD/8n8zSjKvFdto1QNSf4tONZIlNEZGrJe8GsOE8DL/hG1Hbl8gZlfLnjS7+f5tZGIaTgfpyW38h4w==
+"@types/marked@^0.7.4":
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/@types/marked/-/marked-0.7.4.tgz#607685669bb1bbde2300bc58ba43486cbbee1f0a"
+  integrity sha512-fdg0NO4qpuHWtZk6dASgsrBggY+8N4dWthl1bAQG9ceKUNKFjqpHaDKCAhRUI6y8vavG7hLSJ4YBwJtZyZEXqw==
+
+"@types/marked@^4.0.1":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@types/marked/-/marked-4.0.2.tgz#cb2dbf10da2f41cf20bd91fb5f89b67540c282f7"
+  integrity sha512-auNrZ/c0w6wsM9DccwVxWHssrMDezHUAXNesdp2RQrCVCyrQbOiSq7yqdJKrUQQpw9VTm7CGYJH2A/YG7jjrjQ==
 
 "@types/mdast@^3.0.0":
   version "3.0.10"
@@ -6910,10 +6917,10 @@ codemirror-spell-checker@1.1.2:
   dependencies:
     typo-js "*"
 
-codemirror@^5.61.0:
-  version "5.62.3"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.62.3.tgz#5cfdee6931c8b2d1b39ae773aaaaec2cc6b5558e"
-  integrity sha512-zZAyOfN8TU67ngqrxhOgtkSAGV9jSpN1snbl8elPtnh9Z5A11daR405+dhLzLnuXrwX0WCShWlybxPN3QC/9Pg==
+codemirror@^5.63.1:
+  version "5.65.2"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.65.2.tgz#5799a70cb3d706e10f60e267245e3a75205d3dd9"
+  integrity sha512-SZM4Zq7XEC8Fhroqe3LxbEEX1zUPWH1wMr5zxiBuiUF64iYOUH/JI88v4tBag8MiBS8B8gRv8O1pPXGYXQ4ErA==
 
 collapse-white-space@^1.0.2:
   version "1.0.6"
@@ -8574,16 +8581,16 @@ eastasianwidth@^0.2.0:
   resolved "https://registry.yarnpkg.com/eastasianwidth/-/eastasianwidth-0.2.0.tgz#696ce2ec0aa0e6ea93a397ffcf24aa7840c827cb"
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
-easymde@^2.6.0:
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/easymde/-/easymde-2.15.0.tgz#73667c4879d8687b07651d6259ee652bba5d0b00"
-  integrity sha512-9jMRIVvKt1d0UjRN45yotUYECAM4xvw0TTAQw8sYDONP++keWJVnd8Xrn+V+vQEN/v9/X0SWEoo1rFSgCooGpw==
+easymde@^2.10.1:
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/easymde/-/easymde-2.16.1.tgz#f4c2380312615cb33826f1a1fecfaa4022ff551a"
+  integrity sha512-FihYgjRsKfhGNk89SHSqxKLC4aJ1kfybPWW6iAmtb5GnXu+tnFPSzSaGBmk1RRlCuhFSjhF0SnIMGVPjEzkr6g==
   dependencies:
-    "@types/codemirror" "0.0.109"
-    "@types/marked" "^2.0.2"
-    codemirror "^5.61.0"
+    "@types/codemirror" "^5.60.4"
+    "@types/marked" "^4.0.1"
+    codemirror "^5.63.1"
     codemirror-spell-checker "1.1.2"
-    marked "^2.0.3"
+    marked "^4.0.10"
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
@@ -13224,10 +13231,10 @@ markdown-escapes@^1.0.0:
   resolved "https://registry.yarnpkg.com/markdown-escapes/-/markdown-escapes-1.0.4.tgz#c95415ef451499d7602b91095f3c8e8975f78535"
   integrity sha512-8z4efJYk43E0upd0NbVXwgSTQs6cT3T06etieCMEg7dRbzCbxUCK/GHlX8mhHRDcp+OLlHkPKsvqQTCvsRl2cg==
 
-marked@^2.0.3:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-2.1.3.tgz#bd017cef6431724fd4b27e0657f5ceb14bff3753"
-  integrity sha512-/Q+7MGzaETqifOMWYEA7HVMaZb4XbcRfaOzcSsHZEith83KGlvaSG33u0SKu89Mj5h+T8V2hM+8O45Qc5XTgwA==
+marked@^4.0.10:
+  version "4.0.12"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-4.0.12.tgz#2262a4e6fd1afd2f13557726238b69a48b982f7d"
+  integrity sha512-hgibXWrEDNBWgGiK18j/4lkS6ihTe9sxtV4Q1OQppb/0zzyPSzoFANBa5MfsG/zgsWklmNnhm0XACZOH/0HBiQ==
 
 match-sorter@^6.3.1:
   version "6.3.1"
@@ -16209,13 +16216,14 @@ react-router@6.2.2:
   dependencies:
     history "^5.2.0"
 
-react-simplemde-editor@=4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/react-simplemde-editor/-/react-simplemde-editor-4.0.2.tgz#eda026db65f21474ea1a37cca8954a8557392a86"
-  integrity sha512-Nr0Eh2RJAIUqcQDBe9HUocR8TzaHOUBx6/H4GivcRm4glwAE8P3Z1xEGjtYNZdUQbzqu6Z6R7/4hJR9I7bOdVg==
+react-simplemde-editor@=4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/react-simplemde-editor/-/react-simplemde-editor-4.1.5.tgz#e9cff9b161a0127b7af2acd583e66a279ca8d08c"
+  integrity sha512-6e+kxxpw2kNg59TgJYOTkk5OrPI+rag/I30VBnXXQrZ7ISnNp7fjPW1OGoLwK/LlPQHZXg0znYTxBQpeG+/Wfg==
   dependencies:
-    "@types/codemirror" "^0.0.65"
-    easymde "^2.6.0"
+    "@types/codemirror" "^0.0.88"
+    "@types/marked" "^0.7.4"
+    easymde "^2.10.1"
 
 react-spring@^8.0.27:
   version "8.0.27"
