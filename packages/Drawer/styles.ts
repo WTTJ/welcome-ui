@@ -5,9 +5,15 @@ import { DialogBackdrop } from 'reakit/Dialog'
 
 import { DrawerProps, Placement, Size } from '.'
 
+type DrawerWrapperProps = {
+  hideOnClickOutside: boolean
+  placement?: Placement
+  size?: Size
+}
+
 export const Backdrop = styled(DialogBackdrop).withConfig({
   shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop),
-})<{ hideOnClickOutside: boolean }>(
+})<DrawerWrapperProps>(
   ({ hideOnClickOutside }) => css`
     ${th('drawers.backdrop')};
     display: flex;
@@ -151,7 +157,7 @@ const getBackdropWrapperPlacementStyle = (placement: Placement) => {
 
 export const NoBackdropWrapper = styled(DialogBackdrop).withConfig({
   shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop),
-})<{ hideOnClickOutside: boolean; placement: Placement; size: Size; visible: boolean }>(
+})<DrawerWrapperProps>(
   ({ hideOnClickOutside, placement, size }) => css`
     ${th('drawers.backdrop')};
     ${getBackdropWrapperPlacementStyle(placement)}
