@@ -21,7 +21,7 @@ Drawer based on [Reakit's dialog](https://reakit.io/docs/dialog/) with a really 
 
 ## Usage
 
-The most basic drawer needs `useDrawerState()`, `<Drawer.Trigger />`, `<Drawer.Backdrop />` and `<Drawer />`. Please note you have to wrap your `<Drawer />` with a `<Drawer.Backdrop />`. If you don't want this `<Drawer.Backdrop />` to be visible, please provide it a `backdropVisible` prop set to `false`.
+The most basic drawer needs `useDrawerState()`, `<Drawer.Trigger />`, `<Drawer.Backdrop />` and `<Drawer />`. **Please note you have to wrap your `<Drawer />` with a `<Drawer.Backdrop />`**. If you don't want this `<Drawer.Backdrop />` to be visible, please provide it a `backdropVisible` prop set to `false`. Backdrop allows us to have a smooth scroll across all browsers by wrapping the Drawer. This way, the Drawer can be absolutely positioned in the fixed Backdrop wrapper.
 
 ```jsx
 function DefaultDrawer() {
