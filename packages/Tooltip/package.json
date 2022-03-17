@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/tooltip",
-  "version": "4.0.0-rc.2",
+  "version": "4.0.0-rc.5",
   "description": "welcome-ui: A tooltip component",
   "main": "dist/tooltip.cjs.js",
   "module": "dist/tooltip.es.js",

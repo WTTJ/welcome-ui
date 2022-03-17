@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/dropdown-menu",
-  "version": "4.0.0-rc.4",
+  "version": "4.0.0-rc.5",
   "description": "welcome-ui: A DropdownMenu component",
   "main": "dist/dropdown-menu.cjs.js",
   "module": "dist/dropdown-menu.es.js",
