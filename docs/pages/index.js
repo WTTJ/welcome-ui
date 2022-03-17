@@ -23,7 +23,7 @@ export default function Home() {
           Welcome UI
         </Text>
         <Text maxWidth={820} mb="xl" mt="sm" variant="h1">
-          All components you need to create a delightful React webapp
+          All the components you need to create a delightful React webapp
         </Text>
         <Text color="dark.100" maxWidth={640} variant="body1">
           Welcome UI is a customizable design system library made with react, typescript,
@@ -57,7 +57,7 @@ export default function Home() {
               Contribute!
             </Text>
             <Text color="dark.100" maxWidth={640} variant="body1">
-              Welcome UI is open-sourced on GitHub. Contributions, feedback and issues are welcome,
+              Welcome UI is open-sourced on GitHub. Contributions, feedback and issues are welcome –
               we want you to be a part of this great project.
             </Text>
             <NextLink href="https://github.com/WTTJ/welcome-ui" passHref>
@@ -112,7 +112,7 @@ export default function Home() {
           The new experience at work
         </Text>
         <Text color="light.700" maxWidth={640} variant="body1">
-          Welcome to the jungle build products that transform every step of the experience at work.
+          Welcome to the Jungle build products that transform every step of the experience at work.
         </Text>
         <Box display={{ md: 'flex' }} mt="5xl">
           <NextLink href="https://www.welcometothejungle.com/en/companies/wttj/jobs" passHref>

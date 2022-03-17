@@ -25,7 +25,7 @@ const stats = [
         stars
       </>
     ),
-    number: '400+',
+    number: '430+',
     icon: <StarIcon h={24} w={24} />,
   },
   {

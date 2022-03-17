@@ -22,7 +22,7 @@ const components = [
         <Tag variant="secondary">Secondary</Tag>
       </Stack>
     ),
-    description: 'Allows user to categorized or organized keywords.',
+    description: 'Allows user to categorize or organized keywords.',
     link: 'components/tag',
   },
   {
@@ -75,7 +75,8 @@ const components = [
         />
       </Stack>
     ),
-    description: 'Allow user to get an avatar with initials letter when have no image.',
+    description:
+      'Allows user to get an avatar with initials as a fallback letter when have no image.',
     link: 'components/avatar',
   },
   {
@@ -86,7 +87,7 @@ const components = [
         <Link variant="secondary">Secondary</Link>
       </Stack>
     ),
-    description: 'Allows user to get our customize anchor element.',
+    description: 'Allows user to get our customized anchor element.',
     link: 'components/link',
   },
 ]
