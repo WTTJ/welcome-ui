@@ -19,13 +19,13 @@ const expectations = [
     title: 'Design',
     icon: PencilIcon,
     description:
-      'Carefully elaborated by Welcome to the Jungle Designers, ensuring a perfect consistency in your app design!',
+      'Carefully constructed by our Welcome to the Jungle designers, ensuring perfect consistency in your app design!',
   },
   {
     title: 'Documentation',
     icon: BookIcon,
     description:
-      'A complete and updated documentation with live code editors to help you implement easily our design system.',
+      'Complete documentation with live code editors to help easily you implement our design system.',
   },
   {
     title: 'Productivity gain',
