@@ -42,23 +42,4 @@ describe('<Drawer>', () => {
     getByText('open').click()
     expect(queryByRole('dialog')).toHaveStyleRule('height', '50%')
   })
-
-  // it("should error if <Drawer.Backdrop />'s children isn't <Drawer />", () => {
-  //   const Test = () => {
-  //     const drawer = useDrawerState()
-  //     return (
-  //       <>
-  //         <Drawer.Trigger {...drawer}>open</Drawer.Trigger>
-  //         <Drawer.Backdrop {...drawer}>
-  //           <div>nope</div>
-  //         </Drawer.Backdrop>
-  //       </>
-  //     )
-  //   }
-
-  //   const renderDrawer = () => {
-  //     render(<Test />)
-  //   }
-  //   expect(renderDrawer).toThrowError()
-  // })
 })

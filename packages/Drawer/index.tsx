@@ -106,19 +106,22 @@ export const Close: React.FC<CloseProps> = ({ hide, ...props }) => {
   )
 }
 
-export const Title: React.FC<TextProps> = props => {
+export const Title: React.FC<TextProps> = ({ children, ...props }) => {
   const { drawers } = useTheme()
   return (
     <Box
       alignItems="center"
-      backgroundColor="light.900"
       display="flex"
       justifyContent="space-between"
       position={{ xs: 'sticky', md: 'static' }}
       top={{ xs: 0, md: 'auto' }}
       w="100%"
+      {...drawers.title}
+      {...props}
     >
-      <Text {...drawers.title} w="100%" {...props} />
+      <Text m="0" variant="h3" w="100%">
+        {children}
+      </Text>
     </Box>
   )
 }
@@ -132,7 +135,6 @@ export const Footer: React.FC<BoxProps> = props => {
   const { drawers } = useTheme()
   return (
     <Box
-      backgroundColor={{ xs: 'white', md: 'transparent' }}
       bottom={{ xs: 0, md: 'auto' }}
       position={{ xs: 'sticky', md: 'static' }}
       {...drawers.footer}

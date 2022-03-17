@@ -18,7 +18,7 @@ export type ThemeDrawers = {
 }
 
 export const getDrawers = (theme: WuiTheme): ThemeDrawers => {
-  const { colors, space, texts, toRem } = theme
+  const { colors, space, toRem } = theme
   return {
     backdrop: {
       backgroundColor: colors.overlay,
@@ -33,13 +33,14 @@ export const getDrawers = (theme: WuiTheme): ThemeDrawers => {
     },
     title: {
       margin: 0,
+      backgroundColor: colors.light[900],
       padding: `${space['xl']} ${space['5xl']} ${space['xl']} ${space['xl']}`,
-      ...texts.h3,
     },
     content: {
       padding: `${space['3xl']}`,
     },
     footer: {
+      backgroundColor: colors.light[900],
       padding: `${space['xl']}`,
     },
     sizes: {
