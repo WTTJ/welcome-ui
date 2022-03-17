@@ -29,11 +29,11 @@ export interface DrawerOptions {
 export type DrawerProps = CreateWuiProps<'div', DrawerOptions & DialogOptions>
 
 const DrawerComponent = forwardRef<'div', DrawerProps>(
-  ({ as, children, placement = 'right', size = 'lg', tabIndex, ...rest }, ref) => {
+  ({ as, children, placement = 'right', size = 'lg', ...rest }, ref) => {
     return (
       // Needed to allow to style the backdrop
       // see: https://reakit.io/docs/styling/#css-in-js
-      <Dialog as={as} ref={ref} tabIndex={tabIndex} {...rest}>
+      <Dialog as={as} ref={ref} {...rest}>
         {(props: DrawerProps) => (
           <S.Drawer {...props} placement={placement} size={size}>
             {children}
