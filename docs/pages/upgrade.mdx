@@ -70,6 +70,12 @@ We reduce the size (and variant) of headings on mobile :
 
 ### Components
 
+#### Drawer
+
+The Drawer component has to be wrapped with a Backdrop component, visible by default. If you don't want the Backdrop to be visible, you can pass it a `backdropVisible` prop set to `false`.
+
+This decision was made for browser compatibility purpose.
+
 #### ConnectedField
 
 The ConnectedField component was built to work with react-final-form and was not generic enough so we have decided to remove it on v4.

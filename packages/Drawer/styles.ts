@@ -1,11 +1,20 @@
 import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { cardStyles } from '@welcome-ui/utils'
+import { DialogBackdrop } from 'reakit/Dialog'
 
 import { DrawerProps, Placement, Size } from '.'
 
-export const Backdrop = styled(Box)<{ isClickable: boolean }>(
-  ({ isClickable }) => css`
+type DrawerWrapperProps = {
+  hideOnClickOutside: boolean
+  placement?: Placement
+  size?: Size
+}
+
+export const Backdrop = styled(DialogBackdrop).withConfig({
+  shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop),
+})<DrawerWrapperProps>(
+  ({ hideOnClickOutside }) => css`
     ${th('drawers.backdrop')};
     display: flex;
     align-items: center;
@@ -17,7 +26,7 @@ export const Backdrop = styled(Box)<{ isClickable: boolean }>(
     bottom: 0;
     opacity: 0;
     transition: fast;
-    ${isClickable &&
+    ${hideOnClickOutside &&
     css`
       cursor: pointer;
     `}
@@ -33,7 +42,7 @@ const getPlacementStyle = (placement: Placement) => {
   switch (placement) {
     case 'top':
       return {
-        top: 0,
+        top: '0 !important',
         right: 0,
         left: 0,
         // Used for animation
@@ -41,7 +50,7 @@ const getPlacementStyle = (placement: Placement) => {
       }
     case 'right':
       return {
-        top: 0,
+        top: '0 !important',
         right: 0,
         bottom: 0,
         transform: 'translateX(100%)',
@@ -55,7 +64,7 @@ const getPlacementStyle = (placement: Placement) => {
       }
     case 'left':
       return {
-        top: 0,
+        top: '0 !important',
         bottom: 0,
         left: 0,
         transform: 'translateX(-100%)',
@@ -91,13 +100,15 @@ export const Drawer = styled(Box)<DrawerProps>(
     ${th('drawers.default')};
     ${getPlacementStyle(placement)}
     ${getSizeStyle(size, placement)}
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: column;
     max-width: 100%;
     max-height: 100%;
     transition: medium;
     cursor: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
     &:focus {
       /* important for firefox */
@@ -111,6 +122,63 @@ export const Drawer = styled(Box)<DrawerProps>(
 
     &[data-leave] {
       transition: fast;
+    }
+  `
+)
+
+const getBackdropWrapperPlacementStyle = (placement: Placement) => {
+  switch (placement) {
+    case 'top':
+      return {
+        top: 0,
+        right: 0,
+        left: 0,
+      }
+    case 'right':
+      return {
+        top: 0,
+        right: 0,
+        bottom: 0,
+      }
+    case 'bottom':
+      return {
+        right: 0,
+        bottom: 0,
+        left: 0,
+      }
+    case 'left':
+      return {
+        top: 0,
+        bottom: 0,
+        left: 0,
+      }
+  }
+}
+
+export const NoBackdropWrapper = styled(DialogBackdrop).withConfig({
+  shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop),
+})<DrawerWrapperProps>(
+  ({ hideOnClickOutside, placement, size }) => css`
+    ${th('drawers.backdrop')};
+    ${getBackdropWrapperPlacementStyle(placement)}
+    ${getSizeStyle(size, placement)}
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 0;
+    transition: fast;
+    ${hideOnClickOutside &&
+    css`
+      cursor: pointer;
+    `}
+
+    /* on open dialog for animation */
+    &[data-enter] {
+      opacity: 1;
     }
   `
 )

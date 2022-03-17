@@ -2,7 +2,6 @@
 import React, { cloneElement } from 'react'
 import {
   Dialog,
-  DialogBackdrop,
   DialogBackdropProps,
   DialogDisclosure,
   DialogInitialState,
@@ -55,6 +54,7 @@ export function useDrawerState(
 
 export interface DrawerBackdropOptions {
   hideOnClickOutside?: boolean
+  backdropVisible?: boolean
   children: React.ReactElement
 }
 
@@ -66,22 +66,23 @@ export type DrawerBackdropProps = DrawerBackdropOptions & DialogBackdropProps
  * @name Drawer.Backdrop
  */
 export const DrawerBackdrop: React.FC<DrawerBackdropProps> = ({
+  backdropVisible = true,
   children,
   hideOnClickOutside = true,
   ...rest
 }) => {
-  if (children.type !== Drawer) {
-    throw new Error('<Drawer.Backdrop /> children has to be <Drawer />.')
+  const Wrapper = backdropVisible ? S.Backdrop : S.NoBackdropWrapper
+  const placement = children?.props?.placement || 'right'
+  const size = children?.props?.size || 'lg'
+  const optionalWrapperProps = {
+    size,
+    placement,
   }
 
   return (
-    <DialogBackdrop {...rest}>
-      {props => (
-        <S.Backdrop isClickable={hideOnClickOutside} {...props}>
-          {cloneElement(children, { hideOnClickOutside })}
-        </S.Backdrop>
-      )}
-    </DialogBackdrop>
+    <Wrapper {...rest} hideOnClickOutside={hideOnClickOutside} {...optionalWrapperProps}>
+      {cloneElement(children, { hideOnClickOutside })}
+    </Wrapper>
   )
 }
 
@@ -90,22 +91,57 @@ export type CloseProps = CloseOptions & CloseButtonProps
 
 export const Close: React.FC<CloseProps> = ({ hide, ...props }) => {
   const { drawers } = useTheme()
-  return <CloseButton {...drawers.closeButton} onClick={hide} position="absolute" {...props} />
+  return (
+    <Box
+      display="flex"
+      h="0"
+      justifyContent="flex-end"
+      position="sticky"
+      top="0"
+      w="auto"
+      zIndex="1"
+    >
+      <CloseButton {...drawers.closeButton} onClick={hide} {...props} />
+    </Box>
+  )
 }
 
-export const Title: React.FC<TextProps> = props => {
+export const Title: React.FC<TextProps> = ({ children, ...props }) => {
   const { drawers } = useTheme()
-  return <Text {...drawers.title} w="100%" {...props} />
+  return (
+    <Box
+      alignItems="center"
+      display="flex"
+      justifyContent="space-between"
+      position={{ xs: 'sticky', md: 'static' }}
+      top={{ xs: 0, md: 'auto' }}
+      w="100%"
+      {...drawers.title}
+      {...props}
+    >
+      <Text m="0" variant="h3" w="100%">
+        {children}
+      </Text>
+    </Box>
+  )
 }
 
 export const Content: React.FC<BoxProps> = props => {
   const { drawers } = useTheme()
-  return <Box {...drawers.content} flex="1" overflowY="auto" {...props} />
+  return <Box {...drawers.content} flex="1" overflowY={{ md: 'auto' }} {...props} />
 }
 
 export const Footer: React.FC<BoxProps> = props => {
   const { drawers } = useTheme()
-  return <Box {...drawers.footer} w="100%" {...props} />
+  return (
+    <Box
+      bottom={{ xs: 0, md: 'auto' }}
+      position={{ xs: 'sticky', md: 'static' }}
+      {...drawers.footer}
+      w="100%"
+      {...props}
+    />
+  )
 }
 
 export const Drawer = Object.assign(DrawerComponent, {

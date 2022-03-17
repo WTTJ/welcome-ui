@@ -21,7 +21,7 @@ Drawer based on [Reakit's dialog](https://reakit.io/docs/dialog/) with a really 
 
 ## Usage
 
-The most basic drawer needs `useDrawerState()`, `<Drawer.Trigger />` and `<Drawer />`.
+The most basic drawer needs `useDrawerState()`, `<Drawer.Trigger />`, `<Drawer.Backdrop />` and `<Drawer />`. **Please note you have to wrap your `<Drawer />` with a `<Drawer.Backdrop />`**. If you don't want this `<Drawer.Backdrop />` to be visible, please provide it a `backdropVisible` prop set to `false`. Backdrop allows us to have a smooth scroll across all browsers by wrapping the Drawer. This way, the Drawer can be absolutely positioned in the fixed Backdrop wrapper.
 
 ```jsx
 function DefaultDrawer() {
@@ -32,11 +32,13 @@ function DefaultDrawer() {
       <Drawer.Trigger as={Button} {...drawer}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer aria-label="Default drawer" {...drawer}>
-        <Drawer.Close {...drawer} />
-        Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam
-        nec, convallis sit amet erat. Mauris auctor blandit porta.
-      </Drawer>
+      <Drawer.Backdrop {...drawer} backdropVisible={false}>
+        <Drawer aria-label="Default drawer" {...drawer}>
+          <Drawer.Close {...drawer} />
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam
+          nec, convallis sit amet erat. Mauris auctor blandit porta.
+        </Drawer>
+      </Drawer.Backdrop>
     </>
   )
 }
@@ -44,7 +46,7 @@ function DefaultDrawer() {
 
 ## Backdrop
 
-You can wrap `<Drawer />` with `<Drawer.Backdrop />` to add a backdrop. It corresponds to [Reakit Dialog's Backdrop](https://reakit.io/docs/dialog/#backdrop) with custom styling.
+You have to wrap `<Drawer />` with `<Drawer.Backdrop />`. It can be either visible or not, thanks to the `backdropVisible` prop (which is true by default). It corresponds to [Reakit Dialog's Backdrop](https://reakit.io/docs/dialog/#backdrop) with custom styling.
 
 ```jsx
 function BackdropDrawer() {
