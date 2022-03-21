@@ -96,6 +96,7 @@ const ModalComponent = forwardRef<'div', ModalProps>((props, ref) => {
       >
         <CloseElement onClick={closeModal} />
         {Children.map(children, (child: JSX.Element) => {
+          if (!child) return null
           const name = child?.type?.displayName || child?.type?.name
 
           return cloneElement(child, {
