@@ -25,7 +25,7 @@ export interface ModalOptions {
   hideOnClickOutside?: boolean
   onClose?: () => void
   size?: Size
-  children: JSX.Element[]
+  children: JSX.Element | JSX.Element[]
 }
 
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
