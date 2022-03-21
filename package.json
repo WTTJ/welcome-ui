@@ -145,7 +145,7 @@
     "standard-version": "=7.0.0",
     "styled-components": "^5.3.3",
     "stylelint": "14.6.0",
-    "stylelint-config-recommended-scss": "^5.0.2",
+    "stylelint-config-recommended-scss": "^6.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0",
     "svgo": "^2.8.0",
