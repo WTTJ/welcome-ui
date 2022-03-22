@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/drawer",
-  "version": "4.0.0-rc.5",
+  "version": "4.0.0-rc.6",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/drawer.cjs.js",
   "module": "dist/drawer.es.js",
