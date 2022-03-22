@@ -39,7 +39,7 @@ export function Head() {
         property="og:description"
       />
       <meta
-        content="https://cdn.welcometothejungle.co/images/welcome-ui-og-image-2.png"
+        content="https://cdn.welcometothejungle.com/images/welcome-ui-banner.png"
         property="og:image"
       />
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56009608-24" />
