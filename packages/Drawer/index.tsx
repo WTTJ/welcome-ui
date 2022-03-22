@@ -24,6 +24,7 @@ export type Size = 'sm' | 'md' | 'lg' | 'auto' | string
 export interface DrawerOptions {
   placement?: Placement
   size?: Size
+  tabIndex?: number | string
 }
 
 export type DrawerProps = CreateWuiProps<'div', DrawerOptions & DialogOptions>

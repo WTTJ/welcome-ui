@@ -26,6 +26,7 @@ export interface ModalOptions {
   onClose?: () => void
   size?: Size
   children: JSX.Element | JSX.Element[]
+  tabIndex?: number | string
 }
 
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
