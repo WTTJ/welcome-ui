@@ -25,7 +25,7 @@ export interface ModalOptions {
   hideOnClickOutside?: boolean
   onClose?: () => void
   size?: Size
-  children: JSX.Element[]
+  children: JSX.Element | JSX.Element[]
 }
 
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
@@ -96,6 +96,7 @@ const ModalComponent = forwardRef<'div', ModalProps>((props, ref) => {
       >
         <CloseElement onClick={closeModal} />
         {Children.map(children, (child: JSX.Element) => {
+          if (!child) return null
           const name = child?.type?.displayName || child?.type?.name
 
           return cloneElement(child, {
