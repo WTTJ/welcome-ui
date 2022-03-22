@@ -17,6 +17,7 @@ export const Checkbox = styled(ReakitCheckbox).withConfig({
     order: ${order};
     cursor: pointer;
     transition: medium;
+    overflow: hidden;
 
     &[aria-checked='true'] {
       &::after {
