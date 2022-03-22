@@ -107,7 +107,7 @@ By default the `placement` of the drawer will be on the `right` but you can set 
 ```jsx
 function PlacementDrawer() {
   const drawer = useDrawerState()
-  const [placement, setPlacement] = useState('right')
+  const [placement, setPlacement] = React.useState('right')
 
   return (
     <>
@@ -146,8 +146,8 @@ By default the `size` of the drawer will be `lg` which is set in the theme. We p
 ```jsx
 function SizeDrawer() {
   const drawer = useDrawerState()
-  const [size, setSize] = useState('lg')
-  const [placement, setPlacement] = useState('right')
+  const [size, setSize] = React.useState('lg')
+  const [placement, setPlacement] = React.useState('right')
 
   return (
     <>

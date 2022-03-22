@@ -21,7 +21,7 @@ import {
 
 ```jsx
 function() {
-  const [page, setPage] = useState(8)
+  const [page, setPage] = React.useState(8)
 
   return (
     <Pagination
@@ -41,7 +41,7 @@ When your range display is above your pageCount, all the pages are shown.<br />C
 
 ```jsx
 function() {
-  const [page, setPage] = useState(1)
+  const [page, setPage] = React.useState(1)
 
   return (
     <Pagination
@@ -62,7 +62,7 @@ Set custom previous and next buttons using `leftArrow` and `rightArrow`.
 
 ```jsx
 function() {
-  const [page, setPage] = useState(5)
+  const [page, setPage] = React.useState(5)
 
   return (
     <Pagination

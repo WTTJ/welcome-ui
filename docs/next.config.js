@@ -1,24 +1,11 @@
-module.exports = {
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    providerImportSource: '@mdx-js/react',
+  },
+})
+module.exports = withMDX({
+  // Append the default value with md extensions
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   basePath: process.env.VERSION ? `/${process.env.VERSION}` : undefined,
-  webpack: (config, options) => {
-    config.module.rules.push({
-      test: /\.mdx/,
-      use: [
-        options.defaultLoaders.babel,
-        {
-          loader: '@mdx-js/loader',
-          options: {},
-        },
-      ],
-    })
-
-    config.module.rules.push({
-      test: /\.mjs$/,
-      include: /node_modules/,
-      type: 'javascript/auto',
-    })
-
-    return config
-  },
-}
+})
