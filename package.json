@@ -129,7 +129,7 @@
     "lerna": "^3.22.1",
     "lerna-update-wizard": "^0.17.8",
     "lodash.difference": "^4.5.0",
-    "minimist": "1.2.5",
+    "minimist": "1.2.6",
     "netlify-cli": "^9.13.2",
     "onchange": "^7.0.2",
     "postcss": "^8.4.12",
