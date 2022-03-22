@@ -99,7 +99,7 @@ describe('File utils', () => {
 
     it('should return correct type of file without name and ?', () => {
       const file =
-        'https://cdn.welcometothejungle.co/wttj-front/production/assets/images/logos/wttj.svg?v=3a3dbd7122a01600fb67e66b889bb47c'
+        'https://cdn.welcometothejungle.com/wttj-front/production/assets/images/logos/wttj.svg?v=3a3dbd7122a01600fb67e66b889bb47c'
       const result = getMimeType(file)
 
       expect(result).toEqual('image/svg+xml')
