@@ -89,7 +89,7 @@ export const DrawerBackdrop: React.FC<DrawerBackdropProps> = ({
 export type CloseOptions = { hide: VoidFunction }
 export type CloseProps = CloseOptions & CloseButtonProps
 
-export const Close: React.FC<CloseProps> = ({ hide, ...props }) => {
+export const Close: React.FC<CloseProps> = ({ hide, zIndex = '2', ...props }) => {
   const { drawers } = useTheme()
   return (
     <Box
@@ -99,14 +99,14 @@ export const Close: React.FC<CloseProps> = ({ hide, ...props }) => {
       position="sticky"
       top="0"
       w="auto"
-      zIndex="1"
+      zIndex={zIndex}
     >
       <CloseButton {...drawers.closeButton} onClick={hide} {...props} />
     </Box>
   )
 }
 
-export const Title: React.FC<TextProps> = ({ children, ...props }) => {
+export const Title: React.FC<TextProps> = ({ children, zIndex = '1', ...props }) => {
   const { drawers } = useTheme()
   return (
     <Box
@@ -116,6 +116,7 @@ export const Title: React.FC<TextProps> = ({ children, ...props }) => {
       position={{ xs: 'sticky', md: 'static' }}
       top={{ xs: 0, md: 'auto' }}
       w="100%"
+      zIndex={zIndex}
       {...drawers.title}
       {...props}
     >
