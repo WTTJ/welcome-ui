@@ -55,7 +55,7 @@ export function Header() {
       </Drawer.Trigger>
       <Drawer.Backdrop {...mobileMenuDrawer} backdropVisible={false}>
         <S.MenuMobileDrawer aria-label="Menu backdrop" {...mobileMenuDrawer}>
-          <NavBar isMobileMenu mb="xl" />
+          <NavBar isMobileMenu mb="lg" />
           <ComponentsList onClick={() => mobileMenuDrawer.hide()} />
         </S.MenuMobileDrawer>
       </Drawer.Backdrop>

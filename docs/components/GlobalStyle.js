@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
       width: 100%;
       height: 30;
       border-radius: 0;
-      padding: 0 xxs;
+      padding: 0 sm;
       ${defaultFieldStyles({})};
       cursor: text;
       font-family: 'Work Sans';
@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
       }
 
       &-Keys {
-        margin-top: 2;
+        margin-top: xxs;
         display: flex;
       }
 
