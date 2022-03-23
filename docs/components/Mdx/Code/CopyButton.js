@@ -5,7 +5,7 @@ import React from 'react'
 export function CopyButton({ copied, copy }) {
   return (
     <Button
-      mr="lg"
+      mr="sm"
       mt="lg"
       onClick={copy}
       position="absolute"
