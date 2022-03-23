@@ -25,7 +25,6 @@ updates:
         versions: ["5.x"]
       - dependency-name: "react-spring"
         versions: ["9.x"]
-      - dependency-name: "@react/types"
       - dependency-name: "lerna"
         versions: ["5.x"]
       - dependency-name: "lerna-update-wizard"
