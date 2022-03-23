@@ -23,7 +23,7 @@ describe('<Alert>', () => {
     const alertTitle = getByTestId('alert-title')
 
     expect(container).toHaveTextContent(content)
-    expect(alertTitle).toHaveStyleRule('margin-bottom', '0.625rem')
+    expect(alertTitle).toHaveStyleRule('margin-bottom', '0.5rem')
   })
 
   it('should render correctly with only an Alert.Title', () => {

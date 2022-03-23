@@ -45,7 +45,7 @@ export function ThemeSelector(props) {
             onClick={() => handleSetTheme(value)}
             {...menu}
           >
-            <Icon mr="sm" size="sm" />
+            <Icon mr="md" size="sm" />
             <Box>{label}</Box>
           </DropdownMenu.Item>
         ))}

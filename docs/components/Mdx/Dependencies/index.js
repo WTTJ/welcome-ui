@@ -12,7 +12,7 @@ export function Dependencies({ dependencies }) {
 
   return (
     <Box>
-      <Card mt="xxl">
+      <Card mt="sm">
         <Card.Body>
           <Box display="flex" flexWrap="wrap" mb="-md">
             {Object.entries(dependencies).map(([dependency, version]) => {

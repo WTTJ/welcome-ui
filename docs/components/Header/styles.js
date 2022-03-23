@@ -15,13 +15,13 @@ export const Header = styled.header(
     height: ${headerHeight};
     background-color: dark.800;
     font-size: body2;
-    padding: 0 sm;
+    padding: 0 md;
     top: 0;
     width: 100%;
     z-index: 2;
 
     @media (min-width: md) {
-      padding: 0 xl;
+      padding: 0 lg;
     }
 
     ${variant === 'gray' &&
@@ -45,7 +45,7 @@ export const Header = styled.header(
 export const MenuMobileDrawer = styled(WUIDrawer)`
   top: ${`calc(${headerHeight} - 1px)`} !important;
   width: 100% !important;
-  padding: xl;
+  padding: lg;
 
   @media (min-width: md) {
     display: none;

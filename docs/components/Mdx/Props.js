@@ -69,7 +69,7 @@ function Type({ type }) {
 export function Props({ propTypes }) {
   if (!propTypes) {
     return (
-      <Box as="p" pt="xl">
+      <Box as="p" pt="lg">
         No props specified
       </Box>
     )
@@ -81,7 +81,7 @@ export function Props({ propTypes }) {
     <Box>
       <Card mt="xxl">
         <Card.Body color="dark.900">
-          <Table marginBottom="-lg" marginTop="-xl">
+          <Table marginBottom="-lg" marginTop="-lg">
             <Table.Thead>
               <Table.Tr>
                 <Table.Th>Name</Table.Th>
@@ -109,7 +109,7 @@ export function Props({ propTypes }) {
                       <Box>
                         <Type type={type} />
                         {description && (
-                          <Box as="p" color="light.100" fontSize="body4" m={0} mt="xs">
+                          <Box as="p" color="light.100" fontSize="body4" m={0} mt="sm">
                             {description}
                           </Box>
                         )}
