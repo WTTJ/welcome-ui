@@ -48,7 +48,8 @@
     "@welcome-ui/system": "^4.0.0",
     "@welcome-ui/utils": "^4.0.0",
     "lodash.range": "^3.2.0",
-    "react-datepicker": "^4.7.0"
+    "react-datepicker": "^4.7.0",
+    "@types/react-datepicker": "^4.3.2"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.5.1",
