@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-rc.7](https://github.com/WTTJ/welcome-ui/compare/v4.0.0-rc.6...v4.0.0-rc.7) (2022-03-23)
+
+
+### Bug Fixes
+
+* checkbox overflowing w/ after element on firefox ([#1080](https://github.com/WTTJ/welcome-ui/issues/1080)) ([7ad2b49](https://github.com/WTTJ/welcome-ui/commit/7ad2b49c47db8953e3238f215f86f1c755edf00d))
+
+
+
+
+
 ## [3.4.3](https://github.com/WTTJ/welcome-ui/compare/v3.4.2...v3.4.3) (2021-04-28)
 
 **Note:** Version bump only for package @welcome-ui/checkbox

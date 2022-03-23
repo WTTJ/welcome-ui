@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/checkbox",
-  "version": "4.0.0-rc.5",
+  "version": "4.0.0-rc.7",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/checkbox.cjs.js",
   "module": "dist/checkbox.es.js",
