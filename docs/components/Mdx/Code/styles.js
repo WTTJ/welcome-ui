@@ -1,4 +1,4 @@
-import styled from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { LiveEditor as ReactLiveEditor, LiveError as ReactLiveError } from 'react-live'
 import { Box } from '@welcome-ui/box'
@@ -9,19 +9,27 @@ export const LiveEditor = styled(Box)`
   border-radius: md;
   margin-bottom: md;
   overflow: hidden;
+  padding: xxs;
 `
 
-export const LiveEditorContent = styled(ReactLiveEditor)`
-  width: calc(100% - 4rem) !important;
+export const LiveEditorContent = styled(ReactLiveEditor)(
+  ({ isCopyable }) => css`
+    ${isCopyable &&
+    css`
+      width: calc(100% - 3.5rem) !important;
+    `}
+    overflow-x: auto;
 
-  textarea {
-    background-color: dark.900 !important;
+    textarea,
+    pre {
+      background-color: dark.900 !important;
 
-    &:focus {
-      outline: none;
+      &:focus {
+        outline: none;
+      }
     }
-  }
-`
+  `
+)
 
 export const LiveError = styled(ReactLiveError)`
   background-color: danger.100;

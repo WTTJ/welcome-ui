@@ -230,7 +230,11 @@ export function Code({
         </Card>
         {editorOpen && (
           <S.LiveEditor>
-            <S.LiveEditorContent onChange={handleChange} padding={20} style={liveEditorStyle} />
+            <S.LiveEditorContent
+              isCopyable={isCopyable}
+              onChange={handleChange}
+              style={liveEditorStyle}
+            />
             {isCopyable && <CopyButton copied={copied} copy={copy} />}
           </S.LiveEditor>
         )}
@@ -244,7 +248,7 @@ export function Code({
       <Box mt="lg" overflow="auto">
         <LiveProvider disabled {...liveProviderProps}>
           <S.LiveEditor>
-            <S.LiveEditorContent padding={20} style={liveEditorStyle} />
+            <S.LiveEditorContent isCopyable={isCopyable} style={liveEditorStyle} />
             {isCopyable && <CopyButton copied={copied} copy={copy} />}
           </S.LiveEditor>
         </LiveProvider>
