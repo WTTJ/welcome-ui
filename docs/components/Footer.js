@@ -18,13 +18,13 @@ export function Footer(props) {
         <Logo h={37} isDark w={63} />
       </Box>
       <Box alignItems="center" display="flex">
-        Made with <HeartIcon color="primary.500" mx="xxs" /> by{' '}
+        Made with <HeartIcon color="primary.500" mx="sm" /> by{' '}
         <Box
           alignItems="center"
           as="a"
           display="flex"
           href="https://www.welcometothejungle.com"
-          ml="xs"
+          ml="sm"
           rel="noopener"
           target="_blank"
         >

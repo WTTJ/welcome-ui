@@ -7,7 +7,7 @@ export const Content = styled(Box)`
   border-width: sm;
   border-style: solid;
   border-radius: lg;
-  padding: xl sm lg;
+  padding: lg sm;
   width: 100%;
   text-align: center;
   transition: medium;

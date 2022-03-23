@@ -20,9 +20,9 @@ export function DocsLayout({ children }) {
           borderTop="1px solid"
           borderTopColor="nude.200"
           mb="md"
-          mt="5xl"
-          mx={{ xs: 'md', md: 'xxl' }}
-          pt="xxl"
+          mt="3xl"
+          mx={{ xs: 'md', md: 'xl' }}
+          pt="xl"
         />
       </S.Content>
     </Box>

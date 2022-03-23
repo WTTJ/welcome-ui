@@ -1,6 +1,7 @@
 import styled from '@xstyled/styled-components'
 import { th } from '@xstyled/system'
 import { Box } from '@welcome-ui/box'
+import { Link } from '@welcome-ui/link'
 
 export const Ul = styled.ul`
   margin: 0;
@@ -18,25 +19,31 @@ export const MainTitle = styled(Box)`
   ${th('texts.subtitle2')};
   text-transform: uppercase;
   color: light.100;
-  margin-top: xxl;
+  margin-top: xl;
   margin-bottom: lg;
 `
 
-export const Item = styled.a`
-  text-decoration: none;
-  padding: 1 xxs 1 xl;
-  margin-bottom: xxs;
-  transition: medium;
-  color: dark.700;
-  font-size: body2;
+export const Item = styled(Link)`
+  padding: 1 xs 1 lg;
+  margin-bottom: xs;
+
+  > .wui-text {
+    font-weight: regular;
+    background-size: 0% 50% !important;
+  }
 
   &:hover {
-    color: dark.900;
-    padding-left: 3xl;
+    > .wui-text {
+      color: dark.900;
+      background-size: 100% 50% !important;
+    }
   }
 
   &[aria-current='page'] {
-    color: dark.900;
-    font-weight: bold;
+    > .wui-text {
+      color: dark.900;
+      font-weight: bold;
+      background-size: 100% 50% !important;
+    }
   }
 `

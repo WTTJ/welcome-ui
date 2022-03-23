@@ -14,12 +14,12 @@ export function Item({ content, name }) {
   }
 
   return (
-    <Box alignItems="center" display="flex" pb="sm">
+    <Box alignItems="center" display="flex" pb="md">
       <Text color="light.200" m="0" variant="body4" w={{ xs: 50, md: 64 }}>
         {name}
       </Text>
       <Box alignItems="center" display="flex" flex="1">
-        <Text lines={1} m="0" mr="xxs">
+        <Text lines={1} m="0" mr="sm">
           {content}
         </Text>
         {copied && <CheckIcon color="success.500" flex="0 0 auto" />}

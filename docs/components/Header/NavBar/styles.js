@@ -9,7 +9,7 @@ export const NavBar = styled.ul`
   ${system};
 
   li {
-    margin-left: xl;
+    margin-left: lg;
 
     &:first-child {
       margin-left: 0;

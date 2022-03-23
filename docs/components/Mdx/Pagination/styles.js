@@ -13,12 +13,12 @@ export const Link = styled.a(
     &:hover {
       ${!isNext &&
       css`
-        padding-left: xxs;
+        padding-left: sm;
       `};
 
       ${isNext &&
       css`
-        padding-right: xxs;
+        padding-right: sm;
       `};
     }
   `

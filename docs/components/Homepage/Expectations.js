@@ -70,7 +70,7 @@ function Expectation({ description, icon: Icon, title }) {
     <Card w="100%">
       <Card.Body color="dark.900">
         <Icon size={30} />
-        <Text mb="md" mt="xl" textTransform="uppercase" variant="h6">
+        <Text mb="md" mt="lg" textTransform="uppercase" variant="h6">
           {title}
         </Text>
         <Text color="dark.200" m="0" variant="body3">
@@ -85,7 +85,7 @@ export function Expectations() {
   return (
     <Box
       display="grid"
-      gap="xl"
+      gap="lg"
       gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}
     >
       {expectations.map(component => (
