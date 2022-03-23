@@ -45,12 +45,12 @@ export function Stats() {
   return (
     <Box
       backgroundColor="light.900"
-      borderRadius={60}
+      borderRadius={64}
       display="flex"
       justifyContent="space-between"
       maxWidth={470}
-      px={{ xs: '3xl', md: '60' }}
-      py="3xl"
+      px={{ xs: 'xxl', md: '4xl' }}
+      py="xxl"
       w="100%"
     >
       {stats?.map(stat => (
@@ -73,10 +73,10 @@ export function Stats() {
           >
             {stat.icon}
           </Box>
-          <Text as="span" mt="xl" variant="h3">
+          <Text as="span" mt="lg" variant="h3">
             {stat.number}
           </Text>
-          <Text as="span" color="light.100" mt="xxs" variant="body3">
+          <Text as="span" color="light.100" mt="sm" variant="body3">
             {stat.name}
           </Text>
         </Box>

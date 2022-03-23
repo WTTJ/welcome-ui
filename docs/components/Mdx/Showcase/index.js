@@ -20,8 +20,8 @@ export function Showcase({
 }) {
   return (
     <Box backgroundColor="nude.100" maxW="100% !important">
-      <Box m="0 auto" maxW={970} px={{ md: 'md' }} py={{ xs: '3xl', md: 70 }}>
-        <H1 mb="0" pb="xxs" pt="0">
+      <Box m="0 auto" maxW={970} px={{ md: 'md' }} py={{ xs: 'xxl', md: '4xl' }}>
+        <H1 mb="0" pb="sm" pt="0">
           {pageName || component}
         </H1>
         {description && (
@@ -29,7 +29,7 @@ export function Showcase({
             {description}
           </Text>
         )}
-        <Box mt={60}>
+        <Box mt="4xl">
           <Item content={version} name="version" />
           <Item content={`yarn add ${name}`} name="install" />
           <Item content={`import { ${component} } from '${name}'`} name="usage" />
@@ -38,13 +38,13 @@ export function Showcase({
             <Item content={customUsage} name={customInstall ? 'usage' : 'or usage'} />
           )}
         </Box>
-        <Box mt="3xl">
+        <Box mt="xxl">
           <Button
             alt="npm package"
             as="a"
             href={`https://www.npmjs.com/package/${name}`}
             rel="noopener noreferrer"
-            size="sm"
+            size="md"
             target="_blank"
             variant="quaternary"
           >

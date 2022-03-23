@@ -17,17 +17,17 @@ function Title({ children, ...props }) {
 }
 
 export function H1(props) {
-  return <Text m="0" pb="md" pt="5xl" variant="h1" {...props} />
+  return <Text m="0" pb="md" pt="3xl" variant="h1" {...props} />
 }
 
 export function H2(props) {
-  return <Title forwardAs="h2" pt="5xl" variant="h3" {...props} />
+  return <Title as="h2" pt="3xl" variant="h2" {...props} />
 }
 
 export function H3(props) {
-  return <Title forwardAs="h3" pt="3xl" variant="h5" {...props} />
+  return <Title as="h3" pt="xxl" variant="h5" {...props} />
 }
 
 export function H4(props) {
-  return <Title forwardAs="h4" pt="xl" variant="h5" {...props} />
+  return <Title as="h4" pt="lg" variant="h5" {...props} />
 }

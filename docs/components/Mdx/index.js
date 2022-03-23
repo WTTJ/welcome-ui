@@ -31,12 +31,12 @@ export const MDXComponents = {
   p: props => <Text as="p" lineHeight="1.5" pt="lg" {...props} />,
   strong: props => <Box as="strong" fontWeight="bold" {...props} />,
   ul: props => (
-    <Box as="p" mb="xxs">
+    <Box as="p" mb="sm">
       <Box as="ul" mb="0" mt="md" {...props} />
     </Box>
   ),
   ol: props => (
-    <Box as="p" mb="xxs">
+    <Box as="p" mb="sm">
       <Box as="ol" mb="0" mt="md" {...props} />
     </Box>
   ),

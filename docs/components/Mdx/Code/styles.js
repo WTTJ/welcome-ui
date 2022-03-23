@@ -6,9 +6,8 @@ export const LiveEditor = styled(Box)`
   position: relative;
   background-color: dark.900;
   border-radius: md;
-  margin-bottom: md;
   overflow: hidden;
-  padding: xxs;
+  padding: md;
 `
 
 export const LiveEditorContent = styled(ReactLiveEditor)(
@@ -41,13 +40,12 @@ export const LiveError = styled(ReactLiveError)`
   border-radius: md;
   font-size: body3;
   line-height: h4;
-  margin: xxs 0 lg;
+  margin: sm 0 lg;
 `
 
 export const ShowEditor = styled.div`
   background-color: nude.200;
-  padding: xxs xl;
-  margin-top: xxs;
+  padding: sm lg;
   border-top: 1px solid ${th.color('light.800')};
 `
 

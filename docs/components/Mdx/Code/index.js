@@ -195,7 +195,7 @@ export function Code({
           overflow="visible"
         >
           <Card.Body color="dark.900" p="0">
-            <Box p="xl" pb="lg">
+            <Box p="xl">
               <LivePreview />
             </Box>
             {withCode === true && (
@@ -214,7 +214,7 @@ export function Code({
                   <Button
                     border="none"
                     h={25}
-                    ml="xxs"
+                    ml="sm"
                     onClick={copy}
                     shape="circle"
                     variant="tertiary"

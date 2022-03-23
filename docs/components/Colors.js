@@ -9,7 +9,7 @@ function Wrapper({ name, theme }) {
 
   return (
     <Box>
-      <Card mt="xxl">
+      <Card mt="xl">
         <Card.Body display="flex" flexWrap="wrap" mb="-md">
           {Object.entries(colors).map(([key, depth]) => {
             const withBorder = name === 'light' && key === '900'
@@ -25,7 +25,7 @@ function Wrapper({ name, theme }) {
                   h={40}
                   w={90}
                 />
-                <Box pt="xs" px="xs" textAlign="center">
+                <Box pt="sm" px="sm" textAlign="center">
                   <Box color="dark.900" fontWeight="medium">
                     {key}
                   </Box>
