@@ -17,7 +17,7 @@ import { Avatar } from '@welcome-ui/avatar'
 
 const posts = [
   {
-    title: 'How we implemented a design system at WTTJ',
+    title: 'How we implemented our open-source design system',
     description:
       'In this article, we are going to tell you the story of how we ended up designing our own design system at Welcome to the Jungle',
     authors: [{ name: 'Théo Mesnil', url: 'https://avatars.githubusercontent.com/u/50322149?v=4' }],
