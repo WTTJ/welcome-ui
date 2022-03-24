@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/WTTJ/welcome-ui/compare/v4.0.0...v4.0.1) (2022-03-24)
+
+
+### Bug Fixes
+
+* date picker types export ([c3ec198](https://github.com/WTTJ/welcome-ui/commit/c3ec198896297bbc74d232213ad7de9afd315aa3))
+
+
+
+
+
 # [3.11.0](https://github.com/WTTJ/welcome-ui/compare/v3.10.0...v3.11.0) (2021-11-02)
 
 **Note:** Version bump only for package @welcome-ui/date-picker
