@@ -11,11 +11,7 @@ export function Head() {
   return (
     <NextHead>
       <title>{title}</title>
-      <link
-        href="https://cdn.welcomehome.io/production/assets/favicon.png"
-        rel="shortcut icon"
-        type="image/png"
-      />
+      <link href="https://www.welcome-ui.com/favicon.png" rel="shortcut icon" type="image/png" />
       <link
         href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
         rel="stylesheet"
@@ -32,16 +28,13 @@ export function Head() {
         content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react, typescript, styled-components, reakit and a lot of love 💛"
         property="twitter:description"
       />
-      <meta content="https://welcome-ui.com" property="og:url" />
+      <meta content="https://www.welcome-ui.com" property="og:url" />
       <meta content="Welcome UI - Customizable design system with react" property="og:title" />
       <meta
         content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react, typescript, styled-components, reakit and a lot of love 💛"
         property="og:description"
       />
-      <meta
-        content="https://cdn.welcometothejungle.com/images/welcome-ui-banner.png"
-        property="og:image"
-      />
+      <meta content="https://www.welcome-ui.com/og-image.png" property="og:image" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56009608-24" />
       <script
         // eslint-disable-next-line react/no-danger
