@@ -12,7 +12,7 @@ const getBabelOptions = ({ babelConfigFile = '../../babel.config.js' }) => ({
   exclude: '**/node_modules/**',
   configFile: babelConfigFile,
   extensions,
-  plugins: ['babel-plugin-annotate-pure-calls'],
+  plugins: ['babel-plugin-annotate-pure-calls', 'babel-plugin-transform-async-to-promises'],
   babelHelpers: 'inline',
 })
 
