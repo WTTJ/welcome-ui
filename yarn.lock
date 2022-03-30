@@ -4150,12 +4150,10 @@
     "@testing-library/dom" "^8.0.0"
     "@types/react-dom" "*"
 
-"@testing-library/user-event@13.5.0":
-  version "13.5.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-13.5.0.tgz#69d77007f1e124d55314a2b73fd204b333b13295"
-  integrity sha512-5Kwtbo3Y/NowpkbRuSepbyMFkZmHgD+vPzYB/RJ4oxt5Gj/avFFBYjhw27cqSVPVw/3a67NK1PbiIr9k4Gwmdg==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
+"@testing-library/user-event@14.0.0":
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-14.0.0.tgz#3906aa6f0e56fd012d73559f5f05c02e63ba18dd"
+  integrity sha512-hZhjNrle/DMi1ziHwHy8LS0fYJtf+cID7fuG5+4h+Bk83xQaRDQT/DlqfL4hJYw3mxW6KTIxoODrhGnhqJebdQ==
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -4515,9 +4513,9 @@
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
 
 "@types/ramda@^0.28.1":
-  version "0.28.2"
-  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.28.2.tgz#6b757264c94c6447097bbfc58124ff7390f559bc"
-  integrity sha512-UO1AqAVfqstDdZFg6PIxiop6epdbueDyiNvNVro3Vz8j1RIBlG27atH7jvaqvOKMyVwm20SM7IqqzyBl9G3q4Q==
+  version "0.28.5"
+  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.28.5.tgz#224859ef5fb6d5252327e5a83093c078aa4ff7af"
+  integrity sha512-JK2aNBU3tBgcYF0ZgFglPBL9X4TV3MwachwUAKbb64O85qXYtN1I4jx6qyc2miRsBvXQqha9ToJiTpZrWX1OkQ==
   dependencies:
     ts-toolbelt "^6.15.1"
 
