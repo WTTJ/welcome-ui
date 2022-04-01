@@ -22,7 +22,7 @@ const posts = [
       'In this article, we are going to tell you the story of how we ended up designing our own design system at Welcome to the Jungle',
     authors: [{ name: 'Théo Mesnil', url: 'https://avatars.githubusercontent.com/u/50322149?v=4' }],
     tags: ['vision', 'open source', 'welcome ui'],
-    link: 'todo',
+    link: 'https://medium.com/wttj-tech/how-we-implemented-our-open-source-design-system-8811799dee05',
     date: new Date('2022-03-30'),
   },
 ]
