@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/radio-tab",
-  "version": "4.0.1",
+  "version": "4.0.3",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/radio-tab.cjs.js",
   "module": "dist/radio-tab.es.js",
@@ -49,8 +49,8 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
-    "@welcome-ui/radio": "^4.0.1",
-    "@welcome-ui/radio-group": "^4.0.1"
+    "@welcome-ui/radio": "^4.0.3",
+    "@welcome-ui/radio-group": "^4.0.3"
   },
   "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "sideEffects": false,

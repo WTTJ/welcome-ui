@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.3](https://github.com/WTTJ/welcome-ui/compare/v4.0.2...v4.0.3) (2022-04-05)
+
+
+### Bug Fixes
+
+* long label on checkbox and toggle components ([#1130](https://github.com/WTTJ/welcome-ui/issues/1130)) ([82a6afb](https://github.com/WTTJ/welcome-ui/commit/82a6afb02a7e79a1d0e632b1de883682331b0896))
+
+
+
+
+
 ## [4.0.1](https://github.com/WTTJ/welcome-ui/compare/v4.0.0...v4.0.1) (2022-03-24)
 
 **Note:** Version bump only for package @welcome-ui/label
