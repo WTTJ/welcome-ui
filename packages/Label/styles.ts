@@ -8,6 +8,7 @@ export const Label = styled('label').withConfig({ shouldForwardProp })<{ require
     position: relative;
     display: flex;
     flex-shrink: 0;
+    max-width: 100%;
     align-items: flex-start;
     line-height: body1;
     ${th('labels')};
