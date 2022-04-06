@@ -7,8 +7,8 @@
   "scripts": {
     "first:install": "yarn && yarn build && yarn icons:build",
     "start": "yarn docs:dev",
-    "docs:dev": "yarn next docs -p 3020",
-    "docs:build": "yarn next build docs && yarn next export docs",
+    "docs:dev": "cd docs && yarn next -p 3020",
+    "docs:build": "cd docs && yarn next build && yarn next export",
     "docs:deploy": "yarn && yarn icons:build && yarn build && yarn docs:build",
     "homerun": "yarn clean --yes && rm -rf node_modules/ docs/.next/ && yarn cache clean && yarn && yarn build && yarn start",
     "icons": "yarn icons:optimize && yarn icons:collect && yarn icons:build && yarn webfont && yarn build && yarn",
