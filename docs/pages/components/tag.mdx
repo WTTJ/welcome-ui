@@ -111,7 +111,7 @@ Simply add a function `onRemove` to reveal a cross icon with a remove action (or
 
 ```jsx
 function() {
-  const [isHide, setHide] = useState(false)
+  const [isHide, setHide] = React.useState(false)
 
   return isHide ? (
     <Text fontSize="body3" fontWeight="bold" color="danger.500" m={0}>

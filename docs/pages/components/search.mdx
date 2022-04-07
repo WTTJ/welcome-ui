@@ -23,7 +23,7 @@ It is based on the [downshift](https://github.com/downshift-js/downshift) librar
 
 ```jsx
 function () {
-  const [value, setValue] = useState('')
+  const [value, setValue] = React.useState('')
 
   const handleChange = (newValue) => {
     setValue(newValue)
@@ -62,7 +62,7 @@ To use option groups, you must provide two additional props: `groupsEnabled` tha
 
 ```jsx
 function () {
-  const [value, setValue] = useState('')
+  const [value, setValue] = React.useState('')
 
   const handleChange = (newValue) => {
     setValue(newValue)

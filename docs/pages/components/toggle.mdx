@@ -21,8 +21,8 @@ Use `checked` property
 
 ```jsx
 function() {
-  const [toggle, setToggle] = useState(false)
-  const [toggleChecked, setToggleChecked] = useState(true)
+  const [toggle, setToggle] = React.useState(false)
+  const [toggleChecked, setToggleChecked] = React.useState(true)
 
   return (
     <>
@@ -39,8 +39,8 @@ With the `disabled` property
 
 ```jsx
 function() {
-  const [toggle, setToggle] = useState(false)
-  const [toggleChecked, setToggleChecked] = useState(true)
+  const [toggle, setToggle] = React.useState(false)
+  const [toggleChecked, setToggleChecked] = React.useState(true)
 
   return (
     <>
@@ -57,7 +57,7 @@ Examples with `Field`
 
 ```jsx
 function () {
-  const [checked, setChecked] = useState(false)
+  const [checked, setChecked] = React.useState(false)
 
   const handleToggle = () => {
     setChecked(!checked)

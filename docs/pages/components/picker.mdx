@@ -19,7 +19,7 @@ import {
 
 ```jsx
 function () {
-  const [value, setValue] = useState(null)
+  const [value, setValue] = React.useState(null)
 
   const handleChange = event => {
     setValue(event.target.value)
@@ -67,7 +67,7 @@ function () {
 
 ```jsx
 function () {
-  const [value, setValue] = useState('3')
+  const [value, setValue] = React.useState('3')
 
   const handleChange = event => {
     setValue(event.target.value)

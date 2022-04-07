@@ -27,7 +27,7 @@ See more about [media type](https://www.iana.org/assignments/media-types/media-t
 
 ```jsx
 function () {
-  const [value, setValue] = useState(null)
+  const [value, setValue] = React.useState(null)
 
   const handleChange = file => {
     setValue(file)
@@ -54,7 +54,7 @@ function () {
 
 ```jsx
 function () {
-  const [value, setValue] = useState('https://doc-example/example.docx?v=63731713698')
+  const [value, setValue] = React.useState('https://doc-example/example.docx?v=63731713698')
 
   const handleChange = file => {
     setValue(file)
@@ -80,7 +80,7 @@ Add `multiple` property.
 
 ```jsx
 function () {
-  const [value, setValue] = useState(null)
+  const [value, setValue] = React.useState(null)
 
   const handleChange = file => {
     setValue(file)
@@ -128,7 +128,7 @@ You can change the upload button component.
 
 ```jsx
 function () {
-  const [value, setValue] = useState(null)
+  const [value, setValue] = React.useState(null)
 
   const handleChange = file => {
     setValue(file)
@@ -154,7 +154,7 @@ You can change the preview component.
 
 ```jsx
 function() {
-  const [value, setValue] = useState('https://doc-example/example.docx?v=63731713698')
+  const [value, setValue] = React.useState('https://doc-example/example.docx?v=63731713698')
 
   const handleChange = file => {
     setValue(file)
@@ -204,7 +204,7 @@ You can also set the `preview` prop to `null` and handle your own preview in pla
 
 ```jsx
 function () {
-  const [value, setValue] = useState(null)
+  const [value, setValue] = React.useState(null)
 
   const handleChange = file => {
     setValue(file)
