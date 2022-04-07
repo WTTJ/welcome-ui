@@ -34,7 +34,7 @@
     "@docsearch/react": "^3.0.0",
     "@hookform/resolvers": "^2.8.8",
     "@mdx-js/loader": "1.6.22",
-    "@mdx-js/react": "1.6.22",
+    "@mdx-js/react": "2.1.1",
     "@next/mdx": "^12.1.4",
     "@xstyled/styled-components": "^3.5.1",
     "date-fns": "^2.28.0",
