@@ -69,6 +69,7 @@ import { Flex } from '@welcome-ui/flex'
 import * as constants from '../../../constants'
 import { HookForm } from '../../HookForm'
 import { IconsList } from '../../IconsList'
+import { InlineCode } from '../InlineCode'
 
 import * as S from './styles'
 import { CopyButton } from './CopyButton'
@@ -184,74 +185,78 @@ export function Code({
     },
   }
 
-  if (live === true && language === 'jsx') {
-    return (
-      <LiveProvider {...liveProviderProps}>
-        <Card
-          className="codeEditor"
-          display="flex"
-          flexDirection="column"
-          mt="md"
-          overflow="visible"
-        >
-          <Card.Body color="dark.900" p="0">
-            <Box p="xl" pb="lg">
-              <LivePreview />
-            </Box>
-            {withCode === true && (
-              <S.ShowEditor>
-                <Button
-                  border="none"
-                  h={25}
-                  onClick={toggleEditor}
-                  shape="circle"
-                  variant="tertiary"
-                  w={25}
-                >
-                  <Icons.ChevronIcon />
-                </Button>
-                {isCopyable && (
+  if (language) {
+    if (live === true && language === 'jsx') {
+      return (
+        <LiveProvider {...liveProviderProps}>
+          <Card
+            className="codeEditor"
+            display="flex"
+            flexDirection="column"
+            mt="md"
+            overflow="visible"
+          >
+            <Card.Body color="dark.900" p="0">
+              <Box p="xl" pb="lg">
+                <LivePreview />
+              </Box>
+              {withCode === true && (
+                <S.ShowEditor>
                   <Button
                     border="none"
                     h={25}
-                    ml="xxs"
-                    onClick={copy}
+                    onClick={toggleEditor}
                     shape="circle"
                     variant="tertiary"
                     w={25}
                   >
-                    {copied ? <Icons.CheckIcon color="success.500" /> : <Icons.CopyIcon />}
+                    <Icons.ChevronIcon />
                   </Button>
-                )}
-              </S.ShowEditor>
-            )}
-          </Card.Body>
-        </Card>
-        {editorOpen && withCode === true && (
-          <S.LiveEditor>
-            <S.LiveEditorContent
-              isCopyable={isCopyable}
-              onChange={handleChange}
-              style={liveEditorStyle}
-            />
-            {isCopyable && <CopyButton copied={copied} copy={copy} />}
-          </S.LiveEditor>
-        )}
-        <S.LiveError />
-      </LiveProvider>
+                  {isCopyable && (
+                    <Button
+                      border="none"
+                      h={25}
+                      ml="xxs"
+                      onClick={copy}
+                      shape="circle"
+                      variant="tertiary"
+                      w={25}
+                    >
+                      {copied ? <Icons.CheckIcon color="success.500" /> : <Icons.CopyIcon />}
+                    </Button>
+                  )}
+                </S.ShowEditor>
+              )}
+            </Card.Body>
+          </Card>
+          {editorOpen && withCode === true && (
+            <S.LiveEditor>
+              <S.LiveEditorContent
+                isCopyable={isCopyable}
+                onChange={handleChange}
+                style={liveEditorStyle}
+              />
+              {isCopyable && <CopyButton copied={copied} copy={copy} />}
+            </S.LiveEditor>
+          )}
+          <S.LiveError />
+        </LiveProvider>
+      )
+    }
+
+    return (
+      <Box>
+        <Box mt="lg" overflow="auto">
+          <LiveProvider disabled {...liveProviderProps}>
+            <S.LiveEditor>
+              <S.LiveEditorContent isCopyable={isCopyable} style={liveEditorStyle} />
+              {isCopyable && <CopyButton copied={copied} copy={copy} />}
+            </S.LiveEditor>
+          </LiveProvider>
+        </Box>
+      </Box>
     )
   }
 
-  return (
-    <Box>
-      <Box mt="lg" overflow="auto">
-        <LiveProvider disabled {...liveProviderProps}>
-          <S.LiveEditor>
-            <S.LiveEditorContent isCopyable={isCopyable} style={liveEditorStyle} />
-            {isCopyable && <CopyButton copied={copied} copy={copy} />}
-          </S.LiveEditor>
-        </LiveProvider>
-      </Box>
-    </Box>
-  )
+  return <InlineCode>{children}</InlineCode>
 }

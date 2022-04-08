@@ -8,7 +8,7 @@ import {
   version,
 } from '@welcome-ui/markdown-editor/package.json'
 
-<showcase
+<Showcase
   version={version}
   name={name}
   component={component}
@@ -92,8 +92,8 @@ function () {
 
 The default toolbar uses [Welcome UI icons](/components/icon) with the following items:
 
-<code>
-  {`[
+```javascript live=false
+[
   { name: 'bold', title: 'Bold' },
   { name: 'italic', title: 'Italic' },
   { name: 'strikethrough', title: 'Strikethrough' },
@@ -109,8 +109,8 @@ The default toolbar uses [Welcome UI icons](/components/icon) with the following
   { name: 'quote', title: 'Quote' },
   { name: 'divider' },
   { name: 'emoji', icon: '🙂', title: 'Emoji' }
-]`}
-</code>
+]
+```
 
 ## Actions
 
@@ -154,16 +154,16 @@ function () {
 
 ### MarkdownEditor
 
-<props propTypes={props.propTypes.MarkdownEditor} />
+<Props propTypes={props.propTypes.MarkdownEditor} />
 
 ## Packages
 
 ### Dependencies
 
-<dependencies dependencies={dependencies} />
+<Dependencies dependencies={dependencies} />
 
 ### Peer dependencies
 
-<dependencies dependencies={peerDependencies} />
+<Dependencies dependencies={peerDependencies} />
 
-<pagination />
+<Pagination />

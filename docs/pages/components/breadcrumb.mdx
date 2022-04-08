@@ -8,7 +8,7 @@ import {
   version,
 } from '@welcome-ui/breadcrumb/package.json'
 
-<showcase
+<Showcase
   version={version}
   name={name}
   component={component}
@@ -45,34 +45,34 @@ You can customize your separator.
 
 ## Usage with React Router
 
-<code>
-  {`import { Link as RouterLink } from 'react-router-dom'
+```jsx live=false
+import { Link as RouterLink } from 'react-router-dom'
 
 <Breadcrumb renderChildrenAs={RouterLink}>
   <Breadcrumb.Item to="/">Introduction</Breadcrumb.Item>
   <Breadcrumb.Item to="/components">Components</Breadcrumb.Item>
   <Breadcrumb.Item to='/components/breadcrumb'>Breadcrumb</Breadcrumb.Item>
 </Breadcrumb>`}
-</code>
+```
 
 ## Properties
 
 ### Breadcrumb
 
-<props propTypes={props.propTypes.Breadcrumb} />
+<Props propTypes={props.propTypes.Breadcrumb} />
 
 ### Breadcrumb.Item
 
-<props propTypes={props.propTypes['Breadcrumb.Item']} />
+<Props propTypes={props.propTypes['Breadcrumb.Item']} />
 
 ## Packages
 
 ### Dependencies
 
-<dependencies dependencies={dependencies} />
+<Dependencies dependencies={dependencies} />
 
 ### Peer dependencies
 
-<dependencies dependencies={peerDependencies} />
+<Dependencies dependencies={peerDependencies} />
 
-<pagination />
+<Pagination />

@@ -6,7 +6,7 @@ import {
   version,
 } from '@welcome-ui/icons.font/package.json'
 
-<showcase
+<Showcase
   version={version}
   name={name}
   component={component}
@@ -33,7 +33,9 @@ import {
 
 To import IconFont css stylesheet, you should use this import path:
 
-<code language="javascript">{`require('@welcome-ui/icons.font/fonts/welcome-icon-font.css')`}</code>
+```jsx live=false
+require('@welcome-ui/icons.font/fonts/welcome-icon-font.css')
+```
 
 Here is an example on how to use css class to display icons:
 
@@ -129,10 +131,10 @@ function() {
 
 ## Dependencies
 
-<dependencies dependencies={dependencies} />
+<Dependencies dependencies={dependencies} />
 
 ## Peer dependencies
 
-<dependencies dependencies={peerDependencies} />
+<Dependencies dependencies={peerDependencies} />
 
-<pagination />
+<Pagination />

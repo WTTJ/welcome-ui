@@ -1,17 +1,7 @@
 export { getStaticProps } from '../../getStaticProps'
 
-import {
-  dependencies,
-  peerDependencies,
-  component,
-  name,
-  version,
-} from '@welcome-ui/accordion/package.json'
-
-<showcase
-  version={version}
-  name={name}
-  component={component}
+<Showcase
+  name="Accordion"
   description="Allows the user to show and hide sections of related content on a page."
 />
 
@@ -67,16 +57,16 @@ Customize the icon with a node element on property `icon`
 
 ## Properties
 
-<props propTypes={props.propTypes.Accordion} />
+<Props propTypes={props.propTypes.Accordion} />
 
 ## Packages
 
 ### Dependencies
 
-<dependencies dependencies={dependencies} />
+<Dependencies name="Accordion" />
 
 ### Peer dependencies
 
-<dependencies dependencies={peerDependencies} />
+<Dependencies name="Accordion" isPeer />
 
-<pagination />
+<Pagination />

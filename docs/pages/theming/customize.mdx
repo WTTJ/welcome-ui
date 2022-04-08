@@ -76,7 +76,7 @@ To provide consistency across browsers we provide two options:
 1. Pass `useReset` in the `WuiProvider` to use a [custom reset](https://github.com/WTTJ/welcome-ui/blob/master/packages/Core/utils/reset.js)
 2. Don't pass `useReset` to just reset `box-sizing` e.g.
 
-```
+```jsx live=false
 const baseBoxSizing = css`
   * {
     &, &::before, &::after {
@@ -90,7 +90,9 @@ const baseBoxSizing = css`
 
 An example of the `theme.js` file for the `Tag` component. You can customize the variants, sizes and shapes.
 
-<code language="json">{themeTag()}</code>
+```jsx live=false
+{themeTag()}
+```
 
 You can check all our theme objects on each packages/component on file `theme.js`.
 
@@ -149,6 +151,8 @@ export default function Root() {
 
 Here are all the [possible values for your theme](https://github.com/WTTJ/welcome-ui/blob/master/packages/Core/theme/core.js).<br />These will be merged with the default theme.
 
-<code language="json">{themeValues()}</code>
+```jsx live=false
+{themeValues()}
+```
 
-<pagination />
+<Pagination />

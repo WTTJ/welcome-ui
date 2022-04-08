@@ -1,7 +1,7 @@
 import { Select } from '@welcome-ui/select'
 import React from 'react'
 
-import { version } from '../../../../lerna.json'
+const { version } = require('../../../../lerna.json')
 
 const v3 = 'v3 latest'
 const v4 = `${version}`

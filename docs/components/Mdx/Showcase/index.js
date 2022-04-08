@@ -6,18 +6,13 @@ import { Button } from '@welcome-ui/button'
 import { GithubIcon, NpmIcon } from '@welcome-ui/icons'
 
 import { H1 } from '../Headings'
+import { components } from '../../components'
 
 import { Item } from './Item'
 
-export function Showcase({
-  component,
-  customInstall,
-  customUsage,
-  description,
-  name,
-  pageName,
-  version,
-}) {
+export function Showcase({ customInstall, customUsage, description, name, pageName }) {
+  const { component, version } = components[name]
+
   return (
     <Box backgroundColor="nude.100" maxW="100% !important">
       <Box m="0 auto" maxW={970} px={{ md: 'md' }} py={{ xs: '3xl', md: 70 }}>
