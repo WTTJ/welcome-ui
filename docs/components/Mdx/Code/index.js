@@ -227,7 +227,7 @@ export function Code({
             )}
           </Card.Body>
         </Card>
-        {editorOpen && (
+        {editorOpen && withCode === true && (
           <S.LiveEditor>
             <S.LiveEditorContent
               isCopyable={isCopyable}
