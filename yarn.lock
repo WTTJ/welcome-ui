@@ -3858,9 +3858,9 @@
     ts-toolbelt "^6.15.1"
 
 "@types/react-datepicker@^4.3.2":
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/@types/react-datepicker/-/react-datepicker-4.3.4.tgz#1cccf5acfb8672fce08940d1cf69e664500ea63d"
-  integrity sha512-5nTTz37KdTUgMZ1AAxztMWNtEnIMVRo8oCAEhIv0a6uUqDjvSKaMyPRpBV+8chi6f/A8wlTKJIpojpXca2dx3A==
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@types/react-datepicker/-/react-datepicker-4.4.0.tgz#0072e18536ad305fd57786f9b6f9e499eed2b475"
+  integrity sha512-wzmevaO51rLFwSZd5HSqBU0aAvZlRRkj6QhHqj0jfRDSKnN3y5IKXyhgxPS8R0LOWOtjdpirI1DBryjnIp/7gA==
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@types/react" "*"
