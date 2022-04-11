@@ -98,7 +98,7 @@
     "@types/lodash.groupby": "^4.6.6",
     "@types/lodash.range": "^3.2.6",
     "@types/ramda": "^0.28.1",
-    "@types/react": "^17.0.42",
+    "@types/react": "^18.0.1",
     "@types/react-window": "^1.8.5",
     "@types/styled-components": "^5.1.11",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
