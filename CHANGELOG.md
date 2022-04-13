@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.4](https://github.com/WTTJ/welcome-ui/compare/v4.0.3...v4.0.4) (2022-04-13)
+
+
+### Bug Fixes
+
+* outdated dep ([0ce5fc8](https://github.com/WTTJ/welcome-ui/commit/0ce5fc8703aaf080c58aed4d4c8ac83194fe44d3))
+
+
+
+
+
 ## [4.0.3](https://github.com/WTTJ/welcome-ui/compare/v4.0.2...v4.0.3) (2022-04-05)
 
 
