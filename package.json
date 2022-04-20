@@ -144,7 +144,7 @@
     "rollup-plugin-postcss": "4.0.2",
     "standard-version": "=7.0.0",
     "styled-components": "^5.3.3",
-    "stylelint": "14.6.1",
+    "stylelint": "14.7.1",
     "stylelint-config-recommended-scss": "^5.0.2",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0",
