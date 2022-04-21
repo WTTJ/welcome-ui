@@ -44,8 +44,8 @@
     "reakit": "^1.3.11"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^3.5.1",
-    "@xstyled/system": "^3.5.1",
+    "@xstyled/styled-components": "^3.6.0",
+    "@xstyled/system": "^3.6.0",
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
     "styled-components": "^5.3.3"
