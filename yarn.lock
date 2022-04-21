@@ -4090,9 +4090,9 @@
     "@xstyled/util" "^3.5.1"
 
 "@xstyled/system@^3.5.1":
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-3.5.1.tgz#7c788c3e44750e768b9f49b34458198c6fc04f3e"
-  integrity sha512-dsYsHaSu4cm/45M0MQz+ju3Nxpp3glGW1xxSfUsN2NIYKuBWnncY+ZoheWETG4kSnOL8Clv2W8v2dyhBHgp/MA==
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-3.6.0.tgz#a61cd542d39c02dad9932d97075e7a15d82036d4"
+  integrity sha512-JnEck581S/HqpgGgPBb7ZMSe0UzGvsAl8Lqcr8pTTqChUG/rK4/BNXk4wlxwJraV76Wo/tXjpUDepuNMlhj+cQ==
   dependencies:
     "@xstyled/util" "^3.5.1"
     csstype "^3.0.8"
