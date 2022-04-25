@@ -6,7 +6,7 @@ updates:
     separator: "-"
   schedule:
     interval: daily
-    time: "04:00"
+    time: "07:45"
   open-pull-requests-limit: 5
   allow:
       - dependency-type: "direct"
