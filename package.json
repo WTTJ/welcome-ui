@@ -124,7 +124,7 @@
     "eslint-plugin-sort-destructure-keys": "^1.4.0",
     "esm": "^3.2.25",
     "husky": "7.0.4",
-    "jest": "27.5.1",
+    "jest": "28.0.0",
     "jest-styled-components": "7.0.8",
     "lerna": "^3.22.1",
     "lerna-update-wizard": "^0.17.8",
