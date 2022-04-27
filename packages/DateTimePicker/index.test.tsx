@@ -16,8 +16,12 @@ jest.mock('popper.js', () => {
 
     constructor() {
       return {
-        destroy: () => {},
-        scheduleUpdate: () => {},
+        destroy: () => {
+          return {}
+        },
+        scheduleUpdate: () => {
+          return {}
+        },
       }
     }
   }
@@ -158,8 +162,8 @@ describe('<DateTimePicker />', () => {
   test('<DateTimePicker> timeIntervals works properly', () => {
     const { baseElement, container } = render(
       <DateTimePicker name="welcome" value={new Date('11/23/1987')}>
-        <DatePicker />
-        <TimePicker timeIntervals={5} />
+        <DatePicker value={null} />
+        <TimePicker timeIntervals={5} value={null} />
       </DateTimePicker>
     )
 

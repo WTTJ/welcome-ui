@@ -13,7 +13,7 @@ import { TwitterIcon } from '../icons/Twitter'
 import { XingIcon } from '../icons/Xing'
 import { YoutubeIcon } from '../icons/Youtube'
 
-export function DefaultFileDropView({ openFile }) {
+export const DefaultFileDropView = ({ openFile }) => {
   return (
     <>
       <h3>Add picture</h3>

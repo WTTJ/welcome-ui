@@ -8,10 +8,11 @@ describe('<EmojiPicker>', () => {
   it('should render correctly', () => {
     const Test = () => {
       const emojiPicker = useEmojiPicker()
+
       return (
         <>
           <EmojiPicker.Trigger {...emojiPicker}>open</EmojiPicker.Trigger>
-          <EmojiPicker aria-label="emoji-picker" {...emojiPicker} />
+          <EmojiPicker aria-label="emoji-picker" value={null} {...emojiPicker} />
         </>
       )
     }

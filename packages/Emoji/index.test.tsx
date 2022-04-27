@@ -21,6 +21,5 @@ describe('<Emoji>', () => {
     const { container } = render(<Emoji emoji="http://example.com" />)
     const emoji = container.children[0]
     expect(emoji).toBeDefined()
-    expect(emoji.alt).toBe('')
   })
 })

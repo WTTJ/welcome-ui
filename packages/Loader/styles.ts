@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 import { Shape } from '@welcome-ui/shape'
 import { system } from '@welcome-ui/system'
 import { shouldForwardProp } from '@welcome-ui/system'
@@ -26,7 +27,7 @@ export interface LoadingDotOptions {
 
 export const LoadingDot = styled(Shape).withConfig({ shouldForwardProp })<LoadingDotOptions>(
   ({ size, theme }) => {
-    const sizeValue = theme.loaders[size] || size
+    const sizeValue = th(`loaders.${size}`) || size
     const formattedSize = typeof sizeValue === 'number' ? theme.toRem(sizeValue) : sizeValue
     return css`
       width: ${formattedSize};

@@ -8,6 +8,11 @@ import { render } from '../../utils/tests'
 
 import { Search } from './index'
 
+type Item = {
+  poster?: string
+  title?: string
+}
+
 const results = [
   { title: 'Big Fish', year: '2003', poster: 'big-fish.jpg' },
   { title: 'A Fish Called Wanda', year: '1988', poster: 'wanda.jpg' },
@@ -35,8 +40,8 @@ export const opt_group_results = [
 ]
 
 const defaultProps = {
-  itemToString: item => item.title,
-  renderItem: item => (
+  itemToString: (item: Item) => item.title,
+  renderItem: (item: Item) => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <Shape mr="xs" w="20px">
         <img src={item.poster} />
@@ -44,7 +49,7 @@ const defaultProps = {
       <span>{item.title}</span>
     </div>
   ),
-  search: async function asyncSearch(q) {
+  search: async function asyncSearch(q: string) {
     await new Promise(resolve => setTimeout(resolve, 100))
     return results.filter(result => result.title.toLowerCase().indexOf(q) > -1)
   },

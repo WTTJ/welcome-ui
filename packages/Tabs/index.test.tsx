@@ -6,7 +6,7 @@ import { render } from '../../utils/tests'
 
 import { Tab, useTabState } from './index'
 
-function getActiveBar({ getByRole }) {
+function getActiveBar({ getByRole }: { getByRole: (id: string) => HTMLElement }) {
   const tabList = getByRole('tablist')
   return tabList.querySelector('span:last-child')
 }
