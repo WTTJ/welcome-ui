@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/emoji",
-  "version": "4.0.1",
+  "version": "4.0.5",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/emoji.cjs.js",
   "module": "dist/emoji.es.js",
@@ -39,8 +39,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^4.0.1",
-    "@welcome-ui/system": "^4.0.1",
+    "@welcome-ui/box": "^4.0.5",
+    "@welcome-ui/system": "^4.0.5",
     "bowser": "^2.11.0"
   },
   "peerDependencies": {
