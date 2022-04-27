@@ -9,7 +9,7 @@ import 'jest-styled-components'
 import { createTheme } from '../packages/Core/theme/core'
 const theme = createTheme()
 
-function AllTheProviders({ children }) {
+const AllTheProviders = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <StaticRouter context={{}}>{children}</StaticRouter>
@@ -27,8 +27,12 @@ export { customRender as render }
 
 // https://stackoverflow.com/questions/42099385/jest-enzyme-jsdom-document-body-createtextrange-is-not-a-function
 global.document.createRange = () => ({
-  setEnd: () => {},
-  setStart: () => {},
+  setEnd: () => {
+    return {}
+  },
+  setStart: () => {
+    return {}
+  },
   getBoundingClientRect: () => ({
     width: 100,
     height: 100,

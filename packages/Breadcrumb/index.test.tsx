@@ -7,7 +7,17 @@ import { Breadcrumb } from './index'
 beforeEach(() => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-extra-semi
   ;(window as any).MutationObserver = function () {
-    return { disconnect: () => null, observe: () => null, takeRecords: () => null }
+    return {
+      disconnect: () => {
+        return {}
+      },
+      observe: () => {
+        return {}
+      },
+      takeRecords: () => {
+        return {}
+      },
+    }
   }
 })
 

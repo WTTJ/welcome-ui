@@ -21,7 +21,7 @@ export interface EmojiPickerOptions {
   defaultTabState?: TabInitialState
   emptyList?: string
   inputSearchPlaceholder?: string
-  onChange: (value: string) => void
+  onChange?: (value: string) => void
   popoverAriaLabel?: string
   tabListAriaLabel?: string
   value: string
@@ -50,7 +50,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
     const handleChange = useCallback(
       value => {
         hidePopover()
-        onChange(value)
+        onChange?.(value)
       },
       [hidePopover, onChange]
     )

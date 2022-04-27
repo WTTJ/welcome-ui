@@ -12,12 +12,12 @@ export const INPUTS_TYPE = [
   'radio',
   'search',
   'tel',
-  'text'
+  'text',
 ]
 
 export const OPTIONS_TYPE = shape({
   label: oneOfType([number, string]),
-  value: oneOfType([number, string])
+  value: oneOfType([number, string]),
 })
 
 export const SHAPES_TYPE = ['square', 'circle']

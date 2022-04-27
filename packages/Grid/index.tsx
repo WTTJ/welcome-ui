@@ -21,7 +21,7 @@ export interface GridOptions {
   /** same as gridGap */
   gap?: SystemProps['gap']
   /** same as gridRow */
-  row?: SystemProps['row']
+  row?: SystemProps['gridRow']
   /** same as gridRowGap */
   rowGap?: SystemProps['rowGap']
   /** same as gridTemplateAreas */

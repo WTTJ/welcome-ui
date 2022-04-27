@@ -1,31 +1,17 @@
 {
+  "extends": "wttj-config-front/lib/tsconfig/tsconfig.json",
   "compilerOptions": {
     "outDir": ".",
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "jsx": "react",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "baseUrl": "./packages",
-    "resolveJsonModule": true,
     "sourceMap": false,
     "declaration": true,
-    "skipLibCheck": true,
-    "lib": ["dom", "esnext"]
   },
   "include": ["packages", "syled.d.ts"],
   "exclude": [
-    "node_modules",
     "dist",
     "icons/**/*",
-    "**/*.test.tsx",
-    "utils/**.js",
     "packages/**/node_modules",
     "packages/**/dist",
-    "packages/**/**.js",
     "docs"
   ]
 }

@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, @typescript-eslint/no-var-requires */
 import { exec } from 'child_process'
 import path from 'path'
 

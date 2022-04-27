@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-/* eslint-disable no-console */
-
+/* eslint-disable no-console, @typescript-eslint/no-var-requires */
 const path = require('path')
 const fs = require('fs')
 const util = require('util')
@@ -13,8 +12,7 @@ fs.writeFileAsync = util.promisify(fs.writeFile)
 
 const DIRECTORIES = [path.join(__dirname, '../packages')]
 
-// eslint-disable-next-line no-unused-vars
-const getNewConfig = ({ componentName, config, pkgName }) => {
+const getNewConfig = () => {
   return {
     scripts: {
       build: 'rollup -c',
@@ -45,7 +43,7 @@ const updatePackageConfig = pkg => {
   const { componentName, config, dir, pkgName } = pkg
   const newConfig = {
     ...config,
-    ...getNewConfig(pkg),
+    ...getNewConfig(),
   }
   fs.writeFileAsync(`${dir}/${componentName}/package.json`, JSON.stringify(newConfig, 0, 2))
     // eslint-disable-next-line no-console
