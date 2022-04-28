@@ -8,7 +8,7 @@ export const Popover = styled(WUIPopover)`
   background-color: light.900;
   border-width: sm;
   border-style: solid;
-  border-color: light.800;
+  border-color: border;
   color: dark.900;
   ${system};
 `

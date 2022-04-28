@@ -37,11 +37,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/core": "^4.0.5",
-    "@welcome-ui/utils": "^4.0.5"
+    "@welcome-ui/core": "^4.0.5"
   },
   "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
   "sideEffects": false,
-  "component": "Welcome",
+  "component": "ThemesDark",
   "homepage": "https://welcome-ui.com"
 }

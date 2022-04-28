@@ -48,11 +48,11 @@ export const getToasts = (theme: WuiTheme): ThemeToasts => {
       },
       info: {
         backgroundColor: colors.info[100],
-        borderColor: colors.info[700],
+        borderColor: colors.info[500],
       },
       success: {
         backgroundColor: colors.success[100],
-        borderColor: colors.success[700],
+        borderColor: colors.success[500],
       },
       title: {
         ...getTexts(theme).h5,

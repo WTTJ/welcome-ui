@@ -1,4 +1,3 @@
-import { hexToRGBA } from '@welcome-ui/utils'
 import { CSSObject } from '@xstyled/system'
 
 import { WuiTheme } from './types'
@@ -48,55 +47,55 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
     ...border,
     borderColor: color,
     backgroundColor: color,
+    color: colors.white,
   })
 
   return {
     default: {
       fontWeight: fontWeights.medium,
       backgroundColor: colors.light[900],
-      color: colors.light[900],
+      color: colors.dark[500],
     },
     variants: {
       default: {
         backgroundColor: colors.nude[200],
-        color: colors.light[100],
-        borderColor: hexToRGBA(colors.dark[900], 0.1),
+        borderColor: colors.border,
         ...border,
       },
-      primary: { ...withoutVisibleBorder(colors.primary[500]), color: colors.light[900] },
+      primary: { ...withoutVisibleBorder(colors.primary[400]), color: colors.light[900] },
       secondary: {
         backgroundColor: colors.sub[4],
-        color: colors.light[900],
-        borderColor: hexToRGBA(colors.dark[900], 0.1),
+        color: colors.white,
+        borderColor: colors.border,
         ...border,
       },
       dark: {
-        backgroundColor: colors.dark[700],
-        color: colors.light[700],
-        borderColor: colors.dark[500],
+        backgroundColor: colors.black,
+        color: colors.white,
+        borderColor: colors.black,
         ...border,
       },
       success: {
         backgroundColor: colors.success[100],
-        color: colors.success[700],
+        color: colors.success[500],
         borderColor: colors.success[500],
         ...border,
       },
       error: {
         backgroundColor: colors.danger[100],
-        color: colors.danger[700],
+        color: colors.danger[500],
         borderColor: colors.danger[500],
         ...border,
       },
       warning: {
         backgroundColor: colors.warning[100],
-        color: colors.warning[700],
+        color: colors.warning[500],
         borderColor: colors.warning[500],
         ...border,
       },
       info: {
         backgroundColor: colors.info[100],
-        color: colors.info[700],
+        color: colors.info[500],
         borderColor: colors.info[500],
         ...border,
       },

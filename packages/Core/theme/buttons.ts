@@ -1,4 +1,3 @@
-import { hexToRGB } from '@welcome-ui/utils'
 import { CSSObject } from '@xstyled/system'
 
 import { ThemeFocus } from './focus'
@@ -45,8 +44,8 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
   return {
     primary: {
       ...defaults,
-      backgroundColor: colors.primary[500],
-      borderColor: colors.primary[500],
+      backgroundColor: colors.primary[400],
+      borderColor: colors.primary[400],
     },
     secondary: {
       ...defaults,
@@ -71,7 +70,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     'secondary-success': {
       ...defaults,
-      color: colors.success[700],
+      color: colors.success[500],
       backgroundColor: colors.light[900],
       borderColor: colors.success[500],
     },
@@ -82,7 +81,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     'secondary-warning': {
       ...defaults,
-      color: colors.warning[700],
+      color: colors.warning[500],
       backgroundColor: colors.light[900],
       borderColor: colors.warning[500],
     },
@@ -93,7 +92,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     'secondary-danger': {
       ...defaults,
-      color: colors.danger[700],
+      color: colors.danger[500],
       backgroundColor: colors.light[900],
       borderColor: colors.danger[500],
     },
@@ -104,7 +103,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     'secondary-info': {
       ...defaults,
-      color: colors.info[700],
+      color: colors.info[500],
       backgroundColor: colors.light[900],
       borderColor: colors.info[500],
     },
@@ -124,10 +123,10 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         borderColor: colors.dark[500],
       },
       tertiary: {
-        backgroundColor: `rgba(${hexToRGB(colors.dark[900])}, 0.1)`,
+        backgroundColor: colors.dark[100],
       },
       'tertiary-negative': {
-        backgroundColor: `rgba(${hexToRGB(colors.light[900])}, 0.1)`,
+        backgroundColor: colors.light[100],
       },
       'primary-success': {
         backgroundColor: colors.success[200],
@@ -135,7 +134,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       },
       'secondary-success': {
         backgroundColor: colors.success[100],
-        borderColor: colors.success[700],
+        borderColor: colors.success[500],
       },
       'primary-warning': {
         backgroundColor: colors.warning[200],
@@ -143,7 +142,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       },
       'secondary-warning': {
         backgroundColor: colors.warning[100],
-        borderColor: colors.warning[700],
+        borderColor: colors.warning[500],
       },
       'primary-danger': {
         backgroundColor: colors.danger[200],
@@ -151,7 +150,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       },
       'secondary-danger': {
         backgroundColor: colors.danger[100],
-        borderColor: colors.danger[700],
+        borderColor: colors.danger[500],
       },
       'primary-info': {
         backgroundColor: colors.info[200],
@@ -159,11 +158,11 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       },
       'secondary-info': {
         backgroundColor: colors.info[100],
-        borderColor: colors.info[700],
+        borderColor: colors.info[500],
       },
       quaternary: {
-        backgroundColor: colors.light[800],
-        borderColor: colors.light[800],
+        backgroundColor: colors.border,
+        borderColor: colors.border,
       },
     },
     focus: {
@@ -171,7 +170,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       secondary: focus(colors.dark[900]),
       tertiary: focus(colors.dark[900]),
       'tertiary-negative': focus(colors.light[900]),
-      quaternary: focus(colors.light[800]),
+      quaternary: focus(colors.dark[100]),
       'primary-success': focus(colors.success[500]),
       'secondary-success': focus(colors.success[500]),
       'primary-warning': focus(colors.warning[500]),
@@ -191,42 +190,42 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         borderColor: colors.dark[200],
       },
       tertiary: {
-        backgroundColor: `rgba(${hexToRGB(colors.dark[900])}, 0.4)`,
+        backgroundColor: colors.dark[400],
       },
       'tertiary-negative': {
-        backgroundColor: `rgba(${hexToRGB(colors.light[900])}, 0.4)`,
+        backgroundColor: colors.light[400],
       },
       'primary-success': {
-        backgroundColor: colors.success[700],
-        borderColor: colors.success[700],
+        backgroundColor: colors.success[500],
+        borderColor: colors.success[500],
       },
       'secondary-success': {
-        backgroundColor: colors.success[700],
-        borderColor: colors.success[700],
+        backgroundColor: colors.success[500],
+        borderColor: colors.success[500],
       },
       'primary-warning': {
-        backgroundColor: colors.warning[700],
-        borderColor: colors.warning[700],
+        backgroundColor: colors.warning[500],
+        borderColor: colors.warning[500],
       },
       'secondary-warning': {
-        color: colors.warning[700],
-        borderColor: colors.warning[700],
+        color: colors.warning[500],
+        borderColor: colors.warning[500],
       },
       'primary-danger': {
-        backgroundColor: colors.danger[700],
-        borderColor: colors.danger[700],
+        backgroundColor: colors.danger[500],
+        borderColor: colors.danger[500],
       },
       'secondary-danger': {
-        color: colors.danger[700],
-        borderColor: colors.danger[700],
+        color: colors.danger[500],
+        borderColor: colors.danger[500],
       },
       'primary-info': {
-        backgroundColor: colors.info[700],
-        borderColor: colors.info[700],
+        backgroundColor: colors.info[500],
+        borderColor: colors.info[500],
       },
       'secondary-info': {
-        color: colors.info[700],
-        borderColor: colors.info[700],
+        color: colors.info[500],
+        borderColor: colors.info[500],
       },
       quaternary: {
         backgroundColor: colors.light[700],
@@ -236,9 +235,9 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     disabled: {
       ...defaults,
       color: colors.nude[700],
-      backgroundColor: colors.nude[500],
-      borderColor: colors.nude[500],
-      '&:focus': focus(colors.nude[500]),
+      backgroundColor: colors.nude[400],
+      borderColor: colors.nude[400],
+      '&:focus': focus(colors.nude[400]),
     },
     sizes: {
       xs: {
