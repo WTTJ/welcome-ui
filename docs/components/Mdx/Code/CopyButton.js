@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import { Button } from '@welcome-ui/button'
 import React from 'react'
 

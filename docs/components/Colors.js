@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import React from 'react'
 import { withTheme } from '@xstyled/styled-components'
 import { Card } from '@welcome-ui/card'

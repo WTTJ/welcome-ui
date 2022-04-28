@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 import { render } from '@testing-library/react'
 import { ThemeProvider } from '@xstyled/styled-components'

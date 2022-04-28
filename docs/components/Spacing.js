@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import React from 'react'
 import { withTheme } from '@xstyled/styled-components'
 import { Table } from '@welcome-ui/table'
