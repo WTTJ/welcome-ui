@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'

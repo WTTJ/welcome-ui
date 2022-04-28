@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import React from 'react'
 import { Alert } from '@welcome-ui/alert'
 import { Avatar } from '@welcome-ui/avatar'

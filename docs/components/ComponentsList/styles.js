@@ -43,6 +43,7 @@ export const Item = styled(Link)`
       color: dark.900;
       font-weight: bold;
       background-size: 100% 50% !important;
+      background-position-y: 100%;
     }
   }
 `

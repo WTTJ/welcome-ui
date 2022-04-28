@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import React from 'react'
 import { useCopyText } from '@welcome-ui/utils.copy'
 import { Toast, useToast } from '@welcome-ui/toast'

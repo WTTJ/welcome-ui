@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-max-depth */
-/* eslint-disable react/prop-types */
+
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 
