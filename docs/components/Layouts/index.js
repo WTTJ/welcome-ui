@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import * as React from 'react'
 import { useRouter } from 'next/router'
 import { Box } from '@welcome-ui/box'

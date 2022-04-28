@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import React from 'react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'

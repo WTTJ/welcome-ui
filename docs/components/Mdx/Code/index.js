@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-max-depth */
-/* eslint-disable react/prop-types */
+
 import * as React from 'react'
 import { LivePreview, LiveProvider } from 'react-live'
 import theme from 'prism-react-renderer/themes/nightOwl'

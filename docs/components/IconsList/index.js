@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import React from 'react'
 import { Icons as FontIcons } from '@welcome-ui/icons.font'
 import * as Icons from '@welcome-ui/icons'
