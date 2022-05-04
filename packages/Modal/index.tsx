@@ -26,6 +26,7 @@ export interface ModalOptions {
   onClose?: () => void
   size?: Size
   children: JSX.Element | JSX.Element[]
+  'data-testid': string
 }
 
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
@@ -46,6 +47,7 @@ const ModalComponent = forwardRef<'div', ModalProps>((props, ref) => {
     closeElement: CloseElement = Close,
     size = 'lg',
     tabIndex,
+    'data-testid': dataTestId,
     ...rest
   } = props
 
@@ -87,6 +89,7 @@ const ModalComponent = forwardRef<'div', ModalProps>((props, ref) => {
     <S.Backdrop {...rest} hideOnClickOutside={hideOnClickOutside}>
       <S.Dialog
         aria-label={ariaLabel}
+        data-testid={dataTestId}
         hide={closeModal}
         hideOnClickOutside={hideOnClickOutside}
         ref={ref}
