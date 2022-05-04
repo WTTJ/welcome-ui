@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.6](https://github.com/WTTJ/welcome-ui/compare/v4.0.5...v4.0.6) (2022-05-04)
+
+
+### Bug Fixes
+
+* extract datatestid from rest to avoid doublon ([#1253](https://github.com/WTTJ/welcome-ui/issues/1253)) ([bcd3f45](https://github.com/WTTJ/welcome-ui/commit/bcd3f45310a98733811136f66da5dfccd2769ae4))
+
+
+
+
+
 ## [4.0.5](https://github.com/WTTJ/welcome-ui/compare/v4.0.4...v4.0.5) (2022-04-27)
 
 **Note:** Version bump only for package @welcome-ui/modal
