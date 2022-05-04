@@ -25,7 +25,7 @@ const stats = [
         stars
       </>
     ),
-    number: '430+',
+    number: '440+',
     icon: <StarIcon h={24} w={24} />,
   },
   {
@@ -36,7 +36,7 @@ const stats = [
         Downloads
       </>
     ),
-    number: '450+',
+    number: '650+',
     icon: <GetIcon h={24} w={24} />,
   },
 ]
