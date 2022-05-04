@@ -2783,6 +2783,23 @@
     tmp-promise "^3.0.3"
     uuid "^8.3.2"
 
+"@netlify/edge-bundler@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@netlify/edge-bundler/-/edge-bundler-1.0.0.tgz#76d32a2c5011321081040ae84554c8659d8a4f40"
+  integrity sha512-9pVyU0yXqdGG3LFEwtRBzUpGyplPE7hCGEvkxZpGvKjbiC0/jj6x/b6g7Ecjd3wzb6u1QpPq6XQhI+ZIl/PI3Q==
+  dependencies:
+    common-path-prefix "^3.0.0"
+    del "^6.0.0"
+    env-paths "^3.0.0"
+    execa "^6.0.0"
+    glob-to-regexp "^0.4.1"
+    node-fetch "^3.1.1"
+    node-stream-zip "^1.15.0"
+    p-wait-for "^4.1.0"
+    semver "^7.3.5"
+    tmp-promise "^3.0.3"
+    uuid "^8.3.2"
+
 "@netlify/esbuild@0.13.6":
   version "0.13.6"
   resolved "https://registry.yarnpkg.com/@netlify/esbuild/-/esbuild-0.13.6.tgz#ef0fda98604e708528ef0a57e853c50a6fc987f2"
@@ -12329,13 +12346,13 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
 netlify-cli@^10.0.0:
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-10.1.0.tgz#7bc273dee0d205bff4e8cfb235d8f97d3cc709af"
-  integrity sha512-Mgx36Mr2X782vratq6p9pSc5ejDgCOKnohAoegaulBiyoyAaAJCF3435PsA++MmAUVguRRC/y8118Yt8L/0gUg==
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-10.2.0.tgz#e0ed5527477b23a26a253ee7152ab4b5eafc3da4"
+  integrity sha512-1HGoaYg7DAWCVovRdMIFTYSKM4rw9FBU/83hWTM93KTZUZ4/AjdV478QtbnnuWFZJojj5MWPwPmksC2Ytdgl4A==
   dependencies:
     "@netlify/build" "^27.0.1"
     "@netlify/config" "^18.0.0"
-    "@netlify/edge-bundler" "^0.12.0"
+    "@netlify/edge-bundler" "^1.0.0"
     "@netlify/framework-info" "^9.0.2"
     "@netlify/local-functions-proxy" "^1.1.1"
     "@netlify/plugins-list" "^6.19.0"
