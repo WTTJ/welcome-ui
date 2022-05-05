@@ -1,7 +1,6 @@
 import styled, { css } from '@xstyled/styled-components'
 import { Popover as BasePopover, PopoverArrow } from 'reakit/Popover'
-import { th } from '@xstyled/system'
-import { system } from '@welcome-ui/system'
+import { system, th } from '@xstyled/system'
 
 export const Arrow = styled(PopoverArrow)`
   color: ${th('popovers.default.backgroundColor')};

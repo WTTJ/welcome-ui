@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import { system, th } from '@xstyled/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
-import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
+import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles, DefaultFieldStylesProps, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
 
@@ -78,7 +78,7 @@ export const Label = styled.label<
     `};
     ${flexDirection === 'column' && columnStyles};
     ${flexDirection === 'row' && rowStyles};
-    ${componentSystem};
+    ${system};
     padding-top: 0;
     padding-bottom: 0;
   `

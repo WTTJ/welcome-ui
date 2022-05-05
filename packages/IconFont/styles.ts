@@ -1,6 +1,5 @@
 import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
-import { system } from '@welcome-ui/system'
+import { system, th } from '@xstyled/system'
 import { IconOptions } from '@welcome-ui/icon'
 
 import unicodeMap from './unicode.json'

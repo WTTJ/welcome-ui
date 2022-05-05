@@ -1,7 +1,6 @@
 import styled from '@xstyled/styled-components'
+import { system, th } from '@xstyled/system'
 import { Box } from '@welcome-ui/box'
-import { system } from '@welcome-ui/system'
-import { th } from '@xstyled/system'
 import { cardStyles } from '@welcome-ui/utils'
 
 export const Card = styled(Box)`

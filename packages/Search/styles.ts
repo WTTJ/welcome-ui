@@ -1,15 +1,14 @@
 import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import { system, th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
-import { componentSystem, shouldForwardProp, wrapperSystem } from '@welcome-ui/system'
-import { centerContent, defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
-import { cardStyles } from '@welcome-ui/utils'
+import { shouldForwardProp } from '@welcome-ui/system'
+import { cardStyles, centerContent, defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 
 import { SearchOptions } from './index'
 
 export const Wrapper = styled('div').withConfig({ shouldForwardProp })`
   position: relative;
-  ${wrapperSystem};
+  ${system};
 `
 
 export const InputWrapper = styled.div`
@@ -27,7 +26,7 @@ export const Input = styled('input').withConfig({ shouldForwardProp })<
     css`
       padding-left: ${th(`defaultFields.sizes.${size}.height`)};
     `};
-    ${componentSystem};
+    ${system};
 
     br {
       display: none;

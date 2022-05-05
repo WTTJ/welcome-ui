@@ -1,8 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import { system, th } from '@xstyled/system'
 import { DisclosureContent, Disclosure as ReakitDisclosure } from 'reakit/Disclosure'
 import { Box } from '@welcome-ui/box'
-import { system } from '@welcome-ui/system'
 
 export const Accordion = styled.div`
   ${th('accordions.wrapper')};

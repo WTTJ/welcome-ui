@@ -1,8 +1,8 @@
 import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import { system, th } from '@xstyled/system'
 import { StyledLabel } from '@welcome-ui/label'
 import { StyledFieldGroup } from '@welcome-ui/field-group'
-import { shouldForwardProp, system, WuiProps } from '@welcome-ui/system'
+import { shouldForwardProp, WuiProps } from '@welcome-ui/system'
 import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 const rowStyles = css`

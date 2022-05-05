@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import { system, th } from '@xstyled/system'
 import { UniversalLink } from '@welcome-ui/universal-link'
-import { shouldForwardProp, system } from '@welcome-ui/system'
+import { shouldForwardProp } from '@welcome-ui/system'
 
 import { Variant } from './index'
 

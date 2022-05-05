@@ -1,8 +1,8 @@
 import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import { system, th } from '@xstyled/system'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledTag } from '@welcome-ui/tag'
-import { componentSystem, shouldForwardProp, wrapperSystem } from '@welcome-ui/system'
+import { shouldForwardProp } from '@welcome-ui/system'
 import {
   cardStyles,
   centerContent,
@@ -13,12 +13,10 @@ import {
 
 import { SelectOptions } from './index'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })(
-  ({ connected }: { connected: boolean }) => css`
-    position: relative;
-    ${!connected && wrapperSystem};
-  `
-)
+export const Wrapper = styled('div').withConfig({ shouldForwardProp })`
+  position: relative;
+  ${system}
+`
 
 export const InputWrapper = styled.div`
   position: relative;
@@ -35,7 +33,7 @@ export const Input = styled('div').withConfig({ shouldForwardProp })(
       padding-left: ${th(`defaultFields.sizes.${size}.height`)};
     `};
     cursor: default;
-    ${componentSystem}
+    ${system}
     line-height: 1em;
 
     br {
