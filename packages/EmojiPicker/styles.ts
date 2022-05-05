@@ -1,5 +1,5 @@
 import styled, { th } from '@xstyled/styled-components'
-import { system } from '@welcome-ui/system'
+import { system } from '@xstyled/system'
 import { Tab } from '@welcome-ui/tabs'
 import { Popover as WUIPopover } from '@welcome-ui/popover'
 import { Box } from '@welcome-ui/box'

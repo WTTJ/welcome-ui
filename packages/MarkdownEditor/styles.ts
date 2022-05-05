@@ -1,6 +1,6 @@
 import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
-import { shouldForwardProp, system } from '@welcome-ui/system'
+import { system, th } from '@xstyled/system'
+import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { emojiMartStyles } from './emojiMartStyles'
