@@ -20,7 +20,7 @@ export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {
     item: {
       padding: `${space.sm} ${space.md}`,
       backgroundColor: 'transparent',
-      color: colors.nude[800],
+      color: colors.nude[700],
       '&:hover': {
         backgroundColor: colors.nude[200],
         color: colors.dark[900],
@@ -31,7 +31,7 @@ export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {
       },
       '&[disabled]': {
         backgroundColor: 'transparent',
-        color: colors.nude[500],
+        color: colors.nude[400],
         cursor: 'not-allowed',
       },
     },

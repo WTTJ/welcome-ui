@@ -8,8 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     --docsearch-hit-shadow: none;
     --docsearch-key-shadow: none;
     --docsearch-footer-shadow: none;
-    --docsearch-highlight-color: ${th('colors.dark.500')};
-    --docsearch-primary-color: ${th('colors.dark.500')};
+    --docsearch-highlight-color: ${th('colors.dark.900')};
+    --docsearch-primary-color: ${th('colors.dark.900')};
     --docsearch-logo-color: ${th('colors.dark.100')};
   }
 

@@ -10,6 +10,7 @@ import {
   getFontSizes,
   getLetterSpacings,
   getLineHeights,
+  getTextFontColors,
   getTexts,
   getTextsFontFamily,
   getTextsFontWeights,
@@ -125,17 +126,17 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   // These attributes depend on colors and fontSizes and must come last
   theme.selection = getSelection(theme)
   theme.underline = getUnderline(theme)
-  theme.focus = getFocus(theme.colors.primary[500])
+  theme.focus = getFocus(theme.colors.primary[400])
   theme.defaultCards = getDefaultCards(theme)
   theme.textsFontWeights = getTextsFontWeights(theme)
   theme.textsFontFamily = getTextsFontFamily(theme)
+  theme.textsFontColors = getTextFontColors(theme)
   theme.textsTextTransform = getTextsTextTransform()
   theme.alerts = getAlerts(theme)
   theme.avatars = getAvatars(theme)
   theme.buttons = getButtons(theme)
   theme.closeButton = getCloseButton(theme)
   theme.breadcrumbs = getBreadcrumbs(theme)
-  // TODO: should be removed when all fields have been migrated to their own packageName/theme.js file
   theme.toasts = getToasts(theme)
   theme.paginations = getPaginations(theme)
   theme.tabs = getTabs(theme)

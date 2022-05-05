@@ -1,4 +1,3 @@
-import { hexToRGB } from '@welcome-ui/utils'
 import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
@@ -26,17 +25,17 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
       borderStyle: 'solid',
       borderRadius: '50%',
       '&:hover, &:focus': {
-        backgroundColor: `rgba(${hexToRGB(colors.dark[900])}, 0.1)`,
+        backgroundColor: colors.dark[100],
       },
       '&:focus': focus(colors.dark[900]),
     },
     active: {
-      backgroundColor: colors.primary[500],
-      borderColor: colors.primary[500],
+      backgroundColor: colors.primary[400],
+      borderColor: colors.primary[400],
       color: colors.light[900],
       '&:hover, &:focus': {
-        borderColor: colors.primary[500],
-        backgroundColor: colors.primary[500],
+        borderColor: colors.primary[400],
+        backgroundColor: colors.primary[400],
       },
       '&:focus': focus(),
     },

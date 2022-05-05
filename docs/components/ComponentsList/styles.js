@@ -17,13 +17,13 @@ export const Li = styled.li`
 export const MainTitle = styled(Box)`
   ${th('texts.subtitle2')};
   text-transform: uppercase;
-  color: light.100;
-  margin-top: xl;
+  color: dark.300;
+  margin-top: xxl;
   margin-bottom: lg;
 `
 
 export const Item = styled(Link)`
-  padding: 1 xs 1 lg;
+  padding-bottom: xs;
   margin-bottom: xs;
 
   > .wui-text {

@@ -13,7 +13,7 @@ export const Header = styled.header(
     justify-content: space-between;
     width: 100%;
     height: ${headerHeight};
-    background-color: dark.800;
+    background-color: black;
     font-size: body2;
     padding: 0 md;
     top: 0;
@@ -29,12 +29,13 @@ export const Header = styled.header(
       background-color: nude.200;
 
       ${Item} {
+        opacity: 1;
         color: dark.900;
 
         &.active,
         &:hover {
           @media (min-width: md) {
-            color: dark.100;
+            opacity: 0.7;
           }
         }
       }

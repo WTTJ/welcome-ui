@@ -233,8 +233,34 @@ export const getTextsTextTransform = (): ThemeTextsTextTransform => {
   }
 }
 
+export type ThemeTextsFontColors = {
+  h0: string
+  h1: string
+  h2: string
+  h3: string
+  h4: string
+  h5: string
+  h6: string
+  [key: number]: string
+}
+
+export const getTextFontColors = (theme: WuiTheme): ThemeTextsFontColors => {
+  const { colors } = theme
+
+  return {
+    h0: colors.dark[900],
+    h1: colors.dark[900],
+    h2: colors.dark[900],
+    h3: colors.dark[900],
+    h4: colors.dark[900],
+    h5: colors.dark[900],
+    h6: colors.dark[900],
+  }
+}
+
 export type ThemeTexts = {
   [key: string]: Partial<{
+    color: CSSObject['color']
     fontFamily: CSSObject['fontFamily']
     fontWeight: CSSObject['fontWeight']
     fontSize: CSSObject['fontSize']
@@ -249,6 +275,7 @@ export const getTexts = (theme: WuiTheme): ThemeTexts => {
     fontSizes,
     letterSpacings,
     lineHeights,
+    textsFontColors,
     textsFontFamily,
     textsFontWeights,
     textsTextTransform,
@@ -258,6 +285,7 @@ export const getTexts = (theme: WuiTheme): ThemeTexts => {
     return {
       ...acc,
       [key]: {
+        color: textsFontColors[key as keyof ThemeTextsFontColors],
         fontFamily: textsFontFamily[key as keyof ThemeTextsFontFamily] || undefined,
         fontWeight: textsFontWeights[key as keyof ThemeTextsFontFamily],
         fontSize: fontSizes[key as keyof ThemeFontSizes],

@@ -25,7 +25,7 @@ export function Showcase({
           {pageName || component}
         </H1>
         {description && (
-          <Text color="dark.200" variant="body1">
+          <Text variant="body1">
             {description}
           </Text>
         )}
@@ -44,7 +44,7 @@ export function Showcase({
             as="a"
             href={`https://www.npmjs.com/package/${name}`}
             rel="noopener noreferrer"
-            size="md"
+            size="sm"
             target="_blank"
             variant="quaternary"
           >
@@ -57,6 +57,7 @@ export function Showcase({
             ml="md"
             size="sm"
             target="_blank"
+            alt="github"
             variant="quaternary"
           >
             <GithubIcon size="lg" />

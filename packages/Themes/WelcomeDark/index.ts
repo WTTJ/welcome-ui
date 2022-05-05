@@ -1,0 +1,1 @@
+export { welcomeDarkTheme } from './theme'
