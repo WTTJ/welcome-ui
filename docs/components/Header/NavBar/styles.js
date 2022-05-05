@@ -18,10 +18,12 @@ export const NavBar = styled.ul`
 `
 
 const activeItem = css`
+  opacity: 1;
   color: dark.900;
 
   @media (min-width: md) {
-    color: light.900;
+    opacity: 1;
+    color: white;
   }
 `
 
@@ -29,12 +31,13 @@ export const Item = styled.a(
   ({ isActive }) => css`
     ${th('texts.subtitle1')};
     text-transform: uppercase;
-    color: light.100;
+    color: dark.500;
     transition: medium;
     text-decoration: none;
 
     @media (min-width: md) {
-      color: light.200;
+      color: white;
+      opacity: 0.7;
     }
 
     ${isActive &&

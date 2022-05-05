@@ -33,24 +33,24 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
     },
     info: {
       backgroundColor: colors.info[100],
-      borderColor: colors.info[700],
+      borderColor: colors.info[500],
     },
     success: {
       backgroundColor: colors.success[100],
-      borderColor: colors.success[700],
+      borderColor: colors.success[500],
     },
     title: {
       error: {
-        color: colors.danger[700],
+        color: colors.danger[500],
       },
       warning: {
-        color: colors.warning[700],
+        color: colors.warning[500],
       },
       info: {
-        color: colors.info[700],
+        color: colors.info[500],
       },
       success: {
-        color: colors.success[700],
+        color: colors.success[500],
       },
     },
   }

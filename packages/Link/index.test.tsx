@@ -1,13 +1,10 @@
 import React from 'react'
 
 import { render } from '../../utils/tests'
-import { createTheme } from '../Core/theme/core'
 
 import { Link } from './index'
 
 const content = 'Jungle'
-
-const theme = createTheme()
 
 describe('<Link>', () => {
   it('should render correctly', () => {
@@ -15,7 +12,7 @@ describe('<Link>', () => {
     const link = getByTestId('link')
 
     expect(link).toHaveTextContent(content)
-    expect(link).toHaveStyleRule('color', theme.colors.dark[500])
+    expect(link).toHaveStyleRule('color', 'rgba(0,0,0,1)')
   })
 
   it('should render correctly with a target blank', () => {

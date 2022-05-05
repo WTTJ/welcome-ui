@@ -43,7 +43,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       lineHeight: '1rem',
       fontWeight: fontWeights.regular,
       backgroundColor: colors.light[900],
-      borderColor: colors.light[800],
+      borderColor: colors.border,
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
       outline: 'none',
@@ -71,20 +71,20 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       },
     },
     disabled: {
-      backgroundColor: colors.nude[500],
+      backgroundColor: colors.nude[400],
       color: colors.nude[700],
       cursor: 'not-allowed',
     },
     placeholder: {
-      color: colors.light[500],
+      color: colors.dark[400],
     },
     focused: {
       default: {
         ...focus(),
-        borderColor: colors.primary[500],
+        borderColor: colors.primary[400],
       },
-      error: focus(colors.danger[700]),
-      warning: focus(colors.warning[700]),
+      error: focus(colors.danger[500]),
+      warning: focus(colors.warning[500]),
     },
     checkablelabel: {
       default: {
@@ -100,7 +100,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
         maxHeight: toRem(155),
       },
       existing: {
-        color: colors.nude[500],
+        color: colors.nude[400],
         cursor: 'not-allowed',
       },
       highlighted: {

@@ -8,11 +8,10 @@ export type ThemeCards = {
 }
 
 export const getCards = (theme: WuiTheme): ThemeCards => {
-  const { colors, radii } = theme
+  const { radii } = theme
   return {
     default: {
       overflow: 'hidden',
-      color: colors.dark[200],
     },
     cover: {
       borderTopLeftRadius: radii.sm,

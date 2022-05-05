@@ -24,8 +24,8 @@ export const getBreadcrumbs = (theme: WuiTheme): ThemeBreadcrumbs => {
     },
     item: {
       default: {
+        color: colors.dark[500],
         textDecoration: 'none',
-        color: colors.light[100],
       },
       hover: {
         color: colors.dark[900],
@@ -36,7 +36,7 @@ export const getBreadcrumbs = (theme: WuiTheme): ThemeBreadcrumbs => {
     },
     separator: {
       padding: `0 ${space.sm}`,
-      color: colors.light[100],
+      color: colors.dark[500],
     },
   }
 }

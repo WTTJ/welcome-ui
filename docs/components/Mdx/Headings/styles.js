@@ -4,7 +4,7 @@ import { Text } from '@welcome-ui/text'
 
 export const Link = styled.a`
   opacity: 0;
-  color: primary.700;
+  color: primary.500;
   text-decoration: none;
   transition: medium;
 `

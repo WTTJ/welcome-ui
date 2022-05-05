@@ -265,7 +265,7 @@ export const Select = forwardRef<'input', SelectProps>(
                 onClick: () => setIsOpen(!isOpen),
               })}
             >
-              <DownIcon color="nude.800" size="xs" />
+              <DownIcon color="nude.700" size="xs" />
             </S.DropDownIndicator>
           )
 

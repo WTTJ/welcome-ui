@@ -1,15 +1,63 @@
-import { hexToRGBA } from '@welcome-ui/utils'
+const palette = {
+  // dark
+  mercury: 'rgba(0, 0, 0, 0.1)',
+  todo: 'rgba(0, 0, 0, 0.17)',
+  nobel: 'rgba(0, 0, 0, 0.4)',
+  empress: 'rgba(0, 0, 0, 0.55)',
+  tundora: 'rgba(0, 0, 0, 0.7)',
+  black: 'rgba(0, 0, 0, 1)',
 
-type SmallPalette = {
-  100: string
-  200: string
-  500: string
-  700: string
+  // light
+  nero: 'rgba(255, 255, 255, 0.1)',
+  mineshaft: 'rgba(255, 255, 255, 0.17)',
+  granite: 'rgba(255, 255, 255, 0.4)',
+  battleship: 'rgba(255, 255, 255, 0.55)',
+  silverchalice: 'rgba(255, 255, 255, 0.7)',
+  white: 'rgba(255, 255, 255, 1)',
+
+  // nudes
+  isabelline: '#F6F3EF',
+  pampas: '#EFEAE4',
+  timberwolf: '#D6D2CC',
+  naturalgray: '#8F8C88',
+  ironside: '#6B6966',
+  dune: '#474543',
 }
 
-type BigPalette = SmallPalette & {
+type Palette = {
+  100: string
+  200: string
+  400: string
+  500: string
+  700: string
+  900: string
+}
+
+type PrimaryPalette = {
+  100: string
+  200: string
+  400: string
+  500: string
+  700: string
   800: string
   900: string
+}
+
+type NudePalette = {
+  100: string
+  200: string
+  400: string
+  600: string
+  700: string
+  900: string
+}
+
+type StatePalette = {
+  100: string
+  200: string
+  300: string
+  400: string
+  500: string
 }
 
 type SubPalette = {
@@ -23,23 +71,27 @@ type SubPalette = {
 }
 
 export type ThemeColors = {
-  primary: BigPalette
-  success: SmallPalette
-  danger: SmallPalette
-  warning: SmallPalette
-  info: SmallPalette
-  light: BigPalette
-  dark: BigPalette
-  nude: BigPalette
+  primary: PrimaryPalette
+  success: StatePalette
+  danger: StatePalette
+  warning: StatePalette
+  info: StatePalette
+  light: Palette
+  dark: Palette
+  nude: NudePalette
   sub: SubPalette
-  underline: string
+  black: string
+  white: string
+  border: string
   overlay: string
+  underline: string
 }
 
 export const colors: ThemeColors = {
   primary: {
     100: '#C6CAFF',
     200: '#5650EC',
+    400: '#3B35DC',
     500: '#3B35DC',
     700: '#241DBB',
     800: '#1C168F',
@@ -48,50 +100,54 @@ export const colors: ThemeColors = {
   success: {
     100: '#E6FAE7',
     200: '#7EC784',
-    500: '#52B45A',
-    700: '#2F9237',
+    300: '#52B45A',
+    400: '#2F9237',
+    500: '#206626',
   },
   danger: {
     100: '#FFECEC',
     200: '#E02F32',
-    500: '#BB1316',
-    700: '#94080A',
+    300: '#BB1316',
+    400: '#94080A',
+    500: '#670507',
   },
   warning: {
     100: '#FFF5EF',
     200: '#F17D39',
-    500: '#D35E1A',
-    700: '#B34607',
+    300: '#D35E1A',
+    400: '#B34607',
+    500: '#7d3104',
   },
   info: {
     100: '#EAF2FE',
     200: '#6696DF',
-    500: '#3E7BD7',
-    700: '#1B57B2',
+    300: '#3E7BD7',
+    400: '#1B57B2',
+    500: '#123c7c',
   },
   light: {
-    100: '#7D7D7D',
-    200: '#969696',
-    500: '#AFAFAF',
-    700: '#C8C8C8',
-    800: '#E1E1E1',
-    900: '#FFFFFF',
+    100: palette.nero,
+    200: palette.mineshaft,
+    400: palette.granite,
+    500: palette.battleship,
+    700: palette.silverchalice,
+    900: palette.white,
   },
   dark: {
-    100: '#737373',
-    200: '#4C4C4C',
-    500: '#252525',
-    700: '#1B1B1B',
-    800: '#111111',
-    900: '#000000',
+    100: palette.mercury,
+    200: palette.todo,
+    400: palette.nobel,
+    500: palette.empress,
+    700: palette.tundora,
+    900: palette.black,
   },
   nude: {
-    100: '#F1F1F0',
-    200: '#E8E8E6',
-    500: '#C3C3BE',
-    700: '#818177',
-    800: '#585851',
-    900: '#444441',
+    100: palette.isabelline,
+    200: palette.pampas,
+    400: palette.timberwolf,
+    600: palette.naturalgray,
+    700: palette.ironside,
+    900: palette.dune,
   },
   sub: {
     1: '#3FD1C1',
@@ -102,6 +158,9 @@ export const colors: ThemeColors = {
     6: '#F4CF70',
     7: '#FE6D73',
   },
+  black: palette.black,
+  white: palette.white,
+  border: palette.mercury,
+  overlay: palette.empress,
   underline: '#C6CAFF',
-  overlay: hexToRGBA('#000000', 0.55),
 }

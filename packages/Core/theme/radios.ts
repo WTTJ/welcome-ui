@@ -20,8 +20,8 @@ export const getRadios = (theme: WuiTheme): ThemeRadios => {
       height: toRem(20),
     },
     checked: {
-      backgroundColor: colors.primary[500],
-      borderColor: colors.primary[500],
+      backgroundColor: colors.primary[400],
+      borderColor: colors.primary[400],
     },
     withHint: {
       default: {

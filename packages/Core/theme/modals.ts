@@ -30,12 +30,12 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
     },
     footer: {
       backgroundColor: colors.light[900],
-      borderTop: `${borderWidths.sm} solid ${colors.light[800]}`,
+      borderTop: `${borderWidths.sm} solid ${colors.border}`,
       padding: space.xxl,
     },
     title: {
       backgroundColor: colors.light[900],
-      borderBottom: `${borderWidths.sm} solid ${colors.light[800]}`,
+      borderBottom: `${borderWidths.sm} solid ${colors.border}`,
       padding: space.xxl,
       ...texts.h4,
       /** space of close button */

@@ -103,7 +103,7 @@ function Component({ children, description, link, title }) {
           {title}
         </Link>
       </NextLink>
-      <Text color="dark.200" mb="0" mt="sm" variant="body3">
+      <Text mb="0" mt="sm" variant="body3">
         {description}
       </Text>
     </div>
