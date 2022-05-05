@@ -66,7 +66,7 @@ const StyledCustomPopper = styled.div(
     .react-datepicker__day,
     .react-datepicker__day-name,
     .react-datepicker__time-list-item {
-      color: nude.800;
+      color: nude.700;
       font-weight: regular;
     }
 

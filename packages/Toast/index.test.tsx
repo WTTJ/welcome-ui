@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { render } from '../../utils/tests'
-import { colors } from '../Core/theme/colors'
 
 import { Toast } from './index'
 
@@ -13,7 +12,7 @@ describe('<Title>', () => {
     const title = getByTestId('growl-title')
 
     expect(title).toHaveTextContent(content)
-    expect(title).toHaveStyleRule('color', colors.info[700])
+    expect(title).toHaveStyleRule('color', 'rgba(0,0,0,1)')
   })
 
   it('should render correctly with a state', () => {
@@ -25,6 +24,6 @@ describe('<Title>', () => {
     const title = getByTestId('growl-title')
 
     expect(title).toHaveTextContent(content)
-    expect(title).toHaveStyleRule('color', colors.danger[700])
+    expect(title).toHaveStyleRule('color', 'rgba(0,0,0,1)')
   })
 })

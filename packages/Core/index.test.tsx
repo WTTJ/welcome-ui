@@ -12,7 +12,7 @@ test('core theme has the correct color for buttons.primary.color', () => {
 test('welcomeTheme correctly overwrites core theme.buttons with its custom styles', () => {
   const theme = createTheme(welcomeTheme)
 
-  expect(theme.buttons.primary.color).toBe('#000000')
+  expect(theme.buttons.primary.color).toBe('rgba(0, 0, 0, 1)')
 })
 
 test('Can overwrite welcomeTheme.buttons with custom button styles', () => {

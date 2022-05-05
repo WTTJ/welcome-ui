@@ -68,12 +68,12 @@ const expectations = [
 function Expectation({ description, icon: Icon, title }) {
   return (
     <Card w="100%">
-      <Card.Body color="dark.900">
-        <Icon size={30} />
+      <Card.Body>
+        <Icon color="dark.900" size={30} />
         <Text mb="md" mt="lg" textTransform="uppercase" variant="h6">
           {title}
         </Text>
-        <Text color="dark.200" m="0" variant="body3">
+        <Text m="0" variant="body3">
           {description}
         </Text>
       </Card.Body>

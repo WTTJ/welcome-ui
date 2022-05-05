@@ -34,9 +34,9 @@ export const getCloseButton = (theme: WuiTheme): ThemeCloseButton => {
       borderColor: colors.nude[100],
     },
     active: {
-      backgroundColor: colors.nude[500],
-      color: colors.nude[500],
-      borderColor: colors.nude[500],
+      backgroundColor: colors.nude[400],
+      color: colors.nude[400],
+      borderColor: colors.nude[400],
     },
     focus: focus(colors.nude[700]),
   }

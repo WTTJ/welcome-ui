@@ -1,7 +1,7 @@
 import React from 'react'
 import { DropdownMenu, useDropdownMenuState } from '@welcome-ui/dropdown-menu'
 import { Box } from '@welcome-ui/box'
-import { StarIcon, SunIcon } from '@welcome-ui/icons'
+import { StarIcon, SunIcon, CrescentMoonIcon, StarOutlineIcon } from '@welcome-ui/icons'
 import { Button } from '@welcome-ui/button'
 
 import { useSetThemeContext, useThemeContext } from '../../context/theme'
@@ -18,9 +18,9 @@ export function ThemeSelector(props) {
 
   const options = [
     { value: 'core', label: 'Core Theme', icon: SunIcon },
-    // TODO : rework dark theme before show on select
-    // { value: 'dark', label: 'Dark Theme', icon: CrescentMoonIcon },
-    { value: 'welcome', label: 'Welcome Theme', icon: StarIcon },
+    { value: 'dark', label: 'Dark Theme', icon: CrescentMoonIcon },
+    { value: 'welcome', label: 'Welcome Theme', icon: StarOutlineIcon },
+    { value: 'welcomeDark', label: 'Welcome Dark Theme', icon: StarIcon },
   ]
 
   return (
@@ -29,7 +29,6 @@ export function ThemeSelector(props) {
         as={Button}
         h={30}
         shape="circle"
-        variant={theme === 'dark' ? 'secondary' : 'quaternary'}
         w={30}
         {...menu}
         {...props}

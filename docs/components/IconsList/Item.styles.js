@@ -3,7 +3,7 @@ import styled, { css } from '@xstyled/styled-components'
 
 export const Content = styled(Box)`
   background-color: light.900;
-  border-color: light.800;
+  border-color: border;
   border-width: sm;
   border-style: solid;
   border-radius: lg;
@@ -24,8 +24,7 @@ export const Item = styled(Box)(
     css`
       &:hover {
         ${Content} {
-          background-color: light.800;
-          border-color: light.800;
+          background-color: nude.100;
         }
       }
     `}

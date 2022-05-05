@@ -19,5 +19,5 @@ export const getDefaultCards = ({
   borderRadius: radii.md,
   borderStyle: 'solid',
   borderWidth: borderWidths.sm,
-  borderColor: colors.light[800],
+  borderColor: colors.border,
 })

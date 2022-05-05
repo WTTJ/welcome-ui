@@ -9,6 +9,7 @@ import * as S from './styles'
 // eslint-disable-next-line react/prop-types
 function Title({ children, ...props }) {
   const slug = slugify(children)
+
   return (
     <S.Title id={slug} {...props}>
       {children} <S.Link href={`#${slug}`}>#</S.Link>
@@ -21,13 +22,13 @@ export function H1(props) {
 }
 
 export function H2(props) {
-  return <Title as="h2" pt="3xl" variant="h2" {...props} />
+  return <Title pt="3xl" variant="h3" {...props} />
 }
 
 export function H3(props) {
-  return <Title as="h3" pt="xxl" variant="h5" {...props} />
+  return <Title pt="xxl" variant="h5" {...props} />
 }
 
 export function H4(props) {
-  return <Title as="h4" pt="lg" variant="h5" {...props} />
+  return <Title pt="lg" variant="h5" {...props} />
 }

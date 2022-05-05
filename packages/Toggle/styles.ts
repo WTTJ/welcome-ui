@@ -5,7 +5,7 @@ import { shouldForwardProp } from '@welcome-ui/system'
 import { ToggleOptions } from './index'
 
 export const Toggle = styled(ReakitCheckbox).withConfig({ shouldForwardProp })<ToggleOptions>(
-  ({ order = '-1', theme }) => css`
+  ({ order = '-1' }) => css`
     ${th('toggles.item.default')};
     position: relative;
     display: block;
@@ -21,7 +21,7 @@ export const Toggle = styled(ReakitCheckbox).withConfig({ shouldForwardProp })<T
       content: '';
       top: 0;
       bottom: 0;
-      left: 1;
+      left: 2;
       position: absolute;
       margin: auto;
       transition: medium;
@@ -38,8 +38,8 @@ export const Toggle = styled(ReakitCheckbox).withConfig({ shouldForwardProp })<T
 
     &:checked {
       &::after {
-        /* 3 is border + left padding + right padding */
-        transform: translateX(calc(${th('toggles.item.default.width')} - 100% - ${theme.toRem(3)}));
+        /* border + left padding + right padding */
+        transform: translateX(calc(${th('toggles.item.default.width')} - 100% - 0.3rem));
       }
 
       &:not(:disabled) {
