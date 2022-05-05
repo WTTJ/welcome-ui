@@ -17,13 +17,12 @@ export const getAccordions = (theme: WuiTheme): ThemeAccordions => {
     padding: toRem(20),
     wrapper: {
       backgroundColor: colors.light[900],
-      border: `${borderWidths.sm} solid ${colors.light[800]}`,
+      border: `${borderWidths.sm} solid ${colors.border}`,
     },
     icon: {
       color: colors.dark[900],
     },
     content: {
-      color: colors.dark[200],
       fontSize: fontSizes.body3,
     },
     title: {

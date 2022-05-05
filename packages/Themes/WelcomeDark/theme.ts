@@ -1,6 +1,8 @@
 import { createTheme, WuiTheme } from '@welcome-ui/core'
+import { welcomeTheme } from '@welcome-ui/themes.welcome'
+import merge from 'ramda/src/mergeDeepRight'
 
-const theme = createTheme()
+const theme = createTheme(welcomeTheme)
 
 type RecursivePartial<T> = {
   [P in keyof T]?: T[P] | RecursivePartial<T[P]>
@@ -17,7 +19,6 @@ const palette = {
 }
 
 export const colors = {
-  ...theme.colors,
   light: {
     100: theme.colors.dark[100],
     200: theme.colors.dark[200],
@@ -43,8 +44,9 @@ export const colors = {
     900: palette.dune,
   },
   border: theme.colors.light[200],
+  underline: theme.colors.primary[700],
 }
 
-export const darkTheme: RecursivePartial<WuiTheme> = {
+export const welcomeDarkTheme: RecursivePartial<WuiTheme> = merge(welcomeTheme, {
   colors,
-}
+}) as WuiTheme

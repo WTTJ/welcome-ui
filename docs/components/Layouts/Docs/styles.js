@@ -12,7 +12,7 @@ export const Navigation = styled.nav`
   left: 0;
   bottom: 0;
   background-color: light.900;
-  border-right: 1px solid ${th('colors.light.800')};
+  border-right: 1px solid ${th('colors.border')};
   padding: lg;
   overflow: auto;
 

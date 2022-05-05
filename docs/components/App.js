@@ -4,6 +4,7 @@ import { createTheme, WuiProvider } from '@welcome-ui/core'
 import { MDXProvider } from '@mdx-js/react'
 import { welcomeTheme } from '@welcome-ui/themes.welcome'
 import { darkTheme } from '@welcome-ui/themes.dark'
+import { welcomeDarkTheme } from '@welcome-ui/themes.welcome-dark'
 
 import { useThemeContext } from '../context/theme'
 
@@ -19,6 +20,8 @@ const getTheme = themeStorage => {
     return welcomeTheme
   } else if (themeStorage === 'dark') {
     return darkTheme
+  } else if (themeStorage === 'welcomeDark') {
+    return welcomeDarkTheme
   } else {
     return coreTheme
   }
@@ -27,14 +30,14 @@ const getTheme = themeStorage => {
 export function App({ component: Component, pageProps }) {
   const themeStorage = useThemeContext()
   const initialTheme = welcomeTheme
-  const [allTheme, setAllTheme] = useState(initialTheme)
+  const [globalTheme, setGlobalTheme] = useState(initialTheme)
 
   useEffect(() => {
-    setAllTheme(getTheme(themeStorage))
+    setGlobalTheme(getTheme(themeStorage))
   }, [themeStorage])
 
   return (
-    <WuiProvider reactRootId="__next" theme={createTheme(allTheme)}>
+    <WuiProvider reactRootId="__next" theme={createTheme(globalTheme)}>
       <MDXProvider components={MDXComponents}>
         <GlobalStyle />
         <Head />

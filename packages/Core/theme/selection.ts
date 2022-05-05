@@ -6,7 +6,7 @@ export type ThemeSelection = CSSObject
 
 export const getSelection = (theme: WuiTheme): ThemeSelection => {
   return {
-    backgroundColor: theme.colors.primary[500],
+    backgroundColor: theme.colors.primary[400],
     color: theme.colors.light[900],
   }
 }

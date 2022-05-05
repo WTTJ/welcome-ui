@@ -54,7 +54,7 @@ export const Item = styled.li<{
   isSelected?: boolean
 }>(
   ({ isExisting, isHighlighted, isSelected }) => css`
-    color: nude.800;
+    color: nude.700;
     ${isHighlighted && th('defaultFields.select.highlighted')};
     ${isSelected && th('defaultFields.select.selected')};
     ${isExisting && th('defaultFields.select.existing')};

@@ -194,38 +194,36 @@ export function Code({
           mt="md"
           overflow="visible"
         >
-          <Card.Body color="dark.900" p="0">
-            <Box p="xl">
-              <LivePreview />
-            </Box>
-            {withCode === true && (
-              <S.ShowEditor>
+          <Box p="xl">
+            <LivePreview />
+          </Box>
+          {withCode === true && (
+            <S.ShowEditor>
+              <Button
+                border="none"
+                h={25}
+                onClick={toggleEditor}
+                shape="circle"
+                variant="tertiary"
+                w={25}
+              >
+                <Icons.ChevronIcon />
+              </Button>
+              {isCopyable && (
                 <Button
                   border="none"
                   h={25}
-                  onClick={toggleEditor}
+                  ml="sm"
+                  onClick={copy}
                   shape="circle"
                   variant="tertiary"
                   w={25}
                 >
-                  <Icons.ChevronIcon />
+                  {copied ? <Icons.CheckIcon color="success.500" /> : <Icons.CopyIcon />}
                 </Button>
-                {isCopyable && (
-                  <Button
-                    border="none"
-                    h={25}
-                    ml="sm"
-                    onClick={copy}
-                    shape="circle"
-                    variant="tertiary"
-                    w={25}
-                  >
-                    {copied ? <Icons.CheckIcon color="success.500" /> : <Icons.CopyIcon />}
-                  </Button>
-                )}
-              </S.ShowEditor>
-            )}
-          </Card.Body>
+              )}
+            </S.ShowEditor>
+          )}
         </Card>
         {editorOpen && withCode === true && (
           <S.LiveEditor>
