@@ -302,7 +302,7 @@ const EmojiRow: React.FC<EmojiRowProps> = ({ data, index, style }) => {
         px="xl"
         style={style}
         textTransform="uppercase"
-        variant="subtitle2"
+        variant="subtitle-sm"
       >
         {row[0]}
       </Text>

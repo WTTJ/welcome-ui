@@ -13,7 +13,7 @@ export const getPopovers = (theme: WuiTheme): ThemePopovers => {
 
   return {
     default: {
-      ...texts.body3,
+      ...texts.sm,
       backgroundColor: colors.black,
       color: colors.white,
       maxWidth: toRem(700),

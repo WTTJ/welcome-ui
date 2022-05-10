@@ -61,10 +61,8 @@ import { getCloseButton } from './closeButton'
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'Work Sans'
 const DEFAULT_LINE_HEIGHT = 1.15
-const DEFAULT_LETTER_SPACING = 0
+const DEFAULT_LETTER_SPACING = '-0.019rem'
 const HEADING_FONT_FAMILY = 'welcome-font'
-const HEADING_LINE_HEIGHT = 1.2
-const HEADING_LETTER_SPACING = 0
 const ICON_FONT_FAMILY = 'welcome-icon-font'
 
 export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => {
@@ -73,8 +71,6 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
     defaultLineHeight = DEFAULT_LINE_HEIGHT,
     defaultLetterSpacing = DEFAULT_LETTER_SPACING,
     headingFontFamily = HEADING_FONT_FAMILY,
-    headingLineHeight = HEADING_LINE_HEIGHT,
-    headingLetterSpacing = HEADING_LETTER_SPACING,
     iconFontFamily = ICON_FONT_FAMILY,
     ...rest
   } = options
@@ -93,8 +89,6 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.fontSizes = getFontSizes('rem', theme)
   theme.defaultLineHeight = defaultLineHeight as number
   theme.defaultLetterSpacing = defaultLetterSpacing as string
-  theme.headingLineHeight = headingLineHeight as number
-  theme.headingLetterSpacing = headingLetterSpacing as string
   theme.lineHeights = getLineHeights(theme)
   theme.fontWeights = fontWeights
   theme.letterSpacings = getLetterSpacings(theme)

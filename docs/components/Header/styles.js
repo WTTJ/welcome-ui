@@ -14,7 +14,7 @@ export const Header = styled.header(
     width: 100%;
     height: ${headerHeight};
     background-color: black;
-    font-size: body2;
+    font-size: md;
     padding: 0 md;
     top: 0;
     width: 100%;

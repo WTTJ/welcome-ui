@@ -15,7 +15,7 @@ export function Item({ content, name }) {
 
   return (
     <Box alignItems="center" display="flex" pb="md">
-      <Text  m="0" variant="body4" w={{ xs: 50, md: 64 }}>
+      <Text  m="0" variant="xs" w={{ xs: 50, md: 64 }}>
         {name}
       </Text>
       <Box alignItems="center" display="flex" flex="1">

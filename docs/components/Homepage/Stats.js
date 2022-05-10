@@ -76,7 +76,7 @@ export function Stats() {
           <Text as="span" mt="lg" variant="h3">
             {stat.number}
           </Text>
-          <Text as="span" mt="sm" variant="body3">
+          <Text as="span" mt="sm" variant="sm">
             {stat.name}
           </Text>
         </Box>

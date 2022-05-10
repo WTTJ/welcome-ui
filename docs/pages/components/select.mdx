@@ -120,7 +120,7 @@ function () {
                 size="lg"
               >
                 <Icon mr="sm" />
-                <Text variant="body3" m="0">
+                <Text variant="sm" m="0">
                   {option.label}
                 </Text>
               </Tag>
@@ -366,12 +366,12 @@ function () {
         renderGroupHeader={({ label, options }) => (
           <Box p="xxs">
             <Box display="flex" justifyContent="space-between" alignItems="center">
-              <Text variant="body3" m="0">
+              <Text variant="sm" m="0">
                 {label}
               </Text>
               <Tag>{options.length}</Tag>
             </Box>
-            {options.length === 0 && <Text variant="body4">No results found</Text>}
+            {options.length === 0 && <Text variant="xs">No results found</Text>}
           </Box>
         )}
       />

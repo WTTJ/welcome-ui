@@ -16,7 +16,7 @@ export const Li = styled.li`
 `
 
 export const MainTitle = styled(Box)`
-  ${th('texts.subtitle2')};
+  ${th('texts.subtitle-sm')};
   text-transform: uppercase;
   color: dark.300;
   margin-top: xxl;

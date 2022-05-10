@@ -10,7 +10,7 @@ export const getTooltips = (theme: WuiTheme): CSSObject => {
     backgroundColor: colors.black,
     color: colors.white,
     padding: `${space.xxs} ${space.sm}`,
-    fontSize: fontSizes.body4,
+    fontSize: fontSizes.xs,
     borderRadius: radii.md,
   }
 }

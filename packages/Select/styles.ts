@@ -103,7 +103,7 @@ export const Item = styled.li(
     padding: sm;
     list-style: none;
     text-decoration: none;
-    font-size: body3;
+    font-size: sm;
     transition: background ${th.transition('medium')};
   `
 )
