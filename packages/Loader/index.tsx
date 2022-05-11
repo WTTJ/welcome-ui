@@ -16,10 +16,10 @@ export type LoaderProps = CreateWuiProps<'div', LoaderOptions>
 
 export const Loader = forwardRef<'div', LoaderProps>(
   ({ color, dataTestId, size = 'sm', ...rest }, ref) => (
-    <Box color={color} data-testid={dataTestId} display="flex" ref={ref}>
-      <S.LoadingDot shape="circle" size={size} {...rest} />
-      <S.LoadingDot shape="circle" size={size} {...rest} />
-      <S.LoadingDot shape="circle" size={size} {...rest} />
+    <Box color={color} data-testid={dataTestId} display="flex" ref={ref} {...rest}>
+      <S.LoadingDot shape="circle" size={size} />
+      <S.LoadingDot shape="circle" size={size} />
+      <S.LoadingDot shape="circle" size={size} />
     </Box>
   )
 )
