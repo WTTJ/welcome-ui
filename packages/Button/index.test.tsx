@@ -115,7 +115,7 @@ describe('<Button>', () => {
     expect(button).toHaveAttribute('href', content)
   })
 
-  it('should forward as Link', () => {
+  it.skip('should forward as Link', () => {
     const { getByTestId } = render(
       <Button as={Link} className="wui-test" dataTestId="button" target="_blank">
         {content}
