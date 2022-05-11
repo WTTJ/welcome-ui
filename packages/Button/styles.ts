@@ -1,6 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 import { system, th } from '@xstyled/system'
 import { Button as ReakitButton } from 'reakit/Button'
+import { Box } from '@welcome-ui/box'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 
@@ -16,18 +17,15 @@ const shapeStyles = (size: ButtonOptions['size'], shape: ButtonOptions['shape'] 
 `
 
 export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<ButtonOptions>(
-  ({ disabled, shape, size = 'md', variant }) => css`
+  ({ disabled, isLoading, shape, size = 'md', variant }) => css`
     ${th(`buttons.${variant}`)};
     position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     width: auto;
     ${th(`buttons.sizes.${size}`)};
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
-    cursor: pointer;
+    cursor: ${isLoading || disabled ? 'not-allowed' : 'pointer'};
     outline: none !important; /* important for firefox */
     border-width: sm;
     border-style: solid;
@@ -36,10 +34,6 @@ export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<But
     transition: medium;
     ${shape && shapeStyles(size, shape)};
     ${system};
-
-    & > *:not(:only-child):not(:last-child) {
-      margin-right: sm;
-    }
 
     ${!disabled &&
     css`
@@ -62,3 +56,15 @@ export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<But
     }
   `
 )
+
+export const ButtonContent = styled(Box)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  & > *:not(:only-child):not(:last-child) {
+    margin-right: sm;
+  }
+
+  ${system};
+`
