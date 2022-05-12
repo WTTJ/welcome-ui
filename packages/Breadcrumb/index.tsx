@@ -62,7 +62,7 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
       element.style.transform = `scale3d(${value}, 1, 1)`
     }
 
-    const updateGradients = useCallback(completionRatio => {
+    const updateGradients = useCallback((completionRatio: number) => {
       const uncompleteRatio = 1 - completionRatio
       translate(startGradient.current, uncompleteRatio)
       translate(endGradient.current, completionRatio)
