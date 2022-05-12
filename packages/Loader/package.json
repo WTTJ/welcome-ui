@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^4.0.5",
+    "@welcome-ui/loader": "^4.0.5",
     "@welcome-ui/shape": "^4.0.5",
     "@welcome-ui/system": "^4.0.5"
   },
