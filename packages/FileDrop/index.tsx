@@ -204,13 +204,7 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
             <S.Actions>
               <ButtonGroup>
                 {(error || isEditable) && (
-                  <Button
-                    onClick={open}
-                    shape="square"
-                    size="sm"
-                    type="button"
-                    variant="quaternary"
-                  >
+                  <Button onClick={open} shape="square" size="sm" type="button" variant="ghost">
                     <EditIcon />
                   </Button>
                 )}

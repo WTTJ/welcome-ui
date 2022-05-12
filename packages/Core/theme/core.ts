@@ -27,7 +27,7 @@ import { shadows } from './shadows'
 import { getSpace } from './space'
 import { getSelection } from './selection'
 import { getFocus } from './focus'
-import { getButtons } from './buttons'
+import { getButtons, getIconsButton } from './buttons'
 import { getTags } from './tags'
 import { getTooltips } from './tooltips'
 import { getCheckboxes } from './checkboxes'
@@ -107,6 +107,8 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.inset = theme.space
 
   theme.icons = getIcons(theme)
+
+  theme.iconsButton = getIconsButton(theme)
 
   theme.radii = radii
 

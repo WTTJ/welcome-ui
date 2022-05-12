@@ -1,7 +1,9 @@
 import { CSSObject } from '@xstyled/system'
+import { hexToRGBA } from '@welcome-ui/utils'
 
 import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
+import { ThemeIcons } from './icons'
 
 type CommonAttributesButton = CSSObject
 
@@ -11,7 +13,6 @@ type Variant =
   | 'primary'
   | 'secondary'
   | 'tertiary'
-  | 'tertiary-negative'
   | 'primary-success'
   | 'secondary-success'
   | 'primary-warning'
@@ -20,9 +21,29 @@ type Variant =
   | 'secondary-danger'
   | 'primary-info'
   | 'secondary-info'
-  | 'quaternary'
+  | 'ghost'
 
-type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+type Size = 'xs' | 'sm' | 'md' | 'lg'
+
+export type ThemeIconsButton = {
+  iconOnly: Omit<ThemeIcons, 'xl' | 'xxl'>
+  default: Omit<ThemeIcons, 'xl' | 'xxl'>
+}
+
+export const getIconsButton = ({ toRem }: WuiTheme): ThemeIconsButton => ({
+  iconOnly: {
+    xs: toRem(16),
+    sm: toRem(16),
+    md: toRem(16),
+    lg: toRem(24),
+  },
+  default: {
+    xs: toRem(12),
+    sm: toRem(16),
+    md: toRem(16),
+    lg: toRem(16),
+  },
+})
 
 export type ThemeButtons = Record<Variant, CommonAttributesButton> &
   Record<'hover', Record<Variant, CommonAttributesButton>> &
@@ -57,11 +78,6 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       color: colors.dark[900],
       backgroundColor: 'transparent',
       borderColor: colors.dark[900],
-    },
-    'tertiary-negative': {
-      ...defaults,
-      backgroundColor: 'transparent',
-      borderColor: colors.light[900],
     },
     'primary-success': {
       ...defaults,
@@ -107,7 +123,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       backgroundColor: colors.light[900],
       borderColor: colors.info[500],
     },
-    quaternary: {
+    ghost: {
       ...defaults,
       color: colors.dark[900],
       backgroundColor: colors.light[900],
@@ -125,52 +141,43 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       tertiary: {
         backgroundColor: colors.dark[100],
       },
-      'tertiary-negative': {
-        backgroundColor: colors.light[100],
-      },
       'primary-success': {
-        backgroundColor: colors.success[200],
-        borderColor: colors.success[200],
+        backgroundColor: colors.success[400],
+        borderColor: colors.success[400],
       },
       'secondary-success': {
-        backgroundColor: colors.success[100],
-        borderColor: colors.success[500],
+        backgroundColor: hexToRGBA(colors.success[500], 0.1),
       },
       'primary-warning': {
-        backgroundColor: colors.warning[200],
-        borderColor: colors.warning[200],
+        backgroundColor: colors.warning[400],
+        borderColor: colors.warning[400],
       },
       'secondary-warning': {
         backgroundColor: colors.warning[100],
-        borderColor: colors.warning[500],
       },
       'primary-danger': {
-        backgroundColor: colors.danger[200],
-        borderColor: colors.danger[200],
+        backgroundColor: colors.danger[400],
+        borderColor: colors.danger[400],
       },
       'secondary-danger': {
         backgroundColor: colors.danger[100],
-        borderColor: colors.danger[500],
       },
       'primary-info': {
-        backgroundColor: colors.info[200],
-        borderColor: colors.info[200],
+        backgroundColor: colors.info[400],
+        borderColor: colors.info[400],
       },
       'secondary-info': {
         backgroundColor: colors.info[100],
-        borderColor: colors.info[500],
       },
-      quaternary: {
+      ghost: {
         backgroundColor: colors.border,
-        borderColor: colors.border,
       },
     },
     focus: {
       primary: focus(),
-      secondary: focus(colors.dark[900]),
+      secondary: focus(colors.dark[400]),
       tertiary: focus(colors.dark[900]),
-      'tertiary-negative': focus(colors.light[900]),
-      quaternary: focus(colors.dark[100]),
+      ghost: focus(colors.dark[100]),
       'primary-success': focus(colors.success[500]),
       'secondary-success': focus(colors.success[500]),
       'primary-warning': focus(colors.warning[500]),
@@ -182,8 +189,8 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     active: {
       primary: {
-        backgroundColor: colors.primary[700],
-        borderColor: colors.primary[700],
+        backgroundColor: colors.primary[100],
+        borderColor: colors.primary[100],
       },
       secondary: {
         backgroundColor: colors.dark[200],
@@ -192,44 +199,36 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       tertiary: {
         backgroundColor: colors.dark[400],
       },
-      'tertiary-negative': {
-        backgroundColor: colors.light[400],
-      },
       'primary-success': {
-        backgroundColor: colors.success[500],
-        borderColor: colors.success[500],
+        backgroundColor: colors.success[300],
+        borderColor: colors.success[300],
       },
       'secondary-success': {
-        backgroundColor: colors.success[500],
-        borderColor: colors.success[500],
+        backgroundColor: hexToRGBA(colors.success[500], 0.4),
       },
       'primary-warning': {
-        backgroundColor: colors.warning[500],
-        borderColor: colors.warning[500],
+        backgroundColor: colors.warning[300],
+        borderColor: colors.warning[300],
       },
       'secondary-warning': {
-        color: colors.warning[500],
-        borderColor: colors.warning[500],
+        backgroundColor: hexToRGBA(colors.warning[500], 0.4),
       },
       'primary-danger': {
-        backgroundColor: colors.danger[500],
-        borderColor: colors.danger[500],
+        backgroundColor: colors.danger[300],
+        borderColor: colors.danger[300],
       },
       'secondary-danger': {
-        color: colors.danger[500],
-        borderColor: colors.danger[500],
+        backgroundColor: hexToRGBA(colors.danger[500], 0.4),
       },
       'primary-info': {
-        backgroundColor: colors.info[500],
-        borderColor: colors.info[500],
+        backgroundColor: colors.info[300],
+        borderColor: colors.info[300],
       },
       'secondary-info': {
-        color: colors.info[500],
-        borderColor: colors.info[500],
+        backgroundColor: hexToRGBA(colors.info[500], 0.4),
       },
-      quaternary: {
-        backgroundColor: colors.light[700],
-        borderColor: colors.light[700],
+      ghost: {
+        backgroundColor: colors.dark[400],
       },
     },
     disabled: {
@@ -241,28 +240,26 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     sizes: {
       xs: {
-        height: toRem(20),
-        padding: `0 ${space.xxs}`,
+        height: toRem(24),
+        padding: `${space.xs} ${space.sm}`,
+        lineHeight: toRem(16),
       },
       sm: {
-        height: toRem(34),
-        padding: `0 ${space.md}`,
-        fontSize: toRem(),
+        height: toRem(32),
+        padding: `${space.sm} ${space.md}`,
+        lineHeight: toRem(16),
       },
       md: {
-        height: toRem(42),
-        padding: `0 ${space.lg}`,
+        height: toRem(40),
+        padding: `${space.sm} ${space.lg}`,
         fontSize: fontSizes.sm,
+        lineHeight: toRem(24),
       },
       lg: {
-        height: toRem(49),
-        padding: `0 ${space.xl}`,
+        height: toRem(48),
+        padding: `${space.md} ${space.xl}`,
         fontSize: fontSizes.md,
-      },
-      xl: {
-        height: toRem(70),
-        padding: `0 ${space.xxl}`,
-        fontSize: fontSizes.lg,
+        lineHeight: toRem(24),
       },
     },
   }
