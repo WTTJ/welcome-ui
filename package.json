@@ -91,7 +91,7 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/react-hooks": "^8.0.0",
-    "@testing-library/user-event": "13.5.0",
+    "@testing-library/user-event": "14.2.0",
     "@types/emoji-mart": "3.0.9",
     "@types/lodash.debounce": "^4.0.6",
     "@types/lodash.escaperegexp": "^4.1.6",
