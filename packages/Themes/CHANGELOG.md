@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/WTTJ/welcome-ui/compare/v4.1.0...v4.1.1) (2022-05-16)
+
+**Note:** Version bump only for package @welcome-ui/themes
+
+
+
+
+
 # [3.5.0](https://github.com/WTTJ/welcome-ui/compare/v3.4.3...v3.5.0) (2021-04-28)
 
 
