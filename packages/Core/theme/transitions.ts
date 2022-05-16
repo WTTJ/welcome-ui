@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/system'
+import { CSSObject } from '@xstyled/styled-components'
 
 export type ThemeTimingFunction = {
   primary: CSSObject['transition-timing-function']

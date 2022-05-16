@@ -1,5 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
-import { system, th } from '@xstyled/system'
+import styled, { css, system, th } from '@xstyled/styled-components'
 import { Tooltip as ReakitTooltip } from 'reakit/Tooltip'
 import { filterSystemProps } from '@welcome-ui/system'
 

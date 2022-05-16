@@ -1,6 +1,5 @@
 import React from 'react'
-import { th } from '@xstyled/system'
-import styled, { css, CSSObject } from '@xstyled/styled-components'
+import styled, { css, CSSObject, th } from '@xstyled/styled-components'
 import { cardStyles } from '@welcome-ui/utils'
 
 import { datePickerStyles } from './datePickerStyles'

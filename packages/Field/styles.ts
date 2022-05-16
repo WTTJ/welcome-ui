@@ -1,5 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
-import { system, th } from '@xstyled/system'
+import styled, { css, system, th } from '@xstyled/styled-components'
 import { StyledLabel } from '@welcome-ui/label'
 import { StyledFieldGroup } from '@welcome-ui/field-group'
 import { shouldForwardProp, WuiProps } from '@welcome-ui/system'

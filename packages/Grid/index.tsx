@@ -1,35 +1,34 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { SystemProps } from '@xstyled/system'
+import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
 
 import { Item } from './Item'
 
 export interface GridOptions {
   /** same as gridArea */
-  area?: SystemProps['gridArea']
+  area?: WuiProps['gridArea']
   /** same as gridAutoColumns */
-  autoColumns?: SystemProps['gridAutoColumns']
+  autoColumns?: WuiProps['gridAutoColumns']
   /** same as gridAutoFlow */
-  autoFlow?: SystemProps['gridAutoFlow']
+  autoFlow?: WuiProps['gridAutoFlow']
   /** same as gridAutoRows */
-  autoRows?: SystemProps['gridAutoRows']
+  autoRows?: WuiProps['gridAutoRows']
   /** same as gridColumn */
-  column?: SystemProps['gridColumn']
+  column?: WuiProps['gridColumn']
   /** same as columnGap */
-  columnGap?: SystemProps['columnGap']
+  columnGap?: WuiProps['columnGap']
   /** same as gridGap */
-  gap?: SystemProps['gap']
+  gap?: WuiProps['gap']
   /** same as gridRow */
-  row?: SystemProps['gridRow']
+  row?: WuiProps['gridRow']
   /** same as gridRowGap */
-  rowGap?: SystemProps['rowGap']
+  rowGap?: WuiProps['rowGap']
   /** same as gridTemplateAreas */
-  templateAreas?: SystemProps['gridTemplateAreas']
+  templateAreas?: WuiProps['gridTemplateAreas']
   /** same as gridTemplateColumns */
-  templateColumns?: SystemProps['gridTemplateColumns']
+  templateColumns?: WuiProps['gridTemplateColumns']
   /** same as gridTemplateRows */
-  templateRows?: SystemProps['gridTemplateRows']
+  templateRows?: WuiProps['gridTemplateRows']
 }
 
 export type GridProps = CreateWuiProps<'div', GridOptions>

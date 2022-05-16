@@ -1,15 +1,14 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { SystemProps } from '@xstyled/system'
+import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
 
 export interface ItemOptions {
   /** same as gridArea */
-  area?: SystemProps['gridArea']
+  area?: WuiProps['gridArea']
   /** same as gridColumn */
-  column?: SystemProps['gridColumn']
+  column?: WuiProps['gridColumn']
   /** same as gridRow */
-  row?: SystemProps['row']
+  row?: WuiProps['row']
 }
 
 export type ItemProps = CreateWuiProps<'div', ItemOptions>

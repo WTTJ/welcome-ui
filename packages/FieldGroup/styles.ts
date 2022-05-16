@@ -1,5 +1,4 @@
-import styled from '@xstyled/styled-components'
-import { system, th } from '@xstyled/system'
+import styled, { system, th } from '@xstyled/styled-components'
 import { StyledLabel } from '@welcome-ui/label'
 import { shouldForwardProp } from '@welcome-ui/system'
 

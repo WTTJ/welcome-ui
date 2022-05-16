@@ -1,6 +1,5 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css, system } from '@xstyled/styled-components'
 import { StyledDatePicker, StyledTimePicker } from '@welcome-ui/date-time-picker-common'
-import { system } from '@xstyled/system'
 
 const focusStyles = css`
   &:focus {

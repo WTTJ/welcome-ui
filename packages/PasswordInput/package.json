@@ -46,7 +46,6 @@
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.6.0",
-    "@xstyled/system": "^3.6.0",
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1",
     "styled-components": "^5.3.3"

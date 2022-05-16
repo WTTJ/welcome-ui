@@ -104,7 +104,6 @@
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
     "@xstyled/styled-components": "^3.6.0",
-    "@xstyled/system": "^3.6.0",
     "aws-sdk": "^2.1094.0",
     "babel-jest": "28.1.0",
     "babel-plugin-annotate-pure-calls": "^0.4.0",

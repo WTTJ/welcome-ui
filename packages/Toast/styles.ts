@@ -1,5 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { getVariantColor } from '@welcome-ui/utils'
 import { Alert } from '@welcome-ui/alert'

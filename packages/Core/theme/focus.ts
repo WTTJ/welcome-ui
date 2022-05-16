@@ -1,5 +1,5 @@
 import { hexToRGBA } from '@welcome-ui/utils'
-import { CSSObject } from '@xstyled/system'
+import { CSSObject } from '@xstyled/styled-components'
 
 export type ThemeFocus = (color?: string) => {
   boxShadow: CSSObject['boxShadow']

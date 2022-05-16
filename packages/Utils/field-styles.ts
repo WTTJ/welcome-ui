@@ -1,5 +1,4 @@
-import { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import { css, th } from '@xstyled/styled-components'
 
 import { getVariantColor, Variant } from './variants'
 
