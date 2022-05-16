@@ -11,14 +11,12 @@ const TAG_NAMES = {
   h4: 'h4',
   h5: 'h5',
   h6: 'h6',
-  body1: 'p',
-  body2: 'p',
-  body3: 'p',
-  body4: 'p',
-  subtitle1: 'p',
-  subtitle2: 'p',
-  meta1: 'p',
-  meta2: 'p',
+  lg: 'p',
+  md: 'p',
+  sm: 'p',
+  xs: 'p',
+  'subtitle-md': 'span',
+  'subtitle-sm': 'span',
 }
 
 export type Variant = keyof typeof TAG_NAMES
@@ -31,7 +29,7 @@ export interface TextOptions {
 export type TextProps = CreateWuiProps<'p', TextOptions>
 
 export const Text = forwardRef<'p', TextProps>(
-  ({ as, children, dataTestId, lines, variant = 'body2', ...rest }, ref) => {
+  ({ as, children, dataTestId, lines, variant = 'md', ...rest }, ref) => {
     const tagName = as || TAG_NAMES[variant]
     const className = rest.className || ''
 

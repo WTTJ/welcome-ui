@@ -35,7 +35,7 @@ const Title = styled(Link)`
 export default function Blog() {
   return (
     <Box margin="0 auto" maxWidth={800} p={{ xs: 'xl', md: '5xl' }}>
-      <Text color="sub.3" textAlign="center" variant="subtitle1">
+      <Text color="sub.3" textAlign="center" variant="subtitle-md">
         Blog
       </Text>
       <Text mt="0" textAlign="center" variant="h1">
@@ -66,7 +66,7 @@ export default function Blog() {
                         <Avatar key={`${link}_authors_${idx}`} name={name} src={url} />
                       ))}
                     </Stack>
-                    <Text as="span" fontWeight="bold" mb="xl" variant="body3">
+                    <Text as="span" fontWeight="bold" mb="xl" variant="sm">
                       {authors?.map(({ name }, idx) => (
                         <>
                           {idx !== 0 && ', '}
@@ -74,7 +74,7 @@ export default function Blog() {
                         </>
                       ))}
                     </Text>
-                    <Text mb="0" variant="body4">
+                    <Text mb="0" variant="xs">
                       {date.toDateString()}
                     </Text>
                   </div>

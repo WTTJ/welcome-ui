@@ -31,7 +31,7 @@ export const getToasts = (theme: WuiTheme): ThemeToasts => {
     },
     growls: {
       default: {
-        ...getTexts(theme).body3,
+        ...getTexts(theme).sm,
         backgroundColor: theme.colors.light[700],
         borderColor: colors.nude[200],
         borderWidth: borderWidths.sm,

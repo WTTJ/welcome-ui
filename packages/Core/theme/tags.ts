@@ -116,12 +116,12 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
       sm: {
         padding: `0 ${space.xxs}`,
         height: sizes.sm,
-        fontSize: fontSizes.meta2,
+        fontSize: fontSizes.xs,
       },
       md: {
         padding: `0 ${space.xs}`,
         height: sizes.md,
-        fontSize: fontSizes.meta1,
+        fontSize: fontSizes.sm,
       },
       lg: {
         padding: `0 ${space.sm}`,

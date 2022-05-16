@@ -32,7 +32,7 @@ function Wrapper({ name, theme, colorsObject }) {
                 >
                   {colorsObject ? key : `${name} ${key}`}
                 </Text>
-                <Text color={isLight ? "light.900" : "dark.300"} as="span" fontSize="body3" mt={3}>
+                <Text color={isLight ? "light.900" : "dark.300"} as="span" fontSize="sm" mt={3}>
                   {depth}
                 </Text>
               </Box>

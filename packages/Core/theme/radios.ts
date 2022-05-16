@@ -25,7 +25,7 @@ export const getRadios = (theme: WuiTheme): ThemeRadios => {
     },
     withHint: {
       default: {
-        fontSize: fontSizes.body2,
+        fontSize: fontSizes.md,
         color: colors.dark[900],
       },
       hint: {

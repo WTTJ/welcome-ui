@@ -39,7 +39,7 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
       default: {
         color: colors.dark[500],
         fontWeight: fontWeights.medium,
-        fontSize: fontSizes.body2,
+        fontSize: fontSizes.md,
         textDecoration: 'none',
       },
       active: {

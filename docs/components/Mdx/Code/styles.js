@@ -40,7 +40,7 @@ export const LiveError = styled(ReactLiveError)`
   padding: md;
   white-space: pre-wrap;
   border-radius: md;
-  font-size: body3;
+  font-size: sm;
   line-height: h4;
   margin: sm 0 lg;
 `
