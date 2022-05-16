@@ -16,7 +16,7 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
 
   return {
     default: {
-      fontSize: fontSizes.body3,
+      fontSize: fontSizes.sm,
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
       borderRadius: radii.md,

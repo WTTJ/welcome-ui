@@ -35,7 +35,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
   const { colors, focus, fontSizes, fontWeights, radii, space, toRem } = theme
   const defaults = {
     color: colors.light[900],
-    fontSize: fontSizes.button,
+    fontSize: fontSizes.xs,
     fontWeight: fontWeights.bold,
     letterSpacing: 0,
     borderRadius: radii.md,
@@ -252,17 +252,17 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       md: {
         height: toRem(42),
         padding: `0 ${space.lg}`,
-        fontSize: fontSizes.body3,
+        fontSize: fontSizes.sm,
       },
       lg: {
         height: toRem(49),
         padding: `0 ${space.xl}`,
-        fontSize: fontSizes.body2,
+        fontSize: fontSizes.md,
       },
       xl: {
         height: toRem(70),
         padding: `0 ${space.xxl}`,
-        fontSize: fontSizes.body1,
+        fontSize: fontSizes.lg,
       },
     },
   }

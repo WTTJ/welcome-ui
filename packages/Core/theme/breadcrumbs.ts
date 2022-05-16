@@ -17,7 +17,7 @@ export const getBreadcrumbs = (theme: WuiTheme): ThemeBreadcrumbs => {
 
   return {
     list: {
-      fontSize: fontSizes.body3,
+      fontSize: fontSizes.sm,
       fontWeight: fontWeights.medium,
       lineHeight: '1.92',
       padding: `${space.sm} 0`,

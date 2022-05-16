@@ -19,13 +19,13 @@ export default function Home() {
   return (
     <main>
       <Section backgroundColor="nude.200">
-        <Text as="span" textTransform="uppercase" variant="subtitle1" color="dark.900">
+        <Text as="span" textTransform="uppercase" variant="subtitle-md" color="dark.900">
           Welcome UI
         </Text>
         <Text maxWidth={820} mb="xl" mt="sm" variant="h1">
           All the components you need to create a delightful React webapp
         </Text>
-        <Text maxWidth={640} variant="body1">
+        <Text maxWidth={640} variant="lg">
           Welcome UI is a customizable design system library made with react, typescript,
           styled-components, reakit and a lot of love 💛
         </Text>
@@ -50,13 +50,13 @@ export default function Home() {
           justifyContent="space-between"
         >
           <Box flex="0 0 auto" maxWidth={{ md: 600 }} mb={{ xs: '5xl', lg: 0 }}>
-            <Text as="span" textTransform="uppercase" variant="subtitle1" color="dark.900">
+            <Text as="span" textTransform="uppercase" variant="subtitle-md" color="dark.900">
               Open source
             </Text>
             <Text as="h2" mb="xl" mt="sm" variant="h1">
               Contribute!
             </Text>
-            <Text maxWidth={640} variant="body1">
+            <Text maxWidth={640} variant="lg">
               Welcome UI is open-sourced on GitHub. Contributions, feedback and issues are welcome –
               we want you to be a part of this great project.
             </Text>
@@ -74,19 +74,19 @@ export default function Home() {
         <Text as="h2" maxWidth={500} mb="xl" mt="0" variant="h1">
           All you’d expect from a design system...
         </Text>
-        <Text maxWidth={640} mb="5xl" variant="body1">
+        <Text maxWidth={640} mb="5xl" variant="lg">
           ...and a lot more!
         </Text>
         <Expectations />
       </Section>
       <Section backgroundColor="nude.200">
-        <Text as="span" textTransform="uppercase" variant="subtitle1" color="dark.900">
+        <Text as="span" textTransform="uppercase" variant="subtitle-md" color="dark.900">
           Example
         </Text>
         <Text as="h2" mb="xl" mt="sm" variant="h1">
           Going straight to the point!
         </Text>
-        <Text maxWidth={450} variant="body1">
+        <Text maxWidth={450} variant="lg">
           Leave the UI code to our team and focus on building your astonishing project.
         </Text>
         <Box
@@ -105,13 +105,13 @@ export default function Home() {
         <Box textAlign="center" w="100%">
           <LogoWttj h={67} w={210} />
         </Box>
-        <Text as="span" color="white" mb="0" mt="5xl" textTransform="uppercase" variant="subtitle1">
+        <Text as="span" color="white" mb="0" mt="5xl" textTransform="uppercase" variant="subtitle-md">
           Who we are?
         </Text>
         <Text as="h2" color="white" maxWidth={950} mb="xl" mt="sm" variant="h1">
           The new experience at work
         </Text>
-        <Text color="white" maxWidth={640} variant="body1">
+        <Text color="white" maxWidth={640} variant="lg">
           Welcome to the Jungle build products that transform every step of the experience at work.
         </Text>
         <Box display={{ md: 'flex' }} mt="5xl">

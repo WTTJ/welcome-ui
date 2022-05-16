@@ -8,7 +8,7 @@ export const getHints = (theme: WuiTheme): ThemeHints => {
   const { fontSizes, fontWeights } = theme
 
   return {
-    fontSize: fontSizes.body4,
+    fontSize: fontSizes.xs,
     fontWeight: fontWeights.regular,
   }
 }

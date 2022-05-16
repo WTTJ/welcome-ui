@@ -9,7 +9,7 @@ export const Label = styled('label').withConfig({ shouldForwardProp })<{ require
     flex-shrink: 0;
     max-width: 100%;
     align-items: flex-start;
-    line-height: body1;
+    line-height: lg;
     ${th('labels')};
     ${system};
     user-select: none;
@@ -33,7 +33,7 @@ export const requiredStyles = css`
     /* It prevents the element to shift the layout and it allows us to put it properly on top with super */
     line-height: 0;
     vertical-align: super;
-    font-size: subtitle2;
+    font-size: 'subtitle-sm';
     font-weight: bold;
     color: primary.400;
   }

@@ -23,7 +23,7 @@ export const getAccordions = (theme: WuiTheme): ThemeAccordions => {
       color: colors.dark[900],
     },
     content: {
-      fontSize: fontSizes.body3,
+      fontSize: fontSizes.sm,
     },
     title: {
       color: colors.dark[900],

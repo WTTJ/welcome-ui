@@ -28,7 +28,7 @@ const activeItem = css`
 
 export const Item = styled.a(
   ({ isActive }) => css`
-    ${th('texts.subtitle1')};
+    ${th('texts.subtitle-md')};
     text-transform: uppercase;
     color: dark.500;
     transition: medium;
