@@ -1,9 +1,9 @@
 import {
+  CSSObject,
   CSSScalar,
   ITheme as StyledComponentDefaultTheme,
   DefaultTheme as XStyledDefaultTheme,
 } from '@xstyled/styled-components'
-import { CSSObject } from '@xstyled/system'
 
 import { ThemeAccordions } from './accordions'
 import { ThemeAlerts } from './alerts'

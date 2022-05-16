@@ -1,6 +1,5 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@xstyled/styled-components'
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker'
-import { system, th } from '@xstyled/system'
 import { IconWrapper } from '@welcome-ui/field'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledButton } from '@welcome-ui/button'

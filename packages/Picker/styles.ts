@@ -1,5 +1,4 @@
-import styled from '@xstyled/styled-components'
-import { system } from '@xstyled/system'
+import styled, { system } from '@xstyled/styled-components'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
 

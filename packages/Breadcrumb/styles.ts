@@ -1,5 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { hexToRGBA } from '@welcome-ui/utils'
 import { WuiTheme } from '@welcome-ui/core'

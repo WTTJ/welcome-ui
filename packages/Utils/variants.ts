@@ -1,4 +1,4 @@
-import { th } from '@xstyled/system'
+import { th } from '@xstyled/styled-components'
 
 export type Variant = 'error' | 'focused' | 'info' | 'success' | 'warning'
 

@@ -1,5 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
-import { system } from '@xstyled/system'
+import styled, { css, system } from '@xstyled/styled-components'
 import { WuiProps } from '@welcome-ui/system'
 
 export const Radios = styled.div<{

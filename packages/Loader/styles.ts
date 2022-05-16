@@ -1,5 +1,4 @@
-import styled, { css, keyframes } from '@xstyled/styled-components'
-import { system, th } from '@xstyled/system'
+import styled, { css, keyframes, system, th } from '@xstyled/styled-components'
 import { Shape } from '@welcome-ui/shape'
 import { shouldForwardProp } from '@welcome-ui/system'
 

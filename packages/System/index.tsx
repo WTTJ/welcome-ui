@@ -1,7 +1,14 @@
 import React from 'react'
-import { compose, Props, SystemProps } from '@xstyled/system'
-import { getPx, getTransition, getZIndex, style } from '@xstyled/styled-components'
-import * as S from '@xstyled/system'
+import {
+  compose,
+  getPx,
+  getTransition,
+  getZIndex,
+  Props,
+  style,
+  SystemProps,
+} from '@xstyled/styled-components'
+import * as S from '@xstyled/styled-components'
 import { StyledConfig } from 'styled-components'
 
 // Those are styles that were in v1 but not in v2
@@ -50,11 +57,11 @@ const WRAPPER_PROPS = Object.freeze([
 ])
 
 /**
- * @deprecated use system from @xstyled/system instead
+ * @deprecated use system from @xstyled/syled-components instead
  */
 export const system = compose<WuiSystemProps>(...SYSTEM_PROPS)
 /**
- * @deprecated use system from @xstyled/system instead
+ * @deprecated use system from @xstyled/syled-components instead
  */
 export const wrapperSystem = compose<WuiWrapperSystemProps>(...WRAPPER_PROPS)
 const componentProps = system.meta.props
@@ -66,7 +73,7 @@ const componentProps = system.meta.props
   })
   .filter(Boolean)
 /**
- * @deprecated use system from @xstyled/system instead
+ * @deprecated use system from @xstyled/syled-components instead
  */
 export const componentSystem = compose(...componentProps)
 

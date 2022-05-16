@@ -1,5 +1,4 @@
-import styled from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import styled, { th } from '@xstyled/styled-components'
 import { cardStyles } from '@welcome-ui/utils'
 import { Box } from '@welcome-ui/box'
 

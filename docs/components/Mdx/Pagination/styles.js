@@ -1,5 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import styled, { css, th } from '@xstyled/styled-components'
 
 export const Link = styled.a(
   ({ isNext }) => css`

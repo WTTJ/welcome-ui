@@ -1,5 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
-import { system, th } from '@xstyled/system'
+import styled, { css, system, th } from '@xstyled/styled-components'
 
 export const NavBar = styled.ul`
   display: inline-flex;

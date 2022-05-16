@@ -1,5 +1,5 @@
 import merge from 'ramda/src/mergeDeepRight'
-import { rpxTransformers } from '@xstyled/system'
+import { rpxTransformers } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
 import { colors } from './colors'

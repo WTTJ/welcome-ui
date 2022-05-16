@@ -1,5 +1,5 @@
 import { css } from '@xstyled/styled-components'
-import { CSSObject } from '@xstyled/system'
+import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
 
