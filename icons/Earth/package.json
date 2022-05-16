@@ -8,13 +8,13 @@
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^4.0.5"
+    "@welcome-ui/icon": "^4.1.0"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1"
   },
   "license": "MIT",
-  "version": "4.0.5",
+  "version": "4.1.0",
   "types": "dist/index.d.ts"
 }

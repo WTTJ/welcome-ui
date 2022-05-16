@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/WTTJ/welcome-ui/compare/v4.0.6...v4.1.0) (2022-05-16)
+
+
+### Features
+
+* allow to use xstyled states ([333c568](https://github.com/WTTJ/welcome-ui/commit/333c568708d96dfdb266c4575ef6c645217c3937))
+
+
+
+
+
 ## [4.0.5](https://github.com/WTTJ/welcome-ui/compare/v4.0.4...v4.0.5) (2022-04-27)
 
 **Note:** Version bump only for package @welcome-ui/core

@@ -3,12 +3,12 @@
   "sideEffects": false,
   "main": "dist/icons.watch_later.cjs.js",
   "module": "dist/icons.watch_later.es.js",
-  "version": "4.0.5",
+  "version": "4.1.0",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@welcome-ui/icon": "^4.0.5"
+    "@welcome-ui/icon": "^4.1.0"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1",
