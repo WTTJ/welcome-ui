@@ -78,7 +78,7 @@ const StyledCustomPopper = styled.div(
       &-name {
         text-transform: uppercase;
         font-weight: medium;
-        font-size: meta2;
+        font-size: xs;
         letter-spacing: 1px;
       }
       &--outside-month {

@@ -10,21 +10,19 @@ export type ThemeFontSizes = {
   h4: string
   h5: string
   h6: string
-  body1: string
-  body2: string
-  body3: string
-  body4: string
-  button: string
-  subtitle1: string
-  subtitle2: string
-  meta1: string
-  meta2: string
+  lg: string
+  md: string
+  sm: string
+  xs: string
+  'subtitle-md': string
+  'subtitle-sm': string
   [key: number]: string
 }
 
 export const getFontSizes = (unit: string, theme: WuiTheme): ThemeFontSizes => {
   const { toEm, toRem } = theme
   const convert = unit === 'em' ? toEm : toRem
+
   return {
     h0: convert(65),
     h1: convert(45),
@@ -33,66 +31,63 @@ export const getFontSizes = (unit: string, theme: WuiTheme): ThemeFontSizes => {
     h4: convert(20),
     h5: convert(16),
     h6: convert(14),
-    body1: convert(18),
-    body2: convert(16),
-    body3: convert(14),
-    body4: convert(12),
-    button: convert(12),
-    subtitle1: convert(13),
-    subtitle2: convert(11),
-    meta1: convert(14),
-    meta2: convert(12),
+    lg: convert(18),
+    md: convert(16),
+    sm: convert(14),
+    xs: convert(12),
+    'subtitle-md': convert(13),
+    'subtitle-sm': convert(11),
   }
 }
 
 export type ThemeLineHeights = {
-  html: number
-  h0: number
-  h1: number
-  h2: number
-  h3: number
-  h4: number
-  h5: number
-  h6: number
-  body1: number
-  body2: number
-  body3: number
-  body4: number
-  subtitle1: number
-  subtitle2: number
-  meta1: number
-  meta2: number
+  html: number | string
+  h0: number | string
+  h1: number | string
+  h2: number | string
+  h3: number | string
+  h4: number | string
+  h5: number | string
+  h6: number | string
+  lg: number | string
+  md: number | string
+  sm: number | string
+  xs: number | string
+  'subtitle-md': number | string
+  'subtitle-sm': number | string
+  [key: number]: number | string
 }
 
 export const getLineHeights = ({
   defaultLineHeight,
-  headingLineHeight,
+  toRem,
 }: {
   defaultLineHeight: number
-  headingLineHeight: number
-}): ThemeLineHeights => ({
-  html: defaultLineHeight,
-  h0: headingLineHeight,
-  h1: headingLineHeight,
-  h2: headingLineHeight,
-  h3: headingLineHeight,
-  h4: headingLineHeight,
-  h5: headingLineHeight,
-  h6: headingLineHeight,
-  body1: defaultLineHeight,
-  body2: defaultLineHeight,
-  body3: defaultLineHeight,
-  body4: defaultLineHeight,
-  subtitle1: headingLineHeight,
-  subtitle2: headingLineHeight,
-  meta1: defaultLineHeight,
-  meta2: defaultLineHeight,
-})
+  toRem: (value: number) => string
+}): ThemeLineHeights => {
+  return {
+    html: defaultLineHeight,
+    h0: toRem(72),
+    h1: toRem(48),
+    h2: toRem(40),
+    h3: toRem(32),
+    h4: toRem(24),
+    h5: toRem(18),
+    h6: toRem(16),
+    lg: toRem(24),
+    md: toRem(18),
+    sm: toRem(18),
+    xs: toRem(16),
+    'subtitle-md': defaultLineHeight,
+    'subtitle-sm': defaultLineHeight,
+  }
+}
 
 export type ThemeFontWeights = {
   regular: number
   medium: number
   bold: number
+  [key: string]: number
 }
 
 export const fontWeights: ThemeFontWeights = {
@@ -102,9 +97,6 @@ export const fontWeights: ThemeFontWeights = {
 }
 
 export type ThemeLetterSpacings = {
-  sm: string
-  md: string
-  lg: string
   html: string
   h0: string
   h1: string
@@ -113,43 +105,39 @@ export type ThemeLetterSpacings = {
   h4: string
   h5: string
   h6: string
-  body1: string
-  body2: string
-  body3: string
-  body4: string
-  subtitle1: string
-  subtitle2: string
-  meta1: string
-  meta2: string
+  lg: string
+  md: string
+  sm: string
+  xs: string
+  'subtitle-md': string
+  'subtitle-sm': string
+  [key: string]: string
 }
 
 export const getLetterSpacings = ({
   defaultLetterSpacing,
-  headingLetterSpacing,
+  toRem,
 }: {
   defaultLetterSpacing: string
-  headingLetterSpacing: string
-}): ThemeLetterSpacings => ({
-  sm: '0.5px',
-  md: '1px',
-  lg: '2px',
-  html: defaultLetterSpacing,
-  h0: headingLetterSpacing,
-  h1: headingLetterSpacing,
-  h2: headingLetterSpacing,
-  h3: headingLetterSpacing,
-  h4: headingLetterSpacing,
-  h5: headingLetterSpacing,
-  h6: headingLetterSpacing,
-  body1: defaultLetterSpacing,
-  body2: defaultLetterSpacing,
-  body3: defaultLetterSpacing,
-  body4: defaultLetterSpacing,
-  subtitle1: headingLetterSpacing,
-  subtitle2: headingLetterSpacing,
-  meta1: defaultLetterSpacing,
-  meta2: defaultLetterSpacing,
-})
+  toRem: (value: number) => string
+}): ThemeLetterSpacings => {
+  return {
+    html: defaultLetterSpacing,
+    h0: toRem(-1.7),
+    h1: toRem(-1.2),
+    h2: toRem(-1),
+    h3: toRem(-0.9),
+    h4: toRem(-0.6),
+    h5: toRem(-0.5),
+    h6: toRem(-0.5),
+    lg: defaultLetterSpacing,
+    md: defaultLetterSpacing,
+    sm: defaultLetterSpacing,
+    xs: toRem(-0.2),
+    'subtitle-md': toRem(-0.2),
+    'subtitle-sm': toRem(-0.2),
+  }
+}
 
 export type ThemeTextsFontWeights = {
   h0: number
@@ -159,15 +147,13 @@ export type ThemeTextsFontWeights = {
   h4: number
   h5: number
   h6: number
-  body1: number
-  body2: number
-  body3: number
-  body4: number
-  button: number
-  subtitle1: number
-  subtitle2: number
-  meta1: number
-  meta2: number
+  lg: number
+  md: number
+  sm: number
+  xs: number
+  'subtitle-md': number
+  'subtitle-sm': number
+  [key: string]: number
 }
 
 export const getTextsFontWeights = (theme: WuiTheme): ThemeTextsFontWeights => {
@@ -181,15 +167,12 @@ export const getTextsFontWeights = (theme: WuiTheme): ThemeTextsFontWeights => {
     h4: fontWeights.bold,
     h5: fontWeights.bold,
     h6: fontWeights.bold,
-    body1: fontWeights.regular,
-    body2: fontWeights.regular,
-    body3: fontWeights.regular,
-    body4: fontWeights.regular,
-    button: fontWeights.bold,
-    subtitle1: fontWeights.bold,
-    subtitle2: fontWeights.medium,
-    meta1: fontWeights.regular,
-    meta2: fontWeights.regular,
+    lg: fontWeights.regular,
+    md: fontWeights.regular,
+    sm: fontWeights.regular,
+    xs: fontWeights.regular,
+    'subtitle-md': fontWeights.bold,
+    'subtitle-sm': fontWeights.medium,
   }
 }
 
@@ -201,8 +184,9 @@ export type ThemeTextsFontFamily = {
   h4: string
   h5: string
   h6: string
-  subtitle1: string
-  subtitle2: string
+  'subtitle-md': string
+  'subtitle-sm': string
+  [key: string]: string
 }
 
 export const getTextsFontFamily = (theme: WuiTheme): ThemeTextsFontFamily => {
@@ -216,20 +200,21 @@ export const getTextsFontFamily = (theme: WuiTheme): ThemeTextsFontFamily => {
     h4: fonts.headings,
     h5: fonts.headings,
     h6: fonts.headings,
-    subtitle1: fonts.headings,
-    subtitle2: fonts.headings,
+    'subtitle-md': fonts.headings,
+    'subtitle-sm': fonts.headings,
   }
 }
 
 export type ThemeTextsTextTransform = {
-  subtitle1: string
-  subtitle2: string
+  'subtitle-md': string
+  'subtitle-sm': string
+  [key: string]: string
 }
 
 export const getTextsTextTransform = (): ThemeTextsTextTransform => {
   return {
-    subtitle1: 'uppercase',
-    subtitle2: 'uppercase',
+    'subtitle-md': 'uppercase',
+    'subtitle-sm': 'uppercase',
   }
 }
 
@@ -289,7 +274,7 @@ export const getTexts = (theme: WuiTheme): ThemeTexts => {
         fontFamily: textsFontFamily[key as keyof ThemeTextsFontFamily] || undefined,
         fontWeight: textsFontWeights[key as keyof ThemeTextsFontFamily],
         fontSize: fontSizes[key as keyof ThemeFontSizes],
-        lineHeight: lineHeights[key as keyof ThemeLineHeights] || lineHeights.body1,
+        lineHeight: lineHeights[key as keyof ThemeLineHeights] || lineHeights.lg,
         letterSpacing: letterSpacings[key as keyof ThemeLetterSpacings] || undefined,
         textTransform: textsTextTransform[key as keyof ThemeTextsTextTransform] || undefined,
       },

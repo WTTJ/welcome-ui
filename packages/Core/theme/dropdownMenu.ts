@@ -14,7 +14,7 @@ export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {
 
   return {
     inner: {
-      fontSize: fontSizes.body3,
+      fontSize: fontSizes.sm,
       minWidth: toRem(130),
     },
     item: {

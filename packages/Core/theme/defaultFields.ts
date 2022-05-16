@@ -39,7 +39,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
   return {
     default: {
       color: colors.dark[900],
-      fontSize: fontSizes.body3,
+      fontSize: fontSizes.sm,
       /* Can't use 16 because that's a valid line-height value (16em) */
       lineHeight: '1rem',
       fontWeight: fontWeights.regular,

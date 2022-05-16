@@ -73,7 +73,7 @@ function Expectation({ description, icon: Icon, title }) {
         <Text mb="md" mt="lg" textTransform="uppercase" variant="h6">
           {title}
         </Text>
-        <Text m="0" variant="body3">
+        <Text m="0" variant="sm">
           {description}
         </Text>
       </Card.Body>

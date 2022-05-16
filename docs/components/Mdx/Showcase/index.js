@@ -25,7 +25,7 @@ export function Showcase({
           {pageName || component}
         </H1>
         {description && (
-          <Text variant="body1">
+          <Text variant="lg">
             {description}
           </Text>
         )}

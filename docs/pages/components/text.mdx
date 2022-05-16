@@ -18,21 +18,19 @@ import {
 ## Typography
 
 ```jsx
-<Text variant="h0">Heading 0</Text>
-<Text variant="h1">Heading 1</Text>
-<Text variant="h2">Heading 2</Text>
-<Text variant="h3">Heading 3</Text>
-<Text variant="h4">Heading 4</Text>
-<Text variant="h5">Heading 5</Text>
-<Text variant="h6">Heading 6</Text>
-<Text variant="body1">Body 1</Text>
-<Text variant="body2">Body 2</Text>
-<Text variant="body3">Body 3</Text>
-<Text variant="body4">Body 4</Text>
-<Text variant="subtitle1">Subtitle 1</Text>
-<Text variant="subtitle2">Subtitle 2</Text>
-<Text variant="meta1">Meta 1</Text>
-<Text variant="meta2">Meta 2</Text>
+<Text variant="h0" m="0">Heading (h0)</Text>
+<Text variant="h1" m="0">Heading (h1)</Text>
+<Text variant="h2" m="0">Heading (h2)</Text>
+<Text variant="h3" m="0">Heading (h3)</Text>
+<Text variant="h4" m="0">Heading (h4)</Text>
+<Text variant="h5" m="0">Heading (h5)</Text>
+<Text variant="h6" m="0">Heading (h6)</Text>
+<Text variant="lg" m="0">Text (lg)</Text>
+<Text variant="md" m="0">Text (md)</Text>
+<Text variant="sm" m="0">Text (sm)</Text>
+<Text variant="xs" m="0">Text (xs)</Text>
+<Text variant="subtitle-md" m="0">Subtitle (md)</Text>
+<Text variant="subtitle-sm" m="0">Subtitle (sm)</Text>
 ```
 
 ## Bring your own tag
@@ -43,8 +41,8 @@ You can pass a tag name with `as` to use that tag type with the styling from ano
 <Text variant="h3" as="p" mt="0" mb="xl">
   p tag styled as an H3
 </Text>
-<Text variant="body3" as="h1">
-  H1 tag styled as a body3
+<Text variant="sm" as="h1">
+  H1 tag styled as a sm
 </Text>
 ```
 

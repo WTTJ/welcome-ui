@@ -40,10 +40,10 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
       '&:focus': focus(),
     },
     number: {
-      fontSize: fontSizes.body3,
+      fontSize: fontSizes.sm,
     },
     dots: {
-      fontSize: fontSizes.body3,
+      fontSize: fontSizes.sm,
     },
   }
 }
