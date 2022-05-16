@@ -1,11 +1,10 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
-import { shouldForwardProp, system } from '@welcome-ui/system'
+import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 import { Hint as HintWUI } from '@welcome-ui/hint'
 import { Label as WUILabel } from '@welcome-ui/label'
 import { Radio as ReakitRadio } from 'reakit/Radio'
-import { th } from '@xstyled/system'
 
 import { RadioProps } from './index'
 

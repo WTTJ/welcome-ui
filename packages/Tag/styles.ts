@@ -1,5 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
-import { system, th } from '@xstyled/system'
+import styled, { css, system, th } from '@xstyled/styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'

@@ -1,17 +1,15 @@
-import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
-import { componentSystem, shouldForwardProp, system } from '@welcome-ui/system'
+import styled, { css, system, th } from '@xstyled/styled-components'
+import { shouldForwardProp } from '@welcome-ui/system'
 import { getVariantColor } from '@welcome-ui/utils'
 
 export interface StyledFileDropProps {
-  connected?: boolean
   disabled?: boolean
   isDragAccept?: boolean
   isDragReject?: boolean
 }
 
 export const FileDrop = styled('div').withConfig({ shouldForwardProp })<StyledFileDropProps>(
-  ({ connected, disabled, isDragAccept, isDragReject }) => css`
+  ({ disabled, isDragAccept, isDragReject }) => css`
     ${th('defaultFields.default')};
     ${th('filedrops.default')};
     ${isDragAccept && th('filedrops.dragAccept')};
@@ -26,7 +24,7 @@ export const FileDrop = styled('div').withConfig({ shouldForwardProp })<StyledFi
     align-items: center;
     padding: md;
     transition: medium;
-    ${connected ? componentSystem : system};
+    ${system};
 
     &:focus {
       ${th('defaultFields.focused.default')};

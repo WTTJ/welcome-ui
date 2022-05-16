@@ -7,7 +7,7 @@
 Install the `@welcome-ui/core` component and **peer dependencies** listed below:
 
 ```bash
-yarn add @welcome-ui/core @xstyled/styled-components @xstyled/system react react-dom styled-components
+yarn add @welcome-ui/core @xstyled/styled-components react react-dom styled-components
 ```
 
 ### 2. Install UI components
@@ -109,21 +109,20 @@ In order to get your theme object typed with our theme, you have to override the
 ```
 // styled.d.ts
 import 'styled-components'
-import '@xstyled/system'
+import '@xstyled/styled-components'
 import { WuiTheme } from '@welcome-ui/core'
 
 interface AppTheme extends WuiTheme {
   // customize your theme
 }
 
-declare module '@xstyled/system' {
+declare module '@xstyled/styled-components' {
   export interface Theme extends AppTheme {}
 }
 
 declare module 'styled-components' {
   export interface DefaultTheme extends AppTheme {}
 }
-
 ```
 
 <pagination />

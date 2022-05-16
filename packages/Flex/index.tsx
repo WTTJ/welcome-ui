@@ -1,23 +1,22 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { SystemProps } from '@xstyled/system'
+import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
 
 export interface FlexOptions {
   /** same as alignItems */
-  align?: SystemProps['alignItems']
+  align?: WuiProps['alignItems']
   /** same as justifyContent */
-  justify?: SystemProps['justifyContent']
+  justify?: WuiProps['justifyContent']
   /** same as flexWrap */
-  wrap?: SystemProps['flexWrap']
+  wrap?: WuiProps['flexWrap']
   /** same as flexDirection */
-  direction?: SystemProps['flexDirection']
+  direction?: WuiProps['flexDirection']
   /** same as flexBasis */
-  basis?: SystemProps['flexBasis']
+  basis?: WuiProps['flexBasis']
   /** same as flexGrow */
-  grow?: SystemProps['flexGrow']
+  grow?: WuiProps['flexGrow']
   /** same as flexShrink */
-  shrink?: SystemProps['flexShrink']
+  shrink?: WuiProps['flexShrink']
 }
 
 export type FlexProps = CreateWuiProps<'div', FlexOptions>

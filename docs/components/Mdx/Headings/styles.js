@@ -1,5 +1,4 @@
-import styled from '@xstyled/styled-components'
-import { system } from '@xstyled/system'
+import styled, { system } from '@xstyled/styled-components'
 import { Text } from '@welcome-ui/text'
 
 export const Link = styled.a`

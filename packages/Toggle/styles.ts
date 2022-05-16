@@ -1,7 +1,6 @@
-import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import styled, { css, system, th } from '@xstyled/styled-components'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
-import { shouldForwardProp, system } from '@welcome-ui/system'
+import { shouldForwardProp } from '@welcome-ui/system'
 
 import { ToggleOptions } from './index'
 

@@ -1,6 +1,4 @@
-import styled from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
-import { system } from '@welcome-ui/system'
+import styled, { system, th } from '@xstyled/styled-components'
 
 export const Item = styled.button`
   ${th('dropdownMenu.item')};

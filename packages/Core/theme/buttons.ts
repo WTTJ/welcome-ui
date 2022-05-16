@@ -1,5 +1,5 @@
 import { hexToRGB } from '@welcome-ui/utils'
-import { CSSObject } from '@xstyled/system'
+import { CSSObject } from '@xstyled/styled-components'
 
 import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'

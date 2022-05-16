@@ -1,5 +1,4 @@
-import { createGlobalStyle, css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
+import { createGlobalStyle, css, th } from '@xstyled/styled-components'
 
 import { fonts } from './font'
 import { normalizeStyle, resetStyles } from './reset'

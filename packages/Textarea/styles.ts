@@ -1,6 +1,5 @@
-import styled, { css } from '@xstyled/styled-components'
-import { th } from '@xstyled/system'
-import { shouldForwardProp, system } from '@welcome-ui/system'
+import styled, { css, system, th } from '@xstyled/styled-components'
+import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { TextareaOptions } from './index'

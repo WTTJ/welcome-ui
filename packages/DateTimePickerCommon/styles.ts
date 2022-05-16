@@ -1,11 +1,10 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@xstyled/styled-components'
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker'
-import { th } from '@xstyled/system'
 import { IconWrapper } from '@welcome-ui/field'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledButton } from '@welcome-ui/button'
 import { StyledClearButton } from '@welcome-ui/clear-button'
-import { componentSystem, shouldForwardProp } from '@welcome-ui/system'
+import { shouldForwardProp } from '@welcome-ui/system'
 import { StyledSelect } from '@welcome-ui/select'
 import { defaultFieldStyles, DefaultFieldStylesProps } from '@welcome-ui/utils'
 
@@ -16,7 +15,7 @@ export const StyledDatePicker = styled(ReactDatePicker)<
 >(
   ({ size, variant }) => css`
     ${defaultFieldStyles({ size, variant })};
-    ${componentSystem};
+    ${system};
   `
 )
 
@@ -24,7 +23,7 @@ export const StyledTimePicker = styled(ReactDatePicker)<DefaultFieldStylesProps>
   ({ size, variant }) => css`
     ${defaultFieldStyles({ size, variant })};
     text-align: center;
-    ${componentSystem};
+    ${system};
   `
 )
 

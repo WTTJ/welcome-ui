@@ -1,6 +1,5 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css, system } from '@xstyled/styled-components'
 import { StyledDatePicker, StyledTimePicker } from '@welcome-ui/date-time-picker-common'
-import { wrapperSystem } from '@welcome-ui/system'
 
 const focusStyles = css`
   &:focus {
@@ -40,5 +39,5 @@ export const DateTimePicker = styled.div`
     font-family: inherit;
   }
 
-  ${wrapperSystem};
+  ${system};
 `
