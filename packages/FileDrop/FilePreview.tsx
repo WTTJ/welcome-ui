@@ -28,7 +28,7 @@ export const FilePreview: React.FC<MessageProps & WordingsType> = ({
         {name}
       </Text>
       {!isUrl && (
-        <Text color="nude.700" fontWeight="medium" lines={1} m={0} variant="body3">
+        <Text color="nude.700" fontWeight="medium" lines={1} m={0} variant="sm">
           {size}
         </Text>
       )}

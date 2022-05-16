@@ -24,7 +24,7 @@ export function Item({ componentName, icon: Icon, name }) {
     <S.Item copied={copied} onClick={handleCopy}>
       <S.Content>
         <Icon size="xl" />
-        <Text as="span" color="nude.700" lines={2} pt="md" px="sm" variant="meta1">
+        <Text as="span" color="nude.700" lines={2} pt="md" px="sm" variant="sm">
           {name}
         </Text>
       </S.Content>
