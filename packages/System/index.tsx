@@ -1,8 +1,21 @@
 import React from 'react'
-import { system, SystemProps } from '@xstyled/system'
+import { SystemProps, system as xstyledSystem } from '@xstyled/system'
 import { StyledConfig } from 'styled-components'
 
-export const filterSystemProps = (prop: string): boolean => !system.meta.props.includes(prop)
+// todo clean on v5
+export const system = () => {
+  console.warn(
+    'You must use "system" from @xstyled/system instead of @welcome-ui/system, it will be deprecated in welcome-ui v5'
+  )
+  return xstyledSystem
+}
+
+// todo clean on v5
+export const wrapperSystem = system
+// todo clean on v5
+export const componentSystem = system
+
+export const filterSystemProps = (prop: string): boolean => !xstyledSystem.meta.props.includes(prop)
 export const shouldForwardProp: StyledConfig['shouldForwardProp'] = (prop, defaultValidatorFn) =>
   defaultValidatorFn(prop)
 
