@@ -15,5 +15,6 @@
     "react": "^16.10.2 || ^17.0.1",
     "react-dom": "^16.10.2 || ^17.0.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9"
 }

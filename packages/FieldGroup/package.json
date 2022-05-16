@@ -47,7 +47,7 @@
     "react-dom": "^16.10.2 || ^17.0.1",
     "styled-components": "^5.3.3"
   },
-  "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
+  "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
   "sideEffects": false,
   "component": "FieldGroup"
 }
