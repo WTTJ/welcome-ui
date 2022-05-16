@@ -1,5 +1,5 @@
 import merge from 'ramda/src/mergeDeepRight'
-import { rpxTransformers } from '@xstyled/system'
+import { defaultTheme, rpxTransformers } from '@xstyled/system'
 
 import { WuiTheme } from './types'
 import { colors } from './colors'
@@ -163,6 +163,9 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.filedrops = getFiledrops(theme)
   theme.radios = getRadios(theme)
   theme.radioTabs = getRadioTabs(theme)
+
+  // states
+  theme.states = defaultTheme.states
 
   theme = merge(theme, rest) as WuiTheme
 
