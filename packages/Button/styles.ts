@@ -16,7 +16,7 @@ const shapeStyles = (size: ButtonOptions['size'], shape: ButtonOptions['shape'] 
 `
 
 export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<ButtonOptions>(
-  ({ disabled, shape, size = 'md', theme, variant }) => css`
+  ({ disabled, shape, size = 'md', variant }) => css`
     ${th(`buttons.${variant}`)};
     position: relative;
     display: inline-flex;
@@ -38,13 +38,13 @@ export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<But
     ${system};
 
     & > svg:only-child {
-      width: ${theme.iconsButton.iconOnly[size]};
-      height: ${theme.iconsButton.iconOnly[size]};
+      width: ${th(`buttons.icon.only.${size}`)};
+      height: ${th(`buttons.icon.only.${size}`)};
     }
 
     & > svg:not(:only-child) {
-      width: ${theme.iconsButton.default[size]};
-      height: ${theme.iconsButton.default[size]};
+      width: ${th(`buttons.icon.default.${size}`)};
+      height: ${th(`buttons.icon.default.${size}`)};
     }
 
     & > *:not(:only-child):not(:last-child) {

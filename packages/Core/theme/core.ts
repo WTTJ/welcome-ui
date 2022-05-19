@@ -27,7 +27,7 @@ import { shadows } from './shadows'
 import { getSpace } from './space'
 import { getSelection } from './selection'
 import { getFocus } from './focus'
-import { getButtons, getIconsButton } from './buttons'
+import { getButtons } from './buttons'
 import { getTags } from './tags'
 import { getTooltips } from './tooltips'
 import { getCheckboxes } from './checkboxes'
@@ -108,8 +108,6 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
 
   theme.icons = getIcons(theme)
 
-  theme.iconsButton = getIconsButton(theme)
-
   theme.radii = radii
 
   theme.transitions = transitions
@@ -128,6 +126,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.textsFontFamily = getTextsFontFamily(theme)
   theme.textsFontColors = getTextFontColors(theme)
   theme.textsTextTransform = getTextsTextTransform()
+  theme.texts = getTexts(theme)
   theme.alerts = getAlerts(theme)
   theme.avatars = getAvatars(theme)
   theme.buttons = getButtons(theme)
@@ -137,7 +136,6 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.paginations = getPaginations(theme)
   theme.tabs = getTabs(theme)
   theme.tags = getTags(theme)
-  theme.texts = getTexts(theme)
   theme.tooltips = getTooltips(theme)
   theme.links = getLinks(theme)
   theme.dropdownMenu = getDropdownMenu(theme)

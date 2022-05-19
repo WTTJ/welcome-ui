@@ -3,7 +3,6 @@ import { hexToRGBA } from '@welcome-ui/utils'
 
 import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
-import { ThemeIcons } from './icons'
 
 type CommonAttributesButton = CSSObject
 
@@ -25,38 +24,21 @@ type Variant =
 
 type Size = 'xs' | 'sm' | 'md' | 'lg'
 
-export type ThemeIconsButton = {
-  iconOnly: Omit<ThemeIcons, 'xl' | 'xxl'>
-  default: Omit<ThemeIcons, 'xl' | 'xxl'>
-}
-
-export const getIconsButton = ({ toRem }: WuiTheme): ThemeIconsButton => ({
-  iconOnly: {
-    xs: toRem(16),
-    sm: toRem(16),
-    md: toRem(16),
-    lg: toRem(24),
-  },
-  default: {
-    xs: toRem(12),
-    sm: toRem(16),
-    md: toRem(16),
-    lg: toRem(16),
-  },
-})
+type Icon = 'only' | 'default'
 
 export type ThemeButtons = Record<Variant, CommonAttributesButton> &
   Record<'hover', Record<Variant, CommonAttributesButton>> &
   Record<'focus', Record<Variant, unknown>> &
   Record<'active', Record<Variant, CommonAttributesButton>> &
   Record<'disabled', CommonAttributesButton & { '&:focus': ReturnType<ThemeFocus> }> &
-  Record<'sizes', Record<Size, SizeAttributesButton>>
+  Record<'sizes', Record<Size, SizeAttributesButton>> &
+  Record<'icon', Record<Icon, unknown>>
 
 export const getButtons = (theme: WuiTheme): ThemeButtons => {
-  const { colors, focus, fontSizes, fontWeights, radii, space, toRem } = theme
+  const { colors, focus, fontWeights, radii, space, texts, toRem } = theme
   const defaults = {
+    ...texts.xs,
     color: colors.light[900],
-    fontSize: fontSizes.xs,
     fontWeight: fontWeights.bold,
     letterSpacing: 0,
     borderRadius: radii.md,
@@ -242,24 +224,36 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       xs: {
         height: toRem(24),
         padding: `${space.xs} ${space.sm}`,
-        lineHeight: toRem(16),
       },
       sm: {
         height: toRem(32),
         padding: `${space.sm} ${space.md}`,
-        lineHeight: toRem(16),
       },
       md: {
+        ...texts.sm,
+        fontWeight: fontWeights.bold,
         height: toRem(40),
         padding: `${space.sm} ${space.lg}`,
-        fontSize: fontSizes.sm,
-        lineHeight: toRem(24),
       },
       lg: {
+        ...texts.sm,
+        fontWeight: fontWeights.bold,
         height: toRem(48),
         padding: `${space.md} ${space.xl}`,
-        fontSize: fontSizes.md,
-        lineHeight: toRem(24),
+      },
+    },
+    icon: {
+      only: {
+        xs: toRem(16),
+        sm: toRem(16),
+        md: toRem(16),
+        lg: toRem(24),
+      },
+      default: {
+        xs: toRem(12),
+        sm: toRem(16),
+        md: toRem(16),
+        lg: toRem(16),
       },
     },
   }
