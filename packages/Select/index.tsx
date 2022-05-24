@@ -334,8 +334,8 @@ export const Select = forwardRef<'input', SelectProps>(
                                   const isItemSelected = isValueSelected(option.value, selected)
                                   return (
                                     <S.Item
-                                      $disabled={option.disabled}
                                       allowUnselectFromList={allowUnselectFromList}
+                                      isDisabled={option.disabled}
                                       isHighlighted={highlightedIndex === index}
                                       isMultiple={isMultiple}
                                       key={option.value}
@@ -355,8 +355,8 @@ export const Select = forwardRef<'input', SelectProps>(
                           const isItemSelected = isValueSelected(result.value, selected)
                           acc.itemsToRender.push(
                             <S.Item
-                              $disabled={result.disabled}
                               allowUnselectFromList={allowUnselectFromList}
+                              isDisabled={result.disabled}
                               isHighlighted={highlightedIndex === resultIndex}
                               isMultiple={isMultiple}
                               key={result.value}
