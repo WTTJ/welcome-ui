@@ -122,7 +122,7 @@ export default function Home() {
             </Button>
           </NextLink>
           <NextLink href="https://www.welcometothejungle.com/en" passHref>
-            <Button as="a" mt={{ xs: 'md', md: 0 }} size="lg" target="_blank" variant="quaternary">
+            <Button as="a" mt={{ xs: 'md', md: 0 }} size="lg" target="_blank" variant="ghost">
               <span>Visit our website</span>
               <RightIcon size="lg" />
             </Button>
