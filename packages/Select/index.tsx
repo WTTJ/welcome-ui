@@ -34,7 +34,7 @@ export type Option = {
 export type OptionGroup = { label: string; options: Option[] }
 export type OptionItem = Option | OptionGroup
 export type Options = Array<Option | OptionGroup>
-export type SelectValue = string | number | string[] | Option | (string | Option)[]
+export type SelectValue = string | number | string[] | Option | (string | number | Option)[]
 
 export interface SelectOptions extends DefaultFieldStylesProps {
   /** We need to add `autoComplete` off to avoid select UI issues when is an input */

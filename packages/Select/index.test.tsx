@@ -13,7 +13,7 @@ const SelectWrapper: React.FC<SelectProps> = props => {
   const [value, setValue] = useState<SelectProps['value']>()
 
   const handleChange: SelectProps['onChange'] = newValue => {
-    setValue(newValue as SelectProps['value'])
+    setValue(newValue)
   }
 
   return <Select onChange={handleChange} value={value} {...props} />
