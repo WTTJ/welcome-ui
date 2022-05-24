@@ -197,7 +197,7 @@ test('<Select isMultiple> can select multiple items', () => {
   expect(tags.map(tag => tag.textContent)).toStrictEqual(['February', 'March', 'April'])
 })
 
-test('<Select isMultiple> cannot selet disabled items', () => {
+test('<Select isMultiple> cannot select disabled items', () => {
   const { getAllByRole, getByRole, getByTestId } = render(
     <Select
       dataTestId="select"
