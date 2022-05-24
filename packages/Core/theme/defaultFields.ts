@@ -28,6 +28,7 @@ export type ThemeDefaultFields = {
     highlighted: CSSObject
     selectedAndHighlighted: CSSObject
     selected: CSSObject
+    disabled: CSSObject
   }
   fieldset: CSSObject
 }
@@ -113,6 +114,10 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       selected: {
         color: colors.dark[200],
         fontWeight: fontWeights.bold,
+      },
+      disabled: {
+        color: colors.nude[500],
+        cursor: 'not-allowed',
       },
     },
     fieldset: {

@@ -25,7 +25,12 @@ import { multipleSelections } from './multipleSelections'
 import * as S from './styles'
 
 export type OptionValue = string | number
-export type Option = { label: string; value: OptionValue; icon?: React.ReactElement }
+export type Option = {
+  label: string
+  value: OptionValue
+  icon?: React.ReactElement
+  disabled?: boolean
+}
 export type OptionGroup = { label: string; options: Option[] }
 export type OptionItem = Option | OptionGroup
 export type Options = Array<Option | OptionGroup>
@@ -173,7 +178,7 @@ export const Select = forwardRef<'input', SelectProps>(
       let newItems
       let isClearInput
 
-      if (!option) {
+      if (!option || option?.disabled) {
         // If removing option
         newItems = isMultiple ? selected : []
         isClearInput = true
@@ -329,6 +334,7 @@ export const Select = forwardRef<'input', SelectProps>(
                                   const isItemSelected = isValueSelected(option.value, selected)
                                   return (
                                     <S.Item
+                                      $disabled={option.disabled}
                                       allowUnselectFromList={allowUnselectFromList}
                                       isHighlighted={highlightedIndex === index}
                                       isMultiple={isMultiple}
@@ -349,6 +355,7 @@ export const Select = forwardRef<'input', SelectProps>(
                           const isItemSelected = isValueSelected(result.value, selected)
                           acc.itemsToRender.push(
                             <S.Item
+                              $disabled={result.disabled}
                               allowUnselectFromList={allowUnselectFromList}
                               isHighlighted={highlightedIndex === resultIndex}
                               isMultiple={isMultiple}

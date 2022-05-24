@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import capitalize from 'lodash.capitalize'
@@ -7,7 +7,17 @@ import { DateIcon } from '@welcome-ui/icons.date'
 
 import { render } from '../../utils/tests'
 
-import { Option, Select } from './index'
+import { Option, Select, SelectProps } from './index'
+
+const SelectWrapper: React.FC<SelectProps> = props => {
+  const [value, setValue] = useState<SelectProps['value']>()
+
+  const handleChange: SelectProps['onChange'] = newValue => {
+    setValue(newValue as SelectProps['value'])
+  }
+
+  return <Select onChange={handleChange} value={value} {...props} />
+}
 
 const MONTHS = [
   'january',
@@ -22,7 +32,7 @@ const MONTHS = [
   'october',
   'november',
   'december',
-].map(month => ({ label: capitalize(month), value: month }))
+].map(month => ({ label: capitalize(month), value: month, disabled: month === 'january' }))
 
 const MONTHS_WITH_INTEGER_VALUES = MONTHS.map((item, index) => ({
   label: item.label,
@@ -33,7 +43,7 @@ const SOCIAL_OPT_GROUP = [
   {
     label: 'Professional networks',
     options: [
-      { value: 'behance', label: 'Behance' },
+      { value: 'behance', label: 'Behance', disabled: true },
       { value: 'dribbble', label: 'Dribbble' },
       { value: 'github', label: 'Github' },
     ],
@@ -127,9 +137,23 @@ test('<Select> calls onChange with correct (object) values', () => {
   expect(handleChange).toHaveBeenCalledWith(
     'february',
     expect.objectContaining({
-      target: { name: 'select', value: { label: 'February', value: 'february' } },
+      target: { name: 'select', value: { label: 'February', value: 'february', disabled: false } },
     }) // Ignore preventDefault
   )
+})
+
+test('<Select> calls onChange on disabled option', () => {
+  const { getByRole, getByTestId } = render(
+    <SelectWrapper dataTestId="select" name="select" options={MONTHS} />
+  )
+
+  const select = getByTestId('select')
+  fireEvent.click(select)
+
+  const options = getByRole('listbox').querySelectorAll('li')
+  fireEvent.click(options[0])
+
+  expect(select).toHaveTextContent('')
 })
 
 test('<Select isClearable> can remove option', () => {
@@ -171,6 +195,32 @@ test('<Select isMultiple> can select multiple items', () => {
   expect(tags.length).toBe(3)
   expect(select).toHaveTextContent('')
   expect(tags.map(tag => tag.textContent)).toStrictEqual(['February', 'March', 'April'])
+})
+
+test('<Select isMultiple> cannot selet disabled items', () => {
+  const { getAllByRole, getByRole, getByTestId } = render(
+    <Select
+      dataTestId="select"
+      isMultiple
+      name="select"
+      options={MONTHS}
+      value={['february', 'march']}
+    />
+  )
+
+  const select = getByTestId('select')
+  let tags = getAllByRole('listitem')
+  expect(tags.length).toBe(2)
+
+  fireEvent.click(select)
+
+  // Click 1st result (January)
+  const options = getByRole('listbox').querySelectorAll('li')
+  fireEvent.click(options[0])
+
+  tags = getAllByRole('listitem')
+  expect(tags.length).toBe(2)
+  expect(tags.map(tag => tag.textContent)).toStrictEqual(['February', 'March'])
 })
 
 test('<Select> can accept value, label or object as value', () => {
@@ -398,8 +448,8 @@ test('<Select isCreatable isMultiple> can create new items', () => {
       target: {
         name: 'select',
         value: [
-          { label: 'February', value: 'february' },
-          { label: 'March', value: 'march' },
+          { disabled: false, label: 'February', value: 'february' },
+          { disabled: false, label: 'March', value: 'march' },
           { label: 'Kayab', value: 'kayab' },
         ],
       },
@@ -468,4 +518,63 @@ test('<Select groupsEnabled> shows groups header', () => {
       String(SOCIAL_OPT_GROUP[i].options.length)
     )
   })
+})
+
+test('<Select groupsEnabled> onChange with correct (object) values', () => {
+  const handleChange = jest.fn()
+
+  const { getByRole, getByTestId } = render(
+    <Select
+      dataTestId="select"
+      groupsEnabled
+      name="select"
+      onChange={handleChange}
+      options={SOCIAL_OPT_GROUP}
+      renderGroupHeader={({ label, options }) => (
+        <div data-testid="group-header">
+          <h4>{label}</h4>
+          <span>{options.length}</span>
+        </div>
+      )}
+    />
+  )
+
+  const select = getByTestId('select')
+  fireEvent.click(select)
+
+  const options = getByRole('listbox').querySelectorAll('li')
+  fireEvent.click(options[1])
+
+  expect(handleChange).toHaveBeenCalledTimes(1)
+  expect(handleChange).toHaveBeenCalledWith(
+    'Dribbble',
+    expect.objectContaining({
+      target: { name: 'select', value: { value: 'dribbble', label: 'Dribbble' } },
+    }) // Ignore preventDefault
+  )
+})
+
+test('<Select groupsEnabled> onChange on disabled option', () => {
+  const { getByRole, getByTestId } = render(
+    <SelectWrapper
+      dataTestId="select"
+      groupsEnabled
+      name="select"
+      options={SOCIAL_OPT_GROUP}
+      renderGroupHeader={({ label, options }) => (
+        <div data-testid="group-header">
+          <h4>{label}</h4>
+          <span>{options.length}</span>
+        </div>
+      )}
+    />
+  )
+
+  const select = getByTestId('select')
+  fireEvent.click(select)
+
+  const options = getByRole('listbox').querySelectorAll('li')
+
+  fireEvent.click(options[0])
+  expect(select).toHaveTextContent('')
 })
