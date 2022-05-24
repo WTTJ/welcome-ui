@@ -25,7 +25,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
       shape="circle"
       size="xs"
       title={title}
-      variant="quaternary"
+      variant="ghost"
     >
       {isHidden ? <EyeIcon /> : <HideIcon />}
     </Button>

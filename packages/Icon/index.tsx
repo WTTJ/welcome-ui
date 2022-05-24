@@ -12,7 +12,7 @@ type IconContent = {
   viewBox?: string
 }
 
-type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | string
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | number | string
 
 export interface IconOptions {
   content?: IconContent
