@@ -36,6 +36,16 @@ export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<But
     ${shape && shapeStyles(size, shape)};
     ${system};
 
+    & > svg:only-child {
+      width: ${th(`buttons.icon.only.${size}`)};
+      height: ${th(`buttons.icon.only.${size}`)};
+    }
+
+    & > svg:not(:only-child) {
+      width: ${th(`buttons.icon.default.${size}`)};
+      height: ${th(`buttons.icon.default.${size}`)};
+    }
+
     & > *:not(:only-child):not(:last-child) {
       margin-right: sm;
     }

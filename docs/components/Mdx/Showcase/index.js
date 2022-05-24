@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
@@ -24,11 +23,7 @@ export function Showcase({
         <H1 mb="0" pb="sm" pt="0">
           {pageName || component}
         </H1>
-        {description && (
-          <Text variant="lg">
-            {description}
-          </Text>
-        )}
+        {description && <Text variant="body1">{description}</Text>}
         <Box mt="4xl">
           <Item content={version} name="version" />
           <Item content={`yarn add ${name}`} name="install" />
@@ -46,7 +41,7 @@ export function Showcase({
             rel="noopener noreferrer"
             size="sm"
             target="_blank"
-            variant="quaternary"
+            variant="ghost"
           >
             <NpmIcon size="lg" />
             <span>View package</span>
@@ -58,7 +53,7 @@ export function Showcase({
             size="sm"
             target="_blank"
             alt="github"
-            variant="quaternary"
+            variant="ghost"
           >
             <GithubIcon size="lg" />
             <span>View source</span>

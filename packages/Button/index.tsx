@@ -4,7 +4,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import * as S from './styles'
 
 export type Shape = 'circle' | 'square'
-export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+export type Size = 'xs' | 'sm' | 'md' | 'lg'
 export type Variant =
   | 'primary'
   | 'secondary'
@@ -13,8 +13,7 @@ export type Variant =
   | 'secondary-info'
   | 'primary-success'
   | 'secondary-success'
-  | 'tertiary-negative'
-  | 'quaternary'
+  | 'ghost'
   | 'primary-warning'
   | 'secondary-warning'
   | 'primary-danger'
