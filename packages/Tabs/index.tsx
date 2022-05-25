@@ -1,19 +1,20 @@
-import React from 'react'
-import { Tab as ReakitTab, TabOptions as ReakitTabOptions } from 'reakit/Tab'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import React, { forwardRef } from 'react'
+import { Tab as ReakitTab, TabProps as ReakitTabProps } from 'reakit/Tab'
+import { As } from '@welcome-ui/system'
 
 import { TabList } from './TabList'
 import { TabPanel } from './TabPanel'
 import * as S from './styles'
 
-export type TabOptions = ReakitTabOptions
-export type TabProps = CreateWuiProps<'button', TabOptions>
+export type TabOptions = { as?: As }
+export type TabProps = ReakitTabProps & TabOptions
 
 /**
  * @name Tabs
  */
-export const TabComponent = forwardRef<'button', TabProps>((props, ref) => {
+export const TabComponent = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
   const { as, children, id, ...rest } = props
+
   return (
     <ReakitTab id={id} ref={ref} {...rest}>
       {tabProps => (

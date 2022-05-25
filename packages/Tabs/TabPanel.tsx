@@ -1,15 +1,15 @@
 import React, { forwardRef } from 'react'
 import {
-  TabPanelOptions as ReakitTabOptions,
   TabPanel as ReakitTabPanel,
+  TabPanelProps as ReakitTabPanelProps,
   TabStateReturn,
 } from 'reakit/Tab'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { As } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type TabPanelOptions = Pick<TabStateReturn, 'orientation'> & ReakitTabOptions
-export type TabPanelProps = CreateWuiProps<typeof ReakitTabPanel, TabPanelOptions>
+export type TabPanelOptions = Pick<TabStateReturn, 'orientation'> & { as?: As }
+export type TabPanelProps = ReakitTabPanelProps & TabPanelOptions
 
 /**
  * @name Tabs.TabPanel
