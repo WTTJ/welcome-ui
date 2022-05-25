@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.2](https://github.com/WTTJ/welcome-ui/compare/v4.1.1...v4.1.2) (2022-05-25)
+
+
+### Bug Fixes
+
+* add styled system to UniversalLink ([#1323](https://github.com/WTTJ/welcome-ui/issues/1323)) ([2af82f6](https://github.com/WTTJ/welcome-ui/commit/2af82f66d5f51332d874f5dd0d5dfed1641c1211))
+
+
+
+
+
 ## [4.1.1](https://github.com/WTTJ/welcome-ui/compare/v4.1.0...v4.1.1) (2022-05-16)
 
 **Note:** Version bump only for package @welcome-ui/universal-link
