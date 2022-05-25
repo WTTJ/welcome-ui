@@ -7,7 +7,7 @@ updates:
   schedule:
     interval: daily
     time: "07:45"
-  open-pull-requests-limit: 5
+  open-pull-requests-limit: 3
   allow:
       - dependency-type: "direct"
   ignore:
