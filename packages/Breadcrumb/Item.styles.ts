@@ -1,26 +1,25 @@
 import styled, { css, th } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
 import { shouldForwardProp } from '@welcome-ui/system'
 
 interface ItemProps {
-  withSeparator: boolean
+  isActive: boolean
 }
 
-export const Item = styled(Box).withConfig({ shouldForwardProp })<ItemProps>(
-  ({ withSeparator }) => css`
+export const Item = styled.aBox.withConfig({ shouldForwardProp })<ItemProps>(
+  ({ isActive }) => css`
     ${th('breadcrumbs.item.default')};
     align-items: center;
     transition: medium;
     direction: initial;
 
-    ${withSeparator &&
+    ${!isActive &&
     css`
       &:hover {
         ${th('breadcrumbs.item.hover')};
       }
     `};
 
-    ${!withSeparator &&
+    ${isActive &&
     css`
       ${th('breadcrumbs.item.active')};
     `}

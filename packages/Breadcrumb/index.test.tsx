@@ -29,8 +29,8 @@ describe('<Breadcrumb>', () => {
   it('should render correctly', () => {
     const { container } = render(
       <Breadcrumb>
-        <Breadcrumb.Item>welcome</Breadcrumb.Item>
-        <Breadcrumb.Item>jungle</Breadcrumb.Item>
+        <Breadcrumb.Item href="/">welcome</Breadcrumb.Item>
+        <Breadcrumb.Item href="/jungle">jungle</Breadcrumb.Item>
       </Breadcrumb>
     )
 
