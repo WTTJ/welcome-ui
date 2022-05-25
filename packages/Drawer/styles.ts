@@ -3,7 +3,7 @@ import { Box } from '@welcome-ui/box'
 import { cardStyles } from '@welcome-ui/utils'
 import { DialogBackdrop } from 'reakit/Dialog'
 
-import { DrawerProps, Placement, Size } from '.'
+import { DrawerOptions, Placement, Size } from '.'
 
 type DrawerWrapperProps = {
   hideOnClickOutside: boolean
@@ -94,7 +94,7 @@ const getSizeStyle = (size: Size, placement: Placement) => {
   }
 }
 
-export const Drawer = styled(Box)<DrawerProps>(
+export const Drawer = styled(Box)<DrawerOptions>(
   ({ placement, size }) => css`
     ${cardStyles};
     ${th('drawers.default')};

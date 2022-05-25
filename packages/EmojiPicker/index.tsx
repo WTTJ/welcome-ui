@@ -48,7 +48,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
 
     const hidePopover = useMemo(() => popoverState.hide, [popoverState.hide])
     const handleChange = useCallback(
-      value => {
+      (value: string) => {
         hidePopover()
         onChange?.(value)
       },

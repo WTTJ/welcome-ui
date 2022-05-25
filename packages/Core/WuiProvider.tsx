@@ -6,6 +6,7 @@ import { WuiTheme } from './theme/types'
 import { GlobalStyle } from './utils/base'
 
 export interface WuiProviderProps {
+  children?: React.ReactNode
   hasGlobalStyle?: boolean
   reactRootId?: string
   shouldHideFocusRingOnClick?: boolean

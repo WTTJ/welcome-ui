@@ -162,7 +162,7 @@ export const Tooltip = forwardRef<'div', TooltipProps>((props, ref): React.React
 
   return (
     <>
-      <TooltipReference {...tooltip}>
+      <TooltipReference as={undefined} {...tooltip}>
         {referenceProps => cloneElement(child, referenceProps)}
       </TooltipReference>
       <S.Tooltip ref={ref} style={visibilityStyles} {...tooltip} {...rest}>

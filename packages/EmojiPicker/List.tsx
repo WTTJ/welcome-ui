@@ -58,8 +58,8 @@ export const List: React.FC<ListProps> = ({
     }
   }, [isVisible])
 
-  const [query, setQuery] = useState()
-  const handleChangeQuery = useCallback(e => {
+  const [query, setQuery] = useState<string>()
+  const handleChangeQuery = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value.trim()
     setQuery(query)
     const currentIndex = query ? 0 : -1

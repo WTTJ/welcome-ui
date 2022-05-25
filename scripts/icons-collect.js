@@ -96,8 +96,8 @@ const writeIconPackageJson = (outputFolder, key) => {
       '@welcome-ui/icon': `^${version}`,
     },
     peerDependencies: {
-      react: '^16.10.2 || ^17.0.1',
-      'react-dom': '^16.10.2 || ^17.0.1',
+      react: '^16.10.2 || ^17.0.1 || ^18.0.0',
+      'react-dom': '^16.10.2 || ^17.0.1 || ^18.0.0',
     },
     license: 'MIT',
   }

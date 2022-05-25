@@ -16,7 +16,7 @@ export interface LinkOptions {
 
 export type LinkProps = CreateWuiProps<'a', LinkOptions & UniversalLinkOptions>
 
-const WrapWithText: React.FC = ({ children, ...rest }) => (
+const WrapWithText: React.FC<{ children?: React.ReactNode }> = ({ children, ...rest }) => (
   <span className="wui-text" {...rest}>
     {children}
   </span>

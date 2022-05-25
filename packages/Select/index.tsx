@@ -326,6 +326,8 @@ export const Select = forwardRef<'input', SelectProps>(
                       ) => {
                         if (groupsEnabled && 'options' in result) {
                           acc.itemsToRender.push(
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
                             <Fragment key={result.label}>
                               {renderGroupHeader(result)}
                               {result.options &&

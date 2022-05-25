@@ -39,7 +39,7 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
     const firstPageRef = useRef<HTMLButtonElement>(null)
     const lastPageRef = useRef<HTMLButtonElement>(null)
     const handlePrevious = useCallback(
-      event => {
+      (event: React.MouseEvent) => {
         event.preventDefault()
         const previousPage = page - 1
         if (previousPage === 1) {
@@ -50,7 +50,7 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
       [page, onChange]
     )
     const handleNext = useCallback(
-      event => {
+      (event: React.MouseEvent) => {
         event.preventDefault()
         const nextPage = page + 1
         if (nextPage === pageCount) {
@@ -65,7 +65,7 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
       <S.Pagination aria-label={ariaLabel} ref={ref} role="navigation">
         <S.List>
           <S.Item hidden={page === 1}>
-            <Rover disabled={page === 1} {...rover}>
+            <Rover as={undefined} disabled={page === 1} {...rover}>
               {roverProps => (
                 <S.AbstractLink
                   {...roverProps}
@@ -86,6 +86,7 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
             ) : (
               <S.Item key={iPage}>
                 <Rover
+                  as={undefined}
                   ref={iPage === 1 ? firstPageRef : iPage === pageCount ? lastPageRef : null}
                   {...rover}
                 >
@@ -107,7 +108,7 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
             )
           )}
           <S.Item hidden={page === pageCount}>
-            <Rover disabled={page === pageCount} {...rover}>
+            <Rover as={undefined} disabled={page === pageCount} {...rover}>
               {roverProps => (
                 <S.AbstractLink
                   {...roverProps}

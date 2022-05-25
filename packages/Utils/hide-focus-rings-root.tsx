@@ -15,6 +15,7 @@ const HideFocusRingGlobalStyles = createGlobalStyle(
 )
 
 interface HideFocusRingsRootProps {
+  children?: React.ReactNode
   reactRootId: string
 }
 
