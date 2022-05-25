@@ -20,7 +20,8 @@ export interface CustomInputOptions {
   value?: string | null
 }
 
-export type CustomInputProps = CustomInputOptions
+export type CustomInputProps = Omit<React.ComponentProps<'input'>, keyof CustomInputOptions> &
+  CustomInputOptions
 
 export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
   (

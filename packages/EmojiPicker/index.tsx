@@ -122,7 +122,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
           <>
             <S.TabList aria-label={tabListAriaLabel} {...tabState}>
               {tabs.map(tab => (
-                <Tab id={tab.name} key={tab.name} type="button" {...tabState}>
+                <Tab id={tab.name} key={tab.name} {...tabState}>
                   {tab.name}
                 </Tab>
               ))}
