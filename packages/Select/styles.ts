@@ -83,6 +83,7 @@ export const Menu = styled.ul`
 export const Item = styled.li(
   ({
     allowUnselectFromList,
+    isDisabled,
     isHighlighted,
     isMultiple,
     isSelected,
@@ -91,11 +92,13 @@ export const Item = styled.li(
     isHighlighted: boolean
     isMultiple: boolean
     isSelected: boolean
+    isDisabled?: boolean
   }) => css`
     color: nude.800;
     ${isHighlighted && th('defaultFields.select.highlighted')};
     ${isSelected && !isMultiple && th('defaultFields.select.selected')};
     ${isSelected && isMultiple && !allowUnselectFromList && th('defaultFields.select.existing')};
+    ${isDisabled && th('defaultFields.select.disabled')};
     ${overflowEllipsis};
     padding: sm;
     list-style: none;

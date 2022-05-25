@@ -25,11 +25,16 @@ import { multipleSelections } from './multipleSelections'
 import * as S from './styles'
 
 export type OptionValue = string | number
-export type Option = { label: string; value: OptionValue; icon?: React.ReactElement }
+export type Option = {
+  label: string
+  value: OptionValue
+  icon?: React.ReactElement
+  disabled?: boolean
+}
 export type OptionGroup = { label: string; options: Option[] }
 export type OptionItem = Option | OptionGroup
 export type Options = Array<Option | OptionGroup>
-export type SelectValue = string | number | string[] | Option | (string | Option)[]
+export type SelectValue = string | number | string[] | Option | (string | number | Option)[]
 
 export interface SelectOptions extends DefaultFieldStylesProps {
   /** We need to add `autoComplete` off to avoid select UI issues when is an input */
@@ -173,7 +178,7 @@ export const Select = forwardRef<'input', SelectProps>(
       let newItems
       let isClearInput
 
-      if (!option) {
+      if (!option || option?.disabled) {
         // If removing option
         newItems = isMultiple ? selected : []
         isClearInput = true
@@ -330,6 +335,7 @@ export const Select = forwardRef<'input', SelectProps>(
                                   return (
                                     <S.Item
                                       allowUnselectFromList={allowUnselectFromList}
+                                      isDisabled={option.disabled}
                                       isHighlighted={highlightedIndex === index}
                                       isMultiple={isMultiple}
                                       key={option.value}
@@ -350,6 +356,7 @@ export const Select = forwardRef<'input', SelectProps>(
                           acc.itemsToRender.push(
                             <S.Item
                               allowUnselectFromList={allowUnselectFromList}
+                              isDisabled={result.disabled}
                               isHighlighted={highlightedIndex === resultIndex}
                               isMultiple={isMultiple}
                               key={result.value}
