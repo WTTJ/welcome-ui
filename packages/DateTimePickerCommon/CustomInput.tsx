@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 import * as S from './styles'
@@ -21,9 +20,10 @@ export interface CustomInputOptions {
   value?: string | null
 }
 
-export type CustomInputProps = CreateWuiProps<'input', CustomInputOptions>
+export type CustomInputProps = Omit<React.ComponentProps<'input'>, keyof CustomInputOptions> &
+  CustomInputOptions
 
-export const CustomInput = forwardRef<'input', CustomInputProps>(
+export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
   (
     { focused, handleBlur, handleFocus, icon, iconPlacement, onReset, size, value, ...rest },
     ref
