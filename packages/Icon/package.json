@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/icon",
-  "version": "4.1.2",
+  "version": "4.2.0",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/icon.cjs.js",
   "module": "dist/icon.es.js",
@@ -38,7 +38,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^4.1.2"
+    "@welcome-ui/system": "^4.2.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.6.0",

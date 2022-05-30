@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/WTTJ/welcome-ui/compare/v4.1.2...v4.2.0) (2022-05-30)
+
+
+### Bug Fixes
+
+* omit html attributes overrided by xstyled on declaration ([eb37b16](https://github.com/WTTJ/welcome-ui/commit/eb37b163cd6f858e4fb61c3d476e18f844688daa))
+* reakit components have bad types ([7e1e081](https://github.com/WTTJ/welcome-ui/commit/7e1e0817e47909301d244f14d1684d8816fde9c3))
+* remove react-dom in peerDependecies ([36fdb35](https://github.com/WTTJ/welcome-ui/commit/36fdb356016a6d71dce4d0254da2562ec6c9d973))
+* typescript errors ([3a20bc9](https://github.com/WTTJ/welcome-ui/commit/3a20bc983b27757d54bc1d7c35c0fd465a483a65))
+
+
+### Features
+
+* handle disabled options in select v.4 ([#1317](https://github.com/WTTJ/welcome-ui/issues/1317)) ([56ebc97](https://github.com/WTTJ/welcome-ui/commit/56ebc973c220a1cf586d1272d19a1480648bf161))
+* react v18 ([4719389](https://github.com/WTTJ/welcome-ui/commit/4719389b2e02179479079f120afaf15099c36aa7))
+
+
+
+
+
 ## [4.1.2](https://github.com/WTTJ/welcome-ui/compare/v4.1.1...v4.1.2) (2022-05-25)
 
 
