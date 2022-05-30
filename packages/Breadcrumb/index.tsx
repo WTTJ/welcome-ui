@@ -45,9 +45,11 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
     const endGradient = useRef()
     const [isOverflowing, setIsOverflowing] = useState(false)
     const [initialOffset, setInitialOffset] = useState(0)
-    const childrenLength = Children.toArray(children).length
+    /** removed null child */
+    const childrenFiltered = Children.toArray(children).filter(Boolean)
+    const childrenLength = childrenFiltered.length
 
-    const clones = Children.map(children, (child: React.ReactElement, index) => {
+    const clones = childrenFiltered.map((child: React.ReactElement, index) => {
       const isLastChild = childrenLength === 1 || childrenLength === index + 1
       const isActive = isLastChild && lastChildNotClickable
 
