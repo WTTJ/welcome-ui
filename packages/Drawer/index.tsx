@@ -34,7 +34,7 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
       // Needed to allow to style the backdrop
       // see: https://reakit.io/docs/styling/#css-in-js
       <Dialog as={as} ref={ref} {...rest}>
-        {(props: DrawerProps) => (
+        {props => (
           <S.Drawer {...props} placement={placement} size={size}>
             {children}
           </S.Drawer>

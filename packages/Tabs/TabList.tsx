@@ -39,7 +39,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>((props, ref) => 
   const [tabs, activeTab] = useTrackActiveTabs({ selectedId: rest.selectedId }, children)
 
   return (
-    <ReakitTabList orientation={orientation} ref={listForkedRef} {...rest}>
+    <ReakitTabList as={undefined} orientation={orientation} ref={listForkedRef} {...rest}>
       {tabListProps => (
         <S.TabList as={as} {...tabListProps}>
           {tabs}

@@ -6,7 +6,7 @@ import { TabList } from './TabList'
 import { TabPanel } from './TabPanel'
 import * as S from './styles'
 
-export type TabOptions = { as?: As }
+export type TabOptions = { as?: As; children?: React.ReactNode }
 export type TabProps = ReakitTabProps & TabOptions
 
 /**
@@ -16,7 +16,7 @@ export const TabComponent = forwardRef<HTMLButtonElement, TabProps>((props, ref)
   const { as, children, id, ...rest } = props
 
   return (
-    <ReakitTab id={id} ref={ref} {...rest}>
+    <ReakitTab as={undefined} id={id} ref={ref} {...rest}>
       {tabProps => (
         <S.Tab as={as} {...tabProps}>
           {children}

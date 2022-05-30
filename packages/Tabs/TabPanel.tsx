@@ -17,7 +17,7 @@ export type TabPanelProps = ReakitTabPanelProps & TabPanelOptions
 export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>((props, ref) => {
   const { as, children, orientation, tabId, ...rest } = props
   return (
-    <ReakitTabPanel ref={ref} tabId={tabId} {...rest}>
+    <ReakitTabPanel as={undefined} ref={ref} tabId={tabId} {...rest}>
       {tabPanelProps => (
         <S.TabPanel as={as} orientation={orientation} {...tabPanelProps}>
           {children}
