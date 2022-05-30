@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/tabs",
-  "version": "4.2.0",
+  "version": "4.2.3",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/tabs.cjs.js",
   "module": "dist/tabs.es.js",

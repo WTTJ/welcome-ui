@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/emoji-picker",
-  "version": "4.2.0",
+  "version": "4.2.3",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/emoji-picker.cjs.js",
   "module": "dist/emoji-picker.es.js",
@@ -44,7 +44,7 @@
     "@welcome-ui/popover": "^4.2.0",
     "@welcome-ui/stack": "^4.2.0",
     "@welcome-ui/system": "^4.2.0",
-    "@welcome-ui/tabs": "^4.2.0",
+    "@welcome-ui/tabs": "^4.2.3",
     "@welcome-ui/text": "^4.2.0",
     "@welcome-ui/utils": "^4.2.0",
     "@welcome-ui/variant-icon": "^4.2.0",

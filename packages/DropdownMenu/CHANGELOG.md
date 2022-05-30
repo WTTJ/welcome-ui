@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.3](https://github.com/WTTJ/welcome-ui/compare/v4.2.2...v4.2.3) (2022-05-30)
+
+
+### Bug Fixes
+
+* reakit components typing with render props ([15b754e](https://github.com/WTTJ/welcome-ui/commit/15b754e4f94d57830867b4f5f6c2b4cad1d54ef2))
+
+
+
+
+
 # [4.2.0](https://github.com/WTTJ/welcome-ui/compare/v4.1.2...v4.2.0) (2022-05-30)
 
 
