@@ -48,12 +48,24 @@ You can customize your separator.
 <code>
   {`import { Link as RouterLink } from 'react-router-dom'
 
-<Breadcrumb renderChildrenAs={RouterLink}>
-  <Breadcrumb.Item to="/">Introduction</Breadcrumb.Item>
-  <Breadcrumb.Item to="/components">Components</Breadcrumb.Item>
-  <Breadcrumb.Item to='/components/breadcrumb'>Breadcrumb</Breadcrumb.Item>
+<Breadcrumb>
+  <Breadcrumb.Item as={RouterLink} to="/">Introduction</Breadcrumb.Item>
+  <Breadcrumb.Item as={RouterLink} to="/components">Components</Breadcrumb.Item>
+  <Breadcrumb.Item as={RouterLink} to='/components/breadcrumb'>Breadcrumb</Breadcrumb.Item>
 </Breadcrumb>`}
 </code>
+
+## Last child clickable
+
+By default we removed clickable the last child. You can change this by set to false `lastChildNotClickable`
+
+```jsx
+<Breadcrumb lastChildNotClickable={false}>
+  <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+  <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
+  <Breadcrumb.Item href="/">Breadcrumb</Breadcrumb.Item>
+</Breadcrumb>
+```
 
 ## Properties
 

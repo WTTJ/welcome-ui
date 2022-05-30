@@ -22,7 +22,8 @@ export interface BreadcrumbOptions {
   children: React.ReactNode | React.ReactNode[]
   /** color from theme, add for scroll gradient on mobile */
   gradientBackground?: Colors
-  renderChildrenAs?: string | React.ReactNode
+  /** set clickable or not the last child */
+  lastChildNotClickable?: boolean
   separator?: string | React.ReactNode
 }
 
@@ -31,10 +32,10 @@ export type BreadcrumbProps = CreateWuiProps<'div', BreadcrumbOptions>
 export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
   (
     {
-      renderChildrenAs = 'a',
       children,
-      separator = <RightIcon size="sm" />,
       gradientBackground = 'light.900',
+      lastChildNotClickable = true,
+      separator = <RightIcon size="sm" />,
       ...rest
     },
     ref
@@ -48,12 +49,14 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
 
     const clones = Children.map(children, (child: React.ReactElement, index) => {
       const isLastChild = childrenLength === 1 || childrenLength === index + 1
+      const isActive = isLastChild && lastChildNotClickable
 
       return cloneElement(child, {
         // eslint-disable-next-line react/no-array-index-key
         key: `breadcrumb-${index}`,
         separator: isLastChild ? undefined : separator,
-        as: isLastChild ? 'span' : renderChildrenAs,
+        isActive,
+        as: !!isActive && 'span',
         ...child.props,
       })
     })
