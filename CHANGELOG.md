@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.1](https://github.com/WTTJ/welcome-ui/compare/v4.2.0...v4.2.1) (2022-05-30)
+
+
+### Bug Fixes
+
+* choose if last child is clickable on Breadcrumb ([#1335](https://github.com/WTTJ/welcome-ui/issues/1335)) ([2cc294c](https://github.com/WTTJ/welcome-ui/commit/2cc294c6d3478b32e6706dc380804cf03e01fa7a))
+
+
+
+
+
 # [4.2.0](https://github.com/WTTJ/welcome-ui/compare/v4.1.2...v4.2.0) (2022-05-30)
 
 
