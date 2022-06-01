@@ -95,6 +95,47 @@ function() {
 }
 ```
 
+## Arrow
+
+Use `DropdownMenu.Arrow` to add an arrow to the dropdown menu
+
+```jsx
+function() {
+  const menu = useDropdownMenuState({
+    gutter: 10
+  })
+
+  const handleClick = e => {
+    console.log(`Clicked on ${e.target.innerText}`)
+    menu.hide()
+  }
+
+  return (
+    <>
+      <DropdownMenu.Trigger {...menu} as={Button}>
+        Dropdown Menu
+      </DropdownMenu.Trigger>
+      <DropdownMenu {...menu} aria-label="Example">
+        <DropdownMenu.Arrow {...menu} />
+        <DropdownMenu.Item {...menu} onClick={handleClick}>
+          Twitter
+        </DropdownMenu.Item>
+        <DropdownMenu.Item {...menu} onClick={handleClick} disabled>
+          Facebook
+        </DropdownMenu.Item>
+        <DropdownMenu.Item {...menu} onClick={handleClick}>
+          Instagram
+        </DropdownMenu.Item>
+        <DropdownMenu.Separator {...menu} />
+        <DropdownMenu.Item {...menu} onClick={handleClick}>
+          Github
+        </DropdownMenu.Item>
+      </DropdownMenu>
+    </>
+  )
+}
+```
+
 ## Properties
 
 <props propTypes={props.propTypes.DropdownMenu} />
