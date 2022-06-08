@@ -3068,10 +3068,10 @@
   resolved "https://registry.yarnpkg.com/@netlify/open-api/-/open-api-2.8.0.tgz#e59537ae9aa8342c2aa64952d42e5e089c8422f4"
   integrity sha512-lfNB/QYDgaP07pwm/nWEaWPvRAAGyhxvJqNzvxMijc7A4uwquMjlbYve8yYyd0LJXPwgBpGobwiQj5RA76xzUQ==
 
-"@netlify/plugins-list@^6.25.0":
-  version "6.26.0"
-  resolved "https://registry.yarnpkg.com/@netlify/plugins-list/-/plugins-list-6.26.0.tgz#0ada946622fdc4b1eb7d17fe5e2cda927c7cabfb"
-  integrity sha512-Hl3wCMMLo4En9nW0y+lHWXmxAHqCI01ItT4hQrClsMmImi3rHwHC7Gd3DpNfsqLXZhK1bmcWYxq06N/uwwtihA==
+"@netlify/plugins-list@^6.25.0", "@netlify/plugins-list@^6.26.0":
+  version "6.27.0"
+  resolved "https://registry.yarnpkg.com/@netlify/plugins-list/-/plugins-list-6.27.0.tgz#c44d92cab92c2faa08ca6b5136e384669cd14c37"
+  integrity sha512-fTmgFDxkTgrABYk0XwIgYO7r424JEWoEYHieRNLBIbyOuHiM0FArevNy0/dMi2/Ymxgs44NYrTJUoeZkIn5tdg==
 
 "@netlify/run-utils@^4.0.0":
   version "4.0.1"
@@ -4926,9 +4926,9 @@ attr-accept@^2.2.2:
   integrity sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==
 
 aws-sdk@^2.1094.0:
-  version "2.1145.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1145.0.tgz#9da2e0abb5aed130b0fb33d0452cc468b22d2465"
-  integrity sha512-bjZJGFxHJadnp2kbg1etKw7ID1QmmKk1ivML0Xtt6S6GnGSfX8zVuLMkJZaxPMjlyZ6xeilGwzk2F9igxBCPCQ==
+  version "2.1150.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1150.0.tgz#6f43380837d9cd1b761b9dc51395067686a4a053"
+  integrity sha512-SNbVXNlFGNFVcztPk7iWnjtGL+Afm1nyidpvX2rEqYdap2Ow57njZJXvghQUici4Xhqe+BUuG+x1orlFjapo4g==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -4937,7 +4937,7 @@ aws-sdk@^2.1094.0:
     querystring "0.2.0"
     sax "1.2.1"
     url "0.10.3"
-    uuid "3.3.2"
+    uuid "8.0.0"
     xml2js "0.4.19"
 
 aws-sign2@~0.7.0:
@@ -12557,16 +12557,16 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
 netlify-cli@^10.0.0:
-  version "10.3.3"
-  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-10.3.3.tgz#781826eb8acfe941b922c4263ba76312e31f3944"
-  integrity sha512-XPPqrO1u4mHi2MxEjlcESXxRw0tbjf+IbeC05AKCjfciwzBM8/rkc8jlPmKfYKSBVP3LF3LZvbxfhqYI/3ZWvQ==
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-10.4.0.tgz#187d8a40838fbadc2a0d0a2302f12d38e634038f"
+  integrity sha512-SfkS/EgXE5H8Iucn+kwUn1qEK3QzlmQlpGy/boUyMZYQKzjC4pdgp9eZc64lor9ucZ6bs4i2UnQpmg+lZEiqzg==
   dependencies:
     "@netlify/build" "^27.1.3"
     "@netlify/config" "^18.0.1"
     "@netlify/edge-bundler" "^1.2.0"
     "@netlify/framework-info" "^9.0.2"
     "@netlify/local-functions-proxy" "^1.1.1"
-    "@netlify/plugins-list" "^6.25.0"
+    "@netlify/plugins-list" "^6.26.0"
     "@netlify/zip-it-and-ship-it" "^5.9.2"
     "@octokit/rest" "^18.0.0"
     "@sindresorhus/slugify" "^1.1.0"
@@ -17483,10 +17483,10 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
-uuid@3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
-  integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
+uuid@8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.0.0.tgz#bc6ccf91b5ff0ac07bbcdbf1c7c4e150db4dbb6c"
+  integrity sha512-jOXGuXZAWdsTH7eZLtyXMqUb9EcWMGZNbL9YcGBJl4MH4nrxHmZJhEHvyLFrkxo+28uLb/NYRcStH48fnD0Vzw==
 
 uuid@^3.0.1, uuid@^3.3.2:
   version "3.4.0"
