@@ -3068,10 +3068,10 @@
   resolved "https://registry.yarnpkg.com/@netlify/open-api/-/open-api-2.8.0.tgz#e59537ae9aa8342c2aa64952d42e5e089c8422f4"
   integrity sha512-lfNB/QYDgaP07pwm/nWEaWPvRAAGyhxvJqNzvxMijc7A4uwquMjlbYve8yYyd0LJXPwgBpGobwiQj5RA76xzUQ==
 
-"@netlify/plugins-list@^6.25.0":
-  version "6.26.0"
-  resolved "https://registry.yarnpkg.com/@netlify/plugins-list/-/plugins-list-6.26.0.tgz#0ada946622fdc4b1eb7d17fe5e2cda927c7cabfb"
-  integrity sha512-Hl3wCMMLo4En9nW0y+lHWXmxAHqCI01ItT4hQrClsMmImi3rHwHC7Gd3DpNfsqLXZhK1bmcWYxq06N/uwwtihA==
+"@netlify/plugins-list@^6.25.0", "@netlify/plugins-list@^6.26.0":
+  version "6.27.0"
+  resolved "https://registry.yarnpkg.com/@netlify/plugins-list/-/plugins-list-6.27.0.tgz#c44d92cab92c2faa08ca6b5136e384669cd14c37"
+  integrity sha512-fTmgFDxkTgrABYk0XwIgYO7r424JEWoEYHieRNLBIbyOuHiM0FArevNy0/dMi2/Ymxgs44NYrTJUoeZkIn5tdg==
 
 "@netlify/run-utils@^4.0.0":
   version "4.0.1"
@@ -5840,7 +5840,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5, classnames@^2.2.6:
+classnames@^2.2.6, classnames@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
@@ -12557,16 +12557,16 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
 netlify-cli@^10.0.0:
-  version "10.3.3"
-  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-10.3.3.tgz#781826eb8acfe941b922c4263ba76312e31f3944"
-  integrity sha512-XPPqrO1u4mHi2MxEjlcESXxRw0tbjf+IbeC05AKCjfciwzBM8/rkc8jlPmKfYKSBVP3LF3LZvbxfhqYI/3ZWvQ==
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-10.4.0.tgz#187d8a40838fbadc2a0d0a2302f12d38e634038f"
+  integrity sha512-SfkS/EgXE5H8Iucn+kwUn1qEK3QzlmQlpGy/boUyMZYQKzjC4pdgp9eZc64lor9ucZ6bs4i2UnQpmg+lZEiqzg==
   dependencies:
     "@netlify/build" "^27.1.3"
     "@netlify/config" "^18.0.1"
     "@netlify/edge-bundler" "^1.2.0"
     "@netlify/framework-info" "^9.0.2"
     "@netlify/local-functions-proxy" "^1.1.1"
-    "@netlify/plugins-list" "^6.25.0"
+    "@netlify/plugins-list" "^6.26.0"
     "@netlify/zip-it-and-ship-it" "^5.9.2"
     "@octokit/rest" "^18.0.0"
     "@sindresorhus/slugify" "^1.1.0"
@@ -14383,7 +14383,7 @@ promzard@^0.3.0:
   dependencies:
     read "1"
 
-prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -14600,13 +14600,12 @@ rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-animate-height@^2.0.23:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/react-animate-height/-/react-animate-height-2.1.2.tgz#9b450fc64d46f10f5e07da8d0d5e2c47b9f15030"
-  integrity sha512-A9jfz/4CTdsIsE7WCQtO9UkOpMBcBRh8LxyHl2eoZz1ki02jpyUL5xt58gabd0CyeLQ8fRyQ+s2lyV2Ufu8Owg==
+react-animate-height@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-animate-height/-/react-animate-height-3.0.3.tgz#bd14f40862d418062c854829b0fd0b777e20c71f"
+  integrity sha512-JDI9i4nNJKNoXN3VKZMMCc33Xfo75VjcR5VoYZTC4DMtkLndkyHrSA3lp8+72Cz5MmjKYR2zeJrJzHZWLZUGLQ==
   dependencies:
-    classnames "^2.2.5"
-    prop-types "^15.6.1"
+    classnames "^2.3.1"
 
 react-datepicker@^4.7.0:
   version "4.8.0"
