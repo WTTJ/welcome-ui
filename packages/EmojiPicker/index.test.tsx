@@ -1,4 +1,5 @@
 import React from 'react'
+import { fireEvent } from '@testing-library/react'
 
 import { render } from '../../utils/tests'
 
@@ -19,7 +20,8 @@ describe('<EmojiPicker>', () => {
 
     const { getByText, queryByRole } = render(<Test />)
     expect(queryByRole('dialog')).toBeNull()
-    getByText('open').click()
+    const trigger = getByText('open')
+    fireEvent.click(trigger)
     expect(queryByRole('dialog')).toHaveTextContent('Smileys & Emotion')
   })
 })

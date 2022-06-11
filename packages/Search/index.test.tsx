@@ -3,6 +3,7 @@ import { fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Icon } from '@welcome-ui/icon'
 import { Shape } from '@welcome-ui/shape'
+import { vi } from 'vitest'
 
 import { render } from '../../utils/tests'
 
@@ -90,7 +91,7 @@ test('<Search> can choose option', async () => {
 })
 
 test('<Search> calls onChange with correct (object) values', async () => {
-  const handleChange = jest.fn()
+  const handleChange = vi.fn()
   const { getByRole, getByTestId } = render(
     <Search dataTestId="search" name="search" {...defaultProps} onChange={handleChange} />
   )

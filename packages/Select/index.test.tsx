@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event'
 import capitalize from 'lodash.capitalize'
 import { AvatarIcon } from '@welcome-ui/icons.avatar'
 import { DateIcon } from '@welcome-ui/icons.date'
+import { vi } from 'vitest'
 
 import { render } from '../../utils/tests'
 
@@ -122,7 +123,7 @@ test.skip('<Select> can choose option', () => {
 })
 
 test('<Select> calls onChange with correct (object) values', () => {
-  const handleChange = jest.fn()
+  const handleChange = vi.fn()
   const { getByRole, getByTestId } = render(
     <Select dataTestId="select" name="select" onChange={handleChange} options={MONTHS} />
   )
@@ -356,7 +357,7 @@ test("<Select isSearchable> doesn't show list if no results", () => {
 })
 
 test('<Select isCreatable> can create new items', () => {
-  const handleCreate = jest.fn()
+  const handleCreate = vi.fn()
 
   const firstItem = { label: 'Kayab', value: 'kayab' }
   const secondItem = { label: 'Cumku', value: 'cumku' }
@@ -417,7 +418,7 @@ test('<Select isCreatable> can create new items', () => {
 })
 
 test('<Select isCreatable isMultiple> can create new items', () => {
-  const handleCreate = jest.fn()
+  const handleCreate = vi.fn()
 
   const { getByRole, getByTestId } = render(
     <Select
@@ -461,7 +462,7 @@ test('<Select isCreatable isMultiple> can create new items', () => {
 })
 
 test("<Select isCreatable> can't create an existing item", () => {
-  const handleCreate = jest.fn()
+  const handleCreate = vi.fn()
   const { getByRole, getByTestId } = render(
     <Select
       dataTestId="select"
@@ -521,7 +522,7 @@ test('<Select groupsEnabled> shows groups header', () => {
 })
 
 test('<Select groupsEnabled> onChange with correct (object) values', () => {
-  const handleChange = jest.fn()
+  const handleChange = vi.fn()
 
   const { getByRole, getByTestId } = render(
     <Select

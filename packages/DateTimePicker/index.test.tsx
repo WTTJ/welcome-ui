@@ -8,25 +8,6 @@ import { render } from '../../utils/tests'
 
 import { DateTimePicker } from './index'
 
-jest.mock('popper.js', () => {
-  const PopperJS = jest.requireActual('popper.js')
-
-  return class {
-    static placements = PopperJS.placements
-
-    constructor() {
-      return {
-        destroy: () => {
-          return {}
-        },
-        scheduleUpdate: () => {
-          return {}
-        },
-      }
-    }
-  }
-})
-
 describe('<DateTimePicker />', () => {
   test('<DateTimePicker> renders correctly', () => {
     const { getByTestId } = render(

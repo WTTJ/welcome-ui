@@ -5,7 +5,7 @@ import unicodeMap from './unicode.json'
 
 export type StyledIconProps = {
   name: keyof typeof unicodeMap
-  size: IconOptions['size']
+  size?: IconOptions['size']
 }
 
 function getIconContentByName(name: StyledIconProps['name']) {
