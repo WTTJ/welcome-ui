@@ -17,7 +17,7 @@ const getNewConfig = () => {
     scripts: {
       build: 'rollup -c',
       watch: 'rollup -c -w',
-      test: 'jest',
+      test: 'vitest run',
     },
   }
 }
