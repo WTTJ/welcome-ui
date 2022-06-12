@@ -114,6 +114,8 @@
     "date-fns": "^2.28.0",
     "esm": "^3.2.25",
     "husky": "8.0.1",
+    "jest-styled-components": "^7.0.8",
+    "jsdom": "^19.0.0",
     "lerna": "^3.22.1",
     "lerna-update-wizard": "^0.17.8",
     "lodash.difference": "^4.5.0",
@@ -132,6 +134,7 @@
     "styled-components": "^5.3.3",
     "svgo": "^2.8.0",
     "typescript": "^4.6.2",
+    "vitest": "^0.14.2",
     "webfonts-generator": "^0.4.0",
     "wttj-config-front": "^2.1.0",
     "yargs": "^17.3.1"
@@ -139,10 +142,5 @@
   "resolutions": {
     "styled-components": "5.3.5"
   },
-  "homepage": "https://welcome-ui.com",
-  "dependencies": {
-    "jest-styled-components": "^7.0.8",
-    "jsdom": "^19.0.0",
-    "vitest": "^0.14.2"
-  }
+  "homepage": "https://welcome-ui.com"
 }
