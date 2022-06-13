@@ -116,7 +116,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
         fontWeight: fontWeights.bold,
       },
       disabled: {
-        color: colors.nude[500],
+        color: colors.nude[600],
         cursor: 'not-allowed',
       },
     },
