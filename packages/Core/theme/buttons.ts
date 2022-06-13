@@ -1,4 +1,5 @@
 import { CSSObject } from '@xstyled/styled-components'
+import { hexToRGBA } from '@welcome-ui/utils'
 
 import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
