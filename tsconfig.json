@@ -2,16 +2,11 @@
   "extends": "wttj-config-front/lib/tsconfig/tsconfig.json",
   "compilerOptions": {
     "outDir": ".",
+    "target": "es6",
     "baseUrl": "./packages",
     "sourceMap": false,
-    "declaration": true,
+    "declaration": true
   },
   "include": ["packages", "syled.d.ts"],
-  "exclude": [
-    "dist",
-    "icons/**/*",
-    "packages/**/node_modules",
-    "packages/**/dist",
-    "docs"
-  ]
+  "exclude": ["dist", "icons/**/*", "packages/**/node_modules", "packages/**/dist", "docs"]
 }
