@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Button } from '@welcome-ui/button'
-import { CrossIcon } from '@welcome-ui/icons.cross'
+import { CrossIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { PopoverOptions as ReakitPopoverOptions } from 'reakit/Popover'
 

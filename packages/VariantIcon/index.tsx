@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react'
-import { AlertIcon } from '@welcome-ui/icons.alert'
+import { AlertIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { CheckIcon } from '@welcome-ui/icons.check'
-import { InformationIcon } from '@welcome-ui/icons.information'
+import { CheckIcon, InformationIcon } from '@welcome-ui/icons'
 import { Variant } from '@welcome-ui/utils'
 
 import * as S from './styles'

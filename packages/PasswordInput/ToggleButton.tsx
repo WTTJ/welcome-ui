@@ -1,6 +1,5 @@
 import React from 'react'
-import { EyeIcon } from '@welcome-ui/icons.eye'
-import { HideIcon } from '@welcome-ui/icons.hide'
+import { EyeIcon, HideIcon } from '@welcome-ui/icons'
 import { Button } from '@welcome-ui/button'
 import { CreateWuiProps } from '@welcome-ui/system'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
-import { MenuIcon } from '@welcome-ui/icons.menu'
+import { MenuIcon } from '@welcome-ui/icons'
 import NextLink from 'next/link'
 import { Drawer, useDrawerState } from '@welcome-ui/drawer'
 import { Button } from '@welcome-ui/button'

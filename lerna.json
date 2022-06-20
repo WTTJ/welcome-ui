@@ -1,8 +1,5 @@
 {
-  "packages": [
-    "packages/*",
-    "icons/*"
-  ],
+  "packages": ["packages/*", "icons"],
   "version": "4.4.0",
   "npmClient": "yarn",
   "useWorkspaces": true

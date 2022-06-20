@@ -38,16 +38,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/icons.bold": "^4.2.0",
-    "@welcome-ui/icons.code": "^4.2.0",
-    "@welcome-ui/icons.heading_1": "^4.2.0",
-    "@welcome-ui/icons.heading_2": "^4.2.0",
-    "@welcome-ui/icons.italic": "^4.2.0",
-    "@welcome-ui/icons.link": "^4.2.0",
-    "@welcome-ui/icons.ordered_list": "^4.2.0",
-    "@welcome-ui/icons.quote": "^4.2.0",
-    "@welcome-ui/icons.strikethrough": "^4.2.0",
-    "@welcome-ui/icons.unordered_list": "^4.2.0",
+    "@welcome-ui/icons": "^4.2.0",
     "@welcome-ui/system": "^4.2.0",
     "@welcome-ui/utils": "^4.2.0",
     "emoji-mart": "=2.11.1",

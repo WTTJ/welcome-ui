@@ -4,9 +4,7 @@ import { Text } from '@welcome-ui/text'
 import NextLink from 'next/link'
 import { Button } from '@welcome-ui/button'
 import { Box } from '@welcome-ui/box'
-import { RightIcon } from '@welcome-ui/icons.right'
-import { GithubIcon } from '@welcome-ui/icons.github'
-import { HeartIcon } from '@welcome-ui/icons.heart'
+import { RightIcon, GithubIcon, HeartIcon } from '@welcome-ui/icons'
 
 import { Section } from '../components/Homepage/Section'
 import { Components } from '../components/Homepage/Components'
@@ -105,7 +103,14 @@ export default function Home() {
         <Box textAlign="center" w="100%">
           <LogoWttj h={67} w={210} />
         </Box>
-        <Text as="span" color="white" mb="0" mt="5xl" textTransform="uppercase" variant="subtitle-md">
+        <Text
+          as="span"
+          color="white"
+          mb="0"
+          mt="5xl"
+          textTransform="uppercase"
+          variant="subtitle-md"
+        >
           Who we are?
         </Text>
         <Text as="h2" color="white" maxWidth={950} mb="xl" mt="sm" variant="h1">

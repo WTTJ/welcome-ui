@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@welcome-ui/clear-button": "^4.2.0",
-    "@welcome-ui/icons.down": "^4.2.0",
+    "@welcome-ui/icons": "^4.2.0",
     "@welcome-ui/system": "^4.2.0",
     "@welcome-ui/tag": "^4.2.0",
     "@welcome-ui/utils": "^4.2.0",
