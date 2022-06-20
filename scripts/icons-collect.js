@@ -12,11 +12,7 @@ require('colors')
 fs.readdirAsync = util.promisify(fs.readdir)
 
 const ROOT_PATH = path.join(__dirname, '..')
-const ICON_PATH = path.join(ROOT_PATH, 'packages/Icon')
 const ICONS_PATH = path.join(ROOT_PATH, 'icons')
-
-// State to hold all icons so we don't have to keep reading all the files
-let icons = {}
 
 // Write content.json for a given icon
 const writeIconContentsJson = (outputFolder, content, key) => {
@@ -43,79 +39,15 @@ const writeIconContentsJson = (outputFolder, content, key) => {
   fs.writeFileSync(`${outputFolder}/content.json`, JSON.stringify(fileContent, 0, 2))
 }
 
-// Write .npmignore for a given icon
-const writeIconNpmIgnore = outputFolder => {
-  const fileContent = `/*
-!/dist/*.js
-!/dist/*.d.ts
-`
-
-  fs.writeFileSync(`${outputFolder}/.npmignore`, fileContent)
-}
-
-// Write index.d.ts for a given icon
-const writeIndexDTS = (outputFolder, iconName) => {
+// Write index.tsx for a given icon
+const writeIconIndex = (outputFolder, iconName) => {
+  const file = `${outputFolder}/index.tsx`
   const fileContent = `import React from 'react'
-import { IconProps } from '@welcome-ui/icon'
-export declare const ${iconName}Icon: React.FC<IconProps>
-`
-
-  fs.writeFileSync(`${outputFolder}/index.d.ts`, fileContent)
-}
-
-// Write package.json for a given icon
-const writeIconPackageJson = (outputFolder, key) => {
-  const file = `${outputFolder}/package.json`
-
-  // Get root icon config
-  const { version } = require(`${ICON_PATH}/package.json`)
-
-  let config = {}
-  if (fs.existsSync(file)) {
-    config = require(file)
-    // config = JSON.parse(config.toString())
-  }
-  // Save icons in global 'state'
-  icons[key] = {
-    name: toPascalCase(key),
-    version: config.version || '1.0.0',
-  }
-
-  const content = {
-    ...config,
-    name: `@welcome-ui/icons.${key}`,
-    sideEffects: false,
-    main: `dist/icons.${key}.cjs.js`,
-    module: `dist/icons.${key}.es.js`,
-    types: 'dist/index.d.ts',
-    version: config.version || '1.0.0',
-    publishConfig: {
-      access: 'public',
-    },
-    dependencies: {
-      '@welcome-ui/icon': `^${version}`,
-    },
-    peerDependencies: {
-      react: '^16.10.2 || ^17.0.1 || ^18.0.0',
-    },
-    license: 'MIT',
-  }
-
-  const fileContent = `${JSON.stringify(content, 0, 2)}
-`
-
-  fs.writeFileSync(file, fileContent)
-}
-
-// Write index.js for a given icon
-const writeIconIndexJs = (outputFolder, iconName) => {
-  const file = `${outputFolder}/index.js`
-  const fileContent = `import React from 'react'
-import { Icon } from '@welcome-ui/icon'
+import { Icon, IconProps } from '@welcome-ui/icon'
 
 import content from './content.json'
 
-export function ${iconName}Icon(props) {
+export const ${iconName}Icon: React.FC<IconProps> = props => {
   return <Icon alt="${iconName}" content={content} {...props} />
 }
 `
@@ -129,20 +61,14 @@ const writeIconPackages = files => {
   files.forEach(({ content, key }) => {
     // Create folder if necessary
     const iconName = toPascalCase(key)
-    const outputFolder = `${ICONS_PATH}/${iconName}`
+    const outputFolder = `${ICONS_PATH}/src/${iconName}`
     if (!fs.existsSync(outputFolder)) {
       fs.mkdirSync(outputFolder)
     }
-    // package.json
-    writeIconPackageJson(outputFolder, key)
-    // .npmignore
-    writeIconNpmIgnore(outputFolder)
     // contents.json
     writeIconContentsJson(outputFolder, content, key)
-    // index.js
-    writeIconIndexJs(outputFolder, iconName)
-    // index.d.ts
-    writeIndexDTS(outputFolder, iconName)
+    // index.tsx
+    writeIconIndex(outputFolder, iconName)
   })
 
   console.log('Success'.green, 'Writing individual icon packages')
@@ -155,12 +81,12 @@ const writeRootIconPackage = files => {
   // Write main icons/index.ts
   const rootIndexContent = files.map(({ key }) => {
     const iconName = toPascalCase(key)
-    return `export { ${iconName}Icon } from '@welcome-ui/icons.${key}'`
-  }).join(`
-`)
+    return `export { ${iconName}Icon } from './src/${iconName}'`
+  })
+
   fs.writeFileSync(
-    `${ICONS_PATH}/index.js`,
-    `${rootIndexContent}
+    `${ICONS_PATH}/index.tsx`,
+    `${rootIndexContent.join('\n')}
 `
   )
 
@@ -182,17 +108,8 @@ import { IconProps } from '@welcome-ui/icon'
   // Write main icons/package.json
   let config = require(`${ICONS_PATH}/package.json`)
 
-  // Get versions of each icon
-  const dependencies = files.reduce((acc, { key }) => {
-    acc[`@welcome-ui/icons.${key}`] = `^${icons[key].version}`
-    return acc
-  }, {})
-
   // Add dependencies (all individual icons) to icons/package.json
-  const rootPackageJsonContent = {
-    ...config,
-    dependencies,
-  }
+  const rootPackageJsonContent = config
   const fileContent = `${JSON.stringify(rootPackageJsonContent, 0, 2)}
 `
 
