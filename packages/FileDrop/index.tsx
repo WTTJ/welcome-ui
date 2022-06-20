@@ -7,8 +7,7 @@ import {
   FileRejection,
   useDropzone,
 } from 'react-dropzone'
-import { TrashIcon } from '@welcome-ui/icons.trash'
-import { EditIcon } from '@welcome-ui/icons.edit'
+import { EditIcon, TrashIcon } from '@welcome-ui/icons'
 import { Button } from '@welcome-ui/button'
 import { ButtonGroup } from '@welcome-ui/button-group'
 import { CreateEvent, createEvent } from '@welcome-ui/utils'

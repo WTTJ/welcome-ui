@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@welcome-ui/button'
 import { Text } from '@welcome-ui/text'
-import { ExternalLinkIcon } from '@welcome-ui/icons.external_link'
+import { ExternalLinkIcon } from '@welcome-ui/icons'
 import { ForceFileType, getFileIcon, getFileName, getFileSize } from '@welcome-ui/files'
 
 import { FileType, WordingsType } from './index'

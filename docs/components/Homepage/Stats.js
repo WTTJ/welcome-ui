@@ -1,8 +1,6 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
-import { GetIcon } from '@welcome-ui/icons.get'
-import { CodeBlockIcon } from '@welcome-ui/icons.code_block'
-import { StarIcon } from '@welcome-ui/icons.star'
+import { GetIcon, CodeBlockIcon, StarIcon } from '@welcome-ui/icons'
 import { Text } from '@welcome-ui/text'
 
 const stats = [

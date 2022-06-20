@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import capitalize from 'lodash.capitalize'
-import { AvatarIcon } from '@welcome-ui/icons.avatar'
-import { DateIcon } from '@welcome-ui/icons.date'
+import { AvatarIcon, DateIcon } from '@welcome-ui/icons'
 
 import { render } from '../../utils/tests'
 
