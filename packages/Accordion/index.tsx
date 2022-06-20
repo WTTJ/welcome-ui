@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDisclosureState } from 'reakit/Disclosure'
 import AnimateHeight from 'react-animate-height'
-import { RightIcon } from '@welcome-ui/icons.right'
+import { RightIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'

@@ -38,9 +38,7 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^4.2.0",
-    "@welcome-ui/icons.alert": "^4.2.0",
-    "@welcome-ui/icons.check": "^4.2.0",
-    "@welcome-ui/icons.information": "^4.2.0",
+    "@welcome-ui/icons": "^4.2.0",
     "@welcome-ui/system": "^4.2.0",
     "@welcome-ui/utils": "^4.2.0"
   },

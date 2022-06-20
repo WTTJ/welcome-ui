@@ -1,6 +1,5 @@
 import React from 'react'
-import { NegativeIcon } from '@welcome-ui/icons.negative'
-import { PositiveIcon } from '@welcome-ui/icons.positive'
+import { NegativeIcon, PositiveIcon } from '@welcome-ui/icons'
 
 import { ImagePreview } from './styles'
 import { Message } from './Message'

@@ -1,8 +1,7 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Button } from '@welcome-ui/button'
-import { HeartIcon } from '@welcome-ui/icons.heart'
-import { GithubIcon } from '@welcome-ui/icons.github'
+import { HeartIcon, GithubIcon } from '@welcome-ui/icons'
 
 import { useThemeContext } from '../context/theme'
 
