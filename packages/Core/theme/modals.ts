@@ -2,7 +2,7 @@ import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
 
-type Sizes = 'sm' | 'md' | 'lg' | 'auto'
+type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
 export type ThemeModals = {
   backdrop: CSSObject
@@ -43,6 +43,9 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
     },
     gutter: toRem(32),
     sizes: {
+      xs: {
+        width: toRem(320),
+      },
       sm: {
         width: toRem(450),
       },
