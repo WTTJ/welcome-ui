@@ -22,7 +22,6 @@ export const Item = styled.li`
 
 export const Dots = styled.span`
   ${th('paginations.default')};
-  ${th('paginations.dots')}
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,6 +30,7 @@ export const Dots = styled.span`
 export const AbstractLink = styled.a`
   ${th('paginations.default')};
   ${th('paginations.item')};
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,8 +62,6 @@ export const ArrowLink = styled(AbstractLink)<{ isDisabled: boolean }>(
 
 export const PageLink = styled(AbstractLink)(
   props => css`
-    ${th('paginations.number')}
-
     ${props['aria-current'] && th('paginations.active')}
   `
 )
