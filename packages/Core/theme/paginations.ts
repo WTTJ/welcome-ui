@@ -7,8 +7,6 @@ export interface ThemePaginations {
   item: CSSObject
   arrow: CSSObject
   active: CSSObject
-  number: CSSObject
-  dots: CSSObject
 }
 
 export const getPaginations = (theme: WuiTheme): ThemePaginations => {
@@ -20,9 +18,9 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
       height: toRem(32),
       color: colors.dark[900],
       fontWeight: fontWeights.bold,
+      fontSize: fontSizes.xs,
     },
     item: {
-      borderRadius: '50%',
       '&:hover, &:focus': {
         backgroundColor: colors.dark[100],
       },
@@ -39,12 +37,6 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
       '&:hover, &:focus': {
         backgroundColor: colors.dark[900],
       },
-    },
-    number: {
-      fontSize: fontSizes.xs,
-    },
-    dots: {
-      fontSize: fontSizes.xs,
     },
   }
 }
