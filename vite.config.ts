@@ -9,7 +9,7 @@ import { toKebabCase } from './utils/strings'
 const resolveSrc = () => {
   const packages = fs.readdirSync(resolve(__dirname, 'packages'))
 
-  return packages.reduce((aliases, name) => {
+  const aliases = packages.reduce((aliases, name) => {
     const packageName = `@welcome-ui/${toKebabCase(name)}`
     const packagePath = `packages/${name}/index.tsx`
     const path = fs.existsSync(packagePath)
@@ -18,7 +18,13 @@ const resolveSrc = () => {
 
     return { ...aliases, [packageName]: resolve(__dirname, path) }
   }, {})
+
+  aliases['@welcome-ui/icons'] = resolve(__dirname, 'icons/index.tsx')
+
+  return aliases
 }
+
+console.log('resolveSrc', resolveSrc())
 
 export default defineConfig({
   test: {
