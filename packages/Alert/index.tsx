@@ -52,6 +52,8 @@ const AlertComponent = forwardRef<'div', AlertProps>(
 )
 
 // We need this component to check its existence in <Alert> and to allow users to add Button in <Alert> content
-const AlertButton: React.FC<ButtonProps> = props => <Button size="sm" {...props} />
+const AlertButton = forwardRef<'button', ButtonProps>((props, ref) => (
+  <Button ref={ref} size="sm" {...props} />
+))
 
 export const Alert = Object.assign(AlertComponent, { Title, Button: AlertButton })
