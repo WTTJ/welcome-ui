@@ -5,7 +5,7 @@ import Downshift, {
   GetRootPropsOptions,
 } from 'downshift'
 import { matchSorter } from 'match-sorter'
-import { DownIcon } from '@welcome-ui/icons.down'
+import { DownIcon } from '@welcome-ui/icons'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { createEvent, CreateEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'

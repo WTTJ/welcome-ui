@@ -1,5 +1,5 @@
 import React from 'react'
-import { CrossIcon } from '@welcome-ui/icons.cross'
+import { CrossIcon } from '@welcome-ui/icons'
 import { wrapChildren } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 

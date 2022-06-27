@@ -9,7 +9,7 @@ import React, {
 } from 'react'
 import { clamp, throttle } from '@welcome-ui/utils'
 import { ResizeObserver } from '@juggle/resize-observer'
-import { RightIcon } from '@welcome-ui/icons.right'
+import { RightIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { WuiTheme } from '@welcome-ui/core'
 

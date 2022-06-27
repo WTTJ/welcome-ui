@@ -1,14 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { BoldIcon } from '@welcome-ui/icons.bold'
-import { ItalicIcon } from '@welcome-ui/icons.italic'
-import { StrikethroughIcon } from '@welcome-ui/icons.strikethrough'
-import { LinkIcon } from '@welcome-ui/icons.link'
-import { Heading1Icon } from '@welcome-ui/icons.heading_1'
-import { Heading2Icon } from '@welcome-ui/icons.heading_2'
-import { CodeIcon } from '@welcome-ui/icons.code'
-import { QuoteIcon } from '@welcome-ui/icons.quote'
-import { UnorderedListIcon } from '@welcome-ui/icons.unordered_list'
-import { OrderedListIcon } from '@welcome-ui/icons.ordered_list'
+import {
+  BoldIcon,
+  CodeIcon,
+  Heading1Icon,
+  Heading2Icon,
+  ItalicIcon,
+  LinkIcon,
+  OrderedListIcon,
+  QuoteIcon,
+  StrikethroughIcon,
+  UnorderedListIcon,
+} from '@welcome-ui/icons'
 import { createEvent, CreateEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'
 import SimpleMDE, { SimpleMDEEditorProps } from 'react-simplemde-editor'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
