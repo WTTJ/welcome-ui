@@ -1,7 +1,7 @@
 import React from 'react'
+import { Button } from '@welcome-ui/button'
 
 import { render } from '../../utils/tests'
-import { Button } from '../Button'
 
 import { ButtonGroup } from './index'
 

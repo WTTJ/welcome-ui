@@ -1,5 +1,5 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react'
+import { fireEvent } from '@testing-library/react'
 
 import { render } from '../../utils/tests'
 
@@ -21,7 +21,7 @@ describe('<Drawer>', () => {
 
     const { getByText, queryByRole } = render(<Test />)
     expect(queryByRole('dialog')).toBeNull()
-    getByText('open').click()
+    fireEvent.click(getByText('open'))
     expect(queryByRole('dialog')).toHaveTextContent('test')
   })
 
@@ -39,7 +39,7 @@ describe('<Drawer>', () => {
     }
 
     const { getByText, queryByRole } = render(<Test />)
-    getByText('open').click()
+    fireEvent.click(getByText('open'))
     expect(queryByRole('dialog')).toHaveStyleRule('height', '50%')
   })
 })

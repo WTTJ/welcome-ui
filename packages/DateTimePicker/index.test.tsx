@@ -8,25 +8,6 @@ import { render } from '../../utils/tests'
 
 import { DateTimePicker } from './index'
 
-jest.mock('popper.js', () => {
-  const PopperJS = jest.requireActual('popper.js')
-
-  return class {
-    static placements = PopperJS.placements
-
-    constructor() {
-      return {
-        destroy: () => {
-          return {}
-        },
-        scheduleUpdate: () => {
-          return {}
-        },
-      }
-    }
-  }
-})
-
 describe('<DateTimePicker />', () => {
   test('<DateTimePicker> renders correctly', () => {
     const { getByTestId } = render(
@@ -54,7 +35,7 @@ describe('<DateTimePicker />', () => {
 
   test('can render and opens the datePicker on click', () => {
     const { baseElement, container } = render(<DateTimePicker name="welcome" value={new Date()} />)
-    const datePicker = container.querySelector('.date-picker')
+    const datePicker = container.querySelector('.date-picker') as HTMLElement
     fireEvent.click(datePicker)
 
     const datePickerPopper = baseElement.querySelector('.date-picker-popper')
@@ -65,7 +46,7 @@ describe('<DateTimePicker />', () => {
 
   test('can render and opens the timePicker on click', () => {
     const { baseElement, container } = render(<DateTimePicker name="welcome" value={new Date()} />)
-    const timePicker = container.querySelector('.time-picker')
+    const timePicker = container.querySelector('.time-picker') as HTMLElement
     fireEvent.click(timePicker)
 
     const datePickerPopper = baseElement.querySelector('.date-picker-popper')
@@ -78,7 +59,7 @@ describe('<DateTimePicker />', () => {
     const { container, getAllByRole } = render(
       <DateTimePicker name="welcome" value={new Date('09/11/2001')} />
     )
-    const datePicker = container.querySelector('.date-picker')
+    const datePicker = container.querySelector('.date-picker') as HTMLElement
     expect(datePicker).toHaveValue('11/09/2001')
 
     fireEvent.click(datePicker)
@@ -93,7 +74,7 @@ describe('<DateTimePicker />', () => {
     const { container, getAllByRole, getByTitle } = render(
       <DateTimePicker name="welcome" value={new Date('09/11/2001')} />
     )
-    const datePicker = container.querySelector('.date-picker')
+    const datePicker = container.querySelector('.date-picker') as HTMLElement
 
     fireEvent.click(datePicker)
 
@@ -128,7 +109,7 @@ describe('<DateTimePicker />', () => {
     const { container, getAllByRole } = render(
       <DateTimePicker name="welcome" value={new Date('09/11/2001')} />
     )
-    const datePicker = container.querySelector('.date-picker')
+    const datePicker = container.querySelector('.date-picker') as HTMLElement
 
     userEvent.clear(datePicker)
     userEvent.type(datePicker, '20/06/2018')
@@ -144,8 +125,8 @@ describe('<DateTimePicker />', () => {
       <DateTimePicker name="welcome" value={new Date('11/23/1987')} />
     )
 
-    const datePicker = container.querySelector('.date-picker')
-    const timePicker = container.querySelector('.time-picker')
+    const datePicker = container.querySelector('.date-picker') as HTMLElement
+    const timePicker = container.querySelector('.time-picker') as HTMLElement
 
     expect(datePicker).toHaveValue('23/11/1987')
     expect(timePicker).toHaveValue('00:00')
@@ -167,8 +148,8 @@ describe('<DateTimePicker />', () => {
       </DateTimePicker>
     )
 
-    const datePicker = container.querySelector('.date-picker')
-    const timePicker = container.querySelector('.time-picker')
+    const datePicker = container.querySelector('.date-picker') as HTMLElement
+    const timePicker = container.querySelector('.time-picker') as HTMLElement
 
     expect(datePicker).toHaveValue('23/11/1987')
     expect(timePicker).toHaveValue('00:00')
@@ -189,7 +170,7 @@ describe('<DateTimePicker />', () => {
   test('<DatePicker> can be cleared and has no `ClearButton` when no value', () => {
     const { container, getAllByRole } = render(<DateTimePicker name="welcome" value={new Date()} />)
 
-    const datePicker = container.querySelector('.date-picker')
+    const datePicker = container.querySelector('.date-picker') as HTMLElement
     const [clearButton] = getAllByRole('button')
 
     fireEvent.click(clearButton)
@@ -197,10 +178,5 @@ describe('<DateTimePicker />', () => {
     expect(datePicker).toHaveValue('')
 
     expect(clearButton).not.toBeInTheDocument()
-
-    userEvent.type(datePicker, '20/06/2018')
-
-    expect(datePicker).toHaveValue('20/06/2018')
-    expect(getAllByRole('button')[0]).toBeInTheDocument()
   })
 })

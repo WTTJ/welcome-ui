@@ -1,8 +1,6 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react'
-import userEvent from '@testing-library/user-event'
 
-import { render } from '../../utils/tests'
+import { fireEvent, render } from '../../utils/tests'
 
 import { Tab, useTabState } from './index'
 
@@ -68,7 +66,7 @@ describe('Tabs', () => {
     expect(activeBar).toBeInTheDocument()
 
     // Simulate click on second tab
-    userEvent.click(tab2)
+    fireEvent.click(tab2)
 
     expect(tab1).toHaveAttribute('aria-selected', 'false')
     expect(tab2).toHaveAttribute('aria-selected', 'true')

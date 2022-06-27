@@ -1,9 +1,8 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react'
-import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom/extend-expect'
 
-import { render } from '../../utils/tests'
+import { fireEvent, render } from '../../utils/tests'
 import { LeftIcon, RightIcon } from '../../icons'
 
 import { Swiper, useSwiper } from './index'
@@ -54,7 +53,7 @@ describe('<Swiper>', () => {
     const firstPaginationButton = pagination[1]
 
     // Act
-    userEvent.click(firstPaginationButton)
+    fireEvent.click(firstPaginationButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'true')
@@ -67,7 +66,7 @@ describe('<Swiper>', () => {
     const { container, getByTestId, getByText } = render(<TestSwiper />)
 
     const nextButton = getByTestId('swiper-button-next')
-    userEvent.click(nextButton)
+    fireEvent.click(nextButton)
 
     const slide1 = getByText('page1')
     const slide2 = getByText('page2')
@@ -92,7 +91,7 @@ describe('<LoopingSwiper>', () => {
     const pagination = container.querySelectorAll('[role=tab]')
 
     // Act
-    userEvent.click(nextButton)
+    fireEvent.click(nextButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'true')
@@ -103,7 +102,7 @@ describe('<LoopingSwiper>', () => {
     expect(pagination[2]).toHaveAttribute('aria-selected', 'true')
 
     // Act
-    userEvent.click(nextButton)
+    fireEvent.click(nextButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'true')
@@ -114,7 +113,7 @@ describe('<LoopingSwiper>', () => {
     expect(pagination[3]).toHaveAttribute('aria-selected', 'true')
 
     // Act
-    userEvent.click(nextButton)
+    fireEvent.click(nextButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'false')
@@ -137,7 +136,7 @@ describe('<LoopingSwiper>', () => {
     const pagination = container.querySelectorAll('[role=tab]')
 
     // Act
-    userEvent.click(nextButton)
+    fireEvent.click(nextButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'true')
@@ -148,7 +147,7 @@ describe('<LoopingSwiper>', () => {
     expect(pagination[3]).toHaveAttribute('aria-selected', 'true')
 
     // Act
-    userEvent.click(nextButton)
+    fireEvent.click(nextButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'true')
@@ -159,7 +158,7 @@ describe('<LoopingSwiper>', () => {
     expect(pagination[1]).toHaveAttribute('aria-selected', 'true')
 
     // Act
-    userEvent.click(nextButton)
+    fireEvent.click(nextButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'false')
