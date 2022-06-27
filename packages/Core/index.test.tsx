@@ -1,4 +1,4 @@
-import { welcomeTheme } from '../Themes/Welcome'
+import { welcomeTheme } from '@welcome-ui/themes'
 
 import { createTheme } from './theme/core'
 import { colors } from './theme/colors'

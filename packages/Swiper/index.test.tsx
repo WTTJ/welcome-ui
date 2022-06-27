@@ -1,9 +1,9 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
+import { LeftIcon, RightIcon } from '@welcome-ui/icons'
 
 import { fireEvent, render } from '../../utils/tests'
-import { LeftIcon, RightIcon } from '../../icons'
 
 import { Swiper, useSwiper } from './index'
 

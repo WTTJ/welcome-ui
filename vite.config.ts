@@ -19,12 +19,10 @@ const resolveSrc = () => {
     return { ...aliases, [packageName]: resolve(__dirname, path) }
   }, {})
 
-  aliases['@welcome-ui/icons'] = resolve(__dirname, 'icons/index.tsx')
+  aliases['@welcome-ui/icons'] = resolve(__dirname, 'icons/index.ts')
 
   return aliases
 }
-
-console.log('resolveSrc', resolveSrc())
 
 export default defineConfig({
   test: {

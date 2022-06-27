@@ -1,7 +1,7 @@
 import React from 'react'
+import { Box } from '@welcome-ui/box'
 
 import { render } from '../../utils/tests'
-import { Box } from '../Box'
 
 const content = 'test'
 
