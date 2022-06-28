@@ -24,7 +24,7 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
       '&:hover, &:focus': {
         backgroundColor: colors.dark[100],
       },
-      '&:focus': focus(colors.dark[900]),
+      '&:focus': focus(colors.dark[500]),
     },
     arrow: {
       '&:hover, &:focus': {
