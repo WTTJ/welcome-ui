@@ -50,12 +50,10 @@ export const AbstractLink = styled.a`
 
 export const ArrowLink = styled(AbstractLink)<{ isDisabled: boolean }>(
   ({ isDisabled }) => css`
-    ${th('paginations.arrow')};
-
     ${isDisabled &&
     css`
-      color: nude.600;
-      background-color: dark.100;
+      color: nude.700;
+      background-color: nude.400;
     `}
   `
 )
