@@ -5,7 +5,6 @@ import { WuiTheme } from './types'
 export interface ThemePaginations {
   default: CSSObject
   item: CSSObject
-  arrow: CSSObject
   active: CSSObject
 }
 
@@ -25,11 +24,6 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
         backgroundColor: colors.dark[100],
       },
       '&:focus': focus(colors.dark[500]),
-    },
-    arrow: {
-      '&:hover, &:focus': {
-        color: colors.nude[600],
-      },
     },
     active: {
       backgroundColor: colors.dark[900],
