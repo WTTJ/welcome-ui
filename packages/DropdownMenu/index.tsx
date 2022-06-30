@@ -3,6 +3,7 @@ import { MenuButton, MenuOptions, Menu as ReakitMenu, useMenuState } from 'reaki
 import { useNextFrame } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
 
+import { Arrow } from './Arrow'
 import { Item } from './Item'
 import { Separator } from './Separator'
 import * as S from './styles'
@@ -50,6 +51,7 @@ export const DropdownMenu = Object.assign(DropdownMenuComponent, {
   Trigger: MenuButton,
   Item,
   Separator,
+  Arrow,
 })
 
 export { useMenuState as useDropdownMenuState }
