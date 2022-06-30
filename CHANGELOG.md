@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.1](https://github.com/WTTJ/welcome-ui/compare/v4.3.0...v4.3.1) (2022-06-30)
+
+
+### Bug Fixes
+
+* auto placement for dropdown menu arrow ([#1400](https://github.com/WTTJ/welcome-ui/issues/1400)) ([1bd6922](https://github.com/WTTJ/welcome-ui/commit/1bd6922f6f2750afc63f660af7534b951c59cd65))
+
+
+
+
+
 # [4.3.0](https://github.com/WTTJ/welcome-ui/compare/v4.2.3...v4.3.0) (2022-06-30)
 
 
