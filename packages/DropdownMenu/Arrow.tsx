@@ -13,13 +13,13 @@ const transformMap: Record<string, string> = {
 
 export type ArrowProps = CreateWuiProps<'div', MenuArrowOptions>
 
-export const Arrow = forwardRef<'div', ArrowProps>(props => {
+export const Arrow = forwardRef<'div', ArrowProps>((props, ref) => {
   // get the correct transform style for arrow
   const { placement } = props
   const transform = transformMap[placement]
 
   return (
-    <S.Arrow {...props}>
+    <S.Arrow {...props} ref={ref}>
       <S.ArrowItem
         $transform={transform}
         h={30}
