@@ -64,10 +64,6 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
     `}
     ${hasRemoveAction &&
     css`
-      &:hover {
-        ${th(`tags.hover.${variant}`)};
-      }
-
       padding-right: xl;
     `}
     max-width: 100%;
@@ -76,8 +72,7 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
       margin-right: xxs;
     }
 
-    & > svg:only-child,
-    & > svg:not(:only-child) {
+    & > svg {
       width: ${th(`tags.icon.${size}`)};
       height: ${th(`tags.icon.${size}`)};
     }
