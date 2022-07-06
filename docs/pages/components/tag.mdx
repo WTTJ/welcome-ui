@@ -64,9 +64,25 @@ Use size property with `xs`, `sm`, or `md`.
 </Tag>
 ```
 
+## List of clickable tags
+
+When we have a clickable tag, we apply an hover state
+
+```jsx row
+<Tag size="xs" onClick="">
+  <a href="#">Some link</a>
+</Tag>
+<Tag size="sm">
+  <a href="#">Some link</a>
+</Tag>
+<Tag size="md">
+  <a href="#">Some link</a>
+</Tag>
+```
+
 ## One character style
 
-When we have only one character, we apply same size for the width and height (it implicitely sets `shape` prop to `square`)
+When we have only one character, we apply same size for the width and height
 
 ```jsx row
 <Tag size="xs">
@@ -80,25 +96,16 @@ When we have only one character, we apply same size for the width and height (it
 </Tag>
 ```
 
-## Shape
+## OnClick
 
-Set `shape` prop to `square` to get a square no matter the content.
-
-```jsx row
-<Tag size="md" shape="square">
-  1
-</Tag>
-<Tag size="md" shape="square" w={50}>
-  Long text
-</Tag>
-```
-
-Set `shape` prop to `circle` to set a border-radius `50%`.
+Simply add a function `OnClick` to catch the action with an hover effect.
 
 ```jsx
-<Tag size="md" shape="circle">
-  1
-</Tag>
+function() {
+  return (
+    <Tag onClick={() => console.log('clicked')}>Hover me</Tag>
+  )
+}
 ```
 
 ## OnRemove
