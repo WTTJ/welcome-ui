@@ -8,7 +8,7 @@ import { Text } from '@welcome-ui/text'
 function Wrapper({ name, theme, colorsObject }) {
   const colors = colorsObject || theme.colors[name]
   const isLight = name === 'light'
-  const textColor = isLight ? 'light.900' : 'dark.300'
+  const textColor = { ...(isLight && { color: 'light.900' }) }
 
   return (
     <Box>
