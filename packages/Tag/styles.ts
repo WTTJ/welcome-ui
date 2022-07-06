@@ -3,9 +3,9 @@ import { StyledIcon } from '@welcome-ui/icon'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
 
-import { Shape, Size, Variant } from './index'
+import { Size, Variant } from './index'
 
-const shapeStyles = (size: Size, w: string, h: string, shape = 'square') => css`
+const shapeStyles = (size: Size, w: string, h: string) => css`
   ${th(`tags.shape.${size}`)}
   padding: 0;
   ${(w || h) &&
@@ -13,19 +13,18 @@ const shapeStyles = (size: Size, w: string, h: string, shape = 'square') => css`
     width: ${getMax(w || '0', h)};
     height: ${getMax(w || '0', h)};
   `}
-  ${shape === 'circle' && 'border-radius: 50%'};
 `
 
 export interface StyledTagProps {
-  hasAction: boolean
+  hasLink: boolean
+  hasRemoveAction: boolean
   length: number
   size: Size
   variant: Variant
-  shape: Shape
 }
 
 export const Tag = styled.div<StyledTagProps & WuiProps>(
-  ({ h, hasAction, length, shape, size, variant, w }) => css`
+  ({ h, hasLink, hasRemoveAction, length, size, variant, w }) => css`
     ${th('tags.default')};
     ${th(`tags.variants.${variant}`)};
     ${th(`tags.sizes.${size}`)}
@@ -38,21 +37,37 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
     transition: medium;
     ${overflowEllipsis}
     ${system}
-    ${!shape &&
-    length !== 1 &&
+    ${length !== 1 &&
     css`
       span,
       p {
         ${overflowEllipsis}
       }
     `}
-    ${(shape || length === 1) &&
+    ${length === 1 &&
     css`
       justify-content: center;
-      ${shapeStyles(size, w as string, h as string, shape)};
+      ${shapeStyles(size, w as string, h as string)};
     `};
-    ${hasAction &&
+
+    ${hasLink &&
     css`
+      cursor: pointer;
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      &:hover {
+        ${th(`tags.hover.${variant}`)};
+      }
+    `}
+    ${hasRemoveAction &&
+    css`
+      &:hover {
+        ${th(`tags.hover.${variant}`)};
+      }
+
       padding-right: xl;
     `}
     max-width: 100%;
@@ -77,10 +92,6 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
           opacity: 1;
         }
       }
-    }
-
-    &:hover {
-      ${th(`tags.hover.${variant}`)};
     }
   `
 )

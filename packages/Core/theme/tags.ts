@@ -121,32 +121,46 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
       info: {
         borderColor: colors.info[500],
       },
-      1: {},
-      2: {},
-      3: {},
-      4: {},
-      5: {},
-      6: {},
-      7: {},
+      1: {
+        borderColor: colors.dark[200],
+      },
+      2: {
+        borderColor: colors.dark[200],
+      },
+      3: {
+        borderColor: colors.dark[200],
+      },
+      4: {
+        borderColor: colors.dark[200],
+      },
+      5: {
+        borderColor: colors.dark[200],
+      },
+      6: {
+        borderColor: colors.dark[200],
+      },
+      7: {
+        borderColor: colors.dark[200],
+      },
     },
     sizes: {
       xs: {
         padding: `${space.xxs} ${space.xs}`,
         height: sizes.xs,
         fontSize: fontSizes.xs,
-        gap: toRem(4),
+        gap: space.xs,
       },
       sm: {
         padding: `${space.xs} ${space.sm}`,
         height: sizes.sm,
         fontSize: fontSizes.xs,
-        gap: toRem(4),
+        gap: space.xs,
       },
       md: {
         padding: `${space.xs} ${space.sm}`,
         height: sizes.md,
         fontSize: fontSizes.sm,
-        gap: toRem(8),
+        gap: space.sm,
       },
     },
     icon: {
