@@ -4996,9 +4996,9 @@ attr-accept@^2.2.2:
   integrity sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==
 
 aws-sdk@^2.1094.0:
-  version "2.1154.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1154.0.tgz#94c9406aeb69b7320a16714eb4958a9569cbb7f4"
-  integrity sha512-SIxLcWGsnW9Sl2P+a+uoqebBsfjeAZZOQokzgDj3VoESnFzsjI+2REi9CdvvSvwlfFUP7sFr6A0khrYNDJLebQ==
+  version "2.1168.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1168.0.tgz#7936459edee0c999065f1ecf2ef0bea89ea056c1"
+  integrity sha512-9+WYoYTHHjLqeWdSSLbNpmc/NgnZpX4LGiyYjXenh4WNRBXshXI0XioTK8BQgDscVzB978EJV8kG1nZGE3USzw==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
