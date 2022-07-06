@@ -69,14 +69,11 @@ Use size property with `xs`, `sm`, or `md`.
 When we have a clickable tag, we apply an hover state
 
 ```jsx row
-<Tag size="xs" onClick="">
-  <a href="#">Some link</a>
+<Tag as="a" href="#" size="xs" onClick={() => console.log('clicked')}>
+  Some link
 </Tag>
-<Tag size="sm">
-  <a href="#">Some link</a>
-</Tag>
-<Tag size="md">
-  <a href="#">Some link</a>
+<Tag as="a" href="https://www.welcome-ui.com/" target="_blank" size="sm">
+  Welcome-ui
 </Tag>
 ```
 

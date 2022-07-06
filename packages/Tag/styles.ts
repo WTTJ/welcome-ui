@@ -17,6 +17,7 @@ const shapeStyles = (size: Size, w: string, h: string) => css`
 
 export interface StyledTagProps {
   hasLink: boolean
+  hasClickAction: boolean
   hasRemoveAction: boolean
   length: number
   size: Size
@@ -24,7 +25,7 @@ export interface StyledTagProps {
 }
 
 export const Tag = styled.div<StyledTagProps & WuiProps>(
-  ({ h, hasLink, hasRemoveAction, length, size, variant, w }) => css`
+  ({ h, hasClickAction, hasLink, hasRemoveAction, length, size, variant, w }) => css`
     ${th('tags.default')};
     ${th(`tags.variants.${variant}`)};
     ${th(`tags.sizes.${size}`)}
@@ -50,18 +51,17 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
       ${shapeStyles(size, w as string, h as string)};
     `};
 
-    ${hasLink &&
+    ${(hasLink || hasClickAction) &&
     css`
       cursor: pointer;
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+      color: inherit;
+      text-decoration: none;
 
       &:hover {
         ${th(`tags.hover.${variant}`)};
       }
-    `}
+    `};
+
     ${hasRemoveAction &&
     css`
       padding-right: xl;

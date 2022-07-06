@@ -33,21 +33,27 @@ export interface TagOptions {
 export type TagProps = CreateWuiProps<'div', TagOptions>
 
 export const Tag = forwardRef<'div', TagProps>(
-  ({ children, dataTestId, onClick, onRemove, size = 'md', variant = 'default', ...rest }, ref) => {
+  (
+    { as, children, dataTestId, onClick, onRemove, size = 'md', variant = 'default', ...rest },
+    ref
+  ) => {
     const content = wrapChildren(children as JSX.Element)
     // get size children for int and string
     const childrenLength =
       !!(children || children === 0) &&
       ['number', 'string'].includes(typeof children) &&
       children.toString().length
-    const hasLink = !!onClick || (content as JSX.Element[])[0].type === 'a'
+    const hasLink = as === 'a'
 
     return (
       <S.Tag
+        as={as}
         data-testid={dataTestId}
+        hasClickAction={!!onClick}
         hasLink={hasLink}
         hasRemoveAction={!!onRemove}
         length={childrenLength}
+        onClick={onClick}
         ref={ref}
         role="listitem"
         size={size}
