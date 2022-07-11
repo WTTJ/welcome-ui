@@ -5,13 +5,8 @@
     "baseUrl": "./packages",
     "sourceMap": false,
     "declaration": true,
+    "allowJs": false
   },
-  "include": ["packages", "syled.d.ts"],
-  "exclude": [
-    "dist",
-    "icons/**/*",
-    "packages/**/node_modules",
-    "packages/**/dist",
-    "docs"
-  ]
+  "include": ["packages", "types"],
+  "exclude": ["docs", "dist", "icons/**/*", "packages/**/node_modules", "packages/**/dist"]
 }

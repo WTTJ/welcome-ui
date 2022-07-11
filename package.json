@@ -117,6 +117,7 @@
     "husky": "8.0.1",
     "jest": "27.5.1",
     "jest-styled-components": "7.0.8",
+    "jsx-to-styled": "^1.5.0",
     "lerna": "^3.22.1",
     "lerna-update-wizard": "^0.17.8",
     "lodash.difference": "^4.5.0",
@@ -132,7 +133,7 @@
     "rollup": "2.75.3",
     "rollup-plugin-postcss": "4.0.2",
     "standard-version": "=7.0.0",
-    "styled-components": "^5.3.3",
+    "styled-components": "^5.3.5",
     "svgo": "^2.8.0",
     "typescript": "^4.6.2",
     "webfonts-generator": "^0.4.0",
@@ -140,7 +141,8 @@
     "yargs": "^17.3.1"
   },
   "resolutions": {
-    "styled-components": "5.3.5"
+    "styled-components": "5.3.5",
+    "csstype": "3.1.0"
   },
   "homepage": "https://welcome-ui.com"
 }

@@ -1,5 +1,4 @@
 import merge from 'ramda/src/mergeDeepRight'
-import { defaultTheme, rpxTransformers } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
 import { colors } from './colors'
@@ -57,6 +56,7 @@ import { getToasts } from './toasts'
 import { getPaginations } from './paginations'
 import { getTabs } from './tabs'
 import { getCloseButton } from './closeButton'
+import { states } from './states'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'Work Sans'
@@ -76,8 +76,6 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   } = options
 
   let theme = {} as WuiTheme
-
-  theme.transformers = { ...rpxTransformers }
 
   theme.toEm = px => `${px / DEFAULT_FONT_SIZE}em`
   theme.toRem = px => `${px / DEFAULT_FONT_SIZE}rem`
@@ -160,7 +158,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.radioTabs = getRadioTabs(theme)
 
   // states
-  theme.states = defaultTheme.states
+  theme.states = states
 
   theme = merge(theme, rest) as WuiTheme
 

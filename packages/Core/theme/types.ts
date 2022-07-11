@@ -1,9 +1,4 @@
-import {
-  CSSObject,
-  CSSScalar,
-  ITheme as StyledComponentDefaultTheme,
-  DefaultTheme as XStyledDefaultTheme,
-} from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { ThemeAccordions } from './accordions'
 import { ThemeAlerts } from './alerts'
@@ -53,35 +48,16 @@ import {
   ThemeLetterSpacings,
   ThemeLineHeights,
   ThemeTexts,
+  ThemeTextsFontColors,
   ThemeTextsFontFamily,
   ThemeTextsFontWeights,
   ThemeTextsTextTransform,
 } from './typography'
 import { ThemeUnderline } from './underline'
+import { ThemeStates } from './states'
+import { ThemeCloseButton } from './closeButton'
 
-type OverrideKeys =
-  | 'colors'
-  | 'radii'
-  | 'borderWidths'
-  | 'fontSizes'
-  | 'lineHeights'
-  | 'fontWeights'
-  | 'letterSpacings'
-  | 'fonts'
-  | 'sizes'
-  | 'screens'
-  | 'space'
-  | 'shadows'
-  | 'texts'
-
-type XStyledTheme = Omit<XStyledDefaultTheme, OverrideKeys>
-type StyledComponentsTheme = Omit<StyledComponentDefaultTheme, OverrideKeys>
-
-export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
-  transformers: {
-    px: (value: CSSScalar) => CSSScalar
-    border: (value: CSSScalar) => CSSScalar
-  }
+export interface WuiTheme {
   toEm: (int: number) => string
   toRem: (int?: number) => string
   colors: ThemeColors
@@ -108,10 +84,12 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   defaultCards: ThemeDefaultCards
   textsFontWeights: ThemeTextsFontWeights
   textsFontFamily: ThemeTextsFontFamily
+  textsFontColors: ThemeTextsFontColors
   textsTextTransform: ThemeTextsTextTransform
   alerts: ThemeAlerts
   avatars: ThemeAvatars
   buttons: ThemeButtons
+  closeButton: ThemeCloseButton
   breadcrumbs: ThemeBreadcrumbs
   toasts: ThemeToasts
   paginations: ThemePaginations
@@ -131,6 +109,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   labels: ThemeLabels
   popovers: ThemePopovers
   sizes: ThemeSizes
+  states: ThemeStates
   // fields
   defaultFields: ThemeDefaultFields
   hints: ThemeHints
