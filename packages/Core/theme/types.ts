@@ -17,7 +17,6 @@ import { ThemeDropdownMenu } from './dropdownMenu'
 import { ThemeFiledrops } from './filedrops'
 import { ThemeFocus } from './focus'
 import { ThemeFontFaces } from './fonts'
-import { ThemeHints } from './hints'
 import { ThemeIcons } from './icons'
 import { ThemeLabels } from './labels'
 import { ThemeLinks } from './links'
@@ -112,7 +111,6 @@ export interface WuiTheme {
   states: ThemeStates
   // fields
   defaultFields: ThemeDefaultFields
-  hints: ThemeHints
   checkboxes: ThemeCheckboxes
   toggles: ThemeToggles
   dateTimePickerCommon: ThemeDateTimePickerCommon

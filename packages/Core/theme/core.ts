@@ -32,7 +32,6 @@ import { getTooltips } from './tooltips'
 import { getCheckboxes } from './checkboxes'
 import { getModals } from './modals'
 import { getToggles } from './toggles'
-import { getHints } from './hints'
 import { getAccordions } from './accordions'
 import { getIcons } from './icons'
 import { getLinks } from './links'
@@ -148,7 +147,6 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.popovers = getPopovers(theme)
   // fields
   theme.defaultFields = getDefaultFields(theme)
-  theme.hints = getHints(theme)
   theme.checkboxes = getCheckboxes(theme)
   theme.toggles = getToggles(theme)
   theme.dateTimePickerCommon = getDateTimePickerCommon(theme)
