@@ -1,21 +1,19 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
-import { shouldForwardProp } from '@welcome-ui/system'
+import { system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { CheckboxProps } from './index'
 
-export const Checkbox = styled(ReakitCheckbox).withConfig({
-  shouldForwardProp,
-})<CheckboxProps>(
+export const Checkbox = styled(ReakitCheckbox)<CheckboxProps>(
   ({ order = '-1', size, theme, variant }) => css`
     ${defaultFieldStyles({ size, variant })};
-    ${th('checkboxes.default')}
+    ${theme.checkboxes.default}
     position: relative;
     padding: 0;
     order: ${order};
     cursor: pointer;
-    transition: medium;
+    transition: ${theme.transitions.medium};
     overflow: hidden;
 
     &[aria-checked='true'] {
@@ -29,16 +27,16 @@ export const Checkbox = styled(ReakitCheckbox).withConfig({
         width: 12px;
         margin: auto;
         text-align: center;
-        transition: medium;
+        transition: ${theme.transitions.medium};
       }
 
       &:not([disabled]) {
-        ${th('checkboxes.checked')};
+        ${theme.checkboxes.checked};
       }
     }
 
     &[disabled] {
-      ${th('checkboxes.disabled')}
+      ${theme.checkboxes.disabled}
     }
 
     ${system};
