@@ -20,7 +20,7 @@ export const Title: React.FC<AlertTitleProps> = ({
 }) => {
   return (
     <S.Title data-testid={dataTestId} variant={variant} {...rest}>
-      <VariantIcon icon={icon} mr="xs" variant={variant} />
+      <VariantIcon $mr="xs" icon={icon} variant={variant} />
       {children}
     </S.Title>
   )

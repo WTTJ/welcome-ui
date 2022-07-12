@@ -8,11 +8,7 @@ import * as S from './styles'
 import { Title } from './Title'
 
 export type Variant = 'error' | 'warning' | 'info' | 'success'
-
-export interface AlertOptions {
-  variant?: Variant
-}
-
+export type AlertOptions = { variant?: Variant }
 export type AlertProps = CreateWuiProps<'div', AlertOptions>
 
 const AlertComponent = forwardRef<'div', AlertProps>(
@@ -37,9 +33,9 @@ const AlertComponent = forwardRef<'div', AlertProps>(
     const py = hasTitle && buttonChild && content.length === 1 ? 'sm' : 'xl'
 
     return (
-      <S.Alert py={py} ref={ref} variant={variant} {...rest}>
+      <S.Alert $py={py} ref={ref} variant={variant} {...rest}>
         {buttonChild ? (
-          <Stack alignItems="center" direction="row" justifyContent="space-between">
+          <Stack $alignItems="center" $flexDirection="row" $justifyContent="space-between">
             <div>{content}</div>
             {buttonChild}
           </Stack>

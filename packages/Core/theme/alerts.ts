@@ -4,12 +4,10 @@ import { WuiTheme } from './types'
 
 type State = 'error' | 'warning' | 'info' | 'success'
 
-type AttributesState = CSSObject
-
 export type ThemeAlerts = {
   default: CSSObject
-  title: Record<State, { color: string }>
-} & Record<State, AttributesState>
+  title: Record<State, CSSObject>
+} & Record<State, CSSObject>
 
 export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
   const { borderWidths, colors, fontSizes, radii, space } = theme
