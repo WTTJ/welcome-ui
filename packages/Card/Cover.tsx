@@ -3,10 +3,7 @@ import { ShapeProps } from '@welcome-ui/shape'
 
 import * as S from './Cover.styles'
 
-export interface CoverOptions {
-  src: string
-}
-
+export type CoverOptions = { src: string }
 export type CoverProps = CoverOptions & ShapeProps
 
 /**

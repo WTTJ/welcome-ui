@@ -1,18 +1,15 @@
-import styled, { system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Box } from '@welcome-ui/box'
-import { cardStyles } from '@welcome-ui/utils'
 
-export const Card = styled(Box)`
-  ${cardStyles};
-  ${th('cards.default')};
-  background-size: cover;
-  background-position: center;
-
-  ${system}
-`
+export const Card = styled(Box)(
+  ({ theme }) => css`
+    ${theme.defaultCards};
+    ${theme.cards.default};
+    background-size: cover;
+    background-position: center;
+  `
+)
 
 export const Body = styled(Box)`
-  padding: lg;
-
-  ${system}
+  padding: ${({ theme }) => theme.spaces.lg};
 `
