@@ -1,68 +1,73 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 import { Button as ReakitButton } from 'reakit/Button'
-import { shouldForwardProp } from '@welcome-ui/system'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
+import { system } from '@welcome-ui/system'
 
 import { ButtonOptions } from './index'
 
-const shapeStyles = (size: ButtonOptions['size'], shape: ButtonOptions['shape'] = 'square') => css`
-  width: ${th(`buttons.sizes.${size}.height`)};
+const shapeStyles = (
+  size: ButtonOptions['size'],
+  shape: ButtonOptions['shape'] = 'square',
+  theme: DefaultTheme
+) => css`
+  width: ${theme.buttons.sizes[size].height};
   padding: 0;
   ${shape === 'circle' &&
   css`
-    border-radius: ${th(`buttons.sizes.${size}.height`)};
+    border-radius: ${theme.buttons.sizes[size].height};
   `};
 `
 
-export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<ButtonOptions>(
-  ({ disabled, shape, size = 'md', variant }) => css`
-    ${th(`buttons.${variant}`)};
+export const Button = styled(ReakitButton)<ButtonOptions>(
+  ({ disabled, shape, size = 'md', theme, variant }) => css`
+    ${theme.buttons[variant]};
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: auto;
-    ${th(`buttons.sizes.${size}`)};
+    ${theme.buttons.sizes[size]};
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
     cursor: pointer;
     outline: none !important; /* important for firefox */
-    border-width: sm;
+    border-width: ${theme.spaces.sm};
     border-style: solid;
     appearance: none;
     overflow: hidden;
-    transition: medium;
-    ${shape && shapeStyles(size, shape)};
+    transition: ${theme.transitions.medium};
+    ${shape && shapeStyles(size, shape, theme)};
     ${system};
 
     & > svg:only-child {
-      width: ${th(`buttons.icon.only.${size}`)};
-      height: ${th(`buttons.icon.only.${size}`)};
+      width: ${theme.buttons.icon.only[size]};
+      height: ${theme.buttons.icon.only[size]};
     }
 
     & > svg:not(:only-child) {
-      width: ${th(`buttons.icon.default.${size}`)};
-      height: ${th(`buttons.icon.default.${size}`)};
+      width: ${theme.buttons.icon.default[size]};
+      height: ${theme.buttons.icon.default[size]};
     }
 
     & > *:not(:only-child):not(:last-child) {
-      margin-right: sm;
+      margin-right: ${theme.spaces.sm};
     }
 
     ${!disabled &&
+    variant !== 'disabled' &&
     css`
       [${hideFocusRingsDataAttribute}] &:focus {
         box-shadow: none;
       }
       &:focus {
-        ${th(`buttons.focus.${variant || 'primary'}`)};
+        ${theme.buttons.focus[variant || 'primary']};
       }
       &:hover {
-        ${th(`buttons.hover.${variant || 'primary'}`)};
+        ${theme.buttons.hover[variant || 'primary']};
       }
       &:active {
-        ${th(`buttons.active.${variant || 'primary'}`)};
+        ${theme.buttons.active[variant || 'primary']};
       }
     `};
 

@@ -20,7 +20,7 @@ export type Variant =
   | 'secondary-danger'
   | 'disabled'
 
-export interface ButtonOptions {
+export type ButtonOptions = {
   disabled?: boolean
   size?: Size
   variant?: Variant
