@@ -6,7 +6,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export interface AccordionOptions {
+export type AccordionOptions = {
   title: string | JSX.Element
   icon?: JSX.Element
   visible?: boolean
