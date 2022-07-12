@@ -1,4 +1,4 @@
-import { css } from '@xstyled/styled-components'
+import { css } from 'styled-components'
 
 /* stylelint-disable */
 export const resetStyles = css`

@@ -9,7 +9,7 @@ export type ThemePopovers = {
 }
 
 export const getPopovers = (theme: WuiTheme): ThemePopovers => {
-  const { borderWidths, colors, space, texts, toRem } = theme
+  const { borderWidths, colors, spaces, texts, toRem } = theme
 
   return {
     default: {
@@ -21,13 +21,13 @@ export const getPopovers = (theme: WuiTheme): ThemePopovers => {
     },
     content: {
       display: 'block',
-      padding: space.md,
+      padding: spaces.md,
     },
     title: {
       ...texts.h6,
-      padding: `${space.md} ${space.md} ${space.xs}`,
+      padding: `${spaces.md} ${spaces.md} ${spaces.xs}`,
       color: colors.white,
-      borderBottomColor: colors.light[200],
+      borderBottomColor: colors['light.200'],
       borderBottomWidth: borderWidths.sm,
       borderBottomStyle: 'solid',
     },

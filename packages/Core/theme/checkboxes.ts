@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { WuiTheme } from './types'
 
@@ -17,11 +17,11 @@ export const getCheckboxes = (theme: WuiTheme): ThemeCheckboxes => {
       flexShrink: 0,
     },
     disabled: {
-      borderColor: colors.nude[700],
+      borderColor: colors['nude.700'],
     },
     checked: {
-      backgroundColor: colors.primary[400],
-      borderColor: colors.primary[400],
+      backgroundColor: colors['primary.400'],
+      borderColor: colors['primary.400'],
     },
   }
 }

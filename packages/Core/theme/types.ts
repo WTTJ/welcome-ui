@@ -27,10 +27,10 @@ import { ThemePopovers } from './popovers'
 import { ThemeRadii } from './radii'
 import { ThemeRadios } from './radios'
 import { ThemeRadioTabs } from './radiosTabs'
-import { ThemeScreens } from './screens'
+import { ThemeBreakpoints } from './breakpoints'
 import { ThemeSelection } from './selection'
 import { ThemeShadows } from './shadows'
-import { ThemeSpace } from './space'
+import { ThemeSpaces } from './spaces'
 import { ThemeSwipers } from './swipers'
 import { ThemeTables } from './tables'
 import { ThemeTabs } from './tabs'
@@ -70,9 +70,9 @@ export interface WuiTheme {
   fontWeights: ThemeFontWeights
   letterSpacings: ThemeLetterSpacings
   fonts: ThemeFonts
-  screens: ThemeScreens
-  space: ThemeSpace
-  inset: ThemeSpace
+  breakpoints: ThemeBreakpoints
+  spaces: ThemeSpaces
+  inset: ThemeSpaces
   icons: ThemeIcons
   radii: ThemeRadii
   transitions: ThemeTransitions

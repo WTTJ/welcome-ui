@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { WuiTheme } from './types'
 
@@ -16,17 +16,17 @@ export const getAccordions = (theme: WuiTheme): ThemeAccordions => {
   return {
     padding: toRem(20),
     wrapper: {
-      backgroundColor: colors.light[900],
+      backgroundColor: colors['light.900'],
       border: `${borderWidths.sm} solid ${colors.border}`,
     },
     icon: {
-      color: colors.dark[900],
+      color: colors['dark.900'],
     },
     content: {
       fontSize: fontSizes.sm,
     },
     title: {
-      color: colors.dark[900],
+      color: colors['dark.900'],
       fontSize: fontSizes.h5,
       fontWeight: fontWeights.bold,
     },

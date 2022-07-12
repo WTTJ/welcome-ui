@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { WuiTheme } from './types'
 
@@ -18,7 +18,7 @@ export type ThemeDrawers = {
 }
 
 export const getDrawers = (theme: WuiTheme): ThemeDrawers => {
-  const { colors, space, toRem } = theme
+  const { colors, spaces, toRem } = theme
   return {
     backdrop: {
       backgroundColor: colors.overlay,
@@ -28,20 +28,20 @@ export const getDrawers = (theme: WuiTheme): ThemeDrawers => {
       zIndex: 999,
     },
     closeButton: {
-      marginRight: `${space.xl}`,
-      marginTop: `${space.xl}`,
+      marginRight: `${spaces.xl}`,
+      marginTop: `${spaces.xl}`,
     },
     title: {
       margin: 0,
-      backgroundColor: colors.light[900],
-      padding: `${space['xl']} ${space['5xl']} ${space['xl']} ${space['xl']}`,
+      backgroundColor: colors['light.900'],
+      padding: `${spaces['xl']} ${spaces['5xl']} ${spaces['xl']} ${spaces['xl']}`,
     },
     content: {
-      padding: `${space['3xl']}`,
+      padding: `${spaces['3xl']}`,
     },
     footer: {
-      backgroundColor: colors.light[900],
-      padding: `${space['xl']}`,
+      backgroundColor: colors['light.900'],
+      padding: `${spaces['xl']}`,
     },
     sizes: {
       horizontal: {

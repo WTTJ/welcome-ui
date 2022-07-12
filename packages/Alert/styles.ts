@@ -22,7 +22,7 @@ export const Title = styled(Text).attrs(({ variant }: AlertOptions) => ({
     display: flex;
     align-items: center;
     margin: 0;
-    margin-bottom: ${theme.space.sm};
+    margin-bottom: ${theme.spaces.sm};
     ${variantStyles};
 
     &:only-child {

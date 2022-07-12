@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { WuiTheme } from './types'
 
@@ -15,13 +15,13 @@ export const getDateTimePickerCommon = (theme: WuiTheme): ThemeDateTimePickerCom
   return {
     item: {
       selected: {
-        color: colors.light[900],
+        color: colors['light.900'],
         fontWeight: fontWeights.bold,
-        backgroundColor: colors.primary[400],
+        backgroundColor: colors['primary.400'],
         outline: 'none',
       },
       today: {
-        color: colors.dark[900],
+        color: colors['dark.900'],
         fontWeight: fontWeights.bold,
       },
     },

@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { WuiTheme } from './types'
 
@@ -12,7 +12,7 @@ export type ThemeRadios = {
 }
 
 export const getRadios = (theme: WuiTheme): ThemeRadios => {
-  const { colors, fontSizes, space, toRem } = theme
+  const { colors, fontSizes, spaces, toRem } = theme
 
   return {
     default: {
@@ -20,17 +20,17 @@ export const getRadios = (theme: WuiTheme): ThemeRadios => {
       height: toRem(20),
     },
     checked: {
-      backgroundColor: colors.primary[400],
-      borderColor: colors.primary[400],
+      backgroundColor: colors['primary.400'],
+      borderColor: colors['primary.400'],
     },
     withHint: {
       default: {
         fontSize: fontSizes.md,
-        color: colors.dark[900],
+        color: colors['dark.900'],
       },
       hint: {
-        marginTop: space.xs,
-        color: colors.dark[200],
+        marginTop: spaces.xs,
+        color: colors['dark.200'],
       },
     },
   }

@@ -1,9 +1,7 @@
+import { CSSObject } from 'styled-components'
 import { hexToRGBA } from '@welcome-ui/utils'
-import { CSSObject } from '@xstyled/styled-components'
 
-export type ThemeFocus = (color?: string) => {
-  boxShadow: CSSObject['boxShadow']
-}
+export type ThemeFocus = (color?: string) => CSSObject
 
 export const getFocus =
   (color: string): ThemeFocus =>

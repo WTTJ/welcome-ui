@@ -1,5 +1,4 @@
-import { css } from '@xstyled/styled-components'
-import { CSSObject } from '@xstyled/styled-components'
+import { css, CSSObject } from 'styled-components'
 
 import { WuiTheme } from './types'
 
@@ -20,7 +19,7 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
 
   return {
     default: {
-      color: colors.dark[900],
+      color: colors['dark.900'],
       fontWeight: fontWeights.medium,
       transition: transitions.medium,
     },

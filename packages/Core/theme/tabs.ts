@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { WuiTheme } from './types'
 
@@ -24,32 +24,32 @@ export type ThemeTabs = {
 }
 
 export const getTabs = (theme: WuiTheme): ThemeTabs => {
-  const { borderWidths, colors, fontSizes, fontWeights, space } = theme
+  const { borderWidths, colors, fontSizes, fontWeights, spaces } = theme
 
   return {
     tabsBorder: {
       horizontal: {
-        boxShadow: `inset 0 -${borderWidths.sm} 0 ${colors.dark[100]}`,
+        boxShadow: `inset 0 -${borderWidths.sm} 0 ${colors['dark.100']}`,
       },
       vertical: {
-        boxShadow: `inset -${borderWidths.sm} 0 0 ${colors.dark[100]}`,
+        boxShadow: `inset -${borderWidths.sm} 0 0 ${colors['dark.100']}`,
       },
     },
     item: {
       default: {
-        color: colors.dark[500],
+        color: colors['dark.500'],
         fontWeight: fontWeights.medium,
         fontSize: fontSizes.md,
         textDecoration: 'none',
       },
       active: {
-        color: colors.dark[900],
+        color: colors['dark.900'],
       },
       focus: {
-        color: colors.dark[900],
+        color: colors['dark.900'],
       },
       disabled: {
-        color: colors.dark[200],
+        color: colors['dark.200'],
       },
     },
     panel: {
@@ -59,7 +59,7 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
         },
       },
       horizontal: {
-        marginTop: space.xl,
+        marginTop: spaces.xl,
         '&:focus': {
           outline: 'none',
         },
@@ -67,11 +67,11 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
     },
     activeBar: {
       horizontal: {
-        background: colors.primary[400],
+        background: colors['primary.400'],
         height: borderWidths.lg,
       },
       vertical: {
-        background: colors.primary[400],
+        background: colors['primary.400'],
         width: borderWidths.lg,
       },
     },

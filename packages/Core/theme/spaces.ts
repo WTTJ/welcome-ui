@@ -1,6 +1,6 @@
 import { WuiTheme } from './types'
 
-export type ThemeSpace = {
+export type ThemeSpaces = {
   xxs: string
   xs: string
   sm: string
@@ -17,7 +17,7 @@ export type ThemeSpace = {
   [key: number]: string
 }
 
-export const getSpace = (theme: WuiTheme): ThemeSpace => {
+export const getSpaces = (theme: WuiTheme): ThemeSpaces => {
   return {
     xxs: theme.toRem(2),
     xs: theme.toRem(4),

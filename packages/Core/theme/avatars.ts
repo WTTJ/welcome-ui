@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { WuiTheme } from './types'
 
@@ -21,7 +21,7 @@ export const getAvatars = (theme: WuiTheme): ThemeAvatars => {
       xxl: toRem(60),
     },
     text: {
-      color: colors.light[900],
+      color: colors['light.900'],
       fontWeight: fontWeights.bold,
     },
   }

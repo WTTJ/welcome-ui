@@ -47,10 +47,10 @@ export const Disclosure = styled(ReakitDisclosure)(
 export const Content = styled(DisclosureContent)(
   ({ theme, visible }) => css`
     ${theme.accordions.content};
-    margin-top: -${theme.space.sm};
+    margin-top: -${theme.spaces.sm};
     padding-left: ${theme.accordions.padding};
     padding-right: ${theme.accordions.padding};
-    padding-bottom: ${theme.space.sm};
+    padding-bottom: ${theme.spaces.sm};
 
     ${visible &&
     css`

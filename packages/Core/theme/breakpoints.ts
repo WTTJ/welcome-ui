@@ -1,4 +1,4 @@
-export type ThemeScreens = {
+export type ThemeBreakpoints = {
   xs: number
   sm: number
   md: number
@@ -11,7 +11,7 @@ export type ThemeScreens = {
   [key: number]: number
 }
 
-export const screens: ThemeScreens = {
+export const breakpoints: ThemeBreakpoints = {
   xs: 0,
   sm: 480,
   md: 736,

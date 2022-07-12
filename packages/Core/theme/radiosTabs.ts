@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { WuiTheme } from './types'
 
@@ -13,15 +13,15 @@ export const getRadioTabs = (theme: WuiTheme): ThemeRadioTabs => {
   return {
     default: {
       '&:hover': {
-        backgroundColor: colors.nude[200],
+        backgroundColor: colors['nude.200'],
       },
     },
     checked: {
-      backgroundColor: colors.primary[400],
-      color: colors.light[900],
-      borderColor: colors.primary[400],
+      backgroundColor: colors['primary.400'],
+      color: colors['light.900'],
+      borderColor: colors['primary.400'],
       '&:hover': {
-        backgroundColor: colors.primary[200],
+        backgroundColor: colors['primary.200'],
       },
     },
   }

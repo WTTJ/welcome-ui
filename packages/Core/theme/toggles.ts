@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { WuiTheme } from './types'
 
@@ -21,43 +21,43 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
         width: toRem(34),
         height: toRem(18),
         borderRadius: toRem(9),
-        backgroundColor: colors.light[900],
+        backgroundColor: colors['light.900'],
         borderColor: colors.border,
         borderWidth: borderWidths.sm,
         borderStyle: 'solid',
         marginTop: LINE_HEIGHT_ADJUSTMENTS,
 
         '&:focus': {
-          borderColor: colors.primary[400],
+          borderColor: colors['primary.400'],
           ...focus(),
         },
       },
       checked: {
-        backgroundColor: colors.primary[400],
-        borderColor: colors.primary[400],
+        backgroundColor: colors['primary.400'],
+        borderColor: colors['primary.400'],
       },
       disabled: {
-        borderColor: colors.dark[100],
-        backgroundColor: colors.dark[100],
+        borderColor: colors['dark.100'],
+        backgroundColor: colors['dark.100'],
       },
     },
     after: {
       default: {
         width: toRem(14),
         height: toRem(14),
-        backgroundColor: colors.light[900],
-        borderColor: colors.dark[400],
+        backgroundColor: colors['light.900'],
+        borderColor: colors['dark.400'],
         borderWidth: borderWidths.sm,
         borderStyle: 'solid',
         borderRadius: '50%',
       },
       checked: {
-        backgroundColor: colors.light[900],
-        borderColor: colors.light[900],
+        backgroundColor: colors['light.900'],
+        borderColor: colors['light.900'],
       },
       disabled: {
         borderColor: 'transparent',
-        backgroundColor: colors.dark[200],
+        backgroundColor: colors['dark.200'],
       },
     },
   }

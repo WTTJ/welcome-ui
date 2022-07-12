@@ -16,43 +16,43 @@ export type ThemeToasts = {
 }
 
 export const getToasts = (theme: WuiTheme): ThemeToasts => {
-  const { borderWidths, colors, fontWeights, radii, space } = theme
+  const { borderWidths, colors, fontWeights, radii, spaces } = theme
 
   return {
     default: {
-      paddingLeft: space.sm,
-      paddingRight: space.sm,
+      paddingLeft: spaces.sm,
+      paddingRight: spaces.sm,
     },
     top: {
-      paddingTop: space.lg,
+      paddingTop: spaces.lg,
     },
     bottom: {
-      paddingBottom: space.lg,
+      paddingBottom: spaces.lg,
     },
     growls: {
       default: {
         ...getTexts(theme).sm,
-        backgroundColor: theme.colors.light[700],
-        borderColor: colors.nude[200],
+        backgroundColor: colors['light.700'],
+        borderColor: colors['nude.200'],
         borderWidth: borderWidths.sm,
         borderStyle: 'solid',
         borderRadius: radii.md,
       },
       error: {
-        backgroundColor: colors.danger[100],
-        borderColor: colors.danger[500],
+        backgroundColor: colors['danger.100'],
+        borderColor: colors['danger.500'],
       },
       warning: {
-        backgroundColor: colors.warning[100],
-        borderColor: colors.warning[500],
+        backgroundColor: colors['warning.100'],
+        borderColor: colors['warning.500'],
       },
       info: {
-        backgroundColor: colors.info[100],
-        borderColor: colors.info[500],
+        backgroundColor: colors['info.100'],
+        borderColor: colors['info.500'],
       },
       success: {
-        backgroundColor: colors.success[100],
-        borderColor: colors.success[500],
+        backgroundColor: colors['success.100'],
+        borderColor: colors['success.500'],
       },
       title: {
         ...getTexts(theme).h5,

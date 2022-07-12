@@ -1,12 +1,8 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 import { hexToRGBA } from '@welcome-ui/utils'
 
 import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
-
-type CommonAttributesButton = CSSObject
-
-type SizeAttributesButton = CSSObject
 
 type Variant =
   | 'primary'
@@ -26,19 +22,19 @@ type Size = 'xs' | 'sm' | 'md' | 'lg'
 
 type Icon = 'only' | 'default'
 
-export type ThemeButtons = Record<Variant, CommonAttributesButton> &
-  Record<'hover', Record<Variant, CommonAttributesButton>> &
-  Record<'focus', Record<Variant, unknown>> &
-  Record<'active', Record<Variant, CommonAttributesButton>> &
-  Record<'disabled', CommonAttributesButton & { '&:focus': ReturnType<ThemeFocus> }> &
-  Record<'sizes', Record<Size, SizeAttributesButton>> &
-  Record<'icon', Record<Icon, unknown>>
+export type ThemeButtons = Record<Variant, CSSObject> &
+  Record<'hover', Record<Variant, CSSObject>> &
+  Record<'focus', Record<Variant, CSSObject>> &
+  Record<'active', Record<Variant, CSSObject>> &
+  Record<'disabled', CSSObject & { '&:focus': ReturnType<ThemeFocus> }> &
+  Record<'sizes', Record<Size, CSSObject>> &
+  Record<'icon', Record<Icon, Record<Size, string>>>
 
 export const getButtons = (theme: WuiTheme): ThemeButtons => {
-  const { colors, focus, fontWeights, radii, space, texts, toRem } = theme
+  const { colors, focus, fontWeights, radii, spaces, texts, toRem } = theme
   const defaults = {
     ...texts.xs,
-    color: colors.light[900],
+    color: colors['light.900'],
     fontWeight: fontWeights.bold,
     letterSpacing: 0,
     borderRadius: radii.md,
@@ -47,109 +43,109 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
   return {
     primary: {
       ...defaults,
-      backgroundColor: colors.primary[400],
-      borderColor: colors.primary[400],
+      backgroundColor: colors['primary.400'],
+      borderColor: colors['primary.400'],
     },
     secondary: {
       ...defaults,
-      backgroundColor: colors.dark[900],
-      borderColor: colors.dark[900],
+      backgroundColor: colors['dark.900'],
+      borderColor: colors['dark.900'],
     },
     tertiary: {
       ...defaults,
-      color: colors.dark[900],
+      color: colors['dark.900'],
       backgroundColor: 'transparent',
-      borderColor: colors.dark[900],
+      borderColor: colors['dark.900'],
     },
     'primary-success': {
       ...defaults,
-      backgroundColor: colors.success[500],
-      borderColor: colors.success[500],
+      backgroundColor: colors['success.500'],
+      borderColor: colors['success.500'],
     },
     'secondary-success': {
       ...defaults,
-      color: colors.success[500],
-      backgroundColor: colors.light[900],
-      borderColor: colors.success[500],
+      color: colors['success.500'],
+      backgroundColor: colors['light.900'],
+      borderColor: colors['success.500'],
     },
     'primary-warning': {
       ...defaults,
-      backgroundColor: colors.warning[500],
-      borderColor: colors.warning[500],
+      backgroundColor: colors['warning.500'],
+      borderColor: colors['warning.500'],
     },
     'secondary-warning': {
       ...defaults,
-      color: colors.warning[500],
-      backgroundColor: colors.light[900],
-      borderColor: colors.warning[500],
+      color: colors['warning.500'],
+      backgroundColor: colors['light.900'],
+      borderColor: colors['warning.500'],
     },
     'primary-danger': {
       ...defaults,
-      backgroundColor: colors.danger[500],
-      borderColor: colors.danger[500],
+      backgroundColor: colors['danger.500'],
+      borderColor: colors['danger.500'],
     },
     'secondary-danger': {
       ...defaults,
-      color: colors.danger[500],
-      backgroundColor: colors.light[900],
-      borderColor: colors.danger[500],
+      color: colors['danger.500'],
+      backgroundColor: colors['light.900'],
+      borderColor: colors['danger.500'],
     },
     'primary-info': {
       ...defaults,
-      backgroundColor: colors.info[500],
-      borderColor: colors.info[500],
+      backgroundColor: colors['info.500'],
+      borderColor: colors['info.500'],
     },
     'secondary-info': {
       ...defaults,
-      color: colors.info[500],
-      backgroundColor: colors.light[900],
-      borderColor: colors.info[500],
+      color: colors['info.500'],
+      backgroundColor: colors['light.900'],
+      borderColor: colors['info.500'],
     },
     ghost: {
       ...defaults,
-      color: colors.dark[900],
-      backgroundColor: colors.light[900],
-      borderColor: colors.light[900],
+      color: colors['dark.900'],
+      backgroundColor: colors['light.900'],
+      borderColor: colors['light.900'],
     },
     hover: {
       primary: {
-        backgroundColor: colors.primary[200],
-        borderColor: colors.primary[200],
+        backgroundColor: colors['primary.200'],
+        borderColor: colors['primary.200'],
       },
       secondary: {
-        backgroundColor: colors.dark[500],
-        borderColor: colors.dark[500],
+        backgroundColor: colors['dark.500'],
+        borderColor: colors['dark.500'],
       },
       tertiary: {
-        backgroundColor: colors.dark[100],
+        backgroundColor: colors['dark.100'],
       },
       'primary-success': {
-        backgroundColor: colors.success[400],
-        borderColor: colors.success[400],
+        backgroundColor: colors['success.400'],
+        borderColor: colors['success.400'],
       },
       'secondary-success': {
-        backgroundColor: hexToRGBA(colors.success[500], 0.1),
+        backgroundColor: hexToRGBA(colors['success.500'], 0.1),
       },
       'primary-warning': {
-        backgroundColor: colors.warning[400],
-        borderColor: colors.warning[400],
+        backgroundColor: colors['warning.400'],
+        borderColor: colors['warning.400'],
       },
       'secondary-warning': {
-        backgroundColor: colors.warning[100],
+        backgroundColor: colors['warning.100'],
       },
       'primary-danger': {
-        backgroundColor: colors.danger[400],
-        borderColor: colors.danger[400],
+        backgroundColor: colors['danger.400'],
+        borderColor: colors['danger.400'],
       },
       'secondary-danger': {
-        backgroundColor: colors.danger[100],
+        backgroundColor: colors['danger.100'],
       },
       'primary-info': {
-        backgroundColor: colors.info[400],
-        borderColor: colors.info[400],
+        backgroundColor: colors['info.400'],
+        borderColor: colors['info.400'],
       },
       'secondary-info': {
-        backgroundColor: colors.info[100],
+        backgroundColor: colors['info.100'],
       },
       ghost: {
         backgroundColor: colors.border,
@@ -157,89 +153,89 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     focus: {
       primary: focus(),
-      secondary: focus(colors.dark[400]),
-      tertiary: focus(colors.dark[900]),
-      ghost: focus(colors.dark[100]),
-      'primary-success': focus(colors.success[500]),
-      'secondary-success': focus(colors.success[500]),
-      'primary-warning': focus(colors.warning[500]),
-      'secondary-warning': focus(colors.warning[500]),
-      'primary-danger': focus(colors.danger[500]),
-      'secondary-danger': focus(colors.danger[500]),
-      'primary-info': focus(colors.info[500]),
-      'secondary-info': focus(colors.info[500]),
+      secondary: focus(colors['dark.400']),
+      tertiary: focus(colors['dark.900']),
+      ghost: focus(colors['dark.100']),
+      'primary-success': focus(colors['success.500']),
+      'secondary-success': focus(colors['success.500']),
+      'primary-warning': focus(colors['warning.500']),
+      'secondary-warning': focus(colors['warning.500']),
+      'primary-danger': focus(colors['danger.500']),
+      'secondary-danger': focus(colors['danger.500']),
+      'primary-info': focus(colors['info.500']),
+      'secondary-info': focus(colors['info.500']),
     },
     active: {
       primary: {
-        backgroundColor: colors.primary[100],
-        borderColor: colors.primary[100],
+        backgroundColor: colors['primary.100'],
+        borderColor: colors['primary.100'],
       },
       secondary: {
-        backgroundColor: colors.dark[200],
-        borderColor: colors.dark[200],
+        backgroundColor: colors['dark.200'],
+        borderColor: colors['dark.200'],
       },
       tertiary: {
-        backgroundColor: colors.dark[400],
+        backgroundColor: colors['dark.400'],
       },
       'primary-success': {
-        backgroundColor: colors.success[300],
-        borderColor: colors.success[300],
+        backgroundColor: colors['success.300'],
+        borderColor: colors['success.300'],
       },
       'secondary-success': {
-        backgroundColor: hexToRGBA(colors.success[500], 0.4),
+        backgroundColor: hexToRGBA(colors['success.500'], 0.4),
       },
       'primary-warning': {
-        backgroundColor: colors.warning[300],
-        borderColor: colors.warning[300],
+        backgroundColor: colors['warning.300'],
+        borderColor: colors['warning.300'],
       },
       'secondary-warning': {
-        backgroundColor: hexToRGBA(colors.warning[500], 0.4),
+        backgroundColor: hexToRGBA(colors['warning.500'], 0.4),
       },
       'primary-danger': {
-        backgroundColor: colors.danger[300],
-        borderColor: colors.danger[300],
+        backgroundColor: colors['danger.300'],
+        borderColor: colors['danger.300'],
       },
       'secondary-danger': {
-        backgroundColor: hexToRGBA(colors.danger[500], 0.4),
+        backgroundColor: hexToRGBA(colors['danger.500'], 0.4),
       },
       'primary-info': {
-        backgroundColor: colors.info[300],
-        borderColor: colors.info[300],
+        backgroundColor: colors['info.300'],
+        borderColor: colors['info.300'],
       },
       'secondary-info': {
-        backgroundColor: hexToRGBA(colors.info[500], 0.4),
+        backgroundColor: hexToRGBA(colors['info.500'], 0.4),
       },
       ghost: {
-        backgroundColor: colors.dark[400],
+        backgroundColor: colors['dark.400'],
       },
     },
     disabled: {
       ...defaults,
-      color: colors.nude[700],
-      backgroundColor: colors.nude[400],
-      borderColor: colors.nude[400],
-      '&:focus': focus(colors.nude[400]),
+      color: colors['nude.700'],
+      backgroundColor: colors['nude.400'],
+      borderColor: colors['nude.400'],
+      '&:focus': focus(colors['nude.400']),
     },
     sizes: {
       xs: {
         height: toRem(24),
-        padding: `${space.xs} ${space.sm}`,
+        padding: `${spaces.xs} ${spaces.sm}`,
       },
       sm: {
         height: toRem(32),
-        padding: `${space.sm} ${space.md}`,
+        padding: `${spaces.sm} ${spaces.md}`,
       },
       md: {
         ...texts.sm,
         fontWeight: fontWeights.bold,
         height: toRem(40),
-        padding: `${space.sm} ${space.lg}`,
+        padding: `${spaces.sm} ${spaces.lg}`,
       },
       lg: {
         ...texts.sm,
         fontWeight: fontWeights.bold,
         height: toRem(48),
-        padding: `${space.md} ${space.xl}`,
+        padding: `${spaces.md} ${spaces.xl}`,
       },
     },
     icon: {

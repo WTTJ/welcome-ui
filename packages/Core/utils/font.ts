@@ -1,6 +1,4 @@
-import { css } from '@xstyled/styled-components'
-
-import { WuiTheme } from '../theme/types'
+import { css, DefaultTheme } from 'styled-components'
 
 function getFormat(extension: string) {
   return extension === 'ttf' ? 'truetype' : extension
@@ -45,7 +43,7 @@ function getFont(descriptor: Descriptor) {
 
 export const fonts =
   () =>
-  ({ theme }: { theme: WuiTheme }): ReturnType<typeof css> => {
+  ({ theme }: { theme: DefaultTheme }): ReturnType<typeof css> => {
     if (!theme || !theme.fontFaces) return null
     return Object.entries(theme.fontFaces).map(([name, variations]) =>
       variations.map(variation => getFont({ name, ...variation }))

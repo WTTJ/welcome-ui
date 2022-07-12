@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { WuiTheme } from './types'
 
@@ -17,8 +17,8 @@ export const getSwipers = (theme: WuiTheme): ThemeSwipers => {
   return {
     navigation: {
       bullet: {
-        active: { backgroundColor: colors.primary[400] },
-        default: { backgroundColor: colors.nude[400] },
+        active: { backgroundColor: colors['primary.400'] },
+        default: { backgroundColor: colors['nude.400'] },
       },
     },
   }

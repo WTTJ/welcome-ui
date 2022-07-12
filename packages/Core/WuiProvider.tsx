@@ -1,8 +1,7 @@
 import React from 'react'
-import { ThemeProvider } from '@xstyled/styled-components'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import { HideFocusRingsRoot } from '@welcome-ui/utils'
 
-import { WuiTheme } from './theme/types'
 import { GlobalStyle } from './utils/base'
 
 export interface WuiProviderProps {
@@ -10,7 +9,7 @@ export interface WuiProviderProps {
   hasGlobalStyle?: boolean
   reactRootId?: string
   shouldHideFocusRingOnClick?: boolean
-  theme: WuiTheme
+  theme: DefaultTheme
   useReset?: boolean
 }
 

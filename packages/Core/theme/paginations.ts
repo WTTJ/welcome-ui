@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { WuiTheme } from './types'
 
@@ -17,7 +17,7 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
     default: {
       width: toRem(30),
       height: toRem(30),
-      color: colors.dark[900],
+      color: colors['dark.900'],
       fontWeight: fontWeights.bold,
     },
     item: {
@@ -25,17 +25,17 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
       borderStyle: 'solid',
       borderRadius: '50%',
       '&:hover, &:focus': {
-        backgroundColor: colors.dark[100],
+        backgroundColor: colors['dark.100'],
       },
-      '&:focus': focus(colors.dark[900]),
+      '&:focus': focus(colors['dark.900']),
     },
     active: {
-      backgroundColor: colors.primary[400],
-      borderColor: colors.primary[400],
-      color: colors.light[900],
+      backgroundColor: colors['primary.400'],
+      borderColor: colors['primary.400'],
+      color: colors['light.900'],
       '&:hover, &:focus': {
-        borderColor: colors.primary[400],
-        backgroundColor: colors.primary[400],
+        borderColor: colors['primary.400'],
+        backgroundColor: colors['primary.400'],
       },
       '&:focus': focus(),
     },

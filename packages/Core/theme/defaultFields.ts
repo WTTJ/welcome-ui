@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 import { Size } from '@welcome-ui/utils'
 
 import { ThemeFocus } from './focus'
@@ -34,16 +34,16 @@ export type ThemeDefaultFields = {
 }
 
 export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
-  const { borderWidths, colors, focus, fontSizes, fontWeights, space, toRem } = theme
+  const { borderWidths, colors, focus, fontSizes, fontWeights, spaces, toRem } = theme
 
   return {
     default: {
-      color: colors.dark[900],
+      color: colors['dark.900'],
       fontSize: fontSizes.sm,
       /* Can't use 16 because that's a valid line-height value (16em) */
       lineHeight: '1rem',
       fontWeight: fontWeights.regular,
-      backgroundColor: colors.light[900],
+      backgroundColor: colors['light.900'],
       borderColor: colors.border,
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
@@ -52,15 +52,15 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
     sizes: {
       sm: {
         height: toRem(32),
-        padding: `${space.xs} ${space.md}`,
+        padding: `${spaces.xs} ${spaces.md}`,
       },
       md: {
         height: toRem(36),
-        padding: `${space.sm} ${space.md}`,
+        padding: `${spaces.sm} ${spaces.md}`,
       },
       lg: {
         height: toRem(40),
-        padding: `${space.md}`,
+        padding: `${spaces.md}`,
       },
     },
     checkableField: {
@@ -72,27 +72,27 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       },
     },
     disabled: {
-      backgroundColor: colors.nude[400],
-      color: colors.nude[700],
+      backgroundColor: colors['nude.400'],
+      color: colors['nude.700'],
       cursor: 'not-allowed',
     },
     placeholder: {
-      color: colors.dark[400],
+      color: colors['dark.400'],
     },
     focused: {
       default: {
         ...focus(),
-        borderColor: colors.primary[400],
+        borderColor: colors['primary.400'],
       },
-      error: focus(colors.danger[500]),
-      warning: focus(colors.warning[500]),
+      error: focus(colors['danger.500']),
+      warning: focus(colors['warning.500']),
     },
     checkablelabel: {
       default: {
         fontWeight: fontWeights.regular,
       },
       checked: {
-        color: colors.dark[200],
+        color: colors['dark.200'],
         '-webkit-text-stroke': '0.04em',
       },
     },
@@ -101,22 +101,22 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
         maxHeight: toRem(155),
       },
       existing: {
-        color: colors.nude[400],
+        color: colors['nude.400'],
         cursor: 'not-allowed',
       },
       highlighted: {
-        backgroundColor: colors.nude[100],
+        backgroundColor: colors['nude.100'],
         cursor: 'default',
       },
       selectedAndHighlighted: {
         backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%)',
       },
       selected: {
-        color: colors.dark[200],
+        color: colors['dark.200'],
         fontWeight: fontWeights.bold,
       },
       disabled: {
-        color: colors.nude[600],
+        color: colors['nude.600'],
         cursor: 'not-allowed',
       },
     },

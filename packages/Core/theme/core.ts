@@ -21,9 +21,9 @@ import { getDefaultFields } from './defaultFields'
 import { getDefaultCards } from './defaultCards'
 import { radii } from './radii'
 import { borderWidths } from './borders'
-import { screens } from './screens'
+import { breakpoints } from './breakpoints'
 import { shadows } from './shadows'
-import { getSpace } from './space'
+import { getSpaces } from './spaces'
 import { getSelection } from './selection'
 import { getFocus } from './focus'
 import { getButtons } from './buttons'
@@ -97,11 +97,11 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
 
   theme.borderWidths = borderWidths
 
-  theme.screens = screens
+  theme.breakpoints = breakpoints
 
-  theme.space = getSpace(theme)
+  theme.spaces = getSpaces(theme)
 
-  theme.inset = theme.space
+  theme.inset = theme.spaces
 
   theme.icons = getIcons(theme)
 
@@ -117,7 +117,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   // These attributes depend on colors and fontSizes and must come last
   theme.selection = getSelection(theme)
   theme.underline = getUnderline(theme)
-  theme.focus = getFocus(theme.colors.primary[400])
+  theme.focus = getFocus(theme.colors['primary.400'])
   theme.defaultCards = getDefaultCards(theme)
   theme.textsFontWeights = getTextsFontWeights(theme)
   theme.textsFontFamily = getTextsFontFamily(theme)
