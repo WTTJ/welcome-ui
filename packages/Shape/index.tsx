@@ -3,7 +3,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export interface ShapeOptions {
+export type ShapeOptions = {
   shape?: 'square' | 'circle'
 }
 

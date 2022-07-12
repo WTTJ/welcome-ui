@@ -1,8 +1,7 @@
-import styled, { css, keyframes, system, th } from '@xstyled/styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { Shape } from '@welcome-ui/shape'
-import { shouldForwardProp } from '@welcome-ui/system'
 
-import { Size } from '.'
+import { Size } from './index'
 
 const animation = keyframes`
   0%, 100% {
@@ -19,32 +18,30 @@ const animationRule = css`
   animation: ${animation} 1.5s cubic-bezier(0.86, 0, 0.07, 1) infinite;
 `
 
-export interface LoadingDotOptions {
-  size: Size
-}
+type LoadingDotOptions = { size: Size }
 
-export const LoadingDot = styled(Shape).withConfig({ shouldForwardProp })<LoadingDotOptions>(
-  ({ size, theme }) => {
-    const sizeValue = th(`loaders.${size}`) || size
-    const formattedSize = typeof sizeValue === 'number' ? theme.toRem(sizeValue) : sizeValue
-    return css`
-      width: ${formattedSize};
-      height: ${formattedSize};
-      background-color: currentColor;
-      ${system}
-      ${animationRule};
-      &:not(:first-child) {
-        margin-left: calc(${formattedSize} / 2);
-      }
-      &:nth-child(1) {
-        animation-delay: 0s;
-      }
-      &:nth-child(2) {
-        animation-delay: 0.125s;
-      }
-      &:nth-child(3) {
-        animation-delay: 0.25s;
-      }
-    `
-  }
-)
+export const LoadingDot = styled(Shape)<LoadingDotOptions>(({ size, theme }) => {
+  const sizeValue = theme.loaders?.[size as keyof typeof theme.loaders]
+  const formattedSize = typeof sizeValue === 'number' ? theme.toRem(sizeValue) : sizeValue
+
+  return css`
+    width: ${formattedSize};
+    height: ${formattedSize};
+    background-color: currentColor;
+
+    ${animationRule};
+
+    &:not(:first-child) {
+      margin-left: calc(${formattedSize} / 2);
+    }
+    &:nth-child(1) {
+      animation-delay: 0s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.125s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.25s;
+    }
+  `
+})

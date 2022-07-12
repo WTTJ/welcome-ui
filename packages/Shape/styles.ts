@@ -1,4 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { getMax } from '@welcome-ui/utils'
 import { Box } from '@welcome-ui/box'
 
@@ -11,13 +11,13 @@ const shapeStyles = (w: string, h: string, shape: ShapeOptions['shape']) => css`
 `
 
 export const Shape = styled(Box)<ShapeOptions>(
-  ({ h, shape, w }) => css`
+  ({ $h, $w, shape }) => css`
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    ${shape && shapeStyles(w as string, h as string, shape)}
+    ${shape && shapeStyles($w as string, $h as string, shape)}
 
     img {
       object-fit: cover;
