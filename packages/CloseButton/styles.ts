@@ -1,18 +1,20 @@
-import styled, { th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Button } from '@welcome-ui/button'
 
-export const CloseButton = styled(Button)`
-  ${th('closeButton.default')};
+export const CloseButton = styled(Button)(
+  ({ theme }) => css`
+    ${theme.closeButton.default};
 
-  &:hover {
-    ${th('closeButton.hover')};
-  }
+    &:hover {
+      ${theme.closeButton.hover};
+    }
 
-  &:focus {
-    ${th('closeButton.focus')};
-  }
+    &:focus {
+      ${theme.closeButton.focus};
+    }
 
-  &:active {
-    ${th('closeButton.active')};
-  }
-`
+    &:active {
+      ${theme.closeButton.active};
+    }
+  `
+)

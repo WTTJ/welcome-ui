@@ -8,8 +8,8 @@ import * as S from './styles'
 export type CloseButtonProps = ButtonProps
 
 export const CloseButton = forwardRef<'button', CloseButtonProps>((props, ref) => (
-  <S.CloseButton h={30} ref={ref} shape="circle" title="Close" w={30} {...props}>
-    <CrossIcon color="light.100" size="xs" />
+  <S.CloseButton $h={30} $w={30} href="a" ref={ref} shape="circle" title="Close" {...props}>
+    <CrossIcon $color="light.100" size="xs" />
   </S.CloseButton>
 ))
 

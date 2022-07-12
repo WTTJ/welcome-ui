@@ -1,4 +1,4 @@
-import styled, { css, keyframes, th } from '@xstyled/styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { Button } from '@welcome-ui/button'
 
 const fade = keyframes`
@@ -16,6 +16,6 @@ const fadeRule = css`
 
 export const ClearButton = styled(Button)`
   pointer-events: auto;
-  animation: ${th('transitions.medium')};
+  animation: ${({ theme }) => theme.transitions.medium};
   animation-name: ${fadeRule};
 `
