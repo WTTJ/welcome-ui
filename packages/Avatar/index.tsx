@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
+import { useTheme } from 'styled-components'
 import { Box } from '@welcome-ui/box'
 import { ShapeOptions } from '@welcome-ui/shape'
-import { useTheme } from '@xstyled/styled-components'
 import { WuiTheme } from '@welcome-ui/core'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
@@ -11,7 +11,7 @@ import * as S from './styles'
 type SubColor = WuiTheme['colors']['sub']
 type Size = 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
-export interface AvatarOptions {
+export type AvatarOptions = {
   color?: string | SubColor
   getInitials?: (name: string) => string
   name: string
@@ -25,39 +25,40 @@ export const Avatar: React.FC<AvatarProps> = memo(
   forwardRef<'div', AvatarProps>(
     (
       {
-        color,
-        fontSize,
+        $color,
+        $fontSize,
         getInitials = defaultGetInitials,
-        h,
+        $h,
         name,
         shape = 'circle',
         size = 'md',
         src,
-        w,
+        $w,
         ...rest
       },
       ref
     ) => {
       const theme = useTheme()
-      const backgroundColor = color || getSeededColor(theme.colors.sub, name)
+      const backgroundColor = $color || getSeededColor(theme.colors.sub, name)
       const avatarSize = theme.avatars.sizes[size]
-      const avatarFontSize = fontSize || `calc(${w ? theme.toRem(w as number) : avatarSize} / 2.5)`
+      const avatarFontSize =
+        $fontSize || `calc(${$w ? theme.toRem($w as number) : avatarSize} / 2.5)`
 
       return (
         <S.Avatar
           aria-label={name}
           backgroundColor={backgroundColor}
-          h={h || avatarSize}
+          h={$h || avatarSize}
           ref={ref}
           role="img"
           shape={shape}
-          w={w || avatarSize}
+          w={$w || avatarSize}
           {...rest}
         >
           {src && <img alt={name} src={src} />}
           {!src && (
             <Box>
-              <S.Text fontSize={avatarFontSize} m={0}>
+              <S.Text $fontSize={avatarFontSize} $m="0">
                 {getInitials(name)}
               </S.Text>
             </Box>

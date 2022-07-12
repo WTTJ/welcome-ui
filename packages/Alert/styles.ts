@@ -4,15 +4,12 @@ import { Text } from '@welcome-ui/text'
 
 import { AlertOptions } from '.'
 
-export const Alert = styled(Box)<AlertOptions>(({ theme, variant }) => {
-  const defaultStyles = theme.alerts.default
-  const variantStyles = theme.alerts?.[variant]
-
-  return css`
-    ${defaultStyles};
-    ${variantStyles},
+export const Alert = styled(Box)<AlertOptions>(
+  ({ theme, variant }) => css`
+    ${theme.alerts.default};
+    ${theme.alerts?.[variant]};
   `
-})
+)
 
 export const Title = styled(Text).attrs(({ variant }: AlertOptions) => ({
   variant: 'h5',
@@ -25,7 +22,7 @@ export const Title = styled(Text).attrs(({ variant }: AlertOptions) => ({
     display: flex;
     align-items: center;
     margin: 0;
-    margin-bottom: sm;
+    margin-bottom: ${theme.space.sm};
     ${variantStyles};
 
     &:only-child {

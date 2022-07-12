@@ -1,4 +1,4 @@
-import styled, { th } from '@xstyled/styled-components'
+import styled from 'styled-components'
 import { Shape } from '@welcome-ui/shape'
 import { Text as TextWUI } from '@welcome-ui/text'
 
@@ -7,5 +7,5 @@ export const Avatar = styled(Shape)`
 `
 
 export const Text = styled(TextWUI)`
-  ${th('avatars.text')};
+  ${({ theme }) => theme.avatars.text};
 `
