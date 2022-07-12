@@ -1,6 +1,7 @@
-import styled, { system } from '@xstyled/styled-components'
+import styled from 'styled-components'
+import { Box } from '@welcome-ui/box'
 
-export const ButtonGroup = styled.div`
+export const ButtonGroup = styled(Box)`
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
@@ -29,6 +30,4 @@ export const ButtonGroup = styled.div`
       }
     }
   }
-
-  ${system}
 `
