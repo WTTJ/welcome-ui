@@ -15,5 +15,6 @@ export const Inner = styled(Box)`
   &[hidden] {
     display: none;
   }
+
   ${system}
 `
