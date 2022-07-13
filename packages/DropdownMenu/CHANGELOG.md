@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.2](https://github.com/WTTJ/welcome-ui/compare/v4.3.1...v4.3.2) (2022-07-13)
+
+
+### Bug Fixes
+
+* allow styled props on dropdown menu ([#1425](https://github.com/WTTJ/welcome-ui/issues/1425)) ([41e8595](https://github.com/WTTJ/welcome-ui/commit/41e8595bede21a7ba92e2913bb5c757075f690b1))
+* missing ref dropdown arrow ([0ef3c83](https://github.com/WTTJ/welcome-ui/commit/0ef3c831703e9e455c4e7d37a40948111344078d))
+
+
+
+
+
 ## [4.3.1](https://github.com/WTTJ/welcome-ui/compare/v4.3.0...v4.3.1) (2022-06-30)
 
 
