@@ -8,7 +8,7 @@ import * as S from './styles'
 export type TriggerProps = CreateWuiProps<'button', PopoverDisclosureProps & UsePopoverStateReturn>
 
 export const Trigger = forwardRef<'button', TriggerProps>(
-  ({ triggerMethod = 'click', ...rest }, ref) => {
+  ({ as, triggerMethod = 'click', ...rest }, ref) => {
     const hoverable = triggerMethod === 'hover'
     const disclosureRef = useRef<HTMLButtonElement>(null)
     const popoverRef = rest.unstable_popoverRef
@@ -56,15 +56,17 @@ export const Trigger = forwardRef<'button', TriggerProps>(
 
     return (
       <S.PopoverTrigger
+        {...rest}
+        forwardedAs={as}
         ref={(triggerElement: HTMLButtonElement) => {
           disclosureRef.current = triggerElement
+          rest.unstable_disclosureRef.current = triggerElement
           if (typeof ref === 'function') {
             ref(triggerElement)
           } else if (ref?.current) {
             ref.current = triggerElement
           }
         }}
-        {...rest}
       />
     )
   }
