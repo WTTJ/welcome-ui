@@ -17,7 +17,7 @@ export type UsePopoverStateReturn = ReakitPopoverStateReturn &
 
 export type UsePopoverStateProps = ReakitPopoverInitialState & UsePopoverStateOptions
 
-export const usePopoverState: (props: UsePopoverStateProps) => UsePopoverStateReturn = ({
+export const usePopoverState: (props?: UsePopoverStateProps) => UsePopoverStateReturn = ({
   animated = 150,
   hideTimeout = 300,
   showTimeout = 500,

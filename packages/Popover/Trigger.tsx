@@ -26,6 +26,16 @@ export const Trigger = forwardRef<'button', TriggerProps>(
       }
     }
 
+    const setRef = (triggerElement: HTMLButtonElement) => {
+      disclosureRef.current = triggerElement
+      rest.unstable_disclosureRef.current = triggerElement
+      if (typeof ref === 'function') {
+        ref(triggerElement)
+      } else if (ref?.current) {
+        ref.current = triggerElement
+      }
+    }
+
     const hidePopover: () => void = () => {
       if (hoverable) {
         // remove listeners on mouseleave
@@ -54,20 +64,6 @@ export const Trigger = forwardRef<'button', TriggerProps>(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [disclosureRef])
 
-    return (
-      <S.PopoverTrigger
-        {...rest}
-        forwardedAs={as}
-        ref={(triggerElement: HTMLButtonElement) => {
-          disclosureRef.current = triggerElement
-          rest.unstable_disclosureRef.current = triggerElement
-          if (typeof ref === 'function') {
-            ref(triggerElement)
-          } else if (ref?.current) {
-            ref.current = triggerElement
-          }
-        }}
-      />
-    )
+    return <S.PopoverTrigger {...rest} forwardedAs={as} ref={setRef} />
   }
 )
