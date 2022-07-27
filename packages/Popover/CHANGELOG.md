@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/WTTJ/welcome-ui/compare/v4.3.3...v4.4.0) (2022-07-27)
+
+
+### Features
+
+* add style props to popover trigger ([#1443](https://github.com/WTTJ/welcome-ui/issues/1443)) ([73b7144](https://github.com/WTTJ/welcome-ui/commit/73b71440515a403c0bf76fe4300dad045dc98da0))
+
+
+
+
+
 # [4.2.0](https://github.com/WTTJ/welcome-ui/compare/v4.1.2...v4.2.0) (2022-05-30)
 
 
