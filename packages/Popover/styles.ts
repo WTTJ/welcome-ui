@@ -1,5 +1,5 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { Popover as BasePopover, PopoverArrow } from 'reakit/Popover'
+import { Popover as BasePopover, PopoverArrow, PopoverDisclosure } from 'reakit/Popover'
 
 export const Arrow = styled(PopoverArrow)`
   color: ${th('popovers.default.backgroundColor')};
@@ -41,3 +41,7 @@ export const Popover = styled(BasePopover)<{ $withCloseButton: boolean }>(
     `}
   `
 )
+
+export const PopoverTrigger = styled(PopoverDisclosure)`
+  ${system}
+`
