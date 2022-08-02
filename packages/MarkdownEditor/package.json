@@ -50,7 +50,7 @@
     "@welcome-ui/icons.unordered_list": "^4.2.0",
     "@welcome-ui/system": "^4.2.0",
     "@welcome-ui/utils": "^4.2.0",
-    "emoji-mart": "=2.11.1",
+    "emoji-mart": "=5.2.0",
     "react-simplemde-editor": "=4.1.5"
   },
   "peerDependencies": {
