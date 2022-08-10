@@ -1,0 +1,30 @@
+name: Demo link
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  add_demo_link:
+    name: Add demo link to PR description
+    runs-on: ubuntu-latest
+    env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/github-script@v6
+        name: Update PR description
+        with:
+          script: |
+            const pullRequestId = context.payload.pull_request.number
+            const pullRequestBranch = context.payload.pull_request.head.ref
+            const pullRequestBody = context.payload.pull_request.body
+            
+            github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pullRequestId,
+              body: `${pullRequestBody ? `${pullRequestBody}
+              
+              ` : ''}
+              🌞 DEMO: https://${pullRequestBranch}--welcome-ui.netlify.app 🌞` 
+            });
