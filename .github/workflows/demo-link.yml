@@ -25,6 +25,8 @@ jobs:
               pull_number: pullRequestId,
               body: `${pullRequestBody ? `${pullRequestBody}
               
+              ---
               ` : ''}
-              🌞 [DEMO](https://${pullRequestBranch}--welcome-ui.netlify.app) 🌞` 
+              
+             👀 [Visit Preview](https://${pullRequestBranch}--welcome-ui.netlify.app)` 
             });
