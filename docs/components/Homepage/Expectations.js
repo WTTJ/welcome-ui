@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Card } from '@welcome-ui/card'
@@ -88,8 +87,8 @@ export function Expectations() {
       gap="lg"
       gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}
     >
-      {expectations.map(component => (
-        <Expectation key={component.link} {...component} />
+      {expectations.map(expectation => (
+        <Expectation key={expectation.title} {...expectation} />
       ))}
     </Box>
   )

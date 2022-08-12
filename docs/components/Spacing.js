@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { withTheme } from '@xstyled/styled-components'
 import { Table } from '@welcome-ui/table'
@@ -20,7 +19,7 @@ function Wrapper({ theme }) {
         </Table.Thead>
         <Table.Tbody>
           {Object.entries(space).map(([key, size]) => (
-            <Table.Tr>
+            <Table.Tr key={key}>
               <Table.Td py="md">{key}</Table.Td>
               <Table.Td py="md">{size}</Table.Td>
               <Table.Td py="md">{Number(size.slice(0, -3)) * 16}px</Table.Td>
@@ -31,7 +30,7 @@ function Wrapper({ theme }) {
           ))}
         </Table.Tbody>
       </Table>
-      </Box>
+    </Box>
   )
 }
 
