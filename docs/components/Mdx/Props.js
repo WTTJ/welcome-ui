@@ -120,11 +120,9 @@ export function Props({ propTypes }) {
                     </Table.Td>
                     <Table.Td textAlign="center" w="15%">
                       {required && (
-                        <Tooltip content="is required">
-                          <Tag shape="circle" variant="primary">
-                            <CheckIcon />
-                          </Tag>
-                        </Tooltip>
+                        <Tag shape="circle" variant="primary">
+                          <CheckIcon />
+                        </Tag>
                       )}
                     </Table.Td>
                   </Table.Tr>
