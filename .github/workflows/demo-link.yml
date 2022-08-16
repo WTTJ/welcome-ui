@@ -19,8 +19,6 @@ jobs:
             const pullRequestId = context.payload.pull_request.number
             const pullRequestBranch = context.payload.pull_request.head.ref
             const pullRequestBody = context.payload.pull_request.body
-            const pullRequestName = context.payload.pull_request.title
-            const isDependenciesUpdate = title.startsWith('chore(deps-dev)')
             
             github.rest.pulls.update({
               owner: context.repo.owner,
