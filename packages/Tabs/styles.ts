@@ -3,6 +3,8 @@ import { TabStateReturn } from 'reakit/Tab'
 
 import { ActiveBarStateReturn } from './ActiveBar'
 
+import { SizeOptions } from './index'
+
 export const TabList = styled.div`
   position: relative;
   width: 100%;
@@ -19,40 +21,51 @@ export const TabList = styled.div`
   ${system};
 `
 
-export const Tab = styled.button`
-  border: 0;
-  background: none;
-  ${th('tabs.item.default')};
-  display: flex;
-  align-items: center;
-  flex: none;
-  margin-right: xl;
-  padding: lg 0;
-  transition: medium;
-  text-transform: none;
-  cursor: pointer;
-  ${system};
+export const Tab = styled.button<{ size: SizeOptions }>(
+  ({ size }) => css`
+    border: 0;
+    background: none;
+    ${th('tabs.item.default')};
+    display: flex;
+    align-items: center;
+    flex: none;
+    padding: lg 0;
+    transition: medium;
+    text-transform: none;
+    cursor: pointer;
+    gap: 4;
+    ${th(`tabs.size.${size}`)}
 
-  &:focus {
-    outline: none !important; /* important for firefox */
-    &:not([aria-selected='true']) {
+    &:focus {
+      outline: none !important; /* important for firefox */
+      &:not([aria-selected='true']) {
+        ${th('tabs.item.focus')};
+      }
+    }
+
+    &[aria-selected='true'] {
+      ${th('tabs.item.active')};
+    }
+
+    &[aria-disabled='true'] {
+      ${th('tabs.item.disabled')};
+      cursor: auto;
+    }
+
+    &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
       ${th('tabs.item.focus')};
     }
-  }
 
-  &[aria-selected='true'] {
-    ${th('tabs.item.active')};
-  }
+    & > svg,
+    img {
+      ${th('tabs.icon')};
+    }
 
-  &[aria-disabled='true'] {
-    ${th('tabs.item.disabled')};
-    cursor: auto;
-  }
-
-  &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
-    ${th('tabs.item.focus')};
-  }
-`
+    & > div {
+      ${th('tabs.badge')};
+    }
+  `
+)
 
 export const TabPanel = styled.div<Pick<TabStateReturn, 'orientation'>>(
   ({ orientation }) => css`
