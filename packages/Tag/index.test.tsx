@@ -24,16 +24,27 @@ describe('<Tag>', () => {
 
   it('should have correct size', () => {
     const { getByTestId } = render(
-      <Tag dataTestId="tag" size="lg">
+      <Tag dataTestId="tag" size="md">
         {content}
       </Tag>
     )
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('padding', theme.tags.sizes.lg.padding)
+    expect(tag).toHaveStyleRule('padding', theme.tags.sizes.md.padding)
   })
 
-  it('should have correct color', () => {
+  it('should have correct color for success variant', () => {
+    const { getByTestId } = render(
+      <Tag dataTestId="tag" variant="success">
+        {content}
+      </Tag>
+    )
+    const tag = getByTestId('tag')
+
+    expect(tag).toHaveStyleRule('background-color', theme.colors.success[100])
+  })
+
+  it('should have correct color for sub variant', () => {
     const { getByTestId } = render(
       <Tag dataTestId="tag" variant="1">
         {content}

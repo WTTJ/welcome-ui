@@ -25,7 +25,6 @@ Admire these beautiful colors 💅
 <Tag>Default</Tag>
 <Tag variant="primary">Primary</Tag>
 <Tag variant="secondary">Secondary</Tag>
-<Tag variant="dark">Dark</Tag>
 ```
 
 ### States
@@ -51,7 +50,7 @@ Admire these beautiful colors 💅
 
 ## Sizes
 
-Use size property with `xs`, `sm`, `md` or `lg`.
+Use size property with `xs`, `sm`, or `md`.
 
 ```jsx row
 <Tag size="xs">
@@ -63,9 +62,6 @@ Use size property with `xs`, `sm`, `md` or `lg`.
 <Tag size="md">
   Medium
 </Tag>
-<Tag size="lg">
-  Large
-</Tag>
 ```
 
 ## One character style
@@ -73,13 +69,13 @@ Use size property with `xs`, `sm`, `md` or `lg`.
 When we have only one character, we apply same size for the width and height (it implicitely sets `shape` prop to `square`)
 
 ```jsx row
+<Tag size="xs">
+  1
+</Tag>
 <Tag size="sm">
   1
 </Tag>
 <Tag size="md">
-  1
-</Tag>
-<Tag size="lg">
   1
 </Tag>
 ```
@@ -89,10 +85,10 @@ When we have only one character, we apply same size for the width and height (it
 Set `shape` prop to `square` to get a square no matter the content.
 
 ```jsx row
-<Tag size="lg" shape="square">
+<Tag size="md" shape="square">
   1
 </Tag>
-<Tag size="lg" shape="square" w={50}>
+<Tag size="md" shape="square" w={50}>
   Long text
 </Tag>
 ```
@@ -100,7 +96,7 @@ Set `shape` prop to `square` to get a square no matter the content.
 Set `shape` prop to `circle` to set a border-radius `50%`.
 
 ```jsx
-<Tag size="lg" shape="circle">
+<Tag size="md" shape="circle">
   1
 </Tag>
 ```
