@@ -7,7 +7,7 @@ export const Accordion = styled.div`
   ${system}
   transition: medium;
   &:hover {
-    border-color: ${th('colors.light.200')};
+    border-color: dark.400;
   }
 `
 
@@ -17,8 +17,7 @@ export const Icon = styled(Box)<{ visible: boolean }>(
     ${th('accordions.icon')};
     transform: ${visible ? 'rotate3d(0, 0, 1, 90deg)' : 'rotate3d(0)'};
     transition: medium;
-    --size: 24px;
-    width: var(--size);
+    width: 24;
     height: 24;
     color: inherit;
     display: flex;
@@ -33,8 +32,7 @@ export const Disclosure = styled(ReakitDisclosure)`
   ${th('texts.h5')};
   ${th('accordions.title')};
   width: 100%;
-  padding: ${th('accordions.padding')}; //css du thème ignorés
-  // padding: 16;
+  padding: ${th('accordions.padding')};
   background-color: transparent;
   border: 0;
   display: flex;
@@ -44,12 +42,8 @@ export const Disclosure = styled(ReakitDisclosure)`
   &:focus,
   &:hover {
     cursor: pointer;
-  }
-
-  &:hover {
-    border-color: ${th('colors.light.200')};
     ${Icon} {
-      background-color: nude.200;
+      background-color: dark.100;
     }
   }
 
@@ -64,11 +58,11 @@ export const Disclosure = styled(ReakitDisclosure)`
 export const Content = styled(DisclosureContent)(
   ({ visible }) => css`
     ${th('accordions.content')};
-    padding-inline: 16px; // Ne fonctionne pas sans le px
-    color: ${th('colors.dark.200')};
+    padding-inline: ${th('accordions.padding')};
+    color: dark.700;
     ${visible &&
     css`
-      padding-bottom: 16;
+      padding-bottom: ${th('accordions.padding')};
     `}
   `
 )
