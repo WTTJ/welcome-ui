@@ -11,8 +11,9 @@ jobs:
     env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/github-script@v6
-        name: Update PR description
+      - name: Update PR description
+        if: ${{ !startsWith(github.event.pull_request.title, 'chore(deps-dev):') }}
+        uses: actions/github-script@v6
         with:
           script: |
             const pullRequestId = context.payload.pull_request.number
@@ -24,9 +25,9 @@ jobs:
               repo: context.repo.repo,
               pull_number: pullRequestId,
               body: `${pullRequestBody ? `${pullRequestBody}
-              
+
               ---
               ` : ''}
-              
+
              👀 [Visit Preview](https://${pullRequestBranch}--welcome-ui.netlify.app)` 
             });
