@@ -35,6 +35,7 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
     justify-content: center;
     border-radius: md;
     line-height: initial; /* avoid cropped font */
+    transition: medium;
     ${overflowEllipsis}
     ${system}
     ${!shape &&
@@ -60,6 +61,12 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
       margin-right: xxs;
     }
 
+    & > svg:only-child,
+    & > svg:not(:only-child) {
+      width: ${th(`tags.icon.${size}`)};
+      height: ${th(`tags.icon.${size}`)};
+    }
+
     > *:not(:only-child) {
       ${/* sc-selector */ StyledIcon}:last-child {
         opacity: 0.7;
@@ -70,6 +77,10 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
           opacity: 1;
         }
       }
+    }
+
+    &:hover {
+      ${th(`tags.hover.${variant}`)};
     }
   `
 )
