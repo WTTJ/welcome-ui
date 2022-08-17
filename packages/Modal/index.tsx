@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp */
-import React, { Children, cloneElement, useRef } from 'react'
+import React, { Children, cloneElement, useMemo, useRef } from 'react'
 import {
   DialogDisclosure,
   DialogInitialState,
@@ -8,15 +8,15 @@ import {
 } from 'reakit/Dialog'
 import { DisclosureActions } from 'reakit/Disclosure'
 import { Box, BoxProps } from '@welcome-ui/box'
-import { Text, TextProps } from '@welcome-ui/text'
-import { Shape, ShapeProps } from '@welcome-ui/shape'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { useTheme } from '@xstyled/styled-components'
 
 import * as S from './styles'
 import { Close } from './Close'
+import { Header } from './Header'
+import { Footer } from './Footer'
 
-export type Size = 'sm' | 'md' | 'lg' | 'auto'
+export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
 export interface ModalOptions {
   ariaLabel: string
@@ -52,29 +52,43 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     },
     ref
   ) => {
+    const { space } = useTheme()
     const headerRef = useRef(null)
     const footerRef = useRef(null)
     const headerHeight = headerRef?.current?.clientHeight
     const footerHeight = footerRef?.current?.clientHeight
 
-    function setRef(name?: string) {
-      if (name === 'ModalTitle') {
+    const components = useMemo(
+      () => Children.map(children, child => child.type.displayName || child.type.name),
+      [children]
+    )
+
+    const setRef = (name?: string) => {
+      if (name === 'Header') {
         return headerRef
       }
 
-      if (name === 'ModalFooter') {
+      if (name === 'Footer') {
         return footerRef
       }
 
       return undefined
     }
 
-    function getContentStyles(name?: string) {
+    const getStyles = (name?: string) => {
+      if (name === 'Header') {
+        return {
+          pb:
+            components.includes('Content') || components.includes('Footer') ? space.lg : space.xxl,
+        }
+      }
       if (name === 'Content') {
         return {
           mt: { xs: headerHeight, md: 0 },
           mb: { xs: footerHeight, md: 0 },
-          pr: !headerHeight ? '5xl' : undefined,
+          pb: components.includes('Footer') ? space.lg : space.xxl,
+          pt: components.includes('Header') ? space.lg : space.xxl,
+          pr: components.includes('Header') ? space.xxl : space['3xl'],
         }
       }
 
@@ -105,7 +119,7 @@ const ModalComponent = forwardRef<'div', ModalProps>(
 
             return cloneElement(child, {
               ref: setRef(name),
-              ...getContentStyles(name),
+              ...getStyles(name),
               ...child.props,
             })
           })}
@@ -115,65 +129,16 @@ const ModalComponent = forwardRef<'div', ModalProps>(
   }
 )
 
-ModalComponent.displayName = 'Modal'
-
-const Title = forwardRef<'h4', TextProps>((props, ref) => {
-  const { modals } = useTheme()
-
-  return (
-    <Text
-      {...modals.title}
-      m="0"
-      position={{ xs: 'fixed', md: 'relative' }}
-      ref={ref}
-      top="0"
-      variant="h4"
-      w="100%"
-      {...props}
-    />
-  )
-})
-
-Title.displayName = 'ModalTitle'
-
 const Content: React.FC<BoxProps> = props => {
   const { modals } = useTheme()
 
   return <Box {...modals.content} flex="1" overflowY={{ md: 'auto' }} {...props} />
 }
 
-const Cover: React.FC<ShapeProps> = props => {
-  const { modals } = useTheme()
-
-  return (
-    <div>
-      <Shape {...modals.cover} {...props} />
-    </div>
-  )
-}
-
-const Footer = forwardRef<'div', BoxProps>((props, ref) => {
-  const { modals } = useTheme()
-
-  return (
-    <Box
-      {...modals.footer}
-      bottom="0"
-      position={{ xs: 'fixed', md: 'relative' }}
-      ref={ref}
-      w="100%"
-      {...props}
-    />
-  )
-})
-
-Footer.displayName = 'ModalFooter'
-
 // Nested exports
 export const Modal = Object.assign(ModalComponent, {
   Trigger: DialogDisclosure,
+  Header,
   Content,
-  Title,
   Footer,
-  Cover,
 })

@@ -5,8 +5,8 @@ export const Close: React.FC<CloseButtonProps> = props => {
   return (
     <CloseButton
       position={{ xs: 'fixed', md: 'absolute' }}
-      right={20}
-      top={20}
+      right={8}
+      top={8}
       zIndex="1"
       {...props}
     />
