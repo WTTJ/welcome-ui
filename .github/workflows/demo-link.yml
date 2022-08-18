@@ -20,9 +20,9 @@ jobs:
             const pullRequestId = context.payload.pull_request.number
             const pullRequestBranch = context.payload.pull_request.head.ref
                       
-            github.rest.pulls.createReviewComment({
+            github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: pullRequestId,
+              issue_number: pullRequestId,
               body: `👀 [Visit Preview](https://${pullRequestBranch}--welcome-ui.netlify.app)` 
             });
