@@ -20,7 +20,7 @@ export default function Home() {
     <main>
       <Section backgroundColor="nude.200">
         <Text as="span" textTransform="uppercase" variant="subtitle1">
-          Welcome UI
+          Welcome UI test
         </Text>
         <Text maxWidth={820} mb="xl" mt="sm" variant="h1">
           All the components you need to create a delightful React webapp
