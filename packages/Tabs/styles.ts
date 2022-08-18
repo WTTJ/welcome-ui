@@ -61,7 +61,7 @@ export const Tab = styled.button<{ size: SizeOptions }>(
       ${th('tabs.icon')};
     }
 
-    & > div {
+    & > span {
       ${th('tabs.badge')};
     }
   `

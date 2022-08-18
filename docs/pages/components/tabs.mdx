@@ -67,6 +67,62 @@ function() {
 }
 ```
 
+## Sizes
+Available sizes are `sm` and `md`. By default size is set to `md`.
+
+```jsx
+function() {
+  const tab = useTabState({ selectedId: 'tab1' })
+
+  return (
+    <>
+      <Tab.List aria-label="Tabs" {...tab}>
+        <Tab {...tab} id="tab1">
+          Tab 1
+        </Tab>
+        <Tab {...tab} id="tab2">
+          Tab 2
+        </Tab>
+        <Tab {...tab} id="tab3">
+          Tab 3
+        </Tab>
+      </Tab.List>
+      <Tab.Panel {...tab} tabId="tab1">
+        Tab.Panel 1
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab2">
+        Tab.Panel 2
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab3">
+        Tab.Panel 3
+      </Tab.Panel>
+      <br/>
+      <Tab.List aria-label="Tabs" {...tab}>
+        <Tab {...tab} size="sm" id="tab1">
+          Tab 1
+        </Tab>
+        <Tab {...tab} size="sm" id="tab2">
+          Tab 2
+        </Tab>
+        <Tab {...tab} size="sm" id="tab3">
+          Tab 3
+        </Tab>
+      </Tab.List>
+      <Tab.Panel {...tab} tabId="tab1">
+        Tab.Panel 1
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab2">
+        Tab.Panel 2
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab3">
+        Tab.Panel 3
+      </Tab.Panel>
+    </>
+  )
+}
+```
+
+
 ## With no border
 
 The border on `Tab.List` is an inset shadow that you can customize or disable via the `boxShadow` style prop
@@ -116,7 +172,7 @@ function() {
 
 ## With a badge
 
-Add badges in tab.
+Add badges, icons and image in tab.
 
 ```jsx
 function() {
@@ -128,18 +184,26 @@ function() {
       <Tab.List aria-label="Tabs" {...tab}>
         <Tab {...tab} id="tab1">
           Tab 1
-          <Badge ml="xs" variant={getVariant('tab1')}>
+          <Badge variant={getVariant('tab1')}>
             new
           </Badge>
         </Tab>
         <Tab {...tab} id="tab2">
           Tab 2
-          <Badge ml="xs" variant={getVariant('tab2')}>
+          <Badge variant={getVariant('tab2')}>
             old
+          </Badge>
+          <Badge shape="circle" variant={getVariant('tab2')}>
+          2
           </Badge>
         </Tab>
         <Tab {...tab} id="tab3">
           Tab 3
+          <HeartIcon />
+        </Tab>
+        <Tab {...tab} id="tab4">
+          <img src="https://cdn.welcometothejungle.com/wttj-front/production/assets/images/logos/wttj.svg?v=3a3dbd7122a01600fb67e66b889bb47c" />
+          Tab 4
         </Tab>
       </Tab.List>
       <Tab.Panel {...tab} tabId="tab1">
