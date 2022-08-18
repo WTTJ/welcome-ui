@@ -26,15 +26,20 @@ function useTrackActiveTabs(
   return [tabs, activeTab]
 }
 
+export interface SizeOptions {
+  size?: 'sm' | 'md'
+}
+
 export type TabListOptions = Pick<TabStateReturn, 'orientation' | 'selectedId'> &
-  ReakitTabListOptions
+  ReakitTabListOptions &
+  SizeOptions
 export type TabListProps = CreateWuiProps<'div', TabListOptions>
 
 /**
  * @name Tabs.TabList
  */
 export const TabList = forwardRef<'div', TabListProps>((props, ref) => {
-  const { as, children, orientation, ...rest } = props
+  const { as, children, orientation, size = 'md', ...rest } = props
   const listRef = useRef()
   const listForkedRef = useForkRef(ref, listRef)
   const [tabs, activeTab] = useTrackActiveTabs({ selectedId: rest.selectedId }, children)
@@ -42,7 +47,7 @@ export const TabList = forwardRef<'div', TabListProps>((props, ref) => {
   return (
     <ReakitTabList as={undefined} orientation={orientation} ref={listForkedRef} {...rest}>
       {tabListProps => (
-        <S.TabList as={as} {...tabListProps}>
+        <S.TabList as={as} {...tabListProps} size={size}>
           {tabs}
           {tabs.length > 1 && (
             <ActiveBar activeTab={activeTab} listRef={listRef} orientation={orientation} />

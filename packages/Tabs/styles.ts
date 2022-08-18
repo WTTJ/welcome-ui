@@ -2,70 +2,72 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import { TabStateReturn } from 'reakit/Tab'
 
 import { ActiveBarStateReturn } from './ActiveBar'
+import { SizeOptions } from './TabList'
 
-import { SizeOptions } from './index'
-
-export const TabList = styled.div`
-  position: relative;
-  width: 100%;
-  overflow-x: auto;
-  display: flex;
-  border: 0;
-
-  &[aria-orientation='vertical'] {
-    flex-direction: column;
-    ${th('tabs.tabsBorder.vertical')};
-  }
-
-  ${th('tabs.tabsBorder.horizontal')};
-  ${system};
-`
-
-export const Tab = styled.button<{ size: SizeOptions }>(
+export const TabList = styled.div<{ size: SizeOptions }>(
   ({ size }) => css`
-    border: 0;
-    background: none;
-    ${th('tabs.item.default')};
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
     display: flex;
-    align-items: center;
-    flex: none;
-    padding: lg 0;
-    transition: medium;
-    text-transform: none;
-    cursor: pointer;
-    gap: 4;
-    ${th(`tabs.size.${size}`)}
+    border: 0;
 
-    &:focus {
-      outline: none !important; /* important for firefox */
-      &:not([aria-selected='true']) {
-        ${th('tabs.item.focus')};
-      }
+    &[aria-orientation='vertical'] {
+      flex-direction: column;
+      ${th('tabs.tabsBorder.vertical')};
     }
 
-    &[aria-selected='true'] {
-      ${th('tabs.item.active')};
-    }
+    ${th('tabs.tabsBorder.horizontal')};
 
-    &[aria-disabled='true'] {
-      ${th('tabs.item.disabled')};
-      cursor: auto;
+    & > :not(:last-child) {
+      ${th(`tabs.size.${size}`)}
     }
-
-    &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
-      ${th('tabs.item.focus')};
-    }
-
-    & > svg,
-    img {
-      ${th('tabs.icon')};
-    }
-
-    & > span {
-      ${th('tabs.badge')};
-    }
+    ${system};
   `
 )
+
+export const Tab = styled.button`
+  border: 0;
+  background: none;
+  ${th('tabs.item.default')};
+  display: flex;
+  align-items: center;
+  flex: none;
+  padding: lg 0;
+  transition: medium;
+  text-transform: none;
+  cursor: pointer;
+  gap: 4;
+
+  &:focus {
+    outline: none !important; /* important for firefox */
+    &:not([aria-selected='true']) {
+      ${th('tabs.item.focus')};
+    }
+  }
+
+  &[aria-selected='true'] {
+    ${th('tabs.item.active')};
+  }
+
+  &[aria-disabled='true'] {
+    ${th('tabs.item.disabled')};
+    cursor: auto;
+  }
+
+  &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
+    ${th('tabs.item.focus')};
+  }
+
+  & > svg,
+  img {
+    ${th('tabs.icon')};
+  }
+
+  & > span {
+    ${th('tabs.badge')};
+  }
+`
 
 export const TabPanel = styled.div<Pick<TabStateReturn, 'orientation'>>(
   ({ orientation }) => css`

@@ -68,7 +68,7 @@ function() {
 ```
 
 ## Sizes
-Available sizes are `sm` and `md`. By default size is set to `md`.
+Size is set on Tab.List. Available sizes are `sm` and `md`. By default size is set to `md`.
 
 ```jsx
 function() {
@@ -97,14 +97,14 @@ function() {
         Tab.Panel 3
       </Tab.Panel>
       <br/>
-      <Tab.List aria-label="Tabs" {...tab}>
-        <Tab {...tab} size="sm" id="tab1">
+      <Tab.List aria-label="Tabs" size="sm" {...tab}>
+        <Tab {...tab} id="tab1">
           Tab 1
         </Tab>
-        <Tab {...tab} size="sm" id="tab2">
+        <Tab {...tab} id="tab2">
           Tab 2
         </Tab>
-        <Tab {...tab} size="sm" id="tab3">
+        <Tab {...tab} id="tab3">
           Tab 3
         </Tab>
       </Tab.List>
@@ -172,7 +172,7 @@ function() {
 
 ## With a badge
 
-Add badges, icons and image in tab.
+Add badges, icons and images in tab.
 
 ```jsx
 function() {
@@ -214,6 +214,9 @@ function() {
       </Tab.Panel>
       <Tab.Panel {...tab} tabId="tab3">
         Tab.Panel 3
+      </Tab.Panel>
+      <Tab.Panel {...tab} tabId="tab4">
+        Tab.Panel 4
       </Tab.Panel>
     </>
   )
