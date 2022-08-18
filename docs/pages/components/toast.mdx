@@ -124,7 +124,18 @@ function() {
           )
         }
       >
-        Info (Default)
+        Default
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Snackbar variant="info">
+              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+            </Toast.Snackbar>
+          )
+        }
+      >
+        Info
       </Button>
       <Button
         onClick={() =>
@@ -213,7 +224,28 @@ function() {
           )
         }
       >
-        Info (Default)
+        Default
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Growl variant="info">
+              <Toast.Title>
+                Lorem ipsum dolor sit amet
+              </Toast.Title>
+              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos
+              <Box mt="sm">
+                <Button size="sm" variant="secondary" onClick={() => console.log('action')}>
+                  Action
+                </Button>
+              </Box>
+            </Toast.Growl>,
+            { position: 'top-right' }
+          )
+        }
+      >
+        Info
       </Button>
       <Button
         onClick={() =>
@@ -254,6 +286,10 @@ function() {
               <Toast.Title>
                 Lorem ipsum dolor sit amet
               </Toast.Title>
+              <Toast.Text>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos
+              </Toast.Text>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
             </Toast.Growl>,
@@ -266,8 +302,8 @@ function() {
       <Button
         onClick={() =>
           toast(
-            <Toast.Growl variant="success">
-              <Toast.Title icon="🎉">
+            <Toast.Growl icon="🎉" variant="success">
+              <Toast.Title >
                 Lorem ipsum dolor sit amet
               </Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
@@ -282,8 +318,8 @@ function() {
       <Button
         onClick={() =>
           toast(
-            <Toast.Growl variant="warning">
-              <Toast.Title icon={null}>
+            <Toast.Growl icon={null} variant="warning">
+              <Toast.Title>
                 Lorem ipsum dolor sit amet
               </Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos

@@ -3,13 +3,12 @@ import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
 import toast from 'toasted-notes'
 import { MessageOptionalOptions } from 'toasted-notes/lib/ToastManager'
 import { CreateWuiProps } from '@welcome-ui/system'
-import { VariantIcon } from '@welcome-ui/variant-icon'
 
 import { Growl } from './Growl'
 import { Snackbar } from './Snackbar'
 import * as S from './styles'
 
-export type Variant = 'error' | 'warning' | 'info' | 'success'
+export type Variant = 'default' | 'error' | 'warning' | 'info' | 'success'
 
 export interface CreateToastOptions {
   onClose?: () => void
@@ -25,7 +24,7 @@ export function useToast(): UseToastReturn {
     (children: JSX.Element, options: UseToastOptions = {}) => {
       const toastOptions = {
         position: 'bottom' as const,
-        duration: 5000,
+        duration: 100000000,
         ...options,
       }
 
@@ -69,11 +68,22 @@ export interface TitleOptions {
 
 export type TitleProps = CreateWuiProps<'div', TitleOptions>
 
-const Title: React.FC<TitleProps> = ({ children, icon, variant = 'info', ...rest }) => (
+const Title: React.FC<TitleProps> = ({ children, variant = 'default', ...rest }) => (
   <S.Title variant={variant} {...rest}>
-    <VariantIcon icon={icon} variant={variant} />
     {children}
   </S.Title>
 )
+export interface TextOptions {
+  variant?: Variant
+  icon?: JSX.Element
+}
 
-export const Toast = { Title, Growl, Snackbar }
+export type TextProps = CreateWuiProps<'div', TextOptions>
+
+const Text: React.FC<TextProps> = ({ children, variant = 'default', ...rest }) => (
+  <S.Text variant={variant} {...rest}>
+    {children}
+  </S.Text>
+)
+
+export const Toast = { Title, Text, Growl, Snackbar }

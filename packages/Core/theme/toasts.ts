@@ -3,8 +3,6 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 import { getTexts } from './typography'
 
-type Variant = 'error' | 'warning' | 'info' | 'success'
-
 export type ThemeToasts = {
   default: CSSObject
   top: CSSObject
@@ -12,7 +10,8 @@ export type ThemeToasts = {
   growls: {
     default: CSSObject
     title: CSSObject
-  } & Record<Variant, CSSObject>
+    text: CSSObject
+  }
 }
 
 export const getToasts = (theme: WuiTheme): ThemeToasts => {
@@ -32,31 +31,16 @@ export const getToasts = (theme: WuiTheme): ThemeToasts => {
     growls: {
       default: {
         ...getTexts(theme).sm,
-        backgroundColor: theme.colors.light[700],
-        borderColor: colors.nude[200],
         borderWidth: borderWidths.sm,
         borderStyle: 'solid',
         borderRadius: radii.md,
       },
-      error: {
-        backgroundColor: colors.danger[100],
-        borderColor: colors.danger[500],
-      },
-      warning: {
-        backgroundColor: colors.warning[100],
-        borderColor: colors.warning[500],
-      },
-      info: {
-        backgroundColor: colors.info[100],
-        borderColor: colors.info[500],
-      },
-      success: {
-        backgroundColor: colors.success[100],
-        borderColor: colors.success[500],
-      },
       title: {
-        ...getTexts(theme).h5,
         fontWeight: fontWeights.bold,
+        color: colors.dark[900],
+      },
+      text: {
+        color: colors.dark[700],
       },
     },
   }

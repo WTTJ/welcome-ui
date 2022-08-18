@@ -1,10 +1,10 @@
 import React from 'react'
-import { ClearButton } from '@welcome-ui/clear-button'
+import { CloseButton } from '@welcome-ui/close-button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-import { TitleOptions, Toast, Variant } from './index'
+import { TextOptions, Toast, Variant } from './index'
 
 export interface SnackbarOptions {
   variant?: Variant
@@ -12,20 +12,20 @@ export interface SnackbarOptions {
   hasCloseButton?: boolean
 }
 
-export type SnackbarProps = CreateWuiProps<'div', SnackbarOptions & TitleOptions>
+export type SnackbarProps = CreateWuiProps<'div', SnackbarOptions & TextOptions>
 
 /**
  * @name Toast.Snackbar
  */
 export const Snackbar = forwardRef<'div', SnackbarProps>(
-  ({ children, hasCloseButton = true, icon, onClose, variant = 'info', ...rest }, ref) => (
-    <S.Snackbar hasCloseButton={hasCloseButton} ref={ref} variant={variant} {...rest}>
-      <Toast.Title icon={icon} variant={variant}>
+  ({ children, hasCloseButton = true, icon, onClose, variant = 'default', ...rest }, ref) => (
+    <S.Snackbar hasCloseButton={hasCloseButton} icon={icon} ref={ref} variant={variant} {...rest}>
+      <Toast.Text icon={icon} variant={variant}>
         <>
           {children}
-          {hasCloseButton && <ClearButton onClick={onClose} />}
+          {hasCloseButton && <CloseButton onClick={onClose} size="xs" />}
         </>
-      </Toast.Title>
+      </Toast.Text>
     </S.Snackbar>
   )
 )

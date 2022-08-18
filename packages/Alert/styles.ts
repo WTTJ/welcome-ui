@@ -5,9 +5,10 @@ import { Text } from '@welcome-ui/text'
 import { AlertOptions } from '.'
 
 export const Alert = styled(Box)<AlertOptions>(
-  ({ variant }) => css`
+  ({ size, variant }) => css`
     ${th('alerts.default')};
     ${th(`alerts.${variant}`)};
+    ${th(`alerts.sizes.${size}`)};
     ${system}
   `
 )
