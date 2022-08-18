@@ -12,22 +12,15 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Update PR description
-        if: ${{ !startsWith(github.event.pull_request.title, 'chore(deps-dev):') }}
         uses: actions/github-script@v6
         with:
           script: |
             const pullRequestId = context.payload.pull_request.number
             const pullRequestBranch = context.payload.pull_request.head.ref
-            const pullRequestBody = context.payload.pull_request.body
-            
-            github.rest.pulls.update({
+                      
+            github.rest.pulls.createReviewComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: pullRequestId,
-              body: `${pullRequestBody ? `${pullRequestBody}
-
-              ---
-              ` : ''}
-
-             👀 [Visit Preview](https://${pullRequestBranch}--welcome-ui.netlify.app)` 
+              body: `👀 [Visit Preview](https://${pullRequestBranch}--welcome-ui.netlify.app)` 
             });
