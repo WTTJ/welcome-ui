@@ -128,7 +128,7 @@
     "react-dom": "^18.1.0",
     "react-router-dom": "6.3.0",
     "rimraf": "^3.0.2",
-    "rollup": "2.78.0",
+    "rollup": "2.78.1",
     "rollup-plugin-postcss": "4.0.2",
     "standard-version": "=7.0.0",
     "styled-components": "^5.3.3",
