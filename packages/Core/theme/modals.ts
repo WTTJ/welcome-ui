@@ -12,6 +12,7 @@ export type ThemeModals = {
   footer: CSSObject
   gutter: string
   sizes: Record<Sizes, { width?: string }>
+  cover: Record<string, unknown>
 }
 
 export const getModals = (theme: WuiTheme): ThemeModals => {
@@ -74,5 +75,6 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
       },
       auto: {},
     },
+    cover: {},
   }
 }

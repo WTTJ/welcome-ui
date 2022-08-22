@@ -101,6 +101,8 @@ Use `Modal.Header` and `Modal.Footer` to style your Modal.
 ```jsx
 function() {
   const modal = useModalState()
+  const modal2 = useModalState()
+  const modal3 = useModalState()
   const title = "Nullam non lacinia"
   const subtitle = "Praesent sit amet quam ac velit faucibus dapibus, quisque sapien ligula."
   const icon = <ActionsIcon size="xl" color="dark.900" />
@@ -112,23 +114,13 @@ function() {
 
 
   return (
-    <>
+    <Stack direction="row">
       <Modal.Trigger as={Button} {...modal}>
-        Open modal
+        Example modal
       </Modal.Trigger>
       <Modal {...modal} ariaLabel="example">
         <Modal.Header title={title} subtitle={subtitle} icon={icon}/>
         <Modal.Content>
-          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
-          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
-          nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
-          felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
-          eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
-          orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
-          In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
-          quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
-          ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
-
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
           nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
@@ -156,7 +148,60 @@ function() {
           </Box>
         </Modal.Footer>
       </Modal>
-    </>
+
+      <Modal.Trigger as={Button} {...modal2}>
+        Example modal 2
+      </Modal.Trigger>
+      <Modal {...modal2} ariaLabel="example-2">
+        <Modal.Header title={title} subtitle={subtitle} />
+        <Modal.Content>
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+          nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
+          felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
+          eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
+          orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
+          In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
+          quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
+          ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
+
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+          nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
+          felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
+          eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
+          orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
+          In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
+          quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
+          ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
+        </Modal.Content>
+        <Modal.Footer>
+          <Box w="100%">
+            <Button variant="secondary" mr="sm">Lorem dolir</Button>
+            <Button onClick={() => modal.hide2()}>Close</Button>
+          </Box>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal.Trigger as={Button} {...modal3}>
+        Example modal 3
+      </Modal.Trigger>
+      <Modal {...modal3} ariaLabel="example-3">
+        <Modal.Header title={title} icon={icon} />
+        <Modal.Content>
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+          nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
+          felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
+          eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
+          orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
+          In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
+          quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
+          ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
+        </Modal.Content>
+        <Modal.Footer informations={informations}/>
+      </Modal>
+    </Stack>
   )
 }
 ```

@@ -10,6 +10,7 @@ import { DisclosureActions } from 'reakit/Disclosure'
 import { Box, BoxProps } from '@welcome-ui/box'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { useTheme } from '@xstyled/styled-components'
+import { Shape, ShapeProps } from '@welcome-ui/shape'
 
 import * as S from './styles'
 import { Close } from './Close'
@@ -135,10 +136,21 @@ const Content: React.FC<BoxProps> = props => {
   return <Box {...modals.content} flex="1" overflowY={{ md: 'auto' }} {...props} />
 }
 
+const Cover: React.FC<ShapeProps> = props => {
+  const { modals } = useTheme()
+
+  return (
+    <div>
+      <Shape {...modals.cover} {...props} />
+    </div>
+  )
+}
+
 // Nested exports
 export const Modal = Object.assign(ModalComponent, {
   Trigger: DialogDisclosure,
   Header,
   Content,
   Footer,
+  Cover,
 })
