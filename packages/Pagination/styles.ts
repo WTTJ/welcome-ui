@@ -35,7 +35,6 @@ export const AbstractLink = styled.a`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: medium;
   text-decoration: none;
 
   &:focus {
