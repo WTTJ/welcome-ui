@@ -2,7 +2,7 @@ import React, { cloneElement, useCallback, useContext } from 'react'
 import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
 import toast from 'toasted-notes'
 import { MessageOptionalOptions } from 'toasted-notes/lib/ToastManager'
-import { CreateWuiProps } from '@welcome-ui/system'
+import { TextProps } from '@welcome-ui/text'
 
 import { Growl } from './Growl'
 import { Snackbar } from './Snackbar'
@@ -24,7 +24,7 @@ export function useToast(): UseToastReturn {
     (children: JSX.Element, options: UseToastOptions = {}) => {
       const toastOptions = {
         position: 'bottom' as const,
-        duration: 100000000,
+        duration: 7000,
         ...options,
       }
 
@@ -61,29 +61,8 @@ export function useToast(): UseToastReturn {
   return createToast
 }
 
-export interface TitleOptions {
-  variant?: Variant
-  icon?: JSX.Element
-}
-
-export type TitleProps = CreateWuiProps<'div', TitleOptions>
-
-const Title: React.FC<TitleProps> = ({ children, variant = 'default', ...rest }) => (
-  <S.Title variant={variant} {...rest}>
-    {children}
-  </S.Title>
-)
-export interface TextOptions {
-  variant?: Variant
-  icon?: JSX.Element
-}
-
-export type TextProps = CreateWuiProps<'div', TextOptions>
-
-const Text: React.FC<TextProps> = ({ children, variant = 'default', ...rest }) => (
-  <S.Text variant={variant} {...rest}>
-    {children}
-  </S.Text>
+const Title: React.FC<TextProps> = ({ children, ...rest }) => (
+  <S.Title {...rest}>{children}</S.Title>
 )
 
-export const Toast = { Title, Text, Growl, Snackbar }
+export const Toast = { Title, Growl, Snackbar }

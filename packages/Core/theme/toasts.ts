@@ -10,7 +10,6 @@ export type ThemeToasts = {
   growls: {
     default: CSSObject
     title: CSSObject
-    text: CSSObject
   }
 }
 
@@ -38,9 +37,6 @@ export const getToasts = (theme: WuiTheme): ThemeToasts => {
       title: {
         fontWeight: fontWeights.bold,
         color: colors.dark[900],
-      },
-      text: {
-        color: colors.dark[700],
       },
     },
   }

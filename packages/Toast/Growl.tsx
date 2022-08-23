@@ -1,17 +1,18 @@
-import React, { Children, cloneElement } from 'react'
+import React from 'react'
 import { CloseButton } from '@welcome-ui/close-button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { Box } from '@welcome-ui/box'
 
 import * as S from './styles'
 
-import { Toast, Variant } from './index'
+import { Variant } from './index'
 
 export interface GrowlOptions {
-  icon?: JSX.Element
   variant?: Variant
   closeButtonDataTestId?: string
   onClose?: () => void
   hasCloseButton?: boolean
+  icon?: JSX.Element
 }
 
 export type GrowlProps = CreateWuiProps<'div', GrowlOptions>
@@ -24,14 +25,6 @@ export const Growl = forwardRef<'div', GrowlProps>(
     { children, closeButtonDataTestId, hasCloseButton = true, icon, onClose, variant = 'default' },
     ref
   ) => {
-    const content = Children.map(children, child => {
-      // Add variant to AlertTitle to show the correct icon/color
-      if ((child as React.ReactElement).type === Toast.Text) {
-        return cloneElement(child as React.ReactElement, { variant })
-      }
-      return child
-    })
-
     return (
       <S.Growl hasCloseButton={hasCloseButton} icon={icon} ref={ref} variant={variant}>
         {hasCloseButton && (
@@ -43,7 +36,7 @@ export const Growl = forwardRef<'div', GrowlProps>(
             top="sm"
           />
         )}
-        {content}
+        <Box pr="xl">{children}</Box>
       </S.Growl>
     )
   }

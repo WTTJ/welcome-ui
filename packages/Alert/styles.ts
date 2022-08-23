@@ -23,6 +23,7 @@ export const Title = styled(Text).attrs(({ variant }: AlertOptions) => ({
     align-items: center;
     margin: 0;
     margin-bottom: sm;
+    height: 100%;
     ${th(`alerts.title.${alertVariant}`)};
     ${system}
 

@@ -1,18 +1,20 @@
 import React from 'react'
 import { CloseButton } from '@welcome-ui/close-button'
+import { Box } from '@welcome-ui/box'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-import { TextOptions, Toast, Variant } from './index'
+import { Variant } from './index'
 
 export interface SnackbarOptions {
   variant?: Variant
   onClose: () => void
   hasCloseButton?: boolean
+  icon?: JSX.Element
 }
 
-export type SnackbarProps = CreateWuiProps<'div', SnackbarOptions & TextOptions>
+export type SnackbarProps = CreateWuiProps<'div', SnackbarOptions>
 
 /**
  * @name Toast.Snackbar
@@ -20,12 +22,10 @@ export type SnackbarProps = CreateWuiProps<'div', SnackbarOptions & TextOptions>
 export const Snackbar = forwardRef<'div', SnackbarProps>(
   ({ children, hasCloseButton = true, icon, onClose, variant = 'default', ...rest }, ref) => (
     <S.Snackbar hasCloseButton={hasCloseButton} icon={icon} ref={ref} variant={variant} {...rest}>
-      <Toast.Text icon={icon} variant={variant}>
-        <>
-          {children}
-          {hasCloseButton && <CloseButton onClick={onClose} size="xs" />}
-        </>
-      </Toast.Text>
+      <Box alignItems="center" display="flex">
+        {children}
+        {hasCloseButton && <CloseButton onClick={onClose} size="xs" />}
+      </Box>
     </S.Snackbar>
   )
 )
