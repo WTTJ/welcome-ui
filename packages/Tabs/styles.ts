@@ -37,7 +37,7 @@ export const Tab = styled.button`
   transition: medium;
   text-transform: none;
   cursor: pointer;
-  gap: 4;
+  gap: sm;
 
   &:focus {
     outline: none !important; /* important for firefox */

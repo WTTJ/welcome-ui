@@ -29,7 +29,7 @@ export type ThemeTabs = {
 }
 
 export const getTabs = (theme: WuiTheme): ThemeTabs => {
-  const { borderWidths, colors, fontSizes, fontWeights, space, toRem } = theme
+  const { borderWidths, colors, fontSizes, fontWeights, lineHeights, space } = theme
 
   return {
     tabsBorder: {
@@ -46,7 +46,7 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
         fontWeight: fontWeights.medium,
         fontSize: fontSizes.md,
         textDecoration: 'none',
-        lineHeight: toRem(19),
+        lineHeight: lineHeights.md,
       },
       active: {
         color: colors.dark[900],
@@ -83,20 +83,20 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
     },
     size: {
       sm: {
-        paddingBottom: toRem(9),
-        marginRight: toRem(12),
+        paddingBottom: space.sm,
+        marginRight: space.md,
       },
       md: {
-        paddingBottom: toRem(15),
-        marginRight: toRem(24),
+        paddingBottom: space.lg,
+        marginRight: space.xl,
       },
     },
     icon: {
-      maxWidth: toRem(16),
-      maxHeight: toRem(16),
+      maxWidth: space.lg,
+      maxHeight: space.lg,
     },
     badge: {
-      maxHeight: toRem(15),
+      maxHeight: space.lg,
     },
   }
 }
