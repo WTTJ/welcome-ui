@@ -145,14 +145,6 @@ export const welcomeTheme: RecursivePartial<WuiTheme> = {
       },
     },
   },
-  paginations: {
-    item: {
-      borderRadius: 0,
-    },
-    active: {
-      color: theme.colors.dark[900],
-    },
-  },
   dateTimePickerCommon: {
     item: {
       selected: {

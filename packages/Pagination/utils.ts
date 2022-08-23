@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 
-const RANGE = 4
+const RANGE = 5
+const CENTER_RANGE = 3
 
 function fill(length: number, transform: (arg: number) => number): number[] {
   return Array.from({ length }, (_, i) => transform(i))
@@ -16,6 +17,14 @@ function joinArrays(arrays: number[][], separator: string): Array<number | strin
   }, [])
 }
 
+type Position = 'before' | 'center' | 'after'
+
+function getPosition(page: number, pageCount: number): Position {
+  if (page < RANGE) return 'before'
+  if (page >= RANGE && page <= pageCount - RANGE + 1) return 'center'
+  if (page > pageCount - RANGE + 1) return 'after'
+}
+
 interface usePagesProps {
   page: number
   pageCount: number
@@ -24,16 +33,15 @@ interface usePagesProps {
 
 export function usePages({ page, pageCount, rangeDisplay }: usePagesProps): Array<string | number> {
   return useMemo(() => {
-    if (pageCount <= rangeDisplay) {
+    if (pageCount <= rangeDisplay || pageCount <= RANGE + 1) {
       return fill(pageCount, i => i + 1)
     }
-    const before = page < RANGE ? fill(Math.min(pageCount, page + 1), i => i + 1) : [1]
-    const center =
-      page >= RANGE && page <= pageCount - RANGE + 1 ? fill(RANGE - 1, i => i + page - 1) : []
-    const after =
-      page > pageCount - RANGE + 1
-        ? fill(Math.min(RANGE, pageCount - page + RANGE / 2), i => i + page - 1)
-        : [pageCount]
+
+    const position = getPosition(page, pageCount)
+
+    const before = position === 'before' ? fill(RANGE, i => i + 1) : [1]
+    const center = position === 'center' ? fill(CENTER_RANGE, i => i + page - 1) : []
+    const after = position === 'after' ? fill(RANGE, i => i + pageCount - RANGE + 1) : [pageCount]
     return joinArrays([before, center, after], '-')
   }, [page, pageCount, rangeDisplay])
 }

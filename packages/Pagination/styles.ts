@@ -9,27 +9,19 @@ export const List = styled.ul`
   margin: 0;
 `
 
-export const Item = styled.li(
-  ({ hidden }) => css`
-    display: inline-block;
-    vertical-align: bottom;
-    padding: 0;
-    margin-right: xxs;
+export const Item = styled.li`
+  display: inline-block;
+  vertical-align: bottom;
+  padding: 0;
+  margin-right: sm;
 
-    &:last-child {
-      margin-right: 0;
-    }
-
-    ${hidden &&
-    css`
-      display: none;
-    `}
-  `
-)
+  &:last-child {
+    margin-right: 0;
+  }
+`
 
 export const Dots = styled.span`
   ${th('paginations.default')};
-  ${th('paginations.dots')}
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,27 +30,35 @@ export const Dots = styled.span`
 export const AbstractLink = styled.a`
   ${th('paginations.default')};
   ${th('paginations.item')};
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: medium;
   text-decoration: none;
 
   &:focus {
     outline: none !important; /* important for firefox */
     transition: none;
   }
+
+  [${hideFocusRingsDataAttribute}] &:focus {
+    box-shadow: none;
+  }
 `
+
+export const ArrowLink = styled(AbstractLink)<{ isDisabled: boolean }>(
+  ({ isDisabled }) => css`
+    ${isDisabled &&
+    css`
+      color: nude.700;
+      background-color: nude.400;
+    `}
+  `
+)
 
 export const PageLink = styled(AbstractLink)(
   props => css`
-    ${th('paginations.number')}
-
-    [${hideFocusRingsDataAttribute}] &:focus {
-      box-shadow: none;
-    }
-
     ${props['aria-current'] && th('paginations.active')}
   `
 )
