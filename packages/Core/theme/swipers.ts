@@ -17,7 +17,7 @@ export const getSwipers = (theme: WuiTheme): ThemeSwipers => {
   return {
     navigation: {
       bullet: {
-        active: { backgroundColor: colors.primary[400] },
+        active: { backgroundColor: colors.primary[500] },
         default: { backgroundColor: colors.nude[400] },
       },
     },

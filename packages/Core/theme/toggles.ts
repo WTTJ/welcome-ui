@@ -28,13 +28,13 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
         marginTop: LINE_HEIGHT_ADJUSTMENTS,
 
         '&:focus': {
-          borderColor: colors.primary[400],
+          borderColor: colors.primary[500],
           ...focus(),
         },
       },
       checked: {
-        backgroundColor: colors.primary[400],
-        borderColor: colors.primary[400],
+        backgroundColor: colors.primary[500],
+        borderColor: colors.primary[500],
       },
       disabled: {
         borderColor: colors.dark[100],

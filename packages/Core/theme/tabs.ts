@@ -67,11 +67,11 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
     },
     activeBar: {
       horizontal: {
-        background: colors.primary[400],
+        background: colors.primary[500],
         height: borderWidths.lg,
       },
       vertical: {
-        background: colors.primary[400],
+        background: colors.primary[500],
         width: borderWidths.lg,
       },
     },

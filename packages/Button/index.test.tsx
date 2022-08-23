@@ -17,7 +17,7 @@ describe('<Button>', () => {
 
     expect(button).toHaveTextContent(content)
     expect(button).not.toBeDisabled()
-    expect(button).toHaveStyleRule('background-color', theme.colors.primary[400])
+    expect(button).toHaveStyleRule('background-color', theme.colors.primary[500])
     expect(button).toHaveStyleRule('height', theme.buttons.sizes.md.height)
   })
 

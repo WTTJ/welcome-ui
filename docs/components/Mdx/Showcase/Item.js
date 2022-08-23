@@ -20,8 +20,8 @@ export function Item({ content, name }) {
         <Text lines={1} m="0" mr="sm" color="dark.900">
           {content}
         </Text>
-        {copied && <CheckIcon color="success.500" flex="0 0 auto" />}
-        {!copied && <CopyIcon cursor="pointer" flex="0 0 auto" onClick={handleCopy} />}
+        {copied && <CheckIcon color="success.500" flex="0 0 auto" size="sm" />}
+        {!copied && <CopyIcon cursor="pointer" flex="0 0 auto" size="sm" onClick={handleCopy} />}
       </Box>
     </Box>
   )
