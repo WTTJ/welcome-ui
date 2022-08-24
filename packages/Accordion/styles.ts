@@ -6,6 +6,7 @@ export const Accordion = styled.div`
   ${th('accordions.wrapper')};
   ${system}
   transition: medium;
+
   &:hover {
     border-color: dark.400;
   }
@@ -22,6 +23,7 @@ export const Icon = styled(Box)<{ visible: boolean }>(
     color: inherit;
     display: flex;
     border-radius: 12;
+
     & *:first-child {
       margin: auto;
     }
@@ -29,7 +31,6 @@ export const Icon = styled(Box)<{ visible: boolean }>(
 )
 
 export const Disclosure = styled(ReakitDisclosure)`
-  ${th('texts.h5')};
   ${th('accordions.title')};
   width: 100%;
   padding: ${th('accordions.padding')};
@@ -39,6 +40,7 @@ export const Disclosure = styled(ReakitDisclosure)`
   justify-content: space-between;
   align-items: center;
   gap: xxl;
+
   &:focus,
   &:hover {
     cursor: pointer;
@@ -60,6 +62,7 @@ export const Content = styled(DisclosureContent)(
     ${th('accordions.content')};
     padding-inline: ${th('accordions.padding')};
     color: dark.700;
+
     ${visible &&
     css`
       padding-bottom: ${th('accordions.padding')};
