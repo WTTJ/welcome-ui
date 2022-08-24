@@ -39,7 +39,7 @@ export const InputText = forwardRef<'input', InputTextProps>(
       onFocus,
       onKeyDown,
       placeholder,
-      size = 'lg',
+      size = 'md',
       type = 'text',
       value,
       variant,
@@ -78,13 +78,9 @@ export const InputText = forwardRef<'input', InputTextProps>(
           variant={variant}
           {...rest}
         />
-        {icon && (
-          <IconWrapper iconPlacement={iconPlacement} size={size}>
-            {icon}
-          </IconWrapper>
-        )}
+        {icon && <IconWrapper iconPlacement={iconPlacement}>{icon}</IconWrapper>}
         {isClearable && value && (
-          <IconWrapper iconPlacement="right" size={size}>
+          <IconWrapper iconPlacement="right">
             <ClearButton onClick={handleReset} />
           </IconWrapper>
         )}

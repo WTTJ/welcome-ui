@@ -5,7 +5,7 @@ export const Hint = styled.div<{ variant: Variant }>(
   ({ variant }) => css`
     ${th('hints')};
     color: ${getVariantColor(variant)};
-    margin-top: sm;
+    margin-top: xs;
     display: flex;
     align-items: center;
     ${system};

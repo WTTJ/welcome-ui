@@ -40,18 +40,18 @@ export const Field = styled('div').withConfig({ shouldForwardProp })<StyledField
 
 type IconWrapperProps = {
   iconPlacement: 'left' | 'right'
-  size: DefaultFieldStylesProps['size']
+  size?: DefaultFieldStylesProps['size']
 }
 
 export const IconWrapper = styled.div<IconWrapperProps>(
   ({ iconPlacement, size, ...rest }) => css`
     position: absolute;
     top: 0;
-    left: ${iconPlacement === 'left' ? 0 : 'auto'};
-    right: ${iconPlacement === 'right' ? 0 : 'auto'};
+    left: ${iconPlacement === 'left' ? 12 : 'auto'};
+    right: ${iconPlacement === 'right' ? 12 : 'auto'};
     bottom: 0;
     display: flex;
-    width: ${size ? th(`defaultFields.sizes.${size}.height`)(rest) : null};
+    width: ${size ? th(`defaultFields.sizes.${size}.height`)(rest) : 16};
     justify-content: center;
     align-items: center;
     pointer-events: none;

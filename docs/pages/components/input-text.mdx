@@ -75,7 +75,7 @@ function () {
     setValue(event.target.value)
   }
 
-  return <InputText icon={<AvatarIcon color="light-100" />} name="firstName3" placeholder="Boaty" value={value} onChange={handleChange} />
+  return <InputText icon={<AvatarIcon color="dark-900" />} name="firstName3" placeholder="Boaty" value={value} onChange={handleChange} />
 }
 ```
 
@@ -83,9 +83,10 @@ function () {
 
 ```jsx
 <Stack spacing="xl">
+  <InputText name="extra-small" placeholder="Placeholder" size="xs" />
   <InputText name="small" placeholder="Placeholder" size="sm" />
-  <InputText name="medium" placeholder="Placeholder" size="md" />
-  <InputText name="large" placeholder="Placeholder" />
+  <InputText name="medium" placeholder="Placeholder" />
+  <InputText name="large" placeholder="Placeholder" size="lg" />
 </Stack>
 ```
 

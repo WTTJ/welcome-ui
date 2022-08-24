@@ -8,7 +8,7 @@ export const Label = styled('label').withConfig({ shouldForwardProp })<{ require
     display: flex;
     flex-shrink: 0;
     max-width: 100%;
-    align-items: flex-start;
+    align-items: center;
     line-height: lg;
     ${th('labels')};
     ${system};
@@ -16,7 +16,7 @@ export const Label = styled('label').withConfig({ shouldForwardProp })<{ require
 
     > * {
       &:not(:last-child) {
-        margin-right: xxs;
+        margin-right: xs;
       }
 
       :last-child {
@@ -29,11 +29,11 @@ export const Label = styled('label').withConfig({ shouldForwardProp })<{ require
 export const requiredStyles = css`
   &::after {
     content: '*';
-    margin-left: 0.125rem;
+    margin-left: xs;
     /* It prevents the element to shift the layout and it allows us to put it properly on top with super */
     line-height: 0;
     vertical-align: super;
-    font-size: 'subtitle-sm';
+    font-size: subtitle-sm;
     font-weight: bold;
     color: primary-500;
   }
@@ -41,13 +41,13 @@ export const requiredStyles = css`
 
 export const Disabled = styled.div`
   display: inline-flex;
-  margin-right: xxs;
+  margin-right: xs;
 `
 
 export const Icon = styled.div<{ variant: Variant }>(
   ({ variant }) => css`
     display: inline-flex;
-    margin-right: xxs;
+    margin-right: xs;
     color: ${getVariantColor(variant)};
     fill: ${getVariantColor(variant)};
     flex-shrink: 0;

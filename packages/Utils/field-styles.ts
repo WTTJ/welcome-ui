@@ -2,7 +2,7 @@ import { css, th } from '@xstyled/styled-components'
 
 import { getVariantColor, Variant } from './variants'
 
-export type Size = 'sm' | 'md' | 'lg'
+export type Size = 'xs' | 'sm' | 'md' | 'lg'
 
 export type DefaultFieldStylesProps = Partial<{ size: Size; variant: Variant }>
 
@@ -22,9 +22,9 @@ export const defaultFieldStyles: DefaultFieldStyles = ({ size, variant }) => css
 
   &:focus {
     ${th('defaultFields.focused.default')};
-    border-color: ${getVariantColor(variant)};
     ${variant === 'error' && th('defaultFields.focused.error')};
     ${variant === 'warning' && th('defaultFields.focused.warning')};
+    ${variant === 'success' && th('defaultFields.focused.success')};
   }
 
   &[disabled] {

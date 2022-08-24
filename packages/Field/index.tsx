@@ -17,6 +17,7 @@ export interface FieldOptions {
   hint?: string | JSX.Element
   required?: boolean
   warning?: string | JSX.Element
+  success?: string | JSX.Element
 }
 
 export type FieldProps = CreateWuiProps<'div', FieldOptions>
@@ -33,6 +34,7 @@ export const Field = forwardRef<'div', FieldProps>(
       hint,
       label,
       required,
+      success,
       warning,
       ...rest
     },
@@ -46,7 +48,7 @@ export const Field = forwardRef<'div', FieldProps>(
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
     const isGroup = ['FieldGroup', 'RadioGroup'].includes(baseType)
     const Container = layout === 'row' ? RowContainer : Fragment
-    const variant = getVariant({ error, warning })
+    const variant = getVariant({ error, warning, success })
     const hintText = variant ? error || warning : hint
     const htmlFor = children.props.id || children.props.name || generateRandomId()
 

@@ -15,8 +15,9 @@ export type ThemeDefaultFields = {
   placeholder: CSSObject
   focused: {
     default: CSSObject & ReturnType<ThemeFocus>
-    error: ReturnType<ThemeFocus>
-    warning: ReturnType<ThemeFocus>
+    error: CSSObject & ReturnType<ThemeFocus>
+    warning: CSSObject & ReturnType<ThemeFocus>
+    success: CSSObject & ReturnType<ThemeFocus>
   }
   checkablelabel: {
     default: CSSObject
@@ -50,17 +51,21 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       outline: 'none',
     },
     sizes: {
-      sm: {
-        height: toRem(32),
+      xs: {
+        height: toRem(24),
         padding: `${space.xs} ${space.md}`,
       },
-      md: {
-        height: toRem(36),
+      sm: {
+        height: toRem(32),
         padding: `${space.sm} ${space.md}`,
       },
-      lg: {
+      md: {
         height: toRem(40),
         padding: `${space.md}`,
+      },
+      lg: {
+        height: toRem(48),
+        padding: `${space.lg} ${space.md}`,
       },
     },
     checkableField: {
@@ -81,11 +86,12 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
     },
     focused: {
       default: {
-        ...focus(),
-        borderColor: colors['primary-500'],
+        ...focus(colors['primary-200']),
+        borderColor: 'transparent',
       },
-      error: focus(colors['danger-500']),
-      warning: focus(colors['warning-500']),
+      error: { ...focus(colors['danger-300']) },
+      warning: { ...focus(colors['warning-300']) },
+      success: { ...focus(colors['success-300']) },
     },
     checkablelabel: {
       default: {

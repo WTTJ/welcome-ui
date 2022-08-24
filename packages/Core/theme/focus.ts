@@ -9,6 +9,6 @@ export const getFocus =
   (color: string): ThemeFocus =>
   (value: string = color) => {
     return {
-      boxShadow: `0 0 0 3px ${hexToRGBA(value, 0.5)}`,
+      boxShadow: `0 0 0 3px ${hexToRGBA(value)}`,
     }
   }

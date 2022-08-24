@@ -6,24 +6,26 @@ import { Variant } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | number | string
 export interface VariantIconOptions {
   icon?: JSX.Element
+  size?: Size
   variant?: Variant
 }
 
 export type VariantIconProps = CreateWuiProps<'div', VariantIconOptions>
 
 export const VariantIcon = forwardRef<'div', VariantIconProps>(
-  ({ icon, variant, ...rest }, ref) => {
+  ({ icon, size = 'md', variant, ...rest }, ref) => {
     const Icon = useMemo(() => {
       if (icon === null) return null
       if (icon) return icon
-      if (variant === 'default') return <PromoteIcon />
-      if (variant === 'success') return <CheckIcon />
-      if (variant === 'info') return <InformationIcon />
-      if (variant === 'warning') return <AlertIcon />
-      if (variant === 'error') return <SquareAlertIcon />
-    }, [icon, variant])
+      if (variant === 'default') return <PromoteIcon size={size} />
+      if (variant === 'success') return <CheckIcon size={size} />
+      if (variant === 'info') return <InformationIcon size={size} />
+      if (variant === 'warning') return <AlertIcon size={size} />
+      if (variant === 'error') return <SquareAlertIcon size={size} />
+    }, [size, icon, variant])
 
     return Icon ? (
       <S.VariantIcon ref={ref} variant={variant} {...rest}>

@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system } from '@xstyled/styled-components'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
@@ -13,18 +13,18 @@ export const InputText = styled('input').withConfig({ shouldForwardProp })<Input
     ${icon &&
     iconPlacement === 'left' &&
     css`
-      padding-left: ${th(`defaultFields.sizes.${size}.height`)};
+      padding-left: 36;
     `};
     ${icon &&
     iconPlacement === 'right' &&
     css`
-      padding-right: ${th(`defaultFields.sizes.${size}.height`)};
+      padding-right: 36;
     `};
 
     /* With clear button */
     ${isClearable &&
     css`
-      padding-right: ${th(`defaultFields.sizes.${size}.height`)};
+      padding-right: 36;
     `};
 
     ${system};
