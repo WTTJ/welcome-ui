@@ -82,7 +82,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
     focused: {
       default: {
         ...focus(),
-        borderColor: colors.primary[400],
+        borderColor: colors.primary[500],
       },
       error: focus(colors.danger[500]),
       warning: focus(colors.warning[500]),

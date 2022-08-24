@@ -47,8 +47,8 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
   return {
     primary: {
       ...defaults,
-      backgroundColor: colors.primary[400],
-      borderColor: colors.primary[400],
+      backgroundColor: colors.primary[500],
+      borderColor: colors.primary[500],
     },
     secondary: {
       ...defaults,
@@ -108,8 +108,8 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     ghost: {
       ...defaults,
       color: colors.dark[900],
-      backgroundColor: colors.light[900],
-      borderColor: colors.light[900],
+      backgroundColor: 'transparent',
+      borderColor: 'transparent',
     },
     hover: {
       primary: {
@@ -117,8 +117,8 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         borderColor: colors.primary[200],
       },
       secondary: {
-        backgroundColor: colors.dark[500],
-        borderColor: colors.dark[500],
+        backgroundColor: colors.dark[700],
+        borderColor: 'transparent',
       },
       tertiary: {
         backgroundColor: colors.dark[100],

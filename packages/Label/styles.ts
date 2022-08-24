@@ -35,7 +35,7 @@ export const requiredStyles = css`
     vertical-align: super;
     font-size: 'subtitle-sm';
     font-weight: bold;
-    color: primary.400;
+    color: primary.500;
   }
 `
 

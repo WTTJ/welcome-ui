@@ -120,7 +120,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   // These attributes depend on colors and fontSizes and must come last
   theme.selection = getSelection(theme)
   theme.underline = getUnderline(theme)
-  theme.focus = getFocus(theme.colors.primary[400])
+  theme.focus = getFocus(theme.colors.primary[500])
   theme.defaultCards = getDefaultCards(theme)
   theme.textsFontWeights = getTextsFontWeights(theme)
   theme.textsFontFamily = getTextsFontFamily(theme)
