@@ -36,8 +36,8 @@ type Palette = {
 type PrimaryPalette = {
   100: string
   200: string
-  400: string
   500: string
+  600: string
   700: string
   800: string
   900: string
@@ -91,8 +91,8 @@ export const colors: ThemeColors = {
   primary: {
     100: '#C6CAFF',
     200: '#5650EC',
-    400: '#3B35DC',
     500: '#3B35DC',
+    600: '#3B35DC',
     700: '#241DBB',
     800: '#1C168F',
     900: '#171379',

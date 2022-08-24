@@ -19,12 +19,13 @@ export const Item = styled(Box)(
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    color: dark.900;
 
     ${!copied &&
     css`
       &:hover {
         ${Content} {
-          background-color: nude.100;
+          border-color: dark.400;
         }
       }
     `}

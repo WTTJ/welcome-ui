@@ -25,8 +25,8 @@ export function Item({ dependency, version }) {
     >
       <Tag backgroundColor="light.900" key={dependency}>
         {`${dependency} [${version}]`}
-        {!copied && <CopyIcon onClick={handleCopy} />}
-        {copied && <CheckIcon color="success.500" />}
+        {!copied && <CopyIcon onClick={handleCopy} size="sm" />}
+        {copied && <CheckIcon color="success.500" size="sm" />}
       </Tag>
     </Box>
   )

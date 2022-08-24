@@ -41,9 +41,9 @@ export function Showcase({
             rel="noopener noreferrer"
             size="sm"
             target="_blank"
-            variant="ghost"
+            variant="tertiary"
           >
-            <NpmIcon size="lg" />
+            <NpmIcon size="xs" />
             <span>View package</span>
           </Button>
           <Button
@@ -53,9 +53,9 @@ export function Showcase({
             size="sm"
             target="_blank"
             alt="github"
-            variant="ghost"
+            variant="tertiary"
           >
-            <GithubIcon size="lg" />
+            <GithubIcon size="xs" />
             <span>View source</span>
           </Button>
         </Box>

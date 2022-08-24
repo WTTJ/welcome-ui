@@ -58,8 +58,8 @@ const colors: Partial<WuiTheme['colors']> = {
   primary: {
     100: palette.dandelion,
     200: palette.cinnamon,
-    400: palette.yellow,
-    500: palette.gold,
+    500: palette.yellow,
+    600: palette.gold,
     700: palette.corn,
     800: palette.cornsilk,
     900: palette.olive,

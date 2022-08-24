@@ -17,9 +17,9 @@ export const getRadioTabs = (theme: WuiTheme): ThemeRadioTabs => {
       },
     },
     checked: {
-      backgroundColor: colors.primary[400],
+      backgroundColor: colors.primary[500],
       color: colors.light[900],
-      borderColor: colors.primary[400],
+      borderColor: colors.primary[500],
       '&:hover': {
         backgroundColor: colors.primary[200],
       },
