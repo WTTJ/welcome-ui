@@ -1,7 +1,7 @@
 name: Demo link
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened]
 
 jobs:
@@ -19,10 +19,10 @@ jobs:
           script: |
             const pullRequestId = context.payload.pull_request.number
             const pullRequestBranch = context.payload.pull_request.head.ref
-                      
+
             github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: pullRequestId,
-              body: `👀 [Visit Preview](https://${pullRequestBranch}--welcome-ui.netlify.app)` 
+              body: `👀 [Visit Preview](https://${pullRequestBranch}--welcome-ui.netlify.app)`
             });
