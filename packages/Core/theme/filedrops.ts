@@ -6,19 +6,20 @@ export type ThemeFiledrops = {
   default: CSSObject
   dragAccept: Record<string, unknown>
   dragReject: Record<string, unknown>
-  disabled: Record<string, unknown>
+  disabled: CSSObject
 }
 
 export const getFiledrops = (theme: WuiTheme): ThemeFiledrops => {
-  const { toRem } = theme
+  const { colors, toRem } = theme
 
   return {
     default: {
-      borderStyle: 'dashed',
       minHeight: toRem(200),
     },
     dragAccept: {},
     dragReject: {},
-    disabled: {},
+    disabled: {
+      backgroundColor: colors.nude[200],
+    },
   }
 }
