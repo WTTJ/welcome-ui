@@ -33,7 +33,7 @@ export const Tab = styled.button`
   display: flex;
   align-items: center;
   flex: none;
-  padding: lg 0;
+  padding: md 0;
   transition: medium;
   text-transform: none;
   cursor: pointer;

@@ -42,7 +42,7 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
     },
     item: {
       default: {
-        color: colors.dark[500],
+        color: colors.dark[700],
         fontWeight: fontWeights.medium,
         fontSize: fontSizes.md,
         textDecoration: 'none',
@@ -55,7 +55,7 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
         color: colors.dark[900],
       },
       disabled: {
-        color: colors.dark[200],
+        color: colors.dark[400],
       },
     },
     panel: {
@@ -74,20 +74,19 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
     activeBar: {
       horizontal: {
         background: colors.primary[500],
-        height: borderWidths.lg,
+        height: borderWidths.md,
       },
       vertical: {
         background: colors.primary[500],
-        width: borderWidths.lg,
+        width: borderWidths.md,
       },
     },
     size: {
       sm: {
-        paddingBottom: space.sm,
         marginRight: space.md,
+        fontSize: fontSizes.sm,
       },
       md: {
-        paddingBottom: space.lg,
         marginRight: space.xl,
       },
     },
