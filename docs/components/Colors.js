@@ -8,11 +8,17 @@ import { Text } from '@welcome-ui/text'
 function Wrapper({ name, theme, colorsObject }) {
   const colors = colorsObject || theme.colors[name]
   const isLight = name === 'light'
+  const textColor = { ...(isLight && { color: 'light.900' }) }
 
   return (
     <Box>
       <Card mt="xl">
-        <Card.Body as={Grid} templateColumns="repeat(auto-fit, minmax(250px, 1fr))" gap="xl" backgroundColor={isLight && 'dark.900'}>
+        <Card.Body
+          as={Grid}
+          templateColumns="repeat(auto-fit, minmax(250px, 1fr))"
+          gap="xl"
+          backgroundColor={isLight && 'dark.900'}
+        >
           {Object.entries(colors).map(([key, depth]) => (
             <Box display="flex" alignItems="center" key={`${name}.${key}`}>
               <Box
@@ -24,15 +30,10 @@ function Wrapper({ name, theme, colorsObject }) {
                 w={60}
               />
               <Box px="sm">
-                <Text
-                  variant="h6"
-                  as="span"
-                  textTransform="capitalize"
-                  color={isLight && 'light.900'}
-                >
+                <Text variant="h6" as="span" textTransform="capitalize" color={textColor}>
                   {colorsObject ? key : `${name} ${key}`}
                 </Text>
-                <Text color={isLight ? "light.900" : "dark.300"} as="span" fontSize="sm" mt={3}>
+                <Text color={textColor} as="span" fontSize="sm" mt={3}>
                   {depth}
                 </Text>
               </Box>
