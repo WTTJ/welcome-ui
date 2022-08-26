@@ -18,7 +18,7 @@ describe('<Tag>', () => {
 
     expect(tag).toHaveTextContent(content)
     expect(tag).toHaveStyleRule('background-color', theme.colors.nude[200])
-    expect(tag).toHaveStyleRule('color', 'rgba(0,0,0,0.55)')
+    expect(tag).toHaveStyleRule('color', theme.colors.nude[900])
     expect(tag).toHaveStyleRule('padding', theme.tags.sizes.md.padding)
   })
 
