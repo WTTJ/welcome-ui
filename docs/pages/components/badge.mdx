@@ -12,18 +12,57 @@ import {
   version={version}
   name={name}
   component={component}
-  description="Badge is the Tag component with small size."
+  description="Badges are used to inform about the status of an object or an action that’s been taken."
 />
 
 ## Usage
 
+### Basics
+
 ```jsx row
 <Badge>{0}</Badge>
-<Badge>{1}</Badge>
-<Badge>2</Badge>
-<Badge>3</Badge>
-<Badge>4</Badge>
-<Badge variant="primary">New</Badge>
+<Badge>1</Badge>
+```
+
+### States
+
+```jsx row
+<Badge>{0}</Badge>
+<Badge disabled>0</Badge>
+<Badge variant="primary">{2}</Badge>
+<Badge variant="primary" disabled>2</Badge>
+```
+
+## Sizes
+
+Use size property with `sm` or `md`.
+
+```jsx row
+<Badge size="sm">
+  99+
+</Badge>
+<Badge size="md">
+  99+
+</Badge>
+```
+
+## Shape
+
+Use `shape` property for `square` or `circle` form.
+
+```jsx row
+<Badge shape="square">
+  9
+</Badge>
+<Badge shape="square">
+  99+
+</Badge>
+<Badge shape="circle">
+  9
+</Badge>
+<Badge shape="circle">
+  99+
+</Badge>
 ```
 
 ## Properties

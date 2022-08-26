@@ -28,6 +28,7 @@ import { getSpace } from './space'
 import { getSelection } from './selection'
 import { getFocus } from './focus'
 import { getButtons } from './buttons'
+import { getBadges } from './badges'
 import { getTags } from './tags'
 import { getTooltips } from './tooltips'
 import { getCheckboxes } from './checkboxes'
@@ -134,6 +135,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.toasts = getToasts(theme)
   theme.paginations = getPaginations(theme)
   theme.tabs = getTabs(theme)
+  theme.badges = getBadges(theme)
   theme.tags = getTags(theme)
   theme.tooltips = getTooltips(theme)
   theme.links = getLinks(theme)
