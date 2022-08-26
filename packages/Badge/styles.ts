@@ -1,5 +1,5 @@
 import { WuiProps } from '@welcome-ui/system'
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@xstyled/styled-components'
 
 import { Shape, Size, Variant } from './index'
 
@@ -35,5 +35,6 @@ export const Badge = styled.div<StyledBadgeProps & WuiProps>(
     css`
       border-radius: 14;
     `}
+    ${system};
   `
 )
