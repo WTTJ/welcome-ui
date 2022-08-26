@@ -54,7 +54,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
     default: {
       fontWeight: fontWeights.medium,
       backgroundColor: colors.light[900],
-      color: colors.dark[500],
+      color: colors.nude[900],
     },
     variants: {
       default: {
@@ -93,13 +93,13 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
         borderColor: colors.info[300],
         ...border,
       },
-      1: { ...withoutVisibleBorder(colors.sub[1]) },
-      2: { ...withoutVisibleBorder(colors.sub[2]) },
-      3: { ...withoutVisibleBorder(colors.sub[3]) },
-      4: { ...withoutVisibleBorder(colors.sub[4]) },
-      5: { ...withoutVisibleBorder(colors.sub[5]) },
-      6: { ...withoutVisibleBorder(colors.sub[6]) },
-      7: { ...withoutVisibleBorder(colors.sub[7]) },
+      1: { ...withoutVisibleBorder(colors.sub[1]), color: colors.dark[900] },
+      2: { ...withoutVisibleBorder(colors.sub[2]), color: colors.light[900] },
+      3: { ...withoutVisibleBorder(colors.sub[3]), color: colors.light[900] },
+      4: { ...withoutVisibleBorder(colors.sub[4]), color: colors.dark[900] },
+      5: { ...withoutVisibleBorder(colors.sub[5]), color: colors.dark[900] },
+      6: { ...withoutVisibleBorder(colors.sub[6]), color: colors.light[900] },
+      7: { ...withoutVisibleBorder(colors.sub[7]), color: colors.dark[900] },
     },
     hover: {
       default: {
