@@ -13,24 +13,6 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-const TOOLTIP_VISIBILITY_DELAY = 50
-
-const useDelayedVisibility = (value: boolean, duration: number) => {
-  const [visibility, setVisibility] = useState(null)
-  useEffect(() => {
-    let id: number | null = null
-    if (value) {
-      id = window.setTimeout(() => {
-        setVisibility({ visibility: 'visible' })
-      }, duration)
-    } else {
-      setVisibility({ visibility: 'hidden' })
-    }
-    return () => id && window.clearTimeout(id)
-  }, [value, duration])
-  return visibility
-}
-
 const useMouseTooltipState = ({
   placement: originalPlacement,
   ...rest
@@ -150,9 +132,7 @@ export const Tooltip = forwardRef<'div', TooltipProps>((props, ref): React.React
     ...rest
   } = props
   const useCorrectTooltipState = fixed ? useTooltipState : useMouseTooltipState
-  const tooltip = useCorrectTooltipState({ placement })
-  const visibilityStyles = useDelayedVisibility(tooltip.visible, TOOLTIP_VISIBILITY_DELAY)
-
+  const tooltip = useCorrectTooltipState({ placement, animated: true })
   // If no content, simply return the children
   if (!content) {
     return children as React.ReactElement
@@ -165,8 +145,11 @@ export const Tooltip = forwardRef<'div', TooltipProps>((props, ref): React.React
       <TooltipReference as={undefined} {...tooltip}>
         {referenceProps => cloneElement(child, referenceProps)}
       </TooltipReference>
-      <S.Tooltip ref={ref} style={visibilityStyles} {...tooltip} {...rest}>
-        {content}
+
+      <S.Tooltip ref={ref} {...tooltip} {...rest}>
+        <S.FadeIn fixed={fixed} placement={placement}>
+          {content}
+        </S.FadeIn>
       </S.Tooltip>
     </>
   )
