@@ -101,4 +101,5 @@ export const Field = forwardRef<'div', FieldProps>(
 Field.displayName = 'Field'
 
 export const IconWrapper = S.IconWrapper
+export const IconGroupWrapper = S.IconGroupWrapper
 export { getBaseType }

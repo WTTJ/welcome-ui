@@ -44,14 +44,14 @@ type IconWrapperProps = {
 }
 
 export const IconWrapper = styled.div<IconWrapperProps>(
-  ({ iconPlacement, size, ...rest }) => css`
+  ({ iconPlacement, size }) => css`
     position: absolute;
     top: 0;
-    left: ${iconPlacement === 'left' ? 12 : 'auto'};
-    right: ${iconPlacement === 'right' ? 12 : 'auto'};
+    left: ${iconPlacement === 'left' ? th(`defaultFields.iconPlacement.${size}.left`) : 'auto'};
+    right: ${iconPlacement === 'right' ? th(`defaultFields.iconPlacement.${size}.right`) : 'auto'};
     bottom: 0;
     display: flex;
-    width: ${size ? th(`defaultFields.sizes.${size}.height`)(rest) : 16};
+    width: 16;
     justify-content: center;
     align-items: center;
     pointer-events: none;
@@ -61,6 +61,23 @@ export const IconWrapper = styled.div<IconWrapperProps>(
     /* for button action */
     & > button {
       pointer-events: auto;
+    }
+  `
+)
+
+export const IconGroupWrapper = styled.div(
+  ({ size }: { size: DefaultFieldStylesProps['size'] }) => css`
+    position: absolute;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    right: ${size === 'xs' ? 'sm' : 'md'};
+    display: flex;
+    align-items: center;
+    gap: sm;
+
+    > * {
+      width: 16;
     }
   `
 )

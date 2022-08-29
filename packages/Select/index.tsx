@@ -9,6 +9,7 @@ import { DownIcon } from '@welcome-ui/icons'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { createEvent, CreateEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'
+import { IconWrapper } from '@welcome-ui/field'
 
 import {
   getInputValue,
@@ -94,7 +95,7 @@ export const Select = forwardRef<'input', SelectProps>(
       renderCreateItem = (inputValue: string) => `Create "${inputValue}"`,
       renderItem = itemToString,
       renderMultiple = multipleSelections,
-      size = 'lg',
+      size = 'md',
       value: defaultSelected,
       variant,
       allowUnselectFromList,
@@ -253,7 +254,7 @@ export const Select = forwardRef<'input', SelectProps>(
           const isShowDeleteIcon = isClearable && inputValue
 
           const DeleteIcon = (
-            <S.DropDownIndicator as="div" size={size}>
+            <S.DropDownIndicator as="div">
               <ClearButton
                 onClick={clearSelection as unknown as React.MouseEventHandler<HTMLButtonElement>}
               />
@@ -270,7 +271,7 @@ export const Select = forwardRef<'input', SelectProps>(
                 onClick: () => setIsOpen(!isOpen),
               })}
             >
-              <DownIcon color="nude-700" size="xs" />
+              <DownIcon color="dark-900" size="xs" />
             </S.DropDownIndicator>
           )
 
@@ -298,6 +299,7 @@ export const Select = forwardRef<'input', SelectProps>(
             size,
             tabIndex: 0,
             variant: isOpen ? 'focused' : variant,
+            isClearable,
             ...rest,
           })
 
@@ -309,8 +311,12 @@ export const Select = forwardRef<'input', SelectProps>(
                 ) : (
                   <S.Input {...inputProps}>{inputContent}</S.Input>
                 )}
-                {icon && <S.Icon size={size}>{icon}</S.Icon>}
-                <S.Indicators>
+                {icon && (
+                  <IconWrapper iconPlacement="left" size={size}>
+                    {icon}
+                  </IconWrapper>
+                )}
+                <S.Indicators size={size}>
                   {isShowDeleteIcon && DeleteIcon}
                   {ArrowIcon}
                 </S.Indicators>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconWrapper } from '@welcome-ui/field'
+import { IconGroupWrapper, IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { createEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -47,6 +47,9 @@ export const InputText = forwardRef<'input', InputTextProps>(
     },
     ref
   ) => {
+    const hasClearButtonAndRightIcon = isClearable && iconPlacement === 'right'
+    const hasIcon = icon && iconPlacement
+
     const handleReset = () => {
       const event = createEvent({
         name,
@@ -78,11 +81,16 @@ export const InputText = forwardRef<'input', InputTextProps>(
           variant={variant}
           {...rest}
         />
-        {icon && <IconWrapper iconPlacement={iconPlacement}>{icon}</IconWrapper>}
-        {isClearable && value && (
-          <IconWrapper iconPlacement="right">
-            <ClearButton onClick={handleReset} />
+        {hasIcon && !hasClearButtonAndRightIcon && (
+          <IconWrapper iconPlacement={iconPlacement} size={size}>
+            {icon}
           </IconWrapper>
+        )}
+        {isClearable && (
+          <IconGroupWrapper size={size}>
+            {value && <ClearButton onClick={handleReset} />}
+            {iconPlacement === 'right' && icon}
+          </IconGroupWrapper>
         )}
       </S.Wrapper>
     )

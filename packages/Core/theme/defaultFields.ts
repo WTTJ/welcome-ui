@@ -7,6 +7,7 @@ import { WuiTheme } from './types'
 export type ThemeDefaultFields = {
   default: CSSObject
   sizes: Record<Size, CSSObject>
+  iconPlacement: Record<Size, CSSObject>
   checkableField: {
     checked: CSSObject
     disabled: CSSObject
@@ -66,6 +67,24 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       lg: {
         height: toRem(48),
         padding: `${space.lg} ${space.md}`,
+      },
+    },
+    iconPlacement: {
+      xs: {
+        left: toRem(8),
+        right: toRem(8),
+      },
+      sm: {
+        left: toRem(12),
+        right: toRem(12),
+      },
+      md: {
+        left: toRem(12),
+        right: toRem(12),
+      },
+      lg: {
+        left: toRem(12),
+        right: toRem(12),
       },
     },
     checkableField: {

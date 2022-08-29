@@ -15,16 +15,19 @@ export const InputText = styled('input').withConfig({ shouldForwardProp })<Input
     css`
       padding-left: 36;
     `};
-    ${icon &&
-    iconPlacement === 'right' &&
+
+    /* With clear button or right icon */
+    ${(isClearable || (icon && iconPlacement === 'right')) &&
     css`
       padding-right: 36;
     `};
 
-    /* With clear button */
+    /* With clear button and right icon */
     ${isClearable &&
+    icon &&
+    iconPlacement === 'right' &&
     css`
-      padding-right: 36;
+      padding-right: 4xl;
     `};
 
     ${system};
