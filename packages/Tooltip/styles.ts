@@ -12,6 +12,7 @@ const transformDirection = {
   right: 'translate3d(4px, 0, 0)',
   bottom: 'translate3d(0, 4px, 0)',
   left: 'translate3d(-4px, 0, 0)',
+  auto: 'translate3d(0, 0, 0)',
 }
 type TransformDirectionKey = keyof typeof transformDirection
 
@@ -31,8 +32,9 @@ export const FadeIn = styled.div<{
   opacity: 0;
   transform-origin: top center;
   transform: ${({ fixed, placement }) => {
+    if (fixed) return 'translate3d(0, 0, 0)'
     const placementOption = placement?.split('-')[0] as TransformDirectionKey
-    return fixed ? 'translate3d(0, 0, 0)' : transformDirection[placementOption]
+    return transformDirection[placementOption]
   }};
   [data-enter] & {
     visibility: visible;
