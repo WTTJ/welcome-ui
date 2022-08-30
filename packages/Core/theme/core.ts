@@ -81,6 +81,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
 
   theme.toEm = px => `${px / DEFAULT_FONT_SIZE}em`
   theme.toRem = px => `${px / DEFAULT_FONT_SIZE}rem`
+  theme.toPx = rem => `${rem * DEFAULT_FONT_SIZE}px`
 
   theme.colors = colors
 
