@@ -54,7 +54,6 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
     ${(hasLink || hasClickAction) &&
     css`
       cursor: pointer;
-      color: inherit;
       text-decoration: none;
 
       &:hover {
