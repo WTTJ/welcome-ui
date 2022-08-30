@@ -5,8 +5,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type Shape = 'circle' | 'square'
-export type Size = 'xs' | 'sm' | 'md' | 'lg'
+export type Size = 'xs' | 'sm' | 'md'
 export type Variant =
   | '1'
   | '2'
@@ -25,31 +24,38 @@ export type Variant =
   | 'warning'
 
 export interface TagOptions {
+  onClick?: () => void
   onRemove?: () => void
   size?: Size
   variant?: Variant
-  shape?: Shape
 }
 
 export type TagProps = CreateWuiProps<'div', TagOptions>
 
 export const Tag = forwardRef<'div', TagProps>(
-  ({ children, dataTestId, onRemove, shape, size = 'md', variant = 'default', ...rest }, ref) => {
+  (
+    { as, children, dataTestId, onClick, onRemove, size = 'md', variant = 'default', ...rest },
+    ref
+  ) => {
     const content = wrapChildren(children as JSX.Element)
     // get size children for int and string
     const childrenLength =
       !!(children || children === 0) &&
       ['number', 'string'].includes(typeof children) &&
       children.toString().length
+    const hasLink = as === 'a'
 
     return (
       <S.Tag
+        as={as}
         data-testid={dataTestId}
-        hasAction={!!onRemove}
+        hasClickAction={!!onClick}
+        hasLink={hasLink}
+        hasRemoveAction={!!onRemove}
         length={childrenLength}
+        onClick={onClick}
         ref={ref}
         role="listitem"
-        shape={shape}
         size={size}
         variant={variant}
         {...rest}
