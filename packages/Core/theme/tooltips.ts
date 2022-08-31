@@ -3,7 +3,7 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 
 export const getTooltips = (theme: WuiTheme): CSSObject => {
-  const { colors, fontSizes, radii, space, toRem } = theme
+  const { colors, fontSizes, lineHeights, radii, space, toRem } = theme
 
   return {
     maxWidth: toRem(200),
@@ -11,6 +11,8 @@ export const getTooltips = (theme: WuiTheme): CSSObject => {
     color: colors.white,
     padding: `${space.xxs} ${space.sm}`,
     fontSize: fontSizes.xs,
-    borderRadius: radii.md,
+    lineHeight: lineHeights.xs,
+    borderRadius: radii.sm,
+    boxSizing: 'content-box',
   }
 }

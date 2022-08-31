@@ -22,12 +22,8 @@ export const FadeIn = styled.div<{
 }>`
   ${th('tooltips')};
   ${system};
-  background-color: rgba(33, 33, 33, 0.9);
-  padding: ${th('space.sm')};
-  padding-bottom: ${th('space.xl')};
-  border-radius: ${th('radii.sm')};
-  transition: opacity 250ms ease-in-out, transform 250ms ease-in-out,
-    visibility 200ms ease-in-out 50ms;
+  transition: opacity ${th.transition('medium')}, transform ${th.transition('medium')},
+    visibility ${th.transition('medium')};
   visibility: hidden;
   opacity: 0;
   transform-origin: top center;
