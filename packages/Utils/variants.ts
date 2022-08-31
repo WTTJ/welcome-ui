@@ -1,6 +1,6 @@
 import { th } from '@xstyled/styled-components'
 
-export type Variant = 'default' | 'error' | 'focused' | 'info' | 'success' | 'warning'
+export type Variant = 'error' | 'focused' | 'info' | 'success' | 'warning' | 'transparent'
 
 export const VARIANTS: Record<Variant, string> = {
   error: 'colors.danger-400',
@@ -8,6 +8,7 @@ export const VARIANTS: Record<Variant, string> = {
   info: 'colors.info-500',
   success: 'colors.success-400',
   warning: 'colors.warning-400',
+  transparent: 'transparent',
 }
 
 export const getVariantColor = (variant: Variant): ReturnType<typeof th> => {
