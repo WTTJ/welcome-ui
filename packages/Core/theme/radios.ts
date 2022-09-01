@@ -16,8 +16,8 @@ export const getRadios = (theme: WuiTheme): ThemeRadios => {
 
   return {
     default: {
-      width: toRem(20),
-      height: toRem(20),
+      width: toRem(16),
+      height: toRem(16),
     },
     checked: {
       backgroundColor: colors['primary-500'],
@@ -30,7 +30,6 @@ export const getRadios = (theme: WuiTheme): ThemeRadios => {
       },
       hint: {
         marginTop: space.xs,
-        color: colors['dark-200'],
       },
     },
   }

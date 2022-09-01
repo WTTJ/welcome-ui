@@ -71,7 +71,13 @@ export const Field = forwardRef<'div', FieldProps>(
     }, [children.props, children.type.displayName, htmlFor])
 
     return (
-      <S.Field ref={ref} {...rest} data-testid={dataTestId} flexDirection={layout}>
+      <S.Field
+        ref={ref}
+        {...rest}
+        data-testid={dataTestId}
+        flexDirection={layout}
+        isCheckable={isCheckable}
+      >
         <Container>
           {label && !isGroup && (
             <Label

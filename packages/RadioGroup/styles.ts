@@ -11,7 +11,7 @@ export const Radios = styled.div<{
     margin-bottom: -md;
     ${system};
 
-    > * {
+    > *:not(:last-child) {
       margin-bottom: md;
     }
   `

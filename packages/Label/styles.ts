@@ -16,7 +16,7 @@ export const Label = styled('label').withConfig({ shouldForwardProp })<{ require
 
     > * {
       &:not(:last-child) {
-        margin-right: xs;
+        margin-right: sm;
       }
 
       :last-child {

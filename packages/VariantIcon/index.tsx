@@ -6,7 +6,8 @@ import { Variant } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
-type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | number | string
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+
 export interface VariantIconOptions {
   icon?: JSX.Element
   size?: Size

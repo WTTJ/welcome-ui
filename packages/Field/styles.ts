@@ -14,24 +14,24 @@ const columnStyles = css`
 
 const checkableFieldStyles = css`
   ${th('defaultFields.checkablelabel.default')};
-  margin-bottom: sm;
+  margin-bottom: md;
 `
 
 type StyledFieldProps = {
-  checkableField: boolean
+  isCheckable: boolean
   flexDirection: WuiProps['flexDirection']
   checked: boolean
 }
 
 export const Field = styled('div').withConfig({ shouldForwardProp })<StyledFieldProps>(
-  ({ checkableField, checked, flexDirection }) => css`
+  ({ checked, flexDirection, isCheckable }) => css`
     ${StyledFieldGroup} {
-      margin-bottom: ${checkableField && 'xxs'};
+      margin-bottom: ${isCheckable && 'xxs'};
     }
     ${StyledLabel} {
       ${flexDirection === 'row' && rowStyles};
       ${flexDirection === 'column' && columnStyles};
-      ${checkableField && checkableFieldStyles};
+      ${isCheckable && checkableFieldStyles};
       ${checked && th('defaultFields.checkablelabel.checked')}
     }
     ${system};
