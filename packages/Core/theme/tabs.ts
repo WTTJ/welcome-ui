@@ -2,6 +2,8 @@ import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
 
+type Size = 'sm' | 'md'
+
 export type ThemeTabs = {
   tabsBorder: {
     horizontal: CSSObject
@@ -21,10 +23,13 @@ export type ThemeTabs = {
     horizontal: CSSObject
     vertical: CSSObject
   }
+  size: Record<Size, CSSObject>
+  icon: CSSObject
+  badge: CSSObject
 }
 
 export const getTabs = (theme: WuiTheme): ThemeTabs => {
-  const { borderWidths, colors, fontSizes, fontWeights, space } = theme
+  const { borderWidths, colors, fontSizes, fontWeights, lineHeights, space } = theme
 
   return {
     tabsBorder: {
@@ -37,10 +42,11 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
     },
     item: {
       default: {
-        color: colors.dark[500],
+        color: colors.dark[700],
         fontWeight: fontWeights.medium,
         fontSize: fontSizes.md,
         textDecoration: 'none',
+        lineHeight: lineHeights.md,
       },
       active: {
         color: colors.dark[900],
@@ -49,7 +55,7 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
         color: colors.dark[900],
       },
       disabled: {
-        color: colors.dark[200],
+        color: colors.dark[400],
       },
     },
     panel: {
@@ -68,12 +74,28 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
     activeBar: {
       horizontal: {
         background: colors.primary[500],
-        height: borderWidths.lg,
+        height: borderWidths.md,
       },
       vertical: {
         background: colors.primary[500],
-        width: borderWidths.lg,
+        width: borderWidths.md,
       },
+    },
+    size: {
+      sm: {
+        marginRight: space.md,
+        fontSize: fontSizes.sm,
+      },
+      md: {
+        marginRight: space.xl,
+      },
+    },
+    icon: {
+      maxWidth: space.lg,
+      maxHeight: space.lg,
+    },
+    badge: {
+      maxHeight: space.lg,
     },
   }
 }
