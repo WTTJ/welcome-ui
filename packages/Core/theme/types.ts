@@ -84,6 +84,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   }
   toEm: (int: number) => string
   toRem: (int?: number) => string
+  toPx: (int?: number) => string
   colors: ThemeColors
   underline: ThemeUnderline
   borderWidths: ThemeBorderWidths
