@@ -53,11 +53,14 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     },
     ref
   ) => {
-    const { space } = useTheme()
+    const { borderWidths, space } = useTheme()
     const headerRef = useRef(null)
+    const contentRef = useRef(null)
     const footerRef = useRef(null)
     const headerHeight = headerRef?.current?.clientHeight
     const footerHeight = footerRef?.current?.clientHeight
+    const contentHeight = contentRef?.current?.clientHeight
+    const contentScrollHeight = contentRef?.current?.scrollHeight
 
     const components = useMemo(
       () => Children.map(children, child => child.type.displayName || child.type.name),
@@ -67,6 +70,10 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     const setRef = (name?: string) => {
       if (name === 'Header') {
         return headerRef
+      }
+
+      if (name === 'Content') {
+        return contentRef
       }
 
       if (name === 'Footer') {
@@ -79,8 +86,11 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     const getStyles = (name?: string) => {
       if (name === 'Header') {
         return {
-          pb:
-            components.includes('Content') || components.includes('Footer') ? space.lg : space.xxl,
+          pb: components.includes('Content')
+            ? '0'
+            : components.includes('Footer')
+            ? space.lg
+            : space.xxl,
         }
       }
       if (name === 'Content') {
@@ -90,6 +100,12 @@ const ModalComponent = forwardRef<'div', ModalProps>(
           pb: components.includes('Footer') ? space.lg : space.xxl,
           pt: components.includes('Header') ? space.lg : space.xxl,
           pr: components.includes('Header') ? space.xxl : space['3xl'],
+        }
+      }
+
+      if (name === 'Footer') {
+        return {
+          borderWidth: contentScrollHeight > contentHeight ? borderWidths.sm : '0',
         }
       }
 
@@ -130,11 +146,13 @@ const ModalComponent = forwardRef<'div', ModalProps>(
   }
 )
 
-const Content: React.FC<BoxProps> = props => {
+const Content = forwardRef<'div', BoxProps>((props, ref) => {
   const { modals } = useTheme()
 
-  return <Box {...modals.content} flex="1" overflowY={{ md: 'auto' }} {...props} />
-}
+  return <Box ref={ref} {...modals.content} flex="1" overflowY={{ md: 'auto' }} {...props} />
+})
+
+Content.displayName = 'Content'
 
 const Cover: React.FC<ShapeProps> = props => {
   const { modals } = useTheme()
