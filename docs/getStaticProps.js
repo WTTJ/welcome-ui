@@ -35,6 +35,7 @@ const RadioGroup = require('@welcome-ui/radio-group/dist/radio-group.doc.json')
 const RadioTab = require('@welcome-ui/radio-tab/dist/radio-tab.doc.json')
 const Search = require('@welcome-ui/search/dist/search.doc.json')
 const Select = require('@welcome-ui/select/dist/select.doc.json')
+const Slider = require('@welcome-ui/slider/dist/slider.doc.json')
 const Shape = require('@welcome-ui/shape/dist/shape.doc.json')
 const Stack = require('@welcome-ui/stack/dist/stack.doc.json')
 const Swiper = require('@welcome-ui/swiper/dist/swiper.doc.json')
@@ -90,6 +91,7 @@ export async function getStaticProps() {
         ...Search,
         ...Select,
         ...Shape,
+        ...Slider,
         ...Stack,
         ...Swiper,
         ...Table,
