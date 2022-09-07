@@ -8,8 +8,21 @@ type BorderProps = {
 
 export const Slider = styled.input<BorderProps>(
   ({ borderSelectorColor, disabled }) => css`
-    -webkit-appearance: none;
     ${th('sliders.default')};
+
+    &::-webkit-slider-thumb {
+      ${th('sliders.selector')};
+      border-color: ${borderSelectorColor};
+      transition: background-color ${th.transition('medium')},
+        border-color ${th.transition('medium')};
+    }
+
+    &::-moz-range-thumb {
+      ${th('sliders.selector')};
+      border-color: ${borderSelectorColor};
+      transition: background-color ${th.transition('medium')},
+        border-color ${th.transition('medium')};
+    }
 
     &:active {
       &::-webkit-slider-thumb {
@@ -19,22 +32,6 @@ export const Slider = styled.input<BorderProps>(
       &::-moz-range-thumb {
         ${th('sliders.focused')};
       }
-    }
-
-    &::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      ${th('sliders.selector')};
-      border-color: ${borderSelectorColor};
-      transition: background-color ${th.transition('medium')},
-        border-color ${th.transition('medium')};
-    }
-
-    &::-moz-range-thumb {
-      -moz-appearance: none;
-      ${th('sliders.selector')};
-      border-color: ${borderSelectorColor};
-      transition: background-color ${th.transition('medium')},
-        border-color ${th.transition('medium')};
     }
 
     ${disabled &&
@@ -42,16 +39,6 @@ export const Slider = styled.input<BorderProps>(
       ${th('sliders.disabled')}
       cursor: not-allowed;
 
-      &:active {
-        &::-webkit-slider-thumb {
-          ${th('sliders.focused.disabled')};
-        }
-
-        &::-moz-range-thumb {
-          ${th('sliders.focused.disabled')};
-        }
-      }
-
       &::-webkit-slider-thumb {
         ${th('sliders.selector.disabled')};
         cursor: not-allowed;
@@ -61,14 +48,39 @@ export const Slider = styled.input<BorderProps>(
         ${th('sliders.selector.disabled')};
         cursor: not-allowed;
       }
+
+      &:active {
+        &::-webkit-slider-thumb {
+          ${th('sliders.focused.disabled')};
+        }
+
+        &::-moz-range-thumb {
+          ${th('sliders.focused.disabled')};
+        }
+      }
     `};
   `
 )
 
 export const RangeInput = styled.input<BorderProps>(
   ({ borderSelectorColor, disabled }) => css`
-    -webkit-appearance: none;
     ${th('sliders.rangeInput')}
+
+    &::-webkit-slider-thumb {
+      ${th('sliders.selector')};
+      border-color: ${borderSelectorColor};
+      top: ${th('space.sm')};
+      pointer-events: all;
+      position: relative;
+    }
+
+    &::-moz-range-thumb {
+      ${th('sliders.selector')};
+      border-color: ${borderSelectorColor};
+      top: ${th('space.sm')};
+      pointer-events: all;
+      position: relative;
+    }
 
     &:active {
       &::-webkit-slider-thumb {
@@ -80,36 +92,8 @@ export const RangeInput = styled.input<BorderProps>(
       }
     }
 
-    &::-webkit-slider-thumb {
-      ${th('sliders.selector')};
-      border-color: ${borderSelectorColor};
-      -webkit-appearance: none;
-      top: ${th('space.sm')};
-      pointer-events: all;
-      position: relative;
-    }
-
-    &::-moz-range-thumb {
-      ${th('sliders.selector')};
-      border-color: ${borderSelectorColor};
-      -webkit-appearance: none;
-      top: ${th('space.sm')};
-      pointer-events: all;
-      position: relative;
-    }
-
     ${disabled &&
     css`
-      &:active {
-        &::-webkit-slider-thumb {
-          ${th('sliders.focused.disabled')};
-        }
-
-        &::-moz-range-thumb {
-          ${th('sliders.focused.disabled')};
-        }
-      }
-
       &::-webkit-slider-thumb {
         ${th('sliders.selector.disabled')};
         cursor: not-allowed;
@@ -118,6 +102,16 @@ export const RangeInput = styled.input<BorderProps>(
       &::-moz-range-thumb {
         ${th('sliders.selector.disabled')};
         cursor: not-allowed;
+      }
+
+      &:active {
+        &::-webkit-slider-thumb {
+          ${th('sliders.focused.disabled')};
+        }
+
+        &::-moz-range-thumb {
+          ${th('sliders.focused.disabled')};
+        }
       }
     `};
   `
