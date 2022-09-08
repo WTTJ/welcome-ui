@@ -54,5 +54,10 @@ export const GlobalStyle = createGlobalStyle<{ useReset?: boolean }>(
     input[type='search']::-webkit-search-results-decoration {
       appearance: none;
     }
+
+    /* Fix to toast notification when useReset prop is add to WUI provider */
+    .Toaster__message-wrapper {
+      min-height: 'auto';
+    }
   `
 )
