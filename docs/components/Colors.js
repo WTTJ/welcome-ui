@@ -5,8 +5,17 @@ import { Box } from '@welcome-ui/box'
 import { Grid } from '@welcome-ui/grid'
 import { Text } from '@welcome-ui/text'
 
+const getColors = (name, theme) => {
+  return Object.keys(theme.colors)
+    .filter(color => color.startsWith(name))
+    .reduce((colors, color) => {
+      colors[color] = theme.colors[color]
+      return colors
+    }, {})
+}
+
 function Wrapper({ name, theme, colorsObject }) {
-  const colors = colorsObject || theme.colors[name]
+  const colors = colorsObject || getColors(name, theme)
   const isLight = name === 'light'
   const textColor = { ...(isLight && { color: 'light-900' }) }
 
@@ -22,7 +31,7 @@ function Wrapper({ name, theme, colorsObject }) {
           {Object.entries(colors).map(([key, depth]) => (
             <Box display="flex" alignItems="center" key={`${name}.${key}`}>
               <Box
-                backgroundColor={colorsObject ? key : `${name}.${key}`}
+                backgroundColor={key}
                 borderRadius="lg"
                 border={isLight ? '1px solid' : undefined}
                 borderColor={isLight ? 'border' : undefined}
@@ -30,8 +39,8 @@ function Wrapper({ name, theme, colorsObject }) {
                 w={60}
               />
               <Box px="sm">
-                <Text variant="h6" as="span" textTransform="capitalize" color={textColor}>
-                  {colorsObject ? key : `${name} ${key}`}
+                <Text variant="h6" as="span" color={textColor}>
+                  {key}
                 </Text>
                 <Text color={textColor} as="span" fontSize="sm" mt={3}>
                   {depth}
