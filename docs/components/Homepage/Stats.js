@@ -42,7 +42,7 @@ const stats = [
 export function Stats() {
   return (
     <Box
-      backgroundColor="light.900"
+      backgroundColor="light-900"
       borderRadius={64}
       display="flex"
       justifyContent="space-between"
@@ -61,9 +61,9 @@ export function Stats() {
         >
           <Box
             alignItems="center"
-            backgroundColor="dark.900"
+            backgroundColor="dark-900"
             borderRadius={55}
-            color="light.900"
+            color="light-900"
             display="flex"
             h={55}
             justifyContent="center"

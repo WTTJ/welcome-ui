@@ -39,7 +39,7 @@ export const GlobalStyle = createGlobalStyle<{ useReset?: boolean }>(
     ${useReset ? resetStyles : baseBoxSizing};
 
     html {
-      color: dark.500;
+      color: dark-500;
     }
 
     ::selection {

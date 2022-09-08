@@ -1,4 +1,3 @@
-
 import * as React from 'react'
 import { useRouter } from 'next/router'
 import { Box } from '@welcome-ui/box'
@@ -32,7 +31,7 @@ function Layout({ children }) {
 
 export function Layouts({ children }) {
   return (
-    <Box backgroundColor="light.900">
+    <Box backgroundColor="light-900">
       <Header />
       <Layout>{children}</Layout>
     </Box>

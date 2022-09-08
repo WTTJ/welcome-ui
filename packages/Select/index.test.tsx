@@ -316,7 +316,7 @@ test('<Select icon> shows icon', () => {
   const { container } = render(
     <Select
       dataTestId="select"
-      icon={<AvatarIcon color="light.100" />}
+      icon={<AvatarIcon color="light-100" />}
       name="select"
       options={MONTHS}
       value="february"

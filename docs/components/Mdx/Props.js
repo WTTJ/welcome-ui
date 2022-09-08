@@ -80,7 +80,7 @@ export function Props({ propTypes }) {
   return (
     <Box>
       <Card mt="xxl">
-        <Card.Body color="dark.900">
+        <Card.Body color="dark-900">
           <Table marginBottom="-lg" marginTop="-lg">
             <Table.Thead>
               <Table.Tr>
@@ -102,14 +102,14 @@ export function Props({ propTypes }) {
 
                 return (
                   <Table.Tr key={key}>
-                    <Table.Td color="dark.900" fontWeight="bold" w="20%">
+                    <Table.Td color="dark-900" fontWeight="bold" w="20%">
                       {key}
                     </Table.Td>
                     <Table.Td w="50%">
                       <Box>
                         <Type type={type} />
                         {description && (
-                          <Box as="p" color="light.100" fontSize="xs" m={0} mt="sm">
+                          <Box as="p" color="light-100" fontSize="xs" m={0} mt="sm">
                             {description}
                           </Box>
                         )}

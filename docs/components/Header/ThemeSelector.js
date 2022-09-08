@@ -25,20 +25,13 @@ export function ThemeSelector(props) {
 
   return (
     <>
-      <DropdownMenu.Trigger
-        as={Button}
-        h={30}
-        shape="circle"
-        w={30}
-        {...menu}
-        {...props}
-      >
+      <DropdownMenu.Trigger as={Button} h={30} shape="circle" w={30} {...menu} {...props}>
         <SunIcon />
       </DropdownMenu.Trigger>
       <DropdownMenu {...menu} aria-label="Theme selector">
         {options?.map(({ icon: Icon, label, value }) => (
           <DropdownMenu.Item
-            color={theme === value ? 'dark.900' : undefined}
+            color={theme === value ? 'dark-900' : undefined}
             fontWeight={theme === value ? 'bold' : undefined}
             key={value}
             onClick={() => handleSetTheme(value)}

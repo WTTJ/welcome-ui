@@ -15,21 +15,21 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
     default: {
       width: toRem(32),
       height: toRem(32),
-      color: colors.dark[900],
+      color: colors['dark-900'],
       fontWeight: fontWeights.bold,
       fontSize: fontSizes.xs,
     },
     item: {
       '&:hover, &:focus': {
-        backgroundColor: colors.dark[100],
+        backgroundColor: colors['dark-100'],
       },
-      '&:focus': focus(colors.dark[500]),
+      '&:focus': focus(colors['dark-500']),
     },
     active: {
-      backgroundColor: colors.dark[900],
-      color: colors.light[900],
+      backgroundColor: colors['dark-900'],
+      color: colors['light-900'],
       '&:hover, &:focus': {
-        backgroundColor: colors.dark[900],
+        backgroundColor: colors['dark-900'],
       },
     },
   }

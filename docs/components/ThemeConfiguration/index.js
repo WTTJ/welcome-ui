@@ -27,7 +27,7 @@ const DisplayCategoryContent = ({ category }, config = { shouldConvertToPx: fals
               {config.unit}
             </Text>
             {config.shouldConvertToPx && (
-              <Text variant="body2" color="primary.600" fontWeight="bold" m="0">
+              <Text variant="body2" color="primary-600" fontWeight="bold" m="0">
                 /* {themeConfiguration.toPx(value.replace('rem', ''))} */
               </Text>
             )}
