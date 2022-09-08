@@ -1,7 +1,8 @@
-import React, { forwardRef, Fragment, useCallback, useMemo, useState } from 'react'
+import React, { Fragment, useCallback, useMemo, useState } from 'react'
 import Downshift, { DownshiftProps, GetRootPropsOptions } from 'downshift'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { createEvent, DefaultFieldStylesProps, throttle as handleThrottle } from '@welcome-ui/utils'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -24,11 +25,12 @@ export interface SearchOptions extends DefaultFieldStylesProps {
   value?: Item
 }
 
-export type SearchProps = Omit<React.ComponentProps<'input'>, keyof SearchOptions> &
-  Omit<DownshiftProps<Option>, keyof SearchOptions> &
-  SearchOptions & { dataTestId?: string }
+export type SearchProps = CreateWuiProps<
+  'input',
+  SearchOptions & Omit<DownshiftProps<Option>, keyof SearchOptions>
+>
 
-export const Search = forwardRef<HTMLInputElement, SearchProps>(
+export const Search = forwardRef<'input', SearchProps>(
   (
     {
       autoComplete = 'off',
