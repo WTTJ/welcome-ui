@@ -17,11 +17,11 @@ export const getCheckboxes = (theme: WuiTheme): ThemeCheckboxes => {
       flexShrink: 0,
     },
     disabled: {
-      borderColor: colors.nude[700],
+      borderColor: colors['nude-700'],
     },
     checked: {
-      backgroundColor: colors.primary[500],
-      borderColor: colors.primary[500],
+      backgroundColor: colors['primary-500'],
+      borderColor: colors['primary-500'],
     },
   }
 }

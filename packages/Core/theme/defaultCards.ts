@@ -15,7 +15,7 @@ export const getDefaultCards = ({
   colors: ThemeColors
   radii: ThemeRadii
 }): ThemeDefaultCards => ({
-  backgroundColor: colors.light[900],
+  backgroundColor: colors['light-900'],
   borderRadius: radii.md,
   borderStyle: 'solid',
   borderWidth: borderWidths.sm,

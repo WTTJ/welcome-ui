@@ -8,7 +8,7 @@ import { Text } from '@welcome-ui/text'
 function Wrapper({ name, theme, colorsObject }) {
   const colors = colorsObject || theme.colors[name]
   const isLight = name === 'light'
-  const textColor = { ...(isLight && { color: 'light.900' }) }
+  const textColor = { ...(isLight && { color: 'light-900' }) }
 
   return (
     <Box>
@@ -17,7 +17,7 @@ function Wrapper({ name, theme, colorsObject }) {
           as={Grid}
           templateColumns="repeat(auto-fit, minmax(250px, 1fr))"
           gap="xl"
-          backgroundColor={isLight && 'dark.900'}
+          backgroundColor={isLight && 'dark-900'}
         >
           {Object.entries(colors).map(([key, depth]) => (
             <Box display="flex" alignItems="center" key={`${name}.${key}`}>

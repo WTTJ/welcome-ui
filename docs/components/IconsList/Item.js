@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { useCopyText } from '@welcome-ui/utils.copy'
 import { Toast, useToast } from '@welcome-ui/toast'
@@ -24,7 +23,7 @@ export function Item({ componentName, icon: Icon, name }) {
     <S.Item copied={copied} onClick={handleCopy}>
       <S.Content>
         <Icon />
-        <Text as="span" color="nude.700" lines={2} pt="md" px="sm" variant="sm">
+        <Text as="span" color="nude-700" lines={2} pt="md" px="sm" variant="sm">
           {name}
         </Text>
       </S.Content>
