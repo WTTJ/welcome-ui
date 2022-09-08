@@ -9,7 +9,7 @@ export type CloseButtonProps = ButtonProps
 
 export const CloseButton = forwardRef<'button', CloseButtonProps>((props, ref) => (
   <S.CloseButton h={30} ref={ref} shape="circle" title="Close" w={30} {...props}>
-    <CrossIcon color="light.100" size="xs" />
+    <CrossIcon color="light-100" size="xs" />
   </S.CloseButton>
 ))
 

@@ -18,10 +18,10 @@ export const Message: React.FC<MessageProps & WordingsType> = ({
 }) => {
   return (
     <>
-      <Text color="dark.900" m="0" variant="h5">
+      <Text color="dark-900" m="0" variant="h5">
         {title}
       </Text>
-      <Text color="nude.700" m="0" mt="sm" variant="sm">
+      <Text color="nude-700" m="0" mt="sm" variant="sm">
         {hint}
       </Text>
       <Button disabled={disabled} mt="xl" onClick={openFile} type="button">

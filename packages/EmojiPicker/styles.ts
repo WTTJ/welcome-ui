@@ -4,11 +4,11 @@ import { Popover as WUIPopover } from '@welcome-ui/popover'
 import { Box } from '@welcome-ui/box'
 
 export const Popover = styled(WUIPopover)`
-  background-color: light.900;
+  background-color: light-900;
   border-width: sm;
   border-style: solid;
   border-color: border;
-  color: dark.900;
+  color: dark-900;
   ${system};
 `
 

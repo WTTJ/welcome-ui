@@ -240,7 +240,7 @@ export const List: React.FC<ListProps> = ({
         <InputText
           autoFocus
           data-testid="emoji-search-input"
-          icon={<SearchIcon color="light.100" />}
+          icon={<SearchIcon color="light-100" />}
           onChange={debouncedHandleChangeQuery}
           onKeyDown={handleKeyDown}
           placeholder={inputSearchPlaceholder}
@@ -297,7 +297,7 @@ const EmojiRow: React.FC<EmojiRowProps> = ({ data, index, style }) => {
       <Text
         alignItems="center"
         as="span"
-        color="light.100"
+        color="light-100"
         display="flex"
         px="xl"
         style={style}

@@ -29,12 +29,12 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
       padding: space.xxl,
     },
     footer: {
-      backgroundColor: colors.light[900],
+      backgroundColor: colors['light-900'],
       borderTop: `${borderWidths.sm} solid ${colors.border}`,
       padding: space.xxl,
     },
     title: {
-      backgroundColor: colors.light[900],
+      backgroundColor: colors['light-900'],
       borderBottom: `${borderWidths.sm} solid ${colors.border}`,
       padding: space.xxl,
       ...texts.h4,

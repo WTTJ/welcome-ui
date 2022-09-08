@@ -24,19 +24,19 @@ export const getBreadcrumbs = (theme: WuiTheme): ThemeBreadcrumbs => {
     },
     item: {
       default: {
-        color: colors.dark[500],
+        color: colors['dark-500'],
         textDecoration: 'none',
       },
       hover: {
-        color: colors.dark[900],
+        color: colors['dark-900'],
       },
       active: {
-        color: colors.dark[900],
+        color: colors['dark-900'],
       },
     },
     separator: {
       padding: `0 ${space.sm}`,
-      color: colors.dark[500],
+      color: colors['dark-500'],
     },
   }
 }
