@@ -40,8 +40,7 @@ export function ThemeHelper() {
   return (
     <>
       {hasBeenHydrated && (
-        <Modal {...modal} ariaLabel="theme configuration">
-          <Modal.Title>{title}</Modal.Title>
+        <Modal {...modal} ariaLabel="theme configuration" title={title}>
           <Modal.Content>
             <Box display="flex">
               <Tab.List w={200} mr="lg" aria-label="Tabs" {...tabState}>

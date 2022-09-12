@@ -5,9 +5,10 @@ import { Text } from '@welcome-ui/text'
 import { AlertOptions } from '.'
 
 export const Alert = styled(Box)<AlertOptions>(
-  ({ variant }) => css`
+  ({ size, variant }) => css`
     ${th('alerts.default')};
     ${th(`alerts.${variant}`)};
+    ${th(`alerts.sizes.${size}`)};
     ${system}
   `
 )
@@ -22,6 +23,7 @@ export const Title = styled(Text).attrs(({ variant }: AlertOptions) => ({
     align-items: center;
     margin: 0;
     margin-bottom: sm;
+    height: 100%;
     ${th(`alerts.title.${alertVariant}`)};
     ${system}
 
