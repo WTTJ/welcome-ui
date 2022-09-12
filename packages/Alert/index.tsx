@@ -1,25 +1,26 @@
 /* eslint-disable react/no-multi-comp */
 import React, { Children, cloneElement } from 'react'
 import { Stack } from '@welcome-ui/stack'
+import { Box } from '@welcome-ui/box'
 import { Button, ButtonProps } from '@welcome-ui/button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { VariantIcon } from '@welcome-ui/variant-icon'
+import { Variant } from '@welcome-ui/utils'
 
 import * as S from './styles'
 import { Title } from './Title'
 
-export type Variant = 'error' | 'warning' | 'info' | 'success'
-
+export type Size = 'sm' | 'md'
 export interface AlertOptions {
   variant?: Variant
+  size?: Size
+  icon?: JSX.Element
 }
 
 export type AlertProps = CreateWuiProps<'div', AlertOptions>
 
 const AlertComponent = forwardRef<'div', AlertProps>(
-  ({ children, variant = 'error', ...rest }, ref) => {
-    const hasTitle = Children.toArray(children).some(
-      (child: React.ReactElement) => child.type === Title
-    )
+  ({ children, icon, size = 'sm', variant = 'default', ...rest }, ref) => {
     const buttonChild = Children.toArray(children).find(
       (child: React.ReactElement) => child.type === AlertButton
     )
@@ -33,19 +34,19 @@ const AlertComponent = forwardRef<'div', AlertProps>(
         return child
       })
 
-    // Reduce the vertical padding only when we have Title & Button
-    const py = hasTitle && buttonChild && content.length === 1 ? 'sm' : 'xl'
-
     return (
-      <S.Alert py={py} ref={ref} variant={variant} {...rest}>
-        {buttonChild ? (
-          <Stack alignItems="center" direction="row" justifyContent="space-between">
-            <div>{content}</div>
-            {buttonChild}
-          </Stack>
-        ) : (
-          content
-        )}
+      <S.Alert ref={ref} size={size} variant={variant} {...rest}>
+        <VariantIcon icon={icon} pr="md" variant={variant} />
+        <Box h="fit-content" m="auto">
+          {buttonChild ? (
+            <Stack alignItems="center" direction="row" justifyContent="space-between">
+              <div>{content}</div>
+              {buttonChild}
+            </Stack>
+          ) : (
+            content
+          )}
+        </Box>
       </S.Alert>
     )
   }

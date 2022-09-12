@@ -277,5 +277,8 @@
   "google": "0x214",
   "bookmark": "0x215",
   "bookmark_outline": "0x216",
-  "equal": "0x217"
+  "equal": "0x217",
+  "alert_outline": "0x218",
+  "square_alert": "0x219",
+  "information_outline": "0x21A"
 }
