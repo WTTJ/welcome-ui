@@ -56,7 +56,6 @@ import { getBreadcrumbs } from './breadcrumbs'
 import { getToasts } from './toasts'
 import { getPaginations } from './paginations'
 import { getTabs } from './tabs'
-import { getCloseButton } from './closeButton'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'Work Sans'
@@ -131,7 +130,6 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.alerts = getAlerts(theme)
   theme.avatars = getAvatars(theme)
   theme.buttons = getButtons(theme)
-  theme.closeButton = getCloseButton(theme)
   theme.breadcrumbs = getBreadcrumbs(theme)
   theme.toasts = getToasts(theme)
   theme.paginations = getPaginations(theme)
