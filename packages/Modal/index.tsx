@@ -63,7 +63,7 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     const contentScrollHeight = contentRef?.current?.scrollHeight
 
     const components = useMemo(
-      () => Children.map(children, child => child.type.displayName || child.type.name),
+      () => Children.map(children, child => child?.type?.displayName || child?.type?.name),
       [children]
     )
 
