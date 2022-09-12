@@ -5,5 +5,5 @@ export const InlineCode = styled.code`
   font-family: inherit;
   font-size: inherit;
   font-weight: bold;
-  color: sub.3;
+  color: sub-3;
 `

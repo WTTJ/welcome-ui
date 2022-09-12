@@ -1,7 +1,7 @@
 import { WuiTheme } from '@welcome-ui/core'
 
 export function getSeededColor(colors: WuiTheme['colors'], seed = ''): string {
-  const colorKeys = Object.keys(colors).filter(color => color.startsWith('sub.'))
+  const colorKeys = Object.keys(colors).filter(color => color.startsWith('sub-'))
   const subColorIndex = seed.length % colorKeys.length
   const colorsIndex = `sub-${subColorIndex}` as keyof WuiTheme['colors']
 

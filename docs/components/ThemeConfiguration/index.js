@@ -18,7 +18,7 @@ const DisplayCategoryContent = ({ category }, config = { shouldConvertToPx: fals
     <>
       {Object.entries(themeConfiguration[category]).map(([key, value], index) => (
         <Fragment key={`${key}_${index}`}>
-          <Text variant="body2" color="sub.3" fontWeight="bold" my="xs">
+          <Text variant="body2" color="sub-3" fontWeight="bold" my="xs">
             {key}
           </Text>
           <Box display="flex" gap="md" mt="xs" my="xs">
