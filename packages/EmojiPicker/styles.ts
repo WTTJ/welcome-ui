@@ -38,13 +38,13 @@ export const EmojiButton = styled.buttonBox.attrs({
   &[data-active] {
     outline: none;
     &:nth-child(3n) {
-      background-color: sub.4;
+      background-color: sub-4;
     }
     &:nth-child(3n + 1) {
-      background-color: sub.1;
+      background-color: sub-1;
     }
     &:nth-child(3n + 2) {
-      background-color: sub.5;
+      background-color: sub-5;
     }
   }
 `
