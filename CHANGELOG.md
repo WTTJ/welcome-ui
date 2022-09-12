@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.1](https://github.com/WTTJ/welcome-ui/compare/v4.4.0...v4.4.1) (2022-09-12)
+
+
+### Bug Fixes
+
+* tab styledprops forwarded ([#1502](https://github.com/WTTJ/welcome-ui/issues/1502)) ([55b1d5b](https://github.com/WTTJ/welcome-ui/commit/55b1d5b091fd64d87f3a8b8b54cc2bef5aaa90d1))
+* type search props with wui props ([3647066](https://github.com/WTTJ/welcome-ui/commit/3647066030c7609b95b11e6a56b6139a2d4715ca))
+
+
+
+
+
 # [4.4.0](https://github.com/WTTJ/welcome-ui/compare/v4.3.3...v4.4.0) (2022-07-27)
 
 
