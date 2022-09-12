@@ -147,9 +147,7 @@ export const Tooltip = forwardRef<'div', TooltipProps>((props, ref): React.React
       </TooltipReference>
 
       <S.Tooltip ref={ref} {...tooltip} {...rest}>
-        <S.FadeIn fixed={fixed} placement={placement}>
-          {content}
-        </S.FadeIn>
+        <S.FadeIn placement={placement}>{content}</S.FadeIn>
       </S.Tooltip>
     </>
   )
