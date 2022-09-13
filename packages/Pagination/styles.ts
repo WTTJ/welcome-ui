@@ -51,8 +51,8 @@ export const ArrowLink = styled(AbstractLink)<{ isDisabled: boolean }>(
   ({ isDisabled }) => css`
     ${isDisabled &&
     css`
-      color: nude.700;
-      background-color: nude.400;
+      color: nude-700;
+      background-color: nude-400;
     `}
   `
 )

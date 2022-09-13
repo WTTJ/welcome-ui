@@ -233,13 +233,13 @@ export const getTextFontColors = (theme: WuiTheme): ThemeTextsFontColors => {
   const { colors } = theme
 
   return {
-    h0: colors.dark[900],
-    h1: colors.dark[900],
-    h2: colors.dark[900],
-    h3: colors.dark[900],
-    h4: colors.dark[900],
-    h5: colors.dark[900],
-    h6: colors.dark[900],
+    h0: colors['dark-900'],
+    h1: colors['dark-900'],
+    h2: colors['dark-900'],
+    h3: colors['dark-900'],
+    h4: colors['dark-900'],
+    h5: colors['dark-900'],
+    h6: colors['dark-900'],
   }
 }
 

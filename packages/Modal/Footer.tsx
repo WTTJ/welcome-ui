@@ -31,10 +31,10 @@ export const Footer = forwardRef<'div', FooterProps>(({ children, informations, 
       {children && <Box {...modals.footer.children}>{children}</Box>}
       {informations && (
         <Box {...modals.footer.informations}>
-          <Text color="dark.900" fontWeight="bold" variant="subtitle-sm">
+          <Text color="dark-900" fontWeight="bold" variant="subtitle-sm">
             {informations.title}
           </Text>
-          <Text color="dark.900" mb="0" mt="md" variant="sm">
+          <Text color="dark-900" mb="0" mt="md" variant="sm">
             {informations.subtitle}
           </Text>
         </Box>

@@ -5,7 +5,7 @@ import { Box } from '@welcome-ui/box'
 export const LiveEditor = styled(Box)`
   position: relative;
   background-color: black;
-  border: 1px solid ${th('colors.dark.200')};
+  border: 1px solid ${th('colors.dark-200')};
   border-radius: md;
   overflow: hidden;
   padding: md;
@@ -31,11 +31,11 @@ export const LiveEditorContent = styled(ReactLiveEditor)(
 )
 
 export const LiveError = styled(ReactLiveError)`
-  background-color: danger.100;
-  border-color: danger.500;
+  background-color: danger-100;
+  border-color: danger-500;
   border-width: sm;
   border-style: solid;
-  color: danger.500;
+  color: danger-500;
   padding: md;
   white-space: pre-wrap;
   border-radius: md;
@@ -45,7 +45,7 @@ export const LiveError = styled(ReactLiveError)`
 `
 
 export const ShowEditor = styled.div`
-  background-color: nude.200;
+  background-color: nude-200;
   padding: sm lg;
   border-top: 1px solid ${th.color('border')};
 `

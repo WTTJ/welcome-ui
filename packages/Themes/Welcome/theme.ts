@@ -55,52 +55,40 @@ const palette = {
 }
 
 const colors: Partial<WuiTheme['colors']> = {
-  primary: {
-    100: palette.dandelion,
-    200: palette.cinnamon,
-    500: palette.yellow,
-    600: palette.gold,
-    700: palette.corn,
-    800: palette.cornsilk,
-    900: palette.olive,
-  },
-  success: {
-    100: palette.gin,
-    200: palette.riptide,
-    300: palette.puertorico,
-    400: palette.jade,
-    500: palette.spanishviridian,
-  },
-  danger: {
-    100: palette.rosewhite,
-    200: palette.beautybush,
-    300: palette.japonica,
-    400: palette.valencia,
-    500: palette.carmen,
-  },
-  warning: {
-    100: palette.floralwhite,
-    200: palette.sidecar,
-    300: palette.marzipan,
-    400: palette.sunray,
-    500: palette.bourbon,
-  },
-  info: {
-    100: palette.aliceblue,
-    200: palette.sail,
-    300: palette.lightsky,
-    400: palette.blueberry,
-    500: palette.celticblue,
-  },
-  sub: {
-    1: palette.paleblue,
-    2: palette.blue,
-    3: palette.red,
-    4: palette.tangerine,
-    5: palette.palegreen,
-    6: palette.green,
-    7: palette.purple,
-  },
+  'primary-100': palette.dandelion,
+  'primary-200': palette.cinnamon,
+  'primary-500': palette.yellow,
+  'primary-600': palette.gold,
+  'primary-700': palette.corn,
+  'primary-800': palette.cornsilk,
+  'primary-900': palette.olive,
+  'success-100': palette.gin,
+  'success-200': palette.riptide,
+  'success-300': palette.puertorico,
+  'success-400': palette.jade,
+  'success-500': palette.spanishviridian,
+  'danger-100': palette.rosewhite,
+  'danger-200': palette.beautybush,
+  'danger-300': palette.japonica,
+  'danger-400': palette.valencia,
+  'danger-500': palette.carmen,
+  'warning-100': palette.floralwhite,
+  'warning-200': palette.sidecar,
+  'warning-300': palette.marzipan,
+  'warning-400': palette.sunray,
+  'warning-500': palette.bourbon,
+  'info-100': palette.aliceblue,
+  'info-200': palette.sail,
+  'info-300': palette.lightsky,
+  'info-400': palette.blueberry,
+  'info-500': palette.celticblue,
+  'sub-1': palette.paleblue,
+  'sub-2': palette.blue,
+  'sub-3': palette.red,
+  'sub-4': palette.tangerine,
+  'sub-5': palette.palegreen,
+  'sub-6': palette.green,
+  'sub-7': palette.purple,
   underline: palette.yellow,
 }
 
@@ -116,46 +104,46 @@ export const welcomeTheme: RecursivePartial<WuiTheme> = {
     md: 'none',
   },
   selection: {
-    color: theme.colors.dark[900],
+    color: theme.colors['dark-900'],
   },
   radios: {
     checked: {
-      color: theme.colors.dark[900],
+      color: theme.colors['dark-900'],
     },
   },
   radioTabs: {
     checked: {
-      color: theme.colors.dark[900],
+      color: theme.colors['dark-900'],
     },
   },
   checkboxes: {
     checked: {
-      color: theme.colors.dark[900],
+      color: theme.colors['dark-900'],
     },
   },
   buttons: {
     primary: {
-      color: theme.colors.dark[900],
+      color: theme.colors['dark-900'],
     },
   },
   tags: {
     variants: {
       primary: {
-        color: theme.colors.dark[900],
+        color: theme.colors['dark-900'],
       },
     },
   },
   dateTimePickerCommon: {
     item: {
       selected: {
-        color: theme.colors.dark[900],
+        color: theme.colors['dark-900'],
       },
     },
   },
   defaultFields: {
     checkableField: {
       checked: {
-        color: theme.colors.dark[900],
+        color: theme.colors['dark-900'],
       },
     },
   },

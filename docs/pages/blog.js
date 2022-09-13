@@ -49,7 +49,7 @@ const Title = styled(Link)`
 export default function Blog() {
   return (
     <Box margin="0 auto" maxWidth={800} p={{ xs: 'xl', md: '5xl' }}>
-      <Text color="sub.3" textAlign="center" variant="subtitle-md">
+      <Text color="sub-3" textAlign="center" variant="subtitle-md">
         Blog
       </Text>
       <Text mt="0" textAlign="center" variant="h1">

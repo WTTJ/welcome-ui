@@ -17,7 +17,7 @@ export const Li = styled.li`
 export const MainTitle = styled(Box)`
   ${th('texts.subtitle-sm')};
   text-transform: uppercase;
-  color: dark.300;
+  color: dark-300;
   margin-top: xxl;
   margin-bottom: lg;
 `
@@ -33,14 +33,14 @@ export const Item = styled(Link)`
 
   &:hover {
     > .wui-text {
-      color: dark.900;
+      color: dark-900;
       background-size: 100% 50% !important;
     }
   }
 
   &[aria-current='page'] {
     > .wui-text {
-      color: dark.900;
+      color: dark-900;
       font-weight: bold;
       background-size: 100% 50% !important;
       background-position-y: 100%;
