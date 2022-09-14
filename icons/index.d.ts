@@ -253,6 +253,7 @@ export declare const TagIcon: React.FC<IconProps>
 export declare const TagsIcon: React.FC<IconProps>
 export declare const TargetIcon: React.FC<IconProps>
 export declare const TeepeeIcon: React.FC<IconProps>
+export declare const ThumbDownIcon: React.FC<IconProps>
 export declare const ThumbupIcon: React.FC<IconProps>
 export declare const TrashIcon: React.FC<IconProps>
 export declare const TreeIcon: React.FC<IconProps>

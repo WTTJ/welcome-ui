@@ -223,6 +223,7 @@ export const wtf = [
   'sun',
   'target',
   'thumbup',
+  'thumb_down',
   'teepee',
   'tree',
   'common_area',
