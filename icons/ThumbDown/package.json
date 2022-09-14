@@ -4,7 +4,7 @@
   "main": "dist/icons.thumb_down.cjs.js",
   "module": "dist/icons.thumb_down.es.js",
   "types": "dist/index.d.ts",
-  "version": "1.0.0",
+  "version": "4.5.0",
   "publishConfig": {
     "access": "public"
   },
