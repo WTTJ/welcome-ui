@@ -30,6 +30,13 @@ Built with [Reakit](https://reakit.io/docs/button/) for a better accessibility ð
 <Button variant="ghost">Ghost</Button>
 ```
 
+```jsx row
+<StitchesButton>Primary</StitchesButton>
+<StitchesButton variant="secondary">Secondary</StitchesButton>
+<StitchesButton variant="tertiary">Tertiary</StitchesButton>
+<StitchesButton variant="ghost">Ghost</StitchesButton>
+```
+
 ### States
 
 ```jsx row
@@ -43,6 +50,17 @@ Built with [Reakit](https://reakit.io/docs/button/) for a better accessibility ð
 <Button variant="secondary-info">Secondary info</Button>
 ```
 
+```jsx row
+<StitchesButton variant="primary-success">Primary success</StitchesButton>
+<StitchesButton variant="primary-warning">Primary warning</StitchesButton>
+<StitchesButton variant="primary-danger">Primary danger</StitchesButton>
+<StitchesButton variant="primary-info">Primary info</StitchesButton>
+<StitchesButton variant="secondary-success">Secondary success</StitchesButton>
+<StitchesButton variant="secondary-warning">Secondary warning</StitchesButton>
+<StitchesButton variant="secondary-danger">Secondary danger</StitchesButton>
+<StitchesButton variant="secondary-info">Secondary info</StitchesButton>
+```
+
 ## Formats
 
 Use size property with `xs`, `sm`, `md` (default) or `lg`.
@@ -54,6 +72,13 @@ Use size property with `xs`, `sm`, `md` (default) or `lg`.
 <Button size="lg">Large</Button>
 ```
 
+```jsx row
+<StitchesButton size="xs">X-Small</StitchesButton>
+<StitchesButton size="sm">Small</StitchesButton>
+<StitchesButton>Medium</StitchesButton>
+<StitchesButton size="lg">Large</StitchesButton>
+```
+
 ## Disabled
 
 All disabled buttons have the same style.
@@ -62,6 +87,12 @@ All disabled buttons have the same style.
 <Button variant="primary-danger" disabled>
   Disabled
 </Button>
+```
+
+```jsx
+<StitchesButton variant="primary-danger" disabled>
+  Disabled
+</StitchesButton>
 ```
 
 ## With icons
@@ -83,6 +114,25 @@ All disabled buttons have the same style.
   <EarthIcon />
   <span>Button</span>
 </Button>
+```
+
+```jsx row
+<StitchesButton>
+  <EarthIcon />
+  <span>StitchesButton</span>
+</StitchesButton>
+<StitchesButton variant="secondary">
+  <EarthIcon />
+  <span>StitchesButton</span>
+</StitchesButton>
+<StitchesButton variant="tertiary">
+  <EarthIcon />
+  <span>StitchesButton</span>
+</StitchesButton>
+<StitchesButton disabled>
+  <EarthIcon />
+  <span>StitchesButton</span>
+</StitchesButton>
 ```
 
 ## Shape
@@ -116,6 +166,33 @@ You can set a `cirle` or `square` shape with `w` & `h` to have buttons perfect f
 </Button>
 ```
 
+```jsx row
+<StitchesButton shape="square" size="xs">
+  <EarthIcon />
+</StitchesButton>
+<StitchesButton shape="circle" size="xs">
+  <EarthIcon />
+</StitchesButton>
+<StitchesButton shape="square" size="sm">
+  <EarthIcon />
+</StitchesButton>
+<StitchesButton shape="circle" size="sm">
+  <EarthIcon />
+</StitchesButton>
+<StitchesButton shape="square">
+  <EarthIcon />
+</StitchesButton>
+<StitchesButton shape="circle">
+  <EarthIcon />
+</StitchesButton>
+<StitchesButton shape="square" size="lg">
+  <EarthIcon />
+</StitchesButton>
+<StitchesButton shape="circle" size="lg">
+  <EarthIcon />
+</StitchesButton>
+```
+
 ## Transform to a link
 
 You can transform your Button component with `as` property to add you linker, `href` or `to`... all that you want.
@@ -125,6 +202,18 @@ You can transform your Button component with `as` property to add you linker, `h
   <SunIcon />
   <span>Welcome</span>
 </Button>
+```
+
+```jsx
+<StitchesButton
+  as="a"
+  href="https://www.welcometothejungle.com"
+  target="_blank"
+  rel="noopener nofollow"
+>
+  <SunIcon />
+  <span>Welcome</span>
+</StitchesButton>
 ```
 
 ## Width

@@ -1,10 +1,10 @@
-
 import React, { useEffect, useState } from 'react'
 import { createTheme, WuiProvider } from '@welcome-ui/core'
 import { MDXProvider } from '@mdx-js/react'
 import { welcomeTheme } from '@welcome-ui/themes.welcome'
 import { darkTheme } from '@welcome-ui/themes.dark'
 import { welcomeDarkTheme } from '@welcome-ui/themes.welcome-dark'
+import { createTheme as createStitchesTheme } from '@stitches/react'
 
 import { useThemeContext } from '../context/theme'
 
@@ -38,13 +38,15 @@ export function App({ component: Component, pageProps }) {
 
   return (
     <WuiProvider reactRootId="__next" theme={createTheme(globalTheme)}>
-      <MDXProvider components={MDXComponents}>
-        <GlobalStyle />
-        <Head />
-        <Layouts>
-          <Component {...pageProps} />
-        </Layouts>
-      </MDXProvider>
+      <div id="stitches-provider" className={createStitchesTheme(globalTheme)}>
+        <MDXProvider components={MDXComponents}>
+          <GlobalStyle />
+          <Head />
+          <Layouts>
+            <Component {...pageProps} />
+          </Layouts>
+        </MDXProvider>
+      </div>
     </WuiProvider>
   )
 }

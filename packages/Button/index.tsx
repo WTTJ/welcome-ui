@@ -50,3 +50,20 @@ export const Button = forwardRef<'button', ButtonProps>(
 Button.displayName = 'Button'
 
 export const StyledButton = S.Button
+
+type StitchesButtonOptions = ButtonOptions & { children: React.ReactNode; dataTestId: string }
+
+export const StitchesButton = React.forwardRef<HTMLButtonElement, StitchesButtonOptions>(
+  ({ children, dataTestId, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
+    <S.StitchesButton
+      data-testid={dataTestId}
+      disabled={disabled}
+      ref={ref}
+      size={size}
+      variant={disabled ? 'disabled' : variant}
+      {...rest}
+    >
+      {children}
+    </S.StitchesButton>
+  )
+)

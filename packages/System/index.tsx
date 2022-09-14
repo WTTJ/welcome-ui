@@ -158,3 +158,5 @@ export const forwardRef = <Component extends As, Props = {}>(
 }
 
 export type ExtraSize = number | string
+
+export * from './stitches'
