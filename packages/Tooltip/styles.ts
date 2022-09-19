@@ -18,6 +18,7 @@ type TransformDirectionKey = keyof typeof transformDirection
 
 export const FadeIn = styled.div<{
   placement?: PlacementOptions
+  fixed?: boolean
 }>`
   ${th('tooltips')};
   ${system};
@@ -26,7 +27,8 @@ export const FadeIn = styled.div<{
   visibility: hidden;
   opacity: 0;
   transform-origin: top center;
-  transform: ${({ placement }) => {
+  transform: ${({ fixed, placement }) => {
+    if (!fixed) return
     const placementOption = placement?.split('-')[0] as TransformDirectionKey
     return transformDirection[placementOption]
   }};

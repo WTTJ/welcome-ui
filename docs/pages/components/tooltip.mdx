@@ -46,6 +46,54 @@ Set a `max-width` for long text
 </Tooltip>
 ```
 
+## With a fixed position
+Using the `fixed` prop in combination with `placement` will enable a translate animation on your tooltip.
+The direction works with these values for `placement` : `top-*`, `right-*`, `bottom-*` and `left-*`.
+
+```jsx
+<Flex gap='lg'>
+  <Tooltip
+    fixed
+    placement="top"
+    content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>
+      <span>Coming from the top</span>
+      <ArrowUpIcon />
+   </Button>
+  </Tooltip>
+  
+  <Tooltip
+    fixed
+    placement="right-start"
+    content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>
+      <span>Coming from the right</span>
+      <ArrowRightIcon />
+   </Button>
+  </Tooltip>
+  
+  <Tooltip
+    fixed
+    placement="bottom-start"
+    content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>
+      <span>Coming from the bottom</span>
+      <ArrowDownIcon />
+   </Button>
+  </Tooltip>
+  
+  <Tooltip
+    fixed
+    placement="left-end"
+    content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>
+      <span>Coming from the left</span>
+      <ArrowLeftIcon />
+   </Button>
+  </Tooltip>
+</Flex>
+```
+
 ## Properties
 
 <props propTypes={props.propTypes.Tooltip} />
