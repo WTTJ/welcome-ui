@@ -21,7 +21,8 @@ export const VariantIcon = forwardRef<'div', VariantIconProps>(
     const Icon = useMemo(() => {
       if (icon === null) return null
       if (icon) return icon
-      if (variant === 'default') return <PromoteIcon size={size} />
+
+      if (variant === 'transparent') return <PromoteIcon size={size} />
       if (variant === 'success') return <CheckIcon size={size} />
       if (variant === 'info') return <InformationIcon size={size} />
       if (variant === 'warning') return <AlertIcon size={size} />

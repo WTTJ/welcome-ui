@@ -20,7 +20,7 @@ export interface AlertOptions {
 export type AlertProps = CreateWuiProps<'div', AlertOptions>
 
 const AlertComponent = forwardRef<'div', AlertProps>(
-  ({ children, icon, size = 'sm', variant = 'default', ...rest }, ref) => {
+  ({ children, icon, size = 'sm', variant = 'transparent', ...rest }, ref) => {
     const buttonChild = Children.toArray(children).find(
       (child: React.ReactElement) => child.type === AlertButton
     )

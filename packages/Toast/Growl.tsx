@@ -22,7 +22,14 @@ export type GrowlProps = CreateWuiProps<'div', GrowlOptions>
  */
 export const Growl = forwardRef<'div', GrowlProps>(
   (
-    { children, closeButtonDataTestId, hasCloseButton = true, icon, onClose, variant = 'default' },
+    {
+      children,
+      closeButtonDataTestId,
+      hasCloseButton = true,
+      icon,
+      onClose,
+      variant = 'transparent',
+    },
     ref
   ) => {
     return (
