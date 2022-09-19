@@ -1,8 +1,8 @@
 {
-  "name": "@welcome-ui/icons.thumb_down",
+  "name": "@welcome-ui/icons.thumbdown",
   "sideEffects": false,
-  "main": "dist/icons.thumb_down.cjs.js",
-  "module": "dist/icons.thumb_down.es.js",
+  "main": "dist/icons.thumbdown.cjs.js",
+  "module": "dist/icons.thumbdown.es.js",
   "types": "dist/index.d.ts",
   "version": "4.5.0",
   "publishConfig": {
