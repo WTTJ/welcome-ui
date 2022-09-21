@@ -8,7 +8,7 @@ export const Accordion = styled.div`
   transition: medium;
 
   &:hover {
-    border-color: dark.400;
+    border-color: dark-400;
   }
 `
 
@@ -45,7 +45,7 @@ export const Disclosure = styled(ReakitDisclosure)`
   &:hover {
     cursor: pointer;
     ${Icon} {
-      background-color: dark.100;
+      background-color: dark-100;
     }
   }
 
@@ -61,7 +61,7 @@ export const Content = styled(DisclosureContent)(
   ({ visible }) => css`
     ${th('accordions.content')};
     padding-inline: ${th('accordions.padding')};
-    color: dark.700;
+    color: dark-700;
 
     ${visible &&
     css`
