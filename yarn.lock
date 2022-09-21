@@ -1428,9 +1428,9 @@
     yargs "^17.0.0"
 
 "@commitlint/config-conventional@^17.0.0":
-  version "17.0.3"
-  resolved "https://registry.yarnpkg.com/@commitlint/config-conventional/-/config-conventional-17.0.3.tgz#61e937357ce63ea08a2017e58b918748fcf3abc5"
-  integrity sha512-HCnzTm5ATwwwzNVq5Y57poS0a1oOOcd5pc1MmBpLbGmSysc4i7F/++JuwtdFPu16sgM3H9J/j2zznRLOSGVO2A==
+  version "17.1.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/config-conventional/-/config-conventional-17.1.0.tgz#9bd852766e08842bfe0fe4deb40e152eb718ec1b"
+  integrity sha512-WU2p0c9/jLi8k2q2YrDV96Y8XVswQOceIQ/wyJvQxawJSCasLdRB3kUIYdNjOCJsxkpoUlV/b90ZPxp1MYZDiA==
   dependencies:
     conventional-changelog-conventionalcommits "^5.0.0"
 
@@ -17968,9 +17968,9 @@ ws@^7.4.6:
   integrity sha512-KMvVuFzpKBuiIXW3E4u3mySRO2/mCHSyZDJQM5NQ9Q9KHWHWh0NHgfbRMLLrceUK5qAL4ytALJbpRMjixFZh8A==
 
 wttj-config-front@^2.1.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/wttj-config-front/-/wttj-config-front-2.3.0.tgz#734147b883ada372a9de198d758b7698a98f8f84"
-  integrity sha512-5/QzQPDephXmFoIkzEuG75d6p2QFlQVZFgFPWqrshvUBOKzBf1BMiPWsdQ9wZbmq4k9+ddkrhReX6mnj7I3Hfw==
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/wttj-config-front/-/wttj-config-front-2.3.1.tgz#4beb5036b5abe4dd1c582b1bb399fda41ead03f6"
+  integrity sha512-W3j76aiI9keokwsGnTgfN2+3ECmbMzCIMluhHkWUPj/YlhxAqLopT7A1XjZdpqfFx+7SLlFcqBBUmkzt4MHmDg==
   dependencies:
     "@babel/eslint-parser" "^7.17.0"
     "@typescript-eslint/eslint-plugin" "^5.16.0"
