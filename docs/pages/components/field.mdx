@@ -24,6 +24,9 @@ Use `label` to add an Label to your field
 <Field label="Label">
   <InputText placeholder="Placeholder" />
 </Field>
+<Field label="Label for a checkbox">
+  <Checkbox />
+</Field>
 ```
 ## Hint
 
@@ -33,6 +36,9 @@ Use `hint` to add an hint to your field (it can be overload by a variant - see b
 <Field hint="A hint">
   <InputText placeholder="Placeholder" />
 </Field>
+<Field hint="A hint" label="Label for a checkbox">
+  <Checkbox />
+</Field>
 ```
 
 ## Variants
@@ -40,17 +46,11 @@ Use `hint` to add an hint to your field (it can be overload by a variant - see b
 Use `warning`, `error`, `info` or `success` properties to add a variant status on your fields. The label, hint or border color are set by magic 🪄
 
 ```jsx
-<Field label="Label" warning="A warning">
-  <InputText placeholder="Placeholder" />
-</Field>
 <Field label="Label" error="An error">
   <InputText placeholder="Placeholder" />
 </Field>
-<Field label="Label" info="An info">
-  <InputText placeholder="Placeholder" />
-</Field>
-<Field label="Label" success="A success">
-  <InputText placeholder="Placeholder" />
+<Field error="An error" label="Label for a checkbox">
+  <Checkbox />
 </Field>
 ```
 
@@ -59,8 +59,11 @@ Use `warning`, `error`, `info` or `success` properties to add a variant status o
 Add `disabled` on Field component
 
 ```jsx
-<Field label="Label" disabled hint="a hint">
+<Field label="Label" disabled>
   <InputText placeholder="Placeholder" />
+</Field>
+<Field label="Label for a checkbox" disabled>
+  <Checkbox />
 </Field>
 ```
 
@@ -69,8 +72,11 @@ Add `disabled` on Field component
 Add `required` on Field component
 
 ```jsx
-<Field label="Label" required hint="a hint">
+<Field label="Label" required>
   <InputText placeholder="Placeholder" />
+</Field>
+<Field required label="Label for a checkbox">
+  <Checkbox />
 </Field>
 ```
 
