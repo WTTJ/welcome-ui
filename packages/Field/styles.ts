@@ -1,5 +1,6 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import { StyledLabel } from '@welcome-ui/label'
+import { StyledHint } from '@welcome-ui/hint'
 import { StyledFieldGroup } from '@welcome-ui/field-group'
 import { shouldForwardProp, WuiProps } from '@welcome-ui/system'
 import { DefaultFieldStylesProps } from '@welcome-ui/utils'
@@ -18,21 +19,25 @@ const checkableFieldStyles = css`
 `
 
 type StyledFieldProps = {
-  isCheckable: boolean
+  isCheckable?: boolean
   flexDirection: WuiProps['flexDirection']
-  checked: boolean
+  checked?: boolean
+  withHintText?: boolean
 }
 
 export const Field = styled('div').withConfig({ shouldForwardProp })<StyledFieldProps>(
-  ({ checked, flexDirection, isCheckable }) => css`
+  ({ checked, flexDirection, isCheckable, withHintText }) => css`
     ${StyledFieldGroup} {
       margin-bottom: ${isCheckable && 'xxs'};
     }
     ${StyledLabel} {
       ${flexDirection === 'row' && rowStyles};
-      ${flexDirection === 'column' && columnStyles};
-      ${isCheckable && checkableFieldStyles};
+      ${flexDirection === 'column' && !isCheckable && columnStyles};
+      ${isCheckable && !withHintText && checkableFieldStyles};
       ${checked && th('defaultFields.checkablelabel.checked')}
+    }
+    ${StyledHint} {
+      ${isCheckable && withHintText && checkableFieldStyles};
     }
     ${system};
   `
@@ -57,6 +62,7 @@ export const IconWrapper = styled.div<IconWrapperProps>(
     pointer-events: none;
     transition: medium;
     transition-timing-function: primary;
+    color: dark-900;
     ${system};
     /* for button action */
     & > button {

@@ -17,6 +17,7 @@ export interface TimePickerOptions {
   onFocus?: CustomInputOptions['handleFocus']
   placeholder?: ReactDatePickerProps['placeholderText']
   value: string | Date
+  transparent?: boolean
 }
 
 export type TimePickerProps = CreateWuiProps<
@@ -43,6 +44,7 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
       placeholder,
       popperProps,
       timeIntervals = 15,
+      transparent,
       ...rest
     },
     ref
@@ -122,6 +124,7 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
         showTimeSelectOnly
         size={size}
         timeIntervals={timeIntervals}
+        transparent={transparent}
         {...rest}
         isClearable={false}
       />

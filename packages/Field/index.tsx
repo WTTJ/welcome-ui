@@ -18,6 +18,8 @@ export interface FieldOptions {
   required?: boolean
   warning?: string | JSX.Element
   success?: string | JSX.Element
+  info?: string | JSX.Element
+  transparent?: boolean
 }
 
 export type FieldProps = CreateWuiProps<'div', FieldOptions>
@@ -32,9 +34,11 @@ export const Field = forwardRef<'div', FieldProps>(
       error,
       flexDirection,
       hint,
+      info,
       label,
       required,
       success,
+      transparent,
       warning,
       ...rest
     },
@@ -44,12 +48,13 @@ export const Field = forwardRef<'div', FieldProps>(
     const isRadio = baseType === 'radio'
     const isToggle = children.type.displayName === 'Toggle'
     const isCheckbox = baseType === 'checkbox'
-    const isCheckable = isRadio || isCheckbox
+    const isCheckable = isRadio || isCheckbox || isToggle
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
     const isGroup = ['FieldGroup', 'RadioGroup'].includes(baseType)
     const Container = layout === 'row' ? RowContainer : Fragment
-    const variant = getVariant({ error, warning, success })
-    const hintText = variant ? error || warning : hint
+    const variant = getVariant({ error, warning, success, info })
+    const hintText = variant ? error || warning || success || info : hint
+    const withHintText = !!hintText
     const htmlFor = children.props.id || children.props.name || generateRandomId()
 
     const child = React.cloneElement(React.Children.only(children), {
@@ -57,6 +62,7 @@ export const Field = forwardRef<'div', FieldProps>(
       id: htmlFor,
       required,
       variant,
+      transparent,
       ...(isGroup ? { label, flexDirection: layout } : {}),
     })
 
@@ -77,6 +83,7 @@ export const Field = forwardRef<'div', FieldProps>(
         data-testid={dataTestId}
         flexDirection={layout}
         isCheckable={isCheckable}
+        withHintText={withHintText}
       >
         <Container>
           {label && !isGroup && (
@@ -86,7 +93,7 @@ export const Field = forwardRef<'div', FieldProps>(
               htmlFor={htmlFor}
               required={required}
               variant={variant}
-              withDisabledIcon={!isToggle}
+              withDisabledIcon={!isCheckable}
             >
               {isCheckable && child}
               {label}

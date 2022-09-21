@@ -19,13 +19,158 @@ import {
 
 ```jsx
 function() {
+  const [checkbox, setCheckbox] = React.useState(false)
+  const [checkboxChecked, setCheckboxChecked] = React.useState(true)
+
+  return (
+    <>
+      <Checkbox
+        name="default"
+        checked={checkbox}
+        onChange={() => setCheckbox(!checkbox)}
+        mr="md"
+      />
+      <Checkbox
+        checked={checkboxChecked}
+        name="not-checked"
+        onChange={() => setCheckboxChecked(!checkboxChecked)}
+        mr="md"
+      />
+      <Checkbox
+        name="default-disabled"
+        mr="md"
+        disabled
+      />
+      <Checkbox
+        checked
+        name="not-checked-disabled"
+        mr="md"
+        disabled
+      />
+    </>
+  )
+}
+```
+
+## With Label
+
+Use Field component to add a `label`
+
+```jsx
+function() {
+  const [checkbox, setCheckbox] = React.useState(false)
+  const [checkboxChecked, setCheckboxChecked] = React.useState(true)
+
+  return (
+    <>
+      <Field label="default">
+        <Checkbox
+          name="default-label"
+          checked={checkbox}
+          onChange={() => setCheckbox(!checkbox)}
+        />
+      </Field>
+      <Field label="checked">
+        <Checkbox
+          checked={checkboxChecked}
+          name="not-checked-label"
+          onChange={() => setCheckboxChecked(!checkboxChecked)}
+        />
+      </Field>
+      <Field label="disabled" disabled>
+        <Checkbox
+          name="default-disabled-label"
+        />
+      </Field>
+      <Field label="disabled checked" disabled>
+        <Checkbox
+          checked
+          name="not-checked-disabled-label"
+        />
+      </Field>
+    </>
+  )
+}
+```
+
+## With hint
+
+Use Field component to add a `hint`
+
+```jsx
+function() {
+  const [checkbox, setCheckbox] = React.useState(false)
+
+  return (
+    <>
+      <Field label="default" hint="A hint">
+        <Checkbox
+          name="default-hint"
+          checked={checkbox}
+          onChange={() => setCheckbox(!checkbox)}
+        />
+      </Field>
+    </>
+  )
+}
+```
+
+## Variants
+
+Use `hint`, `warning`, `error`, `info` or `success` properties on Field component to add a variant status on your checkbox. The label, hint or border color are set by magic 🪄
+
+```jsx
+function() {
+  const [checkbox, setCheckbox] = React.useState(false)
+
+  return (
+    <>
+      <Field error="error" label="error">
+        <Checkbox
+          name="default-variant"
+          checked={checkbox}
+          onChange={() => setCheckbox(!checkbox)}
+        />
+      </Field>
+      <Field warning="warning" label="warning">
+        <Checkbox
+          name="default-variant"
+          checked={checkbox}
+          onChange={() => setCheckbox(!checkbox)}
+        />
+      </Field>
+      <Field info="info" label="info">
+        <Checkbox
+          name="default-variant"
+          checked={checkbox}
+          onChange={() => setCheckbox(!checkbox)}
+        />
+      </Field>
+      <Field success="success" label="success">
+        <Checkbox
+          name="default-variant"
+          checked={checkbox}
+          onChange={() => setCheckbox(!checkbox)}
+        />
+      </Field>
+    </>
+  )
+}
+```
+
+## Example
+
+A FieldGroup form with React Hook Form
+
+```jsx
+function() {
   const FormChildren = ({ control, register }) => (
     <FieldGroup label="Check the frameworks you have already worked with">
       <Controller
         name="react"
         control={control}
         render={({ field: { onChange, value, ...field } }) => (
-          <Field label="React" mb="xxs">
+          <Field label="React">
             <Checkbox
               {...field}
               checked={value}
@@ -38,7 +183,7 @@ function() {
         name="angular"
         control={control}
         render={({ field: { onChange, value, ...field } }) => (
-          <Field label="Angular" mb="xxs">
+          <Field label="Angular">
             <Checkbox
               {...field}
               checked={value}
@@ -80,30 +225,7 @@ function() {
 
 ```
 
-## Standalone
 
-```jsx
-function() {
-  const [checkbox, setCheckbox] = React.useState(false)
-  const [checkboxChecked, setCheckboxChecked] = React.useState(true)
-
-  return (
-    <>
-      <Checkbox
-        mr="lg"
-        name="checked"
-        checked={checkbox}
-        onChange={() => setCheckbox(!checkbox)}
-      />
-      <Checkbox
-        checked={checkboxChecked}
-        name="not-checked"
-        onChange={() => setCheckboxChecked(!checkboxChecked)}
-      />
-    </>
-  )
-}
-```
 
 ## Properties
 

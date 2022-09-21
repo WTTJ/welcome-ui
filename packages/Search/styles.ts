@@ -17,9 +17,9 @@ export const InputWrapper = styled.div`
 export const Input = styled('input').withConfig({ shouldForwardProp })<
   { hasIcon?: boolean } & SearchOptions
 >(
-  ({ hasIcon, size, variant }) => css`
+  ({ hasIcon, size, transparent, variant }) => css`
     position: relative;
-    ${defaultFieldStyles({ size, variant })};
+    ${defaultFieldStyles({ size, variant, transparent })};
     ${overflowEllipsis};
     ${hasIcon &&
     css`

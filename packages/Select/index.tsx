@@ -64,6 +64,7 @@ export interface SelectOptions extends DefaultFieldStylesProps {
   disableCloseOnSelect?: boolean
   groupsEnabled?: boolean
   renderGroupHeader?: (option: OptionGroup) => void
+  transparent?: boolean
 }
 export type SelectProps = CreateWuiProps<
   'input',
@@ -102,6 +103,7 @@ export const Select = forwardRef<'input', SelectProps>(
       disableCloseOnSelect,
       groupsEnabled,
       renderGroupHeader,
+      transparent,
       ...rest
     }: SelectProps,
     ref: React.MutableRefObject<HTMLInputElement>
@@ -300,6 +302,7 @@ export const Select = forwardRef<'input', SelectProps>(
             tabIndex: 0,
             variant: isOpen ? 'focused' : variant,
             isClearable,
+            transparent,
             ...rest,
           })
 

@@ -92,7 +92,7 @@ export function Code({
   row,
   withCode = true,
 }) {
-  const [editorOpen, setEditorOpen] = React.useState(true)
+  const [editorOpen, setEditorOpen] = React.useState(false)
   const language = className && className.replace(/language-/, '')
   const [copy, copied] = useCopyText(children.trim(), 3000)
   const [editorCode, setEditorCode] = React.useState(children.trim())

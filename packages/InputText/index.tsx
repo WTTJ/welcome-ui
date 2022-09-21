@@ -20,6 +20,7 @@ export interface InputTextOptions extends DefaultFieldStylesProps {
   placeholder?: string
   type?: string
   value?: string
+  transparent?: boolean
 }
 
 export type InputTextProps = CreateWuiProps<'input', InputTextOptions>
@@ -40,6 +41,7 @@ export const InputText = forwardRef<'input', InputTextProps>(
       onKeyDown,
       placeholder,
       size = 'md',
+      transparent,
       type = 'text',
       value,
       variant,
@@ -76,6 +78,7 @@ export const InputText = forwardRef<'input', InputTextProps>(
           placeholder={placeholder}
           ref={ref}
           size={size}
+          transparent={transparent}
           type={type}
           value={value}
           variant={variant}

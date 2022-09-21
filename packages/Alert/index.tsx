@@ -4,8 +4,7 @@ import { Stack } from '@welcome-ui/stack'
 import { Box } from '@welcome-ui/box'
 import { Button, ButtonProps } from '@welcome-ui/button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { VariantIcon } from '@welcome-ui/variant-icon'
-import { Variant } from '@welcome-ui/utils'
+import { Variant, VariantIcon } from '@welcome-ui/variant-icon'
 
 import * as S from './styles'
 import { Title } from './Title'
@@ -20,7 +19,7 @@ export interface AlertOptions {
 export type AlertProps = CreateWuiProps<'div', AlertOptions>
 
 const AlertComponent = forwardRef<'div', AlertProps>(
-  ({ children, icon, size = 'sm', variant = 'transparent', ...rest }, ref) => {
+  ({ children, icon, size = 'sm', variant = 'default', ...rest }, ref) => {
     const buttonChild = Children.toArray(children).find(
       (child: React.ReactElement) => child.type === AlertButton
     )

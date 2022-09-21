@@ -2,7 +2,9 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { getVariantColor, Variant } from '@welcome-ui/utils'
 
-export const Label = styled('label').withConfig({ shouldForwardProp })<{ required: boolean }>(
+export const Label = styled('label').withConfig({ shouldForwardProp })<{
+  required: boolean
+}>(
   ({ required }) => css`
     position: relative;
     display: flex;

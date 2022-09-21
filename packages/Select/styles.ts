@@ -22,9 +22,15 @@ export const InputWrapper = styled.div`
 `
 
 export const Input = styled('div').withConfig({ shouldForwardProp })(
-  ({ hasIcon, isClearable, size, variant }: { hasIcon: boolean } & SelectOptions) => css`
+  ({
+    hasIcon,
+    isClearable,
+    size,
+    transparent,
+    variant,
+  }: { hasIcon: boolean } & SelectOptions) => css`
     position: relative;
-    ${defaultFieldStyles({ size, variant })};
+    ${defaultFieldStyles({ size, variant, transparent })};
     ${overflowEllipsis};
     padding-right: ${isClearable ? '4xl' : '36'};
     ${hasIcon &&

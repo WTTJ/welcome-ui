@@ -2,11 +2,13 @@ import React, { useMemo } from 'react'
 import { AlertIcon, PromoteIcon, SquareAlertIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { CheckIcon, InformationIcon } from '@welcome-ui/icons'
-import { Variant } from '@welcome-ui/utils'
+import { Variant as VariantFromUtils } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+
+export type Variant = VariantFromUtils | 'default'
 
 export interface VariantIconOptions {
   icon?: JSX.Element
@@ -22,7 +24,7 @@ export const VariantIcon = forwardRef<'div', VariantIconProps>(
       if (icon === null) return null
       if (icon) return icon
 
-      if (variant === 'transparent') return <PromoteIcon size={size} />
+      if (variant === 'default') return <PromoteIcon size={size} />
       if (variant === 'success') return <CheckIcon size={size} />
       if (variant === 'info') return <InformationIcon size={size} />
       if (variant === 'warning') return <AlertIcon size={size} />

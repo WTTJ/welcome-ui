@@ -19,6 +19,7 @@ export type ThemeDefaultFields = {
     error: CSSObject & ReturnType<ThemeFocus>
     warning: CSSObject & ReturnType<ThemeFocus>
     success: CSSObject & ReturnType<ThemeFocus>
+    info: CSSObject & ReturnType<ThemeFocus>
   }
   checkablelabel: {
     default: CSSObject
@@ -109,8 +110,9 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
         borderColor: 'transparent',
       },
       error: { ...focus(colors['danger-300']) },
-      warning: { ...focus(colors['warning-300']) },
+      warning: { ...focus(colors['warning-400']) },
       success: { ...focus(colors['success-300']) },
+      info: { ...focus(colors['info-400']) },
     },
     checkablelabel: {
       default: {

@@ -8,7 +8,7 @@ import { Growl } from './Growl'
 import { Snackbar } from './Snackbar'
 import * as S from './styles'
 
-export type Variant = 'transparent' | 'error' | 'warning' | 'info' | 'success'
+export type Variant = 'default' | 'error' | 'warning' | 'info' | 'success'
 
 export interface CreateToastOptions {
   onClose?: () => void
