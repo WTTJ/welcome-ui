@@ -63,7 +63,7 @@ export const Field = forwardRef<'div', FieldProps>(
       required,
       variant,
       transparent,
-      ...(isGroup ? { label, flexDirection: layout } : {}),
+      ...(isGroup ? { flexDirection: layout } : {}),
     })
 
     useLayoutEffect(() => {
@@ -86,7 +86,7 @@ export const Field = forwardRef<'div', FieldProps>(
         withHintText={withHintText}
       >
         <Container>
-          {label && !isGroup && (
+          {label && (
             <Label
               disabled={disabled}
               disabledIcon={disabledIcon}
