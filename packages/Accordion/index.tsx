@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { cloneElement } from 'react'
 import { useDisclosureState } from 'reakit/Disclosure'
 import AnimateHeight from 'react-animate-height'
 import { RightIcon } from '@welcome-ui/icons'
@@ -23,7 +23,7 @@ export const Accordion = forwardRef<'div', AccordionProps>(
       <S.Accordion ref={ref} {...rest}>
         <S.Disclosure {...disclosure}>
           {title}
-          <S.Icon visible={isVisible}>{icon}</S.Icon>
+          <S.Icon visible={isVisible}>{cloneElement(icon, { size: 'sm' })}</S.Icon>
         </S.Disclosure>
         <S.Content {...disclosure}>
           <AnimateHeight height={isVisible ? 'auto' : 0}>{children}</AnimateHeight>

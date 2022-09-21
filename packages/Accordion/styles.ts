@@ -5,6 +5,11 @@ import { Box } from '@welcome-ui/box'
 export const Accordion = styled.div`
   ${th('accordions.wrapper')};
   ${system}
+  transition: medium;
+
+  &:hover {
+    border-color: dark-400;
+  }
 `
 
 export const Icon = styled(Box)<{ visible: boolean }>(
@@ -13,6 +18,15 @@ export const Icon = styled(Box)<{ visible: boolean }>(
     ${th('accordions.icon')};
     transform: ${visible ? 'rotate3d(0, 0, 1, 90deg)' : 'rotate3d(0)'};
     transition: medium;
+    width: 24;
+    height: 24;
+    color: inherit;
+    display: flex;
+    border-radius: 12;
+
+    & *:first-child {
+      margin: auto;
+    }
   `
 )
 
@@ -25,15 +39,18 @@ export const Disclosure = styled(ReakitDisclosure)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: xxl;
 
   &:focus,
   &:hover {
     cursor: pointer;
+    ${Icon} {
+      background-color: dark-100;
+    }
   }
 
   &:focus {
     outline: 0;
-
     ${Icon} {
       color: inherit;
     }
@@ -43,10 +60,8 @@ export const Disclosure = styled(ReakitDisclosure)`
 export const Content = styled(DisclosureContent)(
   ({ visible }) => css`
     ${th('accordions.content')};
-    margin-top: -sm;
-    padding-left: ${th('accordions.padding')};
-    padding-right: ${th('accordions.padding')};
-    padding-bottom: sm;
+    padding-inline: ${th('accordions.padding')};
+    color: dark-700;
 
     ${visible &&
     css`
