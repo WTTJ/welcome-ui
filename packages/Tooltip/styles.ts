@@ -16,18 +16,17 @@ const transformDirection = {
 }
 type TransformDirectionKey = keyof typeof transformDirection
 
-const getDirection = (placement: string) => {
+const getFadeInDirection = (placement: string) => {
   const position = placement?.split('-')
   const directionKey = position[0] as TransformDirectionKey
-
   if (position.length < 2) {
     return transformDirection[directionKey]
   } else {
     let xy = '0, 0'
     if (placement == 'right-end' || placement == 'bottom-end') xy = '4px, 4px'
     if (placement == 'right-start' || placement == 'top-end') xy = '4px, -4px'
-    if (placement == 'left-start' || placement == 'bottom-start') xy = '-4px, 4px'
-    if (placement == 'left-end' || placement == 'top-start') xy = '-4px, -4px'
+    if (placement == 'left-end' || placement == 'bottom-start') xy = '-4px, 4px'
+    if (placement == 'left-start' || placement == 'top-start') xy = '-4px, -4px'
     return `translate3d(${xy}, 0)`
   }
 }
@@ -45,7 +44,7 @@ export const FadeIn = styled.div<{
   transform-origin: top center;
   transform: ${({ fixed, placement }) => {
     if (!fixed) return
-    return getDirection(placement)
+    return getFadeInDirection(placement)
     // return transformDirection[placementOption]
   }};
   [data-enter] & {

@@ -51,104 +51,101 @@ Set a `max-width` for long text
 Using the `fixed` prop in combination with `placement` will enable a translate animation on your tooltip. The direction works with these values for `placement`.
 
 ```jsx
-<Flex gap="lg" flexWrap='wrap' justifyContent='center'  >
+<Flex gap="lg" flexWrap='wrap'>
 
   <Tooltip fixed placement="top-start" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button>
-      <span>Coming from the top-start &#8598; </span>
+    <Button size='sm' w={120}>
+      <span>top-start &#8598; </span>
     </Button>
   </Tooltip>
 
   <Tooltip fixed placement="top" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button>
-      <span>Coming from the top &#8593; </span>
+    <Button size='sm' w={120}>
+      <span>top &#8593; </span>
     </Button>
   </Tooltip>
 
   <Tooltip fixed placement="top-end" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button>
-      <span>Coming from the top-end &#8599; </span>
+    <Button size='sm' w={120}>
+      <span>top-end &#8599; </span>
     </Button>
   </Tooltip>
 
   </Flex>
 
-  <Flex gap="lg" flexWrap='wrap' justifyContent='center'  >
+  <Flex gap="lg" flexWrap='wrap'>
 
   <Tooltip fixed placement="bottom-start" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button>
-      <span>Coming from the bottom-start &#8601; </span>
-      
+    <Button size='sm' w={120}>
+      <span>bottom-start &#8601; </span>
+
     </Button>
   </Tooltip>
 
   <Tooltip fixed placement="bottom" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button>
-      <span>Coming from the bottom &#8595; </span>
-      
+    <Button size='sm' w={120}>
+      <span>bottom &#8595; </span>
+
     </Button>
   </Tooltip>
 
   <Tooltip fixed placement="bottom-end" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button>
-      <span>Coming from the bottom-end &#8600; </span>
-      
+    <Button size='sm' w={120}>
+      <span>bottom-end &#8600; </span>
+
     </Button>
   </Tooltip>
 
    </Flex>
 
-<Flex gap="lg" justifyContent='center' >
-
-  <Flex gap="lg" flexWrap='wrap' flexDirection='column' alignItems='felx-start'>
+  <Flex gap="lg" flexWrap='wrap' >
 
   <Tooltip fixed placement="left-start" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button>
-      <span>Coming from the left-start &#8598; </span>
-      
+    <Button size='sm' w={120}>
+      <span>left-start &#8598; </span>
+
     </Button>
   </Tooltip>
 
    <Tooltip fixed placement="left" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button>
-      <span>Coming from the left &#8592; </span>
-      
+    <Button size='sm' w={120}>
+      <span>left &#8592; </span>
+
     </Button>
   </Tooltip>
 
    <Tooltip fixed placement="left-end" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button>
-      <span>Coming from the left-end &#8601; </span>
-      
+    <Button size='sm' w={120}>
+      <span>left-end &#8601; </span>
+
     </Button>
   </Tooltip>
   
 </Flex>
-  <Flex gap="lg" flexWrap='wrap' flexDirection='column' alignItems='felx-start'>
+  <Flex gap="lg" flexWrap='wrap' >
 
   <Tooltip fixed placement="right-start" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button>
-      <span>Coming from the right-start &#8599; </span>
-      
+    <Button size='sm' w={120}>
+      <span>right-start &#8599; </span>
+
     </Button>
   </Tooltip>
 
   <Tooltip fixed placement="right" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button>
-      <span>Coming from the right &#8594; </span>
-      
+    <Button size='sm' w={120}>
+      <span>right &#8594; </span>
+
     </Button>
   </Tooltip>
 
   <Tooltip fixed placement="right-end" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button>
-      <span>Coming from the right-end &#8600; </span>
-      
+    <Button size='sm' w={120}>
+      <span>right-end &#8600; </span>
+
     </Button>
   </Tooltip>
 
    </Flex>
-</Flex>
 
 ```
 
