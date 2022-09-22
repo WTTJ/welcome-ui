@@ -280,5 +280,7 @@
   "equal": "0x217",
   "alert_outline": "0x218",
   "square_alert": "0x219",
-  "information_outline": "0x21A"
+  "information_outline": "0x21A",
+  "thumb_down": "0x21B",
+  "thumbdown": "0x21C"
 }
