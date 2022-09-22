@@ -48,38 +48,108 @@ Set a `max-width` for long text
 
 ## With a fixed position
 
-Using the `fixed` prop in combination with `placement` will enable a translate animation on your tooltip. The direction works with these values for `placement` : `top-*`, `right-*`, `bottom-*` and `left-*`.
+Using the `fixed` prop in combination with `placement` will enable a translate animation on your tooltip. The direction works with these values for `placement`.
 
 ```jsx
-<Flex gap="lg">
-  <Tooltip fixed placement="top" content="🔥🔥🔥🔥🔥🔥🔥">
+<Flex gap="lg" flexWrap='wrap' justifyContent='center'  >
+
+  <Tooltip fixed placement="top-start" content="🔥🔥🔥🔥🔥🔥🔥">
     <Button>
-      <span>Coming from the top</span>
-      <ArrowUpIcon />
+      <span>Coming from the top-start &#8598; </span>
     </Button>
   </Tooltip>
 
-  <Tooltip fixed placement="right" content="🔥🔥🔥🔥🔥🔥🔥">
+  <Tooltip fixed placement="top" content="🔥🔥🔥🔥🔥🔥🔥">
     <Button>
-      <span>Coming from the right</span>
-      <ArrowRightIcon />
+      <span>Coming from the top &#8593; </span>
+    </Button>
+  </Tooltip>
+
+  <Tooltip fixed placement="top-end" content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>
+      <span>Coming from the top-end &#8599; </span>
+    </Button>
+  </Tooltip>
+
+  </Flex>
+
+  <Flex gap="lg" flexWrap='wrap' justifyContent='center'  >
+
+  <Tooltip fixed placement="bottom-start" content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>
+      <span>Coming from the bottom-start &#8601; </span>
+      
     </Button>
   </Tooltip>
 
   <Tooltip fixed placement="bottom" content="🔥🔥🔥🔥🔥🔥🔥">
     <Button>
-      <span>Coming from the bottom</span>
-      <ArrowDownIcon />
+      <span>Coming from the bottom &#8595; </span>
+      
     </Button>
   </Tooltip>
 
-  <Tooltip fixed placement="left" content="🔥🔥🔥🔥🔥🔥🔥">
+  <Tooltip fixed placement="bottom-end" content="🔥🔥🔥🔥🔥🔥🔥">
     <Button>
-      <span>Coming from the left</span>
-      <ArrowLeftIcon />
+      <span>Coming from the bottom-end &#8600; </span>
+      
     </Button>
   </Tooltip>
+
+   </Flex>
+
+<Flex gap="lg" justifyContent='center' >
+
+  <Flex gap="lg" flexWrap='wrap' flexDirection='column' alignItems='felx-start'>
+
+  <Tooltip fixed placement="left-start" content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>
+      <span>Coming from the left-start &#8598; </span>
+      
+    </Button>
+  </Tooltip>
+
+   <Tooltip fixed placement="left" content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>
+      <span>Coming from the left &#8592; </span>
+      
+    </Button>
+  </Tooltip>
+
+   <Tooltip fixed placement="left-end" content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>
+      <span>Coming from the left-end &#8601; </span>
+      
+    </Button>
+  </Tooltip>
+  
 </Flex>
+  <Flex gap="lg" flexWrap='wrap' flexDirection='column' alignItems='felx-start'>
+
+  <Tooltip fixed placement="right-start" content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>
+      <span>Coming from the right-start &#8599; </span>
+      
+    </Button>
+  </Tooltip>
+
+  <Tooltip fixed placement="right" content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>
+      <span>Coming from the right &#8594; </span>
+      
+    </Button>
+  </Tooltip>
+
+  <Tooltip fixed placement="right-end" content="🔥🔥🔥🔥🔥🔥🔥">
+    <Button>
+      <span>Coming from the right-end &#8600; </span>
+      
+    </Button>
+  </Tooltip>
+
+   </Flex>
+</Flex>
+
 ```
 
 ## Properties
