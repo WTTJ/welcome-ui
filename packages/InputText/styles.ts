@@ -8,6 +8,7 @@ export const InputText = styled('input').withConfig({ shouldForwardProp })<Input
   ({ icon, iconPlacement, isClearable, size, variant }) => css`
     ${defaultFieldStyles({ size, variant })};
     text-overflow: ellipsis;
+    border-radius: 0;
 
     /* With icon */
     ${icon &&
