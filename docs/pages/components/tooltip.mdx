@@ -51,102 +51,74 @@ Set a `max-width` for long text
 Using the `fixed` prop in combination with `placement` will enable a translate animation on your tooltip. The direction works with these values for `placement`.
 
 ```jsx
-<Flex gap="lg" flexWrap='wrap'>
-
-  <Tooltip fixed placement="top-start" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button size='sm' w={120}>
+<Flex flexWrap="wrap" gap="lg">
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥" fixed placement="top-start">
+    <Button size="sm" w={120}>
       <span>top-start &#8598; </span>
     </Button>
   </Tooltip>
-
-  <Tooltip fixed placement="top" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button size='sm' w={120}>
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥" fixed placement="top">
+    <Button size="sm" w={120}>
       <span>top &#8593; </span>
     </Button>
   </Tooltip>
-
-  <Tooltip fixed placement="top-end" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button size='sm' w={120}>
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥" fixed placement="top-end">
+    <Button size="sm" w={120}>
       <span>top-end &#8599; </span>
     </Button>
   </Tooltip>
-
-  </Flex>
-
-  <Flex gap="lg" flexWrap='wrap'>
-
-  <Tooltip fixed placement="bottom-start" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button size='sm' w={120}>
-      <span>bottom-start &#8601; </span>
-
-    </Button>
-  </Tooltip>
-
-  <Tooltip fixed placement="bottom" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button size='sm' w={120}>
-      <span>bottom &#8595; </span>
-
-    </Button>
-  </Tooltip>
-
-  <Tooltip fixed placement="bottom-end" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button size='sm' w={120}>
-      <span>bottom-end &#8600; </span>
-
-    </Button>
-  </Tooltip>
-
-   </Flex>
-
-  <Flex gap="lg" flexWrap='wrap' >
-
-  <Tooltip fixed placement="left-start" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button size='sm' w={120}>
-      <span>left-start &#8598; </span>
-
-    </Button>
-  </Tooltip>
-
-   <Tooltip fixed placement="left" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button size='sm' w={120}>
-      <span>left &#8592; </span>
-
-    </Button>
-  </Tooltip>
-
-   <Tooltip fixed placement="left-end" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button size='sm' w={120}>
-      <span>left-end &#8601; </span>
-
-    </Button>
-  </Tooltip>
-  
 </Flex>
-  <Flex gap="lg" flexWrap='wrap' >
-
-  <Tooltip fixed placement="right-start" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button size='sm' w={120}>
+<Flex flexWrap="wrap" gap="lg">
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥" fixed placement="bottom-start">
+    <Button size="sm" w={120}>
+      <span>bottom-start &#8601; </span>
+    </Button>
+  </Tooltip>
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥" fixed placement="bottom">
+    <Button size="sm" w={120}>
+      <span>bottom &#8595; </span>
+    </Button>
+  </Tooltip>
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥" fixed placement="bottom-end">
+    <Button size="sm" w={120}>
+      <span>bottom-end &#8600; </span>
+    </Button>
+  </Tooltip>
+</Flex>
+<Flex flexWrap="wrap" gap="lg">
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥" fixed placement="left-start">
+    <Button size="sm" w={120}>
+      <span>left-start &#8598; </span>
+    </Button>
+  </Tooltip>
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥" fixed placement="left">
+    <Button size="sm" w={120}>
+      <span>left &#8592; </span>
+    </Button>
+  </Tooltip>
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥" fixed placement="left-end">
+    <Button size="sm" w={120}>
+      <span>left-end &#8601; </span>
+    </Button>
+  </Tooltip>
+</Flex>
+<Flex flexWrap="wrap" gap="lg">
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥" fixed placement="right-start">
+    <Button size="sm" w={120}>
       <span>right-start &#8599; </span>
-
     </Button>
   </Tooltip>
-
-  <Tooltip fixed placement="right" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button size='sm' w={120}>
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥" fixed placement="right">
+    <Button size="sm" w={120}>
       <span>right &#8594; </span>
-
     </Button>
   </Tooltip>
-
-  <Tooltip fixed placement="right-end" content="🔥🔥🔥🔥🔥🔥🔥">
-    <Button size='sm' w={120}>
+  <Tooltip content="🔥🔥🔥🔥🔥🔥🔥" fixed placement="right-end">
+    <Button size="sm" w={120}>
       <span>right-end &#8600; </span>
-
     </Button>
   </Tooltip>
-
-   </Flex>
-
+</Flex>
 ```
 
 ## Properties
