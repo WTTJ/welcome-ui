@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import React from 'react'
 import { Alert } from '@welcome-ui/alert'
 import { Avatar } from '@welcome-ui/avatar'
@@ -103,7 +103,7 @@ function Component({ children, description, link, title }) {
           {title}
         </Link>
       </NextLink>
-      <Text color="dark.200" mb="0" mt="xxs" variant="body3">
+      <Text mb="0" mt="sm" variant="sm">
         {description}
       </Text>
     </div>
@@ -114,7 +114,7 @@ export function Components() {
   return (
     <Box
       display="grid"
-      gap="3xl"
+      gap="xxl"
       gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr 1fr' }}
     >
       {components.map(component => (

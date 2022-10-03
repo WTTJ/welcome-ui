@@ -58,5 +58,5 @@ export const Actions = styled.div`
   top: ${th.space('md')};
   right: ${th.space('md')};
   display: flex;
-  flex-direction: column;
+  gap: xs;
 `

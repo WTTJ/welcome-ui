@@ -21,7 +21,9 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 
 _Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
 
-## Simple use case
+## Usage
+
+Pass a date for the value
 
 ```jsx
 function () {
@@ -39,7 +41,9 @@ function () {
 }
 ```
 
-## Pass props to DatePicker
+## Pass props to childs
+
+If you want to pass props to DatePicker or TimePicker you need to see example below
 
 ```jsx
 function () {
@@ -64,6 +68,51 @@ function () {
         <TimePicker />
       </DateTimePicker>
     </Field>
+  )
+}
+```
+
+## Sizes
+
+Use size propety with option:
+- `xs` (24px)
+- `sm` (32px)
+- `md` (40px - default)
+- `lg` (48px)
+
+```jsx
+function () {
+  const [value, setValue] = React.useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <Stack spacing="xl">
+      <DateTimePicker size="xs" name="welcome" onChange={handleChange} value={value} />
+      <DateTimePicker size="sm" name="welcome" onChange={handleChange} value={value} />
+      <DateTimePicker name="welcome" onChange={handleChange} value={value} />
+      <DateTimePicker size="lg" name="welcome" onChange={handleChange} value={value} />
+    </Stack>
+  )
+}
+```
+
+## Transparent
+
+Pass `transparent` to remove background-color and border-color
+
+```jsx
+function () {
+  const [value, setValue] = React.useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <DateTimePicker transparent name="welcome" onChange={handleChange} value={value} />
   )
 }
 ```

@@ -7,10 +7,8 @@ import {
   FileRejection,
   useDropzone,
 } from 'react-dropzone'
-import { TrashIcon } from '@welcome-ui/icons.trash'
-import { EditIcon } from '@welcome-ui/icons.edit'
+import { EditIcon, TrashIcon } from '@welcome-ui/icons'
 import { Button } from '@welcome-ui/button'
-import { ButtonGroup } from '@welcome-ui/button-group'
 import { CreateEvent, createEvent } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ForceFileType } from '@welcome-ui/files'
@@ -202,30 +200,22 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
           })}
           {!!file && (error || isEditable || isClearable) && (
             <S.Actions>
-              <ButtonGroup>
-                {(error || isEditable) && (
-                  <Button
-                    onClick={open}
-                    shape="square"
-                    size="sm"
-                    type="button"
-                    variant="quaternary"
-                  >
-                    <EditIcon />
-                  </Button>
-                )}
-                {isClearable && (
-                  <Button
-                    onClick={handleRemoveClick}
-                    shape="square"
-                    size="sm"
-                    type="button"
-                    variant="primary-danger"
-                  >
-                    <TrashIcon />
-                  </Button>
-                )}
-              </ButtonGroup>
+              {(error || isEditable) && (
+                <Button onClick={open} shape="circle" size="sm" type="button" variant="tertiary">
+                  <EditIcon />
+                </Button>
+              )}
+              {isClearable && (
+                <Button
+                  onClick={handleRemoveClick}
+                  shape="circle"
+                  size="sm"
+                  type="button"
+                  variant="primary-danger"
+                >
+                  <TrashIcon />
+                </Button>
+              )}
             </S.Actions>
           )}
         </S.FilePreview>

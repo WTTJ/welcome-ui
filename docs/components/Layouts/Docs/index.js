@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-max-depth */
-/* eslint-disable react/prop-types */
+
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 
+import { ThemeHelper } from '../../ThemeHelper'
 import { ComponentsList } from '../../ComponentsList'
 import { Footer } from '../../Footer'
 
@@ -18,12 +19,13 @@ export function DocsLayout({ children }) {
         {children}
         <Footer
           borderTop="1px solid"
-          borderTopColor="nude.200"
+          borderTopColor="nude-200"
           mb="md"
-          mt="5xl"
-          mx={{ xs: 'md', md: 'xxl' }}
-          pt="xxl"
+          mt="3xl"
+          mx={{ xs: 'md', md: 'xl' }}
+          pt="xl"
         />
+        <ThemeHelper />
       </S.Content>
     </Box>
   )

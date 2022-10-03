@@ -20,7 +20,7 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
 
   return {
     default: {
-      color: colors.dark[500],
+      color: colors['dark-900'],
       fontWeight: fontWeights.medium,
       transition: transitions.medium,
     },

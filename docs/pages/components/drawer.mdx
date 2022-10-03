@@ -213,17 +213,17 @@ function StylingDrawer() {
       <Drawer.Trigger as={Button} {...drawer}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer.Backdrop {...drawer} backgroundColor="rgba(20, 0, 80, .5)">
-        <Drawer aria-label="Default drawer" {...drawer} backgroundColor="nude.200">
+      <Drawer.Backdrop {...drawer}>
+        <Drawer aria-label="Default drawer" {...drawer} backgroundColor="nude-200">
           <Drawer.Close {...drawer} w={30} h={30} />
-          <Drawer.Title borderBottom="1px solid" borderBottomColor="dark.200">
+          <Drawer.Title borderBottom="1px solid" borderBottomColor="dark-200">
             Hello
           </Drawer.Title>
-          <Drawer.Content backgroundColor="light.900">
+          <Drawer.Content backgroundColor="light-900">
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
           </Drawer.Content>
-          <Drawer.Footer borderTop="1px solid" borderTopColor="dark.200">
+          <Drawer.Footer borderTop="1px solid" borderTopColor="dark-200">
             <Stack direction="row">
               <Button onClick={drawer.hide}>Save</Button>
               <Button onClick={drawer.hide} variant="tertiary">

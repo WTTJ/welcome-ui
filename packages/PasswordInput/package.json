@@ -39,8 +39,7 @@
   },
   "dependencies": {
     "@welcome-ui/button": "^4.2.0",
-    "@welcome-ui/icons.eye": "^4.2.0",
-    "@welcome-ui/icons.hide": "^4.2.0",
+    "@welcome-ui/icons": "^4.2.0",
     "@welcome-ui/input-text": "^4.2.0",
     "@welcome-ui/system": "^4.2.0"
   },

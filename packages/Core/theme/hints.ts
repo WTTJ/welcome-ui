@@ -8,8 +8,8 @@ export const getHints = (theme: WuiTheme): ThemeHints => {
   const { colors, fontSizes, fontWeights } = theme
 
   return {
-    color: colors.light[500],
-    fontSize: fontSizes.body4,
+    fontSize: fontSizes.xs,
     fontWeight: fontWeights.regular,
+    color: colors['dark-500'],
   }
 }

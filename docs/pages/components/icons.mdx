@@ -12,13 +12,12 @@ import {
   version={version}
   name={name}
   component={component}
-  customInstall={'yarn add @welcome-ui/icons.avatar'}
-  customUsage={`import { AvatarIcon } from '@welcome-ui/icons.avatar'`}
+  customUsage="import { AvatarIcon } from '@welcome-ui/icons'"
 />
 
 ## Size
 
-Use size property with `xs`, `sm`, `md`, `lg` or `xl`.
+Use size property with `xs`, `sm`, `md`, `lg` `xl` or `xxl`.
 
 ```jsx row
 <TwitterIcon size="xs" />
@@ -26,6 +25,7 @@ Use size property with `xs`, `sm`, `md`, `lg` or `xl`.
 <TwitterIcon />
 <TwitterIcon size="lg" />
 <TwitterIcon size="xl" />
+<TwitterIcon size="xxl" />
 ```
 
 ## Colour
@@ -129,10 +129,6 @@ function() {
   return IconsList({ name: 'flags' })
 }
 ```
-
-## Properties
-
-<props propTypes={props.propTypes.Icon} />
 
 ## Packages
 

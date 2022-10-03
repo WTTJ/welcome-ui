@@ -38,7 +38,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/icons.right": "^4.2.0",
+    "@welcome-ui/icons": "^4.2.0",
     "@welcome-ui/system": "^4.2.0",
     "react-animate-height": "^2.0.23",
     "reakit": "^1.3.11"

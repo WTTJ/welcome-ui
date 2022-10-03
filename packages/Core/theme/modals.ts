@@ -2,21 +2,21 @@ import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
 
-type Sizes = 'sm' | 'md' | 'lg' | 'auto'
+type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
 export type ThemeModals = {
   backdrop: CSSObject
   default: CSSObject
+  header: CSSObject
   content: CSSObject
   footer: CSSObject
-  title: CSSObject
   gutter: string
   sizes: Record<Sizes, { width?: string }>
   cover: Record<string, unknown>
 }
 
 export const getModals = (theme: WuiTheme): ThemeModals => {
-  const { borderWidths, colors, space, texts, toRem } = theme
+  const { colors, space, toRem } = theme
   return {
     backdrop: {
       backgroundColor: colors.overlay,
@@ -25,24 +25,45 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
     default: {
       zIndex: 999,
     },
+    header: {
+      backgroundColor: colors['light-900'],
+      paddingTop: space.xxl,
+      paddingRight: space['3xl'],
+      paddingLeft: space.xxl,
+      subtitle: {
+        color: colors['dark-700'],
+        variant: 'sm',
+        margin: 0,
+      },
+    },
     content: {
-      padding: space.xxl,
+      color: colors['dark-900'],
+      paddingLeft: space.xxl,
+      paddingTop: space.lg,
+      fontSize: 'sm',
     },
     footer: {
-      backgroundColor: colors.light[900],
-      borderTop: `${borderWidths.sm} solid ${colors.light[800]}`,
-      padding: space.xxl,
-    },
-    title: {
-      backgroundColor: colors.light[900],
-      borderBottom: `${borderWidths.sm} solid ${colors.light[800]}`,
-      padding: space.xxl,
-      ...texts.h4,
-      /** space of close button */
-      paddingRight: space['5xl'],
+      backgroundColor: colors['light-900'],
+      borderTop: `solid ${colors.border}`,
+      children: {
+        paddingRight: space.xxl,
+        paddingLeft: space.xxl,
+        paddingTop: space.lg,
+        paddingBottom: space.xl,
+      },
+      informations: {
+        backgroundColor: colors['nude-100'],
+        paddingRight: space.xxl,
+        paddingLeft: space.xxl,
+        paddingTop: space.xl,
+        paddingBottom: space.xxl,
+      },
     },
     gutter: toRem(32),
     sizes: {
+      xs: {
+        width: toRem(320),
+      },
       sm: {
         width: toRem(450),
       },

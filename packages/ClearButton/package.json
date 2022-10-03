@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@welcome-ui/button": "^4.2.0",
-    "@welcome-ui/icons.cross": "^4.2.0",
+    "@welcome-ui/icons": "^4.2.0",
     "@welcome-ui/system": "^4.2.0"
   },
   "peerDependencies": {

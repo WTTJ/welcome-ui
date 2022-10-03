@@ -89,7 +89,7 @@ jobs:
           paths:
             - packages/**/dist
             - packages/Themes/**/dist
-            - icons/**/dist
+            - icons/dist
             - packages/IconFont/fonts
 
   # current version build (common to previews & prod)
@@ -156,7 +156,6 @@ jobs:
           from: s3://welcome-ui/docs_production
           to: docs_production
       - run: node_modules/.bin/netlify deploy --dir=docs_production --prod
-
 
 workflows:
   version: 2

@@ -1,17 +1,19 @@
 import React from 'react'
-import { AttachmentIcon } from '@welcome-ui/icons.attachment'
-import { CameraIcon } from '@welcome-ui/icons.camera'
-import { CsvIcon } from '@welcome-ui/icons.csv'
-import { DocIcon } from '@welcome-ui/icons.doc'
-import { DocxIcon } from '@welcome-ui/icons.docx'
+import {
+  AttachmentIcon,
+  CameraIcon,
+  CsvIcon,
+  DocIcon,
+  DocxIcon,
+  MusicIcon,
+  PdfIcon,
+  PptIcon,
+  VideoIcon,
+  XlsIcon,
+  XlsxIcon,
+  ZipIcon,
+} from '@welcome-ui/icons'
 import { formatBytes } from '@welcome-ui/utils'
-import { MusicIcon } from '@welcome-ui/icons.music'
-import { PdfIcon } from '@welcome-ui/icons.pdf'
-import { PptIcon } from '@welcome-ui/icons.ppt'
-import { VideoIcon } from '@welcome-ui/icons.video'
-import { XlsIcon } from '@welcome-ui/icons.xls'
-import { XlsxIcon } from '@welcome-ui/icons.xlsx'
-import { ZipIcon } from '@welcome-ui/icons.zip'
 
 import { IconProps } from '../Icon'
 

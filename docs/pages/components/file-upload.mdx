@@ -21,7 +21,7 @@ FileUpload uses render props so you can pass a button through. You have access t
 
 See your browser console for the real `File` object ready to upload.
 
-## Default
+## Usage
 
 See more about [media type](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
@@ -138,8 +138,8 @@ function () {
     <Field>
       <FileUpload name="custom" handleAddFile={handleChange} handleRemoveFile={handleChange} value={value}>
         {({ openFile, disabled }) => (
-          <Button size="xl" shape="circle" onClick={openFile} disabled={disabled}>
-            <UploadIcon size="xl" />
+          <Button size="lg" shape="circle" onClick={openFile} disabled={disabled}>
+            <UploadIcon />
           </Button>
         )}
       </FileUpload>
@@ -167,7 +167,7 @@ function() {
 
     return (
       <Tag
-        backgroundColor="light.900"
+        backgroundColor="light-900"
         data-id={name}
         key={name}
         mt="sm"
@@ -178,9 +178,9 @@ function() {
       >
         <Icon size="lg" mr="sm" />
         {name}
-        {size && <Box color="nude.600">({size})</Box>}
-        <Button onClick={onRemove} variant="quaternary" shape="square" ml="xxl" size="sm">
-          <CrossIcon size="sm" />
+        {size && <Box color="nude-600">({size})</Box>}
+        <Button onClick={onRemove} variant="ghost" shape="square" ml="xxl" size="sm">
+          <CrossIcon />
         </Button>
       </Tag>
     )

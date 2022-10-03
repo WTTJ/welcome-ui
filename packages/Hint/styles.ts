@@ -1,11 +1,19 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { getVariantColor, Variant } from '@welcome-ui/utils'
+
+import { Variant } from './index'
+
+export const VARIANTS: Record<Variant, string> = {
+  error: 'colors.danger-500',
+  info: 'colors.info-500',
+  success: 'colors.success-500',
+  warning: 'colors.warning-500',
+}
 
 export const Hint = styled.div<{ variant: Variant }>(
   ({ variant }) => css`
     ${th('hints')};
-    color: ${getVariantColor(variant)};
-    margin-top: sm;
+    color: ${th(VARIANTS[variant]) || undefined};
+    margin-top: xs;
     display: flex;
     align-items: center;
     ${system};

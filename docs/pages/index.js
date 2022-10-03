@@ -4,9 +4,7 @@ import { Text } from '@welcome-ui/text'
 import NextLink from 'next/link'
 import { Button } from '@welcome-ui/button'
 import { Box } from '@welcome-ui/box'
-import { RightIcon } from '@welcome-ui/icons.right'
-import { GithubIcon } from '@welcome-ui/icons.github'
-import { HeartIcon } from '@welcome-ui/icons.heart'
+import { RightIcon, GithubIcon, HeartIcon } from '@welcome-ui/icons'
 
 import { Section } from '../components/Homepage/Section'
 import { Components } from '../components/Homepage/Components'
@@ -18,14 +16,14 @@ import { LogoWttj } from '../components/LogoWttj'
 export default function Home() {
   return (
     <main>
-      <Section backgroundColor="nude.200">
-        <Text as="span" textTransform="uppercase" variant="subtitle1">
+      <Section backgroundColor="nude-200">
+        <Text as="span" textTransform="uppercase" variant="subtitle-md" color="dark-900">
           Welcome UI
         </Text>
         <Text maxWidth={820} mb="xl" mt="sm" variant="h1">
           All the components you need to create a delightful React webapp
         </Text>
-        <Text color="dark.100" maxWidth={640} variant="body1">
+        <Text maxWidth={640} variant="lg">
           Welcome UI is a customizable design system library made with react, typescript,
           styled-components, reakit and a lot of love 💛
         </Text>
@@ -42,7 +40,7 @@ export default function Home() {
         </Text>
         <Components />
       </Section>
-      <Section backgroundColor="nude.200">
+      <Section backgroundColor="nude-200">
         <Box
           alignItems="center"
           display="flex"
@@ -50,13 +48,13 @@ export default function Home() {
           justifyContent="space-between"
         >
           <Box flex="0 0 auto" maxWidth={{ md: 600 }} mb={{ xs: '5xl', lg: 0 }}>
-            <Text as="span" textTransform="uppercase" variant="subtitle1">
+            <Text as="span" textTransform="uppercase" variant="subtitle-md" color="dark-900">
               Open source
             </Text>
             <Text as="h2" mb="xl" mt="sm" variant="h1">
               Contribute!
             </Text>
-            <Text color="dark.100" maxWidth={640} variant="body1">
+            <Text maxWidth={640} variant="lg">
               Welcome UI is open-sourced on GitHub. Contributions, feedback and issues are welcome –
               we want you to be a part of this great project.
             </Text>
@@ -74,19 +72,19 @@ export default function Home() {
         <Text as="h2" maxWidth={500} mb="xl" mt="0" variant="h1">
           All you’d expect from a design system...
         </Text>
-        <Text color="dark.100" maxWidth={640} mb="5xl" variant="body1">
+        <Text maxWidth={640} mb="5xl" variant="lg">
           ...and a lot more!
         </Text>
         <Expectations />
       </Section>
-      <Section backgroundColor="nude.200">
-        <Text as="span" textTransform="uppercase" variant="subtitle1">
+      <Section backgroundColor="nude-200">
+        <Text as="span" textTransform="uppercase" variant="subtitle-md" color="dark-900">
           Example
         </Text>
         <Text as="h2" mb="xl" mt="sm" variant="h1">
           Going straight to the point!
         </Text>
-        <Text color="dark.100" maxWidth={450} variant="body1">
+        <Text maxWidth={450} variant="lg">
           Leave the UI code to our team and focus on building your astonishing project.
         </Text>
         <Box
@@ -101,17 +99,24 @@ export default function Home() {
           w="100%"
         />
       </Section>
-      <Section backgroundColor="dark.900" color="light.900" pt={{ xs: '3xl', md: '6xl' }}>
+      <Section backgroundColor="black" color="white" pt={{ xs: '3xl', md: '6xl' }}>
         <Box textAlign="center" w="100%">
           <LogoWttj h={67} w={210} />
         </Box>
-        <Text as="span" mb="0" mt="5xl" textTransform="uppercase" variant="subtitle1">
+        <Text
+          as="span"
+          color="white"
+          mb="0"
+          mt="5xl"
+          textTransform="uppercase"
+          variant="subtitle-md"
+        >
           Who we are?
         </Text>
-        <Text as="h2" maxWidth={950} mb="xl" mt="sm" variant="h1">
+        <Text as="h2" color="white" maxWidth={950} mb="xl" mt="sm" variant="h1">
           The new experience at work
         </Text>
-        <Text color="light.700" maxWidth={640} variant="body1">
+        <Text color="white" maxWidth={640} variant="lg">
           Welcome to the Jungle build products that transform every step of the experience at work.
         </Text>
         <Box display={{ md: 'flex' }} mt="5xl">
@@ -122,7 +127,7 @@ export default function Home() {
             </Button>
           </NextLink>
           <NextLink href="https://www.welcometothejungle.com/en" passHref>
-            <Button as="a" mt={{ xs: 'md', md: 0 }} size="lg" target="_blank" variant="quaternary">
+            <Button as="a" mt={{ xs: 'md', md: 0 }} size="lg" target="_blank" variant="ghost">
               <span>Visit our website</span>
               <RightIcon size="lg" />
             </Button>

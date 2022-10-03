@@ -13,15 +13,15 @@ import { Focused, Icon, IconPlacement } from './CustomInput'
 export const StyledDatePicker = styled(ReactDatePicker)<
   DefaultFieldStylesProps & ReactDatePickerProps
 >(
-  ({ size, variant }) => css`
-    ${defaultFieldStyles({ size, variant })};
+  ({ size, transparent, variant }) => css`
+    ${defaultFieldStyles({ size, variant, transparent })};
     ${system};
   `
 )
 
 export const StyledTimePicker = styled(ReactDatePicker)<DefaultFieldStylesProps>(
-  ({ size, variant }) => css`
-    ${defaultFieldStyles({ size, variant })};
+  ({ size, transparent, variant }) => css`
+    ${defaultFieldStyles({ size, variant, transparent })};
     text-align: center;
     ${system};
   `

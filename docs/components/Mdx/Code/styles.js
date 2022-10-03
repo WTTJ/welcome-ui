@@ -4,11 +4,11 @@ import { Box } from '@welcome-ui/box'
 
 export const LiveEditor = styled(Box)`
   position: relative;
-  background-color: dark.900;
+  background-color: black;
+  border: 1px solid ${th('colors.dark-200')};
   border-radius: md;
-  margin-bottom: md;
   overflow: hidden;
-  padding: xxs;
+  padding: md;
 `
 
 export const LiveEditorContent = styled(ReactLiveEditor)(
@@ -21,7 +21,7 @@ export const LiveEditorContent = styled(ReactLiveEditor)(
 
     textarea,
     pre {
-      background-color: dark.900 !important;
+      background-color: black !important;
 
       &:focus {
         outline: none;
@@ -31,24 +31,23 @@ export const LiveEditorContent = styled(ReactLiveEditor)(
 )
 
 export const LiveError = styled(ReactLiveError)`
-  background-color: danger.100;
-  border-color: danger.500;
+  background-color: danger-100;
+  border-color: danger-500;
   border-width: sm;
   border-style: solid;
-  color: danger.500;
+  color: danger-500;
   padding: md;
   white-space: pre-wrap;
   border-radius: md;
-  font-size: body3;
+  font-size: sm;
   line-height: h4;
-  margin: xxs 0 lg;
+  margin: sm 0 lg;
 `
 
 export const ShowEditor = styled.div`
-  background-color: nude.200;
-  padding: xxs xl;
-  margin-top: xxs;
-  border-top: 1px solid ${th.color('light.800')};
+  background-color: nude-200;
+  padding: sm lg;
+  border-top: 1px solid ${th.color('border')};
 `
 
 export const CodeContent = styled.div`

@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import { Button } from '@welcome-ui/button'
+
 import React from 'react'
 
 export function CopyButton({ copied, copy }) {
@@ -12,7 +12,7 @@ export function CopyButton({ copied, copy }) {
       right={0}
       size="xs"
       top={0}
-      variant={copied ? 'quaternary' : 'tertiary-negative'}
+      variant="secondary-info"
     >
       {copied ? 'Copied!' : 'Copy'}
     </Button>

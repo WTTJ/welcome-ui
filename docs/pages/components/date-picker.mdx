@@ -21,7 +21,9 @@ It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepi
 
 _Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
 
-## Simple usecase
+## Usage
+
+Pass a date for the value
 
 ```jsx
 function () {
@@ -39,7 +41,9 @@ function () {
 }
 ```
 
-## Pass props from the original library.
+## Props from react-datepicker
+
+Simply add on DatePicker the props from [react-datepicker](https://github.com/Hacker0x01/react-datepicker)
 
 ```jsx
 function () {
@@ -67,6 +71,8 @@ function () {
 
 ## Give an Icon
 
+Add an icon with the `icon` property
+
 ```jsx
 function () {
   const [value, setValue] = React.useState(Date.now())
@@ -76,14 +82,46 @@ function () {
   }
 
   return (
-    <Field label="Date">
-      <DatePicker icon={<DateIcon color="light.100" />} name="welcome3" value={value} onChange={handleChange} />
-    </Field>
+    <Stack spacing="xl">
+      <DatePicker icon={<DateIcon />} name="welcome3" value={value} onChange={handleChange} />
+      <DatePicker icon={<DateIcon />} iconPlacement="right" name="welcome3" value={value} onChange={handleChange} />
+    </Stack>
   )
 }
 ```
 
-## fr locale
+## Sizes
+
+Use size propety with option:
+- `xs` (24px)
+- `sm` (32px)
+- `md` (40px - default)
+- `lg` (48px)
+
+```jsx
+function () {
+  const [value, setValue] = React.useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <Stack spacing="xl">
+      <DatePicker name="welcome3" size="xs" value={value} onChange={handleChange} />
+      <DatePicker name="welcome3" size="sm" value={value} onChange={handleChange} />
+      <DatePicker name="welcome3" value={value} onChange={handleChange} />
+      <DatePicker name="welcome3" size="lg" value={value} onChange={handleChange} />
+    </Stack>
+  )
+}
+```
+
+## Locales
+
+You can change your locale by pass locale property from date-fns.
+
+In this exemple we import **import dateFR from 'date-fns/locale/fr'**
 
 ```jsx
 function () {
@@ -97,6 +135,24 @@ function () {
     <Field label="Date">
       <DatePicker locale={dateFR} name="welcome4" value={value} onChange={handleChange} />
     </Field>
+  )
+}
+```
+
+## Transparent
+
+Pass `transparent` to remove background-color and border-color
+
+```jsx
+function () {
+  const [value, setValue] = React.useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <DatePicker transparent name="welcome" onChange={handleChange} value={value} />
   )
 }
 ```

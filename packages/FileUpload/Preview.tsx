@@ -14,10 +14,10 @@ export const Preview: React.FC<PreviewProps> = ({ file, onRemove }) => {
   const size = getFileSize(file)
 
   return (
-    <Tag data-id={name} key={name} mr="sm" mt="sm" onRemove={onRemove} size="lg">
+    <Tag data-id={name} key={name} mr="sm" mt="sm" onRemove={onRemove}>
       <Icon size="md" />
       {name}
-      {size && <Box color="nude.600">({size})</Box>}
+      {size && <Box color="nude-600">({size})</Box>}
     </Tag>
   )
 }

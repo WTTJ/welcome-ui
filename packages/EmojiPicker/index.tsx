@@ -112,12 +112,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
     const onlyTabContent = tabs[0].content
 
     return (
-      <S.Popover
-        aria-label={popoverAriaLabel}
-        arrowStyle={{ display: 'none' }}
-        ref={ref}
-        {...popoverState}
-      >
+      <S.Popover aria-label={popoverAriaLabel} ref={ref} {...popoverState}>
         {hasTabs && (
           <>
             <S.TabList aria-label={tabListAriaLabel} {...tabState}>

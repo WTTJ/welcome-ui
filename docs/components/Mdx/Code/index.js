@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-max-depth */
-/* eslint-disable react/prop-types */
+
 import * as React from 'react'
 import { LivePreview, LiveProvider } from 'react-live'
 import theme from 'prism-react-renderer/themes/nightOwl'
@@ -92,7 +92,7 @@ export function Code({
   row,
   withCode = true,
 }) {
-  const [editorOpen, setEditorOpen] = React.useState(true)
+  const [editorOpen, setEditorOpen] = React.useState(false)
   const language = className && className.replace(/language-/, '')
   const [copy, copied] = useCopyText(children.trim(), 3000)
   const [editorCode, setEditorCode] = React.useState(children.trim())
@@ -194,38 +194,36 @@ export function Code({
           mt="md"
           overflow="visible"
         >
-          <Card.Body color="dark.900" p="0">
-            <Box p="xl" pb="lg">
-              <LivePreview />
-            </Box>
-            {withCode === true && (
-              <S.ShowEditor>
+          <Box p="xl">
+            <LivePreview />
+          </Box>
+          {withCode === true && (
+            <S.ShowEditor>
+              <Button
+                border="none"
+                h={25}
+                onClick={toggleEditor}
+                shape="circle"
+                variant="tertiary"
+                w={25}
+              >
+                <Icons.ChevronIcon />
+              </Button>
+              {isCopyable && (
                 <Button
                   border="none"
                   h={25}
-                  onClick={toggleEditor}
+                  ml="sm"
+                  onClick={copy}
                   shape="circle"
                   variant="tertiary"
                   w={25}
                 >
-                  <Icons.ChevronIcon />
+                  {copied ? <Icons.CheckIcon color="success-500" /> : <Icons.CopyIcon />}
                 </Button>
-                {isCopyable && (
-                  <Button
-                    border="none"
-                    h={25}
-                    ml="xxs"
-                    onClick={copy}
-                    shape="circle"
-                    variant="tertiary"
-                    w={25}
-                  >
-                    {copied ? <Icons.CheckIcon color="success.500" /> : <Icons.CopyIcon />}
-                  </Button>
-                )}
-              </S.ShowEditor>
-            )}
-          </Card.Body>
+              )}
+            </S.ShowEditor>
+          )}
         </Card>
         {editorOpen && withCode === true && (
           <S.LiveEditor>

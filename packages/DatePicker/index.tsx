@@ -21,6 +21,7 @@ export interface DatePickerOptions {
   useWeekdaysShort?: boolean
   placeholder?: ReactDatePickerProps['placeholderText']
   value: string | Date
+  transparent?: boolean
 }
 
 export type DatePickerProps = CreateWuiProps<
@@ -52,6 +53,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
       startYear = 1900,
       useWeekdaysShort = true,
       value = DEFAULT_DATE,
+      transparent,
       ...rest
     },
     ref
@@ -159,6 +161,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
         )}
         selected={date}
         size={size}
+        transparent={transparent}
         useWeekdaysShort={useWeekdaysShort}
         {...rest}
         isClearable={false}

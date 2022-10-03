@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 import { useCopyText } from '@welcome-ui/utils.copy'
 import { Toast, useToast } from '@welcome-ui/toast'
@@ -23,8 +22,8 @@ export function Item({ componentName, icon: Icon, name }) {
   return (
     <S.Item copied={copied} onClick={handleCopy}>
       <S.Content>
-        <Icon size="xl" />
-        <Text as="span" color="nude.800" lines={2} pt="md" px="xs" variant="meta1">
+        <Icon />
+        <Text as="span" color="nude-700" lines={2} pt="md" px="sm" variant="sm">
           {name}
         </Text>
       </S.Content>

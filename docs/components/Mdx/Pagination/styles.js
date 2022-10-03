@@ -6,18 +6,18 @@ export const Link = styled.a(
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: sub.3;
+    color: sub-3;
     transition: medium;
 
     &:hover {
       ${!isNext &&
       css`
-        padding-left: xxs;
+        padding-left: sm;
       `};
 
       ${isNext &&
       css`
-        padding-right: xxs;
+        padding-right: sm;
       `};
     }
   `

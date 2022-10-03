@@ -2,11 +2,14 @@ import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
 
-type State = 'error' | 'warning' | 'info' | 'success'
+type State = 'default' | 'error' | 'warning' | 'info' | 'success'
+
+type Sizes = 'sm' | 'md'
 
 type AttributesState = CSSObject
 
 export type ThemeAlerts = {
+  sizes: Record<Sizes, { padding?: string }>
   default: CSSObject
   title: Record<State, { color: string }>
 } & Record<State, AttributesState>
@@ -16,41 +19,55 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
 
   return {
     default: {
-      fontSize: fontSizes.body3,
+      display: 'flex',
+      maxWidth: 'max-content',
+      fontSize: fontSizes.sm,
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
       borderRadius: radii.md,
-      padding: space.xl,
-      color: colors.dark[200],
+      color: colors['dark-700'],
+      backgroundColor: colors['light-900'],
+      borderColor: colors['dark-100'],
     },
     error: {
-      backgroundColor: colors.danger[100],
-      borderColor: colors.danger[500],
+      backgroundColor: colors['danger-100'],
+      borderColor: colors['danger-500'],
     },
     warning: {
-      backgroundColor: colors.warning[100],
-      borderColor: colors.warning[500],
+      backgroundColor: colors['warning-100'],
+      borderColor: colors['warning-500'],
     },
     info: {
-      backgroundColor: colors.info[100],
-      borderColor: colors.info[700],
+      backgroundColor: colors['info-100'],
+      borderColor: colors['info-500'],
     },
     success: {
-      backgroundColor: colors.success[100],
-      borderColor: colors.success[700],
+      backgroundColor: colors['success-100'],
+      borderColor: colors['success-500'],
+    },
+    sizes: {
+      sm: {
+        padding: space.lg,
+      },
+      md: {
+        padding: space.xl,
+      },
     },
     title: {
+      default: {
+        color: colors['dark-900'],
+      },
       error: {
-        color: colors.danger[700],
+        color: colors['dark-900'],
       },
       warning: {
-        color: colors.warning[700],
+        color: colors['dark-900'],
       },
       info: {
-        color: colors.info[700],
+        color: colors['dark-900'],
       },
       success: {
-        color: colors.success[700],
+        color: colors['dark-900'],
       },
     },
   }

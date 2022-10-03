@@ -18,46 +18,46 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
   return {
     item: {
       default: {
-        width: toRem(34),
-        height: toRem(18),
+        width: toRem(26),
+        height: toRem(16),
         borderRadius: toRem(9),
-        backgroundColor: colors.light[900],
-        borderColor: colors.light[800],
+        backgroundColor: colors['light-900'],
+        borderColor: colors.border,
         borderWidth: borderWidths.sm,
         borderStyle: 'solid',
         marginTop: LINE_HEIGHT_ADJUSTMENTS,
 
         '&:focus': {
-          borderColor: colors.primary[500],
+          borderColor: colors['primary-500'],
           ...focus(),
         },
       },
       checked: {
-        backgroundColor: colors.primary[500],
-        borderColor: colors.primary[500],
+        backgroundColor: colors['primary-500'],
+        borderColor: colors['primary-500'],
       },
       disabled: {
-        borderColor: colors.nude[700],
-        backgroundColor: colors.nude[500],
+        borderColor: colors['nude-600'],
+        backgroundColor: colors['nude-400'],
       },
     },
     after: {
       default: {
-        width: toRem(14),
-        height: toRem(14),
-        backgroundColor: colors.light[900],
-        borderColor: colors.light[500],
+        width: toRem(12),
+        height: toRem(12),
+        backgroundColor: colors['light-900'],
+        borderColor: colors['dark-400'],
         borderWidth: borderWidths.sm,
         borderStyle: 'solid',
         borderRadius: '50%',
       },
       checked: {
-        backgroundColor: colors.light[900],
-        borderColor: colors.light[900],
+        backgroundColor: colors['light-900'],
+        borderColor: colors['light-900'],
       },
       disabled: {
-        borderColor: colors.nude[700],
-        backgroundColor: colors.nude[700],
+        borderColor: 'transparent',
+        backgroundColor: colors['nude-600'],
       },
     },
   }

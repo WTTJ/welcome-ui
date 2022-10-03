@@ -4,11 +4,11 @@ import { Popover as WUIPopover } from '@welcome-ui/popover'
 import { Box } from '@welcome-ui/box'
 
 export const Popover = styled(WUIPopover)`
-  background-color: light.900;
+  background-color: light-900;
   border-width: sm;
   border-style: solid;
-  border-color: light.800;
-  color: dark.900;
+  border-color: border;
+  color: dark-900;
   ${system};
 `
 
@@ -38,13 +38,13 @@ export const EmojiButton = styled.buttonBox.attrs({
   &[data-active] {
     outline: none;
     &:nth-child(3n) {
-      background-color: sub.4;
+      background-color: sub-4;
     }
     &:nth-child(3n + 1) {
-      background-color: sub.1;
+      background-color: sub-1;
     }
     &:nth-child(3n + 2) {
-      background-color: sub.5;
+      background-color: sub-5;
     }
   }
 `

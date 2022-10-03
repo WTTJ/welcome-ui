@@ -1,4 +1,3 @@
-import { hexToRGB } from '@welcome-ui/utils'
 import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
@@ -7,44 +6,31 @@ export interface ThemePaginations {
   default: CSSObject
   item: CSSObject
   active: CSSObject
-  number: CSSObject
-  dots: CSSObject
 }
 
 export const getPaginations = (theme: WuiTheme): ThemePaginations => {
-  const { borderWidths, colors, focus, fontSizes, fontWeights, toRem } = theme
+  const { colors, focus, fontSizes, fontWeights, toRem } = theme
 
   return {
     default: {
-      width: toRem(30),
-      height: toRem(30),
-      color: colors.dark[900],
+      width: toRem(32),
+      height: toRem(32),
+      color: colors['dark-900'],
       fontWeight: fontWeights.bold,
+      fontSize: fontSizes.xs,
     },
     item: {
-      borderWidth: borderWidths.sm,
-      borderStyle: 'solid',
-      borderRadius: '50%',
       '&:hover, &:focus': {
-        backgroundColor: `rgba(${hexToRGB(colors.dark[900])}, 0.1)`,
+        backgroundColor: colors['dark-100'],
       },
-      '&:focus': focus(colors.dark[900]),
+      '&:focus': { ...focus(colors['dark-500']) },
     },
     active: {
-      backgroundColor: colors.primary[500],
-      borderColor: colors.primary[500],
-      color: colors.light[900],
+      backgroundColor: colors['dark-900'],
+      color: colors['light-900'],
       '&:hover, &:focus': {
-        borderColor: colors.primary[500],
-        backgroundColor: colors.primary[500],
+        backgroundColor: colors['dark-900'],
       },
-      '&:focus': focus(),
-    },
-    number: {
-      fontSize: fontSizes.body3,
-    },
-    dots: {
-      fontSize: fontSizes.body3,
     },
   }
 }

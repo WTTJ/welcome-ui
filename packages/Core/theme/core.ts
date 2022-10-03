@@ -10,6 +10,7 @@ import {
   getFontSizes,
   getLetterSpacings,
   getLineHeights,
+  getTextFontColors,
   getTexts,
   getTextsFontFamily,
   getTextsFontWeights,
@@ -55,15 +56,13 @@ import { getBreadcrumbs } from './breadcrumbs'
 import { getToasts } from './toasts'
 import { getPaginations } from './paginations'
 import { getTabs } from './tabs'
-import { getCloseButton } from './closeButton'
+import { getBadges } from './badges'
 
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'Work Sans'
 const DEFAULT_LINE_HEIGHT = 1.15
-const DEFAULT_LETTER_SPACING = 0
+const DEFAULT_LETTER_SPACING = '-0.019rem'
 const HEADING_FONT_FAMILY = 'welcome-font'
-const HEADING_LINE_HEIGHT = 1.2
-const HEADING_LETTER_SPACING = 0
 const ICON_FONT_FAMILY = 'welcome-icon-font'
 
 export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => {
@@ -72,8 +71,6 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
     defaultLineHeight = DEFAULT_LINE_HEIGHT,
     defaultLetterSpacing = DEFAULT_LETTER_SPACING,
     headingFontFamily = HEADING_FONT_FAMILY,
-    headingLineHeight = HEADING_LINE_HEIGHT,
-    headingLetterSpacing = HEADING_LETTER_SPACING,
     iconFontFamily = ICON_FONT_FAMILY,
     ...rest
   } = options
@@ -84,6 +81,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
 
   theme.toEm = px => `${px / DEFAULT_FONT_SIZE}em`
   theme.toRem = px => `${px / DEFAULT_FONT_SIZE}rem`
+  theme.toPx = rem => `${rem * DEFAULT_FONT_SIZE}px`
 
   theme.colors = colors
 
@@ -92,8 +90,6 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.fontSizes = getFontSizes('rem', theme)
   theme.defaultLineHeight = defaultLineHeight as number
   theme.defaultLetterSpacing = defaultLetterSpacing as string
-  theme.headingLineHeight = headingLineHeight as number
-  theme.headingLetterSpacing = headingLetterSpacing as string
   theme.lineHeights = getLineHeights(theme)
   theme.fontWeights = fontWeights
   theme.letterSpacings = getLetterSpacings(theme)
@@ -125,22 +121,22 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   // These attributes depend on colors and fontSizes and must come last
   theme.selection = getSelection(theme)
   theme.underline = getUnderline(theme)
-  theme.focus = getFocus(theme.colors.primary[500])
+  theme.focus = getFocus(theme)
   theme.defaultCards = getDefaultCards(theme)
   theme.textsFontWeights = getTextsFontWeights(theme)
   theme.textsFontFamily = getTextsFontFamily(theme)
+  theme.textsFontColors = getTextFontColors(theme)
   theme.textsTextTransform = getTextsTextTransform()
+  theme.texts = getTexts(theme)
   theme.alerts = getAlerts(theme)
   theme.avatars = getAvatars(theme)
+  theme.badges = getBadges(theme)
   theme.buttons = getButtons(theme)
-  theme.closeButton = getCloseButton(theme)
   theme.breadcrumbs = getBreadcrumbs(theme)
-  // TODO: should be removed when all fields have been migrated to their own packageName/theme.js file
   theme.toasts = getToasts(theme)
   theme.paginations = getPaginations(theme)
   theme.tabs = getTabs(theme)
   theme.tags = getTags(theme)
-  theme.texts = getTexts(theme)
   theme.tooltips = getTooltips(theme)
   theme.links = getLinks(theme)
   theme.dropdownMenu = getDropdownMenu(theme)

@@ -1,8 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 import { Box } from '@welcome-ui/box'
-import { CheckIcon } from '@welcome-ui/icons.check'
-import { CopyIcon } from '@welcome-ui/icons.copy'
+import { CheckIcon, CopyIcon } from '@welcome-ui/icons'
 import { Text } from '@welcome-ui/text'
 import { useCopyText } from '@welcome-ui/utils.copy'
 
@@ -14,18 +12,16 @@ export function Item({ content, name }) {
   }
 
   return (
-    <Box alignItems="center" display="flex" pb="sm">
-      <Text color="light.200" m="0" variant="body4" w={{ xs: 50, md: 64 }}>
+    <Box alignItems="center" display="flex" pb="md">
+      <Text m="0" variant="xs" w={{ xs: 50, md: 64 }}>
         {name}
       </Text>
       <Box alignItems="center" display="flex" flex="1">
-        <Text lines={1} m="0" mr="xxs">
+        <Text lines={1} m="0" mr="sm" color="dark-900">
           {content}
         </Text>
-        {copied && <CheckIcon color="success.500" flex="0 0 auto" />}
-        {!copied && (
-          <CopyIcon color="dark.200" cursor="pointer" flex="0 0 auto" onClick={handleCopy} />
-        )}
+        {copied && <CheckIcon color="success-500" flex="0 0 auto" size="sm" />}
+        {!copied && <CopyIcon cursor="pointer" flex="0 0 auto" size="sm" onClick={handleCopy} />}
       </Box>
     </Box>
   )

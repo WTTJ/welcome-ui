@@ -10,10 +10,10 @@ const content = 'Jungle'
 describe('<Hint>', () => {
   it('should render correctly', () => {
     const { getByTestId } = render(<Hint dataTestId="hint">{content}</Hint>)
-    const button = getByTestId('hint')
+    const hint = getByTestId('hint')
 
-    expect(button).toHaveTextContent(content)
-    expect(button).toHaveStyleRule('color', colors.light[500])
+    expect(hint).toHaveTextContent(content)
+    expect(hint).toHaveStyleRule('font-size', '0.75rem')
   })
 
   it('should render correctly with a state', () => {
@@ -22,9 +22,9 @@ describe('<Hint>', () => {
         {content}
       </Hint>
     )
-    const button = getByTestId('hint')
+    const hint = getByTestId('hint')
 
-    expect(button).toHaveTextContent(content)
-    expect(button).toHaveStyleRule('color', colors.danger[700])
+    expect(hint).toHaveTextContent(content)
+    expect(hint).toHaveStyleRule('color', colors['danger-500'])
   })
 })

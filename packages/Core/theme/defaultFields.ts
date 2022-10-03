@@ -7,6 +7,7 @@ import { WuiTheme } from './types'
 export type ThemeDefaultFields = {
   default: CSSObject
   sizes: Record<Size, CSSObject>
+  iconPlacement: Record<Size, CSSObject>
   checkableField: {
     checked: CSSObject
     disabled: CSSObject
@@ -15,8 +16,10 @@ export type ThemeDefaultFields = {
   placeholder: CSSObject
   focused: {
     default: CSSObject & ReturnType<ThemeFocus>
-    error: ReturnType<ThemeFocus>
-    warning: ReturnType<ThemeFocus>
+    error: CSSObject & ReturnType<ThemeFocus>
+    warning: CSSObject & ReturnType<ThemeFocus>
+    success: CSSObject & ReturnType<ThemeFocus>
+    info: CSSObject & ReturnType<ThemeFocus>
   }
   checkablelabel: {
     default: CSSObject
@@ -38,29 +41,51 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
 
   return {
     default: {
-      color: colors.dark[900],
-      fontSize: fontSizes.body3,
+      color: colors['dark-900'],
+      fontSize: fontSizes.sm,
       /* Can't use 16 because that's a valid line-height value (16em) */
       lineHeight: '1rem',
       fontWeight: fontWeights.regular,
-      backgroundColor: colors.light[900],
-      borderColor: colors.light[800],
+      backgroundColor: colors['light-900'],
+      borderColor: colors.border,
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
       outline: 'none',
     },
     sizes: {
-      sm: {
-        height: toRem(32),
+      xs: {
+        height: toRem(24),
         padding: `${space.xs} ${space.md}`,
       },
-      md: {
-        height: toRem(36),
+      sm: {
+        height: toRem(32),
         padding: `${space.sm} ${space.md}`,
       },
-      lg: {
+      md: {
         height: toRem(40),
         padding: `${space.md}`,
+      },
+      lg: {
+        height: toRem(48),
+        padding: `${space.lg} ${space.md}`,
+      },
+    },
+    iconPlacement: {
+      xs: {
+        left: toRem(8),
+        right: toRem(8),
+      },
+      sm: {
+        left: toRem(12),
+        right: toRem(12),
+      },
+      md: {
+        left: toRem(12),
+        right: toRem(12),
+      },
+      lg: {
+        left: toRem(12),
+        right: toRem(12),
       },
     },
     checkableField: {
@@ -72,27 +97,29 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       },
     },
     disabled: {
-      backgroundColor: colors.nude[500],
-      color: colors.nude[700],
+      backgroundColor: colors['nude-400'],
+      color: colors['nude-700'],
       cursor: 'not-allowed',
     },
     placeholder: {
-      color: colors.light[500],
+      color: colors['dark-400'],
     },
     focused: {
       default: {
-        ...focus(),
-        borderColor: colors.primary[500],
+        ...focus(colors['primary-200']),
+        borderColor: 'transparent',
       },
-      error: focus(colors.danger[700]),
-      warning: focus(colors.warning[700]),
+      error: { ...focus(colors['danger-300']) },
+      warning: { ...focus(colors['warning-400']) },
+      success: { ...focus(colors['success-300']) },
+      info: { ...focus(colors['info-400']) },
     },
     checkablelabel: {
       default: {
         fontWeight: fontWeights.regular,
       },
       checked: {
-        color: colors.dark[200],
+        color: colors['dark-200'],
         '-webkit-text-stroke': '0.04em',
       },
     },
@@ -101,22 +128,22 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
         maxHeight: toRem(155),
       },
       existing: {
-        color: colors.nude[500],
+        color: colors['nude-400'],
         cursor: 'not-allowed',
       },
       highlighted: {
-        backgroundColor: colors.nude[100],
+        backgroundColor: colors['nude-100'],
         cursor: 'default',
       },
       selectedAndHighlighted: {
         backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%)',
       },
       selected: {
-        color: colors.dark[200],
+        color: colors['dark-200'],
         fontWeight: fontWeights.bold,
       },
       disabled: {
-        color: colors.nude[500],
+        color: colors['nude-600'],
         cursor: 'not-allowed',
       },
     },

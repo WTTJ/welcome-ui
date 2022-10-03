@@ -19,7 +19,7 @@ import {
 
 ```jsx
 function () {
-  const [value, setValue] = React.useState(null)
+  const [value, setValue] = React.useState('github')
 
   const handleChange = event => {
     setValue(event.target.value)
@@ -27,12 +27,46 @@ function () {
 
   return (
     <Field
-      hint="Most popular is Twitter"
-      label="Social networks"
-      mb="xl"
+      label="Label"
       required
     >
-      <RadioGroup name="social" options={constants.ITEMS} onChange={handleChange} value={value} />
+      <RadioGroup name="social-1" options={constants.ITEMS.slice(0, 5)} onChange={handleChange} value={value} />
+    </Field>
+  )
+}
+```
+
+## Disabled
+
+Add `disabled` to the Field component
+
+```jsx
+function () {
+  return (
+    <Field
+      label="Label"
+      disabled
+    >
+      <RadioGroup name="social-2" options={constants.ITEMS.slice(0, 5)} value="github" />
+    </Field>
+  )
+}
+```
+
+## Variants
+
+Add `disabled` to the Field component
+
+```jsx
+function () {
+  const ITEMS = constants.ITEMS.slice(0, 3)
+
+  return (
+    <Field
+      label="Label"
+      error="an error"
+    >
+      <RadioGroup name="social-3" options={ITEMS} />
     </Field>
   )
 }
@@ -51,7 +85,7 @@ function () {
   return (
     <Field flexDirection="row" mb="xl" required>
       <RadioGroup
-        name="social"
+        name="social-4"
         maxWidth={{ md: 0.3 }}
         options={[
           {

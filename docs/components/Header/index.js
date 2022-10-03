@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Box } from '@welcome-ui/box'
-import { MenuIcon } from '@welcome-ui/icons.menu'
+import { MenuIcon } from '@welcome-ui/icons'
 import NextLink from 'next/link'
 import { Drawer, useDrawerState } from '@welcome-ui/drawer'
+
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons'
 import { DocSearch } from '@docsearch/react'
@@ -23,6 +24,12 @@ export function Header() {
     '/': 'gray',
   }
   const variant = variants[pathname]
+  const [hasBeenHydrated, setHasBeenHydrated] = useState(false)
+
+  // Workaround for hydration warning UI for Reakit dialog (fix in ariakit 2.0)
+  useEffect(() => {
+    setHasBeenHydrated(true)
+  }, [])
 
   return (
     <S.Header variant={variant}>
@@ -44,21 +51,26 @@ export function Header() {
         <ThemeSelector ml="lg" />
       </Box>
       <NavBar display={{ xs: 'none', md: 'flex' }} />
-      <Drawer.Trigger
-        {...mobileMenuDrawer}
-        as={Button}
-        display={{ md: 'none' }}
-        shape="circle"
-        size="sm"
-      >
-        {mobileMenuDrawer.visible ? <CrossIcon /> : <MenuIcon />}
-      </Drawer.Trigger>
-      <Drawer.Backdrop {...mobileMenuDrawer} backdropVisible={false}>
-        <S.MenuMobileDrawer aria-label="Menu backdrop" {...mobileMenuDrawer}>
-          <NavBar isMobileMenu mb="xl" />
-          <ComponentsList onClick={() => mobileMenuDrawer.hide()} />
-        </S.MenuMobileDrawer>
-      </Drawer.Backdrop>
+
+      {hasBeenHydrated && (
+        <>
+          <Drawer.Trigger
+            {...mobileMenuDrawer}
+            as={Button}
+            display={{ md: 'none' }}
+            shape="circle"
+            size="sm"
+          >
+            {mobileMenuDrawer.visible ? <CrossIcon /> : <MenuIcon />}
+          </Drawer.Trigger>
+          <Drawer.Backdrop {...mobileMenuDrawer} backdropVisible={false}>
+            <S.MenuMobileDrawer aria-label="Menu backdrop" {...mobileMenuDrawer}>
+              <NavBar isMobileMenu mb="lg" />
+              <ComponentsList onClick={() => mobileMenuDrawer.hide()} />
+            </S.MenuMobileDrawer>
+          </Drawer.Backdrop>
+        </>
+      )}
     </S.Header>
   )
 }

@@ -17,26 +17,26 @@ export const getBreadcrumbs = (theme: WuiTheme): ThemeBreadcrumbs => {
 
   return {
     list: {
-      fontSize: fontSizes.body3,
+      fontSize: fontSizes.sm,
       fontWeight: fontWeights.medium,
       lineHeight: '1.92',
       padding: `${space.sm} 0`,
     },
     item: {
       default: {
+        color: colors['dark-500'],
         textDecoration: 'none',
-        color: colors.light[100],
       },
       hover: {
-        color: colors.dark[900],
+        color: colors['dark-900'],
       },
       active: {
-        color: colors.dark[900],
+        color: colors['dark-900'],
       },
     },
     separator: {
       padding: `0 ${space.sm}`,
-      color: colors.light[100],
+      color: colors['dark-500'],
     },
   }
 }

@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^4.2.0",
-    "@welcome-ui/icons.search": "^4.2.0",
+    "@welcome-ui/icons": "^4.2.0",
     "@welcome-ui/input-text": "^4.2.0",
     "@welcome-ui/popover": "^4.4.0",
     "@welcome-ui/stack": "^4.2.0",

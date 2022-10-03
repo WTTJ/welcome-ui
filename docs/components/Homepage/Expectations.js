@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Card } from '@welcome-ui/card'
@@ -68,12 +67,12 @@ const expectations = [
 function Expectation({ description, icon: Icon, title }) {
   return (
     <Card w="100%">
-      <Card.Body color="dark.900">
-        <Icon size={30} />
-        <Text mb="md" mt="xl" textTransform="uppercase" variant="h6">
+      <Card.Body>
+        <Icon color="dark-900" size={30} />
+        <Text mb="md" mt="lg" textTransform="uppercase" variant="h6">
           {title}
         </Text>
-        <Text color="dark.200" m="0" variant="body3">
+        <Text m="0" variant="sm">
           {description}
         </Text>
       </Card.Body>
@@ -85,11 +84,11 @@ export function Expectations() {
   return (
     <Box
       display="grid"
-      gap="xl"
+      gap="lg"
       gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}
     >
-      {expectations.map(component => (
-        <Expectation key={component.link} {...component} />
+      {expectations.map(expectation => (
+        <Expectation key={expectation.title} {...expectation} />
       ))}
     </Box>
   )

@@ -15,7 +15,7 @@ import {
   description="Allows user to build a simple swiper with images or contents."
 />
 
-## Default
+## Usage
 
 ```jsx
 function() {
@@ -227,7 +227,7 @@ By providing the optional `renderPaginationItem` you can customise the defaults 
 function() {
   const swiper = useSwiper({
     renderPaginationItem: ({idx,  active, onClick, pageIdx }) => (
-      <Swiper.Bullet w={50} h={50} active={idx === pageIdx} onClick={onClick} />
+      <Swiper.Bullet w={50} h={50} key={idx} active={idx === pageIdx} onClick={onClick} />
     )
   })
 

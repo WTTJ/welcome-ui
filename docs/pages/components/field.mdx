@@ -16,33 +16,67 @@ We recommend using [React-hook-form](https://react-hook-form.com/) or [Formik](h
 
 You can find props for each field component in the other `Forms` pages.
 
-## Variants
+## Label
+
+Use `label` to add an Label to your field
 
 ```jsx
-<Field label="Label" hint="A hint">
+<Field label="Label">
   <InputText placeholder="Placeholder" />
 </Field>
-<Field label="Label" warning="A warning">
+<Field label="Label for a checkbox">
+  <Checkbox />
+</Field>
+```
+## Hint
+
+Use `hint` to add an hint to your field (it can be overload by a variant - see below)
+
+```jsx
+<Field hint="A hint">
   <InputText placeholder="Placeholder" />
 </Field>
+<Field hint="A hint" label="Label for a checkbox">
+  <Checkbox />
+</Field>
+```
+
+## Variants
+
+Use `warning`, `error`, `info` or `success` properties to add a variant status on your fields. The label, hint or border color are set by magic 🪄
+
+```jsx
 <Field label="Label" error="An error">
   <InputText placeholder="Placeholder" />
+</Field>
+<Field error="An error" label="Label for a checkbox">
+  <Checkbox />
 </Field>
 ```
 
 ## Disabled
 
+Add `disabled` on Field component
+
 ```jsx
 <Field label="Label" disabled>
   <InputText placeholder="Placeholder" />
+</Field>
+<Field label="Label for a checkbox" disabled>
+  <Checkbox />
 </Field>
 ```
 
 ## Required
 
+Add `required` on Field component
+
 ```jsx
 <Field label="Label" required>
   <InputText placeholder="Placeholder" />
+</Field>
+<Field required label="Label for a checkbox">
+  <Checkbox />
 </Field>
 ```
 

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
@@ -19,17 +18,13 @@ export function Showcase({
   version,
 }) {
   return (
-    <Box backgroundColor="nude.100" maxW="100% !important">
-      <Box m="0 auto" maxW={970} px={{ md: 'md' }} py={{ xs: '3xl', md: 70 }}>
-        <H1 mb="0" pb="xxs" pt="0">
+    <Box backgroundColor="nude-100" maxW="100% !important">
+      <Box m="0 auto" maxW={970} px={{ md: 'md' }} py={{ xs: 'xxl', md: '4xl' }}>
+        <H1 mb="0" pb="sm" pt="0">
           {pageName || component}
         </H1>
-        {description && (
-          <Text color="dark.200" variant="body1">
-            {description}
-          </Text>
-        )}
-        <Box mt={60}>
+        {description && <Text variant="body1">{description}</Text>}
+        <Box mt="4xl">
           <Item content={version} name="version" />
           <Item content={`yarn add ${name}`} name="install" />
           <Item content={`import { ${component} } from '${name}'`} name="usage" />
@@ -38,7 +33,7 @@ export function Showcase({
             <Item content={customUsage} name={customInstall ? 'usage' : 'or usage'} />
           )}
         </Box>
-        <Box mt="3xl">
+        <Box mt="xxl">
           <Button
             alt="npm package"
             as="a"
@@ -46,9 +41,9 @@ export function Showcase({
             rel="noopener noreferrer"
             size="sm"
             target="_blank"
-            variant="quaternary"
+            variant="tertiary"
           >
-            <NpmIcon size="lg" />
+            <NpmIcon size="xs" />
             <span>View package</span>
           </Button>
           <Button
@@ -57,9 +52,10 @@ export function Showcase({
             ml="md"
             size="sm"
             target="_blank"
-            variant="quaternary"
+            alt="github"
+            variant="tertiary"
           >
-            <GithubIcon size="lg" />
+            <GithubIcon size="xs" />
             <span>View source</span>
           </Button>
         </Box>

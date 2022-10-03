@@ -12,9 +12,7 @@ export type TabProps = CreateWuiProps<'button', TabOptions>
 /**
  * @name Tabs
  */
-export const TabComponent = forwardRef<'button', TabProps>((props, ref) => {
-  const { as, children, id, ...rest } = props
-
+export const TabComponent = forwardRef<'button', TabProps>(({ as, children, id, ...rest }, ref) => {
   return (
     <ReakitTab as={undefined} id={id} ref={ref} {...rest}>
       {tabProps => (

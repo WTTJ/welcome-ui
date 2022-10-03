@@ -1,5 +1,5 @@
 import React from 'react'
-import { LockIcon } from '@welcome-ui/icons.lock'
+import { LockIcon } from '@welcome-ui/icons'
 import { VariantIcon } from '@welcome-ui/variant-icon'
 import { Variant, wrapChildren } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -46,8 +46,10 @@ export const Label = forwardRef<'label', LabelProps>(
         variant={variant}
         {...rest}
       >
-        {!checkableField && <VariantIcon icon={icon} variant={variant} />}
-        {disabled && withDisabledIcon && <S.Disabled>{disabledIcon || <LockIcon />}</S.Disabled>}
+        {!checkableField && <VariantIcon icon={icon} size="sm" variant={variant} />}
+        {disabled && withDisabledIcon && (
+          <S.Disabled>{disabledIcon || <LockIcon size="sm" />}</S.Disabled>
+        )}
         {content}
       </S.Label>
     )

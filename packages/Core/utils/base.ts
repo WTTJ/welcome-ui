@@ -38,6 +38,10 @@ export const GlobalStyle = createGlobalStyle<{ useReset?: boolean }>(
     ${baseFonts()};
     ${useReset ? resetStyles : baseBoxSizing};
 
+    html {
+      color: dark-500;
+    }
+
     ::selection {
       ${th('selection')};
     }

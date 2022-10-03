@@ -1,7 +1,7 @@
 import React from 'react'
-import { VariantIcon } from '@welcome-ui/variant-icon'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { Variant } from '@welcome-ui/utils'
+
+export type Variant = 'error' | 'info' | 'success' | 'warning'
 
 import * as S from './styles'
 
@@ -13,10 +13,9 @@ export interface HintOptions {
 export type HintProps = CreateWuiProps<'div', HintOptions>
 
 export const Hint = forwardRef<'div', HintProps>(
-  ({ checkableField, children, dataTestId, variant, ...rest }, ref) => {
+  ({ children, dataTestId, variant, ...rest }, ref) => {
     return (
       <S.Hint data-testid={dataTestId} ref={ref} variant={variant} {...rest}>
-        {checkableField && <VariantIcon variant={variant} />}
         {children}
       </S.Hint>
     )
@@ -24,3 +23,5 @@ export const Hint = forwardRef<'div', HintProps>(
 )
 
 Hint.displayName = 'Hint'
+
+export const StyledHint = S.Hint

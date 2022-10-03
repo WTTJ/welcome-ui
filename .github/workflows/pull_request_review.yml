@@ -1,0 +1,54 @@
+name: PullRequest | Review
+
+on:
+  pull_request_review:
+
+jobs:
+  approved:
+    name: Approved
+    if: github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const issue_number = context.payload.pull_request.number
+            const owner = context.repo.owner
+            const repo = context.repo.repo
+
+            const labelsToAdd = ['approved']
+            const labelsToRemove = ['to-review', 'changes-requested']
+
+            const currentLabels = await github.rest.issues.listLabelsOnIssue({ issue_number, owner, repo })
+
+            github.rest.issues.addLabels({ labels: labelsToAdd, issue_number, owner, repo })
+
+            labelsToRemove.forEach(labelToRemove => {
+              if (currentLabels.data.find(label => label.name === labelToRemove)) {
+                github.rest.issues.removeLabel({ name: labelToRemove, issue_number, owner, repo });
+              }
+            })
+  changes:
+    name: Changes requested
+    if: github.event.review.state == 'changes_requested'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const issue_number = context.payload.pull_request.number
+            const owner = context.repo.owner
+            const repo = context.repo.repo
+
+            const labelsToAdd = ['changes-requested']
+            const labelsToRemove = ['approved']
+
+            const currentLabels = await github.rest.issues.listLabelsOnIssue({ issue_number, owner, repo })
+
+            github.rest.issues.addLabels({ labels: labelsToAdd, issue_number, owner, repo })
+
+            labelsToRemove.forEach(labelToRemove => {
+              if (currentLabels.data.find(label => label.name === labelToRemove)) {
+                github.rest.issues.removeLabel({ name: labelToRemove, issue_number, owner, repo });
+              }
+            })

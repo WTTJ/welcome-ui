@@ -5,10 +5,11 @@ import Downshift, {
   GetRootPropsOptions,
 } from 'downshift'
 import { matchSorter } from 'match-sorter'
-import { DownIcon } from '@welcome-ui/icons.down'
+import { DownIcon } from '@welcome-ui/icons'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { createEvent, CreateEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'
+import { IconWrapper } from '@welcome-ui/field'
 
 import {
   getInputValue,
@@ -63,6 +64,7 @@ export interface SelectOptions extends DefaultFieldStylesProps {
   disableCloseOnSelect?: boolean
   groupsEnabled?: boolean
   renderGroupHeader?: (option: OptionGroup) => void
+  transparent?: boolean
 }
 export type SelectProps = CreateWuiProps<
   'input',
@@ -94,13 +96,14 @@ export const Select = forwardRef<'input', SelectProps>(
       renderCreateItem = (inputValue: string) => `Create "${inputValue}"`,
       renderItem = itemToString,
       renderMultiple = multipleSelections,
-      size = 'lg',
+      size = 'md',
       value: defaultSelected,
       variant,
       allowUnselectFromList,
       disableCloseOnSelect,
       groupsEnabled,
       renderGroupHeader,
+      transparent,
       ...rest
     }: SelectProps,
     ref: React.MutableRefObject<HTMLInputElement>
@@ -253,7 +256,7 @@ export const Select = forwardRef<'input', SelectProps>(
           const isShowDeleteIcon = isClearable && inputValue
 
           const DeleteIcon = (
-            <S.DropDownIndicator as="div" size={size}>
+            <S.DropDownIndicator as="div">
               <ClearButton
                 onClick={clearSelection as unknown as React.MouseEventHandler<HTMLButtonElement>}
               />
@@ -270,7 +273,7 @@ export const Select = forwardRef<'input', SelectProps>(
                 onClick: () => setIsOpen(!isOpen),
               })}
             >
-              <DownIcon color="nude.800" size="xs" />
+              <DownIcon color="dark-900" size="xs" />
             </S.DropDownIndicator>
           )
 
@@ -298,6 +301,8 @@ export const Select = forwardRef<'input', SelectProps>(
             size,
             tabIndex: 0,
             variant: isOpen ? 'focused' : variant,
+            isClearable,
+            transparent,
             ...rest,
           })
 
@@ -309,8 +314,12 @@ export const Select = forwardRef<'input', SelectProps>(
                 ) : (
                   <S.Input {...inputProps}>{inputContent}</S.Input>
                 )}
-                {icon && <S.Icon size={size}>{icon}</S.Icon>}
-                <S.Indicators>
+                {icon && (
+                  <IconWrapper iconPlacement="left" size={size}>
+                    {icon}
+                  </IconWrapper>
+                )}
+                <S.Indicators size={size}>
                   {isShowDeleteIcon && DeleteIcon}
                   {ArrowIcon}
                 </S.Indicators>

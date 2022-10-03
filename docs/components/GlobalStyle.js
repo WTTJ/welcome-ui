@@ -8,9 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     --docsearch-hit-shadow: none;
     --docsearch-key-shadow: none;
     --docsearch-footer-shadow: none;
-    --docsearch-highlight-color: ${th('colors.dark.500')};
-    --docsearch-primary-color: ${th('colors.dark.500')};
-    --docsearch-logo-color: ${th('colors.dark.100')};
+    --docsearch-highlight-color: ${th('colors.dark-900')};
+    --docsearch-primary-color: ${th('colors.dark-900')};
+    --docsearch-logo-color: ${th('colors.dark-100')};
   }
 
   .DocSearch {
@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
       width: 100%;
       height: 30;
       border-radius: 0;
-      padding: 0 xxs;
+      padding: 0 sm;
       ${defaultFieldStyles({})};
       cursor: text;
       font-family: 'Work Sans';
@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
       }
 
       &-Keys {
-        margin-top: 2;
+        margin-top: xxs;
         display: flex;
       }
 

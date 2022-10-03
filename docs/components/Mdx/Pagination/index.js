@@ -12,16 +12,16 @@ export function Pagination() {
   const { next, previous } = useGetPreviousAndNextLinks('getting-started')
 
   return (
-    <Box display="flex" justifyContent="space-between" pt={{ xs: '3xl', md: 70 }} w="100%">
+    <Box display="flex" justifyContent="space-between" pt={{ xs: 'xxl', md: "4xl" }} w="100%">
       <Box>
         {previous && (
           <>
-            <Text fontWeight="bold" mb="xxs" variant="meta1">
+            <Text fontWeight="bold" mb="sm" variant="sm">
               Previous
             </Text>
             <NextLink href={previous.route} passHref>
               <S.Link>
-                <LeftIcon mr="xxs" /> {previous.name}
+                <LeftIcon mr="sm" /> {previous.name}
               </S.Link>
             </NextLink>
           </>
@@ -30,12 +30,12 @@ export function Pagination() {
       <Box textAlign="right">
         {next && (
           <>
-            <Text fontWeight="bold" mb="xxs" variant="meta1">
+            <Text fontWeight="bold" mb="sm" variant="sm">
               Next
             </Text>
             <NextLink href={next.route} passHref>
               <S.Link isNext>
-                {next.name} <RightIcon ml="xxs" />
+                {next.name} <RightIcon ml="sm" />
               </S.Link>
             </NextLink>
           </>

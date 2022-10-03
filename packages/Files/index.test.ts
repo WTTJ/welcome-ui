@@ -1,6 +1,4 @@
-import { CameraIcon } from '@welcome-ui/icons.camera'
-import { PdfIcon } from '@welcome-ui/icons.pdf'
-import { PptIcon } from '@welcome-ui/icons.ppt'
+import { CameraIcon, PdfIcon, PptIcon } from '@welcome-ui/icons'
 
 import { Type } from './types'
 

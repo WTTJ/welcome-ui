@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@welcome-ui/button'
 import { Text } from '@welcome-ui/text'
-import { ExternalLinkIcon } from '@welcome-ui/icons.external_link'
+import { ExternalLinkIcon } from '@welcome-ui/icons'
 import { ForceFileType, getFileIcon, getFileName, getFileSize } from '@welcome-ui/files'
 
 import { FileType, WordingsType } from './index'
@@ -23,12 +23,12 @@ export const FilePreview: React.FC<MessageProps & WordingsType> = ({
 
   return (
     <>
-      <Icon color="dark.900" h={50} mb="lg" w={50} />
-      <Text color="dark.900" lines={1} m={0} maxWidth={600} variant="h5">
+      <Icon color="dark-900" h={50} mb="lg" w={50} />
+      <Text color="dark-900" lines={1} m={0} maxWidth={600} variant="h4">
         {name}
       </Text>
       {!isUrl && (
-        <Text color="nude.700" fontWeight="medium" lines={1} m={0} variant="body3">
+        <Text color="nude-700" fontWeight="medium" lines={1} m={0} variant="sm">
           {size}
         </Text>
       )}

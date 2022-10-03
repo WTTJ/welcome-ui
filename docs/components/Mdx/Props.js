@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-max-depth */
 /* eslint-disable react/no-multi-comp */
-/* eslint-disable react/prop-types */
+
 /* eslint-disable react/forbid-foreign-prop-types */
 import React from 'react'
 import { Box } from '@welcome-ui/box'
@@ -69,7 +69,7 @@ function Type({ type }) {
 export function Props({ propTypes }) {
   if (!propTypes) {
     return (
-      <Box as="p" pt="xl">
+      <Box as="p" pt="lg">
         No props specified
       </Box>
     )
@@ -80,8 +80,8 @@ export function Props({ propTypes }) {
   return (
     <Box>
       <Card mt="xxl">
-        <Card.Body color="dark.900">
-          <Table marginBottom="-lg" marginTop="-xl">
+        <Card.Body color="dark-900">
+          <Table marginBottom="-lg" marginTop="-lg">
             <Table.Thead>
               <Table.Tr>
                 <Table.Th>Name</Table.Th>
@@ -102,14 +102,14 @@ export function Props({ propTypes }) {
 
                 return (
                   <Table.Tr key={key}>
-                    <Table.Td color="dark.900" fontWeight="bold" w="20%">
+                    <Table.Td color="dark-900" fontWeight="bold" w="20%">
                       {key}
                     </Table.Td>
                     <Table.Td w="50%">
                       <Box>
                         <Type type={type} />
                         {description && (
-                          <Box as="p" color="light.100" fontSize="body4" m={0} mt="xs">
+                          <Box as="p" color="light-100" fontSize="xs" m={0} mt="sm">
                             {description}
                           </Box>
                         )}
@@ -120,11 +120,9 @@ export function Props({ propTypes }) {
                     </Table.Td>
                     <Table.Td textAlign="center" w="15%">
                       {required && (
-                        <Tooltip content="is required">
-                          <Tag shape="circle" variant="primary">
-                            <CheckIcon />
-                          </Tag>
-                        </Tooltip>
+                        <Tag shape="circle" variant="primary">
+                          <CheckIcon />
+                        </Tag>
                       )}
                     </Table.Td>
                   </Table.Tr>

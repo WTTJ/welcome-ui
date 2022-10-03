@@ -6,7 +6,7 @@ import { render } from '../../utils/tests'
 import { Field } from './index'
 
 const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = props => {
-  return <input name="" type="text" {...props} />
+  return <input name="hello" type="text" {...props} />
 }
 
 const labelText = 'Label'

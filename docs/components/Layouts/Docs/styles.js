@@ -11,9 +11,9 @@ export const Navigation = styled.nav`
   top: ${headerHeight};
   left: 0;
   bottom: 0;
-  background-color: light.900;
-  border-right: 1px solid ${th('colors.light.800')};
-  padding: xl;
+  background-color: light-900;
+  border-right: 1px solid ${th('colors.border')};
+  padding: lg;
   overflow: auto;
 
   @media (min-width: md) {

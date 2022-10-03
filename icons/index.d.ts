@@ -6,6 +6,7 @@ export declare const AddIcon: React.FC<IconProps>
 export declare const AddressIcon: React.FC<IconProps>
 export declare const AirplayIcon: React.FC<IconProps>
 export declare const AlertIcon: React.FC<IconProps>
+export declare const AlertOutlineIcon: React.FC<IconProps>
 export declare const AnalyticsIcon: React.FC<IconProps>
 export declare const AnniversaryIcon: React.FC<IconProps>
 export declare const ArchiveIcon: React.FC<IconProps>
@@ -137,6 +138,7 @@ export declare const HomeIcon: React.FC<IconProps>
 export declare const HouseIcon: React.FC<IconProps>
 export declare const InProgressCandidateIcon: React.FC<IconProps>
 export declare const InformationIcon: React.FC<IconProps>
+export declare const InformationOutlineIcon: React.FC<IconProps>
 export declare const InstagramIcon: React.FC<IconProps>
 export declare const ItalicIcon: React.FC<IconProps>
 export declare const JpegIcon: React.FC<IconProps>
@@ -230,6 +232,7 @@ export declare const SoundOffIcon: React.FC<IconProps>
 export declare const SoundOnIcon: React.FC<IconProps>
 export declare const SourceIcon: React.FC<IconProps>
 export declare const SpannerIcon: React.FC<IconProps>
+export declare const SquareAlertIcon: React.FC<IconProps>
 export declare const StackoverflowIcon: React.FC<IconProps>
 export declare const StackserverIcon: React.FC<IconProps>
 export declare const StarIcon: React.FC<IconProps>
@@ -253,7 +256,7 @@ export declare const TagIcon: React.FC<IconProps>
 export declare const TagsIcon: React.FC<IconProps>
 export declare const TargetIcon: React.FC<IconProps>
 export declare const TeepeeIcon: React.FC<IconProps>
-export declare const ThumbDownIcon: React.FC<IconProps>
+export declare const ThumbdownIcon: React.FC<IconProps>
 export declare const ThumbupIcon: React.FC<IconProps>
 export declare const TrashIcon: React.FC<IconProps>
 export declare const TreeIcon: React.FC<IconProps>

@@ -5,6 +5,10 @@ import { WuiTheme } from './types'
 export type ThemeRadios = {
   default: CSSObject
   checked: CSSObject
+  checkedCenteredColor: {
+    default: string
+    disabled: string
+  }
   withHint: {
     default: CSSObject
     hint: CSSObject
@@ -16,21 +20,23 @@ export const getRadios = (theme: WuiTheme): ThemeRadios => {
 
   return {
     default: {
-      width: toRem(20),
-      height: toRem(20),
+      width: toRem(16),
+      height: toRem(16),
     },
     checked: {
-      backgroundColor: colors.primary[500],
-      borderColor: colors.primary[500],
+      borderColor: colors['primary-500'],
+    },
+    checkedCenteredColor: {
+      default: colors['primary-500'],
+      disabled: colors['nude-600'],
     },
     withHint: {
       default: {
-        fontSize: fontSizes.body2,
-        color: colors.dark[900],
+        fontSize: fontSizes.md,
+        color: colors['dark-900'],
       },
       hint: {
         marginTop: space.xs,
-        color: colors.dark[200],
       },
     },
   }

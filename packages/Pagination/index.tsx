@@ -1,7 +1,6 @@
 import React, { useCallback, useRef } from 'react'
 import { Rover, useRoverState } from 'reakit/Rover'
-import { LeftIcon } from '@welcome-ui/icons.left'
-import { RightIcon } from '@welcome-ui/icons.right'
+import { LeftIcon, RightIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import { usePages } from './utils'
@@ -64,16 +63,17 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
     return (
       <S.Pagination aria-label={ariaLabel} ref={ref} role="navigation">
         <S.List>
-          <S.Item hidden={page === 1}>
+          <S.Item>
             <Rover as={undefined} disabled={page === 1} {...rover}>
               {roverProps => (
-                <S.AbstractLink
+                <S.ArrowLink
                   {...roverProps}
                   href={getHref && getHref(page - 1)}
+                  isDisabled={page === 1}
                   onClick={handlePrevious}
                 >
                   {leftArrow || <LeftIcon size="xs" />}
-                </S.AbstractLink>
+                </S.ArrowLink>
               )}
             </Rover>
           </S.Item>
@@ -107,16 +107,17 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
               </S.Item>
             )
           )}
-          <S.Item hidden={page === pageCount}>
+          <S.Item>
             <Rover as={undefined} disabled={page === pageCount} {...rover}>
               {roverProps => (
-                <S.AbstractLink
+                <S.ArrowLink
                   {...roverProps}
                   href={getHref && getHref(page + 1)}
+                  isDisabled={page === pageCount}
                   onClick={handleNext}
                 >
                   {rightArrow || <RightIcon size="xs" />}
-                </S.AbstractLink>
+                </S.ArrowLink>
               )}
             </Rover>
           </S.Item>

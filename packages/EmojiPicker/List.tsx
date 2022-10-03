@@ -5,7 +5,7 @@ import { FixedSizeList, ListChildComponentProps } from 'react-window'
 import { Text } from '@welcome-ui/text'
 import { Box } from '@welcome-ui/box'
 import { Emoji, getEmojiName } from '@welcome-ui/emoji'
-import { SearchIcon } from '@welcome-ui/icons.search'
+import { SearchIcon } from '@welcome-ui/icons'
 import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
 import debounce from 'lodash.debounce'
 import escapeRegExp from 'lodash.escaperegexp'
@@ -240,7 +240,7 @@ export const List: React.FC<ListProps> = ({
         <InputText
           autoFocus
           data-testid="emoji-search-input"
-          icon={<SearchIcon color="light.100" />}
+          icon={<SearchIcon color="light-100" />}
           onChange={debouncedHandleChangeQuery}
           onKeyDown={handleKeyDown}
           placeholder={inputSearchPlaceholder}
@@ -297,12 +297,12 @@ const EmojiRow: React.FC<EmojiRowProps> = ({ data, index, style }) => {
       <Text
         alignItems="center"
         as="span"
-        color="light.100"
+        color="light-100"
         display="flex"
         px="xl"
         style={style}
         textTransform="uppercase"
-        variant="subtitle2"
+        variant="subtitle-sm"
       >
         {row[0]}
       </Text>

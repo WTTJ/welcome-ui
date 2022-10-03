@@ -17,9 +17,9 @@ export const InputWrapper = styled.div`
 export const Input = styled('input').withConfig({ shouldForwardProp })<
   { hasIcon?: boolean } & SearchOptions
 >(
-  ({ hasIcon, size, variant }) => css`
+  ({ hasIcon, size, transparent, variant }) => css`
     position: relative;
-    ${defaultFieldStyles({ size, variant })};
+    ${defaultFieldStyles({ size, variant, transparent })};
     ${overflowEllipsis};
     ${hasIcon &&
     css`
@@ -54,7 +54,7 @@ export const Item = styled.li<{
   isSelected?: boolean
 }>(
   ({ isExisting, isHighlighted, isSelected }) => css`
-    color: nude.800;
+    color: nude-700;
     ${isHighlighted && th('defaultFields.select.highlighted')};
     ${isSelected && th('defaultFields.select.selected')};
     ${isExisting && th('defaultFields.select.existing')};
@@ -63,7 +63,7 @@ export const Item = styled.li<{
     padding: sm;
     list-style: none;
     text-decoration: none;
-    font-size: body3;
+    font-size: sm;
     transition: background ${th.transition('medium')};
   `
 )

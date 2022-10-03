@@ -1,0 +1,58 @@
+name: PullRequest | Opened
+
+on:
+  pull_request_target:
+    types: [opened, ready_for_review]
+
+jobs:
+  opened:
+    name: Set labels
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Add review label
+        if: ${{ github.event.pull_request.draft == false }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issue_number = context.payload.pull_request.number
+            const owner = context.repo.owner
+            const repo = context.repo.repo
+
+            const labelsToAdd = ['to-review']
+            const labelsToRemove = ['wip']
+
+            const currentLabels = await github.rest.issues.listLabelsOnIssue({ issue_number, owner, repo })
+
+            github.rest.issues.addLabels({ labels: labelsToAdd, issue_number, owner, repo })
+
+            labelsToRemove.forEach(labelToRemove => {
+              if (currentLabels.data.find(label => label.name === labelToRemove)) {
+                github.rest.issues.removeLabel({ name: labelToRemove, issue_number, owner, repo });
+              }
+            })
+      - name: Add wip label
+        if: ${{ github.event.pull_request.draft == true }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issue_number = context.payload.pull_request.number
+            const owner = context.repo.owner
+            const repo = context.repo.repo
+
+            const labelsToAdd = ['wip']
+            const labelsToRemove = ['to-review']
+
+            const currentLabels = await github.rest.issues.listLabelsOnIssue({ issue_number, owner, repo })
+
+            github.rest.issues.addLabels({ labels: labelsToAdd, issue_number, owner, repo })
+
+            labelsToRemove.forEach(labelToRemove => {
+              if (currentLabels.data.find(label => label.name === labelToRemove)) {
+                github.rest.issues.removeLabel({ name: labelToRemove, issue_number, owner, repo });
+              }
+            })

@@ -3,9 +3,9 @@ import { StyledIcon } from '@welcome-ui/icon'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
 
-import { Shape, Size, Variant } from './index'
+import { Size, Variant } from './index'
 
-const shapeStyles = (size: Size, w: string, h: string, shape = 'square') => css`
+const shapeStyles = (size: Size, w: string, h: string) => css`
   ${th(`tags.shape.${size}`)}
   padding: 0;
   ${(w || h) &&
@@ -13,19 +13,19 @@ const shapeStyles = (size: Size, w: string, h: string, shape = 'square') => css`
     width: ${getMax(w || '0', h)};
     height: ${getMax(w || '0', h)};
   `}
-  ${shape === 'circle' && 'border-radius: 50%'};
 `
 
 export interface StyledTagProps {
-  hasAction: boolean
+  hasLink: boolean
+  hasClickAction: boolean
+  hasRemoveAction: boolean
   length: number
   size: Size
   variant: Variant
-  shape: Shape
 }
 
 export const Tag = styled.div<StyledTagProps & WuiProps>(
-  ({ h, hasAction, length, shape, size, variant, w }) => css`
+  ({ h, hasClickAction, hasLink, hasRemoveAction, length, size, variant, w }) => css`
     ${th('tags.default')};
     ${th(`tags.variants.${variant}`)};
     ${th(`tags.sizes.${size}`)}
@@ -35,22 +35,33 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
     justify-content: center;
     border-radius: md;
     line-height: initial; /* avoid cropped font */
+    transition: medium;
     ${overflowEllipsis}
     ${system}
-    ${!shape &&
-    length !== 1 &&
+    ${length !== 1 &&
     css`
       span,
       p {
         ${overflowEllipsis}
       }
     `}
-    ${(shape || length === 1) &&
+    ${length === 1 &&
     css`
       justify-content: center;
-      ${shapeStyles(size, w as string, h as string, shape)};
+      ${shapeStyles(size, w as string, h as string)};
     `};
-    ${hasAction &&
+
+    ${(hasLink || hasClickAction) &&
+    css`
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        ${th(`tags.hover.${variant}`)};
+      }
+    `};
+
+    ${hasRemoveAction &&
     css`
       padding-right: xl;
     `}
@@ -58,6 +69,11 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
 
     > *:not(:last-child) {
       margin-right: xxs;
+    }
+
+    & > svg {
+      width: ${th(`tags.icon.${size}`)};
+      height: ${th(`tags.icon.${size}`)};
     }
 
     > *:not(:only-child) {

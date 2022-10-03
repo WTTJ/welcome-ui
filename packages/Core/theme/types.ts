@@ -84,6 +84,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   }
   toEm: (int: number) => string
   toRem: (int?: number) => string
+  toPx: (int?: number) => string
   colors: ThemeColors
   underline: ThemeUnderline
   borderWidths: ThemeBorderWidths
@@ -91,8 +92,6 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   fontSizes: ThemeFontSizes
   defaultLineHeight: number
   defaultLetterSpacing: string
-  headingLineHeight: number
-  headingLetterSpacing: string
   lineHeights: ThemeLineHeights
   fontWeights: ThemeFontWeights
   letterSpacings: ThemeLetterSpacings

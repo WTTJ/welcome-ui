@@ -1,8 +1,7 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Button } from '@welcome-ui/button'
-import { HeartIcon } from '@welcome-ui/icons.heart'
-import { GithubIcon } from '@welcome-ui/icons.github'
+import { HeartIcon, GithubIcon } from '@welcome-ui/icons'
 
 import { useThemeContext } from '../context/theme'
 
@@ -18,13 +17,13 @@ export function Footer(props) {
         <Logo h={37} isDark w={63} />
       </Box>
       <Box alignItems="center" display="flex">
-        Made with <HeartIcon color="primary.500" mx="xxs" /> by{' '}
+        Made with <HeartIcon color="primary-500" mx="sm" /> by{' '}
         <Box
           alignItems="center"
           as="a"
           display="flex"
           href="https://www.welcometothejungle.com"
-          ml="xs"
+          ml="sm"
           rel="noopener"
           target="_blank"
         >

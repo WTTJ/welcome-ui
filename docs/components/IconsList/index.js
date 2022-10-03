@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import React from 'react'
 import { Icons as FontIcons } from '@welcome-ui/icons.font'
 import * as Icons from '@welcome-ui/icons'
@@ -37,7 +37,7 @@ export function IconsList({ isIconFont, name }) {
   }
 
   return (
-    <Box display="grid" gap="xl" gridTemplateColumns={{ xs: '1fr 1fr', lg: '1fr 1fr 1fr 1fr 1fr' }}>
+    <Box display="grid" gap="lg" gridTemplateColumns={{ xs: '1fr 1fr', lg: '1fr 1fr 1fr 1fr 1fr' }}>
       {iconsByName[name]?.map(key => {
         const name = toPascalCase(key)
         const componentName = isIconFont ? `Icons.${name}` : `${name}Icon`

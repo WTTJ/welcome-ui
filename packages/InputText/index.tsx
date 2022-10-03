@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconWrapper } from '@welcome-ui/field'
+import { IconGroupWrapper, IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { createEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -20,6 +20,7 @@ export interface InputTextOptions extends DefaultFieldStylesProps {
   placeholder?: string
   type?: string
   value?: string
+  transparent?: boolean
 }
 
 export type InputTextProps = CreateWuiProps<'input', InputTextOptions>
@@ -39,7 +40,8 @@ export const InputText = forwardRef<'input', InputTextProps>(
       onFocus,
       onKeyDown,
       placeholder,
-      size = 'lg',
+      size = 'md',
+      transparent,
       type = 'text',
       value,
       variant,
@@ -47,6 +49,9 @@ export const InputText = forwardRef<'input', InputTextProps>(
     },
     ref
   ) => {
+    const hasClearButtonAndRightIcon = isClearable && iconPlacement === 'right'
+    const hasIcon = icon && iconPlacement
+
     const handleReset = () => {
       const event = createEvent({
         name,
@@ -73,20 +78,22 @@ export const InputText = forwardRef<'input', InputTextProps>(
           placeholder={placeholder}
           ref={ref}
           size={size}
+          transparent={transparent}
           type={type}
           value={value}
           variant={variant}
           {...rest}
         />
-        {icon && (
+        {hasIcon && !hasClearButtonAndRightIcon && (
           <IconWrapper iconPlacement={iconPlacement} size={size}>
             {icon}
           </IconWrapper>
         )}
-        {isClearable && value && (
-          <IconWrapper iconPlacement="right" size={size}>
-            <ClearButton onClick={handleReset} />
-          </IconWrapper>
+        {isClearable && (
+          <IconGroupWrapper size={size}>
+            {value && <ClearButton onClick={handleReset} />}
+            {iconPlacement === 'right' && icon}
+          </IconGroupWrapper>
         )}
       </S.Wrapper>
     )

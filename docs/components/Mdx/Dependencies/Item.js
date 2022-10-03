@@ -1,10 +1,8 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 import { Tag } from '@welcome-ui/tag'
 import { Box } from '@welcome-ui/box'
 import { useCopyText } from '@welcome-ui/utils.copy'
-import { CopyIcon } from '@welcome-ui/icons.copy'
-import { CheckIcon } from '@welcome-ui/icons.check'
+import { CopyIcon, CheckIcon } from '@welcome-ui/icons'
 
 export function Item({ dependency, version }) {
   const baseVersion = version.replace(/[\^=~]/, '')
@@ -25,10 +23,10 @@ export function Item({ dependency, version }) {
       target="_npm"
       textDecoration="none"
     >
-      <Tag backgroundColor="light.900" key={dependency}>
+      <Tag backgroundColor="light-900" key={dependency}>
         {`${dependency} [${version}]`}
-        {!copied && <CopyIcon onClick={handleCopy} />}
-        {copied && <CheckIcon color="success.500" />}
+        {!copied && <CopyIcon onClick={handleCopy} size="sm" />}
+        {copied && <CheckIcon color="success-500" size="sm" />}
       </Tag>
     </Box>
   )
