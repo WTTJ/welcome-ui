@@ -220,7 +220,7 @@ workflows:
           filters:
             # should add branches here to keep previous doc version of future majors
             branches:
-              only: v3
+              only: /v3|v4/
           requires:
             - test
             - lint
