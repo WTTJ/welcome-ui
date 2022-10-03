@@ -3,17 +3,16 @@ import React from 'react'
 
 import { version } from '../../../../lerna.json'
 
-const v3 = 'v3 latest'
-const v4 = `${version}`
 const versions = [
-  { value: v4, label: v4 },
-  { value: v3, label: v3 },
+  { value: 'v5', label: `${version}` },
+  { value: 'v4', label: 'v4' },
+  { value: 'v3', label: 'v3' },
 ]
 
 export function VersionSelector() {
   const handleChange = value => {
-    if (value === v3) {
-      window.open('http://welcome-ui.com/v3', '_self')
+    if (['v3', 'v4'].includes(value)) {
+      window.open(`http://welcome-ui.com/${value}`, '_self')
     }
   }
 
@@ -23,7 +22,7 @@ export function VersionSelector() {
       onChange={handleChange}
       options={versions}
       size="sm"
-      value={v4}
+      value="v5"
       w={150}
     />
   )
