@@ -8,13 +8,22 @@ import * as S from './styles'
 
 export type DateTimePickerProps = CreateWuiProps<
   'input',
-  Pick<DatePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value'> &
-    Pick<TimePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value'>
+  Pick<DatePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value' | 'transparent'> &
+    Pick<TimePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value' | 'transparent'>
 >
 
 export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
   (
-    { children, dataTestId, disabled, locale, onChange, size = 'lg', value = DEFAULT_DATE },
+    {
+      children,
+      dataTestId,
+      disabled,
+      locale,
+      onChange,
+      size = 'lg',
+      value = DEFAULT_DATE,
+      transparent,
+    },
     ref
   ) => {
     const TimePickerNode =
@@ -65,6 +74,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
               locale: locale,
               timeIntervals,
               value: date,
+              transparent,
             })
           )}
         {!children && (
@@ -75,6 +85,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
               onChange={handleChange}
               ref={ref}
               size={size}
+              transparent={transparent}
               value={value}
             />
             <TimePicker
@@ -82,6 +93,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
               locale={locale}
               onChange={handleChange}
               size={size}
+              transparent={transparent}
               value={value}
             />
           </>

@@ -2,28 +2,34 @@ import React, { useMemo } from 'react'
 import { AlertIcon, PromoteIcon, SquareAlertIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { CheckIcon, InformationIcon } from '@welcome-ui/icons'
-import { Variant } from '@welcome-ui/utils'
+import { Variant as VariantFromUtils } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+
+export type Variant = VariantFromUtils | 'default'
+
 export interface VariantIconOptions {
   icon?: JSX.Element
+  size?: Size
   variant?: Variant
 }
 
 export type VariantIconProps = CreateWuiProps<'div', VariantIconOptions>
 
 export const VariantIcon = forwardRef<'div', VariantIconProps>(
-  ({ icon, variant, ...rest }, ref) => {
+  ({ icon, size = 'md', variant, ...rest }, ref) => {
     const Icon = useMemo(() => {
       if (icon === null) return null
       if (icon) return icon
-      if (variant === 'default') return <PromoteIcon />
-      if (variant === 'success') return <CheckIcon />
-      if (variant === 'info') return <InformationIcon />
-      if (variant === 'warning') return <AlertIcon />
-      if (variant === 'error') return <SquareAlertIcon />
-    }, [icon, variant])
+
+      if (variant === 'default') return <PromoteIcon size={size} />
+      if (variant === 'success') return <CheckIcon size={size} />
+      if (variant === 'info') return <InformationIcon size={size} />
+      if (variant === 'warning') return <AlertIcon size={size} />
+      if (variant === 'error') return <SquareAlertIcon size={size} />
+    }, [size, icon, variant])
 
     return Icon ? (
       <S.VariantIcon ref={ref} variant={variant} {...rest}>

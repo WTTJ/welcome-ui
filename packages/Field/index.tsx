@@ -17,6 +17,9 @@ export interface FieldOptions {
   hint?: string | JSX.Element
   required?: boolean
   warning?: string | JSX.Element
+  success?: string | JSX.Element
+  info?: string | JSX.Element
+  transparent?: boolean
 }
 
 export type FieldProps = CreateWuiProps<'div', FieldOptions>
@@ -31,8 +34,11 @@ export const Field = forwardRef<'div', FieldProps>(
       error,
       flexDirection,
       hint,
+      info,
       label,
       required,
+      success,
+      transparent,
       warning,
       ...rest
     },
@@ -42,12 +48,13 @@ export const Field = forwardRef<'div', FieldProps>(
     const isRadio = baseType === 'radio'
     const isToggle = children.type.displayName === 'Toggle'
     const isCheckbox = baseType === 'checkbox'
-    const isCheckable = isRadio || isCheckbox
+    const isCheckable = isRadio || isCheckbox || isToggle
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
     const isGroup = ['FieldGroup', 'RadioGroup'].includes(baseType)
     const Container = layout === 'row' ? RowContainer : Fragment
-    const variant = getVariant({ error, warning })
-    const hintText = variant ? error || warning : hint
+    const variant = getVariant({ error, warning, success, info })
+    const hintText = variant ? error || warning || success || info : hint
+    const withHintText = !!hintText
     const htmlFor = children.props.id || children.props.name || generateRandomId()
 
     const child = React.cloneElement(React.Children.only(children), {
@@ -55,7 +62,8 @@ export const Field = forwardRef<'div', FieldProps>(
       id: htmlFor,
       required,
       variant,
-      ...(isGroup ? { label, flexDirection: layout } : {}),
+      transparent,
+      ...(isGroup ? { flexDirection: layout } : {}),
     })
 
     useLayoutEffect(() => {
@@ -69,16 +77,23 @@ export const Field = forwardRef<'div', FieldProps>(
     }, [children.props, children.type.displayName, htmlFor])
 
     return (
-      <S.Field ref={ref} {...rest} data-testid={dataTestId} flexDirection={layout}>
+      <S.Field
+        ref={ref}
+        {...rest}
+        data-testid={dataTestId}
+        flexDirection={layout}
+        isCheckable={isCheckable}
+        withHintText={withHintText}
+      >
         <Container>
-          {label && !isGroup && (
+          {label && (
             <Label
               disabled={disabled}
               disabledIcon={disabledIcon}
               htmlFor={htmlFor}
               required={required}
               variant={variant}
-              withDisabledIcon={!isToggle}
+              withDisabledIcon={!isCheckable}
             >
               {isCheckable && child}
               {label}
@@ -99,4 +114,5 @@ export const Field = forwardRef<'div', FieldProps>(
 Field.displayName = 'Field'
 
 export const IconWrapper = S.IconWrapper
+export const IconGroupWrapper = S.IconGroupWrapper
 export { getBaseType }

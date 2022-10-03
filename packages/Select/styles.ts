@@ -6,8 +6,8 @@ import {
   cardStyles,
   centerContent,
   defaultFieldStyles,
-  DefaultFieldStylesProps,
   overflowEllipsis,
+  Size,
 } from '@welcome-ui/utils'
 
 import { SelectOptions } from './index'
@@ -22,14 +22,20 @@ export const InputWrapper = styled.div`
 `
 
 export const Input = styled('div').withConfig({ shouldForwardProp })(
-  ({ hasIcon, size, variant }: { hasIcon: boolean } & SelectOptions) => css`
+  ({
+    hasIcon,
+    isClearable,
+    size,
+    transparent,
+    variant,
+  }: { hasIcon: boolean } & SelectOptions) => css`
     position: relative;
-    ${defaultFieldStyles({ size, variant })};
+    ${defaultFieldStyles({ size, variant, transparent })};
     ${overflowEllipsis};
-    padding-right: ${th(`defaultFields.sizes.${size}.height`)};
+    padding-right: ${isClearable ? '4xl' : '36'};
     ${hasIcon &&
     css`
-      padding-left: ${th(`defaultFields.sizes.${size}.height`)};
+      padding-left: 36;
     `};
     cursor: default;
     ${system}
@@ -108,32 +114,26 @@ export const Item = styled.li(
   `
 )
 
-export const Icon = styled.div(
-  ({ size }: { size: DefaultFieldStylesProps['size'] }) => css`
+export const Indicators = styled.div(
+  ({ size }: { size: Size }) => css`
     position: absolute;
-    width: ${th(`defaultFields.sizes.${size}.height`)};
     padding: 0;
     top: 0;
     bottom: 0;
-    left: 0;
-    ${centerContent}
+    right: ${size === 'xs' ? 'sm' : 'md'};
+    display: flex;
+    gap: sm;
+
+    > * {
+      width: 16;
+    }
   `
 )
 
-export const Indicators = styled.div`
-  position: absolute;
-  padding: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  display: flex;
-`
-
 export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })(
-  ({ isOpen, size }: { isOpen?: boolean; size: DefaultFieldStylesProps['size'] }) => css`
+  ({ isOpen }: { isOpen?: boolean }) => css`
     position: relative;
     height: 100%;
-    width: ${th(`defaultFields.sizes.${size}.height`)};
     padding: 0;
     outline: none !important; /* important for firefox */
     appearance: none;

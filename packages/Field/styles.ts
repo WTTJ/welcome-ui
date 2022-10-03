@@ -1,5 +1,6 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import { StyledLabel } from '@welcome-ui/label'
+import { StyledHint } from '@welcome-ui/hint'
 import { StyledFieldGroup } from '@welcome-ui/field-group'
 import { shouldForwardProp, WuiProps } from '@welcome-ui/system'
 import { DefaultFieldStylesProps } from '@welcome-ui/utils'
@@ -14,25 +15,29 @@ const columnStyles = css`
 
 const checkableFieldStyles = css`
   ${th('defaultFields.checkablelabel.default')};
-  margin-bottom: sm;
+  margin-bottom: md;
 `
 
 type StyledFieldProps = {
-  checkableField: boolean
+  isCheckable?: boolean
   flexDirection: WuiProps['flexDirection']
-  checked: boolean
+  checked?: boolean
+  withHintText?: boolean
 }
 
 export const Field = styled('div').withConfig({ shouldForwardProp })<StyledFieldProps>(
-  ({ checkableField, checked, flexDirection }) => css`
+  ({ checked, flexDirection, isCheckable, withHintText }) => css`
     ${StyledFieldGroup} {
-      margin-bottom: ${checkableField && 'xxs'};
+      margin-bottom: ${isCheckable && 'xxs'};
     }
     ${StyledLabel} {
       ${flexDirection === 'row' && rowStyles};
-      ${flexDirection === 'column' && columnStyles};
-      ${checkableField && checkableFieldStyles};
+      ${flexDirection === 'column' && !isCheckable && columnStyles};
+      ${isCheckable && !withHintText && checkableFieldStyles};
       ${checked && th('defaultFields.checkablelabel.checked')}
+    }
+    ${StyledHint} {
+      ${isCheckable && withHintText && checkableFieldStyles};
     }
     ${system};
   `
@@ -40,27 +45,45 @@ export const Field = styled('div').withConfig({ shouldForwardProp })<StyledField
 
 type IconWrapperProps = {
   iconPlacement: 'left' | 'right'
-  size: DefaultFieldStylesProps['size']
+  size?: DefaultFieldStylesProps['size']
 }
 
 export const IconWrapper = styled.div<IconWrapperProps>(
-  ({ iconPlacement, size, ...rest }) => css`
+  ({ iconPlacement, size }) => css`
     position: absolute;
     top: 0;
-    left: ${iconPlacement === 'left' ? 0 : 'auto'};
-    right: ${iconPlacement === 'right' ? 0 : 'auto'};
+    left: ${iconPlacement === 'left' ? th(`defaultFields.iconPlacement.${size}.left`) : 'auto'};
+    right: ${iconPlacement === 'right' ? th(`defaultFields.iconPlacement.${size}.right`) : 'auto'};
     bottom: 0;
     display: flex;
-    width: ${size ? th(`defaultFields.sizes.${size}.height`)(rest) : null};
+    width: 16;
     justify-content: center;
     align-items: center;
     pointer-events: none;
     transition: medium;
     transition-timing-function: primary;
+    color: dark-900;
     ${system};
     /* for button action */
     & > button {
       pointer-events: auto;
+    }
+  `
+)
+
+export const IconGroupWrapper = styled.div(
+  ({ size }: { size: DefaultFieldStylesProps['size'] }) => css`
+    position: absolute;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    right: ${size === 'xs' ? 'sm' : 'md'};
+    display: flex;
+    align-items: center;
+    gap: sm;
+
+    > * {
+      width: 16;
     }
   `
 )

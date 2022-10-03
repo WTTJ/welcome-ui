@@ -9,7 +9,6 @@ export const Textarea = styled('textarea').withConfig({ shouldForwardProp })<Tex
     ${defaultFieldStyles({ size, variant })};
     ${th('textareas')};
     line-height: lg;
-    padding: sm;
     ${system};
   `
 )

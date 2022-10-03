@@ -17,7 +17,7 @@ const getColors = (name, theme) => {
 function Wrapper({ name, theme, colorsObject }) {
   const colors = colorsObject || getColors(name, theme)
   const isLight = name === 'light'
-  const textColor = { ...(isLight && { color: 'light-900' }) }
+  const textColor = isLight && 'light-900'
 
   return (
     <Box>

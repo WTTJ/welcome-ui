@@ -18,8 +18,8 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
   return {
     item: {
       default: {
-        width: toRem(34),
-        height: toRem(18),
+        width: toRem(26),
+        height: toRem(16),
         borderRadius: toRem(9),
         backgroundColor: colors['light-900'],
         borderColor: colors.border,
@@ -37,14 +37,14 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
         borderColor: colors['primary-500'],
       },
       disabled: {
-        borderColor: colors['dark-100'],
-        backgroundColor: colors['dark-100'],
+        borderColor: colors['nude-600'],
+        backgroundColor: colors['nude-400'],
       },
     },
     after: {
       default: {
-        width: toRem(14),
-        height: toRem(14),
+        width: toRem(12),
+        height: toRem(12),
         backgroundColor: colors['light-900'],
         borderColor: colors['dark-400'],
         borderWidth: borderWidths.sm,
@@ -57,7 +57,7 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
       },
       disabled: {
         borderColor: 'transparent',
-        backgroundColor: colors['dark-200'],
+        backgroundColor: colors['nude-600'],
       },
     },
   }

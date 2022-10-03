@@ -1,14 +1,27 @@
 import { hexToRGBA } from '@welcome-ui/utils'
 import { CSSObject } from '@xstyled/styled-components'
 
-export type ThemeFocus = (color?: string) => {
+import { ThemeColors } from './colors'
+
+export type ThemeFocus = (
+  color?: string,
+  transparency?: number
+) => {
   boxShadow: CSSObject['boxShadow']
 }
 
-export const getFocus =
-  (color: string): ThemeFocus =>
-  (value: string = color) => {
+export const getFocus = ({ colors }: { colors: ThemeColors }) => {
+  function focus(color = colors['primary-500'], transparency = 1) {
+    let transformedColor = color
+
+    if (!color.startsWith('rgba')) {
+      transformedColor = hexToRGBA(color, transparency)
+    }
+
     return {
-      boxShadow: `0 0 0 3px ${hexToRGBA(value, 0.5)}`,
+      boxShadow: `0 0 0 3px ${transformedColor}`,
     }
   }
+
+  return focus
+}

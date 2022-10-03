@@ -48,6 +48,7 @@ export const Radio = forwardRef<'input', RadioProps>(
         maxWidth={maxWidth}
         onClick={handleClick}
         variant={variant}
+        withDisabledIcon={false}
         withHint={withHint || !!hint}
       >
         <S.Wrapper flexDirection={flexDirection}>
