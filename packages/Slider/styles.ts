@@ -12,14 +12,14 @@ export const Slider = styled.input<BorderProps>(
 
     &::-webkit-slider-thumb {
       ${th('sliders.selector')};
-      border-color: ${borderSelectorColor};
+      border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
       transition: background-color ${th.transition('medium')},
         border-color ${th.transition('medium')};
     }
 
     &::-moz-range-thumb {
       ${th('sliders.selector')};
-      border-color: ${borderSelectorColor};
+      border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
       transition: background-color ${th.transition('medium')},
         border-color ${th.transition('medium')};
     }
@@ -68,7 +68,7 @@ export const RangeInput = styled.input<BorderProps>(
 
     &::-webkit-slider-thumb {
       ${th('sliders.selector')};
-      border-color: ${borderSelectorColor};
+      border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
       top: ${th('space.sm')};
       pointer-events: all;
       position: relative;
@@ -76,7 +76,7 @@ export const RangeInput = styled.input<BorderProps>(
 
     &::-moz-range-thumb {
       ${th('sliders.selector')};
-      border-color: ${borderSelectorColor};
+      border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
       top: ${th('space.sm')};
       pointer-events: all;
       position: relative;

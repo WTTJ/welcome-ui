@@ -9,11 +9,12 @@ import * as S from './styles'
 
 import { SliderOptions } from './index'
 
+export const thumbWidth = 20
+
 export type Range = {
   min: number
   max: number
 }
-
 export interface RangeOptions extends Omit<SliderOptions, 'type' | 'value' | 'onChange'> {
   value: Range
   onChange: (value: Range) => void
@@ -101,7 +102,6 @@ export const Range = forwardRef<'div', RangeProps>(
         }
 
         if (tooltipMinRef.current) {
-          const thumbWidth = 20
           const fraction = getPercent(minValue) / 100
           tooltipMinRef.current.style.left = `calc(${fraction * 100}% + ${
             (0.5 - fraction) * thumbWidth
@@ -109,7 +109,6 @@ export const Range = forwardRef<'div', RangeProps>(
         }
 
         if (tooltipMaxRef.current) {
-          const thumbWidth = 20
           const fraction = getPercent(maxValue) / 100
           tooltipMaxRef.current.style.left = `calc(${fraction * 100}% + ${
             (0.5 - fraction) * thumbWidth
@@ -121,7 +120,7 @@ export const Range = forwardRef<'div', RangeProps>(
     // Give the possibility to the parent to modify the minValue & maxValue from outs
     useEffect(() => {
       if (value) {
-        if (!isNaN(value.min) && value.min !== minValue) {
+        if (!isNaN(value.min) && value.min !== minValue && value.min < value.max) {
           setMinValue(value.min || min)
         }
         if (!isNaN(value.max) && value.max !== maxValue) {
@@ -246,10 +245,16 @@ export const Range = forwardRef<'div', RangeProps>(
                     value = 0
                     e.target.value = '0'
                   }
+                  if (value <= minValue) {
+                    value = minValue + 1
+                    e.target.value = (minValue + 1).toString()
+                  }
                   if (value > max) {
                     value = max
                     e.target.value = max.toString()
                   }
+
+                  // console.log('value', value)
                   handleMaxValue(e)
                   onChange({ min: minValue, max: value })
                 }}
