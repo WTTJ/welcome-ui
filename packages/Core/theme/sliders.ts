@@ -16,8 +16,8 @@ export const getSliders = (theme: WuiTheme): ThemeSliders => {
   return {
     default: {
       appearance: 'none',
-      backgroundColor: colors.nude[400],
-      backgroundImage: `linear-gradient(${colors.primary[500]}, ${colors.primary[500]})`,
+      backgroundColor: colors['nude-400'],
+      backgroundImage: `linear-gradient(${colors['primary-500']}, ${colors['primary-500']})`,
       backgroundRepeat: 'no-repeat',
       borderRadius: 0,
       cursor: 'pointer',
@@ -28,14 +28,14 @@ export const getSliders = (theme: WuiTheme): ThemeSliders => {
     },
     selector: {
       appearance: 'none',
-      backgroundColor: colors.dark[900],
+      backgroundColor: colors['dark-900'],
       borderRadius: '50%',
       border: `${borderWidths.md} solid`,
       cursor: 'pointer',
       height: toRem(20),
       width: toRem(20),
       disabled: {
-        backgroundColor: colors.nude[600],
+        backgroundColor: colors['nude-600'],
       },
     },
     output: {
@@ -43,9 +43,9 @@ export const getSliders = (theme: WuiTheme): ThemeSliders => {
       textAlign: 'center',
       transform: `translate(-50%, calc(-100% + -${space.xs}))`,
       tooltip: {
-        backgroundColor: colors.dark[900],
-        border: `${borderWidths.sm} solid ${colors.dark[700]}}`,
-        color: colors.light[900],
+        backgroundColor: colors['dark-900'],
+        border: `${borderWidths.sm} solid ${colors['dark-700']}}`,
+        color: colors['light-900'],
         flex: '1 1 auto',
         margin: 'auto',
         minWidth: space.xxs,
@@ -53,13 +53,13 @@ export const getSliders = (theme: WuiTheme): ThemeSliders => {
       },
     },
     focused: {
-      outline: `${borderWidths.md} solid ${colors.primary[500]}`,
+      outline: `${borderWidths.md} solid ${colors['primary-500']}`,
       disabled: {
         outline: 'none',
       },
     },
     disabled: {
-      backgroundImage: `linear-gradient(${colors.nude[600]}, ${colors.nude[600]})`,
+      backgroundImage: `linear-gradient(${colors['nude-600']}, ${colors['nude-600']})`,
     },
     rangeInput: {
       appearance: 'none',
@@ -76,7 +76,7 @@ export const getSliders = (theme: WuiTheme): ThemeSliders => {
         height: space.xs,
       },
       disabled: {
-        backgroundColor: colors.nude[600],
+        backgroundColor: colors['nude-600'],
       },
     },
   }

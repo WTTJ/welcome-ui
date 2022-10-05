@@ -120,7 +120,7 @@ export const RangeInput = styled.input<BorderProps>(
 export const Track = styled(Box)(
   () => css`
     ${th('sliders.rangeInput.track')};
-    background-color: nude.400;
+    background-color: nude-400;
   `
 )
 
@@ -131,7 +131,7 @@ type RangeProps = {
 export const Range = styled(Box)<RangeProps>(
   ({ disabled }) => css`
     ${th('sliders.rangeInput.track')};
-    background-color: primary.500;
+    background-color: primary-500;
 
     ${disabled &&
     css`
@@ -148,7 +148,7 @@ export const Thick = styled(Box)(
     :before {
       content: '';
       position: absolute;
-      background-color: dark.200;
+      background-color: dark-200;
       height: 6;
       width: 1;
       transform: translate(-50%);
@@ -159,7 +159,7 @@ export const Thick = styled(Box)(
 export const ThickLabel = styled(Hint)(
   () => css`
     position: absolute;
-    color: dark.400;
+    color: dark-400;
     top: 0;
     transform: translate(-50%);
     white-space: nowrap;
