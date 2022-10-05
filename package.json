@@ -140,7 +140,7 @@
     "yargs": "^17.3.1"
   },
   "resolutions": {
-    "styled-components": "5.3.5"
+    "styled-components": "5.3.6"
   },
   "homepage": "https://welcome-ui.com"
 }
