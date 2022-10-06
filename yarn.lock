@@ -18072,9 +18072,9 @@ ws@^7.4.6:
   integrity sha512-KMvVuFzpKBuiIXW3E4u3mySRO2/mCHSyZDJQM5NQ9Q9KHWHWh0NHgfbRMLLrceUK5qAL4ytALJbpRMjixFZh8A==
 
 wttj-config-front@^2.1.0:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/wttj-config-front/-/wttj-config-front-2.3.1.tgz#4beb5036b5abe4dd1c582b1bb399fda41ead03f6"
-  integrity sha512-W3j76aiI9keokwsGnTgfN2+3ECmbMzCIMluhHkWUPj/YlhxAqLopT7A1XjZdpqfFx+7SLlFcqBBUmkzt4MHmDg==
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/wttj-config-front/-/wttj-config-front-2.3.2.tgz#47f37d0e6e6f3985134137bf896c5bdf7276f3ad"
+  integrity sha512-PGTfqyrRonIldkViOH2SoxwVd6rQbIpfPnSjBHzd17jCSPo1Hw9PHbSKctjPIztqlsXssL349S81GSOnDNgm7w==
   dependencies:
     "@babel/eslint-parser" "^7.17.0"
     "@typescript-eslint/eslint-plugin" "^5.16.0"
