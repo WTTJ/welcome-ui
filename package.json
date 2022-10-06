@@ -88,7 +88,7 @@
     "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^14.1.0",
     "@rollup/plugin-replace": "^4.0.0",
-    "@testing-library/dom": "8.17.1",
+    "@testing-library/dom": "8.18.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/react-hooks": "^8.0.0",
