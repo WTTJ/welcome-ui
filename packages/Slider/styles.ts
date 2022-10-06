@@ -24,7 +24,10 @@ export const Slider = styled.input<BorderProps>(
         border-color ${th.transition('medium')};
     }
 
-    &:active {
+    &:active,
+    &:focus-visible {
+      outline: none;
+
       &::-webkit-slider-thumb {
         ${th('sliders.focused')};
       }
@@ -82,7 +85,8 @@ export const RangeInput = styled.input<BorderProps>(
       position: relative;
     }
 
-    &:active {
+    &:active,
+    &:focus-visible {
       &::-webkit-slider-thumb {
         ${th('sliders.focused')};
       }

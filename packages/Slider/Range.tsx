@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react'
+import React, { ChangeEvent, KeyboardEvent, useCallback, useEffect, useRef, useState } from 'react'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import { Hint } from '@welcome-ui/hint'
@@ -7,7 +7,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-import { SliderOptions } from './index'
+import { round, SliderOptions } from './index'
 
 export const thumbWidth = 20
 
@@ -23,14 +23,24 @@ export interface RangeOptions extends Omit<SliderOptions, 'type' | 'value' | 'on
 
 export type RangeProps = CreateWuiProps<'div', RangeOptions>
 
-const round = (value: number, step = 1): number => Math.round(value / step) * step
+/**
+ * Ensure mininum of a given value against a value `toCompare` based on a step
+ */
+const ensureMin = (value: number, toCompare: number, step: number) =>
+  round(Math.min(value, toCompare - 1 * step), step)
+
+/**
+ * Ensure maximum of a given value against a value `toCompare` based on a step
+ */
+const ensureMax = (value: number, toCompare: number, step: number) =>
+  round(Math.max(value, toCompare + 1 * step), step)
 
 /**
  * @name Slider.Range
  */
 export const Range = forwardRef<'div', RangeProps>(
   ({
-    borderSelectorColor = 'light.900',
+    borderSelectorColor = 'light-900',
     disabled,
     hint,
     label,
@@ -46,6 +56,8 @@ export const Range = forwardRef<'div', RangeProps>(
   }) => {
     const [minValue, setMinValue] = useState(min)
     const [maxValue, setMaxValue] = useState(max)
+    const [inputMinValue, setInputMinValue] = useState<number>(max)
+    const [inputMaxValue, setInputMaxValue] = useState<number>(max)
     const minValueRef = useRef<HTMLInputElement>(null)
     const maxValueRef = useRef<HTMLInputElement>(null)
     const range = useRef<HTMLDivElement>(null)
@@ -56,16 +68,52 @@ export const Range = forwardRef<'div', RangeProps>(
 
     const handleMinValue = (e: ChangeEvent<HTMLInputElement>) => {
       // Prevents the min value from being above the max
-      const value = round(Math.min(parseInt(e.target.value, 10), maxValue - 1), step)
+      const value = ensureMin(parseInt(e.target.value, 10), maxValue, step)
+      setInputMinValue(value)
       setMinValue(value)
       e.target.value = value.toString()
     }
 
     const handleMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
       // Prevents the max from being below the min
-      const value = round(Math.max(parseInt(e.target.value, 10), minValue + 1), step)
+      const value = ensureMax(parseInt(e.target.value, 10), minValue, step)
+      setInputMaxValue(value)
       setMaxValue(value)
       e.target.value = value.toString()
+    }
+
+    const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>, type: 'min' | 'max') => {
+      e.preventDefault()
+
+      if (type === 'min') {
+        let value = minValue
+
+        if (e.key === 'ArrowRight') {
+          value = ensureMin(value + step, maxValue, step)
+        }
+        if (e.key === 'ArrowLeft') {
+          value = ensureMin(value - step, maxValue, step)
+        }
+
+        setInputMinValue(value)
+        setMinValue(value)
+        onChange({ min: value, max: maxValue })
+      }
+
+      if (type === 'max') {
+        let value = maxValue
+
+        if (e.key === 'ArrowRight') {
+          value = ensureMax(value + step, minValue, step)
+        }
+        if (e.key === 'ArrowLeft') {
+          value = ensureMax(value - step, minValue, step)
+        }
+
+        setInputMaxValue(value)
+        setMaxValue(value)
+        onChange({ min: minValue, max: value })
+      }
     }
 
     const getPercent = useCallback(
@@ -120,11 +168,15 @@ export const Range = forwardRef<'div', RangeProps>(
     // Give the possibility to the parent to modify the minValue & maxValue from outs
     useEffect(() => {
       if (value) {
-        if (!isNaN(value.min) && value.min !== minValue && value.min < value.max) {
-          setMinValue(value.min || min)
+        if (!isNaN(value.min) && value.min !== minValue) {
+          const validValue = ensureMin(value.min || min, maxValue, step)
+          setMinValue(validValue)
+          setInputMinValue(validValue)
         }
         if (!isNaN(value.max) && value.max !== maxValue) {
-          setMaxValue(value.max || max)
+          const validValue = ensureMax(value.max || max, minValue, step)
+          setMaxValue(validValue)
+          setInputMaxValue(validValue)
         }
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -142,20 +194,26 @@ export const Range = forwardRef<'div', RangeProps>(
           {(type === 'inline' || type === 'fields') &&
             (type === 'fields' ? (
               <InputText
-                max={max}
+                max={maxValue}
                 min={min}
                 onChange={e => {
                   let value = parseInt(e.target.value, 10)
                   if (isNaN(value)) {
                     value = 0
-                    e.target.value = '0'
                   }
-                  handleMinValue(e)
-                  onChange({ min: value, max: maxValue })
+                  setInputMinValue(value)
+                }}
+                onKeyDown={e => {
+                  if (e.key === 'Enter') {
+                    const value = ensureMin(inputMinValue, maxValue, step)
+                    setInputMinValue(value)
+                    setMinValue(value)
+                    onChange({ min: value, max: maxValue })
+                  }
                 }}
                 size="sm"
                 type="number"
-                value={minValue.toString()}
+                value={inputMinValue.toString()}
                 w={72}
               />
             ) : (
@@ -182,6 +240,7 @@ export const Range = forwardRef<'div', RangeProps>(
                 max={max}
                 min={min}
                 onChange={handleMinValue}
+                onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => handleKeyDown(e, 'min')}
                 onMouseDown={() => {
                   tooltip && tooltipMinVisible === false && setTooltipMinVisible(true)
                 }}
@@ -202,6 +261,7 @@ export const Range = forwardRef<'div', RangeProps>(
                 max={max}
                 min={min}
                 onChange={handleMaxValue}
+                onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => handleKeyDown(e, 'max')}
                 onMouseDown={() => {
                   tooltip && tooltipMaxVisible === false && setTooltipMaxVisible(true)
                 }}
@@ -238,29 +298,25 @@ export const Range = forwardRef<'div', RangeProps>(
             (type === 'fields' ? (
               <InputText
                 max={max}
-                min={min}
+                min={minValue + 1}
                 onChange={e => {
                   let value = parseInt(e.target.value, 10)
                   if (isNaN(value)) {
                     value = 0
-                    e.target.value = '0'
                   }
-                  if (value <= minValue) {
-                    value = minValue + 1
-                    e.target.value = (minValue + 1).toString()
+                  setInputMaxValue(value)
+                }}
+                onKeyDown={e => {
+                  if (e.key === 'Enter') {
+                    const value = ensureMax(inputMaxValue, minValue, step)
+                    setInputMaxValue(value)
+                    setMaxValue(value)
+                    onChange({ min: minValue, max: value })
                   }
-                  if (value > max) {
-                    value = max
-                    e.target.value = max.toString()
-                  }
-
-                  // console.log('value', value)
-                  handleMaxValue(e)
-                  onChange({ min: minValue, max: value })
                 }}
                 size="sm"
                 type="number"
-                value={maxValue.toString()}
+                value={inputMaxValue.toString()}
                 w={72}
               />
             ) : (

@@ -30,22 +30,16 @@ export interface SliderOptions
 
 export type SliderProps = CreateWuiProps<'div', SliderOptions>
 
+export const round = (value: number, step: number) => Math.round(value / step) * step
+
 export const ensureMinMax = (value: number, min: number, max: number, step: number) => {
-  /**
-   * TODO: for security reason if it doesn't respect the step we assign the min value
-   * but we should clearly make the value closer to the current step
-   * e.g: value = 34 & step = 10 we should put 30.
-   * What happens when value = 35? we go to 40 or 30?
-   */
-  if (value % step !== 0) {
-    return min
-  }
+  value = round(value, step)
   return value < min ? min : value > max ? max : value
 }
 
 export const SliderComponent = forwardRef<'div', SliderProps>(
   ({
-    borderSelectorColor = 'light.900',
+    borderSelectorColor = 'light-900',
     disabled,
     hint,
     label,
@@ -62,28 +56,47 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
     const range = useRef<HTMLInputElement>(null)
     const tooltipRef = useRef<HTMLOutputElement>(null)
     const [tooltipVisible, setTooltipVisible] = useState<boolean>(false)
+    const [inputValue, setInputValue] = useState<number>(ensureMinMax(value, min, max, step))
 
     const [localValue, setLocalValue] = useState(ensureMinMax(value, min, max, step))
 
-    // Handle enter key
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      const arrow = e.key
-
-      if (arrow === 'ArrowRight' || arrow === 'ArrowLeft') {
-        // console.log('HANDLEKEYDOWN', arrow, localValue)
-        // No setLocalValue because range handles key stroke natively
-        onChange(localValue)
-      }
+    // Add round logic to `setLocalValue`
+    const _setLocalValue = (value: number) => {
+      value = round(value, step)
+      setLocalValue(value)
     }
 
-    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Handle enter key
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      e.preventDefault()
+      let value = localValue
+
+      if (e.key === 'ArrowRight') {
+        value = value + step
+      }
+      if (e.key === 'ArrowLeft') {
+        value = value - step
+      }
+      setLocalValue(value)
+      setInputValue(value)
+      onChange(value)
+    }
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       let value = parseInt(e.target.value, 10)
       if (isNaN(value)) {
         value = 0
       }
-      const validValue = value > max ? max : value < min ? min : value
-      setLocalValue(validValue)
-      onChange(validValue)
+      setInputValue(value)
+    }
+
+    const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        const value = ensureMinMax(inputValue, min, max, step)
+        setInputValue(value)
+        setLocalValue(value)
+        onChange(value)
+      }
     }
 
     const getPercent = useCallback(
@@ -106,8 +119,9 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
 
     // Give the possibility to the parent to modify the value from outside but we need to check if it respect the step
     useEffect(() => {
-      if (!isNaN(value) && value !== localValue && value % step === 0) {
-        setLocalValue(value)
+      if (!isNaN(value) && value !== localValue && value) {
+        _setLocalValue(value)
+        setInputValue(value)
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
@@ -125,10 +139,11 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               <InputText
                 max={max}
                 min={min}
-                onChange={handleInput}
+                onChange={handleInputChange}
+                onKeyDown={handleInput}
                 size="sm"
                 type="number"
-                value={localValue.toString()}
+                value={inputValue.toString()}
                 w={72}
               />
             ) : (
@@ -144,9 +159,11 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               min={min}
               onChange={
                 (e: React.ChangeEvent<HTMLInputElement>) => {
-                  // console.log('HANDLECHANGE', e.target.value)
+                  const value = parseInt(e.target.value, 10)
+
                   // No use of the OnChange here to avoid calls at each value update
-                  setLocalValue(parseInt(e.target.value, 10))
+                  _setLocalValue(value)
+                  setInputValue(value)
                 }
                 // eslint-disable-next-line prettier/prettier
                 }      
@@ -155,7 +172,6 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
                 tooltip && tooltipVisible === false && setTooltipVisible(true)
               }}
               onMouseUp={() => {
-                // console.log('ONMOUSEUP')
                 onChange(localValue)
                 tooltip && setTooltipVisible(false)
               }}
@@ -190,10 +206,11 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               <InputText
                 max={max}
                 min={min}
-                onChange={handleInput}
+                onChange={handleInputChange}
+                onKeyDown={handleInput}
                 size="sm"
                 type="number"
-                value={localValue.toString()}
+                value={inputValue.toString()}
                 w={72}
               />
             ) : (
