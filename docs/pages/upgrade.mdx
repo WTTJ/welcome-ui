@@ -6,6 +6,39 @@ Version 5: Rework of our foundations
 
 ### Theme
 
+#### Colors
+
+We changed our colors dark and light to be full compatible with dark mode.
+Now dark are black rgba with transparency, and light are white rgba with transparency.
+
+We need also for typescript compatibility rework our colors naming :
+- Before : `colors.dark.900`
+- After : `colors['dark-900']`
+
+#### Spacing
+
+We rework our spacing:
+
+- **v5 compare to v4**
+- xxs (2px) <-> new size (before it was 6px)
+- xs (4px) <-> new size (before it was 8px)
+- sm (8px) <-> xs
+- md (12px) <-> same size
+- lg (16px) <-> lg (15px)
+- xl (24px) <-> xxl
+- xxl (32px) <-> 3xl (30px)
+- 3xl (48px) <-> 5xl (50px)
+- 4xl (64px) <-> 6xl
+- 5xl (96px) -> new size
+- 6xl (128px) -> new size
+- 7xl (192px) -> new size
+
+#### Typography
+
+We change the name of variants to `XS` `S` `M` and remove useless variants.
+
+### Components
+
 #### Modal
 
 - We have adjusted colors and spacing.
@@ -37,23 +70,9 @@ Version 5: Rework of our foundations
 
 - new `Badge` component [show more](/components/badge)
 
-#### Spacing
+#### RadioGroup
 
-We rework our spacing:
-
-- **v5 compare to v4**
-- xxs (2px) <-> new size (before it was 6px)
-- xs (4px) <-> new size (before it was 8px)
-- sm (8px) <-> xs
-- md (12px) <-> same size
-- lg (16px) <-> lg (15px)
-- xl (24px) <-> xxl
-- xxl (32px) <-> 3xl (30px)
-- 3xl (48px) <-> 5xl (50px)
-- 4xl (64px) <-> 6xl
-- 5xl (96px) -> new size
-- 6xl (128px) -> new size
-- 7xl (192px) -> new size
+We removed the check icon on radio input and change the style of it.
 
 #### Icons
 
@@ -72,6 +91,7 @@ We remove all `@welcome-ui/icons.*` packages (except **icons.font**). There is n
 
 - [@welcome-ui/icons](components/icons) using **svg**
 - [@welcome-ui/icons.font](components/icons-font) using **webfont**
+
 
 ### Others
 
