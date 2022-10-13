@@ -1,5 +1,5 @@
 import { WuiProps } from '@welcome-ui/system'
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@xstyled/styled-components'
 
 import { BadgeOptions } from './index'
 
@@ -15,6 +15,7 @@ export const Badge = styled.div<StyledBadgeProps & WuiProps>(
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    ${system};
 
     ${disabled &&
     css`
