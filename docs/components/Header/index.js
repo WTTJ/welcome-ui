@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Box } from '@welcome-ui/box'
-import { MenuIcon } from '@welcome-ui/icons'
+import { MenuIcon, InformationIcon } from '@welcome-ui/icons'
 import NextLink from 'next/link'
 import { Drawer, useDrawerState } from '@welcome-ui/drawer'
+import { Modal, useModalState } from '@welcome-ui/modal'
 
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons'
@@ -12,6 +13,7 @@ import '@docsearch/css'
 
 import { ComponentsList } from '../ComponentsList'
 import { Logo } from '../Logo'
+import { ThemeHelper } from '../ThemeHelper'
 
 import { ThemeSelector } from './ThemeSelector'
 import * as S from './styles'
@@ -19,6 +21,7 @@ import { NavBar } from './NavBar'
 
 export function Header() {
   const mobileMenuDrawer = useDrawerState()
+  const modal = useModalState()
   const { pathname } = useRouter()
   const variants = {
     '/': 'gray',
@@ -30,6 +33,10 @@ export function Header() {
   useEffect(() => {
     setHasBeenHydrated(true)
   }, [])
+
+  function openThemeHelper() {
+    modal.show()
+  }
 
   return (
     <S.Header variant={variant}>
@@ -49,9 +56,11 @@ export function Header() {
           />
         </Box>
         <ThemeSelector ml="lg" />
+        <Button onClick={openThemeHelper} h={30} shape="circle" ml="xxs" variant="ghost" w={30}>
+          <InformationIcon color="light-900" />
+        </Button>
       </Box>
       <NavBar display={{ xs: 'none', md: 'flex' }} />
-
       {hasBeenHydrated && (
         <>
           <Drawer.Trigger
@@ -71,6 +80,7 @@ export function Header() {
           </Drawer.Backdrop>
         </>
       )}
+      <ThemeHelper modal={modal} />
     </S.Header>
   )
 }

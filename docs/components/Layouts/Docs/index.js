@@ -3,7 +3,6 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 
-import { ThemeHelper } from '../../ThemeHelper'
 import { ComponentsList } from '../../ComponentsList'
 import { Footer } from '../../Footer'
 
@@ -25,7 +24,6 @@ export function DocsLayout({ children }) {
           mx={{ xs: 'md', md: 'xl' }}
           pt="xl"
         />
-        <ThemeHelper />
       </S.Content>
     </Box>
   )
