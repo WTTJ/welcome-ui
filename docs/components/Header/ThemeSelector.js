@@ -3,6 +3,7 @@ import { DropdownMenu, useDropdownMenuState } from '@welcome-ui/dropdown-menu'
 import { Box } from '@welcome-ui/box'
 import { StarIcon, SunIcon, CrescentMoonIcon, StarOutlineIcon } from '@welcome-ui/icons'
 import { Button } from '@welcome-ui/button'
+import { Badge } from '@welcome-ui/badge'
 
 import { useSetThemeContext, useThemeContext } from '../../context/theme'
 
@@ -18,9 +19,9 @@ export function ThemeSelector(props) {
 
   const options = [
     { value: 'core', label: 'Core Theme', icon: SunIcon },
-    { value: 'dark', label: 'Dark Theme', icon: CrescentMoonIcon },
+    { value: 'dark', label: 'Dark Theme', icon: CrescentMoonIcon, isBeta: true },
     { value: 'welcome', label: 'Welcome Theme', icon: StarOutlineIcon },
-    { value: 'welcomeDark', label: 'Welcome Dark Theme', icon: StarIcon },
+    { value: 'welcomeDark', label: 'Welcome Dark Theme', icon: StarIcon, isBeta: true },
   ]
 
   return (
@@ -29,7 +30,7 @@ export function ThemeSelector(props) {
         <SunIcon />
       </DropdownMenu.Trigger>
       <DropdownMenu {...menu} aria-label="Theme selector">
-        {options?.map(({ icon: Icon, label, value }) => (
+        {options?.map(({ icon: Icon, label, value, isBeta }) => (
           <DropdownMenu.Item
             color={theme === value ? 'dark-900' : undefined}
             fontWeight={theme === value ? 'bold' : undefined}
@@ -39,6 +40,9 @@ export function ThemeSelector(props) {
           >
             <Icon mr="md" size="sm" />
             <Box>{label}</Box>
+            {isBeta && (
+              <Badge size="sm" ml="xs">beta</Badge>
+            )}
           </DropdownMenu.Item>
         ))}
       </DropdownMenu>
