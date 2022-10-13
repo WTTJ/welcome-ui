@@ -1,5 +1,5 @@
 import { Box } from '@welcome-ui/box'
-import { Modal, useModalState } from '@welcome-ui/modal'
+import { Modal } from '@welcome-ui/modal'
 import { useThemeContext } from '../context/theme'
 
 import { Tab, useTabState } from '@welcome-ui/tabs'
@@ -10,15 +10,14 @@ import { ThemeConfiguration } from './ThemeConfiguration'
 
 const KEY_CODE_HELP = 'KeyI'
 
-export function ThemeHelper() {
-  const modal = useModalState()
+export function ThemeHelper({ modal }) {
   const currentTheme = useThemeContext()
   const [hasBeenHydrated, setHasBeenHydrated] = useState(false)
   const tabState = useTabState({ orientation: 'vertical' })
 
   const categories = ['space', 'screens', 'fontSizes', 'fontWeights']
   const [defaultTab] = categories
-  const title = `${currentTheme.at(0).toUpperCase()}${currentTheme.slice(1)} theme configuration`
+  const title = `${currentTheme.at(0).toUpperCase()}${currentTheme.slice(1)} Theme`
 
   // Workaround for hydration warning UI for Reakit dialog (fix in ariakit 2.0)
   useEffect(() => {
@@ -41,7 +40,8 @@ export function ThemeHelper() {
     <>
       {hasBeenHydrated && (
         <Modal {...modal} ariaLabel="theme configuration" title={title}>
-          <Modal.Content>
+          <Modal.Header title={title} subtitle="Documentation for the core theme entries" />
+          <Modal.Content mt="xl">
             <Box display="flex">
               <Tab.List w={200} mr="lg" aria-label="Tabs" {...tabState}>
                 {categories.map(category => (
