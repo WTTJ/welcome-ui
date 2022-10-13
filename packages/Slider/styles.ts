@@ -6,12 +6,34 @@ type BorderProps = {
   borderSelectorColor?: string
 }
 
+const sliderSelector = css`
+  appearance: none;
+  cursor: pointer;
+  height: 20;
+  width: 20;
+`
+
+const rangeTrack = css`
+  position: absolute;
+  width: 100%;
+  height: ${th('space.xs')};
+`
+
 export const Slider = styled.input<BorderProps>(
   ({ borderSelectorColor, disabled }) => css`
     ${th('sliders.default')};
+    appearance: none;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    border-radius: 0;
+    margin-top: ${th('space.sm')};
+    margin-bottom: ${th('space.sm')};
+    width: 100%;
+    height: ${th('space.xs')};
 
     &::-webkit-slider-thumb {
       ${th('sliders.selector')};
+      ${sliderSelector};
       border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
       transition: background-color ${th.transition('medium')},
         border-color ${th.transition('medium')};
@@ -19,6 +41,7 @@ export const Slider = styled.input<BorderProps>(
 
     &::-moz-range-thumb {
       ${th('sliders.selector')};
+      ${sliderSelector};
       border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
       transition: background-color ${th.transition('medium')},
         border-color ${th.transition('medium')};
@@ -68,9 +91,19 @@ export const Slider = styled.input<BorderProps>(
 export const RangeInput = styled.input<BorderProps>(
   ({ borderSelectorColor, disabled }) => css`
     ${th('sliders.rangeInput')}
+    appearance: none;
+    pointer-events: none;
+    position: absolute;
+    height: 0;
+    width: 100%;
+    outline: none;
+    z-index: 1;
+    top: ${th('space.xxs')};
 
     &::-webkit-slider-thumb {
       ${th('sliders.selector')};
+      ${sliderSelector};
+
       border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
       top: ${th('space.sm')};
       pointer-events: all;
@@ -79,6 +112,7 @@ export const RangeInput = styled.input<BorderProps>(
 
     &::-moz-range-thumb {
       ${th('sliders.selector')};
+      ${sliderSelector};
       border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
       top: ${th('space.sm')};
       pointer-events: all;
@@ -123,7 +157,7 @@ export const RangeInput = styled.input<BorderProps>(
 
 export const Track = styled(Box)(
   () => css`
-    ${th('sliders.rangeInput.track')};
+    ${rangeTrack};
     background-color: nude-400;
   `
 )
@@ -134,7 +168,7 @@ type RangeProps = {
 
 export const Range = styled(Box)<RangeProps>(
   ({ disabled }) => css`
-    ${th('sliders.rangeInput.track')};
+    ${rangeTrack};
     background-color: primary-500;
 
     ${disabled &&
@@ -179,7 +213,9 @@ export const Output = styled.output<OutputProps>(
     opacity: 0;
     visibility: hidden;
     transition: opacity ${th.transition('fast')}, visibility ${th.transition('fast')};
-    ${th('sliders.output')};
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, calc(-100% + -${th('space.xs')}));
 
     ${isVisible &&
     css`
@@ -192,5 +228,9 @@ export const Output = styled.output<OutputProps>(
 export const Tooltip = styled(Box)(
   () => css`
     ${th('sliders.output.tooltip')};
+    flex: 1 1 auto;
+    margin: auto;
+    min-width: ${th('space.xxs')};
+    padding: ${th('space.xs')} ${th('space.sm')};
   `
 )
