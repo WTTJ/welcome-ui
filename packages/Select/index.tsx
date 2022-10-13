@@ -304,7 +304,8 @@ export const Select = forwardRef<'input', SelectProps>(
             isClearable,
             transparent,
             ...rest,
-          })
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          }) as any
 
           return (
             <S.Wrapper {...rootProps}>

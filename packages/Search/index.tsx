@@ -168,7 +168,8 @@ export const Search = forwardRef<'input', SearchProps>(
             tabIndex: 0,
             variant: isOpen ? 'focused' : variant,
             ...rest,
-          })
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          }) as any
 
           return (
             <S.Wrapper {...getRootProps(rest as GetRootPropsOptions)}>
