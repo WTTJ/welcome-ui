@@ -117,7 +117,7 @@
     "husky": "8.0.1",
     "jest": "27.5.1",
     "jest-styled-components": "7.1.1",
-    "lerna": "^3.22.1",
+    "lerna": "^6.0.1",
     "lerna-update-wizard": "^0.17.8",
     "lodash.difference": "^4.5.0",
     "minimist": "1.2.7",
