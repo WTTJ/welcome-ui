@@ -11,6 +11,14 @@ const sliderSelector = css`
   cursor: pointer;
   height: 20;
   width: 20;
+  transform: scale(1);
+  transition: background-color ${th.transition('medium')}, border-color ${th.transition('medium')},
+    transform 100ms ease-in-out;
+`
+
+const sliderFocused = css`
+  ${th('sliders.focused')};
+  transform: scale(1.2);
 `
 
 const rangeTrack = css`
@@ -26,8 +34,7 @@ export const Slider = styled.input<BorderProps>(
     cursor: pointer;
     background-repeat: no-repeat;
     border-radius: 0;
-    margin-top: ${th('space.sm')};
-    margin-bottom: ${th('space.sm')};
+    margin: auto 0;
     width: 100%;
     height: ${th('space.xs')};
 
@@ -35,16 +42,12 @@ export const Slider = styled.input<BorderProps>(
       ${th('sliders.selector')};
       ${sliderSelector};
       border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
-      transition: background-color ${th.transition('medium')},
-        border-color ${th.transition('medium')};
     }
 
     &::-moz-range-thumb {
       ${th('sliders.selector')};
       ${sliderSelector};
       border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
-      transition: background-color ${th.transition('medium')},
-        border-color ${th.transition('medium')};
     }
 
     &:active,
@@ -52,11 +55,11 @@ export const Slider = styled.input<BorderProps>(
       outline: none;
 
       &::-webkit-slider-thumb {
-        ${th('sliders.focused')};
+        ${sliderFocused};
       }
 
       &::-moz-range-thumb {
-        ${th('sliders.focused')};
+        ${sliderFocused};
       }
     }
 
@@ -113,6 +116,7 @@ export const RangeInput = styled.input<BorderProps>(
     &::-moz-range-thumb {
       ${th('sliders.selector')};
       ${sliderSelector};
+
       border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
       top: ${th('space.sm')};
       pointer-events: all;
@@ -122,11 +126,11 @@ export const RangeInput = styled.input<BorderProps>(
     &:active,
     &:focus-visible {
       &::-webkit-slider-thumb {
-        ${th('sliders.focused')};
+        ${sliderFocused};
       }
 
       &::-moz-range-thumb {
-        ${th('sliders.focused')};
+        ${sliderFocused};
       }
     }
 
@@ -212,7 +216,7 @@ export const Output = styled.output<OutputProps>(
   ({ isVisible }) => css`
     opacity: 0;
     visibility: hidden;
-    transition: opacity ${th.transition('fast')}, visibility ${th.transition('fast')};
+    transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out, transform 150ms ease-in-out;
     position: absolute;
     text-align: center;
     transform: translate(-50%, calc(-100% + -${th('space.xs')}));
@@ -221,6 +225,7 @@ export const Output = styled.output<OutputProps>(
     css`
       opacity: 100;
       visibility: visible;
+      transform: translate(-50%, calc(-100% + -${th('space.sm')}));
     `}
   `
 )

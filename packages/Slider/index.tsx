@@ -150,7 +150,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               <Box>{min}</Box>
             ))}
 
-          <Box position="relative" w="100%">
+          <Box display="flex" h={20} position="relative" w="100%">
             <S.Slider
               borderSelectorColor={borderSelectorColor}
               disabled={disabled}
