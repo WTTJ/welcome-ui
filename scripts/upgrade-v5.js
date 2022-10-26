@@ -51,7 +51,7 @@ const cleanStyledSpacingValue = prop => {
   return `${key}: v5.${newValue};`
 }
 
-const upgradeColorsKey = async content => {
+const upgradeColorsKey = content => {
   const regex = /(primary|light|dark|nude|success|danger|info|warning|sub)\.(1|2|3|4|5|6|7|8|9)/gm
 
   if (regex.test(content)) {
@@ -62,7 +62,7 @@ const upgradeColorsKey = async content => {
   return content
 }
 
-const upgradeJsxSpacing = async content => {
+const upgradeJsxSpacing = content => {
   const regex =
     /(mt|mb|my|mr|ml|mx|pt|pb|py|pr|pl|px|paddingTop|paddingBottom|paddingRight|paddingLeft|marginTop|marginBottom|marginRight|marginLeft)="(xs|xxl|3xl|5xl|6xl)"/gm
 
@@ -74,7 +74,7 @@ const upgradeJsxSpacing = async content => {
   return content
 }
 
-const upgradeStyledSpacing = async content => {
+const upgradeStyledSpacing = content => {
   const regex =
     /(padding|padding-top|padding-bottom|padding-right|padding-left|margin|margin-top|margin-bottom|margin-right|margin-left):( )(xs|xxl|3xl|5xl|6xl);/gm
 
@@ -86,7 +86,7 @@ const upgradeStyledSpacing = async content => {
   return content
 }
 
-const upgradeColors = async content => {
+const upgradeColors = content => {
   const regex = /(nude|success|danger|info|warning)-(100|200|300|400|500|600|700|800|900)/gm
 
   if (regex.test(content)) {
@@ -96,7 +96,7 @@ const upgradeColors = async content => {
   return content
 }
 
-const removePrefix = async content => {
+const removePrefix = content => {
   const regex = /v5\./gm
 
   if (regex.test(content)) {
@@ -114,11 +114,11 @@ glob(pattern, (error, matches) => {
     const file = await fs.readFile(match)
     let content = file.toString()
 
-    content = await upgradeColorsKey(content)
-    content = await upgradeColors(content)
-    content = await upgradeJsxSpacing(content)
-    content = await upgradeStyledSpacing(content)
-    content = await removePrefix(content)
+    content = upgradeColorsKey(content)
+    content = upgradeColors(content)
+    content = upgradeJsxSpacing(content)
+    content = upgradeStyledSpacing(content)
+    content = removePrefix(content)
 
     await fs.writeFile(match, content)
   })
