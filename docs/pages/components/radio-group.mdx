@@ -36,6 +36,30 @@ function () {
 }
 ```
 
+## Column style
+
+Add flexDirection to `row` to Field to add the inline style for radios group
+
+```jsx
+function () {
+  const [value, setValue] = React.useState('github')
+
+  const handleChange = event => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Field
+      label="Label"
+      required
+      flexDirection="row"
+    >
+      <RadioGroup name="social-1" options={constants.ITEMS.slice(0, 5)} onChange={handleChange} value={value} />
+    </Field>
+  )
+}
+```
+
 ## Disabled
 
 Add `disabled` to the Field component
@@ -55,7 +79,7 @@ function () {
 
 ## Variants
 
-Add `disabled` to the Field component
+Use `warning`, `error`, `info` or `success` properties on Field to add a variant status on your RadioGroup. The label, hint or border color are set by magic 🪄
 
 ```jsx
 function () {

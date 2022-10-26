@@ -8,7 +8,12 @@ import { matchSorter } from 'match-sorter'
 import { DownIcon } from '@welcome-ui/icons'
 import { ClearButton } from '@welcome-ui/clear-button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { createEvent, CreateEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'
+import {
+  createEvent,
+  CreateEvent,
+  DefaultFieldStylesProps,
+  FIELD_ICON_SIZE,
+} from '@welcome-ui/utils'
 import { IconWrapper } from '@welcome-ui/field'
 
 import {
@@ -42,7 +47,7 @@ export interface SelectOptions extends DefaultFieldStylesProps {
   autoComplete?: string
   autoFocus?: boolean
   disabled?: boolean
-  icon?: string | JSX.Element
+  icon?: React.ReactElement
   id?: string
   isClearable?: boolean
   isCreatable?: boolean
@@ -289,7 +294,7 @@ export const Select = forwardRef<'input', SelectProps>(
             'data-spacer': spacer || placeholder,
             'data-testid': dataTestId,
             disabled,
-            hasIcon: !!icon,
+            iconPlacement: icon ? 'both' : 'right',
             id,
             name,
             onBlur,
@@ -306,6 +311,7 @@ export const Select = forwardRef<'input', SelectProps>(
             ...rest,
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
           }) as any
+          const iconSize = FIELD_ICON_SIZE[size]
 
           return (
             <S.Wrapper {...rootProps}>
@@ -316,8 +322,8 @@ export const Select = forwardRef<'input', SelectProps>(
                   <S.Input {...inputProps}>{inputContent}</S.Input>
                 )}
                 {icon && (
-                  <IconWrapper iconPlacement="left" size={size}>
-                    {icon}
+                  <IconWrapper iconPlacement="left" size={iconSize}>
+                    {React.cloneElement(icon, { ...icon.props, size: iconSize })}
                   </IconWrapper>
                 )}
                 <S.Indicators size={size}>

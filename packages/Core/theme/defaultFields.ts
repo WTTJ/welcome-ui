@@ -56,19 +56,31 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
     sizes: {
       xs: {
         height: toRem(24),
-        padding: `${space.xs} ${space.md}`,
+        paddingTop: space.xs,
+        paddingRight: space.sm,
+        paddingBottom: space.xs,
+        paddingLeft: space.sm,
       },
       sm: {
         height: toRem(32),
-        padding: `${space.sm} ${space.md}`,
+        paddingTop: space.sm,
+        paddingRight: space.md,
+        paddingBottom: space.sm,
+        paddingLeft: space.md,
       },
       md: {
         height: toRem(40),
-        padding: `${space.md}`,
+        paddingTop: space.md,
+        paddingRight: space.md,
+        paddingBottom: space.md,
+        paddingLeft: space.md,
       },
       lg: {
         height: toRem(48),
-        padding: `${space.lg} ${space.md}`,
+        paddingTop: space.lg,
+        paddingRight: space.md,
+        paddingBottom: space.lg,
+        paddingLeft: space.md,
       },
     },
     iconPlacement: {
@@ -116,9 +128,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       info: { ...focus(colors['info-400']) },
     },
     checkablelabel: {
-      default: {
-        fontWeight: fontWeights.regular,
-      },
+      default: {},
       checked: {
         color: colors['dark-200'],
         '-webkit-text-stroke': '0.04em',
@@ -140,7 +150,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
         backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%)',
       },
       selected: {
-        color: colors['dark-200'],
+        color: colors['dark-900'],
         fontWeight: fontWeights.bold,
       },
       disabled: {

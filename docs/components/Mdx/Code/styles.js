@@ -53,7 +53,7 @@ export const ShowEditor = styled.div`
 export const CodeContent = styled.div`
   > * {
     &:not(:last-child) {
-      margin-bottom: md;
+      margin-bottom: lg;
     }
   }
 `
@@ -61,12 +61,12 @@ export const CodeContent = styled.div`
 export const CodeContentRow = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: -md;
-  margin-right: -md;
+  margin-bottom: -xs;
+  margin-right: -xs;
   flex-wrap: wrap;
 
   > * {
-    margin-bottom: md;
-    margin-right: md;
+    margin-bottom: xs;
+    margin-right: xs;
   }
 `

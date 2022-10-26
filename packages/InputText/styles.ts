@@ -4,37 +4,18 @@ import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { InputTextOptions } from './index'
 
-export const InputText = styled('input').withConfig({ shouldForwardProp })<InputTextOptions>(
-  ({ icon, iconPlacement, isClearable, size, transparent, variant }) => css`
-    ${defaultFieldStyles({ size, variant, transparent })};
+export const InputText = styled('input').withConfig({ shouldForwardProp })<
+  Pick<InputTextOptions, 'iconPlacement' | 'isClearable' | 'transparent' | 'variant' | 'size'>
+>(
+  ({ iconPlacement, isClearable, size, transparent, variant }) => css`
+    ${defaultFieldStyles({
+      size,
+      variant,
+      transparent,
+      isClearable,
+      iconPlacement,
+    })};
     text-overflow: ellipsis;
-
-    ${
-      /* With icon */
-      icon &&
-      iconPlacement === 'left' &&
-      css`
-        padding-left: 36;
-      `
-    };
-
-    ${
-      /* With clear button or right icon */
-      (isClearable || (icon && iconPlacement === 'right')) &&
-      css`
-        padding-right: 36;
-      `
-    };
-
-    ${
-      /* With clear button and right icon */
-      isClearable &&
-      icon &&
-      iconPlacement === 'right' &&
-      css`
-        padding-right: 4xl;
-      `
-    };
 
     ${system};
   `

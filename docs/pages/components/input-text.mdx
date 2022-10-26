@@ -121,8 +121,9 @@ function () {
 
   return (
     <Stack spacing="xl">
-      <InputText icon={<AvatarIcon />} name="firstName3" placeholder="Boaty" value={value} onChange={handleChange} />
+      <InputText icon={<AvatarIcon />} isClearable name="firstName3" placeholder="Boaty" value={value} onChange={handleChange} />
       <InputText icon={<AvatarIcon />} iconPlacement="right" name="firstName3" placeholder="Boaty" value={value} onChange={handleChange} />
+      <InputText icon={<AvatarIcon />} isClearable size="xs" iconPlacement="right" name="firstName3" placeholder="Boaty" value={value} onChange={handleChange} />
     </Stack>
   )
 }

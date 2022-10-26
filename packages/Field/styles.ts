@@ -3,10 +3,10 @@ import { StyledLabel } from '@welcome-ui/label'
 import { StyledHint } from '@welcome-ui/hint'
 import { StyledFieldGroup } from '@welcome-ui/field-group'
 import { shouldForwardProp, WuiProps } from '@welcome-ui/system'
-import { DefaultFieldStylesProps } from '@welcome-ui/utils'
+import { FieldIconSize } from '@welcome-ui/utils'
 
 const rowStyles = css`
-  margin-right: sm;
+  margin-right: md;
 `
 
 const columnStyles = css`
@@ -45,7 +45,7 @@ export const Field = styled('div').withConfig({ shouldForwardProp })<StyledField
 
 type IconWrapperProps = {
   iconPlacement: 'left' | 'right'
-  size?: DefaultFieldStylesProps['size']
+  size?: FieldIconSize
 }
 
 export const IconWrapper = styled.div<IconWrapperProps>(
@@ -56,7 +56,6 @@ export const IconWrapper = styled.div<IconWrapperProps>(
     right: ${iconPlacement === 'right' ? th(`defaultFields.iconPlacement.${size}.right`) : 'auto'};
     bottom: 0;
     display: flex;
-    width: 16;
     justify-content: center;
     align-items: center;
     pointer-events: none;
@@ -64,6 +63,7 @@ export const IconWrapper = styled.div<IconWrapperProps>(
     transition-timing-function: primary;
     color: dark-900;
     ${system};
+
     /* for button action */
     & > button {
       pointer-events: auto;
@@ -72,7 +72,7 @@ export const IconWrapper = styled.div<IconWrapperProps>(
 )
 
 export const IconGroupWrapper = styled.div(
-  ({ size }: { size: DefaultFieldStylesProps['size'] }) => css`
+  ({ size }: { size: FieldIconSize }) => css`
     position: absolute;
     padding: 0;
     top: 0;
@@ -80,10 +80,7 @@ export const IconGroupWrapper = styled.div(
     right: ${size === 'xs' ? 'sm' : 'md'};
     display: flex;
     align-items: center;
-    gap: sm;
-
-    > * {
-      width: 16;
-    }
+    gap: xs;
+    color: dark-900;
   `
 )

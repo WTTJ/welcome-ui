@@ -1,8 +1,14 @@
 import React, { Fragment, useCallback, useMemo, useState } from 'react'
 import Downshift, { DownshiftProps, GetRootPropsOptions } from 'downshift'
 import { ClearButton } from '@welcome-ui/clear-button'
-import { createEvent, DefaultFieldStylesProps, throttle as handleThrottle } from '@welcome-ui/utils'
+import {
+  createEvent,
+  DefaultFieldStylesProps,
+  FIELD_ICON_SIZE,
+  throttle as handleThrottle,
+} from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { IconWrapper } from '@welcome-ui/field'
 
 import * as S from './styles'
 
@@ -49,7 +55,7 @@ export const Search = forwardRef<'input', SearchProps>(
       placeholder = 'Search…',
       renderItem,
       search,
-      size = 'lg',
+      size = 'md',
       throttle = 500,
       value: selected = EMPTY_STRING,
       variant,
@@ -156,7 +162,7 @@ export const Search = forwardRef<'input', SearchProps>(
             autoFocus,
             'data-testid': dataTestId,
             disabled,
-            hasIcon: !!icon,
+            iconPlacement: !!icon && 'left',
             id,
             name,
             onBlur,
@@ -170,12 +176,17 @@ export const Search = forwardRef<'input', SearchProps>(
             ...rest,
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
           }) as any
+          const iconSize = FIELD_ICON_SIZE[size]
 
           return (
             <S.Wrapper {...getRootProps(rest as GetRootPropsOptions)}>
               <S.InputWrapper>
                 <S.Input {...inputProps} />
-                {icon && <S.Icon size={size}>{icon}</S.Icon>}
+                {icon && (
+                  <IconWrapper iconPlacement="left" size={iconSize}>
+                    {React.cloneElement(icon, { ...icon.props, size: iconSize })}
+                  </IconWrapper>
+                )}
                 <S.Indicators>{inputValue && DeleteIcon}</S.Indicators>
               </S.InputWrapper>
               {isShowMenu && (

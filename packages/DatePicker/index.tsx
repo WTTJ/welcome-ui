@@ -49,7 +49,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
       onFocus,
       placeholder,
       popperProps,
-      size = 'lg',
+      size = 'md',
       startYear = 1900,
       useWeekdaysShort = true,
       value = DEFAULT_DATE,
@@ -150,6 +150,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
         }
         dateFormat={dateFormat}
         disabled={disabled}
+        iconPlacement={!!icon && iconPlacement}
         locale={locale}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
@@ -164,7 +165,6 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
         transparent={transparent}
         useWeekdaysShort={useWeekdaysShort}
         {...rest}
-        isClearable={false}
       />
     )
   }

@@ -79,10 +79,4 @@ export const Wrapper = styled(Box)`
   display: flex;
   align-items: center;
   gap: sm;
-
-  > * {
-    &:not(:last-child) {
-      margin-right: xxs;
-    }
-  }
 `

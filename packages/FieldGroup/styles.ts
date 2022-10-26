@@ -12,6 +12,6 @@ export const FieldGroup = styled('fieldset').withConfig({ shouldForwardProp })`
   ${system};
 
   & > ${StyledLabel} {
-    margin-bottom: md;
+    margin-bottom: xs;
   }
 `

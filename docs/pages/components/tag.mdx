@@ -118,7 +118,11 @@ function() {
       Tag removed
     </Text>
   ) : (
-    <Tag onRemove={() => setHide(true)}>Example of remove tag</Tag>
+    <Stack>
+      <Tag onRemove={() => setHide(true)}>Example of remove tag</Tag>
+      <Tag size="sm" onRemove={() => setHide(true)}>small</Tag>
+      <Tag variant="success" onRemove={() => setHide(true)}>success</Tag>
+    </Stack>
   )
 }
 ```
