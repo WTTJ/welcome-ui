@@ -25,6 +25,7 @@ export const ITEMS = {
     'RadioTab',
     'Search',
     'Select',
+    'Slider',
     'Textarea',
     'TimePicker',
     'Toggle',

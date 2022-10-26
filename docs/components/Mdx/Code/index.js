@@ -49,6 +49,7 @@ import { RadioTab } from '@welcome-ui/radio-tab'
 import { Search } from '@welcome-ui/search'
 import { Select } from '@welcome-ui/select'
 import { Shape } from '@welcome-ui/shape'
+import { Slider } from '@welcome-ui/slider'
 import { Stack } from '@welcome-ui/stack'
 import * as Swiper from '@welcome-ui/swiper'
 import { Table } from '@welcome-ui/table'
@@ -167,6 +168,7 @@ export function Code({
       Search,
       Select,
       Shape,
+      Slider,
       Stack,
       ...Swiper,
       Table,

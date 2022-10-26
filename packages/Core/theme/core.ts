@@ -32,6 +32,7 @@ import { getTags } from './tags'
 import { getTooltips } from './tooltips'
 import { getCheckboxes } from './checkboxes'
 import { getModals } from './modals'
+import { getSliders } from './sliders'
 import { getToggles } from './toggles'
 import { getHints } from './hints'
 import { getAccordions } from './accordions'
@@ -159,6 +160,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   theme.filedrops = getFiledrops(theme)
   theme.radios = getRadios(theme)
   theme.radioTabs = getRadioTabs(theme)
+  theme.sliders = getSliders(theme)
 
   // states
   theme.states = defaultTheme.states
