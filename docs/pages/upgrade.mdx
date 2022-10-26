@@ -15,6 +15,34 @@ We need also for typescript compatibility rework our colors naming :
 - Before : `colors.dark.900`
 - After : `colors['dark-900']`
 
+We rework some colors:
+
+- **v4 compare to v5**
+- [success/danger/warning/info].500 <-> [success/danger/warning/info]-300
+- [success/danger/warning/info].700 <-> [success/danger/warning/info]-400
+- new color [success/danger/warning/info]-500
+- nude.400 <-> nude-500
+- nude.500 <-> nude-400
+- nude.700 <-> nude-600
+- nude.800 <-> nude-700
+- ** the light colors are all white with opacity, you need to replace the old light color for text with new black color **
+  - light.800 <-> dark-100
+  - light.700 <-> dark-200
+  - light.500 <-> dark-400
+  - light.200 <-> dark-400
+  - light.100 <-> dark-500
+  - now the light colors variants are 100, 200, 400, 500, 700, 900(without opacity)
+- ** the dark colors are all black with opacity, it's also used for text color **
+  - dark.100 <-> dark-500
+  - dark.200 <-> dark-700
+  - dark.500 <-> dark.900
+  - dark.700 <-> dark.900
+  - dark.800 <-> dark.900
+  - now the dark colors variants are 100, 200, 400, 500, 700, 900(without opacity)
+- new color white (get the light.900 for dark mode)
+- new color black (get the dark.900 for dark mode)
+- the color for html is now dark-500
+
 #### Spacing
 
 We rework our spacing:

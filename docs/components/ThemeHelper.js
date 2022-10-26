@@ -15,7 +15,7 @@ export function ThemeHelper({ modal }) {
   const [hasBeenHydrated, setHasBeenHydrated] = useState(false)
   const tabState = useTabState({ orientation: 'vertical' })
 
-  const categories = ['space', 'screens', 'fontSizes', 'fontWeights']
+  const categories = ['colors', 'space', 'screens', 'fontSizes', 'fontWeights']
   const [defaultTab] = categories
   const title = `${currentTheme.at(0).toUpperCase()}${currentTheme.slice(1)} Theme`
 
@@ -66,7 +66,6 @@ export function ThemeHelper({ modal }) {
                     <Text variant="h5" mb="md" mt="0">
                       Value
                     </Text>
-
                     <ThemeConfiguration category={category} />
                   </Box>
                 </Tab.Panel>

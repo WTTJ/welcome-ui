@@ -11,7 +11,9 @@ const SpacesContent = category => DisplayCategoryContent(category, { shouldConve
 
 const ScreensContent = category => DisplayCategoryContent(category, { unit: 'px' })
 
-const DisplayCategoryContent = ({ category }, config = { shouldConvertToPx: false, unit: '' }) => {
+const ColorsContent = category => DisplayCategoryContent(category, { shouldShowColor: true })
+
+const DisplayCategoryContent = ({ category }, config = { shouldConvertToPx: false, unit: '', shouldShowColor: false }) => {
   const themeConfiguration = useThemeConfigurationContext()
 
   return (
@@ -22,6 +24,16 @@ const DisplayCategoryContent = ({ category }, config = { shouldConvertToPx: fals
             {key}
           </Text>
           <Box display="flex" gap="md" mt="xs" my="xs">
+          {config.shouldShowColor && (
+              <Box
+                w={30}
+                h={10}
+                mt="xs"
+                backgroundColor={key}
+                border={key.startsWith('light-') ? "1px solid" : 'none'}
+                borderColor="dark-200"
+              />
+            )}
             <Text variant="body2" m="0">
               {value}
               {config.unit}
@@ -39,10 +51,11 @@ const DisplayCategoryContent = ({ category }, config = { shouldConvertToPx: fals
 }
 
 const categoriesComponents = {
+  colors: ColorsContent,
   fontSizes: FontSizesContent,
   fontWeights: FontWeightsContent,
-  space: SpacesContent,
   screens: ScreensContent,
+  space: SpacesContent,
 }
 
 export function ThemeConfiguration({ category }) {
