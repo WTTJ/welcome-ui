@@ -6,8 +6,11 @@ import { slugify } from '../../utils'
 
 import { CATEGORIES, ITEMS } from './items'
 import { Link } from './Link'
+import { Badge } from '@welcome-ui/badge'
 import * as S from './styles'
 import { VersionSelector } from './VersionSelector'
+
+const newItems = ['slider']
 
 export function ComponentsList({ onClick, ...props }) {
   return (
@@ -42,7 +45,14 @@ export function ComponentsList({ onClick, ...props }) {
             {category.value.map(item => (
               <S.Li key={`category_${category.name}_component_${item}`} onClick={onClick}>
                 <Link href={`/components/${slugify(item)}`} passHref>
-                  <S.Item>{item}</S.Item>
+                  <S.Item>
+                    {item}
+                    {newItems.includes(slugify(item)) ?
+                      <Badge size="sm" variant="primary">new</Badge>
+                    :
+                      ''
+                    }
+                  </S.Item>
                 </Link>
               </S.Li>
             ))}
