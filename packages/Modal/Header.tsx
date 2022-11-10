@@ -5,8 +5,8 @@ import { forwardRef } from '@welcome-ui/system'
 import { useTheme } from '@xstyled/styled-components'
 
 export interface HeaderOptions {
-  title: string
-  subtitle?: string
+  title: string | JSX.Element
+  subtitle?: string | JSX.Element
   icon?: ReactElement
 }
 
