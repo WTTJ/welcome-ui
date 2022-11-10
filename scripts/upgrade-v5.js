@@ -30,6 +30,16 @@ const newColorValues = {
   'nude-500': 'nude-400',
   'nude-700': 'nude-600',
   'nude-800': 'nude-700',
+  'dark-100': 'dark-500',
+  'dark-200': 'dark-700',
+  'dark-500': 'dark-900',
+  'dark-700': 'dark-900',
+  'dark-800': 'dark-900',
+  'light-800': 'dark-100',
+  'light-700': 'dark-200',
+  'light-500': 'dark-400',
+  'light-200': 'dark-400',
+  'light-100': 'dark-500',
 }
 
 const getNewSpacingValue = value => newSpacingValues[value] || value
@@ -87,7 +97,8 @@ const upgradeStyledSpacing = content => {
 }
 
 const upgradeColors = content => {
-  const regex = /(nude|success|danger|info|warning)-(100|200|300|400|500|600|700|800|900)/gm
+  const regex =
+    /(nude|success|danger|info|warning|dark|light)-(100|200|300|400|500|600|700|800|900)/gm
 
   if (regex.test(content)) {
     const newContent = content.replaceAll(regex, getNewColorValue)
