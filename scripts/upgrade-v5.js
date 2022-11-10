@@ -42,8 +42,20 @@ const newColorValues = {
   'light-100': 'dark-500',
 }
 
+const newTextValues = {
+  body1: 'lg',
+  body2: 'md',
+  body3: 'sm',
+  body4: 'xs',
+  'subtitle-1': 'subtitle-md',
+  'subtitle-2': 'subtitle-sm',
+  meta1: 'sm',
+  meta2: 'xs',
+}
+
 const getNewSpacingValue = value => newSpacingValues[value] || value
 const getNewColorValue = value => newColorValues[value] || value
+const getNewTextValue = value => newTextValues[value] || value
 const removeQuotes = value => value.replaceAll('"', '')
 const removeSemicolon = value => value.replace(';', '')
 
@@ -107,6 +119,16 @@ const upgradeColors = content => {
   return content
 }
 
+const upgradeTexts = content => {
+  const regex = /body1|body2|body3|body4|subtitle1|subtitle2|meta1|meta2/gm
+
+  if (regex.test(content)) {
+    const newContent = content.replaceAll(regex, getNewTextValue)
+    return newContent
+  }
+  return content
+}
+
 const removePrefix = content => {
   const regex = /v5\./gm
 
@@ -129,6 +151,7 @@ glob(pattern, (error, matches) => {
     content = upgradeColors(content)
     content = upgradeJsxSpacing(content)
     content = upgradeStyledSpacing(content)
+    content = upgradeTexts(content)
     content = removePrefix(content)
 
     await fs.writeFile(match, content)
