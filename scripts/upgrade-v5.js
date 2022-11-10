@@ -64,7 +64,7 @@ const upgradeColorsKey = content => {
 
 const upgradeJsxSpacing = content => {
   const regex =
-    /(mt|mb|my|mr|ml|mx|pt|pb|py|pr|pl|px|paddingTop|paddingBottom|paddingRight|paddingLeft|marginTop|marginBottom|marginRight|marginLeft)="(xs|xxl|3xl|5xl|6xl)"/gm
+    /(mt|mb|my|mr|ml|mx|pt|pb|py|pr|pl|px|paddingTop|paddingBottom|paddingRight|paddingLeft|marginTop|marginBottom|marginRight|marginLeft|gap)="(xs|xxl|3xl|5xl|6xl)"/gm
 
   if (regex.test(content)) {
     const newContent = content.replaceAll(regex, cleanJsxSpacingValue)
