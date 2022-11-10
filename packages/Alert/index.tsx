@@ -35,10 +35,10 @@ const AlertComponent = forwardRef<'div', AlertProps>(
 
     return (
       <S.Alert ref={ref} size={size} variant={variant} {...rest}>
-        <VariantIcon icon={icon} pr="md" variant={variant} />
-        <Box h="fit-content" m="auto">
+        <VariantIcon $pr="md" icon={icon} variant={variant} />
+        <Box $h="fit-content" $m="auto">
           {buttonChild ? (
-            <Stack alignItems="center" direction="row" justifyContent="space-between">
+            <Stack $alignItems="center" $justifyContent="space-between" direction="row">
               <div>{content}</div>
               {buttonChild}
             </Stack>

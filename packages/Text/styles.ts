@@ -1,4 +1,5 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
+import { system } from '@welcome-ui/system'
 
 import { TextOptions } from './index'
 
@@ -23,11 +24,11 @@ const getBlockHeight = (lines: number) => css`
   word-break: ${lines === 1 ? 'break-all' : null};
 `
 
-export const Text = styled.p<TextOptions>(({ lines, variant }) => {
+export const Text = styled.p<TextOptions>(({ lines, theme, variant }) => {
   const mobileVariant = MOBILE_VARIANTS[variant as keyof typeof MOBILE_VARIANTS]
 
   return css`
-    ${th(`texts.${mobileVariant || variant}`)};
+    ${theme.texts[mobileVariant || variant]};
 
     /* Start fallback for non-webkit */
     display: block;
@@ -35,8 +36,7 @@ export const Text = styled.p<TextOptions>(({ lines, variant }) => {
     /* End fallback for non-webkit */
 
     @media (min-width: lg) {
-      ${th(`texts.${variant}`)};
-      ${system};
+      ${theme.texts[variant]};
     }
 
     ${system};

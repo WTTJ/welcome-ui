@@ -29,14 +29,14 @@ export const Growl = forwardRef<'div', GrowlProps>(
       <S.Growl hasCloseButton={hasCloseButton} icon={icon} ref={ref} variant={variant}>
         {hasCloseButton && (
           <CloseButton
+            $position="absolute"
+            $right="sm"
+            $top="sm"
             data-testid={closeButtonDataTestId}
             onClick={onClose}
-            position="absolute"
-            right="sm"
-            top="sm"
           />
         )}
-        <Box pr="xl">{children}</Box>
+        <Box $pr="xl">{children}</Box>
       </S.Growl>
     )
   }

@@ -1,15 +1,14 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 
 import { AlertOptions } from '.'
 
 export const Alert = styled(Box)<AlertOptions>(
-  ({ size, variant }) => css`
-    ${th('alerts.default')};
-    ${th(`alerts.${variant}`)};
-    ${th(`alerts.sizes.${size}`)};
-    ${system}
+  ({ size, theme, variant }) => css`
+    ${theme.alerts.default};
+    ${theme.alerts[variant]};
+    ${theme.alerts.sizes[size]};
   `
 )
 
@@ -17,15 +16,14 @@ export const Title = styled(Text).attrs(({ variant }: AlertOptions) => ({
   variant: 'h5',
   // We're renaming the prop because it'll be overridden by Text's variant
   alertVariant: variant,
-}))(
-  ({ alertVariant }) => css`
+}))<{ alertVariant: AlertOptions['variant'] }>(
+  ({ alertVariant, theme }) => css`
     display: flex;
     align-items: center;
     margin: 0;
     margin-bottom: sm;
     height: 100%;
-    ${th(`alerts.title.${alertVariant}`)};
-    ${system}
+    ${theme.alerts.title[alertVariant]};
 
     &:only-child {
       margin-bottom: 0;

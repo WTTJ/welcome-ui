@@ -8,7 +8,7 @@ import * as S from './styles'
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
-export type Variant = VariantFromUtils | 'default'
+export type Variant = Exclude<VariantFromUtils, 'focused'> | 'default'
 
 export interface VariantIconOptions {
   icon?: JSX.Element

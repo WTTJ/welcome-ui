@@ -127,16 +127,17 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
     }, [value])
 
     return (
-      <Box display="flex" flexDirection="column" position="relative">
+      <Box $display="flex" $flexDirection="column" $position="relative">
         {label && (
           <Text as="label" variant="sm">
             {label}
           </Text>
         )}
-        <Box alignItems="center" display="flex" gap="sm">
+        <Box $alignItems="center" $display="flex" $gap="sm">
           {(type === 'inline' || type === 'left-field') &&
             (type === 'left-field' ? (
               <InputText
+                $w="72px"
                 max={max}
                 min={min}
                 onChange={handleInputChange}
@@ -144,13 +145,12 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
                 size="sm"
                 type="number"
                 value={inputValue.toString()}
-                w={72}
               />
             ) : (
               <Box>{min}</Box>
             ))}
 
-          <Box display="flex" h={20} position="relative" w="100%">
+          <Box $display="flex" $h="20px" $position="relative" $w="100%">
             <S.Slider
               borderSelectorColor={borderSelectorColor}
               disabled={disabled}
@@ -166,7 +166,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
                   setInputValue(value)
                 }
                 // eslint-disable-next-line prettier/prettier
-                }      
+              }
               onKeyDown={handleKeyDown}
               onMouseDown={() => {
                 tooltip && tooltipVisible === false && setTooltipVisible(true)
@@ -187,13 +187,13 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               </S.Output>
             )}
             {values && (
-              <Box h={24} ml={10} mr={10} position="relative">
+              <Box $h="24px" $ml="10px" $mr="10px" $position="relative">
                 {values
                   .reduce((prev, acc) => (prev.includes(acc) ? prev : [...prev, acc]), [])
                   .filter(v => v >= min && v <= max)
                   .map((el, index) => (
                     // eslint-disable-next-line react/no-array-index-key
-                    <S.Thick key={`${el}-${index}`} left={`${getPercent(el)}%`}>
+                    <S.Thick $left={`${getPercent(el)}%`} key={`${el}-${index}`}>
                       <S.ThickLabel>{el}</S.ThickLabel>
                     </S.Thick>
                   ))}
@@ -204,6 +204,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
           {(type === 'inline' || type === 'right-field') &&
             (type === 'right-field' ? (
               <InputText
+                $w="72px"
                 max={max}
                 min={min}
                 onChange={handleInputChange}
@@ -211,7 +212,6 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
                 size="sm"
                 type="number"
                 value={inputValue.toString()}
-                w={72}
               />
             ) : (
               <Box>{max}</Box>
@@ -219,7 +219,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
         </Box>
 
         {hint && (
-          <Hint color="dark.400" mt={0}>
+          <Hint $color="dark-400" $mt="0px">
             {hint}
           </Hint>
         )}

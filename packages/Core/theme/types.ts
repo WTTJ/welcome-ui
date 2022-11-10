@@ -71,6 +71,7 @@ type OverrideKeys =
   | 'sizes'
   | 'screens'
   | 'space'
+  | 'spaces'
   | 'shadows'
   | 'texts'
 
@@ -98,6 +99,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   fonts: ThemeFonts
   screens: ThemeScreens
   space: ThemeSpace
+  spaces: ThemeSpace
   inset: ThemeSpace
   icons: ThemeIcons
   radii: ThemeRadii

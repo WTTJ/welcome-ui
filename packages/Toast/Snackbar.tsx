@@ -22,7 +22,7 @@ export type SnackbarProps = CreateWuiProps<'div', SnackbarOptions>
 export const Snackbar = forwardRef<'div', SnackbarProps>(
   ({ children, hasCloseButton = true, icon, onClose, variant = 'default', ...rest }, ref) => (
     <S.Snackbar hasCloseButton={hasCloseButton} icon={icon} ref={ref} variant={variant} {...rest}>
-      <Box alignItems="center" display="flex">
+      <Box $alignItems="center" $display="flex">
         {children}
         {hasCloseButton && <CloseButton onClick={onClose} size="xs" />}
       </Box>

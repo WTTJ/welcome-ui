@@ -16,7 +16,10 @@ const getBabelOptions = ({ babelConfigFile = '../../babel.config.js' }) => ({
   babelHelpers: 'inline',
 })
 
-const external = id => !id.startsWith('.') && !id.startsWith('/')
+const external = id => {
+  if (id === 'jsx-to-styled') return false // keep jsx-to-styled in @welcome-ui/system
+  return !id.startsWith('.') && !id.startsWith('/')
+}
 
 const PLUGINS = [
   replace({

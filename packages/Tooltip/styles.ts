@@ -1,12 +1,10 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { system, th } from '@xstyled/styled-components'
 import { Tooltip as ReakitTooltip } from 'reakit/Tooltip'
-import { filterSystemProps } from '@welcome-ui/system'
 
 import { PlacementOptions } from './index'
 
-export const Tooltip = styled(ReakitTooltip).withConfig({ shouldForwardProp: filterSystemProps })(
-  () => css``
-)
+export const Tooltip = styled(ReakitTooltip)``
+
 const transformDirection = {
   top: 'translate3d(0, -4px, 0)',
   right: 'translate3d(4px, 0, 0)',

@@ -4,14 +4,8 @@
     "outDir": ".",
     "baseUrl": "./packages",
     "sourceMap": false,
-    "declaration": true,
+    "declaration": true
   },
-  "include": ["packages", "syled.d.ts"],
-  "exclude": [
-    "dist",
-    "icons/**/*",
-    "packages/**/node_modules",
-    "packages/**/dist",
-    "docs"
-  ]
+  "include": ["packages", "types"],
+  "exclude": ["dist", "icons/**/*", "packages/**/node_modules", "packages/**/dist", "docs"]
 }

@@ -13,8 +13,8 @@ export type ThemeSpace = {
   '5xl': string
   '6xl': string
   '7xl': string
-  [key: string]: string
-  [key: number]: string
+  // [key: string]: string
+  // [key: number]: string
 }
 
 export const getSpace = (theme: WuiTheme): ThemeSpace => {

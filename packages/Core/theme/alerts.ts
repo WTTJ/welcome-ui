@@ -11,7 +11,7 @@ type AttributesState = CSSObject
 export type ThemeAlerts = {
   sizes: Record<Sizes, { padding?: string }>
   default: CSSObject
-  title: Record<State, { color: string }>
+  title: Record<State, CSSObject>
 } & Record<State, AttributesState>
 
 export const getAlerts = (theme: WuiTheme): ThemeAlerts => {

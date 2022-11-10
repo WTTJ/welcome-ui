@@ -104,7 +104,9 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
 
   theme.screens = screens
 
+  // todo remove theme.space
   theme.space = getSpace(theme)
+  theme.spaces = getSpace(theme)
 
   theme.inset = theme.space
 
