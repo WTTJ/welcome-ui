@@ -133,7 +133,7 @@
     "rollup-plugin-postcss": "4.0.2",
     "standard-version": "=7.0.0",
     "styled-components": "^5.3.6",
-    "svgo": "^2.8.0",
+    "svgo": "^3.0.0",
     "typescript": "^4.8.4",
     "webfonts-generator": "^0.4.0",
     "wttj-config-front": "^2.1.0",
