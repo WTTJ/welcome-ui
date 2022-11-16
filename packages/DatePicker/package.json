@@ -38,7 +38,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@types/react-datepicker": "^4.3.2",
+    "@types/react-datepicker": "^4.8.0",
     "@welcome-ui/date-time-picker-common": "^5.0.0-alpha.0",
     "@welcome-ui/system": "^5.0.0-alpha.0",
     "@welcome-ui/utils": "^5.0.0-alpha.0",
