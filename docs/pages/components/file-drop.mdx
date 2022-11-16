@@ -30,7 +30,7 @@ You also have access to:
 
 ## Usage
 
-By default, `accept`: is set to `image/*`, see more about [media type](https://www.iana.org/assignments/media-types/media-types.xhtml).
+By default, `accept`: is set to `{ "image/*": [] }`. See more about [showOpenFilePicker](https://developer.mozilla.org/en-US/docs/Web/API/window/showOpenFilePicker#examples) and [media type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
 ```jsx
 function() {
@@ -166,7 +166,11 @@ function () {
   return (
     <Field hint="Files must be < 2MB" label="File">
       <FileDrop
-        accept="application/*, audio/*, video/*, text/*"
+        accept={{
+          "application/*": ['.doc', '.docx', '.json'],
+          "audio/*": ['.mp3'],
+          "video/*": ['.mp4']
+        }}
         isEditable
         isClearable
         name="file"
