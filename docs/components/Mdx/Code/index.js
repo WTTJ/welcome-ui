@@ -8,6 +8,8 @@ import dateFR from 'date-fns/locale/fr'
 import * as yup from 'yup'
 import { Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import dynamic from 'next/dynamic'
+
 // Welcome UI
 import { Accordion } from '@welcome-ui/accordion'
 import { Alert } from '@welcome-ui/alert'
@@ -37,7 +39,10 @@ import { InputText } from '@welcome-ui/input-text'
 import { Label } from '@welcome-ui/label'
 import { Link } from '@welcome-ui/link'
 import { Loader } from '@welcome-ui/loader'
-import { MarkdownEditor } from '@welcome-ui/markdown-editor'
+const MarkdownEditor = dynamic(
+  () => import('@welcome-ui/markdown-editor').then(mod => mod.MarkdownEditor),
+  { ssr: false }
+)
 import * as Modal from '@welcome-ui/modal'
 import { Pagination } from '@welcome-ui/pagination'
 import { PasswordInput } from '@welcome-ui/password-input'
@@ -85,14 +90,14 @@ const transformCode = (code, row) => {
   return row ? `<CodeContentRow>${code}</CodeContentRow>` : `<CodeContent>${code}</CodeContent>`
 }
 
-export function Code({
+export const Code = ({
   children,
   className,
   isCopyable = true,
   live = true,
   row,
   withCode = true,
-}) {
+}) => {
   const [editorOpen, setEditorOpen] = React.useState(false)
   const language = className && className.replace(/language-/, '')
   const [copy, copied] = useCopyText(children.trim(), 3000)
