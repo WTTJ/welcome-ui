@@ -63,7 +63,7 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
 
     ${hasRemoveAction &&
     css`
-      padding-right: xl;
+      padding-right: xxl;
     `}
     max-width: 100%;
 
