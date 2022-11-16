@@ -129,7 +129,7 @@ describe('<Field />', () => {
 
     expect(label.htmlFor).toBe('field')
     expect(label.htmlFor).toBe(input.id)
-    userEvent.click(label)
+    await userEvent.click(label)
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)
   })
@@ -147,7 +147,7 @@ describe('<Field />', () => {
 
     expect(label.htmlFor).toBe('field')
     expect(label.htmlFor).toBe(input.id)
-    userEvent.click(label)
+    await userEvent.click(label)
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)
   })
@@ -165,7 +165,7 @@ describe('<Field />', () => {
 
     expect(label.htmlFor).toContain('wui-field-')
     expect(label.htmlFor).toBe(input.id)
-    userEvent.click(label)
+    await userEvent.click(label)
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)
   })

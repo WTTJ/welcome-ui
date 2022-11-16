@@ -45,7 +45,7 @@ describe('<Swiper>', () => {
     expect(container).toHaveTextContent('page1')
   })
 
-  it('should change page using pagination', () => {
+  it('should change page using pagination', async () => {
     // Arrange
     const { container, getByText } = render(<TestSwiper />)
     const slide1 = getByText('page1')
@@ -54,7 +54,7 @@ describe('<Swiper>', () => {
     const firstPaginationButton = pagination[1]
 
     // Act
-    userEvent.click(firstPaginationButton)
+    await userEvent.click(firstPaginationButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'true')
@@ -63,11 +63,11 @@ describe('<Swiper>', () => {
     expect(pagination[1]).toHaveAttribute('aria-selected', 'true')
   })
 
-  it('should change page using buttons', () => {
+  it('should change page using buttons', async () => {
     const { container, getByTestId, getByText } = render(<TestSwiper />)
 
     const nextButton = getByTestId('swiper-button-next')
-    userEvent.click(nextButton)
+    await userEvent.click(nextButton)
 
     const slide1 = getByText('page1')
     const slide2 = getByText('page2')
@@ -80,7 +80,7 @@ describe('<Swiper>', () => {
 })
 
 describe('<LoopingSwiper>', () => {
-  it('should change page (and loop) using next button', () => {
+  it('should change page (and loop) using next button', async () => {
     // Arrange
     const { container, getByTestId, getByText } = render(<TestLoopingSwiper />)
     const slide1 = getByText('page1')
@@ -92,7 +92,7 @@ describe('<LoopingSwiper>', () => {
     const pagination = container.querySelectorAll('[role=tab]')
 
     // Act
-    userEvent.click(nextButton)
+    await userEvent.click(nextButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'true')
@@ -103,7 +103,7 @@ describe('<LoopingSwiper>', () => {
     expect(pagination[2]).toHaveAttribute('aria-selected', 'true')
 
     // Act
-    userEvent.click(nextButton)
+    await userEvent.click(nextButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'true')
@@ -114,7 +114,7 @@ describe('<LoopingSwiper>', () => {
     expect(pagination[3]).toHaveAttribute('aria-selected', 'true')
 
     // Act
-    userEvent.click(nextButton)
+    await userEvent.click(nextButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'false')
@@ -125,7 +125,7 @@ describe('<LoopingSwiper>', () => {
     expect(pagination[0]).toHaveAttribute('aria-selected', 'true')
   })
 
-  it('should change page (and loop) using prev button', () => {
+  it('should change page (and loop) using prev button', async () => {
     // Arrange
     const { container, getByTestId, getByText } = render(<TestLoopingSwiper />)
     const slide1 = getByText('page1')
@@ -137,7 +137,7 @@ describe('<LoopingSwiper>', () => {
     const pagination = container.querySelectorAll('[role=tab]')
 
     // Act
-    userEvent.click(nextButton)
+    await userEvent.click(nextButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'true')
@@ -148,7 +148,7 @@ describe('<LoopingSwiper>', () => {
     expect(pagination[3]).toHaveAttribute('aria-selected', 'true')
 
     // Act
-    userEvent.click(nextButton)
+    await userEvent.click(nextButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'true')
@@ -159,7 +159,7 @@ describe('<LoopingSwiper>', () => {
     expect(pagination[1]).toHaveAttribute('aria-selected', 'true')
 
     // Act
-    userEvent.click(nextButton)
+    await userEvent.click(nextButton)
 
     // Assert
     expect(slide1).toHaveAttribute('aria-hidden', 'false')

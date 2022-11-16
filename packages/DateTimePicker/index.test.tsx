@@ -124,14 +124,14 @@ describe('<DateTimePicker />', () => {
     expect(yearSelect).toHaveTextContent('2001')
   })
 
-  test('<DateTimePicker> updating text updates selects', () => {
+  test('<DateTimePicker> updating text updates selects', async () => {
     const { container, getAllByRole } = render(
       <DateTimePicker name="welcome" value={new Date('09/11/2001')} />
     )
     const datePicker = container.querySelector('.date-picker')
 
-    userEvent.clear(datePicker)
-    userEvent.type(datePicker, '20/06/2018')
+    await userEvent.clear(datePicker)
+    await userEvent.type(datePicker, '20/06/2018')
     fireEvent.click(datePicker)
 
     const [monthSelect, yearSelect] = getAllByRole('combobox')
@@ -186,7 +186,7 @@ describe('<DateTimePicker />', () => {
     expect(timePicker).toHaveValue('00:05')
   })
 
-  test('<DatePicker> can be cleared and has no `ClearButton` when no value', () => {
+  test('<DatePicker> can be cleared and has no `ClearButton` when no value', async () => {
     const { container, getAllByRole } = render(<DateTimePicker name="welcome" value={new Date()} />)
 
     const datePicker = container.querySelector('.date-picker')
@@ -198,7 +198,7 @@ describe('<DateTimePicker />', () => {
 
     expect(clearButton).not.toBeInTheDocument()
 
-    userEvent.type(datePicker, '20/06/2018')
+    await userEvent.type(datePicker, '20/06/2018')
 
     expect(datePicker).toHaveValue('20/06/2018')
     expect(getAllByRole('button')[0]).toBeInTheDocument()
