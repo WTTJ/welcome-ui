@@ -21,7 +21,7 @@ export type Colors = WuiTheme['colors']
 export interface BreadcrumbOptions {
   children: React.ReactNode | React.ReactNode[]
   /** color from theme, add for scroll gradient on mobile */
-  gradientBackground?: Colors
+  gradientBackground?: keyof Colors
   /** set clickable or not the last child */
   lastChildNotClickable?: boolean
   separator?: string | React.ReactNode
@@ -124,13 +124,13 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
     return (
       <S.Breadcrumb as="nav" ref={ref} {...rest}>
         {isOverflowing && (
-          <S.StartGradient gradientBackground={gradientBackground as Colors} ref={startGradient} />
+          <S.StartGradient gradientBackground={gradientBackground} ref={startGradient} />
         )}
         <S.List dir="rtl" onScroll={onListScroll} ref={listRef}>
           {clones.reverse()}
         </S.List>
         {isOverflowing && (
-          <S.EndGradient gradientBackground={gradientBackground as Colors} ref={endGradient} />
+          <S.EndGradient gradientBackground={gradientBackground} ref={endGradient} />
         )}
       </S.Breadcrumb>
     )

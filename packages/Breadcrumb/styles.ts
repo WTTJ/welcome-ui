@@ -1,18 +1,17 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Box } from '@welcome-ui/box'
 import { hexToRGBA } from '@welcome-ui/utils'
-import { WuiTheme } from '@welcome-ui/core'
 
 import { Colors } from './index'
 
 interface GradientProps {
-  gradientBackground: Colors
+  gradientBackground: keyof Colors
 }
 
 export const StartGradient = styled.span<GradientProps>(
   ({ gradientBackground, theme }) => css`
     left: 0;
-    background-image: ${gradient(theme as WuiTheme, gradientBackground)};
+    background-image: ${gradient(theme.colors[gradientBackground])};
     transform-origin: left;
   `
 )
@@ -20,25 +19,27 @@ export const StartGradient = styled.span<GradientProps>(
 export const EndGradient = styled.span<GradientProps>(
   ({ gradientBackground, theme }) => css`
     right: 0;
-    background-image: ${gradient(theme as WuiTheme, gradientBackground, 'left')};
+    background-image: ${gradient(theme.colors[gradientBackground], 'left')};
     transform-origin: right;
   `
 )
 
-export const Breadcrumb = styled(Box)`
-  ${th('breadcrumbs.list')};
-  height: 100%;
-  position: relative;
-  overflow-x: hidden;
+export const Breadcrumb = styled(Box)(
+  ({ theme }) => css`
+    ${theme.breadcrumbs.list};
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
 
-  ${StartGradient},
-  ${EndGradient} {
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    width: 30;
-  }
-`
+    ${StartGradient},
+    ${EndGradient} {
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      width: 30;
+    }
+  `
+)
 
 export const List = styled.ol`
   display: inline-flex;
@@ -52,8 +53,7 @@ export const List = styled.ol`
   white-space: nowrap;
 `
 
-const gradient = (theme: WuiTheme, gradientBackground: Colors, position = 'right') => {
-  const gradientColor = th(`colors.${gradientBackground}`)({ theme }) as string
-  const transparent = hexToRGBA(gradientColor, 0)
-  return `linear-gradient(to ${position}, ${gradientColor}, ${transparent} 100%)`
+const gradient = (color: string, position = 'right') => {
+  const transparent = hexToRGBA(color, 0)
+  return `linear-gradient(to ${position}, ${color}, ${transparent} 100%)`
 }

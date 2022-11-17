@@ -1,4 +1,5 @@
-import styled, { system } from '@xstyled/styled-components'
+import styled from 'styled-components'
+import { system } from '@welcome-ui/system'
 
 export const ButtonGroup = styled.div`
   display: inline-flex;

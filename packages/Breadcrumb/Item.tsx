@@ -19,11 +19,11 @@ export const Item = forwardRef<'a', ItemProps>(
   ({ children, dataTestId, isActive, separator, ...rest }) => {
     return (
       <Box
+        $display="inline-flex"
+        $flex="0 0 auto"
         aria-label="breadcrumb"
         as="li"
         data-testid={dataTestId}
-        display="inline-flex"
-        flex="0 0 auto"
       >
         {separator && <S.Separator role="presentation">{separator}</S.Separator>}
         <S.Item aria-current={isActive ? 'page' : undefined} isActive={isActive} {...rest}>

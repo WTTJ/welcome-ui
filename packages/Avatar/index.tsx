@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { Box } from '@welcome-ui/box'
 import { ShapeOptions } from '@welcome-ui/shape'
-import { useTheme } from '@xstyled/styled-components'
+import { useTheme } from 'styled-components'
 import { WuiTheme } from '@welcome-ui/core'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 

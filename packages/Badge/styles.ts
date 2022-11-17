@@ -1,5 +1,5 @@
-import { WuiProps } from '@welcome-ui/system'
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
+import { system, WuiProps } from '@welcome-ui/system'
 
 import { BadgeOptions } from './index'
 
@@ -8,10 +8,10 @@ export type StyledBadgeProps = Pick<BadgeOptions, 'disabled' | 'shape' | 'size' 
 }
 
 export const Badge = styled.div<StyledBadgeProps & WuiProps>(
-  ({ disabled, length, shape, size, variant }) => css`
-    ${th('badges.default')};
-    ${th(`badges.variants.${variant}`)};
-    ${th(`badges.sizes.${size}`)};
+  ({ disabled, length, shape, size, theme, variant }) => css`
+    ${theme.badges.default};
+    ${theme.badges.variants[variant]};
+    ${theme.badges.sizes[size]};
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -19,12 +19,12 @@ export const Badge = styled.div<StyledBadgeProps & WuiProps>(
 
     ${disabled &&
     css`
-      ${th(`badges.disabled.${variant}`)};
+      ${theme.badges.disabled[variant]};
     `}
 
     ${length === 1 &&
     css`
-      width: ${th(`badges.sizes.${size}.height`)};
+      width: ${theme.badges.sizes[size].height};
     `}
 
     ${shape === 'square' &&
