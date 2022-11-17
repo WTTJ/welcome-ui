@@ -1,8 +1,8 @@
-import styled, { system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Shape } from '@welcome-ui/shape'
 
-export const Cover = styled(Shape)`
-  ${th('cards.cover')};
-
-  ${system}
-`
+export const Cover = styled(Shape)(
+  ({ theme }) => css`
+    ${theme.cards.cover};
+  `
+)
