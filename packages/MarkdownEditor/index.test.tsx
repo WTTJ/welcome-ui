@@ -90,7 +90,7 @@ describe('<EmojiPicker>', () => {
     expect(container).toHaveTextContent('😀# Hi!')
   })
 
-  it.skip('should filter emojis when searching', () => {
+  it.skip('should filter emojis when searching', async () => {
     const { container, getByLabelText, getByPlaceholderText, getByTitle } = render(
       <MarkdownEditor name="description" placeholder="Placeholder" value={content} />
     )
@@ -102,7 +102,7 @@ describe('<EmojiPicker>', () => {
     expect(results.children.length).toBe(0)
 
     const search = getByPlaceholderText('Search')
-    userEvent.type(search, 'smile')
+    await userEvent.type(search, 'smile')
 
     // TODO: Fix `waitForElement` which never gets called :(
     waitFor(() => getByLabelText('Search Results').querySelector('ul li'), {

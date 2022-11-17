@@ -327,13 +327,13 @@ test('<Select icon> shows icon', () => {
   expect(icon).toBeInTheDocument()
 })
 
-test('<Select isSearchable> filters results', () => {
+test('<Select isSearchable> filters results', async () => {
   const { getByRole, getByTestId } = render(
     <Select dataTestId="select" isSearchable name="select" options={MONTHS} />
   )
 
   const select = getByTestId('select')
-  userEvent.type(select, 'ember')
+  await userEvent.type(select, 'ember')
 
   const options = getByRole('listbox').querySelectorAll('li')
   expect(options.length).toBe(3) // September, November, December
@@ -342,19 +342,19 @@ test('<Select isSearchable> filters results', () => {
   expect((select as HTMLInputElement).value).toBe('November')
 })
 
-test("<Select isSearchable> doesn't show list if no results", () => {
+test("<Select isSearchable> doesn't show list if no results", async () => {
   const { getByTestId, queryByRole } = render(
     <Select dataTestId="select" isSearchable name="select" options={MONTHS} />
   )
 
   const select = getByTestId('select')
-  userEvent.type(select, 'Fish')
+  await userEvent.type(select, 'Fish')
 
   const options = queryByRole('listbox')
   expect(options).toBeNull()
 })
 
-test('<Select isCreatable> can create new items', () => {
+test('<Select isCreatable> can create new items', async () => {
   const handleCreate = jest.fn()
 
   const firstItem = { label: 'Kayab', value: 'kayab' }
@@ -373,7 +373,7 @@ test('<Select isCreatable> can create new items', () => {
   const select = getByTestId('select')
 
   // Type in search box
-  userEvent.type(select, firstItem.label)
+  await userEvent.type(select, firstItem.label)
 
   // Expect results to have only 'Create' item
   let option = getByRole('listbox').querySelector('li')
@@ -394,8 +394,8 @@ test('<Select isCreatable> can create new items', () => {
 
   // Add another item
   // Type again in search box
-  userEvent.clear(select)
-  userEvent.type(select, secondItem.label)
+  await userEvent.clear(select)
+  await userEvent.type(select, secondItem.label)
   expect((select as HTMLInputElement).value).toBe(secondItem.label)
 
   option = getByRole('listbox').querySelector('li')
@@ -415,7 +415,7 @@ test('<Select isCreatable> can create new items', () => {
   expect((select as HTMLInputElement).value).toBe(secondItem.label)
 })
 
-test('<Select isCreatable isMultiple> can create new items', () => {
+test('<Select isCreatable isMultiple> can create new items', async () => {
   const handleCreate = jest.fn()
 
   const { getByRole, getByTestId } = render(
@@ -433,7 +433,7 @@ test('<Select isCreatable isMultiple> can create new items', () => {
   const select = getByTestId('select')
 
   // Type in search box
-  userEvent.type(select, 'Kayab')
+  await userEvent.type(select, 'Kayab')
 
   // Click on 'Create' item
   const option = getByRole('listbox').querySelector('li')
@@ -459,7 +459,7 @@ test('<Select isCreatable isMultiple> can create new items', () => {
   expect((select as HTMLInputElement).value).toBe('')
 })
 
-test("<Select isCreatable> can't create an existing item", () => {
+test("<Select isCreatable> can't create an existing item", async () => {
   const handleCreate = jest.fn()
   const { getByRole, getByTestId } = render(
     <Select
@@ -474,7 +474,7 @@ test("<Select isCreatable> can't create an existing item", () => {
   const select = getByTestId('select')
 
   // Type in search box
-  userEvent.type(select, 'October')
+  await userEvent.type(select, 'October')
 
   // Expect results to not have 'Create' item
   const option = getByRole('listbox').querySelector('li')

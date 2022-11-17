@@ -12,7 +12,7 @@ function getActiveBar({ getByRole }: { getByRole: (id: string) => HTMLElement })
 }
 
 describe('Tabs', () => {
-  it('renders an accessible structure', () => {
+  it('renders an accessible structure', async () => {
     const Tabs = () => {
       const tab = useTabState({ selectedId: 'tab1' })
       return (
@@ -68,7 +68,7 @@ describe('Tabs', () => {
     expect(activeBar).toBeInTheDocument()
 
     // Simulate click on second tab
-    userEvent.click(tab2)
+    await userEvent.click(tab2)
 
     expect(tab1).toHaveAttribute('aria-selected', 'false')
     expect(tab2).toHaveAttribute('aria-selected', 'true')

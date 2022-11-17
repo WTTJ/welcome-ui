@@ -68,7 +68,7 @@ test('<Search> shows options when searching', async () => {
   )
 
   const search = getByTestId('search')
-  userEvent.type(search, 'fish')
+  await userEvent.type(search, 'fish')
 
   const options = await waitFor(() => getByRole('listbox').querySelectorAll('li'))
   expect(options.length).toBe(4)
@@ -81,7 +81,7 @@ test('<Search> can choose option', async () => {
   )
 
   const search = getByTestId('search') as HTMLInputElement
-  userEvent.type(search, 'fish')
+  await userEvent.type(search, 'fish')
 
   const options = await waitFor(() => getByRole('listbox').querySelectorAll('li'))
   fireEvent.click(options[1])
@@ -96,7 +96,7 @@ test('<Search> calls onChange with correct (object) values', async () => {
   )
 
   const search = getByTestId('search')
-  userEvent.type(search, 'fish')
+  await userEvent.type(search, 'fish')
 
   const options = await waitFor(() => getByRole('listbox').querySelectorAll('li'))
   fireEvent.click(options[1])
@@ -116,7 +116,7 @@ test('<Search> formats items', async () => {
   )
 
   const search = getByTestId('search')
-  userEvent.type(search, 'fish')
+  await userEvent.type(search, 'fish')
 
   const options = await waitFor(() => getByRole('listbox').querySelectorAll('li'))
   const image = options[0].querySelector('img')
@@ -139,13 +139,13 @@ test.skip('<Search icon> shows icon', () => {
   expect(icon).toBeInTheDocument()
 })
 
-test("<Search> doesn't show list if no results", () => {
+test("<Search> doesn't show list if no results", async () => {
   const { getByTestId, queryByRole } = render(
     <Search dataTestId="search" name="search" {...defaultProps} />
   )
 
   const search = getByTestId('search')
-  userEvent.type(search, 'Fish')
+  await userEvent.type(search, 'Fish')
 
   const options = queryByRole('listbox')
   expect(options).toBeNull()
@@ -169,7 +169,7 @@ test('<Search groupsEnabled> shows groups header', async () => {
   )
 
   const search = getByTestId('select')
-  userEvent.type(search, 'fish')
+  await userEvent.type(search, 'fish')
 
   const headers = await waitFor(() => getAllByTestId('group-header'))
 
@@ -189,7 +189,7 @@ test('<Search> shows options with minChars to 0', async () => {
   )
 
   const search = getByTestId('search')
-  userEvent.click(search)
+  await userEvent.click(search)
 
   const options = await waitFor(() => getByRole('listbox').querySelectorAll('li'))
   expect(options.length).toBe(results.length)
