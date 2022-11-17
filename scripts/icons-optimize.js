@@ -2,14 +2,17 @@
 const path = require('path')
 const fs = require('fs')
 
-const { extendDefaultPlugins, optimize } = require('svgo')
+const { optimize } = require('svgo')
 
 const { FLAG_ICONS, readIconsFromAssets } = require('./utils')
 
 const svgoConfig = {
   multipass: true,
   full: true,
-  plugins: extendDefaultPlugins([
+  plugins: [
+    {
+      name: 'preset-default',
+    },
     {
       name: 'convertPathData',
       params: {
@@ -30,7 +33,7 @@ const svgoConfig = {
       name: 'removeViewBox',
       active: false,
     },
-  ]),
+  ],
 }
 
 const ROOT_PATH = path.join(__dirname, '..')
