@@ -26,7 +26,9 @@ export const Accordion = forwardRef<'div', AccordionProps>(
           <S.Icon visible={isVisible}>{cloneElement(icon, { size: 'sm' })}</S.Icon>
         </S.Disclosure>
         <S.Content {...disclosure}>
-          <AnimateHeight height={isVisible ? 'auto' : 0}>{children}</AnimateHeight>
+          <AnimateHeight animateOpacity duration={200} height={isVisible ? 'auto' : 0}>
+            {children}
+          </AnimateHeight>
         </S.Content>
       </S.Accordion>
     )

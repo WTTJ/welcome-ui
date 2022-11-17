@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
+  Accept,
   DropEvent,
   DropzoneProps,
   DropzoneState,
@@ -49,7 +50,7 @@ export type ChildrenType = {
 
 export interface FileDropOptions {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg" */
-  accept?: string
+  accept?: Accept
   children?: (state: ChildrenType) => JSX.Element
   isClearable?: boolean
   isEditable?: boolean
@@ -70,7 +71,9 @@ export type FileDropProps = CreateWuiProps<'div', FileDropOptions> & Omit<Dropzo
 export const FileDrop = forwardRef<'div', FileDropProps>(
   (
     {
-      accept = 'image/*',
+      accept = {
+        'image/*': [],
+      },
       children = Preview,
       dataTestId,
       disabled,

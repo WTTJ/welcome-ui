@@ -102,6 +102,15 @@ We change the name of variants to `XS` `S` `M` and remove useless variants.
 
 We removed the check icon on radio input and change the style of it.
 
+#### FileDrop
+
+`accept` property changed on v14 of react-dropzone:
+
+- Before: `accept: "image/*"`
+- After: `accept: { "image/*": [] }`
+
+See more about [showOpenFilePicker](https://developer.mozilla.org/en-US/docs/Web/API/window/showOpenFilePicker#examples) and [media type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
+
 #### Icons
 
 We rework our icon size:

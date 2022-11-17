@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import {
   BoldIcon,
   CodeIcon,
@@ -12,7 +12,7 @@ import {
   UnorderedListIcon,
 } from '@welcome-ui/icons'
 import { createEvent, CreateEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'
-import SimpleMDE, { SimpleMDEEditorProps } from 'react-simplemde-editor'
+import { SimpleMdeReact, SimpleMDEReactProps } from 'react-simplemde-editor'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { BaseEmoji } from 'emoji-mart'
 
@@ -31,21 +31,21 @@ interface Actions {
 export type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
 export interface MarkdownEditorOptions extends DefaultFieldStylesProps {
   actions?: React.ReactElement
-  autoFocus?: SimpleMDEEditorProps['options']['autofocus']
+  autoFocus?: SimpleMDEReactProps['options']['autofocus']
   disabled?: boolean
-  minHeight?: SimpleMDEEditorProps['options']['minHeight']
+  minHeight?: SimpleMDEReactProps['options']['minHeight']
   name: string
   onBlur?: (value: string | null) => void
   onChange?: (event: React.MouseEvent<HTMLDivElement> | CreateEvent) => void
   onFocus?: (value: string | null) => void
-  placeholder: SimpleMDEEditorProps['options']['placeholder']
+  placeholder: SimpleMDEReactProps['options']['placeholder']
   toolbar?: DefaultToolbar
   value?: string
 }
 
 export type MarkdownEditorProps = CreateWuiProps<
   'div',
-  MarkdownEditorOptions & Omit<SimpleMDEEditorProps, keyof MarkdownEditorOptions>
+  MarkdownEditorOptions & Omit<SimpleMDEReactProps, keyof MarkdownEditorOptions>
 >
 
 const ICONS: Icons = {
@@ -89,6 +89,20 @@ export const MarkdownEditor = forwardRef<'div', MarkdownEditorProps>(
     const [toolbarItems, setToolbarItems] = useState([])
     const actionsRef = useRef<HTMLDivElement>(null)
 
+    const options = useMemo(
+      () => ({
+        autoDownloadFontAwesome: false,
+        autofocus: autoFocus,
+        placeholder,
+        toolbar: false,
+        tabSize: 4,
+        spellChecker: false,
+        status: false,
+        minHeight,
+      }),
+      [autoFocus, minHeight, placeholder]
+    )
+
     /* EMOJI PICKER */
     const toggleEmojiPicker = () => {
       setShowEmojiPicker(!showEmojiPicker)
@@ -111,7 +125,7 @@ export const MarkdownEditor = forwardRef<'div', MarkdownEditorProps>(
     }
 
     const handleFocus = () => {
-      instance?.codemirror.focus()
+      instance?.codemirror?.focus()
       onFocus?.(value)
       setFocused(true)
       setShowEmojiPicker(false)
@@ -125,7 +139,7 @@ export const MarkdownEditor = forwardRef<'div', MarkdownEditorProps>(
     const handleChange = (value: string) => {
       const event = createEvent({ name, value })
       onChange && onChange(event)
-      updateCurrentTools(instance.codemirror)
+      updateCurrentTools(instance?.codemirror)
     }
 
     const handleToolbarClick = (item: string) => {
@@ -134,15 +148,21 @@ export const MarkdownEditor = forwardRef<'div', MarkdownEditorProps>(
       try {
         // Use actions from the MDE instance or provided action
         action && typeof action === 'string' ? instance[action]() : action()
-        handleChange(instance.codemirror.getValue())
+        handleChange(instance?.codemirror?.getValue())
       } catch (e) {
         return
       }
-      updateCurrentTools(instance.codemirror)
+      updateCurrentTools(instance?.codemirror)
     }
 
     const updateCurrentTools = (cm: CurrentToolsFromEditor) => {
       setCurrentTools(getCurrentToolsFromEditor(cm))
+    }
+
+    const events = {
+      blur: handleBlur,
+      focus: handleFocus,
+      cursorActivity: updateCurrentTools,
     }
 
     const addEmoji = (emoji: BaseEmoji) => {
@@ -195,26 +215,15 @@ export const MarkdownEditor = forwardRef<'div', MarkdownEditorProps>(
           role="toolbar"
         />
         {showEmojiPicker && <EmojiPicker onSelect={addEmoji} />}
-        <SimpleMDE
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          events={{ blur: handleBlur, focus: handleFocus, cursorActivity: updateCurrentTools }}
+        <SimpleMdeReact
+          events={events}
           extraKeys={{ Tab: false }}
           getMdeInstance={setInstance}
           onChange={handleChange}
-          onFocus={onFocus}
-          options={{
-            autoDownloadFontAwesome: false,
-            autofocus: autoFocus,
-            placeholder,
-            toolbar: false,
-            tabSize: 4,
-            spellChecker: false,
-            status: false,
-            minHeight,
-          }}
-          pb={actionsRef?.current?.offsetHeight}
-          ref={ref as unknown as React.LegacyRef<SimpleMDE>}
+          onFocus={handleFocus}
+          options={options}
+          ref={ref as unknown as React.Ref<HTMLDivElement>}
+          style={{ paddingBottom: actionsRef?.current?.offsetHeight }}
           value={value}
         />
         {actions && <S.Actions ref={actionsRef}>{actions}</S.Actions>}

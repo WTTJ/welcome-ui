@@ -43,7 +43,7 @@
     "@welcome-ui/system": "^5.0.0-alpha.0",
     "@welcome-ui/tag": "^5.0.0-alpha.0",
     "@welcome-ui/utils": "^5.0.0-alpha.0",
-    "downshift": "^6.1.0",
+    "downshift": "^7.0.1",
     "match-sorter": "^6.3.1"
   },
   "peerDependencies": {
