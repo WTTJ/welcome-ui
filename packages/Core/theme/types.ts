@@ -1,9 +1,4 @@
-import {
-  CSSObject,
-  CSSScalar,
-  ITheme as StyledComponentDefaultTheme,
-  DefaultTheme as XStyledDefaultTheme,
-} from '@xstyled/styled-components'
+import { CSSObject } from 'styled-components'
 
 import { ThemeAccordions } from './accordions'
 import { ThemeAlerts } from './alerts'
@@ -53,36 +48,17 @@ import {
   ThemeLetterSpacings,
   ThemeLineHeights,
   ThemeTexts,
+  ThemeTextsFontColors,
   ThemeTextsFontFamily,
   ThemeTextsFontWeights,
   ThemeTextsTextTransform,
 } from './typography'
 import { ThemeUnderline } from './underline'
+import { ThemeSliders } from './sliders'
+import { ThemeBadges } from './badges'
+import { ThemeStates } from './states'
 
-type OverrideKeys =
-  | 'colors'
-  | 'radii'
-  | 'borderWidths'
-  | 'fontSizes'
-  | 'lineHeights'
-  | 'fontWeights'
-  | 'letterSpacings'
-  | 'fonts'
-  | 'sizes'
-  | 'screens'
-  | 'space'
-  | 'spaces'
-  | 'shadows'
-  | 'texts'
-
-type XStyledTheme = Omit<XStyledDefaultTheme, OverrideKeys>
-type StyledComponentsTheme = Omit<StyledComponentDefaultTheme, OverrideKeys>
-
-export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
-  transformers: {
-    px: (value: CSSScalar) => CSSScalar
-    border: (value: CSSScalar) => CSSScalar
-  }
+export interface WuiTheme {
   toEm: (int: number) => string
   toRem: (int?: number) => string
   toPx: (int?: number) => string
@@ -110,6 +86,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   focus: ThemeFocus
   defaultCards: ThemeDefaultCards
   textsFontWeights: ThemeTextsFontWeights
+  textsFontColors: ThemeTextsFontColors
   textsFontFamily: ThemeTextsFontFamily
   textsTextTransform: ThemeTextsTextTransform
   alerts: ThemeAlerts
@@ -120,6 +97,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   paginations: ThemePaginations
   tabs: ThemeTabs
   tags: ThemeTags
+  badges: ThemeBadges
   texts: ThemeTexts
   tooltips: CSSObject
   links: ThemeLinks
@@ -134,6 +112,8 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   labels: ThemeLabels
   popovers: ThemePopovers
   sizes: ThemeSizes
+  sliders: ThemeSliders
+  states: ThemeStates
   // fields
   defaultFields: ThemeDefaultFields
   hints: ThemeHints

@@ -1,4 +1,4 @@
-import { createGlobalStyle, css, th } from '@xstyled/styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 import { fonts } from './font'
 import { normalizeStyle, resetStyles } from './reset'
@@ -31,7 +31,7 @@ function baseFonts() {
 }
 
 export const GlobalStyle = createGlobalStyle<{ useReset?: boolean }>(
-  ({ useReset }) => css`
+  ({ theme, useReset }) => css`
     ${normalizeStyle};
     ${workSans}
     ${fonts()};
@@ -43,7 +43,7 @@ export const GlobalStyle = createGlobalStyle<{ useReset?: boolean }>(
     }
 
     ::selection {
-      ${th('selection')};
+      ${theme.selection};
     }
 
     /* for firefox */

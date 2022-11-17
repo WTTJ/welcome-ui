@@ -1,4 +1,4 @@
-import { css } from '@xstyled/styled-components'
+import { css } from 'styled-components'
 
 /* Taken from https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap */
 export const workSans = css`

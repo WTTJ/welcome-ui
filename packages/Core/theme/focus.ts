@@ -1,5 +1,5 @@
+import { CSSObject } from 'styled-components'
 import { hexToRGBA } from '@welcome-ui/utils'
-import { CSSObject } from '@xstyled/styled-components'
 
 import { ThemeColors } from './colors'
 
