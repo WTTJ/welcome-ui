@@ -41,7 +41,7 @@
     "@welcome-ui/icons": "^5.0.0-alpha.0",
     "@welcome-ui/system": "^5.0.0-alpha.0",
     "@welcome-ui/utils": "^5.0.0-alpha.0",
-    "emoji-mart": "=2.11.1",
+    "emoji-mart": "=5.3.2",
     "react-simplemde-editor": "5.2.0",
     "easymde": "2.18.0"
   },
