@@ -63,7 +63,6 @@ export const SwiperComponent = forwardRef<'div', SwiperProps>((props, ref) => {
     setNumberOfSlides,
     setPageIdx,
     slidesToShow,
-    slidesToSwipe,
     ...rest
   } = props
   const id = useMemo(() => defaultId || `swiper-${Date.now()}`, [defaultId])
@@ -141,7 +140,7 @@ export const SwiperComponent = forwardRef<'div', SwiperProps>((props, ref) => {
           aria-label="Next slide"
           className="swiper-next"
           data-testid={dataTestId && `${dataTestId}-button-next`}
-          disabled={!loop && pageIdx >= numberOfSlides - slidesToSwipe}
+          disabled={!loop && pageIdx >= numberOfSlides - slidesToShow}
           onClick={goNext}
         >
           {nextButton}
