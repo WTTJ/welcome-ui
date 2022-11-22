@@ -1,11 +1,11 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
+import { system } from '@welcome-ui/system'
 import { UniversalLink } from '@welcome-ui/universal-link'
-import { shouldForwardProp } from '@welcome-ui/system'
 
 import { Variant } from './index'
 
-export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{ variant: Variant }>(
-  ({ variant }) => css`
+export const Link = styled(UniversalLink)<{ variant: Variant }>(
+  ({ theme, variant }) => css`
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -16,7 +16,7 @@ export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{ va
 
     &:hover,
     &:focus {
-      ${th(`links.${variant || 'primary'}.hover`)};
+      ${theme.links[variant || 'primary'].hover};
       outline: none !important; /* important for firefox */
     }
 
@@ -25,8 +25,8 @@ export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{ va
       pointer-events: none;
     }
 
-    ${th('links.default')};
-    ${th(`links.${variant || 'primary'}.default`)};
+    ${theme.links.default};
+    ${theme.links[variant || 'primary'].default};
     ${system};
 
     & > *:not(:only-child):not(:last-child) {
