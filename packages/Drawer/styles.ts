@@ -1,9 +1,9 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 import { Box } from '@welcome-ui/box'
 import { cardStyles } from '@welcome-ui/utils'
 import { DialogBackdrop } from 'reakit/Dialog'
 
-import { DrawerOptions, Placement, Size } from '.'
+import { DrawerOptions, DrawerSize, Placement, Size } from '.'
 
 type DrawerWrapperProps = {
   hideOnClickOutside: boolean
@@ -14,8 +14,8 @@ type DrawerWrapperProps = {
 export const Backdrop = styled(DialogBackdrop).withConfig({
   shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop),
 })<DrawerWrapperProps>(
-  ({ hideOnClickOutside }) => css`
-    ${th('drawers.backdrop')};
+  ({ hideOnClickOutside, theme }) => css`
+    ${theme.drawers.backdrop};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,7 +25,7 @@ export const Backdrop = styled(DialogBackdrop).withConfig({
     left: 0;
     bottom: 0;
     opacity: 0;
-    transition: fast;
+    transition: ${theme.transitions.fast};
     ${hideOnClickOutside &&
     css`
       cursor: pointer;
@@ -73,12 +73,12 @@ const getPlacementStyle = (placement: Placement) => {
 }
 
 const SIZES = ['sm', 'md', 'lg']
-const getSizeStyle = (size: Size, placement: Placement) => {
+const getSizeStyle = (size: Size, placement: Placement, theme: DefaultTheme) => {
   switch (placement) {
     case 'top':
     case 'bottom':
       if (SIZES.includes(size)) {
-        return th(`drawers.sizes.vertical.${size}`)
+        return theme.drawers.sizes.vertical[size as DrawerSize]
       }
       return {
         height: size,
@@ -86,7 +86,7 @@ const getSizeStyle = (size: Size, placement: Placement) => {
     case 'right':
     case 'left':
       if (SIZES.includes(size)) {
-        return th(`drawers.sizes.horizontal.${size}`)
+        return theme.drawers.sizes.horizontal[size as DrawerSize]
       }
       return {
         width: size,
@@ -95,11 +95,11 @@ const getSizeStyle = (size: Size, placement: Placement) => {
 }
 
 export const Drawer = styled(Box)<DrawerOptions>(
-  ({ placement, size }) => css`
+  ({ placement, size, theme }) => css`
     ${cardStyles};
-    ${th('drawers.default')};
+    ${theme.drawers.default};
     ${getPlacementStyle(placement)}
-    ${getSizeStyle(size, placement)}
+    ${getSizeStyle(size, placement, theme)}
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -158,10 +158,10 @@ const getBackdropWrapperPlacementStyle = (placement: Placement) => {
 export const NoBackdropWrapper = styled(DialogBackdrop).withConfig({
   shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop),
 })<DrawerWrapperProps>(
-  ({ hideOnClickOutside, placement, size }) => css`
-    ${th('drawers.backdrop')};
+  ({ hideOnClickOutside, placement, size, theme }) => css`
+    ${theme.drawers.backdrop};
     ${getBackdropWrapperPlacementStyle(placement)}
-    ${getSizeStyle(size, placement)}
+    ${getSizeStyle(size, placement, theme)}
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -170,7 +170,7 @@ export const NoBackdropWrapper = styled(DialogBackdrop).withConfig({
     max-width: 100%;
     max-height: 100%;
     opacity: 0;
-    transition: fast;
+    transition: ${theme.transitions.fast};
     ${hideOnClickOutside &&
     css`
       cursor: pointer;

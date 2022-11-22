@@ -1,10 +1,10 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker'
 import { IconWrapper } from '@welcome-ui/field'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledButton } from '@welcome-ui/button'
 import { StyledClearButton } from '@welcome-ui/clear-button'
-import { shouldForwardProp } from '@welcome-ui/system'
+import { system } from '@welcome-ui/system'
 import { StyledSelect } from '@welcome-ui/select'
 import { defaultFieldStyles, DefaultFieldStylesProps } from '@welcome-ui/utils'
 
@@ -27,17 +27,21 @@ export const StyledTimePicker = styled(ReactDatePicker)<DefaultFieldStylesProps>
   `
 )
 
-const iconPlacementStyles = (placement: IconPlacement, size: DefaultFieldStylesProps['size']) => {
+const iconPlacementStyles = (
+  placement: IconPlacement,
+  size: DefaultFieldStylesProps['size'],
+  theme: DefaultTheme
+) => {
   if (placement === 'right') {
     return css`
       ${StyledDatePicker}, ${StyledTimePicker} {
-        padding-right: ${`calc(1.5 * ${th(`defaultFields.sizes.${size}.height`)})`};
+        padding-right: ${`calc(1.5 * ${theme.defaultFields.sizes[size].height}`};
       }
 
       ${IconWrapper} {
         &:not(:last-child) {
-          right: ${th(`defaultFields.sizes.${size}.height`)};
-          width: ${`calc(0.5 * ${th(`defaultFields.sizes.${size}.height`)})`};
+          right: ${theme.defaultFields.sizes[size].height};
+          width: ${`calc(0.5 * ${theme.defaultFields.sizes[size].height}`};
           justify-content: flex-end;
         }
 
@@ -50,38 +54,31 @@ const iconPlacementStyles = (placement: IconPlacement, size: DefaultFieldStylesP
   if (placement === 'left') {
     return css`
       ${StyledDatePicker}, ${StyledTimePicker} {
-        padding-left: ${th(`defaultFields.sizes.${size}.height`)};
+        padding-left: ${theme.defaultFields.sizes[size].height};
       }
     `
   }
 }
 
-export const CustomInput = styled('div').withConfig({ shouldForwardProp })(
-  ({
-    focused,
-    icon,
-    iconPlacement,
-    size,
-  }: {
-    focused: Focused
-    icon: Icon
-    iconPlacement: IconPlacement
-    size: DefaultFieldStylesProps['size']
-  }) => {
-    return css`
-      position: relative;
-      ${StyledDatePicker}, ${StyledTimePicker} {
-        padding-right: ${th(`defaultFields.sizes.${size}.height`)};
-      }
+export const CustomInput = styled('div')<{
+  focused: Focused
+  icon: Icon
+  iconPlacement: IconPlacement
+  size: DefaultFieldStylesProps['size']
+}>(({ focused, icon, iconPlacement, size, theme }) => {
+  return css`
+    position: relative;
+    ${StyledDatePicker}, ${StyledTimePicker} {
+      padding-right: ${theme.defaultFields.sizes[size].height};
+    }
 
-      ${icon && iconPlacementStyles(iconPlacement, size)};
+    ${icon && iconPlacementStyles(iconPlacement, size, theme)};
 
-      ${StyledClearButton} {
-        z-index: ${focused ? 1 : null};
-      }
-    `
-  }
-)
+    ${StyledClearButton} {
+      z-index: ${focused ? 1 : null};
+    }
+  `
+})
 
 export const CustomHeader = styled.div`
   display: flex;

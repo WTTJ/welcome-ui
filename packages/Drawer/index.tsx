@@ -14,12 +14,13 @@ import { Box, BoxProps } from '@welcome-ui/box'
 import { CloseButton, CloseButtonProps } from '@welcome-ui/close-button'
 import { Text, TextProps } from '@welcome-ui/text'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { useTheme } from '@xstyled/styled-components'
+import { useTheme } from 'styled-components'
 
 import * as S from './styles'
 
 export type Placement = 'top' | 'right' | 'bottom' | 'left'
-export type Size = 'sm' | 'md' | 'lg' | 'auto' | string
+export type DrawerSize = 'sm' | 'md' | 'lg'
+export type Size = DrawerSize | 'auto' | string
 
 export interface DrawerOptions {
   placement?: Placement
@@ -89,38 +90,38 @@ export const DrawerBackdrop: React.FC<DrawerBackdropProps> = ({
 export type CloseOptions = { hide: VoidFunction }
 export type CloseProps = CloseOptions & CloseButtonProps
 
-export const Close: React.FC<CloseProps> = ({ hide, zIndex = '2', ...props }) => {
+export const Close: React.FC<CloseProps> = ({ $zIndex = '2', hide, ...props }) => {
   const { drawers } = useTheme()
   return (
     <Box
-      display="flex"
-      h="0"
-      justifyContent="flex-end"
-      position="sticky"
-      top="0"
-      w="auto"
-      zIndex={zIndex}
+      $display="flex"
+      $h="0"
+      $justifyContent="flex-end"
+      $position="sticky"
+      $top="0"
+      $w="auto"
+      $zIndex={$zIndex}
     >
       <CloseButton {...drawers.closeButton} onClick={hide} {...props} />
     </Box>
   )
 }
 
-export const Title: React.FC<TextProps> = ({ children, zIndex = '1', ...props }) => {
+export const Title: React.FC<TextProps> = ({ $zIndex = '1', children, ...props }) => {
   const { drawers } = useTheme()
   return (
     <Box
-      alignItems="center"
-      display="flex"
-      justifyContent="space-between"
-      position={{ xs: 'sticky', md: 'static' }}
-      top={{ xs: 0, md: 'auto' }}
-      w="100%"
-      zIndex={zIndex}
+      $alignItems="center"
+      $display="flex"
+      $justifyContent="space-between"
+      $position={{ xs: 'sticky', md: 'static' }}
+      $top={{ xs: 0, md: 'auto' }}
+      $w="100%"
+      $zIndex={$zIndex}
       {...drawers.title}
       {...props}
     >
-      <Text m="0" variant="h3" w="100%">
+      <Text $m="0" $w="100%" variant="h3">
         {children}
       </Text>
     </Box>
@@ -129,17 +130,17 @@ export const Title: React.FC<TextProps> = ({ children, zIndex = '1', ...props })
 
 export const Content: React.FC<BoxProps> = props => {
   const { drawers } = useTheme()
-  return <Box {...drawers.content} flex="1" overflowY={{ md: 'auto' }} {...props} />
+  return <Box {...drawers.content} $flex="1" $overflowY={{ md: 'auto' }} {...props} />
 }
 
 export const Footer: React.FC<BoxProps> = props => {
   const { drawers } = useTheme()
   return (
     <Box
-      bottom={{ xs: 0, md: 'auto' }}
-      position={{ xs: 'sticky', md: 'static' }}
+      $bottom={{ xs: '0', md: 'auto' }}
+      $position={{ xs: 'sticky', md: 'static' }}
       {...drawers.footer}
-      w="100%"
+      $w="100%"
       {...props}
     />
   )

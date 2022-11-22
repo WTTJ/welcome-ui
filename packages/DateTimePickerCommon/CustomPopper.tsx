@@ -1,5 +1,6 @@
 import React from 'react'
-import styled, { css, CSSObject, th } from '@xstyled/styled-components'
+import styled, { css, CSSObject } from 'styled-components'
+import { system } from '@welcome-ui/system'
 import { cardStyles } from '@welcome-ui/utils'
 
 import { datePickerStyles } from './datePickerStyles'
@@ -18,8 +19,8 @@ export const CustomPopper = ({
   return <StyledCustomPopper popperStyles={popperProps}>{children}</StyledCustomPopper>
 }
 
-const StyledCustomPopper = styled.div(
-  ({ popperStyles }: { popperStyles: CSSObject }) => css`
+const StyledCustomPopper = styled.div<{ popperStyles: CSSObject }>(
+  ({ popperStyles, theme }) => css`
     ${datePickerStyles};
     .react-datepicker-popper {
       ${popperStyles};
@@ -87,7 +88,7 @@ const StyledCustomPopper = styled.div(
     }
 
     .react-datepicker__day--today {
-      ${th('dateTimePickerCommon.item.today')};
+      ${theme.dateTimePickerCommon.item.today};
     }
 
     .react-datepicker__day:hover,
@@ -129,9 +130,9 @@ const StyledCustomPopper = styled.div(
     .react-datepicker__month-text--selected,
     .react-datepicker__month-text--in-selecting-range,
     .react-datepicker__month-text--in-range {
-      ${th('dateTimePickerCommon.item.selected')};
+      ${theme.dateTimePickerCommon.item.selected};
       &:hover {
-        ${th('dateTimePickerCommon.item.selected')};
+        ${theme.dateTimePickerCommon.item.selected};
       }
     }
 
@@ -146,5 +147,7 @@ const StyledCustomPopper = styled.div(
     .react-datepicker-year-header {
       font-weight: medium;
     }
+
+    ${system};
   `
 )
