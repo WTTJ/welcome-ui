@@ -11669,10 +11669,10 @@ jsprim@^1.2.2:
     array-includes "^3.1.5"
     object.assign "^4.1.3"
 
-jsx-to-styled@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/jsx-to-styled/-/jsx-to-styled-1.5.2.tgz#a5ff7c7622897406a0392e055d072827593a5df3"
-  integrity sha512-b4zTt5z+D8ePhDA3zhTVKLRR1hLqViN3SYOLu2R6Kzm/AseJMgEVXPzu/eZZucNQSAkXrO+K8bhWbuUvRiCmjQ==
+jsx-to-styled@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/jsx-to-styled/-/jsx-to-styled-1.5.3.tgz#f76f80ac9b462cf5d7615da34d419b9244aaa08a"
+  integrity sha512-0K/z8JNK6vm+zielH9CF3LPm92O0cn1mBSHsmU8cJaF7TlT50rUiZkTG3/8NjjWr4GSZpM0pO0bwDw0dUGrJUA==
   dependencies:
     csstype "^3.1.0"
 

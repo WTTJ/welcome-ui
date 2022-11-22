@@ -27,12 +27,12 @@ export type FieldProps = CreateWuiProps<'div', FieldOptions>
 export const Field = forwardRef<'div', FieldProps>(
   (
     {
+      $flexDirection,
       children,
       dataTestId,
       disabled,
       disabledIcon,
       error,
-      flexDirection,
       hint,
       info,
       label,
@@ -49,7 +49,7 @@ export const Field = forwardRef<'div', FieldProps>(
     const isToggle = children.type.displayName === 'Toggle'
     const isCheckbox = baseType === 'checkbox'
     const isCheckable = isRadio || isCheckbox || isToggle
-    const layout = flexDirection || (isCheckable ? 'row' : 'column')
+    const layout = $flexDirection || (isCheckable ? 'row' : 'column')
     const isGroup = ['FieldGroup', 'RadioGroup'].includes(baseType)
     const Container = layout === 'row' ? RowContainer : Fragment
     const variant = getVariant({ error, warning, success, info })
@@ -63,7 +63,7 @@ export const Field = forwardRef<'div', FieldProps>(
       required,
       variant,
       transparent,
-      ...(isGroup ? { flexDirection: layout } : {}),
+      ...(isGroup ? { $flexDirection: layout } : {}),
     })
 
     useLayoutEffect(() => {
@@ -80,8 +80,8 @@ export const Field = forwardRef<'div', FieldProps>(
       <S.Field
         ref={ref}
         {...rest}
+        $flexDirection={layout}
         data-testid={dataTestId}
-        flexDirection={layout}
         isCheckable={isCheckable}
         withHintText={withHintText}
       >

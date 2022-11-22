@@ -1,5 +1,5 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import styled, { css } from 'styled-components'
+import { Box } from '@welcome-ui/box'
 import { getVariantColor } from '@welcome-ui/utils'
 
 export interface StyledFileDropProps {
@@ -8,32 +8,31 @@ export interface StyledFileDropProps {
   isDragReject?: boolean
 }
 
-export const FileDrop = styled('div').withConfig({ shouldForwardProp })<StyledFileDropProps>(
-  ({ disabled, isDragAccept, isDragReject }) => css`
-    ${th('defaultFields.default')};
-    ${th('filedrops.default')};
-    ${isDragAccept && th('filedrops.dragAccept')};
+export const FileDrop = styled(Box)<StyledFileDropProps>(
+  ({ disabled, isDragAccept, isDragReject, theme }) => css`
+    ${theme.defaultFields.default};
+    ${theme.filedrops.default};
+    ${isDragAccept && theme.filedrops.dragAccept};
     ${isDragReject &&
     css`
       border-color: ${getVariantColor('error')};
-      ${th('filedrops.dragReject')}
+      ${theme.filedrops.dragReject}
     `};
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: md;
+    padding: ${theme.space.md};
     transition: medium;
-    ${system};
 
     &:focus {
-      ${th('defaultFields.focused.default')};
+      ${theme.defaultFields.focused.default};
     }
 
     ${disabled &&
     css`
-      ${th('defaultFields.disabled')};
-      ${th('filedrops.disabled')};
+      ${theme.defaultFields.disabled};
+      ${theme.filedrops.disabled};
     `};
   `
 )
@@ -53,10 +52,12 @@ export const ImagePreview = styled.img`
   object-fit: contain;
 `
 
-export const Actions = styled.div`
-  position: absolute;
-  top: ${th.space('md')};
-  right: ${th.space('md')};
-  display: flex;
-  gap: xs;
-`
+export const Actions = styled.div(
+  ({ theme }) => css`
+    position: absolute;
+    top: ${theme.space.md};
+    right: ${theme.space.md};
+    display: flex;
+    gap: ${theme.space.xs};
+  `
+)

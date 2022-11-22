@@ -1,11 +1,11 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
-import { IconOptions } from '@welcome-ui/icon'
+import styled, { css, DefaultTheme } from 'styled-components'
+import { system } from '@welcome-ui/system'
 
 import unicodeMap from './unicode.json'
 
 export type StyledIconProps = {
   name: keyof typeof unicodeMap
-  size: IconOptions['size']
+  size: keyof DefaultTheme['icons']
 }
 
 function getIconContentByName(name: StyledIconProps['name']) {
@@ -18,10 +18,10 @@ function getIconContentByName(name: StyledIconProps['name']) {
 
 // stylelint-disable font-family-no-missing-generic-family-keyword
 export const Icon = styled.i<StyledIconProps>(
-  ({ name, size = 'md' }) => css`
+  ({ name, size = 'md', theme }) => css`
     display: inline-block;
     font-family: icons;
-    font-size: ${th(`icons.${size}`)};
+    font-size: ${theme.icons[size]};
     ${system};
     &::before {
       content: '${getIconContentByName(name)}';

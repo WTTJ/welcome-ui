@@ -1,8 +1,9 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { StyledLabel } from '@welcome-ui/label'
+import { Box } from '@welcome-ui/box'
 import { StyledHint } from '@welcome-ui/hint'
 import { StyledFieldGroup } from '@welcome-ui/field-group'
-import { shouldForwardProp, WuiProps } from '@welcome-ui/system'
+import { system } from '@welcome-ui/system'
 import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 const rowStyles = css`
@@ -14,32 +15,30 @@ const columnStyles = css`
 `
 
 const checkableFieldStyles = css`
-  ${th('defaultFields.checkablelabel.default')};
+  ${({ theme }) => theme.defaultFields.checkablelabel.default};
   margin-bottom: md;
 `
 
 type StyledFieldProps = {
   isCheckable?: boolean
-  flexDirection: WuiProps['flexDirection']
   checked?: boolean
   withHintText?: boolean
 }
 
-export const Field = styled('div').withConfig({ shouldForwardProp })<StyledFieldProps>(
-  ({ checked, flexDirection, isCheckable, withHintText }) => css`
+export const Field = styled(Box)<StyledFieldProps>(
+  ({ $flexDirection, checked, isCheckable, theme, withHintText }) => css`
     ${StyledFieldGroup} {
       margin-bottom: ${isCheckable && 'xxs'};
     }
     ${StyledLabel} {
-      ${flexDirection === 'row' && rowStyles};
-      ${flexDirection === 'column' && !isCheckable && columnStyles};
+      ${$flexDirection === 'row' && rowStyles};
+      ${$flexDirection === 'column' && !isCheckable && columnStyles};
       ${isCheckable && !withHintText && checkableFieldStyles};
-      ${checked && th('defaultFields.checkablelabel.checked')}
+      ${checked && theme.defaultFields.checkablelabel.checked}
     }
     ${StyledHint} {
       ${isCheckable && withHintText && checkableFieldStyles};
     }
-    ${system};
   `
 )
 
@@ -48,12 +47,12 @@ type IconWrapperProps = {
   size?: DefaultFieldStylesProps['size']
 }
 
-export const IconWrapper = styled.div<IconWrapperProps>(
-  ({ iconPlacement, size }) => css`
+export const IconWrapper = styled(Box)<IconWrapperProps>(
+  ({ iconPlacement, size, theme }) => css`
     position: absolute;
     top: 0;
-    left: ${iconPlacement === 'left' ? th(`defaultFields.iconPlacement.${size}.left`) : 'auto'};
-    right: ${iconPlacement === 'right' ? th(`defaultFields.iconPlacement.${size}.right`) : 'auto'};
+    left: ${iconPlacement === 'left' ? theme.defaultFields.iconPlacement[size].left : 'auto'};
+    right: ${iconPlacement === 'right' ? theme.defaultFields.iconPlacement[size].right : 'auto'};
     bottom: 0;
     display: flex;
     width: 16;

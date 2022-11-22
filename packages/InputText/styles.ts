@@ -1,10 +1,10 @@
-import styled, { css, system } from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import styled, { css } from 'styled-components'
+import { system } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { InputTextOptions } from './index'
 
-export const InputText = styled('input').withConfig({ shouldForwardProp })<InputTextOptions>(
+export const InputText = styled('input')<InputTextOptions>(
   ({ icon, iconPlacement, isClearable, size, transparent, variant }) => css`
     ${defaultFieldStyles({ size, variant, transparent })};
     text-overflow: ellipsis;

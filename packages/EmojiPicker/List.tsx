@@ -236,7 +236,7 @@ export const List: React.FC<ListProps> = ({
 
   return (
     <Box ref={wrapperRef}>
-      <Box mx="xl" pb="sm" pt="xl">
+      <Box $mx="xl" $pb="sm" $pt="xl">
         <InputText
           autoFocus
           data-testid="emoji-search-input"
@@ -268,7 +268,13 @@ export const List: React.FC<ListProps> = ({
         </FixedSizeList>
       )}
       {!hasRows && (
-        <Box alignItems="center" display="flex" h={HEIGHT} justifyContent="center" w={WIDTH}>
+        <Box
+          $alignItems="center"
+          $display="flex"
+          $h={`${HEIGHT}px`}
+          $justifyContent="center"
+          $w={`${WIDTH}px`}
+        >
           {emptyList}
         </Box>
       )}
@@ -295,13 +301,13 @@ const EmojiRow: React.FC<EmojiRowProps> = ({ data, index, style }) => {
   if (typeof row[0] === 'string') {
     return (
       <Text
-        alignItems="center"
+        $alignItems="center"
+        $color="light-100"
+        $display="flex"
+        $px="xl"
+        $textTransform="uppercase"
         as="span"
-        color="light-100"
-        display="flex"
-        px="xl"
         style={style}
-        textTransform="uppercase"
         variant="subtitle-sm"
       >
         {row[0]}
@@ -310,7 +316,7 @@ const EmojiRow: React.FC<EmojiRowProps> = ({ data, index, style }) => {
   }
 
   return (
-    <Box display="flex" px="lg" style={style}>
+    <Box $display="flex" $px="lg" style={style}>
       {row.map(emoji => {
         const alias = getEmojiAlias(emoji)
         // We want `null` instead of false to prevent to add the attribute to be in the DOM
@@ -324,6 +330,7 @@ const EmojiRow: React.FC<EmojiRowProps> = ({ data, index, style }) => {
 
         return (
           <S.EmojiButton
+            $w={`${100 / NB_EMOJIS_PER_ROW}%`}
             data-active={isActive}
             data-testid={`emoji-${alias}`}
             key={alias}
@@ -331,7 +338,6 @@ const EmojiRow: React.FC<EmojiRowProps> = ({ data, index, style }) => {
             onMouseMove={() => data.onMouseMove(emoji)}
             tabIndex={-1}
             type="button"
-            w={`${100 / NB_EMOJIS_PER_ROW}%`}
           >
             <Emoji emoji={emojiImage} />
           </S.EmojiButton>

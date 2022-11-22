@@ -38,13 +38,13 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
+    "@welcome-ui/box": "^5.0.0-alpha.0",
     "@welcome-ui/field-group": "^5.0.0-alpha.0",
     "@welcome-ui/hint": "^5.0.0-alpha.0",
     "@welcome-ui/label": "^5.0.0-alpha.0",
     "@welcome-ui/system": "^5.0.0-alpha.0"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^3.7.0",
     "react": "^16.10.2 || ^17.0.1 || ^18.0.0",
     "styled-components": "^5.3.6"
   },

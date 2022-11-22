@@ -1,24 +1,27 @@
-import styled, { system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
+import { system, WuiProps } from '@welcome-ui/system'
 
-export const Item = styled.button`
-  ${th('dropdownMenu.item')};
-  display: flex;
-  align-items: center;
-  width: 100%;
-  border: 0;
-  appearance: none;
-  cursor: pointer;
-  transition: medium;
-  text-decoration: none;
-
-  &[type='button'] {
+export const Item = styled.button<WuiProps>(
+  ({ theme }) => css`
+    ${theme.dropdownMenu.item};
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 0;
     appearance: none;
-  }
+    cursor: pointer;
+    transition: medium;
+    text-decoration: none;
 
-  &:hover,
-  &:focus {
-    outline: none !important; /* important for firefox */
-  }
+    &[type='button'] {
+      appearance: none;
+    }
 
-  ${system}
-`
+    &:hover,
+    &:focus {
+      outline: none !important; /* important for firefox */
+    }
+
+    ${system}
+  `
+)

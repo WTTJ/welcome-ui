@@ -4,8 +4,8 @@ import { WuiTheme } from './types'
 
 export type ThemeFiledrops = {
   default: CSSObject
-  dragAccept: Record<string, unknown>
-  dragReject: Record<string, unknown>
+  dragAccept: CSSObject
+  dragReject: CSSObject
   disabled: CSSObject
 }
 

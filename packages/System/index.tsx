@@ -1,5 +1,5 @@
 import React from 'react'
-import { SystemProps } from 'jsx-to-styled'
+import type { SystemProps } from 'jsx-to-styled'
 
 export { default as system } from 'jsx-to-styled'
 

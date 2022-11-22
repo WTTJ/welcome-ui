@@ -1,5 +1,6 @@
 import React from 'react'
 import { MenuArrowOptions } from 'reakit/Menu'
+import { Box } from '@welcome-ui/box'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './Arrow.styled'
@@ -20,16 +21,17 @@ export const Arrow = forwardRef<'div', ArrowProps>((props, ref) => {
 
   return (
     <S.Arrow {...props} ref={ref}>
-      <S.ArrowItem
+      <Box
+        $h="30px"
         $transform={transform}
-        h={30}
+        $w="30px"
+        as="svg"
         viewBox="0 0 30 30"
-        w={30}
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M7 30L15 22L23 30H7Z" fill="currentColor" fillRule="nonzero" id="stroke" />
         <path d="M8 30L15 23L22 30H8Z" fill="currentColor" fillRule="nonzero" />
-      </S.ArrowItem>
+      </Box>
     </S.Arrow>
   )
 })

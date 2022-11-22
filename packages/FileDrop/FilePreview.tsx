@@ -23,17 +23,17 @@ export const FilePreview: React.FC<MessageProps & WordingsType> = ({
 
   return (
     <>
-      <Icon color="dark-900" h={50} mb="lg" w={50} />
-      <Text color="dark-900" lines={1} m={0} maxWidth={600} variant="h4">
+      <Icon $color="dark-900" $h="50px" $mb="lg" $w="50px" />
+      <Text $color="dark-900" $m="0" $maxW="600px" lines={1} variant="h4">
         {name}
       </Text>
       {!isUrl && (
-        <Text color="nude-700" fontWeight="medium" lines={1} m={0} variant="sm">
+        <Text $color="nude-700" $fontWeight="medium" $m="0" lines={1} variant="sm">
           {size}
         </Text>
       )}
       {isUrl && (
-        <Button as="a" href={file} mt="md" rel="noopener" size="sm" target="_blank">
+        <Button $mt="md" as="a" href={file} rel="noopener" size="sm" target="_blank">
           <span>{previewButtonText}</span>
           <ExternalLinkIcon />
         </Button>

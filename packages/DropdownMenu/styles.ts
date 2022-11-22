@@ -1,20 +1,23 @@
-import styled, { system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
+import { system } from '@welcome-ui/system'
 import { cardStyles } from '@welcome-ui/utils'
 import { Box } from '@welcome-ui/box'
 
-export const Inner = styled(Box)`
-  ${cardStyles};
-  ${th('dropdownMenu.inner')};
-  z-index: 1;
-  transition: opacity 200ms;
+export const Inner = styled(Box)(
+  ({ theme }) => css`
+    ${cardStyles};
+    ${theme.dropdownMenu.inner};
+    z-index: 1;
+    transition: opacity 200ms;
 
-  &:focus {
-    outline: none !important; /* important for firefox */
-  }
+    &:focus {
+      outline: none !important; /* important for firefox */
+    }
 
-  &[hidden] {
-    display: none;
-  }
+    &[hidden] {
+      display: none;
+    }
 
-  ${system}
-`
+    ${system}
+  `
+)

@@ -1,4 +1,5 @@
-import styled, { system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
+import { system, WuiProps } from '@welcome-ui/system'
 import { Tab } from '@welcome-ui/tabs'
 import { Popover as WUIPopover } from '@welcome-ui/popover'
 import { Box } from '@welcome-ui/box'
@@ -19,9 +20,7 @@ export const TabList = styled(Tab.List)`
   ${system};
 `
 
-export const EmojiButton = styled.buttonBox.attrs({
-  as: 'button',
-})`
+export const EmojiButton = styled.button<WuiProps>`
   padding: 0;
   border: 0;
   background: none;
@@ -35,6 +34,7 @@ export const EmojiButton = styled.buttonBox.attrs({
   transition-timing-function: ease-out;
   transition-delay: 0.05s;
   cursor: pointer;
+
   &[data-active] {
     outline: none;
     &:nth-child(3n) {
@@ -47,12 +47,17 @@ export const EmojiButton = styled.buttonBox.attrs({
       background-color: sub-5;
     }
   }
+
+  ${system};
 `
-export const Tooltip = styled(Box)`
-  ${th('tooltips')};
-  position: absolute;
-  pointer-events: none;
-  &:empty {
-    display: none;
-  }
-`
+export const Tooltip = styled(Box)(
+  ({ theme }) => css`
+    ${theme.tooltips};
+    position: absolute;
+    pointer-events: none;
+
+    &:empty {
+      display: none;
+    }
+  `
+)
