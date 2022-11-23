@@ -1,7 +1,7 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledTag } from '@welcome-ui/tag'
-import { shouldForwardProp } from '@welcome-ui/system'
+import { system } from '@welcome-ui/system'
 import {
   cardStyles,
   centerContent,
@@ -12,7 +12,7 @@ import {
 
 import { SelectOptions } from './index'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })`
+export const Wrapper = styled('div')`
   position: relative;
   ${system}
 `
@@ -21,7 +21,7 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled('div').withConfig({ shouldForwardProp })(
+export const Input = styled('div')(
   ({
     hasIcon,
     isClearable,
@@ -71,46 +71,42 @@ export const Input = styled('div').withConfig({ shouldForwardProp })(
   `
 )
 
-export const Menu = styled.ul`
-  ${th('defaultFields.select.default')};
-  ${cardStyles};
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  left: 0;
-  margin: 0;
-  margin-top: md;
-  padding: 0;
-  transition: medium;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-`
+export const Menu = styled.ul(
+  ({ theme }) => css`
+    ${theme.defaultFields.select.default};
+    ${cardStyles};
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    left: 0;
+    margin: 0;
+    margin-top: ${theme.space.md};
+    padding: 0;
+    transition: ${theme.transitions.medium};
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  `
+)
 
-export const Item = styled.li(
-  ({
-    allowUnselectFromList,
-    isDisabled,
-    isHighlighted,
-    isMultiple,
-    isSelected,
-  }: {
-    allowUnselectFromList: boolean
-    isHighlighted: boolean
-    isMultiple: boolean
-    isSelected: boolean
-    isDisabled?: boolean
-  }) => css`
+export const Item = styled.li<{
+  allowUnselectFromList: boolean
+  isHighlighted: boolean
+  isMultiple: boolean
+  isSelected: boolean
+  isDisabled?: boolean
+}>(
+  ({ allowUnselectFromList, isDisabled, isHighlighted, isMultiple, isSelected, theme }) => css`
     color: nude-700;
-    ${isHighlighted && th('defaultFields.select.highlighted')};
-    ${isSelected && !isMultiple && th('defaultFields.select.selected')};
-    ${isSelected && isMultiple && !allowUnselectFromList && th('defaultFields.select.existing')};
-    ${isDisabled && th('defaultFields.select.disabled')};
+    ${isHighlighted && theme.defaultFields.select.highlighted};
+    ${isSelected && !isMultiple && theme.defaultFields.select.selected};
+    ${isSelected && isMultiple && !allowUnselectFromList && theme.defaultFields.select.existing};
+    ${isDisabled && theme.defaultFields.select.disabled};
     ${overflowEllipsis};
     padding: sm;
     list-style: none;
     text-decoration: none;
     font-size: sm;
-    transition: background ${th.transition('medium')};
+    transition: background ${theme.transitions.medium};
   `
 )
 
@@ -130,8 +126,8 @@ export const Indicators = styled.div(
   `
 )
 
-export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })(
-  ({ isOpen }: { isOpen?: boolean }) => css`
+export const DropDownIndicator = styled.button<{ isOpen?: boolean }>(
+  ({ isOpen, theme }) => css`
     position: relative;
     height: 100%;
     padding: 0;
@@ -144,7 +140,7 @@ export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })
 
     ${StyledIcon} {
       transform: ${isOpen ? 'rotate3d(0, 0, 1, 180deg)' : 'rotate3d(0)'};
-      transition: medium;
+      transition: ${theme.transitions.medium};
     }
 
     &:not(:last-child) {
@@ -153,15 +149,17 @@ export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })
   `
 )
 
-export const Tags = styled.div`
-  margin-top: lg;
+export const Tags = styled.div(
+  ({ theme }) => css`
+    margin-top: ${theme.space.lg};
 
-  ${/* sc-selector */ StyledTag}:not(:last-child) {
-    margin-right: sm;
-    margin-bottom: sm;
-  }
+    ${/* sc-selector */ StyledTag}:not(:last-child) {
+      margin-right: ${theme.space.sm};
+      margin-bottom: ${theme.space.sm};
+    }
 
-  &:empty {
-    display: none;
-  }
-`
+    &:empty {
+      display: none;
+    }
+  `
+)

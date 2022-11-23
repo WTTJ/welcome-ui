@@ -1,4 +1,4 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Box } from '@welcome-ui/box'
 import { Hint } from '@welcome-ui/hint'
 
@@ -12,40 +12,40 @@ const sliderSelector = css`
   height: 20;
   width: 20;
   transform: scale(1);
-  transition: background-color ${th.transition('medium')}, border-color ${th.transition('medium')},
-    transform 100ms ease-in-out;
+  transition: background-color ${({ theme }) => theme.transitions.medium},
+    border-color ${({ theme }) => theme.transitions.medium}, transform 100ms ease-in-out;
 `
 
 const sliderFocused = css`
-  ${th('sliders.focused')};
+  ${({ theme }) => theme.sliders.focused};
   transform: scale(1.2);
 `
 
 const rangeTrack = css`
   position: absolute;
   width: 100%;
-  height: ${th('space.xs')};
+  height: ${({ theme }) => theme.space.xs};
 `
 
 export const Slider = styled.input<BorderProps>(
-  ({ borderSelectorColor, disabled }) => css`
-    ${th('sliders.default')};
+  ({ borderSelectorColor, disabled, theme }) => css`
+    ${theme.sliders.default};
     appearance: none;
     cursor: pointer;
     background-repeat: no-repeat;
     border-radius: 0;
     margin: auto 0;
     width: 100%;
-    height: ${th('space.xs')};
+    height: ${theme.space.xs};
 
     &::-webkit-slider-thumb {
-      ${th('sliders.selector')};
+      ${theme.sliders.selector};
       ${sliderSelector};
       border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
     }
 
     &::-moz-range-thumb {
-      ${th('sliders.selector')};
+      ${theme.sliders.selector};
       ${sliderSelector};
       border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
     }
@@ -65,26 +65,26 @@ export const Slider = styled.input<BorderProps>(
 
     ${disabled &&
     css`
-      ${th('sliders.disabled')}
+      ${theme.sliders.disabled}
       cursor: not-allowed;
 
       &::-webkit-slider-thumb {
-        ${th('sliders.selector.disabled')};
+        ${theme.sliders.selector.disabled};
         cursor: not-allowed;
       }
 
       &::-moz-range-thumb {
-        ${th('sliders.selector.disabled')};
+        ${theme.sliders.selector.disabled};
         cursor: not-allowed;
       }
 
       &:active {
         &::-webkit-slider-thumb {
-          ${th('sliders.focused.disabled')};
+          ${theme.sliders.focused.disabled};
         }
 
         &::-moz-range-thumb {
-          ${th('sliders.focused.disabled')};
+          ${theme.sliders.focused.disabled};
         }
       }
     `};
@@ -92,8 +92,8 @@ export const Slider = styled.input<BorderProps>(
 )
 
 export const RangeInput = styled.input<BorderProps>(
-  ({ borderSelectorColor, disabled }) => css`
-    ${th('sliders.rangeInput')}
+  ({ borderSelectorColor, disabled, theme }) => css`
+    ${theme.sliders.rangeInput}
     appearance: none;
     pointer-events: none;
     position: absolute;
@@ -101,24 +101,24 @@ export const RangeInput = styled.input<BorderProps>(
     width: 100%;
     outline: none;
     z-index: 1;
-    top: ${th('space.xxs')};
+    top: ${theme.space.xxs};
 
     &::-webkit-slider-thumb {
-      ${th('sliders.selector')};
+      ${theme.sliders.selector};
       ${sliderSelector};
 
       border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
-      top: ${th('space.sm')};
+      top: ${theme.space.sm};
       pointer-events: all;
       position: relative;
     }
 
     &::-moz-range-thumb {
-      ${th('sliders.selector')};
+      ${theme.sliders.selector};
       ${sliderSelector};
 
       border-color: ${borderSelectorColor ? borderSelectorColor : 'transparent'};
-      top: ${th('space.sm')};
+      top: ${theme.space.sm};
       pointer-events: all;
       position: relative;
     }
@@ -137,22 +137,22 @@ export const RangeInput = styled.input<BorderProps>(
     ${disabled &&
     css`
       &::-webkit-slider-thumb {
-        ${th('sliders.selector.disabled')};
+        ${theme.sliders.selector.disabled};
         cursor: not-allowed;
       }
 
       &::-moz-range-thumb {
-        ${th('sliders.selector.disabled')};
+        ${theme.sliders.selector.disabled};
         cursor: not-allowed;
       }
 
       &:active {
         &::-webkit-slider-thumb {
-          ${th('sliders.focused.disabled')};
+          ${theme.sliders.focused.disabled};
         }
 
         &::-moz-range-thumb {
-          ${th('sliders.focused.disabled')};
+          ${theme.sliders.focused.disabled};
         }
       }
     `};
@@ -160,9 +160,9 @@ export const RangeInput = styled.input<BorderProps>(
 )
 
 export const Track = styled(Box)(
-  () => css`
+  ({ theme }) => css`
     ${rangeTrack};
-    background-color: nude-400;
+    background-color: ${theme.colors['nude-400']};
   `
 )
 
@@ -171,26 +171,26 @@ type RangeProps = {
 }
 
 export const Range = styled(Box)<RangeProps>(
-  ({ disabled }) => css`
+  ({ disabled, theme }) => css`
     ${rangeTrack};
-    background-color: primary-500;
+    background-color: ${theme.colors['primary-500']};
 
     ${disabled &&
     css`
-      ${th('sliders.disabled')}
+      ${theme.sliders.disabled}
       cursor: not-allowed;
     `};
   `
 )
 
 export const Thick = styled(Box)(
-  () => css`
+  ({ theme }) => css`
     position: absolute;
 
     :before {
       content: '';
       position: absolute;
-      background-color: dark-200;
+      background-color: ${theme.colors['dark-200']};
       height: 6;
       width: 1;
       transform: translate(-50%);
@@ -199,9 +199,9 @@ export const Thick = styled(Box)(
 )
 
 export const ThickLabel = styled(Hint)(
-  () => css`
+  ({ theme }) => css`
     position: absolute;
-    color: dark-400;
+    color: ${theme.colors['dark-400']};
     top: 0;
     transform: translate(-50%);
     white-space: nowrap;
@@ -213,29 +213,29 @@ type OutputProps = {
 }
 
 export const Output = styled.output<OutputProps>(
-  ({ isVisible }) => css`
+  ({ isVisible, theme }) => css`
     opacity: 0;
     visibility: hidden;
     transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out, transform 150ms ease-in-out;
     position: absolute;
     text-align: center;
-    transform: translate(-50%, calc(-100% + -${th('space.xs')}));
+    transform: translate(-50%, calc(-100% + -${theme.space.xs}));
 
     ${isVisible &&
     css`
       opacity: 100;
       visibility: visible;
-      transform: translate(-50%, calc(-100% + -${th('space.sm')}));
+      transform: translate(-50%, calc(-100% + -${theme.space.sm}));
     `}
   `
 )
 
 export const Tooltip = styled(Box)(
-  () => css`
-    ${th('sliders.output.tooltip')};
+  ({ theme }) => css`
+    ${theme.sliders.output.tooltip};
     flex: 1 1 auto;
     margin: auto;
-    min-width: ${th('space.xxs')};
-    padding: ${th('space.xs')} ${th('space.sm')};
+    min-width: ${theme.space.xxs};
+    padding: ${theme.space.xs} ${theme.space.sm};
   `
 )

@@ -183,17 +183,18 @@ export const Range = forwardRef<'div', RangeProps>(
     }, [value])
 
     return (
-      <Box position="relative" w="100%">
+      <Box $position="relative" $w="100%">
         {label && (
           <Text as="label" variant="sm">
             {label}
           </Text>
         )}
 
-        <Box alignItems="center" display="flex" gap="sm">
+        <Box $alignItems="center" $display="flex" $gap="sm">
           {(type === 'inline' || type === 'fields') &&
             (type === 'fields' ? (
               <InputText
+                $w="72px"
                 max={maxValue}
                 min={min}
                 onChange={e => {
@@ -214,13 +215,12 @@ export const Range = forwardRef<'div', RangeProps>(
                 size="sm"
                 type="number"
                 value={inputMinValue.toString()}
-                w={72}
               />
             ) : (
               <Box>{min}</Box>
             ))}
 
-          <Box position="relative" w="100%">
+          <Box $position="relative" $w="100%">
             {tooltip && (
               <>
                 <S.Output isVisible={tooltipMinVisible} ref={tooltipMinRef}>
@@ -232,7 +232,7 @@ export const Range = forwardRef<'div', RangeProps>(
                 </S.Output>
               </>
             )}
-            <Box h={20} pb="sm" position="relative" pt="sm" w="100%">
+            <Box $h="20px" $pb="sm" $position="relative" $pt="sm" $w="100%">
               <S.RangeInput
                 {...restProps}
                 borderSelectorColor={borderSelectorColor}
@@ -280,13 +280,13 @@ export const Range = forwardRef<'div', RangeProps>(
             </Box>
 
             {values && (
-              <Box h={24} ml={10} mr={10} position="relative">
+              <Box $h="24px" $ml="10px" $mr="10px" $position="relative">
                 {values
                   .reduce((prev, acc) => (prev.includes(acc) ? prev : [...prev, acc]), [])
                   .filter(v => v >= min && v <= max)
                   .map((el, index) => (
                     // eslint-disable-next-line react/no-array-index-key
-                    <S.Thick key={`${el}-${index}`} left={`${getPercent(el)}%`}>
+                    <S.Thick $left={`${getPercent(el)}%`} key={`${el}-${index}`}>
                       <S.ThickLabel>{el}</S.ThickLabel>
                     </S.Thick>
                   ))}
@@ -297,6 +297,7 @@ export const Range = forwardRef<'div', RangeProps>(
           {(type === 'inline' || type === 'fields') &&
             (type === 'fields' ? (
               <InputText
+                $w="72px"
                 max={max}
                 min={minValue + 1}
                 onChange={e => {
@@ -317,7 +318,6 @@ export const Range = forwardRef<'div', RangeProps>(
                 size="sm"
                 type="number"
                 value={inputMaxValue.toString()}
-                w={72}
               />
             ) : (
               <Box>{max}</Box>
@@ -325,7 +325,7 @@ export const Range = forwardRef<'div', RangeProps>(
         </Box>
 
         {hint && (
-          <Hint color="dark.400" mt={0}>
+          <Hint $color="dark.400" $mt="0">
             {hint}
           </Hint>
         )}

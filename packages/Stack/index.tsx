@@ -13,14 +13,14 @@ export const Stack = forwardRef<'div', StackProps>(
   ({ as = 'div', children, dataTestId, direction = 'column', spacing = 'md', ...rest }, ref) => {
     const validChildrenArray = Children.toArray(children).filter(isValidElement)
 
-    const marginType = direction === 'column' ? 'mb' : 'mr'
+    const marginType = direction === 'column' ? '$mb' : '$mr'
 
     return (
       <Box
+        $display="flex"
+        $flexDirection={direction}
         as={as}
         data-testid={dataTestId}
-        display="flex"
-        flexDirection={direction}
         ref={ref}
         {...rest}
       >

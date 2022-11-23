@@ -1,4 +1,5 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
+import { system } from '@welcome-ui/system'
 
 import { UseSwiperState } from '.'
 
@@ -35,17 +36,17 @@ export const Pagination = styled.div`
   z-index: 10;
   bottom: 0;
   width: 100%;
-  padding: sm;
+  padding: ${({ theme }) => theme.space.sm};
 `
 
 export const Bullet = styled.div<{ active: boolean }>(
-  ({ active }) => css`
+  ({ active, theme }) => css`
     height: 10;
     width: 10;
     border-radius: 50%;
     cursor: pointer;
-    margin: 0 xxs;
-    ${active ? th('swipers.navigation.bullet.active') : th('swipers.navigation.bullet.default')}
+    margin: 0 ${theme.space.xxs};
+    ${active ? theme.swipers.navigation.bullet.active : theme.swipers.navigation.bullet.default}
     ${system}
   `
 )
@@ -67,17 +68,17 @@ const getNavigationStyles = ({ disabled }: NavigationStylesProps) => css`
 `
 
 export const Next = styled.div<NavigationStylesProps>(
-  props => css`
+  ({ theme, ...props }) => css`
     ${getNavigationStyles(props)}
-    margin-right: sm;
+    margin-right: ${theme.space.sm};
     right: 0;
   `
 )
 
 export const Prev = styled.div<NavigationStylesProps>(
-  props => css`
+  ({ theme, ...props }) => css`
     ${getNavigationStyles(props)}
-    margin-left: sm;
+    margin-left: ${theme.space.sm};
     left: 0;
   `
 )

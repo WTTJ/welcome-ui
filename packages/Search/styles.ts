@@ -1,11 +1,11 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
-import { shouldForwardProp } from '@welcome-ui/system'
+import { system } from '@welcome-ui/system'
 import { cardStyles, centerContent, defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 
 import { SearchOptions } from './index'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })`
+export const Wrapper = styled('div')`
   position: relative;
   ${system};
 `
@@ -14,16 +14,14 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled('input').withConfig({ shouldForwardProp })<
-  { hasIcon?: boolean } & SearchOptions
->(
-  ({ hasIcon, size, transparent, variant }) => css`
+export const Input = styled('input')<{ hasIcon?: boolean } & SearchOptions>(
+  ({ hasIcon, size, theme, transparent, variant }) => css`
     position: relative;
     ${defaultFieldStyles({ size, variant, transparent })};
     ${overflowEllipsis};
     ${hasIcon &&
     css`
-      padding-left: ${th(`defaultFields.sizes.${size}.height`)};
+      padding-left: ${theme.defaultFields.sizes[size as SearchOptions['size']].height};
     `};
     ${system};
 
@@ -33,45 +31,47 @@ export const Input = styled('input').withConfig({ shouldForwardProp })<
   `
 )
 
-export const Menu = styled.ul`
-  ${th('defaultFields.select.default')};
-  ${cardStyles}
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  left: 0;
-  margin: 0;
-  margin-top: md;
-  padding: 0;
-  transition: medium;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-`
+export const Menu = styled.ul(
+  ({ theme }) => css`
+    ${theme.defaultFields.select.default};
+    ${cardStyles}
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    left: 0;
+    margin: 0;
+    margin-top: ${theme.space.md};
+    padding: 0;
+    transition: ${theme.transitions.medium};
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  `
+)
 
 export const Item = styled.li<{
   isExisting?: boolean
   isHighlighted?: boolean
   isSelected?: boolean
 }>(
-  ({ isExisting, isHighlighted, isSelected }) => css`
-    color: nude-700;
-    ${isHighlighted && th('defaultFields.select.highlighted')};
-    ${isSelected && th('defaultFields.select.selected')};
-    ${isExisting && th('defaultFields.select.existing')};
-    ${isSelected && isHighlighted && th('defaultFields.select.selectedAndHighlighted')};
+  ({ isExisting, isHighlighted, isSelected, theme }) => css`
+    color: ${theme.colors['nude-700']};
+    ${isHighlighted && theme.defaultFields.select.highlighted};
+    ${isSelected && theme.defaultFields.select.selected};
+    ${isExisting && theme.defaultFields.select.existing};
+    ${isSelected && isHighlighted && theme.defaultFields.select.selectedAndHighlighted};
     ${overflowEllipsis};
-    padding: sm;
+    padding: ${theme.space.md};
     list-style: none;
     text-decoration: none;
-    font-size: sm;
-    transition: background ${th.transition('medium')};
+    font-size: ${theme.space.md};
+    transition: background ${theme.transitions.medium};
   `
 )
 
 export const Icon = styled.div<{ size: SearchOptions['size'] }>(
-  ({ size }) => css`
+  ({ size, theme }) => css`
     position: absolute;
-    width: ${th(`defaultFields.sizes.${size}.height`)};
+    width: ${theme.defaultFields.sizes[size].height};
     padding: 0;
     top: 0;
     bottom: 0;
@@ -90,10 +90,10 @@ export const Indicators = styled.div`
 `
 
 export const DropDownIndicator = styled.button<{ size: SearchOptions['size']; isOpen?: boolean }>(
-  ({ isOpen, size }) => css`
+  ({ isOpen, size, theme }) => css`
     position: relative;
     height: 100%;
-    width: ${th(`defaultFields.sizes.${size}.height`)};
+    width: ${theme.defaultFields.sizes[size].height};
     padding: 0;
     outline: none !important; /* important for firefox */
     appearance: none;
@@ -104,7 +104,7 @@ export const DropDownIndicator = styled.button<{ size: SearchOptions['size']; is
 
     ${StyledIcon} {
       transform: ${isOpen ? 'rotate3d(0, 0, 1, 180deg)' : 'rotate3d(0)'};
-      transition: medium;
+      transition: ${theme.transitions.medium};
     }
 
     &:not(:last-child) {
