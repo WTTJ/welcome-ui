@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { ThemeProvider } from '@xstyled/styled-components'
+import { ThemeProvider } from 'styled-components'
 import { StaticRouter } from 'react-router-dom/server'
 import '@testing-library/jest-dom/extend-expect'
 import 'jest-styled-components'

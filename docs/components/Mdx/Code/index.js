@@ -196,10 +196,10 @@ export const Code = ({
       <LiveProvider {...liveProviderProps}>
         <Card
           className="codeEditor"
-          display="flex"
-          flexDirection="column"
-          mt="md"
-          overflow="visible"
+          $display="flex"
+          $flexDirection="column"
+          $mt="md"
+          $overflow="visible"
         >
           <Box p="xl">
             <LivePreview />
@@ -207,26 +207,26 @@ export const Code = ({
           {withCode === true && (
             <S.ShowEditor>
               <Button
-                border="none"
-                h={25}
+                $border="none"
+                $h="25px"
                 onClick={toggleEditor}
                 shape="circle"
                 variant="tertiary"
-                w={25}
+                $w="25px"
               >
                 <Icons.ChevronIcon />
               </Button>
               {isCopyable && (
                 <Button
                   border="none"
-                  h={25}
-                  ml="sm"
+                  $h="25px"
+                  $ml="sm"
                   onClick={copy}
                   shape="circle"
                   variant="tertiary"
-                  w={25}
+                  $w="25px"
                 >
-                  {copied ? <Icons.CheckIcon color="success-500" /> : <Icons.CopyIcon />}
+                  {copied ? <Icons.CheckIcon $color="success-500" /> : <Icons.CopyIcon />}
                 </Button>
               )}
             </S.ShowEditor>
@@ -249,7 +249,7 @@ export const Code = ({
 
   return (
     <Box>
-      <Box mt="lg" overflow="auto">
+      <Box $mt="lg" $overflow="auto">
         <LiveProvider disabled {...liveProviderProps}>
           <S.LiveEditor>
             <S.LiveEditorContent isCopyable={isCopyable} style={liveEditorStyle} />

@@ -66,13 +66,13 @@ const expectations = [
 
 function Expectation({ description, icon: Icon, title }) {
   return (
-    <Card w="100%">
+    <Card $w="100%">
       <Card.Body>
-        <Icon color="dark-900" size={30} />
-        <Text mb="md" mt="lg" textTransform="uppercase" variant="h6">
+        <Icon $color="dark-900" size={30} />
+        <Text $mb="md" $mt="lg" $textTransform="uppercase" variant="h6">
           {title}
         </Text>
-        <Text m="0" variant="sm">
+        <Text $m="0" variant="sm">
           {description}
         </Text>
       </Card.Body>
@@ -83,9 +83,9 @@ function Expectation({ description, icon: Icon, title }) {
 export function Expectations() {
   return (
     <Box
-      display="grid"
-      gap="lg"
-      gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}
+      $display="grid"
+      $gap="lg"
+      $gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}
     >
       {expectations.map(expectation => (
         <Expectation key={expectation.title} {...expectation} />

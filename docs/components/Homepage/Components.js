@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Alert } from '@welcome-ui/alert'
 import { Avatar } from '@welcome-ui/avatar'
@@ -113,9 +112,9 @@ function Component({ children, description, link, title }) {
 export function Components() {
   return (
     <Box
-      display="grid"
-      gap="xxl"
-      gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr 1fr' }}
+      $display="grid"
+      $gap="xxl"
+      $gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr 1fr' }}
     >
       {components.map(component => (
         <Component key={component.title} {...component} />

@@ -6,6 +6,6 @@
     "sourceMap": false,
     "declaration": true
   },
-  "include": ["packages", "types"],
+  "include": ["packages/**/*.ts", "types"],
   "exclude": ["dist", "icons/**/*", "packages/**/node_modules", "packages/**/dist", "docs"]
 }

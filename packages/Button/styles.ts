@@ -33,16 +33,16 @@ export const Button = styled(ReakitButton)<ButtonOptions>(
       white-space: nowrap;
       cursor: pointer;
       outline: none !important; /* important for firefox */
-      border-width: sm;
+      border-width: ${theme.borderWidths.sm};
       border-style: solid;
       appearance: none;
       overflow: hidden;
-      transition: medium;
+      transition: ${theme.transitions.medium};
       ${shape && shapeStyles}
       ${system};
 
       & > *:not(:only-child):not(:last-child) {
-        margin-right: sm;
+        margin-right: ${theme.spaces.sm};
       }
 
       ${!disabled &&

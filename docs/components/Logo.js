@@ -1,10 +1,9 @@
-
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 
-export function Logo({ h, isDark, w }) {
+export function Logo({ $h, isDark, $w }) {
   return (
-    <Box as="svg" h={h} viewBox="0 0 101 59" w={w}>
+    <Box as="svg" $h={$h} viewBox="0 0 101 59" $w={$w}>
       <title>WUI logo</title>
       <g fill="none" fillRule="nonzero">
         <path

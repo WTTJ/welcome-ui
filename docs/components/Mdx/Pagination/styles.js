@@ -1,23 +1,23 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 
 export const Link = styled.a(
-  ({ isNext }) => css`
-    ${th('texts.h5')};
+  ({ isNext, theme }) => css`
+    ${theme.texts.h5};
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: sub-3;
-    transition: medium;
+    color: ${theme.colors['sub-3']};
+    transition: ${theme.transitions.medium};
 
     &:hover {
       ${!isNext &&
       css`
-        padding-left: sm;
+        padding-left: ${theme.space.sm};
       `};
 
       ${isNext &&
       css`
-        padding-right: sm;
+        padding-right: ${theme.space.sm};
       `};
     }
   `

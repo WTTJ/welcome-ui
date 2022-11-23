@@ -81,7 +81,7 @@ export function Props({ propTypes }) {
     <Box>
       <Card mt="xxl">
         <Card.Body color="dark-900">
-          <Table marginBottom="-lg" marginTop="-lg">
+          <Table $mb="-lg" $mt="-lg">
             <Table.Thead>
               <Table.Tr>
                 <Table.Th>Name</Table.Th>

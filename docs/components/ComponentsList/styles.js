@@ -1,4 +1,4 @@
-import styled, { th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Box } from '@welcome-ui/box'
 import { Link } from '@welcome-ui/link'
 
@@ -14,36 +14,40 @@ export const Li = styled.li`
   }
 `
 
-export const MainTitle = styled(Box)`
-  ${th('texts.subtitle-sm')};
-  text-transform: uppercase;
-  color: dark-300;
-  margin-top: xxl;
-  margin-bottom: lg;
-`
+export const MainTitle = styled(Box)(
+  ({ theme }) => css`
+    ${theme.texts['subtitle-sm']};
+    text-transform: uppercase;
+    color: ${theme.colors['dark-300']};
+    margin-top: ${theme.space.xxl};
+    margin-bottom: ${theme.space.lg};
+  `
+)
 
-export const Item = styled(Link)`
-  padding-bottom: xs;
-  margin-bottom: xs;
+export const Item = styled(Link)(
+  ({ theme }) => css`
+    padding-bottom: ${theme.space.xs};
+    margin-bottom: ${theme.space.xs};
 
-  > .wui-text {
-    font-weight: regular;
-    background-size: 0% 50% !important;
-  }
-
-  &:hover {
     > .wui-text {
-      color: dark-900;
-      background-size: 100% 50% !important;
+      font-weight: ${theme.fontWeights.regular};
+      background-size: 0% 50% !important;
     }
-  }
 
-  &[aria-current='page'] {
-    > .wui-text {
-      color: dark-900;
-      font-weight: bold;
-      background-size: 100% 50% !important;
-      background-position-y: 100%;
+    &:hover {
+      > .wui-text {
+        color: ${theme.colors['dark-900']};
+        background-size: 100% 50% !important;
+      }
     }
-  }
-`
+
+    &[aria-current='page'] {
+      > .wui-text {
+        color: ${theme.colors['dark-900']};
+        font-weight: ${theme.fontWeights.bold};
+        background-size: 100% 50% !important;
+        background-position-y: 100%;
+      }
+    }
+  `
+)

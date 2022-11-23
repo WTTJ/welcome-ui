@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Card } from '@welcome-ui/card'
@@ -12,9 +11,9 @@ export function Dependencies({ dependencies }) {
 
   return (
     <Box>
-      <Card mt="sm">
+      <Card $mt="sm">
         <Card.Body>
-          <Box display="flex" flexWrap="wrap" mb="-md">
+          <Box $display="flex" $flexWrap="wrap" $mb="-md">
             {Object.entries(dependencies).map(([dependency, version]) => {
               return <Item dependency={dependency} key={dependency} version={version} />
             })}

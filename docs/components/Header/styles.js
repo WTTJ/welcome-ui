@@ -1,4 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Drawer as WUIDrawer } from '@welcome-ui/drawer'
 
 import { Item } from './NavBar/styles'
@@ -6,7 +6,7 @@ import { Item } from './NavBar/styles'
 export const headerHeight = '3.75rem' // 60
 
 export const Header = styled.header(
-  ({ variant = 'black' }) => css`
+  ({ variant = 'black', theme }) => css`
     position: sticky;
     display: flex;
     align-items: center;
@@ -14,27 +14,27 @@ export const Header = styled.header(
     width: 100%;
     height: ${headerHeight};
     background-color: black;
-    font-size: md;
-    padding: 0 md;
+    font-size: ${theme.fontSizes.md};
+    padding: 0 ${theme.space.md};
     top: 0;
     width: 100%;
     z-index: 2;
 
-    @media (min-width: md) {
-      padding: 0 lg;
+    @media (min-width: ${theme.breakpoints.md}px) {
+      padding: 0 ${theme.space.lg};
     }
 
     ${variant === 'gray' &&
     css`
-      background-color: nude-200;
+      background-color: ${theme.colors['nude-200']};
 
       ${Item} {
         opacity: 1;
-        color: dark-900;
+        color: ${theme.colors['dark-900']};
 
         &.active,
         &:hover {
-          @media (min-width: md) {
+          @media (min-width: ${theme.breakpoints.md}px) {
             opacity: 0.7;
           }
         }
@@ -43,12 +43,14 @@ export const Header = styled.header(
   `
 )
 
-export const MenuMobileDrawer = styled(WUIDrawer)`
-  top: ${`calc(${headerHeight} - 1px)`} !important;
-  width: 100% !important;
-  padding: lg;
+export const MenuMobileDrawer = styled(WUIDrawer)(
+  ({ theme }) => css`
+    top: ${`calc(${headerHeight} - 1px)`} !important;
+    width: 100% !important;
+    padding: ${theme.space.lg};
 
-  @media (min-width: md) {
-    display: none;
-  }
-`
+    @media (min-width: ${theme.breakpoints.md}px) {
+      display: none;
+    }
+  `
+)

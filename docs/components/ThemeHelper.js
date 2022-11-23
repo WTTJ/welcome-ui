@@ -41,9 +41,9 @@ export function ThemeHelper({ modal }) {
       {hasBeenHydrated && (
         <Modal {...modal} ariaLabel="theme configuration" title={title}>
           <Modal.Header title={title} subtitle="Documentation for the core theme entries" />
-          <Modal.Content mt="xl">
-            <Box display="flex">
-              <Tab.List w={200} mr="lg" aria-label="Tabs" {...tabState}>
+          <Modal.Content $mt="xl">
+            <Box $display="flex">
+              <Tab.List $w="200px" $mr="lg" aria-label="Tabs" {...tabState}>
                 {categories.map(category => (
                   <Tab key={category} {...tabState} id={category}>
                     {category}
@@ -54,16 +54,16 @@ export function ThemeHelper({ modal }) {
               {categories.map(category => (
                 <Tab.Panel key={category} {...tabState} tabId={category}>
                   <Box
-                    display="grid"
-                    gridTemplateColumns="1fr 1fr"
-                    rowGap={8}
-                    columnGap={16}
-                    mb="md"
+                    $display="grid"
+                    $gridTemplateColumns="1fr 1fr"
+                    $rowGap="8px"
+                    $columnGap="16px"
+                    $mb="md"
                   >
-                    <Text variant="h5" mb="md" mt="0">
+                    <Text variant="h5" $mb="md" $mt="0">
                       Key
                     </Text>
-                    <Text variant="h5" mb="md" mt="0">
+                    <Text variant="h5" $mb="md" $mt="0">
                       Value
                     </Text>
                     <ThemeConfiguration category={category} />

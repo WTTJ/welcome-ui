@@ -32,16 +32,18 @@ export function ThemeSelector(props) {
       <DropdownMenu {...menu} aria-label="Theme selector">
         {options?.map(({ icon: Icon, label, value, isBeta }) => (
           <DropdownMenu.Item
-            color={theme === value ? 'dark-900' : undefined}
-            fontWeight={theme === value ? 'bold' : undefined}
+            $color={theme === value ? 'dark-900' : undefined}
+            $fontWeight={theme === value ? 'bold' : undefined}
             key={value}
             onClick={() => handleSetTheme(value)}
             {...menu}
           >
-            <Icon mr="md" size="sm" />
+            <Icon $mr="md" size="sm" />
             <Box>{label}</Box>
             {isBeta && (
-              <Badge size="sm" ml="xs">beta</Badge>
+              <Badge size="sm" $ml="xs">
+                beta
+              </Badge>
             )}
           </DropdownMenu.Item>
         ))}

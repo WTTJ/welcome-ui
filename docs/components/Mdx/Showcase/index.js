@@ -18,13 +18,13 @@ export function Showcase({
   version,
 }) {
   return (
-    <Box backgroundColor="nude-100" maxW="100% !important">
-      <Box m="0 auto" maxW={970} px={{ md: 'md' }} py={{ xs: 'xxl', md: '4xl' }}>
-        <H1 mb="0" pb="sm" pt="0">
+    <Box $backgroundColor="nude-100" $maxW="100% !important">
+      <Box $m="0 auto" $maxW="970px" $px={{ md: 'md' }} $py={{ xs: 'xxl', md: '4xl' }}>
+        <H1 $mb="0" $pb="sm" $pt="0">
           {pageName || component}
         </H1>
         {description && <Text variant="body1">{description}</Text>}
-        <Box mt="4xl">
+        <Box $mt="4xl">
           <Item content={version} name="version" />
           <Item content={`yarn add ${name}`} name="install" />
           <Item content={`import { ${component} } from '${name}'`} name="usage" />
@@ -33,7 +33,7 @@ export function Showcase({
             <Item content={customUsage} name={customInstall ? 'usage' : 'or usage'} />
           )}
         </Box>
-        <Box mt="xxl">
+        <Box $mt="xxl">
           <Button
             alt="npm package"
             as="a"
@@ -49,7 +49,7 @@ export function Showcase({
           <Button
             as="a"
             href={`https://github.com/WTTJ/welcome-ui/tree/master/packages/${component}`}
-            ml="md"
+            $ml="md"
             size="sm"
             target="_blank"
             alt="github"

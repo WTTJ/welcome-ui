@@ -13,7 +13,7 @@ const stats = [
       </>
     ),
     number: '50+',
-    icon: <CodeBlockIcon h={24} w={24} />,
+    icon: <CodeBlockIcon $h="24px" $w="24px" />,
   },
   {
     name: (
@@ -42,39 +42,39 @@ const stats = [
 export function Stats() {
   return (
     <Box
-      backgroundColor="light-900"
-      borderRadius={64}
-      display="flex"
-      justifyContent="space-between"
-      maxWidth={470}
-      px={{ xs: 'xxl', md: '4xl' }}
-      py="xxl"
-      w="100%"
+      $backgroundColor="light-900"
+      $borderRadius="64px"
+      $display="flex"
+      $justifyContent="space-between"
+      $maxW="470px"
+      $px={{ xs: 'xxl', md: '4xl' }}
+      $py="xxl"
+      $w="100%"
     >
       {stats?.map(stat => (
         <Box
-          alignItems="center"
-          display="flex"
-          flexDirection="column"
+          $alignItems="center"
+          $display="flex"
+          $flexDirection="column"
           key={stat.number}
-          textAlign="center"
+          $textAlign="center"
         >
           <Box
-            alignItems="center"
-            backgroundColor="dark-900"
-            borderRadius={55}
-            color="light-900"
-            display="flex"
-            h={55}
-            justifyContent="center"
-            w={55}
+            $alignItems="center"
+            $backgroundColor="dark-900"
+            $borderRadius="55px"
+            $color="light-900"
+            $display="flex"
+            $h="55px"
+            $justifyContent="center"
+            $w="55px"
           >
             {stat.icon}
           </Box>
-          <Text as="span" mt="lg" variant="h3">
+          <Text as="span" $mt="lg" variant="h3">
             {stat.number}
           </Text>
-          <Text as="span" mt="sm" variant="sm">
+          <Text as="span" $mt="sm" variant="sm">
             {stat.name}
           </Text>
         </Box>

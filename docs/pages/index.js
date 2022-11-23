@@ -16,50 +16,50 @@ import { LogoWttj } from '../components/LogoWttj'
 export default function Home() {
   return (
     <main>
-      <Section backgroundColor="nude-200">
-        <Text as="span" textTransform="uppercase" variant="subtitle-md" color="dark-900">
+      <Section $backgroundColor="nude-200">
+        <Text as="span" $textTransform="uppercase" variant="subtitle-md" $color="dark-900">
           Welcome UI
         </Text>
-        <Text maxWidth={820} mb="xl" mt="sm" variant="h1">
+        <Text $maxW="820px" $mb="xl" $mt="sm" variant="h1">
           All the components you need to create a delightful React webapp
         </Text>
-        <Text maxWidth={640} variant="lg">
+        <Text $maxW="640px" variant="lg">
           Welcome UI is a customizable design system library made with react, typescript,
           styled-components, reakit and a lot of love 💛
         </Text>
         <NextLink href="/installation" passHref>
-          <Button as="a" mt="3xl" size="lg">
+          <Button as="a" $mt="3xl" size="lg">
             <span>Install amazing components</span>
             <RightIcon />
           </Button>
         </NextLink>
       </Section>
       <Section>
-        <Text mb="xl" mt="0" variant="h4">
+        <Text $mb="xl" $mt="0" variant="h4">
           Some of our components
         </Text>
         <Components />
       </Section>
-      <Section backgroundColor="nude-200">
+      <Section $backgroundColor="nude-200">
         <Box
-          alignItems="center"
-          display="flex"
-          flexDirection={{ xs: 'column', lg: 'row' }}
-          justifyContent="space-between"
+          $alignItems="center"
+          $display="flex"
+          $flexDirection={{ xs: 'column', lg: 'row' }}
+          $justifyContent="space-between"
         >
-          <Box flex="0 0 auto" maxWidth={{ md: 600 }} mb={{ xs: '5xl', lg: 0 }}>
-            <Text as="span" textTransform="uppercase" variant="subtitle-md" color="dark-900">
+          <Box $flex="0 0 auto" $maxW={{ md: '600px' }} $mb={{ xs: '5xl', lg: '0' }}>
+            <Text as="span" $textTransform="uppercase" variant="subtitle-md" $color="dark-900">
               Open source
             </Text>
-            <Text as="h2" mb="xl" mt="sm" variant="h1">
+            <Text as="h2" $mb="xl" $mt="sm" variant="h1">
               Contribute!
             </Text>
-            <Text maxWidth={640} variant="lg">
+            <Text maxW="640px" variant="lg">
               Welcome UI is open-sourced on GitHub. Contributions, feedback and issues are welcome –
               we want you to be a part of this great project.
             </Text>
             <NextLink href="https://github.com/WTTJ/welcome-ui" passHref>
-              <Button as="a" mt="3xl" size="lg" target="_blank" variant="secondary">
+              <Button as="a" $mt="3xl" size="lg" target="_blank" variant="secondary">
                 <GithubIcon size="lg" />
                 <span>Contribute on Github</span>
               </Button>
@@ -69,65 +69,65 @@ export default function Home() {
         </Box>
       </Section>
       <Section>
-        <Text as="h2" maxWidth={500} mb="xl" mt="0" variant="h1">
+        <Text as="h2" $maxW="500px" $mb="xl" $mt="0" variant="h1">
           All you’d expect from a design system...
         </Text>
-        <Text maxWidth={640} mb="5xl" variant="lg">
+        <Text $maxW="640px" $mb="5xl" variant="lg">
           ...and a lot more!
         </Text>
         <Expectations />
       </Section>
-      <Section backgroundColor="nude-200">
-        <Text as="span" textTransform="uppercase" variant="subtitle-md" color="dark-900">
+      <Section $backgroundColor="nude-200">
+        <Text as="span" $textTransform="uppercase" variant="subtitle-md" $color="dark-900">
           Example
         </Text>
-        <Text as="h2" mb="xl" mt="sm" variant="h1">
+        <Text as="h2" $mb="xl" $mt="sm" variant="h1">
           Going straight to the point!
         </Text>
-        <Text maxWidth={450} variant="lg">
+        <Text $maxW="450px" variant="lg">
           Leave the UI code to our team and focus on building your astonishing project.
         </Text>
         <Box
           allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
           as="iframe"
-          border="0"
-          h={{ xs: 300, md: 600 }}
-          mt="3xl"
+          $border="0"
+          $h={{ xs: '300px', md: '600px' }}
+          $mt="3xl"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
           src="https://codesandbox.io/embed/homepage-example-mcypy?autoresize=1&hidenavigation=1&initialpath=src&module=%2Fsrc%2FExample.tsx&theme=dark&view=split"
           title="homepage-example"
-          w="100%"
+          $w="100%"
         />
       </Section>
-      <Section backgroundColor="black" color="white" pt={{ xs: '3xl', md: '6xl' }}>
-        <Box textAlign="center" w="100%">
-          <LogoWttj h={67} w={210} />
+      <Section $backgroundColor="black" $color="white" $pt={{ xs: '3xl', md: '6xl' }}>
+        <Box $textAlign="center" $w="100%">
+          <LogoWttj h="67px" $w="210px" />
         </Box>
         <Text
           as="span"
-          color="white"
-          mb="0"
-          mt="5xl"
-          textTransform="uppercase"
+          $color="white"
+          $mb="0"
+          $mt="5xl"
+          $textTransform="uppercase"
           variant="subtitle-md"
         >
           Who we are?
         </Text>
-        <Text as="h2" color="white" maxWidth={950} mb="xl" mt="sm" variant="h1">
+        <Text as="h2" $color="white" $maxW="950px" $mb="xl" $mt="sm" variant="h1">
           The new experience at work
         </Text>
-        <Text color="white" maxWidth={640} variant="lg">
+        <Text $color="white" $maxW="640px" variant="lg">
           Welcome to the Jungle build products that transform every step of the experience at work.
         </Text>
-        <Box display={{ md: 'flex' }} mt="5xl">
+        <Box $display={{ md: 'flex' }} $mt="5xl">
           <NextLink href="https://www.welcometothejungle.com/en/companies/wttj/jobs" passHref>
-            <Button as="a" mr="md" size="lg" target="_blank">
+            <Button as="a" $mr="md" size="lg" target="_blank">
               <span>We are recruiting</span>
               <HeartIcon size="lg" />
             </Button>
           </NextLink>
           <NextLink href="https://www.welcometothejungle.com/en" passHref>
-            <Button as="a" mt={{ xs: 'md', md: 0 }} size="lg" target="_blank" variant="ghost">
+            <Button as="a" $mt={{ xs: 'md', md: '0' }} size="lg" target="_blank" variant="ghost">
               <span>Visit our website</span>
               <RightIcon size="lg" />
             </Button>
@@ -135,16 +135,16 @@ export default function Home() {
         </Box>
         <Box
           as="img"
-          bottom={-90}
-          display={{ xs: 'none', lg: 'block' }}
-          maxWidth={400}
-          position="absolute"
-          right="0"
+          $bottom="-90px"
+          $display={{ xs: 'none', lg: 'block' }}
+          $maxW="400px"
+          $position="absolute"
+          $right="0"
           src="illustration.png"
-          w="100%"
+          $w="100%"
         />
       </Section>
-      <Section as="div" py="3xl" zIndex="1">
+      <Section as="div" $py="3xl" $zIndex="1">
         <Footer />
       </Section>
     </main>

@@ -40,13 +40,13 @@ export function Header() {
 
   return (
     <S.Header variant={variant}>
-      <Box alignItems="center" display="flex">
+      <Box $alignItems="center" $display="flex">
         <NextLink href="/" passHref>
-          <Box alignItems="center" alt="Homepage" as="a" display="flex">
-            <Logo h={37} isDark={variant === 'gray'} w={63} />
+          <Box $alignItems="center" alt="Homepage" as="a" $display="flex">
+            <Logo $h="37px" isDark={variant === 'gray'} $w="63px" />
           </Box>
         </NextLink>
-        <Box ml="lg" w={{ xs: 180, md: 220 }}>
+        <Box $ml="lg" $w={{ xs: '180px', md: '220px' }}>
           <DocSearch
             apiKey="32543c62b03cbc6b714a873dca1feec4"
             appId="1ZI5OZ0946"
@@ -55,18 +55,25 @@ export function Header() {
             placeholder="Search the docs"
           />
         </Box>
-        <ThemeSelector ml="lg" />
-        <Button onClick={openThemeHelper} h={30} shape="circle" ml="xxs" variant="ghost" w={30}>
-          <InformationIcon color="light-900" />
+        <ThemeSelector $ml="lg" />
+        <Button
+          onClick={openThemeHelper}
+          $h="30px"
+          shape="circle"
+          $ml="xxs"
+          variant="ghost"
+          $w="30px"
+        >
+          <InformationIcon $color="light-900" />
         </Button>
       </Box>
-      <NavBar display={{ xs: 'none', md: 'flex' }} />
+      <NavBar $display={{ xs: 'none', md: 'flex' }} />
       {hasBeenHydrated && (
         <>
           <Drawer.Trigger
             {...mobileMenuDrawer}
             as={Button}
-            display={{ md: 'none' }}
+            $display={{ md: 'none' }}
             shape="circle"
             size="sm"
           >
@@ -74,7 +81,7 @@ export function Header() {
           </Drawer.Trigger>
           <Drawer.Backdrop {...mobileMenuDrawer} backdropVisible={false}>
             <S.MenuMobileDrawer aria-label="Menu backdrop" {...mobileMenuDrawer}>
-              <NavBar isMobileMenu mb="lg" />
+              <NavBar isMobileMenu $mb="lg" />
               <ComponentsList onClick={() => mobileMenuDrawer.hide()} />
             </S.MenuMobileDrawer>
           </Drawer.Backdrop>

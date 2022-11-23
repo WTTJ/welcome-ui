@@ -28,16 +28,16 @@ export const MDXComponents = {
   tr: Table.Tr,
   tbody: Table.Tbody,
   a: ({ href, ...props }) => <Link href={href} {...props} />,
-  p: props => <Text as="p" lineHeight="1.5" pt="lg" {...props} />,
-  strong: props => <Box as="strong" fontWeight="bold" {...props} />,
+  p: props => <Text as="p" $lineHeight="1.5" $pt="lg" {...props} />,
+  strong: props => <Box as="strong" $fontWeight="bold" {...props} />,
   ul: props => (
-    <Box mb="sm">
-      <Box as="ul" mb="0" mt="md" {...props} />
+    <Box $mb="sm">
+      <Box as="ul" $mb="0" $mt="md" {...props} />
     </Box>
   ),
   ol: props => (
-    <Box mb="sm">
-      <Box as="ol" mb="0" mt="md" {...props} />
+    <Box $mb="sm">
+      <Box as="ol" $mb="0" $mt="md" {...props} />
     </Box>
   ),
   li: props => <Box as="li" pb={4} {...props} />,

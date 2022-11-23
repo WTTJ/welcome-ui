@@ -1,5 +1,5 @@
 import { defaultFieldStyles } from '@welcome-ui/utils'
-import { createGlobalStyle, th } from '@xstyled/styled-components'
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   /* ALGOLIA DOCSEARCH */
@@ -8,18 +8,18 @@ export const GlobalStyle = createGlobalStyle`
     --docsearch-hit-shadow: none;
     --docsearch-key-shadow: none;
     --docsearch-footer-shadow: none;
-    --docsearch-highlight-color: ${th('colors.dark-900')};
-    --docsearch-primary-color: ${th('colors.dark-900')};
-    --docsearch-logo-color: ${th('colors.dark-100')};
+    --docsearch-highlight-color: ${({ theme }) => theme.colors['dark-900']};
+    --docsearch-primary-color: ${({ theme }) => theme.colors['dark-900']};
+    --docsearch-logo-color: ${({ theme }) => theme.colors['dark-100']};
   }
 
   .DocSearch {
     &-Button {
       margin: 0;
       width: 100%;
-      height: 30;
+      height: 30px;
       border-radius: 0;
-      padding: 0 sm;
+      padding: 0 ${({ theme }) => theme.space.sm};
       ${defaultFieldStyles({})};
       cursor: text;
       font-family: 'Work Sans';
@@ -29,20 +29,20 @@ export const GlobalStyle = createGlobalStyle`
       }
 
       &-Placeholder {
-        ${th('defaultFields.placeholder')};
+        ${({ theme }) => theme.defaultFields.placeholder};
         display: block;
       }
 
       &-Keys {
-        margin-top: xxs;
+        margin-top: ${({ theme }) => theme.space.xxs};
         display: flex;
       }
 
       &-Key {
         border-radius: none;
-        ${th('tags.default')};
-        ${th('tags.variants.default')};
-        background: ${th('tags.variants.default.backgroundColor')};
+        ${({ theme }) => theme.tags.default};
+        ${({ theme }) => theme.tags.variants.default};
+        background: ${({ theme }) => theme.tags.variants.default.backgroundColor};
       }
     }
   }

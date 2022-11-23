@@ -1,13 +1,15 @@
-import styled from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 
-export const Pre = styled.pre`
-  font-size: sm;
-  line-height: 1.5;
-  font-family: texts;
+export const Pre = styled.pre(
+  ({ theme }) => css`
+    font-size: ${theme.fontSizes.sm};
+    line-height: 1.5;
+    font-family: ${theme.textsFontFamily.texts};
 
-  > div {
-    width: 100%;
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
-  }
-`
+    > div {
+      width: 100%;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+    }
+  `
+)
