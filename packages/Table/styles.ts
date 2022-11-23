@@ -1,5 +1,6 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Box } from '@welcome-ui/box'
+import { system } from '@welcome-ui/system'
 
 import { TableOptions } from './index'
 
@@ -28,23 +29,29 @@ export const Content = styled.div`
   overflow-x: auto;
 `
 
-export const Table = styled.tableBox`
+export const Table = styled.table`
   border: 0;
   width: 100%;
   border-collapse: collapse;
+  ${system}
 `
 
-export const Thead = styled.theadBox``
+export const Thead = styled.thead`
+  ${system}
+`
 
-export const Tbody = styled.tbodyBox``
+export const Tbody = styled.tbody`
+  ${system}
+`
 
 type Variant = 'default' | 'error' | 'warning' | 'info' | 'success' | 'clickable'
 
-export const Tr = styled.trBox<{ variant?: Variant }>(
-  ({ onClick, variant }) => css`
-    ${th('tables.tr.default')};
-    ${variant && th(`tables.tr.${variant}`)};
-    ${onClick && th('tables.tr.clickable')};
+export const Tr = styled.tr<{ variant?: Variant }>(
+  ({ onClick, theme, variant }) => css`
+    ${theme.tables.tr.default};
+    ${variant && theme.tables.tr[variant]};
+    ${onClick && theme.tables.tr.clickable};
+    ${system}
 
     &:last-child {
       border: 0;
@@ -52,24 +59,28 @@ export const Tr = styled.trBox<{ variant?: Variant }>(
   `
 )
 
-export const Th = styled.thBox`
-  ${th('tables.th')};
-  padding: xl;
-  vertical-align: middle;
+export const Th = styled.th(
+  ({ theme }) => css`
+    ${theme.tables.th};
+    padding: ${theme.space.xl};
+    vertical-align: middle;
+    ${system}
 
-  &:first-child {
-    padding-left: 0;
-  }
+    &:first-child {
+      padding-left: 0;
+    }
 
-  &:last-child {
-    padding-right: 0;
-  }
-`
+    &:last-child {
+      padding-right: 0;
+    }
+  `
+)
 
-export const Td = styled.tdBox`
-  ${th('tables.td')};
+export const Td = styled.td`
+  ${({ theme }) => theme.tables.td};
   position: relative;
   vertical-align: middle;
+  ${system}
 
   &:first-child {
     padding-left: 0;

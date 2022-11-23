@@ -1,14 +1,14 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import styled, { css } from 'styled-components'
 import { defaultFieldStyles } from '@welcome-ui/utils'
+import { system } from '@welcome-ui/system'
 
 import { TextareaOptions } from './index'
 
-export const Textarea = styled('textarea').withConfig({ shouldForwardProp })<TextareaOptions>(
-  ({ size, variant }) => css`
+export const Textarea = styled('textarea')<TextareaOptions>(
+  ({ size, theme, variant }) => css`
     ${defaultFieldStyles({ size, variant })};
-    ${th('textareas')};
-    line-height: lg;
+    ${theme.textareas};
+    line-height: ${theme.lineHeights.lg};
     ${system};
   `
 )

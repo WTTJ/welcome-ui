@@ -1,12 +1,13 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
-import { WuiProps } from '@welcome-ui/system'
+import { system, WuiProps } from '@welcome-ui/system'
+import { DefaultTheme } from 'styled-components'
 
-import { Size, Variant } from './index'
+import { Size } from './index'
 
 const shapeStyles = (size: Size, w: string, h: string) => css`
-  ${th(`tags.shape.${size}`)}
+  ${({ theme }) => theme.tags.shape[size]}
   padding: 0;
   ${(w || h) &&
   css`
@@ -21,19 +22,19 @@ export interface StyledTagProps {
   hasRemoveAction: boolean
   length: number
   size: Size
-  variant: Variant
+  variant: keyof DefaultTheme['tags']['variants']
 }
 
 export const Tag = styled.div<StyledTagProps & WuiProps>(
-  ({ h, hasClickAction, hasLink, hasRemoveAction, length, size, variant, w }) => css`
-    ${th('tags.default')};
-    ${th(`tags.variants.${variant}`)};
-    ${th(`tags.sizes.${size}`)}
+  ({ $h, $w, hasClickAction, hasLink, hasRemoveAction, length, size, theme, variant }) => css`
+    ${theme.tags.default};
+    ${theme.tags.variants[variant]};
+    ${theme.tags.sizes[size]}
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: md;
+    border-radius: ${theme.space.md};
     line-height: initial; /* avoid cropped font */
     transition: medium;
     ${overflowEllipsis}
@@ -48,7 +49,7 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
     ${length === 1 &&
     css`
       justify-content: center;
-      ${shapeStyles(size, w as string, h as string)};
+      ${shapeStyles(size, $w as string, $h as string)};
     `};
 
     ${(hasLink || hasClickAction) &&
@@ -57,29 +58,29 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
       text-decoration: none;
 
       &:hover {
-        ${th(`tags.hover.${variant}`)};
+        ${theme.tags.hover[variant]};
       }
     `};
 
     ${hasRemoveAction &&
     css`
-      padding-right: xxl;
+      padding-right: ${theme.space.xxl};
     `}
     max-width: 100%;
 
     > *:not(:last-child) {
-      margin-right: xxs;
+      margin-right: ${theme.space.xxs};
     }
 
     & > svg {
-      width: ${th(`tags.icon.${size}`)};
-      height: ${th(`tags.icon.${size}`)};
+      width: ${theme.tags.icon[size]};
+      height: ${theme.tags.icon[size]};
     }
 
     > *:not(:only-child) {
       ${/* sc-selector */ StyledIcon}:last-child {
         opacity: 0.7;
-        transition: opacity ${th.transition('medium')};
+        transition: opacity ${theme.transitions.medium};
         cursor: pointer;
 
         &:hover {
@@ -91,9 +92,9 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
 )
 
 export const ActionIcon = styled.div<{ size: Size }>(
-  ({ size }) => css`
+  ({ size, theme }) => css`
     position: absolute;
-    ${th(`tags.sizes.${size}`)};
+    ${theme.tags.sizes[size]};
     top: 0;
     bottom: 0;
     right: 0;
