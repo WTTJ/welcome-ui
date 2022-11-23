@@ -1,4 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
 import { system, WuiProps } from '@welcome-ui/system'
@@ -36,7 +36,7 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
     justify-content: center;
     border-radius: ${theme.space.md};
     line-height: initial; /* avoid cropped font */
-    transition: medium;
+    transition: ${theme.transitions.medium};
     ${overflowEllipsis}
     ${system}
     ${length !== 1 &&

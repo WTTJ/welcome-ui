@@ -7,10 +7,6 @@ declare module 'jsx-to-styled' {
   export interface Theme extends WuiTheme {}
 }
 
-declare module '@xstyled/styled-components' {
-  export interface Theme extends WuiTheme {}
-}
-
 declare module 'styled-components' {
   export interface DefaultTheme extends WuiTheme {}
 }

@@ -8,7 +8,7 @@ const content = 'test'
 describe('<Box>', () => {
   it('should render correctly with the fontStyle style prop', () => {
     const { container, getByTestId } = render(
-      <Box data-testid="box" fontStyle="italic" fontWeight="bold">
+      <Box $fontStyle="italic" $fontWeight="bold" data-testid="box">
         {content}
       </Box>
     )

@@ -1,5 +1,5 @@
 import React, { cloneElement, useEffect, useMemo, useState } from 'react'
-import { useTheme } from '@xstyled/styled-components'
+import { useTheme } from 'styled-components'
 import { useViewportSize } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 

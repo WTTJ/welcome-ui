@@ -9,7 +9,7 @@ const content = 'Jungle'
 describe('<Shape>', () => {
   it('should render correctly', () => {
     const { container } = render(
-      <Shape h="100px" w="100px">
+      <Shape $h="100px" $w="100px">
         {content}
       </Shape>
     )
@@ -19,7 +19,7 @@ describe('<Shape>', () => {
 
   it('should render correctly with borderRadius', () => {
     const { getByTestId } = render(
-      <Shape borderRadius="lg" dataTestId="shape" h="100px" w="100px">
+      <Shape $borderRadius="lg" $h="100px" $w="100px" dataTestId="shape">
         {content}
       </Shape>
     )
@@ -30,7 +30,7 @@ describe('<Shape>', () => {
 
   it('using shape with unequal width / height props should use biggest value', () => {
     const { getByTestId } = render(
-      <Shape dataTestId="shape" h="1px" shape="circle" w="100px">
+      <Shape $h="1px" $w="100px" dataTestId="shape" shape="circle">
         {content}
       </Shape>
     )
@@ -43,7 +43,7 @@ describe('<Shape>', () => {
 
   it('should render a circle shape', () => {
     const { getByTestId } = render(
-      <Shape borderRadius="lg" dataTestId="shape" h="100px" shape="circle" w="100px">
+      <Shape $borderRadius="lg" $h="100px" $w="100px" dataTestId="shape" shape="circle">
         {content}
       </Shape>
     )

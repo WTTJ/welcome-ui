@@ -1,5 +1,5 @@
 import React, { cloneElement, useCallback, useContext } from 'react'
-import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
+import { ThemeContext, ThemeProvider } from 'styled-components'
 import toast from 'toasted-notes'
 import { MessageOptionalOptions } from 'toasted-notes/lib/ToastManager'
 import { TextProps } from '@welcome-ui/text'

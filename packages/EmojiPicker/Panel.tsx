@@ -7,7 +7,7 @@ type PanelProps = { children?: React.ReactNode }
 
 export const Panel: React.FC<PanelProps> = ({ children }) => {
   return (
-    <Box display="grid" minHeight={HEIGHT} minWidth={WIDTH}>
+    <Box $display="grid" $minH={`${HEIGHT}px`} $minW={`${WIDTH}px`}>
       {children}
     </Box>
   )

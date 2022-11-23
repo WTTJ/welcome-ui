@@ -266,7 +266,9 @@ test('<Select isMultiple> can remove multiple items', () => {
   expect(tags.length).toBe(2)
 
   const removeButton = tags[1].querySelector('[title=Remove]')
-  fireEvent.click(removeButton)
+  if (removeButton) {
+    fireEvent.click(removeButton)
+  }
   tags = getAllByRole('listitem')
   expect(tags.length).toBe(1)
 
@@ -309,7 +311,7 @@ test('<Select renderItem> formats items', () => {
   const select = getByTestId('select')
   const icon = select.querySelector('svg')
   expect(select).toHaveTextContent('February')
-  expect(icon.getAttribute('title')).toBe('Calendar')
+  expect(icon?.getAttribute('title')).toBe('Calendar')
 })
 
 test('<Select icon> shows icon', () => {
@@ -380,7 +382,9 @@ test('<Select isCreatable> can create new items', async () => {
   expect(option).toHaveTextContent(`Create "${firstItem.label}"`)
 
   // Click on 'Create' item
-  fireEvent.click(option)
+  if (option) {
+    fireEvent.click(option)
+  }
 
   // Expect `onCreate` callback to be called
   expect(handleCreate).toHaveBeenCalledTimes(1)
@@ -402,7 +406,9 @@ test('<Select isCreatable> can create new items', async () => {
   expect(option).toHaveTextContent(`Create "${secondItem.label}"`)
 
   // Click on 'Create' item
-  fireEvent.click(option)
+  if (option) {
+    fireEvent.click(option)
+  }
 
   // Expect `onCreate` callback to be called
   expect(handleCreate).toHaveBeenCalledTimes(2)
@@ -437,7 +443,9 @@ test('<Select isCreatable isMultiple> can create new items', async () => {
 
   // Click on 'Create' item
   const option = getByRole('listbox').querySelector('li')
-  fireEvent.click(option)
+  if (option) {
+    fireEvent.click(option)
+  }
 
   // Expect `onCreate` callback to be called
   expect(handleCreate).toHaveBeenCalledTimes(1)
@@ -481,7 +489,9 @@ test("<Select isCreatable> can't create an existing item", async () => {
   expect(option).toHaveTextContent('October')
 
   // Click on 'Create' item
-  fireEvent.click(option)
+  if (option) {
+    fireEvent.click(option)
+  }
 
   // Expect `onCreate` callback not to be called
   expect(handleCreate).toHaveBeenCalledTimes(0)

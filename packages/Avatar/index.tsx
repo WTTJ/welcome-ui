@@ -42,7 +42,7 @@ export const Avatar: React.FC<AvatarProps> = memo(
       const backgroundColor = color || getSeededColor(theme.colors, name)
       const avatarSize = theme.avatars.sizes[size]
       const avatarFontSize =
-        $fontSize || `calc(${$w ? theme.toRem($w as number) : avatarSize} / 2.5)`
+        $fontSize || `calc(${$w ? theme.toRem($w as unknown as number) : avatarSize} / 2.5)`
 
       return (
         <S.Avatar
