@@ -1,5 +1,5 @@
-import { css, th } from '@xstyled/styled-components'
+import { css } from 'styled-components'
 
-export const cardStyles = (): ReturnType<typeof css> => css`
-  ${th('defaultCards')};
+export const cardStyles = () => css`
+  ${({ theme }) => theme.defaultCards};
 `

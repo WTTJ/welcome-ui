@@ -1,4 +1,4 @@
-import { css, th } from '@xstyled/styled-components'
+import { css } from 'styled-components'
 
 import { getVariantColor, Variant } from './variants'
 
@@ -13,39 +13,41 @@ export type DefaultFieldStylesProps = Partial<{
 type DefaultFieldStyles = (args: DefaultFieldStylesProps) => ReturnType<typeof css>
 
 export const defaultFieldStyles: DefaultFieldStyles = ({ size, transparent, variant }) => css`
-  ${th('defaultFields.default')};
-  width: 100%;
-  border-color: ${getVariantColor(variant)};
-  transition: medium;
-  appearance: none;
-  ${size && th(`defaultFields.sizes.${size}`)};
+  ${({ theme }) => css`
+    ${theme.defaultFields.default};
+    width: 100%;
+    border-color: ${getVariantColor(variant)};
+    transition: ${theme.transitions.medium};
+    appearance: none;
+    ${size && theme.defaultFields.sizes[size]};
 
-  ${!variant &&
-  transparent &&
-  css`
-    border-color: transparent;
-    background-color: transparent;
+    ${!variant &&
+    transparent &&
+    css`
+      border-color: transparent;
+      background-color: transparent;
+    `}
+
+    &::placeholder {
+      ${theme.defaultFields.placeholder};
+    }
+
+    &:focus {
+      ${theme.defaultFields.focused.default};
+      ${variant === 'error' && theme.defaultFields.focused.error};
+      ${variant === 'warning' && theme.defaultFields.focused.warning};
+      ${variant === 'success' && theme.defaultFields.focused.success};
+      ${variant === 'info' && theme.defaultFields.focused.info};
+    }
+
+    &[disabled] {
+      ${theme.defaultFields.disabled};
+    }
+
+    &:invalid,
+    &:-moz-submit-invalid,
+    &:-moz-ui-invalid {
+      box-shadow: none;
+    }
   `}
-
-  &::placeholder {
-    ${th('defaultFields.placeholder')};
-  }
-
-  &:focus {
-    ${th('defaultFields.focused.default')};
-    ${variant === 'error' && th('defaultFields.focused.error')};
-    ${variant === 'warning' && th('defaultFields.focused.warning')};
-    ${variant === 'success' && th('defaultFields.focused.success')};
-    ${variant === 'info' && th('defaultFields.focused.info')};
-  }
-
-  &[disabled] {
-    ${th('defaultFields.disabled')};
-  }
-
-  &:invalid,
-  &:-moz-submit-invalid,
-  &:-moz-ui-invalid {
-    box-shadow: none;
-  }
 `

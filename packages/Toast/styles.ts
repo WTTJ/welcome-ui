@@ -1,4 +1,4 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Box } from '@welcome-ui/box'
 import { Alert } from '@welcome-ui/alert'
 
@@ -6,18 +6,18 @@ import { GrowlOptions } from './Growl'
 import { SnackbarOptions } from './Snackbar'
 
 export const Toast = styled(Box)<{ isBottom: boolean }>(
-  ({ isBottom }) => css`
-    ${th('toasts.default')}
-    ${isBottom ? th('toasts.bottom') : th('toasts.top')}
+  ({ isBottom, theme }) => css`
+    ${theme.toasts.default}
+    ${isBottom ? theme.toasts.bottom : theme.toasts.top}
   `
 )
 
 export const Growl = styled(Alert)<GrowlOptions>(
-  () => css`
+  ({ theme }) => css`
     position: relative;
     max-width: 25rem;
-    padding: lg;
-    ${th('toasts.growls.default')};
+    padding: ${theme.space.lg};
+    ${theme.toasts.growls.default};
 
     div:first-of-type {
       align-self: baseline;
@@ -30,11 +30,11 @@ export const Growl = styled(Alert)<GrowlOptions>(
 )
 
 export const Title = styled(Box)(
-  () => css`
+  ({ theme }) => css`
     display: flex;
     align-items: center;
-    padding-bottom: xs;
-    ${th('toasts.growls.title')};
+    padding-bottom: ${theme.space.xs};
+    ${theme.toasts.growls.title};
 
     & > *:first-child {
       flex-shrink: 0;
@@ -43,10 +43,10 @@ export const Title = styled(Box)(
 )
 
 export const Snackbar = styled(Alert)<SnackbarOptions>(
-  ({ hasCloseButton }) => css`
+  ({ hasCloseButton, theme }) => css`
     display: flex;
     align-items: center;
-    padding: sm md;
+    padding: ${theme.space.sm} ${theme.space.md};
 
     svg {
       width: 16;
@@ -55,7 +55,7 @@ export const Snackbar = styled(Alert)<SnackbarOptions>(
 
     button {
       flex-shrink: 0;
-      margin-left: ${hasCloseButton ? 'sm' : 0};
+      margin-left: ${hasCloseButton ? theme.space.sm : 0};
     }
   `
 )
