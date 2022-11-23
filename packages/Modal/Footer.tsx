@@ -1,8 +1,9 @@
 import React from 'react'
-import { Box, BoxProps } from '@welcome-ui/box'
+import { BoxProps } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import { forwardRef } from '@welcome-ui/system'
-import { useTheme } from '@xstyled/styled-components'
+
+import * as S from './styles'
 
 export interface FooterOptions {
   informations?: {
@@ -17,29 +18,20 @@ export type FooterProps = FooterOptions & BoxProps
  * @name Modal.Footer
  */
 export const Footer = forwardRef<'div', FooterProps>(({ children, informations, ...rest }, ref) => {
-  const { modals } = useTheme()
-
   return (
-    <Box
-      {...modals.footer}
-      bottom="0"
-      position={{ xs: 'fixed', md: 'relative' }}
-      ref={ref}
-      w="100%"
-      {...rest}
-    >
-      {children && <Box {...modals.footer.children}>{children}</Box>}
+    <S.Footer bottom="0" position={{ xs: 'fixed', md: 'relative' }} ref={ref} w="100%" {...rest}>
+      {children && <S.FooterWrapper>{children}</S.FooterWrapper>}
       {informations && (
-        <Box {...modals.footer.informations}>
-          <Text color="dark-900" fontWeight="bold" variant="subtitle-sm">
+        <S.FooterInformations>
+          <Text $color="dark-900" $fontWeight="bold" variant="subtitle-sm">
             {informations.title}
           </Text>
-          <Text color="dark-900" mb="0" mt="md" variant="sm">
+          <Text $color="dark-900" $mb="0" $mt="md" variant="sm">
             {informations.subtitle}
           </Text>
-        </Box>
+        </S.FooterInformations>
       )}
-    </Box>
+    </S.Footer>
   )
 })
 

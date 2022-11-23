@@ -1,7 +1,22 @@
 import React from 'react'
 import type { SystemProps } from 'jsx-to-styled'
+import type { DefaultTheme } from 'styled-components'
 
 export { default as system } from 'jsx-to-styled'
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Props = any & { theme: DefaultTheme }
+type Breakpoint = keyof DefaultTheme['screens']
+
+export const down = (breakpoint: Breakpoint) => (props: Props) => {
+  const value = props.theme.screens?.[breakpoint] || breakpoint
+  return `@media (max-width: ${value})`
+}
+
+export const up = (breakpoint: Breakpoint) => (props: Props) => {
+  const value = props.theme.screens?.[breakpoint] || breakpoint
+  return `@media (min-width: ${value})`
+}
 
 export type WuiProps = SystemProps
 

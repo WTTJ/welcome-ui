@@ -1,22 +1,22 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Box } from '@welcome-ui/box'
-import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 import { Hint as HintWUI } from '@welcome-ui/hint'
 import { Label as WUILabel } from '@welcome-ui/label'
+import { system } from '@welcome-ui/system'
 import { Radio as ReakitRadio } from 'reakit/Radio'
 
 import { RadioProps } from './index'
 
 /* /!\ WARNING /!\ Don't add style after pseudo selector, it won't apply because of the dynamic color injected in the fill of the content */
 
-export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })<RadioProps>(
-  ({ order = '-1', size, variant }) => css`
+export const Radio = styled(ReakitRadio)<RadioProps>(
+  ({ $order = '-1', size, theme, variant }) => css`
     ${defaultFieldStyles({ size, variant })};
-    ${th('radios.default')}
+    ${theme.radios.default}
     position: relative;
     padding: 0;
-    order: ${order};
+    order: ${$order};
     cursor: pointer;
     border-radius: 50%;
     transition: medium;
@@ -36,17 +36,17 @@ export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })<Radio
 
     &[aria-checked='true'] {
       &:not([disabled]) {
-        ${th('radios.checked')};
+        ${theme.radios.checked};
       }
 
       &[disabled] {
         &::after {
-          background-color: ${th('radios.checkedCenteredColor.disabled')};
+          background-color: ${theme.radios.checkedCenteredColor.disabled};
         }
       }
 
       &::after {
-        background-color: ${th('radios.checkedCenteredColor.default')};
+        background-color: ${theme.radios.checkedCenteredColor.default};
       }
     }
   `
@@ -56,8 +56,8 @@ export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })<Radio
 export const Label = styled(WUILabel)<{
   withHint?: boolean
 }>(
-  ({ withHint }) => css`
-    ${withHint && th('radios.withHint.default')};
+  ({ theme, withHint }) => css`
+    ${withHint && theme.radios.withHint.default};
     max-width: 100%;
     align-items: flex-start;
     ${system}
@@ -65,7 +65,7 @@ export const Label = styled(WUILabel)<{
 )
 
 export const Hint = styled(HintWUI)`
-  ${th('radios.withHint.hint')};
+  ${({ theme }) => theme.radios.withHint.hint};
 `
 
 export const Input = styled.div`

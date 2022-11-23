@@ -34,13 +34,13 @@ export const Picker = forwardRef<'fieldset', PickerProps>(
     return (
       <FieldGroup
         {...rest}
+        $mb="0"
         as={ReakitRadioGroup}
         dataTestId={dataTestId}
-        mb={0}
         ref={ref}
         required={required}
       >
-        <Box display="flex" flexWrap="wrap">
+        <Box $display="flex" $flexWrap="wrap">
           {options.map(({ element: Component, value: optValue }) => (
             <Label
               checkableField

@@ -1,28 +1,32 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
 import { Popover as BasePopover, PopoverArrow, PopoverDisclosure } from 'reakit/Popover'
+import { system, WuiProps } from '@welcome-ui/system'
 
-export const Arrow = styled(PopoverArrow)`
-  color: ${th('popovers.default.backgroundColor')};
-`
+export const Arrow = styled(PopoverArrow)(
+  ({ theme }) => css`
+    color: ${theme.popovers.default.backgroundColor};
+  `
+)
 
-export const ArrowItem = styled.svgBox<{ $transform: string }>(
+export const ArrowItem = styled.svg<WuiProps>(
   ({ $transform }) => css`
     transform: ${$transform};
+    ${system}
   `
 )
 
 export const Content = styled.div`
-  ${th('popovers.content')};
+  ${({ theme }) => theme.popovers.content};
 `
 
 export const Title = styled.h6`
   margin: 0;
-  ${th('popovers.title')};
+  ${({ theme }) => theme.popovers.title};
 `
 
 export const Popover = styled(BasePopover)<{ $withCloseButton: boolean }>(
-  ({ $withCloseButton }) => css`
-    ${th('popovers.default')};
+  ({ $withCloseButton, theme }) => css`
+    ${theme.popovers.default};
     outline: none;
     opacity: 0;
     transition: opacity 150ms ease-in-out;

@@ -7,12 +7,12 @@ type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 export type ThemeModals = {
   backdrop: CSSObject
   default: CSSObject
-  header: CSSObject
+  header: CSSObject & { subtitle: CSSObject }
   content: CSSObject
   footer: CSSObject
   gutter: string
   sizes: Record<Sizes, { width?: string }>
-  cover: Record<string, unknown>
+  cover: CSSObject
 }
 
 export const getModals = (theme: WuiTheme): ThemeModals => {
@@ -33,7 +33,7 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
       subtitle: {
         color: colors['dark-700'],
         variant: 'sm',
-        margin: 0,
+        margin: '0',
       },
     },
     content: {

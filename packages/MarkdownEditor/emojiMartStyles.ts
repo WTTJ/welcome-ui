@@ -1,4 +1,4 @@
-import { css } from '@xstyled/styled-components'
+import { css } from 'styled-components'
 
 export const emojiMartStyles = css`
   .emoji-mart,

@@ -100,7 +100,9 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
 
   theme.borderWidths = borderWidths
 
+  // todo remove theme.screens
   theme.screens = screens
+  theme.breakpoints = screens
 
   // todo remove theme.space
   theme.space = getSpace(theme)

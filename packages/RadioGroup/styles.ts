@@ -1,14 +1,12 @@
-import styled, { css, system } from '@xstyled/styled-components'
-import { WuiProps } from '@welcome-ui/system'
+import styled, { css } from 'styled-components'
+import { system, WuiProps } from '@welcome-ui/system'
 
-export const Radios = styled.div<{
-  flexDirection?: WuiProps['flexDirection']
-}>(
-  ({ flexDirection }) => css`
+export const Radios = styled.div<WuiProps>(
+  ({ $flexDirection, theme }) => css`
     display: flex;
-    flex-direction: ${flexDirection};
+    flex-direction: ${$flexDirection};
     flex-wrap: wrap;
-    margin-bottom: -md;
+    margin-bottom: -${theme.space.md};
     ${system};
 
     > *:not(:last-child) {

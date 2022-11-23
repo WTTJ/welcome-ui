@@ -1,14 +1,17 @@
-import styled, { css, th, up } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
+import { up } from '@welcome-ui/system'
+import { Box } from '@welcome-ui/box'
+import { Text } from '@welcome-ui/text'
 import { cardStyles } from '@welcome-ui/utils'
 import { DialogBackdrop, Dialog as ReakitDialog } from 'reakit/Dialog'
 
-import { Size } from '.'
+import { Size } from './index'
 
 export const Backdrop = styled(DialogBackdrop).withConfig({
   shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop),
 })<{ hideOnClickOutside: boolean }>(
-  ({ hideOnClickOutside }) => css`
-    ${th('modals.backdrop')};
+  ({ hideOnClickOutside, theme }) => css`
+    ${theme.modals.backdrop};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,13 +35,13 @@ export const Backdrop = styled(DialogBackdrop).withConfig({
 )
 
 export const Dialog = styled(ReakitDialog)<{ size: Size }>(
-  ({ size }) => css`
+  ({ size, theme }) => css`
     ${cardStyles};
-    ${th('modals.default')};
+    ${theme.modals.default};
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-top: xl;
+    margin-top: ${theme.space.xl};
     opacity: 0;
     height: 100%;
     width: 100%;
@@ -58,13 +61,53 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
       margin-top: 0;
     }
 
-    ${up(
-      'md',
-      css`
-        height: auto;
-        max-height: 90%;
-        ${th(`modals.sizes.${size}`)};
-      `
-    )}
+    ${up('md')} {
+      height: auto;
+      max-height: 90%;
+      ${theme.modals.sizes[size]};
+    }
+  `
+)
+
+export const Content = styled(Box)(
+  ({ theme }) => css`
+    flex: 1;
+    ${theme.modals.content}
+  `
+)
+
+export const Cover = styled(Box)(
+  ({ theme }) => css`
+    ${theme.modals.cover}
+  `
+)
+
+export const Header = styled(Box)(
+  ({ theme }) => css`
+    ${theme.modals.header}
+  `
+)
+
+export const Subtitle = styled(Text)(
+  ({ theme }) => css`
+    ${theme.modals.header.subtitle}
+  `
+)
+
+export const Footer = styled(Box)(
+  ({ theme }) => css`
+    ${theme.modals.footer}
+  `
+)
+
+export const FooterWrapper = styled(Box)(
+  ({ theme }) => css`
+    ${theme.modals.footer.children}
+  `
+)
+
+export const FooterInformations = styled(Box)(
+  ({ theme }) => css`
+    ${theme.modals.footer.informations}
   `
 )

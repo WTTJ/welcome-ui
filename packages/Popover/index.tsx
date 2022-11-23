@@ -53,23 +53,28 @@ export const PopoverComponent = forwardRef<'div', PopoverProps>(
 
     return (
       <S.Popover {...rest} $withCloseButton={withCloseButton} ref={ref}>
-        <Box position="relative">
+        <Box $position="relative">
           <S.Arrow {...rest}>
-            <S.ArrowItem $transform={transform} h={30} w={30} xmlns="http://www.w3.org/2000/svg">
+            <S.ArrowItem
+              $h="30px"
+              $transform={transform}
+              $w="30px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path d="M6 30l9-10 9 10z" fill="currentColor" fillRule="nonzero" />
             </S.ArrowItem>
           </S.Arrow>
           {children}
           {withCloseButton && (
             <Button
-              flex="0 0 auto"
-              ml="md"
+              $flex="0 0 auto"
+              $ml="md"
+              $position="absolute"
+              $right="1px"
+              $top="1px"
               onClick={closePopover}
-              position="absolute"
-              right={1}
               shape="square"
               size="sm"
-              top={1}
               variant="secondary"
             >
               <CrossIcon />

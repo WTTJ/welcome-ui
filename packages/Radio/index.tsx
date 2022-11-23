@@ -18,13 +18,13 @@ export type RadioProps = CreateWuiProps<'input', RadioOptions & LabelOptions>
 export const Radio = forwardRef<'input', RadioProps>(
   (
     {
+      $flexDirection,
+      $maxW,
       dataTestId,
       disabled,
       disabledIcon,
-      flexDirection,
       hint,
       label,
-      maxWidth,
       onChange,
       onClick,
       variant,
@@ -41,17 +41,17 @@ export const Radio = forwardRef<'input', RadioProps>(
 
     return (
       <S.Label
+        $flexDirection="column"
+        $maxW={$maxW}
         checkableField
         disabled={disabled}
         disabledIcon={disabledIcon}
-        flexDirection="column"
-        maxWidth={maxWidth}
         onClick={handleClick}
         variant={variant}
         withDisabledIcon={false}
         withHint={withHint || !!hint}
       >
-        <S.Wrapper flexDirection={flexDirection}>
+        <S.Wrapper $flexDirection={$flexDirection}>
           <S.Input>
             <S.Radio
               data-testid={dataTestId}

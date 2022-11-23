@@ -1,8 +1,8 @@
-import styled, { system } from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import styled from 'styled-components'
 import { Radio as ReakitRadio } from 'reakit/Radio'
+import { system } from '@welcome-ui/system'
 
-export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })`
+export const Radio = styled(ReakitRadio)`
   display: none;
   ${system};
 `

@@ -29,8 +29,8 @@ export type RadioGroupProps = CreateWuiProps<
 export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
   (
     {
-      flexDirection,
-      maxWidth,
+      $flexDirection,
+      $maxW,
       label,
       name,
       options = [],
@@ -45,8 +45,8 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
     const withHint = options.findIndex(obj => Object.keys(obj).includes('hint')) !== -1
 
     return (
-      <FieldGroup as={ReakitRadioGroup} label={label} mb={0} ref={ref} required={required}>
-        <S.Radios flexDirection={flexDirection}>
+      <FieldGroup $mb="0" as={ReakitRadioGroup} label={label} ref={ref} required={required}>
+        <S.Radios $flexDirection={$flexDirection}>
           {options.map(option => (
             <Component
               {...rest}
@@ -55,7 +55,7 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
               id={`${name}.${option.value}`}
               key={option.value}
               label={option.label}
-              maxWidth={maxWidth}
+              maxWidth={$maxW}
               name={name}
               type="radio"
               value={option.value}

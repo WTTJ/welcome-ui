@@ -21,11 +21,11 @@ export type RadioTabsProps = CreateWuiProps<
 
 export const RadioTab = forwardRef<'input', RadioTabsProps>((props, ref) => {
   const {
+    $flexDirection,
     checked,
     dataTestId,
     disabled,
     disabledIcon,
-    flexDirection,
     label,
     onChange,
     onClick,
@@ -42,10 +42,10 @@ export const RadioTab = forwardRef<'input', RadioTabsProps>((props, ref) => {
 
   return (
     <S.Label
+      $flexDirection={$flexDirection}
       checked={checked}
       disabled={disabled}
       disabledIcon={disabledIcon}
-      flexDirection={flexDirection}
       onClick={handleClick}
       size={size}
       variant={variant}

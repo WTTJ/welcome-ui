@@ -74,6 +74,7 @@ export interface WuiTheme {
   letterSpacings: ThemeLetterSpacings
   fonts: ThemeFonts
   screens: ThemeScreens
+  breakpoints: ThemeScreens
   space: ThemeSpace
   spaces: ThemeSpace
   inset: ThemeSpace

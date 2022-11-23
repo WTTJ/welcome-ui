@@ -1,4 +1,5 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css } from 'styled-components'
+import { system } from '@welcome-ui/system'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 
 export const Pagination = styled.nav(system)
@@ -9,56 +10,62 @@ export const List = styled.ul`
   margin: 0;
 `
 
-export const Item = styled.li`
-  display: inline-block;
-  vertical-align: bottom;
-  padding: 0;
-  margin-right: sm;
+export const Item = styled.li(
+  ({ theme }) => css`
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 0;
+    margin-right: ${theme.space.sm};
 
-  &:last-child {
-    margin-right: 0;
-  }
-`
+    &:last-child {
+      margin-right: 0;
+    }
+  `
+)
 
-export const Dots = styled.span`
-  ${th('paginations.default')};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
+export const Dots = styled.span(
+  ({ theme }) => css`
+    ${theme.paginations.default};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `
+)
 
-export const AbstractLink = styled.a`
-  ${th('paginations.default')};
-  ${th('paginations.item')};
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  text-decoration: none;
+export const AbstractLink = styled.a(
+  ({ theme }) => css`
+    ${theme.paginations.default};
+    ${theme.paginations.item};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
 
-  &:focus {
-    outline: none !important; /* important for firefox */
-    transition: none;
-  }
+    &:focus {
+      outline: none !important; /* important for firefox */
+      transition: none;
+    }
 
-  [${hideFocusRingsDataAttribute}] &:focus {
-    box-shadow: none;
-  }
-`
+    [${hideFocusRingsDataAttribute}] &:focus {
+      box-shadow: none;
+    }
+  `
+)
 
 export const ArrowLink = styled(AbstractLink)<{ isDisabled: boolean }>(
-  ({ isDisabled }) => css`
+  ({ isDisabled, theme }) => css`
     ${isDisabled &&
     css`
-      color: nude-700;
-      background-color: nude-400;
+      color: ${theme.colors['nude-700']};
+      background-color: ${theme.colors['nude-400']};
     `}
   `
 )
 
 export const PageLink = styled(AbstractLink)(
-  props => css`
-    ${props['aria-current'] && th('paginations.active')}
+  ({ theme, ...props }) => css`
+    ${props['aria-current'] && theme.paginations.active}
   `
 )
