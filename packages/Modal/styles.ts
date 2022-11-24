@@ -75,25 +75,25 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
 )
 
 export const Header = styled(Box)`
-  ${th('modals.header')}
+  ${({ theme }) => theme.modals.header}
 `
 
 export const HeaderSubtitle = styled(Text)`
-  ${th('modals.header.subtitle')}
+  ${({ theme }) => theme.modals.header.subtitle}
 `
 
 export const Content = styled(Box)`
-  ${th('modals.content')}
+  ${({ theme }) => theme.modals.content}
 `
 
 export const Footer = styled(Box)`
-  ${th('modals.footer')}
+  ${({ theme }) => theme.modals.footer}
 `
 
 export const FooterChildrenWrapper = styled(Box)`
-  ${th('modals.footer.children')}
+  ${({ theme }) => theme.modals.footer.children}
 `
 
 export const FooterInformations = styled(Box)`
-  ${th('modals.footer.informations')}
+  ${({ theme }) => theme.modals.footer.informations}
 `

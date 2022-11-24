@@ -185,17 +185,17 @@ export const NoBackdropWrapper = styled(DialogBackdrop).withConfig({
 )
 
 export const Title = styled(Box)`
-  ${th('drawers.title')}
+  ${({ theme }) => theme.drawers.title}
 `
 
 export const Content = styled(Box)`
-  ${th('drawers.content')}
+  ${({ theme }) => theme.drawers.content}
 `
 
 export const CloseButton = styled(WUICloseButton)`
-  ${th('drawers.closeButton')}
+  ${({ theme }) => theme.drawers.closeButton}
 `
 
 export const Footer = styled(Box)`
-  ${th('drawers.footer')}
+  ${({ theme }) => theme.drawers.footer}
 `
