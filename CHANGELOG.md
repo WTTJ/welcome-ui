@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.1](https://github.com/WTTJ/welcome-ui/compare/v4.5.0...v4.5.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* missing system in modals styled components ([b6d8b71](https://github.com/WTTJ/welcome-ui/commit/b6d8b7146253e9993e04e284ee962caa09874e0d))
+
+
+
+
+
 # [4.5.0](https://github.com/WTTJ/welcome-ui/compare/v4.4.1...v4.5.0) (2022-09-14)
 
 
