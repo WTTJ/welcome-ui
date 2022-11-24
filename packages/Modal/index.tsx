@@ -7,7 +7,7 @@ import {
   useDialogState,
 } from 'reakit/Dialog'
 import { DisclosureActions } from 'reakit/Disclosure'
-import { Box, BoxProps } from '@welcome-ui/box'
+import { BoxProps } from '@welcome-ui/box'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { useTheme } from '@xstyled/styled-components'
 import { Shape, ShapeProps } from '@welcome-ui/shape'
@@ -147,9 +147,7 @@ const ModalComponent = forwardRef<'div', ModalProps>(
 )
 
 const Content = forwardRef<'div', BoxProps>((props, ref) => {
-  const { modals } = useTheme()
-
-  return <Box ref={ref} {...modals.content} flex="1" overflowY={{ md: 'auto' }} {...props} />
+  return <S.Content flex="1" overflowY={{ md: 'auto' }} ref={ref} {...props} />
 })
 
 Content.displayName = 'Content'
