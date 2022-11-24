@@ -1,4 +1,4 @@
-import styled, { css, th, up } from '@xstyled/styled-components'
+import styled, { css, system, th, up } from '@xstyled/styled-components'
 import { cardStyles } from '@welcome-ui/utils'
 import { DialogBackdrop, Dialog as ReakitDialog } from 'reakit/Dialog'
 
@@ -19,6 +19,8 @@ export const Backdrop = styled(DialogBackdrop).withConfig({
     bottom: 0;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
+    ${system};
+
     ${hideOnClickOutside &&
     css`
       cursor: pointer;
@@ -44,6 +46,7 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
     width: 100%;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    ${system};
 
     transition: opacity 250ms ease-in-out, margin-top 250ms ease-in-out;
     cursor: auto;
