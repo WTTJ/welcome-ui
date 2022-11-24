@@ -6,11 +6,11 @@ export const Radios = styled.div<WuiProps>(
     display: flex;
     flex-direction: ${$flexDirection};
     flex-wrap: wrap;
-    margin-bottom: -${theme.space.md};
+    margin-bottom: -${theme.spaces.md};
     ${system};
 
     > *:not(:last-child) {
-      margin-bottom: md;
+      margin-bottom: ${theme.spaces.md};
     }
   `
 )

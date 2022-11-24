@@ -5,7 +5,7 @@ import { system } from '@welcome-ui/system'
 import { TableOptions } from './index'
 
 export const Wrapper = styled(Box)<TableOptions>(
-  ({ indent }) => css`
+  ({ indent, theme }) => css`
     overflow: hidden;
     width: 100%;
 
@@ -13,11 +13,11 @@ export const Wrapper = styled(Box)<TableOptions>(
     css`
       ${Td}, ${Th} {
         &:first-child {
-          padding-left: xl;
+          padding-left: ${theme.spaces.xl};
         }
 
         &:last-child {
-          padding-right: xl;
+          padding-right: ${theme.spaces.xl};
         }
       }
     `}

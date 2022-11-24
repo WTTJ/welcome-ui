@@ -10,7 +10,7 @@ export const Item = styled.button<WuiProps>(
     border: 0;
     appearance: none;
     cursor: pointer;
-    transition: medium;
+    transition: ${theme.transitions.medium};
     text-decoration: none;
 
     &[type='button'] {

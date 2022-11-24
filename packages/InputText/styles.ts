@@ -5,7 +5,7 @@ import { defaultFieldStyles } from '@welcome-ui/utils'
 import { InputTextOptions } from './index'
 
 export const InputText = styled('input')<InputTextOptions>(
-  ({ icon, iconPlacement, isClearable, size, transparent, variant }) => css`
+  ({ icon, iconPlacement, isClearable, size, theme, transparent, variant }) => css`
     ${defaultFieldStyles({ size, variant, transparent })};
     text-overflow: ellipsis;
 
@@ -14,7 +14,7 @@ export const InputText = styled('input')<InputTextOptions>(
       icon &&
       iconPlacement === 'left' &&
       css`
-        padding-left: 36;
+        padding-left: 36px;
       `
     };
 
@@ -22,7 +22,7 @@ export const InputText = styled('input')<InputTextOptions>(
       /* With clear button or right icon */
       (isClearable || (icon && iconPlacement === 'right')) &&
       css`
-        padding-right: 36;
+        padding-right: 36px;
       `
     };
 
@@ -32,7 +32,7 @@ export const InputText = styled('input')<InputTextOptions>(
       icon &&
       iconPlacement === 'right' &&
       css`
-        padding-right: 4xl;
+        padding-right: ${theme.spaces['4xl']};
       `
     };
 

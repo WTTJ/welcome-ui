@@ -40,7 +40,7 @@ export const Popover = styled(BasePopover)<{ $withCloseButton: boolean }>(
     ${$withCloseButton &&
     css`
       ${Title} {
-        padding-right: 50;
+        padding-right: 50px;
       }
     `}
   `

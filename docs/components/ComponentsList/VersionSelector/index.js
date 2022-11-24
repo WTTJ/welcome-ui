@@ -23,7 +23,7 @@ export function VersionSelector() {
       options={versions}
       size="sm"
       value="v5"
-      w={150}
+      $w="150px"
     />
   )
 }

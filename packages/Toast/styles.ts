@@ -49,8 +49,8 @@ export const Snackbar = styled(Alert)<SnackbarOptions>(
     padding: ${theme.space.sm} ${theme.space.md};
 
     svg {
-      width: 16;
-      height: 16;
+      width: 16px;
+      height: 16px;
     }
 
     button {

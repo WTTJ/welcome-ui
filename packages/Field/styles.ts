@@ -7,16 +7,16 @@ import { system } from '@welcome-ui/system'
 import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 const rowStyles = css`
-  margin-right: sm;
+  margin-right: ${({ theme }) => theme.spaces.sm};
 `
 
 const columnStyles = css`
-  margin-bottom: sm;
+  margin-bottom: ${({ theme }) => theme.spaces.sm};
 `
 
 const checkableFieldStyles = css`
   ${({ theme }) => theme.defaultFields.checkablelabel.default};
-  margin-bottom: md;
+  margin-bottom: ${({ theme }) => theme.spaces.md};
 `
 
 type StyledFieldProps = {
@@ -55,13 +55,13 @@ export const IconWrapper = styled(Box)<IconWrapperProps>(
     right: ${iconPlacement === 'right' ? theme.defaultFields.iconPlacement[size].right : 'auto'};
     bottom: 0;
     display: flex;
-    width: 16;
+    width: 16px;
     justify-content: center;
     align-items: center;
     pointer-events: none;
-    transition: medium;
-    transition-timing-function: primary;
-    color: dark-900;
+    transition: ${theme.transitions.medium};
+    transition-timing-function: ${theme.timingFunction.primary};
+    color: ${theme.colors['dark-900']};
     ${system};
     /* for button action */
     & > button {
@@ -70,8 +70,8 @@ export const IconWrapper = styled(Box)<IconWrapperProps>(
   `
 )
 
-export const IconGroupWrapper = styled.div(
-  ({ size }: { size: DefaultFieldStylesProps['size'] }) => css`
+export const IconGroupWrapper = styled.div<{ size: DefaultFieldStylesProps['size'] }>(
+  ({ size, theme }) => css`
     position: absolute;
     padding: 0;
     top: 0;
@@ -79,10 +79,10 @@ export const IconGroupWrapper = styled.div(
     right: ${size === 'xs' ? 'sm' : 'md'};
     display: flex;
     align-items: center;
-    gap: sm;
+    gap: ${theme.spaces.sm};
 
     > * {
-      width: 16;
+      width: 16px;
     }
   `
 )

@@ -2,26 +2,28 @@ import styled, { css } from 'styled-components'
 import { DisclosureContent, Disclosure as ReakitDisclosure } from 'reakit/Disclosure'
 import { Box } from '@welcome-ui/box'
 
-export const Accordion = styled(Box)`
-  ${props => props.theme.accordions.wrapper};
-  transition: medium;
+export const Accordion = styled(Box)(
+  ({ theme }) => css`
+    ${theme.accordions.wrapper};
+    transition: ${theme.transitions.medium};
 
-  &:hover {
-    border-color: dark-400;
-  }
-`
+    &:hover {
+      border-color: ${theme.colors['dark-400']};
+    }
+  `
+)
 
 export const Icon = styled(Box)<{ visible: boolean }>(
   ({ theme, visible }) => css`
     flex-shrink: 0;
     ${theme.accordions.icon};
     transform: ${visible ? 'rotate3d(0, 0, 1, 90deg)' : 'rotate3d(0)'};
-    transition: medium;
-    width: 24;
-    height: 24;
+    transition: ${theme.transitions.medium};
+    width: 24px;
+    height: 24px;
     color: inherit;
     display: flex;
-    border-radius: 12;
+    border-radius: 12px;
 
     & *:first-child {
       margin: auto;
@@ -40,13 +42,13 @@ export const Disclosure = styled(ReakitDisclosure)(
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: xxl;
+      gap: ${theme.spaces.xxl};
 
       &:focus,
       &:hover {
         cursor: pointer;
         ${Icon} {
-          background-color: dark-100;
+          background-color: ${theme.colors['dark-100']};
         }
       }
 
@@ -63,7 +65,7 @@ export const Content = styled(DisclosureContent)(
   ({ theme, visible }) => css`
     ${theme.accordions.content};
     padding-inline: ${theme.accordions.padding};
-    color: dark-700;
+    color: ${theme.colors['dark-700']};
 
     ${visible &&
     css`

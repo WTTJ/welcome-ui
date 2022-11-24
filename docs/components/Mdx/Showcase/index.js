@@ -23,7 +23,7 @@ export function Showcase({
         <H1 $mb="0" $pb="sm" $pt="0">
           {pageName || component}
         </H1>
-        {description && <Text variant="body1">{description}</Text>}
+        {description && <Text variant="lg">{description}</Text>}
         <Box $mt="4xl">
           <Item content={version} name="version" />
           <Item content={`yarn add ${name}`} name="install" />

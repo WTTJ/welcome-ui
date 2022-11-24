@@ -41,8 +41,8 @@ export const Pagination = styled.div`
 
 export const Bullet = styled.div<{ active: boolean }>(
   ({ active, theme }) => css`
-    height: 10;
-    width: 10;
+    height: 10px;
+    width: 10px;
     border-radius: 50%;
     cursor: pointer;
     margin: 0 ${theme.space.xxs};

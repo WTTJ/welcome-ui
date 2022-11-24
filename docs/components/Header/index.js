@@ -67,13 +67,13 @@ export function Header() {
           <InformationIcon $color="light-900" />
         </Button>
       </Box>
-      <NavBar $display={{ xs: 'none', md: 'flex' }} />
+      <NavBar $display={{ sm: 'none', md: 'flex' }} />
       {hasBeenHydrated && (
         <>
           <Drawer.Trigger
             {...mobileMenuDrawer}
             as={Button}
-            $display={{ md: 'none' }}
+            $display={{ _: 'inherit', md: 'none' }}
             shape="circle"
             size="sm"
           >

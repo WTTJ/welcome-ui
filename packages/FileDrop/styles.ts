@@ -23,7 +23,7 @@ export const FileDrop = styled(Box)<StyledFileDropProps>(
     justify-content: center;
     align-items: center;
     padding: ${theme.space.md};
-    transition: medium;
+    transition: ${theme.transitions.medium};
 
     &:focus {
       ${theme.defaultFields.focused.default};

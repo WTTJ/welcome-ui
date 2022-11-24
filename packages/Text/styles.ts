@@ -35,7 +35,7 @@ export const Text = styled.p<TextOptions>(({ lines, theme, variant }) => {
     ${lines && lines !== Infinity && getBlockHeight(lines)};
     /* End fallback for non-webkit */
 
-    @media (min-width: lg) {
+    @media (min-width: ${theme.breakpoints.lg}px) {
       ${theme.texts[variant]};
     }
 

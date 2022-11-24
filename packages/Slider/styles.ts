@@ -9,8 +9,8 @@ type BorderProps = {
 const sliderSelector = css`
   appearance: none;
   cursor: pointer;
-  height: 20;
-  width: 20;
+  height: 20px;
+  width: 20px;
   transform: scale(1);
   transition: background-color ${({ theme }) => theme.transitions.medium},
     border-color ${({ theme }) => theme.transitions.medium}, transform 100ms ease-in-out;

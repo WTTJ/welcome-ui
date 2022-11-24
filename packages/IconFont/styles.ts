@@ -20,7 +20,7 @@ function getIconContentByName(name: StyledIconProps['name']) {
 export const Icon = styled.i<StyledIconProps>(
   ({ name, size = 'md', theme }) => css`
     display: inline-block;
-    font-family: icons;
+    font-family: ${theme.fonts.icons};
     font-size: ${theme.icons[size]};
     ${system};
     &::before {

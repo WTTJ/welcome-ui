@@ -12,7 +12,6 @@ export type UniversalLinkProps = CreateWuiProps<'a', UniversalLinkOptions>
 export const UniversalLink = forwardRef<'a', UniversalLinkProps>(
   ({ children, dataTestId, target, ...rest }, ref) => (
     <S.UniversalLink
-      color="inherit"
       data-testid={dataTestId}
       ref={ref}
       // for security

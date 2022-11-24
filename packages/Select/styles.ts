@@ -21,21 +21,15 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled('div')(
-  ({
-    hasIcon,
-    isClearable,
-    size,
-    transparent,
-    variant,
-  }: { hasIcon: boolean } & SelectOptions) => css`
+export const Input = styled('div')<{ hasIcon: boolean } & SelectOptions>(
+  ({ hasIcon, isClearable, size, theme, transparent, variant }) => css`
     position: relative;
     ${defaultFieldStyles({ size, variant, transparent })};
     ${overflowEllipsis};
-    padding-right: ${isClearable ? '4xl' : '36'};
+    padding-right: ${isClearable ? theme.spaces['4xl'] : '36px'};
     ${hasIcon &&
     css`
-      padding-left: 36;
+      padding-left: 36px;
     `};
     cursor: default;
     ${system}
@@ -96,32 +90,32 @@ export const Item = styled.li<{
   isDisabled?: boolean
 }>(
   ({ allowUnselectFromList, isDisabled, isHighlighted, isMultiple, isSelected, theme }) => css`
-    color: nude-700;
+    color: ${theme.colors['nude-700']};
     ${isHighlighted && theme.defaultFields.select.highlighted};
     ${isSelected && !isMultiple && theme.defaultFields.select.selected};
     ${isSelected && isMultiple && !allowUnselectFromList && theme.defaultFields.select.existing};
     ${isDisabled && theme.defaultFields.select.disabled};
     ${overflowEllipsis};
-    padding: sm;
+    padding: ${theme.spaces.sm};
     list-style: none;
     text-decoration: none;
-    font-size: sm;
+    font-size: ${theme.fontSizes.sm};
     transition: background ${theme.transitions.medium};
   `
 )
 
-export const Indicators = styled.div(
-  ({ size }: { size: Size }) => css`
+export const Indicators = styled.div<{ size: Size }>(
+  ({ size, theme }) => css`
     position: absolute;
     padding: 0;
     top: 0;
     bottom: 0;
-    right: ${size === 'xs' ? 'sm' : 'md'};
+    right: ${size === 'xs' ? theme.spaces.sm : theme.spaces.md};
     display: flex;
-    gap: sm;
+    gap: ${theme.spaces.sm};
 
     > * {
-      width: 16;
+      width: 16px;
     }
   `
 )

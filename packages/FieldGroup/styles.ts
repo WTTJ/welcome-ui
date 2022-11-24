@@ -13,7 +13,7 @@ export const FieldGroup = styled.fieldset(
     ${system};
 
     & > ${StyledLabel} {
-      margin-bottom: md;
+      margin-bottom: ${theme.space.md};
     }
   `
 )

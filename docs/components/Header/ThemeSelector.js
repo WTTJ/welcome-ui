@@ -26,7 +26,7 @@ export function ThemeSelector(props) {
 
   return (
     <>
-      <DropdownMenu.Trigger as={Button} h={30} shape="circle" w={30} {...menu} {...props}>
+      <DropdownMenu.Trigger as={Button} $h="30px" shape="circle" $w="30px" {...menu} {...props}>
         <SunIcon />
       </DropdownMenu.Trigger>
       <DropdownMenu {...menu} aria-label="Theme selector">

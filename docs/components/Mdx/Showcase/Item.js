@@ -12,16 +12,16 @@ export function Item({ content, name }) {
   }
 
   return (
-    <Box alignItems="center" display="flex" pb="md">
-      <Text m="0" variant="xs" w={{ xs: 50, md: 64 }}>
+    <Box $alignItems="center" $display="flex" $pb="md">
+      <Text $m="0" variant="xs" $w={{ xs: 50, md: 64 }}>
         {name}
       </Text>
-      <Box alignItems="center" display="flex" flex="1">
-        <Text lines={1} m="0" mr="sm" color="dark-900">
+      <Box $alignItems="center" $display="flex" $flex="1">
+        <Text lines={1} $m="0" $mr="sm" $color="dark-900">
           {content}
         </Text>
-        {copied && <CheckIcon color="success-500" flex="0 0 auto" size="sm" />}
-        {!copied && <CopyIcon cursor="pointer" flex="0 0 auto" size="sm" onClick={handleCopy} />}
+        {copied && <CheckIcon $color="success-500" $flex="0 0 auto" size="sm" />}
+        {!copied && <CopyIcon $cursor="pointer" $flex="0 0 auto" size="sm" onClick={handleCopy} />}
       </Box>
     </Box>
   )

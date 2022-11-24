@@ -19,17 +19,17 @@ export const Radio = styled(ReakitRadio)<RadioProps>(
     order: ${$order};
     cursor: pointer;
     border-radius: 50%;
-    transition: medium;
+    transition: ${theme.transitions.medium};
     ${system};
 
     &::after {
       content: '';
       position: absolute;
-      width: 8;
-      height: 8;
-      border-radius: 8;
-      top: 3;
-      left: 3;
+      width: 8px;
+      height: 8px;
+      border-radius: 8px;
+      top: 3px;
+      left: 3px;
       background-color: transparent;
       transition: medium;
     }

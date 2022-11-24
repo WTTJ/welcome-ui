@@ -15,7 +15,7 @@ export const Checkbox = styled(ReakitCheckbox)<CheckboxProps>(
     padding: 0;
     order: ${$order};
     cursor: pointer;
-    transition: medium;
+    transition: ${theme.transitions.medium};
     overflow: hidden;
     ${system};
 
@@ -34,7 +34,7 @@ export const Checkbox = styled(ReakitCheckbox)<CheckboxProps>(
         width: 10;
         margin: auto;
         text-align: center;
-        transition: medium;
+        transition: ${theme.transitions.medium};
       }
     }
 

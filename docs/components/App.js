@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react'
 import { createTheme, WuiProvider } from '@welcome-ui/core'
 import { MDXProvider } from '@mdx-js/react'
@@ -26,6 +25,8 @@ const getTheme = themeStorage => {
     return coreTheme
   }
 }
+
+console.log(createTheme(welcomeTheme))
 
 export function App({ component: Component, pageProps }) {
   const themeStorage = useThemeContext()

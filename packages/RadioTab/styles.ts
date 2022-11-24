@@ -16,13 +16,13 @@ const columnStyles = css`
   border-radius: 0;
 
   &:first-of-type {
-    border-radius: md;
+    border-radius: ${({ theme }) => theme.spaces.md};
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 
   &:last-of-type {
-    border-radius: md;
+    border-radius: ${({ theme }) => theme.spaces.md};
     border-top-right-radius: 0;
     border-top-left-radius: 0;
   }

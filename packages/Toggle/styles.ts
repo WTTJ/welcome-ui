@@ -21,7 +21,7 @@ export const Toggle = styled(ReakitCheckbox)<ToggleOptions>(
       content: '';
       top: 0;
       bottom: 0;
-      left: 2;
+      left: 2px;
       position: absolute;
       margin: auto;
       transition: ${theme.transitions.medium};

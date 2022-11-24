@@ -30,7 +30,7 @@ export const Link = styled(UniversalLink)<{ variant: Variant }>(
     ${system};
 
     & > *:not(:only-child):not(:last-child) {
-      margin-right: xs;
+      margin-right: ${theme.spaces.xs};
     }
   `
 )

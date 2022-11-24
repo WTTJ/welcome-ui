@@ -106,7 +106,7 @@ export const Drawer = styled(Box)<DrawerOptions>(
     flex-direction: column;
     max-width: 100%;
     max-height: 100%;
-    transition: medium;
+    transition: ${theme.transitions.medium};
     cursor: auto;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -122,7 +122,7 @@ export const Drawer = styled(Box)<DrawerOptions>(
     }
 
     &[data-leave] {
-      transition: fast;
+      transition: ${theme.transitions.fast};
     }
   `
 )

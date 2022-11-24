@@ -12,5 +12,5 @@ export const Card = styled(Box)(
 )
 
 export const Body = styled(Box)`
-  padding: lg;
+  padding: ${({ theme }) => theme.spaces.lg};
 `
