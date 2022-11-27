@@ -1,68 +1,72 @@
-import React, { cloneElement, useCallback, useContext } from 'react'
+import React, { useContext } from 'react'
 import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
-import toast from 'toasted-notes'
-import { MessageOptionalOptions } from 'toasted-notes/lib/ToastManager'
 import { TextProps } from '@welcome-ui/text'
+import toastRHT, {
+  Renderable,
+  ToastPosition,
+  Toast as ToastRHT,
+  useToaster,
+  ValueFunction,
+} from 'react-hot-toast/headless'
 
+import { ToastWrapper } from './ToastWrapper'
 import { Growl } from './Growl'
 import { Snackbar } from './Snackbar'
 import * as S from './styles'
 
 export type Variant = 'default' | 'error' | 'warning' | 'info' | 'success'
 
-export interface CreateToastOptions {
-  onClose?: () => void
+type NotificationsProps = {
+  options?: { pauseOnHover?: boolean }
 }
 
-export type UseToastOptions = MessageOptionalOptions & CreateToastOptions
-export type UseToastReturn = (children: JSX.Element, options?: UseToastOptions) => void
+type ToastOptions = {
+  duration?: number
+  position?: ToastPosition
+}
 
-export function useToast(): UseToastReturn {
+export const Notifications: React.FC<NotificationsProps> = ({ options }) => {
   const themeContext = useContext(ThemeContext)
+  const { handlers, toasts } = useToaster()
+  const { calculateOffset, endPause, startPause, updateHeight } = handlers
 
-  const createToast = useCallback(
-    (children: JSX.Element, options: UseToastOptions = {}) => {
-      const toastOptions = {
-        position: 'bottom' as const,
-        duration: 7000,
-        ...options,
-      }
+  const pauseOnHover = options?.pauseOnHover || true
+  const onMouseEnter = pauseOnHover ? startPause : undefined
+  const onMouseLeave = pauseOnHover ? endPause : undefined
 
-      const isBottomPosition = toastOptions.position.startsWith('bottom')
-      const customOnClose = toastOptions.onClose
-
-      function onCloseToast(onClose: () => void) {
-        // custom action onClose
-        customOnClose && customOnClose()
-        onClose()
-      }
-
-      if (children) {
-        toast.notify(
-          ({ onClose }) => {
-            return (
-              <ThemeProvider theme={themeContext}>
-                <S.Toast isBottom={isBottomPosition}>
-                  {cloneElement(children, {
-                    ...children.props,
-                    onClose: () => onCloseToast(onClose),
-                  })}
-                </S.Toast>
-              </ThemeProvider>
-            )
-          },
-          { ...toastOptions }
-        )
-      }
-    },
-    [themeContext]
+  return (
+    <ThemeProvider theme={themeContext}>
+      <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        {toasts.map(toast => (
+          <ToastWrapper
+            calculateOffset={calculateOffset}
+            key={toast.id}
+            toast={toast}
+            updateHeight={updateHeight}
+          />
+        ))}
+      </div>
+    </ThemeProvider>
   )
-
-  return createToast
 }
 
 const Title: React.FC<TextProps> = ({ children, ...rest }) => (
   <S.Title {...rest}>{children}</S.Title>
 )
+
+export const toast = (component: ValueFunction<Renderable, ToastRHT>, options: ToastOptions) => {
+  const toastOptions = {
+    duration: 7000,
+    position: 'bottom-center' as ToastPosition,
+    ...options,
+  }
+
+  toastRHT(component, toastOptions)
+}
+
+/**
+ * @deprecated use directly `toast` function instead
+ */
+export const useToast = () => toast
 
 export const Toast = { Title, Growl, Snackbar }

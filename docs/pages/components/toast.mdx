@@ -18,19 +18,31 @@ import {
 
 ## About
 
-Notification component with [toasted-note](https://toasted-notes.netlify.com) and 2 components:
+Notification component with [react-hot-toast](https://react-hot-toast.com/) and 2 components:
 
 - Growl
 - Snackbar
 
-## useToast
+## Notifications
 
-Use `useToast` hook to show the toast element. Example below with a custom component.
+Before use `Toast` component, you must to integrate `Notifications` component at root of your project. This component will contains all of your toasts in your DOM.
+
+```
+function App() {
+  // ...
+  <Notifications pauseOnHover={false} />
+  // ...
+}
+```
+
+You can pass a boolean value to `pauseOnHover` prop (default to `true`) to pause duration of all notifications on mouse hover.
+
+## toast()
+
+Use `toast` function to show the toast element. Example below with a custom component.
 
 ```jsx
 function() {
-  const toast = useToast()
-
   const Notification = () => (
     <Box
       backgroundColor="light-900"
@@ -53,17 +65,17 @@ function() {
 }
 ```
 
+**Note:** The `useToast` hook is deprecated. Instead, you can directly use `toast` function.
+
 ## Options
 
 The `toast` function takes a component to be displayed and an `options` object:
 
-- **position** : one of `top-left`, `top`, `top-right`, `bottom-left`, `bottom` (default) or `bottom-right`
+- **position** : one of `top-left`, `top-center`, `top-right`, `bottom-left`, `bottom-center` (default) or `bottom-right`
 - **duration** : before closing element, in ms, with default `7000`. Can also be set to `null` if not automatic close your element.
 
 ```jsx
 function() {
-  const toast = useToast()
-
   const Notification = () => (
     <Box
       backgroundColor="light-900"
@@ -80,7 +92,7 @@ function() {
 
   return (
     <Stack direction="row">
-      {['top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right'].map(position => (
+      {['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'].map(position => (
         <Button
           key={position}
           onClick={() =>
@@ -111,8 +123,6 @@ In general :
 
 ```jsx
 function() {
-  const toast = useToast()
-
   return (
     <Stack direction="row">
       <Button
@@ -203,8 +213,6 @@ function() {
 
 ```jsx
 function() {
-  const toast = useToast()
-
   return (
     <Stack direction="row">
       <Button
@@ -340,8 +348,6 @@ You can add your custom function when user click on close button
 
 ```jsx
 function() {
-  const toast = useToast()
-
   function onClose() {
     alert('Toast hidden!')
   }
@@ -372,8 +378,6 @@ You can choose not to show a close button on Growl or Snackbar with the `hasClos
 
 ```jsx
 function() {
-  const toast = useToast()
-
   function onClose() {
     alert('Toast hidden!')
   }
