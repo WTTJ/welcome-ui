@@ -77,6 +77,23 @@ describe('<Swiper>', () => {
     expect(pagination[0]).toHaveAttribute('aria-selected', 'false')
     expect(pagination[1]).toHaveAttribute('aria-selected', 'true')
   })
+
+  it('should have disabled attribute on buttons', async () => {
+    // Arrange
+    const { getByTestId } = render(<TestSwiper />)
+    const prevButton = getByTestId('swiper-button-prev')
+    const nextButton = getByTestId('swiper-button-next')
+
+    // Assert
+    expect(prevButton).toHaveAttribute('disabled')
+
+    // Act
+    await userEvent.click(nextButton)
+    await userEvent.click(nextButton)
+
+    // Assert
+    expect(nextButton).toHaveAttribute('disabled')
+  })
 })
 
 describe('<LoopingSwiper>', () => {
