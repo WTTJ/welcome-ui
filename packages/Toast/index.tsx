@@ -16,21 +16,18 @@ import * as S from './styles'
 
 export type Variant = 'default' | 'error' | 'warning' | 'info' | 'success'
 
-type NotificationsProps = {
-  options?: { pauseOnHover?: boolean }
-}
+type NotificationsProps = { pauseOnHover?: boolean }
 
 type ToastOptions = {
   duration?: number
   position?: ToastPosition
 }
 
-export const Notifications: React.FC<NotificationsProps> = ({ options }) => {
+export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = true }) => {
   const themeContext = useContext(ThemeContext)
   const { handlers, toasts } = useToaster()
   const { calculateOffset, endPause, startPause, updateHeight } = handlers
 
-  const pauseOnHover = options?.pauseOnHover || true
   const onMouseEnter = pauseOnHover ? startPause : undefined
   const onMouseLeave = pauseOnHover ? endPause : undefined
 
@@ -54,7 +51,7 @@ const Title: React.FC<TextProps> = ({ children, ...rest }) => (
   <S.Title {...rest}>{children}</S.Title>
 )
 
-export const toast = (component: ValueFunction<Renderable, ToastRHT>, options: ToastOptions) => {
+export const toast = (component: ValueFunction<Renderable, ToastRHT>, options?: ToastOptions) => {
   const toastOptions = {
     duration: 7000,
     position: 'bottom-center' as ToastPosition,
