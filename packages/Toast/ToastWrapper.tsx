@@ -2,17 +2,16 @@ import React, { cloneElement } from 'react'
 import toastRHT, { Toast, ToastPosition } from 'react-hot-toast/headless'
 
 import * as S from './styles'
+import { POSITION_STYLE } from './utils'
 
 type ToastWrapperProps = {
   calculateOffset: (
     toast: Toast,
-    opts?:
-      | {
-          reverseOrder?: boolean | undefined
-          gutter?: number | undefined
-          defaultPosition?: ToastPosition | undefined
-        }
-      | undefined
+    opts?: {
+      reverseOrder?: boolean
+      gutter?: number
+      defaultPosition?: ToastPosition
+    }
   ) => number
   toast: Toast & CustomToastOptions
   updateHeight: (toastId: string, height: number) => void
@@ -46,15 +45,6 @@ export const ToastWrapper: React.FC<ToastWrapperProps> = ({
   const top = toast.position?.includes('top')
   const bottom = toast.position?.includes('bottom')
 
-  const positionStyle = {
-    'top-left': { top: 0, left: 0 },
-    'top-center': { top: 0, left: '50%' },
-    'top-right': { top: 0, right: 0 },
-    'bottom-left': { bottom: 0, left: 0 },
-    'bottom-center': { bottom: 0, left: '50%' },
-    'bottom-right': { bottom: 0, right: 0 },
-  }
-
   const onClose = () => {
     if (toast.onClose) toast.onClose()
     toastRHT.dismiss(toast.id)
@@ -63,7 +53,7 @@ export const ToastWrapper: React.FC<ToastWrapperProps> = ({
   const toastStyle = {
     opacity: toast.visible ? 1 : 0,
     transform: `translate(${center ? '-50%' : '0'}, ${offset * (top ? 1 : -1)}px)`,
-    ...positionStyle[toast.position],
+    ...POSITION_STYLE[toast.position],
   }
 
   return (
