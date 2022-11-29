@@ -28,7 +28,7 @@ export const colors = {
   'primary-100': '#C6CAFF',
   'primary-200': '#5650EC',
   'primary-500': '#3B35DC',
-  'primary-600': '#3B35DC',
+  'primary-600': '#3933C1',
   'primary-700': '#241DBB',
   'primary-800': '#1C168F',
   'primary-900': '#171379',

@@ -1,13 +1,14 @@
-import { css } from '@xstyled/styled-components'
 import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
 
 export type ThemeLinks = {
   default: CSSObject
+  withExternalLink: CSSObject
+  disabled: CSSObject
   primary: {
-    default: ReturnType<typeof css>
-    hover: ReturnType<typeof css>
+    default: CSSObject
+    hover: CSSObject
   }
   secondary: {
     default: CSSObject
@@ -16,7 +17,7 @@ export type ThemeLinks = {
 }
 
 export const getLinks = (theme: WuiTheme): ThemeLinks => {
-  const { colors, fontWeights, transitions, underline } = theme
+  const { colors, fontWeights, icons, transitions } = theme
 
   return {
     default: {
@@ -24,22 +25,23 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
       fontWeight: fontWeights.medium,
       transition: transitions.medium,
     },
+    withExternalLink: {
+      backgroundSize: `calc(100% - ${icons.sm} - 4px) 50%`,
+    },
+    disabled: {
+      color: colors['dark-400'],
+      backgroundImage: `linear-gradient(0deg, ${colors['dark-100']}, ${colors['dark-100']} 100%)`,
+    },
     primary: {
-      default: css`
-        > .wui-text {
-          ${underline.default};
-        }
-      `,
-      hover: css`
-        > .wui-text {
-          ${underline.hover};
-        }
-      `,
+      default: {},
+      hover: {},
     },
     secondary: {
-      default: null,
+      default: {
+        backgroundImage: `linear-gradient(0deg, ${colors['dark-900']}, ${colors['dark-900']} 100%)`,
+      },
       hover: {
-        opacity: 0.6,
+        color: colors['light-900'],
       },
     },
   }

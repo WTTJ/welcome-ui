@@ -39,7 +39,8 @@
   },
   "dependencies": {
     "@welcome-ui/system": "^5.0.0-alpha.1",
-    "@welcome-ui/universal-link": "^5.0.0-alpha.1"
+    "@welcome-ui/universal-link": "^5.0.0-alpha.1",
+    "@welcome-ui/icons": "^5.0.0-alpha.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.0",

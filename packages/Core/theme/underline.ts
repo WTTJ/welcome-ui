@@ -13,12 +13,13 @@ export const getUnderline = ({ colors }: { colors: ThemeColors }): ThemeUnderlin
       background-image: linear-gradient(0deg, ${colors.underline}, ${colors.underline} 100%);
       background-repeat: no-repeat;
       background-size: 100% 50%;
-      background-position-y: calc(200% - 1px);
-      transition: background-position-y 0.25s;
+      background-position-y: calc(200% - 2px);
+      transition: background-position-y 250ms, background-size 250ms, color 250ms;
     `,
     hover: css`
       opacity: 1;
       background-position-y: 100%;
+      background-size: 100% 100%;
     `,
   }
 }
