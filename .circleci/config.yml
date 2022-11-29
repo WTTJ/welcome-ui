@@ -204,7 +204,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^v\d+.\d+.\d+$|^v\d+.\d+.\d+-rc.\d+$/
+              only: /^5.0.0-alpha./
           requires:
             - test
             - lint
