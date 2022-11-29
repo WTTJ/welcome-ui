@@ -38,7 +38,8 @@
     "check:ssh": "ssh-add -L >> /dev/null",
     "check:ssh-error": "tput setaf 1; echo 'Warning ! Your ssh key is not correctly set ( or forwarded if you work on a remote machine )'; tput sgr0",
     "clean": "lerna clean",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "migrate": "node ./scripts/upgrade-v5.js"
   },
   "private": true,
   "workspaces": [
