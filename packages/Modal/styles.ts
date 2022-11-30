@@ -1,8 +1,10 @@
-import styled, { css, th, up } from '@xstyled/styled-components'
+import styled, { css, system, th, up } from '@xstyled/styled-components'
+import { Box } from '@welcome-ui/box'
+import { Text } from '@welcome-ui/text'
 import { cardStyles } from '@welcome-ui/utils'
 import { DialogBackdrop, Dialog as ReakitDialog } from 'reakit/Dialog'
 
-import { Size } from '.'
+import { Size } from './index'
 
 export const Backdrop = styled(DialogBackdrop).withConfig({
   shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop),
@@ -19,6 +21,8 @@ export const Backdrop = styled(DialogBackdrop).withConfig({
     bottom: 0;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
+    ${system};
+
     ${hideOnClickOutside &&
     css`
       cursor: pointer;
@@ -47,6 +51,7 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
 
     transition: opacity 250ms ease-in-out, margin-top 250ms ease-in-out;
     cursor: auto;
+    ${system};
 
     &:focus {
       outline: none !important; /* important for firefox */
@@ -68,3 +73,27 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
     )}
   `
 )
+
+export const Header = styled(Box)`
+  ${({ theme }) => theme.modals.header}
+`
+
+export const HeaderSubtitle = styled(Text)`
+  ${({ theme }) => theme.modals.header.subtitle}
+`
+
+export const Content = styled(Box)`
+  ${({ theme }) => theme.modals.content}
+`
+
+export const Footer = styled(Box)`
+  ${({ theme }) => theme.modals.footer}
+`
+
+export const FooterChildrenWrapper = styled(Box)`
+  ${({ theme }) => theme.modals.footer.children}
+`
+
+export const FooterInformations = styled(Box)`
+  ${({ theme }) => theme.modals.footer.informations}
+`

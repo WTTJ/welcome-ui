@@ -11,10 +11,9 @@ import {
 } from 'reakit/Dialog'
 import { SealedInitialState } from 'reakit-utils/ts/useSealedState'
 import { Box, BoxProps } from '@welcome-ui/box'
-import { CloseButton, CloseButtonProps } from '@welcome-ui/close-button'
+import { CloseButtonProps } from '@welcome-ui/close-button'
 import { Text, TextProps } from '@welcome-ui/text'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { useTheme } from '@xstyled/styled-components'
 
 import * as S from './styles'
 
@@ -90,7 +89,6 @@ export type CloseOptions = { hide: VoidFunction }
 export type CloseProps = CloseOptions & CloseButtonProps
 
 export const Close: React.FC<CloseProps> = ({ hide, zIndex = '2', ...props }) => {
-  const { drawers } = useTheme()
   return (
     <Box
       display="flex"
@@ -101,15 +99,14 @@ export const Close: React.FC<CloseProps> = ({ hide, zIndex = '2', ...props }) =>
       w="auto"
       zIndex={zIndex}
     >
-      <CloseButton {...drawers.closeButton} onClick={hide} {...props} />
+      <S.CloseButton onClick={hide} {...props} />
     </Box>
   )
 }
 
 export const Title: React.FC<TextProps> = ({ children, zIndex = '1', ...props }) => {
-  const { drawers } = useTheme()
   return (
-    <Box
+    <S.Title
       alignItems="center"
       display="flex"
       justifyContent="space-between"
@@ -117,28 +114,24 @@ export const Title: React.FC<TextProps> = ({ children, zIndex = '1', ...props })
       top={{ xs: 0, md: 'auto' }}
       w="100%"
       zIndex={zIndex}
-      {...drawers.title}
       {...props}
     >
       <Text m="0" variant="h3" w="100%">
         {children}
       </Text>
-    </Box>
+    </S.Title>
   )
 }
 
 export const Content: React.FC<BoxProps> = props => {
-  const { drawers } = useTheme()
-  return <Box {...drawers.content} flex="1" overflowY={{ md: 'auto' }} {...props} />
+  return <S.Content flex="1" overflowY={{ md: 'auto' }} {...props} />
 }
 
 export const Footer: React.FC<BoxProps> = props => {
-  const { drawers } = useTheme()
   return (
-    <Box
+    <S.Footer
       bottom={{ xs: 0, md: 'auto' }}
       position={{ xs: 'sticky', md: 'static' }}
-      {...drawers.footer}
       w="100%"
       {...props}
     />

@@ -1,8 +1,9 @@
 import React, { ReactElement } from 'react'
-import { Box, BoxProps } from '@welcome-ui/box'
+import { BoxProps } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import { forwardRef } from '@welcome-ui/system'
-import { useTheme } from '@xstyled/styled-components'
+
+import * as S from './styles'
 
 export interface HeaderOptions {
   title: string | JSX.Element
@@ -16,11 +17,8 @@ export type HeaderProps = HeaderOptions & BoxProps
  * @name Modal.Header
  */
 export const Header = forwardRef<'div', HeaderProps>(({ icon, subtitle, title, ...rest }, ref) => {
-  const { modals } = useTheme()
-
   return (
-    <Box
-      {...modals.header}
+    <S.Header
       position={{ xs: 'fixed', md: 'relative' }}
       ref={ref}
       textAlign={icon ? 'center' : null}
@@ -30,8 +28,8 @@ export const Header = forwardRef<'div', HeaderProps>(({ icon, subtitle, title, .
       <Text mb={subtitle ? 'lg' : 0} mt={icon ? 'xl' : 0} variant="h4">
         {title}
       </Text>
-      {subtitle && <Text {...modals.header.subtitle}>{subtitle}</Text>}
-    </Box>
+      {subtitle && <S.HeaderSubtitle>{subtitle}</S.HeaderSubtitle>}
+    </S.Header>
   )
 })
 
