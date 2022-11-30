@@ -57,7 +57,14 @@ export const ToastWrapper: React.FC<ToastWrapperProps> = ({
   }
 
   return (
-    <S.ToastWrapper isBottom={bottom} ref={ref} style={toastStyle} {...toast.ariaProps}>
+    <S.ToastWrapper
+      isBottom={bottom}
+      opacity={toastStyle.opacity}
+      ref={ref}
+      style={toastStyle}
+      transform={toastStyle.transform}
+      {...toast.ariaProps}
+    >
       {cloneElement(toast.message as JSX.Element, { onClose })}
     </S.ToastWrapper>
   )
