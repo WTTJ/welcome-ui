@@ -1,10 +1,10 @@
-
 import React, { useEffect, useState } from 'react'
 import { createTheme, WuiProvider } from '@welcome-ui/core'
 import { MDXProvider } from '@mdx-js/react'
 import { welcomeTheme } from '@welcome-ui/themes.welcome'
 import { darkTheme } from '@welcome-ui/themes.dark'
 import { welcomeDarkTheme } from '@welcome-ui/themes.welcome-dark'
+import { Notifications } from '@welcome-ui/toast'
 
 import { useThemeContext } from '../context/theme'
 
@@ -44,6 +44,7 @@ export function App({ component: Component, pageProps }) {
         <Layouts>
           <Component {...pageProps} />
         </Layouts>
+        <Notifications />
       </MDXProvider>
     </WuiProvider>
   )

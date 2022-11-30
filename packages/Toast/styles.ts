@@ -5,10 +5,14 @@ import { Alert } from '@welcome-ui/alert'
 import { GrowlOptions } from './Growl'
 import { SnackbarOptions } from './Snackbar'
 
-export const Toast = styled(Box)<{ isBottom: boolean }>(
+export const ToastWrapper = styled(Box)<{ isBottom: boolean }>(
   ({ isBottom }) => css`
     ${th('toasts.default')}
     ${isBottom ? th('toasts.bottom') : th('toasts.top')}
+
+    position: fixed;
+    z-index: 9999;
+    transition: all 400ms ease-out;
   `
 )
 
