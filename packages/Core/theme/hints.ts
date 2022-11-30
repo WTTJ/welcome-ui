@@ -5,11 +5,10 @@ import { WuiTheme } from './types'
 export type ThemeHints = CSSObject
 
 export const getHints = (theme: WuiTheme): ThemeHints => {
-  const { colors, fontSizes, fontWeights } = theme
+  const { colors, texts } = theme
 
   return {
-    fontSize: fontSizes.xs,
-    fontWeight: fontWeights.regular,
+    ...texts.xs,
     color: colors['dark-500'],
   }
 }

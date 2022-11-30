@@ -8,11 +8,11 @@ export const Radios = styled.div<{
     display: flex;
     flex-direction: ${flexDirection};
     flex-wrap: wrap;
-    margin-bottom: -md;
+    margin-bottom: -xs;
     ${system};
 
     > *:not(:last-child) {
-      margin-bottom: md;
+      margin-bottom: xs;
     }
   `
 )

@@ -29,7 +29,7 @@ export const RadioTab = forwardRef<'input', RadioTabsProps>((props, ref) => {
     label,
     onChange,
     onClick,
-    size = 'lg',
+    size = 'md',
     variant,
     ...radioProps
   } = props

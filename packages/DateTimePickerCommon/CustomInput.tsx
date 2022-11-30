@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
-import { IconWrapper } from '@welcome-ui/field'
+import { IconGroupWrapper, IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
-import { DefaultFieldStylesProps } from '@welcome-ui/utils'
+import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
@@ -28,25 +28,22 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
     { focused, handleBlur, handleFocus, icon, iconPlacement, onReset, size, value, ...rest },
     ref
   ) => {
+    const iconSize = FIELD_ICON_SIZE[size]
+
     return (
-      <S.CustomInput
-        focused={focused}
-        icon={icon}
-        iconPlacement={iconPlacement}
-        onBlur={handleBlur}
-        onFocus={handleFocus}
-        size={size}
-      >
-        {icon && (
-          <IconWrapper iconPlacement={iconPlacement} size={size}>
-            {icon}
+      <S.CustomInput focused={focused} onBlur={handleBlur} onFocus={handleFocus}>
+        <input value={value} {...rest} ref={ref} />
+        {icon && iconPlacement !== 'right' && (
+          <IconWrapper iconPlacement={iconPlacement} size={iconSize}>
+            {React.cloneElement(icon, { ...icon.props, size: iconSize })}
           </IconWrapper>
         )}
-        <input value={value} {...rest} ref={ref} />
         {value && (
-          <IconWrapper iconPlacement="right" size={size}>
+          <IconGroupWrapper size={iconSize}>
             <ClearButton aria-label="clear date" onClick={onReset} />
-          </IconWrapper>
+            {iconPlacement === 'right' &&
+              React.cloneElement(icon, { ...icon.props, size: iconSize })}
+          </IconGroupWrapper>
         )}
       </S.CustomInput>
     )

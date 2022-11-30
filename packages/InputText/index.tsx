@@ -1,7 +1,7 @@
 import React from 'react'
 import { IconGroupWrapper, IconWrapper } from '@welcome-ui/field'
 import { ClearButton } from '@welcome-ui/clear-button'
-import { createEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'
+import { createEvent, DefaultFieldStylesProps, FIELD_ICON_SIZE } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
@@ -51,6 +51,7 @@ export const InputText = forwardRef<'input', InputTextProps>(
   ) => {
     const hasClearButtonAndRightIcon = isClearable && iconPlacement === 'right'
     const hasIcon = icon && iconPlacement
+    const iconSize = FIELD_ICON_SIZE[size]
 
     const handleReset = () => {
       const event = createEvent({
@@ -66,8 +67,7 @@ export const InputText = forwardRef<'input', InputTextProps>(
           autoFocus={autoFocus}
           data-testid={dataTestId}
           disabled={disabled}
-          icon={!!icon}
-          iconPlacement={iconPlacement}
+          iconPlacement={!!icon && iconPlacement}
           id={name}
           isClearable={isClearable}
           name={name}
@@ -85,14 +85,15 @@ export const InputText = forwardRef<'input', InputTextProps>(
           {...rest}
         />
         {hasIcon && !hasClearButtonAndRightIcon && (
-          <IconWrapper iconPlacement={iconPlacement} size={size}>
-            {icon}
+          <IconWrapper iconPlacement={iconPlacement} size={iconSize}>
+            {React.cloneElement(icon, { ...icon.props, size: iconSize })}
           </IconWrapper>
         )}
         {isClearable && (
-          <IconGroupWrapper size={size}>
+          <IconGroupWrapper size={iconSize}>
             {value && <ClearButton onClick={handleReset} />}
-            {iconPlacement === 'right' && icon}
+            {iconPlacement === 'right' &&
+              React.cloneElement(icon, { ...icon.props, size: iconSize })}
           </IconGroupWrapper>
         )}
       </S.Wrapper>

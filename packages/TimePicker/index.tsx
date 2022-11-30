@@ -38,7 +38,7 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
       onBlur,
       onChange,
       onFocus,
-      size = 'lg',
+      size = 'md',
       icon,
       iconPlacement = 'left',
       placeholder,
@@ -115,6 +115,7 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
         }
         dateFormat={dateFormat}
         disabled={disabled}
+        iconPlacement={!!icon && iconPlacement}
         onChange={handleChange}
         placeholderText={placeholderText}
         popperContainer={CustomPopper}

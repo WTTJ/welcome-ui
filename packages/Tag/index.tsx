@@ -1,7 +1,7 @@
 import React from 'react'
 import { wrapChildren } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { ClearButton } from '@welcome-ui/clear-button'
+import { CrossIcon } from '@welcome-ui/icons'
 
 import * as S from './styles'
 
@@ -63,7 +63,9 @@ export const Tag = forwardRef<'div', TagProps>(
         {content}
         {!!onRemove && (
           <S.ActionIcon size={size}>
-            <ClearButton onClick={onRemove} size="xs" title="Remove" />
+            <S.Button onClick={onRemove} title="Remove">
+              <CrossIcon onClick={onRemove} size="xs" title="Remove" />
+            </S.Button>
           </S.ActionIcon>
         )}
       </S.Tag>

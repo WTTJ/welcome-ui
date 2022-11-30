@@ -36,6 +36,7 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
     border-radius: md;
     line-height: initial; /* avoid cropped font */
     transition: medium;
+    max-width: 100%;
     ${overflowEllipsis}
     ${system}
     ${length !== 1 &&
@@ -63,9 +64,8 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
 
     ${hasRemoveAction &&
     css`
-      padding-right: xxl;
+      padding-right: xl;
     `}
-    max-width: 100%;
 
     > *:not(:last-child) {
       margin-right: xxs;
@@ -78,12 +78,12 @@ export const Tag = styled.div<StyledTagProps & WuiProps>(
 
     > *:not(:only-child) {
       ${/* sc-selector */ StyledIcon}:last-child {
-        opacity: 0.7;
+        opacity: 1;
         transition: opacity ${th.transition('medium')};
         cursor: pointer;
 
         &:hover {
-          opacity: 1;
+          opacity: 0.7;
         }
       }
     }
@@ -100,3 +100,8 @@ export const ActionIcon = styled.div<{ size: Size }>(
     ${centerContent};
   `
 )
+
+export const Button = styled.button`
+  all: unset;
+  display: flex;
+`

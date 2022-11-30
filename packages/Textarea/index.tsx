@@ -34,7 +34,7 @@ export const Textarea = forwardRef<'textarea', TextareaProps>(
       onFocus,
       onKeyDown,
       placeholder,
-      size = 'lg',
+      size = 'md',
       value,
       variant,
       ...rest

@@ -77,7 +77,7 @@ export const getLineHeights = ({
     lg: toRem(24),
     md: toRem(18),
     sm: toRem(18),
-    xs: toRem(16),
+    xs: toRem(14),
     'subtitle-md': defaultLineHeight,
     'subtitle-sm': defaultLineHeight,
   }

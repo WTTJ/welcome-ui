@@ -113,11 +113,11 @@ function () {
             return (
               <Tag
                 key={option.value}
-                variant="primary"
-                onRemove={() => handleRemove(option.value)}
                 mr="sm"
                 mt="sm"
-                size="lg"
+                onRemove={() => handleRemove(option.value)}
+                size="sm"
+                variant="primary"
               >
                 <Icon mr="sm" />
                 <Text variant="sm" m="0">
@@ -206,7 +206,7 @@ function () {
           const Icon = option.icon
           return (
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Icon mr="xs" /> <span>{option.label}</span>
+              <Icon size="sm" mr="xs" /> <span>{option.label}</span>
             </div>
           )
         }}

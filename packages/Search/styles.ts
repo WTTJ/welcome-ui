@@ -14,17 +14,11 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled('input').withConfig({ shouldForwardProp })<
-  { hasIcon?: boolean } & SearchOptions
->(
-  ({ hasIcon, size, transparent, variant }) => css`
+export const Input = styled('input').withConfig({ shouldForwardProp })<SearchOptions>(
+  ({ iconPlacement, size, transparent, variant }) => css`
     position: relative;
-    ${defaultFieldStyles({ size, variant, transparent })};
+    ${defaultFieldStyles({ iconPlacement, size, variant, transparent, isClearable: true })};
     ${overflowEllipsis};
-    ${hasIcon &&
-    css`
-      padding-left: ${th(`defaultFields.sizes.${size}.height`)};
-    `};
     ${system};
 
     br {
@@ -37,6 +31,7 @@ export const Menu = styled.ul`
   ${th('defaultFields.select.default')};
   ${cardStyles}
   position: absolute;
+  color: dark-900;
   z-index: 2;
   right: 0;
   left: 0;
@@ -65,18 +60,6 @@ export const Item = styled.li<{
     text-decoration: none;
     font-size: sm;
     transition: background ${th.transition('medium')};
-  `
-)
-
-export const Icon = styled.div<{ size: SearchOptions['size'] }>(
-  ({ size }) => css`
-    position: absolute;
-    width: ${th(`defaultFields.sizes.${size}.height`)};
-    padding: 0;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    ${centerContent}
   `
 )
 

@@ -21,22 +21,23 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled('div').withConfig({ shouldForwardProp })(
-  ({
-    hasIcon,
-    isClearable,
-    size,
-    transparent,
-    variant,
-  }: { hasIcon: boolean } & SelectOptions) => css`
+export const Input = styled('div').withConfig({ shouldForwardProp })<{
+  iconPlacement?: 'both' | 'right'
+  isClearable?: boolean
+  size: SelectOptions['size']
+  transparent?: boolean
+  variant: SelectOptions['variant']
+}>(
+  ({ iconPlacement, isClearable, size, transparent, variant }) => css`
     position: relative;
-    ${defaultFieldStyles({ size, variant, transparent })};
+    ${defaultFieldStyles({
+      size,
+      variant,
+      transparent,
+      isClearable,
+      iconPlacement,
+    })};
     ${overflowEllipsis};
-    padding-right: ${isClearable ? '4xl' : '36'};
-    ${hasIcon &&
-    css`
-      padding-left: 36;
-    `};
     cursor: default;
     ${system}
     line-height: 1em;
@@ -122,11 +123,7 @@ export const Indicators = styled.div(
     bottom: 0;
     right: ${size === 'xs' ? 'sm' : 'md'};
     display: flex;
-    gap: sm;
-
-    > * {
-      width: 16;
-    }
+    gap: xs;
   `
 )
 

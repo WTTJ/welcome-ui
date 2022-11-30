@@ -10,11 +10,13 @@ export type ClearButtonProps = CreateWuiProps<
   Omit<ButtonOptions, 'shape' | 'title' | 'variant'>
 >
 
-export const ClearButton = forwardRef<'button', ClearButtonProps>(({ ...rest }, ref) => (
-  <S.ClearButton p="xxs" ref={ref} shape="circle" title="Clear" variant="ghost" {...rest}>
-    <CrossIcon size="xs" />
-  </S.ClearButton>
-))
+export const ClearButton = forwardRef<'button', ClearButtonProps>(
+  ({ size = 'xs', ...rest }, ref) => (
+    <S.ClearButton ref={ref} shape="circle" size={size} title="Clear" variant="ghost" {...rest}>
+      <CrossIcon size="xxs" />
+    </S.ClearButton>
+  )
+)
 
 // Nested exports
 export const StyledClearButton = S.ClearButton
