@@ -29,6 +29,7 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
       backgroundColor: colors['light-900'],
       paddingTop: space.xxl,
       paddingRight: space['3xl'],
+      paddingBottom: space.xxl,
       paddingLeft: space.xxl,
       subtitle: {
         color: colors['dark-700'],
@@ -38,9 +39,10 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
     },
     content: {
       color: colors['dark-900'],
+      paddingTop: space.xxl,
+      paddingRight: space['3xl'],
+      paddingBottom: space.xxl,
       paddingLeft: space.xxl,
-      paddingTop: space.lg,
-      fontSize: 'sm',
     },
     footer: {
       backgroundColor: colors['light-900'],
