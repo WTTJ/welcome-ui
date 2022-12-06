@@ -26,6 +26,7 @@ export type IconProps = CreateWuiProps<typeof S.Icon, IconOptions>
 
 export const Icon = forwardRef<'svg', IconProps>(
   ({ content, dataTestId, size = 'md', title, ...props }, ref) => {
+    const className = props.className || ''
     if (!content) {
       return null
     }
@@ -43,6 +44,7 @@ export const Icon = forwardRef<'svg', IconProps>(
         title={title}
         viewBox={content.viewBox || '0 0 100 100'}
         {...props}
+        className={`${className} wui-icon`}
       />
     )
   }

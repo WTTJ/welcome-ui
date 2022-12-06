@@ -2,8 +2,6 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import { Button as ReakitButton } from 'reakit/Button'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
-import { IconFont } from '@welcome-ui/icons.font'
-import { StyledIcon } from '@welcome-ui/icon'
 
 import { ButtonOptions } from './index'
 
@@ -38,7 +36,8 @@ export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<But
     ${shape && shapeStyles(size, shape)};
     ${system};
 
-    & > ${IconFont}, & > ${StyledIcon} {
+    & > svg.wui-icon,
+    & > i.wui-icon-font {
       &:only-child {
         width: ${th(`buttons.icon.only.${size}`)};
         height: ${th(`buttons.icon.only.${size}`)};
