@@ -20,7 +20,14 @@ export const Icons = Object.keys(unicodeMap).reduce(
     const key = toPascalCase(name) as keyof typeof unicodeMap
     prev[key] = (props: IconProps) => {
       const className = props.className || ''
-      return <Icon {...props} className={`${className} wui-icon-font`} name={name} />
+      return (
+        <Icon
+          {...props}
+          className={`${className} wui-icon-font`}
+          data-testid={props.dataTestId && `icon-font-${props.dataTestId}`}
+          name={name}
+        />
+      )
     }
     return prev
   },
