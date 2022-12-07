@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/files",
-  "version": "5.0.0-alpha.1",
+  "version": "5.0.0-alpha.2",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/files.cjs.js",
   "module": "dist/files.es.js",
@@ -37,7 +37,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/icons": "^5.0.0-alpha.1",
+    "@welcome-ui/icons": "^5.0.0-alpha.2",
     "@welcome-ui/utils": "^5.0.0-alpha.1"
   },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
