@@ -18,7 +18,17 @@ const toPascalCase = (str: string) => {
 export const Icons = Object.keys(unicodeMap).reduce(
   (prev: Record<string, (props: IconProps) => JSX.Element>, name: keyof typeof unicodeMap) => {
     const key = toPascalCase(name) as keyof typeof unicodeMap
-    prev[key] = (props: IconProps) => <Icon {...props} name={name} />
+    prev[key] = (props: IconProps) => {
+      const className = props.className || ''
+      return (
+        <Icon
+          {...props}
+          className={`${className} wui-icon-font`}
+          data-testid={props.dataTestId && `icon-font-${props.dataTestId}`}
+          name={name}
+        />
+      )
+    }
     return prev
   },
   {}

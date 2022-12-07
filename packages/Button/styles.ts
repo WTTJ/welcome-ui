@@ -36,14 +36,18 @@ export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<But
     ${shape && shapeStyles(size, shape)};
     ${system};
 
-    & > svg:only-child {
-      width: ${th(`buttons.icon.only.${size}`)};
-      height: ${th(`buttons.icon.only.${size}`)};
-    }
-
-    & > svg:not(:only-child) {
-      width: ${th(`buttons.icon.default.${size}`)};
-      height: ${th(`buttons.icon.default.${size}`)};
+    & > svg.wui-icon,
+    & > i.wui-icon-font {
+      &:only-child {
+        width: ${th(`buttons.icon.only.${size}`)};
+        height: ${th(`buttons.icon.only.${size}`)};
+        font-size: ${th(`buttons.icon.only.${size}`)};
+      }
+      &:not(:only-child) {
+        width: ${th(`buttons.icon.default.${size}`)};
+        height: ${th(`buttons.icon.default.${size}`)};
+        font-size: ${th(`buttons.icon.default.${size}`)};
+      }
     }
 
     & > *:not(:only-child):not(:last-child) {

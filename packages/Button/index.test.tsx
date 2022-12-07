@@ -1,6 +1,8 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 import { Link } from '@welcome-ui/link'
+import { SunIcon } from '@welcome-ui/icons'
+import { Icons } from '@welcome-ui/icons.font'
 
 import { createTheme } from '../Core/theme/core'
 import { render } from '../../utils/tests'
@@ -126,5 +128,79 @@ describe('<Button>', () => {
     expect(button.tagName.toLowerCase()).toBe('a')
     expect(button).toHaveClass('wui-test')
     expect(button).toHaveAttribute('rel', 'noopener noreferrer') // added by target="_blank" on Link
+  })
+
+  it('should have correct Icon size with Icon and text', () => {
+    const theme = createTheme()
+    const { getByTestId } = render(
+      <Button dataTestId="button" size="sm">
+        <SunIcon dataTestId="sun" />
+        <span>{content}</span>
+      </Button>
+    )
+
+    const button = getByTestId('button')
+    const icon = getByTestId('icon-sun')
+    expect(button).toHaveStyleRule('height', theme.buttons.sizes.sm.height)
+    expect(icon).toHaveStyle({
+      width: theme.buttons.icon.default.sm,
+      height: theme.buttons.icon.default.sm,
+      'font-size': theme.buttons.icon.default.sm,
+    })
+  })
+
+  it('should have correct Icon size with Icon only', () => {
+    const theme = createTheme()
+    const { getByTestId } = render(
+      <Button dataTestId="button" size="md">
+        <SunIcon dataTestId="sun" />
+      </Button>
+    )
+
+    const button = getByTestId('button')
+    const icon = getByTestId('icon-sun')
+    expect(button).toHaveStyleRule('height', theme.buttons.sizes.md.height)
+    expect(icon).toHaveStyle({
+      width: theme.buttons.icon.only.md,
+      height: theme.buttons.icon.only.md,
+      'font-size': theme.buttons.icon.only.md,
+    })
+  })
+
+  it('should have correct IconFont size with IconFont and text', () => {
+    const theme = createTheme()
+    const { getByTestId } = render(
+      <Button dataTestId="button" size="sm">
+        <Icons.Sun dataTestId="sun" />
+        <span>{content}</span>
+      </Button>
+    )
+
+    const button = getByTestId('button')
+    const icon = getByTestId('icon-font-sun')
+    expect(button).toHaveStyleRule('height', theme.buttons.sizes.sm.height)
+    expect(icon).toHaveStyle({
+      width: theme.buttons.icon.default.sm,
+      height: theme.buttons.icon.default.sm,
+      'font-size': theme.buttons.icon.default.sm,
+    })
+  })
+
+  it('should have correct IconFont size with IconFont only', () => {
+    const theme = createTheme()
+    const { getByTestId } = render(
+      <Button dataTestId="button" size="md">
+        <Icons.Sun dataTestId="sun" />
+      </Button>
+    )
+
+    const button = getByTestId('button')
+    const icon = getByTestId('icon-font-sun')
+    expect(button).toHaveStyleRule('height', theme.buttons.sizes.md.height)
+    expect(icon).toHaveStyle({
+      width: theme.buttons.icon.only.md,
+      height: theme.buttons.icon.only.md,
+      'font-size': theme.buttons.icon.only.md,
+    })
   })
 })
