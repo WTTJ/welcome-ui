@@ -86,25 +86,22 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     const getStyles = (name?: string) => {
       if (name === 'Header') {
         return {
-          pb: components.includes('Content')
-            ? '0'
-            : components.includes('Footer')
-            ? space.lg
-            : space.xxl,
+          pb: components.includes('Content') || components.includes('Footer') ? space.lg : null,
         }
       }
       if (name === 'Content') {
         return {
           mt: { xs: headerHeight, md: 0 },
           mb: { xs: footerHeight, md: 0 },
-          pb: components.includes('Footer') ? space.lg : space.xxl,
-          pt: components.includes('Header') ? space.lg : space.xxl,
-          pr: components.includes('Header') ? space.xxl : space['3xl'],
+          pb: components.includes('Footer') ? space.lg : null,
+          pr: components.includes('Header') ? space.xxl : null,
+          pt: components.includes('Header') ? 0 : null,
         }
       }
 
       if (name === 'Footer') {
         return {
+          pt: components.includes('Header') || components.includes('Content') ? null : space.lg,
           borderWidth: contentScrollHeight > contentHeight ? borderWidths.sm : '0',
         }
       }

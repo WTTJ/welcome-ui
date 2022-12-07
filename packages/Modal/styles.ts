@@ -74,7 +74,7 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
   `
 )
 
-export const Header = styled(Box)`
+export const Header = styled.headerBox`
   ${({ theme }) => theme.modals.header}
 `
 
@@ -82,11 +82,11 @@ export const HeaderSubtitle = styled(Text)`
   ${({ theme }) => theme.modals.header.subtitle}
 `
 
-export const Content = styled(Box)`
+export const Content = styled.sectionBox`
   ${({ theme }) => theme.modals.content}
 `
 
-export const Footer = styled(Box)`
+export const Footer = styled.footerBox`
   ${({ theme }) => theme.modals.footer}
 `
 
@@ -94,6 +94,6 @@ export const FooterChildrenWrapper = styled(Box)`
   ${({ theme }) => theme.modals.footer.children}
 `
 
-export const FooterInformations = styled(Box)`
+export const FooterInformations = styled.divBox`
   ${({ theme }) => theme.modals.footer.informations}
 `
