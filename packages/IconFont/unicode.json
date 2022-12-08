@@ -288,5 +288,8 @@
   "help": "0x21F",
   "slack": "0x220",
   "success": "0x221",
-  "zapier": "0x222"
+  "zapier": "0x222",
+  "gitHub": "0x224",
+  "linkedIn": "0x225",
+  "stackOverflow": "0x226"
 }
