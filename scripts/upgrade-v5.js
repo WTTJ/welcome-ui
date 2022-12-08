@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-var-requires */
 // This script will help you to migrate from Welcome-UI v4 to Welcome-UI v5
-// node ./scripts/upgrade-v5.js '../your-projets/src/**/**.**(ts|tsx)'
+// node ./scripts/upgrade-v5.js "../your-projets/src/**/**.**(ts|tsx)"
 const fs = require('fs/promises')
 
 const glob = require('glob')
@@ -47,8 +47,8 @@ const newTextValues = {
   body2: 'md',
   body3: 'sm',
   body4: 'xs',
-  'subtitle-1': 'subtitle-md',
-  'subtitle-2': 'subtitle-sm',
+  subtitle1: 'subtitle-md',
+  subtitle2: 'subtitle-sm',
   meta1: 'sm',
   meta2: 'xs',
 }
