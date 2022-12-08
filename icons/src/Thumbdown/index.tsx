@@ -3,6 +3,6 @@ import { Icon, IconProps } from '@welcome-ui/icon'
 
 import content from './content.json'
 
-export const ThumbdownIcon: React.FC<IconProps> = props => {
-  return <Icon alt="Thumbdown" content={content} {...props} />
+export const ThumbDownIcon: React.FC<IconProps> = props => {
+  return <Icon alt="ThumbDown" content={content} {...props} />
 }

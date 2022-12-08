@@ -107,8 +107,8 @@ export declare const FlagIcon: React.FC<IconProps>
 export declare const FlagCsIcon: React.FC<IconProps>
 export declare const FlagEnIcon: React.FC<IconProps>
 export declare const FlagEsIcon: React.FC<IconProps>
-export declare const FlagFillIcon: React.FC<IconProps>
 export declare const FlagFrIcon: React.FC<IconProps>
+export declare const FlagOutlineIcon: React.FC<IconProps>
 export declare const FlagPointedIcon: React.FC<IconProps>
 export declare const FlagSkIcon: React.FC<IconProps>
 export declare const FolderIcon: React.FC<IconProps>
@@ -257,8 +257,8 @@ export declare const TagIcon: React.FC<IconProps>
 export declare const TagsIcon: React.FC<IconProps>
 export declare const TargetIcon: React.FC<IconProps>
 export declare const TeepeeIcon: React.FC<IconProps>
-export declare const ThumbdownIcon: React.FC<IconProps>
-export declare const ThumbupIcon: React.FC<IconProps>
+export declare const ThumbDownIcon: React.FC<IconProps>
+export declare const ThumbUpIcon: React.FC<IconProps>
 export declare const TrashIcon: React.FC<IconProps>
 export declare const TreeIcon: React.FC<IconProps>
 export declare const TrophyIcon: React.FC<IconProps>

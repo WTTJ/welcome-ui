@@ -291,5 +291,7 @@
   "zapier": "0x222",
   "gitHub": "0x224",
   "linkedIn": "0x225",
-  "stackOverflow": "0x226"
+  "stackOverflow": "0x226",
+  "flag_outline": "0x227",
+  "thumb_up": "0x228"
 }
