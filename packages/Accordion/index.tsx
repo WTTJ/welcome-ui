@@ -15,7 +15,7 @@ export interface AccordionOptions {
 export type AccordionProps = CreateWuiProps<'div', AccordionOptions>
 
 export const Accordion = forwardRef<'div', AccordionProps>(
-  ({ children, icon = <RightIcon size="sm" />, title, visible = false, ...rest }, ref) => {
+  ({ children, icon = <RightIcon />, title, visible = false, ...rest }, ref) => {
     const disclosure = useDisclosureState({ visible, animated: true })
     const isVisible = disclosure.visible
 

@@ -72,7 +72,7 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
                   isDisabled={page === 1}
                   onClick={handlePrevious}
                 >
-                  {leftArrow || <LeftIcon size="xs" />}
+                  {leftArrow || <LeftIcon size="sm" />}
                 </S.ArrowLink>
               )}
             </Rover>
@@ -116,7 +116,7 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
                   isDisabled={page === pageCount}
                   onClick={handleNext}
                 >
-                  {rightArrow || <RightIcon size="xs" />}
+                  {rightArrow || <RightIcon size="sm" />}
                 </S.ArrowLink>
               )}
             </Rover>

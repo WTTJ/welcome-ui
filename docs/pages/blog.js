@@ -102,7 +102,7 @@ export default function Blog() {
                       size="sm"
                       target="_blank"
                     >
-                      <span>Read more</span> <RightIcon size="sm" />
+                      <span>Read more</span> <RightIcon />
                     </Button>
                   </NextLink>
                 </Box>
