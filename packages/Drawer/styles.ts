@@ -1,5 +1,4 @@
 import styled, { css, th } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
 import { cardStyles } from '@welcome-ui/utils'
 import { CloseButton as WUICloseButton } from '@welcome-ui/close-button'
 import { DialogBackdrop } from 'reakit/Dialog'
@@ -95,7 +94,7 @@ const getSizeStyle = (size: Size, placement: Placement) => {
   }
 }
 
-export const Drawer = styled(Box)<DrawerOptions>(
+export const Drawer = styled.box<DrawerOptions>(
   ({ placement, size }) => css`
     ${cardStyles};
     ${th('drawers.default')};
@@ -184,11 +183,11 @@ export const NoBackdropWrapper = styled(DialogBackdrop).withConfig({
   `
 )
 
-export const Title = styled(Box)`
+export const Title = styled.box`
   ${({ theme }) => theme.drawers.title}
 `
 
-export const Content = styled(Box)`
+export const Content = styled.box`
   ${({ theme }) => theme.drawers.content}
 `
 
@@ -196,6 +195,6 @@ export const CloseButton = styled(WUICloseButton)`
   ${({ theme }) => theme.drawers.closeButton}
 `
 
-export const Footer = styled(Box)`
+export const Footer = styled.box`
   ${({ theme }) => theme.drawers.footer}
 `
