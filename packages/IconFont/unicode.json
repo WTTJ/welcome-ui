@@ -282,5 +282,11 @@
   "square_alert": "0x219",
   "information_outline": "0x21A",
   "thumb_down": "0x21B",
-  "thumbdown": "0x21C"
+  "thumbdown": "0x21C",
+  "download": "0x21D",
+  "filter": "0x21E",
+  "help": "0x21F",
+  "slack": "0x220",
+  "success": "0x221",
+  "zapier": "0x222"
 }

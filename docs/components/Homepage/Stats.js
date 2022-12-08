@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
-import { GetIcon, CodeBlockIcon, StarIcon } from '@welcome-ui/icons'
+import { CodeBlockIcon, DownloadIcon, StarIcon } from '@welcome-ui/icons'
 import { Text } from '@welcome-ui/text'
 
 const stats = [
@@ -35,11 +35,11 @@ const stats = [
       </>
     ),
     number: '650+',
-    icon: <GetIcon h={24} w={24} />,
+    icon: <DownloadIcon h={24} w={24} />,
   },
 ]
 
-export function Stats() {
+export const Stats = () => {
   return (
     <Box
       backgroundColor="light-900"

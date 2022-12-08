@@ -22,7 +22,7 @@ export const actions = [
   'check',
   'cross',
   'trash',
-  'get',
+  'download',
   'upload',
   'drag_and_drop',
   'copy',
@@ -34,7 +34,7 @@ export const actions = [
   'heart',
   'heart_outline',
   'filters',
-  'eye',
+  'show',
   'hide',
   'link',
   'log_out',
@@ -66,6 +66,8 @@ export const miscellaneous = [
   'positive_straight',
   'address',
   'alert',
+  'alert_outline',
+  'square_alert',
   'analytics',
   'attachment',
   'bar_chart',
@@ -129,6 +131,7 @@ export const miscellaneous = [
   'video_camera_2',
   'create',
   'update',
+  'success',
 ]
 
 export const player = [
@@ -303,6 +306,8 @@ export const brands = [
   'xing',
   'youtube',
   'wttj',
+  'slack',
+  'zapier',
 ]
 
 export const flags = ['flag_fr', 'flag_en', 'flag_cs', 'flag_sk', 'flag_es']
