@@ -214,7 +214,7 @@ export const Code = ({
                 variant="tertiary"
                 w={25}
               >
-                <Icons.ChevronIcon />
+                <Icons.CodeIcon />
               </Button>
               {isCopyable && (
                 <Button
