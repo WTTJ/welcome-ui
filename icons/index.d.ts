@@ -49,7 +49,6 @@ export declare const CastConnectedIcon: React.FC<IconProps>
 export declare const CastUnavailableIcon: React.FC<IconProps>
 export declare const CelebrateIcon: React.FC<IconProps>
 export declare const CheckIcon: React.FC<IconProps>
-export declare const ChevronIcon: React.FC<IconProps>
 export declare const ClipboardIcon: React.FC<IconProps>
 export declare const ClockIcon: React.FC<IconProps>
 export declare const CodeIcon: React.FC<IconProps>
@@ -87,7 +86,6 @@ export declare const DownIcon: React.FC<IconProps>
 export declare const DownloadIcon: React.FC<IconProps>
 export declare const DragAndDropIcon: React.FC<IconProps>
 export declare const DribbbleIcon: React.FC<IconProps>
-export declare const DuplicateIcon: React.FC<IconProps>
 export declare const EarthIcon: React.FC<IconProps>
 export declare const EditIcon: React.FC<IconProps>
 export declare const EducationLevelIcon: React.FC<IconProps>
@@ -254,7 +252,6 @@ export declare const TableRowAddAboveIcon: React.FC<IconProps>
 export declare const TableRowAddBelowIcon: React.FC<IconProps>
 export declare const TableRowRemoveIcon: React.FC<IconProps>
 export declare const TagIcon: React.FC<IconProps>
-export declare const TagsIcon: React.FC<IconProps>
 export declare const TargetIcon: React.FC<IconProps>
 export declare const TeepeeIcon: React.FC<IconProps>
 export declare const ThumbDownIcon: React.FC<IconProps>
