@@ -24,6 +24,7 @@ export const getRadios = (theme: WuiTheme): ThemeRadios => {
       height: toRem(16),
     },
     checked: {
+      color: theme.colors['dark-900'],
       borderColor: colors['primary-500'],
     },
     checkedCenteredColor: {

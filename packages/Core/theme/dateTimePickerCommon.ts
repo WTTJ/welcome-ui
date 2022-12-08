@@ -15,7 +15,7 @@ export const getDateTimePickerCommon = (theme: WuiTheme): ThemeDateTimePickerCom
   return {
     item: {
       selected: {
-        color: colors['light-900'],
+        color: colors['dark-900'],
         fontWeight: fontWeights.bold,
         backgroundColor: colors['primary-500'],
         outline: 'none',
