@@ -196,7 +196,7 @@ workflows:
       - docs_build:
           filters:
             tags:
-              only: /^v\d+.\d+.\d+$|^v\d+.\d+.\d+-rc.\d+$/
+              only: /^v5.0.0-alpha./
           requires:
             - build
       - docs_deploy_prod:
