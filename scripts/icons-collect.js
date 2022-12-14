@@ -21,7 +21,7 @@ const writeIconContentsJson = (outputFolder, content, key) => {
   let viewBox = viewBoxMatch ? viewBoxMatch[1] : undefined
 
   if (svgContent) {
-    svgContent = svgContent[1].replace(/fill="#134B45"/g, 'fill="currentColor"').trim()
+    svgContent = svgContent[1].replace(/fill="#000"/g, 'fill="currentColor"').trim()
   }
 
   const isFlag = FLAG_ICONS.includes(key)

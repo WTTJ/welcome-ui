@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FONTS_DIR=packages/IconFont/fonts
-FONT_FILE="$FONTS_DIR/welcome-icon-font.woff"
+FONT_FILE="$FONTS_DIR/welcome-icon-font-2.woff"
 
 if [[ -f "$FONT_FILE" ]]; then
   # We get the branch name from HEAD with netlify

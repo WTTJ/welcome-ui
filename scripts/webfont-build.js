@@ -16,7 +16,7 @@ const ROOT_PATH = path.join(__dirname, '..')
 const ICONS_PATH = path.join(ROOT_PATH, 'icons')
 const INPUT_PATH = path.join(ICONS_PATH, '_assets')
 const ICON_FONT_PATH = path.join(ROOT_PATH, 'packages/IconFont')
-const FONT_NAME = 'welcome-icon-font'
+const FONT_NAME = 'welcome-icon-font-2'
 
 // Write icon font
 const writeIconFont = files => {
@@ -45,8 +45,7 @@ const writeIconFont = files => {
   }, unicodeMap)
 
   // Write the updated unicode map
-  const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}
-`
+  const fileContent = `${JSON.stringify(newUnicodeMap, 0, 2)}`
   fs.writeFileSync(unicodeFile, fileContent)
 
   // Generate web fonts
@@ -56,7 +55,7 @@ const writeIconFont = files => {
       dest: `${ICON_FONT_PATH}/fonts`,
       fontName: FONT_NAME,
       codepoints: newUnicodeMap,
-      types: ['woff', 'woff2'],
+      types: ['woff', 'woff2', 'ttf', 'svg'],
       // Pass timestamp so that hash doesn't change between (non-changing) builds
       formatOptions: { ttf: { ts: 0 } },
       templateOptions: {

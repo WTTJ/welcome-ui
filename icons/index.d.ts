@@ -49,7 +49,6 @@ export declare const CastConnectedIcon: React.FC<IconProps>
 export declare const CastUnavailableIcon: React.FC<IconProps>
 export declare const CelebrateIcon: React.FC<IconProps>
 export declare const CheckIcon: React.FC<IconProps>
-export declare const ChevronIcon: React.FC<IconProps>
 export declare const ClipboardIcon: React.FC<IconProps>
 export declare const ClockIcon: React.FC<IconProps>
 export declare const CodeIcon: React.FC<IconProps>
@@ -84,9 +83,9 @@ export declare const DishIcon: React.FC<IconProps>
 export declare const DocIcon: React.FC<IconProps>
 export declare const DocxIcon: React.FC<IconProps>
 export declare const DownIcon: React.FC<IconProps>
+export declare const DownloadIcon: React.FC<IconProps>
 export declare const DragAndDropIcon: React.FC<IconProps>
 export declare const DribbbleIcon: React.FC<IconProps>
-export declare const DuplicateIcon: React.FC<IconProps>
 export declare const EarthIcon: React.FC<IconProps>
 export declare const EditIcon: React.FC<IconProps>
 export declare const EducationLevelIcon: React.FC<IconProps>
@@ -97,7 +96,6 @@ export declare const EqualIcon: React.FC<IconProps>
 export declare const ExpandIcon: React.FC<IconProps>
 export declare const ExpandTextIcon: React.FC<IconProps>
 export declare const ExternalLinkIcon: React.FC<IconProps>
-export declare const EyeIcon: React.FC<IconProps>
 export declare const FacebookIcon: React.FC<IconProps>
 export declare const FactoryIcon: React.FC<IconProps>
 export declare const FemaleIcon: React.FC<IconProps>
@@ -107,15 +105,14 @@ export declare const FlagIcon: React.FC<IconProps>
 export declare const FlagCsIcon: React.FC<IconProps>
 export declare const FlagEnIcon: React.FC<IconProps>
 export declare const FlagEsIcon: React.FC<IconProps>
-export declare const FlagFillIcon: React.FC<IconProps>
 export declare const FlagFrIcon: React.FC<IconProps>
+export declare const FlagOutlineIcon: React.FC<IconProps>
 export declare const FlagPointedIcon: React.FC<IconProps>
 export declare const FlagSkIcon: React.FC<IconProps>
 export declare const FolderIcon: React.FC<IconProps>
 export declare const FullscreenOffIcon: React.FC<IconProps>
 export declare const FullscreenOnIcon: React.FC<IconProps>
 export declare const GearIcon: React.FC<IconProps>
-export declare const GetIcon: React.FC<IconProps>
 export declare const GifIcon: React.FC<IconProps>
 export declare const GithubIcon: React.FC<IconProps>
 export declare const GoogleIcon: React.FC<IconProps>
@@ -228,6 +225,7 @@ export declare const Share1Icon: React.FC<IconProps>
 export declare const Share2Icon: React.FC<IconProps>
 export declare const ShieldIcon: React.FC<IconProps>
 export declare const ShowIcon: React.FC<IconProps>
+export declare const SlackIcon: React.FC<IconProps>
 export declare const SoundOffIcon: React.FC<IconProps>
 export declare const SoundOnIcon: React.FC<IconProps>
 export declare const SourceIcon: React.FC<IconProps>
@@ -239,6 +237,7 @@ export declare const StarIcon: React.FC<IconProps>
 export declare const StarOutlineIcon: React.FC<IconProps>
 export declare const StrikethroughIcon: React.FC<IconProps>
 export declare const SubtitleIcon: React.FC<IconProps>
+export declare const SuccessIcon: React.FC<IconProps>
 export declare const SuitcaseIcon: React.FC<IconProps>
 export declare const SunIcon: React.FC<IconProps>
 export declare const SvgIcon: React.FC<IconProps>
@@ -253,11 +252,10 @@ export declare const TableRowAddAboveIcon: React.FC<IconProps>
 export declare const TableRowAddBelowIcon: React.FC<IconProps>
 export declare const TableRowRemoveIcon: React.FC<IconProps>
 export declare const TagIcon: React.FC<IconProps>
-export declare const TagsIcon: React.FC<IconProps>
 export declare const TargetIcon: React.FC<IconProps>
 export declare const TeepeeIcon: React.FC<IconProps>
-export declare const ThumbdownIcon: React.FC<IconProps>
-export declare const ThumbupIcon: React.FC<IconProps>
+export declare const ThumbDownIcon: React.FC<IconProps>
+export declare const ThumbUpIcon: React.FC<IconProps>
 export declare const TrashIcon: React.FC<IconProps>
 export declare const TreeIcon: React.FC<IconProps>
 export declare const TrophyIcon: React.FC<IconProps>
@@ -286,4 +284,5 @@ export declare const XingIcon: React.FC<IconProps>
 export declare const XlsIcon: React.FC<IconProps>
 export declare const XlsxIcon: React.FC<IconProps>
 export declare const YoutubeIcon: React.FC<IconProps>
+export declare const ZapierIcon: React.FC<IconProps>
 export declare const ZipIcon: React.FC<IconProps>

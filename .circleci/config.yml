@@ -65,7 +65,7 @@ jobs:
             else
               echo 'export BRANCH=$CIRCLE_BRANCH' >> $BASH_ENV
             fi
-            echo "export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font.woff | awk '{ print $1 }')" >> $BASH_ENV
+            echo "export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font-2.woff | awk '{ print $1 }')" >> $BASH_ENV
             source $BASH_ENV
             yarn build:core
       - aws-s3/sync:

@@ -1,5 +1,5 @@
 import React from 'react'
-import { EyeIcon, HideIcon } from '@welcome-ui/icons'
+import { HideIcon, ShowIcon } from '@welcome-ui/icons'
 import { Button } from '@welcome-ui/button'
 import { CreateWuiProps } from '@welcome-ui/system'
 
@@ -26,7 +26,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
       title={title}
       variant="ghost"
     >
-      {isHidden ? <EyeIcon /> : <HideIcon />}
+      {isHidden ? <ShowIcon /> : <HideIcon />}
     </Button>
   )
 }

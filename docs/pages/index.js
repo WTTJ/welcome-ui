@@ -4,7 +4,7 @@ import { Text } from '@welcome-ui/text'
 import NextLink from 'next/link'
 import { Button } from '@welcome-ui/button'
 import { Box } from '@welcome-ui/box'
-import { RightIcon, GithubIcon, HeartIcon } from '@welcome-ui/icons'
+import { GithubIcon, HeartIcon, RightIcon } from '@welcome-ui/icons'
 
 import { Section } from '../components/Homepage/Section'
 import { Components } from '../components/Homepage/Components'
@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <main>
       <Section backgroundColor="nude-200">
-        <Text as="span" textTransform="uppercase" variant="subtitle-md" color="dark-900">
+        <Text as="span" color="dark-900" textTransform="uppercase" variant="subtitle-md">
           Welcome UI
         </Text>
         <Text maxWidth={820} mb="xl" mt="sm" variant="h1">
@@ -30,7 +30,7 @@ export default function Home() {
         <NextLink href="/installation" passHref>
           <Button as="a" mt="3xl" size="lg">
             <span>Install amazing components</span>
-            <RightIcon />
+            <RightIcon size="lg" />
           </Button>
         </NextLink>
       </Section>
@@ -48,7 +48,7 @@ export default function Home() {
           justifyContent="space-between"
         >
           <Box flex="0 0 auto" maxWidth={{ md: 600 }} mb={{ xs: '5xl', lg: 0 }}>
-            <Text as="span" textTransform="uppercase" variant="subtitle-md" color="dark-900">
+            <Text as="span" color="dark-900" textTransform="uppercase" variant="subtitle-md">
               Open source
             </Text>
             <Text as="h2" mb="xl" mt="sm" variant="h1">
@@ -78,7 +78,7 @@ export default function Home() {
         <Expectations />
       </Section>
       <Section backgroundColor="nude-200">
-        <Text as="span" textTransform="uppercase" variant="subtitle-md" color="dark-900">
+        <Text as="span" color="dark-900" textTransform="uppercase" variant="subtitle-md">
           Example
         </Text>
         <Text as="h2" mb="xl" mt="sm" variant="h1">

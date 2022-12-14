@@ -64,7 +64,7 @@ const DEFAULT_FONT_FAMILY = 'Work Sans'
 const DEFAULT_LINE_HEIGHT = 1.15
 const DEFAULT_LETTER_SPACING = '-0.019rem'
 const HEADING_FONT_FAMILY = 'welcome-font'
-const ICON_FONT_FAMILY = 'welcome-icon-font'
+const ICON_FONT_FAMILY = 'welcome-icon-font-2'
 
 export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => {
   const {
