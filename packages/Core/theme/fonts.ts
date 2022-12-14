@@ -10,7 +10,7 @@ type FontFace = {
 
 export type ThemeFontFaces = {
   'welcome-font': FontFace[]
-  'welcome-icon-font': FontFace[]
+  'welcome-icon-font-2': FontFace[]
 }
 
 export const fontFaces: ThemeFontFaces = {
@@ -55,9 +55,9 @@ export const fontFaces: ThemeFontFaces = {
       extensions: ['woff2', 'woff'],
     },
   ],
-  'welcome-icon-font': [
+  'welcome-icon-font-2': [
     {
-      url: 'https://cdn.welcome-ui.com/fonts/__BRANCH__/__ICON_FONT_HASH__/welcome-icon-font',
+      url: 'https://cdn.welcome-ui.com/fonts/__BRANCH__/__ICON_FONT_HASH__/welcome-icon-font-2',
       display: 'block',
       extensions: ['woff2', 'woff'],
     },

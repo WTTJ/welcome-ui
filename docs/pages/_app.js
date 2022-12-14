@@ -5,9 +5,9 @@ import { Provider } from 'reakit'
 import { ThemeProvider } from '../context/theme'
 import { App } from '../components/App'
 
-require('@welcome-ui/icons.font/fonts/welcome-icon-font.css')
+require('@welcome-ui/icons.font/fonts/welcome-icon-font-2.css')
 
-function NextApp({ Component, pageProps }) {
+const NextApp = ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
       <Provider>

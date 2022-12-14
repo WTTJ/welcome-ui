@@ -19,7 +19,7 @@ export const Item = styled(Box)(
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    color: red;
+    color: dark-900;
 
     ${!copied &&
     css`
