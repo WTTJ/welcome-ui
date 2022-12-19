@@ -1,5 +1,5 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { Button as ReakitButton } from 'reakit/Button'
+import { Button as AriakitButton } from 'ariakit/button'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 
@@ -14,7 +14,7 @@ const shapeStyles = (size: ButtonOptions['size'], shape: ButtonOptions['shape'] 
   `};
 `
 
-export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<ButtonOptions>(
+export const Button = styled(AriakitButton).withConfig({ shouldForwardProp })<ButtonOptions>(
   ({ disabled, shape, size = 'md', variant }) => css`
     ${th(`buttons.${variant}`)};
     position: relative;
