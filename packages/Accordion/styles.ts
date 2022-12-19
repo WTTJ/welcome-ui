@@ -1,5 +1,5 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { DisclosureContent, Disclosure as ReakitDisclosure } from 'reakit/Disclosure'
+import { Disclosure as AriakitDisclosure, DisclosureContent } from 'ariakit/disclosure'
 import { Box } from '@welcome-ui/box'
 
 export const Accordion = styled.div`
@@ -12,11 +12,11 @@ export const Accordion = styled.div`
   }
 `
 
-export const Icon = styled(Box)<{ visible: boolean }>(
-  ({ visible }) => css`
+export const Icon = styled(Box)<{ open: boolean }>(
+  ({ open }) => css`
     flex-shrink: 0;
     ${th('accordions.icon')};
-    transform: ${visible ? 'rotate3d(0, 0, 1, 90deg)' : 'rotate3d(0)'};
+    transform: ${open ? 'rotate3d(0, 0, 1, 90deg)' : 'rotate3d(0)'};
     transition: medium;
     width: 24;
     height: 24;
@@ -30,7 +30,7 @@ export const Icon = styled(Box)<{ visible: boolean }>(
   `
 )
 
-export const Disclosure = styled(ReakitDisclosure)`
+export const Disclosure = styled(AriakitDisclosure)`
   ${th('accordions.title')};
   width: 100%;
   padding: ${th('accordions.padding')};
@@ -58,12 +58,12 @@ export const Disclosure = styled(ReakitDisclosure)`
 `
 
 export const Content = styled(DisclosureContent)(
-  ({ visible }) => css`
+  ({ state: { open } }) => css`
     ${th('accordions.content')};
     padding-inline: ${th('accordions.padding')};
     color: dark-700;
 
-    ${visible &&
+    ${open &&
     css`
       padding-bottom: ${th('accordions.padding')};
     `}
