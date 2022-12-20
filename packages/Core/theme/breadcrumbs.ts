@@ -13,30 +13,28 @@ export type ThemeBreadcrumbs = {
 }
 
 export const getBreadcrumbs = (theme: WuiTheme): ThemeBreadcrumbs => {
-  const { colors, fontSizes, fontWeights, space } = theme
+  const { colors, space, texts } = theme
 
   return {
     list: {
-      fontSize: fontSizes.sm,
-      fontWeight: fontWeights.medium,
-      lineHeight: '1.92',
+      ...texts['subtitle-sm'],
       padding: `${space.sm} 0`,
     },
     item: {
       default: {
-        color: colors['dark-500'],
+        color: colors['dark-400'],
         textDecoration: 'none',
       },
       hover: {
-        color: colors['dark-900'],
+        color: colors['dark-700'],
       },
       active: {
         color: colors['dark-900'],
       },
     },
     separator: {
-      padding: `0 ${space.sm}`,
-      color: colors['dark-500'],
+      padding: `0 ${space.xs}`,
+      color: colors['dark-400'],
     },
   }
 }
