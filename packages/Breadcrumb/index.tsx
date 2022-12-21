@@ -35,7 +35,7 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
       children,
       gradientBackground = 'light-900',
       lastChildNotClickable = true,
-      separator = <RightIcon size="sm" />,
+      separator = <RightIcon size="xs" />,
       ...rest
     },
     ref
