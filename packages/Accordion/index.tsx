@@ -29,7 +29,7 @@ export const Accordion = forwardRef<'div', AccordionProps>(
     return (
       <S.Accordion ref={ref} {...rest}>
         <S.Disclosure state={disclosure}>
-          {title}
+          {title} coco
           <S.Icon open={isOpen}>{cloneElement(icon, { size: 'sm' })}</S.Icon>
         </S.Disclosure>
         <S.Content state={disclosure}>

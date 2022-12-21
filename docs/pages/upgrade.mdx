@@ -78,6 +78,17 @@ We change the name of variants to `XS` `S` `M` and remove useless variants.
 - We have adjusted colors and spacing.
 - **Modal.Title** is now named **Modal.Header** and has props `title` (mandatory) and `subtitle` (optional).
 - **Modal.Cover** has been removed.
+- We change some properties and remove Trigger component
+  - Trigger is removed, directly call show state function on click on your component
+  ```js
+  const modalState = useModalState()
+  <Button onClick={modalState.show}>open</Button>
+  ```
+  - Now the modal state need to be passed to Dialog with `state` property
+  ```js
+  const modalState = useModalState()
+  <Modal state={modalState}>Modal</Modal>
+  ```
 
 ### Alert / Toast / Growl
 
@@ -122,7 +133,7 @@ See more about [showOpenFilePicker](https://developer.mozilla.org/en-US/docs/Web
 
 ### Accordion
 
-We changed the `visible` property to `open`.
+We changed the `visible` property to `open`
 
 ### Icons
 

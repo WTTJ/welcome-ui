@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { InputText } from '@welcome-ui/input-text'
 import { FixedSizeList, ListChildComponentProps } from 'react-window'

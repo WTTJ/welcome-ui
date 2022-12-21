@@ -1,12 +1,5 @@
-/* eslint-disable react/no-multi-comp */
-import React, { Children, cloneElement, useMemo, useRef } from 'react'
-import {
-  DialogDisclosure,
-  DialogInitialState,
-  DialogStateReturn,
-  useDialogState,
-} from 'reakit/Dialog'
-import { DisclosureActions } from 'reakit/Disclosure'
+import React, { Children, cloneElement, useEffect, useMemo, useRef } from 'react'
+import { DialogState, DialogStateProps, useDialogState } from 'ariakit/dialog'
 import { BoxProps } from '@welcome-ui/box'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { useTheme } from '@xstyled/styled-components'
@@ -22,16 +15,16 @@ export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 export interface ModalOptions {
   ariaLabel: string
   closeElement?: React.ElementType
-  hide?: DisclosureActions['hide']
   hideOnClickOutside?: boolean
   onClose?: () => void
   size?: Size
   children: JSX.Element | JSX.Element[]
+  state: DialogState
 }
 
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
-export type ModalInitialState = DialogInitialState
-export type ModalStateReturn = DialogStateReturn
+export type ModalInitialState = DialogStateProps
+export type ModalStateReturn = DialogState
 
 export function useModalState(options?: ModalInitialState): ModalStateReturn {
   return useDialogState({ animated: true, ...options })
@@ -42,14 +35,13 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     {
       ariaLabel,
       children,
-      hide,
       hideOnClickOutside = true,
       onClose,
       closeElement: CloseElement = Close,
       size = 'lg',
       tabIndex,
       dataTestId,
-      ...rest
+      state,
     },
     ref
   ) => {
@@ -109,36 +101,47 @@ const ModalComponent = forwardRef<'div', ModalProps>(
       return {}
     }
 
-    const closeModal = () => {
+    const handleClose = () => {
       onClose?.()
-      hide()
+      state.hide()
     }
 
-    return (
-      <S.Backdrop {...rest} hideOnClickOutside={hideOnClickOutside}>
-        <S.Dialog
-          aria-label={ariaLabel}
-          data-testid={dataTestId}
-          hide={closeModal}
-          hideOnClickOutside={hideOnClickOutside}
-          ref={ref}
-          size={size}
-          tabIndex={tabIndex}
-          {...rest}
-        >
-          <CloseElement onClick={closeModal} />
-          {Children.map(children, (child: JSX.Element) => {
-            if (!child) return null
-            const name = child?.type?.displayName || child?.type?.name
+    useEffect(() => {
+      if (state.open === false) {
+        onClose?.()
+      }
+    }, [onClose, state.open])
 
-            return cloneElement(child, {
-              ref: setRef(name),
-              ...getStyles(name),
-              ...child.props,
-            })
-          })}
-        </S.Dialog>
-      </S.Backdrop>
+    return (
+      <S.Dialog
+        aria-label={ariaLabel}
+        backdrop={S.Backdrop}
+        backdropProps={{
+          // TODO: check typescript when ariakit is not in alpha
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          hideOnClickOutside,
+        }}
+        data-testid={dataTestId}
+        hideOnEscape={hideOnClickOutside}
+        hideOnInteractOutside={hideOnClickOutside}
+        ref={ref}
+        size={size}
+        state={state}
+        tabIndex={tabIndex}
+      >
+        <CloseElement onClick={handleClose} />
+        {Children.map(children, (child: JSX.Element) => {
+          if (!child) return null
+          const name = child?.type?.displayName || child?.type?.name
+
+          return cloneElement(child, {
+            ref: setRef(name),
+            ...getStyles(name),
+            ...child.props,
+          })
+        })}
+      </S.Dialog>
     )
   }
 )
@@ -161,7 +164,6 @@ const Cover: React.FC<ShapeProps> = props => {
 
 // Nested exports
 export const Modal = Object.assign(ModalComponent, {
-  Trigger: DialogDisclosure,
   Header,
   Content,
   Footer,

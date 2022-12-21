@@ -17,22 +17,22 @@ import {
 
 ## About
 
-Modal from [Reakit](https://reakit.io/docs/dialog/) with a really nice theme 👀
+Modal from [Ariakit](https://ariakit.org/components/dialog) with a really nice theme 👀
 
 ## Usage
 
-Use `useModalState`, `Modal`, `Modal.Trigger` and `<Modal.Content />` to create a simple Modal.
+Use `useModalState`, `Modal` and `<Modal.Content />` to create a simple Modal.
 
 ```jsx
 function() {
-  const modal = useModalState()
+  const modalState = useModalState()
 
   return (
     <>
-      <Modal.Trigger as={Button} {...modal}>
+      <Button onClick={modalState.show}>
         Open modal
-      </Modal.Trigger>
-      <Modal {...modal} ariaLabel="example">
+      </Button>
+      <Modal state={modalState} ariaLabel="example">
         <Modal.Content>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
@@ -56,27 +56,42 @@ By default size is set to `lg`. If you don't want a size (fit on content), set s
 
 ```jsx
 function() {
-  const modal = useModalState()
+  const modalState = useModalState()
   const [size, setSize] = React.useState()
 
   return (
     <Stack direction="row">
-      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('xs')}>
+      <Button onClick={() => {
+        setSize('xs')
+        modalState.show()
+      }}>
         xs
-      </Modal.Trigger>
-      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('sm')}>
+      </Button>
+      <Button onClick={() => {
+        setSize('sm')
+        modalState.show()
+      }}>
         sm
-      </Modal.Trigger>
-      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('md')}>
+      </Button>
+      <Button onClick={() => {
+        setSize('md')
+        modalState.show()
+      }}>
         md
-      </Modal.Trigger>
-      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('lg')}>
+      </Button>
+      <Button onClick={() => {
+        setSize('lg')
+        modalState.show()
+      }}>
         lg
-      </Modal.Trigger>
-      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('auto')}>
+      </Button>
+      <Button onClick={() => {
+        setSize('auto')
+        modalState.show()
+      }}>
         auto
-      </Modal.Trigger>
-      <Modal {...modal} size={size} ariaLabel="size example">
+      </Button>
+      <Modal state={modalState} size={size} ariaLabel="size example">
         <Modal.Content>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
@@ -100,9 +115,9 @@ Use `Modal.Header` and `Modal.Footer` to style your Modal.
 
 ```jsx
 function() {
-  const modal = useModalState()
-  const modal2 = useModalState()
-  const modal3 = useModalState()
+  const modalState = useModalState()
+  const modalState2 = useModalState()
+  const modalState3 = useModalState()
   const title = "Nullam non lacinia"
   const subtitle = "Praesent sit amet quam ac velit faucibus dapibus, quisque sapien ligula."
   const icon = <ActionsIcon w={40} h={40} color="dark-900" />
@@ -115,10 +130,10 @@ function() {
 
   return (
     <Stack direction="row">
-      <Modal.Trigger as={Button} {...modal}>
+      <Button onClick={modalState.show}>
         Example modal
-      </Modal.Trigger>
-      <Modal {...modal} ariaLabel="example">
+      </Button>
+      <Modal state={modalState} ariaLabel="example">
         <Modal.Header title={title} subtitle={subtitle} icon={icon}/>
         <Modal.Content>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -144,15 +159,15 @@ function() {
         <Modal.Footer informations={informations}>
           <Box w="100%">
             <Button variant="secondary" mr="sm">Lorem dolir</Button>
-            <Button onClick={() => modal.hide()}>Close</Button>
+            <Button onClick={modalState.hide}>Close</Button>
           </Box>
         </Modal.Footer>
       </Modal>
 
-      <Modal.Trigger as={Button} {...modal2}>
+      <Button onClick={modalState2.show}>
         Example modal 2
-      </Modal.Trigger>
-      <Modal {...modal2} ariaLabel="example-2">
+      </Button>
+      <Modal state={modalState2} ariaLabel="example-2">
         <Modal.Header title={title} subtitle={subtitle} />
         <Modal.Content>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -178,15 +193,15 @@ function() {
         <Modal.Footer>
           <Box w="100%">
             <Button variant="secondary" mr="sm">Lorem dolir</Button>
-            <Button onClick={() => modal.hide2()}>Close</Button>
+            <Button onClick={modalState2.hide}>Close</Button>
           </Box>
         </Modal.Footer>
       </Modal>
 
-      <Modal.Trigger as={Button} {...modal3}>
+      <Button onClick={modalState3.show}>
         Example modal 3
-      </Modal.Trigger>
-      <Modal {...modal3} ariaLabel="example-3">
+      </Button>
+      <Modal state={modalState3} ariaLabel="example-3">
         <Modal.Header title={title} icon={icon} />
         <Modal.Content>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -206,17 +221,48 @@ function() {
 }
 ```
 
+## Not close on click outside the modal
+
+Use `hideOnClickOutside`to `false` to not hide modal when you click on the backdrop, or you press the Escape key.
+
+```jsx
+function() {
+  const modalState = useModalState()
+
+  return (
+    <>
+      <Button onClick={modalState.show}>
+        Open modal
+      </Button>
+      <Modal state={modalState} ariaLabel="example" hideOnClickOutside={false}>
+        <Modal.Content>
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+          nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
+          felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
+          eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
+          orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
+          In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
+          quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
+          ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
+        </Modal.Content>
+      </Modal>
+    </>
+  )
+}
+```
+
 ## useModalState
 
-We use `useDialogState` from [Reakit Dialog](https://reakit.io/docs/dialog/#usedialogstate) for the state of the modal.
+We use `useDialogState` from [Ariakit Dialog](https://ariakit.org/components/dialog) for the state of the modal.
 
 Pass options to `useModalState` :
 
-- `visible`: e.g. `const modal = useModalState({ visible: true })`
+- `open`: e.g. `const modal = useModalState({ open: true })`
 
 And the hook returns (among other things):
 
-- `visible` : whether the modal is currently visible
+- `open` : whether the modal is currently open
 - `hide` : a function to hide the modal
 
 ## Properties

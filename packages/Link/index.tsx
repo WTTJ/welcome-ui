@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React, { Children, cloneElement, useEffect, useRef, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
 import { UniversalLinkOptions } from '@welcome-ui/universal-link'

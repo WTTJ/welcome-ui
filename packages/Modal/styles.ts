@@ -2,11 +2,11 @@ import styled, { css, system, th, up } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import { cardStyles } from '@welcome-ui/utils'
-import { DialogBackdrop, Dialog as ReakitDialog } from 'reakit/Dialog'
+import { Dialog as AriakitDialog } from 'ariakit/dialog'
 
 import { Size } from './index'
 
-export const Backdrop = styled(DialogBackdrop).withConfig({
+export const Backdrop = styled.div.withConfig({
   shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop),
 })<{ hideOnClickOutside: boolean }>(
   ({ hideOnClickOutside }) => css`
@@ -14,14 +14,8 @@ export const Backdrop = styled(DialogBackdrop).withConfig({
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
-    ${system};
 
     ${hideOnClickOutside &&
     css`
@@ -35,7 +29,7 @@ export const Backdrop = styled(DialogBackdrop).withConfig({
   `
 )
 
-export const Dialog = styled(ReakitDialog)<{ size: Size }>(
+export const Dialog = styled(AriakitDialog)<{ size: Size }>(
   ({ size }) => css`
     ${cardStyles};
     ${th('modals.default')};
