@@ -86,7 +86,7 @@
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
     "@rollup/plugin-babel": "^6.0.0",
-    "@rollup/plugin-json": "^5.0.1",
+    "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
     "@rollup/plugin-replace": "^5.0.0",
     "@testing-library/dom": "8.19.0",
