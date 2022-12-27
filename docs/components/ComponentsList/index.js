@@ -46,11 +46,11 @@ export const ComponentsList = ({ onClick, ...props }) => {
                 <Link href={`/components/${slugify(item)}`} passHref>
                   <S.Item>
                     {item}
-                    {newItems.includes(slugify(item)) ? (
+                    {newItems.includes(slugify(item)) && (
                       <Badge size="sm" variant="primary">
                         new
                       </Badge>
-                    ) : null}
+                    )}
                   </S.Item>
                 </Link>
               </S.Li>

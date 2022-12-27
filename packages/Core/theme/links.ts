@@ -17,7 +17,7 @@ export type ThemeLinks = {
 }
 
 export const getLinks = (theme: WuiTheme): ThemeLinks => {
-  const { colors, fontWeights, icons, transitions } = theme
+  const { colors, fontWeights, icons, space, transitions } = theme
 
   return {
     default: {
@@ -26,7 +26,7 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
       transition: transitions.medium,
     },
     withExternalLink: {
-      backgroundSize: `calc(100% - ${icons.sm} - 4px) 50%`,
+      backgroundSize: `calc(100% - ${icons.sm} - ${space.xs}) 50%`,
     },
     disabled: {
       color: colors['dark-400'],

@@ -18,6 +18,8 @@ export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{
     cursor: pointer;
 
     > .wui-text {
+      margin-right: -2px;
+      margin-left: -2px;
       padding-left: 2px;
       padding-right: 2px;
       ${th('underline.default')};
