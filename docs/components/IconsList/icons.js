@@ -95,6 +95,7 @@ export const miscellaneous = [
   'male',
   'home',
   'information',
+  'information_outline',
   'kanban',
   'language',
   'suitcase',
