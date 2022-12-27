@@ -1,4 +1,4 @@
-import styled, { th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { Link } from '@welcome-ui/link'
 
@@ -22,28 +22,30 @@ export const MainTitle = styled(Box)`
   margin-bottom: lg;
 `
 
-export const Item = styled(Link)`
-  padding-bottom: xs;
-  margin-bottom: xs;
+export const Item = styled(Link)(
+  ({ theme }) => css`
+    padding-bottom: xs;
+    margin-bottom: xs;
 
-  > .wui-text {
-    font-weight: regular;
-    background-size: 0% 50% !important;
-  }
-
-  &:hover {
     > .wui-text {
-      color: dark-900;
-      background-size: 100% 50% !important;
+      font-weight: regular;
+      color: dark-900 !important;
+      background-image: linear-gradient(0deg, transparent, transparent 100%) !important;
     }
-  }
 
-  &[aria-current='page'] {
-    > .wui-text {
-      color: dark-900;
-      font-weight: bold;
-      background-size: 100% 50% !important;
-      background-position-y: 100%;
+    &:hover {
+      > .wui-text {
+        background-size: 100% 100% !important;
+        background-image: ${`linear-gradient(0deg, ${theme.colors['primary-500']}, ${theme.colors['primary-500']} 100%)`} !important;
+      }
     }
-  }
-`
+
+    &[aria-current='page'] {
+      > .wui-text {
+        font-weight: bold;
+        background-size: 100% 100% !important;
+        background-image: ${`linear-gradient(0deg, ${theme.colors['primary-500']}, ${theme.colors['primary-500']} 100%)`} !important;
+      }
+    }
+  `
+)

@@ -1,18 +1,17 @@
-
 import { Box } from '@welcome-ui/box'
 import React from 'react'
+import { Badge } from '@welcome-ui/badge'
 
 import { slugify } from '../../utils'
 
 import { CATEGORIES, ITEMS } from './items'
 import { Link } from './Link'
-import { Badge } from '@welcome-ui/badge'
 import * as S from './styles'
 import { VersionSelector } from './VersionSelector'
 
 const newItems = ['slider']
 
-export function ComponentsList({ onClick, ...props }) {
+export const ComponentsList = ({ onClick, ...props }) => {
   return (
     <>
       <VersionSelector />
@@ -47,11 +46,11 @@ export function ComponentsList({ onClick, ...props }) {
                 <Link href={`/components/${slugify(item)}`} passHref>
                   <S.Item>
                     {item}
-                    {newItems.includes(slugify(item)) ?
-                      <Badge size="sm" variant="primary">new</Badge>
-                    :
-                      ''
-                    }
+                    {newItems.includes(slugify(item)) && (
+                      <Badge size="sm" variant="primary">
+                        new
+                      </Badge>
+                    )}
                   </S.Item>
                 </Link>
               </S.Li>

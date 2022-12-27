@@ -27,33 +27,31 @@ Can be `primary` by default or `secondary`
 
 ```jsx
 <Box>
-  <Link href="#">primary link</Link>
+  <Link href="#random-link-primary">primary link</Link>
 </Box>
 <Box>
-  <Link href="#" variant="secondary">
+  <Link href="#random-link-secondary" variant="secondary">
     secondary link
   </Link>
 </Box>
-```
-
-It can also be `disabled`
-
-```jsx
-<Link disabled href="#">
-  primary link
-</Link>
-```
-
-## It works on multiple lines too
-
-```jsx
+Example with multiple lines
 <Box>
-  <Link href="#" display="inline" variant="primary">
+  <Link href="#random-link-multiple-lines" display="inline" variant="primary">
     Ipsum ipsam fugiat doloribus sit hic ducimus dolorem Aperiam unde adipisci deserunt corporis
     neque commodi. Quasi odit esse molestias reprehenderit incidunt Velit non expedita atque
     exercitationem enim! Quidem quasi nihil.
   </Link>
 </Box>
+```
+
+### Disabled
+
+Add `disabled` property
+
+```jsx
+<Link disabled href="#">
+  disabled link
+</Link>
 ```
 
 ## What is underlined by default?
@@ -89,10 +87,20 @@ For a target `_blank` we add `rel='noopener noreferrer'`
 </Link>
 ```
 
+## External link
+
+`isExternalLink` add an `<ExternalLink />` icon, and add special effect on hover.
+
+```jsx
+<Link href="#" target="_blank" isExternalLink>
+  External link
+</Link>
+```
+
 ## Usage with React Router
 
 <code>
-  {`import { Link as RouterLink } from 'react-router-dom'
+{`import { Link as RouterLink } from 'react-router-dom'
 
 <Link as={RouterLink} to="/jobs">
   Jobs

@@ -12,7 +12,7 @@ describe('<Link>', () => {
     const link = getByTestId('link')
 
     expect(link).toHaveTextContent(content)
-    expect(link).toHaveStyleRule('color', 'rgba(0,0,0,1)')
+    expect(link).toHaveStyleRule('color', 'inherit')
   })
 
   it('should render correctly with a target blank', () => {

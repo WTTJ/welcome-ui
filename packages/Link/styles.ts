@@ -4,8 +4,11 @@ import { shouldForwardProp } from '@welcome-ui/system'
 
 import { Variant } from './index'
 
-export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{ variant: Variant }>(
-  ({ variant }) => css`
+export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{
+  variant: Variant
+  isExternalLink?: boolean
+}>(
+  ({ isExternalLink, variant = 'primary' }) => css`
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -14,19 +17,33 @@ export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{ va
     text-decoration: none;
     cursor: pointer;
 
+    > .wui-text {
+      margin-right: -2px;
+      margin-left: -2px;
+      padding-left: 2px;
+      padding-right: 2px;
+      ${th('underline.default')};
+      ${th('links.default')};
+      ${th(`links.${variant}.default`)};
+      ${isExternalLink && th('links.withExternalLink')};
+    }
+
     &:hover,
     &:focus {
-      ${th(`links.${variant || 'primary'}.hover`)};
-      outline: none !important; /* important for firefox */
+      > .wui-text {
+        ${th('underline.hover')};
+        ${th(`links.${variant}.hover`)};
+        outline: none !important;
+      }
     }
 
     &[disabled] {
-      opacity: 0.5;
+      > .wui-text {
+        ${th('links.disabled')};
+      }
       pointer-events: none;
     }
 
-    ${th('links.default')};
-    ${th(`links.${variant || 'primary'}.default`)};
     ${system};
 
     & > *:not(:only-child):not(:last-child) {
