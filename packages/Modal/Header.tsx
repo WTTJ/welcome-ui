@@ -11,7 +11,7 @@ export interface HeaderOptions {
   icon?: ReactElement
 }
 
-export type HeaderProps = HeaderOptions & BoxProps
+export type HeaderProps = HeaderOptions & Omit<BoxProps, keyof HeaderOptions>
 
 /**
  * @name Modal.Header
