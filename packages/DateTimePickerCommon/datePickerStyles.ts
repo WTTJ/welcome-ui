@@ -234,7 +234,9 @@ export const datePickerStyles = css`
     border-left-color: #ccc;
   }
 
-  .react-datepicker__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button) {
+  .react-datepicker__navigation--next--with-time:not(
+      .react-datepicker__navigation--next--with-today-button
+    ) {
     right: 80px;
   }
 
