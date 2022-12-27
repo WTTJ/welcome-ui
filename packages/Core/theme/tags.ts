@@ -62,7 +62,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
         borderColor: colors['nude-400'],
         ...border,
       },
-      primary: { ...withoutVisibleBorder(colors['primary-500']), color: colors['light-900'] },
+      primary: { ...withoutVisibleBorder(colors['primary-500']), color: colors['dark-900'] },
       secondary: {
         backgroundColor: colors['sub-5'],
         color: colors['dark-900'],

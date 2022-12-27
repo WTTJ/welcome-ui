@@ -130,7 +130,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
     checkablelabel: {
       default: {},
       checked: {
-        color: colors['dark-200'],
+        color: colors['dark-900'],
         '-webkit-text-stroke': '0.04em',
       },
     },

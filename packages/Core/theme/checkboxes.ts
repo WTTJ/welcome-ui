@@ -20,6 +20,7 @@ export const getCheckboxes = (theme: WuiTheme): ThemeCheckboxes => {
       borderColor: colors['nude-600'],
     },
     checked: {
+      color: theme.colors['dark-900'],
       backgroundColor: colors['primary-500'],
       borderColor: colors['primary-500'],
     },

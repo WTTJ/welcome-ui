@@ -6,16 +6,6 @@ type RecursivePartial<T> = {
   [P in keyof T]?: T[P] | RecursivePartial<T[P]>
 }
 
-const palette = {
-  // dark nudes
-  isabelline: '#22201E',
-  pampas: '#3D3A37',
-  timberwolf: '#504E4B',
-  naturalgray: '#8B8987',
-  ironside: '#A8A6A5',
-  dune: '#C5C4C3',
-}
-
 export const colors = {
   ...theme.colors,
   'light-100': theme.colors['dark-100'],
@@ -30,12 +20,12 @@ export const colors = {
   'dark-500': theme.colors['light-500'],
   'dark-700': theme.colors['light-700'],
   'dark-900': theme.colors['light-900'],
-  'nude-100': palette.isabelline,
-  'nude-200': palette.pampas,
-  'nude-400': palette.timberwolf,
-  'nude-600': palette.naturalgray,
-  'nude-700': palette.ironside,
-  'nude-900': palette.dune,
+  'nude-100': '#252B2B',
+  'nude-200': '#444E4E',
+  'nude-400': '#576060',
+  'nude-600': '#8F9595',
+  'nude-700': '#8F9595',
+  'nude-900': '#C7CACA',
   border: theme.colors['light-200'],
 }
 

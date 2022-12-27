@@ -6,7 +6,7 @@ import { colors } from './theme/colors'
 test('core theme has the correct color for buttons.primary.color', () => {
   const theme = createTheme()
 
-  expect(theme.buttons.primary.color).toBe(colors['light-900'])
+  expect(theme.buttons.primary.color).toBe(colors['dark-900'])
 })
 
 test('welcomeTheme correctly overwrites core theme.buttons with its custom styles', () => {
