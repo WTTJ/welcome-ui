@@ -47,13 +47,9 @@ export const AbstractLink = styled.a`
   }
 `
 
-export const ArrowLink = styled(AbstractLink)<{ isDisabled: boolean }>(
-  ({ isDisabled }) => css`
-    ${isDisabled &&
-    css`
-      color: nude-700;
-      background-color: nude-400;
-    `}
+export const ArrowLink = styled(AbstractLink)<{ disabled: boolean }>(
+  props => css`
+    ${props['aria-disabled'] && th('paginations.disabled')}
   `
 )
 

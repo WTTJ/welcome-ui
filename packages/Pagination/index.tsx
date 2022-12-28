@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react'
-import { Rover, useRoverState } from 'reakit/Rover'
+import { Composite, CompositeItem, useCompositeState } from 'ariakit/composite'
 import { LeftIcon, RightIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
@@ -33,49 +33,58 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
     },
     ref
   ) => {
-    const rover = useRoverState()
+    const compositeState = useCompositeState()
     const pages = usePages({ page, pageCount, rangeDisplay })
     const firstPageRef = useRef<HTMLButtonElement>(null)
     const lastPageRef = useRef<HTMLButtonElement>(null)
+
     const handlePrevious = useCallback(
       (event: React.MouseEvent) => {
         event.preventDefault()
         const previousPage = page - 1
+
         if (previousPage === 1) {
           firstPageRef.current.focus()
         }
+
         onChange(previousPage)
       },
       [page, onChange]
     )
+
     const handleNext = useCallback(
       (event: React.MouseEvent) => {
         event.preventDefault()
         const nextPage = page + 1
+
         if (nextPage === pageCount) {
           lastPageRef.current.focus()
         }
+
         onChange(nextPage)
       },
       [page, pageCount, onChange]
     )
 
+    const handleItemClick = (event: React.ChangeEvent<HTMLAnchorElement>) => {
+      event.preventDefault()
+      onChange(Number(event.target.ariaLabel))
+    }
+
     return (
       <S.Pagination aria-label={ariaLabel} ref={ref} role="navigation">
         <S.List>
           <S.Item>
-            <Rover as={undefined} disabled={page === 1} {...rover}>
-              {roverProps => (
-                <S.ArrowLink
-                  {...roverProps}
-                  href={getHref && getHref(page - 1)}
-                  isDisabled={page === 1}
-                  onClick={handlePrevious}
-                >
-                  {leftArrow || <LeftIcon size="sm" />}
-                </S.ArrowLink>
-              )}
-            </Rover>
+            <Composite state={compositeState}>
+              <CompositeItem
+                as={S.ArrowLink}
+                disabled={page === 1}
+                href={getHref && getHref(page - 1)}
+                onClick={handlePrevious}
+              >
+                {leftArrow || <LeftIcon size="sm" />}
+              </CompositeItem>
+            </Composite>
           </S.Item>
           {pages.map((iPage: string | number, i: number) =>
             iPage === '-' ? (
@@ -85,41 +94,32 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
               </S.Item>
             ) : (
               <S.Item key={iPage}>
-                <Rover
-                  as={undefined}
-                  ref={iPage === 1 ? firstPageRef : iPage === pageCount ? lastPageRef : null}
-                  {...rover}
-                >
-                  {roverProps => (
-                    <S.PageLink
-                      {...roverProps}
-                      aria-current={iPage === page}
-                      href={getHref && getHref(iPage)}
-                      onClick={event => {
-                        event.preventDefault()
-                        onChange(iPage)
-                      }}
-                    >
-                      {iPage}
-                    </S.PageLink>
-                  )}
-                </Rover>
+                <Composite state={compositeState}>
+                  <CompositeItem
+                    aria-current={iPage === page}
+                    aria-label={iPage}
+                    as={S.PageLink}
+                    href={getHref && getHref(iPage)}
+                    onClick={handleItemClick}
+                    ref={iPage === 1 ? firstPageRef : iPage === pageCount ? lastPageRef : null}
+                  >
+                    {iPage}
+                  </CompositeItem>
+                </Composite>
               </S.Item>
             )
           )}
           <S.Item>
-            <Rover as={undefined} disabled={page === pageCount} {...rover}>
-              {roverProps => (
-                <S.ArrowLink
-                  {...roverProps}
-                  href={getHref && getHref(page + 1)}
-                  isDisabled={page === pageCount}
-                  onClick={handleNext}
-                >
-                  {rightArrow || <RightIcon size="sm" />}
-                </S.ArrowLink>
-              )}
-            </Rover>
+            <Composite state={compositeState}>
+              <CompositeItem
+                as={S.ArrowLink}
+                disabled={page === pageCount}
+                href={getHref && getHref(page + 1)}
+                onClick={handleNext}
+              >
+                {rightArrow || <RightIcon size="sm" />}
+              </CompositeItem>
+            </Composite>
           </S.Item>
         </S.List>
       </S.Pagination>
