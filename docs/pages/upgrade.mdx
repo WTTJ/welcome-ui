@@ -135,6 +135,26 @@ See more about [showOpenFilePicker](https://developer.mozilla.org/en-US/docs/Web
 
 We changed the `visible` property to `open`
 
+### Popover
+
+We not destrucuring the popover state anymore:
+
+```js
+const popoverState = useModalState()
+<Popover.Trigger state={popoverState}>open</Popover.Trigger>
+<Popover state={popoverState}>your popover description</Popover>
+```
+
+### EmojiPicker
+
+We not destrucuring the emojiPicker state anymore:
+
+```js
+const emojiPicker = useEmojiPicker()
+<EmojiPicker.Trigger state={emojiPicker}>open</EmojiPicker.Trigger>
+<EmojiPicker state={emojiPicker}>your popover description</EmojiPicker>
+```
+
 ### Icons
 
 We rework our icon size:

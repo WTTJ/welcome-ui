@@ -40,13 +40,14 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
       popoverAriaLabel = 'Emoji picker',
       tabListAriaLabel = 'Emoji picker tabs',
       value,
-      ...popoverState
+      state,
     },
     ref
   ) => {
     const tabState = useTabState(defaultTabState)
+    const { hide, open } = state
 
-    const hidePopover = useMemo(() => popoverState.hide, [popoverState.hide])
+    const hidePopover = useMemo(() => hide, [hide])
     const handleChange = useCallback(
       (value: string) => {
         hidePopover()
@@ -64,7 +65,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
               // Disabling type check since missing props are injected below with the "cloneElement"
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
-              <BasicList isVisible={popoverState.visible} onChange={handleChange} value={value} />
+              <BasicList isVisible={open} onChange={handleChange} value={value} />
             ),
           },
         ]
@@ -84,9 +85,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
               content: cloneElement(child, {
                 emptyList,
                 inputSearchPlaceholder,
-                isVisible:
-                  popoverState.visible &&
-                  (!tabState.selectedId || tabState.selectedId === tab.props.name),
+                isVisible: open && (!tabState.selectedId || tabState.selectedId === tab.props.name),
                 onChange: handleChange,
                 value,
                 ...child.props,
@@ -104,7 +103,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
       emptyList,
       handleChange,
       inputSearchPlaceholder,
-      popoverState.visible,
+      open,
       tabState.selectedId,
       value,
     ])
@@ -112,7 +111,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
     const onlyTabContent = tabs[0].content
 
     return (
-      <S.Popover aria-label={popoverAriaLabel} ref={ref} {...popoverState}>
+      <Popover aria-label={popoverAriaLabel} ref={ref} state={state}>
         {hasTabs && (
           <>
             <S.TabList aria-label={tabListAriaLabel} {...tabState}>
@@ -130,7 +129,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
           </>
         )}
         {!hasTabs && <Panel>{onlyTabContent}</Panel>}
-      </S.Popover>
+      </Popover>
     )
   }
 )
@@ -141,6 +140,7 @@ export const useEmojiPicker: (options?: UsePopoverStateProps) => UsePopoverState
   usePopoverState({
     placement: 'bottom-start',
     ...options,
+    withLightBackground: true,
   })
 
 export const EmojiPicker = Object.assign(EmojiPickerComponent, {

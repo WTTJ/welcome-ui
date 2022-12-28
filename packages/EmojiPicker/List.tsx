@@ -296,7 +296,6 @@ const EmojiRow: React.FC<EmojiRowProps> = ({ data, index, style }) => {
       <Text
         alignItems="center"
         as="span"
-        color="light-100"
         display="flex"
         px="xl"
         style={style}

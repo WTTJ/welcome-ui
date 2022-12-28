@@ -1,16 +1,6 @@
 import styled, { system, th } from '@xstyled/styled-components'
 import { Tab } from '@welcome-ui/tabs'
-import { Popover as WUIPopover } from '@welcome-ui/popover'
 import { Box } from '@welcome-ui/box'
-
-export const Popover = styled(WUIPopover)`
-  background-color: light-900;
-  border-width: sm;
-  border-style: solid;
-  border-color: border;
-  color: dark-900;
-  ${system};
-`
 
 export const TabList = styled(Tab.List)`
   padding: 0 md;

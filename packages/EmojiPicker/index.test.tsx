@@ -12,8 +12,8 @@ describe('<EmojiPicker>', () => {
 
       return (
         <>
-          <EmojiPicker.Trigger {...emojiPicker}>open</EmojiPicker.Trigger>
-          <EmojiPicker aria-label="emoji-picker" value={null} {...emojiPicker} />
+          <EmojiPicker.Trigger state={emojiPicker}>open</EmojiPicker.Trigger>
+          <EmojiPicker aria-label="emoji-picker" state={emojiPicker} value={null} />
         </>
       )
     }

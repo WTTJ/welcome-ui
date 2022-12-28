@@ -32,11 +32,11 @@ function Default() {
 
   return (
     <>
-      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+      <EmojiPicker.Trigger as={Button} state={emojiPicker}>
         {emoji ? <Emoji emoji={emoji} /> : 'Open Emoji Picker'}
       </EmojiPicker.Trigger>
 
-      <EmojiPicker onChange={setEmoji} value={emoji} {...emojiPicker} />
+      <EmojiPicker onChange={setEmoji} value={emoji} state={emojiPicker} />
     </>
   )
 }
@@ -53,11 +53,11 @@ function Default() {
 
   return (
     <>
-      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+      <EmojiPicker.Trigger as={Button} state={emojiPicker}>
         {emoji ? <Emoji emoji={emoji} /> : 'Open Emoji Picker'}
       </EmojiPicker.Trigger>
 
-      <EmojiPicker onChange={setEmoji} value={emoji} {...emojiPicker} />
+      <EmojiPicker onChange={setEmoji} value={emoji} state={emojiPicker} />
     </>
   )
 }
@@ -77,15 +77,14 @@ function Tabs() {
 
   return (
     <>
-      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+      <EmojiPicker.Trigger as={Button} state={emojiPicker}>
         {emoji ? <Emoji emoji={emoji} /> : 'Open Emoji Picker'}
       </EmojiPicker.Trigger>
-
       <EmojiPicker
         onChange={setEmoji}
         value={emoji}
         defaultTabState={defaultTabState}
-        {...emojiPicker}
+        state={emojiPicker}
       >
         <EmojiPicker.Tab name="First tab">
           <Box display="flex" alignItems="center" justifyContent="center">
@@ -141,7 +140,7 @@ function Custom() {
 
   return (
     <>
-      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+      <EmojiPicker.Trigger as={Button} state={emojiPicker}>
         {currentEmoji ? (
           <Emoji emoji={currentEmoji.url || currentEmoji.alias} />
         ) : (
@@ -149,7 +148,7 @@ function Custom() {
         )}
       </EmojiPicker.Trigger>
 
-      <EmojiPicker onChange={setEmoji} {...emojiPicker}>
+      <EmojiPicker onChange={setEmoji} state={emojiPicker}>
         <EmojiPicker.Tab name="Custom">
           <EmojiPicker.List emojis={emojis} />
         </EmojiPicker.Tab>
@@ -170,11 +169,11 @@ function BasicList() {
 
   return (
     <>
-      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+      <EmojiPicker.Trigger as={Button} state={emojiPicker}>
         {emoji ? <Emoji emoji={emoji} /> : 'Open Emoji Picker'}
       </EmojiPicker.Trigger>
 
-      <EmojiPicker onChange={setEmoji} {...emojiPicker}>
+      <EmojiPicker onChange={setEmoji} state={emojiPicker}>
         <EmojiPicker.Tab name="Basic">
           <EmojiPicker.BasicList />
         </EmojiPicker.Tab>
@@ -211,11 +210,11 @@ function BasicList() {
 
   return (
     <>
-      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+      <EmojiPicker.Trigger as={Button} state={emojiPicker}>
         {emoji ? <Emoji emoji={emoji} /> : "Ouvrir l'Emoji Picker"}
       </EmojiPicker.Trigger>
 
-      <EmojiPicker onChange={setEmoji} {...emojiPicker} emptyList="Pas d'emojis">
+      <EmojiPicker onChange={setEmoji} state={emojiPicker} emptyList="Pas d'emojis">
         <EmojiPicker.Tab name="Basique">
           <EmojiPicker.BasicList inputSearchPlaceholder="Chercher un emoji" />
         </EmojiPicker.Tab>

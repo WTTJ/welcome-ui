@@ -1,30 +1,25 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { Popover as BasePopover, PopoverArrow, PopoverDisclosure } from 'reakit/Popover'
+import { Popover as AriakitPopover, PopoverArrow, PopoverDisclosure } from 'ariakit/popover'
 
-export const Arrow = styled(PopoverArrow)`
-  color: ${th('popovers.default.backgroundColor')};
-`
-
-export const ArrowItem = styled.svgBox<{ $transform: string }>(
-  ({ $transform }) => css`
-    transform: ${$transform};
-  `
-)
+export const Arrow = styled(PopoverArrow)``
 
 export const Content = styled.div`
   ${th('popovers.content')};
 `
 
 export const Title = styled.h6`
-  margin: 0;
   ${th('popovers.title')};
+  margin: 0;
 `
 
-export const Popover = styled(BasePopover)<{ $withCloseButton: boolean }>(
-  ({ $withCloseButton }) => css`
+export const Popover = styled(AriakitPopover)<{
+  $withCloseButton: boolean
+  $withLightBackground: boolean
+}>(
+  ({ $withCloseButton, $withLightBackground }) => css`
     ${th('popovers.default')};
-    outline: none;
     opacity: 0;
+    outline: none;
     transition: opacity 150ms ease-in-out;
     ${system}
 
@@ -38,6 +33,11 @@ export const Popover = styled(BasePopover)<{ $withCloseButton: boolean }>(
       ${Title} {
         padding-right: 50;
       }
+    `}
+
+    ${$withLightBackground &&
+    css`
+      ${th('popovers.light')};
     `}
   `
 )
