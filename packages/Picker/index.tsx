@@ -1,11 +1,9 @@
 import React from 'react'
-import { RadioGroup as ReakitRadioGroup } from 'reakit/Radio'
+import { Radio, RadioGroup } from 'ariakit/radio'
 import { FieldGroup, FieldGroupOptions } from '@welcome-ui/field-group'
 import { Label } from '@welcome-ui/label'
 import { Box } from '@welcome-ui/box'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-
-import * as S from './styles'
 
 export interface PickerOption {
   element: React.ComponentType<{ selected: boolean }>
@@ -34,7 +32,7 @@ export const Picker = forwardRef<'fieldset', PickerProps>(
     return (
       <FieldGroup
         {...rest}
-        as={ReakitRadioGroup}
+        as={RadioGroup}
         dataTestId={dataTestId}
         mb={0}
         ref={ref}
@@ -48,7 +46,7 @@ export const Picker = forwardRef<'fieldset', PickerProps>(
               key={`${label}-${name}-${optValue}`}
               onClick={handleClick}
             >
-              <S.Radio name={name} value={optValue} />
+              <Box as={Radio} h={0} name={name} value={optValue} w={0} />
               <Component selected={value === optValue} />
             </Label>
           ))}

@@ -34,5 +34,5 @@ test('<Picker> renders', () => {
   )
 
   const selectedItem = container.querySelector('div[data-selected="true"]')
-  expect(selectedItem.textContent).toBe('bar')
+  expect(selectedItem?.textContent).toBe('bar')
 })
