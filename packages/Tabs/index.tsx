@@ -1,12 +1,12 @@
 import React from 'react'
-import { Tab as ReakitTab, TabOptions as ReakitTabOptions } from 'reakit/Tab'
+import { TabOptions as AriakitTabOptions } from 'ariakit/tab'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import { TabList } from './TabList'
 import { TabPanel } from './TabPanel'
 import * as S from './styles'
 
-export type TabOptions = ReakitTabOptions
+export type TabOptions = AriakitTabOptions
 export type TabProps = CreateWuiProps<'button', TabOptions>
 
 /**
@@ -14,13 +14,9 @@ export type TabProps = CreateWuiProps<'button', TabOptions>
  */
 export const TabComponent = forwardRef<'button', TabProps>(({ as, children, id, ...rest }, ref) => {
   return (
-    <ReakitTab as={undefined} id={id} ref={ref} {...rest}>
-      {tabProps => (
-        <S.Tab as={as} {...tabProps}>
-          {children}
-        </S.Tab>
-      )}
-    </ReakitTab>
+    <S.TabButton as={undefined} id={id} ref={ref} {...rest}>
+      <S.Tab as={as}>{children}</S.Tab>
+    </S.TabButton>
   )
 })
 
@@ -28,4 +24,4 @@ TabComponent.displayName = 'Tab'
 
 export const Tab = Object.assign(TabComponent, { List: TabList, Panel: TabPanel })
 
-export { useTabState } from 'reakit/Tab'
+export { useTabState } from 'ariakit/tab'

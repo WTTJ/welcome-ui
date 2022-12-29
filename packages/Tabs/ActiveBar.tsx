@@ -1,22 +1,23 @@
 import React, { useLayoutEffect, useState } from 'react'
 import { useViewportSize } from '@welcome-ui/utils'
-import { TabStateReturn } from 'reakit/Tab'
+import { TabState } from 'ariakit/tab'
 
 import * as S from './styles'
 
 export interface ActiveBarStateReturn {
   offset?: number
   size?: number
-  orientation?: TabStateReturn['orientation']
+  orientation?: TabState['orientation']
 }
 
 function useActiveBarState(
   listRef: React.MutableRefObject<HTMLElement>,
   activeTab: HTMLElement,
-  orientation: TabStateReturn['orientation']
+  orientation: TabState['orientation']
 ): ActiveBarStateReturn {
   const [state, setState] = useState({})
   const { height: viewportHeight, width: viewportWidth } = useViewportSize()
+
   useLayoutEffect(() => {
     const list = listRef.current
     if (!list || !activeTab) return
@@ -51,11 +52,11 @@ export interface ActiveBarOptions {
   listRef: React.MutableRefObject<undefined>
 }
 
-export type ActiveBarProps = Pick<TabStateReturn, 'orientation'> & ActiveBarOptions
+export type ActiveBarProps = Pick<TabState, 'orientation'> & ActiveBarOptions
 
 export const ActiveBar: React.FC<ActiveBarProps> = ({ activeTab, listRef, orientation }) => {
   const activeBar = useActiveBarState(listRef, activeTab, orientation)
-  return <S.ActiveBar {...activeBar} />
+  return <S.ActiveBar data-testid="tabs-active-bar" {...activeBar} />
 }
 
 ActiveBar.displayName = 'ActiveBar'

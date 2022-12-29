@@ -114,15 +114,15 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
       <Popover aria-label={popoverAriaLabel} ref={ref} state={state}>
         {hasTabs && (
           <>
-            <S.TabList aria-label={tabListAriaLabel} {...tabState}>
+            <S.TabList aria-label={tabListAriaLabel} state={tabState}>
               {tabs.map(tab => (
-                <Tab id={tab.name} key={tab.name} {...tabState}>
+                <Tab id={tab.name} key={tab.name}>
                   {tab.name}
                 </Tab>
               ))}
             </S.TabList>
             {tabs.map(tab => (
-              <Tab.Panel key={tab.name} tabId={tab.name} {...tabState}>
+              <Tab.Panel key={tab.name} state={tabState} tabId={tab.name}>
                 <Panel>{tab.content}</Panel>
               </Tab.Panel>
             ))}

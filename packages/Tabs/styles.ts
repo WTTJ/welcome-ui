@@ -1,34 +1,36 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { TabStateReturn } from 'reakit/Tab'
+import { Tab as AriakitTab, TabState } from 'ariakit/tab'
 
 import { ActiveBarStateReturn } from './ActiveBar'
-import { SizeOptions } from './TabList'
+import { Size } from './TabList'
 
-export const TabList = styled.div<{ size: SizeOptions }>(
-  ({ size }) => css`
+export const TabList = styled.divBox<{ $size: Size; $orientation: TabState['orientation'] }>(
+  ({ $orientation, $size }) => css`
     position: relative;
     width: 100%;
     overflow-x: auto;
     display: flex;
     border: 0;
 
-    &[aria-orientation='vertical'] {
-      flex-direction: column;
-      ${th('tabs.tabsBorder.vertical')};
-    }
+    color: red;
 
     ${th('tabs.tabsBorder.horizontal')};
 
+    ${$orientation === 'vertical' &&
+    css`
+      flex-direction: column;
+      ${th('tabs.tabsBorder.vertical')};
+    `}
+
     & > :not(:last-child) {
-      ${th(`tabs.size.${size}`)}
+      ${th(`tabs.size.${$size}`)}
     }
-    ${system};
+
+    ${system}
   `
 )
 
-export const Tab = styled.button`
-  border: 0;
-  background: none;
+export const Tab = styled.span`
   ${th('tabs.item.default')};
   display: flex;
   align-items: center;
@@ -38,26 +40,6 @@ export const Tab = styled.button`
   text-transform: none;
   cursor: pointer;
   gap: sm;
-
-  &:focus {
-    outline: none !important; /* important for firefox */
-    &:not([aria-selected='true']) {
-      ${th('tabs.item.focus')};
-    }
-  }
-
-  &[aria-selected='true'] {
-    ${th('tabs.item.active')};
-  }
-
-  &[aria-disabled='true'] {
-    ${th('tabs.item.disabled')};
-    cursor: auto;
-  }
-
-  &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
-    ${th('tabs.item.focus')};
-  }
 
   & > svg,
   img {
@@ -69,7 +51,47 @@ export const Tab = styled.button`
   }
 `
 
-export const TabPanel = styled.div<Pick<TabStateReturn, 'orientation'>>(
+/** reset default button to render him transparent */
+export const TabButton = styled(AriakitTab)`
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+
+  &:focus {
+    &:not([aria-selected='true']) {
+      ${Tab} {
+        ${th('tabs.item.focus')};
+      }
+    }
+  }
+
+  &[aria-selected='true'] {
+    ${Tab} {
+      ${th('tabs.item.active')}
+    }
+  }
+
+  &[aria-disabled='true'] {
+    ${Tab} {
+      ${th('tabs.item.disabled')};
+      cursor: auto;
+    }
+  }
+
+  &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
+    ${Tab} {
+      ${th('tabs.item.focus')};
+    }
+  }
+`
+
+export const TabPanel = styled.div<Pick<TabState, 'orientation'>>(
   ({ orientation }) => css`
     ${orientation === 'vertical' ? th('tabs.panel.vertical') : th('tabs.panel.horizontal')};
   `

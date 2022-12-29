@@ -43,15 +43,15 @@ export const ThemeHelper = ({ modalState }) => {
           <Modal.Header subtitle="Documentation for the core theme entries" title={title} />
           <Modal.Content mt="xl">
             <Box display="flex">
-              <Tab.List aria-label="Tabs" mr="lg" w={200} {...tabState}>
+              <Tab.List aria-label="Tabs" mr="lg" state={tabState} w={200}>
                 {categories.map(category => (
-                  <Tab key={category} {...tabState} id={category}>
+                  <Tab id={category} key={category}>
                     {category}
                   </Tab>
                 ))}
               </Tab.List>
               {categories.map(category => (
-                <Tab.Panel key={category} {...tabState} tabId={category}>
+                <Tab.Panel key={category} state={tabState} tabId={category}>
                   <Box
                     columnGap={16}
                     display="grid"

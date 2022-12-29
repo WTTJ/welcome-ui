@@ -5,41 +5,37 @@ import { render } from '../../utils/tests'
 
 import { Tab, useTabState } from './index'
 
-function getActiveBar({ getByRole }: { getByRole: (id: string) => HTMLElement }) {
-  const tabList = getByRole('tablist')
-  return tabList.querySelector('span:last-child')
-}
-
 describe('Tabs', () => {
   it('renders an accessible structure', async () => {
     const Tabs = () => {
-      const tab = useTabState({ selectedId: 'tab1' })
+      const tabState = useTabState()
+
       return (
         <>
-          <Tab.List aria-label="Tabs" {...tab}>
-            <Tab data-testid="tab1" id="tab1" {...tab}>
+          <Tab.List aria-label="Tabs" state={tabState}>
+            <Tab data-testid="tab1" id="tab1">
               Tab 1
             </Tab>
-            <Tab data-testid="tab2" id="tab2" {...tab}>
+            <Tab data-testid="tab2" id="tab2">
               Tab 2
             </Tab>
-            <Tab data-testid="tab3" disabled id="tab3" {...tab}>
+            <Tab data-testid="tab3" disabled id="tab3">
               Tab 3
             </Tab>
           </Tab.List>
-          <Tab.Panel data-testid="panel1" tabId="tab1" {...tab}>
+          <Tab.Panel data-testid="panel1" state={tabState} tabId="tab1">
             Panel 1
           </Tab.Panel>
-          <Tab.Panel data-testid="panel2" tabId="tab2" {...tab}>
+          <Tab.Panel data-testid="panel2" state={tabState} tabId="tab2">
             Panel 2
           </Tab.Panel>
-          <Tab.Panel data-testid="panel3" tabId="tab3" {...tab}>
+          <Tab.Panel data-testid="panel3" state={tabState} tabId="tab3">
             Panel 3
           </Tab.Panel>
         </>
       )
     }
-    const { getByRole, getByTestId } = render(<Tabs />)
+    const { getByTestId, queryByTestId } = render(<Tabs />)
     const tab1 = getByTestId('tab1')
     const tab2 = getByTestId('tab2')
     const tab3 = getByTestId('tab3')
@@ -63,7 +59,7 @@ describe('Tabs', () => {
     expect(panel3).toHaveTextContent('Panel 3')
     expect(panel3).toHaveAttribute('hidden')
 
-    const activeBar = getActiveBar({ getByRole })
+    const activeBar = queryByTestId('tabs-active-bar')
     expect(activeBar).toBeInTheDocument()
 
     // Simulate click on second tab
@@ -81,22 +77,21 @@ describe('Tabs', () => {
   describe('with one tab', () => {
     it('does not render active bar', () => {
       const Tabs = () => {
-        const tab = useTabState({ selectedId: 'tab1' })
+        const tabState = useTabState()
+
         return (
           <>
-            <Tab.List aria-label="Tabs" {...tab}>
-              <Tab id="tab1" {...tab}>
-                Tab 1
-              </Tab>
+            <Tab.List aria-label="Tabs" state={tabState}>
+              <Tab id="tab1">Tab 1</Tab>
             </Tab.List>
-            <Tab.Panel tabId="tab1" {...tab}>
+            <Tab.Panel state={tabState} tabId="tab1">
               Panel 1
             </Tab.Panel>
           </>
         )
       }
-      const { getByRole } = render(<Tabs />)
-      const activeBar = getActiveBar({ getByRole })
+      const { queryByTestId } = render(<Tabs />)
+      const activeBar = queryByTestId('tabs-active-bar')
       expect(activeBar).not.toBeInTheDocument()
     })
   })

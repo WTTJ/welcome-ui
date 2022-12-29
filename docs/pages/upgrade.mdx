@@ -155,6 +155,29 @@ const emojiPicker = useEmojiPicker()
 <EmojiPicker state={emojiPicker}>your popover description</EmojiPicker>
 ```
 
+### Tabs
+
+We not destrucuring the tab state anymore:
+
+```js
+function() {
+  const tabState = useTabState()
+
+  return (
+    <>
+      <Tab.List aria-label="Tabs" state={tabState}>
+        <Tab id="tab1">
+          Tab 1
+        </Tab>
+      </Tab.List>
+      <Tab.Panel state={tabState} tabId="tab1">
+        Tab.Panel 1
+      </Tab.Panel>
+    </>
+  )
+}
+```
+
 ### Icons
 
 We rework our icon size:
