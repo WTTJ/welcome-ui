@@ -1,13 +1,7 @@
 import React, { useContext } from 'react'
 import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
 import { TextProps } from '@welcome-ui/text'
-import toastRHT, {
-  Renderable,
-  ToastPosition,
-  Toast as ToastRHT,
-  useToaster,
-  ValueFunction,
-} from 'react-hot-toast/headless'
+import toastRHT, { ToastPosition, useToaster } from 'react-hot-toast/headless'
 
 import { ToastWrapper } from './ToastWrapper'
 import { Growl } from './Growl'
@@ -51,7 +45,7 @@ const Title: React.FC<TextProps> = ({ children, ...rest }) => (
   <S.Title {...rest}>{children}</S.Title>
 )
 
-export const toast = (component: ValueFunction<Renderable, ToastRHT>, options?: ToastOptions) => {
+export const toast = (component: string | JSX.Element, options?: ToastOptions) => {
   const toastOptions = {
     duration: 7000,
     position: 'bottom-center' as ToastPosition,
