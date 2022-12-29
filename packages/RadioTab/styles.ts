@@ -1,10 +1,10 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { Radio as ReakitRadio } from 'reakit/Radio'
+import { Radio as AriakitRadio } from 'ariakit/radio'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles, DefaultFieldStylesProps, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
 
-export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })`
+export const Radio = styled(AriakitRadio).withConfig({ shouldForwardProp })`
   position: absolute;
   top: 0;
   left: 0;

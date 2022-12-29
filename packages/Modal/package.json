@@ -46,7 +46,7 @@
     "@welcome-ui/system": "^5.0.0-alpha.1",
     "@welcome-ui/text": "^5.0.0-alpha.1",
     "@welcome-ui/utils": "^5.0.0-alpha.1",
-    "ariakit": "^2.0.0-next.41"
+    "ariakit": "^2.0.0-next.42"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.0",

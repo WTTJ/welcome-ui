@@ -1,9 +1,9 @@
 import React from 'react'
 import {
-  RadioGroup as ReakitRadioGroup,
-  RadioGroupOptions as ReakitRadioGroupOptions,
+  RadioGroup as AriakitRadioGroup,
+  RadioGroupOptions as AriakitRadioGroupOptions,
   useRadioState,
-} from 'reakit/Radio'
+} from 'ariakit/radio'
 import { FieldGroup, FieldGroupOptions } from '@welcome-ui/field-group'
 import { Radio } from '@welcome-ui/radio'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -23,7 +23,7 @@ export interface RadioGroupOptions {
 
 export type RadioGroupProps = CreateWuiProps<
   'fieldset',
-  Omit<FieldGroupOptions, 'children'> & Partial<ReakitRadioGroupOptions> & RadioGroupOptions
+  Omit<FieldGroupOptions, 'children'> & Partial<AriakitRadioGroupOptions> & RadioGroupOptions
 >
 
 export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
@@ -41,11 +41,18 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
     },
     ref
   ) => {
-    const radio = useRadioState({ currentId: value })
+    const radioState = useRadioState({ activeId: value })
     const withHint = options.findIndex(obj => Object.keys(obj).includes('hint')) !== -1
 
     return (
-      <FieldGroup as={ReakitRadioGroup} label={label} mb={0} ref={ref} required={required}>
+      <FieldGroup
+        as={AriakitRadioGroup}
+        label={label}
+        mb={0}
+        ref={ref}
+        required={required}
+        state={radioState}
+      >
         <S.Radios flexDirection={flexDirection}>
           {options.map(option => (
             <Component
@@ -60,7 +67,6 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
               type="radio"
               value={option.value}
               withHint={withHint}
-              {...radio}
             />
           ))}
         </S.Radios>
