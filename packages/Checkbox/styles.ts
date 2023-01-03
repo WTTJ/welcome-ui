@@ -42,6 +42,10 @@ export const Checkbox = styled(ReakitCheckbox).withConfig({
 
     &[disabled] {
       ${th('checkboxes.disabled')}
+
+      &::after {
+        opacity: ${theme.defaultFields.checkableField.disabled.opacity};
+      }
     }
   `
 )
