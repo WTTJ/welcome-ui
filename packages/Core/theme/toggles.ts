@@ -28,7 +28,8 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
         marginTop: LINE_HEIGHT_ADJUSTMENTS,
 
         '&:focus': {
-          borderColor: colors['primary-500'],
+          borderColor: colors['primary-200'],
+          backgroundColor: colors['primary-200'],
           ...focus(),
         },
       },
