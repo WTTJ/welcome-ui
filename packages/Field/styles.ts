@@ -68,6 +68,14 @@ export const IconWrapper = styled.div<IconWrapperProps>(
     & > button {
       pointer-events: auto;
     }
+
+    ${size === 'xs' &&
+    css`
+      button {
+        width: 16;
+        height: 16;
+      }
+    `}
   `
 )
 
@@ -82,5 +90,12 @@ export const IconGroupWrapper = styled.div(
     align-items: center;
     gap: xs;
     color: dark-900;
+    ${size === 'xs' &&
+    css`
+      button {
+        width: 16;
+        height: 16;
+      }
+    `}
   `
 )
