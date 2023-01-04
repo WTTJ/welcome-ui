@@ -6,7 +6,7 @@ import { shouldForwardProp, WuiProps } from '@welcome-ui/system'
 import { FieldIconSize } from '@welcome-ui/utils'
 
 const rowStyles = css`
-  margin-right: md;
+  margin-right: lg;
 `
 
 const columnStyles = css`
