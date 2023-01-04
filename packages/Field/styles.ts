@@ -15,7 +15,7 @@ const columnStyles = css`
 
 const checkableFieldStyles = css`
   ${th('defaultFields.checkablelabel.default')};
-  margin-bottom: md;
+  margin-bottom: xs;
 `
 
 type StyledFieldProps = {
