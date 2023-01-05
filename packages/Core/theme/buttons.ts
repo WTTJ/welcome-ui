@@ -224,7 +224,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     sizes: {
       xxs: {
         height: toRem(16),
-        width: toRem(16),
+        padding: `${space.xxs} ${space.xs}`,
       },
       xs: {
         height: toRem(24),
@@ -249,12 +249,14 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     icon: {
       only: {
+        xxs: toRem(16),
         xs: toRem(16),
         sm: toRem(16),
         md: toRem(16),
         lg: toRem(24),
       },
       default: {
+        xxs: toRem(12),
         xs: toRem(12),
         sm: toRem(16),
         md: toRem(16),

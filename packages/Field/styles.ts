@@ -72,7 +72,8 @@ export const IconWrapper = styled.div<IconWrapperProps>(
     ${size === 'xs' &&
     css`
       button {
-        ${th('buttons.sizes.xxs')};
+        height: ${th('buttons.sizes.xxs.height')};
+        width: ${th('buttons.sizes.xxs.height')};
       }
     `}
   `
@@ -92,7 +93,8 @@ export const IconGroupWrapper = styled.div(
     ${size === 'xs' &&
     css`
       button {
-        ${th('buttons.sizes.xxs')};
+        height: ${th('buttons.sizes.xxs.height')};
+        width: ${th('buttons.sizes.xxs.height')};
       }
     `}
   `
