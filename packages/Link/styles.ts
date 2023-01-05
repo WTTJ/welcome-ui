@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th, typography } from '@xstyled/styled-components'
 import { UniversalLink } from '@welcome-ui/universal-link'
 import { shouldForwardProp } from '@welcome-ui/system'
 
@@ -26,6 +26,7 @@ export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{
       ${th('links.default')};
       ${th(`links.${variant}.default`)};
       ${isExternalLink && th('links.withExternalLink')};
+      ${typography};
     }
 
     &:hover,
