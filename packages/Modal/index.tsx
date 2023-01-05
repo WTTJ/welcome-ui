@@ -63,7 +63,16 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     const contentScrollHeight = contentRef?.current?.scrollHeight
 
     const components = useMemo(
-      () => Children.map(children, child => child?.type?.displayName || child?.type?.name),
+      () =>
+        Children.map(children, child => {
+          if (child.type === React.Fragment) {
+            return Children.map(
+              child.props.children,
+              _child => _child?.type?.displayName ?? _child?.type?.name
+            )
+          }
+          return child?.type?.displayName ?? child?.type?.name
+        }),
       [children]
     )
 
@@ -129,6 +138,18 @@ const ModalComponent = forwardRef<'div', ModalProps>(
           <CloseElement onClick={closeModal} />
           {Children.map(children, (child: JSX.Element) => {
             if (!child) return null
+            if (child.type === React.Fragment) {
+              return Children.map(child.props.children, _child => {
+                const name = _child?.type?.displayName || _child?.type?.name
+
+                return cloneElement(_child, {
+                  ref: setRef(name),
+                  ...getStyles(name),
+                  ..._child.props,
+                })
+              })
+            }
+
             const name = child?.type?.displayName || child?.type?.name
 
             return cloneElement(child, {
