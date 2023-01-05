@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/core",
-  "version": "5.0.0-alpha.7",
+  "version": "5.0.0-alpha.8",
   "description": "welcome-ui: Core utils",
   "main": "dist/core.cjs.js",
   "module": "dist/core.es.js",
@@ -37,8 +37,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^5.0.0-alpha.1",
-    "@welcome-ui/utils": "^5.0.0-alpha.1",
+    "@welcome-ui/system": "^5.0.0-alpha.8",
+    "@welcome-ui/utils": "^5.0.0-alpha.8",
     "ramda": "^0.28.0"
   },
   "peerDependencies": {

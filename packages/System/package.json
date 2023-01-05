@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/system",
-  "version": "5.0.0-alpha.1",
+  "version": "5.0.0-alpha.8",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/system.cjs.js",
   "module": "dist/system.es.js",

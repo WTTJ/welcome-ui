@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/aspect-ratio",
-  "version": "5.0.0-alpha.1",
+  "version": "5.0.0-alpha.8",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/aspect-ratio.cjs.js",
   "module": "dist/aspect-ratio.es.js",
@@ -38,7 +38,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^5.0.0-alpha.1"
+    "@welcome-ui/box": "^5.0.0-alpha.8"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.0",

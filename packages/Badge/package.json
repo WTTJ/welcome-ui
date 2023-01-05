@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/badge",
-  "version": "5.0.0-alpha.1",
+  "version": "5.0.0-alpha.8",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/badge.cjs.js",
   "module": "dist/badge.es.js",
@@ -38,7 +38,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^5.0.0-alpha.1"
+    "@welcome-ui/system": "^5.0.0-alpha.8"
   },
   "peerDependencies": {
     "react": "^16.10.2 || ^17.0.1 || ^18.0.0",

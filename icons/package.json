@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/icons",
-  "version": "5.0.0-alpha.4",
+  "version": "5.0.0-alpha.8",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/icons.cjs.js",
   "module": "dist/icons.es.js",
@@ -41,6 +41,6 @@
   "homepage": "https://welcome-ui.com/components/icons",
   "component": "Icons",
   "dependencies": {
-    "@welcome-ui/icon": "^5.0.0-alpha.2"
+    "@welcome-ui/icon": "^5.0.0-alpha.8"
   }
 }
