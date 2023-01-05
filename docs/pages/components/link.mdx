@@ -97,6 +97,19 @@ For a target `_blank` we add `rel='noopener noreferrer'`
 </Link>
 ```
 
+## With a Text component
+
+By default link is set to medium on fontWeight, you can force inherit to get the parent style.
+
+```jsx
+<Text variant="h5">
+  A text with h5{' '}
+  <Link href="#" fontWeight="inherit" target="_blank">
+    variant
+  </Link>
+</Text>
+```
+
 ## Usage with React Router
 
 <code>
