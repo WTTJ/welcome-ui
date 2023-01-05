@@ -4,15 +4,22 @@ defaults: &defaults
     - image: cimg/node:16.13.1
 
 version: 2.1
+
+parameters:
+  cache_version:
+    type: string
+    default: v3
+
 orbs:
   aws-s3: circleci/aws-s3@2.0.0
+
 jobs:
   checkout:
     <<: *defaults
     steps:
       - checkout
       - save_cache:
-          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ~/welcome-ui
 
@@ -20,7 +27,7 @@ jobs:
     <<: *defaults
     steps:
       - restore_cache:
-          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn install
       - store_artifacts:
           path: yarn.lock
@@ -35,7 +42,7 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
-          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn lint
 
   test:
@@ -45,7 +52,7 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
-          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn jest --detectOpenHandles $(circleci tests glob "./packages/**/*.test.{ts,js,tsx}" | circleci tests split | xargs)
 
   build_and_release_icon_font:
@@ -54,7 +61,7 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
-          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn icons:collect --force
       - run: yarn webfont:build
       - run:
@@ -81,7 +88,7 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
-          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn icons:build
       - run: yarn build
       - persist_to_workspace:
@@ -99,7 +106,7 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
-          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn docs:build
       - persist_to_workspace:
           root: ~/welcome-ui
@@ -113,7 +120,7 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
-          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: node_modules/.bin/netlify deploy --dir=docs/out --alias $CIRCLE_BRANCH
 
   # current version deploy for production
@@ -123,7 +130,7 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
-          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - aws-s3/sync:
           from: docs/out
           to: s3://welcome-ui/docs_production
@@ -141,7 +148,7 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
-          key: v2-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: build w/ prefix
           command: |
@@ -184,6 +191,8 @@ workflows:
           requires:
             - yarn_install
       - build_and_release_icon_font:
+          context:
+            - aws
           requires:
             - lint
             - test
@@ -200,6 +209,10 @@ workflows:
           requires:
             - build
       - docs_deploy_prod:
+          context:
+            - aws
+            - netlify
+            - welcome-ui
           filters:
             branches:
               ignore: /.*/
@@ -210,12 +223,18 @@ workflows:
             - lint
             - docs_build
       - docs_deploy_preview:
+          context:
+            - netlify
+            - welcome-ui
           requires:
             - test
             - lint
             - docs_build
-
       - previous_docs_versions_build_deploy_prod:
+          context:
+            - aws
+            - netlify
+            - welcome-ui
           filters:
             # should add branches here to keep previous doc version of future majors
             branches:
