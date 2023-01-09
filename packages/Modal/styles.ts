@@ -82,8 +82,8 @@ export const HeaderSubtitle = styled(Text)`
   ${({ theme }) => theme.modals.header.subtitle}
 `
 
-export const Content = styled.sectionBox`
-  ${({ theme }) => theme.modals.content}
+export const Body = styled.sectionBox`
+  ${({ theme }) => theme.modals.body}
 `
 
 export const Footer = styled.footerBox`

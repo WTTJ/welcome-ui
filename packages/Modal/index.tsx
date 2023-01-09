@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp */
-import React, { Children, cloneElement, useMemo, useRef } from 'react'
+import React from 'react'
 import {
   DialogDisclosure,
   DialogInitialState,
@@ -16,6 +16,7 @@ import * as S from './styles'
 import { Close } from './Close'
 import { Header } from './Header'
 import { Footer } from './Footer'
+import { Content } from './Content'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
@@ -26,7 +27,7 @@ export interface ModalOptions {
   hideOnClickOutside?: boolean
   onClose?: () => void
   size?: Size
-  children: JSX.Element | JSX.Element[]
+  children: React.ReactElement
 }
 
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
@@ -41,7 +42,6 @@ const ModalComponent = forwardRef<'div', ModalProps>(
   (
     {
       ariaLabel,
-      children,
       hide,
       hideOnClickOutside = true,
       onClose,
@@ -49,75 +49,11 @@ const ModalComponent = forwardRef<'div', ModalProps>(
       size = 'lg',
       tabIndex,
       dataTestId,
+      children,
       ...rest
     },
     ref
   ) => {
-    const { borderWidths, space } = useTheme()
-    const headerRef = useRef(null)
-    const contentRef = useRef(null)
-    const footerRef = useRef(null)
-    const headerHeight = headerRef?.current?.clientHeight
-    const footerHeight = footerRef?.current?.clientHeight
-    const contentHeight = contentRef?.current?.clientHeight
-    const contentScrollHeight = contentRef?.current?.scrollHeight
-
-    const components = useMemo(
-      () =>
-        Children.map(children, child => {
-          if (child.type === React.Fragment) {
-            return Children.map(
-              child.props.children,
-              _child => _child?.type?.displayName ?? _child?.type?.name
-            )
-          }
-          return child?.type?.displayName ?? child?.type?.name
-        }),
-      [children]
-    )
-
-    const setRef = (name?: string) => {
-      if (name === 'Header') {
-        return headerRef
-      }
-
-      if (name === 'Content') {
-        return contentRef
-      }
-
-      if (name === 'Footer') {
-        return footerRef
-      }
-
-      return undefined
-    }
-
-    const getStyles = (name?: string) => {
-      if (name === 'Header') {
-        return {
-          pb: components.includes('Content') || components.includes('Footer') ? space.lg : null,
-        }
-      }
-      if (name === 'Content') {
-        return {
-          mt: { xs: headerHeight, md: 0 },
-          mb: { xs: footerHeight, md: 0 },
-          pb: components.includes('Footer') ? space.lg : null,
-          pr: components.includes('Header') ? space.xxl : null,
-          pt: components.includes('Header') ? 0 : null,
-        }
-      }
-
-      if (name === 'Footer') {
-        return {
-          pt: components.includes('Header') || components.includes('Content') ? null : space.lg,
-          borderWidth: contentScrollHeight > contentHeight ? borderWidths.sm : '0',
-        }
-      }
-
-      return {}
-    }
-
     const closeModal = () => {
       onClose?.()
       hide()
@@ -136,39 +72,18 @@ const ModalComponent = forwardRef<'div', ModalProps>(
           {...rest}
         >
           <CloseElement onClick={closeModal} />
-          {Children.map(children, (child: JSX.Element) => {
-            if (!child) return null
-            if (child.type === React.Fragment) {
-              return Children.map(child.props.children, _child => {
-                const name = _child?.type?.displayName || _child?.type?.name
-
-                return cloneElement(_child, {
-                  ref: setRef(name),
-                  ...getStyles(name),
-                  ..._child.props,
-                })
-              })
-            }
-
-            const name = child?.type?.displayName || child?.type?.name
-
-            return cloneElement(child, {
-              ref: setRef(name),
-              ...getStyles(name),
-              ...child.props,
-            })
-          })}
+          {children}
         </S.Dialog>
       </S.Backdrop>
     )
   }
 )
 
-const Content = forwardRef<'div', BoxProps>((props, ref) => {
-  return <S.Content flex="1" overflowY={{ md: 'auto' }} ref={ref} {...props} />
+const Body = forwardRef<'div', BoxProps>((props, ref) => {
+  return <S.Body flex="1" overflowY={{ md: 'auto' }} ref={ref} {...props} />
 })
 
-Content.displayName = 'Content'
+Body.displayName = 'Body'
 
 const Cover: React.FC<ShapeProps> = props => {
   const { modals } = useTheme()
@@ -183,8 +98,9 @@ const Cover: React.FC<ShapeProps> = props => {
 // Nested exports
 export const Modal = Object.assign(ModalComponent, {
   Trigger: DialogDisclosure,
-  Header,
   Content,
+  Header,
+  Body,
   Footer,
   Cover,
 })
