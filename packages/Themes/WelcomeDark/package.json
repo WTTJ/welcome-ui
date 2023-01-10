@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/themes.welcome-dark",
-  "version": "5.0.0-alpha.8",
+  "version": "5.0.0-alpha.9",
   "description": "welcome-ui: Welcome Dark theme",
   "main": "dist/themes.welcome-dark.cjs.js",
   "module": "dist/themes.welcome-dark.es.js",
@@ -37,7 +37,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/themes.welcome": "^5.0.0-alpha.8",
+    "@welcome-ui/themes.welcome": "^5.0.0-alpha.9",
     "ramda": "^0.28.0"
   },
   "gitHead": "6d279e3c89ce7bd16a2e90245aaebaea2bd69462",
