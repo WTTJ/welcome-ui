@@ -40,37 +40,39 @@ export function ThemeHelper({ modal }) {
     <>
       {hasBeenHydrated && (
         <Modal {...modal} ariaLabel="theme configuration" title={title}>
-          <Modal.Header title={title} subtitle="Documentation for the core theme entries" />
-          <Modal.Content mt="xl">
-            <Box display="flex">
-              <Tab.List w={200} mr="lg" aria-label="Tabs" {...tabState}>
-                {categories.map(category => (
-                  <Tab key={category} {...tabState} id={category}>
-                    {category}
-                  </Tab>
-                ))}
-              </Tab.List>
+          <Modal.Content>
+            <Modal.Header title={title} subtitle="Documentation for the core theme entries" />
+            <Modal.Body mt="xl">
+              <Box display="flex">
+                <Tab.List w={200} mr="lg" aria-label="Tabs" {...tabState}>
+                  {categories.map(category => (
+                    <Tab key={category} {...tabState} id={category}>
+                      {category}
+                    </Tab>
+                  ))}
+                </Tab.List>
 
-              {categories.map(category => (
-                <Tab.Panel key={category} {...tabState} tabId={category}>
-                  <Box
-                    display="grid"
-                    gridTemplateColumns="1fr 1fr"
-                    rowGap={8}
-                    columnGap={16}
-                    mb="md"
-                  >
-                    <Text variant="h5" mb="md" mt="0">
-                      Key
-                    </Text>
-                    <Text variant="h5" mb="md" mt="0">
-                      Value
-                    </Text>
-                    <ThemeConfiguration category={category} />
-                  </Box>
-                </Tab.Panel>
-              ))}
-            </Box>
+                {categories.map(category => (
+                  <Tab.Panel key={category} {...tabState} tabId={category}>
+                    <Box
+                      display="grid"
+                      gridTemplateColumns="1fr 1fr"
+                      rowGap={8}
+                      columnGap={16}
+                      mb="md"
+                    >
+                      <Text variant="h5" mb="md" mt="0">
+                        Key
+                      </Text>
+                      <Text variant="h5" mb="md" mt="0">
+                        Value
+                      </Text>
+                      <ThemeConfiguration category={category} />
+                    </Box>
+                  </Tab.Panel>
+                ))}
+              </Box>
+            </Modal.Body>
           </Modal.Content>
         </Modal>
       )}

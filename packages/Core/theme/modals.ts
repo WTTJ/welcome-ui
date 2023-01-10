@@ -8,7 +8,7 @@ export type ThemeModals = {
   backdrop: CSSObject
   default: CSSObject
   header: CSSObject
-  content: CSSObject
+  body: CSSObject
   footer: CSSObject
   gutter: string
   sizes: Record<Sizes, { width?: string }>
@@ -37,7 +37,7 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
         margin: 0,
       },
     },
-    content: {
+    body: {
       color: colors['dark-900'],
       paddingTop: space.xxl,
       paddingRight: space['3xl'],
