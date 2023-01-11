@@ -21,6 +21,7 @@ import {
 function() {
   const [checkbox, setCheckbox] = React.useState(false)
   const [checkboxChecked, setCheckboxChecked] = React.useState(true)
+  const [checked, setChecked] = React.useState(false)
 
   return (
     <>
@@ -34,6 +35,13 @@ function() {
         checked={checkboxChecked}
         name="not-checked"
         onChange={() => setCheckboxChecked(!checkboxChecked)}
+        mr="md"
+      />
+      <Checkbox
+        checked={checked}
+        name="indeterminate"
+        indeterminate
+        onChange={() => setChecked(!checked)}
         mr="md"
       />
       <Checkbox
@@ -157,6 +165,47 @@ function() {
   )
 }
 ```
+## Nested checkboxes
+
+Use 'indeterminate' prop to manage the behaviour of a parent checkbox in response to children checkboxes
+
+```jsx
+function() {
+  const [indeterminate, setIndeterminate] = React.useState(false)
+  const [parentChecked, setParentChecked] = React.useState(false)
+  const [checked, setChecked] = React.useState(false)
+  const [checkedChildren, setCheckedChildren] = React.useState([])
+
+  return (
+    <>
+      <Checkbox
+        name="default"
+        checked={parentChecked}
+        indeterminate={indeterminate}
+        onChange={() => setParentChecked(!parentChecked)}
+        mr="md"
+        size="lg"
+      />
+      <Checkbox
+        checked={checked}
+        name="child1"
+        onChange={() => setChecked(!checked)}
+        mr="md"
+        size="sm"
+      />
+      <Checkbox
+        checked={checked}
+        name="child2"
+        onChange={() => setChecked(!checked)}
+        mr="md"
+        size="sm"
+      />
+    </>
+  )
+}
+```
+
+
 
 ## Example
 
