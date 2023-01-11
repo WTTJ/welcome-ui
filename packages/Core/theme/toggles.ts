@@ -29,8 +29,7 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
 
         '&:focus': {
           borderColor: colors['primary-200'],
-          backgroundColor: colors['primary-200'],
-          ...focus(),
+          ...focus(colors['primary-200']),
         },
       },
       checked: {
