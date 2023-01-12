@@ -21,7 +21,7 @@ import {
 function() {
   const [checkbox, setCheckbox] = React.useState(false)
   const [checkboxChecked, setCheckboxChecked] = React.useState(true)
-  const [checked, setChecked] = React.useState(false)
+  const [checkboxIndeterminate, setCheckboxIndeterminate] = React.useState(false)
 
   return (
     <>
@@ -38,10 +38,10 @@ function() {
         mr="md"
       />
       <Checkbox
-        checked={checked}
+        checked={checkboxIndeterminate}
         name="indeterminate"
         indeterminate
-        onChange={() => setChecked(!checked)}
+        onChange={() => setCheckboxIndeterminate(!checkboxIndeterminate)}
         mr="md"
       />
       <Checkbox
@@ -165,47 +165,48 @@ function() {
   )
 }
 ```
+
 ## Nested checkboxes
 
-Use 'indeterminate' prop to manage the behaviour of a parent checkbox in response to children checkboxes
+Use 'indeterminate' prop to manage the behaviour of a parent checkbox in response to children checkboxes. This can help you create a nested selection menu.
 
 ```jsx
 function() {
-  const [indeterminate, setIndeterminate] = React.useState(false)
-  const [parentChecked, setParentChecked] = React.useState(false)
-  const [checked, setChecked] = React.useState(false)
-  const [checkedChildren, setCheckedChildren] = React.useState([])
+  const [checkboxA, setCheckboxA] = React.useState(false)
+  const [checkboxB, setCheckboxB] = React.useState(false)
+
+  const parentChecked = checkboxA && checkboxB
+  const indeterminate = checkboxA || checkboxB
+
+  const handleClick = () => {
+    if (!parentChecked) {
+      setCheckboxA(true)
+      setCheckboxB(true)
+    } else {
+      setCheckboxA(false)
+      setCheckboxB(false)
+    }
+  }
 
   return (
     <>
-      <Checkbox
-        name="default"
-        checked={parentChecked}
-        indeterminate={indeterminate}
-        onChange={() => setParentChecked(!parentChecked)}
-        mr="md"
-        size="lg"
-      />
-      <Checkbox
-        checked={checked}
-        name="child1"
-        onChange={() => setChecked(!checked)}
-        mr="md"
-        size="sm"
-      />
-      <Checkbox
-        checked={checked}
-        name="child2"
-        onChange={() => setChecked(!checked)}
-        mr="md"
-        size="sm"
-      />
+      <Field label="Parent checkbox">
+        <Checkbox
+          checked={parentChecked}
+          indeterminate={indeterminate}
+          onChange={handleClick}
+        />
+      </Field>
+      <Field label="checkbox A" ml="md">
+        <Checkbox checked={checkboxA} onChange={() => setCheckboxA(!checkboxA)} />
+      </Field>
+      <Field label="checkbox B" ml="md">
+        <Checkbox checked={checkboxB} onChange={() => setCheckboxB(!checkboxB)} />
+      </Field>
     </>
   )
 }
 ```
-
-
 
 ## Example
 

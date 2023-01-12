@@ -37,7 +37,6 @@ export const Checkbox = styled(ReakitCheckbox).withConfig({
           width: 10;
           margin: auto;
           text-align: center;
-          transition: medium;
         }
       }
     }
@@ -49,13 +48,12 @@ export const Checkbox = styled(ReakitCheckbox).withConfig({
       }
 
       &::after {
-        content: url("data:image/svg+xml,%3Csvg width='8' height='2' viewBox='0 0 8 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='8' height='2' rx='1' fill='black'/%3E%3C/svg%3E%0A");
+        content: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M75.34 42H25.33C20.7295 42 17 45.7295 17 50.33V50.34C17 54.9405 20.7295 58.67 25.33 58.67H75.34C79.9405 58.67 83.67 54.9405 83.67 50.34V50.33C83.67 45.7295 79.9405 42 75.34 42Z' fill='black'/%3E%3C/svg%3E");
         position: absolute;
-        top: -4;
+        top: 0;
         right: -2.5;
         bottom: 0;
         left: 0;
-        width: 10;
         margin: auto;
       }
     `}
