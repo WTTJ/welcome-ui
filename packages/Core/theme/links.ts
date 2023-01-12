@@ -26,7 +26,7 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
       transition: transitions.medium,
     },
     withExternalLink: {
-      backgroundSize: `calc(100% - ${icons.sm} - ${space.xs}) 50%`,
+      backgroundSize: `calc(100% - ${icons.sm} - ${space.sm}) 50%`,
     },
     disabled: {
       color: colors['dark-400'],
