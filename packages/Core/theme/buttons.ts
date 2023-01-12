@@ -22,7 +22,7 @@ type Variant =
   | 'secondary-info'
   | 'ghost'
 
-type Size = 'xs' | 'sm' | 'md' | 'lg'
+type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
 
 type Icon = 'only' | 'default'
 
@@ -222,6 +222,10 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       '&:focus': { ...focus(colors['nude-400'], 0.5) },
     },
     sizes: {
+      xxs: {
+        height: toRem(16),
+        padding: `${space.xxs} ${space.xs}`,
+      },
       xs: {
         height: toRem(24),
         padding: `${space.xs} ${space.sm}`,
@@ -245,12 +249,14 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     icon: {
       only: {
+        xxs: toRem(16),
         xs: toRem(16),
         sm: toRem(16),
         md: toRem(16),
         lg: toRem(24),
       },
       default: {
+        xxs: toRem(12),
         xs: toRem(12),
         sm: toRem(16),
         md: toRem(16),

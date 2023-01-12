@@ -15,6 +15,7 @@ export const getFiledrops = (theme: WuiTheme): ThemeFiledrops => {
   return {
     default: {
       minHeight: toRem(200),
+      borderStyle: 'dashed',
     },
     dragAccept: {},
     dragReject: {},

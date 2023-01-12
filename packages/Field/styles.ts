@@ -6,7 +6,7 @@ import { shouldForwardProp, WuiProps } from '@welcome-ui/system'
 import { FieldIconSize } from '@welcome-ui/utils'
 
 const rowStyles = css`
-  margin-right: md;
+  margin-right: lg;
 `
 
 const columnStyles = css`
@@ -15,7 +15,7 @@ const columnStyles = css`
 
 const checkableFieldStyles = css`
   ${th('defaultFields.checkablelabel.default')};
-  margin-bottom: md;
+  margin-bottom: xs;
 `
 
 type StyledFieldProps = {
@@ -68,6 +68,14 @@ export const IconWrapper = styled.div<IconWrapperProps>(
     & > button {
       pointer-events: auto;
     }
+
+    ${size === 'xs' &&
+    css`
+      button {
+        height: ${th('buttons.sizes.xxs.height')};
+        width: ${th('buttons.sizes.xxs.height')};
+      }
+    `}
   `
 )
 
@@ -82,5 +90,12 @@ export const IconGroupWrapper = styled.div(
     align-items: center;
     gap: xs;
     color: dark-900;
+    ${size === 'xs' &&
+    css`
+      button {
+        height: ${th('buttons.sizes.xxs.height')};
+        width: ${th('buttons.sizes.xxs.height')};
+      }
+    `}
   `
 )

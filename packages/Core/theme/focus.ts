@@ -19,7 +19,7 @@ export const getFocus = ({ colors }: { colors: ThemeColors }) => {
     }
 
     return {
-      boxShadow: `0 0 0 3px ${transformedColor}`,
+      boxShadow: `0 0 0 2px ${transformedColor}`,
     }
   }
 

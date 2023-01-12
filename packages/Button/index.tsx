@@ -4,7 +4,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import * as S from './styles'
 
 export type Shape = 'circle' | 'square'
-export type Size = 'xs' | 'sm' | 'md' | 'lg'
+export type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
 export type Variant =
   | 'primary'
   | 'secondary'
