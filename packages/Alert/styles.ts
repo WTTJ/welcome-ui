@@ -6,6 +6,7 @@ import { AlertOptions } from '.'
 
 export const Alert = styled(Box)<AlertOptions>(
   ({ size, variant }) => css`
+    position: relative;
     ${th('alerts.default')};
     ${th(`alerts.${variant}`)};
     ${th(`alerts.sizes.${size}`)};
