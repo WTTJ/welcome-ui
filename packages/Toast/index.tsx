@@ -45,10 +45,16 @@ const Title: React.FC<TextProps> = ({ children, ...rest }) => (
   <S.Title {...rest}>{children}</S.Title>
 )
 
-export const toast = (component: string | JSX.Element, options?: ToastOptions) => {
+export const toast = (component: JSX.Element, options?: ToastOptions) => {
+  const name =
+    typeof component === 'string'
+      ? undefined
+      : component?.type?.displayName || component?.type?.name
+  const position = (name === 'Growl' ? 'top-right' : 'bottom-center') as ToastPosition
+
   const toastOptions = {
     duration: 7000,
-    position: 'bottom-center' as ToastPosition,
+    position,
     ...options,
   }
 
