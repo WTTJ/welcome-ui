@@ -80,7 +80,7 @@ const ModalComponent = forwardRef<'div', ModalProps>(
 )
 
 const Body = forwardRef<'div', BoxProps>((props, ref) => {
-  return <S.Body flex="1" overflowY={{ md: 'auto' }} ref={ref} {...props} />
+  return <S.Body ref={ref} {...props} />
 })
 
 Body.displayName = 'Body'

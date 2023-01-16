@@ -45,9 +45,9 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
     margin-top: xl;
     opacity: 0;
     height: 100%;
+    max-height: 100%;
     width: 100%;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
 
     transition: opacity 250ms ease-in-out, margin-top 250ms ease-in-out;
     cursor: auto;
@@ -63,6 +63,10 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
       margin-top: 0;
     }
 
+    > div {
+      height: 100%;
+    }
+
     ${up(
       'md',
       css`
@@ -74,6 +78,14 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
   `
 )
 
+export const Content = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+`
+
 export const Header = styled.headerBox`
   ${({ theme }) => theme.modals.header}
 `
@@ -83,11 +95,19 @@ export const HeaderSubtitle = styled(Text)`
 `
 
 export const Body = styled.sectionBox`
-  ${({ theme }) => theme.modals.body}
+  ${({ theme }) => css`
+    max-height: 100%;
+    overflow-y: auto;
+    ${theme.modals.body}
+  `}
 `
 
 export const Footer = styled.footerBox`
-  ${({ theme }) => theme.modals.footer}
+  ${({ theme }) => css`
+    margin-top: auto;
+    flex-shrink: 0;
+    ${theme.modals.footer}
+  `}
 `
 
 export const FooterChildrenWrapper = styled(Box)`
