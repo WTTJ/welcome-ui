@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/link",
-  "version": "5.0.0-alpha.8",
+  "version": "5.0.0-alpha.10",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/link.cjs.js",
   "module": "dist/link.es.js",

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/modal",
-  "version": "5.0.0-alpha.9",
+  "version": "5.0.0-alpha.10",
   "description": "Modal from Reakit with a really nice theme 👀",
   "main": "dist/modal.cjs.js",
   "module": "dist/modal.es.js",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^5.0.0-alpha.8",
-    "@welcome-ui/close-button": "^5.0.0-alpha.8",
+    "@welcome-ui/close-button": "^5.0.0-alpha.10",
     "@welcome-ui/shape": "^5.0.0-alpha.8",
     "@welcome-ui/system": "^5.0.0-alpha.8",
     "@welcome-ui/text": "^5.0.0-alpha.8",

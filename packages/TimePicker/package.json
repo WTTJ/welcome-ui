@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/time-picker",
-  "version": "5.0.0-alpha.8",
+  "version": "5.0.0-alpha.10",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/time-picker.cjs.js",
   "module": "dist/time-picker.es.js",
@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@types/react-datepicker": "^4.8.0",
-    "@welcome-ui/date-time-picker-common": "^5.0.0-alpha.8",
+    "@welcome-ui/date-time-picker-common": "^5.0.0-alpha.10",
     "@welcome-ui/system": "^5.0.0-alpha.8",
     "@welcome-ui/utils": "^5.0.0-alpha.8",
     "react-datepicker": "^4.7.0"
