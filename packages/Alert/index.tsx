@@ -2,6 +2,7 @@
 import React, { Children, cloneElement } from 'react'
 import { Stack } from '@welcome-ui/stack'
 import { Box } from '@welcome-ui/box'
+import { CloseButton } from '@welcome-ui/close-button'
 import { Button, ButtonProps } from '@welcome-ui/button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { Variant, VariantIcon } from '@welcome-ui/variant-icon'
@@ -14,15 +15,23 @@ export interface AlertOptions {
   variant?: Variant
   size?: Size
   icon?: JSX.Element
+  closeButtonDataTestId?: string
+  /**
+   * @description add a close button with an onclick handleClose function
+   */
+  handleClose?: () => void
 }
 
 export type AlertProps = CreateWuiProps<'div', AlertOptions>
 
 const AlertComponent = forwardRef<'div', AlertProps>(
-  ({ children, icon, size = 'sm', variant = 'default', ...rest }, ref) => {
+  ({ children, dataTestId, handleClose, icon, size = 'sm', variant = 'default', ...rest }, ref) => {
+    const closeButtonDataTestId = dataTestId ? `${dataTestId}-close-button` : undefined
+
     const buttonChild = Children.toArray(children).find(
       (child: React.ReactElement) => child.type === AlertButton
     )
+
     const content = Children.toArray(children)
       .filter((child: React.ReactElement) => child.type !== AlertButton)
       .map((child: React.ReactElement) => {
@@ -34,7 +43,16 @@ const AlertComponent = forwardRef<'div', AlertProps>(
       })
 
     return (
-      <S.Alert ref={ref} size={size} variant={variant} {...rest}>
+      <S.Alert data-testid={dataTestId} ref={ref} size={size} variant={variant} {...rest}>
+        {!!handleClose && (
+          <CloseButton
+            dataTestId={closeButtonDataTestId}
+            onClick={handleClose}
+            position="absolute"
+            right="sm"
+            top="sm"
+          />
+        )}
         <VariantIcon icon={icon} pr="md" variant={variant} />
         <Box h="fit-content" m="auto">
           {buttonChild ? (

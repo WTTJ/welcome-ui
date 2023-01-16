@@ -9,7 +9,6 @@ import { Variant } from './index'
 
 export interface GrowlOptions {
   variant?: Variant
-  closeButtonDataTestId?: string
   onClose?: () => void
   hasCloseButton?: boolean
   icon?: JSX.Element
@@ -21,15 +20,20 @@ export type GrowlProps = CreateWuiProps<'div', GrowlOptions>
  * @name Toast.Growl
  */
 export const Growl = forwardRef<'div', GrowlProps>(
-  (
-    { children, closeButtonDataTestId, hasCloseButton = true, icon, onClose, variant = 'default' },
-    ref
-  ) => {
+  ({ children, dataTestId, hasCloseButton = true, icon, onClose, variant = 'default' }, ref) => {
+    const closeButtonDataTestId = dataTestId ? `${dataTestId}-close-button` : undefined
+
     return (
-      <S.Growl hasCloseButton={hasCloseButton} icon={icon} ref={ref} variant={variant}>
+      <S.Growl
+        data-testid={dataTestId}
+        hasCloseButton={hasCloseButton}
+        icon={icon}
+        ref={ref}
+        variant={variant}
+      >
         {hasCloseButton && (
           <CloseButton
-            data-testid={closeButtonDataTestId}
+            dataTestId={closeButtonDataTestId}
             onClick={onClose}
             position="absolute"
             right="sm"

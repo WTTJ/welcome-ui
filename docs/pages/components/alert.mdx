@@ -117,6 +117,26 @@ When usin `Alert.Button`, we will show it in a column on the right
 </Alert>
 ```
 
+## CloseButton
+
+To show a close button you need to pass your function on the `handleClose` property.
+
+```jsx
+function() {
+  const [hideAlert, setHideAlert] = React.useState(false)
+
+  return hideAlert ? null : (
+    <Alert handleClose={() => setHideAlert(true)}>
+      <Alert.Title>Welcome to the jungle</Alert.Title>
+      <span>
+        Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan ultrices.
+        Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
+      </span>
+    </Alert>
+  )
+}
+```
+
 ## Properties
 
 ### Alert
