@@ -1,7 +1,8 @@
-import React, { Children, cloneElement, useMemo, useRef } from 'react'
+import React, { Children, cloneElement, useMemo, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
 import { forwardRef } from '@welcome-ui/system'
-import { Box } from '@welcome-ui/box'
+
+import * as S from './styles'
 
 export interface ContentOptions {
   children: JSX.Element | JSX.Element[]
@@ -14,13 +15,7 @@ export type ContentProps = ContentOptions
  */
 export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, ref) => {
   const { borderWidths, space } = useTheme()
-  const headerRef = useRef(null)
-  const bodyRef = useRef(null)
-  const footerRef = useRef(null)
-  const headerHeight = headerRef?.current?.clientHeight
-  const footerHeight = footerRef?.current?.clientHeight
-  const bodyHeight = bodyRef?.current?.clientHeight
-  const bodyScrollHeight = bodyRef?.current?.scrollHeight
+  const [bodyRef, setBodyRef] = useState<HTMLElement>(null)
 
   const components = useMemo(
     () =>
@@ -31,18 +26,9 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
   )
 
   const setRef = (name?: string) => {
-    if (name === 'Header') {
-      return headerRef
-    }
-
     if (name === 'Body') {
-      return bodyRef
+      return setBodyRef
     }
-
-    if (name === 'Footer') {
-      return footerRef
-    }
-
     return undefined
   }
 
@@ -54,8 +40,6 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
     }
     if (name === 'Body') {
       return {
-        mt: { xs: headerHeight, md: 0 },
-        mb: { xs: footerHeight, md: 0 },
         pb: components.includes('Footer') ? space.lg : null,
         pr: components.includes('Header') ? space.xxl : null,
         pt: components.includes('Header') ? 0 : null,
@@ -65,7 +49,7 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
     if (name === 'Footer') {
       return {
         pt: components.includes('Header') || components.includes('Body') ? null : space.lg,
-        borderWidth: bodyScrollHeight > bodyHeight ? borderWidths.sm : '0',
+        borderWidth: bodyRef && bodyRef.scrollHeight > bodyRef.offsetHeight ? borderWidths.sm : '0',
       }
     }
 
@@ -73,7 +57,7 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
   }
 
   return (
-    <Box ref={ref} {...rest}>
+    <S.Content ref={ref} {...rest}>
       {Children.map(children, (child: JSX.Element) => {
         if (!child) return null
         const name = child?.type?.displayName || child?.type?.name
@@ -84,7 +68,7 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
           ...child.props,
         })
       })}
-    </Box>
+    </S.Content>
   )
 })
 

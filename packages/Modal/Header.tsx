@@ -18,12 +18,7 @@ export type HeaderProps = HeaderOptions & Omit<BoxProps, keyof HeaderOptions>
  */
 export const Header = forwardRef<'div', HeaderProps>(({ icon, subtitle, title, ...rest }, ref) => {
   return (
-    <S.Header
-      position={{ xs: 'fixed', md: 'relative' }}
-      ref={ref}
-      textAlign={icon ? 'center' : null}
-      {...rest}
-    >
+    <S.Header ref={ref} textAlign={icon ? 'center' : null} w="100%" {...rest}>
       {icon}
       <Text mb={subtitle ? 'lg' : 0} mt={icon ? 'xl' : 0} variant="h4">
         {title}

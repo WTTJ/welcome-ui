@@ -19,7 +19,7 @@ export type FooterProps = FooterOptions & BoxProps
  */
 export const Footer = forwardRef<'div', FooterProps>(({ children, informations, ...rest }, ref) => {
   return (
-    <S.Footer bottom="0" position={{ xs: 'fixed', md: 'relative' }} ref={ref} w="100%" {...rest}>
+    <S.Footer ref={ref} w="100%" {...rest}>
       {children && <S.FooterChildrenWrapper>{children}</S.FooterChildrenWrapper>}
       {informations && (
         <S.FooterInformations>
