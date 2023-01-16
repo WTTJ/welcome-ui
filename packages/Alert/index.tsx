@@ -25,18 +25,9 @@ export interface AlertOptions {
 export type AlertProps = CreateWuiProps<'div', AlertOptions>
 
 const AlertComponent = forwardRef<'div', AlertProps>(
-  (
-    {
-      children,
-      closeButtonDataTestId,
-      handleClose,
-      icon,
-      size = 'sm',
-      variant = 'default',
-      ...rest
-    },
-    ref
-  ) => {
+  ({ children, dataTestId, handleClose, icon, size = 'sm', variant = 'default', ...rest }, ref) => {
+    const closeButtonDataTestId = dataTestId ? `${dataTestId}-close-button` : undefined
+
     const buttonChild = Children.toArray(children).find(
       (child: React.ReactElement) => child.type === AlertButton
     )
@@ -52,10 +43,10 @@ const AlertComponent = forwardRef<'div', AlertProps>(
       })
 
     return (
-      <S.Alert ref={ref} size={size} variant={variant} {...rest}>
+      <S.Alert data-testid={dataTestId} ref={ref} size={size} variant={variant} {...rest}>
         {!!handleClose && (
           <CloseButton
-            data-testid={closeButtonDataTestId}
+            dataTestId={closeButtonDataTestId}
             onClick={handleClose}
             position="absolute"
             right="sm"
