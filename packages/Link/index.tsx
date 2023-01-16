@@ -26,7 +26,8 @@ export type WrapWithTextProps = CreateWuiProps<'span', WrapWithTextOptions>
 
 const WrapWithText: React.FC<WrapWithTextProps> = ({ children, isExternalLink, key }) => (
   <span className="wui-text" key={key}>
-    {children} {isExternalLink && <ExternalLinkIcon mb="-3px" size="sm" />}
+    {children}
+    {isExternalLink && <ExternalLinkIcon mb="-2px" ml="sm" size="sm" />}
   </span>
 )
 
