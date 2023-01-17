@@ -63,10 +63,6 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
       margin-top: 0;
     }
 
-    > div {
-      height: 100%;
-    }
-
     ${up(
       'md',
       css`
@@ -87,7 +83,10 @@ export const Content = styled(Box)`
 `
 
 export const Header = styled.headerBox`
-  ${({ theme }) => theme.modals.header}
+  ${({ theme }) => css`
+    flex-shrink: 0;
+    ${theme.modals.header}
+  `}
 `
 
 export const HeaderSubtitle = styled(Text)`
