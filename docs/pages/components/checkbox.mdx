@@ -21,6 +21,7 @@ import {
 function() {
   const [checkbox, setCheckbox] = React.useState(false)
   const [checkboxChecked, setCheckboxChecked] = React.useState(true)
+  const [checkboxIndeterminate, setCheckboxIndeterminate] = React.useState(false)
 
   return (
     <>
@@ -34,6 +35,13 @@ function() {
         checked={checkboxChecked}
         name="not-checked"
         onChange={() => setCheckboxChecked(!checkboxChecked)}
+        mr="md"
+      />
+      <Checkbox
+        checked={checkboxIndeterminate}
+        name="indeterminate"
+        indeterminate
+        onChange={() => setCheckboxIndeterminate(!checkboxIndeterminate)}
         mr="md"
       />
       <Checkbox
@@ -152,6 +160,48 @@ function() {
           checked={checkbox}
           onChange={() => setCheckbox(!checkbox)}
         />
+      </Field>
+    </>
+  )
+}
+```
+
+## Nested checkboxes
+
+Use 'indeterminate' prop to manage the behaviour of a parent checkbox in response to children checkboxes. This can help you create a nested selection menu.
+
+```jsx
+function() {
+  const [checkboxA, setCheckboxA] = React.useState(false)
+  const [checkboxB, setCheckboxB] = React.useState(false)
+
+  const parentChecked = checkboxA && checkboxB
+  const indeterminate = checkboxA || checkboxB
+
+  const handleClick = () => {
+    if (!parentChecked) {
+      setCheckboxA(true)
+      setCheckboxB(true)
+    } else {
+      setCheckboxA(false)
+      setCheckboxB(false)
+    }
+  }
+
+  return (
+    <>
+      <Field label="Parent checkbox">
+        <Checkbox
+          checked={parentChecked}
+          indeterminate={indeterminate}
+          onChange={handleClick}
+        />
+      </Field>
+      <Field label="checkbox A" ml="md">
+        <Checkbox checked={checkboxA} onChange={() => setCheckboxA(!checkboxA)} />
+      </Field>
+      <Field label="checkbox B" ml="md">
+        <Checkbox checked={checkboxB} onChange={() => setCheckboxB(!checkboxB)} />
       </Field>
     </>
   )

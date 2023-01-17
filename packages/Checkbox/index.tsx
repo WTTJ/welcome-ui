@@ -8,6 +8,7 @@ export interface CheckboxOptions extends DefaultFieldStylesProps {
   checked?: boolean
   Component?: React.ElementType
   disabled?: boolean
+  indeterminate?: boolean
   name?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
@@ -16,7 +17,16 @@ export type CheckboxProps = CreateWuiProps<'input', CheckboxOptions>
 
 export const Checkbox = forwardRef<'input', CheckboxProps>(
   (
-    { checked = false, Component = S.Checkbox, dataTestId, disabled, name, onChange, ...rest },
+    {
+      checked = false,
+      indeterminate = false,
+      Component = S.Checkbox,
+      dataTestId,
+      disabled,
+      name,
+      onChange,
+      ...rest
+    },
     ref
   ) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +40,7 @@ export const Checkbox = forwardRef<'input', CheckboxProps>(
         data-testid={dataTestId}
         disabled={disabled}
         id={name}
+        indeterminate={indeterminate}
         name={name}
         onChange={handleChange}
         ref={ref}
