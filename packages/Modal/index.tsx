@@ -6,7 +6,6 @@ import {
   DialogStateReturn,
   useDialogState,
 } from 'reakit/Dialog'
-import { DisclosureActions } from 'reakit/Disclosure'
 import { BoxProps } from '@welcome-ui/box'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { useTheme } from '@xstyled/styled-components'
@@ -23,10 +22,10 @@ export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 export interface ModalOptions {
   ariaLabel: string
   closeElement?: React.ElementType
-  hide?: DisclosureActions['hide']
   hideOnClickOutside?: boolean
   onClose?: () => void
   size?: Size
+  modalState: ModalStateReturn
   children: React.ReactElement
 }
 
@@ -41,34 +40,29 @@ export function useModalState(options?: ModalInitialState): ModalStateReturn {
 const ModalComponent = forwardRef<'div', ModalProps>(
   (
     {
-      ariaLabel,
-      hide,
       hideOnClickOutside = true,
       onClose,
       closeElement: CloseElement = Close,
       size = 'lg',
-      tabIndex,
-      dataTestId,
       children,
+      modalState,
       ...rest
     },
     ref
   ) => {
     const closeModal = () => {
       onClose?.()
-      hide()
+      modalState.hide()
     }
 
     return (
-      <S.Backdrop {...rest} hideOnClickOutside={hideOnClickOutside}>
+      <S.Backdrop {...modalState} hideOnClickOutside={hideOnClickOutside}>
         <S.Dialog
-          aria-label={ariaLabel}
-          data-testid={dataTestId}
           hide={closeModal}
           hideOnClickOutside={hideOnClickOutside}
           ref={ref}
           size={size}
-          tabIndex={tabIndex}
+          {...modalState}
           {...rest}
         >
           <CloseElement onClick={closeModal} />

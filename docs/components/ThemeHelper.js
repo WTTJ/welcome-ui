@@ -39,7 +39,7 @@ export function ThemeHelper({ modal }) {
   return (
     <>
       {hasBeenHydrated && (
-        <Modal {...modal} ariaLabel="theme configuration" title={title}>
+        <Modal modalState={modal} ariaLabel="theme configuration" title={title}>
           <Modal.Content>
             <Modal.Header title={title} subtitle="Documentation for the core theme entries" />
             <Modal.Body mt="xl">

@@ -32,7 +32,7 @@ function() {
       <Modal.Trigger as={Button} {...modal}>
         Open modal
       </Modal.Trigger>
-      <Modal {...modal} ariaLabel="example">
+      <Modal modalState={modal} ariaLabel="example">
         <Modal.Content>
           <Modal.Body>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -78,7 +78,7 @@ function() {
       <Modal.Trigger as={Button} {...modal} onClick={() => setSize('auto')}>
         auto
       </Modal.Trigger>
-      <Modal {...modal} size={size} ariaLabel="size example">
+      <Modal modalState={modal} size={size} ariaLabel="size example">
         <Modal.Content>
           <Modal.Body>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -121,7 +121,7 @@ function() {
       <Modal.Trigger as={Button} {...modal}>
         Example modal
       </Modal.Trigger>
-      <Modal {...modal} ariaLabel="example">
+      <Modal modalState={modal} ariaLabel="example">
         <Modal.Content>
           <Modal.Header title={title} subtitle={subtitle} icon={icon}/>
           <Modal.Body>
@@ -157,7 +157,7 @@ function() {
       <Modal.Trigger as={Button} {...modal2}>
         Example modal 2
       </Modal.Trigger>
-      <Modal {...modal2} ariaLabel="example-2">
+      <Modal  modalState={modal2} ariaLabel="example-2">
         <Modal.Content>
           <Modal.Header title={title} subtitle={subtitle} />
           <Modal.Body>
@@ -193,7 +193,7 @@ function() {
       <Modal.Trigger as={Button} {...modal3}>
         Example modal 3
       </Modal.Trigger>
-      <Modal {...modal3} ariaLabel="example-3">
+      <Modal modalState={modal3} ariaLabel="example-3">
         <Modal.Content>
           <Modal.Header title={title} icon={icon} />
           <Modal.Body>
