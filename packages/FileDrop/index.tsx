@@ -66,7 +66,8 @@ export interface FileDropOptions {
   wordings?: WordingsType
 }
 
-export type FileDropProps = CreateWuiProps<'div', FileDropOptions> & Omit<DropzoneProps, 'children'>
+export type FileDropProps = CreateWuiProps<'div', FileDropOptions> &
+  Omit<DropzoneProps, 'children' | 'onError'>
 
 export const FileDrop = forwardRef<'div', FileDropProps>(
   (
