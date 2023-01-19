@@ -7,6 +7,9 @@ import { AlertOptions } from '.'
 export const Alert = styled(Box)<AlertOptions>(
   ({ size, variant }) => css`
     position: relative;
+    display: flex;
+    align-items: center;
+    max-width: max-content;
     ${th('alerts.default')};
     ${th(`alerts.${variant}`)};
     ${th(`alerts.sizes.${size}`)};
@@ -20,11 +23,8 @@ export const Title = styled(Text).attrs(({ variant }: AlertOptions) => ({
   alertVariant: variant,
 }))(
   ({ alertVariant }) => css`
-    display: flex;
-    align-items: center;
     margin: 0;
     margin-bottom: sm;
-    height: 100%;
     ${th(`alerts.title.${alertVariant}`)};
     ${system}
 
