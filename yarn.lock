@@ -6432,10 +6432,10 @@ compress-commons@^4.1.0:
     normalize-path "^3.0.0"
     readable-stream "^3.6.0"
 
-compute-scroll-into-view@^1.0.17:
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/compute-scroll-into-view/-/compute-scroll-into-view-1.0.17.tgz#6a88f18acd9d42e9cf4baa6bec7e0522607ab7ab"
-  integrity sha512-j4dx+Fb0URmzbwwMUrhqWM2BEWHdFGx+qZ9qqASHRPqvTYdqvWnHg0H1hIbcyLnvgnoNAVMlwkepyqM3DaIFUg==
+compute-scroll-into-view@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/compute-scroll-into-view/-/compute-scroll-into-view-2.0.4.tgz#2b444b2b9e4724819d2531efacb7ac094155fdf6"
+  integrity sha512-y/ZA3BGnxoM/QHHQ2Uy49CLtnWPbt4tTPpEEZiEmmiWBFKjej7nEyH8Ryz54jH0MLXflUYA3Er2zUxPSJu5R+g==
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -7802,12 +7802,12 @@ download@^8.0.0:
     pify "^4.0.1"
 
 downshift@^7.0.1:
-  version "7.1.2"
-  resolved "https://registry.yarnpkg.com/downshift/-/downshift-7.1.2.tgz#1b7c9b6aa3f9758cc6ea9003871005cc4341c5c7"
-  integrity sha512-Iy9R2qSpTUrQzyhlf5EW2RsFiIN7JpCqLYUnR8LuoKQqJlORwGJKMElbutCehXh/EsLpTHX8gUkY7d9pWPDT+w==
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-7.2.0.tgz#f2a2777253a8ca26ca56c38caa8e75f76a6ab346"
+  integrity sha512-dEn1Sshe7iTelUhmdbmiJhtIiwIBxBV8p15PuvEBh0qZcHXZnEt0geuCIIkCL4+ooaKRuLE0Wc+Fz9SwWuBIyg==
   dependencies:
     "@babel/runtime" "^7.14.8"
-    compute-scroll-into-view "^1.0.17"
+    compute-scroll-into-view "^2.0.4"
     prop-types "^15.7.2"
     react-is "^17.0.2"
     tslib "^2.3.0"
