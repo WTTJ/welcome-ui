@@ -10,6 +10,7 @@ export const Item = styled.button`
   cursor: pointer;
   transition: medium;
   text-decoration: none;
+  padding: md;
 
   &[type='button'] {
     appearance: none;
