@@ -19,8 +19,6 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
 
   return {
     default: {
-      display: 'flex',
-      maxWidth: 'max-content',
       fontSize: fontSizes.sm,
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
