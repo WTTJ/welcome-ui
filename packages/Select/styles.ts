@@ -107,7 +107,7 @@ export const Item = styled.li(
     ${isSelected && isMultiple && !allowUnselectFromList && th('defaultFields.select.existing')};
     ${isDisabled && th('defaultFields.select.disabled')};
     ${overflowEllipsis};
-    padding: sm;
+    padding: md;
     list-style: none;
     text-decoration: none;
     font-size: sm;

@@ -9,7 +9,7 @@ export type ThemeDropdownMenu = {
 }
 
 export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {
-  const { colors, fontSizes, space, toRem } = theme
+  const { colors, fontSizes, toRem } = theme
   const borderColor = colors['nude-200']
 
   return {
@@ -18,7 +18,6 @@ export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {
       minWidth: toRem(130),
     },
     item: {
-      padding: `${space.sm} ${space.md}`,
       backgroundColor: 'transparent',
       color: colors['nude-700'],
       '&:hover': {
