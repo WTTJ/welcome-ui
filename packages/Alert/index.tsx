@@ -54,7 +54,7 @@ const AlertComponent = forwardRef<'div', AlertProps>(
           />
         )}
         <VariantIcon icon={icon} pr="md" variant={variant} />
-        <Box>
+        <Box flex="1">
           {buttonChild ? (
             <Stack alignItems="center" direction="row" justifyContent="space-between">
               <div>{content}</div>
