@@ -40,6 +40,7 @@ export function useModalState(options?: ModalInitialState): ModalStateReturn {
 const ModalComponent = forwardRef<'div', ModalProps>(
   (
     {
+      ariaLabel,
       hideOnClickOutside = true,
       onClose,
       closeElement: CloseElement = Close,
@@ -58,6 +59,7 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     return (
       <S.Backdrop {...modalState} hideOnClickOutside={hideOnClickOutside}>
         <S.Dialog
+          aria-label={ariaLabel}
           hide={closeModal}
           hideOnClickOutside={hideOnClickOutside}
           ref={ref}
