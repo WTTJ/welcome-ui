@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/select",
-  "version": "5.0.0-alpha.10",
+  "version": "5.0.0-alpha.12",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/select.cjs.js",
   "module": "dist/select.es.js",
