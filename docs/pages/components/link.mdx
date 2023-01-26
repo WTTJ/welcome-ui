@@ -56,7 +56,7 @@ Add `disabled` property
 
 ## What is underlined by default?
 
-`Link` will add an underline to text nodes & `Text` components
+`Link` will add an underline to text nodes, `Text` components & `span` tags
 
 ```jsx
 <Box>
@@ -72,7 +72,19 @@ Add `disabled` property
 <Box>
   <Link href="#">
     <Avatar name="jungle" size="lg" />
+    <span>This is a text in a span tag</span>
+  </Link>
+</Box>
+<Box>
+  <Link href="#">
+    <Avatar name="jungle" size="lg" />
     <Text>This is a text in a Text component</Text>
+  </Link>
+</Box>
+<Box>
+  <Link href="#">
+    <Avatar name="jungle" size="lg" />
+    <div>This is a text in a div tag (won't add an underline)</div>
   </Link>
 </Box>
 ```
@@ -89,10 +101,10 @@ For a target `_blank` we add `rel='noopener noreferrer'`
 
 ## External link
 
-`isExternalLink` add an `<ExternalLink />` icon, and add special effect on hover.
+`isExternal` add an `<ExternalLink />` icon, and add special effect on hover.
 
 ```jsx
-<Link href="#" target="_blank" isExternalLink>
+<Link href="#" target="_blank" isExternal>
   External link
 </Link>
 ```
