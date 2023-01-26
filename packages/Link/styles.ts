@@ -6,9 +6,9 @@ import { Variant } from './index'
 
 export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{
   variant: Variant
-  isExternalLink?: boolean
+  isExternal?: boolean
 }>(
-  ({ isExternalLink, variant = 'primary' }) => css`
+  ({ isExternal, variant = 'primary' }) => css`
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -25,7 +25,7 @@ export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{
       ${th('underline.default')};
       ${th('links.default')};
       ${th(`links.${variant}.default`)};
-      ${isExternalLink && th('links.withExternalLink')};
+      ${isExternal && th('links.withExternalLink')};
       ${typography};
     }
 

@@ -1,84 +1,58 @@
-/* eslint-disable react/no-multi-comp */
-import React, { Children, cloneElement, useEffect, useRef, useState } from 'react'
-import { useTheme } from '@xstyled/styled-components'
+import React from 'react'
 import { UniversalLinkOptions } from '@welcome-ui/universal-link'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ExternalLinkIcon } from '@welcome-ui/icons'
 
 import * as S from './styles'
 
-const isString = (value: unknown): boolean => typeof value === 'string'
+const isString = (value: React.ReactNode) => typeof value === 'string'
+const isTextValue = (value: React.ReactNode) =>
+  isString(value) || (value as JSX.Element)?.type === 'span'
 
 export type Variant = 'primary' | 'secondary'
 
 export interface LinkOptions {
   variant?: Variant
-  isExternalLink?: boolean
+  isExternal?: boolean
   disabled?: boolean
 }
 export type LinkProps = CreateWuiProps<'a', LinkOptions & UniversalLinkOptions>
 
-export interface WrapWithTextOptions {
-  isExternalLink?: boolean
-  key?: string
+export type WrapWithTextProps = Pick<LinkOptions, 'isExternal'> & {
+  children: React.ReactNode | JSX.Element
 }
-export type WrapWithTextProps = CreateWuiProps<'span', WrapWithTextOptions>
 
-const WrapWithText: React.FC<WrapWithTextProps> = ({ children, isExternalLink, key }) => (
-  <span className="wui-text" key={key}>
+const WrapWithText: React.FC<WrapWithTextProps> = ({ children, isExternal }) => (
+  <span className="wui-text">
     {children}
-    {isExternalLink && <ExternalLinkIcon mb="-2px" ml="sm" size="sm" />}
+    {isExternal && <ExternalLinkIcon mb="-2px" ml="sm" size="sm" />}
   </span>
 )
 
 export const Link = forwardRef<'a', LinkProps>((props, ref) => {
-  const { children, dataTestId, disabled, isExternalLink, variant = 'primary', ...rest } = props
-  const theme = useTheme()
-  const linkRef = useRef<HTMLLinkElement>(null)
-  const [isChildrenString, setIsChildrenString] = useState(isString(children))
+  const { children, dataTestId, disabled, isExternal, variant = 'primary', ...rest } = props
 
-  let clones
-
-  useEffect(() => {
-    const innerRef = (ref || linkRef) as React.MutableRefObject<HTMLLinkElement>
-    if (innerRef && innerRef.current) {
-      setIsChildrenString(innerRef.current.childElementCount === 0)
-    }
-  }, [linkRef, ref])
-
-  if (!isChildrenString) {
-    clones = Children.map(children, (child: React.ReactElement, index) => {
-      if (child) {
-        const key = `link-child-${index}`
-        if (isString(child)) {
-          return (
-            <WrapWithText isExternalLink={isExternalLink} key={key}>
-              {child}
-            </WrapWithText>
-          )
-        }
-        return cloneElement(child, {
-          color: theme.links.default.color,
-          fontWeight: child.props.variant ? undefined : theme.links.default.fontWeight,
-          key,
-          lineHeight: '1.5',
-          ...child.props,
-        })
+  const content = isTextValue(children) ? (
+    <WrapWithText isExternal={isExternal}>{children}</WrapWithText>
+  ) : (
+    React.Children.map(children as JSX.Element, child => {
+      if (isTextValue(child)) {
+        return <WrapWithText isExternal={isExternal}>{child}</WrapWithText>
       }
+      return child
     })
-  }
+  )
 
   return (
     <S.Link
       data-testid={dataTestId}
       disabled={disabled}
-      isExternalLink={isExternalLink}
-      ref={ref || linkRef}
+      isExternal={isExternal}
+      ref={ref}
       variant={variant}
       {...rest}
     >
-      {isChildrenString && <WrapWithText isExternalLink={isExternalLink}>{children}</WrapWithText>}
-      {clones}
+      {content}
     </S.Link>
   )
 })
