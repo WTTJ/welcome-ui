@@ -15,7 +15,9 @@ export interface AlertOptions {
   variant?: Variant
   size?: Size
   icon?: JSX.Element
+  isFullWidth?: boolean
   closeButtonDataTestId?: string
+  cta?: JSX.Element
   /**
    * @description add a close button with an onclick handleClose function
    */
@@ -25,25 +27,39 @@ export interface AlertOptions {
 export type AlertProps = CreateWuiProps<'div', AlertOptions>
 
 const AlertComponent = forwardRef<'div', AlertProps>(
-  ({ children, dataTestId, handleClose, icon, size = 'sm', variant = 'default', ...rest }, ref) => {
+  (
+    {
+      children,
+      cta,
+      dataTestId,
+      handleClose,
+      icon,
+      isFullWidth,
+      size = 'sm',
+      variant = 'default',
+      ...rest
+    },
+    ref
+  ) => {
     const closeButtonDataTestId = dataTestId ? `${dataTestId}-close-button` : undefined
 
-    const buttonChild = Children.toArray(children).find(
-      (child: React.ReactElement) => child.type === AlertButton
-    )
-
-    const content = Children.toArray(children)
-      .filter((child: React.ReactElement) => child.type !== AlertButton)
-      .map((child: React.ReactElement) => {
-        // Add variant to Title to show the correct icon
-        if (child.type === Title) {
-          return cloneElement(child, { variant })
-        }
-        return child
-      })
+    const content = Children.toArray(children).map((child: React.ReactElement) => {
+      // Add variant to Title to show the correct icon
+      if (child.type === Title) {
+        return cloneElement(child, { variant })
+      }
+      return child
+    })
 
     return (
-      <S.Alert data-testid={dataTestId} ref={ref} size={size} variant={variant} {...rest}>
+      <S.Alert
+        data-testid={dataTestId}
+        isFullWidth={isFullWidth}
+        ref={ref}
+        size={size}
+        variant={variant}
+        {...rest}
+      >
         {!!handleClose && (
           <CloseButton
             dataTestId={closeButtonDataTestId}
@@ -55,10 +71,10 @@ const AlertComponent = forwardRef<'div', AlertProps>(
         )}
         <VariantIcon icon={icon} pr="md" variant={variant} />
         <Box flex="1">
-          {buttonChild ? (
+          {cta ? (
             <Stack alignItems="center" direction="row" justifyContent="space-between">
               <div>{content}</div>
-              {buttonChild}
+              {cta}
             </Stack>
           ) : (
             content
