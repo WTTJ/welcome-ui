@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/alert",
-  "version": "5.0.0-alpha.13",
+  "version": "5.0.0-alpha.14",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/alert.cjs.js",
   "module": "dist/alert.es.js",
