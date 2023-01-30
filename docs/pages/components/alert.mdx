@@ -95,34 +95,37 @@ We're adding an icon matching the `variant` (see above examples) but you can rem
 </Alert>
 ```
 
-## With Button
+## With CTA
 
-When usin `Alert.Button`, we will show it in a column on the right
+When using a `cta` prop, we will show it in a column on the right
 
 ```jsx
-<Alert>
+<Alert cta={<Alert.Button variant="secondary">Button</Alert.Button>}>
   <Alert.Title>Welcome to the jungle</Alert.Title>
   <span>
     Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan ultrices.
     Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
   </span>
-  <Alert.Button variant="secondary">Button</Alert.Button>
 </Alert>
 ```
 
 ```jsx
-<Alert>
+<Alert cta={<Alert.Button variant="secondary">Button</Alert.Button>}>
   <Alert.Title>Welcome to the jungle</Alert.Title>
-  <Alert.Button variant="secondary">Button</Alert.Button>
+</Alert>
+```
+
+```jsx
+<Alert cta={<Icons.Check />} isFullWidth>
+  <Alert.Title>Welcome to the jungle</Alert.Title>
 </Alert>
 ```
 
 ## Full Width
 
 ```jsx
-<Alert maxWidth="100%">
+<Alert isFullWidth cta={<Alert.Button variant="secondary">Button</Alert.Button>}>
   <Alert.Title>Welcome to the jungle</Alert.Title>
-  <Alert.Button variant="secondary">Button</Alert.Button>
 </Alert>
 ```
 
