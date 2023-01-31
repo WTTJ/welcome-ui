@@ -205,7 +205,7 @@ workflows:
       - docs_build:
           filters:
             tags:
-              only: /^v5.0.0-alpha.\d/
+              only: /^v5.0.0-alpha.*/
           requires:
             - build
       - docs_deploy_prod:
@@ -217,7 +217,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^v5.0.0-alpha.\d/
+              only: /^v5.0.0-alpha.*/
           requires:
             - test
             - lint
