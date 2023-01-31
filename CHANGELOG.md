@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-cd.1](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-cd.0...v5.0.0-cd.1) (2023-01-31)
+
+
+### Bug Fixes
+
+* npm login verify of lerna & prerelease vs release jobs ([32882f2](https://github.com/WTTJ/welcome-ui/commit/32882f24f75042a3f2e0ba44e8fe04090158c941))
+
+
+
+
+
 # [5.0.0-cd.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.14...v5.0.0-cd.0) (2023-01-31)
 
 **Note:** Version bump only for package @welcome-ui/repo
