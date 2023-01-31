@@ -4,7 +4,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ExternalLinkIcon } from '@welcome-ui/icons'
 
 import * as S from './styles'
-import { isTextValue } from './utils'
+import { shouldWrapWithText } from './utils'
 
 export type Variant = 'primary' | 'secondary'
 
@@ -29,11 +29,11 @@ const WrapWithText: React.FC<WrapWithTextProps> = ({ children, isExternal }) => 
 export const Link = forwardRef<'a', LinkProps>((props, ref) => {
   const { children, dataTestId, disabled, isExternal, variant = 'primary', ...rest } = props
 
-  const content = isTextValue(children) ? (
+  const content = shouldWrapWithText(children) ? (
     <WrapWithText isExternal={isExternal}>{children}</WrapWithText>
   ) : (
     React.Children.map(children as JSX.Element, child => {
-      if (isTextValue(child)) {
+      if (shouldWrapWithText(child)) {
         return <WrapWithText isExternal={isExternal}>{child}</WrapWithText>
       }
       return child

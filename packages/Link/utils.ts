@@ -1,4 +1,4 @@
-const isSpan = (value: JSX.Element) => {
+const shouldWrapElementWithText = (value: JSX.Element) => {
   return (
     // <span />
     value?.type === 'span' ||
@@ -10,6 +10,8 @@ const isSpan = (value: JSX.Element) => {
   )
 }
 
-export const isTextValue = (value: React.ReactNode) => {
-  return typeof value === 'object' ? isSpan(value as JSX.Element) : typeof value === 'string'
+export const shouldWrapWithText = (value: React.ReactNode) => {
+  return typeof value === 'object'
+    ? shouldWrapElementWithText(value as JSX.Element)
+    : typeof value === 'string'
 }
