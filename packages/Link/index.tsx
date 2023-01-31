@@ -4,10 +4,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ExternalLinkIcon } from '@welcome-ui/icons'
 
 import * as S from './styles'
-
-const isString = (value: React.ReactNode) => typeof value === 'string'
-const isTextValue = (value: React.ReactNode) =>
-  isString(value) || (value as JSX.Element)?.type === 'span'
+import { isTextValue } from './utils'
 
 export type Variant = 'primary' | 'secondary'
 
