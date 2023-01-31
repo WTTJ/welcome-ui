@@ -94,3 +94,37 @@ yarn watch
 ## Add some new icons
 
 Follow the steps of [icons/README.md](icons/README.md)
+
+## How to release
+
+The release of the packages is automated by the CI, you just need to bump package version and push git tags to initiate the process.
+
+### Initiating the release process from your environment
+
+**The commands listed below will only prompt for packages to bump**. Then they will modify packages versions, commit changes and create the git tag to finally push everything to github. **No further actions are required once you have validated the packages to bump.**
+
+#### If you just need to bump one version without bumping to a major or switching from a prerelease to stable release, run:
+
+```bash
+yarn release
+```
+
+#### To bump to a major version, run:
+
+```bash
+yarn release major
+```
+
+#### To create a new prerelease, run:
+
+This is only used for the **first** prerelease. If you already published a v5.0.0-alpha.0 then you just need to run the first command.
+
+```bash
+yarn release --preid alpha
+```
+
+NB: you can replace alpha with any other keyword (beta, rc, ...)
+
+### About the CI
+
+The CI will trigger on tags to build the packages and then push them to the npm registry
