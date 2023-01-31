@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-cd.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.14...v5.0.0-cd.0) (2023-01-31)
+
+**Note:** Version bump only for package @welcome-ui/core
+
+
+
+
+
 ## [4.4.1](https://github.com/WTTJ/welcome-ui/compare/v4.4.0...v4.4.1) (2022-09-12)
 
 **Note:** Version bump only for package @welcome-ui/core
