@@ -4,11 +4,7 @@ const path = require('path')
 const { build } = require('esbuild')
 
 const packagePath = path.resolve(process.argv[2])
-const entryPoint = process.argv[3] || 'index.tsx'
-
-const packageJson = path.join(packagePath, 'package.json')
-const { name } = require(packageJson)
-const packageName = name.replace('@welcome-ui/', '')
+const entryPoint = path.resolve(packagePath, process.argv[3] || 'index.tsx')
 
 const options = {
   entryPoints: {
@@ -23,8 +19,6 @@ const options = {
 }
 
 ;(() => {
-  console.log('start', name)
-  build({ ...options, format: 'cjs', outfile: `dist/${packageName}.cjs.js` })
-  build({ ...options, format: 'esm', outfile: `dist/${packageName}.es.js` })
-  console.log('end', name)
+  build({ ...options, format: 'cjs', outfile: 'dist/index.cjs.js' })
+  build({ ...options, format: 'esm', outfile: 'dist/index.es.js' })
 })()

@@ -2,8 +2,8 @@
   "name": "@welcome-ui/link",
   "version": "5.0.0-alpha.15",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
-  "main": "dist/link.cjs.js",
-  "module": "dist/link.es.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "node ../../scripts/build.js .",

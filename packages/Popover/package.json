@@ -2,8 +2,8 @@
   "name": "@welcome-ui/popover",
   "version": "5.0.0-alpha.10",
   "description": "welcome-ui: A popover component",
-  "main": "dist/popover.cjs.js",
-  "module": "dist/popover.es.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "node ../../scripts/build.js .",
