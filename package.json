@@ -108,7 +108,7 @@
     "@typescript-eslint/parser": "^5.47.1",
     "@xstyled/styled-components": "^3.7.0",
     "aws-sdk": "^2.1282.0",
-    "babel-jest": "29.3.1",
+    "babel-jest": "29.4.1",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-plugin-transform-async-to-promises": "^0.8.18",
     "colors": "^1.4.0",
