@@ -6,7 +6,7 @@
   "module": "dist/search.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
+    "build": "node ../../scripts/build.js .",
     "watch": "rollup -c -w",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",

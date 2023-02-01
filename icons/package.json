@@ -6,7 +6,7 @@
   "module": "dist/icons.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
+    "build": "node ../scripts/build.js .",
     "types": "mkdir -p dist/types && cp index.d.ts dist/types/index.d.ts"
   },
   "publishConfig": {
