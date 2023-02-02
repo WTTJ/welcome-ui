@@ -2,9 +2,18 @@
 const path = require('path')
 
 const { build } = require('esbuild')
+const { replace } = require('esbuild-plugin-replace')
 
-const packagePath = path.resolve(process.argv[2])
-const entryPoint = path.resolve(packagePath, process.argv[3] || 'index.tsx')
+const args = process.argv.slice(2)
+const [package, entry, ...processArgs] = args
+
+const packagePath = path.resolve(package)
+const entryPoint = path.resolve(packagePath, entry || 'index.tsx')
+
+const env = processArgs.reduce((acc, arg) => {
+  const [key, value] = arg.split('=')
+  return { ...acc, [key]: value }
+}, {})
 
 const options = {
   entryPoints: {
@@ -16,6 +25,12 @@ const options = {
   splitting: false,
   packages: 'external',
   target: ['esnext'],
+  plugins: [
+    replace({
+      __BRANCH__: env['BRANCH'],
+      __ICON_FONT_HASH__: env['ICON_FONT_HASH'],
+    }),
+  ],
 }
 
 ;(() => {

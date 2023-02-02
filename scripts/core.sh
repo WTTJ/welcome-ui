@@ -12,7 +12,7 @@ if [[ -f "$FONT_FILE" ]]; then
   fi
   ICON_FONT_HASH=$(sha1sum $FONT_FILE | awk '{ print $1 }')
 
-  lerna run build --scope @welcome-ui/core -- --environment BRANCH:$BRANCH,ICON_FONT_HASH:$ICON_FONT_HASH
+  lerna run build --scope @welcome-ui/core -- BRANCH=$BRANCH ICON_FONT_HASH=$ICON_FONT_HASH
 else
   echo "Font doesn't exist. Please run 'yarn webfont:build'"
   exit 1
