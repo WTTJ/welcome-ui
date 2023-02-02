@@ -77,6 +77,10 @@ export const Input = styled.div`
 
 export const Wrapper = styled(Box)`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: sm;
+
+  input {
+    margin-top: xs;
+  }
 `

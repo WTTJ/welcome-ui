@@ -15,7 +15,12 @@ const columnStyles = css`
 
 const checkableFieldStyles = css`
   ${th('defaultFields.checkablelabel.default')};
-  margin-bottom: xs;
+  align-items: flex-start;
+  overflow-wrap: break-word;
+
+  input {
+    margin-top: xs;
+  }
 `
 
 type StyledFieldProps = {
@@ -33,11 +38,13 @@ export const Field = styled('div').withConfig({ shouldForwardProp })<StyledField
     ${StyledLabel} {
       ${flexDirection === 'row' && rowStyles};
       ${flexDirection === 'column' && !isCheckable && columnStyles};
-      ${isCheckable && !withHintText && checkableFieldStyles};
+      ${isCheckable && checkableFieldStyles};
+      ${isCheckable && withHintText && th('defaultFields.checkablelabel.default')}
       ${checked && th('defaultFields.checkablelabel.checked')}
+      margin-bottom: ${!withHintText && 'xs'}
     }
     ${StyledHint} {
-      ${isCheckable && withHintText && checkableFieldStyles};
+      margin-bottom: ${isCheckable && 'xxs'};
     }
     ${system};
   `
