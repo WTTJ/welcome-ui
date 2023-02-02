@@ -5,7 +5,9 @@ import { filterSystemProps } from '@welcome-ui/system'
 import { PlacementOptions } from './index'
 
 export const Tooltip = styled(ReakitTooltip).withConfig({ shouldForwardProp: filterSystemProps })(
-  () => css``
+  () => css`
+    ${system};
+  `
 )
 const transformDirection = {
   top: 'translate3d(0, -4px, 0)',
