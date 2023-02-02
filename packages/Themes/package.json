@@ -2,12 +2,11 @@
   "name": "@welcome-ui/themes",
   "version": "5.0.0-alpha.8",
   "description": "welcome-ui: themes",
-  "main": "dist/themes.cjs.js",
-  "module": "dist/themes.es.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -c -w",
+    "build": "node ../../scripts/build.js . index.ts",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },

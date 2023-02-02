@@ -2,12 +2,11 @@
   "name": "@welcome-ui/select",
   "version": "5.0.0-alpha.12",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
-  "main": "dist/select.cjs.js",
-  "module": "dist/select.es.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -c -w",
+    "build": "node ../../scripts/build.js .",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
     "doc": "node -r esm ../../scripts/doc-props.js --name Select"

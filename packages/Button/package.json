@@ -2,13 +2,12 @@
   "name": "@welcome-ui/button",
   "version": "5.0.0-alpha.10",
   "description": "welcome-ui: A button component",
-  "main": "dist/button.cjs.js",
-  "module": "dist/button.es.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "component": "Button",
   "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -c -w",
+    "build": "node ../../scripts/build.js .",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
     "doc": "node -r esm ../../scripts/doc-props.js --name Button"

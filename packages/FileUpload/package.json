@@ -2,12 +2,11 @@
   "name": "@welcome-ui/file-upload",
   "version": "5.0.0-alpha.10",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
-  "main": "dist/file-upload.cjs.js",
-  "module": "dist/file-upload.es.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -c -w",
+    "build": "node ../../scripts/build.js .",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
     "doc": "node -r esm ../../scripts/doc-props.js --name FileUpload"
