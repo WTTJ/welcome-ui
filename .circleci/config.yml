@@ -164,6 +164,34 @@ jobs:
           to: docs_production
       - run: node_modules/.bin/netlify deploy --dir=docs_production --prod
 
+  release:
+    <<: *defaults
+    steps: 
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: login to registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - run:
+          name: release to npm
+          command: yarn lerna publish from-git --yes --no-verify-access
+
+  prerelease:
+    <<: *defaults
+    steps: 
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: login to registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - run:
+          name: release to npm
+          command: yarn lerna publish from-git --yes --no-verify-access --dist-tag next
+
 workflows:
   version: 2
   btd:
@@ -243,3 +271,28 @@ workflows:
             - test
             - lint
             - build
+      - release:
+          context:
+            - welcome-ui
+          requires:
+            - test
+            - lint
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v\d.\d.\d/
+
+      - prerelease:
+          context:
+            - welcome-ui
+          requires:
+            - test
+            - lint
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v\d.\d.\d-.*/
