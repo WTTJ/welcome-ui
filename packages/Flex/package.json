@@ -7,7 +7,6 @@
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "node ../../scripts/build.js .",
-    "watch": "rollup -c -w",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
     "doc": "node -r esm ../../scripts/doc-props.js --name Flex"
