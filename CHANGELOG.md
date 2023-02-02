@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.16](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.15...v5.0.0-alpha.16) (2023-02-02)
+
+
+### Bug Fixes
+
+* checkbox/radio alignment with long text label ([#1898](https://github.com/WTTJ/welcome-ui/issues/1898)) ([38f1aed](https://github.com/WTTJ/welcome-ui/commit/38f1aeda31466f17c170701537d3efb6b7c9dae2))
+
+
+
+
+
 # [4.5.0](https://github.com/WTTJ/welcome-ui/compare/v4.4.1...v4.5.0) (2022-09-14)
 
 
