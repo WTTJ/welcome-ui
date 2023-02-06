@@ -37,7 +37,7 @@ export const getDrawers = (theme: WuiTheme): ThemeDrawers => {
       padding: `${space['xl']} ${space['5xl']} ${space['xl']} ${space['xl']}`,
     },
     content: {
-      padding: `${space['3xl']}`,
+      padding: `${space['xl']}`,
     },
     footer: {
       backgroundColor: colors['light-900'],
