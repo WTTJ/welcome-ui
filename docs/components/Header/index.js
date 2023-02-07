@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box } from '@welcome-ui/box'
-import { MenuIcon, InformationIcon } from '@welcome-ui/icons'
+import { InformationIcon, MenuIcon } from '@welcome-ui/icons'
 import NextLink from 'next/link'
 import { Drawer, useDrawerState } from '@welcome-ui/drawer'
 import { Modal, useModalState } from '@welcome-ui/modal'
-
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons'
 import { DocSearch } from '@docsearch/react'
@@ -19,7 +18,7 @@ import { ThemeSelector } from './ThemeSelector'
 import * as S from './styles'
 import { NavBar } from './NavBar'
 
-export function Header() {
+export const Header = () => {
   const mobileMenuDrawer = useDrawerState()
   const modal = useModalState()
   const { pathname } = useRouter()
@@ -56,7 +55,7 @@ export function Header() {
           />
         </Box>
         <ThemeSelector ml="lg" />
-        <Button onClick={openThemeHelper} h={30} shape="circle" ml="xxs" variant="ghost" w={30}>
+        <Button h={30} ml="xxs" onClick={openThemeHelper} shape="circle" variant="ghost" w={30}>
           <InformationIcon color="light-900" />
         </Button>
       </Box>
@@ -74,7 +73,7 @@ export function Header() {
           </Drawer.Trigger>
           <Drawer.Backdrop {...mobileMenuDrawer} backdropVisible={false}>
             <S.MenuMobileDrawer aria-label="Menu backdrop" {...mobileMenuDrawer}>
-              <NavBar isMobileMenu mb="lg" />
+              <NavBar isMobileMenu mb="lg" drawerState={mobileMenuDrawer} />
               <ComponentsList onClick={() => mobileMenuDrawer.hide()} />
             </S.MenuMobileDrawer>
           </Drawer.Backdrop>
