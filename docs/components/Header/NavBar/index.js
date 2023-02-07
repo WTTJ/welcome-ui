@@ -1,11 +1,10 @@
-
 import React from 'react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
 import * as S from './styles'
 
-export function NavBar({ isMobileMenu, ...props }) {
+export const NavBar = ({ drawerState, isMobileMenu, ...props }) => {
   const { pathname } = useRouter()
   const isBlog = pathname === '/blog'
   const isDocumentation = !isBlog && pathname !== '/'
@@ -28,7 +27,9 @@ export function NavBar({ isMobileMenu, ...props }) {
       </li>
       <li>
         <NextLink href="/blog" passHref>
-          <S.Item isActive={isBlog}>Blog</S.Item>
+          <S.Item isActive={isBlog} onClick={isMobileMenu ? () => drawerState.hide() : undefined}>
+            Blog
+          </S.Item>
         </NextLink>
       </li>
       <li>
