@@ -10,6 +10,7 @@ import Popper, { Placement } from 'popper.js'
 import { TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import { useDialogState } from 'reakit/Dialog'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { Box } from '@welcome-ui/box'
 
 import * as S from './styles'
 
@@ -138,12 +139,14 @@ export const Tooltip = forwardRef<'div', TooltipProps>((props, ref): React.React
     return children as React.ReactElement
   }
 
-  const child = React.Children.only(children) as React.ReactElement
+  const child = React.Children.only(
+    <Box display="inline-block">{children}</Box>
+  ) as React.ReactElement
 
   return (
     <>
       <TooltipReference as={undefined} {...tooltip}>
-        {referenceProps => cloneElement(<div>{child}</div>, referenceProps)}
+        {referenceProps => cloneElement(child, referenceProps)}
       </TooltipReference>
 
       <S.Tooltip ref={ref} {...tooltip} {...rest}>
