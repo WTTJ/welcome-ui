@@ -8,7 +8,7 @@ if [[ -f "$FONT_FILE" ]]; then
   if [[ -n "$HEAD" ]]; then
     BRANCH=$HEAD
   else
-    BRANCH=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+    BRANCH=$(git rev-parse --abbrev-ref HEAD)
   fi
   ICON_FONT_HASH=$(sha1sum $FONT_FILE | awk '{ print $1 }')
 
