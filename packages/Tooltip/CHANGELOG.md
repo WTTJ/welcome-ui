@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.18](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.17...v5.0.0-alpha.18) (2023-02-08)
+
+
+### Bug Fixes
+
+* tooltip not triggered ([#1920](https://github.com/WTTJ/welcome-ui/issues/1920)) ([70f0ec0](https://github.com/WTTJ/welcome-ui/commit/70f0ec09ec6bc3d97240482583b33ba352e59008))
+
+
+
+
+
 # [5.0.0-alpha.17](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.16...v5.0.0-alpha.17) (2023-02-07)
 
 
