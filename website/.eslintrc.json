@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "../node_modules/wttj-config-front/lib/eslint/eslintrc-typescript"
+  ]
+}
