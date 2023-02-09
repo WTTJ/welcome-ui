@@ -37,6 +37,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
+    "@welcome-ui/input-text": "^5.0.0-alpha.16",
     "@welcome-ui/system": "^5.0.0-alpha.16",
     "@welcome-ui/text": "^5.0.0-alpha.16",
     "@welcome-ui/utils": "^5.0.0-alpha.16"
