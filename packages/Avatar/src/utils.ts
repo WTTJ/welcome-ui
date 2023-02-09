@@ -1,9 +1,9 @@
-import { WuiTheme } from '@welcome-ui/core'
+import { Theme } from '@xstyled/styled-components'
 
-export function getSeededColor(colors: WuiTheme['colors'], seed = ''): string {
+export function getSeededColor(colors: Theme['colors'], seed = ''): string {
   const colorKeys = Object.keys(colors).filter(color => color.startsWith('sub-'))
   const subColorNumber = (seed.length % colorKeys.length) + 1
-  const colorsIndex = `sub-${subColorNumber}` as keyof WuiTheme['colors']
+  const colorsIndex = `sub-${subColorNumber}` as keyof Theme['colors']
 
   return colors[colorsIndex]
 }

@@ -11,12 +11,12 @@ import { clamp, throttle } from '@welcome-ui/utils'
 import { ResizeObserver } from '@juggle/resize-observer'
 import { RightIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { WuiTheme } from '@welcome-ui/core'
+import { Theme } from '@xstyled/styled-components'
 
 import { Item } from './Item'
 import * as S from './styles'
 
-export type Colors = WuiTheme['colors']
+export type Colors = Theme['colors']
 
 export interface BreadcrumbOptions {
   children: React.ReactNode | React.ReactNode[]

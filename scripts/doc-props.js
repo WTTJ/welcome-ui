@@ -53,7 +53,7 @@ const isComponentFile = file => {
 }
 
 const getComponentFiles = async () => {
-  const componentFiles = await fs.readdir('.')
+  const componentFiles = await fs.readdir('src')
 
   return componentFiles.filter(isComponentFile)
 }

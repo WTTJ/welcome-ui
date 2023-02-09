@@ -1,6 +1,5 @@
-import styled, { css, system } from '@xstyled/styled-components'
+import styled, { css, system, Theme } from '@xstyled/styled-components'
 import { WuiProps } from '@welcome-ui/system'
-import { WuiTheme } from '@welcome-ui/core'
 
 import { IconOptions } from './index'
 
@@ -25,7 +24,7 @@ type StyledIconProps = Pick<IconOptions, 'size'> &
   Partial<{ alt: string; title: string }>
 
 export const Icon = styled('svg')<StyledIconProps>(({ isFlag, size = 'md', stroked, theme }) => {
-  const formattedSize = theme.icons[size as keyof WuiTheme['icons']] || size
+  const formattedSize = theme.icons[size as keyof Theme['icons']] || size
   return css`
     ${!isFlag && (stroked ? iconSvgStrokedStyles : iconSvgFilledStyles)};
     width: ${formattedSize};
