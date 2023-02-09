@@ -36,6 +36,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
+    "@welcome-ui/icon": "^5.0.0-alpha.16",
     "@welcome-ui/system": "^5.0.0-alpha.16"
   },
   "peerDependencies": {
