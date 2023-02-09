@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useContext, useMemo } from 'react'
 
-import { ModalStateReturn } from './'
+import { ModalStateReturn } from './index'
 
 type ModalProviderProps = {
   children?: ReactNode

@@ -59,7 +59,7 @@ const getComponentFiles = async () => {
 }
 
 const getFileDefinitions = file => {
-  const absolutePath = path.join(process.cwd(), file)
+  const absolutePath = path.join(process.cwd(), 'src', file)
   const definitions = parse(absolutePath)
 
   return definitions
