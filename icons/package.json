@@ -6,7 +6,7 @@
   "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "node ../scripts/build.js .",
+    "build": "node ../scripts/build.js",
     "types": "mkdir -p dist/types && cp index.d.ts dist/types/index.d.ts"
   },
   "publishConfig": {
