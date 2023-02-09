@@ -8,7 +8,11 @@ import 'jest-styled-components'
 import { createTheme } from '../packages/Core/src/theme/core'
 export const theme = createTheme()
 
-const AllTheProviders = ({ children }) => {
+type ProviderProps = {
+  children?: React.ReactNode
+}
+
+const Provider: React.FC<ProviderProps> = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>{children}</BrowserRouter>
@@ -16,8 +20,8 @@ const AllTheProviders = ({ children }) => {
   )
 }
 
-const customRender = (ui: JSX.Element, options: RenderOptions) =>
-  render(ui, { wrapper: AllTheProviders, ...options })
+const customRender = (ui: JSX.Element, options?: RenderOptions) =>
+  render(ui, { wrapper: Provider, ...options })
 
 // re-export everything
 export * from '@testing-library/react'

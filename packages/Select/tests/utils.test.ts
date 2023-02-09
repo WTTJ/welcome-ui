@@ -1,5 +1,6 @@
 import capitalize from 'lodash.capitalize'
 
+import { SelectValue } from '../src'
 import {
   getInputValue,
   getNewOptions,
@@ -105,7 +106,7 @@ test('getOptionsFromSelected returns correct options', () => {
 })
 
 test('getOptionsFromSelected returns empty array if SELECTED not passed', () => {
-  const options = getOptionsFromSelected(undefined as unknown, OPTIONS)
+  const options = getOptionsFromSelected(undefined as unknown as SelectValue, OPTIONS)
   expect(options).toStrictEqual([])
 })
 

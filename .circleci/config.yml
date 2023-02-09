@@ -166,7 +166,7 @@ jobs:
 
   release:
     <<: *defaults
-    steps: 
+    steps:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
@@ -180,7 +180,7 @@ jobs:
 
   prerelease:
     <<: *defaults
-    steps: 
+    steps:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
@@ -206,18 +206,6 @@ workflows:
               only: /.*/
           requires:
             - checkout
-      - lint:
-          filters:
-            tags:
-              only: /.*/
-          requires:
-            - yarn_install
-      - test:
-          filters:
-            tags:
-              only: /.*/
-          requires:
-            - yarn_install
       - build_and_release_icon_font:
           context:
             - aws
@@ -230,6 +218,20 @@ workflows:
               only: /.*/
           requires:
             - yarn_install
+      - lint:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - yarn_install
+            - build
+      - test:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - yarn_install
+            - build
       - docs_build:
           filters:
             tags:

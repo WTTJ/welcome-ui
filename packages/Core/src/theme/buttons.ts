@@ -23,7 +23,6 @@ type Variant =
   | 'ghost'
 
 type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
-
 type Icon = 'only' | 'default'
 
 export type ThemeButtons = Record<Variant, CommonAttributesButton> &
@@ -32,7 +31,7 @@ export type ThemeButtons = Record<Variant, CommonAttributesButton> &
   Record<'active', Record<Variant, CommonAttributesButton>> &
   Record<'disabled', CommonAttributesButton & { '&:focus': ReturnType<ThemeFocus> }> &
   Record<'sizes', Record<Size, SizeAttributesButton>> &
-  Record<'icon', Record<Icon, unknown>>
+  Record<'icon', Record<Icon, Record<Size, string>>>
 
 export const getButtons = (theme: WuiTheme): ThemeButtons => {
   const { colors, focus, fontWeights, radii, space, texts, toRem } = theme
