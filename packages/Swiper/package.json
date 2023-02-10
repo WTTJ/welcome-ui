@@ -38,7 +38,9 @@
   },
   "dependencies": {
     "@welcome-ui/system": "^5.0.0-alpha.21",
-    "@welcome-ui/utils": "^5.0.0-alpha.21"
+    "@welcome-ui/utils": "^5.0.0-alpha.21",
+    "@welcome-ui/button": "^5.0.0-alpha.21",
+    "@welcome-ui/icons.font": "^5.0.0-alpha.21"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.0",
