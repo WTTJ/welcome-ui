@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.20](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.19...v5.0.0-alpha.20) (2023-02-13)
+
+
+### Bug Fixes
+
+* modal scroll on mobile device ([#1923](https://github.com/WTTJ/welcome-ui/issues/1923)) ([5fe2872](https://github.com/WTTJ/welcome-ui/commit/5fe287218e487bfe3919df212726148815baaf22))
+* **Tag:** onRemove fire twice ([59262ae](https://github.com/WTTJ/welcome-ui/commit/59262ae4ff2acf4adb79c31a94ae914cf67a8695))
+
+
+
+
+
 # [5.0.0-alpha.19](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.18...v5.0.0-alpha.19) (2023-02-08)
 
 

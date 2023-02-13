@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/modal",
-  "version": "5.0.0-alpha.16",
+  "version": "5.0.0-alpha.20",
   "description": "Modal from Reakit with a really nice theme 👀",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",

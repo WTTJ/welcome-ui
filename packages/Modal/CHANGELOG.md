@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.20](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.19...v5.0.0-alpha.20) (2023-02-13)
+
+
+### Bug Fixes
+
+* modal scroll on mobile device ([#1923](https://github.com/WTTJ/welcome-ui/issues/1923)) ([5fe2872](https://github.com/WTTJ/welcome-ui/commit/5fe287218e487bfe3919df212726148815baaf22))
+
+
+
+
+
 # [5.0.0-alpha.16](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.15...v5.0.0-alpha.16) (2023-02-02)
 
 **Note:** Version bump only for package @welcome-ui/modal

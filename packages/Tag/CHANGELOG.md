@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.20](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.19...v5.0.0-alpha.20) (2023-02-13)
+
+
+### Bug Fixes
+
+* **Tag:** onRemove fire twice ([59262ae](https://github.com/WTTJ/welcome-ui/commit/59262ae4ff2acf4adb79c31a94ae914cf67a8695))
+
+
+
+
+
 # [5.0.0-alpha.16](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.15...v5.0.0-alpha.16) (2023-02-02)
 
 **Note:** Version bump only for package @welcome-ui/tag
