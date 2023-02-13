@@ -45,6 +45,7 @@
     "@welcome-ui/system": "^5.0.0-alpha.16",
     "@welcome-ui/text": "^5.0.0-alpha.16",
     "@welcome-ui/utils": "^5.0.0-alpha.16",
+    "body-scroll-lock": "=3.1.5 ",
     "reakit": "^1.3.11"
   },
   "peerDependencies": {
@@ -55,5 +56,8 @@
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
   "sideEffects": false,
   "component": "Modal",
-  "homepage": "https://welcome-ui.com/components/modal"
+  "homepage": "https://welcome-ui.com/components/modal",
+  "devDependencies": {
+    "@types/body-scroll-lock": "^3.1.0"
+  }
 }

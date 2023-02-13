@@ -16,6 +16,7 @@ import { Close } from './Close'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { Content } from './Content'
+import { ModalProvider } from './context'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
@@ -57,20 +58,23 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     }
 
     return (
-      <S.Backdrop {...modalState} hideOnClickOutside={hideOnClickOutside}>
-        <S.Dialog
-          aria-label={ariaLabel}
-          hide={closeModal}
-          hideOnClickOutside={hideOnClickOutside}
-          ref={ref}
-          size={size}
-          {...modalState}
-          {...rest}
-        >
-          <CloseElement onClick={closeModal} />
-          {children}
-        </S.Dialog>
-      </S.Backdrop>
+      <ModalProvider modalState={modalState}>
+        <S.Backdrop {...modalState} hideOnClickOutside={hideOnClickOutside}>
+          <S.Dialog
+            aria-label={ariaLabel}
+            hide={closeModal}
+            hideOnClickOutside={hideOnClickOutside}
+            preventBodyScroll={false}
+            ref={ref}
+            size={size}
+            {...modalState}
+            {...rest}
+          >
+            <CloseElement onClick={closeModal} />
+            {children}
+          </S.Dialog>
+        </S.Backdrop>
+      </ModalProvider>
     )
   }
 )

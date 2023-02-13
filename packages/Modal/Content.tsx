@@ -1,8 +1,10 @@
-import React, { Children, cloneElement, useMemo, useState } from 'react'
+import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
 import { forwardRef } from '@welcome-ui/system'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 import * as S from './styles'
+import { useModal } from './context'
 
 export interface ContentOptions {
   children: JSX.Element | JSX.Element[]
@@ -15,6 +17,8 @@ export type ContentProps = ContentOptions
  */
 export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, ref) => {
   const { borderWidths, space } = useTheme()
+  const modalState = useModal()
+
   const [bodyRef, setBodyRef] = useState<HTMLElement>(null)
 
   const components = useMemo(
@@ -24,6 +28,18 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
       }),
     [children]
   )
+
+  /**
+   * As Reakit doesn't handle scrolling content we have to forward the modalState to the Modal.Content
+   * in order to check when the modal is visible and enable the scroll.
+   * @link https://github.com/ariakit/ariakit/issues/469
+   */
+  useEffect(() => {
+    if (modalState.visible && bodyRef) {
+      disableBodyScroll(bodyRef)
+    }
+    return () => enableBodyScroll(bodyRef)
+  }, [bodyRef, modalState.visible])
 
   const setRef = (name?: string) => {
     if (name === 'Body') {
