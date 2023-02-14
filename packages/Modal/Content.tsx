@@ -19,7 +19,7 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
   const { borderWidths, space } = useTheme()
   const modalState = useModal()
 
-  const [bodyRef, setBodyRef] = useState<HTMLElement>(null)
+  const [bodyRef, setBodyRef] = useState<HTMLElement | null>(null)
 
   const components = useMemo(
     () =>
@@ -38,7 +38,7 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
     if (modalState.visible && bodyRef) {
       disableBodyScroll(bodyRef)
     }
-    return () => enableBodyScroll(bodyRef)
+    return () => bodyRef && enableBodyScroll(bodyRef)
   }, [bodyRef, modalState.visible])
 
   const setRef = (name?: string) => {
