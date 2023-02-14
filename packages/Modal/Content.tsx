@@ -51,7 +51,12 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
   const getStyles = (name?: string) => {
     if (name === 'Header') {
       return {
-        pb: components.includes('Body') || components.includes('Footer') ? space.lg : null,
+        // if the Modal have a Body but not a Footer || have a Footer but not a Body
+        pb:
+          (components.includes('Body') && !components.includes('Footer')) ||
+          (components.includes('Footer') && !components.includes('Body'))
+            ? space.lg
+            : space.xxl,
       }
     }
     if (name === 'Body') {
