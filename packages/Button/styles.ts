@@ -38,6 +38,8 @@ export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<But
 
     & > svg.wui-icon,
     & > i.wui-icon-font {
+      font-weight: initial;
+
       &:only-child {
         width: ${th(`buttons.icon.only.${size}`)};
         height: ${th(`buttons.icon.only.${size}`)};
