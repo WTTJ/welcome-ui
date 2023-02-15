@@ -41,7 +41,7 @@
     "@welcome-ui/system": "^5.0.0-alpha.16",
     "@welcome-ui/utils": "^5.0.0-alpha.16",
     "easymde": "2.18.0",
-    "emoji-mart": "=2.11.1",
+    "emoji-mart": "=5.5.2",
     "react-simplemde-editor": "5.2.0"
   },
   "peerDependencies": {
