@@ -6,6 +6,12 @@
     "sourceMap": false,
     "declaration": true
   },
-  "include": ["packages/**.ts", "packages/**.tsx", "types"],
+  "include": [
+    "packages/**/src/*.ts",
+    "packages/**/src/*.tsx",
+    "packages/**/tests/*.ts",
+    "packages/**/tests/*.tsx",
+    "types"
+  ],
   "exclude": ["dist", "icons/**/*", "packages/**/node_modules", "packages/**/dist", "docs"]
 }

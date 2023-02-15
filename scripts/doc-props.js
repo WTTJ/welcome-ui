@@ -53,13 +53,13 @@ const isComponentFile = file => {
 }
 
 const getComponentFiles = async () => {
-  const componentFiles = await fs.readdir('.')
+  const componentFiles = await fs.readdir('src')
 
   return componentFiles.filter(isComponentFile)
 }
 
 const getFileDefinitions = file => {
-  const absolutePath = path.join(process.cwd(), file)
+  const absolutePath = path.join(process.cwd(), 'src', file)
   const definitions = parse(absolutePath)
 
   return definitions

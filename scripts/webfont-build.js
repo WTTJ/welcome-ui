@@ -22,7 +22,7 @@ const FONT_NAME = 'welcome-icon-font-2'
 const writeIconFont = files => {
   console.log('Started'.blue, 'Writing icon font'.grey)
   const filteredFiles = files.filter(file => !FLAG_ICONS.includes(file.key))
-  const unicodeFile = `${ICON_FONT_PATH}/unicode.json`
+  const unicodeFile = `${ICON_FONT_PATH}/src/unicode.json`
   const unicodeMap = require(unicodeFile)
   const newIcons = difference(
     filteredFiles.map(file => file.key),

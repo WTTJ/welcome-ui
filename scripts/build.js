@@ -5,12 +5,11 @@ const { build } = require('esbuild')
 const { replace } = require('esbuild-plugin-replace')
 
 const args = process.argv.slice(2)
-const [package, entry, ...processArgs] = args
 
-const packagePath = path.resolve(package)
-const entryPoint = path.resolve(packagePath, entry || 'index.tsx')
+const packagePath = path.resolve('.')
+const entryPoint = path.resolve(packagePath, 'src')
 
-const env = processArgs.reduce((acc, arg) => {
+const env = args.reduce((acc, arg) => {
   const [key, value] = arg.split('=')
   return { ...acc, [key]: value }
 }, {})

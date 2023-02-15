@@ -6,7 +6,7 @@
   "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "node ../../scripts/build.js .",
+    "build": "node ../../scripts/build.js",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
     "doc": "node -r esm ../../scripts/doc-props.js --name Shape"
@@ -37,6 +37,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
+    "@welcome-ui/box": "^5.0.0-alpha.16",
     "@welcome-ui/system": "^5.0.0-alpha.16",
     "@welcome-ui/utils": "^5.0.0-alpha.16"
   },

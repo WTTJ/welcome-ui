@@ -6,7 +6,7 @@
   "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "node ../../scripts/build.js .",
+    "build": "node ../../scripts/build.js",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
     "doc": "node -r esm ../../scripts/doc-props.js --name Select"
@@ -39,6 +39,7 @@
   "dependencies": {
     "@welcome-ui/clear-button": "^5.0.0-alpha.16",
     "@welcome-ui/icons": "^5.0.0-alpha.16",
+    "@welcome-ui/field": "^5.0.0-alpha.16",
     "@welcome-ui/system": "^5.0.0-alpha.16",
     "@welcome-ui/tag": "^5.0.0-alpha.20",
     "@welcome-ui/utils": "^5.0.0-alpha.16",

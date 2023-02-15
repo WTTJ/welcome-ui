@@ -48,18 +48,18 @@ export const OPT_GROUP_ITEMS = [
 ]
 
 export const TOOLTIP_PLACEMENT_OPTIONS = [
-  { value: 'top-start', label: 'top-start'},
-  { value: 'top', label: 'top'},
-  { value: 'top-end', label: 'top-end'},
-  { value: 'right-start', label: 'right-start'},
-  { value: 'right', label: 'right'},
-  { value: 'right-end', label: 'right-end'},
-  { value: 'bottom-start', label: 'bottom-start'},
-  { value: 'bottom', label: 'bottom'},
-  { value: 'bottom-end', label: 'bottom-end'},
-  { value: 'left-start', label: 'left-start'},
-  { value: 'left', label: 'left'},
-  { value: 'left-end', label: 'left-end'}
+  { value: 'top-start', label: 'top-start' },
+  { value: 'top', label: 'top' },
+  { value: 'top-end', label: 'top-end' },
+  { value: 'right-start', label: 'right-start' },
+  { value: 'right', label: 'right' },
+  { value: 'right-end', label: 'right-end' },
+  { value: 'bottom-start', label: 'bottom-start' },
+  { value: 'bottom', label: 'bottom' },
+  { value: 'bottom-end', label: 'bottom-end' },
+  { value: 'left-start', label: 'left-start' },
+  { value: 'left', label: 'left' },
+  { value: 'left-end', label: 'left-end' },
 ]
 
-export { default as EMOJIS } from '../packages/EmojiPicker/basicEmojis.json'
+export { default as EMOJIS } from '../packages/EmojiPicker/src/basicEmojis.json'

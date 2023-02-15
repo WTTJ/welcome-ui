@@ -1,4 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["index.ts", "WuiProvider.tsx", "theme", "utils", "../../types"]
+  "include": ["src", "../../types"]
 }
