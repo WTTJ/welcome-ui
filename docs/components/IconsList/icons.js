@@ -41,6 +41,7 @@ export const actions = [
   'menu',
   'more_android',
   'more',
+  'move',
   'notification',
   'print',
   'promote',
