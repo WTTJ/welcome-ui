@@ -168,6 +168,7 @@ export declare const MoneyIcon: React.FC<IconProps>
 export declare const MoreIcon: React.FC<IconProps>
 export declare const MoreAndroidIcon: React.FC<IconProps>
 export declare const MountainIcon: React.FC<IconProps>
+export declare const MoveIcon: React.FC<IconProps>
 export declare const MusicIcon: React.FC<IconProps>
 export declare const NegativeIcon: React.FC<IconProps>
 export declare const NegativeOutlineIcon: React.FC<IconProps>

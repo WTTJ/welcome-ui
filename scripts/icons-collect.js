@@ -20,11 +20,14 @@ const writeIconContentsJson = (outputFolder, content, key) => {
   let viewBoxMatch = content.match(/viewBox="(.*?)"/)
   let viewBox = viewBoxMatch ? viewBoxMatch[1] : undefined
 
-  if (svgContent) {
-    svgContent = svgContent[1].replace(/fill="#000"/g, 'fill="currentColor"').trim()
+  const isFlag = FLAG_ICONS.includes(key)
+
+  if (svgContent && !isFlag) {
+    svgContent = svgContent[1].replace(/fill="[^"]+"/g, 'fill="currentColor"').trim()
+  } else if (svgContent && isFlag) {
+    svgContent = svgContent[1].trim()
   }
 
-  const isFlag = FLAG_ICONS.includes(key)
   let fileContent = {
     width: 15,
     height: 15,
@@ -81,11 +84,11 @@ const writeRootIconPackage = files => {
   // Write main icons/index.ts
   const rootIndexContent = files.map(({ key }) => {
     const iconName = toPascalCase(key)
-    return `export { ${iconName}Icon } from './src/${iconName}'`
+    return `export { ${iconName}Icon } from './${iconName}'`
   })
 
   fs.writeFileSync(
-    `${ICONS_PATH}/index.tsx`,
+    `${ICONS_PATH}/src/index.ts`,
     `${rootIndexContent.join('\n')}
 `
   )
@@ -100,7 +103,7 @@ import { IconProps } from '@welcome-ui/icon'
   }).join(`
 `)
   fs.writeFileSync(
-    `${ICONS_PATH}/index.d.ts`,
+    `${ICONS_PATH}/src/index.d.ts`,
     `${rootIndexDTSContent}
 `
   )

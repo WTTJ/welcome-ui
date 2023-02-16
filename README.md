@@ -91,10 +91,6 @@ yarn watch
 
 4. and go to https://localhost:3020
 
-## Add some new icons
-
-Follow the steps of [icons/README.md](icons/README.md)
-
 ## How to release
 
 The release of the packages is automated by the CI, you just need to bump package version and push git tags to initiate the process.
