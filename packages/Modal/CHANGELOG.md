@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.21](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.20...v5.0.0-alpha.21) (2023-02-16)
+
+
+### Bug Fixes
+
+* modal body ref check ([#1938](https://github.com/WTTJ/welcome-ui/issues/1938)) ([dc261e1](https://github.com/WTTJ/welcome-ui/commit/dc261e17e46cae21bd77e5ea6723352d1582f829))
+* modal header spacing ([#1939](https://github.com/WTTJ/welcome-ui/issues/1939)) ([dbf7c6b](https://github.com/WTTJ/welcome-ui/commit/dbf7c6bca09aed6d546629551ff877f3957a362e))
+
+
+
+
+
 # [5.0.0-alpha.20](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.19...v5.0.0-alpha.20) (2023-02-13)
 
 

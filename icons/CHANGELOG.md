@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.21](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.20...v5.0.0-alpha.21) (2023-02-16)
+
+
+### Features
+
+* add move icon & fix collect script ([#1944](https://github.com/WTTJ/welcome-ui/issues/1944)) ([b1f7747](https://github.com/WTTJ/welcome-ui/commit/b1f77476af40c180a537a7f5e02fafcc1273aac5))
+
+
+
+
+
 # [5.0.0-alpha.16](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.15...v5.0.0-alpha.16) (2023-02-02)
 
 **Note:** Version bump only for package @welcome-ui/icons

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.21](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.20...v5.0.0-alpha.21) (2023-02-16)
+
+
+### Bug Fixes
+
+* remove font weight on button icon to avoid bold icon ([#1937](https://github.com/WTTJ/welcome-ui/issues/1937)) ([06ddaf5](https://github.com/WTTJ/welcome-ui/commit/06ddaf5be927d34a86e11e43c7255da1d69456b9))
+
+
+
+
+
 # [5.0.0-alpha.16](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.15...v5.0.0-alpha.16) (2023-02-02)
 
 **Note:** Version bump only for package @welcome-ui/button

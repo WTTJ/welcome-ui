@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.21](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.20...v5.0.0-alpha.21) (2023-02-16)
+
+
+### Bug Fixes
+
+* force label color ([#1943](https://github.com/WTTJ/welcome-ui/issues/1943)) ([8d3160c](https://github.com/WTTJ/welcome-ui/commit/8d3160cabe916945e3c4c6b199f50414a21ded8b))
+
+
+
+
+
 # [5.0.0-alpha.18](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.17...v5.0.0-alpha.18) (2023-02-08)
 
 
