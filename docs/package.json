@@ -32,7 +32,7 @@
   "homepage": "https://welcome-ui.com",
   "dependencies": {
     "@docsearch/react": "^3.0.0",
-    "@hookform/resolvers": "^2.9.10",
+    "@hookform/resolvers": "^2.9.11",
     "@mdx-js/loader": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "@next/mdx": "^12.3.1",
