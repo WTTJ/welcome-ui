@@ -15,6 +15,7 @@ export interface SwiperOptions {
   children: JSX.Element | JSX.Element[]
   dataTestId?: string
   duration?: number
+  /** Won't be used if centeredSlides is true */
   firstSlideToShow?: number
   fullWidth?: boolean
   id?: string
