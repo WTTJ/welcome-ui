@@ -19,15 +19,25 @@ export interface SwiperOptions {
   fullWidth?: boolean
   id?: string
   loop?: boolean
-  /** Number of slides to show per view [mobile, tablet, desktop] */
-  slidesPerView?: [number, number, number]
+  /** Number of slides to show per view */
+  slidesPerView?: {
+    mobile: number
+    tablet: number
+    desktop: number
+  }
   /** Space between each slides */
   spaceBetween?: number
-  /** Show left and rigth arrows on mobile/tablet or/and desktop [mobile/tablet, desktop] */
-  withArrows?: [boolean, boolean]
+  /** Show left and rigth arrows on mobile/tablet or/and desktop */
+  withArrows?: {
+    mobile: boolean
+    desktop: boolean
+  }
   withDarkPagination?: boolean
-  /** Show bottom navigation on mobile/tablet or/and desktop [mobile/tablet, desktop] */
-  withPagination?: [boolean, boolean]
+  /** Show bottom navigation on mobile/tablet or/and desktop */
+  withPagination?: {
+    mobile: boolean
+    desktop: boolean
+  }
 }
 
 export type SwiperProps = CreateWuiProps<'div', SwiperOptions>
@@ -39,10 +49,10 @@ export const Swiper = ({
   firstSlideToShow = 0,
   fullWidth = false,
   id = 'swiper',
-  slidesPerView = [1, 1, 1],
+  slidesPerView = { mobile: 1, tablet: 1, desktop: 1 },
   spaceBetween = 20,
-  withArrows = [true, true],
-  withPagination = [false, false],
+  withArrows = { mobile: true, desktop: true },
+  withPagination = { mobile: false, desktop: false },
   loop = false,
   autoplay = false,
   duration = 5000,
@@ -53,7 +63,7 @@ export const Swiper = ({
 
   const { width: viewportWidth } = useViewportSize()
   const [currentPage, setCurrentPage] = useState(0)
-  const [currentSlidesPerView, setCurrentSlidesPerView] = useState(slidesPerView[2])
+  const [currentSlidesPerView, setCurrentSlidesPerView] = useState(slidesPerView.desktop)
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(false)
   const ref = useRef<HTMLUListElement>()
@@ -72,13 +82,16 @@ export const Swiper = ({
   })
   const slidesLength = slides.length
 
-  const bullets = Array.from(Array(Math.ceil(slidesLength / currentSlidesPerView)).keys())
+  const numberOfPage = Math.ceil(slidesLength / currentSlidesPerView)
+  const bullets = Array.from(Array(numberOfPage).keys())
   const isFirstPage = currentPage === 0
   const isLastPage = currentPage === bullets.length - 1
 
   const firstPageToShow = centeredSlides
-    ? Math.floor(slidesLength / currentSlidesPerView / 2)
-    : Math.ceil(firstSlideToShow / currentSlidesPerView) - 1
+    ? // if centeredSlides is true, we calculate which number is the middle page
+      Math.ceil(numberOfPage / 2)
+    : // if centeredSlides is false, we calculate on which page the number in firstSlideToShow props is
+      Math.ceil(firstSlideToShow / currentSlidesPerView) - 1
 
   const getArrowStates = () => {
     const sliderContainer = ref?.current
@@ -156,11 +169,11 @@ export const Swiper = ({
 
   const getCurrentSlidesPerView = useCallback(() => {
     if (viewportWidth <= theme.screens.md) {
-      setCurrentSlidesPerView(slidesPerView[0])
+      setCurrentSlidesPerView(slidesPerView.mobile)
     } else if (viewportWidth <= theme.screens.lg) {
-      setCurrentSlidesPerView(slidesPerView[1])
+      setCurrentSlidesPerView(slidesPerView.tablet)
     } else {
-      setCurrentSlidesPerView(slidesPerView[2])
+      setCurrentSlidesPerView(slidesPerView.desktop)
     }
   }, [slidesPerView, theme.screens.lg, theme.screens.md, viewportWidth])
 

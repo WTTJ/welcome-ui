@@ -25,7 +25,7 @@ export const Swiper = styled.div<CreateWuiProps<'div'>>`
 `
 
 export const Arrow = styled(Button)<{ disabled: boolean } & Pick<SwiperProps, 'withArrows'>>(
-  ({ disabled, withArrows: [mobile, tablet] }) => css`
+  ({ disabled, withArrows: { desktop, mobile } }) => css`
     top: 50%;
     transform: translate3d(0, -50%, 0);
     transition: opacity ${th('transitions.fast')};
@@ -38,8 +38,8 @@ export const Arrow = styled(Button)<{ disabled: boolean } & Pick<SwiperProps, 'w
     }
 
     @media (min-width: md) {
-      z-index: ${tablet ? 1 : -1};
-      display: ${tablet ? 'flex' : 'none'};
+      z-index: ${desktop ? 1 : -1};
+      display: ${desktop ? 'flex' : 'none'};
     }
 
     ${disabled &&
@@ -51,7 +51,7 @@ export const Arrow = styled(Button)<{ disabled: boolean } & Pick<SwiperProps, 'w
 )
 
 export const Pagination = styled.div<Pick<SwiperProps, 'withPagination'>>(
-  ({ withPagination: [mobile, tablet] }) => css`
+  ({ withPagination: { desktop, mobile } }) => css`
     justify-content: center;
     position: absolute;
     bottom: 0;
@@ -62,8 +62,8 @@ export const Pagination = styled.div<Pick<SwiperProps, 'withPagination'>>(
     display: ${mobile ? 'flex' : 'none'};
 
     @media (min-width: md) {
-      z-index: ${tablet ? 1 : -1};
-      display: ${tablet ? 'flex' : 'none'};
+      z-index: ${desktop ? 1 : -1};
+      display: ${desktop ? 'flex' : 'none'};
     }
   `
 )
@@ -86,91 +86,84 @@ export const Bullet = styled.div<{ active: boolean } & Pick<SwiperProps, 'withDa
 
 export const Container = styled.ul<
   Pick<SwiperProps, 'slidesPerView' | 'spaceBetween' | 'fullWidth'>
->(
-  ({
-    slidesPerView: [slidesMobile, slidesTablet, slidesDesktop],
-    spaceBetween,
-    theme,
-    fullWidth,
-  }) => {
-    return css`
-      scroll-snap-type: x mandatory;
-      display: flex;
-      -webkit-overflow-scrolling: touch;
-      overflow-x: scroll;
+>(({ fullWidth, slidesPerView: { desktop, mobile, tablet }, spaceBetween, theme }) => {
+  return css`
+    scroll-snap-type: x mandatory;
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
 
-      /* Hide scrollbar */
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-      &::-webkit-scrollbar {
-        display: none;
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    height: 100%;
+    padding: 0;
+
+    > * {
+      list-style-type: none;
+      margin-right: ${spaceBetween};
+      min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
+
+      &:last-child {
+        margin-right: 0;
       }
-      height: 100%;
-      padding: 0;
+    }
 
-      > * {
-        list-style-type: none;
-        margin-right: ${spaceBetween};
-        min-width: ${getSlideWidth(slidesMobile, spaceBetween, theme.toRem)};
+    @media (min-width: sm) {
+      ${mobile &&
+      css`
+        > * {
+          min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
 
-        &:last-child {
-          margin-right: 0;
+          &:nth-of-type(${mobile}n + 1) {
+            scroll-snap-align: start;
+          }
         }
-      }
+      `}
+    }
 
-      @media (min-width: sm) {
-        ${slidesMobile &&
-        css`
-          > * {
-            min-width: ${getSlideWidth(slidesMobile, spaceBetween, theme.toRem)};
+    @media (min-width: md) {
+      ${tablet &&
+      css`
+        > * {
+          min-width: ${getSlideWidth(tablet, spaceBetween, theme.toRem)};
 
-            &:nth-of-type(${slidesMobile}n + 1) {
-              scroll-snap-align: start;
-            }
+          &:nth-of-type(${tablet}n + 1) {
+            scroll-snap-align: start;
           }
-        `}
-      }
+        }
+      `}
+    }
 
-      @media (min-width: md) {
-        ${slidesTablet &&
-        css`
-          > * {
-            min-width: ${getSlideWidth(slidesTablet, spaceBetween, theme.toRem)};
+    @media (min-width: lg) {
+      ${desktop &&
+      css`
+        > * {
+          min-width: ${getSlideWidth(desktop, spaceBetween, theme.toRem)};
+          scroll-snap-align: unset;
 
-            &:nth-of-type(${slidesTablet}n + 1) {
-              scroll-snap-align: start;
-            }
+          &:nth-of-type(${desktop}n + 1) {
+            scroll-snap-align: start;
           }
-        `}
-      }
 
-      @media (min-width: lg) {
-        ${slidesDesktop &&
-        css`
-          > * {
-            min-width: ${getSlideWidth(slidesDesktop, spaceBetween, theme.toRem)};
+          &:not(:nth-of-type(${desktop}n + 1)) {
             scroll-snap-align: unset;
-
-            &:nth-of-type(${slidesDesktop}n + 1) {
-              scroll-snap-align: start;
-            }
-
-            &:not(:nth-of-type(${slidesDesktop}n + 1)) {
-              scroll-snap-align: unset;
-            }
           }
-        `}
-      }
+        }
+      `}
+    }
 
-      @media (min-width: 1920px) {
-        ${slidesDesktop &&
-        fullWidth &&
-        css`
-          > * {
-            min-width: ${getSlideWidth(slidesDesktop + 2, spaceBetween, theme.toRem)};
-          }
-        `}
-      }
-    `
-  }
-)
+    @media (min-width: 1920px) {
+      ${desktop &&
+      fullWidth &&
+      css`
+        > * {
+          min-width: ${getSlideWidth(desktop + 2, spaceBetween, theme.toRem)};
+        }
+      `}
+    }
+  `
+})

@@ -29,7 +29,7 @@ const TestSwiper = () => {
 
 const TestSwiperWithNoPagination = () => {
   return (
-    <Swiper dataTestId="swiper" slidesPerView={[1, 1, 3]}>
+    <Swiper dataTestId="swiper" slidesPerView={{ mobile: 1, tablet: 1, desktop: 3 }}>
       <div>page1</div>
       <div>page2</div>
       <div>page3</div>
