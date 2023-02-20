@@ -33,6 +33,7 @@ export interface SwiperOptions {
     mobile: boolean
     desktop: boolean
   }
+  /** Use black colors for the pagination in case of slides too bright */
   withDarkPagination?: boolean
   /** Show bottom navigation on mobile/tablet or/and desktop */
   withPagination?: {
@@ -90,7 +91,7 @@ export const Swiper = ({
 
   const firstPageToShow = centeredSlides
     ? // if centeredSlides is true, we calculate which number is the middle page
-      Math.ceil(numberOfPage / 2)
+      Math.floor(numberOfPage / 2)
     : // if centeredSlides is false, we calculate on which page the number in firstSlideToShow props is
       Math.ceil(firstSlideToShow / currentSlidesPerView) - 1
 
@@ -220,7 +221,6 @@ export const Swiper = ({
         onClick={goPrev}
         position="absolute"
         shape="circle"
-        size="lg"
         variant="ghost"
         withArrows={withArrows}
       >
@@ -233,7 +233,6 @@ export const Swiper = ({
         position="absolute"
         right={10}
         shape="circle"
-        size="lg"
         variant="ghost"
         withArrows={withArrows}
       >

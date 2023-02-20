@@ -63,6 +63,56 @@ function() {
 }
 ```
 
+## First slide to show
+
+By providing `firstSlideToShow` with `2`, the swiper will begin on the second slide.
+
+```jsx
+function() {
+  return (
+    <Swiper h={400} firstSlideToShow={2} >
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </Swiper>
+  )
+}
+```
+
+## Centered slides
+
+By providing `centeredSlides`, the swiper will begin on the middle slide, `firstSlideToShow` won't be used in this case.
+
+```jsx
+function() {
+  return (
+    <Swiper h={400} firstSlideToShow={3} centeredSlides>
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </Swiper>
+  )
+}
+```
+
 ## Autoplay
 
 Providing `autoplay` lets the slides advance automatically. Pass `duration` to control the amount of time each slide shows for.

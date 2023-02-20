@@ -28,7 +28,6 @@ export const Arrow = styled(Button)<{ disabled: boolean } & Pick<SwiperProps, 'w
   ({ disabled, withArrows: { desktop, mobile } }) => css`
     top: 50%;
     transform: translate3d(0, -50%, 0);
-    transition: opacity ${th('transitions.fast')};
     z-index: ${mobile ? 1 : -1};
     display: ${mobile ? 'flex' : 'none'};
     background-color: light-900;
