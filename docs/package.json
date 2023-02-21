@@ -47,6 +47,6 @@
     "react-hook-form": "^7.41.1",
     "react-live": "^3.1.0",
     "styled-components": "^5.3.6",
-    "yup": "0.32.11"
+    "yup": "1.0.0"
   }
 }
