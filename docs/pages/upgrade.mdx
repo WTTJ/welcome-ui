@@ -81,26 +81,33 @@ We change the name of variants to `xs` `s` `m` `lg` and remove useless variants.
 
 ## Components
 
-### Modal
+### Accordion
 
-- We have adjusted colors and spacing.
-- **Modal.Title** is now named **Modal.Header** and has props `title` (mandatory) and `subtitle` (optional).
-- **Modal.Content** is replaced by **Modal.Body**.
-- To ensure **good spacing** between modal's sub-components, they **must** be wrapped with **Modal.Content**.
-- **Modal.Cover** has been removed.
-- In order to fix an issue that made attributes duplicating, you will now have to pass the modalState to it props `modalState`
+To prepare to the migration from reakit to ariakit, visible property is now deprecated and replaced by open.
 
 ### Alert / Toast / Growl
 
+### All
+
 - We have adjusted colors and spacing.
+- Position `top` has been replaced with `top-center` and position `bottom` has been replaced with `bottom-center`.
+- We removed property `closeButtonDataTestId`, now we add `-close-button` after your `dataTestId` perperty.
+
+#### Alert
+
 - The props `icon` is now given to the **Alert** component and not to **Alert.Title**.
 - You must use the `cta` prop instead of pass the **Alert.Button** as a Children
 - You must use the `isFullWidth` prop to have an alert with a 100% max width
-- The props `icon` is now given to **Toast.Growl** / **Toast.Snackbar** component and not to **Toast.Title**.
-- Position `top` has been replaced with `top-center` and position `bottom` has been replaced with `bottom-center`.
-- The `useToast` hook is deprecated. Instead, you can directly use `toast` function.
+
+#### Toast
+
 - In order to use `Toast` component, you must add the `Notifications` component in your project root.
-- We removed property `closeButtonDataTestId`, now we add `-close-button` after your `dataTestId` perperty.
+- The `useToast` hook is deprecated. Instead, you can directly use `toast` function.
+- The props `icon` is now given to **Toast.Growl** / **Toast.Snackbar** component and not to **Toast.Title**.
+
+### Badges
+
+- new `Badge` component [show more](/components/badge)
 
 ### Buttons
 
@@ -110,24 +117,29 @@ We change the name of variants to `xs` `s` `m` `lg` and remove useless variants.
 - The `quaternary` variant is now named `ghost`.
 - The icon size now adjusts to the size of the button.
 
-### Tag
+### Drawer
 
-- We have adjusted colors and spacing.
-- The `lg` size has been removed.
-- The `shape` prop has been removed.
-- The icon size now adjusts to the size of the tag.
+To prepare to the migration from reakit to ariakit, we need now to pass a state property who contain the state from useDrawer:
 
-### Link
+```jsx live=false
+const drawerState = useDrawerState()
 
-- the `isExternalLink` become `isExternal`
+<Drawer {...drawerState}>
+  ...
+</Drawer>
 
-### Badges
+Before
+---
+After
 
-- new `Badge` component [show more](/components/badge)
+const drawerState = useDrawerState()
 
-### RadioGroup
+<Drawer state={drawerState}>
+  ...
+</Drawer>
+```
 
-We removed the check icon on radio input and change the style of it.
+and visible property is now deprecated and replaced by open.
 
 ### FileDrop
 
@@ -167,6 +179,30 @@ We renamed some icons:
 - `<ChevronIcon>` become `<CodeIcon>`
 - `<DuplicateIcon>` become `<CopyIcon>`
 - `<TagsIcon>` become `<TagIcon>`
+
+### Link
+
+- the `isExternalLink` become `isExternal`
+
+### Modal
+
+- We have adjusted colors and spacing.
+- **Modal.Title** is now named **Modal.Header** and has props `title` (mandatory) and `subtitle` (optional).
+- **Modal.Content** is replaced by **Modal.Body**.
+- To ensure **good spacing** between modal's sub-components, they **must** be wrapped with **Modal.Content**.
+- **Modal.Cover** has been removed.
+- In order to fix an issue that made attributes duplicating, you will now have to pass the modalState to it props `modalState`
+
+### RadioGroup
+
+We removed the check icon on radio input and change the style of it.
+
+### Tag
+
+- We have adjusted colors and spacing.
+- The `lg` size has been removed.
+- The `shape` prop has been removed.
+- The icon size now adjusts to the size of the tag.
 
 ### Tooltip
 

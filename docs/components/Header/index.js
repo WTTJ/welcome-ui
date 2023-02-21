@@ -19,7 +19,7 @@ import * as S from './styles'
 import { NavBar } from './NavBar'
 
 export const Header = () => {
-  const mobileMenuDrawer = useDrawerState()
+  const mobileMenuDrawerState = useDrawerState()
   const modal = useModalState()
   const { pathname } = useRouter()
   const variants = {
@@ -63,18 +63,18 @@ export const Header = () => {
       {hasBeenHydrated && (
         <>
           <Drawer.Trigger
-            {...mobileMenuDrawer}
             as={Button}
             display={{ md: 'none' }}
             shape="circle"
             size="sm"
+            state={mobileMenuDrawerState}
           >
-            {mobileMenuDrawer.visible ? <CrossIcon /> : <MenuIcon />}
+            {mobileMenuDrawerState.visible ? <CrossIcon /> : <MenuIcon />}
           </Drawer.Trigger>
-          <Drawer.Backdrop {...mobileMenuDrawer} backdropVisible={false}>
-            <S.MenuMobileDrawer aria-label="Menu backdrop" {...mobileMenuDrawer}>
-              <NavBar isMobileMenu mb="lg" drawerState={mobileMenuDrawer} />
-              <ComponentsList onClick={() => mobileMenuDrawer.hide()} />
+          <Drawer.Backdrop backdropVisible={false} state={mobileMenuDrawerState}>
+            <S.MenuMobileDrawer aria-label="Menu backdrop" state={mobileMenuDrawerState}>
+              <NavBar drawerState={mobileMenuDrawerState} isMobileMenu mb="lg" />
+              <ComponentsList onClick={() => mobileMenuDrawerState.hide()} />
             </S.MenuMobileDrawer>
           </Drawer.Backdrop>
         </>
