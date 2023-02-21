@@ -257,6 +257,7 @@ export declare const TargetIcon: React.FC<IconProps>
 export declare const TeepeeIcon: React.FC<IconProps>
 export declare const ThumbDownIcon: React.FC<IconProps>
 export declare const ThumbUpIcon: React.FC<IconProps>
+export declare const TiktokIcon: React.FC<IconProps>
 export declare const TrashIcon: React.FC<IconProps>
 export declare const TreeIcon: React.FC<IconProps>
 export declare const TrophyIcon: React.FC<IconProps>

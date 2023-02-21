@@ -301,6 +301,7 @@ export const brands = [
   'npm',
   'pinterest',
   'stackoverflow',
+  'tiktok',
   'twitch',
   'twitter',
   'xing',
