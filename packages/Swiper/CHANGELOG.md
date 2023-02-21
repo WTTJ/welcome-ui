@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.22](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.21...v5.0.0-alpha.22) (2023-02-21)
+
+
+### Features
+
+* new swiper for wui v5 ([#1932](https://github.com/WTTJ/welcome-ui/issues/1932)) ([c02dc6e](https://github.com/WTTJ/welcome-ui/commit/c02dc6e79ec75cb6d9e0d263cb0320c8fa1b3204))
+
+
+
+
+
 # [5.0.0-alpha.21](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.20...v5.0.0-alpha.21) (2023-02-16)
 
 **Note:** Version bump only for package @welcome-ui/swiper

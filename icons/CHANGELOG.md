@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.22](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.21...v5.0.0-alpha.22) (2023-02-21)
+
+
+### Features
+
+* add tiktok icon ([#1956](https://github.com/WTTJ/welcome-ui/issues/1956)) ([7eb22d6](https://github.com/WTTJ/welcome-ui/commit/7eb22d6d2bbd0cc0234ee14c5e35f13cbd130502))
+
+
+
+
+
 # [5.0.0-alpha.21](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.20...v5.0.0-alpha.21) (2023-02-16)
 
 
