@@ -1,13 +1,12 @@
 import React from 'react'
 import { useCopyText } from '@welcome-ui/utils.copy'
-import { Toast, useToast } from '@welcome-ui/toast'
+import { toast, Toast } from '@welcome-ui/toast'
 import { Text } from '@welcome-ui/text'
 
 import * as S from './Item.styles'
 
 export const Item = ({ componentName, icon: Icon, name }) => {
   const [copy, copied] = useCopyText(componentName, 500)
-  const toast = useToast()
 
   const handleCopy = () => {
     copy()
