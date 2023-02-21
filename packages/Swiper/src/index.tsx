@@ -1,175 +1,183 @@
-import React, { cloneElement, useEffect, useMemo, useState } from 'react'
-import { useTheme } from '@xstyled/styled-components'
+import React, { Children, cloneElement, useCallback, useEffect, useRef, useState } from 'react'
+import { Icons } from '@welcome-ui/icons.font'
+import debounce from 'lodash.debounce'
 import { useViewportSize } from '@welcome-ui/utils'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { useTheme } from '@xstyled/styled-components'
+import { CreateWuiProps } from '@welcome-ui/system'
 
 import { useInterval } from './use-interval'
 import * as S from './styles'
 
-export interface RenderPaginationProps {
-  idx: number
-  'aria-controls': React.HTMLAttributes<HTMLElement>['aria-controls']
-  'aria-label': React.HTMLAttributes<HTMLElement>['aria-label']
-  'aria-selected': React.HTMLAttributes<HTMLElement>['aria-selected']
-  onClick: () => void
-  pageIdx: number
-  role: string
-}
-
-export interface UseSwiperProps {
-  autoplay?: boolean
-  duration?: number
-  loop?: boolean
-  slidesToShow?: number
-  slidesToSwipe?: number
-  nextButton?: React.ReactNode
-  prevButton?: React.ReactNode
-}
-
-export interface UseSwiperState {
-  goNext: React.MouseEventHandler<HTMLDivElement>
-  goPrev: React.MouseEventHandler<HTMLDivElement>
-  loop: boolean
-  numberOfSlides: number
-  pageIdx: number
-  setNumberOfSlides: (slidesLength: number) => void
-  setPageIdx: (idx: number) => void
-  slidesToShow: number
-  slidesToSwipe: number
-  nextButton?: React.ReactNode
-  prevButton?: React.ReactNode
-}
-
 export interface SwiperOptions {
-  renderPaginationItem?: (props: RenderPaginationProps) => React.ReactNode
-  children: React.ReactNode[]
+  autoplay?: boolean
+  /** If true the swiper will begin at the middle */
+  centeredSlides?: boolean
+  children: JSX.Element | JSX.Element[]
+  dataTestId?: string
+  duration?: number
+  /** Won't be used if centeredSlides is true */
+  firstSlideToShow?: number
+  fullWidth?: boolean
+  id?: string
+  loop?: boolean
+  /** Number of slides to show per view */
+  slidesPerView?: {
+    mobile: number
+    tablet: number
+    desktop: number
+  }
+  /** Space between each slides */
+  spaceBetween?: number
+  /** Show left and rigth arrows on mobile/tablet or/and desktop */
+  withArrows?: {
+    mobile: boolean
+    desktop: boolean
+  }
+  /** Use black colors for the pagination in case of slides too bright */
+  withDarkPagination?: boolean
+  /** Show bottom navigation on mobile/tablet or/and desktop */
+  withPagination?: {
+    mobile: boolean
+    desktop: boolean
+  }
 }
 
-export type SwiperProps = CreateWuiProps<'div', SwiperOptions & UseSwiperState>
+export type SwiperProps = CreateWuiProps<'div', SwiperOptions>
 
-export const SwiperComponent = forwardRef<'div', SwiperProps>((props, ref) => {
-  const {
-    children,
-    dataTestId,
-    goNext,
-    goPrev,
-    id: defaultId,
-    loop,
-    nextButton,
-    numberOfSlides,
-    pageIdx,
-    prevButton,
-    renderPaginationItem,
-    setNumberOfSlides,
-    setPageIdx,
-    slidesToShow,
-    ...rest
-  } = props
-  const id = useMemo(() => defaultId || `swiper-${Date.now()}`, [defaultId])
+export const Swiper = ({
+  centeredSlides = false,
+  children,
+  dataTestId,
+  firstSlideToShow = 0,
+  fullWidth = false,
+  id = 'swiper',
+  slidesPerView = { mobile: 1, tablet: 1, desktop: 1 },
+  spaceBetween = 20,
+  withArrows = { mobile: true, desktop: true },
+  withPagination = { mobile: false, desktop: false },
+  loop = false,
+  autoplay = false,
+  duration = 5000,
+  withDarkPagination = false,
+  ...rest
+}: SwiperProps) => {
+  loop = loop || autoplay
 
-  const translateX = -(pageIdx * 100)
-
-  useEffect(() => {
-    setNumberOfSlides(children.length)
-  }, [children, setNumberOfSlides])
-
-  // Get array with indexes of visible slides so we know which ones are (aria-)hidden
-  const visibleSlides = Array(slidesToShow)
-    .fill('')
-    .map((_, idx) => pageIdx + idx)
-
-  return (
-    <S.Wrapper
-      {...rest}
-      aria-live="off"
-      aria-roledescription="carousel"
-      id={id}
-      ref={ref}
-      role="region"
-    >
-      <S.Swiper slidesToShow={slidesToShow} translateX={translateX}>
-        {children.map((child, idx) =>
-          cloneElement(child as React.ReactElement, {
-            // eslint-disable-next-line react/no-array-index-key
-            key: idx,
-            id: `${id}-${idx}`,
-            role: 'tabpanel',
-            'aria-hidden': !visibleSlides.includes(idx),
-            'aria-roledescription': 'slide',
-            'aria-label': `${idx + 1} of ${numberOfSlides}`,
-          })
-        )}
-      </S.Swiper>
-      <S.Pagination
-        className="swiper-pagination"
-        data-testid={dataTestId && `${dataTestId}-pagination`}
-        role="tablist"
-      >
-        {children.map((_, idx) => {
-          const props: RenderPaginationProps = {
-            idx,
-            role: 'tab',
-            'aria-controls': `${id}-${idx}`,
-            'aria-label': `${idx + 1} of ${numberOfSlides}`,
-            'aria-selected': idx === pageIdx,
-            onClick: () => setPageIdx(idx),
-            pageIdx,
-          }
-          if (renderPaginationItem) {
-            return renderPaginationItem(props)
-          }
-          // eslint-disable-next-line react/no-array-index-key
-          return <S.Bullet active={idx === pageIdx} key={idx} {...props} />
-        })}
-      </S.Pagination>
-      {prevButton && (
-        <S.Prev
-          aria-controls={id}
-          aria-label="Previous slide"
-          className="swiper-prev"
-          data-testid={dataTestId && `${dataTestId}-button-prev`}
-          disabled={!loop && pageIdx === 0}
-          onClick={goPrev}
-        >
-          {prevButton}
-        </S.Prev>
-      )}
-      {nextButton && (
-        <S.Next
-          aria-controls={id}
-          aria-label="Next slide"
-          className="swiper-next"
-          data-testid={dataTestId && `${dataTestId}-button-next`}
-          disabled={!loop && pageIdx >= numberOfSlides - slidesToShow}
-          onClick={goNext}
-        >
-          {nextButton}
-        </S.Next>
-      )}
-    </S.Wrapper>
-  )
-})
-
-SwiperComponent.displayName = 'Swiper'
-
-export const Swiper = Object.assign(SwiperComponent, { Slide: S.Slide, Bullet: S.Bullet })
-
-export const useSwiper = (props: UseSwiperProps = {}): UseSwiperState => {
-  const { autoplay, duration = 5000, loop, ...rest } = props
-  let { slidesToShow = 1, slidesToSwipe = slidesToShow } = props
-
-  // Set slidesToShow to 1 for mobile
-  const theme = useTheme()
   const { width: viewportWidth } = useViewportSize()
-  if (viewportWidth <= theme.screens.sm) {
-    slidesToShow = 1
-    slidesToSwipe = 1
+  const [currentPage, setCurrentPage] = useState(0)
+  const [currentSlidesPerView, setCurrentSlidesPerView] = useState(slidesPerView.desktop)
+  const [showLeftArrow, setShowLeftArrow] = useState(false)
+  const [showRightArrow, setShowRightArrow] = useState(false)
+  const ref = useRef<HTMLUListElement>()
+  const theme = useTheme()
+
+  const slides = Children.map(children, (child, i) => {
+    const key = `${id}-${i}`
+    return cloneElement(child, {
+      ...child.props,
+      id: key,
+      key,
+      'aria-hidden': Math.ceil((i + 1) / currentSlidesPerView) - 1 !== currentPage,
+      'aria-roledescription': 'slide',
+      'aria-label': `${i + 1} of ${Children.toArray(children).length}`,
+    })
+  })
+  const slidesLength = slides.length
+
+  const numberOfPage = Math.ceil(slidesLength / currentSlidesPerView)
+  const bullets = Array.from(Array(numberOfPage).keys())
+  const isFirstPage = currentPage === 0
+  const isLastPage = currentPage === bullets.length - 1
+
+  const firstPageToShow = centeredSlides
+    ? // if centeredSlides is true, we calculate which number is the middle page
+      Math.floor(numberOfPage / 2)
+    : // if centeredSlides is false, we calculate on which page the number in firstSlideToShow props is
+      Math.ceil(firstSlideToShow / currentSlidesPerView) - 1
+
+  const getArrowStates = () => {
+    const sliderContainer = ref?.current
+    if (sliderContainer && !loop) {
+      const { offsetWidth, scrollLeft, scrollWidth } = sliderContainer
+      const isFirstPage = !(scrollLeft > spaceBetween)
+      const isLastPage = !(scrollWidth - (scrollLeft + offsetWidth) > spaceBetween)
+
+      setShowLeftArrow(!isFirstPage)
+      setShowRightArrow(!isLastPage)
+    } else {
+      setShowLeftArrow(true)
+      setShowRightArrow(true)
+    }
   }
 
-  const [numberOfSlides, setNumberOfSlides] = useState(0)
-  const [pageIdx, setPageIdx] = useState(0)
+  const updatePage = () => {
+    const sliderContainer = ref?.current
+    if (sliderContainer) {
+      const { children, offsetWidth, scrollLeft, scrollWidth } = sliderContainer
+      const childWidth = children?.[0]?.getBoundingClientRect()?.width
 
-  const lastSlideIdx = numberOfSlides ? numberOfSlides - slidesToShow : 0
+      const isLastPage = !(scrollWidth - (scrollLeft + offsetWidth) > spaceBetween)
+      const nextPage = isLastPage
+        ? bullets.length - 1
+        : scrollLeft / Math.round((childWidth + spaceBetween) * currentSlidesPerView)
+
+      if (nextPage !== currentPage) {
+        setCurrentPage(nextPage)
+      }
+    }
+  }
+
+  const handleScroll = debounce(() => {
+    getArrowStates()
+    updatePage()
+  }, 100)
+
+  const goTo = (page: number) => {
+    const sliderContainer = ref?.current
+    const childWidth = sliderContainer?.children?.[0]?.getBoundingClientRect()?.width
+
+    sliderContainer?.scrollTo({
+      left: page * (childWidth + spaceBetween) * currentSlidesPerView,
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+
+  const goNext = () => {
+    if (loop && isLastPage) {
+      goTo(0)
+    } else {
+      goTo(currentPage + 1)
+    }
+  }
+
+  const goPrev = () => {
+    if (isFirstPage && loop) {
+      goTo(bullets.length - 1)
+    } else {
+      goTo(currentPage - 1)
+    }
+  }
+
+  const handleKeys = (e: KeyboardEvent) => {
+    if (e.code === 'ArrowLeft') {
+      goPrev()
+    }
+
+    if (e.code === 'ArrowRight') {
+      goNext()
+    }
+  }
+
+  const getCurrentSlidesPerView = useCallback(() => {
+    if (viewportWidth <= theme.screens.md) {
+      setCurrentSlidesPerView(slidesPerView.mobile)
+    } else if (viewportWidth <= theme.screens.lg) {
+      setCurrentSlidesPerView(slidesPerView.tablet)
+    } else {
+      setCurrentSlidesPerView(slidesPerView.desktop)
+    }
+  }, [slidesPerView, theme.screens.lg, theme.screens.md, viewportWidth])
 
   // Add autoplay
   useInterval(
@@ -181,36 +189,84 @@ export const useSwiper = (props: UseSwiperProps = {}): UseSwiperState => {
     autoplay ? duration : null
   )
 
-  const goNext = () => {
-    const nextPageIdx = Math.min(pageIdx + slidesToSwipe, lastSlideIdx)
+  useEffect(() => {
+    goTo(firstPageToShow)
+    getArrowStates()
 
-    if (pageIdx === lastSlideIdx && loop) {
-      setPageIdx(0)
-    } else if (nextPageIdx <= lastSlideIdx) {
-      setPageIdx(nextPageIdx)
-    }
-  }
+    window.addEventListener('keydown', handleKeys)
 
-  const goPrev = () => {
-    const prevPageIdx = Math.max(pageIdx - slidesToSwipe, 0)
+    return () => window.removeEventListener('keydown', handleKeys)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-    if (pageIdx === 0 && loop) {
-      setPageIdx(lastSlideIdx)
-    } else if (prevPageIdx >= 0) {
-      setPageIdx(prevPageIdx)
-    }
-  }
+  useEffect(() => {
+    getCurrentSlidesPerView()
+  }, [getCurrentSlidesPerView, viewportWidth])
 
-  return {
-    goNext,
-    goPrev,
-    loop,
-    numberOfSlides,
-    pageIdx,
-    setNumberOfSlides,
-    setPageIdx,
-    slidesToShow,
-    slidesToSwipe,
-    ...rest,
-  }
+  return (
+    <S.Swiper data-testid={dataTestId} {...rest}>
+      <S.Container
+        fullWidth={fullWidth}
+        onScroll={handleScroll}
+        ref={ref}
+        slidesPerView={slidesPerView}
+        spaceBetween={spaceBetween}
+      >
+        {slides}
+      </S.Container>
+      <S.Arrow
+        data-testid={dataTestId && `${dataTestId}-prev-button`}
+        disabled={!showLeftArrow}
+        left={10}
+        onClick={goPrev}
+        position="absolute"
+        shape="circle"
+        variant="ghost"
+        withArrows={withArrows}
+      >
+        <Icons.Left />
+      </S.Arrow>
+      <S.Arrow
+        data-testid={dataTestId && `${dataTestId}-next-button`}
+        disabled={!showRightArrow}
+        onClick={goNext}
+        position="absolute"
+        right={10}
+        shape="circle"
+        variant="ghost"
+        withArrows={withArrows}
+      >
+        <Icons.Right />
+      </S.Arrow>
+      <S.Pagination
+        className="swiper-pagination"
+        data-testid={dataTestId && `${dataTestId}-pagination`}
+        role="tablist"
+        withPagination={withPagination}
+      >
+        {bullets.length > 1 &&
+          bullets.map((_, idx) => {
+            const props = {
+              idx,
+              role: 'tab',
+              'aria-controls': `${id}-${idx}`,
+              'aria-label': `${idx + 1} of ${bullets.length}`,
+              'aria-selected': idx === currentPage,
+              onClick: () => goTo(idx),
+            }
+
+            return (
+              <S.Bullet
+                active={idx === currentPage}
+                key={`bullet-${idx + 1}`}
+                withDarkPagination={withDarkPagination}
+                {...props}
+              />
+            )
+          })}
+      </S.Pagination>
+    </S.Swiper>
+  )
 }
+
+Swiper.displayName = 'Swiper'

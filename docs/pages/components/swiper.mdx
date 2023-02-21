@@ -19,160 +19,96 @@ import {
 
 ```jsx
 function() {
-  const swiper = useSwiper()
-
   return (
-    <Swiper h={400} {...swiper}>
-      <Swiper.Slide textAlign="center">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
-      <Swiper.Slide textAlign="center">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
-      <Swiper.Slide textAlign="center">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
+    <Swiper h="400" spaceBetween={0}>
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
     </Swiper>
   )
 }
 ```
 
-## Slides to show
+## Slides per view
 
-The number of slides that are visible in one view. _Note: On mobile this is always 1_
+Providing `slidesPerView` with `{ mobile: 1, tablet: 1, desktop: 2 }` will show 1 slide per view on mobile and tablet and 2 slides per view on desktop.
 
 ```jsx
 function() {
-  const swiper = useSwiper({
-      slidesToShow: 2,
-      slidesToSwipe: 2,
-      loop: true,
-      nextButton: <RightIcon size="lg" />,
-      prevButton: <LeftIcon size="lg" />
-    })
-
   return (
-    <Swiper h={400} {...swiper}>
-      <Swiper.Slide textAlign="center" pr="xl">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
-      <Swiper.Slide textAlign="center" pr="xl">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-        />
-      </Swiper.Slide>
-      <Swiper.Slide textAlign="center" pr="xl">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
-      <Swiper.Slide textAlign="center" pr="xl">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
-      <Swiper.Slide textAlign="center" pr="xl">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
+    <Swiper h={400} slidesPerView={{ mobile: 1, tablet: 1, desktop: 2 }} >
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
     </Swiper>
   )
 }
 ```
 
-## With next and prev buttons
+## First slide to show
 
-Providing `nextButton` and `prevButton` enables prev and next navigation with the component you're returning from the callback.
+By providing `firstSlideToShow` with `2`, the swiper will begin on the second slide.
 
 ```jsx
 function() {
-  const swiper = useSwiper({
-    loop: true,
-    nextButton: <RightIcon size="lg" />,
-    prevButton: <LeftIcon size="lg" />
-  })
-
   return (
-    <Swiper {...swiper} h={400}>
-      <Swiper.Slide textAlign="center">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
-      <Swiper.Slide textAlign="center">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-        />
-      </Swiper.Slide>
-      <Swiper.Slide textAlign="center">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
+    <Swiper h={400} firstSlideToShow={2} >
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
     </Swiper>
   )
 }
 ```
 
-## Controlling externally
+## Centered slides
 
-You can create your own buttons outside of the Swiper and control it externally.
+By providing `centeredSlides`, the swiper will begin on the middle slide, `firstSlideToShow` won't be used in this case.
 
 ```jsx
 function() {
-  const swiper = useSwiper()
-
   return (
-    <>
-      <Box display="flex" w="100%" justifyContent="center" mb="sm">
-        <Button mr="xs" onClick={swiper.goPrev}>
-          <LeftIcon size="lg"  />
-        </Button>
-        <Button onClick={swiper.goNext}>
-          <RightIcon size="lg"  />
-        </Button>
-      </Box>
-      <Swiper h={400} {...swiper}>
-        <Swiper.Slide textAlign="center">
-          <img
-            style={{ maxWidth: '100%', maxHeight: '100%' }}
-            src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-          />
-        </Swiper.Slide>
-        <Swiper.Slide textAlign="center">
-          <img
-            style={{ maxWidth: '100%', maxHeight: '100%' }}
-            src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-          />
-        </Swiper.Slide>
-        <Swiper.Slide textAlign="center">
-          <img
-            style={{ maxWidth: '100%', maxHeight: '100%' }}
-            src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-          />
-        </Swiper.Slide>
-      </Swiper>
-    </>
+    <Swiper h={400} firstSlideToShow={3} centeredSlides>
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </Swiper>
   )
 }
 ```
@@ -183,74 +119,70 @@ Providing `autoplay` lets the slides advance automatically. Pass `duration` to c
 
 ```jsx
 function() {
-  const swiper = useSwiper({
-    autoplay: true,
-    loop: true,
-    nextButton: <RightIcon size="lg" />,
-    prevButton: <LeftIcon size="lg" />
-  })
-
   return (
-    <Swiper {...swiper} h={400}>
-      <Swiper.Slide textAlign="center">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
-      <Swiper.Slide textAlign="center">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-        />
-      </Swiper.Slide>
-      <Swiper.Slide textAlign="center">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
+    <Swiper h={400} autoplay loop >
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
     </Swiper>
   )
 }
 ```
 
-## With custom pagination items
+## With pagination
 
-By providing the optional `renderPaginationItem` you can customise the defaults pagination bullets and render your own component. This callback takes a `props` param which is an object containning:
-
-- `idx`: the current pagination item
-- `pageIdx`: the currently selected slide (which you can use to show the active state for your pagination items)
-- `onClick`: callback to pass to your custom bullet
+By providing the optional `withPagination` with `{ mobile: true, desktop: true }`, you can activate the pagination on mobile/tablet and on desktop.
 
 ```jsx
 function() {
-  const swiper = useSwiper({
-    renderPaginationItem: ({idx,  active, onClick, pageIdx }) => (
-      <Swiper.Bullet w={50} h={50} key={idx} active={idx === pageIdx} onClick={onClick} />
-    )
-  })
-
   return (
-    <Swiper h={400} {...swiper}>
-      <Swiper.Slide textAlign="center">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
-      <Swiper.Slide textAlign="center">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-        />
-      </Swiper.Slide>
-      <Swiper.Slide textAlign="center">
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        />
-      </Swiper.Slide>
+    <Swiper h={400} withPagination={{ mobile: true, desktop: true }}>
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+    </Swiper>
+  )
+}
+```
+
+## Without arrow buttons
+
+By providing the optional `withArrows` with `{ mobile: false, desktop: false }`, you can hide the navigation arrows on mobile/tablet and desktop, you still can scroll between slides.
+
+```jsx
+function() {
+  return (
+    <Swiper h={400} withArrows={{ mobile: false, desktop: false }}>
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <img
+        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+        src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
     </Swiper>
   )
 }

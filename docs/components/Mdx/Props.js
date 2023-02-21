@@ -109,7 +109,7 @@ export function Props({ propTypes }) {
                       <Box>
                         <Type type={type} />
                         {description && (
-                          <Box as="p" color="light-100" fontSize="xs" m={0} mt="sm">
+                          <Box as="p" color="dark-700" fontSize="xs" m={0} mt="sm">
                             {description}
                           </Box>
                         )}
