@@ -26,16 +26,31 @@ export interface ModalOptions {
   hideOnClickOutside?: boolean
   onClose?: () => void
   size?: Size
-  modalState: ModalStateReturn
+  state: ModalStateReturn
   children: React.ReactElement
 }
 
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
-export type ModalInitialState = DialogInitialState
-export type ModalStateReturn = DialogStateReturn
+export type ModalStateReturn = DialogStateReturn & {
+  open: DialogStateReturn['visible']
+}
+export type ModalInitialState = DialogInitialState & {
+  /**
+   * @deprecated
+   * will be replace by open on ariakit (reakit v2)
+   **/
+  visible?: DialogInitialState['visible']
+  /**
+   * Open the drawer on load
+   */
+  open?: DialogInitialState['visible']
+}
 
 export function useModalState(options?: ModalInitialState): ModalStateReturn {
-  return useDialogState({ animated: true, ...options })
+  const { open, visible, ...restOptions } = options || {}
+  const dialogState = useDialogState({ animated: true, visible: visible || open, ...restOptions })
+
+  return { open: dialogState.visible, ...dialogState }
 }
 
 const ModalComponent = forwardRef<'div', ModalProps>(
@@ -47,19 +62,19 @@ const ModalComponent = forwardRef<'div', ModalProps>(
       closeElement: CloseElement = Close,
       size = 'lg',
       children,
-      modalState,
+      state,
       ...rest
     },
     ref
   ) => {
     const closeModal = () => {
       onClose?.()
-      modalState.hide()
+      state.hide()
     }
 
     return (
-      <ModalProvider modalState={modalState}>
-        <S.Backdrop {...modalState} hideOnClickOutside={hideOnClickOutside}>
+      <ModalProvider state={state}>
+        <S.Backdrop {...state} hideOnClickOutside={hideOnClickOutside}>
           <S.Dialog
             aria-label={ariaLabel}
             hide={closeModal}
@@ -67,7 +82,7 @@ const ModalComponent = forwardRef<'div', ModalProps>(
             preventBodyScroll={false}
             ref={ref}
             size={size}
-            {...modalState}
+            {...state}
             {...rest}
           >
             <CloseElement onClick={closeModal} />

@@ -5,9 +5,9 @@ import {
   DialogBackdropProps,
   DialogDisclosure,
   DialogDisclosureProps,
+  DialogInitialState,
   DialogOptions,
   DialogProps,
-  DialogState,
   DialogStateReturn,
   useDialogState,
 } from 'reakit/Dialog'
@@ -48,20 +48,19 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
 export type DrawerStateReturn = DialogStateReturn & {
   open: DialogStateReturn['visible']
 }
+export type DrawerInitialState = DialogInitialState & {
+  /**
+   * @deprecated
+   * will be replace by open on ariakit (reakit v2)
+   **/
+  visible?: DialogInitialState['visible']
+  /**
+   * Open the drawer on load
+   */
+  open?: DialogInitialState['visible']
+}
 
-export function useDrawerState(
-  options?: DialogState & {
-    /**
-     * @deprecated
-     * will be replace by open on ariakit (reakit v2)
-     **/
-    visible?: DialogState['visible']
-    /**
-     * Open the drawer on load
-     */
-    open?: DialogState['visible']
-  }
-): DrawerStateReturn {
+export function useDrawerState(options?: DrawerInitialState): DrawerStateReturn {
   const { open, visible, ...restOptions } = options || {}
   const dialogState = useDialogState({ animated: true, visible: visible || open, ...restOptions })
 

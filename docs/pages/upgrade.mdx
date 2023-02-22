@@ -119,7 +119,7 @@ To prepare to the migration from reakit to ariakit, visible property is now depr
 
 ### Drawer
 
-To prepare to the migration from reakit to ariakit, we need now to pass a state property who contain the state from useDrawer:
+To prepare to the migration from reakit to ariakit, we need now to pass a state property who contain the state from useDrawerState:
 
 ```jsx live=false
 const drawerState = useDrawerState()
@@ -191,7 +191,27 @@ We renamed some icons:
 - **Modal.Content** is replaced by **Modal.Body**.
 - To ensure **good spacing** between modal's sub-components, they **must** be wrapped with **Modal.Content**.
 - **Modal.Cover** has been removed.
-- In order to fix an issue that made attributes duplicating, you will now have to pass the modalState to it props `modalState`
+- In order to fix an issue that made attributes duplicating, and to prepare to the migration from reakit to ariakit, you will now have to pass the modalState to it props `state` who contain the state from useModalState:
+
+```jsx live=false
+const modalState = useModalState()
+
+<Modal {...modalState}>
+  ...
+</Modal>
+
+Before
+---
+After
+
+const modalState = useModalState()
+
+<Modal state={modalState}>
+  ...
+</Modal>
+```
+
+and visible property is now deprecated and replaced by open.
 
 ### RadioGroup
 
