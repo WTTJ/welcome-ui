@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.23](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.22...v5.0.0-alpha.23) (2023-02-22)
+
+
+### Bug Fixes
+
+* arrow position on dropdownMenu ([#1961](https://github.com/WTTJ/welcome-ui/issues/1961)) ([a4e6b82](https://github.com/WTTJ/welcome-ui/commit/a4e6b82436f2c3c70a4a78be9ded42ab6ca3342e))
+
+
+
+
+
 # [5.0.0-alpha.21](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.20...v5.0.0-alpha.21) (2023-02-16)
 
 **Note:** Version bump only for package @welcome-ui/dropdown-menu
