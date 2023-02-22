@@ -4,12 +4,21 @@ import { Popover as WUIPopover } from '@welcome-ui/popover'
 import { Box } from '@welcome-ui/box'
 
 export const Popover = styled(WUIPopover)`
-  background-color: light-900;
+  background-color: ${th('defaultCards.backgroundColor')};
   border-width: sm;
   border-style: solid;
   border-color: border;
   color: dark-900;
   ${system};
+
+  /** we change the arrow item color from popover component */
+  > div > div > svg {
+    color: ${th('defaultCards.backgroundColor')};
+
+    #stroke {
+      color: ${th('defaultCards.borderColor')};
+    }
+  }
 `
 
 export const TabList = styled(Tab.List)`
@@ -52,6 +61,7 @@ export const Tooltip = styled(Box)`
   ${th('tooltips')};
   position: absolute;
   pointer-events: none;
+
   &:empty {
     display: none;
   }

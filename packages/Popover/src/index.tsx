@@ -40,7 +40,8 @@ export const PopoverComponent = forwardRef<'div', PopoverProps>(
         <Box position="relative">
           <S.Arrow {...state}>
             <S.ArrowItem $transform={transform} h={30} w={30} xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 30l9-10 9 10z" fill="currentColor" fillRule="nonzero" />
+              <path d="M7 30L15 22L23 30H7Z" fill="currentColor" fillRule="nonzero" id="stroke" />
+              <path d="M8 30L15 23L22 30H8Z" fill="currentColor" fillRule="nonzero" />
             </S.ArrowItem>
           </S.Arrow>
           {children}
