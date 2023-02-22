@@ -4,6 +4,8 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './Arrow.styled'
 
+import { DropdownMenuOptions } from '.'
+
 const transformMap: Record<string, string> = {
   top: 'rotateZ(180deg)',
   right: 'rotateZ(-90deg)',
@@ -11,16 +13,20 @@ const transformMap: Record<string, string> = {
   left: 'rotateZ(90deg)',
 }
 
-export type ArrowProps = CreateWuiProps<'div', MenuArrowOptions>
+export type ArrowProps = CreateWuiProps<
+  'div',
+  MenuArrowOptions & { state: DropdownMenuOptions['state'] }
+>
 
-export const Arrow = forwardRef<'div', ArrowProps>((props, ref) => {
+export const Arrow = forwardRef<'div', ArrowProps>(({ state, ...rest }, ref) => {
   // get the correct transform style for arrow
-  const { placement } = props
+  const { placement } = state
   // get the parent placement (top, bottom...)
-  const transform = transformMap[placement.split('-')[0]]
+  const parentPlacement = placement.split('-')[0]
+  const transform = transformMap[parentPlacement]
 
   return (
-    <S.Arrow {...props} ref={ref}>
+    <S.Arrow {...state} {...rest} ref={ref}>
       <S.ArrowItem
         $transform={transform}
         h={30}

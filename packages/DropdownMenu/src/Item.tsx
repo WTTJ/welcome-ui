@@ -1,14 +1,19 @@
 import React from 'react'
-import { MenuItem, MenuItemOptions } from 'reakit/Menu'
+import { MenuItem, MenuItemProps } from 'reakit/Menu'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './Item.styled'
 
-export type ItemProps = CreateWuiProps<'button', MenuItemOptions>
+import { DropdownMenuOptions } from '.'
 
-export const Item = forwardRef<'button', ItemProps>(({ as, children, ...props }, ref) => {
+export type ItemProps = CreateWuiProps<
+  'button',
+  MenuItemProps & { state: DropdownMenuOptions['state'] }
+>
+
+export const Item = forwardRef<'button', ItemProps>(({ as, children, state, ...rest }, ref) => {
   return (
-    <MenuItem as={undefined} type="button" {...props} ref={ref}>
+    <MenuItem as={undefined} type="button" {...state} {...rest} ref={ref}>
       {menuItemProps => {
         return (
           <S.Item as={as} {...menuItemProps}>

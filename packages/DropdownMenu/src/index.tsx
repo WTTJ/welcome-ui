@@ -11,14 +11,25 @@ import * as S from './styles'
 export interface DropdownMenuOptions {
   /** add custom props from styled system on DropdownMenu inner */
   innerProps?: WuiProps
-  visible?: boolean
+  state: MenuOptions & {
+    /**
+     * @deprecated
+     * will be replace by open on ariakit (reakit v2)
+     **/
+    visible?: MenuOptions['visible']
+    /**
+     * Open the menu on load
+     */
+    open?: MenuOptions['visible']
+  }
 }
 
-export type DropdownMenuProps = CreateWuiProps<'div', DropdownMenuOptions & MenuOptions>
+export type DropdownMenuProps = CreateWuiProps<'div', DropdownMenuOptions>
 
 const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
-  ({ children, dataTestId, innerProps = {}, visible = false, ...props }, ref) => {
-    const delayedVisible = useNextFrame(visible)
+  ({ children, dataTestId, innerProps = {}, state = {}, ...props }, ref) => {
+    const { open, visible } = state
+    const delayedVisible = useNextFrame(open || visible)
 
     return (
       <ReakitMenu
@@ -27,7 +38,7 @@ const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
         data-testid={dataTestId}
         ref={ref}
         tabIndex={0}
-        visible={visible}
+        {...state}
         {...props}
       >
         {menuProps => (

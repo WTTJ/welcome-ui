@@ -4,8 +4,13 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './Separator.styled'
 
-export type SeparatorProps = CreateWuiProps<'div', MenuSeparatorProps>
+import { DropdownMenuOptions } from '.'
 
-export const Separator = forwardRef<'div', SeparatorProps>((props, ref) => {
-  return <MenuSeparator as={S.Separator} ref={ref} {...props} />
+export type SeparatorProps = CreateWuiProps<
+  'div',
+  MenuSeparatorProps & { state: DropdownMenuOptions['state'] }
+>
+
+export const Separator = forwardRef<'div', SeparatorProps>(({ state, ...rest }, ref) => {
+  return <MenuSeparator as={S.Separator} ref={ref} {...state} {...rest} />
 })

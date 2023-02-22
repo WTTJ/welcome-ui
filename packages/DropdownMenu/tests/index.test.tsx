@@ -10,11 +10,11 @@ describe('<DropdownMenu>', () => {
   it('should render correctly', () => {
     const dataTestId = 'dropdownMenu'
     const {
-      result: { current: menu },
+      result: { current: menuState },
     } = renderHook(() => useDropdownMenuState())
 
     const { getByTestId } = render(
-      <DropdownMenu {...menu} dataTestId={dataTestId}>
+      <DropdownMenu dataTestId={dataTestId} state={menuState}>
         {content}
       </DropdownMenu>
     )
