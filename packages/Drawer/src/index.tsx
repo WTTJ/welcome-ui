@@ -46,6 +46,11 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
 )
 
 export type DrawerStateReturn = DialogStateReturn & {
+  /**
+   * @deprecated
+   * will be replace by open on ariakit (reakit v2)
+   **/
+  visible?: DialogStateReturn['visible']
   open: DialogStateReturn['visible']
 }
 export type DrawerInitialState = DialogInitialState & {

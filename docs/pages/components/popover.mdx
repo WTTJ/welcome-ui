@@ -26,14 +26,14 @@ Use `usePopoverState`, `Popover`, `Popover.Content` and `Popover.Trigger` to cre
 
 ```jsx
 function() {
-  const popover = usePopoverState()
+  const popoverState = usePopoverState()
 
   return (
     <>
-      <Popover.Trigger as={Button} {...popover}>
+      <Popover.Trigger as={Button} state={popoverState}>
         Open Popover
       </Popover.Trigger>
-      <Popover aria-label="usage popover" {...popover}>
+      <Popover aria-label="usage popover" state={popoverState}>
         <Popover.Content>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
@@ -50,14 +50,14 @@ Use `Popover.Title` props to create a predefined title block.
 
 ```jsx
 function() {
-  const popover = usePopoverState({ placement: 'top' })
+  const popoverState = usePopoverState({ placement: 'top' })
 
   return (
     <>
-      <Popover.Trigger as={Button} {...popover}>
+      <Popover.Trigger as={Button} state={popoverState}>
         Open Popover
       </Popover.Trigger>
-      <Popover aria-label="title popover" {...popover}>
+      <Popover aria-label="title popover" state={popoverState}>
           <Popover.Title>Amazing title</Popover.Title>
           <Popover.Content>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -75,14 +75,14 @@ function() {
 
 ```jsx
 function() {
-  const popover = usePopoverState({ withCloseButton: true })
+  const popoverState = usePopoverState({ withCloseButton: true })
 
   return (
     <>
-      <Popover.Trigger as={Button} {...popover}>
+      <Popover.Trigger as={Button} state={popoverState}>
         Open Popover
       </Popover.Trigger>
-      <Popover aria-label="close button popover" {...popover}>
+      <Popover aria-label="close button popover" state={popoverState}>
           <Popover.Title>Amazing title</Popover.Title>
           <Popover.Content>
             Praesent sit amet quam ac velit faucibus dapibus.<br />
@@ -101,14 +101,14 @@ Use `triggerMethod='hover'` on `usePopoverState` to open and close the popover b
 
 ```jsx
 function() {
-  const popover = usePopoverState({ triggerMethod: 'hover' })
+  const popoverState = usePopoverState({ triggerMethod: 'hover' })
 
   return (
     <>
-      <Popover.Trigger as={Button} {...popover}>
+      <Popover.Trigger as={Button} state={popoverState}>
         Open Popover
       </Popover.Trigger>
-      <Popover aria-label="hover to open popover" {...popover}>
+      <Popover aria-label="hover to open popover" state={popoverState}>
           <Popover.Title>Amazing title</Popover.Title>
           <Popover.Content>
             Praesent sit amet quam ac velit faucibus dapibus.<br />

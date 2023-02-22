@@ -22,7 +22,7 @@ export const Arrow = forwardRef<'div', ArrowProps>(({ state, ...rest }, ref) => 
   // get the correct transform style for arrow
   const { placement } = state
   // get the parent placement (top, bottom...)
-  const parentPlacement = placement.split('-')[0]
+  const [parentPlacement] = placement.split('-')
   const transform = transformMap[parentPlacement]
 
   return (

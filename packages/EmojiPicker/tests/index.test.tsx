@@ -7,12 +7,12 @@ import { EmojiPicker, useEmojiPicker } from '../src'
 describe('<EmojiPicker>', () => {
   it('should render correctly', () => {
     const Test = () => {
-      const emojiPicker = useEmojiPicker()
+      const emojiPickerState = useEmojiPicker()
 
       return (
         <>
-          <EmojiPicker.Trigger {...emojiPicker}>open</EmojiPicker.Trigger>
-          <EmojiPicker aria-label="emoji-picker" value={null} {...emojiPicker} />
+          <EmojiPicker.Trigger state={emojiPickerState}>open</EmojiPicker.Trigger>
+          <EmojiPicker aria-label="emoji-picker" state={emojiPickerState} value={null} />
         </>
       )
     }

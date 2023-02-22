@@ -4,7 +4,7 @@ import {
   Popover,
   PopoverProps,
   usePopoverState,
-  UsePopoverStateProps,
+  UsePopoverStateOptions,
   UsePopoverStateReturn,
 } from '@welcome-ui/popover'
 import { Tab } from '@welcome-ui/tabs'
@@ -24,10 +24,10 @@ export interface EmojiPickerOptions {
   onChange?: (value: string) => void
   popoverAriaLabel?: string
   tabListAriaLabel?: string
-  value: string
+  value: string | null
 }
 
-export type EmojiPickerProps = CreateWuiProps<'div', PopoverProps & EmojiPickerOptions>
+export type EmojiPickerProps = CreateWuiProps<'div', EmojiPickerOptions & PopoverProps>
 
 const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
   (
@@ -40,13 +40,13 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
       popoverAriaLabel = 'Emoji picker',
       tabListAriaLabel = 'Emoji picker tabs',
       value,
-      ...popoverState
+      state,
     },
     ref
   ) => {
     const tabState = useTabState(defaultTabState)
 
-    const hidePopover = useMemo(() => popoverState.hide, [popoverState.hide])
+    const hidePopover = useMemo(() => state.hide, [state.hide])
     const handleChange = useCallback(
       (value: string) => {
         hidePopover()
@@ -64,7 +64,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
               // Disabling type check since missing props are injected below with the "cloneElement"
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
-              <BasicList isVisible={popoverState.visible} onChange={handleChange} value={value} />
+              <BasicList isVisible={state.visible} onChange={handleChange} value={value} />
             ),
           },
         ]
@@ -85,8 +85,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
                 emptyList,
                 inputSearchPlaceholder,
                 isVisible:
-                  popoverState.visible &&
-                  (!tabState.selectedId || tabState.selectedId === tab.props.name),
+                  state.visible && (!tabState.selectedId || tabState.selectedId === tab.props.name),
                 onChange: handleChange,
                 value,
                 ...child.props,
@@ -104,7 +103,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
       emptyList,
       handleChange,
       inputSearchPlaceholder,
-      popoverState.visible,
+      state.visible,
       tabState.selectedId,
       value,
     ])
@@ -112,7 +111,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
     const onlyTabContent = tabs[0].content
 
     return (
-      <S.Popover aria-label={popoverAriaLabel} ref={ref} {...popoverState}>
+      <S.Popover aria-label={popoverAriaLabel} ref={ref} state={state}>
         {hasTabs && (
           <>
             <S.TabList aria-label={tabListAriaLabel} {...tabState}>
@@ -137,11 +136,12 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
 
 EmojiPickerComponent.displayName = 'EmojiPicker'
 
-export const useEmojiPicker: (options?: UsePopoverStateProps) => UsePopoverStateReturn = options =>
-  usePopoverState({
+export function useEmojiPicker(options?: UsePopoverStateOptions): UsePopoverStateReturn {
+  return usePopoverState({
     placement: 'bottom-start',
     ...options,
   })
+}
 
 export const EmojiPicker = Object.assign(EmojiPickerComponent, {
   Trigger: Popover.Trigger,

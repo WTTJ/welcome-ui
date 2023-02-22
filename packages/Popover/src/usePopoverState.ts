@@ -5,19 +5,44 @@ import {
   usePopoverState as useReakitPopoverState,
 } from 'reakit/Popover'
 
-export interface UsePopoverStateOptions {
+export interface UsePopoverStateOptions extends ReakitPopoverInitialState {
   hideTimeout?: number
   showTimeout?: number
   triggerMethod?: 'hover' | 'click'
   withCloseButton?: boolean
+  /**
+   * @deprecated
+   * will be replace by open on ariakit (reakit v2)
+   **/
+  visible?: ReakitPopoverInitialState['visible']
+  /**
+   * Open the popover on load
+   */
+  open?: ReakitPopoverInitialState['visible']
 }
 
 export type UsePopoverStateReturn = ReakitPopoverStateReturn &
-  Pick<UsePopoverStateOptions, 'triggerMethod' | 'withCloseButton'>
+  Pick<UsePopoverStateOptions, 'triggerMethod' | 'withCloseButton'> & {
+    /**
+     * @deprecated
+     * will be replace by open on ariakit (reakit v2)
+     **/
+    visible?: ReakitPopoverStateReturn['visible']
+    /**
+     * Open the popover on load
+     **/
+    open?: ReakitPopoverStateReturn['visible']
+    /**
+     * Custom hide function who call reakit hide after a timeout if is hoverable, or not
+     **/
+    hide: () => void
+    /**
+     * Custom show function who call reakit show after a timeout if is hoverable, or not
+     **/
+    show: () => void
+  }
 
-export type UsePopoverStateProps = ReakitPopoverInitialState & UsePopoverStateOptions
-
-export const usePopoverState: (props?: UsePopoverStateProps) => UsePopoverStateReturn = ({
+export const usePopoverState: (props?: UsePopoverStateOptions) => UsePopoverStateReturn = ({
   animated = 150,
   hideTimeout = 300,
   showTimeout = 500,
@@ -25,7 +50,12 @@ export const usePopoverState: (props?: UsePopoverStateProps) => UsePopoverStateR
   withCloseButton = false,
   ...options
 } = {}) => {
-  const popover = useReakitPopoverState({ animated, ...options })
+  const { open, visible } = options
+  const popover = useReakitPopoverState({
+    animated,
+    visible: visible || open,
+    ...options,
+  })
   const closeCountdownRef = useRef<NodeJS.Timeout>()
   const openCountdownRef = useRef<NodeJS.Timeout>()
   const isHoverable = triggerMethod === 'hover'
@@ -54,6 +84,7 @@ export const usePopoverState: (props?: UsePopoverStateProps) => UsePopoverStateR
 
   return {
     ...popover,
+    open: popover.visible,
     hide,
     show,
     triggerMethod,

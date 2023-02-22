@@ -27,16 +27,16 @@ The most basic emoji picker needs `useEmojiPicker()`, `<EmojiPicker.Trigger />` 
 
 ```jsx
 function Default() {
-  const emojiPicker = useEmojiPicker()
+  const emojiPickerState = useEmojiPicker()
   const [emoji, setEmoji] = React.useState()
 
   return (
     <>
-      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+      <EmojiPicker.Trigger as={Button} state={emojiPickerState}>
         {emoji ? <Emoji emoji={emoji} /> : 'Open Emoji Picker'}
       </EmojiPicker.Trigger>
 
-      <EmojiPicker onChange={setEmoji} value={emoji} {...emojiPicker} />
+      <EmojiPicker onChange={setEmoji} value={emoji} state={emojiPickerState} />
     </>
   )
 }
@@ -48,16 +48,16 @@ function Default() {
 
 ```jsx
 function Default() {
-  const emojiPicker = useEmojiPicker()
+  const emojiPickerState = useEmojiPicker()
   const [emoji, setEmoji] = React.useState(':dog:')
 
   return (
     <>
-      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+      <EmojiPicker.Trigger as={Button} state={emojiPickerState}>
         {emoji ? <Emoji emoji={emoji} /> : 'Open Emoji Picker'}
       </EmojiPicker.Trigger>
 
-      <EmojiPicker onChange={setEmoji} value={emoji} {...emojiPicker} />
+      <EmojiPicker onChange={setEmoji} value={emoji} state={emojiPickerState} />
     </>
   )
 }
@@ -69,7 +69,7 @@ function Default() {
 
 ```jsx
 function Tabs() {
-  const emojiPicker = useEmojiPicker()
+  const emojiPickerState = useEmojiPicker()
   const [emoji, setEmoji] = React.useState()
   const defaultTabState = {
     selectedId: 'Second tab',
@@ -77,7 +77,7 @@ function Tabs() {
 
   return (
     <>
-      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+      <EmojiPicker.Trigger as={Button} state={emojiPickerState}>
         {emoji ? <Emoji emoji={emoji} /> : 'Open Emoji Picker'}
       </EmojiPicker.Trigger>
 
@@ -85,7 +85,7 @@ function Tabs() {
         onChange={setEmoji}
         value={emoji}
         defaultTabState={defaultTabState}
-        {...emojiPicker}
+        state={emojiPickerState}
       >
         <EmojiPicker.Tab name="First tab">
           <Box display="flex" alignItems="center" justifyContent="center">
@@ -122,7 +122,7 @@ All the field, with the expection of `url`, will be used for the search.
 
 ```jsx
 function Custom() {
-  const emojiPicker = useEmojiPicker()
+  const emojiPickerState = useEmojiPicker()
   const [emoji, setEmoji] = React.useState()
 
   const emojis = [
@@ -141,7 +141,7 @@ function Custom() {
 
   return (
     <>
-      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+      <EmojiPicker.Trigger as={Button} state={emojiPickerState}>
         {currentEmoji ? (
           <Emoji emoji={currentEmoji.url || currentEmoji.alias} />
         ) : (
@@ -149,7 +149,7 @@ function Custom() {
         )}
       </EmojiPicker.Trigger>
 
-      <EmojiPicker onChange={setEmoji} {...emojiPicker}>
+      <EmojiPicker onChange={setEmoji} state={emojiPickerState}>
         <EmojiPicker.Tab name="Custom">
           <EmojiPicker.List emojis={emojis} />
         </EmojiPicker.Tab>
@@ -165,16 +165,16 @@ When using `<EmojiPicker />` witjout children, it will automatically add `<Emoji
 
 ```jsx
 function BasicList() {
-  const emojiPicker = useEmojiPicker()
+  const emojiPickerState = useEmojiPicker()
   const [emoji, setEmoji] = React.useState()
 
   return (
     <>
-      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+      <EmojiPicker.Trigger as={Button} state={emojiPickerState}>
         {emoji ? <Emoji emoji={emoji} /> : 'Open Emoji Picker'}
       </EmojiPicker.Trigger>
 
-      <EmojiPicker onChange={setEmoji} {...emojiPicker}>
+      <EmojiPicker onChange={setEmoji} state={emojiPickerState}>
         <EmojiPicker.Tab name="Basic">
           <EmojiPicker.BasicList />
         </EmojiPicker.Tab>
@@ -191,7 +191,7 @@ function BasicList() {
               value={emoji}
               onChange={e => setEmoji(e.target.value)}
             />
-            <Button onClick={emojiPicker.hide}>Close emoji picker</Button>
+            <Button onClick={emojiPickerState.hide}>Close emoji picker</Button>
           </Box>
         </EmojiPicker.Tab>
       </EmojiPicker>
@@ -206,16 +206,16 @@ You can set some props on `<EmojiPicker />` & `<EmojiPicker.List />` to change s
 
 ```jsx
 function BasicList() {
-  const emojiPicker = useEmojiPicker()
+  const emojiPickerState = useEmojiPicker()
   const [emoji, setEmoji] = React.useState()
 
   return (
     <>
-      <EmojiPicker.Trigger as={Button} {...emojiPicker}>
+      <EmojiPicker.Trigger as={Button} state={emojiPickerState}>
         {emoji ? <Emoji emoji={emoji} /> : "Ouvrir l'Emoji Picker"}
       </EmojiPicker.Trigger>
 
-      <EmojiPicker onChange={setEmoji} {...emojiPicker} emptyList="Pas d'emojis">
+      <EmojiPicker onChange={setEmoji} state={emojiPickerState} emptyList="Pas d'emojis">
         <EmojiPicker.Tab name="Basique">
           <EmojiPicker.BasicList inputSearchPlaceholder="Chercher un emoji" />
         </EmojiPicker.Tab>
