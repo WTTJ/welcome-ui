@@ -16,7 +16,8 @@ export type ArrowProps = CreateWuiProps<'div', MenuArrowOptions>
 export const Arrow = forwardRef<'div', ArrowProps>((props, ref) => {
   // get the correct transform style for arrow
   const { placement } = props
-  const transform = transformMap[placement]
+  // get the parent placement (top, bottom...)
+  const transform = transformMap[placement.split('-')[0]]
 
   return (
     <S.Arrow {...props} ref={ref}>
