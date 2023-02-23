@@ -24,32 +24,32 @@ Menu from [Reakit](https://reakit.io/docs/menu/) with a really nice theme 👀
 
 ```jsx
 function() {
-  const menuState = useDropdownMenuState({
+  const dropdownMenuState = useDropdownMenuState({
     gutter: 10
   })
 
   const handleClick = e => {
     console.log(`Clicked on ${e.target.innerText}`)
-    menuState.hide()
+    dropdownMenuState.hide()
   }
 
   return (
     <>
-      <DropdownMenu.Trigger state={menuState} as={Button}>
+      <DropdownMenu.Trigger state={dropdownMenuState} as={Button}>
         Dropdown Menu
       </DropdownMenu.Trigger>
-      <DropdownMenu state={menuState} aria-label="Example">
-        <DropdownMenu.Item state={menuState} onClick={handleClick}>
+      <DropdownMenu state={dropdownMenuState} aria-label="Example">
+        <DropdownMenu.Item state={dropdownMenuState} onClick={handleClick}>
           Twitter
         </DropdownMenu.Item>
-        <DropdownMenu.Item state={menuState} onClick={handleClick} disabled>
+        <DropdownMenu.Item state={dropdownMenuState} onClick={handleClick} disabled>
           Facebook
         </DropdownMenu.Item>
-        <DropdownMenu.Item state={menuState} onClick={handleClick}>
+        <DropdownMenu.Item state={dropdownMenuState} onClick={handleClick}>
           Instagram
         </DropdownMenu.Item>
-        <DropdownMenu.Separator state={menuState} />
-        <DropdownMenu.Item state={menuState} onClick={handleClick}>
+        <DropdownMenu.Separator state={dropdownMenuState} />
+        <DropdownMenu.Item state={dropdownMenuState} onClick={handleClick}>
           Github
         </DropdownMenu.Item>
       </DropdownMenu>
@@ -62,11 +62,11 @@ function() {
 
 ```jsx
 function() {
-  const menuState = useDropdownMenuState({ gutter: 10, placement: 'bottom-end' })
+  const dropdownMenuState = useDropdownMenuState({ gutter: 10, placement: 'bottom-end' })
 
   const handleClick = e => {
     console.log(`Clicked on ${e.target.innerText}`)
-    menuState.hide()
+    dropdownMenuState.hide()
   }
 
   return (
@@ -76,16 +76,16 @@ function() {
           <AddIcon />
           <span>First Action</span>
         </Button>
-        <DropdownMenu.Trigger state={menuState} as={Button}>
-          {menuState.open ? <UpIcon /> : <DownIcon />}
+        <DropdownMenu.Trigger state={dropdownMenuState} as={Button}>
+          {dropdownMenuState.open ? <UpIcon /> : <DownIcon />}
         </DropdownMenu.Trigger>
       </ButtonGroup>
-      <DropdownMenu state={menuState} aria-label="Complexity">
-        <DropdownMenu.Item state={menuState} onClick={handleClick}>
+      <DropdownMenu state={dropdownMenuState} aria-label="Complexity">
+        <DropdownMenu.Item state={dropdownMenuState} onClick={handleClick}>
           <TrashIcon mr="sm" size="sm" />
           <Box>Second Action</Box>
         </DropdownMenu.Item>
-        <DropdownMenu.Item state={menuState} onClick={handleClick}>
+        <DropdownMenu.Item state={dropdownMenuState} onClick={handleClick}>
           <AttachmentIcon mr="sm" size="sm" />
           <Box>Third Action</Box>
         </DropdownMenu.Item>
@@ -101,33 +101,33 @@ Use `DropdownMenu.Arrow` to add an arrow to the dropdown menu
 
 ```jsx
 function() {
-  const menuState = useDropdownMenuState({
+  const dropdownMenuState = useDropdownMenuState({
     gutter: 10
   })
 
   const handleClick = e => {
     console.log(`Clicked on ${e.target.innerText}`)
-    menuState.hide()
+    dropdownMenuState.hide()
   }
 
   return (
     <>
-      <DropdownMenu.Trigger state={menuState} as={Button}>
+      <DropdownMenu.Trigger state={dropdownMenuState} as={Button}>
         Dropdown Menu
       </DropdownMenu.Trigger>
-      <DropdownMenu state={menuState} aria-label="Example">
-        <DropdownMenu.Arrow state={menuState} />
-        <DropdownMenu.Item state={menuState} onClick={handleClick}>
+      <DropdownMenu state={dropdownMenuState} aria-label="Example">
+        <DropdownMenu.Arrow state={dropdownMenuState} />
+        <DropdownMenu.Item state={dropdownMenuState} onClick={handleClick}>
           Twitter
         </DropdownMenu.Item>
-        <DropdownMenu.Item state={menuState} onClick={handleClick} disabled>
+        <DropdownMenu.Item state={dropdownMenuState} onClick={handleClick} disabled>
           Facebook
         </DropdownMenu.Item>
-        <DropdownMenu.Item state={menuState} onClick={handleClick}>
+        <DropdownMenu.Item state={dropdownMenuState} onClick={handleClick}>
           Instagram
         </DropdownMenu.Item>
-        <DropdownMenu.Separator state={menuState} />
-        <DropdownMenu.Item state={menuState} onClick={handleClick}>
+        <DropdownMenu.Separator state={dropdownMenuState} />
+        <DropdownMenu.Item state={dropdownMenuState} onClick={handleClick}>
           Github
         </DropdownMenu.Item>
       </DropdownMenu>
