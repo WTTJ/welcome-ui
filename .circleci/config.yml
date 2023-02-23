@@ -151,9 +151,7 @@ jobs:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: build w/ prefix
-          command: |
-            VERSION=$CIRCLE_BRANCH
-            yarn docs:build
+          command: VERSION=$CIRCLE_BRANCH yarn docs:build
       - aws-s3/sync:
           from: docs/out
           to: s3://welcome-ui/docs_production/$CIRCLE_BRANCH
