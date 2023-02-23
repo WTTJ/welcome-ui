@@ -6,6 +6,7 @@ export interface ThemePaginations {
   default: CSSObject
   item: CSSObject
   active: CSSObject
+  disabled: CSSObject
 }
 
 export const getPaginations = (theme: WuiTheme): ThemePaginations => {
@@ -31,6 +32,10 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
       '&:hover, &:focus': {
         backgroundColor: colors['dark-900'],
       },
+    },
+    disabled: {
+      backgroundColor: colors['nude-400'],
+      color: colors['nude-700'],
     },
   }
 }
