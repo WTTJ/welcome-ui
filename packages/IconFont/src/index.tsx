@@ -2,7 +2,7 @@ import React from 'react'
 import { IconProps } from '@welcome-ui/icon'
 
 import { Icon, StyledIconProps } from './styles'
-import unicodeMap from './unicode.json'
+import unicodeJson from './unicode.json'
 
 export type IconFontProps = StyledIconProps
 export const IconFont = Icon
@@ -12,6 +12,9 @@ type FormatIconJSX<S extends string> = S extends `${infer F}${infer R}`
     ? FormatIconJSX<Capitalize<R>>
     : `${F}${FormatIconJSX<R>}`
   : ''
+
+// this is usefull to add the keys on the declaration file
+const unicodeMap = { ...unicodeJson }
 
 export type IconKey = keyof typeof unicodeMap
 export type IconKeyFormatted = FormatIconJSX<Capitalize<IconKey>>
