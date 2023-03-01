@@ -13072,15 +13072,10 @@ minimist-options@^3.0.1:
     arrify "^1.0.1"
     is-plain-obj "^1.1.0"
 
-minimist@1.2.8:
+minimist@1.2.8, minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5, minimist@^1.2.6:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
   integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
-
-minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5, minimist@^1.2.6:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
-  integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
 
 minipass@^2.3.5, minipass@^2.6.0, minipass@^2.9.0:
   version "2.9.0"
@@ -13312,10 +13307,10 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0, nested-error-stacks@^2.1
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.1.tgz#26c8a3cee6cc05fbcf1e333cd2fc3e003326c0b5"
   integrity sha512-9iN1ka/9zmX1ZvLV9ewJYEk9h7RyRRtqdK0woXcqohu8EWIerfPUjYJPg0ULy0UqP7cslmdGc8xKDJcojlKiaw==
 
-netlify-cli@^12.14.0:
-  version "12.14.0"
-  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-12.14.0.tgz#59945190c1681962536e20295068c9c16e7e0b08"
-  integrity sha512-zQ9eB3eWe8ae5G8Dr76IXADarKXrI08idGwSzJfYdvdgSRvc42R+7H/V2XAkJouZOkt5/YKPmRl3Sj8OzsP4CQ==
+netlify-cli@^13.0.0:
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-13.0.0.tgz#f50128287c9eb6e6e40cc1f121f3ddc989eb4bbe"
+  integrity sha512-yn1ZulpkwaScv3ke75tRQkEuJKGGwfYgKBUStOCg5ma8Kqcmgaw+cU4eiUk4dQUa5ojWDXg15tZJgkMZPpKJUQ==
   dependencies:
     "@fastify/static" "^6.6.0"
     "@netlify/build" "^29.5.8"
@@ -13416,6 +13411,7 @@ netlify-cli@^12.14.0:
     through2-map "^3.0.0"
     to-readable-stream "^2.1.0"
     toml "^3.0.0"
+    ulid "^2.3.0"
     unixify "^1.0.0"
     update-notifier "^6.0.0"
     uuid "^9.0.0"
@@ -17690,6 +17686,11 @@ uid-safe@2.1.5:
   integrity sha512-KPHm4VL5dDXKz01UuEd88Df+KzynaohSL9fBh096KWAxSKZQDI2uBrVqtvRM4rwrIrRRKsdLNML/lnaaVSRioA==
   dependencies:
     random-bytes "~1.0.0"
+
+ulid@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/ulid/-/ulid-2.3.0.tgz#93063522771a9774121a84d126ecd3eb9804071f"
+  integrity sha512-keqHubrlpvT6G2wH0OEfSW4mquYRcbe/J8NMmveoQOjUqmo+hXtO+ORCpWhdbZ7k72UtY61BL7haGxW6enBnjw==
 
 umask@^1.1.0:
   version "1.1.0"
