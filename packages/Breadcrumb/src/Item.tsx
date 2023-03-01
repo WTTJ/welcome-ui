@@ -24,6 +24,7 @@ export const Item = forwardRef<'a', ItemProps>(
         data-testid={dataTestId}
         display="inline-flex"
         flex="0 0 auto"
+        ref={ref}
       >
         {separator && <S.Separator role="presentation">{separator}</S.Separator>}
         <S.Item
