@@ -1,16 +1,16 @@
 import { Box } from '@welcome-ui/box'
 import { Modal } from '@welcome-ui/modal'
-import { useThemeContext } from '../context/theme'
-
 import { Tab, useTabState } from '@welcome-ui/tabs'
 import { Text } from '@welcome-ui/text'
 import { useEffect, useState } from 'react'
+
+import { useThemeContext } from '../context/theme'
 
 import { ThemeConfiguration } from './ThemeConfiguration'
 
 const KEY_CODE_HELP = 'KeyI'
 
-export function ThemeHelper({ modal }) {
+export const ThemeHelper = ({ modalState }) => {
   const currentTheme = useThemeContext()
   const [hasBeenHydrated, setHasBeenHydrated] = useState(false)
   const tabState = useTabState({ orientation: 'vertical' })
@@ -39,32 +39,32 @@ export function ThemeHelper({ modal }) {
   return (
     <>
       {hasBeenHydrated && (
-        <Modal modalState={modal} ariaLabel="theme configuration" title={title}>
+        <Modal ariaLabel="theme configuration" state={modalState} title={title}>
           <Modal.Content>
-            <Modal.Header title={title} subtitle="Documentation for the core theme entries" />
+            <Modal.Header subtitle="Documentation for the core theme entries" title={title} />
             <Modal.Body mt="xl">
               <Box display="flex">
-                <Tab.List w={200} mr="lg" aria-label="Tabs" {...tabState}>
+                <Tab.List aria-label="Tabs" mr="lg" state={tabState} w={200}>
                   {categories.map(category => (
-                    <Tab key={category} {...tabState} id={category}>
+                    <Tab id={category} key={category} state={tabState}>
                       {category}
                     </Tab>
                   ))}
                 </Tab.List>
 
                 {categories.map(category => (
-                  <Tab.Panel key={category} {...tabState} tabId={category}>
+                  <Tab.Panel key={category} state={tabState} tabId={category}>
                     <Box
+                      columnGap={16}
                       display="grid"
                       gridTemplateColumns="1fr 1fr"
-                      rowGap={8}
-                      columnGap={16}
                       mb="md"
+                      rowGap={8}
                     >
-                      <Text variant="h5" mb="md" mt="0">
+                      <Text mb="md" mt="0" variant="h5">
                         Key
                       </Text>
-                      <Text variant="h5" mb="md" mt="0">
+                      <Text mb="md" mt="0" variant="h5">
                         Value
                       </Text>
                       <ThemeConfiguration category={category} />

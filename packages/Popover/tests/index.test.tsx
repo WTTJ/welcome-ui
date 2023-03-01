@@ -2,17 +2,19 @@ import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
-import { EmojiPicker, useEmojiPicker } from '../src'
+import { Popover, usePopoverState } from '../src'
 
-describe('<EmojiPicker>', () => {
+describe('<Popover>', () => {
   it('should render correctly', () => {
     const Test = () => {
-      const emojiPickerState = useEmojiPicker()
+      const popoverState = usePopoverState()
 
       return (
         <>
-          <EmojiPicker.Trigger state={emojiPickerState}>open</EmojiPicker.Trigger>
-          <EmojiPicker aria-label="emoji-picker" state={emojiPickerState} value={null} />
+          <Popover.Trigger state={popoverState}>open</Popover.Trigger>
+          <Popover aria-label="popover" state={popoverState}>
+            Popover open
+          </Popover>
         </>
       )
     }
@@ -20,6 +22,6 @@ describe('<EmojiPicker>', () => {
     const { getByText, queryByRole } = render(<Test />)
     expect(queryByRole('dialog')).toBeNull()
     fireEvent.click(getByText('open'))
-    expect(queryByRole('dialog')).toHaveTextContent('Smileys & Emotion')
+    expect(queryByRole('dialog')).toHaveTextContent('Popover open')
   })
 })

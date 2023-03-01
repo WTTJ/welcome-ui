@@ -4,7 +4,7 @@ import { ModalStateReturn } from './index'
 
 type ModalProviderProps = {
   children?: ReactNode
-  modalState: ModalStateReturn
+  state: ModalStateReturn
 }
 
 export const ModalContext = createContext<ModalStateReturn>({} as ModalStateReturn)
@@ -14,10 +14,10 @@ export const ModalContext = createContext<ModalStateReturn>({} as ModalStateRetu
  * in order to check when the modal is visible and enable the scroll.
  * @link https://github.com/ariakit/ariakit/issues/469
  */
-export const ModalProvider = ({ children, modalState }: ModalProviderProps) => {
-  const state = useMemo(() => modalState, [modalState])
+export const ModalProvider = ({ children, state }: ModalProviderProps) => {
+  const modalState = useMemo(() => state, [state])
 
-  return <ModalContext.Provider value={state}>{children}</ModalContext.Provider>
+  return <ModalContext.Provider value={modalState}>{children}</ModalContext.Provider>
 }
 
 export function useModal() {

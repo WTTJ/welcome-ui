@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { InputText } from '@welcome-ui/input-text'
 import { FixedSizeList, ListChildComponentProps } from 'react-window'
@@ -240,7 +239,7 @@ export const List: React.FC<ListProps> = ({
         <InputText
           autoFocus
           data-testid="emoji-search-input"
-          icon={<SearchIcon color="light-100" />}
+          icon={<SearchIcon />}
           onChange={debouncedHandleChangeQuery}
           onKeyDown={handleKeyDown}
           placeholder={inputSearchPlaceholder}
@@ -297,7 +296,6 @@ const EmojiRow: React.FC<EmojiRowProps> = ({ data, index, style }) => {
       <Text
         alignItems="center"
         as="span"
-        color="light-100"
         display="flex"
         px="xl"
         style={style}

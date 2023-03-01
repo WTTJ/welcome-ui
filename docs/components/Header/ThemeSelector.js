@@ -1,20 +1,20 @@
 import React from 'react'
 import { DropdownMenu, useDropdownMenuState } from '@welcome-ui/dropdown-menu'
 import { Box } from '@welcome-ui/box'
-import { StarIcon, SunIcon, CrescentMoonIcon, StarOutlineIcon } from '@welcome-ui/icons'
+import { CrescentMoonIcon, StarIcon, StarOutlineIcon, SunIcon } from '@welcome-ui/icons'
 import { Button } from '@welcome-ui/button'
 import { Badge } from '@welcome-ui/badge'
 
 import { useSetThemeContext, useThemeContext } from '../../context/theme'
 
-export function ThemeSelector(props) {
+export const ThemeSelector = props => {
   const setTheme = useSetThemeContext()
-  const menu = useDropdownMenuState({ gutter: 10 })
+  const menuState = useDropdownMenuState({ gutter: 10 })
   const theme = useThemeContext()
 
   const handleSetTheme = theme => {
     setTheme(theme)
-    menu.hide()
+    menuState.hide()
   }
 
   const options = [
@@ -26,22 +26,24 @@ export function ThemeSelector(props) {
 
   return (
     <>
-      <DropdownMenu.Trigger as={Button} h={30} shape="circle" w={30} {...menu} {...props}>
+      <DropdownMenu.Trigger as={Button} h={30} shape="circle" state={menuState} w={30} {...props}>
         <SunIcon />
       </DropdownMenu.Trigger>
-      <DropdownMenu {...menu} aria-label="Theme selector">
-        {options?.map(({ icon: Icon, label, value, isBeta }) => (
+      <DropdownMenu aria-label="Theme selector" state={menuState}>
+        {options?.map(({ icon: Icon, isBeta, label, value }) => (
           <DropdownMenu.Item
             color={theme === value ? 'dark-900' : undefined}
             fontWeight={theme === value ? 'bold' : undefined}
             key={value}
             onClick={() => handleSetTheme(value)}
-            {...menu}
+            state={menuState}
           >
             <Icon mr="md" size="sm" />
             <Box>{label}</Box>
             {isBeta && (
-              <Badge size="sm" ml="xs">beta</Badge>
+              <Badge ml="xs" size="sm">
+                beta
+              </Badge>
             )}
           </DropdownMenu.Item>
         ))}

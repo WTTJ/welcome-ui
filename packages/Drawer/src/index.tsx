@@ -1,15 +1,15 @@
-/* eslint-disable react/no-multi-comp */
 import React, { cloneElement } from 'react'
 import {
   Dialog,
   DialogBackdropProps,
   DialogDisclosure,
+  DialogDisclosureProps,
   DialogInitialState,
   DialogOptions,
+  DialogProps,
   DialogStateReturn,
   useDialogState,
 } from 'reakit/Dialog'
-import { SealedInitialState } from 'reakit-utils/ts/useSealedState'
 import { Box, BoxProps } from '@welcome-ui/box'
 import { CloseButtonProps } from '@welcome-ui/close-button'
 import { Text, TextProps } from '@welcome-ui/text'
@@ -23,16 +23,17 @@ export type Size = 'sm' | 'md' | 'lg' | 'auto' | string
 export interface DrawerOptions {
   placement?: Placement
   size?: Size
+  state?: DialogOptions
 }
 
-export type DrawerProps = CreateWuiProps<'div', DrawerOptions & DialogOptions>
+export type DrawerProps = CreateWuiProps<'div', DrawerOptions>
 
 const DrawerComponent = forwardRef<'div', DrawerProps>(
-  ({ as, children, placement = 'right', size = 'lg', ...rest }, ref) => {
+  ({ as, children, placement = 'right', size = 'lg', state, ...rest }, ref) => {
     return (
       // Needed to allow to style the backdrop
       // see: https://reakit.io/docs/styling/#css-in-js
-      <Dialog as={as} ref={ref} {...rest}>
+      <Dialog as={as} ref={ref} {...state} {...rest}>
         {props => (
           <S.Drawer {...props} placement={placement} size={size}>
             {children}
@@ -43,21 +44,41 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
   }
 )
 
-export type DrawerStateReturn = DialogStateReturn
+export type DrawerStateReturn = DialogStateReturn & {
+  /**
+   * @deprecated
+   * will be replace by open on ariakit (reakit v2)
+   **/
+  visible?: DialogStateReturn['visible']
+  open: DialogStateReturn['visible']
+}
+export type DrawerInitialState = DialogInitialState & {
+  /**
+   * @deprecated
+   * will be replace by open on ariakit (reakit v2)
+   **/
+  visible?: DialogInitialState['visible']
+  /**
+   * Open the drawer on load
+   */
+  open?: DialogInitialState['visible']
+}
 
-export function useDrawerState(
-  options?: SealedInitialState<DialogInitialState>
-): DrawerStateReturn {
-  return useDialogState({ animated: true, ...options })
+export function useDrawerState(options?: DrawerInitialState): DrawerStateReturn {
+  const { open, visible, ...restOptions } = options || {}
+  const dialogState = useDialogState({ animated: true, visible: visible || open, ...restOptions })
+
+  return { open: dialogState.visible, ...dialogState }
 }
 
 export interface DrawerBackdropOptions {
   hideOnClickOutside?: boolean
   backdropVisible?: boolean
+  state: DialogBackdropProps
   children: React.ReactElement
 }
 
-export type DrawerBackdropProps = DrawerBackdropOptions & DialogBackdropProps
+export type DrawerBackdropProps = DrawerBackdropOptions
 
 // Needed to allow to style the backdrop
 // see: https://reakit.io/docs/styling/#css-in-js
@@ -68,6 +89,7 @@ export const DrawerBackdrop: React.FC<DrawerBackdropProps> = ({
   backdropVisible = true,
   children,
   hideOnClickOutside = true,
+  state,
   ...rest
 }) => {
   const Wrapper = backdropVisible ? S.Backdrop : S.NoBackdropWrapper
@@ -79,16 +101,18 @@ export const DrawerBackdrop: React.FC<DrawerBackdropProps> = ({
   }
 
   return (
-    <Wrapper {...rest} hideOnClickOutside={hideOnClickOutside} {...optionalWrapperProps}>
+    <Wrapper {...state} {...rest} hideOnClickOutside={hideOnClickOutside} {...optionalWrapperProps}>
       {cloneElement(children, { hideOnClickOutside })}
     </Wrapper>
   )
 }
 
-export type CloseOptions = { hide: VoidFunction }
+export type CloseOptions = { state: DialogProps }
 export type CloseProps = CloseOptions & CloseButtonProps
 
-export const Close: React.FC<CloseProps> = ({ hide, zIndex = '2', ...props }) => {
+export const Close: React.FC<CloseProps> = ({ state, zIndex = '2', ...props }) => {
+  const { hide } = state
+
   return (
     <Box
       display="flex"
@@ -138,8 +162,15 @@ export const Footer: React.FC<BoxProps> = props => {
   )
 }
 
+export const Trigger: React.FC<{ state: DialogDisclosureProps; children: React.ReactNode }> = ({
+  state,
+  ...rest
+}) => {
+  return <DialogDisclosure {...state} {...rest} />
+}
+
 export const Drawer = Object.assign(DrawerComponent, {
-  Trigger: DialogDisclosure,
+  Trigger,
   Backdrop: DrawerBackdrop,
   Close,
   Title,

@@ -25,16 +25,16 @@ The most basic drawer needs `useDrawerState()`, `<Drawer.Trigger />`, `<Drawer.B
 
 ```jsx
 function DefaultDrawer() {
-  const drawer = useDrawerState()
+  const drawerState = useDrawerState()
 
   return (
     <>
-      <Drawer.Trigger as={Button} {...drawer}>
+      <Drawer.Trigger as={Button} state={drawerState}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer.Backdrop {...drawer} backdropVisible={false}>
-        <Drawer aria-label="Default drawer" {...drawer}>
-          <Drawer.Close {...drawer} />
+      <Drawer.Backdrop state={drawerState} backdropVisible={false}>
+        <Drawer aria-label="Default drawer" state={drawerState}>
+          <Drawer.Close state={drawerState} />
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam
           nec, convallis sit amet erat. Mauris auctor blandit porta.
         </Drawer>
@@ -50,16 +50,16 @@ You have to wrap `<Drawer />` with `<Drawer.Backdrop />`. It can be either visib
 
 ```jsx
 function BackdropDrawer() {
-  const drawer = useDrawerState()
+  const drawerState = useDrawerState()
 
   return (
     <>
-      <Drawer.Trigger as={Button} {...drawer}>
+      <Drawer.Trigger as={Button} state={drawerState}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer.Backdrop {...drawer}>
-        <Drawer aria-label="Backdrop drawer" {...drawer}>
-          <Drawer.Close {...drawer} />
+      <Drawer.Backdrop state={drawerState}>
+        <Drawer aria-label="Backdrop drawer" state={drawerState}>
+          <Drawer.Close state={drawerState} />
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam
           nec, convallis sit amet erat. Mauris auctor blandit porta.
         </Drawer>
@@ -75,23 +75,23 @@ We provide basic layout components for your drawer: `<Drawer.Close />`, `<Drawer
 
 ```jsx
 function ContentDrawer() {
-  const drawer = useDrawerState()
+  const drawerState = useDrawerState()
 
   return (
     <>
-      <Drawer.Trigger as={Button} {...drawer}>
+      <Drawer.Trigger as={Button} state={drawerState}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer.Backdrop {...drawer}>
-        <Drawer aria-label="Layout drawer" {...drawer}>
-          <Drawer.Close {...drawer} />
+      <Drawer.Backdrop state={drawerState}>
+        <Drawer aria-label="Layout drawer" state={drawerState}>
+          <Drawer.Close state={drawerState} />
           <Drawer.Title>Hello</Drawer.Title>
           <Drawer.Content>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
           </Drawer.Content>
           <Drawer.Footer>
-            <Button onClick={drawer.hide}>Close Drawer</Button>
+            <Button onClick={drawerState.hide}>Close Drawer</Button>
           </Drawer.Footer>
         </Drawer>
       </Drawer.Backdrop>
@@ -106,7 +106,7 @@ By default the `placement` of the drawer will be on the `right` but you can set 
 
 ```jsx
 function PlacementDrawer() {
-  const drawer = useDrawerState()
+  const drawerState = useDrawerState()
   const [placement, setPlacement] = React.useState('right')
 
   return (
@@ -125,11 +125,11 @@ function PlacementDrawer() {
           />
         </Field>
       </Box>
-      <Drawer.Trigger as={Button} {...drawer}>
+      <Drawer.Trigger as={Button} state={drawerState}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer.Backdrop {...drawer}>
-        <Drawer aria-label="Placement drawer" {...drawer} placement={placement}>
+      <Drawer.Backdrop state={drawerState}>
+        <Drawer aria-label="Placement drawer" state={drawerState} placement={placement}>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
         </Drawer>
@@ -145,7 +145,7 @@ By default the `size` of the drawer will be `lg` which is set in the theme. We p
 
 ```jsx
 function SizeDrawer() {
-  const drawer = useDrawerState()
+  const drawerState = useDrawerState()
   const [size, setSize] = React.useState('lg')
   const [placement, setPlacement] = React.useState('right')
 
@@ -186,11 +186,11 @@ function SizeDrawer() {
           />
         </Field>
       </Box>
-      <Drawer.Trigger as={Button} {...drawer}>
+      <Drawer.Trigger as={Button} state={drawerState}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer.Backdrop {...drawer}>
-        <Drawer aria-label="Size drawer" {...drawer} size={size} placement={placement}>
+      <Drawer.Backdrop state={drawerState}>
+        <Drawer aria-label="Size drawer" state={drawerState} size={size} placement={placement}>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
         </Drawer>
@@ -206,16 +206,16 @@ All the elements can be styled as you see fit, by extending drawer's theme or di
 
 ```jsx
 function StylingDrawer() {
-  const drawer = useDrawerState()
+  const drawerState = useDrawerState()
 
   return (
     <>
-      <Drawer.Trigger as={Button} {...drawer}>
+      <Drawer.Trigger as={Button} state={drawerState}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer.Backdrop {...drawer}>
-        <Drawer aria-label="Default drawer" {...drawer} backgroundColor="nude-200">
-          <Drawer.Close {...drawer} w={30} h={30} />
+      <Drawer.Backdrop state={drawerState}>
+        <Drawer aria-label="Default drawer" state={drawerState} backgroundColor="nude-200">
+          <Drawer.Close state={drawerState} w={30} h={30} />
           <Drawer.Title borderBottom="1px solid" borderBottomColor="dark-200">
             Hello
           </Drawer.Title>
@@ -225,8 +225,8 @@ function StylingDrawer() {
           </Drawer.Content>
           <Drawer.Footer borderTop="1px solid" borderTopColor="dark-200">
             <Stack direction="row">
-              <Button onClick={drawer.hide}>Save</Button>
-              <Button onClick={drawer.hide} variant="tertiary">
+              <Button onClick={drawerState.hide}>Save</Button>
+              <Button onClick={drawerState.hide} variant="tertiary">
                 Close
               </Button>
             </Stack>

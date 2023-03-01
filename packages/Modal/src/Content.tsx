@@ -33,6 +33,7 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
    * As Reakit doesn't handle scrolling content we have to forward the modalState to the Modal.Content
    * in order to check when the modal is visible and enable the scroll.
    * @link https://github.com/ariakit/ariakit/issues/469
+   * TODO: remove with the migration to ariakit
    */
   useEffect(() => {
     if (modalState.visible && bodyRef) {

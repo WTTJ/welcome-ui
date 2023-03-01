@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react'
 import userEvent from '@testing-library/user-event'
 
@@ -13,27 +12,27 @@ function getActiveBar({ getByRole }: { getByRole: (id: string) => HTMLElement })
 describe('Tabs', () => {
   it('renders an accessible structure', async () => {
     const Tabs = () => {
-      const tab = useTabState({ selectedId: 'tab1' })
+      const tabState = useTabState({ selectedId: 'tab1' })
       return (
         <>
-          <Tab.List aria-label="Tabs" {...tab}>
-            <Tab data-testid="tab1" id="tab1" {...tab}>
+          <Tab.List aria-label="Tabs" state={tabState}>
+            <Tab data-testid="tab1" id="tab1" state={tabState}>
               Tab 1
             </Tab>
-            <Tab data-testid="tab2" id="tab2" {...tab}>
+            <Tab data-testid="tab2" id="tab2" state={tabState}>
               Tab 2
             </Tab>
-            <Tab data-testid="tab3" disabled id="tab3" {...tab}>
+            <Tab data-testid="tab3" disabled id="tab3" state={tabState}>
               Tab 3
             </Tab>
           </Tab.List>
-          <Tab.Panel data-testid="panel1" tabId="tab1" {...tab}>
+          <Tab.Panel data-testid="panel1" state={tabState} tabId="tab1">
             Panel 1
           </Tab.Panel>
-          <Tab.Panel data-testid="panel2" tabId="tab2" {...tab}>
+          <Tab.Panel data-testid="panel2" state={tabState} tabId="tab2">
             Panel 2
           </Tab.Panel>
-          <Tab.Panel data-testid="panel3" tabId="tab3" {...tab}>
+          <Tab.Panel data-testid="panel3" state={tabState} tabId="tab3">
             Panel 3
           </Tab.Panel>
         </>
@@ -81,15 +80,15 @@ describe('Tabs', () => {
   describe('with one tab', () => {
     it('does not render active bar', () => {
       const Tabs = () => {
-        const tab = useTabState({ selectedId: 'tab1' })
+        const tabState = useTabState({ selectedId: 'tab1' })
         return (
           <>
-            <Tab.List aria-label="Tabs" {...tab}>
-              <Tab id="tab1" {...tab}>
+            <Tab.List aria-label="Tabs" state={tabState}>
+              <Tab id="tab1" state={tabState}>
                 Tab 1
               </Tab>
             </Tab.List>
-            <Tab.Panel tabId="tab1" {...tab}>
+            <Tab.Panel state={tabState} tabId="tab1">
               Panel 1
             </Tab.Panel>
           </>

@@ -1,5 +1,12 @@
 import React from 'react'
-import { MenuButton, MenuOptions, Menu as ReakitMenu, useMenuState } from 'reakit/Menu'
+import {
+  MenuButton,
+  MenuInitialState,
+  MenuOptions,
+  MenuStateReturn,
+  Menu as ReakitMenu,
+  useMenuState,
+} from 'reakit/Menu'
 import { useNextFrame } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
 
@@ -11,14 +18,25 @@ import * as S from './styles'
 export interface DropdownMenuOptions {
   /** add custom props from styled system on DropdownMenu inner */
   innerProps?: WuiProps
-  visible?: boolean
+  state: MenuOptions & {
+    /**
+     * @deprecated
+     * will be replace by open on ariakit (reakit v2)
+     **/
+    visible?: MenuOptions['visible']
+    /**
+     * Open the menu on load
+     */
+    open?: MenuOptions['visible']
+  }
 }
 
-export type DropdownMenuProps = CreateWuiProps<'div', DropdownMenuOptions & MenuOptions>
+export type DropdownMenuProps = CreateWuiProps<'div', DropdownMenuOptions>
 
 const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
-  ({ children, dataTestId, innerProps = {}, visible = false, ...props }, ref) => {
-    const delayedVisible = useNextFrame(visible)
+  ({ children, dataTestId, innerProps = {}, state = {}, ...props }, ref) => {
+    const { open, visible } = state
+    const delayedVisible = useNextFrame(open || visible)
 
     return (
       <ReakitMenu
@@ -27,7 +45,7 @@ const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
         data-testid={dataTestId}
         ref={ref}
         tabIndex={0}
-        visible={visible}
+        {...state}
         {...props}
       >
         {menuProps => (
@@ -47,12 +65,40 @@ const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
   }
 )
 
+export type DropdownMenuStateReturn = MenuStateReturn & {
+  /**
+   * @deprecated
+   * will be replace by open on ariakit (reakit v2)
+   **/
+  visible?: MenuStateReturn['visible']
+  open: MenuStateReturn['visible']
+}
+export type DropdownMenuInitialState = MenuInitialState & {
+  /**
+   * @deprecated
+   * will be replace by open on ariakit (reakit v2)
+   **/
+  visible?: MenuInitialState['visible']
+  /**
+   * Open the drawer on load
+   */
+  open?: MenuInitialState['visible']
+}
+
+export function useDropdownMenuState(options?: DropdownMenuInitialState): DropdownMenuStateReturn {
+  const { open, visible, ...restOptions } = options || {}
+  const dropdownMenuState = useMenuState({
+    animated: true,
+    visible: visible || open,
+    ...restOptions,
+  })
+
+  return { open: dropdownMenuState.visible, ...dropdownMenuState }
+}
+
 export const DropdownMenu = Object.assign(DropdownMenuComponent, {
   Trigger: MenuButton,
   Item,
   Separator,
   Arrow,
 })
-
-export { useMenuState as useDropdownMenuState }
-export type DropdownMenuStateReturn = ReturnType<typeof useMenuState>

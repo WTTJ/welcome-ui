@@ -25,14 +25,14 @@ Use `useModalState`, `Modal`, `Modal.Trigger` and `Modal.Body` to create a simpl
 
 ```jsx
 function() {
-  const modal = useModalState()
+  const modalState = useModalState()
 
   return (
     <>
-      <Modal.Trigger as={Button} {...modal}>
+      <Modal.Trigger as={Button} state={modalState}>
         Open modal
       </Modal.Trigger>
-      <Modal modalState={modal} ariaLabel="example">
+      <Modal state={modalState} ariaLabel="example">
         <Modal.Content>
           <Modal.Body>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -58,27 +58,27 @@ By default size is set to `lg`. If you don't want a size (fit on content), set s
 
 ```jsx
 function() {
-  const modal = useModalState()
+  const modalState = useModalState()
   const [size, setSize] = React.useState()
 
   return (
     <Stack direction="row">
-      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('xs')}>
+      <Modal.Trigger as={Button} state={modalState} onClick={() => setSize('xs')}>
         xs
       </Modal.Trigger>
-      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('sm')}>
+      <Modal.Trigger as={Button} state={modalState} onClick={() => setSize('sm')}>
         sm
       </Modal.Trigger>
-      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('md')}>
+      <Modal.Trigger as={Button} state={modalState} onClick={() => setSize('md')}>
         md
       </Modal.Trigger>
-      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('lg')}>
+      <Modal.Trigger as={Button} state={modalState} onClick={() => setSize('lg')}>
         lg
       </Modal.Trigger>
-      <Modal.Trigger as={Button} {...modal} onClick={() => setSize('auto')}>
+      <Modal.Trigger as={Button} state={modalState} onClick={() => setSize('auto')}>
         auto
       </Modal.Trigger>
-      <Modal modalState={modal} size={size} ariaLabel="size example">
+      <Modal state={modalState} size={size} ariaLabel="size example">
         <Modal.Content>
           <Modal.Body>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -104,9 +104,9 @@ Use `Modal.Header` and `Modal.Footer` to style your Modal.
 
 ```jsx
 function() {
-  const modal = useModalState()
-  const modal2 = useModalState()
-  const modal3 = useModalState()
+  const modalState = useModalState()
+  const modalState2 = useModalState()
+  const modalState3 = useModalState()
   const title = "Nullam non lacinia"
   const subtitle = "Praesent sit amet quam ac velit faucibus dapibus, quisque sapien ligula."
   const icon = <ActionsIcon w={40} h={40} color="dark-900" />
@@ -118,10 +118,10 @@ function() {
 
   return (
     <Stack direction="row">
-      <Modal.Trigger as={Button} {...modal}>
+      <Modal.Trigger as={Button} state={modalState}>
         Example modal
       </Modal.Trigger>
-      <Modal modalState={modal} ariaLabel="example">
+      <Modal state={modalState} ariaLabel="example">
         <Modal.Content>
           <Modal.Header title={title} subtitle={subtitle} icon={icon}/>
           <Modal.Body>
@@ -154,10 +154,10 @@ function() {
         </Modal.Content>
       </Modal>
 
-      <Modal.Trigger as={Button} {...modal2}>
+      <Modal.Trigger as={Button} state={modalState2}>
         Example modal 2
       </Modal.Trigger>
-      <Modal  modalState={modal2} ariaLabel="example-2">
+      <Modal state={modalState2} ariaLabel="example-2">
         <Modal.Content>
           <Modal.Header title={title} subtitle={subtitle} />
           <Modal.Body>
@@ -190,10 +190,10 @@ function() {
         </Modal.Content>
       </Modal>
 
-      <Modal.Trigger as={Button} {...modal3}>
+      <Modal.Trigger as={Button} state={modalState3}>
         Example modal 3
       </Modal.Trigger>
-      <Modal modalState={modal3} ariaLabel="example-3">
+      <Modal state={modalState3} ariaLabel="example-3">
         <Modal.Content>
           <Modal.Header title={title} icon={icon} />
           <Modal.Body>

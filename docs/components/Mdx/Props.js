@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-max-depth */
-/* eslint-disable react/no-multi-comp */
 
 /* eslint-disable react/forbid-foreign-prop-types */
 import React from 'react'
@@ -18,7 +17,7 @@ const isArray = Array.isArray
 
 const reactTypes = ['ElementType<any>']
 
-function Type({ type }) {
+const Type = ({ type }) => {
   if (!type) {
     return null
   }
@@ -66,7 +65,7 @@ function Type({ type }) {
   return name
 }
 
-export function Props({ propTypes }) {
+export const Props = ({ propTypes }) => {
   if (!propTypes) {
     return (
       <Box as="p" pt="lg">

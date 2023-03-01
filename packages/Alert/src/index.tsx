@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React, { Children, cloneElement } from 'react'
 import { Stack } from '@welcome-ui/stack'
 import { Box } from '@welcome-ui/box'

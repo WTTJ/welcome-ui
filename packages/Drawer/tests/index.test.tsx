@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
@@ -8,11 +7,12 @@ import { Drawer, useDrawerState } from '../src'
 describe('<Drawer>', () => {
   it('should render correctly', () => {
     const Test = () => {
-      const drawer = useDrawerState()
+      const drawerState = useDrawerState()
+
       return (
         <>
-          <Drawer.Trigger {...drawer}>open</Drawer.Trigger>
-          <Drawer aria-label="drawer" {...drawer}>
+          <Drawer.Trigger state={drawerState}>open</Drawer.Trigger>
+          <Drawer aria-label="drawer" state={drawerState}>
             test
           </Drawer>
         </>
@@ -27,11 +27,12 @@ describe('<Drawer>', () => {
 
   it('should render its size & placement correctly', () => {
     const Test = () => {
-      const drawer = useDrawerState()
+      const drawerState = useDrawerState()
+
       return (
         <>
-          <Drawer.Trigger {...drawer}>open</Drawer.Trigger>
-          <Drawer aria-label="drawer" placement="bottom" size="50%" {...drawer}>
+          <Drawer.Trigger state={drawerState}>open</Drawer.Trigger>
+          <Drawer aria-label="drawer" placement="bottom" size="50%" state={drawerState}>
             test
           </Drawer>
         </>
