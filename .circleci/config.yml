@@ -55,6 +55,19 @@ jobs:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn jest --detectOpenHandles $(circleci tests glob "./packages/**/*.test.{ts,js,tsx}" | circleci tests split | xargs)
 
+  vulnerabilities_yarn:
+    <<: *defaults
+    docker:
+      - image: cimg/node:16.16.0
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: Critical vulnerabilities test (yarn audit)
+          command: yarn check:audit
+
   build_and_release_icon_font:
     <<: *defaults
     steps:
@@ -198,12 +211,15 @@ workflows:
           filters:
             tags:
               only: /.*/
+      - vulnerabilities_yarn:
+          requires:
+            - checkout
       - yarn_install:
           filters:
             tags:
               only: /.*/
           requires:
-            - checkout
+            - vulnerabilities_yarn
       - build_and_release_icon_font:
           context:
             - aws
