@@ -1,7 +1,7 @@
 import React, { Children, cloneElement, useCallback, useEffect, useRef, useState } from 'react'
 import { Icons } from '@welcome-ui/icons.font'
 import debounce from 'lodash.debounce'
-import { useViewportSize } from '@welcome-ui/utils'
+import { Size, useViewportSize } from '@welcome-ui/utils'
 import { useTheme } from '@xstyled/styled-components'
 import { CreateWuiProps } from '@welcome-ui/system'
 
@@ -20,6 +20,8 @@ export interface SwiperOptions {
   fullWidth?: boolean
   id?: string
   loop?: boolean
+  /** Size of left and right navigation arrows */
+  navigationSize?: Size
   /** Number of slides to show per view */
   slidesPerView?: {
     mobile: number
@@ -28,14 +30,14 @@ export interface SwiperOptions {
   }
   /** Space between each slides */
   spaceBetween?: number
-  /** Show left and rigth arrows on mobile/tablet or/and desktop */
-  withArrows?: {
+  /** Use black colors for the pagination in case of slides too bright */
+  withDarkPagination?: boolean
+  /** Show left and rigth navigation arrows on mobile/tablet or/and desktop */
+  withNavigation?: {
     mobile: boolean
     desktop: boolean
   }
-  /** Use black colors for the pagination in case of slides too bright */
-  withDarkPagination?: boolean
-  /** Show bottom navigation on mobile/tablet or/and desktop */
+  /** Show bottom pagination on mobile/tablet or/and desktop */
   withPagination?: {
     mobile: boolean
     desktop: boolean
@@ -51,9 +53,10 @@ export const Swiper = ({
   firstSlideToShow = 0,
   fullWidth = false,
   id = 'swiper',
+  navigationSize = 'md',
   slidesPerView = { mobile: 1, tablet: 1, desktop: 1 },
   spaceBetween = 20,
-  withArrows = { mobile: true, desktop: true },
+  withNavigation = { mobile: true, desktop: true },
   withPagination = { mobile: false, desktop: false },
   loop = false,
   autoplay = false,
@@ -132,42 +135,35 @@ export const Swiper = ({
     updatePage()
   }, 100)
 
-  const goTo = (page: number) => {
-    const sliderContainer = ref?.current
-    const childWidth = sliderContainer?.children?.[0]?.getBoundingClientRect()?.width
+  const goTo = useCallback(
+    (page: number) => {
+      const sliderContainer = ref?.current
+      const childWidth = sliderContainer?.children?.[0]?.getBoundingClientRect()?.width
 
-    sliderContainer?.scrollTo({
-      left: page * (childWidth + spaceBetween) * currentSlidesPerView,
-      top: 0,
-      behavior: 'smooth',
-    })
-  }
+      sliderContainer?.scrollTo({
+        left: page * (childWidth + spaceBetween) * currentSlidesPerView,
+        top: 0,
+        behavior: 'smooth',
+      })
+    },
+    [currentSlidesPerView, spaceBetween]
+  )
 
-  const goNext = () => {
+  const goNext = useCallback(() => {
     if (loop && isLastPage) {
       goTo(0)
     } else {
       goTo(currentPage + 1)
     }
-  }
+  }, [currentPage, goTo, isLastPage, loop])
 
-  const goPrev = () => {
+  const goPrev = useCallback(() => {
     if (isFirstPage && loop) {
       goTo(bullets.length - 1)
     } else {
       goTo(currentPage - 1)
     }
-  }
-
-  const handleKeys = (e: KeyboardEvent) => {
-    if (e.code === 'ArrowLeft') {
-      goPrev()
-    }
-
-    if (e.code === 'ArrowRight') {
-      goNext()
-    }
-  }
+  }, [bullets.length, currentPage, goTo, isFirstPage, loop])
 
   const getCurrentSlidesPerView = useCallback(() => {
     if (viewportWidth <= theme.screens.md) {
@@ -190,18 +186,30 @@ export const Swiper = ({
   )
 
   useEffect(() => {
-    goTo(firstPageToShow)
-    getArrowStates()
+    const handleKeys = (e: KeyboardEvent) => {
+      if (e.code === 'ArrowLeft') {
+        goPrev()
+      }
+
+      if (e.code === 'ArrowRight') {
+        goNext()
+      }
+    }
 
     window.addEventListener('keydown', handleKeys)
 
     return () => window.removeEventListener('keydown', handleKeys)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [goPrev, goNext])
 
   useEffect(() => {
     getCurrentSlidesPerView()
   }, [getCurrentSlidesPerView, viewportWidth])
+
+  useEffect(() => {
+    goTo(firstPageToShow)
+    getArrowStates()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <S.Swiper data-testid={dataTestId} {...rest}>
@@ -221,8 +229,9 @@ export const Swiper = ({
         onClick={goPrev}
         position="absolute"
         shape="circle"
+        size={navigationSize}
         variant="ghost"
-        withArrows={withArrows}
+        withNavigation={withNavigation}
       >
         <Icons.Left />
       </S.Arrow>
@@ -233,8 +242,9 @@ export const Swiper = ({
         position="absolute"
         right={10}
         shape="circle"
+        size={navigationSize}
         variant="ghost"
-        withArrows={withArrows}
+        withNavigation={withNavigation}
       >
         <Icons.Right />
       </S.Arrow>
