@@ -48,13 +48,11 @@ Set a `max-width` for long text
 
 ## With a disabled button
 
-You should wrap the disabled button with an element.
+We're adding a wrapper around the button when it's disabled otherwise the tooltip does not trigger.
 
 ```jsx
 <Tooltip placement="bottom-start" content="Tooltip">
-  <div>
-    <Button disabled>Disabled Button</Button>
-  </div>
+  <Button disabled>Disabled Button</Button>
 </Tooltip>
 ```
 
