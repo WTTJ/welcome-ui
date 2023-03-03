@@ -136,7 +136,7 @@
     "yargs": "^17.7.0"
   },
   "resolutions": {
-    "styled-components": "5.3.6"
+    "styled-components": "5.3.8"
   },
   "homepage": "https://welcome-ui.com"
 }
