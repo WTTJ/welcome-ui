@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react'
-import { Rover, useRoverState } from 'reakit/Rover'
+import { Rover, RoverInitialState, useRoverState } from 'reakit/Rover'
 import { LeftIcon, RightIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
@@ -15,6 +15,7 @@ export interface PaginationOptions {
   pageCount: number
   rangeDisplay?: number
   rightArrow?: React.ReactElement
+  baseId?: RoverInitialState['baseId']
 }
 
 export type PaginationProps = CreateWuiProps<'ul', PaginationOptions>
@@ -23,6 +24,8 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
   (
     {
       'aria-label': ariaLabel,
+      baseId,
+      dataTestId,
       getHref,
       leftArrow,
       onChange,
@@ -30,10 +33,11 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
       pageCount,
       rangeDisplay = 5,
       rightArrow,
+      ...rest
     },
     ref
   ) => {
-    const rover = useRoverState()
+    const rover = useRoverState({ baseId })
     const pages = usePages({ page, pageCount, rangeDisplay })
     const firstPageRef = useRef<HTMLButtonElement>(null)
     const lastPageRef = useRef<HTMLButtonElement>(null)
@@ -61,7 +65,13 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
     )
 
     return (
-      <S.Pagination aria-label={ariaLabel} ref={ref} role="navigation">
+      <S.Pagination
+        aria-label={ariaLabel}
+        data-testid={dataTestId}
+        ref={ref}
+        role="navigation"
+        {...rest}
+      >
         <S.List>
           <S.Item>
             <Rover as={undefined} disabled={page === 1} {...rover}>
