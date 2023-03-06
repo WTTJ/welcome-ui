@@ -139,14 +139,14 @@ export const Tooltip = forwardRef<'div', TooltipProps>((props, ref): React.React
     return children as React.ReactElement
   }
 
-  const child = React.Children.only(
-    <Box display="inline-block">{children}</Box>
-  ) as React.ReactElement
+  const child = (children as JSX.Element)?.props?.disabled
+    ? React.Children.only(<Box display="inline-block">{children}</Box>)
+    : children
 
   return (
     <>
       <TooltipReference as={undefined} {...tooltip}>
-        {referenceProps => cloneElement(child, referenceProps)}
+        {referenceProps => cloneElement(child as JSX.Element, referenceProps)}
       </TooltipReference>
 
       <S.Tooltip ref={ref} {...tooltip} {...rest}>

@@ -46,6 +46,16 @@ Set a `max-width` for long text
 </Tooltip>
 ```
 
+## With a disabled button
+
+We're adding a wrapper around the button when it's disabled otherwise the tooltip does not trigger.
+
+```jsx
+<Tooltip placement="bottom-start" content="Tooltip">
+  <Button disabled>Disabled Button</Button>
+</Tooltip>
+```
+
 ## With a fixed position
 
 Using the `fixed` prop in combination with `placement` will enable a translate animation on your tooltip. The direction works with these values for `placement`.
