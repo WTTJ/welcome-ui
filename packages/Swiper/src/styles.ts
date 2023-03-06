@@ -24,8 +24,8 @@ export const Swiper = styled.div<CreateWuiProps<'div'>>`
   ${system}
 `
 
-export const Arrow = styled(Button)<{ disabled: boolean } & Pick<SwiperProps, 'withArrows'>>(
-  ({ disabled, withArrows: { desktop, mobile } }) => css`
+export const Arrow = styled(Button)<{ disabled: boolean } & Pick<SwiperProps, 'withNavigation'>>(
+  ({ disabled, withNavigation: { desktop, mobile } }) => css`
     top: 50%;
     transform: translate3d(0, -50%, 0);
     z-index: ${mobile ? 1 : -1};
