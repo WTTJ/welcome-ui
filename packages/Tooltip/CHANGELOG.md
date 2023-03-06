@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.24](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.23...v5.0.0-alpha.24) (2023-03-06)
+
+
+### Bug Fixes
+
+* tooltip children without wrapper ([#1981](https://github.com/WTTJ/welcome-ui/issues/1981)) ([d5b13c7](https://github.com/WTTJ/welcome-ui/commit/d5b13c71a69fae5b95bb0fc35eb4e58343e6da48))
+
+
+
+
+
 # [5.0.0-alpha.21](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.20...v5.0.0-alpha.21) (2023-02-16)
 
 **Note:** Version bump only for package @welcome-ui/tooltip

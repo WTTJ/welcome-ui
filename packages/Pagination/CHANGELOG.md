@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.24](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.23...v5.0.0-alpha.24) (2023-03-06)
+
+
+### Bug Fixes
+
+* **Pagination:** handle dataTestId & baseId ([#1988](https://github.com/WTTJ/welcome-ui/issues/1988)) ([63bf062](https://github.com/WTTJ/welcome-ui/commit/63bf062e74b7947f66fff56832e87ca1afaddda4))
+
+
+
+
+
 # [5.0.0-alpha.22](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.21...v5.0.0-alpha.22) (2023-02-21)
 
 **Note:** Version bump only for package @welcome-ui/pagination

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.24](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.23...v5.0.0-alpha.24) (2023-03-06)
+
+
+### Bug Fixes
+
+* mistake in env definition on docs previous versions deploy ([#1968](https://github.com/WTTJ/welcome-ui/issues/1968)) ([f0b27fa](https://github.com/WTTJ/welcome-ui/commit/f0b27fa522503c42a4e7c7ea80aa8341f35e6f75))
+* swiper navigation, rename props for more readability and possibity to change navigation size ([#1983](https://github.com/WTTJ/welcome-ui/issues/1983)) ([8b58597](https://github.com/WTTJ/welcome-ui/commit/8b5859783abfe72bf5dafb9341cf9c958fe51946))
+* tooltip children without wrapper ([#1981](https://github.com/WTTJ/welcome-ui/issues/1981)) ([d5b13c7](https://github.com/WTTJ/welcome-ui/commit/d5b13c71a69fae5b95bb0fc35eb4e58343e6da48))
+* **Pagination:** handle dataTestId & baseId ([#1988](https://github.com/WTTJ/welcome-ui/issues/1988)) ([63bf062](https://github.com/WTTJ/welcome-ui/commit/63bf062e74b7947f66fff56832e87ca1afaddda4))
+
+
+
+
+
 # [5.0.0-alpha.23](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.22...v5.0.0-alpha.23) (2023-02-22)
 
 
