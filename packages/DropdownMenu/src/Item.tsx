@@ -6,10 +6,10 @@ import * as S from './Item.styled'
 
 import { DropdownMenuOptions } from '.'
 
-export type ItemProps = CreateWuiProps<
-  'button',
-  MenuItemProps & { state: DropdownMenuOptions['state'] }
->
+type ItemOptions = Pick<DropdownMenuOptions, 'state'> &
+  Omit<MenuItemProps, keyof DropdownMenuOptions['state']>
+
+export type ItemProps = CreateWuiProps<'button', ItemOptions>
 
 export const Item = forwardRef<'button', ItemProps>(({ as, children, state, ...rest }, ref) => {
   return (
