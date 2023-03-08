@@ -17,7 +17,6 @@ export const Shape = styled(Box)<ShapeOptions>(
     display: flex;
     align-items: center;
     justify-content: center;
-    ${shape && shapeStyles(w as string, h as string, shape)}
 
     img {
       object-fit: cover;
@@ -27,5 +26,8 @@ export const Shape = styled(Box)<ShapeOptions>(
     }
 
     ${system};
+
+    /* we must override shapeStyles (let this line under ${system}) */
+    ${shape && shapeStyles(w as string, h as string, shape)}
   `
 )
