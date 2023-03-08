@@ -7,7 +7,7 @@ import * as S from './Item.styled'
 import { DropdownMenuOptions } from '.'
 
 type ItemOptions = Pick<DropdownMenuOptions, 'state'> &
-  Omit<MenuItemProps, keyof DropdownMenuOptions['state']>
+  Partial<Omit<MenuItemProps, keyof DropdownMenuOptions['state']>>
 
 export type ItemProps = CreateWuiProps<'button', ItemOptions>
 
