@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.27](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.26...v5.0.0-alpha.27) (2023-03-09)
+
+
+### Bug Fixes
+
+* missing system on shape ([#1995](https://github.com/WTTJ/welcome-ui/issues/1995)) ([48861c6](https://github.com/WTTJ/welcome-ui/commit/48861c68d2353728216a97fe858a2b3ffdb52dc2))
+
+
+
+
+
 # [5.0.0-alpha.21](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.20...v5.0.0-alpha.21) (2023-02-16)
 
 **Note:** Version bump only for package @welcome-ui/shape
