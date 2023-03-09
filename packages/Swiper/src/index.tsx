@@ -136,14 +136,15 @@ export const Swiper = ({
   }, 100)
 
   const goTo = useCallback(
-    (page: number) => {
+    (page: number, isFirstInit = false) => {
       const sliderContainer = ref?.current
       const childWidth = sliderContainer?.children?.[0]?.getBoundingClientRect()?.width
 
       sliderContainer?.scrollTo({
         left: page * (childWidth + spaceBetween) * currentSlidesPerView,
         top: 0,
-        behavior: 'smooth',
+        // We don't want to have a scroll effect when we first render the swiper
+        behavior: !isFirstInit ? 'smooth' : 'auto',
       })
     },
     [currentSlidesPerView, spaceBetween]
@@ -206,7 +207,7 @@ export const Swiper = ({
   }, [getCurrentSlidesPerView, viewportWidth])
 
   useEffect(() => {
-    goTo(firstPageToShow)
+    goTo(firstPageToShow, true)
     getArrowStates()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
