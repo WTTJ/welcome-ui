@@ -311,4 +311,4 @@ export const brands = [
   'zapier',
 ]
 
-export const flags = ['flag_fr', 'flag_en', 'flag_cs', 'flag_sk', 'flag_es']
+export const flags = ['flag_fr', 'flag_en', 'flag_cs', 'flag_sk', 'flag_es', 'flag_us']

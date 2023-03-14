@@ -109,6 +109,7 @@ export declare const FlagFrIcon: React.FC<IconProps>
 export declare const FlagOutlineIcon: React.FC<IconProps>
 export declare const FlagPointedIcon: React.FC<IconProps>
 export declare const FlagSkIcon: React.FC<IconProps>
+export declare const FlagUsIcon: React.FC<IconProps>
 export declare const FolderIcon: React.FC<IconProps>
 export declare const FullscreenOffIcon: React.FC<IconProps>
 export declare const FullscreenOnIcon: React.FC<IconProps>
