@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.28](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.27...v5.0.0-alpha.28) (2023-03-14)
+
+
+### Features
+
+* add us flag icon ([#2003](https://github.com/WTTJ/welcome-ui/issues/2003)) ([25d8f67](https://github.com/WTTJ/welcome-ui/commit/25d8f67fe15b72749f621de80eb3dbdf172f3b1d))
+
+
+
+
+
 # [5.0.0-alpha.27](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.26...v5.0.0-alpha.27) (2023-03-09)
 
 

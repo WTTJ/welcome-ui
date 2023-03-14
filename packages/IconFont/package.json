@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/icons.font",
-  "version": "5.0.0-alpha.22",
+  "version": "5.0.0-alpha.28",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
