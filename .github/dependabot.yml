@@ -11,12 +11,16 @@ updates:
     allow:
       - dependency-type: 'direct'
     ignore:
-      - dependency-name: 'react-spring'
-        versions: ['9.x']
-      - dependency-name: 'lerna'
-        versions: ['5.x']
-      - dependency-name: 'lerna-update-wizard'
-        versions: ['5.x']
-      - dependency-name: 'standard-version'
+      - dependency-name: '@mdx-js/loader'
+        versions: ['2.x']
+      - dependency-name: '@mdx-js/react'
+        versions: ['2.x']
+      - dependency-name: '@mdx-js/mdx'
+        versions: ['2.x']
+      - dependency-name: 'emoji-mart'
+        versions: ['>2.x']
+      - dependency-name: 'next'
+        versions: ['>12.x']
+      - dependency-name: 'loader-utils'
     reviewers:
       - 'theo-mesnil'

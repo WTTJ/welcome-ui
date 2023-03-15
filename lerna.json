@@ -1,9 +1,7 @@
 {
-  "packages": [
-    "packages/*",
-    "icons"
-  ],
+  "packages": ["packages/*", "icons"],
   "version": "5.0.0-alpha.28",
   "npmClient": "yarn",
-  "useWorkspaces": true
+  "useWorkspaces": true,
+  "useNx": false
 }

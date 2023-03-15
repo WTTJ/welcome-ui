@@ -5,7 +5,7 @@ const util = require('util')
 
 const argv = require('yargs').argv
 const difference = require('lodash.difference')
-const webfontsGenerator = require('webfonts-generator')
+const webfontsGenerator = require('@vusion/webfonts-generator')
 require('colors')
 
 const { FLAG_ICONS, readIconsFromAssets } = require('./utils')
