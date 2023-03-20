@@ -40,7 +40,8 @@
     "@welcome-ui/button": "^5.0.0-alpha.21",
     "@welcome-ui/icons.font": "^5.0.0-alpha.28",
     "@welcome-ui/system": "^5.0.0-alpha.21",
-    "@welcome-ui/utils": "^5.0.0-alpha.21"
+    "@welcome-ui/utils": "^5.0.0-alpha.21",
+    "lodash.debounce": "^4.0.8"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.0",
