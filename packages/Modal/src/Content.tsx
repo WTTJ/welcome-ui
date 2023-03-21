@@ -7,7 +7,7 @@ import * as S from './styles'
 import { useModal } from './context'
 
 export interface ContentOptions {
-  children: JSX.Element | JSX.Element[]
+  children: React.ReactNode
 }
 
 export type ContentProps = ContentOptions
@@ -24,7 +24,11 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
   const components = useMemo(
     () =>
       Children.map(children, child => {
-        return child?.type?.displayName ?? child?.type?.name
+        if (React.isValidElement(child)) {
+          const componentType = child.type as React.FunctionComponent | React.ComponentClass
+          return componentType.displayName ?? componentType.name ?? ''
+        }
+        return ''
       }),
     [children]
   )
