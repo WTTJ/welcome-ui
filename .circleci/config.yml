@@ -212,6 +212,9 @@ workflows:
             tags:
               only: /.*/
       - vulnerabilities_yarn:
+          filters:
+            tags:
+              only: /.*/
           requires:
             - checkout
       - yarn_install:
