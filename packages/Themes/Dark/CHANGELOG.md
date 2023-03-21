@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.29](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.28...v5.0.0-alpha.29) (2023-03-21)
+
+**Note:** Version bump only for package @welcome-ui/themes.dark
+
+
+
+
+
 # [5.0.0-alpha.24](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.23...v5.0.0-alpha.24) (2023-03-06)
 
 **Note:** Version bump only for package @welcome-ui/themes.dark
