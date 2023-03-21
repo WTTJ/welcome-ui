@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/slider",
-  "version": "5.0.0-alpha.29",
+  "version": "5.0.0-alpha.28",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -37,10 +37,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/input-text": "^5.0.0-alpha.29",
-    "@welcome-ui/system": "^5.0.0-alpha.29",
-    "@welcome-ui/text": "^5.0.0-alpha.29",
-    "@welcome-ui/utils": "^5.0.0-alpha.29"
+    "@welcome-ui/input-text": "^5.0.0-alpha.28",
+    "@welcome-ui/system": "^5.0.0-alpha.21",
+    "@welcome-ui/text": "^5.0.0-alpha.21",
+    "@welcome-ui/utils": "^5.0.0-alpha.21"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.6.0",

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-picker",
-  "version": "5.0.0-alpha.29",
+  "version": "5.0.0-alpha.28",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -38,9 +38,9 @@
   },
   "dependencies": {
     "@types/react-datepicker": "^4.8.0",
-    "@welcome-ui/date-time-picker-common": "^5.0.0-alpha.29",
-    "@welcome-ui/system": "^5.0.0-alpha.29",
-    "@welcome-ui/utils": "^5.0.0-alpha.29",
+    "@welcome-ui/date-time-picker-common": "^5.0.0-alpha.28",
+    "@welcome-ui/system": "^5.0.0-alpha.21",
+    "@welcome-ui/utils": "^5.0.0-alpha.21",
     "react-datepicker": "^4.7.0"
   },
   "peerDependencies": {

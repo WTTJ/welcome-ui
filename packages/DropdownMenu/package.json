@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/dropdown-menu",
-  "version": "5.0.0-alpha.29",
+  "version": "5.0.0-alpha.26",
   "description": "welcome-ui: A DropdownMenu component",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -37,9 +37,9 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^5.0.0-alpha.29",
-    "@welcome-ui/system": "^5.0.0-alpha.29",
-    "@welcome-ui/utils": "^5.0.0-alpha.29",
+    "@welcome-ui/box": "^5.0.0-alpha.21",
+    "@welcome-ui/system": "^5.0.0-alpha.21",
+    "@welcome-ui/utils": "^5.0.0-alpha.21",
     "reakit": "^1.3.11"
   },
   "peerDependencies": {

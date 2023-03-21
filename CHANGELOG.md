@@ -3,17 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [5.0.0-alpha.29](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.28...v5.0.0-alpha.29) (2023-03-21)
-
-
-### Bug Fixes
-
-* modal content children type ([#2017](https://github.com/WTTJ/welcome-ui/issues/2017)) ([9790e3f](https://github.com/WTTJ/welcome-ui/commit/9790e3f421517a0f1e59cd2d3bbab5008603c7c1))
-
-
-
-
-
 # [5.0.0-alpha.28](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.27...v5.0.0-alpha.28) (2023-03-14)
 
 
