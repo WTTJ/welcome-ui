@@ -267,6 +267,7 @@ workflows:
             - test
             - lint
             - docs_build
+            - build_and_release_icon_font
       - docs_deploy_preview:
           context:
             - netlify
@@ -275,6 +276,7 @@ workflows:
             - test
             - lint
             - docs_build
+            - build_and_release_icon_font
       - previous_docs_versions_build_deploy_prod:
           context:
             - aws
@@ -288,6 +290,7 @@ workflows:
             - test
             - lint
             - build
+            - build_and_release_icon_font
       - release:
           context:
             - welcome-ui
