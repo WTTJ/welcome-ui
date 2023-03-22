@@ -26,7 +26,6 @@ const options = {
   target: ['esnext'],
   plugins: [
     replace({
-      __BRANCH__: env['BRANCH'],
       __ICON_FONT_HASH__: env['ICON_FONT_HASH'],
     }),
   ],
