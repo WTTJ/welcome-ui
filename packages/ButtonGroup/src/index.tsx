@@ -4,7 +4,8 @@ import { Button, ButtonProps, Size, Variant } from '@welcome-ui/button'
 
 import * as S from './styles'
 
-type ChildrenProps = React.ReactElement<typeof Button> | React.ReactElement<typeof Button>[]
+type ChildType = React.ReactElement<typeof Button> | null | undefined | boolean
+type ChildrenProps = ChildType | ChildType[]
 
 export interface ButtonGroupOptions {
   children: ChildrenProps

@@ -9,8 +9,11 @@ describe('<ButtonGroup>', () => {
     const { getByTestId } = render(
       <ButtonGroup dataTestId="group">
         <Button>One</Button>
+        {null}
         <Button>Two</Button>
+        {false}
         <Button>Tree</Button>
+        {undefined}
       </ButtonGroup>
     )
     const group = getByTestId('group')
