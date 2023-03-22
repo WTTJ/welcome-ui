@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/avatar",
-  "version": "5.0.0-alpha.31",
+  "version": "5.0.0-alpha.32",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -37,10 +37,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^5.0.0-alpha.31",
-    "@welcome-ui/shape": "^5.0.0-alpha.31",
-    "@welcome-ui/system": "^5.0.0-alpha.31",
-    "@welcome-ui/text": "^5.0.0-alpha.31"
+    "@welcome-ui/box": "^5.0.0-alpha.32",
+    "@welcome-ui/shape": "^5.0.0-alpha.32",
+    "@welcome-ui/system": "^5.0.0-alpha.32",
+    "@welcome-ui/text": "^5.0.0-alpha.32"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",

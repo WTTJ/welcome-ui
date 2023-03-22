@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/button-group",
-  "version": "5.0.0-alpha.31",
+  "version": "5.0.0-alpha.32",
   "description": "welcome-ui: A ButtonGroup component",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -37,8 +37,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/button": "^5.0.0-alpha.31",
-    "@welcome-ui/system": "^5.0.0-alpha.31"
+    "@welcome-ui/button": "^5.0.0-alpha.32",
+    "@welcome-ui/system": "^5.0.0-alpha.32"
   },
   "peerDependencies": {
     "@welcome-ui/button": "^4.0.0-alpha.3",

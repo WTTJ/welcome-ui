@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.32](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.31...v5.0.0-alpha.32) (2023-03-22)
+
+
+### Bug Fixes
+
+* random icon font build behavior in CI w/ tags ([#2023](https://github.com/WTTJ/welcome-ui/issues/2023)) ([680c50f](https://github.com/WTTJ/welcome-ui/commit/680c50fa4890ba2211f3f8274a04b0752ffd7f5e))
+
+
+
+
+
 # [5.0.0-alpha.31](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.30...v5.0.0-alpha.31) (2023-03-22)
 
 **Note:** Version bump only for package @welcome-ui/repo
