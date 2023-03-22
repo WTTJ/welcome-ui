@@ -80,17 +80,12 @@ jobs:
       - run:
           name: prepare font hash
           command: |
-            if [[ -z "$CIRCLE_BRANCH" ]]; then
-              echo 'export BRANCH=master' >> $BASH_ENV
-            else
-              echo 'export BRANCH=$CIRCLE_BRANCH' >> $BASH_ENV
-            fi
             echo "export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font-2.woff | awk '{ print $1 }')" >> $BASH_ENV
             source $BASH_ENV
             yarn build:core
       - aws-s3/sync:
           from: packages/IconFont/fonts
-          to: s3://welcome-ui/public/fonts/$BRANCH/$ICON_FONT_HASH/
+          to: s3://welcome-ui/public/fonts/$ICON_FONT_HASH/
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
 
@@ -224,6 +219,9 @@ workflows:
           requires:
             - vulnerabilities_yarn
       - build_and_release_icon_font:
+          filters:
+            tags:
+              only: /.*/
           context:
             - aws
           requires:
@@ -297,6 +295,7 @@ workflows:
             - test
             - lint
             - build
+            - build_and_release_icon_font
           filters:
             branches:
               ignore: /.*/
@@ -310,6 +309,7 @@ workflows:
             - test
             - lint
             - build
+            - build_and_release_icon_font
           filters:
             branches:
               ignore: /.*/

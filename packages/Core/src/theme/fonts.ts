@@ -57,7 +57,7 @@ export const fontFaces: ThemeFontFaces = {
   ],
   'welcome-icon-font-2': [
     {
-      url: 'https://cdn.welcome-ui.com/fonts/__BRANCH__/__ICON_FONT_HASH__/welcome-icon-font-2',
+      url: 'https://cdn.welcome-ui.com/fonts/__ICON_FONT_HASH__/welcome-icon-font-2',
       display: 'block',
       extensions: ['woff2', 'woff'],
     },
