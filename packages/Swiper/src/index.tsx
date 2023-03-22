@@ -112,12 +112,12 @@ export type SwiperState = ReturnType<typeof useSwiperState>
 export type SwiperInitialProps = {
   children: JSX.Element | JSX.Element[]
   dataTestId?: string
-  swiperState: SwiperState
+  state: SwiperState
 }
 
 export type SwiperProps = CreateWuiProps<'div', SwiperInitialProps>
 
-export const Swiper = ({ children, dataTestId, swiperState, ...rest }: SwiperProps) => {
+export const Swiper = ({ children, dataTestId, state, ...rest }: SwiperProps) => {
   const {
     autoplay,
     centeredSlides,
@@ -140,7 +140,7 @@ export const Swiper = ({ children, dataTestId, swiperState, ...rest }: SwiperPro
     withDarkPagination,
     withNavigation,
     withPagination,
-  } = swiperState
+  } = state
 
   const slides = Children.map(children, (child, i) => {
     const key = `${id}-${i}`

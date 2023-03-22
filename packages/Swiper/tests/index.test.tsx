@@ -17,9 +17,9 @@ afterEach(() => {
 })
 
 const TestSwiper = () => {
-  const swiperState = useSwiperState()
+  const state = useSwiperState()
   return (
-    <Swiper dataTestId="swiper" swiperState={swiperState}>
+    <Swiper dataTestId="swiper" state={state}>
       <div>page1</div>
       <div>page2</div>
       <div>page3</div>
@@ -28,9 +28,9 @@ const TestSwiper = () => {
 }
 
 const TestSwiperWithNoPagination = () => {
-  const swiperState = useSwiperState({ slidesPerView: { mobile: 1, tablet: 1, desktop: 3 } })
+  const state = useSwiperState({ slidesPerView: { mobile: 1, tablet: 1, desktop: 3 } })
   return (
-    <Swiper dataTestId="swiper" swiperState={swiperState}>
+    <Swiper dataTestId="swiper" state={state}>
       <div>page1</div>
       <div>page2</div>
       <div>page3</div>
@@ -39,9 +39,9 @@ const TestSwiperWithNoPagination = () => {
 }
 
 const TestSwiperWithLoop = () => {
-  const swiperState = useSwiperState({ loop: true })
+  const state = useSwiperState({ loop: true })
   return (
-    <Swiper dataTestId="swiper" swiperState={swiperState}>
+    <Swiper dataTestId="swiper" state={state}>
       <div>page1</div>
       <div>page2</div>
       <div>page3</div>
