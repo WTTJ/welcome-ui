@@ -2,7 +2,7 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import { Button } from '@welcome-ui/button'
 import { CreateWuiProps } from '@welcome-ui/system'
 
-import { SwiperProps } from '.'
+import { SwiperState } from '.'
 
 const getSlideWidth = (slidesPerView = 3, spaceBetween: number, toRem: (px: number) => void) => {
   if (spaceBetween === 0) {
@@ -24,7 +24,7 @@ export const Swiper = styled.div<CreateWuiProps<'div'>>`
   ${system}
 `
 
-export const Arrow = styled(Button)<{ disabled: boolean } & Pick<SwiperProps, 'withNavigation'>>(
+export const Arrow = styled(Button)<{ disabled: boolean } & Pick<SwiperState, 'withNavigation'>>(
   ({ disabled, withNavigation: { desktop, mobile } }) => css`
     top: 50%;
     transform: translate3d(0, -50%, 0);
@@ -49,7 +49,7 @@ export const Arrow = styled(Button)<{ disabled: boolean } & Pick<SwiperProps, 'w
   `
 )
 
-export const Pagination = styled.div<Pick<SwiperProps, 'withPagination'>>(
+export const Pagination = styled.div<Pick<SwiperState, 'withPagination'>>(
   ({ withPagination: { desktop, mobile } }) => css`
     justify-content: center;
     position: absolute;
@@ -67,7 +67,7 @@ export const Pagination = styled.div<Pick<SwiperProps, 'withPagination'>>(
   `
 )
 
-export const Bullet = styled.div<{ active: boolean } & Pick<SwiperProps, 'withDarkPagination'>>(
+export const Bullet = styled.div<{ active: boolean } & Pick<SwiperState, 'withDarkPagination'>>(
   ({ active, withDarkPagination }) => css`
     height: 10;
     width: 10;
@@ -84,7 +84,7 @@ export const Bullet = styled.div<{ active: boolean } & Pick<SwiperProps, 'withDa
 )
 
 export const Container = styled.ul<
-  Pick<SwiperProps, 'slidesPerView' | 'spaceBetween' | 'fullWidth'>
+  Pick<SwiperState, 'slidesPerView' | 'spaceBetween' | 'fullWidth'>
 >(({ fullWidth, slidesPerView: { desktop, mobile, tablet }, spaceBetween, theme }) => {
   return css`
     scroll-snap-type: x mandatory;
