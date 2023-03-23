@@ -113,6 +113,6 @@ export const FooterChildrenWrapper = styled(Box)`
   ${({ theme }) => theme.modals.footer.children}
 `
 
-export const FooterInformations = styled.divBox`
-  ${({ theme }) => theme.modals.footer.informations}
+export const FooterInformation = styled.divBox`
+  ${({ theme }) => theme.modals.footer.information}
 `
