@@ -121,6 +121,30 @@ yarn release --preid alpha
 
 NB: you can replace alpha with any other keyword (beta, rc, ...)
 
+#### Force publish a package
+
+In addition to the options shown above, you can use the --force-publish option to force bumping some packages.
+
+#### Troubleshooting
+
+##### How to release when the publish process failed having published some packages
+
+Re-run the failed job with ssh, then ssh into the machine and run this command:
+
+`cd welcome-ui/packages && find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && npm publish" \;`
+
+This will publish each packages, those who are already published will fail and be ignored by the script.
+
+##### How to rollback a release that has been stopped before publish to npm
+
+Revert the last commit (which should be the commit that bumps package versions):
+
+`git revert HEAD^`
+
+Remove the tag on github and locally.
+
+Then apply your fixes and re-run your release command.
+
 ### About the CI
 
 The CI will trigger on tags to build the packages and then push them to the npm registry
