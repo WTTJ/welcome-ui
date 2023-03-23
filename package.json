@@ -32,7 +32,7 @@
     "migrate": "node ./scripts/upgrade-v5.js",
     "postinstall": "husky install",
     "pre-build": "yarn icons:collect",
-    "release": "yarn -s check:ssh && yarn lerna version --conventional-commits --no-private || yarn -s check:ssh-error",
+    "release": "yarn lerna version --conventional-commits --no-private",
     "start": "yarn docs:dev",
     "test": "node --expose-gc ./node_modules/.bin/jest ./packages --logHeapUsage",
     "watch": "onchange 'packages/**/*.ts*' -e '**/dist/**' -- node -r esm scripts/watch.js {{changed}}",
