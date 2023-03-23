@@ -53,7 +53,7 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
         paddingTop: space.lg,
         paddingBottom: space.xl,
       },
-      informations: {
+      information: {
         backgroundColor: colors['nude-100'],
         paddingRight: space.xxl,
         paddingLeft: space.xxl,
