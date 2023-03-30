@@ -33,7 +33,7 @@ export const Badge = forwardRef<'div', BadgeProps>(
     const textLength = children.toString().length
 
     if (isNumber) {
-      if (withNumberAbbreviation && children > 99) {
+      if (withNumberAbbreviation && (children as number) > 99) {
         text = '99+'
       } else {
         text = children
