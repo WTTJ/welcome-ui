@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import {
   DialogDisclosure,
   DialogInitialState,
@@ -66,17 +66,18 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     },
     ref
   ) => {
-    const closeModal = () => {
+    const prevHide = useMemo(() => state.hide, [state])
+
+    state.hide = useCallback(() => {
       onClose?.()
-      state.hide()
-    }
+      prevHide()
+    }, [prevHide, onClose])
 
     return (
       <ModalProvider state={state}>
         <S.Backdrop {...state} hideOnClickOutside={hideOnClickOutside}>
           <S.Dialog
             aria-label={ariaLabel}
-            hide={closeModal}
             hideOnClickOutside={hideOnClickOutside}
             preventBodyScroll={false}
             ref={ref}
@@ -84,7 +85,7 @@ const ModalComponent = forwardRef<'div', ModalProps>(
             {...state}
             {...rest}
           >
-            <CloseElement onClick={closeModal} />
+            <CloseElement onClick={() => state.hide()} />
             {children}
           </S.Dialog>
         </S.Backdrop>
