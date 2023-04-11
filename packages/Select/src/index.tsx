@@ -68,7 +68,7 @@ export interface SelectOptions extends DefaultFieldStylesProps {
   allowUnselectFromList?: boolean
   disableCloseOnSelect?: boolean
   groupsEnabled?: boolean
-  renderGroupHeader?: (option: OptionGroup) => void
+  renderGroupHeader?: (option: OptionGroup) => React.ReactNode
   transparent?: boolean
 }
 export type SelectProps = CreateWuiProps<

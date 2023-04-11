@@ -131,7 +131,7 @@
     "standard-version": "9.5.0",
     "styled-components": "^5.3.9",
     "svgo": "^3.0.1",
-    "typescript": "^4.9.3",
+    "typescript": "^5.0.2",
     "@vusion/webfonts-generator": "^0.8.0",
     "wttj-config-front": "^2.4.0",
     "yargs": "^17.7.0"
