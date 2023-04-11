@@ -126,7 +126,7 @@
     "react": "^18.1.0",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.1.0",
-    "react-router-dom": "6.9.0",
+    "react-router-dom": "6.10.0",
     "rimraf": "^4.1.1",
     "standard-version": "9.5.0",
     "styled-components": "^5.3.9",
