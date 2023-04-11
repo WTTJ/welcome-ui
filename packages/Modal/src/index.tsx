@@ -23,7 +23,6 @@ export interface ModalOptions {
   ariaLabel: string
   closeElement?: React.ElementType
   hideOnClickOutside?: boolean
-  onClose?: () => void
   size?: Size
   state: ModalStateReturn
   children: React.ReactElement
@@ -43,11 +42,22 @@ export type ModalInitialState = DialogInitialState & {
    * Open the drawer on load
    */
   open?: DialogInitialState['visible']
+  /**
+   * Call a fonction before closing the modal
+   */
+  onClose?: () => void
 }
 
 export function useModalState(options?: ModalInitialState): ModalStateReturn {
-  const { open, visible, ...restOptions } = options || {}
+  const { onClose, open, visible, ...restOptions } = options || {}
   const dialogState = useDialogState({ animated: true, visible: visible || open, ...restOptions })
+
+  const prevHide = useMemo(() => dialogState.hide, [dialogState])
+
+  dialogState.hide = useCallback(() => {
+    onClose?.()
+    prevHide()
+  }, [prevHide, onClose])
 
   return { open: dialogState.visible, ...dialogState }
 }
@@ -57,7 +67,6 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     {
       ariaLabel,
       hideOnClickOutside = true,
-      onClose,
       closeElement: CloseElement = Close,
       size = 'lg',
       children,
@@ -66,13 +75,6 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     },
     ref
   ) => {
-    const prevHide = useMemo(() => state.hide, [state])
-
-    state.hide = useCallback(() => {
-      onClose?.()
-      prevHide()
-    }, [prevHide, onClose])
-
     return (
       <ModalProvider state={state}>
         <S.Backdrop {...state} hideOnClickOutside={hideOnClickOutside}>

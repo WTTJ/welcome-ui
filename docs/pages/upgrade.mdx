@@ -250,6 +250,7 @@ We renamed some icons:
 - To ensure **good spacing** between modal's sub-components, they **must** be wrapped with **Modal.Content**.
 - **Modal.Cover** has been removed.
 - In order to fix an issue that made attributes duplicating, and to prepare to the migration from reakit to ariakit, you will now have to pass the modalState to it props `state` who contain the state from useModalState:
+- `onClose` has been changed from an optionnal prop of **Modal** to an optionnal option you can pass to useModalState
 
 ```jsx live=false
 const modalState = useModalState()
