@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom/extend-expect'
 
 import { render } from '../../../utils/tests'
-import { Swiper } from '../src'
+import { Swiper, useSwiperState } from '../src'
 
 const scrollToSpy = jest.fn()
 beforeAll(() => {
@@ -17,8 +17,9 @@ afterEach(() => {
 })
 
 const TestSwiper = () => {
+  const state = useSwiperState()
   return (
-    <Swiper dataTestId="swiper">
+    <Swiper dataTestId="swiper" state={state}>
       <div>page1</div>
       <div>page2</div>
       <div>page3</div>
@@ -27,8 +28,9 @@ const TestSwiper = () => {
 }
 
 const TestSwiperWithNoPagination = () => {
+  const state = useSwiperState({ slidesPerView: { mobile: 1, tablet: 1, desktop: 3 } })
   return (
-    <Swiper dataTestId="swiper" slidesPerView={{ mobile: 1, tablet: 1, desktop: 3 }}>
+    <Swiper dataTestId="swiper" state={state}>
       <div>page1</div>
       <div>page2</div>
       <div>page3</div>
@@ -37,8 +39,9 @@ const TestSwiperWithNoPagination = () => {
 }
 
 const TestSwiperWithLoop = () => {
+  const state = useSwiperState({ loop: true })
   return (
-    <Swiper dataTestId="swiper" loop>
+    <Swiper dataTestId="swiper" state={state}>
       <div>page1</div>
       <div>page2</div>
       <div>page3</div>

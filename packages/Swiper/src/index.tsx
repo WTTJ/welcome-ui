@@ -12,8 +12,6 @@ export interface SwiperOptions {
   autoplay?: boolean
   /** If true the swiper will begin at the middle */
   centeredSlides?: boolean
-  children: JSX.Element | JSX.Element[]
-  dataTestId?: string
   duration?: number
   /** Won't be used if centeredSlides is true */
   firstSlideToShow?: number
@@ -44,28 +42,24 @@ export interface SwiperOptions {
   }
 }
 
-export type SwiperProps = CreateWuiProps<'div', SwiperOptions>
+export const useSwiperState = (options: SwiperOptions = {}) => {
+  const {
+    centeredSlides = false,
+    firstSlideToShow = 0,
+    fullWidth = false,
+    id = 'swiper',
+    navigationSize = 'md' as Size,
+    slidesPerView = { mobile: 1, tablet: 1, desktop: 1 },
+    spaceBetween = 20,
+    withNavigation = { mobile: true, desktop: true },
+    withPagination = { mobile: false, desktop: false },
+    loop = false,
+    autoplay = false,
+    duration = 5000,
+    withDarkPagination = false,
+  } = options
 
-export const Swiper = ({
-  centeredSlides = false,
-  children,
-  dataTestId,
-  firstSlideToShow = 0,
-  fullWidth = false,
-  id = 'swiper',
-  navigationSize = 'md',
-  slidesPerView = { mobile: 1, tablet: 1, desktop: 1 },
-  spaceBetween = 20,
-  withNavigation = { mobile: true, desktop: true },
-  withPagination = { mobile: false, desktop: false },
-  loop = false,
-  autoplay = false,
-  duration = 5000,
-  withDarkPagination = false,
-  ...rest
-}: SwiperProps) => {
-  loop = loop || autoplay
-
+  const shouldLoop = loop || autoplay
   const { width: viewportWidth } = useViewportSize()
   const [currentPage, setCurrentPage] = useState(0)
   const [currentSlidesPerView, setCurrentSlidesPerView] = useState(slidesPerView.desktop)
@@ -73,6 +67,80 @@ export const Swiper = ({
   const [showRightArrow, setShowRightArrow] = useState(false)
   const ref = useRef<HTMLUListElement>()
   const theme = useTheme()
+
+  const getCurrentSlidesPerView = useCallback(() => {
+    if (viewportWidth <= theme.screens.md) {
+      setCurrentSlidesPerView(slidesPerView.mobile)
+    } else if (viewportWidth <= theme.screens.lg) {
+      setCurrentSlidesPerView(slidesPerView.tablet)
+    } else {
+      setCurrentSlidesPerView(slidesPerView.desktop)
+    }
+  }, [slidesPerView, theme.screens.lg, theme.screens.md, viewportWidth])
+
+  useEffect(() => {
+    getCurrentSlidesPerView()
+  }, [getCurrentSlidesPerView, viewportWidth])
+
+  return {
+    centeredSlides,
+    firstSlideToShow,
+    currentSlidesPerView,
+    currentPage,
+    setCurrentPage,
+    fullWidth,
+    id,
+    navigationSize,
+    slidesPerView,
+    spaceBetween,
+    withNavigation,
+    withPagination,
+    autoplay,
+    shouldLoop,
+    duration,
+    withDarkPagination,
+    ref,
+    setShowLeftArrow,
+    setShowRightArrow,
+    showLeftArrow,
+    showRightArrow,
+  }
+}
+
+export type SwiperState = ReturnType<typeof useSwiperState>
+
+export type SwiperInitialProps = {
+  children: JSX.Element | JSX.Element[]
+  dataTestId?: string
+  state: SwiperState
+}
+
+export type SwiperProps = CreateWuiProps<'div', SwiperInitialProps>
+
+export const Swiper = ({ children, dataTestId, state, ...rest }: SwiperProps) => {
+  const {
+    autoplay,
+    centeredSlides,
+    currentPage,
+    currentSlidesPerView,
+    duration,
+    firstSlideToShow,
+    fullWidth,
+    id,
+    navigationSize,
+    ref,
+    setCurrentPage,
+    setShowLeftArrow,
+    setShowRightArrow,
+    shouldLoop,
+    showLeftArrow,
+    showRightArrow,
+    slidesPerView,
+    spaceBetween,
+    withDarkPagination,
+    withNavigation,
+    withPagination,
+  } = state
 
   const slides = Children.map(children, (child, i) => {
     const key = `${id}-${i}`
@@ -85,10 +153,11 @@ export const Swiper = ({
       'aria-label': `${i + 1} of ${Children.toArray(children).length}`,
     })
   })
-  const slidesLength = slides.length
 
+  const slidesLength = slides.length
   const numberOfPage = Math.ceil(slidesLength / currentSlidesPerView)
   const bullets = Array.from(Array(numberOfPage).keys())
+
   const isFirstPage = currentPage === 0
   const isLastPage = currentPage === bullets.length - 1
 
@@ -100,7 +169,7 @@ export const Swiper = ({
 
   const getArrowStates = () => {
     const sliderContainer = ref?.current
-    if (sliderContainer && !loop) {
+    if (sliderContainer && !shouldLoop) {
       const { offsetWidth, scrollLeft, scrollWidth } = sliderContainer
       const isFirstPage = !(scrollLeft > spaceBetween)
       const isLastPage = !(scrollWidth - (scrollLeft + offsetWidth) > spaceBetween)
@@ -147,34 +216,24 @@ export const Swiper = ({
         behavior: !isFirstInit ? 'smooth' : 'auto',
       })
     },
-    [currentSlidesPerView, spaceBetween]
+    [currentSlidesPerView, spaceBetween, ref]
   )
 
   const goNext = useCallback(() => {
-    if (loop && isLastPage) {
+    if (shouldLoop && isLastPage) {
       goTo(0)
     } else {
       goTo(currentPage + 1)
     }
-  }, [currentPage, goTo, isLastPage, loop])
+  }, [currentPage, goTo, isLastPage, shouldLoop])
 
   const goPrev = useCallback(() => {
-    if (isFirstPage && loop) {
+    if (isFirstPage && shouldLoop) {
       goTo(bullets.length - 1)
     } else {
       goTo(currentPage - 1)
     }
-  }, [bullets.length, currentPage, goTo, isFirstPage, loop])
-
-  const getCurrentSlidesPerView = useCallback(() => {
-    if (viewportWidth <= theme.screens.md) {
-      setCurrentSlidesPerView(slidesPerView.mobile)
-    } else if (viewportWidth <= theme.screens.lg) {
-      setCurrentSlidesPerView(slidesPerView.tablet)
-    } else {
-      setCurrentSlidesPerView(slidesPerView.desktop)
-    }
-  }, [slidesPerView, theme.screens.lg, theme.screens.md, viewportWidth])
+  }, [bullets.length, currentPage, goTo, isFirstPage, shouldLoop])
 
   // Add autoplay
   useInterval(
@@ -201,10 +260,6 @@ export const Swiper = ({
 
     return () => window.removeEventListener('keydown', handleKeys)
   }, [goPrev, goNext])
-
-  useEffect(() => {
-    getCurrentSlidesPerView()
-  }, [getCurrentSlidesPerView, viewportWidth])
 
   useEffect(() => {
     goTo(firstPageToShow, true)
