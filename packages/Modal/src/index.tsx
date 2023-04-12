@@ -23,7 +23,6 @@ export interface ModalOptions {
   ariaLabel: string
   closeElement?: React.ElementType
   hideOnClickOutside?: boolean
-  onClose?: () => void
   size?: Size
   state: ModalStateReturn
   children: React.ReactElement
@@ -43,13 +42,24 @@ export type ModalInitialState = DialogInitialState & {
    * Open the drawer on load
    */
   open?: DialogInitialState['visible']
+  /**
+   * Call a fonction before closing the modal
+   */
+  onClose?: () => void
 }
 
 export function useModalState(options?: ModalInitialState): ModalStateReturn {
-  const { open, visible, ...restOptions } = options || {}
+  const { onClose, open, visible, ...restOptions } = options || {}
   const dialogState = useDialogState({ animated: true, visible: visible || open, ...restOptions })
 
-  return { open: dialogState.visible, ...dialogState }
+  return {
+    ...dialogState,
+    open: dialogState.visible,
+    hide: () => {
+      dialogState.hide()
+      onClose?.()
+    },
+  }
 }
 
 const ModalComponent = forwardRef<'div', ModalProps>(
@@ -57,7 +67,6 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     {
       ariaLabel,
       hideOnClickOutside = true,
-      onClose,
       closeElement: CloseElement = Close,
       size = 'lg',
       children,
@@ -66,17 +75,11 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     },
     ref
   ) => {
-    const closeModal = () => {
-      onClose?.()
-      state.hide()
-    }
-
     return (
       <ModalProvider state={state}>
         <S.Backdrop {...state} hideOnClickOutside={hideOnClickOutside}>
           <S.Dialog
             aria-label={ariaLabel}
-            hide={closeModal}
             hideOnClickOutside={hideOnClickOutside}
             preventBodyScroll={false}
             ref={ref}
@@ -84,7 +87,7 @@ const ModalComponent = forwardRef<'div', ModalProps>(
             {...state}
             {...rest}
           >
-            <CloseElement onClick={closeModal} />
+            <CloseElement onClick={() => state.hide()} />
             {children}
           </S.Dialog>
         </S.Backdrop>
