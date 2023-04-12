@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react'
+import React from 'react'
 import {
   DialogDisclosure,
   DialogInitialState,
@@ -52,14 +52,14 @@ export function useModalState(options?: ModalInitialState): ModalStateReturn {
   const { onClose, open, visible, ...restOptions } = options || {}
   const dialogState = useDialogState({ animated: true, visible: visible || open, ...restOptions })
 
-  const prevHide = useMemo(() => dialogState.hide, [dialogState])
-
-  dialogState.hide = useCallback(() => {
-    onClose?.()
-    prevHide()
-  }, [prevHide, onClose])
-
-  return { open: dialogState.visible, ...dialogState }
+  return {
+    ...dialogState,
+    open: dialogState.visible,
+    hide: () => {
+      dialogState.hide()
+      onClose?.()
+    },
+  }
 }
 
 const ModalComponent = forwardRef<'div', ModalProps>(
