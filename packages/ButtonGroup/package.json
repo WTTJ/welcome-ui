@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/button-group",
-  "version": "5.0.0-alpha.32",
+  "version": "5.0.0-alpha.33",
   "description": "welcome-ui: A ButtonGroup component",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",

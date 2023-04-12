@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.33](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.32...v5.0.0-alpha.33) (2023-04-12)
+
+
+### Bug Fixes
+
+* allow falsy children since we filter them out ([#2025](https://github.com/WTTJ/welcome-ui/issues/2025)) ([d15e6e5](https://github.com/WTTJ/welcome-ui/commit/d15e6e568bc2a8ac72381ff2c76411cd2831d685))
+* typo ([#2030](https://github.com/WTTJ/welcome-ui/issues/2030)) ([9ee7ebe](https://github.com/WTTJ/welcome-ui/commit/9ee7ebef7ca53a614df3000d528a3aff87f1c69a))
+
+
+### Features
+
+* move the swiper logic to a hook ([#2024](https://github.com/WTTJ/welcome-ui/issues/2024)) ([82a5a4b](https://github.com/WTTJ/welcome-ui/commit/82a5a4bafbb265c8527aca0514def7a6e2679180))
+* typescript v5 ([#2044](https://github.com/WTTJ/welcome-ui/issues/2044)) ([e456977](https://github.com/WTTJ/welcome-ui/commit/e45697774a074692f3a6a07015c2446ea4b4b011))
+
+
+
+
+
 # [5.0.0-alpha.32](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.31...v5.0.0-alpha.32) (2023-03-22)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-time-picker-common",
-  "version": "5.0.0-alpha.32",
+  "version": "5.0.0-alpha.33",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -43,7 +43,7 @@
     "@welcome-ui/clear-button": "^5.0.0-alpha.32",
     "@welcome-ui/field": "^5.0.0-alpha.32",
     "@welcome-ui/icons": "^5.0.0-alpha.32",
-    "@welcome-ui/select": "^5.0.0-alpha.32",
+    "@welcome-ui/select": "^5.0.0-alpha.33",
     "@welcome-ui/system": "^5.0.0-alpha.32",
     "@welcome-ui/utils": "^5.0.0-alpha.32",
     "lodash.range": "^3.2.0",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.33](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.32...v5.0.0-alpha.33) (2023-04-12)
+
+
+### Bug Fixes
+
+* allow falsy children since we filter them out ([#2025](https://github.com/WTTJ/welcome-ui/issues/2025)) ([d15e6e5](https://github.com/WTTJ/welcome-ui/commit/d15e6e568bc2a8ac72381ff2c76411cd2831d685))
+
+
+
+
+
 # [5.0.0-alpha.32](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.31...v5.0.0-alpha.32) (2023-03-22)
 
 **Note:** Version bump only for package @welcome-ui/button-group

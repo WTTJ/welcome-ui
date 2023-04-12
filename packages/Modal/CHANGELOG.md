@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.33](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.32...v5.0.0-alpha.33) (2023-04-12)
+
+
+### Bug Fixes
+
+* typo ([#2030](https://github.com/WTTJ/welcome-ui/issues/2030)) ([9ee7ebe](https://github.com/WTTJ/welcome-ui/commit/9ee7ebef7ca53a614df3000d528a3aff87f1c69a))
+
+
+
+
+
 # [5.0.0-alpha.32](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.31...v5.0.0-alpha.32) (2023-03-22)
 
 **Note:** Version bump only for package @welcome-ui/modal

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.33](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.32...v5.0.0-alpha.33) (2023-04-12)
+
+
+### Features
+
+* typescript v5 ([#2044](https://github.com/WTTJ/welcome-ui/issues/2044)) ([e456977](https://github.com/WTTJ/welcome-ui/commit/e45697774a074692f3a6a07015c2446ea4b4b011))
+
+
+
+
+
 # [5.0.0-alpha.32](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.31...v5.0.0-alpha.32) (2023-03-22)
 
 **Note:** Version bump only for package @welcome-ui/select
