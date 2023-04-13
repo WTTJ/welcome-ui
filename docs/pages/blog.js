@@ -22,7 +22,7 @@ const posts = [
     authors: [
       {
         name: 'Mickaël Le Ralec',
-        url: 'https://pbs.twimg.com/profile_images/1523245470130266112/0rx_DemJ_400x400.jpg',
+        url: 'https://avatars.githubusercontent.com/u/36373219?v=4',
       },
       { name: 'Théo Mesnil', url: 'https://avatars.githubusercontent.com/u/50322149?v=4' },
     ],
@@ -37,7 +37,7 @@ const posts = [
     authors: [
       {
         name: 'Mickaël Le Ralec',
-        url: 'https://pbs.twimg.com/profile_images/1523245470130266112/0rx_DemJ_400x400.jpg',
+        url: 'https://avatars.githubusercontent.com/u/36373219?v=4',
       },
       { name: 'Théo Mesnil', url: 'https://avatars.githubusercontent.com/u/50322149?v=4' },
     ],
