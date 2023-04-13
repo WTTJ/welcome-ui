@@ -191,7 +191,7 @@ export const Swiper = ({ children, dataTestId, state, ...rest }: SwiperProps) =>
       const isLastPage = !(scrollWidth - (scrollLeft + offsetWidth) > spaceBetween)
       const nextPage = isLastPage
         ? bullets.length - 1
-        : scrollLeft / Math.round((childWidth + spaceBetween) * currentSlidesPerView)
+        : Math.round((scrollLeft / (childWidth + spaceBetween)) * currentSlidesPerView)
 
       if (nextPage !== currentPage) {
         setCurrentPage(nextPage)
