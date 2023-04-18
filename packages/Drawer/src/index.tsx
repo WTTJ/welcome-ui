@@ -162,10 +162,11 @@ export const Footer: React.FC<BoxProps> = props => {
   )
 }
 
-export const Trigger: React.FC<{ state: DialogDisclosureProps; children: React.ReactNode }> = ({
-  state,
-  ...rest
-}) => {
+type TriggerProps = { state: DialogDisclosureProps; children: React.ReactNode } & Partial<
+  Pick<React.ComponentProps<typeof DialogDisclosure>, 'as'>
+>
+
+export const Trigger: React.FC<TriggerProps> = ({ state, ...rest }) => {
   return <DialogDisclosure {...state} {...rest} />
 }
 
