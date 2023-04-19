@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.34](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.33...v5.0.0-alpha.34) (2023-04-19)
+
+
+### Bug Fixes
+
+* items same size on swiper ([#2060](https://github.com/WTTJ/welcome-ui/issues/2060)) ([2211852](https://github.com/WTTJ/welcome-ui/commit/221185200bd0c5291e69dbf7cb6f20293bf6b592))
+* prevent currentPage from being a float ([#2052](https://github.com/WTTJ/welcome-ui/issues/2052)) ([65e8b4c](https://github.com/WTTJ/welcome-ui/commit/65e8b4cffa0ad13d86905a8a946d517ee5443e0f))
+
+
+
+
+
 # [5.0.0-alpha.33](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.32...v5.0.0-alpha.33) (2023-04-12)
 
 

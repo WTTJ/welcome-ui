@@ -3,7 +3,7 @@
     "packages/*",
     "icons"
   ],
-  "version": "5.0.0-alpha.33",
+  "version": "5.0.0-alpha.34",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "useNx": false

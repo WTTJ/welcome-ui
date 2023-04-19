@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.34](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.33...v5.0.0-alpha.34) (2023-04-19)
+
+
+### Bug Fixes
+
+* missing as prop on drawer.trigger ([#2058](https://github.com/WTTJ/welcome-ui/issues/2058)) ([07241bb](https://github.com/WTTJ/welcome-ui/commit/07241bb64e479fbd40cef506ee265255caaf0456))
+
+
+
+
+
 # [5.0.0-alpha.32](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.31...v5.0.0-alpha.32) (2023-03-22)
 
 **Note:** Version bump only for package @welcome-ui/drawer
