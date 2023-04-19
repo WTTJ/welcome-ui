@@ -105,6 +105,7 @@ export const Container = styled.ul<
       list-style-type: none;
       margin-right: ${spaceBetween};
       min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
+      flex: 1;
 
       &:last-child {
         margin-right: 0;
