@@ -3,6 +3,7 @@ import { Box } from '@welcome-ui/box'
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { PopoverOptions as ReakitPopoverOptions } from 'reakit'
 
 import * as S from './styles'
 import { Trigger } from './Trigger'
@@ -14,7 +15,10 @@ export interface PopoverOptions {
   state: UsePopoverStateReturn
 }
 
-export type PopoverProps = CreateWuiProps<'div', PopoverOptions>
+export type PopoverProps = CreateWuiProps<
+  'div',
+  PopoverOptions & Omit<ReakitPopoverOptions, keyof UsePopoverStateReturn>
+>
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export const PopoverComponent = forwardRef<'div', PopoverProps>(
