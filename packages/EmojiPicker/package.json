@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/emoji-picker",
-  "version": "5.0.0-alpha.32",
+  "version": "5.0.0-alpha.35",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -40,7 +40,7 @@
     "@welcome-ui/box": "^5.0.0-alpha.32",
     "@welcome-ui/icons": "^5.0.0-alpha.32",
     "@welcome-ui/input-text": "^5.0.0-alpha.32",
-    "@welcome-ui/popover": "^5.0.0-alpha.32",
+    "@welcome-ui/popover": "^5.0.0-alpha.35",
     "@welcome-ui/stack": "^5.0.0-alpha.32",
     "@welcome-ui/system": "^5.0.0-alpha.32",
     "@welcome-ui/tabs": "^5.0.0-alpha.32",

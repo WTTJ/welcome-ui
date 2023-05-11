@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.35](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.34...v5.0.0-alpha.35) (2023-05-11)
+
+
+### Bug Fixes
+
+* drawer ts As property ([#2061](https://github.com/WTTJ/welcome-ui/issues/2061)) ([5abe888](https://github.com/WTTJ/welcome-ui/commit/5abe888092aff6006d96a965646e662b5e7116e5))
+* **popover:** reakit component props != from stateReturn ([#2064](https://github.com/WTTJ/welcome-ui/issues/2064)) ([07b80c5](https://github.com/WTTJ/welcome-ui/commit/07b80c5faa27ed84a49d5d4e4272372b5e2e53ab))
+
+
+
+
+
 # [5.0.0-alpha.34](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.33...v5.0.0-alpha.34) (2023-04-19)
 
 

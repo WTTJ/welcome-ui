@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.35](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.34...v5.0.0-alpha.35) (2023-05-11)
+
+
+### Bug Fixes
+
+* **popover:** reakit component props != from stateReturn ([#2064](https://github.com/WTTJ/welcome-ui/issues/2064)) ([07b80c5](https://github.com/WTTJ/welcome-ui/commit/07b80c5faa27ed84a49d5d4e4272372b5e2e53ab))
+
+
+
+
+
 # [5.0.0-alpha.32](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.31...v5.0.0-alpha.32) (2023-03-22)
 
 **Note:** Version bump only for package @welcome-ui/popover
