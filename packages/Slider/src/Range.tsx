@@ -220,7 +220,7 @@ export const Range = forwardRef<'div', RangeProps>(
               <Box>{min}</Box>
             ))}
 
-          <Box position="relative" w="100%">
+          <Box flexGrow="1" position="relative">
             {tooltip && (
               <>
                 <S.Output isVisible={tooltipMinVisible} ref={tooltipMinRef}>
