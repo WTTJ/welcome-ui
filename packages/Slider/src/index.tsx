@@ -150,23 +150,20 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               <Box>{min}</Box>
             ))}
 
-          <Box display="flex" h={20} position="relative" w="100%">
+          <Box display="flex" flexGrow="1" h={20} position="relative">
             <S.Slider
               borderSelectorColor={borderSelectorColor}
               disabled={disabled}
               list="tickmarks"
               max={max}
               min={min}
-              onChange={
-                (e: React.ChangeEvent<HTMLInputElement>) => {
-                  const value = parseInt(e.target.value, 10)
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                const value = parseInt(e.target.value, 10)
 
-                  // No use of the OnChange here to avoid calls at each value update
-                  _setLocalValue(value)
-                  setInputValue(value)
-                }
-                // eslint-disable-next-line prettier/prettier
-                }      
+                // No use of the OnChange here to avoid calls at each value update
+                _setLocalValue(value)
+                setInputValue(value)
+              }}
               onKeyDown={handleKeyDown}
               onMouseDown={() => {
                 tooltip && tooltipVisible === false && setTooltipVisible(true)
