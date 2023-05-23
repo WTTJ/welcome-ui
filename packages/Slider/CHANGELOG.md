@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.36](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.35...v5.0.0-alpha.36) (2023-05-23)
+
+
+### Bug Fixes
+
+* slider when useReset is used in WuiProvider ([#2069](https://github.com/WTTJ/welcome-ui/issues/2069)) ([0be8979](https://github.com/WTTJ/welcome-ui/commit/0be8979768ceef49f146cce96f8bc02f78db2eb3))
+
+
+
+
+
 # [5.0.0-alpha.32](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.31...v5.0.0-alpha.32) (2023-03-22)
 
 **Note:** Version bump only for package @welcome-ui/slider
