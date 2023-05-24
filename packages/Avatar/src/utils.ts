@@ -8,9 +8,8 @@ export function getSeededColor(colors: Theme['colors'], seed = ''): string {
   return colors[colorsIndex]
 }
 
-export function getInitials(name: string): string {
-  const formattedName = name && name.replace(/\W+/gm, ' ')
-  const [firstWord, lastWord] = formattedName.split(' ')
+export function getInitials(name = ''): string {
+  const [firstWord, lastWord] = name.split(' ')
 
   if (firstWord && lastWord) {
     return `${firstWord.charAt(0).toUpperCase()}${lastWord.charAt(0).toUpperCase()}`
