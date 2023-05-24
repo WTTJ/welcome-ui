@@ -2,9 +2,16 @@
   "name": "@welcome-ui/tooltip",
   "version": "5.0.0-alpha.32",
   "description": "welcome-ui: A tooltip component",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "node ../../scripts/build.js",
     "test": "jest",

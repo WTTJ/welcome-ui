@@ -32,6 +32,6 @@ const options = {
 }
 
 ;(() => {
-  build({ ...options, format: 'cjs', outfile: 'dist/index.cjs.js' })
-  build({ ...options, format: 'esm', outfile: 'dist/index.es.js' })
+  build({ ...options, format: 'cjs', outfile: 'dist/index.js' })
+  build({ ...options, format: 'esm', outfile: 'dist/index.mjs' })
 })()
