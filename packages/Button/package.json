@@ -10,7 +10,9 @@
       "types": "./dist/types/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
-    }
+    },
+    "./package.json": "./package.json",
+    "./dist/index.doc.json": "./dist/index.doc.json"
   },
   "component": "Button",
   "scripts": {

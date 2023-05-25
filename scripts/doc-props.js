@@ -66,7 +66,7 @@ const getFileDefinitions = file => {
 }
 
 const writePropsFile = async content => {
-  const destPath = path.join(process.cwd(), 'dist', `${toKebabCase(packageName)}.doc.json`)
+  const destPath = path.join(process.cwd(), 'dist', 'index.doc.json')
 
   await fs.writeFile(destPath, JSON.stringify(content, null, 2))
 }

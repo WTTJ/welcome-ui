@@ -10,7 +10,9 @@
       "types": "./dist/types/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
-    }
+    },
+    "./package.json": "./package.json",
+    "./fonts/*": "./fonts/*"
   },
   "scripts": {
     "build": "node ../../scripts/build.js",
