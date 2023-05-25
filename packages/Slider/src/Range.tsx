@@ -39,21 +39,24 @@ const ensureMax = (value: number, toCompare: number, step: number) =>
  * @name Slider.Range
  */
 export const Range = forwardRef<'div', RangeProps>(
-  ({
-    borderSelectorColor = 'light-900',
-    disabled,
-    hint,
-    label,
-    max,
-    min,
-    onChange,
-    step = 1,
-    tooltip,
-    type,
-    value,
-    values,
-    ...restProps
-  }) => {
+  (
+    {
+      borderSelectorColor = 'light-900',
+      disabled,
+      hint,
+      label,
+      max,
+      min,
+      onChange,
+      step = 1,
+      tooltip,
+      type,
+      value,
+      values,
+      ...restProps
+    },
+    ref
+  ) => {
     const [minValue, setMinValue] = useState(min)
     const [maxValue, setMaxValue] = useState(max)
     const [inputMinValue, setInputMinValue] = useState<number>(max)
@@ -183,7 +186,7 @@ export const Range = forwardRef<'div', RangeProps>(
     }, [value])
 
     return (
-      <Box position="relative" w="100%">
+      <Box position="relative" ref={ref} w="100%">
         {label && (
           <Text as="label" variant="sm">
             {label}

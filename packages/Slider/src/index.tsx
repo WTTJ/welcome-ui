@@ -38,21 +38,24 @@ export const ensureMinMax = (value: number, min: number, max: number, step: numb
 }
 
 export const SliderComponent = forwardRef<'div', SliderProps>(
-  ({
-    borderSelectorColor = 'light-900',
-    disabled,
-    hint,
-    label,
-    max,
-    min,
-    onChange,
-    step = 1,
-    tooltip,
-    type,
-    value,
-    values,
-    ...rest
-  }) => {
+  (
+    {
+      borderSelectorColor = 'light-900',
+      disabled,
+      hint,
+      label,
+      max,
+      min,
+      onChange,
+      step = 1,
+      tooltip,
+      type,
+      value,
+      values,
+      ...rest
+    },
+    ref
+  ) => {
     const range = useRef<HTMLInputElement>(null)
     const tooltipRef = useRef<HTMLOutputElement>(null)
     const [tooltipVisible, setTooltipVisible] = useState<boolean>(false)
@@ -127,7 +130,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
     }, [value])
 
     return (
-      <Box display="flex" flexDirection="column" position="relative">
+      <Box display="flex" flexDirection="column" position="relative" ref={ref}>
         {label && (
           <Text as="label" variant="sm">
             {label}
