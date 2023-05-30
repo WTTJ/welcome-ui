@@ -36,6 +36,7 @@ export type SearchProps = CreateWuiProps<
   SearchOptions & Omit<DownshiftProps<Option>, keyof SearchOptions>
 >
 
+// because of this issue: https://github.com/downshift-js/downshift/issues/1505
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const Downshift: typeof DownshiftImport = DownshiftImport.default || DownshiftImport
