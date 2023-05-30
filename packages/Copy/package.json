@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/utils.copy",
-  "version": "5.0.0-alpha.32",
+  "version": "5.0.0-alpha.37",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.37](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.36...v5.0.0-alpha.37) (2023-05-30)
+
+**Note:** Version bump only for package @welcome-ui/variant-icon
+
+
+
+
+
 # [5.0.0-alpha.32](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.31...v5.0.0-alpha.32) (2023-03-22)
 
 **Note:** Version bump only for package @welcome-ui/variant-icon

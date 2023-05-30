@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-time-picker-common",
-  "version": "5.0.0-alpha.33",
+  "version": "5.0.0-alpha.37",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -48,13 +48,13 @@
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
     "@types/react-datepicker": "^4.8.0",
-    "@welcome-ui/button": "^5.0.0-alpha.32",
-    "@welcome-ui/clear-button": "^5.0.0-alpha.32",
-    "@welcome-ui/field": "^5.0.0-alpha.32",
-    "@welcome-ui/icons": "^5.0.0-alpha.32",
-    "@welcome-ui/select": "^5.0.0-alpha.33",
-    "@welcome-ui/system": "^5.0.0-alpha.32",
-    "@welcome-ui/utils": "^5.0.0-alpha.32",
+    "@welcome-ui/button": "^5.0.0-alpha.37",
+    "@welcome-ui/clear-button": "^5.0.0-alpha.37",
+    "@welcome-ui/field": "^5.0.0-alpha.37",
+    "@welcome-ui/icons": "^5.0.0-alpha.37",
+    "@welcome-ui/select": "^5.0.0-alpha.37",
+    "@welcome-ui/system": "^5.0.0-alpha.37",
+    "@welcome-ui/utils": "^5.0.0-alpha.37",
     "lodash.range": "^3.2.0",
     "react-datepicker": "^4.7.0"
   },

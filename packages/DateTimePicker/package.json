@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-time-picker",
-  "version": "5.0.0-alpha.33",
+  "version": "5.0.0-alpha.37",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,15 +47,15 @@
   },
   "dependencies": {
     "@types/react-datepicker": "^4.8.0",
-    "@welcome-ui/button": "^5.0.0-alpha.32",
-    "@welcome-ui/clear-button": "^5.0.0-alpha.32",
-    "@welcome-ui/date-picker": "^5.0.0-alpha.33",
-    "@welcome-ui/date-time-picker-common": "^5.0.0-alpha.33",
-    "@welcome-ui/field": "^5.0.0-alpha.32",
-    "@welcome-ui/icons": "^5.0.0-alpha.32",
-    "@welcome-ui/select": "^5.0.0-alpha.33",
-    "@welcome-ui/system": "^5.0.0-alpha.32",
-    "@welcome-ui/time-picker": "^5.0.0-alpha.33",
+    "@welcome-ui/button": "^5.0.0-alpha.37",
+    "@welcome-ui/clear-button": "^5.0.0-alpha.37",
+    "@welcome-ui/date-picker": "^5.0.0-alpha.37",
+    "@welcome-ui/date-time-picker-common": "^5.0.0-alpha.37",
+    "@welcome-ui/field": "^5.0.0-alpha.37",
+    "@welcome-ui/icons": "^5.0.0-alpha.37",
+    "@welcome-ui/select": "^5.0.0-alpha.37",
+    "@welcome-ui/system": "^5.0.0-alpha.37",
+    "@welcome-ui/time-picker": "^5.0.0-alpha.37",
     "react-datepicker": "^4.7.0"
   },
   "peerDependencies": {

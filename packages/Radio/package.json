@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/radio",
-  "version": "5.0.0-alpha.32",
+  "version": "5.0.0-alpha.37",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,11 +46,11 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^5.0.0-alpha.32",
-    "@welcome-ui/hint": "^5.0.0-alpha.32",
-    "@welcome-ui/label": "^5.0.0-alpha.32",
-    "@welcome-ui/system": "^5.0.0-alpha.32",
-    "@welcome-ui/utils": "^5.0.0-alpha.32",
+    "@welcome-ui/box": "^5.0.0-alpha.37",
+    "@welcome-ui/hint": "^5.0.0-alpha.37",
+    "@welcome-ui/label": "^5.0.0-alpha.37",
+    "@welcome-ui/system": "^5.0.0-alpha.37",
+    "@welcome-ui/utils": "^5.0.0-alpha.37",
     "reakit": "^1.3.11"
   },
   "peerDependencies": {
