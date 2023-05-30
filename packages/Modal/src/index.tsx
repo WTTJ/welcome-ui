@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  DialogDisclosure,
-  DialogInitialState,
-  DialogStateReturn,
-  useDialogState,
-} from 'reakit'
+import { DialogDisclosure, DialogInitialState, DialogStateReturn, useDialogState } from 'reakit'
 import { BoxProps } from '@welcome-ui/box'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { useTheme } from '@xstyled/styled-components'

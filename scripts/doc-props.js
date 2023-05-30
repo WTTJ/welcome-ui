@@ -5,8 +5,6 @@ const fs = require('fs/promises')
 const { argv } = require('yargs')
 const docgen = require('react-docgen-typescript')
 
-const { toKebabCase } = require('../utils/strings')
-
 const { name: packageName } = argv
 const tsConfigPath = path.join(process.cwd(), 'tsconfig.json')
 
