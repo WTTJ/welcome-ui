@@ -8,7 +8,7 @@ import {
   UsePopoverStateReturn,
 } from '@welcome-ui/popover'
 import { Tab } from '@welcome-ui/tabs'
-import { TabInitialState } from 'reakit/Tab'
+import { TabInitialState } from 'reakit'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'

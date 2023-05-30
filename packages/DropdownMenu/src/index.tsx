@@ -6,7 +6,7 @@ import {
   MenuStateReturn,
   Menu as ReakitMenu,
   useMenuState,
-} from 'reakit/Menu'
+} from 'reakit'
 import { useNextFrame } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
 

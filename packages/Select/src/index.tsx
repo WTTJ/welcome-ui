@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useMemo, useState } from 'react'
-import Downshift, {
+import DownshiftImport, {
   ControllerStateAndHelpers,
   DownshiftProps,
   GetRootPropsOptions,
@@ -75,6 +75,10 @@ export type SelectProps = CreateWuiProps<
   'input',
   SelectOptions & Omit<DownshiftProps<Option>, keyof SelectOptions | 'children'>
 >
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const Downshift: typeof DownshiftImport = DownshiftImport.default || DownshiftImport
 
 /** We need to add autoComplete off to avoid select UI issues when is an input */
 export const Select = forwardRef<'input', SelectProps>(

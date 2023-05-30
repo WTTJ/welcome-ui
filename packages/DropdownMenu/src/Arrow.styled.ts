@@ -1,5 +1,5 @@
 import styled, { css, th } from '@xstyled/styled-components'
-import { MenuArrow } from 'reakit/Menu'
+import { MenuArrow } from 'reakit'
 
 export const Arrow = styled(MenuArrow)`
   display: flex;

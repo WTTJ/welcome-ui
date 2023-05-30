@@ -1,5 +1,5 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { DisclosureContent, Disclosure as ReakitDisclosure } from 'reakit/Disclosure'
+import { DisclosureContent, Disclosure as ReakitDisclosure } from 'reakit'
 import { Box } from '@welcome-ui/box'
 
 export const Accordion = styled.div`

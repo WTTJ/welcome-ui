@@ -1,5 +1,5 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { Tooltip as ReakitTooltip } from 'reakit/Tooltip'
+import { Tooltip as ReakitTooltip } from 'reakit'
 import { filterSystemProps } from '@welcome-ui/system'
 
 import { PlacementOptions } from './index'

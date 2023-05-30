@@ -4,7 +4,7 @@ import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 import { Hint as HintWUI } from '@welcome-ui/hint'
 import { Label as WUILabel } from '@welcome-ui/label'
-import { Radio as ReakitRadio } from 'reakit/Radio'
+import { Radio as ReakitRadio } from 'reakit'
 
 import { RadioProps } from './index'
 

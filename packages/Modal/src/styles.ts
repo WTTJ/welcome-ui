@@ -2,7 +2,7 @@ import styled, { css, system, th, up } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import { cardStyles } from '@welcome-ui/utils'
-import { DialogBackdrop, Dialog as ReakitDialog } from 'reakit/Dialog'
+import { DialogBackdrop, Dialog as ReakitDialog } from 'reakit'
 
 import { Size } from './index'
 

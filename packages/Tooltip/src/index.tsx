@@ -7,8 +7,8 @@ import React, {
   useState,
 } from 'react'
 import Popper, { Placement } from 'popper.js'
-import { TooltipReference, useTooltipState } from 'reakit/Tooltip'
-import { useDialogState } from 'reakit/Dialog'
+import { TooltipReference, useTooltipState } from 'reakit'
+import { useDialogState } from 'reakit'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { Box } from '@welcome-ui/box'
 

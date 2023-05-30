@@ -1,5 +1,5 @@
 import React, { cloneElement, useRef, useState } from 'react'
-import { TabList as ReakitTabList, TabStateReturn } from 'reakit/Tab'
+import { TabList as ReakitTabList, TabStateReturn } from 'reakit'
 import flattenChildren from 'react-flatten-children'
 import { useForkRef } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'

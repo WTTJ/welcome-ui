@@ -1,7 +1,7 @@
 import styled, { css, th } from '@xstyled/styled-components'
 import { cardStyles } from '@welcome-ui/utils'
 import { CloseButton as WUICloseButton } from '@welcome-ui/close-button'
-import { DialogBackdrop } from 'reakit/Dialog'
+import { DialogBackdrop } from 'reakit'
 
 import { DrawerOptions, Placement, Size } from '.'
 

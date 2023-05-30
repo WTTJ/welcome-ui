@@ -1,5 +1,5 @@
 import React, { Fragment, useCallback, useMemo, useState } from 'react'
-import Downshift, { DownshiftProps, GetRootPropsOptions } from 'downshift'
+import DownshiftImport, { DownshiftProps, GetRootPropsOptions } from 'downshift'
 import { ClearButton } from '@welcome-ui/clear-button'
 import {
   createEvent,
@@ -35,6 +35,10 @@ export type SearchProps = CreateWuiProps<
   'input',
   SearchOptions & Omit<DownshiftProps<Option>, keyof SearchOptions>
 >
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const Downshift: typeof DownshiftImport = DownshiftImport.default || DownshiftImport
 
 export const Search = forwardRef<'input', SearchProps>(
   (

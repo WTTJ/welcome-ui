@@ -3,7 +3,7 @@ import {
   PopoverInitialState as ReakitPopoverInitialState,
   PopoverStateReturn as ReakitPopoverStateReturn,
   usePopoverState as useReakitPopoverState,
-} from 'reakit/Popover'
+} from 'reakit'
 
 export interface UsePopoverStateOptions extends ReakitPopoverInitialState {
   hideTimeout?: number

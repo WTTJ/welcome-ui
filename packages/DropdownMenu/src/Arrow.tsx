@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuArrowOptions } from 'reakit/Menu'
+import { MenuArrowOptions } from 'reakit'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './Arrow.styled'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { RadioGroup as ReakitRadioGroup } from 'reakit/Radio'
+import { RadioGroup as ReakitRadioGroup } from 'reakit'
 import { FieldGroup, FieldGroupOptions } from '@welcome-ui/field-group'
 import { Label } from '@welcome-ui/label'
 import { Box } from '@welcome-ui/box'

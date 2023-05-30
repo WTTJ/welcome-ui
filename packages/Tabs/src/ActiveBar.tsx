@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react'
 import { useViewportSize } from '@welcome-ui/utils'
-import { TabStateReturn } from 'reakit/Tab'
+import { TabStateReturn } from 'reakit'
 
 import * as S from './styles'
 

@@ -9,7 +9,10 @@ import { defaultFieldStyles, DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 import { Focused } from './CustomInput'
 
-export const StyledDatePicker = styled(ReactDatePicker)<
+// Workaround to this issue: https://github.com/Hacker0x01/react-datepicker/issues/3834
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+export const StyledDatePicker = styled(ReactDatePicker.default || ReactDatePicker)<
   DefaultFieldStylesProps & ReactDatePickerProps
 >(
   ({ iconPlacement, size, transparent, variant }) => css`
@@ -18,7 +21,12 @@ export const StyledDatePicker = styled(ReactDatePicker)<
   `
 )
 
-export const StyledTimePicker = styled(ReactDatePicker)<DefaultFieldStylesProps>(
+export const StyledTimePicker = styled(
+  // Workaround to this issue: https://github.com/Hacker0x01/react-datepicker/issues/3834
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  ReactDatePicker.default || ReactDatePicker
+)<DefaultFieldStylesProps>(
   ({ iconPlacement, size, transparent, variant }) => css`
     ${defaultFieldStyles({ size, variant, transparent, isClearable: true, iconPlacement })};
     text-align: center;
