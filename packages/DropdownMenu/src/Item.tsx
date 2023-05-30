@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuItem, MenuItemProps } from 'reakit/Menu'
+import { MenuItem, MenuItemProps } from 'reakit'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './Item.styled'

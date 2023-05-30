@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tab as ReakitTab, TabOptions as ReakitTabOptions } from 'reakit/Tab'
+import { Tab as ReakitTab, TabOptions as ReakitTabOptions } from 'reakit'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import { TabList } from './TabList'
@@ -30,4 +30,4 @@ TabComponent.displayName = 'Tab'
 
 export const Tab = Object.assign(TabComponent, { List: TabList, Panel: TabPanel })
 
-export { useTabState } from 'reakit/Tab'
+export { useTabState } from 'reakit'

@@ -3,7 +3,7 @@ import {
   RadioGroup as ReakitRadioGroup,
   RadioGroupOptions as ReakitRadioGroupOptions,
   useRadioState,
-} from 'reakit/Radio'
+} from 'reakit'
 import { FieldGroup, FieldGroupOptions } from '@welcome-ui/field-group'
 import { Radio } from '@welcome-ui/radio'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'

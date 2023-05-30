@@ -1,5 +1,5 @@
 import React from 'react'
-import { TabPanel as ReakitTabPanel, TabStateReturn } from 'reakit/Tab'
+import { TabPanel as ReakitTabPanel, TabStateReturn } from 'reakit'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'

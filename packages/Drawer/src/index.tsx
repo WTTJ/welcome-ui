@@ -9,7 +9,7 @@ import {
   DialogProps,
   DialogStateReturn,
   useDialogState,
-} from 'reakit/Dialog'
+} from 'reakit'
 import { Box, BoxProps } from '@welcome-ui/box'
 import { CloseButtonProps } from '@welcome-ui/close-button'
 import { Text, TextProps } from '@welcome-ui/text'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { DefaultFieldStylesProps } from '@welcome-ui/utils'
-import { RadioProps } from 'reakit/Radio'
+import { RadioProps } from 'reakit'
 
 import * as S from './styles'
 

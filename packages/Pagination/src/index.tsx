@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react'
-import { Rover, RoverInitialState, useRoverState } from 'reakit/Rover'
+import { Rover, RoverInitialState, useRoverState } from 'reakit'
 import { LeftIcon, RightIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 

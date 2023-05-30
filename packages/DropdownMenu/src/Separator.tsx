@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuSeparator, MenuSeparatorProps } from 'reakit/Menu'
+import { MenuSeparator, MenuSeparatorProps } from 'reakit'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './Separator.styled'

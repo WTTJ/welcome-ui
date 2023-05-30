@@ -1,5 +1,5 @@
 import React, { cloneElement } from 'react'
-import { useDisclosureState } from 'reakit/Disclosure'
+import { useDisclosureState } from 'reakit'
 import AnimateHeight from 'react-animate-height'
 import { RightIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'

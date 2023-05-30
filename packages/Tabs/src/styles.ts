@@ -1,5 +1,5 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { TabStateReturn } from 'reakit/Tab'
+import { TabStateReturn } from 'reakit'
 
 import { ActiveBarStateReturn } from './ActiveBar'
 import { SizeOptions } from './TabList'
