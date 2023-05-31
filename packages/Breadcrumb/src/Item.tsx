@@ -16,7 +16,7 @@ export type ItemProps = CreateWuiProps<'a', ItemOptions>
  * @name Breadcrumb.Item
  */
 export const Item = forwardRef<'a', ItemProps>(
-  ({ children, dataTestId, isActive, separator, ...rest }) => {
+  ({ children, dataTestId, isActive, separator, ...rest }, ref) => {
     return (
       <Box
         aria-label="breadcrumb"
@@ -26,7 +26,12 @@ export const Item = forwardRef<'a', ItemProps>(
         flex="0 0 auto"
       >
         {separator && <S.Separator role="presentation">{separator}</S.Separator>}
-        <S.Item aria-current={isActive ? 'page' : undefined} isActive={isActive} {...rest}>
+        <S.Item
+          aria-current={isActive ? 'page' : undefined}
+          isActive={isActive}
+          {...rest}
+          ref={ref}
+        >
           {children}
         </S.Item>
       </Box>
