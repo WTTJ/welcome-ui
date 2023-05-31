@@ -24,5 +24,3 @@ updates:
       - dependency-name: '@next/mdx'
         versions: ['>12.x']
       - dependency-name: 'loader-utils'
-    reviewers:
-      - 'theo-mesnil'
