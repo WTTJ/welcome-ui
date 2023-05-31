@@ -30,7 +30,7 @@ const toPascalCase = (str: string) => {
 
 const iconsKeys = Object.keys(unicodeMap) as IconKey[]
 
-export const Icons = Object.keys(iconsKeys).reduce<IconsType>((prev, name) => {
+export const Icons = iconsKeys.reduce<IconsType>((prev, name) => {
   const key = toPascalCase(name) as IconKeyFormatted
 
   prev[key] = (props: IconProps) => {
