@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.38](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.37...v5.0.0-alpha.38) (2023-06-01)
+
+
+### Bug Fixes
+
+* icons.font type ([#1973](https://github.com/WTTJ/welcome-ui/issues/1973)) ([0c92b21](https://github.com/WTTJ/welcome-ui/commit/0c92b210c2e663f56be0c1544b5e674493c958ca))
+
+
+
+
+
 # [5.0.0-alpha.37](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.36...v5.0.0-alpha.37) (2023-05-30)
 
 **Note:** Version bump only for package @welcome-ui/icons.font

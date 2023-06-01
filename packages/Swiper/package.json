@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/swiper",
-  "version": "5.0.0-alpha.37",
+  "version": "5.0.0-alpha.38",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@welcome-ui/button": "^5.0.0-alpha.37",
-    "@welcome-ui/icons.font": "^5.0.0-alpha.37",
+    "@welcome-ui/icons.font": "^5.0.0-alpha.38",
     "@welcome-ui/system": "^5.0.0-alpha.37",
     "@welcome-ui/utils": "^5.0.0-alpha.37",
     "lodash.debounce": "^4.0.8"

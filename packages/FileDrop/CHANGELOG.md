@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.38](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.37...v5.0.0-alpha.38) (2023-06-01)
+
+
+### Bug Fixes
+
+* esm build of file drop ([#2080](https://github.com/WTTJ/welcome-ui/issues/2080)) ([36be297](https://github.com/WTTJ/welcome-ui/commit/36be29795f31962717b838c4dfb2387b6dd106cb))
+
+
+
+
+
 # [5.0.0-alpha.37](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.36...v5.0.0-alpha.37) (2023-05-30)
 
 **Note:** Version bump only for package @welcome-ui/file-drop
