@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/tabs",
-  "version": "5.0.0-alpha.37",
+  "version": "5.0.0-alpha.39",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

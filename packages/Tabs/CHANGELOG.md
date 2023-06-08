@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.39](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.38...v5.0.0-alpha.39) (2023-06-08)
+
+
+### Bug Fixes
+
+* react-flatten-children esm compatibility ([#2082](https://github.com/WTTJ/welcome-ui/issues/2082)) ([f26c10a](https://github.com/WTTJ/welcome-ui/commit/f26c10a39cac0fb68eb272ac343bb03db3597315))
+
+
+
+
+
 # [5.0.0-alpha.37](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.36...v5.0.0-alpha.37) (2023-05-30)
 
 **Note:** Version bump only for package @welcome-ui/tabs
