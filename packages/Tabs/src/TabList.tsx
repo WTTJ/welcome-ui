@@ -1,11 +1,16 @@
 import React, { cloneElement, useRef, useState } from 'react'
 import { TabList as ReakitTabList, TabStateReturn } from 'reakit'
-import flattenChildren from 'react-flatten-children'
+import reactFlattenChildren from 'react-flatten-children'
 import { useForkRef } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import { ActiveBar } from './ActiveBar'
 import * as S from './styles'
+
+// because of the compatibility of esm standard. Since this lib is no longer maintained, no issue was created
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const flattenChildren = reactFlattenChildren.default || reactFlattenChildren
 
 function useTrackActiveTabs(
   state: Pick<TabStateReturn, 'selectedId'>,
