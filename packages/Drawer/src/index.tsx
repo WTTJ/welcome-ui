@@ -3,7 +3,6 @@ import {
   Dialog,
   DialogBackdropProps,
   DialogDisclosure,
-  DialogDisclosureProps,
   DialogInitialState,
   DialogOptions,
   DialogProps,
@@ -13,7 +12,7 @@ import {
 import { Box, BoxProps } from '@welcome-ui/box'
 import { CloseButtonProps } from '@welcome-ui/close-button'
 import { Text, TextProps } from '@welcome-ui/text'
-import { As, CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -162,14 +161,8 @@ export const Footer: React.FC<BoxProps> = props => {
   )
 }
 
-type TriggerProps = { state: DialogDisclosureProps; children: React.ReactNode; as?: As }
-
-export const Trigger: React.FC<TriggerProps> = ({ as, state, ...rest }) => {
-  return <DialogDisclosure as={as} {...state} {...rest} />
-}
-
 export const Drawer = Object.assign(DrawerComponent, {
-  Trigger,
+  Trigger: DialogDisclosure,
   Backdrop: DrawerBackdrop,
   Close,
   Title,
