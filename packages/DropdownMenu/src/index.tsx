@@ -8,7 +8,7 @@ import {
   useMenuState,
 } from 'reakit'
 import { useNextFrame } from '@welcome-ui/utils'
-import { CreateWuiProps, forwardRef, OmitReakitState, WuiProps } from '@welcome-ui/system'
+import { As, CreateWuiProps, forwardRef, OmitReakitState, WuiProps } from '@welcome-ui/system'
 
 import { Arrow } from './Arrow'
 import { Item } from './Item'
@@ -99,8 +99,14 @@ export function useDropdownMenuState(options?: DropdownMenuInitialState): Dropdo
   return { open: dropdownMenuState.visible, ...dropdownMenuState }
 }
 
+type TriggerProps = { state: MenuStateReturn; children: React.ReactNode; as?: As }
+
+export const Trigger = forwardRef<'button', TriggerProps>(({ as, state, ...rest }, ref) => {
+  return <MenuButton as={as} ref={ref} {...state} {...rest} />
+})
+
 export const DropdownMenu = Object.assign(DropdownMenuComponent, {
-  Trigger: MenuButton,
+  Trigger,
   Item,
   Separator,
   Arrow,
