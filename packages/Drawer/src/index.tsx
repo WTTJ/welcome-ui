@@ -23,7 +23,7 @@ export type Size = 'sm' | 'md' | 'lg' | 'auto' | string
 export interface DrawerOptions {
   placement?: Placement
   size?: Size
-  state?: DialogStateReturn
+  state: DialogStateReturn
 }
 
 export type DrawerProps = CreateWuiProps<'div', OmitReakitState<DrawerOptions, DialogOptions>>
@@ -35,7 +35,7 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
       // see: https://reakit.io/docs/styling/#css-in-js
       <Dialog as={as} ref={ref} {...state} {...rest}>
         {props => (
-          <S.Drawer {...props} placement={placement} size={size}>
+          <S.Drawer state={state} {...props} placement={placement} size={size}>
             {children}
           </S.Drawer>
         )}

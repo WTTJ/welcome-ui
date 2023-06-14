@@ -161,6 +161,6 @@ export type ExtraSize = number | string
 
 /* utility type to remove state properties from options (will be corrected when migrating to ariakit) */
 export type OmitReakitState<
-  ComponentOptions extends { state?: unknown },
+  ComponentOptions extends { state: unknown },
   ReakitOptions
 > = ComponentOptions & Omit<ReakitOptions, keyof ComponentOptions['state']>
