@@ -1,1 +1,1 @@
-module.exports = require('wttj-config-front/lib/prettier')
+module.exports = require('wttj-config/lib/prettier')

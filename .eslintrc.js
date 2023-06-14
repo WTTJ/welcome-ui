@@ -1,4 +1,4 @@
 module.exports = {
-  extends: './node_modules/wttj-config-front/lib/eslint/eslintrc-typescript',
+  extends: './node_modules/wttj-config/lib/eslint/eslintrc-typescript',
   ignorePatterns: ['docs'],
 }
