@@ -7,7 +7,7 @@ import {
   useDialogState,
 } from 'reakit'
 import { BoxProps } from '@welcome-ui/box'
-import { CreateWuiProps, forwardRef, OmitReakitState } from '@welcome-ui/system'
+import { As, CreateWuiProps, forwardRef, OmitReakitState } from '@welcome-ui/system'
 import { useTheme } from '@xstyled/styled-components'
 import { Shape, ShapeProps } from '@welcome-ui/shape'
 
@@ -113,9 +113,15 @@ const Cover: React.FC<ShapeProps> = props => {
   )
 }
 
+type TriggerProps = { state: DialogStateReturn; children: React.ReactNode; as?: As }
+
+export const Trigger = forwardRef<'button', TriggerProps>(({ as, state, ...rest }, ref) => {
+  return <DialogDisclosure as={as} ref={ref} {...state} {...rest} />
+})
+
 // Nested exports
 export const Modal = Object.assign(ModalComponent, {
-  Trigger: DialogDisclosure,
+  Trigger,
   Content,
   Header,
   Body,
