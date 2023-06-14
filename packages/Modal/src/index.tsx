@@ -1,7 +1,13 @@
 import React from 'react'
-import { DialogDisclosure, DialogInitialState, DialogStateReturn, useDialogState } from 'reakit'
+import {
+  DialogDisclosure,
+  DialogInitialState,
+  DialogOptions,
+  DialogStateReturn,
+  useDialogState,
+} from 'reakit'
 import { BoxProps } from '@welcome-ui/box'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef, OmitReakitState } from '@welcome-ui/system'
 import { useTheme } from '@xstyled/styled-components'
 import { Shape, ShapeProps } from '@welcome-ui/shape'
 
@@ -14,6 +20,8 @@ import { ModalProvider } from './context'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
+export type ModalStateReturn = DialogStateReturn & { open: DialogStateReturn['visible'] }
+
 export interface ModalOptions {
   ariaLabel: string
   closeElement?: React.ElementType
@@ -23,10 +31,8 @@ export interface ModalOptions {
   children: React.ReactElement
 }
 
-export type ModalProps = CreateWuiProps<'div', ModalOptions>
-export type ModalStateReturn = DialogStateReturn & {
-  open: DialogStateReturn['visible']
-}
+export type ModalProps = CreateWuiProps<'div', OmitReakitState<ModalOptions, DialogOptions>>
+
 export type ModalInitialState = DialogInitialState & {
   /**
    * @deprecated

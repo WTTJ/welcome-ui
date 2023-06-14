@@ -2,14 +2,14 @@ import React, { Children, cloneElement, useCallback, useMemo } from 'react'
 import { useTabState } from '@welcome-ui/tabs'
 import {
   Popover,
-  PopoverProps,
+  PopoverOptions,
   usePopoverState,
   UsePopoverStateOptions,
   UsePopoverStateReturn,
 } from '@welcome-ui/popover'
 import { Tab } from '@welcome-ui/tabs'
 import { TabInitialState } from 'reakit'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef, OmitReakitState } from '@welcome-ui/system'
 
 import * as S from './styles'
 import { List } from './List'
@@ -25,9 +25,13 @@ export interface EmojiPickerOptions {
   popoverAriaLabel?: string
   tabListAriaLabel?: string
   value: string | null
+  state: UsePopoverStateReturn
 }
 
-export type EmojiPickerProps = CreateWuiProps<'div', EmojiPickerOptions & PopoverProps>
+export type EmojiPickerProps = CreateWuiProps<
+  'div',
+  OmitReakitState<EmojiPickerOptions, PopoverOptions>
+>
 
 const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
   (

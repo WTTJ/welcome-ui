@@ -13,7 +13,7 @@ import {
 import { Box, BoxProps } from '@welcome-ui/box'
 import { CloseButtonProps } from '@welcome-ui/close-button'
 import { Text, TextProps } from '@welcome-ui/text'
-import { As, CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { As, CreateWuiProps, forwardRef, OmitReakitState } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -23,10 +23,10 @@ export type Size = 'sm' | 'md' | 'lg' | 'auto' | string
 export interface DrawerOptions {
   placement?: Placement
   size?: Size
-  state?: DialogOptions
+  state?: DialogStateReturn
 }
 
-export type DrawerProps = CreateWuiProps<'div', DrawerOptions>
+export type DrawerProps = CreateWuiProps<'div', OmitReakitState<DrawerOptions, DialogOptions>>
 
 const DrawerComponent = forwardRef<'div', DrawerProps>(
   ({ as, children, placement = 'right', size = 'lg', state, ...rest }, ref) => {
