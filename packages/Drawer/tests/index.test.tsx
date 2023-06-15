@@ -43,4 +43,26 @@ describe('<Drawer>', () => {
     fireEvent.click(getByText('open'))
     expect(queryByRole('dialog')).toHaveStyleRule('height', '50%')
   })
+
+  it('should render "as" correctly', () => {
+    const Test = () => {
+      const drawerState = useDrawerState()
+
+      return (
+        <>
+          <Drawer.Trigger as="button" onClick={() => null} state={drawerState}>
+            open
+          </Drawer.Trigger>
+          <Drawer aria-label="drawer" state={drawerState}>
+            test
+          </Drawer>
+        </>
+      )
+    }
+
+    const { getByText, queryByRole } = render(<Test />)
+    expect(queryByRole('dialog')).toBeNull()
+    fireEvent.click(getByText('open'))
+    expect(queryByRole('dialog')).toHaveTextContent('test')
+  })
 })

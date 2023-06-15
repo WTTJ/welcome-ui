@@ -32,7 +32,9 @@ describe('<Modal>', () => {
 
       return (
         <>
-          <Modal.Trigger state={modalState}>open</Modal.Trigger>
+          <Modal.Trigger as="button" state={modalState} type="button">
+            open
+          </Modal.Trigger>
           <Modal ariaLabel="modal" state={modalState}>
             <Modal.Content>
               {shouldRender && <Modal.Body>Modal.Body exist?</Modal.Body>}

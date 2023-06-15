@@ -3,7 +3,6 @@ import {
   Dialog,
   DialogBackdropProps,
   DialogDisclosure,
-  DialogDisclosureProps,
   DialogInitialState,
   DialogOptions,
   DialogProps,
@@ -162,11 +161,11 @@ export const Footer: React.FC<BoxProps> = props => {
   )
 }
 
-type TriggerProps = { state: DialogDisclosureProps; children: React.ReactNode; as?: As }
+type TriggerProps = { state: DialogStateReturn; children: React.ReactNode; as?: As }
 
-export const Trigger: React.FC<TriggerProps> = ({ as, state, ...rest }) => {
-  return <DialogDisclosure as={as} {...state} {...rest} />
-}
+export const Trigger = forwardRef<'button', TriggerProps>(({ as, state, ...rest }, ref) => {
+  return <DialogDisclosure as={as} ref={ref} {...state} {...rest} />
+})
 
 export const Drawer = Object.assign(DrawerComponent, {
   Trigger,
