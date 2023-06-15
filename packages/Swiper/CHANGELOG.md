@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.40](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.39...v5.0.0-alpha.40) (2023-06-15)
+
+**Note:** Version bump only for package @welcome-ui/swiper
+
+
+
+
+
 # [5.0.0-alpha.38](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.37...v5.0.0-alpha.38) (2023-06-01)
 
 **Note:** Version bump only for package @welcome-ui/swiper

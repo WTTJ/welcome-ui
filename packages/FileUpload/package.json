@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/file-upload",
-  "version": "5.0.0-alpha.37",
+  "version": "5.0.0-alpha.40",
   "description": "Customizable design system with react • styled-components • styled-system and reakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,11 +46,11 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^5.0.0-alpha.37",
-    "@welcome-ui/button": "^5.0.0-alpha.37",
-    "@welcome-ui/files": "^5.0.0-alpha.37",
-    "@welcome-ui/system": "^5.0.0-alpha.37",
-    "@welcome-ui/tag": "^5.0.0-alpha.37",
+    "@welcome-ui/box": "^5.0.0-alpha.40",
+    "@welcome-ui/button": "^5.0.0-alpha.40",
+    "@welcome-ui/files": "^5.0.0-alpha.40",
+    "@welcome-ui/system": "^5.0.0-alpha.40",
+    "@welcome-ui/tag": "^5.0.0-alpha.40",
     "@welcome-ui/utils": "^5.0.0-alpha.37"
   },
   "peerDependencies": {

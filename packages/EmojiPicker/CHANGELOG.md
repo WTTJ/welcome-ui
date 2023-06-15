@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.40](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.39...v5.0.0-alpha.40) (2023-06-15)
+
+
+### Bug Fixes
+
+* reakit state props ([#2086](https://github.com/WTTJ/welcome-ui/issues/2086)) ([f38f3db](https://github.com/WTTJ/welcome-ui/commit/f38f3db333677d59918c06181b197b3a860c2390))
+
+
+
+
+
 # [5.0.0-alpha.39](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.38...v5.0.0-alpha.39) (2023-06-08)
 
 **Note:** Version bump only for package @welcome-ui/emoji-picker

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.40](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.39...v5.0.0-alpha.40) (2023-06-15)
+
+
+### Bug Fixes
+
+* drawer trigger "as component" props ([#2087](https://github.com/WTTJ/welcome-ui/issues/2087)) ([60a7898](https://github.com/WTTJ/welcome-ui/commit/60a7898024907047961fb2509cb3f3dcda38bd10))
+* reakit state props ([#2086](https://github.com/WTTJ/welcome-ui/issues/2086)) ([f38f3db](https://github.com/WTTJ/welcome-ui/commit/f38f3db333677d59918c06181b197b3a860c2390))
+
+
+
+
+
 # [5.0.0-alpha.37](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.36...v5.0.0-alpha.37) (2023-05-30)
 
 **Note:** Version bump only for package @welcome-ui/drawer
