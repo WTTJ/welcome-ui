@@ -1,13 +1,13 @@
 import React from 'react'
-import { Tab as ReakitTab, TabOptions as ReakitTabOptions } from 'reakit'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { Tab as ReakitTab, TabOptions as ReakitTabOptions, TabStateReturn } from 'reakit'
+import { CreateWuiProps, forwardRef, OmitReakitState } from '@welcome-ui/system'
 
 import { TabList } from './TabList'
 import { TabPanel } from './TabPanel'
 import * as S from './styles'
 
-export type TabOptions = { state: ReakitTabOptions }
-export type TabProps = CreateWuiProps<'button', TabOptions>
+export type TabOptions = { state: TabStateReturn }
+export type TabProps = CreateWuiProps<'button', OmitReakitState<TabOptions, ReakitTabOptions>>
 
 /**
  * @name Tabs

@@ -8,7 +8,7 @@ import {
   useMenuState,
 } from 'reakit'
 import { useNextFrame } from '@welcome-ui/utils'
-import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef, OmitReakitState, WuiProps } from '@welcome-ui/system'
 
 import { Arrow } from './Arrow'
 import { Item } from './Item'
@@ -18,7 +18,7 @@ import * as S from './styles'
 export interface DropdownMenuOptions {
   /** add custom props from styled system on DropdownMenu inner */
   innerProps?: WuiProps
-  state: MenuOptions & {
+  state: MenuStateReturn & {
     /**
      * @deprecated
      * will be replace by open on ariakit (reakit v2)
@@ -31,7 +31,10 @@ export interface DropdownMenuOptions {
   }
 }
 
-export type DropdownMenuProps = CreateWuiProps<'div', DropdownMenuOptions>
+export type DropdownMenuProps = CreateWuiProps<
+  'div',
+  OmitReakitState<DropdownMenuOptions, MenuOptions>
+>
 
 const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
   ({ children, dataTestId, innerProps = {}, state = {}, ...props }, ref) => {

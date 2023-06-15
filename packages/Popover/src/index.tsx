@@ -2,7 +2,7 @@ import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef, OmitReakitState } from '@welcome-ui/system'
 import { PopoverOptions as ReakitPopoverOptions } from 'reakit'
 
 import * as S from './styles'
@@ -17,7 +17,7 @@ export interface PopoverOptions {
 
 export type PopoverProps = CreateWuiProps<
   'div',
-  PopoverOptions & Omit<ReakitPopoverOptions, keyof UsePopoverStateReturn>
+  OmitReakitState<PopoverOptions, ReakitPopoverOptions>
 >
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
