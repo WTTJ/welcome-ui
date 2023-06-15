@@ -15,10 +15,13 @@ export interface ToolbarOptions {
 
 export type MarkdownEditorProps = CreateWuiProps<'div', ToolbarOptions>
 
+const DEFAULT_ACTIVE = [] as string[]
+const DEFAULT_ITEMS = [] as DefaultToolbarItem[]
+
 export const Toolbar: React.FC<MarkdownEditorProps> = ({
-  active = [],
+  active = DEFAULT_ACTIVE,
   dataTestId,
-  items = [],
+  items = DEFAULT_ITEMS,
   onClick,
   ...rest
 }) => {

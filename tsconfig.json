@@ -1,5 +1,5 @@
 {
-  "extends": "wttj-config-front/lib/tsconfig/tsconfig.json",
+  "extends": "wttj-config/lib/tsconfig/tsconfig.json",
   "compilerOptions": {
     "outDir": ".",
     "baseUrl": "./packages",

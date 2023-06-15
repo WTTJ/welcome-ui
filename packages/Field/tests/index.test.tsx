@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { HTMLInputTypeAttribute } from 'react'
 import userEvent from '@testing-library/user-event'
 
 import { render } from '../../../utils/tests'
 import { Field } from '../src'
 
-const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = props => {
-  return <input name="hello" type="text" {...props} />
+const Input = ({
+  id,
+  name = 'hello',
+  type = 'text',
+  ...rest
+}: {
+  id?: string
+  name?: string
+  type?: HTMLInputTypeAttribute
+}) => {
+  return <input id={id} name={name} type={type} {...rest} />
 }
 
 const labelText = 'Label'

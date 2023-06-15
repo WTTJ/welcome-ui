@@ -60,7 +60,7 @@
     "lodash.escaperegexp": "^4.1.2",
     "lodash.groupby": "^4.6.0",
     "popper.js": "^1.16.1",
-    "react-window": "^1.8.8"
+    "react-window": "^1.8.9"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
