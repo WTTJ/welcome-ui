@@ -16,22 +16,6 @@ const handleFileChange = () => {
     const { component, name } = require(`${packagePath}/package.json`)
     console.log(`Building ${component}…`.grey)
 
-    exec(`npx lerna run build --scope ${name}`, err => {
-      if (err) {
-        console.error(err)
-        return
-      }
-      console.log(date, '-', '(っ◔◡◔)っ success'.green.bold, `(${component})`)
-    })
-
-    exec(`npx lerna run doc --scope ${name}`, err => {
-      if (err) {
-        console.error(err)
-        return
-      }
-      console.log(date, '-', '(っ◔◡◔)っ types success'.green.bold, `(${component})`)
-    })
-
     if (file === 'theme.ts') {
       console.log('Building Core…'.grey)
       exec('npx lerna run build --scope @welcome-ui/core', err => {
@@ -42,14 +26,46 @@ const handleFileChange = () => {
         console.log(date, '-', '(っ◔◡◔)っ success'.green.bold, '(core)')
       })
 
-      exec('npx lerna run doc --scope @welcome-ui/core', err => {
+      exec('npx lerna run types --scope @welcome-ui/core', err => {
         if (err) {
           console.error(err)
           return
         }
         console.log(date, '-', '(っ◔◡◔)っ types success'.green.bold, '(core)')
       })
+
+      exec('npx lerna run doc --scope  @welcome-ui/core', err => {
+        if (err) {
+          console.error(err)
+          return
+        }
+        console.log(date, '-', '(っ◔◡◔)っ doc success'.green.bold, `(${component})`)
+      })
     }
+
+    exec(`npx lerna run build --scope ${name}`, err => {
+      if (err) {
+        console.error(err)
+        return
+      }
+      console.log(date, '-', '(っ◔◡◔)っ success'.green.bold, `(${component})`)
+    })
+
+    exec(`npx lerna run types --scope ${name}`, err => {
+      if (err) {
+        console.error(err)
+        return
+      }
+      console.log(date, '-', '(っ◔◡◔)っ types success'.green.bold, `(${component})`)
+    })
+
+    exec(`npx lerna run doc --scope ${name}`, err => {
+      if (err) {
+        console.error(err)
+        return
+      }
+      console.log(date, '-', '(っ◔◡◔)っ doc success'.green.bold, `(${component})`)
+    })
   }
 }
 
