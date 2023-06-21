@@ -1,13 +1,14 @@
 import React from 'react'
+import { fireEvent, screen } from '@testing-library/react'
 
-import { fireEvent, render, renderHook, screen } from '../../../utils/tests'
+import { render, renderHook } from '../../../utils/tests'
 import { Accordion, useAccordionStore } from '../src'
 
 const content = 'content'
 const title = 'title'
 
-describe('<Accordion>', () => {
-  it('should render correctly', () => {
+describe('<Accordion />', () => {
+  it('should have correct attribute on click on element', () => {
     const {
       result: { current: store },
     } = renderHook(() => useAccordionStore())
@@ -32,7 +33,7 @@ describe('<Accordion>', () => {
     expect(children).not.toHaveAttribute('hidden')
   })
 
-  it('should render correctly on open at start', () => {
+  it('should have correct attribute on open at start', () => {
     const {
       result: { current: store },
     } = renderHook(() => useAccordionStore({ defaultOpen: true }))
