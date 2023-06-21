@@ -17,40 +17,56 @@ import {
 
 ## About
 
-Built with [Reakit](https://reakit.io/docs/disclosure/) for a better accessibility 🌈
+Built with [Ariakit](https://ariakit.org/components/disclosure) for a better accessibility 🌈
 
 ## Usage
 
 ```jsx
-<Accordion title="Accordion title">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-</Accordion>
+function () {
+  const store = useAccordionStore()
+  const store2 = useAccordionStore()
 
-<Accordion
-  title={
-    <Box display="flex" alignItems="center">
-      <Avatar name="accordion" mr="sm" />
-      <Text as="h3" m="0" fontWeight="bold">
-        Accordion title
-      </Text>
-    </Box>
-  }
->
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-</Accordion>
+  return (
+    <>
+      <Accordion store={store} title="Accordion title">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </Accordion>
+      <Accordion
+        store={store2}
+        mt="md"
+        title={
+          <Box display="flex" alignItems="center">
+            <Avatar name="accordion" mr="sm" />
+            <Text as="h3" m="0" fontWeight="bold">
+              Accordion title
+            </Text>
+          </Box>
+        }
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </Accordion>
+    </>
+  )
+}
 ```
 
-## Visible at start
+## Open at start
 
-Add `visible` property to open at start the accordion
+Add `defaultOpen` options on `useAccordionStore` to open at start the accordion
 
 ```jsx
-<Accordion title="Accordion title" open>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-  nisi ut aliquip ex ea commodo consequat.
-</Accordion>
+function () {
+  const store = useAccordionStore({ defaultOpen: true })
+
+  return (
+    <Accordion store={store} title="Accordion title">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+      nisi ut aliquip ex ea commodo consequat.
+    </Accordion>
+  )
+}
 ```
 
 ## With a custom icon
@@ -60,11 +76,17 @@ Customize the icon with a node element on property `icon`
 Note that the custom icon's size property will be set to small
 
 ```jsx
-<Accordion title="Accordion title" icon={<PlayIcon />}>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-  nisi ut aliquip ex ea commodo consequat.
-</Accordion>
+function () {
+  const store = useAccordionStore()
+
+  return (
+    <Accordion store={store} title="Accordion title" icon={<PlayIcon />}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+      nisi ut aliquip ex ea commodo consequat.
+    </Accordion>
+  )
+}
 ```
 
 ## Properties

@@ -1,5 +1,5 @@
 import React, { cloneElement } from 'react'
-import { useDisclosureState } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 import AnimateHeight from 'react-animate-height'
 import { RightIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -10,31 +10,25 @@ export interface AccordionOptions {
   title: string | JSX.Element
   icon?: JSX.Element
   /**
-   * @deprecated
-   * will be replace by open on ariakit (reakit v2)
-   **/
-  visible?: boolean
-  /**
-   * Open the hidden content on load
+   * store from useAccordionStore()
    */
-  open?: boolean
+  store: Ariakit.DisclosureStore
 }
 
 export type AccordionProps = CreateWuiProps<'div', AccordionOptions>
 
 export const Accordion = forwardRef<'div', AccordionProps>(
-  ({ children, icon = <RightIcon />, title, visible = false, open = false, ...rest }, ref) => {
-    const disclosure = useDisclosureState({ visible: open || visible, animated: true })
-    const isVisible = disclosure.visible
+  ({ children, icon = <RightIcon />, title, store, ...rest }, ref) => {
+    const isOpen = store?.useState('open')
 
     return (
       <S.Accordion ref={ref} {...rest}>
-        <S.Disclosure {...disclosure}>
+        <S.Disclosure store={store}>
           {title}
-          <S.Icon visible={isVisible}>{cloneElement(icon, { size: 'sm' })}</S.Icon>
+          <S.Icon isOpen={isOpen}>{cloneElement(icon, { size: 'sm' })}</S.Icon>
         </S.Disclosure>
-        <S.Content {...disclosure}>
-          <AnimateHeight animateOpacity duration={200} height={isVisible ? 'auto' : 0}>
+        <S.Content isOpen={isOpen} store={store}>
+          <AnimateHeight animateOpacity duration={200} height={isOpen ? 'auto' : 0}>
             {children}
           </AnimateHeight>
         </S.Content>
@@ -42,3 +36,9 @@ export const Accordion = forwardRef<'div', AccordionProps>(
     )
   }
 )
+
+export function useAccordionStore(options?: Ariakit.DisclosureStoreProps): Ariakit.DisclosureStore {
+  const disclosureStore = Ariakit.useDisclosureStore({ ...options, animated: true })
+
+  return disclosureStore
+}
