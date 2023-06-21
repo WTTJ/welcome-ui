@@ -1,9 +1,9 @@
 import styled, { system, th } from '@xstyled/styled-components'
 import { Tab } from '@welcome-ui/tabs'
-import { Popover as WUIPopover } from '@welcome-ui/popover'
+import * as WUIPopover from '@welcome-ui/popover'
 import { Box } from '@welcome-ui/box'
 
-export const Popover = styled(WUIPopover)`
+export const Popover = styled(WUIPopover.Popover)`
   background-color: ${th('defaultCards.backgroundColor')};
   border-width: sm;
   border-style: solid;

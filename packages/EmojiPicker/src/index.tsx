@@ -2,14 +2,13 @@ import React, { Children, cloneElement, useCallback, useMemo } from 'react'
 import { useTabState } from '@welcome-ui/tabs'
 import {
   Popover,
-  PopoverOptions,
-  usePopoverState,
-  UsePopoverStateOptions,
-  UsePopoverStateReturn,
+  usePopoverStore,
+  UsePopoverStoreOptions,
+  UsePopoverStoreReturn,
 } from '@welcome-ui/popover'
 import { Tab } from '@welcome-ui/tabs'
 import { TabInitialState } from 'reakit'
-import { CreateWuiProps, forwardRef, OmitReakitState } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 import { List } from './List'
@@ -25,13 +24,10 @@ export interface EmojiPickerOptions {
   popoverAriaLabel?: string
   tabListAriaLabel?: string
   value: string | null
-  state: UsePopoverStateReturn
+  store: UsePopoverStoreReturn
 }
 
-export type EmojiPickerProps = CreateWuiProps<
-  'div',
-  OmitReakitState<EmojiPickerOptions, PopoverOptions>
->
+export type EmojiPickerProps = CreateWuiProps<'div', EmojiPickerOptions>
 
 const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
   (
@@ -44,13 +40,14 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
       popoverAriaLabel = 'Emoji picker',
       tabListAriaLabel = 'Emoji picker tabs',
       value,
-      state,
+      store,
     },
     ref
   ) => {
     const tabState = useTabState(defaultTabState)
 
-    const hidePopover = useMemo(() => state.hide, [state.hide])
+    const hidePopover = useMemo(() => store.hide, [store.hide])
+    const isOpen = store.useState('open')
     const handleChange = useCallback(
       (value: string) => {
         hidePopover()
@@ -68,7 +65,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
               // Disabling type check since missing props are injected below with the "cloneElement"
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
-              <BasicList isVisible={state.visible} onChange={handleChange} value={value} />
+              <BasicList isOpen={isOpen} onChange={handleChange} value={value} />
             ),
           },
         ]
@@ -89,7 +86,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
                 emptyList,
                 inputSearchPlaceholder,
                 isVisible:
-                  state.visible && (!tabState.selectedId || tabState.selectedId === tab.props.name),
+                  isOpen && (!tabState.selectedId || tabState.selectedId === tab.props.name),
                 onChange: handleChange,
                 value,
                 ...child.props,
@@ -107,7 +104,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
       emptyList,
       handleChange,
       inputSearchPlaceholder,
-      state.visible,
+      isOpen,
       tabState.selectedId,
       value,
     ])
@@ -115,7 +112,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
     const onlyTabContent = tabs[0].content
 
     return (
-      <S.Popover aria-label={popoverAriaLabel} ref={ref} state={state}>
+      <S.Popover aria-label={popoverAriaLabel} ref={ref} store={store}>
         {hasTabs && (
           <>
             <S.TabList aria-label={tabListAriaLabel} state={tabState}>
@@ -140,8 +137,8 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
 
 EmojiPickerComponent.displayName = 'EmojiPicker'
 
-export function useEmojiPicker(options?: UsePopoverStateOptions): UsePopoverStateReturn {
-  return usePopoverState({
+export function useEmojiPicker(options?: UsePopoverStoreOptions): UsePopoverStoreReturn {
+  return usePopoverStore({
     placement: 'bottom-start',
     ...options,
   })

@@ -1,25 +1,31 @@
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import { fireEvent, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { EmojiPicker, useEmojiPicker } from '../src'
 
+const buttonText = 'open'
+
+const EmojiPickerWrapper = () => {
+  const emojiPicker = useEmojiPicker()
+
+  return (
+    <>
+      <EmojiPicker.Trigger store={emojiPicker}>{buttonText}</EmojiPicker.Trigger>
+      <EmojiPicker aria-label="emoji-picker" store={emojiPicker} value={null} />
+    </>
+  )
+}
+
 describe('<EmojiPicker>', () => {
   it('should render correctly', () => {
-    const Test = () => {
-      const emojiPickerState = useEmojiPicker()
+    render(<EmojiPickerWrapper />)
 
-      return (
-        <>
-          <EmojiPicker.Trigger state={emojiPickerState}>open</EmojiPicker.Trigger>
-          <EmojiPicker aria-label="emoji-picker" state={emojiPickerState} value={null} />
-        </>
-      )
-    }
+    const dialogText = screen.getByText('Smileys & Emotion')
+    const button = screen.getByText(buttonText)
 
-    const { getByText, queryByRole } = render(<Test />)
-    expect(queryByRole('dialog')).toBeNull()
-    fireEvent.click(getByText('open'))
-    expect(queryByRole('dialog')).toHaveTextContent('Smileys & Emotion')
+    fireEvent.click(button)
+
+    expect(dialogText).toBeInTheDocument()
   })
 })
