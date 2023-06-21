@@ -3,7 +3,7 @@
   "version": "1.1.1",
   "main": "dist/welcome-ui.cjs.js",
   "module": "dist/welcome-ui.es.js",
-  "description": "Customizable design system with react • styled-components • styled-system and reakit.",
+  "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "scripts": {
     "build:core": "./scripts/core.sh",
     "build:docs": "lerna run doc --concurrency 2",
