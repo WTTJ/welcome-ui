@@ -2,33 +2,30 @@ import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons'
-import { CreateWuiProps, forwardRef, OmitReakitState } from '@welcome-ui/system'
-import { PopoverOptions as ReakitPopoverOptions } from 'reakit'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 import { Trigger } from './Trigger'
-import { UsePopoverStateReturn } from './usePopoverState'
+import { UsePopoverStoreReturn } from './usePopoverStore'
 
 export interface PopoverOptions {
   /** call a function when popover closed */
   onClose?: () => void
-  state: UsePopoverStateReturn
+  store: UsePopoverStoreReturn
 }
 
-export type PopoverProps = CreateWuiProps<
-  'div',
-  OmitReakitState<PopoverOptions, ReakitPopoverOptions>
->
+export type PopoverProps = CreateWuiProps<'div', PopoverOptions>
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export const PopoverComponent = forwardRef<'div', PopoverProps>(
-  ({ children, onClose, state, ...rest }, ref) => {
+  ({ children, onClose, store, ...rest }, ref) => {
     const closePopover = () => {
       if (onClose) onClose()
-      state?.hide()
+      store?.hide()
     }
 
-    const { placement, withCloseButton } = state
+    const placement = store.useState('currentPlacement')
+    const { withCloseButton } = store
     // get the correct transform style for arrow
     const [parentPlacement] = placement.split('-')
     const transformMap: { [key: string]: string } = {
@@ -40,9 +37,9 @@ export const PopoverComponent = forwardRef<'div', PopoverProps>(
     const transform = transformMap[parentPlacement]
 
     return (
-      <S.Popover {...state} {...rest} $withCloseButton={withCloseButton} ref={ref}>
+      <S.Popover store={store} {...rest} $withCloseButton={withCloseButton} ref={ref}>
         <Box position="relative">
-          <S.Arrow {...state}>
+          <S.Arrow store={store}>
             <S.ArrowItem $transform={transform} h={30} w={30} xmlns="http://www.w3.org/2000/svg">
               <path d="M7 30L15 22L23 30H7Z" fill="currentColor" fillRule="nonzero" id="stroke" />
               <path d="M8 30L15 23L22 30H8Z" fill="currentColor" fillRule="nonzero" />
@@ -76,4 +73,4 @@ export const Popover = Object.assign(PopoverComponent, {
   Trigger: Trigger,
 })
 
-export * from './usePopoverState'
+export * from './usePopoverStore'

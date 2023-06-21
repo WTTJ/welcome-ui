@@ -1,68 +1,57 @@
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import React, { useRef } from 'react'
+import React from 'react'
 import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
 
-import { UsePopoverStateReturn } from './usePopoverState'
+import { UsePopoverStoreReturn } from './usePopoverStore'
 import * as S from './styles'
 
-export type TriggerProps = CreateWuiProps<'button', { state: UsePopoverStateReturn }>
+export type TriggerProps = CreateWuiProps<'button', { store: UsePopoverStoreReturn }>
 
-export const Trigger = forwardRef<'button', TriggerProps>(({ as, state, ...rest }, ref) => {
-  const { triggerMethod } = state
-  const hoverable = triggerMethod === 'hover'
-  const disclosureRef = useRef<HTMLButtonElement>(null)
-  const popoverRef = state.unstable_popoverRef
+export const Trigger = forwardRef<'button', TriggerProps>(({ as, store, ...rest }, ref) => {
+  const { triggerMethod } = store
+  const isHoverMethod = triggerMethod === 'hover'
+  const disclosureRef = store.useState('disclosureElement')
+  const popoverRef = store.useState('popoverElement')
 
   const showPopover: () => void = () => {
-    if (hoverable) {
+    if (isHoverMethod) {
       // remove listeners on mouseenter
-      disclosureRef.current?.removeEventListener('mouseenter', showPopover)
-      popoverRef.current?.removeEventListener('mouseenter', showPopover)
+      disclosureRef?.removeEventListener('mouseenter', showPopover)
+      popoverRef?.removeEventListener('mouseenter', showPopover)
       // add listeners on mouseleave
-      disclosureRef.current?.addEventListener('mouseleave', hidePopover)
-      popoverRef.current?.addEventListener('mouseleave', hidePopover)
+      disclosureRef?.addEventListener('mouseleave', hidePopover)
+      popoverRef?.addEventListener('mouseleave', hidePopover)
       // show popover
-      state.show()
-    }
-  }
-
-  const setRef = (triggerElement: HTMLButtonElement) => {
-    disclosureRef.current = triggerElement
-    state.unstable_disclosureRef.current = triggerElement
-    if (typeof ref === 'function') {
-      ref(triggerElement)
-    } else if (ref?.current) {
-      ref.current = triggerElement
+      store.show()
     }
   }
 
   const hidePopover: () => void = () => {
-    if (hoverable) {
+    if (isHoverMethod) {
       // remove listeners on mouseleave
-      disclosureRef.current?.removeEventListener('mouseleave', hidePopover)
-      popoverRef.current?.removeEventListener('mouseleave', hidePopover)
+      disclosureRef?.removeEventListener('mouseleave', hidePopover)
+      popoverRef?.removeEventListener('mouseleave', hidePopover)
       // add listeners on mouseenter
-      disclosureRef.current?.addEventListener('mouseenter', showPopover)
-      popoverRef.current?.addEventListener('mouseenter', showPopover)
+      disclosureRef?.addEventListener('mouseenter', showPopover)
+      popoverRef?.addEventListener('mouseenter', showPopover)
       // hide popover
-      state.hide()
+      store.hide()
     }
   }
 
   useIsomorphicLayoutEffect(() => {
-    const disclosure = disclosureRef.current
-    if (hoverable && disclosure) {
+    if (isHoverMethod && disclosureRef) {
       // add listeners on mount
-      disclosure.addEventListener('mouseenter', showPopover)
-      disclosure.addEventListener('mouseleave', hidePopover)
+      disclosureRef.addEventListener('mouseenter', showPopover)
+      disclosureRef.addEventListener('mouseleave', hidePopover)
       return () => {
         // remove listeners on unmount
-        disclosure.removeEventListener('mouseenter', showPopover)
-        disclosure.removeEventListener('mouseleave', hidePopover)
+        disclosureRef.removeEventListener('mouseenter', showPopover)
+        disclosureRef.removeEventListener('mouseleave', hidePopover)
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disclosureRef])
 
-  return <S.PopoverTrigger {...state} {...rest} forwardedAs={as} ref={setRef} />
+  return <S.PopoverTrigger store={store} {...rest} forwardedAs={as} ref={ref} />
 })
