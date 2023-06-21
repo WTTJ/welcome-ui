@@ -9,7 +9,7 @@ export const Box = forwardRef<'div', BoxProps>((props, ref) => {
   return <x.div ref={ref} {...props} />
 })
 
-type BoxPandaProps = HTMLStyledProps<'div'>
+export type BoxPandaProps = HTMLStyledProps<'div'>
 const StyledBoxPanda = styled(Box)
 
 export const BoxPanda = React.forwardRef<HTMLDivElement, BoxPandaProps>((props, ref) => {

@@ -5,6 +5,7 @@
   "module": "dist/welcome-ui.es.js",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "scripts": {
+    "prepare": "panda codegen",
     "build:core": "./scripts/core.sh",
     "build:docs": "lerna run doc",
     "build:packages": "lerna run build --ignore docs --ignore @welcome-ui/core",
