@@ -4,7 +4,8 @@
     "outDir": ".",
     "baseUrl": "./packages",
     "sourceMap": false,
-    "declaration": true
+    "declaration": true,
+    "target": "ES6"
   },
   "include": [
     "packages/**/src/*.ts",

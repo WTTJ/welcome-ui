@@ -1,6 +1,7 @@
 import React from 'react'
-import { Box } from '@welcome-ui/box'
+import { Box, BoxPanda } from '@welcome-ui/box'
 import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
+import { HTMLStyledProps } from '@welcome-ui/panda/jsx'
 
 export interface FlexOptions {
   /** same as alignItems */
@@ -42,3 +43,41 @@ export const Flex = forwardRef<'div', FlexProps>(
 )
 
 Flex.displayName = 'Flex'
+
+export interface FlexPandaOptions {
+  /** same as alignItems */
+  align?: HTMLStyledProps<'div'>['alignItems']
+  /** same as justifyContent */
+  justify?: HTMLStyledProps<'div'>['justifyContent']
+  /** same as flexWrap */
+  wrap?: HTMLStyledProps<'div'>['flexWrap']
+  /** same as flexDirection */
+  direction?: HTMLStyledProps<'div'>['flexDirection']
+  /** same as flexBasis */
+  basis?: HTMLStyledProps<'div'>['flexBasis']
+  /** same as flexGrow */
+  grow?: HTMLStyledProps<'div'>['flexGrow']
+  /** same as flexShrink */
+  shrink?: HTMLStyledProps<'div'>['flexShrink']
+}
+
+type FlexPandaProps = HTMLStyledProps<'div'> & FlexPandaOptions
+
+export const FlexPanda = React.forwardRef<HTMLDivElement, FlexPandaProps>(
+  ({ align, basis, direction, grow, justify, shrink, wrap, ...rest }, ref) => {
+    return (
+      <BoxPanda
+        alignItems={align}
+        display="flex"
+        flexBasis={basis}
+        flexDirection={direction}
+        flexGrow={grow}
+        flexShrink={shrink}
+        flexWrap={wrap}
+        justifyContent={justify}
+        {...rest}
+        ref={ref}
+      />
+    )
+  }
+)
