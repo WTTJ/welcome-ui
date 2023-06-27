@@ -1,9 +1,11 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import { Hint } from '@welcome-ui/hint'
 import { InputText } from '@welcome-ui/input-text'
+import { throttle } from '@welcome-ui/utils'
+import debounce from 'lodash.debounce'
 
 import { Range } from './Range'
 import * as S from './styles'
@@ -33,8 +35,14 @@ export type SliderProps = CreateWuiProps<'div', SliderOptions>
 export const round = (value: number, step: number) => Math.round(value / step) * step
 
 export const ensureMinMax = (value: number, min: number, max: number, step: number) => {
-  value = round(value, step)
-  return value < min ? min : value > max ? max : value
+  const roudedValue = round(value, step)
+  // console.debug('debbie MM', value, {
+  //   roudedValue,
+  //   min,
+  //   max,
+  //   returned: roudedValue < min ? min : roudedValue > max ? max : roudedValue,
+  // })
+  return roudedValue < min ? min : roudedValue > max ? max : roudedValue
 }
 
 export const SliderComponent = forwardRef<'div', SliderProps>(
@@ -62,6 +70,10 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
     const [inputValue, setInputValue] = useState<number>(ensureMinMax(value, min, max, step))
 
     const [localValue, setLocalValue] = useState(ensureMinMax(value, min, max, step))
+
+    const updateValue = debounce((value: number) => {
+      onChange(value)
+    }, 100)
 
     // Add round logic to `setLocalValue`
     const _setLocalValue = (value: number) => {
@@ -91,6 +103,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
         value = 0
       }
       setInputValue(value)
+      onChange(value)
     }
 
     const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -110,15 +123,15 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
     // Updates the slider range when user drag the slider
     useEffect(() => {
       if (range.current) {
-        range.current.style.backgroundSize = `${getPercent(localValue)}% 100%`
+        range.current.style.backgroundSize = `${getPercent(value)}% 100%`
       }
       if (tooltipRef.current) {
-        const fraction = getPercent(localValue) / 100
+        const fraction = getPercent(value) / 100
         tooltipRef.current.style.left = `calc(${fraction * 100}% + ${
           (0.5 - fraction) * thumbWidth
         }px)`
       }
-    }, [localValue, getPercent])
+    }, [value, getPercent])
 
     // Give the possibility to the parent to modify the value from outside but we need to check if it respect the step
     useEffect(() => {
@@ -129,6 +142,14 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
+    // useEffect(() => {
+    //   if (value !== localValue) {
+    //     onChange(localValue)
+    //   }
+    // }, [onChange, localValue, value])
+
+    if (hint !== '123') return null
+
     return (
       <Box display="flex" flexDirection="column" position="relative" ref={ref}>
         {label && (
@@ -136,6 +157,9 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
             {label}
           </Text>
         )}
+        <Text variant="h2"> value : {value}</Text>
+        <Text variant="h2"> localValue : {localValue}</Text>
+
         <Box alignItems="center" display="flex" gap="sm">
           {(type === 'inline' || type === 'left-field') &&
             (type === 'left-field' ? (
@@ -166,19 +190,21 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
                 // No use of the OnChange here to avoid calls at each value update
                 _setLocalValue(value)
                 setInputValue(value)
+                updateValue(value)
+                // onChange(value)
               }}
               onKeyDown={handleKeyDown}
               onMouseDown={() => {
                 tooltip && tooltipVisible === false && setTooltipVisible(true)
               }}
               onMouseUp={() => {
-                onChange(localValue)
+                // onChange(localValue)
                 tooltip && setTooltipVisible(false)
               }}
               ref={range}
               step={step}
               type="range"
-              value={localValue}
+              value={value}
               {...rest}
             />
             {tooltip && (
@@ -217,7 +243,6 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               <Box>{max}</Box>
             ))}
         </Box>
-
         {hint && (
           <Hint color="dark.400" mt={0}>
             {hint}

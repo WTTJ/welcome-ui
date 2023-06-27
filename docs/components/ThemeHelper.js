@@ -8,7 +8,7 @@ import { useThemeContext } from '../context/theme'
 
 import { ThemeConfiguration } from './ThemeConfiguration'
 
-const KEY_CODE_HELP = 'KeyI'
+const KEY_CODE_HELP = 'KeyB'
 
 export const ThemeHelper = ({ modalState }) => {
   const currentTheme = useThemeContext()
@@ -24,7 +24,7 @@ export const ThemeHelper = ({ modalState }) => {
     setHasBeenHydrated(true)
 
     const onKeyboardEvent = event => {
-      if (event.metaKey && event.code === KEY_CODE_HELP) modal.show()
+      if (event.metaKey && event.code === KEY_CODE_HELP) modalState.show()
     }
 
     window.addEventListener('keydown', onKeyboardEvent)

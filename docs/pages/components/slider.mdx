@@ -19,16 +19,18 @@ import {
 
 ```jsx
 function () {
-  const [value, setValue] = React.useState(null)
+  const [value, setValue] = React.useState(50)
 
   const handleChange = (newValue) => {
     setValue(newValue)
+    // console.debug('debbie handleChange', {value, newValue})
+    console.debug('debbie handleChange')
   }
 
   return (
     <Stack spacing='xl'>
-      <Slider min={0} max={100} value={50} onChange={handleChange} />
-      <Slider.Range min={0} max={100} value={{min: 25, max: 75}} onChange={value => console.log(value)} />
+      <Slider min={0} max={100} value={value} onChange={handleChange} hint='123' type="right-field" />
+      {/*<Slider.Range min={0} max={100} value={{min: 25, max: 75}} onChange={value => console.log(value)} /> */}
     </Stack>
     )
 }
