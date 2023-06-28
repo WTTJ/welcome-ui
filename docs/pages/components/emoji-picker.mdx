@@ -65,14 +65,14 @@ function Default() {
 
 ## Tabs
 
-`<EmojiPicker />` can take multiple children that have to be instances of `<EmojiPicker.Tab />`. They have a `name` prop which will be used for the content of the tab, their children will be the wrapped in `< Tab.Panel />`. `<EmojiPicker />` also takes a `defaultTabState` prop that will be passed to `useTabState`, it can be useful to choose a default tab for instance.
+`<EmojiPicker />` can take multiple children that have to be instances of `<EmojiPicker.Tab />`. They have a `name` prop which will be used for the content of the tab, their children will be the wrapped in `< Tab.Panel />`. `<EmojiPicker />` also takes a `defaultTabStore` prop that will be passed to `useTab`, it can be useful to choose a default tab for instance.
 
 ```jsx
 function Tabs() {
   const store = useEmojiPicker()
   const [emoji, setEmoji] = React.useState()
-  const defaultTabState = {
-    selectedId: 'Second tab',
+  const defaultTabStore = {
+    defaultSelectedId: 'Second tab',
   }
 
   return (
@@ -84,7 +84,7 @@ function Tabs() {
       <EmojiPicker
         onChange={setEmoji}
         value={emoji}
-        defaultTabState={defaultTabState}
+        defaultTabStore={defaultTabStore}
         store={store}
       >
         <EmojiPicker.Tab name="First tab">

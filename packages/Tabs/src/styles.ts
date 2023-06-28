@@ -1,7 +1,7 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { TabStateReturn } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 
-import { ActiveBarStateReturn } from './ActiveBar'
+import { ActiveBarReturn } from './ActiveBar'
 import { SizeOptions } from './TabList'
 
 export const TabList = styled.div<{ size: SizeOptions }>(
@@ -69,7 +69,7 @@ export const Tab = styled.button`
   }
 `
 
-export const TabPanel = styled.div<Pick<TabStateReturn, 'orientation'>>(
+export const TabPanel = styled.div<Pick<Ariakit.TabStoreState, 'orientation'>>(
   ({ orientation }) => css`
     ${orientation === 'vertical' ? th('tabs.panel.vertical') : th('tabs.panel.horizontal')};
   `
@@ -91,7 +91,7 @@ const activeBarVerticalStyles = ({ offset = 0, size = 0 }) => css`
   transform: translateY(${offset}px);
 `
 
-export const ActiveBar = styled.span<ActiveBarStateReturn>(
+export const ActiveBar = styled.span<ActiveBarReturn>(
   ({ orientation, ...rest }) => css`
     position: absolute;
     ${orientation === 'vertical' ? activeBarVerticalStyles(rest) : activeBarHorizontalStyles(rest)}

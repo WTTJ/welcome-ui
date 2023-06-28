@@ -1,6 +1,6 @@
 import { Box } from '@welcome-ui/box'
 import { Modal } from '@welcome-ui/modal'
-import { Tab, useTabState } from '@welcome-ui/tabs'
+import { Tab, useTab } from '@welcome-ui/tabs'
 import { Text } from '@welcome-ui/text'
 import { useEffect, useState } from 'react'
 
@@ -13,7 +13,7 @@ const KEY_CODE_HELP = 'KeyI'
 export const ThemeHelper = ({ modalState }) => {
   const currentTheme = useThemeContext()
   const [hasBeenHydrated, setHasBeenHydrated] = useState(false)
-  const tabState = useTabState({ orientation: 'vertical' })
+  const tab = useTab({ orientation: 'vertical' })
 
   const categories = ['colors', 'space', 'screens', 'fontSizes', 'fontWeights']
   const [defaultTab] = categories
@@ -33,7 +33,7 @@ export const ThemeHelper = ({ modalState }) => {
   }, [])
 
   useEffect(() => {
-    tabState.select(defaultTab)
+    tab.select(defaultTab)
   }, [currentTheme])
 
   return (
@@ -44,16 +44,16 @@ export const ThemeHelper = ({ modalState }) => {
             <Modal.Header subtitle="Documentation for the core theme entries" title={title} />
             <Modal.Body mt="xl">
               <Box display="flex">
-                <Tab.List aria-label="Tabs" mr="lg" state={tabState} w={200}>
+                <Tab.List aria-label="Tabs" mr="lg" store={tab} w={200}>
                   {categories.map(category => (
-                    <Tab id={category} key={category} state={tabState}>
+                    <Tab id={category} key={category} store={tab}>
                       {category}
                     </Tab>
                   ))}
                 </Tab.List>
 
                 {categories.map(category => (
-                  <Tab.Panel key={category} state={tabState} tabId={category}>
+                  <Tab.Panel key={category} store={tab} tabId={category}>
                     <Box
                       columnGap={16}
                       display="grid"

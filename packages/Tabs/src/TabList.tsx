@@ -1,5 +1,5 @@
 import React, { cloneElement, useRef, useState } from 'react'
-import { TabList as ReakitTabList, TabStateReturn } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 import reactFlattenChildren from 'react-flatten-children'
 import { useForkRef } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -13,13 +13,13 @@ import * as S from './styles'
 const flattenChildren = reactFlattenChildren.default || reactFlattenChildren
 
 function useTrackActiveTabs(
-  state: Pick<TabStateReturn, 'selectedId'>,
+  selectedId: Ariakit.TabStoreState['selectedId'],
   children: React.ReactNode
 ): [ReturnType<typeof flattenChildren>, HTMLElement] {
   const [activeTab, setActiveTab] = useState<HTMLElement>(null)
 
   const tabs = flattenChildren(children).map((child: React.ReactElement) => {
-    if (child.props.id === state.selectedId) {
+    if (child.props.id === selectedId) {
       return cloneElement(child, { ref: setActiveTab })
     }
     return child
@@ -32,7 +32,7 @@ export interface SizeOptions {
 }
 
 export type TabListOptions = SizeOptions & {
-  state: Pick<TabStateReturn, 'orientation' | 'selectedId'>
+  store: Ariakit.TabStore
 }
 export type TabListProps = CreateWuiProps<'div', TabListOptions>
 
@@ -40,18 +40,18 @@ export type TabListProps = CreateWuiProps<'div', TabListOptions>
  * @name Tabs.TabList
  */
 export const TabList = forwardRef<'div', TabListProps>(
-  ({ as, children, size = 'md', state = {}, ...rest }, ref) => {
+  ({ as, children, size = 'md', store, ...rest }, ref) => {
     const listRef = useRef()
     const listForkedRef = useForkRef(ref, listRef)
-    const { orientation } = state
-    const [tabs, activeTab] = useTrackActiveTabs({ selectedId: state.selectedId }, children)
+    const { orientation, selectedId } = store.useState()
+    const [tabs, activeTab] = useTrackActiveTabs(selectedId, children)
 
     return (
-      <ReakitTabList
+      <Ariakit.TabList
         as={undefined}
         orientation={orientation}
         ref={listForkedRef}
-        {...state}
+        store={store}
         {...rest}
       >
         {tabListProps => (
@@ -62,7 +62,7 @@ export const TabList = forwardRef<'div', TabListProps>(
             )}
           </S.TabList>
         )}
-      </ReakitTabList>
+      </Ariakit.TabList>
     )
   }
 )

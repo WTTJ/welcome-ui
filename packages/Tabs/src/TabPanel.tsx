@@ -1,25 +1,27 @@
 import React from 'react'
-import { TabPanel as ReakitTabPanel, TabStateReturn } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type TabPanelOptions = { state: TabStateReturn }
-export type TabPanelProps = CreateWuiProps<typeof ReakitTabPanel, TabPanelOptions>
+export type TabPanelOptions = { store: Ariakit.TabStore }
+export type TabPanelProps = CreateWuiProps<typeof Ariakit.TabPanel, TabPanelOptions>
 
 /**
  * @name Tabs.TabPanel
  */
 export const TabPanel = forwardRef<'div', TabPanelProps>(
-  ({ as, children, state, tabId, ...rest }, ref) => {
+  ({ as, children, store, tabId, ...rest }, ref) => {
+    const orientation = store.useState('orientation')
+
     return (
-      <ReakitTabPanel as={undefined} ref={ref} tabId={tabId} {...state} {...rest}>
+      <Ariakit.TabPanel as={undefined} ref={ref} store={store} tabId={tabId} {...rest}>
         {tabPanelProps => (
-          <S.TabPanel as={as} orientation={state?.orientation} {...tabPanelProps}>
+          <S.TabPanel as={as} orientation={orientation} {...tabPanelProps}>
             {children}
           </S.TabPanel>
         )}
-      </ReakitTabPanel>
+      </Ariakit.TabPanel>
     )
   }
 )

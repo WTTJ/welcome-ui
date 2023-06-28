@@ -1,9 +1,8 @@
 import React, { Children, cloneElement, useCallback, useMemo } from 'react'
-import { useTabState } from '@welcome-ui/tabs'
+import { Tab, useTab } from '@welcome-ui/tabs'
 import { Popover, usePopover, UsePopoverOptions, UsePopoverReturn } from '@welcome-ui/popover'
-import { Tab } from '@welcome-ui/tabs'
-import { TabInitialState } from 'reakit'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import * as Ariakit from '@ariakit/react'
 
 import * as S from './styles'
 import { List } from './List'
@@ -12,7 +11,7 @@ import { BasicList } from './BasicList'
 import { EmojiTab, EmojiTabProps } from './Tab'
 
 export interface EmojiPickerOptions {
-  defaultTabState?: TabInitialState
+  defaultTabStore?: Ariakit.TabStoreProps
   emptyList?: string
   inputSearchPlaceholder?: string
   onChange?: (value: string) => void
@@ -28,7 +27,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
   (
     {
       children,
-      defaultTabState = {},
+      defaultTabStore = {},
       emptyList = 'No emojis found for your query 😔',
       inputSearchPlaceholder = 'Search an emoji',
       onChange,
@@ -39,10 +38,12 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
     },
     ref
   ) => {
-    const tabState = useTabState(defaultTabState)
+    const tab = useTab(defaultTabStore)
 
     const hidePopover = useMemo(() => store.hide, [store.hide])
     const isOpen = store.useState('open')
+    const tabSelectedId = tab.useState('selectedId')
+
     const handleChange = useCallback(
       (value: string) => {
         hidePopover()
@@ -80,8 +81,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
               content: cloneElement(child, {
                 emptyList,
                 inputSearchPlaceholder,
-                isVisible:
-                  isOpen && (!tabState.selectedId || tabState.selectedId === tab.props.name),
+                isVisible: isOpen && (!tabSelectedId || tabSelectedId === tab.props.name),
                 onChange: handleChange,
                 value,
                 ...child.props,
@@ -94,15 +94,7 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
             content: tab.props.children,
           }
         })
-    }, [
-      children,
-      emptyList,
-      handleChange,
-      inputSearchPlaceholder,
-      isOpen,
-      tabState.selectedId,
-      value,
-    ])
+    }, [children, emptyList, handleChange, inputSearchPlaceholder, isOpen, tabSelectedId, value])
     const hasTabs = tabs.length > 1
     const onlyTabContent = tabs[0].content
 
@@ -110,16 +102,16 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
       <S.Popover aria-label={popoverAriaLabel} ref={ref} store={store}>
         {hasTabs && (
           <>
-            <S.TabList aria-label={tabListAriaLabel} state={tabState}>
-              {tabs.map(tab => (
-                <Tab id={tab.name} key={tab.name} state={tabState}>
-                  {tab.name}
+            <S.TabList aria-label={tabListAriaLabel} store={tab}>
+              {tabs.map(item => (
+                <Tab id={item.name} key={item.name} store={tab}>
+                  {item.name}
                 </Tab>
               ))}
             </S.TabList>
-            {tabs.map(tab => (
-              <Tab.Panel key={tab.name} state={tabState} tabId={tab.name}>
-                <Panel>{tab.content}</Panel>
+            {tabs.map(item => (
+              <Tab.Panel key={item.name} store={tab} tabId={item.name}>
+                <Panel>{item.content}</Panel>
               </Tab.Panel>
             ))}
           </>
