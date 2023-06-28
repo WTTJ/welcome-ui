@@ -10,6 +10,7 @@ import {
 } from '@xstyled/styled-components'
 import * as S from '@xstyled/styled-components'
 import { StyledConfig } from 'styled-components'
+import { HTMLStyledProps } from '@welcome-ui/panda/jsx'
 
 // Those are styles that were in v1 but not in v2
 const oldProps = compose(
@@ -158,3 +159,15 @@ export const forwardRef = <Component extends As, Props = {}>(
 }
 
 export type ExtraSize = number | string
+
+// panda
+export type PandaStyledComponent<Component extends React.ElementType, Props = object> = (
+  props: Omit<HTMLStyledProps<Component>, keyof Props> & Props
+) => JSX.Element
+
+export const forwardRefPanda = <Component extends React.ElementType, Props = object>(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  component: React.ForwardRefRenderFunction<any, Props>
+): PandaStyledComponent<Component, Props> => {
+  return React.forwardRef(component) as unknown as PandaStyledComponent<Component, Props>
+}

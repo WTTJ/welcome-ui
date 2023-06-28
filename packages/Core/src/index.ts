@@ -10,4 +10,4 @@ export * from './WuiProvider'
 // export WuiTheme and all ThemeProps
 export * from './theme/types'
 
-export { preset } from './preset'
+export { preset, defaultPreset, formatTokens } from './preset'

@@ -1,4 +1,5 @@
-import { WuiTheme } from '@welcome-ui/core'
+import { definePreset } from '@pandacss/dev'
+import { defaultPreset, formatTokens, WuiTheme } from '@welcome-ui/core'
 
 type RecursivePartial<T> = {
   [P in keyof T]?: T[P] | RecursivePartial<T[P]>
@@ -52,3 +53,12 @@ export const welcomeTheme: RecursivePartial<WuiTheme> = {
     md: 'none',
   },
 }
+
+export const welcomePreset = definePreset({
+  theme: {
+    tokens: {
+      colors: { ...defaultPreset.colors, ...formatTokens(colors) },
+      spacing: defaultPreset.spacing,
+    },
+  },
+})
