@@ -4,12 +4,13 @@ import { colors } from './theme/colors'
 import { space } from './theme/space'
 
 // transform { primary: 'tomato' } to { primary: { value: 'tomato' }}
-const formatTokens = (object: Record<string, string>) => {
+export const formatTokens = (object: Record<string, string>) => {
   return Object.keys(object).reduce((acc: Record<string, { value: string }>, key) => {
-    acc[key] = { value: colors[key as keyof typeof colors] }
+    acc[key] = { value: object[key] }
     return acc
   }, {})
 }
+
 export const preset = definePreset({
   theme: {
     tokens: {
@@ -18,3 +19,5 @@ export const preset = definePreset({
     },
   },
 })
+
+export const defaultPreset = { colors: formatTokens(colors), spacing: formatTokens(space) }

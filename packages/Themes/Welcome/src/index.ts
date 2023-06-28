@@ -1,1 +1,1 @@
-export { welcomeTheme } from './theme'
+export { welcomeTheme, welcomePreset } from './theme'
