@@ -23,8 +23,8 @@ Built with [Ariakit](https://ariakit.org/components/disclosure) for a better acc
 
 ```jsx
 function () {
-  const store = useAccordionStore()
-  const store2 = useAccordionStore()
+  const store = useAccordion()
+  const store2 = useAccordion()
 
   return (
     <>
@@ -53,11 +53,11 @@ function () {
 
 ## Open at start
 
-Add `defaultOpen` options on `useAccordionStore` to open at start the accordion
+Add `defaultOpen` options on `useAccordion` to open at start the accordion
 
 ```jsx
 function () {
-  const store = useAccordionStore({ defaultOpen: true })
+  const store = useAccordion({ defaultOpen: true })
 
   return (
     <Accordion store={store} title="Accordion title">
@@ -77,7 +77,7 @@ Note that the custom icon's size property will be set to small
 
 ```jsx
 function () {
-  const store = useAccordionStore()
+  const store = useAccordion()
 
   return (
     <Accordion store={store} title="Accordion title" icon={<PlayIcon />}>

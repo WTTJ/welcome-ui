@@ -2,13 +2,13 @@ import React from 'react'
 import { fireEvent, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
-import { Popover, usePopoverStore } from '../src'
+import { Popover, usePopover } from '../src'
 
 const contentText = 'Popover open'
 const buttonText = 'open'
 
 const PopoverWrapper = () => {
-  const store = usePopoverStore()
+  const store = usePopover()
 
   return (
     <>

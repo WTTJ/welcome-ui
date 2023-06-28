@@ -6,12 +6,12 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 import { Trigger } from './Trigger'
-import { UsePopoverStoreReturn } from './usePopoverStore'
+import { UsePopoverReturn } from './usePopover'
 
 export interface PopoverOptions {
   /** call a function when popover closed */
   onClose?: () => void
-  store: UsePopoverStoreReturn
+  store: UsePopoverReturn
 }
 
 export type PopoverProps = CreateWuiProps<'div', PopoverOptions>
@@ -73,4 +73,4 @@ export const Popover = Object.assign(PopoverComponent, {
   Trigger: Trigger,
 })
 
-export * from './usePopoverStore'
+export * from './usePopover'

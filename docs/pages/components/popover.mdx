@@ -22,11 +22,11 @@ Popover from [Ariakit](https://ariakit.org/components/popover) with a really nic
 
 ## Usage
 
-Use `usePopoverStore`, `Popover`, `Popover.Content` and `Popover.Trigger` to create a simple Popover.
+Use `usePopover`, `Popover`, `Popover.Content` and `Popover.Trigger` to create a simple Popover.
 
 ```jsx
 function() {
-  const store = usePopoverStore()
+  const store = usePopover()
 
   return (
     <>
@@ -50,7 +50,7 @@ Use `Popover.Title` props to create a predefined title block.
 
 ```jsx
 function() {
-  const store = usePopoverStore({ placement: 'top' })
+  const store = usePopover({ placement: 'top' })
 
   return (
     <>
@@ -75,7 +75,7 @@ function() {
 
 ```jsx
 function() {
-  const store = usePopoverStore({ withCloseButton: true })
+  const store = usePopover({ withCloseButton: true })
 
   return (
     <>
@@ -97,11 +97,11 @@ function() {
 
 ## Hover to open
 
-Use `triggerMethod: 'hover'` on `usePopoverStore` to open and close the popover by hovering it.
+Use `triggerMethod: 'hover'` on `usePopover` to open and close the popover by hovering it.
 
 ```jsx
 function() {
-  const store = usePopoverStore({ triggerMethod: 'hover' })
+  const store = usePopover({ triggerMethod: 'hover' })
 
   return (
     <>
@@ -121,13 +121,13 @@ function() {
 }
 ```
 
-## usePopoverStore
+## usePopover
 
-We use `usePopoverStore` from [Ariakit Popover](https://ariakit.org/components/popover) for the state of the popover.
+We use `usePopover` from [Ariakit Popover](https://ariakit.org/components/popover) for the state of the popover.
 
-Pass options to `usePopoverStore` :
+Pass options to `usePopover` :
 
-- `defaultOpen`: e.g. `const store = usePopoverStore({ defaultOpen: true })`
+- `defaultOpen`: e.g. `const store = usePopover({ defaultOpen: true })`
 - `triggerMethod` : `click` or `hover`
 - `withCloseButton` : `bool`, show/hide cross to close popover
 

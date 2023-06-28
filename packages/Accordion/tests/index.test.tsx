@@ -2,7 +2,7 @@ import React from 'react'
 import { fireEvent, screen } from '@testing-library/react'
 
 import { render, renderHook } from '../../../utils/tests'
-import { Accordion, useAccordionStore } from '../src'
+import { Accordion, useAccordion } from '../src'
 
 const content = 'content'
 const title = 'title'
@@ -11,7 +11,7 @@ describe('<Accordion />', () => {
   it('should have correct attribute on click on element', () => {
     const {
       result: { current: store },
-    } = renderHook(() => useAccordionStore())
+    } = renderHook(() => useAccordion())
 
     render(
       <Accordion dataTestId="accordion" store={store} title={title}>
@@ -36,7 +36,7 @@ describe('<Accordion />', () => {
   it('should have correct attribute on open at start', () => {
     const {
       result: { current: store },
-    } = renderHook(() => useAccordionStore({ defaultOpen: true }))
+    } = renderHook(() => useAccordion({ defaultOpen: true }))
 
     render(
       <Accordion dataTestId="accordion" store={store} title={title}>

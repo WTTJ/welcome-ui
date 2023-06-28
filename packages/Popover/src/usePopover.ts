@@ -1,15 +1,15 @@
 import { useCallback, useRef } from 'react'
 import * as Ariakit from '@ariakit/react'
 
-export interface UsePopoverStoreOptions extends Ariakit.PopoverStoreProps {
+export interface UsePopoverOptions extends Ariakit.PopoverStoreProps {
   hideTimeout?: number
   showTimeout?: number
   triggerMethod?: 'hover' | 'click'
   withCloseButton?: boolean
 }
 
-export type UsePopoverStoreReturn = Ariakit.PopoverStore &
-  Pick<UsePopoverStoreOptions, 'triggerMethod' | 'withCloseButton'> & {
+export type UsePopoverReturn = Ariakit.PopoverStore &
+  Pick<UsePopoverOptions, 'triggerMethod' | 'withCloseButton'> & {
     /**
      * Custom hide function who call ariakit hide after a timeout if is hoverable, or not
      **/
@@ -20,7 +20,7 @@ export type UsePopoverStoreReturn = Ariakit.PopoverStore &
     show: () => void
   }
 
-export const usePopoverStore: (props?: UsePopoverStoreOptions) => UsePopoverStoreReturn = ({
+export const usePopover: (props?: UsePopoverOptions) => UsePopoverReturn = ({
   animated = 150,
   hideTimeout = 300,
   showTimeout = 500,

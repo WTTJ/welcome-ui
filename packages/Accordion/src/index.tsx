@@ -10,7 +10,7 @@ export interface AccordionOptions {
   title: string | JSX.Element
   icon?: JSX.Element
   /**
-   * store from useAccordionStore()
+   * store from useAccordion()
    */
   store: Ariakit.DisclosureStore
 }
@@ -41,8 +41,8 @@ export const Accordion = forwardRef<'div', AccordionProps>(
   }
 )
 
-export function useAccordionStore(options?: Ariakit.DisclosureStoreProps): Ariakit.DisclosureStore {
-  const disclosureStore = Ariakit.useDisclosureStore({ ...options, animated: true })
+export function useAccordion(options?: Ariakit.DisclosureStoreProps): Ariakit.DisclosureStore {
+  const accordion = Ariakit.useDisclosureStore({ ...options, animated: true })
 
-  return disclosureStore
+  return accordion
 }

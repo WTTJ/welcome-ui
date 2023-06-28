@@ -1,11 +1,6 @@
 import React, { Children, cloneElement, useCallback, useMemo } from 'react'
 import { useTabState } from '@welcome-ui/tabs'
-import {
-  Popover,
-  usePopoverStore,
-  UsePopoverStoreOptions,
-  UsePopoverStoreReturn,
-} from '@welcome-ui/popover'
+import { Popover, usePopover, UsePopoverOptions, UsePopoverReturn } from '@welcome-ui/popover'
 import { Tab } from '@welcome-ui/tabs'
 import { TabInitialState } from 'reakit'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -24,7 +19,7 @@ export interface EmojiPickerOptions {
   popoverAriaLabel?: string
   tabListAriaLabel?: string
   value: string | null
-  store: UsePopoverStoreReturn
+  store: UsePopoverReturn
 }
 
 export type EmojiPickerProps = CreateWuiProps<'div', EmojiPickerOptions>
@@ -137,8 +132,8 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
 
 EmojiPickerComponent.displayName = 'EmojiPicker'
 
-export function useEmojiPicker(options?: UsePopoverStoreOptions): UsePopoverStoreReturn {
-  return usePopoverStore({
+export function useEmojiPicker(options?: UsePopoverOptions): UsePopoverReturn {
+  return usePopover({
     placement: 'bottom-start',
     ...options,
   })
