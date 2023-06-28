@@ -92,7 +92,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   fontFaces: ThemeFontFaces
   fontsUrl: ThemeFontsUrl
   fontSizes: ThemeFontSizes
-  defaultLineHeight: number
+  defaultLineHeight: string
   defaultLetterSpacing: string
   lineHeights: ThemeLineHeights
   fontWeights: ThemeFontWeights
