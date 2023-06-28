@@ -46,7 +46,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
     "react-live": "^3.1.2",
-    "styled-components": "^5.3.9",
+    "styled-components": "^6.0.0",
     "yup": "1.2.0"
   }
 }

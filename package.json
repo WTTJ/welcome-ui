@@ -129,14 +129,14 @@
     "react-router-dom": "6.13.0",
     "rimraf": "^4.1.1",
     "standard-version": "9.5.0",
-    "styled-components": "^5.3.9",
+    "styled-components": "^6.0.0",
     "svgo": "^3.0.1",
     "typescript": "5.0.2",
     "wttj-config": "^2.5.1",
     "yargs": "^17.7.2"
   },
   "resolutions": {
-    "styled-components": "5.3.9",
+    "styled-components": "6.0.0",
     "loader-utils": "2.0.3"
   },
   "homepage": "https://welcome-ui.com"
