@@ -131,7 +131,7 @@
     "standard-version": "9.5.0",
     "styled-components": "^5.3.9",
     "svgo": "^3.0.1",
-    "typescript": "5.0.2",
+    "typescript": "5.1.5",
     "wttj-config": "^2.5.1",
     "yargs": "^17.7.2"
   },
