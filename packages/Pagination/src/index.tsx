@@ -1,5 +1,4 @@
 import React, { useCallback, useRef } from 'react'
-import { Rover, RoverInitialState, useRoverState } from 'reakit'
 import { LeftIcon, RightIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
@@ -8,14 +7,13 @@ import * as S from './styles'
 
 export interface PaginationOptions {
   'aria-label': string
-  getHref?: (page: string | number) => string
+  getHref: (page: string | number) => string
   leftArrow?: React.ReactElement
   onChange: (page: string | number) => void
   page: number
   pageCount: number
   rangeDisplay?: number
   rightArrow?: React.ReactElement
-  baseId?: RoverInitialState['baseId']
 }
 
 export type PaginationProps = CreateWuiProps<'ul', PaginationOptions>
@@ -24,7 +22,6 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
   (
     {
       'aria-label': ariaLabel,
-      baseId,
       dataTestId,
       getHref,
       leftArrow,
@@ -37,10 +34,12 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
     },
     ref
   ) => {
-    const rover = useRoverState({ baseId })
     const pages = usePages({ page, pageCount, rangeDisplay })
-    const firstPageRef = useRef<HTMLButtonElement>(null)
-    const lastPageRef = useRef<HTMLButtonElement>(null)
+    const firstPageRef = useRef<HTMLAnchorElement>(null)
+    const lastPageRef = useRef<HTMLAnchorElement>(null)
+    const isPrevButtonDisabled = page === 1
+    const isNextButtonDisabled = page === pageCount
+
     const handlePrevious = useCallback(
       (event: React.MouseEvent) => {
         event.preventDefault()
@@ -52,6 +51,7 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
       },
       [page, onChange]
     )
+
     const handleNext = useCallback(
       (event: React.MouseEvent) => {
         event.preventDefault()
@@ -74,18 +74,15 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
       >
         <S.List>
           <S.Item>
-            <Rover as={undefined} disabled={page === 1} {...rover}>
-              {roverProps => (
-                <S.ArrowLink
-                  {...roverProps}
-                  href={getHref && getHref(page - 1)}
-                  isDisabled={page === 1}
-                  onClick={handlePrevious}
-                >
-                  {leftArrow || <LeftIcon size="sm" />}
-                </S.ArrowLink>
-              )}
-            </Rover>
+            <S.ArrowLink
+              aria-disabled={isPrevButtonDisabled}
+              data-testid={dataTestId ? `${dataTestId}-arrow-prev` : undefined}
+              href={getHref(isPrevButtonDisabled ? page : page - 1)}
+              onClick={!isPrevButtonDisabled ? handlePrevious : undefined}
+              ref={firstPageRef}
+            >
+              {leftArrow || <LeftIcon size="sm" />}
+            </S.ArrowLink>
           </S.Item>
           {pages.map((iPage: string | number, i: number) =>
             iPage === '-' ? (
@@ -95,41 +92,30 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
               </S.Item>
             ) : (
               <S.Item key={iPage}>
-                <Rover
-                  as={undefined}
-                  ref={iPage === 1 ? firstPageRef : iPage === pageCount ? lastPageRef : null}
-                  {...rover}
+                <S.PageLink
+                  aria-current={iPage === page}
+                  data-testid={dataTestId ? `${dataTestId}-${iPage}` : undefined}
+                  href={getHref ? getHref(iPage) : ''}
+                  onClick={event => {
+                    event.preventDefault()
+                    onChange(iPage)
+                  }}
                 >
-                  {roverProps => (
-                    <S.PageLink
-                      {...roverProps}
-                      aria-current={iPage === page}
-                      href={getHref && getHref(iPage)}
-                      onClick={event => {
-                        event.preventDefault()
-                        onChange(iPage)
-                      }}
-                    >
-                      {iPage}
-                    </S.PageLink>
-                  )}
-                </Rover>
+                  {iPage}
+                </S.PageLink>
               </S.Item>
             )
           )}
           <S.Item>
-            <Rover as={undefined} disabled={page === pageCount} {...rover}>
-              {roverProps => (
-                <S.ArrowLink
-                  {...roverProps}
-                  href={getHref && getHref(page + 1)}
-                  isDisabled={page === pageCount}
-                  onClick={handleNext}
-                >
-                  {rightArrow || <RightIcon size="sm" />}
-                </S.ArrowLink>
-              )}
-            </Rover>
+            <S.ArrowLink
+              aria-disabled={isNextButtonDisabled}
+              data-testid={dataTestId ? `${dataTestId}-arrow-next` : undefined}
+              href={getHref(isNextButtonDisabled ? page : page + 1)}
+              onClick={!isNextButtonDisabled ? handleNext : undefined}
+              ref={lastPageRef}
+            >
+              {rightArrow || <RightIcon size="sm" />}
+            </S.ArrowLink>
           </S.Item>
         </S.List>
       </S.Pagination>
