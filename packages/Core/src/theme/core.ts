@@ -89,7 +89,7 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
   // fonts
   theme.fontFaces = fontFaces
   theme.fontSizes = getFontSizes('rem', theme)
-  theme.defaultLineHeight = defaultLineHeight as number
+  theme.defaultLineHeight = defaultLineHeight.toString()
   theme.defaultLetterSpacing = defaultLetterSpacing as string
   theme.lineHeights = getLineHeights(theme)
   theme.fontWeights = fontWeights

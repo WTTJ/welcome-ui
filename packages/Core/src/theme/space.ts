@@ -33,7 +33,3 @@ export const getSpace = (theme: WuiTheme): ThemeSpace => {
     '7xl': theme.toRem(192),
   }
 }
-
-// todo fixme
-const DEFAULT_FONT_SIZE = 16
-export const space = getSpace({ toRem: px => `${px / DEFAULT_FONT_SIZE}rem` } as WuiTheme)
