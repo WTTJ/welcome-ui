@@ -18,7 +18,7 @@ import { Avatar } from '@welcome-ui/avatar'
 import { Badge } from '@welcome-ui/badge'
 import { Box } from '@welcome-ui/box'
 import { Breadcrumb } from '@welcome-ui/breadcrumb'
-import { Button } from '@welcome-ui/button'
+import { Button, ButtonPanda } from '@welcome-ui/button'
 import { ButtonGroup } from '@welcome-ui/button-group'
 import { Card } from '@welcome-ui/card'
 import { Checkbox } from '@welcome-ui/checkbox'
@@ -129,6 +129,7 @@ export const Code = ({
       Box,
       Breadcrumb,
       Button,
+      ButtonPanda,
       ButtonGroup,
       Card,
       Checkbox,

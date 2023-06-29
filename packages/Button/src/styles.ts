@@ -79,7 +79,7 @@ export const Button = styled(ReakitButton).withConfig({ shouldForwardProp })<But
   `
 )
 
-export const ButtonPanda = pandaStyled('button', {
+export const ButtonPanda = pandaStyled(ReakitButton, {
   base: {
     fontSize: 'sm',
     color: 'light-900',
