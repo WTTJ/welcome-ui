@@ -3,6 +3,7 @@ import { TextStyles, Token } from '@pandacss/types'
 
 import { colors } from './theme/colors'
 import { getSpace } from './theme/space'
+import { radii } from './theme/radii'
 import {
   fontWeights,
   getFonts,
@@ -57,6 +58,12 @@ export const textStyles = defineTextStyles(
 export const tokens = defineTokens({
   colors: formatTokens(colors),
   spacing: formatTokens(spacing),
+  radii: formatTokens(radii),
+  borders: formatTokens({
+    sm: '1px solid',
+    md: '2px solid',
+    lg: '3px solid',
+  }),
   fonts: formatTokens({
     h0: fonts.headings,
     h1: fonts.headings,
@@ -71,6 +78,16 @@ export const tokens = defineTokens({
   fontSizes: formatTokens(fontSizes),
   fontWeights: formatTokens(fontWeights),
   lineHeights: formatTokens(lineHeights),
+  durations: formatTokens({
+    slow: '500ms',
+    medium: '300ms',
+    fast: '100ms',
+  }),
+  easings: formatTokens({
+    slow: 'ease',
+    medium: 'linear',
+    fast: 'cubic-bezier(0.41, 0.094, 0.54, 0.07)',
+  }),
 })
 
 export const preset = definePreset({
