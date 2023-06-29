@@ -12,14 +12,16 @@
       "require": "./dist/index.js"
     },
     "./package.json": "./package.json",
-    "./dist/index.doc.json": "./dist/index.doc.json"
+    "./dist/index.doc.json": "./dist/index.doc.json",
+    "./dist/index.css.json": "./dist/index.css.json"
   },
   "component": "Button",
   "scripts": {
     "build": "node ../../scripts/build.js",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "doc": "node -r esm ../../scripts/doc-props.js --name Button"
+    "doc": "node -r esm ../../scripts/doc-props.js --name Button",
+    "css": "panda ship --outfile dist/index.css.json ./src/**.ts"
   },
   "publishConfig": {
     "access": "public"
