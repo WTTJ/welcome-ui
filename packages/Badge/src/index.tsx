@@ -61,8 +61,6 @@ export const Badge = forwardRef<'div', BadgeProps>(
 
 Badge.displayName = 'Badge'
 
-// todo generate dist/index.css file
-
 export const BadgePanda = forwardRefPanda<'div', BadgeOptions>(
   (
     {
@@ -78,7 +76,7 @@ export const BadgePanda = forwardRefPanda<'div', BadgeOptions>(
   ) => {
     let text
     const isNumber = Number.isInteger(children)
-    // const textLength = children.toString().length
+    const textLength = children.toString().length
 
     if (isNumber) {
       if (withNumberAbbreviation && (children as number) > 99) {
@@ -93,7 +91,8 @@ export const BadgePanda = forwardRefPanda<'div', BadgeOptions>(
     return (
       <S.BadgePanda
         aria-disabled={disabled}
-        // length={textLength}
+        data-disabled={disabled}
+        data-length={textLength}
         ref={ref}
         shape={shape}
         size={size}
