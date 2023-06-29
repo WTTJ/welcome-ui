@@ -35,11 +35,6 @@ export const Badge = styled.div<StyledBadgeProps & WuiProps>(
   `
 )
 
-// todo fixme
-const DEFAULT_FONT_SIZE = 16
-export const toRem = (px: number) => `${px / DEFAULT_FONT_SIZE}rem`
-
-// todo length, texts styles & disabled attribute
 export const BadgePanda = pandaStyled('div', {
   base: {
     display: 'inline-flex',
@@ -48,14 +43,14 @@ export const BadgePanda = pandaStyled('div', {
     fontSize: 'xs',
     lineHeight: 'xs',
     fontWeight: 'medium',
-    fontFamily: 'subtitle-sm', // doesn't work ?
+    fontFamily: 'subtitle-sm',
   },
   variants: {
     variant: {
       default: {
         color: 'nude-700',
         backgroundColor: 'nude-200',
-        '&:disabled': {
+        _disabled: {
           color: 'nude-400',
           backgroundColor: 'nude-100',
         },
@@ -63,7 +58,7 @@ export const BadgePanda = pandaStyled('div', {
       primary: {
         color: 'dark-900',
         backgroundColor: 'primary-500',
-        '&disabled': {
+        _disabled: {
           color: 'primary-800',
           backgroundColor: 'primary-600',
         },
@@ -72,11 +67,17 @@ export const BadgePanda = pandaStyled('div', {
     size: {
       sm: {
         padding: 'xxs',
-        height: toRem(16),
+        height: 16,
+        '&[data-length="1"]': {
+          width: 16,
+        },
       },
       md: {
         padding: 'xs',
-        height: toRem(20),
+        height: 20,
+        '&[data-length="1"]': {
+          width: 20,
+        },
       },
     },
     shape: {
@@ -84,7 +85,7 @@ export const BadgePanda = pandaStyled('div', {
         borderRadius: 0,
       },
       circle: {
-        borderRadius: toRem(14),
+        borderRadius: 14,
       },
     },
   },

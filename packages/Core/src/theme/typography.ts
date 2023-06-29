@@ -79,12 +79,9 @@ export const getLineHeights = ({ defaultLineHeight, toRem }: WuiTheme): ThemeLin
 }
 
 export const fontWeights = {
-  // regular: 400,
-  // medium: 500,
-  // bold: 600,
-  regular: 'regular',
-  medium: 'medium',
-  bold: 'bold',
+  regular: '400',
+  medium: '500',
+  bold: '600',
 }
 
 export type ThemeFontWeights = typeof fontWeights
