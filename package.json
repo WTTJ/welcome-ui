@@ -34,7 +34,7 @@
     "pre-build": "yarn icons:collect",
     "release": "yarn lerna version --conventional-commits --no-private",
     "start": "yarn docs:dev",
-    "test": "yarn jest packages/* --logHeapUsage",
+    "test": "yarn jest",
     "watch": "onchange 'packages/**/*.ts*' -e '**/dist/**' -- node -r esm scripts/watch.js {{changed}}",
     "webfont:build": "node -r esm scripts/webfont-build.js --force && yarn build:packages --scope @welcome-ui/icons.font",
     "webfont:deploy": "./scripts/webfont-deploy.sh",
