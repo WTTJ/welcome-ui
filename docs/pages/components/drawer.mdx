@@ -115,7 +115,7 @@ function PlacementDrawer() {
         <Field label="Placement" flexDirection="row">
           <RadioGroup
             value={placement}
-            onChange={e => setPlacement(e.target.value)}
+            onChange={setPlacement}
             options={[
               { value: 'top', label: 'Top' },
               { value: 'right', label: 'Right' },
@@ -155,7 +155,7 @@ function SizeDrawer() {
         <Field label="Size" flexDirection="row">
           <RadioGroup
             value={size}
-            onChange={e => setSize(e.target.value)}
+            onChange={setSize}
             options={[
               { value: 'sm', label: 'sm' },
               { value: 'md', label: 'md' },
@@ -176,7 +176,7 @@ function SizeDrawer() {
         <Field label="Placement" flexDirection="row">
           <RadioGroup
             value={placement}
-            onChange={e => setPlacement(e.target.value)}
+            onChange={setPlacement}
             options={[
               { value: 'top', label: 'Top' },
               { value: 'right', label: 'Right' },

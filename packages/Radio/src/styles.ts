@@ -60,6 +60,8 @@ export const Label = styled(WUILabel)<{
     ${withHint && th('radios.withHint.default')};
     max-width: 100%;
     align-items: flex-start;
+    /** we need to reset margin-bottom from Label component */
+    margin-bottom: 0 !important;
     ${system}
   `
 )

@@ -1,7 +1,8 @@
 import React from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { DefaultFieldStylesProps } from '@welcome-ui/utils'
-import { RadioProps } from 'reakit'
+import { Button } from '@welcome-ui/button'
+import * as Ariakit from '@ariakit/react'
 
 import * as S from './styles'
 
@@ -10,59 +11,36 @@ export interface RadioTabsOptions extends DefaultFieldStylesProps {
   disabled?: boolean
   disabledIcon?: React.ReactElement
   label: React.ReactElement
-  onChange?: (event: React.MouseEvent<HTMLLabelElement>) => void
-  onClick?: (event: React.MouseEvent<HTMLLabelElement>) => void
+  onChange?: (event: React.MouseEvent<HTMLInputElement>) => void
+  value: Ariakit.RadioStoreState['value']
 }
 
-export type RadioTabsProps = CreateWuiProps<
-  'input',
-  RadioTabsOptions & Omit<RadioProps, keyof RadioTabsOptions>
->
+export type RadioTabsProps = CreateWuiProps<'input', RadioTabsOptions>
 
-export const RadioTab = forwardRef<'input', RadioTabsProps>((props, ref) => {
-  const {
-    checked,
-    dataTestId,
-    disabled,
-    disabledIcon,
-    flexDirection,
-    label,
-    onChange,
-    onClick,
-    size = 'md',
-    variant,
-    ...radioProps
-  } = props
-
-  const handleClick = (event: React.MouseEvent<HTMLLabelElement>) => {
-    event.stopPropagation()
-    onClick && onClick(event)
-    onChange && onChange(event)
-  }
-
-  return (
-    <S.Label
-      checked={checked}
-      disabled={disabled}
-      disabledIcon={disabledIcon}
-      flexDirection={flexDirection}
-      onClick={handleClick}
-      size={size}
-      variant={variant}
-    >
-      <S.Input>
+export const RadioTab = forwardRef<'input', RadioTabsProps>(
+  ({ checked, dataTestId, disabled, id, label, onChange, value }, ref) => {
+    return (
+      <Button
+        as="label"
+        borderColor={!checked && 'dark-100'}
+        className="label"
+        dataTestId={dataTestId}
+        disabled={disabled}
+        ref={ref}
+        variant={checked ? 'primary' : 'ghost'}
+      >
         <S.Radio
-          data-testid={dataTestId}
+          checked={checked}
+          data-testid={dataTestId ? `${dataTestId}-input` : undefined}
           disabled={disabled}
-          label={label}
-          ref={ref}
-          variant={variant}
-          {...radioProps}
+          id={id}
+          onChange={onChange}
+          value={value}
         />
-      </S.Input>
-      <S.Content>{label}</S.Content>
-    </S.Label>
-  )
-})
+        {label}
+      </Button>
+    )
+  }
+)
 
 RadioTab.displayName = 'RadioTab'

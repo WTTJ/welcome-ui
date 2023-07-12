@@ -21,16 +21,12 @@ import {
 function () {
   const [value, setValue] = React.useState('github')
 
-  const handleChange = event => {
-    setValue(event.target.value)
-  }
-
   return (
     <Field
       label="Label"
       required
     >
-      <RadioGroup name="social-1" options={constants.ITEMS.slice(0, 5)} onChange={handleChange} value={value} />
+      <RadioGroup name="social-1" options={constants.ITEMS.slice(0, 5)} onChange={setValue} value={value} />
     </Field>
   )
 }
@@ -44,17 +40,13 @@ Add flexDirection to `row` to Field to add the inline style for radios group
 function () {
   const [value, setValue] = React.useState('github')
 
-  const handleChange = event => {
-    setValue(event.target.value)
-  }
-
   return (
     <Field
       label="Label"
       required
       flexDirection="row"
     >
-      <RadioGroup name="social-1" options={constants.ITEMS.slice(0, 5)} onChange={handleChange} value={value} />
+      <RadioGroup name="social-1" options={constants.ITEMS.slice(0, 5)} onChange={setValue} value={value} />
     </Field>
   )
 }
@@ -102,10 +94,6 @@ function () {
 function () {
   const [value, setValue] = React.useState(null)
 
-  const handleChange = event => {
-    setValue(event.target.value)
-  }
-
   return (
     <Field flexDirection="row" mb="xl" required>
       <RadioGroup
@@ -123,7 +111,7 @@ function () {
             hint: 'Aenean a tristique turpis, in elementum est.',
           },
         ]}
-        onChange={handleChange}
+        onChange={setValue}
         value={value}
       />
     </Field>

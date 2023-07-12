@@ -1,29 +1,28 @@
 import React from 'react'
-import {
-  RadioGroup as ReakitRadioGroup,
-  RadioGroupOptions as ReakitRadioGroupOptions,
-  useRadioState,
-} from 'reakit'
+import * as Ariakit from '@ariakit/react'
 import { FieldGroup, FieldGroupOptions } from '@welcome-ui/field-group'
 import { Radio } from '@welcome-ui/radio'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
+export type Option = {
+  label: string | number
+  value: string | number
+  hint?: string
+}
+
 export interface RadioGroupOptions {
-  name?: string
-  options?: {
-    label: string | number
-    value: string | number
-    hint?: string
-  }[]
+  name: string
+  options: Option[]
   renderOption?: React.ElementType
   value?: string
+  onChange?: (value: Option['value']) => void
 }
 
 export type RadioGroupProps = CreateWuiProps<
   'fieldset',
-  Omit<FieldGroupOptions, 'children'> & Partial<ReakitRadioGroupOptions> & RadioGroupOptions
+  Omit<FieldGroupOptions, 'children'> & RadioGroupOptions
 >
 
 export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
@@ -36,31 +35,50 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
       options = [],
       renderOption: Component = Radio,
       required,
+      dataTestId,
+      onChange,
       value,
       ...rest
     },
     ref
   ) => {
-    const radio = useRadioState({ currentId: value })
-    const withHint = options.findIndex(obj => Object.keys(obj).includes('hint')) !== -1
+    const store = Ariakit.useRadioStore({ defaultValue: value })
+    const activeValue = store.useState('value')
+
+    const handleChange = (valueSelected: Option['value']) => {
+      if (rest.disabled) return
+
+      store.setValue(valueSelected)
+      onChange?.(valueSelected)
+    }
+
+    const withHint = options.findIndex((obj: Option) => Object.keys(obj).includes('hint')) !== -1
 
     return (
-      <FieldGroup as={ReakitRadioGroup} label={label} mb={0} ref={ref} required={required}>
+      <FieldGroup
+        as={Ariakit.RadioGroup}
+        dataTestId={dataTestId}
+        label={label}
+        mb={0}
+        ref={ref}
+        required={required}
+        store={store}
+      >
         <S.Radios flexDirection={flexDirection}>
-          {options.map(option => (
+          {options.map((option: Option) => (
             <Component
-              {...rest}
-              checked={option.value === value}
+              checked={option.value === activeValue}
+              dataTestId={dataTestId ? `${dataTestId}-${option.value}` : undefined}
               hint={option.hint}
               id={`${name}.${option.value}`}
               key={option.value}
               label={option.label}
               maxWidth={maxWidth}
               name={name}
-              type="radio"
+              onChange={() => handleChange(option.value)}
               value={option.value}
               withHint={withHint}
-              {...radio}
+              {...rest}
             />
           ))}
         </S.Radios>
