@@ -8,6 +8,7 @@ import {
   fontWeights,
   getFonts,
   getFontSizes,
+  getLetterSpacings,
   getLineHeights,
   getTextsFontFamily,
   ThemeFontSizes,
@@ -28,6 +29,7 @@ const HEADING_FONT_FAMILY = 'welcome-font'
 const ICON_FONT_FAMILY = 'welcome-icon-font-2'
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_LINE_HEIGHT = 1.15
+const DEFAULT_LETTER_SPACING = '-0.019rem'
 const toRem = (px: number) => `${px / DEFAULT_FONT_SIZE}rem`
 
 const spacing = getSpace({ toRem: toRem } as WuiTheme)
@@ -38,6 +40,7 @@ const lineHeights = getLineHeights({
   defaultLineHeight: DEFAULT_LINE_HEIGHT.toString(),
   toRem,
 } as WuiTheme)
+const letterSpacings = getLetterSpacings({ defaultLetterSpacing: DEFAULT_LETTER_SPACING, toRem })
 
 export const textStyles = defineTextStyles(
   Object.keys(fontSizes).reduce((styles: TextStyles, key) => {
@@ -78,6 +81,7 @@ export const tokens = defineTokens({
   fontSizes: formatTokens(fontSizes),
   fontWeights: formatTokens(fontWeights),
   lineHeights: formatTokens(lineHeights),
+  letterSpacings: formatTokens(letterSpacings),
   durations: formatTokens({
     slow: '500ms',
     medium: '300ms',
