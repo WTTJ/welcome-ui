@@ -79,6 +79,8 @@ export const Button = styled(AriakitButton).withConfig({ shouldForwardProp })<Bu
   `
 )
 
+// todo use RecipeVariantProps to type variants
+
 export const ButtonPanda = pandaStyled(ReakitButton, {
   base: {
     fontSize: 'sm',
