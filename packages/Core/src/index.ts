@@ -11,3 +11,5 @@ export * from './WuiProvider'
 export * from './theme/types'
 
 export * from './preset'
+export * from './global'
+export * from './fonts.css'

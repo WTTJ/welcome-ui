@@ -53,8 +53,8 @@ export const StyledButton = S.Button
 
 type PandaVariant = Exclude<Variant, 'disabled'>
 type ButtonPandaOptions = Omit<ButtonOptions, 'variant'> & {
-  variant: PandaVariant
-  children: React.ReactNode
+  variant?: PandaVariant
+  children?: React.ReactNode
 }
 
 export const ButtonPanda = forwardRefPanda<'button', ButtonPandaOptions>(
