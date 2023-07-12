@@ -1,5 +1,11 @@
 import { definePreset } from '@pandacss/dev'
-import { tokens as defaultTokens, formatTokens, textStyles, WuiTheme } from '@welcome-ui/core'
+import {
+  breakpoints,
+  tokens as defaultTokens,
+  formatTokens,
+  textStyles,
+  WuiTheme,
+} from '@welcome-ui/core'
 
 type RecursivePartial<T> = {
   [P in keyof T]?: T[P] | RecursivePartial<T[P]>
@@ -61,5 +67,6 @@ export const welcomePreset = definePreset({
       colors: { ...defaultTokens.colors, ...formatTokens(colors) },
     },
     textStyles,
+    breakpoints,
   },
 })

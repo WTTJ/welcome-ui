@@ -15,6 +15,9 @@ import {
   ThemeLineHeights,
 } from './theme/typography'
 import { WuiTheme } from './theme/types'
+import { breakpoints } from './theme/screens'
+
+export { breakpoints } from './theme/screens'
 
 // transform { primary: 'tomato' } to { primary: { value: 'tomato' }}
 export const formatTokens = (object: Record<string, string>) => {
@@ -98,5 +101,6 @@ export const preset = definePreset({
   theme: {
     tokens,
     textStyles,
+    breakpoints,
   },
 })
