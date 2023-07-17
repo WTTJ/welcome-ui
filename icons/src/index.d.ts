@@ -93,6 +93,7 @@ export declare const EmailIcon: React.FC<IconProps>
 export declare const EmailOutlineIcon: React.FC<IconProps>
 export declare const EotIcon: React.FC<IconProps>
 export declare const EqualIcon: React.FC<IconProps>
+export declare const EuroCurrencyIcon: React.FC<IconProps>
 export declare const ExpandIcon: React.FC<IconProps>
 export declare const ExpandTextIcon: React.FC<IconProps>
 export declare const ExternalLinkIcon: React.FC<IconProps>
