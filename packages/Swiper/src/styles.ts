@@ -24,17 +24,23 @@ export const Swiper = styled.div<CreateWuiProps<'div'>>`
   ${system}
 `
 
-export const Arrow = styled(Button)<{ disabled: boolean } & Pick<SwiperState, 'withNavigation'>>(
-  ({ disabled, withNavigation: { desktop, mobile } }) => css`
+export const Arrow = styled(Button)<
+  { disabled: boolean } & Pick<SwiperState, 'withNavigation' | 'withDarkUI'>
+>(
+  ({ disabled, withDarkUI, withNavigation: { desktop, mobile } }) => css`
     top: 50%;
     transform: translate3d(0, -50%, 0);
     z-index: ${mobile ? 1 : -1};
     display: ${mobile ? 'flex' : 'none'};
-    background-color: light-900;
 
-    &:hover {
-      background-color: light-700;
-    }
+    ${!withDarkUI &&
+    css`
+      background-color: light-900;
+
+      &:hover {
+        background-color: light-700;
+      }
+    `}
 
     @media (min-width: md) {
       z-index: ${desktop ? 1 : -1};
@@ -67,15 +73,15 @@ export const Pagination = styled.div<Pick<SwiperState, 'withPagination'>>(
   `
 )
 
-export const Bullet = styled.div<{ active: boolean } & Pick<SwiperState, 'withDarkPagination'>>(
-  ({ active, withDarkPagination }) => css`
+export const Bullet = styled.div<{ active: boolean } & Pick<SwiperState, 'withDarkUI'>>(
+  ({ active, withDarkUI }) => css`
     height: 10;
     width: 10;
     border-radius: 50%;
     cursor: pointer;
     margin: 0 xxs;
     ${active ? th('swipers.navigation.bullet.active') : th('swipers.navigation.bullet.default')}
-    ${withDarkPagination &&
+    ${withDarkUI &&
     css`
       background-color: ${active ? 'dark-900' : 'dark-400'};
     `}

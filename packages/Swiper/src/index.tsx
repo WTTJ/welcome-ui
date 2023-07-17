@@ -28,8 +28,8 @@ export interface SwiperOptions {
   }
   /** Space between each slides */
   spaceBetween?: number
-  /** Use black colors for the pagination in case of slides too bright */
-  withDarkPagination?: boolean
+  /** Use black colors for the pagination and arrows in case of slides too bright */
+  withDarkUI?: boolean
   /** Show left and rigth navigation arrows on mobile/tablet or/and desktop */
   withNavigation?: {
     mobile: boolean
@@ -56,7 +56,7 @@ export const useSwiperState = (options: SwiperOptions = {}) => {
     loop = false,
     autoplay = false,
     duration = 5000,
-    withDarkPagination = false,
+    withDarkUI = false,
   } = options
 
   const shouldLoop = loop || autoplay
@@ -98,7 +98,7 @@ export const useSwiperState = (options: SwiperOptions = {}) => {
     autoplay,
     shouldLoop,
     duration,
-    withDarkPagination,
+    withDarkUI,
     ref,
     setShowLeftArrow,
     setShowRightArrow,
@@ -137,7 +137,7 @@ export const Swiper = ({ children, dataTestId, state, ...rest }: SwiperProps) =>
     showRightArrow,
     slidesPerView,
     spaceBetween,
-    withDarkPagination,
+    withDarkUI,
     withNavigation,
     withPagination,
   } = state
@@ -287,7 +287,8 @@ export const Swiper = ({ children, dataTestId, state, ...rest }: SwiperProps) =>
         position="absolute"
         shape="circle"
         size={navigationSize}
-        variant="ghost"
+        variant={withDarkUI ? 'secondary' : 'ghost'}
+        withDarkUI={withDarkUI}
         withNavigation={withNavigation}
       >
         <Icons.Left />
@@ -300,7 +301,8 @@ export const Swiper = ({ children, dataTestId, state, ...rest }: SwiperProps) =>
         right={10}
         shape="circle"
         size={navigationSize}
-        variant="ghost"
+        variant={withDarkUI ? 'secondary' : 'ghost'}
+        withDarkUI={withDarkUI}
         withNavigation={withNavigation}
       >
         <Icons.Right />
@@ -326,7 +328,7 @@ export const Swiper = ({ children, dataTestId, state, ...rest }: SwiperProps) =>
               <S.Bullet
                 active={idx === currentPage}
                 key={`bullet-${idx + 1}`}
-                withDarkPagination={withDarkPagination}
+                withDarkUI={withDarkUI}
                 {...props}
               />
             )
