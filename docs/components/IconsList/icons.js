@@ -121,6 +121,7 @@ export const miscellaneous = [
   'review',
   'review_outline',
   'salary',
+  'euro_currency',
   'source',
   'question',
   'anniversary',
