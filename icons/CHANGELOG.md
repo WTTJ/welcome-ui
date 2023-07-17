@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.41](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.40...v5.0.0-alpha.41) (2023-07-17)
+
+
+### Features
+
+* add new Salary icon ([#2124](https://github.com/WTTJ/welcome-ui/issues/2124)) ([1c4a849](https://github.com/WTTJ/welcome-ui/commit/1c4a849c3957c2ba20b779a0fceaa9fb58076e9d))
+
+
+
+
+
 # [5.0.0-alpha.40](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.39...v5.0.0-alpha.40) (2023-06-15)
 
 **Note:** Version bump only for package @welcome-ui/icons
