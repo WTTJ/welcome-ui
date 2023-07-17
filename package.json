@@ -104,7 +104,7 @@
     "@vusion/webfonts-generator": "^0.8.0",
     "@xstyled/styled-components": "^3.7.3",
     "aws-sdk": "^2.1397.0",
-    "babel-jest": "29.5.0",
+    "babel-jest": "29.6.1",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-plugin-transform-async-to-promises": "^0.8.18",
     "colors": "^1.4.0",
