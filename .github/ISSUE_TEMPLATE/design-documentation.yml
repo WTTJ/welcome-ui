@@ -1,0 +1,24 @@
+name: '[Design] Documentation improvement'
+description: 'beta'
+labels: ['design', 'documentation']
+body:
+  - type: 'markdown'
+    attributes:
+      value: |
+        *Description coming, in beta for testing*
+  - type: dropdown
+    id: figma
+    attributes:
+      label: For which part of documentation?
+      options:
+        - Component
+        - Content
+        - Foundations
+  - type: 'textarea'
+    id: 'description'
+    attributes:
+      label: 'Description'
+      placeholder: |
+        Description
+    validations:
+      required: true

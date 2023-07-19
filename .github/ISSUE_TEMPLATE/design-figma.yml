@@ -1,0 +1,85 @@
+name: '[Design] Figma bug report'
+description: 'beta'
+labels: ['design', 'figma-bug']
+body:
+  - type: 'markdown'
+    attributes:
+      value: |
+        *Description coming, in beta for testing*
+  - type: dropdown
+    id: figma
+    attributes:
+      label: For which Figma library?
+      options:
+        - Icons
+        - Basics
+        - Forms
+        - Data display
+        - Feedback
+        - Annotations
+        - Navigation
+        - Illustrations
+        - Dataviz palette - Categorical
+        - Dataviz palette - Sequential
+        - MacOS Cursors
+        - Dataviz palette - Divergent
+        - Flags
+  - type: dropdown
+    id: components
+    attributes:
+      label: For which component?
+      options:
+        - Colours (foundations)
+        - Grids (foundations)
+        - Logos (foundations)
+        - Spacings (foundations)
+        - Typography (foundations)
+        - Accordion
+        - Avatar
+        - Badge
+        - Breadcrumb
+        - Button
+        - Callout
+        - Checkbox
+        - Dropdown
+        - Field
+        - File drop
+        - Growl
+        - Hint
+        - Icons
+        - Illustrations
+        - Link
+        - Modal
+        - Pagination
+        - Radio Button
+        - Select
+        - Slider
+        - Tabs
+        - Tag
+        - Textarea
+        - Toast
+        - Toggle
+        - Tooltip
+        - Others
+  - type: 'textarea'
+    id: 'current-behavior'
+    attributes:
+      label: 'Current Behavior'
+      placeholder: |
+        Current Behavior
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'expected-behavior'
+    attributes:
+      label: 'Expected Behavior'
+      placeholder: |
+        Expected Behavior
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'files'
+    attributes:
+      label: 'Screenshots / Videos'
+      placeholder: |
+        Screenshots / Videos

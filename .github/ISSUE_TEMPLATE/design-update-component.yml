@@ -1,0 +1,60 @@
+name: '[Design] Update or feedback on existing component'
+description: 'beta'
+labels: ['design', 'existing-component']
+body:
+  - type: 'markdown'
+    attributes:
+      value: |
+        *Description coming, in beta for testing*
+  - type: dropdown
+    id: components
+    attributes:
+      label: For which component?
+      options:
+        - Colours (foundations)
+        - Grids (foundations)
+        - Logos (foundations)
+        - Spacings (foundations)
+        - Typography (foundations)
+        - Accordion
+        - Avatar
+        - Badge
+        - Breadcrumb
+        - Button
+        - Callout
+        - Checkbox
+        - Dropdown
+        - Field
+        - File drop
+        - Growl
+        - Hint
+        - Icons
+        - Illustrations
+        - Link
+        - Modal
+        - Pagination
+        - Radio Button
+        - Select
+        - Slider
+        - Tabs
+        - Tag
+        - Textarea
+        - Toast
+        - Toggle
+        - Tooltip
+        - Others
+  - type: 'textarea'
+    id: 'description'
+    attributes:
+      label: 'Description'
+      placeholder: |
+        Description
+    validations:
+      required: true
+  - type: 'input'
+    id: 'due-date'
+    attributes:
+      label: 'Due Date'
+      placeholder: 'DD/MM/YYYY'
+    validations:
+      required: true
