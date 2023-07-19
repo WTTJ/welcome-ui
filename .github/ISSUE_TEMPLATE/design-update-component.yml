@@ -1,4 +1,4 @@
-name: '[Design] 🔄 Update or feedback on existing component'
+name: '[Design] 🔄Update or feedback on existing component'
 description: 'Request an update to improve foundations or existing component.'
 labels: ['design', 'existing-component']
 body:

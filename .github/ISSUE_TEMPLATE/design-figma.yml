@@ -1,4 +1,4 @@
-name: '[Design] 🐛 Figma bug report'
+name: '[Design] 🐛Figma bug report'
 description: 'Create a Figma bug report to improve Figma libraries.'
 labels: ['design', 'figma-bug']
 body:
