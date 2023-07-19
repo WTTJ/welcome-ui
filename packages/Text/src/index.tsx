@@ -1,5 +1,5 @@
 import React from 'react'
-import { CreateWuiProps, forwardRef, forwardRefPanda } from '@welcome-ui/system'
+import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -51,36 +51,23 @@ export const Text = forwardRef<'p', TextProps>(
 
 Text.displayName = 'Text'
 
-const MOBILE_VARIANTS = {
-  h0: 'h1',
-  h1: 'h2',
-  h2: 'h3',
-  h3: 'h4',
-  h4: 'h5',
-  h5: 'h6',
-}
-
-type TextPandaOptions = TextOptions & {
-  className?: string // todo generic html props
-  children?: React.ReactNode
-}
+export type TextPandaOptions = Omit<S.TextPandaVariants, 'lines'> & { lines?: number }
+export type TextPandaProps = CreateWuiPandaProps<'p', TextPandaOptions>
 
 const getBlockHeight = (lines: number): React.CSSProperties => ({
   WebkitLineClamp: lines,
   wordBreak: lines === 1 ? 'break-all' : null,
 })
 
-// todo give mobileVariant if media query match
-export const TextPanda = forwardRefPanda<'p', TextPandaOptions>(
+export const TextPanda = React.forwardRef<HTMLParagraphElement, TextPandaProps>(
   ({ children, className, lines, variant = 'md', ...rest }, ref) => {
-    const mobileVariant = MOBILE_VARIANTS[variant as keyof typeof MOBILE_VARIANTS] as Variant
     const style = lines ? getBlockHeight(lines) : {}
 
     return (
       <S.TextPanda
         data-lines={lines}
         ref={ref}
-        variant={mobileVariant || variant}
+        variant={variant}
         {...rest}
         className={`${className || ''} wui-text`}
         lines={!!lines}

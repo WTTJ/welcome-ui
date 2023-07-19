@@ -1,6 +1,7 @@
 import { WuiProps } from '@welcome-ui/system'
 import styled, { css, system, th } from '@xstyled/styled-components'
 import { styled as pandaStyled } from '@welcome-ui/panda/jsx'
+import { cva, type RecipeVariantProps } from '@welcome-ui/panda/css'
 
 import { BadgeOptions } from './index'
 
@@ -35,7 +36,7 @@ export const Badge = styled.div<StyledBadgeProps & WuiProps>(
   `
 )
 
-export const BadgePanda = pandaStyled('div', {
+const badgeStyles = cva({
   base: {
     display: 'inline-flex',
     alignItems: 'center',
@@ -88,5 +89,16 @@ export const BadgePanda = pandaStyled('div', {
         borderRadius: 14,
       },
     },
+    disabled: {
+      true: {},
+    },
+  },
+  defaultVariants: {
+    variant: 'default',
+    size: 'md',
+    shape: 'circle',
   },
 })
+
+export type BadgeVariants = RecipeVariantProps<typeof badgeStyles>
+export const BadgePanda = pandaStyled('div', badgeStyles)

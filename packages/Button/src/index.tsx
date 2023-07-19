@@ -1,5 +1,5 @@
 import React from 'react'
-import { CreateWuiProps, forwardRef, forwardRefPanda } from '@welcome-ui/system'
+import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -50,24 +50,15 @@ export const Button = forwardRef<'button', ButtonProps>(
 Button.displayName = 'Button'
 
 export const StyledButton = S.Button
+export const buttonStyles = S.buttonStyles
+export const StyledButtonPanda = S.ButtonPanda
 
-type PandaVariant = Exclude<Variant, 'disabled'>
-type ButtonPandaOptions = Omit<ButtonOptions, 'variant'> & {
-  variant?: PandaVariant
-  children?: React.ReactNode
-}
+export type ButtonPandaOptions = S.ButtonPandaVariants
+export type ButtonPandaProps = CreateWuiPandaProps<'button', ButtonPandaOptions>
 
-export const ButtonPanda = forwardRefPanda<'button', ButtonPandaOptions>(
-  ({ children, disabled, shape, size = 'md', variant = 'primary', ...rest }, ref) => (
-    <S.ButtonPanda
-      data-shape={shape}
-      disabled={disabled}
-      ref={ref}
-      shape={shape}
-      size={size}
-      variant={variant}
-      {...rest}
-    >
+export const ButtonPanda = React.forwardRef<HTMLButtonElement, ButtonPandaProps>(
+  ({ children, ...rest }, ref) => (
+    <S.ButtonPanda ref={ref} {...rest}>
       {children}
     </S.ButtonPanda>
   )
