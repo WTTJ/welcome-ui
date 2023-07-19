@@ -165,9 +165,9 @@ export type PandaStyledComponent<Component extends React.ElementType, Props = ob
   props: Omit<HTMLStyledProps<Component>, keyof Props> & Props
 ) => JSX.Element
 
-export const forwardRefPanda = <Component extends React.ElementType, Props = object>(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  component: React.ForwardRefRenderFunction<any, Props>
-): PandaStyledComponent<Component, Props> => {
-  return React.forwardRef(component) as unknown as PandaStyledComponent<Component, Props>
-}
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type CreateWuiPandaProps<Component extends React.ElementType, Props = {}> = Omit<
+  HTMLStyledProps<Component>,
+  keyof Props
+> &
+  Props

@@ -3,6 +3,7 @@ import { Button as AriakitButton } from '@ariakit/react'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 import { styled as pandaStyled } from '@welcome-ui/panda/jsx'
+import { cva, type RecipeVariantProps } from '@welcome-ui/panda/css'
 
 import { ButtonOptions } from './index'
 
@@ -79,9 +80,7 @@ export const Button = styled(AriakitButton).withConfig({ shouldForwardProp })<Bu
   `
 )
 
-// todo use RecipeVariantProps to type variants
-
-export const ButtonPanda = pandaStyled(ReakitButton, {
+export const buttonStyles = cva({
   base: {
     fontSize: 'sm',
     color: 'light-900',
@@ -293,9 +292,6 @@ export const ButtonPanda = pandaStyled(ReakitButton, {
         height: 16,
         paddingY: 'xxs',
         paddingX: 'xs',
-        '&[data-shape="circle"]': {
-          width: 16,
-        },
         '& > svg.wui-icon, & > i.wui-icon-font': {
           fontWeight: 'initial',
           '&:only-child': {
@@ -314,9 +310,6 @@ export const ButtonPanda = pandaStyled(ReakitButton, {
         height: 24,
         paddingY: 'xs',
         paddingX: 'sm',
-        '&[data-shape="circle"]': {
-          width: 24,
-        },
         '& > svg.wui-icon, & > i.wui-icon-font': {
           fontWeight: 'initial',
           '&:only-child': {
@@ -335,9 +328,6 @@ export const ButtonPanda = pandaStyled(ReakitButton, {
         height: 32,
         paddingY: 'sm',
         paddingX: 'md',
-        '&[data-shape="circle"]': {
-          width: 32,
-        },
         '& > svg.wui-icon, & > i.wui-icon-font': {
           fontWeight: 'initial',
           '&:only-child': {
@@ -358,9 +348,6 @@ export const ButtonPanda = pandaStyled(ReakitButton, {
         height: 40,
         paddingY: 'sm',
         paddingX: 'lg',
-        '&[data-shape="circle"]': {
-          width: 40,
-        },
         '& > svg.wui-icon, & > i.wui-icon-font': {
           fontWeight: 'initial',
           '&:only-child': {
@@ -381,9 +368,6 @@ export const ButtonPanda = pandaStyled(ReakitButton, {
         height: 48,
         paddingY: 'md',
         paddingX: 'xl',
-        '&[data-shape="circle"]': {
-          width: 48,
-        },
         '& > svg.wui-icon, & > i.wui-icon-font': {
           fontWeight: 'initial',
           '&:only-child': {
@@ -420,4 +404,48 @@ export const ButtonPanda = pandaStyled(ReakitButton, {
       },
     },
   },
+  compoundVariants: [
+    {
+      size: 'xxs',
+      shape: 'circle',
+      css: {
+        width: 16,
+      },
+    },
+    {
+      size: 'xs',
+      shape: 'circle',
+      css: {
+        width: 24,
+      },
+    },
+    {
+      size: 'sm',
+      shape: 'circle',
+      css: {
+        width: 32,
+      },
+    },
+    {
+      size: 'md',
+      shape: 'circle',
+      css: {
+        width: 40,
+      },
+    },
+    {
+      size: 'lg',
+      shape: 'circle',
+      css: {
+        width: 48,
+      },
+    },
+  ],
+  defaultVariants: {
+    variant: 'primary',
+    size: 'md',
+  },
 })
+
+export type ButtonPandaVariants = RecipeVariantProps<typeof buttonStyles>
+export const ButtonPanda = pandaStyled(ReakitButton, buttonStyles)

@@ -1,5 +1,6 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import { styled as pandaStyled } from '@welcome-ui/panda/jsx'
+import { cva, type RecipeVariantProps } from '@welcome-ui/panda/css'
 
 import { TextOptions } from './index'
 
@@ -44,9 +45,8 @@ export const Text = styled.p<TextOptions>(({ lines, variant }) => {
   `
 })
 
-// todo  @media (min-width: lg) { ${th(`texts.${variant}`)};
-
-export const TextPanda = pandaStyled('p', {
+// todo use token(breakpoints.lg instead of 936px)
+export const textStyles = cva({
   base: {
     display: 'block',
   },
@@ -54,51 +54,87 @@ export const TextPanda = pandaStyled('p', {
     variant: {
       h0: {
         color: 'dark-900',
-        fontFamily: 'h0',
-        fontWeight: 'bold',
-        fontSize: 'h0',
-        lineHeight: 'h0',
-        letterSpacing: 'h0',
-      },
-      h1: {
-        color: 'dark-900',
         fontFamily: 'h1',
         fontWeight: 'bold',
         fontSize: 'h1',
         lineHeight: 'h1',
         letterSpacing: 'h1',
+        '@media (min-width: 936px)': {
+          fontFamily: 'h0',
+          fontSize: 'h0',
+          lineHeight: 'h0',
+          letterSpacing: 'h0',
+        },
       },
-      h2: {
+      h1: {
         color: 'dark-900',
         fontFamily: 'h2',
         fontWeight: 'bold',
         fontSize: 'h2',
         lineHeight: 'h2',
         letterSpacing: 'h2',
+        '@media (min-width: 936px)': {
+          fontFamily: 'h1',
+          fontSize: 'h1',
+          lineHeight: 'h1',
+          letterSpacing: 'h1',
+        },
       },
-      h3: {
+      h2: {
         color: 'dark-900',
         fontFamily: 'h3',
         fontWeight: 'bold',
         fontSize: 'h3',
         lineHeight: 'h3',
         letterSpacing: 'h3',
+        '@media (min-width: 936px)': {
+          fontFamily: 'h2',
+          fontSize: 'h2',
+          lineHeight: 'h2',
+          letterSpacing: 'h2',
+        },
       },
-      h4: {
+      h3: {
         color: 'dark-900',
         fontFamily: 'h4',
         fontWeight: 'bold',
         fontSize: 'h4',
         lineHeight: 'h4',
         letterSpacing: 'h4',
+        '@media (min-width: 936px)': {
+          fontFamily: 'h3',
+          fontSize: 'h3',
+          lineHeight: 'h3',
+          letterSpacing: 'h3',
+        },
       },
-      h5: {
+      h4: {
         color: 'dark-900',
         fontFamily: 'h5',
         fontWeight: 'bold',
         fontSize: 'h5',
         lineHeight: 'h5',
         letterSpacing: 'h5',
+        '@media (min-width: 936px)': {
+          fontFamily: 'h4',
+          fontSize: 'h4',
+          lineHeight: 'h4',
+          letterSpacing: 'h4',
+        },
+      },
+      h5: {
+        color: 'dark-900',
+        fontFamily: 'h6',
+        fontWeight: 'bold',
+        fontSize: 'h6',
+        lineHeight: 'h6',
+        letterSpacing: 'h6',
+        '@media (min-width: 936px)': {
+          fontFamily: 'h5',
+          fontSize: 'h5',
+          lineHeight: 'h5',
+          letterSpacing: 'h5',
+        },
       },
       h6: {
         color: 'dark-900',
@@ -160,3 +196,6 @@ export const TextPanda = pandaStyled('p', {
     },
   },
 })
+
+export type TextPandaVariants = RecipeVariantProps<typeof textStyles>
+export const TextPanda = pandaStyled('p', textStyles)
