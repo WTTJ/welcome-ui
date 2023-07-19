@@ -195,6 +195,9 @@ export const textStyles = cva({
       },
     },
   },
+  defaultVariants: {
+    variant: 'md',
+  },
 })
 
 export type TextPandaVariants = RecipeVariantProps<typeof textStyles>
