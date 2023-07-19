@@ -11,7 +11,7 @@ body:
     attributes:
       label: For which part of documentation?
       options:
-        - Component
+        - Components
         - Content
         - Foundations
   - type: 'textarea'
