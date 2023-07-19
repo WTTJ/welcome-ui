@@ -1,0 +1,23 @@
+name: '[Design] Component creation'
+description: 'beta'
+labels: ['design', 'component-creation']
+body:
+  - type: 'markdown'
+    attributes:
+      value: |
+        *Description coming, in beta for testing*
+  - type: 'textarea'
+    id: 'description'
+    attributes:
+      label: 'Description'
+      placeholder: |
+        Description
+    validations:
+      required: true
+  - type: 'input'
+    id: 'due-date'
+    attributes:
+      label: 'Due Date'
+      placeholder: 'DD/MM/YYYY'
+    validations:
+      required: true
