@@ -1,21 +1,22 @@
-name: '[Design] Update or feedback on existing component'
-description: 'beta'
+name: '[Design] 🔄Update or feedback on existing component'
+description: 'Request an update to improve foundations or existing component.'
 labels: ['design', 'existing-component']
 body:
   - type: 'markdown'
     attributes:
       value: |
-        *Description coming, in beta for testing*
+        *Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately.
+Thanks for contributing by creating this issue! ❤️*
   - type: dropdown
     id: components
     attributes:
       label: For which component?
       options:
-        - Colours (foundations)
-        - Grids (foundations)
-        - Logos (foundations)
-        - Spacings (foundations)
-        - Typography (foundations)
+        - Colours (Foundations)
+        - Grids (Foundations)
+        - Logos (Foundations)
+        - Spacings (Foundations)
+        - Typography (Foundations)
         - Accordion
         - Avatar
         - Badge
@@ -48,7 +49,7 @@ body:
     attributes:
       label: 'Description'
       placeholder: |
-        Description
+        Describe what you need and why you need to update this component/foundation.
     validations:
       required: true
   - type: 'input'
