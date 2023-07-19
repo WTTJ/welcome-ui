@@ -51,28 +51,25 @@ export const Text = forwardRef<'p', TextProps>(
 
 Text.displayName = 'Text'
 
-export type TextPandaOptions = Omit<S.TextPandaVariants, 'lines'> & { lines?: number }
+export type TextPandaOptions = S.TextPandaVariants & { lines?: number }
 export type TextPandaProps = CreateWuiPandaProps<'p', TextPandaOptions>
 
 const getBlockHeight = (lines: number): React.CSSProperties => ({
   WebkitLineClamp: lines,
   wordBreak: lines === 1 ? 'break-all' : null,
+  display: '-webkit-box',
+  WebkitBoxOrient: 'vertical',
+  lineHeight: 'normal',
+  overflow: 'hidden',
 })
 
+// todo tagName
 export const TextPanda = React.forwardRef<HTMLParagraphElement, TextPandaProps>(
-  ({ children, className, lines, variant = 'md', ...rest }, ref) => {
+  ({ children, className, lines, ...rest }, ref) => {
     const style = lines ? getBlockHeight(lines) : {}
 
     return (
-      <S.TextPanda
-        data-lines={lines}
-        ref={ref}
-        variant={variant}
-        {...rest}
-        className={`${className || ''} wui-text`}
-        lines={!!lines}
-        style={style}
-      >
+      <S.TextPanda ref={ref} {...rest} className={`${className || ''} wui-text`} style={style}>
         {children}
       </S.TextPanda>
     )

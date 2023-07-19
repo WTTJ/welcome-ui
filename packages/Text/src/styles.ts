@@ -45,7 +45,7 @@ export const Text = styled.p<TextOptions>(({ lines, variant }) => {
   `
 })
 
-// todo use token(breakpoints.lg instead of 936px)
+// todo use token(breakpoints.lg) instead of 936px
 export const textStyles = cva({
   base: {
     display: 'block',
@@ -183,15 +183,6 @@ export const textStyles = cva({
         lineHeight: 'subtitle-sm',
         letterSpacing: 'subtitle-sm',
         textTransform: 'uppercase',
-      },
-    },
-    lines: {
-      false: {},
-      true: {
-        display: '-webkit-box',
-        '-webkit-box-orient': 'vertical',
-        'line-height': 'normal',
-        overflow: 'hidden',
       },
     },
   },
