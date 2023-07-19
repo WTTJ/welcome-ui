@@ -1,0 +1,104 @@
+name: '[Tech] Bug report 🐛'
+description: 'beta'
+labels: ['tech', 'bug']
+body:
+  - type: 'markdown'
+    attributes:
+      value: |
+        ### Hi! 🙃
+
+        Thanks for creating an issue 🫰!
+
+        Have you before check others issues ?
+
+        Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately. 👍
+  - type: dropdown
+    id: component
+    attributes:
+      label: For which component?
+      options:
+        - Theming
+        - Accordion
+        - Alert
+        - AspectRatio
+        - Avatar
+        - Badge
+        - Box
+        - Breadcrumb
+        - Button
+        - ButtonGroup
+        - Card
+        - Checkbox
+        - DatePicker
+        - DateTimePicker
+        - Drawer
+        - DropdownMenu
+        - Emoji
+        - EmojiPicker
+        - Field
+        - FileDrop
+        - FileUpload
+        - Flex
+        - Grid
+        - Hint
+        - Icons
+        - IconsFont
+        - InputText
+        - Label
+        - Link
+        - Loader
+        - MarkdownEditor
+        - Modal
+        - Pagination
+        - PasswordInput
+        - Picker
+        - Popover
+        - RadioGroup
+        - RadioTab
+        - Search
+        - Select
+        - Shape
+        - Slider
+        - Stack
+        - Swiper
+        - Table
+        - Tabs
+        - Tag
+        - Text
+        - Textarea
+        - TimePicker
+        - Toast
+        - Toggle
+        - Tooltip
+        - usecopyText
+        - Others
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'description'
+    attributes:
+      label: 'Description'
+      description: |
+        A **clear and concise** description of what the bug is, with the **steps to reproduce** and a **link to the reproduction** environment.
+    validations:
+      required: true
+  - type: 'input'
+    id: 'version'
+    attributes:
+      label: 'Welcome UI Version'
+      placeholder: '5.0.0'
+    validations:
+      required: true
+  - type: 'input'
+    id: 'browser'
+    attributes:
+      label: 'Browser'
+      placeholder: 'Google Chrome 114.07'
+  - type: dropdown
+    id: system
+    attributes:
+      label: Operating System
+      options:
+        - MacOS
+        - Windows
+        - Linux
