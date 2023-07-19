@@ -1,17 +1,18 @@
-name: '[Design] Component creation'
-description: 'beta'
+name: '[Design] 🫶 Component creation'
+description: 'Request a new foundation or a new component.'
 labels: ['design', 'component-creation']
 body:
   - type: 'markdown'
     attributes:
       value: |
-        *Description coming, in beta for testing*
+        *Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately.
+Thanks for contributing by creating this issue! ❤️*
   - type: 'textarea'
     id: 'description'
     attributes:
       label: 'Description'
       placeholder: |
-        Description
+        Describe what you need and why you need to create this new component or foundation.
     validations:
       required: true
   - type: 'input'

@@ -1,39 +1,41 @@
-name: '[Design] Figma bug report'
-description: 'beta'
+name: '[Design] 🐛 Figma bug report'
+description: 'Create a Figma bug report to improve Figma libraries.'
 labels: ['design', 'figma-bug']
 body:
   - type: 'markdown'
     attributes:
       value: |
-        *Description coming, in beta for testing*
+        *Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately.
+Thanks for contributing by creating this issue! ❤️*
   - type: dropdown
     id: figma
     attributes:
       label: For which Figma library?
       options:
-        - Icons
         - Basics
-        - Forms
         - Data display
-        - Feedback
-        - Annotations
-        - Navigation
-        - Illustrations
         - Dataviz palette - Categorical
-        - Dataviz palette - Sequential
-        - MacOS Cursors
         - Dataviz palette - Divergent
-        - Flags
+        - Dataviz palette - Sequential
+        - Feedback
+        - Forms               
+        - Icons
+        - Illustrations
+        - Navigation
+        
+        
+        
+        
   - type: dropdown
     id: components
     attributes:
       label: For which component?
       options:
-        - Colours (foundations)
-        - Grids (foundations)
-        - Logos (foundations)
-        - Spacings (foundations)
-        - Typography (foundations)
+        - Colours (Foundations)
+        - Grids (Foundations)
+        - Logos (Foundations)
+        - Spacings (Foundations)
+        - Typography (Foundations)
         - Accordion
         - Avatar
         - Badge
@@ -66,7 +68,7 @@ body:
     attributes:
       label: 'Current Behavior'
       placeholder: |
-        Current Behavior
+        Describe the current behavior, this will help us to resolve the problem
     validations:
       required: true
   - type: 'textarea'
@@ -74,7 +76,7 @@ body:
     attributes:
       label: 'Expected Behavior'
       placeholder: |
-        Expected Behavior
+        Describe the expected behavior, this will help us to resolve the problem
     validations:
       required: true
   - type: 'textarea'
@@ -82,4 +84,4 @@ body:
     attributes:
       label: 'Screenshots / Videos'
       placeholder: |
-        Screenshots / Videos
+        Upload screenshots or videos to describe the problem.

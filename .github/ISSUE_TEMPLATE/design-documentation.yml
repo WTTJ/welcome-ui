@@ -1,5 +1,5 @@
-name: '[Design] Documentation improvement'
-description: 'beta'
+name: '[Design] 📚 Documentation improvement'
+description: 'Request a design documentation improvement.'
 labels: ['design', 'documentation']
 body:
   - type: 'markdown'
@@ -11,14 +11,14 @@ body:
     attributes:
       label: For which part of documentation?
       options:
+        - Foundations
         - Component
         - Content
-        - Foundations
   - type: 'textarea'
     id: 'description'
     attributes:
       label: 'Description'
       placeholder: |
-        Description
+        Describe what you need to improve.
     validations:
       required: true
