@@ -1,13 +1,17 @@
-name: '[Design] 🐛Figma bug report'
+name: '[Design] 🐛 Figma bug report'
 description: 'Create a Figma bug report to improve Figma libraries.'
 labels: ['design', 'figma-bug']
 body:
   - type: 'markdown'
     attributes:
       value: |
-        *Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately.
+        ### Hi! 🙃
 
-        Thanks for contributing by creating this issue! ❤️*
+        Thanks for creating an issue 🫰!
+
+        Have you before check others issues ?
+
+        Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately. 👍
   - type: dropdown
     id: figma
     attributes:

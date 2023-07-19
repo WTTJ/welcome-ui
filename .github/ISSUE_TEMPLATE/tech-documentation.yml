@@ -1,5 +1,5 @@
-name: '[Tech] Documentation improvement 🫰'
-description: 'beta'
+name: '[Tech] 📚 Documentation issues'
+description: 'Request a tech documentation improvement or fix on website or code.'
 labels: ['tech', 'documentation']
 body:
   - type: 'markdown'

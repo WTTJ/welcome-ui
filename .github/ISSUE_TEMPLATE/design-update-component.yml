@@ -1,13 +1,17 @@
-name: '[Design] 🔄Update or feedback on existing component'
+name: '[Design] 🔄 Update or feedback on existing component'
 description: 'Request an update to improve foundations or existing component.'
 labels: ['design', 'existing-component']
 body:
   - type: 'markdown'
     attributes:
       value: |
-        *Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately.
+        ### Hi! 🙃
 
-        Thanks for contributing by creating this issue! ❤️*
+        Thanks for creating an issue 🫰!
+
+        Have you before check others issues ?
+
+        Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately. 👍
   - type: dropdown
     id: components
     attributes:

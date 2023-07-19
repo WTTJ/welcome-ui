@@ -1,5 +1,5 @@
-name: '[Tech] Bug report 🐛'
-description: 'beta'
+name: '[Tech] 🐛 Bug report'
+description: 'Create a bug report for the tech team.'
 labels: ['tech', 'bug']
 body:
   - type: 'markdown'

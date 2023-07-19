@@ -1,5 +1,5 @@
-name: '[Tech] Documentation improvement 🫰'
-description: 'beta'
+name: '[Tech] 🫶 Feature request'
+description: 'Request a new feature like a new component.'
 labels: ['tech', 'enhancement']
 body:
   - type: 'markdown'
