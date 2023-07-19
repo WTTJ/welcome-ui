@@ -6,7 +6,8 @@ body:
     attributes:
       value: |
         *Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately.
-Thanks for contributing by creating this issue! ❤️*
+
+        Thanks for contributing by creating this issue! ❤️*
   - type: dropdown
     id: components
     attributes:
@@ -44,6 +45,8 @@ Thanks for contributing by creating this issue! ❤️*
         - Toggle
         - Tooltip
         - Others
+    validations:
+      required: true
   - type: 'textarea'
     id: 'description'
     attributes:

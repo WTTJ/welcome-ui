@@ -6,7 +6,8 @@ body:
     attributes:
       value: |
         *Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately.
-Thanks for contributing by creating this issue! ❤️*
+
+        Thanks for contributing by creating this issue! ❤️*
   - type: dropdown
     id: figma
     attributes:
@@ -18,14 +19,12 @@ Thanks for contributing by creating this issue! ❤️*
         - Dataviz palette - Divergent
         - Dataviz palette - Sequential
         - Feedback
-        - Forms               
+        - Forms
         - Icons
         - Illustrations
         - Navigation
-        
-        
-        
-        
+    validations:
+      required: true
   - type: dropdown
     id: components
     attributes:
@@ -63,6 +62,8 @@ Thanks for contributing by creating this issue! ❤️*
         - Toggle
         - Tooltip
         - Others
+    validations:
+      required: true
   - type: 'textarea'
     id: 'current-behavior'
     attributes:
