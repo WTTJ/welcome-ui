@@ -1,0 +1,38 @@
+name: '[Tech] 🫶 Feature request'
+description: 'Request a new feature like a new component.'
+labels: ['tech', 'enhancement']
+body:
+  - type: 'markdown'
+    attributes:
+      value: |
+        ### Hi! 🙃
+
+        Thanks for creating an issue 🫰!
+
+        Have you before check others issues ?
+
+        Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately. 👍
+  - type: dropdown
+    id: prioritization
+    attributes:
+      label: Prioritization
+      options:
+        - Low 😎
+        - Medium 🤔
+        - High 💥
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'description'
+    attributes:
+      label: 'Description'
+      description: Outline the motivation for the proposal.'
+      placeholder: 'Provide an example for how this feature would be used, and add some specifications do to it.'
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'description'
+    attributes:
+      label: 'Implementation'
+      description: 'If possible, describe how this feature could be implemented.'
+      placeholder: 'See [CONTRIBUTING.mdx](https://github.com/reakit/reakit/blob/master/CONTRIBUTING.mdx)'

@@ -1,11 +1,17 @@
-name: '[Design] 📚Documentation improvement'
+name: '[Design] 📚 Documentation improvement'
 description: 'Request a design documentation improvement.'
 labels: ['design', 'documentation']
 body:
   - type: 'markdown'
     attributes:
       value: |
-        *Description coming, in beta for testing*
+        ### Hi! 🙃
+
+        Thanks for creating an issue 🫰!
+
+        Have you before check others issues ?
+
+        Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately. 👍
   - type: dropdown
     id: figma
     attributes:
@@ -14,6 +20,8 @@ body:
         - Foundations
         - Component
         - Content
+    validations:
+      required: true
   - type: 'textarea'
     id: 'description'
     attributes:

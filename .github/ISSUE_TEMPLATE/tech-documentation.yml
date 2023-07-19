@@ -1,0 +1,85 @@
+name: '[Tech] 📚 Documentation issues'
+description: 'Request a tech documentation improvement or fix on website or code.'
+labels: ['tech', 'documentation']
+body:
+  - type: 'markdown'
+    attributes:
+      value: |
+        ### Hi! 🙃
+
+        Thanks for creating an issue 🫰!
+
+        Have you before check others issues ?
+
+        Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately. 👍
+  - type: dropdown
+    id: page
+    attributes:
+      label: For which page?
+      options:
+        - Getting started
+        - Theming (Foundations)
+        - Accordion
+        - Alert
+        - AspectRatio
+        - Avatar
+        - Badge
+        - Box
+        - Breadcrumb
+        - Button
+        - ButtonGroup
+        - Card
+        - Checkbox
+        - DatePicker
+        - DateTimePicker
+        - Drawer
+        - DropdownMenu
+        - Emoji
+        - EmojiPicker
+        - Field
+        - FileDrop
+        - FileUpload
+        - Flex
+        - Grid
+        - Hint
+        - HookForm
+        - Icons
+        - IconsFont
+        - InputText
+        - Label
+        - Link
+        - Loader
+        - MarkdownEditor
+        - Modal
+        - Pagination
+        - PasswordInput
+        - Picker
+        - Popover
+        - RadioGroup
+        - RadioTab
+        - Search
+        - Select
+        - Shape
+        - Slider
+        - Stack
+        - Swiper
+        - Table
+        - Tabs
+        - Tag
+        - Text
+        - Textarea
+        - TimePicker
+        - Toast
+        - Toggle
+        - Tooltip
+        - usecopyText
+        - Others
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'description'
+    attributes:
+      label: 'Description'
+      description: 'What is wrong or missing ?'
+    validations:
+      required: true

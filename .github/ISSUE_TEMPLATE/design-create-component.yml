@@ -1,12 +1,17 @@
-name: '[Design] 🫶Component creation'
+name: '[Design] 🫶 Component creation'
 description: 'Request a new foundation or a new component.'
 labels: ['design', 'component-creation']
 body:
   - type: 'markdown'
     attributes:
       value: |
-        *Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately.
-Thanks for contributing by creating this issue! ❤️*
+        ### Hi! 🙃
+
+        Thanks for creating an issue 🫰!
+
+        Have you before check others issues ?
+
+        Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately. 👍
   - type: 'textarea'
     id: 'description'
     attributes:
