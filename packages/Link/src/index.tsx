@@ -1,6 +1,6 @@
 import React from 'react'
 import { UniversalLinkOptions } from '@welcome-ui/universal-link'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ExternalLinkIcon } from '@welcome-ui/icons'
 
 import * as S from './styles'
@@ -55,3 +55,35 @@ export const Link = forwardRef<'a', LinkProps>((props, ref) => {
 })
 
 Link.displayName = 'Link'
+
+export type LinkPandaOptions = S.LinkPandaVariant & { isExternal?: boolean }
+export type LinkPandaProps = CreateWuiPandaProps<'a', LinkPandaOptions>
+
+export const LinkPanda = React.forwardRef<HTMLAnchorElement, LinkPandaProps>((props, ref) => {
+  const { children, disabled, isExternal, variant = 'primary', ...rest } = props
+
+  const content = shouldWrapWithText(children) ? (
+    <WrapWithText isExternal={isExternal}>{children}</WrapWithText>
+  ) : (
+    React.Children.map(children as JSX.Element, child => {
+      if (shouldWrapWithText(child)) {
+        return <WrapWithText isExternal={isExternal}>{child}</WrapWithText>
+      }
+      return child
+    })
+  )
+
+  return (
+    <S.LinkPanda
+      data-external={isExternal}
+      disabled={disabled}
+      ref={ref}
+      variant={variant}
+      {...rest}
+    >
+      {content}
+    </S.LinkPanda>
+  )
+})
+
+export const linkStyle = S.linkStyles
