@@ -1,153 +1,73 @@
-import React, { cloneElement, useCallback, useEffect, useRef, useState } from 'react'
-import Popper, { Placement } from 'popper.js'
-import { TooltipReference, useTooltipState } from 'reakit'
-import { useDialogState } from 'reakit'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { Box } from '@welcome-ui/box'
-import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
+import React, { ReactElement, useEffect, useState } from 'react'
+import * as Ariakit from '@ariakit/react'
 
 import * as S from './styles'
 
-const useMouseTooltipState = ({
-  placement: originalPlacement,
-  ...rest
-}: { placement?: Placement } = {}) => {
-  const popper = useRef(null)
-  const referenceRef = useRef(null)
-  const mouseRef = useRef(null)
-  const popoverRef = useRef(null)
-
-  const [placement, setPlacement] = useState(originalPlacement)
-  const [popoverStyles, setPopoverStyles] = useState({})
-
-  const dialog = useDialogState(rest)
-
-  const createPopper = useCallback(() => {
-    if ((mouseRef.current || referenceRef.current) && popoverRef.current) {
-      popper.current = new Popper(mouseRef.current || referenceRef.current, popoverRef.current, {
-        placement: originalPlacement,
-        eventsEnabled: dialog.visible,
-        modifiers: {
-          applyStyle: { enabled: false },
-          updateStateModifier: {
-            order: 900,
-            enabled: true,
-            fn: data => {
-              setPlacement(data.placement)
-              setPopoverStyles(data.styles)
-              return data
-            },
-          },
-        },
-      })
-    }
-  }, [originalPlacement, dialog.visible])
-
-  useIsomorphicLayoutEffect(() => {
-    createPopper()
-    return () => {
-      if (popper.current) {
-        popper.current.destroy()
-      }
-    }
-  }, [createPopper])
-
-  useEffect(() => {
-    const reference = referenceRef.current
-
-    const paddingTop = placement.startsWith('top') ? 5 : 0
-    const paddingBottom = placement.startsWith('bottom') ? 20 : 0
-    const paddingLeft = placement.startsWith('left') ? 5 : 0
-    const paddingRight = placement.startsWith('right') ? 15 : 0
-
-    const onMouseMove = (event: MouseEvent) => {
-      mouseRef.current = {
-        getBoundingClientRect: () => ({
-          ...reference.getBoundingClientRect(),
-          top: event.clientY - paddingTop,
-          bottom: event.clientY + paddingBottom,
-          left: event.clientX - paddingLeft,
-          right: event.clientX + paddingRight,
-        }),
-      }
-      createPopper()
-    }
-    if (reference) {
-      reference.addEventListener('mousemove', onMouseMove)
-    }
-    return () => {
-      mouseRef.current = null
-      if (reference) {
-        reference.removeEventListener('mousemove', onMouseMove)
-      }
-    }
-  }, [createPopper, placement])
-
-  return {
-    ...dialog,
-    unstable_referenceRef: referenceRef,
-    unstable_popoverRef: popoverRef,
-    unstable_popoverStyles: popoverStyles,
-    placement,
-  }
-}
-
-export type PlacementOptions =
-  | 'auto-start'
-  | 'auto'
-  | 'auto-end'
-  | 'top-start'
-  | 'top'
-  | 'top-end'
-  | 'right-start'
-  | 'right'
-  | 'right-end'
-  | 'bottom-end'
-  | 'bottom'
-  | 'bottom-start'
-  | 'left-end'
-  | 'left'
-  | 'left-start'
-
-export interface TooltipOptions {
+export type TooltipProps = {
   children: React.ReactNode
   content: string | JSX.Element
   fixed?: boolean
-  placement?: PlacementOptions
+  placement?: Ariakit.TooltipStoreProps['placement']
 }
 
-export type TooltipProps = CreateWuiProps<'div', TooltipOptions>
+export const Tooltip = ({
+  children,
+  content,
+  fixed = false,
+  placement = fixed ? 'top' : 'bottom',
+}: TooltipProps): React.ReactElement => {
+  const tooltip = Ariakit.useTooltipStore({ placement, animated: true })
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+  const getState = tooltip.getState
+  const render = tooltip.render
 
-export const Tooltip = forwardRef<'div', TooltipProps>((props, ref): React.ReactElement => {
-  const {
-    children,
-    content,
-    fixed = false,
-    placement = fixed ? 'top' : 'bottom-start',
-    ...rest
-  } = props
-  const useCorrectTooltipState = fixed ? useTooltipState : useMouseTooltipState
-  const tooltip = useCorrectTooltipState({ placement, animated: true })
+  const updatePosition = () => {
+    const { mounted, popoverElement } = getState()
+
+    if (!popoverElement) return
+
+    Object.assign(popoverElement.style, {
+      display: mounted ? 'block' : 'none',
+      position: 'absolute',
+      left: `${position.x}px`,
+      top: `${position.y + window.scrollY + 20}px`,
+    })
+  }
+
+  const child = (children as JSX.Element)?.props?.disabled
+    ? React.Children.only(<S.ChildItem>{children}</S.ChildItem>)
+    : children
+
+  useEffect(() => {
+    function onMouseMove({ clientX, clientY }: { clientX: number; clientY: number }) {
+      setPosition({ x: clientX, y: clientY })
+      render()
+    }
+
+    const { anchorElement } = getState()
+
+    if (anchorElement && !fixed) {
+      anchorElement.addEventListener('mousemove', onMouseMove)
+
+      return () => {
+        anchorElement.removeEventListener('mousemove', onMouseMove)
+      }
+    }
+  }, [render, fixed, getState])
+
   // If no content, simply return the children
   if (!content) {
     return children as React.ReactElement
   }
 
-  const child = (children as JSX.Element)?.props?.disabled
-    ? React.Children.only(<Box display="inline-block">{children}</Box>)
-    : children
-
   return (
     <>
-      <TooltipReference as={undefined} {...tooltip}>
-        {referenceProps => cloneElement(child as JSX.Element, referenceProps)}
-      </TooltipReference>
-
-      <S.Tooltip ref={ref} {...tooltip} {...rest}>
+      <Ariakit.TooltipAnchor render={child as ReactElement} store={tooltip} />
+      <Ariakit.Tooltip store={tooltip} updatePosition={!fixed ? updatePosition : undefined}>
         <S.FadeIn fixed={fixed} placement={placement}>
           {content}
         </S.FadeIn>
-      </S.Tooltip>
+      </Ariakit.Tooltip>
     </>
   )
-})
+}

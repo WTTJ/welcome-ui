@@ -1,14 +1,7 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { Tooltip as ReakitTooltip } from 'reakit'
-import { filterSystemProps } from '@welcome-ui/system'
 
-import { PlacementOptions } from './index'
+import { TooltipProps } from './index'
 
-export const Tooltip = styled(ReakitTooltip).withConfig({ shouldForwardProp: filterSystemProps })(
-  () => css`
-    ${system};
-  `
-)
 const transformDirection = {
   top: 'translate3d(0, -4px, 0)',
   right: 'translate3d(4px, 0, 0)',
@@ -33,25 +26,43 @@ const getFadeInDirection = (placement: string) => {
   }
 }
 
-export const FadeIn = styled.div<{
-  placement?: PlacementOptions
+const fadeInStyle = css`
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+`
+
+type FadeIn = {
+  placement?: TooltipProps['placement']
   fixed?: boolean
-}>`
-  ${th('tooltips')};
-  ${system};
-  transition: opacity ${th.transition('medium')}, transform ${th.transition('medium')},
-    visibility ${th.transition('medium')};
-  visibility: hidden;
-  opacity: 0;
-  transform-origin: top center;
-  transform: ${({ fixed, placement }) => {
-    if (!fixed) return
-    return getFadeInDirection(placement)
-    // return transformDirection[placementOption]
-  }};
-  [data-enter] & {
-    visibility: visible;
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+  isOpen?: boolean
+}
+
+export const FadeIn = styled.div<FadeIn>(
+  ({ fixed, isOpen, placement }) => css`
+    ${th('tooltips')};
+    ${system};
+    transition: opacity ${th.transition('medium')}, transform ${th.transition('medium')},
+      visibility ${th.transition('medium')};
+    visibility: hidden;
+    opacity: 0;
+    transform-origin: top center;
+    ${fixed &&
+    css`
+      transform: ${getFadeInDirection(placement)};
+    `}
+
+    [data-enter] & {
+      ${fadeInStyle}
+    }
+
+    ${isOpen &&
+    css`
+      ${fadeInStyle}
+    `}
+  `
+)
+
+export const ChildItem = styled.div`
+  display: inline-block;
 `
