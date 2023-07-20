@@ -251,8 +251,8 @@ We renamed some icons:
 - **Modal.Content** is replaced by **Modal.Body**.
 - To ensure **good spacing** between modal's sub-components, they **must** be wrapped with **Modal.Content**.
 - **Modal.Cover** has been removed.
-- In order to fix an issue that made attributes duplicating, and to prepare to the migration from reakit to ariakit, you will now have to pass the modalState to it props `state` who contain the state from useModalState:
-- `onClose` has been changed from an optionnal prop of **Modal** to an optionnal option you can pass to useModalState
+- In order to fix an issue that made attributes duplicating, and to prepare to the migration from reakit to ariakit, you will now have to pass the modal store to it props `store` who contain the state from useModal:
+- `onClose` has been changed from an optionnal prop of **Modal** to an optionnal option you can pass to useModal
 
 ```jsx live=false
 const modalState = useModalState()
@@ -265,9 +265,9 @@ Before
 ---
 After
 
-const modalState = useModalState()
+const modal = useModal()
 
-<Modal state={modalState}>
+<Modal store={modal}>
   ...
 </Modal>
 ```

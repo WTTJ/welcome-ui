@@ -10,7 +10,7 @@ import { ThemeConfiguration } from './ThemeConfiguration'
 
 const KEY_CODE_HELP = 'KeyI'
 
-export const ThemeHelper = ({ modalState }) => {
+export const ThemeHelper = ({ modalStore }) => {
   const currentTheme = useThemeContext()
   const [hasBeenHydrated, setHasBeenHydrated] = useState(false)
   const tab = useTab({ orientation: 'vertical' })
@@ -39,8 +39,8 @@ export const ThemeHelper = ({ modalState }) => {
   return (
     <>
       {hasBeenHydrated && (
-        <Modal ariaLabel="theme configuration" state={modalState} title={title}>
-          <Modal.Content>
+        <Modal ariaLabel="theme configuration" store={modalStore} title={title}>
+          <Modal.Content store={modalStore}>
             <Modal.Header subtitle="Documentation for the core theme entries" title={title} />
             <Modal.Body mt="xl">
               <Box display="flex">

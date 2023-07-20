@@ -1,98 +1,64 @@
 import React from 'react'
-import {
-  DialogDisclosure,
-  DialogInitialState,
-  DialogOptions,
-  DialogStateReturn,
-  useDialogState,
-} from 'reakit'
+import * as Ariakit from '@ariakit/react'
 import { BoxProps } from '@welcome-ui/box'
-import { As, CreateWuiProps, forwardRef, OmitReakitState } from '@welcome-ui/system'
+import { As, CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { useTheme } from '@xstyled/styled-components'
 import { Shape, ShapeProps } from '@welcome-ui/shape'
 
 import * as S from './styles'
-import { Close } from './Close'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { Content } from './Content'
-import { ModalProvider } from './context'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
-export type ModalStateReturn = DialogStateReturn & { open: DialogStateReturn['visible'] }
-
 export interface ModalOptions {
   ariaLabel: string
-  closeElement?: React.ElementType
-  hideOnClickOutside?: boolean
+  hideOnInteractOutside?: boolean
   size?: Size
-  state: ModalStateReturn
+  store: Ariakit.DialogStore
   children: React.ReactElement
 }
 
-export type ModalProps = CreateWuiProps<'div', OmitReakitState<ModalOptions, DialogOptions>>
+export type ModalProps = CreateWuiProps<'div', ModalOptions>
 
-export type ModalInitialState = DialogInitialState & {
+export type ModalInitialProps = Ariakit.DialogStoreProps & {
   /**
-   * @deprecated
-   * will be replace by open on ariakit (reakit v2)
-   **/
-  visible?: DialogInitialState['visible']
-  /**
-   * Open the drawer on load
-   */
-  open?: DialogInitialState['visible']
-  /**
-   * Call a fonction before closing the modal
+   * Call a function before closing the modal
    */
   onClose?: () => void
 }
 
-export function useModalState(options?: ModalInitialState): ModalStateReturn {
-  const { onClose, open, visible, ...restOptions } = options || {}
-  const dialogState = useDialogState({ animated: true, visible: visible || open, ...restOptions })
+export function useModal(options?: ModalInitialProps): Ariakit.DialogStore {
+  const { onClose, ...storeOptions } = options || {}
+
+  const dialog = Ariakit.useDialogStore({
+    animated: true,
+    ...storeOptions,
+  })
 
   return {
-    ...dialogState,
-    open: dialogState.visible,
+    ...dialog,
     hide: () => {
-      dialogState.hide()
+      dialog.hide()
       onClose?.()
     },
   }
 }
 
 const ModalComponent = forwardRef<'div', ModalProps>(
-  (
-    {
-      ariaLabel,
-      hideOnClickOutside = true,
-      closeElement: CloseElement = Close,
-      size = 'lg',
-      children,
-      state,
-      ...rest
-    },
-    ref
-  ) => {
+  ({ ariaLabel, children, hideOnInteractOutside = true, size = 'lg', store }, ref) => {
     return (
-      <ModalProvider state={state}>
-        <S.Backdrop {...state} hideOnClickOutside={hideOnClickOutside}>
-          <S.Dialog
-            aria-label={ariaLabel}
-            hideOnClickOutside={hideOnClickOutside}
-            preventBodyScroll={false}
-            ref={ref}
-            size={size}
-            {...state}
-            {...rest}
-          >
-            <CloseElement onClick={() => state.hide()} />
-            {children}
-          </S.Dialog>
-        </S.Backdrop>
-      </ModalProvider>
+      <S.Dialog
+        aria-label={ariaLabel}
+        backdrop={<S.Backdrop hideOnInteractOutside={hideOnInteractOutside} />}
+        hideOnInteractOutside={hideOnInteractOutside}
+        ref={ref}
+        size={size}
+        store={store}
+      >
+        {children}
+      </S.Dialog>
     )
   }
 )
@@ -113,10 +79,10 @@ const Cover: React.FC<ShapeProps> = props => {
   )
 }
 
-type TriggerProps = { state: DialogStateReturn; children: React.ReactNode; as?: As }
+type TriggerProps = { store: Ariakit.DialogStore; children: React.ReactNode; as?: As }
 
-export const Trigger = forwardRef<'button', TriggerProps>(({ as, state, ...rest }, ref) => {
-  return <DialogDisclosure as={as} ref={ref} {...state} {...rest} />
+export const Trigger = forwardRef<'button', TriggerProps>(({ as, store, ...rest }, ref) => {
+  return <Ariakit.DialogDisclosure as={as} ref={ref} store={store} {...rest} />
 })
 
 // Nested exports

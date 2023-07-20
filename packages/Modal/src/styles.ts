@@ -2,18 +2,15 @@ import styled, { css, system, th, up } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import { cardStyles } from '@welcome-ui/utils'
-import { DialogBackdrop, Dialog as ReakitDialog } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 
 import { Size } from './index'
 
-export const Backdrop = styled(DialogBackdrop).withConfig({
-  shouldForwardProp: prop => !['hideOnClickOutside'].includes(prop),
-})<{ hideOnClickOutside: boolean }>(
-  ({ hideOnClickOutside }) => css`
+export const Backdrop = styled.div.withConfig({
+  shouldForwardProp: prop => !['hideOnInteractOutside'].includes(prop),
+})<{ hideOnInteractOutside: boolean }>(
+  ({ hideOnInteractOutside }) => css`
     ${th('modals.backdrop')};
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: fixed;
     top: 0;
     right: 0;
@@ -23,41 +20,38 @@ export const Backdrop = styled(DialogBackdrop).withConfig({
     transition: opacity 150ms ease-in-out;
     ${system};
 
-    ${hideOnClickOutside &&
+    ${hideOnInteractOutside &&
     css`
       cursor: pointer;
     `}
 
-    /* on open dialog for animation */
     &[data-enter] {
       opacity: 1;
     }
   `
 )
 
-export const Dialog = styled(ReakitDialog)<{ size: Size }>(
-  ({ size }) => css`
+export const Dialog = styled(Ariakit.Dialog)(
+  ({ size }: { size: Size }) => css`
     ${cardStyles};
     ${th('modals.default')};
-    position: relative;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    margin: auto;
+    margin-top: xl;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
     display: flex;
     flex-direction: column;
-    margin-top: xl;
-    opacity: 0;
+    align-self: center;
     height: 100%;
     max-height: 100%;
-    width: 100%;
-    overflow: hidden;
-
+    flex-direction: column;
+    overflow: auto;
+    opacity: 0;
     transition: opacity 250ms ease-in-out, margin-top 250ms ease-in-out;
-    cursor: auto;
-    ${system};
 
-    &:focus {
-      outline: none !important; /* important for firefox */
-    }
-
-    /* on open dialog for animation */
     &[data-enter] {
       opacity: 1;
       margin-top: 0;
@@ -66,53 +60,44 @@ export const Dialog = styled(ReakitDialog)<{ size: Size }>(
     ${up(
       'md',
       css`
-        height: auto;
-        max-height: 90%;
+        height: fit-content;
+        max-height: calc(100vh - ${th('space.xl')} * 2);
         ${th(`modals.sizes.${size}`)};
       `
     )}
   `
 )
 
-export const Content = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+export const Content = styled.divBox``
+
+export const Body = styled.sectionBox`
   max-height: 100%;
-  overflow: hidden;
+  ${th('modals.body')};
 `
 
 export const Header = styled.headerBox`
-  ${({ theme }) => css`
-    flex-shrink: 0;
-    ${theme.modals.header}
-  `}
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+  ${th('modals.header')};
 `
 
 export const HeaderSubtitle = styled(Text)`
-  ${({ theme }) => theme.modals.header.subtitle}
-`
-
-export const Body = styled.sectionBox`
-  ${({ theme }) => css`
-    max-height: 100%;
-    overflow-y: auto;
-    ${theme.modals.body}
-  `}
+  ${th('.modals.header.subtitle')};
+  margin-bottom: 0;
 `
 
 export const Footer = styled.footerBox`
-  ${({ theme }) => css`
-    margin-top: auto;
-    flex-shrink: 0;
-    ${theme.modals.footer}
-  `}
+  position: sticky;
+  bottom: 0;
+  flex-shrink: 0;
+  ${th('modals.footer')};
 `
 
 export const FooterChildrenWrapper = styled(Box)`
-  ${({ theme }) => theme.modals.footer.children}
+  ${th('modals.footer.children')};
 `
 
 export const FooterInformation = styled.divBox`
-  ${({ theme }) => theme.modals.footer.information}
+  ${th('modals.footer.information')};
 `

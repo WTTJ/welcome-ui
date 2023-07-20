@@ -3,7 +3,7 @@ import { Box } from '@welcome-ui/box'
 import { InformationIcon, MenuIcon } from '@welcome-ui/icons'
 import NextLink from 'next/link'
 import { Drawer, useDrawerState } from '@welcome-ui/drawer'
-import { useModalState } from '@welcome-ui/modal'
+import { useModal } from '@welcome-ui/modal'
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons'
 import { DocSearch } from '@docsearch/react'
@@ -20,7 +20,7 @@ import { NavBar } from './NavBar'
 
 export const Header = () => {
   const mobileMenuDrawerState = useDrawerState()
-  const modalState = useModalState()
+  const modal = useModal()
   const { pathname } = useRouter()
   const variants = {
     '/': 'gray',
@@ -34,7 +34,7 @@ export const Header = () => {
   }, [])
 
   function openThemeHelper() {
-    modalState.show()
+    modal.show()
   }
 
   return (
@@ -79,7 +79,7 @@ export const Header = () => {
           </Drawer.Backdrop>
         </>
       )}
-      <ThemeHelper modalState={modalState} />
+      <ThemeHelper modalStore={modal} />
     </S.Header>
   )
 }

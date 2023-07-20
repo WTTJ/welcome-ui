@@ -21,29 +21,29 @@ Modal from [Reakit](https://reakit.io/docs/dialog/) with a really nice theme ðŸ‘
 
 ## Usage
 
-Use `useModalState`, `Modal`, `Modal.Trigger` and `Modal.Body` to create a simple Modal. To ensure good spacing between modal's sub-components, they must be wrapped with `Modal.Content`.
+Use `useModal`, `Modal`, `Modal.Trigger` and `Modal.Body` to create a simple Modal. To ensure good spacing between modal's sub-components, they must be wrapped with `Modal.Content`.
 
 ```jsx
 function() {
-  const modalState = useModalState()
+  const modal = useModal()
 
   return (
     <>
-      <Modal.Trigger as={Button} state={modalState}>
+      <Modal.Trigger as={Button} store={modal}>
         Open modal
       </Modal.Trigger>
-      <Modal state={modalState} ariaLabel="example">
-        <Modal.Content>
+      <Modal store={modal} ariaLabel="example">
+        <Modal.Content store={modal}>
           <Modal.Body>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
-            aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
-            nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
-            felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
-            eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
-            orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
-            In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
-            quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
-            ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+          nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
+          felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
+          eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
+          orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
+          In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
+          quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
+          ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
           </Modal.Body>
         </Modal.Content>
       </Modal>
@@ -58,28 +58,28 @@ By default size is set to `lg`. If you don't want a size (fit on content), set s
 
 ```jsx
 function() {
-  const modalState = useModalState()
+  const modal = useModal()
   const [size, setSize] = React.useState()
 
   return (
     <Stack direction="row">
-      <Modal.Trigger as={Button} state={modalState} onClick={() => setSize('xs')}>
+      <Modal.Trigger as={Button} store={modal} onClick={() => setSize('xs')}>
         xs
       </Modal.Trigger>
-      <Modal.Trigger as={Button} state={modalState} onClick={() => setSize('sm')}>
+      <Modal.Trigger as={Button} store={modal} onClick={() => setSize('sm')}>
         sm
       </Modal.Trigger>
-      <Modal.Trigger as={Button} state={modalState} onClick={() => setSize('md')}>
+      <Modal.Trigger as={Button} store={modal} onClick={() => setSize('md')}>
         md
       </Modal.Trigger>
-      <Modal.Trigger as={Button} state={modalState} onClick={() => setSize('lg')}>
+      <Modal.Trigger as={Button} store={modal} onClick={() => setSize('lg')}>
         lg
       </Modal.Trigger>
-      <Modal.Trigger as={Button} state={modalState} onClick={() => setSize('auto')}>
+      <Modal.Trigger as={Button} store={modal} onClick={() => setSize('auto')}>
         auto
       </Modal.Trigger>
-      <Modal state={modalState} size={size} ariaLabel="size example">
-        <Modal.Content>
+      <Modal store={modal} size={size} ariaLabel="size example">
+        <Modal.Content store={modal}>
           <Modal.Body>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
@@ -104,9 +104,9 @@ Use `Modal.Header` and `Modal.Footer` to style your Modal.
 
 ```jsx
 function() {
-  const modalState = useModalState()
-  const modalState2 = useModalState()
-  const modalState3 = useModalState()
+  const modal = useModal()
+  const modal2 = useModal()
+  const modal3 = useModal()
   const title = "Nullam non lacinia"
   const subtitle = "Praesent sit amet quam ac velit faucibus dapibus, quisque sapien ligula."
   const icon = <ActionsIcon w={40} h={40} color="dark-900" />
@@ -117,33 +117,148 @@ function() {
 
 
   return (
-    <Stack direction="row">
-      <Modal.Trigger as={Button} state={modalState}>
+    <Stack>
+      <Modal.Trigger as={Button} store={modal}>
         Example modal
       </Modal.Trigger>
-      <Modal state={modalState} ariaLabel="example">
-        <Modal.Content>
+      <Modal store={modal} ariaLabel="example">
+        <Modal.Content store={modal}>
           <Modal.Header title={title} subtitle={subtitle} icon={icon}/>
           <Modal.Body>
-            Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
-            aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
-            nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
-            felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
-            eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
-            orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
-            In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
-            quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
-            ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
-
-            Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
-            aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
-            nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
-            felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
-            eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
-            orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
-            In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
-            quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
-            ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pretium leo orci, sed
+            finibus justo iaculis non. Quisque scelerisque congue feugiat. Vivamus ac accumsan odio.
+            Suspendisse potenti. Morbi scelerisque condimentum ex vitae convallis. Sed egestas
+            pulvinar tellus, eget sagittis dolor sagittis quis. Donec convallis lorem iaculis,
+            vulputate risus sit amet, faucibus ligula. Nulla et leo eros. Vestibulum sagittis bibendum
+            cursus. Integer iaculis laoreet eleifend. Aliquam et purus finibus, convallis nisi in,
+            cursus eros. Quisque tellus tortor, feugiat quis pretium tristique, accumsan in libero.
+            Integer tristique risus eu felis malesuada commodo. Aliquam sed egestas enim. Aenean a
+            ultricies enim, quis blandit augue. Nam consectetur ligula in auctor ornare. Etiam posuere
+            hendrerit mauris, rhoncus elementum leo. Ut non erat quis orci ultrices viverra ac id
+            libero. Sed eget sem ut sem pretium posuere. Aenean orci erat, faucibus nec enim aliquam,
+            faucibus pretium lacus. Nulla eu tincidunt orci. Sed bibendum tempus pulvinar. Duis
+            elementum justo et mattis elementum. Nullam non odio sodales, ornare purus at, vulputate
+            mauris. Sed venenatis metus dui, quis bibendum nulla tincidunt faucibus. Morbi
+            sollicitudin magna at odio fermentum maximus. Pellentesque scelerisque hendrerit risus,
+            eget cursus felis tincidunt ac. Sed vestibulum blandit posuere. Donec accumsan pulvinar
+            felis in feugiat. Morbi vel diam consequat, pulvinar nisi in, efficitur nisi. Morbi luctus
+            tempor est a bibendum. Phasellus vitae nisi nunc. Vestibulum ante ipsum primis in faucibus
+            orci luctus et ultrices posuere cubilia curae; Donec posuere nec nibh at mattis. Curabitur
+            odio turpis, egestas non ligula ac, ultricies vulputate augue. Phasellus a neque vitae
+            velit mattis tempor. Nunc nulla massa, porta at nisl ac, consequat lobortis arcu. Aliquam
+            blandit nibh ut tincidunt bibendum. Maecenas mollis dolor sed sapien tincidunt, ac
+            molestie dolor laoreet. Integer scelerisque dui risus, sed convallis mi bibendum quis.
+            Donec luctus vel mauris sit amet feugiat. Etiam nec lorem in purus ultricies convallis.
+            Quisque tristique, leo quis suscipit aliquet, nisi nisl euismod sapien, eu porttitor nunc
+            odio eu nisl. Nam ut nibh ut augue volutpat congue. Nam hendrerit ut libero eget
+            porttitor. In dictum neque erat, in vestibulum sapien tincidunt nec. In vestibulum odio
+            dignissim, ultricies lorem at, tincidunt nunc. Mauris rutrum orci nec malesuada commodo.
+            Nam maximus diam dapibus, suscipit odio vel, blandit magna. Aenean in arcu sit amet enim
+            facilisis hendrerit vitae quis justo. In mollis molestie mi malesuada semper. Donec
+            pellentesque erat vitae est dictum rutrum. Pellentesque habitant morbi tristique senectus
+            et netus et malesuada fames ac turpis egestas. Nam sagittis sagittis sapien, at posuere
+            diam viverra ut. Praesent eu facilisis nisi, at efficitur velit. In commodo purus libero,
+            non imperdiet nisi mollis non.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Nullam pretium leo orci, sed finibus justo iaculis non. Quisque scelerisque congue
+            feugiat. Vivamus ac accumsan odio. Suspendisse potenti. Morbi scelerisque condimentum ex
+            vitae convallis. Sed egestas pulvinar tellus, eget sagittis dolor sagittis quis. Donec
+            convallis lorem iaculis, vulputate risus sit amet, faucibus ligula. Nulla et leo eros.
+            Vestibulum sagittis bibendum cursus. Integer iaculis laoreet eleifend. Aliquam et purus
+            finibus, convallis nisi in, cursus eros. Quisque tellus tortor, feugiat quis pretium
+            tristique, accumsan in libero. Integer tristique risus eu felis malesuada commodo. Aliquam
+            sed egestas enim. Aenean a ultricies enim, quis blandit augue. Nam consectetur ligula in
+            auctor ornare. Etiam posuere hendrerit mauris, rhoncus elementum leo. Ut non erat quis
+            orci ultrices viverra ac id libero. Sed eget sem ut sem pretium posuere. Aenean orci erat,
+            faucibus nec enim aliquam, faucibus pretium lacus. Nulla eu tincidunt orci. Sed bibendum
+            tempus pulvinar. Duis elementum justo et mattis elementum. Nullam non odio sodales, ornare
+            purus at, vulputate mauris. Sed venenatis metus dui, quis bibendum nulla tincidunt
+            faucibus. Morbi sollicitudin magna at odio fermentum maximus. Pellentesque scelerisque
+            hendrerit risus, eget cursus felis tincidunt ac. Sed vestibulum blandit posuere. Donec
+            accumsan pulvinar felis in feugiat. Morbi vel diam consequat, pulvinar nisi in, efficitur
+            nisi. Morbi luctus tempor est a bibendum. Phasellus vitae nisi nunc. Vestibulum ante ipsum
+            primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec posuere nec nibh
+            at mattis. Curabitur odio turpis, egestas non ligula ac, ultricies vulputate augue.
+            Phasellus a neque vitae velit mattis tempor. Nunc nulla massa, porta at nisl ac, consequat
+            lobortis arcu. Aliquam blandit nibh ut tincidunt bibendum. Maecenas mollis dolor sed
+            sapien tincidunt, ac molestie dolor laoreet. Integer scelerisque dui risus, sed convallis
+            mi bibendum quis. Donec luctus vel mauris sit amet feugiat. Etiam nec lorem in purus
+            ultricies convallis. Quisque tristique, leo quis suscipit aliquet, nisi nisl euismod
+            sapien, eu porttitor nunc odio eu nisl. Nam ut nibh ut augue volutpat congue. Nam
+            hendrerit ut libero eget porttitor. In dictum neque erat, in vestibulum sapien tincidunt
+            nec. In vestibulum odio dignissim, ultricies lorem at, tincidunt nunc. Mauris rutrum orci
+            nec malesuada commodo. Nam maximus diam dapibus, suscipit odio vel, blandit magna. Aenean
+            in arcu sit amet enim facilisis hendrerit vitae quis justo. In mollis molestie mi
+            malesuada semper. Donec pellentesque erat vitae est dictum rutrum. Pellentesque habitant
+            morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam sagittis
+            sagittis sapien, at posuere diam viverra ut. Praesent eu facilisis nisi, at efficitur
+            velit. In commodo purus libero, non imperdiet nisi mollis non.Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Nullam pretium leo orci, sed finibus justo iaculis non.
+            Quisque scelerisque congue feugiat. Vivamus ac accumsan odio. Suspendisse potenti. Morbi
+            scelerisque condimentum ex vitae convallis. Sed egestas pulvinar tellus, eget sagittis
+            dolor sagittis quis. Donec convallis lorem iaculis, vulputate risus sit amet, faucibus
+            ligula. Nulla et leo eros. Vestibulum sagittis bibendum cursus. Integer iaculis laoreet
+            eleifend. Aliquam et purus finibus, convallis nisi in, cursus eros. Quisque tellus tortor,
+            feugiat quis pretium tristique, accumsan in libero. Integer tristique risus eu felis
+            malesuada commodo. Aliquam sed egestas enim. Aenean a ultricies enim, quis blandit augue.
+            Nam consectetur ligula in auctor ornare. Etiam posuere hendrerit mauris, rhoncus elementum
+            leo. Ut non erat quis orci ultrices viverra ac id libero. Sed eget sem ut sem pretium
+            posuere. Aenean orci erat, faucibus nec enim aliquam, faucibus pretium lacus. Nulla eu
+            tincidunt orci. Sed bibendum tempus pulvinar. Duis elementum justo et mattis elementum.
+            Nullam non odio sodales, ornare purus at, vulputate mauris. Sed venenatis metus dui, quis
+            bibendum nulla tincidunt faucibus. Morbi sollicitudin magna at odio fermentum maximus.
+            Pellentesque scelerisque hendrerit risus, eget cursus felis tincidunt ac. Sed vestibulum
+            blandit posuere. Donec accumsan pulvinar felis in feugiat. Morbi vel diam consequat,
+            pulvinar nisi in, efficitur nisi. Morbi luctus tempor est a bibendum. Phasellus vitae nisi
+            nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+            curae; Donec posuere nec nibh at mattis. Curabitur odio turpis, egestas non ligula ac,
+            ultricies vulputate augue. Phasellus a neque vitae velit mattis tempor. Nunc nulla massa,
+            porta at nisl ac, consequat lobortis arcu. Aliquam blandit nibh ut tincidunt bibendum.
+            Maecenas mollis dolor sed sapien tincidunt, ac molestie dolor laoreet. Integer scelerisque
+            dui risus, sed convallis mi bibendum quis. Donec luctus vel mauris sit amet feugiat. Etiam
+            nec lorem in purus ultricies convallis. Quisque tristique, leo quis suscipit aliquet, nisi
+            nisl euismod sapien, eu porttitor nunc odio eu nisl. Nam ut nibh ut augue volutpat congue.
+            Nam hendrerit ut libero eget porttitor. In dictum neque erat, in vestibulum sapien
+            tincidunt nec. In vestibulum odio dignissim, ultricies lorem at, tincidunt nunc. Mauris
+            rutrum orci nec malesuada commodo. Nam maximus diam dapibus, suscipit odio vel, blandit
+            magna. Aenean in arcu sit amet enim facilisis hendrerit vitae quis justo. In mollis
+            molestie mi malesuada semper. Donec pellentesque erat vitae est dictum rutrum.
+            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+            egestas. Nam sagittis sagittis sapien, at posuere diam viverra ut. Praesent eu facilisis
+            nisi, at efficitur velit. In commodo purus libero, non imperdiet nisi mollis non.Lorem
+            ipsum dolor sit amet, consectetur adipiscing elit. Nullam pretium leo orci, sed finibus
+            justo iaculis non. Quisque scelerisque congue feugiat. Vivamus ac accumsan odio.
+            Suspendisse potenti. Morbi scelerisque condimentum ex vitae convallis. Sed egestas
+            pulvinar tellus, eget sagittis dolor sagittis quis. Donec convallis lorem iaculis,
+            vulputate risus sit amet, faucibus ligula. Nulla et leo eros. Vestibulum sagittis bibendum
+            cursus. Integer iaculis laoreet eleifend. Aliquam et purus finibus, convallis nisi in,
+            cursus eros. Quisque tellus tortor, feugiat quis pretium tristique, accumsan in libero.
+            Integer tristique risus eu felis malesuada commodo. Aliquam sed egestas enim. Aenean a
+            ultricies enim, quis blandit augue. Nam consectetur ligula in auctor ornare. Etiam posuere
+            hendrerit mauris, rhoncus elementum leo. Ut non erat quis orci ultrices viverra ac id
+            libero. Sed eget sem ut sem pretium posuere. Aenean orci erat, faucibus nec enim aliquam,
+            faucibus pretium lacus. Nulla eu tincidunt orci. Sed bibendum tempus pulvinar. Duis
+            elementum justo et mattis elementum. Nullam non odio sodales, ornare purus at, vulputate
+            mauris. Sed venenatis metus dui, quis bibendum nulla tincidunt faucibus. Morbi
+            sollicitudin magna at odio fermentum maximus. Pellentesque scelerisque hendrerit risus,
+            eget cursus felis tincidunt ac. Sed vestibulum blandit posuere. Donec accumsan pulvinar
+            felis in feugiat. Morbi vel diam consequat, pulvinar nisi in, efficitur nisi. Morbi luctus
+            tempor est a bibendum. Phasellus vitae nisi nunc. Vestibulum ante ipsum primis in faucibus
+            orci luctus et ultrices posuere cubilia curae; Donec posuere nec nibh at mattis. Curabitur
+            odio turpis, egestas non ligula ac, ultricies vulputate augue. Phasellus a neque vitae
+            velit mattis tempor. Nunc nulla massa, porta at nisl ac, consequat lobortis arcu. Aliquam
+            blandit nibh ut tincidunt bibendum. Maecenas mollis dolor sed sapien tincidunt, ac
+            molestie dolor laoreet. Integer scelerisque dui risus, sed convallis mi bibendum quis.
+            Donec luctus vel mauris sit amet feugiat. Etiam nec lorem in purus ultricies convallis.
+            Quisque tristique, leo quis suscipit aliquet, nisi nisl euismod sapien, eu porttitor nunc
+            odio eu nisl. Nam ut nibh ut augue volutpat congue. Nam hendrerit ut libero eget
+            porttitor. In dictum neque erat, in vestibulum sapien tincidunt nec. In vestibulum odio
+            dignissim, ultricies lorem at, tincidunt nunc. Mauris rutrum orci nec malesuada commodo.
+            Nam maximus diam dapibus, suscipit odio vel, blandit magna. Aenean in arcu sit amet enim
+            facilisis hendrerit vitae quis justo. In mollis molestie mi malesuada semper. Donec
+            pellentesque erat vitae est dictum rutrum. Pellentesque habitant morbi tristique senectus
+            et netus et malesuada fames ac turpis egestas. Nam sagittis sagittis sapien, at posuere
+            diam viverra ut. Praesent eu facilisis nisi, at efficitur velit. In commodo purus libero,
+            non imperdiet nisi mollis non.
           </Modal.Body>
           <Modal.Footer informations={informations}>
             <Box w="100%">
@@ -154,11 +269,11 @@ function() {
         </Modal.Content>
       </Modal>
 
-      <Modal.Trigger as={Button} state={modalState2}>
+      <Modal.Trigger as={Button} store={modal2}>
         Example modal 2
       </Modal.Trigger>
-      <Modal state={modalState2} ariaLabel="example-2">
-        <Modal.Content>
+      <Modal store={modal2} ariaLabel="example-2">
+        <Modal.Content store={modal}>
           <Modal.Header title={title} subtitle={subtitle} />
           <Modal.Body>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -184,19 +299,29 @@ function() {
           <Modal.Footer>
             <Box w="100%">
               <Button variant="secondary" mr="sm">Lorem dolir</Button>
-              <Button onClick={() => modal.hide2()}>Close</Button>
+              <Button onClick={() => modal2.hide()}>Close</Button>
             </Box>
           </Modal.Footer>
         </Modal.Content>
       </Modal>
 
-      <Modal.Trigger as={Button} state={modalState3}>
+      <Modal.Trigger as={Button} store={modal3}>
         Example modal 3
       </Modal.Trigger>
-      <Modal state={modalState3} ariaLabel="example-3">
-        <Modal.Content>
+      <Modal store={modal3} ariaLabel="example-3">
+        <Modal.Content store={modal}>
           <Modal.Header title={title} icon={icon} />
           <Modal.Body>
+            Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+            aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+            nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
+            felis ut sollicitudin elementum, dolor nibh faucibus orci, eu aliquet felis diam sed
+            eros. Donec eget sapien lacinia, viverra felis in, placerat urna. Vestibulum sed viverra
+            orci. Donec id tellus eget dui porta lobortis ac eu metus. Praesent id ultricies odio.
+            In hac habitasse platea dictumst. Sed lorem lacus, hendrerit non sodales id, consectetur
+            quis magna. Nullam non lacinia risus, ut varius est. Nam nec pulvinar tellus, eu
+            ultrices elit. Cras tincidunt et purus eu condimentum. Nunc vitae consequat nibh.
+
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
             nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque,
@@ -215,14 +340,14 @@ function() {
 }
 ```
 
-## useModalState
+## useModal
 
 We use `useDialogState` from [Reakit Dialog](https://reakit.io/docs/dialog/#usedialogstate) for the state of the modal.
 
-Pass options to `useModalState` :
+Pass options to `useModal` :
 
-- `visible`: e.g. `const modal = useModalState({ visible: true })`
-- `onClose`: e.g. `const modal = useModalState({ onClose: () => console.log('closing the modal') })`
+- `defaultOpen`: e.g. `const modal = useModal({ defaultOpen: true })`
+- `onClose`: e.g. `const modal = useModal({ onClose: () => console.log('closing the modal') })`
 
 And the hook returns (among other things):
 
