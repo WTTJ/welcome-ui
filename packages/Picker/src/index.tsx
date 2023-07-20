@@ -1,5 +1,5 @@
 import React from 'react'
-import { RadioGroup as ReakitRadioGroup } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 import { FieldGroup, FieldGroupOptions } from '@welcome-ui/field-group'
 import { Label } from '@welcome-ui/label'
 import { Box } from '@welcome-ui/box'
@@ -26,6 +26,8 @@ export type PickerProps = CreateWuiProps<
 
 export const Picker = forwardRef<'fieldset', PickerProps>(
   ({ dataTestId, label, name, onChange, options, required, value, ...rest }, ref) => {
+    const store = Ariakit.useRadioStore({ defaultValue: value })
+
     const handleClick: React.MouseEventHandler<HTMLLabelElement> = e => {
       e.stopPropagation()
       onChange && onChange(e)
@@ -34,11 +36,12 @@ export const Picker = forwardRef<'fieldset', PickerProps>(
     return (
       <FieldGroup
         {...rest}
-        as={ReakitRadioGroup}
+        as={Ariakit.RadioGroup}
         dataTestId={dataTestId}
         mb={0}
         ref={ref}
         required={required}
+        store={store}
       >
         <Box display="flex" flexWrap="wrap">
           {options.map(({ element: Component, value: optValue }) => (

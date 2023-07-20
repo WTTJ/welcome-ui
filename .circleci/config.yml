@@ -216,7 +216,7 @@ workflows:
             tags:
               only: /.*/
           requires:
-            - checkout
+            - checkoutx
       - yarn_install:
           filters:
             tags:
