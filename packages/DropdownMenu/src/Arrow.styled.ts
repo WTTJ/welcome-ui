@@ -1,10 +1,10 @@
 import styled, { css, th } from '@xstyled/styled-components'
-import { MenuArrow } from 'reakit'
 
-export const Arrow = styled(MenuArrow)`
+export const Arrow = styled.divBox`
   display: flex;
   z-index: 2;
   color: ${th('defaultCards.backgroundColor')};
+  stroke-width: 0 !important;
 
   #stroke {
     color: ${th('defaultCards.borderColor')};

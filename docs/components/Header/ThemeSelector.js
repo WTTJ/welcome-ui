@@ -1,5 +1,5 @@
 import React from 'react'
-import { DropdownMenu, useDropdownMenuState } from '@welcome-ui/dropdown-menu'
+import { DropdownMenu, useDropdownMenu } from '@welcome-ui/dropdown-menu'
 import { Box } from '@welcome-ui/box'
 import { CrescentMoonIcon, StarIcon, StarOutlineIcon, SunIcon } from '@welcome-ui/icons'
 import { Button } from '@welcome-ui/button'
@@ -9,12 +9,12 @@ import { useSetThemeContext, useThemeContext } from '../../context/theme'
 
 export const ThemeSelector = props => {
   const setTheme = useSetThemeContext()
-  const menuState = useDropdownMenuState({ gutter: 10 })
+  const dropdownMenu = useDropdownMenu()
   const theme = useThemeContext()
 
   const handleSetTheme = theme => {
     setTheme(theme)
-    menuState.hide()
+    dropdownMenu.hide()
   }
 
   const options = [
@@ -26,17 +26,23 @@ export const ThemeSelector = props => {
 
   return (
     <>
-      <DropdownMenu.Trigger as={Button} h={30} shape="circle" state={menuState} w={30} {...props}>
+      <DropdownMenu.Trigger
+        as={Button}
+        h={30}
+        shape="circle"
+        store={dropdownMenu}
+        w={30}
+        {...props}
+      >
         <SunIcon />
       </DropdownMenu.Trigger>
-      <DropdownMenu aria-label="Theme selector" state={menuState}>
+      <DropdownMenu aria-label="Theme selector" store={dropdownMenu}>
         {options?.map(({ icon: Icon, isBeta, label, value }) => (
           <DropdownMenu.Item
             color={theme === value ? 'dark-900' : undefined}
             fontWeight={theme === value ? 'bold' : undefined}
             key={value}
             onClick={() => handleSetTheme(value)}
-            state={menuState}
           >
             <Icon mr="md" size="sm" />
             <Box>{label}</Box>

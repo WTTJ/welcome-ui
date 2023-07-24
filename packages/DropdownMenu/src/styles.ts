@@ -6,15 +6,11 @@ export const Inner = styled(Box)`
   ${cardStyles};
   ${th('dropdownMenu.inner')};
   z-index: 1;
-  transition: opacity 200ms;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+  ${system};
 
-  &:focus {
-    outline: none !important; /* important for firefox */
+  &[data-enter] {
+    opacity: 1;
   }
-
-  &[hidden] {
-    display: none;
-  }
-
-  ${system}
 `

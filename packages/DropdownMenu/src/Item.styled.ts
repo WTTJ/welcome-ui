@@ -12,11 +12,6 @@ export const Item = styled.button`
   text-decoration: none;
   padding: md;
 
-  &[type='button'] {
-    appearance: none;
-  }
-
-  &:hover,
   &:focus {
     outline: none !important; /* important for firefox */
   }
