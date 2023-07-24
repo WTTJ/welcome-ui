@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { InformationIcon, MenuIcon } from '@welcome-ui/icons'
 import NextLink from 'next/link'
@@ -26,12 +26,6 @@ export const Header = () => {
     '/': 'gray',
   }
   const variant = variants[pathname]
-  const [hasBeenHydrated, setHasBeenHydrated] = useState(false)
-
-  // Workaround for hydration warning UI for Reakit dialog (fix in ariakit 2.0)
-  useEffect(() => {
-    setHasBeenHydrated(true)
-  }, [])
 
   function openThemeHelper() {
     modal.show()
@@ -60,29 +54,27 @@ export const Header = () => {
         </Button>
       </Box>
       <NavBar display={{ xs: 'none', md: 'flex' }} />
-      {hasBeenHydrated && (
-        <>
-          <Drawer.Trigger
-            flexShrink={0}
-            as={Button}
-            display={{ md: 'none' }}
-            shape="circle"
-            size="sm"
-            store={mobileMenuDrawer}
-          >
-            {mobileMenuDrawer.open ? <CrossIcon /> : <MenuIcon />}
-          </Drawer.Trigger>
-          <S.MenuMobileDrawer
-            withBackdrop={false}
-            store={mobileMenuDrawer}
-            aria-label="Menu backdrop"
-            withCloseButton={false}
-          >
-            <NavBar drawerState={mobileMenuDrawer} isMobileMenu mb="lg" />
-            <ComponentsList onClick={() => mobileMenuDrawer.hide()} />
-          </S.MenuMobileDrawer>
-        </>
-      )}
+      <>
+        <Drawer.Trigger
+          flexShrink={0}
+          as={Button}
+          display={{ md: 'none' }}
+          shape="circle"
+          size="sm"
+          store={mobileMenuDrawer}
+        >
+          {mobileMenuDrawer.open ? <CrossIcon /> : <MenuIcon />}
+        </Drawer.Trigger>
+        <S.MenuMobileDrawer
+          withBackdrop={false}
+          store={mobileMenuDrawer}
+          aria-label="Menu backdrop"
+          withCloseButton={false}
+        >
+          <NavBar drawerState={mobileMenuDrawer} isMobileMenu mb="lg" />
+          <ComponentsList onClick={() => mobileMenuDrawer.hide()} />
+        </S.MenuMobileDrawer>
+      </>
       <ThemeHelper modalStore={modal} />
     </S.Header>
   )

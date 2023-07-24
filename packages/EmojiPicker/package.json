@@ -1,7 +1,7 @@
 {
   "name": "@welcome-ui/emoji-picker",
   "version": "5.0.0-alpha.43",
-  "description": "Customizable design system with react • styled-components • styled-system and reakit.",
+  "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/types/index.d.ts",

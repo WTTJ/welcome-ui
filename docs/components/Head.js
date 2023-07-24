@@ -25,13 +25,13 @@ export function Head() {
       <meta content="@wttj_fr" name="twitter:create" />
       <meta content="Welcome UI - Customizable design system with react" property="twitter:title" />
       <meta
-        content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react, typescript, styled-components, reakit and a lot of love 💛"
+        content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react, typescript, styled-components, ariakit and a lot of love 💛"
         property="twitter:description"
       />
       <meta content="https://www.welcome-ui.com" property="og:url" />
       <meta content="Welcome UI - Customizable design system with react" property="og:title" />
       <meta
-        content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react, typescript, styled-components, reakit and a lot of love 💛"
+        content="Here you'll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react, typescript, styled-components, ariakit and a lot of love 💛"
         property="og:description"
       />
       <meta content="https://www.welcome-ui.com/og-image.png" property="og:image" />

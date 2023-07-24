@@ -25,7 +25,7 @@ export default function Home() {
         </Text>
         <Text maxWidth={640} variant="lg">
           Welcome UI is a customizable design system library made with react, typescript,
-          styled-components, reakit and a lot of love 💛
+          styled-components, ariakit and a lot of love 💛
         </Text>
         <NextLink href="/installation" passHref>
           <Button as="a" mt="3xl" size="lg">
