@@ -47,10 +47,11 @@ describe('<Drawer>', () => {
   it('should render "as" correctly', () => {
     const Test = () => {
       const drawer = useDrawer()
+      const onClick = jest.fn()
 
       return (
         <>
-          <Drawer.Trigger as="button" onClick={() => null} store={drawer}>
+          <Drawer.Trigger as="button" onClick={onClick} store={drawer}>
             open
           </Drawer.Trigger>
           <Drawer aria-label="drawer" store={drawer}>

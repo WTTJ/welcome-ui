@@ -40,6 +40,7 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
           withBackdrop ? <S.Backdrop hideOnInteractOutside={hideOnInteractOutside} /> : false
         }
         hideOnInteractOutside={hideOnInteractOutside}
+        modal={withBackdrop}
         ref={ref}
         render={<S.Drawer placement={placement} size={size} />}
         store={store}
