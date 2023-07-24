@@ -1,170 +1,86 @@
-import React, { cloneElement } from 'react'
-import {
-  Dialog,
-  DialogBackdropProps,
-  DialogDisclosure,
-  DialogInitialState,
-  DialogOptions,
-  DialogProps,
-  DialogStateReturn,
-  useDialogState,
-} from 'reakit'
-import { Box, BoxProps } from '@welcome-ui/box'
-import { CloseButtonProps } from '@welcome-ui/close-button'
-import { Text, TextProps } from '@welcome-ui/text'
-import { As, CreateWuiProps, forwardRef, OmitReakitState } from '@welcome-ui/system'
+import React from 'react'
+import * as Ariakit from '@ariakit/react'
+import { As, CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
+import { Close } from './Close'
+import { Content } from './Content'
+import { Footer } from './Footer'
+import { Title } from './Title'
 import * as S from './styles'
 
 export type Placement = 'top' | 'right' | 'bottom' | 'left'
 export type Size = 'sm' | 'md' | 'lg' | 'auto' | string
 
-export interface DrawerOptions {
+export interface DrawerOptions extends Ariakit.DialogProps {
   placement?: Placement
   size?: Size
-  state: DialogStateReturn
+  withBackdrop?: boolean
+  withCloseButton?: boolean
 }
 
-export type DrawerProps = CreateWuiProps<'div', OmitReakitState<DrawerOptions, DialogOptions>>
+export type DrawerProps = CreateWuiProps<'div', DrawerOptions>
 
 const DrawerComponent = forwardRef<'div', DrawerProps>(
-  ({ as, children, placement = 'right', size = 'lg', state, ...rest }, ref) => {
+  (
+    {
+      children,
+      hideOnInteractOutside = true,
+      placement = 'right',
+      size = 'lg',
+      store,
+      withBackdrop = false,
+      withCloseButton = true,
+      ...rest
+    },
+    ref
+  ) => {
     return (
-      // Needed to allow to style the backdrop
-      // see: https://reakit.io/docs/styling/#css-in-js
-      <Dialog as={as} ref={ref} {...state} {...rest}>
-        {props => (
-          <S.Drawer state={state} {...props} placement={placement} size={size}>
-            {children}
-          </S.Drawer>
-        )}
-      </Dialog>
+      <Ariakit.Dialog
+        backdrop={
+          withBackdrop ? <S.Backdrop hideOnInteractOutside={hideOnInteractOutside} /> : false
+        }
+        hideOnInteractOutside={hideOnInteractOutside}
+        ref={ref}
+        render={<S.Drawer placement={placement} size={size} />}
+        store={store}
+        {...rest}
+      >
+        <>
+          {withCloseButton && <Close />}
+          {children}
+        </>
+      </Ariakit.Dialog>
     )
   }
 )
 
-export type DrawerStateReturn = DialogStateReturn & {
-  /**
-   * @deprecated
-   * will be replace by open on ariakit (reakit v2)
-   **/
-  visible?: DialogStateReturn['visible']
-  open: DialogStateReturn['visible']
-}
-export type DrawerInitialState = DialogInitialState & {
-  /**
-   * @deprecated
-   * will be replace by open on ariakit (reakit v2)
-   **/
-  visible?: DialogInitialState['visible']
-  /**
-   * Open the drawer on load
-   */
-  open?: DialogInitialState['visible']
-}
+export type DrawerStoreReturn = Ariakit.DialogStore
+export type DrawerStoreProps = Ariakit.DialogStoreProps
 
-export function useDrawerState(options?: DrawerInitialState): DrawerStateReturn {
-  const { open, visible, ...restOptions } = options || {}
-  const dialogState = useDialogState({ animated: true, visible: visible || open, ...restOptions })
+export function useDrawer(options: DrawerStoreProps = {}): DrawerStoreReturn {
+  const dialog = Ariakit.useDialogStore({ animated: true, ...options })
 
-  return { open: dialogState.visible, ...dialogState }
+  return dialog
 }
 
 export interface DrawerBackdropOptions {
-  hideOnClickOutside?: boolean
-  backdropVisible?: boolean
-  state: DialogBackdropProps
-  children: React.ReactElement
+  hideOnInteractOutside?: boolean
 }
 
-export type DrawerBackdropProps = DrawerBackdropOptions
-
-// Needed to allow to style the backdrop
-// see: https://reakit.io/docs/styling/#css-in-js
 /**
  * @name Drawer.Backdrop
  */
-export const DrawerBackdrop: React.FC<DrawerBackdropProps> = ({
-  backdropVisible = true,
-  children,
-  hideOnClickOutside = true,
-  state,
-  ...rest
+export const DrawerBackdrop: React.FC<DrawerBackdropOptions> = ({
+  hideOnInteractOutside = true,
+  ...props
 }) => {
-  const Wrapper = backdropVisible ? S.Backdrop : S.NoBackdropWrapper
-  const placement = children?.props?.placement || 'right'
-  const size = children?.props?.size || 'lg'
-  const optionalWrapperProps = {
-    size,
-    placement,
-  }
-
-  return (
-    <Wrapper {...state} {...rest} hideOnClickOutside={hideOnClickOutside} {...optionalWrapperProps}>
-      {cloneElement(children, { hideOnClickOutside })}
-    </Wrapper>
-  )
+  return <S.Backdrop hideOnInteractOutside={hideOnInteractOutside} {...props} />
 }
 
-export type CloseOptions = { state: DialogProps }
-export type CloseProps = CloseOptions & CloseButtonProps
+type TriggerProps = { store: Ariakit.DialogStore; children: React.ReactNode; as?: As }
 
-export const Close: React.FC<CloseProps> = ({ state, zIndex = '2', ...props }) => {
-  const { hide } = state
-
-  return (
-    <Box
-      display="flex"
-      h="0"
-      justifyContent="flex-end"
-      position="sticky"
-      top="0"
-      w="auto"
-      zIndex={zIndex}
-    >
-      <S.CloseButton onClick={hide} {...props} />
-    </Box>
-  )
-}
-
-export const Title: React.FC<TextProps> = ({ children, zIndex = '1', ...props }) => {
-  return (
-    <S.Title
-      alignItems="center"
-      display="flex"
-      justifyContent="space-between"
-      position={{ xs: 'sticky', md: 'static' }}
-      top={{ xs: 0, md: 'auto' }}
-      w="100%"
-      zIndex={zIndex}
-      {...props}
-    >
-      <Text m="0" variant="h3" w="100%">
-        {children}
-      </Text>
-    </S.Title>
-  )
-}
-
-export const Content: React.FC<BoxProps> = props => {
-  return <S.Content flex="1" overflowY={{ md: 'auto' }} {...props} />
-}
-
-export const Footer: React.FC<BoxProps> = props => {
-  return (
-    <S.Footer
-      bottom={{ xs: 0, md: 'auto' }}
-      position={{ xs: 'sticky', md: 'static' }}
-      w="100%"
-      {...props}
-    />
-  )
-}
-
-type TriggerProps = { state: DialogStateReturn; children: React.ReactNode; as?: As }
-
-export const Trigger = forwardRef<'button', TriggerProps>(({ as, state, ...rest }, ref) => {
-  return <DialogDisclosure as={as} ref={ref} {...state} {...rest} />
+export const Trigger = forwardRef<'button', TriggerProps>(({ as, store, ...rest }, ref) => {
+  return <Ariakit.DialogDisclosure as={as} ref={ref} store={store} {...rest} />
 })
 
 export const Drawer = Object.assign(DrawerComponent, {

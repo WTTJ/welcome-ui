@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Box } from '@welcome-ui/box'
 import { InformationIcon, MenuIcon } from '@welcome-ui/icons'
 import NextLink from 'next/link'
-import { Drawer, useDrawerState } from '@welcome-ui/drawer'
+import { Drawer, useDrawer } from '@welcome-ui/drawer'
 import { useModal } from '@welcome-ui/modal'
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons'
@@ -19,7 +19,7 @@ import * as S from './styles'
 import { NavBar } from './NavBar'
 
 export const Header = () => {
-  const mobileMenuDrawerState = useDrawerState()
+  const mobileMenuDrawer = useDrawer()
   const modal = useModal()
   const { pathname } = useRouter()
   const variants = {
@@ -63,20 +63,24 @@ export const Header = () => {
       {hasBeenHydrated && (
         <>
           <Drawer.Trigger
+            flexShrink={0}
             as={Button}
             display={{ md: 'none' }}
             shape="circle"
             size="sm"
-            state={mobileMenuDrawerState}
+            store={mobileMenuDrawer}
           >
-            {mobileMenuDrawerState.visible ? <CrossIcon /> : <MenuIcon />}
+            {mobileMenuDrawer.open ? <CrossIcon /> : <MenuIcon />}
           </Drawer.Trigger>
-          <Drawer.Backdrop backdropVisible={false} state={mobileMenuDrawerState}>
-            <S.MenuMobileDrawer aria-label="Menu backdrop" state={mobileMenuDrawerState}>
-              <NavBar drawerState={mobileMenuDrawerState} isMobileMenu mb="lg" />
-              <ComponentsList onClick={() => mobileMenuDrawerState.hide()} />
-            </S.MenuMobileDrawer>
-          </Drawer.Backdrop>
+          <S.MenuMobileDrawer
+            withBackdrop={false}
+            store={mobileMenuDrawer}
+            aria-label="Menu backdrop"
+            withCloseButton={false}
+          >
+            <NavBar drawerState={mobileMenuDrawer} isMobileMenu mb="lg" />
+            <ComponentsList onClick={() => mobileMenuDrawer.hide()} />
+          </S.MenuMobileDrawer>
         </>
       )}
       <ThemeHelper modalStore={modal} />
