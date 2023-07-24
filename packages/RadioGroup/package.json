@@ -46,10 +46,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
+    "@ariakit/react": "0.2.12",
     "@welcome-ui/field-group": "^5.0.0-alpha.43",
     "@welcome-ui/radio": "^5.0.0-alpha.43",
-    "@welcome-ui/system": "^5.0.0-alpha.40",
-    "@ariakit/react": "^0.2.10"
+    "@welcome-ui/system": "^5.0.0-alpha.40"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
