@@ -1,13 +1,13 @@
 import { WuiTheme } from './types'
 
-type FontFaceExtension = 'woff' | 'woff2'
-
 type FontFace = {
+  display?: FontDisplay
+  isVariable?: boolean
+  stretch?: string
+  style?: string
   url: string
   weight?: string
-  style?: 'italic'
-  display: 'swap' | 'block'
-  extensions: FontFaceExtension[]
+  extensions?: string[]
 }
 
 export type ThemeFontFaces = {
@@ -19,57 +19,46 @@ export type ThemeFontFaces = {
 export const fontFaces = (theme: WuiTheme): ThemeFontFaces => ({
   'welcome-font': [
     {
-      url: `${theme.fontsUrl}/fonts/welcome-font-regular`,
+      url: `${theme.fontsUrl}/welcome-font-regular`,
       weight: '400',
-      display: 'swap',
-      extensions: ['woff2', 'woff'],
     },
     {
-      url: `${theme.fontsUrl}/fonts/welcome-font-medium`,
+      url: `${theme.fontsUrl}/welcome-font-medium`,
       weight: '500',
-      display: 'swap',
-      extensions: ['woff2', 'woff'],
     },
     {
-      url: `${theme.fontsUrl}/fonts/welcome-font-bold`,
+      url: `${theme.fontsUrl}/welcome-font-bold`,
       weight: '600',
-      display: 'swap',
-      extensions: ['woff2', 'woff'],
     },
     {
-      url: `${theme.fontsUrl}/fonts/welcome-font-regular-italic`,
+      url: `${theme.fontsUrl}/welcome-font-regular-italic`,
+      style: 'italic',
       weight: '400',
-      style: 'italic',
-      display: 'swap',
-      extensions: ['woff2', 'woff'],
     },
     {
-      url: `${theme.fontsUrl}/fonts/welcome-font-medium-italic`,
+      url: `${theme.fontsUrl}/welcome-font-medium-italic`,
+      style: 'italic',
       weight: '500',
-      style: 'italic',
-      display: 'swap',
-      extensions: ['woff2', 'woff'],
     },
     {
-      url: `${theme.fontsUrl}/fonts/welcome-font-bold-italic`,
-      weight: '600',
+      url: `${theme.fontsUrl}/welcome-font-bold-italic`,
       style: 'italic',
-      display: 'swap',
-      extensions: ['woff2', 'woff'],
+      weight: '600',
     },
   ],
   'welcome-icon-font': [
     {
-      url: `${theme.fontsUrl}/fonts/icon-font/__ICON_FONT_HASH__/welcome-icon-font`,
+      url: `${theme.fontsUrl}/icon-font/__ICON_FONT_HASH__/welcome-icon-font`,
       display: 'block',
-      extensions: ['woff2', 'woff'],
     },
   ],
   'Work Sans': [
     {
-      url: `${theme.fontsUrl}/fonts/work-sans-variable`,
-      display: 'block',
-      extensions: ['woff2', 'woff'],
+      url: `${theme.fontsUrl}/work-sans-variable`,
+      isVariable: true,
+      stretch: '75% 125%',
+      style: 'oblique 0deg 20deg',
+      weight: '400 500 600',
     },
   ],
 })

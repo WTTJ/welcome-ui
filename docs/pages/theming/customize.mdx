@@ -140,6 +140,14 @@ export default function Root() {
 }
 ```
 
+## Change fonts path url
+
+If you wan to change the url path for the fonts, you can change the property `fontsUrl` on `createTheme()`. On our case at Welcome to the jungle, we want to have the fonts from the same domain name as our main website. By default is on welcome-ui.com domain.
+
+```jsx live=false
+const theme = createTheme({ fontsUrl: 'https://cdn.welcometothejungle.com/fonts', ...yourTheme })
+```
+
 ## All theme values
 
 Here are all the [possible values for your theme](https://github.com/WTTJ/welcome-ui/blob/master/packages/Core/theme/core.ts).<br />These will be merged with the default theme.

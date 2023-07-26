@@ -63,13 +63,13 @@ const DEFAULT_FONT_FAMILY = 'Work Sans'
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_LETTER_SPACING = '-0.019rem'
 const DEFAULT_LINE_HEIGHT = 1.15
-const FONTS_URL = 'https://cdn.welcome-ui.com'
+const FONTS_URL = 'https://cdn.welcome-ui.com/fonts'
 const HEADING_FONT_FAMILY = 'welcome-font'
 const ICON_FONT_FAMILY = 'welcome-icon-font'
 
 export type ThemeFontsUrl =
-  | 'https://cdn.welcome-ui.com'
-  | 'https://cdn.welcometothejungle.com'
+  | 'https://cdn.welcome-ui.com/fonts'
+  | 'https://cdn.welcometothejungle.com/fonts'
   | string
 
 export type Options = {
@@ -115,7 +115,6 @@ export const createTheme = (options: Options = {}): WuiTheme => {
   theme.fontWeights = fontWeights
   theme.letterSpacings = getLetterSpacings(theme)
   theme.fonts = getFonts(defaultFontFamily, headingFontFamily, iconFontFamily)
-
   theme.borderWidths = borderWidths
 
   theme.screens = screens

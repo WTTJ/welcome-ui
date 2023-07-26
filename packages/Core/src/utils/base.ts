@@ -2,7 +2,6 @@ import { createGlobalStyle, css, th } from '@xstyled/styled-components'
 
 import { fonts } from './font'
 import { normalizeStyle, resetStyles } from './reset'
-import { workSans } from './work-sans'
 
 const baseBoxSizing = css`
   * {
@@ -33,7 +32,6 @@ function baseFonts() {
 export const GlobalStyle = createGlobalStyle<{ useReset?: boolean }>(
   ({ useReset }) => css`
     ${normalizeStyle};
-    ${workSans()}
     ${fonts()};
     ${baseFonts()};
     ${useReset ? resetStyles : baseBoxSizing};

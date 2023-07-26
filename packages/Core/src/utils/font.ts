@@ -2,42 +2,51 @@ import { css } from '@xstyled/styled-components'
 
 import { WuiTheme } from '../theme/types'
 
-function getFormat(extension: string) {
-  return extension === 'ttf' ? 'truetype' : extension
-}
-
-function getUrl(url: string, extension: string) {
-  return `url('${url}.${extension}') format('${getFormat(extension)}')`
-}
-
-type Descriptor = {
-  name: string
+type FontVariation = {
   url: string
-  extensions: string[]
-  display?: string
+  display?: FontDisplay
   weight?: string
   style?: string
+  isVariable?: boolean
+  extension?: string
 }
 
-function getSrc(descriptor: Descriptor) {
-  return descriptor.extensions
-    .map((extension: string) => getUrl(descriptor.url, extension))
-    .join(', ')
+type Font = {
+  name: string
+  variation: FontVariation
 }
 
-function getFont(descriptor: Descriptor) {
+function getSource(
+  url: FontVariation['url'],
+  extension: FontVariation['extension'],
+  isVariable: FontVariation['isVariable']
+) {
+  const formattedExtension = extension === 'ttf' ? 'truetype' : extension
+
+  /** variable icon font */
+  if (isVariable) {
+    return `url('${url}.${extension}') format('${formattedExtension}-variations');`
+  }
+
+  return `url('${url}.${extension}') format('${formattedExtension}')`
+}
+
+function getFont({
+  name,
+  variation: { display = 'swap', extension = 'woff2', isVariable, style, url, weight },
+}: Font) {
   return css`
     @font-face {
-      font-family: ${descriptor.name};
-      src: ${getSrc(descriptor)};
-      font-display: ${descriptor.display || 'fallback'};
-      ${descriptor.weight &&
+      font-family: ${name};
+      src: ${getSource(url, extension, isVariable)};
+      font-display: ${display};
+      ${weight &&
       css`
-        font-weight: ${descriptor.weight};
+        font-weight: ${weight};
       `}
-      ${descriptor.style &&
+      ${style &&
       css`
-        font-style: ${descriptor.style};
+        font-style: ${style};
       `}
     }
   `
@@ -47,7 +56,8 @@ export const fonts =
   () =>
   ({ theme }: { theme: WuiTheme }): ReturnType<typeof css> => {
     if (!theme || !theme.fontFaces) return null
+
     return Object.entries(theme.fontFaces).map(([name, variations]) =>
-      variations.map(variation => getFont({ name, ...variation }))
+      variations.map(variation => getFont({ name, variation }))
     )
   }

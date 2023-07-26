@@ -85,7 +85,7 @@ jobs:
             yarn build:core
       - aws-s3/sync:
           from: packages/IconFont/fonts
-          to: s3://welcome-ui/fonts/icon-font/$ICON_FONT_HASH/
+          to: s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH/
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
       - aws-s3/sync:
