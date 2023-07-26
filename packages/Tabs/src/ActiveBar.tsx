@@ -1,6 +1,7 @@
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useViewportSize } from '@welcome-ui/utils'
 import { TabStateReturn } from 'reakit'
+import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
@@ -17,7 +18,8 @@ function useActiveBarState(
 ): ActiveBarStateReturn {
   const [state, setState] = useState({})
   const { height: viewportHeight, width: viewportWidth } = useViewportSize()
-  useLayoutEffect(() => {
+
+  useIsomorphicLayoutEffect(() => {
     const list = listRef.current
     if (!list || !activeTab) return
 

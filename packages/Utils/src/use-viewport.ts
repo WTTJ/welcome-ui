@@ -1,4 +1,6 @@
-import { useLayoutEffect, useState } from 'react'
+import { useState } from 'react'
+
+import { useIsomorphicLayoutEffect } from './use-isomorphic-layout-effect'
 
 type Size = {
   height: number
@@ -8,7 +10,7 @@ type Size = {
 export function useViewportSize(): Size {
   const [size, setSize] = useState<Size>({ height: undefined, width: undefined })
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     setSize({ width: window.innerWidth, height: window.innerHeight })
 
     function handleResize() {

@@ -1,5 +1,6 @@
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useRef } from 'react'
+import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
 
 import { UsePopoverStateReturn } from './usePopoverState'
 import * as S from './styles'
@@ -48,7 +49,7 @@ export const Trigger = forwardRef<'button', TriggerProps>(({ as, state, ...rest 
     }
   }
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const disclosure = disclosureRef.current
     if (hoverable && disclosure) {
       // add listeners on mount
