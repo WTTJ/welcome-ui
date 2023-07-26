@@ -1,3 +1,5 @@
+import { WuiTheme } from './types'
+
 type FontFaceExtension = 'woff' | 'woff2'
 
 type FontFace = {
@@ -10,56 +12,64 @@ type FontFace = {
 
 export type ThemeFontFaces = {
   'welcome-font': FontFace[]
-  'welcome-icon-font-2': FontFace[]
+  'welcome-icon-font': FontFace[]
+  'Work Sans': FontFace[]
 }
 
-export const fontFaces: ThemeFontFaces = {
+export const fontFaces = (theme: WuiTheme): ThemeFontFaces => ({
   'welcome-font': [
     {
-      url: 'https://cdn.welcometothejungle.com/common/assets/fonts/welcome-font-regular',
+      url: `${theme.fontsUrl}/fonts/welcome-font-regular`,
       weight: '400',
       display: 'swap',
       extensions: ['woff2', 'woff'],
     },
     {
-      url: 'https://cdn.welcometothejungle.com/common/assets/fonts/welcome-font-medium',
+      url: `${theme.fontsUrl}/fonts/welcome-font-medium`,
       weight: '500',
       display: 'swap',
       extensions: ['woff2', 'woff'],
     },
     {
-      url: 'https://cdn.welcometothejungle.com/common/assets/fonts/welcome-font-bold',
+      url: `${theme.fontsUrl}/fonts/welcome-font-bold`,
       weight: '600',
       display: 'swap',
       extensions: ['woff2', 'woff'],
     },
     {
-      url: 'https://cdn.welcometothejungle.com/common/assets/fonts/welcome-font-regular-italic',
+      url: `${theme.fontsUrl}/fonts/welcome-font-regular-italic`,
       weight: '400',
       style: 'italic',
       display: 'swap',
       extensions: ['woff2', 'woff'],
     },
     {
-      url: 'https://cdn.welcometothejungle.com/common/assets/fonts/welcome-font-medium-italic',
+      url: `${theme.fontsUrl}/fonts/welcome-font-medium-italic`,
       weight: '500',
       style: 'italic',
       display: 'swap',
       extensions: ['woff2', 'woff'],
     },
     {
-      url: 'https://cdn.welcometothejungle.com/common/assets/fonts/welcome-font-bold-italic',
+      url: `${theme.fontsUrl}/fonts/welcome-font-bold-italic`,
       weight: '600',
       style: 'italic',
       display: 'swap',
       extensions: ['woff2', 'woff'],
     },
   ],
-  'welcome-icon-font-2': [
+  'welcome-icon-font': [
     {
-      url: 'https://cdn.welcome-ui.com/fonts/__ICON_FONT_HASH__/welcome-icon-font-2',
+      url: `${theme.fontsUrl}/fonts/icon-font/__ICON_FONT_HASH__/welcome-icon-font`,
       display: 'block',
       extensions: ['woff2', 'woff'],
     },
   ],
-}
+  'Work Sans': [
+    {
+      url: `${theme.fontsUrl}/fonts/work-sans-variable`,
+      display: 'block',
+      extensions: ['woff2', 'woff'],
+    },
+  ],
+})

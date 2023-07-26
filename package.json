@@ -7,7 +7,7 @@
   "scripts": {
     "build:core": "./scripts/core.sh",
     "build:docs": "lerna run doc --concurrency 2",
-    "build:packages": "lerna run build --ignore docs --ignore @welcome-ui/core",
+    "build:packages": "lerna run build --ignore docs",
     "build:types": "lerna run types",
     "build": "yarn webfont:build && yarn build:core && yarn build:packages && yarn build:types && yarn build:docs",
     "check:audit": "/bin/bash -c 'yarn audit --level critical; [[ $? -ge 16 ]] && exit 1 || exit 0'",

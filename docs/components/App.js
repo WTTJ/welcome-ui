@@ -37,7 +37,10 @@ export function App({ component: Component, pageProps }) {
   }, [themeStorage])
 
   return (
-    <WuiProvider reactRootId="__next" theme={createTheme(globalTheme)}>
+    <WuiProvider
+      reactRootId="__next"
+      theme={createTheme({ fontsUrl: 'https://cdn.welcometothejungle.com', ...globalTheme })}
+    >
       <MDXProvider components={MDXComponents}>
         <GlobalStyle />
         <Head />

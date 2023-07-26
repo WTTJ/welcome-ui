@@ -1,6 +1,7 @@
 import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
+import { Options } from './core'
 
 export type ThemeFontSizes = {
   h0: string
@@ -289,9 +290,9 @@ export type ThemeFonts = {
 }
 
 export const getFonts = (
-  defaultFontFamily: string,
-  headingFontFamily: string,
-  iconFontFamily: string
+  defaultFontFamily: Options['defaultFontFamily'],
+  headingFontFamily: Options['headingFontFamily'],
+  iconFontFamily: Options['iconFontFamily']
 ): ThemeFonts => {
   return {
     texts: [defaultFontFamily, 'sans-serif'].join(', '),

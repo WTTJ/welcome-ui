@@ -33,7 +33,7 @@ function baseFonts() {
 export const GlobalStyle = createGlobalStyle<{ useReset?: boolean }>(
   ({ useReset }) => css`
     ${normalizeStyle};
-    ${workSans}
+    ${workSans()}
     ${fonts()};
     ${baseFonts()};
     ${useReset ? resetStyles : baseBoxSizing};
