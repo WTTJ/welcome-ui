@@ -1,17 +1,18 @@
 import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
 import { forwardRef } from '@welcome-ui/system'
-import * as Ariakit from '@ariakit/react'
 
 import * as S from './styles'
 import { Close } from './Close'
+
+import { UseModal } from '.'
 
 export interface ContentOptions {
   children: React.ReactNode
 }
 
 export type ContentProps = ContentOptions & {
-  store: Ariakit.DialogStore
+  store: UseModal
 }
 
 /**

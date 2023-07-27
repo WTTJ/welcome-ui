@@ -7,13 +7,15 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ActiveBar } from './ActiveBar'
 import * as S from './styles'
 
+import { UseTab, UseTabState } from '.'
+
 // because of the compatibility of esm standard. Since this lib is no longer maintained, no issue was created
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const flattenChildren = reactFlattenChildren.default || reactFlattenChildren
 
 function useTrackActiveTabs(
-  selectedId: Ariakit.TabStoreState['selectedId'],
+  selectedId: UseTabState['selectedId'],
   children: React.ReactNode
 ): [ReturnType<typeof flattenChildren>, HTMLElement] {
   const [activeTab, setActiveTab] = useState<HTMLElement>(null)
@@ -32,7 +34,7 @@ export interface SizeOptions {
 }
 
 export type TabListOptions = SizeOptions & {
-  store: Ariakit.TabStore
+  store: UseTab
 }
 export type TabListProps = CreateWuiProps<'div', TabListOptions>
 

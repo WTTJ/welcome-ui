@@ -344,15 +344,15 @@ function() {
 
 We use `useDialogStore` from [Ariakit Dialog](https://ariakit.org/reference/use-dialog-store) for the state of the modal.
 
-Pass options to `useModal` :
+Pass options to `useModal`:
 
 - `defaultOpen`: e.g. `const modal = useModal({ defaultOpen: true })`
 - `onClose`: e.g. `const modal = useModal({ onClose: () => console.log('closing the modal') })`
 
 And the hook returns (among other things):
 
-- `visible` : whether the modal is currently visible
-- `hide` : a function to hide the modal
+- `useState('open')`: whether the modal is currently open
+- `hide`: a function to hide the modal
 
 ## Properties
 

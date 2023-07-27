@@ -59,6 +59,6 @@
   },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
   "sideEffects": false,
-  "component": "Swiper",
+  "component": "Swiper, useSwiper",
   "homepage": "https://welcome-ui.com/components/swiper"
 }

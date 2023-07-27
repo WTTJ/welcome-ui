@@ -19,6 +19,14 @@ export const LiveEditorContent = styled(ReactLiveEditor)(
     `}
     overflow-x: auto;
 
+    .inserted-sign {
+      color: sub-5 !important;
+    }
+
+    .deleted-sign {
+      color: danger-300 !important;
+    }
+
     textarea,
     pre {
       background-color: black !important;

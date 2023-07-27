@@ -19,17 +19,17 @@ export interface ModalOptions {
   store: Ariakit.DialogStore
   children: React.ReactElement
 }
-
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
-
-export type ModalInitialProps = Ariakit.DialogStoreProps & {
+export type UseModal = Ariakit.DialogStore
+export type UseModalProps = Ariakit.DialogStoreProps & {
   /**
    * Call a function before closing the modal
    */
   onClose?: () => void
 }
+export type UseModalState = Ariakit.DialogStoreState
 
-export function useModal(options?: ModalInitialProps): Ariakit.DialogStore {
+export function useModal(options?: UseModalProps): UseModal {
   const { onClose, ...storeOptions } = options || {}
 
   const dialog = Ariakit.useDialogStore({

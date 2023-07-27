@@ -15316,7 +15316,7 @@ rc@1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-animate-height@^3.1.1:
+react-animate-height@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/react-animate-height/-/react-animate-height-3.2.2.tgz#ae15d3ef6396f45140c60af4081d43d7dd093cda"
   integrity sha512-uUOS+RhYVgyJEWcuAJgelVwhcJ2chsMk7HZCpu+wtjSlFAGSFsHU0r4lMTt47HQ1RdQfI5MmFRt43yHTP9lfmQ==

@@ -12,14 +12,14 @@ export interface AccordionOptions {
   /**
    * store from useAccordion()
    */
-  store: Ariakit.DisclosureStore
+  store: UseAccordion
 }
 
 export type AccordionProps = CreateWuiProps<'div', AccordionOptions>
 
 export const Accordion = forwardRef<'div', AccordionProps>(
   ({ children, icon = <RightIcon />, title, store, dataTestId, ...rest }, ref) => {
-    const isOpen = store?.useState('open')
+    const isOpen = store.useState('open')
 
     return (
       <S.Accordion data-testid={dataTestId} ref={ref} {...rest}>
@@ -41,8 +41,12 @@ export const Accordion = forwardRef<'div', AccordionProps>(
   }
 )
 
-export function useAccordion(options?: Ariakit.DisclosureStoreProps): Ariakit.DisclosureStore {
-  const accordion = Ariakit.useDisclosureStore({ ...options, animated: true })
+export type UseAccordion = Ariakit.DisclosureStore
+export type UseAccordionProps = Ariakit.DisclosureStoreProps
+export type UseAccordionState = Ariakit.DisclosureStoreState
+
+export function useAccordion(options?: UseAccordionProps): UseAccordion {
+  const accordion = Ariakit.useDisclosureStore({ animated: true, ...options })
 
   return accordion
 }

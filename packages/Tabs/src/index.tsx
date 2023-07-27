@@ -6,7 +6,7 @@ import { TabList } from './TabList'
 import { TabPanel } from './TabPanel'
 import * as S from './styles'
 
-export type TabOptions = { store: Ariakit.TabStore }
+export type TabOptions = { store: UseTab }
 export type TabProps = CreateWuiProps<'button', TabOptions>
 
 /**
@@ -30,4 +30,10 @@ TabComponent.displayName = 'Tab'
 
 export const Tab = Object.assign(TabComponent, { List: TabList, Panel: TabPanel })
 
-export { useTabStore as useTab } from '@ariakit/react'
+export type UseTab = Ariakit.TabStore
+export type UseTabProps = Ariakit.TabStoreProps
+export type UseTabState = Ariakit.TabStoreState
+
+export function useTab(options?: UseTabProps): UseTab {
+  return Ariakit.useTabStore(options)
+}

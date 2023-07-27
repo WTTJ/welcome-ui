@@ -2,6 +2,8 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
 import { Box } from '@welcome-ui/box'
 
+import { UseAccordionState } from '.'
+
 export const Accordion = styled.div`
   ${th('accordions.wrapper')};
   ${system}
@@ -58,7 +60,7 @@ export const Disclosure = styled(Ariakit.Disclosure)`
 `
 
 export const Content = styled(Ariakit.DisclosureContent)(
-  ({ isOpen }: { isOpen: Ariakit.DisclosureStoreState['open'] }) => css`
+  ({ isOpen }: { isOpen: UseAccordionState['open'] }) => css`
     ${th('accordions.content')};
     padding-inline: ${th('accordions.padding')};
     color: dark-700;

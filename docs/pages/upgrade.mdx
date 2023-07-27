@@ -1,25 +1,74 @@
-# Upgrade
+# Upgrading to v5
 
-Version 5: Rework of our foundations
+Welcome UI V5 is focus on rework of our **foundations** and move from reakit to **ariakit**.
 
-## Breaking Changes
+## Upgrade steps
 
-We rework our theme on the colors and spacings properties. Use the migration script to migrate easily to V5 on welcome-ui project.
+### 1. Update your dependencies
+
+Make sure you update all `@welcome-ui` packages and `styled-components` packages:
+
+```json
+{
+  "dependencies": {
+    "@welcome-ui/YOUR_PACKAGE": "^5.0.0",
+    "@xstyled/styled-components": "^3.7.3",
+    "styled-components": "^5.3.9"
+  }
+}
+```
+
+### 2. Migrate foundations
+
+We rework our theme on the colors, spacing, typography... properties. Use the migration script to migrate easily to V5 on welcome-ui project.
 
 ```bash
 yarn migrate "../yourProject/src/**/**.**(tsx|ts|js)"
+```
+
+### 3. Migrate Reakit to Ariakit
+
+We also migrate to the new **[Ariakit](https://ariakit.org)** library _(reakit v2)_ on some of our components. To migrate easely you can find components migration below.
+
+To resume:
+
+- now we pass on a `store` property the state of component and remove State from hook name.
+
+```diff live=false
+- const drawerState = useDrawerState()
++ const drawer = useDrawer()
+
+- <Drawer {...useDrawerState}>
++ <Drawer store={drawer}>
+```
+
+- `visible` is now replace by `open` property
+- force open a component now is with `defaultOpen` property
+
+```diff live=false
+- const drawerState = useDrawerState({ open: true })
++ const drawer = useDrawer({ defaultOpen: true })
+```
+
+- access to the actual state of component with `useState`:
+
+```diff live=false
+- const drawerState = useDrawerState()
+- const isOpen = drawerState.visible
++ const drawer = useDrawer()
++ const isOpen = drawer.useState('open')
 ```
 
 ## Theme
 
 ### Colors
 
-We changed our colors dark and light to be full compatible with dark mode. Now dark are black rgba with transparency, and light are white rgba with transparency.
+We changed our colors dark and light to be full compatible with the coming dark mode (in beta). Now dark are black rgba with transparency, and light are white rgba with transparency.
 
-We need also for typescript compatibility rework our colors naming :
+We need also for typescript compatibility rework our colors naming:
 
-- Before : `colors.dark.900`
-- After : `colors['dark-900']`
+- Before: `colors.dark.900`
+- After: `colors['dark-900']`
 
 We rework some colors:
 
@@ -83,30 +132,39 @@ We change the name of variants to `xs` `s` `m` `lg` and remove useless variants.
 
 ### Accordion
 
-To prepare to the migration from reakit to ariakit, visible property is now deprecated and replaced by open.
+We migrate to Ariakit and add an `useAccordion` hook to play with the component store.
+
+```diff live=false
++ const accordion = useAccordion()
+
+- <Accordion title="accordion">
++ <Accordion store={accordion} title="accordion">
+=   ...
+= </Accordion>
+```
 
 ### Alert / Toast / Growl
 
-- All
+- **All components**
 
   - We have adjusted colors and spacing.
   - Position `top` has been replaced with `top-center` and position `bottom` has been replaced with `bottom-center`.
   - We removed property `closeButtonDataTestId`, now we add `-close-button` after your `dataTestId` perperty.
 
-- Alert
+- **Alert**
 
   - The props `icon` is now given to the **Alert** component and not to **Alert.Title**.
   - You must use the `cta` prop instead of pass the **Alert.Button** as a Children
   - You must use the `isFullWidth` prop to have an alert with a 100% max width
 
-- Toast
+- **Toast**
   - In order to use `Toast` component, you must add the `Notifications` component in your project root.
   - The `useToast` hook is deprecated. Instead, you can directly use `toast` function.
   - The props `icon` is now given to **Toast.Growl** / **Toast.Snackbar** component and not to **Toast.Title**.
 
 ### Badges
 
-- new `Badge` component [show more](/components/badge)
+- rework `Badge` component [now rounded](/components/badge)
 
 ### Buttons
 
@@ -118,86 +176,62 @@ To prepare to the migration from reakit to ariakit, visible property is now depr
 
 ### Drawer
 
-To prepare to the migration from reakit to ariakit, we need now to pass a state property who contain the state from useDrawerState:
+We migrate to Ariakit, now we pass the component state from `useDrawer` on `store` property:
 
-```jsx live=false
-const drawerState = useDrawerState()
+```diff live=false
+- const drawerState = useDrawerState()
++ const drawer = useDrawer()
 
-<Drawer {...drawerState}>
-  ...
-</Drawer>
-
-Before
----
-After
-
-const drawerState = useDrawerState()
-
-<Drawer state={drawerState}>
-  ...
-</Drawer>
+- <Drawer {...drawerState}>
++ <Drawer store={drawer}>
+=   ...
+= </Drawer>
 ```
+
+We replace props by:
+
+- `hideOnClickOutside` become `hideOnInteractOutside`
+- `<Drawer.Backdrop>` is removed and replace by a property `withBackdrop`. You can personalize your backdrop with `backdrop` property.
 
 ### DropdownMenu
 
-To prepare to the migration from reakit to ariakit, we need now to pass a state property who contain the state from useDropdownMenuState:
+We migrate to Ariakit, now we pass the component state from `useDropdownMenu` on `store` property:
 
-```jsx live=false
-const dropdownMenuState = useDropdownMenuState()
+```diff live=false
+- const dropdownMenuState = useDropdownMenuState()
++ const dropdownMenu = useDropdownMenu()
 
-<DropdownMenu.Trigger {...dropdownMenuState}>
-  ...
-</DropdownMenu.Trigger>
-<DropdownMenu {...dropdownMenuState}>
-  <DropdownMenu.Item {...dropdownMenuState}>
-    ...
-  </DropdownMenu.Item>
-  ...
-</DropdownMenu>
-
-
-Before
----
-After
-
-const dropdownMenuState = useDropdownMenuState()
-
-<DropdownMenu.Trigger state={dropdownMenuState}>
-  ...
-</DropdownMenu.Trigger>
-<DropdownMenu state={dropdownMenuState}>
-  <DropdownMenu.Item state={dropdownMenuState}>
-    ...
-  </DropdownMenu.Item>
-  ...
-</DropdownMenu>
+- <DropdownMenu.Trigger {...dropdownMenuState}>
++ <DropdownMenu.Trigger store{dropdownMenu}>
+=   ...
+= </DropdownMenu.Trigger>
+- <DropdownMenu {...dropdownMenuState}>
++ <DropdownMenu store={dropdownMenu}>
+-   <DropdownMenu.Item {...dropdownMenuState}>
++   <DropdownMenu.Item store={dropdownMenu}>
+=     ...
+=   </DropdownMenu.Item>
+=   ...
+= </DropdownMenu>
 ```
 
 ### EmojiPicker
 
-To prepare to the migration from reakit to ariakit, we need now to pass a state property who contain the state from useEmojiPicker:
+We migrate to Ariakit, now we pass the component state from `useEmojiPicker` on `store` property:
 
-```jsx live=false
-const emojiPickerState = useEmojiPicker()
+```diff live=false
+- const emojiPickerState = useEmojiPicker()
++ const emojiPicker = useEmojiPicker()
 
-<EmojiPicker.Trigger {...emojiPickerState}>
-  ...
-</EmojiPicker.Trigger>
-<EmojiPicker {...emojiPickerState} />
-
-Before
----
-After
-
-const emojiPickerState = useEmojiPicker()
-
-<EmojiPicker.Trigger state={emojiPickerState}>
-  ...
-</EmojiPicker.Trigger>
-<EmojiPicker state={emojiPickerState} />
+- <EmojiPicker.Trigger {...emojiPickerState}>
++ <EmojiPicker.Trigger store{useEmojiPicker}>
+=   ...
+= </EmojiPicker.Trigger>
+- <EmojiPicker.Trigger {...emojiPickerState} />
++ <EmojiPicker.Trigger store={useEmojiPicker} />
 ```
 
-and visible property is now deprecated and replaced by open.
+and `defaultTabState` become ` defaultTabStore`
 
 ### FileDrop
 
@@ -251,98 +285,63 @@ We renamed some icons:
 - **Modal.Content** is replaced by **Modal.Body**.
 - To ensure **good spacing** between modal's sub-components, they **must** be wrapped with **Modal.Content**.
 - **Modal.Cover** has been removed.
-- In order to fix an issue that made attributes duplicating, and to prepare to the migration from reakit to ariakit, you will now have to pass the modal store to it props `store` who contain the state from useModal:
+- We migrate to Ariakit and add an `useModal` hook to play with the component store.
 - `onClose` has been changed from an optionnal prop of **Modal** to an optionnal option you can pass to useModal
 
-```jsx live=false
-const modalState = useModalState()
+```diff live=false
+- const modalState = useModalState()
++ const modal = useModal()
 
-<Modal {...modalState}>
-  ...
-</Modal>
-
-Before
----
-After
-
-const modal = useModal()
-
-<Modal store={modal}>
-  ...
-</Modal>
+- <Modal {...modalState}>
++ <Modal store={modal}>
+=   ...
+= </Modal>
 ```
-
-and visible property is now deprecated and replaced by open.
 
 ### Popover
 
-To prepare to the migration from reakit to ariakit, we need now to pass a state property who contain the state from usePopoverState:
+- We migrate to Ariakit and add an `usePopover` hook to play with the component store.
 
-```jsx live=false
-const popoverState = usePopoverState()
+```diff live=false
+- const popoverState = usePopoverState()
++ const popover = usePopover()
 
-<Popover.Trigger {...popoverState}>
-  ...
-</Popover.Trigger>
-<Popover {...popoverState}>
-  <Popover.Content>
-    ...
-  </Popover.Content>
-</Popover>
-
-Before
----
-After
-
-const popoverState = usePopoverState()
-
-<Popover.Trigger state={popoverState}>
-  ...
-</Popover.Trigger>
-<Popover state={popoverState}>
-  <Popover.Content>
-    ...
-  </Popover.Content>
-</Popover>
+- <Popover.Trigger {...popoverState}>
++ <Popover.Trigger store={popover}>
+=   ...
+= </Popover.Trigger>
+- <Popover {...popoverState}>
++ <Popover store={popover}>
+=   ...
+= </Popover>
 ```
-
-and visible property is now deprecated and replaced by open.
 
 ### RadioGroup
 
-We removed the check icon on radio input and change the style of it.
+We removed the check icon on radio input and change the style of it. We also rework accesibility.
 
 ### Tabs
 
-To prepare to the migration from reakit to ariakit, we need now to pass a state property who contain the state from useTabState:
+We migrate to Ariakit, now we pass the component state from `useTab` on `store` property:
 
-```jsx live=false
-const tabState = useTabState()
+```diff live=false
+- const tabState = useTabState()
++ const tab = useTab()
 
-<Tab.List {...tabState}>
-  <Tab {...tabState}>
-    ...
-  </Tab>
-</Tab.List>
-<Tab.Panel {...tabState}>
-  ...
-</Tab.Panel>
-
-Before
----
-After
-
-const tabState = useTabState()
-
-<Tab.List state={tabState}>
-  <Tab state={tabState}>
-    ...
-  </Tab>
-</Tab.List>
-<Tab.Panel state={tabState}>
-  ...
-</Tab.Panel>
+- <Tab.List {...tabState}>
++ <Tab.List store={tab}>
+-   <Tab {...tabState}>
++   <Tab store={tab}>
+=     ...
+=   </Tab>
+= </Tab.List>
+- <Tab.Panel {...tabState}>
++ <Tab.Panel store={tab}>
+=   ...
+= </Tab.Panel>
 ```
+
+and `selectedId` become ` defaultSelectedId`
 
 ### Tag
 
@@ -353,7 +352,7 @@ const tabState = useTabState()
 
 ### Tooltip
 
-We added a div around the Children of the tooltip when the children has a disabled prop otherwise the tooltip does not trigger.
+We added a div around the Children of the tooltip when the children has a disabled prop otherwise the tooltip does not trigger. We removed popper.js and only use Ariakit for fixed or not fixed tooltip.
 
 ### Swiper
 

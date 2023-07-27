@@ -2,10 +2,10 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import React from 'react'
 import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
 
-import { UsePopoverReturn } from './usePopover'
+import { UsePopover } from './usePopover'
 import * as S from './styles'
 
-export type TriggerProps = CreateWuiProps<'button', { store: UsePopoverReturn }>
+export type TriggerProps = CreateWuiProps<'button', { store: UsePopover }>
 
 export const Trigger = forwardRef<'button', TriggerProps>(({ as, store, ...rest }, ref) => {
   const { triggerMethod } = store

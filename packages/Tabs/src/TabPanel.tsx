@@ -4,7 +4,9 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type TabPanelOptions = { store: Ariakit.TabStore }
+import { UseTab } from '.'
+
+export type TabPanelOptions = { store: UseTab }
 export type TabPanelProps = CreateWuiProps<typeof Ariakit.TabPanel, TabPanelOptions>
 
 /**
