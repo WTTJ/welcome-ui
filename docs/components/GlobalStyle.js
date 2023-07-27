@@ -14,6 +14,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .DocSearch {
+    transition: none !important;
+
     &-Button {
       margin: 0;
       width: 100%;
