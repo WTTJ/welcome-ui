@@ -4985,11 +4985,11 @@
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
 "@types/ramda@^0.29.2":
-  version "0.29.2"
-  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.29.2.tgz#b50d52c3958b0988356bc881bf77aadbd2e33651"
-  integrity sha512-JxvBGR3G4gV3RTOBugVHAAOD6iiv2WjlJ8BHr0s7KALdPpx2l+didoTuoJMmrA0eqpUaCm/slKP4TmxMRihd8g==
+  version "0.29.3"
+  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.29.3.tgz#6e4d4066df900a3456cf402bcef9b78b6990a754"
+  integrity sha512-Yh/RHkjN0ru6LVhSQtTkCRo6HXkfL9trot/2elzM/yXLJmbLm2v6kJc8yftTnwv1zvUob6TEtqI2cYjdqG3U0Q==
   dependencies:
-    types-ramda "^0.29.3"
+    types-ramda "^0.29.4"
 
 "@types/react-datepicker@^4.11.2":
   version "4.11.2"
@@ -18645,10 +18645,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-types-ramda@^0.29.3:
-  version "0.29.3"
-  resolved "https://registry.yarnpkg.com/types-ramda/-/types-ramda-0.29.3.tgz#0a611b4d414bf7c51ba417c3fd3352985b0de97f"
-  integrity sha512-6z8/UCI5/kRorQ91Mo+TUXImHpGAhmhg8ZIdT/tNrG+xSQvDwJXYyT5Nlw2U5VpoKetUZVqQXYYLQyq5Bzccsg==
+types-ramda@^0.29.4:
+  version "0.29.4"
+  resolved "https://registry.yarnpkg.com/types-ramda/-/types-ramda-0.29.4.tgz#8d9b51df2e550a05cedab541cc75dcd72972c625"
+  integrity sha512-XO/820iRsCDwqLjE8XE+b57cVGPyk1h+U9lBGpDWvbEky+NQChvHVwaKM05WnW1c5z3EVQh8NhXFmh2E/1YazQ==
   dependencies:
     ts-toolbelt "^9.6.0"
 
