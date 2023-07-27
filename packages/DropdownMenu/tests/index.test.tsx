@@ -11,7 +11,7 @@ describe('<DropdownMenu>', () => {
     const dataTestId = 'dropdownMenu'
     const {
       result: { current: dropdownMenu },
-    } = renderHook(() => useDropdownMenu())
+    } = renderHook(() => useDropdownMenu({ open: true }))
 
     const { getByTestId } = render(
       <DropdownMenu dataTestId={dataTestId} store={dropdownMenu}>

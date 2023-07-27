@@ -44,7 +44,7 @@ export const Header = styled.header(
 )
 
 export const MenuMobileDrawer = styled(WUIDrawer)`
-  top: ${`calc(${headerHeight} - 1px)`} !important;
+  margin-top: ${`calc(${headerHeight} - 1px)`} !important;
   width: 100% !important;
   padding: lg;
 

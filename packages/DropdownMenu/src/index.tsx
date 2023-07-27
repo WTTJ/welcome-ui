@@ -17,21 +17,24 @@ export type DropdownMenuProps = CreateWuiProps<'div', DropdownMenuOptions>
 const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
   ({ children, dataTestId, innerProps = {}, store, gutter = 10, ...rest }, ref) => {
     const arrowElement = store.useState('arrowElement')
+    const isOpen = store.useState('open')
 
     return (
-      <Ariakit.Menu
-        alwaysVisible
-        aria-label="dropdown-menu"
-        data-testid={dataTestId}
-        gutter={arrowElement ? 0 : gutter}
-        ref={ref}
-        render={<S.Inner {...innerProps} />}
-        store={store}
-        tabIndex={0}
-        {...rest}
-      >
-        {children}
-      </Ariakit.Menu>
+      isOpen && (
+        <Ariakit.Menu
+          alwaysVisible
+          aria-label="dropdown-menu"
+          data-testid={dataTestId}
+          gutter={arrowElement ? 0 : gutter}
+          ref={ref}
+          render={<S.Inner {...innerProps} />}
+          store={store}
+          tabIndex={0}
+          {...rest}
+        >
+          {children}
+        </Ariakit.Menu>
+      )
     )
   }
 )

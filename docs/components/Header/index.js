@@ -48,8 +48,16 @@ export const Header = () => {
             placeholder="Search the docs"
           />
         </Box>
-        <ThemeSelector ml="lg" />
-        <Button h={30} ml="xxs" onClick={openThemeHelper} shape="circle" variant="ghost" w={30}>
+        <ThemeSelector ml="lg" display={{ _: 'none', md: 'flex' }} />
+        <Button
+          h={30}
+          ml="xxs"
+          display={{ _: 'none', md: 'flex' }}
+          onClick={openThemeHelper}
+          shape="circle"
+          variant="ghost"
+          w={30}
+        >
           <InformationIcon color="light-900" />
         </Button>
       </Box>
