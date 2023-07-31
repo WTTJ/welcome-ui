@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.43](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.42...v5.0.0-alpha.43) (2023-07-31)
+
+
+### Features
+
+* move all fonts on same domain and add a new domain for welcometothejungle ([#2139](https://github.com/WTTJ/welcome-ui/issues/2139)) ([e7cfed7](https://github.com/WTTJ/welcome-ui/commit/e7cfed70e47a163b83c0c884c821abb6d994f63f))
+
+
+
+
+
 # [5.0.0-alpha.40](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.39...v5.0.0-alpha.40) (2023-06-15)
 
 **Note:** Version bump only for package @welcome-ui/core

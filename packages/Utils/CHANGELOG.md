@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.43](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.42...v5.0.0-alpha.43) (2023-07-31)
+
+
+### Bug Fixes
+
+* do not use useLayoutEffect on SSR ([#2140](https://github.com/WTTJ/welcome-ui/issues/2140)) ([eacb9a5](https://github.com/WTTJ/welcome-ui/commit/eacb9a5900236b9df772ad00edf712eff753f7b2))
+
+
+
+
+
 # [5.0.0-alpha.37](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.36...v5.0.0-alpha.37) (2023-05-30)
 
 **Note:** Version bump only for package @welcome-ui/utils

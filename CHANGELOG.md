@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.43](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.42...v5.0.0-alpha.43) (2023-07-31)
+
+
+### Bug Fixes
+
+* do not use useLayoutEffect on SSR ([#2140](https://github.com/WTTJ/welcome-ui/issues/2140)) ([eacb9a5](https://github.com/WTTJ/welcome-ui/commit/eacb9a5900236b9df772ad00edf712eff753f7b2))
+
+
+### Features
+
+* move all fonts on same domain and add a new domain for welcometothejungle ([#2139](https://github.com/WTTJ/welcome-ui/issues/2139)) ([e7cfed7](https://github.com/WTTJ/welcome-ui/commit/e7cfed70e47a163b83c0c884c821abb6d994f63f))
+
+
+
+
+
 # [5.0.0-alpha.41](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.40...v5.0.0-alpha.41) (2023-07-17)
 
 
