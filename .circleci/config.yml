@@ -80,17 +80,17 @@ jobs:
       - run:
           name: prepare font hash
           command: |
-            echo "export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font.woff | awk '{ print $1 }')" >> $BASH_ENV
+            echo "export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')" >> $BASH_ENV
             source $BASH_ENV
             yarn build:core
       - aws-s3/sync:
           from: packages/IconFont/fonts
-          to: s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH/
+          to: s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH --cache-control 'public, max-age=31536000' --exclude '*' --include 'welcome-icon-font.woff2'
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
       - aws-s3/sync:
           from: packages/IconFont/fonts
-          to: s3://wttj-production/fonts/icon-font/$ICON_FONT_HASH/
+          to: s3://wttj-production/fonts/icon-font/$ICON_FONT_HASH --cache-control 'public, max-age=31536000' --exclude '*' --include 'welcome-icon-font.woff2'
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
 
