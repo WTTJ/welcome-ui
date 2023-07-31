@@ -50,6 +50,7 @@
     "@welcome-ui/button": "^5.0.0-alpha.40",
     "@welcome-ui/icons": "^5.0.0-alpha.41",
     "@welcome-ui/system": "^5.0.0-alpha.40",
+    "@welcome-ui/utils": "^5.0.0-alpha.37",
     "reakit": "^1.3.11"
   },
   "peerDependencies": {

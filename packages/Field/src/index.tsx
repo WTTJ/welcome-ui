@@ -1,7 +1,8 @@
-import React, { Fragment, useLayoutEffect } from 'react'
+import React, { Fragment } from 'react'
 import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
 
 // Fields
 import { RowContainer } from './layout'
@@ -66,7 +67,7 @@ export const Field = forwardRef<'div', FieldProps>(
       ...(isGroup ? { flexDirection: layout } : {}),
     })
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       Object.keys(children.props).forEach(prop => {
         if (forwardedProps.includes(prop)) {
           const element = document.getElementById(htmlFor)

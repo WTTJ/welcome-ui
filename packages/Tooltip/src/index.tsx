@@ -1,16 +1,10 @@
-import React, {
-  cloneElement,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react'
+import React, { cloneElement, useCallback, useEffect, useRef, useState } from 'react'
 import Popper, { Placement } from 'popper.js'
 import { TooltipReference, useTooltipState } from 'reakit'
 import { useDialogState } from 'reakit'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { Box } from '@welcome-ui/box'
+import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
@@ -49,7 +43,7 @@ const useMouseTooltipState = ({
     }
   }, [originalPlacement, dialog.visible])
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     createPopper()
     return () => {
       if (popper.current) {
