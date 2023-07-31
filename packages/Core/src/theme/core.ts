@@ -59,18 +59,37 @@ import { getPaginations } from './paginations'
 import { getTabs } from './tabs'
 import { getBadges } from './badges'
 
-const DEFAULT_FONT_SIZE = 16
 const DEFAULT_FONT_FAMILY = 'Work Sans'
-const DEFAULT_LINE_HEIGHT = 1.15
+const DEFAULT_FONT_SIZE = 16
 const DEFAULT_LETTER_SPACING = '-0.019rem'
+const DEFAULT_LINE_HEIGHT = 1.15
+const FONTS_URL = 'https://cdn.welcome-ui.com/fonts'
 const HEADING_FONT_FAMILY = 'welcome-font'
-const ICON_FONT_FAMILY = 'welcome-icon-font-2'
+const ICON_FONT_FAMILY = 'welcome-icon-font'
 
-export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => {
+export type ThemeFontsUrl =
+  | 'https://cdn.welcome-ui.com/fonts'
+  | 'https://cdn.welcometothejungle.com/fonts'
+  | string
+
+export type Options = {
+  defaultFontFamily?: string
+  defaultFontSize?: number
+  defaultLetterSpacing?: string
+  defaultLineHeight?: number
+  fontsUrl?: ThemeFontsUrl
+  headingFontFamily?: string
+  iconFontFamily?: string
+  [param: string]: unknown
+}
+
+export const createTheme = (options: Options = {}): WuiTheme => {
   const {
     defaultFontFamily = DEFAULT_FONT_FAMILY,
-    defaultLineHeight = DEFAULT_LINE_HEIGHT,
+    defaultFontSize = DEFAULT_FONT_SIZE,
     defaultLetterSpacing = DEFAULT_LETTER_SPACING,
+    defaultLineHeight = DEFAULT_LINE_HEIGHT,
+    fontsUrl = FONTS_URL,
     headingFontFamily = HEADING_FONT_FAMILY,
     iconFontFamily = ICON_FONT_FAMILY,
     ...rest
@@ -80,26 +99,22 @@ export const createTheme = (options: Record<string, unknown> = {}): WuiTheme => 
 
   theme.transformers = { ...rpxTransformers }
 
-  theme.toEm = px => `${px / DEFAULT_FONT_SIZE}em`
-  theme.toRem = px => `${px / DEFAULT_FONT_SIZE}rem`
-  theme.toPx = rem => `${rem * DEFAULT_FONT_SIZE}px`
+  theme.toEm = px => `${px / defaultFontSize}em`
+  theme.toRem = px => `${px / defaultFontSize}rem`
+  theme.toPx = rem => `${rem * defaultFontSize}px`
 
   theme.colors = colors
 
   // fonts
-  theme.fontFaces = fontFaces
+  theme.fontsUrl = fontsUrl
+  theme.fontFaces = fontFaces(theme)
   theme.fontSizes = getFontSizes('rem', theme)
   theme.defaultLineHeight = defaultLineHeight as number
   theme.defaultLetterSpacing = defaultLetterSpacing as string
   theme.lineHeights = getLineHeights(theme)
   theme.fontWeights = fontWeights
   theme.letterSpacings = getLetterSpacings(theme)
-  theme.fonts = getFonts(
-    defaultFontFamily as string,
-    headingFontFamily as string,
-    iconFontFamily as string
-  )
-
+  theme.fonts = getFonts(defaultFontFamily, headingFontFamily, iconFontFamily)
   theme.borderWidths = borderWidths
 
   theme.screens = screens

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FONTS_DIR=packages/IconFont/fonts
-FONT_FILE="$FONTS_DIR/welcome-icon-font-2.woff"
+FONT_FILE="$FONTS_DIR/welcome-icon-font.woff"
 
 if [[ -f "$FONT_FILE" ]]; then
   ICON_FONT_HASH=$(sha1sum $FONT_FILE | awk '{ print $1 }')

@@ -16,7 +16,7 @@ const ROOT_PATH = path.join(__dirname, '..')
 const ICONS_PATH = path.join(ROOT_PATH, 'icons')
 const INPUT_PATH = path.join(ICONS_PATH, '_assets')
 const ICON_FONT_PATH = path.join(ROOT_PATH, 'packages/IconFont')
-const FONT_NAME = 'welcome-icon-font-2'
+const FONT_NAME = 'welcome-icon-font'
 
 // Write icon font
 const writeIconFont = files => {

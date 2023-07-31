@@ -58,6 +58,7 @@ import {
   ThemeTextsTextTransform,
 } from './typography'
 import { ThemeUnderline } from './underline'
+import { ThemeFontsUrl } from './core'
 
 type OverrideKeys =
   | 'colors'
@@ -89,6 +90,7 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   underline: ThemeUnderline
   borderWidths: ThemeBorderWidths
   fontFaces: ThemeFontFaces
+  fontsUrl: ThemeFontsUrl
   fontSizes: ThemeFontSizes
   defaultLineHeight: number
   defaultLetterSpacing: string
