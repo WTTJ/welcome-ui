@@ -55,9 +55,7 @@ const writeIconFont = files => {
       dest: `${ICON_FONT_PATH}/fonts`,
       fontName: FONT_NAME,
       codepoints: newUnicodeMap,
-      types: ['woff', 'woff2', 'ttf', 'svg'],
-      // Pass timestamp so that hash doesn't change between (non-changing) builds
-      formatOptions: { ttf: { ts: 0 } },
+      types: ['woff2'],
       templateOptions: {
         classPrefix: 'wui-icon-',
         baseSelector: 'i',
