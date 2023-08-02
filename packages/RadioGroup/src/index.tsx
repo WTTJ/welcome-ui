@@ -52,7 +52,7 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
       onChange?.(valueSelected)
     }
 
-    const withHint = options.findIndex((obj: Option) => Object.keys(obj).includes('hint')) !== -1
+    const withHint = options.some((obj: Option) => 'hint' in obj)
 
     return (
       <FieldGroup
