@@ -1,3 +1,3 @@
 export default function Page() {
-  return 'Docs Category Page'
+  return 'Docs Home'
 }
