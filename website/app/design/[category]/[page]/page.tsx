@@ -5,13 +5,14 @@ import { notFound } from 'next/navigation.js'
 type PageProps = {
   params: {
     page: string
+    category: string
   }
 }
 
 export default function Page({ params }: PageProps) {
-  const { page } = params
+  const { page, category } = params
 
-  const { content } = getPageContent(`design/${page}.md`)
+  const { content } = getPageContent(`design/${category}/${page}.md`)
 
   return content === 'Not Found' ? notFound() : <Mdx>{content}</Mdx>
 }
