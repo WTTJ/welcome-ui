@@ -58,7 +58,7 @@ export type ButtonPandaProps = CreateWuiPandaProps<'button', ButtonPandaOptions>
 
 export const ButtonPanda = React.forwardRef<HTMLButtonElement, ButtonPandaProps>(
   ({ children, ...rest }, ref) => (
-    <S.ButtonPanda ref={ref} {...rest}>
+    <S.ButtonPanda {...rest} ref={ref}>
       {children}
     </S.ButtonPanda>
   )

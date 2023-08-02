@@ -4,7 +4,7 @@ import { welcomePreset } from '@welcome-ui/themes.welcome'
 export default defineConfig({
   preflight: true,
   include: [
-    '../packages/Button/dist/index.css.json'
+    '../packages/**/dist/index.css.json'
   ],
   presets: [welcomePreset],
   exclude: [],
