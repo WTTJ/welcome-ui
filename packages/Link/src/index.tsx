@@ -77,9 +77,9 @@ export const LinkPanda = React.forwardRef<HTMLAnchorElement, LinkPandaProps>((pr
     <S.LinkPanda
       data-external={isExternal}
       disabled={disabled}
-      ref={ref}
       variant={variant}
       {...rest}
+      ref={ref}
     >
       {content}
     </S.LinkPanda>
