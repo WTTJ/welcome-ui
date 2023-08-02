@@ -21,7 +21,8 @@
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
     "doc": "node -r esm ../../scripts/doc-props.js --name Button",
-    "css": "panda ship --outfile dist/index.css.json ./src/**.ts"
+    "css": "panda ship --outfile dist/index.css.json ./src/**.ts",
+    "css:gen": "panda cssgen --outfile dist/index.css ./src/styles.ts"
   },
   "publishConfig": {
     "access": "public"
