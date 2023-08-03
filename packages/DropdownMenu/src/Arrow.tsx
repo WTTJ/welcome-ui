@@ -1,10 +1,8 @@
 import React from 'react'
-import { MenuArrowOptions } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './Arrow.styled'
-
-import { DropdownMenuOptions } from '.'
 
 const transformMap: Record<string, string> = {
   top: 'rotateZ(180deg)',
@@ -13,22 +11,16 @@ const transformMap: Record<string, string> = {
   left: 'rotateZ(90deg)',
 }
 
-export type ArrowProps = CreateWuiProps<
-  'div',
-  MenuArrowOptions & { state: DropdownMenuOptions['state'] }
->
+export type ArrowProps = CreateWuiProps<'div', Ariakit.MenuArrowProps>
 
-export const Arrow = forwardRef<'div', ArrowProps>(({ state, ...rest }, ref) => {
-  // get the correct transform style for arrow
-  const { placement } = state
-  // get the parent placement (top, bottom...)
-  const [parentPlacement] = placement.split('-')
-  const transform = transformMap[parentPlacement]
+export const Arrow = forwardRef<'div', ArrowProps>(({ store }, ref) => {
+  const currentPlacement = store?.useState('currentPlacement')
+  const [placement] = currentPlacement.split('-')
 
   return (
-    <S.Arrow {...state} {...rest} ref={ref}>
+    <Ariakit.MenuArrow ref={ref} render={<S.Arrow />}>
       <S.ArrowItem
-        $transform={transform}
+        $transform={transformMap[placement]}
         h={30}
         viewBox="0 0 30 30"
         w={30}
@@ -37,7 +29,7 @@ export const Arrow = forwardRef<'div', ArrowProps>(({ state, ...rest }, ref) => 
         <path d="M7 30L15 22L23 30H7Z" fill="currentColor" fillRule="nonzero" id="stroke" />
         <path d="M8 30L15 23L22 30H8Z" fill="currentColor" fillRule="nonzero" />
       </S.ArrowItem>
-    </S.Arrow>
+    </Ariakit.MenuArrow>
   )
 })
 

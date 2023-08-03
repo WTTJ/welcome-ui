@@ -1,27 +1,39 @@
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import { fireEvent, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
-import { Popover, usePopoverState } from '../src'
+import { Popover, usePopover } from '../src'
+
+const contentText = 'Popover open'
+const buttonText = 'open'
+
+const PopoverWrapper = () => {
+  const store = usePopover()
+
+  return (
+    <>
+      <Popover.Trigger store={store}>{buttonText}</Popover.Trigger>
+      <Popover aria-label="popover" store={store}>
+        {contentText}
+      </Popover>
+    </>
+  )
+}
 
 describe('<Popover>', () => {
-  it('should render correctly', () => {
-    const Test = () => {
-      const popoverState = usePopoverState()
+  it('should render correctly on click on popover trigger button', () => {
+    render(<PopoverWrapper />)
 
-      return (
-        <>
-          <Popover.Trigger state={popoverState}>open</Popover.Trigger>
-          <Popover aria-label="popover" state={popoverState}>
-            Popover open
-          </Popover>
-        </>
-      )
-    }
+    expect(screen.queryByRole('dialog')).toBeNull()
 
-    const { getByText, queryByRole } = render(<Test />)
-    expect(queryByRole('dialog')).toBeNull()
-    fireEvent.click(getByText('open'))
-    expect(queryByRole('dialog')).toHaveTextContent('Popover open')
+    const button = screen.getByText(buttonText)
+    const dialog = screen.getByText(contentText)
+
+    expect(button).toHaveAttribute('aria-expanded', 'false')
+    expect(dialog).toBeInTheDocument()
+
+    fireEvent.click(button)
+
+    expect(button).toHaveAttribute('aria-expanded', 'true')
   })
 })

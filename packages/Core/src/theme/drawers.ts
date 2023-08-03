@@ -27,10 +27,7 @@ export const getDrawers = (theme: WuiTheme): ThemeDrawers => {
     default: {
       zIndex: 999,
     },
-    closeButton: {
-      marginRight: `${space.xl}`,
-      marginTop: `${space.xl}`,
-    },
+    closeButton: {},
     title: {
       margin: 0,
       backgroundColor: colors['light-900'],

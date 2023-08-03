@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { InformationIcon, MenuIcon } from '@welcome-ui/icons'
 import NextLink from 'next/link'
-import { Drawer, useDrawerState } from '@welcome-ui/drawer'
-import { useModalState } from '@welcome-ui/modal'
+import { Drawer, useDrawer } from '@welcome-ui/drawer'
+import { useModal } from '@welcome-ui/modal'
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons'
 import { DocSearch } from '@docsearch/react'
@@ -19,22 +19,16 @@ import * as S from './styles'
 import { NavBar } from './NavBar'
 
 export const Header = () => {
-  const mobileMenuDrawerState = useDrawerState()
-  const modalState = useModalState()
+  const mobileMenuDrawer = useDrawer()
+  const modal = useModal()
   const { pathname } = useRouter()
   const variants = {
     '/': 'gray',
   }
   const variant = variants[pathname]
-  const [hasBeenHydrated, setHasBeenHydrated] = useState(false)
-
-  // Workaround for hydration warning UI for Reakit dialog (fix in ariakit 2.0)
-  useEffect(() => {
-    setHasBeenHydrated(true)
-  }, [])
 
   function openThemeHelper() {
-    modalState.show()
+    modal.show()
   }
 
   return (
@@ -54,32 +48,42 @@ export const Header = () => {
             placeholder="Search the docs"
           />
         </Box>
-        <ThemeSelector ml="lg" />
-        <Button h={30} ml="xxs" onClick={openThemeHelper} shape="circle" variant="ghost" w={30}>
+        <ThemeSelector ml="lg" display={{ _: 'none', md: 'flex' }} />
+        <Button
+          h={30}
+          ml="xxs"
+          display={{ _: 'none', md: 'flex' }}
+          onClick={openThemeHelper}
+          shape="circle"
+          variant="ghost"
+          w={30}
+        >
           <InformationIcon color="light-900" />
         </Button>
       </Box>
       <NavBar display={{ xs: 'none', md: 'flex' }} />
-      {hasBeenHydrated && (
-        <>
-          <Drawer.Trigger
-            as={Button}
-            display={{ md: 'none' }}
-            shape="circle"
-            size="sm"
-            state={mobileMenuDrawerState}
-          >
-            {mobileMenuDrawerState.visible ? <CrossIcon /> : <MenuIcon />}
-          </Drawer.Trigger>
-          <Drawer.Backdrop backdropVisible={false} state={mobileMenuDrawerState}>
-            <S.MenuMobileDrawer aria-label="Menu backdrop" state={mobileMenuDrawerState}>
-              <NavBar drawerState={mobileMenuDrawerState} isMobileMenu mb="lg" />
-              <ComponentsList onClick={() => mobileMenuDrawerState.hide()} />
-            </S.MenuMobileDrawer>
-          </Drawer.Backdrop>
-        </>
-      )}
-      <ThemeHelper modalState={modalState} />
+      <>
+        <Drawer.Trigger
+          flexShrink={0}
+          as={Button}
+          display={{ md: 'none' }}
+          shape="circle"
+          size="sm"
+          store={mobileMenuDrawer}
+        >
+          {mobileMenuDrawer.open ? <CrossIcon /> : <MenuIcon />}
+        </Drawer.Trigger>
+        <S.MenuMobileDrawer
+          withBackdrop={false}
+          store={mobileMenuDrawer}
+          aria-label="Menu backdrop"
+          withCloseButton={false}
+        >
+          <NavBar drawerState={mobileMenuDrawer} isMobileMenu mb="lg" />
+          <ComponentsList onClick={() => mobileMenuDrawer.hide()} />
+        </S.MenuMobileDrawer>
+      </>
+      <ThemeHelper modalStore={modal} />
     </S.Header>
   )
 }

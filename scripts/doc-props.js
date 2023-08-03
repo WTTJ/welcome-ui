@@ -12,7 +12,7 @@ const shouldDisplayPropsFiles = [
   'packages/Utils/dist/types/field-styles.d.ts',
   'packages/Button/dist/types/index.d.ts',
   'packages/InputText/dist/types/index.d.ts',
-  'welcome-ui/node_modules/reakit/ts/Tab/TabState.d.ts',
+  'welcome-ui/node_modules/ariakit/ts/Tab/TabStore.d.ts',
 ]
 
 // Get only ComponentOptions declarations for prevent all WuiProps

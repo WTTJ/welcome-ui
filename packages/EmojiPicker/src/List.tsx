@@ -32,7 +32,7 @@ export interface ListOptions {
   emojis: Emoji[]
   emptyList: React.ReactNode
   inputSearchPlaceholder: string
-  isVisible: boolean
+  isOpen: boolean
   onChange: (value: string) => void
   value: string
 }
@@ -43,7 +43,7 @@ export const List: React.FC<ListProps> = ({
   emojis,
   emptyList,
   inputSearchPlaceholder,
-  isVisible,
+  isOpen,
   onChange,
   value,
 }) => {
@@ -52,10 +52,10 @@ export const List: React.FC<ListProps> = ({
 
   const inputRef = useRef(null)
   useEffect(() => {
-    if (isVisible) {
+    if (isOpen) {
       inputRef?.current?.focus()
     }
-  }, [isVisible])
+  }, [isOpen])
 
   const [query, setQuery] = useState<string>()
   const handleChangeQuery = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -203,7 +203,7 @@ export const List: React.FC<ListProps> = ({
   const isJustOpened = useRef(true)
   const listRef = useRef<FixedSizeList<EmojiRowData>>()
   useIsomorphicLayoutEffect(() => {
-    if (!isVisible || !listRef.current) return
+    if (!isOpen || !listRef.current) return
 
     let rowIndex = currentRowIndex
     // Show the value on open
@@ -223,15 +223,15 @@ export const List: React.FC<ListProps> = ({
     const align = isJustOpened.current ? 'start' : 'auto'
     listRef.current.scrollToItem(index, align)
     isJustOpened.current = false
-  }, [currentColIndex, currentRowIndex, isVisible])
+  }, [currentColIndex, currentRowIndex, isOpen])
 
   const initialScrollOffset = useMemo(() => {
-    if (!isVisible) return 0
+    if (!isOpen) return 0
 
     // We can't use `currentPosition[0]` directly because we would skip the categories
     const index = rows.findIndex(emojis => emojis.some(emoji => emoji.rowIndex === currentRowIndex))
     return index * ROW_HEIGHT
-  }, [currentRowIndex, isVisible, rows])
+  }, [currentRowIndex, isOpen, rows])
 
   return (
     <Box ref={wrapperRef}>
@@ -255,7 +255,7 @@ export const List: React.FC<ListProps> = ({
             rows,
             currentColIndex,
             currentRowIndex,
-            isVisible,
+            isOpen,
             onClick: onChange,
             onMouseMove: handleMouseMove,
           }}
@@ -280,7 +280,7 @@ interface EmojiRowData {
   rows: InternalEmoji[][]
   currentRowIndex: number
   currentColIndex: number
-  isVisible: boolean
+  isOpen: boolean
   onClick: (alias: string) => void
   onMouseMove: (emoji: InternalEmoji) => void
 }
@@ -313,7 +313,7 @@ const EmojiRow: React.FC<EmojiRowProps> = ({ data, index, style }) => {
         const alias = getEmojiAlias(emoji)
         // We want `null` instead of false to prevent to add the attribute to be in the DOM
         const isActive =
-          data.isVisible &&
+          data.isOpen &&
           emoji.rowIndex === data.currentRowIndex &&
           emoji.colIndex === data.currentColIndex
             ? true

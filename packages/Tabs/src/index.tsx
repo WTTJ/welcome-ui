@@ -1,27 +1,27 @@
 import React from 'react'
-import { Tab as ReakitTab, TabOptions as ReakitTabOptions, TabStateReturn } from 'reakit'
-import { CreateWuiProps, forwardRef, OmitReakitState } from '@welcome-ui/system'
+import * as Ariakit from '@ariakit/react'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import { TabList } from './TabList'
 import { TabPanel } from './TabPanel'
 import * as S from './styles'
 
-export type TabOptions = { state: TabStateReturn }
-export type TabProps = CreateWuiProps<'button', OmitReakitState<TabOptions, ReakitTabOptions>>
+export type TabOptions = { store: UseTab }
+export type TabProps = CreateWuiProps<'button', TabOptions>
 
 /**
  * @name Tabs
  */
 export const TabComponent = forwardRef<'button', TabProps>(
-  ({ as, children, id, state, ...rest }, ref) => {
+  ({ as, children, id, store, ...rest }, ref) => {
     return (
-      <ReakitTab as={undefined} id={id} ref={ref} {...state} {...rest}>
+      <Ariakit.Tab as={undefined} id={id} ref={ref} store={store} {...rest}>
         {tabProps => (
           <S.Tab as={as} {...tabProps}>
             {children}
           </S.Tab>
         )}
-      </ReakitTab>
+      </Ariakit.Tab>
     )
   }
 )
@@ -30,4 +30,10 @@ TabComponent.displayName = 'Tab'
 
 export const Tab = Object.assign(TabComponent, { List: TabList, Panel: TabPanel })
 
-export { useTabState } from 'reakit'
+export type UseTab = Ariakit.TabStore
+export type UseTabProps = Ariakit.TabStoreProps
+export type UseTabState = Ariakit.TabStoreState
+
+export function useTab(options?: UseTabProps): UseTab {
+  return Ariakit.useTabStore(options)
+}

@@ -10,7 +10,6 @@ import {
 
 <showcase
   version={version}
-  pageName="Popover"
   name={name}
   component={component}
   description="Allows user to show more information on hover or click an element."
@@ -18,22 +17,22 @@ import {
 
 ## About
 
-Popover from [Reakit](https://reakit.io/docs/popover/) with a really nice theme 👀
+Popover from [Ariakit](https://ariakit.org/components/popover) with a really nice theme 👀
 
 ## Usage
 
-Use `usePopoverState`, `Popover`, `Popover.Content` and `Popover.Trigger` to create a simple Popover.
+Use `usePopover`, `Popover`, `Popover.Content` and `Popover.Trigger` to create a simple Popover.
 
 ```jsx
 function() {
-  const popoverState = usePopoverState()
+  const popover = usePopover()
 
   return (
     <>
-      <Popover.Trigger as={Button} state={popoverState}>
+      <Popover.Trigger as={Button} store={popover}>
         Open Popover
       </Popover.Trigger>
-      <Popover aria-label="usage popover" state={popoverState}>
+      <Popover aria-label="usage popover" store={popover}>
         <Popover.Content>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
@@ -50,14 +49,14 @@ Use `Popover.Title` props to create a predefined title block.
 
 ```jsx
 function() {
-  const popoverState = usePopoverState({ placement: 'top' })
+  const popover = usePopover({ placement: 'top' })
 
   return (
     <>
-      <Popover.Trigger as={Button} state={popoverState}>
+      <Popover.Trigger as={Button} store={popover}>
         Open Popover
       </Popover.Trigger>
-      <Popover aria-label="title popover" state={popoverState}>
+      <Popover aria-label="title popover" store={popover}>
           <Popover.Title>Amazing title</Popover.Title>
           <Popover.Content>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -75,14 +74,14 @@ function() {
 
 ```jsx
 function() {
-  const popoverState = usePopoverState({ withCloseButton: true })
+  const popover = usePopover({ withCloseButton: true })
 
   return (
     <>
-      <Popover.Trigger as={Button} state={popoverState}>
+      <Popover.Trigger as={Button} store={popover}>
         Open Popover
       </Popover.Trigger>
-      <Popover aria-label="close button popover" state={popoverState}>
+      <Popover aria-label="close button popover" store={popover}>
           <Popover.Title>Amazing title</Popover.Title>
           <Popover.Content>
             Praesent sit amet quam ac velit faucibus dapibus.<br />
@@ -97,18 +96,18 @@ function() {
 
 ## Hover to open
 
-Use `triggerMethod='hover'` on `usePopoverState` to open and close the popover by hovering it.
+Use `triggerMethod: 'hover'` on `usePopover` to open and close the popover by hovering it.
 
 ```jsx
 function() {
-  const popoverState = usePopoverState({ triggerMethod: 'hover' })
+  const popover = usePopover({ triggerMethod: 'hover' })
 
   return (
     <>
-      <Popover.Trigger as={Button} state={popoverState}>
+      <Popover.Trigger as={Button} store={popover}>
         Open Popover
       </Popover.Trigger>
-      <Popover aria-label="hover to open popover" state={popoverState}>
+      <Popover aria-label="hover to open popover" store={popover}>
           <Popover.Title>Amazing title</Popover.Title>
           <Popover.Content>
             Praesent sit amet quam ac velit faucibus dapibus.<br />
@@ -121,15 +120,15 @@ function() {
 }
 ```
 
-## usePopoverState
+## usePopover
 
-We use `usePopoverState` from [Reakit Popover](https://reakit.io/docs/popover/#usepopoverstate) for the state of the popover.
+We use `usePopover` from [Ariakit Popover](https://ariakit.org/reference/use-popover-store) for the state of the popover.
 
-Pass options to `usePopoverState` :
+Pass options to `usePopover`:
 
-- `visible`: e.g. `const popover = usePopoverState({ visible: true })`
-- `triggerMethod` : `click` or `hover`
-- `withCloseButton` : `bool`, show/hide cross to close popover
+- `defaultOpen`: e.g. `const popover = usePopover({ defaultOpen: true })`
+- `triggerMethod`: `click` or `hover`
+- `withCloseButton`: `bool`, show/hide cross to close popover
 
 When `triggerMethod` is set to hover
 
@@ -138,9 +137,8 @@ When `triggerMethod` is set to hover
 
 And the hook returns (among other things):
 
-- `visible` : whether the popover is currently visible
-- `hide` : a function to hide the popover
-- for the others options, go to [Reakit Popover](https://reakit.io/docs/popover/#usepopoverstate)
+- `useState('open')`: whether the popover is currently open
+- `hide`: a function to hide the popover
 
 ## Properties
 

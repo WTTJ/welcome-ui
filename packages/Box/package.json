@@ -1,7 +1,7 @@
 {
   "name": "@welcome-ui/box",
   "version": "5.0.0-alpha.40",
-  "description": "Customizable design system with react • styled-components • styled-system and reakit.",
+  "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/types/index.d.ts",
@@ -30,7 +30,7 @@
   "keywords": [
     "design-system",
     "react",
-    "reakit",
+    "ariakit",
     "styled-components",
     "styled-system",
     "ui-library",

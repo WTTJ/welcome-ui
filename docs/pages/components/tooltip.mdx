@@ -25,7 +25,7 @@ The tooltip follows the cursor.
 </Tooltip>
 ```
 
-Maybe you don't want the tooltip to follow the cursor…
+Maybe you don't want the tooltip to follow the cursor set by `fixed` property
 
 ```jsx
 <Tooltip fixed content="Tooltip">
@@ -39,6 +39,7 @@ Set a `max-width` for long text
 
 ```jsx
 <Tooltip
+  fixed
   placement="bottom-start"
   content={<div>lorem ipsum dolor sit amet, consectetur adipiscing elit</div>}
 >
@@ -51,14 +52,14 @@ Set a `max-width` for long text
 We're adding a wrapper around the button when it's disabled otherwise the tooltip does not trigger.
 
 ```jsx
-<Tooltip placement="bottom-start" content="Tooltip">
+<Tooltip content="Tooltip">
   <Button disabled>Disabled Button</Button>
 </Tooltip>
 ```
 
-## With a fixed position
+## Placement
 
-Using the `fixed` prop in combination with `placement` will enable a translate animation on your tooltip. The direction works with these values for `placement`.
+Using only with the `fixed` prop, `placement` will enable a translate animation on your tooltip. The direction works with these values for `placement`.
 
 ```jsx
 <Flex flexWrap="wrap" gap="lg">

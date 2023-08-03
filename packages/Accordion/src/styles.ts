@@ -1,6 +1,8 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { DisclosureContent, Disclosure as ReakitDisclosure } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 import { Box } from '@welcome-ui/box'
+
+import { UseAccordionState } from '.'
 
 export const Accordion = styled.div`
   ${th('accordions.wrapper')};
@@ -12,11 +14,11 @@ export const Accordion = styled.div`
   }
 `
 
-export const Icon = styled(Box)<{ visible: boolean }>(
-  ({ visible }) => css`
+export const Icon = styled(Box)<{ isOpen: Ariakit.DisclosureStoreState['open'] }>(
+  ({ isOpen }) => css`
     flex-shrink: 0;
     ${th('accordions.icon')};
-    transform: ${visible ? 'rotate3d(0, 0, 1, 90deg)' : 'rotate3d(0)'};
+    transform: ${isOpen ? 'rotate3d(0, 0, 1, 90deg)' : 'rotate3d(0)'};
     transition: medium;
     width: 24;
     height: 24;
@@ -30,7 +32,7 @@ export const Icon = styled(Box)<{ visible: boolean }>(
   `
 )
 
-export const Disclosure = styled(ReakitDisclosure)`
+export const Disclosure = styled(Ariakit.Disclosure)`
   ${th('accordions.title')};
   width: 100%;
   padding: ${th('accordions.padding')};
@@ -57,13 +59,13 @@ export const Disclosure = styled(ReakitDisclosure)`
   }
 `
 
-export const Content = styled(DisclosureContent)(
-  ({ visible }) => css`
+export const Content = styled(Ariakit.DisclosureContent)(
+  ({ isOpen }: { isOpen: UseAccordionState['open'] }) => css`
     ${th('accordions.content')};
     padding-inline: ${th('accordions.padding')};
     color: dark-700;
 
-    ${visible &&
+    ${isOpen &&
     css`
       padding-bottom: ${th('accordions.padding')};
     `}

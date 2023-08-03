@@ -27,7 +27,7 @@ export const Dots = styled.span`
   align-items: center;
 `
 
-export const AbstractLink = styled.a`
+export const abstractLinkStyle = css`
   ${th('paginations.default')};
   ${th('paginations.item')};
   border-radius: 50%;
@@ -47,9 +47,10 @@ export const AbstractLink = styled.a`
   }
 `
 
-export const ArrowLink = styled(AbstractLink)<{ isDisabled: boolean }>(
-  ({ isDisabled }) => css`
-    ${isDisabled &&
+export const ArrowLink = styled.a(
+  props => css`
+    ${abstractLinkStyle};
+    ${props['aria-disabled'] &&
     css`
       color: nude-700;
       background-color: nude-400;
@@ -57,8 +58,9 @@ export const ArrowLink = styled(AbstractLink)<{ isDisabled: boolean }>(
   `
 )
 
-export const PageLink = styled(AbstractLink)(
+export const PageLink = styled.a(
   props => css`
+    ${abstractLinkStyle};
     ${props['aria-current'] && th('paginations.active')}
   `
 )

@@ -1,25 +1,28 @@
 import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
 import { forwardRef } from '@welcome-ui/system'
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 import * as S from './styles'
-import { useModal } from './context'
+import { Close } from './Close'
+
+import { UseModal } from '.'
 
 export interface ContentOptions {
   children: React.ReactNode
 }
 
-export type ContentProps = ContentOptions
+export type ContentProps = ContentOptions & {
+  store: UseModal
+}
 
 /**
  * @name Modal.Content
  */
-export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, ref) => {
+export const Content = forwardRef<'div', ContentProps>(({ children, store, ...rest }, ref) => {
   const { borderWidths, space } = useTheme()
-  const modalState = useModal()
-
-  const [bodyRef, setBodyRef] = useState<HTMLElement | null>(null)
+  const [borderOnFooter, setBorderOnFooter] = useState(false)
+  const contentElement = store.useState('contentElement')
+  const open = store.useState('open')
 
   const components = useMemo(
     () =>
@@ -33,26 +36,6 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
     [children]
   )
 
-  /**
-   * As Reakit doesn't handle scrolling content we have to forward the modalState to the Modal.Content
-   * in order to check when the modal is visible and enable the scroll.
-   * @link https://github.com/ariakit/ariakit/issues/469
-   * TODO: remove with the migration to ariakit
-   */
-  useEffect(() => {
-    if (modalState.visible && bodyRef) {
-      disableBodyScroll(bodyRef)
-    }
-    return () => bodyRef && enableBodyScroll(bodyRef)
-  }, [bodyRef, modalState.visible])
-
-  const setRef = (name?: string) => {
-    if (name === 'Body') {
-      return setBodyRef
-    }
-    return undefined
-  }
-
   const getStyles = (name?: string) => {
     if (name === 'Header') {
       return {
@@ -64,32 +47,41 @@ export const Content = forwardRef<'div', ContentProps>(({ children, ...rest }, r
             : space.xxl,
       }
     }
+
     if (name === 'Body') {
       return {
         pb: components.includes('Footer') ? space.lg : null,
         pr: components.includes('Header') ? space.xxl : null,
-        pt: components.includes('Header') ? 0 : null,
       }
     }
 
     if (name === 'Footer') {
       return {
         pt: components.includes('Header') || components.includes('Body') ? null : space.lg,
-        borderWidth: bodyRef && bodyRef.scrollHeight > bodyRef.offsetHeight ? borderWidths.sm : '0',
+        borderWidth: borderOnFooter ? borderWidths.sm : '0',
       }
     }
 
     return {}
   }
 
+  // we need to calculate when the modal open the contentElement height
+  useEffect(() => {
+    if (!open) {
+      setBorderOnFooter(false)
+    } else {
+      setBorderOnFooter(contentElement.scrollHeight > contentElement.offsetHeight)
+    }
+  }, [store, open, contentElement.scrollHeight, contentElement.offsetHeight])
+
   return (
     <S.Content ref={ref} {...rest}>
+      {components.includes('Header') ? null : <Close />}
       {Children.map(children, (child: JSX.Element) => {
         if (!child) return null
         const name = child?.type?.displayName || child?.type?.name
 
         return cloneElement(child, {
-          ref: setRef(name),
           ...getStyles(name),
           ...child.props,
         })

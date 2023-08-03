@@ -11,7 +11,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import dynamic from 'next/dynamic'
 
 // Welcome UI
-import { Accordion } from '@welcome-ui/accordion'
+import * as Accordion from '@welcome-ui/accordion'
 import { Alert } from '@welcome-ui/alert'
 import { AspectRatio } from '@welcome-ui/aspect-ratio'
 import { Avatar } from '@welcome-ui/avatar'
@@ -121,7 +121,7 @@ export const Code = ({
     language,
     transformCode: () => transformCode(editorCode, row),
     scope: {
-      Accordion,
+      ...Accordion,
       Alert,
       AspectRatio,
       Avatar,

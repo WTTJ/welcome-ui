@@ -21,7 +21,7 @@ export function Showcase({
     <Box backgroundColor="nude-100" maxW="100% !important">
       <Box m="0 auto" maxW={970} px={{ md: 'md' }} py={{ xs: 'xxl', md: '4xl' }}>
         <H1 mb="0" pb="sm" pt="0">
-          {pageName || component}
+          {component?.split(',')?.[0]}
         </H1>
         {description && <Text variant="body1">{description}</Text>}
         <Box mt="4xl">

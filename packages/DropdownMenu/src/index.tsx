@@ -1,108 +1,61 @@
 import React from 'react'
-import {
-  MenuButton,
-  MenuInitialState,
-  MenuOptions,
-  MenuStateReturn,
-  Menu as ReakitMenu,
-  useMenuState,
-} from 'reakit'
-import { useNextFrame } from '@welcome-ui/utils'
-import { As, CreateWuiProps, forwardRef, OmitReakitState, WuiProps } from '@welcome-ui/system'
+import * as Ariakit from '@ariakit/react'
+import { As, CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
 
 import { Arrow } from './Arrow'
 import { Item } from './Item'
 import { Separator } from './Separator'
 import * as S from './styles'
 
-export interface DropdownMenuOptions {
+export interface DropdownMenuOptions extends Ariakit.MenuProps {
   /** add custom props from styled system on DropdownMenu inner */
   innerProps?: WuiProps
-  state: MenuStateReturn & {
-    /**
-     * @deprecated
-     * will be replace by open on ariakit (reakit v2)
-     **/
-    visible?: MenuOptions['visible']
-    /**
-     * Open the menu on load
-     */
-    open?: MenuOptions['visible']
-  }
 }
 
-export type DropdownMenuProps = CreateWuiProps<
-  'div',
-  OmitReakitState<DropdownMenuOptions, MenuOptions>
->
+export type DropdownMenuProps = CreateWuiProps<'div', DropdownMenuOptions>
 
 const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
-  ({ children, dataTestId, innerProps = {}, state = {}, ...props }, ref) => {
-    const { open, visible } = state
-    const delayedVisible = useNextFrame(open || visible)
+  ({ children, dataTestId, innerProps = {}, store, gutter = 10, ...rest }, ref) => {
+    const arrowElement = store.useState('arrowElement')
+    const isOpen = store.useState('open')
 
     return (
-      <ReakitMenu
-        aria-label="dropdown-menu"
-        as="div"
-        data-testid={dataTestId}
-        ref={ref}
-        tabIndex={0}
-        {...state}
-        {...props}
-      >
-        {menuProps => (
-          <S.Inner
-            {...menuProps}
-            {...(innerProps as Omit<WuiProps, keyof typeof menuProps>)}
-            style={{
-              ...menuProps.style,
-              opacity: delayedVisible ? 1 : 0,
-            }}
-          >
-            {children}
-          </S.Inner>
-        )}
-      </ReakitMenu>
+      isOpen && (
+        <Ariakit.Menu
+          alwaysVisible
+          aria-label="dropdown-menu"
+          data-testid={dataTestId}
+          gutter={arrowElement ? 0 : gutter}
+          ref={ref}
+          render={<S.Inner {...innerProps} />}
+          store={store}
+          tabIndex={0}
+          {...rest}
+        >
+          {children}
+        </Ariakit.Menu>
+      )
     )
   }
 )
 
-export type DropdownMenuStateReturn = MenuStateReturn & {
-  /**
-   * @deprecated
-   * will be replace by open on ariakit (reakit v2)
-   **/
-  visible?: MenuStateReturn['visible']
-  open: MenuStateReturn['visible']
-}
-export type DropdownMenuInitialState = MenuInitialState & {
-  /**
-   * @deprecated
-   * will be replace by open on ariakit (reakit v2)
-   **/
-  visible?: MenuInitialState['visible']
-  /**
-   * Open the drawer on load
-   */
-  open?: MenuInitialState['visible']
-}
+export type UseDropdownMenu = Ariakit.MenuStore
+export type UseDropdownMenuState = Ariakit.MenuStoreState
+export type UseDropdownMenuOptions = Ariakit.MenuStoreProps
 
-export function useDropdownMenuState(options?: DropdownMenuInitialState): DropdownMenuStateReturn {
-  const { open, visible, ...restOptions } = options || {}
-  const dropdownMenuState = useMenuState({
+export function useDropdownMenu(options: UseDropdownMenuOptions = {}): UseDropdownMenu {
+  const dropdownMenu = Ariakit.useMenuStore({
     animated: true,
-    visible: visible || open,
-    ...restOptions,
+    ...options,
   })
 
-  return { open: dropdownMenuState.visible, ...dropdownMenuState }
+  return dropdownMenu
 }
 
-type TriggerProps = { state: MenuStateReturn; children: React.ReactNode; as?: As }
+type TriggerProps = { store: UseDropdownMenu; children: React.ReactNode; as?: As }
 
-export const Trigger = forwardRef<'button', TriggerProps>(({ as, state, ...rest }, ref) => {
-  return <MenuButton as={as} ref={ref} {...state} {...rest} />
+export const Trigger = forwardRef<'button', TriggerProps>(({ as, store, ...rest }, ref) => {
+  return <Ariakit.MenuButton as={as} ref={ref} store={store} {...rest} />
 })
 
 export const DropdownMenu = Object.assign(DropdownMenuComponent, {

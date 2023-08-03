@@ -1,10 +1,10 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { Checkbox as ReakitCheckbox } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 import { shouldForwardProp } from '@welcome-ui/system'
 
 import { ToggleOptions } from './index'
 
-export const Toggle = styled(ReakitCheckbox).withConfig({ shouldForwardProp })<ToggleOptions>(
+export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })<ToggleOptions>(
   ({ order = '-1' }) => css`
     ${th('toggles.item.default')};
     position: relative;

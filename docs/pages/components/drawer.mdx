@@ -17,28 +17,25 @@ import {
 
 ## About
 
-Drawer based on [Reakit's dialog](https://reakit.io/docs/dialog/) with a really nice theme 💅
+Drawer based on [Ariakit dialog](https://ariakit.org/components/dialog) with a really nice theme 💅
 
 ## Usage
 
-The most basic drawer needs `useDrawerState()`, `<Drawer.Trigger />`, `<Drawer.Backdrop />` and `<Drawer />`. **Please note you have to wrap your `<Drawer />` with a `<Drawer.Backdrop />`**. If you don't want this `<Drawer.Backdrop />` to be visible, please provide it a `backdropVisible` prop set to `false`. Backdrop allows us to have a smooth scroll across all browsers by wrapping the Drawer. This way, the Drawer can be absolutely positioned in the fixed Backdrop wrapper.
+The most basic drawer needs `useDrawer()`, `<Drawer.Trigger />` and `<Drawer />`. If you don't want a backdrop to be visible, please provide it a `withBackdrop` prop set to `false`. Backdrop allows us to have a smooth scroll across all browsers by wrapping the Drawer. This way, the Drawer can be absolutely positioned in the fixed Backdrop wrapper.
 
 ```jsx
 function DefaultDrawer() {
-  const drawerState = useDrawerState()
+  const drawer = useDrawer()
 
   return (
     <>
-      <Drawer.Trigger as={Button} state={drawerState}>
+      <Drawer.Trigger as={Button} store={drawer}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer.Backdrop state={drawerState} backdropVisible={false}>
-        <Drawer aria-label="Default drawer" state={drawerState}>
-          <Drawer.Close state={drawerState} />
-          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam
-          nec, convallis sit amet erat. Mauris auctor blandit porta.
-        </Drawer>
-      </Drawer.Backdrop>
+      <Drawer aria-label="Default drawer" store={drawer}>
+        Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam
+        nec, convallis sit amet erat. Mauris auctor blandit porta.
+      </Drawer>
     </>
   )
 }
@@ -46,24 +43,21 @@ function DefaultDrawer() {
 
 ## Backdrop
 
-You have to wrap `<Drawer />` with `<Drawer.Backdrop />`. It can be either visible or not, thanks to the `backdropVisible` prop (which is true by default). It corresponds to [Reakit Dialog's Backdrop](https://reakit.io/docs/dialog/#backdrop) with custom styling.
+You have to add on `<Drawer />` a prop `withBackdrop`. This adds our backdrop `<Drawer.Backdrop />` on the drawer. You can also add a custom wrapper with the property `backdrop`.
 
 ```jsx
 function BackdropDrawer() {
-  const drawerState = useDrawerState()
+  const drawer = useDrawer()
 
   return (
     <>
-      <Drawer.Trigger as={Button} state={drawerState}>
-        Open Drawer
+      <Drawer.Trigger as={Button} store={drawer}>
+        Open Drawer with backdrop
       </Drawer.Trigger>
-      <Drawer.Backdrop state={drawerState}>
-        <Drawer aria-label="Backdrop drawer" state={drawerState}>
-          <Drawer.Close state={drawerState} />
-          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam
-          nec, convallis sit amet erat. Mauris auctor blandit porta.
-        </Drawer>
-      </Drawer.Backdrop>
+      <Drawer withBackdrop hideOnInteractOutside aria-label="Backdrop drawer" store={drawer}>
+        Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam
+        nec, convallis sit amet erat. Mauris auctor blandit porta.
+      </Drawer>
     </>
   )
 }
@@ -71,30 +65,27 @@ function BackdropDrawer() {
 
 ## Layout
 
-We provide basic layout components for your drawer: `<Drawer.Close />`, `<Drawer.Title />`, `<Drawer.Content />` and `<Drawer.Footer />`. They're all optionnal. If you're using `<Drawer.Close />` along with `<Drawer.Title />`, please make sure to position `<Drawer.Close />` first in your code, for styling purpose.
+We provide basic layout components for your drawer: `<Drawer.Title />`, `<Drawer.Content />` and `<Drawer.Footer />`. They are all optional. By default, you have a close button `<Drawer.Close />` that you can remove by setting the `withCloseButton` property to `false`. If you're using `<Drawer.Close />` along with `<Drawer.Title />`, please make sure to position `<Drawer.Close />` first in your code for styling purposes.
 
 ```jsx
 function ContentDrawer() {
-  const drawerState = useDrawerState()
+  const drawer = useDrawer()
 
   return (
     <>
-      <Drawer.Trigger as={Button} state={drawerState}>
+      <Drawer.Trigger as={Button} store={drawer}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer.Backdrop state={drawerState}>
-        <Drawer aria-label="Layout drawer" state={drawerState}>
-          <Drawer.Close state={drawerState} />
-          <Drawer.Title>Hello</Drawer.Title>
-          <Drawer.Content>
-            Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
-            aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
-          </Drawer.Content>
-          <Drawer.Footer>
-            <Button onClick={drawerState.hide}>Close Drawer</Button>
-          </Drawer.Footer>
-        </Drawer>
-      </Drawer.Backdrop>
+      <Drawer aria-label="Layout drawer" store={drawer}>
+        <Drawer.Title>Hello</Drawer.Title>
+        <Drawer.Content>
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
+        </Drawer.Content>
+        <Drawer.Footer>
+          <Button onClick={drawer.hide}>Close Drawer</Button>
+        </Drawer.Footer>
+      </Drawer>
     </>
   )
 }
@@ -106,7 +97,7 @@ By default the `placement` of the drawer will be on the `right` but you can set 
 
 ```jsx
 function PlacementDrawer() {
-  const drawerState = useDrawerState()
+  const drawer = useDrawer()
   const [placement, setPlacement] = React.useState('right')
 
   return (
@@ -115,7 +106,7 @@ function PlacementDrawer() {
         <Field label="Placement" flexDirection="row">
           <RadioGroup
             value={placement}
-            onChange={e => setPlacement(e.target.value)}
+            onChange={setPlacement}
             options={[
               { value: 'top', label: 'Top' },
               { value: 'right', label: 'Right' },
@@ -125,15 +116,13 @@ function PlacementDrawer() {
           />
         </Field>
       </Box>
-      <Drawer.Trigger as={Button} state={drawerState}>
+      <Drawer.Trigger as={Button} store={drawer}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer.Backdrop state={drawerState}>
-        <Drawer aria-label="Placement drawer" state={drawerState} placement={placement}>
-          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
-          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
-        </Drawer>
-      </Drawer.Backdrop>
+      <Drawer aria-label="Placement drawer" store={drawer} placement={placement}>
+        Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam
+        nec, convallis sit amet erat. Mauris auctor blandit porta.
+      </Drawer>
     </>
   )
 }
@@ -145,7 +134,7 @@ By default the `size` of the drawer will be `lg` which is set in the theme. We p
 
 ```jsx
 function SizeDrawer() {
-  const drawerState = useDrawerState()
+  const drawer = useDrawer()
   const [size, setSize] = React.useState('lg')
   const [placement, setPlacement] = React.useState('right')
 
@@ -155,7 +144,7 @@ function SizeDrawer() {
         <Field label="Size" flexDirection="row">
           <RadioGroup
             value={size}
-            onChange={e => setSize(e.target.value)}
+            onChange={setSize}
             options={[
               { value: 'sm', label: 'sm' },
               { value: 'md', label: 'md' },
@@ -176,7 +165,7 @@ function SizeDrawer() {
         <Field label="Placement" flexDirection="row">
           <RadioGroup
             value={placement}
-            onChange={e => setPlacement(e.target.value)}
+            onChange={setPlacement}
             options={[
               { value: 'top', label: 'Top' },
               { value: 'right', label: 'Right' },
@@ -186,15 +175,19 @@ function SizeDrawer() {
           />
         </Field>
       </Box>
-      <Drawer.Trigger as={Button} state={drawerState}>
+      <Drawer.Trigger as={Button} store={drawer}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer.Backdrop state={drawerState}>
-        <Drawer aria-label="Size drawer" state={drawerState} size={size} placement={placement}>
-          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
-          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
-        </Drawer>
-      </Drawer.Backdrop>
+      <Drawer
+        aria-label="Size drawer"
+        store={drawer}
+        size={size}
+        placement={placement}
+        hideOnInteractOutside={false}
+      >
+        Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam
+        nec, convallis sit amet erat. Mauris auctor blandit porta.
+      </Drawer>
     </>
   )
 }
@@ -206,60 +199,59 @@ All the elements can be styled as you see fit, by extending drawer's theme or di
 
 ```jsx
 function StylingDrawer() {
-  const drawerState = useDrawerState()
+  const drawer = useDrawer()
 
   return (
     <>
-      <Drawer.Trigger as={Button} state={drawerState}>
+      <Drawer.Trigger as={Button} store={drawer}>
         Open Drawer
       </Drawer.Trigger>
-      <Drawer.Backdrop state={drawerState}>
-        <Drawer aria-label="Default drawer" state={drawerState} backgroundColor="nude-200">
-          <Drawer.Close state={drawerState} w={30} h={30} />
-          <Drawer.Title borderBottom="1px solid" borderBottomColor="dark-200">
-            Hello
-          </Drawer.Title>
-          <Drawer.Content backgroundColor="light-900">
-            Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
-            aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
-          </Drawer.Content>
-          <Drawer.Footer borderTop="1px solid" borderTopColor="dark-200">
-            <Stack direction="row">
-              <Button onClick={drawerState.hide}>Save</Button>
-              <Button onClick={drawerState.hide} variant="tertiary">
-                Close
-              </Button>
-            </Stack>
-          </Drawer.Footer>
-        </Drawer>
-      </Drawer.Backdrop>
+      <Drawer
+        aria-label="Default drawer"
+        store={drawer}
+        backgroundColor="nude-200"
+        withCloseButton={false}
+      >
+        <Drawer.Close store={drawer} w={30} h={30} />
+        <Drawer.Title borderBottom="1px solid" borderBottomColor="dark-200">
+          Hello
+        </Drawer.Title>
+        <Drawer.Content backgroundColor="light-900">
+          Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+          aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
+        </Drawer.Content>
+        <Drawer.Footer borderTop="1px solid" borderTopColor="dark-200">
+          <Stack direction="row">
+            <Button onClick={drawer.hide}>Save</Button>
+            <Button onClick={drawer.hide} variant="tertiary">
+              Close
+            </Button>
+          </Stack>
+        </Drawer.Footer>
+      </Drawer>
     </>
   )
 }
 ```
 
-## useDrawerState
+## useDrawer
 
-We use `useDialogState` from [Reakit Dialog](https://reakit.io/docs/dialog/#usedialogstate) for the state of the drawer with the `animated` flag set to `true` by default.
+We use `useDialogStore` from [Ariakit Dialog](https://ariakit.org/reference/use-dialog-store) for the state of the drawer with the `animated` flag set to `true` by default.
 
-Pass options to `useDrawerState` :
+Pass options to `useDrawer`:
 
-- `visible`: e.g. `const modal = useDrawerState({ visible: true })`
+- `defaultOpen`: e.g. `const drawer = useDrawer({ defaultOpen: true })`
 
 And the hook returns (among other things):
 
-- `visible` : whether the drawer is currently visible
-- `hide` : a function to hide the drawer
+- `useState('open')`: whether the drawer is currently open
+- `hide`: a function to hide the drawer
 
 ## Properties
 
 ### Drawer
 
 <props propTypes={props.propTypes.Drawer} />
-
-### Drawer.Backdrop
-
-<props propTypes={props.propTypes['Drawer.Backdrop']} />
 
 ## Packages
 

@@ -1,5 +1,5 @@
 import React, { cloneElement } from 'react'
-import { useDisclosureState } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 import AnimateHeight from 'react-animate-height'
 import { RightIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -10,31 +10,29 @@ export interface AccordionOptions {
   title: string | JSX.Element
   icon?: JSX.Element
   /**
-   * @deprecated
-   * will be replace by open on ariakit (reakit v2)
-   **/
-  visible?: boolean
-  /**
-   * Open the hidden content on load
+   * store from useAccordion()
    */
-  open?: boolean
+  store: UseAccordion
 }
 
 export type AccordionProps = CreateWuiProps<'div', AccordionOptions>
 
 export const Accordion = forwardRef<'div', AccordionProps>(
-  ({ children, icon = <RightIcon />, title, visible = false, open = false, ...rest }, ref) => {
-    const disclosure = useDisclosureState({ visible: open || visible, animated: true })
-    const isVisible = disclosure.visible
+  ({ children, icon = <RightIcon />, title, store, dataTestId, ...rest }, ref) => {
+    const isOpen = store.useState('open')
 
     return (
-      <S.Accordion ref={ref} {...rest}>
-        <S.Disclosure {...disclosure}>
+      <S.Accordion data-testid={dataTestId} ref={ref} {...rest}>
+        <S.Disclosure data-testid={dataTestId ? `${dataTestId}-title` : undefined} store={store}>
           {title}
-          <S.Icon visible={isVisible}>{cloneElement(icon, { size: 'sm' })}</S.Icon>
+          <S.Icon isOpen={isOpen}>{cloneElement(icon, { size: 'sm' })}</S.Icon>
         </S.Disclosure>
-        <S.Content {...disclosure}>
-          <AnimateHeight animateOpacity duration={200} height={isVisible ? 'auto' : 0}>
+        <S.Content
+          data-testid={dataTestId ? `${dataTestId}-content` : undefined}
+          isOpen={isOpen}
+          store={store}
+        >
+          <AnimateHeight animateOpacity duration={200} height={isOpen ? 'auto' : 0}>
             {children}
           </AnimateHeight>
         </S.Content>
@@ -42,3 +40,13 @@ export const Accordion = forwardRef<'div', AccordionProps>(
     )
   }
 )
+
+export type UseAccordion = Ariakit.DisclosureStore
+export type UseAccordionProps = Ariakit.DisclosureStoreProps
+export type UseAccordionState = Ariakit.DisclosureStoreState
+
+export function useAccordion(options?: UseAccordionProps): UseAccordion {
+  const accordion = Ariakit.useDisclosureStore({ animated: true, ...options })
+
+  return accordion
+}

@@ -42,7 +42,7 @@ const expectations = [
     title: 'Accessibility',
     icon: UserIcon,
     description:
-      'We are trying to offer an accessible experience as much as we can, using Reakit for instance.',
+      'We are trying to offer an accessible experience as much as we can, using Ariakit for instance.',
   },
   {
     title: 'Typing',

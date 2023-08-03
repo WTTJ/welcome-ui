@@ -10,7 +10,6 @@ import {
 
 <showcase
   version={version}
-  pageName="Tabs"
   name={name}
   component={component}
   description="Allows user to make it easy explore and switch between different views."
@@ -18,48 +17,48 @@ import {
 
 ## About
 
-See [Reakit](https://reakit.io/docs/tab/) for documentation.
+See [Ariakit](https://ariakit.org/components/tab) for documentation.
 
 ## Usage
 
-Set the tab activated by default using `selectedId` on `useTabState`.
+Set the tab activated by default using `selectedId` on `useTab`.
 
 ```jsx
 function() {
-  const tabState = useTabState({ selectedId: 'tab1' })
+  const tab = useTab({ defaultSelectedId: 'tab1' })
 
   return (
     <>
-      <Tab.List aria-label="Tabs" state={tabState}>
-        <Tab state={tabState} id="tab1">
+      <Tab.List aria-label="Tabs" store={tab}>
+        <Tab store={tab} id="tab1">
           Tab 1
         </Tab>
-        <Tab state={tabState} id="tab2">
+        <Tab store={tab} id="tab2">
           Tab 2
         </Tab>
-        <Tab state={tabState} id="tab3">
+        <Tab store={tab} id="tab3">
           Tab 3
         </Tab>
-        <Tab state={tabState} id="tab4">
+        <Tab store={tab} id="tab4">
           Tab 4
         </Tab>
-        <Tab state={tabState} disabled id="tab5">
+        <Tab store={tab} disabled id="tab5">
           Tab 5
         </Tab>
       </Tab.List>
-      <Tab.Panel state={tabState} tabId="tab1">
+      <Tab.Panel store={tab} tabId="tab1">
         Tab.Panel 1
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab2">
+      <Tab.Panel store={tab} tabId="tab2">
         Tab.Panel 2
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab3">
+      <Tab.Panel store={tab} tabId="tab3">
         Tab.Panel 3
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab4">
+      <Tab.Panel store={tab} tabId="tab4">
         Tab.Panel 4
       </Tab.Panel>
-      <Tab.Panel state={tabState} disabled tabId="tab5">
+      <Tab.Panel store={tab} disabled tabId="tab5">
         Tab.Panel 5
       </Tab.Panel>
     </>
@@ -73,49 +72,49 @@ Size is set on Tab.List. Available sizes are `sm` and `md`. By default size is s
 
 ```jsx
 function() {
-  const tabState = useTabState({ selectedId: 'tab1' })
+  const tab = useTab({ defaultSelectedId: 'tab1' })
 
   return (
     <>
-      <Tab.List aria-label="Tabs" state={tabState}>
-        <Tab state={tabState} id="tab1">
+      <Tab.List aria-label="Tabs" store={tab}>
+        <Tab store={tab} id="tab1">
           Tab 1
         </Tab>
-        <Tab state={tabState} id="tab2">
+        <Tab store={tab} id="tab2">
           Tab 2
         </Tab>
-        <Tab state={tabState} id="tab3">
+        <Tab store={tab} id="tab3">
           Tab 3
         </Tab>
       </Tab.List>
-      <Tab.Panel state={tabState} tabId="tab1">
+      <Tab.Panel store={tab} tabId="tab1">
         Tab.Panel 1
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab2">
+      <Tab.Panel store={tab} tabId="tab2">
         Tab.Panel 2
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab3">
+      <Tab.Panel store={tab} tabId="tab3">
         Tab.Panel 3
       </Tab.Panel>
       <br/>
-      <Tab.List aria-label="Tabs" size="sm" state={tabState}>
-        <Tab state={tabState} id="tab1">
+      <Tab.List aria-label="Tabs" size="sm" store={tab}>
+        <Tab store={tab} id="tab1">
           Tab 1
         </Tab>
-        <Tab state={tabState} id="tab2">
+        <Tab store={tab} id="tab2">
           Tab 2
         </Tab>
-        <Tab state={tabState} id="tab3">
+        <Tab store={tab} id="tab3">
           Tab 3
         </Tab>
       </Tab.List>
-      <Tab.Panel state={tabState} tabId="tab1">
+      <Tab.Panel store={tab} tabId="tab1">
         Tab.Panel 1
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab2">
+      <Tab.Panel store={tab} tabId="tab2">
         Tab.Panel 2
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab3">
+      <Tab.Panel store={tab} tabId="tab3">
         Tab.Panel 3
       </Tab.Panel>
     </>
@@ -129,40 +128,40 @@ The border on `Tab.List` is an inset shadow that you can customize or disable vi
 
 ```jsx
 function() {
-  const tabState = useTabState({ selectedId: 'tab1' })
+  const tab = useTab({ defaultSelectedId: 'tab1' })
 
   return (
     <>
-      <Tab.List aria-label="Tabs" boxShadow="none" state={tabState}>
-        <Tab state={tabState} id="tab1">
+      <Tab.List aria-label="Tabs" boxShadow="none" store={tab}>
+        <Tab store={tab} id="tab1">
           Tab 1
         </Tab>
-        <Tab state={tabState} id="tab2">
+        <Tab store={tab} id="tab2">
           Tab 2
         </Tab>
-        <Tab state={tabState} id="tab3">
+        <Tab store={tab} id="tab3">
           Tab 3
         </Tab>
-        <Tab state={tabState} id="tab4">
+        <Tab store={tab} id="tab4">
           Tab 4
         </Tab>
-        <Tab state={tabState} disabled id="tab5">
+        <Tab store={tab} disabled id="tab5">
           Tab 5
         </Tab>
       </Tab.List>
-      <Tab.Panel state={tabState} tabId="tab1">
+      <Tab.Panel store={tab} tabId="tab1">
         Tab.Panel 1
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab2">
+      <Tab.Panel store={tab} tabId="tab2">
         Tab.Panel 2
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab3">
+      <Tab.Panel store={tab} tabId="tab3">
         Tab.Panel 3
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab4">
+      <Tab.Panel store={tab} tabId="tab4">
         Tab.Panel 4
       </Tab.Panel>
-      <Tab.Panel state={tabState} disabled tabId="tab5">
+      <Tab.Panel store={tab} disabled tabId="tab5">
         Tab.Panel 5
       </Tab.Panel>
     </>
@@ -176,19 +175,21 @@ Add badges, icons and images in tab.
 
 ```jsx
 function() {
-  const tabState = useTabState({ selectedId: 'tab2' })
-  const getVariant = item => (tabState.selectedId === item ? 'primary' : 'default')
+  const tab = useTab({ defaultSelectedId: 'tab2' })
+  const selectedId = tab.useState('selectedId')
+
+  const getVariant = item => (selectedId === item ? 'primary' : 'default')
 
   return (
     <>
-      <Tab.List aria-label="Tabs" state={tabState}>
-        <Tab state={tabState} id="tab1">
+      <Tab.List aria-label="Tabs" store={tab}>
+        <Tab store={tab} id="tab1">
           Tab 1
           <Badge variant={getVariant('tab1')}>
             new
           </Badge>
         </Tab>
-        <Tab state={tabState} id="tab2">
+        <Tab store={tab} id="tab2">
           Tab 2
           <Badge variant={getVariant('tab2')}>
             old
@@ -197,25 +198,25 @@ function() {
           2
           </Badge>
         </Tab>
-        <Tab state={tabState} id="tab3">
+        <Tab store={tab} id="tab3">
           Tab 3
           <HeartIcon />
         </Tab>
-        <Tab state={tabState} id="tab4">
+        <Tab store={tab} id="tab4">
           <img src="https://cdn.welcometothejungle.com/wttj-front/production/assets/images/logos/wttj.svg?v=3a3dbd7122a01600fb67e66b889bb47c" />
           Tab 4
         </Tab>
       </Tab.List>
-      <Tab.Panel state={tabState} tabId="tab1">
+      <Tab.Panel store={tab} tabId="tab1">
         Tab.Panel 1
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab2">
+      <Tab.Panel store={tab} tabId="tab2">
         Tab.Panel 2
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab3">
+      <Tab.Panel store={tab} tabId="tab3">
         Tab.Panel 3
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab4">
+      <Tab.Panel store={tab} tabId="tab4">
         Tab.Panel 4
       </Tab.Panel>
     </>
@@ -229,28 +230,28 @@ Use another component in tab.
 
 ```jsx
 function() {
-  const tabState = useTabState({ selectedId: 'tab1' })
+  const tab = useTab({ defaultSelectedId: 'tab1' })
 
   return (
     <>
-      <Tab.List aria-label="Tabs" state={tabState}>
-        <Tab state={tabState} as="a" id="tab1">
+      <Tab.List aria-label="Tabs" store={tab}>
+        <Tab store={tab} as="a" id="tab1">
           Tab 1
         </Tab>
-        <Tab state={tabState} as="a" id="tab2">
+        <Tab store={tab} as="a" id="tab2">
           Tab 2
         </Tab>
-        <Tab state={tabState} as="a" id="tab3">
+        <Tab store={tab} as="a" id="tab3">
           Tab 3
         </Tab>
       </Tab.List>
-      <Tab.Panel state={tabState} tabId="tab1">
+      <Tab.Panel store={tab} tabId="tab1">
         Tab.Panel 1
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab2">
+      <Tab.Panel store={tab} tabId="tab2">
         Tab.Panel 2
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab3">
+      <Tab.Panel store={tab} tabId="tab3">
         Tab.Panel 3
       </Tab.Panel>
     </>
@@ -264,16 +265,16 @@ Active bar doesn't display with only one tab.
 
 ```jsx
 function() {
-  const tabState = useTabState({ selectedId: 'tab1' })
+  const tab = useTab({ defaultSelectedId: 'tab1' })
 
   return (
     <>
-      <Tab.List aria-label="Tabs" state={tabState}>
-        <Tab state={tabState} id="tab1">
+      <Tab.List aria-label="Tabs" store={tab}>
+        <Tab store={tab} id="tab1">
           Tab 1
         </Tab>
       </Tab.List>
-      <Tab.Panel state={tabState} tabId="tab1">
+      <Tab.Panel store={tab} tabId="tab1">
         Tab.Panel 1
       </Tab.Panel>
     </>
@@ -287,40 +288,48 @@ Set the tab orientation by providing the `orientation` prop to the tab state
 
 ```jsx
 function() {
-  const tabState = useTabState({ orientation: 'vertical', selectedId: 'tab2' })
+  const tab = useTab({ orientation: 'vertical', defaultSelectedId: 'tab2' })
 
   return (
     <Box display="flex">
-      <Tab.List w={200} mr="lg" aria-label="Tabs" state={tabState}>
-        <Tab state={tabState} id="tab1">
+      <Tab.List w={200} mr="lg" aria-label="Tabs" store={tab}>
+        <Tab store={tab} id="tab1">
           Tab 1
         </Tab>
-        <Tab state={tabState} id="tab2">
+        <Tab store={tab} id="tab2">
           Tab 2
         </Tab>
-        <Tab state={tabState} id="tab3">
+        <Tab store={tab} id="tab3">
           Tab 3
         </Tab>
-        <Tab state={tabState} id="tab4">
+        <Tab store={tab} id="tab4">
           Tab 4
         </Tab>
       </Tab.List>
-      <Tab.Panel state={tabState} tabId="tab1">
+      <Tab.Panel store={tab} tabId="tab1">
         Tab.Panel 1
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab2">
+      <Tab.Panel store={tab} tabId="tab2">
         Tab.Panel 2
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab3">
+      <Tab.Panel store={tab} tabId="tab3">
         Tab.Panel 3
       </Tab.Panel>
-      <Tab.Panel state={tabState} tabId="tab4">
+      <Tab.Panel store={tab} tabId="tab4">
         Tab.Panel 4
       </Tab.Panel>
     </Box>
   )
 }
 ```
+
+## useTab
+
+We use `useTab` from [Ariakit Tab](https://ariakit.org/reference/use-tab-store) for the state of the Tab.
+
+Pass options to `useTab`:
+
+- `defaultSelectedId`: e.g. `const store = useTab({ defaultSelectedId: 'tab2' })`
 
 ## Properties
 

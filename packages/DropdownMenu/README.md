@@ -10,7 +10,7 @@ The [DropdownMenu](https://welcome-ui.com/components/dropdown-menu) component fr
 
 ## Import
 
-    import { DropdownMenu, useDropdownMenuState } from '@welcome-ui/dropdown-menu'
+    import { DropdownMenu, useDropdownMenu } from '@welcome-ui/dropdown-menu'
 
 ## Documentation
 

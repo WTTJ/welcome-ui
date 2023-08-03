@@ -1,7 +1,7 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { Popover as BasePopover, PopoverArrow, PopoverDisclosure } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 
-export const Arrow = styled(PopoverArrow)`
+export const Arrow = styled(Ariakit.PopoverArrow)`
   color: ${th('popovers.default.backgroundColor')};
 `
 
@@ -20,7 +20,7 @@ export const Title = styled.h6`
   ${th('popovers.title')};
 `
 
-export const Popover = styled(BasePopover)<{ $withCloseButton: boolean }>(
+export const Popover = styled(Ariakit.Popover)<{ $withCloseButton: boolean }>(
   ({ $withCloseButton }) => css`
     ${th('popovers.default')};
     outline: none;
@@ -42,6 +42,6 @@ export const Popover = styled(BasePopover)<{ $withCloseButton: boolean }>(
   `
 )
 
-export const PopoverTrigger = styled(PopoverDisclosure)`
+export const PopoverTrigger = styled(Ariakit.PopoverDisclosure)`
   ${system}
 `

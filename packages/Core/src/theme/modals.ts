@@ -39,7 +39,6 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
     },
     body: {
       color: colors['dark-900'],
-      paddingTop: space.xxl,
       paddingRight: space['3xl'],
       paddingBottom: space.xxl,
       paddingLeft: space.xxl,

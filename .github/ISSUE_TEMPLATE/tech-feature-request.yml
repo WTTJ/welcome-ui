@@ -35,4 +35,4 @@ body:
     attributes:
       label: 'Implementation'
       description: 'If possible, describe how this feature could be implemented.'
-      placeholder: 'See [CONTRIBUTING.mdx](https://github.com/reakit/reakit/blob/master/CONTRIBUTING.mdx)'
+      placeholder: 'See [CONTRIBUTING.mdx](https://github.com/WTTJ/welcome-ui/blob/master/CONTRIBUTING.mdx)'

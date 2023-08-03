@@ -2,17 +2,17 @@ import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
-import { Modal, useModalState } from '../src'
+import { Modal, useModal } from '../src'
 
 describe('<Modal>', () => {
   it('should render correctly', () => {
     const Test = () => {
-      const modalState = useModalState()
+      const modal = useModal()
 
       return (
         <>
-          <Modal.Trigger state={modalState}>open</Modal.Trigger>
-          <Modal ariaLabel="modal" state={modalState}>
+          <Modal.Trigger store={modal}>open</Modal.Trigger>
+          <Modal ariaLabel="modal" store={modal}>
             <div>Modal open</div>
           </Modal>
         </>
@@ -27,16 +27,16 @@ describe('<Modal>', () => {
 
   it('should render conditionally', () => {
     const ModalTest = () => {
-      const modalState = useModalState()
+      const modal = useModal()
       const shouldRender = false
 
       return (
         <>
-          <Modal.Trigger as="button" state={modalState} type="button">
+          <Modal.Trigger as="button" store={modal} type="button">
             open
           </Modal.Trigger>
-          <Modal ariaLabel="modal" state={modalState}>
-            <Modal.Content>
+          <Modal ariaLabel="modal" store={modal}>
+            <Modal.Content store={modal}>
               {shouldRender && <Modal.Body>Modal.Body exist?</Modal.Body>}
             </Modal.Content>
           </Modal>

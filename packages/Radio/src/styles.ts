@@ -4,13 +4,13 @@ import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 import { Hint as HintWUI } from '@welcome-ui/hint'
 import { Label as WUILabel } from '@welcome-ui/label'
-import { Radio as ReakitRadio } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 
 import { RadioProps } from './index'
 
 /* /!\ WARNING /!\ Don't add style after pseudo selector, it won't apply because of the dynamic color injected in the fill of the content */
 
-export const Radio = styled(ReakitRadio).withConfig({ shouldForwardProp })<RadioProps>(
+export const Radio = styled(Ariakit.Radio).withConfig({ shouldForwardProp })<RadioProps>(
   ({ order = '-1', size, variant }) => css`
     ${defaultFieldStyles({ size, variant })};
     ${th('radios.default')}
@@ -60,6 +60,8 @@ export const Label = styled(WUILabel)<{
     ${withHint && th('radios.withHint.default')};
     max-width: 100%;
     align-items: flex-start;
+    /** we need to reset margin-bottom from Label component */
+    margin-bottom: 0 !important;
     ${system}
   `
 )

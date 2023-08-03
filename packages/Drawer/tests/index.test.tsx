@@ -2,17 +2,17 @@ import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
-import { Drawer, useDrawerState } from '../src'
+import { Drawer, useDrawer } from '../src'
 
 describe('<Drawer>', () => {
   it('should render correctly', () => {
     const Test = () => {
-      const drawerState = useDrawerState()
+      const drawer = useDrawer()
 
       return (
         <>
-          <Drawer.Trigger state={drawerState}>open</Drawer.Trigger>
-          <Drawer aria-label="drawer" state={drawerState}>
+          <Drawer.Trigger store={drawer}>open</Drawer.Trigger>
+          <Drawer aria-label="drawer" store={drawer}>
             test
           </Drawer>
         </>
@@ -27,12 +27,12 @@ describe('<Drawer>', () => {
 
   it('should render its size & placement correctly', () => {
     const Test = () => {
-      const drawerState = useDrawerState()
+      const drawer = useDrawer()
 
       return (
         <>
-          <Drawer.Trigger state={drawerState}>open</Drawer.Trigger>
-          <Drawer aria-label="drawer" placement="bottom" size="50%" state={drawerState}>
+          <Drawer.Trigger store={drawer}>open</Drawer.Trigger>
+          <Drawer aria-label="drawer" placement="bottom" size="50%" store={drawer}>
             test
           </Drawer>
         </>
@@ -46,14 +46,15 @@ describe('<Drawer>', () => {
 
   it('should render "as" correctly', () => {
     const Test = () => {
-      const drawerState = useDrawerState()
+      const drawer = useDrawer()
+      const onClick = jest.fn()
 
       return (
         <>
-          <Drawer.Trigger as="button" onClick={() => null} state={drawerState}>
+          <Drawer.Trigger as="button" onClick={onClick} store={drawer}>
             open
           </Drawer.Trigger>
-          <Drawer aria-label="drawer" state={drawerState}>
+          <Drawer aria-label="drawer" store={drawer}>
             test
           </Drawer>
         </>

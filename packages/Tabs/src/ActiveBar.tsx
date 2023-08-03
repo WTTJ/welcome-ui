@@ -1,21 +1,22 @@
 import React, { useState } from 'react'
 import { useViewportSize } from '@welcome-ui/utils'
-import { TabStateReturn } from 'reakit'
 import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
-export interface ActiveBarStateReturn {
+import { UseTabState } from '.'
+
+export interface ActiveBarReturn {
   offset?: number
   size?: number
-  orientation?: TabStateReturn['orientation']
+  orientation?: UseTabState['orientation']
 }
 
-function useActiveBarState(
+function useActiveBar(
   listRef: React.MutableRefObject<HTMLElement>,
   activeTab: HTMLElement,
-  orientation: TabStateReturn['orientation']
-): ActiveBarStateReturn {
+  orientation: UseTabState['orientation']
+): ActiveBarReturn {
   const [state, setState] = useState({})
   const { height: viewportHeight, width: viewportWidth } = useViewportSize()
 
@@ -53,10 +54,10 @@ export interface ActiveBarOptions {
   listRef: React.MutableRefObject<undefined>
 }
 
-export type ActiveBarProps = Pick<TabStateReturn, 'orientation'> & ActiveBarOptions
+export type ActiveBarProps = Pick<UseTabState, 'orientation'> & ActiveBarOptions
 
 export const ActiveBar: React.FC<ActiveBarProps> = ({ activeTab, listRef, orientation }) => {
-  const activeBar = useActiveBarState(listRef, activeTab, orientation)
+  const activeBar = useActiveBar(listRef, activeTab, orientation)
   return <S.ActiveBar {...activeBar} />
 }
 

@@ -19,15 +19,11 @@ import {
 
 ```jsx
 function () {
-  const  [value, setValue] = React.useState('twitter')
-
-  const handleChange = event => {
-    setValue(event.target.value)
-  }
+  const  [value, setValue] = React.useState('behance')
 
   return (
     <Field label="Social networks" mb="xl" required>
-      <RadioGroup name="social_1" options={constants.ITEMS.slice(0, 5)} renderOption={RadioTab} value={value} onChange={handleChange} />
+      <RadioGroup name="social_1" options={constants.ITEMS.slice(0, 5)} renderOption={RadioTab} value={value} onChange={setValue} />
     </Field>
   )
 }
@@ -37,15 +33,11 @@ function () {
 
 ```jsx
 function () {
-  const  [value, setValue] = React.useState('twitter')
-
-  const handleChange = event => {
-    setValue(event.target.value)
-  }
+  const  [value, setValue] = React.useState('behance')
 
   return (
     <Field label="Social networks" mb="xl" disabled required w={1 / 3}>
-      <RadioGroup name="social_1" options={constants.ITEMS.slice(0, 5)} flexDirection="column" renderOption={RadioTab} value={value} onChange={handleChange} />
+      <RadioGroup name="social_1" options={constants.ITEMS.slice(0, 5)} flexDirection="column" renderOption={RadioTab} value={value} onChange={setValue} />
     </Field>
   )
 }

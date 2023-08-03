@@ -8,11 +8,8 @@ export const Radios = styled.div<{
     display: flex;
     flex-direction: ${flexDirection};
     flex-wrap: wrap;
-    margin-bottom: ${flexDirection === 'column' ? '-md' : '-xs'};
-    ${system};
+    gap: xs;
 
-    > *:not(:last-child) {
-      margin-bottom: xs;
-    }
+    ${system};
   `
 )

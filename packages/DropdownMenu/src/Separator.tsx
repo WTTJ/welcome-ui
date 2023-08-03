@@ -1,16 +1,11 @@
 import React from 'react'
-import { MenuSeparator, MenuSeparatorProps } from 'reakit'
+import * as Ariakit from '@ariakit/react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './Separator.styled'
 
-import { DropdownMenuOptions } from '.'
+export type SeparatorProps = CreateWuiProps<'div', Ariakit.MenuSeparatorProps>
 
-export type SeparatorProps = CreateWuiProps<
-  'div',
-  MenuSeparatorProps & { state: DropdownMenuOptions['state'] }
->
-
-export const Separator = forwardRef<'div', SeparatorProps>(({ state, ...rest }, ref) => {
-  return <MenuSeparator as={S.Separator} ref={ref} {...state} {...rest} />
+export const Separator = forwardRef<'div', SeparatorProps>((props, ref) => {
+  return <Ariakit.MenuSeparator as={S.Separator} ref={ref} {...props} />
 })

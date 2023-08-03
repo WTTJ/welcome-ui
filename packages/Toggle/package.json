@@ -30,7 +30,7 @@
   "keywords": [
     "design-system",
     "react",
-    "reakit",
+    "ariakit",
     "styled-components",
     "styled-system",
     "ui-library",
@@ -46,9 +46,9 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
+    "@ariakit/react": "0.2.14",
     "@welcome-ui/checkbox": "^5.0.0-alpha.43",
-    "@welcome-ui/system": "^5.0.0-alpha.40",
-    "reakit": "^1.3.11"
+    "@welcome-ui/system": "^5.0.0-alpha.40"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
