@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.45](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.44...v5.0.0-alpha.45) (2023-08-03)
+
+
+### Bug Fixes
+
+* wrong font weight on work sans variable font ([#2170](https://github.com/WTTJ/welcome-ui/issues/2170)) ([f8d7748](https://github.com/WTTJ/welcome-ui/commit/f8d7748fbf67f8be6f32114f395704a4ff2d48b8))
+
+
+
+
+
 # [5.0.0-alpha.44](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.43...v5.0.0-alpha.44) (2023-08-03)
 
 
