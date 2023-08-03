@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.44](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.43...v5.0.0-alpha.44) (2023-08-03)
+
+
+### Features
+
+* migrate from reakit to ariakit ([#2101](https://github.com/WTTJ/welcome-ui/issues/2101)) ([9d506d8](https://github.com/WTTJ/welcome-ui/commit/9d506d872e9f34380b8727a82b7569aafd0ee5f9))
+
+
+
+
+
 # [5.0.0-alpha.43](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.42...v5.0.0-alpha.43) (2023-07-31)
 
 **Note:** Version bump only for package @welcome-ui/toggle
