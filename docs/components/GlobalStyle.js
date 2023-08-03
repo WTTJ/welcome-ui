@@ -24,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
       padding: 0 sm;
       ${defaultFieldStyles({})};
       cursor: text;
-      font-family: 'Work Sans';
+      font-family: 'work-sans';
 
       &:hover, &:active, &:focus {
         box-shadow: none;

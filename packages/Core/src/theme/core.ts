@@ -59,7 +59,7 @@ import { getPaginations } from './paginations'
 import { getTabs } from './tabs'
 import { getBadges } from './badges'
 
-const DEFAULT_FONT_FAMILY = 'Work Sans'
+const DEFAULT_FONT_FAMILY = 'work-sans'
 const DEFAULT_FONT_SIZE = 16
 const DEFAULT_LETTER_SPACING = '-0.019rem'
 const DEFAULT_LINE_HEIGHT = 1.15

@@ -13,7 +13,7 @@ type FontFace = {
 export type ThemeFontFaces = {
   'welcome-font': FontFace[]
   'welcome-icon-font': FontFace[]
-  'Work Sans': FontFace[]
+  'work-sans': FontFace[]
 }
 
 export const fontFaces = (theme: WuiTheme): ThemeFontFaces => ({
@@ -52,13 +52,12 @@ export const fontFaces = (theme: WuiTheme): ThemeFontFaces => ({
       display: 'block',
     },
   ],
-  'Work Sans': [
+  'work-sans': [
     {
       url: `${theme.fontsUrl}/work-sans-variable`,
       isVariable: true,
       stretch: '75% 125%',
-      style: 'oblique 0deg 20deg',
-      weight: '400 500 600',
+      weight: '100 1000',
     },
   ],
 })
