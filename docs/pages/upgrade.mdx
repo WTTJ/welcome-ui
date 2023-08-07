@@ -362,6 +362,18 @@ We rework the swiper component:
 - `slidesToShow` option become `slidesPerView` and now takes an object to define the number of slides per device `{ mobile: 1, tablet: 1, desktop: 1 }`
 - `renderPaginationItem`, `nextButton`, `prevButton` and `slidesToSwipe` options have been removed
 
+Now we pass the component state from `useSwiper` on the `store` property:
+
+```diff live=false
+- const state = useSwiperState()
++ const swiper = useSwiper()
+
+- <Swiper state={state}>
++ <Swiper store={swiper}>
+=     ...
+= </Swiper>
+```
+
 ## Other versions
 
 - [Version 4](upgrades/v4)

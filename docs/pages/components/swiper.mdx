@@ -19,10 +19,10 @@ import {
 
 ```jsx
 function() {
-  const state = useSwiperState({ spaceBetween: 0 })
+  const swiper = useSwiper({ spaceBetween: 0 })
 
   return (
-    <Swiper state={state} h="400">
+    <Swiper store={swiper} h="400">
       <img
         style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
         src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
@@ -46,10 +46,10 @@ Providing `slidesPerView` with `{ mobile: 1, tablet: 1, desktop: 2 }` will show 
 
 ```jsx
 function() {
-  const state = useSwiperState({ slidesPerView: { mobile: 1, tablet: 1, desktop: 2 } })
+  const swiper = useSwiper({ slidesPerView: { mobile: 1, tablet: 1, desktop: 2 } })
 
   return (
-    <Swiper state={state} h={400}>
+    <Swiper store={swiper} h={400}>
       <img
         style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
         src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
@@ -73,10 +73,10 @@ By providing `firstSlideToShow` with `2`, the swiper will begin on the second sl
 
 ```jsx
 function() {
-  const state = useSwiperState({ firstSlideToShow: 2 })
+  const swiper = useSwiper({ firstSlideToShow: 2 })
 
   return (
-    <Swiper state={state} h={400}>
+    <Swiper store={swiper} h={400}>
       <img
         style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
         src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
@@ -100,10 +100,10 @@ By providing `centeredSlides`, the swiper will begin on the middle slide, `first
 
 ```jsx
 function() {
-  const state = useSwiperState({ firstSlideToShow: 2, centeredSlides: true })
+  const swiper = useSwiper({ firstSlideToShow: 2, centeredSlides: true })
 
   return (
-    <Swiper state={state} h={400}>
+    <Swiper store={swiper} h={400}>
       <img
         style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
         src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
@@ -127,10 +127,10 @@ Providing `autoplay` lets the slides advance automatically. Pass `duration` to c
 
 ```jsx
 function() {
-  const state = useSwiperState({ autoplay: true, loop: true })
+  const swiper = useSwiper({ autoplay: true, loop: true })
 
   return (
-    <Swiper state={state} h={400}>
+    <Swiper store={swiper} h={400}>
       <img
         style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
         src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
@@ -154,10 +154,10 @@ By providing the optional `withPagination` with `{ mobile: true, desktop: true }
 
 ```jsx
 function() {
-  const state = useSwiperState({ withPagination: { mobile: true, desktop: true } })
+  const swiper = useSwiper({ withPagination: { mobile: true, desktop: true } })
 
   return (
-    <Swiper state={state} h={400}>
+    <Swiper store={swiper} h={400}>
       <img
         style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
         src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
@@ -181,10 +181,10 @@ By providing the optional `withNavigation` with `{ mobile: false, desktop: false
 
 ```jsx
 function() {
-  const state = useSwiperState({ withNavigation: { mobile: false, desktop: false }})
+  const swiper = useSwiper({ withNavigation: { mobile: false, desktop: false }})
 
   return (
-    <Swiper state={state} h={400}>
+    <Swiper store={swiper} h={400}>
       <img
         style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
         src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
@@ -208,10 +208,10 @@ Use dark (black) colors for the pagination and arrows in case of slides too brig
 
 ```jsx
 function() {
-  const state = useSwiperState({ withPagination: { mobile: true, desktop: true }, withDarkUI: true })
+  const swiper = useSwiper({ withPagination: { mobile: true, desktop: true }, withDarkUI: true })
 
   return (
-    <Swiper state={state} h={350}>
+    <Swiper store={swiper} h={350}>
       {[...Array(6)].map(item => (
         <Box border="1px solid" borderColor="dark-100" h={300} key={item} />
       ))}
