@@ -46,7 +46,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@ariakit/react": "0.2.14",
+    "@ariakit/react": "0.2.15",
     "@welcome-ui/icons": "^5.0.0-alpha.44",
     "@welcome-ui/system": "^5.0.0-alpha.44",
     "react-animate-height": "^3.2.2"
