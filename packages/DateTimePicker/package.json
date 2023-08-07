@@ -46,7 +46,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@types/react-datepicker": "^4.11.2",
+    "@types/react-datepicker": "^4.15.0",
     "@welcome-ui/button": "^5.0.0-alpha.44",
     "@welcome-ui/clear-button": "^5.0.0-alpha.44",
     "@welcome-ui/date-picker": "^5.0.0-alpha.44",
@@ -56,7 +56,7 @@
     "@welcome-ui/select": "^5.0.0-alpha.44",
     "@welcome-ui/system": "^5.0.0-alpha.44",
     "@welcome-ui/time-picker": "^5.0.0-alpha.44",
-    "react-datepicker": "^4.13.0"
+    "react-datepicker": "^4.16.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
