@@ -12,7 +12,7 @@ export interface ContentOptions {
 }
 
 export type ContentProps = ContentOptions & {
-  store: UseModal
+  store?: UseModal
 }
 
 /**
@@ -21,8 +21,8 @@ export type ContentProps = ContentOptions & {
 export const Content = forwardRef<'div', ContentProps>(({ children, store, ...rest }, ref) => {
   const { borderWidths, space } = useTheme()
   const [borderOnFooter, setBorderOnFooter] = useState(false)
-  const contentElement = store.useState('contentElement')
-  const open = store.useState('open')
+  const contentElement = store?.useState('contentElement')
+  const open = store?.useState('open')
 
   const components = useMemo(
     () =>

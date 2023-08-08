@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Children, cloneElement } from 'react'
 import * as Ariakit from '@ariakit/react'
 import { BoxProps } from '@welcome-ui/box'
 import { As, CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -57,7 +57,15 @@ const ModalComponent = forwardRef<'div', ModalProps>(
         size={size}
         store={store}
       >
-        {children}
+        {/* we need to pass store on child */}
+        {Children.map(children, (child: JSX.Element) => {
+          if (!child) return null
+
+          return cloneElement(child, {
+            ...child.props,
+            store,
+          })
+        })}
       </S.Dialog>
     )
   }

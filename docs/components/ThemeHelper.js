@@ -37,7 +37,7 @@ export const ThemeHelper = ({ modalStore }) => {
   return (
     <>
       <Modal ariaLabel="theme configuration" store={modalStore} title={title}>
-        <Modal.Content store={modalStore}>
+        <Modal.Content>
           <Modal.Header subtitle="Documentation for the core theme entries" title={title} />
           <Modal.Body mt="xl">
             <Box display="flex">

@@ -36,7 +36,7 @@ describe('<Modal>', () => {
             open
           </Modal.Trigger>
           <Modal ariaLabel="modal" store={modal}>
-            <Modal.Content store={modal}>
+            <Modal.Content>
               {shouldRender && <Modal.Body>Modal.Body exist?</Modal.Body>}
             </Modal.Content>
           </Modal>
