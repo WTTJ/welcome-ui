@@ -3,6 +3,7 @@ import { useViewportSize } from '@welcome-ui/utils'
 import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
 
 import * as S from './styles'
+import { getParentScale } from './utils'
 
 import { UseTabState } from '.'
 
@@ -20,13 +21,14 @@ function useActiveBar(
   const [state, setState] = useState({})
   const { height: viewportHeight, width: viewportWidth } = useViewportSize()
 
+  const list = listRef.current
+  const listRect = list?.getBoundingClientRect()
+  const activeTabRect = activeTab?.getBoundingClientRect()
+
   useIsomorphicLayoutEffect(() => {
-    const list = listRef.current
     if (!list || !activeTab) return
 
-    const listRect = list.getBoundingClientRect()
-    const activeTabRect = activeTab.getBoundingClientRect()
-
+    const scale = getParentScale(list)
     if (orientation === 'vertical') {
       const top = activeTabRect.top - listRect.top
       const height = activeTabRect.height
@@ -36,8 +38,9 @@ function useActiveBar(
         orientation,
       })
     } else {
-      const left = activeTabRect.left - listRect.left + list.scrollLeft
-      const width = activeTabRect.width
+      const left = (activeTabRect.left - listRect.left + list.scrollLeft) / scale
+      const width = activeTabRect.width / scale
+
       setState({
         size: width,
         offset: left,
