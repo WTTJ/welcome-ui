@@ -21,14 +21,14 @@ function useActiveBar(
   const [state, setState] = useState({})
   const { height: viewportHeight, width: viewportWidth } = useViewportSize()
 
-  const list = listRef.current
-  const listRect = list?.getBoundingClientRect()
-  const activeTabRect = activeTab?.getBoundingClientRect()
-
   useIsomorphicLayoutEffect(() => {
+    const list = listRef.current
     if (!list || !activeTab) return
 
+    const listRect = list.getBoundingClientRect()
+    const activeTabRect = activeTab.getBoundingClientRect()
     const scale = getParentScale(list)
+
     if (orientation === 'vertical') {
       const top = activeTabRect.top - listRect.top
       const height = activeTabRect.height
