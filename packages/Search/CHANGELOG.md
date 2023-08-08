@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.46](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.45...v5.0.0-alpha.46) (2023-08-08)
+
+**Note:** Version bump only for package @welcome-ui/search
+
+
+
+
+
 # [5.0.0-alpha.44](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.43...v5.0.0-alpha.44) (2023-08-03)
 
 

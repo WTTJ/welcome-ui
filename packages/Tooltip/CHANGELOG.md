@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.46](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.45...v5.0.0-alpha.46) (2023-08-08)
+
+
+### Bug Fixes
+
+* typescript consistency naming ([#2173](https://github.com/WTTJ/welcome-ui/issues/2173)) ([d344c4f](https://github.com/WTTJ/welcome-ui/commit/d344c4fec90356898a3d4c94b5565a96ba7076e2))
+
+
+
+
+
 # [5.0.0-alpha.44](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.43...v5.0.0-alpha.44) (2023-08-03)
 
 
