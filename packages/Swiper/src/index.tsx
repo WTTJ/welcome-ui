@@ -8,7 +8,7 @@ import { CreateWuiProps } from '@welcome-ui/system'
 import { useInterval } from './use-interval'
 import * as S from './styles'
 
-export interface SwiperOptions {
+export interface UseSwiperProps {
   autoplay?: boolean
   /** If true the swiper will begin at the middle */
   centeredSlides?: boolean
@@ -42,7 +42,7 @@ export interface SwiperOptions {
   }
 }
 
-export const useSwiperState = (options: SwiperOptions = {}) => {
+export const useSwiper = (options: UseSwiperProps = {}) => {
   const {
     centeredSlides = false,
     firstSlideToShow = 0,
@@ -107,17 +107,17 @@ export const useSwiperState = (options: SwiperOptions = {}) => {
   }
 }
 
-export type SwiperState = ReturnType<typeof useSwiperState>
+export type UseSwiper = ReturnType<typeof useSwiper>
 
 export type SwiperInitialProps = {
   children: JSX.Element | JSX.Element[]
   dataTestId?: string
-  state: SwiperState
+  store: UseSwiper
 }
 
 export type SwiperProps = CreateWuiProps<'div', SwiperInitialProps>
 
-export const Swiper = ({ children, dataTestId, state, ...rest }: SwiperProps) => {
+export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) => {
   const {
     autoplay,
     centeredSlides,
@@ -140,7 +140,7 @@ export const Swiper = ({ children, dataTestId, state, ...rest }: SwiperProps) =>
     withDarkUI,
     withNavigation,
     withPagination,
-  } = state
+  } = store
 
   const slides = Children.map(children, (child, i) => {
     const key = `${id}-${i}`

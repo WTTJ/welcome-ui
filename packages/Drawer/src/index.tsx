@@ -55,10 +55,11 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
   }
 )
 
-export type DrawerStoreReturn = Ariakit.DialogStore
-export type DrawerStoreProps = Ariakit.DialogStoreProps
+export type UseDrawer = Ariakit.DialogStore
+export type UseDrawerProps = Ariakit.DialogStoreProps
+export type UseDrawerState = Ariakit.DialogStoreState
 
-export function useDrawer(options: DrawerStoreProps = {}): DrawerStoreReturn {
+export function useDrawer(options: UseDrawerProps = {}): UseDrawer {
   const dialog = Ariakit.useDialogStore({ animated: true, ...options })
 
   return dialog

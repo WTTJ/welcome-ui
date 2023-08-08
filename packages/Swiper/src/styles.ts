@@ -2,7 +2,7 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import { Button } from '@welcome-ui/button'
 import { CreateWuiProps } from '@welcome-ui/system'
 
-import { SwiperState } from '.'
+import { UseSwiper } from '.'
 
 const getSlideWidth = (slidesPerView = 3, spaceBetween: number, toRem: (px: number) => void) => {
   if (spaceBetween === 0) {
@@ -25,7 +25,7 @@ export const Swiper = styled.div<CreateWuiProps<'div'>>`
 `
 
 export const Arrow = styled(Button)<
-  { disabled: boolean } & Pick<SwiperState, 'withNavigation' | 'withDarkUI'>
+  { disabled: boolean } & Pick<UseSwiper, 'withNavigation' | 'withDarkUI'>
 >(
   ({ disabled, withDarkUI, withNavigation: { desktop, mobile } }) => css`
     top: 50%;
@@ -55,7 +55,7 @@ export const Arrow = styled(Button)<
   `
 )
 
-export const Pagination = styled.div<Pick<SwiperState, 'withPagination'>>(
+export const Pagination = styled.div<Pick<UseSwiper, 'withPagination'>>(
   ({ withPagination: { desktop, mobile } }) => css`
     justify-content: center;
     position: absolute;
@@ -73,7 +73,7 @@ export const Pagination = styled.div<Pick<SwiperState, 'withPagination'>>(
   `
 )
 
-export const Bullet = styled.div<{ active: boolean } & Pick<SwiperState, 'withDarkUI'>>(
+export const Bullet = styled.div<{ active: boolean } & Pick<UseSwiper, 'withDarkUI'>>(
   ({ active, withDarkUI }) => css`
     height: 10;
     width: 10;
@@ -89,87 +89,87 @@ export const Bullet = styled.div<{ active: boolean } & Pick<SwiperState, 'withDa
   `
 )
 
-export const Container = styled.ul<
-  Pick<SwiperState, 'slidesPerView' | 'spaceBetween' | 'fullWidth'>
->(({ fullWidth, slidesPerView: { desktop, mobile, tablet }, spaceBetween, theme }) => {
-  return css`
-    scroll-snap-type: x mandatory;
-    display: flex;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: scroll;
+export const Container = styled.ul<Pick<UseSwiper, 'slidesPerView' | 'spaceBetween' | 'fullWidth'>>(
+  ({ fullWidth, slidesPerView: { desktop, mobile, tablet }, spaceBetween, theme }) => {
+    return css`
+      scroll-snap-type: x mandatory;
+      display: flex;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: scroll;
 
-    /* Hide scrollbar */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    height: 100%;
-    padding: 0;
-
-    > * {
-      list-style-type: none;
-      margin-right: ${spaceBetween};
-      min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
-      flex: 1;
-
-      &:last-child {
-        margin-right: 0;
+      /* Hide scrollbar */
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
       }
-    }
+      height: 100%;
+      padding: 0;
 
-    @media (min-width: sm) {
-      ${mobile &&
-      css`
-        > * {
-          min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
+      > * {
+        list-style-type: none;
+        margin-right: ${spaceBetween};
+        min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
+        flex: 1;
 
-          &:nth-of-type(${mobile}n + 1) {
-            scroll-snap-align: start;
-          }
+        &:last-child {
+          margin-right: 0;
         }
-      `}
-    }
+      }
 
-    @media (min-width: md) {
-      ${tablet &&
-      css`
-        > * {
-          min-width: ${getSlideWidth(tablet, spaceBetween, theme.toRem)};
+      @media (min-width: sm) {
+        ${mobile &&
+        css`
+          > * {
+            min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
 
-          &:nth-of-type(${tablet}n + 1) {
-            scroll-snap-align: start;
+            &:nth-of-type(${mobile}n + 1) {
+              scroll-snap-align: start;
+            }
           }
-        }
-      `}
-    }
+        `}
+      }
 
-    @media (min-width: lg) {
-      ${desktop &&
-      css`
-        > * {
-          min-width: ${getSlideWidth(desktop, spaceBetween, theme.toRem)};
-          scroll-snap-align: unset;
+      @media (min-width: md) {
+        ${tablet &&
+        css`
+          > * {
+            min-width: ${getSlideWidth(tablet, spaceBetween, theme.toRem)};
 
-          &:nth-of-type(${desktop}n + 1) {
-            scroll-snap-align: start;
+            &:nth-of-type(${tablet}n + 1) {
+              scroll-snap-align: start;
+            }
           }
+        `}
+      }
 
-          &:not(:nth-of-type(${desktop}n + 1)) {
+      @media (min-width: lg) {
+        ${desktop &&
+        css`
+          > * {
+            min-width: ${getSlideWidth(desktop, spaceBetween, theme.toRem)};
             scroll-snap-align: unset;
-          }
-        }
-      `}
-    }
 
-    @media (min-width: 1920px) {
-      ${desktop &&
-      fullWidth &&
-      css`
-        > * {
-          min-width: ${getSlideWidth(desktop + 2, spaceBetween, theme.toRem)};
-        }
-      `}
-    }
-  `
-})
+            &:nth-of-type(${desktop}n + 1) {
+              scroll-snap-align: start;
+            }
+
+            &:not(:nth-of-type(${desktop}n + 1)) {
+              scroll-snap-align: unset;
+            }
+          }
+        `}
+      }
+
+      @media (min-width: 1920px) {
+        ${desktop &&
+        fullWidth &&
+        css`
+          > * {
+            min-width: ${getSlideWidth(desktop + 2, spaceBetween, theme.toRem)};
+          }
+        `}
+      }
+    `
+  }
+)
