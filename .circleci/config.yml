@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/welcome-ui
   docker:
-    - image: cimg/node:16.14.0
+    - image: cimg/node:18.17.0
 
 version: 2.1
 
@@ -91,7 +91,7 @@ jobs:
 
   build:
     <<: *defaults
-    resource_class: large
+    resource_class: xlarge
     steps:
       - attach_workspace:
           at: ~/welcome-ui
