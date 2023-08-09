@@ -1,6 +1,6 @@
 import { Mdx } from '@/build-app/components/Mdx'
-import { getPageContent } from '@/build-app/utils/content'
-import { notFound } from 'next/navigation.js'
+import { getPageContent } from '@/build-app/utils/page-content'
+import { notFound } from 'next/navigation'
 
 type PageProps = {
   params: {
