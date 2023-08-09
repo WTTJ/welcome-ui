@@ -124,7 +124,7 @@ jobs:
       - persist_to_workspace:
           root: ~/welcome-ui
           paths:
-            - docs/out
+            - website/out
 
   # current version deploy for previews
   docs_deploy_preview:
@@ -134,7 +134,7 @@ jobs:
           at: ~/welcome-ui
       - restore_cache:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - run: node_modules/.bin/netlify deploy --dir=docs/out --alias $CIRCLE_BRANCH
+      - run: node_modules/.bin/netlify deploy --dir=website/out --alias $CIRCLE_BRANCH
 
   # current version deploy for production
   docs_deploy_prod:
@@ -145,7 +145,7 @@ jobs:
       - restore_cache:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - aws-s3/sync:
-          from: docs/out
+          from: website/out
           to: s3://welcome-ui/docs_production
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1
@@ -166,7 +166,7 @@ jobs:
           name: build w/ prefix
           command: VERSION=$CIRCLE_BRANCH yarn docs:build
       - aws-s3/sync:
-          from: docs/out
+          from: website/out
           to: s3://welcome-ui/docs_production/$CIRCLE_BRANCH
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
