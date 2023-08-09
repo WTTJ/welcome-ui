@@ -3,7 +3,7 @@ import { Sidebar } from '@/build-app/components/Sidebar'
 import { TableOfContent } from '@/build-app/components/TableOfContent'
 import { DocumentationLayout } from '@/build-app/layouts/Documentation'
 import { getPageContent } from '@/build-app/utils/page-content'
-import { getDesignPages } from '@/build-app/utils/pages'
+import { getDesignPages, getStaticParams } from '@/build-app/utils/pages'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -12,6 +12,12 @@ type PageProps = {
     page: string
     category: string
   }
+}
+
+export async function generateStaticParams() {
+  const pages = getDesignPages()
+
+  return getStaticParams(pages)
 }
 
 export default function Page({ params }: PageProps) {

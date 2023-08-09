@@ -12,7 +12,7 @@ export function Sidebar({ pages, pathToPages }: SidebarProps) {
     <ul>
       {Object.keys(pages).map((entry: string) => (
         <>
-          {Array.isArray(pages[entry]) ? (
+          {pages[entry].length > 1 ? (
             <li>
               {startCase(entry)}
               <ul>
