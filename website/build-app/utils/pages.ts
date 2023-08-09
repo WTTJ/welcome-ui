@@ -29,7 +29,7 @@ const replaceMdxRegex = /.mdx|.md/g
 
 type ItemPageTree = string[]
 export type ResultsPageTree = {
-  [key: string]: 'index' | ItemPageTree
+  [key: string]: ItemPageTree
 }
 export type ResultsPage = ResultsPageTree | {}
 
@@ -37,19 +37,32 @@ const groupBy = (items: ItemPageTree[]) =>
   items.reduce((result, item) => {
     const firstItem = item[0]
     if (firstItem.includes('.md')) {
-      result[firstItem.replace(replaceMdxRegex, '')] = 'index'
+      result[firstItem.replace(replaceMdxRegex, '')] = ['index']
     } else {
       result[firstItem] = [
         ...Array.from(result[firstItem] ? result[firstItem] : []),
         item[1].replace(replaceMdxRegex, ''),
       ]
     }
-
     return result
   }, {} as ResultsPageTree)
 
 export function generatePagesFromFiles(files: string[][]): ResultsPageTree {
   return groupBy(files)
+}
+
+export function getStaticParams(pages: ResultsPageTree) {
+  return Object.keys(pages)
+    .map(page =>
+      pages[page].map(entry => ({
+        category: page,
+        page: entry,
+      }))
+    )
+    .reduce((prev, next) => {
+      prev.push(...next)
+      return prev
+    }, [])
 }
 
 /**
