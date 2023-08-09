@@ -1,4 +1,5 @@
 import React from 'react'
+import { vi } from 'vitest'
 import { render, RenderOptions } from '@testing-library/react'
 import { ThemeProvider } from '@xstyled/styled-components'
 import { BrowserRouter } from 'react-router-dom'
@@ -44,5 +45,5 @@ Range.prototype.getBoundingClientRect = () => ({
 Range.prototype.getClientRects = () => ({
   item: () => null,
   length: 0,
-  [Symbol.iterator]: jest.fn(),
+  [Symbol.iterator]: vi.fn(),
 })

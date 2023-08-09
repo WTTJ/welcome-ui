@@ -1,4 +1,5 @@
 import React from 'react'
+import { vi } from 'vitest'
 import { fireEvent, screen } from '@testing-library/react'
 import { renderHook } from '@testing-library/react-hooks'
 
@@ -8,8 +9,8 @@ import { usePages } from '../src/utils'
 
 describe('<Pagination>', () => {
   it('should render correctly', () => {
-    const onChange = jest.fn()
-    const getHref = jest.fn()
+    const onChange = vi.fn()
+    const getHref = vi.fn()
 
     render(
       <Pagination
@@ -44,8 +45,8 @@ describe('<Pagination>', () => {
   })
 
   it('should render correctly with prev Button', () => {
-    const onChange = jest.fn()
-    const getHref = jest.fn()
+    const onChange = vi.fn()
+    const getHref = vi.fn()
 
     render(
       <Pagination

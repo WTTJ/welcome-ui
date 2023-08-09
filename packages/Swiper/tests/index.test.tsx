@@ -1,11 +1,11 @@
 import React from 'react'
+import { vi } from 'vitest'
 import userEvent from '@testing-library/user-event'
-import '@testing-library/jest-dom/extend-expect'
 
 import { render } from '../../../utils/tests'
 import { Swiper, useSwiper } from '../src'
 
-const scrollToSpy = jest.fn()
+const scrollToSpy = vi.fn()
 beforeAll(() => {
   Element.prototype.scrollTo = scrollToSpy
 })

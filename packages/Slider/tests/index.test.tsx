@@ -1,18 +1,19 @@
 import React from 'react'
+import { vi } from 'vitest'
 
 import { fireEvent, render } from '../../../utils/tests'
 import { Slider } from '../src'
 
 describe('<Slider> test', () => {
   test('should render correctly <Slider>', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const { container } = render(<Slider max={100} min={0} onChange={handleChange} value={50} />)
 
     expect(container)
   })
 
   test('should change localValue & trigger onChange', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider max={100} min={0} onChange={handleChange} value={50} w={100} />
     )
@@ -28,7 +29,7 @@ describe('<Slider> test', () => {
   })
 
   test('ensure min value is respected', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const min = 0
     const { container } = render(
       <Slider max={100} min={min} onChange={handleChange} value={50} w={100} />
@@ -45,7 +46,7 @@ describe('<Slider> test', () => {
   })
 
   test('ensure max value is respected', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const max = 100
     const { container } = render(
       <Slider max={max} min={0} onChange={handleChange} value={50} w={100} />
@@ -62,7 +63,7 @@ describe('<Slider> test', () => {
   })
 
   test('ensure inputText value is a number', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider max={100} min={0} onChange={handleChange} type="right-field" value={50} w={100} />
     )
@@ -78,7 +79,7 @@ describe('<Slider> test', () => {
   })
 
   test('ensure value is rounded to the < value when there is a step', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider
         max={100}
@@ -98,7 +99,7 @@ describe('<Slider> test', () => {
   })
 
   test('ensure value is rounded to the > value when there is a step', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider
         max={100}
@@ -120,7 +121,7 @@ describe('<Slider> test', () => {
 
 describe('<Slider.Range> test', () => {
   test('should render correctly <Slider.Range>', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range max={100} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
@@ -129,7 +130,7 @@ describe('<Slider.Range> test', () => {
   })
 
   test('should change minValue and maxValue & trigger onChange', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range max={100} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
@@ -147,7 +148,7 @@ describe('<Slider.Range> test', () => {
   })
 
   test('ensure minValue is respected', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const min = 0
     const { container } = render(
       <Slider.Range max={100} min={min} onChange={handleChange} value={{ min: 20, max: 50 }} />
@@ -163,7 +164,7 @@ describe('<Slider.Range> test', () => {
   })
 
   test('ensure maxValue is respected', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const max = 100
     const { container } = render(
       <Slider.Range max={max} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
@@ -179,7 +180,7 @@ describe('<Slider.Range> test', () => {
   })
 
   test("ensure minValue can't be > maxValue", () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range max={100} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
@@ -197,7 +198,7 @@ describe('<Slider.Range> test', () => {
   })
 
   test("ensure maxValue can't be < minValue", () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range max={100} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
@@ -215,7 +216,7 @@ describe('<Slider.Range> test', () => {
   })
 
   test('ensure inputText value is a number', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range
         max={100}
@@ -239,7 +240,7 @@ describe('<Slider.Range> test', () => {
   })
 
   test('ensure step value is respected', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range
         max={100}
@@ -257,7 +258,7 @@ describe('<Slider.Range> test', () => {
   })
 
   test('ensure inputText value respect the step', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range
         max={100}

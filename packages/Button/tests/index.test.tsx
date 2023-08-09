@@ -1,4 +1,5 @@
 import React from 'react'
+import { vi } from 'vitest'
 import { fireEvent, screen } from '@testing-library/react'
 import { Link } from '@welcome-ui/link'
 import { SunIcon } from '@welcome-ui/icons'
@@ -25,7 +26,7 @@ describe('<Button />', () => {
   })
 
   it('should call onClick property', () => {
-    const onClick = jest.fn()
+    const onClick = vi.fn()
 
     render(
       <Button dataTestId="button" onClick={onClick}>
@@ -68,7 +69,7 @@ describe('<Button />', () => {
 
   describe('disabled', () => {
     it('should not call onClick property', () => {
-      const onClick = jest.fn()
+      const onClick = vi.fn()
 
       render(
         <Button dataTestId="button" disabled onClick={onClick}>

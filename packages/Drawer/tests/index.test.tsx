@@ -1,4 +1,5 @@
 import React from 'react'
+import { vi } from 'vitest'
 import { fireEvent } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
@@ -47,7 +48,7 @@ describe('<Drawer>', () => {
   it('should render "as" correctly', () => {
     const Test = () => {
       const drawer = useDrawer()
-      const onClick = jest.fn()
+      const onClick = vi.fn()
 
       return (
         <>
