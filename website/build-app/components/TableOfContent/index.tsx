@@ -9,14 +9,16 @@ export function TableOfContent({ tree }: TableOfContentProps) {
   if (!tree) return null
 
   return (
-    <ul>
+    <ul style={{ minWidth: 500 }}>
       {tree.map(item => (
         <li>
           <Link href={item.href}>{item.title}</Link>
           {item.children && (
             <ul>
               {item.children.map(child => (
-                <Link href={child.href}>{child.title}</Link>
+                <li>
+                  <Link href={child.href}>{child.title}</Link>
+                </li>
               ))}
             </ul>
           )}
