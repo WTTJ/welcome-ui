@@ -125,7 +125,6 @@
     "minimist": "1.2.8",
     "netlify-cli": "^15.6.0",
     "onchange": "^7.0.2",
-    "postcss": "^8.4.17",
     "react": "^18.1.0",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.1.0",
@@ -136,10 +135,11 @@
     "svgo": "^3.0.1",
     "typescript": "5.0.2",
     "vitest": "^0.34.1",
-    "wttj-config": "^2.5.1",
+    "wttj-config": "^2.6.1",
     "yargs": "^17.7.2"
   },
   "resolutions": {
+    "postcss": "8.4.21",
     "styled-components": "5.3.9",
     "loader-utils": "2.0.3"
   },
