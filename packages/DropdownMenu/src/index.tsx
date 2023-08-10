@@ -40,10 +40,10 @@ const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
 )
 
 export type UseDropdownMenu = Ariakit.MenuStore
+export type UseDropdownMenuProps = Ariakit.MenuStoreProps
 export type UseDropdownMenuState = Ariakit.MenuStoreState
-export type UseDropdownMenuOptions = Ariakit.MenuStoreProps
 
-export function useDropdownMenu(options: UseDropdownMenuOptions = {}): UseDropdownMenu {
+export function useDropdownMenu(options: UseDropdownMenuProps = {}): UseDropdownMenu {
   const dropdownMenu = Ariakit.useMenuStore({
     animated: true,
     ...options,

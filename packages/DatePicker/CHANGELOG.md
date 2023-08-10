@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.46](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.45...v5.0.0-alpha.46) (2023-08-08)
+
+
+### Bug Fixes
+
+* bump react-datepicker to hide unwanted text ([#2172](https://github.com/WTTJ/welcome-ui/issues/2172)) ([205c874](https://github.com/WTTJ/welcome-ui/commit/205c874c2eb43fb6cb7f2ec9aeaa4add2fe1cd5a))
+
+
+
+
+
 # [5.0.0-alpha.44](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.43...v5.0.0-alpha.44) (2023-08-03)
 
 
