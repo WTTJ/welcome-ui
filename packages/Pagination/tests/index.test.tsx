@@ -79,6 +79,40 @@ describe('<Pagination>', () => {
     expect(onChange).toHaveBeenCalledWith(10)
   })
 
+  it('should render correctly without href url', () => {
+    const onChange = jest.fn()
+
+    render(
+      <Pagination
+        aria-label="pagination"
+        dataTestId="pagination"
+        onChange={onChange}
+        page={10}
+        pageCount={10}
+      />
+    )
+
+    const prevButton = screen.getByTestId('pagination-arrow-prev')
+    const nextButton = screen.getByTestId('pagination-arrow-next')
+    const currentPage = screen.getByText('10')
+    const prevPage = screen.getByText('9')
+
+    expect(prevButton).toHaveAttribute('aria-disabled', 'false')
+    expect(nextButton).toHaveAttribute('aria-disabled', 'true')
+    expect(currentPage).toHaveAttribute('aria-current', 'true')
+    expect(prevPage).toHaveAttribute('aria-current', 'false')
+
+    /** Click on prev button */
+    fireEvent.click(prevButton)
+
+    expect(onChange).toHaveBeenCalledWith(9)
+
+    /** Click on a page 3 button */
+    fireEvent.click(screen.getByText('10'))
+
+    expect(onChange).toHaveBeenCalledWith(10)
+  })
+
   describe('usePages', () => {
     it('should return correct values', () => {
       const { result } = renderHook(() => usePages({ page: 1, pageCount: 10, rangeDisplay: 5 }))

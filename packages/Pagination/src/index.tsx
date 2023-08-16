@@ -7,7 +7,7 @@ import * as S from './styles'
 
 export interface PaginationOptions {
   'aria-label': string
-  getHref: (page: string | number) => string
+  getHref?: (page: string | number) => string
   leftArrow?: React.ReactElement
   onChange: (page: string | number) => void
   page: number
@@ -77,7 +77,7 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
             <S.ArrowLink
               aria-disabled={isPrevButtonDisabled}
               data-testid={dataTestId ? `${dataTestId}-arrow-prev` : undefined}
-              href={getHref(isPrevButtonDisabled ? page : page - 1)}
+              href={getHref ? getHref(isPrevButtonDisabled ? page : page - 1) : ''}
               onClick={!isPrevButtonDisabled ? handlePrevious : undefined}
               ref={firstPageRef}
             >
@@ -110,7 +110,7 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
             <S.ArrowLink
               aria-disabled={isNextButtonDisabled}
               data-testid={dataTestId ? `${dataTestId}-arrow-next` : undefined}
-              href={getHref(isNextButtonDisabled ? page : page + 1)}
+              href={getHref ? getHref(isNextButtonDisabled ? page : page + 1) : ''}
               onClick={!isNextButtonDisabled ? handleNext : undefined}
               ref={lastPageRef}
             >

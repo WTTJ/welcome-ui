@@ -47,7 +47,7 @@ export function useModal(options?: UseModalProps): UseModal {
 }
 
 const ModalComponent = forwardRef<'div', ModalProps>(
-  ({ ariaLabel, children, hideOnInteractOutside = true, size = 'lg', store }, ref) => {
+  ({ ariaLabel, children, hideOnInteractOutside = true, size = 'lg', store, ...rest }, ref) => {
     return (
       <S.Dialog
         aria-label={ariaLabel}
@@ -56,6 +56,7 @@ const ModalComponent = forwardRef<'div', ModalProps>(
         ref={ref}
         size={size}
         store={store}
+        {...rest}
       >
         {children}
       </S.Dialog>
