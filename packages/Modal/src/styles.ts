@@ -37,7 +37,6 @@ export const Dialog = styled(Ariakit.Dialog)(
     ${th('modals.default')};
     position: fixed;
     inset: 0;
-    z-index: 50;
     margin: auto;
     margin-top: xl;
     top: 50%;
