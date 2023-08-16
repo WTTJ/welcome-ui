@@ -69,10 +69,10 @@ export const Content = forwardRef<'div', ContentProps>(({ children, store, ...re
   useEffect(() => {
     if (!open) {
       setBorderOnFooter(false)
-    } else {
+    } else if (contentElement) {
       setBorderOnFooter(contentElement.scrollHeight > contentElement.offsetHeight)
     }
-  }, [store, open, contentElement.scrollHeight, contentElement.offsetHeight])
+  }, [store, open, contentElement])
 
   return (
     <S.Content ref={ref} {...rest}>
