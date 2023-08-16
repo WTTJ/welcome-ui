@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button as ReakitButton } from 'reakit'
+import { Button as AriakitButton } from '@ariakit/react'
 import {
   CreateWuiPandaProps,
   CreateWuiProps,
@@ -63,7 +63,7 @@ export type ButtonPandaOptions = S.ButtonPandaVariants
 export type ButtonPandaProps = CreateWuiPandaProps<'button', ButtonPandaOptions>
 
 export const ButtonPanda = forwardRefPanda<'button', ButtonPandaProps>(
-  ({ as = ReakitButton, children, ...rest }, ref) => {
+  ({ as = AriakitButton, children, ...rest }, ref) => {
     const Component = styled(as, buttonStyles)
 
     return (

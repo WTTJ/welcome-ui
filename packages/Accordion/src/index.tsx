@@ -2,7 +2,13 @@ import React, { cloneElement } from 'react'
 import * as Ariakit from '@ariakit/react'
 import AnimateHeight from 'react-animate-height'
 import { RightIcon } from '@welcome-ui/icons'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import {
+  CreateWuiPandaProps,
+  CreateWuiProps,
+  forwardRef,
+  forwardRefPanda,
+} from '@welcome-ui/system'
+import { styled } from '@welcome-ui/panda/jsx'
 
 import * as S from './styles'
 
@@ -50,3 +56,34 @@ export function useAccordion(options?: UseAccordionProps): UseAccordion {
 
   return accordion
 }
+
+// todo fix dataTestId
+type AccordionPandaProps = CreateWuiPandaProps<'div', AccordionOptions> & { dataTestId?: string }
+
+export const AccordionPanda = forwardRefPanda<'div', AccordionPandaProps>(
+  ({ as = 'div', children, icon = <RightIcon />, title, store, dataTestId, ...rest }, ref) => {
+    const Component = styled(as, S.accordionStyles)
+    const isOpen = store.useState('open')
+
+    return (
+      <Component data-testid={dataTestId} ref={ref} {...rest}>
+        <S.DisclosurePanda
+          data-testid={dataTestId ? `${dataTestId}-title` : undefined}
+          store={store}
+        >
+          {title}
+          <S.IconPanda data-open={isOpen}>{cloneElement(icon, { size: 'sm' })}</S.IconPanda>
+        </S.DisclosurePanda>
+        <S.ContentPanda
+          data-open={isOpen}
+          data-testid={dataTestId ? `${dataTestId}-content` : undefined}
+          store={store}
+        >
+          <AnimateHeight animateOpacity duration={200} height={isOpen ? 'auto' : 0}>
+            {children}
+          </AnimateHeight>
+        </S.ContentPanda>
+      </Component>
+    )
+  }
+)
