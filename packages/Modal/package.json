@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/modal",
-  "version": "5.0.0-alpha.47",
+  "version": "5.0.0-alpha.48",
   "description": "Modal from Ariakit with a really nice theme 👀",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -50,7 +50,7 @@
   "dependencies": {
     "@ariakit/react": "0.2.16",
     "@welcome-ui/box": "^5.0.0-alpha.44",
-    "@welcome-ui/close-button": "^5.0.0-alpha.46",
+    "@welcome-ui/close-button": "^5.0.0-alpha.48",
     "@welcome-ui/shape": "^5.0.0-alpha.44",
     "@welcome-ui/system": "^5.0.0-alpha.44",
     "@welcome-ui/text": "^5.0.0-alpha.44",

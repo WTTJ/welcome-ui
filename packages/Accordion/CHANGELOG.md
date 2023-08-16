@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.48](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.47...v5.0.0-alpha.48) (2023-08-16)
+
+
+### Bug Fixes
+
+* bring back rest on modal component ([#2190](https://github.com/WTTJ/welcome-ui/issues/2190)) ([82c5a5b](https://github.com/WTTJ/welcome-ui/commit/82c5a5b6c28ce4ca025bdbfa155c991b55137e93))
+
+
+
+
+
 # [5.0.0-alpha.46](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.45...v5.0.0-alpha.46) (2023-08-08)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/pagination",
-  "version": "5.0.0-alpha.44",
+  "version": "5.0.0-alpha.48",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

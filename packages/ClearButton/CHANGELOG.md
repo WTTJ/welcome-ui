@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.48](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.47...v5.0.0-alpha.48) (2023-08-16)
+
+**Note:** Version bump only for package @welcome-ui/clear-button
+
+
+
+
+
 # [5.0.0-alpha.46](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.45...v5.0.0-alpha.46) (2023-08-08)
 
 **Note:** Version bump only for package @welcome-ui/clear-button
