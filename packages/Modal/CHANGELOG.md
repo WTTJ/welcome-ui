@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.47](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.46...v5.0.0-alpha.47) (2023-08-16)
+
+
+### Bug Fixes
+
+* add condition to handle null property access ([#2184](https://github.com/WTTJ/welcome-ui/issues/2184)) ([5569f78](https://github.com/WTTJ/welcome-ui/commit/5569f782a96f7cc9800ca3a9d66548e7b4c0608d))
+* z-index on Modal ([#2185](https://github.com/WTTJ/welcome-ui/issues/2185)) ([924b2c7](https://github.com/WTTJ/welcome-ui/commit/924b2c774336eb6934176634b7a26c67acb2a785))
+
+
+
+
+
 # [5.0.0-alpha.46](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.45...v5.0.0-alpha.46) (2023-08-08)
 
 
