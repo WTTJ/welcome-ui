@@ -1,7 +1,13 @@
 import React from 'react'
-import { UniversalLinkOptions } from '@welcome-ui/universal-link'
-import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { UniversalLinkOptions, UniversalLinkPanda } from '@welcome-ui/universal-link'
+import {
+  CreateWuiPandaProps,
+  CreateWuiProps,
+  forwardRef,
+  forwardRefPanda,
+} from '@welcome-ui/system'
 import { ExternalLinkIcon } from '@welcome-ui/icons'
+import { styled } from '@welcome-ui/panda/jsx'
 
 import * as S from './styles'
 import { shouldWrapWithText } from './utils'
@@ -59,31 +65,36 @@ Link.displayName = 'Link'
 export type LinkPandaOptions = S.LinkPandaVariant & { isExternal?: boolean }
 export type LinkPandaProps = CreateWuiPandaProps<'a', LinkPandaOptions>
 
-export const LinkPanda = React.forwardRef<HTMLAnchorElement, LinkPandaProps>((props, ref) => {
-  const { children, disabled, isExternal, variant = 'primary', ...rest } = props
+export const LinkPanda = forwardRefPanda<'a', LinkPandaProps>(
+  (
+    { as = UniversalLinkPanda, children, disabled, isExternal, variant = 'primary', ...rest },
+    ref
+  ) => {
+    const Component = styled(as, S.linkStyles)
+    const content = shouldWrapWithText(children) ? (
+      <WrapWithText isExternal={isExternal}>{children}</WrapWithText>
+    ) : (
+      React.Children.map(children as JSX.Element, child => {
+        if (shouldWrapWithText(child)) {
+          return <WrapWithText isExternal={isExternal}>{child}</WrapWithText>
+        }
+        return child
+      })
+    )
 
-  const content = shouldWrapWithText(children) ? (
-    <WrapWithText isExternal={isExternal}>{children}</WrapWithText>
-  ) : (
-    React.Children.map(children as JSX.Element, child => {
-      if (shouldWrapWithText(child)) {
-        return <WrapWithText isExternal={isExternal}>{child}</WrapWithText>
-      }
-      return child
-    })
-  )
-
-  return (
-    <S.LinkPanda
-      data-external={isExternal}
-      disabled={disabled}
-      variant={variant}
-      {...rest}
-      ref={ref}
-    >
-      {content}
-    </S.LinkPanda>
-  )
-})
+    return (
+      <Component
+        as={as}
+        data-external={isExternal}
+        disabled={disabled}
+        variant={variant}
+        {...rest}
+        ref={ref}
+      >
+        {content}
+      </Component>
+    )
+  }
+)
 
 export const linkStyle = S.linkStyles

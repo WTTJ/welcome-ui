@@ -1,5 +1,12 @@
 import React from 'react'
-import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { Button as ReakitButton } from 'reakit'
+import {
+  CreateWuiPandaProps,
+  CreateWuiProps,
+  forwardRef,
+  forwardRefPanda,
+} from '@welcome-ui/system'
+import { styled } from '@welcome-ui/panda/jsx'
 
 import * as S from './styles'
 
@@ -51,15 +58,18 @@ Button.displayName = 'Button'
 
 export const StyledButton = S.Button
 export const buttonStyles = S.buttonStyles
-export const StyledButtonPanda = S.ButtonPanda
 
 export type ButtonPandaOptions = S.ButtonPandaVariants
 export type ButtonPandaProps = CreateWuiPandaProps<'button', ButtonPandaOptions>
 
-export const ButtonPanda = React.forwardRef<HTMLButtonElement, ButtonPandaProps>(
-  ({ children, ...rest }, ref) => (
-    <S.ButtonPanda {...rest} ref={ref}>
-      {children}
-    </S.ButtonPanda>
-  )
+export const ButtonPanda = forwardRefPanda<'button', ButtonPandaProps>(
+  ({ as = ReakitButton, children, ...rest }, ref) => {
+    const Component = styled(as, buttonStyles)
+
+    return (
+      <Component ref={ref} {...rest}>
+        {children}
+      </Component>
+    )
+  }
 )

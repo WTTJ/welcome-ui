@@ -2,7 +2,6 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import { Button as AriakitButton } from '@ariakit/react'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
-import { styled as pandaStyled } from '@welcome-ui/panda/jsx'
 import { cva, type RecipeVariantProps } from '@welcome-ui/panda/css'
 
 import { ButtonOptions } from './index'
@@ -448,4 +447,3 @@ export const buttonStyles = cva({
 })
 
 export type ButtonPandaVariants = RecipeVariantProps<typeof buttonStyles>
-export const ButtonPanda = pandaStyled(ReakitButton, buttonStyles)

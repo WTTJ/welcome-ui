@@ -1,7 +1,6 @@
 import styled, { css, system, th, typography } from '@xstyled/styled-components'
-import { UniversalLink, UniversalLinkPanda } from '@welcome-ui/universal-link'
+import { UniversalLink } from '@welcome-ui/universal-link'
 import { shouldForwardProp } from '@welcome-ui/system'
-import { styled as pandaStyled } from '@welcome-ui/panda/jsx'
 import { cva, RecipeVariantProps } from '@welcome-ui/panda/css'
 
 import { Variant } from './index'
@@ -55,7 +54,6 @@ export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{
   `
 )
 
-// todo
 export const linkStyles = cva({
   base: {
     display: 'inline-flex',
@@ -107,7 +105,7 @@ export const linkStyles = cva({
       secondary: {
         '& > .wui-text': {
           backgroundImage:
-            "linear-gradient(0deg, token(colors.dark-900, token(colors.dark-900') 100%)",
+            'linear-gradient(0deg, token(colors.dark-900), token(colors.dark-900) 100%)',
           _hover: {
             color: 'light-900',
           },
@@ -127,5 +125,4 @@ export const linkStyles = cva({
   },
 })
 
-export const LinkPanda = pandaStyled(UniversalLinkPanda, linkStyles)
 export type LinkPandaVariant = RecipeVariantProps<typeof linkStyles>
