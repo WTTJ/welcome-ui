@@ -29,8 +29,8 @@ const components = [
     title: 'Toggle',
     children: (
       <Stack direction="row" spacing="md">
-        <Toggle mb="md" />
-        <Toggle checked />
+        <Toggle mb="md" label="Example Toggle 1" />
+        <Toggle label="Example Toggle 2" checked />
       </Stack>
     ),
     description: 'Allows user to activate or deactivate an option.',
