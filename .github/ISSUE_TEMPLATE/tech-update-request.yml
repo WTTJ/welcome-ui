@@ -1,5 +1,5 @@
-name: '[Tech] 🫶 Feature request'
-description: 'Request a new feature like a new component.'
+name: '[Tech] 🫶 Enhancement request'
+description: 'Update or feedback on existing components or foundations.'
 labels: ['tech', 'enhancement']
 body:
   - type: 'markdown'
