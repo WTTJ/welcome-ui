@@ -2,24 +2,7 @@
 category: data-display
 ---
 
-export { getStaticProps } from '../../getStaticProps'
-
-import {
-  dependencies,
-  peerDependencies,
-  component,
-  name,
-  version,
-} from '@welcome-ui/accordion/package.json'
-
-<showcase
-  version={version}
-  name={name}
-  component={component}
-  description="Allows the user to show and hide sections of related content on a page."
-/>
-
-## About
+# Accordion
 
 Built with [Ariakit](https://ariakit.org/components/disclosure) for a better accessibility 🌈
 
@@ -105,19 +88,3 @@ And the hook returns (among other things):
 
 - `useState('open')`: whether the accordion is currently open
 - `hide`: a function to hide the accordion
-
-## Properties
-
-<props propTypes={props.propTypes.Accordion} />
-
-## Packages
-
-### Dependencies
-
-<dependencies dependencies={dependencies} />
-
-### Peer dependencies
-
-<dependencies dependencies={peerDependencies} />
-
-<pagination />

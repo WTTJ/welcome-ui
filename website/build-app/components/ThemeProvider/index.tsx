@@ -1,14 +1,14 @@
 'use client'
-import { WuiProvider, createTheme } from '@welcome-ui/core'
+import { WuiProvider, WuiProviderProps, createTheme } from '@welcome-ui/core'
 import { welcomeTheme } from '@welcome-ui/themes.welcome'
-import { useMemo } from 'react'
+import * as React from 'react'
 
 interface ThemeProviderProps {
-  children: React.ReactNode
+  children: WuiProviderProps['children']
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const theme = useMemo(() => createTheme(welcomeTheme), [])
+  const theme = React.useMemo(() => createTheme(welcomeTheme), [])
 
   return <WuiProvider theme={theme}>{children}</WuiProvider>
 }
