@@ -8,13 +8,13 @@ import { getPageTree } from './page-tree'
  */
 export function getPageContent(filename: string, isPackage?: boolean) {
   const file = isPackage
-    ? join(process.cwd(), '../', 'docs', 'pages', filename)
+    ? join(process.cwd(), '../', 'packages', filename)
     : join(process.cwd(), 'build-app', filename)
 
   const fileExist = existsSync(file)
 
   if (!fileExist) {
-    return { content: 'Not Found' }
+    return { isNotFound: true }
   } else {
     const content = readFileSync(file, 'utf8')
     const { content: contentWithoutMatter, data } = matter(content)

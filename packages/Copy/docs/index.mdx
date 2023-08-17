@@ -1,0 +1,92 @@
+---
+category: utilities
+---
+
+import { useCopyText } from '@welcome-ui/utils.copy'
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version,
+} from '@welcome-ui/utils.copy/package.json'
+
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="A simple hook to copy text from a given HTML element to your clipboard with copy-to-clipboard library."
+/>
+
+## Copy an element
+
+Copy the content from another HTML element by creating a `ref` and passing it to `useCopyText`.
+
+You can pass a `timeout` value (in milliseconds) to "reset" the `copied` value.
+
+```jsx
+function() {
+  const copyRef = React.useRef()
+  const [copy, copied] = useCopyText(copyRef, 2000)
+
+  return (
+    <>
+      <div ref={copyRef}>This text will be copied</div>
+      <Button onClick={copy} mt="sm">
+        {copied ? (
+          <>
+            <CheckIcon />
+            <span>Copied!</span>
+          </>
+        ) : (
+          <>
+            <LinkIcon />
+            <span>Copy text</span>
+          </>
+        )}
+      </Button>
+    </>
+  )
+}
+```
+
+## Copy a string
+
+You can also copy a simple string
+
+```jsx
+function() {
+  const url = typeof window !== 'undefined' && window.location.href
+  const [copy, copied] = useCopyText(url, 2000)
+
+  return (
+    <>
+      <Button onClick={copy} variant={copied ? 'tertiary' : 'secondary'}>
+        {copied ? (
+          <>
+            <CheckIcon />
+            <span>Copied!</span>
+          </>
+        ) : (
+          <>
+            <LinkIcon />
+            <span>Copy URL</span>
+          </>
+        )}
+      </Button>
+    </>
+  )
+}
+```
+
+## Packages
+
+### Dependencies
+
+<dependencies dependencies={dependencies} />
+
+### Peer dependencies
+
+<dependencies dependencies={peerDependencies} />
+
+<pagination />
