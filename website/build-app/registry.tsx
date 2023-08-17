@@ -2,15 +2,20 @@
 
 import React, { useState } from 'react'
 import { useServerInsertedHTML } from 'next/navigation'
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
+import { ServerStyleSheet, StyleSheetManager, StyleSheetManagerProps } from 'styled-components'
 
-export default function StyledComponentsRegistry({ children }: { children: React.ReactNode }) {
+interface StyledComponentsRegistryProps {
+  children: StyleSheetManagerProps['children']
+}
+
+export default function StyledComponentsRegistry({ children }: StyledComponentsRegistryProps) {
   // Only create stylesheet once with lazy initial state
   // x-ref: https://reactjs.org/docs/hooks-reference.html#lazy-initial-state
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet())
 
   useServerInsertedHTML(() => {
     const styles = styledComponentsStyleSheet.getStyleElement()
+    // @ts-ignore
     styledComponentsStyleSheet.instance.clearTag()
     return <>{styles}</>
   })
