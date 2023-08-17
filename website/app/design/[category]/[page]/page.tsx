@@ -3,7 +3,7 @@ import { Sidebar } from '@/build-app/components/Sidebar'
 import { TableOfContent } from '@/build-app/components/TableOfContent'
 import { DocumentationLayout } from '@/build-app/layouts/Documentation'
 import { getPageContent } from '@/build-app/utils/page-content'
-import { getDesignPages, getStaticParams } from '@/build-app/utils/pages'
+import { getDesignPages, getStaticParams } from '@/build-app/utils/pages-design'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -23,19 +23,19 @@ export async function generateStaticParams() {
 export default function Page({ params }: PageProps) {
   const { page, category } = params
 
-  const { content, tree } = getPageContent(`design/${category}/${page}.md`)
+  const { isNotFound, tree, contentWithoutMatter } = getPageContent(`design/${category}/${page}.md`)
   const pages = getDesignPages()
 
-  if (content === 'Not Found') return notFound()
+  if (isNotFound) return notFound()
 
   return (
     <DocumentationLayout>
       <div>
         <Link href={`/design`}>Go to main page</Link>
-        <Sidebar pages={pages} pathToPages="/design" />
+        <Sidebar pages={pages} relativePath="/design" />
       </div>
       <main>
-        <Mdx>{content}</Mdx>
+        <Mdx>{contentWithoutMatter}</Mdx>
       </main>
       <TableOfContent tree={tree} />
     </DocumentationLayout>
