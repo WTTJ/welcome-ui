@@ -1,31 +1,34 @@
-import { ResultsPageTree } from '@/build-app/utils/pages'
+import { PageTree } from '@/build-app/types'
 import startCase from 'lodash/startCase'
 import Link from 'next/link'
 
 type SidebarProps = {
-  pages: ResultsPageTree
-  pathToPages: string
+  pages: PageTree
+  relativePath: string
 }
 
-export function Sidebar({ pages, pathToPages }: SidebarProps) {
+export function Sidebar({ pages, relativePath }: SidebarProps) {
   return (
     <ul>
-      {Object.keys(pages).map((entry: string) => (
+      {pages.map(({ category, pages, parent }) => (
         <>
-          {pages[entry].length > 1 ? (
-            <li>
-              {startCase(entry)}
-              <ul>
-                {Array.from(pages[entry]).map(page => (
-                  <li>
-                    <Link href={`${pathToPages}/${entry}/${page}`}>{startCase(page)}</Link>
+          {category && (
+            <>
+              <li key={`sidebar_${category}`}>{startCase(category)}</li>
+              <ul key={`sidebar_${category}_ul`}>
+                {pages.map(page => (
+                  <li key={`sidebar_${category}_page_${page}`}>
+                    <Link href={`${relativePath}/${parent || category}/${page}`}>
+                      {startCase(page)}
+                    </Link>
                   </li>
                 ))}
               </ul>
-            </li>
-          ) : (
-            <li>
-              <Link href={`${pathToPages}/${entry}`}>{startCase(entry)}</Link>
+            </>
+          )}
+          {!category && (
+            <li key={`sidebar_${pages[0]}`}>
+              <Link href={`${relativePath}/${pages[0]}`}>{startCase(pages[0])}</Link>
             </li>
           )}
         </>

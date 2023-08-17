@@ -1,5 +1,5 @@
 import { Sidebar } from '@/build-app/components/Sidebar'
-import { getDocsPages } from '@/build-app/utils/pages'
+import { getDocsPages } from '@/build-app/utils/pages-docs'
 import Link from 'next/link'
 
 export default function Page() {
@@ -9,7 +9,7 @@ export default function Page() {
     <div>
       <h1>Docs</h1>
       <Link href="/">Back Home</Link>
-      <Sidebar pages={pages} pathToPages="/docs/components" />
+      <Sidebar pages={pages} relativePath="/docs" />
     </div>
   )
 }
