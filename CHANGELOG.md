@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.49](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.48...v5.0.0-alpha.49) (2023-08-21)
+
+
+### Bug Fixes
+
+* remove & override "as" prop (ariakit) ([#2201](https://github.com/WTTJ/welcome-ui/issues/2201)) ([f927076](https://github.com/WTTJ/welcome-ui/commit/f927076861dee999fe6bccd3ea0405763a31c2c9))
+
+
+
+
+
 # [5.0.0-alpha.48](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.47...v5.0.0-alpha.48) (2023-08-16)
 
 
