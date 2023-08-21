@@ -1,6 +1,6 @@
 import React from 'react'
 import * as Ariakit from '@ariakit/react'
-import { As, CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
 
 import { Arrow } from './Arrow'
 import { Item } from './Item'
@@ -52,7 +52,8 @@ export function useDropdownMenu(options: UseDropdownMenuProps = {}): UseDropdown
   return dropdownMenu
 }
 
-type TriggerProps = { store: UseDropdownMenu; children: React.ReactNode; as?: As }
+type TriggerOptions = { store: UseDropdownMenu }
+type TriggerProps = CreateWuiProps<'button', TriggerOptions>
 
 export const Trigger = forwardRef<'button', TriggerProps>(({ as, store, ...rest }, ref) => {
   return <Ariakit.MenuButton as={as} ref={ref} store={store} {...rest} />
