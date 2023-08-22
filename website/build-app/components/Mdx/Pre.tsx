@@ -7,7 +7,7 @@ interface PreProps {
   children: React.ReactNode[]
 }
 
-export function Pre({ children, ...rest }: PreProps) {
+export function Pre({ children }: PreProps) {
   // @ts-ignore
   const [code] = children[0].props.children
   const [codeUpdated, setCodeUpdate] = React.useState(code)
