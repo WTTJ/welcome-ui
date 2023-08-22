@@ -9,6 +9,7 @@ type FontVariation = {
   style?: string
   isVariable?: boolean
   extension?: string
+  unicodeRange?: string
 }
 
 type Font = {
@@ -33,21 +34,16 @@ function getSource(
 
 function getFont({
   name,
-  variation: { display = 'swap', extension = 'woff2', isVariable, style, url, weight },
+  variation: { display = 'swap', extension = 'woff2', isVariable, style, unicodeRange, url, weight },
 }: Font) {
   return css`
     @font-face {
       font-family: ${name};
       src: ${getSource(url, extension, isVariable)};
       font-display: ${display};
-      ${weight &&
-      css`
-        font-weight: ${weight};
-      `}
-      ${style &&
-      css`
-        font-style: ${style};
-      `}
+      ${weight && css`font-weight: ${weight};`}
+      ${style && css`font-style: ${style};`}
+      ${unicodeRange && css`unicode-range: ${unicodeRange};`}
     }
   `
 }
