@@ -34,7 +34,15 @@ function getSource(
 
 function getFont({
   name,
-  variation: { display = 'swap', extension = 'woff2', isVariable, style, unicodeRange, url, weight },
+  variation: {
+    display = 'swap',
+    extension = 'woff2',
+    isVariable,
+    style,
+    unicodeRange,
+    url,
+    weight,
+  },
 }: Font) {
   return css`
     @font-face {
@@ -51,7 +59,7 @@ function getFont({
       `}
       ${unicodeRange &&
       css`
-      unicode-range: ${unicodeRange};
+        unicode-range: ${unicodeRange};
       `}
     }
   `
