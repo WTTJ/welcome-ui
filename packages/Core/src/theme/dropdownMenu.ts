@@ -3,6 +3,7 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 
 export type ThemeDropdownMenu = {
+  gutter: number
   inner: CSSObject
   item: CSSObject
   separator: CSSObject
@@ -13,6 +14,7 @@ export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {
   const borderColor = colors['nude-200']
 
   return {
+    gutter: 10,
     inner: {
       fontSize: fontSizes.sm,
       minWidth: toRem(130),
