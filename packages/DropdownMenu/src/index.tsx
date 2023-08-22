@@ -2,6 +2,7 @@ import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
 import { useTheme } from '@xstyled/styled-components'
+import type { WuiTheme } from '@welcome-ui/core'
 
 import { Arrow } from './Arrow'
 import { Item } from './Item'
@@ -11,20 +12,7 @@ import * as S from './styles'
 export interface DropdownMenuOptions extends Omit<Ariakit.MenuProps, 'gutter'> {
   /** add custom props from styled system on DropdownMenu inner */
   innerProps?: WuiProps
-  gutter?:
-    | 'xxs'
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl'
-    | 'xxl'
-    | '3xl'
-    | '4xl'
-    | '5xl'
-    | '6xl'
-    | '7xl'
-    | number
+  gutter?: keyof WuiTheme['space'] | number
 }
 
 export type DropdownMenuProps = CreateWuiProps<'div', DropdownMenuOptions>
