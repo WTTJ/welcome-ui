@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.50](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.49...v5.0.0-alpha.50) (2023-08-22)
+
+
+### Bug Fixes
+
+* missing system props on ariakit tooltip ([#2206](https://github.com/WTTJ/welcome-ui/issues/2206)) ([2ef3f15](https://github.com/WTTJ/welcome-ui/commit/2ef3f156274a0efad27b750ef0f4f6eaacbc7062))
+
+
+
+
+
 # [5.0.0-alpha.48](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.47...v5.0.0-alpha.48) (2023-08-16)
 
 
