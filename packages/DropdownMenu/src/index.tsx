@@ -30,12 +30,12 @@ export interface DropdownMenuOptions extends Omit<Ariakit.MenuProps, 'gutter'> {
 export type DropdownMenuProps = CreateWuiProps<'div', DropdownMenuOptions>
 
 const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
-  ({ children, dataTestId, innerProps = {}, store, gutter, ...rest }, ref) => {
+  ({ children, dataTestId, innerProps = {}, store, gutter = 'xs', ...rest }, ref) => {
     const theme = useTheme()
     const arrowElement = store.useState('arrowElement')
     const isOpen = store.useState('open')
 
-    let parsedGutter = gutter ?? theme.dropdownMenu.gutter
+    let parsedGutter = gutter
     if (typeof parsedGutter === 'string') {
       // The value from the theme is in rem, e.g: 1.5rem
       // So we parse it to float and pass it to theme.toPx that will convert it to px, e.g: 24px
