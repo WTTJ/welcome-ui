@@ -41,9 +41,18 @@ function getFont({
       font-family: ${name};
       src: ${getSource(url, extension, isVariable)};
       font-display: ${display};
-      ${weight && css`font-weight: ${weight};`}
-      ${style && css`font-style: ${style};`}
-      ${unicodeRange && css`unicode-range: ${unicodeRange};`}
+      ${weight &&
+      css`
+        font-weight: ${weight};
+      `}
+      ${style &&
+      css`
+        font-style: ${style};
+      `}
+      ${unicodeRange &&
+      css`
+      unicode-range: ${unicodeRange};
+      `}
     }
   `
 }
