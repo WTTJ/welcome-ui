@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.51](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.50...v5.0.0-alpha.51) (2023-08-22)
+
+**Note:** Version bump only for package @welcome-ui/dropdown-menu
+
+
+
+
+
 # [5.0.0-alpha.49](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.48...v5.0.0-alpha.49) (2023-08-21)
 
 
