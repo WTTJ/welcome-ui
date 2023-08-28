@@ -38,6 +38,7 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
       dataTestId,
       onChange,
       value,
+      id,
       ...rest
     },
     ref
@@ -70,7 +71,7 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
               checked={option.value === activeValue}
               dataTestId={dataTestId ? `${dataTestId}-${option.value}` : undefined}
               hint={option.hint}
-              id={`${name}.${option.value}`}
+              id={`${id || name}.${option.value}`}
               key={option.value}
               label={option.label}
               maxWidth={maxWidth}
