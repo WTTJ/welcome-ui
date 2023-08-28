@@ -23,12 +23,31 @@ describe('<RadioGroup />', () => {
     const label = screen.getByTestId('radio-group-value3-label')
 
     expect(radio3).toHaveAttribute('value', 'value3')
+    expect(radio3).toHaveAttribute('id', 'radio-group.value3')
     expect(label).toHaveTextContent('label3')
 
     fireEvent.click(radio3)
 
     expect(radio3).toHaveAttribute('aria-checked', 'true')
     expect(onChange).toBeCalledWith('value3')
+  })
+
+  it('should render correctly with specific id', () => {
+    const onChange = jest.fn()
+
+    render(
+      <RadioGroup
+        dataTestId={name}
+        id="dumb_id"
+        name={name}
+        onChange={onChange}
+        options={options}
+      />
+    )
+
+    const radio3 = screen.getByTestId('radio-group-value3')
+
+    expect(radio3).toHaveAttribute('id', 'dumb_id.value3')
   })
 
   it('should render correctly with default value', () => {
