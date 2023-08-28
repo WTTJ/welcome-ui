@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/radio-group",
-  "version": "5.0.0-alpha.51",
+  "version": "5.0.0-alpha.52",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

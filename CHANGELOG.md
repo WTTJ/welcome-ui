@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0-alpha.52](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.51...v5.0.0-alpha.52) (2023-08-28)
+
+
+### Bug Fixes
+
+* button-group has a bad peer dep ([#2213](https://github.com/WTTJ/welcome-ui/issues/2213)) ([ffb5bbc](https://github.com/WTTJ/welcome-ui/commit/ffb5bbc3641effce589e35168e72acc86a4c6ce7))
+* id on radio group ([#2214](https://github.com/WTTJ/welcome-ui/issues/2214)) ([94a6163](https://github.com/WTTJ/welcome-ui/commit/94a6163fe6602d22dd1e50fa0989144062086f3f))
+
+
+
+
+
 # [5.0.0-alpha.51](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.50...v5.0.0-alpha.51) (2023-08-22)
 
 **Note:** Version bump only for package @welcome-ui/repo

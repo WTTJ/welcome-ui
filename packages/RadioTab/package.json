@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/radio-tab",
-  "version": "5.0.0-alpha.51",
+  "version": "5.0.0-alpha.52",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "@welcome-ui/radio": "^5.0.0-alpha.51",
-    "@welcome-ui/radio-group": "^5.0.0-alpha.51"
+    "@welcome-ui/radio-group": "^5.0.0-alpha.52"
   },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
   "sideEffects": false,
