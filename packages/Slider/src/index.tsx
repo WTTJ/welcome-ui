@@ -75,10 +75,10 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
       let value = localValue
 
       if (e.key === 'ArrowRight') {
-        value = value + step
+        value = ensureMinMax(value + step, min, max, step)
       }
       if (e.key === 'ArrowLeft') {
-        value = value - step
+        value = ensureMinMax(value - step, min, max, step)
       }
       setLocalValue(value)
       setInputValue(value)
@@ -100,6 +100,13 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
         setLocalValue(value)
         onChange(value)
       }
+    }
+
+    const handleBlur = () => {
+      const value = ensureMinMax(inputValue, min, max, step)
+      setInputValue(value)
+      setLocalValue(value)
+      onChange(value)
     }
 
     const getPercent = useCallback(
@@ -140,8 +147,10 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
           {(type === 'inline' || type === 'left-field') &&
             (type === 'left-field' ? (
               <InputText
+                disabled={disabled}
                 max={max}
                 min={min}
+                onBlur={handleBlur}
                 onChange={handleInputChange}
                 onKeyDown={handleInput}
                 size="sm"
@@ -153,7 +162,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               <Box>{min}</Box>
             ))}
 
-          <Box display="flex" flexGrow="1" h={20} position="relative">
+          <Box display="flex" flexDirection="column" flexGrow="1" h={20} position="relative">
             <S.Slider
               borderSelectorColor={borderSelectorColor}
               disabled={disabled}
@@ -187,7 +196,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               </S.Output>
             )}
             {values && (
-              <Box h={24} ml={10} mr={10} position="relative">
+              <Box h={24} ml={10} mr={10} mt={5} position="relative">
                 {values
                   .reduce((prev, acc) => (prev.includes(acc) ? prev : [...prev, acc]), [])
                   .filter(v => v >= min && v <= max)
@@ -204,8 +213,10 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
           {(type === 'inline' || type === 'right-field') &&
             (type === 'right-field' ? (
               <InputText
+                disabled={disabled}
                 max={max}
                 min={min}
+                onBlur={handleBlur}
                 onChange={handleInputChange}
                 onKeyDown={handleInput}
                 size="sm"
