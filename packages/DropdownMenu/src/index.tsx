@@ -12,6 +12,7 @@ import * as S from './styles'
 export interface DropdownMenuOptions extends Omit<Ariakit.MenuProps, 'gutter'> {
   /** add custom props from styled system on DropdownMenu inner */
   innerProps?: WuiProps
+  /** default 4px (space.xs) */
   gutter?: keyof WuiTheme['space'] | number
 }
 
