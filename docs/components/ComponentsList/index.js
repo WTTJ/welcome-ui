@@ -23,7 +23,7 @@ export const ComponentsList = ({ onClick, ...props }) => {
           {ITEMS.gettingStarted.map(item => (
             <S.Li key={`getting_started_${item}`} onClick={onClick}>
               <Link href={`/${slugify(item)}`} passHref>
-                <S.Item>{item}</S.Item>
+                <S.Item>{item === 'Upgrade' ? 'Upgrade to V5' : item}</S.Item>
               </Link>
             </S.Li>
           ))}
