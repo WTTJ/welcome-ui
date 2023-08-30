@@ -1,0 +1,31 @@
+name: '📚 Documentation improvement'
+description: 'Request a documentation improvement on website, code or figma.'
+labels: ['documentation']
+body:
+  - type: 'markdown'
+    attributes:
+      value: |
+        ### Hi! 🙃
+
+        Thanks for creating an issue 🫰!
+
+        Have you before check others issues ?
+
+        Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately. 👍
+  - type: dropdown
+    id: documentation
+    attributes:
+      label: For which part of documentation?
+      options:
+        - Foundations
+        - Component
+        - Content
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'description'
+    attributes:
+      label: 'Description'
+      description: 'What is wrong or missing ? Please provide a link if is available.'
+    validations:
+      required: true
