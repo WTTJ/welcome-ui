@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  CreateWuiPandaProps,
-  CreateWuiProps,
-  forwardRef,
-  forwardRefPanda,
-} from '@welcome-ui/system'
-import { styled } from '@welcome-ui/panda/jsx'
+import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -70,9 +64,8 @@ Badge.displayName = 'Badge'
 export type BadgePandaOptions = S.BadgeVariants & Pick<BadgeOptions, 'withNumberAbbreviation'>
 export type BadgePandaProps = CreateWuiPandaProps<'div', BadgePandaOptions>
 
-export const BadgePanda = forwardRefPanda<'div', BadgePandaProps>(
-  ({ as = 'div', children, disabled, withNumberAbbreviation, ...rest }, ref) => {
-    const Component = styled(as, S.badgeStyles)
+export const BadgePanda = React.forwardRef<HTMLDivElement, BadgePandaProps>(
+  ({ children, disabled, withNumberAbbreviation, ...rest }, ref) => {
     let text
     const isNumber = Number.isInteger(children)
     const textLength = children.toString().length
@@ -88,7 +81,7 @@ export const BadgePanda = forwardRefPanda<'div', BadgePandaProps>(
     }
 
     return (
-      <Component
+      <S.BadgePanda
         aria-disabled={disabled}
         data-disabled={disabled}
         data-length={textLength}
@@ -96,7 +89,7 @@ export const BadgePanda = forwardRefPanda<'div', BadgePandaProps>(
         {...rest}
       >
         {text}
-      </Component>
+      </S.BadgePanda>
     )
   }
 )

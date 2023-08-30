@@ -1,13 +1,7 @@
 import React from 'react'
-import { Box } from '@welcome-ui/box'
-import {
-  CreateWuiPandaProps,
-  CreateWuiProps,
-  forwardRef,
-  forwardRefPanda,
-  WuiProps,
-} from '@welcome-ui/system'
-import { HTMLStyledProps, styled } from '@welcome-ui/panda/jsx'
+import { Box, BoxPanda } from '@welcome-ui/box'
+import { CreateWuiPandaProps, CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
+import { HTMLStyledProps } from '@welcome-ui/panda/jsx'
 
 export interface FlexOptions {
   /** same as alignItems */
@@ -68,12 +62,10 @@ export type FlexPandaOptions = {
 }
 type FlexPandaProps = CreateWuiPandaProps<'div', FlexPandaOptions>
 
-export const FlexPanda = forwardRefPanda<'div', FlexPandaProps>(
-  ({ align, as = 'div', basis, direction, grow, justify, shrink, wrap, ...rest }, ref) => {
-    const Component = styled(as)
-
+export const FlexPanda = React.forwardRef<HTMLDivElement, FlexPandaProps>(
+  ({ align, basis, direction, grow, justify, shrink, wrap, ...rest }, ref) => {
     return (
-      <Component
+      <BoxPanda
         alignItems={align}
         display="flex"
         flexBasis={basis}

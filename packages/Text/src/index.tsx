@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  CreateWuiPandaProps,
-  CreateWuiProps,
-  forwardRef,
-  forwardRefPanda,
-} from '@welcome-ui/system'
+import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { styled } from '@welcome-ui/panda/jsx'
 
 import * as S from './styles'
@@ -69,9 +64,9 @@ const getBlockHeight = (lines: number): React.CSSProperties => ({
   overflow: 'hidden',
 })
 
-export const TextPanda = forwardRefPanda<'p', TextPandaProps>(
-  ({ as, children, className, lines, variant = 'md', ...rest }, ref) => {
-    const tagName = as || TAG_NAMES[variant]
+export const TextPanda = React.forwardRef<HTMLParagraphElement, TextPandaProps>(
+  ({ children, className, lines, variant = 'md', ...rest }, ref) => {
+    const tagName = TAG_NAMES[variant]
     const Component = styled(tagName, S.textStyles)
     const style = lines ? getBlockHeight(lines) : {}
 

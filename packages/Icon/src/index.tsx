@@ -1,5 +1,6 @@
 import React from 'react'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { RecipeVariantProps } from '@welcome-ui/panda/css'
 
 import * as S from './styles'
 
@@ -53,3 +54,36 @@ export const Icon = forwardRef<'svg', IconProps>(
 Icon.displayName = 'Icon'
 
 export const StyledIcon = S.Icon
+
+export type IconPandaVariants = RecipeVariantProps<typeof S.iconStyles>
+export type IconPandaOptions = Omit<IconOptions, keyof IconPandaVariants> & IconPandaVariants
+export type IconPandaProps = CreateWuiPandaProps<'svg', IconPandaOptions>
+
+// todo dataTestId
+
+export const IconPanda = React.forwardRef<SVGSVGElement, IconPandaProps>(
+  ({ content, size = 'md', /* title ,*/ ...props }, ref) => {
+    const className = props.className || ''
+    if (!content) {
+      return null
+    }
+
+    // todo
+    // isFlag={content.isFlag}
+    // stroked={content.stroked}
+
+    return (
+      <S.IconPanda
+        // alt={title}
+        className={`${className} wui-icon`}
+        dangerouslySetInnerHTML={{ __html: content.block }}
+        role="img"
+        size={size}
+        // title={title}
+        viewBox={content.viewBox || '0 0 100 100'}
+        {...props}
+        ref={ref}
+      />
+    )
+  }
+)

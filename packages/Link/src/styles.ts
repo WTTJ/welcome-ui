@@ -1,7 +1,8 @@
 import styled, { css, system, th, typography } from '@xstyled/styled-components'
-import { UniversalLink } from '@welcome-ui/universal-link'
+import { UniversalLink, UniversalLinkPanda } from '@welcome-ui/universal-link'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { cva, RecipeVariantProps } from '@welcome-ui/panda/css'
+import { styled as styledPanda } from '@welcome-ui/panda/jsx'
 
 import { Variant } from './index'
 
@@ -126,3 +127,4 @@ export const linkStyles = cva({
 })
 
 export type LinkPandaVariant = RecipeVariantProps<typeof linkStyles>
+export const LinkPanda = styledPanda(UniversalLinkPanda, linkStyles)

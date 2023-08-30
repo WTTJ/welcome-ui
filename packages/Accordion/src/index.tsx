@@ -2,13 +2,7 @@ import React, { cloneElement } from 'react'
 import * as Ariakit from '@ariakit/react'
 import AnimateHeight from 'react-animate-height'
 import { RightIcon } from '@welcome-ui/icons'
-import {
-  CreateWuiPandaProps,
-  CreateWuiProps,
-  forwardRef,
-  forwardRefPanda,
-} from '@welcome-ui/system'
-import { styled } from '@welcome-ui/panda/jsx'
+import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
@@ -60,13 +54,12 @@ export function useAccordion(options?: UseAccordionProps): UseAccordion {
 // todo fix dataTestId
 type AccordionPandaProps = CreateWuiPandaProps<'div', AccordionOptions> & { dataTestId?: string }
 
-export const AccordionPanda = forwardRefPanda<'div', AccordionPandaProps>(
-  ({ as = 'div', children, icon = <RightIcon />, title, store, dataTestId, ...rest }, ref) => {
-    const Component = styled(as, S.accordionStyles)
+export const AccordionPanda = React.forwardRef<HTMLDivElement, AccordionPandaProps>(
+  ({ children, icon = <RightIcon />, title, store, dataTestId, ...rest }, ref) => {
     const isOpen = store.useState('open')
 
     return (
-      <Component data-testid={dataTestId} ref={ref} {...rest}>
+      <S.AccordionPanda data-testid={dataTestId} ref={ref} {...rest}>
         <S.DisclosurePanda
           data-testid={dataTestId ? `${dataTestId}-title` : undefined}
           store={store}
@@ -83,7 +76,7 @@ export const AccordionPanda = forwardRefPanda<'div', AccordionPandaProps>(
             {children}
           </AnimateHeight>
         </S.ContentPanda>
-      </Component>
+      </S.AccordionPanda>
     )
   }
 )

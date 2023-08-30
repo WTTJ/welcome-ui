@@ -1,5 +1,5 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { styled as pandaStyled } from '@welcome-ui/panda/jsx'
+import { styled as styledPanda } from '@welcome-ui/panda/jsx'
 import { cva, type RecipeVariantProps } from '@welcome-ui/panda/css'
 
 import { TextOptions } from './index'
@@ -192,4 +192,4 @@ export const textStyles = cva({
 })
 
 export type TextPandaVariants = RecipeVariantProps<typeof textStyles>
-export const TextPanda = pandaStyled('p', textStyles)
+export const TextPanda = styledPanda('p', textStyles)

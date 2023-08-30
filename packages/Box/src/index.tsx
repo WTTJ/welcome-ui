@@ -1,11 +1,6 @@
 import React from 'react'
 import { x } from '@xstyled/styled-components'
-import {
-  CreateWuiPandaProps,
-  CreateWuiProps,
-  forwardRef,
-  forwardRefPanda,
-} from '@welcome-ui/system'
+import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { styled } from '@welcome-ui/panda/jsx'
 
 export type BoxProps = CreateWuiProps<'div'>
@@ -16,8 +11,6 @@ export const Box = forwardRef<'div', BoxProps>((props, ref) => {
 
 export type BoxPandaProps = CreateWuiPandaProps<'div'>
 
-export const BoxPanda = forwardRefPanda<'div', BoxPandaProps>(({ as = 'div', ...rest }, ref) => {
-  const Component = styled(as)
-
-  return <Component ref={ref} {...rest} />
+export const BoxPanda = React.forwardRef<HTMLDivElement, BoxPandaProps>((props, ref) => {
+  return <styled.div ref={ref} {...props} />
 })

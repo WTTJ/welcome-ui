@@ -89,6 +89,21 @@ export const accordionStyles = cva({
   },
 })
 
+export const AccordionPanda = styledPanda('div', {
+  base: {
+    backgroundColor: 'light-900',
+    transition: 'all',
+    transitionDuration: 'medium',
+    transitionTimingFunction: 'medium',
+    border: 'sm',
+    borderStyle: 'solid',
+    borderColor: 'border',
+    '&:hover': {
+      borderColor: 'dark-400',
+    },
+  },
+})
+
 export const DisclosurePanda = styledPanda(Ariakit.Disclosure, {
   base: {
     textStyle: 'h5',

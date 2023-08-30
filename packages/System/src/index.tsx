@@ -161,30 +161,8 @@ export const forwardRef = <Component extends As, Props = {}>(
 export type ExtraSize = number | string
 
 // panda
-export type PandaStyledComponent<Component extends React.ElementType, Props = object> = (
-  props: Omit<HTMLStyledProps<Component>, keyof Props> & Props
-) => JSX.Element
-
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type CreateWuiPandaProps<Component extends React.ElementType, Props = {}> = Omit<
+export type CreateWuiPandaProps<Component extends React.ElementType, Props = object> = Omit<
   HTMLStyledProps<Component>,
   keyof Props
 > &
-  Props & { as?: As }
-
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type CreateWuiPandaComponent<Component extends As, Props = {}> = {
-  <AsComponent extends As>(
-    props: CreateWuiPandaProps<AsComponent, Props> & { as: AsComponent }
-  ): JSX.Element
-  (props: CreateWuiPandaProps<Component, Props>): JSX.Element
-  displayName?: string
-}
-
-// eslint-disable-next-line @typescript-eslint/ban-types
-export const forwardRefPanda = <Component extends As, Props = {}>(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  component: React.ForwardRefRenderFunction<any, Props>
-): CreateWuiPandaComponent<Component, Props> => {
-  return React.forwardRef(component) as unknown as CreateWuiPandaComponent<Component, Props>
-}
+  Props
