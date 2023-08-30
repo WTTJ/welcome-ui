@@ -1,6 +1,6 @@
-name: '[Design] 📚 Documentation improvement'
-description: 'Request a design documentation improvement.'
-labels: ['design', 'documentation']
+name: '🫶 Component creation'
+description: 'Request a new foundation or a new component.'
+labels: ['component-creation']
 body:
   - type: 'markdown'
     attributes:
@@ -12,21 +12,16 @@ body:
         Have you before check others issues ?
 
         Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately. 👍
-  - type: dropdown
-    id: figma
-    attributes:
-      label: For which part of documentation?
-      options:
-        - Foundations
-        - Component
-        - Content
-    validations:
-      required: true
   - type: 'textarea'
     id: 'description'
     attributes:
       label: 'Description'
       placeholder: |
-        Describe what you need to improve.
+        Describe what you need and why you need to create this new component or foundation.
     validations:
       required: true
+  - type: 'input'
+    id: 'due-date'
+    attributes:
+      label: 'Due Date'
+      placeholder: 'DD/MM/YYYY'

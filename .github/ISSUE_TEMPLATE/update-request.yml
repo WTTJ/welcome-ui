@@ -1,6 +1,6 @@
-name: '[Tech] 📚 Documentation issues'
-description: 'Request a tech documentation improvement or fix on website or code.'
-labels: ['tech', 'documentation']
+name: '🔄 Update or feedback on existing component'
+description: 'Request an update to improve foundations or existing component.'
+labels: ['existing-component']
 body:
   - type: 'markdown'
     attributes:
@@ -13,12 +13,15 @@ body:
 
         Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately. 👍
   - type: dropdown
-    id: page
+    id: components
     attributes:
-      label: For which page?
+      label: For which component/foundations?
       options:
-        - Getting started
-        - Theming (Foundations)
+        - Colours
+        - Grids
+        - Logos
+        - Spacings
+        - Typography
         - Accordion
         - Alert
         - AspectRatio
@@ -28,6 +31,7 @@ body:
         - Breadcrumb
         - Button
         - ButtonGroup
+        - Callout
         - Card
         - Checkbox
         - DatePicker
@@ -42,7 +46,6 @@ body:
         - Flex
         - Grid
         - Hint
-        - HookForm
         - Icons
         - IconsFont
         - InputText
@@ -76,10 +79,32 @@ body:
         - Others
     validations:
       required: true
+  - type: dropdown
+    id: prioritization
+    attributes:
+      label: Prioritization
+      options:
+        - Low 🏖️
+        - Medium ⛰️
+        - High 🌋
+    validations:
+      required: true
   - type: 'textarea'
     id: 'description'
     attributes:
       label: 'Description'
-      description: 'What is wrong or missing ?'
+      placeholder: |
+        Describe what you need and why you need to update this component/foundation.
     validations:
       required: true
+  - type: 'textarea'
+    id: 'implementation'
+    attributes:
+      label: '[Tech] Implementation'
+      description: 'If possible, describe how this feature could be implemented.'
+      placeholder: 'See [CONTRIBUTING.mdx](https://github.com/WTTJ/welcome-ui/blob/master/CONTRIBUTING.mdx)'
+  - type: 'input'
+    id: 'due-date'
+    attributes:
+      label: 'Due Date'
+      placeholder: 'DD/MM/YYYY'

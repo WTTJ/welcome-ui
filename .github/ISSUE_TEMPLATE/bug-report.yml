@@ -1,6 +1,6 @@
-name: '[Tech] 🐛 Bug report'
-description: 'Create a bug report for the tech team.'
-labels: ['tech', 'bug']
+name: '🐛 Bug report'
+description: 'Create a bug report for the tech team or a Figma bug report to improve Figma libraries.'
+labels: ['bug']
 body:
   - type: 'markdown'
     attributes:
@@ -13,11 +13,31 @@ body:
 
         Please provide the clearest summary of your purpose. This will help us to answer you quickly and accurately. 👍
   - type: dropdown
+    id: figma
+    attributes:
+      label: '[Design] For which Figma library?'
+      options:
+        - None
+        - Basics
+        - Data display
+        - Dataviz palette - Categorical
+        - Dataviz palette - Divergent
+        - Dataviz palette - Sequential
+        - Feedback
+        - Forms
+        - Icons
+        - Illustrations
+        - Navigation
+  - type: dropdown
     id: component
     attributes:
-      label: For which component?
+      label: For which component/foundations?
       options:
-        - Theming
+        - Colours
+        - Grids
+        - Logos
+        - Spacings
+        - Typography
         - Accordion
         - Alert
         - AspectRatio
@@ -27,6 +47,7 @@ body:
         - Breadcrumb
         - Button
         - ButtonGroup
+        - Callout
         - Card
         - Checkbox
         - DatePicker
@@ -43,6 +64,7 @@ body:
         - Hint
         - Icons
         - IconsFont
+        - Illustrations
         - InputText
         - Label
         - Link
@@ -53,6 +75,7 @@ body:
         - PasswordInput
         - Picker
         - Popover
+        - Radio
         - RadioGroup
         - RadioTab
         - Search
@@ -67,37 +90,59 @@ body:
         - Text
         - Textarea
         - TimePicker
-        - Toast
+        - Toast / Growl
         - Toggle
         - Tooltip
         - usecopyText
         - Others
     validations:
       required: true
-  - type: 'textarea'
-    id: 'description'
+  - type: dropdown
+    id: prioritization
     attributes:
-      label: 'Description'
-      description: |
-        A **clear and concise** description of what the bug is, with the **steps to reproduce** and a **link to the reproduction** environment.
+      label: Prioritization
+      options:
+        - Low 🏖️
+        - Medium ⛰️
+        - High 🌋
     validations:
       required: true
+  - type: 'textarea'
+    id: 'current-behavior'
+    attributes:
+      label: 'Current Behavior'
+      placeholder: |
+        Describe the current behavior, this will help us to resolve the problem
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'expected-behavior'
+    attributes:
+      label: 'Expected Behavior'
+      placeholder: |
+        Describe the expected behavior, this will help us to resolve the problem
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'files'
+    attributes:
+      label: 'Screenshots / Videos'
+      placeholder: |
+        Upload screenshots or videos to describe the problem.
   - type: 'input'
     id: 'version'
     attributes:
-      label: 'Welcome UI Version'
+      label: '[Tech] Welcome UI Version'
       placeholder: '5.0.0'
-    validations:
-      required: true
   - type: 'input'
     id: 'browser'
     attributes:
-      label: 'Browser'
+      label: '[Tech] Browser'
       placeholder: 'Google Chrome 114.07'
   - type: dropdown
     id: system
     attributes:
-      label: Operating System
+      label: '[Tech] Operating System'
       options:
         - MacOS
         - Windows
