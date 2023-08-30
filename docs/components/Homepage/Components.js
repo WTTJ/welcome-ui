@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Alert } from '@welcome-ui/alert'
 import { Avatar } from '@welcome-ui/avatar'
@@ -29,8 +28,8 @@ const components = [
     title: 'Toggle',
     children: (
       <Stack direction="row" spacing="md">
-        <Toggle mb="md" />
-        <Toggle checked />
+        <Toggle mb="md" aria-label="Toggle unchecked" />
+        <Toggle checked aria-label="Toggle checked" />
       </Stack>
     ),
     description: 'Allows user to activate or deactivate an option.',

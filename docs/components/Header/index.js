@@ -56,6 +56,7 @@ export const Header = () => {
           onClick={openThemeHelper}
           shape="circle"
           variant="ghost"
+          aria-label="Theme information"
           w={30}
         >
           <InformationIcon color="light-900" />
@@ -70,6 +71,7 @@ export const Header = () => {
           shape="circle"
           size="sm"
           store={mobileMenuDrawer}
+          aria-label="Open menu"
         >
           {mobileMenuDrawer.open ? <CrossIcon /> : <MenuIcon />}
         </Drawer.Trigger>

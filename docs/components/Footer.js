@@ -38,6 +38,7 @@ export function Footer(props) {
         shape="circle"
         target="_blank"
         variant="secondary"
+        aria-label="Project on Github"
         w={25}
       >
         <GithubIcon />
