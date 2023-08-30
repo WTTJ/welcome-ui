@@ -31,7 +31,7 @@
   },
   "homepage": "https://welcome-ui.com",
   "dependencies": {
-    "@docsearch/react": "^3.5.0",
+    "@docsearch/react": "^3.5.2",
     "@hookform/resolvers": "^3.1.1",
     "@mdx-js/loader": "1.6.22",
     "@mdx-js/react": "1.6.22",

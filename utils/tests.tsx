@@ -2,7 +2,7 @@ import React from 'react'
 import { render, RenderOptions } from '@testing-library/react'
 import { ThemeProvider } from '@xstyled/styled-components'
 import { BrowserRouter } from 'react-router-dom'
-import '@testing-library/jest-dom/extend-expect'
+import '@testing-library/jest-dom'
 import 'jest-styled-components'
 
 import { createTheme } from '../packages/Core/src/theme/core'
