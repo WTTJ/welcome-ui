@@ -24,7 +24,7 @@ export interface RangeOptions extends Omit<SliderOptions, 'type' | 'value' | 'on
 export type RangeProps = CreateWuiProps<'div', RangeOptions>
 
 /**
- * Ensure mininum of a given value against a value `toCompare` based on a step
+ * Ensure minimum of a given value against a value `toCompare` based on a step
  */
 const ensureMin = ({
   min,
@@ -158,7 +158,9 @@ export const Range = forwardRef<'div', RangeProps>(
     const getPercent = useCallback(
       (value: number) => {
         const percent = Math.round(((value - min) / (max - min)) * 100)
-        return percent > max ? max : percent < min ? min : percent
+        if (percent < 0) return 0
+        if (percent > 100) return 100
+        return percent
       },
       [min, max]
     )
