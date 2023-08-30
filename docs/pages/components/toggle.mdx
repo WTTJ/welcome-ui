@@ -26,10 +26,10 @@ function() {
 
   return (
     <Stack spacing="md">
-      <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
-      <Toggle checked={toggleChecked} onClick={() => setToggleChecked(!toggleChecked)} />
-      <Toggle disabled />
-      <Toggle checked disabled />
+      <Toggle aria-label="Toggle component" checked={toggle} onClick={() => setToggle(!toggle)} />
+      <Toggle aria-label="Toggle checked" checked={toggleChecked} onClick={() => setToggleChecked(!toggleChecked)} />
+      <Toggle aria-label="Toggle disabled" disabled />
+      <Toggle aria-label="Toggle checked and disabled" checked disabled />
     </Stack>
   )
 }

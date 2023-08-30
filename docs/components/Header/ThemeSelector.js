@@ -32,6 +32,7 @@ export const ThemeSelector = props => {
         shape="circle"
         store={dropdownMenu}
         w={30}
+        aria-label="Select theme"
         {...props}
       >
         <SunIcon />

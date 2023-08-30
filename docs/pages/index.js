@@ -35,8 +35,11 @@ export default function Home() {
         </NextLink>
       </Section>
       <Section>
-        <Text mb="xl" mt="0" variant="h4">
+        <Text as="h2" mb="xl" mt="sm" variant="h1">
           Some of our components
+        </Text>
+        <Text maxWidth={640} variant="lg" mb="3xl">
+          More than 50 amazing components!
         </Text>
         <Components />
       </Section>
@@ -140,6 +143,7 @@ export default function Home() {
           maxWidth={400}
           position="absolute"
           right="0"
+          alt="Welcome to the jungle illustration"
           src="illustration.png"
           w="100%"
         />
