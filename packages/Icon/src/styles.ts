@@ -36,7 +36,19 @@ export const Icon = styled('svg')<StyledIconProps>(({ isFlag, size = 'md', strok
 })
 
 export const iconStyles = cva({
-  base: {},
+  base: {
+    '&[data-stroked="true"]': {
+      '& g, & path': {
+        stroke: 'inherit',
+        fill: 'none',
+      },
+    },
+    '&[data-stroked="false"]': {
+      '& g, & path': {
+        stroke: 'none',
+      },
+    },
+  },
   variants: {
     size: {
       xs: {

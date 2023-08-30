@@ -1,5 +1,7 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import { IconOptions } from '@welcome-ui/icon'
+import { cva } from '@welcome-ui/panda/css'
+import { styled as styledPanda } from '@welcome-ui/panda/jsx'
 
 import unicodeMap from './unicode.json'
 
@@ -8,7 +10,7 @@ export type StyledIconProps = {
   size: IconOptions['size']
 }
 
-function getIconContentByName(name: StyledIconProps['name']) {
+export function getIconContentByName(name: StyledIconProps['name']) {
   const content = unicodeMap[name]
   if (content) return content.replace('0x', '\\')
   // eslint-disable-next-line no-console
@@ -35,3 +37,47 @@ export const Icon = styled.i<StyledIconProps>(
     }
   `
 )
+
+export const iconStyles = cva({
+  base: {
+    display: 'inline-block',
+    fontFamily: 'icon',
+    '&::before': {
+      content: 'attr(data-content)',
+      display: 'block',
+      fontStyle: 'normal',
+      fontVariant: 'normal',
+      textTransform: 'none',
+      lineHeight: '1',
+      fontSmoothing: 'antialiased',
+      // '-moz-osx-font-smoothing': 'grayscale',
+    },
+  },
+  variants: {
+    size: {
+      xs: {
+        fontSize: '12px',
+      },
+      sm: {
+        fontSize: '16px',
+      },
+      md: {
+        fontSize: '24px',
+      },
+      lg: {
+        fontSize: '32px',
+      },
+      xl: {
+        fontSize: '48px',
+      },
+      xxl: {
+        fontSize: '64px',
+      },
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
+})
+
+export const IconPanda = styledPanda('i', iconStyles)

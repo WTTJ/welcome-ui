@@ -1,8 +1,12 @@
 import React from 'react'
-import { Icon, IconProps } from '@welcome-ui/icon'
+import { Icon, IconPanda, IconPandaProps, IconProps } from '@welcome-ui/icon'
 
 import content from './content.json'
 
 export const MeetingRoomIcon: React.FC<IconProps> = props => {
   return <Icon alt="MeetingRoom" content={content} {...props} />
+}
+
+export const MeetingRoomIconPanda: React.FC<IconPandaProps> = props => {
+  return <IconPanda content={content} {...props} />
 }

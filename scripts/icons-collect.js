@@ -46,12 +46,16 @@ const writeIconContentsJson = (outputFolder, content, key) => {
 const writeIconIndex = (outputFolder, iconName) => {
   const file = `${outputFolder}/index.tsx`
   const fileContent = `import React from 'react'
-import { Icon, IconProps } from '@welcome-ui/icon'
+import { Icon, IconPanda, IconPandaProps, IconProps } from '@welcome-ui/icon'
 
 import content from './content.json'
 
 export const ${iconName}Icon: React.FC<IconProps> = props => {
   return <Icon alt="${iconName}" content={content} {...props} />
+}
+
+export const ${iconName}IconPanda: React.FC<IconPandaProps> = props => {
+  return <IconPanda content={content} {...props} />
 }
 `
 
@@ -84,7 +88,7 @@ const writeRootIconPackage = files => {
   // Write main icons/index.ts
   const rootIndexContent = files.map(({ key }) => {
     const iconName = toPascalCase(key)
-    return `export { ${iconName}Icon } from './${iconName}'`
+    return `export * from './${iconName}'`
   })
 
   fs.writeFileSync(
@@ -95,11 +99,12 @@ const writeRootIconPackage = files => {
 
   // Write main icons/index.d.ts
   let rootIndexDTSContent = `import React from 'react'
-import { IconProps } from '@welcome-ui/icon'
+import { IconPandaProps, IconProps } from '@welcome-ui/icon'
 `
   rootIndexDTSContent += files.map(({ key }) => {
     const iconName = toPascalCase(key)
-    return `export declare const ${iconName}Icon: React.FC<IconProps>`
+    return `export declare const ${iconName}Icon: React.FC<IconProps>
+export declare const ${iconName}IconPanda: React.FC<IconPandaProps>`
   }).join(`
 `)
   fs.writeFileSync(

@@ -1,7 +1,8 @@
 import React from 'react'
-import { IconProps } from '@welcome-ui/icon'
+import { IconPandaOptions, IconProps } from '@welcome-ui/icon'
+import { CreateWuiPandaProps } from '@welcome-ui/system'
 
-import { Icon, StyledIconProps } from './styles'
+import { getIconContentByName, Icon, IconPanda, StyledIconProps } from './styles'
 import unicodeJson from './unicode.json'
 
 export type IconFontProps = StyledIconProps
@@ -47,3 +48,25 @@ export const Icons = iconsKeys.reduce<IconsType>((prev, name) => {
 
   return prev
 }, {} as IconsType)
+
+// todo dataTestId
+export type IconPandaProps = CreateWuiPandaProps<'i', IconPandaOptions>
+export type IconsPandaType = Record<IconKeyFormatted, (props: IconPandaProps) => JSX.Element>
+
+export const IconsPanda = iconsKeys.reduce<IconsPandaType>((prev, name) => {
+  const key = toPascalCase(name) as IconKeyFormatted
+
+  prev[key] = (props: Omit<IconPandaProps, 'content'>) => {
+    const className = props.className || ''
+    return (
+      <IconPanda
+        {...props}
+        className={`${className} wui-icon-font`}
+        data-content={getIconContentByName(name)}
+        // data-testid={props.dataTestId && `icon-font-${props.dataTestId}`}
+      />
+    )
+  }
+
+  return prev
+}, {} as IconsPandaType)

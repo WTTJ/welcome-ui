@@ -80,6 +80,7 @@ export const tokens = defineTokens({
     h6: fonts.headings,
     'subtitle-md': fonts.headings,
     'subtitle-sm': fonts.headings,
+    icon: fonts.icons,
   }),
   fontSizes: formatTokens(fontSizes),
   fontWeights: formatTokens(fontWeights),

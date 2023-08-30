@@ -56,30 +56,26 @@ Icon.displayName = 'Icon'
 export const StyledIcon = S.Icon
 
 export type IconPandaVariants = RecipeVariantProps<typeof S.iconStyles>
-export type IconPandaOptions = Omit<IconOptions, keyof IconPandaVariants> & IconPandaVariants
+export type IconPandaOptions = Omit<IconOptions, keyof IconPandaVariants | 'onClick'> &
+  IconPandaVariants
 export type IconPandaProps = CreateWuiPandaProps<'svg', IconPandaOptions>
 
 // todo dataTestId
 
 export const IconPanda = React.forwardRef<SVGSVGElement, IconPandaProps>(
-  ({ content, size = 'md', /* title ,*/ ...props }, ref) => {
+  ({ content, size = 'md', ...props }, ref) => {
     const className = props.className || ''
     if (!content) {
       return null
     }
 
-    // todo
-    // isFlag={content.isFlag}
-    // stroked={content.stroked}
-
     return (
       <S.IconPanda
-        // alt={title}
         className={`${className} wui-icon`}
         dangerouslySetInnerHTML={{ __html: content.block }}
+        data-stroked={content.isFlag ? false : content.stroked}
         role="img"
         size={size}
-        // title={title}
         viewBox={content.viewBox || '0 0 100 100'}
         {...props}
         ref={ref}

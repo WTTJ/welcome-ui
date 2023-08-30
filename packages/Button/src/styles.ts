@@ -394,6 +394,7 @@ export const buttonStyles = cva({
     },
     disabled: {
       true: {
+        pointerEvents: 'none',
         cursor: 'not-allowed',
         color: 'nude-700',
         backgroundColor: 'nude-400',
