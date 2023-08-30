@@ -1,6 +1,5 @@
 import React from 'react'
 import userEvent from '@testing-library/user-event'
-import '@testing-library/jest-dom/extend-expect'
 
 import { render } from '../../../utils/tests'
 import { Swiper, useSwiper } from '../src'
