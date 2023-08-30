@@ -70,7 +70,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
     }
 
     // Handle enter key
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleSliderKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       e.preventDefault()
       let value = localValue
 
@@ -93,20 +93,17 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
       setInputValue(value)
     }
 
-    const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === 'Enter') {
-        const value = ensureMinMax(inputValue, min, max, step)
-        setInputValue(value)
-        setLocalValue(value)
-        onChange(value)
-      }
-    }
-
-    const handleBlur = () => {
+    const handleInput = () => {
       const value = ensureMinMax(inputValue, min, max, step)
       setInputValue(value)
       setLocalValue(value)
       onChange(value)
+    }
+
+    const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        handleInput()
+      }
     }
 
     const getPercent = useCallback(
@@ -150,9 +147,9 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
                 disabled={disabled}
                 max={max}
                 min={min}
-                onBlur={handleBlur}
+                onBlur={handleInput}
                 onChange={handleInputChange}
-                onKeyDown={handleInput}
+                onKeyDown={handleInputKeyDown}
                 size="sm"
                 type="number"
                 value={inputValue.toString()}
@@ -176,7 +173,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
                 _setLocalValue(value)
                 setInputValue(value)
               }}
-              onKeyDown={handleKeyDown}
+              onKeyDown={handleSliderKeyDown}
               onMouseDown={() => {
                 tooltip && tooltipVisible === false && setTooltipVisible(true)
               }}
@@ -216,9 +213,9 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
                 disabled={disabled}
                 max={max}
                 min={min}
-                onBlur={handleBlur}
+                onBlur={handleInput}
                 onChange={handleInputChange}
-                onKeyDown={handleInput}
+                onKeyDown={handleInputKeyDown}
                 size="sm"
                 type="number"
                 value={inputValue.toString()}

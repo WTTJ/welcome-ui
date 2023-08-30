@@ -37,9 +37,9 @@ const ensureMin = ({
   step: number
   min: number
 }) => {
-  let cleanValue = Math.min(value, toCompare - 1 * step)
-  cleanValue = Math.max(cleanValue, min)
-  return round(cleanValue, step)
+  let ensuredValue = Math.min(value, toCompare - 1 * step)
+  ensuredValue = Math.max(ensuredValue, min)
+  return round(ensuredValue, step)
 }
 
 /**
@@ -56,9 +56,9 @@ const ensureMax = ({
   step: number
   max: number
 }) => {
-  let cleanValue = Math.max(value, toCompare + 1 * step)
-  cleanValue = Math.min(cleanValue, max)
-  return round(cleanValue, step)
+  let ensuredValue = Math.max(value, toCompare + 1 * step)
+  ensuredValue = Math.min(ensuredValue, max)
+  return round(ensuredValue, step)
 }
 
 /**
