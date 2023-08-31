@@ -1,6 +1,6 @@
 import { defineConfig } from '@pandacss/dev'
 
-import { preset } from './packages/Core/src/preset'
+import { preset } from './packages/Core/src/theme-panda'
 
 export default defineConfig({
   preflight: true,

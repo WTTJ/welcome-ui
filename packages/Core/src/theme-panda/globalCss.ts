@@ -1,6 +1,6 @@
 import { defineGlobalStyles } from '@pandacss/dev'
 
-export const wuiGlobalStyles = defineGlobalStyles({
+export const globalCss = defineGlobalStyles({
   html: {
     color: 'dark-500',
   },
