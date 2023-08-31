@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/welcome-ui
   docker:
-    - image: cimg/node:16.13.1
+    - image: cimg/node:18.17.1
 
 version: 2.1
 
