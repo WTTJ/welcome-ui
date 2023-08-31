@@ -52,7 +52,7 @@
     "@welcome-ui/system": "^5.0.0-alpha.44",
     "@welcome-ui/tag": "^5.0.0-alpha.44",
     "@welcome-ui/utils": "^5.0.0-alpha.44",
-    "downshift": "^7.4.1"
+    "downshift": "^8.1.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
