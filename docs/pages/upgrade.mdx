@@ -283,8 +283,8 @@ We renamed some icons:
 
 - We have adjusted colors and spacing.
 - **Modal.Title** is now named **Modal.Header** and has props `title` (mandatory) and `subtitle` (optional).
-- **Modal.Content** is replaced by **Modal.Body**.
 - To ensure **good spacing** between modal's sub-components, they **must** be wrapped with **Modal.Content**.
+- **Modal.Body** is now the content box for Modal.
 - **Modal.Cover** has been removed.
 - We migrated to Ariakit and added an `useModal` hook to play with the component store.
 - `onClose` has been changed from an optional prop of **Modal** to an optional option you can pass to useModal
@@ -294,7 +294,15 @@ We renamed some icons:
 + const modal = useModal()
 
 - <Modal {...modalState}>
+-   <Modal.Content>
+      ...
+-   </Modal.Content>
 + <Modal store={modal}>
++   <Modal.Content store={modal}>
++     <Modal.Body>
+        ...
++     </Modal.Body>
++   </Modal.Content>
 =   ...
 = </Modal>
 ```
