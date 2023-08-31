@@ -116,6 +116,54 @@ describe('<Slider> test', () => {
 
     expect(slider).toMatchObject({ value: '60' })
   })
+
+  test('Slider and left field should be disabled', () => {
+    const handleChange = jest.fn()
+    const value = 30
+    const { container } = render(
+      <Slider
+        disabled
+        max={100}
+        min={0}
+        onChange={handleChange}
+        type="left-field"
+        value={value}
+        w={100}
+      />
+    )
+
+    /* eslint-disable @typescript-eslint/no-non-null-assertion */
+    const slider = container.querySelector<HTMLInputElement>('input[type="range"]')!
+    const numberInput = container.querySelector<HTMLInputElement>('input[type="number"]')!
+    /* eslint-enable @typescript-eslint/no-non-null-assertion */
+
+    expect(slider).toBeDisabled()
+    expect(numberInput).toBeDisabled()
+  })
+
+  test('Slider and right field should be disabled', () => {
+    const handleChange = jest.fn()
+    const value = 30
+    const { container } = render(
+      <Slider
+        disabled
+        max={100}
+        min={0}
+        onChange={handleChange}
+        type="right-field"
+        value={value}
+        w={100}
+      />
+    )
+
+    /* eslint-disable @typescript-eslint/no-non-null-assertion */
+    const slider = container.querySelector<HTMLInputElement>('input[type="range"]')!
+    const numberInput = container.querySelector<HTMLInputElement>('input[type="number"]')!
+    /* eslint-enable @typescript-eslint/no-non-null-assertion */
+
+    expect(slider).toBeDisabled()
+    expect(numberInput).toBeDisabled()
+  })
 })
 
 describe('<Slider.Range> test', () => {
@@ -279,5 +327,28 @@ describe('<Slider.Range> test', () => {
 
     expect(handleChange.mock.calls.length).toBe(2)
     expect(handleChange.mock.calls[1][0]).toMatchObject({ min: 20, max: 30 })
+  })
+
+  test('Slider.Range and fields should be disabled', () => {
+    const handleChange = jest.fn()
+    const { container } = render(
+      <Slider.Range
+        disabled
+        max={100}
+        min={0}
+        onChange={handleChange}
+        step={10}
+        type="fields"
+        value={{ min: 20, max: 50 }}
+      />
+    )
+    /* eslint-disable @typescript-eslint/no-non-null-assertion */
+    const inputSlider = container.querySelector<HTMLInputElement>('input[type="number"]')!
+    const fields = container.querySelectorAll<HTMLInputElement>('input[type="number"]')!
+    /* eslint-enable @typescript-eslint/no-non-null-assertion */
+
+    expect(inputSlider).toBeDisabled()
+    expect(fields[0]).toBeDisabled()
+    expect(fields[1]).toBeDisabled()
   })
 })
