@@ -1,29 +1,5 @@
 import { defineTextStyles } from '@pandacss/dev'
 
-// type TextToken = 'h0': { value: {
-//   fontSize: ''
-// }}, 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'subtitle-md' | 'subtitle-sm'
-
-// const textTransforms: Partial<Record<TextToken, string>> = {
-//   'subtitle-md': 'uppercase',
-//   'subtitle-sm': 'uppercase',
-// }
-
-// const texts = Object.keys(fontSizes).reduce((styles: TextStyles, key: TextToken) => {
-//   styles[key] = {
-//     value: {
-//       fontSize: ''
-//       fontFamily: fontFamilies[key],
-//       // fontWeight: fontWeights[key], regular/bold/medium not match TextToken
-//       fontSize: fontSizes[key],
-//       lineHeight: lineHeights[key] || lineHeights.lg,
-//       letterSpacing: letterSpacings[key],
-//       textTransform: textTransforms[key],
-//     },
-//   }
-//   return styles
-// }, {})
-
 export const textStyles = defineTextStyles({
   h0: {
     value: {
