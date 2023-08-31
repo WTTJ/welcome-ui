@@ -2,6 +2,7 @@ import { definePreset } from '@pandacss/dev'
 
 import { tokens } from './tokens'
 import { recipes } from './recipes'
+import { slotRecipes } from './slotRecipes'
 import { breakpoints } from './breakpoints'
 import { textStyles } from './textStyles'
 import { globalCss } from './globalCss'
@@ -17,6 +18,7 @@ export const preset = definePreset({
     extend: {
       tokens,
       recipes,
+      slotRecipes,
       breakpoints,
       textStyles,
     },

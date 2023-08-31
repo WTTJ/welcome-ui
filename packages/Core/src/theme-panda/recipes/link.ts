@@ -69,4 +69,7 @@ export const link = defineRecipe({
       },
     },
   },
+  defaultVariants: {
+    variant: 'primary',
+  },
 })

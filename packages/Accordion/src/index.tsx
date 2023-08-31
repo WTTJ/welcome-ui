@@ -3,6 +3,9 @@ import * as Ariakit from '@ariakit/react'
 import AnimateHeight from 'react-animate-height'
 import { RightIcon } from '@welcome-ui/icons'
 import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { accordion } from '@welcome-ui/panda/recipes'
+import { styled } from '@welcome-ui/panda/jsx'
+import { cx } from '@welcome-ui/panda/css'
 
 import * as S from './styles'
 
@@ -55,19 +58,29 @@ export function useAccordion(options?: UseAccordionProps): UseAccordion {
 type AccordionPandaProps = CreateWuiPandaProps<'div', AccordionOptions> & { dataTestId?: string }
 
 export const AccordionPanda = React.forwardRef<HTMLDivElement, AccordionPandaProps>(
-  ({ children, icon = <RightIcon />, title, store, dataTestId, ...rest }, ref) => {
+  ({ children, className, icon = <RightIcon />, title, store, dataTestId, ...rest }, ref) => {
+    const classes = accordion()
     const isOpen = store.useState('open')
 
     return (
-      <S.AccordionPanda data-testid={dataTestId} ref={ref} {...rest}>
-        <S.DisclosurePanda
+      <styled.div
+        data-testid={dataTestId}
+        ref={ref}
+        {...rest}
+        className={cx(classes.root, className)}
+      >
+        <Ariakit.Disclosure
+          className={classes.discolsure}
           data-testid={dataTestId ? `${dataTestId}-title` : undefined}
           store={store}
         >
           {title}
-          <S.IconPanda data-open={isOpen}>{cloneElement(icon, { size: 'sm' })}</S.IconPanda>
-        </S.DisclosurePanda>
-        <S.ContentPanda
+          <div className={classes.icon} data-open={isOpen}>
+            {cloneElement(icon, { size: 'sm' })}
+          </div>
+        </Ariakit.Disclosure>
+        <Ariakit.DisclosureContent
+          className={classes.content}
           data-open={isOpen}
           data-testid={dataTestId ? `${dataTestId}-content` : undefined}
           store={store}
@@ -75,8 +88,8 @@ export const AccordionPanda = React.forwardRef<HTMLDivElement, AccordionPandaPro
           <AnimateHeight animateOpacity duration={200} height={isOpen ? 'auto' : 0}>
             {children}
           </AnimateHeight>
-        </S.ContentPanda>
-      </S.AccordionPanda>
+        </Ariakit.DisclosureContent>
+      </styled.div>
     )
   }
 )
