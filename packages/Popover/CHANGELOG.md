@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.52...v5.0.0) (2023-08-31)
+
+
+### Bug Fixes
+
+* peer dependency react must be >=18.0.0 ([#2222](https://github.com/WTTJ/welcome-ui/issues/2222)) ([75a2e57](https://github.com/WTTJ/welcome-ui/commit/75a2e57010a5ee2392749fb04eeaab62a60d83ea))
+
+
+
+
+
 # [5.0.0-alpha.51](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.50...v5.0.0-alpha.51) (2023-08-22)
 
 **Note:** Version bump only for package @welcome-ui/popover
