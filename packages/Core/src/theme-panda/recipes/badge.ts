@@ -11,7 +11,7 @@ export const badge = defineRecipe({
     fontSize: 'xs',
     lineHeight: 'xs',
     fontWeight: 'medium',
-    fontFamily: 'subtitle-sm',
+    fontFamily: 'headings',
   },
   variants: {
     variant: {

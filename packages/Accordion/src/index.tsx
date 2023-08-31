@@ -2,9 +2,9 @@ import React, { cloneElement } from 'react'
 import * as Ariakit from '@ariakit/react'
 import AnimateHeight from 'react-animate-height'
 import { RightIcon } from '@welcome-ui/icons'
-import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { accordion } from '@welcome-ui/panda/recipes'
-import { styled } from '@welcome-ui/panda/jsx'
+import { type HTMLStyledProps, styled } from '@welcome-ui/panda/jsx'
 import { cx } from '@welcome-ui/panda/css'
 
 import * as S from './styles'
@@ -54,11 +54,14 @@ export function useAccordion(options?: UseAccordionProps): UseAccordion {
   return accordion
 }
 
-// todo fix dataTestId
-type AccordionPandaProps = CreateWuiPandaProps<'div', AccordionOptions> & { dataTestId?: string }
+type AccordionPandaProps = HTMLStyledProps<'div'> & AccordionOptions
 
 export const AccordionPanda = React.forwardRef<HTMLDivElement, AccordionPandaProps>(
-  ({ children, className, icon = <RightIcon />, title, store, dataTestId, ...rest }, ref) => {
+  ({ children, className, icon = <RightIcon />, title, store, ...rest }, ref) => {
+    // todo fixme (data-testid is a valid prop)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const dataTestId = rest['data-testid']
     const classes = accordion()
     const isOpen = store.useState('open')
 

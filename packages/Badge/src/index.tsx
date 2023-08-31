@@ -1,6 +1,6 @@
 import React from 'react'
-import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { styled } from '@welcome-ui/panda/jsx'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { type HTMLStyledProps, styled } from '@welcome-ui/panda/jsx'
 import { badge, type BadgeVariantProps } from '@welcome-ui/panda/recipes'
 
 import * as S from './styles'
@@ -64,7 +64,7 @@ export const Badge = forwardRef<'div', BadgeProps>(
 Badge.displayName = 'Badge'
 
 export type BadgePandaOptions = BadgeVariantProps & Pick<BadgeOptions, 'withNumberAbbreviation'>
-export type BadgePandaProps = CreateWuiPandaProps<'div', BadgePandaOptions>
+export type BadgePandaProps = HTMLStyledProps<'div'> & BadgePandaOptions
 
 const StyledBadgePanda = styled('div', badge)
 

@@ -1,5 +1,6 @@
 import React from 'react'
-import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { type HTMLStyledProps } from '@welcome-ui/panda/jsx'
 import { RecipeVariantProps } from '@welcome-ui/panda/css'
 
 import * as S from './styles'
@@ -58,7 +59,7 @@ export const StyledIcon = S.Icon
 export type IconPandaVariants = RecipeVariantProps<typeof S.iconStyles>
 export type IconPandaOptions = Omit<IconOptions, keyof IconPandaVariants | 'onClick'> &
   IconPandaVariants
-export type IconPandaProps = CreateWuiPandaProps<'svg', IconPandaOptions>
+export type IconPandaProps = HTMLStyledProps<'svg'> & IconPandaOptions
 
 // todo dataTestId
 

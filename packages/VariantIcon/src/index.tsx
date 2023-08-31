@@ -6,9 +6,10 @@ import {
   SquareAlertIcon,
   SuccessIcon,
 } from '@welcome-ui/icons'
-import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { Variant as VariantFromUtils } from '@welcome-ui/utils'
 import type { RecipeVariantProps } from '@welcome-ui/panda/css'
+import type { HTMLStyledProps } from '@welcome-ui/panda/jsx'
 
 import * as S from './styles'
 
@@ -52,7 +53,7 @@ type IconProps = React.ComponentProps<typeof AlertIcon>
 export type VariantIconPandaVariants = RecipeVariantProps<typeof S.variantIconStyles>
 export type VariantIconPandaOptions = VariantIconPandaVariants &
   Pick<IconProps, 'size'> & { icon?: JSX.Element }
-export type VariantIconPandaProps = CreateWuiPandaProps<'div', VariantIconPandaOptions>
+export type VariantIconPandaProps = HTMLStyledProps<'div'> & VariantIconPandaOptions
 
 export const VariantIconPanda = React.forwardRef<HTMLDivElement, VariantIconPandaProps>(
   ({ icon, size, variant, ...rest }, ref) => {

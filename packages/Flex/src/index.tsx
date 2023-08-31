@@ -1,7 +1,7 @@
 import React from 'react'
-import { Box, BoxPanda } from '@welcome-ui/box'
-import { CreateWuiPandaProps, CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
-import { HTMLStyledProps } from '@welcome-ui/panda/jsx'
+import { Box } from '@welcome-ui/box'
+import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
+import { type HTMLStyledProps, styled } from '@welcome-ui/panda/jsx'
 
 export interface FlexOptions {
   /** same as alignItems */
@@ -60,12 +60,12 @@ export type FlexPandaOptions = {
   /** same as flexShrink */
   shrink?: HTMLStyledProps<'div'>['flexShrink']
 }
-type FlexPandaProps = CreateWuiPandaProps<'div', FlexPandaOptions>
+type FlexPandaProps = HTMLStyledProps<'div'> & FlexPandaOptions
 
 export const FlexPanda = React.forwardRef<HTMLDivElement, FlexPandaProps>(
   ({ align, basis, direction, grow, justify, shrink, wrap, ...rest }, ref) => {
     return (
-      <BoxPanda
+      <styled.div
         alignItems={align}
         display="flex"
         flexBasis={basis}

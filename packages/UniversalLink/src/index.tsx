@@ -1,5 +1,6 @@
 import React from 'react'
-import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { type HTMLStyledProps } from '@welcome-ui/panda/jsx'
 
 import * as S from './styles'
 
@@ -27,7 +28,7 @@ export const UniversalLink = forwardRef<'a', UniversalLinkProps>(
 
 UniversalLink.displayName = 'UniversalLink'
 
-export type UniversalLinkPandaProps = CreateWuiPandaProps<'a'>
+export type UniversalLinkPandaProps = HTMLStyledProps<'a'>
 
 export const UniversalLinkPanda = React.forwardRef<HTMLAnchorElement, UniversalLinkPandaProps>(
   ({ target, ...props }, ref) => {

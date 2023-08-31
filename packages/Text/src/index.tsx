@@ -1,6 +1,6 @@
 import React from 'react'
-import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { styled } from '@welcome-ui/panda/jsx'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { type HTMLStyledProps, styled } from '@welcome-ui/panda/jsx'
 import { text, type TextVariantProps } from '@welcome-ui/panda/recipes'
 
 import * as S from './styles'
@@ -63,7 +63,7 @@ const getBlockHeight = (lines: number): React.CSSProperties => ({
 })
 
 export type TextPandaOptions = TextVariantProps & { lines?: number }
-export type TextPandaProps = CreateWuiPandaProps<'p', TextPandaOptions>
+export type TextPandaProps = HTMLStyledProps<'p'> & TextPandaOptions
 
 export const TextPanda = React.forwardRef<HTMLParagraphElement, TextPandaProps>(
   ({ children, className, lines, variant = 'md', ...rest }, ref) => {

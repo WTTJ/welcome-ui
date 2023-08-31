@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconPandaOptions, IconProps } from '@welcome-ui/icon'
-import { CreateWuiPandaProps } from '@welcome-ui/system'
+import { type HTMLStyledProps } from '@welcome-ui/panda/jsx'
 
 import { getIconContentByName, Icon, IconPanda, StyledIconProps } from './styles'
 import unicodeJson from './unicode.json'
@@ -50,7 +50,7 @@ export const Icons = iconsKeys.reduce<IconsType>((prev, name) => {
 }, {} as IconsType)
 
 // todo dataTestId
-export type IconPandaProps = CreateWuiPandaProps<'i', IconPandaOptions>
+export type IconPandaProps = HTMLStyledProps<'i'> & IconPandaOptions
 export type IconsPandaType = Record<IconKeyFormatted, (props: IconPandaProps) => JSX.Element>
 
 export const IconsPanda = iconsKeys.reduce<IconsPandaType>((prev, name) => {

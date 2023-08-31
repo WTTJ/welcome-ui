@@ -10,7 +10,6 @@ import {
 } from '@xstyled/styled-components'
 import * as S from '@xstyled/styled-components'
 import { StyledConfig } from 'styled-components'
-import { HTMLStyledProps } from '@welcome-ui/panda/jsx'
 
 // Those are styles that were in v1 but not in v2
 const oldProps = compose(
@@ -159,10 +158,3 @@ export const forwardRef = <Component extends As, Props = {}>(
 }
 
 export type ExtraSize = number | string
-
-// panda
-export type CreateWuiPandaProps<Component extends React.ElementType, Props = object> = Omit<
-  HTMLStyledProps<Component>,
-  keyof Props
-> &
-  Props

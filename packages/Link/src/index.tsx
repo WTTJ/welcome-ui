@@ -1,8 +1,8 @@
 import React from 'react'
 import { UniversalLinkOptions, UniversalLinkPanda } from '@welcome-ui/universal-link'
-import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ExternalLinkIcon } from '@welcome-ui/icons'
-import { styled } from '@welcome-ui/panda/jsx'
+import { type HTMLStyledProps, styled } from '@welcome-ui/panda/jsx'
 import { link, type LinkVariantProps } from '@welcome-ui/panda/recipes'
 
 import * as S from './styles'
@@ -59,7 +59,7 @@ export const Link = forwardRef<'a', LinkProps>((props, ref) => {
 Link.displayName = 'Link'
 
 export type LinkPandaOptions = LinkVariantProps & { isExternal?: boolean }
-export type LinkPandaProps = CreateWuiPandaProps<'a', LinkPandaOptions>
+export type LinkPandaProps = HTMLStyledProps<'a'> & LinkPandaOptions
 
 const StyledLinkPanda = styled(UniversalLinkPanda, link)
 

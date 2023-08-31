@@ -1,7 +1,7 @@
 import React from 'react'
-import { CreateWuiPandaProps, CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { Button as AriakitButton } from '@ariakit/react'
-import { styled } from '@welcome-ui/panda/jsx'
+import { type HTMLStyledProps, styled } from '@welcome-ui/panda/jsx'
 import { button, type ButtonVariantProps } from '@welcome-ui/panda/recipes'
 
 import * as S from './styles'
@@ -55,7 +55,7 @@ Button.displayName = 'Button'
 export const StyledButton = S.Button
 
 export type ButtonPandaOptions = ButtonVariantProps
-export type ButtonPandaProps = CreateWuiPandaProps<'button', ButtonPandaOptions>
+export type ButtonPandaProps = HTMLStyledProps<'button'> & ButtonPandaOptions
 
 const StyledButtonPanda = styled(AriakitButton, button)
 
