@@ -3,7 +3,7 @@ import { defineRecipe } from '@pandacss/dev'
 export const button = defineRecipe({
   className: 'wui-button',
   description: 'welcome-ui button',
-  jsx: ['ButtonPanda'],
+  jsx: [/Button.*/],
   base: {
     fontSize: 'sm',
     color: 'light-900',
