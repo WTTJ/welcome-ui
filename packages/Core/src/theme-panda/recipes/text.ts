@@ -3,7 +3,7 @@ import { defineRecipe } from '@pandacss/dev'
 export const text = defineRecipe({
   className: 'wui-text',
   description: 'welcome-ui text',
-  jsx: [/Text.*/],
+  jsx: [/Text.*/, /Title.*/],
   base: {
     display: 'block',
   },

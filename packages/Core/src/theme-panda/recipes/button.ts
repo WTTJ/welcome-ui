@@ -212,7 +212,7 @@ export const button = defineRecipe({
     },
     size: {
       xxs: {
-        height: 16,
+        height: '16px',
         paddingY: 'xxs',
         paddingX: 'xs',
         '& > svg.wui-icon, & > i.wui-icon-font': {
@@ -230,7 +230,7 @@ export const button = defineRecipe({
         },
       },
       xs: {
-        height: 24,
+        height: '24px',
         paddingY: 'xs',
         paddingX: 'sm',
         '& > svg.wui-icon, & > i.wui-icon-font': {
@@ -248,7 +248,7 @@ export const button = defineRecipe({
         },
       },
       sm: {
-        height: 32,
+        height: '32px',
         paddingY: 'sm',
         paddingX: 'md',
         '& > svg.wui-icon, & > i.wui-icon-font': {
@@ -268,7 +268,7 @@ export const button = defineRecipe({
       md: {
         fontSize: 'sm',
         fontWeight: 'bold',
-        height: 40,
+        height: '40px',
         paddingY: 'sm',
         paddingX: 'lg',
         '& > svg.wui-icon, & > i.wui-icon-font': {
@@ -288,7 +288,7 @@ export const button = defineRecipe({
       lg: {
         fontSize: 'sm',
         fontWeight: 'bold',
-        height: 48,
+        height: '48px',
         paddingY: 'md',
         paddingX: 'xl',
         '& > svg.wui-icon, & > i.wui-icon-font': {
@@ -333,35 +333,40 @@ export const button = defineRecipe({
       size: 'xxs',
       shape: 'circle',
       css: {
-        width: 16,
+        width: '16px',
+        height: '16px',
       },
     },
     {
       size: 'xs',
       shape: 'circle',
       css: {
-        width: 24,
+        width: '24px',
+        height: '24px',
       },
     },
     {
       size: 'sm',
       shape: 'circle',
       css: {
-        width: 32,
+        width: '32px',
+        height: '32px',
       },
     },
     {
       size: 'md',
       shape: 'circle',
       css: {
-        width: 40,
+        width: '40px',
+        height: '40px',
       },
     },
     {
       size: 'lg',
       shape: 'circle',
       css: {
-        width: 48,
+        width: '48px',
+        height: '48px',
       },
     },
   ],

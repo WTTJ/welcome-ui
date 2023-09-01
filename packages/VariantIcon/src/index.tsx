@@ -1,10 +1,15 @@
 import React, { useMemo } from 'react'
 import {
   AlertIcon,
+  AlertIconPanda,
   InformationIcon,
+  InformationIconPanda,
   PromoteIcon,
+  PromoteIconPanda,
   SquareAlertIcon,
+  SquareAlertIconPanda,
   SuccessIcon,
+  SuccessIconPanda,
 } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { Variant as VariantFromUtils } from '@welcome-ui/utils'
@@ -48,7 +53,7 @@ export const VariantIcon = forwardRef<'div', VariantIconProps>(
 
 VariantIcon.displayName = 'VariantIcon'
 
-type IconProps = React.ComponentProps<typeof AlertIcon>
+type IconProps = React.ComponentProps<typeof AlertIconPanda>
 
 export type VariantIconPandaVariants = RecipeVariantProps<typeof S.variantIconStyles>
 export type VariantIconPandaOptions = VariantIconPandaVariants &
@@ -61,11 +66,11 @@ export const VariantIconPanda = React.forwardRef<HTMLDivElement, VariantIconPand
       if (icon === null) return null
       if (icon) return icon
 
-      if (variant === 'default') return <PromoteIcon size={size} />
-      if (variant === 'success') return <SuccessIcon size={size} />
-      if (variant === 'info') return <InformationIcon size={size} />
-      if (variant === 'warning') return <AlertIcon size={size} />
-      if (variant === 'error') return <SquareAlertIcon size={size} />
+      if (variant === 'default') return <PromoteIconPanda size={size} />
+      if (variant === 'success') return <SuccessIconPanda size={size} />
+      if (variant === 'info') return <InformationIconPanda size={size} />
+      if (variant === 'warning') return <AlertIconPanda size={size} />
+      if (variant === 'error') return <SquareAlertIconPanda size={size} />
     }, [size, icon, variant])
 
     if (Icon) {

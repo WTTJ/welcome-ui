@@ -12,13 +12,15 @@
       "require": "./dist/index.js"
     },
     "./package.json": "./package.json",
-    "./dist/index.doc.json": "./dist/index.doc.json"
+    "./dist/index.doc.json": "./dist/index.doc.json",
+    "./dist/index.css.json": "./dist/index.css.json"
   },
   "scripts": {
     "build": "node ../../scripts/build.js",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "doc": "node -r esm ../../scripts/doc-props.js --name Link"
+    "doc": "node -r esm ../../scripts/doc-props.js --name Link",
+    "css": "panda ship 'src/**/*.ts*' --outfile dist/index.css.json"
   },
   "publishConfig": {
     "access": "public"
@@ -46,11 +48,11 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/system": "^5.0.0"
+    "@welcome-ui/icons": "^5.0.0",
+    "@welcome-ui/system": "^5.0.0",
+    "@welcome-ui/universal-link": "^5.0.0"
   },
   "peerDependencies": {
-    "@welcome-ui/icons": "^5.0.0",
-    "@welcome-ui/universal-link": "^5.0.0",
     "@xstyled/styled-components": "^3.7.3",
     "react": "^18.0.0",
     "styled-components": "^5.3.9"
