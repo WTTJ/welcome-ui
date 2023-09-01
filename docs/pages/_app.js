@@ -1,5 +1,4 @@
 /* eslint-disable react/display-name */
-import '../styles/index.css'
 import React from 'react'
 
 import { ThemeProvider } from '../context/theme'

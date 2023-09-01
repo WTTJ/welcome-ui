@@ -4,7 +4,6 @@
   "private": true,
   "description": "Documentation for @welcome-ui components",
   "scripts": {
-    "prepare": "panda codegen",
     "build": "next build",
     "start": "next -p 3020"
   },
