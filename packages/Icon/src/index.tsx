@@ -1,7 +1,7 @@
 import React from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { type HTMLStyledProps } from '@welcome-ui/panda/jsx'
-import { RecipeVariantProps } from '@welcome-ui/panda/css'
+import { type HTMLStyledProps, styled } from '@welcome-ui/panda/jsx'
+import { icon, IconVariantProps } from '@welcome-ui/panda/recipes'
 
 import * as S from './styles'
 
@@ -56,13 +56,13 @@ Icon.displayName = 'Icon'
 
 export const StyledIcon = S.Icon
 
-export type IconPandaVariants = RecipeVariantProps<typeof S.iconStyles>
-export type IconPandaOptions = Omit<IconOptions, keyof IconPandaVariants | 'onClick'> &
-  IconPandaVariants
+export type IconPandaOptions = Omit<IconOptions, keyof IconVariantProps | 'onClick'> &
+  IconVariantProps
 export type IconPandaProps = HTMLStyledProps<'svg'> & IconPandaOptions
 
-// todo dataTestId
+const StyledIconPanda = styled('svg', icon)
 
+// todo dataTestId
 export const IconPanda = React.forwardRef<SVGSVGElement, IconPandaProps>(
   ({ content, size = 'md', ...props }, ref) => {
     const className = props.className || ''
@@ -71,7 +71,7 @@ export const IconPanda = React.forwardRef<SVGSVGElement, IconPandaProps>(
     }
 
     return (
-      <S.IconPanda
+      <StyledIconPanda
         className={`${className} wui-icon`}
         dangerouslySetInnerHTML={{ __html: content.block }}
         data-stroked={content.isFlag ? false : content.stroked}
