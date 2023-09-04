@@ -18,7 +18,8 @@
     "build": "node ../../scripts/build.js",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "doc": "node -r esm ../../scripts/doc-props.js --name Icon"
+    "doc": "node -r esm ../../scripts/doc-props.js --name Icon",
+    "css": "panda ship 'src/**/*.ts*' --outfile dist/index.css.json"
   },
   "publishConfig": {
     "access": "public"

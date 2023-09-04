@@ -61,7 +61,7 @@ export type VariantIconPandaOptions = VariantIconPandaVariants &
 export type VariantIconPandaProps = HTMLStyledProps<'div'> & VariantIconPandaOptions
 
 export const VariantIconPanda = React.forwardRef<HTMLDivElement, VariantIconPandaProps>(
-  ({ icon, size, variant, ...rest }, ref) => {
+  ({ icon, size = 'md', variant, ...rest }, ref) => {
     const Icon = useMemo(() => {
       if (icon === null) return null
       if (icon) return icon

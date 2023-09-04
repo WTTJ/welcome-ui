@@ -21,7 +21,7 @@ export type Size = 'sm' | 'md'
 export interface AlertOptions {
   variant?: Variant
   size?: Size
-  icon?: JSX.Element
+  icon?: JSX.Element | string | null
   isFullWidth?: boolean
   cta?: JSX.Element
   /**

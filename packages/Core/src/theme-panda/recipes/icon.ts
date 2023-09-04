@@ -45,4 +45,7 @@ export const icon = defineRecipe({
       },
     },
   },
+  defaultVariants: {
+    size: 'md',
+  },
 })

@@ -65,14 +65,10 @@ const StyledIconPanda = styled('svg', icon)
 // todo dataTestId
 export const IconPanda = React.forwardRef<SVGSVGElement, IconPandaProps>(
   ({ content, size = 'md', ...props }, ref) => {
-    const className = props.className || ''
-    if (!content) {
-      return null
-    }
+    if (!content) return null
 
     return (
       <StyledIconPanda
-        className={`${className} wui-icon`}
         dangerouslySetInnerHTML={{ __html: content.block }}
         data-stroked={content.isFlag ? false : content.stroked}
         role="img"
