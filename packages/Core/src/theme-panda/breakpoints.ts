@@ -1,4 +1,8 @@
-export const breakpoints = {
+import type { Theme } from '@pandacss/types'
+
+type BreakpointConfig = Theme['breakpoints']
+
+export const breakpoints: BreakpointConfig = {
   xs: '0px',
   sm: '480px',
   md: '736px',

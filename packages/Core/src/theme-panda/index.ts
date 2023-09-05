@@ -6,12 +6,15 @@ import { slotRecipes } from './slotRecipes'
 import { breakpoints } from './breakpoints'
 import { textStyles } from './textStyles'
 import { globalCss } from './globalCss'
+import { utilities } from './utilities'
 
 export * from './tokens'
 export * from './recipes'
+export * from './slotRecipes'
 export * from './breakpoints'
 export * from './textStyles'
 export * from './globalCss'
+export * from './utilities'
 
 export const preset = definePreset({
   theme: {
@@ -22,6 +25,9 @@ export const preset = definePreset({
       breakpoints,
       textStyles,
     },
+  },
+  utilities: {
+    extend: utilities,
   },
   globalCss,
 })
