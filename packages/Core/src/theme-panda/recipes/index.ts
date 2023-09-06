@@ -4,6 +4,7 @@ import { icon } from './icon'
 import { link } from './link'
 import { shape } from './shape'
 import { text } from './text'
+import { tooltip } from './tooltip'
 
 export const recipes = {
   badge,
@@ -12,4 +13,5 @@ export const recipes = {
   link,
   shape,
   text,
+  tooltip,
 }
