@@ -66,19 +66,13 @@ export type TextPandaOptions = TextVariantProps & { lines?: number }
 export type TextPandaProps = HTMLStyledProps<'p'> & TextPandaOptions
 
 export const TextPanda = React.forwardRef<HTMLParagraphElement, TextPandaProps>(
-  ({ children, className, lines, variant = 'md', ...rest }, ref) => {
+  ({ children, lines, variant = 'md', ...rest }, ref) => {
     const tagName = TAG_NAMES[variant as Variant]
     const Component = styled(tagName, text)
     const style = lines ? getBlockHeight(lines) : {}
 
     return (
-      <Component
-        className={`${className || ''} wui-text`}
-        ref={ref}
-        style={style}
-        variant={variant}
-        {...rest}
-      >
+      <Component ref={ref} style={style} variant={variant} {...rest}>
         {children}
       </Component>
     )
