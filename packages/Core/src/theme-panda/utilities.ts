@@ -8,11 +8,11 @@ export const utilities: UtilityConfig = {
     transform: (value: string, { token }) => {
       switch (value) {
         case 'slow':
-          return { transition: `${token('durations.slow')} ${token('easings.slow')}` }
+          return { transition: `all ${token('durations.slow')} ${token('easings.slow')}` }
         case 'medium':
-          return { transition: `${token('durations.medium')} ${token('easings.medium')}` }
+          return { transition: `all ${token('durations.medium')} ${token('easings.medium')}` }
         case 'fast':
-          return { transition: `${token('durations.fast')} ${token('easings.fast')}` }
+          return { transition: `all ${token('durations.fast')} ${token('easings.fast')}` }
         default:
           return { transition: value }
       }

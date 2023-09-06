@@ -1,9 +1,12 @@
 import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { type HTMLStyledProps, styled } from '@welcome-ui/panda/jsx'
+import { tabs } from '@welcome-ui/panda/recipes'
+import { cx } from '@welcome-ui/panda/css'
 
-import { TabList } from './TabList'
-import { TabPanel } from './TabPanel'
+import { TabList, TabListPanda } from './TabList'
+import { TabPanel, TabPanelPanda } from './TabPanel'
 import * as S from './styles'
 
 export type TabOptions = { store: UseTab }
@@ -37,3 +40,24 @@ export type UseTabState = Ariakit.TabStoreState
 export function useTab(options?: UseTabProps): UseTab {
   return Ariakit.useTabStore(options)
 }
+
+export type TabPandaOptions = { store: UseTab }
+export type TabPandaProps = HTMLStyledProps<'button'> & TabPandaOptions
+const StyledTabPanda = styled(Ariakit.Tab)
+
+export const TabComponentPanda = React.forwardRef<HTMLButtonElement, TabPandaProps>(
+  ({ children, className, id, store, ...rest }, ref) => {
+    const { tab } = tabs()
+
+    return (
+      <StyledTabPanda className={cx(tab, className)} id={id} ref={ref} store={store} {...rest}>
+        {children}
+      </StyledTabPanda>
+    )
+  }
+)
+
+export const TabPanda = Object.assign(TabComponentPanda, {
+  List: TabListPanda,
+  Panel: TabPanelPanda,
+})

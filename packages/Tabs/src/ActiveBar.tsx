@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useViewportSize } from '@welcome-ui/utils'
 import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
+import { styled } from '@welcome-ui/panda/jsx'
 
 import * as S from './styles'
 import { getParentScale } from './utils'
@@ -65,3 +66,20 @@ export const ActiveBar: React.FC<ActiveBarProps> = ({ activeTab, listRef, orient
 }
 
 ActiveBar.displayName = 'ActiveBar'
+
+type ActiveBarPandaProps = ActiveBarProps & { className?: string }
+
+export const ActiveBarPanda: React.FC<ActiveBarPandaProps> = ({
+  activeTab,
+  className,
+  listRef,
+  orientation,
+}) => {
+  const { offset, size } = useActiveBar(listRef, activeTab, orientation)
+  const style =
+    orientation === 'horizontal'
+      ? { width: `${size}px`, transform: `translateX(${offset}px)` }
+      : { height: `${size}px`, transform: `translateY(${offset}px)` }
+
+  return <styled.span className={className} style={style} />
+}

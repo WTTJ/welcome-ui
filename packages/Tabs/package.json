@@ -12,13 +12,15 @@
       "require": "./dist/index.js"
     },
     "./package.json": "./package.json",
-    "./dist/index.doc.json": "./dist/index.doc.json"
+    "./dist/index.doc.json": "./dist/index.doc.json",
+    "./dist/index.css.json": "./dist/index.css.json"
   },
   "scripts": {
     "build": "node ../../scripts/build.js",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "doc": "node -r esm ../../scripts/doc-props.js --name Tabs"
+    "doc": "node -r esm ../../scripts/doc-props.js --name Tabs",
+    "css": "panda ship 'src/**/*.ts*' --outfile dist/index.css.json"
   },
   "publishConfig": {
     "access": "public"

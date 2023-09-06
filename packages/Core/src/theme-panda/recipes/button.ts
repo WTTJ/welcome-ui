@@ -1,4 +1,5 @@
 import { defineRecipe } from '@pandacss/dev'
+import { token } from '@welcome-ui/panda/tokens'
 
 export const button = defineRecipe({
   className: 'wui-button',
@@ -22,9 +23,7 @@ export const button = defineRecipe({
     border: 'sm',
     appearance: 'none',
     overflow: 'hidden',
-    transition: 'all',
-    transitionDuration: 'medium',
-    transitionTimingFunction: 'medium',
+    transition: 'medium',
     _active: {
       boxShadow: 'none',
     },
@@ -43,7 +42,7 @@ export const button = defineRecipe({
           borderColor: 'primary-200',
         },
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.primary-200)',
+          boxShadow: `0 0 0 2px ${token('colors.primary-200')}`,
         },
         _active: {
           backgroundColor: 'primary-100',
@@ -58,7 +57,7 @@ export const button = defineRecipe({
           borderColor: 'transparent',
         },
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.dark-500)',
+          boxShadow: `0 0 0 2px ${token('colors.dark-500')}`,
         },
         _active: {
           backgroundColor: 'dark-200',
@@ -73,7 +72,7 @@ export const button = defineRecipe({
           backgroundColor: 'dark-100',
         },
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.dark-500)',
+          boxShadow: `0 0 0 2px ${token('colors.dark-500')}`,
         },
         _active: {
           backgroundColor: 'dark-400',
@@ -87,7 +86,7 @@ export const button = defineRecipe({
           borderColor: 'success-400',
         },
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.success-400)',
+          boxShadow: `0 0 0 2px ${token('colors.success-400')}`,
         },
         _active: {
           backgroundColor: 'success-300',
@@ -102,7 +101,7 @@ export const button = defineRecipe({
           backgroundColor: 'success-100',
         },
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.success-200)',
+          boxShadow: `0 0 0 2px ${token('colors.success-200')}`,
         },
         _active: {
           backgroundColor: 'success-100',
@@ -116,7 +115,7 @@ export const button = defineRecipe({
           borderColor: 'warning-400',
         },
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.warning-400)',
+          boxShadow: `0 0 0 2px ${token('colors.warning-400')}`,
         },
         _active: {
           backgroundColor: 'warning-300',
@@ -131,7 +130,7 @@ export const button = defineRecipe({
           backgroundColor: 'warning-100',
         },
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.warning-200)',
+          boxShadow: `0 0 0 2px ${token('colors.warning-200')}`,
         },
         _active: {
           backgroundColor: 'warning-100',
@@ -145,7 +144,7 @@ export const button = defineRecipe({
           borderColor: 'danger-400',
         },
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.danger-400)',
+          boxShadow: `0 0 0 2px ${token('colors.danger-400')}`,
         },
         _active: {
           backgroundColor: 'danger-300',
@@ -160,7 +159,7 @@ export const button = defineRecipe({
           backgroundColor: 'danger-100',
         },
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.danger-200)',
+          boxShadow: `0 0 0 2px ${token('colors.danger-200')}`,
         },
         _active: {
           backgroundColor: 'danger-100',
@@ -174,7 +173,7 @@ export const button = defineRecipe({
           borderColor: 'info-400',
         },
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.info-400)',
+          boxShadow: `0 0 0 2px ${token('colors.info-400')}`,
         },
         _active: {
           backgroundColor: 'info-300',
@@ -189,7 +188,7 @@ export const button = defineRecipe({
           backgroundColor: 'info-100',
         },
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.info-200)',
+          boxShadow: `0 0 0 2px ${token('colors.info-200')}`,
         },
         _active: {
           backgroundColor: 'info-100',
@@ -203,7 +202,7 @@ export const button = defineRecipe({
           backgroundColor: 'border',
         },
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.dark-100)',
+          boxShadow: `0 0 0 2px ${token('colors.dark-100')}`,
         },
         _active: {
           backgroundColor: 'dark-400',
@@ -323,7 +322,7 @@ export const button = defineRecipe({
         backgroundColor: 'nude-400',
         borderColor: 'nude-400',
         _focus: {
-          boxShadow: '0 0 0 2px token(colors.nude-200)',
+          boxShadow: `0 0 0 2px ${token('colors.nude-200')}`,
         },
       },
     },

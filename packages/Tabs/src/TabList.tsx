@@ -3,8 +3,10 @@ import * as Ariakit from '@ariakit/react'
 import reactFlattenChildren from 'react-flatten-children'
 import { useForkRef } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { type HTMLStyledProps, styled } from '@welcome-ui/panda/jsx'
+import { tabs as tabsRecipe, type TabsVariantProps } from '@welcome-ui/panda/recipes'
 
-import { ActiveBar } from './ActiveBar'
+import { ActiveBar, ActiveBarPanda } from './ActiveBar'
 import * as S from './styles'
 
 import { UseTab, UseTabState } from '.'
@@ -70,3 +72,34 @@ export const TabList = forwardRef<'div', TabListProps>(
 )
 
 TabList.displayName = 'TabList'
+
+export type TabListPandaOptions = TabsVariantProps & { store: UseTab }
+export type TabListPandaProps = HTMLStyledProps<'div'> & TabListPandaOptions
+const StyledTabListPanda = styled(Ariakit.TabList)
+
+export const TabListPanda = React.forwardRef<HTMLDivElement, TabListPandaProps>(
+  ({ children, size = 'md', store }, ref) => {
+    const listRef = useRef()
+    const listForkedRef = useForkRef(ref, listRef)
+    const { orientation, selectedId } = store.useState()
+    const [tabs, activeTab] = useTrackActiveTabs(selectedId, children)
+    const classes = tabsRecipe({
+      orientation: orientation as TabsVariantProps['orientation'],
+      size,
+    })
+
+    return (
+      <StyledTabListPanda className={classes.list} ref={listForkedRef} store={store}>
+        {tabs}
+        {tabs.length > 1 && (
+          <ActiveBarPanda
+            activeTab={activeTab}
+            className={classes.activeBar}
+            listRef={listRef}
+            orientation={orientation}
+          />
+        )}
+      </StyledTabListPanda>
+    )
+  }
+)
