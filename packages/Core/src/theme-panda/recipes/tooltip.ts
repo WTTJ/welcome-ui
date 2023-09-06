@@ -1,7 +1,6 @@
 import { defineRecipe } from '@pandacss/dev'
-import { token } from '@welcome-ui/panda/tokens'
 
-const medium = `${token('durations.medium')} ${token('easings.medium')}`
+const medium = 'token(durations.medium) token(easings.medium)'
 
 export const tooltip = defineRecipe({
   className: 'wui-tooltip',

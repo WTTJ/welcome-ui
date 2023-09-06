@@ -1,5 +1,4 @@
 import { defineRecipe } from '@pandacss/dev'
-import { token } from '@welcome-ui/panda/tokens'
 
 export const link = defineRecipe({
   className: 'wui-link',
@@ -18,9 +17,8 @@ export const link = defineRecipe({
       marginLeft: '-2px',
       paddingLeft: '2px',
       paddingRight: '2px',
-      backgroundImage: `linear-gradient(0deg, ${token('colors.underline')}, ${token(
-        'colors.underline'
-      )} 100%)`,
+      backgroundImage:
+        'linear-gradient(0deg, token(colors.underline), token(colors.underline) 100%)',
       backgroundRepeat: 'no-repeat',
       backgroundSize: '100% 50%',
       backgroundPositionY: 'calc(200% - 2px)',
@@ -28,7 +26,7 @@ export const link = defineRecipe({
       fontWeight: 'medium',
       transition: 'background-position-y 250ms, background-size 250ms, color 250ms',
       '&[data-external="true"]': {
-        backgroundSize: `calc(100% - ${token('spacing.md')} - ${token('spacing.sm')}) 50%`,
+        backgroundSize: 'calc(100% - token(spacing.md) - token(spacing.sm)) 50%',
       },
       _hover: {
         outline: 'none!',
@@ -52,9 +50,8 @@ export const link = defineRecipe({
       primary: {},
       secondary: {
         '& > .wui-text': {
-          backgroundImage: `linear-gradient(0deg, ${token('colors.dark-900')}, ${token(
-            'colors.dark-900'
-          )} 100%)`,
+          backgroundImage:
+            'linear-gradient(0deg, token(colors.dark-900), token(colors.dark-900) 100%)',
           _hover: {
             color: 'light-900',
           },
@@ -66,9 +63,8 @@ export const link = defineRecipe({
         pointerEvents: 'none',
         '& > .wui-text': {
           color: 'dark-400',
-          backgroundImage: `linear-gradient(0deg, ${token('colors.dark-100')}, ${token(
-            'colors.dark-100'
-          )}, 100%)`,
+          backgroundImage:
+            'linear-gradient(0deg, token(colors.dark-100), token(colors.dark-100), 100%)',
         },
       },
     },

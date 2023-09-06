@@ -1,5 +1,4 @@
 import { defineSlotRecipe } from '@pandacss/dev'
-import { token } from '@welcome-ui/panda/tokens'
 
 export const tabs = defineSlotRecipe({
   className: 'wui-tabs',
@@ -41,11 +40,11 @@ export const tabs = defineSlotRecipe({
         color: 'dark-900',
       },
       '& > svg, img': {
-        maxWidth: token('spacing.lg'),
-        maxHeight: token('spacing.lg'),
+        maxWidth: 'token(spacing.lg)',
+        maxHeight: 'token(spacing.lg)',
       },
       '& > span': {
-        maxHeight: token('spacing.lg'),
+        maxHeight: 'token(spacing.lg)',
       },
     },
     list: {
@@ -86,7 +85,7 @@ export const tabs = defineSlotRecipe({
       vertical: {
         list: {
           flexDirection: 'column',
-          boxShadow: `inset -1px 0 0 ${token('colors.dark-100')}`,
+          boxShadow: 'inset -1px 0 0 token(colors.dark-100)',
         },
         panel: {
           '&:focus': {
@@ -102,7 +101,7 @@ export const tabs = defineSlotRecipe({
       },
       horizontal: {
         list: {
-          boxShadow: `inset 0 -1px 0 ${token('colors.dark-100')}`,
+          boxShadow: 'inset 0 -1px 0 token(colors.dark-100)',
         },
         panel: {
           marginTop: 'xl',
