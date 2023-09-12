@@ -146,8 +146,7 @@ jobs:
       - restore_cache:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: |
-          CIRCLE_BRANCH_BUCKET=$CIRCLE_BRANCH | sed "s/[^[:alnum:]-]/-/g" | awk '{print tolower($0)}' | head -c -63
-          echo $CIRCLE_BRANCH_BUCKET
+          CIRCLE_BRANCH_BUCKET=$(echo "$CIRCLE_BRANCH" | sed "s/[^[:alnum:]-]/-/g" | tr '[:upper:]' '[:lower:]' | cut -c -63)
       - aws-s3/sync:
           from: docs/out
           to: s3://welcome-ui/preprod/$CIRCLE_BRANCH_BUCKET
