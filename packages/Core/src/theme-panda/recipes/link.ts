@@ -12,7 +12,9 @@ export const link = defineRecipe({
     lineHeight: '1.5',
     textDecoration: 'none',
     cursor: 'pointer',
-    '& > .wui-text': {
+    color: 'dark-900',
+    fontWeight: 'medium',
+    '& > .wui-link-text': {
       marginRight: '-2px',
       marginLeft: '-2px',
       paddingLeft: '2px',
@@ -22,21 +24,19 @@ export const link = defineRecipe({
       backgroundRepeat: 'no-repeat',
       backgroundSize: '100% 50%',
       backgroundPositionY: 'calc(200% - 2px)',
-      color: 'dark-900',
-      fontWeight: 'medium',
       transition: 'background-position-y 250ms, background-size 250ms, color 250ms',
       '&[data-external="true"]': {
         backgroundSize: 'calc(100% - token(spacing.md) - token(spacing.sm)) 50%',
       },
       _hover: {
         outline: 'none!',
-        opacity: 1,
+        opacity: '1',
         backgroundPositionY: '100%',
         backgroundSize: '100% 100%',
       },
       _focus: {
         outline: 'none!',
-        opacity: 1,
+        opacity: '1',
         backgroundPositionY: '100%',
         backgroundSize: '100% 100%',
       },
@@ -49,7 +49,7 @@ export const link = defineRecipe({
     variant: {
       primary: {},
       secondary: {
-        '& > .wui-text': {
+        '& > .wui-link-text': {
           backgroundImage:
             'linear-gradient(0deg, token(colors.dark-900), token(colors.dark-900) 100%)',
           _hover: {
@@ -61,7 +61,7 @@ export const link = defineRecipe({
     disabled: {
       true: {
         pointerEvents: 'none',
-        '& > .wui-text': {
+        '& > .wui-link-text': {
           color: 'dark-400',
           backgroundImage:
             'linear-gradient(0deg, token(colors.dark-100), token(colors.dark-100), 100%)',

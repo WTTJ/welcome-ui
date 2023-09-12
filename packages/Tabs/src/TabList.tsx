@@ -4,6 +4,7 @@ import reactFlattenChildren from 'react-flatten-children'
 import { useForkRef } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { type HTMLStyledProps, styled } from '@welcome-ui/panda/jsx'
+import { cx } from '@welcome-ui/panda/css'
 import { tabs as tabsRecipe, type TabsVariantProps } from '@welcome-ui/panda/recipes'
 
 import { ActiveBar, ActiveBarPanda } from './ActiveBar'
@@ -78,7 +79,7 @@ export type TabListPandaProps = HTMLStyledProps<'div'> & TabListPandaOptions
 const StyledTabListPanda = styled(Ariakit.TabList)
 
 export const TabListPanda = React.forwardRef<HTMLDivElement, TabListPandaProps>(
-  ({ children, size = 'md', store }, ref) => {
+  ({ children, className, size = 'md', store }, ref) => {
     const listRef = useRef()
     const listForkedRef = useForkRef(ref, listRef)
     const { orientation, selectedId } = store.useState()
@@ -89,7 +90,7 @@ export const TabListPanda = React.forwardRef<HTMLDivElement, TabListPandaProps>(
     })
 
     return (
-      <StyledTabListPanda className={classes.list} ref={listForkedRef} store={store}>
+      <StyledTabListPanda className={cx(classes.list, className)} ref={listForkedRef} store={store}>
         {tabs}
         {tabs.length > 1 && (
           <ActiveBarPanda

@@ -1,5 +1,5 @@
 import React from 'react'
-import { UniversalLinkOptions, UniversalLinkPanda } from '@welcome-ui/universal-link'
+import { UniversalLinkOptions } from '@welcome-ui/universal-link'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ExternalLinkIcon, ExternalLinkIconPanda } from '@welcome-ui/icons'
 import { type HTMLStyledProps, styled } from '@welcome-ui/panda/jsx'
@@ -29,7 +29,7 @@ const WrapWithText: React.FC<WrapWithTextProps> = ({ children, isExternal }) => 
 )
 
 const WrapWithTextPanda: React.FC<WrapWithTextProps> = ({ children, isExternal }) => (
-  <span className="wui-text">
+  <span className="wui-link-text">
     {children}
     {isExternal && <ExternalLinkIconPanda mb="-2px" ml="sm" size="sm" />}
   </span>
@@ -68,10 +68,10 @@ Link.displayName = 'Link'
 export type LinkPandaOptions = LinkVariantProps & { isExternal?: boolean }
 export type LinkPandaProps = HTMLStyledProps<'a'> & LinkPandaOptions
 
-const StyledLinkPanda = styled(UniversalLinkPanda, link)
+const StyledLinkPanda = styled('a', link)
 
 export const LinkPanda = React.forwardRef<HTMLAnchorElement, LinkPandaProps>(
-  ({ children, disabled, isExternal, variant = 'primary', ...rest }, ref) => {
+  ({ children, disabled, isExternal, target, variant = 'primary', ...rest }, ref) => {
     const content = shouldWrapWithText(children) ? (
       <WrapWithTextPanda isExternal={isExternal}>{children}</WrapWithTextPanda>
     ) : (
@@ -87,6 +87,8 @@ export const LinkPanda = React.forwardRef<HTMLAnchorElement, LinkPandaProps>(
       <StyledLinkPanda
         data-external={isExternal}
         disabled={disabled}
+        rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+        target={target}
         variant={variant}
         {...rest}
         ref={ref}

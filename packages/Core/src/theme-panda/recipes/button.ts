@@ -20,6 +20,7 @@ export const button = defineRecipe({
     cursor: 'pointer',
     outline: 'none !important' /* important for firefox */,
     border: 'sm',
+    borderRadius: 'md',
     appearance: 'none',
     overflow: 'hidden',
     transition: 'medium',
