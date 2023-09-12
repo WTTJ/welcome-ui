@@ -145,11 +145,9 @@ jobs:
           at: ~/welcome-ui
       - restore_cache:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - run: |
-          CIRCLE_BRANCH_BUCKET=$(echo "$CIRCLE_BRANCH" | sed "s/[^[:alnum:]-]/-/g" | tr '[:upper:]' '[:lower:]' | cut -c -63)
       - aws-s3/sync:
           from: docs/out
-          to: s3://welcome-ui/preprod/$CIRCLE_BRANCH_BUCKET
+          to: s3://welcome-ui/preprod/$(echo "$CIRCLE_BRANCH" | sed "s/[^[:alnum:]-]/-/g" | tr '[:upper:]' '[:lower:]' | cut -c -63)
 
   # current version deploy for production
   website_deploy_prod:
@@ -287,7 +285,6 @@ workflows:
             - lint
             - website_build
             - build_and_release_icon_font
-      - website_deploy_preview:
       - docs_deploy_s3:
           context:
             - aws
