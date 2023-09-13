@@ -140,12 +140,34 @@ export default function Root() {
 }
 ```
 
-## Change fonts path url
+## Change fonts
 
-If you wan to change the url path for the fonts, you can change the property `fontsUrl` on `createTheme()`. On our case at Welcome to the jungle, we want to have the fonts from the same domain name as our main website. By default is on welcome-ui.com domain.
+If you want to change the url path for the fonts, you can change the property `fontsUrl` on `createTheme()`. By default the fonts are served from the welcome-ui.com domain. In our case at Welcome to the Jungle, we want to have the fonts served from the same domain name as our main website. 
 
 ```jsx live=false
 const theme = createTheme({ fontsUrl: 'https://cdn.welcometothejungle.com/fonts', ...yourTheme })
+```
+
+You can also overload the fonts used (for example to subset the fonts) by merging a font object with the theme. For example to replace the `work-sans` font with subsetted versions, host your subsetted versions somewhere then update the `fontFaces` object:
+
+```jsx live=false
+const fontFaces = {
+  'work-sans': [
+    {
+      url: 'https://my_website.com/public/work-sans-variable-latin-ext',
+      uniCodeRange:
+        'U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF',
+      weight: '400-600',
+    },
+    {
+      url: 'https://my_website.com/public/work-sans-variable-latin',
+      uniCodeRange:
+        'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD',
+      weight: '400-600',
+    },
+  ],
+}
+const theme = createTheme({ fontFaces, ...yourTheme })
 ```
 
 ## All theme values
