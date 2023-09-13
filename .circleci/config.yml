@@ -162,10 +162,13 @@ jobs:
           to: s3://welcome-ui/docs_production
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1
+<<<<<<< HEAD
       - aws-s3/sync:
           from: s3://welcome-ui/docs_production
           to: docs_production
       - run: node_modules/.bin/netlify deploy --filter=website --dir=docs_production --prod
+=======
+>>>>>>> c5c7ea396 (fix: clean netlify legacy)
 
   # previous versions build & deploy for production
   previous_website_versions_build_deploy_prod:
@@ -273,7 +276,6 @@ workflows:
       - website_deploy_prod:
           context:
             - aws
-            - netlify
             - welcome-ui
           filters:
             branches:
@@ -297,7 +299,6 @@ workflows:
       - previous_website_versions_build_deploy_prod:
           context:
             - aws
-            - netlify
             - welcome-ui
           filters:
             # should add branches here to keep previous doc version of future majors
