@@ -216,6 +216,14 @@ We migrated to Ariakit. Now we pass the component's state from `useDropdownMenu`
 = </DropdownMenu>
 ```
 
+If you want to not close DropdownMenu item on click please add a `hideOnClose={false}` on `DropdownMenu.Item`:
+
+```jsx live=false
+<DropdownMenu.Item hideOnClose={false} store={dropdownMenu}>
+  ...
+</DropdownMenu.Item>
+```
+
 ### EmojiPicker
 
 We migrated to Ariakit. Now we pass the component's state from `useEmojiPicker` on the `store` property:
