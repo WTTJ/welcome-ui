@@ -151,10 +151,6 @@ jobs:
           to: s3://welcome-ui/docs_production
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1
-      - aws-s3/sync:
-          from: s3://welcome-ui/docs_production
-          to: docs_production
-      - run: node_modules/.bin/netlify deploy --dir=docs_production --prod
 
   # previous versions build & deploy for production
   previous_docs_versions_build_deploy_prod:
@@ -172,10 +168,6 @@ jobs:
           to: s3://welcome-ui/docs_production/$CIRCLE_BRANCH
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
-      - aws-s3/sync:
-          from: s3://welcome-ui/docs_production
-          to: docs_production
-      - run: node_modules/.bin/netlify deploy --dir=docs_production --prod
 
   release:
     <<: *defaults
@@ -263,7 +255,6 @@ workflows:
       - docs_deploy_prod:
           context:
             - aws
-            - netlify
             - welcome-ui
           filters:
             branches:
@@ -287,7 +278,6 @@ workflows:
       - previous_docs_versions_build_deploy_prod:
           context:
             - aws
-            - netlify
             - welcome-ui
           filters:
             # should add branches here to keep previous doc version of future majors
