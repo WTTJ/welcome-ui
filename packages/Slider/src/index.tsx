@@ -70,15 +70,15 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
     }
 
     // Handle enter key
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleSliderKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       e.preventDefault()
       let value = localValue
 
       if (e.key === 'ArrowRight') {
-        value = value + step
+        value = ensureMinMax(value + step, min, max, step)
       }
       if (e.key === 'ArrowLeft') {
-        value = value - step
+        value = ensureMinMax(value - step, min, max, step)
       }
       setLocalValue(value)
       setInputValue(value)
@@ -93,12 +93,16 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
       setInputValue(value)
     }
 
-    const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleInput = () => {
+      const value = ensureMinMax(inputValue, min, max, step)
+      setInputValue(value)
+      setLocalValue(value)
+      onChange(value)
+    }
+
+    const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') {
-        const value = ensureMinMax(inputValue, min, max, step)
-        setInputValue(value)
-        setLocalValue(value)
-        onChange(value)
+        handleInput()
       }
     }
 
@@ -140,10 +144,12 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
           {(type === 'inline' || type === 'left-field') &&
             (type === 'left-field' ? (
               <InputText
+                disabled={disabled}
                 max={max}
                 min={min}
+                onBlur={handleInput}
                 onChange={handleInputChange}
-                onKeyDown={handleInput}
+                onKeyDown={handleInputKeyDown}
                 size="sm"
                 type="number"
                 value={inputValue.toString()}
@@ -153,7 +159,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               <Box>{min}</Box>
             ))}
 
-          <Box display="flex" flexGrow="1" h={20} position="relative">
+          <Box display="flex" flexDirection="column" flexGrow="1" h={20} position="relative">
             <S.Slider
               borderSelectorColor={borderSelectorColor}
               disabled={disabled}
@@ -167,7 +173,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
                 _setLocalValue(value)
                 setInputValue(value)
               }}
-              onKeyDown={handleKeyDown}
+              onKeyDown={handleSliderKeyDown}
               onMouseDown={() => {
                 tooltip && tooltipVisible === false && setTooltipVisible(true)
               }}
@@ -187,7 +193,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               </S.Output>
             )}
             {values && (
-              <Box h={24} ml={10} mr={10} position="relative">
+              <Box h={24} ml={10} mr={10} mt={5} position="relative">
                 {values
                   .reduce((prev, acc) => (prev.includes(acc) ? prev : [...prev, acc]), [])
                   .filter(v => v >= min && v <= max)
@@ -204,10 +210,12 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
           {(type === 'inline' || type === 'right-field') &&
             (type === 'right-field' ? (
               <InputText
+                disabled={disabled}
                 max={max}
                 min={min}
+                onBlur={handleInput}
                 onChange={handleInputChange}
-                onKeyDown={handleInput}
+                onKeyDown={handleInputKeyDown}
                 size="sm"
                 type="number"
                 value={inputValue.toString()}
