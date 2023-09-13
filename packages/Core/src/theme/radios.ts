@@ -9,14 +9,10 @@ export type ThemeRadios = {
     default: string
     disabled: string
   }
-  withHint: {
-    default: CSSObject
-    hint: CSSObject
-  }
 }
 
 export const getRadios = (theme: WuiTheme): ThemeRadios => {
-  const { colors, fontSizes, space, toRem } = theme
+  const { colors, toRem } = theme
 
   return {
     default: {
@@ -30,15 +26,6 @@ export const getRadios = (theme: WuiTheme): ThemeRadios => {
     checkedCenteredColor: {
       default: colors['primary-500'],
       disabled: colors['nude-600'],
-    },
-    withHint: {
-      default: {
-        fontSize: fontSizes.md,
-        color: colors['dark-900'],
-      },
-      hint: {
-        marginTop: space.xs,
-      },
     },
   }
 }

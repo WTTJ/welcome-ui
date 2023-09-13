@@ -2,6 +2,7 @@ import React from 'react'
 import { LabelOptions } from '@welcome-ui/label'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { DefaultFieldStylesProps } from '@welcome-ui/utils'
+import { Hint } from '@welcome-ui/hint'
 
 import * as S from './styles'
 
@@ -10,7 +11,6 @@ export type RadioOptions = {
   label?: string
   onChange?: (event: React.MouseEvent<HTMLLabelElement>) => void
   onClick?: (event: React.MouseEvent<HTMLLabelElement>) => void
-  withHint?: boolean
 } & DefaultFieldStylesProps
 
 export type RadioProps = CreateWuiProps<'input', RadioOptions & LabelOptions>
@@ -28,7 +28,6 @@ export const Radio = forwardRef<'input', RadioProps>(
       onChange,
       onClick,
       variant,
-      withHint,
       ...rest
     },
     ref
@@ -49,7 +48,6 @@ export const Radio = forwardRef<'input', RadioProps>(
         onClick={handleClick}
         variant={variant}
         withDisabledIcon={false}
-        withHint={withHint || !!hint}
       >
         <S.Wrapper flexDirection={flexDirection}>
           <S.Input>
@@ -62,11 +60,15 @@ export const Radio = forwardRef<'input', RadioProps>(
               {...rest}
             />
           </S.Input>
-          <div data-testid={dataTestId ? `${dataTestId}-label` : undefined}>{label}</div>
+          <S.LabelWithHint>
+            <div data-testid={dataTestId ? `${dataTestId}-label` : undefined}>{label}</div>
+            {hint && (
+              <Hint data-testid={dataTestId ? `${dataTestId}-hint` : undefined} mt="0">
+                {hint}
+              </Hint>
+            )}
+          </S.LabelWithHint>
         </S.Wrapper>
-        {hint && (
-          <S.Hint data-testid={dataTestId ? `${dataTestId}-hint` : undefined}>{hint}</S.Hint>
-        )}
       </S.Label>
     )
   }

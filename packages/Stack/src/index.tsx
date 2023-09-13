@@ -13,25 +13,22 @@ export const Stack = forwardRef<'div', StackProps>(
   ({ as = 'div', children, dataTestId, direction = 'column', spacing = 'md', ...rest }, ref) => {
     const validChildrenArray = Children.toArray(children).filter(isValidElement)
 
-    const marginType = direction === 'column' ? 'mb' : 'mr'
-
     return (
       <Box
         as={as}
         data-testid={dataTestId}
         display="flex"
         flexDirection={direction}
+        gap={spacing}
         ref={ref}
         {...rest}
       >
         {validChildrenArray.map((child, i) => {
-          const isLastChild = validChildrenArray.length === i + 1
           const childAs: React.ElementType = as === 'ol' || as === 'ul' ? 'li' : 'div'
 
           const childProps = {
             as: childAs,
             key: `stack-item-${i}`,
-            [marginType]: isLastChild ? null : spacing,
           }
 
           // eslint-disable-next-line react/jsx-key

@@ -1,6 +1,5 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import { shouldForwardProp } from '@welcome-ui/system'
-import { getVariantColor, Variant } from '@welcome-ui/utils'
 
 export const Label = styled('label').withConfig({ shouldForwardProp })<{
   required: boolean
@@ -45,13 +44,3 @@ export const Disabled = styled.div`
   display: inline-flex;
   margin-right: xs;
 `
-
-export const Icon = styled.div<{ variant: Variant }>(
-  ({ variant }) => css`
-    display: inline-flex;
-    margin-right: xs;
-    color: ${getVariantColor(variant)};
-    fill: ${getVariantColor(variant)};
-    flex-shrink: 0;
-  `
-)

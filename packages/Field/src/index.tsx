@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Label } from '@welcome-ui/label'
 import { Hint } from '@welcome-ui/hint'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
+import { VariantIcon } from '@welcome-ui/variant-icon'
 
-// Fields
-import { RowContainer } from './layout'
 import * as S from './styles'
 import { forwardedProps, generateRandomId, getBaseType, getVariant } from './utils'
 
@@ -47,12 +46,13 @@ export const Field = forwardRef<'div', FieldProps>(
   ) => {
     const baseType = getBaseType(children.props.type || children.type.displayName)
     const isRadio = baseType === 'radio'
-    const isToggle = children.type.displayName === 'Toggle'
+    const isRadioGroup = baseType === 'RadioGroup'
+    const isFieldGroup = baseType === 'FieldGroup'
     const isCheckbox = baseType === 'checkbox'
+    const isToggle = children.type.displayName === 'Toggle'
     const isCheckable = isRadio || isCheckbox || isToggle
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
-    const isGroup = ['FieldGroup', 'RadioGroup'].includes(baseType)
-    const Container = layout === 'row' ? RowContainer : Fragment
+    const isGroup = isFieldGroup || isRadioGroup
     const variant = getVariant({ error, warning, success, info })
     const hintText = variant ? error || warning || success || info : hint
     const withHintText = !!hintText
@@ -76,34 +76,49 @@ export const Field = forwardRef<'div', FieldProps>(
         }
       })
     }, [children.props, children.type.displayName, htmlFor])
-
     return (
       <S.Field
         ref={ref}
         {...rest}
         data-testid={dataTestId}
-        flexDirection={layout}
         isCheckable={isCheckable}
+        isRadioGroup={isRadioGroup}
         withHintText={withHintText}
       >
-        <Container>
-          {label && (
-            <Label
-              disabled={disabled}
-              disabledIcon={disabledIcon}
-              htmlFor={htmlFor}
-              required={required}
-              variant={variant}
-              withDisabledIcon={!isCheckable}
-            >
-              {isCheckable && child}
-              {label}
-            </Label>
-          )}
-          {!isCheckable && child}
-        </Container>
-        {hintText && (
-          <Hint checkableField={isCheckable} variant={variant}>
+        <S.Label>
+          {isCheckable && child}
+          <S.LabelWithHint>
+            {label && (
+              <Label
+                checkableField={isCheckable}
+                disabled={disabled}
+                disabledIcon={disabledIcon}
+                htmlFor={htmlFor}
+                required={required}
+                variant={variant}
+                withDisabledIcon={!isCheckable}
+              >
+                {/* for a checkable field the variant icon is after input and before label text */}
+                {isCheckable && <VariantIcon size="sm" variant={variant} />}
+                {label}
+              </Label>
+            )}
+            {/* for a checkable field we add a hint below label name */}
+            {isCheckable && hintText && (
+              <Hint
+                checkableField
+                dataTestId={dataTestId ? `${dataTestId}-hint` : undefined}
+                mt="0"
+                variant={variant}
+              >
+                {hintText}
+              </Hint>
+            )}
+          </S.LabelWithHint>
+        </S.Label>
+        {!isCheckable && child}
+        {!isCheckable && hintText && (
+          <Hint dataTestId={dataTestId ? `${dataTestId}-hint` : undefined} variant={variant}>
             {hintText}
           </Hint>
         )}

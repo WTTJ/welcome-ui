@@ -1,5 +1,4 @@
 import styled, { system, th } from '@xstyled/styled-components'
-import { StyledLabel } from '@welcome-ui/label'
 import { shouldForwardProp } from '@welcome-ui/system'
 
 export const FieldGroup = styled('fieldset').withConfig({ shouldForwardProp })`
@@ -11,7 +10,7 @@ export const FieldGroup = styled('fieldset').withConfig({ shouldForwardProp })`
   ${th('defaultFields.fieldset')};
   ${system};
 
-  & > ${StyledLabel} {
-    margin-bottom: xs;
+  > * {
+    margin-bottom: md;
   }
 `

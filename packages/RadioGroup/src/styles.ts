@@ -8,7 +8,7 @@ export const Radios = styled.div<{
     display: flex;
     flex-direction: ${flexDirection};
     flex-wrap: wrap;
-    gap: xs;
+    gap: md;
 
     ${system};
   `
