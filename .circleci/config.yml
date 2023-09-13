@@ -311,7 +311,6 @@ workflows:
               ignore: /.*/
             tags:
               only: /v\d.\d.\d/
-
       - prerelease:
           context:
             - welcome-ui
