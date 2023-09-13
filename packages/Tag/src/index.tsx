@@ -69,7 +69,6 @@ export const Tag = forwardRef<'div', TagProps>(
         length={childrenLength}
         onClick={onClick}
         ref={ref}
-        role="listitem"
         size={size}
         to={to}
         variant={variant}
