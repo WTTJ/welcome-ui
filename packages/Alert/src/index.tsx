@@ -139,6 +139,7 @@ const AlertPandaComponent = React.forwardRef<HTMLDivElement, AlertPandaComponent
               alignItems="center"
               direction="row"
               display="flex"
+              gap="md"
               justifyContent="space-between"
             >
               <div>{content}</div>

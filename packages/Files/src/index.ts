@@ -14,8 +14,7 @@ import {
   ZipIcon,
 } from '@welcome-ui/icons'
 import { formatBytes } from '@welcome-ui/utils'
-
-import { IconProps } from '../../Icon'
+import { IconProps } from '@welcome-ui/icon'
 
 import { types } from './types'
 

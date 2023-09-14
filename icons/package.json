@@ -42,8 +42,10 @@
   "bugs": {
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
+  "dependencies": {
+    "@welcome-ui/icon": "^5.0.0"
+  },
   "peerDependencies": {
-    "@welcome-ui/icon": "^5.0.0",
     "react": "^18.0.0"
   },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",

@@ -56,7 +56,7 @@ export type IconsPandaType = Record<IconKeyFormatted, (props: IconPandaProps) =>
 export const IconsPanda = iconsKeys.reduce<IconsPandaType>((prev, name) => {
   const key = toPascalCase(name) as IconKeyFormatted
 
-  prev[key] = (props: Omit<IconPandaProps, 'content'>) => {
+  prev[key] = (props: Omit<IconPandaProps, 'content' | 'size'>) => {
     const className = props.className || ''
     return (
       <IconPanda
