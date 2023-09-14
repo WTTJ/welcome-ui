@@ -29,7 +29,7 @@ function useTrackActiveTabs(
   return [tabs, activeTab]
 }
 
-export interface SizeOptions {
+export type SizeOptions = {
   size?: 'sm' | 'md'
 }
 

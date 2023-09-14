@@ -4,16 +4,16 @@
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     }
   },
   "scripts": {
-    "build": "node ../../scripts/build.js",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
