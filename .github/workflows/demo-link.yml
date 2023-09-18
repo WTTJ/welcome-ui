@@ -24,5 +24,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: pullRequestId,
-              body: `👀 [Visit Preview](https://${pullRequestBranch}--welcome-ui.netlify.app)`
+              body: `👀 [Visit Preview](https://${pullRequestBranch}.preprod.welcome-ui.com)`
             });
