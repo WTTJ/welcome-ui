@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0...v5.1.0) (2023-09-18)
+
+**Note:** Version bump only for package @welcome-ui/emoji-picker
+
+
+
+
+
 # [5.0.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.52...v5.0.0) (2023-08-31)
 
 

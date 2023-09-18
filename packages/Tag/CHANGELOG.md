@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0...v5.1.0) (2023-09-18)
+
+
+### Features
+
+* remove listitem on tag for accessibility ([#2252](https://github.com/WTTJ/welcome-ui/issues/2252)) ([e1168e0](https://github.com/WTTJ/welcome-ui/commit/e1168e03a5450e15c650a6f76fed0fec42a7cedb))
+
+
+
+
+
 # [5.0.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.52...v5.0.0) (2023-08-31)
 
 
