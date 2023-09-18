@@ -1,54 +1,57 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import { StyledLabel } from '@welcome-ui/label'
-import { StyledHint } from '@welcome-ui/hint'
-import { StyledFieldGroup } from '@welcome-ui/field-group'
 import { shouldForwardProp, WuiProps } from '@welcome-ui/system'
 import { FieldIconSize } from '@welcome-ui/utils'
-
-const rowStyles = css`
-  margin-right: lg;
-`
-
-const columnStyles = css`
-  margin-bottom: sm;
-`
 
 const checkableFieldStyles = css`
   ${th('defaultFields.checkablelabel.default')};
   align-items: flex-start;
   overflow-wrap: break-word;
-
-  input {
-    margin-top: xs;
-  }
 `
 
 type StyledFieldProps = {
-  isCheckable?: boolean
-  flexDirection: WuiProps['flexDirection']
   checked?: boolean
+  flexDirection: WuiProps['flexDirection']
+  isCheckable?: boolean
+  isRadioGroup?: boolean
   withHintText?: boolean
 }
 
 export const Field = styled('div').withConfig({ shouldForwardProp })<StyledFieldProps>(
-  ({ checked, flexDirection, isCheckable, withHintText }) => css`
-    ${StyledFieldGroup} {
-      margin-bottom: ${isCheckable && 'xxs'};
-    }
+  ({ checked, isCheckable, isRadioGroup, withHintText }) => css`
+    ${isCheckable &&
+    css`
+      input {
+        margin-top: xs;
+      }
+    `}
     ${StyledLabel} {
-      ${flexDirection === 'row' && rowStyles};
-      ${flexDirection === 'column' && !isCheckable && columnStyles};
       ${isCheckable && checkableFieldStyles};
       ${isCheckable && withHintText && th('defaultFields.checkablelabel.default')}
       ${checked && th('defaultFields.checkablelabel.checked')}
-      margin-bottom: ${!withHintText && 'xs'}
-    }
-    ${StyledHint} {
-      margin-bottom: ${isCheckable && 'xxs'};
+      ${!isCheckable &&
+      css`
+        margin-bottom: sm;
+      `}
+      ${isRadioGroup &&
+      css`
+        margin-bottom: md;
+      `}
     }
     ${system};
   `
 )
+
+export const Label = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: sm;
+`
+
+export const LabelWithHint = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 type IconWrapperProps = {
   iconPlacement: 'left' | 'right'

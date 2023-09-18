@@ -2,7 +2,6 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
-import { Hint as HintWUI } from '@welcome-ui/hint'
 import { Label as WUILabel } from '@welcome-ui/label'
 import * as Ariakit from '@ariakit/react'
 
@@ -53,21 +52,12 @@ export const Radio = styled(Ariakit.Radio).withConfig({ shouldForwardProp })<Rad
 )
 
 // force label to max width to 100% here, because if we add a styled system prop maxWidth {{ md: '30%' }} we need to have a max-width on mobile by default
-export const Label = styled(WUILabel)<{
-  withHint?: boolean
-}>(
-  ({ withHint }) => css`
-    ${withHint && th('radios.withHint.default')};
-    max-width: 100%;
-    align-items: flex-start;
-    /** we need to reset margin-bottom from Label component */
-    margin-bottom: 0 !important;
-    ${system}
-  `
-)
-
-export const Hint = styled(HintWUI)`
-  ${th('radios.withHint.hint')};
+export const Label = styled(WUILabel)`
+  max-width: 100%;
+  align-items: flex-start;
+  /** we need to reset margin-bottom from Label component */
+  margin-bottom: 0 !important;
+  ${system}
 `
 
 export const Input = styled.div`
@@ -85,4 +75,9 @@ export const Wrapper = styled(Box)`
   input {
     margin-top: xs;
   }
+`
+
+export const LabelWithHint = styled.div`
+  display: flex;
+  flex-direction: column;
 `

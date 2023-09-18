@@ -53,8 +53,6 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
       onChange?.(valueSelected)
     }
 
-    const withHint = options.some((obj: Option) => 'hint' in obj)
-
     return (
       <FieldGroup
         as={Ariakit.RadioGroup}
@@ -78,7 +76,6 @@ export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
               name={name}
               onChange={() => handleChange(option.value)}
               value={option.value}
-              withHint={withHint}
               {...rest}
             />
           ))}

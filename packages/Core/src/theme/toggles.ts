@@ -18,9 +18,9 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
   return {
     item: {
       default: {
-        width: toRem(26),
+        width: toRem(24),
         height: toRem(16),
-        borderRadius: toRem(9),
+        borderRadius: toRem(16),
         backgroundColor: colors['light-900'],
         borderColor: colors.border,
         borderWidth: borderWidths.sm,

@@ -1,5 +1,6 @@
 import React, { HTMLInputTypeAttribute } from 'react'
 import userEvent from '@testing-library/user-event'
+import { screen } from '@testing-library/dom'
 
 import { render } from '../../../utils/tests'
 import { Field } from '../src'
@@ -14,7 +15,7 @@ const Input = ({
   name?: string
   type?: HTMLInputTypeAttribute
 }) => {
-  return <input id={id} name={name} type={type} {...rest} />
+  return <input data-testid="input" id={id} name={name} type={type} {...rest} />
 }
 
 const labelText = 'Label'
@@ -23,117 +24,131 @@ const errorText = 'Error'
 
 describe('<Field />', () => {
   it('should render', () => {
-    const { getByTestId } = render(
+    render(
       <Field dataTestId="field">
         <Input />
       </Field>
     )
-    const field = getByTestId('field')
+
+    const field = screen.getByTestId('field')
     expect(field).toBeInTheDocument()
 
-    const input = field.querySelector('input')
+    const input = screen.getByTestId('input')
     expect(input).toBeInTheDocument()
 
     const label = field.querySelector('label')
     expect(label).not.toBeInTheDocument()
 
-    const hint = field.querySelector('div')
-    expect(hint).not.toBeInTheDocument()
+    const hint = field.getElementsByTagName('div')
+    expect(hint.length).toBe(2)
   })
 
   it('should display label', () => {
-    const { getByTestId } = render(
+    render(
       <Field dataTestId="field" label={labelText}>
         <Input />
       </Field>
     )
-    const field = getByTestId('field')
+
+    const field = screen.getByTestId('field')
     expect(field).toBeInTheDocument()
 
-    const input = field.querySelector('input')
+    const input = screen.getByTestId('input')
     expect(input).toBeInTheDocument()
 
-    const hint = field.querySelector('div')
-    expect(hint).not.toBeInTheDocument()
+    const hint = field.getElementsByTagName('div')
+    expect(hint.length).toBe(2)
 
-    const label = field.querySelector('label')
+    const label = screen.getByText('Label')
     expect(label).toBeInTheDocument()
     expect(label).toHaveTextContent(labelText)
   })
 
   it('should display hint', () => {
-    const { getByTestId } = render(
+    render(
       <Field dataTestId="field" hint={hintText}>
         <Input />
       </Field>
     )
-    const field = getByTestId('field')
+
+    const field = screen.getByTestId('field')
     expect(field).toBeInTheDocument()
 
-    const input = field.querySelector('input')
+    const input = screen.getByTestId('input')
     expect(input).toBeInTheDocument()
 
-    const hint = field.querySelector('div')
+    const hint = screen.getByText(hintText)
     expect(hint).toBeInTheDocument()
     expect(hint).toHaveTextContent(hintText)
   })
 
   it('should display error until hint', () => {
-    const { getByTestId } = render(
+    render(
       <Field dataTestId="field" error={errorText} hint={hintText}>
         <Input />
       </Field>
     )
-    const field = getByTestId('field')
+
+    const field = screen.getByTestId('field')
     expect(field).toBeInTheDocument()
 
-    const hint = field.querySelector('div')
+    const hint = screen.getByText(errorText)
     expect(hint).toBeInTheDocument()
     expect(hint).toHaveTextContent(errorText)
 
-    const input = field.querySelector('input')
+    const input = screen.getByTestId('input')
     expect(input).toBeInTheDocument()
     expect(input).toHaveAttribute('variant', 'error')
   })
 
   it('should display label before input', () => {
-    const { getByTestId } = render(
+    render(
       <Field dataTestId="field" label={labelText}>
         <Input />
       </Field>
     )
 
-    const field = getByTestId('field')
+    const field = screen.getByTestId('field')
     expect(field).toBeInTheDocument()
-    expect(field.childNodes[0].nodeName.toLowerCase()).toBe('label')
-    expect(field.childNodes[1].nodeName.toLowerCase()).toBe('input')
+
+    const input = screen.getByTestId('input')
+    expect(input).toBeInTheDocument()
+
+    const label = screen.getByText('Label')
+    expect(label).toBeInTheDocument()
+
+    expect(label.compareDocumentPosition(input)).toBe(4)
   })
 
   it('should display checkable input inside label', () => {
-    const { getByTestId } = render(
+    render(
       <Field dataTestId="field" label={labelText}>
         <Input type="checkbox" />
       </Field>
     )
 
-    const field = getByTestId('field')
+    const field = screen.getByTestId('field')
     expect(field).toBeInTheDocument()
-    const container = field.childNodes[0]
 
-    expect(container.childNodes[0].nodeName.toLowerCase()).toBe('label')
-    expect(container.childNodes[0].childNodes[0].nodeName.toLowerCase()).toBe('input')
+    const input = screen.getByTestId('input')
+    expect(input).toBeInTheDocument()
+
+    const label = screen.getByText('Label')
+    expect(label).toBeInTheDocument()
+
+    expect(label.compareDocumentPosition(input)).toBe(2)
   })
 
   it('should focus input when click on label when using id on input', async () => {
-    const { getByTestId } = render(
+    render(
       <Field dataTestId="field" label={labelText}>
         <Input id="field" />
       </Field>
     )
 
-    const field = getByTestId('field')
+    const field = screen.getByTestId('field')
     const label = field.querySelector('label')
-    const input = field.querySelector('input')
+    const input = screen.getByTestId('input')
 
     expect(label?.htmlFor).toBe('field')
     expect(label?.htmlFor).toBe(input?.id)
@@ -143,15 +158,15 @@ describe('<Field />', () => {
   })
 
   it('should focus input when click on label when using name on input (the fallback value of the id is the name prop)', async () => {
-    const { getByTestId } = render(
+    render(
       <Field dataTestId="field" label={labelText}>
         <Input name="field" />
       </Field>
     )
 
-    const field = getByTestId('field')
+    const field = screen.getByTestId('field')
     const label = field.querySelector('label')
-    const input = field.querySelector('input')
+    const input = screen.getByTestId('input')
 
     expect(label?.htmlFor).toBe('field')
     expect(label?.htmlFor).toBe(input?.id)
@@ -161,15 +176,15 @@ describe('<Field />', () => {
   })
 
   it('should focus input when click on label when using neither name nor id on input (the fallback value of the id is created randomly)', async () => {
-    const { getByTestId } = render(
+    render(
       <Field dataTestId="field" label={labelText}>
         <Input />
       </Field>
     )
 
-    const field = getByTestId('field')
+    const field = screen.getByTestId('field')
     const label = field.querySelector('label')
-    const input = field.querySelector('input')
+    const input = screen.getByTestId('input')
 
     expect(label?.htmlFor).toContain('wui-field-')
     expect(label?.htmlFor).toBe(input?.id)

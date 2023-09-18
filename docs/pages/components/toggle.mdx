@@ -25,7 +25,7 @@ function() {
   const [toggleChecked, setToggleChecked] = React.useState(true)
 
   return (
-    <Stack spacing="md">
+    <Stack>
       <Toggle aria-label="Toggle component" checked={toggle} onClick={() => setToggle(!toggle)} />
       <Toggle aria-label="Toggle checked" checked={toggleChecked} onClick={() => setToggleChecked(!toggleChecked)} />
       <Toggle aria-label="Toggle disabled" disabled />
@@ -45,7 +45,7 @@ function() {
   const [toggleChecked, setToggleChecked] = React.useState(true)
 
   return (
-    <>
+    <Stack>
       <Field label="Toggle">
         <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
       </Field>
@@ -58,7 +58,7 @@ function() {
       <Field label="Toggle">
         <Toggle checked disabled />
       </Field>
-    </>
+    </Stack>
   )
 }
 ```
@@ -88,7 +88,7 @@ function() {
   const [toggle, setToggle] = React.useState(false)
 
   return (
-    <>
+    <Stack>
       <Field error="an error" label="Toggle" hint="a hint">
         <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
       </Field>
@@ -101,7 +101,7 @@ function() {
       <Field success="an success" label="Toggle" hint="a hint">
         <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
       </Field>
-    </>
+    </Stack>
   )
 }
 ```

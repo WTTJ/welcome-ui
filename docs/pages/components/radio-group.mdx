@@ -90,12 +90,14 @@ function () {
 
 ## With hint on radio
 
+An example with a hint on radio.
+
 ```jsx
 function () {
   const [value, setValue] = React.useState(null)
 
   return (
-    <Field flexDirection="row" mb="xl" required>
+    <Field required label="Label">
       <RadioGroup
         name="social-4"
         maxWidth={{ md: 0.3 }}
@@ -108,7 +110,6 @@ function () {
           {
             value: 'dribbble',
             label: 'Dribbble',
-            hint: 'Aenean a tristique turpis, in elementum est.',
           },
         ]}
         onChange={setValue}
