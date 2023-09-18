@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "v*.*.*"
+
 jobs:
   publish:
     name: Create new github release
@@ -21,12 +22,12 @@ jobs:
         run: cat Release.txt
       - name: Pre-release
         uses: softprops/action-gh-release@v1
-        if: github.ref.includes('-') === true
+        if: contains(github.ref, '-') == true
         with:
           files: Release.txt
           prerelease: true
       - name: Release
         uses: softprops/action-gh-release@v1
-        if: github.ref.includes('-') === false
+        if: contains(github.ref, '-') == false
         with:
           files: Release.txt
