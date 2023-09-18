@@ -96,7 +96,7 @@ jobs:
 
   build:
     <<: *defaults
-    resource_class: large
+    resource_class: xlarge
     steps:
       - attach_workspace:
           at: ~/welcome-ui
