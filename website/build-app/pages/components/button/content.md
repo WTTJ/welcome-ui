@@ -10,7 +10,7 @@ Labels should clearly transcribe what action will occur if the user triggers the
 Try sticking to the standards, especially for CRUD labels (Save, Delete, Create, etc.) so that the user feels reassured and confident about clicking.
 
   
-![do - short](https://studio-assets.supernova.io/design-systems/81732/c8fe738e-d533-4182-b894-f9397b74910a.png)  
+![do - short](https://studio-assets.supernova.io/design-systems/81732/02854add-216f-4787-a6e7-300a15692c62.png)  
 do - short  
 
 
@@ -19,7 +19,7 @@ do - short
 *Go straight to the point while being clear.
 
   
-![don't - long](https://studio-assets.supernova.io/design-systems/81732/dadb9d7b-219a-42e9-88ac-610b7bee1409.png)  
+![don't - long](https://studio-assets.supernova.io/design-systems/81732/f739ae20-7a55-44b2-a587-05639b46c64f.png)  
 don't - long  
 
 
