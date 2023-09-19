@@ -6,7 +6,7 @@
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "scripts": {
     "build:core": "./scripts/core.sh",
-    "build:docs": "lerna run doc --concurrency 2",
+    "build:docs": "lerna run doc",
     "build:packages": "lerna run build --ignore docs --ignore @welcome-ui/core",
     "build:types": "lerna run types",
     "build": "yarn webfont:build && yarn build:core && yarn build:packages && yarn build:types && yarn build:docs",
