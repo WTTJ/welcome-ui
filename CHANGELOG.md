@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/WTTJ/welcome-ui/compare/v5.1.0...v5.2.0) (2023-09-19)
+
+
+### Bug Fixes
+
+* github action on release github ([#2273](https://github.com/WTTJ/welcome-ui/issues/2273)) ([49a541f](https://github.com/WTTJ/welcome-ui/commit/49a541ffe9033a8b394f502679abed9a305d13e2))
+
+
+### Features
+
+* add stroke on Tooltip ([#2253](https://github.com/WTTJ/welcome-ui/issues/2253)) ([3ee929d](https://github.com/WTTJ/welcome-ui/commit/3ee929d71f68a1fc8c956a53c98e6724a5666ace))
+
+
+
+
+
 # [5.1.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0...v5.1.0) (2023-09-18)
 
 
