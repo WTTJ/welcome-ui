@@ -16,14 +16,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Build
-        shell: bash
-        run: |
-          {
-            echo 'CHANGELOG_BODY<<EOF'
-            npx extract-changelog-release
-            echo EOF
-          } >> "$GITHUB_ENV"
+      - name: Get
+        run: echo "CHANGELOG_BODY=$(npx extract-changelog-release)" >> $GITHUB_ENV
+      - name: Test
+        run: echo ${{ env.CHANGELOG_BODY }}
       - name: Pre-release
         uses: softprops/action-gh-release@v1
         if: contains(github.ref, '-') == true
