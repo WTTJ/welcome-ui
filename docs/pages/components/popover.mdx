@@ -94,27 +94,27 @@ function() {
 }
 ```
 
-## Hover to open
+## PopoverHover
 
-Use `triggerMethod: 'hover'` on `usePopover` to open and close the popover by hovering it.
+You can have a hover on Popover with `PopoverHover` and `usePopoverHover` from Popover.
 
 ```jsx
 function() {
-  const popover = usePopover({ triggerMethod: 'hover' })
+  const popover = usePopoverHover()
 
   return (
     <>
-      <Popover.Trigger as={Button} store={popover}>
-        Open Popover
-      </Popover.Trigger>
-      <Popover aria-label="hover to open popover" store={popover}>
-          <Popover.Title>Amazing title</Popover.Title>
-          <Popover.Content>
+      <PopoverHover.Trigger as={Button} store={popover}>
+        Hover the button to open
+      </PopoverHover.Trigger>
+      <PopoverHover aria-label="hover to open popover" store={popover}>
+          <PopoverHover.Title>Amazing title</PopoverHover.Title>
+          <PopoverHover.Content>
             Praesent sit amet quam ac velit faucibus dapibus.<br />
             Quisque sapien ligula, rutrum quis aliquam nec, convallis sit amet erat.<br />
             Mauris auctor blandit porta.
-          </Popover.Content>
-      </Popover>
+          </PopoverHover.Content>
+      </PopoverHover>
     </>
   )
 }
@@ -122,15 +122,14 @@ function() {
 
 ## usePopover
 
-We use `usePopover` from [Ariakit Popover](https://ariakit.org/reference/use-popover-store) for the state of the popover.
+We use `usePopoverStore` from [Ariakit Popover](https://ariakit.org/reference/use-popover-store) for the state of the Popover and `useHovercardStore` from [Ariakit Hovercard](https://ariakit.org/reference/use-hovercard-store) for the state of the PopoverHover.
 
-Pass options to `usePopover`:
+Pass options to `usePopover` or `usePopoverHover`:
 
 - `defaultOpen`: e.g. `const popover = usePopover({ defaultOpen: true })`
-- `triggerMethod`: `click` or `hover`
 - `withCloseButton`: `bool`, show/hide cross to close popover
 
-When `triggerMethod` is set to hover
+When you use `usePopoverHover` you can change:
 
 - `showTimeout`: `number` by default to `500`, show after x milliseconds on hover the trigger
 - `hideTimeout`: `number` by default to `300`, close after x milliseconds on mouse lease popover
