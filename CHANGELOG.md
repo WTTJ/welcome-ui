@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.1](https://github.com/WTTJ/welcome-ui/compare/v5.2.0...v5.2.1) (2023-09-20)
+
+
+### Bug Fixes
+
+* release auto tag ([#2275](https://github.com/WTTJ/welcome-ui/issues/2275)) ([58a572d](https://github.com/WTTJ/welcome-ui/commit/58a572d60f80a1b7caf35c9494450ec92a2f3bf7))
+* remove useless alwaysVisible on dropdownMenu ([#2280](https://github.com/WTTJ/welcome-ui/issues/2280)) ([8538fec](https://github.com/WTTJ/welcome-ui/commit/8538fece9e04d8e26fbb136d6a2048fc1c59f222))
+
+
+### Features
+
+* add @swc/jest ([1088d6a](https://github.com/WTTJ/welcome-ui/commit/1088d6a43c917da9bc16c7cd068fe28bd2eb50c8))
+
+
+
+
+
 # [5.2.0](https://github.com/WTTJ/welcome-ui/compare/v5.1.0...v5.2.0) (2023-09-19)
 
 

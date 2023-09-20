@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.1](https://github.com/WTTJ/welcome-ui/compare/v5.2.0...v5.2.1) (2023-09-20)
+
+
+### Bug Fixes
+
+* remove useless alwaysVisible on dropdownMenu ([#2280](https://github.com/WTTJ/welcome-ui/issues/2280)) ([8538fec](https://github.com/WTTJ/welcome-ui/commit/8538fece9e04d8e26fbb136d6a2048fc1c59f222))
+
+
+
+
+
 # [5.2.0](https://github.com/WTTJ/welcome-ui/compare/v5.1.0...v5.2.0) (2023-09-19)
 
 **Note:** Version bump only for package @welcome-ui/dropdown-menu
