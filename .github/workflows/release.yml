@@ -17,17 +17,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build
-        run: npx extract-changelog-release > Release.txt
-      - name: Test
-        run: cat Release.txt
+        shell: bash
+        run: |
+          {
+            echo 'CHANGELOG_BODY<<EOF'
+            npx extract-changelog-release
+            echo EOF
+          } >> "$GITHUB_ENV"
       - name: Pre-release
         uses: softprops/action-gh-release@v1
         if: contains(github.ref, '-') == true
         with:
-          files: Release.txt
+          body: $CHANGELOG_BODY
           prerelease: true
       - name: Release
         uses: softprops/action-gh-release@v1
         if: contains(github.ref, '-') == false
         with:
-          files: Release.txt
+          body: $CHANGELOG_BODY
