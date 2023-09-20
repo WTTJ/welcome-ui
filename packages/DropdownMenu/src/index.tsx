@@ -22,7 +22,6 @@ const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
   ({ children, dataTestId, innerProps = {}, store, gutter = 'xs', ...rest }, ref) => {
     const theme = useTheme()
     const arrowElement = store.useState('arrowElement')
-    const isOpen = store.useState('open')
 
     let parsedGutter = gutter
     if (typeof parsedGutter === 'string') {
@@ -36,21 +35,18 @@ const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
     }
 
     return (
-      isOpen && (
-        <Ariakit.Menu
-          alwaysVisible
-          aria-label="dropdown-menu"
-          data-testid={dataTestId}
-          gutter={parsedGutter}
-          ref={ref}
-          render={<S.Inner {...innerProps} />}
-          store={store}
-          tabIndex={0}
-          {...rest}
-        >
-          {children}
-        </Ariakit.Menu>
-      )
+      <Ariakit.Menu
+        aria-label="dropdown-menu"
+        data-testid={dataTestId}
+        gutter={parsedGutter}
+        ref={ref}
+        render={<S.Inner {...innerProps} />}
+        store={store}
+        tabIndex={0}
+        {...rest}
+      >
+        {children}
+      </Ariakit.Menu>
     )
   }
 )
