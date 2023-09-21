@@ -74,6 +74,7 @@ export const Drawer = styled.divBox<Pick<DrawerOptions, 'placement' | 'size'>>(
     overflow: auto;
     opacity: 0;
     transition: medium;
+    max-width: 100%;
 
     &[data-enter] {
       opacity: 1;
