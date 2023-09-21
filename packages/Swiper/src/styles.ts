@@ -35,10 +35,10 @@ export const Arrow = styled(Button)<
 
     ${!withDarkUI &&
     css`
-      background-color: light-900;
+      background-color: light-900 !important;
 
       &:hover {
-        background-color: light-700;
+        background-color: light-700 !important;
       }
     `}
 
