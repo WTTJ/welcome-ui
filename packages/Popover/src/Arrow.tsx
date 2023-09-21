@@ -3,7 +3,7 @@ import React from 'react'
 import { UsePopover } from './usePopover'
 import * as S from './styles'
 
-const transformMap: { [key: string]: string } = {
+const transformMap = {
   top: 'rotateZ(180deg)',
   right: 'rotateZ(-90deg)',
   bottom: 'rotateZ(360deg)',
@@ -18,7 +18,7 @@ export const Arrow = ({ store }: ArrowProps) => {
   const placement = store.useState('currentPlacement')
 
   const [parentPlacement] = placement.split('-')
-  const transform = transformMap[parentPlacement]
+  const transform = transformMap[parentPlacement as keyof typeof transformMap]
 
   return (
     <S.Arrow store={store}>

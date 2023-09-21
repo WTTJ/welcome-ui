@@ -15,7 +15,6 @@ export interface PopoverOptions extends Ariakit.PopoverProps {
 
 export type PopoverProps = CreateWuiProps<'div', PopoverOptions>
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 const PopoverComponent = forwardRef<'div', PopoverProps>(
   ({ children, onClose, store, ...rest }, ref) => {
     const { withCloseButton } = store

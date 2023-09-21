@@ -15,7 +15,6 @@ export interface PopoverHoverOptions extends Ariakit.HovercardProps {
 
 export type PopoverHoverProps = CreateWuiProps<'div', PopoverHoverOptions>
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 const PopoverHoverComponent = forwardRef<'div', PopoverHoverProps>(
   ({ children, onClose, store, ...rest }, ref) => {
     const { withCloseButton } = store

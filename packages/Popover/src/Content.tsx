@@ -2,7 +2,6 @@ import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Button } from '@welcome-ui/button'
 import { CrossIcon } from '@welcome-ui/icons'
-import { forwardRef } from '@welcome-ui/system'
 
 import { UsePopover, UsePopoverHover } from './usePopover'
 import { Arrow } from './Arrow'
@@ -15,8 +14,7 @@ export interface ContentOptions {
   store: UsePopover | UsePopoverHover
 }
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
-export const Content = forwardRef<'div', ContentOptions>(({ children, onClose, store }, ref) => {
+export const Content = ({ children, onClose, store }: ContentOptions) => {
   const handleClose = () => {
     if (onClose) onClose()
     store?.hide()
@@ -45,4 +43,4 @@ export const Content = forwardRef<'div', ContentOptions>(({ children, onClose, s
       )}
     </Box>
   )
-})
+}
