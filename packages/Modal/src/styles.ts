@@ -69,7 +69,6 @@ export const Dialog = styled(Ariakit.Dialog)(
 export const Content = styled.divBox``
 
 export const Body = styled.sectionBox`
-  max-height: 100%;
   ${th('modals.body')};
 `
 
