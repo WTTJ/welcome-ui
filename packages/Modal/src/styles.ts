@@ -77,6 +77,7 @@ export const Header = styled.headerBox`
   position: sticky;
   top: 0;
   flex-shrink: 0;
+  z-index: 1;
   ${th('modals.header')};
 `
 
@@ -89,6 +90,7 @@ export const Footer = styled.footerBox`
   position: sticky;
   bottom: 0;
   flex-shrink: 0;
+  z-index: 1;
   ${th('modals.footer')};
 `
 
