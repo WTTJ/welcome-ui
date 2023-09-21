@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.2](https://github.com/WTTJ/welcome-ui/compare/v5.2.1...v5.2.2) (2023-09-21)
+
+
+### Bug Fixes
+
+* zIndex on modal Header and Footer ([#2286](https://github.com/WTTJ/welcome-ui/issues/2286)) ([bfa792f](https://github.com/WTTJ/welcome-ui/commit/bfa792f4b127800b1dc573a850a77b7df8843494))
+
+
+
+
+
 ## [5.2.1](https://github.com/WTTJ/welcome-ui/compare/v5.2.0...v5.2.1) (2023-09-20)
 
 
