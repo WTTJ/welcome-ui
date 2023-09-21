@@ -167,7 +167,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
     : // if centeredSlides is false, we calculate on which page the number in firstSlideToShow props is
       Math.ceil(firstSlideToShow / currentSlidesPerView) - 1
 
-  const getArrowStates = () => {
+  const getArrowStates = useCallback(() => {
     const sliderContainer = ref?.current
     if (sliderContainer && !shouldLoop) {
       const { offsetWidth, scrollLeft, scrollWidth } = sliderContainer
@@ -180,7 +180,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
       setShowLeftArrow(true)
       setShowRightArrow(true)
     }
-  }
+  }, [ref, setShowLeftArrow, setShowRightArrow, shouldLoop, spaceBetween])
 
   const updatePage = () => {
     const sliderContainer = ref?.current
@@ -264,9 +264,13 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
 
   useEffect(() => {
     goTo(firstPageToShow, true)
-    getArrowStates()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  /** if the childrens changed we need to check again the arrow states */
+  useEffect(() => {
+    getArrowStates()
+  }, [getArrowStates, children])
 
   return (
     <S.Swiper data-testid={dataTestId} {...rest}>
