@@ -17,17 +17,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Get
-        run: echo "CHANGELOG_BODY=$(npx extract-changelog-release)" >> $GITHUB_ENV
-      - name: Test
-        run: echo ${{ env.CHANGELOG_BODY }}
+        id: get
+        run: npx extract-changelog-release > RELEASE.md
       - name: Pre-release
-        uses: softprops/action-gh-release@v1
+        uses: ncipollo/release-action@v1
         if: contains(github.ref, '-') == true
         with:
-          body: $CHANGELOG_BODY
+          bodyFile: "RELEASE.md"
           prerelease: true
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: ncipollo/release-action@v1
         if: contains(github.ref, '-') == false
         with:
-          body: $CHANGELOG_BODY
+          bodyFile: "RELEASE.md"
