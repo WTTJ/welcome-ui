@@ -124,7 +124,7 @@
     "lerna-update-wizard": "^1.1.2",
     "lodash.difference": "^4.5.0",
     "minimist": "1.2.8",
-    "netlify-cli": "^15.6.0",
+    "netlify-cli": "^16.4.1",
     "onchange": "^7.0.2",
     "react": "^18.1.0",
     "react-docgen-typescript": "^2.2.2",
