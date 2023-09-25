@@ -14,10 +14,10 @@ export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
 export interface ModalOptions {
   ariaLabel: string
+  children: React.ReactElement
   hideOnInteractOutside?: boolean
   size?: Size
   store: Ariakit.DialogStore
-  children: React.ReactElement
 }
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
 export type UseModal = Ariakit.DialogStore
