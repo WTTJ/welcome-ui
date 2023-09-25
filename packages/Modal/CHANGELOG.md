@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/WTTJ/welcome-ui/compare/v5.2.3...v5.3.0) (2023-09-25)
+
+
+### Features
+
+* add possibity to not show close button on modal content ([#2301](https://github.com/WTTJ/welcome-ui/issues/2301)) ([66097ba](https://github.com/WTTJ/welcome-ui/commit/66097ba7f5d9e8d39db51804f4d8118ee89a0dba))
+
+
+
+
+
 ## [5.2.3](https://github.com/WTTJ/welcome-ui/compare/v5.2.2...v5.2.3) (2023-09-21)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/WTTJ/welcome-ui/compare/v5.2.3...v5.3.0) (2023-09-25)
+
+
+### Bug Fixes
+
+* swiper custom button background ([#2292](https://github.com/WTTJ/welcome-ui/issues/2292)) ([8102bc0](https://github.com/WTTJ/welcome-ui/commit/8102bc0bba2ed15ea80870d5b42120b52017df93))
+* swiper reload if children changes ([#2291](https://github.com/WTTJ/welcome-ui/issues/2291)) ([5c8962d](https://github.com/WTTJ/welcome-ui/commit/5c8962d7b21e94d40f829a0c525f5cfbcdce2e41))
+
+
+### Features
+
+* add possibity to not show close button on modal content ([#2301](https://github.com/WTTJ/welcome-ui/issues/2301)) ([66097ba](https://github.com/WTTJ/welcome-ui/commit/66097ba7f5d9e8d39db51804f4d8118ee89a0dba))
+
+
+
+
+
 ## [5.2.3](https://github.com/WTTJ/welcome-ui/compare/v5.2.2...v5.2.3) (2023-09-21)
 
 
