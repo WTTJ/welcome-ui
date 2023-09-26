@@ -45,3 +45,7 @@ export const Popover = styled(Ariakit.Popover)<{ $withCloseButton: boolean }>(
 export const PopoverTrigger = styled(Ariakit.PopoverDisclosure)`
   ${system}
 `
+
+export const PopoverHoverTrigger = styled(Ariakit.HovercardAnchor)`
+  ${system}
+`
