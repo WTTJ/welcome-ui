@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/popover",
-  "version": "5.0.0",
+  "version": "5.3.1",
   "description": "welcome-ui: A popover component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

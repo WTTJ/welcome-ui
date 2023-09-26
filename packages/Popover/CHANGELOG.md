@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.1](https://github.com/WTTJ/welcome-ui/compare/v5.3.0...v5.3.1) (2023-09-26)
+
+
+### Bug Fixes
+
+* glitch on Popover with an hover ([#2282](https://github.com/WTTJ/welcome-ui/issues/2282)) ([72ad5a3](https://github.com/WTTJ/welcome-ui/commit/72ad5a30dad6b09375ccdf8d3c3a6026c51c0914))
+
+
+
+
+
 # [5.0.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.52...v5.0.0) (2023-08-31)
 
 
