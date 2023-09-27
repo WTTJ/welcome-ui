@@ -39,7 +39,6 @@ export function getFilesFromPackages(selectedParent: Parent) {
 }
 
 export function getStaticParams(pages: PageTree) {
-  console.log(pages)
   return pages.reduce((prev, { pages }) => {
     pages.map(page => {
       prev.push({ category: page })
