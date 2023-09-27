@@ -1,0 +1,149 @@
+{
+  "useAccordion": {
+    "props": {
+      "setOpen": {
+        "defaultValue": null,
+        "description": "A callback that gets called when the `open` state changes.\n@param open The new open value.\n@example const [open, setOpen] = useState(false);\nconst disclosure = useDisclosureStore({ open, setOpen });",
+        "name": "setOpen",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
+          "name": "DisclosureStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
+            "name": "DisclosureStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(open: boolean) => void"
+        }
+      },
+      "defaultOpen": {
+        "defaultValue": {
+          "value": "false"
+        },
+        "description": "The default visibility state of the content.",
+        "name": "defaultOpen",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
+          "name": "DisclosureStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
+            "name": "DisclosureStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disclosure": {
+        "defaultValue": null,
+        "description": "A reference to another disclosure store that controls another disclosure\ncomponent to keep them in sync. Element states like `contentElement` and\n`disclosureElement` won't be synced. For that, use the `store` prop\ninstead.",
+        "name": "disclosure",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
+          "name": "DisclosureStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
+            "name": "DisclosureStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "DisclosureStoreFunctions & Store<DisclosureStoreState>"
+        }
+      }
+    }
+  },
+  "Accordion": {
+    "props": {
+      "title": {
+        "defaultValue": null,
+        "description": "",
+        "name": "title",
+        "parent": {
+          "fileName": "Accordion/src/index.tsx",
+          "name": "AccordionOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Accordion/src/index.tsx",
+            "name": "AccordionOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "enum",
+          "raw": "string | Element",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "icon": {
+        "defaultValue": {
+          "value": "<RightIcon />"
+        },
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "Accordion/src/index.tsx",
+          "name": "AccordionOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Accordion/src/index.tsx",
+            "name": "AccordionOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "store": {
+        "defaultValue": null,
+        "description": "store from useAccordion()",
+        "name": "store",
+        "parent": {
+          "fileName": "Accordion/src/index.tsx",
+          "name": "AccordionOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Accordion/src/index.tsx",
+            "name": "AccordionOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "DisclosureStoreFunctions & Store<DisclosureStoreState> & { useState: UseState<DisclosureStoreState>; }"
+        }
+      }
+    }
+  }
+}

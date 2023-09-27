@@ -1,6 +1,7 @@
 /* eslint-disable no-console, @typescript-eslint/no-var-requires */
 const path = require('path')
 const fs = require('fs/promises')
+const { existsSync } = require('fs')
 
 const { argv } = require('yargs')
 const docgen = require('react-docgen-typescript')
@@ -64,9 +65,15 @@ const getFileDefinitions = file => {
 }
 
 const writePropsFile = async content => {
-  const destPath = path.join(process.cwd(), 'dist', 'index.doc.json')
+  const withDocsPath = existsSync(path.join(process.cwd(), 'docs'))
 
-  await fs.writeFile(destPath, JSON.stringify(content, null, 2))
+  if (withDocsPath) {
+    const destPath = path.join(process.cwd(), 'docs', 'properties.json')
+
+    await fs.writeFile(destPath, JSON.stringify(content, null, 2))
+  }
+
+  return
 }
 
 ;(async () => {
