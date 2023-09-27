@@ -5,7 +5,6 @@ import { DocumentationLayout } from '@/build-app/layouts/Documentation'
 import { getPageContent } from '@/build-app/utils/page-content'
 import { getDocsPages, getStaticParams } from '@/build-app/utils/pages-docs'
 import { startCase } from 'lodash'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 type PageProps = {
@@ -16,28 +15,25 @@ type PageProps = {
 }
 
 export async function generateStaticParams() {
-  const pages = getDocsPages()
-
+  const pages = getDocsPages('hooks')
+  console.log(pages)
   return getStaticParams(pages)
 }
 
 export default function Page({ params }: PageProps) {
-  const { page } = params
+  const { category } = params
 
   const { isNotFound, tree, contentWithoutMatter } = getPageContent(
-    `${startCase(page)}/docs/index.mdx`,
+    `${startCase(category)}/docs/index.mdx`,
     true
   )
-  const pages = getDocsPages()
+  const pages = getDocsPages('hooks')
 
   if (isNotFound) return notFound()
 
   return (
     <DocumentationLayout>
-      <div>
-        <Link href={`/docs`}>Go to main page</Link>
-        <Sidebar pages={pages} relativePath="/docs" />
-      </div>
+      <Sidebar pages={pages} />
       <main>
         <Mdx>{contentWithoutMatter}</Mdx>
       </main>
