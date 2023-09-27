@@ -34,7 +34,7 @@ const options = {
     }),
   ],
   banner: {
-    js: useClient ? '"use client"' : '',
+    js: '"use client"',
   },
 }
 
