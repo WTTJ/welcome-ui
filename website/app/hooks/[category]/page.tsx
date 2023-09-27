@@ -16,7 +16,7 @@ type PageProps = {
 
 export async function generateStaticParams() {
   const pages = getDocsPages('hooks')
-  console.log(pages)
+
   return getStaticParams(pages)
 }
 

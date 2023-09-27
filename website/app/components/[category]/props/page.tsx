@@ -15,8 +15,9 @@ export async function generateStaticParams() {
 }
 
 export default function Page({ params }: PageProps) {
-  console.log(params)
   const properties = getComponentProperties(params.category)
+
+  if (!properties) return null
 
   return <Properties items={properties} />
 }
