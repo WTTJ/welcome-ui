@@ -60,10 +60,10 @@ export function getStaticParams(pages: PageTree) {
 }
 
 /**
- * Gets the pages tree for design
+ * Gets the pages tree from supernova export
  */
 export function getDesignPages() {
-  const filesFromDirectory = getFilesFromDirectory('build-app/design')
+  const filesFromDirectory = getFilesFromDirectory('build-app/pages')
 
   return generatePagesFromFiles(filesFromDirectory)
 }

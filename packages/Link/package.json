@@ -15,7 +15,7 @@
     "./dist/index.doc.json": "./dist/index.doc.json"
   },
   "scripts": {
-    "build": "node ../../scripts/build.js --useClient",
+    "build": "node ../../scripts/build.js",
     "test": "jest",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
     "doc": "node -r esm ../../scripts/doc-props.js --name Link"

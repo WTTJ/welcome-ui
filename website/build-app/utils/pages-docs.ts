@@ -4,7 +4,9 @@ import kebabCase from 'lodash/kebabCase'
 import { join } from 'path'
 import { PageTree } from '../types'
 
-export function getFilesFromPackages() {
+type Parent = 'components' | 'hooks'
+
+export function getFilesFromPackages(selectedParent: Parent) {
   const folder = join(process.cwd(), '../packages')
   let files = [] as any[]
 
@@ -18,16 +20,17 @@ export function getFilesFromPackages() {
     if (fileExist) {
       const content = readFileSync(path, 'utf8')
       const {
-        data: { category },
+        data: { category, parent },
       } = matter(content)
 
-      const parentPage = category === 'utilities' ? 'utilities' : 'components'
+      if (parent !== selectedParent) continue
+
       const categoryParent = files.filter(resultItem => resultItem.category === category)[0]
 
       if (categoryParent) {
         categoryParent.pages.push(fileKebabCase)
       } else {
-        files.push({ category, parent: parentPage, pages: [fileKebabCase] })
+        files.push({ category, parent, pages: [fileKebabCase] })
       }
     }
   }
@@ -36,19 +39,20 @@ export function getFilesFromPackages() {
 }
 
 export function getStaticParams(pages: PageTree) {
-  return pages.reduce((prev, { pages, parent }) => {
+  console.log(pages)
+  return pages.reduce((prev, { pages }) => {
     pages.map(page => {
-      prev.push({ category: parent, page })
+      prev.push({ category: page })
     })
     return prev
-  }, [] as { category?: string; page: string }[])
+  }, [] as { category?: string }[])
 }
 
 /**
  * Gets the pages tree for docs
  */
-export function getDocsPages() {
-  const filesFromDirectory = getFilesFromPackages()
+export function getDocsPages(selectedParent = 'components' as Parent) {
+  const filesFromDirectory = getFilesFromPackages(selectedParent)
 
   return filesFromDirectory
 }
