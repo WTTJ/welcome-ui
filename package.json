@@ -73,7 +73,7 @@
   },
   "devDependencies": {
     "@babel/cli": "7.22.10",
-    "@babel/core": "7.22.20",
+    "@babel/core": "7.23.0",
     "@babel/eslint-parser": "^7.22.11",
     "@babel/plugin-proposal-class-properties": "7.18.6",
     "@babel/plugin-proposal-optional-chaining": "7.21.0",
