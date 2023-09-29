@@ -1,5 +1,6 @@
 import { PageTree } from '@/build-app/types'
-import startCase from 'lodash/startCase'
+import { getName } from '@/build-app/utils/transform-name'
+
 import Link from 'next/link'
 
 type SidebarProps = {
@@ -11,11 +12,11 @@ export function Sidebar({ menu }: SidebarProps) {
     <ul>
       {menu.map(({ pages, category, parent }) => (
         <>
-          {category && <div>{startCase(category)}</div>}
-          {pages.map(({ id, parent: pageParent }) => (
+          {category && <div>{getName(category)}</div>}
+          {pages.map(({ id, parent: pageParent, name }) => (
             <li key={`sidebar_${category}_page_${id}`}>
               <Link href={`/${parent}/${pageParent ? `${pageParent}/` : ''}${id}`}>
-                {startCase(id)}
+                {name || getName(id)}
               </Link>
             </li>
           ))}
