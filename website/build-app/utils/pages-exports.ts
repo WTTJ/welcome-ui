@@ -1,6 +1,7 @@
 import { existsSync, readdirSync, statSync } from 'fs'
 
 import { join } from 'path'
+import { PageTree } from '../types'
 // import type { PageTree } from '../types'
 
 const replaceMdxRegex = /.mdx|.md|\//g
@@ -50,35 +51,25 @@ export function getFilesFromDirectory(dir: string) {
   return files
 }
 
-// const generatePagesFromFiles = (items: string[][]) => {
-//   const returnItems = items.reduce((result, [firstItem, secondItem]) => {
-//     const parent = result.filter(resultItem => resultItem.category === firstItem)
+export function getStaticParams(pages: PageTree) {
+  return pages.reduce((prev, { pages }) => {
+    pages.map(page => {
+      if (!page.parent) {
+        prev.push({ id: page.id })
+      }
+    })
+    return prev
+  }, [] as { id?: string }[])
+}
 
-//     if (firstItem.includes('.md')) {
-//       result.push({ pages: [firstItem.replace(replaceMdxRegex, '')] })
-//     } else if (parent.length) {
-//       parent[0].pages.push(secondItem.replace(replaceMdxRegex, ''))
-//     } else {
-//       result.push({ category: firstItem, pages: [secondItem.replace(replaceMdxRegex, '')] })
-//     }
-//     return result
-//   }, [] as PageTree)
-
-//   return returnItems
-// }
-
-// export function getStaticParams(pages: PageTree) {
-//   return pages.reduce((prev, { id, pages }) => {
-//     pages.map(page => {
-//       if (id) {
-//         prev.push({ id, page })
-//       } else {
-//         prev.push({ id: page, page: 'index' })
-//       }
-//     })
-//     return prev
-//   }, [] as { category?: string; page: string }[])
-// }
+export function getStaticParamsSubPage(pages: PageTree) {
+  return pages.reduce((prev, { pages }) => {
+    pages.map(page => {
+      prev.push({ id: page.parent, subPage: page.id })
+    })
+    return prev
+  }, [] as { id?: string; subPage?: string }[])
+}
 
 /**
  * Gets the pages tree from supernova export

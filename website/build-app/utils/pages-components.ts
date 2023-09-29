@@ -20,7 +20,7 @@ export function getFilesFromPackages(selectedParent: Parent) {
     if (fileExist) {
       const content = readFileSync(path, 'utf8')
       const {
-        data: { category, type, name },
+        data: { category, type = 'components', name },
       } = matter(content)
 
       if (selectedParent !== type) continue
