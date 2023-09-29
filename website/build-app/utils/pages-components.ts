@@ -20,17 +20,25 @@ export function getFilesFromPackages(selectedParent: Parent) {
     if (fileExist) {
       const content = readFileSync(path, 'utf8')
       const {
-        data: { category, parent },
+        data: { category, type, name },
       } = matter(content)
 
-      if (parent !== selectedParent) continue
+      if (selectedParent !== type) continue
 
+      const isHook = selectedParent === 'hooks'
       const categoryParent = files.filter(resultItem => resultItem.category === category)[0]
+      const newChild = isHook
+        ? { id: fileKebabCase, name }
+        : { id: fileKebabCase, name, subPages: ['overview', 'props'] }
 
       if (categoryParent) {
-        categoryParent.pages.push(fileKebabCase)
+        categoryParent.pages.push(newChild)
       } else {
-        files.push({ category, parent, pages: [fileKebabCase] })
+        files.push({
+          category,
+          parent: selectedParent,
+          pages: [newChild],
+        })
       }
     }
   }
@@ -41,16 +49,16 @@ export function getFilesFromPackages(selectedParent: Parent) {
 export function getStaticParams(pages: PageTree) {
   return pages.reduce((prev, { pages }) => {
     pages.map(page => {
-      prev.push({ category: page })
+      prev.push({ id: page.id })
     })
     return prev
-  }, [] as { category?: string }[])
+  }, [] as { id?: string }[])
 }
 
 /**
  * Gets the pages tree for docs
  */
-export function getDocsPages(selectedParent = 'components' as Parent) {
+export function getPages(selectedParent = 'components' as Parent) {
   const filesFromDirectory = getFilesFromPackages(selectedParent)
 
   return filesFromDirectory
