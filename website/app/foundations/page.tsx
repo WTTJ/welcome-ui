@@ -1,12 +1,12 @@
 import { Sidebar } from '@/build-app/components/Sidebar'
-import { getPages } from '@/build-app/utils/pages-components'
+import { getPages } from '@/build-app/utils/pages-exports'
 
 export default function Page() {
-  const pages = getPages('hooks')
+  const pages = getPages('foundations')
 
   return (
     <>
-      <h1>Hooks</h1>
+      <h1>Foundations</h1>
       <Sidebar menu={pages} />
     </>
   )

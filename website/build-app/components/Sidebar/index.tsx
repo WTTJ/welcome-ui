@@ -3,31 +3,22 @@ import startCase from 'lodash/startCase'
 import Link from 'next/link'
 
 type SidebarProps = {
-  pages: PageTree
+  menu: PageTree
 }
 
-export function Sidebar({ pages }: SidebarProps) {
+export function Sidebar({ menu }: SidebarProps) {
   return (
     <ul>
-      {pages.map(({ category, pages, parent }) => (
+      {menu.map(({ pages, category, parent }) => (
         <>
-          {category && (
-            <>
-              <li key={`sidebar_${category}`}>{startCase(category)}</li>
-              <ul key={`sidebar_${category}_ul`}>
-                {pages.map(page => (
-                  <li key={`sidebar_${category}_page_${page}`}>
-                    <Link href={`/${parent || category}/${page}`}>{startCase(page)}</Link>
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
-          {!category && (
-            <li key={`sidebar_${pages[0]}`}>
-              <Link href={`/${parent}/${pages[0]}`}>{startCase(pages[0])}</Link>
+          {category && <div>{startCase(category)}</div>}
+          {pages.map(({ id, parent: pageParent }) => (
+            <li key={`sidebar_${category}_page_${id}`}>
+              <Link href={`/${parent}/${pageParent ? `${pageParent}/` : ''}${id}`}>
+                {startCase(id)}
+              </Link>
             </li>
-          )}
+          ))}
         </>
       ))}
     </ul>
