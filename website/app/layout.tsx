@@ -21,7 +21,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <header>
               <ul style={{ display: 'flex', gap: 10 }}>
                 <li>
-                  <Link href="/">Home</Link>
+                  <Link href="/">Logo</Link>
+                </li>
+                <li>
+                  <Link href="/foundations">Foundations</Link>
                 </li>
                 <li>
                   <Link href="/components">Components</Link>

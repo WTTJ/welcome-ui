@@ -9,7 +9,7 @@ import { getPageTree } from './page-tree'
 export function getPageContent(filename: string, isPackage?: boolean) {
   const file = isPackage
     ? join(process.cwd(), '../', 'packages', filename)
-    : join(process.cwd(), 'build-app', filename)
+    : join(process.cwd(), 'build-app', 'pages', filename)
 
   const fileExist = existsSync(file)
 
