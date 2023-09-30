@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 
 import StyledComponentsRegistry from '@/build-app/registry'
 import { ThemeProvider } from '@/build-app/components/ThemeProvider'
+import { Header } from '@/build-app/components/Header'
 
 export const metadata: Metadata = {
   title: 'Welcome UI - Customizable design system with react',
@@ -19,22 +19,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body>
         <StyledComponentsRegistry>
           <ThemeProvider>
-            <header>
-              <ul style={{ display: 'flex', gap: 10 }}>
-                <li>
-                  <Link href="/">Logo</Link>
-                </li>
-                <li>
-                  <Link href="/foundations">Foundations</Link>
-                </li>
-                <li>
-                  <Link href="/components">Components</Link>
-                </li>
-                <li>
-                  <Link href="/hooks">Hooks</Link>
-                </li>
-              </ul>
-            </header>
+            <Header />
             {children}
           </ThemeProvider>
         </StyledComponentsRegistry>
