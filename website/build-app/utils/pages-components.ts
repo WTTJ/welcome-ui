@@ -1,14 +1,17 @@
-import { existsSync, readFileSync, readdirSync } from 'fs'
+import { existsSync, readdirSync, readFileSync } from 'fs'
+import { join } from 'path'
+
 import matter from 'gray-matter'
 import kebabCase from 'lodash/kebabCase'
-import { join } from 'path'
+
 import { PageTree } from '../types'
 
 type Parent = 'components' | 'hooks'
 
 export function getFilesFromPackages(selectedParent: Parent) {
   const folder = join(process.cwd(), '../packages')
-  let files = [] as any[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const files = [] as any[]
 
   const folders = readdirSync(folder)
 
@@ -20,7 +23,7 @@ export function getFilesFromPackages(selectedParent: Parent) {
     if (fileExist) {
       const content = readFileSync(path, 'utf8')
       const {
-        data: { category, type = 'components', name },
+        data: { category, name, type = 'components' },
       } = matter(content)
 
       if (selectedParent !== type) continue

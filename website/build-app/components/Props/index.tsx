@@ -3,14 +3,14 @@ import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Tag } from '@welcome-ui/tag'
 import { Flex } from '@welcome-ui/flex'
-
-import * as TYPES from '../../../../utils/propTypes'
 import { Text } from '@welcome-ui/text'
 import { kebabCase } from 'lodash'
 
+import * as TYPES from '../../../../utils/propTypes'
+
 type Value = {
   name: string
-  value: any
+  value: string
 }
 
 type Property = [
@@ -91,7 +91,7 @@ const Type = ({ type }: { type: Property[1]['type'] }) => {
   return <pre>{name}</pre>
 }
 
-export function Property({ item }: PropertyProps) {
+export const Property = ({ item }: PropertyProps) => {
   const [name, options] = item
   const { defaultValue, description, required, type } = options
 
@@ -103,8 +103,8 @@ export function Property({ item }: PropertyProps) {
 
   return (
     <Box>
-      <Flex gap="md" direction="row" alignItems="center">
-        <Tag fontSize="h5" w="fit-content" as="h3" m="0">
+      <Flex alignItems="center" direction="row" gap="md">
+        <Tag as="h3" fontSize="h5" m="0" w="fit-content">
           {name}
         </Tag>
         {required && <span>Required</span>}
@@ -116,7 +116,7 @@ export function Property({ item }: PropertyProps) {
   )
 }
 
-export function Properties({ items }: PropertiesProps) {
+export const Properties = ({ items }: PropertiesProps) => {
   if (!items) {
     return (
       <Box as="p" pt="lg">
@@ -131,13 +131,14 @@ export function Properties({ items }: PropertiesProps) {
 
     return (
       <section key={`section_${name}`}>
-        <Text variant="h2" id={kebabCase(name.toString())}>
+        <Text id={kebabCase(name.toString())} variant="h2">
           {name}
         </Text>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           {Object.entries(properties).map(item => (
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            <Property key={`section_${name}_${item[0]}`} item={item} />
+            <Property item={item} key={`section_${name}_${item[0]}`} />
           ))}
         </div>
       </section>

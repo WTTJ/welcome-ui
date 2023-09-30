@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+
 import StyledComponentsRegistry from '@/build-app/registry'
 import { ThemeProvider } from '@/build-app/components/ThemeProvider'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Welcome UI - Customizable design system with react',
@@ -9,11 +10,11 @@ export const metadata: Metadata = {
     'Here you’ll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react, typescript, styled-components, ariakit and a lot of love 💛',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+        <link href="/favicon.png" rel="icon" sizes="32x32" type="image/png" />
       </head>
       <body>
         <StyledComponentsRegistry>
@@ -41,3 +42,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
+
+export default RootLayout

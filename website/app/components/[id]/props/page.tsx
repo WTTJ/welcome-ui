@@ -14,7 +14,7 @@ export async function generateStaticParams() {
   return getStaticParams(pages)
 }
 
-export default function Page({ params }: PageProps) {
+const Page = ({ params }: PageProps) => {
   const { id } = params
   const properties = getComponentProperties(id)
 
@@ -22,3 +22,5 @@ export default function Page({ params }: PageProps) {
 
   return <Properties items={properties} />
 }
+
+export default Page

@@ -1,6 +1,6 @@
 import { existsSync, readdirSync, statSync } from 'fs'
-
 import { join } from 'path'
+
 import { PageTree } from '../types'
 // import type { PageTree } from '../types'
 
@@ -10,7 +10,8 @@ export function getFilesFromDirectory(dir: string) {
   const directory = `build-app/pages/${dir}`
   const folder = join(process.cwd(), directory)
   const folderExist = existsSync(folder)
-  let files = [] as any[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const files = [] as any[]
 
   if (!folderExist) return files
 
@@ -23,13 +24,14 @@ export function getFilesFromDirectory(dir: string) {
     if (statSync(path).isDirectory()) {
       const fileList = readdirSync(path)
 
-      let filesDirection = {
+      const filesDirection = {
         parent: dir,
         category: relativePath,
         pages: [],
       }
 
       for (const file of fileList) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         filesDirection.pages.push({
           id: file.replace(replaceMdxRegex, ''),

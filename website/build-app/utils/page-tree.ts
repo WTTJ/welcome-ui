@@ -23,6 +23,7 @@ export function getPageTree(content?: string) {
 
   visit(tree, 'element', node => {
     if (node.tagName === 'h2') {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const title = node.children[0]?.value
       const id = kebabCase(title)
@@ -35,6 +36,7 @@ export function getPageTree(content?: string) {
 
       if (!parentHeading) return
 
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const title = node.children[0].value
       const id = kebabCase(title)
