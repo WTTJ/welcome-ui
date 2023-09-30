@@ -1,7 +1,7 @@
 import { Sidebar } from '@/build-app/components/Sidebar'
 import { getPages } from '@/build-app/utils/pages-components'
 
-export default function Page() {
+const Page = () => {
   const pages = getPages('hooks')
 
   return (
@@ -11,3 +11,5 @@ export default function Page() {
     </>
   )
 }
+
+export default Page

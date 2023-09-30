@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client'
 
 import * as React from 'react'
@@ -8,14 +10,12 @@ interface StyledComponentsRegistryProps {
   children: StyleSheetManagerProps['children']
 }
 
-export default function StyledComponentsRegistry({ children }: StyledComponentsRegistryProps) {
-  // Only create stylesheet once with lazy initial state
-  // x-ref: https://reactjs.org/docs/hooks-reference.html#lazy-initial-state
+const StyledComponentsRegistry = ({ children }: StyledComponentsRegistryProps) => {
   const [styledComponentsStyleSheet] = React.useState(() => new ServerStyleSheet())
 
   useServerInsertedHTML(() => {
     const styles = styledComponentsStyleSheet.getStyleElement()
-    // @ts-ignore
+    //@ts-ignore
     styledComponentsStyleSheet.instance.clearTag()
     return <>{styles}</>
   })
@@ -26,3 +26,5 @@ export default function StyledComponentsRegistry({ children }: StyledComponentsR
     <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>{children}</StyleSheetManager>
   )
 }
+
+export default StyledComponentsRegistry
