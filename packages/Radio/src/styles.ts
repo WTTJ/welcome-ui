@@ -54,7 +54,6 @@ export const Radio = styled(Ariakit.Radio).withConfig({ shouldForwardProp })<Rad
 // force label to max width to 100% here, because if we add a styled system prop maxWidth {{ md: '30%' }} we need to have a max-width on mobile by default
 export const Label = styled(WUILabel)`
   max-width: 100%;
-  align-items: flex-start;
   /** we need to reset margin-bottom from Label component */
   margin-bottom: 0 !important;
   ${system}
