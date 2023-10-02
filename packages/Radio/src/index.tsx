@@ -40,6 +40,7 @@ export const Radio = forwardRef<'input', RadioProps>(
 
     return (
       <S.Label
+        alignItems="flex-start"
         checkableField
         disabled={disabled}
         disabledIcon={disabledIcon}
