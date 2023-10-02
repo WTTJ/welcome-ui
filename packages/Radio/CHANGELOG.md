@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.2](https://github.com/WTTJ/welcome-ui/compare/v5.3.1...v5.3.2) (2023-10-02)
+
+
+### Bug Fixes
+
+* misaligned radio on RadioGroup ([#2312](https://github.com/WTTJ/welcome-ui/issues/2312)) ([391f6c9](https://github.com/WTTJ/welcome-ui/commit/391f6c9d1c2e0f1e9a1dbfcf53ee6c2e76ed50e9))
+
+
+
+
+
 # [5.1.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0...v5.1.0) (2023-09-18)
 
 
