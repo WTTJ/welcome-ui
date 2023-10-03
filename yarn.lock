@@ -18481,9 +18481,9 @@ ws@^8.9.0:
   integrity sha512-HPG3wQd9sNQoT9xHyNCXoDUa+Xw/VevmY9FoHyQ+g+rrMn4j6FB4np7Z0OhdTgjx6MgQLK7jwSy1YecU1+4Asg==
 
 wttj-config@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/wttj-config/-/wttj-config-2.6.2.tgz#10fa4b95d0959acb3956bfdf2cee50cebe2aafc8"
-  integrity sha512-ZLylgHpgmA/hfQg8fhMYgRfHavUqRE+5N+yf+8iyMQeYkrxGbeZKgYWHHQhfEnVUQUSwt00Tvx53zPDs5cjMgA==
+  version "2.7.3"
+  resolved "https://registry.yarnpkg.com/wttj-config/-/wttj-config-2.7.3.tgz#ef53b7c68b885171b5337b738b66847657f655f4"
+  integrity sha512-r777D2eznT6wuSp2Qyd0/n7cGiTrfZAWLIdHVYxsOtC77WEAEGri4WqYEHfQqZXJqzii/PvauzEH1bMFiSlEoA==
   dependencies:
     "@babel/eslint-parser" "^7.19.1"
     "@stylelint/postcss-css-in-js" "^0.38.0"
