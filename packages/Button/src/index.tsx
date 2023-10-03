@@ -50,3 +50,5 @@ export const Button = forwardRef<'button', ButtonProps>(
 Button.displayName = 'Button'
 
 export const StyledButton = S.Button
+
+export * from './panda'

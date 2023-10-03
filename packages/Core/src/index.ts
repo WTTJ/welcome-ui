@@ -9,3 +9,6 @@ export * from './WuiProvider'
 
 // export WuiTheme and all ThemeProps
 export * from './theme/types'
+
+// panda
+export * from './panda'
