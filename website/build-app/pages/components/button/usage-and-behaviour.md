@@ -10,7 +10,7 @@
   
 **Do**  
   
-![do - horizontal](https://studio-assets.supernova.io/design-systems/81732/5f8864b6-ee40-4fb1-b21a-9d0c999dc4a3.png)  
+![do - horizontal](https://studio-assets.supernova.io/design-systems/81732/073d930d-d4c7-498c-ac81-5aa3fdfe0633.png)  
 do - horizontal  
   
 > Yay:  
@@ -19,7 +19,7 @@ do - horizontal
   
 **Don't**  
   
-![don't - vertical](https://studio-assets.supernova.io/design-systems/81732/6be2a42f-fcc4-4692-8c12-f30475d6275a.png)  
+![don't - vertical](https://studio-assets.supernova.io/design-systems/81732/9d0b59e5-6391-41df-a433-baf3f1839ba2.png)  
 don't - vertical  
   
 > Please note:  
@@ -34,7 +34,7 @@ Both full width and left-aligned options are available without conditions but ae
   
 **Do**  
   
-![do](https://studio-assets.supernova.io/design-systems/81732/946d0713-f46f-4a7e-b204-ae92a584a470.png)  
+![do](https://studio-assets.supernova.io/design-systems/81732/e0b5d432-da50-458a-bf83-7100e58906f9.png)  
 do  
   
 > Yay:  
@@ -43,7 +43,7 @@ do
   
 **Variation**  
   
-![not recommended](https://studio-assets.supernova.io/design-systems/81732/79941f26-a132-4103-b644-f1e3c3ff694c.png)  
+![not recommended](https://studio-assets.supernova.io/design-systems/81732/5b24bb8f-3196-415e-9aee-1714f06e1b54.png)  
 not recommended  
   
 > Be warned:  
@@ -56,7 +56,7 @@ not recommended
   
 **Do**  
   
-![do - align left](https://studio-assets.supernova.io/design-systems/81732/a5a460cc-e951-4fa7-bbae-59f67f3254e1.png)  
+![do - align left](https://studio-assets.supernova.io/design-systems/81732/53b0f2c7-cfa3-4345-8db3-1f78ac7c677a.png)  
 do - align left  
   
 > Yay:  
@@ -65,7 +65,7 @@ do - align left
   
 **Variation**  
   
-![variation - full width](https://studio-assets.supernova.io/design-systems/81732/d0df1a67-e20f-432b-a7c7-723284bb7424.png)  
+![variation - full width](https://studio-assets.supernova.io/design-systems/81732/94d16d46-10cd-4f22-9d0d-08cdc46fea47.png)  
 variation - full width  
   
 > Be warned:  
@@ -82,7 +82,7 @@ Layouts may differ in terms of screen resolution and buttons can adapt their vis
   
 **Do**  
   
-![do](https://studio-assets.supernova.io/design-systems/81732/693321ec-6d64-4d26-8ac7-5bbb6893b15b.png)  
+![do](https://studio-assets.supernova.io/design-systems/81732/7f39c5b7-2bbb-4a1e-a202-7b3c736a5a9c.png)  
 do  
   
 > Yay:  
@@ -91,7 +91,7 @@ do
   
 **Variation**  
   
-![avoid](https://studio-assets.supernova.io/design-systems/81732/eb7590cd-7992-439c-9039-b6d0d40be233.png)  
+![avoid](https://studio-assets.supernova.io/design-systems/81732/c1167458-121f-45fd-8fcf-1daadb967a65.png)  
 avoid  
   
 > Be warned:  

@@ -12,7 +12,7 @@ Try sticking to the standards, especially for CRUD labels (Save, Delete, Create,
   
 **Do**  
   
-![do - short](https://studio-assets.supernova.io/design-systems/81732/616b29d5-7c37-40ea-a8ef-bbe172f4ff36.png)  
+![do - short](https://studio-assets.supernova.io/design-systems/81732/0227274f-0f92-4da1-b0e5-52416aa79533.png)  
 do - short  
   
 > Yay:  
@@ -21,7 +21,7 @@ do - short
   
 **Don't**  
   
-![don't - long](https://studio-assets.supernova.io/design-systems/81732/d8a4b0f4-5bf0-47ee-8d90-d982881f7751.png)  
+![don't - long](https://studio-assets.supernova.io/design-systems/81732/af8e4fa7-9f38-4c58-9b71-869bc373eb63.png)  
 don't - long  
   
 > Please note:  
