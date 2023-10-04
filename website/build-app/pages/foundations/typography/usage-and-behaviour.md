@@ -8,7 +8,7 @@ We have core rules regarding font usage (which to use, when, how to colour them,
   
 **Do**  
   
-![Baseline in uppercase](https://studio-assets.supernova.io/design-systems/81732/b4ca1177-9a18-411d-9d9e-7b62b7eed2d4.png)  
+![Baseline in uppercase](https://studio-assets.supernova.io/design-systems/81732/db2424b0-3c7b-4f4b-94c9-ac8b5ef66b41.png)  
 Baseline in uppercase  
   
 > Yay:  
@@ -17,7 +17,7 @@ Baseline in uppercase
   
 **Do**  
   
-![Welcome for heading, Work Sans for body](https://studio-assets.supernova.io/design-systems/81732/ba689f0d-f446-4717-8886-3a2856384614.png)  
+![Welcome for heading, Work Sans for body](https://studio-assets.supernova.io/design-systems/81732/aceeea98-741f-486b-a30d-1fd602798245.png)  
 Welcome for heading, Work Sans for body  
   
 > Yay:  
@@ -29,7 +29,7 @@ Welcome for heading, Work Sans for body
   
 **Don't**  
   
-![Different colour mixed together](https://studio-assets.supernova.io/design-systems/81732/3421b18d-126a-4bcd-b418-dc86aecad2dc.png)  
+![Different colour mixed together](https://studio-assets.supernova.io/design-systems/81732/30cb6095-56c3-47c0-85d3-61bfe98e9502.png)  
 Different colour mixed together  
   
 > Please note:  
@@ -38,7 +38,7 @@ Different colour mixed together
   
 **Don't**  
   
-![Colour on colour](https://studio-assets.supernova.io/design-systems/81732/0d9300c6-79c1-47af-9f3d-5b96101b4dcd.png)  
+![Colour on colour](https://studio-assets.supernova.io/design-systems/81732/b97acf08-1ea4-46e8-880f-515f1aa218b9.png)  
 Colour on colour  
   
 > Please note:  
@@ -49,7 +49,7 @@ Colour on colour
   
 **Don't**  
   
-![Body text font](https://studio-assets.supernova.io/design-systems/81732/7b3e1ef6-2616-4674-9259-a8f92e565181.png)  
+![Body text font](https://studio-assets.supernova.io/design-systems/81732/cf85d81c-cfa9-40fc-aa35-07a65a172136.png)  
 Body text font  
   
 > Please note:  
@@ -59,7 +59,7 @@ Body text font
   
 **Don't**  
   
-![Yellow on white](https://studio-assets.supernova.io/design-systems/81732/1147f226-ac74-431e-9ce3-a39f00f939fb.png)  
+![Yellow on white](https://studio-assets.supernova.io/design-systems/81732/d8c9ea54-2402-4477-a565-a539191fdfed.png)  
 Yellow on white  
   
 > Please note:  
