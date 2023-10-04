@@ -5,8 +5,31 @@ import matter from 'gray-matter'
 import kebabCase from 'lodash/kebabCase'
 
 import { PageTree } from '../types'
+import { replaceMdxRegex } from '../constants/regex'
 
 type Parent = 'components' | 'hooks'
+
+function getComponentSubPages(id: string) {
+  const directory = `build-app/pages/components/${id}`
+  const folder = join(process.cwd(), directory)
+  const folderExist = existsSync(folder)
+
+  if (!folderExist) return ['props']
+
+  const subPages = []
+
+  const fileList = readdirSync(folder)
+
+  for (const file of fileList) {
+    const fileName = file.replace(replaceMdxRegex, '')
+
+    if (fileName !== 'overview') {
+      subPages.push(fileName)
+    }
+  }
+
+  return [...subPages, 'code', 'props']
+}
 
 export function getFilesFromPackages(selectedParent: Parent) {
   const folder = join(process.cwd(), '../packages')
@@ -32,7 +55,7 @@ export function getFilesFromPackages(selectedParent: Parent) {
       const categoryParent = files.filter(resultItem => resultItem.category === category)[0]
       const newChild = isHook
         ? { id: fileKebabCase, name }
-        : { id: fileKebabCase, name, subPages: ['overview', 'props'] }
+        : { id: fileKebabCase, name, subPages: getComponentSubPages(fileKebabCase) }
 
       if (categoryParent) {
         categoryParent.pages.push(newChild)
@@ -53,9 +76,16 @@ export function getStaticParams(pages: PageTree) {
   return pages.reduce((prev, { pages }) => {
     pages.map(page => {
       prev.push({ id: page.id })
+
+      page.subPages?.map(subPage =>
+        prev.push({
+          id: page.id,
+          subPage,
+        })
+      )
     })
     return prev
-  }, [] as { id?: string }[])
+  }, [] as { id: string; subPage?: string }[])
 }
 
 /**

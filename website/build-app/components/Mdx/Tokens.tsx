@@ -23,7 +23,7 @@ export const Tokens = ({ children }: { children: React.ReactNode[] }) => {
         //@ts-ignore
         if (child?.props?.children?.startsWith('Token Group')) {
           return (
-            <Text key={key} mt="xxl" variant="h4">
+            <Text key={key} mx="lg" variant="h4">
               {/* @ts-ignore */}
               {child?.props?.children?.replace('Token Group ', '')}
             </Text>
