@@ -54,6 +54,7 @@ const components: ReactMarkdownTypes.Components = {
   blockquote: props => <Blockquote {...props} />,
   //@ts-ignore
   p: props => <Paragraph {...props} />,
+  img: props => <Box as="img" maxW="100%" {...props} />,
 }
 
 export const Mdx = ({ children = '' }) => {
