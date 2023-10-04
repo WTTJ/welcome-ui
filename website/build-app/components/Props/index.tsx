@@ -125,23 +125,27 @@ export const Properties = ({ items }: PropertiesProps) => {
     )
   }
 
-  return Object.entries(items).map(props => {
-    const name = props[0]
-    const { props: properties } = props[1]
+  return (
+    <div>
+      {Object.entries(items).map(props => {
+        const name = props[0]
+        const { props: properties } = props[1]
 
-    return (
-      <section key={`section_${name}`}>
-        <Text id={kebabCase(name.toString())} variant="h2">
-          {name}
-        </Text>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          {Object.entries(properties).map(item => (
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            <Property item={item} key={`section_${name}_${item[0]}`} />
-          ))}
-        </div>
-      </section>
-    )
-  })
+        return (
+          <section key={`section_${name}`}>
+            <Text id={kebabCase(name.toString())} variant="h2">
+              {name}
+            </Text>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+              {Object.entries(properties).map(item => (
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                <Property item={item} key={`section_${name}_${item[0]}`} />
+              ))}
+            </div>
+          </section>
+        )
+      })}
+    </div>
+  )
 }

@@ -1,11 +1,21 @@
-export type DocumentationLayoutProps = {
+import { Grid } from '@welcome-ui/grid'
+
+export type LayoutProps = {
   children: React.ReactNode
 }
 
-export const DocumentationLayout = ({ children }: DocumentationLayoutProps) => {
+export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div style={{ width: '100%', display: 'grid', gridTemplateColumns: '1fr 2fr 1fr' }}>
+    <Grid gap="md" margin="0 auto" maxWidth={1400} px="md" templateColumns="10rem 1fr">
       {children}
-    </div>
+    </Grid>
+  )
+}
+
+export const Child = ({ children }: LayoutProps) => {
+  return (
+    <Grid templateColumns="1fr 100px" w="100%">
+      {children}
+    </Grid>
   )
 }

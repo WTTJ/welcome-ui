@@ -1,20 +1,20 @@
 import { Tabs } from './tabs'
 
 import { Sidebar } from '@/build-app/components/Sidebar'
-import { DocumentationLayout } from '@/build-app/layouts/Documentation'
+import * as Documentation from '@/build-app/layouts/Documentation'
 import { getPages } from '@/build-app/utils/pages-components'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const pages = getPages()
 
   return (
-    <DocumentationLayout>
+    <Documentation.Layout>
       <Sidebar menu={pages} />
       <div>
         <Tabs />
-        {children}
+        <Documentation.Child>{children}</Documentation.Child>
       </div>
-    </DocumentationLayout>
+    </Documentation.Layout>
   )
 }
 
