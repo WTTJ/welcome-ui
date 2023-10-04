@@ -3,7 +3,7 @@
 
 ---
 
-# Global
+## Global
 
   
 **Token Group Form**:    
@@ -27,7 +27,7 @@ S Medium: Work Sans 500 0.875undefined
 
 ---
 
-# Desktop
+## Desktop
 
   
 **Token Group Desktop / Headings**:    
@@ -74,7 +74,7 @@ Subtitle S: Welcome web 400 11px, upper
 
 ---
 
-# Mobile
+## Mobile
 
   
 **Token Group Mobile / Headings**:    
