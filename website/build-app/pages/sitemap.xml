@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        <url>
+            <loc>/foundations/design-tokens-HNN2Tpjs</loc>
+            <changefreq>weekly</changefreq>
+        </url>
+        <url>
+            <loc>/foundations/typography/overview-esPZphnW</loc>
+            <changefreq>weekly</changefreq>
+        </url>
+        <url>
+            <loc>/foundations/typography/specifications-5J7jabMb</loc>
+            <changefreq>weekly</changefreq>
+        </url>
+        <url>
+            <loc>/foundations/typography/usage-and-behaviour-5oJCHzk3</loc>
+            <changefreq>weekly</changefreq>
+        </url>
+        <url>
+            <loc>/components/button/overview-kGnAZHyr</loc>
+            <changefreq>weekly</changefreq>
+        </url>
+        <url>
+            <loc>/components/button/specifications-h6oeYPfU</loc>
+            <changefreq>weekly</changefreq>
+        </url>
+        <url>
+            <loc>/components/button/content-ITbVP7zy</loc>
+            <changefreq>weekly</changefreq>
+        </url>
+        <url>
+            <loc>/components/button/usage-and-behaviour-GZ3VEjGC</loc>
+            <changefreq>weekly</changefreq>
+        </url>
+   
+</urlset>
