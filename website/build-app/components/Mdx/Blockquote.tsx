@@ -41,7 +41,8 @@ export const Blockquote = ({ children }: { children: JSX.Element[] }) => {
     } else if (isDo) {
       title = 'Do'
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore prev.push(item.replace('*DO\n*', ''))
+      //@ts-ignore
+      prev.push(item.replace('*DO\n*', ''))
     } else {
       prev.push(item)
     }
