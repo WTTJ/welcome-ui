@@ -1,12 +1,8 @@
+import { PageProps } from './page'
+
 import { Properties } from '@/build-app/components/Props'
 import { getComponentProperties } from '@/build-app/utils/components-properties'
 import { getPages, getStaticParams } from '@/build-app/utils/pages-components'
-
-type PageProps = {
-  params: {
-    id: string
-  }
-}
 
 export async function generateStaticParams() {
   const pages = getPages()

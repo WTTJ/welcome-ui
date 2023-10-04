@@ -25,7 +25,7 @@ const Layout = ({ children, params }: LayoutProps) => {
         <Text py="xl" variant="h1">
           {getName(id)}
         </Text>
-        <Tabs />
+        <Tabs pages={pages} />
         <Documentation.Child>{children}</Documentation.Child>
       </div>
     </Documentation.Layout>

@@ -2,9 +2,7 @@ import { existsSync, readdirSync, statSync } from 'fs'
 import { join } from 'path'
 
 import { PageTree } from '../types'
-// import type { PageTree } from '../types'
-
-const replaceMdxRegex = /.mdx|.md|\//g
+import { replaceMdxRegex } from '../constants/regex'
 
 export function getFilesFromDirectory(dir: string) {
   const directory = `build-app/pages/${dir}`
