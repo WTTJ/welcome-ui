@@ -18,19 +18,19 @@ const components: ReactMarkdownTypes.Components = {
   hr: () => null,
   //@ts-ignore
   h2: ({ children }) => (
-    <Text id={`${kebabCase(children?.toString())}`} variant="h2">
+    <Text id={`${kebabCase(children?.toString())}`} my="3xl" variant="h2">
       {children}
     </Text>
   ),
   //@ts-ignore
   h3: ({ children }) => (
-    <Text id={`${kebabCase(children?.toString())}`} variant="h3">
+    <Text id={`${kebabCase(children?.toString())}`} my="xl" variant="h3">
       {children}
     </Text>
   ),
   //@ts-ignore
   h4: ({ children }) => (
-    <Text id={`${kebabCase(children?.toString())}`} variant="h4">
+    <Text id={`${kebabCase(children?.toString())}`} my="lg" variant="h4">
       {children}
     </Text>
   ),
@@ -58,10 +58,10 @@ const components: ReactMarkdownTypes.Components = {
 
 export const Mdx = ({ children = '' }) => {
   return (
-    <div style={{ maxWidth: '100%' }}>
+    <Box maxW="100%">
       <ReactMarkdown components={components} remarkPlugins={[remarkGfm]}>
         {children}
       </ReactMarkdown>
-    </div>
+    </Box>
   )
 }

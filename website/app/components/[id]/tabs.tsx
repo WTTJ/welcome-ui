@@ -10,7 +10,7 @@ export const Tabs = () => {
   const { id } = useParams()
 
   return (
-    <Tab.List aria-label="Tabs" store={tab}>
+    <Tab.List aria-label="Tabs" mb="xl" store={tab}>
       <Tab as={Link} href={`/components/${id}`} id={id as string} store={tab}>
         Overview
       </Tab>
