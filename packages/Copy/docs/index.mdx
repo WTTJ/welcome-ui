@@ -3,22 +3,6 @@ type: hooks
 name: useCopy
 ---
 
-import { useCopyText } from '@welcome-ui/utils.copy'
-import {
-  component,
-  dependencies,
-  name,
-  peerDependencies,
-  version,
-} from '@welcome-ui/utils.copy/package.json'
-
-<showcase
-  version={version}
-  name={name}
-  component={component}
-  description="A simple hook to copy text from a given HTML element to your clipboard with copy-to-clipboard library."
-/>
-
 ## Copy an element
 
 Copy the content from another HTML element by creating a `ref` and passing it to `useCopyText`.
