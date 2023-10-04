@@ -3,7 +3,7 @@
 
 ---
 
-# Write meaningful labels
+## Write meaningful labels
 
 Labels should clearly transcribe what action will occur if the user triggers the button. They should always start with a verb, be short and in sentence case.
 
@@ -12,7 +12,7 @@ Try sticking to the standards, especially for CRUD labels (Save, Delete, Create,
   
 **Do**  
   
-![do - short](https://studio-assets.supernova.io/design-systems/81732/fa29228e-0ce7-46af-9738-61e55dfc6c84.png)  
+![do - short](https://studio-assets.supernova.io/design-systems/81732/62c61107-08ed-4446-8c0b-17437ef781bf.png)  
 do - short  
   
 > Yay:  
@@ -21,7 +21,7 @@ do - short
   
 **Don't**  
   
-![don't - long](https://studio-assets.supernova.io/design-systems/81732/a701c557-9937-485d-a44e-cdf3b0b4b885.png)  
+![don't - long](https://studio-assets.supernova.io/design-systems/81732/282c4da5-f45c-4434-9513-ca59caa77c5b.png)  
 don't - long  
   
 > Please note:  
@@ -31,7 +31,7 @@ don't - long
 
 ---
 
-# Some standard button names
+## Some standard button names
 
   
 | Column 1 | Column 2 | Column 3 |  
