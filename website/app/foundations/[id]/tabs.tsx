@@ -22,7 +22,7 @@ export const Tabs = ({ pages }: TabsProps) => {
   if (!subPages) return null
 
   return (
-    <Tab.List aria-label="Tabs" store={tab}>
+    <Tab.List aria-label="Tabs" mb="xl" store={tab}>
       {subPages.map(subPage => {
         const link = `/foundations/${subPage.parent}/${subPage.id}`
 
