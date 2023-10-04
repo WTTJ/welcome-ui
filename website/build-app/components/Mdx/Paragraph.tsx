@@ -6,5 +6,5 @@ export const Paragraph = ({ children }: { children: JSX.Element }) => {
 
   if (isDoDont) return null
 
-  return <Text>{children}</Text>
+  return <Text my="lg">{children}</Text>
 }
