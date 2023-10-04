@@ -20,7 +20,6 @@ export function getPageContent(filename: string, isPackage?: boolean) {
   } else {
     const content = readFileSync(file, 'utf8')
     const { content: contentWithoutMatter, data } = matter(content)
-
     const tree = getPageTree(contentWithoutMatter)
 
     return { content, contentWithoutMatter, data, tree }
