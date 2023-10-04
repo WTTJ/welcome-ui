@@ -11,8 +11,8 @@ export const TableOfContent = ({ tree }: TableOfContentProps) => {
   if (!tree) return null
 
   return (
-    <Box as="nav" position="sticky" top={70}>
-      <ul>
+    <nav>
+      <Box as="ul" position="sticky" top={140}>
         {tree.map(item => (
           <li key={item.href}>
             <Link href={item.href}>{item.title}</Link>
@@ -27,7 +27,7 @@ export const TableOfContent = ({ tree }: TableOfContentProps) => {
             )}
           </li>
         ))}
-      </ul>
-    </Box>
+      </Box>
+    </nav>
   )
 }
