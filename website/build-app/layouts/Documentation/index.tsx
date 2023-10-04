@@ -13,9 +13,5 @@ export const Layout = ({ children }: LayoutProps) => {
 }
 
 export const Child = ({ children }: LayoutProps) => {
-  return (
-    <Grid templateColumns="1fr 100px" w="100%">
-      {children}
-    </Grid>
-  )
+  return <Grid templateColumns="1fr 200px">{children}</Grid>
 }
