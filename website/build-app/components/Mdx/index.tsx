@@ -1,48 +1,41 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import kebabCase from 'lodash/kebabCase'
 import ReactMarkdown from 'react-markdown'
+import * as ReactMarkdownTypes from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Text } from '@welcome-ui/text'
 import { Link } from '@welcome-ui/link'
 import { Box } from '@welcome-ui/box'
 
 import { Pre } from './Pre'
+import { Blockquote } from './Blockquote'
+import { Paragraph } from './Paragraph'
 
-const components = {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+const components: ReactMarkdownTypes.Components = {
   //@ts-ignore
   pre: props => <Pre {...props} />,
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-ignore
-  h1: ({ children }) => (
-    <Text id={`${kebabCase(children.toString())}`} variant="h1">
-      {children}
-    </Text>
-  ),
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  h1: () => null,
+  hr: () => null,
   //@ts-ignore
   h2: ({ children }) => (
-    <Text id={`${kebabCase(children.toString())}`} variant="h2">
+    <Text id={`${kebabCase(children?.toString())}`} variant="h2">
       {children}
     </Text>
   ),
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
   h3: ({ children }) => (
-    <Text id={`${kebabCase(children.toString())}`} variant="h3">
+    <Text id={`${kebabCase(children?.toString())}`} variant="h3">
       {children}
     </Text>
   ),
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
   h4: ({ children }) => (
-    <Text id={`${kebabCase(children.toString())}`} variant="h4">
+    <Text id={`${kebabCase(children?.toString())}`} variant="h4">
       {children}
     </Text>
   ),
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
   a: ({ href, ...props }) => <Link href={href} isExternal {...props} />,
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
   code: ({ children }) => (
     <Box
@@ -57,13 +50,15 @@ const components = {
       {children}
     </Box>
   ),
+  //@ts-ignore
+  blockquote: props => <Blockquote {...props} />,
+  //@ts-ignore
+  p: props => <Paragraph {...props} />,
 }
 
 export const Mdx = ({ children = '' }) => {
   return (
     <div style={{ maxWidth: '100%' }}>
-      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-      {/* @ts-ignore */}
       <ReactMarkdown components={components} remarkPlugins={[remarkGfm]}>
         {children}
       </ReactMarkdown>

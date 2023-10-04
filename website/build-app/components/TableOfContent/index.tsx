@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Box } from '@welcome-ui/box'
 
 import { Toc } from '@/build-app/utils/page-tree'
 
@@ -10,18 +11,18 @@ export const TableOfContent = ({ tree }: TableOfContentProps) => {
   if (!tree) return null
 
   return (
-    <ul style={{ minWidth: 500 }}>
+    <ul>
       {tree.map(item => (
         <li key={item.href}>
           <Link href={item.href}>{item.title}</Link>
           {item.children && (
-            <ul>
+            <Box as="ul" paddingLeft="xl">
               {item.children.map(child => (
                 <li key={child.href}>
                   <Link href={child.href}>{child.title}</Link>
                 </li>
               ))}
-            </ul>
+            </Box>
           )}
         </li>
       ))}
