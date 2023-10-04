@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { Mdx } from '@/build-app/components/Mdx'
 import { Sidebar } from '@/build-app/components/Sidebar'
 import { TableOfContent } from '@/build-app/components/TableOfContent'
-import { DocumentationLayout } from '@/build-app/layouts/Documentation'
+import * as Documentation from '@/build-app/layouts/Documentation'
 import { getPageContent } from '@/build-app/utils/page-content'
 import { getPages, getStaticParams } from '@/build-app/utils/pages-components'
 
@@ -32,13 +32,15 @@ const Page = ({ params }: PageProps) => {
   if (isNotFound) return notFound()
 
   return (
-    <DocumentationLayout>
+    <Documentation.Layout>
       <Sidebar menu={pages} />
-      <main>
-        <Mdx>{contentWithoutMatter}</Mdx>
-      </main>
-      <TableOfContent tree={tree} />
-    </DocumentationLayout>
+      <Documentation.Child>
+        <main>
+          <Mdx>{contentWithoutMatter}</Mdx>
+        </main>
+        <TableOfContent tree={tree} />
+      </Documentation.Child>
+    </Documentation.Layout>
   )
 }
 

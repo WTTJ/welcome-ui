@@ -4,6 +4,10 @@ import Link from 'next/link'
 export const Header = styled.header`
   height: 70;
   box-shadow: ${th('colors.dark-100')} 0px -1px 0px inset;
+  background-color: light-900;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 `
 
 export const A = styled(Link)`
