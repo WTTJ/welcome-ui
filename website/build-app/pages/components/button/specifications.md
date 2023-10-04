@@ -3,7 +3,7 @@
 
 ---
 
-# *Anatomy*
+## *Anatomy*
 
 ![Img](https://studio-assets.supernova.io/design-systems/81732/6c0b46d8-2b32-41b9-b634-74846a47f7a7.png)
 
@@ -21,14 +21,14 @@ Pictogram that indicates a dropdown. By default the arrow points down. When the 
 - *Container* 
 Background of the component that can either be filled, outlined or null.
 
-## Informative icons
+### Informative icons
 
 Adding an icon is optional but it should always be kept to a single one per button.
 
   
 **Do**  
   
-![do - 1 icon](https://studio-assets.supernova.io/design-systems/81732/a603ad6f-c1a9-4022-9c90-72ab22b35c3f.png)  
+![do - 1 icon](https://studio-assets.supernova.io/design-systems/81732/4aec9124-0299-47d6-a170-7937f12b791a.png)  
 do - 1 icon  
   
 > Yay:  
@@ -37,7 +37,7 @@ do - 1 icon
   
 **Don't**  
   
-![fsdfsdf](https://studio-assets.supernova.io/design-systems/81732/fef6cd06-7f3e-4e0f-a551-205d7f2a4194.png)  
+![fsdfsdf](https://studio-assets.supernova.io/design-systems/81732/dafd256e-34dc-42cb-a2e6-306987a6da62.png)  
 fsdfsdf, fsdfsdfsd  
   
   
@@ -45,10 +45,6 @@ fsdfsdf, fsdfsdfsd
 > *DON'T 
 *Fit more than one icon at a time on each side.  
 
-
----
-
-# Guidelines
 
 ## *Hierarchy*
 
@@ -76,7 +72,7 @@ Never include two of the same level button in the same context. Decide which act
   
 **Do**  
   
-![do - different](https://studio-assets.supernova.io/design-systems/81732/4b853994-afb2-47c5-993e-df2fead0c5b8.png)  
+![do - different](https://studio-assets.supernova.io/design-systems/81732/7aef5f5a-6ad1-48fb-87f2-eaecb0877fde.png)  
 do - different  
   
 > Yay:  
@@ -85,7 +81,7 @@ do - different
   
 **Don't**  
   
-![don't - same](https://studio-assets.supernova.io/design-systems/81732/0569c54d-a87e-4755-8876-06c3da0ebfe0.png)  
+![don't - same](https://studio-assets.supernova.io/design-systems/81732/84916e67-8520-46fe-add5-1444909bcf3f.png)  
 don't - same  
   
 > Please note:  
@@ -100,7 +96,7 @@ Modal buttons are always a ghost button.
   
 **Do**  
   
-![do - ghost](https://studio-assets.supernova.io/design-systems/81732/70c244a3-275f-4ec9-88ff-d8557a4f9f77.png)  
+![do - ghost](https://studio-assets.supernova.io/design-systems/81732/2c156c6e-0d44-42b7-8f80-db345f642380.png)  
 do - ghost  
   
 > Yay:  
@@ -109,15 +105,13 @@ do - ghost
   
 **Don't**  
   
-![don't - others](https://studio-assets.supernova.io/design-systems/81732/9801a8c9-ef94-444b-8c5b-b73b0088eb1f.png)  
+![don't - others](https://studio-assets.supernova.io/design-systems/81732/65316d4a-d82c-4dde-adf0-86ac781c31b8.png)  
 don't - others  
   
 > Please note:  
 > *DON'T 
 *Use any other level.  
 
-
----
 
 ## Size and spacing
 
@@ -136,7 +130,7 @@ Our buttons come in 4 different sizes. As a rule of thumb:
 The width is always adaptative to its content while the height remains fixed.
 
   
-![sizes](https://studio-assets.supernova.io/design-systems/81732/ebd5bad2-e440-4369-8c9f-7c1d48a09b1f.png)  
+![sizes](https://studio-assets.supernova.io/design-systems/81732/31a305e2-62a6-4c34-b424-9dabfaf1e301.png)  
 sizes  
 
 
@@ -147,7 +141,7 @@ If you want to highlight an action over another one, levels will do the job, siz
   
 **Do**  
   
-![do - same](https://studio-assets.supernova.io/design-systems/81732/841d3113-7d4d-4c2c-a51b-2df4a2510221.png)  
+![do - same](https://studio-assets.supernova.io/design-systems/81732/61e57c4b-e8af-4ea0-9ce5-07e7811b3e75.png)  
 do - same  
   
 > Yay:  
@@ -156,7 +150,7 @@ do - same
   
 **Don't**  
   
-![don't - different](https://studio-assets.supernova.io/design-systems/81732/05eaad3d-af5b-406d-b687-9faa1bbb2239.png)  
+![don't - different](https://studio-assets.supernova.io/design-systems/81732/971b7bcb-d9cf-4b82-b978-95e366fb2dca.png)  
 don't - different  
   
 > Please note:  
@@ -175,7 +169,7 @@ Paddings between label and icons is:
 An icon and a label are considered as a group so in case of a full width button, they'll be aligned left while the arrow will always be fixated on the right.
 
   
-![paddings](https://studio-assets.supernova.io/design-systems/81732/01d93d75-faa2-4d52-8aae-b2080a682a9e.png)  
+![paddings](https://studio-assets.supernova.io/design-systems/81732/bbb2c8a2-9135-4147-800a-86a3e6ad02a8.png)  
 paddings  
 
 
@@ -206,16 +200,16 @@ Margins between 2 buttons are:
 When a user interacts with a button its state changes to communicate information.
 
   
-![Default](https://studio-assets.supernova.io/design-systems/81732/1bcd158d-f35a-4553-8adb-e4869a043205.png)  
+![Default](https://studio-assets.supernova.io/design-systems/81732/d6a09c16-4b2c-44b6-9423-7b7de2228e9e.png)  
 Default, Initial view of a button that hasn't been interacted with.  
   
-![Hover](https://studio-assets.supernova.io/design-systems/81732/9349f6b1-d018-43a6-822c-922ca3b5a79e.png)  
+![Hover](https://studio-assets.supernova.io/design-systems/81732/d1f1a593-d447-46f7-a3d9-0fc2e34e7c4c.png)  
 Hover, Signals availability and the step before triggering an action. Takes a lighter shade.  
   
-![Active](https://studio-assets.supernova.io/design-systems/81732/047a6485-b88c-4d9c-acec-e965241de2d7.png)  
+![Active](https://studio-assets.supernova.io/design-systems/81732/c6c9520a-eaa4-46a5-86f1-627ce8f430b2.png)  
 Active, Indicates which button is in focus and selected by the user.  
   
-![Disabled](https://studio-assets.supernova.io/design-systems/81732/935a0bc6-d388-4e9a-a54b-01aa99cbe617.png)  
+![Disabled](https://studio-assets.supernova.io/design-systems/81732/74456fc3-4cc1-4513-a587-be439805c150.png)  
 Disabled, Button with which a user cannot interact with. Greyed out label and container.  
   
 
@@ -265,7 +259,7 @@ Our products are light-themed by default with a few exceptions, like Welcome Ori
 Consistent throughout different themes putting an emphasis on Welcome's primary colour.
 
   
-![primary](https://studio-assets.supernova.io/design-systems/81732/1d609ee9-caed-45b4-a6da-6a1472b573a9.png)  
+![primary](https://studio-assets.supernova.io/design-systems/81732/e8d82689-3bdd-458b-98e5-ccb3391b290b.png)  
 primary  
 
 
@@ -274,7 +268,7 @@ primary
 They all have alternate versions for dark-themed products. Dark-themed versions are referred as negatives.
 
   
-![secondary, tertiary, ghost](https://studio-assets.supernova.io/design-systems/81732/e5daa96c-3908-4e29-8c3b-2b8d726d6cc7.png)  
+![secondary, tertiary, ghost](https://studio-assets.supernova.io/design-systems/81732/94fcc61e-5746-4e69-9ab2-5d37643877df.png)  
 secondary, tertiary, ghost  
 
 
@@ -299,7 +293,7 @@ Text buttons should always be left with square corners.
   
 **Do**  
   
-![do - no rounding](https://studio-assets.supernova.io/design-systems/81732/29bcdfee-cf7d-4153-91ce-cb9a6a8cad86.png)  
+![do - no rounding](https://studio-assets.supernova.io/design-systems/81732/54c2db69-fe70-4d40-9cd9-9d863aa408d4.png)  
 do - no rounding  
   
 > Yay:  
@@ -308,7 +302,7 @@ do - no rounding
   
 **Don't**  
   
-![don't - round](https://studio-assets.supernova.io/design-systems/81732/7b0d8fe7-1df0-48a6-9a85-936f242ff5fc.png)  
+![don't - round](https://studio-assets.supernova.io/design-systems/81732/9f54465a-73b2-4c68-a025-e8d31e6df358.png)  
 don't - round  
   
 > Please note:  
@@ -323,7 +317,7 @@ Icon buttons are exceptions and can either be square or fully rounded (circle).
   
 **Do**  
   
-![do - square or circle](https://studio-assets.supernova.io/design-systems/81732/e7b6eeb4-7dc4-4c5a-8e89-92cb6b7a3970.png)  
+![do - square or circle](https://studio-assets.supernova.io/design-systems/81732/2a2f3eea-3035-42e5-8e8f-a1a0426fbd02.png)  
 do - square or circle  
   
 > Yay:  
@@ -332,7 +326,7 @@ do - square or circle
   
 **Don't**  
   
-![don't - rounded](https://studio-assets.supernova.io/design-systems/81732/8674bd00-2daf-4562-bef7-a460da60d5f8.png)  
+![don't - rounded](https://studio-assets.supernova.io/design-systems/81732/ce909882-327a-4353-a137-4457da38be6a.png)  
 don't - rounded  
   
 > Please note:  
@@ -347,7 +341,7 @@ Modal buttons are always a circle icon button.
   
 **Do**  
   
-![do - circle icon](https://studio-assets.supernova.io/design-systems/81732/089dfa92-9bf7-4030-a15d-b15ee178551d.png)  
+![do - circle icon](https://studio-assets.supernova.io/design-systems/81732/5132d028-284b-4a2c-b8b3-e01b2eb97f47.png)  
 do - circle icon  
   
 > Yay:  
@@ -356,7 +350,7 @@ do - circle icon
   
 **Don't**  
   
-![don't - square icon](https://studio-assets.supernova.io/design-systems/81732/92f63e07-ecf2-4f65-b927-610c19d2b5d0.png)  
+![don't - square icon](https://studio-assets.supernova.io/design-systems/81732/0f6900d9-1202-4370-b60b-610498a1e836.png)  
 don't - square icon  
   
 > Please note:  
