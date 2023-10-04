@@ -11,10 +11,6 @@
 > Some extra info:  
 > Use a token list block, or token group block, to display the base set of tokens for this style. This is where you pick all your base colors, like ‘Red 500’ or ‘Blue 300’, for example.
 
-### Token list:
-
-### Token group:
-
   
 **Token Group Primary**:    
 100: rgb(255, 248, 217)  
