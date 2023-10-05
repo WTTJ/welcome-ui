@@ -11,7 +11,7 @@ export default defineConfig({
   jsxFramework: 'react',
   // emitPackage to false to make tests work with jest (to check)
   emitPackage: false,
-  clean: true,
+  clean: false,
   outExtension: 'js',
   // outdir: '@welcome-ui/panda'
   outdir: 'packages/Panda',

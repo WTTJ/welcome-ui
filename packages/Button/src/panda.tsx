@@ -29,3 +29,5 @@ export const ButtonPanda = React.forwardRef<HTMLButtonElement, ButtonPandaProps>
     )
   }
 )
+
+ButtonPanda.displayName = 'ButtonPanda'

@@ -3,7 +3,7 @@ import 'styled-components'
 import '@xstyled/styled-components'
 
 import { WuiTheme } from '@welcome-ui/core'
-import { SystemStyleObject as SystemStyleObjectWithTypes } from '@welcome-ui/panda'
+import { SystemStyleObject as SystemStyleObjectWithTypes } from '@welcome-ui/panda/types'
 
 declare module '@xstyled/styled-components' {
   export interface Theme extends WuiTheme {}
