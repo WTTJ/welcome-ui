@@ -46,16 +46,16 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
+    "@ariakit/react": "0.2.17",
     "@welcome-ui/box": "^5.0.0",
+    "@welcome-ui/emoji": "^5.0.0",
     "@welcome-ui/icons": "^5.4.0",
     "@welcome-ui/input-text": "^5.4.0",
     "@welcome-ui/popover": "^5.4.0",
-    "@welcome-ui/stack": "^5.1.0",
     "@welcome-ui/system": "^5.0.0",
     "@welcome-ui/tabs": "^5.4.0",
     "@welcome-ui/text": "^5.0.0",
     "@welcome-ui/utils": "^5.0.0",
-    "@welcome-ui/variant-icon": "^5.4.0",
     "lodash.debounce": "^4.0.8",
     "lodash.escaperegexp": "^4.1.2",
     "lodash.groupby": "^4.6.0",

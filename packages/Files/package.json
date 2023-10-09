@@ -46,6 +46,9 @@
     "@welcome-ui/icons": "^5.4.0",
     "@welcome-ui/utils": "^5.0.0"
   },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
   "sideEffects": false,
   "homepage": "https://welcome-ui.com"
