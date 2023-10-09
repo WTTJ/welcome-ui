@@ -11,7 +11,7 @@ import * as S from './styles'
 export type Placement = 'top' | 'right' | 'bottom' | 'left'
 export type Size = 'sm' | 'md' | 'lg' | 'auto' | string
 
-export interface DrawerOptions extends Ariakit.DialogProps {
+export interface DrawerOptions extends Ariakit.DialogOptions<'div'> {
   placement?: Placement
   size?: Size
   withBackdrop?: boolean
@@ -44,7 +44,7 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
         ref={ref}
         render={<S.Drawer placement={placement} size={size} />}
         store={store}
-        {...rest}
+        {...(rest as Ariakit.DialogProps<'div'>)}
       >
         <>
           {withCloseButton && <Close />}
