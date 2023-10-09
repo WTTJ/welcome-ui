@@ -43,6 +43,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
+    "@welcome-ui/core": "^5.2.0",
     "@welcome-ui/themes.welcome": "^5.2.0",
     "ramda": "^0.29.0"
   },

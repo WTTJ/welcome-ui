@@ -52,7 +52,7 @@
     "@welcome-ui/utils": "^5.0.0"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^3.6.0",
+    "@xstyled/styled-components": "^3.7.3",
     "react": "^18.0.0",
     "styled-components": "^5.3.3"
   },
