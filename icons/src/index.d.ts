@@ -284,6 +284,7 @@ export declare const WoffIcon: React.FC<IconProps>
 export declare const Woff2Icon: React.FC<IconProps>
 export declare const WriteIcon: React.FC<IconProps>
 export declare const WttjIcon: React.FC<IconProps>
+export declare const XIcon: React.FC<IconProps>
 export declare const XingIcon: React.FC<IconProps>
 export declare const XlsIcon: React.FC<IconProps>
 export declare const XlsxIcon: React.FC<IconProps>

@@ -301,14 +301,14 @@ export const brands = [
   'linkedin',
   'npm',
   'pinterest',
+  'slack',
   'stackoverflow',
   'tiktok',
   'twitch',
-  'twitter',
+  'wttj',
+  'x',
   'xing',
   'youtube',
-  'wttj',
-  'slack',
   'zapier',
 ]
 

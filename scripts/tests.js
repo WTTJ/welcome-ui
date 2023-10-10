@@ -8,8 +8,6 @@ import { GithubIcon } from '../icons/Github'
 import { InstagramIcon } from '../icons/Instagram'
 import { LinkedinIcon } from '../icons/Linkedin'
 import { StackoverflowIcon } from '../icons/Stackoverflow'
-import { TwitterIcon } from '../icons/Twitter'
-import { XingIcon } from '../icons/Xing'
 import { YoutubeIcon } from '../icons/Youtube'
 
 export const DefaultFileDropView = ({ openFile }) => {
@@ -32,7 +30,5 @@ export const ITEMS = [
   { value: 'instagram', label: 'Instagram', icon: InstagramIcon },
   { value: 'linkedin', label: 'Linkedin', icon: LinkedinIcon },
   { value: 'stackoverflow', label: 'Stack Overflow', icon: StackoverflowIcon },
-  { value: 'twitter', label: 'Twitter', icon: TwitterIcon },
-  { value: 'xing', label: 'Xing', icon: XingIcon },
   { value: 'youtube', label: 'Youtube', icon: YoutubeIcon },
 ]

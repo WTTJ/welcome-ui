@@ -283,5 +283,6 @@
   "move": "0xF21A",
   "tiktok": "0xF21B",
   "flag_us": "0xF21C",
-  "euro_currency": "0xF21D"
+  "euro_currency": "0xF21D",
+  "x": "0xF21E"
 }
