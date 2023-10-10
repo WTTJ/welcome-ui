@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/WTTJ/welcome-ui/compare/v5.3.2...v5.4.0) (2023-10-10)
+
+
+### Bug Fixes
+
+* **tooltip:** always visible after hover ([afea8d4](https://github.com/WTTJ/welcome-ui/commit/afea8d4b0c1aa24740c24fdc3233c2fe509301db))
+
+
+
+
+
 # [5.0.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.52...v5.0.0) (2023-08-31)
 
 

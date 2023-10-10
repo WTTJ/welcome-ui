@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/WTTJ/welcome-ui/compare/v5.3.2...v5.4.0) (2023-10-10)
+
+
+### Features
+
+* add X icon ([#2329](https://github.com/WTTJ/welcome-ui/issues/2329)) ([2211ba0](https://github.com/WTTJ/welcome-ui/commit/2211ba06e595f8f1077d04b63ffac96205bfa7b7))
+
+
+
+
+
 # [5.0.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.52...v5.0.0) (2023-08-31)
 
 

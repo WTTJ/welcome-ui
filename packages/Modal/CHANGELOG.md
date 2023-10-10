@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/WTTJ/welcome-ui/compare/v5.3.2...v5.4.0) (2023-10-10)
+
+
+### Bug Fixes
+
+* modal max width on mobile ([#2328](https://github.com/WTTJ/welcome-ui/issues/2328)) ([3988a01](https://github.com/WTTJ/welcome-ui/commit/3988a018f0b472d4f791609c45d2d3d7656fadb9))
+
+
+
+
+
 # [5.3.0](https://github.com/WTTJ/welcome-ui/compare/v5.2.3...v5.3.0) (2023-09-25)
 
 

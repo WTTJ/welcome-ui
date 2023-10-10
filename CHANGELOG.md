@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/WTTJ/welcome-ui/compare/v5.3.2...v5.4.0) (2023-10-10)
+
+
+### Bug Fixes
+
+* modal max width on mobile ([#2328](https://github.com/WTTJ/welcome-ui/issues/2328)) ([3988a01](https://github.com/WTTJ/welcome-ui/commit/3988a018f0b472d4f791609c45d2d3d7656fadb9))
+* **tooltip:** always visible after hover ([afea8d4](https://github.com/WTTJ/welcome-ui/commit/afea8d4b0c1aa24740c24fdc3233c2fe509301db))
+
+
+### Features
+
+* add X icon ([#2329](https://github.com/WTTJ/welcome-ui/issues/2329)) ([2211ba0](https://github.com/WTTJ/welcome-ui/commit/2211ba06e595f8f1077d04b63ffac96205bfa7b7))
+
+
+
+
+
 ## [5.3.2](https://github.com/WTTJ/welcome-ui/compare/v5.3.1...v5.3.2) (2023-10-02)
 
 
