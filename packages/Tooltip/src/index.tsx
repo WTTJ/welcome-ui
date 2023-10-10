@@ -9,16 +9,19 @@ export type TooltipOptions = {
   children: React.ReactNode
   content: string | JSX.Element
   fixed?: boolean
-} & Pick<Ariakit.TooltipStoreProps, 'placement'>
+} & Pick<Ariakit.TooltipStoreProps, 'placement'> &
+  Pick<Ariakit.TooltipOptions, 'gutter'>
 
 export type TooltipProps = CreateWuiProps<'div', TooltipOptions>
 
 export const Tooltip = forwardRef<'div', TooltipProps>(
-  ({ children, content, fixed = false, placement = fixed ? 'top' : 'bottom', ...rest }, ref) => {
-    const tooltip = Ariakit.useTooltipStore({ placement, animated: 300 })
+  (
+    { children, content, fixed = false, placement = fixed ? 'top' : 'bottom', gutter = 8, ...rest },
+    ref
+  ) => {
+    const tooltip = Ariakit.useTooltipStore({ placement, animated: true })
     const [position, setPosition] = useState({ x: 0, y: 0 })
-    const getState = tooltip.getState
-    const render = tooltip.render
+    const { getState, render, stopAnimation } = tooltip
 
     const updatePosition = () => {
       const { mounted, popoverElement } = getState()
@@ -63,12 +66,14 @@ export const Tooltip = forwardRef<'div', TooltipProps>(
       <>
         <Ariakit.TooltipAnchor render={child as ReactElement} store={tooltip} />
         <Ariakit.Tooltip
+          fixed={fixed}
+          gutter={gutter}
           ref={ref}
           render={<Box {...rest} />}
           store={tooltip}
           updatePosition={!fixed ? updatePosition : undefined}
         >
-          <S.FadeIn fixed={fixed} placement={placement}>
+          <S.FadeIn fixed={fixed} onTransitionEnd={stopAnimation} placement={placement}>
             {content}
           </S.FadeIn>
         </Ariakit.Tooltip>
