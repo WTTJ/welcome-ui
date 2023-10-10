@@ -5,6 +5,13 @@ import matter from 'gray-matter'
 
 import { getPageTree } from './page-tree'
 
+type Data = {
+  category?: string
+  description?: string
+  type?: string
+  name?: string
+}
+
 /**
  * Gets the content of md file
  */
@@ -19,8 +26,9 @@ export function getPageContent(filename: string, isPackage?: boolean) {
     return { isNotFound: true }
   } else {
     const content = readFileSync(file, 'utf8')
-    const { content: contentWithoutMatter, data } = matter(content)
-    const tree = getPageTree(contentWithoutMatter)
+    const { content: contentWithoutMatter, data }: { content: string; data: Data } = matter(content)
+
+    const tree = getPageTree(contentWithoutMatter, isPackage)
 
     return { content, contentWithoutMatter, data, tree }
   }

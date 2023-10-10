@@ -8,5 +8,6 @@ export function getComponentProperties(component: string) {
   if (!fileExist) return null
 
   const properties = readFileSync(file, 'utf8')
+
   return JSON.parse(properties)
 }

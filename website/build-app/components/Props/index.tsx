@@ -13,7 +13,7 @@ type Value = {
   value: string
 }
 
-type Property = [
+export type Property = [
   [name: string],
   {
     defaultValue: {
@@ -29,7 +29,7 @@ type Property = [
   }
 ]
 
-type PropertiesProps = {
+export type PropertiesProps = {
   items: {
     [name: string]: { props: Property[] }
   }[]
@@ -37,6 +37,7 @@ type PropertiesProps = {
 
 type PropertyProps = {
   item: Property
+  parentName: string
 }
 
 const removeQuote = (str?: string) => str?.toString()?.replace(/'/g, '')
@@ -91,7 +92,7 @@ const Type = ({ type }: { type: Property[1]['type'] }) => {
   return <pre>{name}</pre>
 }
 
-export const Property = ({ item }: PropertyProps) => {
+export const Property = ({ item, parentName }: PropertyProps) => {
   const [name, options] = item
   const { defaultValue, description, required, type } = options
 
@@ -104,7 +105,7 @@ export const Property = ({ item }: PropertyProps) => {
   return (
     <Box>
       <Flex alignItems="center" direction="row" gap="md">
-        <Tag as="h3" fontSize="h5" m="0" w="fit-content">
+        <Tag as="h3" fontSize="h5" id={kebabCase(`${parentName}_${name}`)} m="0" w="fit-content">
           {name}
         </Tag>
         {required && <span>Required</span>}
@@ -129,18 +130,19 @@ export const Properties = ({ items }: PropertiesProps) => {
     <div>
       {Object.entries(items).map(props => {
         const name = props[0]
+        const parentName = kebabCase(name.toString())
         const { props: properties } = props[1]
 
         return (
           <section key={`section_${name}`}>
-            <Text id={kebabCase(name.toString())} variant="h2">
+            <Text id={parentName} variant="h2">
               {name}
             </Text>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               {Object.entries(properties).map(item => (
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                <Property item={item} key={`section_${name}_${item[0]}`} />
+                <Property item={item} key={`section_${name}_${item[0]}`} parentName={parentName} />
               ))}
             </div>
           </section>

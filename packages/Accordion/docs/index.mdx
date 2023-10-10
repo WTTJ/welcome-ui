@@ -1,58 +1,17 @@
 ---
 category: data-display
+description: Buttons are clickable items communicating actions that can be performed.
 ---
-
-Built with [Ariakit](https://ariakit.org/components/disclosure) for a better accessibility 🌈
 
 ## Usage
 
-```jsx
-function () {
-  const accordion = useAccordion()
-  const accordion2 = useAccordion()
-
-  return (
-    <>
-      <Accordion store={accordion} title="Accordion title">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </Accordion>
-      <Accordion
-        store={accordion2}
-        mt="md"
-        title={
-          <Box display="flex" alignItems="center">
-            <Avatar name="accordion" mr="sm" />
-            <Text as="h3" m="0" fontWeight="bold">
-              Accordion title
-            </Text>
-          </Box>
-        }
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </Accordion>
-    </>
-  )
-}
-```
+<div data-playground="usage.tsx" data-component="Accordion"></div>
 
 ## Open at start
 
 Add `defaultOpen` options on `useAccordion` to open at start the accordion
 
-```jsx
-function () {
-  const accordion = useAccordion({ defaultOpen: true })
-
-  return (
-    <Accordion store={accordion} title="Accordion title">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-      nisi ut aliquip ex ea commodo consequat.
-    </Accordion>
-  )
-}
-```
+<div data-playground="open-at-start.tsx" data-component="Accordion"></div>
 
 ## With a custom icon
 
@@ -60,19 +19,7 @@ Customize the icon with a node element on property `icon`
 
 Note that the custom icon's size property will be set to small
 
-```jsx
-function () {
-  const accordion = useAccordion()
-
-  return (
-    <Accordion store={accordion} title="Accordion title" icon={<PlayIcon />}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-      nisi ut aliquip ex ea commodo consequat.
-    </Accordion>
-  )
-}
-```
+<div data-playground="with-custom-icon.tsx" data-component="Accordion"></div>
 
 ## useAccordion
 

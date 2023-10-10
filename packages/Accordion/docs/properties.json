@@ -20,6 +20,25 @@
           "name": "(open: boolean) => void"
         }
       },
+      "setMounted": {
+        "defaultValue": null,
+        "description": "A callback that gets called when the `mounted` state changes.\n@param mounted The new mounted value.\n@example const [mounted, setMounted] = useState(false);\nconst disclosure = useDisclosureStore({ setMounted });",
+        "name": "setMounted",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
+          "name": "DisclosureStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
+            "name": "DisclosureStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(mounted: boolean) => void"
+        }
+      },
       "defaultOpen": {
         "defaultValue": {
           "value": "false"
