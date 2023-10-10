@@ -35,11 +35,10 @@ const fadeInStyle = css`
 type FadeIn = {
   placement?: TooltipProps['placement']
   fixed?: boolean
-  isOpen?: boolean
 }
 
 export const FadeIn = styled.div<FadeIn>(
-  ({ fixed, isOpen, placement }) => css`
+  ({ fixed, placement }) => css`
     ${th('tooltips')};
     ${system};
     transition: opacity ${th.transition('medium')}, transform ${th.transition('medium')},
@@ -55,11 +54,6 @@ export const FadeIn = styled.div<FadeIn>(
     [data-enter] & {
       ${fadeInStyle}
     }
-
-    ${isOpen &&
-    css`
-      ${fadeInStyle}
-    `}
   `
 )
 

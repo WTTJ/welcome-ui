@@ -9,14 +9,13 @@ export type TooltipOptions = {
   children: React.ReactNode
   content: string | JSX.Element
   fixed?: boolean
-  placement?: Ariakit.TooltipStoreProps['placement']
-}
+} & Pick<Ariakit.TooltipStoreProps, 'placement'>
 
 export type TooltipProps = CreateWuiProps<'div', TooltipOptions>
 
 export const Tooltip = forwardRef<'div', TooltipProps>(
   ({ children, content, fixed = false, placement = fixed ? 'top' : 'bottom', ...rest }, ref) => {
-    const tooltip = Ariakit.useTooltipStore({ placement, animated: true })
+    const tooltip = Ariakit.useTooltipStore({ placement, animated: 300 })
     const [position, setPosition] = useState({ x: 0, y: 0 })
     const getState = tooltip.getState
     const render = tooltip.render
