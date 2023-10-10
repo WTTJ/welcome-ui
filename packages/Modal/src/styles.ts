@@ -46,6 +46,7 @@ export const Dialog = styled(Ariakit.Dialog)(
     align-self: center;
     height: 100%;
     max-height: 100%;
+    max-width: 100%;
     overflow: auto;
     opacity: 0;
     transition: opacity 250ms ease-in-out, margin-top 250ms ease-in-out;
