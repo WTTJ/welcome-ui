@@ -16,8 +16,9 @@ export async function generateStaticParams() {
 
 const Page = ({ params }: PageProps) => {
   const { id } = params
+  const componentName = startCase(id)
 
-  const { contentWithoutMatter, isNotFound, tree } = getPageContent(
+  const { contentWithoutMatter, data, isNotFound, tree } = getPageContent(
     `${startCase(id)}/docs/index.mdx`,
     true
   )
@@ -27,6 +28,11 @@ const Page = ({ params }: PageProps) => {
   return (
     <>
       <main>
+        <Mdx>
+          {`## Definition
+${data?.description}
+<div data-playground="Overview.tsx" data-component="${componentName}"></div>`}
+        </Mdx>
         <Mdx>{contentWithoutMatter}</Mdx>
       </main>
       <TableOfContent tree={tree} />

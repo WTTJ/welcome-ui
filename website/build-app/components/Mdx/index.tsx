@@ -1,66 +1,42 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import kebabCase from 'lodash/kebabCase'
 import ReactMarkdown from 'react-markdown'
-import * as ReactMarkdownTypes from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { Text } from '@welcome-ui/text'
-import { Link } from '@welcome-ui/link'
 import { Box } from '@welcome-ui/box'
+import rehypeRaw from 'rehype-raw'
 
 import { Pre } from './Pre'
 import { Blockquote } from './Blockquote'
 import { Paragraph } from './Paragraph'
+import { Code } from './Code'
+import { Div } from './Div'
+import { H2, H3, H4 } from './Headings'
+import { A } from './A'
+import { Image } from './Image'
 
-const components: ReactMarkdownTypes.Components = {
-  //@ts-ignore
-  pre: props => <Pre {...props} />,
+const components = {
+  pre: Pre,
   h1: () => null,
   hr: () => null,
-  //@ts-ignore
-  h2: ({ children }) => (
-    <Text id={`${kebabCase(children?.toString())}`} my="3xl" variant="h2">
-      {children}
-    </Text>
-  ),
-  //@ts-ignore
-  h3: ({ children }) => (
-    <Text id={`${kebabCase(children?.toString())}`} my="xl" variant="h3">
-      {children}
-    </Text>
-  ),
-  //@ts-ignore
-  h4: ({ children }) => (
-    <Text id={`${kebabCase(children?.toString())}`} my="lg" variant="h4">
-      {children}
-    </Text>
-  ),
-  //@ts-ignore
-  a: ({ href, ...props }) => <Link href={href} isExternal {...props} />,
-  //@ts-ignore
-  code: ({ children }) => (
-    <Box
-      as="code"
-      backgroundColor="dark-100"
-      borderRadius={2}
-      color="dark-900"
-      display="inline-block"
-      p="xs"
-      whiteSpace="break-spaces"
-    >
-      {children}
-    </Box>
-  ),
-  //@ts-ignore
-  blockquote: props => <Blockquote {...props} />,
-  //@ts-ignore
-  p: props => <Paragraph {...props} />,
-  img: props => <Box as="img" maxW="100%" {...props} />,
+  h2: H2,
+  h3: H3,
+  h4: H4,
+  a: A,
+  code: Code,
+  blockquote: Blockquote,
+  p: Paragraph,
+  img: Image,
+  div: Div,
 }
 
 export const Mdx = ({ children = '' }) => {
   return (
     <Box maxW="100%">
-      <ReactMarkdown components={components} remarkPlugins={[remarkGfm]}>
+      <ReactMarkdown
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
+        components={components}
+        rehypePlugins={[rehypeRaw]}
+        remarkPlugins={[remarkGfm]}
+      >
         {children}
       </ReactMarkdown>
     </Box>
