@@ -78,7 +78,7 @@ function() {
       <Modal.Trigger as={Button} store={modal} onClick={() => setSize('auto')}>
         auto
       </Modal.Trigger>
-      <Modal store={modal} size={size} ariaLabel="size example">
+      <Modal store={modal} size={size} ariaLabel="size example" unmountOnHide>
         <Modal.Content store={modal}>
           <Modal.Body>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -342,19 +342,23 @@ function() {
 
 ## onClose
 
-On `useModal` add `onClose` to have custom function called on modal close.
+On `Modal` add `onClose` to have custom function called on modal close.
 
 ```jsx
 function() {
-  function onClose() { alert('closed!') }
-  const modal = useModal({ onClose })
+  const modal = useModal()
+
+  function onClose(event) {
+    console.log('onClose modal event:', event)
+    alert('closed!')
+  }
 
   return (
     <>
       <Modal.Trigger as={Button} store={modal}>
         Open modal
       </Modal.Trigger>
-      <Modal store={modal} ariaLabel="example">
+      <Modal store={modal} ariaLabel="example" onClose={onClose}>
         <Modal.Content store={modal}>
           <Modal.Body>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis

@@ -12,18 +12,18 @@ import { Content } from './Content'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
-export interface ModalOptions {
+export interface ModalOptions extends Ariakit.DialogOptions<'div'> {
   ariaLabel: string
   children: React.ReactElement
-  hideOnInteractOutside?: boolean
   size?: Size
-  store: Ariakit.DialogStore
 }
+
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
 export type UseModal = Ariakit.DialogStore
 export type UseModalProps = Ariakit.DialogStoreProps & {
   /**
    * Call a function before closing the modal
+   * @deprecated use onClose on <Modal /> instead
    */
   onClose?: () => void
 }
@@ -49,17 +49,17 @@ export function useModal(options?: UseModalProps): UseModal {
 const ModalComponent = forwardRef<'div', ModalProps>(
   ({ ariaLabel, children, hideOnInteractOutside = true, size = 'lg', store, ...rest }, ref) => {
     return (
-      <S.Dialog
+      <Ariakit.Dialog
         aria-label={ariaLabel}
         backdrop={<S.Backdrop hideOnInteractOutside={hideOnInteractOutside} />}
         hideOnInteractOutside={hideOnInteractOutside}
         ref={ref}
-        size={size}
+        render={<S.Dialog size={size} />}
         store={store}
-        {...rest}
+        {...(rest as Ariakit.DialogProps<'div'>)}
       >
         {children}
-      </S.Dialog>
+      </Ariakit.Dialog>
     )
   }
 )

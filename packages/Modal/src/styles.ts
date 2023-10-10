@@ -6,9 +6,11 @@ import * as Ariakit from '@ariakit/react'
 
 import { Size } from './index'
 
+type BackdropProps = Pick<Ariakit.DialogOptions, 'hideOnInteractOutside'>
+
 export const Backdrop = styled.div.withConfig({
   shouldForwardProp: prop => !['hideOnInteractOutside'].includes(prop),
-})<{ hideOnInteractOutside: boolean }>(
+})<BackdropProps>(
   ({ hideOnInteractOutside }) => css`
     ${th('modals.backdrop')};
     position: fixed;
@@ -31,7 +33,7 @@ export const Backdrop = styled.div.withConfig({
   `
 )
 
-export const Dialog = styled(Ariakit.Dialog)(
+export const Dialog = styled.divBox(
   ({ size }: { size: Size }) => css`
     ${cardStyles};
     ${th('modals.default')};
