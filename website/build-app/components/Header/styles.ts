@@ -7,7 +7,7 @@ export const Header = styled.header`
   background-color: light-900;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 2;
 `
 
 export const A = styled(Link)`

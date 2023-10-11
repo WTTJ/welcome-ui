@@ -15,5 +15,5 @@ export const Paragraph = ({ children }: { children: JSX.Element | JSX.Element[] 
   //@ts-ignore
   if (isToken) return <Tokens>{children}</Tokens>
 
-  return <Text my="lg">{children}</Text>
+  return <Text>{children}</Text>
 }

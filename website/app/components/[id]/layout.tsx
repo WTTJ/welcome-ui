@@ -22,7 +22,7 @@ const Layout = ({ children, params }: LayoutProps) => {
     <Documentation.Layout>
       <Sidebar menu={pages} />
       <div>
-        <Text py="xl" variant="h1">
+        <Text py="3xl" variant="h1">
           {getName(id)}
         </Text>
         <Tabs pages={pages} />

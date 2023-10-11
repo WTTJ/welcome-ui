@@ -35,7 +35,7 @@ ${data?.description}
         </Mdx>
         <Mdx>{contentWithoutMatter}</Mdx>
       </main>
-      <TableOfContent tree={tree} />
+      <TableOfContent isSubPage tree={tree} />
     </>
   )
 }

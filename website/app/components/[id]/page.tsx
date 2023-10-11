@@ -42,7 +42,7 @@ const Page = ({ params }: PageProps) => {
         overview example
         <Mdx>{contentWithoutMatter}</Mdx>
       </main>
-      <TableOfContent tree={tree} />
+      <TableOfContent isSubPage tree={tree} />
     </>
   )
 }

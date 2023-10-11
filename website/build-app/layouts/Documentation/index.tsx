@@ -14,7 +14,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
 export const Child = ({ children }: LayoutProps) => {
   return (
-    <Grid gap="xl" templateColumns="1fr 12rem">
+    <Grid gap="xl" templateColumns="1fr 15rem">
       {children}
     </Grid>
   )
