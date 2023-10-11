@@ -46,13 +46,14 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
+    "@welcome-ui/box": "^5.0.0",
+    "@welcome-ui/hint": "^5.0.0",
     "@welcome-ui/input-text": "^5.4.0",
     "@welcome-ui/system": "^5.0.0",
-    "@welcome-ui/text": "^5.0.0",
-    "@welcome-ui/utils": "^5.0.0"
+    "@welcome-ui/text": "^5.0.0"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^3.6.0",
+    "@xstyled/styled-components": "^3.7.3",
     "react": "^18.0.0",
     "styled-components": "^5.3.3"
   },

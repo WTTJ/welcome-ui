@@ -48,6 +48,7 @@
   "dependencies": {
     "@welcome-ui/clear-button": "^5.4.0",
     "@welcome-ui/field": "^5.4.0",
+    "@welcome-ui/icon": "^5.0.0",
     "@welcome-ui/icons": "^5.4.0",
     "@welcome-ui/system": "^5.0.0",
     "@welcome-ui/tag": "^5.4.0",

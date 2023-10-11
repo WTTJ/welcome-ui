@@ -51,10 +51,12 @@
     "@welcome-ui/button": "^5.4.0",
     "@welcome-ui/clear-button": "^5.4.0",
     "@welcome-ui/field": "^5.4.0",
+    "@welcome-ui/icon": "^5.0.0",
     "@welcome-ui/icons": "^5.4.0",
     "@welcome-ui/select": "^5.4.0",
     "@welcome-ui/system": "^5.0.0",
     "@welcome-ui/utils": "^5.0.0",
+    "date-fns": "^2.30.0",
     "lodash.range": "^3.2.0",
     "react-datepicker": "^4.16.0"
   },

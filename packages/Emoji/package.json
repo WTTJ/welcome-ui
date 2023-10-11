@@ -52,6 +52,7 @@
     "bowser": "^2.11.0"
   },
   "peerDependencies": {
+    "@xstyled/styled-components": "^3.7.3",
     "react": "^18.0.0",
     "styled-components": "^5.3.9"
   },

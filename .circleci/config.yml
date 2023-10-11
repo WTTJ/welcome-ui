@@ -65,8 +65,8 @@ jobs:
       - restore_cache:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run:
-          name: Critical vulnerabilities test (yarn audit)
-          command: yarn check:audit
+          name: Critical vulnerabilities test (yarn audit) and check no missing or unused dependencies
+          command: yarn check:audit && yarn check:deps
 
   build_and_release_icon_font:
     <<: *defaults
@@ -211,18 +211,18 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - vulnerabilities_yarn:
-          filters:
-            tags:
-              only: /.*/
-          requires:
-            - checkout
       - yarn_install:
           filters:
             tags:
               only: /.*/
           requires:
-            - vulnerabilities_yarn
+            - checkout
+      - vulnerabilities_yarn:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - yarn_install
       - build_and_release_icon_font:
           filters:
             tags:
