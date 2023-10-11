@@ -25,7 +25,7 @@ const Page = ({ params }: PageProps) => {
       <main>
         <Properties items={properties} />
       </main>
-      <TableOfContent tree={tree} />
+      <TableOfContent isSubPage tree={tree} />
     </>
   )
 }
