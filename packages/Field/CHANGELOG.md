@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/WTTJ/welcome-ui/compare/v5.4.0...v5.5.0) (2023-10-11)
+
+
+### Bug Fixes
+
+* add missing dependencies ([#2330](https://github.com/WTTJ/welcome-ui/issues/2330)) ([f81315c](https://github.com/WTTJ/welcome-ui/commit/f81315c77bcb18b4acba3322222685fdf210360c))
+
+
+
+
+
 # [5.4.0](https://github.com/WTTJ/welcome-ui/compare/v5.3.2...v5.4.0) (2023-10-10)
 
 **Note:** Version bump only for package @welcome-ui/field

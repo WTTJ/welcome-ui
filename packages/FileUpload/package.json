@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/file-upload",
-  "version": "5.4.0",
+  "version": "5.5.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,10 +47,10 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^5.0.0",
-    "@welcome-ui/button": "^5.4.0",
-    "@welcome-ui/files": "^5.4.0",
+    "@welcome-ui/button": "^5.5.0",
+    "@welcome-ui/files": "^5.5.0",
     "@welcome-ui/system": "^5.0.0",
-    "@welcome-ui/tag": "^5.4.0",
+    "@welcome-ui/tag": "^5.5.0",
     "@welcome-ui/utils": "^5.0.0"
   },
   "peerDependencies": {

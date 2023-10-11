@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/slider",
-  "version": "5.4.0",
+  "version": "5.5.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,8 +47,8 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^5.0.0",
-    "@welcome-ui/hint": "^5.0.0",
-    "@welcome-ui/input-text": "^5.4.0",
+    "@welcome-ui/hint": "^5.5.0",
+    "@welcome-ui/input-text": "^5.5.0",
     "@welcome-ui/system": "^5.0.0",
     "@welcome-ui/text": "^5.0.0"
   },

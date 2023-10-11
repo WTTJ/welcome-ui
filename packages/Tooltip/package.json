@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/tooltip",
-  "version": "5.4.0",
+  "version": "5.5.0",
   "description": "welcome-ui: A tooltip component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
