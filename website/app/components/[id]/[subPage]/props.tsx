@@ -1,5 +1,3 @@
-import { kebabCase } from 'lodash'
-
 import { PageProps } from './page'
 
 import { Properties } from '@/build-app/components/Props'
@@ -7,6 +5,7 @@ import { TableOfContent } from '@/build-app/components/TableOfContent'
 import { getComponentProperties } from '@/build-app/utils/components-properties'
 import { getPropertiesTree } from '@/build-app/utils/page-tree'
 import { getPages, getStaticParams } from '@/build-app/utils/pages-components'
+import { getName } from '@/build-app/utils/transform-name'
 
 export async function generateStaticParams() {
   const pages = getPages()
@@ -16,7 +15,7 @@ export async function generateStaticParams() {
 
 const Page = ({ params }: PageProps) => {
   const { id } = params
-  const properties = getComponentProperties(kebabCase(id))
+  const properties = getComponentProperties(getName(id))
 
   if (!properties) return null
 

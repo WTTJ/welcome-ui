@@ -1,6 +1,5 @@
-import lowerCase from 'lodash/lowerCase'
-import upperFirst from 'lodash/upperFirst'
+import { camelCase, upperFirst } from 'lodash'
 
 export function getName(name: string) {
-  return upperFirst(lowerCase(name))
+  return upperFirst(camelCase(name))
 }
