@@ -31,7 +31,7 @@ const Page = ({ params }: PageProps) => {
         <Mdx>
           {`## Definition
 ${data?.description}
-<div data-playground="Overview.tsx" data-component="${componentName}"></div>`}
+<div data-playground="overview.tsx" data-component="${componentName}"></div>`}
         </Mdx>
         <Mdx>{contentWithoutMatter}</Mdx>
       </main>
