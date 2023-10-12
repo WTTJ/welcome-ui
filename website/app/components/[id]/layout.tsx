@@ -20,7 +20,7 @@ const Layout = ({ children, params }: LayoutProps) => {
 
   return (
     <Documentation.Layout>
-      <Sidebar menu={pages} />
+      <Sidebar isSubPage menu={pages} />
       <div>
         <Text py="3xl" variant="h1">
           {getName(id)}
