@@ -11,9 +11,10 @@ import { getName } from '@/build-app/utils/transform-name'
 
 type SidebarProps = {
   menu: PageTree
+  isSubPage?: boolean
 }
 
-export const Sidebar = ({ menu }: SidebarProps) => {
+export const Sidebar = ({ isSubPage, menu }: SidebarProps) => {
   const currentRoute = usePathname()
 
   return (
@@ -38,10 +39,11 @@ export const Sidebar = ({ menu }: SidebarProps) => {
           <Flex as="ul" direction="column" gap="lg">
             {pages.map(({ id, name, parent: pageParent }) => {
               const href = `/${parent}/${pageParent ? `${pageParent}/` : ''}${id}`
+              const isCurrent = isSubPage ? currentRoute.startsWith(href) : currentRoute === href
 
               return (
                 <li key={`sidebar_${category}_page_${id}`}>
-                  <S.Link aria-current={currentRoute === href ? 'page' : undefined} href={href}>
+                  <S.Link aria-current={isCurrent ? 'page' : undefined} href={href}>
                     {name || getName(id)}
                   </S.Link>
                 </li>
