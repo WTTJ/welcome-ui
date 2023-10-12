@@ -1,3 +1,5 @@
+import { kebabCase } from 'lodash'
+
 import { PageProps } from './page'
 
 import { Properties } from '@/build-app/components/Props'
@@ -14,7 +16,7 @@ export async function generateStaticParams() {
 
 const Page = ({ params }: PageProps) => {
   const { id } = params
-  const properties = getComponentProperties(id)
+  const properties = getComponentProperties(kebabCase(id))
 
   if (!properties) return null
 
