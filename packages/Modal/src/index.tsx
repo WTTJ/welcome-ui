@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import * as Ariakit from '@ariakit/react'
 import { BoxProps } from '@welcome-ui/box'
 import { As, CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -37,13 +37,16 @@ export function useModal(options?: UseModalProps): UseModal {
     ...storeOptions,
   })
 
-  return {
-    ...dialog,
-    hide: () => {
-      dialog.hide()
-      onClose?.()
-    },
-  }
+  return useMemo(
+    () => ({
+      ...dialog,
+      hide: () => {
+        dialog.hide()
+        onClose?.()
+      },
+    }),
+    [onClose, dialog]
+  )
 }
 
 const ModalComponent = forwardRef<'div', ModalProps>(
