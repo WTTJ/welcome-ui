@@ -142,6 +142,7 @@
     "yargs": "^17.7.2"
   },
   "resolutions": {
+    "@babel/traverse": ">=7.23.2",
     "styled-components": "5.3.9",
     "loader-utils": "2.0.3"
   },
