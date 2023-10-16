@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import { BoxProps } from '@welcome-ui/box'
 import { As, CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -30,23 +30,20 @@ export type UseModalProps = Ariakit.DialogStoreProps & {
 export type UseModalState = Ariakit.DialogStoreState
 
 export function useModal(options?: UseModalProps): UseModal {
-  const { onClose, ...storeOptions } = options || {}
+  const { onClose, setOpen, ...storeOptions } = options || {}
 
   const dialog = Ariakit.useDialogStore({
     animated: true,
+    setOpen: open => {
+      if (!open && onClose) {
+        onClose()
+      }
+      setOpen?.(open)
+    },
     ...storeOptions,
   })
 
-  return useMemo(
-    () => ({
-      ...dialog,
-      hide: () => {
-        dialog.hide()
-        onClose?.()
-      },
-    }),
-    [onClose, dialog]
-  )
+  return dialog
 }
 
 const ModalComponent = forwardRef<'div', ModalProps>(

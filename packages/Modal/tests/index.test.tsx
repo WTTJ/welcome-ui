@@ -87,7 +87,7 @@ describe('<Modal>', () => {
     expect(queryByRole('dialog')).toHaveAttribute('data-dialog')
 
     // wait until ariakit set "data-enter" attribute
-    await await new Promise(r => setTimeout(r, 100))
+    await new Promise(r => setTimeout(r, 100))
     expect(queryByRole('dialog')).toHaveAttribute('data-enter')
   })
 })
