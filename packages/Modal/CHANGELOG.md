@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.1](https://github.com/WTTJ/welcome-ui/compare/v5.5.0...v5.5.1) (2023-10-17)
+
+
+### Bug Fixes
+
+* **modal:** not visible while updating state on open ([bef611d](https://github.com/WTTJ/welcome-ui/commit/bef611d96ea4c303fc769130d4985ed3d9061138))
+* **vulnerabilities:** @babel/traverse ([3ac13ad](https://github.com/WTTJ/welcome-ui/commit/3ac13adc9785e2fd091de14a97d976ffc1be9988))
+
+
+
+
+
 # [5.5.0](https://github.com/WTTJ/welcome-ui/compare/v5.4.0...v5.5.0) (2023-10-11)
 
 
