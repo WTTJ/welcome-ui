@@ -30,20 +30,20 @@ export type UseModalProps = Ariakit.DialogStoreProps & {
 export type UseModalState = Ariakit.DialogStoreState
 
 export function useModal(options?: UseModalProps): UseModal {
-  const { onClose, ...storeOptions } = options || {}
+  const { onClose, setOpen, ...storeOptions } = options || {}
 
   const dialog = Ariakit.useDialogStore({
     animated: true,
+    setOpen: open => {
+      if (!open && onClose) {
+        onClose()
+      }
+      setOpen?.(open)
+    },
     ...storeOptions,
   })
 
-  return {
-    ...dialog,
-    hide: () => {
-      dialog.hide()
-      onClose?.()
-    },
-  }
+  return dialog
 }
 
 const ModalComponent = forwardRef<'div', ModalProps>(
