@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest'
 import capitalize from 'lodash.capitalize'
 
 import { SelectValue } from '../src'

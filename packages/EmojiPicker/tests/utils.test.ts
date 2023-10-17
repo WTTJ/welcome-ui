@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest'
+
 import { Emoji } from '../src/List'
 import { formatEmojis } from '../src/utils'
 

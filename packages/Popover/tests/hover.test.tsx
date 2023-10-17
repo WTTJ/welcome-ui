@@ -1,5 +1,7 @@
 import React from 'react'
-import { fireEvent, screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
+import { waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { render } from '../../../utils/tests'
 import { PopoverHover, usePopoverHover } from '../src'
@@ -21,22 +23,24 @@ const PopoverHoverWrapper = () => {
 }
 
 describe('<PopoverHover>', () => {
-  it('should render correctly on click on popover trigger button', () => {
-    render(<PopoverHoverWrapper />)
+  it('should render correctly on click on popover trigger button', async () => {
+    const { getByTestId, getByText, queryByRole } = render(<PopoverHoverWrapper />)
 
-    expect(screen.queryByRole('dialog')).toBeNull()
+    expect(queryByRole('dialog')).toBeNull()
 
-    const button = screen.getByText(buttonText)
-    const dialog = screen.getByTestId('popover')
+    const button = getByText(buttonText)
+    const dialog = getByTestId('popover')
 
     expect(dialog).toHaveAttribute('hidden')
     expect(dialog).toBeInTheDocument()
 
-    fireEvent.mouseOver(button)
+    userEvent.hover(button)
 
-    /** we need to wait the showTimeout from component */
-    setTimeout(() => {
-      expect(dialog).toHaveAttribute('data-enter')
-    }, 400)
+    await waitFor(
+      () => {
+        expect(queryByRole('dialog')).toHaveAttribute('data-enter')
+      },
+      { timeout: 5000 }
+    )
   })
 })

@@ -1,4 +1,5 @@
 import React from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { render, theme } from '../../../utils/tests'
 import { Loader } from '../src'

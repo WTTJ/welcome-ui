@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { fireEvent } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
+import { fireEvent, waitFor } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { Modal, UseModal, useModal } from '../src'
@@ -85,9 +86,10 @@ describe('<Modal>', () => {
     fireEvent.click(getByText('open'))
     expect(queryByRole('dialog')).toHaveTextContent('Modal open')
     expect(queryByRole('dialog')).toHaveAttribute('data-dialog')
+    expect(queryByRole('dialog')).not.toHaveAttribute('data-enter')
 
-    // wait until ariakit set "data-enter" attribute
-    await new Promise(r => setTimeout(r, 100))
-    expect(queryByRole('dialog')).toHaveAttribute('data-enter')
+    await waitFor(() => {
+      expect(queryByRole('dialog')).toHaveAttribute('data-enter')
+    })
   })
 })

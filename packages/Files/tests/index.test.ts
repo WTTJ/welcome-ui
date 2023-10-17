@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest'
 import { CameraIcon, PdfIcon, PptIcon } from '@welcome-ui/icons'
 
 import { Type } from '../src/types'

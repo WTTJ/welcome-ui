@@ -1,4 +1,5 @@
 import React from 'react'
+import { describe, expect, test } from 'vitest'
 import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { DatePicker } from '@welcome-ui/date-picker'
@@ -6,25 +7,6 @@ import { TimePicker } from '@welcome-ui/time-picker'
 
 import { render } from '../../../utils/tests'
 import { DateTimePicker } from '../src'
-
-jest.mock('popper.js', () => {
-  const PopperJS = jest.requireActual('popper.js')
-
-  return class {
-    static placements = PopperJS.placements
-
-    constructor() {
-      return {
-        destroy: () => {
-          return {}
-        },
-        scheduleUpdate: () => {
-          return {}
-        },
-      }
-    }
-  }
-})
 
 describe('<DateTimePicker />', () => {
   test('<DateTimePicker> renders correctly', () => {
