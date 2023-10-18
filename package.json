@@ -11,7 +11,7 @@
     "build:types": "lerna run types",
     "build": "yarn webfont:build && yarn build:core && yarn build:packages && yarn build:types && yarn build:docs",
     "check:audit": "/bin/bash -c 'yarn audit --level critical; [[ $? -ge 16 ]] && exit 1 || exit 0'",
-    "check:deps": "lerna exec --ignore docs --no-bail --stream -- depcheck --quiet",
+    "check:deps": "lerna exec --ignore docs --ignore website --no-bail --stream -- depcheck --quiet",
     "clean": "lerna clean",
     "docs:build": "cd website && yarn && yarn build",
     "docs:deploy": "yarn && yarn icons:build && yarn build && yarn docs:build",
