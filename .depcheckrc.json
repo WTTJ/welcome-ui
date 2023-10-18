@@ -1,5 +1,4 @@
 {
-  "ignores": [
-    "@testing-library/*"
-  ]
+  "ignores": ["@testing-library/*"],
+  "ignorePatterns": ["docs/*"]
 }
