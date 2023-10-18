@@ -3,7 +3,7 @@ import { ThemeProvider } from '@xstyled/styled-components'
 import { HideFocusRingsRoot } from '@welcome-ui/utils'
 
 import { WuiTheme } from './theme/types'
-import { GlobalStyle } from './utils/base'
+import { GlobalStyle, GlobalStylePanda } from './utils/base'
 
 export interface WuiProviderProps {
   children?: React.ReactNode
@@ -12,6 +12,10 @@ export interface WuiProviderProps {
   shouldHideFocusRingOnClick?: boolean
   theme: WuiTheme
   useReset?: boolean
+  /**
+   * @experimental panda version
+   */
+  usePanda?: boolean
 }
 
 export const WuiProvider: React.FC<WuiProviderProps> = ({
@@ -20,12 +24,14 @@ export const WuiProvider: React.FC<WuiProviderProps> = ({
   reactRootId = 'root',
   shouldHideFocusRingOnClick = true,
   theme,
+  usePanda,
   useReset,
 }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-        {hasGlobalStyle && <GlobalStyle useReset={useReset} />}
+        {hasGlobalStyle && !usePanda && <GlobalStyle useReset={useReset} />}
+        {usePanda && <GlobalStylePanda />}
         {shouldHideFocusRingOnClick ? (
           <HideFocusRingsRoot reactRootId={reactRootId}>{children}</HideFocusRingsRoot>
         ) : (

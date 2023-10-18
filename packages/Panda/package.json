@@ -1,0 +1,32 @@
+{
+  "name": "@welcome-ui/panda",
+  "version": "0.0.0",
+  "private": "true",
+  "type": "module",
+  "exports": {
+    "./css": {
+      "types": "./css/index.d.ts",
+      "default": "./css/index.js"
+    },
+    "./jsx": {
+      "types": "./jsx/index.d.ts",
+      "default": "./jsx/index.js"
+    },
+    "./patterns": {
+      "types": "./patterns/index.d.ts",
+      "default": "./patterns/index.js"
+    },
+    "./recipes": {
+      "types": "./recipes/index.d.ts",
+      "default": "./recipes/index.js"
+    },
+    "./tokens": {
+      "types": "./tokens/index.d.ts",
+      "default": "./tokens/index.js"
+    },
+    "./types": {
+      "types": "./types/index.d.ts"
+    },
+    "./styles.css": "./styles.css"
+  }
+}
