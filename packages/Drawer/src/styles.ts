@@ -70,7 +70,6 @@ export const Drawer = styled.divBox<Pick<DrawerOptions, 'placement' | 'size'>>(
     position: fixed;
     display: flex;
     flex-direction: column;
-    flex-direction: column;
     overflow: auto;
     opacity: 0;
     transition: medium;

@@ -34,9 +34,9 @@ export const Table = styled.tableBox`
   border-collapse: collapse;
 `
 
-export const Thead = styled.theadBox``
+export const Thead = styled.theadBox
 
-export const Tbody = styled.tbodyBox``
+export const Tbody = styled.tbodyBox
 
 type Variant = 'default' | 'error' | 'warning' | 'info' | 'success' | 'clickable'
 

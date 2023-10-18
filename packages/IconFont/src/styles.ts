@@ -16,10 +16,10 @@ function getIconContentByName(name: StyledIconProps['name']) {
   return null
 }
 
-// stylelint-disable font-family-no-missing-generic-family-keyword
 export const Icon = styled.i<StyledIconProps>(
   ({ name, size = 'md' }) => css`
     display: inline-block;
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
     font-family: icons;
     font-size: ${th(`icons.${size}`)};
     ${system};

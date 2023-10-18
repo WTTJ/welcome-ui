@@ -69,7 +69,7 @@ export const Dialog = styled.divBox(
   `
 )
 
-export const Content = styled.divBox``
+export const Content = styled.divBox
 
 export const Body = styled.sectionBox`
   ${th('modals.body')};
