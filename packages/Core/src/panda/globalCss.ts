@@ -4,7 +4,7 @@ export const globalCss = defineGlobalStyles({
   html: {
     color: 'dark-500',
   },
-  body: {
+  'body, button, input, select, textarea': {
     fontFamily: 'texts',
     fontSmoothing: 'antialiased',
     lineHeight: 'html',
