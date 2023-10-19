@@ -2,6 +2,7 @@ import { join } from 'path'
 import { existsSync, readFileSync } from 'fs'
 
 import { Alert } from '@welcome-ui/alert'
+
 import { Playground } from './Playground'
 
 type DivProps = {
@@ -41,9 +42,9 @@ export const Div = ({ children, node }: DivProps) => {
 
     return (
       <Playground
-        withCodeEditor={withCodeEditor?.toLowerCase() === 'true'}
         code={`${code}`}
         pathToFile={pathToFile.split('packages')[1]}
+        withCodeEditor={withCodeEditor?.toLowerCase() === 'true'}
       />
     )
   }
