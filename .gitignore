@@ -1,7 +1,5 @@
 .env
 dist/
-docs/out
-docs/.next
 website/out
 website/.next
 .cache/

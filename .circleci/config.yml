@@ -113,21 +113,21 @@ jobs:
             - packages/IconFont/fonts
 
   # current version build (common to previews & prod)
-  docs_build:
+  website_build:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - run: yarn docs:build
+      - run: yarn website:build
       - persist_to_workspace:
           root: ~/welcome-ui
           paths:
             - website/out
 
   # current version deploy for previews
-  docs_deploy_preview:
+  website_deploy_preview:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -137,7 +137,7 @@ jobs:
       - run: node_modules/.bin/netlify deploy --dir=website/out --alias $CIRCLE_BRANCH
 
   # current version deploy for production
-  docs_deploy_prod:
+  website_deploy_prod:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -155,7 +155,7 @@ jobs:
       - run: node_modules/.bin/netlify deploy --dir=docs_production --prod
 
   # previous versions build & deploy for production
-  previous_docs_versions_build_deploy_prod:
+  previous_website_versions_build_deploy_prod:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -164,7 +164,7 @@ jobs:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: build w/ prefix
-          command: VERSION=$CIRCLE_BRANCH yarn docs:build
+          command: VERSION=$CIRCLE_BRANCH yarn website:build
       - aws-s3/sync:
           from: website/out
           to: s3://welcome-ui/docs_production/$CIRCLE_BRANCH
@@ -204,7 +204,6 @@ jobs:
           command: yarn lerna publish from-git --yes --no-verify-access --dist-tag next
 
 workflows:
-  version: 2
   btd:
     jobs:
       - checkout:
@@ -252,13 +251,13 @@ workflows:
           requires:
             - yarn_install
             - build
-      - docs_build:
+      - website_build:
           filters:
             tags:
               only: /.*/
           requires:
             - build
-      - docs_deploy_prod:
+      - website_deploy_prod:
           context:
             - aws
             - netlify
@@ -271,18 +270,18 @@ workflows:
           requires:
             - test
             - lint
-            - docs_build
+            - website_build
             - build_and_release_icon_font
-      - docs_deploy_preview:
+      - website_deploy_preview:
           context:
             - netlify
             - welcome-ui
           requires:
             - test
             - lint
-            - docs_build
+            - website_build
             - build_and_release_icon_font
-      - previous_docs_versions_build_deploy_prod:
+      - previous_website_versions_build_deploy_prod:
           context:
             - aws
             - netlify

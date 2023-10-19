@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import * as React from 'react'
 import { Accordion, useAccordion } from '@welcome-ui/accordion'
 import { PlayIcon } from '@welcome-ui/icons'
