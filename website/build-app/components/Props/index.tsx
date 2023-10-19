@@ -41,15 +41,12 @@ type PropertyProps = {
 }
 
 const removeQuote = (str?: string) => str?.toString()?.replace(/'/g, '')
-
 const isArray = Array.isArray
-
 const reactTypes = ['ElementType<any>']
 
-const Type = ({ type }: { type: Property[1]['type'] }) => {
-  if (!type) {
-    return null
-  }
+const getType = (type: Property[1]['type']) => {
+  if (!type) return null
+
   const { name, raw, value } = type
 
   if (raw && reactTypes.includes(raw)) {
@@ -111,7 +108,7 @@ export const Property = ({ item, parentName }: PropertyProps) => {
         {required && <span>Required</span>}
       </Flex>
       {defaultLabel && <div>{defaultLabel}</div>}
-      <Type type={type} />
+      {getType(type)}
       {description && <div>{description}</div>}
     </Box>
   )
