@@ -16,6 +16,7 @@
     "docs:build": "cd website && yarn && yarn build",
     "docs:deploy": "yarn && yarn icons:build && yarn build && yarn docs:build",
     "docs:dev": "cd website && yarn dev -p 3020",
+    "docs:examples": "node -r esm website/build-app/utils/examples-page-exporter.ts",
     "first:install": "yarn && yarn build && yarn icons:build",
     "homerun": "yarn clean --yes && rm -rf node_modules/ website/.next/ && yarn cache clean && yarn && yarn build && yarn start",
     "icons:build": "lerna run build --scope @welcome-ui/icons",

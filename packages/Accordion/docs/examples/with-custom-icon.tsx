@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Accordion, useAccordion } from '@welcome-ui/accordion'
 import { PlayIcon } from '@welcome-ui/icons'
 
-const Example = () => {
+export default function Example() {
   const accordion = useAccordion()
 
   return (
@@ -13,5 +13,3 @@ const Example = () => {
     </Accordion>
   )
 }
-
-export default Example()
