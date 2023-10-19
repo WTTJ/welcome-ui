@@ -4,7 +4,7 @@ import { Avatar } from '@welcome-ui/avatar'
 import { Text } from '@welcome-ui/text'
 import { Accordion, useAccordion } from '@welcome-ui/accordion'
 
-const Example = () => {
+export default function Example() {
   const accordion = useAccordion()
   const accordionAvatar = useAccordion()
 
@@ -34,5 +34,3 @@ const Example = () => {
     </>
   )
 }
-
-export default Example()
