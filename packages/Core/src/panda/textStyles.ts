@@ -6,6 +6,8 @@ export const textStyles = defineTextStyles({
       fontSize: 'h0',
       fontWeight: 'bold',
       fontFamily: 'headings',
+      lineHeight: 'h0',
+      letterSpacing: 'h0',
     },
   },
   h1: {
@@ -13,6 +15,8 @@ export const textStyles = defineTextStyles({
       fontSize: 'h1',
       fontWeight: 'bold',
       fontFamily: 'headings',
+      lineHeight: 'h1',
+      letterSpacing: 'h1',
     },
   },
   h2: {
@@ -20,6 +24,8 @@ export const textStyles = defineTextStyles({
       fontSize: 'h2',
       fontWeight: 'bold',
       fontFamily: 'headings',
+      lineHeight: 'h2',
+      letterSpacing: 'h2',
     },
   },
   h3: {
@@ -27,6 +33,8 @@ export const textStyles = defineTextStyles({
       fontSize: 'h3',
       fontWeight: 'bold',
       fontFamily: 'headings',
+      lineHeight: 'h3',
+      letterSpacing: 'h3',
     },
   },
   h4: {
@@ -34,6 +42,8 @@ export const textStyles = defineTextStyles({
       fontSize: 'h4',
       fontWeight: 'bold',
       fontFamily: 'headings',
+      lineHeight: 'h4',
+      letterSpacing: 'h4',
     },
   },
   h5: {
@@ -41,6 +51,8 @@ export const textStyles = defineTextStyles({
       fontSize: 'h5',
       fontWeight: 'bold',
       fontFamily: 'headings',
+      lineHeight: 'h5',
+      letterSpacing: 'h5',
     },
   },
   h6: {
@@ -48,6 +60,8 @@ export const textStyles = defineTextStyles({
       fontSize: 'h6',
       fontWeight: 'bold',
       fontFamily: 'headings',
+      lineHeight: 'h6',
+      letterSpacing: 'h6',
     },
   },
   lg: {
@@ -55,6 +69,8 @@ export const textStyles = defineTextStyles({
       fontSize: 'lg',
       fontWeight: 'regular',
       fontFamily: 'texts',
+      lineHeight: 'lg',
+      letterSpacing: 'lg',
     },
   },
   md: {
@@ -62,6 +78,8 @@ export const textStyles = defineTextStyles({
       fontSize: 'md',
       fontWeight: 'regular',
       fontFamily: 'texts',
+      lineHeight: 'md',
+      letterSpacing: 'md',
     },
   },
   sm: {
@@ -69,6 +87,8 @@ export const textStyles = defineTextStyles({
       fontSize: 'sm',
       fontWeight: 'regular',
       fontFamily: 'texts',
+      lineHeight: 'sm',
+      letterSpacing: 'sm',
     },
   },
   xs: {
@@ -76,6 +96,8 @@ export const textStyles = defineTextStyles({
       fontSize: 'xs',
       fontWeight: 'regular',
       fontFamily: 'texts',
+      lineHeight: 'xs',
+      letterSpacing: 'xs',
     },
   },
   'subtitle-md': {
@@ -84,6 +106,8 @@ export const textStyles = defineTextStyles({
       fontWeight: 'bold',
       fontFamily: 'headings',
       textTransform: 'uppercase',
+      lineHeight: 'subtitle-md',
+      letterSpacing: 'subtitle-md',
     },
   },
   'subtitle-sm': {
@@ -92,6 +116,8 @@ export const textStyles = defineTextStyles({
       fontWeight: 'medium',
       fontFamily: 'headings',
       textTransform: 'uppercase',
+      lineHeight: 'subtitle-sm',
+      letterSpacing: 'subtitle-sm',
     },
   },
 })
