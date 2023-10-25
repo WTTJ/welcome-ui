@@ -2,8 +2,8 @@ import { defineTokens } from '@pandacss/dev'
 
 export const letterSpacings = defineTokens.letterSpacings({
   html: { value: '-0.019rem' },
-  h0: { value: '-0.01875rem' },
-  h1: { value: '-0.05626rem' },
+  h0: { value: '-0.10625rem' },
+  h1: { value: '-0.075rem' },
   h2: { value: '-0.0625rem' },
   h3: { value: '-0.05625rem' },
   h4: { value: '-0.0375rem' },
