@@ -18,5 +18,3 @@ export const Shape = forwardRef<'div', ShapeProps>(
 )
 
 Shape.displayName = 'Shape'
-
-export * from './panda'

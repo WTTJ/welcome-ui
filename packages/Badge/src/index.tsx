@@ -60,5 +60,3 @@ export const Badge = forwardRef<'div', BadgeProps>(
 )
 
 Badge.displayName = 'Badge'
-
-export * from './panda'

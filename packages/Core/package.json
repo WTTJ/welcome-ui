@@ -10,8 +10,7 @@
       "types": "./dist/types/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
-    },
-    "./dist/index.css": "./dist/index.css"
+    }
   },
   "scripts": {
     "build": "node ../../scripts/build.js",
@@ -44,7 +43,6 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@pandacss/dev": "^0.15.5",
     "@welcome-ui/utils": "^5.0.0",
     "ramda": "^0.29.0"
   },

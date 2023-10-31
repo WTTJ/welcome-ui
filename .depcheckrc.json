@@ -1,7 +1,5 @@
 {
   "ignores": [
-    "@testing-library/*",
-    "@welcome-ui/panda",
-    "@pandacss/types"
+    "@testing-library/*"
   ]
 }
