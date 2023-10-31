@@ -50,5 +50,3 @@ export const Text = forwardRef<'p', TextProps>(
 )
 
 Text.displayName = 'Text'
-
-export * from './panda'

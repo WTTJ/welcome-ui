@@ -43,7 +43,6 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@pandacss/dev": "^0.15.5",
     "@welcome-ui/core": "^5.6.0"
   },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",

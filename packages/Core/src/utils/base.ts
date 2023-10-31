@@ -63,7 +63,3 @@ export const GlobalStyle = createGlobalStyle<{ useReset?: boolean }>(
     }
   `
 )
-
-export const GlobalStylePanda = createGlobalStyle`
-  ${fonts()};
-`

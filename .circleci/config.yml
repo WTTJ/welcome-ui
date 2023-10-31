@@ -35,7 +35,6 @@ jobs:
           root: ~/welcome-ui
           paths:
             - node_modules
-            - packages/Panda
 
   lint:
     <<: *defaults
