@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/picker",
-  "version": "5.5.0",
+  "version": "5.6.0",
   "description": "welcome-ui: Picker",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -48,8 +48,8 @@
   "dependencies": {
     "@ariakit/react": "0.3.4",
     "@welcome-ui/box": "^5.0.0",
-    "@welcome-ui/field-group": "^5.4.0",
-    "@welcome-ui/label": "^5.4.0",
+    "@welcome-ui/field-group": "^5.6.0",
+    "@welcome-ui/label": "^5.6.0",
     "@welcome-ui/system": "^5.0.0"
   },
   "peerDependencies": {

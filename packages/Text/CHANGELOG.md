@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/WTTJ/welcome-ui/compare/v5.5.1...v5.6.0) (2023-10-31)
+
+
+### Features
+
+* **experimental:** panda Text ([2b1c16e](https://github.com/WTTJ/welcome-ui/commit/2b1c16e1dfd409b07fbd912a5be7a235f2b887e1))
+
+
+
+
+
 # [5.0.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.52...v5.0.0) (2023-08-31)
 
 

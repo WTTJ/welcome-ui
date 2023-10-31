@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/WTTJ/welcome-ui/compare/v5.5.1...v5.6.0) (2023-10-31)
+
+
+### Bug Fixes
+
+* depcheck ([d910f65](https://github.com/WTTJ/welcome-ui/commit/d910f65e9e60ea616d1848cf507c21aad002f62e))
+
+
+### Features
+
+* **experimental:** panda shape ([45e2628](https://github.com/WTTJ/welcome-ui/commit/45e26287cad3c485b2d167c0d4bb2dce704429ed))
+* **experimental:** panda Text ([2b1c16e](https://github.com/WTTJ/welcome-ui/commit/2b1c16e1dfd409b07fbd912a5be7a235f2b887e1))
+* **panda:** badge component ([dca9a52](https://github.com/WTTJ/welcome-ui/commit/dca9a52e81a5dbeb21f862141785c734a5e675e7))
+* setup panda ([a92408f](https://github.com/WTTJ/welcome-ui/commit/a92408ff42598e0cd548a49b5efd6e69ee181757))
+* setup panda ([b316329](https://github.com/WTTJ/welcome-ui/commit/b3163299da7344c96f2a8717ee01d2b1826ed78f))
+
+
+
+
+
 # [5.5.0](https://github.com/WTTJ/welcome-ui/compare/v5.4.0...v5.5.0) (2023-10-11)
 
 

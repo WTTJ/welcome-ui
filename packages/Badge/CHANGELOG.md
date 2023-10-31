@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/WTTJ/welcome-ui/compare/v5.5.1...v5.6.0) (2023-10-31)
+
+
+### Features
+
+* **panda:** badge component ([dca9a52](https://github.com/WTTJ/welcome-ui/commit/dca9a52e81a5dbeb21f862141785c734a5e675e7))
+
+
+
+
+
 # [5.5.0](https://github.com/WTTJ/welcome-ui/compare/v5.4.0...v5.5.0) (2023-10-11)
 
 

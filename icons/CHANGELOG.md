@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/WTTJ/welcome-ui/compare/v5.5.1...v5.6.0) (2023-10-31)
+
+
+### Features
+
+* update drag and drop icon ([08d900b](https://github.com/WTTJ/welcome-ui/commit/08d900b6729513166063e4f55a99e8dac7b99fb2))
+
+
+
+
+
 # [5.4.0](https://github.com/WTTJ/welcome-ui/compare/v5.3.2...v5.4.0) (2023-10-10)
 
 
