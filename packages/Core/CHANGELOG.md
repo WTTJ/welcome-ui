@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.1](https://github.com/WTTJ/welcome-ui/compare/v5.6.0...v5.6.1) (2023-10-31)
+
+
+### Bug Fixes
+
+* remove panda ([518976c](https://github.com/WTTJ/welcome-ui/commit/518976c8d2b81bcce14d5bd25c7789bc288daa96))
+
+
+
+
+
 # [5.6.0](https://github.com/WTTJ/welcome-ui/compare/v5.5.1...v5.6.0) (2023-10-31)
 
 
