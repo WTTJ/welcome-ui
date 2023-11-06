@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.2](https://github.com/WTTJ/welcome-ui/compare/v5.6.1...v5.6.2) (2023-11-06)
+
+
+### Bug Fixes
+
+* **drawer:** expose refs for content/footer ([acf27e8](https://github.com/WTTJ/welcome-ui/commit/acf27e87f6fd4f378593645db3875afe38358c74))
+
+
+
+
+
 ## [5.6.1](https://github.com/WTTJ/welcome-ui/compare/v5.6.0...v5.6.1) (2023-10-31)
 
 **Note:** Version bump only for package @welcome-ui/drawer
