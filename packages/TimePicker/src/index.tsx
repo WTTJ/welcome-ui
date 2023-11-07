@@ -11,6 +11,8 @@ import {
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ReactDatePickerProps } from 'react-datepicker'
 
+import * as S from './styles'
+
 export interface TimePickerOptions {
   onChange?: (date?: Date) => void
   onBlur?: CustomInputOptions['handleBlur']
@@ -97,38 +99,40 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
     }
 
     return (
-      <StyledTimePicker
-        calendarClassName="time-picker-popper"
-        customInput={
-          <CustomInput
-            className="time-picker"
-            data-testid={dataTestId}
-            focused={focused}
-            handleBlur={handleBlur}
-            handleFocus={handleFocus}
-            icon={icon}
-            iconPlacement={iconPlacement}
-            onReset={handleReset}
-            ref={ref}
-            size={size}
-          />
-        }
-        dateFormat={dateFormat}
-        disabled={disabled}
-        iconPlacement={!!icon && iconPlacement}
-        onChange={handleChange}
-        placeholderText={placeholderText}
-        popperContainer={CustomPopper}
-        popperProps={popperProps}
-        selected={date}
-        showTimeSelect
-        showTimeSelectOnly
-        size={size}
-        timeIntervals={timeIntervals}
-        transparent={transparent}
-        {...rest}
-        isClearable={false}
-      />
+      <S.Wrapper>
+        <StyledTimePicker
+          calendarClassName="time-picker-popper"
+          customInput={
+            <CustomInput
+              className="time-picker"
+              data-testid={dataTestId}
+              focused={focused}
+              handleBlur={handleBlur}
+              handleFocus={handleFocus}
+              icon={icon}
+              iconPlacement={iconPlacement}
+              onReset={handleReset}
+              ref={ref}
+              size={size}
+            />
+          }
+          dateFormat={dateFormat}
+          disabled={disabled}
+          iconPlacement={!!icon && iconPlacement}
+          onChange={handleChange}
+          placeholderText={placeholderText}
+          popperContainer={CustomPopper}
+          popperProps={popperProps}
+          selected={date}
+          showTimeSelect
+          showTimeSelectOnly
+          size={size}
+          timeIntervals={timeIntervals}
+          transparent={transparent}
+          {...rest}
+          isClearable={false}
+        />
+      </S.Wrapper>
     )
   }
 )

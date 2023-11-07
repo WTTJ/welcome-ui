@@ -3,6 +3,7 @@ import styled, { css, CSSObject, th } from '@xstyled/styled-components'
 import { cardStyles } from '@welcome-ui/utils'
 
 import { datePickerStyles } from './datePickerStyles'
+import { fixAriaMessageStyle } from './styles'
 
 export const CustomPopper = ({
   children,
@@ -21,6 +22,7 @@ export const CustomPopper = ({
 const StyledCustomPopper = styled.div(
   ({ popperStyles }: { popperStyles: CSSObject }) => css`
     ${datePickerStyles};
+    ${fixAriaMessageStyle};
     .react-datepicker-popper {
       ${popperStyles};
     }
