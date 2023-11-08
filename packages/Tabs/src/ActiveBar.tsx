@@ -42,8 +42,8 @@ function useActiveBar(
       const width = activeTabRect.width / scale
 
       setState({
-        size: width,
-        offset: left,
+        size: isNaN(width) ? 0 : width,
+        offset: isNaN(left) ? 0 : left,
         orientation,
       })
     }
