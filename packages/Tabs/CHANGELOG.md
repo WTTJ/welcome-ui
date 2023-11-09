@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.3](https://github.com/WTTJ/welcome-ui/compare/v5.6.2...v5.6.3) (2023-11-09)
+
+
+### Bug Fixes
+
+* avoid having js error because of NaN on tabs activebar ([4d469e8](https://github.com/WTTJ/welcome-ui/commit/4d469e80efe9bc5903b1fe09b4a426dc82bc4640))
+
+
+
+
+
 # [5.4.0](https://github.com/WTTJ/welcome-ui/compare/v5.3.2...v5.4.0) (2023-10-10)
 
 **Note:** Version bump only for package @welcome-ui/tabs
