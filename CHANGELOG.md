@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.4](https://github.com/WTTJ/welcome-ui/compare/v5.6.3...v5.6.4) (2023-11-15)
+
+
+### Bug Fixes
+
+* hide unwanted aria messages for date/time pickers ([bb7a31b](https://github.com/WTTJ/welcome-ui/commit/bb7a31be6842115862df9de93eecbb16d446ab52))
+* **tag:** add default type to remove button ([a3d1ec3](https://github.com/WTTJ/welcome-ui/commit/a3d1ec368c7a3542438eabfd4c6b22cc9134bdfd))
+
+
+
+
+
 ## [5.6.3](https://github.com/WTTJ/welcome-ui/compare/v5.6.2...v5.6.3) (2023-11-09)
 
 

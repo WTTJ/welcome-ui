@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.4](https://github.com/WTTJ/welcome-ui/compare/v5.6.3...v5.6.4) (2023-11-15)
+
+
+### Bug Fixes
+
+* hide unwanted aria messages for date/time pickers ([bb7a31b](https://github.com/WTTJ/welcome-ui/commit/bb7a31be6842115862df9de93eecbb16d446ab52))
+
+
+
+
+
 ## [5.6.1](https://github.com/WTTJ/welcome-ui/compare/v5.6.0...v5.6.1) (2023-10-31)
 
 **Note:** Version bump only for package @welcome-ui/date-time-picker-common

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/select",
-  "version": "5.6.1",
+  "version": "5.6.4",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -51,7 +51,7 @@
     "@welcome-ui/icon": "^5.0.0",
     "@welcome-ui/icons": "^5.6.0",
     "@welcome-ui/system": "^5.0.0",
-    "@welcome-ui/tag": "^5.6.0",
+    "@welcome-ui/tag": "^5.6.4",
     "@welcome-ui/utils": "^5.0.0",
     "downshift": "^7.4.1",
     "match-sorter": "^6.3.1"
