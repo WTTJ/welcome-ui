@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "node ../../scripts/build.js",
-    "test": "jest",
+    "test": "vitest run",
     "types": "rimraf dist/types && tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
     "doc": "node -r esm ../../scripts/doc-props.js --name Select"
   },

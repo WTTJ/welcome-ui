@@ -1,3 +1,5 @@
+import { expect, test } from 'vitest'
+
 import { welcomeTheme } from '../../Themes/Welcome'
 import { createTheme } from '../src/theme/core'
 import { colors } from '../src/theme/colors'

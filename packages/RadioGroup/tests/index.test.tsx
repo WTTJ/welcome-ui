@@ -1,4 +1,5 @@
 import React from 'react'
+import { describe, expect, it, vi } from 'vitest'
 import { fireEvent, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
@@ -15,7 +16,7 @@ const name = 'radio-group'
 
 describe('<RadioGroup />', () => {
   it('should render correctly', () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     render(<RadioGroup dataTestId={name} name={name} onChange={onChange} options={options} />)
 
@@ -33,7 +34,7 @@ describe('<RadioGroup />', () => {
   })
 
   it('should render correctly with specific id', () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     render(
       <RadioGroup
@@ -51,7 +52,7 @@ describe('<RadioGroup />', () => {
   })
 
   it('should render correctly with default value', () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     render(
       <RadioGroup
@@ -69,7 +70,7 @@ describe('<RadioGroup />', () => {
   })
 
   it('should render correctly with hint', () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     render(
       <RadioGroup
@@ -90,7 +91,7 @@ describe('<RadioGroup />', () => {
   })
 
   it('should render correctly with a renderOption component', () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     render(
       <RadioGroup

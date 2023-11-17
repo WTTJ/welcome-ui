@@ -1,3 +1,5 @@
+import { expect, test } from 'vitest'
+
 import { getDate, getYears } from '../src'
 
 test('date between 2 intervals should return next interval date', () => {

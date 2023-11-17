@@ -1,4 +1,5 @@
 import React from 'react'
+import { expect, test } from 'vitest'
 
 import { render } from '../../../utils/tests'
 import { Picker } from '../src'
