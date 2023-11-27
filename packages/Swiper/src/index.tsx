@@ -1,4 +1,12 @@
-import React, { Children, cloneElement, useCallback, useEffect, useRef, useState } from 'react'
+import React, {
+  Children,
+  cloneElement,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { Icons } from '@welcome-ui/icons.font'
 import debounce from 'lodash.debounce'
 import { Size, useViewportSize } from '@welcome-ui/utils'
@@ -62,25 +70,20 @@ export const useSwiper = (options: UseSwiperProps = {}) => {
   const shouldLoop = loop || autoplay
   const { width: viewportWidth } = useViewportSize()
   const [currentPage, setCurrentPage] = useState(0)
-  const [currentSlidesPerView, setCurrentSlidesPerView] = useState(slidesPerView.desktop)
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(false)
   const ref = useRef<HTMLUListElement>()
-  const theme = useTheme()
+  const { screens } = useTheme()
 
-  const getCurrentSlidesPerView = useCallback(() => {
-    if (viewportWidth <= theme.screens.md) {
-      setCurrentSlidesPerView(slidesPerView.mobile)
-    } else if (viewportWidth <= theme.screens.lg) {
-      setCurrentSlidesPerView(slidesPerView.tablet)
+  const currentSlidesPerView = useMemo(() => {
+    if (viewportWidth <= screens.md) {
+      return slidesPerView.mobile
+    } else if (viewportWidth <= screens.lg) {
+      return slidesPerView.tablet
     } else {
-      setCurrentSlidesPerView(slidesPerView.desktop)
+      return slidesPerView.desktop
     }
-  }, [slidesPerView, theme.screens.lg, theme.screens.md, viewportWidth])
-
-  useEffect(() => {
-    getCurrentSlidesPerView()
-  }, [getCurrentSlidesPerView, viewportWidth])
+  }, [slidesPerView, screens.md, screens.lg, viewportWidth])
 
   return {
     centeredSlides,
