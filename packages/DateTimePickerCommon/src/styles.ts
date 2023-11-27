@@ -70,7 +70,7 @@ export const CustomHeader = styled.div`
 
 export const Selects = styled.div`
   display: flex;
-  ${/* sc-selector */ StyledSelect}:first-child {
+  ${/* sc-selector */ StyledSelect}:first-child:not(:last-child) {
     margin-right: sm;
   }
 `

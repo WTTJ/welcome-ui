@@ -43,6 +43,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
       endYear = DEFAULT_DATE.getFullYear(),
       icon,
       iconPlacement = 'left',
+      showMonthYearPicker,
       locale,
       onBlur,
       onChange,
@@ -158,9 +159,16 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
         popperContainer={CustomPopper}
         popperProps={popperProps}
         renderCustomHeader={(props: CustomHeaderProps) => (
-          <CustomHeader endYear={endYear} locale={locale} startYear={startYear} {...props} />
+          <CustomHeader
+            endYear={endYear}
+            isMonthYearPicker={showMonthYearPicker}
+            locale={locale}
+            startYear={startYear}
+            {...props}
+          />
         )}
         selected={date}
+        showMonthYearPicker={showMonthYearPicker}
         size={size}
         transparent={transparent}
         useWeekdaysShort={useWeekdaysShort}
