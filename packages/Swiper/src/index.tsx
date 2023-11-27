@@ -145,24 +145,31 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
     withPagination,
   } = store
 
-  const slides = Children.map(children, (child, i) => {
-    const key = `${id}-${i}`
-    return cloneElement(child, {
-      ...child.props,
-      id: key,
-      key,
-      'aria-hidden': Math.ceil((i + 1) / currentSlidesPerView) - 1 !== currentPage,
-      'aria-roledescription': 'slide',
-      'aria-label': `${i + 1} of ${Children.toArray(children).length}`,
-    })
-  })
-
-  const slidesLength = slides.length
+  const slidesLength = Children.toArray(children).length
   const numberOfPage = Math.ceil(slidesLength / currentSlidesPerView)
   const bullets = Array.from(Array(numberOfPage).keys())
 
   const isFirstPage = currentPage === 0
   const isLastPage = currentPage === bullets.length - 1
+
+  const slides = Children.map(children, (child, i) => {
+    const key = `${id}-${i}`
+    const currentSlide = i + 1
+    const pageForThisSlide = Math.ceil(currentSlide / currentSlidesPerView) - 1
+    // item can be visible on the last page even if it isn't on the current page due to the automatic filling of the last page
+    const isHidden = isLastPage
+      ? slidesLength - currentSlide >= currentSlidesPerView
+      : pageForThisSlide !== currentPage
+
+    return cloneElement(child, {
+      ...child.props,
+      id: key,
+      key,
+      'aria-hidden': isHidden,
+      'aria-roledescription': 'slide',
+      'aria-label': `${currentSlide} of ${slidesLength}`,
+    })
+  })
 
   const firstPageToShow = centeredSlides
     ? // if centeredSlides is true, we calculate which number is the middle page
