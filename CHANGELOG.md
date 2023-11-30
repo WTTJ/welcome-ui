@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.5](https://github.com/WTTJ/welcome-ui/compare/v5.6.4...v5.6.5) (2023-11-30)
+
+
+### Bug Fixes
+
+* **swiper:** aria-hidden slide on last page ([41f22c1](https://github.com/WTTJ/welcome-ui/commit/41f22c1fb09de515bcae407e16946dccf160d6fd))
+* **swiper:** disable pointer events on hidden slides ([d1b9ab1](https://github.com/WTTJ/welcome-ui/commit/d1b9ab1a8f37ec1845e197d92fdbab6ddcc83872))
+
+
+
+
+
 ## [5.6.4](https://github.com/WTTJ/welcome-ui/compare/v5.6.3...v5.6.4) (2023-11-15)
 
 
