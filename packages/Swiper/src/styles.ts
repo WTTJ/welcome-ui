@@ -106,6 +106,10 @@ export const Container = styled.ul<Pick<UseSwiper, 'slidesPerView' | 'spaceBetwe
       height: 100%;
       padding: 0;
 
+      > [aria-roledescription='slide'][aria-hidden='true'] {
+        pointer-events: none;
+      }
+
       > * {
         list-style-type: none;
         margin-right: ${spaceBetween};

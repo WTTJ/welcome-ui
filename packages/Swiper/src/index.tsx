@@ -1,4 +1,12 @@
-import React, { Children, cloneElement, useCallback, useEffect, useRef, useState } from 'react'
+import React, {
+  Children,
+  cloneElement,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { Icons } from '@welcome-ui/icons.font'
 import debounce from 'lodash.debounce'
 import { Size, useViewportSize } from '@welcome-ui/utils'
@@ -62,25 +70,20 @@ export const useSwiper = (options: UseSwiperProps = {}) => {
   const shouldLoop = loop || autoplay
   const { width: viewportWidth } = useViewportSize()
   const [currentPage, setCurrentPage] = useState(0)
-  const [currentSlidesPerView, setCurrentSlidesPerView] = useState(slidesPerView.desktop)
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(false)
   const ref = useRef<HTMLUListElement>()
-  const theme = useTheme()
+  const { screens } = useTheme()
 
-  const getCurrentSlidesPerView = useCallback(() => {
-    if (viewportWidth <= theme.screens.md) {
-      setCurrentSlidesPerView(slidesPerView.mobile)
-    } else if (viewportWidth <= theme.screens.lg) {
-      setCurrentSlidesPerView(slidesPerView.tablet)
+  const currentSlidesPerView = useMemo(() => {
+    if (viewportWidth <= screens.md) {
+      return slidesPerView.mobile
+    } else if (viewportWidth <= screens.lg) {
+      return slidesPerView.tablet
     } else {
-      setCurrentSlidesPerView(slidesPerView.desktop)
+      return slidesPerView.desktop
     }
-  }, [slidesPerView, theme.screens.lg, theme.screens.md, viewportWidth])
-
-  useEffect(() => {
-    getCurrentSlidesPerView()
-  }, [getCurrentSlidesPerView, viewportWidth])
+  }, [slidesPerView, screens.md, screens.lg, viewportWidth])
 
   return {
     centeredSlides,
@@ -142,24 +145,31 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
     withPagination,
   } = store
 
-  const slides = Children.map(children, (child, i) => {
-    const key = `${id}-${i}`
-    return cloneElement(child, {
-      ...child.props,
-      id: key,
-      key,
-      'aria-hidden': Math.ceil((i + 1) / currentSlidesPerView) - 1 !== currentPage,
-      'aria-roledescription': 'slide',
-      'aria-label': `${i + 1} of ${Children.toArray(children).length}`,
-    })
-  })
-
-  const slidesLength = slides.length
+  const slidesLength = Children.toArray(children).length
   const numberOfPage = Math.ceil(slidesLength / currentSlidesPerView)
   const bullets = Array.from(Array(numberOfPage).keys())
 
   const isFirstPage = currentPage === 0
   const isLastPage = currentPage === bullets.length - 1
+
+  const slides = Children.map(children, (child, i) => {
+    const key = `${id}-${i}`
+    const currentSlide = i + 1
+    const pageForThisSlide = Math.ceil(currentSlide / currentSlidesPerView) - 1
+    // item can be visible on the last page even if it isn't on the current page due to the automatic filling of the last page
+    const isHidden = isLastPage
+      ? slidesLength - currentSlide >= currentSlidesPerView
+      : pageForThisSlide !== currentPage
+
+    return cloneElement(child, {
+      ...child.props,
+      id: key,
+      key,
+      'aria-hidden': isHidden,
+      'aria-roledescription': 'slide',
+      'aria-label': `${currentSlide} of ${slidesLength}`,
+    })
+  })
 
   const firstPageToShow = centeredSlides
     ? // if centeredSlides is true, we calculate which number is the middle page
