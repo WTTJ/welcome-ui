@@ -127,14 +127,16 @@ jobs:
             - docs/out
 
   # current version deploy for previews
-  docs_deploy_preview:
+  docs_deploy_s3:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/welcome-ui
       - restore_cache:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - run: node_modules/.bin/netlify deploy --dir=docs/out --alias $CIRCLE_BRANCH
+      - aws-s3/sync:
+          from: docs/out
+          to: s3://welcome-ui/preprod/$(echo "$CIRCLE_BRANCH" | sed "s/[^[:alnum:]-]/-/g" | tr '[:upper:]' '[:lower:]' | cut -c -63)
 
   # current version deploy for production
   docs_deploy_prod:
@@ -149,10 +151,6 @@ jobs:
           to: s3://welcome-ui/docs_production
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1
-      - aws-s3/sync:
-          from: s3://welcome-ui/docs_production
-          to: docs_production
-      - run: node_modules/.bin/netlify deploy --dir=docs_production --prod
 
   # previous versions build & deploy for production
   previous_docs_versions_build_deploy_prod:
@@ -170,10 +168,6 @@ jobs:
           to: s3://welcome-ui/docs_production/$CIRCLE_BRANCH
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
-      - aws-s3/sync:
-          from: s3://welcome-ui/docs_production
-          to: docs_production
-      - run: node_modules/.bin/netlify deploy --dir=docs_production --prod
 
   release:
     <<: *defaults
@@ -261,7 +255,6 @@ workflows:
       - docs_deploy_prod:
           context:
             - aws
-            - netlify
             - welcome-ui
           filters:
             branches:
@@ -273,9 +266,9 @@ workflows:
             - lint
             - docs_build
             - build_and_release_icon_font
-      - docs_deploy_preview:
+      - docs_deploy_s3:
           context:
-            - netlify
+            - aws
             - welcome-ui
           requires:
             - test
@@ -285,7 +278,6 @@ workflows:
       - previous_docs_versions_build_deploy_prod:
           context:
             - aws
-            - netlify
             - welcome-ui
           filters:
             # should add branches here to keep previous doc version of future majors
@@ -309,7 +301,6 @@ workflows:
               ignore: /.*/
             tags:
               only: /v\d.\d.\d/
-
       - prerelease:
           context:
             - welcome-ui
