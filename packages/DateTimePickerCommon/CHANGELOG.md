@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.6](https://github.com/WTTJ/welcome-ui/compare/v5.6.5...v5.6.6) (2023-12-11)
+
+
+### Bug Fixes
+
+* only display year selector when Datepicker shows months only ([#2368](https://github.com/WTTJ/welcome-ui/issues/2368)) ([f112919](https://github.com/WTTJ/welcome-ui/commit/f11291982540111828720dbfa2022653e00a7f3f))
+
+
+
+
+
 ## [5.6.4](https://github.com/WTTJ/welcome-ui/compare/v5.6.3...v5.6.4) (2023-11-15)
 
 
