@@ -302,9 +302,12 @@ export const datePickerStyles = css`
 
   .react-datepicker__month .react-datepicker__month-text,
   .react-datepicker__month .react-datepicker__quarter-text {
-    display: inline-block;
+    display: inline-flex;
     width: 4rem;
+    height: 2rem;
     margin: 2px;
+    align-items: center;
+    justify-content: center;
   }
 
   .react-datepicker__input-time-container {

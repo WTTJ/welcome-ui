@@ -13,8 +13,11 @@ export interface CustomHeaderOptions {
   changeYear: () => void
   date: Date
   decreaseMonth?: () => void
+  decreaseYear?: () => void
   endYear: number
   increaseMonth?: () => void
+  increaseYear?: () => void
+  isMonthYearPicker?: boolean
   locale?: Locale
   startYear: number
 }
@@ -26,8 +29,11 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
   changeYear,
   date,
   decreaseMonth,
+  decreaseYear,
   endYear,
   increaseMonth,
+  increaseYear,
+  isMonthYearPicker,
   locale,
   startYear,
 }) => {
@@ -36,6 +42,13 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
 
   const months = useMemo(() => getMonths(locale), [locale])
   const years = useMemo(() => getYears(startYear, endYear), [startYear, endYear])
+
+  const isPreviousDisabled = isMonthYearPicker
+    ? year === startYear
+    : month === months[0].label && year === startYear
+  const isNextDisabled = isMonthYearPicker
+    ? year === endYear
+    : month === months[months.length - 1].label && year === endYear
 
   useEffect(() => {
     const currentDate = new Date(date)
@@ -48,23 +61,25 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
   return (
     <S.CustomHeader>
       <Button
-        disabled={month === months[0].label && year === startYear}
-        onClick={decreaseMonth}
+        disabled={isPreviousDisabled}
+        onClick={isMonthYearPicker ? decreaseYear : decreaseMonth}
         shape="square"
-        title="Previous month"
+        title={`Previous ${isMonthYearPicker ? 'year' : 'month'}`}
         variant="tertiary"
       >
         <LeftIcon mr={2} />
       </Button>
       <S.Selects>
-        <Select
-          id="month"
-          name="month"
-          onChange={changeMonth}
-          options={months}
-          size="sm"
-          value={month}
-        />
+        {!isMonthYearPicker && (
+          <Select
+            id="month"
+            name="month"
+            onChange={changeMonth}
+            options={months}
+            size="sm"
+            value={month}
+          />
+        )}
         <Select
           id="year"
           name="year"
@@ -75,10 +90,10 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
         />
       </S.Selects>
       <Button
-        disabled={month === months[months.length - 1].label && year === endYear}
-        onClick={increaseMonth}
+        disabled={isNextDisabled}
+        onClick={isMonthYearPicker ? increaseYear : increaseMonth}
         shape="square"
-        title="Next month"
+        title={`Next ${isMonthYearPicker ? 'year' : 'month'}`}
         variant="tertiary"
       >
         <RightIcon ml={2} />
