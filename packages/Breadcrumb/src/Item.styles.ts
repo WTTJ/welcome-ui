@@ -19,6 +19,11 @@ export const Item = styled.aBox.withConfig({ shouldForwardProp })<ItemProps>(
       }
     `};
 
+    &[aria-disabled='true'] {
+      pointer-events: none;
+      cursor: default;
+    }
+
     ${isActive &&
     css`
       ${th('breadcrumbs.item.active')};
