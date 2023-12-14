@@ -163,6 +163,26 @@ function () {
 }
 ```
 
+## Only display months
+
+Pass `showMonthYearPicker` to only display months, without days
+
+```jsx
+function () {
+  const [value, setValue] = React.useState(Date.now())
+
+  const handleChange = newValue => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Date">
+      <DatePicker showMonthYearPicker dateFormat="MM/yyyy" name="welcome" onChange={handleChange} value={value} />
+    </Field>
+  )
+}
+```
+
 ## Properties
 
 <props propTypes={props.propTypes.DatePicker} />

@@ -106,15 +106,22 @@ const StyledCustomPopper = styled.div(
     .react-datepicker__day--keyboard-selected,
     .react-datepicker__day--selected,
     .react-datepicker__day--in-selecting-range,
-    .react-datepicker__day--in-range,
+    .react-datepicker__day--in-range {
+      border-radius: 50%;
+      &:hover {
+        border-radius: 50%;
+      }
+    }
+
+    .react-datepicker__month-text,
     .react-datepicker__month-text--selected,
     .react-datepicker__month-text--keyboard-selected,
     .react-datepicker__month-text--in-selecting-range,
     .react-datepicker__month-text--in-range,
     .react-datepicker__month-text:hover {
-      border-radius: 50%;
+      border-radius: 2rem;
       &:hover {
-        border-radius: 50%;
+        border-radius: 2rem;
       }
     }
 
