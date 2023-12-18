@@ -20,6 +20,7 @@ export interface DatePickerOptions {
   onFocus?: CustomInputOptions['handleFocus']
   useWeekdaysShort?: boolean
   placeholder?: ReactDatePickerProps['placeholderText']
+  preventVirtualKeyboard?: boolean
   value: string | Date
   transparent?: boolean
 }
@@ -49,6 +50,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
       onChange,
       onFocus,
       placeholder,
+      preventVirtualKeyboard = false,
       popperProps,
       size = 'md',
       startYear = 1900,
@@ -135,6 +137,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
             handleFocus={e => handleFocus(e)}
             icon={icon}
             iconPlacement={iconPlacement}
+            inputMode={preventVirtualKeyboard ? 'none' : 'text'}
             onReset={handleReset}
             ref={instance => {
               // for internal use only
