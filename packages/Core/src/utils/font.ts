@@ -8,7 +8,7 @@ type FontVariation = {
   weight?: string
   style?: string
   isVariable?: boolean
-  extension?: string
+  extensions?: string[]
   unicodeRange?: string
 }
 
@@ -19,24 +19,26 @@ type Font = {
 
 function getSource(
   url: FontVariation['url'],
-  extension: FontVariation['extension'],
+  extensions: FontVariation['extensions'],
   isVariable: FontVariation['isVariable']
 ) {
-  const formattedExtension = extension === 'ttf' ? 'truetype' : extension
-
   /** variable icon font */
   if (isVariable) {
-    return `url('${url}.${extension}') format('${formattedExtension}-variations');`
+    return extensions
+      .map((extension: string) => `url('${url}.${extension}') format('${extension}-variations');`)
+      .join(', ')
   }
 
-  return `url('${url}.${extension}') format('${formattedExtension}')`
+  return extensions
+    .map((extension: string) => `url('${url}.${extension}') format('${extension}');`)
+    .join(', ')
 }
 
 function getFont({
   name,
   variation: {
     display = 'swap',
-    extension = 'woff2',
+    extensions = ['woff2', 'woff'],
     isVariable,
     style,
     unicodeRange,
@@ -47,7 +49,7 @@ function getFont({
   return css`
     @font-face {
       font-family: ${name};
-      src: ${getSource(url, extension, isVariable)};
+      src: ${getSource(url, extensions, isVariable)};
       font-display: ${display};
       ${weight &&
       css`

@@ -8,11 +8,11 @@ if [[ -f "$FONT_FILE" ]]; then
 
   echo "Copying fonts to s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH/"
 
-  aws s3 sync $FONTS_DIR s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH/ --cache-control 'public, max-age=31536000' --exclude '*' --include 'welcome-icon-font.woff2'
+  aws s3 sync $FONTS_DIR s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH/ --cache-control 'public, max-age=31536000' --exclude '*' --include 'welcome-icon-font.woff, welcome-icon-font.woff2'
 
   echo "Copying fonts to s3://wttj-production/fonts/icon-font/$ICON_FONT_HASH/"
 
-  aws s3 sync $FONTS_DIR s3://wttj-production/fonts/icon-font/$ICON_FONT_HASH/ --cache-control 'public, max-age=31536000' --exclude '*' --include 'welcome-icon-font.woff2'
+  aws s3 sync $FONTS_DIR s3://wttj-production/fonts/icon-font/$ICON_FONT_HASH/ --cache-control 'public, max-age=31536000' --exclude '*' --include 'welcome-icon-font.woff, welcome-icon-font.woff2'
 else
   echo "Font doesn't exist. Please run 'yarn webfont:build'"
   exit 1
