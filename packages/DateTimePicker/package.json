@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-time-picker",
-  "version": "5.6.7",
+  "version": "5.7.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,7 +46,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/date-picker": "^5.6.7",
+    "@welcome-ui/date-picker": "^5.7.0",
     "@welcome-ui/date-time-picker-common": "^5.6.7",
     "@welcome-ui/system": "^5.0.0",
     "@welcome-ui/time-picker": "^5.6.7"

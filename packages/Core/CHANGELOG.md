@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.7.0](https://github.com/WTTJ/welcome-ui/compare/v5.6.7...v5.7.0) (2023-12-20)
+
+
+### Bug Fixes
+
+* build and publish woff and woff2 files ([#2379](https://github.com/WTTJ/welcome-ui/issues/2379)) ([c86e49a](https://github.com/WTTJ/welcome-ui/commit/c86e49a7e6d2a1ffeafe72eb94ce709fabca7e49))
+
+
+
+
+
 ## [5.6.1](https://github.com/WTTJ/welcome-ui/compare/v5.6.0...v5.6.1) (2023-10-31)
 
 

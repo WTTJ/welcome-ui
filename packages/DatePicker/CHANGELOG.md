@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.7.0](https://github.com/WTTJ/welcome-ui/compare/v5.6.7...v5.7.0) (2023-12-20)
+
+
+### Features
+
+* add option to prevent virtual keyboard from opening ([#2376](https://github.com/WTTJ/welcome-ui/issues/2376)) ([4f0a74c](https://github.com/WTTJ/welcome-ui/commit/4f0a74cd3be7ee9d474795d8cc595b7e784efcc3))
+
+
+
+
+
 ## [5.6.7](https://github.com/WTTJ/welcome-ui/compare/v5.6.6...v5.6.7) (2023-12-14)
 
 **Note:** Version bump only for package @welcome-ui/date-picker

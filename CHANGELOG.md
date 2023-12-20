@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.7.0](https://github.com/WTTJ/welcome-ui/compare/v5.6.7...v5.7.0) (2023-12-20)
+
+
+### Bug Fixes
+
+* build and publish woff and woff2 files ([#2379](https://github.com/WTTJ/welcome-ui/issues/2379)) ([c86e49a](https://github.com/WTTJ/welcome-ui/commit/c86e49a7e6d2a1ffeafe72eb94ce709fabca7e49))
+
+
+### Features
+
+* add option to prevent virtual keyboard from opening ([#2376](https://github.com/WTTJ/welcome-ui/issues/2376)) ([4f0a74c](https://github.com/WTTJ/welcome-ui/commit/4f0a74cd3be7ee9d474795d8cc595b7e784efcc3))
+
+
+
+
+
 ## [5.6.7](https://github.com/WTTJ/welcome-ui/compare/v5.6.6...v5.6.7) (2023-12-14)
 
 
