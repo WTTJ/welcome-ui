@@ -30,7 +30,7 @@ function getSource(
   }
 
   return extensions
-    .map((extension: string) => `url('${url}.${extension}') format('${extension}');`)
+    .map((extension: string) => `url('${url}.${extension}') format('${extension}')`)
     .join(', ')
 }
 
