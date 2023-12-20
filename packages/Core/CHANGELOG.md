@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.1-alpha.0](https://github.com/WTTJ/welcome-ui/compare/v5.7.0...v5.7.1-alpha.0) (2023-12-20)
+
+
+### Bug Fixes
+
+* font-face directive ([976bea7](https://github.com/WTTJ/welcome-ui/commit/976bea78c79354504be376ba756862f2e540d1b1))
+
+
+
+
+
 # [5.7.0](https://github.com/WTTJ/welcome-ui/compare/v5.6.7...v5.7.0) (2023-12-20)
 
 

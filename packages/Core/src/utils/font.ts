@@ -17,7 +17,7 @@ type Font = {
   variation: FontVariation
 }
 
-function getSource(
+export function getSource(
   url: FontVariation['url'],
   extensions: FontVariation['extensions'],
   isVariable: FontVariation['isVariable']
@@ -25,12 +25,12 @@ function getSource(
   /** variable icon font */
   if (isVariable) {
     return extensions
-      .map((extension: string) => `url('${url}.${extension}') format('${extension}-variations');`)
+      .map((extension: string) => `url('${url}.${extension}') format('${extension}-variations')`)
       .join(', ')
   }
 
   return extensions
-    .map((extension: string) => `url('${url}.${extension}') format('${extension}');`)
+    .map((extension: string) => `url('${url}.${extension}') format('${extension}')`)
     .join(', ')
 }
 

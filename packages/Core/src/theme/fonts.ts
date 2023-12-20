@@ -6,6 +6,7 @@ type FontFace = {
   stretch?: string
   style?: string
   url: string
+  uniCodeRange?: string
   weight?: string
   extensions?: string[]
 }
