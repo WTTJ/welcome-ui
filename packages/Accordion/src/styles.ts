@@ -14,7 +14,9 @@ export const Accordion = styled.div`
   }
 `
 
-export const Icon = styled(Box)<{ isOpen: Ariakit.DisclosureStoreState['open'] }>(
+export const Icon = styled(Box).withConfig({
+  shouldForwardProp: prop => !['isOpen'].includes(prop),
+})<{ isOpen: Ariakit.DisclosureStoreState['open'] }>(
   ({ isOpen }) => css`
     flex-shrink: 0;
     ${th('accordions.icon')};
@@ -59,7 +61,9 @@ export const Disclosure = styled(Ariakit.Disclosure)`
   }
 `
 
-export const Content = styled(Ariakit.DisclosureContent)(
+export const Content = styled(Ariakit.DisclosureContent).withConfig({
+  shouldForwardProp: prop => !['isOpen'].includes(prop),
+})(
   ({ isOpen }: { isOpen: UseAccordionState['open'] }) => css`
     ${th('accordions.content')};
     padding-inline: ${th('accordions.padding')};
