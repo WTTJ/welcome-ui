@@ -6,9 +6,10 @@ import * as S from './Item.styles'
 
 export interface ItemOptions {
   children: React.ReactNode
-  disabled?: boolean
   separator?: string | React.ReactNode
   isActive?: boolean
+  /* useful for react-router */
+  to?: string
 }
 
 export type ItemProps = CreateWuiProps<'a', ItemOptions>
@@ -17,7 +18,9 @@ export type ItemProps = CreateWuiProps<'a', ItemOptions>
  * @name Breadcrumb.Item
  */
 export const Item = forwardRef<'a', ItemProps>(
-  ({ children, dataTestId, disabled, isActive, separator, ...rest }, ref) => {
+  ({ children, dataTestId, isActive, separator, ...rest }, ref) => {
+    const isClickable = rest.href || rest.to
+
     return (
       <Box
         aria-label="breadcrumb"
@@ -30,8 +33,7 @@ export const Item = forwardRef<'a', ItemProps>(
         {separator && <S.Separator role="presentation">{separator}</S.Separator>}
         <S.Item
           aria-current={isActive ? 'page' : undefined}
-          aria-disabled={disabled}
-          isActive={isActive}
+          aria-disabled={!isClickable}
           {...rest}
           ref={ref}
         >

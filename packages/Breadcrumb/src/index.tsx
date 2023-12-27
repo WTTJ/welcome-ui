@@ -58,7 +58,6 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
         key: `breadcrumb-${index}`,
         separator: isLastChild ? undefined : separator,
         isActive,
-        as: !!isActive && 'span',
         ...child.props,
       })
     })
