@@ -24,7 +24,9 @@ export interface StyledTagProps {
   variant: Variant
 }
 
-export const Tag = styled.div<StyledTagProps & WuiProps>(
+export const Tag = styled.div.withConfig({
+  shouldForwardProp: prop => !['hasClickAction', 'hasLink', 'hasRemoveAction'].includes(prop),
+})<StyledTagProps & WuiProps>(
   ({ h, hasClickAction, hasLink, hasRemoveAction, length, size, variant, w }) => css`
     ${th('tags.default')};
     ${th(`tags.variants.${variant}`)};
