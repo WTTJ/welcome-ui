@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.1](https://github.com/WTTJ/welcome-ui/compare/v5.7.0...v5.8.1) (2023-12-27)
+
+**Note:** Version bump only for package @welcome-ui/time-picker
+
+
+
+
+
 ## [5.6.7](https://github.com/WTTJ/welcome-ui/compare/v5.6.6...v5.6.7) (2023-12-14)
 
 **Note:** Version bump only for package @welcome-ui/time-picker

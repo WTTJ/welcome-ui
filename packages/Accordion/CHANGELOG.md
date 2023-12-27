@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.1](https://github.com/WTTJ/welcome-ui/compare/v5.7.0...v5.8.1) (2023-12-27)
+
+
+### Bug Fixes
+
+* "unrecognised props" ssr warnings ([#2382](https://github.com/WTTJ/welcome-ui/issues/2382)) ([1257b1a](https://github.com/WTTJ/welcome-ui/commit/1257b1a8d634b8f797bfea9cb2c937bc8372f400))
+
+
+
+
+
 # [5.6.0](https://github.com/WTTJ/welcome-ui/compare/v5.5.1...v5.6.0) (2023-10-31)
 
 **Note:** Version bump only for package @welcome-ui/accordion

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.1](https://github.com/WTTJ/welcome-ui/compare/v5.7.0...v5.8.1) (2023-12-27)
+
+
+### Bug Fixes
+
+* "unrecognised props" ssr warnings ([#2382](https://github.com/WTTJ/welcome-ui/issues/2382)) ([1257b1a](https://github.com/WTTJ/welcome-ui/commit/1257b1a8d634b8f797bfea9cb2c937bc8372f400))
+* malformed font-face directive and copy woff/2 files to S3 properly ([#2380](https://github.com/WTTJ/welcome-ui/issues/2380)) ([f1bbdf1](https://github.com/WTTJ/welcome-ui/commit/f1bbdf181f210cba33ae8ca68755b07352030bc0))
+
+
+
+
+
 ## [5.7.1-alpha.0](https://github.com/WTTJ/welcome-ui/compare/v5.7.0...v5.7.1-alpha.0) (2023-12-20)
 
 

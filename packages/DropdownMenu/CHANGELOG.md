@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.1](https://github.com/WTTJ/welcome-ui/compare/v5.7.0...v5.8.1) (2023-12-27)
+
+
+### Bug Fixes
+
+* malformed font-face directive and copy woff/2 files to S3 properly ([#2380](https://github.com/WTTJ/welcome-ui/issues/2380)) ([f1bbdf1](https://github.com/WTTJ/welcome-ui/commit/f1bbdf181f210cba33ae8ca68755b07352030bc0))
+
+
+
+
+
 ## [5.7.1-alpha.0](https://github.com/WTTJ/welcome-ui/compare/v5.7.0...v5.7.1-alpha.0) (2023-12-20)
 
 **Note:** Version bump only for package @welcome-ui/dropdown-menu

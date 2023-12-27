@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.1](https://github.com/WTTJ/welcome-ui/compare/v5.7.0...v5.8.1) (2023-12-27)
+
+
+### Bug Fixes
+
+* "unrecognised props" ssr warnings ([#2382](https://github.com/WTTJ/welcome-ui/issues/2382)) ([1257b1a](https://github.com/WTTJ/welcome-ui/commit/1257b1a8d634b8f797bfea9cb2c937bc8372f400))
+
+
+
+
+
 ## [5.6.4](https://github.com/WTTJ/welcome-ui/compare/v5.6.3...v5.6.4) (2023-11-15)
 
 
