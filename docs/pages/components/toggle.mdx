@@ -47,7 +47,7 @@ function() {
   return (
     <Stack>
       <Field label="Toggle">
-        <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
+        <Toggle size="sm" checked={toggle} onClick={() => setToggle(!toggle)} />
       </Field>
       <Field label="Toggle">
         <Toggle checked={toggleChecked} onClick={() => setToggleChecked(!toggleChecked)} />
@@ -75,6 +75,44 @@ function() {
     <Field label="Toggle" hint="a hint">
       <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
     </Field>
+  )
+}
+```
+
+## Icons
+
+Pass a `checkedIcon` or `uncheckedIcon` through to decorate your `Toggle` and give more context to the toggle action. We recommend to use an icon with `sm` or `md` size.
+
+```jsx
+function () {
+  const [toggle, setToggle] = React.useState(false)
+
+  return (
+    <Stack>
+      <Toggle size="md" uncheckedIcon={<ShowIcon />} checkedIcon={<HideIcon />} aria-label="Toggle component" checked={toggle} onClick={() => setToggle(!toggle)} />
+    </Stack>
+  )
+}
+```
+
+## Sizes
+
+Use size property with option:
+
+- `xs` (24px - default)
+- `sm` (32px)
+- `md` (40px)
+
+```jsx
+function () {
+  const [toggle, setToggle] = React.useState(false)
+
+  return (
+    <Stack>
+      <Toggle aria-label="Toggle component" checked={toggle} onClick={() => setToggle(!toggle)} />
+      <Toggle size="sm" aria-label="Toggle component" checked={toggle} onClick={() => setToggle(!toggle)} />
+      <Toggle size="md" aria-label="Toggle component" checked={toggle} onClick={() => setToggle(!toggle)} />
+    </Stack>
   )
 }
 ```

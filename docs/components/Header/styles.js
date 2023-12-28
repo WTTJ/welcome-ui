@@ -18,7 +18,7 @@ export const Header = styled.header(
     padding: 0 md;
     top: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
 
     @media (min-width: md) {
       padding: 0 lg;

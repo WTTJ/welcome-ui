@@ -3,13 +3,15 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 
 // To allow for line-height of text in label
-const LINE_HEIGHT_ADJUSTMENTS = '0.15rem'
+const XS_LINE_HEIGHT_ADJUSTMENTS = '0.40rem'
+const SM_LINE_HEIGHT_ADJUSTMENTS = '0.10rem'
 
-type State = 'default' | 'checked' | 'disabled'
+type State = 'default' | 'checked' | 'disabled' | 'sizes'
 
 export type ThemeToggles = {
   item: Record<State, CSSObject>
   after: Record<State, CSSObject>
+  icon: Record<'sizes' | 'position', CSSObject>
 }
 
 export const getToggles = (theme: WuiTheme): ThemeToggles => {
@@ -18,18 +20,32 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
   return {
     item: {
       default: {
-        width: toRem(24),
-        height: toRem(16),
-        borderRadius: toRem(16),
         backgroundColor: colors['light-900'],
         borderColor: colors.border,
         borderWidth: borderWidths.sm,
         borderStyle: 'solid',
-        marginTop: LINE_HEIGHT_ADJUSTMENTS,
+        borderRadius: toRem(16),
 
         '&:focus': {
           borderColor: colors['primary-200'],
           ...focus(colors['primary-200']),
+        },
+      },
+      sizes: {
+        xs: {
+          width: toRem(28),
+          height: toRem(16),
+          marginTop: XS_LINE_HEIGHT_ADJUSTMENTS,
+        },
+        sm: {
+          width: toRem(36),
+          height: toRem(20),
+          marginTop: SM_LINE_HEIGHT_ADJUSTMENTS,
+        },
+        md: {
+          width: toRem(44),
+          height: toRem(24),
+          marginTop: '0 !important',
         },
       },
       checked: {
@@ -43,8 +59,6 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
     },
     after: {
       default: {
-        width: toRem(12),
-        height: toRem(12),
         backgroundColor: colors['light-900'],
         borderColor: colors['dark-400'],
         borderWidth: borderWidths.sm,
@@ -58,6 +72,56 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
       disabled: {
         borderColor: 'transparent',
         backgroundColor: colors['nude-600'],
+      },
+      sizes: {
+        xs: {
+          width: toRem(12),
+          height: toRem(12),
+        },
+        sm: {
+          width: toRem(16),
+          height: toRem(16),
+        },
+        md: {
+          width: toRem(20),
+          height: toRem(20),
+        },
+      },
+    },
+    icon: {
+      position: {
+        xs: {
+          top: '5px',
+          left: '2px',
+          right: '2px',
+        },
+        sm: {
+          top: '1px',
+          left: '4px',
+          right: '4px',
+        },
+        md: {
+          top: '4px',
+          left: '4px',
+          right: '4px',
+        },
+      },
+      sizes: {
+        xs: {
+          width: toRem(10),
+          height: toRem(10),
+          fontSize: toRem(10),
+        },
+        sm: {
+          width: toRem(12),
+          height: toRem(12),
+          fontSize: toRem(12),
+        },
+        md: {
+          width: toRem(16),
+          height: toRem(16),
+          fontSize: toRem(16),
+        },
       },
     },
   }

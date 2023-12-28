@@ -25,6 +25,7 @@ export const Checkbox = forwardRef<'input', CheckboxProps>(
       disabled,
       name,
       onChange,
+      size,
       ...rest
     },
     ref
@@ -44,6 +45,7 @@ export const Checkbox = forwardRef<'input', CheckboxProps>(
         name={name}
         onChange={handleChange}
         ref={ref}
+        size={size}
         {...rest}
       />
     )

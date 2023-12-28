@@ -4,11 +4,32 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export type ToggleOptions = Omit<CheckboxProps, 'Component'>
+type Size = 'xs' | 'sm' | 'md'
+
+export type ToggleOptions = Omit<
+  CheckboxProps,
+  'Component' | 'iconPlacement' | 'indeterminate' | 'hasIcon' | 'transparent' | 'isClearable'
+> & {
+  checkedIcon?: JSX.Element
+  uncheckedIcon?: JSX.Element
+  size?: Size
+}
 export type ToggleProps = CreateWuiProps<'input', ToggleOptions>
 
-export const Toggle = forwardRef<'input', ToggleProps>((props, ref) => (
-  <Checkbox {...props} Component={S.Toggle} ref={ref} />
-))
+export const Toggle = forwardRef<'input', ToggleProps>(
+  ({ checked, checkedIcon, onClick, size = 'xs', uncheckedIcon, ...rest }, ref) => {
+    const hasIcon = checkedIcon && uncheckedIcon
+    return (
+      <S.Wrapper onClick={onClick}>
+        {hasIcon && (
+          <S.IconWrapper checked={checked} size={size}>
+            {checked ? checkedIcon : uncheckedIcon}
+          </S.IconWrapper>
+        )}
+        <Checkbox {...rest} Component={S.Toggle} checked={checked} ref={ref} size={size} />
+      </S.Wrapper>
+    )
+  }
+)
 
 Toggle.displayName = 'Toggle'

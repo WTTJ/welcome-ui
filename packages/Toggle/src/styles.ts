@@ -4,13 +4,15 @@ import { shouldForwardProp } from '@welcome-ui/system'
 
 import { ToggleOptions } from './index'
 
+type Size = 'xs' | 'sm' | 'md'
+
 export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })<ToggleOptions>(
-  ({ order = '-1' }) => css`
+  ({ order = '-1', size }) => css`
     ${th('toggles.item.default')};
+    ${th(`toggles.item.sizes.${size}`)};
     position: relative;
     display: block;
     appearance: none;
-    background: transparent;
     outline: none !important; /* important for firefox */
     cursor: pointer;
     transition: medium;
@@ -18,6 +20,7 @@ export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })
 
     &::after {
       ${th('toggles.after.default')};
+      ${th(`toggles.after.sizes.${size}`)};
       content: '';
       top: 0;
       bottom: 0;
@@ -25,6 +28,7 @@ export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })
       position: absolute;
       margin: auto;
       transition: medium;
+      z-index: 2;
     }
 
     &:disabled {
@@ -39,7 +43,7 @@ export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })
     &:checked {
       &::after {
         /* border + left padding + right padding */
-        transform: translateX(calc(${th('toggles.item.default.width')} - 100% - 0.3rem));
+        transform: translateX(calc(${th(`toggles.item.sizes.${size}.width`)} - 100% - 0.3rem));
       }
 
       &:not(:disabled) {
@@ -52,5 +56,38 @@ export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })
     }
 
     ${system};
+  `
+)
+
+export const Wrapper = styled.box<{ onClick: React.MouseEventHandler<HTMLInputElement> }>`
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+`
+
+export const IconWrapper = styled.box.withConfig({ shouldForwardProp })<{
+  checked: boolean
+  size: Size
+}>(
+  ({ checked, size }) => css`
+    position: absolute;
+    z-index: 1;
+    top: ${th(`toggles.icon.position.${size}.top`)};
+
+    > svg,
+    i {
+      ${th(`toggles.icon.sizes.${size}`)}
+    }
+
+    ${checked &&
+    css`
+      left: ${th(`toggles.icon.position.${size}.left`)};
+      color: dark-900;
+    `}
+
+    ${!checked &&
+    css`
+      right: ${th(`toggles.icon.position.${size}.right`)};
+    `}
   `
 )
