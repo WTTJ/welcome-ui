@@ -67,6 +67,18 @@ By default we removed clickable the last child. You can change this by set to fa
 </Breadcrumb>
 ```
 
+## Items without link will be disable
+
+We are looking for "href" prop. (or "to" prop for react-router)
+
+```jsx
+<Breadcrumb>
+  <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+  <Breadcrumb.Item>Disabled</Breadcrumb.Item>
+  <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+</Breadcrumb>
+```
+
 ## Properties
 
 ### Breadcrumb

@@ -29,7 +29,7 @@ export const getBreadcrumbs = (theme: WuiTheme): ThemeBreadcrumbs => {
         color: colors['dark-700'],
       },
       active: {
-        color: colors['dark-900'],
+        color: colors['dark-700'],
       },
     },
     separator: {
