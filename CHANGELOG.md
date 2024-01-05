@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.9.0](https://github.com/WTTJ/welcome-ui/compare/v5.8.1...v5.9.0) (2024-01-05)
+
+
+### Features
+
+* **breadcrumb:** disable option on item ([2aac9e5](https://github.com/WTTJ/welcome-ui/commit/2aac9e5491983bcbd5ce327db36a5ae4812c5001))
+
+
+
+
+
 ## [5.8.1](https://github.com/WTTJ/welcome-ui/compare/v5.7.0...v5.8.1) (2023-12-27)
 
 
