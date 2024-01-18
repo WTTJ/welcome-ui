@@ -1,10 +1,14 @@
 {
   "name": "@welcome-ui/dropdown-menu",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "version": "5.10.2",
 =======
   "version": "5.9.1-alpha.0",
 >>>>>>> b48a77b35 (v5.9.1-alpha.0)
+=======
+  "version": "5.9.1-alpha.1",
+>>>>>>> 99f0ada72 (v5.9.1-alpha.1)
   "description": "welcome-ui: A DropdownMenu component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -52,7 +56,11 @@
   "dependencies": {
     "@ariakit/react": "0.3.4",
     "@welcome-ui/box": "^5.0.0",
+<<<<<<< HEAD
     "version": "5.10.3-alpha.0",
+=======
+    "@welcome-ui/core": "^5.9.1-alpha.1",
+>>>>>>> 99f0ada72 (v5.9.1-alpha.1)
     "@welcome-ui/system": "^5.0.0",
     "@welcome-ui/utils": "^5.0.0"
   },
