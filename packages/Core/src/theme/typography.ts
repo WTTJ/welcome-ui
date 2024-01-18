@@ -173,7 +173,7 @@ export const getTextsFontWeights = (theme: WuiTheme): ThemeTextsFontWeights => {
     sm: fontWeights.regular,
     xs: fontWeights.regular,
     'subtitle-md': fontWeights.bold,
-    'subtitle-sm': fontWeights.medium,
+    'subtitle-sm': fontWeights.bold,
   }
 }
 
