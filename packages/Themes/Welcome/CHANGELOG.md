@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.9.1-alpha.0](https://github.com/WTTJ/welcome-ui/compare/v5.9.0...v5.9.1-alpha.0) (2024-01-18)
+
+**Note:** Version bump only for package @welcome-ui/themes.welcome
+
+
+
+
+
 # [5.9.0](https://github.com/WTTJ/welcome-ui/compare/v5.8.1...v5.9.0) (2024-01-05)
 
 **Note:** Version bump only for package @welcome-ui/themes.welcome
