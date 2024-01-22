@@ -70,7 +70,6 @@ export const Drawer = styled.divBox<Pick<DrawerOptions, 'placement' | 'size'>>(
     position: fixed;
     display: flex;
     flex-direction: column;
-    flex-direction: column;
     overflow: auto;
     opacity: 0;
     transition: medium;
@@ -79,10 +78,6 @@ export const Drawer = styled.divBox<Pick<DrawerOptions, 'placement' | 'size'>>(
     &[data-enter] {
       opacity: 1;
       transform: translate(0, 0);
-    }
-
-    &[data-leave] {
-      transition: fast;
     }
   `
 )
