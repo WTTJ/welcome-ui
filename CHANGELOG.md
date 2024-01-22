@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.10.0](https://github.com/WTTJ/welcome-ui/compare/v5.9.0...v5.10.0) (2024-01-22)
+
+
+### Features
+
+* add size and icons for toggle component ([9d9f311](https://github.com/WTTJ/welcome-ui/commit/9d9f31121b78284ddd169ca542586a252bd4c525))
+* remove fast transition on drawer ([168392b](https://github.com/WTTJ/welcome-ui/commit/168392bf907070eb90a83f6d40a33778bcfb61ec))
+
+
+
+
+
 # [5.9.0](https://github.com/WTTJ/welcome-ui/compare/v5.8.1...v5.9.0) (2024-01-05)
 
 

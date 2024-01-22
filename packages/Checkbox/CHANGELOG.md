@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.10.0](https://github.com/WTTJ/welcome-ui/compare/v5.9.0...v5.10.0) (2024-01-22)
+
+
+### Features
+
+* add size and icons for toggle component ([9d9f311](https://github.com/WTTJ/welcome-ui/commit/9d9f31121b78284ddd169ca542586a252bd4c525))
+
+
+
+
+
 # [5.4.0](https://github.com/WTTJ/welcome-ui/compare/v5.3.2...v5.4.0) (2023-10-10)
 
 **Note:** Version bump only for package @welcome-ui/checkbox

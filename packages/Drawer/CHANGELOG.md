@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.10.0](https://github.com/WTTJ/welcome-ui/compare/v5.9.0...v5.10.0) (2024-01-22)
+
+
+### Features
+
+* remove fast transition on drawer ([168392b](https://github.com/WTTJ/welcome-ui/commit/168392bf907070eb90a83f6d40a33778bcfb61ec))
+
+
+
+
+
 ## [5.6.2](https://github.com/WTTJ/welcome-ui/compare/v5.6.1...v5.6.2) (2023-11-06)
 
 
