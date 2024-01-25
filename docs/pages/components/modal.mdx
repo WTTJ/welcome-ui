@@ -415,6 +415,147 @@ function() {
 }
 ```
 
+## AssetModal
+
+For our cases we need to show an item in a center of a modal, with specific Backdrop background color and a close button. It's a new sub component to the modal: `AssetModal`.
+
+### Image
+
+```jsx
+function() {
+  const modal = useModal()
+
+  return (
+    <>
+      <Modal.Trigger as={Button} store={modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal
+        store={modal}
+        ariaLabel="asset modal example"
+        backdrop={<AssetModal.Backdrop hideOnInteractOutside />}
+        render={<AssetModal />}
+      >
+        <AssetModal.Content>
+          <img src="https://cdn-images.welcometothejungle.com/rUlGHCfE1zos9CVMJELrqCeCVzH27VuBO8GH5yiMkic/rs:auto:1500::/q:85/czM6Ly93dHRqLXByb2R1Y3Rpb24vdXBsb2Fkcy9pbWFnZS9maWxlLzQ0MjIvMTcwMzg2L2NkNGRhNTc5LWQ4YTktNDQ0OC1iMGM2LWI3ZWYwY2U2ZjQ0MS5qcGc" />
+        </AssetModal.Content>
+      </Modal>
+    </>
+  )
+}
+```
+
+### Iframe
+
+```jsx
+function() {
+  const modal = useModal()
+
+  return (
+    <>
+      <Modal.Trigger as={Button} store={modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal
+        store={modal}
+        ariaLabel="asset modal example"
+        backdrop={<AssetModal.Backdrop hideOnInteractOutside />}
+        render={<AssetModal />}
+      >
+        <AssetModal.Content>
+          <AssetModal.Iframe>
+            <iframe
+              src="https://www.youtube.com/embed/1kjATTF4v5A"
+              title="YouTube video player"
+              frameBorder="0"
+              allowFullScreen
+            />
+          </AssetModal.Iframe>
+        </AssetModal.Content>
+      </Modal>
+    </>
+  )
+}
+```
+
+### With title and subtitle block
+
+```jsx
+function() {
+  const modal = useModal()
+
+  return (
+    <>
+      <Modal.Trigger as={Button} store={modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal
+        store={modal}
+        ariaLabel="asset modal example"
+        backdrop={<AssetModal.Backdrop hideOnInteractOutside />}
+        render={<AssetModal />}
+      >
+        <AssetModal.Content>
+        <AssetModal.AssetWithTitle
+          title="This is a caption of the picture"
+          subtitle="Welcome tot the jungle"
+        >
+          <AssetModal.Iframe>
+            <iframe
+              src="https://www.youtube.com/embed/1kjATTF4v5A"
+              title="YouTube video player"
+              frameBorder="0"
+              allowFullScreen
+            />
+          </AssetModal.Iframe>
+          </AssetModal.AssetWithTitle>
+        </AssetModal.Content>
+      </Modal>
+    </>
+  )
+}
+```
+
+### With a swiper
+
+```jsx
+function() {
+  const modal = useModal()
+  const swiper = useSwiper({ spaceBetween: 0 })
+
+  return (
+    <>
+      <Modal.Trigger as={Button} store={modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal
+        store={modal}
+        ariaLabel="asset modal example"
+        backdrop={<AssetModal.Backdrop hideOnInteractOutside />}
+        render={<AssetModal />}
+      >
+        <AssetModal.Content>
+          <Swiper store={swiper} h={400}>
+            <img
+              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+              src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+            />
+            <img
+              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+              src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+            />
+            <img
+              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+              src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+            />
+          </Swiper>
+        </AssetModal.Content>
+      </Modal>
+    </>
+  )
+}
+```
+
 ## useModal
 
 We use `useDialogStore` from [Ariakit Dialog](https://ariakit.org/reference/use-dialog-store) for the state of the modal.
