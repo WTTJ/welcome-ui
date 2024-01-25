@@ -9,6 +9,7 @@ import * as S from './styles'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { Content } from './Content'
+import { Assets } from './Assets'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
@@ -95,3 +96,6 @@ export const Modal = Object.assign(ModalComponent, {
   Footer,
   Cover,
 })
+
+// Asset Modal for pictures / videos / swiper
+export const AssetModal = Assets
