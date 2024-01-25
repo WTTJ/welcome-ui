@@ -8,7 +8,7 @@ import { Size } from './index'
 
 type BackdropProps = Pick<Ariakit.DialogOptions, 'hideOnInteractOutside'>
 
-export const Backdrop = styled.div.withConfig({
+export const Backdrop = styled.divBox.withConfig({
   shouldForwardProp: prop => !['hideOnInteractOutside'].includes(prop),
 })<BackdropProps>(
   ({ hideOnInteractOutside }) => css`
