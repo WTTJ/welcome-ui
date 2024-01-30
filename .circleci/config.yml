@@ -308,7 +308,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /v\d.\d.\d/
+              only: /v\d.(\d\d|\d).(\d\d|\d)/
 
       - prerelease:
           context:
@@ -322,4 +322,4 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /v\d.\d.\d-.*/
+              only: /v\d.(\d\d|\d).(\d\d|\d)-.*/
