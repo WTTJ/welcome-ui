@@ -4,7 +4,7 @@ import { Box } from '@welcome-ui/box'
 import * as S from './styles'
 
 type IframeProps = {
-  children: React.ReactHTMLElement<HTMLIFrameElement>
+  children: JSX.Element
 }
 
 export const Iframe = ({ children }: IframeProps) => {

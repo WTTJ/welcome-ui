@@ -23,7 +23,9 @@ export const CloseButton = styled(Button)`
   ${system}
 `
 
-export const Backdrop = React.forwardRef<HTMLDivElement>((props, ref) => {
+export type BackdropProps = HTMLDivElement & Pick<Ariakit.DialogOptions, 'hideOnInteractOutside'>
+
+export const Backdrop = React.forwardRef<BackdropProps>((props, ref) => {
   return (
     <S.Backdrop backgroundColor="rgba(0, 0, 0, 0.9)" {...props} ref={ref}>
       <Ariakit.DialogDismiss

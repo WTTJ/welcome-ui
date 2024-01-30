@@ -7,8 +7,8 @@ import { Iframe } from './styles'
 
 type AssetWithTitleProps = {
   children: React.ReactNode
-  subtitle?: JSX.Element
-  title: JSX.Element
+  subtitle?: JSX.Element | string
+  title: JSX.Element | string
 }
 
 const titleBlockMobile = '4rem'
