@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.11.0-alpha.3](https://github.com/WTTJ/welcome-ui/compare/v5.11.0-alpha.2...v5.11.0-alpha.3) (2024-01-30)
+
+
+### Bug Fixes
+
+* as props on CreateWuiComponent ([7488b68](https://github.com/WTTJ/welcome-ui/commit/7488b681951285b8eaa355b9d8a915b3d69336a1))
+
+
+
+
+
 # [5.0.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.52...v5.0.0) (2023-08-31)
 
 
