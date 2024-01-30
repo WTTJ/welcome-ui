@@ -143,7 +143,7 @@ export type CreateWuiProps<Component extends As, Props = {}> = MergeProps<
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type CreateWuiComponent<Component extends As, Options = {}> = {
   <AsComponent extends As>(
-    props: CreateWuiProps<AsComponent, Options> & { as: AsComponent }
+    props: CreateWuiProps<AsComponent, Options> & { as?: AsComponent }
   ): JSX.Element
   (props: CreateWuiProps<Component, Options>): JSX.Element
   displayName?: string
