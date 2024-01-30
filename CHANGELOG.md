@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.11.0-alpha.2](https://github.com/WTTJ/welcome-ui/compare/v5.11.0-alpha.1...v5.11.0-alpha.2) (2024-01-30)
+
+
+### Bug Fixes
+
+* typescript ([124d024](https://github.com/WTTJ/welcome-ui/commit/124d024f98dd7dee8fe2bf1f0325b594a33e0a95))
+
+
+
+
+
 # [5.10.0](https://github.com/WTTJ/welcome-ui/compare/v5.9.0...v5.10.0) (2024-01-22)
 
 
