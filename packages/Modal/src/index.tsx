@@ -48,14 +48,25 @@ export function useModal(options?: UseModalProps): UseModal {
 }
 
 const ModalComponent = forwardRef<'div', ModalProps>(
-  ({ ariaLabel, children, hideOnInteractOutside = true, size = 'lg', store, ...rest }, ref) => {
+  (
+    {
+      ariaLabel,
+      children,
+      hideOnInteractOutside = true,
+      size = 'lg',
+      store,
+      as: As = S.Dialog,
+      ...rest
+    },
+    ref
+  ) => {
     return (
       <Ariakit.Dialog
         aria-label={ariaLabel}
         backdrop={<S.Backdrop hideOnInteractOutside={hideOnInteractOutside} />}
         hideOnInteractOutside={hideOnInteractOutside}
         ref={ref}
-        render={<S.Dialog size={size} />}
+        render={<As size={size} />}
         store={store}
         {...(rest as Ariakit.DialogProps<'div'>)}
       >
