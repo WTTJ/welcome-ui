@@ -3,6 +3,7 @@ import * as Ariakit from '@ariakit/react'
 import { Button } from '@welcome-ui/button'
 import { Icons } from '@welcome-ui/icons.font'
 import styled, { system } from '@xstyled/styled-components'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from '../styles'
 
@@ -23,18 +24,28 @@ export const CloseButton = styled(Button)`
   ${system}
 `
 
-export type BackdropProps = HTMLDivElement & Pick<Ariakit.DialogOptions, 'hideOnInteractOutside'>
+export type BackdropProps = CreateWuiProps<
+  'div',
+  Pick<Ariakit.DialogOptions, 'hideOnInteractOutside'>
+>
 
-export const Backdrop = React.forwardRef<BackdropProps>((props, ref) => {
-  return (
-    <S.Backdrop backgroundColor="rgba(0, 0, 0, 0.9)" {...props} ref={ref}>
-      <Ariakit.DialogDismiss
-        render={
-          <CloseButton shape="circle" variant="secondary">
-            <Icons.Cross />
-          </CloseButton>
-        }
-      />
-    </S.Backdrop>
-  )
-})
+export const Backdrop = forwardRef<'div', BackdropProps>(
+  ({ hideOnInteractOutside, ...rest }, ref) => {
+    return (
+      <S.Backdrop
+        backgroundColor="rgba(0, 0, 0, 0.9)"
+        hideOnInteractOutside={hideOnInteractOutside}
+        {...rest}
+        ref={ref}
+      >
+        <Ariakit.DialogDismiss
+          render={
+            <CloseButton shape="circle" variant="secondary">
+              <Icons.Cross />
+            </CloseButton>
+          }
+        />
+      </S.Backdrop>
+    )
+  }
+)

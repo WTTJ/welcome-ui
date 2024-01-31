@@ -13,7 +13,7 @@ import { Assets } from './Assets'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
-export interface ModalOptions extends Ariakit.DialogOptions<'div'> {
+export interface ModalOptions extends Omit<Ariakit.DialogOptions<'div'>, 'as'> {
   ariaLabel: string
   children: React.ReactElement
   size?: Size
@@ -51,11 +51,13 @@ const ModalComponent = forwardRef<'div', ModalProps>(
   (
     {
       ariaLabel,
+      /** for render property */
+      as: As = S.Dialog,
+      backdrop: Backdrop = S.Backdrop,
       children,
       hideOnInteractOutside = true,
       size = 'lg',
       store,
-      as: As = S.Dialog,
       ...rest
     },
     ref
@@ -63,7 +65,10 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     return (
       <Ariakit.Dialog
         aria-label={ariaLabel}
-        backdrop={<S.Backdrop hideOnInteractOutside={hideOnInteractOutside} />}
+        // we have conflicts between what we want in
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        backdrop={<Backdrop hideOnInteractOutside={hideOnInteractOutside} />}
         hideOnInteractOutside={hideOnInteractOutside}
         ref={ref}
         render={<As size={size} />}
