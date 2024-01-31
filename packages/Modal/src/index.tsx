@@ -15,7 +15,7 @@ export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
 export interface ModalOptions extends Omit<Ariakit.DialogOptions<'div'>, 'as' | 'backdrop'> {
   ariaLabel: string
-  backdrop?: React.ReactElement
+  backdrop?: JSX.Element
   children: React.ReactElement
   size?: Size
 }
