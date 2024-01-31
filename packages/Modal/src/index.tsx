@@ -13,8 +13,9 @@ import { Assets } from './Assets'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
-export interface ModalOptions extends Omit<Ariakit.DialogOptions<'div'>, 'as'> {
+export interface ModalOptions extends Omit<Ariakit.DialogOptions<'div'>, 'as' | 'backdrop'> {
   ariaLabel: string
+  backdrop?: React.ReactElement
   children: React.ReactElement
   size?: Size
 }
