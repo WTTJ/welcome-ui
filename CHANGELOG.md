@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.11.0-alpha.7](https://github.com/WTTJ/welcome-ui/compare/v5.11.0-alpha.6...v5.11.0-alpha.7) (2024-01-31)
+
+
+### Bug Fixes
+
+* types ([6a4c9f5](https://github.com/WTTJ/welcome-ui/commit/6a4c9f5bf37562c336808a0c3564b82e9f4ae2d7))
+
+
+
+
+
 # [5.11.0-alpha.6](https://github.com/WTTJ/welcome-ui/compare/v5.11.0-alpha.5...v5.11.0-alpha.6) (2024-01-31)
 
 
