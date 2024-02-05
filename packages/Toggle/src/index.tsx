@@ -22,7 +22,7 @@ export const Toggle = forwardRef<'input', ToggleProps>(
     return (
       <S.Wrapper onClick={onClick}>
         {hasIcon && (
-          <S.IconWrapper checked={checked} size={size}>
+          <S.IconWrapper checked={checked} onClick={onClick} size={size}>
             {checked ? checkedIcon : uncheckedIcon}
           </S.IconWrapper>
         )}
