@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { cloneElement } from 'react'
 import * as Ariakit from '@ariakit/react'
 import { BoxProps } from '@welcome-ui/box'
 import { As, CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -13,9 +13,8 @@ import { Assets } from './Assets'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
-export interface ModalOptions extends Omit<Ariakit.DialogOptions<'div'>, 'as' | 'backdrop'> {
+export interface ModalOptions extends Omit<Ariakit.DialogOptions<'div'>, 'as'> {
   ariaLabel: string
-  backdrop?: JSX.Element
   children: React.ReactElement
   size?: Size
 }
@@ -48,13 +47,27 @@ export function useModal(options?: UseModalProps): UseModal {
   return dialog
 }
 
+type BackdropProps = Pick<ModalOptions, 'hideOnInteractOutside' | 'backdrop'>
+
+const Backdrop = forwardRef<'div', BackdropProps>(
+  ({ backdrop, hideOnInteractOutside, ...rest }, ref) => {
+    if (backdrop === true) {
+      return <S.Backdrop hideOnInteractOutside={hideOnInteractOutside} ref={ref} {...rest} />
+    }
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return cloneElement(backdrop, { hideOnInteractOutside, ref, ...rest })
+  }
+)
+
 const ModalComponent = forwardRef<'div', ModalProps>(
   (
     {
       ariaLabel,
       /** for render property */
       as: As = S.Dialog,
-      backdrop: Backdrop = S.Backdrop,
+      backdrop = true,
       children,
       hideOnInteractOutside = true,
       size = 'lg',
@@ -66,10 +79,9 @@ const ModalComponent = forwardRef<'div', ModalProps>(
     return (
       <Ariakit.Dialog
         aria-label={ariaLabel}
-        // we have conflicts between what we want in
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        backdrop={<Backdrop hideOnInteractOutside={hideOnInteractOutside} />}
+        backdrop={
+          backdrop && <Backdrop backdrop={backdrop} hideOnInteractOutside={hideOnInteractOutside} />
+        }
         hideOnInteractOutside={hideOnInteractOutside}
         ref={ref}
         render={<As size={size} />}

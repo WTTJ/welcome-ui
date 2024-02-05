@@ -3,7 +3,7 @@ import * as Ariakit from '@ariakit/react'
 import { Button } from '@welcome-ui/button'
 import { Icons } from '@welcome-ui/icons.font'
 import styled, { system } from '@xstyled/styled-components'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { forwardRef } from '@welcome-ui/system'
 
 import * as S from '../styles'
 
@@ -24,10 +24,7 @@ export const CloseButton = styled(Button)`
   ${system}
 `
 
-export type BackdropProps = CreateWuiProps<
-  'div',
-  Pick<Ariakit.DialogOptions, 'hideOnInteractOutside'>
->
+export type BackdropProps = Pick<Ariakit.DialogOptions, 'hideOnInteractOutside'>
 
 export const Backdrop = forwardRef<'div', BackdropProps>(
   ({ hideOnInteractOutside, ...rest }, ref) => {
@@ -49,3 +46,5 @@ export const Backdrop = forwardRef<'div', BackdropProps>(
     )
   }
 )
+
+Backdrop.displayName = 'Backdrop'
