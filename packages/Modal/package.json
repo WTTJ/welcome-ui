@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/modal",
-  "version": "5.11.0-alpha.7",
+  "version": "5.11.0-alpha.8",
   "description": "Modal from Ariakit with a really nice theme 👀",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
