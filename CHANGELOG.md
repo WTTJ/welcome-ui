@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.11.0-alpha.9](https://github.com/WTTJ/welcome-ui/compare/v5.11.0-alpha.8...v5.11.0-alpha.9) (2024-02-06)
+
+
+### Bug Fixes
+
+* title lines and max width elements ([5d0fb65](https://github.com/WTTJ/welcome-ui/commit/5d0fb659c4cd9d08deb201cdce16e6790dbc4416))
+
+
+
+
+
 # [5.11.0-alpha.8](https://github.com/WTTJ/welcome-ui/compare/v5.11.0-alpha.7...v5.11.0-alpha.8) (2024-02-05)
 
 
