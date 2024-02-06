@@ -33,6 +33,11 @@ export const Content = styled.div`
     @media (min-width: md) {
       max-width: ${contentWidthDesktop};
     }
+
+    // for big screens
+    @media (min-width: 1700) {
+      max-width: 1600;
+    }
   }
 `
 

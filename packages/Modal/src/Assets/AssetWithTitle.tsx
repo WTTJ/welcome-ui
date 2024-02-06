@@ -55,7 +55,7 @@ export const AssetWithTitle: React.FC<AssetWithTitleProps> = ({ children, subtit
         w="100%"
       >
         {subtitle && <Text variant="subtitle-sm">{subtitle}</Text>}
-        <Text lines={1} m="0" variant="h4">
+        <Text alignItems="center" display="inline-flex" lines={2} m="0" variant="h4">
           {title}
         </Text>
       </Box>
