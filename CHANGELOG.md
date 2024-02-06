@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.10.2](https://github.com/WTTJ/welcome-ui/compare/v5.10.1...v5.10.2) (2024-02-06)
+
+
+### Bug Fixes
+
+* toggle icon misalignment ([7d58f20](https://github.com/WTTJ/welcome-ui/commit/7d58f202b02765f6f4223a92111a3b69e15d007e))
+
+
+
+
+
 ## [5.10.1](https://github.com/WTTJ/welcome-ui/compare/v5.10.0...v5.10.1) (2024-02-01)
 
 **Note:** Version bump only for package @welcome-ui/repo

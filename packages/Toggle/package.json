@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/toggle",
-  "version": "5.10.1",
+  "version": "5.10.2",
   "description": "welcome-ui: A toggle component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
