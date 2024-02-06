@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/swiper",
-  "version": "5.6.5",
+  "version": "5.11.0-alpha.10",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
