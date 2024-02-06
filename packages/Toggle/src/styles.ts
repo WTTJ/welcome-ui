@@ -72,7 +72,10 @@ export const IconWrapper = styled.box.withConfig({ shouldForwardProp })<{
   ({ checked, size }) => css`
     position: absolute;
     z-index: 1;
-    top: ${th(`toggles.icon.position.${size}.top`)};
+    display: flex;
+    align-items: center;
+    height: ${th(`toggles.item.sizes.${size}.height`)};
+    bottom: 0;
 
     > svg,
     i {

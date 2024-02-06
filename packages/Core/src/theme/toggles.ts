@@ -91,17 +91,14 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
     icon: {
       position: {
         xs: {
-          top: '5px',
           left: '2px',
           right: '2px',
         },
         sm: {
-          top: '1px',
           left: '4px',
           right: '4px',
         },
         md: {
-          top: '4px',
           left: '4px',
           right: '4px',
         },
