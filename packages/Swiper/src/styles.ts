@@ -96,6 +96,7 @@ export const Container = styled.ul<Pick<UseSwiper, 'slidesPerView' | 'spaceBetwe
       display: flex;
       -webkit-overflow-scrolling: touch;
       overflow-x: scroll;
+      margin: 0;
 
       /* Hide scrollbar */
       -ms-overflow-style: none;

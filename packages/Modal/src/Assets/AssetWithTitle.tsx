@@ -2,13 +2,16 @@ import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import styled from '@xstyled/styled-components'
+import { forwardRef } from '@welcome-ui/system'
 
 import { Iframe } from './styles'
+import * as S from './styles'
 
 type AssetWithTitleProps = {
   children: React.ReactNode
   subtitle?: JSX.Element | string
-  title: JSX.Element | string
+  title?: JSX.Element | string
+  customContent?: JSX.Element | string
 }
 
 const titleBlockMobile = '4rem'
@@ -39,26 +42,27 @@ const Wrapper = styled.div`
   }
 `
 
-export const AssetWithTitle: React.FC<AssetWithTitleProps> = ({ children, subtitle, title }) => {
-  return (
-    <Wrapper>
-      {children}
-      <Box
-        backgroundColor="light-900"
-        display="flex"
-        flexDirection="column"
-        flexShrink={0}
-        gap="xxs"
-        h={{ _: titleBlockMobile, md: titleBlockDesktop }}
-        justifyContent="center"
-        px={{ _: 'md', md: 'xl' }}
-        w="100%"
-      >
-        {subtitle && <Text variant="subtitle-sm">{subtitle}</Text>}
-        <Text alignItems="center" display="inline-flex" lines={2} m="0" variant="h4">
-          {title}
-        </Text>
-      </Box>
-    </Wrapper>
-  )
-}
+export const AssetWithTitle = forwardRef<'div', AssetWithTitleProps>(
+  ({ children, customContent, subtitle, title }, ref) => {
+    return (
+      <Wrapper ref={ref}>
+        {children}
+        <Box
+          backgroundColor="light-900"
+          display="flex"
+          flexDirection="column"
+          flexShrink={0}
+          gap="xxs"
+          h={{ _: titleBlockMobile, md: titleBlockDesktop }}
+          justifyContent="center"
+          px={{ _: 'md', md: 'xl' }}
+          w="100%"
+        >
+          {customContent}
+          {!customContent && subtitle && <Text variant="subtitle-sm">{subtitle}</Text>}
+          {!customContent && title && <S.Title>{title}</S.Title>}
+        </Box>
+      </Wrapper>
+    )
+  }
+)
