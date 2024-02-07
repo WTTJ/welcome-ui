@@ -36,7 +36,6 @@ export const Iframe = styled.div`
 
 export const Content = styled.divBox`
   transition: margin-top 250ms ease-in-out;
-  border: 10px solid red;
 
   > img,
   > div {
