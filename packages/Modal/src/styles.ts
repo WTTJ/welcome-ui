@@ -2,15 +2,14 @@ import styled, { css, system, th, up } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import { cardStyles } from '@welcome-ui/utils'
-import * as Ariakit from '@ariakit/react'
+
+import { BackdropProps } from './Assets/Backdrop'
 
 import { Size } from './index'
 
-type BackdropProps = Pick<Ariakit.DialogOptions, 'hideOnInteractOutside'>
-
-export const Backdrop = styled.div.withConfig({
+export const Backdrop = styled.divBox.withConfig({
   shouldForwardProp: prop => !['hideOnInteractOutside'].includes(prop),
-})<BackdropProps>(
+})<Pick<BackdropProps, 'hideOnInteractOutside'>>(
   ({ hideOnInteractOutside }) => css`
     ${th('modals.backdrop')};
     position: fixed;

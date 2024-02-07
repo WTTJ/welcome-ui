@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.11.0-alpha.11](https://github.com/WTTJ/welcome-ui/compare/v5.11.0-alpha.10...v5.11.0-alpha.11) (2024-02-07)
+
+
+### Bug Fixes
+
+* with swiper ([1ad62cc](https://github.com/WTTJ/welcome-ui/commit/1ad62cc715230555719d683b31a7a88c875ff470))
+
+
+
+
+
+# [5.11.0-alpha.10](https://github.com/WTTJ/welcome-ui/compare/v5.11.0-alpha.9...v5.11.0-alpha.10) (2024-02-06)
+
+
+### Features
+
+* add custom title on AssetWithTitle component ([3f19966](https://github.com/WTTJ/welcome-ui/commit/3f199668727c302868dbf2f7733cf2156f9db8f9))
+
+
+
+
+
 ## [5.6.5](https://github.com/WTTJ/welcome-ui/compare/v5.6.4...v5.6.5) (2023-11-30)
 
 

@@ -415,6 +415,214 @@ function() {
 }
 ```
 
+## AssetModal
+
+For our cases we need to show an item in a center of a modal, with specific Backdrop background color and a close button. It's a new sub component to the modal: `AssetModal`.
+
+### Image
+
+```jsx
+function() {
+  const modal = useModal()
+
+  return (
+    <>
+      <Modal.Trigger as={Button} store={modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal
+        store={modal}
+        ariaLabel="asset modal example"
+        backdrop={<AssetModal.Backdrop />}
+        as={AssetModal}
+      >
+        <AssetModal.Content>
+          <img src="https://cdn-images.welcometothejungle.com/rUlGHCfE1zos9CVMJELrqCeCVzH27VuBO8GH5yiMkic/rs:auto:1500::/q:85/czM6Ly93dHRqLXByb2R1Y3Rpb24vdXBsb2Fkcy9pbWFnZS9maWxlLzQ0MjIvMTcwMzg2L2NkNGRhNTc5LWQ4YTktNDQ0OC1iMGM2LWI3ZWYwY2U2ZjQ0MS5qcGc" />
+        </AssetModal.Content>
+      </Modal>
+    </>
+  )
+}
+```
+
+### Iframe
+
+```jsx
+function() {
+  const modal = useModal()
+
+  return (
+    <>
+      <Modal.Trigger as={Button} store={modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal
+        store={modal}
+        ariaLabel="asset modal example"
+        backdrop={<AssetModal.Backdrop />}
+        as={AssetModal}
+      >
+        <AssetModal.Content>
+          <AssetModal.Iframe>
+            <iframe
+              src="https://www.youtube.com/embed/uSTy3cT5hbw"
+              title="YouTube video player"
+              frameBorder="0"
+              allowFullScreen
+            />
+          </AssetModal.Iframe>
+        </AssetModal.Content>
+      </Modal>
+    </>
+  )
+}
+```
+
+### With title and subtitle block
+
+Another variant with the `AssetModal.AssetWithTitle` component.
+
+```jsx
+function() {
+  const modal = useModal()
+
+  return (
+    <>
+      <Modal.Trigger as={Button} store={modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal
+        store={modal}
+        ariaLabel="asset modal example"
+        backdrop={<AssetModal.Backdrop />}
+        as={AssetModal}
+      >
+        <AssetModal.Content>
+          <AssetModal.AssetWithTitle title="Sapin & Rétroviseur" subtitle="THE JOB IS YOURS">
+            <AssetModal.Iframe>
+              <iframe
+                src="https://www.youtube.com/embed/uSTy3cT5hbw"
+                title="YouTube video player"
+                frameBorder="0"
+                allowFullScreen
+              />
+            </AssetModal.Iframe>
+          </Asset.AssetWithTitle>
+        </AssetModal.Content>
+      </Modal>
+    </>
+  )
+}
+```
+
+### With a swiper
+
+Example with our `<Swiper />` component.
+
+```jsx
+function() {
+  const modal = useModal()
+  const swiper = useSwiper({ firstSlideToShow: 2, spaceBetween: 0 })
+
+  const isOpen = modal.useState().open
+
+  return (
+    <>
+      <Modal.Trigger as={Button} store={modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal
+        store={modal}
+        ariaLabel="asset modal example"
+        backdrop={<AssetModal.Backdrop />}
+        as={AssetModal}
+      >
+        {isOpen && (
+          <AssetModal.Content>
+            <Swiper store={swiper} h="calc(100vh - 10rem)">
+              <img
+                style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                src="https://cdn-images.welcometothejungle.com/H6cEYCT1JsY1ipyX37LWouwduQZNHlUikfeUaHhUagA/rs:auto:1500::/q:85/czM6Ly93dHRqLXByb2R1Y3Rpb24vdXBsb2Fkcy9pbWFnZS9maWxlLzk4NTMvMTYzMzYyL2I5OTdhMzIxLTJlNjktNGM1Ny05NzcyLWE0YjU3ZmQ0YWNiMi5qcGc"
+              />
+              <img
+                style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                src="https://cdn-images.welcometothejungle.com/7DJ8Ggq5-1JMgNEcVXLlM7xqDOBNhBoZ9QpEdO1G4Qs/rs:auto:1500::/q:85/czM6Ly93dHRqLXByb2R1Y3Rpb24vdXBsb2Fkcy9pbWFnZS9maWxlLzQ0OTEvMTcwMzg2LzdiYWRjMjc4LTQ3MWUtNDI1My1hN2NmLWJkM2FiYmNiMTM4Yi5qcGc"
+              />
+              <img
+                style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                src="https://cdn-images.welcometothejungle.com/rUlGHCfE1zos9CVMJELrqCeCVzH27VuBO8GH5yiMkic/rs:auto:1500::/q:85/czM6Ly93dHRqLXByb2R1Y3Rpb24vdXBsb2Fkcy9pbWFnZS9maWxlLzQ0MjIvMTcwMzg2L2NkNGRhNTc5LWQ4YTktNDQ0OC1iMGM2LWI3ZWYwY2U2ZjQ0MS5qcGc"
+              />
+            </Swiper>
+          </AssetModal.Content>
+        )}
+      </Modal>
+    </>
+  )
+}
+```
+
+Another example with `AssetModal.AssetWithTitle`.
+
+```jsx
+function() {
+  const modal = useModal()
+  const swiper = useSwiper({ spaceBetween: 0 })
+
+  const isOpen = modal.useState().open
+
+  return (
+    <>
+      <Modal.Trigger as={Button} store={modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal
+        store={modal}
+        ariaLabel="asset modal example"
+        backdrop={<AssetModal.Backdrop />}
+        as={AssetModal}
+      >
+        {isOpen && (
+          <AssetModal.Content>
+            <Swiper store={swiper}>
+              <AssetModal.AssetWithTitle title="Sapin & Rétroviseur" subtitle="THE JOB IS YOURS">
+                  <AssetModal.Iframe>
+                    <iframe
+                      src="https://www.youtube.com/embed/uSTy3cT5hbw"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allowFullScreen
+                    />
+                </AssetModal.Iframe>
+              </Asset.AssetWithTitle>
+              <AssetModal.AssetWithTitle title="Claquette & Chaussette" subtitle="THE JOB IS YOURS">
+                  <AssetModal.Iframe>
+                    <iframe
+                      src="https://www.youtube.com/embed/1kjATTF4v5A"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allowFullScreen
+                    />
+                </AssetModal.Iframe>
+              </Asset.AssetWithTitle>
+              <AssetModal.AssetWithTitle title="Pizza & Ananas" subtitle="THE JOB IS YOURS">
+                  <AssetModal.Iframe>
+                    <iframe
+                      src="https://www.youtube.com/embed/YlEMLSsv_3w"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allowFullScreen
+                    />
+                </AssetModal.Iframe>
+              </Asset.AssetWithTitle>
+            </Swiper>
+          </AssetModal.Content>
+        )}
+      </Modal>
+    </>
+  )
+}
+```
+
 ## useModal
 
 We use `useDialogStore` from [Ariakit Dialog](https://ariakit.org/reference/use-dialog-store) for the state of the modal.

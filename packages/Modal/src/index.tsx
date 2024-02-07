@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { cloneElement } from 'react'
 import * as Ariakit from '@ariakit/react'
 import { BoxProps } from '@welcome-ui/box'
 import { As, CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -9,10 +9,11 @@ import * as S from './styles'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { Content } from './Content'
+import { Assets } from './Assets'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
-export interface ModalOptions extends Ariakit.DialogOptions<'div'> {
+export interface ModalOptions extends Omit<Ariakit.DialogOptions<'div'>, 'as'> {
   ariaLabel: string
   children: React.ReactElement
   size?: Size
@@ -46,15 +47,44 @@ export function useModal(options?: UseModalProps): UseModal {
   return dialog
 }
 
+type BackdropProps = Pick<ModalOptions, 'hideOnInteractOutside' | 'backdrop'>
+
+const Backdrop = forwardRef<'div', BackdropProps>(
+  ({ backdrop, hideOnInteractOutside, ...rest }, ref) => {
+    if (backdrop === true) {
+      return <S.Backdrop hideOnInteractOutside={hideOnInteractOutside} ref={ref} {...rest} />
+    }
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return cloneElement(backdrop, { hideOnInteractOutside, ref, ...rest })
+  }
+)
+
 const ModalComponent = forwardRef<'div', ModalProps>(
-  ({ ariaLabel, children, hideOnInteractOutside = true, size = 'lg', store, ...rest }, ref) => {
+  (
+    {
+      ariaLabel,
+      /** for render property */
+      as: As = S.Dialog,
+      backdrop = true,
+      children,
+      hideOnInteractOutside = true,
+      size = 'lg',
+      store,
+      ...rest
+    },
+    ref
+  ) => {
     return (
       <Ariakit.Dialog
         aria-label={ariaLabel}
-        backdrop={<S.Backdrop hideOnInteractOutside={hideOnInteractOutside} />}
+        backdrop={
+          backdrop && <Backdrop backdrop={backdrop} hideOnInteractOutside={hideOnInteractOutside} />
+        }
         hideOnInteractOutside={hideOnInteractOutside}
         ref={ref}
-        render={<S.Dialog size={size} />}
+        render={<As size={size} />}
         store={store}
         {...(rest as Ariakit.DialogProps<'div'>)}
       >
@@ -95,3 +125,6 @@ export const Modal = Object.assign(ModalComponent, {
   Footer,
   Cover,
 })
+
+// Asset Modal for pictures / videos / swiper
+export const AssetModal = Assets
