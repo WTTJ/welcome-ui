@@ -54,6 +54,7 @@
     "@welcome-ui/close-button": "^5.6.1",
     "@welcome-ui/icons.font": "^5.5.0",
     "@welcome-ui/shape": "^5.6.1",
+    "@welcome-ui/swiper": "^5.11.0-alpha.10",
     "@welcome-ui/system": "^5.0.0",
     "@welcome-ui/text": "^5.6.1",
     "@welcome-ui/utils": "^5.0.0"

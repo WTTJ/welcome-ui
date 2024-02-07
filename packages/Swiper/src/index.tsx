@@ -353,3 +353,4 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
 }
 
 Swiper.displayName = 'Swiper'
+export const StyledSwiper = S.Swiper
