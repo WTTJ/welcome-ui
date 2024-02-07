@@ -289,14 +289,22 @@ export type ThemeFonts = {
   icons: string
 }
 
-export const getFonts = (
-  defaultFontFamily: Options['defaultFontFamily'],
-  headingFontFamily: Options['headingFontFamily'],
+export const getFonts = ({
+  defaultFontFamily,
+  headingFontFallbackFamily,
+  headingFontFamily,
+  iconFontFamily,
+}: {
+  defaultFontFamily: Options['defaultFontFamily']
+  headingFontFallbackFamily: Options['headingFontFallbackFamily']
+  headingFontFamily: Options['headingFontFamily']
   iconFontFamily: Options['iconFontFamily']
-): ThemeFonts => {
+}): ThemeFonts => {
   return {
     texts: [defaultFontFamily, 'sans-serif'].join(', '),
-    headings: [headingFontFamily, 'sans-serif'].join(', '),
+    headings: [headingFontFamily, headingFontFallbackFamily, 'sans-serif']
+      .filter(Boolean)
+      .join(', '),
     icons: iconFontFamily,
   }
 }

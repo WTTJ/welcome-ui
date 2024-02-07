@@ -3,13 +3,14 @@ import { css } from '@xstyled/styled-components'
 import { WuiTheme } from '../theme/types'
 
 type FontVariation = {
-  url: string
   display?: FontDisplay
-  weight?: string
-  style?: string
-  isVariable?: boolean
   extensions?: string[]
+  isVariable?: boolean
+  overrides?: Record<string, string>
+  style?: string
   unicodeRange?: string
+  url: string
+  weight?: string
 }
 
 type Font = {
@@ -22,16 +23,21 @@ export function getSource(
   extensions: FontVariation['extensions'],
   isVariable: FontVariation['isVariable']
 ) {
-  /** variable icon font */
-  if (isVariable) {
+  if (extensions?.length) {
+    /** variable icon font */
+    if (isVariable) {
+      return extensions
+        .map((extension: string) => `url('${url}.${extension}') format('${extension}-variations')`)
+        .join(', ')
+    }
+
     return extensions
-      .map((extension: string) => `url('${url}.${extension}') format('${extension}-variations')`)
+      .map((extension: string) => `url('${url}.${extension}') format('${extension}')`)
       .join(', ')
   }
 
-  return extensions
-    .map((extension: string) => `url('${url}.${extension}') format('${extension}')`)
-    .join(', ')
+  // Fallback fonts
+  return `url('${url}')`
 }
 
 function getFont({
@@ -40,6 +46,7 @@ function getFont({
     display = 'swap',
     extensions = ['woff2', 'woff'],
     isVariable,
+    overrides,
     style,
     unicodeRange,
     url,
@@ -63,6 +70,10 @@ function getFont({
       css`
         unicode-range: ${unicodeRange};
       `}
+      ${overrides &&
+      css`
+        ${Object.entries(overrides).map(([key, value]) => `${key}: ${value};`)};
+      `}
     }
   `
 }
@@ -70,7 +81,7 @@ function getFont({
 export const fonts =
   () =>
   ({ theme }: { theme: WuiTheme }): ReturnType<typeof css> => {
-    if (!theme || !theme.fontFaces) return null
+    if (!theme?.fontFaces) return null
 
     return Object.entries(theme.fontFaces).map(([name, variations]) =>
       variations.map(variation => getFont({ name, variation }))

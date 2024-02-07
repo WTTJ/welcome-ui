@@ -65,6 +65,7 @@ const DEFAULT_LETTER_SPACING = '-0.019rem'
 const DEFAULT_LINE_HEIGHT = 1.15
 const FONTS_URL = 'https://cdn.welcome-ui.com/fonts'
 const HEADING_FONT_FAMILY = 'welcome-font'
+const HEADING_FONT_FALLBACK_FAMILY = 'welcome-font-fallback'
 const ICON_FONT_FAMILY = 'welcome-icon-font'
 
 export type ThemeFontsUrl =
@@ -79,6 +80,7 @@ export type Options = {
   defaultLineHeight?: number
   fontsUrl?: ThemeFontsUrl
   headingFontFamily?: string
+  headingFontFallbackFamily?: string
   iconFontFamily?: string
   [param: string]: unknown
 }
@@ -91,6 +93,7 @@ export const createTheme = (options: Options = {}): WuiTheme => {
     defaultLineHeight = DEFAULT_LINE_HEIGHT,
     fontsUrl = FONTS_URL,
     headingFontFamily = HEADING_FONT_FAMILY,
+    headingFontFallbackFamily = HEADING_FONT_FALLBACK_FAMILY,
     iconFontFamily = ICON_FONT_FAMILY,
     ...rest
   } = options
@@ -114,7 +117,12 @@ export const createTheme = (options: Options = {}): WuiTheme => {
   theme.lineHeights = getLineHeights(theme)
   theme.fontWeights = fontWeights
   theme.letterSpacings = getLetterSpacings(theme)
-  theme.fonts = getFonts(defaultFontFamily, headingFontFamily, iconFontFamily)
+  theme.fonts = getFonts({
+    defaultFontFamily,
+    headingFontFamily,
+    headingFontFallbackFamily,
+    iconFontFamily,
+  })
   theme.borderWidths = borderWidths
 
   theme.screens = screens

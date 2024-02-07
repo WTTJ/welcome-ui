@@ -2,22 +2,32 @@ import { WuiTheme } from './types'
 
 type FontFace = {
   display?: FontDisplay
+  extensions?: string[]
   isVariable?: boolean
+  overrides?: Record<string, string>
   stretch?: string
   style?: string
-  url: string
   uniCodeRange?: string
+  url: string
   weight?: string
-  extensions?: string[]
 }
 
 export type ThemeFontFaces = {
+  'welcome-font-fallback': FontFace[]
   'welcome-font': FontFace[]
   'welcome-icon-font': FontFace[]
   'work-sans': FontFace[]
 }
 
 export const fontFaces = (theme: WuiTheme): ThemeFontFaces => ({
+  'welcome-font-fallback': [
+    {
+      display: 'auto',
+      extensions: [],
+      overrides: { 'size-adjust': '94%' },
+      url: 'local("Arial Black")',
+    },
+  ],
   'welcome-font': [
     {
       url: `${theme.fontsUrl}/welcome-font-regular`,
