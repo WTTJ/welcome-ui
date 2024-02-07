@@ -500,14 +500,14 @@ function() {
           title="This is a caption of the picture"
           subtitle="Welcome tot the jungle"
         >
-          <AssetModal.Iframe>
-            <iframe
-              src="https://www.youtube.com/embed/1kjATTF4v5A"
-              title="YouTube video player"
-              frameBorder="0"
-              allowFullScreen
-            />
-          </AssetModal.Iframe>
+            <AssetModal.Iframe>
+              <iframe
+                src="https://www.youtube.com/embed/1kjATTF4v5A"
+                title="YouTube video player"
+                frameBorder="0"
+                allowFullScreen
+              />
+            </AssetModal.Iframe>
           </AssetModal.AssetWithTitle>
         </AssetModal.Content>
       </Modal>
@@ -523,6 +523,8 @@ function() {
   const modal = useModal()
   const swiper = useSwiper({ firstSlideToShow: 2, spaceBetween: 0 })
 
+  const isOpen = modal.useState().open
+
   return (
     <>
       <Modal.Trigger as={Button} store={modal}>
@@ -534,22 +536,86 @@ function() {
         backdrop={<AssetModal.Backdrop />}
         as={AssetModal}
       >
-        <AssetModal.Content>
-          <Swiper store={swiper} h={400}>
-            <img
-              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
-              src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-            />
-            <img
-              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
-              src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-            />
-            <img
-              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
-              src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-            />
-          </Swiper>
-        </AssetModal.Content>
+        {isOpen && (
+          <AssetModal.Content>
+            <Swiper store={swiper} h={400}>
+              <img
+                style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                src="https://images.unsplash.com/photo-1564460549828-f0219a31bf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+              />
+              <img
+                style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                src="https://images.unsplash.com/photo-1575489272413-cb506258027e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+              />
+              <img
+                style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                src="https://images.unsplash.com/photo-1541959833400-049d37f98ccd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+              />
+            </Swiper>
+          </AssetModal.Content>
+        )}
+      </Modal>
+    </>
+  )
+}
+```
+
+For `AssetWithTitle`:
+
+```jsx
+function() {
+  const modal = useModal()
+  const swiper = useSwiper({ firstSlideToShow: 1, spaceBetween: 0 })
+
+  const isOpen = modal.useState().open
+
+  return (
+    <>
+      <Modal.Trigger as={Button} store={modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal
+        store={modal}
+        ariaLabel="asset modal example"
+        backdrop={<AssetModal.Backdrop />}
+        as={AssetModal}
+      >
+        {isOpen && (
+          <AssetModal.Content>
+            <Swiper store={swiper}>
+              <AssetModal.AssetWithTitle title="title1">
+                  <AssetModal.Iframe>
+                    <iframe
+                      src="https://www.youtube.com/embed/1kjATTF4v5A"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allowFullScreen
+                    />
+                </AssetModal.Iframe>
+              </Asset.AssetWithTitle>
+              <AssetModal.AssetWithTitle title="title1">
+                  <AssetModal.Iframe>
+                    <iframe
+                      src="https://www.youtube.com/embed/1kjATTF4v5A"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allowFullScreen
+                    />
+                </AssetModal.Iframe>
+              </Asset.AssetWithTitle>
+              <AssetModal.AssetWithTitle title="title1">
+                  <AssetModal.Iframe>
+                    <iframe
+                      src="https://www.youtube.com/embed/1kjATTF4v5A"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allowFullScreen
+                    />
+                </AssetModal.Iframe>
+              </Asset.AssetWithTitle>
+            </Swiper>
+          </AssetModal.Content>
+        )}
       </Modal>
     </>
   )
