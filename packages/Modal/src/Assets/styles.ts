@@ -1,23 +1,31 @@
-import styled, { th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import { Text } from '@welcome-ui/text'
+import { StyledSwiper } from '@welcome-ui/swiper'
 
 const contentWidthDesktop = 'calc(100vw - 2 * 2rem);'
 const contentWidthMobile = 'calc(100vw - 2 * 1rem);'
 const contentHeight = 'calc(100vh - 2 * 5rem);'
 
-export const Iframe = styled.div`
+const sizeOfElements = css`
   width: ${contentWidthMobile};
   max-height: ${contentHeight};
-  flex: 1;
 
   @media (min-width: md) {
-    aspect-ratio: 16 / 9;
     width: ${contentWidthDesktop};
   }
 
   // for big screens
   @media (min-width: 1700px) {
     max-width: 1600;
+  }
+`
+
+export const Iframe = styled.div`
+  ${sizeOfElements};
+  flex: 1;
+
+  @media (min-width: md) {
+    aspect-ratio: 16 / 9;
   }
 
   iframe {
@@ -28,6 +36,7 @@ export const Iframe = styled.div`
 
 export const Content = styled.divBox`
   transition: margin-top 250ms ease-in-out;
+  border: 10px solid red;
 
   > img,
   > div {
@@ -56,6 +65,10 @@ export const Dialog = styled.div`
   flex-direction: column;
   opacity: 0;
   transition: opacity 250ms ease-in-out;
+
+  &:has(${StyledSwiper}) {
+    ${sizeOfElements};
+  }
 
   ${Content} {
     margin-top: xl;
