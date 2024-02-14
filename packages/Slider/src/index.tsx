@@ -21,6 +21,7 @@ export interface SliderOptions
   borderSelectorColor?: string
   label?: string
   hint?: string
+  reverse?: boolean
   step?: number
   type?: Type
   values?: number[]
@@ -47,6 +48,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
       max,
       min,
       onChange,
+      reverse = false,
       step = 1,
       tooltip,
       type,
@@ -114,7 +116,13 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
     // Updates the slider range when user drag the slider
     useEffect(() => {
       if (range.current) {
-        range.current.style.backgroundSize = `${getPercent(localValue)}% 100%`
+        if (!reverse) {
+          range.current.style.backgroundSize = `${getPercent(localValue)}% 100%`
+        } else {
+          const percentage = 100 - getPercent(localValue)
+          range.current.style.backgroundSize = `${percentage}%`
+          range.current.style.backgroundPosition = 'right'
+        }
       }
       if (tooltipRef.current) {
         const fraction = getPercent(localValue) / 100
@@ -122,7 +130,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
           (0.5 - fraction) * thumbWidth
         }px)`
       }
-    }, [localValue, getPercent])
+    }, [localValue, getPercent, reverse])
 
     // Give the possibility to the parent to modify the value from outside but we need to check if it respect the step
     useEffect(() => {
