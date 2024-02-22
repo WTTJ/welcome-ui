@@ -48,7 +48,7 @@ export function Showcase({
           </Button>
           <Button
             as="a"
-            href={`https://github.com/WTTJ/welcome-ui/tree/master/packages/${component}`}
+            href={`https://github.com/WTTJ/welcome-ui/tree/main/packages/${component}`}
             ml="md"
             size="sm"
             target="_blank"

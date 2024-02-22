@@ -12,7 +12,7 @@ export const themeTag = () => {
 
 # Customize
 
-By default, we use our default theme create by `createTheme()` function. We also also create a [dark theme](https://github.com/WTTJ/welcome-ui/blob/master/packages/Themes/Dark/theme.ts) and a [welcome theme](https://github.com/WTTJ/welcome-ui/blob/master/packages/Themes/Welcome/theme.ts) for our products.
+By default, we use our default theme create by `createTheme()` function. We also also create a [dark theme](https://github.com/WTTJ/welcome-ui/blob/main/packages/Themes/Dark/theme.ts) and a [welcome theme](https://github.com/WTTJ/welcome-ui/blob/main/packages/Themes/Welcome/theme.ts) for our products.
 
 You can customize your theme with some options:
 
@@ -61,7 +61,7 @@ const theme = createTheme({
 export default function Root() {
   return (
     // Wrap your components with <WuiProvider /> and your theme at the root of your app
-    // Here we add reset styles to have consistency across different browsers (https://github.com/WTTJ/welcome-ui/blob/master/packages/Core/utils/reset.ts)
+    // Here we add reset styles to have consistency across different browsers (https://github.com/WTTJ/welcome-ui/blob/main/packages/Core/utils/reset.ts)
     <WuiProvider theme={theme} useReset>
       <Button variant="secondary">Welcome!</Button>
     </WuiProvider>
@@ -73,7 +73,7 @@ export default function Root() {
 
 To provide consistency across browsers we provide two options:
 
-1. Pass `useReset` in the `WuiProvider` to use a [custom reset](https://github.com/WTTJ/welcome-ui/blob/master/packages/Core/utils/reset.ts)
+1. Pass `useReset` in the `WuiProvider` to use a [custom reset](https://github.com/WTTJ/welcome-ui/blob/main/packages/Core/utils/reset.ts)
 2. Don't pass `useReset` to just reset `box-sizing` e.g.
 
 ```
@@ -172,7 +172,7 @@ const theme = createTheme({ fontFaces, ...yourTheme })
 
 ## All theme values
 
-Here are all the [possible values for your theme](https://github.com/WTTJ/welcome-ui/blob/master/packages/Core/theme/core.ts).<br />These will be merged with the default theme.
+Here are all the [possible values for your theme](https://github.com/WTTJ/welcome-ui/blob/main/packages/Core/theme/core.ts).<br />These will be merged with the default theme.
 
 <code language="json">{themeValues()}</code>
 
