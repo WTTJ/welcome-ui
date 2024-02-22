@@ -3,8 +3,8 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 
 // To allow for line-height of text in label
-const XS_LINE_HEIGHT_ADJUSTMENTS = '0.40rem'
-const SM_LINE_HEIGHT_ADJUSTMENTS = '0.10rem'
+const XS_LINE_HEIGHT_ADJUSTMENTS = '0.32rem !important'
+const SM_LINE_HEIGHT_ADJUSTMENTS = '0.12rem ! important'
 
 type State = 'default' | 'checked' | 'disabled' | 'sizes'
 
