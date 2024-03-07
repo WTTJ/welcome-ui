@@ -46,7 +46,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@ariakit/react": "0.4.2",
+    "@ariakit/react": "0.4.3",
     "@welcome-ui/button": "^5.6.1",
     "@welcome-ui/system": "^5.0.0",
     "@welcome-ui/utils": "^5.0.0"
