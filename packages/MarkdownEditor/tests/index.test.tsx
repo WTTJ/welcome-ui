@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, waitFor } from '@testing-library/react'
+import { act, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { render } from '../../../utils/tests'
@@ -24,16 +24,15 @@ describe('<MarkdownEditor>', () => {
   })
 
   it('should render all toolbar items', () => {
-    const { getByRole } = render(
-      <MarkdownEditor name="description" placeholder="Placeholder" value={content} />
-    )
+    render(<MarkdownEditor name="description" placeholder="Placeholder" value={content} />)
 
-    const toolbar = getByRole('toolbar')
+    const toolbar = screen.getByRole('toolbar')
+
     expect(getToolbarItems(toolbar)).toEqual(DEFAULT_TOOLBAR.map(item => item.name))
   })
 
   it('should render provided toolbar items', () => {
-    const { getByRole } = render(
+    render(
       <MarkdownEditor
         name="description"
         placeholder="Placeholder"
@@ -42,68 +41,78 @@ describe('<MarkdownEditor>', () => {
       />
     )
 
-    const toolbar = getByRole('toolbar')
+    const toolbar = screen.getByRole('toolbar')
+
     expect(getToolbarItems(toolbar)).toEqual(['bold', 'italic'])
   })
 })
 
 describe('<EmojiPicker>', () => {
-  it('should show when clicking on icon in Toolbar', () => {
-    const { getByLabelText, getByTitle } = render(
+  it('should show when clicking on icon in Toolbar', async () => {
+    const { user } = render(
       <MarkdownEditor name="description" placeholder="Placeholder" value={content} />
     )
 
-    const emojiButton = getByTitle('Emoji')
-    fireEvent.click(emojiButton)
+    const emojiButton = screen.getByTitle('Emoji')
 
-    const emojiPicker = getByLabelText('Pick an emoji')
+    await act(() => user.click(emojiButton))
+
+    const emojiPicker = screen.getByLabelText('Pick an emoji')
+
     expect(emojiPicker).toBeTruthy()
   })
 
-  it('should add emoji to MDE when clicking on one', () => {
-    const { container, getAllByLabelText, getByTitle } = render(
+  it('should add emoji to MDE when clicking on one', async () => {
+    const { container, user } = render(
       <MarkdownEditor name="description" placeholder="Placeholder" value={content} />
     )
 
-    const emojiButton = getByTitle('Emoji')
-    fireEvent.click(emojiButton)
+    const emojiButton = screen.getByTitle('Emoji')
 
-    const emoji = getAllByLabelText('😀, grinning')[0]
-    fireEvent.click(emoji)
+    await act(() => user.click(emojiButton))
+
+    const emoji = screen.getAllByLabelText('😀, grinning')[0]
+
+    await act(() => user.click(emoji))
 
     expect(container).toHaveTextContent('😀# Hi!')
   })
 
-  it.skip('should add emoji to MDE when clicking on one', () => {
-    const { container, getAllByLabelText, getByTitle } = render(
+  it.skip('should add emoji to MDE when clicking on one', async () => {
+    const { container, user } = render(
       <MarkdownEditor name="description" placeholder="Placeholder" value={content} />
     )
 
-    const emojiButton = getByTitle('Emoji')
-    fireEvent.click(emojiButton)
+    const emojiButton = screen.getByTitle('Emoji')
 
-    const emoji = getAllByLabelText('😀, grinning')[0]
-    fireEvent.click(emoji)
+    await act(() => user.click(emojiButton))
+
+    const emoji = screen.getAllByLabelText('😀, grinning')[0]
+
+    await act(() => user.click(emoji))
 
     expect(container).toHaveTextContent('😀# Hi!')
   })
 
   it.skip('should filter emojis when searching', async () => {
-    const { container, getByLabelText, getByPlaceholderText, getByTitle } = render(
+    const { container, user } = render(
       <MarkdownEditor name="description" placeholder="Placeholder" value={content} />
     )
 
-    const emojiButton = getByTitle('Emoji')
-    fireEvent.click(emojiButton)
+    const emojiButton = screen.getByTitle('Emoji')
 
-    const results = getByLabelText('Search Results').querySelector('ul')
+    await act(() => user.click(emojiButton))
+
+    const results = screen.getByLabelText('Search Results').querySelector('ul')
+
     expect(results?.children.length).toBe(0)
 
-    const search = getByPlaceholderText('Search')
-    await userEvent.type(search, 'smile')
+    const search = screen.getByPlaceholderText('Search')
+
+    await act(() => userEvent.type(search, 'smile'))
 
     // TODO: Fix `waitForElement` which never gets called :(
-    waitFor(() => getByLabelText('Search Results').querySelector('ul li'), {
+    waitFor(() => screen.getByLabelText('Search Results').querySelector('ul li'), {
       container,
     }).then(results => {
       expect(results?.children.length).toBe(0)

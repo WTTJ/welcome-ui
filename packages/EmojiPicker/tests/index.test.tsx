@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, screen } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { EmojiPicker, useEmojiPicker } from '../src'
@@ -18,13 +18,13 @@ const EmojiPickerWrapper = () => {
 }
 
 describe('<EmojiPicker>', () => {
-  it('should render correctly', () => {
-    render(<EmojiPickerWrapper />)
+  it('should render correctly', async () => {
+    const { user } = render(<EmojiPickerWrapper />)
 
     const dialogText = screen.getByText('Smileys & Emotion')
     const button = screen.getByText(buttonText)
 
-    fireEvent.click(button)
+    await act(() => user.click(button))
 
     expect(dialogText).toBeInTheDocument()
   })
