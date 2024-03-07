@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, screen } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 
 import { render, renderHook } from '../../../utils/tests'
 import { Accordion, useAccordion } from '../src'
@@ -8,12 +8,12 @@ const content = 'content'
 const title = 'title'
 
 describe('<Accordion />', () => {
-  it('should have correct attribute on click on element', () => {
+  it('should have correct attribute on click on element', async () => {
     const {
       result: { current: store },
     } = renderHook(() => useAccordion())
 
-    render(
+    const { user } = render(
       <Accordion dataTestId="accordion" store={store} title={title}>
         {content}
       </Accordion>
@@ -27,7 +27,7 @@ describe('<Accordion />', () => {
     expect(children).toHaveTextContent(content)
     expect(children).toHaveAttribute('hidden')
 
-    fireEvent.click(button)
+    await act(() => user.click(button))
 
     expect(button).toHaveAttribute('aria-expanded', 'true')
     expect(children).not.toHaveAttribute('hidden')

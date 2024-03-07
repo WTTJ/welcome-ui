@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, screen } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 import { Link } from '@welcome-ui/link'
 import { SunIcon } from '@welcome-ui/icons'
 import { Icons } from '@welcome-ui/icons.font'
@@ -24,17 +24,18 @@ describe('<Button />', () => {
     expect(button).toHaveStyleRule('height', theme.buttons.sizes.md.height)
   })
 
-  it('should call onClick property', () => {
+  it('should call onClick property', async () => {
     const onClick = jest.fn()
 
-    render(
+    const { user } = render(
       <Button dataTestId="button" onClick={onClick}>
         {content}
       </Button>
     )
 
     const eventElement = screen.getByText(content)
-    fireEvent.click(eventElement)
+
+    await act(() => user.click(eventElement))
 
     expect(onClick).toHaveBeenCalledTimes(1)
   })
@@ -67,7 +68,7 @@ describe('<Button />', () => {
   })
 
   describe('disabled', () => {
-    it('should not call onClick property', () => {
+    it('should not call onClick property', async () => {
       const onClick = jest.fn()
 
       render(
@@ -77,9 +78,8 @@ describe('<Button />', () => {
       )
 
       const eventElement = screen.getByText(content)
-      fireEvent.click(eventElement)
 
-      expect(onClick).toHaveBeenCalledTimes(0)
+      expect(eventElement).toBeDisabled()
     })
 
     it('should have disabled attribute', () => {

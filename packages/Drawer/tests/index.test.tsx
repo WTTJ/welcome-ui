@@ -1,11 +1,11 @@
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { Drawer, useDrawer } from '../src'
 
 describe('<Drawer>', () => {
-  it('should render correctly', () => {
+  it('should render correctly', async () => {
     const Test = () => {
       const drawer = useDrawer()
 
@@ -19,13 +19,16 @@ describe('<Drawer>', () => {
       )
     }
 
-    const { getByText, queryByRole } = render(<Test />)
-    expect(queryByRole('dialog')).toBeNull()
-    fireEvent.click(getByText('open'))
-    expect(queryByRole('dialog')).toHaveTextContent('test')
+    const { user } = render(<Test />)
+
+    expect(screen.queryByRole('dialog')).toBeNull()
+
+    await act(() => user.click(screen.getByText('open')))
+
+    expect(screen.queryByRole('dialog')).toHaveTextContent('test')
   })
 
-  it('should render its size & placement correctly', () => {
+  it('should render its size & placement correctly', async () => {
     const Test = () => {
       const drawer = useDrawer()
 
@@ -39,12 +42,14 @@ describe('<Drawer>', () => {
       )
     }
 
-    const { getByText, queryByRole } = render(<Test />)
-    fireEvent.click(getByText('open'))
-    expect(queryByRole('dialog')).toHaveStyleRule('height', '50%')
+    const { user } = render(<Test />)
+
+    await act(() => user.click(screen.getByText('open')))
+
+    expect(screen.queryByRole('dialog')).toHaveStyleRule('height', '50%')
   })
 
-  it('should render "as" correctly', () => {
+  it('should render "as" correctly', async () => {
     const Test = () => {
       const drawer = useDrawer()
       const onClick = jest.fn()
@@ -61,9 +66,12 @@ describe('<Drawer>', () => {
       )
     }
 
-    const { getByText, queryByRole } = render(<Test />)
-    expect(queryByRole('dialog')).toBeNull()
-    fireEvent.click(getByText('open'))
-    expect(queryByRole('dialog')).toHaveTextContent('test')
+    const { user } = render(<Test />)
+
+    expect(screen.queryByRole('dialog')).toBeNull()
+
+    await act(() => user.click(screen.getByText('open')))
+
+    expect(screen.queryByRole('dialog')).toHaveTextContent('test')
   })
 })

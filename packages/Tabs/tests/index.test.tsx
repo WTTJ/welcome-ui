@@ -1,5 +1,5 @@
 import React from 'react'
-import userEvent from '@testing-library/user-event'
+import { act, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { Tab, useTab } from '../src'
@@ -38,10 +38,12 @@ describe('Tabs', () => {
         </>
       )
     }
-    const { getByRole, getByTestId } = render(<Tabs />)
-    const tab1 = getByTestId('tab1')
-    const tab2 = getByTestId('tab2')
-    const tab3 = getByTestId('tab3')
+
+    const { user } = render(<Tabs />)
+
+    const tab1 = screen.getByTestId('tab1')
+    const tab2 = screen.getByTestId('tab2')
+    const tab3 = screen.getByTestId('tab3')
     expect(tab1).toHaveTextContent('Tab 1')
     expect(tab1).toHaveAttribute('aria-selected', 'true')
     expect(tab1).not.toHaveAttribute('aria-disabled')
@@ -52,9 +54,9 @@ describe('Tabs', () => {
     expect(tab3).toHaveAttribute('aria-selected', 'false')
     expect(tab3).toHaveAttribute('aria-disabled')
 
-    const panel1 = getByTestId('panel1')
-    const panel2 = getByTestId('panel2')
-    const panel3 = getByTestId('panel3')
+    const panel1 = screen.getByTestId('panel1')
+    const panel2 = screen.getByTestId('panel2')
+    const panel3 = screen.getByTestId('panel3')
     expect(panel1).toHaveTextContent('Panel 1')
     expect(panel1).not.toHaveAttribute('hidden')
     expect(panel2).toHaveTextContent('Panel 2')
@@ -62,11 +64,11 @@ describe('Tabs', () => {
     expect(panel3).toHaveTextContent('Panel 3')
     expect(panel3).toHaveAttribute('hidden')
 
-    const activeBar = getActiveBar({ getByRole })
+    const activeBar = getActiveBar({ getByRole: screen.getByRole })
     expect(activeBar).toBeInTheDocument()
 
     // Simulate click on second tab
-    await userEvent.click(tab2)
+    await act(() => user.click(tab2))
 
     expect(tab1).toHaveAttribute('aria-selected', 'false')
     expect(tab2).toHaveAttribute('aria-selected', 'true')
@@ -94,8 +96,10 @@ describe('Tabs', () => {
           </>
         )
       }
-      const { getByRole } = render(<Tabs />)
-      const activeBar = getActiveBar({ getByRole })
+
+      render(<Tabs />)
+
+      const activeBar = getActiveBar({ getByRole: screen.getByRole })
       expect(activeBar).not.toBeInTheDocument()
     })
   })
