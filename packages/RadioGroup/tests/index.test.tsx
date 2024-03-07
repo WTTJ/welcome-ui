@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, screen } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { RadioGroup } from '../src'
@@ -14,10 +14,12 @@ const options = [
 const name = 'radio-group'
 
 describe('<RadioGroup />', () => {
-  it('should render correctly', () => {
+  it('should render correctly', async () => {
     const onChange = jest.fn()
 
-    render(<RadioGroup dataTestId={name} name={name} onChange={onChange} options={options} />)
+    const { user } = render(
+      <RadioGroup dataTestId={name} name={name} onChange={onChange} options={options} />
+    )
 
     const radio3 = screen.getByTestId('radio-group-value3')
     const label = screen.getByTestId('radio-group-value3-label')
@@ -26,7 +28,7 @@ describe('<RadioGroup />', () => {
     expect(radio3).toHaveAttribute('id', 'radio-group.value3')
     expect(label).toHaveTextContent('label3')
 
-    fireEvent.click(radio3)
+    await act(() => user.click(radio3))
 
     expect(radio3).toHaveAttribute('aria-checked', 'true')
     expect(onChange).toBeCalledWith('value3')
@@ -89,10 +91,10 @@ describe('<RadioGroup />', () => {
     expect(hint).toHaveTextContent('hint')
   })
 
-  it('should render correctly with a renderOption component', () => {
+  it('should render correctly with a renderOption component', async () => {
     const onChange = jest.fn()
 
-    render(
+    const { user } = render(
       <RadioGroup
         dataTestId={name}
         name={name}
@@ -108,7 +110,7 @@ describe('<RadioGroup />', () => {
     expect(input).toHaveAttribute('value', 'value3')
     expect(radio).toHaveTextContent('label3')
 
-    fireEvent.click(radio)
+    await act(() => user.click(radio))
 
     expect(input).toHaveAttribute('aria-checked', 'true')
     expect(onChange).toBeCalledWith('value3')

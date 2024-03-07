@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, screen } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { Popover, usePopover } from '../src'
@@ -21,8 +21,8 @@ const PopoverWrapper = () => {
 }
 
 describe('<Popover>', () => {
-  it('should render correctly on click on popover trigger button', () => {
-    render(<PopoverWrapper />)
+  it('should render correctly on click on popover trigger button', async () => {
+    const { user } = render(<PopoverWrapper />)
 
     expect(screen.queryByRole('dialog')).toBeNull()
 
@@ -32,7 +32,7 @@ describe('<Popover>', () => {
     expect(button).toHaveAttribute('aria-expanded', 'false')
     expect(dialog).toBeInTheDocument()
 
-    fireEvent.click(button)
+    await act(() => user.click(button))
 
     expect(button).toHaveAttribute('aria-expanded', 'true')
   })

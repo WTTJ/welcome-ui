@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { fireEvent } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { InputText, InputTextOptions } from '../src'
@@ -35,13 +35,15 @@ test("<InputText> can't remove value", () => {
   expect(input.value).toBe('test')
 })
 
-test('<InputText isClearable> can remove value', () => {
-  const { getByRole, getByTestId } = render(<InputTextWrapper isClearable />)
+test('<InputText isClearable> can remove value', async () => {
+  const { user } = render(<InputTextWrapper isClearable />)
 
-  const input = getByTestId('input') as HTMLInputElement
+  const input = screen.getByTestId('input') as HTMLInputElement
   expect(input.value).toBe('test')
 
-  const clearButton = getByRole('button')
-  fireEvent.click(clearButton)
+  const clearButton = screen.getByRole('button')
+
+  await act(() => user.click(clearButton))
+
   expect(input.value).toBe('')
 })

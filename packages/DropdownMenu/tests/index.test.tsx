@@ -1,5 +1,5 @@
 import React from 'react'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { render } from '../../../utils/tests'

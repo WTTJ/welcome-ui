@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { fireEvent } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import capitalize from 'lodash.capitalize'
 import { AvatarIcon, DateIcon } from '@welcome-ui/icons'
+import { act, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { Option, Select, SelectProps } from '../src'
@@ -56,80 +55,83 @@ const SOCIAL_OPT_GROUP = [
 ]
 
 test('<Select> accepts falsy option values (such as 0)', () => {
-  const { getByTestId } = render(
+  render(
     <Select dataTestId="select" name="select" options={MONTHS_WITH_INTEGER_VALUES} value={0} />
   )
-  const select = getByTestId('select')
+  const select = screen.getByTestId('select')
 
   expect(select).toHaveTextContent('January')
 })
 
 test('<Select> has default attributes', () => {
-  const { getByTestId } = render(
-    <Select dataTestId="select" name="select" options={MONTHS} value="january" />
-  )
-  const select = getByTestId('select')
+  render(<Select dataTestId="select" name="select" options={MONTHS} value="january" />)
+
+  const select = screen.getByTestId('select')
+
   expect(select.getAttribute('placeholder')).toBe('Choose from…')
   expect(select.getAttribute('data-spacer')).toBe('September')
   expect(select).toHaveTextContent('January')
 })
 
-test('<Select> shows options on click (input)', () => {
-  const { getByRole, getByTestId } = render(
-    <Select dataTestId="select" name="select" options={MONTHS} />
-  )
+test('<Select> shows options on click (input)', async () => {
+  const { user } = render(<Select dataTestId="select" name="select" options={MONTHS} />)
 
-  const select = getByTestId('select')
-  fireEvent.click(select)
+  const select = screen.getByTestId('select')
 
-  const options = getByRole('listbox').querySelectorAll('li')
+  await act(() => user.click(select))
+
+  const options = screen.getByRole('listbox').querySelectorAll('li')
+
   expect(options.length).toBe(12)
   expect(options[0]).toHaveTextContent('January')
 })
 
-test('<Select> shows options on click (arrow indicator)', () => {
-  const { getByRole, getByTestId } = render(
-    <Select dataTestId="select" name="select" options={MONTHS} />
-  )
+test('<Select> shows options on click (arrow indicator)', async () => {
+  const { user } = render(<Select dataTestId="select" name="select" options={MONTHS} />)
 
-  const select = getByTestId('select-arrow-icon')
-  fireEvent.click(select)
+  const select = screen.getByTestId('select-arrow-icon')
 
-  const options = getByRole('listbox').querySelectorAll('li')
+  await act(() => user.click(select))
+
+  const options = screen.getByRole('listbox').querySelectorAll('li')
+
   expect(options.length).toBe(12)
   expect(options[0]).toHaveTextContent('January')
 })
 
-test.skip('<Select> can choose option', () => {
-  const { getByRole, getByTestId } = render(
-    <Select dataTestId="select" name="select" options={MONTHS} />
-  )
+test.skip('<Select> can choose option', async () => {
+  const { user } = render(<Select dataTestId="select" name="select" options={MONTHS} />)
 
-  const select = getByTestId('select')
-  fireEvent.click(select)
+  const select = screen.getByTestId('select')
 
-  let options = getByRole('listbox').querySelectorAll('li')
-  fireEvent.click(options[1])
+  await act(() => user.click(select))
+
+  let options = screen.getByRole('listbox').querySelectorAll('li')
+
+  await act(() => user.click(options[1]))
+
   expect(select).toHaveTextContent('February')
 
   // List is refilled
-  fireEvent.click(select)
+  await act(() => user.click(select))
 
-  options = getByRole('listbox').querySelectorAll('li')
+  options = screen.getByRole('listbox').querySelectorAll('li')
   expect(options.length).toBe(12)
 })
 
-test('<Select> calls onChange with correct (object) values', () => {
+test('<Select> calls onChange with correct (object) values', async () => {
   const handleChange = jest.fn()
-  const { getByRole, getByTestId } = render(
+  const { user } = render(
     <Select dataTestId="select" name="select" onChange={handleChange} options={MONTHS} />
   )
 
-  const select = getByTestId('select')
-  fireEvent.click(select)
+  const select = screen.getByTestId('select')
 
-  const options = getByRole('listbox').querySelectorAll('li')
-  fireEvent.click(options[1])
+  await act(() => user.click(select))
+
+  const options = screen.getByRole('listbox').querySelectorAll('li')
+
+  await act(() => user.click(options[1]))
 
   expect(handleChange).toHaveBeenCalledTimes(1)
   expect(handleChange).toHaveBeenCalledWith(
@@ -140,36 +142,39 @@ test('<Select> calls onChange with correct (object) values', () => {
   )
 })
 
-test('<Select> calls onChange on disabled option', () => {
-  const { getByRole, getByTestId } = render(
-    <SelectWrapper dataTestId="select" name="select" options={MONTHS} />
-  )
+test('<Select> calls onChange on disabled option', async () => {
+  const { user } = render(<SelectWrapper dataTestId="select" name="select" options={MONTHS} />)
 
-  const select = getByTestId('select')
-  fireEvent.click(select)
+  const select = screen.getByTestId('select')
 
-  const options = getByRole('listbox').querySelectorAll('li')
-  fireEvent.click(options[0])
+  await act(() => user.click(select))
+
+  const options = screen.getByRole('listbox').querySelectorAll('li')
+
+  await act(() => user.click(options[0]))
 
   expect(select).toHaveTextContent('')
 })
 
-test('<Select isClearable> can remove option', () => {
-  const { getByTestId, getByTitle } = render(
+test('<Select isClearable> can remove option', async () => {
+  const { user } = render(
     <Select dataTestId="select" isClearable name="select" options={MONTHS} value="february" />
   )
 
-  const select = getByTestId('select')
+  const select = screen.getByTestId('select')
+
   expect(select).toHaveTextContent('February')
 
   // Click cross to remove selected option
-  const clearButton = getByTitle('Clear')
-  fireEvent.click(clearButton)
+  const clearButton = screen.getByTitle('Clear')
+
+  await act(() => user.click(clearButton))
+
   expect(select).toHaveTextContent('')
 })
 
-test('<Select isMultiple> can select multiple items', () => {
-  const { getAllByRole, getByRole, getByTestId } = render(
+test('<Select isMultiple> can select multiple items', async () => {
+  const { user } = render(
     <Select
       dataTestId="select"
       isMultiple
@@ -179,24 +184,27 @@ test('<Select isMultiple> can select multiple items', () => {
     />
   )
 
-  const select = getByTestId('select')
-  let tags = getAllByRole('listitem')
+  const select = screen.getByTestId('select')
+  let tags = screen.getAllByRole('listitem')
+
   expect(tags.length).toBe(2)
 
-  fireEvent.click(select)
+  await act(() => user.click(select))
 
   // Click 4th result (April)
-  const options = getByRole('listbox').querySelectorAll('li')
-  fireEvent.click(options[3])
+  const options = screen.getByRole('listbox').querySelectorAll('li')
 
-  tags = getAllByRole('listitem')
+  await act(() => user.click(options[3]))
+
+  tags = screen.getAllByRole('listitem')
+
   expect(tags.length).toBe(3)
   expect(select).toHaveTextContent('')
   expect(tags.map(tag => tag.textContent)).toStrictEqual(['February', 'March', 'April'])
 })
 
-test('<Select isMultiple> cannot select disabled items', () => {
-  const { getAllByRole, getByRole, getByTestId } = render(
+test('<Select isMultiple> cannot select disabled items', async () => {
+  const { user } = render(
     <Select
       dataTestId="select"
       isMultiple
@@ -206,23 +214,26 @@ test('<Select isMultiple> cannot select disabled items', () => {
     />
   )
 
-  const select = getByTestId('select')
-  let tags = getAllByRole('listitem')
+  const select = screen.getByTestId('select')
+  let tags = screen.getAllByRole('listitem')
+
   expect(tags.length).toBe(2)
 
-  fireEvent.click(select)
+  await act(() => user.click(select))
 
   // Click 1st result (January)
-  const options = getByRole('listbox').querySelectorAll('li')
-  fireEvent.click(options[0])
+  const options = screen.getByRole('listbox').querySelectorAll('li')
 
-  tags = getAllByRole('listitem')
+  await act(() => user.click(options[0]))
+
+  tags = screen.getAllByRole('listitem')
+
   expect(tags.length).toBe(2)
   expect(tags.map(tag => tag.textContent)).toStrictEqual(['February', 'March'])
 })
 
-test('<Select> can accept value, label or object as value', () => {
-  const { getAllByRole, getByRole, getByTestId } = render(
+test('<Select> can accept value, label or object as value', async () => {
+  const { user } = render(
     <Select
       dataTestId="select"
       isMultiple
@@ -232,25 +243,27 @@ test('<Select> can accept value, label or object as value', () => {
     />
   )
 
-  const select = getByTestId('select')
-  let tags = getAllByRole('listitem')
+  const select = screen.getByTestId('select')
+  let tags = screen.getAllByRole('listitem')
+
   expect(tags.length).toBe(3)
 
-  fireEvent.click(select)
+  await act(() => user.click(select))
 
   // Click 4th result (April)
-  const options = getByRole('listbox').querySelectorAll('li')
-  fireEvent.click(options[3])
+  const options = screen.getByRole('listbox').querySelectorAll('li')
 
-  tags = getAllByRole('listitem')
+  await act(() => user.click(options[3]))
+
+  tags = screen.getAllByRole('listitem')
+
   expect(tags.length).toBe(4)
-
   expect(select).toHaveTextContent('')
   expect(tags.map(tag => tag.textContent)).toStrictEqual(['January', 'February', 'March', 'April'])
 })
 
-test('<Select isMultiple> can remove multiple items', () => {
-  const { getAllByRole, getByTestId } = render(
+test('<Select isMultiple> can remove multiple items', async () => {
+  const { user } = render(
     <Select
       dataTestId="select"
       isMultiple
@@ -260,38 +273,44 @@ test('<Select isMultiple> can remove multiple items', () => {
     />
   )
 
-  const select = getByTestId('select')
-  let tags = getAllByRole('listitem')
+  const select = screen.getByTestId('select')
+  let tags = screen.getAllByRole('listitem')
+
   expect(tags.length).toBe(2)
 
   const removeButton = tags[1].querySelector('[title=Remove]')
-  fireEvent.click(removeButton as HTMLButtonElement)
-  tags = getAllByRole('listitem')
+
+  await act(() => user.click(removeButton))
+
+  tags = screen.getAllByRole('listitem')
+
   expect(tags.length).toBe(1)
 
   expect(select).toHaveTextContent('')
   expect(tags.map(tag => tag.textContent)).toStrictEqual(['February'])
 })
 
-test.skip("<Select> doesn't show clear button", () => {
-  const { getByRole, getByTestId, queryByTitle } = render(
-    <Select dataTestId="select" name="select" options={MONTHS} />
-  )
+test.skip("<Select> doesn't show clear button", async () => {
+  const { user } = render(<Select dataTestId="select" name="select" options={MONTHS} />)
 
-  const select = getByTestId('select')
-  fireEvent.click(select)
+  const select = screen.getByTestId('select')
 
-  const options = getByRole('listbox').querySelectorAll('li')
-  fireEvent.click(options[1])
+  await act(() => user.click(select))
+
+  const options = screen.getByRole('listbox').querySelectorAll('li')
+
+  await act(() => user.click(options[1]))
+
   expect(select).toHaveTextContent('February')
 
   // Use `queryByTitle` to expect no clear button
-  const clearButton = queryByTitle('Clear')
+  const clearButton = screen.queryByTitle('Clear')
+
   expect(clearButton).toBeNull()
 })
 
 test('<Select renderItem> formats items', () => {
-  const { getByTestId } = render(
+  render(
     <Select
       dataTestId="select"
       name="select"
@@ -305,8 +324,9 @@ test('<Select renderItem> formats items', () => {
     />
   )
 
-  const select = getByTestId('select')
+  const select = screen.getByTestId('select')
   const icon = select.querySelector('svg')
+
   expect(select).toHaveTextContent('February')
   expect(icon?.getAttribute('title')).toBe('Calendar')
 })
@@ -327,29 +347,34 @@ test('<Select icon> shows icon', () => {
 })
 
 test('<Select isSearchable> filters results', async () => {
-  const { getByRole, getByTestId } = render(
+  const { user } = render(
     <Select dataTestId="select" isSearchable name="select" options={MONTHS} />
   )
 
-  const select = getByTestId('select')
-  await userEvent.type(select, 'ember')
+  const select = screen.getByTestId('select')
 
-  const options = getByRole('listbox').querySelectorAll('li')
+  await act(() => user.type(select, 'ember'))
+
+  const options = screen.getByRole('listbox').querySelectorAll('li')
+
   expect(options.length).toBe(3) // September, November, December
 
-  fireEvent.click(options[1])
+  await act(() => user.click(options[1]))
+
   expect((select as HTMLInputElement).value).toBe('November')
 })
 
 test("<Select isSearchable> doesn't show list if no results", async () => {
-  const { getByTestId, queryByRole } = render(
+  const { user } = render(
     <Select dataTestId="select" isSearchable name="select" options={MONTHS} />
   )
 
-  const select = getByTestId('select')
-  await userEvent.type(select, 'Fish')
+  const select = screen.getByTestId('select')
 
-  const options = queryByRole('listbox')
+  await act(() => user.type(select, 'Fish'))
+
+  const options = screen.queryByRole('listbox')
+
   expect(options).toBeNull()
 })
 
@@ -407,7 +432,7 @@ test('<Select isCreatable> can create new items', async () => {
   const firstItem = { label: 'Kayab', value: 'kayab' }
   const secondItem = { label: 'Cumku', value: 'cumku' }
 
-  const { getByRole, getByTestId } = render(
+  const { user } = render(
     <Select
       dataTestId="select"
       isCreatable
@@ -417,17 +442,18 @@ test('<Select isCreatable> can create new items', async () => {
     />
   )
 
-  const select = getByTestId('select')
+  const select = screen.getByTestId('select')
 
   // Type in search box
-  await userEvent.type(select, firstItem.label)
+  await act(() => user.type(select, firstItem.label))
 
   // Expect results to have only 'Create' item
-  let option = getByRole('listbox').querySelector('li')
+  let option = screen.getByRole('listbox').querySelector('li')
+
   expect(option).toHaveTextContent(`Create "${firstItem.label}"`)
 
   // Click on 'Create' item
-  fireEvent.click(option as HTMLElement)
+  await act(() => user.click(option))
 
   // Expect `onCreate` callback to be called
   expect(handleCreate).toHaveBeenCalledTimes(1)
@@ -441,15 +467,19 @@ test('<Select isCreatable> can create new items', async () => {
 
   // Add another item
   // Type again in search box
-  await userEvent.clear(select)
-  await userEvent.type(select, secondItem.label)
+  await act(() => {
+    user.clear(select)
+    return user.type(select, secondItem.label)
+  })
+
   expect((select as HTMLInputElement).value).toBe(secondItem.label)
 
-  option = getByRole('listbox').querySelector('li')
+  option = screen.getByRole('listbox').querySelector('li')
+
   expect(option).toHaveTextContent(`Create "${secondItem.label}"`)
 
   // Click on 'Create' item
-  fireEvent.click(option as HTMLElement)
+  await act(() => user.click(option))
 
   // Expect `onCreate` callback to be called
   expect(handleCreate).toHaveBeenCalledTimes(2)
@@ -465,7 +495,7 @@ test('<Select isCreatable> can create new items', async () => {
 test('<Select isCreatable isMultiple> can create new items', async () => {
   const handleCreate = jest.fn()
 
-  const { getByRole, getByTestId } = render(
+  const { user } = render(
     <Select
       dataTestId="select"
       isCreatable
@@ -477,14 +507,15 @@ test('<Select isCreatable isMultiple> can create new items', async () => {
     />
   )
 
-  const select = getByTestId('select')
+  const select = screen.getByTestId('select')
 
   // Type in search box
-  await userEvent.type(select, 'Kayab')
+  await act(() => user.type(select, 'Kayab'))
 
   // Click on 'Create' item
-  const option = getByRole('listbox').querySelector('li')
-  fireEvent.click(option as HTMLElement)
+  const option = screen.getByRole('listbox').querySelector('li')
+
+  await act(() => user.click(option))
 
   // Expect `onCreate` callback to be called
   expect(handleCreate).toHaveBeenCalledTimes(1)
@@ -508,7 +539,7 @@ test('<Select isCreatable isMultiple> can create new items', async () => {
 
 test("<Select isCreatable> can't create an existing item", async () => {
   const handleCreate = jest.fn()
-  const { getByRole, getByTestId } = render(
+  const { user } = render(
     <Select
       dataTestId="select"
       isCreatable
@@ -518,25 +549,26 @@ test("<Select isCreatable> can't create an existing item", async () => {
     />
   )
 
-  const select = getByTestId('select')
+  const select = screen.getByTestId('select')
 
   // Type in search box
-  await userEvent.type(select, 'October')
+  await act(() => user.type(select, 'October'))
 
   // Expect results to not have 'Create' item
-  const option = getByRole('listbox').querySelector('li')
+  const option = screen.getByRole('listbox').querySelector('li')
+
   expect(option).toHaveTextContent('October')
 
   // Click on 'Create' item
-  fireEvent.click(option as HTMLElement)
+  await act(() => user.click(option))
 
   // Expect `onCreate` callback not to be called
   expect(handleCreate).toHaveBeenCalledTimes(0)
   expect((select as HTMLInputElement).value).toBe('October')
 })
 
-test('<Select groupsEnabled> shows groups header', () => {
-  const { getAllByTestId, getByTestId } = render(
+test('<Select groupsEnabled> shows groups header', async () => {
+  const { user } = render(
     <Select
       dataTestId="select"
       groupsEnabled
@@ -551,10 +583,11 @@ test('<Select groupsEnabled> shows groups header', () => {
     />
   )
 
-  const select = getByTestId('select')
-  fireEvent.click(select)
+  const select = screen.getByTestId('select')
 
-  const headers = getAllByTestId('group-header')
+  await act(() => user.click(select))
+
+  const headers = screen.getAllByTestId('group-header')
 
   expect(headers.length).toBe(SOCIAL_OPT_GROUP.length)
 
@@ -566,10 +599,10 @@ test('<Select groupsEnabled> shows groups header', () => {
   })
 })
 
-test('<Select groupsEnabled> onChange with correct (object) values', () => {
+test('<Select groupsEnabled> onChange with correct (object) values', async () => {
   const handleChange = jest.fn()
 
-  const { getByRole, getByTestId } = render(
+  const { user } = render(
     <Select
       dataTestId="select"
       groupsEnabled
@@ -585,11 +618,13 @@ test('<Select groupsEnabled> onChange with correct (object) values', () => {
     />
   )
 
-  const select = getByTestId('select')
-  fireEvent.click(select)
+  const select = screen.getByTestId('select')
 
-  const options = getByRole('listbox').querySelectorAll('li')
-  fireEvent.click(options[1])
+  await act(() => user.click(select))
+
+  const options = screen.getByRole('listbox').querySelectorAll('li')
+
+  await act(() => user.click(options[1]))
 
   expect(handleChange).toHaveBeenCalledTimes(1)
   expect(handleChange).toHaveBeenCalledWith(
@@ -600,8 +635,8 @@ test('<Select groupsEnabled> onChange with correct (object) values', () => {
   )
 })
 
-test('<Select groupsEnabled> onChange on disabled option', () => {
-  const { getByRole, getByTestId } = render(
+test('<Select groupsEnabled> onChange on disabled option', async () => {
+  const { user } = render(
     <SelectWrapper
       dataTestId="select"
       groupsEnabled
@@ -616,11 +651,13 @@ test('<Select groupsEnabled> onChange on disabled option', () => {
     />
   )
 
-  const select = getByTestId('select')
-  fireEvent.click(select)
+  const select = screen.getByTestId('select')
 
-  const options = getByRole('listbox').querySelectorAll('li')
+  await act(() => user.click(select))
 
-  fireEvent.click(options[0])
+  const options = screen.getByRole('listbox').querySelectorAll('li')
+
+  await act(() => user.click(options[0]))
+
   expect(select).toHaveTextContent('')
 })
