@@ -15,12 +15,13 @@ export type TabProps = CreateWuiProps<'button', TabOptions>
 export const TabComponent = forwardRef<'button', TabProps>(
   ({ as, children, id, store, ...rest }, ref) => {
     return (
-      <Ariakit.Tab as={undefined} id={id} ref={ref} store={store} {...rest}>
-        {tabProps => (
-          <S.Tab as={as} {...tabProps}>
-            {children}
-          </S.Tab>
-        )}
+      <Ariakit.Tab
+        id={id}
+        render={props => <S.Tab as={as} {...props} ref={ref} />}
+        store={store}
+        {...(rest as Ariakit.TabProps)}
+      >
+        {children}
       </Ariakit.Tab>
     )
   }

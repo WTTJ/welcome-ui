@@ -44,7 +44,8 @@ export const EmojiButton = styled.buttonBox.attrs({
   transition-timing-function: ease-out;
   transition-delay: 0.05s;
   cursor: pointer;
-  &[data-active] {
+
+  &[data-active='true'] {
     outline: none;
     &:nth-child(3n) {
       background-color: sub-4;

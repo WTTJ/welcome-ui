@@ -13,17 +13,13 @@ export type TabPanelProps = CreateWuiProps<typeof Ariakit.TabPanel, TabPanelOpti
  * @name Tabs.TabPanel
  */
 export const TabPanel = forwardRef<'div', TabPanelProps>(
-  ({ as, children, store, tabId, ...rest }, ref) => {
+  ({ children, store, tabId, ...rest }, ref) => {
     const orientation = store.useState('orientation')
 
     return (
-      <Ariakit.TabPanel as={undefined} ref={ref} store={store} tabId={tabId} {...rest}>
-        {tabPanelProps => (
-          <S.TabPanel as={as} orientation={orientation} {...tabPanelProps}>
-            {children}
-          </S.TabPanel>
-        )}
-      </Ariakit.TabPanel>
+      <S.TabPanel orientation={orientation} ref={ref} store={store} tabId={tabId} {...rest}>
+        {children}
+      </S.TabPanel>
     )
   }
 )

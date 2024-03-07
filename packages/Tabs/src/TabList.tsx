@@ -1,5 +1,4 @@
 import React, { cloneElement, useRef, useState } from 'react'
-import * as Ariakit from '@ariakit/react'
 import reactFlattenChildren from 'react-flatten-children'
 import { useForkRef } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
@@ -42,29 +41,19 @@ export type TabListProps = CreateWuiProps<'div', TabListOptions>
  * @name Tabs.TabList
  */
 export const TabList = forwardRef<'div', TabListProps>(
-  ({ as, children, size = 'md', store, ...rest }, ref) => {
+  ({ children, size = 'md', store, ...rest }, ref) => {
     const listRef = useRef()
     const listForkedRef = useForkRef(ref, listRef)
     const { orientation, selectedId } = store.useState()
     const [tabs, activeTab] = useTrackActiveTabs(selectedId, children)
 
     return (
-      <Ariakit.TabList
-        as={undefined}
-        orientation={orientation}
-        ref={listForkedRef}
-        store={store}
-        {...rest}
-      >
-        {tabListProps => (
-          <S.TabList as={as} {...tabListProps} size={size}>
-            {tabs}
-            {tabs.length > 1 && (
-              <ActiveBar activeTab={activeTab} listRef={listRef} orientation={orientation} />
-            )}
-          </S.TabList>
+      <S.TabList orientation={orientation} ref={listForkedRef} size={size} store={store} {...rest}>
+        {tabs}
+        {tabs.length > 1 && (
+          <ActiveBar activeTab={activeTab} listRef={listRef} orientation={orientation} />
         )}
-      </Ariakit.TabList>
+      </S.TabList>
     )
   }
 )

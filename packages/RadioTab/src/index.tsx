@@ -11,7 +11,7 @@ export interface RadioTabsOptions extends DefaultFieldStylesProps {
   disabled?: boolean
   disabledIcon?: React.ReactElement
   label: React.ReactElement
-  onChange?: (event: React.MouseEvent<HTMLInputElement>) => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   value: Ariakit.RadioStoreState['value']
 }
 

@@ -67,8 +67,14 @@ export function useDropdownMenu(options: UseDropdownMenuProps = {}): UseDropdown
 type TriggerOptions = { store: UseDropdownMenu }
 type TriggerProps = CreateWuiProps<'button', TriggerOptions>
 
-export const Trigger = forwardRef<'button', TriggerProps>(({ as, store, ...rest }, ref) => {
-  return <Ariakit.MenuButton as={as} ref={ref} store={store} {...rest} />
+export const Trigger = forwardRef<'button', TriggerProps>(({ as: As, store, ...rest }, ref) => {
+  return (
+    <Ariakit.MenuButton
+      render={As ? props => <As {...props} ref={ref} /> : undefined}
+      store={store}
+      {...(rest as Ariakit.MenuButtonProps)}
+    />
+  )
 })
 
 export const DropdownMenu = Object.assign(DropdownMenuComponent, {
