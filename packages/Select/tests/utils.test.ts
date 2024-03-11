@@ -29,6 +29,24 @@ const OPTIONS = [
 
 const SELECTED = ['february', 'march'].map(month => ({ label: capitalize(month), value: month }))
 
+const OPT_GROUP = [
+  {
+    label: 'Professional networks',
+    options: [
+      { value: 'behance', label: 'Behance', disabled: true },
+      { value: 'dribbble', label: 'Dribbble' },
+      { value: 'github', label: 'Github' },
+    ],
+  },
+  {
+    label: 'Personal networks',
+    options: [
+      { value: 'instagram', label: 'Instagram' },
+      { value: 'facebook', label: 'Facebook' },
+    ],
+  },
+]
+
 test('getSpacer returns the longest value', () => {
   expect(getSpacer(OPTIONS)).toBe('September')
 })
@@ -123,6 +141,11 @@ test('getOptionsFromSelected returns empty array if no SELECTED', () => {
 test('getOptionsFromSelected returns empty array if no SELECTED', () => {
   const options = getOptionsFromSelected(0, OPTIONS)
   expect(options).toStrictEqual([{ value: '0', label: 0 }])
+})
+
+test('getOptionsFromSelected return correct options (with groupsEnabled)', () => {
+  const options = getOptionsFromSelected('github', OPT_GROUP, true)
+  expect(options).toStrictEqual([{ value: 'github', label: 'Github' }])
 })
 
 test('getUniqueValue returns options with duplicates removed', () => {

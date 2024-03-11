@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Option, OptionItem, Options, OptionValue, SelectValue } from './index'
+import { Option, OptionGroup, OptionItem, Options, OptionValue, SelectValue } from './index'
 
 const EMPTY_STRING = ''
 
@@ -49,13 +49,21 @@ export const getOption = (value: string | number | Option, options: Options = []
   return (option as Option) || ({ value: kebabCase(value), label: value } as Option)
 }
 
-export const getOptionsFromSelected = (selected: SelectValue, options: Options): Option[] => {
+export const getOptionsFromSelected = (
+  selected: SelectValue,
+  options: Options,
+  groupsEnabled = false
+): Option[] => {
+  const availableOptions = groupsEnabled
+    ? options.flatMap((group: OptionGroup) => group.options)
+    : options
+
   if (!selected && selected !== 0) {
     return []
   } else if (Array.isArray(selected)) {
-    return selected.map(value => getOption(value, options))
+    return selected.map(value => getOption(value, availableOptions))
   } else {
-    return [getOption(selected, options)]
+    return [getOption(selected, availableOptions)]
   }
 }
 

@@ -119,8 +119,8 @@ export const Select = forwardRef<'input', SelectProps>(
     ref: React.MutableRefObject<HTMLInputElement>
   ): JSX.Element => {
     const defaultSelecteds = useMemo(
-      () => getOptionsFromSelected(defaultSelected, defaultOptions),
-      [defaultSelected, defaultOptions]
+      () => getOptionsFromSelected(defaultSelected, defaultOptions, groupsEnabled),
+      [defaultSelected, defaultOptions, groupsEnabled]
     )
     const selectedItem = (!isMultiple && defaultSelecteds[0]) || null
     const defaultInputValue = selectedItem ? selectedItem.label : ''
