@@ -1,5 +1,5 @@
 import React from 'react'
-import { act, renderHook } from '@testing-library/react'
+import { act, renderHook, screen, waitFor } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { DropdownMenu, useDropdownMenu } from '../src'
@@ -13,12 +13,13 @@ describe('<DropdownMenu>', () => {
       result: { current: dropdownMenu },
     } = renderHook(() => useDropdownMenu({ open: true }))
 
-    const { getByTestId } = render(
+    render(
       <DropdownMenu dataTestId={dataTestId} store={dropdownMenu}>
         {content}
       </DropdownMenu>
     )
-    const dropdown = getByTestId(dataTestId)
+
+    const dropdown = screen.getByTestId(dataTestId)
 
     expect(dropdown).toHaveTextContent(content)
   })
@@ -28,14 +29,14 @@ describe('<DropdownMenu>', () => {
     ['xxl', 32],
     [10, 10],
     ['not a space', 0],
-  ] as const)('should render the gutter correctly - %s (%i)', async (gutter, expected) => {
+  ])('should render the gutter correctly - %s (%i)', async (gutter, expected) => {
     const triggerDataTestId = 'trigger'
     const dropdownDataTestId = 'menu'
     const {
       result: { current: dropdownMenu },
     } = renderHook(() => useDropdownMenu({ open: true }))
 
-    const { getByTestId, user } = render(
+    const { user } = render(
       <>
         <DropdownMenu.Trigger data-testid={triggerDataTestId} store={dropdownMenu} />
         <DropdownMenu dataTestId={dropdownDataTestId} gutter={gutter} store={dropdownMenu}>
@@ -43,16 +44,15 @@ describe('<DropdownMenu>', () => {
         </DropdownMenu>
       </>
     )
-    const trigger = getByTestId(triggerDataTestId)
-    const dropdown = getByTestId(dropdownDataTestId)
+    const trigger = screen.getByTestId(triggerDataTestId)
+    const dropdown = screen.getByTestId(dropdownDataTestId)
 
     await act(() => user.click(trigger))
 
-    const { transform } = getComputedStyle(dropdown.parentElement)
-    const y = parseInt(
-      transform.match(/translate3d\(\d*(?:px)?,(\d*)(?:px)?,\d*(?:px)?\)/)?.[1],
-      10
-    )
-    expect(y).toBe(expected)
+    await waitFor(() => {
+      const { transform } = getComputedStyle(dropdown.parentElement as HTMLElement)
+
+      expect(transform).toBe(`translate3d(0px,${expected}px,0)`)
+    })
   })
 })
