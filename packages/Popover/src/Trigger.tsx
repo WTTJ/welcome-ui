@@ -1,5 +1,6 @@
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import React from 'react'
+import * as Ariakit from '@ariakit/react'
 
 import { UsePopover } from './usePopover'
 import * as S from './styles'
@@ -7,8 +8,15 @@ import * as S from './styles'
 export type PopoverTriggerProps = CreateWuiProps<'button', { store: UsePopover }>
 
 export const PopoverTrigger = forwardRef<'button', PopoverTriggerProps>(
-  ({ as, store, ...rest }, ref) => {
-    return <S.PopoverTrigger store={store} {...rest} forwardedAs={as} ref={ref} />
+  ({ as: As, store, ...rest }, ref) => {
+    return (
+      <Ariakit.PopoverDisclosure
+        ref={ref}
+        render={As ? props => <As {...props} /> : undefined}
+        store={store}
+        {...(rest as Ariakit.PopoverDisclosureProps)}
+      />
+    )
   }
 )
 

@@ -7,5 +7,5 @@ import * as S from './Separator.styled'
 export type SeparatorProps = CreateWuiProps<'div', Ariakit.MenuSeparatorProps>
 
 export const Separator = forwardRef<'div', SeparatorProps>((props, ref) => {
-  return <Ariakit.MenuSeparator as={S.Separator} ref={ref} {...props} />
+  return <Ariakit.MenuSeparator ref={ref} render={<S.Separator />} {...props} />
 })
