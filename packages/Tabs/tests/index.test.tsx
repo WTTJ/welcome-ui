@@ -4,11 +4,6 @@ import { act, screen, waitFor } from '@testing-library/react'
 import { render } from '../../../utils/tests'
 import { Tab, useTab } from '../src'
 
-function getActiveBar({ getByRole }: { getByRole: (id: string) => HTMLElement }) {
-  const tabList = getByRole('tablist')
-  return tabList.querySelector('span:last-child')
-}
-
 const Tabs = () => {
   const tab = useTab({ defaultSelectedId: 'tab1' })
 
