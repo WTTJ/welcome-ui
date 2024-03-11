@@ -171,7 +171,17 @@ export const Select = forwardRef<'input', SelectProps>(
 
     // Send event to parent when value(s) changes
     const handleChange = (options: Option[]) => {
-      const values = getValuesFromOptions(options, defaultOptions)
+      let values: OptionValue[] = []
+
+      if (groupsEnabled) {
+        values = getValuesFromOptions(
+          options,
+          defaultOptions.flatMap((group: OptionGroup) => group.options)
+        )
+      } else {
+        values = getValuesFromOptions(options, defaultOptions)
+      }
+
       const value = isMultiple ? values : values[0]
       const event = createEvent({ name, value: isMultiple ? options : options[0] })
 
