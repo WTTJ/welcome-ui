@@ -32,9 +32,6 @@ const customRender = (ui: JSX.Element, options?: RenderOptions): RenderResult =>
   }
 }
 
-// re-export everything
-export * from '@testing-library/react'
-
 // override render method
 export { customRender as render }
 

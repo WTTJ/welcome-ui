@@ -1,6 +1,7 @@
 import React from 'react'
+import { fireEvent } from '@testing-library/react'
 
-import { fireEvent, render } from '../../../utils/tests'
+import { render } from '../../../utils/tests'
 import { Slider } from '../src'
 
 describe('<Slider> test', () => {
@@ -11,7 +12,7 @@ describe('<Slider> test', () => {
     expect(container)
   })
 
-  test('should change localValue & trigger onChange', () => {
+  test('should change localValue & trigger onChange', async () => {
     const handleChange = jest.fn()
     const { container } = render(
       <Slider max={100} min={0} onChange={handleChange} value={50} w={100} />
