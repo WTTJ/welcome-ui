@@ -85,7 +85,7 @@ export const Trigger = forwardRef<'button', TriggerProps>(({ as: As, store, ...r
   return (
     <Ariakit.DialogDisclosure
       ref={ref}
-      render={As ? props => <As {...props} ref={ref} /> : undefined}
+      render={As ? props => <As {...props} /> : undefined}
       store={store}
       {...rest}
     />

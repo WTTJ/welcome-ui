@@ -70,7 +70,8 @@ type TriggerProps = CreateWuiProps<'button', TriggerOptions>
 export const Trigger = forwardRef<'button', TriggerProps>(({ as: As, store, ...rest }, ref) => {
   return (
     <Ariakit.MenuButton
-      render={As ? props => <As {...props} ref={ref} /> : undefined}
+      ref={ref}
+      render={As ? props => <As {...props} /> : undefined}
       store={store}
       {...(rest as Ariakit.MenuButtonProps)}
     />
