@@ -1,6 +1,10 @@
 {
   "name": "@welcome-ui/themes.welcome",
+<<<<<<< HEAD
   "version": "5.12.1",
+=======
+  "version": "5.10.2",
+>>>>>>> 89c7c2cc7 (Revert "v5.12.0-alpha.0")
   "description": "welcome-ui: Welcome theme",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -43,7 +47,11 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@welcome-ui/core": "^5.12.1"
+=======
+    "@welcome-ui/core": "^5.10.2"
+>>>>>>> 89c7c2cc7 (Revert "v5.12.0-alpha.0")
   },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
   "sideEffects": false,
