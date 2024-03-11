@@ -353,6 +353,54 @@ test("<Select isSearchable> doesn't show list if no results", async () => {
   expect(options).toBeNull()
 })
 
+test('<Select isSearchable groupsEnabled> should filters options.label', async () => {
+  const { getByRole, getByTestId } = render(
+    <Select
+      dataTestId="select"
+      groupsEnabled
+      isSearchable
+      name="select"
+      options={SOCIAL_OPT_GROUP}
+      renderGroupHeader={({ label, options }) => (
+        <div data-testid="group-header">
+          <h4>{label}</h4>
+          <span>{options.length}</span>
+        </div>
+      )}
+    />
+  )
+
+  const select = getByTestId('select')
+  await userEvent.type(select, 'Instagram')
+
+  const options = getByRole('listbox').querySelectorAll('li')
+  expect(options.length).toBe(2) // Facebook, Instagram
+})
+
+test('<Select isSearchable groupsEnabled> should filters group.label', async () => {
+  const { getByRole, getByTestId } = render(
+    <Select
+      dataTestId="select"
+      groupsEnabled
+      isSearchable
+      name="select"
+      options={SOCIAL_OPT_GROUP}
+      renderGroupHeader={({ label, options }) => (
+        <div data-testid="group-header">
+          <h4>{label}</h4>
+          <span>{options.length}</span>
+        </div>
+      )}
+    />
+  )
+
+  const select = getByTestId('select')
+  await userEvent.type(select, 'Personal')
+
+  const options = getByRole('listbox').querySelectorAll('li')
+  expect(options.length).toBe(2) // Facebook, Instagram
+})
+
 test('<Select isCreatable> can create new items', async () => {
   const handleCreate = jest.fn()
 
