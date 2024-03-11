@@ -545,7 +545,7 @@ test('<Select groupsEnabled> onChange with correct (object) values', () => {
 
   expect(handleChange).toHaveBeenCalledTimes(1)
   expect(handleChange).toHaveBeenCalledWith(
-    'Dribbble',
+    'dribbble',
     expect.objectContaining({
       target: { name: 'select', value: { value: 'dribbble', label: 'Dribbble' } },
     }) // Ignore preventDefault
