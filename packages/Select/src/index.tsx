@@ -157,7 +157,17 @@ export const Select = forwardRef<'input', SelectProps>(
     const handleInputChange = (value: string) => {
       // Update
       if (isSearchable && value !== inputValue) {
-        const options = matchSorter(defaultOptions, value, { keys: ['label'] })
+        let options: (Option | OptionGroup)[] = []
+
+        if (groupsEnabled) {
+          options = matchSorter(defaultOptions as OptionGroup[], value, {
+            // should match on group.label OR group.options.label
+            keys: [item => item.label, item => item.options.map(option => option.label)],
+          })
+        } else {
+          options = matchSorter(defaultOptions, value, { keys: ['label'] })
+        }
+
         setInputValue(value)
         setOptions(options)
       }

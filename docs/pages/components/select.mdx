@@ -380,6 +380,43 @@ function () {
 }
 ```
 
+## With option groups, multiple selection and searchable
+
+```jsx
+function () {
+  const [value, setValue] = React.useState(['github', 'instagram'])
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Field label="Social networks">
+      <Select
+        isMultiple
+        isSearchable
+        options={constants.OPT_GROUP_ITEMS}
+        name="welcome13"
+        groupsEnabled
+        onChange={handleChange}
+        value={value}
+        renderGroupHeader={({ label, options }) => (
+          <Box p="xxs">
+            <Box display="flex" justifyContent="space-between" alignItems="center">
+              <Text variant="sm" m="0">
+                {label}
+              </Text>
+              <Tag>{options.length}</Tag>
+            </Box>
+            {options.length === 0 && <Text variant="xs">No results found</Text>}
+          </Box>
+        )}
+      />
+    </Field>
+  )
+}
+```
+
 ## Properties
 
 <props propTypes={props.propTypes.Select} />
