@@ -20,13 +20,7 @@ const PopoverComponent = forwardRef<'div', PopoverProps>(
     const { withCloseButton } = store
 
     return (
-      <S.Popover
-        store={store}
-        {...rest}
-        $withCloseButton={withCloseButton}
-        as={undefined}
-        ref={ref}
-      >
+      <S.Popover $withCloseButton={withCloseButton} ref={ref} store={store} {...rest}>
         <Content onClose={onClose} store={store}>
           {children}
         </Content>
