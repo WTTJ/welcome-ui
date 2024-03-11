@@ -1,10 +1,6 @@
 {
   "name": "@welcome-ui/emoji-picker",
-<<<<<<< HEAD
   "version": "5.12.0",
-=======
-  "version": "5.6.3",
->>>>>>> 89c7c2cc7 (Revert "v5.12.0-alpha.0")
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -51,7 +47,6 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.3",
-<<<<<<< HEAD
     "@welcome-ui/box": "^5.12.0",
     "@welcome-ui/emoji": "^5.12.0",
     "@welcome-ui/icons": "^5.12.0",
@@ -61,17 +56,6 @@
     "@welcome-ui/tabs": "^5.12.0",
     "@welcome-ui/text": "^5.12.0",
     "@welcome-ui/utils": "^5.12.0",
-=======
-    "@welcome-ui/box": "^5.0.0",
-    "@welcome-ui/emoji": "^5.5.0",
-    "@welcome-ui/icons": "^5.6.0",
-    "@welcome-ui/input-text": "^5.6.1",
-    "@welcome-ui/popover": "^5.6.1",
-    "@welcome-ui/system": "^5.0.0",
-    "@welcome-ui/tabs": "^5.6.3",
-    "@welcome-ui/text": "^5.6.1",
-    "@welcome-ui/utils": "^5.0.0",
->>>>>>> 89c7c2cc7 (Revert "v5.12.0-alpha.0")
     "lodash.debounce": "^4.0.8",
     "lodash.escaperegexp": "^4.1.2",
     "lodash.groupby": "^4.6.0",

@@ -1,10 +1,6 @@
 {
   "name": "@welcome-ui/icons",
-<<<<<<< HEAD
   "version": "5.12.0",
-=======
-  "version": "5.6.0",
->>>>>>> 89c7c2cc7 (Revert "v5.12.0-alpha.0")
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -53,10 +49,6 @@
   "homepage": "https://welcome-ui.com/components/icons",
   "component": "Icons",
   "dependencies": {
-<<<<<<< HEAD
     "@welcome-ui/icon": "^5.12.0"
-=======
-    "@welcome-ui/icon": "^5.0.0"
->>>>>>> 89c7c2cc7 (Revert "v5.12.0-alpha.0")
   }
 }
