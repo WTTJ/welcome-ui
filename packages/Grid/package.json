@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/grid",
-  "version": "5.0.0",
+  "version": "5.11.1-5.11.1-alpha.1.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,8 +46,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^5.0.0",
-    "@welcome-ui/system": "^5.0.0"
+    "@welcome-ui/box": "^5.11.1-5.11.1-alpha.1.0",
+    "@welcome-ui/system": "^5.11.1-5.11.1-alpha.1.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",

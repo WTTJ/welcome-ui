@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/modal",
-  "version": "5.11.0",
+  "version": "5.11.1-5.11.1-alpha.1.0",
   "description": "Modal from Ariakit with a really nice theme 👀",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -49,15 +49,15 @@
   },
   "dependencies": {
     "@ariakit/react": "0.3.4",
-    "@welcome-ui/box": "^5.0.0",
-    "@welcome-ui/button": "^5.6.1",
-    "@welcome-ui/close-button": "^5.6.1",
-    "@welcome-ui/icons.font": "^5.5.0",
-    "@welcome-ui/shape": "^5.6.1",
-    "@welcome-ui/swiper": "^5.11.0",
-    "@welcome-ui/system": "^5.0.0",
-    "@welcome-ui/text": "^5.6.1",
-    "@welcome-ui/utils": "^5.0.0"
+    "@welcome-ui/box": "^5.11.1-5.11.1-alpha.1.0",
+    "@welcome-ui/button": "^5.11.1-5.11.1-alpha.1.0",
+    "@welcome-ui/close-button": "^5.11.1-5.11.1-alpha.1.0",
+    "@welcome-ui/icons.font": "^5.11.1-5.11.1-alpha.1.0",
+    "@welcome-ui/shape": "^5.11.1-5.11.1-alpha.1.0",
+    "@welcome-ui/swiper": "^5.11.1-5.11.1-alpha.1.0",
+    "@welcome-ui/system": "^5.11.1-5.11.1-alpha.1.0",
+    "@welcome-ui/text": "^5.11.1-5.11.1-alpha.1.0",
+    "@welcome-ui/utils": "^5.11.1-5.11.1-alpha.1.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",

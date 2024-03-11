@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/radio-group",
-  "version": "5.6.0",
+  "version": "5.11.1-5.11.1-alpha.1.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,9 +47,9 @@
   },
   "dependencies": {
     "@ariakit/react": "0.3.4",
-    "@welcome-ui/field-group": "^5.6.0",
-    "@welcome-ui/radio": "^5.6.0",
-    "@welcome-ui/system": "^5.0.0"
+    "@welcome-ui/field-group": "^5.11.1-5.11.1-alpha.1.0",
+    "@welcome-ui/radio": "^5.11.1-5.11.1-alpha.1.0",
+    "@welcome-ui/system": "^5.11.1-5.11.1-alpha.1.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
