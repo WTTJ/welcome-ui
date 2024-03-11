@@ -1,5 +1,5 @@
 import React from 'react'
-import userEvent from '@testing-library/user-event'
+import { act } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { Swiper, useSwiper } from '../src'
@@ -122,18 +122,18 @@ describe('<Swiper>', () => {
   })
 
   it('should call scrollTo function when clicking on bullet page button', async () => {
-    const { container } = render(<TestSwiper />)
+    const { container, user } = render(<TestSwiper />)
     // Arrange
     const pagination = container.querySelectorAll('[role=tab]')
 
     // Act
-    await userEvent.click(pagination[2])
+    await act(() => user.click(pagination[2]))
 
     // Assert
     expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 40, top: 0 })
 
     // Act
-    await userEvent.click(pagination[1])
+    await act(() => user.click(pagination[1]))
 
     // Assert
     expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 20, top: 0 })
@@ -142,7 +142,7 @@ describe('<Swiper>', () => {
 
 describe('<SwiperWithLoop>', () => {
   it('should have arrow buttons enabled and call scrollTo when clicking on it', async () => {
-    const { getByTestId } = render(<TestSwiperWithLoop />)
+    const { getByTestId, user } = render(<TestSwiperWithLoop />)
 
     // Arrange
     const prevButton = getByTestId('swiper-prev-button')
@@ -153,13 +153,13 @@ describe('<SwiperWithLoop>', () => {
     expect(nextButton).toBeEnabled()
 
     // Act
-    await userEvent.click(prevButton)
+    await act(() => user.click(prevButton))
 
     // Assert
     expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 40, top: 0 })
 
     // Act
-    await userEvent.click(nextButton)
+    await act(() => user.click(nextButton))
 
     // Assert
     expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 20, top: 0 })

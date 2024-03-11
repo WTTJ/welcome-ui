@@ -1,6 +1,6 @@
 import React, { HTMLInputTypeAttribute } from 'react'
-import userEvent from '@testing-library/user-event'
 import { screen } from '@testing-library/dom'
+import { act } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { Field } from '../src'
@@ -140,7 +140,7 @@ describe('<Field />', () => {
   })
 
   it('should focus input when click on label when using id on input', async () => {
-    render(
+    const { user } = render(
       <Field dataTestId="field" label={labelText}>
         <Input id="field" />
       </Field>
@@ -152,13 +152,15 @@ describe('<Field />', () => {
 
     expect(label?.htmlFor).toBe('field')
     expect(label?.htmlFor).toBe(input?.id)
-    await userEvent.click(label as HTMLLabelElement)
+
+    await act(() => user.click(label))
+
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)
   })
 
   it('should focus input when click on label when using name on input (the fallback value of the id is the name prop)', async () => {
-    render(
+    const { user } = render(
       <Field dataTestId="field" label={labelText}>
         <Input name="field" />
       </Field>
@@ -170,13 +172,15 @@ describe('<Field />', () => {
 
     expect(label?.htmlFor).toBe('field')
     expect(label?.htmlFor).toBe(input?.id)
-    await userEvent.click(label as HTMLLabelElement)
+
+    await act(() => user.click(label))
+
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)
   })
 
   it('should focus input when click on label when using neither name nor id on input (the fallback value of the id is created randomly)', async () => {
-    render(
+    const { user } = render(
       <Field dataTestId="field" label={labelText}>
         <Input />
       </Field>
@@ -188,7 +192,9 @@ describe('<Field />', () => {
 
     expect(label?.htmlFor).toContain('wui-field-')
     expect(label?.htmlFor).toBe(input?.id)
-    await userEvent.click(label as HTMLLabelElement)
+
+    await act(() => user.click(label))
+
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)
   })

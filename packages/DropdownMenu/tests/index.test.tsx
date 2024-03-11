@@ -1,6 +1,5 @@
 import React from 'react'
-import { renderHook } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { act, renderHook } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { DropdownMenu, useDropdownMenu } from '../src'
@@ -36,9 +35,9 @@ describe('<DropdownMenu>', () => {
       result: { current: dropdownMenu },
     } = renderHook(() => useDropdownMenu({ open: true }))
 
-    const { getByTestId } = render(
+    const { getByTestId, user } = render(
       <>
-        <DropdownMenu.Trigger data-testId={triggerDataTestId} store={dropdownMenu} />
+        <DropdownMenu.Trigger data-testid={triggerDataTestId} store={dropdownMenu} />
         <DropdownMenu dataTestId={dropdownDataTestId} gutter={gutter} store={dropdownMenu}>
           {content}
         </DropdownMenu>
@@ -47,7 +46,7 @@ describe('<DropdownMenu>', () => {
     const trigger = getByTestId(triggerDataTestId)
     const dropdown = getByTestId(dropdownDataTestId)
 
-    await userEvent.click(trigger)
+    await act(() => user.click(trigger))
 
     const { transform } = getComputedStyle(dropdown.parentElement)
     const y = parseInt(
