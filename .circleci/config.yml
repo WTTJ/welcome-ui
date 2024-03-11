@@ -267,7 +267,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^v5.*/
+              only: /v5.(\d\d|\d).(\d\d|\d)/
           requires:
             - test
             - lint
