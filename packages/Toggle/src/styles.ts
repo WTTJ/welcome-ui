@@ -28,7 +28,7 @@ export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })
       position: absolute;
       margin: auto;
       transition: medium;
-      z-index: 2;
+      z-index: 1;
     }
 
     &:disabled {

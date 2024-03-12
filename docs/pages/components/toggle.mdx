@@ -63,6 +63,23 @@ function() {
 }
 ```
 
+Or use the `Label` component
+
+```jsx
+function() {
+  const [toggle, setToggle] = React.useState(false)
+
+  return (
+    <Stack>
+     <Label>
+        <Toggle size="sm" checked={toggle} onClick={() => setToggle(!toggle)} />
+        <span>Toggle</span>
+      </Label>
+    </Stack>
+  )
+}
+```
+
 ## Hint
 
 Use Field component to add a `hint`
