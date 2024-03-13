@@ -64,7 +64,7 @@ export const Content = styled(Ariakit.DisclosureContent)`
   display: grid;
   grid-template-rows: 0fr;
   transition-property: grid-template-rows;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: linear;
   transition-duration: 200ms;
   animation-duration: 200ms;
 
