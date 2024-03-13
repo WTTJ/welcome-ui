@@ -280,7 +280,7 @@ test('<Select isMultiple> can remove multiple items', async () => {
 
   const removeButton = tags[1].querySelector('[title=Remove]')
 
-  await act(() => user.click(removeButton))
+  await act(() => removeButton && user.click(removeButton))
 
   tags = screen.getAllByRole('listitem')
 
@@ -379,7 +379,7 @@ test("<Select isSearchable> doesn't show list if no results", async () => {
 })
 
 test('<Select isSearchable groupsEnabled> should filters options.label', async () => {
-  const { getByRole, getByTestId } = render(
+  const { user } = render(
     <Select
       dataTestId="select"
       groupsEnabled
@@ -395,15 +395,16 @@ test('<Select isSearchable groupsEnabled> should filters options.label', async (
     />
   )
 
-  const select = getByTestId('select')
-  await userEvent.type(select, 'Instagram')
+  const select = screen.getByTestId('select')
 
-  const options = getByRole('listbox').querySelectorAll('li')
+  await act(() => user.type(select, 'Instagram'))
+
+  const options = screen.getByRole('listbox').querySelectorAll('li')
   expect(options.length).toBe(2) // Facebook, Instagram
 })
 
 test('<Select isSearchable groupsEnabled> should filters group.label', async () => {
-  const { getByRole, getByTestId } = render(
+  const { user } = render(
     <Select
       dataTestId="select"
       groupsEnabled
@@ -419,10 +420,11 @@ test('<Select isSearchable groupsEnabled> should filters group.label', async () 
     />
   )
 
-  const select = getByTestId('select')
-  await userEvent.type(select, 'Personal')
+  const select = screen.getByTestId('select')
 
-  const options = getByRole('listbox').querySelectorAll('li')
+  await act(() => user.type(select, 'Personal'))
+
+  const options = screen.getByRole('listbox').querySelectorAll('li')
   expect(options.length).toBe(2) // Facebook, Instagram
 })
 
@@ -453,7 +455,7 @@ test('<Select isCreatable> can create new items', async () => {
   expect(option).toHaveTextContent(`Create "${firstItem.label}"`)
 
   // Click on 'Create' item
-  await act(() => user.click(option))
+  await act(() => option && user.click(option))
 
   // Expect `onCreate` callback to be called
   expect(handleCreate).toHaveBeenCalledTimes(1)
@@ -479,7 +481,7 @@ test('<Select isCreatable> can create new items', async () => {
   expect(option).toHaveTextContent(`Create "${secondItem.label}"`)
 
   // Click on 'Create' item
-  await act(() => user.click(option))
+  await act(() => option && user.click(option))
 
   // Expect `onCreate` callback to be called
   expect(handleCreate).toHaveBeenCalledTimes(2)
@@ -515,7 +517,7 @@ test('<Select isCreatable isMultiple> can create new items', async () => {
   // Click on 'Create' item
   const option = screen.getByRole('listbox').querySelector('li')
 
-  await act(() => user.click(option))
+  await act(() => option && user.click(option))
 
   // Expect `onCreate` callback to be called
   expect(handleCreate).toHaveBeenCalledTimes(1)
@@ -560,7 +562,7 @@ test("<Select isCreatable> can't create an existing item", async () => {
   expect(option).toHaveTextContent('October')
 
   // Click on 'Create' item
-  await act(() => user.click(option))
+  await act(() => option && user.click(option))
 
   // Expect `onCreate` callback not to be called
   expect(handleCreate).toHaveBeenCalledTimes(0)
