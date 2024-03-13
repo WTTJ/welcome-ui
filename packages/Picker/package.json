@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/picker",
-  "version": "5.12.0",
+  "version": "5.13.0-alpha.0",
   "description": "welcome-ui: Picker",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

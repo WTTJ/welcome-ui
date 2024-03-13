@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/button",
-  "version": "5.12.0",
+  "version": "5.13.0-alpha.0",
   "description": "welcome-ui: A button component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
