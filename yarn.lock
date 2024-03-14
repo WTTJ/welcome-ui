@@ -2,10 +2,15 @@
 # yarn lockfile v1
 
 
-"@adobe/css-tools@^4.0.1", "@adobe/css-tools@^4.3.0":
+"@adobe/css-tools@^4.0.1":
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.3.2.tgz#a6abc715fb6884851fca9dad37fc34739a04fd11"
   integrity sha512-DA5a1C0gD/pLOvhv33YMrbf2FK3oUzwNl9oOJqE4XVjuEtt6XIakRcsd7eLiOSPkp1kTRQGICTA8cKra/vFbjw==
+
+"@adobe/css-tools@^4.3.2":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.3.3.tgz#90749bde8b89cd41764224f5aac29cd4138f75ff"
+  integrity sha512-rE0Pygv0sEZ4vBWHlAgJLGDU7Pm8xoO6p3wsEceb7GYAjScrOHpEo8KK/eVkAcnSM+slAEtXjA2JpdjLp4fJQQ==
 
 "@algolia/autocomplete-core@1.9.3":
   version "1.9.3"
@@ -146,47 +151,26 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@ariakit/core@0.2.9":
-  version "0.2.9"
-  resolved "https://registry.yarnpkg.com/@ariakit/core/-/core-0.2.9.tgz#cb4af3f7d0e4a87613aa28f0e39f492b7e680166"
-  integrity sha512-BIEfY3AHImIc8R5j5DaBrEBKLlki5f0vqZbs56I0xQb12ssjn5VqpLr8Jl4v7DBm5S4ktTgeHjLloTppKFdABg==
+"@ariakit/core@0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@ariakit/core/-/core-0.4.3.tgz#c68307e22b06e2bfae63f209feefe5ad65ad2d0f"
+  integrity sha512-Z5O1FZBbR2tIkEUJ7o+W5ZVBqMy2DQ5QpvAJCwM8iUibQBxEFi1rcYFWWpa/MO064wFJNyH7iadfrT4T+ZLuUw==
 
-"@ariakit/core@0.3.3":
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/@ariakit/core/-/core-0.3.3.tgz#96f4cf4ecf1f42b514f386214a1a918bb837c7d3"
-  integrity sha512-8x77R0aE9O9pheygg+h/z0oU9Wx/Xdlr7nfkl4klGnkJma8/nAhJ2RrchCTQCUef4WMsRnq/doCz8m/sslP6CA==
-
-"@ariakit/react-core@0.2.17":
-  version "0.2.17"
-  resolved "https://registry.yarnpkg.com/@ariakit/react-core/-/react-core-0.2.17.tgz#39960544c758d1dbe9481195f41387cf1a0d110f"
-  integrity sha512-y8pHUR2lMcYHUontd33lpnenOBIT8E72IhbMQq/aROQHAevNxLr0JtSkQ+G439N9DfCpKxDaErikss6zqCEGGQ==
+"@ariakit/react-core@0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@ariakit/react-core/-/react-core-0.4.3.tgz#a7dbd43bf1e99f769151fcf0f2200fed9c5867c3"
+  integrity sha512-yGYiHUVQKbW1RN8tMMn2IJQ4HL7hG2+uliJzYpn5/SHWODwSJum1vXdcjx7jJoy8B6l53cxIsyUwBPhcaAR9NQ==
   dependencies:
-    "@ariakit/core" "0.2.9"
+    "@ariakit/core" "0.4.3"
     "@floating-ui/dom" "^1.0.0"
     use-sync-external-store "^1.2.0"
 
-"@ariakit/react-core@0.3.4":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@ariakit/react-core/-/react-core-0.3.4.tgz#1e5ccd1cd4d34ed121aa090e5f6661fe46e081ef"
-  integrity sha512-kTRzbSZjRIUsLKQpjyAlzQGI+H01UBzHMKErk2Nag+Ure6m8aNHhD0TlOFyW4Bsf5NVsdHrXAVKNfCfJwk7eVg==
+"@ariakit/react@0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@ariakit/react/-/react-0.4.3.tgz#7b1abd5dc90f8cd444de5e7d2117c2f80ef803ca"
+  integrity sha512-KmCflynxvJ1Uk9NHsf5LxpAJCaO30UWgml9c8+N4Y3ic9cOREsR0v4hQ9NG2R5JEV5C2yj77YovEfuk9YPHDpg==
   dependencies:
-    "@ariakit/core" "0.3.3"
-    "@floating-ui/dom" "^1.0.0"
-    use-sync-external-store "^1.2.0"
-
-"@ariakit/react@0.2.17":
-  version "0.2.17"
-  resolved "https://registry.yarnpkg.com/@ariakit/react/-/react-0.2.17.tgz#53d904105319a535d74b52118dd15788e91daa32"
-  integrity sha512-fJG0JBoACasyIVb+K9rW1Vyo7gI5Iseu1sP3WvIMnt5VdWjC/63NLpBHdnwQLhSx4z83pBPY6zKfPmEJa9fYug==
-  dependencies:
-    "@ariakit/react-core" "0.2.17"
-
-"@ariakit/react@0.3.4":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@ariakit/react/-/react-0.3.4.tgz#1e941d5126c4c90188664fbffe1b8e045fef4288"
-  integrity sha512-dgu98m9kfkcG9oqazPCsIu29Na2WaQVeq3i8iW1JUQ4PMGsIu2EerDGjhKVrvFb5URd+pipy9XHmg7AoqvMHjw==
-  dependencies:
-    "@ariakit/react-core" "0.3.4"
+    "@ariakit/react-core" "0.4.3"
 
 "@babel/cli@7.22.10":
   version "7.22.10"
@@ -4239,7 +4223,21 @@
   dependencies:
     defer-to-connect "^2.0.1"
 
-"@testing-library/dom@9.3.3", "@testing-library/dom@^9.0.0":
+"@testing-library/dom@9.3.4":
+  version "9.3.4"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-9.3.4.tgz#50696ec28376926fec0a1bf87d9dbac5e27f60ce"
+  integrity sha512-FlS4ZWlp97iiNWig0Muq8p+3rVDjRiYE+YKGbAqXOu9nwJFFOdL00kFpz42M+4huzYi86vAK1sOOfyOG45muIQ==
+  dependencies:
+    "@babel/code-frame" "^7.10.4"
+    "@babel/runtime" "^7.12.5"
+    "@types/aria-query" "^5.0.1"
+    aria-query "5.1.3"
+    chalk "^4.1.0"
+    dom-accessibility-api "^0.5.9"
+    lz-string "^1.5.0"
+    pretty-format "^27.0.2"
+
+"@testing-library/dom@^9.0.0":
   version "9.3.3"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-9.3.3.tgz#108c23a5b0ef51121c26ae92eb3179416b0434f5"
   integrity sha512-fB0R+fa3AUqbLHWyxXa2kGVtf1Fe1ZZFr0Zp6AIbIAzXb2mKbEXl+PCQNUOaq5lbTab5tfctfXRNsWXxa2f7Aw==
@@ -4253,17 +4251,17 @@
     lz-string "^1.5.0"
     pretty-format "^27.0.2"
 
-"@testing-library/jest-dom@^6.1.2":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-6.1.3.tgz#443118c9e4043f96396f120de2c7122504a079c5"
-  integrity sha512-YzpjRHoCBWPzpPNtg6gnhasqtE/5O4qz8WCwDEaxtfnPO6gkaLrnuXusrGSPyhIGPezr1HM7ZH0CFaUTY9PJEQ==
+"@testing-library/jest-dom@^6.4.2":
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-6.4.2.tgz#38949f6b63722900e2d75ba3c6d9bf8cffb3300e"
+  integrity sha512-CzqH0AFymEMG48CpzXFriYYkOjk6ZGPCLMhW9e9jg3KMCn5OfJecF8GtGW7yGfR/IgCe3SX8BSwjdzI6BBbZLw==
   dependencies:
-    "@adobe/css-tools" "^4.3.0"
+    "@adobe/css-tools" "^4.3.2"
     "@babel/runtime" "^7.9.2"
     aria-query "^5.0.0"
     chalk "^3.0.0"
     css.escape "^1.5.1"
-    dom-accessibility-api "^0.5.6"
+    dom-accessibility-api "^0.6.3"
     lodash "^4.17.15"
     redent "^3.0.0"
 
@@ -4275,10 +4273,10 @@
     "@babel/runtime" "^7.12.5"
     react-error-boundary "^3.1.0"
 
-"@testing-library/react@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-14.0.0.tgz#59030392a6792450b9ab8e67aea5f3cc18d6347c"
-  integrity sha512-S04gSNJbYE30TlIMLTzv6QCTzt9AqIF5y6s6SzVFILNcNvbV/jU96GeiTPillGQo+Ny64M/5PV7klNYYgv5Dfg==
+"@testing-library/react@^14.2.1":
+  version "14.2.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-14.2.1.tgz#bf69aa3f71c36133349976a4a2da3687561d8310"
+  integrity sha512-sGdjws32ai5TLerhvzThYFbpnF9XtL65Cjf+gB0Dhr29BGqK+mAeN7SURSdu+eqgET4ANcWoC7FQpkaiGvBr+A==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^9.0.0"
@@ -8057,10 +8055,15 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dom-accessibility-api@^0.5.6, dom-accessibility-api@^0.5.9:
+dom-accessibility-api@^0.5.9:
   version "0.5.14"
   resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.5.14.tgz#56082f71b1dc7aac69d83c4285eef39c15d93f56"
   integrity sha512-NMt+m9zFMPZe0JcY9gN224Qvk6qLIdqex29clBvc/y75ZBX9YA9wNK3frsYvu2DI1xcCIwxwnX+TlsJ2DSOADg==
+
+dom-accessibility-api@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.6.3.tgz#993e925cc1d73f2c662e7d75dd5a5445259a8fd8"
+  integrity sha512-7ZgogeTnjuHbo+ct10G9Ffp0mif17idi0IyWNVA/wcwcm7NPOD/WEHVP3n7n3MhXqxoIYm8d6MuZohYWIZ4T3w==
 
 dom-serializer@^2.0.0:
   version "2.0.0"
@@ -15640,11 +15643,6 @@ rc@1.2.8:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
-
-react-animate-height@^3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/react-animate-height/-/react-animate-height-3.2.2.tgz#ae15d3ef6396f45140c60af4081d43d7dd093cda"
-  integrity sha512-uUOS+RhYVgyJEWcuAJgelVwhcJ2chsMk7HZCpu+wtjSlFAGSFsHU0r4lMTt47HQ1RdQfI5MmFRt43yHTP9lfmQ==
 
 react-datepicker@^4.16.0:
   version "4.21.0"

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { fireEvent } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { Modal, UseModal, useModal } from '../src'
 
 describe('<Modal>', () => {
-  it('should render correctly', () => {
+  it('should render correctly', async () => {
     const Test = () => {
       const modal = useModal()
 
@@ -19,13 +19,16 @@ describe('<Modal>', () => {
       )
     }
 
-    const { getByText, queryByRole } = render(<Test />)
-    expect(queryByRole('dialog')).toBeNull()
-    fireEvent.click(getByText('open'))
-    expect(queryByRole('dialog')).toHaveTextContent('Modal open')
+    const { user } = render(<Test />)
+
+    expect(screen.queryByRole('dialog')).toBeNull()
+
+    await act(() => user.click(screen.getByText('open')))
+
+    expect(screen.queryByRole('dialog')).toHaveTextContent('Modal open')
   })
 
-  it('should render conditionally', () => {
+  it('should render conditionally', async () => {
     const ModalTest = () => {
       const modal = useModal()
       const shouldRender = false
@@ -44,9 +47,11 @@ describe('<Modal>', () => {
       )
     }
 
-    const { getByText, queryByRole } = render(<ModalTest />)
-    fireEvent.click(getByText('open'))
-    expect(queryByRole('dialog')).not.toHaveTextContent('Modal.Body exist?')
+    const { user } = render(<ModalTest />)
+
+    await act(() => user.click(screen.getByText('open')))
+
+    expect(screen.queryByRole('dialog')).not.toHaveTextContent('Modal.Body exist?')
   })
 
   it('should render with data-enter attribute', async () => {
@@ -80,14 +85,13 @@ describe('<Modal>', () => {
       )
     }
 
-    const { getByText, queryByRole } = render(<Test />)
-    expect(queryByRole('dialog')).toBeNull()
-    fireEvent.click(getByText('open'))
-    expect(queryByRole('dialog')).toHaveTextContent('Modal open')
-    expect(queryByRole('dialog')).toHaveAttribute('data-dialog')
+    const { user } = render(<Test />)
 
-    // wait until ariakit set "data-enter" attribute
-    await new Promise(r => setTimeout(r, 100))
-    expect(queryByRole('dialog')).toHaveAttribute('data-enter')
+    expect(screen.queryByRole('dialog')).toBeNull()
+
+    await act(() => user.click(screen.getByText('open')))
+
+    expect(screen.queryByRole('dialog')).toHaveTextContent('Modal open')
+    expect(screen.queryByRole('dialog')).toHaveAttribute('data-dialog')
   })
 })

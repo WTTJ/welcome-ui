@@ -1,6 +1,7 @@
 import React from 'react'
-import { render, RenderOptions } from '@testing-library/react'
+import { RenderOptions, render as rtlRender } from '@testing-library/react'
 import { ThemeProvider } from '@xstyled/styled-components'
+import userEvent, { UserEvent } from '@testing-library/user-event'
 import { BrowserRouter } from 'react-router-dom'
 import '@testing-library/jest-dom'
 import 'jest-styled-components'
@@ -20,11 +21,16 @@ const Provider: React.FC<ProviderProps> = ({ children }) => {
   )
 }
 
-const customRender = (ui: JSX.Element, options?: RenderOptions) =>
-  render(ui, { wrapper: Provider, ...options })
+type RenderResult = ReturnType<typeof rtlRender> & { user: UserEvent }
 
-// re-export everything
-export * from '@testing-library/react'
+const customRender = (ui: JSX.Element, options?: RenderOptions): RenderResult => {
+  const renderResult = rtlRender(ui, { wrapper: Provider, ...options })
+
+  return {
+    user: userEvent.setup(),
+    ...renderResult,
+  }
+}
 
 // override render method
 export { customRender as render }

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/dropdown-menu",
-  "version": "5.12.1",
+  "version": "5.13.0-alpha.0",
   "description": "welcome-ui: A DropdownMenu component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,7 +46,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@ariakit/react": "0.3.4",
+    "@ariakit/react": "0.4.3",
     "@welcome-ui/box": "^5.12.0",
     "@welcome-ui/core": "^5.12.1",
     "@welcome-ui/system": "^5.12.0",

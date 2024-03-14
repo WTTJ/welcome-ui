@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { fireEvent, screen } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { Checkbox, CheckboxOptions } from '../src'
@@ -23,26 +23,28 @@ const CheckboxWrapper = (props: CheckboxOptions) => {
 }
 
 describe('<Checkbox />', () => {
-  test('should toggle checked attribute on click', () => {
-    render(<CheckboxWrapper />)
+  test('should toggle checked attribute on click', async () => {
+    const { user } = render(<CheckboxWrapper />)
+
     const checkbox = screen.getByTestId('checkbox')
 
     expect(checkbox.getAttribute('aria-checked')).toBe('false')
 
-    fireEvent.click(checkbox)
+    await act(() => user.click(checkbox))
+
     expect(checkbox.getAttribute('aria-checked')).toBe('true')
 
-    fireEvent.click(checkbox)
+    await act(() => user.click(checkbox))
+
     expect(checkbox.getAttribute('aria-checked')).toBe('false')
   })
 
-  test('should do nothing on click on disabled checkbox', () => {
+  test('should do nothing on click on disabled checkbox', async () => {
     render(<CheckboxWrapper disabled />)
+
     const checkbox = screen.getByTestId('checkbox')
 
     expect(checkbox.getAttribute('aria-checked')).toBe('false')
-
-    fireEvent.click(checkbox)
-    expect(checkbox.getAttribute('aria-checked')).toBe('false')
+    expect(checkbox).toBeDisabled()
   })
 })

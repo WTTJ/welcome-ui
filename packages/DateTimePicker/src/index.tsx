@@ -80,6 +80,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
         {!children && (
           <>
             <DatePicker
+              dataTestId={`${dataTestId}-datePicker`}
               disabled={disabled}
               locale={locale}
               onChange={handleChange}
@@ -89,6 +90,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
               value={value}
             />
             <TimePicker
+              dataTestId={`${dataTestId}-timePicker`}
               disabled={disabled}
               locale={locale}
               onChange={handleChange}

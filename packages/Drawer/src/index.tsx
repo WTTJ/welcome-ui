@@ -81,8 +81,15 @@ export const DrawerBackdrop: React.FC<DrawerBackdropOptions> = ({
 
 type TriggerProps = { store: Ariakit.DialogStore; children: React.ReactNode; as?: As }
 
-export const Trigger = forwardRef<'button', TriggerProps>(({ as, store, ...rest }, ref) => {
-  return <Ariakit.DialogDisclosure as={as} ref={ref} store={store} {...rest} />
+export const Trigger = forwardRef<'button', TriggerProps>(({ as: As, store, ...rest }, ref) => {
+  return (
+    <Ariakit.DialogDisclosure
+      ref={ref}
+      render={As ? props => <As {...props} /> : undefined}
+      store={store}
+      {...rest}
+    />
+  )
 })
 
 export const Drawer = Object.assign(DrawerComponent, {

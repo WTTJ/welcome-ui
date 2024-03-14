@@ -1,11 +1,12 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
+import * as Ariakit from '@ariakit/react'
 
 import { ActiveBarReturn } from './ActiveBar'
 import { SizeOptions } from './TabList'
 
 import { UseTabState } from '.'
 
-export const TabList = styled.div<{ size: SizeOptions }>(
+export const TabList = styled(Ariakit.TabList)<{ size: SizeOptions }>(
   ({ size }) => css`
     position: relative;
     width: 100%;
@@ -42,6 +43,7 @@ export const Tab = styled.button`
 
   &:focus {
     outline: none !important; /* important for firefox */
+
     &:not([aria-selected='true']) {
       ${th('tabs.item.focus')};
     }
@@ -70,7 +72,7 @@ export const Tab = styled.button`
   }
 `
 
-export const TabPanel = styled.div<Pick<UseTabState, 'orientation'>>(
+export const TabPanel = styled(Ariakit.TabPanel)<Pick<UseTabState, 'orientation'>>(
   ({ orientation }) => css`
     ${orientation === 'vertical' ? th('tabs.panel.vertical') : th('tabs.panel.horizontal')};
   `

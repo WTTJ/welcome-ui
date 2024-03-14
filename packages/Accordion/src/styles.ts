@@ -1,8 +1,6 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { system, th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
 import { Box } from '@welcome-ui/box'
-
-import { UseAccordionState } from '.'
 
 export const Accordion = styled.div`
   ${th('accordions.wrapper')};
@@ -14,25 +12,21 @@ export const Accordion = styled.div`
   }
 `
 
-export const Icon = styled(Box).withConfig({
-  shouldForwardProp: prop => !['isOpen'].includes(prop),
-})<{ isOpen: Ariakit.DisclosureStoreState['open'] }>(
-  ({ isOpen }) => css`
-    flex-shrink: 0;
-    ${th('accordions.icon')};
-    transform: ${isOpen ? 'rotate3d(0, 0, 1, 90deg)' : 'rotate3d(0)'};
-    transition: medium;
-    width: 24;
-    height: 24;
-    color: inherit;
-    display: flex;
-    border-radius: 12;
+export const Icon = styled(Box)`
+  flex-shrink: 0;
+  ${th('accordions.icon')};
+  transform: rotate3d(0);
+  transition: medium;
+  width: 24;
+  height: 24;
+  color: inherit;
+  display: flex;
+  border-radius: 12;
 
-    & *:first-child {
-      margin: auto;
-    }
-  `
-)
+  & *:first-child {
+    margin: auto;
+  }
+`
 
 export const Disclosure = styled(Ariakit.Disclosure)`
   ${th('accordions.title')};
@@ -44,6 +38,12 @@ export const Disclosure = styled(Ariakit.Disclosure)`
   justify-content: space-between;
   align-items: center;
   gap: xxl;
+
+  &[aria-expanded='true'] {
+    ${Icon} {
+      transform: rotate3d(0, 0, 1, 90deg);
+    }
+  }
 
   &:focus,
   &:hover {
@@ -60,18 +60,27 @@ export const Disclosure = styled(Ariakit.Disclosure)`
     }
   }
 `
+export const Content = styled(Ariakit.DisclosureContent)`
+  display: grid;
+  grid-template-rows: 0fr;
+  transition-property: grid-template-rows;
+  transition-timing-function: linear;
+  transition-duration: 200ms;
+  animation-duration: 200ms;
 
-export const Content = styled(Ariakit.DisclosureContent).withConfig({
-  shouldForwardProp: prop => !['isOpen'].includes(prop),
-})(
-  ({ isOpen }: { isOpen: UseAccordionState['open'] }) => css`
-    ${th('accordions.content')};
-    padding-inline: ${th('accordions.padding')};
-    color: dark-700;
+  > * {
+    overflow: hidden;
+    padding: 0;
+  }
 
-    ${isOpen &&
-    css`
-      padding-bottom: ${th('accordions.padding')};
-    `}
-  `
-)
+  &[data-enter] {
+    grid-template-rows: 1fr;
+  }
+`
+
+export const ContentChild = styled.div`
+  ${th('accordions.content')};
+  padding: ${th('accordions.padding')};
+  padding-top: 0;
+  color: dark-700;
+`

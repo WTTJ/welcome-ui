@@ -9,7 +9,7 @@ import { Link } from './Link'
 import * as S from './styles'
 import { VersionSelector } from './VersionSelector'
 
-const newItems = ['slider']
+const newItems = []
 
 export const ComponentsList = ({ onClick, ...props }) => {
   return (

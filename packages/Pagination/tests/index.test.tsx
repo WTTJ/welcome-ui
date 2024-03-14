@@ -1,17 +1,16 @@
 import React from 'react'
-import { fireEvent, screen } from '@testing-library/react'
-import { renderHook } from '@testing-library/react-hooks'
+import { act, renderHook, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { Pagination } from '../src'
 import { usePages } from '../src/utils'
 
 describe('<Pagination>', () => {
-  it('should render correctly', () => {
+  it('should render correctly', async () => {
     const onChange = jest.fn()
     const getHref = jest.fn()
 
-    render(
+    const { user } = render(
       <Pagination
         aria-label="pagination"
         dataTestId="pagination"
@@ -33,21 +32,21 @@ describe('<Pagination>', () => {
     expect(nextPage).toHaveAttribute('aria-current', 'false')
 
     /** Click on next button */
-    fireEvent.click(nextButton)
+    await act(() => user.click(nextButton))
 
     expect(onChange).toHaveBeenCalledWith(2)
 
     /** Click on a page 3 button */
-    fireEvent.click(screen.getByText('3'))
+    await act(() => user.click(screen.getByText('3')))
 
     expect(onChange).toHaveBeenCalledWith(3)
   })
 
-  it('should render correctly with prev Button', () => {
+  it('should render correctly with prev Button', async () => {
     const onChange = jest.fn()
     const getHref = jest.fn()
 
-    render(
+    const { user } = render(
       <Pagination
         aria-label="pagination"
         dataTestId="pagination"
@@ -69,20 +68,20 @@ describe('<Pagination>', () => {
     expect(prevPage).toHaveAttribute('aria-current', 'false')
 
     /** Click on prev button */
-    fireEvent.click(prevButton)
+    await act(() => user.click(prevButton))
 
     expect(onChange).toHaveBeenCalledWith(9)
 
     /** Click on a page 3 button */
-    fireEvent.click(screen.getByText('10'))
+    await act(() => user.click(screen.getByText('10')))
 
     expect(onChange).toHaveBeenCalledWith(10)
   })
 
-  it('should render correctly without href url', () => {
+  it('should render correctly without href url', async () => {
     const onChange = jest.fn()
 
-    render(
+    const { user } = render(
       <Pagination
         aria-label="pagination"
         dataTestId="pagination"
@@ -103,12 +102,12 @@ describe('<Pagination>', () => {
     expect(prevPage).toHaveAttribute('aria-current', 'false')
 
     /** Click on prev button */
-    fireEvent.click(prevButton)
+    await act(() => user.click(prevButton))
 
     expect(onChange).toHaveBeenCalledWith(9)
 
     /** Click on a page 3 button */
-    fireEvent.click(screen.getByText('10'))
+    await act(() => user.click(screen.getByText('10')))
 
     expect(onChange).toHaveBeenCalledWith(10)
   })
