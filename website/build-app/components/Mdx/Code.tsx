@@ -7,12 +7,15 @@ interface CodeProps {
 export const Code = ({ children }: CodeProps) => {
   return (
     <Box
+      alignItems="center"
       as="code"
-      backgroundColor="dark-100"
+      backgroundColor="info-100"
       borderRadius={2}
-      color="dark-900"
-      display="inline-block"
-      p="xs"
+      color="info-500"
+      display="inline-flex"
+      px="sm"
+      py="xs"
+      text="sm"
       whiteSpace="break-spaces"
     >
       {children}

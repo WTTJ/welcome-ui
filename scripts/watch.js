@@ -15,7 +15,7 @@ const handleFileChange = () => {
   if (dir === 'packages') {
     // edit the documentation on a component
     if (file === 'docs') {
-      exec('yarn docs:examples', err => {
+      exec('yarn website:examples', err => {
         if (err) {
           console.error(err)
           return
