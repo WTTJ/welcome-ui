@@ -1,0 +1,99 @@
+---
+category: data-display
+---
+
+export { getStaticProps } from '../../getStaticProps'
+
+import {
+  component,
+  dependencies,
+  name,
+  peerDependencies,
+  version,
+} from '@welcome-ui/avatar/package.json'
+
+<showcase
+  version={version}
+  name={name}
+  component={component}
+  description="Allows user to get an avatar with initials as a fallback letter when have no image."
+/>
+
+## With image
+
+We use `Shape` component. You can use size from theme or override with `w` and `h` size.
+
+```jsx row
+<Avatar
+  name="Welcome jungle"
+  src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+  size="sm"
+/>
+<Avatar src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4" name="Welcome jungle" />
+<Avatar
+  src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+  name="Welcome jungle"
+  size="lg"
+/>
+<Avatar
+  src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+  name="Welcome jungle"
+  size="xl"
+/>
+<Avatar
+  src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+  name="Welcome jungle"
+  size="xxl"
+/>
+<Avatar
+  src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+  name="Custom"
+  w={130}
+  h={130}
+  color="warning-500"
+  fontSize={20}
+/>
+```
+
+## Without image
+
+Without image we add initials on the avatar with property `name`. We get by default ramdom color from sub colors to create the background, based on the name string. You can override with `color`. Font size is calculated automatically and can be override with `fontSize`property.
+
+```jsx row
+<Avatar name="Welcome jungle" size="sm" />
+<Avatar name="Welcome jungle" />
+<Avatar name="Welcome jungle" size="lg" />
+<Avatar name="Welcome jungle" size="xl" />
+<Avatar name="Welcome jungle" size="xxl" />
+<Avatar name="Custom" w={130} h={130} color="warning-500" fontSize={20} />
+```
+
+## With shape square
+
+By default Avatar is a circle shape, change with property `shape`.
+
+```jsx row
+<Avatar
+  src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+  name="Welcome jungle"
+  shape="square"
+  size="xxl"
+/>
+<Avatar name="Welcome jungle" shape="square" size="xxl" />
+```
+
+## Properties
+
+<props propTypes={props.propTypes.Avatar} />
+
+## Packages
+
+### Dependencies
+
+<dependencies dependencies={dependencies} />
+
+### Peer dependencies
+
+<dependencies dependencies={peerDependencies} />
+
+<pagination />
