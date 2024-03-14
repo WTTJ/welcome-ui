@@ -30,6 +30,34 @@
           ]
         }
       },
+      "shape": {
+        "defaultValue": null,
+        "description": "",
+        "name": "shape",
+        "parent": {
+          "fileName": "Button/src/index.tsx",
+          "name": "ButtonOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Button/src/index.tsx",
+            "name": "ButtonOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Shape",
+          "value": [
+            {
+              "value": "\"circle\""
+            },
+            {
+              "value": "\"square\""
+            }
+          ]
+        }
+      },
       "size": {
         "defaultValue": {
           "value": "md"
@@ -128,34 +156,6 @@
             },
             {
               "value": "\"secondary-danger\""
-            }
-          ]
-        }
-      },
-      "shape": {
-        "defaultValue": null,
-        "description": "",
-        "name": "shape",
-        "parent": {
-          "fileName": "Button/src/index.tsx",
-          "name": "ButtonOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Button/src/index.tsx",
-            "name": "ButtonOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "Shape",
-          "value": [
-            {
-              "value": "\"circle\""
-            },
-            {
-              "value": "\"square\""
             }
           ]
         }
