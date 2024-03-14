@@ -19,7 +19,7 @@ export const Tooltip = forwardRef<'div', TooltipProps>(
     { children, content, fixed = false, placement = fixed ? 'top' : 'bottom', gutter = 8, ...rest },
     ref
   ) => {
-    const tooltip = Ariakit.useTooltipStore({ placement, animated: true })
+    const tooltip = Ariakit.useTooltipStore({ placement, animated: 300 })
     const [position, setPosition] = useState({ x: 0, y: 0 })
     const { getState, render, stopAnimation } = tooltip
 
