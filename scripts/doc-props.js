@@ -95,11 +95,23 @@ const writePropsFile = async content => {
       if (props) {
         componentProps[name] = {
           tag: tags?.tag,
-          props,
+          props: Object.keys(props)
+            .sort()
+            .reduce((obj, key) => {
+              obj[key] = props[key]
+              return obj
+            }, {}),
         }
       }
     })
   })
 
-  await writePropsFile(componentProps)
+  await writePropsFile(
+    Object.keys(componentProps)
+      .sort()
+      .reduce((obj, key) => {
+        obj[key] = componentProps[key]
+        return obj
+      }, {})
+  )
 })()

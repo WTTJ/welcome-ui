@@ -18,7 +18,7 @@ const Page = ({ params }: PageProps) => {
   const { id } = params
   const componentName = startCase(id)
 
-  const { contentWithoutMatter, data, isNotFound, tree } = getPageContent(
+  const { contentWithoutMatter, isNotFound, tree } = getPageContent(
     `${startCase(id)}/docs/index.mdx`,
     true
   )
@@ -29,9 +29,7 @@ const Page = ({ params }: PageProps) => {
     <>
       <main>
         <Mdx>
-          {`## Definition
-${data?.description}
-<div data-playground="overview.tsx" data-playground-with-code-editor="false" data-component="${componentName}"></div>`}
+          {`<div data-playground="overview.tsx" data-playground-with-code-editor="false" data-component="${componentName}"></div>`}
         </Mdx>
         <Mdx>{contentWithoutMatter}</Mdx>
       </main>
