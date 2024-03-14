@@ -58,6 +58,34 @@
           "name": "string"
         }
       },
+      "shape": {
+        "defaultValue": null,
+        "description": "",
+        "name": "shape",
+        "parent": {
+          "fileName": "packages/Shape/dist/types/index.d.ts",
+          "name": "ShapeOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "packages/Shape/dist/types/index.d.ts",
+            "name": "ShapeOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"circle\" | \"square\"",
+          "value": [
+            {
+              "value": "\"circle\""
+            },
+            {
+              "value": "\"square\""
+            }
+          ]
+        }
+      },
       "size": {
         "defaultValue": null,
         "description": "",
@@ -112,34 +140,6 @@
         "required": false,
         "type": {
           "name": "string"
-        }
-      },
-      "shape": {
-        "defaultValue": null,
-        "description": "",
-        "name": "shape",
-        "parent": {
-          "fileName": "packages/Shape/dist/types/index.d.ts",
-          "name": "ShapeOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "packages/Shape/dist/types/index.d.ts",
-            "name": "ShapeOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "\"circle\" | \"square\"",
-          "value": [
-            {
-              "value": "\"circle\""
-            },
-            {
-              "value": "\"square\""
-            }
-          ]
         }
       }
     }
