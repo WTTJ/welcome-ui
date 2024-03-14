@@ -62,7 +62,7 @@ const Layout = ({ children, params }: LayoutProps) => {
               variant="tertiary"
             >
               <NpmIcon />
-              <span>{name}</span>
+              <span>{packageName}</span>
             </Button>
           </Flex>
         </Flex>

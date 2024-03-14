@@ -28,9 +28,7 @@ const Page = ({ params }: PageProps) => {
   return (
     <>
       <main>
-        <Mdx>
-          {`<div data-playground="overview.tsx" data-playground-with-code-editor="false" data-component="${componentName}"></div>`}
-        </Mdx>
+        <Mdx>{`<div data-playground="overview.tsx" data-component="${componentName}"></div>`}</Mdx>
         <Mdx>{contentWithoutMatter}</Mdx>
       </main>
       <TableOfContent isSubPage tree={tree} />

@@ -23,18 +23,24 @@ export const Playground = ({ code, pathToFile, withCodeEditor }: PreProps) => {
 
   return (
     <>
-      <Box
-        backgroundColor="light-900"
-        border="1px solid"
-        borderColor="dark-100"
-        padding={{ _: 'sm', lg: '3xl' }}
-      >
+      <Box backgroundColor="nude-100" borderRadius={8} padding={{ _: 'sm', lg: '3xl' }}>
         {preview}
       </Box>
       {withCodeEditor && (
-        <Highlight code={code.trim()} language="tsx" theme={themes.duotoneLight}>
+        <Highlight
+          code={code.trim()}
+          language="tsx"
+          theme={{
+            ...themes.github,
+            plain: {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              //@ts-ignore
+              fontSize: 14,
+            },
+          }}
+        >
           {({ getLineProps, getTokenProps, style, tokens }) => (
-            <Box position="relative">
+            <Box mt="xl" position="relative">
               <Button
                 onClick={copy}
                 position="absolute"
@@ -50,7 +56,7 @@ export const Playground = ({ code, pathToFile, withCodeEditor }: PreProps) => {
                 as="pre"
                 border="1px solid"
                 borderColor="dark-100"
-                borderTop="0"
+                borderRadius={8}
                 padding="lg xl"
                 style={style}
               >
