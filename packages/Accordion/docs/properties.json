@@ -3,7 +3,7 @@
     "props": {
       "setOpen": {
         "defaultValue": null,
-        "description": "A callback that gets called when the `open` state changes.\n@param open The new open value.\n@example const [open, setOpen] = useState(false);\nconst disclosure = useDisclosureStore({ open, setOpen });",
+        "description": "A callback that gets called when the\n[`open`](https://ariakit.org/reference/disclosure-provider#open) state\nchanges.\n@example const [open, setOpen] = useState(false);\nconst disclosure = useDisclosureStore({ open, setOpen });",
         "name": "setOpen",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
@@ -22,7 +22,7 @@
       },
       "setMounted": {
         "defaultValue": null,
-        "description": "A callback that gets called when the `mounted` state changes.\n@param mounted The new mounted value.\n@example const [mounted, setMounted] = useState(false);\nconst disclosure = useDisclosureStore({ setMounted });",
+        "description": "A callback that gets called when the `mounted` state changes.\n@example const [mounted, setMounted] = useState(false);\nconst disclosure = useDisclosureStore({ setMounted });",
         "name": "setMounted",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
@@ -39,11 +39,61 @@
           "name": "(mounted: boolean) => void"
         }
       },
+      "disclosure": {
+        "defaultValue": null,
+        "description": "A reference to another disclosure store that controls another disclosure\ncomponent to keep them in sync. Element states like `contentElement` and\n`disclosureElement` won't be synced. For that, use the\n[`store`](https://ariakit.org/reference/disclosure-provider#store) prop\ninstead.\n\nLive examples:\n- [Command Menu](https://ariakit.org/examples/dialog-combobox-command-menu)",
+        "name": "disclosure",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
+          "name": "DisclosureStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
+            "name": "DisclosureStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "DisclosureStore"
+        }
+      },
+      "animated": {
+        "defaultValue": null,
+        "description": "Determines whether the content should animate when it is shown or hidden.\n- If `true`, the `animating` state will be `true` when the content is shown\n  or hidden and it will wait for a CSS animation/transition to end before\n  becoming `false`.\n- If it's set to a number, the `animating` state will be `true` when the\n  content is shown or hidden and it will wait for the number of\n  milliseconds to pass before becoming `false`.\n@deprecated Manually setting the `animated` prop is no longer necessary.\nThis will be removed in a future release.",
+        "name": "animated",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
+          "name": "DisclosureStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
+            "name": "DisclosureStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "number | boolean",
+          "value": [
+            {
+              "value": "number"
+            },
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "defaultOpen": {
         "defaultValue": {
           "value": "false"
         },
-        "description": "The default visibility state of the content.",
+        "description": "Whether the content should be visible by default.",
         "name": "defaultOpen",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
@@ -67,25 +117,6 @@
               "value": "true"
             }
           ]
-        }
-      },
-      "disclosure": {
-        "defaultValue": null,
-        "description": "A reference to another disclosure store that controls another disclosure\ncomponent to keep them in sync. Element states like `contentElement` and\n`disclosureElement` won't be synced. For that, use the `store` prop\ninstead.",
-        "name": "disclosure",
-        "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
-          "name": "DisclosureStoreOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
-            "name": "DisclosureStoreOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "DisclosureStoreFunctions & Store<DisclosureStoreState>"
         }
       }
     }
@@ -160,7 +191,7 @@
         ],
         "required": true,
         "type": {
-          "name": "DisclosureStoreFunctions & Store<DisclosureStoreState> & { useState: UseState<DisclosureStoreState>; }"
+          "name": "DisclosureStore"
         }
       }
     }
