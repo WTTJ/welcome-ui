@@ -148,6 +148,7 @@
   },
   "homepage": "https://welcome-ui.com",
   "dependencies": {
+    "@wttj/xstyled-styled-components": "4.0.0",
     "styled-components": "^6.1.8"
   }
 }

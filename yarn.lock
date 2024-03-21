@@ -4956,6 +4956,36 @@
     underscore "^1.9.1"
     url-join "^4.0.0"
 
+"@wttj/xstyled-core@^4.0.0":
+  version "4.0.0"
+  resolved "https://npm.pkg.github.com/download/@wttj/xstyled-core/4.0.0/7335bee474773f09f1b2366f820a513cefaab159#7335bee474773f09f1b2366f820a513cefaab159"
+  integrity sha512-j2+IIqkqNLqbt11bqXieqJ/XSFvirI71FkTDyA1U1d70Z5IEl9Epp01C/Yq9MFsBKuFmIHpoh8zG6fD7onWmGg==
+  dependencies:
+    "@wttj/xstyled-system" "^4.0.0"
+    "@wttj/xstyled-util" "^4.0.0"
+
+"@wttj/xstyled-styled-components@4.0.0":
+  version "4.0.0"
+  resolved "https://npm.pkg.github.com/download/@wttj/xstyled-styled-components/4.0.0/ff5da028c28d5d8d1da5e9bd9ecce2150ebbf99f#ff5da028c28d5d8d1da5e9bd9ecce2150ebbf99f"
+  integrity sha512-x5VIYDmknaiab2P2F60npoo0N0lO2X9PqWROz8Favl7ogz+uygvbMZ7LBQOMbqjbLJQq3fI4KMPOr/pqsO3Khg==
+  dependencies:
+    "@wttj/xstyled-core" "^4.0.0"
+    "@wttj/xstyled-system" "^4.0.0"
+    "@wttj/xstyled-util" "^4.0.0"
+
+"@wttj/xstyled-system@^4.0.0":
+  version "4.0.0"
+  resolved "https://npm.pkg.github.com/download/@wttj/xstyled-system/4.0.0/262ec73f82415d2231cedfbafeae8fb3cf08f7cb#262ec73f82415d2231cedfbafeae8fb3cf08f7cb"
+  integrity sha512-7qvP/z1wfx2GqHgdrrX9xxZuJ/64iW/dLG2G0vB30ushS2dTg6kWhrhlmXrCXLZMrDBWpUoedBm2HKYCcpIqAw==
+  dependencies:
+    "@wttj/xstyled-util" "^4.0.0"
+    csstype "^3.1.1"
+
+"@wttj/xstyled-util@^4.0.0":
+  version "4.0.0"
+  resolved "https://npm.pkg.github.com/download/@wttj/xstyled-util/4.0.0/447cb615a198b4bcfcddc3bec777248ae1b20ecc#447cb615a198b4bcfcddc3bec777248ae1b20ecc"
+  integrity sha512-/GCkBCA2BgcUFU70xvGWRypQE/q1TaFneDk8Xc39ZOjkd4DVDuFZ5NpmdgGnI0UHpfVgNm0Qzjin37bmnoDY6w==
+
 "@xhmikosr/archive-type@^6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@xhmikosr/archive-type/-/archive-type-6.0.1.tgz#684e9e5369bfa93223d7aeb2c84fe0780d6d5e24"
