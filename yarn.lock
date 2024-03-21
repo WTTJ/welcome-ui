@@ -4964,7 +4964,7 @@
     "@wttj/xstyled-system" "^4.0.0"
     "@wttj/xstyled-util" "^4.0.0"
 
-"@wttj/xstyled-styled-components@4.0.0":
+"@wttj/xstyled-styled-components@4.0.0", "@wttj/xstyled-styled-components@^4.0.0":
   version "4.0.0"
   resolved "https://npm.pkg.github.com/download/@wttj/xstyled-styled-components/4.0.0/ff5da028c28d5d8d1da5e9bd9ecce2150ebbf99f#ff5da028c28d5d8d1da5e9bd9ecce2150ebbf99f"
   integrity sha512-x5VIYDmknaiab2P2F60npoo0N0lO2X9PqWROz8Favl7ogz+uygvbMZ7LBQOMbqjbLJQq3fI4KMPOr/pqsO3Khg==
@@ -5064,36 +5064,6 @@
   version "0.7.9"
   resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.7.9.tgz#7f9278a50e737920e21b297b8a35286e9942c056"
   integrity sha512-yceMpm/xd4W2a85iqZyO09gTnHvXF6pyiWjD2jcOJs7hRoZtNNOO1eJlhHj1ixA+xip2hOyGn+LgcvLCMo5zXA==
-
-"@xstyled/core@^3.7.3":
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-3.7.3.tgz#245dc4fa22f57f06f42f8445cf78c8046c7f2f9e"
-  integrity sha512-jNj6oRSGmJRLsgZNePC6nHlyLNvkPOHSFbtj1LVMM4ktMAAufbtLaa/CJahnmTbYVTUky1Y+zUp28dv6d6lc+g==
-  dependencies:
-    "@xstyled/system" "^3.7.3"
-    "@xstyled/util" "^3.7.0"
-
-"@xstyled/styled-components@^3.7.3":
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-3.7.3.tgz#7899ffe8d67d60f42ce358c175dd6da2c317a576"
-  integrity sha512-f3mNumUm0WLku2Plcbucnb0AEIRwbnbZ737Cnmcpkg8buPOOXFSqV4Sj1zOIKtZqWOxlo0Xu1s7ruFQgahCMbQ==
-  dependencies:
-    "@xstyled/core" "^3.7.3"
-    "@xstyled/system" "^3.7.3"
-    "@xstyled/util" "^3.7.0"
-
-"@xstyled/system@^3.7.3":
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-3.7.3.tgz#ed3f528dbd74774292487616e521ea07e8a9f4fc"
-  integrity sha512-AracGiSiWg8QhLeIheuj6SDnSuIoiLzcF9buweiIz9MAi28HQKJBjq+ABnAMu6K2HTYG5qzSlALKj+Qpdg7aow==
-  dependencies:
-    "@xstyled/util" "^3.7.0"
-    csstype "^3.1.1"
-
-"@xstyled/util@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@xstyled/util/-/util-3.7.0.tgz#513c045dda0847d43b39612b6d36cc38b507e82d"
-  integrity sha512-rYtXRcNh+pgRxGnciP0Mas21mpyOzcCTVy7w9uIByQk3EytwBQjDiN6wCasXibkw49Urfti5efsklRbCl5QZww==
 
 "@yarnpkg/lockfile@^1.1.0":
   version "1.1.0"
