@@ -52,7 +52,7 @@
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
     "react": "^18.0.0",
-    "styled-components": "^5.3.9"
+    "styled-components": "^6.1.8"
   },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
   "sideEffects": false,

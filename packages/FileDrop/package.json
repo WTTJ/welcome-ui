@@ -57,7 +57,7 @@
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
     "react": "^18.0.0",
-    "styled-components": "^5.3.9"
+    "styled-components": "^6.1.8"
   },
   "sideEffects": false,
   "component": "FileDrop",
