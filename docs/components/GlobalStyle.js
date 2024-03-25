@@ -1,5 +1,5 @@
 import { defaultFieldStyles } from '@welcome-ui/utils'
-import { createGlobalStyle, th } from '@xstyled/styled-components'
+import { createGlobalStyle, th } from '@wttj/xstyled-styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   /* ALGOLIA DOCSEARCH */

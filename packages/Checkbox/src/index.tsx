@@ -37,11 +37,11 @@ export const Checkbox = forwardRef<'input', CheckboxProps>(
 
     return (
       <Component
+        $indeterminate={indeterminate}
         checked={checked}
         data-testid={dataTestId}
         disabled={disabled}
         id={name}
-        indeterminate={indeterminate}
         name={name}
         onChange={handleChange}
         ref={ref}

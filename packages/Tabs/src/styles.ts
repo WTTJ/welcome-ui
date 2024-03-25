@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import * as Ariakit from '@ariakit/react'
 
 import { ActiveBarReturn } from './ActiveBar'

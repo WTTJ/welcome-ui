@@ -1,5 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import { getVariantColor } from '@welcome-ui/utils'
 
 export interface StyledFileDropProps {
@@ -8,7 +7,7 @@ export interface StyledFileDropProps {
   isDragReject?: boolean
 }
 
-export const FileDrop = styled('div').withConfig({ shouldForwardProp })<StyledFileDropProps>(
+export const FileDrop = styled('div')<StyledFileDropProps>(
   ({ disabled, isDragAccept, isDragReject }) => css`
     ${th('defaultFields.default')};
     ${th('filedrops.default')};

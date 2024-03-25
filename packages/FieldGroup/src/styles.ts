@@ -1,7 +1,6 @@
-import styled, { system, th } from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import styled, { system, th } from '@wttj/xstyled-styled-components'
 
-export const FieldGroup = styled('fieldset').withConfig({ shouldForwardProp })`
+export const FieldGroup = styled('fieldset')`
   width: 100%;
   min-width: 0;
   min-height: 0;

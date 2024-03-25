@@ -1,7 +1,7 @@
 import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import { CloseButtonProps } from '@welcome-ui/close-button'
-import { useTheme } from '@xstyled/styled-components'
+import { useTheme } from '@wttj/xstyled-styled-components'
 import { Box } from '@welcome-ui/box'
 
 import * as S from './styles'

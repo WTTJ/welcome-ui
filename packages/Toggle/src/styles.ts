@@ -1,12 +1,11 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import * as Ariakit from '@ariakit/react'
-import { shouldForwardProp } from '@welcome-ui/system'
 
 import { ToggleOptions } from './index'
 
 type Size = 'xs' | 'sm' | 'md'
 
-export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })<ToggleOptions>(
+export const Toggle = styled(Ariakit.Checkbox)<ToggleOptions>(
   ({ order = '-1', size }) => css`
     ${th('toggles.item.default')};
     ${th(`toggles.item.sizes.${size}`)};
@@ -65,7 +64,7 @@ export const Wrapper = styled.box<{ onClick: React.MouseEventHandler<HTMLInputEl
   cursor: pointer;
 `
 
-export const IconWrapper = styled.box.withConfig({ shouldForwardProp })<{
+export const IconWrapper = styled.box<{
   checked: boolean
   size: Size
 }>(

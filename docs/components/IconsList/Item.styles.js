@@ -1,5 +1,5 @@
 import { Box } from '@welcome-ui/box'
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css } from '@wttj/xstyled-styled-components'
 
 export const Content = styled(Box)`
   background-color: light-900;

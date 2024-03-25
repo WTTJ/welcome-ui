@@ -1,4 +1,4 @@
-import styled, { th } from '@xstyled/styled-components'
+import styled, { th } from '@wttj/xstyled-styled-components'
 
 import { headerHeight } from '../../Header/styles'
 

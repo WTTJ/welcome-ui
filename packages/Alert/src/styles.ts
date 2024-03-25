@@ -1,10 +1,9 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import { Text } from '@welcome-ui/text'
 
 import { AlertOptions } from './index'
 
-export const Alert = styled(Box)<AlertOptions>(
+export const Alert = styled.divBox<AlertOptions>(
   ({ isFullWidth, size, variant }) => css`
     position: relative;
     display: flex;
@@ -20,12 +19,12 @@ export const Alert = styled(Box)<AlertOptions>(
 export const Title = styled(Text).attrs(({ variant }: AlertOptions) => ({
   variant: 'h5',
   // We're renaming the prop because it'll be overridden by Text's variant
-  alertVariant: variant,
+  $alertVariant: variant,
 }))(
-  ({ alertVariant }) => css`
+  ({ $alertVariant }) => css`
     margin: 0;
     margin-bottom: sm;
-    ${th(`alerts.title.${alertVariant}`)};
+    ${th(`alerts.title.${$alertVariant}`)};
     ${system}
 
     &:only-child {

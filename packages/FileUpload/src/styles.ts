@@ -1,6 +1,5 @@
-import styled from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import styled from '@wttj/xstyled-styled-components'
 
-export const Input = styled('input').withConfig({ shouldForwardProp })`
+export const Input = styled('input')`
   display: none;
 `

@@ -1,11 +1,10 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
-import { shouldForwardProp } from '@welcome-ui/system'
 import { cardStyles, centerContent, defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 
 import { SearchOptions } from './index'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })`
+export const Wrapper = styled('div')`
   position: relative;
   ${system};
 `
@@ -14,7 +13,7 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled('input').withConfig({ shouldForwardProp })<SearchOptions>(
+export const Input = styled('input')<SearchOptions>(
   ({ iconPlacement, size, transparent, variant }) => css`
     position: relative;
     ${defaultFieldStyles({ iconPlacement, size, variant, transparent, isClearable: true })};

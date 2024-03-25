@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css, CSSObject, th } from '@xstyled/styled-components'
+import styled, { css, CSSObject, th } from '@wttj/xstyled-styled-components'
 import { cardStyles } from '@welcome-ui/utils'
 
 import { datePickerStyles } from './datePickerStyles'

@@ -1,5 +1,5 @@
 import { WuiProps } from '@welcome-ui/system'
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 
 import { BadgeOptions } from './index'
 

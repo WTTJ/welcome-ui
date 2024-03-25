@@ -1,4 +1,4 @@
-import { createGlobalStyle, css, th } from '@xstyled/styled-components'
+import { createGlobalStyle, css, th } from '@wttj/xstyled-styled-components'
 
 import { fonts } from './font'
 import { normalizeStyle, resetStyles } from './reset'

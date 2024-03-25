@@ -1,4 +1,4 @@
-import styled, { css, system } from '@xstyled/styled-components'
+import styled, { css, system } from '@wttj/xstyled-styled-components'
 import { getMax } from '@welcome-ui/utils'
 import { Box } from '@welcome-ui/box'
 

@@ -1,4 +1,4 @@
-import styled, { th } from '@xstyled/styled-components'
+import styled, { th } from '@wttj/xstyled-styled-components'
 
 export const Separator = styled.hr`
   ${th('dropdownMenu.separator')};

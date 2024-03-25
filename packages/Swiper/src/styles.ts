@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import { Button } from '@welcome-ui/button'
 import { CreateWuiProps } from '@welcome-ui/system'
 

@@ -60,18 +60,18 @@ export const Tag = forwardRef<'div', TagProps>(
 
     return (
       <S.Tag
+        $hasClickAction={!!onClick}
+        $hasLink={hasLink}
+        $hasRemoveAction={!!onRemove}
+        $length={childrenLength}
+        $size={size}
+        $variant={variant}
         as={as}
         data-testid={dataTestId}
-        hasClickAction={!!onClick}
-        hasLink={hasLink}
-        hasRemoveAction={!!onRemove}
         href={href}
-        length={childrenLength}
         onClick={onClick}
         ref={ref}
-        size={size}
         to={to}
-        variant={variant}
         {...rest}
       >
         {content}

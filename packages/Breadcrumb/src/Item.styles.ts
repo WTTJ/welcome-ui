@@ -1,4 +1,4 @@
-import styled, { th } from '@xstyled/styled-components'
+import styled, { th } from '@wttj/xstyled-styled-components'
 
 export const Item = styled.aBox`
   ${th('breadcrumbs.item.default')};

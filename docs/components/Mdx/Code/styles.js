@@ -1,4 +1,4 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { LiveEditor as ReactLiveEditor, LiveError as ReactLiveError } from 'react-live'
 import { Box } from '@welcome-ui/box'
 

@@ -1,4 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css } from '@wttj/xstyled-styled-components'
 import { Box } from '@welcome-ui/box'
 
 import { AspectRatioOptions } from '.'

@@ -1,10 +1,9 @@
-import styled, { css, system, th, typography } from '@xstyled/styled-components'
+import styled, { css, system, th, typography } from '@wttj/xstyled-styled-components'
 import { UniversalLink } from '@welcome-ui/universal-link'
-import { shouldForwardProp } from '@welcome-ui/system'
 
 import { Variant } from './index'
 
-export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{
+export const Link = styled(UniversalLink)<{
   variant: Variant
   isExternal?: boolean
 }>(

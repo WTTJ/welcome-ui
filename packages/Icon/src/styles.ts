@@ -1,4 +1,4 @@
-import styled, { css, system, Theme } from '@xstyled/styled-components'
+import styled, { css, system, Theme } from '@wttj/xstyled-styled-components'
 import { WuiProps } from '@welcome-ui/system'
 
 import { IconOptions } from './index'

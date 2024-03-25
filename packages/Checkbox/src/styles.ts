@@ -1,16 +1,13 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import * as Ariakit from '@ariakit/react'
-import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { CheckboxProps } from './index'
 
 /* /!\ WARNING /!\ Don't add style after pseudo selector, it won't apply because of the dynamic color injected in the fill of the content */
 
-export const Checkbox = styled(Ariakit.Checkbox).withConfig({
-  shouldForwardProp,
-})<CheckboxProps>(
-  ({ indeterminate, order = '-1', size, theme, variant }) => css`
+export const Checkbox = styled(Ariakit.Checkbox)<CheckboxProps>(
+  ({ $indeterminate, order = '-1', size, theme, variant }) => css`
     ${defaultFieldStyles({ size, variant })};
     ${th('checkboxes.default')}
     position: relative;
@@ -41,7 +38,7 @@ export const Checkbox = styled(Ariakit.Checkbox).withConfig({
       }
     }
 
-    ${indeterminate &&
+    ${$indeterminate &&
     css`
       &:not([disabled]) {
         ${th('checkboxes.checked')};
@@ -49,7 +46,7 @@ export const Checkbox = styled(Ariakit.Checkbox).withConfig({
 
       &::after {
         content: url("data:image/svg+xml,%3Csvg width='10' height='4' viewBox='0 0 10 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.3973 1.76919C0.953776 1.81988 0.634816 2.04775 0.685235 2.49156C0.732149 2.90436 1.08212 3.03624 1.48789 3.03624L8.6029 2.23086C9.04669 2.18017 9.36538 1.9523 9.31469 1.50849C9.26427 1.06468 8.86389 0.917163 8.41956 0.969201C4.90971 1.38026 4.90828 1.36792 1.3973 1.76919Z' fill='${theme
-          .defaultFields.checkableField.checked.color}'/%3E%3C/svg%3E");
+        .defaultFields.checkableField.checked.color}'/%3E%3C/svg%3E");
         position: absolute;
         top: -3.5;
         right: 0;

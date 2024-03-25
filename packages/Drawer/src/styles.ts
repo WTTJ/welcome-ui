@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import { cardStyles } from '@welcome-ui/utils'
 import { CloseButton as WUICloseButton } from '@welcome-ui/close-button'
 import * as Ariakit from '@ariakit/react'
@@ -82,9 +82,9 @@ export const Drawer = styled.divBox<Pick<DrawerOptions, 'placement' | 'size'>>(
   `
 )
 
-export const Backdrop = styled.div.withConfig({
-  shouldForwardProp: prop => !['hideOnInteractOutside'].includes(prop),
-})<{ hideOnInteractOutside: Ariakit.DialogProps['hideOnInteractOutside'] }>(
+export const Backdrop = styled.div<{
+  hideOnInteractOutside: Ariakit.DialogProps['hideOnInteractOutside']
+}>(
   ({ hideOnInteractOutside }) => css`
     ${th('drawers.backdrop')};
     position: fixed;

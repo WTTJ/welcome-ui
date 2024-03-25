@@ -1,7 +1,6 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 
-export const Label = styled('label').withConfig({ shouldForwardProp })<{
+export const Label = styled('label')<{
   required: boolean
 }>(
   ({ required }) => css`

@@ -1,4 +1,4 @@
-import styled, { css, th, Theme } from '@xstyled/styled-components'
+import styled, { css, th, Theme } from '@wttj/xstyled-styled-components'
 import { Box } from '@welcome-ui/box'
 import { hexToRGBA } from '@welcome-ui/utils'
 

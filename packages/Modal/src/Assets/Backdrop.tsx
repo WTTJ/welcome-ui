@@ -2,7 +2,7 @@ import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import { Button } from '@welcome-ui/button'
 import { Icons } from '@welcome-ui/icons.font'
-import styled, { system } from '@xstyled/styled-components'
+import styled, { system } from '@wttj/xstyled-styled-components'
 import { forwardRef } from '@welcome-ui/system'
 
 import * as S from '../styles'

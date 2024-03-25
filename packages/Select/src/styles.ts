@@ -1,7 +1,6 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledTag } from '@welcome-ui/tag'
-import { shouldForwardProp } from '@welcome-ui/system'
 import {
   cardStyles,
   centerContent,
@@ -12,16 +11,16 @@ import {
 
 import { SelectOptions } from './index'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })`
+export const Wrapper = styled.divBox`
   position: relative;
   ${system}
 `
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.divBox`
   position: relative;
 `
 
-export const Input = styled('div').withConfig({ shouldForwardProp })<{
+export const Input = styled.divBox<{
   iconPlacement?: 'both' | 'right'
   isClearable?: boolean
   size: SelectOptions['size']
@@ -72,7 +71,7 @@ export const Input = styled('div').withConfig({ shouldForwardProp })<{
   `
 )
 
-export const Menu = styled.ul`
+export const Menu = styled.ulBox`
   ${th('defaultFields.select.default')};
   ${cardStyles};
   position: absolute;
@@ -87,7 +86,7 @@ export const Menu = styled.ul`
   -webkit-overflow-scrolling: touch;
 `
 
-export const Item = styled.li(
+export const Item = styled.liBox(
   ({
     allowUnselectFromList,
     isDisabled,
@@ -127,7 +126,7 @@ export const Indicators = styled.div(
   `
 )
 
-export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })(
+export const DropDownIndicator = styled.buttonBox(
   ({ isOpen }: { isOpen?: boolean }) => css`
     position: relative;
     height: 100%;

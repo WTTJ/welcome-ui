@@ -3,7 +3,7 @@ import {
   CSSScalar,
   ITheme as StyledComponentDefaultTheme,
   DefaultTheme as XStyledDefaultTheme,
-} from '@xstyled/styled-components'
+} from '@wttj/xstyled-styled-components'
 
 import { ThemeAccordions } from './accordions'
 import { ThemeAlerts } from './alerts'

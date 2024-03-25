@@ -10,7 +10,7 @@ import React, {
 import { Icons } from '@welcome-ui/icons.font'
 import debounce from 'lodash.debounce'
 import { Size, useViewportSize } from '@welcome-ui/utils'
-import { useTheme } from '@xstyled/styled-components'
+import { useTheme } from '@wttj/xstyled-styled-components'
 import { CreateWuiProps } from '@welcome-ui/system'
 
 import { useInterval } from './use-interval'

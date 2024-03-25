@@ -1,4 +1,4 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { Text } from '@welcome-ui/text'
 import { StyledSwiper } from '@welcome-ui/swiper'
 

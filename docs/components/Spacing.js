@@ -1,5 +1,5 @@
 import React from 'react'
-import { withTheme } from '@xstyled/styled-components'
+import { withTheme } from '@wttj/xstyled-styled-components'
 import { Table } from '@welcome-ui/table'
 import { Box } from '@welcome-ui/box'
 

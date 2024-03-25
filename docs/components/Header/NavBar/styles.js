@@ -1,6 +1,6 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 
-export const NavBar = styled.ul`
+export const NavBar = styled.ulBox`
   display: inline-flex;
   margin: 0;
   padding: 0;
@@ -26,7 +26,7 @@ const activeItem = css`
   }
 `
 
-export const Item = styled.a(
+export const Item = styled.aBox(
   ({ isActive }) => css`
     ${th('texts.subtitle-md')};
     text-transform: uppercase;

@@ -1,4 +1,4 @@
-import styled, { css, keyframes, th } from '@xstyled/styled-components'
+import styled, { css, keyframes, th } from '@wttj/xstyled-styled-components'
 import { Button } from '@welcome-ui/button'
 
 const fade = keyframes`

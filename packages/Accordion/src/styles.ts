@@ -1,4 +1,4 @@
-import styled, { system, th } from '@xstyled/styled-components'
+import styled, { system, th } from '@wttj/xstyled-styled-components'
 import * as Ariakit from '@ariakit/react'
 import { Box } from '@welcome-ui/box'
 

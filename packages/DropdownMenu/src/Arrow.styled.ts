@@ -1,4 +1,4 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 
 export const Arrow = styled.divBox`
   display: flex;

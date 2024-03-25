@@ -1,4 +1,4 @@
-import styled, { system, th } from '@xstyled/styled-components'
+import styled, { system, th } from '@wttj/xstyled-styled-components'
 
 export const Item = styled.button`
   ${th('dropdownMenu.item')};

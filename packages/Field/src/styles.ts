@@ -1,6 +1,5 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import { StyledLabel } from '@welcome-ui/label'
-import { shouldForwardProp, WuiProps } from '@welcome-ui/system'
 import { FieldIconSize } from '@welcome-ui/utils'
 
 const checkableFieldStyles = css`
@@ -17,7 +16,7 @@ type StyledFieldProps = {
   withHintText?: boolean
 }
 
-export const Field = styled('div').withConfig({ shouldForwardProp })<StyledFieldProps>(
+export const Field = styled('div')<StyledFieldProps>(
   ({ checked, isCheckable, isRadioGroup, withHintText }) => css`
     ${isCheckable &&
     css`
@@ -30,11 +29,11 @@ export const Field = styled('div').withConfig({ shouldForwardProp })<StyledField
       ${isCheckable && withHintText && th('defaultFields.checkablelabel.default')}
       ${checked && th('defaultFields.checkablelabel.checked')}
       ${!isCheckable &&
-      css`
+    css`
         margin-bottom: sm;
       `}
       ${isRadioGroup &&
-      css`
+    css`
         margin-bottom: md;
       `}
     }

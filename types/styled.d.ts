@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import 'styled-components'
-import '@xstyled/styled-components'
+import '@wttj/xstyled-styled-components'
 
 import { WuiTheme } from '@welcome-ui/core'
 
-declare module '@xstyled/styled-components' {
+declare module '@wttj/xstyled-styled-components' {
   export interface Theme extends WuiTheme {}
 }
 

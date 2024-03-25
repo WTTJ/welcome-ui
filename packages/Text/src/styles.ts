@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 
 import { TextOptions } from './index'
 
@@ -23,7 +23,7 @@ const getBlockHeight = (lines: number) => css`
   word-break: ${lines === 1 ? 'break-all' : null};
 `
 
-export const Text = styled.p<TextOptions>(({ lines, variant }) => {
+export const Text = styled.pBox<TextOptions>(({ lines, variant }) => {
   const mobileVariant = MOBILE_VARIANTS[variant as keyof typeof MOBILE_VARIANTS]
 
   return css`

@@ -1,7 +1,7 @@
 import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
-import { useTheme } from '@xstyled/styled-components'
+import { useTheme } from '@wttj/xstyled-styled-components'
 import type { WuiTheme } from '@welcome-ui/core'
 
 import { Arrow } from './Arrow'

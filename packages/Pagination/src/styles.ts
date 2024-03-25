@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 
 export const Pagination = styled.nav(system)

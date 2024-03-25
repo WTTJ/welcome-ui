@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import { IconOptions } from '@welcome-ui/icon'
 
 import unicodeMap from './unicode.json'

@@ -1,5 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { emojiMartStyles } from './emojiMartStyles'
@@ -11,9 +10,7 @@ interface ToolbarIconOptions {
   active?: boolean
 }
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })<
-  { focused: boolean } & MarkdownEditorOptions
->(
+export const Wrapper = styled('div')<{ focused: boolean } & MarkdownEditorOptions>(
   ({ disabled, focused, size, variant }) => css`
     ${easyMdeStyles};
     ${defaultFieldStyles({ size, variant })};
@@ -57,7 +54,7 @@ export const Toolbar = styled.div`
   z-index: 1;
 `
 
-export const ToolbarIcon = styled.a.withConfig({ shouldForwardProp })<ToolbarIconOptions>(
+export const ToolbarIcon = styled.a<ToolbarIconOptions>(
   ({ active }) => css`
     display: flex;
     align-items: center;

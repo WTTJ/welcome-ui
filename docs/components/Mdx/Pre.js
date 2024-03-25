@@ -1,4 +1,4 @@
-import styled from '@xstyled/styled-components'
+import styled from '@wttj/xstyled-styled-components'
 
 export const Pre = styled.pre`
   font-size: sm;

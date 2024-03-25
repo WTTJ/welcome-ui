@@ -1,5 +1,5 @@
 import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
-import { useTheme } from '@xstyled/styled-components'
+import { useTheme } from '@wttj/xstyled-styled-components'
 import { forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'

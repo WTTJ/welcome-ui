@@ -1,4 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css } from '@wttj/xstyled-styled-components'
 import { Drawer as WUIDrawer } from '@welcome-ui/drawer'
 
 import { Item } from './NavBar/styles'
