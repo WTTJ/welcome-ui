@@ -1,5 +1,4 @@
 import styled, { system, th } from '@wttj/xstyled-styled-components'
-import { Box } from '@welcome-ui/box'
 import { cardStyles } from '@welcome-ui/utils'
 
 export const Card = styled.divBox`

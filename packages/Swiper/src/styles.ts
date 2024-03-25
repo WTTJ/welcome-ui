@@ -125,7 +125,7 @@ export const Container = styled.ulBox<
 
     @media (min-width: sm) {
       ${mobile &&
-    css`
+      css`
         > * {
           min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
 
@@ -138,7 +138,7 @@ export const Container = styled.ulBox<
 
     @media (min-width: md) {
       ${tablet &&
-    css`
+      css`
         > * {
           min-width: ${getSlideWidth(tablet, spaceBetween, theme.toRem)};
 
@@ -151,7 +151,7 @@ export const Container = styled.ulBox<
 
     @media (min-width: lg) {
       ${desktop &&
-    css`
+      css`
         > * {
           min-width: ${getSlideWidth(desktop, spaceBetween, theme.toRem)};
           scroll-snap-align: unset;
@@ -169,8 +169,8 @@ export const Container = styled.ulBox<
 
     @media (min-width: 1920px) {
       ${desktop &&
-    fullWidth &&
-    css`
+      fullWidth &&
+      css`
         > * {
           min-width: ${getSlideWidth(desktop + 2, spaceBetween, theme.toRem)};
         }

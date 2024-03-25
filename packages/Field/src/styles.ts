@@ -29,11 +29,11 @@ export const Field = styled.divBox<StyledFieldProps>(
       ${isCheckable && withHintText && th('defaultFields.checkablelabel.default')}
       ${checked && th('defaultFields.checkablelabel.checked')}
       ${!isCheckable &&
-    css`
+      css`
         margin-bottom: sm;
       `}
       ${isRadioGroup &&
-    css`
+      css`
         margin-bottom: md;
       `}
     }

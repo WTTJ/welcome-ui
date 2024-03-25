@@ -1,5 +1,4 @@
 import styled, { css, system, th, up } from '@wttj/xstyled-styled-components'
-import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import { cardStyles } from '@welcome-ui/utils'
 

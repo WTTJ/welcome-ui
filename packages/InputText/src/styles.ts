@@ -8,12 +8,12 @@ export const InputText = styled.inputBox<
 >(
   ({ iconPlacement, isClearable, size, transparent, variant }) => css`
     ${defaultFieldStyles({
-    size,
-    variant,
-    transparent,
-    isClearable,
-    iconPlacement,
-  })};
+      size,
+      variant,
+      transparent,
+      isClearable,
+      iconPlacement,
+    })};
     text-overflow: ellipsis;
 
     ${system};

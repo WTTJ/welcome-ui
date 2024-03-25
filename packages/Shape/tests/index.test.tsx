@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '../../../utils/tests'
+import { render, theme } from '../../../utils/tests'
 import { Shape } from '../src'
 
 const content = 'Jungle'
@@ -48,6 +48,6 @@ describe('<Shape>', () => {
     )
     const shape = getByTestId('shape')
 
-    expect(shape).toHaveStyleRule('border-radius', '50%')
+    expect(shape).toHaveStyleRule('border-radius', theme.radii.lg)
   })
 })

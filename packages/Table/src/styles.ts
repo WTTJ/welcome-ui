@@ -1,5 +1,4 @@
 import styled, { css, th } from '@wttj/xstyled-styled-components'
-import { Box } from '@welcome-ui/box'
 
 import { TableOptions } from './index'
 

@@ -1,5 +1,4 @@
 import styled, { css, system, th } from '@wttj/xstyled-styled-components'
-import { Box } from '@welcome-ui/box'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 import { Label as WUILabel } from '@welcome-ui/label'
 import * as Ariakit from '@ariakit/react'

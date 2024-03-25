@@ -1,7 +1,6 @@
 import styled, { system, th } from '@wttj/xstyled-styled-components'
 import { Tab } from '@welcome-ui/tabs'
 import * as WUIPopover from '@welcome-ui/popover'
-import { Box } from '@welcome-ui/box'
 
 export const Popover = styled(WUIPopover.Popover)`
   background-color: ${th('defaultCards.backgroundColor')};
