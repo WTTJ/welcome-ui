@@ -93,7 +93,7 @@ export const Footer = styled.footerBox`
   ${th('modals.footer')};
 `
 
-export const FooterChildrenWrapper = styled(Box)`
+export const FooterChildrenWrapper = styled.divBox`
   ${th('modals.footer.children')};
 `
 

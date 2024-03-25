@@ -82,7 +82,7 @@ export const Drawer = styled.divBox<Pick<DrawerOptions, 'placement' | 'size'>>(
   `
 )
 
-export const Backdrop = styled.div<{
+export const Backdrop = styled.divBox<{
   hideOnInteractOutside: Ariakit.DialogProps['hideOnInteractOutside']
 }>(
   ({ hideOnInteractOutside }) => css`

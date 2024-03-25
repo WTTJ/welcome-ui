@@ -11,11 +11,11 @@ export const ArrowItem = styled.svgBox<{ $transform: string }>(
   `
 )
 
-export const Content = styled.div`
+export const Content = styled.divBox`
   ${th('popovers.content')};
 `
 
-export const Title = styled.h6`
+export const Title = styled.h6Box`
   margin: 0;
   ${th('popovers.title')};
 `

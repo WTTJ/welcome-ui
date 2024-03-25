@@ -7,7 +7,7 @@ export type StyledBadgeProps = Pick<BadgeOptions, 'disabled' | 'shape' | 'size' 
   length: number
 }
 
-export const Badge = styled.div<StyledBadgeProps & WuiProps>(
+export const Badge = styled.divBox<StyledBadgeProps & WuiProps>(
   ({ disabled, length, shape, size, variant }) => css`
     ${th('badges.default')};
     ${th(`badges.variants.${variant}`)};

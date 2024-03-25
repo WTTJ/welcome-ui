@@ -33,7 +33,7 @@ export const StyledTimePicker = styled(
   `
 )
 
-export const CustomInput = styled('div')(({ focused }: { focused: Focused }) => {
+export const CustomInput = styled.divBox(({ focused }: { focused: Focused }) => {
   return css`
     position: relative;
 
@@ -47,7 +47,7 @@ export const CustomInput = styled('div')(({ focused }: { focused: Focused }) => 
   `
 })
 
-export const CustomHeader = styled.div`
+export const CustomHeader = styled.divBox`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,7 +65,7 @@ export const CustomHeader = styled.div`
   }
 `
 
-export const Selects = styled.div`
+export const Selects = styled.divBox`
   display: flex;
   ${/* sc-selector */ StyledSelect}:first-child:not(:last-child) {
     margin-right: sm;

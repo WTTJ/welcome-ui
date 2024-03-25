@@ -20,7 +20,7 @@ const sizeOfElements = css`
   }
 `
 
-export const Iframe = styled.div`
+export const Iframe = styled.divBox`
   ${sizeOfElements};
   flex: 1;
 
@@ -53,7 +53,7 @@ export const Content = styled.divBox`
   }
 `
 
-export const Dialog = styled.div`
+export const Dialog = styled.divBox`
   ${th('modals.default')};
   position: fixed;
   inset: 0;

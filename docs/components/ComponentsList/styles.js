@@ -2,19 +2,19 @@ import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { Box } from '@welcome-ui/box'
 import { Link } from '@welcome-ui/link'
 
-export const Ul = styled.ul`
+export const Ul = styled.ulBox`
   margin: 0;
   padding: 0;
   list-style: none;
 `
 
-export const Li = styled.li`
+export const Li = styled.liBox`
   a {
     display: block;
   }
 `
 
-export const MainTitle = styled(Box)`
+export const MainTitle = styled.divBox`
   ${th('texts.subtitle-sm')};
   text-transform: uppercase;
   color: dark-300;

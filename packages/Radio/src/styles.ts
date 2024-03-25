@@ -58,14 +58,14 @@ export const Label = styled(WUILabel)`
   ${system}
 `
 
-export const Input = styled.div`
+export const Input = styled.divBox`
   flex-shrink: 0;
   position: relative;
   align-items: center;
   display: flex;
 `
 
-export const Wrapper = styled(Box)`
+export const Wrapper = styled.divBox`
   display: flex;
   align-items: flex-start;
   gap: sm;
@@ -75,7 +75,7 @@ export const Wrapper = styled(Box)`
   }
 `
 
-export const LabelWithHint = styled.div`
+export const LabelWithHint = styled.divBox`
   display: flex;
   flex-direction: column;
 `

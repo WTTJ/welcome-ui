@@ -7,7 +7,7 @@ export interface StyledFileDropProps {
   isDragReject?: boolean
 }
 
-export const FileDrop = styled('div')<StyledFileDropProps>(
+export const FileDrop = styled.divBox<StyledFileDropProps>(
   ({ disabled, isDragAccept, isDragReject }) => css`
     ${th('defaultFields.default')};
     ${th('filedrops.default')};
@@ -37,7 +37,7 @@ export const FileDrop = styled('div')<StyledFileDropProps>(
   `
 )
 
-export const FilePreview = styled.div`
+export const FilePreview = styled.divBox`
   width: 100%;
   height: 100%;
   display: flex;
@@ -46,13 +46,13 @@ export const FilePreview = styled.div`
   justify-content: center;
 `
 
-export const ImagePreview = styled.img`
+export const ImagePreview = styled.imgBox`
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
 `
 
-export const Actions = styled.div`
+export const Actions = styled.divBox`
   position: absolute;
   top: ${th.space('md')};
   right: ${th.space('md')};

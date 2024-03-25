@@ -1,5 +1,4 @@
 import styled, { css, th } from '@wttj/xstyled-styled-components'
-import { Box } from '@welcome-ui/box'
 import { Hint } from '@welcome-ui/hint'
 
 type BorderProps = {
@@ -27,7 +26,7 @@ const rangeTrack = css`
   height: ${th('space.xs')};
 `
 
-export const Slider = styled.input<BorderProps>(
+export const Slider = styled.inputBox<BorderProps>(
   ({ borderSelectorColor, disabled }) => css`
     ${th('sliders.default')};
     appearance: none;
@@ -91,7 +90,7 @@ export const Slider = styled.input<BorderProps>(
   `
 )
 
-export const RangeInput = styled.input<BorderProps>(
+export const RangeInput = styled.inputBox<BorderProps>(
   ({ borderSelectorColor, disabled }) => css`
     ${th('sliders.rangeInput')}
     appearance: none;
@@ -159,7 +158,7 @@ export const RangeInput = styled.input<BorderProps>(
   `
 )
 
-export const Track = styled(Box)(
+export const Track = styled.divBox(
   () => css`
     ${rangeTrack};
     background-color: nude-400;
@@ -170,7 +169,7 @@ type RangeProps = {
   disabled?: boolean
 }
 
-export const Range = styled(Box)<RangeProps>(
+export const Range = styled.divBox<RangeProps>(
   ({ disabled }) => css`
     ${rangeTrack};
     background-color: primary-500;
@@ -183,7 +182,7 @@ export const Range = styled(Box)<RangeProps>(
   `
 )
 
-export const Thick = styled(Box)(
+export const Thick = styled.divBox(
   () => css`
     position: absolute;
 
@@ -212,7 +211,7 @@ type OutputProps = {
   isVisible?: boolean
 }
 
-export const Output = styled.output<OutputProps>(
+export const Output = styled.outputBox<OutputProps>(
   ({ isVisible }) => css`
     opacity: 0;
     visibility: hidden;
@@ -230,7 +229,7 @@ export const Output = styled.output<OutputProps>(
   `
 )
 
-export const Tooltip = styled(Box)(
+export const Tooltip = styled.divBox(
   () => css`
     ${th('sliders.output.tooltip')};
     flex: 1 1 auto;

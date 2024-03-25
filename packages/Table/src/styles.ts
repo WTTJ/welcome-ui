@@ -3,7 +3,7 @@ import { Box } from '@welcome-ui/box'
 
 import { TableOptions } from './index'
 
-export const Wrapper = styled(Box)<TableOptions>(
+export const Wrapper = styled.divBox<TableOptions>(
   ({ indent }) => css`
     overflow: hidden;
     width: 100%;
@@ -23,7 +23,7 @@ export const Wrapper = styled(Box)<TableOptions>(
   `
 )
 
-export const Content = styled.div`
+export const Content = styled.divBox`
   width: 100%;
   overflow-x: auto;
 `

@@ -1,6 +1,6 @@
 import styled, { system, th } from '@wttj/xstyled-styled-components'
 
-export const Item = styled.button`
+export const Item = styled.buttonBox`
   ${th('dropdownMenu.item')};
   display: flex;
   align-items: center;

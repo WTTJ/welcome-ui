@@ -1,15 +1,15 @@
 import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 
-export const Pagination = styled.nav(system)
+export const Pagination = styled.navBox(system)
 
-export const List = styled.ul`
+export const List = styled.ulBox`
   list-style-type: none;
   padding: 0;
   margin: 0;
 `
 
-export const Item = styled.li`
+export const Item = styled.liBox`
   display: inline-block;
   vertical-align: bottom;
   padding: 0;
@@ -20,7 +20,7 @@ export const Item = styled.li`
   }
 `
 
-export const Dots = styled.span`
+export const Dots = styled.spanBox`
   ${th('paginations.default')};
   display: flex;
   justify-content: center;
@@ -47,7 +47,7 @@ export const abstractLinkStyle = css`
   }
 `
 
-export const ArrowLink = styled.a(
+export const ArrowLink = styled.aBox(
   props => css`
     ${abstractLinkStyle};
     ${props['aria-disabled'] &&
@@ -58,7 +58,7 @@ export const ArrowLink = styled.a(
   `
 )
 
-export const PageLink = styled.a(
+export const PageLink = styled.aBox(
   props => css`
     ${abstractLinkStyle};
     ${props['aria-current'] && th('paginations.active')}

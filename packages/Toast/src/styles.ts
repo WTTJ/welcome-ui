@@ -5,7 +5,7 @@ import { Alert } from '@welcome-ui/alert'
 import { GrowlOptions } from './Growl'
 import { SnackbarOptions } from './Snackbar'
 
-export const ToastWrapper = styled(Box)<{ isBottom: boolean }>(
+export const ToastWrapper = styled.divBox<{ isBottom: boolean }>(
   ({ isBottom }) => css`
     ${th('toasts.default')}
     ${isBottom ? th('toasts.bottom') : th('toasts.top')}
@@ -33,7 +33,7 @@ export const Growl = styled(Alert)<GrowlOptions>(
   `
 )
 
-export const Title = styled(Box)(
+export const Title = styled.divBox(
   () => css`
     display: flex;
     align-items: center;

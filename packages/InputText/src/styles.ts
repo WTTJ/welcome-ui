@@ -3,7 +3,7 @@ import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { InputTextOptions } from './index'
 
-export const InputText = styled('input')<
+export const InputText = styled.inputBox<
   Pick<InputTextOptions, 'iconPlacement' | 'isClearable' | 'transparent' | 'variant' | 'size'>
 >(
   ({ iconPlacement, isClearable, size, transparent, variant }) => css`
@@ -20,6 +20,6 @@ export const InputText = styled('input')<
   `
 )
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.divBox`
   position: relative;
 `

@@ -1,7 +1,7 @@
 import styled, { system } from '@wttj/xstyled-styled-components'
 import { Text } from '@welcome-ui/text'
 
-export const Link = styled.a`
+export const Link = styled.aBox`
   opacity: 0;
   color: primary-600;
   text-decoration: none;

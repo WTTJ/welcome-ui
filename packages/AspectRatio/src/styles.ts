@@ -1,9 +1,8 @@
 import styled, { css } from '@wttj/xstyled-styled-components'
-import { Box } from '@welcome-ui/box'
 
 import { AspectRatioOptions } from '.'
 
-export const AspectRatio = styled(Box)<AspectRatioOptions>(
+export const AspectRatio = styled.divBox<AspectRatioOptions>(
   ({ ratio }) => css`
     position: relative;
 

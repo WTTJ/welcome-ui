@@ -9,7 +9,7 @@ export const VARIANTS: Record<Variant, string> = {
   warning: 'colors.warning-500',
 }
 
-export const Hint = styled.div<{ variant: Variant }>(
+export const Hint = styled.divBox<{ variant: Variant }>(
   ({ variant }) => css`
     ${th('hints')};
     color: ${th(VARIANTS[variant]) || undefined};

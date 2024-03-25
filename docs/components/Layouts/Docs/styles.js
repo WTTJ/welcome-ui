@@ -4,7 +4,7 @@ import { headerHeight } from '../../Header/styles'
 
 const navigationWidth = '16.875rem' // 270
 
-export const Navigation = styled.nav`
+export const Navigation = styled.navBox`
   display: none;
   position: fixed;
   width: ${navigationWidth};
@@ -21,7 +21,7 @@ export const Navigation = styled.nav`
   }
 `
 
-export const Content = styled.main`
+export const Content = styled.mainBox`
   width: 100%;
   min-height: ${`calc(100vh - ${headerHeight})`};
 

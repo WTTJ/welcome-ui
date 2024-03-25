@@ -2,7 +2,7 @@ import styled, { system, th } from '@wttj/xstyled-styled-components'
 import { cardStyles } from '@welcome-ui/utils'
 import { Box } from '@welcome-ui/box'
 
-export const Inner = styled(Box)`
+export const Inner = styled.divBox`
   ${cardStyles};
   ${th('dropdownMenu.inner')};
   z-index: 1;

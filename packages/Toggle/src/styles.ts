@@ -58,13 +58,13 @@ export const Toggle = styled(Ariakit.Checkbox)<ToggleOptions>(
   `
 )
 
-export const Wrapper = styled.box<{ onClick: React.MouseEventHandler<HTMLInputElement> }>`
+export const Wrapper = styled.divBox<{ onClick: React.MouseEventHandler<HTMLInputElement> }>`
   position: relative;
   display: inline-block;
   cursor: pointer;
 `
 
-export const IconWrapper = styled.box<{
+export const IconWrapper = styled.divBox<{
   checked: boolean
   size: Size
 }>(

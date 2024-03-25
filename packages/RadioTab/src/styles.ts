@@ -44,7 +44,7 @@ const rowStyles = css`
   }
 `
 
-export const Label = styled.label<
+export const Label = styled.labelBox<
   {
     checked?: boolean
     flexDirection?: WuiProps['flexDirection']
@@ -81,12 +81,12 @@ export const Label = styled.label<
   `
 )
 
-export const Input = styled.div`
+export const Input = styled.divBox`
   flex-shrink: 0;
   position: relative;
 `
 
-export const Content = styled.div`
+export const Content = styled.divBox`
   ${overflowEllipsis};
   max-width: 100%;
 `

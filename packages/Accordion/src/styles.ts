@@ -1,8 +1,7 @@
 import styled, { system, th } from '@wttj/xstyled-styled-components'
 import * as Ariakit from '@ariakit/react'
-import { Box } from '@welcome-ui/box'
 
-export const Accordion = styled.div`
+export const Accordion = styled.divBox`
   ${th('accordions.wrapper')};
   ${system}
   transition: medium;
@@ -12,7 +11,7 @@ export const Accordion = styled.div`
   }
 `
 
-export const Icon = styled(Box)`
+export const Icon = styled.divBox`
   flex-shrink: 0;
   ${th('accordions.icon')};
   transform: rotate3d(0);
@@ -78,7 +77,7 @@ export const Content = styled(Ariakit.DisclosureContent)`
   }
 `
 
-export const ContentChild = styled.div`
+export const ContentChild = styled.divBox`
   ${th('accordions.content')};
   padding: ${th('accordions.padding')};
   padding-top: 0;

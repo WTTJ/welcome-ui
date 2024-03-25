@@ -2,7 +2,7 @@ import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { LiveEditor as ReactLiveEditor, LiveError as ReactLiveError } from 'react-live'
 import { Box } from '@welcome-ui/box'
 
-export const LiveEditor = styled(Box)`
+export const LiveEditor = styled.divBox`
   position: relative;
   background-color: black;
   border: 1px solid ${th('colors.dark-200')};
@@ -52,13 +52,13 @@ export const LiveError = styled(ReactLiveError)`
   margin: sm 0 lg;
 `
 
-export const ShowEditor = styled.div`
+export const ShowEditor = styled.divBox`
   background-color: nude-200;
   padding: sm lg;
   border-top: 1px solid ${th.color('border')};
 `
 
-export const CodeContent = styled.div`
+export const CodeContent = styled.divBox`
   > * {
     &:not(:last-child) {
       margin-bottom: lg;
@@ -66,7 +66,7 @@ export const CodeContent = styled.div`
   }
 `
 
-export const CodeContentRow = styled.div`
+export const CodeContentRow = styled.divBox`
   display: flex;
   align-items: center;
   margin-bottom: -xs;

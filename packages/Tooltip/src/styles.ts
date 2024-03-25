@@ -37,7 +37,7 @@ type FadeIn = {
   fixed?: boolean
 }
 
-export const FadeIn = styled.div<FadeIn>(
+export const FadeIn = styled.divBox<FadeIn>(
   ({ fixed, placement }) => css`
     ${th('tooltips')};
     ${system};
@@ -57,6 +57,6 @@ export const FadeIn = styled.div<FadeIn>(
   `
 )
 
-export const ChildItem = styled.div`
+export const ChildItem = styled.divBox`
   display: inline-block;
 `

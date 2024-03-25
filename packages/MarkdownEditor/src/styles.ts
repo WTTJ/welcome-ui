@@ -10,7 +10,7 @@ interface ToolbarIconOptions {
   active?: boolean
 }
 
-export const Wrapper = styled('div')<{ focused: boolean } & MarkdownEditorOptions>(
+export const Wrapper = styled.divBox<{ focused: boolean } & MarkdownEditorOptions>(
   ({ disabled, focused, size, variant }) => css`
     ${easyMdeStyles};
     ${defaultFieldStyles({ size, variant })};
@@ -40,7 +40,7 @@ export const Wrapper = styled('div')<{ focused: boolean } & MarkdownEditorOption
   `
 )
 
-export const Toolbar = styled.div`
+export const Toolbar = styled.divBox`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -54,7 +54,7 @@ export const Toolbar = styled.div`
   z-index: 1;
 `
 
-export const ToolbarIcon = styled.a<ToolbarIconOptions>(
+export const ToolbarIcon = styled.aBox<ToolbarIconOptions>(
   ({ active }) => css`
     display: flex;
     align-items: center;
@@ -73,7 +73,7 @@ export const ToolbarIcon = styled.a<ToolbarIconOptions>(
   `
 )
 
-export const Divider = styled.div`
+export const Divider = styled.divBox`
   display: inline-block;
   width: 1px;
   height: 12;
@@ -81,7 +81,7 @@ export const Divider = styled.div`
   background-color: nude-600;
 `
 
-export const EmojiPicker = styled.div`
+export const EmojiPicker = styled.divBox`
   ${emojiMartStyles};
   position: absolute;
   z-index: 2;
@@ -89,7 +89,7 @@ export const EmojiPicker = styled.div`
   right: ${th('space.md')};
 `
 
-export const Actions = styled.div`
+export const Actions = styled.divBox`
   position: absolute;
   bottom: 0;
   left: 0;

@@ -16,7 +16,7 @@ type StyledFieldProps = {
   withHintText?: boolean
 }
 
-export const Field = styled('div')<StyledFieldProps>(
+export const Field = styled.divBox<StyledFieldProps>(
   ({ checked, isCheckable, isRadioGroup, withHintText }) => css`
     ${isCheckable &&
     css`
@@ -41,13 +41,13 @@ export const Field = styled('div')<StyledFieldProps>(
   `
 )
 
-export const Label = styled.div`
+export const Label = styled.divBox`
   display: flex;
   align-items: flex-start;
   gap: sm;
 `
 
-export const LabelWithHint = styled.div`
+export const LabelWithHint = styled.divBox`
   display: flex;
   flex-direction: column;
 `
@@ -57,7 +57,7 @@ type IconWrapperProps = {
   size?: FieldIconSize
 }
 
-export const IconWrapper = styled.div<IconWrapperProps>(
+export const IconWrapper = styled.divBox<IconWrapperProps>(
   ({ iconPlacement, size }) => css`
     position: absolute;
     top: 0;

@@ -5,7 +5,7 @@ import { Item } from './NavBar/styles'
 
 export const headerHeight = '3.75rem' // 60
 
-export const Header = styled.header(
+export const Header = styled.headerBox(
   ({ variant = 'black' }) => css`
     position: sticky;
     display: flex;

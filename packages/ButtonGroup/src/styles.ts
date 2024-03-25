@@ -1,6 +1,6 @@
 import styled, { system } from '@wttj/xstyled-styled-components'
 
-export const ButtonGroup = styled.div`
+export const ButtonGroup = styled.divBox`
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;

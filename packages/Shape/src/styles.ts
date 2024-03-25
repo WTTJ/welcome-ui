@@ -1,6 +1,5 @@
 import styled, { css, system } from '@wttj/xstyled-styled-components'
 import { getMax } from '@welcome-ui/utils'
-import { Box } from '@welcome-ui/box'
 
 import { ShapeOptions } from './index'
 
@@ -10,7 +9,7 @@ const shapeStyles = (w: string, h: string, shape: ShapeOptions['shape']) => css`
   border-radius: ${shape === 'circle' && '50%'};
 `
 
-export const Shape = styled(Box)<ShapeOptions>(
+export const Shape = styled.divBox<ShapeOptions>(
   ({ h, shape, w }) => css`
     position: relative;
     overflow: hidden;

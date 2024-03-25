@@ -1,6 +1,6 @@
 import styled, { system, th } from '@wttj/xstyled-styled-components'
 
-export const FieldGroup = styled('fieldset')`
+export const FieldGroup = styled.fieldsetBox`
   width: 100%;
   min-width: 0;
   min-height: 0;

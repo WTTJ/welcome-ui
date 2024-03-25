@@ -1,7 +1,7 @@
 import { Box } from '@welcome-ui/box'
 import styled, { css } from '@wttj/xstyled-styled-components'
 
-export const Content = styled(Box)`
+export const Content = styled.divBox`
   background-color: light-900;
   border-color: border;
   border-width: sm;
@@ -13,7 +13,7 @@ export const Content = styled(Box)`
   transition: medium;
 `
 
-export const Item = styled(Box)(
+export const Item = styled.divBox(
   ({ copied }) => css`
     align-items: center;
     display: flex;

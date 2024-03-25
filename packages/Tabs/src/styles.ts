@@ -28,7 +28,7 @@ export const TabList = styled(Ariakit.TabList)<{ size: SizeOptions }>(
   `
 )
 
-export const Tab = styled.button`
+export const Tab = styled.buttonBox`
   border: 0;
   background: none;
   ${th('tabs.item.default')};
@@ -94,7 +94,7 @@ const activeBarVerticalStyles = ({ offset = 0, size = 0 }) => css`
   transform: translateY(${offset}px);
 `
 
-export const ActiveBar = styled.span<ActiveBarReturn>(
+export const ActiveBar = styled.spanBox<ActiveBarReturn>(
   ({ orientation, ...rest }) => css`
     position: absolute;
     ${orientation === 'vertical' ? activeBarVerticalStyles(rest) : activeBarHorizontalStyles(rest)}

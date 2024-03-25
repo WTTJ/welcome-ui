@@ -1,6 +1,6 @@
 import styled from '@wttj/xstyled-styled-components'
 
-export const Pre = styled.pre`
+export const Pre = styled.preBox`
   font-size: sm;
   line-height: 1.5;
   font-family: texts;

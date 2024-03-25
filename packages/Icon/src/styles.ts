@@ -23,7 +23,7 @@ type StyledIconProps = Pick<IconOptions, 'size'> &
   WuiProps &
   Partial<{ alt: string; title: string }>
 
-export const Icon = styled('svg')<StyledIconProps>(({ isFlag, size = 'md', stroked, theme }) => {
+export const Icon = styled.svgBox<StyledIconProps>(({ isFlag, size = 'md', stroked, theme }) => {
   const formattedSize = theme.icons[size as keyof Theme['icons']] || size
   return css`
     ${!isFlag && (stroked ? iconSvgStrokedStyles : iconSvgFilledStyles)};

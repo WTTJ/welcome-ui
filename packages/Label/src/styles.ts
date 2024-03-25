@@ -1,6 +1,6 @@
 import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 
-export const Label = styled('label')<{
+export const Label = styled.labelBox<{
   required: boolean
 }>(
   ({ required }) => css`
@@ -39,7 +39,7 @@ export const requiredStyles = css`
   }
 `
 
-export const Disabled = styled.div`
+export const Disabled = styled.divBox`
   display: inline-flex;
   margin-right: xs;
 `

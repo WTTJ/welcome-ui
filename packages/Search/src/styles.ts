@@ -4,16 +4,16 @@ import { cardStyles, centerContent, defaultFieldStyles, overflowEllipsis } from 
 
 import { SearchOptions } from './index'
 
-export const Wrapper = styled('div')`
+export const Wrapper = styled.divBox`
   position: relative;
   ${system};
 `
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.divBox`
   position: relative;
 `
 
-export const Input = styled('input')<SearchOptions>(
+export const Input = styled.inputBox<SearchOptions>(
   ({ iconPlacement, size, transparent, variant }) => css`
     position: relative;
     ${defaultFieldStyles({ iconPlacement, size, variant, transparent, isClearable: true })};
@@ -26,7 +26,7 @@ export const Input = styled('input')<SearchOptions>(
   `
 )
 
-export const Menu = styled.ul`
+export const Menu = styled.ulBox`
   ${th('defaultFields.select.default')};
   ${cardStyles}
   position: absolute;
@@ -42,7 +42,7 @@ export const Menu = styled.ul`
   -webkit-overflow-scrolling: touch;
 `
 
-export const Item = styled.li<{
+export const Item = styled.liBox<{
   isExisting?: boolean
   isHighlighted?: boolean
   isSelected?: boolean
@@ -62,7 +62,7 @@ export const Item = styled.li<{
   `
 )
 
-export const Indicators = styled.div`
+export const Indicators = styled.divBox`
   position: absolute;
   padding: 0;
   top: 0;
@@ -71,7 +71,10 @@ export const Indicators = styled.div`
   display: flex;
 `
 
-export const DropDownIndicator = styled.button<{ size: SearchOptions['size']; isOpen?: boolean }>(
+export const DropDownIndicator = styled.buttonBox<{
+  size: SearchOptions['size']
+  isOpen?: boolean
+}>(
   ({ isOpen, size }) => css`
     position: relative;
     height: 100%;

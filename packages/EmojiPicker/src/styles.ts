@@ -58,7 +58,7 @@ export const EmojiButton = styled.buttonBox.attrs({
     }
   }
 `
-export const Tooltip = styled(Box)`
+export const Tooltip = styled.divBox`
   ${th('tooltips')};
   position: absolute;
   pointer-events: none;

@@ -149,7 +149,7 @@ export const DropDownIndicator = styled.buttonBox(
   `
 )
 
-export const Tags = styled.div`
+export const Tags = styled.divBox`
   margin-top: lg;
 
   ${/* sc-selector */ StyledTag}:not(:last-child) {
