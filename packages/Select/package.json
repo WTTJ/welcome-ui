@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/select",
-  "version": "5.13.3-alpha.0",
+  "version": "5.13.3-alpha.1",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,13 +46,13 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/clear-button": "^5.13.3-alpha.0",
-    "@welcome-ui/field": "^5.13.3-alpha.0",
-    "@welcome-ui/icon": "^5.13.3-alpha.0",
-    "@welcome-ui/icons": "^5.13.3-alpha.0",
-    "@welcome-ui/system": "^5.13.3-alpha.0",
-    "@welcome-ui/tag": "^5.13.3-alpha.0",
-    "@welcome-ui/utils": "^5.13.3-alpha.0",
+    "@welcome-ui/clear-button": "^5.13.3-alpha.1",
+    "@welcome-ui/field": "^5.13.3-alpha.1",
+    "@welcome-ui/icon": "^5.13.3-alpha.1",
+    "@welcome-ui/icons": "^5.13.3-alpha.1",
+    "@welcome-ui/system": "^5.13.3-alpha.1",
+    "@welcome-ui/tag": "^5.13.3-alpha.1",
+    "@welcome-ui/utils": "^5.13.3-alpha.1",
     "downshift": "^7.4.1",
     "match-sorter": "^6.3.1"
   },
