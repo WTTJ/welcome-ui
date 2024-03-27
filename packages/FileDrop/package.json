@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/file-drop",
-  "version": "5.13.3-alpha.0",
+  "version": "5.13.3-alpha.1",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,12 +46,12 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/button": "^5.13.3-alpha.0",
-    "@welcome-ui/files": "^5.13.3-alpha.0",
-    "@welcome-ui/icons": "^5.13.3-alpha.0",
-    "@welcome-ui/system": "^5.13.3-alpha.0",
-    "@welcome-ui/text": "^5.13.3-alpha.0",
-    "@welcome-ui/utils": "^5.13.3-alpha.0",
+    "@welcome-ui/button": "^5.13.3-alpha.1",
+    "@welcome-ui/files": "^5.13.3-alpha.1",
+    "@welcome-ui/icons": "^5.13.3-alpha.1",
+    "@welcome-ui/system": "^5.13.3-alpha.1",
+    "@welcome-ui/text": "^5.13.3-alpha.1",
+    "@welcome-ui/utils": "^5.13.3-alpha.1",
     "react-dropzone": "14.2.3"
   },
   "peerDependencies": {
