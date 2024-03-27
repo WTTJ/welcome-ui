@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
+import { ThemeContext, ThemeProvider } from '@wttj/xstyled-styled-components'
 import { TextProps } from '@welcome-ui/text'
 import toastRHT, { ToastPosition, useToaster } from 'react-hot-toast/headless'
 

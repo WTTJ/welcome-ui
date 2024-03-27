@@ -1,5 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { getVariantColor } from '@welcome-ui/utils'
 
 export interface StyledFileDropProps {
@@ -8,8 +7,8 @@ export interface StyledFileDropProps {
   isDragReject?: boolean
 }
 
-export const FileDrop = styled('div').withConfig({ shouldForwardProp })<StyledFileDropProps>(
-  ({ disabled, isDragAccept, isDragReject }) => css`
+export const FileDrop = styled.divBox(
+  ({ disabled, isDragAccept, isDragReject }: StyledFileDropProps) => css`
     ${th('defaultFields.default')};
     ${th('filedrops.default')};
     ${isDragAccept && th('filedrops.dragAccept')};
@@ -24,7 +23,6 @@ export const FileDrop = styled('div').withConfig({ shouldForwardProp })<StyledFi
     align-items: center;
     padding: md;
     transition: medium;
-    ${system};
 
     &:focus {
       ${th('defaultFields.focused.default')};
@@ -38,7 +36,7 @@ export const FileDrop = styled('div').withConfig({ shouldForwardProp })<StyledFi
   `
 )
 
-export const FilePreview = styled.div`
+export const FilePreview = styled.divBox`
   width: 100%;
   height: 100%;
   display: flex;
@@ -47,13 +45,13 @@ export const FilePreview = styled.div`
   justify-content: center;
 `
 
-export const ImagePreview = styled.img`
+export const ImagePreview = styled.imgBox`
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
 `
 
-export const Actions = styled.div`
+export const Actions = styled.divBox`
   position: absolute;
   top: ${th.space('md')};
   right: ${th.space('md')};

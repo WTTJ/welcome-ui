@@ -2,7 +2,7 @@ import React, { cloneElement } from 'react'
 import * as Ariakit from '@ariakit/react'
 import { BoxProps } from '@welcome-ui/box'
 import { As, CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { useTheme } from '@xstyled/styled-components'
+import { useTheme } from '@wttj/xstyled-styled-components'
 import { Shape, ShapeProps } from '@welcome-ui/shape'
 
 import * as S from './styles'

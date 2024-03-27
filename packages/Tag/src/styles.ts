@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
@@ -16,21 +16,28 @@ const shapeStyles = (size: Size, w: string, h: string) => css`
 `
 
 export interface StyledTagProps {
-  hasLink: boolean
-  hasClickAction: boolean
-  hasRemoveAction: boolean
-  length: number
-  size: Size
-  variant: Variant
+  $hasLink: boolean
+  $hasClickAction: boolean
+  $hasRemoveAction: boolean
+  $length: number
+  $size: Size
+  $variant: Variant
 }
 
-export const Tag = styled.div.withConfig({
-  shouldForwardProp: prop => !['hasClickAction', 'hasLink', 'hasRemoveAction'].includes(prop),
-})<StyledTagProps & WuiProps>(
-  ({ h, hasClickAction, hasLink, hasRemoveAction, length, size, variant, w }) => css`
+export const Tag = styled.divBox(
+  ({
+    $hasClickAction,
+    $hasLink,
+    $hasRemoveAction,
+    $length,
+    $size,
+    $variant,
+    h,
+    w,
+  }: StyledTagProps & WuiProps) => css`
     ${th('tags.default')};
-    ${th(`tags.variants.${variant}`)};
-    ${th(`tags.sizes.${size}`)}
+    ${th(`tags.variants.${$variant}`)};
+    ${th(`tags.sizes.${$size}`)}
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -40,31 +47,30 @@ export const Tag = styled.div.withConfig({
     transition: medium;
     max-width: 100%;
     ${overflowEllipsis}
-    ${system}
-    ${length !== 1 &&
+    ${$length !== 1 &&
     css`
       span,
       p {
         ${overflowEllipsis}
       }
     `}
-    ${length === 1 &&
+    ${$length === 1 &&
     css`
       justify-content: center;
-      ${shapeStyles(size, w as string, h as string)};
+      ${shapeStyles($size, w as string, h as string)};
     `};
 
-    ${(hasLink || hasClickAction) &&
+    ${($hasLink || $hasClickAction) &&
     css`
       cursor: pointer;
       text-decoration: none;
 
       &:hover {
-        ${th(`tags.hover.${variant}`)};
+        ${th(`tags.hover.${$variant}`)};
       }
     `};
 
-    ${hasRemoveAction &&
+    ${$hasRemoveAction &&
     css`
       padding-right: xl;
     `}
@@ -74,8 +80,8 @@ export const Tag = styled.div.withConfig({
     }
 
     & > svg {
-      width: ${th(`tags.icon.${size}`)};
-      height: ${th(`tags.icon.${size}`)};
+      width: ${th(`tags.icon.${$size}`)};
+      height: ${th(`tags.icon.${$size}`)};
     }
 
     > *:not(:only-child) {
@@ -92,8 +98,8 @@ export const Tag = styled.div.withConfig({
   `
 )
 
-export const ActionIcon = styled.div<{ size: Size }>(
-  ({ size }) => css`
+export const ActionIcon = styled.divBox(
+  ({ size }: { size: Size }) => css`
     position: absolute;
     ${th(`tags.sizes.${size}`)};
     top: 0;
@@ -103,7 +109,7 @@ export const ActionIcon = styled.div<{ size: Size }>(
   `
 )
 
-export const Button = styled.button`
+export const Button = styled.buttonBox`
   all: unset;
   display: flex;
 `

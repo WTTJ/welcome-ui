@@ -1,4 +1,4 @@
-import { Theme } from '@xstyled/styled-components'
+import { Theme } from '@wttj/xstyled-styled-components'
 
 export function getSeededColor(colors: Theme['colors'], seed = ''): string {
   const colorKeys = Object.keys(colors).filter(color => color.startsWith('sub-'))

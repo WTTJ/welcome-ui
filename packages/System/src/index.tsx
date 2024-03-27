@@ -7,9 +7,8 @@ import {
   Props,
   style,
   SystemProps,
-} from '@xstyled/styled-components'
-import * as S from '@xstyled/styled-components'
-import { StyledConfig } from 'styled-components'
+} from '@wttj/xstyled-styled-components'
+import * as S from '@wttj/xstyled-styled-components'
 
 // Those are styles that were in v1 but not in v2
 const oldProps = compose(
@@ -57,11 +56,11 @@ const WRAPPER_PROPS = Object.freeze([
 ])
 
 /**
- * @deprecated use system from @xstyled/syled-components instead
+ * @deprecated use system from @wttj/xstyled-syled-components instead
  */
 export const system = compose<WuiSystemProps>(...SYSTEM_PROPS)
 /**
- * @deprecated use system from @xstyled/syled-components instead
+ * @deprecated use system from @wttj/xstyled-syled-components instead
  */
 export const wrapperSystem = compose<WuiWrapperSystemProps>(...WRAPPER_PROPS)
 const componentProps = system.meta.props
@@ -73,14 +72,11 @@ const componentProps = system.meta.props
   })
   .filter(Boolean)
 /**
- * @deprecated use system from @xstyled/syled-components instead
+ * @deprecated use system from @wttj/xstyled-syled-components instead
  */
 export const componentSystem = compose(...componentProps)
 
 export const filterSystemProps = (prop: string): boolean => !system.meta.props.includes(prop)
-export const shouldForwardProp: StyledConfig['shouldForwardProp'] = (prop, defaultValidatorFn) =>
-  defaultValidatorFn(prop)
-
 export type WuiOldProps = S.OpacityProps &
   S.OverflowProps &
   S.TransitionProps &

@@ -1,10 +1,9 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import * as Ariakit from '@ariakit/react'
-import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles, DefaultFieldStylesProps, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
 
-export const Radio = styled(Ariakit.Radio).withConfig({ shouldForwardProp })`
+export const Radio = styled(Ariakit.Radio)`
   position: absolute;
   top: 0;
   left: 0;
@@ -45,15 +44,18 @@ const rowStyles = css`
   }
 `
 
-export const Label = styled.label<
-  {
+export const Label = styled.labelBox(
+  ({
+    checked,
+    flexDirection,
+    size,
+    variant,
+  }: {
     checked?: boolean
     flexDirection?: WuiProps['flexDirection']
     disabled?: boolean
     disabledIcon?: React.ReactElement
-  } & DefaultFieldStylesProps
->(
-  ({ checked, flexDirection, size, variant }) => css`
+  } & DefaultFieldStylesProps) => css`
     ${th('radioTabs.default')};
     flex: 1;
     display: flex;
@@ -76,18 +78,17 @@ export const Label = styled.label<
     `};
     ${flexDirection === 'column' && columnStyles};
     ${flexDirection === 'row' && rowStyles};
-    ${system};
     padding-top: 0;
     padding-bottom: 0;
   `
 )
 
-export const Input = styled.div`
+export const Input = styled.divBox`
   flex-shrink: 0;
   position: relative;
 `
 
-export const Content = styled.div`
+export const Content = styled.divBox`
   ${overflowEllipsis};
   max-width: 100%;
 `

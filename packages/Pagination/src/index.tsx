@@ -96,7 +96,7 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
                   aria-current={iPage === page}
                   data-testid={dataTestId ? `${dataTestId}-${iPage}` : undefined}
                   href={getHref ? getHref(iPage) : ''}
-                  onClick={event => {
+                  onClick={(event: React.SyntheticEvent<HTMLAnchorElement>) => {
                     event.preventDefault()
                     onChange(iPage)
                   }}

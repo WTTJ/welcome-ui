@@ -1,10 +1,9 @@
-import styled, { css } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
+import styled, { css } from '@wttj/xstyled-styled-components'
 
 import { AspectRatioOptions } from '.'
 
-export const AspectRatio = styled(Box)<AspectRatioOptions>(
-  ({ ratio }) => css`
+export const AspectRatio = styled.divBox(
+  ({ ratio }: AspectRatioOptions) => css`
     position: relative;
 
     & > * {

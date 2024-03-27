@@ -1,5 +1,5 @@
 import React from 'react'
-import { x } from '@xstyled/styled-components'
+import { x } from '@wttj/xstyled-styled-components'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 export type BoxProps = CreateWuiProps<'div'>

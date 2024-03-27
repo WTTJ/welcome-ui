@@ -1,11 +1,11 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css } from '@wttj/xstyled-styled-components'
 import { Drawer as WUIDrawer } from '@welcome-ui/drawer'
 
 import { Item } from './NavBar/styles'
 
 export const headerHeight = '3.75rem' // 60
 
-export const Header = styled.header(
+export const Header = styled.headerBox(
   ({ variant = 'black' }) => css`
     position: sticky;
     display: flex;

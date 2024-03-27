@@ -1,4 +1,4 @@
-import { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from '@wttj/xstyled-styled-components'
 
 import { ThemeBorderWidths } from './borders'
 import { ThemeColors } from './colors'

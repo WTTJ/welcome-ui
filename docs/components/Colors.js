@@ -1,5 +1,5 @@
 import React from 'react'
-import { withTheme } from '@xstyled/styled-components'
+import { withTheme } from '@wttj/xstyled-styled-components'
 import { Card } from '@welcome-ui/card'
 import { Box } from '@welcome-ui/box'
 import { Grid } from '@welcome-ui/grid'

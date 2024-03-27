@@ -1,8 +1,7 @@
-import styled, { system, th } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
+import styled, { system, th } from '@wttj/xstyled-styled-components'
 import { cardStyles } from '@welcome-ui/utils'
 
-export const Card = styled(Box)`
+export const Card = styled.divBox`
   ${cardStyles};
   ${th('cards.default')};
   background-size: cover;
@@ -11,7 +10,7 @@ export const Card = styled(Box)`
   ${system}
 `
 
-export const Body = styled(Box)`
+export const Body = styled.divBox`
   padding: lg;
 
   ${system}

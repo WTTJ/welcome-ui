@@ -6,10 +6,10 @@ module.exports = {
       {
         ssr: true,
         topLevelImportPaths: [
-          '@xstyled/styled-components',
-          '@xstyled/styled-components/no-tags',
-          '@xstyled/styled-components/native',
-          '@xstyled/styled-components/primitives',
+          '@wttj/xstyled-styled-components',
+          '@wttj/xstyled-styled-components/no-tags',
+          '@wttj/xstyled-styled-components/native',
+          '@wttj/xstyled-styled-components/primitives',
         ],
       },
     ],

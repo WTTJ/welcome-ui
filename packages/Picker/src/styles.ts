@@ -1,8 +1,7 @@
-import styled, { system } from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import styled, { system } from '@wttj/xstyled-styled-components'
 import * as Ariakit from '@ariakit/react'
 
-export const Radio = styled(Ariakit.Radio).withConfig({ shouldForwardProp })`
+export const Radio = styled(Ariakit.Radio)`
   position: absolute;
   top: 0;
   left: 0;

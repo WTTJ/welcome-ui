@@ -1,25 +1,22 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
-import { shouldForwardProp } from '@welcome-ui/system'
 import { cardStyles, centerContent, defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 
 import { SearchOptions } from './index'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })`
-  position: relative;
-  ${system};
-`
-
-export const InputWrapper = styled.div`
+export const Wrapper = styled.divBox`
   position: relative;
 `
 
-export const Input = styled('input').withConfig({ shouldForwardProp })<SearchOptions>(
-  ({ iconPlacement, size, transparent, variant }) => css`
+export const InputWrapper = styled.divBox`
+  position: relative;
+`
+
+export const Input = styled.inputBox(
+  ({ iconPlacement, size, transparent, variant }: SearchOptions) => css`
     position: relative;
     ${defaultFieldStyles({ iconPlacement, size, variant, transparent, isClearable: true })};
     ${overflowEllipsis};
-    ${system};
 
     br {
       display: none;
@@ -27,7 +24,7 @@ export const Input = styled('input').withConfig({ shouldForwardProp })<SearchOpt
   `
 )
 
-export const Menu = styled.ul`
+export const Menu = styled.ulBox`
   ${th('defaultFields.select.default')};
   ${cardStyles}
   position: absolute;
@@ -43,12 +40,16 @@ export const Menu = styled.ul`
   -webkit-overflow-scrolling: touch;
 `
 
-export const Item = styled.li<{
-  isExisting?: boolean
-  isHighlighted?: boolean
-  isSelected?: boolean
-}>(
-  ({ isExisting, isHighlighted, isSelected }) => css`
+export const Item = styled.liBox(
+  ({
+    isExisting,
+    isHighlighted,
+    isSelected,
+  }: {
+    isExisting?: boolean
+    isHighlighted?: boolean
+    isSelected?: boolean
+  }) => css`
     color: nude-700;
     ${isHighlighted && th('defaultFields.select.highlighted')};
     ${isSelected && th('defaultFields.select.selected')};
@@ -63,7 +64,7 @@ export const Item = styled.li<{
   `
 )
 
-export const Indicators = styled.div`
+export const Indicators = styled.divBox`
   position: absolute;
   padding: 0;
   top: 0;
@@ -72,8 +73,8 @@ export const Indicators = styled.div`
   display: flex;
 `
 
-export const DropDownIndicator = styled.button<{ size: SearchOptions['size']; isOpen?: boolean }>(
-  ({ isOpen, size }) => css`
+export const DropDownIndicator = styled.buttonBox(
+  ({ isOpen, size }: { size: SearchOptions['size']; isOpen?: boolean }) => css`
     position: relative;
     height: 100%;
     width: ${th(`defaultFields.sizes.${size}.height`)};

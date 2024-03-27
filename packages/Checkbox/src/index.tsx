@@ -1,6 +1,7 @@
 import React from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { DefaultFieldStylesProps } from '@welcome-ui/utils'
+import { Theme } from '@wttj/xstyled-styled-components'
 
 import * as S from './styles'
 
@@ -11,6 +12,7 @@ export interface CheckboxOptions extends DefaultFieldStylesProps {
   indeterminate?: boolean
   name?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  theme?: Theme
 }
 
 export type CheckboxProps = CreateWuiProps<'input', CheckboxOptions>
@@ -37,11 +39,11 @@ export const Checkbox = forwardRef<'input', CheckboxProps>(
 
     return (
       <Component
+        $indeterminate={indeterminate}
         checked={checked}
         data-testid={dataTestId}
         disabled={disabled}
         id={name}
-        indeterminate={indeterminate}
         name={name}
         onChange={handleChange}
         ref={ref}

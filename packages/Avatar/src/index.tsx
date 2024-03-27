@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { Box } from '@welcome-ui/box'
 import { ShapeOptions } from '@welcome-ui/shape'
-import { Theme, useTheme } from '@xstyled/styled-components'
+import { Theme, useTheme } from '@wttj/xstyled-styled-components'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import { getInitials as defaultGetInitials, getSeededColor } from './utils'

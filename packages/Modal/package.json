@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/modal",
-  "version": "5.13.1",
+  "version": "5.13.3-alpha.1",
   "description": "Modal from Ariakit with a really nice theme 👀",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -49,20 +49,20 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.3",
-    "@welcome-ui/box": "^5.12.0",
-    "@welcome-ui/button": "^5.13.0",
-    "@welcome-ui/close-button": "^5.13.0",
-    "@welcome-ui/icons.font": "^5.12.0",
-    "@welcome-ui/shape": "^5.12.0",
-    "@welcome-ui/swiper": "^5.13.0",
-    "@welcome-ui/system": "^5.12.0",
-    "@welcome-ui/text": "^5.12.0",
-    "@welcome-ui/utils": "^5.12.0"
+    "@welcome-ui/box": "^5.13.3-alpha.1",
+    "@welcome-ui/button": "^5.13.3-alpha.1",
+    "@welcome-ui/close-button": "^5.13.3-alpha.1",
+    "@welcome-ui/icons.font": "^5.13.3-alpha.1",
+    "@welcome-ui/shape": "^5.13.3-alpha.1",
+    "@welcome-ui/swiper": "^5.13.3-alpha.1",
+    "@welcome-ui/system": "^5.13.3-alpha.1",
+    "@welcome-ui/text": "^5.13.3-alpha.1",
+    "@welcome-ui/utils": "^5.13.3-alpha.1"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^3.7.3",
+    "@wttj/xstyled-styled-components": "^4.0.0",
     "react": "^18.0.0",
-    "styled-components": "^5.3.9"
+    "styled-components": "^6.1.8"
   },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
   "sideEffects": false,

@@ -1,4 +1,4 @@
-import { css, th } from '@xstyled/styled-components'
+import { css, th } from '@wttj/xstyled-styled-components'
 
 import { getVariantColor, Variant } from './variants'
 

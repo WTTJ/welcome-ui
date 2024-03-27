@@ -1,30 +1,30 @@
-import styled, { css, th, Theme } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
+import styled, { css, th, Theme } from '@wttj/xstyled-styled-components'
 import { hexToRGBA } from '@welcome-ui/utils'
 
 import { Colors } from './index'
 
 interface GradientProps {
   gradientBackground: Colors
+  theme?: Theme
 }
 
-export const StartGradient = styled.span<GradientProps>(
-  ({ gradientBackground, theme }) => css`
+export const StartGradient = styled.spanBox(
+  ({ gradientBackground, theme }: GradientProps) => css`
     left: 0;
-    background-image: ${gradient(theme as Theme, gradientBackground)};
+    background-image: ${gradient(theme, gradientBackground)};
     transform-origin: left;
   `
 )
 
-export const EndGradient = styled.span<GradientProps>(
-  ({ gradientBackground, theme }) => css`
+export const EndGradient = styled.spanBox(
+  ({ gradientBackground, theme }: GradientProps) => css`
     right: 0;
     background-image: ${gradient(theme as Theme, gradientBackground, 'left')};
     transform-origin: right;
   `
 )
 
-export const Breadcrumb = styled(Box)`
+export const Breadcrumb = styled.divBox`
   ${th('breadcrumbs.list')};
   height: 100%;
   position: relative;
@@ -39,7 +39,7 @@ export const Breadcrumb = styled(Box)`
   }
 `
 
-export const List = styled.ol`
+export const List = styled.olBox`
   display: inline-flex;
   align-items: center;
   max-width: 100%;

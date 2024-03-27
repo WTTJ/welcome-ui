@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th, Theme } from '@wttj/xstyled-styled-components'
 import { Button } from '@welcome-ui/button'
 import { CreateWuiProps } from '@welcome-ui/system'
 
@@ -15,19 +15,19 @@ const getSlideWidth = (slidesPerView = 3, spaceBetween: number, toRem: (px: numb
   return `calc(${100 / slidesPerView}% - ${spaceCss})`
 }
 
-export const Swiper = styled.div<CreateWuiProps<'div'>>`
+export const Swiper = styled.divBox<CreateWuiProps<'div'>>`
   overflow-y: hidden;
   position: relative;
   width: 100%;
   height: 100%;
-
-  ${system}
 `
 
-export const Arrow = styled(Button)<
-  { disabled: boolean } & Pick<UseSwiper, 'withNavigation' | 'withDarkUI'>
->(
-  ({ disabled, withDarkUI, withNavigation: { desktop, mobile } }) => css`
+export const Arrow = styled(Button)(
+  ({
+    disabled,
+    withDarkUI,
+    withNavigation: { desktop, mobile },
+  }: { disabled: boolean } & Pick<UseSwiper, 'withNavigation' | 'withDarkUI'>) => css`
     top: 50%;
     transform: translate3d(0, -50%, 0);
     z-index: ${mobile ? 1 : -1};
@@ -55,8 +55,8 @@ export const Arrow = styled(Button)<
   `
 )
 
-export const Pagination = styled.div<Pick<UseSwiper, 'withPagination'>>(
-  ({ withPagination: { desktop, mobile } }) => css`
+export const Pagination = styled.divBox(
+  ({ withPagination: { desktop, mobile } }: Pick<UseSwiper, 'withPagination'>) => css`
     justify-content: center;
     position: absolute;
     bottom: 0;
@@ -73,8 +73,8 @@ export const Pagination = styled.div<Pick<UseSwiper, 'withPagination'>>(
   `
 )
 
-export const Bullet = styled.div<{ active: boolean } & Pick<UseSwiper, 'withDarkUI'>>(
-  ({ active, withDarkUI }) => css`
+export const Bullet = styled.divBox(
+  ({ active, withDarkUI }: { active: boolean } & Pick<UseSwiper, 'withDarkUI'>) => css`
     height: 10;
     width: 10;
     border-radius: 50%;
@@ -85,12 +85,16 @@ export const Bullet = styled.div<{ active: boolean } & Pick<UseSwiper, 'withDark
     css`
       background-color: ${active ? 'dark-900' : 'dark-400'};
     `}
-    ${system}
   `
 )
 
-export const Container = styled.ul<Pick<UseSwiper, 'slidesPerView' | 'spaceBetween' | 'fullWidth'>>(
-  ({ fullWidth, slidesPerView: { desktop, mobile, tablet }, spaceBetween, theme }) => {
+export const Container = styled.ulBox(
+  ({
+    fullWidth,
+    slidesPerView: { desktop, mobile, tablet },
+    spaceBetween,
+    theme,
+  }: Pick<UseSwiper, 'slidesPerView' | 'spaceBetween' | 'fullWidth'> & { theme: Theme }) => {
     return css`
       scroll-snap-type: x mandatory;
       display: flex;

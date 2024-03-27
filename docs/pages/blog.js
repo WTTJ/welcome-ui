@@ -11,7 +11,7 @@ import { Link } from '@welcome-ui/link'
 import { Tag } from '@welcome-ui/tag'
 import { Stack } from '@welcome-ui/stack'
 import { RightIcon } from '@welcome-ui/icons'
-import styled, { th } from '@xstyled/styled-components'
+import styled, { th } from '@wttj/xstyled-styled-components'
 import { Avatar } from '@welcome-ui/avatar'
 
 const posts = [

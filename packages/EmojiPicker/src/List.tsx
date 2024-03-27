@@ -3,7 +3,7 @@ import { InputText } from '@welcome-ui/input-text'
 import { FixedSizeList, ListChildComponentProps } from 'react-window'
 import { Text } from '@welcome-ui/text'
 import { Box } from '@welcome-ui/box'
-import { Emoji, getEmojiName } from '@welcome-ui/emoji'
+import { getEmojiName, Emoji as WUIEmoji } from '@welcome-ui/emoji'
 import { SearchIcon } from '@welcome-ui/icons'
 import { useIsomorphicLayoutEffect } from '@welcome-ui/utils'
 import debounce from 'lodash.debounce'
@@ -331,7 +331,7 @@ const EmojiRow: React.FC<EmojiRowProps> = ({ data, index, style }) => {
             type="button"
             w={`${100 / NB_EMOJIS_PER_ROW}%`}
           >
-            <Emoji emoji={emojiImage} />
+            <WUIEmoji emoji={emojiImage} />
           </S.EmojiButton>
         )
       })}

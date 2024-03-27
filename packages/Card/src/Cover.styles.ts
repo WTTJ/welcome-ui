@@ -1,4 +1,4 @@
-import styled, { system, th } from '@xstyled/styled-components'
+import styled, { system, th } from '@wttj/xstyled-styled-components'
 import { Shape } from '@welcome-ui/shape'
 
 export const Cover = styled(Shape)`

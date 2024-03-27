@@ -1,4 +1,4 @@
-import styled, { th } from '@xstyled/styled-components'
+import styled, { th } from '@wttj/xstyled-styled-components'
 
 export const Item = styled.aBox`
   ${th('breadcrumbs.item.default')};
@@ -20,7 +20,7 @@ export const Item = styled.aBox`
   }
 `
 
-export const Separator = styled.span`
+export const Separator = styled.spanBox`
   ${th('breadcrumbs.separator')};
   display: flex;
   align-items: center;

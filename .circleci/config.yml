@@ -28,6 +28,11 @@ jobs:
     steps:
       - restore_cache:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: set up auth for npm (private) packages
+          command: |
+            echo "@wttj:registry=https://npm.pkg.github.com/" > ~/welcome-ui/.npmrc
+            echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> ~/welcome-ui/.npmrc
       - run: yarn install
       - store_artifacts:
           path: yarn.lock
@@ -215,6 +220,8 @@ workflows:
           filters:
             tags:
               only: /.*/
+          context:
+            - github
           requires:
             - checkout
       - vulnerabilities_yarn:

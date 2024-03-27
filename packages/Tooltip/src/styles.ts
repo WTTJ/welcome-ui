@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 
 import { TooltipProps } from './index'
 
@@ -37,8 +37,8 @@ type FadeIn = {
   fixed?: boolean
 }
 
-export const FadeIn = styled.div<FadeIn>(
-  ({ fixed, placement }) => css`
+export const FadeIn = styled.divBox(
+  ({ fixed, placement }: FadeIn) => css`
     ${th('tooltips')};
     ${system};
     transition: opacity ${th.transition('medium')}, transform ${th.transition('medium')},
@@ -57,6 +57,6 @@ export const FadeIn = styled.div<FadeIn>(
   `
 )
 
-export const ChildItem = styled.div`
+export const ChildItem = styled.divBox`
   display: inline-block;
 `

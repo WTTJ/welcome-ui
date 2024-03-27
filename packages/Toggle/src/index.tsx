@@ -8,7 +8,13 @@ type Size = 'xs' | 'sm' | 'md'
 
 export type ToggleOptions = Omit<
   CheckboxProps,
-  'Component' | 'iconPlacement' | 'indeterminate' | 'hasIcon' | 'transparent' | 'isClearable'
+  | 'Component'
+  | 'iconPlacement'
+  | 'indeterminate'
+  | 'hasIcon'
+  | 'transparent'
+  | 'isClearable'
+  | 'theme'
 > & {
   checkedIcon?: JSX.Element
   uncheckedIcon?: JSX.Element

@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 
 import { TextOptions } from './index'
 
@@ -9,6 +9,16 @@ const MOBILE_VARIANTS = {
   h3: 'h4',
   h4: 'h5',
   h5: 'h6',
+}
+
+const lineHeightHeadingsFixer = {
+  h0: 0.825,
+  h1: 0.75,
+  h2: 0.825,
+  h3: 1.075,
+  h4: 1,
+  h5: 0.9,
+  h6: 0.9,
 }
 
 const getBlockHeight = (lines: number) => css`
@@ -23,7 +33,18 @@ const getBlockHeight = (lines: number) => css`
   word-break: ${lines === 1 ? 'break-all' : null};
 `
 
-export const Text = styled.p<TextOptions>(({ lines, variant }) => {
+const fixLineHeightStyles = (variant: TextOptions['variant']) => css`
+  & {
+    line-height: ${lineHeightHeadingsFixer[variant as keyof typeof lineHeightHeadingsFixer]};
+  }
+
+  &::before {
+    content: '';
+    vertical-align: text-bottom;
+  }
+`
+
+export const Text = styled.pBox(({ lines, variant }: TextOptions) => {
   const mobileVariant = MOBILE_VARIANTS[variant as keyof typeof MOBILE_VARIANTS]
 
   return css`
@@ -39,6 +60,9 @@ export const Text = styled.p<TextOptions>(({ lines, variant }) => {
       ${system};
     }
 
-    ${system};
+    ${lines &&
+    lines !== Infinity &&
+    Object.keys(lineHeightHeadingsFixer).includes(variant) &&
+    fixLineHeightStyles(variant)};
   `
 })

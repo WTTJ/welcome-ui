@@ -1,8 +1,7 @@
-import styled, { css, th } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { Hint } from '@welcome-ui/hint'
 
-type BorderProps = {
+type BorderProps = HTMLInputElement & {
   borderSelectorColor?: string
 }
 
@@ -27,8 +26,8 @@ const rangeTrack = css`
   height: ${th('space.xs')};
 `
 
-export const Slider = styled.input<BorderProps>(
-  ({ borderSelectorColor, disabled }) => css`
+export const Slider = styled.inputBox(
+  ({ borderSelectorColor, disabled }: BorderProps) => css`
     ${th('sliders.default')};
     appearance: none;
     cursor: pointer;
@@ -91,8 +90,8 @@ export const Slider = styled.input<BorderProps>(
   `
 )
 
-export const RangeInput = styled.input<BorderProps>(
-  ({ borderSelectorColor, disabled }) => css`
+export const RangeInput = styled.inputBox(
+  ({ borderSelectorColor, disabled }: BorderProps) => css`
     ${th('sliders.rangeInput')}
     appearance: none;
     pointer-events: none;
@@ -159,7 +158,7 @@ export const RangeInput = styled.input<BorderProps>(
   `
 )
 
-export const Track = styled(Box)(
+export const Track = styled.divBox(
   () => css`
     ${rangeTrack};
     background-color: nude-400;
@@ -170,8 +169,8 @@ type RangeProps = {
   disabled?: boolean
 }
 
-export const Range = styled(Box)<RangeProps>(
-  ({ disabled }) => css`
+export const Range = styled.divBox(
+  ({ disabled }: RangeProps) => css`
     ${rangeTrack};
     background-color: primary-500;
 
@@ -183,7 +182,7 @@ export const Range = styled(Box)<RangeProps>(
   `
 )
 
-export const Thick = styled(Box)(
+export const Thick = styled.divBox(
   () => css`
     position: absolute;
 
@@ -212,8 +211,8 @@ type OutputProps = {
   isVisible?: boolean
 }
 
-export const Output = styled.output<OutputProps>(
-  ({ isVisible }) => css`
+export const Output = styled.outputBox(
+  ({ isVisible }: OutputProps) => css`
     opacity: 0;
     visibility: hidden;
     transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out, transform 150ms ease-in-out;
@@ -230,7 +229,7 @@ export const Output = styled.output<OutputProps>(
   `
 )
 
-export const Tooltip = styled(Box)(
+export const Tooltip = styled.divBox(
   () => css`
     ${th('sliders.output.tooltip')};
     flex: 1 1 auto;

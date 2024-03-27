@@ -1,27 +1,27 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 import * as Ariakit from '@ariakit/react'
 
 export const Arrow = styled(Ariakit.PopoverArrow)`
   color: ${th('popovers.default.backgroundColor')};
 `
 
-export const ArrowItem = styled.svgBox<{ $transform: string }>(
-  ({ $transform }) => css`
+export const ArrowItem = styled.svgBox(
+  ({ $transform }: { $transform: string }) => css`
     transform: ${$transform};
   `
 )
 
-export const Content = styled.div`
+export const Content = styled.divBox`
   ${th('popovers.content')};
 `
 
-export const Title = styled.h6`
+export const Title = styled.h6Box`
   margin: 0;
   ${th('popovers.title')};
 `
 
-export const Popover = styled(Ariakit.Popover)<{ $withCloseButton: boolean }>(
-  ({ $withCloseButton }) => css`
+export const Popover = styled(Ariakit.Popover)(
+  ({ $withCloseButton }: { $withCloseButton: boolean }) => css`
     ${th('popovers.default')};
     outline: none;
     opacity: 0;

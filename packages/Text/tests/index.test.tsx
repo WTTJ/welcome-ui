@@ -55,7 +55,7 @@ describe('<Text>', () => {
     const text = getByTestId('text')
 
     expect(text).toHaveTextContent(longContent)
-    // check if is a div element
+    // check if is a p element
     expect(container.querySelector('p')).toBeInTheDocument()
     expect(text).toHaveStyleRule('overflow', 'hidden')
     expect(text).toHaveStyleRule('-webkit-line-clamp', '3')

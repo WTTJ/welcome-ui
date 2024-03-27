@@ -19,7 +19,7 @@ Here you'll find all the core components you need to create a delightful webapp.
 1 - Install the **peer dependencies** listed below:
 
 ```bash
-yarn add @xstyled/styled-components react styled-components
+yarn add @wttj/xstyled-styled-components react styled-components
 ```
 
 2 - Install the the **core** component and any other components you need for your webapp e.g. if you need just a button…

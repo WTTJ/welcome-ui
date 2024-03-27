@@ -1,6 +1,6 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 
-export const Link = styled.a(
+export const Link = styled.aBox(
   ({ isNext }) => css`
     ${th('texts.h5')};
     display: flex;

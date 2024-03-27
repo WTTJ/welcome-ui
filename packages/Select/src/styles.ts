@@ -1,7 +1,6 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledTag } from '@welcome-ui/tag'
-import { shouldForwardProp } from '@welcome-ui/system'
 import {
   cardStyles,
   centerContent,
@@ -12,23 +11,28 @@ import {
 
 import { SelectOptions } from './index'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })`
-  position: relative;
-  ${system}
-`
-
-export const InputWrapper = styled.div`
+export const Wrapper = styled.divBox`
   position: relative;
 `
 
-export const Input = styled('div').withConfig({ shouldForwardProp })<{
-  iconPlacement?: 'both' | 'right'
-  isClearable?: boolean
-  size: SelectOptions['size']
-  transparent?: boolean
-  variant: SelectOptions['variant']
-}>(
-  ({ iconPlacement, isClearable, size, transparent, variant }) => css`
+export const InputWrapper = styled.divBox`
+  position: relative;
+`
+
+export const Input = styled.divBox(
+  ({
+    iconPlacement,
+    isClearable,
+    size,
+    transparent,
+    variant,
+  }: {
+    iconPlacement?: 'both' | 'right'
+    isClearable?: boolean
+    size: SelectOptions['size']
+    transparent?: boolean
+    variant: SelectOptions['variant']
+  }) => css`
     position: relative;
     ${defaultFieldStyles({
       size,
@@ -39,7 +43,6 @@ export const Input = styled('div').withConfig({ shouldForwardProp })<{
     })};
     ${overflowEllipsis};
     cursor: default;
-    ${system}
     line-height: 1em;
 
     br {
@@ -72,7 +75,7 @@ export const Input = styled('div').withConfig({ shouldForwardProp })<{
   `
 )
 
-export const Menu = styled.ul`
+export const Menu = styled.ulBox`
   ${th('defaultFields.select.default')};
   ${cardStyles};
   position: absolute;
@@ -87,7 +90,7 @@ export const Menu = styled.ul`
   -webkit-overflow-scrolling: touch;
 `
 
-export const Item = styled.li(
+export const Item = styled.liBox(
   ({
     allowUnselectFromList,
     isDisabled,
@@ -127,7 +130,7 @@ export const Indicators = styled.div(
   `
 )
 
-export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })(
+export const DropDownIndicator = styled.buttonBox(
   ({ isOpen }: { isOpen?: boolean }) => css`
     position: relative;
     height: 100%;
@@ -150,7 +153,7 @@ export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })
   `
 )
 
-export const Tags = styled.div`
+export const Tags = styled.divBox`
   margin-top: lg;
 
   ${/* sc-selector */ StyledTag}:not(:last-child) {

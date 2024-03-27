@@ -1,4 +1,4 @@
-import { css } from '@xstyled/styled-components'
+import { css } from '@wttj/xstyled-styled-components'
 
 export const datePickerStyles = css`
   .react-datepicker-popper[data-placement^='bottom'] .react-datepicker__triangle,

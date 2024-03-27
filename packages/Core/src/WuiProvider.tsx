@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider } from '@xstyled/styled-components'
+import { ThemeProvider } from '@wttj/xstyled-styled-components'
 import { HideFocusRingsRoot } from '@welcome-ui/utils'
 
 import { WuiTheme } from './theme/types'

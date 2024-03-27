@@ -1,12 +1,10 @@
-import styled, { css, th } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
-import { Alert } from '@welcome-ui/alert'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
+import { Alert, AlertProps } from '@welcome-ui/alert'
 
-import { GrowlOptions } from './Growl'
 import { SnackbarOptions } from './Snackbar'
 
-export const ToastWrapper = styled(Box)<{ isBottom: boolean }>(
-  ({ isBottom }) => css`
+export const ToastWrapper = styled.divBox(
+  ({ isBottom }: { isBottom: boolean }) => css`
     ${th('toasts.default')}
     ${isBottom ? th('toasts.bottom') : th('toasts.top')}
 
@@ -16,24 +14,22 @@ export const ToastWrapper = styled(Box)<{ isBottom: boolean }>(
   `
 )
 
-export const Growl = styled(Alert)<GrowlOptions>(
-  () => css`
-    position: relative;
-    max-width: 25rem;
-    padding: lg;
-    ${th('toasts.growls.default')};
+export const Growl = styled(Alert)<AlertProps>`
+  position: relative;
+  max-width: 25rem;
+  padding: lg;
+  ${th('toasts.growls.default')};
 
-    div:first-of-type {
-      align-self: baseline;
-    }
+  div:first-of-type {
+    align-self: baseline;
+  }
 
-    button {
-      flex-shrink: 0;
-    }
-  `
-)
+  button {
+    flex-shrink: 0;
+  }
+`
 
-export const Title = styled(Box)(
+export const Title = styled.divBox(
   () => css`
     display: flex;
     align-items: center;
@@ -46,8 +42,8 @@ export const Title = styled(Box)(
   `
 )
 
-export const Snackbar = styled(Alert)<SnackbarOptions>(
-  ({ hasCloseButton }) => css`
+export const Snackbar = styled(Alert)(
+  ({ hasCloseButton }: SnackbarOptions) => css`
     display: flex;
     align-items: center;
     padding: sm md;

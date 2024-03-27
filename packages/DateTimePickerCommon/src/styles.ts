@@ -1,9 +1,8 @@
-import styled, { css, system } from '@xstyled/styled-components'
+import styled, { css, system } from '@wttj/xstyled-styled-components'
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledButton } from '@welcome-ui/button'
 import { IconGroupWrapper, IconWrapper } from '@welcome-ui/field'
-import { shouldForwardProp } from '@welcome-ui/system'
 import { StyledSelect } from '@welcome-ui/select'
 import { defaultFieldStyles, DefaultFieldStylesProps } from '@welcome-ui/utils'
 
@@ -12,10 +11,13 @@ import { Focused } from './CustomInput'
 // Workaround to this issue: https://github.com/Hacker0x01/react-datepicker/issues/3834
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-export const StyledDatePicker = styled(ReactDatePicker.default || ReactDatePicker)<
-  DefaultFieldStylesProps & ReactDatePickerProps
->(
-  ({ iconPlacement, size, transparent, variant }) => css`
+export const StyledDatePicker = styled(ReactDatePicker.default || ReactDatePicker)(
+  ({
+    iconPlacement,
+    size,
+    transparent,
+    variant,
+  }: DefaultFieldStylesProps & ReactDatePickerProps) => css`
     ${defaultFieldStyles({ size, variant, transparent, isClearable: true, iconPlacement })};
     ${system};
   `
@@ -26,31 +28,29 @@ export const StyledTimePicker = styled(
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   ReactDatePicker.default || ReactDatePicker
-)<DefaultFieldStylesProps>(
-  ({ iconPlacement, size, transparent, variant }) => css`
+)(
+  ({ iconPlacement, size, transparent, variant }: DefaultFieldStylesProps) => css`
     ${defaultFieldStyles({ size, variant, transparent, isClearable: true, iconPlacement })};
     text-align: center;
     ${system};
   `
 )
 
-export const CustomInput = styled('div').withConfig({ shouldForwardProp })(
-  ({ focused }: { focused: Focused }) => {
-    return css`
-      position: relative;
+export const CustomInput = styled.divBox(({ focused }: { focused: Focused }) => {
+  return css`
+    position: relative;
 
-      ${IconGroupWrapper} {
-        z-index: ${focused ? 1 : null};
-      }
+    ${IconGroupWrapper} {
+      z-index: ${focused ? 1 : null};
+    }
 
-      ${IconWrapper} {
-        z-index: ${focused ? 1 : null};
-      }
-    `
-  }
-)
+    ${IconWrapper} {
+      z-index: ${focused ? 1 : null};
+    }
+  `
+})
 
-export const CustomHeader = styled.div`
+export const CustomHeader = styled.divBox`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -68,7 +68,7 @@ export const CustomHeader = styled.div`
   }
 `
 
-export const Selects = styled.div`
+export const Selects = styled.divBox`
   display: flex;
   ${/* sc-selector */ StyledSelect}:first-child:not(:last-child) {
     margin-right: sm;

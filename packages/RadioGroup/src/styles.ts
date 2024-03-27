@@ -1,15 +1,11 @@
-import styled, { css, system } from '@xstyled/styled-components'
+import styled, { css } from '@wttj/xstyled-styled-components'
 import { WuiProps } from '@welcome-ui/system'
 
-export const Radios = styled.div<{
-  flexDirection?: WuiProps['flexDirection']
-}>(
-  ({ flexDirection }) => css`
+export const Radios = styled.divBox(
+  ({ flexDirection }: { flexDirection?: WuiProps['flexDirection'] }) => css`
     display: flex;
     flex-direction: ${flexDirection};
     flex-wrap: wrap;
     gap: md;
-
-    ${system};
   `
 )
