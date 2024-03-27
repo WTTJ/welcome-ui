@@ -1,5 +1,5 @@
 import { WuiProps } from '@welcome-ui/system'
-import styled, { css, system, th } from '@wttj/xstyled-styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 
 import { BadgeOptions } from './index'
 
@@ -7,15 +7,14 @@ export type StyledBadgeProps = Pick<BadgeOptions, 'disabled' | 'shape' | 'size' 
   length: number
 }
 
-export const Badge = styled.divBox<StyledBadgeProps & WuiProps>(
-  ({ disabled, length, shape, size, variant }) => css`
+export const Badge = styled.divBox(
+  ({ disabled, length, shape, size, variant }: StyledBadgeProps & WuiProps) => css`
     ${th('badges.default')};
     ${th(`badges.variants.${variant}`)};
     ${th(`badges.sizes.${size}`)};
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    ${system};
 
     ${disabled &&
     css`

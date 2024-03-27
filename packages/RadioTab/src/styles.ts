@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@wttj/xstyled-styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import * as Ariakit from '@ariakit/react'
 import { defaultFieldStyles, DefaultFieldStylesProps, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
@@ -44,15 +44,18 @@ const rowStyles = css`
   }
 `
 
-export const Label = styled.labelBox<
-  {
+export const Label = styled.labelBox(
+  ({
+    checked,
+    flexDirection,
+    size,
+    variant,
+  }: {
     checked?: boolean
     flexDirection?: WuiProps['flexDirection']
     disabled?: boolean
     disabledIcon?: React.ReactElement
-  } & DefaultFieldStylesProps
->(
-  ({ checked, flexDirection, size, variant }) => css`
+  } & DefaultFieldStylesProps) => css`
     ${th('radioTabs.default')};
     flex: 1;
     display: flex;
@@ -75,7 +78,6 @@ export const Label = styled.labelBox<
     `};
     ${flexDirection === 'column' && columnStyles};
     ${flexDirection === 'row' && rowStyles};
-    ${system};
     padding-top: 0;
     padding-bottom: 0;
   `

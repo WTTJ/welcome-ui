@@ -14,12 +14,12 @@ const shapeStyles = (size: ButtonOptions['size'], shape: ButtonOptions['shape'] 
 `
 
 export const Button = styled(AriakitButton).withConfig({
-  shouldForwardProp: prop => {
+  shouldForwardProp: (prop: string) => {
     if (system.meta.props.includes(prop)) return false
     return true
   },
-})<ButtonOptions>(
-  ({ disabled, shape, size = 'md', variant }) => css`
+})(
+  ({ disabled, shape, size = 'md', variant }: ButtonOptions) => css`
     ${th(`buttons.${variant}`)};
     position: relative;
     display: inline-flex;

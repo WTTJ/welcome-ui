@@ -1,7 +1,7 @@
 import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { Hint } from '@welcome-ui/hint'
 
-type BorderProps = {
+type BorderProps = HTMLInputElement & {
   borderSelectorColor?: string
 }
 
@@ -26,8 +26,8 @@ const rangeTrack = css`
   height: ${th('space.xs')};
 `
 
-export const Slider = styled.inputBox<BorderProps>(
-  ({ borderSelectorColor, disabled }) => css`
+export const Slider = styled.inputBox(
+  ({ borderSelectorColor, disabled }: BorderProps) => css`
     ${th('sliders.default')};
     appearance: none;
     cursor: pointer;
@@ -90,8 +90,8 @@ export const Slider = styled.inputBox<BorderProps>(
   `
 )
 
-export const RangeInput = styled.inputBox<BorderProps>(
-  ({ borderSelectorColor, disabled }) => css`
+export const RangeInput = styled.inputBox(
+  ({ borderSelectorColor, disabled }: BorderProps) => css`
     ${th('sliders.rangeInput')}
     appearance: none;
     pointer-events: none;
@@ -169,8 +169,8 @@ type RangeProps = {
   disabled?: boolean
 }
 
-export const Range = styled.divBox<RangeProps>(
-  ({ disabled }) => css`
+export const Range = styled.divBox(
+  ({ disabled }: RangeProps) => css`
     ${rangeTrack};
     background-color: primary-500;
 
@@ -211,8 +211,8 @@ type OutputProps = {
   isVisible?: boolean
 }
 
-export const Output = styled.outputBox<OutputProps>(
-  ({ isVisible }) => css`
+export const Output = styled.outputBox(
+  ({ isVisible }: OutputProps) => css`
     opacity: 0;
     visibility: hidden;
     transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out, transform 150ms ease-in-out;

@@ -6,8 +6,8 @@ const shapeStyles = (shape: ShapeOptions['shape']) => css`
   border-radius: ${shape === 'circle' && '50%'};
 `
 
-export const Shape = styled.divBox<ShapeOptions>(
-  ({ shape }) => css`
+export const Shape = styled.divBox(
+  ({ shape }: ShapeOptions) => css`
     position: relative;
     overflow: hidden;
     display: flex;

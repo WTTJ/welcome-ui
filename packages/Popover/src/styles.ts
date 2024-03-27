@@ -5,8 +5,8 @@ export const Arrow = styled(Ariakit.PopoverArrow)`
   color: ${th('popovers.default.backgroundColor')};
 `
 
-export const ArrowItem = styled.svgBox<{ $transform: string }>(
-  ({ $transform }) => css`
+export const ArrowItem = styled.svgBox(
+  ({ $transform }: { $transform: string }) => css`
     transform: ${$transform};
   `
 )
@@ -20,8 +20,8 @@ export const Title = styled.h6Box`
   ${th('popovers.title')};
 `
 
-export const Popover = styled(Ariakit.Popover)<{ $withCloseButton: boolean }>(
-  ({ $withCloseButton }) => css`
+export const Popover = styled(Ariakit.Popover)(
+  ({ $withCloseButton }: { $withCloseButton: boolean }) => css`
     ${th('popovers.default')};
     outline: none;
     opacity: 0;

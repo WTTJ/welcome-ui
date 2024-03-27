@@ -1,4 +1,4 @@
-import styled, { css, system, th, up } from '@wttj/xstyled-styled-components'
+import styled, { css, th, up } from '@wttj/xstyled-styled-components'
 import { Text } from '@welcome-ui/text'
 import { cardStyles } from '@welcome-ui/utils'
 
@@ -6,8 +6,8 @@ import { BackdropProps } from './Assets/Backdrop'
 
 import { Size } from './index'
 
-export const Backdrop = styled.divBox<Pick<BackdropProps, 'hideOnInteractOutside'>>(
-  ({ hideOnInteractOutside }) => css`
+export const Backdrop = styled.divBox(
+  ({ hideOnInteractOutside }: Pick<BackdropProps, 'hideOnInteractOutside'>) => css`
     ${th('modals.backdrop')};
     position: fixed;
     top: 0;
@@ -16,7 +16,6 @@ export const Backdrop = styled.divBox<Pick<BackdropProps, 'hideOnInteractOutside
     bottom: 0;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
-    ${system};
 
     ${hideOnInteractOutside &&
     css`

@@ -1,4 +1,4 @@
-import styled, { system } from '@wttj/xstyled-styled-components'
+import styled from '@wttj/xstyled-styled-components'
 import { Text } from '@welcome-ui/text'
 
 export const Link = styled.aBox`
@@ -8,8 +8,6 @@ export const Link = styled.aBox`
   transition: medium;
 `
 export const Title = styled(Text)`
-  ${system};
-
   &:hover {
     ${Link} {
       opacity: 1;

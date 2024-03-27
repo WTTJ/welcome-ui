@@ -5,8 +5,8 @@ import { ToggleOptions } from './index'
 
 type Size = 'xs' | 'sm' | 'md'
 
-export const Toggle = styled(Ariakit.Checkbox)<ToggleOptions>(
-  ({ order = '-1', size }) => css`
+export const Toggle = styled(Ariakit.Checkbox)(
+  ({ order = '-1', size }: ToggleOptions) => css`
     ${th('toggles.item.default')};
     ${th(`toggles.item.sizes.${size}`)};
     position: relative;
@@ -64,11 +64,8 @@ export const Wrapper = styled.divBox<{ onClick: React.MouseEventHandler<HTMLInpu
   cursor: pointer;
 `
 
-export const IconWrapper = styled.divBox<{
-  checked: boolean
-  size: Size
-}>(
-  ({ checked, size }) => css`
+export const IconWrapper = styled.divBox(
+  ({ checked, size }: { checked: boolean; size: Size }) => css`
     position: absolute;
     z-index: 1;
     display: flex;

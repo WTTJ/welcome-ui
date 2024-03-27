@@ -6,8 +6,8 @@ import { SizeOptions } from './TabList'
 
 import { UseTabState } from '.'
 
-export const TabList = styled(Ariakit.TabList)<{ size: SizeOptions }>(
-  ({ size }) => css`
+export const TabList = styled(Ariakit.TabList)(
+  ({ size }: { size: SizeOptions }) => css`
     position: relative;
     width: 100%;
     overflow-x: auto;
@@ -72,8 +72,8 @@ export const Tab = styled.buttonBox`
   }
 `
 
-export const TabPanel = styled(Ariakit.TabPanel)<Pick<UseTabState, 'orientation'>>(
-  ({ orientation }) => css`
+export const TabPanel = styled(Ariakit.TabPanel)(
+  ({ orientation }: Pick<UseTabState, 'orientation'>) => css`
     ${orientation === 'vertical' ? th('tabs.panel.vertical') : th('tabs.panel.horizontal')};
   `
 )
@@ -94,8 +94,8 @@ const activeBarVerticalStyles = ({ offset = 0, size = 0 }) => css`
   transform: translateY(${offset}px);
 `
 
-export const ActiveBar = styled.spanBox<ActiveBarReturn>(
-  ({ orientation, ...rest }) => css`
+export const ActiveBar = styled.spanBox(
+  ({ orientation, ...rest }: ActiveBarReturn) => css`
     position: absolute;
     ${orientation === 'vertical' ? activeBarVerticalStyles(rest) : activeBarHorizontalStyles(rest)}
     will-change: width, transform;

@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@wttj/xstyled-styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { getVariantColor } from '@welcome-ui/utils'
 
 export interface StyledFileDropProps {
@@ -7,8 +7,8 @@ export interface StyledFileDropProps {
   isDragReject?: boolean
 }
 
-export const FileDrop = styled.divBox<StyledFileDropProps>(
-  ({ disabled, isDragAccept, isDragReject }) => css`
+export const FileDrop = styled.divBox(
+  ({ disabled, isDragAccept, isDragReject }: StyledFileDropProps) => css`
     ${th('defaultFields.default')};
     ${th('filedrops.default')};
     ${isDragAccept && th('filedrops.dragAccept')};
@@ -23,7 +23,6 @@ export const FileDrop = styled.divBox<StyledFileDropProps>(
     align-items: center;
     padding: md;
     transition: medium;
-    ${system};
 
     &:focus {
       ${th('defaultFields.focused.default')};

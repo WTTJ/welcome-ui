@@ -1,9 +1,7 @@
-import styled, { css, system, th } from '@wttj/xstyled-styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 
-export const Label = styled.labelBox<{
-  required: boolean
-}>(
-  ({ required }) => css`
+export const Label = styled.labelBox(
+  ({ required }: { required: boolean }) => css`
     position: relative;
     display: flex;
     flex-shrink: 0;
@@ -11,7 +9,6 @@ export const Label = styled.labelBox<{
     align-items: center;
     line-height: lg;
     ${th('labels')};
-    ${system};
     user-select: none;
 
     > * {

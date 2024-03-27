@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@wttj/xstyled-styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
@@ -24,8 +24,17 @@ export interface StyledTagProps {
   $variant: Variant
 }
 
-export const Tag = styled.divBox<StyledTagProps & WuiProps>(
-  ({ $hasClickAction, $hasLink, $hasRemoveAction, $length, $size, $variant, h, w }) => css`
+export const Tag = styled.divBox(
+  ({
+    $hasClickAction,
+    $hasLink,
+    $hasRemoveAction,
+    $length,
+    $size,
+    $variant,
+    h,
+    w,
+  }: StyledTagProps & WuiProps) => css`
     ${th('tags.default')};
     ${th(`tags.variants.${$variant}`)};
     ${th(`tags.sizes.${$size}`)}
@@ -38,7 +47,6 @@ export const Tag = styled.divBox<StyledTagProps & WuiProps>(
     transition: medium;
     max-width: 100%;
     ${overflowEllipsis}
-    ${system}
     ${$length !== 1 &&
     css`
       span,
@@ -90,8 +98,8 @@ export const Tag = styled.divBox<StyledTagProps & WuiProps>(
   `
 )
 
-export const ActionIcon = styled.divBox<{ size: Size }>(
-  ({ size }) => css`
+export const ActionIcon = styled.divBox(
+  ({ size }: { size: Size }) => css`
     position: absolute;
     ${th(`tags.sizes.${size}`)};
     top: 0;

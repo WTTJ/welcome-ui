@@ -11,8 +11,8 @@ export const Arrow = styled.divBox`
   }
 `
 
-export const ArrowItem = styled.svgBox<{ $transform: string }>(
-  ({ $transform }) => css`
+export const ArrowItem = styled.svgBox(
+  ({ $transform }: { $transform: string }) => css`
     transform: ${$transform};
   `
 )

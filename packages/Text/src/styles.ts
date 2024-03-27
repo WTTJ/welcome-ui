@@ -44,7 +44,7 @@ const fixLineHeightStyles = (variant: TextOptions['variant']) => css`
   }
 `
 
-export const Text = styled.pBox<TextOptions>(({ lines, variant }) => {
+export const Text = styled.pBox(({ lines, variant }: TextOptions) => {
   const mobileVariant = MOBILE_VARIANTS[variant as keyof typeof MOBILE_VARIANTS]
 
   return css`
@@ -52,7 +52,7 @@ export const Text = styled.pBox<TextOptions>(({ lines, variant }) => {
 
     /* Start fallback for non-webkit */
     display: block;
-    ${lines && lines !== Infinity && getBlockHeight(lines, variant)};
+    ${lines && lines !== Infinity && getBlockHeight(lines)};
     /* End fallback for non-webkit */
 
     @media (min-width: lg) {

@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@wttj/xstyled-styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledTag } from '@welcome-ui/tag'
 import {
@@ -13,21 +13,26 @@ import { SelectOptions } from './index'
 
 export const Wrapper = styled.divBox`
   position: relative;
-  ${system}
 `
 
 export const InputWrapper = styled.divBox`
   position: relative;
 `
 
-export const Input = styled.divBox<{
-  iconPlacement?: 'both' | 'right'
-  isClearable?: boolean
-  size: SelectOptions['size']
-  transparent?: boolean
-  variant: SelectOptions['variant']
-}>(
-  ({ iconPlacement, isClearable, size, transparent, variant }) => css`
+export const Input = styled.divBox(
+  ({
+    iconPlacement,
+    isClearable,
+    size,
+    transparent,
+    variant,
+  }: {
+    iconPlacement?: 'both' | 'right'
+    isClearable?: boolean
+    size: SelectOptions['size']
+    transparent?: boolean
+    variant: SelectOptions['variant']
+  }) => css`
     position: relative;
     ${defaultFieldStyles({
       size,
@@ -38,7 +43,6 @@ export const Input = styled.divBox<{
     })};
     ${overflowEllipsis};
     cursor: default;
-    ${system}
     line-height: 1em;
 
     br {

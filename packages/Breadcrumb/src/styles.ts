@@ -5,18 +5,19 @@ import { Colors } from './index'
 
 interface GradientProps {
   gradientBackground: Colors
+  theme?: Theme
 }
 
-export const StartGradient = styled.spanBox<GradientProps>(
-  ({ gradientBackground, theme }) => css`
+export const StartGradient = styled.spanBox(
+  ({ gradientBackground, theme }: GradientProps) => css`
     left: 0;
-    background-image: ${gradient(theme as Theme, gradientBackground)};
+    background-image: ${gradient(theme, gradientBackground)};
     transform-origin: left;
   `
 )
 
-export const EndGradient = styled.spanBox<GradientProps>(
-  ({ gradientBackground, theme }) => css`
+export const EndGradient = styled.spanBox(
+  ({ gradientBackground, theme }: GradientProps) => css`
     right: 0;
     background-image: ${gradient(theme as Theme, gradientBackground, 'left')};
     transform-origin: right;

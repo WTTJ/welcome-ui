@@ -7,8 +7,8 @@ import { RadioProps } from './index'
 
 /* /!\ WARNING /!\ Don't add style after pseudo selector, it won't apply because of the dynamic color injected in the fill of the content */
 
-export const Radio = styled(Ariakit.Radio)<RadioProps>(
-  ({ order = '-1', size, variant }) => css`
+export const Radio = styled(Ariakit.Radio)(
+  ({ order = '-1', size, variant }: RadioProps) => css`
     ${defaultFieldStyles({ size, variant })};
     ${th('radios.default')}
     position: relative;
@@ -54,7 +54,6 @@ export const Label = styled(WUILabel)`
   max-width: 100%;
   /** we need to reset margin-bottom from Label component */
   margin-bottom: 0 !important;
-  ${system}
 `
 
 export const Input = styled.divBox`

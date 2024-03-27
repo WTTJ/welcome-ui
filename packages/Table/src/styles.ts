@@ -2,8 +2,8 @@ import styled, { css, th } from '@wttj/xstyled-styled-components'
 
 import { TableOptions } from './index'
 
-export const Wrapper = styled.divBox<TableOptions>(
-  ({ indent }) => css`
+export const Wrapper = styled.divBox(
+  ({ indent }: TableOptions) => css`
     overflow: hidden;
     width: 100%;
 
@@ -39,8 +39,8 @@ export const Tbody = styled.tbodyBox``
 
 type Variant = 'default' | 'error' | 'warning' | 'info' | 'success' | 'clickable'
 
-export const Tr = styled.trBox<{ variant?: Variant }>(
-  ({ onClick, variant }) => css`
+export const Tr = styled.trBox(
+  ({ onClick, variant }: { variant?: Variant; onClick: () => void }) => css`
     ${th('tables.tr.default')};
     ${variant && th(`tables.tr.${variant}`)};
     ${onClick && th('tables.tr.clickable')};

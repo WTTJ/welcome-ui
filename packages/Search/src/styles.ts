@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@wttj/xstyled-styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
 import { cardStyles, centerContent, defaultFieldStyles, overflowEllipsis } from '@welcome-ui/utils'
 
@@ -6,19 +6,17 @@ import { SearchOptions } from './index'
 
 export const Wrapper = styled.divBox`
   position: relative;
-  ${system};
 `
 
 export const InputWrapper = styled.divBox`
   position: relative;
 `
 
-export const Input = styled.inputBox<SearchOptions>(
-  ({ iconPlacement, size, transparent, variant }) => css`
+export const Input = styled.inputBox(
+  ({ iconPlacement, size, transparent, variant }: SearchOptions) => css`
     position: relative;
     ${defaultFieldStyles({ iconPlacement, size, variant, transparent, isClearable: true })};
     ${overflowEllipsis};
-    ${system};
 
     br {
       display: none;
@@ -42,12 +40,16 @@ export const Menu = styled.ulBox`
   -webkit-overflow-scrolling: touch;
 `
 
-export const Item = styled.liBox<{
-  isExisting?: boolean
-  isHighlighted?: boolean
-  isSelected?: boolean
-}>(
-  ({ isExisting, isHighlighted, isSelected }) => css`
+export const Item = styled.liBox(
+  ({
+    isExisting,
+    isHighlighted,
+    isSelected,
+  }: {
+    isExisting?: boolean
+    isHighlighted?: boolean
+    isSelected?: boolean
+  }) => css`
     color: nude-700;
     ${isHighlighted && th('defaultFields.select.highlighted')};
     ${isSelected && th('defaultFields.select.selected')};
@@ -71,11 +73,8 @@ export const Indicators = styled.divBox`
   display: flex;
 `
 
-export const DropDownIndicator = styled.buttonBox<{
-  size: SearchOptions['size']
-  isOpen?: boolean
-}>(
-  ({ isOpen, size }) => css`
+export const DropDownIndicator = styled.buttonBox(
+  ({ isOpen, size }: { size: SearchOptions['size']; isOpen?: boolean }) => css`
     position: relative;
     height: 100%;
     width: ${th(`defaultFields.sizes.${size}.height`)};

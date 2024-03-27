@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@wttj/xstyled-styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { emojiMartStyles } from './emojiMartStyles'
@@ -10,8 +10,8 @@ interface ToolbarIconOptions {
   active?: boolean
 }
 
-export const Wrapper = styled.divBox<{ focused: boolean } & MarkdownEditorOptions>(
-  ({ disabled, focused, size, variant }) => css`
+export const Wrapper = styled.divBox(
+  ({ disabled, focused, size, variant }: { focused: boolean } & MarkdownEditorOptions) => css`
     ${easyMdeStyles};
     ${defaultFieldStyles({ size, variant })};
     position: relative;
@@ -36,7 +36,6 @@ export const Wrapper = styled.divBox<{ focused: boolean } & MarkdownEditorOption
     .cm-strong {
       font-weight: bold;
     }
-    ${system};
   `
 )
 
@@ -54,8 +53,8 @@ export const Toolbar = styled.divBox`
   z-index: 1;
 `
 
-export const ToolbarIcon = styled.aBox<ToolbarIconOptions>(
-  ({ active }) => css`
+export const ToolbarIcon = styled.aBox(
+  ({ active }: ToolbarIconOptions) => css`
     display: flex;
     align-items: center;
     padding: 0 xs;

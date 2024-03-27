@@ -6,8 +6,14 @@ import { CheckboxProps } from './index'
 
 /* /!\ WARNING /!\ Don't add style after pseudo selector, it won't apply because of the dynamic color injected in the fill of the content */
 
-export const Checkbox = styled(Ariakit.Checkbox)<CheckboxProps>(
-  ({ $indeterminate, order = '-1', size, theme, variant }) => css`
+export const Checkbox = styled(Ariakit.Checkbox)(
+  ({
+    $indeterminate,
+    order = '-1',
+    size,
+    theme,
+    variant,
+  }: CheckboxProps & { $indeterminate: CheckboxProps['indeterminate'] }) => css`
     ${defaultFieldStyles({ size, variant })};
     ${th('checkboxes.default')}
     position: relative;

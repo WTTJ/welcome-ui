@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@wttj/xstyled-styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { StyledLabel } from '@welcome-ui/label'
 import { FieldIconSize } from '@welcome-ui/utils'
 
@@ -10,14 +10,13 @@ const checkableFieldStyles = css`
 
 type StyledFieldProps = {
   checked?: boolean
-  flexDirection: WuiProps['flexDirection']
   isCheckable?: boolean
   isRadioGroup?: boolean
   withHintText?: boolean
 }
 
-export const Field = styled.divBox<StyledFieldProps>(
-  ({ checked, isCheckable, isRadioGroup, withHintText }) => css`
+export const Field = styled.divBox(
+  ({ checked, isCheckable, isRadioGroup, withHintText }: StyledFieldProps) => css`
     ${isCheckable &&
     css`
       input {
@@ -37,7 +36,6 @@ export const Field = styled.divBox<StyledFieldProps>(
         margin-bottom: md;
       `}
     }
-    ${system};
   `
 )
 
@@ -57,8 +55,8 @@ type IconWrapperProps = {
   size?: FieldIconSize
 }
 
-export const IconWrapper = styled.divBox<IconWrapperProps>(
-  ({ iconPlacement, size }) => css`
+export const IconWrapper = styled.divBox(
+  ({ iconPlacement, size }: IconWrapperProps) => css`
     position: absolute;
     top: 0;
     left: ${iconPlacement === 'left' ? th(`defaultFields.iconPlacement.${size}.left`) : 'auto'};
@@ -71,7 +69,6 @@ export const IconWrapper = styled.divBox<IconWrapperProps>(
     transition: medium;
     transition-timing-function: primary;
     color: dark-900;
-    ${system};
 
     /* for button action */
     & > button {

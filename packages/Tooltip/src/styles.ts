@@ -37,8 +37,8 @@ type FadeIn = {
   fixed?: boolean
 }
 
-export const FadeIn = styled.divBox<FadeIn>(
-  ({ fixed, placement }) => css`
+export const FadeIn = styled.divBox(
+  ({ fixed, placement }: FadeIn) => css`
     ${th('tooltips')};
     ${system};
     transition: opacity ${th.transition('medium')}, transform ${th.transition('medium')},

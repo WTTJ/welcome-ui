@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@wttj/xstyled-styled-components'
+import styled, { css, th } from '@wttj/xstyled-styled-components'
 import { IconOptions } from '@welcome-ui/icon'
 
 import unicodeMap from './unicode.json'
@@ -17,12 +17,12 @@ function getIconContentByName(name: StyledIconProps['name']) {
 }
 
 // stylelint-disable font-family-no-missing-generic-family-keyword
-export const Icon = styled.iBox<StyledIconProps>(
-  ({ name, size = 'md' }) => css`
+export const Icon = styled.iBox(
+  ({ name, size = 'md' }: StyledIconProps) => css`
     display: inline-block;
     font-family: icons;
     font-size: ${th(`icons.${size}`)};
-    ${system};
+
     &::before {
       content: '${getIconContentByName(name)}';
       display: block;

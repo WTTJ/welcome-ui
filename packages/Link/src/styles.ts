@@ -1,13 +1,10 @@
-import styled, { css, system, th, typography } from '@wttj/xstyled-styled-components'
+import styled, { css, th, typography } from '@wttj/xstyled-styled-components'
 import { UniversalLink } from '@welcome-ui/universal-link'
 
 import { Variant } from './index'
 
-export const Link = styled(UniversalLink)<{
-  variant: Variant
-  isExternal?: boolean
-}>(
-  ({ isExternal, variant = 'primary' }) => css`
+export const Link = styled(UniversalLink)(
+  ({ isExternal, variant = 'primary' }: { variant: Variant; isExternal?: boolean }) => css`
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -43,8 +40,6 @@ export const Link = styled(UniversalLink)<{
       }
       pointer-events: none;
     }
-
-    ${system};
 
     & > *:not(:only-child):not(:last-child) {
       margin-right: xs;

@@ -1,13 +1,14 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { CreateWuiProps, ExtraSize, forwardRef } from '@welcome-ui/system'
+import { Color, SystemProp, Theme } from '@wttj/xstyled-styled-components'
 
 import * as S from './styles'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | ExtraSize
 
 export interface LoaderOptions {
-  color?: string
+  color?: SystemProp<Color<Theme>, Theme>
   /** Predefined size xs, sm, md, lg or custom size */
   size?: Size
 }

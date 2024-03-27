@@ -1,4 +1,4 @@
-import styled, { css, keyframes, system, Theme } from '@wttj/xstyled-styled-components'
+import styled, { css, keyframes, Theme } from '@wttj/xstyled-styled-components'
 import { Shape } from '@welcome-ui/shape'
 
 import { Size } from '.'
@@ -20,16 +20,16 @@ const animationRule = css`
 
 export interface LoadingDotOptions {
   size: Size
+  theme: Theme
 }
 
-export const LoadingDot = styled(Shape)<LoadingDotOptions>(({ size, theme }) => {
+export const LoadingDot = styled(Shape)(({ size, theme }: LoadingDotOptions) => {
   const sizeValue = theme.loaders?.[size as keyof Theme['loaders']] || size
   const formattedSize = typeof sizeValue === 'number' ? theme.toRem(sizeValue) : sizeValue
   return css`
     width: ${formattedSize};
     height: ${formattedSize};
     background-color: currentColor;
-    ${system}
     ${animationRule};
     &:not(:first-child) {
       margin-left: calc(${formattedSize} / 2);

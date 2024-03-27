@@ -1,12 +1,19 @@
-import styled, { css, system } from '@wttj/xstyled-styled-components'
+import styled, { css } from '@wttj/xstyled-styled-components'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { InputTextOptions } from './index'
 
-export const InputText = styled.inputBox<
-  Pick<InputTextOptions, 'iconPlacement' | 'isClearable' | 'transparent' | 'variant' | 'size'>
->(
-  ({ iconPlacement, isClearable, size, transparent, variant }) => css`
+export const InputText = styled.inputBox(
+  ({
+    iconPlacement,
+    isClearable,
+    size,
+    transparent,
+    variant,
+  }: Pick<
+    InputTextOptions,
+    'iconPlacement' | 'isClearable' | 'transparent' | 'variant' | 'size'
+  >) => css`
     ${defaultFieldStyles({
       size,
       variant,
@@ -15,8 +22,6 @@ export const InputText = styled.inputBox<
       iconPlacement,
     })};
     text-overflow: ellipsis;
-
-    ${system};
   `
 )
 
