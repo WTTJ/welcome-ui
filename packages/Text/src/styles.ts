@@ -1,4 +1,4 @@
-import styled, { css, th } from '@wttj/xstyled-styled-components'
+import styled, { css, system, th } from '@wttj/xstyled-styled-components'
 
 import { TextOptions } from './index'
 
@@ -57,6 +57,7 @@ export const Text = styled.pBox(({ lines, variant }: TextOptions) => {
 
     @media (min-width: lg) {
       ${th(`texts.${variant}`)};
+      ${system};
     }
 
     ${lines &&
