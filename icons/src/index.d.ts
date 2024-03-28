@@ -233,6 +233,7 @@ export declare const SoundOffIcon: React.FC<IconProps>
 export declare const SoundOnIcon: React.FC<IconProps>
 export declare const SourceIcon: React.FC<IconProps>
 export declare const SpannerIcon: React.FC<IconProps>
+export declare const SparklesIcon: React.FC<IconProps>
 export declare const SquareAlertIcon: React.FC<IconProps>
 export declare const StackoverflowIcon: React.FC<IconProps>
 export declare const StackserverIcon: React.FC<IconProps>

@@ -223,6 +223,7 @@ export const wtf = [
   'puzzle_outline',
   'shield',
   'spanner',
+  'sparkles',
   'stackserver',
   'sun',
   'target',
