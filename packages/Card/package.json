@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/card",
-  "version": "5.13.3-alpha.1",
+  "version": "5.14.1-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,9 +46,9 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/shape": "^5.13.3-alpha.1",
-    "@welcome-ui/system": "^5.13.3-alpha.1",
-    "@welcome-ui/utils": "^5.13.3-alpha.1"
+    "@welcome-ui/shape": "^5.14.1-alpha.0",
+    "@welcome-ui/system": "^5.14.1-alpha.0",
+    "@welcome-ui/utils": "^5.14.1-alpha.0"
   },
   "peerDependencies": {
     "@wttj/xstyled-styled-components": "^4.0.0",
