@@ -80,12 +80,12 @@ export const useSwiper = (options: UseSwiperProps = {}) => {
       return slidesPerView.mobile
     } else if (viewportWidth <= screens.lg) {
       return slidesPerView.tablet
-    } else if (viewportWidth <= screens['4xl']) {
-      return slidesPerView.desktop
-    } else {
+    } else if (viewportWidth >= screens['4xl'] && fullWidth) {
       return slidesPerView.desktop + 2
+    } else {
+      return slidesPerView.desktop
     }
-  }, [viewportWidth, screens, slidesPerView])
+  }, [fullWidth, viewportWidth, screens, slidesPerView])
 
   return {
     centeredSlides,
