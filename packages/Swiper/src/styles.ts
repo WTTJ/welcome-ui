@@ -166,7 +166,7 @@ export const Container = styled.ul<Pick<UseSwiper, 'slidesPerView' | 'spaceBetwe
         `}
       }
 
-      @media (min-width: 1920px) {
+      @media (min-width: 4xl) {
         ${desktop &&
         fullWidth &&
         css`
