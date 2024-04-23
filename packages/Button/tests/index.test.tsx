@@ -219,4 +219,16 @@ describe('<Button />', () => {
       'font-size': theme.buttons.icon.only.md,
     })
   })
+
+  it('should have data-loading attribute', () => {
+    render(
+      <Button dataTestId="button" isLoading size="md">
+        {content}
+      </Button>
+    )
+
+    const button = screen.getByTestId('button')
+
+    expect(button).toHaveAttribute('data-loading', 'true')
+  })
 })
