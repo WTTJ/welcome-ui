@@ -1,5 +1,7 @@
 import React from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { Box } from '@welcome-ui/box'
+import { Loader } from '@welcome-ui/loader'
 
 import * as S from './styles'
 
@@ -22,6 +24,7 @@ export type Variant =
 
 export interface ButtonOptions {
   disabled?: boolean
+  isLoading?: boolean
   size?: Size
   variant?: Variant
   shape?: Shape
@@ -33,18 +36,44 @@ export type ButtonProps = CreateWuiProps<'button', ButtonOptions>
  * @tag button
  */
 export const Button = forwardRef<'button', ButtonProps>(
-  ({ children, dataTestId, disabled, size = 'md', variant = 'primary', ...rest }, ref) => (
-    <S.Button
-      data-testid={dataTestId}
-      disabled={disabled}
-      ref={ref}
-      size={size}
-      variant={disabled ? 'disabled' : variant}
-      {...rest}
-    >
-      {children}
-    </S.Button>
-  )
+  (
+    { children, dataTestId, disabled, isLoading, size = 'md', variant = 'primary', ...rest },
+    ref
+  ) => {
+    const isDisabled = disabled || isLoading
+
+    return (
+      <S.Button
+        data-loading={isLoading}
+        data-testid={dataTestId}
+        disabled={isDisabled}
+        ref={ref}
+        size={size}
+        variant={isDisabled ? 'disabled' : variant}
+        {...rest}
+      >
+        {isLoading && (
+          <div>
+            <Box
+              alignItems="center"
+              bottom={0}
+              display="flex"
+              justifyContent="center"
+              left={0}
+              m={0}
+              position="absolute"
+              right={0}
+              top={0}
+            >
+              <Loader size="xs" />
+            </Box>
+            <Box opacity="0">{children}</Box>
+          </div>
+        )}
+        {!isLoading && children}
+      </S.Button>
+    )
+  }
 )
 
 Button.displayName = 'Button'
