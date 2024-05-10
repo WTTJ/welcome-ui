@@ -9,13 +9,21 @@ import {
   overflowEllipsis,
   Size,
 } from '@welcome-ui/utils'
+import { IconWrapper as WUIIconWrapper } from '@welcome-ui/field'
 
 import { SelectOptions } from './index'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })`
-  position: relative;
-  ${system}
-`
+export const Wrapper = styled('div').withConfig({ shouldForwardProp })<{ disabled: boolean }>(
+  ({ disabled }) => css`
+    position: relative;
+    ${system}
+    ${IconWrapper} {
+      color: ${disabled ? th('defaultFields.select.disabled.color') : 'initial'};
+    }
+  `
+)
+
+export const IconWrapper = styled(WUIIconWrapper)``
 
 export const InputWrapper = styled.div`
   position: relative;
@@ -63,7 +71,7 @@ export const Input = styled('div').withConfig({ shouldForwardProp })<{
         left: 0;
         ${overflowEllipsis};
         padding: inherit;
-        opacity: 0.5;
+        ${th('defaultFields.placeholder')}
       }
       &::before {
         height: auto;
@@ -146,6 +154,10 @@ export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })
 
     &:not(:last-child) {
       width: auto;
+    }
+
+    &:disabled {
+      color: ${th('defaultFields.select.disabled.color')};
     }
   `
 )

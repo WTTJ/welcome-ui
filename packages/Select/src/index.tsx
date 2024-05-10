@@ -14,7 +14,6 @@ import {
   DefaultFieldStylesProps,
   FIELD_ICON_SIZE,
 } from '@welcome-ui/utils'
-import { IconWrapper } from '@welcome-ui/field'
 
 import {
   getInputValue,
@@ -303,7 +302,7 @@ export const Select = forwardRef<'input', SelectProps>(
                 onClick: () => setIsOpen(!isOpen),
               })}
             >
-              <DownIcon color="dark-900" size="sm" />
+              <DownIcon size="sm" />
             </S.DropDownIndicator>
           )
 
@@ -339,7 +338,7 @@ export const Select = forwardRef<'input', SelectProps>(
           const iconSize = FIELD_ICON_SIZE[size]
 
           return (
-            <S.Wrapper {...rootProps}>
+            <S.Wrapper {...rootProps} disabled={disabled}>
               <S.InputWrapper>
                 {isSearchable ? (
                   <S.Input as="input" type="text" {...inputProps} />
@@ -347,9 +346,9 @@ export const Select = forwardRef<'input', SelectProps>(
                   <S.Input {...inputProps}>{inputContent}</S.Input>
                 )}
                 {icon && (
-                  <IconWrapper iconPlacement="left" size={iconSize}>
+                  <S.IconWrapper iconPlacement="left" size={iconSize}>
                     {React.cloneElement(icon, { ...icon.props, size: iconSize })}
-                  </IconWrapper>
+                  </S.IconWrapper>
                 )}
                 <S.Indicators size={size}>
                   {isShowDeleteIcon && DeleteIcon}
