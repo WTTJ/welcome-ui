@@ -166,6 +166,7 @@ export declare const MicIcon: React.FC<IconProps>
 export declare const MicrophoneOffIcon: React.FC<IconProps>
 export declare const MicrophoneOnIcon: React.FC<IconProps>
 export declare const MicroshipIcon: React.FC<IconProps>
+export declare const MobileIcon: React.FC<IconProps>
 export declare const MoneyIcon: React.FC<IconProps>
 export declare const MoreIcon: React.FC<IconProps>
 export declare const MoreAndroidIcon: React.FC<IconProps>
@@ -255,6 +256,7 @@ export declare const TableMergeCellsIcon: React.FC<IconProps>
 export declare const TableRowAddAboveIcon: React.FC<IconProps>
 export declare const TableRowAddBelowIcon: React.FC<IconProps>
 export declare const TableRowRemoveIcon: React.FC<IconProps>
+export declare const TabletIcon: React.FC<IconProps>
 export declare const TagIcon: React.FC<IconProps>
 export declare const TargetIcon: React.FC<IconProps>
 export declare const TeepeeIcon: React.FC<IconProps>

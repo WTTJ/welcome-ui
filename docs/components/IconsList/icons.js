@@ -130,6 +130,8 @@ export const miscellaneous = [
   'star',
   'star_outline',
   'tag',
+  'tablet',
+  'mobile',
   'video_camera',
   'video_camera_2',
   'create',
