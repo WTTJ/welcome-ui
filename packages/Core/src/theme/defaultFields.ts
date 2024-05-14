@@ -37,7 +37,7 @@ export type ThemeDefaultFields = {
 }
 
 export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
-  const { borderWidths, colors, focus, fontSizes, fontWeights, radii, space, toRem } = theme
+  const { borderWidths, colors, focus, fontSizes, fontWeights, space, toRem } = theme
 
   return {
     default: {
@@ -51,7 +51,6 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
       outline: 'none',
-      borderRadius: radii.md,
     },
     sizes: {
       xs: {

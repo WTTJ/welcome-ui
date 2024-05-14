@@ -20,7 +20,7 @@ import { timingFunction, transitions } from './transitions'
 import { getUnderline } from './underline'
 import { getDefaultFields } from './defaultFields'
 import { getDefaultCards } from './defaultCards'
-import { radii } from './radii'
+import { getRadii } from './radii'
 import { borderWidths } from './borders'
 import { screens } from './screens'
 import { shadows } from './shadows'
@@ -125,7 +125,7 @@ export const createTheme = (options: Options = {}): WuiTheme => {
 
   theme.icons = getIcons(theme)
 
-  theme.radii = radii
+  theme.radii = getRadii(theme)
 
   theme.transitions = transitions
   theme.timingFunction = timingFunction
@@ -157,7 +157,7 @@ export const createTheme = (options: Options = {}): WuiTheme => {
   theme.links = getLinks(theme)
   theme.dropdownMenu = getDropdownMenu(theme)
   theme.tables = getTables(theme)
-  theme.cards = getCards(theme)
+  theme.cards = getCards()
   theme.modals = getModals(theme)
   theme.drawers = getDrawers(theme)
   theme.loaders = getLoaders(theme)

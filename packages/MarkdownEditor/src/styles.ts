@@ -23,7 +23,6 @@ export const Wrapper = styled('div').withConfig({ shouldForwardProp })<
     ${disabled && th('defaultFields.disabled')};
     height: auto;
     padding: 0;
-    border-radius: sm;
 
     .editor-statusbar {
       display: none;
