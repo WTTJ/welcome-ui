@@ -14,6 +14,7 @@ type NotificationsProps = { pauseOnHover?: boolean }
 
 type ToastOptions = {
   duration?: number
+  id?: string
   position?: ToastPosition
 }
 
@@ -58,7 +59,15 @@ export const toast = (component: JSX.Element, options?: ToastOptions) => {
     ...options,
   }
 
-  toastRHT(component, toastOptions)
+  return toastRHT(component, toastOptions)
+}
+
+export const remove = (id?: string) => {
+  toastRHT.remove(id)
+}
+
+export const dismiss = (id?: string) => {
+  toastRHT.dismiss(id)
 }
 
 /**

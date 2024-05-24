@@ -64,12 +64,16 @@ function() {
 }
 ```
 
+The `toast` function returns a unique identifier that can be used to update or remove the toast later.  
+See [Programmatically close or dismiss a toast](#programmatically%20close%20or%20dismiss%20a%20toast) for more details.
+
 ## Options
 
 The `toast` function takes a component to be displayed and an `options` object:
 
 - **position**: one of `top-left`, `top-center`, `top-right`, `bottom-left`, `bottom-center` or `bottom-right`
 - **duration**: before closing the element, in ms, with a default `7000`. It can also be set to `null` to prevent your element from closing automatically.
+- **id**: a unique identifier for the toast that can be used to update or remove it later and prevent duplicates
 
 ```jsx
 function() {
@@ -364,6 +368,24 @@ function() {
     </Button>
   )
 }
+```
+
+## Programmatically close or dismiss a toast
+
+You can close or dismiss a toast programmatically with the `dismiss` and `remove` functions.  
+Dismiss will hide the toast with a fade out animation, while remove will hide the toast immediately.
+
+```
+const toastId = toast(<Notification />)
+
+// Remove or dismiss this specific toast
+remove(toastId)
+dismiss(toastId)
+
+// Remove or dismiss all toasts
+remove()
+dismiss()
+
 ```
 
 ## Without close button on Growl or Snackbar
