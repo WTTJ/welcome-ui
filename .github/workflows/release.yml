@@ -3,7 +3,7 @@ name: Github release
 on:
   push:
     tags:
-      - "v*.*.*"
+      - 'v*.*.*'
 
 jobs:
   publish:
@@ -19,14 +19,8 @@ jobs:
       - name: Get
         id: get
         run: npx extract-changelog-release > RELEASE.md
-      - name: Pre-release
-        uses: ncipollo/release-action@v1
-        if: contains(github.ref, '-') == true
-        with:
-          bodyFile: "RELEASE.md"
-          prerelease: true
       - name: Release
         uses: ncipollo/release-action@v1
         if: contains(github.ref, '-') == false
         with:
-          bodyFile: "RELEASE.md"
+          bodyFile: 'RELEASE.md'
