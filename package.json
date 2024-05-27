@@ -34,7 +34,7 @@
     "postinstall": "husky install",
     "pre-build": "yarn icons:collect",
     "release": "yarn lerna version --conventional-commits --no-private",
-    "prerelease": "yarn lerna version --no-private --preid alpha",
+    "prerelease": "yarn lerna version --no-private --no-changelog --preid alpha",
     "start": "yarn docs:dev",
     "test": "yarn jest",
     "watch": "onchange 'packages/**/*.ts*' -e '**/dist/**' -- node -r esm scripts/watch.js {{changed}}",
