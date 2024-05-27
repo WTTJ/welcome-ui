@@ -287,5 +287,6 @@
   "x": "0xF21E",
   "sparkles": "0xF21F",
   "mobile": "0xF220",
-  "tablet": "0xF221"
+  "tablet": "0xF221",
+  "certified": "0xF222"
 }
