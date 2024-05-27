@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/password-input",
-  "version": "5.16.0",
+  "version": "5.16.1",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,9 +46,9 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/button": "^5.16.0",
-    "@welcome-ui/icons": "^5.16.0",
-    "@welcome-ui/input-text": "^5.16.0",
+    "@welcome-ui/button": "^5.16.1",
+    "@welcome-ui/icons": "^5.16.1",
+    "@welcome-ui/input-text": "^5.16.1",
     "@welcome-ui/system": "^5.12.0"
   },
   "peerDependencies": {
