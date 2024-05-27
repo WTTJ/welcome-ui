@@ -48,6 +48,7 @@ export declare const CastIcon: React.FC<IconProps>
 export declare const CastConnectedIcon: React.FC<IconProps>
 export declare const CastUnavailableIcon: React.FC<IconProps>
 export declare const CelebrateIcon: React.FC<IconProps>
+export declare const CertifiedIcon: React.FC<IconProps>
 export declare const CheckIcon: React.FC<IconProps>
 export declare const ClipboardIcon: React.FC<IconProps>
 export declare const ClockIcon: React.FC<IconProps>

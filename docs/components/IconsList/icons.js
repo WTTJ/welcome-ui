@@ -137,6 +137,7 @@ export const miscellaneous = [
   'create',
   'update',
   'success',
+  'certified',
 ]
 
 export const player = [
