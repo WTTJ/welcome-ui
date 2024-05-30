@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/tooltip",
-  "version": "5.13.2",
+  "version": "5.16.2",
   "description": "welcome-ui: A tooltip component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,8 +47,8 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.3",
-    "@welcome-ui/box": "^5.12.0",
-    "@welcome-ui/system": "^5.12.0"
+    "@welcome-ui/box": "^5.16.2",
+    "@welcome-ui/system": "^5.16.2"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",

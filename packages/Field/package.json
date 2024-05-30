@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/field",
-  "version": "5.16.1",
+  "version": "5.16.2",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,11 +46,11 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/hint": "^5.12.0",
-    "@welcome-ui/label": "^5.16.1",
-    "@welcome-ui/system": "^5.12.0",
-    "@welcome-ui/utils": "^5.12.0",
-    "@welcome-ui/variant-icon": "^5.16.1"
+    "@welcome-ui/hint": "^5.16.2",
+    "@welcome-ui/label": "^5.16.2",
+    "@welcome-ui/system": "^5.16.2",
+    "@welcome-ui/utils": "^5.16.2",
+    "@welcome-ui/variant-icon": "^5.16.2"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
