@@ -2,10 +2,12 @@ import React from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { Box } from '@welcome-ui/box'
 import { Loader } from '@welcome-ui/loader'
+import type { WuiTheme } from '@welcome-ui/core'
 
 import * as S from './styles'
 
-export type Shape = 'circle' | 'square'
+export type ShapeValues = 'circle' | 'square' | 'default'
+export type Shape = ShapeValues | Record<keyof WuiTheme['screens'], ShapeValues>
 export type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
 export type Variant =
   | 'primary'

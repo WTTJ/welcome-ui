@@ -54,6 +54,39 @@ describe('<Button />', () => {
     expect(button).toHaveStyleRule('height', theme.buttons.sizes.sm.height)
   })
 
+  it('should look like a circle', () => {
+    const theme = createTheme()
+
+    render(
+      <Button dataTestId="button" shape="circle" size="sm">
+        {content}
+      </Button>
+    )
+    const button = screen.getByTestId('button')
+
+    expect(button).toHaveStyleRule('width', theme.buttons.sizes.sm.height)
+    expect(button).toHaveStyleRule('padding', '0')
+    expect(button).toHaveStyleRule('border-radius', theme.buttons.sizes.sm.height)
+  })
+
+  it('should look like the default button', () => {
+    const theme = createTheme()
+
+    render(
+      // Disabling type check since people wui user can be wrong on the value if not using TS
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      <Button dataTestId="button" shape="wrong-value" size="sm">
+        {content}
+      </Button>
+    )
+    const button = screen.getByTestId('button')
+
+    expect(button).toHaveStyleRule('width', 'auto')
+    expect(button).toHaveStyleRule('padding', theme.buttons.sizes.sm.padding)
+    expect(button).toHaveStyleRule('border-radius', theme.buttons.primary.borderRadius)
+  })
+
   it('should have correct size', () => {
     const theme = createTheme()
 
@@ -136,6 +169,96 @@ describe('<Button />', () => {
     expect(button.tagName.toLowerCase()).toBe('a')
     expect(button).toHaveClass('wui-test')
     expect(button).toHaveAttribute('rel', 'noopener noreferrer') // added by target="_blank" on Link
+  })
+
+  it('should render width the shape prop being an object', () => {
+    const theme = createTheme()
+
+    render(
+      <Button dataTestId="button" shape={{ _: 'circle' }} size="sm">
+        {content}
+      </Button>
+    )
+
+    const button = screen.getByTestId('button')
+
+    expect(button).toHaveStyle({
+      height: theme.buttons.sizes.sm.height,
+    })
+  })
+
+  it('should render width the shape prop set as circle for md breakpoint', () => {
+    const theme = createTheme()
+    render(
+      <Button dataTestId="button" shape={{ md: 'circle' }} size="sm">
+        {content}
+      </Button>
+    )
+
+    const button = screen.getByTestId('button')
+
+    expect(button).toHaveStyleRule('width', theme.buttons.sizes.sm.height, {
+      media: `(width >= ${theme.screens.md}px)`,
+    })
+    expect(button).toHaveStyleRule('padding', '0', {
+      media: `(width >= ${theme.screens.md}px)`,
+    })
+    expect(button).toHaveStyleRule('border-radius', theme.buttons.sizes.sm.height, {
+      media: `(width >= ${theme.screens.md}px)`,
+    })
+  })
+
+  it('should render width the shape prop being and object and set as circle (using _)', () => {
+    const theme = createTheme()
+    render(
+      <Button dataTestId="button" shape={{ _: 'circle' }} size="sm">
+        {content}
+      </Button>
+    )
+
+    const button = screen.getByTestId('button')
+
+    expect(button).toHaveStyleRule('width', theme.buttons.sizes.sm.height)
+    expect(button).toHaveStyleRule('padding', '0')
+    expect(button).toHaveStyleRule('border-radius', theme.buttons.sizes.sm.height)
+  })
+
+  it('should render width the shape prop set as circle for _, then default for md and square for lg breakpoints', () => {
+    const theme = createTheme()
+    render(
+      <Button dataTestId="button" shape={{ _: 'circle', md: 'default', lg: 'square' }}>
+        {content}
+      </Button>
+    )
+
+    const button = screen.getByTestId('button')
+
+    // breakpoint '_'
+    expect(button).toHaveStyleRule('width', theme.buttons.sizes.md.height)
+    expect(button).toHaveStyleRule('padding', '0')
+    expect(button).toHaveStyleRule('border-radius', theme.buttons.sizes.md.height)
+
+    // breakpoint 'md'
+    expect(button).toHaveStyleRule('width', 'auto', {
+      media: `(width >= ${theme.screens.md}px)`,
+    })
+    expect(button).toHaveStyleRule('padding', theme.buttons.sizes.md.padding, {
+      media: `(width >= ${theme.screens.md}px)`,
+    })
+    expect(button).toHaveStyleRule('border-radius', '0', {
+      media: `(width >= ${theme.screens.md}px)`,
+    })
+
+    // breakpoint 'lg'
+    expect(button).toHaveStyleRule('width', theme.buttons.sizes.md.height, {
+      media: `(width >= ${theme.screens.lg}px)`,
+    })
+    expect(button).toHaveStyleRule('padding', '0', {
+      media: `(width >= ${theme.screens.lg}px)`,
+    })
+    expect(button).toHaveStyleRule('border-radius', '0', {
+      media: `(width >= ${theme.screens.lg}px)`,
+    })
   })
 
   it('should have correct Icon size with Icon and text', () => {

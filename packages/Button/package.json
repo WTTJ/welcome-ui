@@ -51,7 +51,8 @@
     "@welcome-ui/box": "^5.16.2",
     "@welcome-ui/loader": "^5.17.0",
     "@welcome-ui/system": "^5.16.2",
-    "@welcome-ui/utils": "^5.16.2"
+    "@welcome-ui/utils": "^5.16.2",
+    "@welcome-ui/core": "^5.16.2"
   },
   "devDependencies": {
     "@welcome-ui/icons": "^5.16.2",
