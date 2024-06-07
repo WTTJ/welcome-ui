@@ -63,6 +63,7 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
     })
 
     function translate(element: HTMLElement, value: number) {
+      if (!element) return
       element.style.transform = `scale3d(${value}, 1, 1)`
     }
 
