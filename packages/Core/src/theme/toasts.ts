@@ -14,7 +14,7 @@ export type ThemeToasts = {
 }
 
 export const getToasts = (theme: WuiTheme): ThemeToasts => {
-  const { borderWidths, colors, fontWeights, radii, space } = theme
+  const { borderWidths, colors, fontWeights, space } = theme
 
   return {
     default: {
@@ -32,7 +32,6 @@ export const getToasts = (theme: WuiTheme): ThemeToasts => {
         ...getTexts(theme).sm,
         borderWidth: borderWidths.sm,
         borderStyle: 'solid',
-        borderRadius: radii.md,
       },
       title: {
         fontWeight: fontWeights.bold,

@@ -35,7 +35,6 @@ export const Tag = styled.div.withConfig({
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: md;
     line-height: initial; /* avoid cropped font */
     transition: medium;
     max-width: 100%;

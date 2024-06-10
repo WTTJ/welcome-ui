@@ -42,11 +42,6 @@ const colors: Partial<WuiTheme['colors']> = {
 
 export const welcomeTheme: RecursivePartial<WuiTheme> = {
   colors,
-  radii: {
-    sm: '0px',
-    md: '0px',
-    lg: '0px',
-  },
   shadows: {
     sm: 'none',
     md: 'none',

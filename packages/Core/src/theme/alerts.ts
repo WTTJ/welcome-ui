@@ -15,14 +15,13 @@ export type ThemeAlerts = {
 } & Record<State, AttributesState>
 
 export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
-  const { borderWidths, colors, fontSizes, radii, space } = theme
+  const { borderWidths, colors, fontSizes, space } = theme
 
   return {
     default: {
       fontSize: fontSizes.sm,
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
-      borderRadius: radii.md,
       color: colors['dark-700'],
       backgroundColor: colors['light-900'],
       borderColor: colors['dark-100'],

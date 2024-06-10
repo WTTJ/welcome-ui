@@ -24,7 +24,7 @@ describe('<Shape>', () => {
     )
     const shape = getByTestId('shape')
 
-    expect(shape).toHaveStyleRule('border-radius', '10px')
+    expect(shape).toHaveStyleRule('border-radius', '0.5rem')
   })
 
   it('using shape with unequal width / height props should use biggest value', () => {

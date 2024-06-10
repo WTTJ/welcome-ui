@@ -13,16 +13,13 @@ export const Radio = styled(Ariakit.Radio).withConfig({ shouldForwardProp })`
 
 const columnStyles = css`
   margin-top: -${th.borderWidth('sm')};
-  border-radius: 0;
 
   &:first-of-type {
-    border-radius: md;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 
   &:last-of-type {
-    border-radius: md;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
   }
@@ -30,16 +27,13 @@ const columnStyles = css`
 
 const rowStyles = css`
   margin-left: -${th.borderWidth('sm')};
-  border-radius: 0;
 
   &:first-of-type {
-    border-radius: md;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
   &:last-of-type {
-    border-radius: md;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
