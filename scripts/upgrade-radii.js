@@ -50,7 +50,7 @@ const upgradeJsxRadii = content => {
 }
 
 const upgradeStyledRadii = content => {
-  const regex = /(border-radius):( )(2|4|8|16);/gm
+  const regex = /(border-radius):( )(2|4|8|16|2px|4px|8px|16px);/gm
 
   if (regex.test(content)) {
     const newContent = content.replaceAll(regex, cleanStyledRadiiValue)
