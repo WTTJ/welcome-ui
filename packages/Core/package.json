@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/core",
-  "version": "5.16.2",
+  "version": "5.17.0",
   "description": "welcome-ui: Core utils",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
