@@ -1,33 +1,28 @@
 import { createTheme, WuiTheme } from '@welcome-ui/core'
 
+import { formatColors } from '../../../Core/src/theme/colors'
+
 const theme = createTheme()
 
 type RecursivePartial<T> = {
   [P in keyof T]?: T[P] | RecursivePartial<T[P]>
 }
 
-export const colors = {
+export const colors = formatColors({
   ...theme.colors,
-  'light-100': theme.colors['dark-100'],
-  'light-200': theme.colors['dark-200'],
-  'light-400': theme.colors['dark-400'],
-  'light-500': theme.colors['dark-500'],
-  'light-700': theme.colors['dark-700'],
-  'light-900': theme.colors['dark-900'],
-  'dark-100': theme.colors['light-100'],
-  'dark-200': theme.colors['light-200'],
-  'dark-400': theme.colors['light-400'],
-  'dark-500': theme.colors['light-500'],
-  'dark-700': theme.colors['light-700'],
-  'dark-900': theme.colors['light-900'],
-  'nude-100': '#252B2B',
-  'nude-200': '#444E4E',
-  'nude-400': '#576060',
-  'nude-600': '#8F9595',
-  'nude-700': '#8F9595',
-  'nude-900': '#C7CACA',
-  border: theme.colors['light-200'],
-}
+  neutral: {
+    white: theme.colors.black,
+    10: 'rgba(255, 255, 255, 0.048)',
+    20: 'rgba(255, 255, 255, 0.13)',
+    30: 'rgba(255, 255, 255, 0.26)',
+    40: 'rgba(255, 255, 255, 0.405)',
+    50: 'rgba(255, 255, 255, 0.517)',
+    60: 'rgba(255, 255, 255, 0.655)',
+    70: 'rgba(255, 255, 255, 0.735)',
+    80: 'rgba(255, 255, 255, 0.85)',
+    black: theme.colors.white,
+  },
+})
 
 export const darkTheme: RecursivePartial<WuiTheme> = {
   colors,

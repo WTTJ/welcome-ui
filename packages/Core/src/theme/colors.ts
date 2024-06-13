@@ -1,3 +1,18 @@
+export function formatColors(items: { [key: string]: string | { [key: string]: string } }) {
+  Object.entries(items).reduce((colors, [colorName, colorsData]) => {
+    if (typeof colorsData === 'object') {
+      Object.keys(colorsData).map(data => {
+        const colorNameFormatted = `${colorName}-${data}`
+        return (colors[colorNameFormatted] = colorsData[data])
+      })
+    } else {
+      colors[colorName] = colorsData
+    }
+
+    return colors
+  }, {} as { [key: string]: string })
+}
+
 const palette = {
   yellow: {
     10: '#FFF9E1',
@@ -169,17 +184,6 @@ const tokens = {
   underline: palette.yellow[40],
 }
 
-export const colors = Object.entries(tokens).reduce((colors, [colorName, colorsData]) => {
-  if (typeof colorsData === 'object') {
-    Object.keys(colorsData).map(data => {
-      const colorNameFormatted = `${colorName}-${data}`
-      return (colors[colorNameFormatted] = tokens[colorName][data])
-    })
-  } else {
-    colors[colorName] = colorsData
-  }
+export const colors = formatColors(tokens)
 
-  return colors
-}, {} as { [key: string]: string })
-console.log(colors)
-export type ThemeColors = typeof colors
+export type ThemeColors = keyof typeof colors
