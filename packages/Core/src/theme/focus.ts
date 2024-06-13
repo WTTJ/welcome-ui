@@ -14,7 +14,7 @@ export const getFocus = ({ colors }: { colors: ThemeColors }) => {
   function focus(color = colors['primary-500'], transparency = 1) {
     let transformedColor = color
 
-    if (!color.startsWith('rgba')) {
+    if (!color?.startsWith('rgba')) {
       transformedColor = hexToRGBA(color, transparency)
     }
 
