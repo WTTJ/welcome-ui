@@ -49,10 +49,10 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
         lineHeight: lineHeights.md,
       },
       active: {
-        color: colors['dark-900'],
+        color: colors['neutral-black'],
       },
       focus: {
-        color: colors['dark-900'],
+        color: colors['neutral-black'],
       },
       disabled: {
         color: colors['dark-400'],
@@ -73,11 +73,11 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
     },
     activeBar: {
       horizontal: {
-        background: colors['primary-500'],
+        background: colors['primary-40'],
         height: borderWidths.md,
       },
       vertical: {
-        background: colors['primary-500'],
+        background: colors['primary-40'],
         width: borderWidths.md,
       },
     },

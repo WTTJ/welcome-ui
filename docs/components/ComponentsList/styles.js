@@ -29,14 +29,14 @@ export const Item = styled(Link)(
 
     > .wui-text {
       font-weight: regular;
-      color: dark-900 !important;
+      color: neutral-black !important;
       background-image: linear-gradient(0deg, transparent, transparent 100%) !important;
     }
 
     &:hover {
       > .wui-text {
         background-size: 100% 100% !important;
-        background-image: ${`linear-gradient(0deg, ${theme.colors['primary-500']}, ${theme.colors['primary-500']} 100%)`} !important;
+        background-image: ${`linear-gradient(0deg, ${theme.colors['primary-40']}, ${theme.colors['primary-40']} 100%)`} !important;
       }
     }
 
@@ -44,7 +44,7 @@ export const Item = styled(Link)(
       > .wui-text {
         font-weight: bold;
         background-size: 100% 100% !important;
-        background-image: ${`linear-gradient(0deg, ${theme.colors['primary-500']}, ${theme.colors['primary-500']} 100%)`} !important;
+        background-image: ${`linear-gradient(0deg, ${theme.colors['primary-40']}, ${theme.colors['primary-40']} 100%)`} !important;
       }
     }
   `

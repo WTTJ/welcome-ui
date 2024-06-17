@@ -31,7 +31,7 @@ function Layout({ children }) {
 
 export function Layouts({ children }) {
   return (
-    <Box backgroundColor="light-900">
+    <Box backgroundColor="neutral-white">
       <Header />
       <Layout>{children}</Layout>
     </Box>

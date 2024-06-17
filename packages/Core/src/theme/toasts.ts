@@ -35,7 +35,7 @@ export const getToasts = (theme: WuiTheme): ThemeToasts => {
       },
       title: {
         fontWeight: fontWeights.bold,
-        color: colors['dark-900'],
+        color: colors['neutral-black'],
       },
     },
   }

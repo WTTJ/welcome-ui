@@ -20,7 +20,7 @@ const DisplayCategoryContent = ({ category }, config = { shouldConvertToPx: fals
     <>
       {Object.entries(themeConfiguration[category]).map(([key, value], index) => (
         <Fragment key={`${key}_${index}`}>
-          <Text variant="body2" color="sub-3" fontWeight="bold" my="xs">
+          <Text variant="body2" color="secondary-red" fontWeight="bold" my="xs">
             {key}
           </Text>
           <Box display="flex" gap="md" mt="xs" my="xs">
@@ -39,7 +39,7 @@ const DisplayCategoryContent = ({ category }, config = { shouldConvertToPx: fals
               {config.unit}
             </Text>
             {config.shouldConvertToPx && (
-              <Text variant="body2" color="primary-600" fontWeight="bold" m="0">
+              <Text variant="body2" color="primary-50" fontWeight="bold" m="0">
                 /* {themeConfiguration.toPx(value.replace('rem', ''))} */
               </Text>
             )}

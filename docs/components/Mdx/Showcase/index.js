@@ -18,7 +18,7 @@ export function Showcase({
   version,
 }) {
   return (
-    <Box backgroundColor="nude-100" maxW="100% !important">
+    <Box backgroundColor="nude-20" maxW="100% !important">
       <Box m="0 auto" maxW={970} px={{ md: 'md' }} py={{ xs: 'xxl', md: '4xl' }}>
         <H1 mb="0" pb="sm" pt="0">
           {component?.split(',')?.[0]}

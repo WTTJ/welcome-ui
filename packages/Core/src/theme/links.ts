@@ -21,7 +21,7 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
 
   return {
     default: {
-      color: colors['dark-900'],
+      color: colors['neutral-black'],
       fontWeight: fontWeights.medium,
       transition: transitions.medium,
     },
@@ -38,10 +38,10 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
     },
     secondary: {
       default: {
-        backgroundImage: `linear-gradient(0deg, ${colors['dark-900']}, ${colors['dark-900']} 100%)`,
+        backgroundImage: `linear-gradient(0deg, ${colors['neutral-black']}, ${colors['neutral-black']} 100%)`,
       },
       hover: {
-        color: colors['light-900'],
+        color: colors['neutral-white'],
       },
     },
   }

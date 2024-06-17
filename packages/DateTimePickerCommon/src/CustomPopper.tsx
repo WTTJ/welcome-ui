@@ -61,14 +61,14 @@ const StyledCustomPopper = styled.div(
 
     .react-datepicker__header {
       padding: 0;
-      background-color: light-900;
+      background-color: neutral-white;
       border: none;
     }
 
     .react-datepicker__day,
     .react-datepicker__day-name,
     .react-datepicker__time-list-item {
-      color: nude-700;
+      color: nude-70;
       font-weight: regular;
     }
 
@@ -84,7 +84,7 @@ const StyledCustomPopper = styled.div(
         letter-spacing: 1px;
       }
       &--outside-month {
-        color: nude-600;
+        color: nude-60;
       }
     }
 
@@ -99,7 +99,7 @@ const StyledCustomPopper = styled.div(
       .react-datepicker__time-box
       ul.react-datepicker__time-list
       li.react-datepicker__time-list-item:hover {
-      background-color: nude-100;
+      background-color: nude-20;
     }
 
     .react-datepicker__day,

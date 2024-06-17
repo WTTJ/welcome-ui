@@ -26,11 +26,11 @@ export const Header = styled.header(
 
     ${variant === 'gray' &&
     css`
-      background-color: nude-200;
+      background-color: nude-30;
 
       ${Item} {
         opacity: 1;
-        color: dark-900;
+        color: neutral-black;
 
         &.active,
         &:hover {

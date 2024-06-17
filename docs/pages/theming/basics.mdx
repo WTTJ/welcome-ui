@@ -43,15 +43,15 @@ We expose a [theme object](https://github.com/WTTJ/welcome-ui/blob/main/packages
 
 ## Colors
 
-Customize the color on the `theme.colors` object. Colors can be used for `color`, `borderColor`, `backgroundColor`, etc. Example of a color: `dark-900`. [See more on github](https://github.com/WTTJ/welcome-ui/blob/main/packages/Core/theme/colors.ts)
+Customize the color on the `theme.colors` object. Colors can be used for `color`, `borderColor`, `backgroundColor`, etc. Example of a color: `neutral-black`. [See more on github](https://github.com/WTTJ/welcome-ui/blob/main/packages/Core/theme/colors.ts)
 
 ```
 export default {
   colors: {
     // ...
-    'primary-500': "#FF0000",
+    'primary-40': "#FF0000",
     'dark-100': "#333",
-    'dark-900': "#000",
+    'neutral-black': "#000",
     custom: "#F12345",
     // ...
   },
@@ -62,7 +62,7 @@ export default {
 
 ### Black and White
 
-<Colors colorsObject={{ black: 'dark-900', white: 'light-900' }} />
+<Colors colorsObject={{ black: 'neutral-black', white: 'neutral-white' }} />
 
 ### Gray
 
@@ -170,10 +170,10 @@ We use [screens from xstyled](https://xstyled.dev/docs/responsive-design/). Defa
   alignItems="center"
   justifyContent="center"
   textAlign="center"
-  color={{ xs: 'light-900', lg: 'dark-900' }}
+  color={{ xs: 'neutral-white', lg: 'neutral-black' }}
   fontSize={{ lg: 'h2' }}
   h={{ xs: '10rem', lg: '20rem' }}
-  backgroundColor={{ xs: 'sub-1', lg: 'primary-100' }}
+  backgroundColor={{ xs: 'secondary-blue', lg: 'primary-10' }}
 >
   Resize screen to change this Box 🌝
 </Box>

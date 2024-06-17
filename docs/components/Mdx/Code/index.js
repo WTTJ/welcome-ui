@@ -226,7 +226,7 @@ export const Code = ({
                   variant="tertiary"
                   w={25}
                 >
-                  {copied ? <Icons.CheckIcon color="success-500" /> : <Icons.CopyIcon />}
+                  {copied ? <Icons.CheckIcon color="success-50" /> : <Icons.CopyIcon />}
                 </Button>
               )}
             </S.ShowEditor>

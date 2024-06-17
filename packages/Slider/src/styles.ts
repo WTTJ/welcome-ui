@@ -162,7 +162,7 @@ export const RangeInput = styled.input<BorderProps>(
 export const Track = styled(Box)(
   () => css`
     ${rangeTrack};
-    background-color: nude-400;
+    background-color: nude-40;
   `
 )
 
@@ -173,7 +173,7 @@ type RangeProps = {
 export const Range = styled(Box)<RangeProps>(
   ({ disabled }) => css`
     ${rangeTrack};
-    background-color: primary-500;
+    background-color: primary-40;
 
     ${disabled &&
     css`

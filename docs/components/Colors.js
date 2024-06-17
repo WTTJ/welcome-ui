@@ -17,7 +17,7 @@ const getColors = (name, theme) => {
 function Wrapper({ name, theme, colorsObject }) {
   const colors = colorsObject || getColors(name, theme)
   const isLight = name === 'light'
-  const textColor = isLight && 'light-900'
+  const textColor = isLight && 'neutral-white'
 
   return (
     <Box>
@@ -26,7 +26,7 @@ function Wrapper({ name, theme, colorsObject }) {
           as={Grid}
           templateColumns="repeat(auto-fit, minmax(250px, 1fr))"
           gap="xl"
-          backgroundColor={isLight && 'dark-900'}
+          backgroundColor={isLight && 'neutral-black'}
         >
           {Object.entries(colors).map(([key, depth]) => (
             <Box display="flex" alignItems="center" key={`${name}.${key}`}>

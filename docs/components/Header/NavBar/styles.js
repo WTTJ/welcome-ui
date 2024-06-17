@@ -18,7 +18,7 @@ export const NavBar = styled.ul`
 
 const activeItem = css`
   opacity: 1;
-  color: dark-900;
+  color: neutral-black;
 
   @media (min-width: md) {
     opacity: 1;

@@ -59,7 +59,7 @@ export const Header = () => {
           aria-label="Theme information"
           w={30}
         >
-          <InformationIcon color="light-900" />
+          <InformationIcon color="neutral-white" />
         </Button>
       </Box>
       <NavBar display={{ xs: 'none', md: 'flex' }} />

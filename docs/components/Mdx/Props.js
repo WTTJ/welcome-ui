@@ -79,7 +79,7 @@ export const Props = ({ propTypes }) => {
   return (
     <Box>
       <Card mt="xxl">
-        <Card.Body color="dark-900">
+        <Card.Body color="neutral-black">
           <Table marginBottom="-lg" marginTop="-lg">
             <Table.Thead>
               <Table.Tr>
@@ -101,7 +101,7 @@ export const Props = ({ propTypes }) => {
 
                 return (
                   <Table.Tr key={key}>
-                    <Table.Td color="dark-900" fontWeight="bold" w="20%">
+                    <Table.Td color="neutral-black" fontWeight="bold" w="20%">
                       {key}
                     </Table.Td>
                     <Table.Td w="50%">

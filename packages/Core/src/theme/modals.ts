@@ -26,7 +26,7 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
       zIndex: 999,
     },
     header: {
-      backgroundColor: colors['light-900'],
+      backgroundColor: colors['neutral-white'],
       paddingTop: space.xxl,
       paddingRight: space['3xl'],
       paddingBottom: space.xxl,
@@ -38,13 +38,13 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
       },
     },
     body: {
-      color: colors['dark-900'],
+      color: colors['neutral-black'],
       paddingRight: space['3xl'],
       paddingBottom: space.xxl,
       paddingLeft: space.xxl,
     },
     footer: {
-      backgroundColor: colors['light-900'],
+      backgroundColor: colors['neutral-white'],
       borderTop: `solid ${colors.border}`,
       children: {
         paddingRight: space.xxl,
@@ -53,7 +53,7 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
         paddingBottom: space.xl,
       },
       information: {
-        backgroundColor: colors['nude-100'],
+        backgroundColor: colors['nude-20'],
         paddingRight: space.xxl,
         paddingLeft: space.xxl,
         paddingTop: space.xl,

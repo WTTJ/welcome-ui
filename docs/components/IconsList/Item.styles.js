@@ -2,7 +2,7 @@ import { Box } from '@welcome-ui/box'
 import styled, { css } from '@xstyled/styled-components'
 
 export const Content = styled(Box)`
-  background-color: light-900;
+  background-color: neutral-white;
   border-color: border;
   border-width: sm;
   border-style: solid;
@@ -19,7 +19,7 @@ export const Item = styled(Box)(
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    color: dark-900;
+    color: neutral-black;
 
     ${!copied &&
     css`
@@ -33,8 +33,8 @@ export const Item = styled(Box)(
     ${copied &&
     css`
       ${Content} {
-        background-color: success-100;
-        border-color: success-100;
+        background-color: success-10;
+        border-color: success-10;
       }
     `}
   `

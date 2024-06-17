@@ -20,11 +20,11 @@ export const LiveEditorContent = styled(ReactLiveEditor)(
     overflow-x: auto;
 
     .inserted-sign {
-      color: sub-5 !important;
+      color: secondary-green !important;
     }
 
     .deleted-sign {
-      color: danger-300 !important;
+      color: danger-30 !important;
     }
 
     textarea,
@@ -39,11 +39,11 @@ export const LiveEditorContent = styled(ReactLiveEditor)(
 )
 
 export const LiveError = styled(ReactLiveError)`
-  background-color: danger-100;
-  border-color: danger-500;
+  background-color: danger-10;
+  border-color: danger-50;
   border-width: sm;
   border-style: solid;
-  color: danger-500;
+  color: danger-50;
   padding: md;
   white-space: pre-wrap;
   border-radius: md;
@@ -53,7 +53,7 @@ export const LiveError = styled(ReactLiveError)`
 `
 
 export const ShowEditor = styled.div`
-  background-color: nude-200;
+  background-color: nude-30;
   padding: sm lg;
   border-top: 1px solid ${th.color('border')};
 `

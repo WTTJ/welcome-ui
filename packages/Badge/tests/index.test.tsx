@@ -34,7 +34,7 @@ describe('<Badge>', () => {
     )
     const badge = getByTestId('badge')
 
-    expect(badge).toHaveStyleRule('background-color', theme.colors['primary-500'])
+    expect(badge).toHaveStyleRule('background-color', theme.colors['primary-40'])
     expect(badge).toHaveStyleRule('color', 'rgba(0,0,0,1)')
   })
 
@@ -46,8 +46,8 @@ describe('<Badge>', () => {
     )
     const badge = getByTestId('badge')
 
-    expect(badge).toHaveStyleRule('background-color', theme.colors['primary-600'])
-    expect(badge).toHaveStyleRule('color', theme.colors['primary-800'])
+    expect(badge).toHaveStyleRule('background-color', theme.colors['primary-50'])
+    expect(badge).toHaveStyleRule('color', theme.colors['primary-80'])
   })
 
   it('should have correct circle shape', () => {
