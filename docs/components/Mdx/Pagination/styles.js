@@ -6,7 +6,7 @@ export const Link = styled.a(
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: sub-3;
+    color: secondary-red;
     transition: medium;
 
     &:hover {

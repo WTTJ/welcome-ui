@@ -18,7 +18,7 @@ export function DocsLayout({ children }) {
         {children}
         <Footer
           borderTop="1px solid"
-          borderTopColor="nude-200"
+          borderTopColor="nude-30"
           mb="md"
           mt="3xl"
           mx={{ xs: 'md', md: 'xl' }}

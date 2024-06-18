@@ -12,7 +12,7 @@ export const getTooltips = (theme: WuiTheme): CSSObject => {
     padding: `${space.xs} ${space.sm}`,
     fontSize: fontSizes.xs,
     lineHeight: lineHeights.xs,
-    border: `${borderWidths.sm} solid ${colors['light-400']}`,
+    border: `${borderWidths.sm} solid ${colors['neutral-60']}`,
     boxSizing: 'border-box',
   }
 }

@@ -167,7 +167,7 @@ function() {
 
     return (
       <Tag
-        backgroundColor="light-900"
+        backgroundColor="neutral-white"
         data-id={name}
         key={name}
         mt="sm"
@@ -178,7 +178,7 @@ function() {
       >
         <Icon size="lg" mr="sm" />
         {name}
-        {size && <Box color="nude-600">({size})</Box>}
+        {size && <Box color="nude-60">({size})</Box>}
         <Button onClick={onRemove} variant="ghost" shape="square" ml="xxl" size="sm">
           <CrossIcon />
         </Button>

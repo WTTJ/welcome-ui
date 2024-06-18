@@ -24,7 +24,7 @@ function Wrapper({ theme }) {
               <Table.Td py="md">{size}</Table.Td>
               <Table.Td py="md">{Number(size.slice(0, -3)) * 16}px</Table.Td>
               <Table.Td py="md">
-                <Box backgroundColor="sub-1" h={20} w={size} />
+                <Box backgroundColor="secondary-blue" h={20} w={size} />
               </Table.Td>
             </Table.Tr>
           ))}

@@ -5,8 +5,6 @@ import { Box } from '@welcome-ui/box'
 export const LiveEditor = styled(Box)`
   position: relative;
   background-color: black;
-  border: 1px solid ${th('colors.dark-200')};
-  border-radius: md;
   overflow: hidden;
   padding: md;
 `
@@ -20,11 +18,11 @@ export const LiveEditorContent = styled(ReactLiveEditor)(
     overflow-x: auto;
 
     .inserted-sign {
-      color: sub-5 !important;
+      color: secondary-green !important;
     }
 
     .deleted-sign {
-      color: danger-300 !important;
+      color: danger-30 !important;
     }
 
     textarea,
@@ -39,21 +37,20 @@ export const LiveEditorContent = styled(ReactLiveEditor)(
 )
 
 export const LiveError = styled(ReactLiveError)`
-  background-color: danger-100;
-  border-color: danger-500;
+  background-color: danger-10;
+  border-color: danger-50;
   border-width: sm;
   border-style: solid;
-  color: danger-500;
+  color: danger-50;
   padding: md;
   white-space: pre-wrap;
-  border-radius: md;
   font-size: sm;
   line-height: h4;
   margin: sm 0 lg;
 `
 
 export const ShowEditor = styled.div`
-  background-color: nude-200;
+  background-color: nude-30;
   padding: sm lg;
   border-top: 1px solid ${th.color('border')};
 `

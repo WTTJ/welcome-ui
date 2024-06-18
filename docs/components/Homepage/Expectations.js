@@ -68,7 +68,7 @@ function Expectation({ description, icon: Icon, title }) {
   return (
     <Card w="100%">
       <Card.Body>
-        <Icon color="dark-900" size={30} />
+        <Icon color="neutral-black" size={30} />
         <Text mb="md" mt="lg" textTransform="uppercase" variant="h6" as="span">
           {title}
         </Text>

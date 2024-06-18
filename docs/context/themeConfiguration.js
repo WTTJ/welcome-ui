@@ -1,7 +1,4 @@
-import { createTheme } from '@welcome-ui/core'
-import { welcomeTheme } from '@welcome-ui/themes.welcome'
-import { darkTheme } from '@welcome-ui/themes.dark'
-import { welcomeDarkTheme } from '@welcome-ui/themes.welcome-dark'
+import { createTheme, darkTheme } from '@welcome-ui/core'
 
 import { useThemeContext } from './theme'
 
@@ -9,8 +6,6 @@ const themeConfiguration = currentTheme => {
   return {
     core: createTheme(),
     dark: createTheme(darkTheme),
-    welcome: createTheme(welcomeTheme),
-    welcomeDark: createTheme(welcomeDarkTheme),
   }[currentTheme]
 }
 

@@ -71,7 +71,7 @@ export const IconWrapper = styled.div<IconWrapperProps>(
     pointer-events: none;
     transition: medium;
     transition-timing-function: primary;
-    color: dark-900;
+    color: neutral-black;
     ${system};
 
     /* for button action */
@@ -99,7 +99,7 @@ export const IconGroupWrapper = styled.div(
     display: flex;
     align-items: center;
     gap: xs;
-    color: dark-900;
+    color: neutral-black;
     ${size === 'xs' &&
     css`
       button {

@@ -3,7 +3,7 @@ import { Text } from '@welcome-ui/text'
 
 export const Link = styled.a`
   opacity: 0;
-  color: primary-600;
+  color: primary-50;
   text-decoration: none;
   transition: medium;
 `

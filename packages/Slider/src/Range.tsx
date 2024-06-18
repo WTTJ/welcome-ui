@@ -67,7 +67,7 @@ const ensureMax = ({
 export const Range = forwardRef<'div', RangeProps>(
   (
     {
-      borderSelectorColor = 'light-900',
+      borderSelectorColor = 'neutral-white',
       disabled,
       hint,
       label,

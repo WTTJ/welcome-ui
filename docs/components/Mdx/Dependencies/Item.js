@@ -23,10 +23,10 @@ export function Item({ dependency, version }) {
       target="_npm"
       textDecoration="none"
     >
-      <Tag backgroundColor="light-900" key={dependency}>
+      <Tag backgroundColor="neutral-white" key={dependency}>
         {`${dependency} [${version}]`}
         {!copied && <CopyIcon onClick={handleCopy} size="sm" />}
-        {copied && <CheckIcon color="success-500" size="sm" />}
+        {copied && <CheckIcon color="success-50" size="sm" />}
       </Tag>
     </Box>
   )

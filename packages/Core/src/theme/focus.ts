@@ -11,10 +11,10 @@ export type ThemeFocus = (
 }
 
 export const getFocus = ({ colors }: { colors: ThemeColors }) => {
-  function focus(color = colors['primary-500'], transparency = 1) {
+  function focus(color = colors['primary-40'], transparency = 1) {
     let transformedColor = color
 
-    if (!color.startsWith('rgba')) {
+    if (!color?.startsWith('rgba')) {
       transformedColor = hexToRGBA(color, transparency)
     }
 

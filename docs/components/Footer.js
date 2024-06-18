@@ -17,7 +17,7 @@ export function Footer(props) {
         <Logo h={37} isDark w={63} />
       </Box>
       <Box alignItems="center" display="flex">
-        Made with <HeartIcon color="primary-500" mx="sm" /> by{' '}
+        Made with <HeartIcon color="primary-40" mx="sm" /> by{' '}
         <Box
           alignItems="center"
           as="a"

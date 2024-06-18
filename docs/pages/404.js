@@ -18,7 +18,7 @@ export default function Error404() {
     >
       <Box mb={{ xs: '3xl', lg: 0 }}>
         <Text variant="h1">Error 404 🥺</Text>
-        <Text color="dark-200">Oops… It seems like the page you’re looking for doesn’t exist</Text>
+        <Text color="neutral-20">Oops… It seems like the page you’re looking for doesn’t exist</Text>
         <NextLink href="/">
           <Button>Go to homepage</Button>
         </NextLink>

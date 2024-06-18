@@ -128,7 +128,7 @@ test.skip('<Search icon> shows icon', () => {
   const { container } = render(
     <Search
       dataTestId="search"
-      icon={<Icon color="light-100" name="avatar" />}
+      icon={<Icon color="neutral-80" name="avatar" />}
       name="search"
       value="february"
       {...defaultProps}

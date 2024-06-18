@@ -27,7 +27,7 @@ export const getPopovers = (theme: WuiTheme): ThemePopovers => {
       ...texts.h6,
       padding: `${space.md} ${space.md} ${space.xs}`,
       color: colors.white,
-      borderBottomColor: colors['light-200'],
+      borderBottomColor: colors['neutral-60'],
       borderBottomWidth: borderWidths.sm,
       borderBottomStyle: 'solid',
     },

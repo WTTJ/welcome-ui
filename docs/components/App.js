@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { createTheme, WuiProvider } from '@welcome-ui/core'
+import { createTheme, WuiProvider, darkTheme } from '@welcome-ui/core'
 import { MDXProvider } from '@mdx-js/react'
-import { welcomeTheme } from '@welcome-ui/themes.welcome'
-import { darkTheme } from '@welcome-ui/themes.dark'
-import { welcomeDarkTheme } from '@welcome-ui/themes.welcome-dark'
 import { Notifications } from '@welcome-ui/toast'
 
 import { useThemeContext } from '../context/theme'
@@ -16,12 +13,8 @@ import { GlobalStyle } from './GlobalStyle'
 const coreTheme = createTheme()
 
 const getTheme = themeStorage => {
-  if (themeStorage === 'welcome') {
-    return welcomeTheme
-  } else if (themeStorage === 'dark') {
+  if (themeStorage === 'dark') {
     return darkTheme
-  } else if (themeStorage === 'welcomeDark') {
-    return welcomeDarkTheme
   } else {
     return coreTheme
   }
@@ -29,8 +22,7 @@ const getTheme = themeStorage => {
 
 export function App({ component: Component, pageProps }) {
   const themeStorage = useThemeContext()
-  const initialTheme = welcomeTheme
-  const [globalTheme, setGlobalTheme] = useState(initialTheme)
+  const [globalTheme, setGlobalTheme] = useState()
 
   useEffect(() => {
     setGlobalTheme(getTheme(themeStorage))

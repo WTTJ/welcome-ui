@@ -1,9 +1,16 @@
 import { Theme } from '@xstyled/styled-components'
 
+const subColorByNumber: { [key: number]: 'blue' | 'red' | 'green' | 'purple' } = {
+  1: 'blue',
+  2: 'red',
+  3: 'green',
+  4: 'purple',
+}
+
 export function getSeededColor(colors: Theme['colors'], seed = ''): string {
-  const colorKeys = Object.keys(colors).filter(color => color.startsWith('sub-'))
+  const colorKeys = Object.keys(colors).filter(color => color.startsWith('secondary-'))
   const subColorNumber = (seed.length % colorKeys.length) + 1
-  const colorsIndex = `sub-${subColorNumber}` as keyof Theme['colors']
+  const colorsIndex = `secondary-${subColorByNumber[subColorNumber]}` as keyof Theme['colors']
 
   return colors[colorsIndex]
 }
