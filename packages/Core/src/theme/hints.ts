@@ -9,6 +9,6 @@ export const getHints = (theme: WuiTheme): ThemeHints => {
 
   return {
     ...texts.xs,
-    color: colors['dark-500'],
+    color: colors['neutral-60'],
   }
 }

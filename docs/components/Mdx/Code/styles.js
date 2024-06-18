@@ -5,8 +5,6 @@ import { Box } from '@welcome-ui/box'
 export const LiveEditor = styled(Box)`
   position: relative;
   background-color: black;
-  border: 1px solid ${th('colors.dark-200')};
-  border-radius: md;
   overflow: hidden;
   padding: md;
 `
@@ -46,7 +44,6 @@ export const LiveError = styled(ReactLiveError)`
   color: danger-50;
   padding: md;
   white-space: pre-wrap;
-  border-radius: md;
   font-size: sm;
   line-height: h4;
   margin: sm 0 lg;

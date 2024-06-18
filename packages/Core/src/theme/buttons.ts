@@ -112,15 +112,15 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     hover: {
       primary: {
-        backgroundColor: colors['primary-20'],
-        borderColor: colors['primary-20'],
+        backgroundColor: colors['primary-30'],
+        borderColor: colors['primary-30'],
       },
       secondary: {
-        backgroundColor: colors['dark-700'],
+        backgroundColor: colors['neutral-60'],
         borderColor: 'transparent',
       },
       tertiary: {
-        backgroundColor: colors['dark-100'],
+        backgroundColor: colors['neutral-20'],
       },
       'primary-success': {
         backgroundColor: colors['success-40'],
@@ -151,22 +151,22 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         backgroundColor: colors['info-10'],
       },
       ghost: {
-        backgroundColor: colors.border,
+        backgroundColor: colors['neutral-20'],
       },
     },
     focus: {
-      primary: { ...focus(colors['primary-40'], 0.5) },
-      secondary: { ...focus(colors['dark-500']) },
-      tertiary: { ...focus(colors['dark-500']) },
-      ghost: { ...focus(colors['dark-100']) },
-      'primary-success': { ...focus(colors['success-50'], 0.5) },
-      'secondary-success': { ...focus(colors['success-50'], 0.5) },
-      'primary-warning': { ...focus(colors['warning-50'], 0.5) },
-      'secondary-warning': { ...focus(colors['warning-50'], 0.5) },
-      'primary-danger': { ...focus(colors['danger-50'], 0.5) },
-      'secondary-danger': { ...focus(colors['danger-50'], 0.5) },
-      'primary-info': { ...focus(colors['info-50'], 0.5) },
-      'secondary-info': { ...focus(colors['info-50'], 0.5) },
+      primary: { ...focus(colors['primary-50']) },
+      secondary: { ...focus(colors['neutral-50']) },
+      tertiary: { ...focus(colors['neutral-50']) },
+      ghost: { ...focus(colors['neutral-20']) },
+      'primary-success': { ...focus(colors['success-50']) },
+      'secondary-success': { ...focus(colors['success-50']) },
+      'primary-warning': { ...focus(colors['warning-50']) },
+      'secondary-warning': { ...focus(colors['warning-50']) },
+      'primary-danger': { ...focus(colors['danger-50']) },
+      'secondary-danger': { ...focus(colors['danger-50']) },
+      'primary-info': { ...focus(colors['info-50']) },
+      'secondary-info': { ...focus(colors['info-50']) },
     },
     active: {
       primary: {
@@ -174,11 +174,11 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         borderColor: colors['primary-10'],
       },
       secondary: {
-        backgroundColor: colors['dark-200'],
-        borderColor: colors['dark-200'],
+        backgroundColor: colors['neutral-20'],
+        borderColor: colors['neutral-20'],
       },
       tertiary: {
-        backgroundColor: colors['dark-400'],
+        backgroundColor: colors['neutral-40'],
       },
       'primary-success': {
         backgroundColor: colors['success-30'],
@@ -209,7 +209,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         backgroundColor: hexToRGBA(colors['info-50'], 0.4),
       },
       ghost: {
-        backgroundColor: colors['dark-400'],
+        backgroundColor: colors['neutral-40'],
       },
     },
     disabled: {
@@ -217,7 +217,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       color: colors['nude-70'],
       backgroundColor: colors['nude-40'],
       borderColor: colors['nude-40'],
-      '&:focus': { ...focus(colors['nude-40'], 0.5) },
+      '&:focus': { ...focus(colors['nude-40']) },
     },
     sizes: {
       xxs: {

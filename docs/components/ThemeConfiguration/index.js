@@ -13,7 +13,10 @@ const ScreensContent = category => DisplayCategoryContent(category, { unit: 'px'
 
 const ColorsContent = category => DisplayCategoryContent(category, { shouldShowColor: true })
 
-const DisplayCategoryContent = ({ category }, config = { shouldConvertToPx: false, unit: '', shouldShowColor: false }) => {
+const DisplayCategoryContent = (
+  { category },
+  config = { shouldConvertToPx: false, unit: '', shouldShowColor: false }
+) => {
   const themeConfiguration = useThemeConfigurationContext()
 
   return (
@@ -24,14 +27,14 @@ const DisplayCategoryContent = ({ category }, config = { shouldConvertToPx: fals
             {key}
           </Text>
           <Box display="flex" gap="md" mt="xs" my="xs">
-          {config.shouldShowColor && (
+            {config.shouldShowColor && (
               <Box
                 w={30}
                 h={10}
                 mt="xs"
                 backgroundColor={key}
-                border={key.startsWith('light-') ? "1px solid" : 'none'}
-                borderColor="dark-200"
+                border={['neutral-white, white'].includes(key) ? '1px solid' : 'none'}
+                borderColor="neutral-20"
               />
             )}
             <Text variant="body2" m="0">

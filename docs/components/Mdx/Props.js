@@ -108,7 +108,7 @@ export const Props = ({ propTypes }) => {
                       <Box>
                         <Type type={type} />
                         {description && (
-                          <Box as="p" color="dark-700" fontSize="xs" m={0} mt="sm">
+                          <Box as="p" color="neutral-70" fontSize="xs" m={0} mt="sm">
                             {description}
                           </Box>
                         )}

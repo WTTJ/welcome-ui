@@ -48,7 +48,7 @@ export const Toolbar = styled.div`
   justify-content: flex-start;
   padding: sm xs;
   opacity: 1;
-  background-color: light-100;
+  background-color: neutral-white;
   border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude-30')};
   position: sticky;
   top: 0;
@@ -70,7 +70,7 @@ export const ToolbarIcon = styled.a.withConfig({ shouldForwardProp })<ToolbarIco
     }
 
     &:hover {
-      color: ${th('colors.dark-500')};
+      color: ${th('colors.neutral-50')};
     }
   `
 )

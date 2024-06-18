@@ -18,7 +18,7 @@ export const CloseButton = styled(Button)`
   background-color: neutral-white;
 
   &:hover {
-    background-color: light-700;
+    background-color: neutral-30;
   }
 
   ${system}

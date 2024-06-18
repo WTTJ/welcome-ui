@@ -20,7 +20,7 @@ export const getTables = (theme: WuiTheme): ThemeTables => {
 
   return {
     th: {
-      color: colors['dark-500'],
+      color: colors['neutral-50'],
       fontWeight: fontWeights.medium,
       textAlign: 'left',
       borderBottomColor: colors['neutral-black'],

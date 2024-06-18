@@ -30,7 +30,7 @@ export const Item = styled.a(
   ({ isActive }) => css`
     ${th('texts.subtitle-md')};
     text-transform: uppercase;
-    color: dark-500;
+    color: neutral-50;
     transition: medium;
     text-decoration: none;
 

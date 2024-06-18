@@ -29,8 +29,8 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
       backgroundSize: `calc(100% - ${icons.sm} - ${space.sm}) 50%`,
     },
     disabled: {
-      color: colors['dark-400'],
-      backgroundImage: `linear-gradient(0deg, ${colors['dark-100']}, ${colors['dark-100']} 100%)`,
+      color: colors['neutral-40'],
+      backgroundImage: `linear-gradient(0deg, ${colors['neutral-20']}, ${colors['neutral-20']} 100%)`,
     },
     primary: {
       default: {},

@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     --docsearch-footer-shadow: none;
     --docsearch-highlight-color: ${th('colors.neutral-black')};
     --docsearch-primary-color: ${th('colors.neutral-black')};
-    --docsearch-logo-color: ${th('colors.dark-100')};
+    --docsearch-logo-color: ${th('colors.neutral-20')};
   }
 
   .DocSearch {

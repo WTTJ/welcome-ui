@@ -22,9 +22,9 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
       fontSize: fontSizes.sm,
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
-      color: colors['dark-700'],
+      color: colors['neutral-70'],
       backgroundColor: colors['neutral-white'],
-      borderColor: colors['dark-100'],
+      borderColor: colors['neutral-20'],
     },
     error: {
       backgroundColor: colors['danger-10'],

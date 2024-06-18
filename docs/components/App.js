@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { createTheme, WuiProvider } from '@welcome-ui/core'
+import { createTheme, WuiProvider, darkTheme } from '@welcome-ui/core'
 import { MDXProvider } from '@mdx-js/react'
-import { darkTheme } from '@welcome-ui/themes.dark'
 import { Notifications } from '@welcome-ui/toast'
 
 import { useThemeContext } from '../context/theme'

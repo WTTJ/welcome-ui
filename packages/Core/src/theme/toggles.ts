@@ -27,8 +27,8 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
         borderRadius: toRem(16),
 
         '&:focus': {
-          borderColor: colors['primary-20'],
-          ...focus(colors['primary-20']),
+          borderColor: colors['primary-30'],
+          ...focus(colors['primary-30']),
         },
       },
       sizes: {
@@ -60,7 +60,7 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
     after: {
       default: {
         backgroundColor: colors['neutral-white'],
-        borderColor: colors['dark-400'],
+        borderColor: colors['neutral-40'],
         borderWidth: borderWidths.sm,
         borderStyle: 'solid',
         borderRadius: '50%',

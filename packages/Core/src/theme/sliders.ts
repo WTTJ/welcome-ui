@@ -29,7 +29,7 @@ export const getSliders = (theme: WuiTheme): ThemeSliders => {
     output: {
       tooltip: {
         backgroundColor: colors['neutral-black'],
-        border: `${borderWidths.sm} solid ${colors['dark-700']}}`,
+        border: `${borderWidths.sm} solid ${colors['neutral-70']}}`,
         color: colors['neutral-white'],
       },
     },

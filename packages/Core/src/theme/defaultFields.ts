@@ -110,20 +110,20 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
     },
     disabled: {
       backgroundColor: colors['nude-40'],
-      color: colors['nude-70'],
+      color: colors['nude-80'],
       cursor: 'not-allowed',
     },
     placeholder: {
-      color: colors['dark-400'],
+      color: colors['neutral-40'],
     },
     focused: {
       default: {
-        ...focus(colors['primary-20']),
+        ...focus(colors['primary-30']),
         borderColor: 'transparent',
       },
-      error: { ...focus(colors['danger-30']) },
+      error: { ...focus(colors['danger-40']) },
       warning: { ...focus(colors['warning-40']) },
-      success: { ...focus(colors['success-30']) },
+      success: { ...focus(colors['success-40']) },
       info: { ...focus(colors['info-40']) },
     },
     checkablelabel: {

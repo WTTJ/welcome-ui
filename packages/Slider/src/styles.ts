@@ -190,7 +190,7 @@ export const Thick = styled(Box)(
     :before {
       content: '';
       position: absolute;
-      background-color: dark-200;
+      background-color: neutral-20;
       height: 6;
       width: 1;
       transform: translate(-50%);
@@ -201,7 +201,7 @@ export const Thick = styled(Box)(
 export const ThickLabel = styled(Hint)(
   () => css`
     position: absolute;
-    color: dark-400;
+    color: neutral-40;
     top: 0;
     transform: translate(-50%);
     white-space: nowrap;

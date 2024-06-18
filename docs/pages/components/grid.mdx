@@ -33,12 +33,11 @@ With the Grid component use shorthand props:
 - `gridTemplateRows` is `templateRows`
 
 ```jsx
-<Grid templateColumns="repeat(5, 1fr)" gap="md">
+<Grid templateColumns="repeat(4, 1fr)" gap="md">
   <Box backgroundColor="secondary-blue" w="100%" h={50} />
-  <Box backgroundColor="secondary-red" w="100%" h={50} />
   <Box backgroundColor="secondary-red" w="100%" h={50} />
   <Box backgroundColor="secondary-green" w="100%" h={50} />
-  <Box backgroundColor="secondary-blue" w="100%" h={50} />
+  <Box backgroundColor="secondary-purple" w="100%" h={50} />
 </Grid>
 ```
 
@@ -53,9 +52,9 @@ With the Grid.Item component use shorthand props:
 ```jsx
 <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(4, 1fr)" gap="md" h={400}>
   <Grid.Item area="span 2 / span 1 / span 2 / span 1" bg="secondary-blue" />
-  <Grid.Item column="span 2 / span 2" bg="secondary-blue" />
+  <Grid.Item column="span 2 / span 2" bg="secondary-green" />
   <Grid.Item column="span 1 / span 1" bg="secondary-red" />
-  <Grid.Item column="span 3 / span 3" bg="secondary-red" />
+  <Grid.Item column="span 3 / span 3" bg="secondary-purple" />
 </Grid>
 ```
 

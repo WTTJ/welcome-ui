@@ -36,16 +36,13 @@ Admire these beautiful colors 💅
 <Tag variant="info">Info</Tag>
 ```
 
-### Subs
+### Secondary
 
 ```jsx row
-<Tag variant="1">1</Tag>
-<Tag variant="2">2</Tag>
-<Tag variant="3">3</Tag>
-<Tag variant="4">4</Tag>
-<Tag variant="5">5</Tag>
-<Tag variant="6">6</Tag>
-<Tag variant="7">7</Tag>
+<Tag variant="secondary-green">Green</Tag>
+<Tag variant="secondary-blue">Blue</Tag>
+<Tag variant="secondary-red">Red</Tag>
+<Tag variant="secondary-purple">Purple</Tag>
 ```
 
 ## Sizes
@@ -100,7 +97,15 @@ Simply add a function `onClick` to catch the action with an hover effect.
 ```jsx
 function() {
   return (
-    <Tag onClick={() => console.log('clicked')}>Hover me</Tag>
+    <Stack direction="row">
+      <Tag onClick={() => console.log('clicked')}>Hover me</Tag>
+      <Tag onClick={() => console.log('clicked')} variant="primary">Primary</Tag>
+      <Tag onClick={() => console.log('clicked')} variant="secondary">Secondary</Tag>
+      <Tag onClick={() => console.log('clicked')} variant="secondary-green">Hover me</Tag>
+      <Tag onClick={() => console.log('clicked')} variant="secondary-blue">Hover me</Tag>
+      <Tag onClick={() => console.log('clicked')} variant="secondary-red">Hover me</Tag>
+      <Tag onClick={() => console.log('clicked')} variant="secondary-purple">Hover me</Tag>
+    </Stack>
   )
 }
 ```

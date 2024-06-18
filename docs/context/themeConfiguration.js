@@ -1,5 +1,4 @@
-import { createTheme } from '@welcome-ui/core'
-import { darkTheme } from '@welcome-ui/themes.dark'
+import { createTheme, darkTheme } from '@welcome-ui/core'
 
 import { useThemeContext } from './theme'
 

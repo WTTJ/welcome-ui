@@ -22,9 +22,9 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
     },
     item: {
       '&:hover, &:focus': {
-        backgroundColor: colors['dark-100'],
+        backgroundColor: colors['neutral-20'],
       },
-      '&:focus': { ...focus(colors['dark-500']) },
+      '&:focus': { ...focus(colors['neutral-50']) },
     },
     active: {
       backgroundColor: colors['neutral-black'],

@@ -10,13 +10,10 @@ type Variant =
   | 'error'
   | 'warning'
   | 'info'
-  | '1'
-  | '2'
-  | '3'
-  | '4'
-  | '5'
-  | '6'
-  | '7'
+  | 'secondary-blue'
+  | 'secondary-green'
+  | 'secondary-red'
+  | 'secondary-purple'
 
 type Size = 'xs' | 'sm' | 'md'
 
@@ -64,42 +61,51 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
       },
       primary: { ...withoutVisibleBorder(colors['primary-40']), color: colors['neutral-black'] },
       secondary: {
-        backgroundColor: colors['secondary-green'],
+        backgroundColor: colors['green-40'],
         color: colors['neutral-black'],
-        borderColor: colors['dark-100'],
+        borderColor: colors['green-50'],
         ...border,
       },
       success: {
         backgroundColor: colors['success-10'],
         color: colors['success-50'],
-        borderColor: colors['success-20'],
+        borderColor: colors['success-50'],
         ...border,
       },
       error: {
         backgroundColor: colors['danger-10'],
         color: colors['danger-50'],
-        borderColor: colors['danger-20'],
+        borderColor: colors['danger-50'],
         ...border,
       },
       warning: {
         backgroundColor: colors['warning-10'],
         color: colors['warning-50'],
-        borderColor: colors['warning-20'],
+        borderColor: colors['warning-50'],
         ...border,
       },
       info: {
         backgroundColor: colors['info-10'],
         color: colors['info-50'],
-        borderColor: colors['info-30'],
+        borderColor: colors['info-50'],
         ...border,
       },
-      1: { ...withoutVisibleBorder(colors['secondary-blue']), color: colors['neutral-black'] },
-      2: { ...withoutVisibleBorder(colors['secondary-blue']), color: colors['neutral-white'] },
-      3: { ...withoutVisibleBorder(colors['secondary-red']), color: colors['neutral-white'] },
-      4: { ...withoutVisibleBorder(colors['secondary-red']), color: colors['neutral-black'] },
-      5: { ...withoutVisibleBorder(colors['secondary-green']), color: colors['neutral-black'] },
-      6: { ...withoutVisibleBorder(colors['secondary-green']), color: colors['neutral-white'] },
-      7: { ...withoutVisibleBorder(colors['secondary-purple']), color: colors['neutral-black'] },
+      'secondary-blue': {
+        ...withoutVisibleBorder(colors['secondary-blue']),
+        color: colors['neutral-black'],
+      },
+      'secondary-red': {
+        ...withoutVisibleBorder(colors['secondary-red']),
+        color: colors['neutral-black'],
+      },
+      'secondary-green': {
+        ...withoutVisibleBorder(colors['secondary-green']),
+        color: colors['neutral-black'],
+      },
+      'secondary-purple': {
+        ...withoutVisibleBorder(colors['secondary-purple']),
+        color: colors['neutral-black'],
+      },
     },
     hover: {
       default: {
@@ -107,7 +113,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
       },
       primary: {},
       secondary: {
-        borderColor: colors['dark-400'],
+        borderColor: colors['neutral-40'],
       },
       success: {
         borderColor: colors['success-50'],
@@ -121,26 +127,17 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
       info: {
         borderColor: colors['info-50'],
       },
-      1: {
-        borderColor: colors['dark-200'],
+      'secondary-blue': {
+        borderColor: colors['info-50'],
       },
-      2: {
-        borderColor: colors['dark-200'],
+      'secondary-red': {
+        borderColor: colors['danger-50'],
       },
-      3: {
-        borderColor: colors['dark-200'],
+      'secondary-purple': {
+        borderColor: colors['purple-50'],
       },
-      4: {
-        borderColor: colors['dark-200'],
-      },
-      5: {
-        borderColor: colors['dark-200'],
-      },
-      6: {
-        borderColor: colors['dark-200'],
-      },
-      7: {
-        borderColor: colors['dark-200'],
+      'secondary-green': {
+        borderColor: colors['green-50'],
       },
     },
     sizes: {

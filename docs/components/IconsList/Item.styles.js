@@ -25,7 +25,7 @@ export const Item = styled(Box)(
     css`
       &:hover {
         ${Content} {
-          border-color: dark-400;
+          border-color: neutral-40;
         }
       }
     `}

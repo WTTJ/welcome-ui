@@ -30,7 +30,7 @@ export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {
       },
       '&[disabled]': {
         backgroundColor: 'transparent',
-        color: colors['nude-40'],
+        color: colors['nude-60'],
         cursor: 'not-allowed',
       },
     },

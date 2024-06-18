@@ -32,7 +32,7 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
       paddingBottom: space.xxl,
       paddingLeft: space.xxl,
       subtitle: {
-        color: colors['dark-700'],
+        color: colors['neutral-70'],
         variant: 'sm',
         margin: 0,
       },
