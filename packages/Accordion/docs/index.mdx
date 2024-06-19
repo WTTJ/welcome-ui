@@ -1,19 +1,22 @@
 ---
 category: data-display
 description: Buttons are clickable items communicating actions that can be performed.
+usage: import { Accordion, useAccordion } from @welcome-ui/accordion
+packageName: accordion
+title: Accordion
 ---
 
-## Avatar
+### Avatar
 
 <div data-playground="avatar.tsx" data-component="Accordion"></div>
 
-## Open at start
+### Open at start
 
 Add `defaultOpen` options on `useAccordion` to open at start the accordion
 
 <div data-playground="open-at-start.tsx" data-component="Accordion"></div>
 
-## With a custom icon
+### With a custom icon
 
 Customize the icon with a node element on property `icon`
 
@@ -21,7 +24,7 @@ Note that the custom icon's size property will be set to small
 
 <div data-playground="with-custom-icon.tsx" data-component="Accordion"></div>
 
-## useAccordion
+### useAccordion
 
 We use `useDisclosureStore` from [Ariakit Disclosure](https://ariakit.org/reference/use-disclosure-store) for the state of the accordion with the `animated` flag set to `true` by default.
 

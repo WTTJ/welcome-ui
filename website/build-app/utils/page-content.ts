@@ -8,8 +8,10 @@ import { getPageTree } from './page-tree'
 type Data = {
   category?: string
   description?: string
+  usage?: string
+  packageName?: string
+  title?: string
   type?: string
-  name?: string
 }
 
 /**

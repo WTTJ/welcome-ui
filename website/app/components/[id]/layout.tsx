@@ -11,7 +11,6 @@ import * as Documentation from '@/build-app/layouts/Documentation'
 import { getPages } from '@/build-app/utils/pages-components'
 import { getName } from '@/build-app/utils/transform-name'
 import { getPageContent } from '@/build-app/utils/page-content'
-import { getPackageFile } from '@/build-app/utils/package-file'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -25,8 +24,9 @@ const Layout = ({ children, params }: LayoutProps) => {
   const { id } = params
 
   const { data } = getPageContent(`${startCase(id)}/docs/index.mdx`, true)
-  const { name, packageName } = getPackageFile(id)
   const description = data?.description
+  const title = data?.title
+  const packageName = data?.packageName
 
   return (
     <Documentation.Layout>
@@ -44,7 +44,7 @@ const Layout = ({ children, params }: LayoutProps) => {
           <Flex align="center" gap="md">
             <Button
               as="a"
-              href={`https://github.com/WTTJ/welcome-ui/tree/main/packages/${name}`}
+              href={`https://github.com/WTTJ/welcome-ui/tree/main/packages/${title}`}
               rel="noreferrer noopener"
               size="sm"
               target="_blank"
@@ -62,7 +62,7 @@ const Layout = ({ children, params }: LayoutProps) => {
               variant="tertiary"
             >
               <NpmIcon />
-              <span>{packageName}</span>
+              <span>@welcome-ui/{packageName}</span>
             </Button>
           </Flex>
         </Flex>

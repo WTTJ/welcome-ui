@@ -24,9 +24,17 @@ export function getPageTree(content: string, isOverview?: boolean) {
   const tableOfContents = [] as Toc[]
 
   if (isOverview) {
-    const title = 'Definition'
-    const id = kebabCase(title)
-    tableOfContents.push({ id, title, href: `#${id}` })
+    tableOfContents.push({ id: 'definition', title: 'Definition', href: '#definition' })
+    tableOfContents.push({
+      id: 'installation',
+      title: 'Installation',
+      href: '#installation',
+    })
+    tableOfContents.push({
+      id: 'examples',
+      title: 'Examples',
+      href: '#examples',
+    })
   }
 
   visit(tree, 'element', node => {
