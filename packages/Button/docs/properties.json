@@ -30,6 +30,34 @@
           ]
         }
       },
+      "isLoading": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isLoading",
+        "parent": {
+          "fileName": "Button/src/index.tsx",
+          "name": "ButtonOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Button/src/index.tsx",
+            "name": "ButtonOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "shape": {
         "defaultValue": null,
         "description": "",
