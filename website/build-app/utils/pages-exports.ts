@@ -25,12 +25,10 @@ export function getFilesFromDirectory(dir: string) {
       const filesDirection = {
         parent: dir,
         category: relativePath,
-        pages: [],
+        pages: [] as { id: string; parent: string }[],
       }
 
       for (const file of fileList) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         filesDirection.pages.push({
           id: file.replace(replaceMdxRegex, ''),
           parent: relativePath,

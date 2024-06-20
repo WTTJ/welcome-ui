@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 
 const Page = ({ params }: PageProps) => {
   const { id } = params
-  const properties = getComponentProperties(getName(id))
+  const properties = getComponentProperties(getName(id, true))
 
   if (!properties) return null
 

@@ -6,7 +6,7 @@ export type LayoutProps = {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <Grid gap="md" margin="0 auto" maxWidth={1400} pb="3xl" px="xl" templateColumns="16rem 1fr">
+    <Grid gap="md" margin="0 auto" maxWidth={1400} pb="3xl" px="xl" templateColumns="16rem auto">
       {children}
     </Grid>
   )
@@ -14,7 +14,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
 export const Child = ({ children }: LayoutProps) => {
   return (
-    <Grid gap="xl" templateColumns="1fr 15rem">
+    <Grid gap="xl" templateColumns={{ xl: 'auto 15rem' }}>
       {children}
     </Grid>
   )

@@ -25,7 +25,6 @@ const Layout = ({ children, params }: LayoutProps) => {
 
   const { data } = getPageContent(`${startCase(id)}/docs/index.mdx`, true)
   const description = data?.description
-  const title = data?.title
   const packageName = data?.packageName
 
   return (
@@ -44,7 +43,7 @@ const Layout = ({ children, params }: LayoutProps) => {
           <Flex align="center" gap="md">
             <Button
               as="a"
-              href={`https://github.com/WTTJ/welcome-ui/tree/main/packages/${title}`}
+              href={`https://github.com/WTTJ/welcome-ui/tree/main/packages/${getName(id, true)}`}
               rel="noreferrer noopener"
               size="sm"
               target="_blank"

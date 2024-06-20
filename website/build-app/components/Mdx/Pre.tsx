@@ -3,5 +3,5 @@ interface PreProps {
 }
 
 export const Pre = ({ children }: PreProps) => {
-  return <pre>{children}</pre>
+  return <div>{children}</div>
 }

@@ -2,44 +2,44 @@
 import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Badge } from '@welcome-ui/badge'
-import { Tag } from '@welcome-ui/tag'
 import { Flex } from '@welcome-ui/flex'
 import { Text } from '@welcome-ui/text'
-import { kebabCase } from 'lodash'
 
 import * as TYPES from '../../../../utils/propTypes'
 import { Code } from '../Mdx/Code'
+import { H2 } from '../Mdx/Headings'
 
 type Value = {
   name: string
   value: string
 }
 
-export type Property = [
-  [name: string],
-  {
-    defaultValue: {
-      value: string
-    } | null
-    description: string
-    required: boolean
-    type: {
-      name?: string
-      raw?: string
-      value?: Value[]
-    }
+type Props = {
+  defaultValue: {
+    value: string
+  } | null
+  description: string
+  required: boolean
+  type: {
+    name?: string
+    raw?: string
+    value?: Value[]
   }
-]
+}
+
+export type Property = {
+  [name: string]: Props
+}
 
 export type PropertiesProps = {
   items: {
-    [name: string]: { props: Property[] }
-  }[]
+    [name: string]: { props: Property }
+  }
 }
 
 type PropertyProps = {
-  item: Property
-  parentName: string
+  name: string
+  options: Props
 }
 
 const removeQuote = (str?: string) => str?.toString()?.replace(/'/g, '')
@@ -90,8 +90,7 @@ const getType = (type: Property[1]['type']) => {
   return name
 }
 
-export const Property = ({ item, parentName }: PropertyProps) => {
-  const [name, options] = item
+export const Property = ({ name, options }: PropertyProps) => {
   const { defaultValue, description, required, type } = options
 
   const defaultLabel = removeQuote(defaultValue?.value)
@@ -110,21 +109,17 @@ export const Property = ({ item, parentName }: PropertyProps) => {
         mb="md"
         pb="md"
       >
-        <Tag as="h3" id={kebabCase(`${parentName}_${name}`)} m="0" w="fit-content">
-          {name}
-        </Tag>
+        <Code>{name}</Code>
         {required && <Badge variant="primary">Required</Badge>}
       </Flex>
-      <Code>
-        <>
-          {getType(type)}
-          <Box as="span" color="info-400">
-            {defaultLabel && ` | undefined = ${defaultLabel}`}
-          </Box>
-        </>
-      </Code>
+      <Text color="dark-900">
+        {getType(type)}
+        <Box as="span" color="dark-700">
+          {defaultLabel && ` | undefined = ${defaultLabel}`}
+        </Box>
+      </Text>
       {description && (
-        <Text mt="md" variant="sm">
+        <Text mt="sm" variant="sm">
           {description}
         </Text>
       )}
@@ -145,23 +140,14 @@ export const Properties = ({ items }: PropertiesProps) => {
     <Flex direction="column" gap="3xl">
       {Object.entries(items).map(props => {
         const name = props[0]
-        const parentName = kebabCase(name.toString())
         const { props: properties } = props[1]
 
         return (
           <section key={`section_${name}`}>
-            <Text id={parentName} mb="xxl" variant="h3">
-              {name}
-            </Text>
-            <Flex direction="column" gap="3xl">
+            {name && <H2 mt={0}>{name}</H2>}
+            <Flex direction="column" gap="xl" mt="md">
               {Object.entries(properties).map(item => (
-                <Property
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
-                  item={item}
-                  key={`section_${name}_${item[0]}`}
-                  parentName={parentName}
-                />
+                <Property key={`section_${name}_${item[0]}`} name={item[0]} options={item[1]} />
               ))}
             </Flex>
           </section>

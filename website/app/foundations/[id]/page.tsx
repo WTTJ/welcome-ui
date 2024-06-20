@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 const Page = ({ params }: PageProps) => {
   const { id } = params
 
-  const { contentWithoutMatter, isNotFound, tree } = getPageContent(`foundations/${id}.md`)
+  const { contentWithoutMatter, isNotFound, tree } = getPageContent(`foundations/${id}.mdx`)
 
   if (isNotFound) return notFound()
 

@@ -20,6 +20,16 @@ const components = {
   h3: H3,
   h4: H4,
   a: A,
+  ul: ({ children }: { children: React.ReactElement }) => (
+    <Box as="ul" listStyleType="disc">
+      {children}
+    </Box>
+  ),
+  li: ({ children }: { children: React.ReactElement }) => (
+    <Box as="li" ml="xxl" mt="xs">
+      {children}
+    </Box>
+  ),
   code: Code,
   blockquote: Blockquote,
   p: Paragraph,

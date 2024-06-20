@@ -6,54 +6,49 @@ import { CheckIcon, CopyIcon } from '@welcome-ui/icons'
 import { useCopyText } from '@welcome-ui/utils.copy'
 import { Highlight as HighlightPrism, themes } from 'prism-react-renderer'
 
-type HighlightProps = {
-  code: string
+export type HighlightProps = {
+  children: string
   language?: string
 }
 
-export const Highlight = ({ code, language = 'tsx' }: HighlightProps) => {
-  const [copy, copied] = useCopyText(code, 3000)
+export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
+  const [copy, copied] = useCopyText(children, 3000)
 
   return (
-    <HighlightPrism
-      code={code.trim()}
-      language={language}
-      theme={{
-        ...themes.github,
-        plain: {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          //@ts-ignore
-          fontSize: 14,
-        },
-      }}
-    >
+    <HighlightPrism code={children.trim()} language={language} theme={themes.vsDark}>
       {({ getLineProps, getTokenProps, style, tokens }) => (
-        <Box mt="xl" position="relative">
+        <Box mt="lg" position="relative">
           <Button
             onClick={copy}
             position="absolute"
-            right={16}
+            right={14}
             shape="circle"
             size="xs"
-            top={16}
+            top={14}
             variant={copied ? 'primary-success' : 'ghost'}
           >
-            {copied ? <CheckIcon /> : <CopyIcon />}
+            {copied ? <CheckIcon /> : <CopyIcon color="light-900" />}
           </Button>
           <Box
             as="pre"
             border="1px solid"
             borderColor="dark-100"
-            borderRadius={8}
-            padding="lg xl"
+            borderRadius="lg"
+            padding="lg 3xl lg xl"
             style={style}
           >
             {tokens.map((line, i) => (
               // eslint-disable-next-line react/no-array-index-key
               <div key={i} {...getLineProps({ line })}>
                 {line.map((token, key) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <span key={key} {...getTokenProps({ token })} />
+                  <Box
+                    as="span"
+                    fontSize="14"
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={key}
+                    whiteSpace="pre-wrap"
+                    {...getTokenProps({ token })}
+                  />
                 ))}
               </div>
             ))}

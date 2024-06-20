@@ -1,15 +1,7 @@
-import { Sidebar } from '@/build-app/components/Sidebar'
-import { getPages } from '@/build-app/utils/pages-exports'
+import { redirect } from 'next/navigation'
 
 const Page = () => {
-  const pages = getPages('foundations')
-
-  return (
-    <>
-      <h1>Foundations</h1>
-      <Sidebar menu={pages} />
-    </>
-  )
+  redirect('/foundations/getting-started')
 }
 
 export default Page

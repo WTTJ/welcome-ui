@@ -1,15 +1,17 @@
 'use client'
 import { CheckIcon } from '@welcome-ui/icons'
+import { WuiProps } from '@welcome-ui/system'
 import { Text } from '@welcome-ui/text'
 import { useCopyText } from '@welcome-ui/utils.copy'
 import { kebabCase } from 'lodash'
 import { usePathname } from 'next/navigation'
 
-interface HeadingsProps {
+type HeadingsProps = {
   children: React.ReactNode
+  mt?: WuiProps['marginTop']
 }
 
-export const H2 = ({ children }: HeadingsProps) => {
+export const H2 = ({ children, mt = '3xl' }: HeadingsProps) => {
   const pathname = usePathname()
   const id = `#${kebabCase(children?.toString())}`
   const copyPath = `https://www.welcome-ui.com${pathname}#${kebabCase(children?.toString())}`
@@ -24,8 +26,7 @@ export const H2 = ({ children }: HeadingsProps) => {
       borderBottomColor="border"
       display="flex"
       id={id}
-      mb="xl"
-      mt="3xl"
+      mt={mt}
       pb="sm"
       variant="h3"
     >
@@ -44,17 +45,17 @@ export const H2 = ({ children }: HeadingsProps) => {
   )
 }
 
-export const H3 = ({ children }: HeadingsProps) => {
+export const H3 = ({ children, mt = 'xxl' }: HeadingsProps) => {
   return (
-    <Text as="h3" id={`${kebabCase(children?.toString())}`} mb="lg" variant="h4">
+    <Text as="h3" id={`${kebabCase(children?.toString())}`} mb="lg" mt={mt} variant="h4">
       {children}
     </Text>
   )
 }
 
-export const H4 = ({ children }: HeadingsProps) => {
+export const H4 = ({ children, mt = 'xl' }: HeadingsProps) => {
   return (
-    <Text as="h4" id={`${kebabCase(children?.toString())}`} mb="md" variant="h5">
+    <Text as="h4" id={`${kebabCase(children?.toString())}`} mb="md" mt={mt} variant="h5">
       {children}
     </Text>
   )

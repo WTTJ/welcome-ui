@@ -12,7 +12,7 @@ import { VersionSelector } from '../VersionSelector'
 import { Logo } from './Logo'
 import * as S from './styles'
 
-const navigation = ['foundations', 'components', 'hooks']
+const navigation = ['foundations', 'components']
 
 export const Header = () => {
   const currentRoute = usePathname()

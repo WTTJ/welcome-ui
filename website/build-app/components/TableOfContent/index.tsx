@@ -1,7 +1,7 @@
 'use client'
 import { Text } from '@welcome-ui/text'
-import { useEffect, useState } from 'react'
 import { Flex } from '@welcome-ui/flex'
+import { Box } from '@welcome-ui/box'
 
 import * as S from './styles'
 
@@ -12,39 +12,10 @@ type TableOfContentProps = {
 }
 
 export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
-  const [activeId, setActiveId] = useState<string | null>(null)
-
-  const ids = tree?.reduce((acc, key) => {
-    acc.push(key.id)
-
-    key.children?.map(child => {
-      acc.push(child.id)
-    })
-
-    return acc
-  }, [] as string[])
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (ids?.length === 0) return null
-      const activeId = ids?.find(id => {
-        const element = document.getElementById(id)
-        if (!element) return false
-        const { height, top } = element.getBoundingClientRect()
-        return top - height - 118 >= 0
-      })
-
-      setActiveId(activeId ?? null)
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [ids, tree])
-
   if (!tree) return null
 
   return (
-    <div>
+    <Box display={{ _: 'none', xl: 'block' }}>
       <S.Nav isSubPage={isSubPage}>
         <Text mb="lg" ml="lg" variant="subtitle-sm">
           On this page
@@ -52,22 +23,14 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
         <Flex as="ul" direction="column" gap="lg">
           {tree.map(item => (
             <Flex as="li" direction="column" gap="sm" key={item.href}>
-              <S.Link
-                aria-current={`#${activeId}` === item.href ? 'page' : undefined}
-                href={item.href}
-                pl="lg"
-              >
+              <S.Link href={item.href} pl="lg">
                 {item.title}
               </S.Link>
               {item.children && (
-                <Flex as="ul" direction="column" gap="sm">
+                <Flex as="ul" direction="column" gap="xs">
                   {item.children.map(child => (
                     <li key={child.href}>
-                      <S.Link
-                        aria-current={`#${activeId}` === child.href ? 'page' : undefined}
-                        href={child.href}
-                        pl="xl"
-                      >
+                      <S.Link href={child.href} pl="xxl">
                         {child.title}
                       </S.Link>
                     </li>
@@ -78,6 +41,6 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
           ))}
         </Flex>
       </S.Nav>
-    </div>
+    </Box>
   )
 }

@@ -7,7 +7,7 @@ import kebabCase from 'lodash/kebabCase'
 import { PageTree } from '../types'
 import { replaceMdxRegex } from '../constants/regex'
 
-type Parent = 'components' | 'hooks'
+type Parent = 'components'
 
 function getComponentSubPages(id: string) {
   const directory = `build-app/pages/components/${id}`
@@ -51,11 +51,8 @@ export function getFilesFromPackages(selectedParent: Parent) {
 
       if (selectedParent !== type) continue
 
-      const isHook = selectedParent === 'hooks'
       const categoryParent = files.filter(resultItem => resultItem.category === category)[0]
-      const newChild = isHook
-        ? { id: fileKebabCase, name }
-        : { id: fileKebabCase, name, subPages: getComponentSubPages(fileKebabCase) }
+      const newChild = { id: fileKebabCase, name, subPages: getComponentSubPages(fileKebabCase) }
 
       if (categoryParent) {
         categoryParent.pages.push(newChild)
@@ -91,7 +88,7 @@ export function getStaticParams(pages: PageTree) {
 /**
  * Gets the pages tree for docs
  */
-export function getPages(selectedParent = 'components' as Parent) {
+export function getPages(selectedParent = 'components' as Parent): PageTree {
   const filesFromDirectory = getFilesFromPackages(selectedParent)
 
   return filesFromDirectory

@@ -43,6 +43,9 @@ export const Div = ({ children, node }: DivProps) => {
     return (
       <Playground
         code={`${code}`}
+        mt={playgroundFile === 'overview.tsx' ? 0 : undefined}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         pathToFile={pathToFile.split('packages')[1]}
         withCodeEditor={withCodeEditor?.toLowerCase() === 'true'}
       />

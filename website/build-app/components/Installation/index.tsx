@@ -1,9 +1,8 @@
 'use client'
 
 import { Flex } from '@welcome-ui/flex'
-import { Badge } from '@welcome-ui/badge'
-import { Box } from '@welcome-ui/box'
 import { Alert } from '@welcome-ui/alert'
+import { Text } from '@welcome-ui/text'
 
 import { H2 } from '../Mdx/Headings'
 import { Highlight } from '../Mdx/Highlight'
@@ -27,20 +26,44 @@ export const Installation = ({ packageName, usage }: InstallationProps) => {
   return (
     <>
       <H2>Installation</H2>
-      <Flex alignItems="center" gap="sm">
-        <Badge variant="primary">1</Badge>
-        Run the following command:
+      <Flex gap="md" mt="xl">
+        <Flex
+          alignItems="center"
+          backgroundColor="primary-500"
+          borderRadius={30}
+          flexShrink={0}
+          h={30}
+          justifyContent="center"
+          w={30}
+        >
+          <Text as="span" variant="h5">
+            1
+          </Text>
+        </Flex>
+        <Flex flexDirection="column" w="100%">
+          <Text>Run the following command:</Text>
+          <Highlight language="shell">{`yarn add @welcome-ui/${packageName}`}</Highlight>
+        </Flex>
       </Flex>
-      <Box mb="xxl" ml="xl" mt="md">
-        <Highlight code={`yarn add @welcome-ui/${packageName}`} language="shell" />
-      </Box>
-      <Flex alignItems="center" gap="sm">
-        <Badge variant="primary">2</Badge>
-        Import component:
+      <Flex gap="md" mt="xl">
+        <Flex
+          alignItems="center"
+          backgroundColor="primary-500"
+          borderRadius={30}
+          flexShrink={0}
+          h={30}
+          justifyContent="center"
+          w={30}
+        >
+          <Text as="span" variant="h5">
+            2
+          </Text>
+        </Flex>
+        <Flex flexDirection="column" w="100%">
+          <Text>Import component:</Text>
+          <Highlight language="shell">{usage}</Highlight>
+        </Flex>
       </Flex>
-      <Box ml="xl">
-        <Highlight code={usage} language="shell" />
-      </Box>
     </>
   )
 }

@@ -22,7 +22,7 @@ const Page = ({ params }: PageProps) => {
   const { id, subPage } = params
 
   const { contentWithoutMatter, isNotFound, tree } = getPageContent(
-    `foundations/${id}/${subPage}.md`
+    `foundations/${id}/${subPage}.mdx`
   )
 
   if (isNotFound) return notFound()
