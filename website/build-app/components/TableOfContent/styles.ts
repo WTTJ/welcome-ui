@@ -10,7 +10,7 @@ export const Nav = styled.nav(
 
     ${isSubPage &&
     css`
-      top: calc(4.375rem + 7.5rem);
+      top: calc(4.375rem + 7rem);
     `};
   `
 )

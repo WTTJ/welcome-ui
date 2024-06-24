@@ -32,7 +32,7 @@ export const Code = ({ children, className }: CodeProps) => {
       color="dark-900"
       display="inline-flex"
       px="sm"
-      py="xs"
+      py="xxs"
       text="sm"
       whiteSpace="break-spaces"
     >

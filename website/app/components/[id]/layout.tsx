@@ -11,6 +11,7 @@ import * as Documentation from '@/build-app/layouts/Documentation'
 import { getPages } from '@/build-app/utils/pages-components'
 import { getName } from '@/build-app/utils/transform-name'
 import { getPageContent } from '@/build-app/utils/page-content'
+import { PrevNextPage } from '@/build-app/components/PrevNextPage'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -66,7 +67,10 @@ const Layout = ({ children, params }: LayoutProps) => {
           </Flex>
         </Flex>
         <Tabs pages={pages} />
-        <Documentation.Child>{children}</Documentation.Child>
+        <Documentation.Child>
+          {children}
+          <PrevNextPage basePage="components" currentId={id} pages={pages} />
+        </Documentation.Child>
       </div>
     </Documentation.Layout>
   )

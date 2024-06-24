@@ -24,7 +24,7 @@ export function getPageTree(content: string, isOverview?: boolean) {
   const tableOfContents = [] as Toc[]
 
   if (isOverview) {
-    tableOfContents.push({ id: 'definition', title: 'Definition', href: '#definition' })
+    tableOfContents.push({ id: 'definition', title: 'Definition', href: '#' })
     tableOfContents.push({
       id: 'installation',
       title: 'Installation',

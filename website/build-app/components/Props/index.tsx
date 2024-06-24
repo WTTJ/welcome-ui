@@ -4,6 +4,7 @@ import { Box } from '@welcome-ui/box'
 import { Badge } from '@welcome-ui/badge'
 import { Flex } from '@welcome-ui/flex'
 import { Text } from '@welcome-ui/text'
+import { kebabCase } from 'lodash'
 
 import * as TYPES from '../../../../utils/propTypes'
 import { Code } from '../Mdx/Code'
@@ -38,6 +39,7 @@ export type PropertiesProps = {
 }
 
 type PropertyProps = {
+  id: string
   name: string
   options: Props
 }
@@ -90,7 +92,7 @@ const getType = (type: Property[1]['type']) => {
   return name
 }
 
-export const Property = ({ name, options }: PropertyProps) => {
+export const Property = ({ id, name, options }: PropertyProps) => {
   const { defaultValue, description, required, type } = options
 
   const defaultLabel = removeQuote(defaultValue?.value)
@@ -100,7 +102,7 @@ export const Property = ({ name, options }: PropertyProps) => {
   }
 
   return (
-    <Box>
+    <Box id={id} mt="lg" style={{ scrollMarginTop: 170 }}>
       <Flex
         alignItems="center"
         borderBottom="1px solid"
@@ -143,11 +145,16 @@ export const Properties = ({ items }: PropertiesProps) => {
         const { props: properties } = props[1]
 
         return (
-          <section key={`section_${name}`}>
+          <section key={kebabCase(`property_${name}`)}>
             {name && <H2 mt={0}>{name}</H2>}
             <Flex direction="column" gap="xl" mt="md">
               {Object.entries(properties).map(item => (
-                <Property key={`section_${name}_${item[0]}`} name={item[0]} options={item[1]} />
+                <Property
+                  id={kebabCase(`${name}_${item[0]}`)}
+                  key={kebabCase(`property_${name}_${item[0]}`)}
+                  name={item[0]}
+                  options={item[1]}
+                />
               ))}
             </Flex>
           </section>
