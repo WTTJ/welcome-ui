@@ -1,176 +1,41 @@
 ---
 category: feedback
+description: The Alert component is used to provide users with important messages or feedback. It ensures that critical information is conveyed in a clear and visually distinct manner. This component can be customized to fit various contexts and uses within the application.
+usage: import { Alert } from @welcome-ui/alert
+packageName: alert
+title: Alert
 ---
 
-export { getStaticProps } from '../../getStaticProps'
+### Variant
 
-import {
-  component,
-  dependencies,
-  name,
-  peerDependencies,
-  version,
-} from '@welcome-ui/alert/package.json'
+<div data-playground="variants.tsx" data-component="Alert"></div>
 
-<showcase
-  version={version}
-  name={name}
-  component={component}
-  description="Allows user to display a short, important message to get attention."
-/>
-
-## Variants
-
-```jsx
-<Alert>
-  <Alert.Title>Default variant</Alert.Title>
-  <span>
-    Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
-    ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
-  </span>
-</Alert>
-<Alert variant="error">
-  <Alert.Title>Error variant</Alert.Title>
-  <span>
-    Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
-    ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
-  </span>
-</Alert>
-<Alert variant="warning">
-  <Alert.Title>Warning variant</Alert.Title>
-  <span>
-    Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
-    ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
-  </span>
-</Alert>
-<Alert variant="success">
-  <Alert.Title>Success variant</Alert.Title>
-  <span>
-    Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
-    ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
-  </span>
-</Alert>
-<Alert variant="info">
-  <Alert.Title>Info variant</Alert.Title>
-  <span>
-    Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
-    ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
-  </span>
-</Alert>
-```
-
-## Sizes
+### Sizes
 
 By default the size is `sm`.
 
-```jsx
-<Alert>
-  <Alert.Title>Welcome to the jungle</Alert.Title>
-  <span>
-    Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
-    ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
-  </span>
-</Alert>
-<Alert size="md">
-  <Alert.Title>Welcome to the jungle</Alert.Title>
-  <span>
-    Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
-    ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
-  </span>
-</Alert>
-```
+<div data-playground="sizes.tsx" data-component="Alert"></div>
 
-## With only Alert.Title
+### Only a title
 
-We're adding an icon matching the `variant` (see above examples) but you can remove it or add a custom node instead
+We include an icon that matches the variant, but you have the option to remove it or replace it with a custom node.
 
-```jsx
-<Alert>
-  <Alert.Title>Welcome to the jungle</Alert.Title>
-</Alert>
-<Alert icon={<HeartIcon />}>
-  <Alert.Title>Welcome to the jungle</Alert.Title>
-</Alert>
-<Alert icon="😵">
-  <Alert.Title>Welcome to the jungle</Alert.Title>
-</Alert>
-<Alert icon={null}>
-  <Alert.Title>Welcome to the jungle</Alert.Title>
-</Alert>
-```
+<div data-playground="title.tsx" data-component="Alert"></div>
 
-## With CTA
+### With CTA
 
-When using a `cta` prop, we will show it in a column on the right
+When the `cta` prop is used, it will be displayed in a column on the right.
 
-```jsx
-<Alert cta={<Alert.Button variant="secondary">Button</Alert.Button>}>
-  <Alert.Title>Welcome to the jungle</Alert.Title>
-  <span>
-    Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan ultrices.
-    Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
-  </span>
-</Alert>
-```
+<div data-playground="cta.tsx" data-component="Alert"></div>
 
-```jsx
-<Alert cta={<Alert.Button variant="secondary">Button</Alert.Button>}>
-  <Alert.Title>Welcome to the jungle</Alert.Title>
-</Alert>
-```
+### Full Width
 
-```jsx
-<Alert cta={<Icons.Check />} isFullWidth>
-  <Alert.Title>Welcome to the jungle</Alert.Title>
-</Alert>
-```
+Set property `isFullWidth` to take the full width of the parent.
 
-## Full Width
+<div data-playground="is-full-width.tsx" data-component="Alert"></div>
 
-```jsx
-<Alert isFullWidth cta={<Alert.Button variant="secondary">Button</Alert.Button>}>
-  <Alert.Title>Welcome to the jungle</Alert.Title>
-</Alert>
-```
-
-## CloseButton
+### CloseButton
 
 To show a close button you need to pass your function on the `handleClose` property.
 
-```jsx
-function() {
-  const [hideAlert, setHideAlert] = React.useState(false)
-
-  return hideAlert ? null : (
-    <Alert handleClose={() => setHideAlert(true)}>
-      <Alert.Title>Welcome to the jungle</Alert.Title>
-      <span>
-        Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan ultrices.
-        Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
-      </span>
-    </Alert>
-  )
-}
-```
-
-## Properties
-
-### Alert
-
-<props propTypes={props.propTypes.Alert} />
-
-### Alert.Title
-
-<props propTypes={props.propTypes['Alert.Title']} />
-
-## Packages
-
-### Dependencies
-
-<dependencies dependencies={dependencies} />
-
-### Peer dependencies
-
-<dependencies dependencies={peerDependencies} />
-
-<pagination />
+<div data-playground="close-button.tsx" data-component="Alert"></div>
