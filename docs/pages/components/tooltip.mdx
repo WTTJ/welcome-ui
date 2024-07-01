@@ -33,6 +33,27 @@ Maybe you don't want the tooltip to follow the cursor set by `fixed` property
 </Tooltip>
 ```
 
+## With an arrow
+You can use the `arrow` property to display an arrow pointing towards your trigger
+
+It will only display with the `fixed` property set to `true`
+```jsx
+<Tooltip arrow fixed content="Tooltip">
+  <Button>Fixed tooltip with an arrow ⬇️</Button>
+</Tooltip>
+```
+
+The arrow will adjust its position based on the `placement` property, and the tooltip position relative to the window
+```jsx
+<Tooltip
+  arrow
+  fixed
+  placement="right"
+  content="Tooltip">
+  <Button>Tooltip with an arrow pointing left ⬅️ </Button>
+</Tooltip>
+```
+
 ## With a long text and a custom placement
 
 Set a `max-width` for long text
@@ -62,74 +83,90 @@ We're adding a wrapper around the button when it's disabled otherwise the toolti
 Using only with the `fixed` prop, `placement` will enable a translate animation on your tooltip. The direction works with these values for `placement`.
 
 ```jsx
-<Flex flexWrap="wrap" gap="lg">
-  <Tooltip content="Tooltip" fixed placement="top-start">
-    <Button size="sm" w={120}>
-      <span>top-start &#8598; </span>
-    </Button>
-  </Tooltip>
-  <Tooltip content="Tooltip" fixed placement="top">
-    <Button size="sm" w={120}>
-      <span>top &#8593; </span>
-    </Button>
-  </Tooltip>
-  <Tooltip content="Tooltip" fixed placement="top-end">
-    <Button size="sm" w={120}>
-      <span>top-end &#8599; </span>
-    </Button>
-  </Tooltip>
-</Flex>
-<Flex flexWrap="wrap" gap="lg">
-  <Tooltip content="Tooltip" fixed placement="bottom-start">
-    <Button size="sm" w={120}>
-      <span>bottom-start &#8601; </span>
-    </Button>
-  </Tooltip>
-  <Tooltip content="Tooltip" fixed placement="bottom">
-    <Button size="sm" w={120}>
-      <span>bottom &#8595; </span>
-    </Button>
-  </Tooltip>
-  <Tooltip content="Tooltip" fixed placement="bottom-end">
-    <Button size="sm" w={120}>
-      <span>bottom-end &#8600; </span>
-    </Button>
-  </Tooltip>
-</Flex>
-<Flex flexWrap="wrap" gap="lg">
-  <Tooltip content="Tooltip" fixed placement="left-start">
-    <Button size="sm" w={120}>
-      <span>left-start &#8598; </span>
-    </Button>
-  </Tooltip>
-  <Tooltip content="Tooltip" fixed placement="left">
-    <Button size="sm" w={120}>
-      <span>left &#8592; </span>
-    </Button>
-  </Tooltip>
-  <Tooltip content="Tooltip" fixed placement="left-end">
-    <Button size="sm" w={120}>
-      <span>left-end &#8601; </span>
-    </Button>
-  </Tooltip>
-</Flex>
-<Flex flexWrap="wrap" gap="lg">
-  <Tooltip content="Tooltip" fixed placement="right-start">
-    <Button size="sm" w={120}>
-      <span>right-start &#8599; </span>
-    </Button>
-  </Tooltip>
-  <Tooltip content="Tooltip" fixed placement="right">
-    <Button size="sm" w={120}>
-      <span>right &#8594; </span>
-    </Button>
-  </Tooltip>
-  <Tooltip content="Tooltip" fixed placement="right-end">
-    <Button size="sm" w={120}>
-      <span>right-end &#8600; </span>
-    </Button>
-  </Tooltip>
-</Flex>
+function() {
+const [arrow, setArrow] = React.useState(true)
+const tooltipContent = "Using only with the `fixed` prop, `placement` will enable a translate animation on your tooltip. The direction works with these values for `placement`."
+
+return (
+  <Flex gap='lg' flexDirection='column'>
+    <Field label="Enable the arrow property" cursor='pointer'>
+      <Checkbox
+        name="arrow"
+        checked={arrow}
+        onChange={() => setArrow(!arrow)}
+      />
+    </Field>
+    <Flex flexWrap="wrap" gap="lg">
+      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="top-start">
+        <Button size="sm" w={120}>
+          <span>top-start &#8598; </span>
+        </Button>
+      </Tooltip>
+      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="top">
+        <Button size="sm" w={120}>
+          <span>top &#8593; </span>
+        </Button>
+      </Tooltip>
+      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="top-end">
+        <Button size="sm" w={120}>
+          <span>top-end &#8599; </span>
+        </Button>
+      </Tooltip>
+    </Flex>
+    <Flex flexWrap="wrap" gap="lg">
+      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="bottom-start">
+        <Button size="sm" w={120}>
+          <span>bottom-start &#8601; </span>
+        </Button>
+      </Tooltip>
+      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="bottom">
+        <Button size="sm" w={120}>
+          <span>bottom &#8595; </span>
+        </Button>
+      </Tooltip>
+      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="bottom-end">
+        <Button size="sm" w={120}>
+          <span>bottom-end &#8600; </span>
+        </Button>
+      </Tooltip>
+    </Flex>
+    <Flex flexWrap="wrap" gap="lg">
+      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="left-start">
+        <Button size="sm" w={120}>
+          <span>left-start &#8598; </span>
+        </Button>
+      </Tooltip>
+      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="left">
+        <Button size="sm" w={120}>
+          <span>left &#8592; </span>
+        </Button>
+      </Tooltip>
+      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="left-end">
+        <Button size="sm" w={120}>
+          <span>left-end &#8601; </span>
+        </Button>
+      </Tooltip>
+    </Flex>
+    <Flex flexWrap="wrap" gap="lg">
+      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="right-start">
+        <Button size="sm" w={120}>
+          <span>right-start &#8599; </span>
+        </Button>
+      </Tooltip>
+      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="right">
+        <Button size="sm" w={120}>
+          <span>right &#8594; </span>
+        </Button>
+      </Tooltip>
+      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="right-end">
+        <Button size="sm" w={120}>
+          <span>right-end &#8600; </span>
+        </Button>
+      </Tooltip>
+    </Flex>
+  </Flex>
+)
+}
 ```
 
 ## Properties
