@@ -1,6 +1,6 @@
 ---
 category: data-display
-description: Buttons are clickable items communicating actions that can be performed.
+description: List of expandable items that allow users to reveal or hide content by clicking on headers. It helps keep interfaces clean and organized by displaying information in collapsible sections.
 usage: import { Accordion, useAccordion } from @welcome-ui/accordion
 packageName: accordion
 title: Accordion
@@ -12,27 +12,24 @@ title: Accordion
 
 ### Open at start
 
-Add `defaultOpen` options on `useAccordion` to open at start the accordion
+Add `defaultOpen` options to `useAccordion` to open the accordion at the start.
 
 <div data-playground="open-at-start.tsx" data-component="Accordion"></div>
 
 ### With a custom icon
 
-Customize the icon with a node element on property `icon`
-
-Note that the custom icon's size property will be set to small
+Customize the icon with a node element on the `icon` property. Note that the custom icon's size property will be set to small.
 
 <div data-playground="with-custom-icon.tsx" data-component="Accordion"></div>
 
 ### useAccordion
 
-We use `useDisclosureStore` from [Ariakit Disclosure](https://ariakit.org/reference/use-disclosure-store) for the state of the accordion with the `animated` flag set to `true` by default.
+We use `useDisclosureStore` from [Ariakit Disclosure](https://ariakit.org/reference/use-disclosure-store) for the state of the accordion, with the `animated` flag set to true by default.
 
 Pass options to `useAccordion`:
 
-- `defaultOpen`: e.g. `const accordion = useAccordion({ defaultOpen: true })`
+- **defaultOpen:** `const accordion = useAccordion({ defaultOpen: true })`
 
-And the hook returns (among other things):
+The hook returns (among other things):
 
-- `useState('open')`: whether the accordion is currently open
-- `hide`: a function to hide the accordion
+- `useState('open')`: whether the accordion is currently open hide: a function to hide the accordion

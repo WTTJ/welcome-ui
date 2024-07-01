@@ -1,8 +1,7 @@
-/* eslint-disable react/function-component-definition */
 import * as React from 'react'
 import { Accordion, useAccordion } from '@welcome-ui/accordion'
 
-export default function Example() {
+const Example = () => {
   const accordion = useAccordion({ defaultOpen: true })
 
   return (
@@ -13,3 +12,5 @@ export default function Example() {
     </Accordion>
   )
 }
+
+export default Example

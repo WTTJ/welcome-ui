@@ -1,11 +1,10 @@
-/* eslint-disable react/function-component-definition */
 import * as React from 'react'
 import { Flex } from '@welcome-ui/flex'
 import { Avatar } from '@welcome-ui/avatar'
 import { Text } from '@welcome-ui/text'
 import { Accordion, useAccordion } from '@welcome-ui/accordion'
 
-export default function Example() {
+const Example = () => {
   const accordion = useAccordion()
 
   return (
@@ -27,3 +26,5 @@ export default function Example() {
     </Accordion>
   )
 }
+
+export default Example
