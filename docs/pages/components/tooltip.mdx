@@ -34,9 +34,11 @@ Maybe you don't want the tooltip to follow the cursor set by `fixed` property
 ```
 
 ## With an arrow
+
 You can use the `arrow` property to display an arrow pointing towards your trigger
 
 It will only display with the `fixed` property set to `true`
+
 ```jsx
 <Tooltip arrow fixed content="Tooltip">
   <Button>Fixed tooltip with an arrow ⬇️</Button>
@@ -44,12 +46,9 @@ It will only display with the `fixed` property set to `true`
 ```
 
 The arrow will adjust its position based on the `placement` property, and the tooltip position relative to the window
+
 ```jsx
-<Tooltip
-  arrow
-  fixed
-  placement="right"
-  content="Tooltip">
+<Tooltip arrow fixed placement="right" content="Tooltip">
   <Button>Tooltip with an arrow pointing left ⬅️ </Button>
 </Tooltip>
 ```
@@ -85,7 +84,7 @@ Using only with the `fixed` prop, `placement` will enable a translate animation 
 ```jsx
 function() {
 const [arrow, setArrow] = React.useState(true)
-const tooltipContent = "Using only with the `fixed` prop, `placement` will enable a translate animation on your tooltip. The direction works with these values for `placement`."
+const tooltipContent = "Tooltip content"
 
 return (
   <Flex gap='lg' flexDirection='column'>
