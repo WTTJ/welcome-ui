@@ -35,6 +35,11 @@ const components = {
   p: Paragraph,
   img: Image,
   div: Div,
+  strong: ({ children }: { children: React.ReactElement }) => (
+    <Box as="strong" color="dark-900" fontWeight="500">
+      {children}
+    </Box>
+  ),
 }
 
 export const Mdx = ({ children = '' }) => {
