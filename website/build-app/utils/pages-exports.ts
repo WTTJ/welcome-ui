@@ -38,10 +38,16 @@ export function getFilesFromDirectory(dir: string) {
       files.push(filesDirection)
     } else {
       if (relativePath !== 'README') {
-        files.push({
-          parent: dir,
-          pages: [{ id: relativePath }],
-        })
+        const dirParentIndex = files.findIndex(file => file.parent === dir)
+
+        if (dirParentIndex >= 0) {
+          files[dirParentIndex].pages.push({ id: relativePath })
+        } else {
+          files.push({
+            parent: dir,
+            pages: [{ id: relativePath }],
+          })
+        }
       }
     }
   }

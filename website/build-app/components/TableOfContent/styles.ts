@@ -16,6 +16,7 @@ export const Nav = styled.nav(
 )
 
 export const Link = styled(NextLink)`
+  display: block;
   color: dark-700;
   position: relative;
   transition: color ${th('transitions.medium')}, padding-left ${th('transitions.medium')};

@@ -4,6 +4,7 @@ import { Mdx } from '@/build-app/components/Mdx'
 import { TableOfContent } from '@/build-app/components/TableOfContent'
 import { getPageContent } from '@/build-app/utils/page-content'
 import { getPages, getStaticParamsSubPage } from '@/build-app/utils/pages-exports'
+import { PrevNextPage } from '@/build-app/components/PrevNextPage'
 
 type PageProps = {
   params: {
@@ -19,6 +20,7 @@ export async function generateStaticParams() {
 }
 
 const Page = ({ params }: PageProps) => {
+  const pages = getPages('foundations')
   const { id, subPage } = params
 
   const { contentWithoutMatter, isNotFound, tree } = getPageContent(
@@ -31,6 +33,7 @@ const Page = ({ params }: PageProps) => {
     <>
       <main>
         <Mdx>{contentWithoutMatter}</Mdx>
+        <PrevNextPage basePage="foundations" currentId={`${id}/${subPage}`} pages={pages} />
       </main>
       <TableOfContent isSubPage tree={tree} />
     </>

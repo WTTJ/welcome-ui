@@ -7,7 +7,7 @@ interface AProps {
 
 export const A = ({ children, href, ...rest }: AProps) => {
   return (
-    <Link href={href} isExternal {...rest}>
+    <Link href={href} isExternal target="_blank" {...rest}>
       {children}
     </Link>
   )

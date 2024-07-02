@@ -18,9 +18,7 @@ export const PrevNextPage = ({ basePage, currentId, pages }: PrevNextPageProps) 
     page.pages.map(item => prev.push(`${item.parent ? `${item.parent}/` : ''}${item.id}`))
     return prev
   }, [] as string[])
-
   const lastItemIndex = items.length - 1
-
   const currentPageIndex = items.indexOf(currentId)
 
   return (

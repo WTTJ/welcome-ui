@@ -69,7 +69,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
               {item.children && (
                 <Flex as="ul" direction="column" gap="xs">
                   {item.children.map(child => (
-                    <li key={child.href}>
+                    <Box as="li" key={child.href}>
                       <S.Link
                         aria-current={`#${activeId}` === child.href ? 'page' : undefined}
                         href={child.href}
@@ -77,7 +77,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
                       >
                         {child.title}
                       </S.Link>
-                    </li>
+                    </Box>
                   ))}
                 </Flex>
               )}

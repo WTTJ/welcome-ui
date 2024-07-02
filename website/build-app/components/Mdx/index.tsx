@@ -21,7 +21,12 @@ const components = {
   h4: H4,
   a: A,
   ul: ({ children }: { children: React.ReactElement }) => (
-    <Box as="ul" listStyleType="disc">
+    <Box as="ul" listStyleType="disc" mt="sm">
+      {children}
+    </Box>
+  ),
+  ol: ({ children }: { children: React.ReactElement }) => (
+    <Box as="ol" listStyleType="decimal" mt="sm">
       {children}
     </Box>
   ),
