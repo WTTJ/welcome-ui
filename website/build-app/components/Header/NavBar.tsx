@@ -38,6 +38,7 @@ export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
       <Button
         as="a"
         href="https://github.com/WTTJ/welcome-ui"
+        rel="noreferrer noopener"
         shape="circle"
         size="sm"
         target="_blank"

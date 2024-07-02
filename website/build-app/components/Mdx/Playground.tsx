@@ -84,6 +84,7 @@ export const Playground = ({
                 <Button
                   as="a"
                   href={`https://github.com/WTTJ/welcome-ui/tree/main/packages${pathToFile}`}
+                  rel="noreferrer noopener"
                   shape="circle"
                   size="xs"
                   target="_blank"
