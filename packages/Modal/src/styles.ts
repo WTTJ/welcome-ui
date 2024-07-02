@@ -32,8 +32,8 @@ export const Backdrop = styled.divBox.withConfig({
   `
 )
 
-export const Dialog = styled.divBox(
-  ({ size }: { size: Size }) => css`
+export const Dialog = styled.divBox<{ size: Size }>(
+  ({ size }) => css`
     ${cardStyles};
     ${th('modals.default')};
     position: fixed;
