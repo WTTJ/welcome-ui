@@ -3978,6 +3978,11 @@
   dependencies:
     "@sinonjs/commons" "^2.0.0"
 
+"@stackblitz/sdk@^1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@stackblitz/sdk/-/sdk-1.10.0.tgz#c979d01e806547f943db060f2943759c339eb99b"
+  integrity sha512-IcvE9Xifo2c4/f+yNqjFM/OW5VTBPLed3TxsQ+n8n81Py358IqD5w0IYfFgV5gbDjp2g5H5YK2/Shls/kQNTWQ==
+
 "@stylelint/postcss-css-in-js@^0.38.0":
   version "0.38.0"
   resolved "https://registry.yarnpkg.com/@stylelint/postcss-css-in-js/-/postcss-css-in-js-0.38.0.tgz#eabb061df932744db766f11a153ae1c465b6263c"

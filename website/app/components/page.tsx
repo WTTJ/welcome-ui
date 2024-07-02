@@ -28,7 +28,7 @@ const Page = () => {
                 <Link href={`/components/${page.id}`} key={page.id}>
                   <Card borderColor={{ hover: 'dark-200' }} borderRadius="md" p="md">
                     <Text variant="h5">{getName(page.id)}</Text>
-                    <Text color="dark-700" mt="sm" variant="sm">
+                    <Text color="dark-700" lines={3} mt="sm" variant="sm">
                       {data?.description}
                     </Text>
                   </Card>

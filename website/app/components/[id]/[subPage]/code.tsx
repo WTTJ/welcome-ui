@@ -29,7 +29,7 @@ const Page = ({ params }: PageProps) => {
   return (
     <>
       <main>
-        <Mdx>{`<div data-playground="overview.tsx" data-component="${componentName}"></div>`}</Mdx>
+        <Mdx>{`<div data-playground="overview.tsx" data-component="${componentName}" data-overview="true"></div>`}</Mdx>
         <Installation packageName={data?.packageName} usage={data?.usage} />
         <Mdx>## Examples</Mdx>
         <Mdx>{contentWithoutMatter}</Mdx>

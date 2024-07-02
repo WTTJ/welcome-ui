@@ -5,11 +5,14 @@ import { Alert } from '@welcome-ui/alert'
 
 import { Playground } from './Playground'
 
+import examples from '@/build-app/examples'
+
 type DivProps = {
   children: string
   node?: {
     properties: {
       dataComponent?: string
+      dataOverview?: string
       dataPlayground?: string
       dataPlaygroundWithCodeEditor?: string
     }
@@ -22,6 +25,7 @@ export const Div = ({ children, node }: DivProps) => {
   if (playgroundFile) {
     const component = node?.properties?.dataComponent || ''
     const withCodeEditor = node?.properties?.dataPlaygroundWithCodeEditor || 'true'
+    const isOverview = node?.properties?.dataOverview || ''
 
     const pathToFile = join(
       process.cwd(),
@@ -43,10 +47,10 @@ export const Div = ({ children, node }: DivProps) => {
     return (
       <Playground
         code={`${code}`}
+        isOverview={isOverview === 'true'}
         mt={playgroundFile === 'overview.tsx' ? 0 : undefined}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        pathToFile={pathToFile.split('packages')[1]}
+        name={component}
+        pathToFile={pathToFile.split('packages')[1] as keyof typeof examples}
         withCodeEditor={withCodeEditor?.toLowerCase() === 'true'}
       />
     )
