@@ -1,4 +1,0 @@
-# Block all crawlers for old versions
-User-agent: *
-Disallow: /v3
-Disallow: /v4

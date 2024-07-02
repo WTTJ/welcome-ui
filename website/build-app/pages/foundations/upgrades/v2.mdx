@@ -1,0 +1,79 @@
+# Upgrading to v2
+
+27 July 2020
+
+We have changed the core theme on this new version of Welcome UI, and created our new theme `Welcome`.
+
+## Typography
+
+- Added new font: Work Sans on texts and it's now a variable font
+- Reworked Text components with new sizes for Headings
+- Added default line height and letter spacing
+- Now all our fonts are on our cnd.welcome-ui.com
+
+## Colors
+
+- Added
+  - Primary: 800 / 900
+  - Light: 100 / 800
+  - Dark: 100 / 800
+  - Nude: 900
+- Removed
+  - Secondary colors
+  - Nude: 300 / 400 / 600
+
+## Spacing
+
+- `xxl` is smaller (now 20) and `3xl` replaces the old `xxl`
+- Added `3xl` and `4xl`
+
+## Buttons
+
+- secondary have become tertiary style and vice versa
+- Added tertiary-negative
+
+## Icons
+
+- Added
+  - ExpandText
+  - Diamond
+  - Caddy
+  - Factory
+  - House
+- Renamed
+  - EmployerBranding > Fingerprint
+  - Ats > Pictures
+  - Marketplace > Masonry
+  - WelcomeHome > Teepee
+- Removed
+  - WelcomeKit
+
+## Modal
+
+- Added animation on open/close
+- Added `Modal.Title` component
+- Changed the way of use trigger: before `<Button as={Modal.Trigger} {...modal}>` and now `<Modal.Trigger as={Button} {...modal}>`
+
+## Link
+
+Removed underline for Text component on a Link, and fixed animation
+
+## Tabs
+
+Removed the `::before` border element on theme and added the ability to remove the border on tab item from style props
+
+## Swiper
+
+Completely changed the way the Swiper works (now uses hooks)
+
+## Other theming
+
+- Added global focus on `theme.focus()`
+- Added global card style on `theme.defaultCards`
+- Added global fields style on `theme.defaultFields`
+
+## styled-components
+
+Added shouldForwardProps from styled components v5.1
+
+And lots of small fixes 🙃
