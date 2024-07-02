@@ -35,12 +35,12 @@ Maybe you don't want the tooltip to follow the cursor set by `fixed` property
 
 ## With an arrow
 
-You can use the `arrow` property to display an arrow pointing towards your trigger
+You can use the `withArrow` property to display an arrow pointing towards your trigger
 
 It will only display with the `fixed` property set to `true`
 
 ```jsx
-<Tooltip arrow fixed content="Tooltip">
+<Tooltip withArrow fixed content="Tooltip">
   <Button>Fixed tooltip with an arrow ⬇️</Button>
 </Tooltip>
 ```
@@ -48,7 +48,7 @@ It will only display with the `fixed` property set to `true`
 The arrow will adjust its position based on the `placement` property, and the tooltip position relative to the window
 
 ```jsx
-<Tooltip arrow fixed placement="right" content="Tooltip">
+<Tooltip withArrow fixed placement="right" content="Tooltip">
   <Button>Tooltip with an arrow pointing left ⬅️ </Button>
 </Tooltip>
 ```
@@ -83,7 +83,7 @@ Using only with the `fixed` prop, `placement` will enable a translate animation 
 
 ```jsx
 function() {
-const [arrow, setArrow] = React.useState(true)
+const [withArrow, setWithArrow] = React.useState(true)
 const tooltipContent = "Tooltip content"
 
 return (
@@ -91,73 +91,73 @@ return (
     <Field label="Enable the arrow property" cursor='pointer'>
       <Checkbox
         name="arrow"
-        checked={arrow}
-        onChange={() => setArrow(!arrow)}
+        checked={withArrow}
+        onChange={() => setArrow(!withArrow)}
       />
     </Field>
     <Flex flexWrap="wrap" gap="lg">
-      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="top-start">
+      <Tooltip content={tooltipContent} withArrow={withArrow} fixed placement="top-start">
         <Button size="sm" w={120}>
           <span>top-start &#8598; </span>
         </Button>
       </Tooltip>
-      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="top">
+      <Tooltip content={tooltipContent} withArrow={withArrow} fixed placement="top">
         <Button size="sm" w={120}>
           <span>top &#8593; </span>
         </Button>
       </Tooltip>
-      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="top-end">
+      <Tooltip content={tooltipContent} withArrow={withArrow} fixed placement="top-end">
         <Button size="sm" w={120}>
           <span>top-end &#8599; </span>
         </Button>
       </Tooltip>
     </Flex>
     <Flex flexWrap="wrap" gap="lg">
-      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="bottom-start">
+      <Tooltip content={tooltipContent} withArrow={withArrow} fixed placement="bottom-start">
         <Button size="sm" w={120}>
           <span>bottom-start &#8601; </span>
         </Button>
       </Tooltip>
-      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="bottom">
+      <Tooltip content={tooltipContent} withArrow={withArrow} fixed placement="bottom">
         <Button size="sm" w={120}>
           <span>bottom &#8595; </span>
         </Button>
       </Tooltip>
-      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="bottom-end">
+      <Tooltip content={tooltipContent} withArrow={withArrow} fixed placement="bottom-end">
         <Button size="sm" w={120}>
           <span>bottom-end &#8600; </span>
         </Button>
       </Tooltip>
     </Flex>
     <Flex flexWrap="wrap" gap="lg">
-      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="left-start">
+      <Tooltip content={tooltipContent} withArrow={withArrow} fixed placement="left-start">
         <Button size="sm" w={120}>
           <span>left-start &#8598; </span>
         </Button>
       </Tooltip>
-      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="left">
+      <Tooltip content={tooltipContent} withArrow={withArrow} fixed placement="left">
         <Button size="sm" w={120}>
           <span>left &#8592; </span>
         </Button>
       </Tooltip>
-      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="left-end">
+      <Tooltip content={tooltipContent} withArrow={withArrow} fixed placement="left-end">
         <Button size="sm" w={120}>
           <span>left-end &#8601; </span>
         </Button>
       </Tooltip>
     </Flex>
     <Flex flexWrap="wrap" gap="lg">
-      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="right-start">
+      <Tooltip content={tooltipContent} withArrow={withArrow} fixed placement="right-start">
         <Button size="sm" w={120}>
           <span>right-start &#8599; </span>
         </Button>
       </Tooltip>
-      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="right">
+      <Tooltip content={tooltipContent} withArrow={withArrow} fixed placement="right">
         <Button size="sm" w={120}>
           <span>right &#8594; </span>
         </Button>
       </Tooltip>
-      <Tooltip content={tooltipContent} arrow={arrow} fixed placement="right-end">
+      <Tooltip content={tooltipContent} withArrow={withArrow} fixed placement="right-end">
         <Button size="sm" w={120}>
           <span>right-end &#8600; </span>
         </Button>

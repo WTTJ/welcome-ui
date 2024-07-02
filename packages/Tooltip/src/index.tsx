@@ -8,7 +8,7 @@ import * as S from './styles'
 export type TooltipOptions = {
   children: React.ReactNode
   content: string | JSX.Element
-  arrow?: boolean
+  withArrow?: boolean
   fixed?: boolean
 } & Pick<Ariakit.TooltipStoreProps, 'placement'> &
   Pick<Ariakit.TooltipOptions, 'gutter'>
@@ -23,7 +23,7 @@ export const Tooltip = forwardRef<'div', TooltipProps>(
       fixed = false,
       placement = fixed ? 'top' : 'bottom',
       gutter = 8,
-      arrow,
+      withArrow,
       ...rest
     },
     ref
@@ -79,11 +79,11 @@ export const Tooltip = forwardRef<'div', TooltipProps>(
           updatePosition={!fixed ? updatePosition : undefined}
         >
           <S.FadeIn
-            arrow={arrow}
             fixed={fixed}
             onTransitionEnd={stopAnimation}
             placement={currentPlacement}
             popoverHeight={popoverElement?.getBoundingClientRect().height}
+            withArrow={withArrow}
           >
             {content}
           </S.FadeIn>
