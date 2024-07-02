@@ -55,9 +55,9 @@
     "react-dropzone": "14.2.3"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^3.7.3",
+    "@xstyled/styled-components": "^4.0.0",
     "react": "^18.0.0",
-    "styled-components": "^5.3.9"
+    "styled-components": "^6.1.11"
   },
   "sideEffects": false,
   "homepage": "https://welcome-ui.com/components/file-drop",
