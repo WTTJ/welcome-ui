@@ -2,26 +2,47 @@
 import Link from 'next/link'
 import { Flex } from '@welcome-ui/flex'
 import { Button } from '@welcome-ui/button'
-import { Box } from '@welcome-ui/box'
+import { Drawer, useDrawer } from '@welcome-ui/drawer'
 import { Icons } from '@welcome-ui/icons.font'
 import { usePathname } from 'next/navigation'
-import { Text } from '@welcome-ui/text'
 
 import { VersionSelector } from '../VersionSelector'
+import { Sidebar } from '../Sidebar'
 
 import { Logo } from './Logo'
 import * as S from './styles'
+import { NavBar } from './NavBar'
 
-const navigation = ['foundations', 'components']
+import { PageTree } from '@/build-app/types'
 
-export const Header = () => {
-  const currentRoute = usePathname()
+export const navigation = ['foundations', 'components']
+
+type HeaderProps = {
+  foundations: PageTree
+  components: PageTree
+}
+
+export const Header = ({ components, foundations }: HeaderProps) => {
+  const drawer = useDrawer()
+  const pathname = usePathname()
+
+  const handleCloseDrawer = () => {
+    drawer.hide()
+  }
+
+  let menu
+  if (pathname.startsWith('/components')) {
+    menu = components
+  }
+  if (pathname.startsWith('/foundations')) {
+    menu = foundations
+  }
 
   return (
     <S.Header>
       <Flex
         alignItems="center"
-        gap="xl"
+        gap={{ _: 'sm', md: 'lg' }}
         h="100%"
         justifyContent="space-between"
         margin="0 auto"
@@ -34,25 +55,16 @@ export const Header = () => {
           </Link>
           <VersionSelector />
         </Flex>
-        <Flex alignItems="center" gap="xl" h="100%">
-          <Box as="nav" h="100%">
-            <Flex aria-label="Main navigation" as="ul" gap="xxl" h="100%">
-              {navigation.map(item => (
-                <Text as="li" key={`header_navigation_${item}`} variant="subtitle-md">
-                  <S.A
-                    aria-current={currentRoute.startsWith(`/${item}`) ? 'page' : undefined}
-                    href={`/${item}`}
-                  >
-                    {item}
-                  </S.A>
-                </Text>
-              ))}
-            </Flex>
-          </Box>
-          <Button shape="circle" size="sm" variant="ghost">
-            <Icons.Search />
-          </Button>
-        </Flex>
+        <Drawer.Trigger as={Button} display={{ lg: 'none' }} shape="circle" store={drawer}>
+          <Icons.Menu />
+        </Drawer.Trigger>
+        <NavBar display={{ _: 'none', lg: 'flex' }} />
+        <Drawer display={{ lg: 'none' }} size="100%" store={drawer} withBackdrop zIndex={999}>
+          <Drawer.Content>
+            <NavBar onClick={handleCloseDrawer} />
+            {menu && <Sidebar isSubPage menu={menu} onClick={handleCloseDrawer} />}
+          </Drawer.Content>
+        </Drawer>
       </Flex>
     </S.Header>
   )

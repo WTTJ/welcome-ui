@@ -20,7 +20,7 @@ const Page = () => {
       {pages.map(category => (
         <Flex direction="column" gap="md" key={category.category}>
           <Text variant="subtitle-md">{getName(category.category as string)}</Text>
-          <Grid gap="lg" templateColumns="1fr 1fr 1fr">
+          <Grid gap="lg" templateColumns={{ _: '1fr', lg: '1fr 1fr 1fr' }}>
             {category.pages.map(page => {
               const { data } = getPageContent(`${startCase(page.id)}/docs/index.mdx`, true)
 

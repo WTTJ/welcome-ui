@@ -30,7 +30,7 @@ const Layout = ({ children, params }: LayoutProps) => {
 
   return (
     <Documentation.Layout>
-      <Sidebar isSubPage menu={pages} />
+      <Sidebar display={{ _: 'none', lg: 'flex' }} isSubPage menu={pages} />
       <div>
         <Flex direction="column" gap="xl" mb="lg">
           <Text pt="3xl" variant="h1">

@@ -17,7 +17,7 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
   return (
     <HighlightPrism code={children.trim()} language={language} theme={themes.vsDark}>
       {({ getLineProps, getTokenProps, style, tokens }) => (
-        <Box mt="lg" position="relative">
+        <Box mt="sm" position="relative">
           <Button
             onClick={copy}
             position="absolute"

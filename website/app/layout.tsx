@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 import StyledComponentsRegistry from '@/build-app/registry'
 import { ThemeProvider } from '@/build-app/components/ThemeProvider'
 import { Header } from '@/build-app/components/Header'
+import { getPages } from '@/build-app/utils/pages-components'
+import { getPages as getPagesExport } from '@/build-app/utils/pages-exports'
 
 export const metadata: Metadata = {
   title: 'Welcome UI - Customizable design system with react',
@@ -11,6 +13,9 @@ export const metadata: Metadata = {
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
+  const pagesComponents = getPages()
+  const pagesFoundations = getPagesExport('foundations')
+
   return (
     <html lang="en">
       <head>
@@ -19,7 +24,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body>
         <StyledComponentsRegistry>
           <ThemeProvider>
-            <Header />
+            <Header components={pagesComponents} foundations={pagesFoundations} />
             {children}
           </ThemeProvider>
         </StyledComponentsRegistry>
