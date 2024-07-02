@@ -17,11 +17,11 @@ export const Alert = styled(Box)<AlertOptions>(
   `
 )
 
-export const Title = styled(Text).attrs(({ variant }: AlertOptions) => ({
+export const Title = styled(Text).attrs(({ variant }) => ({
   variant: 'h5',
   // We're renaming the prop because it'll be overridden by Text's variant
   alertVariant: variant,
-}))(
+}))<{ alertVariant: AlertOptions['variant'] }>(
   ({ alertVariant }) => css`
     margin: 0;
     margin-bottom: sm;

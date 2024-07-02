@@ -95,20 +95,16 @@ export const Menu = styled.ul`
   -webkit-overflow-scrolling: touch;
 `
 
-export const Item = styled.li(
-  ({
-    allowUnselectFromList,
-    isDisabled,
-    isHighlighted,
-    isMultiple,
-    isSelected,
-  }: {
-    allowUnselectFromList: boolean
-    isHighlighted: boolean
-    isMultiple: boolean
-    isSelected: boolean
-    isDisabled?: boolean
-  }) => css`
+type ItemProps = {
+  allowUnselectFromList: boolean
+  isHighlighted: boolean
+  isMultiple: boolean
+  isSelected: boolean
+  isDisabled?: boolean
+}
+
+export const Item = styled.li<ItemProps>(
+  ({ allowUnselectFromList, isDisabled, isHighlighted, isMultiple, isSelected }) => css`
     color: nude-700;
     ${isHighlighted && th('defaultFields.select.highlighted')};
     ${isSelected && !isMultiple && th('defaultFields.select.selected')};
@@ -123,8 +119,8 @@ export const Item = styled.li(
   `
 )
 
-export const Indicators = styled.div(
-  ({ size }: { size: Size }) => css`
+export const Indicators = styled.div<{ size: Size }>(
+  ({ size }) => css`
     position: absolute;
     padding: 0;
     top: 0;
@@ -135,8 +131,10 @@ export const Indicators = styled.div(
   `
 )
 
-export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })(
-  ({ isOpen }: { isOpen?: boolean }) => css`
+export const DropDownIndicator = styled.button.withConfig({
+  shouldForwardProp,
+})<{ isOpen?: boolean }>(
+  ({ isOpen }) => css`
     position: relative;
     height: 100%;
     padding: 0;

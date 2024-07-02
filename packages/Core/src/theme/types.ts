@@ -1,84 +1,64 @@
-import {
-  CSSObject,
-  CSSScalar,
-  ITheme as StyledComponentDefaultTheme,
-  DefaultTheme as XStyledDefaultTheme,
-} from '@xstyled/styled-components'
+import type { CSSObject, CSSScalar, DefaultTheme } from '@xstyled/styled-components'
 
-import { ThemeAccordions } from './accordions'
-import { ThemeAlerts } from './alerts'
-import { ThemeAvatars } from './avatars'
-import { ThemeBorderWidths } from './borders'
-import { ThemeBreadcrumbs } from './breadcrumbs'
-import { ThemeButtons } from './buttons'
-import { ThemeCards } from './cards'
-import { ThemeCheckboxes } from './checkboxes'
-import { ThemeColors } from './colors'
-import { ThemeDateTimePickerCommon } from './dateTimePickerCommon'
-import { ThemeDefaultCards } from './defaultCards'
-import { ThemeDefaultFields } from './defaultFields'
-import { ThemeDrawers } from './drawers'
-import { ThemeDropdownMenu } from './dropdownMenu'
-import { ThemeFiledrops } from './filedrops'
-import { ThemeFocus } from './focus'
-import { ThemeFontFaces } from './fonts'
-import { ThemeHints } from './hints'
-import { ThemeIcons } from './icons'
-import { ThemeLabels } from './labels'
-import { ThemeLinks } from './links'
-import { ThemeLoaders } from './loaders'
-import { ThemeModals } from './modals'
-import { ThemePaginations } from './paginations'
-import { ThemePopovers } from './popovers'
-import { ThemeRadii } from './radii'
-import { ThemeRadios } from './radios'
-import { ThemeRadioTabs } from './radiosTabs'
-import { ThemeScreens } from './screens'
-import { ThemeSelection } from './selection'
-import { ThemeShadows } from './shadows'
-import { ThemeSpace } from './space'
-import { ThemeSwipers } from './swipers'
-import { ThemeTables } from './tables'
-import { ThemeTabs } from './tabs'
-import { ThemeTags } from './tags'
-import { ThemeTextareas } from './textareas'
-import { ThemeToasts } from './toasts'
-import { ThemeToggles } from './toggles'
-import { ThemeTimingFunction, ThemeTransitions } from './transitions'
-import { ThemeSizes } from './sizes'
-import {
+import type { ThemeAccordions } from './accordions'
+import type { ThemeAlerts } from './alerts'
+import type { ThemeAvatars } from './avatars'
+import type { ThemeBorderWidths } from './borders'
+import type { ThemeBreadcrumbs } from './breadcrumbs'
+import type { ThemeButtons } from './buttons'
+import type { ThemeCards } from './cards'
+import type { ThemeCheckboxes } from './checkboxes'
+import type { ThemeColors } from './colors'
+import type { ThemeDateTimePickerCommon } from './dateTimePickerCommon'
+import type { ThemeDefaultCards } from './defaultCards'
+import type { ThemeDefaultFields } from './defaultFields'
+import type { ThemeDrawers } from './drawers'
+import type { ThemeDropdownMenu } from './dropdownMenu'
+import type { ThemeFiledrops } from './filedrops'
+import type { ThemeFocus } from './focus'
+import type { ThemeFontFaces } from './fonts'
+import type { ThemeHints } from './hints'
+import type { ThemeIcons } from './icons'
+import type { ThemeLabels } from './labels'
+import type { ThemeLinks } from './links'
+import type { ThemeLoaders } from './loaders'
+import type { ThemeModals } from './modals'
+import type { ThemePaginations } from './paginations'
+import type { ThemePopovers } from './popovers'
+import type { ThemeRadii } from './radii'
+import type { ThemeRadios } from './radios'
+import type { ThemeRadioTabs } from './radiosTabs'
+import type { ThemeScreens } from './screens'
+import type { ThemeSelection } from './selection'
+import type { ThemeShadows } from './shadows'
+import type { ThemeSpace } from './space'
+import type { ThemeSwipers } from './swipers'
+import type { ThemeTables } from './tables'
+import type { ThemeTabs } from './tabs'
+import type { ThemeTags } from './tags'
+import type { ThemeTextareas } from './textareas'
+import type { ThemeToasts } from './toasts'
+import type { ThemeToggles } from './toggles'
+import type { ThemeTimingFunction, ThemeTransitions } from './transitions'
+import type { ThemeSizes } from './sizes'
+import type {
   ThemeFonts,
   ThemeFontSizes,
   ThemeFontWeights,
   ThemeLetterSpacings,
   ThemeLineHeights,
   ThemeTexts,
+  ThemeTextsFontColors,
   ThemeTextsFontFamily,
   ThemeTextsFontWeights,
   ThemeTextsTextTransform,
 } from './typography'
-import { ThemeUnderline } from './underline'
-import { ThemeFontsUrl } from './core'
+import type { ThemeUnderline } from './underline'
+import type { ThemeFontsUrl } from './core'
+import type { ThemeSliders } from './sliders'
+import type { ThemeBadges } from './badges'
 
-type OverrideKeys =
-  | 'colors'
-  | 'radii'
-  | 'borderWidths'
-  | 'fontSizes'
-  | 'lineHeights'
-  | 'fontWeights'
-  | 'letterSpacings'
-  | 'fonts'
-  | 'sizes'
-  | 'screens'
-  | 'space'
-  | 'shadows'
-  | 'texts'
-
-type XStyledTheme = Omit<XStyledDefaultTheme, OverrideKeys>
-type StyledComponentsTheme = Omit<StyledComponentDefaultTheme, OverrideKeys>
-
-export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
+export interface WuiTheme {
   transformers: {
     px: (value: CSSScalar) => CSSScalar
     border: (value: CSSScalar) => CSSScalar
@@ -86,6 +66,8 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   toEm: (int: number) => string
   toRem: (int?: number) => string
   toPx: (int?: number) => string
+  focus: ThemeFocus
+
   colors: ThemeColors
   underline: ThemeUnderline
   borderWidths: ThemeBorderWidths
@@ -107,13 +89,18 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   timingFunction: ThemeTimingFunction
   shadows: ThemeShadows
   selection: ThemeSelection
-  focus: ThemeFocus
   defaultCards: ThemeDefaultCards
   textsFontWeights: ThemeTextsFontWeights
   textsFontFamily: ThemeTextsFontFamily
   textsTextTransform: ThemeTextsTextTransform
+  textsFontColors: ThemeTextsFontColors
+  sizes: ThemeSizes
+  states: DefaultTheme['states']
+
+  // components
   alerts: ThemeAlerts
   avatars: ThemeAvatars
+  badges: ThemeBadges
   buttons: ThemeButtons
   breadcrumbs: ThemeBreadcrumbs
   toasts: ThemeToasts
@@ -133,7 +120,8 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   swipers: ThemeSwipers
   labels: ThemeLabels
   popovers: ThemePopovers
-  sizes: ThemeSizes
+  sliders: ThemeSliders
+
   // fields
   defaultFields: ThemeDefaultFields
   hints: ThemeHints

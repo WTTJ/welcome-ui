@@ -34,8 +34,8 @@ export const StyledTimePicker = styled(
   `
 )
 
-export const CustomInput = styled('div').withConfig({ shouldForwardProp })(
-  ({ focused }: { focused: Focused }) => {
+export const CustomInput = styled('div').withConfig({ shouldForwardProp })<{ focused: Focused }>(
+  ({ focused }) => {
     return css`
       position: relative;
 

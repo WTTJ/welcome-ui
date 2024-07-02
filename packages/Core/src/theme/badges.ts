@@ -2,7 +2,7 @@ import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
 
-export type ThemeAccordions = {
+export type ThemeBadges = {
   default: CSSObject
   variants: {
     default: CSSObject
@@ -18,7 +18,7 @@ export type ThemeAccordions = {
   }
 }
 
-export const getBadges = (theme: WuiTheme): ThemeAccordions => {
+export const getBadges = (theme: WuiTheme): ThemeBadges => {
   const { colors, fonts, fontWeights, space, texts, toRem } = theme
 
   return {
