@@ -35,7 +35,7 @@ const fadeInStyle = css`
 type FadeIn = {
   placement?: TooltipProps['placement']
   fixed?: boolean
-  arrow?: boolean
+  withArrow?: boolean
   popoverHeight: number
 }
 
@@ -62,7 +62,7 @@ const getYPosition = (placement: string, popoverHeight: number) => {
 }
 
 export const FadeIn = styled.div<FadeIn>(
-  ({ arrow, fixed, placement, popoverHeight }) => css`
+  ({ fixed, placement, popoverHeight, withArrow }) => css`
     ${th('tooltips')};
     ${system};
     transition: opacity ${th.transition('medium')}, transform ${th.transition('medium')},
@@ -73,7 +73,7 @@ export const FadeIn = styled.div<FadeIn>(
     z-index: 10;
 
     ${fixed &&
-    arrow &&
+    withArrow &&
     css`
       &::after {
         content: '';
