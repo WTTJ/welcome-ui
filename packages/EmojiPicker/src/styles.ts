@@ -3,13 +3,12 @@ import { Tab } from '@welcome-ui/tabs'
 import * as WUIPopover from '@welcome-ui/popover'
 import { Box } from '@welcome-ui/box'
 
-export const Popover = styled(WUIPopover.Popover)`
+export const Popover = styled.box.attrs({ as: WUIPopover.Popover })`
   background-color: ${th('defaultCards.backgroundColor')};
   border-width: sm;
   border-style: solid;
   border-color: border;
   color: dark-900;
-  ${system};
 
   /** we change the arrow item color from popover component */
   > div > div > svg {

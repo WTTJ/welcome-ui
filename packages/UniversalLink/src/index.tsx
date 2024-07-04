@@ -3,11 +3,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
 
-export interface UniversalLinkOptions {
-  target?: React.HTMLAttributeAnchorTarget
-}
-
-export type UniversalLinkProps = CreateWuiProps<'a', UniversalLinkOptions>
+export type UniversalLinkProps = CreateWuiProps<'a'>
 
 export const UniversalLink = forwardRef<'a', UniversalLinkProps>(
   ({ children, dataTestId, target, ...rest }, ref) => (

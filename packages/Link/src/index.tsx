@@ -1,5 +1,4 @@
 import React from 'react'
-import { UniversalLinkOptions } from '@welcome-ui/universal-link'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ExternalLinkIcon } from '@welcome-ui/icons'
 
@@ -13,7 +12,7 @@ export interface LinkOptions {
   isExternal?: boolean
   disabled?: boolean
 }
-export type LinkProps = CreateWuiProps<'a', LinkOptions & UniversalLinkOptions>
+export type LinkProps = CreateWuiProps<'a', LinkOptions>
 
 export type WrapWithTextProps = Pick<LinkOptions, 'isExternal'> & {
   children: React.ReactNode | JSX.Element

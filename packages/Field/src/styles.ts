@@ -89,11 +89,7 @@ export const IconWrapper = styled.div<IconWrapperProps>(
   `
 )
 
-type IconGroupWrapperProps = {
-  size: FieldIconSize
-}
-
-export const IconGroupWrapper = styled.div<IconGroupWrapperProps>(
+export const IconGroupWrapper = styled.div<{ size: FieldIconSize }>(
   ({ size }) => css`
     position: absolute;
     padding: 0;

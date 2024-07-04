@@ -1,10 +1,9 @@
 import React from 'react'
 import { type SystemProps } from '@xstyled/styled-components'
 import * as S from '@xstyled/styled-components'
+import isPropValid from '@emotion/is-prop-valid'
 
-export const shouldForwardProp = (prop: string, defaultValidatorFn: (prop: string) => boolean) => {
-  return defaultValidatorFn(prop)
-}
+export const shouldForwardProp = (prop: string) => isPropValid(prop)
 
 export type WuiOldProps = S.OpacityProps &
   S.OverflowProps &

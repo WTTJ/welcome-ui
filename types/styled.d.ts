@@ -5,7 +5,7 @@ import '@xstyled/system'
 import type { WuiTheme } from '@welcome-ui/core'
 
 declare module '@xstyled/system' {
-  export interface Theme extends WuiTheme {}
+  export interface ITheme extends WuiTheme {}
 }
 
 declare module 'styled-components' {
