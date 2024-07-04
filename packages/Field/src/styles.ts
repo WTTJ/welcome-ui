@@ -1,7 +1,7 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import { StyledLabel } from '@welcome-ui/label'
 import { shouldForwardProp, WuiProps } from '@welcome-ui/system'
-import { FieldIconSize } from '@welcome-ui/utils'
+import { type FieldIconSize } from '@welcome-ui/utils'
 
 const checkableFieldStyles = css`
   ${th('defaultFields.checkablelabel.default')};
@@ -89,8 +89,8 @@ export const IconWrapper = styled.div<IconWrapperProps>(
   `
 )
 
-export const IconGroupWrapper = styled.div(
-  ({ size }: { size: FieldIconSize }) => css`
+export const IconGroupWrapper = styled.div<{ size: FieldIconSize }>(
+  ({ size }) => css`
     position: absolute;
     padding: 0;
     top: 0;

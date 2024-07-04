@@ -1,6 +1,6 @@
-import styled, { system } from '@xstyled/styled-components'
+import styled from '@xstyled/styled-components'
 
-export const ButtonGroup = styled.div`
+export const ButtonGroup = styled.divBox`
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
@@ -29,6 +29,4 @@ export const ButtonGroup = styled.div`
       }
     }
   }
-
-  ${system}
 `

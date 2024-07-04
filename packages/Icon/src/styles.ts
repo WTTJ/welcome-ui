@@ -1,5 +1,5 @@
 import styled, { css, system, Theme } from '@xstyled/styled-components'
-import { WuiProps } from '@welcome-ui/system'
+import type { WuiProps } from '@welcome-ui/system'
 
 import { IconOptions } from './index'
 
