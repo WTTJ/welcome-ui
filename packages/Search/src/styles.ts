@@ -5,9 +5,8 @@ import { cardStyles, centerContent, defaultFieldStyles, overflowEllipsis } from 
 
 import { SearchOptions } from './index'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })`
+export const Wrapper = styled.divBox`
   position: relative;
-  ${system};
 `
 
 export const InputWrapper = styled.div`

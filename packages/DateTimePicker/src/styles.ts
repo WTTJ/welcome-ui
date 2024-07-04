@@ -1,4 +1,4 @@
-import styled, { css, system } from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import { StyledDatePicker, StyledTimePicker } from '@welcome-ui/date-time-picker-common'
 
 const focusStyles = css`
@@ -8,7 +8,7 @@ const focusStyles = css`
   }
 `
 
-export const DateTimePicker = styled.div`
+export const DateTimePicker = styled.divBox`
   position: relative;
   display: inline-flex;
   flex-wrap: nowrap;
@@ -38,6 +38,4 @@ export const DateTimePicker = styled.div`
   .react-datepicker {
     font-family: inherit;
   }
-
-  ${system};
 `
