@@ -3,6 +3,9 @@ import { existsSync, readFileSync } from 'fs'
 
 import { Alert } from '@welcome-ui/alert'
 
+import { Colors } from '../Colors'
+import { Theme } from '../Theme'
+
 import { Playground } from './Playground'
 
 import examples from '@/build-app/examples'
@@ -11,17 +14,28 @@ type DivProps = {
   children: string
   node?: {
     properties: {
+      dataColors?: string
       dataComponent?: string
       dataOverview?: string
       dataPlayground?: string
       dataPlaygroundWithCodeEditor?: string
+      dataTheme?: string
     }
   }
 }
 
 export const Div = ({ children, node }: DivProps) => {
   const playgroundFile = node?.properties?.dataPlayground
+  const colorsName = node?.properties?.dataColors
+  const themeEntry = node?.properties?.dataTheme
 
+  // Colors
+  if (colorsName) return <Colors name={colorsName} />
+
+  // Theme objects
+  if (themeEntry) return <Theme entry={themeEntry} />
+
+  // Get playground files from packages docs folder
   if (playgroundFile) {
     const component = node?.properties?.dataComponent || ''
     const withCodeEditor = node?.properties?.dataPlaygroundWithCodeEditor || 'true'

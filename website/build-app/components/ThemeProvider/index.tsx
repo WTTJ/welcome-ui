@@ -3,7 +3,7 @@ import { createTheme, WuiProvider, WuiProviderProps } from '@welcome-ui/core'
 import { welcomeTheme } from '@welcome-ui/themes.welcome'
 import * as React from 'react'
 
-interface ThemeProviderProps {
+type ThemeProviderProps = {
   children: WuiProviderProps['children']
 }
 

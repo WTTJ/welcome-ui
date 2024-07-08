@@ -1,4 +1,4 @@
-interface PreProps {
+type PreProps = {
   children: JSX.Element
 }
 

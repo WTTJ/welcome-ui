@@ -1,6 +1,6 @@
 import { Link } from '@welcome-ui/link'
 
-interface AProps {
+type AProps = {
   children: React.ReactNode
   href: string
 }

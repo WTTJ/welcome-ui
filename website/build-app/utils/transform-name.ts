@@ -1,9 +1,9 @@
-import { camelCase, upperFirst } from 'lodash'
+import { upperFirst } from 'lodash'
 
 export function getName(name: string, withoutSpacing?: boolean) {
-  const nameFormatted = upperFirst(camelCase(name))
+  const nameFormatted = upperFirst(name)
 
   if (withoutSpacing) return nameFormatted
 
-  return nameFormatted.replace(/([A-Z])/g, ' $1').trim()
+  return nameFormatted.replace(/-/g, ' ')
 }

@@ -12,7 +12,7 @@ import { Highlight } from './Highlight'
 import examples from '@/build-app/examples'
 import { openStackBlitz } from '@/build-app/utils/stackblitz'
 
-interface PreProps {
+type PreProps = {
   code: string
   isOverview?: boolean
   mt?: WuiProps['marginTop']

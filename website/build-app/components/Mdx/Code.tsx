@@ -4,7 +4,7 @@ import { Properties } from '../Props'
 
 import { Highlight } from './Highlight'
 
-interface CodeProps {
+type CodeProps = {
   children: string | React.ReactElement
   className?: string
 }

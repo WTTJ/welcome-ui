@@ -21,81 +21,71 @@ export default {
 
 ### Primary
 
-<Colors name="primary" />
+<div data-colors="primary"></div>
 
 ### Light
 
-<Colors name="light" />
+<div data-colors="light"></div>
 
 ### Dark
 
-<Colors name="dark" />
+<div data-colors="dark"></div>
 
 ### Black and White
 
-<Colors colorsObject={{ black: 'dark-900', white: 'light-900' }} />
+<div data-colors="black"></div>
+<div data-colors="white"></div>
 
 ### Nudes
 
-<Colors name="nude" />
+<div data-colors="nude"></div>
 
 ### Success
 
-<Colors name="success" />
+<div data-colors="success"></div>
 
 ### Danger
 
-<Colors name="danger" />
+<div data-colors="danger"></div>
 
 ### Info
 
-<Colors name="info" />
+<div data-colors="info"></div>
 
 ### Warning
 
-<Colors name="warning" />
+<div data-colors="warning"></div>
 
 ### Subs
 
-<Colors name="sub" />
+<div data-colors="sub"></div>
 
 ## Spacing
 
 You can customize the global spacing for `padding` and `margin`, `top`, `left`, `right` and `bottom`.
 
-<Spacing />
-
-<code>{`export default ${themeValues().space}`}</code>
+<div data-theme="space"></div>
 
 ## Borders
 
 By default, we have a border radius on components. You can remove it by set to 0 the radii borders. You can also configure the width of the border.
 
-<code>{`export default ${themeValues().radii}`}</code>
+<div data-theme="radii"></div>
 
 ## Breakpoints (screens)
 
 We use [screens from xstyled](https://xstyled.dev/docs/responsive-design/). Default sizes from the core theme are below. (Note: values are taken from [this article](https://medium.com/@uiuxlab/the-most-used-responsive-breakpoints-in-2017-of-mine-9588e9bd3a8a)).
 
-<code>{`export default ${themeValues().screens}`}</code>
-
-```jsx
-<Box
-  display="flex"
-  alignItems="center"
-  justifyContent="center"
-  textAlign="center"
-  color={{ xs: 'light-900', lg: 'dark-900' }}
-  fontSize={{ lg: 'h2' }}
-  h={{ xs: '10rem', lg: '20rem' }}
-  backgroundColor={{ xs: 'sub-1', lg: 'primary-100' }}
->
-  Resize screen to change this Box 🌝
-</Box>
-```
+<div data-theme="screens"></div>
 
 ## Typography
 
 We use `fonts`, `fontSizes`, `fontWeights`, `lineHeights` and `letterSpacings` to customize the theme. You should use the [Text component](https://www.welcome-ui.com/components/text) with predefined text styles where you can.
 
-<code>{`export default ${themeValues().fonts}`}</code>
+### font-size
+
+<div data-theme="fontSizes"></div>
+
+### weight
+
+<div data-theme="fontWeights"></div>

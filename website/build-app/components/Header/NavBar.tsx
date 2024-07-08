@@ -36,6 +36,7 @@ export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
         </Flex>
       </Box>
       <Button
+        aria-label="Github"
         as="a"
         href="https://github.com/WTTJ/welcome-ui"
         rel="noreferrer noopener"

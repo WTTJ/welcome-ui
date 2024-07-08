@@ -1,6 +1,6 @@
 import { Box, BoxProps } from '@welcome-ui/box'
 
-interface AProps extends BoxProps {
+type AProps = BoxProps & {
   children: React.ReactNode
 }
 
