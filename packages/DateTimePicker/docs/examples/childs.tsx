@@ -6,16 +6,9 @@ import { WttjIcon } from '@welcome-ui/icons'
 
 const Example = () => {
   return (
-    <DateTimePicker
-      dateFormat="MMM dd yyyy"
-      name="welcome"
-      popperProps={{ zIndex: 50 }}
-      showMonthDropdown
-      showYearDropdown
-      value={new Date()}
-    >
-      <DatePicker icon={<WttjIcon />} iconPlacement="right" />
-      <TimePicker />
+    <DateTimePicker name="welcome" value={new Date()}>
+      <DatePicker icon={<WttjIcon />} iconPlacement="right" value={new Date()} />
+      <TimePicker value={new Date()} />
     </DateTimePicker>
   )
 }

@@ -6,6 +6,8 @@ export const Nav = styled.nav(
     box-shadow: ${th('colors.dark-100')} 1px 0px 0px inset;
     position: sticky;
     top: calc(4.375rem + 3rem);
+    max-height: calc(100vh - 12rem);
+    overflow-y: scroll;
     z-index: 1;
 
     ${isSubPage &&

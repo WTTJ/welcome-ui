@@ -26,15 +26,14 @@ export const Sidebar = ({ display = 'flex', isSubPage, menu, onClick }: SidebarP
       direction="column"
       display={display}
       gap="3xl"
-      h="100vh"
-      maxH="calc(100vh - 4.375rem)"
+      h="calc(100vh - 5.5rem)"
       overflowY="scroll"
       position="sticky"
       pt="3xl"
       top={70}
     >
       {menu.map(({ category, pages, parent }) => (
-        <Flex as="ul" direction="column" key={`sidebar_${category}`}>
+        <Flex as="ul" direction="column" flexShrink={0} key={`sidebar_${category}`}>
           {category && (
             <Text mb="lg" variant="subtitle-sm">
               {getName(category)}
