@@ -1,0 +1,171 @@
+{
+  "DateTimePicker": {
+    "props": {
+      "locale": {
+        "defaultValue": null,
+        "description": "",
+        "name": "locale",
+        "parent": {
+          "fileName": "DateTimePickerCommon/dist/types/CustomHeader.d.ts",
+          "name": "CustomHeaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "DateTimePickerCommon/dist/types/CustomHeader.d.ts",
+            "name": "CustomHeaderOptions"
+          },
+          {
+            "fileName": "welcome-ui-next/node_modules/@types/react-datepicker/index.d.ts",
+            "name": "ReactDatePickerProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Locale | (Locale & string)",
+          "value": [
+            {
+              "value": "Locale",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "Locale & string"
+            }
+          ]
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "packages/DatePicker/dist/types/index.d.ts",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "packages/DatePicker/dist/types/index.d.ts",
+            "name": "DatePickerOptions"
+          },
+          {
+            "fileName": "packages/TimePicker/dist/types/index.d.ts",
+            "name": "TimePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "((date?: Date) => void) & ((date?: Date) => void)"
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "DateTimePickerCommon/dist/types/CustomInput.d.ts",
+          "name": "CustomInputOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "DateTimePickerCommon/dist/types/CustomInput.d.ts",
+            "name": "CustomInputOptions"
+          },
+          {
+            "fileName": "DateTimePickerCommon/dist/types/CustomInput.d.ts",
+            "name": "CustomInputOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            }
+          ]
+        }
+      },
+      "transparent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "transparent",
+        "parent": {
+          "fileName": "packages/DatePicker/dist/types/index.d.ts",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "packages/DatePicker/dist/types/index.d.ts",
+            "name": "DatePickerOptions"
+          },
+          {
+            "fileName": "packages/TimePicker/dist/types/index.d.ts",
+            "name": "TimePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "value": {
+        "defaultValue": null,
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "packages/DatePicker/dist/types/index.d.ts",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "packages/DatePicker/dist/types/index.d.ts",
+            "name": "DatePickerOptions"
+          },
+          {
+            "fileName": "packages/TimePicker/dist/types/index.d.ts",
+            "name": "TimePickerOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "enum",
+          "raw": "string | Date",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Date",
+              "description": "Enables basic storage and retrieval of dates and times.",
+              "fullComment": "Enables basic storage and retrieval of dates and times.",
+              "tags": {}
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -33,6 +33,8 @@ export const Playground = ({
 
   const Component = examples[pathToFile]
   const preview = Component && <Component />
+  console.log(preview)
+  const removeFlex = ['AspectRatio'].includes(name)
 
   const handleClickStackBlitz = () => {
     openStackBlitz({
@@ -43,10 +45,11 @@ export const Playground = ({
 
   return (
     <>
-      <Flex
+      <Box
         alignItems="center"
         backgroundColor="nude-100"
         borderRadius="lg"
+        display={removeFlex ? undefined : 'flex'}
         flexWrap="wrap"
         gap="lg"
         mt={mt}
@@ -55,7 +58,7 @@ export const Playground = ({
         zIndex={1}
       >
         {preview}
-      </Flex>
+      </Box>
       {withCodeEditor && (
         <>
           <Box

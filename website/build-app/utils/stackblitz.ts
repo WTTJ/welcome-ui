@@ -75,7 +75,7 @@ const tsConfig = `{
 }`
 
 export const openStackBlitz = ({ code, name }: { code: string; name: string }) => {
-  const regex = /(@welcome-ui\/*)\w+/gm
+  const regex = /(@welcome-ui\/[a-z_-]+)\w+/gm
   const wuiDependencies = code.match(regex)
   const dependencies = [] as string[]
   wuiDependencies?.forEach((dependency, index) => {
