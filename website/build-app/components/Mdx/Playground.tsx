@@ -43,16 +43,19 @@ export const Playground = ({
 
   return (
     <>
-      <Box
+      <Flex
+        alignItems="center"
         backgroundColor="nude-100"
         borderRadius="lg"
+        flexWrap="wrap"
+        gap="lg"
         mt={mt}
         p={{ _: 'sm', lg: '3xl' }}
         position="relative"
         zIndex={1}
       >
         {preview}
-      </Box>
+      </Flex>
       {withCodeEditor && (
         <>
           <Box

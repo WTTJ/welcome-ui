@@ -1,5 +1,4 @@
 import { Text } from '@welcome-ui/text'
-import { startCase } from 'lodash'
 import { Flex } from '@welcome-ui/flex'
 import { Button } from '@welcome-ui/button'
 import { GithubIcon, NpmIcon } from '@welcome-ui/icons'
@@ -9,7 +8,7 @@ import { Tabs } from './tabs'
 import { Sidebar } from '@/build-app/components/Sidebar'
 import * as Documentation from '@/build-app/layouts/Documentation'
 import { getPages } from '@/build-app/utils/pages-components'
-import { getName } from '@/build-app/utils/transform-name'
+import { getName, getRepository } from '@/build-app/utils/transform-name'
 import { getPageContent } from '@/build-app/utils/page-content'
 import { PrevNextPage } from '@/build-app/components/PrevNextPage'
 
@@ -24,7 +23,7 @@ const Layout = ({ children, params }: LayoutProps) => {
   const pages = getPages()
   const { id } = params
 
-  const { data } = getPageContent(`${startCase(id)}/docs/index.mdx`, true)
+  const { data } = getPageContent(`${getRepository(id)}/docs/index.mdx`, true)
   const description = data?.description
   const packageName = data?.packageName
   const ariakitLink = data?.ariakit

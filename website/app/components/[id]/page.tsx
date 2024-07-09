@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation'
-import { startCase } from 'lodash'
 
 import CodePage from './[subPage]/code'
 
@@ -7,6 +6,7 @@ import { Mdx } from '@/build-app/components/Mdx'
 import { TableOfContent } from '@/build-app/components/TableOfContent'
 import { getPageContent } from '@/build-app/utils/page-content'
 import { getPages, getStaticParams } from '@/build-app/utils/pages-components'
+import { getRepository } from '@/build-app/utils/transform-name'
 
 type PageProps = {
   params: {
@@ -27,7 +27,7 @@ const Page = ({ params }: PageProps) => {
 
   if (isNotFound) {
     const { isNotFound: componentsNotFound } = getPageContent(
-      `${startCase(id)}/docs/index.mdx`,
+      `${getRepository(id)}/docs/index.mdx`,
       true
     )
 

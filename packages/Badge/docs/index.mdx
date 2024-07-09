@@ -1,0 +1,39 @@
+---
+category: data-display
+description: The Badge component displays small, supplementary information such as notifications, status indicators, or counts. It helps draw attention to important elements and provides users with context at a glance.
+packageName: badge
+title: Badge
+usage: import { Badge } from @welcome-ui/badge
+---
+
+### Sizes
+
+Use size property with `sm` or `md` (default)
+
+<div data-playground="size.tsx" data-component="Badge"></div>
+
+### Variants
+
+Use variant property with `default` (default) or `primary`
+
+<div data-playground="variant.tsx" data-component="Badge"></div>
+
+### Disabled
+
+Use `disabled` property
+
+<div data-playground="disabled.tsx" data-component="Badge"></div>
+
+### Shape
+
+Use shape property with `circle` (default) or `square`
+
+<div data-playground="shape.tsx" data-component="Badge"></div>
+
+### withNumberAbbreviation
+
+If a number is higher than 99, we replace this number by 99+, simply add property `withNumberAbbreviation`. _The children need to be a number!_
+
+Variant can be `default` (default) or `primary`
+
+<div data-playground="number-abbreviation.tsx" data-component="Badge"></div>

@@ -1,4 +1,3 @@
-import { startCase } from 'lodash'
 import { notFound } from 'next/navigation'
 
 import { PageProps } from './page'
@@ -8,6 +7,7 @@ import { TableOfContent } from '@/build-app/components/TableOfContent'
 import { getPageContent } from '@/build-app/utils/page-content'
 import { getPages, getStaticParams } from '@/build-app/utils/pages-components'
 import { Installation } from '@/build-app/components/Installation'
+import { getRepository } from '@/build-app/utils/transform-name'
 
 export async function generateStaticParams() {
   const pages = getPages()
@@ -17,10 +17,10 @@ export async function generateStaticParams() {
 
 const Page = ({ params }: PageProps) => {
   const { id } = params
-  const componentName = startCase(id)
+  const componentName = getRepository(id)
 
   const { contentWithoutMatter, data, isNotFound, tree } = getPageContent(
-    `${startCase(id)}/docs/index.mdx`,
+    `${componentName}/docs/index.mdx`,
     true
   )
 

@@ -2,11 +2,10 @@ import { Card } from '@welcome-ui/card'
 import { Flex } from '@welcome-ui/flex'
 import { Grid } from '@welcome-ui/grid'
 import { Text } from '@welcome-ui/text'
-import { startCase } from 'lodash'
 import Link from 'next/link'
 
 import { getPages } from '@/build-app/utils/pages-components'
-import { getName } from '@/build-app/utils/transform-name'
+import { getName, getRepository } from '@/build-app/utils/transform-name'
 import { getPageContent } from '@/build-app/utils/page-content'
 
 const Page = () => {
@@ -22,7 +21,7 @@ const Page = () => {
           <Text variant="subtitle-md">{getName(category.category as string)}</Text>
           <Grid gap="lg" templateColumns={{ _: '1fr', lg: '1fr 1fr 1fr' }}>
             {category.pages.map(page => {
-              const { data } = getPageContent(`${startCase(page.id)}/docs/index.mdx`, true)
+              const { data } = getPageContent(`${getRepository(page.id)}/docs/index.mdx`, true)
 
               return (
                 <Link href={`/components/${page.id}`} key={page.id}>
