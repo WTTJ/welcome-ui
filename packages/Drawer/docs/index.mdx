@@ -1,10 +1,10 @@
 ---
 ariakit: https://ariakit.org/components/dialog
-category: forms
+category: overlay
 description: The Drawer component is a versatile UI element that slides in from the edge of the screen to reveal additional content or options without navigating away from the current page. It provides a space-efficient way to present temporary or contextual information, such as menus, settings, or notifications. Drawers enhance user experience by maintaining focus on the main content while offering quick access to supplementary features.
 packageName: drawer
 title: Drawer
-usage: import { Drawer } from @welcome-ui/drawer
+usage: import { Drawer, useDrawer } from @welcome-ui/drawer
 ---
 
 The most basic drawer needs `useDrawer()`, `<Drawer.Trigger />` and `<Drawer />`. If you don't want a backdrop to be visible, please provide it a `withBackdrop` prop set to `false`. Backdrop allows us to have a smooth scroll across all browsers by wrapping the Drawer. This way, the Drawer can be absolutely positioned in the fixed Backdrop wrapper.

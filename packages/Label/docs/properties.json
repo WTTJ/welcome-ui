@@ -1,0 +1,214 @@
+{
+  "Label": {
+    "props": {
+      "checkableField": {
+        "defaultValue": null,
+        "description": "",
+        "name": "checkableField",
+        "parent": {
+          "fileName": "Label/src/index.tsx",
+          "name": "LabelOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Label/src/index.tsx",
+            "name": "LabelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "Label/src/index.tsx",
+          "name": "LabelOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Label/src/index.tsx",
+            "name": "LabelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disabledIcon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabledIcon",
+        "parent": {
+          "fileName": "Label/src/index.tsx",
+          "name": "LabelOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Label/src/index.tsx",
+            "name": "LabelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "htmlFor": {
+        "defaultValue": null,
+        "description": "",
+        "name": "htmlFor",
+        "parent": {
+          "fileName": "Label/src/index.tsx",
+          "name": "LabelOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Label/src/index.tsx",
+            "name": "LabelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "Label/src/index.tsx",
+          "name": "LabelOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Label/src/index.tsx",
+            "name": "LabelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "required": {
+        "defaultValue": null,
+        "description": "",
+        "name": "required",
+        "parent": {
+          "fileName": "Label/src/index.tsx",
+          "name": "LabelOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Label/src/index.tsx",
+            "name": "LabelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "Label/src/index.tsx",
+          "name": "LabelOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Label/src/index.tsx",
+            "name": "LabelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"error\""
+            },
+            {
+              "value": "\"focused\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      },
+      "withDisabledIcon": {
+        "defaultValue": {
+          "value": true
+        },
+        "description": "",
+        "name": "withDisabledIcon",
+        "parent": {
+          "fileName": "Label/src/index.tsx",
+          "name": "LabelOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Label/src/index.tsx",
+            "name": "LabelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

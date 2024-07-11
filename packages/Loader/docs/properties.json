@@ -1,0 +1,55 @@
+{
+  "Loader": {
+    "props": {
+      "color": {
+        "defaultValue": null,
+        "description": "",
+        "name": "color",
+        "parent": {
+          "fileName": "Loader/src/index.tsx",
+          "name": "LoaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Loader/src/index.tsx",
+            "name": "LoaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "sm"
+        },
+        "description": "Predefined size xs, sm, md, lg or custom size",
+        "name": "size",
+        "parent": {
+          "fileName": "Loader/src/index.tsx",
+          "name": "LoaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Loader/src/index.tsx",
+            "name": "LoaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

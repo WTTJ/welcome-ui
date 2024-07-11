@@ -8,7 +8,7 @@ const Example = () => {
   }
 
   return (
-    <Stack gap="xl">
+    <Stack spacing="xl">
       <FileDrop
         forceFileType="image"
         handleAddFile={handleChange}

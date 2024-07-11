@@ -4,7 +4,7 @@ import { Stack } from '@welcome-ui/stack'
 
 const Example = () => {
   return (
-    <Stack gap="xl">
+    <Stack spacing="xl">
       <Hint>default</Hint>
       <Hint variant="warning">warning</Hint>
       <Hint variant="error">error</Hint>

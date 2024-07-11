@@ -1,0 +1,34 @@
+{
+  "Shape": {
+    "props": {
+      "shape": {
+        "defaultValue": null,
+        "description": "",
+        "name": "shape",
+        "parent": {
+          "fileName": "Shape/src/index.tsx",
+          "name": "ShapeOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Shape/src/index.tsx",
+            "name": "ShapeOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"circle\" | \"square\"",
+          "value": [
+            {
+              "value": "\"circle\""
+            },
+            {
+              "value": "\"square\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

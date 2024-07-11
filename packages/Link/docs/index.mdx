@@ -1,0 +1,59 @@
+---
+category: navigation
+description: The Link component is a navigational element that allows users to navigate to different pages or resources within or outside the application. It is typically styled as clickable text or an icon and can include attributes for accessibility and behavior customization. This component is essential for creating an intuitive and interconnected user experience.
+packageName: link
+title: Link
+usage: import { Link } from @welcome-ui/link
+---
+
+A link component who can get `as` property to pass custom linker.
+
+This component is a child from `UniversalLink` component.
+
+### Variants
+
+Can be `primary` by default or `secondary`
+
+<div data-playground="variants.tsx" data-component="Link"></div>
+
+#### Disabled
+
+Add `disabled` property
+
+<div data-playground="disabled.tsx" data-component="Link"></div>
+
+### Security
+
+For a target `_blank` we add `rel='noopener noreferrer'`
+
+<div data-playground="security.tsx" data-component="Link"></div>
+
+### External link
+
+`isExternal` add an `<ExternalLink />` icon, and add special effect on hover.
+
+<div data-playground="external.tsx" data-component="Link"></div>
+
+### With a Text component
+
+By default link is set to medium on fontWeight, you can force inherit to get the parent style.
+
+<div data-playground="text-component.tsx" data-component="Link"></div>
+
+### Usage with React Router
+
+```jsx
+import { Link as RouterLink } from 'react-router-dom'
+
+return (
+  <Link as={RouterLink} to="/jobs">
+    Jobs
+  </Link>
+)
+```
+
+### What is underlined by default?
+
+`Link` will add an underline to text nodes, `Text` components, `span` tags, components with `as="span"` or `tagName="span"` & children with `data-wui-link` prop
+
+<div data-playground="underline.tsx" data-component="Link"></div>
