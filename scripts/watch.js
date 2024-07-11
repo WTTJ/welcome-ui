@@ -13,6 +13,8 @@ const handleFileChange = () => {
   const date = `${new Date().getHours()}:${new Date().getMinutes()}`
 
   if (dir === 'packages') {
+    const { component, name } = require(`${packagePath}/package.json`)
+
     // edit the documentation on a component
     if (file === 'docs') {
       exec('yarn website:examples', err => {
@@ -22,8 +24,14 @@ const handleFileChange = () => {
         }
         console.log(date, '-', '(っ◔◡◔)っ export examples success'.green.bold)
       })
+      exec(`npx lerna run doc --scope ${name}`, err => {
+        if (err) {
+          console.error(err)
+          return
+        }
+        console.log(date, '-', '(っ◔◡◔)っ doc success'.green.bold, `(${component})`)
+      })
     } else {
-      const { component, name } = require(`${packagePath}/package.json`)
       console.log(`Building ${component}…`.grey)
 
       if (file === 'theme.ts') {

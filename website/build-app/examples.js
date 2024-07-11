@@ -90,5 +90,17 @@ export default {
   "/FileUpload/docs/examples/disabled.tsx": dynamic(() => import("../../packages/FileUpload/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/FileUpload/docs/examples/multiple.tsx": dynamic(() => import("../../packages/FileUpload/docs/examples/multiple.tsx").then(mod => mod), { ssr: false }),
   "/FileUpload/docs/examples/overview.tsx": dynamic(() => import("../../packages/FileUpload/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
-  "/FileUpload/docs/examples/preview.tsx": dynamic(() => import("../../packages/FileUpload/docs/examples/preview.tsx").then(mod => mod), { ssr: false })
+  "/FileUpload/docs/examples/preview.tsx": dynamic(() => import("../../packages/FileUpload/docs/examples/preview.tsx").then(mod => mod), { ssr: false }),
+  "/Flex/docs/examples/overview.tsx": dynamic(() => import("../../packages/Flex/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Grid/docs/examples/item.tsx": dynamic(() => import("../../packages/Grid/docs/examples/item.tsx").then(mod => mod), { ssr: false }),
+  "/Grid/docs/examples/overview.tsx": dynamic(() => import("../../packages/Grid/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Hint/docs/examples/overview.tsx": dynamic(() => import("../../packages/Hint/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Hint/docs/examples/variants.tsx": dynamic(() => import("../../packages/Hint/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
+  "/Icon/docs/examples/color.tsx": dynamic(() => import("../../packages/Icon/docs/examples/color.tsx").then(mod => mod), { ssr: false }),
+  "/Icon/docs/examples/overview.tsx": dynamic(() => import("../../packages/Icon/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Icon/docs/examples/sizes.tsx": dynamic(() => import("../../packages/Icon/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
+  "/IconFont/docs/examples/color.tsx": dynamic(() => import("../../packages/IconFont/docs/examples/color.tsx").then(mod => mod), { ssr: false }),
+  "/IconFont/docs/examples/css.tsx": dynamic(() => import("../../packages/IconFont/docs/examples/css.tsx").then(mod => mod), { ssr: false }),
+  "/IconFont/docs/examples/overview.tsx": dynamic(() => import("../../packages/IconFont/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/IconFont/docs/examples/sizes.tsx": dynamic(() => import("../../packages/IconFont/docs/examples/sizes.tsx").then(mod => mod), { ssr: false })
 };

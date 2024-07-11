@@ -24,6 +24,7 @@ const Layout = ({ children, params }: LayoutProps) => {
   const { id } = params
 
   const { data } = getPageContent(`${getRepository(id)}/docs/index.mdx`, true)
+  const title = data?.title
   const description = data?.description
   const packageName = data?.packageName
   const ariakitLink = data?.ariakit
@@ -34,7 +35,7 @@ const Layout = ({ children, params }: LayoutProps) => {
       <div>
         <Flex direction="column" gap="xl" mb="lg">
           <Text pt="3xl" variant="h1">
-            {getName(id)}
+            {title}
           </Text>
           {description && (
             <Text color="dark-500" pt="lg" variant="lg">

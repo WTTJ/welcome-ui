@@ -33,7 +33,7 @@ export const Playground = ({
 
   const Component = examples[pathToFile]
   const preview = Component && <Component />
-  const removeFlex = ['AspectRatio', 'FileUpload'].includes(name)
+  const removeFlex = ['AspectRatio', 'FileUpload', 'Grid'].includes(name)
 
   const handleClickStackBlitz = () => {
     openStackBlitz({
