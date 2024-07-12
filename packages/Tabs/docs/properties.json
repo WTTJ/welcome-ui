@@ -1,0 +1,577 @@
+{
+  "ActiveBar": {
+    "props": {
+      "activeTab": {
+        "defaultValue": null,
+        "description": "",
+        "name": "activeTab",
+        "parent": {
+          "fileName": "Tabs/src/ActiveBar.tsx",
+          "name": "ActiveBarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Tabs/src/ActiveBar.tsx",
+            "name": "ActiveBarOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "HTMLElement"
+        }
+      },
+      "listRef": {
+        "defaultValue": null,
+        "description": "",
+        "name": "listRef",
+        "parent": {
+          "fileName": "Tabs/src/ActiveBar.tsx",
+          "name": "ActiveBarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Tabs/src/ActiveBar.tsx",
+            "name": "ActiveBarOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "MutableRefObject<undefined>"
+        }
+      }
+    }
+  },
+  "Tab": {
+    "props": {
+      "combobox": {
+        "defaultValue": null,
+        "description": "A reference to a [combobox\nstore](https://ariakit.org/reference/use-combobox-store). This is\nautomatically set when rendering tabs inside a\n[Combobox](https://ariakit.org/components/combobox).\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)",
+        "name": "combobox",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
+          "name": "TabStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
+            "name": "TabStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ComboboxStore<ComboboxStoreSelectedValue>"
+        }
+      },
+      "composite": {
+        "defaultValue": null,
+        "description": "A reference to another [composite\nstore](https://ariakit.org/reference/use-composite-store). This is\nautomatically set when rendering tabs as part of another composite widget,\nsuch as [Combobox](https://ariakit.org/components/combobox) or\n[Select](https://ariakit.org/components/select).\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)",
+        "name": "composite",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
+          "name": "TabStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
+            "name": "TabStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "CompositeStore<CompositeStoreItem>"
+        }
+      },
+      "defaultActiveId": {
+        "defaultValue": null,
+        "description": "The composite item id that should be active by default when the composite\nwidget is rendered. If `null`, the composite element itself will have focus\nand users will be able to navigate to it using arrow keys. If `undefined`,\nthe first enabled item will be focused.",
+        "name": "defaultActiveId",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/core/cjs/composite/composite-store.d.ts",
+          "name": "CompositeStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/core/cjs/composite/composite-store.d.ts",
+            "name": "CompositeStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "defaultItems": {
+        "defaultValue": {
+          "value": "[]"
+        },
+        "description": "The defaut value for the\n[`items`](https://ariakit.org/reference/collection-provider#items) state.",
+        "name": "defaultItems",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/core/cjs/collection/collection-store.d.ts",
+          "name": "CollectionStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/core/cjs/collection/collection-store.d.ts",
+            "name": "CollectionStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "TabStoreItem[]"
+        }
+      },
+      "defaultSelectedId": {
+        "defaultValue": null,
+        "description": "The id of the tab whose panel is currently visible. If it's `undefined`, it\nwill be automatically set to the first enabled tab.\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)\n- [Animated TabPanel](https://ariakit.org/examples/tab-panel-animated)",
+        "name": "defaultSelectedId",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/core/cjs/tab/tab-store.d.ts",
+          "name": "TabStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/core/cjs/tab/tab-store.d.ts",
+            "name": "TabStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "setActiveId": {
+        "defaultValue": null,
+        "description": "A callback that gets called when the\n[`activeId`](https://ariakit.org/reference/composite-provider#activeid)\nstate changes.",
+        "name": "setActiveId",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/composite/composite-store.d.ts",
+          "name": "CompositeStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/composite/composite-store.d.ts",
+            "name": "CompositeStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(activeId: string) => void"
+        }
+      },
+      "setItems": {
+        "defaultValue": null,
+        "description": "A callback that gets called when the\n[`items`](https://ariakit.org/reference/collection-provider#items) state\nchanges.\n@example const [items, setItems] = useState([]);\nconst collection = useCollectionStore({ items, setItems });",
+        "name": "setItems",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/collection/collection-store.d.ts",
+          "name": "CollectionStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/collection/collection-store.d.ts",
+            "name": "CollectionStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "BivariantCallback<(items: TabStoreItem[]) => void>"
+        }
+      },
+      "setSelectedId": {
+        "defaultValue": null,
+        "description": "Function that will be called when the\n[`selectedId`](https://ariakit.org/reference/tab-provider#selectedid) state\nchanges.\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)",
+        "name": "setSelectedId",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
+          "name": "TabStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
+            "name": "TabStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(selectedId: string) => void"
+        }
+      }
+    }
+  },
+  "Tabs.TabList": {
+    "props": {
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "Tabs/src/TabList.tsx",
+          "name": "SizeOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Tabs/src/TabList.tsx",
+            "name": "SizeOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"sm\" | \"md\"",
+          "value": [
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Tabs.TabPanel": {
+    "props": {
+      "accessibleWhenDisabled": {
+        "defaultValue": null,
+        "description": "Indicates whether the element should be focusable even when it is\n[`disabled`](https://ariakit.org/reference/focusable#disabled).\n\nThis is important when discoverability is a concern. For example:\n\n> A toolbar in an editor contains a set of special smart paste functions\nthat are disabled when the clipboard is empty or when the function is not\napplicable to the current content of the clipboard. It could be helpful to\nkeep the disabled buttons focusable if the ability to discover their\nfunctionality is primarily via their presence on the toolbar.\n\nLearn more on [Focusability of disabled\ncontrols](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#focusabilityofdisabledcontrols).\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)",
+        "name": "accessibleWhenDisabled",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+          "name": "FocusableOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+            "name": "FocusableOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "alwaysVisible": {
+        "defaultValue": {
+          "value": "false"
+        },
+        "description": "Determines whether the content element should remain visible even when the\n[`open`](https://ariakit.org/reference/disclosure-provider#open) state is\n`false`. If this prop is set to `true`, the `hidden` prop and the `display:\nnone` style will not be applied, unless explicitly set otherwise.\n\nThis prop is particularly useful when using third-party animation libraries\nsuch as Framer Motion or React Spring, where the element needs to be\nvisible for exit animations to work.\n\nLive examples:\n- [Dialog with Framer\n  Motion](https://ariakit.org/examples/dialog-framer-motion)\n- [Menu with Framer\n  Motion](https://ariakit.org/examples/menu-framer-motion)\n- [Tooltip with Framer\n  Motion](https://ariakit.org/examples/tooltip-framer-motion)\n- [Dialog with details &\n  summary](https://ariakit.org/examples/dialog-details)",
+        "name": "alwaysVisible",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-content.d.ts",
+          "name": "DisclosureContentOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-content.d.ts",
+            "name": "DisclosureContentOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "autoFocus": {
+        "defaultValue": {
+          "value": "false"
+        },
+        "description": "Automatically focuses the element upon mounting, similar to the native\n`autoFocus` prop. This addresses an issue where the element with the native\n`autoFocus` attribute might receive focus before React effects are\nexecuted.\n\nThe `autoFocus` prop can also be used with\n[Focusable](https://ariakit.org/components/focusable) elements within a\n[Dialog](https://ariakit.org/components/dialog) component, establishing the\ninitial focus as the dialog opens.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Warning on Dialog\n  hide](https://ariakit.org/examples/dialog-hide-warning)\n- [Dialog with React\n  Router](https://ariakit.org/examples/dialog-react-router)\n- [Nested Dialog](https://ariakit.org/examples/dialog-nested)",
+        "name": "autoFocus",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+          "name": "FocusableOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+            "name": "FocusableOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disabled": {
+        "defaultValue": {
+          "value": "false"
+        },
+        "description": "Determines if the element is disabled. This sets the `aria-disabled`\nattribute accordingly, enabling support for all elements, including those\nthat don't support the native `disabled` attribute.\n\nThis feature can be combined with the\n[`accessibleWhenDisabled`](https://ariakit.org/reference/focusable#accessiblewhendisabled)\nprop to make disabled elements still accessible via keyboard.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Submenu](https://ariakit.org/examples/menu-nested)\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)\n- [Context Menu](https://ariakit.org/examples/menu-context-menu)",
+        "name": "disabled",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+          "name": "FocusableOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+            "name": "FocusableOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "focusable": {
+        "defaultValue": {
+          "value": "true"
+        },
+        "description": "Determines if [Focusable](https://ariakit.org/components/focusable)\nfeatures should be active on non-native focusable elements.\n\n**Note**: This prop only turns off the additional features provided by the\n[`Focusable`](https://ariakit.org/reference/focusable) component.\nNon-native focusable elements will lose their focusability entirely.\nHowever, native focusable elements will retain their inherent focusability,\nbut without added features such as improved\n[`autoFocus`](https://ariakit.org/reference/focusable#autofocus),\n[`accessibleWhenDisabled`](https://ariakit.org/reference/focusable#accessiblewhendisabled),\n[`onFocusVisible`](https://ariakit.org/reference/focusable#onfocusvisible),\netc.",
+        "name": "focusable",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+          "name": "FocusableOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+            "name": "FocusableOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "getItem": {
+        "defaultValue": null,
+        "description": "A memoized function that returns props to be passed with the item during\nits registration in the store.\n@example ```jsx\nconst getItem = useCallback((data) => ({ ...data, custom: true }), []);\n<CollectionItem getItem={getItem} />\n```",
+        "name": "getItem",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/collection/collection-item.d.ts",
+          "name": "CollectionItemOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/collection/collection-item.d.ts",
+            "name": "CollectionItemOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(props: CollectionStoreItem) => CollectionStoreItem"
+        }
+      },
+      "id": {
+        "defaultValue": null,
+        "description": "The unique ID of the item. This will be used to register the item in the\nstore and for the element's `id` attribute. If not provided, a unique ID\nwill be automatically generated.\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)\n- [Tab with React Router](https://ariakit.org/examples/tab-react-router)\n- [Animated TabPanel](https://ariakit.org/examples/tab-panel-animated)",
+        "name": "id",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/collection/collection-item.d.ts",
+          "name": "CollectionItemOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/collection/collection-item.d.ts",
+            "name": "CollectionItemOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "onFocusVisible": {
+        "defaultValue": null,
+        "description": "Custom event handler invoked when the element gains focus through keyboard\ninteraction or a key press occurs while the element is in focus. This is\nthe programmatic equivalent of the\n[`data-focus-visible`](https://ariakit.org/guide/styling#data-focus-visible)\nattribute.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)\n- [Custom Checkbox](https://ariakit.org/examples/checkbox-custom)",
+        "name": "onFocusVisible",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+          "name": "FocusableOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+            "name": "FocusableOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "BivariantCallback<(event: SyntheticEvent<HTMLElement, Event>) => void>"
+        }
+      },
+      "render": {
+        "defaultValue": null,
+        "description": "Allows the component to be rendered as a different HTML element or React\ncomponent. The value can be a React element or a function that takes in the\noriginal component props and gives back a React element with the props\nmerged.\n\nCheck out the [Composition](https://ariakit.org/guide/composition) guide\nfor more details.",
+        "name": "render",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/utils/types.d.ts",
+          "name": "Options"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/utils/types.d.ts",
+            "name": "Options"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "ReactElement<any, string | JSXElementConstructor<any>> | RenderProp<HTMLAttributes<any> & { ref?: Ref<any>; }>",
+          "value": [
+            {
+              "value": "ReactElement<any, string | JSXElementConstructor<any>>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "RenderProp<HTMLAttributes<any> & { ref?: Ref<any>; }>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "shouldRegisterItem": {
+        "defaultValue": {
+          "value": "true"
+        },
+        "description": "Whether the item should be registered as part of the collection.",
+        "name": "shouldRegisterItem",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/collection/collection-item.d.ts",
+          "name": "CollectionItemOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/collection/collection-item.d.ts",
+            "name": "CollectionItemOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "tabId": {
+        "defaultValue": null,
+        "description": "The [`id`](https://ariakit.org/reference/tab#id) of the tab controlling\nthis panel. This connection is used to assign the `aria-labelledby`\nattribute to the tab panel and to determine if the tab panel should be\nvisible.\n\nThis link is automatically established by matching the order of\n[`Tab`](https://ariakit.org/reference/tab) and\n[`TabPanel`](https://ariakit.org/reference/tab-panel) elements in the DOM.\nIf you're rendering a single tab panel, this can be set to a dynamic value\nthat refers to the selected tab.\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)\n- [Tab with React Router](https://ariakit.org/examples/tab-react-router)\n- [Animated TabPanel](https://ariakit.org/examples/tab-panel-animated)",
+        "name": "tabId",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/tab/tab-panel.d.ts",
+          "name": "TabPanelOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/tab/tab-panel.d.ts",
+            "name": "TabPanelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "unmountOnHide": {
+        "defaultValue": {
+          "value": "false"
+        },
+        "description": "When set to `true`, the content element will be unmounted and removed from\nthe DOM when it's hidden.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)\n- [Combobox with integrated\n  filter](https://ariakit.org/examples/combobox-filtering-integrated)\n- [Textarea with inline\n  Combobox](https://ariakit.org/examples/combobox-textarea)\n- [Standalone Popover](https://ariakit.org/examples/popover-standalone)\n- [Animated Select](https://ariakit.org/examples/select-animated)\n- [Multi-Select](https://ariakit.org/examples/select-multiple)",
+        "name": "unmountOnHide",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-content.d.ts",
+          "name": "DisclosureContentOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-content.d.ts",
+            "name": "DisclosureContentOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "wrapElement": {
+        "defaultValue": null,
+        "description": "",
+        "name": "wrapElement",
+        "parent": {
+          "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/utils/types.d.ts",
+          "name": "Options"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui-next/node_modules/@ariakit/react-core/cjs/utils/types.d.ts",
+            "name": "Options"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "WrapElement"
+        }
+      }
+    }
+  }
+}

@@ -33,7 +33,8 @@ export const Playground = ({
 
   const Component = examples[pathToFile]
   const preview = Component && <Component />
-  const removeFlex = ['AspectRatio', 'FileUpload', 'Grid'].includes(name)
+  const columnDirection = ['FileUpload', 'Grid', 'Text'].includes(name)
+  const removeFlex = ['AspectRatio'].includes(name)
 
   const handleClickStackBlitz = () => {
     openStackBlitz({
@@ -44,19 +45,21 @@ export const Playground = ({
 
   return (
     <>
-      <Box
-        alignItems="center"
-        backgroundColor="nude-100"
-        borderRadius="lg"
-        display={removeFlex ? undefined : 'flex'}
-        flexWrap="wrap"
-        gap="lg"
-        mt={mt}
-        p={{ _: 'sm', lg: '3xl' }}
-        position="relative"
-        zIndex={1}
-      >
-        {preview}
+      <Box display="block">
+        <Box
+          alignItems={columnDirection ? 'left' : 'center'}
+          backgroundColor="nude-100"
+          borderRadius="lg"
+          display={removeFlex ? 'block' : 'flex'}
+          flexDirection={columnDirection ? 'column' : 'row'}
+          flexWrap="wrap"
+          gap="lg"
+          mt={mt}
+          p={{ _: 'sm', lg: '3xl' }}
+          position="relative"
+        >
+          {preview}
+        </Box>
       </Box>
       {withCodeEditor && (
         <>

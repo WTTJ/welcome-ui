@@ -5,7 +5,7 @@ import { Box } from '@welcome-ui/box'
 import { Grid } from '@welcome-ui/grid'
 
 import { Section } from '../Section'
-import { LogoWttj } from '..'
+import { LogoWttj } from '../LogoWttj'
 
 const links = [
   {
