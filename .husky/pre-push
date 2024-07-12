@@ -1,1 +1,1 @@
-yarn icons:collect && yarn lint && yarn test && yarn check:deps
+yarn icons:collect && yarn lint && yarn lint:website && yarn test && yarn check:deps

@@ -15,7 +15,7 @@ import { NavBar } from './NavBar'
 
 import { PageTree } from '@/build-app/types'
 
-export const navigation = ['foundations', 'components']
+export const navigation = ['foundations', 'components', 'blog']
 
 type HeaderProps = {
   foundations: PageTree
@@ -60,7 +60,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
         </Drawer.Trigger>
         <NavBar display={{ _: 'none', lg: 'flex' }} />
         <Drawer display={{ lg: 'none' }} size="100%" store={drawer} withBackdrop zIndex={999}>
-          <Drawer.Content>
+          <Drawer.Content pt="4xl">
             <NavBar onClick={handleCloseDrawer} />
             {menu && <Sidebar isSubPage menu={menu} onClick={handleCloseDrawer} />}
           </Drawer.Content>

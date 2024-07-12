@@ -29,7 +29,7 @@
     "lint:mdx": "prettier --parser mdx --write '**/docs/index.mdx'",
     "lint:ts": "tsc --noEmit && cd website && tsc --noEmit",
     "lint:website": "cd website && yarn lint",
-    "lint": "yarn lint:js && yarn lint:css && yarn lint:ts && yarn lint:mdx && yarn lint:website",
+    "lint": "yarn lint:js && yarn lint:css && yarn lint:ts && yarn lint:mdx",
     "migrate": "node ./scripts/upgrade-v5.js",
     "postinstall": "husky install",
     "pre-build": "yarn icons:collect",
