@@ -31,6 +31,7 @@ Each component will consist of:
   - `src/index.tsx`: The React component
   - `src/styles.ts`: Any related `styled-components`
   - `src/utils.ts` : utils for this component
+  - `src/docs` : documentation for this component [See more](#Documentation)
   - `tests/index.test.ts`: Jest / react-testing-library tests for this component
 
 ## Adding icons
@@ -40,3 +41,27 @@ Check the [Icon README](https://github.com/WTTJ/welcome-ui/tree/main/icons/READM
 ## Reporting issues
 
 You can report issues on our [github project](https://github.com/WTTJ/welcome-ui/issues) 🐛
+
+## Documentation
+
+Our documentation is based on NextJS with mdx files and nodejs script.
+
+### For a Component
+
+All component documentation is now located in its repository's `docs` folder:
+
+- `index.mdx`:
+  - **Header**: Contains the following information:
+    - `ariakit`: Link (if used in this component, will be transformed into a button on the page header)
+    - `description`: From ChatGPT
+    - `name`
+    - `packageName`: Name of the npm package
+    - `usage`: If needed, for example, if the import is different from the component name
+- `/examples`:
+  - **overview.mdx**: The main example shown at the top of the component page
+  - Others: Your other examples
+- `properties.json`: Auto-generated with `yarn watch`. It includes the list of the component's properties.
+
+### For a foundation page
+
+Simply add your new page on it, it's magic!
