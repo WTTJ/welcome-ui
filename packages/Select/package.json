@@ -63,7 +63,6 @@
   },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
   "sideEffects": false,
-  "component": "Select",
   "homepage": "https://welcome-ui.com/components/select",
   "devDependencies": {
     "@types/lodash.capitalize": "^4.2.6",

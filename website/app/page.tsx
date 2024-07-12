@@ -26,7 +26,7 @@ const Home = () => {
           Welcome UI is a customizable design system library made with react, typescript,
           styled-components, ariakit and a lot of love 💛
         </Text>
-        <NextLink href="/installation">
+        <NextLink href="/foundations/getting-started">
           <Button as="a" mt="3xl" size="lg">
             <span>Install amazing components</span>
             <RightIcon size="lg" />

@@ -2,7 +2,7 @@ type Page = {
   id: string
   subPages?: string[]
   parent?: string
-  name?: string
+  title?: string
 }
 
 export type PageTree = {

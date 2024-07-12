@@ -12,9 +12,7 @@ const getColors = (name: string, theme: WuiTheme) => {
   return Object.keys(themeColors)
     .filter(color => color.startsWith(name))
     .reduce<{ variant: string; value: string }[]>((acc, colorName) => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const colorValue = theme.colors[colorName]
+      const colorValue = theme.colors[colorName as keyof WuiTheme['colors']]
       acc.push({ variant: colorName, value: colorValue })
 
       return acc

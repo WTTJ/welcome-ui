@@ -61,7 +61,7 @@ export const Installation = ({ packageName, usage }: InstallationProps) => {
         </Flex>
         <Flex flexDirection="column" w="100%">
           <Text>Import component:</Text>
-          <Highlight language="shell">{usage}</Highlight>
+          <Highlight language="shell">{`import { ${usage} } from '@welcome-ui/${packageName}'`}</Highlight>
         </Flex>
       </Flex>
     </>

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     'Here you’ll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react, typescript, styled-components, ariakit and a lot of love 💛',
   openGraph: {
-    images: 'og-image.png',
+    images: 'https://www.welcome-ui.com/og-image.png',
   },
 }
 

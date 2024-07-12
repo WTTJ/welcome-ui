@@ -34,7 +34,7 @@ export const Playground = ({
   const Component = examples[pathToFile]
   const preview = Component && <Component />
   const columnDirection = ['FileUpload', 'Grid', 'Text'].includes(name)
-  const removeFlex = ['AspectRatio'].includes(name)
+  const removeFlex = ['Accordion', 'AspectRatio'].includes(name)
 
   const handleClickStackBlitz = () => {
     openStackBlitz({

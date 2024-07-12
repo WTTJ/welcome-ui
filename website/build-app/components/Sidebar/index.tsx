@@ -2,7 +2,7 @@
 
 import { Text } from '@welcome-ui/text'
 import { Flex } from '@welcome-ui/flex'
-import { usePathname } from 'next/navigation'
+import { useParams, usePathname } from 'next/navigation'
 import { WuiProps } from '@welcome-ui/system'
 
 import * as S from './styles'
@@ -19,6 +19,7 @@ type SidebarProps = {
 
 export const Sidebar = ({ display = 'flex', isSubPage, menu, onClick }: SidebarProps) => {
   const currentRoute = usePathname()
+  const { subPage } = useParams()
 
   return (
     <Flex
@@ -40,14 +41,15 @@ export const Sidebar = ({ display = 'flex', isSubPage, menu, onClick }: SidebarP
             </Text>
           )}
           <Flex as="ul" direction="column" gap="lg">
-            {pages.map(({ id, name, parent: pageParent }) => {
+            {pages.map(({ id, parent: pageParent, title }) => {
               const href = `/${parent}/${pageParent ? `${pageParent}/` : ''}${id}`
-              const isCurrent = isSubPage ? currentRoute.startsWith(href) : currentRoute === href
+              const isCurrent =
+                isSubPage && subPage ? currentRoute === `${href}/${subPage}` : currentRoute === href
 
               return (
                 <li key={`sidebar_${category}_page_${id}`} onClick={onClick}>
                   <S.Link aria-current={isCurrent ? 'page' : undefined} href={href}>
-                    {name || getName(id)}
+                    {title || getName(id)}
                   </S.Link>
                 </li>
               )

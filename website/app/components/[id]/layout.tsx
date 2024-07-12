@@ -8,7 +8,7 @@ import { Tabs } from './tabs'
 import { Sidebar } from '@/build-app/components/Sidebar'
 import * as Documentation from '@/build-app/layouts/Documentation'
 import { getPages } from '@/build-app/utils/pages-components'
-import { getName, getRepository } from '@/build-app/utils/transform-name'
+import { getRepository } from '@/build-app/utils/transform-name'
 import { getPageContent } from '@/build-app/utils/page-content'
 import { PrevNextPage } from '@/build-app/components/PrevNextPage'
 
@@ -45,7 +45,7 @@ const Layout = ({ children, params }: LayoutProps) => {
           <Flex align="center" gap="md">
             <Button
               as="a"
-              href={`https://github.com/WTTJ/welcome-ui/tree/main/packages/${getName(id, true)}`}
+              href={`https://github.com/WTTJ/welcome-ui/tree/main/packages/${title}`}
               rel="noreferrer noopener"
               size="sm"
               target="_blank"
