@@ -1,0 +1,236 @@
+{
+  "Notifications": {
+    "props": {}
+  },
+  "Toast.Growl": {
+    "props": {
+      "hasCloseButton": {
+        "defaultValue": {
+          "value": true
+        },
+        "description": "",
+        "name": "hasCloseButton",
+        "parent": {
+          "fileName": "Toast/src/Growl.tsx",
+          "name": "GrowlOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Toast/src/Growl.tsx",
+            "name": "GrowlOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "Toast/src/Growl.tsx",
+          "name": "GrowlOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Toast/src/Growl.tsx",
+            "name": "GrowlOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "onClose": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onClose",
+        "parent": {
+          "fileName": "Toast/src/Growl.tsx",
+          "name": "GrowlOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Toast/src/Growl.tsx",
+            "name": "GrowlOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "variant": {
+        "defaultValue": {
+          "value": "default"
+        },
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "Toast/src/Growl.tsx",
+          "name": "GrowlOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Toast/src/Growl.tsx",
+            "name": "GrowlOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"default\""
+            },
+            {
+              "value": "\"error\""
+            },
+            {
+              "value": "\"warning\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"success\""
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Toast.Snackbar": {
+    "props": {
+      "hasCloseButton": {
+        "defaultValue": {
+          "value": true
+        },
+        "description": "",
+        "name": "hasCloseButton",
+        "parent": {
+          "fileName": "Toast/src/Snackbar.tsx",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Toast/src/Snackbar.tsx",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "Toast/src/Snackbar.tsx",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Toast/src/Snackbar.tsx",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "onClose": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onClose",
+        "parent": {
+          "fileName": "Toast/src/Snackbar.tsx",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Toast/src/Snackbar.tsx",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "variant": {
+        "defaultValue": {
+          "value": "default"
+        },
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "Toast/src/Snackbar.tsx",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Toast/src/Snackbar.tsx",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"default\""
+            },
+            {
+              "value": "\"error\""
+            },
+            {
+              "value": "\"warning\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"success\""
+            }
+          ]
+        }
+      }
+    }
+  },
+  "ToastWrapper": {
+    "props": {}
+  },
+  "dismiss": {
+    "props": {}
+  },
+  "remove": {
+    "props": {}
+  }
+}

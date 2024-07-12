@@ -1,0 +1,184 @@
+{
+  "Tag": {
+    "props": {
+      "href": {
+        "defaultValue": null,
+        "description": "",
+        "name": "href",
+        "parent": {
+          "fileName": "Tag/src/index.tsx",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Tag/src/index.tsx",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "onClick": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onClick",
+        "parent": {
+          "fileName": "Tag/src/index.tsx",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Tag/src/index.tsx",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "onRemove": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onRemove",
+        "parent": {
+          "fileName": "Tag/src/index.tsx",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Tag/src/index.tsx",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "Tag/src/index.tsx",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Tag/src/index.tsx",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            }
+          ]
+        }
+      },
+      "to": {
+        "defaultValue": null,
+        "description": "",
+        "name": "to",
+        "parent": {
+          "fileName": "Tag/src/index.tsx",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Tag/src/index.tsx",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "variant": {
+        "defaultValue": {
+          "value": "default"
+        },
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "Tag/src/index.tsx",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Tag/src/index.tsx",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"1\""
+            },
+            {
+              "value": "\"2\""
+            },
+            {
+              "value": "\"3\""
+            },
+            {
+              "value": "\"4\""
+            },
+            {
+              "value": "\"5\""
+            },
+            {
+              "value": "\"6\""
+            },
+            {
+              "value": "\"7\""
+            },
+            {
+              "value": "\"dark\""
+            },
+            {
+              "value": "\"default\""
+            },
+            {
+              "value": "\"error\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"primary\""
+            },
+            {
+              "value": "\"secondary\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

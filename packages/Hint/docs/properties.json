@@ -1,0 +1,68 @@
+{
+  "Hint": {
+    "props": {
+      "checkableField": {
+        "defaultValue": null,
+        "description": "",
+        "name": "checkableField",
+        "parent": {
+          "fileName": "Hint/src/index.tsx",
+          "name": "HintOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Hint/src/index.tsx",
+            "name": "HintOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "Hint/src/index.tsx",
+          "name": "HintOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Hint/src/index.tsx",
+            "name": "HintOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"error\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

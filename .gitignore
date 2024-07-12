@@ -1,7 +1,7 @@
 .env
 dist/
-docs/out
-docs/.next
+website/out
+website/.next
 .cache/
 node_modules/
 .DS_Store

@@ -1,0 +1,53 @@
+---
+ariakit: https://ariakit.org/components/dialog
+category: overlay
+description: The Drawer component is a versatile UI element that slides in from the edge of the screen to reveal additional content or options without navigating away from the current page. It provides a space-efficient way to present temporary or contextual information, such as menus, settings, or notifications. Drawers enhance user experience by maintaining focus on the main content while offering quick access to supplementary features.
+packageName: drawer
+title: Drawer
+usage: Drawer, useDrawer
+---
+
+The most basic drawer needs `useDrawer()`, `<Drawer.Trigger />` and `<Drawer />`. If you don't want a backdrop to be visible, please provide it a `withBackdrop` prop set to `false`. Backdrop allows us to have a smooth scroll across all browsers by wrapping the Drawer. This way, the Drawer can be absolutely positioned in the fixed Backdrop wrapper.
+
+### Backdrop
+
+You have to add on `<Drawer />` a prop `withBackdrop`. This adds our backdrop `<Drawer.Backdrop />` on the drawer. You can also add a custom wrapper with the property `backdrop`.
+
+<div data-playground="backdrop.tsx" data-component="Drawer"></div>
+
+### Layout
+
+We provide basic layout components for your drawer: `<Drawer.Title />`, `<Drawer.Content />` and `<Drawer.Footer />`. They are all optional. By default, you have a close button `<Drawer.Close />` that you can remove by setting the `withCloseButton` property to `false`. If you're using `<Drawer.Close />` along with `<Drawer.Title />`, please make sure to position `<Drawer.Close />` first in your code for styling purposes.
+
+<div data-playground="layout.tsx" data-component="Drawer"></div>
+
+### Placement
+
+By default the `placement` of the drawer will be on the `right` but you can set it to `top`, `bottom`, or `left`.
+
+<div data-playground="placement.tsx" data-component="Drawer"></div>
+
+### Sizes
+
+By default the `size` of the drawer will be `lg` which is set in the theme. We provide 3 different sizes that will adapt according to the position of the Drawer. You can also set a custom size if needed.
+
+<div data-playground="sizes.tsx" data-component="Drawer"></div>
+
+### Styling
+
+All the elements can be styled as you see fit, by extending drawer's theme or directly with styled props.
+
+<div data-playground="styling.tsx" data-component="Drawer"></div>
+
+## useDrawer
+
+We use `useDialogStore` from [Ariakit Dialog](https://ariakit.org/reference/use-dialog-store) for the state of the drawer with the `animated` flag set to `true` by default.
+
+Pass options to `useDrawer`:
+
+- **defaultOpen**: e.g. `const drawer = useDrawer({ defaultOpen: true })`
+
+And the hook returns (among other things):
+
+- **useState('open')**: whether the drawer is currently open
+- **hide**: a function to hide the drawer

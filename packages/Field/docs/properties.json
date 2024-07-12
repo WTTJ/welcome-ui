@@ -1,0 +1,295 @@
+{
+  "Field": {
+    "props": {
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "Field/src/index.tsx",
+          "name": "FieldOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Field/src/index.tsx",
+            "name": "FieldOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disabledIcon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabledIcon",
+        "parent": {
+          "fileName": "Field/src/index.tsx",
+          "name": "FieldOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Field/src/index.tsx",
+            "name": "FieldOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "error": {
+        "defaultValue": null,
+        "description": "",
+        "name": "error",
+        "parent": {
+          "fileName": "Field/src/index.tsx",
+          "name": "FieldOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Field/src/index.tsx",
+            "name": "FieldOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | Element",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "hint": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hint",
+        "parent": {
+          "fileName": "Field/src/index.tsx",
+          "name": "FieldOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Field/src/index.tsx",
+            "name": "FieldOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | Element",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "info": {
+        "defaultValue": null,
+        "description": "",
+        "name": "info",
+        "parent": {
+          "fileName": "Field/src/index.tsx",
+          "name": "FieldOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Field/src/index.tsx",
+            "name": "FieldOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | Element",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "label": {
+        "defaultValue": null,
+        "description": "",
+        "name": "label",
+        "parent": {
+          "fileName": "Field/src/index.tsx",
+          "name": "FieldOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Field/src/index.tsx",
+            "name": "FieldOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | Element",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "required": {
+        "defaultValue": null,
+        "description": "",
+        "name": "required",
+        "parent": {
+          "fileName": "Field/src/index.tsx",
+          "name": "FieldOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Field/src/index.tsx",
+            "name": "FieldOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "success": {
+        "defaultValue": null,
+        "description": "",
+        "name": "success",
+        "parent": {
+          "fileName": "Field/src/index.tsx",
+          "name": "FieldOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Field/src/index.tsx",
+            "name": "FieldOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | Element",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "transparent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "transparent",
+        "parent": {
+          "fileName": "Field/src/index.tsx",
+          "name": "FieldOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Field/src/index.tsx",
+            "name": "FieldOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "warning": {
+        "defaultValue": null,
+        "description": "",
+        "name": "warning",
+        "parent": {
+          "fileName": "Field/src/index.tsx",
+          "name": "FieldOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Field/src/index.tsx",
+            "name": "FieldOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | Element",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -61,7 +61,6 @@
     "react": "^18.0.0",
     "styled-components": "^5.3.9"
   },
-  "component": "Search",
   "homepage": "https://welcome-ui.com/components/search",
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9"
 }

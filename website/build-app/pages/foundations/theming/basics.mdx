@@ -1,0 +1,91 @@
+# Basics
+
+We expose a [theme object](https://github.com/WTTJ/welcome-ui/tree/main/packages/Core/src/theme/core.ts) for our customizable design system. You can easily customize colors, typography, breakpoints, etc to match with your design.
+
+## Colors
+
+Customize the color on the `theme.colors` object. Colors can be used for `color`, `borderColor`, `backgroundColor`, etc. Example of a color: `dark-900`. [See more on github](https://github.com/WTTJ/welcome-ui/tree/main/packages/Core/src/theme/colors.ts)
+
+```jsx
+export default {
+  colors: {
+    // ...
+    'primary-500': '#FF0000',
+    'dark-100': '#333',
+    'dark-900': '#000',
+    custom: '#F12345',
+    // ...
+  },
+}
+```
+
+### Primary
+
+<div data-colors="primary"></div>
+
+### Light
+
+<div data-colors="light"></div>
+
+### Dark
+
+<div data-colors="dark"></div>
+
+### Black and White
+
+<div data-colors="black"></div>
+<div data-colors="white"></div>
+
+### Nudes
+
+<div data-colors="nude"></div>
+
+### Success
+
+<div data-colors="success"></div>
+
+### Danger
+
+<div data-colors="danger"></div>
+
+### Info
+
+<div data-colors="info"></div>
+
+### Warning
+
+<div data-colors="warning"></div>
+
+### Subs
+
+<div data-colors="sub"></div>
+
+## Spacing
+
+You can customize the global spacing for `padding` and `margin`, `top`, `left`, `right` and `bottom`.
+
+<div data-theme="space"></div>
+
+## Borders
+
+By default, we have a border radius on components. You can remove it by set to 0 the radii borders. You can also configure the width of the border.
+
+<div data-theme="radii"></div>
+
+## Breakpoints (screens)
+
+We use [screens from xstyled](https://xstyled.dev/docs/responsive-design/). Default sizes from the core theme are below. (Note: values are taken from [this article](https://medium.com/@uiuxlab/the-most-used-responsive-breakpoints-in-2017-of-mine-9588e9bd3a8a)).
+
+<div data-theme="screens"></div>
+
+## Typography
+
+We use `fonts`, `fontSizes`, `fontWeights`, `lineHeights` and `letterSpacings` to customize the theme. You should use the [Text component](https://www.welcome-ui.com/components/text) with predefined text styles where you can.
+
+### font-size
+
+<div data-theme="fontSizes"></div>
+
+### weight
+
+<div data-theme="fontWeights"></div>

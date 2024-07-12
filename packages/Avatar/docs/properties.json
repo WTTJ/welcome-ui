@@ -1,0 +1,147 @@
+{
+  "Avatar": {
+    "props": {
+      "color": {
+        "defaultValue": null,
+        "description": "",
+        "name": "color",
+        "parent": {
+          "fileName": "Avatar/src/index.tsx",
+          "name": "AvatarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Avatar/src/index.tsx",
+            "name": "AvatarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "getInitials": {
+        "defaultValue": null,
+        "description": "",
+        "name": "getInitials",
+        "parent": {
+          "fileName": "Avatar/src/index.tsx",
+          "name": "AvatarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Avatar/src/index.tsx",
+            "name": "AvatarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(name: string) => string"
+        }
+      },
+      "name": {
+        "defaultValue": null,
+        "description": "",
+        "name": "name",
+        "parent": {
+          "fileName": "Avatar/src/index.tsx",
+          "name": "AvatarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Avatar/src/index.tsx",
+            "name": "AvatarOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "string"
+        }
+      },
+      "shape": {
+        "defaultValue": null,
+        "description": "",
+        "name": "shape",
+        "parent": {
+          "fileName": "packages/Shape/dist/types/index.d.ts",
+          "name": "ShapeOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "packages/Shape/dist/types/index.d.ts",
+            "name": "ShapeOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"circle\" | \"square\"",
+          "value": [
+            {
+              "value": "\"circle\""
+            },
+            {
+              "value": "\"square\""
+            }
+          ]
+        }
+      },
+      "size": {
+        "defaultValue": null,
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "Avatar/src/index.tsx",
+          "name": "AvatarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Avatar/src/index.tsx",
+            "name": "AvatarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"xl\""
+            },
+            {
+              "value": "\"xxl\""
+            }
+          ]
+        }
+      },
+      "src": {
+        "defaultValue": null,
+        "description": "",
+        "name": "src",
+        "parent": {
+          "fileName": "Avatar/src/index.tsx",
+          "name": "AvatarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Avatar/src/index.tsx",
+            "name": "AvatarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+}

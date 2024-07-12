@@ -4,14 +4,16 @@ import { createEvent } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 // FileUpload
-import { Preview as DefaultPreview } from './Preview'
+import { Preview as DefaultPreview, PreviewProps } from './Preview'
 import * as S from './styles'
+export { PreviewProps }
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const DEFAULT_FILE_TYPES = '*/*'
 
-interface FileWithPreview extends File {
+export type FileWithPreview = File & {
   preview?: string
+  name?: string
 }
 
 type FileWithPreviewType = FileWithPreview | string

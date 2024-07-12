@@ -102,7 +102,7 @@ body:
     attributes:
       label: '[Tech] Implementation'
       description: 'If possible, describe how this feature could be implemented.'
-      placeholder: 'See [CONTRIBUTING.mdx](https://github.com/WTTJ/welcome-ui/blob/main/CONTRIBUTING.mdx)'
+      placeholder: 'See [CONTRIBUTING.mdx](https://github.com/WTTJ/welcome-ui/tree/main/CONTRIBUTING.mdx)'
   - type: 'input'
     id: 'due-date'
     attributes:

@@ -1,0 +1,373 @@
+{
+  "Search": {
+    "props": {
+      "groupsEnabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "groupsEnabled",
+        "parent": {
+          "fileName": "Search/src/index.tsx",
+          "name": "SearchOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Search/src/index.tsx",
+            "name": "SearchOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "hasIcon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hasIcon",
+        "declarations": [
+          {
+            "fileName": "packages/Utils/dist/types/field-styles.d.ts",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "Search/src/index.tsx",
+          "name": "SearchOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Search/src/index.tsx",
+            "name": "SearchOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactElement<any, string | JSXElementConstructor<any>>"
+        }
+      },
+      "iconPlacement": {
+        "defaultValue": null,
+        "description": "",
+        "name": "iconPlacement",
+        "declarations": [
+          {
+            "fileName": "packages/Utils/dist/types/field-styles.d.ts",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"right\" | \"left\" | \"both\"",
+          "value": [
+            {
+              "value": "\"right\""
+            },
+            {
+              "value": "\"left\""
+            },
+            {
+              "value": "\"both\""
+            }
+          ]
+        }
+      },
+      "isClearable": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isClearable",
+        "declarations": [
+          {
+            "fileName": "packages/Utils/dist/types/field-styles.d.ts",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "itemToString": {
+        "defaultValue": null,
+        "description": "",
+        "name": "itemToString",
+        "parent": {
+          "fileName": "Search/src/index.tsx",
+          "name": "SearchOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Search/src/index.tsx",
+            "name": "SearchOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "(item: unknown) => string"
+        }
+      },
+      "minChars": {
+        "defaultValue": {
+          "value": 3
+        },
+        "description": "",
+        "name": "minChars",
+        "parent": {
+          "fileName": "Search/src/index.tsx",
+          "name": "SearchOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Search/src/index.tsx",
+            "name": "SearchOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "Search/src/index.tsx",
+          "name": "SearchOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Search/src/index.tsx",
+            "name": "SearchOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(item: unknown, event: { preventDefault: () => void; target: Record<string, unknown>; }) => void"
+        }
+      },
+      "renderGroupHeader": {
+        "defaultValue": null,
+        "description": "",
+        "name": "renderGroupHeader",
+        "parent": {
+          "fileName": "Search/src/index.tsx",
+          "name": "SearchOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Search/src/index.tsx",
+            "name": "SearchOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(result: OptionGroup) => ReactElement<any, string | JSXElementConstructor<any>>"
+        }
+      },
+      "renderItem": {
+        "defaultValue": null,
+        "description": "",
+        "name": "renderItem",
+        "parent": {
+          "fileName": "Search/src/index.tsx",
+          "name": "SearchOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Search/src/index.tsx",
+            "name": "SearchOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "(item: unknown) => string | ReactElement<any, string | JSXElementConstructor<any>>"
+        }
+      },
+      "search": {
+        "defaultValue": null,
+        "description": "",
+        "name": "search",
+        "parent": {
+          "fileName": "Search/src/index.tsx",
+          "name": "SearchOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Search/src/index.tsx",
+            "name": "SearchOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "(query: string) => Promise<unknown>"
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "declarations": [
+          {
+            "fileName": "packages/Utils/dist/types/field-styles.d.ts",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            }
+          ]
+        }
+      },
+      "throttle": {
+        "defaultValue": {
+          "value": 500
+        },
+        "description": "",
+        "name": "throttle",
+        "parent": {
+          "fileName": "Search/src/index.tsx",
+          "name": "SearchOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Search/src/index.tsx",
+            "name": "SearchOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "transparent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "transparent",
+        "declarations": [
+          {
+            "fileName": "packages/Utils/dist/types/field-styles.d.ts",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "value": {
+        "defaultValue": null,
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "Search/src/index.tsx",
+          "name": "SearchOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Search/src/index.tsx",
+            "name": "SearchOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "unknown"
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "declarations": [
+          {
+            "fileName": "packages/Utils/dist/types/field-styles.d.ts",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"error\""
+            },
+            {
+              "value": "\"focused\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

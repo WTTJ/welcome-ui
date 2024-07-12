@@ -12,10 +12,11 @@ export type Variant = 'default' | 'error' | 'warning' | 'info' | 'success'
 
 type NotificationsProps = { pauseOnHover?: boolean }
 
-type ToastOptions = {
+export type ToastOptions = {
   duration?: number
   id?: string
   position?: ToastPosition
+  onClose?: () => void
 }
 
 export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = true }) => {

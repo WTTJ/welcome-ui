@@ -1,0 +1,214 @@
+{
+  "Breadcrumb": {
+    "props": {
+      "gradientBackground": {
+        "defaultValue": {
+          "value": "light-900"
+        },
+        "description": "color from theme, add for scroll gradient on mobile",
+        "name": "gradientBackground",
+        "parent": {
+          "fileName": "Breadcrumb/src/index.tsx",
+          "name": "BreadcrumbOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Breadcrumb/src/index.tsx",
+            "name": "BreadcrumbOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "lastChildNotClickable": {
+        "defaultValue": {
+          "value": true
+        },
+        "description": "set clickable or not the last child",
+        "name": "lastChildNotClickable",
+        "parent": {
+          "fileName": "Breadcrumb/src/index.tsx",
+          "name": "BreadcrumbOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Breadcrumb/src/index.tsx",
+            "name": "BreadcrumbOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "separator": {
+        "defaultValue": {
+          "value": "<RightIcon size=\"xs\" />"
+        },
+        "description": "",
+        "name": "separator",
+        "parent": {
+          "fileName": "Breadcrumb/src/index.tsx",
+          "name": "BreadcrumbOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Breadcrumb/src/index.tsx",
+            "name": "BreadcrumbOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "ReactNode",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            },
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "ReactElement<any, string | JSXElementConstructor<any>>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "ReactFragment",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "ReactPortal",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Breadcrumb.Item": {
+    "props": {
+      "isActive": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isActive",
+        "parent": {
+          "fileName": "Breadcrumb/src/Item.tsx",
+          "name": "ItemOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Breadcrumb/src/Item.tsx",
+            "name": "ItemOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "separator": {
+        "defaultValue": null,
+        "description": "",
+        "name": "separator",
+        "parent": {
+          "fileName": "Breadcrumb/src/Item.tsx",
+          "name": "ItemOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Breadcrumb/src/Item.tsx",
+            "name": "ItemOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "ReactNode",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            },
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "ReactElement<any, string | JSXElementConstructor<any>>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "ReactFragment",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "ReactPortal",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "to": {
+        "defaultValue": null,
+        "description": "",
+        "name": "to",
+        "parent": {
+          "fileName": "Breadcrumb/src/Item.tsx",
+          "name": "ItemOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Breadcrumb/src/Item.tsx",
+            "name": "ItemOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+}

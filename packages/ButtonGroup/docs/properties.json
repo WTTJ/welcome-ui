@@ -1,0 +1,132 @@
+{
+  "ButtonGroup": {
+    "props": {
+      "disabled": {
+        "defaultValue": null,
+        "description": "Disable all your buttons components",
+        "name": "disabled",
+        "parent": {
+          "fileName": "ButtonGroup/src/index.tsx",
+          "name": "ButtonGroupOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "ButtonGroup/src/index.tsx",
+            "name": "ButtonGroupOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "size": {
+        "defaultValue": null,
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "ButtonGroup/src/index.tsx",
+          "name": "ButtonGroupOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "ButtonGroup/src/index.tsx",
+            "name": "ButtonGroupOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"xxs\""
+            },
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "ButtonGroup/src/index.tsx",
+          "name": "ButtonGroupOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "ButtonGroup/src/index.tsx",
+            "name": "ButtonGroupOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"disabled\""
+            },
+            {
+              "value": "\"primary\""
+            },
+            {
+              "value": "\"secondary\""
+            },
+            {
+              "value": "\"tertiary\""
+            },
+            {
+              "value": "\"primary-info\""
+            },
+            {
+              "value": "\"secondary-info\""
+            },
+            {
+              "value": "\"primary-success\""
+            },
+            {
+              "value": "\"secondary-success\""
+            },
+            {
+              "value": "\"ghost\""
+            },
+            {
+              "value": "\"primary-warning\""
+            },
+            {
+              "value": "\"secondary-warning\""
+            },
+            {
+              "value": "\"primary-danger\""
+            },
+            {
+              "value": "\"secondary-danger\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

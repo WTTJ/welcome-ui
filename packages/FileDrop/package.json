@@ -60,7 +60,6 @@
     "styled-components": "^5.3.9"
   },
   "sideEffects": false,
-  "component": "FileDrop",
   "homepage": "https://welcome-ui.com/components/file-drop",
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9"
 }

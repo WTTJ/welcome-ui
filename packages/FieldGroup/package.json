@@ -55,6 +55,5 @@
     "styled-components": "^5.3.9"
   },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
-  "sideEffects": false,
-  "component": "FieldGroup"
+  "sideEffects": false
 }
