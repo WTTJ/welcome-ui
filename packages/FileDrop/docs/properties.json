@@ -17,7 +17,7 @@
             "name": "FileDropOptions"
           },
           {
-            "fileName": "welcome-ui-next/node_modules/react-dropzone/typings/react-dropzone.d.ts",
+            "fileName": "welcome-ui/node_modules/react-dropzone/typings/react-dropzone.d.ts",
             "name": "TypeLiteral"
           }
         ],
@@ -222,7 +222,7 @@
             "name": "FileDropOptions"
           },
           {
-            "fileName": "welcome-ui-next/node_modules/react-dropzone/typings/react-dropzone.d.ts",
+            "fileName": "welcome-ui/node_modules/react-dropzone/typings/react-dropzone.d.ts",
             "name": "TypeLiteral"
           }
         ],

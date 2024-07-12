@@ -6,12 +6,12 @@
         "description": "",
         "name": "icon",
         "parent": {
-          "fileName": "welcome-ui-next/node_modules/@types/react-datepicker/index.d.ts",
+          "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
           "name": "ReactDatePickerProps"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui-next/node_modules/@types/react-datepicker/index.d.ts",
+            "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
             "name": "ReactDatePickerProps"
           },
           {
