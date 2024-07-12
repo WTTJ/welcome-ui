@@ -18,7 +18,6 @@ const Example = () => {
 
   return (
     <Select
-      maxW={300}
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
@@ -31,7 +30,6 @@ const Example = () => {
         </div>
       )}
       value={value}
-      w="100%"
     />
   )
 }

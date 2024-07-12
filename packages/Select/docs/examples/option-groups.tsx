@@ -32,7 +32,6 @@ const Example = () => {
   return (
     <Select
       groupsEnabled
-      maxW={300}
       name="welcome"
       onChange={handleChange}
       options={GROUP_ITEMS}
@@ -48,7 +47,6 @@ const Example = () => {
         </Box>
       )}
       value={value}
-      w="100%"
     />
   )
 }

@@ -14,7 +14,6 @@ const Example = () => {
       isEditable
       name="avatar"
       value="https://media3.giphy.com/media/uYiJD8fcWDys8/giphy.gif?cid=790b76115d08fb457747437951ff7674&rid=giphy.gif"
-      w="100%"
     />
   )
 }

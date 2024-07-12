@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { RangeType, Slider } from '@welcome-ui/slider'
-import { Stack } from '@welcome-ui/stack'
 
 const Example = () => {
   const handleChange = (value: number) => {
@@ -12,7 +11,7 @@ const Example = () => {
   }
 
   return (
-    <Stack spacing="xl" w="100%">
+    <>
       <Slider max={100} min={0} onChange={handleChange} value={50} values={[0, 50, 100]} />
       <Slider max={100} min={0} onChange={handleChange} value={25} values={[0, 25, 50, 75, 100]} />
       <Slider.Range
@@ -29,7 +28,7 @@ const Example = () => {
         value={{ min: 20, max: 80 }}
         values={[0, 10, 20, 30, 40, 50, 60, 80, 70, 90, 100]}
       />
-    </Stack>
+    </>
   )
 }
 

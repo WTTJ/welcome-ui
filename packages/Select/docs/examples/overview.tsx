@@ -15,16 +15,7 @@ const Example = () => {
     setValue(newValue)
   }
 
-  return (
-    <Select
-      maxW={300}
-      name="welcome"
-      onChange={handleChange}
-      options={ITEMS}
-      value={value}
-      w="100%"
-    />
-  )
+  return <Select name="welcome" onChange={handleChange} options={ITEMS} value={value} />
 }
 
 export default Example

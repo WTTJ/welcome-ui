@@ -25,7 +25,6 @@ const Example = () => {
       icon={<LinkIcon color="dark-900" label="Social networks" />}
       isMultiple
       isSearchable
-      maxW={300}
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
@@ -40,7 +39,6 @@ const Example = () => {
         </Box>
       )}
       value={value}
-      w="100%"
     />
   )
 }

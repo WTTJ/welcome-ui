@@ -20,7 +20,6 @@ const Example = () => {
   return (
     <Select
       isMultiple
-      maxW={300}
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
@@ -48,7 +47,6 @@ const Example = () => {
         // eslint-disable-next-line react/jsx-curly-newline
       }
       value={value}
-      w="100%"
     />
   )
 }

@@ -14,7 +14,6 @@ const Example = () => {
       isEditable
       name="file"
       value="https://test-documents-file/file.docx?v=63731713698"
-      w="100%"
     />
   )
 }

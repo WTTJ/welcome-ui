@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { RangeType, Slider } from '@welcome-ui/slider'
-import { Stack } from '@welcome-ui/stack'
 
 const Example = () => {
   const handleChangeRange = (value: RangeType) => {
@@ -8,7 +7,7 @@ const Example = () => {
   }
 
   return (
-    <Stack spacing="xl" w="100%">
+    <>
       <Slider.Range
         max={100}
         min={0}
@@ -23,7 +22,7 @@ const Example = () => {
         type="fields"
         value={{ min: 25, max: 75 }}
       />
-    </Stack>
+    </>
   )
 }
 

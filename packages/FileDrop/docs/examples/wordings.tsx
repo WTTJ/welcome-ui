@@ -14,7 +14,6 @@ const Example = () => {
       isEditable
       name="file"
       value=""
-      w="100%"
       wordings={{
         title: 'My custom title',
         hint: 'My custom hint',

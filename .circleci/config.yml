@@ -28,7 +28,7 @@ jobs:
     steps:
       - restore_cache:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - run: yarn install
+      - run: yarn install && cd website && yarn install
       - store_artifacts:
           path: yarn.lock
       - persist_to_workspace:

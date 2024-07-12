@@ -15,17 +15,7 @@ const Example = () => {
     setValue(newValue)
   }
 
-  return (
-    <Select
-      isMultiple
-      maxW={300}
-      name="welcome"
-      onChange={handleChange}
-      options={ITEMS}
-      value={value}
-      w="100%"
-    />
-  )
+  return <Select isMultiple name="welcome" onChange={handleChange} options={ITEMS} value={value} />
 }
 
 export default Example

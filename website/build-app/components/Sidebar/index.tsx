@@ -4,6 +4,7 @@ import { Text } from '@welcome-ui/text'
 import { Flex } from '@welcome-ui/flex'
 import { useParams, usePathname } from 'next/navigation'
 import { WuiProps } from '@welcome-ui/system'
+import { useEffect, useRef } from 'react'
 
 import * as S from './styles'
 
@@ -20,6 +21,19 @@ type SidebarProps = {
 export const Sidebar = ({ display = 'flex', isSubPage, menu, onClick }: SidebarProps) => {
   const currentRoute = usePathname()
   const { subPage } = useParams()
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (ref && ref.current) {
+      const currentElement = ref.current.querySelectorAll('[aria-current="page"]')?.[0]
+
+      if (currentElement) {
+        currentElement.scrollIntoView({
+          block: 'center',
+        })
+      }
+    }
+  }, [ref])
 
   return (
     <Flex
@@ -31,6 +45,7 @@ export const Sidebar = ({ display = 'flex', isSubPage, menu, onClick }: SidebarP
       overflowY="scroll"
       position="sticky"
       pt="3xl"
+      ref={ref}
       top={70}
     >
       {menu.map(({ category, pages, parent }) => (

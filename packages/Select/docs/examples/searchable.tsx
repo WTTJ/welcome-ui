@@ -16,15 +16,7 @@ const Example = () => {
   }
 
   return (
-    <Select
-      isSearchable
-      maxW={300}
-      name="welcome"
-      onChange={handleChange}
-      options={ITEMS}
-      value={value}
-      w="100%"
-    />
+    <Select isSearchable name="welcome" onChange={handleChange} options={ITEMS} value={value} />
   )
 }
 

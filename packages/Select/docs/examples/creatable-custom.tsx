@@ -21,7 +21,6 @@ const Example = () => {
   return (
     <Select
       isCreatable
-      maxW={300}
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
@@ -36,7 +35,6 @@ const Example = () => {
         )
       }}
       value={value}
-      w="100%"
     />
   )
 }

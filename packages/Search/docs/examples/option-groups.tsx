@@ -54,7 +54,6 @@ const Example = () => {
         <div style={{ display: 'flex', alignItems: 'center' }}>{item.Title}</div>
       )}
       search={searchFunction}
-      w="100%"
     />
   )
 }
