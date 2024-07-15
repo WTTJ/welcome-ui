@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/table",
-  "version": "5.16.2",
+  "version": "5.17.1",
   "description": "Welcome UI - Table | Repaint html for table tr td... etc with a scrollable table",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,8 +47,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^5.16.2",
-    "@welcome-ui/system": "^5.16.2"
+    "@welcome-ui/box": "^5.17.1",
+    "@welcome-ui/system": "^5.17.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",

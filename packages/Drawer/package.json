@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/drawer",
-  "version": "5.17.0",
+  "version": "5.17.1",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,11 +47,11 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.3",
-    "@welcome-ui/box": "^5.16.2",
-    "@welcome-ui/close-button": "^5.17.0",
-    "@welcome-ui/system": "^5.16.2",
-    "@welcome-ui/text": "^5.16.2",
-    "@welcome-ui/utils": "^5.16.2"
+    "@welcome-ui/box": "^5.17.1",
+    "@welcome-ui/close-button": "^5.17.1",
+    "@welcome-ui/system": "^5.17.1",
+    "@welcome-ui/text": "^5.17.1",
+    "@welcome-ui/utils": "^5.17.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",

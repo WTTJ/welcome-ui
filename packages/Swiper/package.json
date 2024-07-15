@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/swiper",
-  "version": "5.17.0",
+  "version": "5.17.1",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,10 +46,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/button": "^5.17.0",
-    "@welcome-ui/icons.font": "^5.16.2",
-    "@welcome-ui/system": "^5.16.2",
-    "@welcome-ui/utils": "^5.16.2",
+    "@welcome-ui/button": "^5.17.1",
+    "@welcome-ui/icons.font": "^5.17.1",
+    "@welcome-ui/system": "^5.17.1",
+    "@welcome-ui/utils": "^5.17.1",
     "lodash.debounce": "^4.0.8"
   },
   "peerDependencies": {

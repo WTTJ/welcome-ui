@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/files",
-  "version": "5.16.2",
+  "version": "5.17.1",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -43,8 +43,8 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/icons": "^5.16.2",
-    "@welcome-ui/utils": "^5.16.2"
+    "@welcome-ui/icons": "^5.17.1",
+    "@welcome-ui/utils": "^5.17.1"
   },
   "peerDependencies": {
     "react": "^18.0.0"
