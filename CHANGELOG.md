@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.17.1](https://github.com/WTTJ/welcome-ui/compare/v5.17.0...v5.17.1) (2024-02-06)
+
+### Features
+
+- chore: new documentation website ([275b209](https://github.com/WTTJ/welcome-ui/commit/275b2094a8ea6340da0a0bd4540ac215d327632b))
+
 ## [5.10.2](https://github.com/WTTJ/welcome-ui/compare/v5.10.1...v5.10.2) (2024-02-06)
 
 ### Bug Fixes
