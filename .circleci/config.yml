@@ -135,7 +135,7 @@ jobs:
           at: ~/welcome-ui
       - restore_cache:
           key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
-      - run: node_modules/.bin/netlify deploy --dir=website/out --alias $CIRCLE_BRANCH
+      - run: node_modules/.bin/netlify deploy --filter=website --dir=website/out --alias $CIRCLE_BRANCH
 
   # current version deploy for production
   website_deploy_prod:
@@ -153,7 +153,7 @@ jobs:
       - aws-s3/sync:
           from: s3://welcome-ui/docs_production
           to: docs_production
-      - run: node_modules/.bin/netlify deploy --dir=docs_production --prod
+      - run: node_modules/.bin/netlify deploy --filter=website --dir=docs_production --prod
 
   # previous versions build & deploy for production
   previous_website_versions_build_deploy_prod:
@@ -174,7 +174,7 @@ jobs:
       - aws-s3/sync:
           from: s3://welcome-ui/docs_production
           to: docs_production
-      - run: node_modules/.bin/netlify deploy --dir=docs_production --prod
+      - run: node_modules/.bin/netlify deploy --filter=website --dir=docs_production --prod
 
   release:
     <<: *defaults
