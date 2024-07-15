@@ -35,6 +35,7 @@ jobs:
           root: ~/welcome-ui
           paths:
             - node_modules
+            - website/node_modules
 
   lint:
     <<: *defaults
