@@ -5,9 +5,11 @@ import { Button } from '@welcome-ui/button'
 import { Drawer, useDrawer } from '@welcome-ui/drawer'
 import { Icons } from '@welcome-ui/icons.font'
 import { usePathname } from 'next/navigation'
+import { Box } from '@welcome-ui/box'
 
 import { VersionSelector } from '../VersionSelector'
 import { Sidebar } from '../Sidebar'
+import { Search } from '../Search'
 
 import { Logo } from './Logo'
 import * as S from './styles'
@@ -42,20 +44,30 @@ export const Header = ({ components, foundations }: HeaderProps) => {
     <S.Header>
       <Flex
         alignItems="center"
-        gap={{ _: 'sm', md: 'lg' }}
+        gap="lg"
         h="100%"
         justifyContent="space-between"
         margin="0 auto"
         maxWidth={1400}
         px="md"
       >
-        <Flex alignItems="center" gap="xl">
-          <Link href="/">
-            <Logo h={40} />
-          </Link>
+        <Flex alignItems="center" gap="lg">
+          <Box flexShrink={0}>
+            <Link href="/">
+              <Logo h={40} />
+            </Link>
+          </Box>
           <VersionSelector />
+          <Search />
         </Flex>
-        <Drawer.Trigger as={Button} display={{ lg: 'none' }} shape="circle" store={drawer}>
+        <Drawer.Trigger
+          as={Button}
+          display={{ lg: 'none' }}
+          flexShrink={0}
+          shape="circle"
+          size="sm"
+          store={drawer}
+        >
           <Icons.Menu />
         </Drawer.Trigger>
         <NavBar display={{ _: 'none', lg: 'flex' }} />

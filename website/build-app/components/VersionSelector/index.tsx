@@ -16,5 +16,14 @@ export const VersionSelector = () => {
     }
   }
 
-  return <Select name="welcome" onChange={handleChange} options={versions} size="sm" value="v5" />
+  return (
+    <Select
+      display={{ _: 'none', md: 'block' }}
+      name="welcome"
+      onChange={handleChange}
+      options={versions}
+      size="sm"
+      value="v5"
+    />
+  )
 }
