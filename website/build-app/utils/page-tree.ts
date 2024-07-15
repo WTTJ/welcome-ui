@@ -19,7 +19,9 @@ export type Toc = TocItem & {
 export function getPageTree(content: string, isOverview?: boolean) {
   if (!content) return
 
-  const tree = unified().use(rehypeParse, { fragment: true }).parse(marked(content))
+  const tree = unified()
+    .use(rehypeParse, { fragment: true })
+    .parse(marked(content) as string)
 
   const tableOfContents = [] as Toc[]
 
