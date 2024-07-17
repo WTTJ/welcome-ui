@@ -163,11 +163,10 @@ jobs:
       - run:
           name: Process branch name
           command: |
-            echo "PROCESSED_BRANCH=$(echo "$CIRCLE_BRANCH" | sed "s/[^[:alnum:]-]/-/g" | tr '[:upper:]' '[:lower:]' | cut -c -63)" >> $BASH_ENV
-            source $BASH_ENV
+            echo "export PROCESSED_BRANCH=$(echo "$CIRCLE_BRANCH" | sed "s/[^[:alnum:]-]/-/g" | tr '[:upper:]' '[:lower:]' | cut -c -63)" >> $BASH_ENV
       - aws-s3/sync:
           from: website/out
-          to: s3://welcome-ui/preprod/$PROCESSED_BRANCH
+          to: s3://welcome-ui/preprod/${PROCESSED_BRANCH}
 
   # current version deploy for production
   website_deploy_prod:
