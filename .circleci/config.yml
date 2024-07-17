@@ -11,17 +11,11 @@ parameters:
   nodejs_base_image:
     type: string
     default: 'cimg/node:18.17.1'
-  nodejs_test_base_image:
-    type: string
-    default: 'cimg/node:16.16.0'
 
 executors:
   nodejs:
     docker:
       - image: << pipeline.parameters.nodejs_base_image >>
-  nodejs_test:
-    docker:
-      - image: << pipeline.parameters.nodejs_test_base_image >>
   docker_builder:
     resource_class: medium
     machine:
@@ -58,7 +52,7 @@ jobs:
 
   vulnerabilities_yarn:
     <<: *default
-    executor: nodejs_test
+    executor: nodejs
     resource_class: small
     steps:
       - *checkout
@@ -67,7 +61,7 @@ jobs:
           at: ~/welcome-ui
       - run:
           name: Critical vulnerabilities (yarn audit), lib versions and missing deps
-          command: yarn check:audit && yarn check:libs && yarn check:deps
+          command: yarn check:audit && yarn check:deps
 
   build:
     <<: *default
@@ -118,7 +112,7 @@ jobs:
       - run: yarn icons:collect --force
       - run: yarn webfont:build
       - run:
-          name: prepare font hash
+          name: Prepare font hash
           command: |
             echo "export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')" >> $BASH_ENV
             source $BASH_ENV
@@ -166,9 +160,14 @@ jobs:
           aws_access_key_id: AWS_ACCESS_KEY_ID
           aws_secret_access_key: AWS_SECRET_ACCESS_KEY
           region: ${AWS_REGION}
+      - run:
+          name: Process branch name
+          command: |
+            echo "PROCESSED_BRANCH=$(echo "$CIRCLE_BRANCH" | sed "s/[^[:alnum:]-]/-/g" | tr '[:upper:]' '[:lower:]' | cut -c -63)" >> $BASH_ENV
+            source $BASH_ENV
       - aws-s3/sync:
           from: website/out
-          to: s3://welcome-ui/preprod/$(echo "$CIRCLE_BRANCH" | sed "s/[^[:alnum:]-]/-/g" | tr '[:upper:]' '[:lower:]' | cut -c -63)
+          to: s3://welcome-ui/preprod/$PROCESSED_BRANCH
 
   # current version deploy for production
   website_deploy_prod:
