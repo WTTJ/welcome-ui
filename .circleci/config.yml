@@ -11,11 +11,17 @@ parameters:
   nodejs_base_image:
     type: string
     default: 'cimg/node:18.17.1'
+  nodejs_test_base_image:
+    type: string
+    default: 'cimg/node:16.16.0'
 
 executors:
   nodejs:
     docker:
       - image: << pipeline.parameters.nodejs_base_image >>
+  nodejs_test:
+    docker:
+      - image: << pipeline.parameters.nodejs_test_base_image >>
   docker_builder:
     resource_class: medium
     machine:
@@ -52,7 +58,7 @@ jobs:
 
   vulnerabilities_yarn:
     <<: *default
-    executor: nodejs
+    executor: nodejs_test
     resource_class: small
     steps:
       - *checkout
@@ -86,6 +92,8 @@ jobs:
     steps:
       - *checkout
       - *restore_node_modules
+      - attach_workspace:
+          at: ~/welcome-ui
       - run: yarn lint
 
   test:
