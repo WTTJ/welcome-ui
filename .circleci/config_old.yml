@@ -1,112 +1,81 @@
-version: 2.1
+defaults: &defaults
+  working_directory: ~/welcome-ui
+  docker:
+    - image: cimg/node:18.17.1
 
-orbs:
-  aws-cli: circleci/aws-cli@4.1.3
-  aws-s3: circleci/aws-s3@4.0.0
+version: 2.1
 
 parameters:
   cache_version:
     type: string
-    default: v5
-  nodejs_base_image:
-    type: string
-    default: 'cimg/node:18.17.1'
+    default: v4
 
-executors:
-  nodejs:
-    docker:
-      - image: << pipeline.parameters.nodejs_base_image >>
-  docker_builder:
-    resource_class: medium
-    machine:
-      image: ubuntu-2204:current
-
-default: &default
-  working_directory: /home/circleci/welcome-ui
-
-checkout: &checkout
-  checkout:
-    path: /home/circleci/welcome-ui
-
-restore_node_modules: &restore_node_modules
-  restore_cache:
-    keys:
-      - << pipeline.parameters.cache_version >>-yarn-{{ checksum "/home/circleci/welcome-ui/yarn.lock" }}
+orbs:
+  aws-s3: circleci/aws-s3@2.0.0
 
 jobs:
   checkout:
-    <<: *default
-    executor: nodejs
+    <<: *defaults
     steps:
-      - *checkout
-      - run:
-          name: Run yarn install and save node modules
-          command: yarn install
-      - *restore_node_modules
+      - checkout
       - save_cache:
-          key: << pipeline.parameters.cache_version >>-yarn-{{ checksum "/home/circleci/welcome-ui/yarn.lock" }}
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - ~/.cache/yarn
-            - ~/welcome-ui/node_modules
-            - ~/welcome-ui/website/node_modules
+            - ~/welcome-ui
 
-  vulnerabilities_yarn:
-    <<: *default
-    executor: nodejs
-    resource_class: small
+  yarn_install:
+    <<: *defaults
     steps:
-      - *checkout
-      - *restore_node_modules
-      - attach_workspace:
-          at: ~/welcome-ui
-      - run:
-          name: Critical vulnerabilities (yarn audit), lib versions and missing deps
-          command: yarn check:audit && yarn check:libs && yarn check:deps
-
-  build:
-    <<: *default
-    executor: nodejs
-    resource_class: xlarge
-    steps:
-      - *checkout
-      - *restore_node_modules
-      - run: yarn icons:build
-      - run: yarn build
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: yarn install
+      - store_artifacts:
+          path: yarn.lock
       - persist_to_workspace:
           root: ~/welcome-ui
           paths:
-            - packages/**/dist
-            - packages/Themes/**/dist
-            - icons/dist
-            - packages/IconFont/fonts
+            - node_modules
+            - website/node_modules
 
   lint:
-    <<: *default
-    executor: nodejs
+    <<: *defaults
     steps:
-      - *checkout
-      - *restore_node_modules
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn lint
 
   test:
-    <<: *default
-    executor: nodejs
+    <<: *defaults
     parallelism: 4
     steps:
-      - *checkout
-      - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn jest --detectOpenHandles $(circleci tests glob "./packages/**/*.test.{ts,js,tsx}" | circleci tests split | xargs)
 
-  build_and_release_icon_font:
-    <<: *default
-    executor: nodejs
+  vulnerabilities_yarn:
+    <<: *defaults
+    docker:
+      - image: cimg/node:16.16.0
     steps:
-      - *checkout
-      - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: Critical vulnerabilities test (yarn audit) and check no missing or unused dependencies
+          command: yarn check:audit && yarn check:deps
+
+  build_and_release_icon_font:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn icons:collect --force
       - run: yarn webfont:build
       - run:
@@ -115,10 +84,6 @@ jobs:
             echo "export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')" >> $BASH_ENV
             source $BASH_ENV
             yarn build:core
-      - aws-cli/setup:
-          aws_access_key_id: AWS_ACCESS_KEY_ID
-          aws_secret_access_key: AWS_SECRET_ACCESS_KEY
-          region: ${AWS_REGION}
       - aws-s3/sync:
           from: packages/IconFont/fonts
           to: s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH --cache-control 'public, max-age=31536000' --exclude '*' --include 'welcome-icon-font.woff' --include 'welcome-icon-font.woff2'
@@ -130,15 +95,32 @@ jobs:
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
 
-  # current version build (common to previews & prod)
-  website_build:
-    <<: *default
-    executor: nodejs
+  build:
+    <<: *defaults
+    resource_class: xlarge
     steps:
-      - *checkout
-      - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: yarn icons:build
+      - run: yarn build
+      - persist_to_workspace:
+          root: ~/welcome-ui
+          paths:
+            - packages/**/dist
+            - packages/Themes/**/dist
+            - icons/dist
+            - packages/IconFont/fonts
+
+  # current version build (common to previews & prod)
+  website_build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/welcome-ui
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run: yarn website:build
       - persist_to_workspace:
           root: ~/welcome-ui
@@ -147,90 +129,79 @@ jobs:
 
   # current version deploy for previews
   website_deploy_preview:
-    <<: *default
-    executor: nodejs
+    <<: *defaults
     steps:
-      - *checkout
-      - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
-      - aws-cli/setup:
-          aws_access_key_id: AWS_ACCESS_KEY_ID
-          aws_secret_access_key: AWS_SECRET_ACCESS_KEY
-          region: ${AWS_REGION}
-      - aws-s3/sync:
-          from: website/out
-          to: s3://welcome-ui/preprod/$(echo "$CIRCLE_BRANCH" | sed "s/[^[:alnum:]-]/-/g" | tr '[:upper:]' '[:lower:]' | cut -c -63)
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
+      - run: node_modules/.bin/netlify deploy --filter=website --dir=website/out --alias $CIRCLE_BRANCH
 
   # current version deploy for production
   website_deploy_prod:
-    <<: *default
-    executor: nodejs
+    <<: *defaults
     steps:
-      - *checkout
-      - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
-      - aws-cli/setup:
-          aws_access_key_id: AWS_ACCESS_KEY_ID
-          aws_secret_access_key: AWS_SECRET_ACCESS_KEY
-          region: ${AWS_REGION}
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - aws-s3/sync:
           from: website/out
           to: s3://welcome-ui/docs_production
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1
+      - aws-s3/sync:
+          from: s3://welcome-ui/docs_production
+          to: docs_production
+      - run: node_modules/.bin/netlify deploy --filter=website --dir=docs_production --prod
 
   # previous versions build & deploy for production
   previous_website_versions_build_deploy_prod:
-    <<: *default
-    executor: nodejs
+    <<: *defaults
     steps:
-      - *checkout
-      - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: build w/ prefix
           command: VERSION=$CIRCLE_BRANCH yarn website:build
-      - aws-cli/setup:
-          aws_access_key_id: AWS_ACCESS_KEY_ID
-          aws_secret_access_key: AWS_SECRET_ACCESS_KEY
-          region: ${AWS_REGION}
       - aws-s3/sync:
           from: website/out
           to: s3://welcome-ui/docs_production/$CIRCLE_BRANCH
           arguments: |
             --metadata GitCommit=$CIRCLE_SHA1 --delete
+      - aws-s3/sync:
+          from: s3://welcome-ui/docs_production
+          to: docs_production
+      - run: node_modules/.bin/netlify deploy --filter=website --dir=docs_production --prod
 
   release:
-    <<: *default
-    executor: nodejs
+    <<: *defaults
     steps:
-      - *checkout
-      - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run:
-          name: Login to registry
+          name: login to registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
-          name: Release to npm
+          name: release to npm
           command: yarn lerna publish from-git --yes --no-verify-access
 
   prerelease:
-    <<: *default
-    executor: nodejs
+    <<: *defaults
     steps:
-      - *checkout
-      - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
+      - restore_cache:
+          key: << pipeline.parameters.cache_version >>-welcome-ui-{{ .Environment.CIRCLE_SHA1 }}
       - run:
-          name: Login to registry
+          name: login to registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
-          name: Release to npm
+          name: release to npm
           command: yarn lerna publish from-git --yes --no-verify-access --dist-tag next
 
 workflows:
@@ -240,30 +211,18 @@ workflows:
           filters:
             tags:
               only: /.*/
+      - yarn_install:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - checkout
       - vulnerabilities_yarn:
           filters:
             tags:
               only: /.*/
           requires:
-            - checkout
-      - build:
-          filters:
-            tags:
-              only: /.*/
-          requires:
-            - checkout
-      - lint:
-          filters:
-            tags:
-              only: /.*/
-          requires:
-            - build
-      - test:
-          filters:
-            tags:
-              only: /.*/
-          requires:
-            - build
+            - yarn_install
       - build_and_release_icon_font:
           filters:
             tags:
@@ -273,46 +232,76 @@ workflows:
           requires:
             - lint
             - test
+      - build:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - yarn_install
+      - lint:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - yarn_install
+            - build
+      - test:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - yarn_install
+            - build
       - website_build:
           filters:
             tags:
               only: /.*/
           requires:
             - build
-      - website_deploy_preview:
+      - website_deploy_prod:
           context:
             - aws
+            - netlify
             - welcome-ui
-          requires:
-            - website_build
-            - build_and_release_icon_font
-      - website_deploy_prod:
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /v5.(\d\d|\d).(\d\d|\d)/
+          requires:
+            - test
+            - lint
+            - website_build
+            - build_and_release_icon_font
+      - website_deploy_preview:
           context:
-            - aws
+            - netlify
             - welcome-ui
           requires:
+            - test
+            - lint
             - website_build
             - build_and_release_icon_font
       - previous_website_versions_build_deploy_prod:
+          context:
+            - aws
+            - netlify
+            - welcome-ui
           filters:
             # should add branches here to keep previous doc version of future majors
             branches:
               only: /v3|v4/
-          context:
-            - aws
-            - welcome-ui
           requires:
+            - test
+            - lint
             - build
             - build_and_release_icon_font
       - release:
           context:
             - welcome-ui
           requires:
+            - test
+            - lint
             - build
             - build_and_release_icon_font
           filters:
@@ -320,10 +309,13 @@ workflows:
               ignore: /.*/
             tags:
               only: /v\d.(\d\d|\d).(\d\d|\d)/
+
       - prerelease:
           context:
             - welcome-ui
           requires:
+            - test
+            - lint
             - build
             - build_and_release_icon_font
           filters:
