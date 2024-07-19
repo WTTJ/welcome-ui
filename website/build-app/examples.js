@@ -239,5 +239,6 @@ export default {
   "/Tooltip/docs/examples/fixed.tsx": dynamic(() => import("../../packages/Tooltip/docs/examples/fixed.tsx").then(mod => mod), { ssr: false }),
   "/Tooltip/docs/examples/long-text.tsx": dynamic(() => import("../../packages/Tooltip/docs/examples/long-text.tsx").then(mod => mod), { ssr: false }),
   "/Tooltip/docs/examples/overview.tsx": dynamic(() => import("../../packages/Tooltip/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
-  "/Tooltip/docs/examples/placement.tsx": dynamic(() => import("../../packages/Tooltip/docs/examples/placement.tsx").then(mod => mod), { ssr: false })
+  "/Tooltip/docs/examples/placement.tsx": dynamic(() => import("../../packages/Tooltip/docs/examples/placement.tsx").then(mod => mod), { ssr: false }),
+  "/Tooltip/docs/examples/withArrow.tsx": dynamic(() => import("../../packages/Tooltip/docs/examples/withArrow.tsx").then(mod => mod), { ssr: false })
 };
