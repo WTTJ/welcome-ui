@@ -5,7 +5,7 @@ import { Button } from '@welcome-ui/button'
 const Example = () => {
   return (
     <Tooltip content="Tooltip" fixed withArrow>
-      <Button>Fixed tooltip with an arrow ⬇️</Button>
+      <Button>With an arrow ⬇️</Button>
     </Tooltip>
   )
 }
