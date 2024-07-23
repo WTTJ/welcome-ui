@@ -136,7 +136,7 @@
     "react-router-dom": "6.16.0",
     "rimraf": "^4.1.1",
     "standard-version": "9.5.0",
-    "styled-components": "^5.3.9",
+    "styled-components": "^6.1.12",
     "svgo": "^3.0.1",
     "typescript": "5.0.2",
     "wttj-config": "^2.6.2",
@@ -145,7 +145,7 @@
   "resolutions": {
     "@babel/traverse": ">=7.23.2",
     "@types/react": "18.0.25",
-    "styled-components": "5.3.9",
+    "styled-components": "6.1.12",
     "loader-utils": "2.0.3"
   },
   "homepage": "https://welcome-ui.com"
