@@ -32,5 +32,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: pullRequestId,
-              body: `👀 [Visit Preview](https://${branchName}.preprod.welcome-ui.com)`
+              body: `👀 [Visit Preview](https://${branchName}.preview.welcome-ui.com)`
             });
