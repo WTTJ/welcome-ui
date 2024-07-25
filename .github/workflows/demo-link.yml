@@ -2,7 +2,7 @@ name: Demo link
 
 on:
   pull_request_target:
-    types: [opened]
+    types: [opened, synchronize]
 
 jobs:
   add_demo_link:
@@ -13,16 +13,24 @@ jobs:
     permissions:
       pull-requests: write
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up GitHub context
+        id: context
+        run: |
+          echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | sed 's/[^[:alnum:]-]/-/g' | tr '[:upper:]' '[:lower:]' | cut -c -63)" >> $GITHUB_ENV
+
       - name: Update PR description
         uses: actions/github-script@v6
         with:
           script: |
+            const branchName = process.env.BRANCH_NAME;
             const pullRequestId = context.payload.pull_request.number
-            const pullRequestBranch = context.payload.pull_request.head.ref
 
             github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: pullRequestId,
-              body: `👀 [Visit Preview](https://${pullRequestBranch}--welcome-ui.netlify.app)`
+              body: `👀 [Visit Preview](https://${branchName}.preview.welcome-ui.com)`
             });
