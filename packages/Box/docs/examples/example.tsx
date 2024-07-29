@@ -13,7 +13,13 @@ const Example = () => {
       justifyContent="center"
       w="100%"
     >
-      <Box backgroundColor="neutral-white" borderRadius="sm" boxShadow="sm" margin="xl" maxWidth={360}>
+      <Box
+        backgroundColor="neutral-white"
+        borderRadius="sm"
+        boxShadow="sm"
+        margin="xl"
+        maxWidth={360}
+      >
         <Box
           alt="presentation"
           as="img"

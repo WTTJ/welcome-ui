@@ -55,12 +55,12 @@ const newColorValues = {
   'warning-300': 'v6.warning-30',
   'warning-400': 'v6.warning-40',
   'warning-500': 'v6.warning-50',
-  'sub-1': 'brand-blue',
+  'sub-1': 'brand-teal',
   'sub-2': 'brand-blue',
-  'sub-3': 'brand-orange',
+  'sub-3': 'brand-red',
   'sub-4': 'brand-orange',
   'sub-5': 'brand-green',
-  'sub-6': 'brand-green',
+  'sub-6': 'brand-pink',
   'sub-7': 'brand-purple',
 }
 

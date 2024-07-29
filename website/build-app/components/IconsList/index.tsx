@@ -69,7 +69,7 @@ export const IconsList = ({ isIconFont, name }: IconListProps) => {
           <Card
             alignItems="center"
             borderRadius="xl"
-            color="dark-900"
+            color="neutral-black"
             display="flex"
             flexDirection="column"
             key={key}

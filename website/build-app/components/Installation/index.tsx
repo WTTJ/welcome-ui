@@ -29,7 +29,7 @@ export const Installation = ({ packageName, usage }: InstallationProps) => {
       <Flex gap="md" mt="xl">
         <Flex
           alignItems="center"
-          backgroundColor="primary-500"
+          backgroundColor="primary-40"
           borderRadius={30}
           flexShrink={0}
           h={30}
@@ -48,7 +48,7 @@ export const Installation = ({ packageName, usage }: InstallationProps) => {
       <Flex gap="md" mt="xl">
         <Flex
           alignItems="center"
-          backgroundColor="primary-500"
+          backgroundColor="primary-40"
           borderRadius={30}
           flexShrink={0}
           h={30}

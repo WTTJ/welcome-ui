@@ -12,7 +12,13 @@ const Example = () => {
 
   return (
     <>
-      <Slider borderSelectorColor="brand-orange" max={100} min={0} onChange={handleChange} value={50} />
+      <Slider
+        borderSelectorColor="brand-orange"
+        max={100}
+        min={0}
+        onChange={handleChange}
+        value={50}
+      />
       <Slider.Range
         borderSelectorColor="brand-orange"
         max={100}

@@ -1,64 +1,102 @@
-# Basics
-
 We expose a [theme object](https://github.com/WTTJ/welcome-ui/tree/main/packages/Core/src/theme/core.ts) for our customizable design system. You can easily customize colors, typography, breakpoints, etc to match with your design.
 
 ## Colors
 
-Customize the color on the `theme.colors` object. Colors can be used for `color`, `borderColor`, `backgroundColor`, etc. Example of a color: `dark-900`. [See more on github](https://github.com/WTTJ/welcome-ui/tree/main/packages/Core/src/theme/colors.ts)
+Customize the color on the `theme.colors` object. Colors can be used for `color`, `borderColor`, `backgroundColor`, etc. Example of a color: `neutral-black`. [See more on github](https://github.com/WTTJ/welcome-ui/tree/main/packages/Core/src/theme/colors.ts)
 
 ```jsx
 export default {
   colors: {
     // ...
-    'primary-500': '#FF0000',
-    'dark-100': '#333',
-    'dark-900': '#000',
+    'primary-40': '#FF0000',
+    'neutral-20': '#333',
+    'neutral-black': '#000',
     custom: '#F12345',
     // ...
   },
 }
 ```
 
-### Primary
+### Tokens
 
-<div data-colors="primary"></div>
-
-### Light
-
-<div data-colors="light"></div>
-
-### Dark
-
-<div data-colors="dark"></div>
-
-### Black and White
+#### Black and White
 
 <div data-colors="black"></div>
 <div data-colors="white"></div>
+
+#### Gray
+
+<div data-colors="gray"></div>
+
+#### Beige
+
+<div data-colors="nude"></div>
+
+#### Green
+
+<div data-colors="green"></div>
+
+#### Teal
+
+<div data-colors="teal"></div>
+
+#### Blue
+
+<div data-colors="blue"></div>
+
+#### Purple
+
+<div data-colors="purple"></div>
+
+#### Red
+
+<div data-colors="red"></div>
+
+#### Pink
+
+<div data-colors="pink"></div>
+
+#### Orange
+
+<div data-colors="orange"></div>
+
+#### Yellow
+
+<div data-colors="yellow"></div>
+
+### Neutral
+
+<div data-colors="neutral"></div>
+
+### Primary
+
+<div data-colors="primary"></div>
 
 ### Nudes
 
 <div data-colors="nude"></div>
 
-### Success
+### Brand
+
+<div data-colors="brand"></div>
+
+### States
+
+#### Success
 
 <div data-colors="success"></div>
 
-### Danger
+#### Danger
 
 <div data-colors="danger"></div>
 
-### Info
+#### Info
 
 <div data-colors="info"></div>
 
-### Warning
+#### Warning
 
 <div data-colors="warning"></div>
-
-### Subs
-
-<div data-colors="sub"></div>
 
 ## Spacing
 

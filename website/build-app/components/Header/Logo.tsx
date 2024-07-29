@@ -7,7 +7,7 @@ type LogoProps = {
 
 export const Logo = ({ h }: LogoProps) => {
   return (
-    <Box as="svg" color="dark-900" h={h} viewBox="0 0 101 59">
+    <Box as="svg" color="neutral-black" h={h} viewBox="0 0 101 59">
       <title>WUI logo</title>
       <g fill="none" fillRule="nonzero">
         <path

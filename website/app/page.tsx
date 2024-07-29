@@ -15,8 +15,8 @@ const Home = () => {
   return (
     <main>
       <Notifications pauseOnHover={false} />
-      <Section backgroundColor="nude-200">
-        <Text as="span" color="dark-900" textTransform="uppercase" variant="subtitle-md">
+      <Section backgroundColor="nude-30">
+        <Text as="span" color="neutral-black" textTransform="uppercase" variant="subtitle-md">
           Welcome UI
         </Text>
         <Text maxWidth={820} mb="xl" mt="sm" variant="h1">
@@ -42,7 +42,7 @@ const Home = () => {
         </Text>
         <Components />
       </Section>
-      <Section backgroundColor="nude-200">
+      <Section backgroundColor="nude-30">
         <Box
           alignItems="center"
           display="flex"
@@ -50,7 +50,7 @@ const Home = () => {
           justifyContent="space-between"
         >
           <Box flex="0 0 auto" maxWidth={{ md: 600 }} mb={{ xs: '5xl', lg: 0 }}>
-            <Text as="span" color="dark-900" textTransform="uppercase" variant="subtitle-md">
+            <Text as="span" color="neutral-black" textTransform="uppercase" variant="subtitle-md">
               Open source
             </Text>
             <Text as="h2" mb="xl" mt="sm" variant="h1">
@@ -79,8 +79,8 @@ const Home = () => {
         </Text>
         <Expectations />
       </Section>
-      <Section backgroundColor="nude-200">
-        <Text as="span" color="dark-900" textTransform="uppercase" variant="subtitle-md">
+      <Section backgroundColor="nude-30">
+        <Text as="span" color="neutral-black" textTransform="uppercase" variant="subtitle-md">
           Example
         </Text>
         <Text as="h2" mb="xl" mt="sm" variant="h1">

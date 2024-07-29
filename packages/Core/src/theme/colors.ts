@@ -96,12 +96,13 @@ const palette = {
 
 export const colors = {
   ...palette,
-  'brand-green': palette['green-30'],
-  'brand-teal': palette['teal-40'],
   'brand-blue': palette['blue-40'],
-  'brand-purple': palette['purple-40'],
-  'brand-pink': palette['pink-40'],
+  'brand-green': palette['green-30'],
   'brand-orange': palette['orange-40'],
+  'brand-pink': palette['pink-40'],
+  'brand-purple': palette['purple-40'],
+  'brand-red': palette['red-40'],
+  'brand-teal': palette['teal-40'],
   'primary-10': palette['yellow-10'],
   'primary-20': palette['yellow-20'],
   'primary-30': palette['yellow-30'],
