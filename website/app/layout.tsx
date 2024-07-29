@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Box } from '@welcome-ui/box'
 
 import StyledComponentsRegistry from '@/build-app/registry'
 import { ThemeProvider } from '@/build-app/components/ThemeProvider'
@@ -6,6 +7,7 @@ import { Header } from '@/build-app/components/Header'
 import { getPages } from '@/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '@/build-app/utils/pages-exports'
 import { Footer } from '@/build-app/components/Footer'
+
 import '@welcome-ui/icons.font/fonts/welcome-icon-font.css'
 import './global.css'
 
@@ -31,7 +33,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <StyledComponentsRegistry>
           <ThemeProvider>
             <Header components={pagesComponents} foundations={pagesFoundations} />
-            {children}
+            <Box backgroundColor="neutral-white">{children}</Box>
             <Footer />
           </ThemeProvider>
         </StyledComponentsRegistry>
