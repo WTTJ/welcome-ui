@@ -1,6 +1,5 @@
 'use client'
 import { createTheme, WuiProvider, WuiProviderProps } from '@welcome-ui/core'
-import { welcomeTheme } from '@welcome-ui/themes.welcome'
 import * as React from 'react'
 
 type ThemeProviderProps = {
@@ -8,7 +7,7 @@ type ThemeProviderProps = {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const theme = React.useMemo(() => createTheme(welcomeTheme), [])
+  const theme = React.useMemo(() => createTheme(), [])
 
   return (
     <WuiProvider theme={theme} useReset>

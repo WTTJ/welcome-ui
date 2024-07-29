@@ -10,6 +10,7 @@ import { Box } from '@welcome-ui/box'
 import { VersionSelector } from '../VersionSelector'
 import { Sidebar } from '../Sidebar'
 import { Search } from '../Search'
+import { ThemeSelector } from '../ThemeSelector'
 
 import { Logo } from './Logo'
 import * as S from './styles'
@@ -59,6 +60,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
           </Box>
           <VersionSelector />
           <Search />
+          <ThemeSelector />
         </Flex>
         <Drawer.Trigger
           as={Button}
