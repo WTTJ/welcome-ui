@@ -109,7 +109,7 @@ export const Item = styled.li(
     isSelected: boolean
     isDisabled?: boolean
   }) => css`
-    color: nude-700;
+    color: nude-70;
     ${isHighlighted && th('defaultFields.select.highlighted')};
     ${isSelected && !isMultiple && th('defaultFields.select.selected')};
     ${isSelected && isMultiple && !allowUnselectFromList && th('defaultFields.select.existing')};

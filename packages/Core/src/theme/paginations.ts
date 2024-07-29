@@ -16,26 +16,26 @@ export const getPaginations = (theme: WuiTheme): ThemePaginations => {
     default: {
       width: toRem(32),
       height: toRem(32),
-      color: colors['dark-900'],
+      color: colors['neutral-black'],
       fontWeight: fontWeights.bold,
       fontSize: fontSizes.xs,
     },
     item: {
       '&:hover, &:focus': {
-        backgroundColor: colors['dark-100'],
+        backgroundColor: colors['neutral-20'],
       },
-      '&:focus': { ...focus(colors['dark-500']) },
+      '&:focus': { ...focus(colors['neutral-50']) },
     },
     active: {
-      backgroundColor: colors['dark-900'],
-      color: colors['light-900'],
+      backgroundColor: colors['neutral-black'],
+      color: colors['neutral-white'],
       '&:hover, &:focus': {
-        backgroundColor: colors['dark-900'],
+        backgroundColor: colors['neutral-black'],
       },
     },
     disabled: {
-      backgroundColor: colors['nude-400'],
-      color: colors['nude-700'],
+      backgroundColor: colors['nude-40'],
+      color: colors['nude-70'],
     },
   }
 }

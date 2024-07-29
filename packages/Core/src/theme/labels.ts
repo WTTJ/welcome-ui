@@ -8,7 +8,7 @@ export const getLabels = (theme: WuiTheme): ThemeLabels => {
   const { colors, fontSizes, fontWeights } = theme
 
   return {
-    color: colors['dark-500'],
+    color: colors['neutral-50'],
     fontSize: fontSizes.sm,
     fontWeight: fontWeights.medium,
   }

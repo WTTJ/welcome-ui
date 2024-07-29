@@ -20,12 +20,12 @@ export const getRadios = (theme: WuiTheme): ThemeRadios => {
       height: toRem(16),
     },
     checked: {
-      color: colors['dark-900'],
-      borderColor: colors['primary-500'],
+      color: colors['neutral-black'],
+      borderColor: colors['primary-40'],
     },
     checkedCenteredColor: {
-      default: colors['primary-500'],
-      disabled: colors['nude-600'],
+      default: colors['primary-40'],
+      disabled: colors['nude-60'],
     },
   }
 }

@@ -3,7 +3,7 @@
     "props": {
       "gradientBackground": {
         "defaultValue": {
-          "value": "light-900"
+          "value": "neutral-white"
         },
         "description": "color from theme, add for scroll gradient on mobile",
         "name": "gradientBackground",

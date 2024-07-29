@@ -8,12 +8,12 @@ const Example = () => {
   return (
     <Box
       alignItems="center"
-      backgroundColor="nude-100"
+      backgroundColor="nude-20"
       display="flex"
       justifyContent="center"
       w="100%"
     >
-      <Box backgroundColor="light-900" borderRadius="sm" boxShadow="sm" margin="xl" maxWidth={360}>
+      <Box backgroundColor="neutral-white" borderRadius="sm" boxShadow="sm" margin="xl" maxWidth={360}>
         <Box
           alt="presentation"
           as="img"
@@ -23,7 +23,7 @@ const Example = () => {
         <Box p="md">
           <Box alignItems="center" display="flex" mb="xs">
             <Badge variant="primary">Superhost</Badge>
-            <StarIcon color="primary-500" ml="xs" size="sm" />
+            <StarIcon color="primary-40" ml="xs" size="sm" />
             <Text ml={3} my="0" variant="sm">
               4.8/5
             </Text>

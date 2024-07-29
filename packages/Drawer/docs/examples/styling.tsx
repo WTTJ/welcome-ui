@@ -17,19 +17,19 @@ const Example = () => {
       </Drawer.Trigger>
       <Drawer
         aria-label="Default drawer"
-        backgroundColor="nude-200"
+        backgroundColor="nude-30"
         store={drawer}
         withCloseButton={false}
       >
         <Drawer.Close h={30} store={drawer} w={30} />
-        <Drawer.Title borderBottom="1px solid" borderBottomColor="dark-200">
+        <Drawer.Title borderBottom="1px solid" borderBottomColor="neutral-20">
           Hello
         </Drawer.Title>
-        <Drawer.Content backgroundColor="light-900">
+        <Drawer.Content backgroundColor="neutral-white">
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
         </Drawer.Content>
-        <Drawer.Footer borderTop="1px solid" borderTopColor="dark-200">
+        <Drawer.Footer borderTop="1px solid" borderTopColor="neutral-20">
           <Stack direction="row">
             <Button onClick={onClick}>Save</Button>
             <Button onClick={onClick} variant="tertiary">

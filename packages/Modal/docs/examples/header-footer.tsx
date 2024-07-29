@@ -10,7 +10,7 @@ const Example = () => {
   const modal3 = useModal()
   const title = 'Nullam non lacinia'
   const subtitle = 'Praesent sit amet quam ac velit faucibus dapibus, quisque sapien ligula.'
-  const icon = <ActionsIcon color="dark-900" h={40} w={40} />
+  const icon = <ActionsIcon color="neutral-black" h={40} w={40} />
   const informations = {
     title: 'Donec id tellus',
     subtitle:

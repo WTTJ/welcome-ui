@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   }
 
   ${Iframe} {
-    background-color: dark-900;
+    background-color: neutral-black;
     max-height: calc(100vh - 2 * 5rem - ${titleBlockMobile});
 
     @media (min-width: md) {
@@ -48,7 +48,7 @@ export const AssetWithTitle = forwardRef<'div', AssetWithTitleProps>(
       <Wrapper ref={ref}>
         {children}
         <Box
-          backgroundColor="light-900"
+          backgroundColor="neutral-white"
           display="flex"
           flexDirection="column"
           flexShrink={0}

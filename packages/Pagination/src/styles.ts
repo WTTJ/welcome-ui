@@ -52,8 +52,8 @@ export const ArrowLink = styled.a(
     ${abstractLinkStyle};
     ${props['aria-disabled'] &&
     css`
-      color: nude-700;
-      background-color: nude-400;
+      color: nude-70;
+      background-color: nude-40;
     `}
   `
 )

@@ -41,7 +41,7 @@ export const ensureMinMax = (value: number, min: number, max: number, step: numb
 export const SliderComponent = forwardRef<'div', SliderProps>(
   (
     {
-      borderSelectorColor = 'light-900',
+      borderSelectorColor = 'neutral-white',
       disabled,
       hint,
       label,

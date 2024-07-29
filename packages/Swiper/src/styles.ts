@@ -35,10 +35,10 @@ export const Arrow = styled(Button)<
 
     ${!withDarkUI &&
     css`
-      background-color: light-900 !important;
+      background-color: neutral-white !important;
 
       &:hover {
-        background-color: light-700 !important;
+        background-color: neutral-30 !important;
       }
     `}
 
@@ -83,7 +83,7 @@ export const Bullet = styled.div<{ active: boolean } & Pick<UseSwiper, 'withDark
     ${active ? th('swipers.navigation.bullet.active') : th('swipers.navigation.bullet.default')}
     ${withDarkUI &&
     css`
-      background-color: ${active ? 'dark-900' : 'dark-400'};
+      background-color: ${active ? 'neutral-black' : 'neutral-40'};
     `}
     ${system}
   `

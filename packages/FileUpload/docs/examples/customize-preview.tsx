@@ -20,7 +20,7 @@ const Example = () => {
       return (
         <Tag
           alignItems="center"
-          backgroundColor="light-900"
+          backgroundColor="neutral-white"
           data-id={name}
           h={60}
           key={name}
@@ -30,7 +30,7 @@ const Example = () => {
         >
           <Icon mr="sm" size="lg" />
           {name}
-          {size && <Box color="nude-600">({size})</Box>}
+          {size && <Box color="nude-60">({size})</Box>}
           <Button ml="xxl" onClick={onRemove} shape="square" size="sm" variant="ghost">
             <CrossIcon />
           </Button>

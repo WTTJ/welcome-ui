@@ -41,12 +41,12 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
 
   return {
     default: {
-      color: colors['dark-900'],
+      color: colors['neutral-black'],
       fontSize: fontSizes.sm,
       /* Can't use 16 because that's a valid line-height value (16em) */
       lineHeight: '1rem',
       fontWeight: fontWeights.regular,
-      backgroundColor: colors['light-900'],
+      backgroundColor: colors['neutral-white'],
       borderColor: colors.border,
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
@@ -109,27 +109,27 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       },
     },
     disabled: {
-      backgroundColor: colors['nude-400'],
-      color: colors['nude-700'],
+      backgroundColor: colors['nude-40'],
+      color: colors['nude-70'],
       cursor: 'not-allowed',
     },
     placeholder: {
-      color: colors['dark-400'],
+      color: colors['neutral-40'],
     },
     focused: {
       default: {
-        ...focus(colors['primary-200']),
+        ...focus(colors['primary-20']),
         borderColor: 'transparent',
       },
-      error: { ...focus(colors['danger-300']) },
-      warning: { ...focus(colors['warning-400']) },
-      success: { ...focus(colors['success-300']) },
-      info: { ...focus(colors['info-400']) },
+      error: { ...focus(colors['danger-30']) },
+      warning: { ...focus(colors['warning-40']) },
+      success: { ...focus(colors['success-30']) },
+      info: { ...focus(colors['info-40']) },
     },
     checkablelabel: {
       default: {},
       checked: {
-        color: colors['dark-900'],
+        color: colors['neutral-black'],
         '-webkit-text-stroke': '0.04em',
       },
     },
@@ -138,22 +138,22 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
         maxHeight: toRem(155),
       },
       existing: {
-        color: colors['nude-400'],
+        color: colors['nude-40'],
         cursor: 'not-allowed',
       },
       highlighted: {
-        backgroundColor: colors['nude-100'],
+        backgroundColor: colors['nude-20'],
         cursor: 'default',
       },
       selectedAndHighlighted: {
         backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%)',
       },
       selected: {
-        color: colors['dark-900'],
+        color: colors['neutral-black'],
         fontWeight: fontWeights.bold,
       },
       disabled: {
-        color: colors['nude-600'],
+        color: colors['nude-60'],
         cursor: 'not-allowed',
       },
     },
