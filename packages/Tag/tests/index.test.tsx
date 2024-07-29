@@ -51,7 +51,7 @@ describe('<Tag>', () => {
     )
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('background-color', theme.colors['brand-blue'])
+    expect(tag).toHaveStyleRule('background-color', theme.colors['brand-teal'])
   })
 
   describe('should have correct size with only one character', () => {

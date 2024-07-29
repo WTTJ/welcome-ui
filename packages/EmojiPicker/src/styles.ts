@@ -51,7 +51,7 @@ export const EmojiButton = styled.buttonBox.attrs({
       background-color: brand-orange;
     }
     &:nth-child(3n + 1) {
-      background-color: brand-blue;
+      background-color: brand-teal;
     }
     &:nth-child(3n + 2) {
       background-color: brand-green;
