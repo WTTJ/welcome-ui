@@ -33,7 +33,7 @@ export const getBadges = (theme: WuiTheme): ThemeAccordions => {
         backgroundColor: colors['nude-30'],
       },
       primary: {
-        color: colors['neutral-black'],
+        color: colors['black'],
         backgroundColor: colors['primary-40'],
       },
     },

@@ -10,13 +10,13 @@ type Variant =
   | 'error'
   | 'warning'
   | 'info'
-  | '1'
-  | '2'
-  | '3'
-  | '4'
-  | '5'
-  | '6'
-  | '7'
+  | 'teal'
+  | 'blue'
+  | 'red'
+  | 'orange'
+  | 'green'
+  | 'pink'
+  | 'purple'
 
 type Size = 'xs' | 'sm' | 'md'
 
@@ -47,7 +47,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
     ...border,
     borderColor: color,
     backgroundColor: color,
-    color: colors.white,
+    color: colors.black,
   })
 
   return {
@@ -93,13 +93,13 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
         borderColor: colors['info-30'],
         ...border,
       },
-      1: { ...withoutVisibleBorder(colors['brand-teal']), color: colors['neutral-black'] },
-      2: { ...withoutVisibleBorder(colors['brand-blue']), color: colors['neutral-white'] },
-      3: { ...withoutVisibleBorder(colors['brand-red']), color: colors['neutral-white'] },
-      4: { ...withoutVisibleBorder(colors['brand-orange']), color: colors['neutral-black'] },
-      5: { ...withoutVisibleBorder(colors['brand-green']), color: colors['neutral-black'] },
-      6: { ...withoutVisibleBorder(colors['brand-pink']), color: colors['neutral-white'] },
-      7: { ...withoutVisibleBorder(colors['brand-purple']), color: colors['neutral-black'] },
+      teal: { ...withoutVisibleBorder(colors['brand-teal']) },
+      blue: { ...withoutVisibleBorder(colors['brand-blue']) },
+      red: { ...withoutVisibleBorder(colors['brand-red']) },
+      orange: { ...withoutVisibleBorder(colors['brand-orange']) },
+      green: { ...withoutVisibleBorder(colors['brand-green']) },
+      pink: { ...withoutVisibleBorder(colors['brand-pink']) },
+      purple: { ...withoutVisibleBorder(colors['brand-purple']) },
     },
     hover: {
       default: {
@@ -121,25 +121,25 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
       info: {
         borderColor: colors['info-50'],
       },
-      1: {
+      teal: {
         borderColor: colors['neutral-20'],
       },
-      2: {
+      blue: {
         borderColor: colors['neutral-20'],
       },
-      3: {
+      red: {
         borderColor: colors['neutral-20'],
       },
-      4: {
+      orange: {
         borderColor: colors['neutral-20'],
       },
-      5: {
+      green: {
         borderColor: colors['neutral-20'],
       },
-      6: {
+      pink: {
         borderColor: colors['neutral-20'],
       },
-      7: {
+      purple: {
         borderColor: colors['neutral-20'],
       },
     },

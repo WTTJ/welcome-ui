@@ -45,7 +45,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
   return {
     primary: {
       ...defaults,
-      color: theme.colors['neutral-black'],
+      color: theme.colors['black'],
       backgroundColor: colors['primary-40'],
       borderColor: colors['primary-40'],
     },

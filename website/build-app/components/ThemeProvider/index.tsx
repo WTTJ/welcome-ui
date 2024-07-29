@@ -15,11 +15,11 @@ type ThemeContextValues = {
 export const ThemeContext = React.createContext<ThemeContextValues>({ schemeValue: 'light' })
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [themeSelected, setThemeSelected] = React.useState<ThemeValue>('system')
+  const [themeSelected, setThemeSelected] = React.useState<ThemeValue>('light')
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
-      setThemeSelected((localStorage.getItem('colorScheme') as ThemeValue) || 'system')
+      setThemeSelected((localStorage.getItem('colorScheme') as ThemeValue) || 'light')
     }
   }, [])
 
