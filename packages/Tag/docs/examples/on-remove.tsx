@@ -6,7 +6,7 @@ const Example = () => {
   const [isHide, setHide] = React.useState(false)
 
   return isHide ? (
-    <Text color="danger-500" fontSize="sm" fontWeight="bold" m={0}>
+    <Text color="danger-50" fontSize="sm" fontWeight="bold" m={0}>
       Tag removed
     </Text>
   ) : (

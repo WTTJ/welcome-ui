@@ -23,10 +23,10 @@ export const Footer = forwardRef<'div', FooterProps>(({ children, information, .
       {children && <S.FooterChildrenWrapper>{children}</S.FooterChildrenWrapper>}
       {information && (
         <S.FooterInformation>
-          <Text color="dark-900" fontWeight="bold" variant="subtitle-sm">
+          <Text color="neutral-black" fontWeight="bold" variant="subtitle-sm">
             {information.title}
           </Text>
-          <Text color="dark-900" mb="0" mt="md" variant="sm">
+          <Text color="neutral-black" mb="0" mt="md" variant="sm">
             {information.subtitle}
           </Text>
         </S.FooterInformation>

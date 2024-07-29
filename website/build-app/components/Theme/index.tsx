@@ -18,7 +18,7 @@ export const Theme = ({ entry }: ColorsProps) => {
   }
 
   return (
-    <Grid backgroundColor="nude-100" borderRadius="lg" gap="sm" mt="lg" p="xxl">
+    <Grid backgroundColor="nude-20" borderRadius="lg" gap="sm" mt="lg" p="xxl">
       {Object.entries(entries).map(([key, value], index) => (
         <Grid
           borderTop={index !== 0 && '1px solid'}
@@ -28,10 +28,10 @@ export const Theme = ({ entry }: ColorsProps) => {
           key={`${entry}-${key}`}
           pt="sm"
         >
-          <Text color="sub-3" fontWeight="bold">
+          <Text color="purple-70" fontWeight="bold">
             {key}
           </Text>
-          <Text color="dark-700">
+          <Text color="neutral-70">
             {value}
             {typeof value === 'number' && 'px'}
           </Text>

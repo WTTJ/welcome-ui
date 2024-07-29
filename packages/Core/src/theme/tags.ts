@@ -10,13 +10,13 @@ type Variant =
   | 'error'
   | 'warning'
   | 'info'
-  | '1'
-  | '2'
-  | '3'
-  | '4'
-  | '5'
-  | '6'
-  | '7'
+  | 'teal'
+  | 'blue'
+  | 'red'
+  | 'orange'
+  | 'green'
+  | 'pink'
+  | 'purple'
 
 type Size = 'xs' | 'sm' | 'md'
 
@@ -47,100 +47,100 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
     ...border,
     borderColor: color,
     backgroundColor: color,
-    color: colors.white,
+    color: colors.black,
   })
 
   return {
     default: {
       fontWeight: fontWeights.medium,
-      backgroundColor: colors['light-900'],
-      color: colors['nude-900'],
+      backgroundColor: colors['neutral-white'],
+      color: colors['nude-80'],
     },
     variants: {
       default: {
-        backgroundColor: colors['nude-200'],
-        borderColor: colors['nude-400'],
+        backgroundColor: colors['nude-30'],
+        borderColor: colors['nude-40'],
         ...border,
       },
-      primary: { ...withoutVisibleBorder(colors['primary-500']), color: colors['dark-900'] },
+      primary: { ...withoutVisibleBorder(colors['primary-40']), color: colors['neutral-black'] },
       secondary: {
-        backgroundColor: colors['sub-5'],
-        color: colors['dark-900'],
-        borderColor: colors['dark-100'],
+        backgroundColor: colors['brand-green'],
+        color: colors['neutral-black'],
+        borderColor: colors['neutral-20'],
         ...border,
       },
       success: {
-        backgroundColor: colors['success-100'],
-        color: colors['success-500'],
-        borderColor: colors['success-200'],
+        backgroundColor: colors['success-10'],
+        color: colors['success-50'],
+        borderColor: colors['success-20'],
         ...border,
       },
       error: {
-        backgroundColor: colors['danger-100'],
-        color: colors['danger-500'],
-        borderColor: colors['danger-200'],
+        backgroundColor: colors['danger-10'],
+        color: colors['danger-50'],
+        borderColor: colors['danger-20'],
         ...border,
       },
       warning: {
-        backgroundColor: colors['warning-100'],
-        color: colors['warning-500'],
-        borderColor: colors['warning-200'],
+        backgroundColor: colors['warning-10'],
+        color: colors['warning-50'],
+        borderColor: colors['warning-20'],
         ...border,
       },
       info: {
-        backgroundColor: colors['info-100'],
-        color: colors['info-500'],
-        borderColor: colors['info-300'],
+        backgroundColor: colors['info-10'],
+        color: colors['info-50'],
+        borderColor: colors['info-30'],
         ...border,
       },
-      1: { ...withoutVisibleBorder(colors['sub-1']), color: colors['dark-900'] },
-      2: { ...withoutVisibleBorder(colors['sub-2']), color: colors['light-900'] },
-      3: { ...withoutVisibleBorder(colors['sub-3']), color: colors['light-900'] },
-      4: { ...withoutVisibleBorder(colors['sub-4']), color: colors['dark-900'] },
-      5: { ...withoutVisibleBorder(colors['sub-5']), color: colors['dark-900'] },
-      6: { ...withoutVisibleBorder(colors['sub-6']), color: colors['light-900'] },
-      7: { ...withoutVisibleBorder(colors['sub-7']), color: colors['dark-900'] },
+      teal: { ...withoutVisibleBorder(colors['brand-teal']) },
+      blue: { ...withoutVisibleBorder(colors['brand-blue']) },
+      red: { ...withoutVisibleBorder(colors['brand-red']) },
+      orange: { ...withoutVisibleBorder(colors['brand-orange']) },
+      green: { ...withoutVisibleBorder(colors['brand-green']) },
+      pink: { ...withoutVisibleBorder(colors['brand-pink']) },
+      purple: { ...withoutVisibleBorder(colors['brand-purple']) },
     },
     hover: {
       default: {
-        borderColor: colors['nude-600'],
+        borderColor: colors['nude-60'],
       },
       primary: {},
       secondary: {
-        borderColor: colors['dark-400'],
+        borderColor: colors['neutral-40'],
       },
       success: {
-        borderColor: colors['success-500'],
+        borderColor: colors['success-50'],
       },
       error: {
-        borderColor: colors['danger-500'],
+        borderColor: colors['danger-50'],
       },
       warning: {
-        borderColor: colors['warning-500'],
+        borderColor: colors['warning-50'],
       },
       info: {
-        borderColor: colors['info-500'],
+        borderColor: colors['info-50'],
       },
-      1: {
-        borderColor: colors['dark-200'],
+      teal: {
+        borderColor: colors['neutral-20'],
       },
-      2: {
-        borderColor: colors['dark-200'],
+      blue: {
+        borderColor: colors['neutral-20'],
       },
-      3: {
-        borderColor: colors['dark-200'],
+      red: {
+        borderColor: colors['neutral-20'],
       },
-      4: {
-        borderColor: colors['dark-200'],
+      orange: {
+        borderColor: colors['neutral-20'],
       },
-      5: {
-        borderColor: colors['dark-200'],
+      green: {
+        borderColor: colors['neutral-20'],
       },
-      6: {
-        borderColor: colors['dark-200'],
+      pink: {
+        borderColor: colors['neutral-20'],
       },
-      7: {
-        borderColor: colors['dark-200'],
+      purple: {
+        borderColor: colors['neutral-20'],
       },
     },
     sizes: {

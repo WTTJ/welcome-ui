@@ -12,7 +12,7 @@ export const getDefaultCards = ({
   borderWidths: ThemeBorderWidths
   colors: ThemeColors
 }): ThemeDefaultCards => ({
-  backgroundColor: colors['light-900'],
+  backgroundColor: colors['neutral-white'],
   borderStyle: 'solid',
   borderWidth: borderWidths.sm,
   borderColor: colors.border,

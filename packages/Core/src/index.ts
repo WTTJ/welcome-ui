@@ -1,5 +1,6 @@
 // Themes
 export * from './theme/core'
+export * from './theme/dark'
 
 // Base
 export * from './utils/base'

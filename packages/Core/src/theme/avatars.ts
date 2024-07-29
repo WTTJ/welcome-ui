@@ -21,7 +21,7 @@ export const getAvatars = (theme: WuiTheme): ThemeAvatars => {
       xxl: toRem(60),
     },
     text: {
-      color: colors['light-900'],
+      color: colors['neutral-white'],
       fontWeight: fontWeights.bold,
     },
   }

@@ -48,8 +48,8 @@ export const Toolbar = styled.div`
   justify-content: flex-start;
   padding: sm xs;
   opacity: 1;
-  background-color: light-100;
-  border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude-200')};
+  background-color: neutral-80;
+  border-bottom: ${th('borderWidths.sm')} solid ${th('colors.nude-30')};
   position: sticky;
   top: 0;
   overflow: auto;
@@ -62,7 +62,7 @@ export const ToolbarIcon = styled.a.withConfig({ shouldForwardProp })<ToolbarIco
     align-items: center;
     padding: 0 xs;
     cursor: pointer;
-    color: ${active ? th('colors.nude-900') : th('colors.dark-900')};
+    color: ${active ? th('colors.nude-80') : th('colors.neutral-black')};
     transition: medium;
 
     > svg {
@@ -70,7 +70,7 @@ export const ToolbarIcon = styled.a.withConfig({ shouldForwardProp })<ToolbarIco
     }
 
     &:hover {
-      color: ${th('colors.dark-500')};
+      color: ${th('colors.neutral-50')};
     }
   `
 )
@@ -80,7 +80,7 @@ export const Divider = styled.div`
   width: 1px;
   height: 12;
   margin: 0 xs;
-  background-color: nude-600;
+  background-color: nude-60;
 `
 
 export const EmojiPicker = styled.div`
@@ -97,5 +97,5 @@ export const Actions = styled.div`
   left: 0;
   right: 0;
   padding: md;
-  background-color: light-900;
+  background-color: neutral-white;
 `

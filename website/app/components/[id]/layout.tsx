@@ -38,7 +38,7 @@ const Layout = ({ children, params }: LayoutProps) => {
             {title}
           </Text>
           {description && (
-            <Text color="dark-500" pt="lg" variant="lg">
+            <Text color="neutral-50" pt="lg" variant="lg">
               {description}
             </Text>
           )}

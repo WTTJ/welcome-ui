@@ -132,25 +132,25 @@
           "raw": "Variant",
           "value": [
             {
-              "value": "\"1\""
+              "value": "\"teal\""
             },
             {
-              "value": "\"2\""
+              "value": "\"blue\""
             },
             {
-              "value": "\"3\""
+              "value": "\"red\""
             },
             {
-              "value": "\"4\""
+              "value": "\"orange\""
             },
             {
-              "value": "\"5\""
+              "value": "\"green\""
             },
             {
-              "value": "\"6\""
+              "value": "\"pink\""
             },
             {
-              "value": "\"7\""
+              "value": "\"purple\""
             },
             {
               "value": "\"dark\""

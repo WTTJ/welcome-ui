@@ -27,12 +27,12 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
             top={14}
             variant={copied ? 'primary-success' : 'ghost'}
           >
-            {copied ? <CheckIcon /> : <CopyIcon color="light-900" />}
+            {copied ? <CheckIcon /> : <CopyIcon color="neutral-white" />}
           </Button>
           <Box
             as="pre"
             border="1px solid"
-            borderColor="dark-100"
+            borderColor="neutral-20"
             borderRadius="lg"
             padding="lg 3xl lg xl"
             style={style}

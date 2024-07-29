@@ -3,7 +3,7 @@ import NextLink from 'next/link'
 
 export const Nav = styled.nav(
   ({ isSubPage }: { isSubPage?: boolean }) => css`
-    box-shadow: ${th('colors.dark-100')} 1px 0px 0px inset;
+    box-shadow: ${th('colors.neutral-20')} 1px 0px 0px inset;
     position: sticky;
     top: calc(4.375rem + 3rem);
     max-height: calc(100vh - 12rem);
@@ -19,13 +19,13 @@ export const Nav = styled.nav(
 
 export const Link = styled(NextLink)`
   display: block;
-  color: dark-700;
+  color: neutral-70;
   position: relative;
   transition: color ${th('transitions.medium')}, padding-left ${th('transitions.medium')};
 
   &:hover,
   &:focus {
-    color: dark-900;
+    color: neutral-black;
   }
 
   &::before {
@@ -39,11 +39,11 @@ export const Link = styled(NextLink)`
   }
 
   &[aria-current='page'] {
-    color: dark-900;
-    border-bottom-color: primary-500;
+    color: neutral-black;
+    border-bottom-color: primary-40;
 
     &::before {
-      background-color: ${th('colors.primary-500')};
+      background-color: ${th('colors.primary-40')};
     }
   }
 

@@ -22,7 +22,7 @@ export const RadioTab = forwardRef<'input', RadioTabsProps>(
     return (
       <Button
         as="label"
-        borderColor={!checked && 'dark-100'}
+        borderColor={!checked && 'neutral-20'}
         className="label"
         dataTestId={dataTestId}
         disabled={disabled}

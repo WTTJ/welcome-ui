@@ -30,7 +30,7 @@ const Page = () => {
                 <Link href={`/components/${page.id}`} key={page.id}>
                   <Card
                     alignItems="center"
-                    borderColor={{ hover: 'dark-200' }}
+                    borderColor={{ hover: 'neutral-20' }}
                     borderRadius="md"
                     display="flex"
                     gap="lg"
@@ -41,7 +41,7 @@ const Page = () => {
                       <Text as="h3" variant="h4">
                         {page.title}
                       </Text>
-                      <Text color="dark-700" lines={3} mt="sm" variant="sm">
+                      <Text color="neutral-70" lines={3} mt="sm" variant="sm">
                         {data?.description}
                       </Text>
                     </Box>
