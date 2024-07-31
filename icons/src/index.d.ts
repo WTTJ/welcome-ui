@@ -159,6 +159,7 @@ export declare const LogOutIcon: React.FC<IconProps>
 export declare const MaleIcon: React.FC<IconProps>
 export declare const MapIcon: React.FC<IconProps>
 export declare const MasonryIcon: React.FC<IconProps>
+export declare const Masonry2Icon: React.FC<IconProps>
 export declare const MeetingRoomIcon: React.FC<IconProps>
 export declare const MegaphoneIcon: React.FC<IconProps>
 export declare const MentionIcon: React.FC<IconProps>

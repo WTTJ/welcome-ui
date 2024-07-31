@@ -212,6 +212,7 @@ export const wtf: IconProps['name'][] = [
   'leaf',
   'map',
   'masonry',
+  'masonry2',
   'megaphone',
   'mic',
   'microship',
