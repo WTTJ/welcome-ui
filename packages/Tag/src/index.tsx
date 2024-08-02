@@ -52,10 +52,9 @@ export const Tag = forwardRef<'div', TagProps>(
   ) => {
     const content = wrapChildren(children as JSX.Element)
     // get size children for int and string
-    const childrenLength =
-      !!(children || children === 0) &&
-      ['number', 'string'].includes(typeof children) &&
-      children.toString().length
+    const hasIntOrStringChildren =
+      !!(children || children === 0) && ['number', 'string'].includes(typeof children)
+    const childrenLength = hasIntOrStringChildren ? children.toString().length : undefined
     const hasLink = !!href || !!to
 
     return (
