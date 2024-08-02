@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/breadcrumb",
-  "version": "5.17.1",
+  "version": "5.17.2",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -48,7 +48,7 @@
   "dependencies": {
     "@juggle/resize-observer": "^3.3.0",
     "@welcome-ui/box": "^5.17.1",
-    "@welcome-ui/icons": "^5.17.1",
+    "@welcome-ui/icons": "^5.17.2",
     "@welcome-ui/system": "^5.17.1",
     "@welcome-ui/utils": "^5.17.1"
   },

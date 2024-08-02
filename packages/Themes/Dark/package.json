@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/themes.dark",
-  "version": "5.17.1",
+  "version": "5.17.2",
   "description": "welcome-ui: Dark theme",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -43,7 +43,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/core": "^5.17.1"
+    "@welcome-ui/core": "^5.17.2"
   },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
   "sideEffects": false,
