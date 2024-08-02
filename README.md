@@ -108,7 +108,7 @@ yarn release
 This is only used for the **first** prerelease. If you already published a v5.0.0-alpha.0 then you just need to run the first command.
 
 ```bash
-yarn prerelease
+yarn dev:prerelease
 ```
 
 NB: you can replace alpha with any other keyword (beta, rc, ...)
