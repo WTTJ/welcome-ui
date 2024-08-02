@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/date-time-picker-common",
-  "version": "5.17.2",
+  "version": "5.17.3",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -53,7 +53,7 @@
     "@welcome-ui/field": "^5.17.2",
     "@welcome-ui/icon": "^5.17.1",
     "@welcome-ui/icons": "^5.17.2",
-    "@welcome-ui/select": "^5.17.2",
+    "@welcome-ui/select": "^5.17.3",
     "@welcome-ui/system": "^5.17.1",
     "@welcome-ui/utils": "^5.17.1",
     "date-fns": "^2.30.0",
