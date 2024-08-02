@@ -27,7 +27,7 @@ export const Tabs = ({ pages }: TabsProps) => {
       pt="xxl"
       store={tab}
       top={70}
-      zIndex={3}
+      zIndex={1}
     >
       <Tab
         as={Link}

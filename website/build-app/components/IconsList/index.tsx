@@ -78,7 +78,7 @@ export const IconsList = ({ isIconFont, name }: IconListProps) => {
             {Icon ? <Icon size="lg" /> : <Icons.CrossIcon size="lg" />}
             <Text
               as="span"
-              color="nude-70"
+              color="nude-700"
               lines={2}
               pt="md"
               px="sm"
