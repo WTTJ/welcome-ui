@@ -11,6 +11,7 @@ const Example = () => {
       <Tag variant="5">5</Tag>
       <Tag variant="6">6</Tag>
       <Tag variant="7">7</Tag>
+      <Tag variant="8">8</Tag>
     </>
   )
 }

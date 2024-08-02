@@ -14,6 +14,7 @@ export type Variant =
   | '5'
   | '6'
   | '7'
+  | '8'
   | 'dark'
   | 'default'
   | 'error'

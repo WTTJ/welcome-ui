@@ -51,6 +51,7 @@ const palette = {
   palegreen: '#A5D0A8',
   green: '#267566',
   purple: '#9B8CC0',
+  blueviolet: '#8A2FE4',
 }
 
 export const colors = {
@@ -106,6 +107,7 @@ export const colors = {
   'sub-5': palette.palegreen,
   'sub-6': palette.green,
   'sub-7': palette.purple,
+  'sub-8': palette.blueviolet,
   black: palette.black,
   white: palette.white,
   overlay: palette.empress,

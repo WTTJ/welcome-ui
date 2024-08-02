@@ -17,6 +17,7 @@ type Variant =
   | '5'
   | '6'
   | '7'
+  | '8'
 
 type Size = 'xs' | 'sm' | 'md'
 
@@ -100,6 +101,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
       5: { ...withoutVisibleBorder(colors['sub-5']), color: colors['dark-900'] },
       6: { ...withoutVisibleBorder(colors['sub-6']), color: colors['light-900'] },
       7: { ...withoutVisibleBorder(colors['sub-7']), color: colors['dark-900'] },
+      8: { ...withoutVisibleBorder(colors['sub-8']), color: colors['light-900'] },
     },
     hover: {
       default: {
@@ -140,6 +142,9 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
         borderColor: colors['dark-200'],
       },
       7: {
+        borderColor: colors['dark-200'],
+      },
+      8: {
         borderColor: colors['dark-200'],
       },
     },
