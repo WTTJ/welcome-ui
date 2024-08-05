@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/alert",
-  "version": "5.17.2",
+  "version": "5.18.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -51,7 +51,7 @@
     "@welcome-ui/close-button": "^5.17.2",
     "@welcome-ui/stack": "^5.17.1",
     "@welcome-ui/system": "^5.17.1",
-    "@welcome-ui/text": "^5.17.1",
+    "@welcome-ui/text": "^5.18.0",
     "@welcome-ui/variant-icon": "^5.17.2"
   },
   "peerDependencies": {

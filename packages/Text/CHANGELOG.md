@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.18.0](https://github.com/WTTJ/welcome-ui/compare/v5.17.3...v5.18.0) (2024-08-05)
+
+
+### Features
+
+* add withDash property on Text headings ([#2507](https://github.com/WTTJ/welcome-ui/issues/2507)) ([6ff0337](https://github.com/WTTJ/welcome-ui/commit/6ff033733f6ce26add95e8ac0b4354ffa1960370))
+
+
+
+
+
 ## [5.6.1](https://github.com/WTTJ/welcome-ui/compare/v5.6.0...v5.6.1) (2023-10-31)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/file-upload",
-  "version": "5.17.3",
+  "version": "5.18.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

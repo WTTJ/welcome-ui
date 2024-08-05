@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.18.0](https://github.com/WTTJ/welcome-ui/compare/v5.17.3...v5.18.0) (2024-08-05)
+
+
+### Features
+
+* add exports for typescript FuleUpload ([#2506](https://github.com/WTTJ/welcome-ui/issues/2506)) ([dcf7931](https://github.com/WTTJ/welcome-ui/commit/dcf7931ead5a1c9b4f98cdfaa15033f380e468db))
+
+
+
+
+
 ## [5.8.1](https://github.com/WTTJ/welcome-ui/compare/v5.7.0...v5.8.1) (2023-12-27)
 
 **Note:** Version bump only for package @welcome-ui/file-upload
