@@ -1642,6 +1642,34 @@
             }
           ]
         }
+      },
+      "withDash": {
+        "defaultValue": null,
+        "description": "",
+        "name": "withDash",
+        "parent": {
+          "fileName": "packages/Text/dist/types/index.d.ts",
+          "name": "TextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "packages/Text/dist/types/index.d.ts",
+            "name": "TextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
       }
     }
   },
