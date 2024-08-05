@@ -218,6 +218,7 @@ export default {
   "/Text/docs/examples/overview.tsx": dynamic(() => import("../../packages/Text/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/overwrite.tsx": dynamic(() => import("../../packages/Text/docs/examples/overwrite.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/truncation.tsx": dynamic(() => import("../../packages/Text/docs/examples/truncation.tsx").then(mod => mod), { ssr: false }),
+  "/Text/docs/examples/withDash.tsx": dynamic(() => import("../../packages/Text/docs/examples/withDash.tsx").then(mod => mod), { ssr: false }),
   "/Textarea/docs/examples/field.tsx": dynamic(() => import("../../packages/Textarea/docs/examples/field.tsx").then(mod => mod), { ssr: false }),
   "/Textarea/docs/examples/overview.tsx": dynamic(() => import("../../packages/Textarea/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/TimePicker/docs/examples/icon.tsx": dynamic(() => import("../../packages/TimePicker/docs/examples/icon.tsx").then(mod => mod), { ssr: false }),

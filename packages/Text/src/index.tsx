@@ -24,12 +24,13 @@ export type Variant = keyof typeof TAG_NAMES
 export interface TextOptions {
   lines?: number
   variant?: Variant
+  withDash?: boolean
 }
 
 export type TextProps = CreateWuiProps<'p', TextOptions>
 
 export const Text = forwardRef<'p', TextProps>(
-  ({ as, children, dataTestId, lines, variant = 'md', ...rest }, ref) => {
+  ({ as, children, dataTestId, lines, variant = 'md', withDash, ...rest }, ref) => {
     const tagName = as || TAG_NAMES[variant]
     const className = rest.className || ''
 
@@ -40,6 +41,7 @@ export const Text = forwardRef<'p', TextProps>(
         lines={lines}
         ref={ref}
         variant={variant}
+        withDash={withDash}
         {...rest}
         className={`${className} wui-text`}
       >

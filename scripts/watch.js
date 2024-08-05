@@ -15,6 +15,11 @@ const handleFileChange = () => {
   if (dir === 'packages') {
     const { component, name } = require(`${packagePath}/package.json`)
 
+    // do not run watch if is a test
+    if (file === 'tests') {
+      return false
+    }
+
     // edit the documentation on a component
     if (file === 'docs') {
       exec('yarn website:examples', err => {
