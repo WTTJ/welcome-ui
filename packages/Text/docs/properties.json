@@ -82,6 +82,34 @@
             }
           ]
         }
+      },
+      "withDash": {
+        "defaultValue": null,
+        "description": "",
+        "name": "withDash",
+        "parent": {
+          "fileName": "Text/src/index.tsx",
+          "name": "TextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Text/src/index.tsx",
+            "name": "TextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
       }
     }
   }

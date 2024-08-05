@@ -9,6 +9,7 @@ const MOBILE_VARIANTS = {
   h3: 'h4',
   h4: 'h5',
   h5: 'h6',
+  h6: 'h6',
 }
 
 const getBlockHeight = (lines: number) => css`
@@ -23,8 +24,9 @@ const getBlockHeight = (lines: number) => css`
   word-break: ${lines === 1 ? 'break-all' : null};
 `
 
-export const Text = styled.p<TextOptions>(({ lines, variant }) => {
+export const Text = styled.p<TextOptions>(({ lines, variant, withDash }) => {
   const mobileVariant = MOBILE_VARIANTS[variant as keyof typeof MOBILE_VARIANTS]
+  const isHeading = variant.startsWith('h')
 
   return css`
     ${th(`texts.${mobileVariant || variant}`)};
@@ -33,6 +35,23 @@ export const Text = styled.p<TextOptions>(({ lines, variant }) => {
     display: block;
     ${lines && lines !== Infinity && getBlockHeight(lines)};
     /* End fallback for non-webkit */
+
+    ${withDash &&
+    isHeading &&
+    css`
+      display: flex;
+
+      &:before {
+        content: '';
+        width: 16;
+        height: 4;
+        display: flex;
+        align-self: center;
+        flex-shrink: 0;
+        background-color: primary-500;
+        margin-right: md;
+      }
+    `}
 
     @media (min-width: lg) {
       ${th(`texts.${variant}`)};
