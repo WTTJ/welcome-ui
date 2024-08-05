@@ -15,10 +15,8 @@ export type FileWithPreview = File & {
   preview?: string
   name?: string
 }
-
-type FileWithPreviewType = FileWithPreview | string
-
-type HandleRemoveType = (file: FileWithPreviewType) => void
+export type FileWithPreviewType = FileWithPreview | string
+export type HandleRemoveType = (file: FileWithPreviewType) => void
 
 export interface FileUploadOptions {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg" */
