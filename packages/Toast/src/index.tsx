@@ -52,7 +52,7 @@ export const toast = (component: JSX.Element, options?: ToastOptions) => {
     typeof component === 'string'
       ? undefined
       : component?.type?.displayName || component?.type?.name
-  const position = (name === 'Growl' ? 'top-right' : 'bottom-center') as ToastPosition
+  const position = (name === 'Growl' ? 'top' : 'bottom-center') as ToastPosition
 
   const toastOptions = {
     duration: 7000,
