@@ -123,13 +123,21 @@ jobs:
           region: ${AWS_REGION}
       - aws-s3/sync:
           from: packages/IconFont/fonts
-          to: s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH --cache-control 'public, max-age=31536000' --exclude '*' --include 'welcome-icon-font.woff' --include 'welcome-icon-font.woff2'
+          to: s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH
           arguments: |
+            --cache-control "public, max-age=31536000" \
+            --exclude "*"" \
+            --include "welcome-icon-font.woff" \
+            --include "welcome-icon-font.woff2" \
             --metadata GitCommit=$CIRCLE_SHA1 --delete
       - aws-s3/sync:
           from: packages/IconFont/fonts
-          to: s3://wttj-production/fonts/icon-font/$ICON_FONT_HASH --cache-control 'public, max-age=31536000' --exclude '*' --include 'welcome-icon-font.woff' --include 'welcome-icon-font.woff2'
+          to: s3://wttj-production/fonts/icon-font/$ICON_FONT_HASH
           arguments: |
+            --cache-control "public, max-age=31536000" \
+            --exclude "*"" \
+            --include "welcome-icon-font.woff" \
+            --include "welcome-icon-font.woff2" \
             --metadata GitCommit=$CIRCLE_SHA1 --delete
 
   # current version build (common to previews & prod)
