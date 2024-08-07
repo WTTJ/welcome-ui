@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/button",
-  "version": "5.17.2",
+  "version": "5.18.1",
   "description": "welcome-ui: A button component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -48,9 +48,9 @@
   "dependencies": {
     "@ariakit/react": "0.4.3",
     "@welcome-ui/box": "^5.17.1",
-    "@welcome-ui/loader": "^5.17.1",
+    "@welcome-ui/loader": "^5.18.1",
     "@welcome-ui/system": "^5.17.1",
-    "@welcome-ui/utils": "^5.17.1"
+    "@welcome-ui/utils": "^5.18.1"
   },
   "devDependencies": {
     "@welcome-ui/icons": "^5.17.2",

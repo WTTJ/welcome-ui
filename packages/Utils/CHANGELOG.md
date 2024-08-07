@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.18.1](https://github.com/WTTJ/welcome-ui/compare/v5.18.0...v5.18.1) (2024-08-07)
+
+
+### Bug Fixes
+
+* **toast:** update notifications to use react portal ([#2510](https://github.com/WTTJ/welcome-ui/issues/2510)) ([d52ce74](https://github.com/WTTJ/welcome-ui/commit/d52ce74a3449849ba9b7bb2d0806f7d543e42af5))
+
+
+
+
+
 # [5.0.0](https://github.com/WTTJ/welcome-ui/compare/v5.0.0-alpha.52...v5.0.0) (2023-08-31)
 
 
