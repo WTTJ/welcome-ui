@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
+import { useCreatePortal } from '@welcome-ui/utils'
 import { TextProps } from '@welcome-ui/text'
 import toastRHT, { ToastPosition, useToaster } from 'react-hot-toast/headless'
 
@@ -21,6 +22,7 @@ export type ToastOptions = {
 
 export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = true }) => {
   const themeContext = useContext(ThemeContext)
+  const createPortal = useCreatePortal()
   const { handlers, toasts } = useToaster()
   const { calculateOffset, endPause, startPause, updateHeight } = handlers
 
@@ -29,16 +31,19 @@ export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = tru
 
   return (
     <ThemeProvider theme={themeContext}>
-      <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-        {toasts.map(toast => (
-          <ToastWrapper
-            calculateOffset={calculateOffset}
-            key={toast.id}
-            toast={toast}
-            updateHeight={updateHeight}
-          />
-        ))}
-      </div>
+      {toasts.length > 0 &&
+        createPortal(
+          <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+            {toasts.map(toast => (
+              <ToastWrapper
+                calculateOffset={calculateOffset}
+                key={toast.id}
+                toast={toast}
+                updateHeight={updateHeight}
+              />
+            ))}
+          </div>
+        )}
     </ThemeProvider>
   )
 }

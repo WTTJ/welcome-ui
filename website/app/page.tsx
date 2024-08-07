@@ -3,7 +3,6 @@ import NextLink from 'next/link'
 import { Button } from '@welcome-ui/button'
 import { Box } from '@welcome-ui/box'
 import { GithubIcon, HeartIcon, RightIcon } from '@welcome-ui/icons'
-import { Notifications } from '@welcome-ui/toast'
 
 import { Components } from '@/build-app/components/Homepage/Components'
 import { Stats } from '@/build-app/components/Homepage/Stats'
@@ -14,7 +13,6 @@ import { Section } from '@/build-app/components/Section'
 const Home = () => {
   return (
     <main>
-      <Notifications pauseOnHover={false} />
       <Section backgroundColor="nude-200">
         <Text as="span" color="dark-900" textTransform="uppercase" variant="subtitle-md">
           Welcome UI
