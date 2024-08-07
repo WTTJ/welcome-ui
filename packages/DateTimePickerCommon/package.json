@@ -56,7 +56,7 @@
     "@welcome-ui/select": "^5.18.1",
     "@welcome-ui/system": "^5.17.1",
     "@welcome-ui/utils": "^5.18.1",
-    "date-fns": "^2.30.0",
+    "date-fns": "^3.6.0",
     "lodash.range": "^3.2.0",
     "react-datepicker": "^4.16.0"
   },
