@@ -45,6 +45,7 @@ export type ChildrenType = {
   disabled?: boolean
   error?: string
   file?: FileType
+  fileName?: string
   fileUrl?: FileUrlType
   forceFileType?: ForceFileType
   isAnImage?: boolean
@@ -58,6 +59,7 @@ export interface FileDropOptions {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg" */
   accept?: Accept
   children?: (state: ChildrenType) => JSX.Element
+  fileName?: string
   isClearable?: boolean
   isEditable?: boolean
   forceFileType?: ForceFileType
@@ -83,6 +85,7 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
       children = Preview,
       dataTestId,
       disabled,
+      fileName,
       forceFileType,
       handleAddFile,
       handleRemoveFile,
@@ -199,6 +202,7 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
             disabled,
             error,
             file,
+            fileName,
             fileUrl: file && getPreviewUrl(file),
             forceFileType,
             isAnImage: forceFileType === 'image' || isAnImage(file),

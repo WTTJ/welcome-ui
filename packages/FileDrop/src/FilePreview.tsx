@@ -8,18 +8,20 @@ import { FileType, WordingsType } from './index'
 
 export interface MessageProps {
   file: FileType
+  fileName?: string
   forceFileType?: ForceFileType
 }
 
 export const FilePreview: React.FC<MessageProps & WordingsType> = ({
   file,
+  fileName,
   forceFileType,
   previewButtonText = 'Preview',
 }) => {
   const isUrl = typeof file === 'string'
   const Icon = getFileIcon(file, forceFileType)
   const size = file instanceof File ? getFileSize(file) : null
-  const name = getFileName(file)
+  const name = isUrl && fileName ? fileName : getFileName(file)
 
   return (
     <>

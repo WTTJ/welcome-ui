@@ -26,6 +26,25 @@
           "name": "Accept"
         }
       },
+      "fileName": {
+        "defaultValue": null,
+        "description": "",
+        "name": "fileName",
+        "parent": {
+          "fileName": "FileDrop/src/index.tsx",
+          "name": "FileDropOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "FileDrop/src/index.tsx",
+            "name": "FileDropOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
       "forceFileType": {
         "defaultValue": null,
         "description": "",
