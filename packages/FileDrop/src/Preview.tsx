@@ -11,6 +11,7 @@ export const Preview: React.FC<ChildrenType> = ({
   disabled,
   error,
   file,
+  fileName,
   fileUrl,
   forceFileType,
   isAnImage,
@@ -29,7 +30,9 @@ export const Preview: React.FC<ChildrenType> = ({
     if (isAnImage) {
       return <ImagePreview src={fileUrl as string} />
     } else {
-      return <FilePreview file={file} forceFileType={forceFileType} {...wordings} />
+      return (
+        <FilePreview file={file} fileName={fileName} forceFileType={forceFileType} {...wordings} />
+      )
     }
   }
   return <Message disabled={disabled} openFile={openFile} {...wordings} />

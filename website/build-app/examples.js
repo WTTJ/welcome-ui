@@ -84,6 +84,7 @@ export default {
   "/Field/docs/examples/refs.tsx": dynamic(() => import("../../packages/Field/docs/examples/refs.tsx").then(mod => mod), { ssr: false }),
   "/Field/docs/examples/required.tsx": dynamic(() => import("../../packages/Field/docs/examples/required.tsx").then(mod => mod), { ssr: false }),
   "/Field/docs/examples/variants.tsx": dynamic(() => import("../../packages/Field/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
+  "/FileDrop/docs/examples/custom-filename.tsx": dynamic(() => import("../../packages/FileDrop/docs/examples/custom-filename.tsx").then(mod => mod), { ssr: false }),
   "/FileDrop/docs/examples/disabled.tsx": dynamic(() => import("../../packages/FileDrop/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/FileDrop/docs/examples/image.tsx": dynamic(() => import("../../packages/FileDrop/docs/examples/image.tsx").then(mod => mod), { ssr: false }),
   "/FileDrop/docs/examples/no-type.tsx": dynamic(() => import("../../packages/FileDrop/docs/examples/no-type.tsx").then(mod => mod), { ssr: false }),
