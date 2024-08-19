@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.19.0](https://github.com/WTTJ/welcome-ui/compare/v5.18.1...v5.19.0) (2024-08-19)
+
+
+### Features
+
+* allow to display custom file name in the preview of a FileDrop ([#2513](https://github.com/WTTJ/welcome-ui/issues/2513)) ([b4c67d9](https://github.com/WTTJ/welcome-ui/commit/b4c67d9e50311a71e340f506bb4814a7b964382c))
+
+
+
+
+
 ## [5.18.1](https://github.com/WTTJ/welcome-ui/compare/v5.18.0...v5.18.1) (2024-08-07)
 
 
