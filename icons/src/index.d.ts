@@ -61,6 +61,7 @@ export declare const CommentOutlineIcon: React.FC<IconProps>
 export declare const CommonAreaIcon: React.FC<IconProps>
 export declare const CompassIcon: React.FC<IconProps>
 export declare const ComputerIcon: React.FC<IconProps>
+export declare const ConnectionIcon: React.FC<IconProps>
 export declare const ContractIcon: React.FC<IconProps>
 export declare const ControlBackwardIcon: React.FC<IconProps>
 export declare const ControlForwardIcon: React.FC<IconProps>
