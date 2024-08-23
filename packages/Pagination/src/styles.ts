@@ -1,7 +1,9 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 
-export const Pagination = styled.nav(system)
+export const Pagination = styled.navBox`
+  ${system}
+`
 
 export const List = styled.ul`
   list-style-type: none;
@@ -9,7 +11,7 @@ export const List = styled.ul`
   margin: 0;
 `
 
-export const Item = styled.li`
+export const Item = styled.liBox`
   display: inline-block;
   vertical-align: bottom;
   padding: 0;
@@ -47,7 +49,7 @@ export const abstractLinkStyle = css`
   }
 `
 
-export const ArrowLink = styled.a(
+export const ArrowLink = styled.aBox(
   props => css`
     ${abstractLinkStyle};
     ${props['aria-disabled'] &&
@@ -58,7 +60,7 @@ export const ArrowLink = styled.a(
   `
 )
 
-export const PageLink = styled.a(
+export const PageLink = styled.aBox(
   props => css`
     ${abstractLinkStyle};
     ${props['aria-current'] && th('paginations.active')}

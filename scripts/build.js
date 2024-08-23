@@ -3,15 +3,11 @@ const path = require('path')
 
 const { build } = require('esbuild')
 const { replace } = require('esbuild-plugin-replace')
-const { argv } = require('yargs')
 
 const args = process.argv.slice(2)
-const { useClient } = argv
 
 const packagePath = path.resolve('.')
 const entryPoint = path.resolve(packagePath, 'src')
-
-console.log(useClient)
 
 const env = args.reduce((acc, arg) => {
   const [key, value] = arg.split('=')

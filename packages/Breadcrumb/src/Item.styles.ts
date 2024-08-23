@@ -20,7 +20,7 @@ export const Item = styled.aBox`
   }
 `
 
-export const Separator = styled.span`
+export const Separator = styled.spanBox`
   ${th('breadcrumbs.separator')};
   display: flex;
   align-items: center;

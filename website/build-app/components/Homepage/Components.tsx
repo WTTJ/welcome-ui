@@ -104,11 +104,9 @@ const Component = ({ children, description, link, title }: ComponentProps) => {
       <Card alignItems="center" display="flex" h={170} justifyContent="center" w="100%">
         {children}
       </Card>
-      <NextLink href={link}>
-        <Link fontWeight="bold" mt="md" textTransform="uppercase">
-          {title}
-        </Link>
-      </NextLink>
+      <Link as={NextLink} fontWeight="bold" href={link} mt="md" textTransform="uppercase">
+        {title}
+      </Link>
       <Text mb="0" mt="sm" variant="sm">
         {description}
       </Text>

@@ -47,7 +47,7 @@ export const FilePreview = styled.div`
   justify-content: center;
 `
 
-export const ImagePreview = styled.img`
+export const ImagePreview = styled.imgBox`
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;

@@ -8,7 +8,7 @@ interface GradientProps {
   gradientBackground: Colors
 }
 
-export const StartGradient = styled.span<GradientProps>(
+export const StartGradient = styled.spanBox<GradientProps>(
   ({ gradientBackground, theme }) => css`
     left: 0;
     background-image: ${gradient(theme as Theme, gradientBackground)};
@@ -16,7 +16,7 @@ export const StartGradient = styled.span<GradientProps>(
   `
 )
 
-export const EndGradient = styled.span<GradientProps>(
+export const EndGradient = styled.spanBox<GradientProps>(
   ({ gradientBackground, theme }) => css`
     right: 0;
     background-image: ${gradient(theme as Theme, gradientBackground, 'left')};
@@ -39,7 +39,7 @@ export const Breadcrumb = styled(Box)`
   }
 `
 
-export const List = styled.ol`
+export const List = styled.olBox`
   display: inline-flex;
   align-items: center;
   max-width: 100%;

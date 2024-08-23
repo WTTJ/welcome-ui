@@ -1,9 +1,9 @@
-import React, { Children, cloneElement } from 'react'
+import React, { Children, cloneElement, forwardRef } from 'react'
 import { Stack } from '@welcome-ui/stack'
 import { Box } from '@welcome-ui/box'
 import { CloseButton } from '@welcome-ui/close-button'
 import { Button, ButtonProps } from '@welcome-ui/button'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { CreateWuiProps } from '@welcome-ui/system'
 import { Variant, VariantIcon } from '@welcome-ui/variant-icon'
 
 import * as S from './styles'

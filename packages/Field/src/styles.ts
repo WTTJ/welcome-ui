@@ -58,7 +58,7 @@ type IconWrapperProps = {
   size?: FieldIconSize
 }
 
-export const IconWrapper = styled.div<IconWrapperProps>(
+export const IconWrapper = styled.divBox<IconWrapperProps>(
   ({ iconPlacement, size }) => css`
     position: absolute;
     top: 0;
@@ -89,7 +89,7 @@ export const IconWrapper = styled.div<IconWrapperProps>(
   `
 )
 
-export const IconGroupWrapper = styled.div(
+export const IconGroupWrapper = styled.divBox(
   ({ size }: { size: FieldIconSize }) => css`
     position: absolute;
     padding: 0;

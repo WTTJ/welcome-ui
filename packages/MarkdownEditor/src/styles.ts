@@ -56,7 +56,7 @@ export const Toolbar = styled.div`
   z-index: 1;
 `
 
-export const ToolbarIcon = styled.a.withConfig({ shouldForwardProp })<ToolbarIconOptions>(
+export const ToolbarIcon = styled.aBox.withConfig({ shouldForwardProp })<ToolbarIconOptions>(
   ({ active }) => css`
     display: flex;
     align-items: center;
@@ -91,7 +91,7 @@ export const EmojiPicker = styled.div`
   right: ${th('space.md')};
 `
 
-export const Actions = styled.div`
+export const Actions = styled.divBox`
   position: absolute;
   bottom: 0;
   left: 0;

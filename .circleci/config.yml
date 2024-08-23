@@ -10,7 +10,7 @@ parameters:
     default: v5
   nodejs_base_image:
     type: string
-    default: 'cimg/node:18.17.1'
+    default: 'cimg/node:20.17.0'
 
 executors:
   nodejs:
@@ -39,10 +39,10 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
+      - *restore_node_modules
       - run:
           name: Run yarn install and save node modules
           command: yarn install
-      - *restore_node_modules
       - save_cache:
           key: << pipeline.parameters.cache_version >>-yarn-{{ checksum "/home/circleci/welcome-ui/yarn.lock" }}
           paths:

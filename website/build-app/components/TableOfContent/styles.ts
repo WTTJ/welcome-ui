@@ -1,7 +1,6 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import NextLink from 'next/link'
 
-export const Nav = styled.nav(
+export const Nav = styled.navBox(
   ({ isSubPage }: { isSubPage?: boolean }) => css`
     box-shadow: ${th('colors.dark-100')} 1px 0px 0px inset;
     position: sticky;
@@ -17,7 +16,7 @@ export const Nav = styled.nav(
   `
 )
 
-export const Link = styled(NextLink)`
+export const Link = styled.spanBox`
   display: block;
   color: dark-700;
   position: relative;

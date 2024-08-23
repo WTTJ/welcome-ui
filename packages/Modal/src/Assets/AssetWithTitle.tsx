@@ -17,7 +17,7 @@ type AssetWithTitleProps = {
 const titleBlockMobile = '4rem'
 const titleBlockDesktop = '6rem'
 
-const Wrapper = styled.div`
+const Wrapper = styled.divBox`
   display: flex;
   flex-direction: column;
 

@@ -65,7 +65,7 @@ export const Wrapper = styled.box<{ onClick: React.MouseEventHandler<HTMLInputEl
   cursor: pointer;
 `
 
-export const IconWrapper = styled.box.withConfig({ shouldForwardProp })<{
+export const IconWrapper = styled.divBox.withConfig({ shouldForwardProp })<{
   checked: boolean
   size: Size
 }>(
