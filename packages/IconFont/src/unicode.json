@@ -289,5 +289,6 @@
   "mobile": "0xF220",
   "tablet": "0xF221",
   "certified": "0xF222",
-  "masonry_2": "0xF223"
+  "masonry_2": "0xF223",
+  "connection": "0xF224"
 }
