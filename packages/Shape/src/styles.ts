@@ -1,4 +1,4 @@
-import styled, { css, system } from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import { getMax } from '@welcome-ui/utils'
 import { Box } from '@welcome-ui/box'
 
@@ -25,9 +25,6 @@ export const Shape = styled(Box)<ShapeOptions>(
       height: 100%;
     }
 
-    ${system};
-
-    /* we must override shapeStyles (let this line under ${system}) */
     ${shape && shapeStyles(w as string, h as string, shape)}
   `
 )

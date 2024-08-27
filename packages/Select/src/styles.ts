@@ -1,7 +1,6 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledTag } from '@welcome-ui/tag'
-import { shouldForwardProp } from '@welcome-ui/system'
 import {
   cardStyles,
   centerContent,
@@ -13,10 +12,9 @@ import { IconWrapper as WUIIconWrapper } from '@welcome-ui/field'
 
 import { SelectOptions } from './index'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })<{ disabled: boolean }>(
+export const Wrapper = styled.divBox<{ disabled: boolean }>(
   ({ disabled }) => css`
     position: relative;
-    ${system}
     ${IconWrapper} {
       color: ${disabled ? th('defaultFields.select.disabled.color') : 'initial'};
     }
@@ -29,7 +27,7 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled('div').withConfig({ shouldForwardProp })<{
+export const Input = styled.divBox<{
   iconPlacement?: 'both' | 'right'
   isClearable?: boolean
   size: SelectOptions['size']
@@ -47,7 +45,6 @@ export const Input = styled('div').withConfig({ shouldForwardProp })<{
     })};
     ${overflowEllipsis};
     cursor: default;
-    ${system}
     line-height: 1em;
 
     br {
@@ -95,20 +92,14 @@ export const Menu = styled.ul`
   -webkit-overflow-scrolling: touch;
 `
 
-export const Item = styled.li(
-  ({
-    allowUnselectFromList,
-    isDisabled,
-    isHighlighted,
-    isMultiple,
-    isSelected,
-  }: {
-    allowUnselectFromList: boolean
-    isHighlighted: boolean
-    isMultiple: boolean
-    isSelected: boolean
-    isDisabled?: boolean
-  }) => css`
+export const Item = styled.li<{
+  allowUnselectFromList: boolean
+  isHighlighted: boolean
+  isMultiple: boolean
+  isSelected: boolean
+  isDisabled?: boolean
+}>(
+  ({ allowUnselectFromList, isDisabled, isHighlighted, isMultiple, isSelected }) => css`
     color: nude-700;
     ${isHighlighted && th('defaultFields.select.highlighted')};
     ${isSelected && !isMultiple && th('defaultFields.select.selected')};
@@ -123,8 +114,8 @@ export const Item = styled.li(
   `
 )
 
-export const Indicators = styled.div(
-  ({ size }: { size: Size }) => css`
+export const Indicators = styled.div<{ size: Size }>(
+  ({ size }) => css`
     position: absolute;
     padding: 0;
     top: 0;
@@ -135,8 +126,10 @@ export const Indicators = styled.div(
   `
 )
 
-export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })(
-  ({ isOpen }: { isOpen?: boolean }) => css`
+export const DropDownIndicator = styled.buttonBox<{
+  isOpen?: boolean
+}>(
+  ({ isOpen }) => css`
     position: relative;
     height: 100%;
     padding: 0;

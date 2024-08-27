@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import { StyledIcon } from '@welcome-ui/icon'
 import { centerContent, getMax, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
@@ -24,7 +24,7 @@ export interface StyledTagProps {
   variant: Variant
 }
 
-export const Tag = styled.div.withConfig({
+export const Tag = styled.divBox.withConfig({
   shouldForwardProp: prop => !['hasClickAction', 'hasLink', 'hasRemoveAction'].includes(prop),
 })<StyledTagProps & WuiProps>(
   ({ h, hasClickAction, hasLink, hasRemoveAction, length, size, variant, w }) => css`
@@ -39,7 +39,6 @@ export const Tag = styled.div.withConfig({
     transition: medium;
     max-width: 100%;
     ${overflowEllipsis}
-    ${system}
     ${length !== 1 &&
     css`
       span,

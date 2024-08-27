@@ -1,14 +1,12 @@
-import styled, { system, th } from '@xstyled/styled-components'
+import styled, { th } from '@xstyled/styled-components'
 import { cardStyles } from '@welcome-ui/utils'
-import { Box } from '@welcome-ui/box'
 
-export const Inner = styled(Box)`
+export const Inner = styled.box`
   ${cardStyles};
   ${th('dropdownMenu.inner')};
   z-index: 1;
   opacity: 0;
   transition: opacity 150ms ease-in-out;
-  ${system};
 
   &[data-enter] {
     opacity: 1;

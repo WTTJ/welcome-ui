@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 
 import { TooltipProps } from './index'
 
@@ -61,10 +61,9 @@ const getYPosition = (placement: string, popoverHeight: number) => {
   return '50%'
 }
 
-export const FadeIn = styled.div<FadeIn>(
+export const FadeIn = styled.divBox<FadeIn>(
   ({ fixed, placement, popoverHeight, withArrow }) => css`
     ${th('tooltips')};
-    ${system};
     transition: opacity ${th.transition('medium')}, transform ${th.transition('medium')},
       visibility ${th.transition('medium')};
     visibility: hidden;

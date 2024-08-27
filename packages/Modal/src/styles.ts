@@ -1,4 +1,4 @@
-import styled, { css, system, th, up } from '@xstyled/styled-components'
+import styled, { css, th, up } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
 import { Text } from '@welcome-ui/text'
 import { cardStyles } from '@welcome-ui/utils'
@@ -19,7 +19,6 @@ export const Backdrop = styled.divBox.withConfig({
     bottom: 0;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
-    ${system};
 
     ${hideOnInteractOutside &&
     css`
@@ -32,8 +31,8 @@ export const Backdrop = styled.divBox.withConfig({
   `
 )
 
-export const Dialog = styled.divBox(
-  ({ size }: { size: Size }) => css`
+export const Dialog = styled.divBox<{ size: Size }>(
+  ({ size }) => css`
     ${cardStyles};
     ${th('modals.default')};
     position: fixed;

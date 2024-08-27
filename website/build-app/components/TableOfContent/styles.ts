@@ -1,8 +1,8 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import NextLink from 'next/link'
 
-export const Nav = styled.nav(
-  ({ isSubPage }: { isSubPage?: boolean }) => css`
+export const Nav = styled.nav<{ isSubPage?: boolean }>(
+  ({ isSubPage }) => css`
     box-shadow: ${th('colors.dark-100')} 1px 0px 0px inset;
     position: sticky;
     top: calc(4.375rem + 3rem);
@@ -17,7 +17,7 @@ export const Nav = styled.nav(
   `
 )
 
-export const Link = styled(NextLink)`
+export const Link = styled.box.attrs({ as: NextLink })`
   display: block;
   color: dark-700;
   position: relative;
@@ -46,6 +46,4 @@ export const Link = styled(NextLink)`
       background-color: ${th('colors.primary-500')};
     }
   }
-
-  ${system}
 `

@@ -1,4 +1,4 @@
-import styled, { css, system } from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledButton } from '@welcome-ui/button'
@@ -9,33 +9,31 @@ import { defaultFieldStyles, DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 import { Focused } from './CustomInput'
 
-// Workaround to this issue: https://github.com/Hacker0x01/react-datepicker/issues/3834
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-export const StyledDatePicker = styled(ReactDatePicker.default || ReactDatePicker)<
-  DefaultFieldStylesProps & ReactDatePickerProps
->(
-  ({ iconPlacement, size, transparent, variant }) => css`
-    ${defaultFieldStyles({ size, variant, transparent, isClearable: true, iconPlacement })};
-    ${system};
-  `
-)
-
-export const StyledTimePicker = styled(
+export const StyledDatePicker = styled.box.attrs({
   // Workaround to this issue: https://github.com/Hacker0x01/react-datepicker/issues/3834
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  ReactDatePicker.default || ReactDatePicker
-)<DefaultFieldStylesProps>(
+  as: (ReactDatePicker.default as typeof ReactDatePicker) || ReactDatePicker,
+})<DefaultFieldStylesProps & ReactDatePickerProps>(
   ({ iconPlacement, size, transparent, variant }) => css`
     ${defaultFieldStyles({ size, variant, transparent, isClearable: true, iconPlacement })};
-    text-align: center;
-    ${system};
   `
 )
 
-export const CustomInput = styled('div').withConfig({ shouldForwardProp })(
-  ({ focused }: { focused: Focused }) => {
+export const StyledTimePicker = styled.box.attrs({
+  // Workaround to this issue: https://github.com/Hacker0x01/react-datepicker/issues/3834
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  as: (ReactDatePicker.default as typeof ReactDatePicker) || ReactDatePicker,
+})<DefaultFieldStylesProps>(
+  ({ iconPlacement, size, transparent, variant }) => css`
+    ${defaultFieldStyles({ size, variant, transparent, isClearable: true, iconPlacement })};
+    text-align: center;
+  `
+)
+
+export const CustomInput = styled('div').withConfig({ shouldForwardProp })<{ focused: Focused }>(
+  ({ focused }) => {
     return css`
       position: relative;
 

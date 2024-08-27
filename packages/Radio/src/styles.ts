@@ -1,6 +1,5 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
-import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 import { Label as WUILabel } from '@welcome-ui/label'
 import * as Ariakit from '@ariakit/react'
@@ -9,7 +8,7 @@ import { RadioProps } from './index'
 
 /* /!\ WARNING /!\ Don't add style after pseudo selector, it won't apply because of the dynamic color injected in the fill of the content */
 
-export const Radio = styled(Ariakit.Radio).withConfig({ shouldForwardProp })<RadioProps>(
+export const Radio = styled.box.attrs({ as: Ariakit.Radio })<RadioProps>(
   ({ order = '-1', size, variant }) => css`
     ${defaultFieldStyles({ size, variant })};
     ${th('radios.default')}
@@ -19,7 +18,6 @@ export const Radio = styled(Ariakit.Radio).withConfig({ shouldForwardProp })<Rad
     cursor: pointer;
     border-radius: 50%;
     transition: medium;
-    ${system};
 
     &::after {
       content: '';
@@ -52,11 +50,10 @@ export const Radio = styled(Ariakit.Radio).withConfig({ shouldForwardProp })<Rad
 )
 
 // force label to max width to 100% here, because if we add a styled system prop maxWidth {{ md: '30%' }} we need to have a max-width on mobile by default
-export const Label = styled(WUILabel)`
+export const Label = styled.box.attrs({ as: WUILabel })`
   max-width: 100%;
   /** we need to reset margin-bottom from Label component */
   margin-bottom: 0 !important;
-  ${system}
 `
 
 export const Input = styled.div`

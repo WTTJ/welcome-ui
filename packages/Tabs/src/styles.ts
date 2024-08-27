@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
 
 import { ActiveBarReturn } from './ActiveBar'
@@ -6,7 +6,7 @@ import { SizeOptions } from './TabList'
 
 import { UseTabState } from '.'
 
-export const TabList = styled(Ariakit.TabList)<{ size: SizeOptions }>(
+export const TabList = styled.box.attrs({ as: Ariakit.TabList })<{ size: SizeOptions }>(
   ({ size }) => css`
     position: relative;
     width: 100%;
@@ -24,7 +24,6 @@ export const TabList = styled(Ariakit.TabList)<{ size: SizeOptions }>(
     & > :not(:last-child) {
       ${th(`tabs.size.${size}`)}
     }
-    ${system};
   `
 )
 

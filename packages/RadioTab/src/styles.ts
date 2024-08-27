@@ -1,10 +1,9 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
-import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles, DefaultFieldStylesProps, overflowEllipsis } from '@welcome-ui/utils'
 import { WuiProps } from '@welcome-ui/system'
 
-export const Radio = styled(Ariakit.Radio).withConfig({ shouldForwardProp })`
+export const Radio = styled.box.attrs({ as: Ariakit.Radio })`
   position: absolute;
   top: 0;
   left: 0;
@@ -39,7 +38,7 @@ const rowStyles = css`
   }
 `
 
-export const Label = styled.label<
+export const Label = styled.labelBox<
   {
     checked?: boolean
     flexDirection?: WuiProps['flexDirection']
@@ -70,7 +69,6 @@ export const Label = styled.label<
     `};
     ${flexDirection === 'column' && columnStyles};
     ${flexDirection === 'row' && rowStyles};
-    ${system};
     padding-top: 0;
     padding-bottom: 0;
   `

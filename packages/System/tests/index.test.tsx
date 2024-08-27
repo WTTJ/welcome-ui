@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from '@xstyled/styled-components'
 
 import { render } from '../../../utils/tests'
 import { Box } from '../../Box/src'

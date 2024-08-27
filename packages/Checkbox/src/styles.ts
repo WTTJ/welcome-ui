@@ -1,15 +1,12 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
-import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 
 import { CheckboxProps } from './index'
 
 /* /!\ WARNING /!\ Don't add style after pseudo selector, it won't apply because of the dynamic color injected in the fill of the content */
 
-export const Checkbox = styled(Ariakit.Checkbox).withConfig({
-  shouldForwardProp,
-})<CheckboxProps>(
+export const Checkbox = styled.box.attrs({ as: Ariakit.Checkbox })<CheckboxProps>(
   ({ indeterminate, order = '-1', size, theme, variant }) => css`
     ${defaultFieldStyles({ size, variant })};
     ${th('checkboxes.default')}
@@ -19,7 +16,6 @@ export const Checkbox = styled(Ariakit.Checkbox).withConfig({
     cursor: pointer;
     transition: medium;
     overflow: hidden;
-    ${system};
 
     &[aria-checked='true'] {
       &:not([disabled]) {
