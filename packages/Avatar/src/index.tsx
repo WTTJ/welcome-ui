@@ -1,13 +1,13 @@
 import React, { memo } from 'react'
 import { Box } from '@welcome-ui/box'
 import { ShapeOptions } from '@welcome-ui/shape'
-import { Theme, useTheme } from '@xstyled/styled-components'
+import { useTheme } from '@xstyled/styled-components'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import { getInitials as defaultGetInitials, getSeededColor } from './utils'
 import * as S from './styles'
 
-type SubColor = Theme['colors']
+type SubColor = ReturnType<typeof useTheme>['colors']
 type Size = 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
 export interface AvatarOptions {

@@ -10,6 +10,8 @@
   "include": [
     "packages/**/src/*.ts",
     "packages/**/src/*.tsx",
+    "packages/**/docs/examples/*.ts",
+    "packages/**/docs/examples/*.tsx",
     "packages/**/tests/*.ts",
     "packages/**/tests/*.tsx",
     "types"

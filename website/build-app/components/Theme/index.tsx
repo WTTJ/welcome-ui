@@ -36,7 +36,7 @@ export const Theme = ({ entry }: ColorsProps) => {
             {typeof value === 'number' && 'px'}
           </Text>
           {typeof value === 'string' && (value.endsWith('rem') || value === '0') && (
-            <Text color="dark-600">({theme.toPx(value.replace('rem', ''))})</Text>
+            <Text color="dark-600">({theme.toPx(Number(value.replace('rem', '')))})</Text>
           )}
         </Grid>
       ))}

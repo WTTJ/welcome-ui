@@ -1,4 +1,4 @@
-import styled, { css, keyframes, Theme } from '@xstyled/styled-components'
+import styled, { css, keyframes } from '@xstyled/styled-components'
 import { Shape } from '@welcome-ui/shape'
 
 import { Size } from '.'
@@ -23,7 +23,7 @@ export interface LoadingDotOptions {
 }
 
 export const LoadingDot = styled.box.attrs({ as: Shape })<LoadingDotOptions>(({ size, theme }) => {
-  const sizeValue = theme.loaders?.[size as keyof Theme['loaders']] || size
+  const sizeValue = theme.loaders?.[size as keyof typeof theme.loaders] || size
   const formattedSize = typeof sizeValue === 'number' ? theme.toRem(sizeValue) : sizeValue
   return css`
     width: ${formattedSize};

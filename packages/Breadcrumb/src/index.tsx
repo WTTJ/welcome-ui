@@ -7,16 +7,16 @@ import React, {
   useRef,
   useState,
 } from 'react'
+import { type DefaultTheme } from 'styled-components'
 import { clamp, throttle } from '@welcome-ui/utils'
 import { ResizeObserver } from '@juggle/resize-observer'
 import { RightIcon } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { Theme } from '@xstyled/styled-components'
 
 import { Item } from './Item'
 import * as S from './styles'
 
-export type Colors = Theme['colors']
+export type Colors = DefaultTheme['colors']
 
 export interface BreadcrumbOptions {
   children: React.ReactNode | React.ReactNode[]
