@@ -3,6 +3,7 @@ import { Text } from '@welcome-ui/text'
 import { Flex } from '@welcome-ui/flex'
 import { Box } from '@welcome-ui/box'
 import { useEffect, useState } from 'react'
+import NextLink from 'next/link'
 
 import * as S from './styles'
 
@@ -61,6 +62,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
             <Flex as="li" direction="column" gap="sm" key={item.href}>
               <S.Link
                 aria-current={`#${activeId}` === item.href ? 'page' : undefined}
+                as={NextLink}
                 href={item.href}
                 pl="lg"
               >
@@ -72,6 +74,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
                     <Box as="li" key={child.href}>
                       <S.Link
                         aria-current={`#${activeId}` === child.href ? 'page' : undefined}
+                        as={NextLink}
                         href={child.href}
                         pl="xxl"
                       >
