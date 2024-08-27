@@ -65,7 +65,7 @@
   "sideEffects": false,
   "homepage": "https://welcome-ui.com/components/select",
   "devDependencies": {
-    "@types/lodash.capitalize": "^4.2.6",
+    "@types/lodash.capitalize": "^4.2.9",
     "lodash.capitalize": "^4.2.1"
   }
 }

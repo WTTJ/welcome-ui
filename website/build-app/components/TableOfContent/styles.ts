@@ -1,6 +1,6 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-export const Nav = styled.nav(
+export const Nav = styled.navBox(
   ({ isSubPage }: { isSubPage?: boolean }) => css`
     box-shadow: ${th('colors.dark-100')} 1px 0px 0px inset;
     position: sticky;

@@ -55,7 +55,7 @@ export const Arrow = styled(Button)<
   `
 )
 
-export const Pagination = styled.div<Pick<UseSwiper, 'withPagination'>>(
+export const Pagination = styled.divBox<Pick<UseSwiper, 'withPagination'>>(
   ({ withPagination: { desktop, mobile } }) => css`
     justify-content: center;
     position: absolute;
@@ -89,92 +89,92 @@ export const Bullet = styled.div<{ active: boolean } & Pick<UseSwiper, 'withDark
   `
 )
 
-export const Container = styled.ul<Pick<UseSwiper, 'slidesPerView' | 'spaceBetween' | 'fullWidth'>>(
-  ({ fullWidth, slidesPerView: { desktop, mobile, tablet }, spaceBetween, theme }) => {
-    return css`
-      scroll-snap-type: x mandatory;
-      display: flex;
-      -webkit-overflow-scrolling: touch;
-      overflow-x: scroll;
-      margin: 0;
+export const Container = styled.ulBox<
+  Pick<UseSwiper, 'slidesPerView' | 'spaceBetween' | 'fullWidth'>
+>(({ fullWidth, slidesPerView: { desktop, mobile, tablet }, spaceBetween, theme }) => {
+  return css`
+    scroll-snap-type: x mandatory;
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+    margin: 0;
 
-      /* Hide scrollbar */
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-      &::-webkit-scrollbar {
-        display: none;
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    height: 100%;
+    padding: 0;
+
+    > [aria-roledescription='slide'][aria-hidden='true'] {
+      pointer-events: none;
+    }
+
+    > * {
+      list-style-type: none;
+      margin-right: ${spaceBetween};
+      min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
+      flex: 1;
+
+      &:last-child {
+        margin-right: 0;
       }
-      height: 100%;
-      padding: 0;
+    }
 
-      > [aria-roledescription='slide'][aria-hidden='true'] {
-        pointer-events: none;
-      }
+    @media (min-width: sm) {
+      ${mobile &&
+      css`
+        > * {
+          min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
 
-      > * {
-        list-style-type: none;
-        margin-right: ${spaceBetween};
-        min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
-        flex: 1;
-
-        &:last-child {
-          margin-right: 0;
+          &:nth-of-type(${mobile}n + 1) {
+            scroll-snap-align: start;
+          }
         }
-      }
+      `}
+    }
 
-      @media (min-width: sm) {
-        ${mobile &&
-        css`
-          > * {
-            min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
+    @media (min-width: md) {
+      ${tablet &&
+      css`
+        > * {
+          min-width: ${getSlideWidth(tablet, spaceBetween, theme.toRem)};
 
-            &:nth-of-type(${mobile}n + 1) {
-              scroll-snap-align: start;
-            }
+          &:nth-of-type(${tablet}n + 1) {
+            scroll-snap-align: start;
           }
-        `}
-      }
+        }
+      `}
+    }
 
-      @media (min-width: md) {
-        ${tablet &&
-        css`
-          > * {
-            min-width: ${getSlideWidth(tablet, spaceBetween, theme.toRem)};
+    @media (min-width: lg) {
+      ${desktop &&
+      css`
+        > * {
+          min-width: ${getSlideWidth(desktop, spaceBetween, theme.toRem)};
+          scroll-snap-align: unset;
 
-            &:nth-of-type(${tablet}n + 1) {
-              scroll-snap-align: start;
-            }
+          &:nth-of-type(${desktop}n + 1) {
+            scroll-snap-align: start;
           }
-        `}
-      }
 
-      @media (min-width: lg) {
-        ${desktop &&
-        css`
-          > * {
-            min-width: ${getSlideWidth(desktop, spaceBetween, theme.toRem)};
+          &:not(:nth-of-type(${desktop}n + 1)) {
             scroll-snap-align: unset;
-
-            &:nth-of-type(${desktop}n + 1) {
-              scroll-snap-align: start;
-            }
-
-            &:not(:nth-of-type(${desktop}n + 1)) {
-              scroll-snap-align: unset;
-            }
           }
-        `}
-      }
+        }
+      `}
+    }
 
-      @media (min-width: 4xl) {
-        ${desktop &&
-        fullWidth &&
-        css`
-          > * {
-            min-width: ${getSlideWidth(desktop + 2, spaceBetween, theme.toRem)};
-          }
-        `}
-      }
-    `
-  }
-)
+    @media (min-width: 4xl) {
+      ${desktop &&
+      fullWidth &&
+      css`
+        > * {
+          min-width: ${getSlideWidth(desktop + 2, spaceBetween, theme.toRem)};
+        }
+      `}
+    }
+  `
+})

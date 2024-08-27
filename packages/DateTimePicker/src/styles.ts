@@ -8,7 +8,7 @@ const focusStyles = css`
   }
 `
 
-export const DateTimePicker = styled.div`
+export const DateTimePicker = styled.divBox`
   position: relative;
   display: inline-flex;
   flex-wrap: nowrap;
