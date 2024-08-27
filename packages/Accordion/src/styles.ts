@@ -1,8 +1,7 @@
 import styled, { th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
-import { Box } from '@welcome-ui/box'
 
-export const Accordion = styled.divBox`
+export const Accordion = styled.box`
   ${th('accordions.wrapper')};
   transition: medium;
 
@@ -11,7 +10,7 @@ export const Accordion = styled.divBox`
   }
 `
 
-export const Icon = styled(Box)`
+export const Icon = styled.box`
   flex-shrink: 0;
   ${th('accordions.icon')};
   transform: rotate3d(0);

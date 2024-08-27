@@ -1,10 +1,7 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled from '@xstyled/styled-components'
 
-export const Radios = styled.divBox(
-  ({ flexDirection }) => css`
-    display: flex;
-    flex-direction: ${flexDirection};
-    flex-wrap: wrap;
-    gap: md;
-  `
-)
+export const Radios = styled.box`
+  display: flex;
+  flex-wrap: wrap;
+  gap: md;
+`

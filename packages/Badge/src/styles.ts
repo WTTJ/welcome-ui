@@ -1,4 +1,3 @@
-import { WuiProps } from '@welcome-ui/system'
 import styled, { css, th } from '@xstyled/styled-components'
 
 import { BadgeOptions } from './index'
@@ -7,7 +6,7 @@ export type StyledBadgeProps = Pick<BadgeOptions, 'disabled' | 'shape' | 'size' 
   length: number
 }
 
-export const Badge = styled.divBox<StyledBadgeProps & WuiProps>(
+export const Badge = styled.box<StyledBadgeProps>(
   ({ disabled, length, shape, size, variant }) => css`
     ${th('badges.default')};
     ${th(`badges.variants.${variant}`)};

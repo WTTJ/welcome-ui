@@ -2,12 +2,12 @@ import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import { Button } from '@welcome-ui/button'
 import { Icons } from '@welcome-ui/icons.font'
-import styled from '@xstyled/styled-components'
+import styled, { system } from '@xstyled/styled-components'
 import { forwardRef } from '@welcome-ui/system'
 
 import * as S from '../styles'
 
-export const CloseButton = styled.box.attrs({ as: Button })`
+export const CloseButton = styled(Button)`
   position: absolute;
   right: xl;
   top: xl;
@@ -20,6 +20,8 @@ export const CloseButton = styled.box.attrs({ as: Button })`
   &:hover {
     background-color: light-700;
   }
+
+  ${system}
 `
 
 export type BackdropProps = Pick<Ariakit.DialogOptions, 'hideOnInteractOutside'>

@@ -1,14 +1,15 @@
-import styled, { th } from '@xstyled/styled-components'
+import styled, { system, th } from '@xstyled/styled-components'
 import { Tab } from '@welcome-ui/tabs'
 import * as WUIPopover from '@welcome-ui/popover'
 import { Box } from '@welcome-ui/box'
 
-export const Popover = styled.box.attrs({ as: WUIPopover.Popover })`
+export const Popover = styled(WUIPopover.Popover)`
   background-color: ${th('defaultCards.backgroundColor')};
   border-width: sm;
   border-style: solid;
   border-color: border;
   color: dark-900;
+  ${system};
 
   /** we change the arrow item color from popover component */
   > div > div > svg {
@@ -20,10 +21,11 @@ export const Popover = styled.box.attrs({ as: WUIPopover.Popover })`
   }
 `
 
-export const TabList = styled.box.attrs({ as: Tab.List })`
+export const TabList = styled(Tab.List)`
   padding: 0 md;
   /* Remove margin from Tab.List */
   margin-bottom: -xl;
+  ${system};
 `
 
 export const EmojiButton = styled.buttonBox.attrs({

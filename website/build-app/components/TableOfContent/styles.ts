@@ -17,7 +17,7 @@ export const Nav = styled.nav<{ isSubPage?: boolean }>(
   `
 )
 
-export const Link = styled.box.attrs({ as: NextLink })`
+export const Link = styled.aBox.attrs({ as: NextLink })`
   display: block;
   color: dark-700;
   position: relative;

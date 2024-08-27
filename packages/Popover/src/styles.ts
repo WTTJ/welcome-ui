@@ -1,4 +1,4 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
 
 export const Arrow = styled(Ariakit.PopoverArrow)`
@@ -20,12 +20,13 @@ export const Title = styled.h6`
   ${th('popovers.title')};
 `
 
-export const Popover = styled.box.attrs({ as: Ariakit.Popover })<{ $withCloseButton: boolean }>(
+export const Popover = styled(Ariakit.Popover)<{ $withCloseButton: boolean }>(
   ({ $withCloseButton }) => css`
     ${th('popovers.default')};
     outline: none;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
+    ${system}
 
     /* on open popover for animation */
     &[data-enter] {
@@ -41,6 +42,10 @@ export const Popover = styled.box.attrs({ as: Ariakit.Popover })<{ $withCloseBut
   `
 )
 
-export const PopoverTrigger = styled.box.attrs({ as: Ariakit.PopoverDisclosure })``
+export const PopoverTrigger = styled(Ariakit.PopoverDisclosure)`
+  ${system}
+`
 
-export const PopoverHoverTrigger = styled.box.attrs({ as: Ariakit.HovercardAnchor })``
+export const PopoverHoverTrigger = styled(Ariakit.HovercardAnchor)`
+  ${system}
+`

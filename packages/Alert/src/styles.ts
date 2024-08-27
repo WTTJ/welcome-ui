@@ -1,9 +1,9 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@xstyled/styled-components'
 import { Text } from '@welcome-ui/text'
 
 import { AlertOptions } from './index'
 
-export const Alert = styled.divBox<AlertOptions>(
+export const Alert = styled.box<AlertOptions>(
   ({ isFullWidth, size, variant }) => css`
     position: relative;
     display: flex;
@@ -24,6 +24,7 @@ export const Title = styled(Text).attrs(({ variant }) => ({
     margin: 0;
     margin-bottom: sm;
     ${th(`alerts.title.${alertVariant}`)};
+    ${system}
 
     &:only-child {
       margin-bottom: 0;

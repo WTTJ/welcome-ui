@@ -1,9 +1,10 @@
-import styled, { css, th, typography } from '@xstyled/styled-components'
+import styled, { css, system, th, typography } from '@xstyled/styled-components'
 import { UniversalLink } from '@welcome-ui/universal-link'
+import { shouldForwardProp } from '@welcome-ui/system'
 
 import { Variant } from './index'
 
-export const Link = styled.box.attrs({ as: UniversalLink })<{
+export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{
   variant: Variant
   isExternal?: boolean
 }>(
@@ -43,6 +44,8 @@ export const Link = styled.box.attrs({ as: UniversalLink })<{
       }
       pointer-events: none;
     }
+
+    ${system};
 
     & > *:not(:only-child):not(:last-child) {
       margin-right: xs;

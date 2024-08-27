@@ -1,52 +1,51 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, { css, system } from '@xstyled/styled-components'
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledButton } from '@welcome-ui/button'
 import { IconGroupWrapper, IconWrapper } from '@welcome-ui/field'
-import { shouldForwardProp } from '@welcome-ui/system'
 import { StyledSelect } from '@welcome-ui/select'
 import { defaultFieldStyles, DefaultFieldStylesProps } from '@welcome-ui/utils'
 
 import { Focused } from './CustomInput'
 
-export const StyledDatePicker = styled.box.attrs({
-  // Workaround to this issue: https://github.com/Hacker0x01/react-datepicker/issues/3834
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  as: (ReactDatePicker.default as typeof ReactDatePicker) || ReactDatePicker,
-})<DefaultFieldStylesProps & ReactDatePickerProps>(
+// Workaround to this issue: https://github.com/Hacker0x01/react-datepicker/issues/3834
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+export const StyledDatePicker = styled(ReactDatePicker.default || ReactDatePicker)<
+  DefaultFieldStylesProps & ReactDatePickerProps
+>(
   ({ iconPlacement, size, transparent, variant }) => css`
     ${defaultFieldStyles({ size, variant, transparent, isClearable: true, iconPlacement })};
+    ${system};
   `
 )
 
-export const StyledTimePicker = styled.box.attrs({
+export const StyledTimePicker = styled(
   // Workaround to this issue: https://github.com/Hacker0x01/react-datepicker/issues/3834
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  as: (ReactDatePicker.default as typeof ReactDatePicker) || ReactDatePicker,
-})<DefaultFieldStylesProps>(
+  ReactDatePicker.default || ReactDatePicker
+)<DefaultFieldStylesProps>(
   ({ iconPlacement, size, transparent, variant }) => css`
     ${defaultFieldStyles({ size, variant, transparent, isClearable: true, iconPlacement })};
     text-align: center;
+    ${system};
   `
 )
 
-export const CustomInput = styled('div').withConfig({ shouldForwardProp })<{ focused: Focused }>(
-  ({ focused }) => {
-    return css`
-      position: relative;
+export const CustomInput = styled.box<{ focused: Focused }>(({ focused }) => {
+  return css`
+    position: relative;
 
-      ${IconGroupWrapper} {
-        z-index: ${focused ? 1 : null};
-      }
+    ${IconGroupWrapper} {
+      z-index: ${focused ? 1 : null};
+    }
 
-      ${IconWrapper} {
-        z-index: ${focused ? 1 : null};
-      }
-    `
-  }
-)
+    ${IconWrapper} {
+      z-index: ${focused ? 1 : null};
+    }
+  `
+})
 
 export const CustomHeader = styled.div`
   display: flex;

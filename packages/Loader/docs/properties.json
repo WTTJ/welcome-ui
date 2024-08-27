@@ -1,25 +1,6 @@
 {
   "Loader": {
     "props": {
-      "color": {
-        "defaultValue": null,
-        "description": "",
-        "name": "color",
-        "parent": {
-          "fileName": "Loader/src/index.tsx",
-          "name": "LoaderOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Loader/src/index.tsx",
-            "name": "LoaderOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
       "size": {
         "defaultValue": {
           "value": "sm"
