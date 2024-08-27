@@ -1,10 +1,12 @@
 {
   "packages": [
-    "packages/*",
+    "packages/**",
     "icons"
   ],
-  "version": "5.19.0",
+  "ignore": [
+    "website"
+  ],
+  "version": "5.20.0-alpha.0",
   "npmClient": "yarn",
-  "useWorkspaces": true,
   "useNx": false
 }
