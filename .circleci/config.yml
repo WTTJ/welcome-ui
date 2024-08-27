@@ -10,7 +10,7 @@ parameters:
     default: v5
   nodejs_base_image:
     type: string
-    default: 'cimg/node:18.17.1'
+    default: 'cimg/node:20.17.0'
 
 executors:
   nodejs:
