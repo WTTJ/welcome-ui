@@ -83,7 +83,7 @@ export type Options = {
   [param: string]: unknown
 }
 
-export const createTheme = (options: Options = {}): WuiTheme => {
+export const createTheme = (options: Options = {}) => {
   const {
     defaultFontFamily = DEFAULT_FONT_FAMILY,
     defaultFontSize = DEFAULT_FONT_SIZE,
@@ -177,8 +177,16 @@ export const createTheme = (options: Options = {}): WuiTheme => {
   theme.radioTabs = getRadioTabs(theme)
   theme.sliders = getSliders(theme)
 
-  // states
   theme.states = defaultTheme.states
+  theme.durations = defaultTheme.durations
+  theme.gridTemplateColumns = defaultTheme.gridTemplateColumns
+  theme.gridTemplateRows = defaultTheme.gridTemplateRows
+  theme.ringWidths = defaultTheme.ringWidths
+  theme.borders = defaultTheme.borders
+  theme.transitionProperties = defaultTheme.transitionProperties
+  theme.timingFunctions = defaultTheme.timingFunctions
+  theme.animations = defaultTheme.animations
+  theme.xstyled = defaultTheme.xstyled
 
   theme = merge(theme, rest) as WuiTheme
 
