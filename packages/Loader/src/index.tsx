@@ -7,7 +7,6 @@ import * as S from './styles'
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | ExtraSize
 
 export interface LoaderOptions {
-  color?: string
   /** Predefined size xs, sm, md, lg or custom size */
   size?: Size
 }
@@ -15,8 +14,8 @@ export interface LoaderOptions {
 export type LoaderProps = CreateWuiProps<'div', LoaderOptions>
 
 export const Loader = forwardRef<'div', LoaderProps>(
-  ({ color, dataTestId, size = 'sm', ...rest }, ref) => (
-    <Box color={color} data-testid={dataTestId} display="flex" ref={ref} {...rest}>
+  ({ dataTestId, size = 'sm', ...rest }, ref) => (
+    <Box data-testid={dataTestId} display="flex" ref={ref} {...rest}>
       <S.LoadingDot shape="circle" size={size} />
       <S.LoadingDot shape="circle" size={size} />
       <S.LoadingDot shape="circle" size={size} />

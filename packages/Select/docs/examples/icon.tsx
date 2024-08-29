@@ -18,7 +18,7 @@ const Example = () => {
 
   return (
     <Select
-      icon={<WttjIcon color="dark-900" label="Welcome" />}
+      icon={<WttjIcon color="dark-900" name="Welcome" />}
       name="welcome"
       onChange={handleChange}
       options={ITEMS}

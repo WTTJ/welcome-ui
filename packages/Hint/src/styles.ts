@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 
 import { Variant } from './index'
 
@@ -9,13 +9,12 @@ export const VARIANTS: Record<Variant, string> = {
   warning: 'colors.warning-500',
 }
 
-export const Hint = styled.div<{ variant: Variant }>(
+export const Hint = styled.divBox<{ variant: Variant }>(
   ({ variant }) => css`
     ${th('hints')};
     color: ${th(VARIANTS[variant]) || undefined};
     margin-top: xs;
     display: flex;
     align-items: center;
-    ${system};
   `
 )

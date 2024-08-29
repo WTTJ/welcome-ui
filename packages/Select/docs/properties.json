@@ -739,6 +739,16 @@
     }
   },
   "StyledSelect": {
-    "props": {}
+    "props": {
+      "theme": {
+        "defaultValue": null,
+        "description": "",
+        "name": "theme",
+        "required": false,
+        "type": {
+          "name": "DefaultTheme"
+        }
+      }
+    }
   }
 }

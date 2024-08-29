@@ -3,7 +3,6 @@ import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker'
 import { StyledIcon } from '@welcome-ui/icon'
 import { StyledButton } from '@welcome-ui/button'
 import { IconGroupWrapper, IconWrapper } from '@welcome-ui/field'
-import { shouldForwardProp } from '@welcome-ui/system'
 import { StyledSelect } from '@welcome-ui/select'
 import { defaultFieldStyles, DefaultFieldStylesProps } from '@welcome-ui/utils'
 
@@ -34,21 +33,19 @@ export const StyledTimePicker = styled(
   `
 )
 
-export const CustomInput = styled('div').withConfig({ shouldForwardProp })(
-  ({ focused }: { focused: Focused }) => {
-    return css`
-      position: relative;
+export const CustomInput = styled.box<{ focused: Focused }>(({ focused }) => {
+  return css`
+    position: relative;
 
-      ${IconGroupWrapper} {
-        z-index: ${focused ? 1 : null};
-      }
+    ${IconGroupWrapper} {
+      z-index: ${focused ? 1 : null};
+    }
 
-      ${IconWrapper} {
-        z-index: ${focused ? 1 : null};
-      }
-    `
-  }
-)
+    ${IconWrapper} {
+      z-index: ${focused ? 1 : null};
+    }
+  `
+})
 
 export const CustomHeader = styled.div`
   display: flex;

@@ -4,10 +4,10 @@
 
 import * as React from 'react'
 import { useServerInsertedHTML } from 'next/navigation'
-import { ServerStyleSheet, StyleSheetManager, StyleSheetManagerProps } from 'styled-components'
+import { type IStyleSheetManager, ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
 interface StyledComponentsRegistryProps {
-  children: StyleSheetManagerProps['children']
+  children: IStyleSheetManager['children']
 }
 
 const StyledComponentsRegistry = ({ children }: StyledComponentsRegistryProps) => {

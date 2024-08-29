@@ -63,7 +63,7 @@ const Home = () => {
   return (
     <Box as="main" p="xl">
       <Box margin="0 auto" maxWidth={600}>
-        <Text color="secondary-red" textAlign="center" variant="subtitle-md">
+        <Text textAlign="center" variant="subtitle-md">
           Blog
         </Text>
         <Text mt="0" textAlign="center" variant="h1">

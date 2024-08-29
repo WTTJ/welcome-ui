@@ -1,11 +1,10 @@
 import styled, { css, th } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
 import { Alert } from '@welcome-ui/alert'
 
 import { GrowlOptions } from './Growl'
 import { SnackbarOptions } from './Snackbar'
 
-export const ToastWrapper = styled(Box)<{ isBottom: boolean }>(
+export const ToastWrapper = styled.box<{ isBottom: boolean }>(
   ({ isBottom }) => css`
     ${th('toasts.default')}
     ${isBottom ? th('toasts.bottom') : th('toasts.top')}
@@ -33,18 +32,16 @@ export const Growl = styled(Alert)<GrowlOptions>(
   `
 )
 
-export const Title = styled(Box)(
-  () => css`
-    display: flex;
-    align-items: center;
-    padding-bottom: xs;
-    ${th('toasts.growls.title')};
+export const Title = styled.box`
+  display: flex;
+  align-items: center;
+  padding-bottom: xs;
+  ${th('toasts.growls.title')};
 
-    & > *:first-child {
-      flex-shrink: 0;
-    }
-  `
-)
+  & > *:first-child {
+    flex-shrink: 0;
+  }
+`
 
 export const Snackbar = styled(Alert)<SnackbarOptions>(
   ({ hasCloseButton }) => css`

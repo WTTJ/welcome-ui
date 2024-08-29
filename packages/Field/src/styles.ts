@@ -1,6 +1,6 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import { StyledLabel } from '@welcome-ui/label'
-import { shouldForwardProp, WuiProps } from '@welcome-ui/system'
+import { WuiProps } from '@welcome-ui/system'
 import { FieldIconSize } from '@welcome-ui/utils'
 
 const checkableFieldStyles = css`
@@ -17,7 +17,7 @@ type StyledFieldProps = {
   withHintText?: boolean
 }
 
-export const Field = styled('div').withConfig({ shouldForwardProp })<StyledFieldProps>(
+export const Field = styled.divBox<StyledFieldProps>(
   ({ checked, isCheckable, isRadioGroup, withHintText }) => css`
     ${isCheckable &&
     css`
@@ -38,7 +38,6 @@ export const Field = styled('div').withConfig({ shouldForwardProp })<StyledField
         margin-bottom: md;
       `}
     }
-    ${system};
   `
 )
 
@@ -58,7 +57,7 @@ type IconWrapperProps = {
   size?: FieldIconSize
 }
 
-export const IconWrapper = styled.div<IconWrapperProps>(
+export const IconWrapper = styled.divBox<IconWrapperProps>(
   ({ iconPlacement, size }) => css`
     position: absolute;
     top: 0;
@@ -72,7 +71,6 @@ export const IconWrapper = styled.div<IconWrapperProps>(
     transition: medium;
     transition-timing-function: primary;
     color: dark-900;
-    ${system};
 
     /* for button action */
     & > button {
@@ -89,8 +87,8 @@ export const IconWrapper = styled.div<IconWrapperProps>(
   `
 )
 
-export const IconGroupWrapper = styled.div(
-  ({ size }: { size: FieldIconSize }) => css`
+export const IconGroupWrapper = styled.div<{ size: FieldIconSize }>(
+  ({ size }) => css`
     position: absolute;
     padding: 0;
     top: 0;

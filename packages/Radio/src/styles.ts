@@ -1,5 +1,4 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
 import { shouldForwardProp } from '@welcome-ui/system'
 import { defaultFieldStyles } from '@welcome-ui/utils'
 import { Label as WUILabel } from '@welcome-ui/label'
@@ -66,7 +65,7 @@ export const Input = styled.div`
   display: flex;
 `
 
-export const Wrapper = styled(Box)`
+export const Wrapper = styled.box`
   display: flex;
   align-items: flex-start;
   gap: sm;

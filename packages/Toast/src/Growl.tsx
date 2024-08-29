@@ -11,7 +11,7 @@ export interface GrowlOptions {
   variant?: Variant
   onClose?: () => void
   hasCloseButton?: boolean
-  icon?: JSX.Element
+  icon?: string | JSX.Element
 }
 
 export type GrowlProps = CreateWuiProps<'div', GrowlOptions>

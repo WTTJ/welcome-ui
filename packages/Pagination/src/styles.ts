@@ -1,7 +1,7 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import { hideFocusRingsDataAttribute } from '@welcome-ui/utils'
 
-export const Pagination = styled.nav(system)
+export const Pagination = styled.navBox``
 
 export const List = styled.ul`
   list-style-type: none;

@@ -100,11 +100,10 @@
     "@types/react": "18.0.25",
     "@types/react-dom": "18.2.7",
     "@types/react-window": "^1.8.5",
-    "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
     "@typescript-eslint/parser": "^5.59.11",
     "@vusion/webfonts-generator": "^0.8.0",
-    "@xstyled/styled-components": "^3.7.3",
+    "@xstyled/styled-components": "^4.0.0",
     "aws-sdk": "^2.1397.0",
     "babel-jest": "29.6.4",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
@@ -131,7 +130,7 @@
     "react-router-dom": "6.16.0",
     "rimraf": "^4.1.1",
     "standard-version": "9.5.0",
-    "styled-components": "^5.3.9",
+    "styled-components": "^6.1.12",
     "svgo": "^3.0.1",
     "typescript": "5.0.2",
     "wttj-config": "^2.6.2",
@@ -140,7 +139,6 @@
   "resolutions": {
     "@babel/traverse": ">=7.23.2",
     "@types/react": "18.0.25",
-    "styled-components": "5.3.9",
     "loader-utils": "2.0.3"
   },
   "homepage": "https://welcome-ui.com"

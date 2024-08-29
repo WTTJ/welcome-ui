@@ -50,7 +50,19 @@
         ],
         "required": false,
         "type": {
-          "name": "Element"
+          "name": "enum",
+          "raw": "string | Element",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onClose": {
@@ -161,7 +173,19 @@
         ],
         "required": false,
         "type": {
-          "name": "Element"
+          "name": "enum",
+          "raw": "string | Element",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onClose": {
@@ -178,7 +202,7 @@
             "name": "SnackbarOptions"
           }
         ],
-        "required": true,
+        "required": false,
         "type": {
           "name": "() => void"
         }

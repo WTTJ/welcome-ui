@@ -1,5 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
-import { shouldForwardProp } from '@welcome-ui/system'
+import styled, { css, th } from '@xstyled/styled-components'
 import { getVariantColor } from '@welcome-ui/utils'
 
 export interface StyledFileDropProps {
@@ -8,7 +7,7 @@ export interface StyledFileDropProps {
   isDragReject?: boolean
 }
 
-export const FileDrop = styled('div').withConfig({ shouldForwardProp })<StyledFileDropProps>(
+export const FileDrop = styled.divBox<StyledFileDropProps>(
   ({ disabled, isDragAccept, isDragReject }) => css`
     ${th('defaultFields.default')};
     ${th('filedrops.default')};
@@ -24,7 +23,6 @@ export const FileDrop = styled('div').withConfig({ shouldForwardProp })<StyledFi
     align-items: center;
     padding: md;
     transition: medium;
-    ${system};
 
     &:focus {
       ${th('defaultFields.focused.default')};

@@ -1,6 +1,5 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import { Button } from '@welcome-ui/button'
-import { CreateWuiProps } from '@welcome-ui/system'
 
 import { UseSwiper } from '.'
 
@@ -15,13 +14,11 @@ const getSlideWidth = (slidesPerView = 3, spaceBetween: number, toRem: (px: numb
   return `calc(${100 / slidesPerView}% - ${spaceCss})`
 }
 
-export const Swiper = styled.div<CreateWuiProps<'div'>>`
+export const Swiper = styled.divBox`
   overflow-y: hidden;
   position: relative;
   width: 100%;
   height: 100%;
-
-  ${system}
 `
 
 export const Arrow = styled(Button)<
@@ -73,7 +70,7 @@ export const Pagination = styled.div<Pick<UseSwiper, 'withPagination'>>(
   `
 )
 
-export const Bullet = styled.div<{ active: boolean } & Pick<UseSwiper, 'withDarkUI'>>(
+export const Bullet = styled.divBox<{ active: boolean } & Pick<UseSwiper, 'withDarkUI'>>(
   ({ active, withDarkUI }) => css`
     height: 10;
     width: 10;
@@ -85,7 +82,6 @@ export const Bullet = styled.div<{ active: boolean } & Pick<UseSwiper, 'withDark
     css`
       background-color: ${active ? 'dark-900' : 'dark-400'};
     `}
-    ${system}
   `
 )
 

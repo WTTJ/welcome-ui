@@ -11,7 +11,7 @@ describe('<Title>', () => {
     const title = getByTestId('growl-title')
 
     expect(title).toHaveTextContent(content)
-    expect(title).toHaveStyleRule('color', 'rgba(0,0,0,1)')
+    expect(title).toHaveStyleRule('color', 'rgba(0, 0, 0, 1)')
   })
 
   it('should render correctly with a state', () => {
@@ -19,6 +19,6 @@ describe('<Title>', () => {
     const title = getByTestId('growl-title')
 
     expect(title).toHaveTextContent(content)
-    expect(title).toHaveStyleRule('color', 'rgba(0,0,0,1)')
+    expect(title).toHaveStyleRule('color', 'rgba(0, 0, 0, 1)')
   })
 })

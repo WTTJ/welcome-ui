@@ -1,4 +1,5 @@
-import styled, { css, th, Theme } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
+import { type DefaultTheme } from 'styled-components'
 import { Box } from '@welcome-ui/box'
 import { hexToRGBA } from '@welcome-ui/utils'
 
@@ -11,7 +12,7 @@ interface GradientProps {
 export const StartGradient = styled.span<GradientProps>(
   ({ gradientBackground, theme }) => css`
     left: 0;
-    background-image: ${gradient(theme as Theme, gradientBackground)};
+    background-image: ${gradient(theme, gradientBackground)};
     transform-origin: left;
   `
 )
@@ -19,7 +20,7 @@ export const StartGradient = styled.span<GradientProps>(
 export const EndGradient = styled.span<GradientProps>(
   ({ gradientBackground, theme }) => css`
     right: 0;
-    background-image: ${gradient(theme as Theme, gradientBackground, 'left')};
+    background-image: ${gradient(theme, gradientBackground, 'left')};
     transform-origin: right;
   `
 )
@@ -51,7 +52,7 @@ export const List = styled.ol`
   white-space: nowrap;
 `
 
-const gradient = (theme: Theme, gradientBackground: Colors, position = 'right') => {
+const gradient = (theme: DefaultTheme, gradientBackground: Colors, position = 'right') => {
   const gradientColor = th(`colors.${gradientBackground}`)({ theme }) as string
   const transparent = hexToRGBA(gradientColor, 0)
   return `linear-gradient(to ${position}, ${gradientColor}, ${transparent} 100%)`
