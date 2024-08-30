@@ -9,6 +9,7 @@ export const arrows: IconProps['name'][] = [
   'arrow_up',
   'arrow_down',
   'arrow_line_left',
+  'arrow_line_right',
 ]
 
 export const actions: IconProps['name'][] = [

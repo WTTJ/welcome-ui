@@ -291,5 +291,6 @@
   "certified": "0xF222",
   "masonry_2": "0xF223",
   "connection": "0xF224",
-  "arrow_line_left": "0xF226"
+  "arrow_line_left": "0xF226",
+  "arrow_line_right": "0xF227"
 }
