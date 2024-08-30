@@ -11,6 +11,7 @@ export const arrows: IconProps['name'][] = [
   'arrow_line_left',
   'arrow_line_right',
   'arrow_line_up',
+  'arrow_line_down',
 ]
 
 export const actions: IconProps['name'][] = [

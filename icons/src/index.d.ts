@@ -12,6 +12,7 @@ export declare const AnniversaryIcon: React.FC<IconProps>
 export declare const ArchiveIcon: React.FC<IconProps>
 export declare const ArrowDownIcon: React.FC<IconProps>
 export declare const ArrowLeftIcon: React.FC<IconProps>
+export declare const ArrowLineDownIcon: React.FC<IconProps>
 export declare const ArrowLineLeftIcon: React.FC<IconProps>
 export declare const ArrowLineRightIcon: React.FC<IconProps>
 export declare const ArrowLineUpIcon: React.FC<IconProps>
