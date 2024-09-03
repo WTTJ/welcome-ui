@@ -1539,9 +1539,9 @@
   integrity sha512-6xnwtvp9DY1EINIKdTfvfeAtCYw4OqBZJhtiqkT3ivjnEfa25VQ3TsKvaFfKm8MyGIEfE95qLe+bNEt3nB0Ylg==
 
 "@blakeembrey/template@^1.0.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@blakeembrey/template/-/template-1.1.0.tgz#fbea7a688ffedf0763085b2cda8efe6fdd54d4c4"
-  integrity sha512-iZf+UWfL+DogJVpd/xMQyP6X6McYd6ArdYoPMiv/zlOTzeXXfQbYxBNJJBF6tThvsjLMbA8tLjkCdm9RWMFCCw==
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@blakeembrey/template/-/template-1.2.0.tgz#acd948eb29334e882019e8876b42ff6da1dcf528"
+  integrity sha512-w/63nURdkRPpg3AXbNr7lPv6HgOuVDyefTumiXsbXxtIwcuk5EXayWR5OpSwDjsQPgaYsfUSedMduaNOjAYY8A==
 
 "@commitlint/cli@^17.7.1":
   version "17.7.1"
