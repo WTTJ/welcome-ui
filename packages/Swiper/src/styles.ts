@@ -116,6 +116,7 @@ export const Container = styled.ulBox<
       list-style-type: none;
       margin-right: ${spaceBetween};
       min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
+      max-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
       flex: 1;
 
       &:last-child {
@@ -128,6 +129,7 @@ export const Container = styled.ulBox<
       css`
         > * {
           min-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
+          max-width: ${getSlideWidth(mobile, spaceBetween, theme.toRem)};
 
           &:nth-of-type(${mobile}n + 1) {
             scroll-snap-align: start;
@@ -141,6 +143,7 @@ export const Container = styled.ulBox<
       css`
         > * {
           min-width: ${getSlideWidth(tablet, spaceBetween, theme.toRem)};
+          max-width: ${getSlideWidth(tablet, spaceBetween, theme.toRem)};
 
           &:nth-of-type(${tablet}n + 1) {
             scroll-snap-align: start;
@@ -154,6 +157,8 @@ export const Container = styled.ulBox<
       css`
         > * {
           min-width: ${getSlideWidth(desktop, spaceBetween, theme.toRem)};
+          max-width: ${getSlideWidth(desktop, spaceBetween, theme.toRem)};
+
           scroll-snap-align: unset;
 
           &:nth-of-type(${desktop}n + 1) {
@@ -173,6 +178,7 @@ export const Container = styled.ulBox<
       css`
         > * {
           min-width: ${getSlideWidth(desktop + 2, spaceBetween, theme.toRem)};
+          max-width: ${getSlideWidth(desktop + 2, spaceBetween, theme.toRem)};
         }
       `}
     }
