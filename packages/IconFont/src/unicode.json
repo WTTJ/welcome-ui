@@ -290,5 +290,9 @@
   "tablet": "0xF221",
   "certified": "0xF222",
   "masonry_2": "0xF223",
-  "connection": "0xF224"
+  "connection": "0xF224",
+  "arrow_line_left": "0xF226",
+  "arrow_line_right": "0xF227",
+  "arrow_line_down": "0xF228",
+  "arrow_line_up": "0xF229"
 }
