@@ -1,6 +1,5 @@
 'use client'
 import { Text } from '@welcome-ui/text'
-import NextLink from 'next/link'
 import { Button } from '@welcome-ui/button'
 import { Box } from '@welcome-ui/box'
 import styled, { th } from '@xstyled/styled-components'
@@ -81,11 +80,9 @@ const Home = () => {
                       </Tag>
                     ))}
                   </Stack>
-                  <NextLink href={link} passHref>
-                    <Title rel="noopener" target="_blank">
-                      {title}
-                    </Title>
-                  </NextLink>
+                  <Title href={link} rel="noopener nofollow" target="_blank">
+                    {title}
+                  </Title>
                   <Box alignItems={{ md: 'flex-end' }} display={{ md: 'flex' }}>
                     <Flex direction="column" gap="md">
                       <Text mt="md">{description}</Text>
@@ -105,11 +102,17 @@ const Home = () => {
                       <Text mb="0" variant="xs">
                         {date.toDateString()}
                       </Text>
-                      <NextLink href={link} passHref>
-                        <Button as="a" flexShrink="0" rel="noopener" size="sm" target="_blank">
-                          <span>Read more</span> <RightIcon />
-                        </Button>
-                      </NextLink>
+                      <Button
+                        as="a"
+                        flexShrink="0"
+                        href={link}
+                        rel="noopener nofollow"
+                        size="sm"
+                        target="_blank"
+                        w="fit-content"
+                      >
+                        <span>Read more</span> <RightIcon />
+                      </Button>
                     </Flex>
                   </Box>
                 </Card.Body>

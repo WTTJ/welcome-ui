@@ -24,12 +24,10 @@ const Home = () => {
           Welcome UI is a customizable design system library made with react, typescript,
           styled-components, ariakit and a lot of love 💛
         </Text>
-        <NextLink href="/foundations/getting-started">
-          <Button as="a" mt="3xl" size="lg">
-            <span>Install amazing components</span>
-            <RightIcon size="lg" />
-          </Button>
-        </NextLink>
+        <Button as={NextLink} href="/foundations/getting-started" mt="3xl" size="lg">
+          <span>Install amazing components</span>
+          <RightIcon size="lg" />
+        </Button>
       </Section>
       <Section>
         <Text as="h2" mb="xl" mt="sm" variant="h1">
@@ -58,12 +56,18 @@ const Home = () => {
               Welcome UI is open-sourced on GitHub. Contributions, feedback and issues are welcome –
               we want you to be a part of this great project.
             </Text>
-            <NextLink href="https://github.com/WTTJ/welcome-ui">
-              <Button as="a" mt="3xl" size="lg" target="_blank" variant="secondary">
-                <GithubIcon size="lg" />
-                <span>Contribute on Github</span>
-              </Button>
-            </NextLink>
+            <Button
+              as="a"
+              href="https://github.com/WTTJ/welcome-ui"
+              mt="3xl"
+              rel="noopener nofollow"
+              size="lg"
+              target="_blank"
+              variant="secondary"
+            >
+              <GithubIcon size="lg" />
+              <span>Contribute on Github</span>
+            </Button>
           </Box>
           <Stats />
         </Box>
@@ -118,18 +122,29 @@ const Home = () => {
           Welcome to the Jungle build products that transform every step of the experience at work.
         </Text>
         <Box display={{ md: 'flex' }} mt="5xl">
-          <NextLink href="https://www.welcometothejungle.com/en/companies/wttj/jobs">
-            <Button as="a" mr="md" size="lg" target="_blank">
-              <span>We are recruiting</span>
-              <HeartIcon size="lg" />
-            </Button>
-          </NextLink>
-          <NextLink href="https://www.welcometothejungle.com/en">
-            <Button as="a" mt={{ xs: 'md', md: 0 }} size="lg" target="_blank" variant="ghost">
-              <span>Visit our website</span>
-              <RightIcon size="lg" />
-            </Button>
-          </NextLink>
+          <Button
+            as="a"
+            href="https://www.welcometothejungle.com/en/companies/wttj/jobs"
+            mr="md"
+            rel="noopener nofollow"
+            size="lg"
+            target="_blank"
+          >
+            <span>We are recruiting</span>
+            <HeartIcon size="lg" />
+          </Button>
+          <Button
+            as="a"
+            href="https://www.welcometothejungle.com/en"
+            mt={{ xs: 'md', md: 0 }}
+            rel="noopener nofollow"
+            size="lg"
+            target="_blank"
+            variant="ghost"
+          >
+            <span>Visit our website</span>
+            <RightIcon size="lg" />
+          </Button>
         </Box>
         <Box
           alt="Welcome to the jungle illustration"

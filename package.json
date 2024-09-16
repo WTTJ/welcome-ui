@@ -143,5 +143,6 @@
     "styled-components": "5.3.9",
     "loader-utils": "2.0.3"
   },
-  "homepage": "https://welcome-ui.com"
+  "homepage": "https://welcome-ui.com",
+  "dependencies": {}
 }

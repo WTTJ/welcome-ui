@@ -20,6 +20,8 @@ export function getPageTree(content: string, isOverview?: boolean) {
   if (!content) return
 
   const tree = unified()
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     .use(rehypeParse, { fragment: true })
     .parse(marked(content) as string)
 
@@ -39,7 +41,7 @@ export function getPageTree(content: string, isOverview?: boolean) {
     })
   }
 
-  visit(tree, 'element', node => {
+  visit(tree, 'element', (node: Element) => {
     if (node.tagName === 'h2') {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore

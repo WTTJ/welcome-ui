@@ -1,5 +1,4 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import NextLink from 'next/link'
 
 export const Nav = styled.nav(
   ({ isSubPage }: { isSubPage?: boolean }) => css`
@@ -17,7 +16,7 @@ export const Nav = styled.nav(
   `
 )
 
-export const Link = styled(NextLink)`
+export const Link = styled.span`
   display: block;
   color: dark-700;
   position: relative;
