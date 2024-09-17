@@ -5,8 +5,9 @@ import * as Icons from '@welcome-ui/icons'
 import { Box } from '@welcome-ui/box'
 import { camelCase, startCase } from 'lodash'
 import { Text } from '@welcome-ui/text'
-import { Card } from '@welcome-ui/card'
+import { Toast, toast } from '@welcome-ui/toast'
 
+import * as S from './styles'
 import {
   actions,
   arrows,
@@ -36,6 +37,21 @@ export type IconListProps = {
     | 'brands'
     | 'flags'
 }
+
+const handleClickToCopy = (componentName: string) => {
+  const component = `<${componentName} />`
+  navigator.clipboard.writeText(component)
+
+  toast(
+    <Toast.Snackbar>
+      <p>
+        <b>{component}</b> copied to your clipboard
+      </p>
+    </Toast.Snackbar>,
+    { position: 'bottom-center' }
+  )
+}
+
 export const IconsList = ({ isIconFont, name }: IconListProps) => {
   const iconsByName = {
     arrows: arrows,
@@ -66,15 +82,7 @@ export const IconsList = ({ isIconFont, name }: IconListProps) => {
         }
 
         return (
-          <Card
-            alignItems="center"
-            borderRadius="xl"
-            color="dark-900"
-            display="flex"
-            flexDirection="column"
-            key={key}
-            p="xl"
-          >
+          <S.StyledCard key={key} onClick={() => handleClickToCopy(componentName)}>
             {Icon ? <Icon size="lg" /> : <Icons.CrossIcon size="lg" />}
             <Text
               as="span"
@@ -88,7 +96,7 @@ export const IconsList = ({ isIconFont, name }: IconListProps) => {
             >
               {componentName}
             </Text>
-          </Card>
+          </S.StyledCard>
         )
       })}
     </Box>
