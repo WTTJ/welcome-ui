@@ -19,7 +19,7 @@ export const CustomPopper = ({
   return <StyledCustomPopper popperStyles={popperProps}>{children}</StyledCustomPopper>
 }
 
-const StyledCustomPopper = styled.div(
+const StyledCustomPopper = styled.divBox(
   ({ popperStyles }: { popperStyles: CSSObject }) => css`
     ${datePickerStyles};
     ${fixAriaMessageStyle};

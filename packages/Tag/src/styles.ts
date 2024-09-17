@@ -91,7 +91,7 @@ export const Tag = styled.div.withConfig({
   `
 )
 
-export const ActionIcon = styled.div<{ size: Size }>(
+export const ActionIcon = styled.divBox<{ size: Size }>(
   ({ size }) => css`
     position: absolute;
     ${th(`tags.sizes.${size}`)};
@@ -102,7 +102,7 @@ export const ActionIcon = styled.div<{ size: Size }>(
   `
 )
 
-export const Button = styled.button`
+export const Button = styled.buttonBox`
   all: unset;
   display: flex;
 `

@@ -4,6 +4,7 @@ import { Hint } from '@welcome-ui/hint'
 
 type BorderProps = {
   borderSelectorColor?: string
+  disabled?: boolean
 }
 
 const sliderSelector = css`
@@ -212,7 +213,7 @@ type OutputProps = {
   isVisible?: boolean
 }
 
-export const Output = styled.output<OutputProps>(
+export const Output = styled.outputBox<OutputProps>(
   ({ isVisible }) => css`
     opacity: 0;
     visibility: hidden;

@@ -284,7 +284,6 @@ export const Range = forwardRef<'div', RangeProps>(
                 <S.Output isVisible={tooltipMinVisible} ref={tooltipMinRef}>
                   <S.Tooltip>{minValue}</S.Tooltip>
                 </S.Output>
-
                 <S.Output isVisible={tooltipMaxVisible} ref={tooltipMaxRef}>
                   <S.Tooltip>{maxValue}</S.Tooltip>
                 </S.Output>

@@ -61,7 +61,7 @@ const getYPosition = (placement: string, popoverHeight: number) => {
   return '50%'
 }
 
-export const FadeIn = styled.div<FadeIn>(
+export const FadeIn = styled.divBox<FadeIn>(
   ({ fixed, placement, popoverHeight, withArrow }) => css`
     ${th('tooltips')};
     ${system};
@@ -103,14 +103,14 @@ export const FadeIn = styled.div<FadeIn>(
           translate: -50% 50%;
           rotate: 225deg;
         `}
-        
+
         ${placement.includes('left') &&
         css`
           top: ${getYPosition(placement, popoverHeight)};
           left: 100%;
           rotate: -45deg;
         `}
-        
+
         ${placement.includes('right') &&
         css`
           top: ${getYPosition(placement, popoverHeight)};

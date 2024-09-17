@@ -13,7 +13,7 @@ import { IconWrapper as WUIIconWrapper } from '@welcome-ui/field'
 
 import { SelectOptions } from './index'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })<{ disabled: boolean }>(
+export const Wrapper = styled.divBox.withConfig({ shouldForwardProp })<{ disabled: boolean }>(
   ({ disabled }) => css`
     position: relative;
     ${system}
@@ -123,7 +123,7 @@ export const Item = styled.li(
   `
 )
 
-export const Indicators = styled.div(
+export const Indicators = styled.divBox(
   ({ size }: { size: Size }) => css`
     position: absolute;
     padding: 0;
@@ -162,7 +162,7 @@ export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })
   `
 )
 
-export const Tags = styled.div`
+export const Tags = styled.divBox`
   margin-top: lg;
 
   ${/* sc-selector */ StyledTag}:not(:last-child) {
