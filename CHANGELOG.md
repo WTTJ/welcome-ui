@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.21.0](https://github.com/WTTJ/welcome-ui/compare/v5.20.0...v5.21.0) (2024-09-17)
+
+
+### Features
+
+* add arrow line down icon ([3144150](https://github.com/WTTJ/welcome-ui/commit/314415048c915764cec55851b28bbc97cfc28c5a))
+* add arrow line left icon ([1d28895](https://github.com/WTTJ/welcome-ui/commit/1d28895cdf6fde933f51d2ef3c3a62df80b173d7))
+* add arrow line right icon ([7725c10](https://github.com/WTTJ/welcome-ui/commit/7725c10c3386f18d5cc4dd76affdfc8cebc2e0f5))
+* add arrow line up icon ([82b024d](https://github.com/WTTJ/welcome-ui/commit/82b024da0c66ac4dc368e9284be25d6332d4a48b))
+* generate changelog on release ([#2526](https://github.com/WTTJ/welcome-ui/issues/2526)) ([bfe647b](https://github.com/WTTJ/welcome-ui/commit/bfe647bbb8e8b86211da321af409a87a2b3f74ca))
+
+
+
+
+
 # [5.19.0](https://github.com/WTTJ/welcome-ui/compare/v5.18.1...v5.19.0) (2024-08-19)
 
 

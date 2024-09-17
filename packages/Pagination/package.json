@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/pagination",
-  "version": "5.20.0",
+  "version": "5.21.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,7 +46,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/icons": "^5.20.0",
+    "@welcome-ui/icons": "^5.21.0",
     "@welcome-ui/system": "^5.17.1",
     "@welcome-ui/utils": "^5.18.1"
   },

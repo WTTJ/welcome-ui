@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/toast",
-  "version": "5.20.0",
+  "version": "5.21.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -49,9 +49,9 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/alert": "^5.20.0",
+    "@welcome-ui/alert": "^5.21.0",
     "@welcome-ui/box": "^5.20.0",
-    "@welcome-ui/close-button": "^5.20.0",
+    "@welcome-ui/close-button": "^5.21.0",
     "@welcome-ui/system": "^5.17.1",
     "@welcome-ui/text": "^5.18.0",
     "@welcome-ui/utils": "^5.18.1",
