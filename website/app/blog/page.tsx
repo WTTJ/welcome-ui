@@ -61,11 +61,11 @@ const Title = styled(Link)`
 const Home = () => {
   return (
     <Box as="main" p="xl">
-      <Box margin="0 auto" maxWidth={600}>
-        <Text color="secondary-red" textAlign="center" variant="subtitle-md">
+      <Box margin="0 auto" maxWidth={600} mt="xl">
+        <Text textAlign="center" variant="subtitle-md">
           Blog
         </Text>
-        <Text mt="0" textAlign="center" variant="h1">
+        <Text textAlign="center" variant="h1">
           The latest about us
         </Text>
         <Box as="ul" listStyleType="none" m="0" mt={{ _: 'xxl', md: '5xl' }} p="0">
