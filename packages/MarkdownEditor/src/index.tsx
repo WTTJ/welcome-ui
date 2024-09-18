@@ -12,15 +12,22 @@ import {
   UnorderedListIcon,
 } from '@welcome-ui/icons'
 import { createEvent, CreateEvent, DefaultFieldStylesProps } from '@welcome-ui/utils'
-import { SimpleMdeReact, SimpleMDEReactProps } from 'react-simplemde-editor'
+import {
+  SimpleMdeReact,
+  SimpleMDEReactProps,
+  type SimpleMdeToCodemirrorEvents,
+} from 'react-simplemde-editor'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { BaseEmoji } from 'emoji-mart'
+import type { Emoji as BaseEmoji } from 'emoji-mart'
+import type { Editor, EditorChangeCancellable } from 'codemirror'
 
 import { Toolbar } from './Toolbar'
-import { EmojiPicker } from './EmojiPicker'
 import * as S from './styles'
-import { CurrentToolsFromEditor, getCurrentToolsFromEditor } from './utils'
+import { CurrentToolsFromEditor, type ExtractProps, getCurrentToolsFromEditor } from './utils'
 import { Action, DEFAULT_TOOLBAR, DefaultToolbar } from './constants'
+import EmojiPicker from './EmojiPicker'
+
+type EmojiProps = ExtractProps<typeof BaseEmoji.Props>
 
 interface Icons {
   [key: string]: React.ReactElement | string
@@ -33,10 +40,11 @@ export interface MarkdownEditorOptions extends DefaultFieldStylesProps {
   actions?: React.ReactElement
   autoFocus?: SimpleMDEReactProps['options']['autofocus']
   disabled?: boolean
+  maxLength?: number
   minHeight?: SimpleMDEReactProps['options']['minHeight']
   name: string
   onBlur?: (value: string | null) => void
-  onChange?: (event: React.MouseEvent<HTMLDivElement> | CreateEvent) => void
+  onChange?: (event: CreateEvent) => void
   onFocus?: (value: string | null) => void
   placeholder: SimpleMDEReactProps['options']['placeholder']
   toolbar?: DefaultToolbar
@@ -69,6 +77,7 @@ export const MarkdownEditor = forwardRef<'div', MarkdownEditorProps>(
       autoFocus,
       dataTestId,
       disabled,
+      maxLength,
       minHeight = '8rem',
       name,
       onBlur,
@@ -93,12 +102,12 @@ export const MarkdownEditor = forwardRef<'div', MarkdownEditorProps>(
       () => ({
         autoDownloadFontAwesome: false,
         autofocus: autoFocus,
+        minHeight,
         placeholder,
-        toolbar: false,
-        tabSize: 4,
         spellChecker: false,
         status: false,
-        minHeight,
+        tabSize: 4,
+        toolbar: false,
       }),
       [autoFocus, minHeight, placeholder]
     )
@@ -138,8 +147,39 @@ export const MarkdownEditor = forwardRef<'div', MarkdownEditorProps>(
 
     const handleChange = (value: string) => {
       const event = createEvent({ name, value })
+
       onChange && onChange(event)
       updateCurrentTools(instance?.codemirror)
+    }
+
+    const handleBeforeChange = (instance: Editor, changes: EditorChangeCancellable) => {
+      const regex = /[*_~`#]/g
+      const localValue = instance.getValue().replace(regex, '')
+      const length = localValue.length
+
+      // Cancel change if typing past limit
+      if (changes.origin !== '+delete' && length > maxLength) {
+        changes.cancel()
+      }
+
+      // Crop change if pasting past limit
+      if (changes.origin === 'paste') {
+        let str = changes.text.join('\n')
+
+        let delta =
+          str.length - (instance.indexFromPos(changes.to) - instance.indexFromPos(changes.from))
+
+        if (delta <= 0) {
+          return true
+        }
+
+        delta = length + delta - maxLength
+
+        if (delta > 0) {
+          str = str.substring(0, str.length - delta)
+          changes.update(changes.from, changes.to, str.split('\n'))
+        }
+      }
     }
 
     const handleToolbarClick = (item: string) => {
@@ -159,13 +199,17 @@ export const MarkdownEditor = forwardRef<'div', MarkdownEditorProps>(
       setCurrentTools(getCurrentToolsFromEditor(cm))
     }
 
-    const events = {
-      blur: handleBlur,
-      focus: handleFocus,
-      cursorActivity: updateCurrentTools,
-    }
+    const events = useMemo(() => {
+      return {
+        beforeChange: maxLength ? handleBeforeChange : undefined,
+        blur: handleBlur,
+        focus: handleFocus,
+        cursorActivity: updateCurrentTools,
+      } as SimpleMdeToCodemirrorEvents
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
-    const addEmoji = (emoji: BaseEmoji) => {
+    const addEmoji = (emoji: EmojiProps) => {
       const cm = instance.codemirror
       const doc = cm.getDoc()
       const position = doc.getCursor()
@@ -214,7 +258,7 @@ export const MarkdownEditor = forwardRef<'div', MarkdownEditorProps>(
           onClick={handleToolbarClick}
           role="toolbar"
         />
-        {showEmojiPicker && <EmojiPicker onSelect={addEmoji} />}
+        {showEmojiPicker && Boolean(EmojiPicker) && <EmojiPicker onSelect={addEmoji} />}
         <SimpleMdeReact
           events={events}
           extraKeys={{ Tab: false }}

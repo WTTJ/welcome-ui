@@ -39,3 +39,7 @@ export const getCurrentToolsFromEditor = (editor: CurrentToolsFromEditor): strin
     .map(type => CODE_MIRROR_TYPES[type])
     .filter(type => type)
 }
+
+export type ExtractProps<T> = {
+  [K in keyof T]: T[K] extends { value: infer V } ? V : never
+}
