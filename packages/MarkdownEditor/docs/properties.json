@@ -249,7 +249,7 @@
         ],
         "required": false,
         "type": {
-          "name": "(value: string) => void"
+          "name": "(event: CreateEvent) => void"
         }
       },
       "onChange": {
@@ -287,7 +287,7 @@
         ],
         "required": false,
         "type": {
-          "name": "(value: string) => void"
+          "name": "(event: CreateEvent) => void"
         }
       },
       "placeholder": {

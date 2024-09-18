@@ -43,9 +43,9 @@ export interface MarkdownEditorOptions extends DefaultFieldStylesProps {
   maxLength?: number
   minHeight?: SimpleMDEReactProps['options']['minHeight']
   name: string
-  onBlur?: (value: string | null) => void
+  onBlur?: (event: CreateEvent) => void
   onChange?: (event: CreateEvent) => void
-  onFocus?: (value: string | null) => void
+  onFocus?: (event: CreateEvent) => void
   placeholder: SimpleMDEReactProps['options']['placeholder']
   toolbar?: DefaultToolbar
   value?: string
@@ -135,20 +135,25 @@ export const MarkdownEditor = forwardRef<'div', MarkdownEditorProps>(
 
     const handleFocus = () => {
       instance?.codemirror?.focus()
-      onFocus?.(value)
+
+      const event = createEvent({ name, value })
+      onFocus?.(event)
+
       setFocused(true)
       setShowEmojiPicker(false)
     }
 
     const handleBlur = () => {
-      onBlur && onBlur(value)
+      const event = createEvent({ name, value })
+
+      onBlur?.(event)
       setFocused(false)
     }
 
     const handleChange = (value: string) => {
       const event = createEvent({ name, value })
 
-      onChange && onChange(event)
+      onChange?.(event)
       updateCurrentTools(instance?.codemirror)
     }
 
