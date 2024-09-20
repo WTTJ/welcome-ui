@@ -157,7 +157,7 @@ export const createTheme = (options: Options = {}): WuiTheme => {
   theme.links = getLinks(theme)
   theme.dropdownMenu = getDropdownMenu(theme)
   theme.tables = getTables(theme)
-  theme.cards = getCards()
+  theme.cards = getCards(theme)
   theme.modals = getModals(theme)
   theme.drawers = getDrawers(theme)
   theme.loaders = getLoaders(theme)

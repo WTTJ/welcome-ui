@@ -7,7 +7,7 @@ const Element = () => (
   <Box
     backgroundColor="light-900"
     borderColor="nude-300"
-    borderRadius="sm"
+    borderRadius="lg"
     borderStyle="solid"
     borderWidth="1px"
     color="dark-900"

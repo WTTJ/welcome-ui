@@ -6,6 +6,8 @@ export type ThemeRadii = {
   md: string
   lg: string
   xl: string
+  xxl: string
+  full: string
   [key: number]: string
 }
 
@@ -16,5 +18,7 @@ export const getRadii = (theme: WuiTheme): ThemeRadii => {
     md: theme.toRem(4),
     lg: theme.toRem(8),
     xl: theme.toRem(16),
+    xxl: theme.toRem(24),
+    full: '100%',
   }
 }

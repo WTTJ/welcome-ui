@@ -9,12 +9,13 @@ export type ThemeCheckboxes = {
 }
 
 export const getCheckboxes = (theme: WuiTheme): ThemeCheckboxes => {
-  const { colors, toRem } = theme
+  const { colors, radii, toRem } = theme
   return {
     default: {
       width: toRem(16),
       height: toRem(16),
       flexShrink: 0,
+      borderRadius: radii.sm,
     },
     disabled: {
       borderColor: colors['nude-600'],
