@@ -34,12 +34,13 @@ export type ThemeButtons = Record<Variant, CommonAttributesButton> &
   Record<'icon', Record<Icon, Record<Size, string>>>
 
 export const getButtons = (theme: WuiTheme): ThemeButtons => {
-  const { colors, focus, fontWeights, space, texts, toRem } = theme
+  const { colors, focus, fontWeights, radii, space, texts, toRem } = theme
   const defaults = {
     ...texts.xs,
     color: colors['light-900'],
     fontWeight: fontWeights.bold,
     letterSpacing: 0,
+    borderRadius: radii.md,
   }
 
   return {

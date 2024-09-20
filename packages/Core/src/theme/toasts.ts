@@ -11,10 +11,13 @@ export type ThemeToasts = {
     default: CSSObject
     title: CSSObject
   }
+  snackbar: {
+    default: CSSObject
+  }
 }
 
 export const getToasts = (theme: WuiTheme): ThemeToasts => {
-  const { borderWidths, colors, fontWeights, space } = theme
+  const { borderWidths, colors, fontWeights, radii, space } = theme
 
   return {
     default: {
@@ -32,10 +35,16 @@ export const getToasts = (theme: WuiTheme): ThemeToasts => {
         ...getTexts(theme).sm,
         borderWidth: borderWidths.sm,
         borderStyle: 'solid',
+        borderRadius: radii.lg,
       },
       title: {
         fontWeight: fontWeights.bold,
         color: colors['dark-900'],
+      },
+    },
+    snackbar: {
+      default: {
+        borderRadius: radii.lg,
       },
     },
   }

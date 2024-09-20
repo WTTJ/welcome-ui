@@ -16,7 +16,7 @@ export type ThemeModals = {
 }
 
 export const getModals = (theme: WuiTheme): ThemeModals => {
-  const { colors, space, toRem } = theme
+  const { colors, radii, space, toRem } = theme
   return {
     backdrop: {
       backgroundColor: colors.overlay,
@@ -24,6 +24,7 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
     },
     default: {
       zIndex: 999,
+      borderRadius: radii.xxl,
     },
     header: {
       backgroundColor: colors['light-900'],

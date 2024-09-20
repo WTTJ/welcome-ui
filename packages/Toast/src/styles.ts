@@ -51,6 +51,7 @@ export const Snackbar = styled(Alert)<SnackbarOptions>(
     display: flex;
     align-items: center;
     padding: sm md;
+    ${th('toasts.snackbar.default')};
 
     svg {
       width: 16;

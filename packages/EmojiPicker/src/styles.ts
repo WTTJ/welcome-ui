@@ -34,7 +34,7 @@ export const EmojiButton = styled.buttonBox.attrs({
   padding: 0;
   border: 0;
   background: none;
-  border-radius: 4;
+  border-radius: md;
   transition: fast;
   /*
    * Taken from slack's emoji picker
