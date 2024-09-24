@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.21.1](https://github.com/WTTJ/welcome-ui/compare/v5.21.0...v5.21.1) (2024-09-24)
+
+
+### Bug Fixes
+
+* crash text component when variant is set to null ([#2544](https://github.com/WTTJ/welcome-ui/issues/2544)) ([0db5c22](https://github.com/WTTJ/welcome-ui/commit/0db5c22efc899c65a7102b49b8a48e2e68c8e7c3))
+
+
+
+
+
 # [5.18.0](https://github.com/WTTJ/welcome-ui/compare/v5.17.3...v5.18.0) (2024-08-05)
 
 
