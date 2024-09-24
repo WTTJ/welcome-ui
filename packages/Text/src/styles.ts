@@ -26,7 +26,7 @@ const getBlockHeight = (lines: number) => css`
 
 export const Text = styled.p<TextOptions>(({ lines, variant, withDash }) => {
   const mobileVariant = MOBILE_VARIANTS[variant as keyof typeof MOBILE_VARIANTS]
-  const isHeading = variant.startsWith('h')
+  const isHeading = variant?.startsWith('h')
 
   return css`
     ${th(`texts.${mobileVariant || variant}`)};
