@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.21.2](https://github.com/WTTJ/welcome-ui/compare/v5.21.1...v5.21.2) (2024-09-30)
+
+
+### Bug Fixes
+
+* swiper item width when there is less than x items ([#2535](https://github.com/WTTJ/welcome-ui/issues/2535)) ([4508a9c](https://github.com/WTTJ/welcome-ui/commit/4508a9c734f91332308d13d460e4232a11f3a2b6))
+
+
+
+
+
 ## [5.21.1](https://github.com/WTTJ/welcome-ui/compare/v5.21.0...v5.21.1) (2024-09-24)
 
 

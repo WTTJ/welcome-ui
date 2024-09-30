@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/modal",
-  "version": "5.21.1",
+  "version": "5.21.2",
   "description": "Modal from Ariakit with a really nice theme 👀",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -54,7 +54,7 @@
     "@welcome-ui/close-button": "^5.21.0",
     "@welcome-ui/icons.font": "^5.21.0",
     "@welcome-ui/shape": "^5.20.0",
-    "@welcome-ui/swiper": "^5.21.0",
+    "@welcome-ui/swiper": "^5.21.2",
     "@welcome-ui/system": "^5.17.1",
     "@welcome-ui/text": "^5.21.1",
     "@welcome-ui/utils": "^5.18.1"
