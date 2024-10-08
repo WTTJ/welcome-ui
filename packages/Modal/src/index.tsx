@@ -20,18 +20,21 @@ export interface ModalOptions extends Omit<Ariakit.DialogOptions<'div'>, 'as'> {
 }
 
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
-export type UseModal = Ariakit.DialogStore
+export type UseModal = Ariakit.DialogStore & {
+  withClosingButton: boolean
+}
 export type UseModalProps = Ariakit.DialogStoreProps & {
   /**
    * Call a function before closing the modal
    * @deprecated use onClose on <Modal /> instead
    */
   onClose?: () => void
+  withClosingButton?: boolean
 }
 export type UseModalState = Ariakit.DialogStoreState
 
 export function useModal(options?: UseModalProps): UseModal {
-  const { onClose, setOpen, ...storeOptions } = options || {}
+  const { onClose, setOpen, withClosingButton = true, ...storeOptions } = options || {}
 
   const dialog = Ariakit.useDialogStore({
     animated: true,
@@ -42,9 +45,15 @@ export function useModal(options?: UseModalProps): UseModal {
       setOpen?.(open)
     },
     ...storeOptions,
-  })
+  }) as UseModal
+
+  dialog.withClosingButton = withClosingButton
 
   return dialog
+}
+
+export function useModalContext(): UseModal {
+  return Ariakit.useDialogContext() as UseModal
 }
 
 type BackdropProps = Pick<ModalOptions, 'hideOnInteractOutside' | 'backdrop'>

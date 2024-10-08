@@ -5,16 +5,16 @@ import { forwardRef } from '@welcome-ui/system'
 import * as S from './styles'
 import { Close } from './Close'
 
-import { UseModal } from '.'
+import { useModalContext } from '.'
 
 export interface ContentOptions {
   children: React.ReactNode
 }
 
 export type ContentProps = ContentOptions & {
-  store: UseModal
   /**
    * show or hide the closing button
+   * @deprecated use useModal({ withClosingButton: false }) instead
    */
   withClosingButton?: boolean
 }
@@ -23,9 +23,10 @@ export type ContentProps = ContentOptions & {
  * @name Modal.Content
  */
 export const Content = forwardRef<'div', ContentProps>(
-  ({ children, store, withClosingButton = true, ...rest }, ref) => {
+  ({ children, withClosingButton = true, ...rest }, ref) => {
     const { borderWidths, space } = useTheme()
     const [borderOnFooter, setBorderOnFooter] = useState(false)
+    const store = useModalContext()
     const contentElement = store.useState('contentElement')
     const open = store.useState('open')
 
@@ -40,7 +41,8 @@ export const Content = forwardRef<'div', ContentProps>(
         }),
       [children]
     )
-    const shouldShowCloseButton = !components.includes('Header') && withClosingButton
+    const shouldShowCloseButton =
+      !components.includes('Header') && store.withClosingButton && withClosingButton
 
     const getStyles = (name?: string) => {
       if (name === 'Header') {

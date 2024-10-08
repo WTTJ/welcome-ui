@@ -23,7 +23,7 @@ const Example = () => {
         Header with Icon and Footer
       </Modal.Trigger>
       <Modal ariaLabel="example" store={modal}>
-        <Modal.Content store={modal}>
+        <Modal.Content>
           <Modal.Header icon={icon} subtitle={subtitle} title={title} />
           <Modal.Body>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -44,7 +44,7 @@ const Example = () => {
         Header and Footer
       </Modal.Trigger>
       <Modal ariaLabel="example-2" store={modal2}>
-        <Modal.Content store={modal}>
+        <Modal.Content>
           <Modal.Header subtitle={subtitle} title={title} />
           <Modal.Body>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
@@ -65,7 +65,7 @@ const Example = () => {
         Header width Icon
       </Modal.Trigger>
       <Modal ariaLabel="example-3" store={modal3}>
-        <Modal.Content store={modal}>
+        <Modal.Content>
           <Modal.Header icon={icon} title={title} />
           <Modal.Body>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis

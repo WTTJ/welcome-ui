@@ -11,7 +11,7 @@ const Example = () => {
         Open modal
       </Modal.Trigger>
       <Modal ariaLabel="example" store={modal}>
-        <Modal.Content store={modal}>
+        <Modal.Content>
           <Modal.Body>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
