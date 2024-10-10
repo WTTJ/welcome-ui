@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@welcome-ui/utils": "^5.18.1",
-    "ramda": "^0.29.0"
+    "ramda": "^0.30.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
