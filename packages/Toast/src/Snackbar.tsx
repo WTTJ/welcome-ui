@@ -8,10 +8,10 @@ import * as S from './styles'
 import { Variant } from './index'
 
 export interface SnackbarOptions {
-  variant?: Variant
-  onClose: () => void
   hasCloseButton?: boolean
   icon?: JSX.Element
+  onClose: () => void
+  variant?: Variant
 }
 
 export type SnackbarProps = CreateWuiProps<'div', SnackbarOptions>

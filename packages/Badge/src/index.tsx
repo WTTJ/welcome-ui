@@ -4,13 +4,13 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import * as S from './styles'
 
 export type BadgeOptions = {
+  children: string | number
   disabled?: boolean
   shape?: 'circle' | 'square'
   size?: 'sm' | 'md'
   variant?: 'default' | 'primary'
   // if a number is higher than 99, we replace this number by 99+
   withNumberAbbreviation?: boolean
-  children: string | number
 }
 export type BadgeProps = CreateWuiProps<'div', BadgeOptions>
 

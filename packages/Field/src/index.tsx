@@ -13,13 +13,13 @@ export interface FieldOptions {
   disabled?: boolean
   disabledIcon?: JSX.Element
   error?: string | JSX.Element
-  label?: string | JSX.Element
   hint?: string | JSX.Element
-  required?: boolean
-  warning?: string | JSX.Element
-  success?: string | JSX.Element
   info?: string | JSX.Element
+  label?: string | JSX.Element
+  required?: boolean
+  success?: string | JSX.Element
   transparent?: boolean
+  warning?: string | JSX.Element
 }
 
 export type FieldProps = CreateWuiProps<'div', FieldOptions>

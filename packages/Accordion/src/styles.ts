@@ -4,7 +4,7 @@ import { Box } from '@welcome-ui/box'
 
 export const Accordion = styled.div`
   ${th('accordions.wrapper')};
-  ${system}
+  ${system};
   transition: medium;
 
   &:hover {

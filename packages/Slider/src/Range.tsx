@@ -12,13 +12,13 @@ import { round, SliderOptions } from './index'
 export const thumbWidth = 20
 
 export type Range = {
-  min: number
   max: number
+  min: number
 }
 export interface RangeOptions extends Omit<SliderOptions, 'type' | 'value' | 'onChange'> {
-  value: Range
   onChange: (value: Range) => void
   type?: 'inline' | 'fields'
+  value: Range
 }
 
 export type RangeProps = CreateWuiProps<'div', RangeOptions>
@@ -32,10 +32,10 @@ const ensureMin = ({
   toCompare,
   value,
 }: {
-  value: number
-  toCompare: number
-  step: number
   min: number
+  step: number
+  toCompare: number
+  value: number
 }) => {
   let ensuredValue = Math.min(value, toCompare - 1 * step)
   ensuredValue = Math.max(ensuredValue, min)
@@ -51,10 +51,10 @@ const ensureMax = ({
   toCompare,
   value,
 }: {
-  value: number
-  toCompare: number
-  step: number
   max: number
+  step: number
+  toCompare: number
+  value: number
 }) => {
   let ensuredValue = Math.max(value, toCompare + 1 * step)
   ensuredValue = Math.min(ensuredValue, max)
@@ -399,7 +399,7 @@ export const Range = forwardRef<'div', RangeProps>(
         </Box>
 
         {hint && (
-          <Hint color="dark.400" mt={0}>
+          <Hint color="dark-400" mt={0}>
             {hint}
           </Hint>
         )}

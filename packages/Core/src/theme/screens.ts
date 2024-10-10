@@ -1,14 +1,14 @@
 export type ThemeScreens = {
-  xs: number
-  sm: number
-  md: number
-  lg: number
-  xl: number
-  xxl: number
-  '3xl': number
-  '4xl': number
   [key: string]: number
   [key: number]: number
+  '3xl': number
+  '4xl': number
+  lg: number
+  md: number
+  sm: number
+  xl: number
+  xs: number
+  xxl: number
 }
 
 export const screens: ThemeScreens = {

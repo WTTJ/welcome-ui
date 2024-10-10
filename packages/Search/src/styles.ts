@@ -72,7 +72,7 @@ export const Indicators = styled.div`
   display: flex;
 `
 
-export const DropDownIndicator = styled.button<{ size: SearchOptions['size']; isOpen?: boolean }>(
+export const DropDownIndicator = styled.button<{ isOpen?: boolean; size: SearchOptions['size'] }>(
   ({ isOpen, size }) => css`
     position: relative;
     height: 100%;

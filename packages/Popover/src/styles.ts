@@ -26,7 +26,7 @@ export const Popover = styled(Ariakit.Popover)<{ $withCloseButton: boolean }>(
     outline: none;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
-    ${system}
+    ${system};
 
     /* on open popover for animation */
     &[data-enter] {
@@ -43,9 +43,9 @@ export const Popover = styled(Ariakit.Popover)<{ $withCloseButton: boolean }>(
 )
 
 export const PopoverTrigger = styled(Ariakit.PopoverDisclosure)`
-  ${system}
+  ${system};
 `
 
 export const PopoverHoverTrigger = styled(Ariakit.HovercardAnchor)`
-  ${system}
+  ${system};
 `

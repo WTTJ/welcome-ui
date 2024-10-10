@@ -5,8 +5,8 @@ import { DefaultFieldStylesProps } from '@welcome-ui/utils'
 import * as S from './styles'
 
 export interface CheckboxOptions extends DefaultFieldStylesProps {
-  checked?: boolean
   Component?: React.ElementType
+  checked?: boolean
   disabled?: boolean
   indeterminate?: boolean
   name?: string
@@ -19,10 +19,10 @@ export const Checkbox = forwardRef<'input', CheckboxProps>(
   (
     {
       checked = false,
-      indeterminate = false,
       Component = S.Checkbox,
       dataTestId,
       disabled,
+      indeterminate = false,
       name,
       onChange,
       size,

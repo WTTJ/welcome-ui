@@ -4,9 +4,8 @@ import { WuiTheme } from './types'
 import { getTexts } from './typography'
 
 export type ThemeToasts = {
-  default: CSSObject
-  top: CSSObject
   bottom: CSSObject
+  default: CSSObject
   growls: {
     default: CSSObject
     title: CSSObject
@@ -14,6 +13,7 @@ export type ThemeToasts = {
   snackbar: {
     default: CSSObject
   }
+  top: CSSObject
 }
 
 export const getToasts = (theme: WuiTheme): ThemeToasts => {

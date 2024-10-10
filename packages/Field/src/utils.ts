@@ -11,9 +11,9 @@ export const getBaseType = (type: string): string => TYPES[type] || type
 
 type VariantProps = {
   error?: string | JSX.Element
-  warning?: string | JSX.Element
-  success?: string | JSX.Element
   info?: string | JSX.Element
+  success?: string | JSX.Element
+  warning?: string | JSX.Element
 }
 
 export type VariantReturn = 'error' | 'warning' | 'success' | 'info'

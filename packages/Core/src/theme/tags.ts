@@ -22,11 +22,11 @@ type Size = 'xs' | 'sm' | 'md'
 
 export type ThemeTags = {
   default: CSSObject
-  variants: Record<Variant, CSSObject>
   hover: Record<Variant, CSSObject>
-  sizes: Record<Size, CSSObject>
   icon: Record<Size, string>
   shape: Record<Size, CSSObject>
+  sizes: Record<Size, CSSObject>
+  variants: Record<Variant, CSSObject>
 }
 
 export const getTags = (theme: WuiTheme): ThemeTags => {

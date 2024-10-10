@@ -3,13 +3,13 @@ import { css } from '@xstyled/styled-components'
 import { WuiTheme } from '../theme/types'
 
 type FontVariation = {
-  url: string
   display?: FontDisplay
-  weight?: string
-  style?: string
-  isVariable?: boolean
   extensions?: string[]
+  isVariable?: boolean
+  style?: string
   unicodeRange?: string
+  url: string
+  weight?: string
 }
 
 type Font = {

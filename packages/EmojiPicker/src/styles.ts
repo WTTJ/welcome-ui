@@ -1,8 +1,12 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import styled, { system, th } from '@xstyled/styled-components'
 import { Tab } from '@welcome-ui/tabs'
 import * as WUIPopover from '@welcome-ui/popover'
 import { Box } from '@welcome-ui/box'
 
+// this component is imported by WH but not used, could be deprecated
 export const Popover = styled(WUIPopover.Popover)`
   background-color: ${th('defaultCards.backgroundColor')};
   border-width: sm;
@@ -14,7 +18,6 @@ export const Popover = styled(WUIPopover.Popover)`
   /** we change the arrow item color from popover component */
   > div > div > svg {
     color: ${th('defaultCards.backgroundColor')};
-
     #stroke {
       color: ${th('defaultCards.borderColor')};
     }
@@ -66,4 +69,5 @@ export const Tooltip = styled(Box)`
   &:empty {
     display: none;
   }
+  ${system};
 `

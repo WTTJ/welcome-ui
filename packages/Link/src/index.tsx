@@ -9,9 +9,9 @@ import { shouldWrapWithText } from './utils'
 export type Variant = 'primary' | 'secondary'
 
 export interface LinkOptions {
-  variant?: Variant
-  isExternal?: boolean
   disabled?: boolean
+  isExternal?: boolean
+  variant?: Variant
 }
 export type LinkProps = CreateWuiProps<'a', LinkOptions & UniversalLinkOptions>
 

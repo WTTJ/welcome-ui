@@ -73,6 +73,7 @@ export type ThemeFontsUrl =
   | string
 
 export type Options = {
+  [param: string]: unknown
   defaultFontFamily?: string
   defaultFontSize?: number
   defaultLetterSpacing?: string
@@ -80,7 +81,6 @@ export type Options = {
   fontsUrl?: ThemeFontsUrl
   headingFontFamily?: string
   iconFontFamily?: string
-  [param: string]: unknown
 }
 
 export const createTheme = (options: Options = {}): WuiTheme => {

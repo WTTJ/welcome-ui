@@ -1,7 +1,7 @@
 export type ThemeBorderWidths = {
-  sm: string
-  md: string
   lg: string
+  md: string
+  sm: string
 }
 
 export const borderWidths: ThemeBorderWidths = {

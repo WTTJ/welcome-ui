@@ -11,16 +11,16 @@ import { Title } from './Title'
 
 export type Size = 'sm' | 'md'
 export interface AlertOptions {
-  variant?: Variant
-  size?: Size
-  icon?: JSX.Element | null
-  isFullWidth?: boolean
   closeButtonDataTestId?: string
   cta?: JSX.Element
   /**
    * @description add a close button with an onclick handleClose function
    */
   handleClose?: () => void
+  icon?: JSX.Element | null
+  isFullWidth?: boolean
+  size?: Size
+  variant?: Variant
 }
 
 export type AlertProps = CreateWuiProps<'div', AlertOptions>

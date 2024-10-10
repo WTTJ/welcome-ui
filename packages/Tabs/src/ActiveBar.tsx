@@ -9,8 +9,8 @@ import { UseTabState } from '.'
 
 export interface ActiveBarReturn {
   offset?: number
-  size?: number
   orientation?: UseTabState['orientation']
+  size?: number
 }
 
 function useActiveBar(

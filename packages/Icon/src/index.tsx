@@ -4,12 +4,12 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import * as S from './styles'
 
 type IconContent = {
-  width?: number
-  height?: number
   block?: string
-  stroked?: boolean
+  height?: number
   isFlag?: boolean
+  stroked?: boolean
   viewBox?: string
+  width?: number
 }
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | number | string
@@ -17,9 +17,9 @@ type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | number | string
 export interface IconOptions {
   content?: IconContent
   name?: string
+  onClick?: (event: React.MouseEvent<SVGSVGElement>) => void
   size?: Size
   title?: string
-  onClick?: (event: React.MouseEvent<SVGSVGElement>) => void
 }
 
 export type IconProps = CreateWuiProps<typeof S.Icon, IconOptions>

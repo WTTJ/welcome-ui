@@ -79,69 +79,68 @@ type XStyledTheme = Omit<XStyledDefaultTheme, OverrideKeys>
 type StyledComponentsTheme = Omit<StyledComponentDefaultTheme, OverrideKeys>
 
 export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
-  transformers: {
-    px: (value: CSSScalar) => CSSScalar
-    border: (value: CSSScalar) => CSSScalar
-  }
-  toEm: (int: number) => string
-  toRem: (int?: number) => string
-  toPx: (int?: number) => string
-  colors: ThemeColors
-  underline: ThemeUnderline
-  borderWidths: ThemeBorderWidths
-  fontFaces: ThemeFontFaces
-  fontsUrl: ThemeFontsUrl
-  fontSizes: ThemeFontSizes
-  defaultLineHeight: number
-  defaultLetterSpacing: string
-  lineHeights: ThemeLineHeights
-  fontWeights: ThemeFontWeights
-  letterSpacings: ThemeLetterSpacings
-  fonts: ThemeFonts
-  screens: ThemeScreens
-  space: ThemeSpace
-  inset: ThemeSpace
-  icons: ThemeIcons
-  radii: ThemeRadii
-  transitions: ThemeTransitions
-  timingFunction: ThemeTimingFunction
-  shadows: ThemeShadows
-  selection: ThemeSelection
-  focus: ThemeFocus
-  defaultCards: ThemeDefaultCards
-  textsFontWeights: ThemeTextsFontWeights
-  textsFontFamily: ThemeTextsFontFamily
-  textsTextTransform: ThemeTextsTextTransform
+  accordions: ThemeAccordions
   alerts: ThemeAlerts
   avatars: ThemeAvatars
-  buttons: ThemeButtons
+  borderWidths: ThemeBorderWidths
   breadcrumbs: ThemeBreadcrumbs
-  toasts: ThemeToasts
+  buttons: ThemeButtons
+  cards: ThemeCards
+  checkboxes: ThemeCheckboxes
+  colors: ThemeColors
+  dateTimePickerCommon: ThemeDateTimePickerCommon
+  defaultCards: ThemeDefaultCards
+  defaultFields: ThemeDefaultFields
+  defaultLetterSpacing: string
+  defaultLineHeight: number
+  drawers: ThemeDrawers
+  dropdownMenu: ThemeDropdownMenu
+  filedrops: ThemeFiledrops
+  focus: ThemeFocus
+  fontFaces: ThemeFontFaces
+  fontSizes: ThemeFontSizes
+  fontWeights: ThemeFontWeights
+  fonts: ThemeFonts
+  fontsUrl: ThemeFontsUrl
+  hints: ThemeHints
+  icons: ThemeIcons
+  inset: ThemeSpace
+  labels: ThemeLabels
+  letterSpacings: ThemeLetterSpacings
+  lineHeights: ThemeLineHeights
+  links: ThemeLinks
+  loaders: ThemeLoaders
+  modals: ThemeModals
   paginations: ThemePaginations
+  popovers: ThemePopovers
+  radii: ThemeRadii
+  radioTabs: ThemeRadioTabs
+  radios: ThemeRadios
+  screens: ThemeScreens
+  selection: ThemeSelection
+  shadows: ThemeShadows
+  sizes: ThemeSizes
+  space: ThemeSpace
+  swipers: ThemeSwipers
+  tables: ThemeTables
   tabs: ThemeTabs
   tags: ThemeTags
-  texts: ThemeTexts
-  tooltips: CSSObject
-  links: ThemeLinks
-  dropdownMenu: ThemeDropdownMenu
-  tables: ThemeTables
-  cards: ThemeCards
-  modals: ThemeModals
-  drawers: ThemeDrawers
-  loaders: ThemeLoaders
-  accordions: ThemeAccordions
-  swipers: ThemeSwipers
-  labels: ThemeLabels
-  popovers: ThemePopovers
-  sizes: ThemeSizes
-  // fields
-  defaultFields: ThemeDefaultFields
-  hints: ThemeHints
-  checkboxes: ThemeCheckboxes
-  toggles: ThemeToggles
-  dateTimePickerCommon: ThemeDateTimePickerCommon
   textareas: ThemeTextareas
-  filedrops: ThemeFiledrops
-  radios: ThemeRadios
-  radioTabs: ThemeRadioTabs
+  texts: ThemeTexts
+  textsFontFamily: ThemeTextsFontFamily
+  textsFontWeights: ThemeTextsFontWeights
+  textsTextTransform: ThemeTextsTextTransform
+  timingFunction: ThemeTimingFunction
+  toEm: (int: number) => string
+  toPx: (int?: number) => string
+  toRem: (int?: number) => string
+  toasts: ThemeToasts
+  toggles: ThemeToggles
+  tooltips: CSSObject
+  transformers: {
+    border: (value: CSSScalar) => CSSScalar
+    px: (value: CSSScalar) => CSSScalar
+  }
+  transitions: ThemeTransitions
+  underline: ThemeUnderline
 }

@@ -3,10 +3,10 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 
 export interface ThemePaginations {
-  default: CSSObject
-  item: CSSObject
   active: CSSObject
+  default: CSSObject
   disabled: CSSObject
+  item: CSSObject
 }
 
 export const getPaginations = (theme: WuiTheme): ThemePaginations => {

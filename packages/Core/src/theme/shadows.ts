@@ -1,6 +1,6 @@
 export type ThemeShadows = {
-  sm: string
   md: string
+  sm: string
 }
 
 export const shadows: ThemeShadows = {

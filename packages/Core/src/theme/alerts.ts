@@ -9,9 +9,9 @@ type Sizes = 'sm' | 'md'
 type AttributesState = CSSObject
 
 export type ThemeAlerts = {
-  sizes: Record<Sizes, { padding?: string }>
   default: CSSObject
-  title: Record<State, { color: string }>
+  sizes: Record<Sizes, { padding?: string }>
+  title: Record<State, { color: CSSObject['color'] }>
 } & Record<State, AttributesState>
 
 export const getAlerts = (theme: WuiTheme): ThemeAlerts => {

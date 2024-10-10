@@ -31,10 +31,10 @@ import * as S from './styles'
 
 export type OptionValue = string | number
 export type Option = {
+  disabled?: boolean
+  icon?: React.ReactElement
   label: string
   value: OptionValue
-  icon?: React.ReactElement
-  disabled?: boolean
 }
 export type OptionGroup = { label: string; options: Option[] }
 export type OptionItem = Option | OptionGroup
@@ -42,33 +42,33 @@ export type Options = Array<Option | OptionGroup>
 export type SelectValue = string | number | string[] | Option | (string | number | Option)[]
 
 export interface SelectOptions extends DefaultFieldStylesProps {
+  allowUnselectFromList?: boolean
   /** We need to add `autoComplete` off to avoid select UI issues when is an input */
   autoComplete?: string
   autoFocus?: boolean
+  disableCloseOnSelect?: boolean
   disabled?: boolean
+  groupsEnabled?: boolean
   icon?: React.ReactElement
   id?: string
   isClearable?: boolean
   isCreatable?: boolean
   isMultiple?: boolean
   isSearchable?: boolean
-  options: Options
   name?: string
   onBlur?: () => void
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void
   onChange?: (value: OptionValue | OptionValue[], event?: CreateEvent) => void
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
   onCreate?: (option: string, event: CreateEvent) => void
   onFocus?: () => void
+  options: Options
   placeholder?: string
   renderCreateItem?: (inputValue: SelectValue) => void
+  renderGroupHeader?: (option: OptionGroup) => React.ReactNode
   renderItem?: (item: Option | unknown, isItemSelected?: boolean) => string | React.ReactElement
   renderMultiple?: (values: Option[], handleRemove: (value: string) => void) => React.ReactElement
-  value?: SelectValue
-  allowUnselectFromList?: boolean
-  disableCloseOnSelect?: boolean
-  groupsEnabled?: boolean
-  renderGroupHeader?: (option: OptionGroup) => React.ReactNode
   transparent?: boolean
+  value?: SelectValue
 }
 export type SelectProps = CreateWuiProps<
   'input',
@@ -84,35 +84,35 @@ const Downshift: typeof DownshiftImport = DownshiftImport.default || DownshiftIm
 export const Select = forwardRef<'input', SelectProps>(
   (
     {
+      allowUnselectFromList,
       autoComplete = 'off',
       autoFocus,
       dataTestId,
+      disableCloseOnSelect,
       disabled,
+      groupsEnabled,
       icon,
       id,
       isClearable,
       isCreatable,
       isMultiple,
       isSearchable,
-      options: defaultOptions = [],
       name,
       onBlur,
       onChange,
       onClick,
       onCreate,
       onFocus,
+      options: defaultOptions = [],
       placeholder = 'Choose from…',
       renderCreateItem = (inputValue: string) => `Create "${inputValue}"`,
+      renderGroupHeader,
       renderItem = itemToString,
       renderMultiple = multipleSelections,
       size = 'md',
+      transparent,
       value: defaultSelected,
       variant,
-      allowUnselectFromList,
-      disableCloseOnSelect,
-      groupsEnabled,
-      renderGroupHeader,
-      transparent,
       ...rest
     }: SelectProps,
     ref: React.MutableRefObject<HTMLInputElement>
@@ -360,7 +360,7 @@ export const Select = forwardRef<'input', SelectProps>(
                   {
                     options.reduce(
                       (
-                        acc: { itemsToRender: React.ReactElement[]; itemIndex: number },
+                        acc: { itemIndex: number; itemsToRender: React.ReactElement[] },
                         result: OptionItem,
                         resultIndex: number
                       ) => {

@@ -5,35 +5,35 @@ import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
 
 export type ThemeDefaultFields = {
-  default: CSSObject
-  sizes: Record<Size, CSSObject>
-  iconPlacement: Record<Size, CSSObject>
   checkableField: {
     checked: CSSObject
     disabled: CSSObject
   }
+  checkablelabel: {
+    checked: CSSObject
+    default: CSSObject
+  }
+  default: CSSObject
   disabled: CSSObject
-  placeholder: CSSObject
+  fieldset: CSSObject
   focused: {
     default: CSSObject & ReturnType<ThemeFocus>
     error: CSSObject & ReturnType<ThemeFocus>
-    warning: CSSObject & ReturnType<ThemeFocus>
-    success: CSSObject & ReturnType<ThemeFocus>
     info: CSSObject & ReturnType<ThemeFocus>
+    success: CSSObject & ReturnType<ThemeFocus>
+    warning: CSSObject & ReturnType<ThemeFocus>
   }
-  checkablelabel: {
-    default: CSSObject
-    checked: CSSObject
-  }
+  iconPlacement: Record<Size, CSSObject>
+  placeholder: CSSObject
   select: {
     default: CSSObject
+    disabled: CSSObject
     existing: CSSObject
     highlighted: CSSObject
-    selectedAndHighlighted: CSSObject
     selected: CSSObject
-    disabled: CSSObject
+    selectedAndHighlighted: CSSObject
   }
-  fieldset: CSSObject
+  sizes: Record<Size, CSSObject>
 }
 
 export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {

@@ -6,18 +6,18 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import * as S from './styles'
 
 export interface AccordionOptions {
-  title: string | JSX.Element
   icon?: JSX.Element
   /**
    * store from useAccordion()
    */
   store: UseAccordion
+  title: string | JSX.Element
 }
 
 export type AccordionProps = CreateWuiProps<'div', AccordionOptions>
 
 export const Accordion = forwardRef<'div', AccordionProps>(
-  ({ children, icon = <RightIcon />, title, store, dataTestId, ...rest }, ref) => {
+  ({ children, dataTestId, icon = <RightIcon />, store, title, ...rest }, ref) => {
     return (
       <S.Accordion data-testid={dataTestId} ref={ref} {...rest}>
         <S.Disclosure data-testid={dataTestId ? `${dataTestId}-title` : undefined} store={store}>

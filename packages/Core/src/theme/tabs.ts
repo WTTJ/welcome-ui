@@ -5,27 +5,27 @@ import { WuiTheme } from './types'
 type Size = 'sm' | 'md'
 
 export type ThemeTabs = {
-  tabsBorder: {
-    horizontal: CSSObject
-    vertical: CSSObject
-  }
-  item: {
-    default: CSSObject
-    active: CSSObject
-    focus: CSSObject
-    disabled: CSSObject
-  }
-  panel: {
-    vertical: CSSObject
-    horizontal: CSSObject
-  }
   activeBar: {
     horizontal: CSSObject
     vertical: CSSObject
   }
-  size: Record<Size, CSSObject>
-  icon: CSSObject
   badge: CSSObject
+  icon: CSSObject
+  item: {
+    active: CSSObject
+    default: CSSObject
+    disabled: CSSObject
+    focus: CSSObject
+  }
+  panel: {
+    horizontal: CSSObject
+    vertical: CSSObject
+  }
+  size: Record<Size, CSSObject>
+  tabsBorder: {
+    horizontal: CSSObject
+    vertical: CSSObject
+  }
 }
 
 export const getTabs = (theme: WuiTheme): ThemeTabs => {

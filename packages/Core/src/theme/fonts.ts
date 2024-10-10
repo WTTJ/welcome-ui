@@ -2,13 +2,13 @@ import { WuiTheme } from './types'
 
 type FontFace = {
   display?: FontDisplay
+  extensions?: string[]
   isVariable?: boolean
   stretch?: string
   style?: string
-  url: string
   uniCodeRange?: string
+  url: string
   weight?: string
-  extensions?: string[]
 }
 
 export type ThemeFontFaces = {

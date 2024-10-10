@@ -8,9 +8,9 @@ type ToastWrapperProps = {
   calculateOffset: (
     toast: Toast,
     opts?: {
-      reverseOrder?: boolean
-      gutter?: number
       defaultPosition?: ToastPosition
+      gutter?: number
+      reverseOrder?: boolean
     }
   ) => number
   toast: Toast & CustomToastOptions

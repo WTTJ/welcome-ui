@@ -3,8 +3,8 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 
 export type ThemePopovers = {
-  default: CSSObject
   content: CSSObject
+  default: CSSObject
   title: CSSObject
 }
 

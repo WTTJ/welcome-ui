@@ -14,7 +14,7 @@ const sizeOfElements = css`
     width: ${contentWidthDesktop};
   }
 
-  // for big screens
+  /* for big screens */
   @media (min-width: 1700px) {
     max-width: 1600;
   }
@@ -46,7 +46,7 @@ export const Content = styled.divBox`
       max-width: ${contentWidthDesktop};
     }
 
-    // for big screens
+    /* for big screens */
     @media (min-width: 1700px) {
       max-width: 1600;
     }

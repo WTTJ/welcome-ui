@@ -48,6 +48,7 @@ export const Search = forwardRef<'input', SearchProps>(
       autoFocus,
       dataTestId,
       disabled,
+      groupsEnabled,
       icon,
       id,
       itemToString,
@@ -58,14 +59,13 @@ export const Search = forwardRef<'input', SearchProps>(
       onClick,
       onFocus,
       placeholder = 'Search…',
+      renderGroupHeader,
       renderItem,
       search,
       size = 'md',
       throttle = 500,
       value: selected = EMPTY_STRING,
       variant,
-      groupsEnabled,
-      renderGroupHeader,
       ...rest
     },
     ref

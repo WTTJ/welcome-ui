@@ -3,10 +3,10 @@ import { css, th } from '@xstyled/styled-components'
 import { getVariantColor, Variant } from './variants'
 
 type FieldIconSizes = {
-  xs: 'xs'
-  sm: 'sm'
-  md: 'sm'
   lg: 'sm'
+  md: 'sm'
+  sm: 'sm'
+  xs: 'xs'
 }
 
 export const FIELD_ICON_SIZE: FieldIconSizes = {
@@ -19,12 +19,12 @@ export const FIELD_ICON_SIZE: FieldIconSizes = {
 export type Size = 'xs' | 'sm' | 'md' | 'lg'
 export type FieldIconSize = 'xs' | 'sm'
 export type DefaultFieldStylesProps = Partial<{
-  size: Size
-  variant: Variant
-  transparent?: boolean
-  isClearable?: boolean
   hasIcon?: boolean
   iconPlacement?: 'right' | 'left' | 'both'
+  isClearable?: boolean
+  size: Size
+  transparent?: boolean
+  variant: Variant
 }>
 type DefaultFieldStyles = (args: DefaultFieldStylesProps) => ReturnType<typeof css>
 

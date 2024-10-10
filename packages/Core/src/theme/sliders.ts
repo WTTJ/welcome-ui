@@ -4,11 +4,11 @@ import { WuiTheme } from './types'
 
 export type ThemeSliders = {
   default: CSSObject
-  selector: CSSObject
-  focused: CSSObject
-  rangeInput: CSSObject
   disabled: CSSObject
+  focused: CSSObject
   output: CSSObject
+  rangeInput: CSSObject
+  selector: CSSObject
 }
 
 export const getSliders = (theme: WuiTheme): ThemeSliders => {

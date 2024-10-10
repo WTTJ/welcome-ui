@@ -7,8 +7,8 @@ import * as S from './styles'
 
 export interface FooterOptions {
   information?: {
-    title: string
     subtitle: string
+    title: string
   }
 }
 

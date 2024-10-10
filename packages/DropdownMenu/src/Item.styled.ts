@@ -16,5 +16,5 @@ export const Item = styled.button`
     outline: none !important; /* important for firefox */
   }
 
-  ${system}
+  ${system};
 `

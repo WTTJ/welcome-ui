@@ -18,9 +18,9 @@ export interface InputTextOptions extends DefaultFieldStylesProps {
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void
   placeholder?: string
+  transparent?: boolean
   type?: string
   value?: string
-  transparent?: boolean
 }
 
 export type InputTextProps = CreateWuiProps<'input', InputTextOptions>

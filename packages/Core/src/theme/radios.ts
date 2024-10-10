@@ -3,12 +3,12 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 
 export type ThemeRadios = {
-  default: CSSObject
   checked: CSSObject
   checkedCenteredColor: {
     default: string
     disabled: string
   }
+  default: CSSObject
 }
 
 export const getRadios = (theme: WuiTheme): ThemeRadios => {

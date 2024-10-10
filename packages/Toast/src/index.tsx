@@ -16,8 +16,8 @@ type NotificationsProps = { pauseOnHover?: boolean }
 export type ToastOptions = {
   duration?: number
   id?: string
-  position?: ToastPosition
   onClose?: () => void
+  position?: ToastPosition
 }
 
 export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = true }) => {

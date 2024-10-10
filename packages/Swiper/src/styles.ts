@@ -172,7 +172,7 @@ export const Container = styled.ulBox<
       `}
     }
 
-    @media (min-width: 4xl) {
+    @media (min-width: xl) {
       ${desktop &&
       fullWidth &&
       css`

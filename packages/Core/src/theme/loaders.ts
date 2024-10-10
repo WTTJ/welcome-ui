@@ -1,10 +1,10 @@
 import { WuiTheme } from './types'
 
 export type ThemeLoaders = {
-  xs: string
-  sm: string
-  md: string
   lg: string
+  md: string
+  sm: string
+  xs: string
 }
 
 export const getLoaders = ({ toRem }: WuiTheme): ThemeLoaders => ({

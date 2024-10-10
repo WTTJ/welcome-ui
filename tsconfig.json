@@ -14,5 +14,10 @@
     "packages/**/tests/*.tsx",
     "types"
   ],
-  "exclude": ["dist", "icons/**/*", "packages/**/node_modules", "packages/**/dist"]
+  "exclude": [
+    "dist",
+    "icons/**/*",
+    "packages/**/node_modules",
+    "packages/**/dist"
+  ]
 }

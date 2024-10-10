@@ -3,8 +3,8 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 
 export type ThemeRadioTabs = {
-  default: CSSObject
   checked: CSSObject
+  default: CSSObject
 }
 
 export const getRadioTabs = (theme: WuiTheme): ThemeRadioTabs => {

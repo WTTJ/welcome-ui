@@ -25,9 +25,9 @@ export type Variant =
 export interface ButtonOptions {
   disabled?: boolean
   isLoading?: boolean
+  shape?: Shape
   size?: Size
   variant?: Variant
-  shape?: Shape
 }
 
 export type ButtonProps = CreateWuiProps<'button', ButtonOptions>

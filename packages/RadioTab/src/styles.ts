@@ -42,9 +42,9 @@ const rowStyles = css`
 export const Label = styled.label<
   {
     checked?: boolean
-    flexDirection?: WuiProps['flexDirection']
     disabled?: boolean
     disabledIcon?: React.ReactElement
+    flexDirection?: WuiProps['flexDirection']
   } & DefaultFieldStylesProps
 >(
   ({ checked, flexDirection, size, variant }) => css`

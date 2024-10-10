@@ -3,15 +3,15 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 
 export type ThemeTables = {
-  th: CSSObject
   td: CSSObject
+  th: CSSObject
   tr: {
+    clickable: CSSObject
     default: CSSObject
     error: CSSObject
-    warning: CSSObject
     info: CSSObject
     success: CSSObject
-    clickable: CSSObject
+    warning: CSSObject
   }
 }
 

@@ -7,17 +7,17 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import * as S from './styles'
 
 export type Option = {
+  hint?: string
   label: string | number
   value: string | number
-  hint?: string
 }
 
 export interface RadioGroupOptions {
   name: string
+  onChange?: (value: Option['value']) => void
   options: Option[]
   renderOption?: React.ElementType
   value?: string
-  onChange?: (value: Option['value']) => void
 }
 
 export type RadioGroupProps = CreateWuiProps<
@@ -28,17 +28,17 @@ export type RadioGroupProps = CreateWuiProps<
 export const RadioGroup = forwardRef<'fieldset', RadioGroupProps>(
   (
     {
+      dataTestId,
       flexDirection,
-      maxWidth,
+      id,
       label,
+      maxWidth,
       name,
+      onChange,
       options = [],
       renderOption: Component = Radio,
       required,
-      dataTestId,
-      onChange,
       value,
-      id,
       ...rest
     },
     ref

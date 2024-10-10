@@ -13,7 +13,9 @@ const sliderSelector = css`
   height: 20;
   width: 20;
   transform: scale(1);
-  transition: background-color ${th.transition('medium')}, border-color ${th.transition('medium')},
+  transition:
+    background-color ${th.transition('medium')},
+    border-color ${th.transition('medium')},
     transform 100ms ease-in-out;
 `
 
@@ -217,7 +219,10 @@ export const Output = styled.outputBox<OutputProps>(
   ({ isVisible }) => css`
     opacity: 0;
     visibility: hidden;
-    transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out, transform 150ms ease-in-out;
+    transition:
+      opacity 150ms ease-in-out,
+      visibility 150ms ease-in-out,
+      transform 150ms ease-in-out;
     position: absolute;
     text-align: center;
     transform: translate(-50%, calc(-100% + -${th('space.xs')}));

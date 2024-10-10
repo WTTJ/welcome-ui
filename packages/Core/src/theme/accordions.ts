@@ -3,11 +3,11 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 
 export type ThemeAccordions = {
-  padding: string
-  wrapper: CSSObject
-  icon: CSSObject
   content: CSSObject
+  icon: CSSObject
+  padding: string
   title: CSSObject
+  wrapper: CSSObject
 }
 
 export const getAccordions = (theme: WuiTheme): ThemeAccordions => {

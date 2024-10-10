@@ -9,9 +9,9 @@ const SM_LINE_HEIGHT_ADJUSTMENTS = '0.12rem ! important'
 type State = 'default' | 'checked' | 'disabled' | 'sizes'
 
 export type ThemeToggles = {
-  item: Record<State, CSSObject>
   after: Record<State, CSSObject>
   icon: Record<'sizes' | 'position', CSSObject>
+  item: Record<State, CSSObject>
 }
 
 export const getToggles = (theme: WuiTheme): ThemeToggles => {
