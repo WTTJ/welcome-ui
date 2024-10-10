@@ -20,6 +20,8 @@ const titleBlockDesktop = '6rem'
 const Wrapper = styled.divBox`
   display: flex;
   flex-direction: column;
+  border-radius: xxl;
+  overflow: hidden;
 
   > img {
     width: auto;

@@ -30,7 +30,7 @@ export type ThemeTags = {
 }
 
 export const getTags = (theme: WuiTheme): ThemeTags => {
-  const { borderWidths, colors, fontSizes, fontWeights, space, toRem } = theme
+  const { borderWidths, colors, fontSizes, fontWeights, radii, space, toRem } = theme
 
   const sizes = {
     xs: toRem(20),
@@ -55,6 +55,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
       fontWeight: fontWeights.medium,
       backgroundColor: colors['light-900'],
       color: colors['nude-900'],
+      borderRadius: radii.md,
     },
     variants: {
       default: {
@@ -149,6 +150,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
         height: sizes.xs,
         fontSize: fontSizes.xs,
         gap: space.xs,
+        borderRadius: radii.sm,
       },
       sm: {
         padding: `${space.xs} ${space.sm}`,

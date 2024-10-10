@@ -11,7 +11,7 @@ export type ThemeAccordions = {
 }
 
 export const getAccordions = (theme: WuiTheme): ThemeAccordions => {
-  const { borderWidths, colors, fontSizes, space, texts, transitions } = theme
+  const { borderWidths, colors, fontSizes, radii, space, texts, transitions } = theme
 
   return {
     padding: space.lg,
@@ -19,6 +19,7 @@ export const getAccordions = (theme: WuiTheme): ThemeAccordions => {
       backgroundColor: colors['light-900'],
       transition: transitions.medium,
       border: `${borderWidths.sm} solid ${colors.border}`,
+      borderRadius: radii.md,
     },
     icon: {
       color: colors['dark-900'],
