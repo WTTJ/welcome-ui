@@ -1,7 +1,12 @@
 {
-  "packages": ["packages/**", "icons"],
-  "ignore": ["website"],
-  "version": "5.22.0-alpha.0",
+  "packages": [
+    "packages/**",
+    "icons"
+  ],
+  "ignore": [
+    "website"
+  ],
+  "version": "5.22.0",
   "npmClient": "yarn",
   "useNx": false
 }
