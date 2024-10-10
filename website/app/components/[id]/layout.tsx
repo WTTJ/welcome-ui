@@ -56,7 +56,7 @@ const Layout = ({ children, params }: LayoutProps) => {
             </Button>
             <Button
               as="a"
-              href={`https://www.npmjs.com/package/${packageName}`}
+              href={`https://www.npmjs.com/package/@welcome-ui/${packageName}`}
               rel="noreferrer noopener"
               size="sm"
               target="_blank"
