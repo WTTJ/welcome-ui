@@ -18,6 +18,8 @@ const newRadiiValues = {
   '8px': 'lg',
   16: 'xl',
   '16px': 'xl',
+  24: 'xxl',
+  '24px': 'xxl',
 }
 
 const getNewRadiiValue = value => newRadiiValues[value] || value
