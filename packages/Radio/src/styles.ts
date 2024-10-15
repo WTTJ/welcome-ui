@@ -56,7 +56,7 @@ export const Label = styled(WUILabel)`
   max-width: 100%;
   /** we need to reset margin-bottom from Label component */
   margin-bottom: 0 !important;
-  ${system}
+  ${system};
 `
 
 export const Input = styled.div`

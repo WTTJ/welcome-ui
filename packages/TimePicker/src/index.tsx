@@ -14,12 +14,12 @@ import { ReactDatePickerProps } from 'react-datepicker'
 import * as S from './styles'
 
 export interface TimePickerOptions {
-  onChange?: (date?: Date) => void
   onBlur?: CustomInputOptions['handleBlur']
+  onChange?: (date?: Date) => void
   onFocus?: CustomInputOptions['handleFocus']
   placeholder?: ReactDatePickerProps['placeholderText']
-  value: string | Date
   transparent?: boolean
+  value: string | Date
 }
 
 export type TimePickerProps = CreateWuiProps<
@@ -36,17 +36,17 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
       dataTestId,
       dateFormat = 'HH:mm',
       disabled,
-      value = DEFAULT_DATE,
+      icon,
+      iconPlacement = 'left',
       onBlur,
       onChange,
       onFocus,
-      size = 'md',
-      icon,
-      iconPlacement = 'left',
       placeholder,
       popperProps,
+      size = 'md',
       timeIntervals = 15,
       transparent,
+      value = DEFAULT_DATE,
       ...rest
     },
     ref

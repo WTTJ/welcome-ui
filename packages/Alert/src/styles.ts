@@ -13,7 +13,7 @@ export const Alert = styled(Box)<AlertOptions>(
     ${th('alerts.default')};
     ${th(`alerts.${variant}`)};
     ${th(`alerts.sizes.${size}`)};
-    ${system}
+    ${system};
   `
 )
 
@@ -26,7 +26,7 @@ export const Title = styled(Text).attrs(({ variant }: AlertOptions) => ({
     margin: 0;
     margin-bottom: sm;
     ${th(`alerts.title.${alertVariant}`)};
-    ${system}
+    ${system};
 
     &:only-child {
       margin-bottom: 0;

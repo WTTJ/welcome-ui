@@ -5,8 +5,8 @@ import { shouldForwardProp } from '@welcome-ui/system'
 import { Variant } from './index'
 
 export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<{
-  variant: Variant
   isExternal?: boolean
+  variant: Variant
 }>(
   ({ isExternal, variant = 'primary' }) => css`
     display: inline-flex;

@@ -22,9 +22,9 @@ export interface EmojiPickerOptions {
   inputSearchPlaceholder?: string
   onChange?: (value: string) => void
   popoverAriaLabel?: string
+  store: UseEmojiPicker
   tabListAriaLabel?: string
   value: string | null
-  store: UseEmojiPicker
 }
 
 export type EmojiPickerProps = CreateWuiProps<'div', EmojiPickerOptions>
@@ -38,9 +38,9 @@ const EmojiPickerComponent = forwardRef<'div', EmojiPickerProps>(
       inputSearchPlaceholder = 'Search an emoji',
       onChange,
       popoverAriaLabel = 'Emoji picker',
+      store,
       tabListAriaLabel = 'Emoji picker tabs',
       value,
-      store,
     },
     ref
   ) => {

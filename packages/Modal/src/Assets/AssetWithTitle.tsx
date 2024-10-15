@@ -9,9 +9,9 @@ import * as S from './styles'
 
 type AssetWithTitleProps = {
   children: React.ReactNode
+  customContent?: JSX.Element | string
   subtitle?: JSX.Element | string
   title?: JSX.Element | string
-  customContent?: JSX.Element | string
 }
 
 const titleBlockMobile = '4rem'

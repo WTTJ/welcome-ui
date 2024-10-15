@@ -10,11 +10,11 @@ export interface LabelOptions {
   checkableField?: boolean
   disabled?: boolean
   disabledIcon?: JSX.Element
-  icon?: JSX.Element
-  variant?: Variant
-  required?: boolean
-  withDisabledIcon?: boolean
   htmlFor?: string
+  icon?: JSX.Element
+  required?: boolean
+  variant?: Variant
+  withDisabledIcon?: boolean
 }
 
 export type LabelProps = CreateWuiProps<'label', LabelOptions>

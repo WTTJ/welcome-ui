@@ -4,6 +4,7 @@ import { WuiTheme } from './types'
 import { Options } from './core'
 
 export type ThemeFontSizes = {
+  [key: number]: string
   h0: string
   h1: string
   h2: string
@@ -14,10 +15,9 @@ export type ThemeFontSizes = {
   lg: string
   md: string
   sm: string
-  xs: string
   'subtitle-md': string
   'subtitle-sm': string
-  [key: number]: string
+  xs: string
 }
 
 export const getFontSizes = (unit: string, theme: WuiTheme): ThemeFontSizes => {
@@ -35,14 +35,14 @@ export const getFontSizes = (unit: string, theme: WuiTheme): ThemeFontSizes => {
     lg: convert(18),
     md: convert(16),
     sm: convert(14),
-    xs: convert(12),
     'subtitle-md': convert(13),
     'subtitle-sm': convert(11),
+    xs: convert(12),
   }
 }
 
 export type ThemeLineHeights = {
-  html: number | string
+  [key: number]: number | string
   h0: number | string
   h1: number | string
   h2: number | string
@@ -50,13 +50,13 @@ export type ThemeLineHeights = {
   h4: number | string
   h5: number | string
   h6: number | string
+  html: number | string
   lg: number | string
   md: number | string
   sm: number | string
-  xs: number | string
   'subtitle-md': number | string
   'subtitle-sm': number | string
-  [key: number]: number | string
+  xs: number | string
 }
 
 export const getLineHeights = ({
@@ -85,10 +85,10 @@ export const getLineHeights = ({
 }
 
 export type ThemeFontWeights = {
-  regular: number
-  medium: number
-  bold: number
   [key: string]: number
+  bold: number
+  medium: number
+  regular: number
 }
 
 export const fontWeights: ThemeFontWeights = {
@@ -98,7 +98,7 @@ export const fontWeights: ThemeFontWeights = {
 }
 
 export type ThemeLetterSpacings = {
-  html: string
+  [key: string]: string
   h0: string
   h1: string
   h2: string
@@ -106,13 +106,13 @@ export type ThemeLetterSpacings = {
   h4: string
   h5: string
   h6: string
+  html: string
   lg: string
   md: string
   sm: string
-  xs: string
   'subtitle-md': string
   'subtitle-sm': string
-  [key: string]: string
+  xs: string
 }
 
 export const getLetterSpacings = ({
@@ -141,6 +141,7 @@ export const getLetterSpacings = ({
 }
 
 export type ThemeTextsFontWeights = {
+  [key: string]: number
   h0: number
   h1: number
   h2: number
@@ -151,10 +152,9 @@ export type ThemeTextsFontWeights = {
   lg: number
   md: number
   sm: number
-  xs: number
   'subtitle-md': number
   'subtitle-sm': number
-  [key: string]: number
+  xs: number
 }
 
 export const getTextsFontWeights = (theme: WuiTheme): ThemeTextsFontWeights => {
@@ -171,13 +171,14 @@ export const getTextsFontWeights = (theme: WuiTheme): ThemeTextsFontWeights => {
     lg: fontWeights.regular,
     md: fontWeights.regular,
     sm: fontWeights.regular,
-    xs: fontWeights.regular,
     'subtitle-md': fontWeights.bold,
     'subtitle-sm': fontWeights.medium,
+    xs: fontWeights.regular,
   }
 }
 
 export type ThemeTextsFontFamily = {
+  [key: string]: string
   h0: string
   h1: string
   h2: string
@@ -187,7 +188,6 @@ export type ThemeTextsFontFamily = {
   h6: string
   'subtitle-md': string
   'subtitle-sm': string
-  [key: string]: string
 }
 
 export const getTextsFontFamily = (theme: WuiTheme): ThemeTextsFontFamily => {
@@ -207,9 +207,9 @@ export const getTextsFontFamily = (theme: WuiTheme): ThemeTextsFontFamily => {
 }
 
 export type ThemeTextsTextTransform = {
+  [key: string]: string
   'subtitle-md': string
   'subtitle-sm': string
-  [key: string]: string
 }
 
 export const getTextsTextTransform = (): ThemeTextsTextTransform => {
@@ -220,6 +220,7 @@ export const getTextsTextTransform = (): ThemeTextsTextTransform => {
 }
 
 export type ThemeTextsFontColors = {
+  [key: number]: string
   h0: string
   h1: string
   h2: string
@@ -227,7 +228,6 @@ export type ThemeTextsFontColors = {
   h4: string
   h5: string
   h6: string
-  [key: number]: string
 }
 
 export const getTextFontColors = (theme: WuiTheme): ThemeTextsFontColors => {
@@ -248,11 +248,11 @@ export type ThemeTexts = {
   [key: string]: Partial<{
     color: CSSObject['color']
     fontFamily: CSSObject['fontFamily']
-    fontWeight: CSSObject['fontWeight']
     fontSize: CSSObject['fontSize']
+    fontWeight: CSSObject['fontWeight']
+    letterSpacing: CSSObject['letterSpacing']
     lineHeight: CSSObject['lineHeight']
     textTransform: CSSObject['textTransform']
-    letterSpacing: CSSObject['letterSpacing']
   }>
 }
 
@@ -284,9 +284,9 @@ export const getTexts = (theme: WuiTheme): ThemeTexts => {
 }
 
 export type ThemeFonts = {
-  texts: string
   headings: string
   icons: string
+  texts: string
 }
 
 export const getFonts = (

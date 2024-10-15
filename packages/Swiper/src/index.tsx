@@ -30,9 +30,9 @@ export interface UseSwiperProps {
   navigationSize?: Size
   /** Number of slides to show per view */
   slidesPerView?: {
+    desktop: number
     mobile: number
     tablet: number
-    desktop: number
   }
   /** Space between each slides */
   spaceBetween?: number
@@ -40,31 +40,31 @@ export interface UseSwiperProps {
   withDarkUI?: boolean
   /** Show left and rigth navigation arrows on mobile/tablet or/and desktop */
   withNavigation?: {
-    mobile: boolean
     desktop: boolean
+    mobile: boolean
   }
   /** Show bottom pagination on mobile/tablet or/and desktop */
   withPagination?: {
-    mobile: boolean
     desktop: boolean
+    mobile: boolean
   }
 }
 
 export const useSwiper = (options: UseSwiperProps = {}) => {
   const {
+    autoplay = false,
     centeredSlides = false,
+    duration = 5000,
     firstSlideToShow = 0,
     fullWidth = false,
     id = 'swiper',
+    loop = false,
     navigationSize = 'md' as Size,
     slidesPerView = { mobile: 1, tablet: 1, desktop: 1 },
     spaceBetween = 20,
+    withDarkUI = false,
     withNavigation = { mobile: true, desktop: true },
     withPagination = { mobile: false, desktop: false },
-    loop = false,
-    autoplay = false,
-    duration = 5000,
-    withDarkUI = false,
   } = options
 
   const shouldLoop = loop || autoplay

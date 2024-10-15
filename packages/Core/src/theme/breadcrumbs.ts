@@ -3,12 +3,12 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 
 export type ThemeBreadcrumbs = {
-  list: CSSObject
   item: {
+    active: CSSObject
     default: CSSObject
     hover: CSSObject
-    active: CSSObject
   }
+  list: CSSObject
   separator: CSSObject
 }
 

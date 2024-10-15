@@ -4,9 +4,9 @@ import { WuiTheme } from './types'
 
 export type ThemeFiledrops = {
   default: CSSObject
+  disabled: CSSObject
   dragAccept: Record<string, unknown>
   dragReject: Record<string, unknown>
-  disabled: CSSObject
 }
 
 export const getFiledrops = (theme: WuiTheme): ThemeFiledrops => {

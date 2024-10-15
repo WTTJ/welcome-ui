@@ -4,17 +4,17 @@ import { WuiTheme } from './types'
 
 export type ThemeAccordions = {
   default: CSSObject
-  variants: {
-    default: CSSObject
-    primary: CSSObject
-  }
   disabled: {
     default: CSSObject
     primary: CSSObject
   }
   sizes: {
-    sm: CSSObject
     md: CSSObject
+    sm: CSSObject
+  }
+  variants: {
+    default: CSSObject
+    primary: CSSObject
   }
 }
 

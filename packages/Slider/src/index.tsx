@@ -15,18 +15,18 @@ export const thumbWidth = 20
 
 export interface SliderOptions
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
-  onChange: (value: number) => void
-  min: number
-  max: number
-  value: number
   borderSelectorColor?: string
-  label?: string
-  hint?: string
-  step?: number
-  type?: Type
-  values?: number[]
-  tooltip?: boolean
   disabled?: boolean
+  hint?: string
+  label?: string
+  max: number
+  min: number
+  onChange: (value: number) => void
+  step?: number
+  tooltip?: boolean
+  type?: Type
+  value: number
+  values?: number[]
 }
 
 export type SliderProps = CreateWuiProps<'div', SliderOptions>
@@ -228,7 +228,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
         </Box>
 
         {hint && (
-          <Hint color="dark.400" mt={0}>
+          <Hint color="dark-400" mt={0}>
             {hint}
           </Hint>
         )}

@@ -22,9 +22,9 @@ import {
 } from './utils'
 
 export interface Emoji {
-  name: string
   alias: string
   category: string
+  name: string
   url?: string
 }
 
@@ -277,12 +277,12 @@ export const List: React.FC<ListProps> = ({
 }
 
 interface EmojiRowData {
-  rows: InternalEmoji[][]
-  currentRowIndex: number
   currentColIndex: number
+  currentRowIndex: number
   isOpen: boolean
   onClick: (alias: string) => void
   onMouseMove: (emoji: InternalEmoji) => void
+  rows: InternalEmoji[][]
 }
 
 type EmojiRowProps = ListChildComponentProps<EmojiRowData>

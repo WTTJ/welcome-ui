@@ -60,11 +60,11 @@ export interface FileDropOptions {
   accept?: Accept
   children?: (state: ChildrenType) => JSX.Element
   fileName?: string
-  isClearable?: boolean
-  isEditable?: boolean
   forceFileType?: ForceFileType
   handleAddFile?: (event: DropEvent | React.ChangeEvent<HTMLInputElement> | CreateEvent) => void
   handleRemoveFile?: (event: DropEvent | React.ChangeEvent<HTMLInputElement> | CreateEvent) => void
+  isClearable?: boolean
+  isEditable?: boolean
   name?: string
   onBlur?: () => void
   onChange?: (event: DropEvent | React.ChangeEvent<HTMLInputElement> | CreateEvent) => void

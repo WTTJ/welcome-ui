@@ -4,7 +4,6 @@ import { WuiTheme } from './types'
 
 export type ThemeLinks = {
   default: CSSObject
-  withExternalLink: CSSObject
   disabled: CSSObject
   primary: {
     default: CSSObject
@@ -14,6 +13,7 @@ export type ThemeLinks = {
     default: CSSObject
     hover: CSSObject
   }
+  withExternalLink: CSSObject
 }
 
 export const getLinks = (theme: WuiTheme): ThemeLinks => {

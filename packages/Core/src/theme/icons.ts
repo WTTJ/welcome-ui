@@ -1,11 +1,11 @@
 import { WuiTheme } from './types'
 
 export type ThemeIcons = {
-  xs: string
-  sm: string
-  md: string
   lg: string
+  md: string
+  sm: string
   xl: string
+  xs: string
   xxl: string
 }
 

@@ -2,7 +2,7 @@ import groupBy from 'lodash.groupby'
 
 import { Emoji } from './List'
 
-export type InternalEmoji = Emoji & { rowIndex: number; colIndex: number }
+export type InternalEmoji = Emoji & { colIndex: number; rowIndex: number }
 
 // We need to set the width & height of the list for react-window
 export const NB_EMOJIS_PER_ROW = 8

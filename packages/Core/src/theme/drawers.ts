@@ -6,15 +6,15 @@ type Size = 'sm' | 'md' | 'lg'
 
 export type ThemeDrawers = {
   backdrop: CSSObject
-  default: CSSObject
   closeButton: CSSObject
-  title: CSSObject
   content: CSSObject
+  default: CSSObject
   footer: CSSObject
   sizes: {
     horizontal: Record<Size, Record<'width', string>>
     vertical: Record<Size, Record<'height', string>>
   }
+  title: CSSObject
 }
 
 export const getDrawers = (theme: WuiTheme): ThemeDrawers => {

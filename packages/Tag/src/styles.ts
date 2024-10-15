@@ -16,8 +16,8 @@ const shapeStyles = (size: Size, w: string, h: string) => css`
 `
 
 export interface StyledTagProps {
-  hasLink: boolean
   hasClickAction: boolean
+  hasLink: boolean
   hasRemoveAction: boolean
   length: number
   size: Size

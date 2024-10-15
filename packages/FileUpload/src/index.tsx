@@ -12,8 +12,8 @@ const DEFAULT_MAX_FILE_SIZE = 2000000
 const DEFAULT_FILE_TYPES = '*/*'
 
 export type FileWithPreview = File & {
-  preview?: string
   name?: string
+  preview?: string
 }
 export type FileWithPreviewType = FileWithPreview | string
 export type HandleRemoveType = (file: FileWithPreviewType) => void
@@ -21,18 +21,18 @@ export type HandleRemoveType = (file: FileWithPreviewType) => void
 export interface FileUploadOptions {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg" */
   accept?: string
-  maxSize?: number
-  handleAddFile?: (files: FileWithPreviewType[] | FileWithPreviewType) => void
-  handleRemoveFile?: HandleRemoveType
-  preview?: typeof DefaultPreview
-  onBlur?: () => void
-  onChange?: (event: ReturnType<typeof createEvent>) => void
   children?: (props: {
-    openFile: () => void
     disabled: boolean
     files: FileWithPreviewType[]
     onRemoveFile: HandleRemoveType
+    openFile: () => void
   }) => React.ReactNode
+  handleAddFile?: (files: FileWithPreviewType[] | FileWithPreviewType) => void
+  handleRemoveFile?: HandleRemoveType
+  maxSize?: number
+  onBlur?: () => void
+  onChange?: (event: ReturnType<typeof createEvent>) => void
+  preview?: typeof DefaultPreview
 }
 
 export type FileUploadProps = CreateWuiProps<'input', FileUploadOptions>
@@ -55,17 +55,17 @@ export const FileUpload = forwardRef<'input', FileUploadProps>(
       disabled,
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       draggable,
+      handleAddFile,
+      handleRemoveFile,
       maxSize = DEFAULT_MAX_FILE_SIZE,
       multiple,
       name,
-      handleAddFile,
       onBlur,
       onChange,
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       onError,
-      handleRemoveFile,
-      value = [],
       preview: Preview = DefaultPreview,
+      value = [],
       ...rest
     },
     ref

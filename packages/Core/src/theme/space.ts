@@ -1,20 +1,20 @@
 import { WuiTheme } from './types'
 
 export type ThemeSpace = {
-  xxs: string
-  xs: string
-  sm: string
-  md: string
-  lg: string
-  xl: string
-  xxl: string
+  [key: string]: string
+  [key: number]: string
   '3xl': string
   '4xl': string
   '5xl': string
   '6xl': string
   '7xl': string
-  [key: string]: string
-  [key: number]: string
+  lg: string
+  md: string
+  sm: string
+  xl: string
+  xs: string
+  xxl: string
+  xxs: string
 }
 
 export const getSpace = (theme: WuiTheme): ThemeSpace => {

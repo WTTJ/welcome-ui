@@ -5,18 +5,18 @@ import { CreateWuiProps, forwardRef, WuiProps } from '@welcome-ui/system'
 export interface FlexOptions {
   /** same as alignItems */
   align?: WuiProps['alignItems']
-  /** same as justifyContent */
-  justify?: WuiProps['justifyContent']
-  /** same as flexWrap */
-  wrap?: WuiProps['flexWrap']
-  /** same as flexDirection */
-  direction?: WuiProps['flexDirection']
   /** same as flexBasis */
   basis?: WuiProps['flexBasis']
+  /** same as flexDirection */
+  direction?: WuiProps['flexDirection']
   /** same as flexGrow */
   grow?: WuiProps['flexGrow']
+  /** same as justifyContent */
+  justify?: WuiProps['justifyContent']
   /** same as flexShrink */
   shrink?: WuiProps['flexShrink']
+  /** same as flexWrap */
+  wrap?: WuiProps['flexWrap']
 }
 
 export type FlexProps = CreateWuiProps<'div', FlexOptions>

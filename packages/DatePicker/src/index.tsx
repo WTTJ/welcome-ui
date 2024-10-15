@@ -15,14 +15,14 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { ReactDatePickerProps } from 'react-datepicker'
 
 export interface DatePickerOptions {
-  onChange?: (date?: Date) => void
   onBlur?: CustomInputOptions['handleBlur']
+  onChange?: (date?: Date) => void
   onFocus?: CustomInputOptions['handleFocus']
-  useWeekdaysShort?: boolean
   placeholder?: ReactDatePickerProps['placeholderText']
   preventVirtualKeyboard?: boolean
-  value: string | Date
   transparent?: boolean
+  useWeekdaysShort?: boolean
+  value: string | Date
 }
 
 export type DatePickerProps = CreateWuiProps<
@@ -44,19 +44,19 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
       endYear = DEFAULT_DATE.getFullYear(),
       icon,
       iconPlacement = 'left',
-      showMonthYearPicker,
       locale,
       onBlur,
       onChange,
       onFocus,
       placeholder,
-      preventVirtualKeyboard = false,
       popperProps,
+      preventVirtualKeyboard = false,
+      showMonthYearPicker,
       size = 'md',
       startYear = 1900,
+      transparent,
       useWeekdaysShort = true,
       value = DEFAULT_DATE,
-      transparent,
       ...rest
     },
     ref

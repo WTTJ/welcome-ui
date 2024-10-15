@@ -50,7 +50,9 @@ export const Dialog = styled.divBox(
     max-width: 100%;
     overflow: auto;
     opacity: 0;
-    transition: opacity 250ms ease-in-out, margin-top 250ms ease-in-out;
+    transition:
+      opacity 250ms ease-in-out,
+      margin-top 250ms ease-in-out;
 
     &[data-enter] {
       opacity: 1;

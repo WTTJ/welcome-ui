@@ -10,16 +10,16 @@ import { Separator } from './Separator'
 import * as S from './styles'
 
 export interface DropdownMenuOptions extends Omit<Ariakit.MenuProps, 'gutter'> {
-  /** add custom props from styled system on DropdownMenu inner */
-  innerProps?: WuiProps
   /** default 4px (space.xs) */
   gutter?: keyof WuiTheme['space'] | number
+  /** add custom props from styled system on DropdownMenu inner */
+  innerProps?: WuiProps
 }
 
 export type DropdownMenuProps = CreateWuiProps<'div', DropdownMenuOptions>
 
 const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
-  ({ children, dataTestId, innerProps = {}, store, gutter = 'xs', ...rest }, ref) => {
+  ({ children, dataTestId, gutter = 'xs', innerProps = {}, store, ...rest }, ref) => {
     const theme = useTheme()
     const arrowElement = store.useState('arrowElement')
 

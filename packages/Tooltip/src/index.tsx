@@ -8,8 +8,8 @@ import * as S from './styles'
 export type TooltipOptions = {
   children: React.ReactNode
   content: string | JSX.Element
-  withArrow?: boolean
   fixed?: boolean
+  withArrow?: boolean
 } & Pick<Ariakit.TooltipStoreProps, 'placement'> &
   Pick<Ariakit.TooltipOptions, 'gutter'>
 

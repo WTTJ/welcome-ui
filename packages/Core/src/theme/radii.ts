@@ -1,14 +1,14 @@
 import { WuiTheme } from './types'
 
 export type ThemeRadii = {
+  [key: number]: string
+  full: string
+  lg: string
+  md: string
   none: string
   sm: string
-  md: string
-  lg: string
   xl: string
   xxl: string
-  full: string
-  [key: number]: string
 }
 
 export const getRadii = (theme: WuiTheme): ThemeRadii => {

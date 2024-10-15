@@ -8,10 +8,10 @@ import * as S from './styles'
 import { Variant } from './index'
 
 export interface GrowlOptions {
-  variant?: Variant
-  onClose?: () => void
   hasCloseButton?: boolean
   icon?: JSX.Element
+  onClose?: () => void
+  variant?: Variant
 }
 
 export type GrowlProps = CreateWuiProps<'div', GrowlOptions>

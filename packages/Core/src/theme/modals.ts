@@ -6,13 +6,13 @@ type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
 export type ThemeModals = {
   backdrop: CSSObject
-  default: CSSObject
-  header: CSSObject
   body: CSSObject
+  cover: Record<string, unknown>
+  default: CSSObject
   footer: CSSObject
   gutter: string
+  header: CSSObject
   sizes: Record<Sizes, { width?: string }>
-  cover: Record<string, unknown>
 }
 
 export const getModals = (theme: WuiTheme): ThemeModals => {

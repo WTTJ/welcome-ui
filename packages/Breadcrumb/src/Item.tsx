@@ -6,8 +6,8 @@ import * as S from './Item.styles'
 
 export interface ItemOptions {
   children: React.ReactNode
-  separator?: string | React.ReactNode
   isActive?: boolean
+  separator?: string | React.ReactNode
   /* useful for react-router */
   to?: string
 }

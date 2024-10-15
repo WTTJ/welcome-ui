@@ -30,5 +30,5 @@ export const ButtonGroup = styled.div`
     }
   }
 
-  ${system}
+  ${system};
 `

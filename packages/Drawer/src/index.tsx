@@ -79,7 +79,7 @@ export const DrawerBackdrop: React.FC<DrawerBackdropOptions> = ({
   return <S.Backdrop hideOnInteractOutside={hideOnInteractOutside} {...props} />
 }
 
-type TriggerProps = { store: Ariakit.DialogStore; children: React.ReactNode; as?: As }
+type TriggerProps = { as?: As; children: React.ReactNode; store: Ariakit.DialogStore }
 
 export const Trigger = forwardRef<'button', TriggerProps>(({ as: As, store, ...rest }, ref) => {
   return (

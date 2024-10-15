@@ -24,12 +24,12 @@ export type Variant =
   | 'warning'
 
 export interface TagOptions {
+  href?: string
   onClick?: () => void
   onRemove?: () => void
   size?: Size
-  variant?: Variant
-  href?: string
   to?: string
+  variant?: Variant
 }
 
 export type TagProps = CreateWuiProps<'div', TagOptions>

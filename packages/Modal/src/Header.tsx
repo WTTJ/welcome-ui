@@ -7,9 +7,9 @@ import * as S from './styles'
 import { Close } from './Close'
 
 export interface HeaderOptions {
-  title: string | JSX.Element
-  subtitle?: string | JSX.Element
   icon?: ReactElement
+  subtitle?: string | JSX.Element
+  title: string | JSX.Element
 }
 
 export type HeaderProps = HeaderOptions & Omit<BoxProps, keyof HeaderOptions>

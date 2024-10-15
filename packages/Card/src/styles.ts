@@ -8,11 +8,11 @@ export const Card = styled(Box)`
   background-size: cover;
   background-position: center;
 
-  ${system}
+  ${system};
 `
 
 export const Body = styled(Box)`
   padding: lg;
 
-  ${system}
+  ${system};
 `

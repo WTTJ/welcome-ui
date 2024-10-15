@@ -13,9 +13,9 @@ export const timingFunction: ThemeTimingFunction = {
 }
 
 export type ThemeTransitions = {
-  slow: CSSObject['transition']
-  medium: CSSObject['transition']
   fast: CSSObject['transition']
+  medium: CSSObject['transition']
+  slow: CSSObject['transition']
 }
 
 export const transitions: ThemeTransitions = {

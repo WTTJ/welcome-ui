@@ -328,7 +328,7 @@
         ],
         "required": false,
         "type": {
-          "name": "{ title: string; subtitle: string; }"
+          "name": "{ subtitle: string; title: string; }"
         }
       }
     }

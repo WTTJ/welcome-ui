@@ -21,8 +21,8 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
       locale,
       onChange,
       size = 'md',
-      value = DEFAULT_DATE,
       transparent,
+      value = DEFAULT_DATE,
     },
     ref
   ) => {

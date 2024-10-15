@@ -11,8 +11,8 @@ export type ToggleOptions = Omit<
   'Component' | 'iconPlacement' | 'indeterminate' | 'hasIcon' | 'transparent' | 'isClearable'
 > & {
   checkedIcon?: JSX.Element
-  uncheckedIcon?: JSX.Element
   size?: Size
+  uncheckedIcon?: JSX.Element
 }
 export type ToggleProps = CreateWuiProps<'input', ToggleOptions>
 

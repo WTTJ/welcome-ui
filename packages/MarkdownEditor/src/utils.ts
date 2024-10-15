@@ -2,8 +2,8 @@ import { Doc, Editor } from 'codemirror'
 
 export interface CurrentToolsFromEditor {
   getCursor: Doc['getCursor']
-  getTokenAt: Editor['getTokenAt']
   getLine: Doc['getLine']
+  getTokenAt: Editor['getTokenAt']
 }
 // interface ToolsFrom
 interface CodeMirrorTypes {

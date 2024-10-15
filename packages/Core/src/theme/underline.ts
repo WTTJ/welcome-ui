@@ -14,7 +14,10 @@ export const getUnderline = ({ colors }: { colors: ThemeColors }): ThemeUnderlin
       background-repeat: no-repeat;
       background-size: 100% 50%;
       background-position-y: calc(200% - 2px);
-      transition: background-position-y 250ms, background-size 250ms, color 250ms;
+      transition:
+        background-position-y 250ms,
+        background-size 250ms,
+        color 250ms;
     `,
     hover: css`
       opacity: 1;

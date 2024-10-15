@@ -3,9 +3,9 @@ import { CSSObject } from '@xstyled/styled-components'
 import { WuiTheme } from './types'
 
 export type ThemeCheckboxes = {
+  checked: CSSObject
   default: CSSObject
   disabled: CSSObject
-  checked: CSSObject
 }
 
 export const getCheckboxes = (theme: WuiTheme): ThemeCheckboxes => {
