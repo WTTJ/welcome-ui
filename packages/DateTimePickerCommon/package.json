@@ -47,7 +47,7 @@
   },
   "homepage": "https://github.com/WTTJ/welcome-ui#readme",
   "dependencies": {
-    "@types/react-datepicker": "^4.15.0",
+    "@types/react-datepicker": "^7.0.0",
     "@welcome-ui/button": "^5.22.1",
     "@welcome-ui/clear-button": "^5.22.1",
     "@welcome-ui/field": "^5.22.1",
@@ -58,7 +58,7 @@
     "@welcome-ui/utils": "^5.22.1",
     "date-fns": "^2.30.0",
     "lodash.range": "^3.2.0",
-    "react-datepicker": "^4.16.0"
+    "react-datepicker": "^7.4.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
