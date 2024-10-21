@@ -1,1 +1,0 @@
-export { welcomeTheme } from './theme'

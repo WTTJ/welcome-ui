@@ -3,7 +3,7 @@ import { Box } from '@welcome-ui/box'
 import { Notifications } from '@welcome-ui/toast'
 
 import StyledComponentsRegistry from '@/build-app/registry'
-import { ThemeProvider } from '@/build-app/components/ThemeProvider'
+import { Theme } from '@/build-app/components/ThemeProvider'
 import { Header } from '@/build-app/components/Header'
 import { getPages } from '@/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '@/build-app/utils/pages-exports'
@@ -32,14 +32,14 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       </head>
       <body>
         <StyledComponentsRegistry>
-          <ThemeProvider>
+          <Theme>
             <Box backgroundColor="light-900">
               <Header components={pagesComponents} foundations={pagesFoundations} />
               <Notifications />
               {children}
               <Footer />
             </Box>
-          </ThemeProvider>
+          </Theme>
         </StyledComponentsRegistry>
       </body>
     </html>
