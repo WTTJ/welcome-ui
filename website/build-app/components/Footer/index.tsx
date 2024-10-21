@@ -3,9 +3,9 @@ import { Flex } from '@welcome-ui/flex'
 import { Text } from '@welcome-ui/text'
 import { Box } from '@welcome-ui/box'
 import { Grid } from '@welcome-ui/grid'
+import { Logo } from '@welcome-ui/logo'
 
 import { Section } from '../Section'
-import { LogoWttj } from '../LogoWttj'
 
 const links = [
   {
@@ -85,10 +85,9 @@ export const Footer = () => {
             target="_blank"
             w="fit-content"
           >
-            <LogoWttj black h={42} w={130} />
+            <Logo h={40} />
           </Box>
         </Flex>
-
         {links.map(({ links, name }) => (
           <Flex as="nav" flexDirection="column" gap="lg" key={name}>
             <Text variant="subtitle-md">{name}</Text>
