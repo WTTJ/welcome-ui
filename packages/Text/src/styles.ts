@@ -48,7 +48,7 @@ export const Text = styled.p<TextOptions>(({ lines, variant, withDash }) => {
         display: flex;
         align-self: center;
         flex-shrink: 0;
-        background-color: primary-500;
+        background-color: primary-40;
         margin-right: md;
       }
     `}

@@ -9,7 +9,7 @@ const Example = () => {
       <Avatar name="Welcome jungle" size="lg" />
       <Avatar name="Welcome jungle" size="xl" />
       <Avatar name="Welcome jungle" size="xxl" />
-      <Avatar color="warning-500" fontSize={20} h={130} name="Custom" w={130} />
+      <Avatar color="warning-50" fontSize={20} h={130} name="Custom" w={130} />
     </>
   )
 }
