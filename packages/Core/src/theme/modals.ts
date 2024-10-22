@@ -46,7 +46,7 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
     },
     footer: {
       backgroundColor: colors['neutral-10'],
-      borderTop: `solid ${colors.border}`,
+      borderTop: `solid ${colors['neutral-30']}`,
       children: {
         paddingRight: space.xxl,
         paddingLeft: space.xxl,

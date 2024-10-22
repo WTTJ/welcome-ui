@@ -36,8 +36,8 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
       borderColor: colors['warning-50'],
     },
     info: {
-      backgroundColor: colors['information-10'],
-      borderColor: colors['information-50'],
+      backgroundColor: colors['info-10'],
+      borderColor: colors['info-50'],
     },
     success: {
       backgroundColor: colors['success-10'],

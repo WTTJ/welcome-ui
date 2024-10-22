@@ -96,14 +96,14 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     'primary-info': {
       ...defaults,
-      backgroundColor: colors['information-50'],
-      borderColor: colors['information-50'],
+      backgroundColor: colors['info-50'],
+      borderColor: colors['info-50'],
     },
     'secondary-info': {
       ...defaults,
-      color: colors['information-50'],
+      color: colors['info-50'],
       backgroundColor: colors['neutral-10'],
-      borderColor: colors['information-50'],
+      borderColor: colors['info-50'],
     },
     ghost: {
       ...defaults,
@@ -145,14 +145,14 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         backgroundColor: colors['danger-10'],
       },
       'primary-info': {
-        backgroundColor: colors['information-40'],
-        borderColor: colors['information-40'],
+        backgroundColor: colors['info-40'],
+        borderColor: colors['info-40'],
       },
       'secondary-info': {
-        backgroundColor: colors['information-10'],
+        backgroundColor: colors['info-10'],
       },
       ghost: {
-        backgroundColor: colors.border,
+        backgroundColor: colors['neutral-30'],
       },
     },
     focus: {
@@ -166,8 +166,8 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       'secondary-warning': { ...focus(colors['warning-50'], 0.5) },
       'primary-danger': { ...focus(colors['danger-50'], 0.5) },
       'secondary-danger': { ...focus(colors['danger-50'], 0.5) },
-      'primary-info': { ...focus(colors['information-50'], 0.5) },
-      'secondary-info': { ...focus(colors['information-50'], 0.5) },
+      'primary-info': { ...focus(colors['info-50'], 0.5) },
+      'secondary-info': { ...focus(colors['info-50'], 0.5) },
     },
     active: {
       primary: {
@@ -203,11 +203,11 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         backgroundColor: hexToRGBA(colors['danger-50'], 0.4),
       },
       'primary-info': {
-        backgroundColor: colors['information-30'],
-        borderColor: colors['information-30'],
+        backgroundColor: colors['info-30'],
+        borderColor: colors['info-30'],
       },
       'secondary-info': {
-        backgroundColor: hexToRGBA(colors['information-50'], 0.4),
+        backgroundColor: hexToRGBA(colors['info-50'], 0.4),
       },
       ghost: {
         backgroundColor: colors['neutral-50'],

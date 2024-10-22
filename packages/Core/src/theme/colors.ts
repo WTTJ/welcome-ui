@@ -107,11 +107,11 @@ export const colors = {
   'danger-30': palette['red-60'],
   'danger-40': palette['red-70'],
   'danger-50': palette['red-80'],
-  'information-10': palette['blue-10'],
-  'information-20': palette['blue-40'],
-  'information-30': palette['blue-50'],
-  'information-40': palette['blue-60'],
-  'information-50': palette['blue-70'],
+  'info-10': palette['blue-10'],
+  'info-20': palette['blue-40'],
+  'info-30': palette['blue-50'],
+  'info-40': palette['blue-60'],
+  'info-50': palette['blue-70'],
   'primary-10': palette['yellow-10'],
   'primary-20': palette['yellow-20'],
   'primary-30': palette['yellow-30'],
@@ -137,9 +137,7 @@ export const colors = {
   'warning-30': palette['orange-50'],
   'warning-40': palette['orange-60'],
   'warning-50': palette['orange-80'],
-  border: palette['neutral-30'],
   overlay: 'rgba(0, 0, 0, 0.55)',
-  underline: palette['yellow-40'],
 }
 
 export type ThemeColors = typeof colors
