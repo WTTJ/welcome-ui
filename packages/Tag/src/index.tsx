@@ -2,24 +2,17 @@ import React from 'react'
 import { wrapChildren } from '@welcome-ui/utils'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { CrossIcon } from '@welcome-ui/icons'
+import { SecondaryColors } from '@welcome-ui/core'
 
 import * as S from './styles'
 
 export type Size = 'xs' | 'sm' | 'md'
 export type Variant =
-  | '1'
-  | '2'
-  | '3'
-  | '4'
-  | '5'
-  | '6'
-  | '7'
-  | 'dark'
+  | keyof typeof SecondaryColors
   | 'default'
   | 'error'
   | 'info'
   | 'primary'
-  | 'secondary'
   | 'success'
   | 'warning'
 

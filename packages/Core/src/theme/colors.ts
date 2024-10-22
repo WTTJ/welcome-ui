@@ -141,3 +141,11 @@ export const colors = {
 }
 
 export type ThemeColors = typeof colors
+export const enum SecondaryColors {
+  'blue',
+  'green',
+  'orange',
+  'pink',
+  'teal',
+  'violet',
+}
