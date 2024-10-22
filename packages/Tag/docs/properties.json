@@ -132,28 +132,22 @@
           "raw": "Variant",
           "value": [
             {
-              "value": "\"1\""
+              "value": "\"blue\""
             },
             {
-              "value": "\"2\""
+              "value": "\"green\""
             },
             {
-              "value": "\"3\""
+              "value": "\"orange\""
             },
             {
-              "value": "\"4\""
+              "value": "\"pink\""
             },
             {
-              "value": "\"5\""
+              "value": "\"teal\""
             },
             {
-              "value": "\"6\""
-            },
-            {
-              "value": "\"7\""
-            },
-            {
-              "value": "\"dark\""
+              "value": "\"violet\""
             },
             {
               "value": "\"default\""
@@ -166,9 +160,6 @@
             },
             {
               "value": "\"primary\""
-            },
-            {
-              "value": "\"secondary\""
             },
             {
               "value": "\"success\""

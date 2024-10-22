@@ -6,7 +6,6 @@ const Example = () => {
     <>
       <Tag>Default</Tag>
       <Tag variant="primary">Primary</Tag>
-      <Tag variant="secondary">Secondary</Tag>
     </>
   )
 }

@@ -46,6 +46,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
+    "@welcome-ui/core": "^5.22.1",
     "@welcome-ui/icon": "^5.22.1",
     "@welcome-ui/icons": "^5.22.1",
     "@welcome-ui/system": "^5.17.1",
