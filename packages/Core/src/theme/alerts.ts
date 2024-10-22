@@ -22,26 +22,26 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
       fontSize: fontSizes.sm,
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
-      color: colors['dark-700'],
-      backgroundColor: colors['light-900'],
-      borderColor: colors['dark-100'],
+      color: colors['neutral-70'],
+      backgroundColor: colors['neutral-10'],
+      borderColor: colors['neutral-20'],
       borderRadius: radii.lg,
     },
     error: {
-      backgroundColor: colors['danger-100'],
-      borderColor: colors['danger-500'],
+      backgroundColor: colors['danger-10'],
+      borderColor: colors['danger-50'],
     },
     warning: {
-      backgroundColor: colors['warning-100'],
-      borderColor: colors['warning-500'],
+      backgroundColor: colors['warning-10'],
+      borderColor: colors['warning-50'],
     },
     info: {
-      backgroundColor: colors['info-100'],
-      borderColor: colors['info-500'],
+      backgroundColor: colors['information-10'],
+      borderColor: colors['information-50'],
     },
     success: {
-      backgroundColor: colors['success-100'],
-      borderColor: colors['success-500'],
+      backgroundColor: colors['success-10'],
+      borderColor: colors['success-50'],
     },
     sizes: {
       sm: {
@@ -53,19 +53,19 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
     },
     title: {
       default: {
-        color: colors['dark-900'],
+        color: colors['neutral-90'],
       },
       error: {
-        color: colors['dark-900'],
+        color: colors['neutral-90'],
       },
       warning: {
-        color: colors['dark-900'],
+        color: colors['neutral-90'],
       },
       info: {
-        color: colors['dark-900'],
+        color: colors['neutral-90'],
       },
       success: {
-        color: colors['dark-900'],
+        color: colors['neutral-90'],
       },
     },
   }

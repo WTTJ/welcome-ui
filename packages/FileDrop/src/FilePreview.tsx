@@ -25,12 +25,12 @@ export const FilePreview: React.FC<MessageProps & WordingsType> = ({
 
   return (
     <>
-      <Icon color="dark-900" h={50} mb="lg" w={50} />
-      <Text color="dark-900" lines={1} m={0} maxWidth={600} variant="h4">
+      <Icon color="neutral-90" h={50} mb="lg" w={50} />
+      <Text color="neutral-90" lines={1} m={0} maxWidth={600} variant="h4">
         {name}
       </Text>
       {!isUrl && (
-        <Text color="nude-700" fontWeight="medium" lines={1} m={0} variant="sm">
+        <Text color="beige-70" fontWeight="medium" lines={1} m={0} variant="sm">
           {size}
         </Text>
       )}

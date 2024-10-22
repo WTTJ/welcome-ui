@@ -7,12 +7,12 @@ import { ToastPosition } from 'react-hot-toast/headless'
 
 const Element = () => (
   <Box
-    backgroundColor="light-900"
+    backgroundColor="neutral-10"
     borderColor="nude-300"
     borderRadius="lg"
     borderStyle="solid"
     borderWidth="1px"
-    color="dark-900"
+    color="neutral-90"
     padding="sm"
   >
     Lorem ipsum dolor sit amet

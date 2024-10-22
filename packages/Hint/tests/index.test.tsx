@@ -24,6 +24,6 @@ describe('<Hint>', () => {
     const hint = getByTestId('hint')
 
     expect(hint).toHaveTextContent(content)
-    expect(hint).toHaveStyleRule('color', colors['danger-500'])
+    expect(hint).toHaveStyleRule('color', colors['danger-50'])
   })
 })

@@ -13,12 +13,12 @@ export const CloseButton = styled(Button)`
   top: xl;
 
   /* Hack for secondary variant on dark mode */
-  color: dark-900;
-  border-color: light-900;
-  background-color: light-900;
+  color: neutral-90;
+  border-color: neutral-10;
+  background-color: neutral-10;
 
   &:hover {
-    background-color: light-700;
+    background-color: neutral-40;
   }
 
   ${system}

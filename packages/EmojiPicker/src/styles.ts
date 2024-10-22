@@ -12,7 +12,7 @@ export const Popover = styled(WUIPopover.Popover)`
   border-width: sm;
   border-style: solid;
   border-color: border;
-  color: dark-900;
+  color: neutral-90;
   ${system};
 
   /** we change the arrow item color from popover component */
@@ -51,13 +51,13 @@ export const EmojiButton = styled.buttonBox.attrs({
   &[data-active='true'] {
     outline: none;
     &:nth-child(3n) {
-      background-color: sub-4;
+      background-color: secondary-pink;
     }
     &:nth-child(3n + 1) {
-      background-color: sub-1;
+      background-color: secondary-teal;
     }
     &:nth-child(3n + 2) {
-      background-color: sub-5;
+      background-color: secondary-green;
     }
   }
 `
