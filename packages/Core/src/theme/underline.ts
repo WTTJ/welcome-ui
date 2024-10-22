@@ -10,7 +10,11 @@ export type ThemeUnderline = {
 export const getUnderline = ({ colors }: { colors: ThemeColors }): ThemeUnderline => {
   return {
     default: css`
-      background-image: linear-gradient(0deg, ${colors.underline}, ${colors.underline} 100%);
+      background-image: linear-gradient(
+        0deg,
+        ${colors['primary-40']},
+        ${colors['primary-40']} 100%
+      );
       background-repeat: no-repeat;
       background-size: 100% 50%;
       background-position-y: calc(200% - 2px);

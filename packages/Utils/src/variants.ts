@@ -4,8 +4,8 @@ export type Variant = 'error' | 'focused' | 'info' | 'success' | 'warning'
 
 export const VARIANTS: Record<Variant, string> = {
   error: 'colors.danger-40',
-  focused: 'colors.primary-30',
-  info: 'colors.information-50',
+  focused: 'colors.primary-40',
+  info: 'colors.info-40',
   success: 'colors.success-40',
   warning: 'colors.warning-40',
 }

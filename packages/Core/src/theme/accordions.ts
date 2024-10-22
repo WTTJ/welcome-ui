@@ -18,7 +18,7 @@ export const getAccordions = (theme: WuiTheme): ThemeAccordions => {
     wrapper: {
       backgroundColor: colors['neutral-10'],
       transition: transitions.medium,
-      border: `${borderWidths.sm} solid ${colors.border}`,
+      border: `${borderWidths.sm} solid ${colors['neutral-30']}`,
       borderRadius: radii.md,
     },
     icon: {

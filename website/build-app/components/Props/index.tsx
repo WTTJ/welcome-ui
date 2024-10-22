@@ -106,7 +106,7 @@ export const Property = ({ id, name, options }: PropertyProps) => {
       <Flex
         alignItems="center"
         borderBottom="1px solid"
-        borderBottomColor="border"
+        borderBottomColor="neutral-30"
         gap="md"
         mb="md"
         pb="md"

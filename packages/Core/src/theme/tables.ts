@@ -33,7 +33,7 @@ export const getTables = (theme: WuiTheme): ThemeTables => {
     },
     tr: {
       default: {
-        borderBottomColor: colors.border,
+        borderBottomColor: colors['neutral-30'],
         borderBottomWidth: borderWidths.sm,
         borderBottomStyle: 'solid',
       },
@@ -46,8 +46,8 @@ export const getTables = (theme: WuiTheme): ThemeTables => {
         color: colors['warning-50'],
       },
       info: {
-        backgroundColor: colors['information-10'],
-        color: colors['information-50'],
+        backgroundColor: colors['info-10'],
+        color: colors['info-50'],
       },
       success: {
         backgroundColor: colors['success-10'],

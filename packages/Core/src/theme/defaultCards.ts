@@ -15,5 +15,5 @@ export const getDefaultCards = ({
   backgroundColor: colors['neutral-10'],
   borderStyle: 'solid',
   borderWidth: borderWidths.sm,
-  borderColor: colors.border,
+  borderColor: colors['neutral-30'],
 })

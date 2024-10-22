@@ -89,9 +89,9 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
         ...border,
       },
       info: {
-        backgroundColor: colors['information-10'],
-        color: colors['information-50'],
-        borderColor: colors['information-30'],
+        backgroundColor: colors['info-10'],
+        color: colors['info-50'],
+        borderColor: colors['info-30'],
         ...border,
       },
       1: { ...withoutVisibleBorder(colors['secondary-teal']), color: colors['neutral-90'] },
@@ -120,7 +120,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
         borderColor: colors['warning-50'],
       },
       info: {
-        borderColor: colors['information-50'],
+        borderColor: colors['info-50'],
       },
       1: {
         borderColor: colors['neutral-30'],
