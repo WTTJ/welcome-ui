@@ -47,7 +47,7 @@ export const Colors = ({ name }: ColorsProps) => {
             <Box
               backgroundColor={value}
               border={isWhite ? '1px solid' : undefined}
-              borderColor={isWhite ? 'border' : undefined}
+              borderColor={isWhite ? 'neutral-30' : undefined}
               borderRadius="lg"
               h={50}
               w={50}
