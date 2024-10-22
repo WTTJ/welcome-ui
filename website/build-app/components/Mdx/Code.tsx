@@ -27,7 +27,7 @@ export const Code = ({ children, className }: CodeProps) => {
     <Box
       alignItems="center"
       as="code"
-      backgroundColor="neutral-20"
+      backgroundColor="neutral-30"
       borderRadius="md"
       color="neutral-90"
       display="inline-flex"

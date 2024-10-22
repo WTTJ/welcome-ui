@@ -49,7 +49,7 @@ export const Disclosure = styled(Ariakit.Disclosure)`
   &:hover {
     cursor: pointer;
     ${Icon} {
-      background-color: neutral-20;
+      background-color: neutral-30;
     }
   }
 

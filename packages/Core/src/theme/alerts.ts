@@ -24,7 +24,7 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
       borderStyle: 'solid',
       color: colors['neutral-70'],
       backgroundColor: colors['neutral-10'],
-      borderColor: colors['neutral-20'],
+      borderColor: colors['neutral-30'],
       borderRadius: radii.lg,
     },
     error: {
