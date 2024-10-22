@@ -35,7 +35,7 @@ describe('<Badge>', () => {
     const badge = getByTestId('badge')
 
     expect(badge).toHaveStyleRule('background-color', theme.colors['primary-40'])
-    expect(badge).toHaveStyleRule('color', 'rgba(0,0,0,1)')
+    expect(badge).toHaveStyleRule('color', '#000000')
   })
 
   it('should have correct primary variant color if disabled', () => {
