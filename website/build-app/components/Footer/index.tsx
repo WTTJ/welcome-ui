@@ -76,7 +76,7 @@ export const Footer = () => {
       <Grid gap="xl" gridTemplateColumns={{ _: '1fr 1fr', md: '1fr 1fr 1fr 1fr' }}>
         <Flex flexDirection="column" gap="xs">
           <Flex alignItems="center" gap="sm">
-            Made with <HeartIcon color="primary-40" /> by
+            Made with <HeartIcon color="primary-50" /> by
           </Flex>
           <Box
             as="a"
