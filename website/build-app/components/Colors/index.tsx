@@ -8,10 +8,14 @@ import { Text } from '@welcome-ui/text'
 
 const getColors = (name: string, theme: WuiTheme) => {
   const themeColors = theme.colors as WuiTheme['colors']
+  const endByALetter = name === 'secondary'
+  const pattern = endByALetter
+    ? new RegExp(`^(${name})-\\w+`, 'g')
+    : new RegExp(`^(${name})-\\d+`, 'g')
 
   return Object.keys(themeColors)
-    .filter(color => color.startsWith(name))
-    .reduce<{ variant: string; value: string }[]>((acc, colorName) => {
+    .filter(color => color.match(pattern))
+    .reduce<{ value: string; variant: string }[]>((acc, colorName) => {
       const colorValue = theme.colors[colorName as keyof WuiTheme['colors']]
       acc.push({ variant: colorName, value: colorValue })
 
@@ -35,7 +39,8 @@ export const Colors = ({ name }: ColorsProps) => {
   return (
     <Grid gap="md" mt="md" templateColumns="repeat(auto-fit, minmax(250px, 1fr))">
       {colors.map(({ value, variant }) => {
-        const isWhite = variant.startsWith('light-') || variant === 'white'
+        const isWhite =
+          variant === 'neutral-white' || variant === 'white' || variant.endsWith('-10')
 
         return (
           <Box alignItems="center" display="flex" key={`${name}.${variant}`}>
