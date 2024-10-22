@@ -121,7 +121,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         borderColor: 'transparent',
       },
       tertiary: {
-        backgroundColor: colors['neutral-20'],
+        backgroundColor: colors['neutral-30'],
       },
       'primary-success': {
         backgroundColor: colors['success-40'],
@@ -159,7 +159,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       primary: { ...focus(colors['primary-40'], 0.5) },
       secondary: { ...focus(colors['neutral-60']) },
       tertiary: { ...focus(colors['neutral-60']) },
-      ghost: { ...focus(colors['neutral-20']) },
+      ghost: { ...focus(colors['neutral-30']) },
       'primary-success': { ...focus(colors['success-50'], 0.5) },
       'secondary-success': { ...focus(colors['success-50'], 0.5) },
       'primary-warning': { ...focus(colors['warning-50'], 0.5) },

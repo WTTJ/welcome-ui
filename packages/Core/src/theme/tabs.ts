@@ -34,10 +34,10 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
   return {
     tabsBorder: {
       horizontal: {
-        boxShadow: `inset 0 -${borderWidths.sm} 0 ${colors['neutral-20']}`,
+        boxShadow: `inset 0 -${borderWidths.sm} 0 ${colors['neutral-30']}`,
       },
       vertical: {
-        boxShadow: `inset -${borderWidths.sm} 0 0 ${colors['neutral-20']}`,
+        boxShadow: `inset -${borderWidths.sm} 0 0 ${colors['neutral-30']}`,
       },
     },
     item: {
