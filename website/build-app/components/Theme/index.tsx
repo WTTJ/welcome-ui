@@ -28,7 +28,7 @@ export const Theme = ({ entry }: ColorsProps) => {
           key={`${entry}-${key}`}
           pt="sm"
         >
-          <Text color="secondary-orange" fontWeight="bold">
+          <Text color="violet-80" fontWeight="bold">
             {key}
           </Text>
           <Text color="neutral-70">
