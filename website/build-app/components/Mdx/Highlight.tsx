@@ -32,7 +32,7 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
           <Box
             as="pre"
             border="1px solid"
-            borderColor="neutral-20"
+            borderColor="neutral-30"
             borderRadius="lg"
             padding="lg 3xl lg xl"
             style={style}

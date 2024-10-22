@@ -16,7 +16,7 @@ const newColorValues = {
   'danger-300': 'v6.danger-30',
   'danger-400': 'v6.danger-40',
   'danger-500': 'v6.danger-50',
-  'dark-100': 'v6.neutral-20',
+  'dark-100': 'v6.neutral-30',
   'dark-200': 'v6.neutral-30',
   'dark-400': 'v6.neutral-50',
   'dark-500': 'v6.neutral-60',

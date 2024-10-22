@@ -30,7 +30,7 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
     },
     disabled: {
       color: colors['neutral-50'],
-      backgroundImage: `linear-gradient(0deg, ${colors['neutral-20']}, ${colors['neutral-20']} 100%)`,
+      backgroundImage: `linear-gradient(0deg, ${colors['neutral-30']}, ${colors['neutral-30']} 100%)`,
     },
     primary: {
       default: {},

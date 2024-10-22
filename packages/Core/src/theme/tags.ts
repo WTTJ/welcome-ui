@@ -67,7 +67,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
       secondary: {
         backgroundColor: colors['secondary-green'],
         color: colors['neutral-90'],
-        borderColor: colors['neutral-20'],
+        borderColor: colors['neutral-30'],
         ...border,
       },
       success: {

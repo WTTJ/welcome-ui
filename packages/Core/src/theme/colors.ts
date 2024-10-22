@@ -137,7 +137,7 @@ export const colors = {
   'warning-30': palette['orange-50'],
   'warning-40': palette['orange-60'],
   'warning-50': palette['orange-80'],
-  border: palette['neutral-20'],
+  border: palette['neutral-30'],
   overlay: 'rgba(0, 0, 0, 0.55)',
   underline: palette['yellow-40'],
 }

@@ -2,7 +2,7 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 
 export const Nav = styled.navBox(
   ({ isSubPage }: { isSubPage?: boolean }) => css`
-    box-shadow: ${th('colors.neutral-20')} 1px 0px 0px inset;
+    box-shadow: ${th('colors.neutral-30')} 1px 0px 0px inset;
     position: sticky;
     top: calc(4.375rem + 3rem);
     max-height: calc(100vh - 12rem);
@@ -20,7 +20,9 @@ export const Link = styled.span`
   display: block;
   color: neutral-70;
   position: relative;
-  transition: color ${th('transitions.medium')}, padding-left ${th('transitions.medium')};
+  transition:
+    color ${th('transitions.medium')},
+    padding-left ${th('transitions.medium')};
 
   &:hover,
   &:focus {
