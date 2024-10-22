@@ -33,7 +33,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body>
         <StyledComponentsRegistry>
           <Theme>
-            <Box backgroundColor="light-900">
+            <Box backgroundColor="neutral-10">
               <Header components={pagesComponents} foundations={pagesFoundations} />
               <Notifications />
               {children}

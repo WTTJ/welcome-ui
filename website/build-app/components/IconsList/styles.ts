@@ -6,7 +6,7 @@ export const StyledCard = styled(Card)`
   flex-direction: column;
   align-items: center;
   padding: xl;
-  color: dark-900;
+  color: neutral-90;
   border-radius: xl;
   cursor: pointer;
 
@@ -16,9 +16,9 @@ export const StyledCard = styled(Card)`
   }
 
   &:hover {
-    border-color: dark-900;
+    border-color: neutral-90;
     span {
-      color: dark-900;
+      color: neutral-90;
     }
   }
 `
