@@ -45,7 +45,7 @@ describe('<Tag>', () => {
 
   it('should have correct color for sub variant', () => {
     const { getByTestId } = render(
-      <Tag dataTestId="tag" variant="1">
+      <Tag dataTestId="tag" variant="teal">
         {content}
       </Tag>
     )
