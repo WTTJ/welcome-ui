@@ -72,11 +72,11 @@ const links = [
 
 export const Footer = () => {
   return (
-    <Section as="footer" backgroundColor="nude-100">
+    <Section as="footer" backgroundColor="beige-20">
       <Grid gap="xl" gridTemplateColumns={{ _: '1fr 1fr', md: '1fr 1fr 1fr 1fr' }}>
         <Flex flexDirection="column" gap="xs">
           <Flex alignItems="center" gap="sm">
-            Made with <HeartIcon color="primary-500" /> by
+            Made with <HeartIcon color="primary-40" /> by
           </Flex>
           <Box
             as="a"
@@ -97,7 +97,7 @@ export const Footer = () => {
                   <Box
                     alignItems="center"
                     as="a"
-                    color="dark-900"
+                    color="neutral-90"
                     display="flex"
                     fontSize="sm"
                     gap="xs"
@@ -107,7 +107,7 @@ export const Footer = () => {
                     textDecoration={{ hover: 'underline' }}
                   >
                     {name}
-                    {isExternal && <ExternalLinkIcon color="dark-500" size="xs" />}
+                    {isExternal && <ExternalLinkIcon color="neutral-60" size="xs" />}
                   </Box>
                 </Box>
               ))}
