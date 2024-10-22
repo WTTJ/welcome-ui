@@ -6,7 +6,7 @@ import { Button } from '@welcome-ui/button'
 const Element = () => (
   <Box
     backgroundColor="neutral-10"
-    borderColor="nude-300"
+    borderColor="beige-30"
     borderRadius="lg"
     borderStyle="solid"
     borderWidth="1px"
