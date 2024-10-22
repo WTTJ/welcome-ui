@@ -34,28 +34,28 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
   return {
     tabsBorder: {
       horizontal: {
-        boxShadow: `inset 0 -${borderWidths.sm} 0 ${colors['dark-100']}`,
+        boxShadow: `inset 0 -${borderWidths.sm} 0 ${colors['neutral-20']}`,
       },
       vertical: {
-        boxShadow: `inset -${borderWidths.sm} 0 0 ${colors['dark-100']}`,
+        boxShadow: `inset -${borderWidths.sm} 0 0 ${colors['neutral-20']}`,
       },
     },
     item: {
       default: {
-        color: colors['dark-700'],
+        color: colors['neutral-70'],
         fontWeight: fontWeights.medium,
         fontSize: fontSizes.md,
         textDecoration: 'none',
         lineHeight: lineHeights.md,
       },
       active: {
-        color: colors['dark-900'],
+        color: colors['neutral-90'],
       },
       focus: {
-        color: colors['dark-900'],
+        color: colors['neutral-90'],
       },
       disabled: {
-        color: colors['dark-400'],
+        color: colors['neutral-50'],
       },
     },
     panel: {
@@ -73,11 +73,11 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
     },
     activeBar: {
       horizontal: {
-        background: colors['primary-500'],
+        background: colors['primary-40'],
         height: borderWidths.md,
       },
       vertical: {
-        background: colors['primary-500'],
+        background: colors['primary-40'],
         width: borderWidths.md,
       },
     },

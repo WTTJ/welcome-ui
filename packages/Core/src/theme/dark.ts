@@ -7,7 +7,7 @@ type RecursivePartial<T> = {
 
 export const colorsDark: WuiTheme['colors'] = {
   ...colors,
-  'primary-500': '#FF0000',
+  'primary-50': '#FF0000',
 }
 
 export const darkTheme: RecursivePartial<WuiTheme> = {

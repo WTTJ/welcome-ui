@@ -20,10 +20,10 @@ export const getTables = (theme: WuiTheme): ThemeTables => {
 
   return {
     th: {
-      color: colors['dark-500'],
+      color: colors['neutral-60'],
       fontWeight: fontWeights.medium,
       textAlign: 'left',
-      borderBottomColor: colors['dark-900'],
+      borderBottomColor: colors['neutral-90'],
       borderBottomWidth: borderWidths.sm,
       borderBottomStyle: 'solid',
     },
@@ -38,20 +38,20 @@ export const getTables = (theme: WuiTheme): ThemeTables => {
         borderBottomStyle: 'solid',
       },
       error: {
-        backgroundColor: colors['danger-100'],
-        color: colors['danger-500'],
+        backgroundColor: colors['danger-10'],
+        color: colors['danger-50'],
       },
       warning: {
-        backgroundColor: colors['warning-100'],
-        color: colors['warning-500'],
+        backgroundColor: colors['warning-10'],
+        color: colors['warning-50'],
       },
       info: {
-        backgroundColor: colors['info-100'],
-        color: colors['info-500'],
+        backgroundColor: colors['information-10'],
+        color: colors['information-50'],
       },
       success: {
-        backgroundColor: colors['success-100'],
-        color: colors['success-500'],
+        backgroundColor: colors['success-10'],
+        color: colors['success-50'],
       },
       clickable: {
         cursor: 'pointer',

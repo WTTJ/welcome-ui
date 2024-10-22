@@ -31,7 +31,7 @@ export const Menu = styled.ul`
   ${th('defaultFields.select.default')};
   ${cardStyles}
   position: absolute;
-  color: dark-900;
+  color: neutral-90;
   z-index: 2;
   right: 0;
   left: 0;
@@ -49,7 +49,7 @@ export const Item = styled.li<{
   isSelected?: boolean
 }>(
   ({ isExisting, isHighlighted, isSelected }) => css`
-    color: nude-700;
+    color: beige-70;
     ${isHighlighted && th('defaultFields.select.highlighted')};
     ${isSelected && th('defaultFields.select.selected')};
     ${isExisting && th('defaultFields.select.existing')};

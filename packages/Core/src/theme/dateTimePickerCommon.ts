@@ -15,13 +15,13 @@ export const getDateTimePickerCommon = (theme: WuiTheme): ThemeDateTimePickerCom
   return {
     item: {
       selected: {
-        color: colors['dark-900'],
+        color: colors['neutral-90'],
         fontWeight: fontWeights.bold,
-        backgroundColor: colors['primary-500'],
+        backgroundColor: colors['primary-40'],
         outline: 'none',
       },
       today: {
-        color: colors['dark-900'],
+        color: colors['neutral-90'],
         fontWeight: fontWeights.bold,
       },
     },

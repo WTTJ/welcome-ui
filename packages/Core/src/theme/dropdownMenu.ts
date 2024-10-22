@@ -10,7 +10,7 @@ export type ThemeDropdownMenu = {
 
 export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {
   const { colors, fontSizes, radii, toRem } = theme
-  const borderColor = colors['nude-200']
+  const borderColor = colors['beige-30']
 
   return {
     inner: {
@@ -20,18 +20,18 @@ export const getDropdownMenu = (theme: WuiTheme): ThemeDropdownMenu => {
     },
     item: {
       backgroundColor: 'transparent',
-      color: colors['nude-700'],
+      color: colors['beige-70'],
       '&:hover': {
-        backgroundColor: colors['nude-200'],
-        color: colors['dark-900'],
+        backgroundColor: colors['beige-30'],
+        color: colors['neutral-90'],
       },
       '&:focus': {
-        backgroundColor: colors['nude-200'],
-        color: colors['dark-900'],
+        backgroundColor: colors['beige-30'],
+        color: colors['neutral-90'],
       },
       '&[disabled]': {
         backgroundColor: 'transparent',
-        color: colors['nude-400'],
+        color: colors['beige-40'],
         cursor: 'not-allowed',
       },
     },
