@@ -36,7 +36,13 @@ const Page = () => {
                     gap="lg"
                     p="md"
                   >
-                    <Box backgroundColor="border" borderRadius="md" flexShrink={0} h={80} w={80} />
+                    <Box
+                      backgroundColor="neutral-30"
+                      borderRadius="md"
+                      flexShrink={0}
+                      h={80}
+                      w={80}
+                    />
                     <Box>
                       <Text as="h3" variant="h4">
                         {page.title}

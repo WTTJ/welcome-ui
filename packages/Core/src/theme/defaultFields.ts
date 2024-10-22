@@ -47,7 +47,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       lineHeight: '1rem',
       fontWeight: fontWeights.regular,
       backgroundColor: colors['neutral-10'],
-      borderColor: colors.border,
+      borderColor: colors['neutral-30'],
       borderWidth: borderWidths.sm,
       borderStyle: 'solid',
       outline: 'none',
@@ -125,7 +125,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       error: { ...focus(colors['danger-30']) },
       warning: { ...focus(colors['warning-40']) },
       success: { ...focus(colors['success-30']) },
-      info: { ...focus(colors['information-40']) },
+      info: { ...focus(colors['info-40']) },
     },
     checkablelabel: {
       default: {},

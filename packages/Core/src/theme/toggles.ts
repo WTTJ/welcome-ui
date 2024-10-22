@@ -21,7 +21,7 @@ export const getToggles = (theme: WuiTheme): ThemeToggles => {
     item: {
       default: {
         backgroundColor: colors['neutral-10'],
-        borderColor: colors.border,
+        borderColor: colors['neutral-30'],
         borderWidth: borderWidths.sm,
         borderStyle: 'solid',
         borderRadius: toRem(16),

@@ -4,7 +4,7 @@ import { Variant } from './index'
 
 export const VARIANTS: Record<Variant, string> = {
   error: 'colors.danger-50',
-  info: 'colors.information-50',
+  info: 'colors.info-50',
   success: 'colors.success-50',
   warning: 'colors.warning-50',
 }

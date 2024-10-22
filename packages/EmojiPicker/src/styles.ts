@@ -11,7 +11,7 @@ export const Popover = styled(WUIPopover.Popover)`
   background-color: ${th('defaultCards.backgroundColor')};
   border-width: sm;
   border-style: solid;
-  border-color: border;
+  border-color: neutral-30;
   color: neutral-90;
   ${system};
 
