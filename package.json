@@ -125,7 +125,7 @@
     "lodash.difference": "^4.5.0",
     "minimist": "1.2.8",
     "onchange": "^7.0.2",
-    "postcss-styled-syntax": "^0.5.0",
+    "postcss-styled-syntax": "^0.6.4",
     "react": "^18.1.0",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.1.0",
