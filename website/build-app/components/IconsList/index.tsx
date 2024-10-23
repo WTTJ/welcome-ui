@@ -19,6 +19,7 @@ import {
   miscellaneous,
   player,
   table,
+  welcome,
   wtf,
 } from './icons'
 
@@ -35,6 +36,7 @@ export type IconListProps = {
     | 'markdown'
     | 'table'
     | 'brands'
+    | 'welcome'
     | 'flags'
 }
 
@@ -64,6 +66,7 @@ export const IconsList = ({ isIconFont, name }: IconListProps) => {
     markdown: markdown,
     table: table,
     brands: brands,
+    welcome: welcome,
     flags: flags,
   }
 

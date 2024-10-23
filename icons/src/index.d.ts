@@ -253,6 +253,7 @@ export declare const SuccessIcon: React.FC<IconProps>
 export declare const SuitcaseIcon: React.FC<IconProps>
 export declare const SunIcon: React.FC<IconProps>
 export declare const SvgIcon: React.FC<IconProps>
+export declare const SymbolIcon: React.FC<IconProps>
 export declare const TableIcon: React.FC<IconProps>
 export declare const TableColumnAddAfterIcon: React.FC<IconProps>
 export declare const TableColumnAddBeforeIcon: React.FC<IconProps>
