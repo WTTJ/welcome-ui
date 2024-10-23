@@ -9,9 +9,9 @@ import kebabCase from 'lodash/kebabCase'
 import { PropertiesProps } from '../components/Props'
 
 export type TocItem = {
+  href: string
   id: string
   title: string
-  href: string
 }
 
 export type Toc = TocItem & {
