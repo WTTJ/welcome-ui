@@ -3,7 +3,7 @@ import NextLink from 'next/link'
 import { Button } from '@welcome-ui/button'
 import { Box } from '@welcome-ui/box'
 import { GithubIcon, HeartIcon, RightIcon } from '@welcome-ui/icons'
-import { Logo, SymbolYellow } from '@welcome-ui/logo'
+import { Logo, Symbol } from '@welcome-ui/logo'
 import React from 'react'
 
 import { Components } from '@/build-app/components/Homepage/Components'
@@ -147,8 +147,14 @@ const Home = () => {
             <RightIcon size="lg" />
           </Button>
         </Box>
-        <Box bottom={-150} display={{ _: 'none', lg: 'block' }} position="absolute" right={-100}>
-          <SymbolYellow h={400} />
+        <Box
+          bottom={-150}
+          display={{ _: 'none', lg: 'block' }}
+          opacity={0.1}
+          position="absolute"
+          right={-120}
+        >
+          <Symbol h={400} />
         </Box>
       </Section>
     </main>
