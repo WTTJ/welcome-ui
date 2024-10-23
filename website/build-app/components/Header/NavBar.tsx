@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Box } from '@welcome-ui/box'
 import { Flex } from '@welcome-ui/flex'
 import { usePathname } from 'next/navigation'
@@ -6,8 +6,7 @@ import { Text } from '@welcome-ui/text'
 import { Button } from '@welcome-ui/button'
 import { Icons } from '@welcome-ui/icons.font'
 import { WuiProps } from '@welcome-ui/system'
-
-import { ThemeContext } from '../ThemeProvider'
+import { useTheme } from 'next-themes'
 
 import * as S from './styles'
 
@@ -20,14 +19,12 @@ type NavBarProps = {
 
 export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
   const currentRoute = usePathname()
-  const { setTheme, theme } = useContext(ThemeContext)
+  const { setTheme, theme } = useTheme()
   const isDarkMode = theme === 'dark'
 
   const switchTheme = () => {
     const newTheme = isDarkMode ? 'light' : 'dark'
-
     setTheme(newTheme)
-    localStorage.setItem('wui-theme', newTheme)
   }
 
   return (

@@ -1,53 +1,33 @@
 'use client'
-import { createTheme, darkTheme, WuiProvider, WuiProviderProps } from '@welcome-ui/core'
+import {
+  createTheme,
+  darkTheme as WuiDarkTheme,
+  WuiProvider,
+  WuiProviderProps,
+} from '@welcome-ui/core'
+import { useTheme } from 'next-themes'
 import * as React from 'react'
 
 type ThemeProviderProps = {
   children: WuiProviderProps['children']
 }
-type ThemeProps = {
-  children: WuiProviderProps['children']
-}
-type ThemeValue = 'light' | 'dark'
-type ContextReturn = {
-  setTheme: (theme: ThemeValue) => void
-  theme: ThemeValue
-}
 
-export const ThemeContext = React.createContext<ContextReturn>({
-  theme: 'light',
-  setTheme: () => {
-    return 'light'
-  },
-})
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+  const { theme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
 
-export const Theme = ({ children }: ThemeProps) => {
-  const [theme, setTheme] = React.useState<ThemeValue>('light')
+  const lightTheme = createTheme()
+  const darkTheme = createTheme(WuiDarkTheme)
 
   React.useEffect(() => {
-    setTheme((localStorage.getItem('wui-theme') as ThemeValue) || 'light')
+    setMounted(true)
   }, [])
 
-  const values = React.useMemo(() => ({ theme, setTheme }), [theme])
+  // prevents ssr flash for mismatched dark mode
+  if (!mounted) return null
 
   return (
-    <ThemeContext.Provider value={values}>
-      <ThemeProvider>{children}</ThemeProvider>
-    </ThemeContext.Provider>
-  )
-}
-
-const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const { theme } = React.useContext(ThemeContext)
-  const isDarkTheme = theme === 'dark'
-
-  const themeValues = React.useMemo(
-    () => createTheme(isDarkTheme ? darkTheme : undefined),
-    [isDarkTheme]
-  )
-
-  return (
-    <WuiProvider theme={themeValues} useReset>
+    <WuiProvider theme={theme === 'dark' ? darkTheme : lightTheme} useReset>
       {children}
     </WuiProvider>
   )
