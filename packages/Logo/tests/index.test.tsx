@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { render } from '../../../utils/tests'
-import { Logo, SolutionsLogo, Symbol } from '../src'
+import { Logo, SolutionsSymbol, Symbol } from '../src'
 
 describe('<Loader>', () => {
   it('should render correctly', () => {
@@ -11,10 +11,10 @@ describe('<Loader>', () => {
   })
 
   it('should render correctly other logo', () => {
-    const { container } = render(<SolutionsLogo />)
+    const { container } = render(<SolutionsSymbol />)
 
     expect(container.querySelector('title')).toHaveTextContent(
-      'Welcome to the jungle solutions logo'
+      'Welcome to the jungle solutions symbol'
     )
   })
 
