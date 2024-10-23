@@ -316,12 +316,13 @@ export const brands: IconProps['name'][] = [
   'stackoverflow',
   'tiktok',
   'twitch',
-  'wttj',
   'x',
   'xing',
   'youtube',
   'zapier',
 ]
+
+export const welcome: IconProps['name'][] = ['symbol', 'wttj']
 
 export const flags: IconProps['name'][] = [
   'flag_fr',
