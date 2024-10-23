@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-useless-fragment */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client'
 
 import * as React from 'react'
@@ -15,11 +13,12 @@ const StyledComponentsRegistry = ({ children }: StyledComponentsRegistryProps) =
 
   useServerInsertedHTML(() => {
     const styles = styledComponentsStyleSheet.getStyleElement()
-    //@ts-ignore
     styledComponentsStyleSheet.instance.clearTag()
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <>{styles}</>
   })
 
+  // eslint-disable-next-line react/jsx-no-useless-fragment
   if (typeof window !== 'undefined') return <>{children}</>
 
   return (
