@@ -39,8 +39,7 @@ export const Colors = ({ name }: ColorsProps) => {
   return (
     <Grid gap="md" mt="md" templateColumns="repeat(auto-fit, minmax(250px, 1fr))">
       {colors.map(({ value, variant }) => {
-        const isWhite =
-          variant === 'neutral-white' || variant === 'white' || variant.endsWith('-10')
+        const isWhite = variant === 'neutral-10'
 
         return (
           <Box alignItems="center" display="flex" key={`${name}.${variant}`}>
