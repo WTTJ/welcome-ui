@@ -1,5 +1,4 @@
 'use client'
-
 import { Box } from '@welcome-ui/box'
 import { Button } from '@welcome-ui/button'
 import { CheckIcon, CopyIcon } from '@welcome-ui/icons'
@@ -40,16 +39,24 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
             {tokens.map((line, i) => (
               // eslint-disable-next-line react/no-array-index-key
               <div key={i} {...getLineProps({ line })}>
-                {line.map((token, key) => (
-                  <Box
-                    as="span"
-                    fontSize="14"
-                    // eslint-disable-next-line react/no-array-index-key
-                    key={key}
-                    whiteSpace="pre-wrap"
-                    {...getTokenProps({ token })}
-                  />
-                ))}
+                {line.map((token, key) => {
+                  const isAdded = token.content.startsWith('+')
+                  const isRemoved = token.content.startsWith('-')
+                  const isDiff = isAdded || isRemoved
+
+                  return (
+                    <Box
+                      as="span"
+                      backgroundColor={isDiff ? '#2f2f2f' : undefined}
+                      color={isRemoved ? 'danger-20' : isAdded ? 'success-20' : undefined}
+                      fontSize="14"
+                      // eslint-disable-next-line react/no-array-index-key
+                      key={key}
+                      whiteSpace="pre-wrap"
+                      {...getTokenProps({ token })}
+                    />
+                  )
+                })}
               </div>
             ))}
           </Box>

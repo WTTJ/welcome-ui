@@ -1,0 +1,178 @@
+## Version 6
+
+Welcome UI V6 focuses on the rebranding of our **colors** and **tokens**, and we add a **Logo** component.
+
+## Upgrade steps
+
+### 1. Update your dependencies
+
+Make sure you update all `@welcome-ui` packages to v6:
+
+```diff
+{
+  "dependencies": {
++   "@welcome-ui/YOUR_PACKAGE": "^6.0.0",
+    "@xstyled/styled-components": "^3.7.3",
++   "react": "^18.3.1",
+    "styled-components": "^5.3.9"
+  }
+}
+```
+
+### 2. Migrate colors
+
+We reworked our theme's colors, spacing, typography, and many other properties. Use the migration script to migrate easily to V5 on a welcome-ui project.
+
+```bash
+yarn migrate "../yourProject/src/**/**.**(tsx|ts|js)"
+```
+
+### 3. Remove `welcomeTheme` & `welcomeDarkTheme`
+
+To simplify our developements, we removed the 2 welcome themes. Now the default have primary colors from welcome ui brand:
+
+```diff
++ import { createTheme, darkTheme } from '@welcome-ui/core'
+- import { welcomeTheme } from '@welcome-ui/themes.welcome'
+- import { darkTheme } from '@welcome-ui/dark'
+- import { welcomeDarkTheme } from '@welcome-ui/themes.welcome-dark'
+
+- const theme = createTheme(welcomeTheme)
++ const theme = createTheme()
+- const darkTheme = createTheme(welcomeDarkTheme)
++ const darkTheme = createTheme(darkTheme)
+```
+
+and remove also from your `packages.json`:
+
+```diff
+- "@welcome-ui/themes.dark": "^5.22.1"
+- "@welcome-ui/themes.welcome": "^5.22.1"
+- "@welcome-ui/themes.welcome-dark": "^5.22.1"
+```
+
+### 4. Change variant `error` to `danger` on:
+
+#### Alert
+
+```diff
+- <Alert variant="error">
++ <Alert variant="danger">
+```
+
+TODO: add others
+
+## Colors
+
+We reworked our colors to prepare the next steps for tokenization.
+
+[Discover our brand new colors](/foundations/theming/basics#colors)
+
+### Range
+
+Now the range is `color-10` to `color-90`.
+
+```diff
+- primary-100
++ primary-10
+```
+
+### Neutral replace Dark and Light
+
+We merged Dark and Light colors in a Neutral new one, without opacity.
+
+```diff
+- light-900
++ neutral-10
+- dark-900
++ neutral-90
+```
+
+### New colors
+
+Hello `green` `teal` `blue` `violet` `pink` `red` `red-orange` `orange` and `yellow` 🥰
+
+### Beige instead of Nude
+
+The nude naming is changed for beige.
+
+```diff
+- nude-100
++ beige-10
+```
+
+### Secondary
+
+Sub colors replaced by 6 new colors for the secondary palette:
+
+```diff
+- sub-1
++ secondary-teal
+```
+
+```diff
+- sub-2
++ secondary-blue
+```
+
+```diff
+- sub-3
++ secondary-orange
+```
+
+```diff
+- sub-4
++ secondary-pink
+```
+
+```diff
+- sub-5
+- sub-6
++ secondary-green
+```
+
+```diff
+- sub-7
++ secondary-violet
+```
+
+## Dark mode
+
+Dark mode is still on Beta 🚨 and will be released in a few minor versions.
+
+```jsx
+import { createTheme, darkTheme } from '@welcome-ui/core'
+
+const theme = createTheme(darkTheme)
+```
+
+## Components
+
+### Logo
+
+A new [Logo](/components/logo) component is available, with svg export of:
+
+```tsx
+import { Logo, SolutionsSymbol, Symbol, WelcomeUILogo } from '@welcome-ui/logo'
+
+return <Logo w={100} />
+```
+
+- <strong>Logo</strong>: Welcome to the Jungle new logo
+- <strong>Symbol</strong>
+- <strong>SolutionsSymbol</strong>: Welcome to the solution new logo with symbol
+- <strong>WelcomeUILogo</strong>: Welcome UI new logo
+
+### Icons & IconsFont
+
+- New icon Symbol on [Icons](/components/icon#welcome)
+
+```tsx
+<SymbolIcon />
+```
+
+- New icon Symbol on [IconFont](/components/icon-font#welcome)
+
+```tsx
+<Icons.Symbol />
+```
