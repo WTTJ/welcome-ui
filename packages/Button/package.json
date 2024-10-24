@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/button",
-  "version": "5.22.1",
+  "version": "6.0.0-alpha.0",
   "description": "welcome-ui: A button component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,15 +47,15 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.3",
-    "@welcome-ui/box": "^5.20.0",
-    "@welcome-ui/loader": "^5.22.1",
-    "@welcome-ui/system": "^5.17.1",
-    "@welcome-ui/utils": "^5.22.1"
+    "@welcome-ui/box": "^6.0.0-alpha.0",
+    "@welcome-ui/loader": "^6.0.0-alpha.0",
+    "@welcome-ui/system": "^6.0.0-alpha.0",
+    "@welcome-ui/utils": "^6.0.0-alpha.0"
   },
   "devDependencies": {
-    "@welcome-ui/icons": "^5.22.1",
-    "@welcome-ui/icons.font": "^5.22.1",
-    "@welcome-ui/link": "^5.22.1"
+    "@welcome-ui/icons": "^6.0.0-alpha.0",
+    "@welcome-ui/icons.font": "^6.0.0-alpha.0",
+    "@welcome-ui/link": "^6.0.0-alpha.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
