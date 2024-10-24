@@ -15,7 +15,7 @@ export const FileDrop = styled('div').withConfig({ shouldForwardProp })<StyledFi
     ${isDragAccept && th('filedrops.dragAccept')};
     ${isDragReject &&
     css`
-      border-color: ${getVariantColor('error')};
+      border-color: ${getVariantColor('danger')};
       ${th('filedrops.dragReject')}
     `};
     position: relative;

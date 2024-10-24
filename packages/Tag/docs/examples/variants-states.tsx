@@ -5,7 +5,7 @@ const Example = () => {
   return (
     <>
       <Tag variant="success">Success</Tag>
-      <Tag variant="error">Error</Tag>
+      <Tag variant="danger">Danger</Tag>
       <Tag variant="warning">Warning</Tag>
       <Tag variant="info">Info</Tag>
     </>

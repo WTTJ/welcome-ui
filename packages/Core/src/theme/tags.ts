@@ -7,7 +7,7 @@ export type Size = 'xs' | 'sm' | 'md'
 export type Variant =
   | keyof typeof SecondaryColors
   | 'default'
-  | 'error'
+  | 'danger'
   | 'info'
   | 'primary'
   | 'success'
@@ -63,7 +63,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
         borderColor: colors['success-20'],
         ...border,
       },
-      error: {
+      danger: {
         backgroundColor: colors['danger-10'],
         color: colors['danger-50'],
         borderColor: colors['danger-20'],
@@ -96,7 +96,7 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
       success: {
         borderColor: colors['success-50'],
       },
-      error: {
+      danger: {
         borderColor: colors['danger-50'],
       },
       warning: {

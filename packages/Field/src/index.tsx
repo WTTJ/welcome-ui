@@ -8,18 +8,21 @@ import { VariantIcon } from '@welcome-ui/variant-icon'
 import * as S from './styles'
 import { forwardedProps, generateRandomId, getBaseType, getVariant } from './utils'
 
-export interface FieldOptions {
+export type VariantProps = {
+  error?: string | JSX.Element
+  info?: string | JSX.Element
+  success?: string | JSX.Element
+  warning?: string | JSX.Element
+}
+
+export interface FieldOptions extends VariantProps {
   children: JSX.Element
   disabled?: boolean
   disabledIcon?: JSX.Element
-  error?: string | JSX.Element
   hint?: string | JSX.Element
-  info?: string | JSX.Element
   label?: string | JSX.Element
   required?: boolean
-  success?: string | JSX.Element
   transparent?: boolean
-  warning?: string | JSX.Element
 }
 
 export type FieldProps = CreateWuiProps<'div', FieldOptions>

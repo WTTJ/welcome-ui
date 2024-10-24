@@ -13,7 +13,7 @@ export const Blockquote = ({ children }: { children: JSX.Element[] }) => {
     variant = 'success'
   }
   if (type === 'Please note:') {
-    variant = 'error'
+    variant = 'danger'
   }
 
   const childFormatted = child.reduce((prev: JSX.Element[], item: JSX.Element) => {
@@ -36,10 +36,12 @@ export const Blockquote = ({ children }: { children: JSX.Element[] }) => {
       return prev
     } else if (isDont) {
       title = 'Don’t'
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       prev.push(item.replace("*DON'T\n*", ''))
     } else if (isDo) {
       title = 'Do'
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       prev.push(item.replace('*DO\n*', ''))
     } else {
