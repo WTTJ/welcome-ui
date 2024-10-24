@@ -13,6 +13,15 @@ import { Flex } from '@welcome-ui/flex'
 
 const posts = [
   {
+    title: 'More colors!',
+    description:
+      'We are happy to release Welcome UI V6 who focuses on the rebranding of our colors and tokens, and adding a Logo component.',
+    tags: ['release'],
+    link: 'https://www.welcome-ui.com/foundations/migration',
+    cover: 'https://github.com/user-attachments/assets/34259431-1bc3-4d97-84b7-e2048c7208da',
+    date: new Date('2024-10-24'),
+  },
+  {
     title: 'Créer le design system de welcome to the jungle (in French 🇫🇷)',
     description:
       'Comment et pourquoi créer un design system ? Quelles sont les sources de motivation des devs ? Pourquoi le rendre open source ? Peut-il vraiment être transposable sans difficulté ? Quels sont les défis de sa maintenance ? On en parle avec Théo et Mickaël de Welcome to the Jungle.',
@@ -69,9 +78,10 @@ const Home = () => {
           The latest about us
         </Text>
         <Box as="ul" listStyleType="none" m="0" mt={{ _: 'xxl', md: '5xl' }} p="0">
-          {posts.map(({ authors, date, description, link, tags, title }) => (
+          {posts.map(({ authors, cover, date, description, link, tags, title }) => (
             <Box as="li" key={link} mb="3xl">
               <Card>
+                {cover && <Card.Cover src={cover} />}
                 <Card.Body>
                   <Stack direction="row" mb="xl" spacing="xxs">
                     {tags?.map(tag => (
