@@ -6,7 +6,7 @@
   "ignore": [
     "website"
   ],
-  "version": "5.22.1",
+  "version": "6.0.0-alpha.0",
   "npmClient": "yarn",
   "useNx": false
 }
