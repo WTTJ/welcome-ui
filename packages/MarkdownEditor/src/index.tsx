@@ -28,7 +28,6 @@ interface Icons {
 interface Actions {
   [key: string]: Action
 }
-export type Variant = 'error' | 'info' | 'success' | 'valid' | 'warning'
 export interface MarkdownEditorOptions extends DefaultFieldStylesProps {
   actions?: React.ReactElement
   autoFocus?: SimpleMDEReactProps['options']['autofocus']

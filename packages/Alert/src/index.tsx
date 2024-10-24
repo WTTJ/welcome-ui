@@ -4,12 +4,14 @@ import { Box } from '@welcome-ui/box'
 import { CloseButton } from '@welcome-ui/close-button'
 import { Button, ButtonProps } from '@welcome-ui/button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { Variant, VariantIcon } from '@welcome-ui/variant-icon'
+import { VariantIcon } from '@welcome-ui/variant-icon'
+import { Variant as VariantUtils } from '@welcome-ui/utils'
 
 import * as S from './styles'
 import { Title } from './Title'
 
 export type Size = 'sm' | 'md'
+export type Variant = VariantUtils | 'default'
 export interface AlertOptions {
   closeButtonDataTestId?: string
   cta?: JSX.Element

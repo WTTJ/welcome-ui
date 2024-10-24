@@ -1,9 +1,8 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-
-import { Variant } from './index'
+import { Variant } from '@welcome-ui/utils'
 
 export const VARIANTS: Record<Variant, string> = {
-  error: 'colors.danger-50',
+  danger: 'colors.danger-50',
   info: 'colors.info-50',
   success: 'colors.success-50',
   warning: 'colors.warning-50',

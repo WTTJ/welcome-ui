@@ -64,7 +64,7 @@ export const Div = ({ children, node }: DivProps) => {
     const fileExist = existsSync(pathToFile)
 
     if (!fileExist) {
-      return <Alert variant="error">File not found</Alert>
+      return <Alert variant="danger">File not found</Alert>
     }
 
     const code = readFileSync(pathToFile, 'utf8')

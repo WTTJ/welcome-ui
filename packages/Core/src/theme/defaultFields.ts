@@ -17,8 +17,8 @@ export type ThemeDefaultFields = {
   disabled: CSSObject
   fieldset: CSSObject
   focused: {
+    danger: CSSObject & ReturnType<ThemeFocus>
     default: CSSObject & ReturnType<ThemeFocus>
-    error: CSSObject & ReturnType<ThemeFocus>
     info: CSSObject & ReturnType<ThemeFocus>
     success: CSSObject & ReturnType<ThemeFocus>
     warning: CSSObject & ReturnType<ThemeFocus>
@@ -122,7 +122,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
         ...focus(colors['primary-30']),
         borderColor: 'transparent',
       },
-      error: { ...focus(colors['danger-30']) },
+      danger: { ...focus(colors['danger-30']) },
       warning: { ...focus(colors['warning-40']) },
       success: { ...focus(colors['success-30']) },
       info: { ...focus(colors['info-40']) },

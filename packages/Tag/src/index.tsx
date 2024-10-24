@@ -1,20 +1,13 @@
-import React from 'react'
-import { wrapChildren } from '@welcome-ui/utils'
-import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { CrossIcon } from '@welcome-ui/icons'
 import { SecondaryColors } from '@welcome-ui/core'
+import { CrossIcon } from '@welcome-ui/icons'
+import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
+import { Variant as VariantUtils, wrapChildren } from '@welcome-ui/utils'
+import React from 'react'
 
 import * as S from './styles'
 
 export type Size = 'xs' | 'sm' | 'md'
-export type Variant =
-  | keyof typeof SecondaryColors
-  | 'default'
-  | 'error'
-  | 'info'
-  | 'primary'
-  | 'success'
-  | 'warning'
+export type Variant = keyof typeof SecondaryColors | VariantUtils | 'default' | 'primary'
 
 export interface TagOptions {
   href?: string

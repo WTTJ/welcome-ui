@@ -33,7 +33,7 @@ export const VariantIcon = forwardRef<'div', VariantIconProps>(
       if (variant === 'success') return <SuccessIcon size={size} />
       if (variant === 'info') return <InformationIcon size={size} />
       if (variant === 'warning') return <AlertIcon size={size} />
-      if (variant === 'error') return <SquareAlertIcon size={size} />
+      if (variant === 'danger') return <SquareAlertIcon size={size} />
     }, [size, icon, variant])
 
     return Icon ? (
