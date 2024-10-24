@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
-import { useCreatePortal } from '@welcome-ui/utils'
+import { useCreatePortal, Variant as VariantUtils } from '@welcome-ui/utils'
 import { TextProps } from '@welcome-ui/text'
 import toastRHT, { ToastPosition, useToaster } from 'react-hot-toast/headless'
 
@@ -9,7 +9,7 @@ import { Growl } from './Growl'
 import { Snackbar } from './Snackbar'
 import * as S from './styles'
 
-export type Variant = 'default' | 'error' | 'warning' | 'info' | 'success'
+export type Variant = 'default' | VariantUtils
 
 type NotificationsProps = { pauseOnHover?: boolean }
 

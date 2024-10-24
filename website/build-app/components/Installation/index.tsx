@@ -15,7 +15,7 @@ type InstallationProps = {
 export const Installation = ({ packageName, usage }: InstallationProps) => {
   if (!packageName || !usage) {
     return (
-      <Alert variant="error">
+      <Alert variant="danger">
         <Alert.Title>Documentation missing</Alert.Title>
         Missing packageName and/or usage on data of component on
         packages/YOUR_COMPONENTS/docs/index.mdx

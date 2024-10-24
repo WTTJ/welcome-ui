@@ -9,10 +9,10 @@ const Example = () => {
   const handleToggle = () => setChecked(!checked)
 
   return (
-    <Label variant="error">
+    <Label variant="danger">
       <Checkbox checked={checked} name="labelExample" onChange={handleToggle} />
       <div>
-        <span>Error variant with </span>
+        <span>Danger variant with </span>
         <Link href="#">a link</Link>
         <span> and all of that jazz because of the box</span>
       </div>

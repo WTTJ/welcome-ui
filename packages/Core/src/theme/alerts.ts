@@ -2,7 +2,7 @@ import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
 
-type State = 'default' | 'error' | 'warning' | 'info' | 'success'
+type State = 'default' | 'danger' | 'warning' | 'info' | 'success'
 
 type Sizes = 'sm' | 'md'
 
@@ -27,7 +27,7 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
       borderColor: colors['neutral-30'],
       borderRadius: radii.lg,
     },
-    error: {
+    danger: {
       backgroundColor: colors['danger-10'],
       borderColor: colors['danger-50'],
     },
@@ -55,7 +55,7 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
       default: {
         color: colors['neutral-90'],
       },
-      error: {
+      danger: {
         color: colors['neutral-90'],
       },
       warning: {

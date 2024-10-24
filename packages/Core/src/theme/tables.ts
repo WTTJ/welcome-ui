@@ -7,8 +7,8 @@ export type ThemeTables = {
   th: CSSObject
   tr: {
     clickable: CSSObject
+    danger: CSSObject
     default: CSSObject
-    error: CSSObject
     info: CSSObject
     success: CSSObject
     warning: CSSObject
@@ -37,7 +37,7 @@ export const getTables = (theme: WuiTheme): ThemeTables => {
         borderBottomWidth: borderWidths.sm,
         borderBottomStyle: 'solid',
       },
-      error: {
+      danger: {
         backgroundColor: colors['danger-10'],
         color: colors['danger-50'],
       },

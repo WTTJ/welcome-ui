@@ -52,6 +52,7 @@
     "@welcome-ui/stack": "^5.20.0",
     "@welcome-ui/system": "^5.17.1",
     "@welcome-ui/text": "^5.22.2",
+    "@welcome-ui/utils": "^5.22.1",
     "@welcome-ui/variant-icon": "^5.22.1"
   },
   "peerDependencies": {

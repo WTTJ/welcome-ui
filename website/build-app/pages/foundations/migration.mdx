@@ -19,9 +19,9 @@ Make sure you update all `@welcome-ui` packages to v6:
 }
 ```
 
-### 2. Migrate colors
+### 2. Script to migrate
 
-We reworked our theme's colors, spacing, typography, and many other properties. Use the migration script to migrate easily to V5 on a welcome-ui project.
+We reworked our theme's colors and variants name. Use the migration script to migrate easily to V6 on a welcome-ui project.
 
 ```bash
 yarn migrate "../yourProject/src/**/**.**(tsx|ts|js)"
@@ -56,11 +56,37 @@ and remove also from your `packages.json`:
 #### Alert
 
 ```diff
-- <Alert variant="error">
+- <Alert variant="danger">
 + <Alert variant="danger">
 ```
 
-TODO: add others
+#### Table
+
+```diff
+- <Table.Tr variant="danger">
++ <Table.Tr variant="danger">
+```
+
+#### Tag
+
+```diff
+- <Tag variant="danger">
++ <Tag variant="danger">
+```
+
+#### Hint
+
+```diff
+- <Hint variant="danger">
++ <Hint variant="danger">
+```
+
+#### Label
+
+```diff
+- <Label variant="danger">
++ <Label variant="danger">
+```
 
 ## Colors
 
@@ -73,7 +99,7 @@ We reworked our colors to prepare the next steps for tokenization.
 Now the range is `color-10` to `color-90`.
 
 ```diff
-- primary-100
+- primary-10
 + primary-10
 ```
 
@@ -82,9 +108,9 @@ Now the range is `color-10` to `color-90`.
 We merged Dark and Light colors in a Neutral new one, without opacity.
 
 ```diff
-- light-900
+- neutral-10
 + neutral-10
-- dark-900
+- neutral-90
 + neutral-90
 ```
 
@@ -97,7 +123,7 @@ Hello `green` `teal` `blue` `violet` `pink` `red` `red-orange` `orange` and `yel
 The nude naming is changed for beige.
 
 ```diff
-- nude-100
+- beige-20
 + beige-10
 ```
 
@@ -106,33 +132,33 @@ The nude naming is changed for beige.
 Sub colors replaced by 6 new colors for the secondary palette:
 
 ```diff
-- sub-1
+- secondary-teal
 + secondary-teal
 ```
 
 ```diff
-- sub-2
+- secondary-blue
 + secondary-blue
 ```
 
 ```diff
-- sub-3
+- secondary-orange
 + secondary-orange
 ```
 
 ```diff
-- sub-4
+- secondary-pink
 + secondary-pink
 ```
 
 ```diff
-- sub-5
-- sub-6
+- secondary-green
+- secondary-green
 + secondary-green
 ```
 
 ```diff
-- sub-7
+- secondary-violet
 + secondary-violet
 ```
 

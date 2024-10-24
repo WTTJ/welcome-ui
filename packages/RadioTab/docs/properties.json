@@ -287,10 +287,7 @@
           "raw": "Variant",
           "value": [
             {
-              "value": "\"error\""
-            },
-            {
-              "value": "\"focused\""
+              "value": "\"danger\""
             },
             {
               "value": "\"info\""

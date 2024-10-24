@@ -98,7 +98,7 @@ describe('<Field />', () => {
 
     const input = screen.getByTestId('input')
     expect(input).toBeInTheDocument()
-    expect(input).toHaveAttribute('variant', 'error')
+    expect(input).toHaveAttribute('variant', 'danger')
   })
 
   it('should display label before input', () => {

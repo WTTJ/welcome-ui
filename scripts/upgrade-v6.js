@@ -90,6 +90,17 @@ const removePrefix = content => {
   return content
 }
 
+const replaceErrorVariant = content => {
+  const regex = /<(Tag|Label|Hint|Alert|Table.Tr)\b([^>]*?)\bvariant\s*=\s*["']error["']/g
+
+  if (regex.test(content)) {
+    const newContent = content.replaceAll(regex, '<$1$2variant="danger"')
+    return newContent
+  }
+
+  return content
+}
+
 glob(pattern, (error, matches) => {
   if (error) console.log('error', error)
 
@@ -105,6 +116,7 @@ glob(pattern, (error, matches) => {
 
     content = upgradeColors(content)
     content = removePrefix(content)
+    content = replaceErrorVariant(content)
 
     await fs.writeFile(match, content)
   })

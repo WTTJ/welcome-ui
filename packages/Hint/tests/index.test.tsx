@@ -17,7 +17,7 @@ describe('<Hint>', () => {
 
   it('should render correctly with a state', () => {
     const { getByTestId } = render(
-      <Hint dataTestId="hint" variant="error">
+      <Hint dataTestId="hint" variant="danger">
         {content}
       </Hint>
     )

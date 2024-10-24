@@ -150,22 +150,22 @@
               "value": "\"violet\""
             },
             {
-              "value": "\"default\""
-            },
-            {
-              "value": "\"error\""
+              "value": "\"danger\""
             },
             {
               "value": "\"info\""
-            },
-            {
-              "value": "\"primary\""
             },
             {
               "value": "\"success\""
             },
             {
               "value": "\"warning\""
+            },
+            {
+              "value": "\"default\""
+            },
+            {
+              "value": "\"primary\""
             }
           ]
         }
