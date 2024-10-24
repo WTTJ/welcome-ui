@@ -10,7 +10,6 @@ const glob = require('glob')
 const [pattern = ''] = process.argv.slice(2)
 
 const newColorValues = {
-  black: 'neutral-90',
   'danger-100': 'v6.danger-10',
   'danger-200': 'v6.danger-20',
   'danger-300': 'v6.danger-30',
@@ -63,14 +62,21 @@ const newColorValues = {
   'warning-300': 'v6.warning-30',
   'warning-400': 'v6.warning-40',
   'warning-500': 'v6.warning-50',
-  white: 'neutral-10',
+  '"black"': '"neutral-90"',
+  '"border"': '"neutral-30"',
+  '"underline"': '"primary-40"',
+  '"white"': '"neutral-10"',
+  "'black'": '"neutral-90"',
+  "'border'": '"neutral-30"',
+  "'underline'": '"primary-40"',
+  "'white'": '"neutral-10"',
 }
 
 const getNewColorValue = value => newColorValues[value] || value
 
 const upgradeColors = content => {
   const regex =
-    /(primary|nude|success|danger|info|warning|dark|light)-(100|200|300|400|500|600|700|800|900)|(sub-(1|2|3|4|5|6|7))/gm
+    /(primary|nude|success|danger|info|warning|dark|light)-(100|200|300|400|500|600|700|800|900)|(sub-(1|2|3|4|5|6|7)|("black"|"border"|"underline"|"white"|'black'|'border'|'underline'|'white'))/gm
 
   if (regex.test(content)) {
     const newContent = content.replaceAll(regex, getNewColorValue)
