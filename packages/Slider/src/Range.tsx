@@ -67,7 +67,7 @@ const ensureMax = ({
 export const Range = forwardRef<'div', RangeProps>(
   (
     {
-      borderSelectorColor = 'light-900',
+      borderSelectorColor = 'neutral-10',
       disabled,
       hint,
       label,
@@ -399,7 +399,7 @@ export const Range = forwardRef<'div', RangeProps>(
         </Box>
 
         {hint && (
-          <Hint color="dark-400" mt={0}>
+          <Hint color="neutral-50" mt={0}>
             {hint}
           </Hint>
         )}

@@ -17,7 +17,7 @@ const Example = () => {
         padding="xl"
         w="100%"
       >
-        <Text as="h4" color="light-900" fontWeight="bold" m={0}>
+        <Text as="h4" color="neutral-10" fontWeight="bold" m={0}>
           The Jungle Book
         </Text>
       </Box>

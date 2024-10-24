@@ -41,7 +41,7 @@ const components = {
   img: Image,
   div: Div,
   strong: ({ children }: { children: React.ReactElement }) => (
-    <Box as="strong" color="dark-900" fontWeight="500">
+    <Box as="strong" color="neutral-90" fontWeight="500">
       {children}
     </Box>
   ),

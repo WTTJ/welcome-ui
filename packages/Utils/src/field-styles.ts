@@ -92,7 +92,7 @@ export const defaultFieldStyles: DefaultFieldStyles = ({
 
     &:focus {
       ${th('defaultFields.focused.default')};
-      ${variant === 'error' && th('defaultFields.focused.error')};
+      ${variant === 'danger' && th('defaultFields.focused.danger')};
       ${variant === 'warning' && th('defaultFields.focused.warning')};
       ${variant === 'success' && th('defaultFields.focused.success')};
       ${variant === 'info' && th('defaultFields.focused.info')};

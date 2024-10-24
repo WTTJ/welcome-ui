@@ -13,8 +13,8 @@ const Example = () => {
           ornare.
         </span>
       </Alert>
-      <Alert variant="error">
-        <Alert.Title>Error variant</Alert.Title>
+      <Alert variant="danger">
+        <Alert.Title>Danger variant</Alert.Title>
         <span>
           Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
           ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a

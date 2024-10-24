@@ -3,9 +3,9 @@ import { Flex } from '@welcome-ui/flex'
 import { Text } from '@welcome-ui/text'
 import { Box } from '@welcome-ui/box'
 import { Grid } from '@welcome-ui/grid'
+import { Logo } from '@welcome-ui/logo'
 
 import { Section } from '../Section'
-import { LogoWttj } from '../LogoWttj'
 
 const links = [
   {
@@ -72,11 +72,11 @@ const links = [
 
 export const Footer = () => {
   return (
-    <Section as="footer" backgroundColor="nude-100">
+    <Section as="footer" backgroundColor="beige-20">
       <Grid gap="xl" gridTemplateColumns={{ _: '1fr 1fr', md: '1fr 1fr 1fr 1fr' }}>
         <Flex flexDirection="column" gap="xs">
           <Flex alignItems="center" gap="sm">
-            Made with <HeartIcon color="primary-500" /> by
+            Made with <HeartIcon color="primary-50" /> by
           </Flex>
           <Box
             as="a"
@@ -85,10 +85,9 @@ export const Footer = () => {
             target="_blank"
             w="fit-content"
           >
-            <LogoWttj black h={42} w={130} />
+            <Logo h={40} />
           </Box>
         </Flex>
-
         {links.map(({ links, name }) => (
           <Flex as="nav" flexDirection="column" gap="lg" key={name}>
             <Text variant="subtitle-md">{name}</Text>
@@ -98,7 +97,7 @@ export const Footer = () => {
                   <Box
                     alignItems="center"
                     as="a"
-                    color="dark-900"
+                    color="neutral-90"
                     display="flex"
                     fontSize="sm"
                     gap="xs"
@@ -108,7 +107,7 @@ export const Footer = () => {
                     textDecoration={{ hover: 'underline' }}
                   >
                     {name}
-                    {isExternal && <ExternalLinkIcon color="dark-500" size="xs" />}
+                    {isExternal && <ExternalLinkIcon color="neutral-60" size="xs" />}
                   </Box>
                 </Box>
               ))}

@@ -16,7 +16,7 @@ export const H2 = ({ children, mt = '3xl' }: HeadingsProps) => {
       alignItems="center"
       as="h2"
       borderBottom="1px solid"
-      borderBottomColor="border"
+      borderBottomColor="neutral-30"
       display="flex"
       id={id}
       mt={mt}

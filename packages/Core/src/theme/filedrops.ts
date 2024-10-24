@@ -20,7 +20,7 @@ export const getFiledrops = (theme: WuiTheme): ThemeFiledrops => {
     dragAccept: {},
     dragReject: {},
     disabled: {
-      backgroundColor: colors['nude-200'],
+      backgroundColor: colors['beige-30'],
     },
   }
 }

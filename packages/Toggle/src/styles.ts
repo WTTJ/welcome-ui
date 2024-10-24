@@ -85,7 +85,7 @@ export const IconWrapper = styled.box.withConfig({ shouldForwardProp })<{
     ${checked &&
     css`
       left: ${th(`toggles.icon.position.${size}.left`)};
-      color: dark-900;
+      color: neutral-90;
     `}
 
     ${!checked &&

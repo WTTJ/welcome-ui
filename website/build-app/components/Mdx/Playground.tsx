@@ -64,9 +64,9 @@ export const Playground = ({
       <Box display="block">
         <Box
           alignItems={columnDirection ? 'left' : 'center'}
-          backgroundColor="light-900"
+          backgroundColor="neutral-10"
           border="1px solid"
-          borderColor="nude-400"
+          borderColor="beige-40"
           borderRadius="lg"
           display={removeFlex ? 'block' : 'flex'}
           flexDirection={columnDirection ? 'column' : 'row'}
@@ -82,9 +82,9 @@ export const Playground = ({
       {withCodeEditor && (
         <>
           <Box
-            backgroundColor="nude-200"
+            backgroundColor="beige-30"
             border="1px solid"
-            borderColor="nude-400"
+            borderColor="beige-40"
             borderRadius="lg"
             mt="-md"
             overflow="hidden"

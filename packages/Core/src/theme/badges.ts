@@ -29,22 +29,22 @@ export const getBadges = (theme: WuiTheme): ThemeAccordions => {
     },
     variants: {
       default: {
-        color: colors['nude-700'],
-        backgroundColor: colors['nude-200'],
+        color: colors['beige-70'],
+        backgroundColor: colors['beige-30'],
       },
       primary: {
-        color: colors['dark-900'],
-        backgroundColor: colors['primary-500'],
+        color: colors['neutral-90'],
+        backgroundColor: colors['primary-40'],
       },
     },
     disabled: {
       default: {
-        color: colors['nude-400'],
-        backgroundColor: colors['nude-100'],
+        color: colors['beige-40'],
+        backgroundColor: colors['beige-20'],
       },
       primary: {
-        color: colors['primary-800'],
-        backgroundColor: colors['primary-600'],
+        color: colors['primary-80'],
+        backgroundColor: colors['primary-50'],
       },
     },
     sizes: {

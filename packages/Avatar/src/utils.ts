@@ -1,9 +1,21 @@
 import { Theme } from '@xstyled/styled-components'
+import { SecondaryColors } from '@welcome-ui/core'
+
+const subColorByNumber: {
+  [key: number]: keyof typeof SecondaryColors
+} = {
+  1: 'teal',
+  2: 'blue',
+  3: 'orange',
+  4: 'green',
+  5: 'pink',
+  6: 'violet',
+}
 
 export function getSeededColor(colors: Theme['colors'], seed = ''): string {
-  const colorKeys = Object.keys(colors).filter(color => color.startsWith('sub-'))
+  const colorKeys = Object.keys(colors).filter(color => color.startsWith('secondary-'))
   const subColorNumber = (seed.length % colorKeys.length) + 1
-  const colorsIndex = `sub-${subColorNumber}` as keyof Theme['colors']
+  const colorsIndex = `secondary-${subColorByNumber[subColorNumber]}` as keyof Theme['colors']
 
   return colors[colorsIndex]
 }

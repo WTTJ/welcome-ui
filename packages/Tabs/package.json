@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/tabs",
-  "version": "5.22.1",
+  "version": "6.0.0-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,8 +47,8 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.3",
-    "@welcome-ui/system": "^5.17.1",
-    "@welcome-ui/utils": "^5.22.1",
+    "@welcome-ui/system": "^6.0.0-alpha.0",
+    "@welcome-ui/utils": "^6.0.0-alpha.0",
     "react-flatten-children": "^1.0.0"
   },
   "peerDependencies": {

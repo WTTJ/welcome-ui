@@ -3,13 +3,13 @@ import styled, { th } from '@xstyled/styled-components'
 import NextLink from 'next/link'
 
 export const Link = styled(NextLink)`
-  color: dark-700;
+  color: neutral-70;
   position: relative;
   transition: color ${th('transitions.medium')}, padding-left ${th('transitions.medium')};
 
   &:hover,
   &:focus {
-    color: dark-900;
+    color: neutral-90;
   }
 
   &::before {
@@ -24,10 +24,10 @@ export const Link = styled(NextLink)`
 
   &[aria-current='page'] {
     padding-left: sm;
-    color: dark-900;
+    color: neutral-90;
 
     &::before {
-      background-color: ${th('colors.primary-500')};
+      background-color: ${th('colors.primary-40')};
     }
   }
 `

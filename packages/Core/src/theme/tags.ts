@@ -1,24 +1,17 @@
 import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
+import { SecondaryColors } from './colors'
 
-type Variant =
+export type Size = 'xs' | 'sm' | 'md'
+export type Variant =
+  | keyof typeof SecondaryColors
   | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'error'
-  | 'warning'
+  | 'danger'
   | 'info'
-  | '1'
-  | '2'
-  | '3'
-  | '4'
-  | '5'
-  | '6'
-  | '7'
-
-type Size = 'xs' | 'sm' | 'md'
+  | 'primary'
+  | 'success'
+  | 'warning'
 
 export type ThemeTags = {
   default: CSSObject
@@ -47,101 +40,88 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
     ...border,
     borderColor: color,
     backgroundColor: color,
-    color: colors.white,
+    color: colors['neutral-10'],
   })
 
   return {
     default: {
       fontWeight: fontWeights.medium,
-      backgroundColor: colors['light-900'],
-      color: colors['nude-900'],
+      backgroundColor: colors['neutral-10'],
+      color: colors['beige-80'],
       borderRadius: radii.md,
     },
     variants: {
       default: {
-        backgroundColor: colors['nude-200'],
-        borderColor: colors['nude-400'],
+        backgroundColor: colors['beige-30'],
+        borderColor: colors['beige-40'],
         ...border,
       },
-      primary: { ...withoutVisibleBorder(colors['primary-500']), color: colors['dark-900'] },
-      secondary: {
-        backgroundColor: colors['sub-5'],
-        color: colors['dark-900'],
-        borderColor: colors['dark-100'],
-        ...border,
-      },
+      primary: { ...withoutVisibleBorder(colors['primary-40']), color: colors['neutral-90'] },
       success: {
-        backgroundColor: colors['success-100'],
-        color: colors['success-500'],
-        borderColor: colors['success-200'],
+        backgroundColor: colors['success-10'],
+        color: colors['success-50'],
+        borderColor: colors['success-20'],
         ...border,
       },
-      error: {
-        backgroundColor: colors['danger-100'],
-        color: colors['danger-500'],
-        borderColor: colors['danger-200'],
+      danger: {
+        backgroundColor: colors['danger-10'],
+        color: colors['danger-50'],
+        borderColor: colors['danger-20'],
         ...border,
       },
       warning: {
-        backgroundColor: colors['warning-100'],
-        color: colors['warning-500'],
-        borderColor: colors['warning-200'],
+        backgroundColor: colors['warning-10'],
+        color: colors['warning-50'],
+        borderColor: colors['warning-20'],
         ...border,
       },
       info: {
-        backgroundColor: colors['info-100'],
-        color: colors['info-500'],
-        borderColor: colors['info-300'],
+        backgroundColor: colors['info-10'],
+        color: colors['info-50'],
+        borderColor: colors['info-30'],
         ...border,
       },
-      1: { ...withoutVisibleBorder(colors['sub-1']), color: colors['dark-900'] },
-      2: { ...withoutVisibleBorder(colors['sub-2']), color: colors['light-900'] },
-      3: { ...withoutVisibleBorder(colors['sub-3']), color: colors['light-900'] },
-      4: { ...withoutVisibleBorder(colors['sub-4']), color: colors['dark-900'] },
-      5: { ...withoutVisibleBorder(colors['sub-5']), color: colors['dark-900'] },
-      6: { ...withoutVisibleBorder(colors['sub-6']), color: colors['light-900'] },
-      7: { ...withoutVisibleBorder(colors['sub-7']), color: colors['dark-900'] },
+      teal: { ...withoutVisibleBorder(colors['secondary-teal']), color: colors['neutral-90'] },
+      blue: { ...withoutVisibleBorder(colors['secondary-blue']), color: colors['neutral-90'] },
+      orange: { ...withoutVisibleBorder(colors['secondary-orange']), color: colors['neutral-90'] },
+      pink: { ...withoutVisibleBorder(colors['secondary-pink']), color: colors['neutral-90'] },
+      green: { ...withoutVisibleBorder(colors['secondary-green']), color: colors['neutral-90'] },
+      violet: { ...withoutVisibleBorder(colors['secondary-violet']), color: colors['neutral-90'] },
     },
     hover: {
       default: {
-        borderColor: colors['nude-600'],
+        borderColor: colors['beige-60'],
       },
       primary: {},
-      secondary: {
-        borderColor: colors['dark-400'],
-      },
       success: {
-        borderColor: colors['success-500'],
+        borderColor: colors['success-50'],
       },
-      error: {
-        borderColor: colors['danger-500'],
+      danger: {
+        borderColor: colors['danger-50'],
       },
       warning: {
-        borderColor: colors['warning-500'],
+        borderColor: colors['warning-50'],
       },
       info: {
-        borderColor: colors['info-500'],
+        borderColor: colors['info-50'],
       },
-      1: {
-        borderColor: colors['dark-200'],
+      teal: {
+        borderColor: colors['teal-60'],
       },
-      2: {
-        borderColor: colors['dark-200'],
+      blue: {
+        borderColor: colors['blue-60'],
       },
-      3: {
-        borderColor: colors['dark-200'],
+      green: {
+        borderColor: colors['green-60'],
       },
-      4: {
-        borderColor: colors['dark-200'],
+      orange: {
+        borderColor: colors['red-orange-60'],
       },
-      5: {
-        borderColor: colors['dark-200'],
+      pink: {
+        borderColor: colors['pink-60'],
       },
-      6: {
-        borderColor: colors['dark-200'],
-      },
-      7: {
-        borderColor: colors['dark-200'],
+      violet: {
+        borderColor: colors['violet-60'],
       },
     },
     sizes: {

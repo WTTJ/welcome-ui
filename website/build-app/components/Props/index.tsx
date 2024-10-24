@@ -106,7 +106,7 @@ export const Property = ({ id, name, options }: PropertyProps) => {
       <Flex
         alignItems="center"
         borderBottom="1px solid"
-        borderBottomColor="border"
+        borderBottomColor="neutral-30"
         gap="md"
         mb="md"
         pb="md"
@@ -114,9 +114,9 @@ export const Property = ({ id, name, options }: PropertyProps) => {
         <Code>{name}</Code>
         {required && <Badge variant="primary">Required</Badge>}
       </Flex>
-      <Text color="dark-900">
+      <Text color="neutral-90">
         {getType(type)}
-        <Box as="span" color="dark-700">
+        <Box as="span" color="neutral-70">
           {defaultLabel && ` | undefined = ${defaultLabel}`}
         </Box>
       </Text>

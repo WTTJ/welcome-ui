@@ -56,23 +56,29 @@ export function getFilesFromDirectory(dir: string) {
 }
 
 export function getStaticParams(pages: PageTree) {
-  return pages.reduce((prev, { pages }) => {
-    pages.map(page => {
-      if (!page.parent) {
-        prev.push({ id: page.id })
-      }
-    })
-    return prev
-  }, [] as { id?: string }[])
+  return pages.reduce(
+    (prev, { pages }) => {
+      pages.map(page => {
+        if (!page.parent) {
+          prev.push({ id: page.id })
+        }
+      })
+      return prev
+    },
+    [] as { id?: string }[]
+  )
 }
 
 export function getStaticParamsSubPage(pages: PageTree) {
-  return pages.reduce((prev, { pages }) => {
-    pages.map(page => {
-      prev.push({ id: page.parent, subPage: page.id })
-    })
-    return prev
-  }, [] as { id?: string; subPage?: string }[])
+  return pages.reduce(
+    (prev, { pages }) => {
+      pages.map(page => {
+        prev.push({ id: page.parent, subPage: page.id })
+      })
+      return prev
+    },
+    [] as { id?: string; subPage?: string }[]
+  )
 }
 
 /**

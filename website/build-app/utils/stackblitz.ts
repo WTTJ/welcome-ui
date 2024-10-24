@@ -20,11 +20,10 @@ const getIndexHtml = (name: string) => `<html lang="en">
 const indexTsx = `import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { createTheme, WuiProvider } from '@welcome-ui/core'
-import { welcomeTheme } from '@welcome-ui/themes.welcome'
 
 import Demo from './demo'
 
-const theme = createTheme(welcomeTheme)
+const theme = createTheme()
 
 ReactDOM.render(
   <React.StrictMode>
@@ -52,7 +51,6 @@ const getPackageJson = (dependencies: string) => `{
   },
   "dependencies": {
     "@welcome-ui/core": "latest",
-    "@welcome-ui/themes.welcome": "latest",
     ${dependencies},
     "@xstyled/styled-components": "^3.7.3",
     "react": "^18.1.0",

@@ -14,8 +14,8 @@ export const getPopovers = (theme: WuiTheme): ThemePopovers => {
   return {
     default: {
       ...texts.sm,
-      backgroundColor: colors.black,
-      color: colors.white,
+      backgroundColor: colors['neutral-90'],
+      color: colors['neutral-10'],
       maxWidth: toRem(700),
       zIndex: 1,
     },
@@ -26,8 +26,8 @@ export const getPopovers = (theme: WuiTheme): ThemePopovers => {
     title: {
       ...texts.h6,
       padding: `${space.md} ${space.md} ${space.xs}`,
-      color: colors.white,
-      borderBottomColor: colors['light-200'],
+      color: colors['neutral-10'],
+      borderBottomColor: colors['neutral-70'],
       borderBottomWidth: borderWidths.sm,
       borderBottomStyle: 'solid',
     },

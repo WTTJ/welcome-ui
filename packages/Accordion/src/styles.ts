@@ -8,7 +8,7 @@ export const Accordion = styled.div`
   transition: medium;
 
   &:hover {
-    border-color: dark-400;
+    border-color: neutral-50;
   }
 `
 
@@ -49,7 +49,7 @@ export const Disclosure = styled(Ariakit.Disclosure)`
   &:hover {
     cursor: pointer;
     ${Icon} {
-      background-color: dark-100;
+      background-color: neutral-30;
     }
   }
 
@@ -82,5 +82,5 @@ export const ContentChild = styled.div`
   ${th('accordions.content')};
   padding: ${th('accordions.padding')};
   padding-top: 0;
-  color: dark-700;
+  color: neutral-70;
 `

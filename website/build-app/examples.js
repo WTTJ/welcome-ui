@@ -136,6 +136,11 @@ export default {
   "/Loader/docs/examples/color.tsx": dynamic(() => import("../../packages/Loader/docs/examples/color.tsx").then(mod => mod), { ssr: false }),
   "/Loader/docs/examples/overview.tsx": dynamic(() => import("../../packages/Loader/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Loader/docs/examples/sizes.tsx": dynamic(() => import("../../packages/Loader/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
+  "/Logo/docs/examples/overview.tsx": dynamic(() => import("../../packages/Logo/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Logo/docs/examples/solutions.tsx": dynamic(() => import("../../packages/Logo/docs/examples/solutions.tsx").then(mod => mod), { ssr: false }),
+  "/Logo/docs/examples/symbols.tsx": dynamic(() => import("../../packages/Logo/docs/examples/symbols.tsx").then(mod => mod), { ssr: false }),
+  "/Logo/docs/examples/welcome.tsx": dynamic(() => import("../../packages/Logo/docs/examples/welcome.tsx").then(mod => mod), { ssr: false }),
+  "/Logo/docs/examples/wui.tsx": dynamic(() => import("../../packages/Logo/docs/examples/wui.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/asset-iframe.tsx": dynamic(() => import("../../packages/Modal/docs/examples/asset-iframe.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/asset-image.tsx": dynamic(() => import("../../packages/Modal/docs/examples/asset-image.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/asset-swiper-title.tsx": dynamic(() => import("../../packages/Modal/docs/examples/asset-swiper-title.tsx").then(mod => mod), { ssr: false }),
@@ -214,8 +219,8 @@ export default {
   "/Tag/docs/examples/overview.tsx": dynamic(() => import("../../packages/Tag/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Tag/docs/examples/sizes.tsx": dynamic(() => import("../../packages/Tag/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/Tag/docs/examples/variants-basics.tsx": dynamic(() => import("../../packages/Tag/docs/examples/variants-basics.tsx").then(mod => mod), { ssr: false }),
+  "/Tag/docs/examples/variants-secondary.tsx": dynamic(() => import("../../packages/Tag/docs/examples/variants-secondary.tsx").then(mod => mod), { ssr: false }),
   "/Tag/docs/examples/variants-states.tsx": dynamic(() => import("../../packages/Tag/docs/examples/variants-states.tsx").then(mod => mod), { ssr: false }),
-  "/Tag/docs/examples/variants-subs.tsx": dynamic(() => import("../../packages/Tag/docs/examples/variants-subs.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/overview.tsx": dynamic(() => import("../../packages/Text/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/overwrite.tsx": dynamic(() => import("../../packages/Text/docs/examples/overwrite.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/truncation.tsx": dynamic(() => import("../../packages/Text/docs/examples/truncation.tsx").then(mod => mod), { ssr: false }),
@@ -242,5 +247,8 @@ export default {
   "/Tooltip/docs/examples/long-text.tsx": dynamic(() => import("../../packages/Tooltip/docs/examples/long-text.tsx").then(mod => mod), { ssr: false }),
   "/Tooltip/docs/examples/overview.tsx": dynamic(() => import("../../packages/Tooltip/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Tooltip/docs/examples/placement.tsx": dynamic(() => import("../../packages/Tooltip/docs/examples/placement.tsx").then(mod => mod), { ssr: false }),
-  "/Tooltip/docs/examples/withArrow.tsx": dynamic(() => import("../../packages/Tooltip/docs/examples/withArrow.tsx").then(mod => mod), { ssr: false })
+  "/Tooltip/docs/examples/withArrow.tsx": dynamic(() => import("../../packages/Tooltip/docs/examples/withArrow.tsx").then(mod => mod), { ssr: false }),
+  "/VariantIcon/docs/examples/icon.tsx": dynamic(() => import("../../packages/VariantIcon/docs/examples/icon.tsx").then(mod => mod), { ssr: false }),
+  "/VariantIcon/docs/examples/overview.tsx": dynamic(() => import("../../packages/VariantIcon/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/VariantIcon/docs/examples/sizes.tsx": dynamic(() => import("../../packages/VariantIcon/docs/examples/sizes.tsx").then(mod => mod), { ssr: false })
 };

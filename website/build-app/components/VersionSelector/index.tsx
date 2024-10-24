@@ -4,14 +4,15 @@ import React from 'react'
 import lernaConfig from '../../../../lerna.json'
 
 const versions = [
-  { value: 'v5', label: `${lernaConfig.version}` },
+  { value: 'v6', label: `${lernaConfig.version}` },
+  { value: 'v5', label: 'v5' },
   { value: 'v4', label: 'v4' },
   { value: 'v3', label: 'v3' },
 ]
 
 export const VersionSelector = () => {
   const handleChange = (value: unknown) => {
-    if (['v3', 'v4'].includes(value as string)) {
+    if (['v3', 'v4', 'v5'].includes(value as string)) {
       window.open(`http://welcome-ui.com/${value}`, '_self')
     }
   }
@@ -23,7 +24,7 @@ export const VersionSelector = () => {
       onChange={handleChange}
       options={versions}
       size="sm"
-      value="v5"
+      value="v6"
     />
   )
 }

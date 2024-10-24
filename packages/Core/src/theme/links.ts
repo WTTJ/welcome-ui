@@ -21,7 +21,7 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
 
   return {
     default: {
-      color: colors['dark-900'],
+      color: colors['neutral-90'],
       fontWeight: fontWeights.medium,
       transition: transitions.medium,
     },
@@ -29,8 +29,8 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
       backgroundSize: `calc(100% - ${icons.sm} - ${space.sm}) 50%`,
     },
     disabled: {
-      color: colors['dark-400'],
-      backgroundImage: `linear-gradient(0deg, ${colors['dark-100']}, ${colors['dark-100']} 100%)`,
+      color: colors['neutral-50'],
+      backgroundImage: `linear-gradient(0deg, ${colors['neutral-30']}, ${colors['neutral-30']} 100%)`,
     },
     primary: {
       default: {},
@@ -38,10 +38,10 @@ export const getLinks = (theme: WuiTheme): ThemeLinks => {
     },
     secondary: {
       default: {
-        backgroundImage: `linear-gradient(0deg, ${colors['dark-900']}, ${colors['dark-900']} 100%)`,
+        backgroundImage: `linear-gradient(0deg, ${colors['neutral-90']}, ${colors['neutral-90']} 100%)`,
       },
       hover: {
-        color: colors['light-900'],
+        color: colors['neutral-10'],
       },
     },
   }

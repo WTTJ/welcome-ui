@@ -5,8 +5,8 @@ const Example = () => {
   return (
     <Box
       alignItems="center"
-      backgroundColor="sub-3"
-      color="light-900"
+      backgroundColor="secondary-violet"
+      color="neutral-90"
       display="flex"
       justifyContent="center"
       p="xxl"

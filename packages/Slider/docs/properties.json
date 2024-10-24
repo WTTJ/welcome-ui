@@ -3,7 +3,7 @@
     "props": {
       "borderSelectorColor": {
         "defaultValue": {
-          "value": "light-900"
+          "value": "neutral-10"
         },
         "description": "",
         "name": "borderSelectorColor",
@@ -269,7 +269,7 @@
     "props": {
       "borderSelectorColor": {
         "defaultValue": {
-          "value": "light-900"
+          "value": "neutral-10"
         },
         "description": "",
         "name": "borderSelectorColor",

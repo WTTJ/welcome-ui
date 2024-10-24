@@ -3,18 +3,19 @@ import NextLink from 'next/link'
 import { Button } from '@welcome-ui/button'
 import { Box } from '@welcome-ui/box'
 import { GithubIcon, HeartIcon, RightIcon } from '@welcome-ui/icons'
+import { Logo, Symbol } from '@welcome-ui/logo'
+import React from 'react'
 
 import { Components } from '@/build-app/components/Homepage/Components'
 import { Stats } from '@/build-app/components/Homepage/Stats'
 import { Expectations } from '@/build-app/components/Homepage/Expectations'
-import { LogoWttj } from '@/build-app/components/LogoWttj'
 import { Section } from '@/build-app/components/Section'
 
 const Home = () => {
   return (
     <main>
-      <Section backgroundColor="nude-200">
-        <Text as="span" color="dark-900" textTransform="uppercase" variant="subtitle-md">
+      <Section backgroundColor="beige-30">
+        <Text as="span" color="neutral-90" textTransform="uppercase" variant="subtitle-md">
           Welcome UI
         </Text>
         <Text maxWidth={820} mb="xl" mt="sm" variant="h1">
@@ -38,7 +39,7 @@ const Home = () => {
         </Text>
         <Components />
       </Section>
-      <Section backgroundColor="nude-200">
+      <Section backgroundColor="beige-30">
         <Box
           alignItems="center"
           display="flex"
@@ -46,7 +47,7 @@ const Home = () => {
           justifyContent="space-between"
         >
           <Box flex="0 0 auto" maxWidth={{ md: 600 }} mb={{ xs: '5xl', lg: 0 }}>
-            <Text as="span" color="dark-900" textTransform="uppercase" variant="subtitle-md">
+            <Text as="span" color="neutral-90" textTransform="uppercase" variant="subtitle-md">
               Open source
             </Text>
             <Text as="h2" mb="xl" mt="sm" variant="h1">
@@ -81,8 +82,8 @@ const Home = () => {
         </Text>
         <Expectations />
       </Section>
-      <Section backgroundColor="nude-200">
-        <Text as="span" color="dark-900" textTransform="uppercase" variant="subtitle-md">
+      <Section backgroundColor="beige-30">
+        <Text as="span" color="neutral-90" textTransform="uppercase" variant="subtitle-md">
           Example
         </Text>
         <Text as="h2" mb="xl" mt="sm" variant="h1">
@@ -103,11 +104,11 @@ const Home = () => {
           w="100%"
         />
       </Section>
-      <Section backgroundColor="black" color="white" pt={{ xs: '3xl', md: '6xl' }}>
-        <LogoWttj h={67} w={210} />
+      <Section pt={{ xs: '3xl', md: '6xl' }}>
+        <Logo h={67} />
         <Text
           as="span"
-          color="white"
+          color="neutral-90"
           mb="0"
           mt="3xl"
           textTransform="uppercase"
@@ -115,11 +116,11 @@ const Home = () => {
         >
           Who we are?
         </Text>
-        <Text as="h2" color="white" maxWidth={950} mb="xl" mt="sm" variant="h1">
-          The new experience at work
+        <Text as="h2" color="neutral-90" maxWidth={950} mb="xl" mt="sm" variant="h1">
+          THE JOB IS YOURS
         </Text>
-        <Text color="white" maxWidth={640} variant="lg">
-          Welcome to the Jungle build products that transform every step of the experience at work.
+        <Text maxWidth={640} variant="lg">
+          80,000 opportunities to find the job that’s made for you.
         </Text>
         <Box display={{ md: 'flex' }} mt="5xl">
           <Button
@@ -147,16 +148,14 @@ const Home = () => {
           </Button>
         </Box>
         <Box
-          alt="Welcome to the jungle illustration"
-          as="img"
-          bottom={-90}
-          display={{ xs: 'none', lg: 'block' }}
-          maxWidth={400}
+          bottom={-150}
+          display={{ _: 'none', lg: 'block' }}
+          opacity={0.1}
           position="absolute"
-          right="0"
-          src="illustration.png"
-          w="100%"
-        />
+          right={-120}
+        >
+          <Symbol h={400} />
+        </Box>
       </Section>
     </main>
   )

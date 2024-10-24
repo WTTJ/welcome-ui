@@ -6,12 +6,12 @@ import { Drawer, useDrawer } from '@welcome-ui/drawer'
 import { Icons } from '@welcome-ui/icons.font'
 import { usePathname } from 'next/navigation'
 import { Box } from '@welcome-ui/box'
+import { WelcomeUILogo } from '@welcome-ui/logo'
 
 import { VersionSelector } from '../VersionSelector'
 import { Sidebar } from '../Sidebar'
 import { Search } from '../Search'
 
-import { Logo } from './Logo'
 import * as S from './styles'
 import { NavBar } from './NavBar'
 
@@ -20,8 +20,8 @@ import { PageTree } from '@/build-app/types'
 export const navigation = ['foundations', 'components', 'blog']
 
 type HeaderProps = {
-  foundations: PageTree
   components: PageTree
+  foundations: PageTree
 }
 
 export const Header = ({ components, foundations }: HeaderProps) => {
@@ -54,7 +54,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
         <Flex alignItems="center" gap="lg">
           <Box flexShrink={0}>
             <Link href="/">
-              <Logo h={40} />
+              <WelcomeUILogo h={40} />
             </Link>
           </Box>
           <VersionSelector />

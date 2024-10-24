@@ -15,7 +15,7 @@ const Example = () => {
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
-        <Table.Tr variant="error">
+        <Table.Tr variant="danger">
           <Table.Td>Consectetur</Table.Td>
           <Table.Td>Lorem ipsum dolor sit amet</Table.Td>
           <Table.Td>23</Table.Td>

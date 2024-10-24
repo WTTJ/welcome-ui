@@ -10,7 +10,7 @@ const Example = () => {
         w="100%"
       />
       <Card.Body>
-        <Text as="h4" color="dark-900" fontWeight="bold" mb="lg" mt={0}>
+        <Text as="h4" color="neutral-90" fontWeight="bold" mb="lg" mt={0}>
           The Jungle Book
         </Text>
         After a threat from the tiger Shere Khan forces him to flee the jungle, a man-cub named

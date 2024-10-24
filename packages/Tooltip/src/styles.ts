@@ -85,7 +85,7 @@ export const FadeIn = styled.divBox<FadeIn>(
         height: ${arrowSize};
         border-width: inherit;
         border-style: solid;
-        border-color: transparent light-400 light-400 transparent;
+        border-color: transparent neutral-60 neutral-60 transparent;
         border-bottom-right-radius: inherit;
         clip-path: polygon(0% 100%, 0% 100%, 100% 100%, 100% 0%);
         z-index: 0;

@@ -1,7 +1,6 @@
 import React from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-
-export type Variant = 'error' | 'info' | 'success' | 'warning'
+import { Variant } from '@welcome-ui/utils'
 
 import * as S from './styles'
 

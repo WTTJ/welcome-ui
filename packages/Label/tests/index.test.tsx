@@ -21,14 +21,14 @@ describe('<Label>', () => {
 
   describe('should render correctly when had a variant', () => {
     it('default', () => {
-      const { container } = render(<Label variant="error">{content}</Label>)
+      const { container } = render(<Label variant="danger">{content}</Label>)
 
       expect(container).toHaveTextContent(content)
     })
 
     it('with custom warning icon', () => {
       const { container } = render(
-        <Label icon={<span>custom icon</span>} variant="error">
+        <Label icon={<span>custom icon</span>} variant="danger">
           {content}
         </Label>
       )

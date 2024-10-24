@@ -1,5 +1,6 @@
 import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
+import { Variant } from '@welcome-ui/utils'
 
 import { TableOptions } from './index'
 
@@ -38,9 +39,9 @@ export const Thead = styled.theadBox``
 
 export const Tbody = styled.tbodyBox``
 
-type Variant = 'default' | 'error' | 'warning' | 'info' | 'success' | 'clickable'
+type TrVariant = 'default' | Variant
 
-export const Tr = styled.trBox<{ variant?: Variant }>(
+export const Tr = styled.trBox<{ variant?: TrVariant }>(
   ({ onClick, variant }) => css`
     ${th('tables.tr.default')};
     ${variant && th(`tables.tr.${variant}`)};

@@ -30,14 +30,14 @@ export const getDrawers = (theme: WuiTheme): ThemeDrawers => {
     closeButton: {},
     title: {
       margin: 0,
-      backgroundColor: colors['light-900'],
+      backgroundColor: colors['neutral-10'],
       padding: `${space['xl']} ${space['5xl']} ${space['xl']} ${space['xl']}`,
     },
     content: {
       padding: `${space['xl']}`,
     },
     footer: {
-      backgroundColor: colors['light-900'],
+      backgroundColor: colors['neutral-10'],
       padding: `${space['xl']}`,
     },
     sizes: {
