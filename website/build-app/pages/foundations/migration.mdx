@@ -21,6 +21,18 @@ Make sure you update all `@welcome-ui` packages to v6:
 }
 ```
 
+On VSCode search:
+
+```bash
+("@welcome-ui\/[^"]+":\s*)"\^?[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9\.]+)?"
+```
+
+And replace by:
+
+```bash
+$1"6.0.0-alpha.0"
+```
+
 ### 2. Script to migrate
 
 We reworked our theme's colors and variants name. Use the migration script to migrate easily to V6 on a welcome-ui project.
