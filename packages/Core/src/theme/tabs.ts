@@ -16,12 +16,12 @@ export type ThemeTabs = {
     default: CSSObject
     disabled: CSSObject
     focus: CSSObject
+    size: Record<Size, CSSObject>
   }
   panel: {
     horizontal: CSSObject
     vertical: CSSObject
   }
-  size: Record<Size, CSSObject>
   tabsBorder: {
     horizontal: CSSObject
     vertical: CSSObject
@@ -44,7 +44,6 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
       default: {
         color: colors['dark-700'],
         fontWeight: fontWeights.medium,
-        fontSize: fontSizes.md,
         textDecoration: 'none',
         lineHeight: lineHeights.md,
       },
@@ -56,6 +55,14 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
       },
       disabled: {
         color: colors['dark-400'],
+      },
+      size: {
+        sm: {
+          fontSize: fontSizes.sm,
+        },
+        md: {
+          fontSize: fontSizes.md,
+        },
       },
     },
     panel: {
@@ -79,15 +86,6 @@ export const getTabs = (theme: WuiTheme): ThemeTabs => {
       vertical: {
         background: colors['primary-500'],
         width: borderWidths.md,
-      },
-    },
-    size: {
-      sm: {
-        marginRight: space.md,
-        fontSize: fontSizes.sm,
-      },
-      md: {
-        marginRight: space.xl,
       },
     },
     icon: {

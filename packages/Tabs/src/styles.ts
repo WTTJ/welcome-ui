@@ -13,6 +13,7 @@ export const TabList = styled(Ariakit.TabList)<{ size: SizeOptions }>(
     overflow-x: auto;
     display: flex;
     border: 0;
+    gap: xl;
 
     &[aria-orientation='vertical'] {
       flex-direction: column;
@@ -21,8 +22,8 @@ export const TabList = styled(Ariakit.TabList)<{ size: SizeOptions }>(
 
     ${th('tabs.tabsBorder.horizontal')};
 
-    & > :not(:last-child) {
-      ${th(`tabs.size.${size}`)}
+    ${Tab} {
+      ${th(`tabs.item.size.${size}`)}
     }
     ${system};
   `
