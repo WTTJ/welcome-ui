@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.22.2](https://github.com/WTTJ/welcome-ui/compare/v5.22.1...v5.22.2) (2024-10-28)
+
+
+### Bug Fixes
+
+* avoid welcome-font cut letters ([#2561](https://github.com/WTTJ/welcome-ui/issues/2561)) ([6e48d8b](https://github.com/WTTJ/welcome-ui/commit/6e48d8b2c92ef31e7c368188be29a45e2c17b3dc))
+
+
+
+
+
 ## [5.21.1](https://github.com/WTTJ/welcome-ui/compare/v5.21.0...v5.21.1) (2024-09-24)
 
 

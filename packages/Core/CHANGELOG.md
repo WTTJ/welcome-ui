@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.22.2](https://github.com/WTTJ/welcome-ui/compare/v5.22.1...v5.22.2) (2024-10-28)
+
+
+### Bug Fixes
+
+* **Tabs:** update gap small size ([#2567](https://github.com/WTTJ/welcome-ui/issues/2567)) ([4ac0e24](https://github.com/WTTJ/welcome-ui/commit/4ac0e245a8fa5272ef230f60dbc78b05f6eabc56))
+
+
+
+
+
 ## [5.22.1](https://github.com/WTTJ/welcome-ui/compare/v5.22.0...v5.22.1) (2024-10-15)
 
 **Note:** Version bump only for package @welcome-ui/core
