@@ -248,8 +248,11 @@ export const Select = forwardRef<'input', SelectProps>(
       setIsOpen(false)
     }
 
-    const spacer = getSpacer(defaultOptions)
-    const enableSpacer = autoResize ? '' : spacer || placeholder
+    const hasValue = inputValue || selectedItem
+    const defaultSpacer = hasValue ? getSpacer(defaultOptions) : placeholder
+    // enable autoResize if there is  selected value
+    const enableAutoResize = !!hasValue && autoResize
+    const spacer = enableAutoResize ? '' : defaultSpacer
 
     const inputContent = getInputValue({
       inputValue,
@@ -318,7 +321,7 @@ export const Select = forwardRef<'input', SelectProps>(
           const inputProps = getInputProps({
             autoComplete,
             autoFocus,
-            'data-spacer': enableSpacer,
+            'data-spacer': spacer,
             'data-testid': dataTestId,
             disabled,
             iconPlacement: icon ? 'both' : 'right',
@@ -341,7 +344,7 @@ export const Select = forwardRef<'input', SelectProps>(
           const iconSize = FIELD_ICON_SIZE[size]
 
           return (
-            <S.Wrapper {...rootProps} disabled={disabled}>
+            <S.Wrapper autoResize={autoResize} {...rootProps} disabled={disabled}>
               <S.InputWrapper>
                 {isSearchable ? (
                   <S.Input as="input" type="text" {...inputProps} />
@@ -357,87 +360,86 @@ export const Select = forwardRef<'input', SelectProps>(
                   {isShowDeleteIcon && DeleteIcon}
                   {ArrowIcon}
                 </S.Indicators>
-              </S.InputWrapper>
-              {isShowMenu && (
-                <S.Menu {...getMenuProps()} autoResize={autoResize}>
-                  {
-                    options.reduce(
-                      (
-                        acc: { itemIndex: number; itemsToRender: React.ReactElement[] },
-                        result: OptionItem,
-                        resultIndex: number
-                      ) => {
-                        if (groupsEnabled && 'options' in result) {
-                          acc.itemsToRender.push(
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            <Fragment key={result.label}>
-                              {renderGroupHeader(result)}
-                              {result.options &&
-                                result.options.map(option => {
-                                  const index = acc.itemIndex++
-                                  const isItemSelected = isValueSelected(option.value, selected)
-                                  return (
-                                    <S.Item
-                                      allowUnselectFromList={allowUnselectFromList}
-                                      isDisabled={option.disabled}
-                                      isHighlighted={highlightedIndex === index}
-                                      isMultiple={isMultiple}
-                                      key={option.value}
-                                      {...getItemProps({
-                                        index,
-                                        isSelected: isItemSelected,
-                                        item: option,
-                                      })}
-                                    >
-                                      {renderItem(option, isItemSelected)}
-                                    </S.Item>
-                                  )
+                {isShowMenu && (
+                  <S.Menu {...getMenuProps()} autoResize={autoResize}>
+                    {
+                      options.reduce(
+                        (
+                          acc: { itemIndex: number; itemsToRender: React.ReactElement[] },
+                          result: OptionItem,
+                          resultIndex: number
+                        ) => {
+                          if (groupsEnabled && 'options' in result) {
+                            acc.itemsToRender.push(
+                              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                              // @ts-ignore
+                              <Fragment key={result.label}>
+                                {renderGroupHeader(result)}
+                                {result.options &&
+                                  result.options.map(option => {
+                                    const index = acc.itemIndex++
+                                    const isItemSelected = isValueSelected(option.value, selected)
+                                    return (
+                                      <S.Item
+                                        allowUnselectFromList={allowUnselectFromList}
+                                        isDisabled={option.disabled}
+                                        isHighlighted={highlightedIndex === index}
+                                        isMultiple={isMultiple}
+                                        key={option.value}
+                                        {...getItemProps({
+                                          index,
+                                          isSelected: isItemSelected,
+                                          item: option,
+                                        })}
+                                      >
+                                        {renderItem(option, isItemSelected)}
+                                      </S.Item>
+                                    )
+                                  })}
+                              </Fragment>
+                            )
+                          } else if ('value' in result) {
+                            const isItemSelected = isValueSelected(result.value, selected)
+                            acc.itemsToRender.push(
+                              <S.Item
+                                allowUnselectFromList={allowUnselectFromList}
+                                isDisabled={result.disabled}
+                                isHighlighted={highlightedIndex === resultIndex}
+                                isMultiple={isMultiple}
+                                key={result.value}
+                                {...getItemProps({
+                                  index: resultIndex,
+                                  isSelected: isItemSelected,
+                                  item: result,
                                 })}
-                            </Fragment>
-                          )
-                        } else if ('value' in result) {
-                          const isItemSelected = isValueSelected(result.value, selected)
-                          acc.itemsToRender.push(
-                            <S.Item
-                              allowUnselectFromList={allowUnselectFromList}
-                              isDisabled={result.disabled}
-                              isHighlighted={highlightedIndex === resultIndex}
-                              isMultiple={isMultiple}
-                              key={result.value}
-                              {...getItemProps({
-                                index: resultIndex,
-                                isSelected: isItemSelected,
-                                item: result,
-                              })}
-                            >
-                              {renderItem(result, isItemSelected)}
-                            </S.Item>
-                          )
-                        }
-
-                        return acc
-                      },
-                      { itemsToRender: [], itemIndex: 0 }
-                    ).itemsToRender
-                  }
-                  {isShowCreate && inputValue.length && (
-                    <S.Item
-                      isHighlighted={highlightedIndex === options.length}
-                      key="add"
-                      {...getItemProps({
-                        index: options.length,
-                        item: {
-                          value: kebabCase(inputValue),
-                          label: inputValue,
+                              >
+                                {renderItem(result, isItemSelected)}
+                              </S.Item>
+                            )
+                          }
+                          return acc
                         },
-                      })}
-                    >
-                      {renderCreateItem(inputValue)}
-                    </S.Item>
-                  )}
-                </S.Menu>
-              )}
+                        { itemsToRender: [], itemIndex: 0 }
+                      ).itemsToRender
+                    }
+                    {isShowCreate && inputValue.length && (
+                      <S.Item
+                        isHighlighted={highlightedIndex === options.length}
+                        key="add"
+                        {...getItemProps({
+                          index: options.length,
+                          item: {
+                            value: kebabCase(inputValue),
+                            label: inputValue,
+                          },
+                        })}
+                      >
+                        {renderCreateItem(inputValue)}
+                      </S.Item>
+                    )}
+                  </S.Menu>
+                )}
+              </S.InputWrapper>
               {isMultiple && renderMultiple(selected, handleRemove)}
             </S.Wrapper>
           )

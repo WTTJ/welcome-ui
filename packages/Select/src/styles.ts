@@ -13,13 +13,22 @@ import { IconWrapper as WUIIconWrapper } from '@welcome-ui/field'
 
 import { SelectOptions } from './index'
 
-export const Wrapper = styled.divBox.withConfig({ shouldForwardProp })<{ disabled: boolean }>(
-  ({ disabled }) => css`
+export const Wrapper = styled.divBox.withConfig({ shouldForwardProp })<{
+  autoResize: boolean
+  disabled: boolean
+}>(
+  ({ autoResize, disabled }) => css`
     position: relative;
     ${system}
     ${IconWrapper} {
       color: ${disabled ? th('defaultFields.select.disabled.color') : 'initial'};
     }
+    ${autoResize &&
+    css`
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    `}
   `
 )
 

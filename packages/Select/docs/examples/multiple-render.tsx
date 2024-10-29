@@ -25,7 +25,7 @@ const Example = () => {
       options={ITEMS}
       renderMultiple={
         (values, handleRemove) => (
-          <>
+          <div>
             {values.map(option => {
               return (
                 <Tag
@@ -42,7 +42,7 @@ const Example = () => {
                 </Tag>
               )
             })}
-          </>
+          </div>
         )
         // eslint-disable-next-line react/jsx-curly-newline
       }
