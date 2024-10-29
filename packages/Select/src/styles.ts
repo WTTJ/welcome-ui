@@ -93,6 +93,10 @@ export const Menu = styled.ul`
   transition: medium;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+
+  &:hover > * {
+    cursor: pointer;
+  }
 `
 
 export const Item = styled.li(
@@ -120,10 +124,6 @@ export const Item = styled.li(
     text-decoration: none;
     font-size: sm;
     transition: background ${th.transition('medium')};
-
-    &:hover {
-      cursor: pointer;
-    }
   `
 )
 
