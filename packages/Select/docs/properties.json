@@ -78,6 +78,36 @@
           ]
         }
       },
+      "autoResize": {
+        "defaultValue": {
+          "value": false
+        },
+        "description": "",
+        "name": "autoResize",
+        "parent": {
+          "fileName": "Select/src/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Select/src/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "disableCloseOnSelect": {
         "defaultValue": null,
         "description": "",

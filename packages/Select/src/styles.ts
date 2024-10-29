@@ -80,24 +80,27 @@ export const Input = styled('div').withConfig({ shouldForwardProp })<{
   `
 )
 
-export const Menu = styled.ul`
-  ${th('defaultFields.select.default')};
-  ${cardStyles};
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  left: 0;
-  margin: 0;
-  margin-top: md;
-  padding: 0;
-  transition: medium;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
+export const Menu = styled.ul(
+  ({ autoResize }: { autoResize?: boolean }) => css`
+    ${th('defaultFields.select.default')};
+    ${cardStyles};
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    left: 0;
+    display: ${autoResize ? 'table' : 'initial'};
+    margin: 0;
+    margin-top: md;
+    padding: 0;
+    transition: medium;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 
-  &:hover > * {
-    cursor: pointer;
-  }
-`
+    &:hover > * {
+      cursor: pointer;
+    }
+  `
+)
 
 export const Item = styled.li(
   ({

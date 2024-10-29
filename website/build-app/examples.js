@@ -166,6 +166,7 @@ export default {
   "/Search/docs/examples/option-groups.tsx": dynamic(() => import("../../packages/Search/docs/examples/option-groups.tsx").then(mod => mod), { ssr: false }),
   "/Search/docs/examples/overview.tsx": dynamic(() => import("../../packages/Search/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/allow-unselect-from-list.tsx": dynamic(() => import("../../packages/Select/docs/examples/allow-unselect-from-list.tsx").then(mod => mod), { ssr: false }),
+  "/Select/docs/examples/auto-resize.tsx": dynamic(() => import("../../packages/Select/docs/examples/auto-resize.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/clearable.tsx": dynamic(() => import("../../packages/Select/docs/examples/clearable.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/creatable-custom.tsx": dynamic(() => import("../../packages/Select/docs/examples/creatable-custom.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/creatable.tsx": dynamic(() => import("../../packages/Select/docs/examples/creatable.tsx").then(mod => mod), { ssr: false }),

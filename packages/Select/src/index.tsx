@@ -46,6 +46,7 @@ export interface SelectOptions extends DefaultFieldStylesProps {
   /** We need to add `autoComplete` off to avoid select UI issues when is an input */
   autoComplete?: string
   autoFocus?: boolean
+  autoResize?: boolean
   disableCloseOnSelect?: boolean
   disabled?: boolean
   groupsEnabled?: boolean
@@ -87,6 +88,7 @@ export const Select = forwardRef<'input', SelectProps>(
       allowUnselectFromList,
       autoComplete = 'off',
       autoFocus,
+      autoResize = false,
       dataTestId,
       disableCloseOnSelect,
       disabled,
@@ -247,6 +249,7 @@ export const Select = forwardRef<'input', SelectProps>(
     }
 
     const spacer = getSpacer(defaultOptions)
+    const enableSpacer = autoResize ? '' : spacer || placeholder
 
     const inputContent = getInputValue({
       inputValue,
@@ -315,7 +318,7 @@ export const Select = forwardRef<'input', SelectProps>(
           const inputProps = getInputProps({
             autoComplete,
             autoFocus,
-            'data-spacer': spacer || placeholder,
+            'data-spacer': enableSpacer,
             'data-testid': dataTestId,
             disabled,
             iconPlacement: icon ? 'both' : 'right',
@@ -356,7 +359,7 @@ export const Select = forwardRef<'input', SelectProps>(
                 </S.Indicators>
               </S.InputWrapper>
               {isShowMenu && (
-                <S.Menu {...getMenuProps()}>
+                <S.Menu {...getMenuProps()} autoResize={autoResize}>
                   {
                     options.reduce(
                       (
