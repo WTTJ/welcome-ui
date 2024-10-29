@@ -28,6 +28,8 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
     },
     header: {
       backgroundColor: colors['light-900'],
+      borderTopLeftRadius: radii.xxl,
+      borderTopRightRadius: radii.xxl,
       paddingTop: space.xxl,
       paddingRight: space['3xl'],
       paddingBottom: space.xxl,
@@ -47,6 +49,8 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
     footer: {
       backgroundColor: colors['light-900'],
       borderTop: `solid ${colors.border}`,
+      borderBottomLeftRadius: radii.xxl,
+      borderBottomRightRadius: radii.xxl,
       children: {
         paddingRight: space.xxl,
         paddingLeft: space.xxl,
