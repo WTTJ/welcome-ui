@@ -53,7 +53,7 @@
     "@welcome-ui/system": "^5.17.1",
     "@welcome-ui/tag": "^5.22.1",
     "@welcome-ui/utils": "^5.22.1",
-    "downshift": "^7.4.1",
+    "downshift": "^9.0.8",
     "match-sorter": "^6.3.1"
   },
   "peerDependencies": {

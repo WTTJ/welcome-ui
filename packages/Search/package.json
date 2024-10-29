@@ -54,7 +54,7 @@
     "@welcome-ui/icon": "^5.22.1",
     "@welcome-ui/system": "^5.17.1",
     "@welcome-ui/utils": "^5.22.1",
-    "downshift": "^7.4.1"
+    "downshift": "^9.0.8"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
