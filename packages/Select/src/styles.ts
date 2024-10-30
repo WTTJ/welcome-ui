@@ -46,7 +46,7 @@ export const Input = styled('div').withConfig({ shouldForwardProp })<{
       iconPlacement,
     })};
     ${overflowEllipsis};
-    cursor: default;
+    cursor: pointer;
     ${system}
     line-height: 1em;
 

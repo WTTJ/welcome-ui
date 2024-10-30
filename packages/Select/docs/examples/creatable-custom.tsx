@@ -27,8 +27,8 @@ const Example = () => {
       renderCreateItem={value => {
         return (
           <Box alignItems="center" display="flex">
-            <AddIcon mr="sm" />
-            <Text m={0}>
+            <AddIcon mr="sm" size="sm" />
+            <Text as="span" variant="sm">
               Add <b>{value.toString()}</b> as a new option
             </Text>
           </Box>
