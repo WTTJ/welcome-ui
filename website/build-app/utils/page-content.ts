@@ -19,9 +19,13 @@ type Data = {
  * Gets the content of md file
  */
 export function getPageContent(filename: string, isPackage?: boolean) {
-  const file = isPackage
-    ? join(process.cwd(), '../', 'packages', filename)
-    : join(process.cwd(), 'build-app', 'pages', filename)
+  const isNewPackage = ['Tag'].includes(filename.split('/')[0])
+
+  const file = isNewPackage
+    ? join(process.cwd(), '../', 'src', 'lib', 'components', filename)
+    : isPackage
+      ? join(process.cwd(), '../', 'packages', filename)
+      : join(process.cwd(), 'build-app', 'pages', filename)
 
   const fileExist = existsSync(file)
 

@@ -52,15 +52,22 @@ export const Div = ({ children, node }: DivProps) => {
     const withCodeEditor = node?.properties?.dataPlaygroundWithCodeEditor || 'true'
     const isOverview = node?.properties?.dataOverview || ''
 
-    const pathToFile = join(
-      process.cwd(),
-      '../',
-      'packages',
-      component,
-      'docs',
-      'examples',
-      playgroundFile
-    )
+    const isNewPackage = ['Tag'].includes(component)
+
+    const pathToFile = isNewPackage
+      ? join(
+          process.cwd(),
+          '../',
+          'src',
+          'lib',
+          'components',
+          component,
+          'docs',
+          'examples',
+          playgroundFile
+        )
+      : join(process.cwd(), '../', 'packages', component, 'docs', 'examples', playgroundFile)
+
     const fileExist = existsSync(pathToFile)
 
     if (!fileExist) {
@@ -68,6 +75,9 @@ export const Div = ({ children, node }: DivProps) => {
     }
 
     const code = readFileSync(pathToFile, 'utf8')
+    const pathToFileFormatted = isNewPackage
+      ? pathToFile.split('components')[1]
+      : pathToFile.split('packages')[1]
 
     return (
       <Playground
@@ -75,7 +85,7 @@ export const Div = ({ children, node }: DivProps) => {
         isOverview={isOverview === 'true'}
         mt={playgroundFile === 'overview.tsx' ? 0 : undefined}
         name={component}
-        pathToFile={pathToFile.split('packages')[1] as keyof typeof examples}
+        pathToFile={pathToFileFormatted as keyof typeof examples}
         withCodeEditor={withCodeEditor?.toLowerCase() === 'true'}
       />
     )
