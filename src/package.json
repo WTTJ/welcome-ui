@@ -1,0 +1,62 @@
+{
+  "name": "@welcome-ui/react",
+  "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.umd.mjs"
+    }
+  },
+  "scripts": {
+    "start": "vite build --watch",
+    "build": "vite build"
+  },
+  "version": "0.0.1",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WTTJ/welcome-ui.git"
+  },
+  "keywords": [
+    "design-system",
+    "react",
+    "ariakit",
+    "styled-components",
+    "styled-system",
+    "ui-library",
+    "ui",
+    "ux",
+    "jungle",
+    "welcome",
+    "WTTJ"
+  ],
+  "author": "Welcome to the Jungle <tech@wttj.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WTTJ/welcome-ui/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@xstyled/styled-components": "^3.7.3",
+    "react": "^18.3.1",
+    "styled-components": "^5.3.9",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vite-plugin-dts": "^4.3.0",
+    "wttj-config": "^3.0.1"
+  },
+  "peerDependencies": {
+    "@xstyled/styled-components": "^3.7.3",
+    "react": "^18.3.1",
+    "styled-components": "^5.3.9"
+  },
+  "homepage": "https://welcome-ui.com"
+}

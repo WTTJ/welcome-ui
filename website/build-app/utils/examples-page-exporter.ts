@@ -11,7 +11,10 @@ function getExamplesPages() {
   const folderList = readdirSync(dir)
 
   for (const folder of folderList) {
-    const subFolder = join(process.cwd(), 'packages', folder, 'docs', 'examples')
+    const isNewPackage = ['Tag'].includes(folder)
+    const subFolder = isNewPackage
+      ? join(process.cwd(), 'src', 'lib', 'components', folder, 'docs', 'examples')
+      : join(process.cwd(), 'packages', folder, 'docs', 'examples')
     const subFolderExist = existsSync(subFolder)
 
     if (!subFolderExist) continue
@@ -19,14 +22,18 @@ function getExamplesPages() {
     const fileList = readdirSync(subFolder)
 
     for (const file of fileList) {
-      examples.push(`${subFolder}/${file}`.split('packages')[1])
+      examples.push(
+        isNewPackage
+          ? `${subFolder}/${file}`.split('components')[1]
+          : `${subFolder}/${file}`.split('packages')[1]
+      )
     }
   }
 
   const fileContent = `/* eslint-disable */\n/** WARNING\nThis file is auto-generate with yarn watch command, do not change it directly!\n**/\n\nimport dynamic from "next/dynamic";\n\nexport default {\n${examples
     .map(
       path =>
-        `  "${path}": dynamic(() => import("../../packages${path}").then(mod => mod), { ssr: false })`
+        `  "${path}": dynamic(() => ${path.startsWith('/Tag') ? 'import("../../src/lib/components' : 'import("../../packages'}${path}").then(mod => mod), { ssr: false })`
     )
     .join(',\n')}\n};\n`
 

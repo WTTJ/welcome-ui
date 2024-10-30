@@ -33,7 +33,8 @@
     "pre-build": "yarn icons:collect",
     "release": "yarn lerna version --conventional-commits --no-private",
     "dev:prerelease": "yarn lerna version --no-private --preid alpha",
-    "start": "yarn website:dev",
+    "start": "cd src && yarn start",
+    "website": "yarn website:dev",
     "test": "yarn jest",
     "watch": "onchange 'packages/**/*.ts*' -e '**/dist/**' -- node -r esm scripts/watch.js {{changed}}",
     "webfont:build": "node -r esm scripts/webfont-build.js --force && yarn build:packages --scope @welcome-ui/icons.font",
@@ -47,7 +48,8 @@
     "icons",
     "icons/**/*",
     "../icons/**/*",
-    "website"
+    "website",
+    "src"
   ],
   "repository": {
     "type": "git",

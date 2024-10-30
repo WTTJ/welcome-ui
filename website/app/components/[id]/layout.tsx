@@ -42,7 +42,7 @@ const Layout = ({ children, params }: LayoutProps) => {
               {description}
             </Text>
           )}
-          <Flex align="center" gap="md">
+          <Flex align="center" flexWrap="wrap" gap="md">
             <Button
               as="a"
               href={`https://github.com/WTTJ/welcome-ui/tree/main/packages/${title}`}
