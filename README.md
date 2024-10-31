@@ -87,7 +87,7 @@ yarn start
 yarn watch
 ```
 
-4. and go to https://localhost:3020
+4. and go to http://localhost:3020
 
 ## How to release
 
