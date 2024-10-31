@@ -17,9 +17,7 @@ const Example = () => {
         </Tab>
         <Tab id="tab2" store={tab}>
           Tab 2<Badge variant={getVariant('tab2')}>old</Badge>
-          <Badge shape="circle" variant={getVariant('tab2')}>
-            2
-          </Badge>
+          <Badge variant={getVariant('tab2')}>2</Badge>
         </Tab>
         <Tab id="tab3" store={tab}>
           Tab 3

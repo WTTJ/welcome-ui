@@ -216,3 +216,12 @@ return <Logo w={100} />
 ```tsx
 <Icons.Symbol />
 ```
+
+### Badge
+
+We removed `shape` property on Badge component, now you will only have rounded badge.
+
+```diff
+- <Badge shape="square">Name</Badge>
++ <Badge>Name</Badge>
+```

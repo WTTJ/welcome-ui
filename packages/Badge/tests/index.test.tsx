@@ -49,15 +49,4 @@ describe('<Badge>', () => {
     expect(badge).toHaveStyleRule('background-color', theme.colors['primary-50'])
     expect(badge).toHaveStyleRule('color', theme.colors['primary-80'])
   })
-
-  it('should have correct circle shape', () => {
-    const { getByTestId } = render(
-      <Badge dataTestId="badge" shape="circle">
-        {content}
-      </Badge>
-    )
-    const badge = getByTestId('badge')
-
-    expect(badge).toHaveStyleRule('border-radius', theme.badges.sizes.md.borderRadius)
-  })
 })

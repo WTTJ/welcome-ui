@@ -28,7 +28,6 @@ export default {
   "/Badge/docs/examples/disabled.tsx": dynamic(() => import("../../packages/Badge/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/Badge/docs/examples/number-abbreviation.tsx": dynamic(() => import("../../packages/Badge/docs/examples/number-abbreviation.tsx").then(mod => mod), { ssr: false }),
   "/Badge/docs/examples/overview.tsx": dynamic(() => import("../../packages/Badge/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
-  "/Badge/docs/examples/shape.tsx": dynamic(() => import("../../packages/Badge/docs/examples/shape.tsx").then(mod => mod), { ssr: false }),
   "/Badge/docs/examples/size.tsx": dynamic(() => import("../../packages/Badge/docs/examples/size.tsx").then(mod => mod), { ssr: false }),
   "/Badge/docs/examples/variant.tsx": dynamic(() => import("../../packages/Badge/docs/examples/variant.tsx").then(mod => mod), { ssr: false }),
   "/Box/docs/examples/example.tsx": dynamic(() => import("../../packages/Box/docs/examples/example.tsx").then(mod => mod), { ssr: false }),

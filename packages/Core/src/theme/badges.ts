@@ -19,13 +19,12 @@ export type ThemeAccordions = {
 }
 
 export const getBadges = (theme: WuiTheme): ThemeAccordions => {
-  const { colors, fonts, fontWeights, space, texts, toRem } = theme
+  const { colors, fontWeights, space, texts, toRem } = theme
 
   return {
     default: {
       ...texts.xs,
       fontWeight: fontWeights.medium,
-      fontFamily: fonts.headings,
     },
     variants: {
       default: {

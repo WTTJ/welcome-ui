@@ -6,7 +6,6 @@ import * as S from './styles'
 export type BadgeOptions = {
   children: string | number
   disabled?: boolean
-  shape?: 'circle' | 'square'
   size?: 'sm' | 'md'
   variant?: 'default' | 'primary'
   // if a number is higher than 99, we replace this number by 99+
@@ -20,7 +19,6 @@ export const Badge = forwardRef<'div', BadgeProps>(
       children,
       dataTestId,
       disabled,
-      shape = 'circle',
       size = 'md',
       variant = 'default',
       withNumberAbbreviation,
@@ -48,7 +46,6 @@ export const Badge = forwardRef<'div', BadgeProps>(
         disabled={disabled}
         length={textLength}
         ref={ref}
-        shape={shape}
         size={size}
         variant={variant}
         {...rest}
