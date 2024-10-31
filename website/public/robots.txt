@@ -2,3 +2,4 @@
 User-agent: *
 Disallow: /v3
 Disallow: /v4
+Disallow: /v5
