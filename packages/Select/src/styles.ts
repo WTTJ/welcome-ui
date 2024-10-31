@@ -46,7 +46,7 @@ export const Input = styled('div').withConfig({ shouldForwardProp })<{
       iconPlacement,
     })};
     ${overflowEllipsis};
-    cursor: default;
+    cursor: pointer;
     ${system}
     line-height: 1em;
 
@@ -93,6 +93,10 @@ export const Menu = styled.ul`
   transition: medium;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+
+  &:hover > * {
+    cursor: pointer;
+  }
 `
 
 export const Item = styled.li(
