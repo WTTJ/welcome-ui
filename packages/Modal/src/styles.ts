@@ -48,7 +48,7 @@ export const Dialog = styled.divBox(
     height: 100%;
     max-height: 100%;
     max-width: 100%;
-    overflow: visible;
+    overflow: auto;
     opacity: 0;
     transition:
       opacity 250ms ease-in-out,
@@ -70,9 +70,7 @@ export const Dialog = styled.divBox(
   `
 )
 
-export const Content = styled.divBox`
-  overflow: auto;
-`
+export const Content = styled.divBox``
 
 export const Body = styled.sectionBox`
   ${th('modals.body')};
@@ -96,7 +94,6 @@ export const Footer = styled.footerBox`
   bottom: 0;
   flex-shrink: 0;
   z-index: 1;
-  overflow: hidden;
   ${th('modals.footer')};
 `
 
