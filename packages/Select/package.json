@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/select",
-  "version": "5.22.1",
+  "version": "5.22.4",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
