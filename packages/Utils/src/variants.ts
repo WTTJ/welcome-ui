@@ -3,10 +3,10 @@ import { th } from '@xstyled/styled-components'
 export type Variant = 'danger' | 'info' | 'success' | 'warning'
 
 export const VARIANTS: Record<Variant, string> = {
-  danger: 'colors.danger-40',
-  info: 'colors.info-40',
-  success: 'colors.success-40',
-  warning: 'colors.warning-40',
+  danger: 'colors.red-70',
+  info: 'colors.blue-70',
+  success: 'colors.green-70',
+  warning: 'colors.orange-70',
 }
 
 export const getVariantColor = (variant: Variant): ReturnType<typeof th> => {

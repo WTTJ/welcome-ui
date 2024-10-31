@@ -10,15 +10,7 @@ const Example = () => {
       Tag removed
     </Text>
   ) : (
-    <>
-      <Tag onRemove={() => setHide(true)}>Example of remove tag</Tag>
-      <Tag onRemove={() => setHide(true)} size="sm">
-        small
-      </Tag>
-      <Tag onRemove={() => setHide(true)} variant="success">
-        success
-      </Tag>
-    </>
+    <Tag onRemove={() => setHide(true)}>Example of a removable tag</Tag>
   )
 }
 

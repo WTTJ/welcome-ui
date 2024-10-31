@@ -54,8 +54,7 @@ export const Snackbar = styled(Alert)<SnackbarOptions>(
     ${th('toasts.snackbar.default')};
 
     svg {
-      width: 16;
-      height: 16;
+      margin-top: xs;
     }
 
     button {

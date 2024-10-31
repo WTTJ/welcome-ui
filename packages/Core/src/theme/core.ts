@@ -185,4 +185,4 @@ export const createTheme = (options: Options = {}): WuiTheme => {
   return theme
 }
 
-export { SecondaryColors } from './colors'
+export { ThemeSecondaryColors } from './colors'

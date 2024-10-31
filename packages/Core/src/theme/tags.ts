@@ -1,17 +1,10 @@
 import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
-import { SecondaryColors } from './colors'
+import { ThemeSecondaryColors } from './colors'
 
 export type Size = 'xs' | 'sm' | 'md'
-export type Variant =
-  | keyof typeof SecondaryColors
-  | 'default'
-  | 'danger'
-  | 'info'
-  | 'primary'
-  | 'success'
-  | 'warning'
+export type Variant = ThemeSecondaryColors | 'default' | 'danger' | 'info' | 'success' | 'warning'
 
 export type ThemeTags = {
   default: CSSObject
@@ -23,7 +16,7 @@ export type ThemeTags = {
 }
 
 export const getTags = (theme: WuiTheme): ThemeTags => {
-  const { borderWidths, colors, fontSizes, fontWeights, radii, space, toRem } = theme
+  const { colors, fontSizes, fontWeights, radii, space, toRem } = theme
 
   const sizes = {
     xs: toRem(20),
@@ -31,98 +24,67 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
     md: toRem(32),
   }
 
-  const border = {
-    borderWidth: borderWidths.sm,
-    borderStyle: 'solid',
+  const getState = (color: 'red' | 'blue' | 'orange' | 'green') => ({
+    backgroundColor: colors[`${color}-10`],
+    color: colors[`${color}-90`],
+  })
+
+  const getStateHover = (color: 'red' | 'blue' | 'orange' | 'green') => ({
+    backgroundColor: colors[`${color}-20`],
+  })
+
+  const getSecondary = (color: ThemeSecondaryColors) => {
+    const isGreen = color === 'green'
+
+    return {
+      backgroundColor: colors[`${color}-${isGreen ? '30' : '40'}`],
+      color: colors['neutral-90'],
+    }
   }
 
-  const withoutVisibleBorder = (color: string) => ({
-    ...border,
-    borderColor: color,
-    backgroundColor: color,
-    color: colors['neutral-10'],
-  })
+  const getSecondaryHover = (color: ThemeSecondaryColors) => {
+    const isGreen = color === 'green'
+
+    return {
+      backgroundColor: colors[`${color}-${isGreen ? '40' : '50'}`],
+    }
+  }
 
   return {
     default: {
       fontWeight: fontWeights.medium,
-      backgroundColor: colors['neutral-10'],
-      color: colors['beige-80'],
       borderRadius: radii.md,
     },
     variants: {
       default: {
-        backgroundColor: colors['beige-30'],
-        borderColor: colors['beige-40'],
-        ...border,
+        backgroundColor: colors['beige-20'],
+        color: colors['beige-90'],
       },
-      primary: { ...withoutVisibleBorder(colors['primary-40']), color: colors['neutral-90'] },
-      success: {
-        backgroundColor: colors['success-10'],
-        color: colors['success-50'],
-        borderColor: colors['success-20'],
-        ...border,
-      },
-      danger: {
-        backgroundColor: colors['danger-10'],
-        color: colors['danger-50'],
-        borderColor: colors['danger-20'],
-        ...border,
-      },
-      warning: {
-        backgroundColor: colors['warning-10'],
-        color: colors['warning-50'],
-        borderColor: colors['warning-20'],
-        ...border,
-      },
-      info: {
-        backgroundColor: colors['info-10'],
-        color: colors['info-50'],
-        borderColor: colors['info-30'],
-        ...border,
-      },
-      teal: { ...withoutVisibleBorder(colors['secondary-teal']), color: colors['neutral-90'] },
-      blue: { ...withoutVisibleBorder(colors['secondary-blue']), color: colors['neutral-90'] },
-      orange: { ...withoutVisibleBorder(colors['secondary-orange']), color: colors['neutral-90'] },
-      pink: { ...withoutVisibleBorder(colors['secondary-pink']), color: colors['neutral-90'] },
-      green: { ...withoutVisibleBorder(colors['secondary-green']), color: colors['neutral-90'] },
-      violet: { ...withoutVisibleBorder(colors['secondary-violet']), color: colors['neutral-90'] },
+      success: getState('green'),
+      danger: getState('red'),
+      warning: getState('orange'),
+      info: getState('blue'),
+      teal: getSecondary('teal'),
+      blue: getSecondary('blue'),
+      orange: getSecondary('orange'),
+      pink: getSecondary('pink'),
+      green: getSecondary('green'),
+      violet: getSecondary('violet'),
     },
     hover: {
       default: {
-        borderColor: colors['beige-60'],
+        backgroundColor: colors['beige-30'],
       },
-      primary: {},
-      success: {
-        borderColor: colors['success-50'],
-      },
-      danger: {
-        borderColor: colors['danger-50'],
-      },
-      warning: {
-        borderColor: colors['warning-50'],
-      },
-      info: {
-        borderColor: colors['info-50'],
-      },
-      teal: {
-        borderColor: colors['teal-60'],
-      },
-      blue: {
-        borderColor: colors['blue-60'],
-      },
-      green: {
-        borderColor: colors['green-60'],
-      },
-      orange: {
-        borderColor: colors['red-orange-60'],
-      },
-      pink: {
-        borderColor: colors['pink-60'],
-      },
-      violet: {
-        borderColor: colors['violet-60'],
-      },
+      success: getStateHover('green'),
+      danger: getStateHover('red'),
+      warning: getStateHover('orange'),
+      info: getStateHover('blue'),
+      teal: getSecondaryHover('teal'),
+      blue: getSecondaryHover('blue'),
+      orange: getSecondaryHover('orange'),
+      pink: getSecondaryHover('pink'),
+      green: getSecondaryHover('green'),
+      violet: getSecondaryHover('violet'),
     },
     sizes: {
       xs: {

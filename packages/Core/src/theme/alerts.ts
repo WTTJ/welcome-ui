@@ -2,7 +2,7 @@ import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
 
-type State = 'default' | 'danger' | 'warning' | 'info' | 'success'
+type State = 'default' | 'danger' | 'warning' | 'info' | 'success' | 'beige'
 
 type Sizes = 'sm' | 'md'
 
@@ -10,62 +10,38 @@ type AttributesState = CSSObject
 
 export type ThemeAlerts = {
   default: CSSObject
-  sizes: Record<Sizes, { padding?: string }>
-  title: Record<State, { color: CSSObject['color'] }>
+  sizes: Record<Sizes, CSSObject>
 } & Record<State, AttributesState>
 
 export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
   const { borderWidths, colors, fontSizes, radii, space } = theme
 
+  const getState = (state: 'danger' | 'info' | 'success' | 'warning') => ({
+    backgroundColor: colors[`${state}-10`],
+    borderColor: colors[`${state}-10`],
+  })
+
   return {
     default: {
-      fontSize: fontSizes.sm,
-      borderWidth: borderWidths.sm,
-      borderStyle: 'solid',
-      color: colors['neutral-70'],
       backgroundColor: colors['neutral-10'],
       borderColor: colors['neutral-30'],
       borderRadius: radii.lg,
+      borderStyle: 'solid',
+      borderWidth: borderWidths.sm,
+      color: colors['neutral-90'],
+      fontSize: fontSizes.sm,
     },
-    danger: {
-      backgroundColor: colors['danger-10'],
-      borderColor: colors['danger-50'],
-    },
-    warning: {
-      backgroundColor: colors['warning-10'],
-      borderColor: colors['warning-50'],
-    },
-    info: {
-      backgroundColor: colors['info-10'],
-      borderColor: colors['info-50'],
-    },
-    success: {
-      backgroundColor: colors['success-10'],
-      borderColor: colors['success-50'],
-    },
+    danger: getState('danger'),
+    warning: getState('warning'),
+    info: getState('info'),
+    success: getState('success'),
+    beige: { backgroundColor: colors['beige-20'], borderColor: colors['beige-20'] },
     sizes: {
       sm: {
         padding: space.lg,
       },
       md: {
         padding: space.xl,
-      },
-    },
-    title: {
-      default: {
-        color: colors['neutral-90'],
-      },
-      danger: {
-        color: colors['neutral-90'],
-      },
-      warning: {
-        color: colors['neutral-90'],
-      },
-      info: {
-        color: colors['neutral-90'],
-      },
-      success: {
-        color: colors['neutral-90'],
       },
     },
   }

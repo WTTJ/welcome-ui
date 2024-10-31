@@ -142,7 +142,7 @@ export const getColors = (systemColors: typeof palette) => ({
 
 export const colors = getColors(palette)
 export type ThemeColors = typeof colors
-export const enum SecondaryColors {
+const enum SecondaryColors {
   'blue',
   'green',
   'orange',
@@ -150,3 +150,4 @@ export const enum SecondaryColors {
   'teal',
   'violet',
 }
+export type ThemeSecondaryColors = keyof typeof SecondaryColors

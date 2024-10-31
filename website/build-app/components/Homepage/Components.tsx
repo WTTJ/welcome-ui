@@ -24,7 +24,7 @@ const components: ComponentProps[] = [
     children: (
       <Stack direction="row" spacing="md">
         <Tag>Default</Tag>
-        <Tag variant="primary">Primary</Tag>
+        <Tag variant="success">Success</Tag>
         <Tag variant="violet">Violet</Tag>
       </Stack>
     ),

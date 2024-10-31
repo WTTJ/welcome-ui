@@ -1,8 +1,8 @@
 import { Theme } from '@xstyled/styled-components'
-import { SecondaryColors } from '@welcome-ui/core'
+import { ThemeSecondaryColors } from '@welcome-ui/core'
 
 const subColorByNumber: {
-  [key: number]: keyof typeof SecondaryColors
+  [key: number]: ThemeSecondaryColors
 } = {
   1: 'teal',
   2: 'blue',

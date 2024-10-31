@@ -1,12 +1,13 @@
-import styled, { css } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
+import styled, { css, system } from '@xstyled/styled-components'
 import { getVariantColor, Variant } from '@welcome-ui/utils'
 
-export const VariantIcon = styled(Box)<{ variant: Variant }>(
+export const VariantIcon = styled.divBox<{ variant: Variant }>(
   ({ variant }) => css`
     display: inline-flex;
-    color: ${getVariantColor(variant)};
+    color: ${getVariantColor(variant) || 'neutral-90'};
     flex-shrink: 0;
     align-self: center;
+
+    ${system};
   `
 )

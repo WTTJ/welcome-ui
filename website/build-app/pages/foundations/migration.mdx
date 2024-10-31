@@ -225,3 +225,22 @@ We removed `shape` property on Badge component, now you will only have rounded b
 - <Badge shape="square">Name</Badge>
 + <Badge>Name</Badge>
 ```
+
+### Tag
+
+We removed variant `primary` and `secondary` and replace the `sub-*` variants. To have the primary color please use Badge component instead.
+
+```diff
+- <Tag variant="primary">Name</Tag>
++ <Badge>Name</Badge>
+```
+
+```diff
+- <Tag variant="secondary">Name</Tag>
++ <Tag variant="green">Name</Tag>
+```
+
+```diff
+- <Tag variant="1">Name</Tag>
++ <Tag variant="blue">Name</Tag>
+```
