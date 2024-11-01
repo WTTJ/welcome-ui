@@ -163,26 +163,26 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@ariakit/core@0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@ariakit/core/-/core-0.4.3.tgz#c68307e22b06e2bfae63f209feefe5ad65ad2d0f"
-  integrity sha512-Z5O1FZBbR2tIkEUJ7o+W5ZVBqMy2DQ5QpvAJCwM8iUibQBxEFi1rcYFWWpa/MO064wFJNyH7iadfrT4T+ZLuUw==
+"@ariakit/core@0.4.12":
+  version "0.4.12"
+  resolved "https://registry.yarnpkg.com/@ariakit/core/-/core-0.4.12.tgz#110bcd7274daf1dd534433fc70dd98e1a59ad7a5"
+  integrity sha512-+NNpy88tdP/w9mOBPuDrMTbtapPbo/8yVIzpQB7TAmN0sPh/Cq3nU1f2KCTCIujPmwRvAcMSW9UHOlFmbKEPOA==
 
-"@ariakit/react-core@0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@ariakit/react-core/-/react-core-0.4.3.tgz#a7dbd43bf1e99f769151fcf0f2200fed9c5867c3"
-  integrity sha512-yGYiHUVQKbW1RN8tMMn2IJQ4HL7hG2+uliJzYpn5/SHWODwSJum1vXdcjx7jJoy8B6l53cxIsyUwBPhcaAR9NQ==
+"@ariakit/react-core@0.4.13":
+  version "0.4.13"
+  resolved "https://registry.yarnpkg.com/@ariakit/react-core/-/react-core-0.4.13.tgz#a31ffae5797b564193994cbbbf80b5f650f7d429"
+  integrity sha512-iIjQeupP9d0pOubOzX4a0UPXbhXbp0ZCduDpkv7+u/pYP/utk/YRECD0M/QpZr6YSeltmDiNxKjdyK8r9Yhv4Q==
   dependencies:
-    "@ariakit/core" "0.4.3"
+    "@ariakit/core" "0.4.12"
     "@floating-ui/dom" "^1.0.0"
     use-sync-external-store "^1.2.0"
 
-"@ariakit/react@0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@ariakit/react/-/react-0.4.3.tgz#7b1abd5dc90f8cd444de5e7d2117c2f80ef803ca"
-  integrity sha512-KmCflynxvJ1Uk9NHsf5LxpAJCaO30UWgml9c8+N4Y3ic9cOREsR0v4hQ9NG2R5JEV5C2yj77YovEfuk9YPHDpg==
+"@ariakit/react@0.4.13", "@ariakit/react@^0.4.13":
+  version "0.4.13"
+  resolved "https://registry.yarnpkg.com/@ariakit/react/-/react-0.4.13.tgz#9ea7616755624f113fe3942ff4af685c1376244a"
+  integrity sha512-pTGYgoqCojfyt2xNJ5VQhejxXwwtcP7VDDqcnnVChv7TA2TWWyYerJ5m4oxViI1pgeNqnHZwKlQ79ZipF7W2kQ==
   dependencies:
-    "@ariakit/react-core" "0.4.3"
+    "@ariakit/react-core" "0.4.13"
 
 "@babel/cli@7.25.9":
   version "7.25.9"
