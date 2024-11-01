@@ -177,7 +177,7 @@
     "@floating-ui/dom" "^1.0.0"
     use-sync-external-store "^1.2.0"
 
-"@ariakit/react@0.4.13", "@ariakit/react@^0.4.13":
+"@ariakit/react@0.4.13":
   version "0.4.13"
   resolved "https://registry.yarnpkg.com/@ariakit/react/-/react-0.4.13.tgz#9ea7616755624f113fe3942ff4af685c1376244a"
   integrity sha512-pTGYgoqCojfyt2xNJ5VQhejxXwwtcP7VDDqcnnVChv7TA2TWWyYerJ5m4oxViI1pgeNqnHZwKlQ79ZipF7W2kQ==
