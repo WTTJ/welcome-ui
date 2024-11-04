@@ -46,7 +46,7 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Growl variant="error">
+            <Toast.Growl variant="danger">
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
@@ -54,7 +54,7 @@ const Example = () => {
           )
         }
       >
-        Error
+        Danger
       </Button>
       <Button
         onClick={() =>

@@ -1,7 +1,5 @@
 import { css, th } from '@xstyled/styled-components'
 
-import { getVariantColor, Variant } from './variants'
-
 type FieldIconSizes = {
   lg: 'sm'
   md: 'sm'
@@ -24,7 +22,7 @@ export type DefaultFieldStylesProps = Partial<{
   isClearable?: boolean
   size: Size
   transparent?: boolean
-  variant: Variant
+  variant: 'danger' | 'success' | 'warning'
 }>
 type DefaultFieldStyles = (args: DefaultFieldStylesProps) => ReturnType<typeof css>
 
@@ -39,8 +37,8 @@ export const defaultFieldStyles: DefaultFieldStyles = ({
 
   return css`
     ${th('defaultFields.default')};
+    ${variant && th(`defaultFields.variants.${variant}`)};
     width: 100%;
-    border-color: ${getVariantColor(variant)};
     transition: medium;
     appearance: none;
     ${size && th(`defaultFields.sizes.${size}`)};
@@ -95,7 +93,6 @@ export const defaultFieldStyles: DefaultFieldStyles = ({
       ${variant === 'danger' && th('defaultFields.focused.danger')};
       ${variant === 'warning' && th('defaultFields.focused.warning')};
       ${variant === 'success' && th('defaultFields.focused.success')};
-      ${variant === 'info' && th('defaultFields.focused.info')};
     }
 
     &[disabled] {

@@ -1,8 +1,13 @@
 import { CSSObject } from '@xstyled/styled-components'
 import { Size } from '@welcome-ui/utils'
 
-import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
+
+type VariantsTheme = {
+  danger: CSSObject
+  success: CSSObject
+  warning: CSSObject
+}
 
 export type ThemeDefaultFields = {
   checkableField: {
@@ -16,12 +21,8 @@ export type ThemeDefaultFields = {
   default: CSSObject
   disabled: CSSObject
   fieldset: CSSObject
-  focused: {
-    danger: CSSObject & ReturnType<ThemeFocus>
-    default: CSSObject & ReturnType<ThemeFocus>
-    info: CSSObject & ReturnType<ThemeFocus>
-    success: CSSObject & ReturnType<ThemeFocus>
-    warning: CSSObject & ReturnType<ThemeFocus>
+  focused: VariantsTheme & {
+    default: CSSObject
   }
   iconPlacement: Record<Size, CSSObject>
   placeholder: CSSObject
@@ -34,6 +35,7 @@ export type ThemeDefaultFields = {
     selectedAndHighlighted: CSSObject
   }
   sizes: Record<Size, CSSObject>
+  variants: VariantsTheme
 }
 
 export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
@@ -52,6 +54,26 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       borderStyle: 'solid',
       outline: 'none',
       borderRadius: radii.md,
+    },
+    variants: {
+      danger: {
+        borderColor: colors['red-80'],
+      },
+      success: {
+        borderColor: colors['green-70'],
+      },
+      warning: {
+        borderColor: colors['orange-70'],
+      },
+    },
+    focused: {
+      default: {
+        ...focus(colors['primary-30']),
+        borderColor: 'transparent',
+      },
+      danger: { ...focus(colors['red-70']) },
+      warning: { ...focus(colors['orange-60']) },
+      success: { ...focus(colors['green-60']) },
     },
     sizes: {
       xs: {
@@ -116,16 +138,6 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
     },
     placeholder: {
       color: colors['neutral-50'],
-    },
-    focused: {
-      default: {
-        ...focus(colors['primary-30']),
-        borderColor: 'transparent',
-      },
-      danger: { ...focus(colors['danger-30']) },
-      warning: { ...focus(colors['warning-40']) },
-      success: { ...focus(colors['success-30']) },
-      info: { ...focus(colors['info-40']) },
     },
     checkablelabel: {
       default: {},

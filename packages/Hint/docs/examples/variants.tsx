@@ -8,7 +8,6 @@ const Example = () => {
       <Hint>default</Hint>
       <Hint variant="warning">warning</Hint>
       <Hint variant="danger">danger</Hint>
-      <Hint variant="info">info</Hint>
       <Hint variant="success">success</Hint>
     </Stack>
   )

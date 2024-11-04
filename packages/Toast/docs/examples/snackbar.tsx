@@ -34,13 +34,13 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Snackbar variant="error">
+            <Toast.Snackbar variant="danger">
               <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
             </Toast.Snackbar>
           )
         }
       >
-        Error
+        Danger
       </Button>
       <Button
         onClick={() =>
@@ -67,7 +67,7 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Snackbar icon="🤯" variant="error">
+            <Toast.Snackbar icon="🤯" variant="danger">
               <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
             </Toast.Snackbar>
           )

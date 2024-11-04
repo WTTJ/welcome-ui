@@ -46,13 +46,10 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Variant",
+          "raw": "\"danger\" | \"success\" | \"warning\"",
           "value": [
             {
               "value": "\"danger\""
-            },
-            {
-              "value": "\"info\""
             },
             {
               "value": "\"success\""

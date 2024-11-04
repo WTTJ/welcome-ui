@@ -7,7 +7,6 @@ const Example = () => {
     <Stack spacing="xl">
       <Label variant="warning">Warning variant</Label>
       <Label variant="danger">Danger variant</Label>
-      <Label variant="info">Info variant</Label>
       <Label variant="success">Success variant</Label>
     </Stack>
   )

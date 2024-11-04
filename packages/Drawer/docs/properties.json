@@ -123,6 +123,34 @@
           ]
         }
       },
+      "danger": {
+        "defaultValue": null,
+        "description": "Danger button with 3 variants: primary / tertiary / ghost",
+        "name": "danger",
+        "parent": {
+          "fileName": "packages/Button/dist/types/index.d.ts",
+          "name": "ButtonOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "packages/Button/dist/types/index.d.ts",
+            "name": "ButtonOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "disabled": {
         "defaultValue": {
           "value": "false"
@@ -384,31 +412,7 @@
               "value": "\"tertiary\""
             },
             {
-              "value": "\"primary-info\""
-            },
-            {
-              "value": "\"secondary-info\""
-            },
-            {
-              "value": "\"primary-success\""
-            },
-            {
-              "value": "\"secondary-success\""
-            },
-            {
               "value": "\"ghost\""
-            },
-            {
-              "value": "\"primary-warning\""
-            },
-            {
-              "value": "\"secondary-warning\""
-            },
-            {
-              "value": "\"primary-danger\""
-            },
-            {
-              "value": "\"secondary-danger\""
             }
           ]
         }

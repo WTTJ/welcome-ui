@@ -7,24 +7,22 @@ import {
   SquareAlertIcon,
 } from '@welcome-ui/icons'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { Variant as VariantFromUtils } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
-
-export type Variant = VariantFromUtils
+export type Variant = 'danger' | 'warning' | 'success' | 'info'
 
 export interface VariantIconOptions {
   icon?: JSX.Element
   size?: Size
-  variant?: Variant | string
+  variant?: Variant
 }
 
 export type VariantIconProps = CreateWuiProps<'div', VariantIconOptions>
 
 export const VariantIcon = forwardRef<'div', VariantIconProps>(
-  ({ icon, size = 'md', variant, ...rest }, ref) => {
+  ({ icon, size = 'md', variant = 'default', ...rest }, ref) => {
     const Icon = useMemo(() => {
       if (icon === null) return null
       if (icon) return icon

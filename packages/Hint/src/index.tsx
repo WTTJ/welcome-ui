@@ -1,12 +1,11 @@
 import React from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { Variant } from '@welcome-ui/utils'
 
 import * as S from './styles'
 
 export interface HintOptions {
   checkableField?: boolean
-  variant?: Variant
+  variant?: 'danger' | 'success' | 'warning'
 }
 
 export type HintProps = CreateWuiProps<'div', HintOptions>

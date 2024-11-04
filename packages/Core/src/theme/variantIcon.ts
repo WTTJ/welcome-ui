@@ -2,29 +2,32 @@ import { CSSObject } from '@xstyled/styled-components'
 
 import { WuiTheme } from './types'
 
-export type ThemeHints = {
+export type ThemeVariantIcon = {
   danger: CSSObject
   default: CSSObject
+  info: CSSObject
   success: CSSObject
   warning: CSSObject
 }
 
-export const getHints = (theme: WuiTheme): ThemeHints => {
-  const { colors, texts } = theme
+export const getVariantIcon = (theme: WuiTheme): ThemeVariantIcon => {
+  const { colors } = theme
 
   return {
     default: {
-      ...texts.xs,
-      color: colors['neutral-60'],
+      color: colors['neutral-90'],
     },
     danger: {
-      color: colors['red-70'],
+      color: colors['red-80'],
     },
     success: {
       color: colors['green-70'],
     },
     warning: {
       color: colors['orange-70'],
+    },
+    info: {
+      color: colors['blue-70'],
     },
   }
 }

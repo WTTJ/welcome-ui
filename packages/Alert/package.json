@@ -51,7 +51,6 @@
     "@welcome-ui/close-button": "^6.0.0-alpha.0",
     "@welcome-ui/system": "^6.0.0-alpha.0",
     "@welcome-ui/text": "^6.0.0-alpha.0",
-    "@welcome-ui/utils": "^6.0.0-alpha.0",
     "@welcome-ui/variant-icon": "^6.0.0-alpha.0"
   },
   "peerDependencies": {

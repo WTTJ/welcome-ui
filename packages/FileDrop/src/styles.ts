@@ -1,6 +1,5 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import { shouldForwardProp } from '@welcome-ui/system'
-import { getVariantColor } from '@welcome-ui/utils'
 
 export interface StyledFileDropProps {
   disabled?: boolean
@@ -15,7 +14,7 @@ export const FileDrop = styled('div').withConfig({ shouldForwardProp })<StyledFi
     ${isDragAccept && th('filedrops.dragAccept')};
     ${isDragReject &&
     css`
-      border-color: ${getVariantColor('danger')};
+      border-color: ${th('defaultFields.variants.danger.borderColor')};
       ${th('filedrops.dragReject')}
     `};
     position: relative;

@@ -1,4 +1,5 @@
 import { CSSObject } from '@xstyled/styled-components'
+import { hexToRGBA } from '@welcome-ui/utils'
 
 import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
@@ -8,7 +9,7 @@ type CommonAttributesButton = CSSObject
 type SizeAttributesButton = CSSObject
 
 type Variant = 'primary' | 'secondary' | 'tertiary' | 'ghost'
-type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
+type Size = 'xs' | 'sm' | 'md' | 'lg'
 type Icon = 'only' | 'default'
 
 export type ThemeButtons = Record<Variant | 'danger', CommonAttributesButton> &
@@ -56,16 +57,16 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     danger: {
       primary: {
         color: colors['neutral-10'],
-        backgroundColor: colors['red-80'],
-        borderColor: colors['red-80'],
+        backgroundColor: colors['red-70'],
+        borderColor: colors['red-70'],
       },
       tertiary: {
         backgroundColor: 'transparent',
-        color: colors['red-80'],
-        borderColor: colors['red-80'],
+        color: colors['red-70'],
+        borderColor: colors['red-70'],
       },
       ghost: {
-        color: colors['red-80'],
+        color: colors['red-70'],
         backgroundColor: 'transparent',
         borderColor: 'transparent',
       },
@@ -76,19 +77,19 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         borderColor: colors['primary-30'],
       },
       secondary: {
-        backgroundColor: colors['neutral-70'],
+        backgroundColor: colors['neutral-60'],
         borderColor: 'transparent',
       },
       tertiary: {
-        backgroundColor: colors['neutral-30'],
+        backgroundColor: hexToRGBA(colors['neutral-90'], 0.1),
       },
       ghost: {
-        backgroundColor: colors['neutral-30'],
+        backgroundColor: hexToRGBA(colors['neutral-90'], 0.1),
       },
       danger: {
         primary: {
-          backgroundColor: colors['red-70'],
-          borderColor: colors['red-70'],
+          backgroundColor: colors['red-60'],
+          borderColor: colors['red-60'],
         },
         tertiary: {
           backgroundColor: colors['red-10'],
@@ -119,10 +120,10 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         borderColor: colors['neutral-30'],
       },
       tertiary: {
-        backgroundColor: colors['neutral-50'],
+        backgroundColor: hexToRGBA(colors['neutral-90'], 0.4),
       },
       ghost: {
-        backgroundColor: colors['neutral-50'],
+        backgroundColor: hexToRGBA(colors['neutral-90'], 0.4),
       },
       danger: {
         primary: {
@@ -145,10 +146,6 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       '&:focus': { ...focus(colors['beige-10']) },
     },
     sizes: {
-      xxs: {
-        height: toRem(16),
-        padding: `${space.xxs} ${space.xs}`,
-      },
       xs: {
         height: toRem(24),
         padding: `${space.xs} ${space.sm}`,
@@ -172,14 +169,12 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     icon: {
       only: {
-        xxs: toRem(16),
         xs: toRem(16),
         sm: toRem(16),
         md: toRem(16),
         lg: toRem(24),
       },
       default: {
-        xxs: toRem(12),
         xs: toRem(12),
         sm: toRem(16),
         md: toRem(16),

@@ -160,13 +160,13 @@
               "value": "\"danger\""
             },
             {
-              "value": "\"info\""
-            },
-            {
               "value": "\"success\""
             },
             {
               "value": "\"warning\""
+            },
+            {
+              "value": "\"info\""
             },
             {
               "value": "\"default\""
@@ -336,13 +336,13 @@
               "value": "\"danger\""
             },
             {
-              "value": "\"info\""
-            },
-            {
               "value": "\"success\""
             },
             {
               "value": "\"warning\""
+            },
+            {
+              "value": "\"info\""
             },
             {
               "value": "\"default\""

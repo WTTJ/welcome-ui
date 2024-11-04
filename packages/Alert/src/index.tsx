@@ -4,13 +4,12 @@ import { CloseButton } from '@welcome-ui/close-button'
 import { Button, ButtonProps } from '@welcome-ui/button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import { VariantIcon } from '@welcome-ui/variant-icon'
-import { Variant as VariantUtils } from '@welcome-ui/utils'
 
 import * as S from './styles'
 import { Title } from './Title'
 
 export type Size = 'sm' | 'md'
-export type Variant = VariantUtils | 'default' | 'beige'
+export type Variant = 'danger' | 'success' | 'warning' | 'info' | 'default' | 'beige'
 export interface AlertOptions {
   closeButtonDataTestId?: string
   cta?: JSX.Element
@@ -42,6 +41,7 @@ const AlertComponent = forwardRef<'div', AlertProps>(
     ref
   ) => {
     const closeButtonDataTestId = dataTestId ? `${dataTestId}-close-button` : undefined
+    const defaultVariantIcon = variant === 'beige' || variant === 'default' ? undefined : variant
 
     const content = Children.toArray(children).map((child: React.ReactElement) => {
       // Add variant to Title to show the correct icon
@@ -70,7 +70,13 @@ const AlertComponent = forwardRef<'div', AlertProps>(
             top="sm"
           />
         )}
-        <VariantIcon alignSelf="flex-start" icon={icon} pr="md" size="sm" variant={variant} />
+        <VariantIcon
+          alignSelf="flex-start"
+          icon={icon}
+          pr="md"
+          size="sm"
+          variant={defaultVariantIcon}
+        />
         <Box flex="1">
           {cta ? (
             <Box

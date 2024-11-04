@@ -150,7 +150,7 @@
               "value": "\"violet\""
             },
             {
-              "value": "\"danger\""
+              "value": "\"default\""
             },
             {
               "value": "\"info\""
@@ -159,10 +159,10 @@
               "value": "\"success\""
             },
             {
-              "value": "\"warning\""
+              "value": "\"danger\""
             },
             {
-              "value": "\"default\""
+              "value": "\"warning\""
             }
           ]
         }

@@ -11,13 +11,13 @@ const Example = () => {
       <Field error="an error" hint="a hint" label="Toggle">
         <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
       </Field>
+      <Field hint="a hint" label="Toggle" success="an success">
+        <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
+      </Field>
       <Field hint="a hint" label="Toggle" warning="an warning">
         <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
       </Field>
-      <Field hint="a hint" info="an info" label="Toggle">
-        <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
-      </Field>
-      <Field hint="a hint" label="Toggle" success="an success">
+      <Field error="an error" hint="a hint" label="Toggle">
         <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
       </Field>
     </Stack>

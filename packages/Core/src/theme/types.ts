@@ -59,6 +59,7 @@ import {
 } from './typography'
 import { ThemeUnderline } from './underline'
 import { ThemeFontsUrl } from './core'
+import { ThemeVariantIcon } from './variantIcon'
 
 type OverrideKeys =
   | 'colors'
@@ -143,4 +144,5 @@ export interface WuiTheme extends XStyledTheme, StyledComponentsTheme {
   }
   transitions: ThemeTransitions
   underline: ThemeUnderline
+  variantIcon: ThemeVariantIcon
 }

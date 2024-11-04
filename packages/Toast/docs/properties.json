@@ -97,13 +97,13 @@
               "value": "\"default\""
             },
             {
-              "value": "\"danger\""
-            },
-            {
               "value": "\"info\""
             },
             {
               "value": "\"success\""
+            },
+            {
+              "value": "\"danger\""
             },
             {
               "value": "\"warning\""
@@ -208,13 +208,13 @@
               "value": "\"default\""
             },
             {
-              "value": "\"danger\""
-            },
-            {
               "value": "\"info\""
             },
             {
               "value": "\"success\""
+            },
+            {
+              "value": "\"danger\""
             },
             {
               "value": "\"warning\""

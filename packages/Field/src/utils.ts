@@ -1,5 +1,3 @@
-import { Variant } from '@welcome-ui/utils'
-
 import { VariantProps } from '.'
 
 const TYPES: { [key: string]: string } = {
@@ -13,11 +11,14 @@ const TYPES: { [key: string]: string } = {
 
 export const getBaseType = (type: string): string => TYPES[type] || type
 
-export const getVariant = ({ error, info, success, warning }: VariantProps): Variant => {
+export const getVariant = ({
+  error,
+  success,
+  warning,
+}: VariantProps): 'danger' | 'warning' | 'success' => {
   if (error) return 'danger'
   if (warning) return 'warning'
   if (success) return 'success'
-  if (info) return 'info'
   return undefined
 }
 

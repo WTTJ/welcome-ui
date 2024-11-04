@@ -48,8 +48,7 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^6.0.0-alpha.0",
-    "@welcome-ui/system": "^6.0.0-alpha.0",
-    "@welcome-ui/utils": "^6.0.0-alpha.0"
+    "@welcome-ui/system": "^6.0.0-alpha.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
