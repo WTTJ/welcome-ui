@@ -48,7 +48,7 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
                     <Box
                       as="span"
                       backgroundColor={isDiff ? '#2f2f2f' : undefined}
-                      color={isRemoved ? 'danger-20' : isAdded ? 'success-20' : undefined}
+                      color={isRemoved ? 'red-30' : isAdded ? 'green-40' : undefined}
                       fontSize="14"
                       // eslint-disable-next-line react/no-array-index-key
                       key={key}

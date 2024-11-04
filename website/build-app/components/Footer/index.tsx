@@ -104,7 +104,7 @@ export const Footer = () => {
                     href={link}
                     rel={isExternal ? 'noopener noreferrer' : undefined}
                     target={isExternal ? '_blank' : undefined}
-                    textDecoration={{ hover: 'underline' }}
+                    textDecoration={{ hover: "primary-40" }}
                   >
                     {name}
                     {isExternal && <ExternalLinkIcon color="neutral-60" size="xs" />}

@@ -16,9 +16,9 @@ export type ThemeAlerts = {
 export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
   const { borderWidths, colors, fontSizes, radii, space } = theme
 
-  const getState = (state: 'danger' | 'info' | 'success' | 'warning') => ({
-    backgroundColor: colors[`${state}-10`],
-    borderColor: colors[`${state}-10`],
+  const getState = (color: 'red' | 'blue' | 'green' | 'orange') => ({
+    backgroundColor: colors[`${color}-10`],
+    borderColor: colors[`${color}-10`],
   })
 
   return {
@@ -31,10 +31,10 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
       color: colors['neutral-90'],
       fontSize: fontSizes.sm,
     },
-    danger: getState('danger'),
-    warning: getState('warning'),
-    info: getState('info'),
-    success: getState('success'),
+    danger: getState('red'),
+    warning: getState('orange'),
+    info: getState('blue'),
+    success: getState('green'),
     beige: { backgroundColor: colors['beige-20'], borderColor: colors['beige-20'] },
     sizes: {
       sm: {

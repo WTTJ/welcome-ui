@@ -40,7 +40,7 @@ describe('<Tag>', () => {
     )
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('background-color', theme.colors['success-10'])
+    expect(tag).toHaveStyleRule('background-color', theme.colors['green-10'])
   })
 
   it('should have correct color for sub variant', () => {

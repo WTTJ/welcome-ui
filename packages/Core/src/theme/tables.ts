@@ -38,20 +38,20 @@ export const getTables = (theme: WuiTheme): ThemeTables => {
         borderBottomStyle: 'solid',
       },
       danger: {
-        backgroundColor: colors['danger-10'],
-        color: colors['danger-50'],
+        backgroundColor: colors['red-10'],
+        color: colors['red-70'],
       },
       warning: {
-        backgroundColor: colors['warning-10'],
-        color: colors['warning-50'],
+        backgroundColor: colors['orange-10'],
+        color: colors['orange-80'],
       },
       info: {
-        backgroundColor: colors['info-10'],
-        color: colors['info-50'],
+        backgroundColor: colors['blue-10'],
+        color: colors['blue-70'],
       },
       success: {
-        backgroundColor: colors['success-10'],
-        color: colors['success-50'],
+        backgroundColor: colors['green-10'],
+        color: colors['green-70'],
       },
       clickable: {
         cursor: 'pointer',

@@ -125,7 +125,7 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
     },
     checkableField: {
       checked: {
-        color: 'black', // not hex color, only color from browser because is on a content svg
+        color: 'neutral-90', // not hex color, only color from browser because is on a content svg
       },
       disabled: {
         opacity: 0.4,

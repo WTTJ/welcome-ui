@@ -43,10 +43,10 @@ const options = {
   headingFontFamily: 'Georgia',
   colors: {
     primary: {
-      500: '#124C80',
+      50: '#124C80',
     },
-    success: {
-      500: '#32CD32',
+    green: {
+      50: '#32CD32',
     },
   },
 }

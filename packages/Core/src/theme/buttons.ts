@@ -77,7 +77,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         borderColor: colors['primary-30'],
       },
       secondary: {
-        backgroundColor: colors['neutral-60'],
+        backgroundColor: colors['neutral-70'],
         borderColor: 'transparent',
       },
       tertiary: {
@@ -116,8 +116,8 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
         borderColor: colors['primary-10'],
       },
       secondary: {
-        backgroundColor: colors['neutral-30'],
-        borderColor: colors['neutral-30'],
+        backgroundColor: colors['neutral-60'],
+        borderColor: colors['neutral-60'],
       },
       tertiary: {
         backgroundColor: hexToRGBA(colors['neutral-90'], 0.4),

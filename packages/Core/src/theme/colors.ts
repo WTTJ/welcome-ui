@@ -102,16 +102,6 @@ const palette = {
 
 export const getColors = (systemColors: typeof palette) => ({
   ...systemColors,
-  'danger-10': systemColors['red-10'],
-  'danger-20': systemColors['red-30'],
-  'danger-30': systemColors['red-60'],
-  'danger-40': systemColors['red-70'],
-  'danger-50': systemColors['red-80'],
-  'info-10': systemColors['blue-10'],
-  'info-20': systemColors['blue-40'],
-  'info-30': systemColors['blue-50'],
-  'info-40': systemColors['blue-60'],
-  'info-50': systemColors['blue-70'],
   'primary-10': systemColors['yellow-10'],
   'primary-20': systemColors['yellow-20'],
   'primary-30': systemColors['yellow-30'],
@@ -127,16 +117,6 @@ export const getColors = (systemColors: typeof palette) => ({
   'secondary-pink': systemColors['pink-40'],
   'secondary-teal': systemColors['teal-40'],
   'secondary-violet': systemColors['violet-40'],
-  'success-10': systemColors['green-10'],
-  'success-20': systemColors['green-40'],
-  'success-30': systemColors['green-50'],
-  'success-40': systemColors['green-60'],
-  'success-50': systemColors['green-70'],
-  'warning-10': systemColors['orange-10'],
-  'warning-20': systemColors['orange-30'],
-  'warning-30': systemColors['orange-50'],
-  'warning-40': systemColors['orange-60'],
-  'warning-50': systemColors['orange-80'],
   overlay: 'rgba(0, 0, 0, 0.55)',
 })
 

@@ -5,14 +5,14 @@ import { Loader } from '../src'
 
 describe('<Loader>', () => {
   it('should render correctly', () => {
-    const { getByTestId } = render(<Loader color="black" dataTestId="loader" />)
+    const { getByTestId } = render(<Loader color="neutral-90" dataTestId="loader" />)
 
     const childrenLength = getByTestId('loader').children.length
     expect(childrenLength).toEqual(3)
   })
 
   it('should have width and height when using the size prop with theme value', () => {
-    const { getByTestId } = render(<Loader color="black" dataTestId="loader" size="sm" />)
+    const { getByTestId } = render(<Loader color="neutral-90" dataTestId="loader" size="sm" />)
     const loader = getByTestId('loader')
     const dot = loader.firstChild
 
@@ -21,7 +21,7 @@ describe('<Loader>', () => {
   })
 
   it('should have width and height when using the size prop with px value', () => {
-    const { getByTestId } = render(<Loader color="black" dataTestId="loader" size="10px" />)
+    const { getByTestId } = render(<Loader color="neutral-90" dataTestId="loader" size="10px" />)
     const loader = getByTestId('loader')
     const dot = loader.firstChild
 
@@ -30,7 +30,7 @@ describe('<Loader>', () => {
   })
 
   it('should have width and height when using the size prop with no value', () => {
-    const { getByTestId } = render(<Loader color="black" dataTestId="loader" size="16" />)
+    const { getByTestId } = render(<Loader color="neutral-90" dataTestId="loader" size="16" />)
     const loader = getByTestId('loader')
     const dot = loader.firstChild
 

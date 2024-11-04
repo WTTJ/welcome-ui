@@ -9,15 +9,7 @@ type RecursivePartial<T> = {
  * We reverse the palette colors (basic token color) and inject this new values on dark theme
  */
 const generateDarkColors = Object.keys(colors).reduce((acc, key) => {
-  if (
-    key.startsWith('secondary-') ||
-    key.startsWith('danger-') ||
-    key.startsWith('warning-') ||
-    key.startsWith('success-') ||
-    key.startsWith('info-') ||
-    key === 'overlay'
-  )
-    return acc
+  if (key.startsWith('secondary-') || key === 'overlay') return acc
 
   const number = 100 - Number(key.slice(-2))
   const variant = key.slice(0, key.length - 2)

@@ -6,7 +6,7 @@ const options = [
   {
     element: ({ selected }: { selected: boolean }) => (
       <Shape backgroundColor={selected ? 'beige-30' : 'unset'} shape="circle" w={30}>
-        <Shape backgroundColor="danger-20" borderRadius={2} h={15} w={15} />
+        <Shape backgroundColor="red-30" borderRadius={2} h={15} w={15} />
       </Shape>
     ),
     value: '1',
@@ -14,7 +14,7 @@ const options = [
   {
     element: ({ selected }: { selected: boolean }) => (
       <Shape backgroundColor={selected ? 'beige-30' : 'unset'} shape="circle" w={30}>
-        <Shape backgroundColor="success-50" borderRadius={2} h={15} w={15} />
+        <Shape backgroundColor="green-70" borderRadius={2} h={15} w={15} />
       </Shape>
     ),
     value: '2',
@@ -22,7 +22,7 @@ const options = [
   {
     element: ({ selected }: { selected: boolean }) => (
       <Shape backgroundColor={selected ? 'beige-30' : 'unset'} shape="circle" w={30}>
-        <Shape backgroundColor="warning-20" borderRadius={2} h={15} w={15} />
+        <Shape backgroundColor="orange-30" borderRadius={2} h={15} w={15} />
       </Shape>
     ),
     value: '3',
