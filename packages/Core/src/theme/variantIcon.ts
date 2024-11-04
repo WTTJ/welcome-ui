@@ -18,16 +18,16 @@ export const getVariantIcon = (theme: WuiTheme): ThemeVariantIcon => {
       color: colors['neutral-90'],
     },
     danger: {
-      color: colors['red-80'],
+      color: colors['red-70'],
     },
     success: {
-      color: colors['green-70'],
+      color: colors['green-60'],
     },
     warning: {
-      color: colors['orange-70'],
+      color: colors['orange-60'],
     },
     info: {
-      color: colors['blue-70'],
+      color: colors['blue-60'],
     },
   }
 }

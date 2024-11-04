@@ -24,12 +24,12 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
     },
     default: {
       zIndex: 999,
-      borderRadius: radii.xxl,
+      borderRadius: radii.md,
     },
     header: {
       backgroundColor: colors['neutral-10'],
-      borderTopLeftRadius: radii.xxl,
-      borderTopRightRadius: radii.xxl,
+      borderTopLeftRadius: radii.md,
+      borderTopRightRadius: radii.md,
       paddingTop: space.xxl,
       paddingRight: space['3xl'],
       paddingBottom: space.xxl,
@@ -49,8 +49,8 @@ export const getModals = (theme: WuiTheme): ThemeModals => {
     footer: {
       backgroundColor: colors['neutral-10'],
       borderTop: `solid ${colors['neutral-30']}`,
-      borderBottomLeftRadius: radii.xxl,
-      borderBottomRightRadius: radii.xxl,
+      borderBottomLeftRadius: radii.md,
+      borderBottomRightRadius: radii.md,
       children: {
         paddingRight: space.xxl,
         paddingLeft: space.xxl,

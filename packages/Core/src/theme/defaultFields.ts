@@ -57,13 +57,13 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
     },
     variants: {
       danger: {
-        borderColor: colors['red-80'],
+        borderColor: colors['red-70'],
       },
       success: {
-        borderColor: colors['green-70'],
+        borderColor: colors['green-60'],
       },
       warning: {
-        borderColor: colors['orange-70'],
+        borderColor: colors['orange-60'],
       },
     },
     focused: {
@@ -71,9 +71,9 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
         ...focus(colors['primary-30']),
         borderColor: 'transparent',
       },
-      danger: { ...focus(colors['red-70']) },
-      warning: { ...focus(colors['orange-60']) },
-      success: { ...focus(colors['green-60']) },
+      danger: { ...focus(colors['red-60']) },
+      warning: { ...focus(colors['orange-50']) },
+      success: { ...focus(colors['green-50']) },
     },
     sizes: {
       xs: {
