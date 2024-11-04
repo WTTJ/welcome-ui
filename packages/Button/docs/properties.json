@@ -2,6 +2,34 @@
   "Button": {
     "tag": "button",
     "props": {
+      "danger": {
+        "defaultValue": null,
+        "description": "Danger button with 3 variants: primary / tertiary / ghost",
+        "name": "danger",
+        "parent": {
+          "fileName": "Button/src/index.tsx",
+          "name": "ButtonOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Button/src/index.tsx",
+            "name": "ButtonOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "disabled": {
         "defaultValue": null,
         "description": "",
@@ -159,31 +187,7 @@
               "value": "\"tertiary\""
             },
             {
-              "value": "\"primary-info\""
-            },
-            {
-              "value": "\"secondary-info\""
-            },
-            {
-              "value": "\"primary-success\""
-            },
-            {
-              "value": "\"secondary-success\""
-            },
-            {
               "value": "\"ghost\""
-            },
-            {
-              "value": "\"primary-warning\""
-            },
-            {
-              "value": "\"secondary-warning\""
-            },
-            {
-              "value": "\"primary-danger\""
-            },
-            {
-              "value": "\"secondary-danger\""
             }
           ]
         }

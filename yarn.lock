@@ -3727,19 +3727,6 @@
     underscore "^1.9.1"
     url-join "^4.0.0"
 
-"@welcome-ui/core@^5.22.4":
-  version "5.22.4"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/core/-/core-5.22.4.tgz#0ef69af30ff3c9a6625d342e8f3d2b0b4683c5a5"
-  integrity sha512-otE0YkDG04UP5ucc8QYHBSAwSxalhOwFlB2vZ7IRtoLUcuRA4WxwaLKJiJAFE5v8RGhGBH+wq9oBnAjjgHasmg==
-  dependencies:
-    "@welcome-ui/utils" "^5.22.1"
-    ramda "^0.30.1"
-
-"@welcome-ui/utils@^5.22.1":
-  version "5.22.1"
-  resolved "https://registry.yarnpkg.com/@welcome-ui/utils/-/utils-5.22.1.tgz#3ef2fbd58ee91284e2e4ca775c818f4f7b8e34ca"
-  integrity sha512-BaTpRufajkH6mtbcoNSjRsOSXEuBM3/WPnKRz2qZbvgI99QYn474PdjgHomql40BorY19JlornRSGQIU//DR6w==
-
 "@xmldom/xmldom@^0.7.2":
   version "0.7.9"
   resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.7.9.tgz#7f9278a50e737920e21b297b8a35286e9942c056"

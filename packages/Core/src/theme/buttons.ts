@@ -1,5 +1,4 @@
 import { CSSObject } from '@xstyled/styled-components'
-import { hexToRGBA } from '@welcome-ui/utils'
 
 import { ThemeFocus } from './focus'
 import { WuiTheme } from './types'
@@ -8,27 +7,14 @@ type CommonAttributesButton = CSSObject
 
 type SizeAttributesButton = CSSObject
 
-type Variant =
-  | 'primary'
-  | 'secondary'
-  | 'tertiary'
-  | 'primary-success'
-  | 'secondary-success'
-  | 'primary-warning'
-  | 'secondary-warning'
-  | 'primary-danger'
-  | 'secondary-danger'
-  | 'primary-info'
-  | 'secondary-info'
-  | 'ghost'
-
+type Variant = 'primary' | 'secondary' | 'tertiary' | 'ghost'
 type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
 type Icon = 'only' | 'default'
 
-export type ThemeButtons = Record<Variant, CommonAttributesButton> &
-  Record<'hover', Record<Variant, CommonAttributesButton>> &
-  Record<'focus', Record<Variant, unknown>> &
-  Record<'active', Record<Variant, CommonAttributesButton>> &
+export type ThemeButtons = Record<Variant | 'danger', CommonAttributesButton> &
+  Record<'hover', Record<Variant | 'danger', CommonAttributesButton>> &
+  Record<'focus', Record<Variant | 'danger', unknown>> &
+  Record<'active', Record<Variant | 'danger', CommonAttributesButton>> &
   Record<'disabled', CommonAttributesButton & { '&:focus': ReturnType<ThemeFocus> }> &
   Record<'sizes', Record<Size, SizeAttributesButton>> &
   Record<'icon', Record<Icon, Record<Size, string>>>
@@ -61,55 +47,28 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       backgroundColor: 'transparent',
       borderColor: colors['neutral-90'],
     },
-    'primary-success': {
-      ...defaults,
-      backgroundColor: colors['success-50'],
-      borderColor: colors['success-50'],
-    },
-    'secondary-success': {
-      ...defaults,
-      color: colors['success-50'],
-      backgroundColor: colors['neutral-10'],
-      borderColor: colors['success-50'],
-    },
-    'primary-warning': {
-      ...defaults,
-      backgroundColor: colors['warning-50'],
-      borderColor: colors['warning-50'],
-    },
-    'secondary-warning': {
-      ...defaults,
-      color: colors['warning-50'],
-      backgroundColor: colors['neutral-10'],
-      borderColor: colors['warning-50'],
-    },
-    'primary-danger': {
-      ...defaults,
-      backgroundColor: colors['danger-50'],
-      borderColor: colors['danger-50'],
-    },
-    'secondary-danger': {
-      ...defaults,
-      color: colors['danger-50'],
-      backgroundColor: colors['neutral-10'],
-      borderColor: colors['danger-50'],
-    },
-    'primary-info': {
-      ...defaults,
-      backgroundColor: colors['info-50'],
-      borderColor: colors['info-50'],
-    },
-    'secondary-info': {
-      ...defaults,
-      color: colors['info-50'],
-      backgroundColor: colors['neutral-10'],
-      borderColor: colors['info-50'],
-    },
     ghost: {
       ...defaults,
       color: colors['neutral-90'],
       backgroundColor: 'transparent',
       borderColor: 'transparent',
+    },
+    danger: {
+      primary: {
+        color: colors['neutral-10'],
+        backgroundColor: colors['red-80'],
+        borderColor: colors['red-80'],
+      },
+      tertiary: {
+        backgroundColor: 'transparent',
+        color: colors['red-80'],
+        borderColor: colors['red-80'],
+      },
+      ghost: {
+        color: colors['red-80'],
+        backgroundColor: 'transparent',
+        borderColor: 'transparent',
+      },
     },
     hover: {
       primary: {
@@ -123,51 +82,32 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       tertiary: {
         backgroundColor: colors['neutral-30'],
       },
-      'primary-success': {
-        backgroundColor: colors['success-40'],
-        borderColor: colors['success-40'],
-      },
-      'secondary-success': {
-        backgroundColor: hexToRGBA(colors['success-50'], 0.1),
-      },
-      'primary-warning': {
-        backgroundColor: colors['warning-40'],
-        borderColor: colors['warning-40'],
-      },
-      'secondary-warning': {
-        backgroundColor: colors['warning-10'],
-      },
-      'primary-danger': {
-        backgroundColor: colors['danger-40'],
-        borderColor: colors['danger-40'],
-      },
-      'secondary-danger': {
-        backgroundColor: colors['danger-10'],
-      },
-      'primary-info': {
-        backgroundColor: colors['info-40'],
-        borderColor: colors['info-40'],
-      },
-      'secondary-info': {
-        backgroundColor: colors['info-10'],
-      },
       ghost: {
         backgroundColor: colors['neutral-30'],
       },
+      danger: {
+        primary: {
+          backgroundColor: colors['red-70'],
+          borderColor: colors['red-70'],
+        },
+        tertiary: {
+          backgroundColor: colors['red-10'],
+        },
+        ghost: {
+          backgroundColor: colors['red-10'],
+        },
+      },
     },
     focus: {
-      primary: { ...focus(colors['primary-40'], 0.5) },
-      secondary: { ...focus(colors['neutral-60']) },
-      tertiary: { ...focus(colors['neutral-60']) },
-      ghost: { ...focus(colors['neutral-30']) },
-      'primary-success': { ...focus(colors['success-50'], 0.5) },
-      'secondary-success': { ...focus(colors['success-50'], 0.5) },
-      'primary-warning': { ...focus(colors['warning-50'], 0.5) },
-      'secondary-warning': { ...focus(colors['warning-50'], 0.5) },
-      'primary-danger': { ...focus(colors['danger-50'], 0.5) },
-      'secondary-danger': { ...focus(colors['danger-50'], 0.5) },
-      'primary-info': { ...focus(colors['info-50'], 0.5) },
-      'secondary-info': { ...focus(colors['info-50'], 0.5) },
+      primary: { ...focus(colors['primary-20']) },
+      secondary: { ...focus(colors['neutral-40']) },
+      tertiary: { ...focus(colors['neutral-40']) },
+      ghost: { ...focus(colors['neutral-40']) },
+      danger: {
+        primary: { ...focus(colors['red-40']) },
+        tertiary: { ...focus(colors['red-40']) },
+        ghost: { ...focus(colors['red-40']) },
+      },
     },
     active: {
       primary: {
@@ -181,36 +121,20 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       tertiary: {
         backgroundColor: colors['neutral-50'],
       },
-      'primary-success': {
-        backgroundColor: colors['success-30'],
-        borderColor: colors['success-30'],
-      },
-      'secondary-success': {
-        backgroundColor: hexToRGBA(colors['success-50'], 0.4),
-      },
-      'primary-warning': {
-        backgroundColor: colors['warning-30'],
-        borderColor: colors['warning-30'],
-      },
-      'secondary-warning': {
-        backgroundColor: hexToRGBA(colors['warning-50'], 0.4),
-      },
-      'primary-danger': {
-        backgroundColor: colors['danger-30'],
-        borderColor: colors['danger-30'],
-      },
-      'secondary-danger': {
-        backgroundColor: hexToRGBA(colors['danger-50'], 0.4),
-      },
-      'primary-info': {
-        backgroundColor: colors['info-30'],
-        borderColor: colors['info-30'],
-      },
-      'secondary-info': {
-        backgroundColor: hexToRGBA(colors['info-50'], 0.4),
-      },
       ghost: {
         backgroundColor: colors['neutral-50'],
+      },
+      danger: {
+        primary: {
+          backgroundColor: colors['red-60'],
+          borderColor: colors['red-60'],
+        },
+        tertiary: {
+          backgroundColor: colors['red-30'],
+        },
+        ghost: {
+          backgroundColor: colors['red-30'],
+        },
       },
     },
     disabled: {
@@ -218,7 +142,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
       color: colors['beige-70'],
       backgroundColor: colors['beige-40'],
       borderColor: colors['beige-40'],
-      '&:focus': { ...focus(colors['beige-40'], 0.5) },
+      '&:focus': { ...focus(colors['beige-10']) },
     },
     sizes: {
       xxs: {

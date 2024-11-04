@@ -24,6 +24,22 @@ describe('<Button />', () => {
     expect(button).toHaveStyleRule('height', theme.buttons.sizes.md.height)
   })
 
+  it('should render a danger button', () => {
+    const theme = createTheme()
+
+    render(
+      <Button danger dataTestId="button">
+        {content}
+      </Button>
+    )
+
+    const button = screen.getByTestId('button')
+
+    expect(button).toHaveTextContent(content)
+    expect(button).not.toBeDisabled()
+    expect(button).toHaveStyleRule('background-color', theme.colors['red-80'])
+  })
+
   it('should call onClick property', async () => {
     const onClick = jest.fn()
 

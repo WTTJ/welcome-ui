@@ -7,22 +7,11 @@ import * as S from './styles'
 
 export type Shape = 'circle' | 'square'
 export type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
-export type Variant =
-  | 'primary'
-  | 'secondary'
-  | 'tertiary'
-  | 'primary-info'
-  | 'secondary-info'
-  | 'primary-success'
-  | 'secondary-success'
-  | 'ghost'
-  | 'primary-warning'
-  | 'secondary-warning'
-  | 'primary-danger'
-  | 'secondary-danger'
-  | 'disabled'
+export type Variant = 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'disabled'
 
 export interface ButtonOptions {
+  /** Danger button with 3 variants: primary / tertiary / ghost */
+  danger?: boolean
   disabled?: boolean
   isLoading?: boolean
   shape?: Shape
@@ -37,13 +26,23 @@ export type ButtonProps = CreateWuiProps<'button', ButtonOptions>
  */
 export const Button = forwardRef<'button', ButtonProps>(
   (
-    { children, dataTestId, disabled, isLoading, size = 'md', variant = 'primary', ...rest },
+    {
+      children,
+      danger,
+      dataTestId,
+      disabled,
+      isLoading,
+      size = 'md',
+      variant = 'primary',
+      ...rest
+    },
     ref
   ) => {
     const isDisabled = disabled || isLoading
 
     return (
       <S.Button
+        danger={danger}
         data-loading={isLoading}
         data-testid={dataTestId}
         disabled={isDisabled}

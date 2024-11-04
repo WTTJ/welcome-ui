@@ -219,13 +219,7 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
                 </Button>
               )}
               {isClearable && (
-                <Button
-                  onClick={handleRemoveClick}
-                  shape="circle"
-                  size="sm"
-                  type="button"
-                  variant="primary-danger"
-                >
+                <Button danger onClick={handleRemoveClick} shape="circle" size="sm" type="button">
                   <TrashIcon />
                 </Button>
               )}

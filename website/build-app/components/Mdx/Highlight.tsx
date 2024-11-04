@@ -24,7 +24,7 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
             shape="circle"
             size="xs"
             top={14}
-            variant={copied ? 'primary-success' : 'ghost'}
+            variant={copied ? 'primary' : 'ghost'}
           >
             {copied ? <CheckIcon /> : <CopyIcon color="neutral-10" />}
           </Button>
