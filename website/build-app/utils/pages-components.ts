@@ -67,7 +67,7 @@ export function getFilesFromPackages(selectedParent: Parent) {
     }
   }
 
-  return files
+  return files.sort((a, b) => a.category.localeCompare(b.category))
 }
 
 export function getStaticParams(pages: PageTree) {
