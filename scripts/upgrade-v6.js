@@ -128,8 +128,6 @@ glob(pattern, (error, matches) => {
     const file = await fs.readFile(match)
     let content = file.toString()
 
-    console.log(file)
-
     content = upgradeColors(content)
     content = removePrefix(content)
     content = replaceErrorVariant(content)
