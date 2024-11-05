@@ -297,7 +297,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /v5.(\d\d|\d).(\d\d|\d)/
+              only: /v6.(\d\d|\d).(\d\d|\d)/
           context:
             - aws
             - welcome-ui
