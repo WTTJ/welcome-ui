@@ -58,6 +58,7 @@ import { getToasts } from './toasts'
 import { getPaginations } from './paginations'
 import { getTabs } from './tabs'
 import { getBadges } from './badges'
+import { getVariantIcon } from './variantIcon'
 
 const DEFAULT_FONT_FAMILY = 'work-sans'
 const DEFAULT_FONT_SIZE = 16
@@ -176,6 +177,7 @@ export const createTheme = (options: Options = {}): WuiTheme => {
   theme.radios = getRadios(theme)
   theme.radioTabs = getRadioTabs(theme)
   theme.sliders = getSliders(theme)
+  theme.variantIcon = getVariantIcon(theme)
 
   // states
   theme.states = defaultTheme.states
@@ -184,3 +186,5 @@ export const createTheme = (options: Options = {}): WuiTheme => {
 
   return theme
 }
+
+export { ThemeSecondaryColors } from './colors'

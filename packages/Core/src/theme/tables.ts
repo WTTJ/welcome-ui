@@ -7,8 +7,8 @@ export type ThemeTables = {
   th: CSSObject
   tr: {
     clickable: CSSObject
+    danger: CSSObject
     default: CSSObject
-    error: CSSObject
     info: CSSObject
     success: CSSObject
     warning: CSSObject
@@ -20,10 +20,10 @@ export const getTables = (theme: WuiTheme): ThemeTables => {
 
   return {
     th: {
-      color: colors['dark-500'],
+      color: colors['neutral-60'],
       fontWeight: fontWeights.medium,
       textAlign: 'left',
-      borderBottomColor: colors['dark-900'],
+      borderBottomColor: colors['neutral-90'],
       borderBottomWidth: borderWidths.sm,
       borderBottomStyle: 'solid',
     },
@@ -33,25 +33,25 @@ export const getTables = (theme: WuiTheme): ThemeTables => {
     },
     tr: {
       default: {
-        borderBottomColor: colors.border,
+        borderBottomColor: colors['neutral-30'],
         borderBottomWidth: borderWidths.sm,
         borderBottomStyle: 'solid',
       },
-      error: {
-        backgroundColor: colors['danger-100'],
-        color: colors['danger-500'],
+      danger: {
+        backgroundColor: colors['red-10'],
+        color: colors['red-70'],
       },
       warning: {
-        backgroundColor: colors['warning-100'],
-        color: colors['warning-500'],
+        backgroundColor: colors['orange-10'],
+        color: colors['orange-80'],
       },
       info: {
-        backgroundColor: colors['info-100'],
-        color: colors['info-500'],
+        backgroundColor: colors['blue-10'],
+        color: colors['blue-70'],
       },
       success: {
-        backgroundColor: colors['success-100'],
-        color: colors['success-500'],
+        backgroundColor: colors['green-10'],
+        color: colors['green-70'],
       },
       clickable: {
         cursor: 'pointer',

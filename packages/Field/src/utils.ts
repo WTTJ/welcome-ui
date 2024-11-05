@@ -1,3 +1,5 @@
+import { VariantProps } from '.'
+
 const TYPES: { [key: string]: string } = {
   Checkbox: 'checkbox',
   Radio: 'radio',
@@ -9,20 +11,14 @@ const TYPES: { [key: string]: string } = {
 
 export const getBaseType = (type: string): string => TYPES[type] || type
 
-type VariantProps = {
-  error?: string | JSX.Element
-  info?: string | JSX.Element
-  success?: string | JSX.Element
-  warning?: string | JSX.Element
-}
-
-export type VariantReturn = 'error' | 'warning' | 'success' | 'info'
-
-export const getVariant = ({ error, info, success, warning }: VariantProps): VariantReturn => {
-  if (error) return 'error'
+export const getVariant = ({
+  error,
+  success,
+  warning,
+}: VariantProps): 'danger' | 'warning' | 'success' => {
+  if (error) return 'danger'
   if (warning) return 'warning'
   if (success) return 'success'
-  if (info) return 'info'
   return undefined
 }
 

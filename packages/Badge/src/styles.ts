@@ -3,12 +3,12 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 
 import { BadgeOptions } from './index'
 
-export type StyledBadgeProps = Pick<BadgeOptions, 'disabled' | 'shape' | 'size' | 'variant'> & {
+export type StyledBadgeProps = Pick<BadgeOptions, 'disabled' | 'size' | 'variant'> & {
   length: number
 }
 
 export const Badge = styled.div<StyledBadgeProps & WuiProps>(
-  ({ disabled, length, shape, size, variant }) => css`
+  ({ disabled, length, size, variant }) => css`
     ${th('badges.default')};
     ${th(`badges.variants.${variant}`)};
     ${th(`badges.sizes.${size}`)};
@@ -25,11 +25,6 @@ export const Badge = styled.div<StyledBadgeProps & WuiProps>(
     ${length === 1 &&
     css`
       width: ${th(`badges.sizes.${size}.height`)};
-    `}
-
-    ${shape === 'square' &&
-    css`
-      border-radius: 0;
     `}
   `
 )

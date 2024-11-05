@@ -374,16 +374,10 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Variant",
+          "raw": "\"danger\" | \"success\" | \"warning\"",
           "value": [
             {
-              "value": "\"error\""
-            },
-            {
-              "value": "\"focused\""
-            },
-            {
-              "value": "\"info\""
+              "value": "\"danger\""
             },
             {
               "value": "\"success\""

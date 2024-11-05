@@ -6,16 +6,16 @@ import { EditIcon, PencilIcon } from '@welcome-ui/icons'
 const options = [
   {
     element: ({ selected }: { selected: boolean }) => (
-      <Shape backgroundColor={selected ? 'nude-200' : 'unset'} shape="circle" w={40}>
-        <EditIcon color="dark-900" />
+      <Shape backgroundColor={selected ? 'beige-30' : 'unset'} shape="circle" w={40}>
+        <EditIcon color="neutral-90" />
       </Shape>
     ),
     value: 'edit',
   },
   {
     element: ({ selected }: { selected: boolean }) => (
-      <Shape backgroundColor={selected ? 'nude-200' : 'unset'} shape="circle" w={40}>
-        <PencilIcon color="dark-900" />
+      <Shape backgroundColor={selected ? 'beige-30' : 'unset'} shape="circle" w={40}>
+        <PencilIcon color="neutral-90" />
       </Shape>
     ),
     value: 'pencil',

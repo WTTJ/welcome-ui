@@ -22,10 +22,10 @@ import { Button } from '@welcome-ui/button'
 const theme = createTheme({
   colors: {
     primary: {
-      500: '#FF0000'
+      50: '#FF0000'
     },
-    secondary: {
-      500: '#00FF00'
+    green: {
+      50: '#00FF00'
     }
   },
   spacing: {
@@ -78,67 +78,67 @@ An example of the `theme.js` file for the `Tag` component. You can customize the
 {
   default: {
     fontWeight: fontWeights.medium,
-    backgroundColor: colors['light-900'],
-    color: colors['nude-900'],
+    backgroundColor: colors['neutral-10'],
+    color: colors['beige-80'],
   },
   variants: {
     default: {
-      backgroundColor: colors['nude-200'],
-      borderColor: colors['nude-400'],
+      backgroundColor: colors['beige-30'],
+      borderColor: colors['beige-40'],
       ...border,
     },
-    primary: { ...withoutVisibleBorder(colors['primary-500']), color: colors['dark-900'] },
+    primary: { ...withoutVisibleBorder(colors['primary-40']), color: colors['neutral-90'] },
     secondary: {
-      backgroundColor: colors['sub-5'],
-      color: colors['dark-900'],
-      borderColor: colors['dark-100'],
+      backgroundColor: colors['secondary-green'],
+      color: colors['neutral-90'],
+      borderColor: colors['neutral-30'],
       ...border,
     },
     success: {
-      backgroundColor: colors['success-100'],
-      color: colors['success-500'],
-      borderColor: colors['success-200'],
+      backgroundColor: colors['green-10'],
+      color: colors['green-70'],
+      borderColor: colors['green-40'],
       ...border,
     },
-    error: {
-      backgroundColor: colors['danger-100'],
-      color: colors['danger-500'],
-      borderColor: colors['danger-200'],
+    danger: {
+      backgroundColor: colors['red-10'],
+      color: colors['red-70'],
+      borderColor: colors['red-30'],
       ...border,
     },
     warning: {
-      backgroundColor: colors['warning-100'],
-      color: colors['warning-500'],
-      borderColor: colors['warning-200'],
+      backgroundColor: colors['orange-10'],
+      color: colors['orange-80'],
+      borderColor: colors['orange-30'],
       ...border,
     },
     info: {
-      backgroundColor: colors['info-100'],
-      color: colors['info-500'],
-      borderColor: colors['info-300'],
+      backgroundColor: colors['blue-10'],
+      color: colors['blue-70'],
+      borderColor: colors['blue-50'],
       ...border,
     },
     ...
   },
   hover: {
     default: {
-      borderColor: colors['nude-600'],
+      borderColor: colors['beige-60'],
     },
     primary: {},
     secondary: {
-      borderColor: colors['dark-400'],
+      borderColor: colors['neutral-50'],
     },
     success: {
-      borderColor: colors['success-500'],
+      borderColor: colors['green-70'],
     },
-    error: {
-      borderColor: colors['danger-500'],
+    danger: {
+      borderColor: colors['red-70'],
     },
     warning: {
-      borderColor: colors['warning-500'],
+      borderColor: colors['orange-80'],
     },
     info: {
-      borderColor: colors['info-500'],
+      borderColor: colors['blue-70'],
     },
     ...
   },

@@ -1,6 +1,11 @@
 'use client'
-import { createTheme, WuiProvider, WuiProviderProps } from '@welcome-ui/core'
-import { welcomeTheme } from '@welcome-ui/themes.welcome'
+import {
+  createTheme,
+  darkTheme as WuiDarkTheme,
+  WuiProvider,
+  WuiProviderProps,
+} from '@welcome-ui/core'
+import { useTheme } from 'next-themes'
 import * as React from 'react'
 
 type ThemeProviderProps = {
@@ -8,10 +13,21 @@ type ThemeProviderProps = {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const theme = React.useMemo(() => createTheme(welcomeTheme), [])
+  const { theme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  const lightTheme = createTheme()
+  const darkTheme = createTheme(WuiDarkTheme)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // prevents ssr flash for mismatched dark mode
+  if (!mounted) return null
 
   return (
-    <WuiProvider theme={theme} useReset>
+    <WuiProvider theme={theme === 'dark' ? darkTheme : lightTheme} useReset>
       {children}
     </WuiProvider>
   )

@@ -1,11 +1,10 @@
 import { Theme } from '@xstyled/styled-components'
 
-export function getSeededColor(colors: Theme['colors'], seed = ''): string {
-  const colorKeys = Object.keys(colors).filter(color => color.startsWith('sub-'))
-  const subColorNumber = (seed.length % colorKeys.length) + 1
-  const colorsIndex = `sub-${subColorNumber}` as keyof Theme['colors']
+export function getColorByLength(colors: Theme['colors'], text = ''): string {
+  const colorKeys = Object.keys(colors).filter(color => color.startsWith('secondary-'))
+  const subColorIndex = text.length % colorKeys.length
 
-  return colors[colorsIndex]
+  return colorKeys[subColorIndex]
 }
 
 export function getInitials(name = ''): string {

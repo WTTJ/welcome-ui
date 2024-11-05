@@ -67,23 +67,26 @@ export function getFilesFromPackages(selectedParent: Parent) {
     }
   }
 
-  return files
+  return files.sort((a, b) => a.category.localeCompare(b.category))
 }
 
 export function getStaticParams(pages: PageTree) {
-  return pages.reduce((prev, { pages }) => {
-    pages.map(page => {
-      prev.push({ id: page.id })
+  return pages.reduce(
+    (prev, { pages }) => {
+      pages.map(page => {
+        prev.push({ id: page.id })
 
-      page.subPages?.map(subPage =>
-        prev.push({
-          id: page.id,
-          subPage,
-        })
-      )
-    })
-    return prev
-  }, [] as { id: string; subPage?: string }[])
+        page.subPages?.map(subPage =>
+          prev.push({
+            id: page.id,
+            subPage,
+          })
+        )
+      })
+      return prev
+    },
+    [] as { id: string; subPage?: string }[]
+  )
 }
 
 /**

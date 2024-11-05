@@ -24,7 +24,7 @@ Make sure you update all `@welcome-ui` packages and `styled-components` packages
 We reworked our theme's colors, spacing, typography, and many other properties. Use the migration script to migrate easily to V5 on a welcome-ui project.
 
 ```bash
-yarn migrate "../yourProject/src/**/**.**(tsx|ts|js)"
+yarn migrate:v5 "../yourProject/src/**/**.**(tsx|ts|js)"
 ```
 
 ### 3. Migrate Reakit to Ariakit
@@ -69,7 +69,7 @@ We changed our colors dark and light to be fully compatible with the coming dark
 We also had to rework our colors naming for typescript compatibility reasons:
 
 - Before: `colors.dark.900`
-- After: `colors['dark-900']`
+- After: `colors['neutral-90']`
 
 We rework some colors:
 
@@ -78,26 +78,26 @@ We rework some colors:
 - [success/danger/warning/info].700 <-> [success/danger/warning/info]-400
 - new color [success/danger/warning/info]-500
 - nude.400 <-> nude-500
-- nude.500 <-> nude-400
-- nude.700 <-> nude-600
-- nude.800 <-> nude-700
+- nude.500 <-> beige-40
+- nude.700 <-> beige-60
+- nude.800 <-> beige-70
 - ** the light colors are all white with opacity, you need to replace the old light color for text with new black color **
-  - light.800 <-> dark-100
-  - light.700 <-> dark-200
-  - light.500 <-> dark-400
-  - light.200 <-> dark-400
-  - light.100 <-> dark-500
+  - light.800 <-> neutral-30
+  - light.700 <-> neutral-30
+  - light.500 <-> neutral-50
+  - light.200 <-> neutral-50
+  - light.100 <-> neutral-60
   - now the light colors variants are 100, 200, 400, 500, 700, 900(without opacity)
 - ** the dark colors are all black with opacity, it's also used for text color **
-  - dark.100 <-> dark-500
-  - dark.200 <-> dark-700
+  - dark.100 <-> neutral-60
+  - dark.200 <-> neutral-70
   - dark.500 <-> dark.900
   - dark.700 <-> dark.900
   - dark.800 <-> dark.900
   - now the dark colors variants are 100, 200, 400, 500, 700, 900(without opacity)
 - new color white (get the light.900 for dark mode)
 - new color black (get the dark.900 for dark mode)
-- the color for html is now dark-500
+- the color for html is now neutral-60
 
 ### Spacing
 

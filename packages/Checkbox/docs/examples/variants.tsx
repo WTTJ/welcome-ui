@@ -22,13 +22,6 @@ const Example = () => {
           onChange={() => setCheckbox(!checkbox)}
         />
       </Field>
-      <Field info="info" label="info">
-        <Checkbox
-          checked={checkbox}
-          name="default-variant"
-          onChange={() => setCheckbox(!checkbox)}
-        />
-      </Field>
       <Field label="success" success="success">
         <Checkbox
           checked={checkbox}

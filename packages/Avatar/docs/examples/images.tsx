@@ -29,7 +29,7 @@ const Example = () => {
         src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
       />
       <Avatar
-        color="warning-500"
+        color="orange-80"
         fontSize={20}
         h={130}
         name="Custom"

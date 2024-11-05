@@ -6,6 +6,7 @@ import { Text } from '@welcome-ui/text'
 import { Button } from '@welcome-ui/button'
 import { Icons } from '@welcome-ui/icons.font'
 import { WuiProps } from '@welcome-ui/system'
+import { useTheme } from 'next-themes'
 
 import * as S from './styles'
 
@@ -18,6 +19,13 @@ type NavBarProps = {
 
 export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
   const currentRoute = usePathname()
+  const { setTheme, theme } = useTheme()
+  const isDarkMode = theme === 'dark'
+
+  const switchTheme = () => {
+    const newTheme = isDarkMode ? 'light' : 'dark'
+    setTheme(newTheme)
+  }
 
   return (
     <Flex alignItems="center" display={display} gap="xl" h={{ lg: '100%' }}>
@@ -35,6 +43,15 @@ export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
           ))}
         </Flex>
       </Box>
+      <Button
+        aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
+        onClick={switchTheme}
+        shape="circle"
+        size="sm"
+        variant="ghost"
+      >
+        {isDarkMode ? <Icons.Sun /> : <Icons.CrescentMoon />}
+      </Button>
       <Button
         aria-label="Github"
         as="a"

@@ -8,18 +8,20 @@ import { VariantIcon } from '@welcome-ui/variant-icon'
 import * as S from './styles'
 import { forwardedProps, generateRandomId, getBaseType, getVariant } from './utils'
 
-export interface FieldOptions {
+export type VariantProps = {
+  error?: string | JSX.Element
+  success?: string | JSX.Element
+  warning?: string | JSX.Element
+}
+
+export interface FieldOptions extends VariantProps {
   children: JSX.Element
   disabled?: boolean
   disabledIcon?: JSX.Element
-  error?: string | JSX.Element
   hint?: string | JSX.Element
-  info?: string | JSX.Element
   label?: string | JSX.Element
   required?: boolean
-  success?: string | JSX.Element
   transparent?: boolean
-  warning?: string | JSX.Element
 }
 
 export type FieldProps = CreateWuiProps<'div', FieldOptions>
@@ -34,7 +36,6 @@ export const Field = forwardRef<'div', FieldProps>(
       error,
       flexDirection,
       hint,
-      info,
       label,
       required,
       success,
@@ -53,8 +54,8 @@ export const Field = forwardRef<'div', FieldProps>(
     const isCheckable = isRadio || isCheckbox || isToggle
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
     const isGroup = isFieldGroup || isRadioGroup
-    const variant = getVariant({ error, warning, success, info })
-    const hintText = variant ? error || warning || success || info : hint
+    const variant = getVariant({ error, warning, success })
+    const hintText = variant ? error || warning || success : hint
     const withHintText = !!hintText
     const htmlFor = children.props.id || children.props.name || generateRandomId()
 

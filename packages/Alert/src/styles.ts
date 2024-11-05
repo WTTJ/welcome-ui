@@ -8,7 +8,8 @@ export const Alert = styled(Box)<AlertOptions>(
   ({ isFullWidth, size, variant }) => css`
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    width: 100%;
     max-width: ${isFullWidth ? '100%' : 'max-content'};
     ${th('alerts.default')};
     ${th(`alerts.${variant}`)};
@@ -17,15 +18,13 @@ export const Alert = styled(Box)<AlertOptions>(
   `
 )
 
-export const Title = styled(Text).attrs(({ variant }: AlertOptions) => ({
-  variant: 'h5',
-  // We're renaming the prop because it'll be overridden by Text's variant
-  alertVariant: variant,
+export const Title = styled(Text).attrs(() => ({
+  variant: 'sm',
 }))(
-  ({ alertVariant }) => css`
+  () => css`
     margin: 0;
     margin-bottom: sm;
-    ${th(`alerts.title.${alertVariant}`)};
+    font-weight: medium;
     ${system};
 
     &:only-child {

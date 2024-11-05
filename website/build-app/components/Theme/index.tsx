@@ -18,25 +18,25 @@ export const Theme = ({ entry }: ColorsProps) => {
   }
 
   return (
-    <Grid backgroundColor="nude-100" borderRadius="lg" gap="sm" mt="lg" p="xxl">
+    <Grid backgroundColor="beige-20" borderRadius="lg" gap="sm" mt="lg" p="xxl">
       {Object.entries(entries).map(([key, value], index) => (
         <Grid
           borderTop={index !== 0 && '1px solid'}
-          borderTopColor={index !== 0 && 'border'}
+          borderTopColor={index !== 0 && 'neutral-30'}
           gap="xxl"
           gridTemplateColumns={entry === 'fontSizes' ? '100px 70px 70px' : '50px 70px 70px'}
           key={`${entry}-${key}`}
           pt="sm"
         >
-          <Text color="sub-3" fontWeight="bold">
+          <Text color="violet-80" fontWeight="bold">
             {key}
           </Text>
-          <Text color="dark-700">
+          <Text color="neutral-70">
             {value}
             {typeof value === 'number' && 'px'}
           </Text>
           {typeof value === 'string' && (value.endsWith('rem') || value === '0') && (
-            <Text color="dark-600">({theme.toPx(value.replace('rem', ''))})</Text>
+            <Text>({theme.toPx(value.replace('rem', ''))})</Text>
           )}
         </Grid>
       ))}

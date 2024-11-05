@@ -71,7 +71,7 @@ export const IconWrapper = styled.divBox<IconWrapperProps>(
     pointer-events: none;
     transition: medium;
     transition-timing-function: primary;
-    color: dark-900;
+    color: neutral-90;
     ${system};
 
     /* for button action */
@@ -99,7 +99,7 @@ export const IconGroupWrapper = styled.divBox(
     display: flex;
     align-items: center;
     gap: xs;
-    color: dark-900;
+    color: neutral-90;
     ${size === 'xs' &&
     css`
       button {

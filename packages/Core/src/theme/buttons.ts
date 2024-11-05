@@ -8,27 +8,14 @@ type CommonAttributesButton = CSSObject
 
 type SizeAttributesButton = CSSObject
 
-type Variant =
-  | 'primary'
-  | 'secondary'
-  | 'tertiary'
-  | 'primary-success'
-  | 'secondary-success'
-  | 'primary-warning'
-  | 'secondary-warning'
-  | 'primary-danger'
-  | 'secondary-danger'
-  | 'primary-info'
-  | 'secondary-info'
-  | 'ghost'
-
-type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
+type Variant = 'primary' | 'secondary' | 'tertiary' | 'ghost'
+type Size = 'xs' | 'sm' | 'md' | 'lg'
 type Icon = 'only' | 'default'
 
-export type ThemeButtons = Record<Variant, CommonAttributesButton> &
-  Record<'hover', Record<Variant, CommonAttributesButton>> &
-  Record<'focus', Record<Variant, unknown>> &
-  Record<'active', Record<Variant, CommonAttributesButton>> &
+export type ThemeButtons = Record<Variant | 'danger', CommonAttributesButton> &
+  Record<'hover', Record<Variant | 'danger', CommonAttributesButton>> &
+  Record<'focus', Record<Variant | 'danger', unknown>> &
+  Record<'active', Record<Variant | 'danger', CommonAttributesButton>> &
   Record<'disabled', CommonAttributesButton & { '&:focus': ReturnType<ThemeFocus> }> &
   Record<'sizes', Record<Size, SizeAttributesButton>> &
   Record<'icon', Record<Icon, Record<Size, string>>>
@@ -37,7 +24,7 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
   const { colors, focus, fontWeights, radii, space, texts, toRem } = theme
   const defaults = {
     ...texts.xs,
-    color: colors['light-900'],
+    color: colors['neutral-10'],
     fontWeight: fontWeights.bold,
     letterSpacing: 0,
     borderRadius: radii.md,
@@ -46,185 +33,119 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
   return {
     primary: {
       ...defaults,
-      color: theme.colors['dark-900'],
-      backgroundColor: colors['primary-500'],
-      borderColor: colors['primary-500'],
+      color: theme.colors['neutral-90'],
+      backgroundColor: colors['primary-40'],
+      borderColor: colors['primary-40'],
     },
     secondary: {
       ...defaults,
-      backgroundColor: colors['dark-900'],
-      borderColor: colors['dark-900'],
+      backgroundColor: colors['neutral-90'],
+      borderColor: colors['neutral-90'],
     },
     tertiary: {
       ...defaults,
-      color: colors['dark-900'],
+      color: colors['neutral-90'],
       backgroundColor: 'transparent',
-      borderColor: colors['dark-900'],
-    },
-    'primary-success': {
-      ...defaults,
-      backgroundColor: colors['success-500'],
-      borderColor: colors['success-500'],
-    },
-    'secondary-success': {
-      ...defaults,
-      color: colors['success-500'],
-      backgroundColor: colors['light-900'],
-      borderColor: colors['success-500'],
-    },
-    'primary-warning': {
-      ...defaults,
-      backgroundColor: colors['warning-500'],
-      borderColor: colors['warning-500'],
-    },
-    'secondary-warning': {
-      ...defaults,
-      color: colors['warning-500'],
-      backgroundColor: colors['light-900'],
-      borderColor: colors['warning-500'],
-    },
-    'primary-danger': {
-      ...defaults,
-      backgroundColor: colors['danger-500'],
-      borderColor: colors['danger-500'],
-    },
-    'secondary-danger': {
-      ...defaults,
-      color: colors['danger-500'],
-      backgroundColor: colors['light-900'],
-      borderColor: colors['danger-500'],
-    },
-    'primary-info': {
-      ...defaults,
-      backgroundColor: colors['info-500'],
-      borderColor: colors['info-500'],
-    },
-    'secondary-info': {
-      ...defaults,
-      color: colors['info-500'],
-      backgroundColor: colors['light-900'],
-      borderColor: colors['info-500'],
+      borderColor: colors['neutral-90'],
     },
     ghost: {
       ...defaults,
-      color: colors['dark-900'],
+      color: colors['neutral-90'],
       backgroundColor: 'transparent',
       borderColor: 'transparent',
     },
+    danger: {
+      primary: {
+        color: colors['neutral-10'],
+        backgroundColor: colors['red-70'],
+        borderColor: colors['red-70'],
+      },
+      tertiary: {
+        backgroundColor: 'transparent',
+        color: colors['red-80'],
+        borderColor: colors['red-80'],
+      },
+      ghost: {
+        color: colors['red-80'],
+        backgroundColor: 'transparent',
+        borderColor: 'transparent',
+      },
+    },
     hover: {
       primary: {
-        backgroundColor: colors['primary-200'],
-        borderColor: colors['primary-200'],
+        backgroundColor: colors['primary-30'],
+        borderColor: colors['primary-30'],
       },
       secondary: {
-        backgroundColor: colors['dark-700'],
+        backgroundColor: colors['neutral-70'],
         borderColor: 'transparent',
       },
       tertiary: {
-        backgroundColor: colors['dark-100'],
-      },
-      'primary-success': {
-        backgroundColor: colors['success-400'],
-        borderColor: colors['success-400'],
-      },
-      'secondary-success': {
-        backgroundColor: hexToRGBA(colors['success-500'], 0.1),
-      },
-      'primary-warning': {
-        backgroundColor: colors['warning-400'],
-        borderColor: colors['warning-400'],
-      },
-      'secondary-warning': {
-        backgroundColor: colors['warning-100'],
-      },
-      'primary-danger': {
-        backgroundColor: colors['danger-400'],
-        borderColor: colors['danger-400'],
-      },
-      'secondary-danger': {
-        backgroundColor: colors['danger-100'],
-      },
-      'primary-info': {
-        backgroundColor: colors['info-400'],
-        borderColor: colors['info-400'],
-      },
-      'secondary-info': {
-        backgroundColor: colors['info-100'],
+        backgroundColor: hexToRGBA(colors['neutral-90'], 0.1),
       },
       ghost: {
-        backgroundColor: colors.border,
+        backgroundColor: hexToRGBA(colors['neutral-90'], 0.1),
+      },
+      danger: {
+        primary: {
+          backgroundColor: colors['red-60'],
+          borderColor: colors['red-60'],
+        },
+        tertiary: {
+          backgroundColor: colors['red-10'],
+        },
+        ghost: {
+          backgroundColor: colors['red-10'],
+        },
       },
     },
     focus: {
-      primary: { ...focus(colors['primary-500'], 0.5) },
-      secondary: { ...focus(colors['dark-500']) },
-      tertiary: { ...focus(colors['dark-500']) },
-      ghost: { ...focus(colors['dark-100']) },
-      'primary-success': { ...focus(colors['success-500'], 0.5) },
-      'secondary-success': { ...focus(colors['success-500'], 0.5) },
-      'primary-warning': { ...focus(colors['warning-500'], 0.5) },
-      'secondary-warning': { ...focus(colors['warning-500'], 0.5) },
-      'primary-danger': { ...focus(colors['danger-500'], 0.5) },
-      'secondary-danger': { ...focus(colors['danger-500'], 0.5) },
-      'primary-info': { ...focus(colors['info-500'], 0.5) },
-      'secondary-info': { ...focus(colors['info-500'], 0.5) },
+      primary: { ...focus(colors['primary-20']) },
+      secondary: { ...focus(colors['neutral-40']) },
+      tertiary: { ...focus(colors['neutral-40']) },
+      ghost: { ...focus(colors['neutral-40']) },
+      danger: {
+        primary: { ...focus(colors['red-40']) },
+        tertiary: { ...focus(colors['red-40']) },
+        ghost: { ...focus(colors['red-40']) },
+      },
     },
     active: {
       primary: {
-        backgroundColor: colors['primary-100'],
-        borderColor: colors['primary-100'],
+        backgroundColor: colors['primary-10'],
+        borderColor: colors['primary-10'],
       },
       secondary: {
-        backgroundColor: colors['dark-200'],
-        borderColor: colors['dark-200'],
+        backgroundColor: colors['neutral-50'],
+        borderColor: colors['neutral-50'],
       },
       tertiary: {
-        backgroundColor: colors['dark-400'],
-      },
-      'primary-success': {
-        backgroundColor: colors['success-300'],
-        borderColor: colors['success-300'],
-      },
-      'secondary-success': {
-        backgroundColor: hexToRGBA(colors['success-500'], 0.4),
-      },
-      'primary-warning': {
-        backgroundColor: colors['warning-300'],
-        borderColor: colors['warning-300'],
-      },
-      'secondary-warning': {
-        backgroundColor: hexToRGBA(colors['warning-500'], 0.4),
-      },
-      'primary-danger': {
-        backgroundColor: colors['danger-300'],
-        borderColor: colors['danger-300'],
-      },
-      'secondary-danger': {
-        backgroundColor: hexToRGBA(colors['danger-500'], 0.4),
-      },
-      'primary-info': {
-        backgroundColor: colors['info-300'],
-        borderColor: colors['info-300'],
-      },
-      'secondary-info': {
-        backgroundColor: hexToRGBA(colors['info-500'], 0.4),
+        backgroundColor: hexToRGBA(colors['neutral-90'], 0.4),
       },
       ghost: {
-        backgroundColor: colors['dark-400'],
+        backgroundColor: hexToRGBA(colors['neutral-90'], 0.4),
+      },
+      danger: {
+        primary: {
+          backgroundColor: colors['red-50'],
+          borderColor: colors['red-50'],
+        },
+        tertiary: {
+          backgroundColor: colors['red-20'],
+        },
+        ghost: {
+          backgroundColor: colors['red-20'],
+        },
       },
     },
     disabled: {
       ...defaults,
-      color: colors['nude-700'],
-      backgroundColor: colors['nude-400'],
-      borderColor: colors['nude-400'],
-      '&:focus': { ...focus(colors['nude-400'], 0.5) },
+      color: colors['beige-70'],
+      backgroundColor: colors['beige-40'],
+      borderColor: colors['beige-40'],
+      '&:focus': { ...focus(colors['beige-10']) },
     },
     sizes: {
-      xxs: {
-        height: toRem(16),
-        padding: `${space.xxs} ${space.xs}`,
-      },
       xs: {
         height: toRem(24),
         padding: `${space.xs} ${space.sm}`,
@@ -248,14 +169,12 @@ export const getButtons = (theme: WuiTheme): ThemeButtons => {
     },
     icon: {
       only: {
-        xxs: toRem(16),
         xs: toRem(16),
         sm: toRem(16),
         md: toRem(16),
         lg: toRem(24),
       },
       default: {
-        xxs: toRem(12),
         xs: toRem(12),
         sm: toRem(16),
         md: toRem(16),

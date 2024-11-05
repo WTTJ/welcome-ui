@@ -17,13 +17,13 @@ describe('<Hint>', () => {
 
   it('should render correctly with a state', () => {
     const { getByTestId } = render(
-      <Hint dataTestId="hint" variant="error">
+      <Hint dataTestId="hint" variant="danger">
         {content}
       </Hint>
     )
     const hint = getByTestId('hint')
 
     expect(hint).toHaveTextContent(content)
-    expect(hint).toHaveStyleRule('color', colors['danger-500'])
+    expect(hint).toHaveStyleRule('color', colors['red-70'])
   })
 })

@@ -9,7 +9,7 @@ import { Growl } from './Growl'
 import { Snackbar } from './Snackbar'
 import * as S from './styles'
 
-export type Variant = 'default' | 'error' | 'warning' | 'info' | 'success'
+export type Variant = 'default' | 'info' | 'success' | 'danger' | 'warning'
 
 type NotificationsProps = { pauseOnHover?: boolean }
 

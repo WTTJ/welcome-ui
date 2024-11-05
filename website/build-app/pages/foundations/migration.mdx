@@ -1,0 +1,284 @@
+## Version 6
+
+Welcome UI V6 focuses on the rebranding of our **colors** and **tokens**, and we add a **Logo** component.
+
+![Version 6 illustation](https://github.com/user-attachments/assets/34259431-1bc3-4d97-84b7-e2048c7208da)
+
+## Upgrade steps
+
+### 1. Update your dependencies
+
+Make sure you update all `@welcome-ui` packages to v6:
+
+```diff
+{
+  "dependencies": {
++   "@welcome-ui/YOUR_PACKAGE": "^6.0.0",
+    "@xstyled/styled-components": "^3.7.3",
+    "react": "^18.0.0",
+    "styled-components": "^5.3.9"
+  }
+}
+```
+
+On VSCode search:
+
+```bash
+("@welcome-ui\/[^"]+":\s*)"\^?[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9\.]+)?"
+```
+
+And replace by:
+
+```bash
+$1"6.0.0-alpha.0"
+```
+
+### 2. Script to migrate
+
+We reworked our theme's colors and variants name. Use the migration script to migrate easily to V6 on a welcome-ui project.
+
+```bash
+yarn migrate "../yourProject/src/**/**.**(tsx|ts|js)"
+```
+
+### 3. Remove `welcomeTheme` & `welcomeDarkTheme`
+
+To simplify our developements, we removed the 2 welcome themes. Now the default have primary colors from welcome ui brand:
+
+```diff
++ import { createTheme, darkTheme } from '@welcome-ui/core'
+- import { welcomeTheme } from '@welcome-ui/themes.welcome'
+- import { darkTheme } from '@welcome-ui/dark'
+- import { welcomeDarkTheme } from '@welcome-ui/themes.welcome-dark'
+
+- const theme = createTheme(welcomeTheme)
++ const theme = createTheme()
+- const darkTheme = createTheme(welcomeDarkTheme)
++ const darkTheme = createTheme(darkTheme)
+```
+
+and remove also from your `packages.json`:
+
+```diff
+- "@welcome-ui/themes.dark": "^5.22.1"
+- "@welcome-ui/themes.welcome": "^5.22.1"
+- "@welcome-ui/themes.welcome-dark": "^5.22.1"
+```
+
+### 4. Change variant `error` to `danger` on:
+
+#### Alert
+
+```diff
+- <Alert variant="error">
++ <Alert variant="danger">
+```
+
+#### Table
+
+```diff
+- <Table.Tr variant="error">
++ <Table.Tr variant="danger">
+```
+
+#### Tag
+
+```diff
+- <Tag variant="error">
++ <Tag variant="danger">
+```
+
+#### Hint
+
+```diff
+- <Hint variant="error">
++ <Hint variant="danger">
+```
+
+#### Label
+
+```diff
+- <Label variant="error">
++ <Label variant="danger">
+```
+
+## Colors
+
+We reworked our colors to prepare the next steps for tokenization.
+
+[Discover our brand new colors](/foundations/theming/basics#colors)
+
+### Range
+
+Now the range is `color-10` to `color-90`.
+
+```diff
+- primary-100
++ primary-10
+```
+
+### Neutral replace Dark and Light
+
+We merged Dark and Light colors in a Neutral new one, without opacity.
+
+```diff
+- light-100
++ neutral-10
+- dark-900
++ neutral-90
+```
+
+### New colors
+
+Hello `green` `teal` `blue` `violet` `pink` `red` `red-orange` `orange` and `yellow` 🥰
+
+### Beige instead of Nude
+
+The nude naming is changed for beige.
+
+```diff
+- nude-100
++ beige-10
+```
+
+### State colors removed
+
+We've removed the state colors `danger`, `success`, `warning` and `info`. They'll be replaced with new tokens in the future.
+
+```diff
+- danger-100
++ red-10
+```
+
+### Secondary
+
+Sub colors replaced by 6 new colors for the secondary palette:
+
+```diff
+- sub-1
++ secondary-blue
+```
+
+```diff
+- sub-2
++ secondary-teal
+```
+
+```diff
+- sub-3
++ secondary-pink
+```
+
+```diff
+- sub-4
++ secondary-orange
+```
+
+```diff
+- sub-5
+- sub-6
++ secondary-green
+```
+
+```diff
+- sub-7
++ secondary-violet
+```
+
+## Dark mode
+
+Dark mode is still on Beta 🚨 and will be released in a few minor versions.
+
+```jsx
+import { createTheme, darkTheme } from '@welcome-ui/core'
+
+const theme = createTheme(darkTheme)
+```
+
+## Components
+
+### Logo
+
+A new [Logo](/components/logo) component is available, with svg export of:
+
+```tsx
+import { Logo, SolutionsSymbol, Symbol, WelcomeUILogo } from '@welcome-ui/logo'
+
+return <Logo w={100} />
+```
+
+- <strong>Logo</strong>: Welcome to the Jungle new logo
+- <strong>Symbol</strong>
+- <strong>SolutionsSymbol</strong>: Welcome to the solution new logo with symbol
+- <strong>WelcomeUILogo</strong>: Welcome UI new logo
+
+### Icons & IconsFont
+
+- New icon Symbol on [Icons](/components/icon#welcome)
+
+```tsx
+<SymbolIcon />
+```
+
+- New icon Symbol on [IconFont](/components/icon-font#welcome)
+
+```tsx
+<Icons.Symbol />
+```
+
+### Fields
+
+On the fields we removed the `info` variant property:
+
+- All fields
+- Labels
+- Hints
+
+### Button
+
+We removed some variants property on states and add danger property for red button.
+
+```diff
+- <Button variant="primary-success">Primary success</Button>
+- <Button variant="primary-warning">Primary warning</Button>
+- <Button variant="primary-danger">Primary danger</Button>
++ <Button danger>Primary danger</Button>
+- <Button variant="primary-info">Primary info</Button>
+- <Button variant="secondary-success">Secondary success</Button>
+- <Button variant="secondary-warning">Secondary warning</Button>
+- <Button variant="secondary-danger">Secondary danger</Button>
++ <Button variant="tertiary" danger>Tertiary danger</Button>
+- <Button variant="secondary-info">Secondary info</Button>
+```
+
+```diff
++ <Button variant="ghost" danger>Ghost danger</Button>
+```
+
+### Badge
+
+We removed `shape` property on Badge component, now you will only have rounded badge.
+
+```diff
+- <Badge shape="square">Name</Badge>
++ <Badge>Name</Badge>
+```
+
+### Tag
+
+We removed variant `primary` and `secondary` and replace the `sub-*` variants. To have the primary color please use Badge component instead.
+
+```diff
+- <Tag variant="primary">Name</Tag>
++ <Badge>Name</Badge>
+```
+
+```diff
+- <Tag variant="secondary">Name</Tag>
++ <Tag variant="green">Name</Tag>
+```
+
+```diff
+- <Tag variant="1">Name</Tag>
++ <Tag variant="blue">Name</Tag>
+```

@@ -58,7 +58,8 @@ export const Tag = styled.div.withConfig({
       cursor: pointer;
       text-decoration: none;
 
-      &:hover {
+      &:hover,
+      &:focus {
         ${th(`tags.hover.${variant}`)};
       }
     `};

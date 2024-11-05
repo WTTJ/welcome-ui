@@ -24,8 +24,8 @@ const components: ComponentProps[] = [
     children: (
       <Stack direction="row" spacing="md">
         <Tag>Default</Tag>
-        <Tag variant="primary">Primary</Tag>
-        <Tag variant="secondary">Secondary</Tag>
+        <Tag variant="success">Success</Tag>
+        <Tag variant="violet">Violet</Tag>
       </Stack>
     ),
     description: 'Allows user to categorize or organized keywords.',

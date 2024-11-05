@@ -45,7 +45,7 @@ describe('<Field />', () => {
 
   it('should display label', () => {
     render(
-      <Field dataTestId="field" label={labelText}>
+      <Field dataTestId="field" hint="hint" label={labelText}>
         <Input />
       </Field>
     )
@@ -56,8 +56,8 @@ describe('<Field />', () => {
     const input = screen.getByTestId('input')
     expect(input).toBeInTheDocument()
 
-    const hint = field.getElementsByTagName('div')
-    expect(hint.length).toBe(2)
+    const hint = screen.getByTestId('field-hint')
+    expect(hint).toHaveTextContent('hint')
 
     const label = screen.getByText('Label')
     expect(label).toBeInTheDocument()
@@ -98,7 +98,7 @@ describe('<Field />', () => {
 
     const input = screen.getByTestId('input')
     expect(input).toBeInTheDocument()
-    expect(input).toHaveAttribute('variant', 'error')
+    expect(input).toHaveAttribute('variant', 'danger')
   })
 
   it('should display label before input', () => {

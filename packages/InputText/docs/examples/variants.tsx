@@ -11,9 +11,6 @@ const Example = () => {
       <Field error="Error" hint="Your hint" label="Your label">
         <InputText placeholder="Welcome" />
       </Field>
-      <Field hint="Your hint" info="Info" label="Your label">
-        <InputText placeholder="Welcome" />
-      </Field>
       <Field hint="Your hint" label="Your label" success="Success">
         <InputText placeholder="Welcome" />
       </Field>

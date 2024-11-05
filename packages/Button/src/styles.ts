@@ -15,8 +15,12 @@ const shapeStyles = (size: ButtonOptions['size'], shape: ButtonOptions['shape'] 
 `
 
 export const Button = styled(AriakitButton).withConfig({ shouldForwardProp })<ButtonOptions>(
-  ({ disabled, shape, size = 'md', variant }) => css`
+  ({ danger, disabled, shape, size = 'md', variant = 'primary' }) => css`
     ${th(`buttons.${variant}`)};
+    ${danger &&
+    css`
+      ${th(`buttons.danger.${variant}`)};
+    `}
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -62,13 +66,25 @@ export const Button = styled(AriakitButton).withConfig({ shouldForwardProp })<Bu
         box-shadow: none;
       }
       &:focus {
-        ${th(`buttons.focus.${variant || 'primary'}`)};
+        ${th(`buttons.focus.${variant}`)};
+        ${danger &&
+        css`
+          ${th(`buttons.focus.danger.${variant}`)};
+        `}
       }
       &:hover {
-        ${th(`buttons.hover.${variant || 'primary'}`)};
+        ${th(`buttons.hover.${variant}`)};
+        ${danger &&
+        css`
+          ${th(`buttons.hover.danger.${variant}`)};
+        `}
       }
       &:active {
-        ${th(`buttons.active.${variant || 'primary'}`)};
+        ${th(`buttons.active.${variant}`)};
+        ${danger &&
+        css`
+          ${th(`buttons.active.danger.${variant}`)};
+        `}
       }
     `};
 

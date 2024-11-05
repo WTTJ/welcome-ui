@@ -16,8 +16,8 @@ describe('<Tag>', () => {
     const tag = getByTestId('tag')
 
     expect(tag).toHaveTextContent(content)
-    expect(tag).toHaveStyleRule('background-color', theme.colors['nude-200'])
-    expect(tag).toHaveStyleRule('color', theme.colors['nude-900'])
+    expect(tag).toHaveStyleRule('background-color', theme.colors['beige-20'])
+    expect(tag).toHaveStyleRule('color', theme.colors['beige-90'])
     expect(tag).toHaveStyleRule('padding', theme.tags.sizes.md.padding)
   })
 
@@ -40,18 +40,18 @@ describe('<Tag>', () => {
     )
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('background-color', theme.colors['success-100'])
+    expect(tag).toHaveStyleRule('background-color', theme.colors['green-10'])
   })
 
   it('should have correct color for sub variant', () => {
     const { getByTestId } = render(
-      <Tag dataTestId="tag" variant="1">
+      <Tag dataTestId="tag" variant="teal">
         {content}
       </Tag>
     )
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('background-color', theme.colors['sub-1'])
+    expect(tag).toHaveStyleRule('background-color', theme.colors['secondary-teal'])
   })
 
   describe('should have correct size with only one character', () => {

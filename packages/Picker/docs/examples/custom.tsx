@@ -5,24 +5,24 @@ import { Shape } from '@welcome-ui/shape'
 const options = [
   {
     element: ({ selected }: { selected: boolean }) => (
-      <Shape backgroundColor={selected ? 'nude-200' : 'unset'} shape="circle" w={30}>
-        <Shape backgroundColor="danger-200" borderRadius={2} h={15} w={15} />
+      <Shape backgroundColor={selected ? 'beige-30' : 'unset'} shape="circle" w={30}>
+        <Shape backgroundColor="red-30" borderRadius={2} h={15} w={15} />
       </Shape>
     ),
     value: '1',
   },
   {
     element: ({ selected }: { selected: boolean }) => (
-      <Shape backgroundColor={selected ? 'nude-200' : 'unset'} shape="circle" w={30}>
-        <Shape backgroundColor="success-500" borderRadius={2} h={15} w={15} />
+      <Shape backgroundColor={selected ? 'beige-30' : 'unset'} shape="circle" w={30}>
+        <Shape backgroundColor="green-70" borderRadius={2} h={15} w={15} />
       </Shape>
     ),
     value: '2',
   },
   {
     element: ({ selected }: { selected: boolean }) => (
-      <Shape backgroundColor={selected ? 'nude-200' : 'unset'} shape="circle" w={30}>
-        <Shape backgroundColor="warning-200" borderRadius={2} h={15} w={15} />
+      <Shape backgroundColor={selected ? 'beige-30' : 'unset'} shape="circle" w={30}>
+        <Shape backgroundColor="orange-30" borderRadius={2} h={15} w={15} />
       </Shape>
     ),
     value: '3',

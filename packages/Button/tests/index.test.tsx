@@ -20,8 +20,24 @@ describe('<Button />', () => {
 
     expect(button).toHaveTextContent(content)
     expect(button).not.toBeDisabled()
-    expect(button).toHaveStyleRule('background-color', theme.colors['primary-500'])
+    expect(button).toHaveStyleRule('background-color', theme.colors['primary-40'])
     expect(button).toHaveStyleRule('height', theme.buttons.sizes.md.height)
+  })
+
+  it('should render a danger button', () => {
+    const theme = createTheme()
+
+    render(
+      <Button danger dataTestId="button">
+        {content}
+      </Button>
+    )
+
+    const button = screen.getByTestId('button')
+
+    expect(button).toHaveTextContent(content)
+    expect(button).not.toBeDisabled()
+    expect(button).toHaveStyleRule('background-color', theme.colors['red-70'])
   })
 
   it('should call onClick property', async () => {
@@ -94,8 +110,8 @@ describe('<Button />', () => {
       const button = screen.getByTestId('button')
 
       expect(button).toBeDisabled()
-      expect(button).toHaveStyleRule('background-color', theme.colors['nude-400'])
-      expect(button).toHaveStyleRule('border-color', theme.colors['nude-400'])
+      expect(button).toHaveStyleRule('background-color', theme.colors['beige-40'])
+      expect(button).toHaveStyleRule('border-color', theme.colors['beige-40'])
     })
   })
 

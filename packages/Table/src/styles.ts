@@ -38,9 +38,9 @@ export const Thead = styled.theadBox``
 
 export const Tbody = styled.tbodyBox``
 
-type Variant = 'default' | 'error' | 'warning' | 'info' | 'success' | 'clickable'
+type TrVariant = 'default' | 'info' | 'danger' | 'warning' | 'success'
 
-export const Tr = styled.trBox<{ variant?: Variant }>(
+export const Tr = styled.trBox<{ variant?: TrVariant }>(
   ({ onClick, variant }) => css`
     ${th('tables.tr.default')};
     ${variant && th(`tables.tr.${variant}`)};

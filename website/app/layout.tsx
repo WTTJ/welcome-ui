@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Box } from '@welcome-ui/box'
 import { Notifications } from '@welcome-ui/toast'
+import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
 import StyledComponentsRegistry from '@/build-app/registry'
 import { ThemeProvider } from '@/build-app/components/ThemeProvider'
@@ -28,18 +29,20 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <head>
-        <link href="/favicon.png" rel="icon" sizes="32x32" type="image/png" />
+        <link href="/favicon.ico" rel="icon" type="image/x-icon" />
       </head>
       <body>
         <StyledComponentsRegistry>
-          <ThemeProvider>
-            <Box backgroundColor="light-900">
-              <Header components={pagesComponents} foundations={pagesFoundations} />
-              <Notifications />
-              {children}
-              <Footer />
-            </Box>
-          </ThemeProvider>
+          <NextThemeProvider>
+            <ThemeProvider>
+              <Box backgroundColor="neutral-10">
+                <Header components={pagesComponents} foundations={pagesFoundations} />
+                <Notifications />
+                {children}
+                <Footer />
+              </Box>
+            </ThemeProvider>
+          </NextThemeProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

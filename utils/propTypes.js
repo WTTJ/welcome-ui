@@ -24,4 +24,4 @@ export const SHAPES_TYPE = ['square', 'circle']
 
 export const SIZES_TYPE = ['sm', 'md', 'lg']
 
-export const VARIANTS_TYPE = ['error', 'info', 'success', 'valid', 'warning']
+export const VARIANTS_TYPE = ['danger', 'info', 'success', 'warning']

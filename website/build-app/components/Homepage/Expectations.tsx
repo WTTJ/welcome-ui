@@ -72,7 +72,7 @@ const expectations: ExpectationProps[] = [
 const Expectation = ({ description, icon: Icon, title }: ExpectationProps) => {
   return (
     <Card p="md" w="100%">
-      <Icon color="dark-900" size={30} />
+      <Icon color="neutral-90" size={30} />
       <Text as="span" mb="md" mt="lg" textTransform="uppercase" variant="h6">
         {title}
       </Text>

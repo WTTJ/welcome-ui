@@ -5,12 +5,12 @@ import { Button } from '@welcome-ui/button'
 
 const Element = () => (
   <Box
-    backgroundColor="light-900"
-    borderColor="nude-300"
+    backgroundColor="neutral-10"
+    borderColor="beige-30"
     borderRadius="lg"
     borderStyle="solid"
     borderWidth="1px"
-    color="dark-900"
+    color="neutral-90"
     padding="sm"
   >
     Lorem ipsum dolor sit amet

@@ -30,18 +30,24 @@ const Page = () => {
                 <Link href={`/components/${page.id}`} key={page.id}>
                   <Card
                     alignItems="center"
-                    borderColor={{ hover: 'dark-200' }}
+                    borderColor={{ hover: 'neutral-30' }}
                     borderRadius="md"
                     display="flex"
                     gap="lg"
                     p="md"
                   >
-                    <Box backgroundColor="border" borderRadius="md" flexShrink={0} h={80} w={80} />
+                    <Box
+                      backgroundColor="neutral-30"
+                      borderRadius="md"
+                      flexShrink={0}
+                      h={80}
+                      w={80}
+                    />
                     <Box>
                       <Text as="h3" variant="h4">
                         {page.title}
                       </Text>
-                      <Text color="dark-700" lines={3} mt="sm" variant="sm">
+                      <Text color="neutral-70" lines={3} mt="sm" variant="sm">
                         {data?.description}
                       </Text>
                     </Box>
