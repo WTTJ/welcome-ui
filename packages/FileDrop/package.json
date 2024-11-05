@@ -52,7 +52,7 @@
     "@welcome-ui/system": "^6.0.0",
     "@welcome-ui/text": "^6.0.0",
     "@welcome-ui/utils": "^6.0.0",
-    "react-dropzone": "14.2.3"
+    "react-dropzone": "14.3.5"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
