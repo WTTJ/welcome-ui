@@ -18,9 +18,7 @@ export const Alert = styled(Box)<AlertOptions>(
   `
 )
 
-export const Title = styled(Text).attrs(() => ({
-  variant: 'sm',
-}))(
+export const Title = styled(Text)(
   () => css`
     margin: 0;
     margin-bottom: sm;

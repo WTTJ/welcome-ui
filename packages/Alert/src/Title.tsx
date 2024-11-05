@@ -12,7 +12,7 @@ export type AlertTitleProps = CreateWuiProps<'h5', AlertOptions>
  */
 export const Title: React.FC<AlertTitleProps> = ({ children, dataTestId, variant, ...rest }) => {
   return (
-    <S.Title data-testid={dataTestId} variant={variant} {...rest}>
+    <S.Title data-testid={dataTestId} {...rest} variant={variant}>
       {children}
     </S.Title>
   )

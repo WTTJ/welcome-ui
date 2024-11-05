@@ -39,6 +39,36 @@
           "name": "Element"
         }
       },
+      "ctaPosition": {
+        "defaultValue": {
+          "value": "right"
+        },
+        "description": "",
+        "name": "ctaPosition",
+        "parent": {
+          "fileName": "Alert/src/index.tsx",
+          "name": "AlertOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Alert/src/index.tsx",
+            "name": "AlertOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"right\" | \"bottom\"",
+          "value": [
+            {
+              "value": "\"right\""
+            },
+            {
+              "value": "\"bottom\""
+            }
+          ]
+        }
+      },
       "handleClose": {
         "defaultValue": null,
         "description": "@description add a close button with an onclick handleClose function",
@@ -217,6 +247,34 @@
         "required": false,
         "type": {
           "name": "Element"
+        }
+      },
+      "ctaPosition": {
+        "defaultValue": null,
+        "description": "",
+        "name": "ctaPosition",
+        "parent": {
+          "fileName": "Alert/src/index.tsx",
+          "name": "AlertOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Alert/src/index.tsx",
+            "name": "AlertOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"right\" | \"bottom\"",
+          "value": [
+            {
+              "value": "\"right\""
+            },
+            {
+              "value": "\"bottom\""
+            }
+          ]
         }
       },
       "handleClose": {
