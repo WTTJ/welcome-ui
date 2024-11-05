@@ -47,7 +47,6 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^6.0.0-alpha.0",
-    "@welcome-ui/core": "^6.0.0-alpha.0",
     "@welcome-ui/shape": "^6.0.0-alpha.0",
     "@welcome-ui/system": "^6.0.0-alpha.0",
     "@welcome-ui/text": "^6.0.0-alpha.0"

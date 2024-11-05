@@ -4,7 +4,7 @@ import { ShapeOptions } from '@welcome-ui/shape'
 import { Theme, useTheme } from '@xstyled/styled-components'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
-import { getInitials as defaultGetInitials, getSeededColor } from './utils'
+import { getInitials as defaultGetInitials, getColorByLength } from './utils'
 import * as S from './styles'
 
 type SubColor = Theme['colors']
@@ -38,7 +38,7 @@ export const Avatar: React.FC<AvatarProps> = memo(
       ref
     ) => {
       const theme = useTheme()
-      const backgroundColor = color || getSeededColor(theme.colors, name)
+      const backgroundColor = color || getColorByLength(theme.colors, name)
       const avatarSize = theme.avatars.sizes[size]
       const avatarFontSize = fontSize || `calc(${w ? theme.toRem(w as number) : avatarSize} / 2.5)`
 
