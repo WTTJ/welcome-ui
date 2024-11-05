@@ -62,26 +62,34 @@ const newColorValues = {
   'warning-300': 'v6.orange-50',
   'warning-400': 'v6.orange-60',
   'warning-500': 'v6.orange-80',
-  '"black"': '"neutral-90"',
-  '"border"': '"neutral-30"',
-  '"underline"': '"primary-40"',
-  '"white"': '"neutral-10"',
-  "'black'": '"neutral-90"',
-  "'border'": '"neutral-30"',
-  "'underline'": '"primary-40"',
-  "'white'": '"neutral-10"',
+  black: 'neutral-90',
+  white: 'neutral-10',
+}
+
+const specialColorsValues = {
+  border: 'neutral-30',
+  underline: 'primary-40',
 }
 
 const getNewColorValue = value => newColorValues[value] || value
+const getNewColorSpecialValue = value => specialColorsValues[value] || value
 
 const upgradeColors = content => {
   const regex =
     /(primary|nude|success|danger|info|warning|dark|light)-(100|200|300|400|500|600|700|800|900)|(sub-(1|2|3|4|5|6|7)|("black"|"border"|"underline"|"white"|'black'|'border'|'underline'|'white'))/gm
+  const regexForSpecials =
+    /\b(borderColor|border-color|color)\s*[:=]\s*["']?(border|underline|black|white)["']?\b/g
 
   if (regex.test(content)) {
     const newContent = content.replaceAll(regex, getNewColorValue)
     return newContent
   }
+
+  if (regexForSpecials.test(content)) {
+    const newContent = content.replaceAll(regex, getNewColorSpecialValue)
+    return newContent
+  }
+
   return content
 }
 
@@ -119,6 +127,8 @@ glob(pattern, (error, matches) => {
 
     const file = await fs.readFile(match)
     let content = file.toString()
+
+    console.log(file)
 
     content = upgradeColors(content)
     content = removePrefix(content)

@@ -13,7 +13,7 @@ export interface LabelOptions {
   htmlFor?: string
   icon?: JSX.Element
   required?: boolean
-  variant?: 'info' | 'success' | 'danger' | 'warning'
+  variant?: 'success' | 'danger' | 'warning'
   withDisabledIcon?: boolean
 }
 

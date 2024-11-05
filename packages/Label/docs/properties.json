@@ -159,11 +159,8 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"info\" | \"success\" | \"danger\" | \"warning\"",
+          "raw": "\"success\" | \"danger\" | \"warning\"",
           "value": [
-            {
-              "value": "\"info\""
-            },
             {
               "value": "\"success\""
             },
