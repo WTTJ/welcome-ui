@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/logo",
-  "version": "6.0.0-alpha.0",
+  "version": "6.0.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,7 +46,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/box": "^6.0.0-alpha.0"
+    "@welcome-ui/box": "^6.0.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",

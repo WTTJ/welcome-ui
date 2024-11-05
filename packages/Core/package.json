@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/core",
-  "version": "6.0.0-alpha.0",
+  "version": "6.0.0",
   "description": "welcome-ui: Core utils",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -43,7 +43,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/utils": "^6.0.0-alpha.0",
+    "@welcome-ui/utils": "^6.0.0",
     "ramda": "^0.30.1"
   },
   "peerDependencies": {
