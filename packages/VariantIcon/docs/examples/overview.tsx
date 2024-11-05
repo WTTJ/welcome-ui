@@ -8,7 +8,7 @@ const Example = () => {
       <VariantIcon variant="info" />
       <VariantIcon variant="warning" />
       <VariantIcon variant="danger" />
-      <VariantIcon />
+      <VariantIcon variant="default" />
     </>
   )
 }

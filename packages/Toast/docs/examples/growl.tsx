@@ -85,19 +85,6 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Growl icon="🎉" variant="success">
-              <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
-              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-              himenaeos
-            </Toast.Growl>
-          )
-        }
-      >
-        Custom icon
-      </Button>
-      <Button
-        onClick={() =>
-          toast(
             <Toast.Growl icon={null} variant="warning">
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos

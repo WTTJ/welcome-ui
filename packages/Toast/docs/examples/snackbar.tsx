@@ -67,17 +67,6 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Snackbar icon="🤯" variant="danger">
-              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
-            </Toast.Snackbar>
-          )
-        }
-      >
-        Custom icon
-      </Button>
-      <Button
-        onClick={() =>
-          toast(
             <Toast.Snackbar icon={null} variant="info">
               <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
               <Button size="xs" variant="ghost">

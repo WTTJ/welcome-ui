@@ -41,7 +41,7 @@ const AlertComponent = forwardRef<'div', AlertProps>(
     ref
   ) => {
     const closeButtonDataTestId = dataTestId ? `${dataTestId}-close-button` : undefined
-    const defaultVariantIcon = variant === 'beige' || variant === 'default' ? undefined : variant
+    const defaultVariantIcon = variant === 'beige' ? 'default' : variant
 
     const content = Children.toArray(children).map((child: React.ReactElement) => {
       // Add variant to Title to show the correct icon
@@ -74,6 +74,7 @@ const AlertComponent = forwardRef<'div', AlertProps>(
           alignSelf="flex-start"
           icon={icon}
           pr="md"
+          pt={1}
           size="sm"
           variant={defaultVariantIcon}
         />
