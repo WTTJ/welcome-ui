@@ -31,6 +31,17 @@ type CloneActionsReturns = React.ReactElement<
   string | React.JSXElementConstructor<AlertProps>
 >
 
+const LAYOUT: { bottom: BoxProps; right: BoxProps } = {
+  bottom: {
+    alignItems: 'flex-start',
+    flexDirection: 'column',
+  },
+  right: {
+    alignItems: { _: 'flex-start', md: 'center' },
+    flexDirection: { _: 'column', md: 'row' },
+  },
+}
+
 const AlertComponent = forwardRef<'div', AlertProps>(
   (
     {
@@ -58,8 +69,8 @@ const AlertComponent = forwardRef<'div', AlertProps>(
 
     // Handle clone actions recursively in case of multiple buttons
     const cloneActions = (child: React.ReactElement<AlertProps>): CloneActionsReturns => {
-      if (child.type === AlertPrimaryAction) return cloneElement(child, { size })
-      if (child.type === AlertSecondaryAction) return cloneElement(child, { size })
+      if (child.type === AlertButton) return cloneElement(child, { size })
+      if (child.type === AlertSecondaryButton) return cloneElement(child, { size })
 
       if (child.props?.children) {
         return cloneElement(child, {
@@ -74,17 +85,6 @@ const AlertComponent = forwardRef<'div', AlertProps>(
     }
 
     const actions = React.isValidElement(cta) ? cloneActions(cta) : cta
-
-    const layout: { bottom: BoxProps; right: BoxProps } = {
-      bottom: {
-        alignItems: 'flex-start',
-        flexDirection: 'column',
-      },
-      right: {
-        alignItems: { _: 'flex-start', md: 'center' },
-        flexDirection: { _: 'column', md: 'row' },
-      },
-    }
 
     return (
       <S.Alert
@@ -113,9 +113,8 @@ const AlertComponent = forwardRef<'div', AlertProps>(
           variant={defaultVariantIcon}
         />
         <Box flex={1}>
-          <Box display="flex" gap="md" justifyContent="space-between" {...layout[ctaPosition]}>
+          <Box display="flex" gap="md" justifyContent="space-between" {...LAYOUT[ctaPosition]}>
             <Box flex={1}>{content}</Box>
-
             {!!actions && (
               <Box alignItems="center" display="flex" gap="sm">
                 {actions}
@@ -129,16 +128,16 @@ const AlertComponent = forwardRef<'div', AlertProps>(
 )
 
 // We need this component to check its existence in <Alert> and to allow users to add Button in <Alert> content
-const AlertPrimaryAction = forwardRef<'button', Omit<ButtonProps, 'size' | 'variant'>>(
-  (props, ref) => <Button flexShrink={0} ref={ref} w="fit-content" {...props} variant="secondary" />
-)
+const AlertButton = forwardRef<'button', Omit<ButtonProps, 'size' | 'variant'>>((props, ref) => (
+  <Button flexShrink={0} ref={ref} w="fit-content" {...props} variant="secondary" />
+))
 
-const AlertSecondaryAction = forwardRef<'button', Omit<ButtonProps, 'size' | 'variant'>>(
+const AlertSecondaryButton = forwardRef<'button', Omit<ButtonProps, 'size' | 'variant'>>(
   (props, ref) => <Button flexShrink={0} ref={ref} w="fit-content" {...props} variant="tertiary" />
 )
 
 export const Alert = Object.assign(AlertComponent, {
   Title,
-  PrimaryAction: AlertPrimaryAction,
-  SecondaryAction: AlertSecondaryAction,
+  Button: AlertButton,
+  SecondaryButton: AlertSecondaryButton,
 })

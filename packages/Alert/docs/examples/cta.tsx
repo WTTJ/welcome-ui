@@ -5,7 +5,7 @@ import { Stack } from '@welcome-ui/stack'
 const Example = () => {
   return (
     <Stack>
-      <Alert cta={<Alert.PrimaryAction>Button</Alert.PrimaryAction>}>
+      <Alert cta={<Alert.Button>Button</Alert.Button>}>
         <Alert.Title>Welcome to the jungle</Alert.Title>
         <span>
           Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
@@ -16,8 +16,8 @@ const Example = () => {
       <Alert
         cta={
           <>
-            <Alert.PrimaryAction>Button</Alert.PrimaryAction>
-            <Alert.SecondaryAction>Button</Alert.SecondaryAction>
+            <Alert.Button>Button</Alert.Button>
+            <Alert.SecondaryButton>Button</Alert.SecondaryButton>
           </>
         }
       >
@@ -28,7 +28,7 @@ const Example = () => {
           ornare.
         </span>
       </Alert>
-      <Alert cta={<Alert.PrimaryAction>Button</Alert.PrimaryAction>} ctaPosition="bottom">
+      <Alert cta={<Alert.Button>Button</Alert.Button>} ctaPosition="bottom">
         <Alert.Title>Welcome to the jungle</Alert.Title>
         <span>
           Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
@@ -39,8 +39,8 @@ const Example = () => {
       <Alert
         cta={
           <>
-            <Alert.PrimaryAction>Button</Alert.PrimaryAction>
-            <Alert.SecondaryAction>Button</Alert.SecondaryAction>
+            <Alert.Button>Button</Alert.Button>
+            <Alert.SecondaryButton>Button</Alert.SecondaryButton>
           </>
         }
         ctaPosition="bottom"
