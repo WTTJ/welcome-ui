@@ -1,6 +1,6 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import { Box } from '@welcome-ui/box'
-import { Text } from '@welcome-ui/text'
+import { Text, TextOptions } from '@welcome-ui/text'
 
 import { AlertOptions } from './index'
 
@@ -18,11 +18,12 @@ export const Alert = styled(Box)<AlertOptions>(
   `
 )
 
-export const Title = styled(Text)<AlertOptions>(
+export const Title = styled(Text)<Pick<TextOptions, 'variant'>>(
   ({ variant }) => css`
     margin: 0;
     font-weight: medium;
-    ${th(`alerts.title.${variant}`)};
+    ${th('alerts.title.default')};
+    ${th(`alerts.title.sizes.${variant}`)};
     ${system};
 
     &:only-child {

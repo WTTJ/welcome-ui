@@ -6,7 +6,7 @@ import { Loader } from '@welcome-ui/loader'
 import * as S from './styles'
 
 export type Shape = 'circle' | 'square'
-export type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
+export type Size = 'xs' | 'sm' | 'md' | 'lg'
 export type Variant = 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'disabled'
 
 export interface ButtonOptions {
