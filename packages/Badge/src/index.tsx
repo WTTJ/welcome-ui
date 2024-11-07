@@ -4,7 +4,7 @@ import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 import * as S from './styles'
 
 export type BadgeOptions = {
-  children: string | number
+  children: React.ReactElement | string | number
   disabled?: boolean
   size?: 'sm' | 'md'
   variant?: 'default' | 'primary'
