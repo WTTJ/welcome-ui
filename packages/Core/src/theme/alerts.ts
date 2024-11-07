@@ -11,6 +11,7 @@ type AttributesState = CSSObject
 export type ThemeAlerts = {
   default: CSSObject
   sizes: Record<Sizes, CSSObject>
+  title: Record<Sizes, CSSObject>
 } & Record<State, AttributesState>
 
 export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
@@ -43,6 +44,14 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
       md: {
         fontSize: fontSizes.md,
         padding: space.xl,
+      },
+    },
+    title: {
+      sm: {
+        marginBottom: space.xs,
+      },
+      md: {
+        marginBottom: space.sm,
       },
     },
   }
