@@ -11,6 +11,7 @@ type AttributesState = CSSObject
 export type ThemeAlerts = {
   default: CSSObject
   sizes: Record<Sizes, CSSObject>
+  title: Record<Sizes, CSSObject>
 } & Record<State, AttributesState>
 
 export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
@@ -29,7 +30,6 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
       borderStyle: 'solid',
       borderWidth: borderWidths.sm,
       color: colors['neutral-90'],
-      fontSize: fontSizes.sm,
     },
     danger: getState('red'),
     warning: getState('orange'),
@@ -38,10 +38,20 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
     beige: { backgroundColor: colors['beige-20'], borderColor: colors['beige-20'] },
     sizes: {
       sm: {
+        fontSize: fontSizes.sm,
         padding: space.lg,
       },
       md: {
+        fontSize: fontSizes.md,
         padding: space.xl,
+      },
+    },
+    title: {
+      sm: {
+        marginBottom: space.xs,
+      },
+      md: {
+        marginBottom: space.sm,
       },
     },
   }

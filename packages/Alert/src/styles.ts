@@ -18,13 +18,11 @@ export const Alert = styled(Box)<AlertOptions>(
   `
 )
 
-export const Title = styled(Text).attrs(() => ({
-  variant: 'sm',
-}))(
-  () => css`
+export const Title = styled(Text)<AlertOptions>(
+  ({ variant }) => css`
     margin: 0;
-    margin-bottom: sm;
     font-weight: medium;
+    ${th(`alerts.title.${variant}`)};
     ${system};
 
     &:only-child {
