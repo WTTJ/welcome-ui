@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/popover",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "welcome-ui: A popover component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -48,7 +48,7 @@
   "dependencies": {
     "@ariakit/react": "0.4.3",
     "@welcome-ui/box": "^6.0.0",
-    "@welcome-ui/button": "^6.0.0",
+    "@welcome-ui/button": "^6.1.0",
     "@welcome-ui/icons": "^6.0.0",
     "@welcome-ui/system": "^6.0.0"
   },

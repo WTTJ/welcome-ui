@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/search",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -49,7 +49,7 @@
     "@welcome-ui/shape": "^6.0.0"
   },
   "dependencies": {
-    "@welcome-ui/clear-button": "^6.0.0",
+    "@welcome-ui/clear-button": "^6.1.0",
     "@welcome-ui/field": "^6.0.0",
     "@welcome-ui/icon": "^6.0.0",
     "@welcome-ui/system": "^6.0.0",

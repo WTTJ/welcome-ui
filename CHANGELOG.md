@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/WTTJ/welcome-ui/compare/v6.0.1...v6.1.0) (2024-11-07)
+
+
+### Features
+
+* **badge:** add possibility to add component from react-intl on children ([#2602](https://github.com/WTTJ/welcome-ui/issues/2602)) ([1451b4c](https://github.com/WTTJ/welcome-ui/commit/1451b4c277f5282501d9b32f82ac64d66c03cc26))
+* update alert component ([#2591](https://github.com/WTTJ/welcome-ui/issues/2591)) ([ab30a7f](https://github.com/WTTJ/welcome-ui/commit/ab30a7f3e1abe3f8bcdce2ba80a131a4fbdb9fb9))
+* upgrade colors on Alert and Toast components ([#2598](https://github.com/WTTJ/welcome-ui/issues/2598)) ([c37a6cb](https://github.com/WTTJ/welcome-ui/commit/c37a6cbe5e6155d22c1709626edba78c0f392b8a))
+
+
+
+
+
 ## [5.22.2](https://github.com/WTTJ/welcome-ui/compare/v5.22.1...v5.22.2) (2024-10-28)
 
 

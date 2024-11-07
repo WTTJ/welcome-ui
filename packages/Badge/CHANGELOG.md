@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/WTTJ/welcome-ui/compare/v6.0.1...v6.1.0) (2024-11-07)
+
+
+### Features
+
+* **badge:** add possibility to add component from react-intl on children ([#2602](https://github.com/WTTJ/welcome-ui/issues/2602)) ([1451b4c](https://github.com/WTTJ/welcome-ui/commit/1451b4c277f5282501d9b32f82ac64d66c03cc26))
+
+
+
+
+
 ## [5.22.1](https://github.com/WTTJ/welcome-ui/compare/v5.22.0...v5.22.1) (2024-10-15)
 
 **Note:** Version bump only for package @welcome-ui/badge

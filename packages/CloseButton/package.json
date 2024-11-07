@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/close-button",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,7 +46,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/button": "^6.0.0",
+    "@welcome-ui/button": "^6.1.0",
     "@welcome-ui/icons": "^6.0.0",
     "@welcome-ui/system": "^6.0.0"
   },
