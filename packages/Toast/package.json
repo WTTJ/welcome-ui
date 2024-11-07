@@ -51,6 +51,7 @@
   "dependencies": {
     "@welcome-ui/alert": "^6.0.0",
     "@welcome-ui/box": "^6.0.0",
+    "@welcome-ui/button": "^6.0.0",
     "@welcome-ui/close-button": "^6.0.0",
     "@welcome-ui/system": "^6.0.0",
     "@welcome-ui/text": "^6.0.0",

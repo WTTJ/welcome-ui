@@ -9,8 +9,8 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Snackbar>
-              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+            <Toast.Snackbar cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>}>
+              Lorem ipsum dolor sit amet taciti sociosqu ad
             </Toast.Snackbar>
           )
         }
@@ -20,11 +20,11 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Snackbar variant="info">
-              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
-              <Button size="xs" variant="ghost">
-                Action
-              </Button>
+            <Toast.Snackbar
+              cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>}
+              variant="info"
+            >
+              Lorem ipsum dolor sit amet taciti sociosqu ad
             </Toast.Snackbar>
           )
         }
@@ -34,8 +34,11 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Snackbar variant="danger">
-              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+            <Toast.Snackbar
+              cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>}
+              variant="danger"
+            >
+              Lorem ipsum dolor sit amet taciti sociosqu ad
             </Toast.Snackbar>
           )
         }
@@ -45,8 +48,11 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Snackbar variant="warning">
-              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+            <Toast.Snackbar
+              cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>}
+              variant="warning"
+            >
+              Lorem ipsum dolor sit amet taciti sociosqu ad
             </Toast.Snackbar>
           )
         }
@@ -56,8 +62,11 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Snackbar variant="success">
-              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
+            <Toast.Snackbar
+              cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>}
+              variant="success"
+            >
+              Lorem ipsum dolor sit amet taciti sociosqu ad
             </Toast.Snackbar>
           )
         }
@@ -67,11 +76,12 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Snackbar icon={null} variant="info">
-              <span>Lorem ipsum dolor sit amet taciti sociosqu ad</span>
-              <Button size="xs" variant="ghost">
-                Action
-              </Button>
+            <Toast.Snackbar
+              cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>}
+              icon={null}
+              variant="info"
+            >
+              Lorem ipsum dolor sit amet taciti sociosqu ad
             </Toast.Snackbar>
           )
         }

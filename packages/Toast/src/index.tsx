@@ -6,7 +6,7 @@ import toastRHT, { ToastPosition, useToaster } from 'react-hot-toast/headless'
 
 import { ToastWrapper } from './ToastWrapper'
 import { Growl } from './Growl'
-import { Snackbar } from './Snackbar'
+import { Snackbar, SnackbarAction } from './Snackbar'
 import * as S from './styles'
 
 export type Variant = 'default' | 'info' | 'success' | 'danger' | 'warning'
@@ -81,4 +81,4 @@ export const dismiss = (id?: string) => {
  */
 export const useToast = () => toast
 
-export const Toast = { Title, Growl, Snackbar }
+export const Toast = { Title, Growl, Snackbar, SnackbarAction }

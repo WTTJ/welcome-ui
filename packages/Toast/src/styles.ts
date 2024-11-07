@@ -3,7 +3,7 @@ import { Box } from '@welcome-ui/box'
 import { Alert } from '@welcome-ui/alert'
 
 import { GrowlOptions } from './Growl'
-import { SnackbarOptions } from './Snackbar'
+import { SnackbarProps } from './Snackbar'
 
 export const ToastWrapper = styled(Box)<{ isBottom: boolean }>(
   ({ isBottom }) => css`
@@ -19,7 +19,6 @@ export const ToastWrapper = styled(Box)<{ isBottom: boolean }>(
 export const Growl = styled(Alert)<GrowlOptions>(
   () => css`
     position: relative;
-    max-width: 25rem;
     padding: lg;
     ${th('toasts.growls.default')};
 
@@ -46,20 +45,21 @@ export const Title = styled(Box)(
   `
 )
 
-export const Snackbar = styled(Alert)<SnackbarOptions>(
-  ({ hasCloseButton }) => css`
-    display: flex;
-    align-items: center;
-    padding: sm md;
-    ${th('toasts.snackbar.default')};
+export const Snackbar = styled(Alert)`
+  display: flex;
+  align-items: center;
+  padding: sm md;
+  ${th('toasts.snackbar.default')};
 
-    svg {
-      margin-top: xs;
-    }
+  > div {
+    align-self: center !important;
+  }
+`
 
-    button {
-      flex-shrink: 0;
-      margin-left: ${hasCloseButton ? 'sm' : 0};
-    }
+export const SnackbarSeparator = styled.box<{ variant: SnackbarProps['variant'] }>(
+  ({ variant }) => css`
+    ${th('toasts.snackbar.separator.default')};
+    ${th(`toasts.snackbar.separator.${variant}`)};
+    padding-left: sm;
   `
 )
