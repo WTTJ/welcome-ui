@@ -105,7 +105,8 @@ const removePrefix = content => {
 }
 
 const replaceErrorVariant = content => {
-  const regex = /<(Tag|Label|Hint|Alert|Table.Tr)\b([^>]*?)\bvariant\s*=\s*["']error["']/g
+  const regex =
+    /<(Tag|Label|Hint|Alert|Table.Tr|Toast.Growl|Toast.Snackbar)\b([^>]*?)\bvariant\s*=\s*["']error["']/g
 
   if (regex.test(content)) {
     const newContent = content.replaceAll(regex, '<$1$2variant="danger"')
