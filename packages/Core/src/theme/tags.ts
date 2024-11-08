@@ -4,7 +4,14 @@ import { WuiTheme } from './types'
 import { ThemeSecondaryColors } from './colors'
 
 export type Size = 'xs' | 'sm' | 'md'
-export type Variant = ThemeSecondaryColors | 'default' | 'danger' | 'info' | 'success' | 'warning'
+export type Variant =
+  | ThemeSecondaryColors
+  | 'default'
+  | 'danger'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'primary'
 
 export type ThemeTags = {
   default: CSSObject
@@ -60,6 +67,10 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
         backgroundColor: colors['beige-20'],
         color: colors['beige-90'],
       },
+      primary: {
+        color: theme.colors['neutral-90'],
+        backgroundColor: colors['primary-40'],
+      },
       success: getState('green'),
       danger: getState('red'),
       warning: getState('orange'),
@@ -74,6 +85,9 @@ export const getTags = (theme: WuiTheme): ThemeTags => {
     hover: {
       default: {
         backgroundColor: colors['beige-30'],
+      },
+      primary: {
+        backgroundColor: colors['primary-50'],
       },
       success: getStateHover('green'),
       danger: getStateHover('red'),

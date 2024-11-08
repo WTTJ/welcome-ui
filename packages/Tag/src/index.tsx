@@ -7,7 +7,14 @@ import React from 'react'
 import * as S from './styles'
 
 export type Size = 'xs' | 'sm' | 'md'
-export type Variant = ThemeSecondaryColors | 'default' | 'info' | 'success' | 'danger' | 'warning'
+export type Variant =
+  | ThemeSecondaryColors
+  | 'default'
+  | 'info'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'primary'
 
 export interface TagOptions {
   href?: string

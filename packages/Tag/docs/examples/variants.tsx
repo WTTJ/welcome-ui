@@ -6,6 +6,7 @@ const Example = () => {
   return (
     <Stack>
       <Tag>Default</Tag>
+      <Tag variant="primary">Primary</Tag>
       <Tag variant="info">Info</Tag>
       <Tag variant="success">Success</Tag>
       <Tag variant="danger">Danger</Tag>
