@@ -54,7 +54,7 @@
     "@welcome-ui/tag": "^6.1.1",
     "@welcome-ui/utils": "^6.1.1",
     "downshift": "^7.4.1",
-    "match-sorter": "^6.3.1"
+    "match-sorter": "^8.0.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
