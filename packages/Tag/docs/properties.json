@@ -163,6 +163,9 @@
             },
             {
               "value": "\"warning\""
+            },
+            {
+              "value": "\"primary\""
             }
           ]
         }
