@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/input-text",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "description": "welcome-ui: Text input",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,10 +46,10 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@welcome-ui/clear-button": "^6.1.0",
-    "@welcome-ui/field": "^6.0.0",
-    "@welcome-ui/system": "^6.0.0",
-    "@welcome-ui/utils": "^6.0.0"
+    "@welcome-ui/clear-button": "^6.1.1",
+    "@welcome-ui/field": "^6.1.1",
+    "@welcome-ui/system": "^6.1.1",
+    "@welcome-ui/utils": "^6.1.1"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
