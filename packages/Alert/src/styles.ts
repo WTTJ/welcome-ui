@@ -1,11 +1,22 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
-import { Box } from '@welcome-ui/box'
-import { Text, TextOptions } from '@welcome-ui/text'
+import { Text } from '@welcome-ui/text'
+import { VariantIcon } from '@welcome-ui/variant-icon'
+
+import { AlertTitleProps } from './Title'
 
 import { AlertOptions } from './index'
 
-export const Alert = styled(Box)<AlertOptions>(
-  ({ isFullWidth, size, variant }) => css`
+export const Content = styled.divBox`
+  flex: 1;
+`
+
+export const Icon = styled(VariantIcon)`
+  position: absolute;
+  align-self: flex-start;
+`
+
+export const Alert = styled.divBox<AlertOptions>(({ icon, isFullWidth, size, variant }) => {
+  return css`
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -15,19 +26,34 @@ export const Alert = styled(Box)<AlertOptions>(
     ${th(`alerts.${variant}`)};
     ${th(`alerts.sizes.${size}`)};
     ${system};
-  `
-)
 
-export const Title = styled(Text)<Pick<TextOptions, 'variant'>>(
-  ({ variant }) => css`
-    margin: 0;
+    ${icon !== null &&
+    size === 'sm' &&
+    css`
+      ${Content} {
+        margin-left: calc(${th('icons.sm')} + ${th('space.md')});
+      }
+    `}
+
+    ${icon !== null &&
+    size === 'md' &&
+    css`
+      ${Content} {
+        margin-left: calc(${th('icons.md')} + ${th('space.lg')});
+      }
+
+      ${Icon} {
+        margin-top: -4;
+      }
+    `}
+  `
+})
+
+export const Title = styled(Text)<AlertTitleProps>(({ variant }) => {
+  return css`
     font-weight: medium;
     ${th('alerts.title.default')};
     ${th(`alerts.title.sizes.${variant}`)};
     ${system};
-
-    &:only-child {
-      margin-bottom: 0;
-    }
   `
-)
+})

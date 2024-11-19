@@ -18,7 +18,7 @@ export type ThemeAlerts = {
 } & Record<State, AttributesState>
 
 export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
-  const { borderWidths, colors, fontSizes, radii, space } = theme
+  const { borderWidths, colors, fontSizes, fontWeights, radii, space } = theme
 
   const getState = (color: 'red' | 'blue' | 'green' | 'orange') => ({
     backgroundColor: colors[`${color}-10`],
@@ -39,6 +39,7 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
     title: {
       default: {
         color: colors['neutral-90'],
+        fontWeight: fontWeights['medium'],
       },
       sizes: {
         sm: {
@@ -60,11 +61,9 @@ export const getAlerts = (theme: WuiTheme): ThemeAlerts => {
     },
     sizes: {
       sm: {
-        fontSize: fontSizes.sm,
         padding: space.lg,
       },
       md: {
-        fontSize: fontSizes.md,
         padding: space.xl,
       },
     },
