@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/modal",
-  "version": "6.2.0-alpha.0",
+  "version": "6.2.0",
   "description": "Modal from Ariakit with a really nice theme 👀",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -56,7 +56,7 @@
     "@welcome-ui/shape": "^6.1.1",
     "@welcome-ui/swiper": "^6.1.1",
     "@welcome-ui/system": "^6.1.1",
-    "@welcome-ui/text": "^6.2.0-alpha.0",
+    "@welcome-ui/text": "^6.2.0",
     "@welcome-ui/utils": "^6.1.1"
   },
   "peerDependencies": {
