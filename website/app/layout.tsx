@@ -29,7 +29,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <head>
-        <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+        <link href="/favicon.png" rel="icon" type="image/png" />
       </head>
       <body>
         <StyledComponentsRegistry>

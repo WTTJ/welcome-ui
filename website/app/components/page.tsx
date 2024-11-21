@@ -4,10 +4,15 @@ import { Flex } from '@welcome-ui/flex'
 import { Grid } from '@welcome-ui/grid'
 import { Text } from '@welcome-ui/text'
 import { Box } from '@welcome-ui/box'
+import { Metadata } from 'next'
 
 import { getPages } from '@/build-app/utils/pages-components'
 import { getName, getRepository } from '@/build-app/utils/transform-name'
 import { getPageContent } from '@/build-app/utils/page-content'
+
+export const metadata: Metadata = {
+  title: 'Welcome UI - Components',
+}
 
 const Page = () => {
   const pages = getPages()
