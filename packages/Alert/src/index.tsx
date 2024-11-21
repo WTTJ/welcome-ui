@@ -1,9 +1,8 @@
 import React, { Children, cloneElement } from 'react'
-import { Box, BoxProps } from '@welcome-ui/box'
+import { Box } from '@welcome-ui/box'
 import { CloseButton } from '@welcome-ui/close-button'
 import { Button, ButtonProps } from '@welcome-ui/button'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
-import { VariantIcon } from '@welcome-ui/variant-icon'
 
 import * as S from './styles'
 import { Title } from './Title'
@@ -13,7 +12,6 @@ export type Variant = 'danger' | 'success' | 'warning' | 'info' | 'default' | 'b
 export interface AlertOptions {
   closeButtonDataTestId?: string
   cta?: JSX.Element
-  ctaPosition?: 'bottom' | 'right'
   /**
    * @description add a close button with an onclick handleClose function
    */
@@ -31,23 +29,11 @@ type CloneActionsReturns = React.ReactElement<
   string | React.JSXElementConstructor<AlertProps>
 >
 
-const LAYOUT: { bottom: BoxProps; right: BoxProps } = {
-  bottom: {
-    alignItems: 'flex-start',
-    flexDirection: 'column',
-  },
-  right: {
-    alignItems: { _: 'flex-start', md: 'center' },
-    flexDirection: { _: 'column', md: 'row' },
-  },
-}
-
 const AlertComponent = forwardRef<'div', AlertProps>(
   (
     {
       children,
       cta,
-      ctaPosition = 'right',
       dataTestId,
       handleClose,
       icon,
@@ -105,15 +91,15 @@ const AlertComponent = forwardRef<'div', AlertProps>(
             top="sm"
           />
         )}
-        <VariantIcon
-          alignSelf="flex-start"
-          icon={icon}
-          pr="md"
-          size={size}
-          variant={defaultVariantIcon}
-        />
-        <Box flex={1}>
-          <Box display="flex" gap="md" justifyContent="space-between" {...LAYOUT[ctaPosition]}>
+        {icon !== null && <S.Icon icon={icon} size={size} variant={defaultVariantIcon} />}
+        <S.Content>
+          <Box
+            alignItems="flex-start"
+            display="flex"
+            flexDirection="column"
+            gap="md"
+            justifyContent="space-between"
+          >
             <Box flex={1}>{content}</Box>
             {!!actions && (
               <Box alignItems="center" display="flex" gap="sm">
@@ -121,7 +107,7 @@ const AlertComponent = forwardRef<'div', AlertProps>(
               </Box>
             )}
           </Box>
-        </Box>
+        </S.Content>
       </S.Alert>
     )
   }

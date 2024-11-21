@@ -15,6 +15,7 @@ export default {
   "/Alert/docs/examples/is-full-width.tsx": dynamic(() => import("../../packages/Alert/docs/examples/is-full-width.tsx").then(mod => mod), { ssr: false }),
   "/Alert/docs/examples/overview.tsx": dynamic(() => import("../../packages/Alert/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Alert/docs/examples/sizes.tsx": dynamic(() => import("../../packages/Alert/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
+  "/Alert/docs/examples/title.tsx": dynamic(() => import("../../packages/Alert/docs/examples/title.tsx").then(mod => mod), { ssr: false }),
   "/Alert/docs/examples/variants.tsx": dynamic(() => import("../../packages/Alert/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
   "/AspectRatio/docs/examples/map.tsx": dynamic(() => import("../../packages/AspectRatio/docs/examples/map.tsx").then(mod => mod), { ssr: false }),
   "/AspectRatio/docs/examples/overview.tsx": dynamic(() => import("../../packages/AspectRatio/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),

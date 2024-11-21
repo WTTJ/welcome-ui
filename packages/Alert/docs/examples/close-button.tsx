@@ -9,11 +9,8 @@ const Example = () => {
   ) : (
     <Alert handleClose={() => setHideAlert(true)}>
       <Alert.Title>Welcome to the jungle</Alert.Title>
-      <span>
-        Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
-        ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a
-        ornare.
-      </span>
+      Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
+      ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
     </Alert>
   )
 }

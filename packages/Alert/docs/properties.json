@@ -39,36 +39,6 @@
           "name": "Element"
         }
       },
-      "ctaPosition": {
-        "defaultValue": {
-          "value": "right"
-        },
-        "description": "",
-        "name": "ctaPosition",
-        "parent": {
-          "fileName": "Alert/src/index.tsx",
-          "name": "AlertOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Alert/src/index.tsx",
-            "name": "AlertOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "\"right\" | \"bottom\"",
-          "value": [
-            {
-              "value": "\"right\""
-            },
-            {
-              "value": "\"bottom\""
-            }
-          ]
-        }
-      },
       "handleClose": {
         "defaultValue": null,
         "description": "@description add a close button with an onclick handleClose function",
@@ -211,202 +181,63 @@
   },
   "Alert.Title": {
     "props": {
-      "closeButtonDataTestId": {
-        "defaultValue": null,
-        "description": "",
-        "name": "closeButtonDataTestId",
-        "parent": {
-          "fileName": "Alert/src/index.tsx",
-          "name": "AlertOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Alert/src/index.tsx",
-            "name": "AlertOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
-      "cta": {
-        "defaultValue": null,
-        "description": "",
-        "name": "cta",
-        "parent": {
-          "fileName": "Alert/src/index.tsx",
-          "name": "AlertOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Alert/src/index.tsx",
-            "name": "AlertOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "Element"
-        }
-      },
-      "ctaPosition": {
-        "defaultValue": null,
-        "description": "",
-        "name": "ctaPosition",
-        "parent": {
-          "fileName": "Alert/src/index.tsx",
-          "name": "AlertOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Alert/src/index.tsx",
-            "name": "AlertOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "\"right\" | \"bottom\"",
-          "value": [
-            {
-              "value": "\"right\""
-            },
-            {
-              "value": "\"bottom\""
-            }
-          ]
-        }
-      },
-      "handleClose": {
-        "defaultValue": null,
-        "description": "@description add a close button with an onclick handleClose function",
-        "name": "handleClose",
-        "parent": {
-          "fileName": "Alert/src/index.tsx",
-          "name": "AlertOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Alert/src/index.tsx",
-            "name": "AlertOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "() => void"
-        }
-      },
-      "icon": {
-        "defaultValue": null,
-        "description": "",
-        "name": "icon",
-        "parent": {
-          "fileName": "Alert/src/index.tsx",
-          "name": "AlertOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Alert/src/index.tsx",
-            "name": "AlertOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "Element"
-        }
-      },
-      "isFullWidth": {
-        "defaultValue": null,
-        "description": "",
-        "name": "isFullWidth",
-        "parent": {
-          "fileName": "Alert/src/index.tsx",
-          "name": "AlertOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Alert/src/index.tsx",
-            "name": "AlertOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
-      "size": {
-        "defaultValue": null,
-        "description": "",
-        "name": "size",
-        "parent": {
-          "fileName": "Alert/src/index.tsx",
-          "name": "AlertOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Alert/src/index.tsx",
-            "name": "AlertOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "Size",
-          "value": [
-            {
-              "value": "\"sm\""
-            },
-            {
-              "value": "\"md\""
-            }
-          ]
-        }
-      },
       "variant": {
         "defaultValue": null,
         "description": "",
         "name": "variant",
         "parent": {
-          "fileName": "Alert/src/index.tsx",
-          "name": "AlertOptions"
+          "fileName": "packages/Text/dist/types/index.d.ts",
+          "name": "TextOptions"
         },
         "declarations": [
           {
-            "fileName": "Alert/src/index.tsx",
-            "name": "AlertOptions"
+            "fileName": "packages/Text/dist/types/index.d.ts",
+            "name": "TextOptions"
           }
         ],
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Variant",
+          "raw": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"h0\" | \"lg\" | \"md\" | \"sm\" | \"xs\" | \"subtitle-md\" | \"subtitle-sm\"",
           "value": [
             {
-              "value": "\"danger\""
+              "value": "\"h1\""
             },
             {
-              "value": "\"success\""
+              "value": "\"h2\""
             },
             {
-              "value": "\"warning\""
+              "value": "\"h3\""
             },
             {
-              "value": "\"info\""
+              "value": "\"h4\""
             },
             {
-              "value": "\"default\""
+              "value": "\"h5\""
             },
             {
-              "value": "\"beige\""
+              "value": "\"h6\""
+            },
+            {
+              "value": "\"h0\""
+            },
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"subtitle-md\""
+            },
+            {
+              "value": "\"subtitle-sm\""
             }
           ]
         }
