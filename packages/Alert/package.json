@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/alert",
-  "version": "6.2.0",
+  "version": "6.3.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
