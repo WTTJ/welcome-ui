@@ -24,6 +24,7 @@ export type ThemeDefaultFields = {
   focused: VariantsTheme & {
     default: CSSObject
   }
+  hover: CSSObject
   iconPlacement: Record<Size, CSSObject>
   placeholder: CSSObject
   select: {
@@ -55,6 +56,14 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
       outline: 'none',
       borderRadius: radii.md,
     },
+    hover: {
+      default: {
+        borderColor: colors['neutral-40'],
+      },
+      transparency: {
+        borderColor: colors['neutral-20'],
+      },
+    },
     variants: {
       danger: {
         borderColor: colors['red-70'],
@@ -68,12 +77,12 @@ export const getDefaultFields = (theme: WuiTheme): ThemeDefaultFields => {
     },
     focused: {
       default: {
-        ...focus(colors['primary-30']),
-        borderColor: 'transparent',
+        ...focus(colors['primary-20']),
+        borderColor: colors['primary-40'],
       },
-      danger: { ...focus(colors['red-60']) },
-      warning: { ...focus(colors['orange-50']) },
-      success: { ...focus(colors['green-50']) },
+      danger: { ...focus(colors['red-30']) },
+      warning: { ...focus(colors['orange-20']) },
+      success: { ...focus(colors['green-30']) },
     },
     sizes: {
       xs: {

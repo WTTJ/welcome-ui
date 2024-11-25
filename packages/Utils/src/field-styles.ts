@@ -77,11 +77,19 @@ export const defaultFieldStyles: DefaultFieldStyles = ({
       `
     };
 
+    &:hover {
+      ${!variant && th('defaultFields.hover.default')};
+    }
+
     ${!variant &&
     transparent &&
     css`
       border-color: transparent;
       background-color: transparent;
+
+      &:hover {
+        ${th('defaultFields.hover.transparency')};
+      }
     `}
 
     &::placeholder {
@@ -89,7 +97,7 @@ export const defaultFieldStyles: DefaultFieldStyles = ({
     }
 
     &:focus {
-      ${th('defaultFields.focused.default')};
+      ${!variant && th('defaultFields.focused.default')};
       ${variant === 'danger' && th('defaultFields.focused.danger')};
       ${variant === 'warning' && th('defaultFields.focused.warning')};
       ${variant === 'success' && th('defaultFields.focused.success')};
