@@ -75,6 +75,7 @@ const AlertComponent = forwardRef<'div', AlertProps>(
     return (
       <S.Alert
         data-testid={dataTestId}
+        icon={icon}
         isFullWidth={isFullWidth}
         ref={ref}
         size={size}
