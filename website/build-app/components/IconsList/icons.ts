@@ -144,6 +144,7 @@ export const miscellaneous: IconProps['name'][] = [
   'success',
   'certified',
   'connection',
+  'temporary_profile',
 ]
 
 export const player: IconProps['name'][] = [
