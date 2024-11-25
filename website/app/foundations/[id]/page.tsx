@@ -5,10 +5,20 @@ import { TableOfContent } from '@/build-app/components/TableOfContent'
 import { getPageContent } from '@/build-app/utils/page-content'
 import { getPages, getStaticParams } from '@/build-app/utils/pages-exports'
 import { PrevNextPage } from '@/build-app/components/PrevNextPage'
+import { getName } from '@/build-app/utils/transform-name'
 
 type PageProps = {
   params: {
     id: string
+  }
+}
+
+export async function generateMetadata({ params }: { params: { [key: string]: string } }) {
+  const { id } = params
+  const title = getName(id)
+
+  return {
+    title: `Welcome UI - ${title}`,
   }
 }
 

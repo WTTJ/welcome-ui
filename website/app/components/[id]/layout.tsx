@@ -19,6 +19,18 @@ type LayoutProps = {
   }
 }
 
+export async function generateMetadata({ params }: { params: { [key: string]: string } }) {
+  const { id } = params
+  const { data } = getPageContent(`${getRepository(id)}/docs/index.mdx`, true)
+  const title = data?.title
+  const description = data?.description
+
+  return {
+    title: `Welcome UI - ${title}`,
+    description: description,
+  }
+}
+
 const Layout = ({ children, params }: LayoutProps) => {
   const pages = getPages()
   const { id } = params
