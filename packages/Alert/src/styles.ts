@@ -43,7 +43,7 @@ export const Alert = styled.divBox<AlertOptions>(({ icon, isFullWidth, size, var
       }
 
       ${Icon} {
-        margin-top: -4;
+        margin-top: -3;
       }
     `}
   `
