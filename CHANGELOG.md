@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.4.2](https://github.com/WTTJ/welcome-ui/compare/v6.4.1...v6.4.2) (2024-11-26)
+
+
+### Bug Fixes
+
+* **alert:** icon centered on medium size ([#2631](https://github.com/WTTJ/welcome-ui/issues/2631)) ([1a4d933](https://github.com/WTTJ/welcome-ui/commit/1a4d933edd3ac85bd9349262d81e7f6ba36816b4))
+
+
+
+
+
 ## [6.4.1](https://github.com/WTTJ/welcome-ui/compare/v6.4.0...v6.4.1) (2024-11-26)
 
 
