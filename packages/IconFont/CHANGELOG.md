@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.4.0](https://github.com/WTTJ/welcome-ui/compare/v6.3.1...v6.4.0) (2024-11-26)
+
+
+### Features
+
+* **Icon:** add TemporaryProfile Icon ([#2626](https://github.com/WTTJ/welcome-ui/issues/2626)) ([031f5d8](https://github.com/WTTJ/welcome-ui/commit/031f5d87282ad694580a6fd6b1ce0b167de6779c))
+
+
+
+
+
 ## [5.22.1](https://github.com/WTTJ/welcome-ui/compare/v5.22.0...v5.22.1) (2024-10-15)
 
 **Note:** Version bump only for package @welcome-ui/icons.font

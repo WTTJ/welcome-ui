@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.4.0](https://github.com/WTTJ/welcome-ui/compare/v6.3.1...v6.4.0) (2024-11-26)
+
+**Note:** Version bump only for package @welcome-ui/dropdown-menu
+
+
+
+
+
 ## [6.1.1-alpha.1](https://github.com/WTTJ/welcome-ui/compare/v6.1.0...v6.1.1-alpha.1) (2024-11-08)
 
 **Note:** Version bump only for package @welcome-ui/dropdown-menu

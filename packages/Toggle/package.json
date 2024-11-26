@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/toggle",
-  "version": "6.1.1",
+  "version": "6.4.0",
   "description": "welcome-ui: A toggle component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.3",
-    "@welcome-ui/checkbox": "^6.1.1",
+    "@welcome-ui/checkbox": "^6.4.0",
     "@welcome-ui/system": "^6.1.1"
   },
   "peerDependencies": {

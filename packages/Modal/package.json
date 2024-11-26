@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/modal",
-  "version": "6.2.0",
+  "version": "6.4.0",
   "description": "Modal from Ariakit with a really nice theme 👀",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -50,14 +50,14 @@
   "dependencies": {
     "@ariakit/react": "0.4.3",
     "@welcome-ui/box": "^6.1.1",
-    "@welcome-ui/button": "^6.1.1",
-    "@welcome-ui/close-button": "^6.1.1",
-    "@welcome-ui/icons.font": "^6.1.1",
-    "@welcome-ui/shape": "^6.1.1",
-    "@welcome-ui/swiper": "^6.1.1",
+    "@welcome-ui/button": "^6.4.0",
+    "@welcome-ui/close-button": "^6.4.0",
+    "@welcome-ui/icons.font": "^6.4.0",
+    "@welcome-ui/shape": "^6.4.0",
+    "@welcome-ui/swiper": "^6.4.0",
     "@welcome-ui/system": "^6.1.1",
     "@welcome-ui/text": "^6.2.0",
-    "@welcome-ui/utils": "^6.1.1"
+    "@welcome-ui/utils": "^6.4.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.4.0](https://github.com/WTTJ/welcome-ui/compare/v6.3.1...v6.4.0) (2024-11-26)
+
+
+### Features
+
+* rework hover on fields ([#2625](https://github.com/WTTJ/welcome-ui/issues/2625)) ([14fcd0e](https://github.com/WTTJ/welcome-ui/commit/14fcd0ec1e109e58873b6c02dd498ae1f8ca0679))
+
+
+
+
+
 ## [5.22.1](https://github.com/WTTJ/welcome-ui/compare/v5.22.0...v5.22.1) (2024-10-15)
 
 **Note:** Version bump only for package @welcome-ui/utils
