@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.4.1](https://github.com/WTTJ/welcome-ui/compare/v6.4.0...v6.4.1) (2024-11-26)
+
+
+### Bug Fixes
+
+* **alert:** crash when return null as child on cta property ([#2630](https://github.com/WTTJ/welcome-ui/issues/2630)) ([34f76f1](https://github.com/WTTJ/welcome-ui/commit/34f76f120913390319b698b7f0c7599a61629b6d))
+
+
+
+
+
 # [6.4.0](https://github.com/WTTJ/welcome-ui/compare/v6.3.1...v6.4.0) (2024-11-26)
 
 
