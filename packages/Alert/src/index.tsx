@@ -55,16 +55,18 @@ const AlertComponent = forwardRef<'div', AlertProps>(
 
     // Handle clone actions recursively in case of multiple buttons
     const cloneActions = (child: React.ReactElement<AlertProps>): CloneActionsReturns => {
-      if (child.type === AlertButton) return cloneElement(child, { size })
-      if (child.type === AlertSecondaryButton) return cloneElement(child, { size })
+      if (child) {
+        if (child.type === AlertButton) return cloneElement(child, { size })
+        if (child.type === AlertSecondaryButton) return cloneElement(child, { size })
 
-      if (child.props?.children) {
-        return cloneElement(child, {
-          ...child.props,
-          children: Children.map(child.props.children, (nestedChild: React.ReactElement) =>
-            cloneActions(nestedChild)
-          ),
-        })
+        if (child.props?.children) {
+          return cloneElement(child, {
+            ...child.props,
+            children: Children.map(child.props.children, (nestedChild: React.ReactElement) =>
+              cloneActions(nestedChild)
+            ),
+          })
+        }
       }
 
       return child

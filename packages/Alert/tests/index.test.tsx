@@ -50,4 +50,23 @@ describe('<Alert>', () => {
     expect(container).toHaveTextContent(content)
     expect(container.getElementsByTagName('svg')[0]).toHaveAttribute('alt', 'Check')
   })
+
+  it('should render correctly with CTA', () => {
+    const { getByTestId, queryByTestId } = render(
+      <Alert
+        cta={
+          <>
+            {false && <Alert.Button dataTestId="button" />}
+            <Alert.SecondaryButton dataTestId="secondary-button" />
+          </>
+        }
+      >
+        <Alert.Title dataTestId="alert-title">title</Alert.Title>
+        {content}
+      </Alert>
+    )
+
+    expect(queryByTestId('button')).not.toBeInTheDocument()
+    expect(getByTestId('secondary-button')).toBeInTheDocument()
+  })
 })
