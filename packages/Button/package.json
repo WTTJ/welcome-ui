@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/button",
-  "version": "6.4.0",
+  "version": "6.5.0",
   "description": "welcome-ui: A button component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -53,9 +53,9 @@
     "@welcome-ui/utils": "^6.4.0"
   },
   "devDependencies": {
-    "@welcome-ui/icons": "^6.4.0",
-    "@welcome-ui/icons.font": "^6.4.0",
-    "@welcome-ui/link": "^6.4.0"
+    "@welcome-ui/icons": "^6.5.0",
+    "@welcome-ui/icons.font": "^6.5.0",
+    "@welcome-ui/link": "^6.5.0"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
