@@ -102,6 +102,7 @@ export declare const EqualIcon: React.FC<IconProps>
 export declare const EuroCurrencyIcon: React.FC<IconProps>
 export declare const ExpandIcon: React.FC<IconProps>
 export declare const ExpandTextIcon: React.FC<IconProps>
+export declare const ExtendIcon: React.FC<IconProps>
 export declare const ExternalLinkIcon: React.FC<IconProps>
 export declare const FacebookIcon: React.FC<IconProps>
 export declare const FactoryIcon: React.FC<IconProps>
