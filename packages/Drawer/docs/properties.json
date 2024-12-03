@@ -3,7 +3,7 @@
     "props": {
       "accessibleWhenDisabled": {
         "defaultValue": null,
-        "description": "Indicates whether the element should be focusable even when it is\n[`disabled`](https://ariakit.org/reference/focusable#disabled).\n\nThis is important when discoverability is a concern. For example:\n\n> A toolbar in an editor contains a set of special smart paste functions\nthat are disabled when the clipboard is empty or when the function is not\napplicable to the current content of the clipboard. It could be helpful to\nkeep the disabled buttons focusable if the ability to discover their\nfunctionality is primarily via their presence on the toolbar.\n\nLearn more on [Focusability of disabled\ncontrols](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#focusabilityofdisabledcontrols).\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)",
+        "description": "Indicates whether the element should be focusable even when it is\n[`disabled`](https://ariakit.org/reference/focusable#disabled).\n\nThis is important when discoverability is a concern. For example:\n\n> A toolbar in an editor contains a set of special smart paste functions\nthat are disabled when the clipboard is empty or when the function is not\napplicable to the current content of the clipboard. It could be helpful to\nkeep the disabled buttons focusable if the ability to discover their\nfunctionality is primarily via their presence on the toolbar.\n\nLearn more on [Focusability of disabled\ncontrols](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#focusabilityofdisabledcontrols).\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)",
         "name": "accessibleWhenDisabled",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
@@ -155,7 +155,7 @@
         "defaultValue": {
           "value": "false"
         },
-        "description": "Determines if the element is disabled. This sets the `aria-disabled`\nattribute accordingly, enabling support for all elements, including those\nthat don't support the native `disabled` attribute.\n\nThis feature can be combined with the\n[`accessibleWhenDisabled`](https://ariakit.org/reference/focusable#accessiblewhendisabled)\nprop to make disabled elements still accessible via keyboard.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Submenu](https://ariakit.org/examples/menu-nested)\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)\n- [Context Menu](https://ariakit.org/examples/menu-context-menu)",
+        "description": "Determines if the element is disabled. This sets the `aria-disabled`\nattribute accordingly, enabling support for all elements, including those\nthat don't support the native `disabled` attribute.\n\nThis feature can be combined with the\n[`accessibleWhenDisabled`](https://ariakit.org/reference/focusable#accessiblewhendisabled)\nprop to make disabled elements still accessible via keyboard.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Submenu](https://ariakit.org/examples/menu-nested)\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Context Menu](https://ariakit.org/examples/menu-context-menu)",
         "name": "disabled",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
@@ -442,7 +442,7 @@
     "props": {
       "accessibleWhenDisabled": {
         "defaultValue": null,
-        "description": "Indicates whether the element should be focusable even when it is\n[`disabled`](https://ariakit.org/reference/focusable#disabled).\n\nThis is important when discoverability is a concern. For example:\n\n> A toolbar in an editor contains a set of special smart paste functions\nthat are disabled when the clipboard is empty or when the function is not\napplicable to the current content of the clipboard. It could be helpful to\nkeep the disabled buttons focusable if the ability to discover their\nfunctionality is primarily via their presence on the toolbar.\n\nLearn more on [Focusability of disabled\ncontrols](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#focusabilityofdisabledcontrols).\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)",
+        "description": "Indicates whether the element should be focusable even when it is\n[`disabled`](https://ariakit.org/reference/focusable#disabled).\n\nThis is important when discoverability is a concern. For example:\n\n> A toolbar in an editor contains a set of special smart paste functions\nthat are disabled when the clipboard is empty or when the function is not\napplicable to the current content of the clipboard. It could be helpful to\nkeep the disabled buttons focusable if the ability to discover their\nfunctionality is primarily via their presence on the toolbar.\n\nLearn more on [Focusability of disabled\ncontrols](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#focusabilityofdisabledcontrols).\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)",
         "name": "accessibleWhenDisabled",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
@@ -818,7 +818,7 @@
         "defaultValue": {
           "value": "false"
         },
-        "description": "Determines if the element is disabled. This sets the `aria-disabled`\nattribute accordingly, enabling support for all elements, including those\nthat don't support the native `disabled` attribute.\n\nThis feature can be combined with the\n[`accessibleWhenDisabled`](https://ariakit.org/reference/focusable#accessiblewhendisabled)\nprop to make disabled elements still accessible via keyboard.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Submenu](https://ariakit.org/examples/menu-nested)\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)\n- [Context Menu](https://ariakit.org/examples/menu-context-menu)",
+        "description": "Determines if the element is disabled. This sets the `aria-disabled`\nattribute accordingly, enabling support for all elements, including those\nthat don't support the native `disabled` attribute.\n\nThis feature can be combined with the\n[`accessibleWhenDisabled`](https://ariakit.org/reference/focusable#accessiblewhendisabled)\nprop to make disabled elements still accessible via keyboard.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Submenu](https://ariakit.org/examples/menu-nested)\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Context Menu](https://ariakit.org/examples/menu-context-menu)",
         "name": "disabled",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
@@ -1037,7 +1037,7 @@
         "defaultValue": {
           "value": "true"
         },
-        "description": "Determines whether the dialog is modal. Modal dialogs have distinct states\nand behaviors:\n- The [`portal`](https://ariakit.org/reference/dialog#portal) and\n  [`preventBodyScroll`](https://ariakit.org/reference/dialog#preventbodyscroll)\n  props are set to `true`. They can still be manually set to `false`.\n- When using the [`Heading`](https://ariakit.org/reference/heading) or\n  [`DialogHeading`](https://ariakit.org/reference/dialog-heading)\n  components within the dialog, their level will be reset so they start\n  with `h1`.\n- A visually hidden dismiss button will be rendered if the\n  [`DialogDismiss`](https://ariakit.org/reference/dialog-dismiss) component\n  hasn't been used. This allows screen reader users to close the dialog.\n- When the dialog is open, element tree outside it will be inert.\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)\n- [Dialog with details &\n  summary](https://ariakit.org/examples/dialog-details)\n- [Form with Select](https://ariakit.org/examples/form-select)\n- [Context menu](https://ariakit.org/examples/menu-context-menu)\n- [Responsive Popover](https://ariakit.org/examples/popover-responsive)",
+        "description": "Determines whether the dialog is modal. Modal dialogs have distinct states\nand behaviors:\n- The [`portal`](https://ariakit.org/reference/dialog#portal) and\n  [`preventBodyScroll`](https://ariakit.org/reference/dialog#preventbodyscroll)\n  props are set to `true`. They can still be manually set to `false`.\n- When using the [`Heading`](https://ariakit.org/reference/heading) or\n  [`DialogHeading`](https://ariakit.org/reference/dialog-heading)\n  components within the dialog, their level will be reset so they start\n  with `h1`.\n- A visually hidden dismiss button will be rendered if the\n  [`DialogDismiss`](https://ariakit.org/reference/dialog-dismiss) component\n  hasn't been used. This allows screen reader users to close the dialog.\n- When the dialog is open, element tree outside it will be inert.\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Dialog with details &\n  summary](https://ariakit.org/examples/dialog-details)\n- [Form with Select](https://ariakit.org/examples/form-select)\n- [Context menu](https://ariakit.org/examples/menu-context-menu)\n- [Responsive Popover](https://ariakit.org/examples/popover-responsive)",
         "name": "modal",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
@@ -1435,6 +1435,40 @@
           "name": "enum",
           "raw": "boolean",
           "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "unstable_treeSnapshotKey": {
+        "defaultValue": null,
+        "description": "@private",
+        "name": "unstable_treeSnapshotKey",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "name": "DialogOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "name": "DialogOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number | boolean",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            },
             {
               "value": "false"
             },

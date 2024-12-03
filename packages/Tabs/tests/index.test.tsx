@@ -1,5 +1,5 @@
 import React from 'react'
-import { act, screen, waitFor } from '@testing-library/react'
+import { fireEvent, screen, waitFor } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { Tab, useTab } from '../src'
@@ -52,7 +52,7 @@ const OneTab = () => {
 
 describe('Tabs', () => {
   it('renders an accessible structure', async () => {
-    const { user } = render(<Tabs />)
+    render(<Tabs />)
 
     const tab1 = screen.getByTestId('tab1')
     const tab2 = screen.getByTestId('tab2')
@@ -84,13 +84,15 @@ describe('Tabs', () => {
     expect(activeBar).toBeInTheDocument()
 
     // Simulate click on second tab
-    await act(() => user.click(tab2))
+    fireEvent.click(tab2)
 
     expect(tab1).toHaveAttribute('aria-selected', 'false')
     expect(tab2).toHaveAttribute('aria-selected', 'true')
     expect(tab3).toHaveAttribute('aria-selected', 'false')
 
-    expect(panel1).toHaveAttribute('hidden')
+    await waitFor(() => {
+      expect(panel1).toHaveAttribute('hidden')
+    })
     expect(panel2).not.toHaveAttribute('hidden')
     expect(panel3).toHaveAttribute('hidden')
   })

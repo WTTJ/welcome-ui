@@ -45,7 +45,7 @@
     "props": {
       "combobox": {
         "defaultValue": null,
-        "description": "A reference to a [combobox\nstore](https://ariakit.org/reference/use-combobox-store). This is\nautomatically set when rendering tabs inside a\n[Combobox](https://ariakit.org/components/combobox).\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)",
+        "description": "A reference to a [combobox\nstore](https://ariakit.org/reference/use-combobox-store). This is\nautomatically set when rendering tabs inside a\n[Combobox](https://ariakit.org/components/combobox).\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)",
         "name": "combobox",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
@@ -64,7 +64,7 @@
       },
       "composite": {
         "defaultValue": null,
-        "description": "A reference to another [composite\nstore](https://ariakit.org/reference/use-composite-store). This is\nautomatically set when rendering tabs as part of another composite widget,\nsuch as [Combobox](https://ariakit.org/components/combobox) or\n[Select](https://ariakit.org/components/select).\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)",
+        "description": "A reference to another [composite\nstore](https://ariakit.org/reference/use-composite-store). This is\nautomatically set when rendering tabs as part of another composite widget,\nsuch as [Combobox](https://ariakit.org/components/combobox) or\n[Select](https://ariakit.org/components/select).\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)",
         "name": "composite",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
@@ -123,7 +123,7 @@
       },
       "defaultSelectedId": {
         "defaultValue": null,
-        "description": "The id of the tab whose panel is currently visible. If it's `undefined`, it\nwill be automatically set to the first enabled tab.\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)\n- [Animated TabPanel](https://ariakit.org/examples/tab-panel-animated)",
+        "description": "The id of the tab whose panel is currently visible. If it's `undefined`, it\nwill be automatically set to the first enabled tab.\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Animated TabPanel](https://ariakit.org/examples/tab-panel-animated)\n- [Select with Combobox and\n  Tabs](https://ariakit.org/examples/select-combobox-tab)",
         "name": "defaultSelectedId",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/tab/tab-store.d.ts",
@@ -180,7 +180,7 @@
       },
       "setSelectedId": {
         "defaultValue": null,
-        "description": "Function that will be called when the\n[`selectedId`](https://ariakit.org/reference/tab-provider#selectedid) state\nchanges.\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)",
+        "description": "Function that will be called when the\n[`selectedId`](https://ariakit.org/reference/tab-provider#selectedid) state\nchanges.\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Select with Combobox and\n  Tabs](https://ariakit.org/examples/select-combobox-tab)",
         "name": "setSelectedId",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
@@ -237,7 +237,7 @@
     "props": {
       "accessibleWhenDisabled": {
         "defaultValue": null,
-        "description": "Indicates whether the element should be focusable even when it is\n[`disabled`](https://ariakit.org/reference/focusable#disabled).\n\nThis is important when discoverability is a concern. For example:\n\n> A toolbar in an editor contains a set of special smart paste functions\nthat are disabled when the clipboard is empty or when the function is not\napplicable to the current content of the clipboard. It could be helpful to\nkeep the disabled buttons focusable if the ability to discover their\nfunctionality is primarily via their presence on the toolbar.\n\nLearn more on [Focusability of disabled\ncontrols](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#focusabilityofdisabledcontrols).\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)",
+        "description": "Indicates whether the element should be focusable even when it is\n[`disabled`](https://ariakit.org/reference/focusable#disabled).\n\nThis is important when discoverability is a concern. For example:\n\n> A toolbar in an editor contains a set of special smart paste functions\nthat are disabled when the clipboard is empty or when the function is not\napplicable to the current content of the clipboard. It could be helpful to\nkeep the disabled buttons focusable if the ability to discover their\nfunctionality is primarily via their presence on the toolbar.\n\nLearn more on [Focusability of disabled\ncontrols](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#focusabilityofdisabledcontrols).\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)",
         "name": "accessibleWhenDisabled",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
@@ -327,7 +327,7 @@
         "defaultValue": {
           "value": "false"
         },
-        "description": "Determines if the element is disabled. This sets the `aria-disabled`\nattribute accordingly, enabling support for all elements, including those\nthat don't support the native `disabled` attribute.\n\nThis feature can be combined with the\n[`accessibleWhenDisabled`](https://ariakit.org/reference/focusable#accessiblewhendisabled)\nprop to make disabled elements still accessible via keyboard.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Submenu](https://ariakit.org/examples/menu-nested)\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)\n- [Context Menu](https://ariakit.org/examples/menu-context-menu)",
+        "description": "Determines if the element is disabled. This sets the `aria-disabled`\nattribute accordingly, enabling support for all elements, including those\nthat don't support the native `disabled` attribute.\n\nThis feature can be combined with the\n[`accessibleWhenDisabled`](https://ariakit.org/reference/focusable#accessiblewhendisabled)\nprop to make disabled elements still accessible via keyboard.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Submenu](https://ariakit.org/examples/menu-nested)\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Context Menu](https://ariakit.org/examples/menu-context-menu)",
         "name": "disabled",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
@@ -404,7 +404,7 @@
       },
       "id": {
         "defaultValue": null,
-        "description": "The unique ID of the item. This will be used to register the item in the\nstore and for the element's `id` attribute. If not provided, a unique ID\nwill be automatically generated.\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)\n- [Tab with React Router](https://ariakit.org/examples/tab-react-router)\n- [Animated TabPanel](https://ariakit.org/examples/tab-panel-animated)",
+        "description": "The unique ID of the item. This will be used to register the item in the\nstore and for the element's `id` attribute. If not provided, a unique ID\nwill be automatically generated.\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Tab with React Router](https://ariakit.org/examples/tab-react-router)\n- [Animated TabPanel](https://ariakit.org/examples/tab-panel-animated)\n- [Select with Combobox and\n  Tabs](https://ariakit.org/examples/select-combobox-tab)",
         "name": "id",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/collection/collection-item.d.ts",
@@ -474,6 +474,79 @@
           ]
         }
       },
+      "scrollElement": {
+        "defaultValue": null,
+        "description": "When using the\n[`scrollRestoration`](https://ariakit.org/reference/tab-panel#scrollrestoration)\nprop, the tab panel element serves as the default scroll element. You can\nuse this prop to designate a different element for scrolling.\n\nIf a function is provided, it will be called with the tab panel element as\nan argument. The function should return the element to scroll.\n@example ```jsx\n<TabPanel\n  scrollRestoration\n  scrollElement={(panel) => panel.querySelector(\".scrollable\")}\n/>\n```",
+        "name": "scrollElement",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-panel.d.ts",
+          "name": "TabPanelOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-panel.d.ts",
+            "name": "TabPanelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "HTMLElement | RefObject<HTMLElement> | ((panel: HTMLElement) => HTMLElement)",
+          "value": [
+            {
+              "value": "HTMLElement",
+              "description": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.",
+              "fullComment": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.",
+              "tags": {}
+            },
+            {
+              "value": "RefObject<HTMLElement>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "(panel: HTMLElement) => HTMLElement",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "scrollRestoration": {
+        "defaultValue": {
+          "value": "false"
+        },
+        "description": "Manages the scrolling behavior of the tab panel when it is hidden and then\nshown again.\n\nThis is especially useful when using a single tab panel for multiple tabs,\nwhere you dynamically change the\n[`tabId`](https://ariakit.org/reference/tab-panel#tabid) prop and the\npanel's children, which would otherwise retain the current scroll position\nwhen switching tabs.\n\nWhen set to `true`, the component will save the scroll position and restore\nit when the panel is shown again. When set to `\"reset\"`, the scroll\nposition will reset to the top when the panel is displayed again.\n\nThe default scroll element is the tab panel itself. To scroll a different\nelement, use the\n[`scrollElement`](https://ariakit.org/reference/tab-panel#scrollelement)\nprop.",
+        "name": "scrollRestoration",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-panel.d.ts",
+          "name": "TabPanelOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-panel.d.ts",
+            "name": "TabPanelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean | \"reset\"",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"reset\""
+            }
+          ]
+        }
+      },
       "shouldRegisterItem": {
         "defaultValue": {
           "value": "true"
@@ -506,7 +579,7 @@
       },
       "tabId": {
         "defaultValue": null,
-        "description": "The [`id`](https://ariakit.org/reference/tab#id) of the tab controlling\nthis panel. This connection is used to assign the `aria-labelledby`\nattribute to the tab panel and to determine if the tab panel should be\nvisible.\n\nThis link is automatically established by matching the order of\n[`Tab`](https://ariakit.org/reference/tab) and\n[`TabPanel`](https://ariakit.org/reference/tab-panel) elements in the DOM.\nIf you're rendering a single tab panel, this can be set to a dynamic value\nthat refers to the selected tab.\n\nLive examples:\n- [Combobox with tabs](https://ariakit.org/examples/combobox-tabs)\n- [Tab with React Router](https://ariakit.org/examples/tab-react-router)\n- [Animated TabPanel](https://ariakit.org/examples/tab-panel-animated)",
+        "description": "The [`id`](https://ariakit.org/reference/tab#id) of the tab controlling\nthis panel. This connection is used to assign the `aria-labelledby`\nattribute to the tab panel and to determine if the tab panel should be\nvisible.\n\nThis link is automatically established by matching the order of\n[`Tab`](https://ariakit.org/reference/tab) and\n[`TabPanel`](https://ariakit.org/reference/tab-panel) elements in the DOM.\nIf you're rendering a single tab panel, this can be set to a dynamic value\nthat refers to the selected tab.\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Tab with React Router](https://ariakit.org/examples/tab-react-router)\n- [Animated TabPanel](https://ariakit.org/examples/tab-panel-animated)\n- [Select with Combobox and\n  Tabs](https://ariakit.org/examples/select-combobox-tab)",
         "name": "tabId",
         "parent": {
           "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-panel.d.ts",
