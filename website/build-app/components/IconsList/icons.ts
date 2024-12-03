@@ -35,6 +35,7 @@ export const actions: IconProps['name'][] = [
   'collapse',
   'expand',
   'expand_text',
+  'extend',
   'external_link',
   'heart',
   'heart_outline',
