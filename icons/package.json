@@ -43,7 +43,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "peerDependencies": {
-    "react": "^18.0.0"
+    "react": "^18.3.1"
   },
   "gitHead": "974e7bfd71f8cfe846cbffd678c3860a8952f9e9",
   "homepage": "https://welcome-ui.com/components/icons",

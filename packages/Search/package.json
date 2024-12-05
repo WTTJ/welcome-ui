@@ -58,7 +58,7 @@
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^3.7.3",
-    "react": "^18.0.0",
+    "react": "^18.3.1",
     "styled-components": "^5.3.9"
   },
   "homepage": "https://welcome-ui.com/components/search",
