@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithoutRef } from 'react'
 import {
   compose,
   getPx,
@@ -152,7 +152,7 @@ export type CreateWuiComponent<Component extends As, Options = {}> = {
 // eslint-disable-next-line @typescript-eslint/ban-types
 export const forwardRef = <Component extends As, Props = {}>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  component: React.ForwardRefRenderFunction<any, Props>
+  component: React.ForwardRefRenderFunction<any, PropsWithoutRef<Props>>
 ): CreateWuiComponent<Component, Props> => {
   return React.forwardRef(component) as unknown as CreateWuiComponent<Component, Props>
 }
