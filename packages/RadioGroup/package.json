@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/radio-group",
-  "version": "6.5.0",
+  "version": "6.6.0-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,9 +46,9 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@ariakit/react": "0.4.3",
+    "@ariakit/react": "0.4.15",
     "@welcome-ui/field-group": "^6.5.0",
-    "@welcome-ui/radio": "^6.5.0",
+    "@welcome-ui/radio": "^6.6.0-alpha.0",
     "@welcome-ui/system": "^6.1.1"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/picker",
-  "version": "6.5.0",
+  "version": "6.6.0-alpha.0",
   "description": "welcome-ui: Picker",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -46,7 +46,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@ariakit/react": "0.4.3",
+    "@ariakit/react": "0.4.15",
     "@welcome-ui/box": "^6.1.1",
     "@welcome-ui/field-group": "^6.5.0",
     "@welcome-ui/label": "^6.5.0",
