@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/radio-tab",
-  "version": "6.6.0-alpha.0",
+  "version": "6.6.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.15",
-    "@welcome-ui/button": "^6.6.0-alpha.0",
+    "@welcome-ui/button": "^6.6.0",
     "@welcome-ui/system": "^6.1.1",
     "@welcome-ui/utils": "^6.4.0"
   },

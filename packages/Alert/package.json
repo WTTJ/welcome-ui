@@ -1,6 +1,6 @@
 {
   "name": "@welcome-ui/alert",
-  "version": "6.6.0-alpha.0",
+  "version": "6.6.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,8 +47,8 @@
   },
   "dependencies": {
     "@welcome-ui/box": "^6.1.1",
-    "@welcome-ui/button": "^6.6.0-alpha.0",
-    "@welcome-ui/close-button": "^6.6.0-alpha.0",
+    "@welcome-ui/button": "^6.6.0",
+    "@welcome-ui/close-button": "^6.6.0",
     "@welcome-ui/system": "^6.1.1",
     "@welcome-ui/text": "^6.2.0",
     "@welcome-ui/variant-icon": "^6.5.0"
