@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.7.0](https://github.com/WTTJ/welcome-ui/compare/v6.6.0...v6.7.0) (2024-12-16)
+
+
+### Features
+
+* add AssetDrawer sub component ([#2635](https://github.com/WTTJ/welcome-ui/issues/2635)) ([b76cd4d](https://github.com/WTTJ/welcome-ui/commit/b76cd4d3e8220fe880d5f576932bcd73230c26ae))
+
+
+
+
+
 # [6.5.0](https://github.com/WTTJ/welcome-ui/compare/v6.4.2...v6.5.0) (2024-12-03)
 
 **Note:** Version bump only for package @welcome-ui/drawer
