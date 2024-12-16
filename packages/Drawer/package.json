@@ -47,8 +47,11 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.15",
+    "@welcome-ui/button": "^6.6.0",
     "@welcome-ui/box": "^6.1.1",
     "@welcome-ui/close-button": "^6.6.0",
+    "@welcome-ui/icon": "^6.1.1",
+    "@welcome-ui/icons": "^6.5.0",
     "@welcome-ui/system": "^6.1.1",
     "@welcome-ui/text": "^6.2.0",
     "@welcome-ui/utils": "^6.4.0"

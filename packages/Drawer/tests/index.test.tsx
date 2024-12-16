@@ -2,7 +2,7 @@ import React from 'react'
 import { act, screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
-import { Drawer, useDrawer } from '../src'
+import { AssetDrawer, Drawer, useDrawer } from '../src'
 
 describe('<Drawer>', () => {
   it('should render correctly', async () => {
@@ -73,5 +73,31 @@ describe('<Drawer>', () => {
     await act(() => user.click(screen.getByText('open')))
 
     expect(screen.queryByRole('dialog')).toHaveTextContent('test')
+  })
+
+  it('should render correctly AssetDrawer', async () => {
+    const Test = () => {
+      const drawer = useDrawer()
+
+      return (
+        <>
+          <AssetDrawer.Trigger store={drawer}>open</AssetDrawer.Trigger>
+          <AssetDrawer aria-label="drawer" store={drawer}>
+            <AssetDrawer.Header title="title" />
+            test
+          </AssetDrawer>
+        </>
+      )
+    }
+
+    const { user } = render(<Test />)
+
+    expect(screen.queryByRole('dialog')).toBeNull()
+
+    await act(() => user.click(screen.getByText('open')))
+
+    expect(screen.queryByRole('dialog')).toHaveTextContent('test')
+
+    expect(screen.queryByRole('dialog')).toHaveTextContent('title')
   })
 })
