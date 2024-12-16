@@ -7,6 +7,8 @@ import { Content } from './Content'
 import { Footer } from './Footer'
 import { Title } from './Title'
 import * as S from './styles'
+import { AssetDrawerComponent } from './AssetDrawer'
+import { Header } from './AssetDrawer/Header'
 
 export type Placement = 'top' | 'right' | 'bottom' | 'left'
 export type Size = 'sm' | 'md' | 'lg' | 'auto' | string
@@ -100,3 +102,5 @@ export const Drawer = Object.assign(DrawerComponent, {
   Content,
   Footer,
 })
+
+export const AssetDrawer = Object.assign(AssetDrawerComponent, { Trigger, Header })

@@ -65,6 +65,7 @@ export default {
   "/DateTimePicker/docs/examples/overview.tsx": dynamic(() => import("../../packages/DateTimePicker/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/DateTimePicker/docs/examples/sizes.tsx": dynamic(() => import("../../packages/DateTimePicker/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/DateTimePicker/docs/examples/transparent.tsx": dynamic(() => import("../../packages/DateTimePicker/docs/examples/transparent.tsx").then(mod => mod), { ssr: false }),
+  "/Drawer/docs/examples/asset.tsx": dynamic(() => import("../../packages/Drawer/docs/examples/asset.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/backdrop.tsx": dynamic(() => import("../../packages/Drawer/docs/examples/backdrop.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/layout.tsx": dynamic(() => import("../../packages/Drawer/docs/examples/layout.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/overview.tsx": dynamic(() => import("../../packages/Drawer/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
