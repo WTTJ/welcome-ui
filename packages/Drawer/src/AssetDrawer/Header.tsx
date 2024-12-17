@@ -60,13 +60,17 @@ export const Header: React.FC<HeaderProps> = ({
         )}
         {!!icon && <IconBlock icon={icon} />}
         <Box display="flex" flexDirection="column" gap="xxs">
-          <Text variant="h3">{title}</Text>
+          <Text pr="xl" variant="h3">
+            {title}
+          </Text>
           {subtitle}
         </Box>
       </Box>
-      <Box alignItems="center" display="flex" flexShrink={0} gap="md">
-        {action}
-      </Box>
+      {action && (
+        <Box alignItems="center" display="flex" flexShrink={0} gap="md">
+          {action}
+        </Box>
+      )}
     </Box>
   )
 }
