@@ -20,9 +20,8 @@ const Example = () => {
             </>
           }
           icon={UserIcon}
-          subtitle="Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam
-        nec, convallis sit amet erat."
-          title="Praesent sit amet quam"
+          subtitle="Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam nec, convallis sit amet erat."
+          title="Praesent sit amet quam faucibus dapibus"
         />
         Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam
         nec, convallis sit amet erat. Mauris auctor blandit porta.Praesent sit amet quam ac velit
