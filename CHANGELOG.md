@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.7.1](https://github.com/WTTJ/welcome-ui/compare/v6.7.0...v6.7.1) (2024-12-17)
+
+
+### Bug Fixes
+
+* component AssetDrawer header margin ([#2636](https://github.com/WTTJ/welcome-ui/issues/2636)) ([2905e43](https://github.com/WTTJ/welcome-ui/commit/2905e43900fc04ddd50f7b58fec82c9d43927a52))
+
+
+
+
+
 # [6.7.0](https://github.com/WTTJ/welcome-ui/compare/v6.6.0...v6.7.0) (2024-12-16)
 
 
