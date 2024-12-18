@@ -39,7 +39,6 @@ body:
         - Drawer
         - DropdownMenu
         - Emoji
-        - EmojiPicker
         - Field
         - FileDrop
         - FileUpload
