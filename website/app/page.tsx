@@ -5,6 +5,8 @@ import { Box } from '@welcome-ui/box'
 import { GithubIcon, HeartIcon, RightIcon } from '@welcome-ui/icons'
 import { Logo, Symbol } from '@welcome-ui/logo'
 import React from 'react'
+import { Test as TestChild } from 'welcome-ui/Test'
+import { Test } from 'welcome-ui'
 
 import { Components } from '@/build-app/components/Homepage/Components'
 import { Stats } from '@/build-app/components/Homepage/Stats'
@@ -15,6 +17,8 @@ const Home = () => {
   return (
     <main>
       <Section backgroundColor="beige-30">
+        <Test>Monorepoooooo</Test>
+        <TestChild>as child</TestChild>
         <Text as="span" color="neutral-90" textTransform="uppercase" variant="subtitle-md">
           Welcome UI
         </Text>
