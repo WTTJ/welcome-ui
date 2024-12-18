@@ -16,9 +16,9 @@ export async function generateStaticParams() {
 const Page = ({ params }: PageProps) => {
   const { id, subPage } = params
 
-  const { contentWithoutMatter, isNotFound, tree } = getPageContent(
-    `components/${id}/${subPage}.mdx`
-  )
+  const { contentWithoutMatter, isNotFound, tree } = getPageContent({
+    filename: `components/${id}/${subPage}.mdx`,
+  })
 
   if (isNotFound) return notFound()
 
