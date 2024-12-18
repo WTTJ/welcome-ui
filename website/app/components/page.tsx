@@ -29,7 +29,10 @@ const Page = () => {
           </Text>
           <Grid gap="lg" templateColumns={{ _: '1fr', lg: '1fr 1fr' }}>
             {category.pages.map(page => {
-              const { data } = getPageContent(`${getRepository(page.id)}/docs/index.mdx`, true)
+              const { data } = getPageContent({
+                filename: `${getRepository(page.id)}/docs/index.mdx`,
+                isPackage: true,
+              })
 
               return (
                 <Link href={`/components/${page.id}`} key={page.id}>

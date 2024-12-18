@@ -32,7 +32,9 @@ const Page = ({ params }: PageProps) => {
   const pages = getPages('foundations')
   const { id } = params
 
-  const { contentWithoutMatter, isNotFound, tree } = getPageContent(`foundations/${id}.mdx`)
+  const { contentWithoutMatter, isNotFound, tree } = getPageContent({
+    filename: `foundations/${id}.mdx`,
+  })
 
   if (isNotFound) return notFound()
 
