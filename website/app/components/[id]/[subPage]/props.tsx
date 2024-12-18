@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation'
+
 import { PageProps } from './page'
 
 import { Properties } from '@/build-app/components/Props'
@@ -17,7 +19,7 @@ const Page = ({ params }: PageProps) => {
   const { id } = params
   const properties = getComponentProperties(getRepository(id))
 
-  if (!properties) return null
+  if (!properties) return notFound()
 
   const tree = getPropertiesTree(properties)
 

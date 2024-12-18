@@ -7,6 +7,7 @@
     "build:packages": "yarn lerna run build --ignore @welcome-ui/core",
     "build:types": "yarn lerna run types",
     "build": "yarn webfont:build && yarn build:core && yarn build:packages && yarn build:types && yarn build:docs",
+    "build:monorepo": "cd lib && yarn build",
     "check:audit": "/bin/bash -c 'yarn audit --level critical; [[ $? -ge 16 ]] && exit 1 || exit 0'",
     "check:deps": "yarn lerna exec --no-bail --stream depcheck",
     "clean": "yarn lerna clean",
@@ -34,6 +35,7 @@
     "release": "yarn lerna version --conventional-commits --no-private",
     "dev:prerelease": "yarn lerna version --no-private --preid alpha",
     "start": "yarn website:dev",
+    "start:monorepo": "cd lib && yarn start",
     "test": "yarn jest",
     "watch": "onchange 'packages/**/*.ts*' -e '**/dist/**' -- node -r esm scripts/watch.js {{changed}}",
     "webfont:build": "node -r esm scripts/webfont-build.js --force && yarn build:packages --scope @welcome-ui/icons.font",
@@ -47,7 +49,8 @@
     "icons",
     "icons/**/*",
     "../icons/**/*",
-    "website"
+    "website",
+    "lib"
   ],
   "repository": {
     "type": "git",
@@ -89,7 +92,6 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
-    "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/emoji-mart": "3.0.14",
     "@types/jest": "^29.5.13",

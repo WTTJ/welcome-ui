@@ -48,6 +48,7 @@ jobs:
           paths:
             - ~/.cache/yarn
             - ~/welcome-ui/node_modules
+            - ~/welcome-ui/lib/node_modules
             - ~/welcome-ui/website/node_modules
 
   vulnerabilities_yarn:
@@ -71,11 +72,13 @@ jobs:
       - *checkout
       - *restore_node_modules
       - run: yarn icons:build
+      - run: yarn build:monorepo
       - run: yarn build
       - persist_to_workspace:
           root: ~/welcome-ui
           paths:
             - packages/**/dist
+            - lib/dist
             - packages/Themes/**/dist
             - icons/dist
             - packages/IconFont/fonts

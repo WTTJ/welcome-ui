@@ -7,6 +7,9 @@ import kebabCase from 'lodash/kebabCase'
 import { PageTree } from '../types'
 import { replaceMdxRegex } from '../constants/regex'
 
+import { getComponentProperties } from './components-properties'
+import { getRepository } from './transform-name'
+
 type Parent = 'components'
 
 function getComponentSubPages(id: string) {
@@ -14,7 +17,15 @@ function getComponentSubPages(id: string) {
   const folder = join(process.cwd(), directory)
   const folderExist = existsSync(folder)
 
-  if (!folderExist) return ['props']
+  if (!folderExist) {
+    const withProperties = getComponentProperties(getRepository(id))
+
+    if (withProperties) {
+      return ['props']
+    }
+
+    return []
+  }
 
   const subPages = []
 

@@ -6,6 +6,7 @@ import { Alert } from '@welcome-ui/alert'
 import { Colors } from '../Colors'
 import { Theme } from '../Theme'
 import { IconListProps, IconsList } from '../IconsList'
+import { MIGRATED_PACKAGES } from '../../../../migrated_packages'
 
 import { Playground } from './Playground'
 
@@ -52,15 +53,22 @@ export const Div = ({ children, node }: DivProps) => {
     const withCodeEditor = node?.properties?.dataPlaygroundWithCodeEditor || 'true'
     const isOverview = node?.properties?.dataOverview || ''
 
-    const pathToFile = join(
-      process.cwd(),
-      '../',
-      'packages',
-      component,
-      'docs',
-      'examples',
-      playgroundFile
-    )
+    const isMigratedPackage = MIGRATED_PACKAGES.includes(component)
+
+    const pathToFile = isMigratedPackage
+      ? join(
+          process.cwd(),
+          '../',
+          'lib',
+          'src',
+          'components',
+          component,
+          'docs',
+          'examples',
+          playgroundFile
+        )
+      : join(process.cwd(), '../', 'packages', component, 'docs', 'examples', playgroundFile)
+
     const fileExist = existsSync(pathToFile)
 
     if (!fileExist) {
@@ -69,13 +77,18 @@ export const Div = ({ children, node }: DivProps) => {
 
     const code = readFileSync(pathToFile, 'utf8')
 
+    const pathToFileFormatted = pathToFile.split(
+      isMigratedPackage ? 'components' : 'packages'
+    )[1] as keyof typeof examples
+
     return (
       <Playground
         code={`${code}`}
+        isMigratedPackage={isMigratedPackage}
         isOverview={isOverview === 'true'}
         mt={playgroundFile === 'overview.tsx' ? 0 : undefined}
         name={component}
-        pathToFile={pathToFile.split('packages')[1] as keyof typeof examples}
+        pathToFile={pathToFileFormatted}
         withCodeEditor={withCodeEditor?.toLowerCase() === 'true'}
       />
     )
