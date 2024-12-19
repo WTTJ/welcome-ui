@@ -1,0 +1,12 @@
+{
+  "extends": "wttj-config/lib/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "outDir": ".",
+    "baseUrl": "./lib/src",
+    "sourceMap": false,
+    "declaration": true,
+    "target": "ES6"
+  },
+  "include": ["src"],
+  "exclude": ["**/docs/**"]
+}

@@ -19,10 +19,10 @@ const Page = ({ params }: PageProps) => {
   const { id } = params
   const componentName = getRepository(id)
 
-  const { contentWithoutMatter, data, isNotFound, tree } = getPageContent(
-    `${componentName}/docs/index.mdx`,
-    true
-  )
+  const { contentWithoutMatter, data, isNotFound, tree } = getPageContent({
+    filename: `${componentName}/docs/index.mdx`,
+    isPackage: true,
+  })
 
   if (isNotFound) return notFound()
 
@@ -30,7 +30,11 @@ const Page = ({ params }: PageProps) => {
     <>
       <main>
         <Mdx>{`<div data-playground="overview.tsx" data-component="${componentName}" data-overview="true"></div>`}</Mdx>
-        <Installation packageName={data?.packageName} usage={data?.usage || data?.title} />
+        <Installation
+          packageName={data?.packageName}
+          title={data?.title}
+          usage={data?.usage || data?.title}
+        />
         <Mdx>## Examples</Mdx>
         <Mdx>{contentWithoutMatter}</Mdx>
       </main>
