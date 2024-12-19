@@ -38,7 +38,7 @@ const Page = ({ params }: PageProps) => {
 
   return (
     <>
-      <main>
+      <main style={{ display: 'inherit', maxWidth: '100%' }}>
         overview example
         <Mdx>{contentWithoutMatter}</Mdx>
       </main>

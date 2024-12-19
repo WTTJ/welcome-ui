@@ -24,7 +24,7 @@ const Page = ({ params }: PageProps) => {
 
   return (
     <>
-      <main>
+      <main style={{ display: 'inherit', maxWidth: '100%' }}>
         <Mdx>{contentWithoutMatter}</Mdx>
       </main>
       <TableOfContent isSubPage tree={tree} />

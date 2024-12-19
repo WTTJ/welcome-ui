@@ -13,7 +13,7 @@ import { Section } from '@/build-app/components/Section'
 
 const Home = () => {
   return (
-    <main>
+    <main style={{ display: 'inherit', maxWidth: '100%' }}>
       <Section backgroundColor="beige-30">
         <Text as="span" color="neutral-90" textTransform="uppercase" variant="subtitle-md">
           Welcome UI
@@ -104,7 +104,7 @@ const Home = () => {
           w="100%"
         />
       </Section>
-      <Section pt={{ xs: '3xl', md: '6xl' }}>
+      <Section overflow="hidden" pt={{ xs: '3xl', md: '6xl' }}>
         <Logo h={67} />
         <Text
           as="span"

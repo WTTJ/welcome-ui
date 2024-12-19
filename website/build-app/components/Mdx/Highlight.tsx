@@ -52,8 +52,12 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
                       fontSize="14"
                       // eslint-disable-next-line react/no-array-index-key
                       key={key}
-                      whiteSpace="pre-wrap"
                       {...getTokenProps({ token })}
+                      style={{
+                        ...getTokenProps({ token }).style,
+                        wordBreak: 'break-all',
+                      }}
+                      whiteSpace="pre-line"
                     />
                   )
                 })}

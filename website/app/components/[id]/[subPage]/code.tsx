@@ -28,7 +28,7 @@ const Page = ({ params }: PageProps) => {
 
   return (
     <>
-      <main>
+      <main style={{ display: 'inherit', maxWidth: '100%' }}>
         <Mdx>{`<div data-playground="overview.tsx" data-component="${componentName}" data-overview="true"></div>`}</Mdx>
         <Installation packageName={data?.packageName} usage={data?.usage || data?.title} />
         <Mdx>## Examples</Mdx>
