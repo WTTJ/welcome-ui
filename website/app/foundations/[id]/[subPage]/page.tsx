@@ -31,7 +31,7 @@ const Page = ({ params }: PageProps) => {
 
   return (
     <>
-      <main>
+      <main style={{ display: 'inherit', maxWidth: '100%' }}>
         <Mdx>{contentWithoutMatter}</Mdx>
         <PrevNextPage basePage="foundations" currentId={`${id}/${subPage}`} pages={pages} />
       </main>

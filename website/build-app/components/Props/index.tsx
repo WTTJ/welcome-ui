@@ -114,14 +114,16 @@ export const Property = ({ id, name, options }: PropertyProps) => {
         <Code>{name}</Code>
         {required && <Badge variant="primary">Required</Badge>}
       </Flex>
-      <Text color="neutral-90">
+      {/* TODO: needs Text  upgrade to have the wordBreak property */}
+      <Text color="neutral-90" style={{ wordBreak: 'break-word' }}>
         {getType(type)}
         <Box as="span" color="neutral-70">
           {defaultLabel && ` | undefined = ${defaultLabel}`}
         </Box>
       </Text>
       {description && (
-        <Text mt="sm" variant="sm">
+        //  TODO: needs Text  upgrade to have the wordBreak property
+        <Text mt="sm" style={{ wordBreak: 'break-word' }} variant="sm">
           {description}
         </Text>
       )}
