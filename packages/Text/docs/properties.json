@@ -110,6 +110,58 @@
             }
           ]
         }
+      },
+      "wordBreak": {
+        "defaultValue": null,
+        "description": "",
+        "name": "wordBreak",
+        "parent": {
+          "fileName": "Text/src/index.tsx",
+          "name": "TextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "Text/src/index.tsx",
+            "name": "TextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "WordBreak",
+          "value": [
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"-moz-initial\""
+            },
+            {
+              "value": "\"initial\""
+            },
+            {
+              "value": "\"revert\""
+            },
+            {
+              "value": "\"revert-layer\""
+            },
+            {
+              "value": "\"unset\""
+            },
+            {
+              "value": "\"break-all\""
+            },
+            {
+              "value": "\"break-word\""
+            },
+            {
+              "value": "\"keep-all\""
+            },
+            {
+              "value": "\"normal\""
+            }
+          ]
+        }
       }
     }
   }

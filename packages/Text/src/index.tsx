@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { type CSSProperties } from 'react'
 import { CreateWuiProps, forwardRef } from '@welcome-ui/system'
 
 import * as S from './styles'
@@ -25,6 +25,7 @@ export interface TextOptions {
   lines?: number
   variant?: Variant
   withDash?: boolean
+  wordBreak?: CSSProperties['wordBreak']
 }
 
 export type TextProps = CreateWuiProps<'p', TextOptions>
