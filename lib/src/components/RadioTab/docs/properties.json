@@ -1,0 +1,147 @@
+{
+  "RadioTab": {
+    "props": {
+      "checked": {
+        "defaultValue": null,
+        "description": "",
+        "name": "checked",
+        "parent": {
+          "fileName": "lib/src/components/RadioTab/index.tsx",
+          "name": "RadioTabsOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/RadioTab/index.tsx",
+            "name": "RadioTabsOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "lib/src/components/RadioTab/index.tsx",
+          "name": "RadioTabsOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/RadioTab/index.tsx",
+            "name": "RadioTabsOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disabledIcon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabledIcon",
+        "parent": {
+          "fileName": "lib/src/components/RadioTab/index.tsx",
+          "name": "RadioTabsOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/RadioTab/index.tsx",
+            "name": "RadioTabsOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactElement<any, string | JSXElementConstructor<any>>"
+        }
+      },
+      "label": {
+        "defaultValue": null,
+        "description": "",
+        "name": "label",
+        "parent": {
+          "fileName": "lib/src/components/RadioTab/index.tsx",
+          "name": "RadioTabsOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/RadioTab/index.tsx",
+            "name": "RadioTabsOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "ReactElement<any, string | JSXElementConstructor<any>>"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "lib/src/components/RadioTab/index.tsx",
+          "name": "RadioTabsOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/RadioTab/index.tsx",
+            "name": "RadioTabsOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      },
+      "value": {
+        "defaultValue": null,
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "lib/src/components/RadioTab/index.tsx",
+          "name": "RadioTabsOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/RadioTab/index.tsx",
+            "name": "RadioTabsOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

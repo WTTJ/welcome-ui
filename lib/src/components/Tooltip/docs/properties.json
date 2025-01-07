@@ -1,0 +1,27 @@
+{
+  "Tooltip": {
+    "props": {
+      "gutter": {
+        "defaultValue": {
+          "value": 8
+        },
+        "description": "The distance between the popover and the anchor element.\n\nLive examples:\n- [Combobox filtering](https://ariakit.org/examples/combobox-filtering)\n- [Form with Select](https://ariakit.org/examples/form-select)\n- [Hovercard with keyboard support](https://ariakit.org/examples/hovercard-disclosure)\n- [MenuItemRadio](https://ariakit.org/examples/menu-item-radio)\n- [Submenu](https://ariakit.org/examples/menu-nested)\n- [Toolbar with Select](https://ariakit.org/examples/toolbar-select)",
+        "name": "gutter",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tooltip/tooltip.d.ts",
+          "name": "TooltipOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tooltip/tooltip.d.ts",
+            "name": "TooltipOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      }
+    }
+  }
+}

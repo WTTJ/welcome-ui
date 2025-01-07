@@ -1,0 +1,143 @@
+{
+  "FileUpload": {
+    "props": {
+      "accept": {
+        "defaultValue": {
+          "value": "*/*"
+        },
+        "description": "Pass a comma-separated string of file types e.g. \"image/png\" or \"image/png,image/jpeg\"",
+        "name": "accept",
+        "parent": {
+          "fileName": "lib/src/components/FileUpload/index.tsx",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/FileUpload/index.tsx",
+            "name": "FileUploadOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "handleAddFile": {
+        "defaultValue": null,
+        "description": "",
+        "name": "handleAddFile",
+        "parent": {
+          "fileName": "lib/src/components/FileUpload/index.tsx",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/FileUpload/index.tsx",
+            "name": "FileUploadOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(files: FileWithPreviewType | FileWithPreviewType[]) => void"
+        }
+      },
+      "handleRemoveFile": {
+        "defaultValue": null,
+        "description": "",
+        "name": "handleRemoveFile",
+        "parent": {
+          "fileName": "lib/src/components/FileUpload/index.tsx",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/FileUpload/index.tsx",
+            "name": "FileUploadOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "HandleRemoveType"
+        }
+      },
+      "maxSize": {
+        "defaultValue": {
+          "value": 2000000
+        },
+        "description": "",
+        "name": "maxSize",
+        "parent": {
+          "fileName": "lib/src/components/FileUpload/index.tsx",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/FileUpload/index.tsx",
+            "name": "FileUploadOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "onBlur": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onBlur",
+        "parent": {
+          "fileName": "lib/src/components/FileUpload/index.tsx",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/FileUpload/index.tsx",
+            "name": "FileUploadOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "lib/src/components/FileUpload/index.tsx",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/FileUpload/index.tsx",
+            "name": "FileUploadOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: { preventDefault: () => void; target: Record<string, unknown>; }) => void"
+        }
+      },
+      "preview": {
+        "defaultValue": null,
+        "description": "",
+        "name": "preview",
+        "parent": {
+          "fileName": "lib/src/components/FileUpload/index.tsx",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/FileUpload/index.tsx",
+            "name": "FileUploadOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "FC<FileUploadPreviewProps>"
+        }
+      }
+    }
+  }
+}

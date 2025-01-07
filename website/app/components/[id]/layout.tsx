@@ -64,7 +64,9 @@ const Layout = ({ children, params }: LayoutProps) => {
               </Tag>
             </Tooltip>
           )}
-          <Text variant="h1">{title}</Text>
+          <Text mt={!isMigratedPackage && '3xl'} variant="h1">
+            {title}
+          </Text>
           {description && (
             <Text color="neutral-60" pt="lg" variant="lg">
               {description}

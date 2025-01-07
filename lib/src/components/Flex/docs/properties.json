@@ -1,0 +1,424 @@
+{
+  "Flex": {
+    "props": {
+      "align": {
+        "defaultValue": null,
+        "description": "same as alignItems",
+        "name": "align",
+        "parent": {
+          "fileName": "lib/src/components/Flex/index.tsx",
+          "name": "FlexOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Flex/index.tsx",
+            "name": "FlexOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "SystemProp<AlignItems, Theme>",
+          "value": [
+            {
+              "value": "\"-moz-initial\""
+            },
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"initial\""
+            },
+            {
+              "value": "\"revert\""
+            },
+            {
+              "value": "\"revert-layer\""
+            },
+            {
+              "value": "\"unset\""
+            },
+            {
+              "value": "\"center\""
+            },
+            {
+              "value": "\"end\""
+            },
+            {
+              "value": "\"flex-end\""
+            },
+            {
+              "value": "\"flex-start\""
+            },
+            {
+              "value": "\"self-end\""
+            },
+            {
+              "value": "\"self-start\""
+            },
+            {
+              "value": "\"start\""
+            },
+            {
+              "value": "\"baseline\""
+            },
+            {
+              "value": "\"normal\""
+            },
+            {
+              "value": "\"stretch\""
+            },
+            {
+              "value": "string & {}"
+            },
+            {
+              "value": "ThemeProp<AlignItems, Theme>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "basis": {
+        "defaultValue": null,
+        "description": "same as flexBasis",
+        "name": "basis",
+        "parent": {
+          "fileName": "lib/src/components/Flex/index.tsx",
+          "name": "FlexOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Flex/index.tsx",
+            "name": "FlexOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "SystemProp<string | number | (string & {}), Theme>",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            },
+            {
+              "value": "string & {}"
+            },
+            {
+              "value": "ThemeProp<string | number | (string & {}), Theme>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "direction": {
+        "defaultValue": null,
+        "description": "same as flexDirection",
+        "name": "direction",
+        "parent": {
+          "fileName": "lib/src/components/Flex/index.tsx",
+          "name": "FlexOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Flex/index.tsx",
+            "name": "FlexOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "SystemProp<FlexDirection, Theme>",
+          "value": [
+            {
+              "value": "\"row\""
+            },
+            {
+              "value": "\"-moz-initial\""
+            },
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"initial\""
+            },
+            {
+              "value": "\"revert\""
+            },
+            {
+              "value": "\"revert-layer\""
+            },
+            {
+              "value": "\"unset\""
+            },
+            {
+              "value": "\"column\""
+            },
+            {
+              "value": "\"column-reverse\""
+            },
+            {
+              "value": "\"row-reverse\""
+            },
+            {
+              "value": "ThemeProp<FlexDirection, Theme>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "grow": {
+        "defaultValue": null,
+        "description": "same as flexGrow",
+        "name": "grow",
+        "parent": {
+          "fileName": "lib/src/components/Flex/index.tsx",
+          "name": "FlexOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Flex/index.tsx",
+            "name": "FlexOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "SystemProp<FlexGrow, Theme>",
+          "value": [
+            {
+              "value": "\"-moz-initial\""
+            },
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"initial\""
+            },
+            {
+              "value": "\"revert\""
+            },
+            {
+              "value": "\"revert-layer\""
+            },
+            {
+              "value": "\"unset\""
+            },
+            {
+              "value": "string & {}"
+            },
+            {
+              "value": "number & {}"
+            },
+            {
+              "value": "ThemeProp<FlexGrow, Theme>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "justify": {
+        "defaultValue": null,
+        "description": "same as justifyContent",
+        "name": "justify",
+        "parent": {
+          "fileName": "lib/src/components/Flex/index.tsx",
+          "name": "FlexOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Flex/index.tsx",
+            "name": "FlexOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "SystemProp<JustifyContent, Theme>",
+          "value": [
+            {
+              "value": "\"right\""
+            },
+            {
+              "value": "\"left\""
+            },
+            {
+              "value": "\"-moz-initial\""
+            },
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"initial\""
+            },
+            {
+              "value": "\"revert\""
+            },
+            {
+              "value": "\"revert-layer\""
+            },
+            {
+              "value": "\"unset\""
+            },
+            {
+              "value": "\"center\""
+            },
+            {
+              "value": "\"end\""
+            },
+            {
+              "value": "\"flex-end\""
+            },
+            {
+              "value": "\"flex-start\""
+            },
+            {
+              "value": "\"start\""
+            },
+            {
+              "value": "\"normal\""
+            },
+            {
+              "value": "\"stretch\""
+            },
+            {
+              "value": "string & {}"
+            },
+            {
+              "value": "\"space-around\""
+            },
+            {
+              "value": "\"space-between\""
+            },
+            {
+              "value": "\"space-evenly\""
+            },
+            {
+              "value": "ThemeProp<JustifyContent, Theme>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "shrink": {
+        "defaultValue": null,
+        "description": "same as flexShrink",
+        "name": "shrink",
+        "parent": {
+          "fileName": "lib/src/components/Flex/index.tsx",
+          "name": "FlexOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Flex/index.tsx",
+            "name": "FlexOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "SystemProp<FlexShrink, Theme>",
+          "value": [
+            {
+              "value": "\"-moz-initial\""
+            },
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"initial\""
+            },
+            {
+              "value": "\"revert\""
+            },
+            {
+              "value": "\"revert-layer\""
+            },
+            {
+              "value": "\"unset\""
+            },
+            {
+              "value": "string & {}"
+            },
+            {
+              "value": "number & {}"
+            },
+            {
+              "value": "ThemeProp<FlexShrink, Theme>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "wrap": {
+        "defaultValue": null,
+        "description": "same as flexWrap",
+        "name": "wrap",
+        "parent": {
+          "fileName": "lib/src/components/Flex/index.tsx",
+          "name": "FlexOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Flex/index.tsx",
+            "name": "FlexOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "SystemProp<FlexWrap, Theme>",
+          "value": [
+            {
+              "value": "\"wrap\""
+            },
+            {
+              "value": "\"-moz-initial\""
+            },
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"initial\""
+            },
+            {
+              "value": "\"revert\""
+            },
+            {
+              "value": "\"revert-layer\""
+            },
+            {
+              "value": "\"unset\""
+            },
+            {
+              "value": "\"nowrap\""
+            },
+            {
+              "value": "\"wrap-reverse\""
+            },
+            {
+              "value": "ThemeProp<FlexWrap, Theme>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      }
+    }
+  }
+}

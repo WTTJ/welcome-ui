@@ -14,3 +14,6 @@ lerna-debug.log
 
 # Fonts
 packages/IconFont/fonts/
+
+# vite
+vite.config.mjs.*

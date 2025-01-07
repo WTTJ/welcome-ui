@@ -7,6 +7,41 @@ import {
 } from '@xstyled/styled-components'
 
 import { mergeDeepRight } from '../../utils/mergeDeepRight'
+import { getAccordions, ThemeAccordions } from '../components/Accordion/theme'
+import { getAlerts, ThemeAlerts } from '../components/Alert/theme'
+import { getAvatars, ThemeAvatars } from '../components/Avatar/theme'
+import { getBadges, ThemeBadges } from '../components/Badge/theme'
+import { getBreadcrumbs, ThemeBreadcrumbs } from '../components/Breadcrumb/theme'
+import { getButtons } from '../components/Button/theme'
+import { getCards, ThemeCards } from '../components/Card/theme'
+import {
+  getDateTimePickerCommon,
+  ThemeDateTimePickerCommon,
+} from '../components/DateTimePickerCommon/theme'
+import { getCheckboxes, ThemeCheckboxes } from '../components/Checkbox/theme'
+import { getDrawers, ThemeDrawers } from '../components/Drawer/theme'
+import { getDropdownMenu, ThemeDropdownMenu } from '../components/DropdownMenu/theme'
+import { getFileDrops, ThemeFileDrops } from '../components/FileDrop/theme'
+import { getHints, ThemeHints } from '../components/Hint/theme'
+import { getLabels, ThemeLabels } from '../components/Label/theme'
+import { getLinks, ThemeLinks } from '../components/Link/theme'
+import { getLoaders, ThemeLoaders } from '../components/Loader/theme'
+import { getIcons, ThemeIcons } from '../components/Icon/theme'
+import { getModals, ThemeModals } from '../components/Modal/theme'
+import { getPagination, ThemePagination } from '../components/Pagination/theme'
+import { getPopovers, ThemePopovers } from '../components/Popover/theme'
+import { getRadios, ThemeRadios } from '../components/Radio/theme'
+import { getRadioTabs, ThemeRadioTabs } from '../components/RadioTab/theme'
+import { getSliders, ThemeSliders } from '../components/Slider/theme'
+import { getSwipers, ThemeSwipers } from '../components/Swiper/theme'
+import { getTables, ThemeTables } from '../components/Table/theme'
+import { getTabs, ThemeTabs } from '../components/Tabs/theme'
+import { getTags, ThemeTags } from '../components/Tag/theme'
+import { getTextareas, ThemeTextareas } from '../components/Textarea/theme'
+import { getToasts, ThemeToasts } from '../components/Toast/theme'
+import { getToggles, ThemeToggles } from '../components/Toggle/theme'
+import { getTooltips, ThemeTooltips } from '../components/Tooltip/theme'
+import { getVariantIcon, ThemeVariantIcon } from '../components/VariantIcon/theme'
 
 import { darkTheme } from './dark'
 import { colors, ThemeColors } from './colors'
@@ -41,6 +76,7 @@ import { shadows, ThemeShadows } from './shadows'
 import { getSpace, ThemeSpace } from './space'
 import { getSelection, ThemeSelection } from './selection'
 import { getFocus, ThemeFocus } from './focus'
+import { getDefaultFields } from './defaultFields'
 
 const DEFAULT_FONT_FAMILY = 'work-sans'
 const DEFAULT_FONT_SIZE = 16
@@ -69,24 +105,51 @@ type XStyledTheme = Omit<XStyledDefaultTheme, OverrideKeys>
 type StyledComponentsTheme = Omit<StyledComponentDefaultTheme, OverrideKeys>
 
 export interface ThemeValues extends XStyledTheme, StyledComponentsTheme {
+  accordions: ThemeAccordions
+  alert: ThemeAlerts
+  avatars: ThemeAvatars
+  badges: ThemeBadges
   borderWidths: ThemeBorderWidths
+  breadcrumbs: ThemeBreadcrumbs
+  cards: ThemeCards
+  checkboxes: ThemeCheckboxes
   colors: ThemeColors
+  dateTimePickerCommon: ThemeDateTimePickerCommon
   defaultLetterSpacing: string
   defaultLineHeight: number
+  drawers: ThemeDrawers
+  dropdownMenu: ThemeDropdownMenu
+  fileDrops: ThemeFileDrops
   focus: ThemeFocus
   fontFaces: ThemeFontFaces
   fontSizes: ThemeFontSizes
   fontWeights: ThemeFontWeights
   fonts: ThemeFonts
   fontsUrl: ThemeFontsUrl
+  hints: ThemeHints
+  icons: ThemeIcons
   inset: ThemeSpace
+  labels: ThemeLabels
   letterSpacings: ThemeLetterSpacings
   lineHeights: ThemeLineHeights
+  links: ThemeLinks
+  loaders: ThemeLoaders
+  modal: ThemeModals
+  pagination: ThemePagination
+  popovers: ThemePopovers
   radii: ThemeRadii
+  radios: ThemeRadios
+  radiosTab: ThemeRadioTabs
   screens: ThemeScreens
   selection: ThemeSelection
   shadows: ThemeShadows
+  sliders: ThemeSliders
   space: ThemeSpace
+  swipers: ThemeSwipers
+  tables: ThemeTables
+  tabs: ThemeTabs
+  tags: ThemeTags
+  textareas: ThemeTextareas
   texts: ThemeTexts
   textsFontFamily: ThemeTextsFontFamily
   textsFontWeights: ThemeTextsFontWeights
@@ -95,12 +158,16 @@ export interface ThemeValues extends XStyledTheme, StyledComponentsTheme {
   toEm: (int: number) => string
   toPx: (int: number) => string
   toRem: (int: number) => string
+  toasts: ThemeToasts
+  toggles: ThemeToggles
+  tooltips: ThemeTooltips
   transformers: {
     border: (value: CSSScalar) => CSSScalar
     px: (value: CSSScalar) => CSSScalar
   }
   transitions: ThemeTransitions
   underline: ThemeUnderline
+  variantIcon: ThemeVariantIcon
 }
 
 export type ThemeFontsUrl =
@@ -108,7 +175,7 @@ export type ThemeFontsUrl =
   | 'https://cdn.welcometothejungle.com/fonts'
   | string
 
-export type Options = {
+export type ThemeProps = {
   [param: string]: unknown
   defaultFontFamily?: string
   defaultFontSize?: number
@@ -119,7 +186,7 @@ export type Options = {
   iconFontFamily?: string
 }
 
-export const createTheme = (options: Options = {}): ThemeValues => {
+export const createTheme = (options: ThemeProps = {}): ThemeValues => {
   const {
     defaultFontFamily = DEFAULT_FONT_FAMILY,
     defaultFontSize = DEFAULT_FONT_SIZE,
@@ -151,19 +218,14 @@ export const createTheme = (options: Options = {}): ThemeValues => {
   theme.fontWeights = fontWeights
   theme.letterSpacings = getLetterSpacings(theme)
   theme.fonts = getFonts(defaultFontFamily, headingFontFamily, iconFontFamily)
+
   theme.borderWidths = borderWidths
-
   theme.screens = screens
-
   theme.space = getSpace(theme)
-
   theme.inset = theme.space
-
   theme.radii = getRadii(theme)
-
   theme.transitions = transitions
   theme.timingFunction = timingFunction
-
   theme.shadows = shadows
 
   theme = mergeDeepRight(theme, rest) as ThemeValues
@@ -177,10 +239,41 @@ export const createTheme = (options: Options = {}): ThemeValues => {
   theme.textsFontColors = getTextFontColors(theme)
   theme.textsTextTransform = getTextsTextTransform()
   theme.texts = getTexts(theme)
+  theme.defaultField = getDefaultFields(theme)
+  theme.icons = getIcons(theme)
 
   // components
-
-  // fields
+  theme.accordions = getAccordions(theme)
+  theme.alerts = getAlerts(theme)
+  theme.avatars = getAvatars(theme)
+  theme.badges = getBadges(theme)
+  theme.breadcrumbs = getBreadcrumbs(theme)
+  theme.buttons = getButtons(theme)
+  theme.cards = getCards(theme)
+  theme.checkboxes = getCheckboxes(theme)
+  theme.dateTimePickerCommon = getDateTimePickerCommon(theme)
+  theme.drawers = getDrawers(theme)
+  theme.dropdownMenu = getDropdownMenu(theme)
+  theme.fileDrops = getFileDrops(theme)
+  theme.hints = getHints(theme)
+  theme.labels = getLabels(theme)
+  theme.links = getLinks(theme)
+  theme.loaders = getLoaders(theme)
+  theme.modals = getModals(theme)
+  theme.pagination = getPagination(theme)
+  theme.popovers = getPopovers(theme)
+  theme.radios = getRadios(theme)
+  theme.radiosTab = getRadioTabs(theme)
+  theme.sliders = getSliders(theme)
+  theme.swipers = getSwipers(theme)
+  theme.tables = getTables(theme)
+  theme.tabs = getTabs(theme)
+  theme.tags = getTags(theme)
+  theme.textareas = getTextareas(theme)
+  theme.toasts = getToasts(theme)
+  theme.toggles = getToggles(theme)
+  theme.tooltips = getTooltips(theme)
+  theme.variantIcon = getVariantIcon(theme)
 
   // states
   theme.states = defaultTheme.states

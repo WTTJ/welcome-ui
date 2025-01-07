@@ -15,14 +15,10 @@ export const getComponentsEntries = () => {
   const entries = componentDirs.reduce(
     (acc, componentName) => {
       const entryPath = resolve(componentsDir, componentName, 'index.tsx')
-      const kababCaseName = componentName
-        .replace(/([a-z])([A-Z])/g, '$1-$2')
-        .replace(/[\s_]+/g, '-')
-        .toLowerCase()
 
       // Only add to entries if the index.tsx file exists
       if (fs.existsSync(entryPath)) {
-        acc[`${kababCaseName}`] = entryPath
+        acc[componentName] = entryPath
       }
 
       return acc

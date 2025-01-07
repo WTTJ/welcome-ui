@@ -1,0 +1,321 @@
+{
+  "InputText": {
+    "props": {
+      "autoFocus": {
+        "defaultValue": null,
+        "description": "",
+        "name": "autoFocus",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "iconPlacement": {
+        "defaultValue": {
+          "value": "left"
+        },
+        "description": "",
+        "name": "iconPlacement",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"right\" | \"left\"",
+          "value": [
+            {
+              "value": "\"right\""
+            },
+            {
+              "value": "\"left\""
+            }
+          ]
+        }
+      },
+      "isClearable": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isClearable",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "name": {
+        "defaultValue": null,
+        "description": "",
+        "name": "name",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "onBlur": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onBlur",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: FocusEvent<HTMLInputElement, Element>) => void"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      },
+      "onFocus": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onFocus",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: FocusEvent<HTMLInputElement, Element>) => void"
+        }
+      },
+      "onKeyDown": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onKeyDown",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: KeyboardEvent<HTMLInputElement>) => void"
+        }
+      },
+      "placeholder": {
+        "defaultValue": null,
+        "description": "",
+        "name": "placeholder",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "transparent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "transparent",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "type": {
+        "defaultValue": {
+          "value": "text"
+        },
+        "description": "",
+        "name": "type",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "value": {
+        "defaultValue": null,
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "lib/src/components/InputText/index.tsx",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/InputText/index.tsx",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+}

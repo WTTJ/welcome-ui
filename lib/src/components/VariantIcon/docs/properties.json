@@ -1,0 +1,104 @@
+{
+  "VariantIcon": {
+    "props": {
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "lib/src/components/VariantIcon/index.tsx",
+          "name": "VariantIconOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/VariantIcon/index.tsx",
+            "name": "VariantIconOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "lib/src/components/VariantIcon/index.tsx",
+          "name": "VariantIconOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/VariantIcon/index.tsx",
+            "name": "VariantIconOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"xl\""
+            },
+            {
+              "value": "\"xxl\""
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "lib/src/components/VariantIcon/index.tsx",
+          "name": "VariantIconOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/VariantIcon/index.tsx",
+            "name": "VariantIconOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"warning\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"default\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

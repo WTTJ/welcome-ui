@@ -1,5 +1,5 @@
 import React from 'react'
-import { screen } from '@testing-library/dom'
+import { screen } from '@testing-library/react'
 
 import { render } from '../../../utils/tests'
 import { Stack } from '../src'

@@ -1,0 +1,628 @@
+{
+  "Select": {
+    "props": {
+      "allowUnselectFromList": {
+        "defaultValue": null,
+        "description": "",
+        "name": "allowUnselectFromList",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "autoComplete": {
+        "defaultValue": {
+          "value": "off"
+        },
+        "description": "We need to add `autoComplete` off to avoid select UI issues when is an input",
+        "name": "autoComplete",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "autoFocus": {
+        "defaultValue": null,
+        "description": "",
+        "name": "autoFocus",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disableCloseOnSelect": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disableCloseOnSelect",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "groupsEnabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "groupsEnabled",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactElement<any, string | JSXElementConstructor<any>>"
+        }
+      },
+      "id": {
+        "defaultValue": null,
+        "description": "",
+        "name": "id",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "isClearable": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isClearable",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "isCreatable": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isCreatable",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "isMultiple": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isMultiple",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "isSearchable": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isSearchable",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "name": {
+        "defaultValue": null,
+        "description": "",
+        "name": "name",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "onBlur": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onBlur",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(value: SelectOptionValue | SelectOptionValue[], event?: CreateEvent) => void"
+        }
+      },
+      "onClick": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onClick",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: MouseEvent<HTMLElement, MouseEvent>) => void"
+        }
+      },
+      "onCreate": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCreate",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(option: string, event: CreateEvent) => void"
+        }
+      },
+      "onFocus": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onFocus",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "options": {
+        "defaultValue": null,
+        "description": "",
+        "name": "options",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "SelectOptionsType"
+        }
+      },
+      "placeholder": {
+        "defaultValue": {
+          "value": "Choose from…"
+        },
+        "description": "",
+        "name": "placeholder",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "renderCreateItem": {
+        "defaultValue": {
+          "value": "(inputValue: string) => `Create \"${inputValue}\"`"
+        },
+        "description": "",
+        "name": "renderCreateItem",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(inputValue: SelectValue) => void"
+        }
+      },
+      "renderGroupHeader": {
+        "defaultValue": null,
+        "description": "",
+        "name": "renderGroupHeader",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(option: SelectOptionGroup) => ReactNode"
+        }
+      },
+      "renderItem": {
+        "defaultValue": {
+          "value": "(item: SelectOption): string => (item ? item.label : EMPTY_STRING)"
+        },
+        "description": "",
+        "name": "renderItem",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(item: unknown, isItemSelected?: boolean) => string | ReactElement<any, string | JSXElementConstructor<any>>"
+        }
+      },
+      "renderMultiple": {
+        "defaultValue": null,
+        "description": "",
+        "name": "renderMultiple",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(values: SelectOption[], handleRemove: (value: string) => void) => ReactElement<any, string | JSXElementConstructor<any>>"
+        }
+      },
+      "transparent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "transparent",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "value": {
+        "defaultValue": null,
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "lib/src/components/Select/index.tsx",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Select/index.tsx",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "SelectValue",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            },
+            {
+              "value": "SelectOption",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "string[]",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "(string | number | SelectOption)[]",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      }
+    }
+  },
+  "StyledSelect": {
+    "props": {}
+  }
+}

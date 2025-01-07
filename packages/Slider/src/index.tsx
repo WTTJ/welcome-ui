@@ -9,7 +9,7 @@ import { Range } from './Range'
 import type { Range as RangeType } from './Range'
 import * as S from './styles'
 
-export type Type = 'left-field' | 'right-field' | 'inline'
+type Type = 'left-field' | 'right-field' | 'inline'
 export type { RangeType }
 export const thumbWidth = 20
 

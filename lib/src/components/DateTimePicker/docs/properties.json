@@ -1,0 +1,173 @@
+{
+  "DateTimePicker": {
+    "props": {
+      "locale": {
+        "defaultValue": null,
+        "description": "",
+        "name": "locale",
+        "parent": {
+          "fileName": "lib/src/components/DateTimePickerCommon/CustomHeader.tsx",
+          "name": "CustomHeaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/DateTimePickerCommon/CustomHeader.tsx",
+            "name": "CustomHeaderOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
+            "name": "ReactDatePickerProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Locale | (Locale & string)",
+          "value": [
+            {
+              "value": "Locale",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "Locale & string"
+            }
+          ]
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "lib/src/components/DatePicker/index.tsx",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/DatePicker/index.tsx",
+            "name": "DatePickerOptions"
+          },
+          {
+            "fileName": "lib/src/components/TimePicker/index.tsx",
+            "name": "TimePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "((date?: Date) => void) & ((date?: Date) => void)"
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+          "name": "CustomInputOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+            "name": "CustomInputOptions"
+          },
+          {
+            "fileName": "lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+            "name": "CustomInputOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            }
+          ]
+        }
+      },
+      "transparent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "transparent",
+        "parent": {
+          "fileName": "lib/src/components/DatePicker/index.tsx",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/DatePicker/index.tsx",
+            "name": "DatePickerOptions"
+          },
+          {
+            "fileName": "lib/src/components/TimePicker/index.tsx",
+            "name": "TimePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "value": {
+        "defaultValue": {
+          "value": "new Date()"
+        },
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "lib/src/components/DatePicker/index.tsx",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/DatePicker/index.tsx",
+            "name": "DatePickerOptions"
+          },
+          {
+            "fileName": "lib/src/components/TimePicker/index.tsx",
+            "name": "TimePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | Date",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Date",
+              "description": "Enables basic storage and retrieval of dates and times.",
+              "fullComment": "Enables basic storage and retrieval of dates and times.",
+              "tags": {}
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 'use client'
 import { createTheme as oldCreateTheme } from '@welcome-ui/core'
-import { createTheme, darkTheme as WuiDarkTheme, WuiProvider, WuiProviderProps } from 'welcome-ui'
+import { createTheme, darkTheme as WuiDarkTheme, WuiProvider } from 'welcome-ui'
+import type { WuiProviderProps } from 'welcome-ui'
 import { useTheme } from 'next-themes'
 import * as React from 'react'
 

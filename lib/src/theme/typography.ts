@@ -1,6 +1,6 @@
 import { CSSObject } from '@xstyled/styled-components'
 
-import { Options, ThemeValues } from '.'
+import { ThemeProps, ThemeValues } from '.'
 
 export type ThemeFontSizes = {
   [key: number]: string
@@ -289,9 +289,9 @@ export type ThemeFonts = {
 }
 
 export const getFonts = (
-  defaultFontFamily: Options['defaultFontFamily'],
-  headingFontFamily: Options['headingFontFamily'],
-  iconFontFamily: Options['iconFontFamily']
+  defaultFontFamily: ThemeProps['defaultFontFamily'],
+  headingFontFamily: ThemeProps['headingFontFamily'],
+  iconFontFamily: ThemeProps['iconFontFamily']
 ): ThemeFonts => {
   return {
     texts: [defaultFontFamily, 'sans-serif'].join(', '),

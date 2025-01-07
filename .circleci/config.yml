@@ -72,8 +72,8 @@ jobs:
       - *checkout
       - *restore_node_modules
       - run: yarn icons:build
-      - run: yarn build:monorepo
       - run: yarn build
+      - run: yarn build:monorepo
       - persist_to_workspace:
           root: ~/welcome-ui
           paths:

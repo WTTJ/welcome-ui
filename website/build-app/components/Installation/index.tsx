@@ -69,7 +69,7 @@ export const Installation = ({ packageName, title, usage }: InstallationProps) =
           <Text>Import component:</Text>
           <Highlight language="shell">
             {isMigratedPackage
-              ? `import { ${usage} } from 'welcome-ui/${packageName}'`
+              ? `import { ${usage} } from 'welcome-ui'`
               : `import { ${usage} } from '@welcome-ui/${packageName}'`}
           </Highlight>
         </Flex>
