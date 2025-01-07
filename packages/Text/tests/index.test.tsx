@@ -60,4 +60,15 @@ describe('<Text>', () => {
     expect(text).toHaveStyleRule('overflow', 'hidden')
     expect(text).toHaveStyleRule('-webkit-line-clamp', '3')
   })
+
+  it('should render correctly with wordBreak property', () => {
+    const { getByTestId } = render(
+      <Text dataTestId="text" wordBreak="break-all">
+        {longContent}
+      </Text>
+    )
+    const text = getByTestId('text')
+
+    expect(text).toHaveStyleRule('word-break', 'break-all')
+  })
 })
