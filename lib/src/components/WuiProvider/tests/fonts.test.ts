@@ -1,4 +1,4 @@
-import { getSource } from './font'
+import { getSource } from '../font'
 
 describe('getSource', () => {
   it('should return correct font-face rules if not variable', () => {

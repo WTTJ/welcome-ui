@@ -1,0 +1,81 @@
+{
+  "Stack": {
+    "props": {
+      "direction": {
+        "defaultValue": {
+          "value": "column"
+        },
+        "description": "",
+        "name": "direction",
+        "parent": {
+          "fileName": "lib/src/components/Stack/index.tsx",
+          "name": "StackOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Stack/index.tsx",
+            "name": "StackOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"row\" | \"column\"",
+          "value": [
+            {
+              "value": "\"row\""
+            },
+            {
+              "value": "\"column\""
+            }
+          ]
+        }
+      },
+      "spacing": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "spacing",
+        "parent": {
+          "fileName": "lib/src/components/Stack/index.tsx",
+          "name": "StackOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Stack/index.tsx",
+            "name": "StackOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"xxs\" | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | \"xxl\"",
+          "value": [
+            {
+              "value": "\"xxs\""
+            },
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"xl\""
+            },
+            {
+              "value": "\"xxl\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

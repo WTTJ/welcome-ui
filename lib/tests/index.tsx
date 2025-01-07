@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import '@testing-library/jest-dom'
 import 'jest-styled-components'
 
-import { createTheme } from '../src'
+import { createTheme } from '../'
 
 type ProviderProps = {
   children?: React.ReactNode

@@ -1,0 +1,36 @@
+---
+ariakit: https://ariakit.org/components/menu
+category: navigation
+description: The Dropdown Menu component is a navigational element that reveals a list of options or actions when triggered by a user interaction, such as clicking a button. It provides a compact and efficient way to present multiple choices without cluttering the interface. Dropdown menus enhance usability by organizing related items in a hierarchical structure, making it easier for users to find and select options.
+packageName: dropdown-menu
+title: DropdownMenu
+---
+
+### Usage
+
+<div data-playground="example.tsx" data-component="DropdownMenu"></div>
+
+### Arrow
+
+Use `DropdownMenu.Arrow` to add an arrow to the dropdown menu
+
+<div data-playground="arrow.tsx" data-component="DropdownMenu"></div>
+
+### Stay open
+
+Use `hideOnClick={false}` on `DropdownMenu.Item` to not closing menu on item click.
+
+<div data-playground="open.tsx" data-component="DropdownMenu"></div>
+
+## useDropdownMenu
+
+We use `useMenuStore` from [Ariakit Menu](https://ariakit.org/reference/use-menu-store) for the state of the dropdown menu with the `animated` flag set to `true` by default.
+
+Pass options to `useDropdownMenu`:
+
+- **defaultOpen**: e.g. `const dropdownMenu = useDropdownMenu({ defaultOpen: true })`
+
+And the hook returns (among other things):
+
+- **useState('open')**: whether the dropdown menu is currently open
+- **hide**: a function to hide the dropdown menu

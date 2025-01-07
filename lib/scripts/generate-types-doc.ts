@@ -6,10 +6,10 @@ import docgen from 'react-docgen-typescript'
 const tsConfigPath = join(process.cwd(), 'tsconfig.json')
 
 const shouldDisplayPropsFiles = [
-  'packages/Utils/dist/types/field-styles.d.ts',
-  'packages/Button/dist/types/index.d.ts',
-  'packages/InputText/dist/types/index.d.ts',
-  'welcome-ui/node_modules/ariakit/ts/Tab/TabStore.d.ts',
+  'lib/src/dist/types/utils/field-styles.d.ts',
+  'lib/src/dist/types/components/Button/index.d.ts',
+  'lib/src/dist/types/components/InputText/index.d.ts',
+  'lib/node_modules/ariakit/ts/Tab/TabStore.d.ts',
 ]
 
 // Get only ComponentOptions declarations for prevent all WuiProps
@@ -76,6 +76,24 @@ const writePropsFile = async (file, content) => {
   return
 }
 
+// check if props entries are empty
+const arePropsEmpty = (obj: { props: Record<string, unknown>; tag: string }) => {
+  // Helper function to check if an object is empty
+  const isEmptyObject = obj => {
+    return obj && typeof obj === 'object' && Object.keys(obj).length === 0
+  }
+
+  // Iterate through all keys in the object
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  return Object.entries(obj).every(([_, value]) => {
+    // If there's a props object, check if it's empty
+    if (value && typeof value === 'object' && 'props' in value) {
+      return isEmptyObject(value.props)
+    }
+    return true // If no props object, consider it valid
+  })
+}
+
 export async function generateTypesDoc() {
   const parentDirectory = resolve(__dirname, '../')
   const componentsDir = resolve(parentDirectory, 'src/components')
@@ -103,7 +121,7 @@ export async function generateTypesDoc() {
     files.forEach(async file => {
       const absolutePath = join(process.cwd(), 'src', 'components', dirent)
       const definitions = getFileDefinitions(`${absolutePath}/${file}`)
-      const componentProps = {}
+      const componentProps = {} as { props: Record<string, unknown>; tag: string }
 
       definitions.forEach(definition => {
         const { displayName, props, tags } = definition
@@ -123,7 +141,7 @@ export async function generateTypesDoc() {
       })
 
       // Write properties.json file check before if has no props
-      if (componentProps?.[0]?.props?.length > 0) {
+      if (!arePropsEmpty(componentProps)) {
         await writePropsFile(absolutePath, componentProps)
       }
     })

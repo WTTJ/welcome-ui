@@ -1,0 +1,53 @@
+{
+  "Card.Cover": {
+    "props": {
+      "shape": {
+        "defaultValue": null,
+        "description": "",
+        "name": "shape",
+        "parent": {
+          "fileName": "lib/src/components/Shape/index.tsx",
+          "name": "ShapeOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Shape/index.tsx",
+            "name": "ShapeOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"circle\" | \"square\"",
+          "value": [
+            {
+              "value": "\"circle\""
+            },
+            {
+              "value": "\"square\""
+            }
+          ]
+        }
+      },
+      "src": {
+        "defaultValue": null,
+        "description": "",
+        "name": "src",
+        "parent": {
+          "fileName": "lib/src/components/Card/Cover.tsx",
+          "name": "CoverOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Card/Cover.tsx",
+            "name": "CoverOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+}

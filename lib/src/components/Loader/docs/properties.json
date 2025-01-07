@@ -1,0 +1,613 @@
+{
+  "Loader": {
+    "props": {
+      "color": {
+        "defaultValue": null,
+        "description": "",
+        "name": "color",
+        "parent": {
+          "fileName": "lib/src/components/Loader/index.tsx",
+          "name": "LoaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Loader/index.tsx",
+            "name": "LoaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Color",
+          "value": [
+            {
+              "value": "string & {}"
+            },
+            {
+              "value": "\"-moz-initial\""
+            },
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"initial\""
+            },
+            {
+              "value": "\"revert\""
+            },
+            {
+              "value": "\"revert-layer\""
+            },
+            {
+              "value": "\"unset\""
+            },
+            {
+              "value": "\"aliceblue\""
+            },
+            {
+              "value": "\"antiquewhite\""
+            },
+            {
+              "value": "\"aqua\""
+            },
+            {
+              "value": "\"aquamarine\""
+            },
+            {
+              "value": "\"azure\""
+            },
+            {
+              "value": "\"beige\""
+            },
+            {
+              "value": "\"bisque\""
+            },
+            {
+              "value": "\"black\""
+            },
+            {
+              "value": "\"blanchedalmond\""
+            },
+            {
+              "value": "\"blue\""
+            },
+            {
+              "value": "\"blueviolet\""
+            },
+            {
+              "value": "\"brown\""
+            },
+            {
+              "value": "\"burlywood\""
+            },
+            {
+              "value": "\"cadetblue\""
+            },
+            {
+              "value": "\"chartreuse\""
+            },
+            {
+              "value": "\"chocolate\""
+            },
+            {
+              "value": "\"coral\""
+            },
+            {
+              "value": "\"cornflowerblue\""
+            },
+            {
+              "value": "\"cornsilk\""
+            },
+            {
+              "value": "\"crimson\""
+            },
+            {
+              "value": "\"cyan\""
+            },
+            {
+              "value": "\"darkblue\""
+            },
+            {
+              "value": "\"darkcyan\""
+            },
+            {
+              "value": "\"darkgoldenrod\""
+            },
+            {
+              "value": "\"darkgray\""
+            },
+            {
+              "value": "\"darkgreen\""
+            },
+            {
+              "value": "\"darkgrey\""
+            },
+            {
+              "value": "\"darkkhaki\""
+            },
+            {
+              "value": "\"darkmagenta\""
+            },
+            {
+              "value": "\"darkolivegreen\""
+            },
+            {
+              "value": "\"darkorange\""
+            },
+            {
+              "value": "\"darkorchid\""
+            },
+            {
+              "value": "\"darkred\""
+            },
+            {
+              "value": "\"darksalmon\""
+            },
+            {
+              "value": "\"darkseagreen\""
+            },
+            {
+              "value": "\"darkslateblue\""
+            },
+            {
+              "value": "\"darkslategray\""
+            },
+            {
+              "value": "\"darkslategrey\""
+            },
+            {
+              "value": "\"darkturquoise\""
+            },
+            {
+              "value": "\"darkviolet\""
+            },
+            {
+              "value": "\"deeppink\""
+            },
+            {
+              "value": "\"deepskyblue\""
+            },
+            {
+              "value": "\"dimgray\""
+            },
+            {
+              "value": "\"dimgrey\""
+            },
+            {
+              "value": "\"dodgerblue\""
+            },
+            {
+              "value": "\"firebrick\""
+            },
+            {
+              "value": "\"floralwhite\""
+            },
+            {
+              "value": "\"forestgreen\""
+            },
+            {
+              "value": "\"fuchsia\""
+            },
+            {
+              "value": "\"gainsboro\""
+            },
+            {
+              "value": "\"ghostwhite\""
+            },
+            {
+              "value": "\"gold\""
+            },
+            {
+              "value": "\"goldenrod\""
+            },
+            {
+              "value": "\"gray\""
+            },
+            {
+              "value": "\"green\""
+            },
+            {
+              "value": "\"greenyellow\""
+            },
+            {
+              "value": "\"grey\""
+            },
+            {
+              "value": "\"honeydew\""
+            },
+            {
+              "value": "\"hotpink\""
+            },
+            {
+              "value": "\"indianred\""
+            },
+            {
+              "value": "\"indigo\""
+            },
+            {
+              "value": "\"ivory\""
+            },
+            {
+              "value": "\"khaki\""
+            },
+            {
+              "value": "\"lavender\""
+            },
+            {
+              "value": "\"lavenderblush\""
+            },
+            {
+              "value": "\"lawngreen\""
+            },
+            {
+              "value": "\"lemonchiffon\""
+            },
+            {
+              "value": "\"lightblue\""
+            },
+            {
+              "value": "\"lightcoral\""
+            },
+            {
+              "value": "\"lightcyan\""
+            },
+            {
+              "value": "\"lightgoldenrodyellow\""
+            },
+            {
+              "value": "\"lightgray\""
+            },
+            {
+              "value": "\"lightgreen\""
+            },
+            {
+              "value": "\"lightgrey\""
+            },
+            {
+              "value": "\"lightpink\""
+            },
+            {
+              "value": "\"lightsalmon\""
+            },
+            {
+              "value": "\"lightseagreen\""
+            },
+            {
+              "value": "\"lightskyblue\""
+            },
+            {
+              "value": "\"lightslategray\""
+            },
+            {
+              "value": "\"lightslategrey\""
+            },
+            {
+              "value": "\"lightsteelblue\""
+            },
+            {
+              "value": "\"lightyellow\""
+            },
+            {
+              "value": "\"lime\""
+            },
+            {
+              "value": "\"limegreen\""
+            },
+            {
+              "value": "\"linen\""
+            },
+            {
+              "value": "\"magenta\""
+            },
+            {
+              "value": "\"maroon\""
+            },
+            {
+              "value": "\"mediumaquamarine\""
+            },
+            {
+              "value": "\"mediumblue\""
+            },
+            {
+              "value": "\"mediumorchid\""
+            },
+            {
+              "value": "\"mediumpurple\""
+            },
+            {
+              "value": "\"mediumseagreen\""
+            },
+            {
+              "value": "\"mediumslateblue\""
+            },
+            {
+              "value": "\"mediumspringgreen\""
+            },
+            {
+              "value": "\"mediumturquoise\""
+            },
+            {
+              "value": "\"mediumvioletred\""
+            },
+            {
+              "value": "\"midnightblue\""
+            },
+            {
+              "value": "\"mintcream\""
+            },
+            {
+              "value": "\"mistyrose\""
+            },
+            {
+              "value": "\"moccasin\""
+            },
+            {
+              "value": "\"navajowhite\""
+            },
+            {
+              "value": "\"navy\""
+            },
+            {
+              "value": "\"oldlace\""
+            },
+            {
+              "value": "\"olive\""
+            },
+            {
+              "value": "\"olivedrab\""
+            },
+            {
+              "value": "\"orange\""
+            },
+            {
+              "value": "\"orangered\""
+            },
+            {
+              "value": "\"orchid\""
+            },
+            {
+              "value": "\"palegoldenrod\""
+            },
+            {
+              "value": "\"palegreen\""
+            },
+            {
+              "value": "\"paleturquoise\""
+            },
+            {
+              "value": "\"palevioletred\""
+            },
+            {
+              "value": "\"papayawhip\""
+            },
+            {
+              "value": "\"peachpuff\""
+            },
+            {
+              "value": "\"peru\""
+            },
+            {
+              "value": "\"pink\""
+            },
+            {
+              "value": "\"plum\""
+            },
+            {
+              "value": "\"powderblue\""
+            },
+            {
+              "value": "\"purple\""
+            },
+            {
+              "value": "\"rebeccapurple\""
+            },
+            {
+              "value": "\"red\""
+            },
+            {
+              "value": "\"rosybrown\""
+            },
+            {
+              "value": "\"royalblue\""
+            },
+            {
+              "value": "\"saddlebrown\""
+            },
+            {
+              "value": "\"salmon\""
+            },
+            {
+              "value": "\"sandybrown\""
+            },
+            {
+              "value": "\"seagreen\""
+            },
+            {
+              "value": "\"seashell\""
+            },
+            {
+              "value": "\"sienna\""
+            },
+            {
+              "value": "\"silver\""
+            },
+            {
+              "value": "\"skyblue\""
+            },
+            {
+              "value": "\"slateblue\""
+            },
+            {
+              "value": "\"slategray\""
+            },
+            {
+              "value": "\"slategrey\""
+            },
+            {
+              "value": "\"snow\""
+            },
+            {
+              "value": "\"springgreen\""
+            },
+            {
+              "value": "\"steelblue\""
+            },
+            {
+              "value": "\"tan\""
+            },
+            {
+              "value": "\"teal\""
+            },
+            {
+              "value": "\"thistle\""
+            },
+            {
+              "value": "\"tomato\""
+            },
+            {
+              "value": "\"transparent\""
+            },
+            {
+              "value": "\"turquoise\""
+            },
+            {
+              "value": "\"violet\""
+            },
+            {
+              "value": "\"wheat\""
+            },
+            {
+              "value": "\"white\""
+            },
+            {
+              "value": "\"whitesmoke\""
+            },
+            {
+              "value": "\"yellow\""
+            },
+            {
+              "value": "\"yellowgreen\""
+            },
+            {
+              "value": "\"ActiveBorder\""
+            },
+            {
+              "value": "\"ActiveCaption\""
+            },
+            {
+              "value": "\"AppWorkspace\""
+            },
+            {
+              "value": "\"Background\""
+            },
+            {
+              "value": "\"ButtonFace\""
+            },
+            {
+              "value": "\"ButtonHighlight\""
+            },
+            {
+              "value": "\"ButtonShadow\""
+            },
+            {
+              "value": "\"ButtonText\""
+            },
+            {
+              "value": "\"CaptionText\""
+            },
+            {
+              "value": "\"GrayText\""
+            },
+            {
+              "value": "\"Highlight\""
+            },
+            {
+              "value": "\"HighlightText\""
+            },
+            {
+              "value": "\"InactiveBorder\""
+            },
+            {
+              "value": "\"InactiveCaption\""
+            },
+            {
+              "value": "\"InactiveCaptionText\""
+            },
+            {
+              "value": "\"InfoBackground\""
+            },
+            {
+              "value": "\"InfoText\""
+            },
+            {
+              "value": "\"Menu\""
+            },
+            {
+              "value": "\"MenuText\""
+            },
+            {
+              "value": "\"Scrollbar\""
+            },
+            {
+              "value": "\"ThreeDDarkShadow\""
+            },
+            {
+              "value": "\"ThreeDFace\""
+            },
+            {
+              "value": "\"ThreeDHighlight\""
+            },
+            {
+              "value": "\"ThreeDLightShadow\""
+            },
+            {
+              "value": "\"ThreeDShadow\""
+            },
+            {
+              "value": "\"Window\""
+            },
+            {
+              "value": "\"WindowFrame\""
+            },
+            {
+              "value": "\"WindowText\""
+            },
+            {
+              "value": "\"currentcolor\""
+            }
+          ]
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "sm"
+        },
+        "description": "Predefined size xs, sm, md, lg or custom size",
+        "name": "size",
+        "parent": {
+          "fileName": "lib/src/components/Loader/index.tsx",
+          "name": "LoaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Loader/index.tsx",
+            "name": "LoaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

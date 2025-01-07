@@ -1,0 +1,235 @@
+{
+  "Textarea": {
+    "props": {
+      "autoFocus": {
+        "defaultValue": null,
+        "description": "",
+        "name": "autoFocus",
+        "parent": {
+          "fileName": "lib/src/components/Textarea/index.tsx",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Textarea/index.tsx",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "lib/src/components/Textarea/index.tsx",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Textarea/index.tsx",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "maxLength": {
+        "defaultValue": null,
+        "description": "",
+        "name": "maxLength",
+        "parent": {
+          "fileName": "lib/src/components/Textarea/index.tsx",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Textarea/index.tsx",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "minRows": {
+        "defaultValue": {
+          "value": 5
+        },
+        "description": "",
+        "name": "minRows",
+        "parent": {
+          "fileName": "lib/src/components/Textarea/index.tsx",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Textarea/index.tsx",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "name": {
+        "defaultValue": null,
+        "description": "",
+        "name": "name",
+        "parent": {
+          "fileName": "lib/src/components/Textarea/index.tsx",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Textarea/index.tsx",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "onBlur": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onBlur",
+        "parent": {
+          "fileName": "lib/src/components/Textarea/index.tsx",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Textarea/index.tsx",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: FocusEvent<HTMLTextAreaElement, Element>) => void"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "lib/src/components/Textarea/index.tsx",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Textarea/index.tsx",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: ChangeEvent<HTMLTextAreaElement>) => void"
+        }
+      },
+      "onFocus": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onFocus",
+        "parent": {
+          "fileName": "lib/src/components/Textarea/index.tsx",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Textarea/index.tsx",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: FocusEvent<HTMLTextAreaElement, Element>) => void"
+        }
+      },
+      "onKeyDown": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onKeyDown",
+        "parent": {
+          "fileName": "lib/src/components/Textarea/index.tsx",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Textarea/index.tsx",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: KeyboardEvent<HTMLTextAreaElement>) => void"
+        }
+      },
+      "placeholder": {
+        "defaultValue": null,
+        "description": "",
+        "name": "placeholder",
+        "parent": {
+          "fileName": "lib/src/components/Textarea/index.tsx",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Textarea/index.tsx",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "value": {
+        "defaultValue": null,
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "lib/src/components/Textarea/index.tsx",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "lib/src/components/Textarea/index.tsx",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+}
