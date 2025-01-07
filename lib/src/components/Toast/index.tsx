@@ -33,7 +33,7 @@ export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = tru
     <ThemeProvider theme={themeContext}>
       {toasts.length > 0 &&
         createPortal(
-          <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+          <div data-wui-persistent onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             {toasts.map(toast => (
               <ToastWrapper
                 calculateOffset={calculateOffset}
