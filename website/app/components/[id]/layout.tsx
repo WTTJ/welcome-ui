@@ -1,13 +1,10 @@
 import { Text } from '@welcome-ui/text'
 import { Flex } from '@welcome-ui/flex'
 import { Button } from '@welcome-ui/button'
-import { CheckIcon, GithubIcon } from '@welcome-ui/icons'
-import { Tag } from '@welcome-ui/tag'
-import { Tooltip } from '@welcome-ui/tooltip'
+import { GithubIcon } from '@welcome-ui/icons'
 
 import { Tabs } from './tabs'
 
-import { MIGRATED_PACKAGES } from '@/../migrated_packages'
 import { Sidebar } from '@/build-app/components/Sidebar'
 import * as Documentation from '@/build-app/layouts/Documentation'
 import { getPages } from '@/build-app/utils/pages-components'
@@ -49,22 +46,12 @@ const Layout = ({ children, params }: LayoutProps) => {
   const description = data?.description
   const ariakitLink = data?.ariakit
 
-  const isMigratedPackage = title && MIGRATED_PACKAGES.includes(title)
-
   return (
     <Documentation.Layout>
       <Sidebar display={{ _: 'none', lg: 'flex' }} isSubPage menu={pages} />
       <div>
         <Flex direction="column" gap="xl" mb="lg">
-          {isMigratedPackage && (
-            <Tooltip content="This component is available on welcome-ui mono-package" zIndex={2}>
-              <Tag mt="3xl" size="sm" variant="success" w="fit-content">
-                <CheckIcon />
-                Migrated
-              </Tag>
-            </Tooltip>
-          )}
-          <Text mt={!isMigratedPackage && '3xl'} variant="h1">
+          <Text mt="3xl" variant="h1">
             {title}
           </Text>
           {description && (
@@ -75,11 +62,7 @@ const Layout = ({ children, params }: LayoutProps) => {
           <Flex align="center" gap="md">
             <Button
               as="a"
-              href={
-                isMigratedPackage
-                  ? `https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components/${title}`
-                  : `https://github.com/WTTJ/welcome-ui/tree/main/packages/${title}`
-              }
+              href={`https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components/${title}`}
               rel="noreferrer noopener"
               size="sm"
               target="_blank"
