@@ -14,7 +14,6 @@ import { openStackBlitz } from '@/build-app/utils/stackblitz'
 
 type PreProps = {
   code: string
-  isMigratedPackage?: boolean
   isOverview?: boolean
   mt?: WuiProps['marginTop']
   name: string
@@ -24,7 +23,6 @@ type PreProps = {
 
 export const Playground = ({
   code,
-  isMigratedPackage,
   isOverview,
   mt = 'xl',
   name,
@@ -112,11 +110,7 @@ export const Playground = ({
               <Tooltip content="View on Github" fixed zIndex={2}>
                 <Button
                   as="a"
-                  href={
-                    isMigratedPackage
-                      ? `https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components${pathToFile}`
-                      : `https://github.com/WTTJ/welcome-ui/tree/main/packages${pathToFile}`
-                  }
+                  href={`https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components${pathToFile}`}
                   rel="noreferrer noopener"
                   shape="circle"
                   size="xs"

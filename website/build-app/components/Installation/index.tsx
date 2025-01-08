@@ -6,15 +6,13 @@ import { Text } from '@welcome-ui/text'
 
 import { H2 } from '../Mdx/Headings'
 import { Highlight } from '../Mdx/Highlight'
-import { MIGRATED_PACKAGES } from '../../../../migrated_packages'
 
 type InstallationProps = {
   packageName?: string
-  title?: string
   usage?: string
 }
 
-export const Installation = ({ packageName, title, usage }: InstallationProps) => {
+export const Installation = ({ packageName, usage }: InstallationProps) => {
   if (!packageName || !usage) {
     return (
       <Alert variant="danger">
@@ -24,8 +22,6 @@ export const Installation = ({ packageName, title, usage }: InstallationProps) =
       </Alert>
     )
   }
-
-  const isMigratedPackage = title && MIGRATED_PACKAGES.includes(title)
 
   return (
     <>
@@ -46,9 +42,7 @@ export const Installation = ({ packageName, title, usage }: InstallationProps) =
         </Flex>
         <Flex flexDirection="column" w="100%">
           <Text>Run the following command:</Text>
-          <Highlight language="shell">
-            {isMigratedPackage ? 'yarn add welcome-ui' : `yarn add @welcome-ui/${packageName}`}
-          </Highlight>
+          <Highlight language="shell">yarn add welcome-ui</Highlight>
         </Flex>
       </Flex>
       <Flex gap="md" mt="xl">
@@ -67,11 +61,7 @@ export const Installation = ({ packageName, title, usage }: InstallationProps) =
         </Flex>
         <Flex flexDirection="column" w="100%">
           <Text>Import component:</Text>
-          <Highlight language="shell">
-            {isMigratedPackage
-              ? `import { ${usage} } from 'welcome-ui'`
-              : `import { ${usage} } from '@welcome-ui/${packageName}'`}
-          </Highlight>
+          <Highlight language="shell">{`import { ${usage} } from 'welcome-ui'`}</Highlight>
         </Flex>
       </Flex>
     </>
