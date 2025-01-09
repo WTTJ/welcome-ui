@@ -1,4 +1,4 @@
-import { Select } from '@welcome-ui/select'
+import { Select } from 'welcome-ui'
 import React from 'react'
 
 import lernaConfig from '../../../../lerna.json'

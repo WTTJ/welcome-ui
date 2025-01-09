@@ -1,4 +1,4 @@
-import { Text } from '@welcome-ui/text'
+import { Text } from 'welcome-ui'
 
 import { Tabs } from './tabs'
 

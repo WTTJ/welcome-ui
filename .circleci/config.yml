@@ -61,8 +61,8 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - run:
-          name: Critical vulnerabilities (yarn audit), lib versions and missing deps
-          command: yarn check:audit && yarn check:deps
+          name: Critical vulnerabilities (yarn audit)
+          command: yarn check:audit
 
   build:
     <<: *default

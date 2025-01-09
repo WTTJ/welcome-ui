@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { act, screen } from '@testing-library/react'
 
 import { Checkbox, CheckboxOptions } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 const CheckboxWrapper = (props: CheckboxOptions) => {
   const [value, setValue] = useState(false)

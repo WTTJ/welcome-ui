@@ -3,9 +3,9 @@ import { act, screen } from '@testing-library/react'
 
 import { SunIcon } from '../../Icons'
 import { Link } from '../../Link'
-import { Icons } from '../../IconFont'
+import { IconFont } from '../../IconFont'
 import { Button } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 import { createTheme } from '../../../theme'
 
 const content = 'Jungle'
@@ -200,7 +200,7 @@ describe('<Button />', () => {
 
     render(
       <Button dataTestId="button" size="sm">
-        <Icons.Sun dataTestId="sun" />
+        <IconFont.Sun dataTestId="sun" />
         <span>{content}</span>
       </Button>
     )
@@ -221,7 +221,7 @@ describe('<Button />', () => {
 
     render(
       <Button dataTestId="button" size="md">
-        <Icons.Sun dataTestId="sun" />
+        <IconFont.Sun dataTestId="sun" />
       </Button>
     )
 

@@ -1,6 +1,4 @@
-import { Box } from '@welcome-ui/box'
-import { CodeBlockIcon, DownloadIcon, StarIcon } from '@welcome-ui/icons'
-import { Text } from '@welcome-ui/text'
+import { Box, CodeBlockIcon, DownloadIcon, StarIcon, Text } from 'welcome-ui'
 
 const stats = [
   {

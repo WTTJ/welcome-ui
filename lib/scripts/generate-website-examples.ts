@@ -2,8 +2,8 @@ import { existsSync, readdirSync, writeFileSync } from 'fs'
 import { join, resolve } from 'path'
 
 function generateWebsiteExamplesPages() {
-  const parentDirectory = resolve(__dirname, '../../')
-  const packagesDirectory = join(parentDirectory, 'packages')
+  const parentDirectory = resolve(__dirname, '../')
+  const packagesDirectory = join(parentDirectory, 'lib/src')
   const packagesDirectoryExist = existsSync(packagesDirectory)
 
   const examples = [] as string[]

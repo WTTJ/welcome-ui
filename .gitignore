@@ -1,19 +1,17 @@
 .env
-dist/
 website/out
 website/.next
-.cache/
 node_modules/
 .DS_Store
 .size-snapshot.json
 yarn-error.log
-lerna-debug.log
 
 # Output of 'npm pack'
 *.tgz
 
 # Fonts
 fonts/
+dist/
 
 # vite
 vite.config.mjs.*

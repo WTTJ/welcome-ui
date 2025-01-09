@@ -2,7 +2,7 @@ import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import styled, { system } from '@xstyled/styled-components'
 
-import { Icons } from '../../IconFont'
+import { IconFont } from '../../IconFont'
 import { Button } from '../../Button'
 import * as S from '../styles'
 import { forwardRef } from '../../System'
@@ -38,7 +38,7 @@ export const Backdrop = forwardRef<'div', BackdropProps>(
         <Ariakit.DialogDismiss
           render={
             <CloseButton shape="circle" variant="secondary">
-              <Icons.Cross />
+              <IconFont.Cross />
             </CloseButton>
           }
         />

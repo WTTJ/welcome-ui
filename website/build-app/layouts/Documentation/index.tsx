@@ -1,4 +1,4 @@
-import { Grid } from '@welcome-ui/grid'
+import { Grid } from 'welcome-ui'
 
 export type LayoutProps = {
   children: React.ReactNode

@@ -92,7 +92,7 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: DropEvent | CreateEvent) => void"
+          "name": "(event: DropEvent | ChangeEvent<HTMLInputElement> | CreateEvent) => void"
         }
       },
       "handleRemoveFile": {
@@ -111,7 +111,7 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: DropEvent | CreateEvent) => void"
+          "name": "(event: DropEvent | ChangeEvent<HTMLInputElement> | CreateEvent) => void"
         }
       },
       "isClearable": {
@@ -224,7 +224,7 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: DropEvent | CreateEvent) => void"
+          "name": "(event: DropEvent | ChangeEvent<HTMLInputElement> | CreateEvent) => void"
         }
       },
       "onError": {

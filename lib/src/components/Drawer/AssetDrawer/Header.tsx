@@ -14,7 +14,7 @@ type HeaderProps = {
    */
   action?: React.ReactNode
   /**
-   * Icon from @welcome-ui/icon on the gray square
+   * Icon from Icon component on the gray square
    */
   icon?: React.FC<IconProps>
   /**

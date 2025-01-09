@@ -1,8 +1,7 @@
 import React from 'react'
 
 import { Box } from '../'
-
-import { render } from './../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 describe('<Box>', () => {
   it('should render correctly', () => {

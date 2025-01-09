@@ -4,26 +4,26 @@ import { act, screen } from '@testing-library/react'
 import { DatePicker } from '../../DatePicker'
 import { TimePicker } from '../../TimePicker'
 import { DateTimePicker } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
-jest.mock('popper.js', () => {
-  const PopperJS = jest.requireActual('popper.js')
+// jest.mock('popper.js', () => {
+//   const PopperJS = jest.requireActual('popper.js')
 
-  return class {
-    static placements = PopperJS.placements
+//   return class {
+//     static placements = PopperJS.placements
 
-    constructor() {
-      return {
-        destroy: () => {
-          return {}
-        },
-        scheduleUpdate: () => {
-          return {}
-        },
-      }
-    }
-  }
-})
+//     constructor() {
+//       return {
+//         destroy: () => {
+//           return {}
+//         },
+//         scheduleUpdate: () => {
+//           return {}
+//         },
+//       }
+//     }
+//   }
+// })
 
 describe('<DateTimePicker />', () => {
   test('<DateTimePicker> renders correctly', () => {

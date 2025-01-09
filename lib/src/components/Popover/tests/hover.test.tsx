@@ -2,7 +2,7 @@ import React from 'react'
 import { act, screen } from '@testing-library/react'
 
 import { PopoverHover, usePopoverHover } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 const contentText = 'Popover open'
 const buttonText = 'open'

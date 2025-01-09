@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { act, screen } from '@testing-library/react'
 
 import { InputText, InputTextOptions } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 const InputTextWrapper: React.FC<InputTextOptions> = props => {
   const [value, setValue] = useState('test')

@@ -1,6 +1,5 @@
 'use client'
-
-import { Tab, useTab } from '@welcome-ui/tabs'
+import { Tab, useTab } from 'welcome-ui'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Picker } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 const PickerOptionElement: React.FC<{ selected: boolean; value: string }> = ({
   selected,

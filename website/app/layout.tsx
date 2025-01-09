@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import { Box } from '@welcome-ui/box'
-import { Notifications } from '@welcome-ui/toast'
+import { Box, Notifications } from 'welcome-ui'
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
 import StyledComponentsRegistry from '@/build-app/registry'
@@ -10,7 +9,7 @@ import { getPages } from '@/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '@/build-app/utils/pages-exports'
 import { Footer } from '@/build-app/components/Footer'
 
-// import '@welcome-ui/icons.font/fonts/welcome-icon-font.css'
+import 'welcome-ui/fonts/welcome-icon-font.css'
 import './global.css'
 
 export const metadata: Metadata = {

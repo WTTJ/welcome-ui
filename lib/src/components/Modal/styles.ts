@@ -70,8 +70,6 @@ export const Dialog = styled.divBox<Pick<ModalOptions, 'size'>>(
   `
 )
 
-export const Content = styled.divBox``
-
 export const Body = styled.sectionBox`
   ${th('modals.body')};
 `

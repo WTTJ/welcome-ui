@@ -6,10 +6,13 @@ import { StyledTag } from '../Tag'
 import { shouldForwardProp } from '../System'
 import { defaultFieldStyles, Size } from '../../utils/field-styles'
 import { overflowEllipsis } from '../../utils/overflow-ellipsis'
+import { Box } from '../Box'
 
 import { SelectOptions } from './index'
 
-export const Wrapper = styled.divBox.withConfig({ shouldForwardProp })<{ disabled: boolean }>(
+export const IconWrapper = styled(WUIIconWrapper)``
+
+export const Wrapper = styled(Box).withConfig({ shouldForwardProp })<{ disabled: boolean }>(
   ({ disabled }) => css`
     position: relative;
     ${system}
@@ -18,8 +21,6 @@ export const Wrapper = styled.divBox.withConfig({ shouldForwardProp })<{ disable
     }
   `
 )
-
-export const IconWrapper = styled(WUIIconWrapper)``
 
 export const InputWrapper = styled.div`
   position: relative;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { fireEvent, screen, waitFor } from '@testing-library/react'
 
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 import { Tab, useTab } from '../'
 
 const Tabs = () => {

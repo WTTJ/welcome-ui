@@ -1,9 +1,4 @@
-import { ExternalLinkIcon, HeartIcon } from '@welcome-ui/icons'
-import { Flex } from '@welcome-ui/flex'
-import { Text } from '@welcome-ui/text'
-import { Box } from '@welcome-ui/box'
-import { Grid } from '@welcome-ui/grid'
-import { Logo } from '@welcome-ui/logo'
+import { Box, ExternalLinkIcon, Flex, Grid, HeartIcon, Logo, Text } from 'welcome-ui'
 
 import { Section } from '../Section'
 

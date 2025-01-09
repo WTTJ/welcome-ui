@@ -43,7 +43,7 @@ function getComponentSubPages(id: string) {
 }
 
 export function getFilesFromPackages(selectedParent: Parent) {
-  const folder = join(process.cwd(), '../packages')
+  const folder = join(process.cwd(), '../lib/src/components')
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const files = [] as any[]
 

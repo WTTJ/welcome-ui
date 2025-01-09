@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { fireEvent, renderHook, screen, waitFor } from '@testing-library/react'
 
 import { DropdownMenu, type DropdownMenuProps, useDropdownMenu } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 const content = 'jungle'
 const triggerDataTestId = 'trigger'

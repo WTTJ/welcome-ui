@@ -1,9 +1,5 @@
+import { Box, Card, Flex, Grid, Text } from 'welcome-ui'
 import Link from 'next/link'
-import { Card } from '@welcome-ui/card'
-import { Flex } from '@welcome-ui/flex'
-import { Grid } from '@welcome-ui/grid'
-import { Text } from '@welcome-ui/text'
-import { Box } from '@welcome-ui/box'
 import { Metadata } from 'next'
 
 import { getPages } from '@/build-app/utils/pages-components'

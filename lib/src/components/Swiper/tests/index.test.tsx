@@ -1,7 +1,7 @@
 import React from 'react'
 import { act } from '@testing-library/react'
 
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 import { Swiper, useSwiper } from '../'
 
 const scrollToSpy = jest.fn()

@@ -2,7 +2,7 @@ import React from 'react'
 import { act, screen } from '@testing-library/react'
 
 import { AssetDrawer, Drawer, useDrawer } from '..'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 describe('<Drawer>', () => {
   it('should render correctly', async () => {

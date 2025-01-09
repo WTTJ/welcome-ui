@@ -1,4 +1,4 @@
-import { Box } from '@welcome-ui/box'
+import { Box } from 'welcome-ui'
 
 import { Properties } from '../Props'
 

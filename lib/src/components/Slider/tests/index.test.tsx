@@ -1,7 +1,7 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 import { Slider } from '../'
 
 describe('<Slider> test', () => {

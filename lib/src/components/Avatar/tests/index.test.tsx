@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Avatar } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 describe('<Avatar>', () => {
   it('should render correctly', () => {

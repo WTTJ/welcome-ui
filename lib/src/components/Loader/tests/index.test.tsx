@@ -1,7 +1,10 @@
 import React from 'react'
 
+import { createTheme } from '../../../theme'
 import { Loader } from '../'
-import { render, theme } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
+
+export const theme = createTheme()
 
 describe('<Loader>', () => {
   it('should render correctly', () => {

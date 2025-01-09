@@ -32,7 +32,9 @@ function mergeImports(content) {
   return content
 }
 
-const files = glob.sync('lib/src/components/**/docs/**/*.tsx')
+const files = glob.sync('**/*.{ts,tsx}', {
+  ignore: ['**/node_modules/**', '**/dist/**', '**/*.d.ts'],
+})
 files.forEach(file => {
   const content = fs.readFileSync(file, 'utf8')
   const newContent = mergeImports(content)

@@ -1,11 +1,15 @@
+import {
+  Box,
+  Button,
+  CrescentMoonIcon,
+  Flex,
+  GithubIcon,
+  SunIcon,
+  Text,
+  ThemeValues,
+} from 'welcome-ui'
 import React from 'react'
-import { Box } from '@welcome-ui/box'
-import { Flex } from '@welcome-ui/flex'
 import { usePathname } from 'next/navigation'
-import { Text } from '@welcome-ui/text'
-import { Button } from '@welcome-ui/button'
-import { Icons } from '@welcome-ui/icons.font'
-import { WuiProps } from '@welcome-ui/system'
 import { useTheme } from 'next-themes'
 
 import * as S from './styles'
@@ -13,7 +17,7 @@ import * as S from './styles'
 import { navigation } from '.'
 
 type NavBarProps = {
-  display?: WuiProps['display']
+  display?: ThemeValues['display']
   onClick?: () => void
 }
 
@@ -50,7 +54,7 @@ export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
         size="sm"
         variant="ghost"
       >
-        {isDarkMode ? <Icons.Sun /> : <Icons.CrescentMoon />}
+        {isDarkMode ? <SunIcon /> : <CrescentMoonIcon />}
       </Button>
       <Button
         aria-label="Github"
@@ -62,7 +66,7 @@ export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
         target="_blank"
         variant="ghost"
       >
-        <Icons.Github />
+        <GithubIcon />
       </Button>
     </Flex>
   )

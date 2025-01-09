@@ -1,14 +1,12 @@
 'use client'
+import { Badge, Box, Flex, Text } from 'welcome-ui'
 import React from 'react'
-import { Box } from '@welcome-ui/box'
-import { Badge } from '@welcome-ui/badge'
-import { Flex } from '@welcome-ui/flex'
-import { Text } from '@welcome-ui/text'
 import { kebabCase } from 'lodash'
 
-import * as TYPES from '../../../../utils/propTypes'
 import { Code } from '../Mdx/Code'
 import { H2 } from '../Mdx/Headings'
+
+import * as TYPES from './propTypes'
 
 type Value = {
   name: string

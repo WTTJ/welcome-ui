@@ -2,8 +2,8 @@ import React, { Children, cloneElement, useEffect, useMemo, useState } from 'rea
 import { useTheme } from '@xstyled/styled-components'
 
 import { forwardRef } from '../System'
+import { Box } from '../Box'
 
-import * as S from './styles'
 import { Close } from './Close'
 
 import { UseModal } from '.'
@@ -82,7 +82,7 @@ export const Content = forwardRef<'div', ContentProps>(
     }, [store, open, contentElement])
 
     return (
-      <S.Content ref={ref} {...rest}>
+      <Box ref={ref} {...rest}>
         {shouldShowCloseButton ? <Close /> : null}
         {Children.map(children, (child: JSX.Element) => {
           if (!child) return null
@@ -93,7 +93,7 @@ export const Content = forwardRef<'div', ContentProps>(
             ...child.props,
           })
         })}
-      </S.Content>
+      </Box>
     )
   }
 )

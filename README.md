@@ -25,7 +25,7 @@ yarn add @xstyled/styled-components react styled-components
 2 - Install the the **core** component and any other components you need for your webapp e.g. if you need just a button…
 
 ```bash
-yarn add @welcome-ui/core @welcome-ui/button
+yarn add welcome-ui
 ```
 
 ## Import library & Theme
@@ -34,8 +34,7 @@ Getting started
 
 ```js
 import React from 'react'
-import { createTheme, WuiProvider } from '@welcome-ui/core'
-import { Button } from '@welcome-ui/button'
+import { Button, createTheme, WuiProvider } from 'welcome-ui'
 
 // Add theme options (if you want)
 const options = {
@@ -71,22 +70,22 @@ export default function Root() {
 
 ## Develop on local
 
-1. First install and build the packages _(only the first time)_
+1. Install
 
 ```bash
-yarn first:install
+yarn
 ```
 
-2. Start documentation website
+2. Start a watch on all packages to rebuild them easily
 
 ```bash
 yarn start
 ```
 
-3. Start a watch on all packages to rebuild them easily
+3. Start documentation website
 
 ```bash
-yarn watch
+yarn website
 ```
 
 4. and go to http://localhost:3020
@@ -115,19 +114,7 @@ yarn dev:prerelease
 
 NB: you can replace alpha with any other keyword (beta, rc, ...)
 
-#### Force publish a package
-
-In addition to the options shown above, you can use the --force-publish option to force bumping some packages.
-
 #### Troubleshooting
-
-##### How to release when the publish process failed having published some packages
-
-Re-run the failed job with ssh, then ssh into the machine and run this command:
-
-`cd welcome-ui/packages && find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && npm publish" \;`
-
-This will publish each packages, those who are already published will fail and be ignored by the script.
 
 ##### How to rollback a release that has been stopped before publish to npm
 

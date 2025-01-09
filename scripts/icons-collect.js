@@ -3,7 +3,10 @@ const path = require('path')
 const fs = require('fs')
 const util = require('util')
 
-const { toPascalCase } = require('../utils/strings')
+export const toPascalCase = str => {
+  const camelCase = str.replace(/_(\w)/g, ($, $1) => $1.toUpperCase())
+  return `${camelCase.charAt(0).toUpperCase()}${camelCase.substr(1)}`
+}
 
 const { FLAG_ICONS, readIconsFromAssets } = require('./utils')
 
@@ -12,7 +15,7 @@ require('colors')
 fs.readdirAsync = util.promisify(fs.readdir)
 
 const ROOT_PATH = path.join(__dirname, '..')
-const ICONS_PATH = path.join(ROOT_PATH, 'icons')
+const ICONS_PATH = path.join(ROOT_PATH, 'lib/src/components/Icons')
 
 // Write content.json for a given icon
 const writeIconContentsJson = (outputFolder, content, key) => {
@@ -46,7 +49,8 @@ const writeIconContentsJson = (outputFolder, content, key) => {
 const writeIconIndex = (outputFolder, iconName) => {
   const file = `${outputFolder}/index.tsx`
   const fileContent = `import React from 'react'
-import { Icon, IconProps } from '@welcome-ui/icon'
+
+import { Icon, IconProps } from '../../Icon'
 
 import content from './content.json'
 
@@ -64,7 +68,7 @@ const writeIconPackages = files => {
   files.forEach(({ content, key }) => {
     // Create folder if necessary
     const iconName = toPascalCase(key)
-    const outputFolder = `${ICONS_PATH}/src/${iconName}`
+    const outputFolder = `${ICONS_PATH}/${iconName}`
     if (!fs.existsSync(outputFolder)) {
       fs.mkdirSync(outputFolder)
     }
@@ -88,14 +92,15 @@ const writeRootIconPackage = files => {
   })
 
   fs.writeFileSync(
-    `${ICONS_PATH}/src/index.ts`,
+    `${ICONS_PATH}/index.ts`,
     `${rootIndexContent.join('\n')}
 `
   )
 
   // Write main icons/index.d.ts
   let rootIndexDTSContent = `import React from 'react'
-import { IconProps } from '@welcome-ui/icon'
+
+import { IconProps } from '../Icon'
 `
   rootIndexDTSContent += files.map(({ key }) => {
     const iconName = toPascalCase(key)
@@ -103,20 +108,10 @@ import { IconProps } from '@welcome-ui/icon'
   }).join(`
 `)
   fs.writeFileSync(
-    `${ICONS_PATH}/src/index.d.ts`,
+    `${ICONS_PATH}/index.d.ts`,
     `${rootIndexDTSContent}
 `
   )
-
-  // Write main icons/package.json
-  let config = require(`${ICONS_PATH}/package.json`)
-
-  // Add dependencies (all individual icons) to icons/package.json
-  const rootPackageJsonContent = config
-  const fileContent = `${JSON.stringify(rootPackageJsonContent, 0, 2)}
-`
-
-  fs.writeFileSync(`${ICONS_PATH}/package.json`, fileContent)
 
   console.log('Success'.green, 'Writing root icon files')
   return files

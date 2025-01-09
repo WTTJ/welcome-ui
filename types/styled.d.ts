@@ -2,12 +2,12 @@
 import 'styled-components'
 import '@xstyled/styled-components'
 
-import { WuiTheme } from '@welcome-ui/core'
+import { ThemeValues } from 'welcome-ui'
 
 declare module '@xstyled/styled-components' {
-  export interface Theme extends WuiTheme {}
+  export interface Theme extends ThemeValues {}
 }
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends WuiTheme {}
+  export interface DefaultTheme extends ThemeValues {}
 }
