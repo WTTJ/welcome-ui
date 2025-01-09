@@ -8,14 +8,14 @@ import {
   FileRejection,
 } from 'react-dropzone'
 import * as reactDropzone from 'react-dropzone'
+
 // because of this issue: https://github.com/react-dropzone/react-dropzone/issues/1259
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const useDropzone = (reactDropzone.useDropzone || reactDropzone.default.useDropzone) as (
   o?: DropzoneProps
 ) => DropzoneState
-import { EditIcon, TrashIcon } from '@welcome-ui/icons'
-
+import { EditIcon, TrashIcon } from '../Icons'
 import { Button } from '../Button'
 import { ForceFileType } from '../Files'
 import { CreateWuiProps, forwardRef } from '../System'

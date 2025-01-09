@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {
   AttachmentIcon,
   CameraIcon,
@@ -12,8 +13,7 @@ import {
   XlsIcon,
   XlsxIcon,
   ZipIcon,
-} from '@welcome-ui/icons'
-
+} from '../Icons'
 import { IconProps } from '../Icon'
 import { formatBytes } from '../../utils/format-bytes'
 

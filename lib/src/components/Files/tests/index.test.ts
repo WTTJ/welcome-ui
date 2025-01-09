@@ -1,5 +1,4 @@
-import { CameraIcon, PdfIcon, PptIcon } from '@welcome-ui/icons'
-
+import { CameraIcon, PdfIcon, PptIcon } from '../../Icons'
 import { Type } from '../types'
 import { getFileIcon, getFileName, getFileSize, getMimeType } from '../'
 

@@ -1,4 +1,4 @@
-import { Box, Checkbox, LinkIcon, Option, Select, SelectProps } from 'welcome-ui'
+import { Box, Checkbox, LinkIcon, Select, SelectOption, SelectProps } from 'welcome-ui'
 import * as React from 'react'
 
 export const ITEMS = [
@@ -25,9 +25,7 @@ const Example = () => {
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      renderItem={(item: Option, selected?: boolean) => (
+      renderItem={(item: SelectOption, selected?: boolean) => (
         <Box display="flex" justifyContent="space-between">
           {item.label}
           <Box>

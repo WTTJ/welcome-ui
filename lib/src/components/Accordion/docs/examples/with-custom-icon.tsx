@@ -1,6 +1,5 @@
-import { Accordion, useAccordion } from 'welcome-ui'
+import { Accordion, PlayIcon, useAccordion } from 'welcome-ui'
 import * as React from 'react'
-import { PlayIcon } from '@welcome-ui/icons'
 
 const Example = () => {
   const accordion = useAccordion()

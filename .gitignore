@@ -13,7 +13,7 @@ lerna-debug.log
 *.tgz
 
 # Fonts
-packages/IconFont/fonts/
+fonts/
 
 # vite
 vite.config.mjs.*

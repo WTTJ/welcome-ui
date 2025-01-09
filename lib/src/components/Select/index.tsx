@@ -5,8 +5,8 @@ import DownshiftImport, {
   GetRootPropsOptions,
 } from 'downshift'
 import { matchSorter } from 'match-sorter'
-import { DownIcon } from '@welcome-ui/icons'
 
+import { DownIcon } from '../Icons'
 import { ClearButton } from '../ClearButton'
 import { CreateWuiProps, forwardRef } from '../System'
 import { CreateEvent, createEvent } from '../../utils/create-event'

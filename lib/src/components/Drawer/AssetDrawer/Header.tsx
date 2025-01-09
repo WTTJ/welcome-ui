@@ -1,6 +1,6 @@
 import React from 'react'
-import { ArrowLeftIcon } from '@welcome-ui/icons'
 
+import { ArrowLeftIcon } from '../../Icons'
 import { Button } from '../../Button'
 import type { IconProps } from '../../Icon'
 import { Text } from '../../Text'

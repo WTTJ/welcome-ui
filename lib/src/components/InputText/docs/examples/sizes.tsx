@@ -1,6 +1,5 @@
-import { InputText } from 'welcome-ui'
+import { AvatarIcon, InputText } from 'welcome-ui'
 import * as React from 'react'
-import { AvatarIcon } from '@welcome-ui/icons'
 
 const Example = () => {
   return (

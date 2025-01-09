@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { LeftIcon, RightIcon } from '@welcome-ui/icons'
 import { Locale } from 'date-fns'
 
+import { LeftIcon, RightIcon } from '../Icons'
 import { Select } from '../Select'
 import { Button } from '../Button'
 import { CreateWuiProps } from '../System'
