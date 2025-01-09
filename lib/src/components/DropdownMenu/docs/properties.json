@@ -551,9 +551,6 @@
               "value": "\"caption\""
             },
             {
-              "value": "\"center\""
-            },
-            {
               "value": "\"cite\""
             },
             {
@@ -660,9 +657,6 @@
             },
             {
               "value": "\"samp\""
-            },
-            {
-              "value": "\"search\""
             },
             {
               "value": "\"section\""
@@ -1605,16 +1599,16 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "RenderProp<HTMLAttributes<any> & { ref?: Ref<any>; }> | ReactElement<any, string | JSXElementConstructor<any>>",
+          "raw": "ReactElement<any, string | JSXElementConstructor<any>> | RenderProp<HTMLAttributes<any> & { ref?: Ref<any>; }>",
           "value": [
             {
-              "value": "RenderProp<HTMLAttributes<any> & { ref?: Ref<any>; }>",
+              "value": "ReactElement<any, string | JSXElementConstructor<any>>",
               "description": "",
               "fullComment": "",
               "tags": {}
             },
             {
-              "value": "ReactElement<any, string | JSXElementConstructor<any>>",
+              "value": "RenderProp<HTMLAttributes<any> & { ref?: Ref<any>; }>",
               "description": "",
               "fullComment": "",
               "tags": {}

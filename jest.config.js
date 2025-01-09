@@ -3,9 +3,9 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/mocks/styleMock.js',
   },
   transform: {
-    '^.+\\.(ts|tsx|js|jsx)?$': '@swc/jest',
+    '^.+\\.(ts|tsx|js|jsx)?$': 'babel-jest',
   },
   setupFilesAfterEnv: ['<rootDir>/mocks/setup.js'],
   modulePaths: ['<rootDir>/node_modules'],
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-environment-jsdom',
 }

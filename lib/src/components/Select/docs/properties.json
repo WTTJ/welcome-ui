@@ -524,7 +524,7 @@
         ],
         "required": false,
         "type": {
-          "name": "(item: unknown, isItemSelected?: boolean) => string | ReactElement<any, string | JSXElementConstructor<any>>"
+          "name": "(item: SelectOption, isItemSelected?: boolean) => string | ReactElement<any, string | JSXElementConstructor<any>>"
         }
       },
       "renderMultiple": {

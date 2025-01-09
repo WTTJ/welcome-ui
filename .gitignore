@@ -1,4 +1,3 @@
-.env
 website/out
 website/.next
 node_modules/
@@ -10,7 +9,6 @@ yarn-error.log
 *.tgz
 
 # Fonts
-fonts/
 dist/
 
 # vite
