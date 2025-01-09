@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client'
-import { Text } from '@welcome-ui/text'
+import { Text } from 'welcome-ui'
 
 import { Tokens } from './Tokens'
 

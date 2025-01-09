@@ -1,11 +1,15 @@
 'use client'
+import {
+  Box,
+  Button,
+  CodeBlockIcon,
+  Flex,
+  GithubIcon,
+  PromoteIcon,
+  ThemeValues,
+  Tooltip,
+} from 'welcome-ui'
 import { useState } from 'react'
-import { Box } from '@welcome-ui/box'
-import { WuiProps } from '@welcome-ui/system'
-import { Button } from '@welcome-ui/button'
-import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@welcome-ui/icons'
-import { Flex } from '@welcome-ui/flex'
-import { Tooltip } from '@welcome-ui/tooltip'
 
 import { Highlight } from './Highlight'
 
@@ -15,7 +19,7 @@ import { openStackBlitz } from '@/build-app/utils/stackblitz'
 type PreProps = {
   code: string
   isOverview?: boolean
-  mt?: WuiProps['marginTop']
+  mt?: ThemeValues['marginTop']
   name: string
   pathToFile: keyof typeof examples
   withCodeEditor?: boolean

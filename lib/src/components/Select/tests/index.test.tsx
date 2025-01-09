@@ -3,7 +3,7 @@ import capitalize from 'lodash.capitalize'
 import { act, screen } from '@testing-library/react'
 
 import { AvatarIcon, DateIcon } from '../../Icons'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 import { Select, SelectOption, SelectProps } from '../'
 
 const SelectWrapper: React.FC<SelectProps> = props => {

@@ -1,8 +1,7 @@
 import React from 'react'
 
 import { Flex } from '../'
-
-import { render } from './../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 const content = 'Jungle'
 

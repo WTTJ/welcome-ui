@@ -12,7 +12,7 @@ export const getComponentsEntries = () => {
     .map(dirent => dirent.name)
 
   // Create entry object dynamically
-  const entries = componentDirs.reduce(
+  const entries = componentDirs.reduce<Record<string, string>>(
     (acc, componentName) => {
       const entryPath = resolve(componentsDir, componentName, 'index.tsx')
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Logo, SolutionsSymbol, Symbol } from '..'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 describe('<Loader>', () => {
   it('should render correctly', () => {

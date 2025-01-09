@@ -1,8 +1,5 @@
 'use client'
-
-import { Flex } from '@welcome-ui/flex'
-import { Alert } from '@welcome-ui/alert'
-import { Text } from '@welcome-ui/text'
+import { Alert, Flex, Text } from 'welcome-ui'
 
 import { H2 } from '../Mdx/Headings'
 import { Highlight } from '../Mdx/Highlight'

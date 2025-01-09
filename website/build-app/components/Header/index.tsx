@@ -1,12 +1,7 @@
 'use client'
+import { Box, Button, Drawer, Flex, MenuIcon, useDrawer, WelcomeUILogo } from 'welcome-ui'
 import Link from 'next/link'
-import { Flex } from '@welcome-ui/flex'
-import { Button } from '@welcome-ui/button'
-import { Drawer, useDrawer } from '@welcome-ui/drawer'
-import { Icons } from '@welcome-ui/icons.font'
 import { usePathname } from 'next/navigation'
-import { Box } from '@welcome-ui/box'
-import { WelcomeUILogo } from '@welcome-ui/logo'
 
 import { VersionSelector } from '../VersionSelector'
 import { Sidebar } from '../Sidebar'
@@ -68,7 +63,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
           size="sm"
           store={drawer}
         >
-          <Icons.Menu />
+          <MenuIcon />
         </Drawer.Trigger>
         <NavBar display={{ _: 'none', lg: 'flex' }} />
         <Drawer display={{ lg: 'none' }} size="100%" store={drawer} withBackdrop zIndex={999}>

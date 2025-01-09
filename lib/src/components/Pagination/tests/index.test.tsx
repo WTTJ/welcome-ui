@@ -3,7 +3,7 @@ import { act, renderHook, screen } from '@testing-library/react'
 
 import { Pagination } from '../'
 import { usePages } from '../utils'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 describe('<Pagination>', () => {
   it('should render correctly', async () => {

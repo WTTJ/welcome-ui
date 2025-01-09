@@ -1,11 +1,7 @@
 'use client'
+import { Box, IconFont, Icons, Text, toast, Toast } from 'welcome-ui'
 import React from 'react'
-import { Icons as IconsFont } from '@welcome-ui/icons.font'
-import * as Icons from 'welcome-ui/icons'
-import { Box } from '@welcome-ui/box'
 import { camelCase, startCase } from 'lodash'
-import { Text } from '@welcome-ui/text'
-import { Toast, toast } from '@welcome-ui/toast'
 
 import * as S from './styles'
 import {
@@ -74,10 +70,11 @@ export const IconsList = ({ isIconFont, name }: IconListProps) => {
     <Box display="grid" gap="lg" gridTemplateColumns={{ xs: '1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}>
       {iconsByName[name]?.map(key => {
         const name = startCase(camelCase(key)).replace(/ /g, '')
-        const componentName = isIconFont ? `Icons.${name}` : `${name}Icon`
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        const Icon = isIconFont ? IconsFont[name] : Icons[componentName]
+        const componentName = isIconFont ? `IconFont.${name}` : `${name}Icon`
+
+        const Icon = isIconFont
+          ? IconFont[name as keyof typeof IconFont]
+          : Icons[componentName as keyof typeof Icons]
 
         if (!Icon) {
           // eslint-disable-next-line no-console

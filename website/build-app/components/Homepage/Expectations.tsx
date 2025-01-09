@@ -1,20 +1,20 @@
-import { Box } from '@welcome-ui/box'
-import { Card } from '@welcome-ui/card'
-import { Text } from '@welcome-ui/text'
 import {
   ActionsIcon,
   BookIcon,
+  Box,
   BuoyIcon,
   BurnIcon,
+  Card,
   FactoryIcon,
   GearIcon,
   PencilIcon,
+  Text,
   UserIcon,
-} from '@welcome-ui/icons'
+} from 'welcome-ui'
 
 type ExpectationProps = {
-  icon: typeof PencilIcon
   description: string
+  icon: typeof PencilIcon
   title: string
 }
 

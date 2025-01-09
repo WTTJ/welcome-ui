@@ -1,0 +1,3 @@
+{
+  "extends": "wttj-config/lib/tsconfig/tsconfig.json"
+}

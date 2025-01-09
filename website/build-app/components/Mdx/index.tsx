@@ -1,6 +1,6 @@
+import { Box } from 'welcome-ui'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { Box } from '@welcome-ui/box'
 import rehypeRaw from 'rehype-raw'
 
 import { Pre } from './Pre'

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Badge } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 import { createTheme } from '../../../theme'
 
 const content = '1'

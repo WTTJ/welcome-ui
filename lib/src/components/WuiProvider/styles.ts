@@ -185,7 +185,7 @@ export const normalizeStyle = css`
   }
 
   pre {
-    font-family: monospace, monospace;
+    font-family: monospace;
     font-size: 1em;
   }
 
@@ -207,7 +207,7 @@ export const normalizeStyle = css`
   code,
   kbd,
   samp {
-    font-family: monospace, monospace;
+    font-family: monospace;
     font-size: 1em;
   }
 
@@ -260,6 +260,7 @@ export const normalizeStyle = css`
   [type='button'],
   [type='reset'],
   [type='submit'] {
+    appearance: button;
     -webkit-appearance: button;
   }
 
@@ -311,6 +312,7 @@ export const normalizeStyle = css`
   }
 
   [type='search'] {
+    appearance: textfield;
     -webkit-appearance: textfield;
     outline-offset: -2px;
   }

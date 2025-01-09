@@ -67,10 +67,7 @@ export interface SelectOptions extends DefaultFieldStylesProps {
   placeholder?: string
   renderCreateItem?: (inputValue: SelectValue) => void
   renderGroupHeader?: (option: SelectOptionGroup) => React.ReactNode
-  renderItem?: (
-    item: SelectOption | unknown,
-    isItemSelected?: boolean
-  ) => string | React.ReactElement
+  renderItem?: (item: SelectOption, isItemSelected?: boolean) => string | React.ReactElement
   renderMultiple?: (
     values: SelectOption[],
     handleRemove: (value: string) => void

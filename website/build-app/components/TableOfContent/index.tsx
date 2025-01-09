@@ -1,7 +1,5 @@
 'use client'
-import { Text } from '@welcome-ui/text'
-import { Flex } from '@welcome-ui/flex'
-import { Box } from '@welcome-ui/box'
+import { Box, Flex, Text } from 'welcome-ui'
 import { useEffect, useState } from 'react'
 import NextLink from 'next/link'
 
@@ -10,8 +8,8 @@ import * as S from './styles'
 import { Toc } from '@/build-app/utils/page-tree'
 
 type TableOfContentProps = {
-  tree?: Toc[]
   isSubPage?: boolean
+  tree?: Toc[]
 }
 
 export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {

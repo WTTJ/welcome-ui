@@ -1,8 +1,8 @@
-import { Icons } from 'welcome-ui'
+import { IconFont } from 'welcome-ui'
 import * as React from 'react'
 
 const Example = () => {
-  return <Icons.PositiveStraight />
+  return <IconFont.PositiveStraight />
 }
 
 export default Example

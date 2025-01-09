@@ -13,7 +13,7 @@ const shouldDisplayPropsFiles = [
 ]
 
 // Get only ComponentOptions declarations for prevent all WuiProps
-const propFilter = prop => {
+const propFilter = (prop: docgen.PropItem) => {
   if (prop.declarations?.length > 0) {
     const isOptionDeclaration = prop.declarations.find(declaration => {
       if (declaration.name.includes('Options')) return true
@@ -33,7 +33,7 @@ const { parse } = docgen.withCustomConfig(tsConfigPath, {
   shouldExtractValuesFromUnion: true,
 })
 
-const isComponentFile = file => {
+const isComponentFile = (file: string) => {
   if (file === 'index.tsx') {
     return true
   }
@@ -57,14 +57,19 @@ const getComponentFiles = async (folder: string) => {
 }
 
 // Get definitions from file
-const getFileDefinitions = absolutePath => {
+const getFileDefinitions = (absolutePath: string) => {
   const definitions = parse(absolutePath)
 
   return definitions
 }
 
 // Write properties.json file
-const writePropsFile = async (file, content) => {
+const writePropsFile = async (
+  file: string,
+  content: {
+    [name: string]: { props: Record<string, unknown>; tag: string }
+  }
+) => {
   const withDocsPath = existsSync(join(file, 'docs'))
 
   if (withDocsPath) {
@@ -77,9 +82,11 @@ const writePropsFile = async (file, content) => {
 }
 
 // check if props entries are empty
-const arePropsEmpty = (obj: { props: Record<string, unknown>; tag: string }) => {
+const arePropsEmpty = (obj: {
+  [name: string]: { props: Record<string, unknown>; tag: string }
+}) => {
   // Helper function to check if an object is empty
-  const isEmptyObject = obj => {
+  const isEmptyObject = (obj: unknown) => {
     return obj && typeof obj === 'object' && Object.keys(obj).length === 0
   }
 
@@ -121,7 +128,9 @@ export async function generateTypesDoc() {
     files.forEach(async file => {
       const absolutePath = join(process.cwd(), 'src', 'components', dirent)
       const definitions = getFileDefinitions(`${absolutePath}/${file}`)
-      const componentProps = {} as { props: Record<string, unknown>; tag: string }
+      const componentProps: {
+        [name: string]: { props: Record<string, unknown>; tag: string }
+      } = {}
 
       definitions.forEach(definition => {
         const { displayName, props, tags } = definition
@@ -132,7 +141,7 @@ export async function generateTypesDoc() {
             tag: tags?.tag,
             props: Object.keys(props)
               .sort()
-              .reduce((obj, key) => {
+              .reduce((obj: Record<string, unknown>, key) => {
                 obj[key] = props[key]
                 return obj
               }, {}),

@@ -2,7 +2,7 @@ import { existsSync, readdirSync, writeFileSync } from 'fs'
 import { join } from 'path'
 
 function getExamplesPages() {
-  const dir = join(process.cwd(), 'packages')
+  const dir = join(process.cwd(), 'lib/src')
   const dirExist = existsSync(dir)
   const examples = []
 
@@ -11,7 +11,7 @@ function getExamplesPages() {
   const folderList = readdirSync(dir)
 
   for (const folder of folderList) {
-    const subFolder = join(process.cwd(), 'packages', folder, 'docs', 'examples')
+    const subFolder = join(process.cwd(), 'lib/src', folder, 'docs', 'examples')
     const subFolderExist = existsSync(subFolder)
 
     if (!subFolderExist) continue
@@ -19,7 +19,7 @@ function getExamplesPages() {
     const fileList = readdirSync(subFolder)
 
     for (const file of fileList) {
-      examples.push(`${subFolder}/${file}`.split('packages')[1])
+      examples.push(`${subFolder}/${file}`.split('src')[1])
     }
   }
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { act, screen } from '@testing-library/react'
 
 import { PasswordInput, PasswordInputOptions } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 const PasswordInputWrapper: React.FC<PasswordInputOptions> = props => {
   const [value, setValue] = useState('test')

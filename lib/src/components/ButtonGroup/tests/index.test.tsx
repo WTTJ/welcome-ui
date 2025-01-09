@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Button } from '../../Button'
 import { ButtonGroup } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 describe('<ButtonGroup>', () => {
   it('should render correctly', () => {

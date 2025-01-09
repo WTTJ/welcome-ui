@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Hint } from '../'
 import { colors } from '../../../theme/colors'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 const content = 'Jungle'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Grid } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 const content = 'Jungle'
 

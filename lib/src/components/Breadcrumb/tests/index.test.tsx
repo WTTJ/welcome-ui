@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Breadcrumb } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 beforeEach(() => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-extra-semi

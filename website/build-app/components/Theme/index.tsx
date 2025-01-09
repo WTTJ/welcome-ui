@@ -1,7 +1,5 @@
 'use client'
-import { Alert } from '@welcome-ui/alert'
-import { Grid } from '@welcome-ui/grid'
-import { Text } from '@welcome-ui/text'
+import { Alert, Grid, Text } from 'welcome-ui'
 import { useTheme } from '@xstyled/styled-components'
 
 type ColorsProps = {

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Alert } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 const content = 'jungle'
 

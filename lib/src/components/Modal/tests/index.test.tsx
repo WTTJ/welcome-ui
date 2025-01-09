@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { act, screen } from '@testing-library/react'
 
 import { Modal, UseModal, useModal } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 describe('<Modal>', () => {
   it('should render correctly', async () => {

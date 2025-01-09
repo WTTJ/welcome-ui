@@ -1,13 +1,9 @@
 'use client'
-import { Alert } from '@welcome-ui/alert'
-import { Box } from '@welcome-ui/box'
+import { Alert, Box, Grid, Text, ThemeValues } from 'welcome-ui'
 import { useTheme } from '@xstyled/styled-components'
-import { WuiTheme } from '@welcome-ui/core'
-import { Grid } from '@welcome-ui/grid'
-import { Text } from '@welcome-ui/text'
 
-const getColors = (name: string, theme: WuiTheme) => {
-  const themeColors = theme.colors as WuiTheme['colors']
+const getColors = (name: string, theme: ThemeValues) => {
+  const themeColors = theme.colors as ThemeValues['colors']
   const endByALetter = name === 'secondary'
   const pattern = endByALetter
     ? new RegExp(`^(${name})-\\w+`, 'g')
@@ -16,7 +12,7 @@ const getColors = (name: string, theme: WuiTheme) => {
   return Object.keys(themeColors)
     .filter(color => color.match(pattern))
     .reduce<{ value: string; variant: string }[]>((acc, colorName) => {
-      const colorValue = theme.colors[colorName as keyof WuiTheme['colors']]
+      const colorValue = theme.colors[colorName as keyof ThemeValues['colors']]
       acc.push({ variant: colorName, value: colorValue })
 
       return acc

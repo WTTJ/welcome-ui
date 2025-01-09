@@ -20,7 +20,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "ElementType<any>",
+          "raw": "ElementType<any, keyof IntrinsicElements>",
           "value": [
             {
               "value": "\"symbol\""
@@ -81,6 +81,9 @@
             },
             {
               "value": "\"caption\""
+            },
+            {
+              "value": "\"center\""
             },
             {
               "value": "\"cite\""
@@ -285,6 +288,9 @@
             },
             {
               "value": "\"samp\""
+            },
+            {
+              "value": "\"search\""
             },
             {
               "value": "\"slot\""
@@ -527,6 +533,9 @@
               "value": "\"rect\""
             },
             {
+              "value": "\"set\""
+            },
+            {
               "value": "\"stop\""
             },
             {
@@ -549,15 +558,21 @@
             },
             {
               "value": "ComponentClass<any, any>",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
+              "description": "Represents a component class in React.",
+              "fullComment": "Represents a component class in React.\n@template P The props the component accepts.\n@template S The internal state of the component.",
+              "tags": {
+                "template": "P The props the component accepts.\nS The internal state of the component."
+              }
             },
             {
               "value": "FunctionComponent<any>",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
+              "description": "Represents the type of a function component. Can optionally\nreceive a type argument that represents the props the component\naccepts.",
+              "fullComment": "Represents the type of a function component. Can optionally\nreceive a type argument that represents the props the component\naccepts.\n@template P The props the component accepts.\n@see {@link https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components React TypeScript Cheatsheet}\n@example ```tsx\n// With props:\ntype Props = { name: string }\n\nconst MyComponent: FunctionComponent<Props> = (props) => {\n return <div>{props.name}</div>\n}\n```\n@example ```tsx\n// Without props:\nconst MyComponentWithoutProps: FunctionComponent = () => {\n  return <div>MyComponentWithoutProps</div>\n}\n```",
+              "tags": {
+                "template": "P The props the component accepts.",
+                "see": "{@link https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components React TypeScript Cheatsheet}",
+                "example": "```tsx\n// With props:\ntype Props = { name: string }\n\nconst MyComponent: FunctionComponent<Props> = (props) => {\n return <div>{props.name}</div>\n}\n```\n```tsx\n// Without props:\nconst MyComponentWithoutProps: FunctionComponent = () => {\n  return <div>MyComponentWithoutProps</div>\n}\n```"
+              }
             }
           ]
         }

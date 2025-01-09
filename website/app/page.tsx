@@ -1,9 +1,5 @@
-import { Text } from '@welcome-ui/text'
+import { Box, Button, GithubIcon, HeartIcon, Logo, RightIcon, Symbol, Text } from 'welcome-ui'
 import NextLink from 'next/link'
-import { Button } from '@welcome-ui/button'
-import { Box } from '@welcome-ui/box'
-import { GithubIcon, HeartIcon, RightIcon } from '@welcome-ui/icons'
-import { Logo, Symbol } from '@welcome-ui/logo'
 import React from 'react'
 
 import { Components } from '@/build-app/components/Homepage/Components'

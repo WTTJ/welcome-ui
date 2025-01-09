@@ -3,7 +3,7 @@ import { screen } from '@testing-library/react'
 import { act } from '@testing-library/react'
 
 import { Field } from '../'
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 
 const Input = ({
   id,

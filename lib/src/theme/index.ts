@@ -12,7 +12,7 @@ import { getAlerts, ThemeAlerts } from '../components/Alert/theme'
 import { getAvatars, ThemeAvatars } from '../components/Avatar/theme'
 import { getBadges, ThemeBadges } from '../components/Badge/theme'
 import { getBreadcrumbs, ThemeBreadcrumbs } from '../components/Breadcrumb/theme'
-import { getButtons } from '../components/Button/theme'
+import { getButtons, ThemeButtons } from '../components/Button/theme'
 import { getCards, ThemeCards } from '../components/Card/theme'
 import {
   getDateTimePickerCommon,
@@ -63,6 +63,7 @@ import {
   ThemeLetterSpacings,
   ThemeLineHeights,
   ThemeTexts,
+  ThemeTextsFontColors,
   ThemeTextsFontFamily,
   ThemeTextsFontWeights,
   ThemeTextsTextTransform,
@@ -76,7 +77,7 @@ import { shadows, ThemeShadows } from './shadows'
 import { getSpace, ThemeSpace } from './space'
 import { getSelection, ThemeSelection } from './selection'
 import { getFocus, ThemeFocus } from './focus'
-import { getDefaultFields } from './defaultFields'
+import { getDefaultFields, ThemeDefaultFields } from './defaultFields'
 
 const DEFAULT_FONT_FAMILY = 'work-sans'
 const DEFAULT_FONT_SIZE = 16
@@ -106,15 +107,17 @@ type StyledComponentsTheme = Omit<StyledComponentDefaultTheme, OverrideKeys>
 
 export interface ThemeValues extends XStyledTheme, StyledComponentsTheme {
   accordions: ThemeAccordions
-  alert: ThemeAlerts
+  alerts: ThemeAlerts
   avatars: ThemeAvatars
   badges: ThemeBadges
   borderWidths: ThemeBorderWidths
   breadcrumbs: ThemeBreadcrumbs
+  buttons: ThemeButtons
   cards: ThemeCards
   checkboxes: ThemeCheckboxes
   colors: ThemeColors
   dateTimePickerCommon: ThemeDateTimePickerCommon
+  defaultFields: ThemeDefaultFields
   defaultLetterSpacing: string
   defaultLineHeight: number
   drawers: ThemeDrawers
@@ -134,7 +137,7 @@ export interface ThemeValues extends XStyledTheme, StyledComponentsTheme {
   lineHeights: ThemeLineHeights
   links: ThemeLinks
   loaders: ThemeLoaders
-  modal: ThemeModals
+  modals: ThemeModals
   pagination: ThemePagination
   popovers: ThemePopovers
   radii: ThemeRadii
@@ -151,6 +154,7 @@ export interface ThemeValues extends XStyledTheme, StyledComponentsTheme {
   tags: ThemeTags
   textareas: ThemeTextareas
   texts: ThemeTexts
+  textsFontColors: ThemeTextsFontColors
   textsFontFamily: ThemeTextsFontFamily
   textsFontWeights: ThemeTextsFontWeights
   textsTextTransform: ThemeTextsTextTransform
@@ -239,7 +243,7 @@ export const createTheme = (options: ThemeProps = {}): ThemeValues => {
   theme.textsFontColors = getTextFontColors(theme)
   theme.textsTextTransform = getTextsTextTransform()
   theme.texts = getTexts(theme)
-  theme.defaultField = getDefaultFields(theme)
+  theme.defaultFields = getDefaultFields(theme)
   theme.icons = getIcons(theme)
 
   // components

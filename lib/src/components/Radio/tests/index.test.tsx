@@ -1,7 +1,7 @@
 import React from 'react'
 import { screen } from '@testing-library/react'
 
-import { render } from '../../../../../utils/tests'
+import { render } from '../../../../tests'
 import { Radio } from '../'
 
 const content = 'Jungle'
