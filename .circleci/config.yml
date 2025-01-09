@@ -7,7 +7,7 @@ orbs:
 parameters:
   cache_version:
     type: string
-    default: v5
+    default: v6
   nodejs_base_image:
     type: string
     default: 'cimg/node:20.17.0'
@@ -67,21 +67,15 @@ jobs:
   build:
     <<: *default
     executor: nodejs
-    resource_class: xlarge
+    resource_class: medium
     steps:
       - *checkout
       - *restore_node_modules
-      - run: yarn icons:build
       - run: yarn build
-      - run: yarn build:monorepo
       - persist_to_workspace:
           root: ~/welcome-ui
           paths:
-            - packages/**/dist
             - lib/dist
-            - packages/Themes/**/dist
-            - icons/dist
-            - packages/IconFont/fonts
 
   lint:
     <<: *default
@@ -102,9 +96,9 @@ jobs:
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
-      - run: yarn jest --detectOpenHandles $(circleci tests glob "./packages/**/*.test.{ts,js,tsx}" | circleci tests split | xargs)
+      - run: yarn jest --detectOpenHandles $(circleci tests glob "./lib/**/*.test.{ts,js,tsx}" | circleci tests split | xargs)
 
-  build_and_release_icon_font:
+  release_icon_font:
     <<: *default
     executor: nodejs
     steps:
@@ -112,25 +106,22 @@ jobs:
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
-      - run: yarn icons:collect --force
-      - run: yarn webfont:build
       - run:
           name: Prepare font hash
           command: |
-            echo "export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')" >> $BASH_ENV
+            echo "export ICON_FONT_HASH=$(sha1sum lib/src/components/IconFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')" >> $BASH_ENV
             source $BASH_ENV
-            yarn build:core
       - aws-cli/setup:
           aws_access_key_id: AWS_ACCESS_KEY_ID
           aws_secret_access_key: AWS_SECRET_ACCESS_KEY
           region: ${AWS_REGION}
       - aws-s3/sync:
-          from: packages/IconFont/fonts
+          from: lib/src/components/IconFont/fonts
           to: s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH
           arguments: |
             --cache-control "public, max-age=31536000" --exclude "*" --include "welcome-icon-font.woff" --include "welcome-icon-font.woff2" --metadata GitCommit=$CIRCLE_SHA1 --delete
       - aws-s3/sync:
-          from: packages/IconFont/fonts
+          from: lib/src/components/IconFont/fonts
           to: s3://wttj-production/fonts/icon-font/$ICON_FONT_HASH
           arguments: |
             --cache-control "public, max-age=31536000" --exclude "*" --include "welcome-icon-font.woff" --include "welcome-icon-font.woff2" --metadata GitCommit=$CIRCLE_SHA1 --delete
@@ -144,7 +135,7 @@ jobs:
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
-      - run: yarn website:build
+      - run: yarn build:website
       - persist_to_workspace:
           root: ~/welcome-ui
           paths:
@@ -201,7 +192,7 @@ jobs:
           at: ~/welcome-ui
       - run:
           name: build w/ prefix
-          command: VERSION=$CIRCLE_BRANCH yarn website:build
+          command: VERSION=$CIRCLE_BRANCH yarn build:website
       - aws-cli/setup:
           aws_access_key_id: AWS_ACCESS_KEY_ID
           aws_secret_access_key: AWS_SECRET_ACCESS_KEY
@@ -273,15 +264,14 @@ workflows:
               only: /.*/
           requires:
             - build
-      - build_and_release_icon_font:
+      - release_icon_font:
           filters:
             tags:
               only: /.*/
           context:
             - aws
           requires:
-            - lint
-            - test
+            - build
       - website_build:
           filters:
             tags:
@@ -293,8 +283,10 @@ workflows:
             - aws
             - welcome-ui
           requires:
+            - lint
+            - test
             - website_build
-            - build_and_release_icon_font
+            - release_icon_font
       - website_deploy_prod:
           filters:
             branches:
@@ -305,8 +297,10 @@ workflows:
             - aws
             - welcome-ui
           requires:
+            - lint
+            - test
             - website_build
-            - build_and_release_icon_font
+            - release_icon_font
       - previous_website_versions_build_deploy_prod:
           filters:
             # should add branches here to keep previous doc version of future majors
@@ -316,14 +310,18 @@ workflows:
             - aws
             - welcome-ui
           requires:
-            - build
-            - build_and_release_icon_font
+            - lint
+            - test
+            - website_build
+            - release_icon_font
       - release:
           context:
             - welcome-ui
           requires:
-            - build
-            - build_and_release_icon_font
+            - lint
+            - test
+            - website_build
+            - release_icon_font
           filters:
             branches:
               ignore: /.*/
@@ -333,8 +331,10 @@ workflows:
           context:
             - welcome-ui
           requires:
-            - build
-            - build_and_release_icon_font
+            - lint
+            - test
+            - website_build
+            - release_icon_font
           filters:
             branches:
               ignore: /.*/

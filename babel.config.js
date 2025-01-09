@@ -5,9 +5,16 @@ module.exports = {
     },
   },
   presets: [
-    ['@babel/preset-env', { modules: false, loose: true }],
-    '@babel/preset-typescript',
+    ['@babel/preset-env', { targets: { node: 'current' } }],
     '@babel/preset-react',
+    [
+      'babel-preset-vite',
+      {
+        env: true,
+        glob: false,
+      },
+    ],
+    '@babel/preset-typescript',
   ],
   plugins: [
     '@babel/plugin-proposal-optional-chaining',

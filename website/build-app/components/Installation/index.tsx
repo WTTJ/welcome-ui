@@ -5,11 +5,12 @@ import { H2 } from '../Mdx/Headings'
 import { Highlight } from '../Mdx/Highlight'
 
 type InstallationProps = {
+  deepDependencies?: string
   packageName?: string
   usage?: string
 }
 
-export const Installation = ({ packageName, usage }: InstallationProps) => {
+export const Installation = ({ deepDependencies = '', packageName, usage }: InstallationProps) => {
   if (!packageName || !usage) {
     return (
       <Alert variant="danger">
@@ -39,7 +40,7 @@ export const Installation = ({ packageName, usage }: InstallationProps) => {
         </Flex>
         <Flex flexDirection="column" w="100%">
           <Text>Run the following command:</Text>
-          <Highlight language="shell">yarn add welcome-ui</Highlight>
+          <Highlight language="shell">{`yarn add welcome-ui ${deepDependencies}`}</Highlight>
         </Flex>
       </Flex>
       <Flex gap="md" mt="xl">

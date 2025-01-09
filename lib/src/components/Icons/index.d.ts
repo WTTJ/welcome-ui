@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { IconProps } from '../Icon'
-
 export declare const ActionsIcon: React.FC<IconProps>
 export declare const ActivityIcon: React.FC<IconProps>
 export declare const AddIcon: React.FC<IconProps>

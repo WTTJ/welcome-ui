@@ -49,7 +49,9 @@ export const fontFaces = (theme: ThemeValues): ThemeFontFaces => ({
   ],
   'welcome-icon-font': [
     {
-      url: `${theme.fontsUrl}/icon-font/__ICON_FONT_HASH__/welcome-icon-font`,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      url: `${theme.fontsUrl}/icon-font/${import.meta.env.VITE_ICON_FONT_HASH}/welcome-icon-font`,
       display: 'block',
     },
   ],

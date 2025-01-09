@@ -1,8 +1,9 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "sourceMap": false,
+    "sourceMap": true,
     "declaration": true,
     "target": "ES6"
-  }
+  },
+  "exclude": ["**/*.json"]
 }

@@ -1,1 +1,1 @@
-yarn icons:collect && yarn lint && yarn test
+yarn lint && yarn test
