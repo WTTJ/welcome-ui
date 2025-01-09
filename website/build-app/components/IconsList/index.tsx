@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { Icons as IconsFont } from '@welcome-ui/icons.font'
-import * as Icons from '@welcome-ui/icons'
+import * as Icons from 'welcome-ui/icons'
 import { Box } from '@welcome-ui/box'
 import { camelCase, startCase } from 'lodash'
 import { Text } from '@welcome-ui/text'

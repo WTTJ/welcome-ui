@@ -1,6 +1,6 @@
 {
   "name": "welcome-ui",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "files": [
     "dist"
@@ -49,6 +49,7 @@
     "@ariakit/react": "0.4.15"
   },
   "devDependencies": {
+    "@juggle/resize-observer": "^3.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.5.2",
@@ -78,6 +79,7 @@
     "wttj-config": "^3.0.1"
   },
   "peerDependencies": {
+    "@juggle/resize-observer": "^3.4.0",
     "@xstyled/styled-components": "^3.7.3",
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^4.1.0",
@@ -92,6 +94,9 @@
     "styled-components": "^5.3.9"
   },
   "peerDependenciesMeta": {
+    "@juggle/resize-observer": {
+      "optional": true
+    },
     "copy-to-clipboard": {
       "optional": true
     },

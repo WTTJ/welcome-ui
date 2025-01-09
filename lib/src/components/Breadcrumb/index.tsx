@@ -8,9 +8,9 @@ import React, {
   useState,
 } from 'react'
 import { ResizeObserver } from '@juggle/resize-observer'
-import { RightIcon } from '@welcome-ui/icons'
 import { Theme } from '@xstyled/styled-components'
 
+import { RightIcon } from '../Icons'
 import { CreateWuiProps, forwardRef } from '../System'
 import { clamp } from '../../utils/clamp'
 import { throttle } from '../../utils/throttle'

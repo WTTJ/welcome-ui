@@ -1,6 +1,5 @@
-import { Picker, Shape } from 'welcome-ui'
+import { EditIcon, PencilIcon, Picker, Shape } from 'welcome-ui'
 import * as React from 'react'
-import { EditIcon, PencilIcon } from '@welcome-ui/icons'
 
 const options = [
   {

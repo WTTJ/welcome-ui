@@ -30,11 +30,7 @@ const Page = ({ params }: PageProps) => {
     <>
       <main>
         <Mdx>{`<div data-playground="overview.tsx" data-component="${componentName}" data-overview="true"></div>`}</Mdx>
-        <Installation
-          packageName={data?.packageName}
-          title={data?.title}
-          usage={data?.usage || data?.title}
-        />
+        <Installation packageName={data?.packageName} usage={data?.usage || data?.title} />
         <Mdx>## Examples</Mdx>
         <Mdx>{contentWithoutMatter}</Mdx>
       </main>

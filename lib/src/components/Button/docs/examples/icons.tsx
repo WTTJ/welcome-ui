@@ -1,6 +1,5 @@
-import { Button } from 'welcome-ui'
+import { Button, WttjIcon } from 'welcome-ui'
 import * as React from 'react'
-import { WttjIcon } from '@welcome-ui/icons'
 
 const Example = () => {
   return (

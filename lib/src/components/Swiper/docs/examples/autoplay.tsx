@@ -1,5 +1,5 @@
-import * as React from 'react'
 import { Swiper, useSwiper } from 'welcome-ui'
+import * as React from 'react'
 
 const Example = () => {
   const swiper = useSwiper({ autoplay: true, loop: true })

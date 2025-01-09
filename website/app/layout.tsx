@@ -10,7 +10,7 @@ import { getPages } from '@/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '@/build-app/utils/pages-exports'
 import { Footer } from '@/build-app/components/Footer'
 
-import '@welcome-ui/icons.font/fonts/welcome-icon-font.css'
+// import '@welcome-ui/icons.font/fonts/welcome-icon-font.css'
 import './global.css'
 
 export const metadata: Metadata = {

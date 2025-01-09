@@ -7,6 +7,5 @@
     "declaration": true,
     "target": "ES6"
   },
-  "include": ["src"],
-  "exclude": ["**/docs/**"]
+  "exclude": ["dist"]
 }

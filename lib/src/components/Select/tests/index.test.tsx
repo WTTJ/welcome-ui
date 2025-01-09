@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import capitalize from 'lodash.capitalize'
-import { AvatarIcon, DateIcon } from '@welcome-ui/icons'
 import { act, screen } from '@testing-library/react'
 
+import { AvatarIcon, DateIcon } from '../../Icons'
 import { render } from '../../../../../utils/tests'
 import { Select, SelectOption, SelectProps } from '../'
 

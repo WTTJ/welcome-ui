@@ -1,6 +1,6 @@
 import React from 'react'
-import { ExternalLinkIcon } from '@welcome-ui/icons'
 
+import { ExternalLinkIcon } from '../Icons'
 import { UniversalLinkOptions } from '../UniversalLink'
 import { CreateWuiProps, forwardRef } from '../System'
 

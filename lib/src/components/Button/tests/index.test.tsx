@@ -1,7 +1,7 @@
 import React from 'react'
 import { act, screen } from '@testing-library/react'
-import { SunIcon } from '@welcome-ui/icons'
 
+import { SunIcon } from '../../Icons'
 import { Link } from '../../Link'
 import { Icons } from '../../IconFont'
 import { Button } from '../'

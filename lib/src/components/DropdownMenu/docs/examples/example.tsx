@@ -1,6 +1,16 @@
-import { Box, Button, ButtonGroup, DropdownMenu, useDropdownMenu } from 'welcome-ui'
+import {
+  AddIcon,
+  AttachmentIcon,
+  Box,
+  Button,
+  ButtonGroup,
+  DownIcon,
+  DropdownMenu,
+  TrashIcon,
+  UpIcon,
+  useDropdownMenu,
+} from 'welcome-ui'
 import * as React from 'react'
-import { AddIcon, AttachmentIcon, DownIcon, TrashIcon, UpIcon } from '@welcome-ui/icons'
 
 const Example = () => {
   const dropdownMenu = useDropdownMenu({ placement: 'bottom-end' })

@@ -1,6 +1,6 @@
 import React from 'react'
-import { LockIcon } from '@welcome-ui/icons'
 
+import { LockIcon } from '../Icons'
 import { VariantIcon } from '../VariantIcon'
 import { CreateWuiProps, forwardRef } from '../System'
 import { wrapChildren } from '../../utils/wrap-children'

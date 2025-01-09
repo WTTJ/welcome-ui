@@ -1,12 +1,6 @@
 import React, { useMemo } from 'react'
-import {
-  AlertIcon,
-  CheckIcon,
-  InformationIcon,
-  PromoteIcon,
-  SquareAlertIcon,
-} from '@welcome-ui/icons'
 
+import { AlertIcon, CheckIcon, InformationIcon, PromoteIcon, SquareAlertIcon } from '../Icons'
 import { CreateWuiProps, forwardRef } from '../System'
 
 import * as S from './styles'

@@ -1,6 +1,6 @@
-import { CrossIcon } from '@welcome-ui/icons'
 import React from 'react'
 
+import { CrossIcon } from '../Icons'
 import { CreateWuiProps, forwardRef } from '../System'
 import { wrapChildren } from '../../utils/wrap-children'
 import { ThemeSecondaryColors } from '../../theme/colors'

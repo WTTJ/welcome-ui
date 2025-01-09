@@ -10,10 +10,6 @@ function mergeImports(content) {
   let match
 
   while ((match = importRegex.exec(content)) !== null) {
-    // Skip icons
-    if (match[0].includes('@welcome-ui/icons')) continue
-
-    // Add each import to Set
     match[1]
       .split(',')
       .map(i => i.trim())
@@ -24,7 +20,7 @@ function mergeImports(content) {
   // Remove old imports
   content = content.replace(
     /import\s+{[^}]+}\s+from\s+['"](@welcome-ui\/[^'"]+|welcome-ui)['"]\n?/g,
-    match => (match.includes('@welcome-ui/icons') ? match : '')
+    ''
   )
 
   // Add merged import at top

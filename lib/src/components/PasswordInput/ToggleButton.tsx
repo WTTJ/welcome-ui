@@ -1,6 +1,6 @@
 import React from 'react'
-import { HideIcon, ShowIcon } from '@welcome-ui/icons'
 
+import { HideIcon, ShowIcon } from '../Icons'
 import { Button } from '../Button'
 import { CreateWuiProps } from '../System'
 

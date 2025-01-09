@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  CrossIcon,
   FileUpload,
   FileUploadPreviewProps,
   getFileIcon,
@@ -9,7 +10,6 @@ import {
   Tag,
 } from 'welcome-ui'
 import * as React from 'react'
-import { CrossIcon } from '@welcome-ui/icons'
 
 const Example = () => {
   const handleChange = () => {

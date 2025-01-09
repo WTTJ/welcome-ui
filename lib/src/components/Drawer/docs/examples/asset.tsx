@@ -1,6 +1,5 @@
-import { AssetDrawer, Button, Drawer, useDrawer } from 'welcome-ui'
+import { AssetDrawer, Button, Drawer, useDrawer, UserIcon } from 'welcome-ui'
 import * as React from 'react'
-import { UserIcon } from '@welcome-ui/icons'
 
 const Example = () => {
   const drawer = useDrawer()
