@@ -10,6 +10,7 @@ type Data = {
   category?: string
   description?: string
   packageName?: string
+  peerDependencies?: string
   title?: string
   type?: string
   usage?: string
