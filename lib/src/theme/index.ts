@@ -264,7 +264,7 @@ export const createTheme = (options: ThemeProps = {}): ThemeValues => {
   theme.links = getLinks(theme)
   theme.loaders = getLoaders(theme)
   theme.modals = getModals(theme)
-  theme.pagination = getPagination(theme)
+  theme.paginations = getPagination(theme)
   theme.popovers = getPopovers(theme)
   theme.radios = getRadios(theme)
   theme.radiosTab = getRadioTabs(theme)
