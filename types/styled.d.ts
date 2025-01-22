@@ -2,7 +2,7 @@
 import 'styled-components'
 import '@xstyled/styled-components'
 
-import { ThemeValues } from 'welcome-ui'
+import { ThemeValues } from 'welcome-ui/theme'
 
 declare module '@xstyled/styled-components' {
   export interface Theme extends ThemeValues {}

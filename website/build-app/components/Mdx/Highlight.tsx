@@ -1,5 +1,8 @@
 'use client'
-import { Box, Button, CheckIcon, CopyIcon, useCopyText } from 'welcome-ui'
+import { Box } from '@welcome-ui/box'
+import { Button } from '@welcome-ui/button'
+import { CheckIcon, CopyIcon } from '@welcome-ui/icons'
+import { useCopyText } from 'welcome-ui/utils'
 import { Highlight as HighlightPrism, themes } from 'prism-react-renderer'
 
 export type HighlightProps = {

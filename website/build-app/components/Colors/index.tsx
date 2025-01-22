@@ -1,6 +1,10 @@
 'use client'
-import { Alert, Box, Grid, Text, ThemeValues } from 'welcome-ui'
+import { Alert } from '@welcome-ui/alert'
+import { Box } from '@welcome-ui/box'
 import { useTheme } from '@xstyled/styled-components'
+import { ThemeValues } from 'welcome-ui/theme'
+import { Grid } from '@welcome-ui/grid'
+import { Text } from '@welcome-ui/text'
 
 const getColors = (name: string, theme: ThemeValues) => {
   const themeColors = theme.colors as ThemeValues['colors']

@@ -1,5 +1,14 @@
 'use client'
-import { Alert, Avatar, Box, Card, Link, Pagination, Stack, Tag, Text, Toggle } from 'welcome-ui'
+import { Alert } from '@welcome-ui/alert'
+import { Avatar } from '@welcome-ui/avatar'
+import { Box } from '@welcome-ui/box'
+import { Card } from '@welcome-ui/card'
+import { Pagination } from '@welcome-ui/pagination'
+import { Stack } from '@welcome-ui/stack'
+import { Tag } from '@welcome-ui/tag'
+import { Text } from '@welcome-ui/text'
+import { Toggle } from '@welcome-ui/toggle'
+import { Link } from '@welcome-ui/link'
 import NextLink from 'next/link'
 
 type ComponentProps = {

@@ -1,13 +1,8 @@
-import {
-  Box,
-  Button,
-  CrescentMoonIcon,
-  Flex,
-  GithubIcon,
-  SunIcon,
-  Text,
-  ThemeValues,
-} from 'welcome-ui'
+import { Box } from '@welcome-ui/box'
+import { Flex } from '@welcome-ui/flex'
+import { Text } from '@welcome-ui/text'
+import { Button } from '@welcome-ui/button'
+import { ThemeValues } from 'welcome-ui/theme'
 import React from 'react'
 import { usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'

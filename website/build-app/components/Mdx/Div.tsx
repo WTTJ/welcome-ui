@@ -1,7 +1,7 @@
 import { join } from 'path'
 import { existsSync, readFileSync } from 'fs'
 
-import { Alert } from 'welcome-ui'
+import { Alert } from 'welcome-ui/Alert'
 
 import { Colors } from '../Colors'
 import { Theme } from '../Theme'

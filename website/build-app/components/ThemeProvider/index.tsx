@@ -4,8 +4,8 @@ import {
   createTheme as oldCreateTheme,
   darkTheme as WuiDarkTheme,
   WuiProvider,
-} from 'welcome-ui'
-import type { WuiProviderProps } from 'welcome-ui'
+} from 'welcome-ui/theme'
+import type { WuiProviderProps } from 'welcome-ui/theme'
 import { useTheme } from 'next-themes'
 import * as React from 'react'
 

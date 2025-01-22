@@ -1,5 +1,14 @@
 'use client'
-import { Avatar, Box, Button, Card, Flex, Link, RightIcon, Stack, Tag, Text } from 'welcome-ui'
+import { Text } from '@welcome-ui/text'
+import { Button } from '@welcome-ui/button'
+import { Box } from '@welcome-ui/box'
+import { Link } from '@welcome-ui/link'
+import { Card } from '@welcome-ui/card'
+import { Stack } from '@welcome-ui/stack'
+import { Tag } from '@welcome-ui/tag'
+import { Avatar } from '@welcome-ui/avatar'
+import { RightIcon } from '@welcome-ui/icons'
+import { Flex } from '@welcome-ui/flex'
 import styled, { th } from '@xstyled/styled-components'
 
 const posts = [

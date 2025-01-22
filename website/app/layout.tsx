@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { Box, Notifications } from 'welcome-ui'
+import { Box } from 'welcome-ui/Box'
+import { Notifications } from 'welcome-ui/Toast'
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
 import StyledComponentsRegistry from '@/build-app/registry'

@@ -1,4 +1,4 @@
-import { Card } from 'welcome-ui'
+import { Card } from 'welcome-ui/Card'
 import styled from '@xstyled/styled-components'
 
 export const StyledCard = styled(Card)`

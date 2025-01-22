@@ -1,5 +1,9 @@
 'use client'
-import { Box, IconFont, Icons, Text, toast, Toast } from 'welcome-ui'
+import { IconFont } from '@welcome-ui/icons.font'
+import * as Icons from '@welcome-ui/icons'
+import { Box } from '@welcome-ui/box'
+import { Text } from '@welcome-ui/text'
+import { Toast, toast } from '@welcome-ui/toast'
 import React from 'react'
 import { camelCase, startCase } from 'lodash'
 

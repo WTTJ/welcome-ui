@@ -1,5 +1,7 @@
 'use client'
-import { Flex, Text, ThemeValues } from 'welcome-ui'
+import { Text } from '@welcome-ui/text'
+import { Flex } from '@welcome-ui/flex'
+import { ThemeValues } from 'welcome-ui/theme'
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
