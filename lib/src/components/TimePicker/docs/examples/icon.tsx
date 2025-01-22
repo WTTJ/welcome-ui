@@ -1,5 +1,6 @@
-import { TimePicker, WttjIcon } from 'welcome-ui'
 import * as React from 'react'
+import { TimePicker } from 'welcome-ui/TimePicker'
+import { WttjIcon } from 'welcome-ui/Icons'
 
 const Example = () => {
   return (

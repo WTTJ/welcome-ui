@@ -1,5 +1,6 @@
-import { DatePicker, WttjIcon } from 'welcome-ui'
 import * as React from 'react'
+import { DatePicker } from 'welcome-ui/DatePicker'
+import { WttjIcon } from 'welcome-ui/Icons'
 
 const Example = () => {
   return (

@@ -1,5 +1,5 @@
-import { Swiper, useSwiper } from 'welcome-ui'
 import * as React from 'react'
+import { Swiper, useSwiper } from 'welcome-ui/Swiper'
 
 const Example = () => {
   const swiper = useSwiper({ spaceBetween: 0 })

@@ -15,7 +15,8 @@ To create your theme, use need to add some values from object on `createTheme()`
 ```jsx
 import React from 'react'
 // import the theme provider and create theme util
-import { Button, createTheme, WuiProvider } from 'welcome-ui'
+import { createTheme, WuiProvider } from 'welcome-ui/theme'
+import { Button } from 'welcome-ui/Button'
 
 // Create your theme with specific colors, spacing etc.
 const theme = createTheme({
@@ -191,7 +192,8 @@ The entry is always in plurial (tags, buttons, etc.)
 
 ```jsx live=false
 import React from 'react'
-import { Button, createTheme, WuiProvider } from 'welcome-ui'
+import { createTheme, WuiProvider } from 'welcome-ui/theme'
+import { Button } from 'welcome-ui/Button'
 
 const yourTheme = {
   tags: {

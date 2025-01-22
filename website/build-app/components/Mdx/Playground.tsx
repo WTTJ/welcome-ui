@@ -1,14 +1,10 @@
 'use client'
-import {
-  Box,
-  Button,
-  CodeBlockIcon,
-  Flex,
-  GithubIcon,
-  PromoteIcon,
-  ThemeValues,
-  Tooltip,
-} from 'welcome-ui'
+import { Box } from 'welcome-ui/Box'
+import { ThemeValues } from 'welcome-ui/theme'
+import { Button } from 'welcome-ui/Button'
+import { CodeBlockIcon, GithubIcon, PromoteIcon } from 'welcome-ui/Icons'
+import { Flex } from 'welcome-ui/Flex'
+import { Tooltip } from 'welcome-ui/Tooltip'
 import { useState } from 'react'
 
 import { Highlight } from './Highlight'

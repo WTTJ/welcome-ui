@@ -1,4 +1,7 @@
-import { Button, Flex, GithubIcon, Text } from 'welcome-ui'
+import { Text } from 'welcome-ui/Text'
+import { Flex } from 'welcome-ui/Flex'
+import { Button } from 'welcome-ui/Button'
+import { GithubIcon } from 'welcome-ui/Icons'
 
 import { Tabs } from './tabs'
 

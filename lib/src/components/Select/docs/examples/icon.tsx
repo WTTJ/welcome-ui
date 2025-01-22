@@ -1,5 +1,6 @@
-import { Select, SelectProps, WttjIcon } from 'welcome-ui'
 import * as React from 'react'
+import { Select, SelectProps } from 'welcome-ui/Select'
+import { WttjIcon } from 'welcome-ui/Icons'
 
 export const ITEMS = [
   { value: 'bold', label: 'Bold' },

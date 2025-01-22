@@ -1,5 +1,8 @@
-import { Accordion, Avatar, Flex, Text, useAccordion } from 'welcome-ui'
 import * as React from 'react'
+import { Flex } from 'welcome-ui/Flex'
+import { Avatar } from 'welcome-ui/Avatar'
+import { Text } from 'welcome-ui/Text'
+import { Accordion, useAccordion } from 'welcome-ui/Accordion'
 
 const Example = () => {
   const accordion = useAccordion()

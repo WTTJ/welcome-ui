@@ -1,5 +1,5 @@
-import { Button } from 'welcome-ui'
 import * as React from 'react'
+import { Button } from 'welcome-ui/Button'
 
 const Example = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false)

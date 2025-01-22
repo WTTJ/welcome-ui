@@ -1,5 +1,6 @@
-import { Button, Modal, useModal } from 'welcome-ui'
 import * as React from 'react'
+import { Modal, useModal } from 'welcome-ui/Modal'
+import { Button } from 'welcome-ui/Button'
 
 const Example = () => {
   const modal = useModal()

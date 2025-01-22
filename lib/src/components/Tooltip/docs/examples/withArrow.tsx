@@ -1,5 +1,6 @@
-import { Button, Tooltip } from 'welcome-ui'
 import * as React from 'react'
+import { Tooltip } from 'welcome-ui/Tooltip'
+import { Button } from 'welcome-ui/Button'
 
 const Example = () => {
   return (

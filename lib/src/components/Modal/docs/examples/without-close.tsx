@@ -1,5 +1,7 @@
-import { Button, Flex, Modal, useModal } from 'welcome-ui'
 import * as React from 'react'
+import { Modal, useModal } from 'welcome-ui/Modal'
+import { Button } from 'welcome-ui/Button'
+import { Flex } from 'welcome-ui/Flex'
 
 const Example = () => {
   const modal = useModal()

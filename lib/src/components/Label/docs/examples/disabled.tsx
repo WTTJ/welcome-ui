@@ -1,5 +1,6 @@
-import { Label, Stack } from 'welcome-ui'
 import * as React from 'react'
+import { Label } from 'welcome-ui/Label'
+import { Stack } from 'welcome-ui/Stack'
 
 const Example = () => {
   return (

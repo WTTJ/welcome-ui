@@ -1,5 +1,9 @@
-import { Avatar, Box, Link, Stack, Text } from 'welcome-ui'
 import * as React from 'react'
+import { Link } from 'welcome-ui/Link'
+import { Text } from 'welcome-ui/Text'
+import { Stack } from 'welcome-ui/Stack'
+import { Box } from 'welcome-ui/Box'
+import { Avatar } from 'welcome-ui/Avatar'
 
 const Example = () => {
   return (

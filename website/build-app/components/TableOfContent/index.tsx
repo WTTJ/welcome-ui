@@ -1,5 +1,7 @@
 'use client'
-import { Box, Flex, Text } from 'welcome-ui'
+import { Box } from 'welcome-ui/Box'
+import { Text } from 'welcome-ui/Text'
+import { Flex } from 'welcome-ui/Flex'
 import { useEffect, useState } from 'react'
 import NextLink from 'next/link'
 

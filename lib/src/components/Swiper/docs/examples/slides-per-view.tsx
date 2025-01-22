@@ -1,5 +1,5 @@
-import { Swiper, useSwiper } from 'welcome-ui'
 import * as React from 'react'
+import { Swiper, useSwiper } from 'welcome-ui/Swiper'
 
 const Example = () => {
   const swiper = useSwiper({ slidesPerView: { mobile: 1, tablet: 1, desktop: 2 } })

@@ -1,5 +1,5 @@
-import { DatePicker } from 'welcome-ui'
 import * as React from 'react'
+import { DatePicker } from 'welcome-ui/DatePicker'
 
 const Example = () => {
   return <DatePicker dateFormat="MM/yyyy" name="welcome" showMonthYearPicker value={new Date()} />

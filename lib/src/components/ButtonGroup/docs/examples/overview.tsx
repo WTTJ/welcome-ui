@@ -1,4 +1,5 @@
-import { Button, ButtonGroup } from 'welcome-ui'
+import { Button } from 'welcome-ui/Button'
+import { ButtonGroup } from 'welcome-ui/ButtonGroup'
 import * as React from 'react'
 
 const Example = () => {

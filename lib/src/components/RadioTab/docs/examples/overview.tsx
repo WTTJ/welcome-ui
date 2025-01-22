@@ -1,5 +1,6 @@
-import { RadioGroup, RadioTab } from 'welcome-ui'
 import * as React from 'react'
+import { RadioGroup } from 'welcome-ui/RadioGroup'
+import { RadioTab } from 'welcome-ui/RadioTab'
 
 export const ITEMS = [
   { value: 'bold', label: 'Bold' },
