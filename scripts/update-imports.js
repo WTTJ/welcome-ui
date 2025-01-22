@@ -5,48 +5,43 @@ const glob = require('glob')
 
 const [pattern = ''] = process.argv.slice(2)
 
-function mergeImports(content) {
-  // Extract all `welcome-ui` imports (normal and type imports)
-  const importRegex =
-    /import\s+(type\s+)?{([^}]+)}\s+from\s+['"](@welcome-ui\/[^'"]+|welcome-ui)['"]/g
-  const imports = new Set()
-  const typeImports = new Set()
-  let match
+function transformToUpperCamelCase(str) {
+  return str.replace(/\/(\w+)$/, match => {
+    // Remove leading slash and transform each word to uppercase
+    return (
+      '/' +
+      match
+        .slice(1)
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join('')
+    )
+  })
+}
 
-  while ((match = importRegex.exec(content)) !== null) {
-    const isTypeImport = match[1]?.trim() === 'type'
-    const importSet = isTypeImport ? typeImports : imports
+function transformImports(content) {
+  // Handle special cases first
+  content = content.replace(/@welcome-ui\/core/g, 'welcome-ui/theme')
+  content = content.replace(/@welcome-ui\/copy/g, 'welcome-ui/utils')
 
-    match[2]
+  // Transform WuiTheme to ThemeValues in imports, preserving type imports
+  const importBlockRegex = /(import\s+(?:type\s+)?){([^}]+)}\s+from/g
+  content = content.replace(importBlockRegex, (match, importStatement, importBlock) => {
+    const transformedImports = importBlock
       .split(',')
-      .map(i => i.trim())
-      .filter(Boolean)
-      .forEach(i => {
-        // Rename WuiTheme to ThemeValues for type imports
-        if (isTypeImport && i === 'WuiTheme') {
-          importSet.add('ThemeValues')
-        } else {
-          importSet.add(i)
-        }
-      })
-  }
+      .map(item => item.trim())
+      .map(item => (item === 'WuiTheme' ? 'ThemeValues' : item))
+      .join(', ')
+    return `${importStatement}{ ${transformedImports} } from`
+  })
 
-  // Remove old imports
-  content = content.replace(
-    /import\s+(type\s+)?{[^}]+}\s+from\s+['"](@welcome-ui\/[^'"]+|welcome-ui)['"]\n?/g,
-    ''
-  )
-
-  // Add merged imports at top
-  if (imports.size > 0) {
-    const mergedImport = `import { ${Array.from(imports).join(', ')} } from 'welcome-ui';\n`
-    content = mergedImport + content
-  }
-
-  if (typeImports.size > 0) {
-    const mergedTypeImport = `import type { ${Array.from(typeImports).join(', ')} } from 'welcome-ui';\n`
-    content = mergedTypeImport + content
-  }
+  // Transform other @welcome-ui imports
+  const importRegex = /from\s+['"](@welcome-ui\/[^'"]+)['"]/g
+  content = content.replace(importRegex, (match, importPath) => {
+    // Remove @ prefix and transform to UpperCamelCase
+    const newPath = importPath.replace('@welcome-ui/', 'welcome-ui/')
+    return `from '${transformToUpperCamelCase(newPath)}'`
+  })
 
   return content
 }
@@ -57,8 +52,11 @@ const files = glob.sync(pattern, {
 
 files.forEach(file => {
   const content = fs.readFileSync(file, 'utf8')
-  const newContent = mergeImports(content)
-  fs.writeFileSync(file, newContent)
-  // eslint-disable-next-line no-console
-  console.log(`Updated ${file}`)
+  const newContent = transformImports(content)
+
+  if (content !== newContent) {
+    fs.writeFileSync(file, newContent)
+    // eslint-disable-next-line no-console
+    console.log(`Updated ${file}`)
+  }
 })
