@@ -1,6 +1,6 @@
-import { AspectRatio } from 'welcome-ui'
 /* eslint-disable react/iframe-missing-sandbox */
 import * as React from 'react'
+import { AspectRatio } from 'welcome-ui/AspectRatio'
 
 const Example = () => {
   return (

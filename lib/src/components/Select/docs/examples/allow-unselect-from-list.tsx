@@ -1,5 +1,8 @@
-import { Box, Checkbox, LinkIcon, Select, SelectOption, SelectProps } from 'welcome-ui'
 import * as React from 'react'
+import { Option, Select, SelectProps } from 'welcome-ui/Select'
+import { LinkIcon } from 'welcome-ui/Icons'
+import { Box } from 'welcome-ui/Box'
+import { Checkbox } from 'welcome-ui/Checkbox'
 
 export const ITEMS = [
   { value: 'bold', label: 'Bold' },
@@ -25,7 +28,9 @@ const Example = () => {
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
-      renderItem={(item: SelectOption, selected?: boolean) => (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      renderItem={(item: Option, selected?: boolean) => (
         <Box display="flex" justifyContent="space-between">
           {item.label}
           <Box>

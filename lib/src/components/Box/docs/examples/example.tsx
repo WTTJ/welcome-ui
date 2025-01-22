@@ -1,5 +1,8 @@
-import { Badge, Box, StarIcon, Text } from 'welcome-ui'
 import * as React from 'react'
+import { Box } from 'welcome-ui/Box'
+import { Badge } from 'welcome-ui/Badge'
+import { StarIcon } from 'welcome-ui/Icons'
+import { Text } from 'welcome-ui/Text'
 
 const Example = () => {
   return (

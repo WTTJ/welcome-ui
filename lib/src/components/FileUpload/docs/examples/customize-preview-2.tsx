@@ -1,5 +1,8 @@
-import { Button, FileUpload, getFileIcon, Stack } from 'welcome-ui'
 import * as React from 'react'
+import { FileUpload } from 'welcome-ui/FileUpload'
+import { Button } from 'welcome-ui/Button'
+import { getFileIcon } from 'welcome-ui/Files'
+import { Stack } from 'welcome-ui/Stack'
 
 const Example = () => {
   const handleChange = () => {
@@ -27,7 +30,9 @@ const Example = () => {
 
                 return (
                   <Button key={preview} onClick={() => onRemoveFile(file)}>
-                    {`${getFileIcon(file)}`} Click to remove {name}
+                    <>
+                      {getFileIcon(file)} Click to remove {name}
+                    </>
                   </Button>
                 )
               })}

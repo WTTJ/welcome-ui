@@ -1,5 +1,7 @@
 'use client'
-import { Button, Flex, LeftIcon, RightIcon } from 'welcome-ui'
+import { Button } from 'welcome-ui/Button'
+import { LeftIcon, RightIcon } from 'welcome-ui/Icons'
+import { Flex } from 'welcome-ui/Flex'
 import Link from 'next/link'
 
 import { PageTree } from '@/build-app/types'

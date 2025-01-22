@@ -1,5 +1,6 @@
-import { Link, Text } from 'welcome-ui'
 import * as React from 'react'
+import { Link } from 'welcome-ui/Link'
+import { Text } from 'welcome-ui/Text'
 
 const Example = () => {
   return (

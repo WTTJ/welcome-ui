@@ -1,5 +1,7 @@
-import { Button, Field, FileUpload } from 'welcome-ui'
 import * as React from 'react'
+import { FileUpload } from 'welcome-ui/FileUpload'
+import { Button } from 'welcome-ui/Button'
+import { Field } from 'welcome-ui/Field'
 
 const Example = () => {
   const handleChange = () => {

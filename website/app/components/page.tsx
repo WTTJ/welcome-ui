@@ -1,4 +1,8 @@
-import { Box, Card, Flex, Grid, Text } from 'welcome-ui'
+import { Card } from 'welcome-ui/Card'
+import { Flex } from 'welcome-ui/Flex'
+import { Grid } from 'welcome-ui/Grid'
+import { Text } from 'welcome-ui/Text'
+import { Box } from 'welcome-ui/Box'
 import Link from 'next/link'
 import { Metadata } from 'next'
 

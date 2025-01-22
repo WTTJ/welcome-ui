@@ -1,7 +1,12 @@
 'use client'
-import { Box, Button, Drawer, Flex, MenuIcon, useDrawer, WelcomeUILogo } from 'welcome-ui'
+import { Flex } from 'welcome-ui/Flex'
+import { Button } from 'welcome-ui/Button'
+import { Drawer, useDrawer } from 'welcome-ui/Drawer'
+import { Box } from 'welcome-ui/Box'
+import { WelcomeUILogo } from 'welcome-ui/Logo'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { MenuIcon } from 'welcome-ui/Icons'
 
 import { VersionSelector } from '../VersionSelector'
 import { Sidebar } from '../Sidebar'

@@ -1,5 +1,5 @@
-import { FileUpload } from 'welcome-ui'
 import * as React from 'react'
+import { FileUpload } from 'welcome-ui/FileUpload'
 
 const Example = () => {
   const handleChange = () => {

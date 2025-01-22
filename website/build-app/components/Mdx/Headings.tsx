@@ -1,4 +1,6 @@
-import { Box, Text, ThemeValues } from 'welcome-ui'
+import { ThemeValues } from 'welcome-ui/theme'
+import { Box } from 'welcome-ui/Box'
+import { Text } from 'welcome-ui/Text'
 import { kebabCase } from 'lodash'
 
 type HeadingsProps = {

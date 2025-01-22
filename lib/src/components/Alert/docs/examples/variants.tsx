@@ -1,5 +1,6 @@
-import { Alert, Stack } from 'welcome-ui'
 import * as React from 'react'
+import { Alert } from 'welcome-ui/Alert'
+import { Stack } from 'welcome-ui/Stack'
 
 const Example = () => {
   return (

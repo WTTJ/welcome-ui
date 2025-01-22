@@ -1,4 +1,4 @@
-import { Select } from 'welcome-ui'
+import { Select } from 'welcome-ui/Select'
 import React from 'react'
 
 import lib from '../../../../lib/package.json'

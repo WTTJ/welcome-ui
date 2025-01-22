@@ -1,5 +1,6 @@
-import { Checkbox, Field } from 'welcome-ui'
 import * as React from 'react'
+import { Checkbox } from 'welcome-ui/Checkbox'
+import { Field } from 'welcome-ui/Field'
 
 const Example = () => {
   const [checkbox, setCheckbox] = React.useState(false)

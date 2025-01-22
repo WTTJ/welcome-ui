@@ -1,5 +1,5 @@
-import { Tab, useTab } from 'welcome-ui'
 import * as React from 'react'
+import { Tab, useTab } from 'welcome-ui/Tabs'
 
 const Example = () => {
   const tab = useTab({ defaultSelectedId: 'tab1' })

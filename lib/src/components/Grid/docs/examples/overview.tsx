@@ -1,5 +1,6 @@
-import { Box, Grid } from 'welcome-ui'
 import * as React from 'react'
+import { Grid } from 'welcome-ui/Grid'
+import { Box } from 'welcome-ui/Box'
 
 const Example = () => {
   return (

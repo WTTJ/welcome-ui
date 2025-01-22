@@ -14,7 +14,8 @@ Use the `<WuiProvider />` at the root of your application to set the theme and s
 
 ```tsx
 import React from 'react'
-import { Button, createTheme, WuiProvider } from 'welcome-ui'
+import { createTheme, WuiProvider } from 'welcome-ui/theme'
+import { Button } from 'welcome-ui/Button'
 
 const theme = createTheme()
 
@@ -106,7 +107,7 @@ In order to get your theme object typed with our theme, you have to override the
 // styled.d.ts
 import 'styled-components'
 import '@xstyled/styled-components'
-import { ThemeValues } from 'welcome-ui'
+import { ThemeValues } from 'welcome-ui/theme'
 
 interface AppTheme extends ThemeValues {
   // customize your theme
