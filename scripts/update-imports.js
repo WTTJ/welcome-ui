@@ -6,7 +6,7 @@ const glob = require('glob')
 const [pattern = ''] = process.argv.slice(2)
 
 function transformToUpperCamelCase(str) {
-  return str.replace(/\/(\w+)$/, match => {
+  return str.replace(/\/([a-z-]+)$/, match => {
     // Remove leading slash and transform each word to uppercase
     return (
       '/' +
