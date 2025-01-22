@@ -1,5 +1,6 @@
-import { Tag, Text } from 'welcome-ui'
 import * as React from 'react'
+import { Tag } from '@welcome-ui/tag'
+import { Text } from '@welcome-ui/text'
 
 const Example = () => {
   const [isHide, setHide] = React.useState(false)

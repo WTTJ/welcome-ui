@@ -1,5 +1,6 @@
-import { Box, Flex } from 'welcome-ui'
 import * as React from 'react'
+import { Flex } from '@welcome-ui/flex'
+import { Box } from '@welcome-ui/box'
 
 const Example = () => {
   return (

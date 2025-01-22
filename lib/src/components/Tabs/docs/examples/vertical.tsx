@@ -1,5 +1,6 @@
-import { Box, Tab, useTab } from 'welcome-ui'
 import * as React from 'react'
+import { Box } from '@welcome-ui/box'
+import { Tab, useTab } from '@welcome-ui/tabs'
 
 const Example = () => {
   const tab = useTab({ orientation: 'vertical', defaultSelectedId: 'tab2' })

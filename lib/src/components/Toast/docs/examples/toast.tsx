@@ -1,6 +1,8 @@
-import { Box, Button, toast } from 'welcome-ui'
 /* eslint-disable react/jsx-curly-newline */
 import * as React from 'react'
+import { toast } from '@welcome-ui/toast'
+import { Box } from '@welcome-ui/box'
+import { Button } from '@welcome-ui/button'
 import { ToastPosition } from 'react-hot-toast/headless'
 
 const Element = () => (

@@ -1,5 +1,5 @@
-import { Tooltip } from 'welcome-ui'
 import * as React from 'react'
+import { Tooltip } from '@welcome-ui/tooltip'
 
 const Example = () => {
   return (

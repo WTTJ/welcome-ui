@@ -1,5 +1,5 @@
-import { Select, SelectProps } from 'welcome-ui'
 import * as React from 'react'
+import { Select, SelectProps } from '@welcome-ui/select'
 
 export const ITEMS = [
   { value: 'bold', label: 'Bold' },

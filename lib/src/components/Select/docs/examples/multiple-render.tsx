@@ -1,7 +1,9 @@
-import { Select, SelectOption, SelectProps, Tag, Text } from 'welcome-ui'
 import * as React from 'react'
+import { Option, Select, SelectProps } from '@welcome-ui/select'
+import { Tag } from '@welcome-ui/tag'
+import { Text } from '@welcome-ui/text'
 
-export const ITEMS: SelectOption[] = [
+export const ITEMS: Option[] = [
   { value: 'bold', label: 'Bold' },
   { value: 'italic', label: 'Italic' },
   { value: 'strikethrough', label: 'Strikethrough' },

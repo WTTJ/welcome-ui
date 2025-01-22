@@ -1,5 +1,7 @@
-import { Box, Button, toast } from 'welcome-ui'
 import * as React from 'react'
+import { toast } from '@welcome-ui/toast'
+import { Box } from '@welcome-ui/box'
+import { Button } from '@welcome-ui/button'
 
 const Element = () => (
   <Box

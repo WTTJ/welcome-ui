@@ -1,5 +1,7 @@
-import { Button, Drawer, Stack, useDrawer } from 'welcome-ui'
 import * as React from 'react'
+import { Drawer, useDrawer } from '@welcome-ui/drawer'
+import { Button } from '@welcome-ui/button'
+import { Stack } from '@welcome-ui/stack'
 
 const Example = () => {
   const drawer = useDrawer()

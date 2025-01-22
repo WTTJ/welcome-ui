@@ -1,5 +1,7 @@
-import { Button, SettingsIcon, Table } from 'welcome-ui'
 import * as React from 'react'
+import { Table } from '@welcome-ui/table'
+import { Button } from '@welcome-ui/button'
+import { SettingsIcon } from '@welcome-ui/icons'
 
 const Example = () => {
   return (

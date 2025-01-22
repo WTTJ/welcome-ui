@@ -1,5 +1,5 @@
-import { Textarea } from 'welcome-ui'
 import * as React from 'react'
+import { Textarea } from '@welcome-ui/textarea'
 
 const Example = () => {
   return (

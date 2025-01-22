@@ -1,12 +1,12 @@
-import { IconFont } from 'welcome-ui'
 import * as React from 'react'
+import { Icons } from '@welcome-ui/icons.font'
 
 const Example = () => {
   return (
     <>
-      <IconFont.PositiveStraight color="blue" size="xl" />
-      <IconFont.PositiveStraight color="orange" size="xl" />
-      <IconFont.PositiveStraight color="green" size="xl" />
+      <Icons.PositiveStraight color="blue" size="xl" />
+      <Icons.PositiveStraight color="orange" size="xl" />
+      <Icons.PositiveStraight color="green" size="xl" />
     </>
   )
 }

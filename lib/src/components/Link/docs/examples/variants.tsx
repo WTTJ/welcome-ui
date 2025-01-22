@@ -1,5 +1,6 @@
-import { Link, Stack } from 'welcome-ui'
 import * as React from 'react'
+import { Link } from '@welcome-ui/link'
+import { Stack } from '@welcome-ui/stack'
 
 const Example = () => {
   return (

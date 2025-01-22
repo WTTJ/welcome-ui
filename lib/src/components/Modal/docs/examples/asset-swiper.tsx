@@ -1,5 +1,7 @@
-import { AssetModal, Button, Modal, Swiper, useModal, useSwiper } from 'welcome-ui'
 import * as React from 'react'
+import { AssetModal, Modal, useModal } from '@welcome-ui/modal'
+import { Swiper, useSwiper } from '@welcome-ui/swiper'
+import { Button } from '@welcome-ui/button'
 
 const Example = () => {
   const modal = useModal()

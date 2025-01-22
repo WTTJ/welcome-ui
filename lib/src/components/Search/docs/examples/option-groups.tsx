@@ -1,5 +1,8 @@
-import { Box, Search, Tag, Text } from 'welcome-ui'
 import * as React from 'react'
+import { Search } from '@welcome-ui/search'
+import { Box } from '@welcome-ui/box'
+import { Text } from '@welcome-ui/text'
+import { Tag } from '@welcome-ui/tag'
 
 type Item = { Title: string; Type: 'movie' | 'serie' }
 

@@ -1,5 +1,7 @@
-import { Checkbox, Label, Link } from 'welcome-ui'
 import * as React from 'react'
+import { Label } from '@welcome-ui/label'
+import { Checkbox } from '@welcome-ui/checkbox'
+import { Link } from '@welcome-ui/link'
 
 const Example = () => {
   const [checked, setChecked] = React.useState(false)

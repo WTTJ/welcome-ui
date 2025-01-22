@@ -1,5 +1,7 @@
-import { Button, Field, InputText } from 'welcome-ui'
 import * as React from 'react'
+import { InputText } from '@welcome-ui/input-text'
+import { Field } from '@welcome-ui/field'
+import { Button } from '@welcome-ui/button'
 
 const Example = () => {
   const inputRef = React.useRef<HTMLInputElement>(null)

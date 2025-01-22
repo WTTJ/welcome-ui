@@ -1,5 +1,5 @@
-import { Alert } from 'welcome-ui'
 import * as React from 'react'
+import { Alert } from '@welcome-ui/alert'
 
 const Example = () => {
   const [hideAlert, setHideAlert] = React.useState(false)

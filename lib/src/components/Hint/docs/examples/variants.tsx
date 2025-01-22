@@ -1,5 +1,6 @@
-import { Hint, Stack } from 'welcome-ui'
 import * as React from 'react'
+import { Hint } from '@welcome-ui/hint'
+import { Stack } from '@welcome-ui/stack'
 
 const Example = () => {
   return (

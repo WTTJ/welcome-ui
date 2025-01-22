@@ -1,5 +1,5 @@
-import { RadioGroup } from 'welcome-ui'
 import * as React from 'react'
+import { RadioGroup } from '@welcome-ui/radio-group'
 
 export const ITEMS = [
   { value: 'bold', label: 'Bold' },

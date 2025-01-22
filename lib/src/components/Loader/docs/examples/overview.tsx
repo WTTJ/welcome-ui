@@ -1,5 +1,5 @@
-import { Loader } from 'welcome-ui'
 import * as React from 'react'
+import { Loader } from '@welcome-ui/loader'
 
 const Example = () => {
   return <Loader />

@@ -1,5 +1,7 @@
-import { Box, Card, Text } from 'welcome-ui'
 import * as React from 'react'
+import { Card } from '@welcome-ui/card'
+import { Box } from '@welcome-ui/box'
+import { Text } from '@welcome-ui/text'
 
 const Example = () => {
   return (

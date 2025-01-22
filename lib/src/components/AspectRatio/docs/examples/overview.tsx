@@ -1,5 +1,6 @@
-import { AspectRatio, Box } from 'welcome-ui'
 import * as React from 'react'
+import { AspectRatio } from '@welcome-ui/aspect-ratio'
+import { Box } from '@welcome-ui/box'
 
 const Example = () => {
   return (

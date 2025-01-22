@@ -1,5 +1,10 @@
-import { Button, Checkbox, Field, Flex, InputText, Tooltip } from 'welcome-ui'
 import * as React from 'react'
+import { Tooltip } from '@welcome-ui/tooltip'
+import { Button } from '@welcome-ui/button'
+import { Flex } from '@welcome-ui/flex'
+import { Field } from '@welcome-ui/field'
+import { Checkbox } from '@welcome-ui/checkbox'
+import { InputText } from '@welcome-ui/input-text'
 const Example = () => {
   const [withArrow, setWithArrow] = React.useState(true)
   const [tooltipContent, setTooltipContent] = React.useState('This is the tooltip content')

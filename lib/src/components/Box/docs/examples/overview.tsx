@@ -1,5 +1,5 @@
-import { Box } from 'welcome-ui'
 import * as React from 'react'
+import { Box } from '@welcome-ui/box'
 
 const Example = () => {
   return (
