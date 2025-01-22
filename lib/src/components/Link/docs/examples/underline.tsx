@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Link } from '@welcome-ui/link'
-import { Text } from '@welcome-ui/text'
-import { Stack } from '@welcome-ui/stack'
-import { Box } from '@welcome-ui/box'
-import { Avatar } from '@welcome-ui/avatar'
+import { Link } from 'welcome-ui/Link'
+import { Text } from 'welcome-ui/Text'
+import { Stack } from 'welcome-ui/Stack'
+import { Box } from 'welcome-ui/Box'
+import { Avatar } from 'welcome-ui/Avatar'
 
 const Example = () => {
   return (

@@ -1,7 +1,7 @@
 'use client'
-import { Box } from '@welcome-ui/box'
-import { Button } from '@welcome-ui/button'
-import { CheckIcon, CopyIcon } from '@welcome-ui/icons'
+import { Box } from 'welcome-ui/Box'
+import { Button } from 'welcome-ui/Button'
+import { CheckIcon, CopyIcon } from 'welcome-ui/Icons'
 import { useCopyText } from 'welcome-ui/utils'
 import { Highlight as HighlightPrism, themes } from 'prism-react-renderer'
 

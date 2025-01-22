@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { Table } from '@welcome-ui/table'
-import { Button } from '@welcome-ui/button'
-import { SettingsIcon } from '@welcome-ui/icons'
+import { Table } from 'welcome-ui/Table'
+import { Button } from 'welcome-ui/Button'
+import { SettingsIcon } from 'welcome-ui/Icons'
 
 const Example = () => {
   return (

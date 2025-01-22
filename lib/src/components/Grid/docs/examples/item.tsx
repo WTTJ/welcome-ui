@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Grid } from '@welcome-ui/grid'
+import { Grid } from 'welcome-ui/Grid'
 
 const Example = () => {
   return (

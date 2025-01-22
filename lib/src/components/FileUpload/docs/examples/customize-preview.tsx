@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { FileUpload, PreviewProps } from '@welcome-ui/file-upload'
-import { Button } from '@welcome-ui/button'
-import { getFileIcon, getFileName, getFileSize } from '@welcome-ui/files'
-import { CrossIcon } from '@welcome-ui/icons'
-import { Tag } from '@welcome-ui/tag'
-import { Box } from '@welcome-ui/box'
+import { FileUpload, PreviewProps } from 'welcome-ui/FileUpload'
+import { Button } from 'welcome-ui/Button'
+import { getFileIcon, getFileName, getFileSize } from 'welcome-ui/Files'
+import { CrossIcon } from 'welcome-ui/Icons'
+import { Tag } from 'welcome-ui/Tag'
+import { Box } from 'welcome-ui/Box'
 
 const Example = () => {
   const handleChange = () => {

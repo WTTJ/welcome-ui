@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { Option, Select, SelectProps } from '@welcome-ui/select'
-import { LinkIcon } from '@welcome-ui/icons'
-import { Box } from '@welcome-ui/box'
-import { Checkbox } from '@welcome-ui/checkbox'
+import { Option, Select, SelectProps } from 'welcome-ui/Select'
+import { LinkIcon } from 'welcome-ui/Icons'
+import { Box } from 'welcome-ui/Box'
+import { Checkbox } from 'welcome-ui/Checkbox'
 
 export const ITEMS = [
   { value: 'bold', label: 'Bold' },

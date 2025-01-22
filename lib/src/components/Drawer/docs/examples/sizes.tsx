@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { Drawer, DrawerProps, useDrawer } from '@welcome-ui/drawer'
-import { Button } from '@welcome-ui/button'
-import { Flex } from '@welcome-ui/flex'
+import { Drawer, DrawerProps, useDrawer } from 'welcome-ui/Drawer'
+import { Button } from 'welcome-ui/Button'
+import { Flex } from 'welcome-ui/Flex'
 
 const Example = () => {
   const drawer = useDrawer()

@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Swiper, useSwiper } from '@welcome-ui/swiper'
-import { Box } from '@welcome-ui/box'
+import { Swiper, useSwiper } from 'welcome-ui/Swiper'
+import { Box } from 'welcome-ui/Box'
 
 const Example = () => {
   const swiper = useSwiper({

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { RangeType, Slider } from '@welcome-ui/slider'
+import { RangeType, Slider } from 'welcome-ui/Slider'
 
 const Example = () => {
   const handleChange = (value: number) => {

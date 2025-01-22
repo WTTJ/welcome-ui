@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Loader } from '@welcome-ui/loader'
+import { Loader } from 'welcome-ui/Loader'
 
 const Example = () => {
   return <Loader color="primary-40" />

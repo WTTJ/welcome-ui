@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Textarea } from '@welcome-ui/textarea'
-import { Field } from '@welcome-ui/field'
+import { Textarea } from 'welcome-ui/Textarea'
+import { Field } from 'welcome-ui/Field'
 
 const Example = () => {
   const [value, setValue] = React.useState('')

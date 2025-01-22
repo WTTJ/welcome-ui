@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Popover, usePopover } from '@welcome-ui/popover'
-import { Button } from '@welcome-ui/button'
+import { Popover, usePopover } from 'welcome-ui/Popover'
+import { Button } from 'welcome-ui/Button'
 
 const Example = () => {
   const popover = usePopover()

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Pagination, PaginationProps } from '@welcome-ui/pagination'
+import { Pagination, PaginationProps } from 'welcome-ui/Pagination'
 
 const Example = () => {
   const [page, setPage] = React.useState<PaginationProps['page']>(8)

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { WelcomeUILogo } from '@welcome-ui/logo'
+import { WelcomeUILogo } from 'welcome-ui/Logo'
 
 const Example = () => {
   return <WelcomeUILogo h={100} />

@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { DocSearchModal } from '@docsearch/react'
-import { InputText } from '@welcome-ui/input-text'
+import { InputText } from 'welcome-ui/InputText'
 import { IconFont } from 'welcome-ui/IconFont'
 import '@docsearch/css'
 

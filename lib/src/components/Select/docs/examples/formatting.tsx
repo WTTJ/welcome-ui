@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Option, Select, SelectProps } from '@welcome-ui/select'
-import { WttjIcon } from '@welcome-ui/icons'
+import { Option, Select, SelectProps } from 'welcome-ui/Select'
+import { WttjIcon } from 'welcome-ui/Icons'
 
 export const ITEMS = [
   { value: 'bold', label: 'Bold' },

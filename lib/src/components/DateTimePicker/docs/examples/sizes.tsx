@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { DateTimePicker } from '@welcome-ui/date-time-picker'
-import { Stack } from '@welcome-ui/stack'
+import { DateTimePicker } from 'welcome-ui/DateTimePicker'
+import { Stack } from 'welcome-ui/Stack'
 
 const Example = () => {
   return (

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Accordion, useAccordion } from '@welcome-ui/accordion'
+import { Accordion, useAccordion } from 'welcome-ui/Accordion'
 
 const Example = () => {
   const accordion = useAccordion()

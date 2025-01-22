@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Toggle } from '@welcome-ui/toggle'
-import { Field } from '@welcome-ui/field'
+import { Toggle } from 'welcome-ui/Toggle'
+import { Field } from 'welcome-ui/Field'
 
 const Example = () => {
   const [toggle, setToggle] = React.useState(false)

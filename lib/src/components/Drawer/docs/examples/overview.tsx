@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Drawer, useDrawer } from '@welcome-ui/drawer'
-import { Button } from '@welcome-ui/button'
+import { Drawer, useDrawer } from 'welcome-ui/Drawer'
+import { Button } from 'welcome-ui/Button'
 
 const Example = () => {
   const drawer = useDrawer()

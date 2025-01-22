@@ -1,8 +1,8 @@
 'use client'
-import { Box } from '@welcome-ui/box'
-import { Badge } from '@welcome-ui/badge'
-import { Flex } from '@welcome-ui/flex'
-import { Text } from '@welcome-ui/text'
+import { Box } from 'welcome-ui/Box'
+import { Badge } from 'welcome-ui/Badge'
+import { Flex } from 'welcome-ui/Flex'
+import { Text } from 'welcome-ui/Text'
 import React from 'react'
 import { kebabCase } from 'lodash'
 

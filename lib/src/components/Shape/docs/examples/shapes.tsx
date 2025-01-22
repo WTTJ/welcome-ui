@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Shape } from '@welcome-ui/shape'
+import { Shape } from 'welcome-ui/Shape'
 
 const Example = () => {
   return (

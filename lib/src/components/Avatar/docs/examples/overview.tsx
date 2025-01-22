@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Avatar } from '@welcome-ui/avatar'
+import { Avatar } from 'welcome-ui/Avatar'
 
 const Example = () => {
   return (

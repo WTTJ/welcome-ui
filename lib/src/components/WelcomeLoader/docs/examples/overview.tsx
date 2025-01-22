@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { WelcomeLoader } from '@welcome-ui/welcome-loader'
+import { WelcomeLoader } from 'welcome-ui/WelcomeLoader'
 
 const Example = () => {
   return <WelcomeLoader />

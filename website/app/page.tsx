@@ -1,8 +1,10 @@
 import NextLink from 'next/link'
 import React from 'react'
 import { GithubIcon, HeartIcon, RightIcon } from 'welcome-ui/Icons'
+import { Box } from 'welcome-ui/Box'
 import { Text } from 'welcome-ui/Text'
 import { Button } from 'welcome-ui/Button'
+import { Logo, Symbol } from 'welcome-ui/Logo'
 
 import { Components } from '@/build-app/components/Homepage/Components'
 import { Stats } from '@/build-app/components/Homepage/Stats'

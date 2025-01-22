@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { AspectRatio } from '@welcome-ui/aspect-ratio'
+import { AspectRatio } from 'welcome-ui/AspectRatio'
 
 const Example = () => {
   return (

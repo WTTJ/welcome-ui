@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { toast, Toast } from '@welcome-ui/toast'
-import { Button } from '@welcome-ui/button'
+import { toast, Toast } from 'welcome-ui/Toast'
+import { Button } from 'welcome-ui/Button'
 
 const Example = () => {
   const onClose = () => {

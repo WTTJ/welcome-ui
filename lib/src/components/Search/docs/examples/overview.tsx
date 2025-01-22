@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Search } from '@welcome-ui/search'
+import { Search } from 'welcome-ui/Search'
 
 type Item = { Title: string }
 

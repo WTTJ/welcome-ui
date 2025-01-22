@@ -34,7 +34,7 @@ Getting started
 
 ```js
 import React from 'react'
-import { Button, createTheme, WuiProvider } from 'welcome-ui/theme'
+import { createTheme, WuiProvider } from 'welcome-ui/theme'
 import { Button } from 'welcome-ui/Button'
 
 // Add theme options (if you want)

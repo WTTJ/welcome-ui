@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { InputText } from '@welcome-ui/input-text'
-import { AvatarIcon } from '@welcome-ui/icons'
+import { InputText } from 'welcome-ui/InputText'
+import { AvatarIcon } from 'welcome-ui/Icons'
 
 const Example = () => {
   return <InputText icon={<AvatarIcon />} placeholder="Welcome" transparent />
