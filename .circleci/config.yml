@@ -44,7 +44,6 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
-      - *restore_repo
       - *restore_node_modules
       - run:
           name: Run yarn install and save node modules
@@ -63,7 +62,6 @@ jobs:
     resource_class: small
     steps:
       - *checkout
-      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -77,7 +75,6 @@ jobs:
     resource_class: medium
     steps:
       - *checkout
-      - *restore_repo
       - *restore_node_modules
       - run: yarn build
       - persist_to_workspace:
@@ -90,7 +87,6 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
-      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -102,11 +98,10 @@ jobs:
     parallelism: 4
     steps:
       - *checkout
-      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
-      - run: yarn jest --detectOpenHandles $(circleci tests glob "./lib/**/*.test.{ts,js,tsx}" | circleci tests split | xargs)
+      - run: cd lib && yarn jest --detectOpenHandles $(circleci tests glob "./**/*.test.{ts,js,tsx}" | circleci tests split | xargs)
 
   release_icon_font:
     <<: *default
@@ -143,7 +138,6 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
-      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -159,7 +153,6 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
-      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -181,7 +174,6 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
-      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -201,7 +193,6 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
-      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -223,7 +214,6 @@ jobs:
     steps:
       - *checkout
       - *restore_repo
-      - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui/artifacts
       - run:
@@ -241,7 +231,6 @@ jobs:
     steps:
       - *checkout
       - *restore_repo
-      - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui/artifacts
       - run:
