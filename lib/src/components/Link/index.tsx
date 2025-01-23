@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { ExternalLinkIcon } from '../Icons'
-import { UniversalLinkOptions } from '../UniversalLink'
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
 import { shouldWrapWithText } from './utils'
+
+import { ExternalLinkIcon } from '@/Icons'
+import { UniversalLinkOptions } from '@/UniversalLink'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 type Variant = 'primary' | 'secondary'
 

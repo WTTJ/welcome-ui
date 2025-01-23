@@ -1,11 +1,12 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { StyledIcon } from '../Icon'
-import { WuiProps } from '../System'
 import { overflowEllipsis } from '../../utils/overflow-ellipsis'
 import { getMax } from '../../utils/get-max-width-height'
 
 import { TagOptions } from './index'
+
+import { WuiProps } from '@/System'
+import { StyledIcon } from '@/Icon'
 
 const shapeStyles = (size: TagOptions['size'], w: string, h: string) => css`
   ${th(`tags.shape.${size}`)}

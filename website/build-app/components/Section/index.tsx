@@ -1,4 +1,4 @@
-import { Box, BoxProps } from 'welcome-ui/Box'
+import { Box, BoxProps } from '@/Box'
 
 type SectionProps = BoxProps
 

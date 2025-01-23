@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { IconsFont } from 'welcome-ui/IconsFont'
+
+import { IconsFont } from '@/IconsFont'
 
 const Example = () => {
   return (

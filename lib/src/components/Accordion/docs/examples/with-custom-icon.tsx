@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Accordion, useAccordion } from 'welcome-ui/Accordion'
-import { PlayIcon } from 'welcome-ui/Icons'
+
+import { Accordion, useAccordion } from '@/Accordion'
+import { PlayIcon } from '@/Icons'
 
 const Example = () => {
   const accordion = useAccordion()

@@ -1,7 +1,7 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import { Box } from '../Box'
-import { Hint } from '../Hint'
+import { Box } from '@/Box'
+import { Hint } from '@/Hint'
 
 type BorderProps = {
   borderSelectorColor?: string

@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Picker } from 'welcome-ui/Picker'
-import { Shape } from 'welcome-ui/Shape'
+
+import { Picker } from '@/Picker'
+import { Shape } from '@/Shape'
 
 const options = [
   {

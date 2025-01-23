@@ -3,7 +3,12 @@
   "compilerOptions": {
     "sourceMap": true,
     "declaration": true,
-    "target": "ES6"
+    "target": "ES6",
+    "paths": {
+      "@/utils": ["./src/utils"],
+      "@/theme": ["./src/theme"],
+      "@/*": ["./src/components/*"]
+    }
   },
   "exclude": ["**/*.json"]
 }

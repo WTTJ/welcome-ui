@@ -1,14 +1,15 @@
 import React, { Fragment, useCallback, useMemo, useState } from 'react'
 import DownshiftImport, { DownshiftProps, GetRootPropsOptions } from 'downshift'
 
-import { IconWrapper } from '../Field'
-import { ClearButton } from '../ClearButton'
-import { CreateWuiProps, forwardRef } from '../System'
 import { createEvent } from '../../utils/create-event'
 import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '../../utils/field-styles'
 import { throttle as handleThrottle } from '../../utils/throttle'
 
 import * as S from './styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
+import { ClearButton } from '@/ClearButton'
+import { IconWrapper } from '@/Field'
 
 const EMPTY_STRING = ''
 

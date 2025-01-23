@@ -1,11 +1,12 @@
 import React from 'react'
 
-import { LockIcon } from '../Icons'
-import { VariantIcon } from '../VariantIcon'
-import { CreateWuiProps, forwardRef } from '../System'
 import { wrapChildren } from '../../utils/wrap-children'
 
 import * as S from './styles'
+
+import { LockIcon } from '@/Icons'
+import { VariantIcon } from '@/VariantIcon'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface LabelOptions {
   checkableField?: boolean

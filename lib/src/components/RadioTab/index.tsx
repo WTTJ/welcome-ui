@@ -1,11 +1,12 @@
 import React from 'react'
 import * as Ariakit from '@ariakit/react'
 
-import { Button } from '../Button'
-import { CreateWuiProps, forwardRef } from '../System'
 import { DefaultFieldStylesProps } from '../../utils/field-styles'
 
 import * as S from './styles'
+
+import { Button } from '@/Button'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface RadioTabsOptions extends DefaultFieldStylesProps {
   checked?: boolean

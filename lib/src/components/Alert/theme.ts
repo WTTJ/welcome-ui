@@ -1,6 +1,6 @@
 import { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '../../theme'
+import { ThemeValues } from '@/theme'
 
 type State = 'default' | 'danger' | 'warning' | 'info' | 'success' | 'beige'
 

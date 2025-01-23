@@ -1,6 +1,6 @@
-import { Box } from 'welcome-ui/Box'
-import { Card } from 'welcome-ui/Card'
-import { Text } from 'welcome-ui/Text'
+import { Box } from '@/Box'
+import { Card } from '@/Card'
+import { Text } from '@/Text'
 import {
   ActionsIcon,
   BookIcon,
@@ -10,7 +10,7 @@ import {
   GearIcon,
   PencilIcon,
   UserIcon,
-} from 'welcome-ui/Icons'
+} from '@/Icons'
 
 type ExpectationProps = {
   description: string

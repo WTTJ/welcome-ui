@@ -1,8 +1,7 @@
 import range from 'lodash.range'
 import { Locale } from 'date-fns'
-import type { Month } from 'date-fns/types'
 
-import { SelectOption, SelectOptions } from '../Select'
+import { SelectOption, SelectOptions } from '@/Select'
 
 const MONTHS = [
   { value: 0, label: 'January' },
@@ -43,7 +42,7 @@ export const getMonths = (locale: Locale): SelectOptions['options'] => {
     return MONTHS
   }
 
-  return MONTHS.map((item, index: Month) => ({
+  return MONTHS.map((item, index) => ({
     ...item,
     label: locale.localize.month(index),
   }))

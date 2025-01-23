@@ -1,9 +1,10 @@
 'use client'
-import { Box } from 'welcome-ui/Box'
-import { Button } from 'welcome-ui/Button'
-import { CheckIcon, CopyIcon } from 'welcome-ui/Icons'
-import { useCopyText } from 'welcome-ui/utils'
 import { Highlight as HighlightPrism, themes } from 'prism-react-renderer'
+
+import { Box } from '@/Box'
+import { Button } from '@/Button'
+import { CheckIcon, CopyIcon } from '@/Icons'
+import { useCopyText } from '@/utils'
 
 export type HighlightProps = {
   children: string

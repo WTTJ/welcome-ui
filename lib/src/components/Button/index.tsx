@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { Loader } from '../Loader'
-import { CreateWuiProps, forwardRef } from '../System'
-import { Box } from '../Box'
-
 import * as S from './styles'
+
+import { Loader } from '@/Loader'
+import { CreateWuiProps, forwardRef } from '@/System'
+import { Box } from '@/Box'
 
 type Shape = 'circle' | 'square'
 type Size = 'xs' | 'sm' | 'md' | 'lg'

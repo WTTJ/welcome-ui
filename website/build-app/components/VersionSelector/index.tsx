@@ -1,7 +1,8 @@
-import { Select } from 'welcome-ui/Select'
 import React from 'react'
 
 import lib from '../../../../lib/package.json'
+
+import { Select } from '@/Select'
 
 const versions = [
   { value: 'v6', label: `${lib.version}` },

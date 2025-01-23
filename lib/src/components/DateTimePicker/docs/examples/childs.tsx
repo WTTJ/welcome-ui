@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { DateTimePicker } from 'welcome-ui/DateTimePicker'
-import { DatePicker } from 'welcome-ui/DatePicker'
-import { TimePicker } from 'welcome-ui/TimePicker'
-import { WttjIcon } from 'welcome-ui/Icons'
+
+import { DateTimePicker } from '@/DateTimePicker'
+import { DatePicker } from '@/DatePicker'
+import { TimePicker } from '@/TimePicker'
+import { WttjIcon } from '@/Icons'
 
 const Example = () => {
   return (

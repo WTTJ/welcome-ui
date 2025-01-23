@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { PasswordInput } from 'welcome-ui/PasswordInput'
-import { Field } from 'welcome-ui/Field'
+
+import { PasswordInput } from '@/PasswordInput'
+import { Field } from '@/Field'
 
 const Example = () => {
   return (

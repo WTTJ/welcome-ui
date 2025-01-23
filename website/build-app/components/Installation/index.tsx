@@ -1,10 +1,10 @@
 'use client'
-import { Alert } from 'welcome-ui/Alert'
-import { Flex } from 'welcome-ui/Flex'
-import { Text } from 'welcome-ui/Text'
-
 import { H2 } from '../Mdx/Headings'
 import { Highlight } from '../Mdx/Highlight'
+
+import { Alert } from '@/Alert'
+import { Flex } from '@/Flex'
+import { Text } from '@/Text'
 
 type InstallationProps = {
   deepDependencies?: string
@@ -61,7 +61,7 @@ export const Installation = ({ deepDependencies = '', packageName, usage }: Inst
         </Flex>
         <Flex flexDirection="column" w="100%">
           <Text>Import component:</Text>
-          <Highlight language="shell">{`import { ${usage} } from 'welcome-ui/${packageName}'`}</Highlight>
+          <Highlight language="shell">{`import { ${usage} } from '@/${packageName}'`}</Highlight>
         </Flex>
       </Flex>
     </>

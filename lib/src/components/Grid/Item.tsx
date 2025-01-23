@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Box } from '../Box'
-import { CreateWuiProps, forwardRef, WuiProps } from '../System'
+import { Box } from '@/Box'
+import { CreateWuiProps, forwardRef, WuiProps } from '@/System'
 
 export interface ItemOptions {
   /** same as gridArea */

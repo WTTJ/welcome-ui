@@ -64,7 +64,7 @@ const getFileDefinitions = (absolutePath: string) => {
 }
 
 // Write properties.json file
-const writePropsFile = async (
+const writePropsFile = (
   file: string,
   content: {
     [name: string]: { props: Record<string, unknown>; tag: string }
@@ -75,7 +75,7 @@ const writePropsFile = async (
   if (withDocsPath) {
     const destPath = join(file, 'docs', 'properties.json')
 
-    await fs.writeFileSync(destPath, JSON.stringify(content, null, 2))
+    fs.writeFileSync(destPath, JSON.stringify(content, null, 2))
   }
 
   return

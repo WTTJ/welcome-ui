@@ -6,9 +6,6 @@ import DownshiftImport, {
 } from 'downshift'
 import { matchSorter } from 'match-sorter'
 
-import { DownIcon } from '../Icons'
-import { ClearButton } from '../ClearButton'
-import { CreateWuiProps, forwardRef } from '../System'
 import { CreateEvent, createEvent } from '../../utils/create-event'
 import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '../../utils/field-styles'
 
@@ -25,6 +22,10 @@ import {
 } from './utils'
 import { multipleSelections } from './multipleSelections'
 import * as S from './styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
+import { ClearButton } from '@/ClearButton'
+import { DownIcon } from '@/Icons'
 
 export type SelectOptionValue = string | number
 export type SelectOption = {

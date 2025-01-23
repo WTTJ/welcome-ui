@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { Text } from '../Text'
-import { BoxProps } from '../Box'
-import { forwardRef } from '../System'
-
 import * as S from './styles'
+
+import { Text } from '@/Text'
+import { BoxProps } from '@/Box'
+import { forwardRef } from '@/System'
 
 export interface FooterOptions {
   information?: {

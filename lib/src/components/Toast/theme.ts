@@ -1,7 +1,8 @@
 import { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '../../theme'
 import { getTexts } from '../../theme/typography'
+
+import { ThemeValues } from '@/theme'
 
 export type ThemeToasts = {
   bottom: CSSObject

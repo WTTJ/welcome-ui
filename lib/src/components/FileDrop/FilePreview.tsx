@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { ExternalLinkIcon } from '../Icons'
-import { Text } from '../Text'
-import { ForceFileType, getFileIcon, getFileName, getFileSize } from '../Files'
-import { Button } from '../Button'
-
 import { FileDropChildren } from './index'
+
+import { ExternalLinkIcon } from '@/Icons'
+import { Text } from '@/Text'
+import { ForceFileType, getFileIcon, getFileName, getFileSize } from '@/Files'
+import { Button } from '@/Button'
 
 export interface MessageProps {
   file: FileDropChildren['file']

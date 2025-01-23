@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Tag } from 'welcome-ui/Tag'
+
+import { Tag } from '@/Tag'
 
 const Example = () => {
   return <Tag>Default</Tag>

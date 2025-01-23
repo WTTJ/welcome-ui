@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { CreateWuiProps, forwardRef } from '../System'
-import { Box } from '../Box'
-
 import * as S from './Item.styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
+import { Box } from '@/Box'
 
 export interface ItemOptions {
   children: React.ReactNode

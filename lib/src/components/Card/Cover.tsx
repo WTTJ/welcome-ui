@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ShapeProps } from '../Shape'
-
 import * as S from './Cover.styles'
+
+import { ShapeProps } from '@/Shape'
 
 export interface CoverOptions {
   src: string

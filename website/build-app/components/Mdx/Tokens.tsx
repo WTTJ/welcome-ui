@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Text } from 'welcome-ui/Text'
-import { Card } from 'welcome-ui/Card'
-import { Flex } from 'welcome-ui/Flex'
 import { snakeCase } from 'lodash'
+
+import { Text } from '@/Text'
+import { Card } from '@/Card'
+import { Flex } from '@/Flex'
 
 export const Tokens = ({ children }: { children: React.ReactNode[] }) => {
   const tokenName = children

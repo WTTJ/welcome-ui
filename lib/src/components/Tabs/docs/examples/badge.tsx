@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { Tab, useTab } from 'welcome-ui/Tabs'
-import { Badge } from 'welcome-ui/Badge'
-import { HeartIcon } from 'welcome-ui/Icons'
+
+import { Tab, useTab } from '@/Tabs'
+import { Badge } from '@/Badge'
+import { HeartIcon } from '@/Icons'
 
 const Example = () => {
   const tab = useTab({ defaultSelectedId: 'tab2' })

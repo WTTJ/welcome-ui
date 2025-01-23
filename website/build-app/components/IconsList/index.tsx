@@ -1,9 +1,4 @@
 'use client'
-import { IconsFont } from 'welcome-ui/IconsFont'
-import * as Icons from 'welcome-ui/Icons'
-import { Box } from 'welcome-ui/Box'
-import { Text } from 'welcome-ui/Text'
-import { Toast, toast } from 'welcome-ui/Toast'
 import React from 'react'
 import { camelCase, startCase } from 'lodash'
 
@@ -22,6 +17,12 @@ import {
   welcome,
   wtf,
 } from './icons'
+
+import { IconsFont } from '@/IconsFont'
+import * as Icons from '@/Icons'
+import { Box } from '@/Box'
+import { Text } from '@/Text'
+import { Toast, toast } from '@/Toast'
 
 export type IconListProps = {
   isIconsFont?: boolean

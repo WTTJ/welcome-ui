@@ -1,17 +1,18 @@
 import * as React from 'react'
-import { FileUpload, PreviewProps } from 'welcome-ui/FileUpload'
-import { Button } from 'welcome-ui/Button'
-import { getFileIcon, getFileName, getFileSize } from 'welcome-ui/Files'
-import { CrossIcon } from 'welcome-ui/Icons'
-import { Tag } from 'welcome-ui/Tag'
-import { Box } from 'welcome-ui/Box'
+
+import { FileUpload, FileUploadPreviewProps } from '@/FileUpload'
+import { Button } from '@/Button'
+import { getFileIcon, getFileName, getFileSize } from '@/Files'
+import { CrossIcon } from '@/Icons'
+import { Tag } from '@/Tag'
+import { Box } from '@/Box'
 
 const Example = () => {
   const handleChange = () => {
     // your code
   }
 
-  const Preview = ({ file, onRemove }: PreviewProps) =>
+  const Preview = ({ file, onRemove }: FileUploadPreviewProps) =>
     React.useMemo(() => {
       const Icon = getFileIcon(file)
       const name = getFileName(file)

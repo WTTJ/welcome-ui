@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { InputText } from 'welcome-ui/InputText'
-import { Field } from 'welcome-ui/Field'
-import { Checkbox } from 'welcome-ui/Checkbox'
+
+import { InputText } from '@/InputText'
+import { Field } from '@/Field'
+import { Checkbox } from '@/Checkbox'
 
 const Example = () => {
   return (

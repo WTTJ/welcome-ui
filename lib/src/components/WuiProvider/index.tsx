@@ -1,10 +1,10 @@
 import React from 'react'
 import { ThemeProvider } from '@xstyled/styled-components'
 
-import { ThemeValues } from '../../theme'
-
 import * as S from './styles'
 import { HideFocusRingsRoot } from './hide-focus-rings-root'
+
+import { ThemeValues } from '@/theme'
 
 export interface WuiProviderProps {
   children?: React.ReactNode

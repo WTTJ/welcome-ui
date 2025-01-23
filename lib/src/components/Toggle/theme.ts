@@ -1,6 +1,6 @@
 import { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '../../theme'
+import { ThemeValues } from '@/theme'
 
 // To allow for line-height of text in label
 const XS_LINE_HEIGHT_ADJUSTMENTS = '0.32rem !important'

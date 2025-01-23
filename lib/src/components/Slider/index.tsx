@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
-import { Text } from '../Text'
-import { InputText } from '../InputText'
-import { CreateWuiProps, forwardRef } from '../System'
-import { Box } from '../Box'
-import { Hint } from '../Hint'
-
 import { Range } from './Range'
 import type { Range as RangeType } from './Range'
 import * as S from './styles'
+
+import { Text } from '@/Text'
+import { InputText } from '@/InputText'
+import { CreateWuiProps, forwardRef } from '@/System'
+import { Box } from '@/Box'
+import { Hint } from '@/Hint'
 
 export type Type = 'left-field' | 'right-field' | 'inline'
 export type { RangeType }

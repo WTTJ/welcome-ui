@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { CloseButton } from '../CloseButton'
-import { CreateWuiProps, forwardRef } from '../System'
-import { Box } from '../Box'
-
 import * as S from './styles'
+
+import { CloseButton } from '@/CloseButton'
+import { CreateWuiProps, forwardRef } from '@/System'
+import { Box } from '@/Box'
 
 export interface GrowlOptions {
   hasCloseButton?: boolean

@@ -1,10 +1,10 @@
 import React, { useCallback, useRef } from 'react'
 
-import { LeftIcon, RightIcon } from '../Icons'
-import { CreateWuiProps, forwardRef } from '../System'
-
 import { usePages } from './utils'
 import * as S from './styles'
+
+import { LeftIcon, RightIcon } from '@/Icons'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface PaginationOptions {
   'aria-label': string

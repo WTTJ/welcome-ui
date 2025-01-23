@@ -1,13 +1,14 @@
 import React, { cloneElement, useRef, useState } from 'react'
 import reactFlattenChildren from 'react-flatten-children'
 
-import { CreateWuiProps, forwardRef } from '../System'
 import { useForkRef } from '../../utils/use-fork-ref'
 
 import { ActiveBar } from './ActiveBar'
 import * as S from './styles'
 
 import { UseTab, UseTabState } from '.'
+
+import { CreateWuiProps, forwardRef } from '@/System'
 
 // because of the compatibility of esm standard. Since this lib is no longer maintained, no issue was created
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

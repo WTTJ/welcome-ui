@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { DropdownMenu, useDropdownMenu } from 'welcome-ui/DropdownMenu'
-import { Button } from 'welcome-ui/Button'
+
+import { DropdownMenu, useDropdownMenu } from '@/DropdownMenu'
+import { Button } from '@/Button'
 
 const Example = () => {
   const dropdownMenu = useDropdownMenu()

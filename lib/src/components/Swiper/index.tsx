@@ -10,12 +10,13 @@ import React, {
 import debounce from 'lodash.debounce'
 import { useTheme } from '@xstyled/styled-components'
 
-import { IconsFont } from '../IconsFont'
-import { CreateWuiProps } from '../System'
 import { useViewportSize } from '../../utils/use-viewport'
 
 import { useInterval } from './use-interval'
 import * as S from './styles'
+
+import { CreateWuiProps } from '@/System'
+import { IconsFont } from '@/IconsFont'
 
 export interface UseSwiperProps {
   autoplay?: boolean

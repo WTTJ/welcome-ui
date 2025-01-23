@@ -1,14 +1,14 @@
 import React, { ChangeEvent, KeyboardEvent, useCallback, useEffect, useRef, useState } from 'react'
 
-import { Text } from '../Text'
-import { InputText } from '../InputText'
-import { Box } from '../Box'
-import { Hint } from '../Hint'
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
 
 import { round, SliderOptions } from './index'
+
+import { Text } from '@/Text'
+import { InputText } from '@/InputText'
+import { Box } from '@/Box'
+import { Hint } from '@/Hint'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export const thumbWidth = 20
 

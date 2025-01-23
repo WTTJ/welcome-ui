@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Text } from '../Text'
-import { Button } from '../Button'
-
 import { FileDropChildren } from './index'
+
+import { Text } from '@/Text'
+import { Button } from '@/Button'
 
 export interface MessageProps {
   disabled?: boolean

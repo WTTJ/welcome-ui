@@ -1,11 +1,11 @@
 import React, { Children, cloneElement, useEffect, useState } from 'react'
 
-import { DatePicker, DatePickerProps } from '../DatePicker'
-import { TimePicker, TimePickerProps } from '../TimePicker'
-import { DEFAULT_DATE, getDate } from '../DateTimePickerCommon'
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
+
+import { DatePicker, DatePickerProps } from '@/DatePicker'
+import { TimePicker, TimePickerProps } from '@/TimePicker'
+import { DEFAULT_DATE, getDate } from '@/DateTimePickerCommon'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export type DateTimePickerProps = CreateWuiProps<
   'input',

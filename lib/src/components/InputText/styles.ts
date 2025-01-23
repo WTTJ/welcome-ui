@@ -1,9 +1,10 @@
 import styled, { css, system } from '@xstyled/styled-components'
 
-import { shouldForwardProp } from '../System'
 import { defaultFieldStyles } from '../../utils/field-styles'
 
 import { InputTextOptions } from './index'
+
+import { shouldForwardProp } from '@/System'
 
 export const InputText = styled('input').withConfig({ shouldForwardProp })<
   Pick<InputTextOptions, 'iconPlacement' | 'isClearable' | 'transparent' | 'variant' | 'size'>

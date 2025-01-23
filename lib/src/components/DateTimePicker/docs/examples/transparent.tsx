@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { DateTimePicker } from 'welcome-ui/DateTimePicker'
+
+import { DateTimePicker } from '@/DateTimePicker'
 
 const Example = () => {
   return <DateTimePicker name="welcome" transparent value={new Date()} />

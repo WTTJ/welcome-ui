@@ -1,13 +1,13 @@
 'use client'
-import { Box } from 'welcome-ui/Box'
-import { Text } from 'welcome-ui/Text'
-import { Flex } from 'welcome-ui/Flex'
 import { useEffect, useState } from 'react'
 import NextLink from 'next/link'
 
 import * as S from './styles'
 
-import { Toc } from '@/build-app/utils/page-tree'
+import { Box } from '@/Box'
+import { Text } from '@/Text'
+import { Flex } from '@/Flex'
+import { Toc } from '~/build-app/utils/page-tree'
 
 type TableOfContentProps = {
   isSubPage?: boolean
@@ -30,6 +30,8 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
       }, [] as string[])
       .reverse()
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore FIXME
     const onScroll = () => {
       if (!ids || ids.length === 0) return null
 
@@ -60,6 +62,8 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
         <Flex as="ul" direction="column" gap="lg">
           {tree.map(item => (
             <Flex as="li" direction="column" gap="sm" key={item.href}>
+              {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore FIXME */}
               <S.Link
                 aria-current={`#${activeId}` === item.href ? 'page' : undefined}
                 as={NextLink}
@@ -72,6 +76,8 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
                 <Flex as="ul" direction="column" gap="xs">
                   {item.children.map(child => (
                     <Box as="li" key={child.href}>
+                      {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore FIXME */}
                       <S.Link
                         aria-current={`#${activeId}` === child.href ? 'page' : undefined}
                         as={NextLink}
