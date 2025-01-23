@@ -1,4 +1,4 @@
-import { Link } from 'welcome-ui/Link'
+import { Link } from '@/Link'
 
 type AProps = {
   children: React.ReactNode

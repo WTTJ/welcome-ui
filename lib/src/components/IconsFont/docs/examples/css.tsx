@@ -1,5 +1,5 @@
 import * as React from 'react'
-require('welcome-ui/IconsFont/fonts/welcome-icon-font.css')
+require('@/IconsFont/fonts/welcome-icon-font.css')
 
 const Example = () => {
   return <i className="wui-icon-positive_straight" />

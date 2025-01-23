@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client'
-import { Text } from 'welcome-ui/Text'
-
 import { Tokens } from './Tokens'
+
+import { Text } from '@/Text'
 
 export const Paragraph = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   //@ts-ignore

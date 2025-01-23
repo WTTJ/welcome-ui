@@ -1,14 +1,14 @@
 'use client'
-import { Text } from 'welcome-ui/Text'
-import { Flex } from 'welcome-ui/Flex'
-import { ThemeValues } from 'welcome-ui/theme'
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
 import * as S from './styles'
 
-import { PageTree } from '@/build-app/types'
-import { getName } from '@/build-app/utils/transform-name'
+import { Text } from '@/Text'
+import { Flex } from '@/Flex'
+import { ThemeValues } from '@/theme'
+import { PageTree } from '~/build-app/types'
+import { getName } from '~/build-app/utils/transform-name'
 
 type SidebarProps = {
   display?: ThemeValues['display']

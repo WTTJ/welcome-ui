@@ -1,4 +1,4 @@
-import { IconProps } from 'welcome-ui/Icon'
+import { IconProps } from '@/Icon'
 
 export const arrows: IconProps['name'][] = [
   'left',

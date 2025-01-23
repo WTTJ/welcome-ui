@@ -16,7 +16,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "@/*": ["./*"]
+      "~/*": ["./*"],
+      "@/utils": ["../lib/src/utils"],
+      "@/theme": ["../lib/src/theme"],
+      "@/*": ["../lib/src/components/*"]
     },
     "plugins": [
       {

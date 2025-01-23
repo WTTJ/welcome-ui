@@ -1,16 +1,15 @@
-import { Text } from 'welcome-ui/Text'
-import { Flex } from 'welcome-ui/Flex'
-import { Button } from 'welcome-ui/Button'
-import { GithubIcon } from 'welcome-ui/Icons'
-
 import { Tabs } from './tabs'
 
-import { Sidebar } from '@/build-app/components/Sidebar'
-import * as Documentation from '@/build-app/layouts/Documentation'
-import { getPages } from '@/build-app/utils/pages-components'
-import { getRepository } from '@/build-app/utils/transform-name'
-import { getPageContent } from '@/build-app/utils/page-content'
-import { PrevNextPage } from '@/build-app/components/PrevNextPage'
+import { Text } from '@/Text'
+import { Flex } from '@/Flex'
+import { Button } from '@/Button'
+import { GithubIcon } from '@/Icons'
+import { Sidebar } from '~/build-app/components/Sidebar'
+import * as Documentation from '~/build-app/layouts/Documentation'
+import { getPages } from '~/build-app/utils/pages-components'
+import { getRepository } from '~/build-app/utils/transform-name'
+import { getPageContent } from '~/build-app/utils/page-content'
+import { PrevNextPage } from '~/build-app/components/PrevNextPage'
 
 type LayoutProps = {
   children: React.ReactNode

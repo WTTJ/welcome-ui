@@ -1,4 +1,3 @@
-import { Box } from 'welcome-ui/Box'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
@@ -11,6 +10,8 @@ import { Div } from './Div'
 import { H2, H3, H4 } from './Headings'
 import { A } from './A'
 import { Image } from './Image'
+
+import { Box } from '@/Box'
 
 const components = {
   pre: Pre,

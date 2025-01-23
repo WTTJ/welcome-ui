@@ -1,15 +1,14 @@
 import { join } from 'path'
 import { existsSync, readFileSync } from 'fs'
 
-import { Alert } from 'welcome-ui/Alert'
-
 import { Colors } from '../Colors'
 import { Theme } from '../Theme'
 import { IconListProps, IconsList } from '../IconsList'
 
 import { Playground } from './Playground'
 
-import examples from '@/build-app/examples'
+import { Alert } from '@/Alert'
+import examples from '~/build-app/examples'
 
 type DivProps = {
   children: string

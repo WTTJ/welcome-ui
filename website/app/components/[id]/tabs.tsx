@@ -1,10 +1,10 @@
 'use client'
-import { Tab, useTab } from 'welcome-ui/Tabs'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 
-import { PageTree } from '@/build-app/types'
-import { getName } from '@/build-app/utils/transform-name'
+import { Tab, useTab } from '@/Tabs'
+import { PageTree } from '~/build-app/types'
+import { getName } from '~/build-app/utils/transform-name'
 
 type TabsProps = {
   pages: PageTree
