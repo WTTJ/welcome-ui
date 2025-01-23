@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { InputText } from 'welcome-ui/InputText'
+
+import { InputText } from '@/InputText'
 
 const Example = () => {
   return <InputText disabled placeholder="Welcome" />

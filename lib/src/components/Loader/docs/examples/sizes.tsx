@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Loader } from 'welcome-ui/Loader'
-import { Stack } from 'welcome-ui/Stack'
+
+import { Loader } from '@/Loader'
+import { Stack } from '@/Stack'
 
 const Example = () => {
   return (

@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Link } from 'welcome-ui/Link'
+
+import { Link } from '@/Link'
 
 const Example = () => {
   return (

@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { Select, SelectProps } from 'welcome-ui/Select'
-import { Box } from 'welcome-ui/Box'
-import { Text } from 'welcome-ui/Text'
-import { Tag } from 'welcome-ui/Tag'
+
+import { Select, SelectProps } from '@/Select'
+import { Box } from '@/Box'
+import { Text } from '@/Text'
+import { Tag } from '@/Tag'
 
 export const GROUP_ITEMS = [
   {

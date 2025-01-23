@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { DatePicker } from 'welcome-ui/DatePicker'
+
+import { DatePicker } from '@/DatePicker'
 
 const Example = () => {
   return (

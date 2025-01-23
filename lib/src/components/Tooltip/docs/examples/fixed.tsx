@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Tooltip } from 'welcome-ui/Tooltip'
-import { Button } from 'welcome-ui/Button'
+
+import { Tooltip } from '@/Tooltip'
+import { Button } from '@/Button'
 
 const Example = () => {
   return (

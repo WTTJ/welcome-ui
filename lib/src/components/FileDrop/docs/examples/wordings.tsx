@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { FileDrop } from 'welcome-ui/FileDrop'
+
+import { FileDrop } from '@/FileDrop'
 
 const Example = () => {
   const handleChange = () => {

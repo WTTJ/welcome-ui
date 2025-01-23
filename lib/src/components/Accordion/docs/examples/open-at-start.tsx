@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Accordion, useAccordion } from 'welcome-ui/Accordion'
+
+import { Accordion, useAccordion } from '@/Accordion'
 
 const Example = () => {
   const accordion = useAccordion({ defaultOpen: true })

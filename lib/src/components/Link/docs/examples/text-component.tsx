@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Link } from 'welcome-ui/Link'
-import { Text } from 'welcome-ui/Text'
+
+import { Link } from '@/Link'
+import { Text } from '@/Text'
 
 const Example = () => {
   return (

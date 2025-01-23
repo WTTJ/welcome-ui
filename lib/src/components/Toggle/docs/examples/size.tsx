@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Toggle } from 'welcome-ui/Toggle'
+
+import { Toggle } from '@/Toggle'
 
 const Example = () => {
   const [toggle, setToggle] = React.useState(false)

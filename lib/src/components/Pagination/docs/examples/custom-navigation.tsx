@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Pagination, PaginationProps } from 'welcome-ui/Pagination'
-import { WttjIcon } from 'welcome-ui/Icons'
+
+import { Pagination, PaginationProps } from '@/Pagination'
+import { WttjIcon } from '@/Icons'
 
 const Example = () => {
   const [page, setPage] = React.useState<PaginationProps['page']>(8)

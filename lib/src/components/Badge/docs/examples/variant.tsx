@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Badge } from 'welcome-ui/Badge'
+
+import { Badge } from '@/Badge'
 
 const Example = () => {
   return (

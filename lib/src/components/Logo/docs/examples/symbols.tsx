@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Symbol } from 'welcome-ui/Logo'
+
+import { Symbol } from '@/Logo'
 
 const Example = () => {
   return <Symbol h={100} />

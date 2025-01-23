@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { InputText } from 'welcome-ui/InputText'
-import { AvatarIcon } from 'welcome-ui/Icons'
+
+import { InputText } from '@/InputText'
+import { AvatarIcon } from '@/Icons'
 
 const Example = () => {
   return (

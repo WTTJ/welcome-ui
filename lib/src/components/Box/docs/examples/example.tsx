@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { Box } from 'welcome-ui/Box'
-import { Badge } from 'welcome-ui/Badge'
-import { StarIcon } from 'welcome-ui/Icons'
-import { Text } from 'welcome-ui/Text'
+
+import { Box } from '@/Box'
+import { Badge } from '@/Badge'
+import { StarIcon } from '@/Icons'
+import { Text } from '@/Text'
 
 const Example = () => {
   return (

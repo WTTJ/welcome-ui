@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Alert } from 'welcome-ui/Alert'
-import { Stack } from 'welcome-ui/Stack'
+
+import { Alert } from '@/Alert'
+import { Stack } from '@/Stack'
 
 const Example = () => {
   return (
