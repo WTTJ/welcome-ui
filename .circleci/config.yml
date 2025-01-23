@@ -28,6 +28,11 @@ checkout: &checkout
   checkout:
     path: /home/circleci/welcome-ui
 
+restore_repo: &restore_repo
+  restore_cache:
+    keys:
+      - << pipeline.parameters.cache_version >>-source-{{ .Branch }}-{{ .Revision }}
+
 restore_node_modules: &restore_node_modules
   restore_cache:
     keys:
@@ -39,10 +44,11 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
+      - *restore_repo
+      - *restore_node_modules
       - run:
           name: Run yarn install and save node modules
           command: yarn install
-      - *restore_node_modules
       - save_cache:
           key: << pipeline.parameters.cache_version >>-yarn-{{ checksum "/home/circleci/welcome-ui/yarn.lock" }}
           paths:
@@ -57,6 +63,7 @@ jobs:
     resource_class: small
     steps:
       - *checkout
+      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -70,6 +77,7 @@ jobs:
     resource_class: medium
     steps:
       - *checkout
+      - *restore_repo
       - *restore_node_modules
       - run: yarn build
       - persist_to_workspace:
@@ -82,6 +90,7 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
+      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -93,6 +102,7 @@ jobs:
     parallelism: 4
     steps:
       - *checkout
+      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -103,6 +113,7 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
+      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -132,6 +143,7 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
+      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -147,6 +159,7 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
+      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -168,6 +181,7 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
+      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -187,6 +201,7 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
+      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -204,34 +219,40 @@ jobs:
             --metadata GitCommit=$CIRCLE_SHA1 --delete
 
   release:
-    <<: *default
     executor: nodejs
     steps:
       - *checkout
+      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
-          at: ~/welcome-ui
+          at: ~/welcome-ui/artifacts
       - run:
-          name: Login to registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          name: 'copy build artifacts'
+          command: 'cp -r artifacts/* .'
       - run:
-          name: Release to npm
-          command: yarn lerna publish from-git --yes --no-verify-access
+          name: 'auth to npm registry'
+          command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN_WRITE_PACKAGES" > ~/.npmrc
+      - run:
+          name: publish
+          command: yarn release-it --no-increment --no-git --no-github
 
-  prerelease:
-    <<: *default
+  dev_release:
     executor: nodejs
     steps:
       - *checkout
+      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
-          at: ~/welcome-ui
+          at: ~/welcome-ui/artifacts
       - run:
-          name: Login to registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          name: 'copy build artifacts'
+          command: 'cp -r artifacts/* .'
       - run:
-          name: Release to npm
-          command: yarn lerna publish from-git --yes --no-verify-access --dist-tag next
+          name: 'auth to npm registry'
+          command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN_WRITE_PACKAGES" > ~/.npmrc
+      - run:
+          name: publish
+          command: node .dev-releases/publish.mjs
 
 workflows:
   btd:
@@ -292,7 +313,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /v6.(\d\d|\d).(\d\d|\d)/
+              only: /v7.(\d\d|\d).(\d\d|\d)/
           context:
             - aws
             - welcome-ui
@@ -305,7 +326,7 @@ workflows:
           filters:
             # should add branches here to keep previous doc version of future majors
             branches:
-              only: /v3|v4|v5/
+              only: /v3|v4|v5|v6/
           context:
             - aws
             - welcome-ui
@@ -327,7 +348,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /v\d.(\d\d|\d).(\d\d|\d)/
-      - prerelease:
+      - dev_release:
           context:
             - welcome-ui
           requires:
@@ -339,4 +360,4 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /v\d.(\d\d|\d).(\d\d|\d)-.*/
+              only: /dev..*/
