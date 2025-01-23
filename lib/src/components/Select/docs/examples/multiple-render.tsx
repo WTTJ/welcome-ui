@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import { Option, Select, SelectProps } from '@/Select'
+import { Select, SelectOption, SelectProps } from '@/Select'
 import { Tag } from '@/Tag'
 import { Text } from '@/Text'
 
-export const ITEMS: Option[] = [
+export const ITEMS: SelectOption[] = [
   { value: 'bold', label: 'Bold' },
   { value: 'italic', label: 'Italic' },
   { value: 'strikethrough', label: 'Strikethrough' },

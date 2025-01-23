@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { FileUpload, PreviewProps } from '@/FileUpload'
+import { FileUpload, FileUploadPreviewProps } from '@/FileUpload'
 import { Button } from '@/Button'
 import { getFileIcon, getFileName, getFileSize } from '@/Files'
 import { CrossIcon } from '@/Icons'
@@ -12,7 +12,7 @@ const Example = () => {
     // your code
   }
 
-  const Preview = ({ file, onRemove }: PreviewProps) =>
+  const Preview = ({ file, onRemove }: FileUploadPreviewProps) =>
     React.useMemo(() => {
       const Icon = getFileIcon(file)
       const name = getFileName(file)
