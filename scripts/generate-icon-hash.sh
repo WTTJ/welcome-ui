@@ -10,7 +10,7 @@ if [[ -f "$FONT_FILE" ]]; then
   # Generate hash
   ICON_FONT_HASH=$(sha1sum $FONT_FILE | awk '{ print $1 }')
 
-  # Create or update .env file with the VITE_ prefixed variable
+  # Update FONT_HASH constant defined in $FONT_HASH_FILE
   echo "export const FONT_HASH = '$ICON_FONT_HASH'" > $FONT_HASH_FILE
 
   echo "hash file created with hash: $ICON_FONT_HASH"
