@@ -7,14 +7,12 @@ const nextConfig = {
   experimental: {
     externalDir: true,
   },
-  webpack: (config, { dev }) => {
-    if (dev) {
-      config.module.rules.push({
-        test: /\.(js|jsx|ts|tsx)$/,
-        include: [path.resolve(__dirname, '../lib/src')],
-        use: [path.resolve(__dirname, 'loaders/use-client-loader.js')],
-      })
-    }
+  webpack: config => {
+    config.module.rules.push({
+      test: /\.(js|jsx|ts|tsx)$/,
+      include: [path.resolve(__dirname, '../lib/src')],
+      use: [path.resolve(__dirname, 'loaders/use-client-loader.js')],
+    })
     return config
   },
 }
