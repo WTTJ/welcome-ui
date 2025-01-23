@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { Box } from '../Box'
-import { Button, ButtonProps } from '../Button'
-import { CloseButton } from '../CloseButton'
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
+
+import { Box } from '@/Box'
+import { Button, ButtonProps } from '@/Button'
+import { CloseButton } from '@/CloseButton'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface SnackbarOptions {
   /** add correct separator for call to action

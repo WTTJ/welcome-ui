@@ -1,9 +1,9 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
 
-import { shouldForwardProp } from '../System'
-
 import { ToggleOptions } from './index'
+
+import { shouldForwardProp } from '@/System'
 
 type Size = 'xs' | 'sm' | 'md'
 

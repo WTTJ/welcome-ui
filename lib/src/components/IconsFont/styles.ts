@@ -1,8 +1,8 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { IconOptions } from '../Icon'
-
 import unicodeMap from './unicode.json'
+
+import { IconOptions } from '@/Icon'
 
 export type StyledIconProps = {
   name: keyof typeof unicodeMap

@@ -1,9 +1,9 @@
 import React, { Children, cloneElement } from 'react'
 
-import { CreateWuiProps, forwardRef } from '../System'
-import { Button, ButtonProps } from '../Button'
-
 import * as S from './styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
+import { Button, ButtonProps } from '@/Button'
 
 type ChildType = React.ReactElement<typeof Button> | null | undefined | boolean
 type ChildrenProps = ChildType | ChildType[]

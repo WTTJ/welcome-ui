@@ -1,9 +1,9 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { Button } from '../Button'
-import { CreateWuiProps } from '../System'
-
 import { UseSwiper } from '.'
+
+import { Button } from '@/Button'
+import { CreateWuiProps } from '@/System'
 
 const getSlideWidth = (slidesPerView = 3, spaceBetween: number, toRem: (px: number) => void) => {
   if (spaceBetween === 0) {

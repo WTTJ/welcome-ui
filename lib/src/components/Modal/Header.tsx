@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react'
 
-import { Text } from '../Text'
-import { BoxProps } from '../Box'
-import { forwardRef } from '../System'
-
 import * as S from './styles'
 import { Close } from './Close'
+
+import { Text } from '@/Text'
+import { BoxProps } from '@/Box'
+import { forwardRef } from '@/System'
 
 export interface HeaderOptions {
   icon?: ReactElement

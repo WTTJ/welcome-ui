@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Locale } from 'date-fns'
 
-import { LeftIcon, RightIcon } from '../Icons'
-import { Select } from '../Select'
-import { Button } from '../Button'
-import { CreateWuiProps } from '../System'
-
 import * as S from './styles'
 import { getMonths, getYears } from './utils'
+
+import { LeftIcon, RightIcon } from '@/Icons'
+import { Select } from '@/Select'
+import { Button } from '@/Button'
+import { CreateWuiProps } from '@/System'
 
 export interface CustomHeaderOptions {
   changeMonth: () => void

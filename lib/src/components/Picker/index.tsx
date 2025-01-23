@@ -1,12 +1,12 @@
 import React from 'react'
 import * as Ariakit from '@ariakit/react'
 
-import { Label } from '../Label'
-import { FieldGroup, FieldGroupOptions } from '../FieldGroup'
-import { Box } from '../Box'
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
+
+import { Label } from '@/Label'
+import { FieldGroup, FieldGroupOptions } from '@/FieldGroup'
+import { Box } from '@/Box'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface PickerOption {
   element: React.ComponentType<{ selected: boolean }>

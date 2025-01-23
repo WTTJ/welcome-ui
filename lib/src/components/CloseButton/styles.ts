@@ -1,6 +1,6 @@
 import styled, { th } from '@xstyled/styled-components'
 
-import { Button } from '../Button'
+import { Button } from '@/Button'
 
 export const CloseButton = styled(Button)`
   & > svg:only-child {

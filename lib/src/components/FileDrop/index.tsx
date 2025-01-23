@@ -15,15 +15,16 @@ import * as reactDropzone from 'react-dropzone'
 const useDropzone = (reactDropzone.useDropzone || reactDropzone.default.useDropzone) as (
   o?: DropzoneProps
 ) => DropzoneState
-import { EditIcon, TrashIcon } from '../Icons'
-import { Button } from '../Button'
-import { ForceFileType } from '../Files'
-import { CreateWuiProps, forwardRef } from '../System'
 import { createEvent, CreateEvent } from '../../utils/create-event'
 
 import * as S from './styles'
 import { Preview } from './Preview'
 import { getPreviewUrl, isAnImage } from './utils'
+
+import { EditIcon, TrashIcon } from '@/Icons'
+import { Button } from '@/Button'
+import { ForceFileType } from '@/Files'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'

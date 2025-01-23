@@ -1,6 +1,6 @@
 import { css } from '@xstyled/styled-components'
 
-import { ThemeValues } from '../../theme'
+import { ThemeValues } from '@/theme'
 
 type FontVariation = {
   display?: FontDisplay

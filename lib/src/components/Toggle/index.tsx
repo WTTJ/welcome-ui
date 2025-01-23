@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Checkbox, CheckboxProps } from '../Checkbox'
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
+
+import { Checkbox, CheckboxProps } from '@/Checkbox'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 type Size = 'xs' | 'sm' | 'md'
 

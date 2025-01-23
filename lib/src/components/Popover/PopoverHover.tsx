@@ -1,12 +1,12 @@
 import React from 'react'
 import * as Ariakit from '@ariakit/react'
 
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
 import { PopoverHoverTrigger } from './Trigger'
 import { UsePopoverHover } from './usePopover'
 import { Content } from './Content'
+
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface PopoverHoverOptions extends Ariakit.HovercardProps {
   /** call a function when popover closed */

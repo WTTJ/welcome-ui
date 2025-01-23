@@ -1,9 +1,9 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
 
-import { CloseButton as WUICloseButton } from '../CloseButton'
-
 import { DrawerOptions } from '.'
+
+import { CloseButton as WUICloseButton } from '@/CloseButton'
 
 const getPlacementStyle = (placement: DrawerOptions['placement']) => {
   switch (placement) {

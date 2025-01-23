@@ -1,6 +1,6 @@
 import styled, { css, system } from '@xstyled/styled-components'
 
-import { StyledDatePicker, StyledTimePicker } from '../DateTimePickerCommon'
+import { StyledDatePicker, StyledTimePicker } from '@/DateTimePickerCommon'
 
 const focusStyles = css`
   &:focus {

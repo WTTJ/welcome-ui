@@ -1,6 +1,6 @@
-import { getFileName } from '../Files'
-
 import { FileDropChildren } from './index'
+
+import { getFileName } from '@/Files'
 
 const match = /\.(jpeg|jpg|gif|png|webp)$/
 

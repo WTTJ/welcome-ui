@@ -1,5 +1,9 @@
 import React from 'react'
 
+import { formatBytes } from '../../utils/format-bytes'
+
+import { types } from './types'
+
 import {
   AttachmentIcon,
   CameraIcon,
@@ -13,11 +17,8 @@ import {
   XlsIcon,
   XlsxIcon,
   ZipIcon,
-} from '../Icons'
-import { IconProps } from '../Icon'
-import { formatBytes } from '../../utils/format-bytes'
-
-import { types } from './types'
+} from '@/Icons'
+import { IconProps } from '@/Icon'
 
 export type FileType = string | File
 export type ForceFileType = 'image' | 'audio' | 'video'

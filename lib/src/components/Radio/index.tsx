@@ -1,11 +1,12 @@
 import React from 'react'
 
-import { Hint } from '../Hint'
-import { CreateWuiProps, forwardRef } from '../System'
-import { LabelOptions } from '../Label'
 import { DefaultFieldStylesProps } from '../../utils/field-styles'
 
 import * as S from './styles'
+
+import { Hint } from '@/Hint'
+import { CreateWuiProps, forwardRef } from '@/System'
+import { LabelOptions } from '@/Label'
 
 export type RadioOptions = {
   hint?: string

@@ -1,11 +1,11 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { Text } from '../Text'
-import { VariantIcon } from '../VariantIcon'
-
 import { AlertTitleProps } from './Title'
 
 import { AlertOptions } from './index'
+
+import { Text } from '@/Text'
+import { VariantIcon } from '@/VariantIcon'
 
 export const Content = styled.divBox`
   flex: 1;

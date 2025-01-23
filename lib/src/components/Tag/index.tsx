@@ -1,11 +1,12 @@
 import React from 'react'
 
-import { CrossIcon } from '../Icons'
-import { CreateWuiProps, forwardRef } from '../System'
 import { wrapChildren } from '../../utils/wrap-children'
 import { ThemeSecondaryColors } from '../../theme/colors'
 
 import * as S from './styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
+import { CrossIcon } from '@/Icons'
 
 type Size = 'xs' | 'sm' | 'md'
 type Variant =

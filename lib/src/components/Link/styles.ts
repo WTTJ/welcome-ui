@@ -1,9 +1,9 @@
 import styled, { css, system, th, typography } from '@xstyled/styled-components'
 
-import { UniversalLink } from '../UniversalLink'
-import { shouldForwardProp } from '../System'
-
 import { LinkOptions } from './index'
+
+import { UniversalLink } from '@/UniversalLink'
+import { shouldForwardProp } from '@/System'
 
 export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<
   Pick<LinkOptions, 'isExternal' | 'variant'>

@@ -1,12 +1,12 @@
 import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
 
-import { forwardRef } from '../System'
-import { Box } from '../Box'
-
 import { Close } from './Close'
 
 import { UseModal } from '.'
+
+import { forwardRef } from '@/System'
+import { Box } from '@/Box'
 
 export interface ContentOptions {
   children: React.ReactNode

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { ReactDatePickerProps } from 'react-datepicker'
 
-import { CreateWuiProps, forwardRef } from '../System'
+import { CreateWuiProps, forwardRef } from '@/System'
 import {
   CustomHeader,
   CustomHeaderOptions,
@@ -13,7 +13,7 @@ import {
   Focused,
   getDate,
   StyledDatePicker,
-} from '../DateTimePickerCommon'
+} from '@/DateTimePickerCommon'
 
 export interface DatePickerOptions {
   onBlur?: CustomInputOptions['handleBlur']

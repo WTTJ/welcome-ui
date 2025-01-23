@@ -1,8 +1,9 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { StyledLabel } from '../Label'
-import { shouldForwardProp, WuiProps } from '../System'
 import { FieldIconSize } from '../../utils/field-styles'
+
+import { StyledLabel } from '@/Label'
+import { shouldForwardProp, WuiProps } from '@/System'
 
 const checkableFieldStyles = css`
   ${th('defaultFields.checkablelabel.default')};

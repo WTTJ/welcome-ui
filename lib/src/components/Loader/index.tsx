@@ -1,10 +1,10 @@
 import React from 'react'
 import { CSSObject } from '@xstyled/styled-components'
 
-import { Box } from '../Box'
-import { CreateWuiProps, ExtraSize, forwardRef } from '../System'
-
 import * as S from './styles'
+
+import { Box } from '@/Box'
+import { CreateWuiProps, ExtraSize, forwardRef } from '@/System'
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | ExtraSize
 

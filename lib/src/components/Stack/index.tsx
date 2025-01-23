@@ -1,7 +1,7 @@
 import React, { Children, isValidElement } from 'react'
 
-import { Box } from '../Box'
-import { CreateWuiProps, forwardRef } from '../System'
+import { Box } from '@/Box'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface StackOptions {
   direction?: 'column' | 'row'

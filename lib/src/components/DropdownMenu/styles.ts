@@ -1,6 +1,6 @@
 import styled, { system, th } from '@xstyled/styled-components'
 
-import { Box } from '../Box'
+import { Box } from '@/Box'
 
 export const Inner = styled(Box)`
   ${th('cards.default')};

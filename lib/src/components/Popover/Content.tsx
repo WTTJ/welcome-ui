@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { CrossIcon } from '../Icons'
-import { Box } from '../Box'
-import { Button } from '../Button'
-
 import { UsePopover, UsePopoverHover } from './usePopover'
 import { Arrow } from './Arrow'
 import { PopoverProps } from './Popover'
+
+import { CrossIcon } from '@/Icons'
+import { Box } from '@/Box'
+import { Button } from '@/Button'
 
 export interface ContentOptions {
   children: PopoverProps['children']

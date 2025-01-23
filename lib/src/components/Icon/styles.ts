@@ -1,8 +1,8 @@
 import styled, { css, system, Theme } from '@xstyled/styled-components'
 
-import { WuiProps } from '../System'
-
 import { IconOptions } from './index'
+
+import { WuiProps } from '@/System'
 
 const iconSvgStrokedStyles = css`
   g,

@@ -1,7 +1,8 @@
 import { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '../../theme'
 import { ThemeSecondaryColors } from '../../theme/colors'
+
+import { ThemeValues } from '@/theme'
 
 export type Size = 'xs' | 'sm' | 'md'
 export type Variant =

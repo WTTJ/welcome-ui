@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-import { Button } from '../Button'
-import { CreateWuiProps, forwardRef } from '../System'
 import { createEvent } from '../../utils/create-event'
-import { FileType, getFileIcon, getFileName, getFileSize } from '../Files'
-import { Tag, TagProps } from '../Tag'
-import { Box } from '../Box'
 
 import * as S from './styles'
+
+import { Button } from '@/Button'
+import { CreateWuiProps, forwardRef } from '@/System'
+import { FileType, getFileIcon, getFileName, getFileSize } from '@/Files'
+import { Tag, TagProps } from '@/Tag'
+import { Box } from '@/Box'
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const DEFAULT_FILE_TYPES = '*/*'
