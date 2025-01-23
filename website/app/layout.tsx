@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
-
 import { Box } from '@/Box'
 import { Notifications } from '@/Toast'
+
 import StyledComponentsRegistry from '~/build-app/registry'
 import { ThemeProvider } from '~/build-app/components/ThemeProvider'
 import { Header } from '~/build-app/components/Header'

@@ -1,6 +1,7 @@
+import { Text } from '@/Text'
+
 import { Tabs } from './tabs'
 
-import { Text } from '@/Text'
 import { Sidebar } from '~/build-app/components/Sidebar'
 import * as Documentation from '~/build-app/layouts/Documentation'
 import { getPages } from '~/build-app/utils/pages-exports'

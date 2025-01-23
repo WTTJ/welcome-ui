@@ -15,8 +15,8 @@ import { Box } from '@/Box'
 
 const components = {
   pre: Pre,
-  h1: () => null,
-  hr: () => null,
+  h1: (): null => null,
+  hr: (): null => null,
   h2: H2,
   h3: H3,
   h4: H4,

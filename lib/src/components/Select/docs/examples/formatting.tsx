@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Option, Select, SelectProps } from '@/Select'
+import { Select, SelectOption, SelectProps } from '@/Select'
 import { WttjIcon } from '@/Icons'
 
 export const ITEMS = [
@@ -24,7 +24,7 @@ const Example = () => {
       options={ITEMS}
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      renderItem={(item: Option) => (
+      renderItem={(item: SelectOption) => (
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <WttjIcon mr="sm" size="xs" />
           <span>{item.label}</span>

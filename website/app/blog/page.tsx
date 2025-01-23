@@ -1,6 +1,5 @@
 'use client'
 import styled, { th } from '@xstyled/styled-components'
-
 import { Text } from '@/Text'
 import { Button } from '@/Button'
 import { Box } from '@/Box'
