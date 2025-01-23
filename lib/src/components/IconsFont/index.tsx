@@ -5,8 +5,8 @@ import { IconProps } from '../Icon'
 import { Icon, StyledIconProps } from './styles'
 import unicodeJson from './unicode.json'
 
-export type IconFontProps = StyledIconProps
-export const IconFontStyled = Icon
+export type IconsFontProps = StyledIconProps
+export const IconsFontStyled = Icon
 
 type FormatIconJSX<S extends string> = S extends `${infer F}${infer R}`
   ? F extends '_'
@@ -28,7 +28,7 @@ const toPascalCase = (str: string) => {
 
 const iconsKeys = Object.keys(unicodeMap) as IconKey[]
 
-export const IconFont = iconsKeys.reduce<IconsType>((prev, name) => {
+export const IconsFont = iconsKeys.reduce<IconsType>((prev, name) => {
   const key = toPascalCase(name) as IconKeyFormatted
 
   prev[key] = (props: IconProps) => {

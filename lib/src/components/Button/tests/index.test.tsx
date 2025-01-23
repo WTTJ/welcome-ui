@@ -3,7 +3,7 @@ import { act, screen } from '@testing-library/react'
 
 import { SunIcon } from '../../Icons'
 import { Link } from '../../Link'
-import { IconFont } from '../../IconFont'
+import { IconsFont } from '../../IconsFont'
 import { Button } from '../'
 import { render } from '../../../../tests'
 import { createTheme } from '../../../theme'
@@ -195,12 +195,12 @@ describe('<Button />', () => {
     })
   })
 
-  it('should have correct IconFont size with IconFont and text', () => {
+  it('should have correct IconsFont size with IconsFont and text', () => {
     const theme = createTheme()
 
     render(
       <Button dataTestId="button" size="sm">
-        <IconFont.Sun dataTestId="sun" />
+        <IconsFont.Sun dataTestId="sun" />
         <span>{content}</span>
       </Button>
     )
@@ -216,12 +216,12 @@ describe('<Button />', () => {
     })
   })
 
-  it('should have correct IconFont size with IconFont only', () => {
+  it('should have correct IconsFont size with IconsFont only', () => {
     const theme = createTheme()
 
     render(
       <Button dataTestId="button" size="md">
-        <IconFont.Sun dataTestId="sun" />
+        <IconsFont.Sun dataTestId="sun" />
       </Button>
     )
 

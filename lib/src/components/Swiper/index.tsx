@@ -10,7 +10,7 @@ import React, {
 import debounce from 'lodash.debounce'
 import { useTheme } from '@xstyled/styled-components'
 
-import { IconFont } from '../IconFont'
+import { IconsFont } from '../IconsFont'
 import { CreateWuiProps } from '../System'
 import { useViewportSize } from '../../utils/use-viewport'
 
@@ -308,7 +308,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
         withDarkUI={withDarkUI}
         withNavigation={withNavigation}
       >
-        <IconFont.Left />
+        <IconsFont.Left />
       </S.Arrow>
       <S.Arrow
         data-testid={dataTestId && `${dataTestId}-next-button`}
@@ -322,7 +322,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
         withDarkUI={withDarkUI}
         withNavigation={withNavigation}
       >
-        <IconFont.Right />
+        <IconsFont.Right />
       </S.Arrow>
       <S.Pagination
         className="swiper-pagination"
