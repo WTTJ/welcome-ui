@@ -1,11 +1,10 @@
-import { Text } from 'welcome-ui/Text'
-
 import { Tabs } from './tabs'
 
-import { Sidebar } from '@/build-app/components/Sidebar'
-import * as Documentation from '@/build-app/layouts/Documentation'
-import { getPages } from '@/build-app/utils/pages-exports'
-import { getName } from '@/build-app/utils/transform-name'
+import { Text } from '@/Text'
+import { Sidebar } from '~/build-app/components/Sidebar'
+import * as Documentation from '~/build-app/layouts/Documentation'
+import { getPages } from '~/build-app/utils/pages-exports'
+import { getName } from '~/build-app/utils/transform-name'
 
 type LayoutProps = {
   children: React.ReactNode

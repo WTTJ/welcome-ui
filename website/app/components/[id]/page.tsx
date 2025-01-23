@@ -2,11 +2,11 @@ import { notFound } from 'next/navigation'
 
 import CodePage from './[subPage]/code'
 
-import { Mdx } from '@/build-app/components/Mdx'
-import { TableOfContent } from '@/build-app/components/TableOfContent'
-import { getPageContent } from '@/build-app/utils/page-content'
-import { getPages, getStaticParams } from '@/build-app/utils/pages-components'
-import { getRepository } from '@/build-app/utils/transform-name'
+import { Mdx } from '~/build-app/components/Mdx'
+import { TableOfContent } from '~/build-app/components/TableOfContent'
+import { getPageContent } from '~/build-app/utils/page-content'
+import { getPages, getStaticParams } from '~/build-app/utils/pages-components'
+import { getRepository } from '~/build-app/utils/transform-name'
 
 type PageProps = {
   params: {

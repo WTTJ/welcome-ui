@@ -2,7 +2,7 @@ import CodePage from './code'
 import OtherPage from './other'
 import PropsPage from './props'
 
-import { getPages, getStaticParams } from '@/build-app/utils/pages-components'
+import { getPages, getStaticParams } from '~/build-app/utils/pages-components'
 
 export type PageProps = {
   params: {

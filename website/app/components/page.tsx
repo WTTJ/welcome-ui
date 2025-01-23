@@ -1,14 +1,14 @@
-import { Card } from 'welcome-ui/Card'
-import { Flex } from 'welcome-ui/Flex'
-import { Grid } from 'welcome-ui/Grid'
-import { Text } from 'welcome-ui/Text'
-import { Box } from 'welcome-ui/Box'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { Card } from '@/Card'
+import { Flex } from '@/Flex'
+import { Grid } from '@/Grid'
+import { Text } from '@/Text'
+import { Box } from '@/Box'
 
-import { getPages } from '@/build-app/utils/pages-components'
-import { getName, getRepository } from '@/build-app/utils/transform-name'
-import { getPageContent } from '@/build-app/utils/page-content'
+import { getPages } from '~/build-app/utils/pages-components'
+import { getName, getRepository } from '~/build-app/utils/transform-name'
+import { getPageContent } from '~/build-app/utils/page-content'
 
 export const metadata: Metadata = {
   title: 'Welcome UI - Components',

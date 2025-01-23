@@ -1,15 +1,16 @@
 'use client'
-import { Alert } from 'welcome-ui/Alert'
-import { Avatar } from 'welcome-ui/Avatar'
-import { Box } from 'welcome-ui/Box'
-import { Card } from 'welcome-ui/Card'
-import { Pagination } from 'welcome-ui/Pagination'
-import { Stack } from 'welcome-ui/Stack'
-import { Tag } from 'welcome-ui/Tag'
-import { Text } from 'welcome-ui/Text'
-import { Toggle } from 'welcome-ui/Toggle'
-import { Link } from 'welcome-ui/Link'
 import NextLink from 'next/link'
+
+import { Alert } from '@/Alert'
+import { Avatar } from '@/Avatar'
+import { Box } from '@/Box'
+import { Card } from '@/Card'
+import { Pagination } from '@/Pagination'
+import { Stack } from '@/Stack'
+import { Tag } from '@/Tag'
+import { Text } from '@/Text'
+import { Toggle } from '@/Toggle'
+import { Link } from '@/Link'
 
 type ComponentProps = {
   children: React.ReactElement

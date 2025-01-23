@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation'
 
-import { Mdx } from '@/build-app/components/Mdx'
-import { TableOfContent } from '@/build-app/components/TableOfContent'
-import { getPageContent } from '@/build-app/utils/page-content'
-import { getPages, getStaticParamsSubPage } from '@/build-app/utils/pages-exports'
-import { PrevNextPage } from '@/build-app/components/PrevNextPage'
+import { Mdx } from '~/build-app/components/Mdx'
+import { TableOfContent } from '~/build-app/components/TableOfContent'
+import { getPageContent } from '~/build-app/utils/page-content'
+import { getPages, getStaticParamsSubPage } from '~/build-app/utils/pages-exports'
+import { PrevNextPage } from '~/build-app/components/PrevNextPage'
 
 type PageProps = {
   params: {

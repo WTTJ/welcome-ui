@@ -1,7 +1,8 @@
-import { ThemeValues } from 'welcome-ui/theme'
-import { Box } from 'welcome-ui/Box'
-import { Text } from 'welcome-ui/Text'
 import { kebabCase } from 'lodash'
+
+import { ThemeValues } from '@/theme'
+import { Box } from '@/Box'
+import { Text } from '@/Text'
 
 type HeadingsProps = {
   children: React.ReactNode

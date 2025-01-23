@@ -1,16 +1,16 @@
 'use client'
-import { Box } from 'welcome-ui/Box'
-import { ThemeValues } from 'welcome-ui/theme'
-import { Button } from 'welcome-ui/Button'
-import { CodeBlockIcon, GithubIcon, PromoteIcon } from 'welcome-ui/Icons'
-import { Flex } from 'welcome-ui/Flex'
-import { Tooltip } from 'welcome-ui/Tooltip'
 import { useState } from 'react'
 
 import { Highlight } from './Highlight'
 
-import examples from '@/build-app/examples'
-import { openStackBlitz } from '@/build-app/utils/stackblitz'
+import { Box } from '@/Box'
+import { ThemeValues } from '@/theme'
+import { Button } from '@/Button'
+import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@/Icons'
+import { Flex } from '@/Flex'
+import { Tooltip } from '@/Tooltip'
+import examples from '~/build-app/examples'
+import { openStackBlitz } from '~/build-app/utils/stackblitz'
 
 type PreProps = {
   code: string

@@ -1,8 +1,4 @@
 'use client'
-import { Box } from 'welcome-ui/Box'
-import { Badge } from 'welcome-ui/Badge'
-import { Flex } from 'welcome-ui/Flex'
-import { Text } from 'welcome-ui/Text'
 import React from 'react'
 import { kebabCase } from 'lodash'
 
@@ -10,6 +6,11 @@ import { Code } from '../Mdx/Code'
 import { H2 } from '../Mdx/Headings'
 
 import * as TYPES from './propTypes'
+
+import { Text } from '@/Text'
+import { Flex } from '@/Flex'
+import { Badge } from '@/Badge'
+import { Box } from '@/Box'
 
 type Value = {
   name: string

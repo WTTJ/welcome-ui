@@ -1,11 +1,11 @@
 'use client'
-import { Button } from 'welcome-ui/Button'
-import { LeftIcon, RightIcon } from 'welcome-ui/Icons'
-import { Flex } from 'welcome-ui/Flex'
 import Link from 'next/link'
 
-import { PageTree } from '@/build-app/types'
-import { getName } from '@/build-app/utils/transform-name'
+import { Button } from '@/Button'
+import { LeftIcon, RightIcon } from '@/Icons'
+import { Flex } from '@/Flex'
+import { PageTree } from '~/build-app/types'
+import { getName } from '~/build-app/utils/transform-name'
 
 type PrevNextPageProps = {
   basePage: string
