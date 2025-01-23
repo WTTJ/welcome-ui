@@ -4,11 +4,7 @@
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "files": ["dist"],
   "exports": {
-    "./*": {
-      "types": "./dist/types/components/*/index.d.ts",
-      "import": "./dist/*.mjs",
-      "require": "./dist/*.js"
-    },
+    "./fonts/*": "./dist/fonts/*",
     "./theme": {
       "types": "./dist/types/theme/index.d.ts",
       "import": "./dist/theme.mjs",
@@ -19,7 +15,11 @@
       "import": "./dist/utils.mjs",
       "require": "./dist/utils.js"
     },
-    "./fonts/*": "./dist/fonts/*"
+    "./*": {
+      "types": "./dist/types/components/*/index.d.ts",
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js"
+    }
   },
   "scripts": {
     "start": "vite build --watch",

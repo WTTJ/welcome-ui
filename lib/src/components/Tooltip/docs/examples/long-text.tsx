@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Tooltip } from 'welcome-ui/Tooltip'
+
+import { Tooltip } from '@/Tooltip'
 
 const Example = () => {
   return (

@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Swiper, useSwiper } from 'welcome-ui/Swiper'
+
+import { Swiper, useSwiper } from '@/Swiper'
 
 const Example = () => {
   const swiper = useSwiper({ withPagination: { mobile: true, desktop: true } })

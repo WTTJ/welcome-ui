@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { Flex } from 'welcome-ui/Flex'
-import { Avatar } from 'welcome-ui/Avatar'
-import { Text } from 'welcome-ui/Text'
-import { Accordion, useAccordion } from 'welcome-ui/Accordion'
+
+import { Flex } from '@/Flex'
+import { Avatar } from '@/Avatar'
+import { Text } from '@/Text'
+import { Accordion, useAccordion } from '@/Accordion'
 
 const Example = () => {
   const accordion = useAccordion()

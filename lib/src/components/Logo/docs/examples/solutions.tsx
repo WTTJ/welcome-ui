@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { SolutionsSymbol } from 'welcome-ui/Logo'
+
+import { SolutionsSymbol } from '@/Logo'
 
 const Example = () => {
   return <SolutionsSymbol h={100} />

@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Breadcrumb } from 'welcome-ui/Breadcrumb'
-import { Stack } from 'welcome-ui/Stack'
+
+import { Breadcrumb } from '@/Breadcrumb'
+import { Stack } from '@/Stack'
 
 const Example = () => {
   return (

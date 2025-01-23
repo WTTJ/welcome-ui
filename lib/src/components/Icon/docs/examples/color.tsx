@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { PositiveStraightIcon } from 'welcome-ui/Icons'
+
+import { PositiveStraightIcon } from '@/Icons'
 
 const Example = () => {
   return (

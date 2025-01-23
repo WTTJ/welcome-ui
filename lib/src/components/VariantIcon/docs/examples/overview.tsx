@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { VariantIcon } from 'welcome-ui/VariantIcon'
+
+import { VariantIcon } from '@/VariantIcon'
 
 const Example = () => {
   return (
