@@ -1,5 +1,5 @@
 'use client'
-import { IconFont } from 'welcome-ui/IconFont'
+import { IconsFont } from 'welcome-ui/IconsFont'
 import * as Icons from 'welcome-ui/Icons'
 import { Box } from 'welcome-ui/Box'
 import { Text } from 'welcome-ui/Text'
@@ -24,7 +24,7 @@ import {
 } from './icons'
 
 export type IconListProps = {
-  isIconFont?: boolean
+  isIconsFont?: boolean
   name:
     | 'arrows'
     | 'actions'
@@ -54,7 +54,7 @@ const handleClickToCopy = (componentName: string) => {
   )
 }
 
-export const IconsList = ({ isIconFont, name }: IconListProps) => {
+export const IconsList = ({ isIconsFont, name }: IconListProps) => {
   const iconsByName = {
     arrows: arrows,
     actions: actions,
@@ -74,10 +74,10 @@ export const IconsList = ({ isIconFont, name }: IconListProps) => {
     <Box display="grid" gap="lg" gridTemplateColumns={{ xs: '1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}>
       {iconsByName[name]?.map(key => {
         const name = startCase(camelCase(key)).replace(/ /g, '')
-        const componentName = isIconFont ? `IconFont.${name}` : `${name}Icon`
+        const componentName = isIconsFont ? `IconsFont.${name}` : `${name}Icon`
 
-        const Icon = isIconFont
-          ? IconFont[name as keyof typeof IconFont]
+        const Icon = isIconsFont
+          ? IconsFont[name as keyof typeof IconsFont]
           : Icons[componentName as keyof typeof Icons]
 
         if (!Icon) {

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set paths
-FONTS_DIR=lib/src/components/IconFont/fonts
+FONTS_DIR=lib/src/components/IconsFont/fonts
 FONT_FILE="$FONTS_DIR/welcome-icon-font.woff2"
 ENV_FILE="lib/.env"
 

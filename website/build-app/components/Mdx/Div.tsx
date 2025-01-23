@@ -38,9 +38,9 @@ export const Div = ({ children, node }: DivProps) => {
 
   // Icons objects
   if (iconsEntry) {
-    const isIconFont = node?.properties?.dataIconsFont === 'true' ? true : false
+    const isIconsFont = node?.properties?.dataIconsFont === 'true' ? true : false
 
-    return <IconsList isIconFont={isIconFont} name={iconsEntry} />
+    return <IconsList isIconsFont={isIconsFont} name={iconsEntry} />
   }
 
   // Theme objects
