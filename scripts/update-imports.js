@@ -23,6 +23,7 @@ function transformImports(content) {
   // Handle special cases first
   content = content.replace(/@welcome-ui\/core/g, 'welcome-ui/theme')
   content = content.replace(/@welcome-ui\/copy/g, 'welcome-ui/utils')
+  content = content.replace(/@welcome-ui\/icons.font/g, 'welcome-ui/IconsFont')
 
   // Transform WuiTheme to ThemeValues in imports, preserving type imports
   const importBlockRegex = /(import\s+(?:type\s+)?){([^}]+)}\s+from/g

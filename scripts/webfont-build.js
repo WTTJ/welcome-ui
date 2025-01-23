@@ -15,11 +15,11 @@ fs.readdirAsync = util.promisify(fs.readdir)
 const ROOT_PATH = path.join(__dirname, '..')
 const ICONS_PATH = path.join(ROOT_PATH, 'lib/src/components/Icons')
 const INPUT_PATH = path.join(ICONS_PATH, '_assets')
-const ICON_FONT_PATH = path.join(ROOT_PATH, 'lib/src/components/IconFont')
+const ICON_FONT_PATH = path.join(ROOT_PATH, 'lib/src/components/IconsFont')
 const FONT_NAME = 'welcome-icon-font'
 
 // Write icon font
-const writeIconFont = files => {
+const writeIconsFont = files => {
   console.log('Started'.blue, 'Writing icon font'.grey)
   const filteredFiles = files.filter(file => !FLAG_ICONS.includes(file.key))
   const unicodeFile = `${ICON_FONT_PATH}/unicode.json`
@@ -86,7 +86,7 @@ const writeIconFont = files => {
 
 // Main function: Read icons from folder and update all icon (packages)
 readIconsFromAssets()
-  .then(writeIconFont)
+  .then(writeIconsFont)
   .catch(err => {
     throw err
   })
