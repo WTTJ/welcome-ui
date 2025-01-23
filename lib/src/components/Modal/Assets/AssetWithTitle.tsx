@@ -2,11 +2,12 @@ import React from 'react'
 import styled from '@xstyled/styled-components'
 
 import { Text } from '../../Text'
-import { Box } from '../../Box'
-import { forwardRef } from '../../System'
 
 import { Iframe } from './styles'
 import * as S from './styles'
+
+import { Box } from '@/Box'
+import { forwardRef } from '@/System'
 
 type AssetWithTitleProps = {
   children: React.ReactNode

@@ -1,12 +1,12 @@
 import React from 'react'
 import * as Ariakit from '@ariakit/react'
 
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
 import { PopoverTrigger } from './Trigger'
 import { UsePopover } from './usePopover'
 import { Content } from './Content'
+
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface PopoverOptions extends Ariakit.PopoverProps {
   /** call a function when popover closed */

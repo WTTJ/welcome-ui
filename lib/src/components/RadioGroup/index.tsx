@@ -1,11 +1,11 @@
 import React from 'react'
 import * as Ariakit from '@ariakit/react'
 
-import { FieldGroup, FieldGroupOptions } from '../FieldGroup'
-import { Radio } from '../Radio'
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
+
+import { FieldGroup, FieldGroupOptions } from '@/FieldGroup'
+import { Radio } from '@/Radio'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export type RadioGroupOption = {
   hint?: string

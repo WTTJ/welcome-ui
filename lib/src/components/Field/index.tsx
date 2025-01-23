@@ -1,13 +1,14 @@
 import React from 'react'
 
-import { VariantIcon } from '../VariantIcon'
-import { Hint } from '../Hint'
-import { Label } from '../Label'
 import { useIsomorphicLayoutEffect } from '../../utils/use-isomorphic-layout-effect'
-import { CreateWuiProps, forwardRef } from '../System'
 
 import * as S from './styles'
 import { forwardedProps, generateRandomId, getBaseType, getVariant } from './utils'
+
+import { VariantIcon } from '@/VariantIcon'
+import { Hint } from '@/Hint'
+import { Label } from '@/Label'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 type VariantProps = {
   error?: string | JSX.Element

@@ -1,6 +1,6 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { shouldForwardProp } from '../System'
+import { shouldForwardProp } from '@/System'
 
 export interface StyledFileDropProps {
   disabled?: boolean

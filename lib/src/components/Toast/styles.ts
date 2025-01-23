@@ -1,10 +1,10 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import { Box } from '../Box'
-import { Alert } from '../Alert'
-
 import { GrowlOptions } from './Growl'
 import { SnackbarProps } from './Snackbar'
+
+import { Box } from '@/Box'
+import { Alert } from '@/Alert'
 
 export const ToastWrapper = styled(Box)<{ isBottom: boolean }>(
   ({ isBottom }) => css`

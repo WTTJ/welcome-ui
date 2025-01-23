@@ -2,13 +2,14 @@ import React, { useContext } from 'react'
 import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
 import toastRHT, { ToastPosition, useToaster } from 'react-hot-toast/headless'
 
-import { TextProps } from '../Text'
 import { useCreatePortal } from '../../utils/use-create-portal'
 
 import { ToastWrapper } from './ToastWrapper'
 import { Growl } from './Growl'
 import { Snackbar, SnackbarAction } from './Snackbar'
 import * as S from './styles'
+
+import { TextProps } from '@/Text'
 
 type NotificationsProps = { pauseOnHover?: boolean }
 

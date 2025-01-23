@@ -2,7 +2,7 @@ import range from 'lodash.range'
 import { Locale } from 'date-fns'
 import type { Month } from 'date-fns/types'
 
-import { SelectOption, SelectOptions } from '../Select'
+import { SelectOption, SelectOptions } from '@/Select'
 
 const MONTHS = [
   { value: 0, label: 'January' },

@@ -2,13 +2,13 @@ import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import { useTheme } from '@xstyled/styled-components'
 
-import { CreateWuiProps, forwardRef, WuiProps } from '../System'
-import { ThemeValues } from '../../theme'
-
 import { Arrow } from './Arrow'
 import { Item } from './Item'
 import { Separator } from './Separator'
 import * as S from './styles'
+
+import { ThemeValues } from '@/theme'
+import { CreateWuiProps, forwardRef, WuiProps } from '@/System'
 
 export interface DropdownMenuOptions extends Omit<Ariakit.MenuProps, 'gutter'> {
   /** default 4px (space.xs) */

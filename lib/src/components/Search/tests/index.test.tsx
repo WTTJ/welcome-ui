@@ -1,10 +1,11 @@
 import React from 'react'
 import { act, screen, waitFor } from '@testing-library/react'
 
-import { Icon } from '../../Icon'
 import { Shape } from '../../Shape'
 import { render } from '../../../../tests'
 import { Search } from '../'
+
+import { Icon } from '@/Icon'
 
 type Item = {
   poster?: string

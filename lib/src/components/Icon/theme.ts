@@ -1,4 +1,4 @@
-import { ThemeValues } from '../../theme'
+import { ThemeValues } from '@/theme'
 
 export type ThemeIcons = {
   lg: string

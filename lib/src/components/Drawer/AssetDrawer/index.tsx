@@ -2,11 +2,12 @@ import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import { useTheme } from '@xstyled/styled-components'
 
-import { CreateWuiProps, forwardRef } from '../../System'
-import { Box } from '../../Box'
 import { Drawer } from '..'
 
 import * as S from './styles'
+
+import { Box } from '@/Box'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export type AssetDrawerProps = CreateWuiProps<'div', Ariakit.DialogOptions>
 

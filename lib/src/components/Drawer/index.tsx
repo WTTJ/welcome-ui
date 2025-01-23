@@ -1,8 +1,6 @@
 import React from 'react'
 import * as Ariakit from '@ariakit/react'
 
-import { As, CreateWuiProps, forwardRef } from '../System'
-
 import { Close } from './Close'
 import { Content } from './Content'
 import { Footer } from './Footer'
@@ -10,6 +8,8 @@ import { Title } from './Title'
 import * as S from './styles'
 import { AssetDrawerComponent } from './AssetDrawer'
 import { Header } from './AssetDrawer/Header'
+
+import { As, CreateWuiProps, forwardRef } from '@/System'
 
 type Placement = 'top' | 'right' | 'bottom' | 'left'
 type Size = 'sm' | 'md' | 'lg' | 'auto' | string

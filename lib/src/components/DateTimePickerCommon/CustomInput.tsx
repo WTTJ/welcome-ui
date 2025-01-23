@@ -1,10 +1,11 @@
 import React, { forwardRef } from 'react'
 
-import { IconGroupWrapper, IconWrapper } from '../Field'
-import { ClearButton } from '../ClearButton'
 import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '../../utils/field-styles'
 
 import * as S from './styles'
+
+import { IconGroupWrapper, IconWrapper } from '@/Field'
+import { ClearButton } from '@/ClearButton'
 
 export type Focused = 'date' | 'time' | null
 export type Icon = JSX.Element

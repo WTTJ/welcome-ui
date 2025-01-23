@@ -1,9 +1,9 @@
 import React from 'react'
 import * as Ariakit from '@ariakit/react'
 
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './Arrow.styled'
+
+import { CreateWuiProps, forwardRef } from '@/System'
 
 const transformMap: Record<string, string> = {
   top: 'rotateZ(180deg)',

@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { TextProps } from '../Text'
-
 import * as S from './styles'
+
+import { TextProps } from '@/Text'
 
 export type AlertTitleProps = Pick<TextProps, 'children' | 'dataTestId' | 'variant'>
 

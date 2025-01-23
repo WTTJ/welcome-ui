@@ -1,11 +1,11 @@
 import React from 'react'
 import * as Ariakit from '@ariakit/react'
 
-import { CreateWuiProps, forwardRef } from '../System'
-
 import { TabList } from './TabList'
 import { TabPanel } from './TabPanel'
 import * as S from './styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export type TabOptions = { store: UseTab }
 export type TabProps = CreateWuiProps<'button', TabOptions>

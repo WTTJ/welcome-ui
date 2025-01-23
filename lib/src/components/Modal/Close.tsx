@@ -2,7 +2,7 @@ import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import { useTheme } from '@xstyled/styled-components'
 
-import { CloseButton, CloseButtonProps } from '../CloseButton'
+import { CloseButton, CloseButtonProps } from '@/CloseButton'
 
 type CloseProps = CloseButtonProps & {
   isOnHeader?: boolean

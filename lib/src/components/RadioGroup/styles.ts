@@ -1,6 +1,6 @@
 import styled, { css, system } from '@xstyled/styled-components'
 
-import { WuiProps } from '../System'
+import { WuiProps } from '@/System'
 
 export const Radios = styled.divBox<{
   flexDirection?: WuiProps['flexDirection']

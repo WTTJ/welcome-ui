@@ -1,6 +1,6 @@
 import styled, { system, th } from '@xstyled/styled-components'
 
-import { shouldForwardProp } from '../System'
+import { shouldForwardProp } from '@/System'
 
 export const FieldGroup = styled.fieldsetBox.withConfig({ shouldForwardProp })`
   width: 100%;

@@ -10,13 +10,14 @@ import React, {
 import { ResizeObserver } from '@juggle/resize-observer'
 import { Theme } from '@xstyled/styled-components'
 
-import { RightIcon } from '../Icons'
-import { CreateWuiProps, forwardRef } from '../System'
 import { clamp } from '../../utils/clamp'
 import { throttle } from '../../utils/throttle'
 
 import { Item } from './Item'
 import * as S from './styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
+import { RightIcon } from '@/Icons'
 
 type Colors = Theme['colors']
 

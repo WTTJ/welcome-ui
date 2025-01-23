@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
 
 const TAG_NAMES = {
   h0: 'h1',

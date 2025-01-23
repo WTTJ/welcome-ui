@@ -2,15 +2,15 @@ import React, { cloneElement } from 'react'
 import * as Ariakit from '@ariakit/react'
 import { useTheme } from '@xstyled/styled-components'
 
-import { Shape, ShapeProps } from '../Shape'
-import { BoxProps } from '../Box'
-import { As, CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { Content } from './Content'
 import { Assets } from './Assets'
+
+import { As, CreateWuiProps, forwardRef } from '@/System'
+import { BoxProps } from '@/Box'
+import { Shape, ShapeProps } from '@/Shape'
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 

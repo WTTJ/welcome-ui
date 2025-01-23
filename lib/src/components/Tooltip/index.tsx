@@ -1,10 +1,10 @@
 import React, { ReactElement, useEffect, useState } from 'react'
 import * as Ariakit from '@ariakit/react'
 
-import { Box } from '../Box'
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
+
+import { Box } from '@/Box'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export type TooltipOptions = {
   children: React.ReactNode

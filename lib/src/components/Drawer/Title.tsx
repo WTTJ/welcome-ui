@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Text, TextProps } from '../Text'
-
 import * as S from './styles'
+
+import { Text, TextProps } from '@/Text'
 
 export const Title: React.FC<TextProps> = ({ children, zIndex = '1', ...props }) => {
   return (

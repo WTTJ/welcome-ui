@@ -1,14 +1,15 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { StyledIcon } from '../Icon'
-import { IconWrapper as WUIIconWrapper } from '../Field'
-import { StyledTag } from '../Tag'
-import { shouldForwardProp } from '../System'
 import { defaultFieldStyles, Size } from '../../utils/field-styles'
 import { overflowEllipsis } from '../../utils/overflow-ellipsis'
-import { Box } from '../Box'
 
 import { SelectOptions } from './index'
+
+import { StyledIcon } from '@/Icon'
+import { IconWrapper as WUIIconWrapper } from '@/Field'
+import { StyledTag } from '@/Tag'
+import { shouldForwardProp } from '@/System'
+import { Box } from '@/Box'
 
 export const IconWrapper = styled(WUIIconWrapper)``
 

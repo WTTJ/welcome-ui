@@ -1,12 +1,12 @@
 import React, { memo } from 'react'
 import { Theme, useTheme } from '@xstyled/styled-components'
 
-import { ShapeOptions } from '../Shape'
-import { CreateWuiProps, forwardRef } from '../System'
-import { Box } from '../Box'
-
 import { getInitials as defaultGetInitials, getColorByLength } from './utils'
 import * as S from './styles'
+
+import { ShapeOptions } from '@/Shape'
+import { CreateWuiProps, forwardRef } from '@/System'
+import { Box } from '@/Box'
 
 type SubColor = Theme['colors']
 type Size = 'sm' | 'md' | 'lg' | 'xl' | 'xxl'

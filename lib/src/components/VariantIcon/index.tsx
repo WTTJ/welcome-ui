@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react'
 
-import { AlertIcon, CheckIcon, InformationIcon, PromoteIcon, SquareAlertIcon } from '../Icons'
-import { CreateWuiProps, forwardRef } from '../System'
-
 import * as S from './styles'
+
+import { AlertIcon, CheckIcon, InformationIcon, PromoteIcon, SquareAlertIcon } from '@/Icons'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 type Variant = 'danger' | 'warning' | 'success' | 'info' | 'default'

@@ -1,12 +1,12 @@
 import React, { Children, cloneElement } from 'react'
 
-import { CloseButton } from '../CloseButton'
-import { Button, ButtonProps } from '../Button'
-import { CreateWuiProps, forwardRef } from '../System'
-import { Box } from '../Box'
-
 import { Title } from './Title'
 import * as S from './styles'
+
+import { CloseButton } from '@/CloseButton'
+import { Button, ButtonProps } from '@/Button'
+import { CreateWuiProps, forwardRef } from '@/System'
+import { Box } from '@/Box'
 
 type Size = 'sm' | 'md'
 type Variant = 'danger' | 'success' | 'warning' | 'info' | 'default' | 'beige'

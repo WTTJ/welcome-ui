@@ -2,11 +2,12 @@ import React from 'react'
 
 import { ArrowLeftIcon } from '../../Icons'
 import { Button } from '../../Button'
-import type { IconProps } from '../../Icon'
 import { Text } from '../../Text'
-import { Box } from '../../Box'
 
 import * as S from './styles'
+
+import type { IconProps } from '@/Icon'
+import { Box } from '@/Box'
 
 type HeaderProps = {
   /**

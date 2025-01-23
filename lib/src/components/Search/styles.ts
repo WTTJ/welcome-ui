@@ -1,11 +1,12 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { StyledIcon } from '../Icon'
-import { shouldForwardProp } from '../System'
 import { defaultFieldStyles } from '../../utils/field-styles'
 import { overflowEllipsis } from '../../utils/overflow-ellipsis'
 
 import { SearchOptions } from './index'
+
+import { shouldForwardProp } from '@/System'
+import { StyledIcon } from '@/Icon'
 
 export const Wrapper = styled('div').withConfig({ shouldForwardProp })`
   position: relative;

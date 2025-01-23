@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { CreateWuiProps, forwardRef } from '../System'
-import { ClearButton } from '../ClearButton'
-import { IconGroupWrapper, IconWrapper } from '../Field'
 import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '../../utils/field-styles'
 import { createEvent } from '../../utils/create-event'
 
 import * as S from './styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
+import { ClearButton } from '@/ClearButton'
+import { IconGroupWrapper, IconWrapper } from '@/Field'
 
 export interface InputTextOptions extends DefaultFieldStylesProps {
   autoFocus?: boolean

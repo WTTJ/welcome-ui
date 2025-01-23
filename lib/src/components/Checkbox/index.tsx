@@ -1,9 +1,10 @@
 import React from 'react'
 
-import { CreateWuiProps, forwardRef } from '../System'
 import { DefaultFieldStylesProps } from '../../utils/field-styles'
 
 import * as S from './styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface CheckboxOptions extends DefaultFieldStylesProps {
   Component?: React.ElementType

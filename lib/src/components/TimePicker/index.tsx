@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { ReactDatePickerProps } from 'react-datepicker'
 
+import * as S from './styles'
+
 import {
   CustomInput,
   CustomInputOptions,
@@ -9,10 +11,8 @@ import {
   Focused,
   getDate,
   StyledTimePicker,
-} from '../DateTimePickerCommon'
-import { CreateWuiProps, forwardRef } from '../System'
-
-import * as S from './styles'
+} from '@/DateTimePickerCommon'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface TimePickerOptions {
   onBlur?: CustomInputOptions['handleBlur']

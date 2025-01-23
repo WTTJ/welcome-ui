@@ -5,7 +5,8 @@ import styled, { system } from '@xstyled/styled-components'
 import { IconsFont } from '../../IconsFont'
 import { Button } from '../../Button'
 import * as S from '../styles'
-import { forwardRef } from '../../System'
+
+import { forwardRef } from '@/System'
 
 export const CloseButton = styled(Button)`
   position: absolute;

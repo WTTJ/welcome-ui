@@ -1,8 +1,9 @@
 import { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '../../theme'
 import { ThemeFocus } from '../../theme/focus'
 import { hexToRGBA } from '../../utils/hex-to-rgba'
+
+import { ThemeValues } from '@/theme'
 
 type CommonAttributesButton = CSSObject
 
