@@ -5,42 +5,8 @@ import matter from 'gray-matter'
 import kebabCase from 'lodash/kebabCase'
 
 import { PageTree } from '../types'
-import { replaceMdxRegex } from '../constants/regex'
-
-import { getComponentProperties } from './components-properties'
-import { getRepository } from './transform-name'
 
 type Parent = 'components'
-
-function getComponentSubPages(id: string) {
-  const directory = `build-app/pages/components/${id}`
-  const folder = join(process.cwd(), directory)
-  const folderExist = existsSync(folder)
-
-  if (!folderExist) {
-    const withProperties = getComponentProperties(getRepository(id))
-
-    if (withProperties) {
-      return ['props']
-    }
-
-    return []
-  }
-
-  const subPages = []
-
-  const fileList = readdirSync(folder)
-
-  for (const file of fileList) {
-    const fileName = file.replace(replaceMdxRegex, '')
-
-    if (fileName !== 'overview') {
-      subPages.push(fileName)
-    }
-  }
-
-  return [...subPages, 'code', 'props']
-}
 
 export function getFilesFromPackages(selectedParent: Parent) {
   const folder = join(process.cwd(), '../lib/src/components')
@@ -64,7 +30,7 @@ export function getFilesFromPackages(selectedParent: Parent) {
 
       const categoryParent = files.filter(resultItem => resultItem.category === category)[0]
 
-      const newChild = { id: fileKebabCase, title, subPages: getComponentSubPages(fileKebabCase) }
+      const newChild = { id: fileKebabCase, title, subPages: ['props'] }
 
       if (categoryParent) {
         categoryParent.pages.push(newChild)

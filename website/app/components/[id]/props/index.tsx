@@ -1,10 +1,11 @@
 import { notFound } from 'next/navigation'
 
-import { PageProps } from './page'
+import { PageProps } from '../page'
 
-import { Mdx } from '~/build-app/components/Mdx'
+import { Properties } from '~/build-app/components/Props'
 import { TableOfContent } from '~/build-app/components/TableOfContent'
-import { getPageContent } from '~/build-app/utils/page-content'
+import { getComponentProperties } from '~/build-app/utils/components-properties'
+import { getPropertiesTree } from '~/build-app/utils/page-tree'
 import { getPages, getStaticParams } from '~/build-app/utils/pages-components'
 import { getRepository } from '~/build-app/utils/transform-name'
 
@@ -16,21 +17,16 @@ export async function generateStaticParams() {
 
 const Page = ({ params }: PageProps) => {
   const { id } = params
-  const componentName = getRepository(id)
+  const properties = getComponentProperties(getRepository(id))
 
-  const { contentWithoutMatter, isNotFound, tree } = getPageContent({
-    filename: `${componentName}/docs/index.mdx`,
-    isPackage: true,
-  })
+  if (!properties) return notFound()
 
-  if (isNotFound) return notFound()
+  const tree = getPropertiesTree(properties)
 
   return (
     <>
       <main>
-        <Mdx>{`<div data-playground="overview.tsx" data-component="${componentName}" data-overview="true"></div>`}</Mdx>
-        <Mdx>## Examples</Mdx>
-        <Mdx>{contentWithoutMatter}</Mdx>
+        <Properties items={properties} />
       </main>
       <TableOfContent isSubPage tree={tree} />
     </>
