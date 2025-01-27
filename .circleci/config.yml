@@ -267,13 +267,13 @@ workflows:
             tags:
               only: /.*/
           requires:
-            - build
+            - checkout
       - test:
           filters:
             tags:
               only: /.*/
           requires:
-            - build
+            - checkout
       - release_icon_font:
           filters:
             tags:
@@ -281,22 +281,19 @@ workflows:
           context:
             - aws
           requires:
-            - build
+            - checkout
       - website_build:
           filters:
             tags:
               only: /.*/
           requires:
-            - build
+            - checkout
       - website_deploy_preview:
           context:
             - aws
             - welcome-ui
           requires:
-            - lint
-            - test
             - website_build
-            - release_icon_font
       - website_deploy_prod:
           filters:
             branches:
@@ -307,10 +304,7 @@ workflows:
             - aws
             - welcome-ui
           requires:
-            - lint
-            - test
             - website_build
-            - release_icon_font
       - previous_website_versions_build_deploy_prod:
           filters:
             # should add branches here to keep previous doc version of future majors
