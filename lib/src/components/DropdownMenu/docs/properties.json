@@ -1038,12 +1038,12 @@
         "description": "default 4px (space.xs)",
         "name": "gutter",
         "parent": {
-          "fileName": "lib/src/components/DropdownMenu/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/DropdownMenu/index.tsx",
           "name": "DropdownMenuOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/DropdownMenu/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/DropdownMenu/index.tsx",
             "name": "DropdownMenuOptions"
           }
         ],
@@ -1210,12 +1210,12 @@
         "description": "add custom props from styled system on DropdownMenu inner",
         "name": "innerProps",
         "parent": {
-          "fileName": "lib/src/components/DropdownMenu/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/DropdownMenu/index.tsx",
           "name": "DropdownMenuOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/DropdownMenu/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/DropdownMenu/index.tsx",
             "name": "DropdownMenuOptions"
           }
         ],

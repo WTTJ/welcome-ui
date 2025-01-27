@@ -6,12 +6,12 @@
         "description": "add correct separator for call to action\nuse SnackbarAction",
         "name": "cta",
         "parent": {
-          "fileName": "lib/src/components/Toast/Snackbar.tsx",
+          "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
           "name": "SnackbarOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Toast/Snackbar.tsx",
+            "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
             "name": "SnackbarOptions"
           }
         ],
@@ -27,12 +27,12 @@
         "description": "",
         "name": "hasCloseButton",
         "parent": {
-          "fileName": "lib/src/components/Toast/Snackbar.tsx",
+          "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
           "name": "SnackbarOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Toast/Snackbar.tsx",
+            "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
             "name": "SnackbarOptions"
           }
         ],
@@ -55,12 +55,12 @@
         "description": "",
         "name": "icon",
         "parent": {
-          "fileName": "lib/src/components/Toast/Snackbar.tsx",
+          "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
           "name": "SnackbarOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Toast/Snackbar.tsx",
+            "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
             "name": "SnackbarOptions"
           }
         ],
@@ -74,12 +74,12 @@
         "description": "",
         "name": "onClose",
         "parent": {
-          "fileName": "lib/src/components/Toast/Snackbar.tsx",
+          "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
           "name": "SnackbarOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Toast/Snackbar.tsx",
+            "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
             "name": "SnackbarOptions"
           }
         ],
@@ -95,12 +95,12 @@
         "description": "",
         "name": "variant",
         "parent": {
-          "fileName": "lib/src/components/Toast/Snackbar.tsx",
+          "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
           "name": "SnackbarOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Toast/Snackbar.tsx",
+            "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
             "name": "SnackbarOptions"
           }
         ],

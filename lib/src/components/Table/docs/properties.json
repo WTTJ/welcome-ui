@@ -6,12 +6,12 @@
         "description": "Add space on first and last child on the Td and Th component",
         "name": "indent",
         "parent": {
-          "fileName": "lib/src/components/Table/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Table/index.tsx",
           "name": "TableOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Table/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Table/index.tsx",
             "name": "TableOptions"
           }
         ],
@@ -38,12 +38,12 @@
         "description": "Add space on first and last child on the Td and Th component",
         "name": "indent",
         "parent": {
-          "fileName": "lib/src/components/Table/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Table/index.tsx",
           "name": "TableOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Table/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Table/index.tsx",
             "name": "TableOptions"
           }
         ],

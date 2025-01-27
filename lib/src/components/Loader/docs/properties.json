@@ -6,12 +6,12 @@
         "description": "",
         "name": "color",
         "parent": {
-          "fileName": "lib/src/components/Loader/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Loader/index.tsx",
           "name": "LoaderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Loader/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Loader/index.tsx",
             "name": "LoaderOptions"
           }
         ],
@@ -585,12 +585,12 @@
         "description": "Predefined size xs, sm, md, lg or custom size",
         "name": "size",
         "parent": {
-          "fileName": "lib/src/components/Loader/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Loader/index.tsx",
           "name": "LoaderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Loader/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Loader/index.tsx",
             "name": "LoaderOptions"
           }
         ],

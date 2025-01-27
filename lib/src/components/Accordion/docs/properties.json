@@ -130,12 +130,12 @@
         "description": "",
         "name": "icon",
         "parent": {
-          "fileName": "lib/src/components/Accordion/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Accordion/index.tsx",
           "name": "AccordionOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Accordion/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Accordion/index.tsx",
             "name": "AccordionOptions"
           }
         ],
@@ -149,12 +149,12 @@
         "description": "store from useAccordion()",
         "name": "store",
         "parent": {
-          "fileName": "lib/src/components/Accordion/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Accordion/index.tsx",
           "name": "AccordionOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Accordion/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Accordion/index.tsx",
             "name": "AccordionOptions"
           }
         ],
@@ -168,12 +168,12 @@
         "description": "",
         "name": "title",
         "parent": {
-          "fileName": "lib/src/components/Accordion/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Accordion/index.tsx",
           "name": "AccordionOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Accordion/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Accordion/index.tsx",
             "name": "AccordionOptions"
           }
         ],

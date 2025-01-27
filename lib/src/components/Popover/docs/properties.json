@@ -783,12 +783,12 @@
         "description": "call a function when popover closed",
         "name": "onClose",
         "parent": {
-          "fileName": "lib/src/components/Popover/Popover.tsx",
+          "fileName": "welcome-ui/lib/src/components/Popover/Popover.tsx",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Popover/Popover.tsx",
+            "fileName": "welcome-ui/lib/src/components/Popover/Popover.tsx",
             "name": "PopoverOptions"
           }
         ],
@@ -1190,12 +1190,12 @@
         "description": "Object returned by the\n[`usePopoverStore`](https://ariakit.org/reference/use-popover-store) hook.\nIf not provided, the closest\n[`PopoverProvider`](https://ariakit.org/reference/popover-provider)\ncomponent's context will be used.",
         "name": "store",
         "parent": {
-          "fileName": "lib/src/components/Popover/Popover.tsx",
+          "fileName": "welcome-ui/lib/src/components/Popover/Popover.tsx",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Popover/Popover.tsx",
+            "fileName": "welcome-ui/lib/src/components/Popover/Popover.tsx",
             "name": "PopoverOptions"
           }
         ],
@@ -2183,12 +2183,12 @@
         "description": "call a function when popover closed",
         "name": "onClose",
         "parent": {
-          "fileName": "lib/src/components/Popover/PopoverHover.tsx",
+          "fileName": "welcome-ui/lib/src/components/Popover/PopoverHover.tsx",
           "name": "PopoverHoverOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Popover/PopoverHover.tsx",
+            "fileName": "welcome-ui/lib/src/components/Popover/PopoverHover.tsx",
             "name": "PopoverHoverOptions"
           }
         ],
@@ -2590,12 +2590,12 @@
         "description": "Object returned by the\n[`useHovercardStore`](https://ariakit.org/reference/use-hovercard-store)\nhook. If not provided, the closest\n[`HovercardProvider`](https://ariakit.org/reference/hovercard-provider)\ncomponent's context will be used.",
         "name": "store",
         "parent": {
-          "fileName": "lib/src/components/Popover/PopoverHover.tsx",
+          "fileName": "welcome-ui/lib/src/components/Popover/PopoverHover.tsx",
           "name": "PopoverHoverOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Popover/PopoverHover.tsx",
+            "fileName": "welcome-ui/lib/src/components/Popover/PopoverHover.tsx",
             "name": "PopoverHoverOptions"
           }
         ],

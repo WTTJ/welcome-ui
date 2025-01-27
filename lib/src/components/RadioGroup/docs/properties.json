@@ -6,12 +6,12 @@
         "description": "",
         "name": "label",
         "parent": {
-          "fileName": "lib/src/components/FieldGroup/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FieldGroup/index.tsx",
           "name": "FieldGroupOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FieldGroup/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FieldGroup/index.tsx",
             "name": "FieldGroupOptions"
           }
         ],
@@ -25,12 +25,12 @@
         "description": "",
         "name": "name",
         "parent": {
-          "fileName": "lib/src/components/RadioGroup/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/RadioGroup/index.tsx",
           "name": "RadioGroupOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/RadioGroup/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/RadioGroup/index.tsx",
             "name": "RadioGroupOptions"
           }
         ],
@@ -44,12 +44,12 @@
         "description": "",
         "name": "onChange",
         "parent": {
-          "fileName": "lib/src/components/RadioGroup/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/RadioGroup/index.tsx",
           "name": "RadioGroupOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/RadioGroup/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/RadioGroup/index.tsx",
             "name": "RadioGroupOptions"
           }
         ],
@@ -65,12 +65,12 @@
         "description": "",
         "name": "options",
         "parent": {
-          "fileName": "lib/src/components/RadioGroup/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/RadioGroup/index.tsx",
           "name": "RadioGroupOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/RadioGroup/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/RadioGroup/index.tsx",
             "name": "RadioGroupOptions"
           }
         ],
@@ -84,12 +84,12 @@
         "description": "",
         "name": "renderOption",
         "parent": {
-          "fileName": "lib/src/components/RadioGroup/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/RadioGroup/index.tsx",
           "name": "RadioGroupOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/RadioGroup/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/RadioGroup/index.tsx",
             "name": "RadioGroupOptions"
           }
         ],
@@ -643,12 +643,12 @@
         "description": "",
         "name": "required",
         "parent": {
-          "fileName": "lib/src/components/FieldGroup/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FieldGroup/index.tsx",
           "name": "FieldGroupOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FieldGroup/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FieldGroup/index.tsx",
             "name": "FieldGroupOptions"
           }
         ],
@@ -671,12 +671,12 @@
         "description": "",
         "name": "value",
         "parent": {
-          "fileName": "lib/src/components/RadioGroup/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/RadioGroup/index.tsx",
           "name": "RadioGroupOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/RadioGroup/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/RadioGroup/index.tsx",
             "name": "RadioGroupOptions"
           }
         ],

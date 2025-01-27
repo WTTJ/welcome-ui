@@ -6,12 +6,12 @@
         "description": "",
         "name": "checked",
         "parent": {
-          "fileName": "lib/src/components/Checkbox/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
           "name": "CheckboxOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Checkbox/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
             "name": "CheckboxOptions"
           }
         ],
@@ -34,12 +34,12 @@
         "description": "",
         "name": "disabled",
         "parent": {
-          "fileName": "lib/src/components/Checkbox/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
           "name": "CheckboxOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Checkbox/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
             "name": "CheckboxOptions"
           }
         ],
@@ -62,12 +62,12 @@
         "description": "",
         "name": "name",
         "parent": {
-          "fileName": "lib/src/components/Checkbox/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
           "name": "CheckboxOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Checkbox/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
             "name": "CheckboxOptions"
           }
         ],
@@ -81,12 +81,12 @@
         "description": "",
         "name": "onChange",
         "parent": {
-          "fileName": "lib/src/components/Checkbox/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
           "name": "CheckboxOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Checkbox/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
             "name": "CheckboxOptions"
           }
         ],

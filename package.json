@@ -4,7 +4,7 @@
   "scripts": {
     "build:lib": "cd lib && yarn build",
     "build:website": "cd website && yarn && yarn build",
-    "build": "yarn webfont && yarn build:lib",
+    "build": "yarn build:lib",
     "check:audit": "/bin/bash -c 'yarn audit --level critical; [[ $? -ge 16 ]] && exit 1 || exit 0'",
     "icons": "node -r esm scripts/icons-optimize.js && node -r esm scripts/icons-collect.js && yarn webfont",
     "webfont": "node -r esm scripts/webfont-build.js --force",
@@ -19,9 +19,9 @@
     "dev:release": "node .dev-releases/version.mjs",
     "dev:prerelease": "yarn release-it --preReleaseId=alpha --no-npm.publish",
     "release": "yarn release-it --no-npm.publish",
-    "start": "cd lib && yarn start",
-    "test": "cd lib && yarn test",
-    "website": "cd website && yarn dev -p 3020"
+    "start": "cd website && yarn dev -p 3020",
+    "export-properties": "node ./scripts/generate-types-doc.js",
+    "test": "cd lib && yarn test"
   },
   "private": true,
   "workspaces": [

@@ -6,12 +6,12 @@
         "description": "",
         "name": "checked",
         "parent": {
-          "fileName": "lib/src/components/RadioTab/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/RadioTab/index.tsx",
           "name": "RadioTabsOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/RadioTab/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/RadioTab/index.tsx",
             "name": "RadioTabsOptions"
           }
         ],
@@ -34,12 +34,12 @@
         "description": "",
         "name": "disabled",
         "parent": {
-          "fileName": "lib/src/components/RadioTab/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/RadioTab/index.tsx",
           "name": "RadioTabsOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/RadioTab/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/RadioTab/index.tsx",
             "name": "RadioTabsOptions"
           }
         ],
@@ -62,12 +62,12 @@
         "description": "",
         "name": "disabledIcon",
         "parent": {
-          "fileName": "lib/src/components/RadioTab/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/RadioTab/index.tsx",
           "name": "RadioTabsOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/RadioTab/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/RadioTab/index.tsx",
             "name": "RadioTabsOptions"
           }
         ],
@@ -81,12 +81,12 @@
         "description": "",
         "name": "label",
         "parent": {
-          "fileName": "lib/src/components/RadioTab/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/RadioTab/index.tsx",
           "name": "RadioTabsOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/RadioTab/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/RadioTab/index.tsx",
             "name": "RadioTabsOptions"
           }
         ],
@@ -100,12 +100,12 @@
         "description": "",
         "name": "onChange",
         "parent": {
-          "fileName": "lib/src/components/RadioTab/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/RadioTab/index.tsx",
           "name": "RadioTabsOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/RadioTab/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/RadioTab/index.tsx",
             "name": "RadioTabsOptions"
           }
         ],
@@ -119,12 +119,12 @@
         "description": "",
         "name": "value",
         "parent": {
-          "fileName": "lib/src/components/RadioTab/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/RadioTab/index.tsx",
           "name": "RadioTabsOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/RadioTab/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/RadioTab/index.tsx",
             "name": "RadioTabsOptions"
           }
         ],
