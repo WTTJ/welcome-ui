@@ -7,6 +7,7 @@
     "paths": {
       "@/utils": ["./src/utils"],
       "@/theme": ["./src/theme"],
+      "@/fonts/*": ["./src/components/IconsFont/fonts/*"],
       "@/*": ["./src/components/*"]
     }
   },

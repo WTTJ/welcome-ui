@@ -26,6 +26,9 @@ type DivProps = {
   }
 }
 
+const replaceWuiImports = (code: string) =>
+  code.replaceAll(/(from|import) '@\/([\w-./]+)'/g, "$1 'welcome-ui/$2'")
+
 export const Div = ({ children, node }: DivProps) => {
   const playgroundFile = node?.properties?.dataPlayground
   const colorsName = node?.properties?.dataColors
@@ -75,7 +78,7 @@ export const Div = ({ children, node }: DivProps) => {
 
     return (
       <Playground
-        code={`${code}`}
+        code={replaceWuiImports(code)}
         isOverview={isOverview === 'true'}
         mt={playgroundFile === 'overview.tsx' ? 0 : undefined}
         name={component}

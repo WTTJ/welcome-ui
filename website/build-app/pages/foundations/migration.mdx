@@ -8,7 +8,7 @@ Welcome UI V7 bring back all on a mono-package: `welcome-ui`
 
 ### 1. Script to migrate
 
-In welcome-ui project, run this script move all `@welcome-ui/*` to only one `welcome-ui` import:
+In welcome-ui project, run this script rename all `@welcome-ui/*` imports to `welcome-ui/*` with CamelCase:
 
 ```bash
 yarn migrate "../your-project/src/**/**.*{ts,tsx}"
@@ -28,10 +28,7 @@ And add new mono-package:
 yarn add welcome-ui
 ```
 
-### 3. Add missing peerDependencies
-
-You need to check packages you used and add missing peer dependencies.
-
 ### 4. Other changes
 
 1. `WuiTheme` becomes `ThemeValues`
+2. `WuiProvider` is now exported from `welcome-ui/WuiProvider`

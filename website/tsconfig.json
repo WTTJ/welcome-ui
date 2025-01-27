@@ -28,6 +28,9 @@
       "@/theme": [
         "../lib/src/theme"
       ],
+      "@/fonts/*": [
+        "../lib/src/components/IconsFont/fonts/*"
+      ],
       "@/*": [
         "../lib/src/components/*"
       ]
