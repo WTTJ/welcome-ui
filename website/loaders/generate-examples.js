@@ -1,19 +1,20 @@
-import { existsSync, readdirSync, writeFileSync } from 'fs'
-import { join, resolve } from 'path'
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { existsSync, readdirSync, writeFileSync } = require('fs')
+const { join, resolve } = require('path')
 
 function generateWebsiteExamplesPages() {
-  const parentDirectory = resolve(__dirname, '../')
-  const packagesDirectory = join(parentDirectory, 'lib/src')
+  const parentDirectory = resolve(__dirname, '../../')
+  const packagesDirectory = join(parentDirectory, 'lib/src/components')
   const packagesDirectoryExist = existsSync(packagesDirectory)
 
-  const examples = [] as string[]
+  const examples = []
 
   if (!packagesDirectoryExist) return
 
   const folderList = readdirSync(packagesDirectory)
 
   for (const folder of folderList) {
-    const subFolder = join(parentDirectory, 'lib', 'src', 'components', folder, 'docs', 'examples')
+    const subFolder = join(packagesDirectory, folder, 'docs', 'examples')
     const subFolderExist = existsSync(subFolder)
 
     if (!subFolderExist) continue
@@ -35,12 +36,4 @@ function generateWebsiteExamplesPages() {
   writeFileSync(join(parentDirectory, 'website', 'build-app', 'examples.js'), fileContent)
 }
 
-export const generateWebsiteExamplesPlugin = () => {
-  return {
-    name: 'website-examples',
-    // generate website examples for NextJS static pages
-    writeBundle() {
-      generateWebsiteExamplesPages()
-    },
-  }
-}
+module.exports = { generateWebsiteExamplesPages }
