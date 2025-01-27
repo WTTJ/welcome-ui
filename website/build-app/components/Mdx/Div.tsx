@@ -27,7 +27,7 @@ type DivProps = {
 }
 
 const replaceWuiImports = (code: string) =>
-  code.replaceAll(/from '@\/(\w+)'/g, "from 'welcome-ui/$1'")
+  code.replaceAll(/(from|import) '@\/([\w-./]+)'/g, "$1 'welcome-ui/$2'")
 
 export const Div = ({ children, node }: DivProps) => {
   const playgroundFile = node?.properties?.dataPlayground
