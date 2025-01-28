@@ -215,16 +215,13 @@ jobs:
       - *checkout
       - *restore_repo
       - attach_workspace:
-          at: ~/welcome-ui/artifacts
-      - run:
-          name: 'copy build artifacts'
-          command: 'cp -r artifacts/* .'
+          at: ~/welcome-ui
       - run:
           name: 'auth to npm registry'
           command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN_WRITE_PACKAGES" > ~/.npmrc
       - run:
           name: publish
-          command: yarn release-it --no-increment --no-git --no-github
+          command: cd lib && npm publish
 
   alpha_release:
     executor: nodejs
@@ -232,16 +229,13 @@ jobs:
       - *checkout
       - *restore_repo
       - attach_workspace:
-          at: ~/welcome-ui/artifacts
-      - run:
-          name: 'copy build artifacts'
-          command: 'cp -r artifacts/* .'
+          at: ~/welcome-ui
       - run:
           name: 'auth to npm registry'
           command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN_WRITE_PACKAGES" > ~/.npmrc
       - run:
           name: publish
-          command: yarn release-it --no-increment --no-git --no-github --preRelease=alpha
+          command: cd lib && npm publish --tag beta
 
   dev_release:
     executor: nodejs
@@ -249,10 +243,7 @@ jobs:
       - *checkout
       - *restore_repo
       - attach_workspace:
-          at: ~/welcome-ui/artifacts
-      - run:
-          name: 'copy build artifacts'
-          command: 'cp -r artifacts/* .'
+          at: ~/welcome-ui
       - run:
           name: 'auth to npm registry'
           command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN_WRITE_PACKAGES" > ~/.npmrc
