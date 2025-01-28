@@ -19,7 +19,7 @@ const posts = [
       'Welcome UI V7 is here! This release bring back the only one package to rule them all: welcome-ui',
     tags: ['release'],
     link: 'https://www.welcome-ui.com/foundations/migration',
-    cover: 'https://github.com/user-attachments/assets/694b8144-b013-424d-8940-b98aab775dad',
+    cover: 'https://github.com/user-attachments/assets/cef3758f-1b87-4d4c-af04-89df91571a4a',
     date: new Date('2025-01-28'),
   },
   {
