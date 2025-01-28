@@ -210,8 +210,8 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - run:
-          name: 'auth to npm registry'
-          command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN_WRITE_PACKAGES" > ~/.npmrc
+          name: Login to registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
           name: publish
           command: cd lib && npm publish
@@ -223,8 +223,8 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - run:
-          name: 'auth to npm registry'
-          command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN_WRITE_PACKAGES" > ~/.npmrc
+          name: Login to registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
           name: publish
           command: cd lib && npm publish --tag beta
@@ -236,8 +236,8 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - run:
-          name: 'auth to npm registry'
-          command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN_WRITE_PACKAGES" > ~/.npmrc
+          name: Login to registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
           name: publish
           command: node /home/circleci/welcome-ui/.dev-releases/publish.mjs
@@ -362,4 +362,4 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /dev..*/
+              only: /0.0.0-dev...*/
