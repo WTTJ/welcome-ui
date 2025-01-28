@@ -6,12 +6,12 @@
         "description": "",
         "name": "disabled",
         "parent": {
-          "fileName": "lib/src/components/Link/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Link/index.tsx",
           "name": "LinkOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Link/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Link/index.tsx",
             "name": "LinkOptions"
           }
         ],
@@ -34,12 +34,12 @@
         "description": "",
         "name": "isExternal",
         "parent": {
-          "fileName": "lib/src/components/Link/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Link/index.tsx",
           "name": "LinkOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Link/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Link/index.tsx",
             "name": "LinkOptions"
           }
         ],
@@ -62,12 +62,12 @@
         "description": "",
         "name": "target",
         "parent": {
-          "fileName": "lib/src/components/UniversalLink/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/UniversalLink/index.tsx",
           "name": "UniversalLinkOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/UniversalLink/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/UniversalLink/index.tsx",
             "name": "UniversalLinkOptions"
           }
         ],
@@ -99,12 +99,12 @@
         "description": "",
         "name": "variant",
         "parent": {
-          "fileName": "lib/src/components/Link/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Link/index.tsx",
           "name": "LinkOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Link/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Link/index.tsx",
             "name": "LinkOptions"
           }
         ],

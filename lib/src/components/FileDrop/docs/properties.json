@@ -8,12 +8,12 @@
         "description": "Pass a comma-separated string of file types e.g. \"image/png\" or \"image/png,image/jpeg\"",
         "name": "accept",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           },
           {
@@ -31,12 +31,12 @@
         "description": "",
         "name": "fileName",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           }
         ],
@@ -50,12 +50,12 @@
         "description": "",
         "name": "forceFileType",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           }
         ],
@@ -81,12 +81,12 @@
         "description": "",
         "name": "handleAddFile",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           }
         ],
@@ -100,12 +100,12 @@
         "description": "",
         "name": "handleRemoveFile",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           }
         ],
@@ -119,12 +119,12 @@
         "description": "",
         "name": "isClearable",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           }
         ],
@@ -147,12 +147,12 @@
         "description": "",
         "name": "isEditable",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           }
         ],
@@ -175,12 +175,12 @@
         "description": "",
         "name": "name",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           }
         ],
@@ -194,12 +194,12 @@
         "description": "",
         "name": "onBlur",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           }
         ],
@@ -213,12 +213,12 @@
         "description": "",
         "name": "onChange",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           }
         ],
@@ -232,12 +232,12 @@
         "description": "",
         "name": "onError",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           },
           {
@@ -255,12 +255,12 @@
         "description": "",
         "name": "value",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           }
         ],
@@ -286,12 +286,12 @@
         "description": "Pass an object with optional fields title, hint, fileButtonText and/or previewButtonText (string or JSX.Element)",
         "name": "wordings",
         "parent": {
-          "fileName": "lib/src/components/FileDrop/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
           "name": "FileDropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/FileDrop/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FileDrop/index.tsx",
             "name": "FileDropOptions"
           }
         ],

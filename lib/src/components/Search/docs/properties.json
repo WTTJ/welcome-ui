@@ -6,12 +6,12 @@
         "description": "",
         "name": "groupsEnabled",
         "parent": {
-          "fileName": "lib/src/components/Search/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
           "name": "SearchOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Search/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
             "name": "SearchOptions"
           }
         ],
@@ -34,12 +34,12 @@
         "description": "",
         "name": "icon",
         "parent": {
-          "fileName": "lib/src/components/Search/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
           "name": "SearchOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Search/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
             "name": "SearchOptions"
           }
         ],
@@ -53,12 +53,12 @@
         "description": "",
         "name": "itemToString",
         "parent": {
-          "fileName": "lib/src/components/Search/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
           "name": "SearchOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Search/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
             "name": "SearchOptions"
           }
         ],
@@ -74,12 +74,12 @@
         "description": "",
         "name": "minChars",
         "parent": {
-          "fileName": "lib/src/components/Search/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
           "name": "SearchOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Search/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
             "name": "SearchOptions"
           }
         ],
@@ -93,12 +93,12 @@
         "description": "",
         "name": "onChange",
         "parent": {
-          "fileName": "lib/src/components/Search/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
           "name": "SearchOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Search/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
             "name": "SearchOptions"
           }
         ],
@@ -112,12 +112,12 @@
         "description": "",
         "name": "renderGroupHeader",
         "parent": {
-          "fileName": "lib/src/components/Search/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
           "name": "SearchOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Search/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
             "name": "SearchOptions"
           }
         ],
@@ -131,12 +131,12 @@
         "description": "",
         "name": "renderItem",
         "parent": {
-          "fileName": "lib/src/components/Search/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
           "name": "SearchOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Search/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
             "name": "SearchOptions"
           }
         ],
@@ -150,12 +150,12 @@
         "description": "",
         "name": "search",
         "parent": {
-          "fileName": "lib/src/components/Search/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
           "name": "SearchOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Search/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
             "name": "SearchOptions"
           }
         ],
@@ -171,12 +171,12 @@
         "description": "",
         "name": "throttle",
         "parent": {
-          "fileName": "lib/src/components/Search/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
           "name": "SearchOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Search/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
             "name": "SearchOptions"
           }
         ],
@@ -190,12 +190,12 @@
         "description": "",
         "name": "value",
         "parent": {
-          "fileName": "lib/src/components/Search/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
           "name": "SearchOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Search/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Search/index.tsx",
             "name": "SearchOptions"
           }
         ],

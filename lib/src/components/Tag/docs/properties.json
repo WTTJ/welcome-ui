@@ -6,12 +6,12 @@
         "description": "",
         "name": "href",
         "parent": {
-          "fileName": "lib/src/components/Tag/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Tag/index.tsx",
           "name": "TagOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Tag/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Tag/index.tsx",
             "name": "TagOptions"
           }
         ],
@@ -25,12 +25,12 @@
         "description": "",
         "name": "onClick",
         "parent": {
-          "fileName": "lib/src/components/Tag/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Tag/index.tsx",
           "name": "TagOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Tag/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Tag/index.tsx",
             "name": "TagOptions"
           }
         ],
@@ -44,12 +44,12 @@
         "description": "",
         "name": "onRemove",
         "parent": {
-          "fileName": "lib/src/components/Tag/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Tag/index.tsx",
           "name": "TagOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Tag/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Tag/index.tsx",
             "name": "TagOptions"
           }
         ],
@@ -65,12 +65,12 @@
         "description": "",
         "name": "size",
         "parent": {
-          "fileName": "lib/src/components/Tag/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Tag/index.tsx",
           "name": "TagOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Tag/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Tag/index.tsx",
             "name": "TagOptions"
           }
         ],
@@ -96,12 +96,12 @@
         "description": "",
         "name": "to",
         "parent": {
-          "fileName": "lib/src/components/Tag/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Tag/index.tsx",
           "name": "TagOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Tag/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Tag/index.tsx",
             "name": "TagOptions"
           }
         ],
@@ -117,12 +117,12 @@
         "description": "",
         "name": "variant",
         "parent": {
-          "fileName": "lib/src/components/Tag/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Tag/index.tsx",
           "name": "TagOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Tag/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Tag/index.tsx",
             "name": "TagOptions"
           }
         ],

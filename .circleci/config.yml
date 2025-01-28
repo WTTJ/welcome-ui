@@ -267,13 +267,13 @@ workflows:
             tags:
               only: /.*/
           requires:
-            - build
+            - checkout
       - test:
           filters:
             tags:
               only: /.*/
           requires:
-            - build
+            - checkout
       - release_icon_font:
           filters:
             tags:
@@ -281,13 +281,13 @@ workflows:
           context:
             - aws
           requires:
-            - build
+            - checkout
       - website_build:
           filters:
             tags:
               only: /.*/
           requires:
-            - build
+            - checkout
       - website_deploy_preview:
           context:
             - aws

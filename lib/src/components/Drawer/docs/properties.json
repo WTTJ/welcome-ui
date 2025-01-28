@@ -130,12 +130,12 @@
         "description": "",
         "name": "hideOnInteractOutside",
         "parent": {
-          "fileName": "lib/src/components/Drawer/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Drawer/index.tsx",
           "name": "DrawerBackdropOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Drawer/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Drawer/index.tsx",
             "name": "DrawerBackdropOptions"
           }
         ],
@@ -856,12 +856,12 @@
         "description": "",
         "name": "placement",
         "parent": {
-          "fileName": "lib/src/components/Drawer/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Drawer/index.tsx",
           "name": "DrawerOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Drawer/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Drawer/index.tsx",
             "name": "DrawerOptions"
           }
         ],
@@ -1101,12 +1101,12 @@
         "description": "",
         "name": "size",
         "parent": {
-          "fileName": "lib/src/components/Drawer/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Drawer/index.tsx",
           "name": "DrawerOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Drawer/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Drawer/index.tsx",
             "name": "DrawerOptions"
           }
         ],
@@ -1205,12 +1205,12 @@
         "description": "",
         "name": "withBackdrop",
         "parent": {
-          "fileName": "lib/src/components/Drawer/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Drawer/index.tsx",
           "name": "DrawerOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Drawer/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Drawer/index.tsx",
             "name": "DrawerOptions"
           }
         ],
@@ -1235,12 +1235,12 @@
         "description": "",
         "name": "withCloseButton",
         "parent": {
-          "fileName": "lib/src/components/Drawer/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Drawer/index.tsx",
           "name": "DrawerOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Drawer/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Drawer/index.tsx",
             "name": "DrawerOptions"
           }
         ],

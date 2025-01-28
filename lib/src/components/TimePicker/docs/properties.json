@@ -15,7 +15,7 @@
             "name": "ReactDatePickerProps"
           },
           {
-            "fileName": "lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+            "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
             "name": "CustomInputOptions"
           }
         ],
@@ -40,12 +40,12 @@
         "description": "",
         "name": "iconPlacement",
         "parent": {
-          "fileName": "lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+          "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
           "name": "CustomInputOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+            "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
             "name": "CustomInputOptions"
           }
         ],
@@ -68,12 +68,12 @@
         "description": "",
         "name": "onBlur",
         "parent": {
-          "fileName": "lib/src/components/TimePicker/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/TimePicker/index.tsx",
           "name": "TimePickerOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/TimePicker/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/TimePicker/index.tsx",
             "name": "TimePickerOptions"
           }
         ],
@@ -87,12 +87,12 @@
         "description": "",
         "name": "onChange",
         "parent": {
-          "fileName": "lib/src/components/TimePicker/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/TimePicker/index.tsx",
           "name": "TimePickerOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/TimePicker/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/TimePicker/index.tsx",
             "name": "TimePickerOptions"
           }
         ],
@@ -106,12 +106,12 @@
         "description": "",
         "name": "onFocus",
         "parent": {
-          "fileName": "lib/src/components/TimePicker/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/TimePicker/index.tsx",
           "name": "TimePickerOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/TimePicker/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/TimePicker/index.tsx",
             "name": "TimePickerOptions"
           }
         ],
@@ -125,12 +125,12 @@
         "description": "",
         "name": "placeholder",
         "parent": {
-          "fileName": "lib/src/components/TimePicker/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/TimePicker/index.tsx",
           "name": "TimePickerOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/TimePicker/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/TimePicker/index.tsx",
             "name": "TimePickerOptions"
           }
         ],
@@ -146,12 +146,12 @@
         "description": "",
         "name": "size",
         "parent": {
-          "fileName": "lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+          "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
           "name": "CustomInputOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+            "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
             "name": "CustomInputOptions"
           }
         ],
@@ -180,12 +180,12 @@
         "description": "",
         "name": "transparent",
         "parent": {
-          "fileName": "lib/src/components/TimePicker/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/TimePicker/index.tsx",
           "name": "TimePickerOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/TimePicker/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/TimePicker/index.tsx",
             "name": "TimePickerOptions"
           }
         ],
@@ -210,12 +210,12 @@
         "description": "",
         "name": "value",
         "parent": {
-          "fileName": "lib/src/components/TimePicker/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/TimePicker/index.tsx",
           "name": "TimePickerOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/TimePicker/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/TimePicker/index.tsx",
             "name": "TimePickerOptions"
           }
         ],

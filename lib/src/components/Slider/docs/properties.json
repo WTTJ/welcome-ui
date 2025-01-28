@@ -8,12 +8,12 @@
         "description": "",
         "name": "borderSelectorColor",
         "parent": {
-          "fileName": "lib/src/components/Slider/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
           "name": "SliderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Slider/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
             "name": "SliderOptions"
           }
         ],
@@ -27,12 +27,12 @@
         "description": "",
         "name": "disabled",
         "parent": {
-          "fileName": "lib/src/components/Slider/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
           "name": "SliderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Slider/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
             "name": "SliderOptions"
           }
         ],
@@ -55,12 +55,12 @@
         "description": "",
         "name": "hint",
         "parent": {
-          "fileName": "lib/src/components/Slider/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
           "name": "SliderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Slider/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
             "name": "SliderOptions"
           }
         ],
@@ -74,12 +74,12 @@
         "description": "",
         "name": "label",
         "parent": {
-          "fileName": "lib/src/components/Slider/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
           "name": "SliderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Slider/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
             "name": "SliderOptions"
           }
         ],
@@ -93,12 +93,12 @@
         "description": "",
         "name": "max",
         "parent": {
-          "fileName": "lib/src/components/Slider/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
           "name": "SliderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Slider/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
             "name": "SliderOptions"
           }
         ],
@@ -112,12 +112,12 @@
         "description": "",
         "name": "min",
         "parent": {
-          "fileName": "lib/src/components/Slider/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
           "name": "SliderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Slider/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
             "name": "SliderOptions"
           }
         ],
@@ -131,12 +131,12 @@
         "description": "",
         "name": "onChange",
         "parent": {
-          "fileName": "lib/src/components/Slider/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
           "name": "SliderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Slider/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
             "name": "SliderOptions"
           }
         ],
@@ -152,12 +152,12 @@
         "description": "",
         "name": "step",
         "parent": {
-          "fileName": "lib/src/components/Slider/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
           "name": "SliderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Slider/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
             "name": "SliderOptions"
           }
         ],
@@ -171,12 +171,12 @@
         "description": "",
         "name": "tooltip",
         "parent": {
-          "fileName": "lib/src/components/Slider/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
           "name": "SliderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Slider/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
             "name": "SliderOptions"
           }
         ],
@@ -199,12 +199,12 @@
         "description": "",
         "name": "type",
         "parent": {
-          "fileName": "lib/src/components/Slider/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
           "name": "SliderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Slider/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
             "name": "SliderOptions"
           }
         ],
@@ -230,12 +230,12 @@
         "description": "",
         "name": "value",
         "parent": {
-          "fileName": "lib/src/components/Slider/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
           "name": "SliderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Slider/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
             "name": "SliderOptions"
           }
         ],
@@ -249,12 +249,12 @@
         "description": "",
         "name": "values",
         "parent": {
-          "fileName": "lib/src/components/Slider/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
           "name": "SliderOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Slider/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Slider/index.tsx",
             "name": "SliderOptions"
           }
         ],

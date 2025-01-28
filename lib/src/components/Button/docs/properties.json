@@ -7,12 +7,12 @@
         "description": "Danger button with 3 variants: primary / tertiary / ghost",
         "name": "danger",
         "parent": {
-          "fileName": "lib/src/components/Button/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
           "name": "ButtonOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Button/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
             "name": "ButtonOptions"
           }
         ],
@@ -35,12 +35,12 @@
         "description": "",
         "name": "disabled",
         "parent": {
-          "fileName": "lib/src/components/Button/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
           "name": "ButtonOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Button/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
             "name": "ButtonOptions"
           }
         ],
@@ -63,12 +63,12 @@
         "description": "",
         "name": "isLoading",
         "parent": {
-          "fileName": "lib/src/components/Button/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
           "name": "ButtonOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Button/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
             "name": "ButtonOptions"
           }
         ],
@@ -91,12 +91,12 @@
         "description": "",
         "name": "shape",
         "parent": {
-          "fileName": "lib/src/components/Button/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
           "name": "ButtonOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Button/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
             "name": "ButtonOptions"
           }
         ],
@@ -121,12 +121,12 @@
         "description": "",
         "name": "size",
         "parent": {
-          "fileName": "lib/src/components/Button/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
           "name": "ButtonOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Button/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
             "name": "ButtonOptions"
           }
         ],
@@ -157,12 +157,12 @@
         "description": "",
         "name": "variant",
         "parent": {
-          "fileName": "lib/src/components/Button/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
           "name": "ButtonOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Button/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
             "name": "ButtonOptions"
           }
         ],
