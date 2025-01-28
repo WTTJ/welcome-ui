@@ -240,7 +240,7 @@ jobs:
           command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN_WRITE_PACKAGES" > ~/.npmrc
       - run:
           name: publish
-          command: node .dev-releases/publish.mjs
+          command: node ./welcome-ui/.dev-releases/publish.mjs
 
 workflows:
   btd:
@@ -327,6 +327,7 @@ workflows:
           context:
             - welcome-ui
           requires:
+            - build
             - lint
             - test
             - website_build
@@ -340,6 +341,7 @@ workflows:
           context:
             - welcome-ui
           requires:
+            - build
             - lint
             - test
             - release_icon_font
@@ -352,6 +354,7 @@ workflows:
           context:
             - welcome-ui
           requires:
+            - build
             - lint
             - test
             - release_icon_font
