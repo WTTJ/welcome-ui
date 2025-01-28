@@ -3,6 +3,9 @@ const { existsSync, readdirSync, writeFileSync } = require('fs')
 const { join, resolve } = require('path')
 
 function generateWebsiteExamplesPages() {
+  // eslint-disable-next-line no-console
+  console.log('Examples generating...')
+
   const parentDirectory = resolve(__dirname, '../../')
   const packagesDirectory = join(parentDirectory, 'lib/src/components')
   const packagesDirectoryExist = existsSync(packagesDirectory)
@@ -34,6 +37,9 @@ function generateWebsiteExamplesPages() {
     .join(',\n')}\n};\n`
 
   writeFileSync(join(parentDirectory, 'website', 'build-app', 'examples.js'), fileContent)
+
+  // eslint-disable-next-line no-console
+  console.log('Examples updates ✅')
 }
 
 module.exports = { generateWebsiteExamplesPages }

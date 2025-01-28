@@ -98,7 +98,7 @@ const arePropsEmpty = obj => {
 
 async function generateTypesDoc(component) {
   // eslint-disable-next-line no-console
-  console.log('Generating properties.json for', component)
+  console.log('Generating properties.json for', component, '...')
   const parentDirectory = resolve(__dirname, '../../')
   const componentDirectory = join(parentDirectory, 'lib/src/components', component)
 
@@ -126,6 +126,9 @@ async function generateTypesDoc(component) {
         }
       }
     })
+
+    // eslint-disable-next-line no-console
+    console.log('Properties updated ✅')
 
     // Write properties.json file check before if has no props
     if (!arePropsEmpty(componentProps)) {
