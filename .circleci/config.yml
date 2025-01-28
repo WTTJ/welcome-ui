@@ -7,7 +7,7 @@ orbs:
 parameters:
   cache_version:
     type: string
-    default: v8
+    default: v6
   nodejs_base_image:
     type: string
     default: 'cimg/node:20.17.0'
@@ -27,11 +27,6 @@ default: &default
 checkout: &checkout
   checkout:
     path: /home/circleci/welcome-ui
-
-restore_repo: &restore_repo
-  restore_cache:
-    keys:
-      - << pipeline.parameters.cache_version >>-source-{{ .Branch }}-{{ .Revision }}
 
 restore_node_modules: &restore_node_modules
   restore_cache:
@@ -53,8 +48,8 @@ jobs:
           paths:
             - ~/.cache/yarn
             - ~/welcome-ui/node_modules
-            - ~/welcome-ui/lib/node_modules
             - ~/welcome-ui/website/node_modules
+            - ~/welcome-ui/lib/node_modules
 
   vulnerabilities_yarn:
     <<: *default
@@ -108,7 +103,6 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
-      - *restore_repo
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
@@ -213,7 +207,6 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
-      - *restore_repo
       - attach_workspace:
           at: ~/welcome-ui
       - run:
@@ -227,7 +220,6 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
-      - *restore_repo
       - attach_workspace:
           at: ~/welcome-ui
       - run:
@@ -241,7 +233,6 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
-      - *restore_repo
       - attach_workspace:
           at: ~/welcome-ui
       - run:
@@ -351,7 +342,6 @@ workflows:
           requires:
             - lint
             - test
-            - website_build
             - release_icon_font
           filters:
             branches:
@@ -364,7 +354,6 @@ workflows:
           requires:
             - lint
             - test
-            - website_build
             - release_icon_font
           filters:
             branches:

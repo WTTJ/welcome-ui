@@ -19,7 +19,7 @@ Here you'll find all the core components you need to create a delightful webapp.
 1 - Install the `welcome-ui` package and **peer dependencies** listed below:
 
 ```bash
-yarn add welcome-ui @xstyled/styled-components react styled-components
+yarn add welcome-ui @xstyled/styled-components@^3.7.3 react@^18.0.0 styled-components@^5.3.9
 ```
 
 ## Import library & Theme
