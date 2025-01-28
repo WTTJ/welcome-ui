@@ -6,12 +6,12 @@
         "description": "",
         "name": "autoFocus",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -34,12 +34,12 @@
         "description": "",
         "name": "disabled",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -62,12 +62,12 @@
         "description": "",
         "name": "icon",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -83,12 +83,12 @@
         "description": "",
         "name": "iconPlacement",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -111,12 +111,12 @@
         "description": "",
         "name": "isClearable",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -139,12 +139,12 @@
         "description": "",
         "name": "name",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -158,12 +158,12 @@
         "description": "",
         "name": "onBlur",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -177,12 +177,12 @@
         "description": "",
         "name": "onChange",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -196,12 +196,12 @@
         "description": "",
         "name": "onFocus",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -215,12 +215,12 @@
         "description": "",
         "name": "onKeyDown",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -234,12 +234,12 @@
         "description": "",
         "name": "placeholder",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -253,12 +253,12 @@
         "description": "",
         "name": "transparent",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -283,12 +283,12 @@
         "description": "",
         "name": "type",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],
@@ -302,12 +302,12 @@
         "description": "",
         "name": "value",
         "parent": {
-          "fileName": "lib/src/components/InputText/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
           "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/InputText/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/InputText/index.tsx",
             "name": "InputTextOptions"
           }
         ],

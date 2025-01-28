@@ -6,12 +6,12 @@
         "description": "",
         "name": "disabled",
         "parent": {
-          "fileName": "lib/src/components/Field/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Field/index.tsx",
           "name": "FieldOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Field/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Field/index.tsx",
             "name": "FieldOptions"
           }
         ],
@@ -34,12 +34,12 @@
         "description": "",
         "name": "disabledIcon",
         "parent": {
-          "fileName": "lib/src/components/Field/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Field/index.tsx",
           "name": "FieldOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Field/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Field/index.tsx",
             "name": "FieldOptions"
           }
         ],
@@ -53,12 +53,12 @@
         "description": "",
         "name": "hint",
         "parent": {
-          "fileName": "lib/src/components/Field/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Field/index.tsx",
           "name": "FieldOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Field/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Field/index.tsx",
             "name": "FieldOptions"
           }
         ],
@@ -84,12 +84,12 @@
         "description": "",
         "name": "label",
         "parent": {
-          "fileName": "lib/src/components/Field/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Field/index.tsx",
           "name": "FieldOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Field/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Field/index.tsx",
             "name": "FieldOptions"
           }
         ],
@@ -115,12 +115,12 @@
         "description": "",
         "name": "required",
         "parent": {
-          "fileName": "lib/src/components/Field/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Field/index.tsx",
           "name": "FieldOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Field/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Field/index.tsx",
             "name": "FieldOptions"
           }
         ],
@@ -143,12 +143,12 @@
         "description": "",
         "name": "transparent",
         "parent": {
-          "fileName": "lib/src/components/Field/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Field/index.tsx",
           "name": "FieldOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Field/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Field/index.tsx",
             "name": "FieldOptions"
           }
         ],

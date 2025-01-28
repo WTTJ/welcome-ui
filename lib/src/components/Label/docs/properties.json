@@ -6,12 +6,12 @@
         "description": "",
         "name": "checkableField",
         "parent": {
-          "fileName": "lib/src/components/Label/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
           "name": "LabelOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Label/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
             "name": "LabelOptions"
           }
         ],
@@ -34,12 +34,12 @@
         "description": "",
         "name": "disabled",
         "parent": {
-          "fileName": "lib/src/components/Label/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
           "name": "LabelOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Label/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
             "name": "LabelOptions"
           }
         ],
@@ -62,12 +62,12 @@
         "description": "",
         "name": "disabledIcon",
         "parent": {
-          "fileName": "lib/src/components/Label/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
           "name": "LabelOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Label/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
             "name": "LabelOptions"
           }
         ],
@@ -81,12 +81,12 @@
         "description": "",
         "name": "htmlFor",
         "parent": {
-          "fileName": "lib/src/components/Label/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
           "name": "LabelOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Label/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
             "name": "LabelOptions"
           }
         ],
@@ -100,12 +100,12 @@
         "description": "",
         "name": "icon",
         "parent": {
-          "fileName": "lib/src/components/Label/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
           "name": "LabelOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Label/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
             "name": "LabelOptions"
           }
         ],
@@ -119,12 +119,12 @@
         "description": "",
         "name": "required",
         "parent": {
-          "fileName": "lib/src/components/Label/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
           "name": "LabelOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Label/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
             "name": "LabelOptions"
           }
         ],
@@ -147,12 +147,12 @@
         "description": "",
         "name": "variant",
         "parent": {
-          "fileName": "lib/src/components/Label/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
           "name": "LabelOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Label/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
             "name": "LabelOptions"
           }
         ],
@@ -180,12 +180,12 @@
         "description": "",
         "name": "withDisabledIcon",
         "parent": {
-          "fileName": "lib/src/components/Label/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
           "name": "LabelOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Label/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Label/index.tsx",
             "name": "LabelOptions"
           }
         ],

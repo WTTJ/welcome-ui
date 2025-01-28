@@ -1,9 +1,12 @@
-import { join, resolve } from 'path'
-import fs, { existsSync } from 'fs'
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-var-requires */
 
-import docgen from 'react-docgen-typescript'
+const { join, resolve } = require('path')
+const { accessSync, existsSync, readdirSync, writeFileSync } = require('fs')
 
-const tsConfigPath = join(process.cwd(), 'tsconfig.json')
+const { withCustomConfig } = require('react-docgen-typescript')
+
+const tsConfigPath = join(process.cwd(), 'lib', 'tsconfig.json')
 
 const shouldDisplayPropsFiles = [
   'lib/src/dist/types/utils/field-styles.d.ts',
@@ -13,7 +16,7 @@ const shouldDisplayPropsFiles = [
 ]
 
 // Get only ComponentOptions declarations for prevent all WuiProps
-const propFilter = (prop: docgen.PropItem) => {
+const propFilter = prop => {
   if (prop.declarations?.length > 0) {
     const isOptionDeclaration = prop.declarations.find(declaration => {
       if (declaration.name.includes('Options')) return true
@@ -27,13 +30,13 @@ const propFilter = (prop: docgen.PropItem) => {
   return true
 }
 
-const { parse } = docgen.withCustomConfig(tsConfigPath, {
+const { parse } = withCustomConfig(tsConfigPath, {
   propFilter,
   shouldRemoveUndefinedFromOptional: true,
   shouldExtractValuesFromUnion: true,
 })
 
-const isComponentFile = (file: string) => {
+const isComponentFile = file => {
   if (file === 'index.tsx') {
     return true
   }
@@ -50,43 +53,37 @@ const isComponentFile = (file: string) => {
 }
 
 // Get all files in a component folder
-const getComponentFiles = async (folder: string) => {
-  const componentFiles = await fs.readdirSync(folder)
+const getComponentFiles = async folder => {
+  const componentFiles = await readdirSync(folder)
 
   return componentFiles.filter(isComponentFile)
 }
 
 // Get definitions from file
-const getFileDefinitions = (absolutePath: string) => {
+const getFileDefinitions = absolutePath => {
+  console.log(absolutePath)
   const definitions = parse(absolutePath)
 
   return definitions
 }
 
 // Write properties.json file
-const writePropsFile = (
-  file: string,
-  content: {
-    [name: string]: { props: Record<string, unknown>; tag: string }
-  }
-) => {
+const writePropsFile = (file, content) => {
   const withDocsPath = existsSync(join(file, 'docs'))
 
   if (withDocsPath) {
     const destPath = join(file, 'docs', 'properties.json')
 
-    fs.writeFileSync(destPath, JSON.stringify(content, null, 2))
+    writeFileSync(destPath, JSON.stringify(content, null, 2))
   }
 
   return
 }
 
 // check if props entries are empty
-const arePropsEmpty = (obj: {
-  [name: string]: { props: Record<string, unknown>; tag: string }
-}) => {
+const arePropsEmpty = obj => {
   // Helper function to check if an object is empty
-  const isEmptyObject = (obj: unknown) => {
+  const isEmptyObject = obj => {
     return obj && typeof obj === 'object' && Object.keys(obj).length === 0
   }
 
@@ -101,18 +98,17 @@ const arePropsEmpty = (obj: {
   })
 }
 
-export async function generateTypesDoc() {
+async function generateTypesDoc() {
   const parentDirectory = resolve(__dirname, '../')
-  const componentsDir = resolve(parentDirectory, 'src/components')
+  const componentsDir = resolve(parentDirectory, 'lib/src/components')
 
   // Read all directories in the components folder with a docs folder
-  const componentDirs = fs
-    .readdirSync(componentsDir, { withFileTypes: true })
+  const componentDirs = readdirSync(componentsDir, { withFileTypes: true })
     .filter(dirent => {
       if (!dirent.isDirectory()) return false
       // Check if the directory has a docs folder
       try {
-        fs.accessSync(join(componentsDir, dirent.name, 'docs'))
+        accessSync(join(componentsDir, dirent.name, 'docs'))
         return true
       } catch {
         return false
@@ -122,15 +118,15 @@ export async function generateTypesDoc() {
 
   // Get all files in each component folder
   componentDirs.map(async dirent => {
-    const files = await getComponentFiles(resolve(parentDirectory, 'src/components', dirent))
+    // eslint-disable-next-line no-console
+    console.log('Generating properties.json for', dirent)
+    const componentDir = resolve(parentDirectory, 'lib/src/components', dirent)
+    const files = await getComponentFiles(componentDir)
 
     // Get definitions from each file
     files.forEach(async file => {
-      const absolutePath = join(process.cwd(), 'src', 'components', dirent)
-      const definitions = getFileDefinitions(`${absolutePath}/${file}`)
-      const componentProps: {
-        [name: string]: { props: Record<string, unknown>; tag: string }
-      } = {}
+      const definitions = getFileDefinitions(`${componentDir}/${file}`)
+      const componentProps = {}
 
       definitions.forEach(definition => {
         const { displayName, props, tags } = definition
@@ -141,18 +137,24 @@ export async function generateTypesDoc() {
             tag: tags?.tag,
             props: Object.keys(props)
               .sort()
-              .reduce((obj: Record<string, unknown>, key) => {
+              .reduce((obj, key) => {
                 obj[key] = props[key]
                 return obj
               }, {}),
           }
         }
       })
-
+      console.log(componentProps)
       // Write properties.json file check before if has no props
       if (!arePropsEmpty(componentProps)) {
-        await writePropsFile(absolutePath, componentProps)
+        await writePropsFile(componentDir, componentProps)
       }
     })
   })
 }
+
+async function main() {
+  await generateTypesDoc()
+}
+
+main().catch(console.error)

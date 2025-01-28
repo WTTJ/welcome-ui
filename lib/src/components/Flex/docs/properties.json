@@ -6,12 +6,12 @@
         "description": "same as alignItems",
         "name": "align",
         "parent": {
-          "fileName": "lib/src/components/Flex/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
           "name": "FlexOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Flex/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
             "name": "FlexOptions"
           }
         ],
@@ -85,12 +85,12 @@
         "description": "same as flexBasis",
         "name": "basis",
         "parent": {
-          "fileName": "lib/src/components/Flex/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
           "name": "FlexOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Flex/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
             "name": "FlexOptions"
           }
         ],
@@ -122,12 +122,12 @@
         "description": "same as flexDirection",
         "name": "direction",
         "parent": {
-          "fileName": "lib/src/components/Flex/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
           "name": "FlexOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Flex/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
             "name": "FlexOptions"
           }
         ],
@@ -180,12 +180,12 @@
         "description": "same as flexGrow",
         "name": "grow",
         "parent": {
-          "fileName": "lib/src/components/Flex/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
           "name": "FlexOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Flex/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
             "name": "FlexOptions"
           }
         ],
@@ -232,12 +232,12 @@
         "description": "same as justifyContent",
         "name": "justify",
         "parent": {
-          "fileName": "lib/src/components/Flex/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
           "name": "FlexOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Flex/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
             "name": "FlexOptions"
           }
         ],
@@ -317,12 +317,12 @@
         "description": "same as flexShrink",
         "name": "shrink",
         "parent": {
-          "fileName": "lib/src/components/Flex/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
           "name": "FlexOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Flex/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
             "name": "FlexOptions"
           }
         ],
@@ -369,12 +369,12 @@
         "description": "same as flexWrap",
         "name": "wrap",
         "parent": {
-          "fileName": "lib/src/components/Flex/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
           "name": "FlexOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Flex/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Flex/index.tsx",
             "name": "FlexOptions"
           }
         ],

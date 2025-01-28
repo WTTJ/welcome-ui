@@ -6,12 +6,12 @@
         "description": "",
         "name": "shape",
         "parent": {
-          "fileName": "lib/src/components/Shape/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Shape/index.tsx",
           "name": "ShapeOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Shape/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Shape/index.tsx",
             "name": "ShapeOptions"
           }
         ],
@@ -34,12 +34,12 @@
         "description": "",
         "name": "src",
         "parent": {
-          "fileName": "lib/src/components/Card/Cover.tsx",
+          "fileName": "welcome-ui/lib/src/components/Card/Cover.tsx",
           "name": "CoverOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Card/Cover.tsx",
+            "fileName": "welcome-ui/lib/src/components/Card/Cover.tsx",
             "name": "CoverOptions"
           }
         ],

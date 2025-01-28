@@ -8,12 +8,12 @@
         "description": "color from theme, add for scroll gradient on mobile",
         "name": "gradientBackground",
         "parent": {
-          "fileName": "lib/src/components/Breadcrumb/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Breadcrumb/index.tsx",
           "name": "BreadcrumbOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Breadcrumb/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Breadcrumb/index.tsx",
             "name": "BreadcrumbOptions"
           }
         ],
@@ -29,12 +29,12 @@
         "description": "set clickable or not the last child",
         "name": "lastChildNotClickable",
         "parent": {
-          "fileName": "lib/src/components/Breadcrumb/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Breadcrumb/index.tsx",
           "name": "BreadcrumbOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Breadcrumb/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Breadcrumb/index.tsx",
             "name": "BreadcrumbOptions"
           }
         ],
@@ -59,12 +59,12 @@
         "description": "",
         "name": "separator",
         "parent": {
-          "fileName": "lib/src/components/Breadcrumb/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Breadcrumb/index.tsx",
           "name": "BreadcrumbOptions"
         },
         "declarations": [
           {
-            "fileName": "lib/src/components/Breadcrumb/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Breadcrumb/index.tsx",
             "name": "BreadcrumbOptions"
           }
         ],
