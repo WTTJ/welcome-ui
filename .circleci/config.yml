@@ -362,4 +362,4 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /dev..*/
+              only: /0.0.0-dev...*/
