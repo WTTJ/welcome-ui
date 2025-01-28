@@ -2,7 +2,7 @@ import { execSync } from 'child_process'
 
 const date = new Date()
 
-const newVersion = `dev.${date.getTime()}`
+const newVersion = `0.0.0-dev.${date.getTime()}`
 
 console.info(`Tag ${newVersion}...`)
 
