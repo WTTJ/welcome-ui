@@ -298,6 +298,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
         {slides}
       </S.Container>
       <S.Arrow
+        aria-label="Previous slide"
         data-testid={dataTestId && `${dataTestId}-prev-button`}
         disabled={!showLeftArrow}
         left={10}
@@ -312,6 +313,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
         <IconsFont.Left />
       </S.Arrow>
       <S.Arrow
+        aria-label="Next slide"
         data-testid={dataTestId && `${dataTestId}-next-button`}
         disabled={!showRightArrow}
         onClick={goNext}
