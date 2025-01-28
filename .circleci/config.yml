@@ -7,7 +7,7 @@ orbs:
 parameters:
   cache_version:
     type: string
-    default: v6
+    default: v7
   nodejs_base_image:
     type: string
     default: 'cimg/node:20.17.0'

@@ -1,6 +1,6 @@
 {
   "name": "welcome-ui",
-  "version": "7.0.0",
+  "version": "6.7.1",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "files": [
     "dist"
@@ -76,6 +76,7 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.22.11",
+    "@release-it/keep-a-changelog": "^6.0.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
@@ -84,7 +85,8 @@
     "@types/lodash.capitalize": "^4.2.9",
     "@types/lodash.debounce": "^4.0.6",
     "@types/lodash.range": "^3.2.9",
-    "@types/react": "^18.3.12",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.11",
     "@types/react-datepicker": "^4.15.0",
     "@xstyled/styled-components": "^3.7.3",
     "babel-jest": "^29.7.0",

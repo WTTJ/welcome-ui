@@ -1,14 +1,14 @@
-# Version 7: Back of mono-package
+# Version 7: Back to mono-package
 
-Welcome UI V7 bring back all on a mono-package: `welcome-ui`
+Welcome UI V7 brings back everything into a mono-package: `welcome-ui`
 
-![Version 7 illustation](https://github.com/user-attachments/assets/34259431-1bc3-4d97-84b7-e2048c7208da)
+![Version 7 illustration](https://github.com/user-attachments/assets/694b8144-b013-424d-8940-b98aab775dad)
 
 ## Upgrade steps
 
 ### 1. Script to migrate
 
-In welcome-ui project, run this script rename all `@welcome-ui/*` imports to `welcome-ui/*` with CamelCase:
+In your project, run this script to rename all `@welcome-ui/*` imports to `welcome-ui/*` with CamelCase:
 
 ```bash
 yarn migrate "../your-project/src/**/**.*{ts,tsx}"
@@ -22,7 +22,7 @@ In your project, remove all `@welcome-ui` packages:
 yarn remove $(grep -o "@welcome-ui/[a-zA-Z0-9-]*" package.json | sort | uniq)
 ```
 
-And add new mono-package:
+And add new package:
 
 ```bash
 yarn add welcome-ui

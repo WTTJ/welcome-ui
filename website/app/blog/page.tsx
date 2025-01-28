@@ -1,5 +1,6 @@
 'use client'
 import styled, { th } from '@xstyled/styled-components'
+
 import { Text } from '@/Text'
 import { Button } from '@/Button'
 import { Box } from '@/Box'
@@ -13,11 +14,20 @@ import { Flex } from '@/Flex'
 
 const posts = [
   {
+    title: 'Mono-package is back!',
+    description:
+      'Welcome UI V7 is here! This release bring back the only one package to rule them all: welcome-ui',
+    tags: ['release'],
+    link: 'https://www.welcome-ui.com/foundations/migration',
+    cover: 'https://github.com/user-attachments/assets/694b8144-b013-424d-8940-b98aab775dad',
+    date: new Date('2025-01-28'),
+  },
+  {
     title: 'More colors!',
     description:
       'We are happy to release Welcome UI V6 who focuses on the rebranding of our colors and tokens, and adding a Logo component.',
     tags: ['release'],
-    link: 'https://www.welcome-ui.com/foundations/migration',
+    link: 'https://www.welcome-ui.com/foundations/upgrades/v6',
     cover: 'https://github.com/user-attachments/assets/34259431-1bc3-4d97-84b7-e2048c7208da',
     date: new Date('2024-10-24'),
   },

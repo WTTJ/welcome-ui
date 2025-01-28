@@ -57,7 +57,7 @@ const getPackageJson = () => `{
   },
   "devDependencies": {
     "@types/react": "18.0.25",
-    "@types/react-dom": "18.2.7",
+    "@types/react-dom": "18.0.11",
     "@vitejs/plugin-react": "^4.3.0",
     "typescript": "5.0.2",
     "vite": "^5.2.12"
