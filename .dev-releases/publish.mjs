@@ -20,6 +20,6 @@ writeFileSync(packageJSONPath, JSON.stringify(packageJSON, null, 2))
 console.info('Done !')
 console.info('Publishing ...')
 
-execSync('cd lib && npm publish --tag dev')
+execSync('cd /home/circleci/welcome-ui/lib && npm publish --tag dev')
 
 console.info('Done !')
