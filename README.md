@@ -88,39 +88,41 @@ yarn website
 
 ## How to release
 
-The release of the packages is automated by the CI, you just need to bump package version and push git tags to initiate the process.
+The release of the library is automated by the CI, you just need to bump package version and push git tags to initiate the process.
 
-### Initiating the release process from your environment
+### Release process
 
-**The commands listed below will only prompt for packages to bump**. Then they will modify packages versions, commit changes and create the git tag to finally push everything to github. **No further actions are required once you have validated the packages to bump.**
+**The commands listed below will only prompt for library to bump**. Then they will modify package version, commit changes and create the git tag to finally push everything to github. **No further actions are required once you have validated the packages to bump.**
 
-#### If you just need to bump one version without switching from a prerelease to stable release, run:
+#### How to release
+
+##### Production
+
+(ex: **7.1.0**):
 
 ```bash
 yarn release
 ```
 
-#### To create a new prerelease, run:
+##### Alpha
 
-This is only used for the **first** prerelease. If you already published a v5.0.0-alpha.0 then you just need to run the first command.
+(ex: **7.1.0-alpha.0**)
+
+Generate an alpha release for broader team testing:
 
 ```bash
-yarn dev:prerelease
+yarn release:alpha
 ```
 
-NB: you can replace alpha with any other keyword (beta, rc, ...)
+##### Development
 
-#### Troubleshooting
+(ex: **dev.1738060597**)
 
-##### How to rollback a release that has been stopped before publish to npm
+Create a development release based on the current timestamp for quick testing of pre-release features:
 
-Revert the last commit (which should be the commit that bumps package versions):
-
-`git revert HEAD^`
-
-Remove the tag on github and locally.
-
-Then apply your fixes and re-run your release command.
+```bash
+yarn release:dev
+```
 
 ### About the CI
 

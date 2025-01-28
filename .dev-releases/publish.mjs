@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync } from 'fs'
 import { dirname, join } from 'path'
 
 const __dirname = dirname(new URL(import.meta.url).pathname)
-const packageJSONPath = join(dirname(__dirname), 'package.json')
+const packageJSONPath = join(dirname(__dirname), 'lib', 'package.json')
 
 const packageJSON = JSON.parse(readFileSync(packageJSONPath, { encoding: 'utf-8' }))
 
@@ -20,7 +20,6 @@ writeFileSync(packageJSONPath, JSON.stringify(packageJSON, null, 2))
 console.info('Done !')
 console.info('Publishing ...')
 
-execSync('npm publish --tag dev')
+execSync('cd lib && npm publish --tag dev')
 
 console.info('Done !')
-

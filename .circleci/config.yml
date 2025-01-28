@@ -226,6 +226,23 @@ jobs:
           name: publish
           command: yarn release-it --no-increment --no-git --no-github
 
+  alpha_release:
+    executor: nodejs
+    steps:
+      - *checkout
+      - *restore_repo
+      - attach_workspace:
+          at: ~/welcome-ui/artifacts
+      - run:
+          name: 'copy build artifacts'
+          command: 'cp -r artifacts/* .'
+      - run:
+          name: 'auth to npm registry'
+          command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN_WRITE_PACKAGES" > ~/.npmrc
+      - run:
+          name: publish
+          command: yarn release-it --no-increment --no-git --no-github --preRelease=alpha
+
   dev_release:
     executor: nodejs
     steps:
@@ -337,6 +354,19 @@ workflows:
               ignore: /.*/
             tags:
               only: /v\d.(\d\d|\d).(\d\d|\d)/
+      - alpha_release:
+          context:
+            - welcome-ui
+          requires:
+            - lint
+            - test
+            - website_build
+            - release_icon_font
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v\d.(\d\d|\d).(\d\d|\d)-.*/
       - dev_release:
           context:
             - welcome-ui

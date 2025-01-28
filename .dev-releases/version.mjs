@@ -6,7 +6,7 @@ const newVersion = `dev.${date.getTime()}`
 
 console.info(`Tag ${newVersion}...`)
 
-execSync(`git tag ${newVersion}`)
+execSync(`cd lib && git tag ${newVersion}`)
 
 console.info('Done !')
 console.info('Pushing tags...')
