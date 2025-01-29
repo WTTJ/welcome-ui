@@ -11918,7 +11918,7 @@ rehype-raw@7.0.0:
     hast-util-raw "^9.0.0"
     vfile "^6.0.0"
 
-release-it@^18.1.1:
+release-it@^18.1.2:
   version "18.1.2"
   resolved "https://registry.yarnpkg.com/release-it/-/release-it-18.1.2.tgz#33db1dc22daaf36e48ccd6cf986216625fb34868"
   integrity sha512-HOVRcicehCgoCsPFOu0iCBlEC8GDOoKS5s6ICkWmqomGEoZtRQ88D3RCsI5MciSU8vAQU+aWZW2z57NQNNb74w==

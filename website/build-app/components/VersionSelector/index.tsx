@@ -5,7 +5,7 @@ import lib from '../../../../lib/package.json'
 import { Select } from '@/Select'
 
 const versions = [
-  { value: 'v7', label: `${lib.version}` },
+  { value: 'v7', label: `v${lib.version}` },
   { value: 'v6', label: 'v6' },
   { value: 'v5', label: 'v5' },
   { value: 'v4', label: 'v4' },
