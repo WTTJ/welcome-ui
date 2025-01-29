@@ -17,8 +17,8 @@
     "migrate": "node ./scripts/update-imports.js",
     "postinstall": "husky install",
     "release:dev": "node .dev-releases/version.mjs",
-    "release:alpha": "cd lib && yarn release-it --preRelease=alpha --no-npm.publish",
-    "release": "cd lib && yarn release-it --no-npm.publish",
+    "release:alpha": "cd lib && yarn release-it --preRelease=alpha",
+    "release": "cd lib && yarn release-it",
     "start": "cd website && yarn dev -p 3020",
     "export-properties": "node ./scripts/generate-types-doc.js",
     "test": "cd lib && yarn test"

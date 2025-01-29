@@ -1,13 +1,11 @@
 {
+  "npm": {
+    "publish": false,
+    "skipChecks": true
+  },
   "git": {
     "commitMessage": "chore: release v${version}",
     "tagName": "v${version}"
-  },
-  "npm": {
-    "skipChecks": true,
-    "publishConfig": {
-      "registry": "https://registry.yarnpkg.com"
-    }
   },
   "github": {
     "release": true
