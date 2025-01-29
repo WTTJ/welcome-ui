@@ -214,7 +214,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
           name: publish
-          command: cd lib && npm publish
+          command: cd /home/circleci/welcome-ui/lib && npm publish
 
   alpha_release:
     executor: nodejs
@@ -227,7 +227,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
           name: publish
-          command: cd lib && npm publish --tag beta
+          command: cd /home/circleci/welcome-ui/lib && npm publish --tag beta
 
   dev_release:
     executor: nodejs
