@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "after:bump": ["rm -rf ../package-lock.json && yarn add ."]
+    "after:bump": ["rm -rf ../package-lock.json"]
   },
   "git": {
     "commitMessage": "chore: release v${version}",
