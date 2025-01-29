@@ -23,7 +23,23 @@ function transformImports(content) {
   // Handle special cases first
   content = content.replace(/@welcome-ui\/core/g, 'welcome-ui/theme')
   content = content.replace(/@welcome-ui\/copy/g, 'welcome-ui/utils')
+  content = content.replace(/@welcome-ui\/utils/g, 'welcome-ui/utils')
   content = content.replace(/@welcome-ui\/icons.font/g, 'welcome-ui/IconsFont')
+
+  // New rule for IconsFont import transformation
+  content = content.replace(
+    /import\s+{?\s*Icons\s*}?\s+from\s+'IconsFont'/g,
+    "import { IconsFont } from 'IconsFonts'"
+  )
+
+  // Replace WuiTheme with ThemeValues
+  content = content.replace(/\bWuiTheme\b/g, 'ThemeValues')
+
+  // Replace WuiProvider with welcome-ui/WuiProvider
+  content = content.replace(
+    /import\s+{?\s*WuiProvider\s*}?\s+from\s+'@welcome-ui\/core'/g,
+    "import { WuiProvider } from 'welcome-ui/WuiProvider'"
+  )
 
   // Transform WuiTheme to ThemeValues in imports, preserving type imports
   const importBlockRegex = /(import\s+(?:type\s+)?){([^}]+)}\s+from/g
