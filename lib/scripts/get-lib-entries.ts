@@ -12,7 +12,9 @@ const getComponentsEntries = () => {
 
   // Create entry object dynamically
   const entries = componentDirs.reduce<Record<string, string>>((acc, componentName) => {
-    const entryPath = resolve(componentsDir, componentName, 'index.tsx')
+    const entryPathTsx = resolve(componentsDir, componentName, 'index.tsx')
+    const entryPathTs = resolve(componentsDir, componentName, 'index.ts')
+    const entryPath = fs.existsSync(entryPathTsx) ? entryPathTsx : entryPathTs
 
     // Only add to entries if the index.tsx file exists
     if (fs.existsSync(entryPath)) {
