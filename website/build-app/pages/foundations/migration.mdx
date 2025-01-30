@@ -19,7 +19,7 @@ yarn migrate "../your-project/src/**/**.*{ts,tsx}"
 In your project, remove all `@welcome-ui` packages:
 
 ```bash
-yarn remove $(grep -o "@welcome-ui/[a-zA-Z0-9-]*" package.json | sort | uniq)
+yarn remove $(grep -o "@welcome-ui/[.a-zA-Z0-9-]*" package.json | sort | uniq)
 ```
 
 And add new package:
