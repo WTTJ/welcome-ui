@@ -66,7 +66,7 @@
     "react-hot-toast": "^2.4.1"
   },
   "devDependencies": {
-    "@babel/cli": "7.25.9",
+    "@babel/cli": "7.26.4",
     "@babel/core": "7.25.2",
     "@babel/eslint-parser": "^7.25.1",
     "@babel/plugin-proposal-class-properties": "7.18.6",
