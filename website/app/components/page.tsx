@@ -1,14 +1,14 @@
 import Link from 'next/link'
-import { Card } from '@welcome-ui/card'
-import { Flex } from '@welcome-ui/flex'
-import { Grid } from '@welcome-ui/grid'
-import { Text } from '@welcome-ui/text'
-import { Box } from '@welcome-ui/box'
 import { Metadata } from 'next'
+import { Card } from '@/Card'
+import { Flex } from '@/Flex'
+import { Grid } from '@/Grid'
+import { Text } from '@/Text'
+import { Box } from '@/Box'
 
-import { getPages } from '@/build-app/utils/pages-components'
-import { getName, getRepository } from '@/build-app/utils/transform-name'
-import { getPageContent } from '@/build-app/utils/page-content'
+import { getPages } from '~/build-app/utils/pages-components'
+import { getName, getRepository } from '~/build-app/utils/transform-name'
+import { getPageContent } from '~/build-app/utils/page-content'
 
 export const metadata: Metadata = {
   title: 'Welcome UI - Components',
@@ -29,7 +29,10 @@ const Page = () => {
           </Text>
           <Grid gap="lg" templateColumns={{ _: '1fr', lg: '1fr 1fr' }}>
             {category.pages.map(page => {
-              const { data } = getPageContent(`${getRepository(page.id)}/docs/index.mdx`, true)
+              const { data } = getPageContent({
+                filename: `${getRepository(page.id)}/docs/index.mdx`,
+                isPackage: true,
+              })
 
               return (
                 <Link href={`/components/${page.id}`} key={page.id}>

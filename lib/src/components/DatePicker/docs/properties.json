@@ -1,0 +1,362 @@
+{
+  "DatePicker": {
+    "props": {
+      "endYear": {
+        "defaultValue": {
+          "value": "DEFAULT_DATE.getFullYear()"
+        },
+        "description": "",
+        "name": "endYear",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomHeader.tsx",
+          "name": "CustomHeaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomHeader.tsx",
+            "name": "CustomHeaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
+          "name": "ReactDatePickerProps"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
+            "name": "ReactDatePickerProps"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+            "name": "CustomInputOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "(string | ReactElement<any, string | JSXElementConstructor<any>>) & Element",
+          "value": [
+            {
+              "value": "string & Element"
+            },
+            {
+              "value": "ReactElement<any, string | JSXElementConstructor<any>> & Element"
+            }
+          ]
+        }
+      },
+      "iconPlacement": {
+        "defaultValue": {
+          "value": "left"
+        },
+        "description": "",
+        "name": "iconPlacement",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+          "name": "CustomInputOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+            "name": "CustomInputOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "IconPlacement",
+          "value": [
+            {
+              "value": "\"right\""
+            },
+            {
+              "value": "\"left\""
+            }
+          ]
+        }
+      },
+      "locale": {
+        "defaultValue": null,
+        "description": "",
+        "name": "locale",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomHeader.tsx",
+          "name": "CustomHeaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomHeader.tsx",
+            "name": "CustomHeaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Locale"
+        }
+      },
+      "onBlur": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onBlur",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+            "name": "DatePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: FocusEvent<HTMLDivElement, Element>) => void"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+            "name": "DatePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(date?: Date) => void"
+        }
+      },
+      "onFocus": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onFocus",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+            "name": "DatePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: FocusEvent<HTMLDivElement, Element>) => void"
+        }
+      },
+      "placeholder": {
+        "defaultValue": null,
+        "description": "",
+        "name": "placeholder",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+            "name": "DatePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "preventVirtualKeyboard": {
+        "defaultValue": {
+          "value": false
+        },
+        "description": "",
+        "name": "preventVirtualKeyboard",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+            "name": "DatePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+          "name": "CustomInputOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+            "name": "CustomInputOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            }
+          ]
+        }
+      },
+      "startYear": {
+        "defaultValue": {
+          "value": 1900
+        },
+        "description": "",
+        "name": "startYear",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomHeader.tsx",
+          "name": "CustomHeaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomHeader.tsx",
+            "name": "CustomHeaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "transparent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "transparent",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+            "name": "DatePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "useWeekdaysShort": {
+        "defaultValue": {
+          "value": true
+        },
+        "description": "",
+        "name": "useWeekdaysShort",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+            "name": "DatePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "value": {
+        "defaultValue": {
+          "value": "new Date()"
+        },
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+          "name": "DatePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
+            "name": "DatePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | Date",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Date",
+              "description": "Enables basic storage and retrieval of dates and times.",
+              "fullComment": "Enables basic storage and retrieval of dates and times.",
+              "tags": {}
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,15 +1,14 @@
 import { join } from 'path'
 import { existsSync, readFileSync } from 'fs'
 
-import { Alert } from '@welcome-ui/alert'
-
 import { Colors } from '../Colors'
 import { Theme } from '../Theme'
 import { IconListProps, IconsList } from '../IconsList'
 
 import { Playground } from './Playground'
 
-import examples from '@/build-app/examples'
+import { Alert } from '@/Alert'
+import examples from '~/build-app/examples'
 
 type DivProps = {
   children: string
@@ -27,6 +26,9 @@ type DivProps = {
   }
 }
 
+const replaceWuiImports = (code: string) =>
+  code.replaceAll(/(from|import) '@\/([\w-./]+)'/g, "$1 'welcome-ui/$2'")
+
 export const Div = ({ children, node }: DivProps) => {
   const playgroundFile = node?.properties?.dataPlayground
   const colorsName = node?.properties?.dataColors
@@ -38,9 +40,9 @@ export const Div = ({ children, node }: DivProps) => {
 
   // Icons objects
   if (iconsEntry) {
-    const isIconFont = node?.properties?.dataIconsFont === 'true' ? true : false
+    const isIconsFont = node?.properties?.dataIconsFont === 'true' ? true : false
 
-    return <IconsList isIconFont={isIconFont} name={iconsEntry} />
+    return <IconsList isIconsFont={isIconsFont} name={iconsEntry} />
   }
 
   // Theme objects
@@ -55,12 +57,15 @@ export const Div = ({ children, node }: DivProps) => {
     const pathToFile = join(
       process.cwd(),
       '../',
-      'packages',
+      'lib',
+      'src',
+      'components',
       component,
       'docs',
       'examples',
       playgroundFile
     )
+
     const fileExist = existsSync(pathToFile)
 
     if (!fileExist) {
@@ -69,13 +74,15 @@ export const Div = ({ children, node }: DivProps) => {
 
     const code = readFileSync(pathToFile, 'utf8')
 
+    const pathToFileFormatted = pathToFile.split('components')[1] as keyof typeof examples
+
     return (
       <Playground
-        code={`${code}`}
+        code={replaceWuiImports(code)}
         isOverview={isOverview === 'true'}
         mt={playgroundFile === 'overview.tsx' ? 0 : undefined}
         name={component}
-        pathToFile={pathToFile.split('packages')[1] as keyof typeof examples}
+        pathToFile={pathToFileFormatted}
         withCodeEditor={withCodeEditor?.toLowerCase() === 'true'}
       />
     )

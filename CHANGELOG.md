@@ -1,198 +1,114 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [6.7.1](https://github.com/WTTJ/welcome-ui/compare/v6.7.0...v6.7.1) (2024-12-17)
 
-
 ### Bug Fixes
 
-* component AssetDrawer header margin ([#2636](https://github.com/WTTJ/welcome-ui/issues/2636)) ([2905e43](https://github.com/WTTJ/welcome-ui/commit/2905e43900fc04ddd50f7b58fec82c9d43927a52))
-
-
-
-
+- component AssetDrawer header margin ([#2636](https://github.com/WTTJ/welcome-ui/issues/2636)) ([2905e43](https://github.com/WTTJ/welcome-ui/commit/2905e43900fc04ddd50f7b58fec82c9d43927a52))
 
 # [6.7.0](https://github.com/WTTJ/welcome-ui/compare/v6.6.0...v6.7.0) (2024-12-16)
 
-
 ### Features
 
-* add AssetDrawer sub component ([#2635](https://github.com/WTTJ/welcome-ui/issues/2635)) ([b76cd4d](https://github.com/WTTJ/welcome-ui/commit/b76cd4d3e8220fe880d5f576932bcd73230c26ae))
-
-
-
-
+- add AssetDrawer sub component ([#2635](https://github.com/WTTJ/welcome-ui/issues/2635)) ([b76cd4d](https://github.com/WTTJ/welcome-ui/commit/b76cd4d3e8220fe880d5f576932bcd73230c26ae))
 
 # [6.5.0](https://github.com/WTTJ/welcome-ui/compare/v6.4.2...v6.5.0) (2024-12-03)
 
-
 ### Features
 
-* add Extend icon ([#2632](https://github.com/WTTJ/welcome-ui/issues/2632)) ([4d49b40](https://github.com/WTTJ/welcome-ui/commit/4d49b4028f837ff4c756d152e99a9109af89e73d))
-
-
-
-
+- add Extend icon ([#2632](https://github.com/WTTJ/welcome-ui/issues/2632)) ([4d49b40](https://github.com/WTTJ/welcome-ui/commit/4d49b4028f837ff4c756d152e99a9109af89e73d))
 
 ## [6.4.2](https://github.com/WTTJ/welcome-ui/compare/v6.4.1...v6.4.2) (2024-11-26)
 
-
 ### Bug Fixes
 
-* **alert:** icon centered on medium size ([#2631](https://github.com/WTTJ/welcome-ui/issues/2631)) ([1a4d933](https://github.com/WTTJ/welcome-ui/commit/1a4d933edd3ac85bd9349262d81e7f6ba36816b4))
-
-
-
-
+- **alert:** icon centered on medium size ([#2631](https://github.com/WTTJ/welcome-ui/issues/2631)) ([1a4d933](https://github.com/WTTJ/welcome-ui/commit/1a4d933edd3ac85bd9349262d81e7f6ba36816b4))
 
 ## [6.4.1](https://github.com/WTTJ/welcome-ui/compare/v6.4.0...v6.4.1) (2024-11-26)
 
-
 ### Bug Fixes
 
-* **alert:** crash when return null as child on cta property ([#2630](https://github.com/WTTJ/welcome-ui/issues/2630)) ([34f76f1](https://github.com/WTTJ/welcome-ui/commit/34f76f120913390319b698b7f0c7599a61629b6d))
-
-
-
-
+- **alert:** crash when return null as child on cta property ([#2630](https://github.com/WTTJ/welcome-ui/issues/2630)) ([34f76f1](https://github.com/WTTJ/welcome-ui/commit/34f76f120913390319b698b7f0c7599a61629b6d))
 
 # [6.4.0](https://github.com/WTTJ/welcome-ui/compare/v6.3.1...v6.4.0) (2024-11-26)
 
-
 ### Features
 
-* add new components WelcomeLoader ([#2624](https://github.com/WTTJ/welcome-ui/issues/2624)) ([af966a7](https://github.com/WTTJ/welcome-ui/commit/af966a73c51320befdaad505f6bcbd7005d353be))
-* **Icon:** add TemporaryProfile Icon ([#2626](https://github.com/WTTJ/welcome-ui/issues/2626)) ([031f5d8](https://github.com/WTTJ/welcome-ui/commit/031f5d87282ad694580a6fd6b1ce0b167de6779c))
-* rework hover on fields ([#2625](https://github.com/WTTJ/welcome-ui/issues/2625)) ([14fcd0e](https://github.com/WTTJ/welcome-ui/commit/14fcd0ec1e109e58873b6c02dd498ae1f8ca0679))
-
-
-
-
+- add new components WelcomeLoader ([#2624](https://github.com/WTTJ/welcome-ui/issues/2624)) ([af966a7](https://github.com/WTTJ/welcome-ui/commit/af966a73c51320befdaad505f6bcbd7005d353be))
+- **Icon:** add TemporaryProfile Icon ([#2626](https://github.com/WTTJ/welcome-ui/issues/2626)) ([031f5d8](https://github.com/WTTJ/welcome-ui/commit/031f5d87282ad694580a6fd6b1ce0b167de6779c))
+- rework hover on fields ([#2625](https://github.com/WTTJ/welcome-ui/issues/2625)) ([14fcd0e](https://github.com/WTTJ/welcome-ui/commit/14fcd0ec1e109e58873b6c02dd498ae1f8ca0679))
 
 ## [6.3.1](https://github.com/WTTJ/welcome-ui/compare/v6.3.0...v6.3.1) (2024-11-25)
 
-
 ### Bug Fixes
 
-* wrong margin when alert have no icon ([#2623](https://github.com/WTTJ/welcome-ui/issues/2623)) ([d92755f](https://github.com/WTTJ/welcome-ui/commit/d92755f50ea90896ced3f905a818b33b8c3051df))
-
-
-
-
+- wrong margin when alert have no icon ([#2623](https://github.com/WTTJ/welcome-ui/issues/2623)) ([d92755f](https://github.com/WTTJ/welcome-ui/commit/d92755f50ea90896ced3f905a818b33b8c3051df))
 
 ## [6.1.1-alpha.1](https://github.com/WTTJ/welcome-ui/compare/v6.1.0...v6.1.1-alpha.1) (2024-11-08)
 
 **Note:** Version bump only for package main
 
-
-
-
-
 # [6.1.0](https://github.com/WTTJ/welcome-ui/compare/v6.0.1...v6.1.0) (2024-11-07)
-
 
 ### Features
 
-* **badge:** add possibility to add component from react-intl on children ([#2602](https://github.com/WTTJ/welcome-ui/issues/2602)) ([1451b4c](https://github.com/WTTJ/welcome-ui/commit/1451b4c277f5282501d9b32f82ac64d66c03cc26))
-* update alert component ([#2591](https://github.com/WTTJ/welcome-ui/issues/2591)) ([ab30a7f](https://github.com/WTTJ/welcome-ui/commit/ab30a7f3e1abe3f8bcdce2ba80a131a4fbdb9fb9))
-* upgrade colors on Alert and Toast components ([#2598](https://github.com/WTTJ/welcome-ui/issues/2598)) ([c37a6cb](https://github.com/WTTJ/welcome-ui/commit/c37a6cbe5e6155d22c1709626edba78c0f392b8a))
-
-
-
-
+- **badge:** add possibility to add component from react-intl on children ([#2602](https://github.com/WTTJ/welcome-ui/issues/2602)) ([1451b4c](https://github.com/WTTJ/welcome-ui/commit/1451b4c277f5282501d9b32f82ac64d66c03cc26))
+- update alert component ([#2591](https://github.com/WTTJ/welcome-ui/issues/2591)) ([ab30a7f](https://github.com/WTTJ/welcome-ui/commit/ab30a7f3e1abe3f8bcdce2ba80a131a4fbdb9fb9))
+- upgrade colors on Alert and Toast components ([#2598](https://github.com/WTTJ/welcome-ui/issues/2598)) ([c37a6cb](https://github.com/WTTJ/welcome-ui/commit/c37a6cbe5e6155d22c1709626edba78c0f392b8a))
 
 ## [5.22.2](https://github.com/WTTJ/welcome-ui/compare/v5.22.1...v5.22.2) (2024-10-28)
 
-
 ### Bug Fixes
 
-* avoid welcome-font cut letters ([#2561](https://github.com/WTTJ/welcome-ui/issues/2561)) ([6e48d8b](https://github.com/WTTJ/welcome-ui/commit/6e48d8b2c92ef31e7c368188be29a45e2c17b3dc))
-* **Tabs:** update gap small size ([#2567](https://github.com/WTTJ/welcome-ui/issues/2567)) ([4ac0e24](https://github.com/WTTJ/welcome-ui/commit/4ac0e245a8fa5272ef230f60dbc78b05f6eabc56))
-
-
-
-
+- avoid welcome-font cut letters ([#2561](https://github.com/WTTJ/welcome-ui/issues/2561)) ([6e48d8b](https://github.com/WTTJ/welcome-ui/commit/6e48d8b2c92ef31e7c368188be29a45e2c17b3dc))
+- **Tabs:** update gap small size ([#2567](https://github.com/WTTJ/welcome-ui/issues/2567)) ([4ac0e24](https://github.com/WTTJ/welcome-ui/commit/4ac0e245a8fa5272ef230f60dbc78b05f6eabc56))
 
 ## [5.22.1](https://github.com/WTTJ/welcome-ui/compare/v5.22.0...v5.22.1) (2024-10-15)
 
 **Note:** Version bump only for package main
 
-
-
-
-
 ## [5.21.2](https://github.com/WTTJ/welcome-ui/compare/v5.21.1...v5.21.2) (2024-09-30)
-
 
 ### Bug Fixes
 
-* swiper item width when there is less than x items ([#2535](https://github.com/WTTJ/welcome-ui/issues/2535)) ([4508a9c](https://github.com/WTTJ/welcome-ui/commit/4508a9c734f91332308d13d460e4232a11f3a2b6))
-
-
-
-
+- swiper item width when there is less than x items ([#2535](https://github.com/WTTJ/welcome-ui/issues/2535)) ([4508a9c](https://github.com/WTTJ/welcome-ui/commit/4508a9c734f91332308d13d460e4232a11f3a2b6))
 
 ## [5.21.1](https://github.com/WTTJ/welcome-ui/compare/v5.21.0...v5.21.1) (2024-09-24)
 
-
 ### Bug Fixes
 
-* crash text component when variant is set to null ([#2544](https://github.com/WTTJ/welcome-ui/issues/2544)) ([0db5c22](https://github.com/WTTJ/welcome-ui/commit/0db5c22efc899c65a7102b49b8a48e2e68c8e7c3))
-
-
-
-
+- crash text component when variant is set to null ([#2544](https://github.com/WTTJ/welcome-ui/issues/2544)) ([0db5c22](https://github.com/WTTJ/welcome-ui/commit/0db5c22efc899c65a7102b49b8a48e2e68c8e7c3))
 
 # [5.21.0](https://github.com/WTTJ/welcome-ui/compare/v5.20.0...v5.21.0) (2024-09-17)
 
-
 ### Features
 
-* add arrow line down icon ([3144150](https://github.com/WTTJ/welcome-ui/commit/314415048c915764cec55851b28bbc97cfc28c5a))
-* add arrow line left icon ([1d28895](https://github.com/WTTJ/welcome-ui/commit/1d28895cdf6fde933f51d2ef3c3a62df80b173d7))
-* add arrow line right icon ([7725c10](https://github.com/WTTJ/welcome-ui/commit/7725c10c3386f18d5cc4dd76affdfc8cebc2e0f5))
-* add arrow line up icon ([82b024d](https://github.com/WTTJ/welcome-ui/commit/82b024da0c66ac4dc368e9284be25d6332d4a48b))
-* generate changelog on release ([#2526](https://github.com/WTTJ/welcome-ui/issues/2526)) ([bfe647b](https://github.com/WTTJ/welcome-ui/commit/bfe647bbb8e8b86211da321af409a87a2b3f74ca))
-
-
-
-
+- add arrow line down icon ([3144150](https://github.com/WTTJ/welcome-ui/commit/314415048c915764cec55851b28bbc97cfc28c5a))
+- add arrow line left icon ([1d28895](https://github.com/WTTJ/welcome-ui/commit/1d28895cdf6fde933f51d2ef3c3a62df80b173d7))
+- add arrow line right icon ([7725c10](https://github.com/WTTJ/welcome-ui/commit/7725c10c3386f18d5cc4dd76affdfc8cebc2e0f5))
+- add arrow line up icon ([82b024d](https://github.com/WTTJ/welcome-ui/commit/82b024da0c66ac4dc368e9284be25d6332d4a48b))
+- generate changelog on release ([#2526](https://github.com/WTTJ/welcome-ui/issues/2526)) ([bfe647b](https://github.com/WTTJ/welcome-ui/commit/bfe647bbb8e8b86211da321af409a87a2b3f74ca))
 
 # [5.19.0](https://github.com/WTTJ/welcome-ui/compare/v5.18.1...v5.19.0) (2024-08-19)
 
-
 ### Features
 
-* allow to display custom file name in the preview of a FileDrop ([#2513](https://github.com/WTTJ/welcome-ui/issues/2513)) ([b4c67d9](https://github.com/WTTJ/welcome-ui/commit/b4c67d9e50311a71e340f506bb4814a7b964382c))
-
-
-
-
+- allow to display custom file name in the preview of a FileDrop ([#2513](https://github.com/WTTJ/welcome-ui/issues/2513)) ([b4c67d9](https://github.com/WTTJ/welcome-ui/commit/b4c67d9e50311a71e340f506bb4814a7b964382c))
 
 ## [5.18.1](https://github.com/WTTJ/welcome-ui/compare/v5.18.0...v5.18.1) (2024-08-07)
 
-
 ### Bug Fixes
 
-* **toast:** update notifications to use react portal ([#2510](https://github.com/WTTJ/welcome-ui/issues/2510)) ([d52ce74](https://github.com/WTTJ/welcome-ui/commit/d52ce74a3449849ba9b7bb2d0806f7d543e42af5))
-
-
-
-
+- **toast:** update notifications to use react portal ([#2510](https://github.com/WTTJ/welcome-ui/issues/2510)) ([d52ce74](https://github.com/WTTJ/welcome-ui/commit/d52ce74a3449849ba9b7bb2d0806f7d543e42af5))
 
 # [5.18.0](https://github.com/WTTJ/welcome-ui/compare/v5.17.3...v5.18.0) (2024-08-05)
 
-
 ### Features
 
-* add exports for typescript FuleUpload ([#2506](https://github.com/WTTJ/welcome-ui/issues/2506)) ([dcf7931](https://github.com/WTTJ/welcome-ui/commit/dcf7931ead5a1c9b4f98cdfaa15033f380e468db))
-* add withDash property on Text headings ([#2507](https://github.com/WTTJ/welcome-ui/issues/2507)) ([6ff0337](https://github.com/WTTJ/welcome-ui/commit/6ff033733f6ce26add95e8ac0b4354ffa1960370))
-
-
-
-
+- add exports for typescript FuleUpload ([#2506](https://github.com/WTTJ/welcome-ui/issues/2506)) ([dcf7931](https://github.com/WTTJ/welcome-ui/commit/dcf7931ead5a1c9b4f98cdfaa15033f380e468db))
+- add withDash property on Text headings ([#2507](https://github.com/WTTJ/welcome-ui/issues/2507)) ([6ff0337](https://github.com/WTTJ/welcome-ui/commit/6ff033733f6ce26add95e8ac0b4354ffa1960370))
 
 ## [5.17.2](https://github.com/WTTJ/welcome-ui/compare/v5.17.1...v5.17.2) (2024-08-02)
 

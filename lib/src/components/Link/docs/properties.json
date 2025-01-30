@@ -1,0 +1,127 @@
+{
+  "Link": {
+    "props": {
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Link/index.tsx",
+          "name": "LinkOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Link/index.tsx",
+            "name": "LinkOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "isExternal": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isExternal",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Link/index.tsx",
+          "name": "LinkOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Link/index.tsx",
+            "name": "LinkOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "target": {
+        "defaultValue": null,
+        "description": "",
+        "name": "target",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/UniversalLink/index.tsx",
+          "name": "UniversalLinkOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/UniversalLink/index.tsx",
+            "name": "UniversalLinkOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "HTMLAttributeAnchorTarget",
+          "value": [
+            {
+              "value": "string & {}"
+            },
+            {
+              "value": "\"_self\""
+            },
+            {
+              "value": "\"_blank\""
+            },
+            {
+              "value": "\"_parent\""
+            },
+            {
+              "value": "\"_top\""
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Link/index.tsx",
+          "name": "LinkOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Link/index.tsx",
+            "name": "LinkOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"primary\""
+            },
+            {
+              "value": "\"secondary\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

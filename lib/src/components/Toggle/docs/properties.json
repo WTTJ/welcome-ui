@@ -1,0 +1,100 @@
+{
+  "Toggle": {
+    "props": {
+      "checked": {
+        "defaultValue": null,
+        "description": "",
+        "name": "checked",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
+          "name": "CheckboxOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
+            "name": "CheckboxOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
+          "name": "CheckboxOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
+            "name": "CheckboxOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "name": {
+        "defaultValue": null,
+        "description": "",
+        "name": "name",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
+          "name": "CheckboxOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
+            "name": "CheckboxOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
+          "name": "CheckboxOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Checkbox/index.tsx",
+            "name": "CheckboxOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      }
+    }
+  }
+}

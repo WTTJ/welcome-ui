@@ -1,23 +1,33 @@
 'use client'
-import { Text } from '@welcome-ui/text'
-import { Button } from '@welcome-ui/button'
-import { Box } from '@welcome-ui/box'
 import styled, { th } from '@xstyled/styled-components'
-import { Link } from '@welcome-ui/link'
-import { Card } from '@welcome-ui/card'
-import { Stack } from '@welcome-ui/stack'
-import { Tag } from '@welcome-ui/tag'
-import { Avatar } from '@welcome-ui/avatar'
-import { RightIcon } from '@welcome-ui/icons'
-import { Flex } from '@welcome-ui/flex'
+
+import { Text } from '@/Text'
+import { Button } from '@/Button'
+import { Box } from '@/Box'
+import { Link } from '@/Link'
+import { Card } from '@/Card'
+import { Stack } from '@/Stack'
+import { Tag } from '@/Tag'
+import { Avatar } from '@/Avatar'
+import { RightIcon } from '@/Icons'
+import { Flex } from '@/Flex'
 
 const posts = [
+  {
+    title: 'Mono-package is back!',
+    description:
+      'Welcome UI V7 is here! This release bring back the only one package to rule them all: welcome-ui',
+    tags: ['release'],
+    link: 'https://www.welcome-ui.com/foundations/migration',
+    cover: 'https://github.com/user-attachments/assets/cef3758f-1b87-4d4c-af04-89df91571a4a',
+    date: new Date('2025-01-28'),
+  },
   {
     title: 'More colors!',
     description:
       'We are happy to release Welcome UI V6 who focuses on the rebranding of our colors and tokens, and adding a Logo component.',
     tags: ['release'],
-    link: 'https://www.welcome-ui.com/foundations/migration',
+    link: 'https://www.welcome-ui.com/foundations/upgrades/v6',
     cover: 'https://github.com/user-attachments/assets/34259431-1bc3-4d97-84b7-e2048c7208da',
     date: new Date('2024-10-24'),
   },

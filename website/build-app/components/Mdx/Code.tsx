@@ -1,8 +1,8 @@
-import { Box } from '@welcome-ui/box'
-
 import { Properties } from '../Props'
 
 import { Highlight } from './Highlight'
+
+import { Box } from '@/Box'
 
 type CodeProps = {
   children: string | React.ReactElement

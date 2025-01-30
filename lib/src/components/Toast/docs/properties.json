@@ -1,0 +1,132 @@
+{
+  "Toast.Snackbar": {
+    "props": {
+      "cta": {
+        "defaultValue": null,
+        "description": "add correct separator for call to action\nuse SnackbarAction",
+        "name": "cta",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "hasCloseButton": {
+        "defaultValue": {
+          "value": true
+        },
+        "description": "",
+        "name": "hasCloseButton",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "onClose": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onClose",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "variant": {
+        "defaultValue": {
+          "value": "default"
+        },
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/Snackbar.tsx",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"default\" | \"info\" | \"success\" | \"danger\" | \"warning\"",
+          "value": [
+            {
+              "value": "\"default\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

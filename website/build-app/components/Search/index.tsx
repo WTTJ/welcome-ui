@@ -1,8 +1,9 @@
 'use client'
-import { DocSearchModal } from '@docsearch/react'
-import { InputText } from '@welcome-ui/input-text'
 import { useEffect, useState } from 'react'
-import { Icons } from '@welcome-ui/icons.font'
+import { DocSearchModal } from '@docsearch/react'
+
+import { InputText } from '@/InputText'
+import { IconsFont } from '@/IconsFont'
 import '@docsearch/css'
 
 export const Search = () => {
@@ -29,7 +30,7 @@ export const Search = () => {
   return (
     <>
       <InputText
-        icon={<Icons.Search />}
+        icon={<IconsFont.Search />}
         maxW="100%"
         onClick={() => setIsOpen(true)}
         onFocus={() => setIsOpen(true)}

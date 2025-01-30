@@ -1,0 +1,118 @@
+{
+  "name": "welcome-ui",
+  "version": "7.0.0-alpha.9",
+  "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./fonts/*": "./dist/fonts/*",
+    "./theme": {
+      "types": "./dist/types/theme/index.d.ts",
+      "import": "./dist/theme.mjs",
+      "require": "./dist/theme.js"
+    },
+    "./utils": {
+      "types": "./dist/types/utils/index.d.ts",
+      "import": "./dist/utils.mjs",
+      "require": "./dist/utils.js"
+    },
+    "./*": {
+      "types": "./dist/types/components/*/index.d.ts",
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js"
+    }
+  },
+  "scripts": {
+    "start": "vite build --watch",
+    "build": "vite build",
+    "test": "yarn jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WTTJ/welcome-ui.git"
+  },
+  "keywords": [
+    "design-system",
+    "react",
+    "ariakit",
+    "styled-components",
+    "styled-system",
+    "ui-library",
+    "ui",
+    "ux",
+    "welcome",
+    "WTTJ"
+  ],
+  "author": "WTTJ <tech@wttj.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WTTJ/welcome-ui/issues"
+  },
+  "dependencies": {
+    "@ariakit/react": "0.4.15",
+    "@juggle/resize-observer": "^3.4.0",
+    "copy-to-clipboard": "^3.3.3",
+    "date-fns": "^4.1.0",
+    "downshift": "^7.4.1",
+    "lodash.capitalize": "^4.2.1",
+    "lodash.debounce": "^4.0.8",
+    "lodash.range": "^3.2.0",
+    "lottie-light-react": "^2.4.0",
+    "match-sorter": "^8.0.0",
+    "react-datepicker": "^4.16.0",
+    "react-dropzone": "^14.3.5",
+    "react-flatten-children": "^1.0.0",
+    "react-hot-toast": "^2.4.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.25.9",
+    "@babel/core": "7.25.2",
+    "@babel/eslint-parser": "^7.25.1",
+    "@babel/plugin-proposal-class-properties": "7.18.6",
+    "@babel/plugin-proposal-optional-chaining": "7.21.0",
+    "@babel/plugin-transform-modules-commonjs": "7.25.9",
+    "@babel/plugin-transform-runtime": "^7.25.4",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.22.11",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.13",
+    "@types/lodash.capitalize": "^4.2.9",
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/lodash.range": "^3.2.9",
+    "@types/node": "22.9.0",
+    "@types/react": "18.0.25",
+    "@types/react-datepicker": "^4.15.0",
+    "@types/react-dom": "18.0.11",
+    "@xstyled/styled-components": "^3.7.3",
+    "babel-jest": "^29.7.0",
+    "babel-plugin-annotate-pure-calls": "^0.4.0",
+    "babel-plugin-transform-async-to-promises": "^0.8.18",
+    "babel-preset-vite": "^1.1.3",
+    "jest": "29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-styled-components": "7.2.0",
+    "react": "^18.0.0",
+    "release-it": "^18.1.2",
+    "rollup-preserve-directives": "^1.1.3",
+    "styled-components": "^5.3.9",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vite-plugin-dts": "^4.3.0",
+    "vite-plugin-static-copy": "^2.2.0",
+    "wttj-config": "^3.0.1"
+  },
+  "peerDependencies": {
+    "@xstyled/styled-components": "^3.7.3",
+    "react": "^18.0.0",
+    "styled-components": "^5.3.9"
+  },
+  "resolutions": {
+    "@babel/traverse": ">=7.23.2"
+  },
+  "homepage": "https://welcome-ui.com"
+}

@@ -1,11 +1,11 @@
-import { ExternalLinkIcon, HeartIcon } from '@welcome-ui/icons'
-import { Flex } from '@welcome-ui/flex'
-import { Text } from '@welcome-ui/text'
-import { Box } from '@welcome-ui/box'
-import { Grid } from '@welcome-ui/grid'
-import { Logo } from '@welcome-ui/logo'
-
 import { Section } from '../Section'
+
+import { ExternalLinkIcon, HeartIcon } from '@/Icons'
+import { Flex } from '@/Flex'
+import { Text } from '@/Text'
+import { Box } from '@/Box'
+import { Grid } from '@/Grid'
+import { Logo } from '@/Logo'
 
 const links = [
   {

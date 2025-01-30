@@ -5,34 +5,11 @@ import matter from 'gray-matter'
 import kebabCase from 'lodash/kebabCase'
 
 import { PageTree } from '../types'
-import { replaceMdxRegex } from '../constants/regex'
 
 type Parent = 'components'
 
-function getComponentSubPages(id: string) {
-  const directory = `build-app/pages/components/${id}`
-  const folder = join(process.cwd(), directory)
-  const folderExist = existsSync(folder)
-
-  if (!folderExist) return ['props']
-
-  const subPages = []
-
-  const fileList = readdirSync(folder)
-
-  for (const file of fileList) {
-    const fileName = file.replace(replaceMdxRegex, '')
-
-    if (fileName !== 'overview') {
-      subPages.push(fileName)
-    }
-  }
-
-  return [...subPages, 'code', 'props']
-}
-
 export function getFilesFromPackages(selectedParent: Parent) {
-  const folder = join(process.cwd(), '../packages')
+  const folder = join(process.cwd(), '../lib/src/components')
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const files = [] as any[]
 
@@ -53,7 +30,7 @@ export function getFilesFromPackages(selectedParent: Parent) {
 
       const categoryParent = files.filter(resultItem => resultItem.category === category)[0]
 
-      const newChild = { id: fileKebabCase, title, subPages: getComponentSubPages(fileKebabCase) }
+      const newChild = { id: fileKebabCase, title, subPages: ['props'] }
 
       if (categoryParent) {
         categoryParent.pages.push(newChild)

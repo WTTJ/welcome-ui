@@ -19,7 +19,6 @@ const getIndexHtml = (name: string) => `<html lang="en">
 
 const indexTsx = `import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { createTheme, WuiProvider } from '@welcome-ui/core'
 
 import Demo from './demo'
 
@@ -41,7 +40,7 @@ export default defineConfig({
   plugins: [react()]
 })`
 
-const getPackageJson = (dependencies: string) => `{
+const getPackageJson = () => `{
   "name": "welcome-ui-playground",
   "version": "0.0.0",
   "scripts": {
@@ -50,8 +49,7 @@ const getPackageJson = (dependencies: string) => `{
     "serve": "vite preview"
   },
   "dependencies": {
-    "@welcome-ui/core": "latest",
-    ${dependencies},
+    "welcome-ui": "latest",
     "@xstyled/styled-components": "^3.7.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -59,7 +57,7 @@ const getPackageJson = (dependencies: string) => `{
   },
   "devDependencies": {
     "@types/react": "18.0.25",
-    "@types/react-dom": "18.2.7",
+    "@types/react-dom": "18.0.11",
     "@vitejs/plugin-react": "^4.3.0",
     "typescript": "5.0.2",
     "vite": "^5.2.12"
@@ -73,14 +71,7 @@ const tsConfig = `{
 }`
 
 export const openStackBlitz = ({ code, name }: { code: string; name: string }) => {
-  const regex = /(@welcome-ui\/[a-z_-]+)\w+/gm
-  const wuiDependencies = code.match(regex)
-  const dependencies = [] as string[]
-  wuiDependencies?.forEach((dependency, index) => {
-    dependencies.push(`${index === 0 ? '' : '\n    '}"${dependency}": "latest"`)
-  })
-
-  const packageJson = getPackageJson(dependencies.toString())
+  const packageJson = getPackageJson()
   const indexHtml = getIndexHtml(name)
 
   sdk.openProject(

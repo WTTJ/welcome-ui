@@ -1,16 +1,16 @@
 'use client'
-import { Button } from '@welcome-ui/button'
-import { LeftIcon, RightIcon } from '@welcome-ui/icons'
-import { Flex } from '@welcome-ui/flex'
 import Link from 'next/link'
 
-import { PageTree } from '@/build-app/types'
-import { getName } from '@/build-app/utils/transform-name'
+import { Button } from '@/Button'
+import { LeftIcon, RightIcon } from '@/Icons'
+import { Flex } from '@/Flex'
+import { PageTree } from '~/build-app/types'
+import { getName } from '~/build-app/utils/transform-name'
 
 type PrevNextPageProps = {
-  pages: PageTree
-  currentId: string
   basePage: string
+  currentId: string
+  pages: PageTree
 }
 
 export const PrevNextPage = ({ basePage, currentId, pages }: PrevNextPageProps) => {

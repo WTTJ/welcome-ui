@@ -5,7 +5,9 @@ import NextLink from 'next/link'
 export const Link = styled(NextLink)`
   color: neutral-70;
   position: relative;
-  transition: color ${th('transitions.medium')}, padding-left ${th('transitions.medium')};
+  transition:
+    color ${th('transitions.medium')},
+    padding-left ${th('transitions.medium')};
 
   &:hover,
   &:focus {

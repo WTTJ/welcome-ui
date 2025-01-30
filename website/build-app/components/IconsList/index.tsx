@@ -1,11 +1,6 @@
 'use client'
 import React from 'react'
-import { Icons as IconsFont } from '@welcome-ui/icons.font'
-import * as Icons from '@welcome-ui/icons'
-import { Box } from '@welcome-ui/box'
 import { camelCase, startCase } from 'lodash'
-import { Text } from '@welcome-ui/text'
-import { Toast, toast } from '@welcome-ui/toast'
 
 import * as S from './styles'
 import {
@@ -23,8 +18,14 @@ import {
   wtf,
 } from './icons'
 
+import { IconsFont } from '@/IconsFont'
+import * as Icons from '@/Icons'
+import { Box } from '@/Box'
+import { Text } from '@/Text'
+import { Toast, toast } from '@/Toast'
+
 export type IconListProps = {
-  isIconFont?: boolean
+  isIconsFont?: boolean
   name:
     | 'arrows'
     | 'actions'
@@ -54,7 +55,7 @@ const handleClickToCopy = (componentName: string) => {
   )
 }
 
-export const IconsList = ({ isIconFont, name }: IconListProps) => {
+export const IconsList = ({ isIconsFont, name }: IconListProps) => {
   const iconsByName = {
     arrows: arrows,
     actions: actions,
@@ -74,10 +75,11 @@ export const IconsList = ({ isIconFont, name }: IconListProps) => {
     <Box display="grid" gap="lg" gridTemplateColumns={{ xs: '1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}>
       {iconsByName[name]?.map(key => {
         const name = startCase(camelCase(key)).replace(/ /g, '')
-        const componentName = isIconFont ? `Icons.${name}` : `${name}Icon`
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        const Icon = isIconFont ? IconsFont[name] : Icons[componentName]
+        const componentName = isIconsFont ? `IconsFont.${name}` : `${name}Icon`
+
+        const Icon = isIconsFont
+          ? IconsFont[name as keyof typeof IconsFont]
+          : Icons[componentName as keyof typeof Icons]
 
         if (!Icon) {
           // eslint-disable-next-line no-console

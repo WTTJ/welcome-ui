@@ -2,28 +2,21 @@
 
 ### 1. Install Welcome UI
 
-Install the `@welcome-ui/core` component and **peer dependencies** listed below:
+Install the `welcome-ui` package and **peer dependencies** listed below:
 
 ```bash
-yarn add @welcome-ui/core @xstyled/styled-components react styled-components
+yarn add welcome-ui @xstyled/styled-components@^3.7.3 react@^18.0.0 styled-components@^5.3.9
 ```
 
-### 2. Install UI components
-
-Install any other components you need for your webapp e.g. if you need just a button…
-
-```bash
-yarn add @welcome-ui/button
-```
-
-### 3. Set up the Provider
+### 2. Set up the Provider
 
 Use the `<WuiProvider />` at the root of your application to set the theme and styled components for your project
 
 ```tsx
 import React from 'react'
-import { createTheme, WuiProvider } from '@welcome-ui/core'
-import { Button } from '@welcome-ui/button'
+import { createTheme } from 'welcome-ui/theme'
+import { WuiProvider } from 'welcome-ui/WuiProvider'
+import { Button } from 'welcome-ui/Button'
 
 const theme = createTheme()
 
@@ -85,7 +78,7 @@ export default function Root() {
 
 WuiProvider takes a `shouldHideFocusRingOnClick` prop which defaults to `true`. It hides the focus ring on mouse move, click or on keydown.
 
-It only adds styles to remove the outline on focus. If you need to remove another css property, you have to write your own styles using the data-attribute `hideFocusRingsDataAttribute` exported from `@welcome-ui/utils`.
+It only adds styles to remove the outline on focus. If you need to remove another css property, you have to write your own styles using the data-attribute `hideFocusRingsDataAttribute`.
 
 ⚠️ Troubleshooting
 
@@ -115,9 +108,9 @@ In order to get your theme object typed with our theme, you have to override the
 // styled.d.ts
 import 'styled-components'
 import '@xstyled/styled-components'
-import { WuiTheme } from '@welcome-ui/core'
+import { ThemeValues } from 'welcome-ui/theme'
 
-interface AppTheme extends WuiTheme {
+interface AppTheme extends ThemeValues {
   // customize your theme
 }
 

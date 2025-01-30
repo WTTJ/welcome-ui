@@ -1,20 +1,19 @@
 'use client'
-
-import { Text } from '@welcome-ui/text'
-import { Flex } from '@welcome-ui/flex'
 import { useParams, usePathname } from 'next/navigation'
-import { WuiProps } from '@welcome-ui/system'
 import { useEffect, useRef } from 'react'
 
 import * as S from './styles'
 
-import { PageTree } from '@/build-app/types'
-import { getName } from '@/build-app/utils/transform-name'
+import { Text } from '@/Text'
+import { Flex } from '@/Flex'
+import { ThemeValues } from '@/theme'
+import { PageTree } from '~/build-app/types'
+import { getName } from '~/build-app/utils/transform-name'
 
 type SidebarProps = {
-  menu: PageTree
+  display?: ThemeValues['display']
   isSubPage?: boolean
-  display?: WuiProps['display']
+  menu: PageTree
   onClick?: () => void
 }
 

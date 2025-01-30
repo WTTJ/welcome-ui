@@ -1,11 +1,11 @@
 import { notFound } from 'next/navigation'
 
-import { Mdx } from '@/build-app/components/Mdx'
-import { TableOfContent } from '@/build-app/components/TableOfContent'
-import { getPageContent } from '@/build-app/utils/page-content'
-import { getPages, getStaticParams } from '@/build-app/utils/pages-exports'
-import { PrevNextPage } from '@/build-app/components/PrevNextPage'
-import { getName } from '@/build-app/utils/transform-name'
+import { Mdx } from '~/build-app/components/Mdx'
+import { TableOfContent } from '~/build-app/components/TableOfContent'
+import { getPageContent } from '~/build-app/utils/page-content'
+import { getPages, getStaticParams } from '~/build-app/utils/pages-exports'
+import { PrevNextPage } from '~/build-app/components/PrevNextPage'
+import { getName } from '~/build-app/utils/transform-name'
 
 type PageProps = {
   params: {
@@ -32,7 +32,9 @@ const Page = ({ params }: PageProps) => {
   const pages = getPages('foundations')
   const { id } = params
 
-  const { contentWithoutMatter, isNotFound, tree } = getPageContent(`foundations/${id}.mdx`)
+  const { contentWithoutMatter, isNotFound, tree } = getPageContent({
+    filename: `foundations/${id}.mdx`,
+  })
 
   if (isNotFound) return notFound()
 

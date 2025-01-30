@@ -1,0 +1,105 @@
+{
+  "ButtonGroup": {
+    "props": {
+      "disabled": {
+        "defaultValue": null,
+        "description": "Disable all your buttons components",
+        "name": "disabled",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/ButtonGroup/index.tsx",
+          "name": "ButtonGroupOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/ButtonGroup/index.tsx",
+            "name": "ButtonGroupOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "size": {
+        "defaultValue": null,
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/ButtonGroup/index.tsx",
+          "name": "ButtonGroupOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/ButtonGroup/index.tsx",
+            "name": "ButtonGroupOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/ButtonGroup/index.tsx",
+          "name": "ButtonGroupOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/ButtonGroup/index.tsx",
+            "name": "ButtonGroupOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"disabled\""
+            },
+            {
+              "value": "\"primary\""
+            },
+            {
+              "value": "\"secondary\""
+            },
+            {
+              "value": "\"tertiary\""
+            },
+            {
+              "value": "\"ghost\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

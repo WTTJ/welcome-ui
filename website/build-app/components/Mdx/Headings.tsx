@@ -1,11 +1,12 @@
-import { Box } from '@welcome-ui/box'
-import { WuiProps } from '@welcome-ui/system'
-import { Text } from '@welcome-ui/text'
 import { kebabCase } from 'lodash'
+
+import { ThemeValues } from '@/theme'
+import { Box } from '@/Box'
+import { Text } from '@/Text'
 
 type HeadingsProps = {
   children: React.ReactNode
-  mt?: WuiProps['marginTop']
+  mt?: ThemeValues['marginTop']
 }
 
 export const H2 = ({ children, mt = '3xl' }: HeadingsProps) => {

@@ -1,23 +1,6 @@
 {
   "extends": "wttj-config/lib/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "outDir": ".",
-    "baseUrl": "./packages",
-    "sourceMap": false,
-    "declaration": true,
-    "target": "ES6"
-  },
-  "include": [
-    "packages/**/src/*.ts",
-    "packages/**/src/*.tsx",
-    "packages/**/tests/*.ts",
-    "packages/**/tests/*.tsx",
-    "types"
-  ],
-  "exclude": [
-    "dist",
-    "icons/**/*",
-    "packages/**/node_modules",
-    "packages/**/dist"
-  ]
+    "rootDir": "."
+  }
 }

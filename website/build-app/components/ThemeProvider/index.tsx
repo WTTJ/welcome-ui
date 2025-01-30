@@ -1,12 +1,9 @@
 'use client'
-import {
-  createTheme,
-  darkTheme as WuiDarkTheme,
-  WuiProvider,
-  WuiProviderProps,
-} from '@welcome-ui/core'
 import { useTheme } from 'next-themes'
 import * as React from 'react'
+
+import { createTheme, darkTheme as WuiDarkTheme } from '@/theme'
+import { WuiProvider, type WuiProviderProps } from '@/WuiProvider'
 
 type ThemeProviderProps = {
   children: WuiProviderProps['children']

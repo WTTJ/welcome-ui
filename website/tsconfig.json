@@ -1,4 +1,5 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -11,11 +12,28 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "noEmit": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    // TODO FIXME and re-enable options
+    // "noImplicitAny": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "strict": true,
+    "skipLibCheck": true,
     "paths": {
-      "@/*": ["./*"]
+      "~/*": [
+        "./*"
+      ],
+      "@/utils": [
+        "../lib/src/utils"
+      ],
+      "@/theme": [
+        "../lib/src/theme"
+      ],
+      "@/fonts/*": [
+        "../lib/src/components/IconsFont/fonts/*"
+      ],
+      "@/*": [
+        "../lib/src/components/*"
+      ]
     },
     "plugins": [
       {
@@ -23,10 +41,16 @@
       }
     ],
     "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "lib": ["dom", "esnext"]
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "strict": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ]
 }

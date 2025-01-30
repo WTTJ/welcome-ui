@@ -1,0 +1,129 @@
+{
+  "Picker": {
+    "props": {
+      "label": {
+        "defaultValue": null,
+        "description": "",
+        "name": "label",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FieldGroup/index.tsx",
+          "name": "FieldGroupOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FieldGroup/index.tsx",
+            "name": "FieldGroupOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactElement<any, string | JSXElementConstructor<any>>"
+        }
+      },
+      "name": {
+        "defaultValue": null,
+        "description": "",
+        "name": "name",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Picker/index.tsx",
+          "name": "PickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Picker/index.tsx",
+            "name": "PickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Picker/index.tsx",
+          "name": "PickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Picker/index.tsx",
+            "name": "PickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<HTMLLabelElement>"
+        }
+      },
+      "options": {
+        "defaultValue": null,
+        "description": "",
+        "name": "options",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Picker/index.tsx",
+          "name": "PickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Picker/index.tsx",
+            "name": "PickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "PickerOption[]"
+        }
+      },
+      "required": {
+        "defaultValue": null,
+        "description": "",
+        "name": "required",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FieldGroup/index.tsx",
+          "name": "FieldGroupOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FieldGroup/index.tsx",
+            "name": "FieldGroupOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "value": {
+        "defaultValue": null,
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Picker/index.tsx",
+          "name": "PickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Picker/index.tsx",
+            "name": "PickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+}

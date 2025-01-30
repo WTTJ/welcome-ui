@@ -16,16 +16,10 @@ Here you'll find all the core components you need to create a delightful webapp.
 
 ## Installation
 
-1 - Install the **peer dependencies** listed below:
+1 - Install the `welcome-ui` package and **peer dependencies** listed below:
 
 ```bash
-yarn add @xstyled/styled-components react styled-components
-```
-
-2 - Install the the **core** component and any other components you need for your webapp e.g. if you need just a button…
-
-```bash
-yarn add @welcome-ui/core @welcome-ui/button
+yarn add welcome-ui @xstyled/styled-components@^3.7.3 react@^18.0.0 styled-components@^5.3.9
 ```
 
 ## Import library & Theme
@@ -34,8 +28,9 @@ Getting started
 
 ```js
 import React from 'react'
-import { createTheme, WuiProvider } from '@welcome-ui/core'
-import { Button } from '@welcome-ui/button'
+import { createTheme } from 'welcome-ui/theme'
+import { WuiProvider } from 'welcome-ui/WuiProvider'
+import { Button } from 'welcome-ui/Button'
 
 // Add theme options (if you want)
 const options = {
@@ -71,73 +66,63 @@ export default function Root() {
 
 ## Develop on local
 
-1. First install and build the packages _(only the first time)_
+1. Install
 
 ```bash
-yarn first:install
+yarn
 ```
 
-2. Start documentation website
+2. Start a watch on all packages to rebuild them easily
 
 ```bash
 yarn start
 ```
 
-3. Start a watch on all packages to rebuild them easily
+3. Start documentation website
 
 ```bash
-yarn watch
+yarn website
 ```
 
 4. and go to http://localhost:3020
 
 ## How to release
 
-The release of the packages is automated by the CI, you just need to bump package version and push git tags to initiate the process.
+The release of the library is automated by the CI, you just need to bump package version and push git tags to initiate the process.
 
-### Initiating the release process from your environment
+### Release process
 
-**The commands listed below will only prompt for packages to bump**. Then they will modify packages versions, commit changes and create the git tag to finally push everything to github. **No further actions are required once you have validated the packages to bump.**
+**The commands listed below will only prompt for library to bump**. Then they will modify package version, commit changes and create the git tag to finally push everything to github. **No further actions are required once you have validated the packages to bump.**
 
-#### If you just need to bump one version without switching from a prerelease to stable release, run:
+#### How to release
+
+##### Production
+
+(ex: **7.1.0**):
 
 ```bash
 yarn release
 ```
 
-#### To create a new prerelease, run:
+##### Alpha
 
-This is only used for the **first** prerelease. If you already published a v5.0.0-alpha.0 then you just need to run the first command.
+(ex: **7.1.0-alpha.0**)
+
+Generate an alpha release for broader team testing:
 
 ```bash
-yarn dev:prerelease
+yarn release:alpha
 ```
 
-NB: you can replace alpha with any other keyword (beta, rc, ...)
+##### Development
 
-#### Force publish a package
+(ex: **dev.1738060597**)
 
-In addition to the options shown above, you can use the --force-publish option to force bumping some packages.
+Create a development release based on the current timestamp for quick testing of pre-release features:
 
-#### Troubleshooting
-
-##### How to release when the publish process failed having published some packages
-
-Re-run the failed job with ssh, then ssh into the machine and run this command:
-
-`cd welcome-ui/packages && find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && npm publish" \;`
-
-This will publish each packages, those who are already published will fail and be ignored by the script.
-
-##### How to rollback a release that has been stopped before publish to npm
-
-Revert the last commit (which should be the commit that bumps package versions):
-
-`git revert HEAD^`
-
-Remove the tag on github and locally.
-
-Then apply your fixes and re-run your release command.
+```bash
+yarn release:dev
+```
 
 ### About the CI
 

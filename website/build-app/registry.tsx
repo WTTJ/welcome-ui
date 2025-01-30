@@ -1,5 +1,4 @@
 'use client'
-
 import * as React from 'react'
 import { useServerInsertedHTML } from 'next/navigation'
 import { ServerStyleSheet, StyleSheetManager, StyleSheetManagerProps } from 'styled-components'

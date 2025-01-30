@@ -10,6 +10,7 @@ type Data = {
   category?: string
   description?: string
   packageName?: string
+  peerDependencies?: string
   title?: string
   type?: string
   usage?: string
@@ -18,10 +19,11 @@ type Data = {
 /**
  * Gets the content of md file
  */
-export function getPageContent(filename: string, isPackage?: boolean) {
-  const file = isPackage
-    ? join(process.cwd(), '../', 'packages', filename)
-    : join(process.cwd(), 'build-app', 'pages', filename)
+export function getPageContent({ filename, isPackage }: { filename: string; isPackage?: boolean }) {
+  let file = join(process.cwd(), 'build-app', 'pages', filename)
+  if (isPackage) {
+    file = join(process.cwd(), '../', 'lib', 'src', 'components', filename)
+  }
 
   const fileExist = existsSync(file)
 

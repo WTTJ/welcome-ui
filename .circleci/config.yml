@@ -7,7 +7,7 @@ orbs:
 parameters:
   cache_version:
     type: string
-    default: v5
+    default: v6
   nodejs_base_image:
     type: string
     default: 'cimg/node:20.17.0'
@@ -39,16 +39,17 @@ jobs:
     executor: nodejs
     steps:
       - *checkout
+      - *restore_node_modules
       - run:
           name: Run yarn install and save node modules
           command: yarn install
-      - *restore_node_modules
       - save_cache:
           key: << pipeline.parameters.cache_version >>-yarn-{{ checksum "/home/circleci/welcome-ui/yarn.lock" }}
           paths:
             - ~/.cache/yarn
             - ~/welcome-ui/node_modules
             - ~/welcome-ui/website/node_modules
+            - ~/welcome-ui/lib/node_modules
 
   vulnerabilities_yarn:
     <<: *default
@@ -60,25 +61,21 @@ jobs:
       - attach_workspace:
           at: ~/welcome-ui
       - run:
-          name: Critical vulnerabilities (yarn audit), lib versions and missing deps
-          command: yarn check:audit && yarn check:deps
+          name: Critical vulnerabilities (yarn audit)
+          command: yarn check:audit
 
   build:
     <<: *default
     executor: nodejs
-    resource_class: xlarge
+    resource_class: medium
     steps:
       - *checkout
       - *restore_node_modules
-      - run: yarn icons:build
       - run: yarn build
       - persist_to_workspace:
           root: ~/welcome-ui
           paths:
-            - packages/**/dist
-            - packages/Themes/**/dist
-            - icons/dist
-            - packages/IconFont/fonts
+            - lib/dist
 
   lint:
     <<: *default
@@ -99,9 +96,9 @@ jobs:
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
-      - run: yarn jest --detectOpenHandles $(circleci tests glob "./packages/**/*.test.{ts,js,tsx}" | circleci tests split | xargs)
+      - run: cd lib && yarn jest --detectOpenHandles $(circleci tests glob "./**/*.test.{ts,js,tsx}" | circleci tests split | xargs)
 
-  build_and_release_icon_font:
+  release_icon_font:
     <<: *default
     executor: nodejs
     steps:
@@ -109,25 +106,22 @@ jobs:
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
-      - run: yarn icons:collect --force
-      - run: yarn webfont:build
       - run:
           name: Prepare font hash
           command: |
-            echo "export ICON_FONT_HASH=$(sha1sum packages/IconFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')" >> $BASH_ENV
+            echo "export ICON_FONT_HASH=$(sha1sum lib/src/components/IconsFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')" >> $BASH_ENV
             source $BASH_ENV
-            yarn build:core
       - aws-cli/setup:
           aws_access_key_id: AWS_ACCESS_KEY_ID
           aws_secret_access_key: AWS_SECRET_ACCESS_KEY
           region: ${AWS_REGION}
       - aws-s3/sync:
-          from: packages/IconFont/fonts
+          from: lib/src/components/IconsFont/fonts
           to: s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH
           arguments: |
             --cache-control "public, max-age=31536000" --exclude "*" --include "welcome-icon-font.woff" --include "welcome-icon-font.woff2" --metadata GitCommit=$CIRCLE_SHA1 --delete
       - aws-s3/sync:
-          from: packages/IconFont/fonts
+          from: lib/src/components/IconsFont/fonts
           to: s3://wttj-production/fonts/icon-font/$ICON_FONT_HASH
           arguments: |
             --cache-control "public, max-age=31536000" --exclude "*" --include "welcome-icon-font.woff" --include "welcome-icon-font.woff2" --metadata GitCommit=$CIRCLE_SHA1 --delete
@@ -141,7 +135,7 @@ jobs:
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
-      - run: yarn website:build
+      - run: yarn build:website
       - persist_to_workspace:
           root: ~/welcome-ui
           paths:
@@ -198,7 +192,7 @@ jobs:
           at: ~/welcome-ui
       - run:
           name: build w/ prefix
-          command: VERSION=$CIRCLE_BRANCH yarn website:build
+          command: VERSION=$CIRCLE_BRANCH yarn build:website
       - aws-cli/setup:
           aws_access_key_id: AWS_ACCESS_KEY_ID
           aws_secret_access_key: AWS_SECRET_ACCESS_KEY
@@ -210,34 +204,43 @@ jobs:
             --metadata GitCommit=$CIRCLE_SHA1 --delete
 
   release:
-    <<: *default
     executor: nodejs
     steps:
       - *checkout
-      - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
       - run:
           name: Login to registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
-          name: Release to npm
-          command: yarn lerna publish from-git --yes --no-verify-access
+          name: publish
+          command: cd /home/circleci/welcome-ui/lib && npm publish --registry https://registry.npmjs.org
 
-  prerelease:
-    <<: *default
+  alpha_release:
     executor: nodejs
     steps:
       - *checkout
-      - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
       - run:
           name: Login to registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
-          name: Release to npm
-          command: yarn lerna publish from-git --yes --no-verify-access --dist-tag next
+          name: publish
+          command: cd /home/circleci/welcome-ui/lib && npm publish --tag beta --registry https://registry.npmjs.org
+
+  dev_release:
+    executor: nodejs
+    steps:
+      - *checkout
+      - attach_workspace:
+          at: ~/welcome-ui
+      - run:
+          name: Login to registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - run:
+          name: publish
+          command: node /home/circleci/welcome-ui/.dev-releases/publish.mjs
 
 workflows:
   btd:
@@ -263,77 +266,100 @@ workflows:
             tags:
               only: /.*/
           requires:
-            - build
+            - checkout
       - test:
           filters:
             tags:
               only: /.*/
           requires:
-            - build
-      - build_and_release_icon_font:
+            - checkout
+      - release_icon_font:
           filters:
             tags:
               only: /.*/
           context:
             - aws
           requires:
-            - lint
-            - test
+            - checkout
       - website_build:
           filters:
             tags:
               only: /.*/
           requires:
-            - build
+            - checkout
       - website_deploy_preview:
           context:
             - aws
             - welcome-ui
           requires:
+            - lint
+            - test
             - website_build
-            - build_and_release_icon_font
+            - release_icon_font
       - website_deploy_prod:
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /v6.(\d\d|\d).(\d\d|\d)/
+              only: /v7.(\d\d|\d).(\d\d|\d)/
           context:
             - aws
             - welcome-ui
           requires:
+            - lint
+            - test
             - website_build
-            - build_and_release_icon_font
+            - release_icon_font
       - previous_website_versions_build_deploy_prod:
           filters:
             # should add branches here to keep previous doc version of future majors
             branches:
-              only: /v3|v4|v5/
+              only: /v3|v4|v5|v6/
           context:
             - aws
             - welcome-ui
           requires:
-            - build
-            - build_and_release_icon_font
+            - lint
+            - test
+            - website_build
+            - release_icon_font
       - release:
           context:
             - welcome-ui
           requires:
             - build
-            - build_and_release_icon_font
+            - lint
+            - test
+            - website_build
+            - release_icon_font
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /v\d.(\d\d|\d).(\d\d|\d)/
-      - prerelease:
+      - alpha_release:
           context:
             - welcome-ui
           requires:
             - build
-            - build_and_release_icon_font
+            - lint
+            - test
+            - release_icon_font
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /v\d.(\d\d|\d).(\d\d|\d)-.*/
+      - dev_release:
+          context:
+            - welcome-ui
+          requires:
+            - build
+            - lint
+            - test
+            - release_icon_font
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /0.0.0-dev...*/

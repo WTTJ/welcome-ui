@@ -1,0 +1,36 @@
+---
+category: forms
+description: The DateTimePicker component is a user interface element that allows users to select both dates and times from a single interface. It provides a calendar view for selecting dates and a dropdown or input fields for specifying times. This component is essential for applications that require precise scheduling or event management, offering a seamless way to input both date and time information.
+packageName: date-time-picker
+title: DateTimePicker
+peerDependencies: 'date-fns react-datepicker'
+---
+
+### react-datepicker
+
+It is based on the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) library.
+
+_Note_: Pass a value of `null` if you don't want the default value of `Date.now()`.
+
+### Pass props to childs
+
+If you want to pass props to DatePicker or TimePicker you need to see example below
+
+<div data-playground="childs.tsx" data-component="DateTimePicker"></div>
+
+### Sizes
+
+Use size propety with option:
+
+- `xs` (24px)
+- `sm` (32px)
+- `md` (40px - default)
+- `lg` (48px)
+
+<div data-playground="sizes.tsx" data-component="DateTimePicker"></div>
+
+### Transparent
+
+Pass `transparent` to remove background-color and border-color
+
+<div data-playground="transparent.tsx" data-component="DateTimePicker"></div>

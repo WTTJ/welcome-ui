@@ -1,12 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { Flex } from '@welcome-ui/flex'
-import { Button } from '@welcome-ui/button'
-import { Drawer, useDrawer } from '@welcome-ui/drawer'
-import { Icons } from '@welcome-ui/icons.font'
 import { usePathname } from 'next/navigation'
-import { Box } from '@welcome-ui/box'
-import { WelcomeUILogo } from '@welcome-ui/logo'
 
 import { VersionSelector } from '../VersionSelector'
 import { Sidebar } from '../Sidebar'
@@ -15,7 +9,13 @@ import { Search } from '../Search'
 import * as S from './styles'
 import { NavBar } from './NavBar'
 
-import { PageTree } from '@/build-app/types'
+import { MenuIcon } from '@/Icons'
+import { WelcomeUILogo } from '@/Logo'
+import { Box } from '@/Box'
+import { Drawer, useDrawer } from '@/Drawer'
+import { Button } from '@/Button'
+import { Flex } from '@/Flex'
+import { PageTree } from '~/build-app/types'
 
 export const navigation = ['foundations', 'components', 'blog']
 
@@ -68,7 +68,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
           size="sm"
           store={drawer}
         >
-          <Icons.Menu />
+          <MenuIcon />
         </Drawer.Trigger>
         <NavBar display={{ _: 'none', lg: 'flex' }} />
         <Drawer display={{ lg: 'none' }} size="100%" store={drawer} withBackdrop zIndex={999}>

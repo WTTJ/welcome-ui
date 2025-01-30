@@ -1,21 +1,21 @@
 'use client'
 import { useState } from 'react'
-import { Box } from '@welcome-ui/box'
-import { WuiProps } from '@welcome-ui/system'
-import { Button } from '@welcome-ui/button'
-import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@welcome-ui/icons'
-import { Flex } from '@welcome-ui/flex'
-import { Tooltip } from '@welcome-ui/tooltip'
 
 import { Highlight } from './Highlight'
 
-import examples from '@/build-app/examples'
-import { openStackBlitz } from '@/build-app/utils/stackblitz'
+import { Box } from '@/Box'
+import { ThemeValues } from '@/theme'
+import { Button } from '@/Button'
+import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@/Icons'
+import { Flex } from '@/Flex'
+import { Tooltip } from '@/Tooltip'
+import examples from '~/build-app/examples'
+import { openStackBlitz } from '~/build-app/utils/stackblitz'
 
 type PreProps = {
   code: string
   isOverview?: boolean
-  mt?: WuiProps['marginTop']
+  mt?: ThemeValues['marginTop']
   name: string
   pathToFile: keyof typeof examples
   withCodeEditor?: boolean
@@ -110,7 +110,7 @@ export const Playground = ({
               <Tooltip content="View on Github" fixed zIndex={2}>
                 <Button
                   as="a"
-                  href={`https://github.com/WTTJ/welcome-ui/tree/main/packages${pathToFile}`}
+                  href={`https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components${pathToFile}`}
                   rel="noreferrer noopener"
                   shape="circle"
                   size="xs"
