@@ -36,5 +36,7 @@ export const WuiProvider: React.FC<WuiProviderProps> = ({
     </ThemeProvider>
   )
 }
+const GlobalStyle = S.GlobalStyle
+export { GlobalStyle }
 
 WuiProvider.displayName = 'WuiProvider'

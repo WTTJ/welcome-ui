@@ -19,6 +19,8 @@ const getIndexHtml = (name: string) => `<html lang="en">
 
 const indexTsx = `import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import { createTheme } from 'welcome-ui/theme';
+import { WuiProvider } from 'welcome-ui/WuiProvider';
 
 import Demo from './demo'
 
@@ -66,7 +68,8 @@ const getPackageJson = () => `{
 
 const tsConfig = `{
   "compilerOptions": {
-    "jsx": "react"
+    "jsx": "react",
+    "moduleResolution": "bundler"
   }
 }`
 
