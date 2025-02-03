@@ -1,21 +1,17 @@
 import { css, th } from '@xstyled/styled-components'
 
-type FieldIconSizes = {
-  lg: 'sm'
-  md: 'sm'
-  sm: 'sm'
-  xs: 'xs'
-}
-
-export const FIELD_ICON_SIZE: FieldIconSizes = {
-  xs: 'xs',
-  sm: 'sm',
-  md: 'sm',
-  lg: 'sm',
-}
-
+export type DefaultFieldIconSize = 'sm' | 'xs'
 export type Size = 'xs' | 'sm' | 'md' | 'lg'
-export type FieldIconSize = 'xs' | 'sm'
+
+export const FIELD_ICON_SIZE: {
+  [key in Size]: DefaultFieldIconSize
+} = {
+  lg: 'sm',
+  md: 'sm',
+  sm: 'sm',
+  xs: 'xs',
+}
+
 export type DefaultFieldStylesProps = Partial<{
   hasIcon?: boolean
   iconPlacement?: 'right' | 'left' | 'both'

@@ -1,6 +1,6 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { defaultFieldStyles, Size } from '../../utils/field-styles'
+import { defaultFieldStyles, DefaultFieldStylesProps } from '../../utils/field-styles'
 import { overflowEllipsis } from '../../utils/overflow-ellipsis'
 
 import { SelectOptions } from './index'
@@ -126,7 +126,7 @@ export const Item = styled.li(
 )
 
 export const Indicators = styled.divBox(
-  ({ size }: { size: Size }) => css`
+  ({ size }: { size: DefaultFieldStylesProps['size'] }) => css`
     position: absolute;
     padding: 0;
     top: 0;
