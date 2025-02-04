@@ -88,7 +88,5 @@
     "@types/react": "18.0.25",
     "styled-components": "5.3.9",
     "@typescript-eslint/parser": "^6.21.0"
-  },
-  "homepage": "https://welcome-ui.com",
-  "dependencies": {}
+  }
 }

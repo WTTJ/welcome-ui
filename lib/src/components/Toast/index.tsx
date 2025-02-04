@@ -5,8 +5,8 @@ import toastRHT, { ToastPosition, useToaster } from 'react-hot-toast/headless'
 import { useCreatePortal } from '../../utils/use-create-portal'
 
 import { ToastWrapper } from './ToastWrapper'
-import { Growl } from './Growl'
-import { Snackbar, SnackbarAction } from './Snackbar'
+import { Growl, GrowlProps } from './Growl'
+import { Snackbar, SnackbarAction, SnackbarProps } from './Snackbar'
 import * as S from './styles'
 
 import { TextProps } from '@/Text'
@@ -76,9 +76,5 @@ export const dismiss = (id?: string) => {
   toastRHT.dismiss(id)
 }
 
-/**
- * @deprecated use directly `toast` function instead
- */
-export const useToast = () => toast
-
 export const Toast = { Title, Growl, Snackbar, SnackbarAction }
+export type { GrowlProps, SnackbarProps }

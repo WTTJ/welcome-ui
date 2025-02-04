@@ -1,6 +1,6 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { FieldIconSize } from '../../utils/field-styles'
+import { DefaultFieldIconSize } from '../../utils/field-styles'
 
 import { StyledLabel } from '@/Label'
 import { shouldForwardProp, WuiProps } from '@/System'
@@ -57,7 +57,7 @@ export const LabelWithHint = styled.div`
 
 type IconWrapperProps = {
   iconPlacement: 'left' | 'right'
-  size?: FieldIconSize
+  size?: DefaultFieldIconSize
 }
 
 export const IconWrapper = styled.divBox<IconWrapperProps>(
@@ -92,7 +92,7 @@ export const IconWrapper = styled.divBox<IconWrapperProps>(
 )
 
 export const IconGroupWrapper = styled.divBox(
-  ({ size }: { size: FieldIconSize }) => css`
+  ({ size }: { size: DefaultFieldIconSize }) => css`
     position: absolute;
     padding: 0;
     top: 0;

@@ -1,6 +1,6 @@
 import { CSSObject } from '@xstyled/styled-components'
 
-import { Size } from '../utils/field-styles'
+import { DefaultFieldStylesProps } from '../utils/field-styles'
 
 import { ThemeValues } from '.'
 
@@ -26,7 +26,7 @@ export type ThemeDefaultFields = {
     default: CSSObject
   }
   hover: CSSObject
-  iconPlacement: Record<Size, CSSObject>
+  iconPlacement: Record<DefaultFieldStylesProps['size'], CSSObject>
   placeholder: CSSObject
   select: {
     default: CSSObject
@@ -36,7 +36,7 @@ export type ThemeDefaultFields = {
     selected: CSSObject
     selectedAndHighlighted: CSSObject
   }
-  sizes: Record<Size, CSSObject>
+  sizes: Record<DefaultFieldStylesProps['size'], CSSObject>
   variants: VariantsTheme
 }
 

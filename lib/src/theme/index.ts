@@ -5,8 +5,8 @@ import {
   ITheme as StyledComponentDefaultTheme,
   DefaultTheme as XStyledDefaultTheme,
 } from '@xstyled/styled-components'
+import merge from 'ramda/src/mergeDeepRight'
 
-import { mergeDeepRight } from '../../utils/mergeDeepRight'
 import { getAccordions, ThemeAccordions } from '../components/Accordion/theme'
 import { getAlerts, ThemeAlerts } from '../components/Alert/theme'
 import { getAvatars, ThemeAvatars } from '../components/Avatar/theme'
@@ -232,7 +232,7 @@ export const createTheme = (options: ThemeProps = {}): ThemeValues => {
   theme.timingFunction = timingFunction
   theme.shadows = shadows
 
-  theme = mergeDeepRight(theme, rest) as ThemeValues
+  theme = merge(theme, rest) as ThemeValues
 
   // These attributes depend on colors and fontSizes and must come last
   theme.selection = getSelection(theme)
@@ -282,7 +282,7 @@ export const createTheme = (options: ThemeProps = {}): ThemeValues => {
   // states
   theme.states = defaultTheme.states
 
-  theme = mergeDeepRight(theme, rest) as ThemeValues
+  theme = merge(theme, rest) as ThemeValues
 
   return theme
 }
