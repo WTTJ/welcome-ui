@@ -10,17 +10,17 @@
     "./theme": {
       "types": "./dist/types/theme/index.d.ts",
       "import": "./dist/theme.mjs",
-      "require": "./dist/theme.js"
+      "require": "./dist/theme.mjs"
     },
     "./utils": {
       "types": "./dist/types/utils/index.d.ts",
       "import": "./dist/utils.mjs",
-      "require": "./dist/utils.js"
+      "require": "./dist/utils.mjs"
     },
     "./*": {
       "types": "./dist/types/components/*/index.d.ts",
       "import": "./dist/*.mjs",
-      "require": "./dist/*.js"
+      "require": "./dist/*.mjs"
     }
   },
   "scripts": {
