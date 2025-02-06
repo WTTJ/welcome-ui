@@ -11249,6 +11249,13 @@ postcss-styled-syntax@^0.6.4:
   dependencies:
     typescript "^5.3.3"
 
+postcss-styled-syntax@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/postcss-styled-syntax/-/postcss-styled-syntax-0.7.1.tgz#4284dace4c50ee74c1589e66582179f3119d34d2"
+  integrity sha512-V5Iy8JztqXOKnTojdytF8IJ3zDXyVR927XftBPinJa3TnKdChGvGzUNEYlNuDtR+iqpuFkwJMgZdaJarYfGFCg==
+  dependencies:
+    typescript "^5.7.3"
+
 postcss-syntax@^0.36.2:
   version "0.36.2"
   resolved "https://registry.yarnpkg.com/postcss-syntax/-/postcss-syntax-0.36.2.tgz#f08578c7d95834574e5593a82dfbfa8afae3b51c"
@@ -13455,12 +13462,7 @@ typescript@5.7.2:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.2.tgz#3169cf8c4c8a828cde53ba9ecb3d2b1d5dd67be6"
   integrity sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==
 
-"typescript@^4.6.4 || ^5.0.0", typescript@^5.3.3:
-  version "5.6.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.3.tgz#5f3449e31c9d94febb17de03cc081dd56d81db5b"
-  integrity sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==
-
-typescript@^5.6.3:
+"typescript@^4.6.4 || ^5.0.0", typescript@^5.3.3, typescript@^5.6.3, typescript@^5.7.3:
   version "5.7.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.3.tgz#919b44a7dbb8583a9b856d162be24a54bf80073e"
   integrity sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==
