@@ -1,21 +1,23 @@
 import React from 'react'
 
 import * as S from './styles'
+import { Size, Variant } from './theme'
 
 import { Loader } from '@/Loader'
 import { CreateWuiProps, forwardRef } from '@/System'
 import { Box } from '@/Box'
 
-type Shape = 'circle' | 'square'
-type Size = 'xs' | 'sm' | 'md' | 'lg'
-type Variant = 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'disabled'
-
 export interface ButtonOptions {
-  /** Danger button with 3 variants: primary / tertiary / ghost */
+  /** AI button with 3 variants: primary / tertiary / ghost */
+  ai?: boolean
+  /**
+   * Danger button with 3 variants: primary / tertiary / ghost
+   * Take precedence hover the AI prop
+   */
   danger?: boolean
   disabled?: boolean
   isLoading?: boolean
-  shape?: Shape
+  shape?: 'circle' | 'square'
   size?: Size
   variant?: Variant
 }
@@ -28,6 +30,7 @@ export type ButtonProps = CreateWuiProps<'button', ButtonOptions>
 export const Button = forwardRef<'button', ButtonProps>(
   (
     {
+      ai,
       children,
       danger,
       dataTestId,
@@ -43,6 +46,7 @@ export const Button = forwardRef<'button', ButtonProps>(
 
     return (
       <S.Button
+        ai={ai}
         danger={danger}
         data-loading={isLoading}
         data-testid={dataTestId}

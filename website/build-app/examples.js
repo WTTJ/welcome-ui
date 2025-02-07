@@ -36,6 +36,7 @@ export default {
   "/Breadcrumb/docs/examples/last-child.tsx": dynamic(() => import("../../lib/src/components/Breadcrumb/docs/examples/last-child.tsx").then(mod => mod), { ssr: false }),
   "/Breadcrumb/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Breadcrumb/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Breadcrumb/docs/examples/separator.tsx": dynamic(() => import("../../lib/src/components/Breadcrumb/docs/examples/separator.tsx").then(mod => mod), { ssr: false }),
+  "/Button/docs/examples/ai.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/ai.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/danger.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/danger.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/icons.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/icons.tsx").then(mod => mod), { ssr: false }),
