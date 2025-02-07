@@ -18,6 +18,7 @@ const Example = () => {
       <Tag variant="pink">Pink</Tag>
       <Tag variant="teal">Teal</Tag>
       <Tag variant="violet">Violet</Tag>
+      <Tag variant="ai">AI</Tag>
     </Stack>
   )
 }

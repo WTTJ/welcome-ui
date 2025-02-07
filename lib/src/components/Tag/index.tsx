@@ -1,22 +1,12 @@
 import React from 'react'
 
 import { wrapChildren } from '../../utils/wrap-children'
-import { ThemeSecondaryColors } from '../../theme/colors'
 
 import * as S from './styles'
+import { Size, Variant } from './theme'
 
 import { CreateWuiProps, forwardRef } from '@/System'
 import { CrossIcon } from '@/Icons'
-
-type Size = 'xs' | 'sm' | 'md'
-type Variant =
-  | ThemeSecondaryColors
-  | 'default'
-  | 'info'
-  | 'success'
-  | 'danger'
-  | 'warning'
-  | 'primary'
 
 export interface TagOptions {
   href?: string

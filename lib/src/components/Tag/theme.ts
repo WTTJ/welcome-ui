@@ -13,6 +13,7 @@ export type Variant =
   | 'success'
   | 'warning'
   | 'primary'
+  | 'ai'
 
 export type ThemeTags = {
   default: CSSObject
@@ -82,6 +83,10 @@ export const getTags = (theme: ThemeValues): ThemeTags => {
       pink: getSecondary('pink'),
       green: getSecondary('green'),
       violet: getSecondary('violet'),
+      ai: {
+        backgroundColor: colors['violet-20'],
+        color: colors['violet-80'],
+      },
     },
     hover: {
       default: {
@@ -100,6 +105,10 @@ export const getTags = (theme: ThemeValues): ThemeTags => {
       pink: getSecondaryHover('pink'),
       green: getSecondaryHover('green'),
       violet: getSecondaryHover('violet'),
+      ai: {
+        backgroundColor: colors['violet-30'],
+        color: colors['violet-80'],
+      },
     },
     sizes: {
       xs: {

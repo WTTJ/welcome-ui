@@ -153,19 +153,22 @@
               "value": "\"default\""
             },
             {
+              "value": "\"danger\""
+            },
+            {
               "value": "\"info\""
             },
             {
               "value": "\"success\""
             },
             {
-              "value": "\"danger\""
-            },
-            {
               "value": "\"warning\""
             },
             {
               "value": "\"primary\""
+            },
+            {
+              "value": "\"ai\""
             }
           ]
         }
