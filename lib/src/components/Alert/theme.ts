@@ -2,9 +2,9 @@ import { CSSObject } from '@xstyled/styled-components'
 
 import { ThemeValues } from '@/theme'
 
-type State = 'default' | 'danger' | 'warning' | 'info' | 'success' | 'beige'
+export type Variant = 'default' | 'danger' | 'warning' | 'info' | 'success' | 'beige' | 'ai'
 
-type Sizes = 'sm' | 'md'
+export type Sizes = 'sm' | 'md'
 
 type AttributesState = CSSObject
 
@@ -15,7 +15,7 @@ export type ThemeAlerts = {
     default: CSSObject
     sizes: Record<Sizes, CSSObject>
   }
-} & Record<State, AttributesState>
+} & Record<Variant, AttributesState>
 
 export const getAlerts = (theme: ThemeValues): ThemeAlerts => {
   const { borderWidths, colors, fontSizes, fontWeights, radii, space } = theme
@@ -58,6 +58,10 @@ export const getAlerts = (theme: ThemeValues): ThemeAlerts => {
       backgroundColor: colors['beige-20'],
       borderColor: colors['beige-20'],
       color: colors['beige-80'],
+    },
+    ai: {
+      backgroundColor: colors['violet-10'],
+      color: colors['violet-90'],
     },
     sizes: {
       sm: {
