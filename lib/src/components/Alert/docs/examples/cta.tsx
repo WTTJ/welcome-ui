@@ -23,8 +23,8 @@ const Example = () => {
       <Alert
         cta={
           <>
-            <Alert.Button> AI Button</Alert.Button>
-            <Alert.SecondaryButton> AI Button</Alert.SecondaryButton>
+            <Alert.Button>Button</Alert.Button>
+            <Alert.SecondaryButton>Button</Alert.SecondaryButton>
           </>
         }
         variant="ai"

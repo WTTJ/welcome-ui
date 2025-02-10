@@ -2,7 +2,7 @@ import React, { Children, cloneElement } from 'react'
 
 import { Title } from './Title'
 import * as S from './styles'
-import { Sizes, Variant } from './theme'
+import { Size, Variant } from './theme'
 
 import { CloseButton } from '@/CloseButton'
 import { Button, ButtonProps } from '@/Button'
@@ -18,7 +18,7 @@ export interface AlertOptions {
   handleClose?: () => void
   icon?: JSX.Element | null
   isFullWidth?: boolean
-  size?: Sizes
+  size?: Size
   variant?: Variant
 }
 
@@ -58,6 +58,7 @@ const AlertComponent = forwardRef<'div', AlertProps>(
     const cloneActions = (child: React.ReactElement): CloneActionsReturns => {
       if (child) {
         if (child.type === AlertButton) {
+          // If Alert variant is ai, we override the CTA Buttons to use the AI sub-variants
           return cloneElement<ButtonProps>(child, {
             size,
             ai: withAiButton,

@@ -124,7 +124,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Sizes",
+          "raw": "Size",
           "value": [
             {
               "value": "\"sm\""

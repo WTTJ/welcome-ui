@@ -4,16 +4,16 @@ import { ThemeValues } from '@/theme'
 
 export type Variant = 'default' | 'danger' | 'warning' | 'info' | 'success' | 'beige' | 'ai'
 
-export type Sizes = 'sm' | 'md'
+export type Size = 'sm' | 'md'
 
 type AttributesState = CSSObject
 
 export type ThemeAlerts = {
   default: CSSObject
-  sizes: Record<Sizes, CSSObject>
+  sizes: Record<Size, CSSObject>
   title: {
     default: CSSObject
-    sizes: Record<Sizes, CSSObject>
+    sizes: Record<Size, CSSObject>
   }
 } & Record<Variant, AttributesState>
 
@@ -62,6 +62,7 @@ export const getAlerts = (theme: ThemeValues): ThemeAlerts => {
     ai: {
       backgroundColor: colors['violet-10'],
       color: colors['violet-90'],
+      borderColor: colors['violet-10'],
     },
     sizes: {
       sm: {
