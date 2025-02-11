@@ -3,6 +3,7 @@ import { CSSObject } from '@xstyled/styled-components'
 import { ThemeValues } from '@/theme'
 
 export type ThemeVariantIcon = {
+  ai: CSSObject
   danger: CSSObject
   default: CSSObject
   info: CSSObject
@@ -28,6 +29,9 @@ export const getVariantIcon = (theme: ThemeValues): ThemeVariantIcon => {
     },
     info: {
       color: colors['blue-60'],
+    },
+    ai: {
+      color: colors['violet-70'],
     },
   }
 }

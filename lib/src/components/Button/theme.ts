@@ -76,16 +76,16 @@ export const getButtons = (theme: ThemeValues): ThemeButtons => {
       primary: {
         color: colors['neutral-10'],
         backgroundColor: colors['violet-70'],
-        borderColor: colors['violet-70'],
+        borderColor: 'transparent',
       },
       tertiary: {
-        backgroundColor: 'transparent',
-        color: colors['violet-80'],
-        borderColor: colors['violet-80'],
+        backgroundColor: 'neutral-10',
+        color: colors['violet-70'],
+        borderColor: colors['violet-70'],
       },
       ghost: {
-        color: colors['violet-80'],
-        backgroundColor: 'transparent',
+        color: colors['violet-70'],
+        backgroundColor: colors['neutral-10'],
         borderColor: 'transparent',
       },
     },
@@ -119,7 +119,7 @@ export const getButtons = (theme: ThemeValues): ThemeButtons => {
       ai: {
         primary: {
           backgroundColor: colors['violet-60'],
-          borderColor: colors['violet-60'],
+          borderColor: 'transparent',
         },
         tertiary: {
           backgroundColor: colors['violet-10'],
@@ -140,9 +140,9 @@ export const getButtons = (theme: ThemeValues): ThemeButtons => {
         ghost: { ...focus(colors['red-40']) },
       },
       ai: {
-        primary: { ...focus(colors['violet-40']) },
-        tertiary: { ...focus(colors['violet-30']) },
-        ghost: { ...focus(colors['violet-30']) },
+        primary: { ...focus(colors['violet-50']) },
+        tertiary: { ...focus(colors['violet-50']) },
+        ghost: { ...focus(colors['violet-50']) },
       },
     },
     active: {
@@ -174,14 +174,13 @@ export const getButtons = (theme: ThemeValues): ThemeButtons => {
       },
       ai: {
         primary: {
-          backgroundColor: colors['violet-50'],
-          borderColor: colors['violet-50'],
+          backgroundColor: colors['violet-40'],
         },
         tertiary: {
-          backgroundColor: colors['violet-20'],
+          backgroundColor: colors['violet-30'],
         },
         ghost: {
-          backgroundColor: colors['violet-20'],
+          backgroundColor: colors['violet-30'],
         },
       },
     },
