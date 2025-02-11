@@ -109,20 +109,12 @@ const AlertComponent = forwardRef<'div', AlertProps>(
         )}
         {icon !== null && <S.Icon icon={icon} size={size} variant={defaultVariantIcon} />}
         <S.Content>
-          <Box
-            alignItems="flex-start"
-            display="flex"
-            flexDirection="column"
-            gap="md"
-            justifyContent="space-between"
-          >
-            <Box flex={1}>{content}</Box>
-            {!!actions && (
-              <Box alignItems="center" display="flex" gap="sm">
-                {actions}
-              </Box>
-            )}
-          </Box>
+          <Box flex={1}>{content}</Box>
+          {!!actions && (
+            <Box alignItems="center" display="flex" gap="sm">
+              {actions}
+            </Box>
+          )}
         </S.Content>
       </S.Alert>
     )
