@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { ThemeScreens } from '../../theme/screens'
+
 import * as S from './styles'
 
 import { Loader } from '@/Loader'
@@ -7,8 +9,10 @@ import { CreateWuiProps, forwardRef } from '@/System'
 import { Box } from '@/Box'
 
 type Shape = 'circle' | 'square'
-type Size = 'xs' | 'sm' | 'md' | 'lg'
 type Variant = 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'disabled'
+type Size = 'xs' | 'sm' | 'md' | 'lg'
+export type ResponsiveSize = { [key in keyof ThemeScreens]?: Size }
+export type ComposedSize = Size | ResponsiveSize
 
 export interface ButtonOptions {
   /** Danger button with 3 variants: primary / tertiary / ghost */
@@ -16,7 +20,7 @@ export interface ButtonOptions {
   disabled?: boolean
   isLoading?: boolean
   shape?: Shape
-  size?: Size
+  size?: ComposedSize
   variant?: Variant
 }
 

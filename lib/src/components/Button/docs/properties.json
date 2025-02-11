@@ -133,7 +133,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Size",
+          "raw": "ComposedSize",
           "value": [
             {
               "value": "\"xs\""
@@ -146,6 +146,12 @@
             },
             {
               "value": "\"lg\""
+            },
+            {
+              "value": "ResponsiveSize",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
             }
           ]
         }

@@ -3,7 +3,7 @@ import { Button as AriakitButton } from '@ariakit/react'
 
 import { hideFocusRingsDataAttribute } from '../../utils/hide-focus-rings-root'
 
-import { ButtonOptions } from './index'
+import { ButtonOptions, ComposedSize } from './index'
 
 import { shouldForwardProp } from '@/System'
 
@@ -15,6 +15,31 @@ const shapeStyles = (size: ButtonOptions['size'], shape: ButtonOptions['shape'] 
     border-radius: ${th(`buttons.sizes.${size}.height`)};
   `};
 `
+
+const getButtonSize = (size: ComposedSize) => {
+  //Early return if size is a base value
+  if (typeof size === 'string') {
+    return th(`buttons.sizes.${size}`)
+  }
+
+  //Build the media queries style
+  const sizeResponsiveStyles = Object.entries(size).reduce((acc, [breakpoint, sizeValue]) => {
+    acc += `
+      @media (min-width: ${breakpoint}) {
+        border: 1px solid red;
+        height: 60px;
+        width: ${th(`buttons.sizes.${sizeValue}.height`)};
+        ${css`
+          width: ${th(`buttons.sizes.${sizeValue}.height`)};
+        `}
+      }
+    `
+
+    return acc
+  }, '')
+
+  return sizeResponsiveStyles
+}
 
 export const Button = styled(AriakitButton).withConfig({ shouldForwardProp })<ButtonOptions>(
   ({ danger, disabled, shape, size = 'md', variant = 'primary' }) => css`
@@ -28,7 +53,7 @@ export const Button = styled(AriakitButton).withConfig({ shouldForwardProp })<Bu
     align-items: center;
     justify-content: center;
     width: auto;
-    ${th(`buttons.sizes.${size}`)};
+    ${getButtonSize(size)};
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
