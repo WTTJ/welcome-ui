@@ -24,53 +24,56 @@ const getBlockHeight = (lines: number) => css`
   word-break: ${lines === 1 ? 'break-all' : null};
 `
 
-export const Text = styled.p<TextOptions>(({ lines, theme, variant, withDash }) => {
-  const mobileVariant = MOBILE_VARIANTS[variant as keyof typeof MOBILE_VARIANTS]
-  const isHeading = variant?.startsWith('h')
-  // only add lineHeight fixer styles when these conditions are fulfilled
-  const shouldFixHeadingsLineHeight =
-    lines &&
-    lines !== Infinity &&
-    variant.startsWith('h') &&
-    theme.fonts.headings.includes('welcome-font')
+export const Text = styled.p<TextOptions>(
+  ({ lines, theme, variant, withDash, wordBreak = 'break-word' }) => {
+    const mobileVariant = MOBILE_VARIANTS[variant as keyof typeof MOBILE_VARIANTS]
+    const isHeading = variant?.startsWith('h')
+    // only add lineHeight fixer styles when these conditions are fulfilled
+    const shouldFixHeadingsLineHeight =
+      lines &&
+      lines !== Infinity &&
+      variant.startsWith('h') &&
+      theme.fonts.headings.includes('welcome-font')
 
-  return css`
-    ${th(`texts.${mobileVariant || variant}`)};
+    return css`
+      ${th(`texts.${mobileVariant || variant}`)};
+      word-break: ${wordBreak};
 
-    /* Start fallback for non-webkit */
-    display: block;
-    ${lines && lines !== Infinity && getBlockHeight(lines)};
-    /* End fallback for non-webkit */
+      /* Start fallback for non-webkit */
+      display: block;
+      ${lines && lines !== Infinity && getBlockHeight(lines)};
+      /* End fallback for non-webkit */
 
-    ${withDash &&
-    isHeading &&
-    css`
-      display: flex;
-
-      &:before {
-        content: '';
-        width: 16;
-        height: 4;
+      ${withDash &&
+      isHeading &&
+      css`
         display: flex;
-        align-self: center;
-        flex-shrink: 0;
-        background-color: primary-40;
-        margin-right: md;
-      }
-    `}
 
-    @media (min-width: lg) {
-      ${th(`texts.${variant}`)};
+        &:before {
+          content: '';
+          width: 16;
+          height: 4;
+          display: flex;
+          align-self: center;
+          flex-shrink: 0;
+          background-color: primary-40;
+          margin-right: md;
+        }
+      `}
+
+      @media (min-width: lg) {
+        ${th(`texts.${variant}`)};
+        ${system};
+      }
+
+      ${shouldFixHeadingsLineHeight &&
+      css`
+        & {
+          line-height: 1.4;
+        }
+      `}
+
       ${system};
-    }
-
-    ${shouldFixHeadingsLineHeight &&
-    css`
-      & {
-        line-height: 1.4;
-      }
-    `}
-
-    ${system};
-  `
-})
+    `
+  }
+)
