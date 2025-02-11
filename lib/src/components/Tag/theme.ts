@@ -85,7 +85,7 @@ export const getTags = (theme: ThemeValues): ThemeTags => {
       violet: getSecondary('violet'),
       ai: {
         backgroundColor: colors['violet-20'],
-        color: colors['violet-80'],
+        color: colors['violet-90'],
       },
     },
     hover: {
@@ -107,7 +107,6 @@ export const getTags = (theme: ThemeValues): ThemeTags => {
       violet: getSecondaryHover('violet'),
       ai: {
         backgroundColor: colors['violet-30'],
-        color: colors['violet-80'],
       },
     },
     sizes: {
