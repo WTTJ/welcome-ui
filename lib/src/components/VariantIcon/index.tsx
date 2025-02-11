@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 
 import * as S from './styles'
+import { Size, Variant } from './theme'
 
 import {
   AlertIcon,
@@ -11,9 +12,6 @@ import {
   SquareAlertIcon,
 } from '@/Icons'
 import { CreateWuiProps, forwardRef } from '@/System'
-
-type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
-type Variant = 'danger' | 'warning' | 'success' | 'info' | 'default' | 'ai'
 
 export interface VariantIconOptions {
   icon?: JSX.Element
