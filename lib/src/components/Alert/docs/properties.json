@@ -137,7 +137,7 @@
       },
       "variant": {
         "defaultValue": {
-          "value": "default"
+          "value": "tertiary"
         },
         "description": "",
         "name": "variant",
@@ -157,10 +157,10 @@
           "raw": "Variant",
           "value": [
             {
-              "value": "\"danger\""
+              "value": "\"default\""
             },
             {
-              "value": "\"success\""
+              "value": "\"danger\""
             },
             {
               "value": "\"warning\""
@@ -169,10 +169,13 @@
               "value": "\"info\""
             },
             {
-              "value": "\"default\""
+              "value": "\"success\""
             },
             {
               "value": "\"beige\""
+            },
+            {
+              "value": "\"ai\""
             }
           ]
         }

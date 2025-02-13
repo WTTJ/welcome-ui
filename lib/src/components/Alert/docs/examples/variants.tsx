@@ -42,6 +42,12 @@ const Example = () => {
         ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a
         ornare.
       </Alert>
+      <Alert variant="ai">
+        <Alert.Title>AI variant</Alert.Title>
+        Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
+        ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a
+        ornare.
+      </Alert>
     </Stack>
   )
 }

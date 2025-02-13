@@ -2,13 +2,9 @@ import { CSSObject } from '@xstyled/styled-components'
 
 import { ThemeValues } from '@/theme'
 
-export type ThemeVariantIcon = {
-  danger: CSSObject
-  default: CSSObject
-  info: CSSObject
-  success: CSSObject
-  warning: CSSObject
-}
+export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+export type Variant = 'danger' | 'warning' | 'success' | 'info' | 'default' | 'ai'
+export type ThemeVariantIcon = Record<Variant, CSSObject>
 
 export const getVariantIcon = (theme: ThemeValues): ThemeVariantIcon => {
   const { colors } = theme
@@ -28,6 +24,9 @@ export const getVariantIcon = (theme: ThemeValues): ThemeVariantIcon => {
     },
     info: {
       color: colors['blue-60'],
+    },
+    ai: {
+      color: colors['violet-70'],
     },
   }
 }

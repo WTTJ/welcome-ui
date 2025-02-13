@@ -2,14 +2,13 @@ import React, { Children, cloneElement } from 'react'
 
 import { Title } from './Title'
 import * as S from './styles'
+import { Size, Variant } from './theme'
 
 import { CloseButton } from '@/CloseButton'
 import { Button, ButtonProps } from '@/Button'
 import { CreateWuiProps, forwardRef } from '@/System'
 import { Box } from '@/Box'
 
-type Size = 'sm' | 'md'
-type Variant = 'danger' | 'success' | 'warning' | 'info' | 'default' | 'beige'
 export interface AlertOptions {
   closeButtonDataTestId?: string
   cta?: JSX.Element
@@ -26,7 +25,7 @@ export interface AlertOptions {
 export type AlertProps = CreateWuiProps<'div', AlertOptions>
 
 type CloneActionsReturns = React.ReactElement<
-  AlertProps,
+  unknown,
   string | React.JSXElementConstructor<AlertProps>
 >
 
@@ -47,6 +46,7 @@ const AlertComponent = forwardRef<'div', AlertProps>(
   ) => {
     const closeButtonDataTestId = dataTestId ? `${dataTestId}-close-button` : undefined
     const defaultVariantIcon = variant === 'beige' ? 'default' : variant
+    const withAiButton = variant === 'ai'
 
     const content = Children.toArray(children).map((child: React.ReactElement) => {
       if (child.type === Title) return cloneElement(child, { variant: size })
@@ -55,10 +55,22 @@ const AlertComponent = forwardRef<'div', AlertProps>(
     })
 
     // Handle clone actions recursively in case of multiple buttons
-    const cloneActions = (child: React.ReactElement<AlertProps>): CloneActionsReturns => {
+    const cloneActions = (child: React.ReactElement): CloneActionsReturns => {
       if (child) {
-        if (child.type === AlertButton) return cloneElement(child, { size })
-        if (child.type === AlertSecondaryButton) return cloneElement(child, { size })
+        if (child.type === AlertButton) {
+          // If Alert variant is ai, we override the CTA Buttons to use the AI sub-variants
+          return cloneElement<ButtonProps>(child, {
+            size,
+            ai: withAiButton,
+            variant: withAiButton ? 'primary' : undefined,
+          })
+        }
+        if (child.type === AlertSecondaryButton) {
+          return cloneElement<ButtonProps>(child, {
+            size,
+            ai: withAiButton,
+          })
+        }
 
         if (child.props?.children) {
           return cloneElement(child, {
@@ -97,20 +109,12 @@ const AlertComponent = forwardRef<'div', AlertProps>(
         )}
         {icon !== null && <S.Icon icon={icon} size={size} variant={defaultVariantIcon} />}
         <S.Content>
-          <Box
-            alignItems="flex-start"
-            display="flex"
-            flexDirection="column"
-            gap="md"
-            justifyContent="space-between"
-          >
-            <Box flex={1}>{content}</Box>
-            {!!actions && (
-              <Box alignItems="center" display="flex" gap="sm">
-                {actions}
-              </Box>
-            )}
-          </Box>
+          <Box flex={1}>{content}</Box>
+          {!!actions && (
+            <Box alignItems="center" display="flex" gap="sm">
+              {actions}
+            </Box>
+          )}
         </S.Content>
       </S.Alert>
     )
@@ -118,12 +122,15 @@ const AlertComponent = forwardRef<'div', AlertProps>(
 )
 
 // We need this component to check its existence in <Alert> and to allow users to add Button in <Alert> content
-const AlertButton = forwardRef<'button', Omit<ButtonProps, 'size' | 'variant'>>((props, ref) => (
-  <Button flexShrink={0} ref={ref} w="fit-content" {...props} variant="secondary" />
-))
-
-const AlertSecondaryButton = forwardRef<'button', Omit<ButtonProps, 'size' | 'variant'>>(
-  (props, ref) => <Button flexShrink={0} ref={ref} w="fit-content" {...props} variant="tertiary" />
+const AlertButton = forwardRef<'button', Omit<ButtonProps, 'size'>>(
+  ({ variant = 'secondary', ...props }, ref) => (
+    <Button flexShrink={0} ref={ref} w="fit-content" {...props} variant={variant} />
+  )
+)
+const AlertSecondaryButton = forwardRef<'button', Omit<ButtonProps, 'size'>>(
+  ({ variant = 'tertiary', ...props }, ref) => (
+    <Button flexShrink={0} ref={ref} w="fit-content" {...props} variant={variant} />
+  )
 )
 
 export const Alert = Object.assign(AlertComponent, {

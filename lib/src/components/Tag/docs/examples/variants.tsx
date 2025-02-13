@@ -12,6 +12,7 @@ const Example = () => {
       <Tag variant="success">Success</Tag>
       <Tag variant="danger">Danger</Tag>
       <Tag variant="warning">Warning</Tag>
+      <Tag variant="ai">AI</Tag>
       <Tag variant="blue">Blue</Tag>
       <Tag variant="green">Green</Tag>
       <Tag variant="orange">Orange</Tag>

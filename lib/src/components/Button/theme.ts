@@ -9,14 +9,14 @@ type CommonAttributesButton = CSSObject
 
 type SizeAttributesButton = CSSObject
 
-type Variant = 'primary' | 'secondary' | 'tertiary' | 'ghost'
-type Size = 'xs' | 'sm' | 'md' | 'lg'
+export type Variant = 'primary' | 'secondary' | 'tertiary' | 'ghost'
+export type Size = 'xs' | 'sm' | 'md' | 'lg'
 type Icon = 'only' | 'default'
 
-export type ThemeButtons = Record<Variant | 'danger', CommonAttributesButton> &
-  Record<'hover', Record<Variant | 'danger', CommonAttributesButton>> &
-  Record<'focus', Record<Variant | 'danger', unknown>> &
-  Record<'active', Record<Variant | 'danger', CommonAttributesButton>> &
+export type ThemeButtons = Record<Variant | 'danger' | 'ai', CommonAttributesButton> &
+  Record<'hover', Record<Variant | 'danger' | 'ai', CommonAttributesButton>> &
+  Record<'focus', Record<Variant | 'danger' | 'ai', unknown>> &
+  Record<'active', Record<Variant | 'danger' | 'ai', CommonAttributesButton>> &
   Record<'disabled', CommonAttributesButton & { '&:focus': ReturnType<ThemeFocus> }> &
   Record<'sizes', Record<Size, SizeAttributesButton>> &
   Record<'icon', Record<Icon, Record<Size, string>>>
@@ -72,6 +72,23 @@ export const getButtons = (theme: ThemeValues): ThemeButtons => {
         borderColor: 'transparent',
       },
     },
+    ai: {
+      primary: {
+        color: colors['neutral-10'],
+        backgroundColor: colors['violet-70'],
+        borderColor: 'transparent',
+      },
+      tertiary: {
+        backgroundColor: 'neutral-10',
+        color: colors['violet-70'],
+        borderColor: colors['violet-70'],
+      },
+      ghost: {
+        color: colors['violet-70'],
+        backgroundColor: colors['neutral-10'],
+        borderColor: 'transparent',
+      },
+    },
     hover: {
       primary: {
         backgroundColor: colors['primary-30'],
@@ -99,6 +116,18 @@ export const getButtons = (theme: ThemeValues): ThemeButtons => {
           backgroundColor: colors['red-10'],
         },
       },
+      ai: {
+        primary: {
+          backgroundColor: colors['violet-60'],
+          borderColor: 'transparent',
+        },
+        tertiary: {
+          backgroundColor: colors['violet-10'],
+        },
+        ghost: {
+          backgroundColor: colors['violet-10'],
+        },
+      },
     },
     focus: {
       primary: { ...focus(colors['primary-20']) },
@@ -109,6 +138,11 @@ export const getButtons = (theme: ThemeValues): ThemeButtons => {
         primary: { ...focus(colors['red-40']) },
         tertiary: { ...focus(colors['red-40']) },
         ghost: { ...focus(colors['red-40']) },
+      },
+      ai: {
+        primary: { ...focus(colors['violet-50']) },
+        tertiary: { ...focus(colors['violet-50']) },
+        ghost: { ...focus(colors['violet-50']) },
       },
     },
     active: {
@@ -136,6 +170,18 @@ export const getButtons = (theme: ThemeValues): ThemeButtons => {
         },
         ghost: {
           backgroundColor: colors['red-20'],
+        },
+      },
+      ai: {
+        primary: {
+          backgroundColor: colors['violet-40'],
+          borderColor: colors['violet-40'],
+        },
+        tertiary: {
+          backgroundColor: colors['violet-30'],
+        },
+        ghost: {
+          backgroundColor: colors['violet-30'],
         },
       },
     },

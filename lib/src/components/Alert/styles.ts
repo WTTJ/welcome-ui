@@ -8,6 +8,11 @@ import { Text } from '@/Text'
 import { VariantIcon } from '@/VariantIcon'
 
 export const Content = styled.divBox`
+  display: flex;
+  gap: md;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   flex: 1;
 `
 
@@ -41,6 +46,8 @@ export const Alert = styled.divBox<AlertOptions>(({ icon, isFullWidth, size, var
     css`
       ${Content} {
         margin-left: calc(${th('icons.md')} + ${th('space.lg')});
+        gap: ${th('space.lg')};
+        font-size: ${th('fontSizes.md')};
       }
 
       ${Icon} {
