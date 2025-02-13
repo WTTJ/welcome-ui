@@ -72,9 +72,9 @@
     "minimist": "1.2.8",
     "onchange": "^7.0.2",
     "postcss-styled-syntax": "^0.6.4",
-    "react": "^18.1.0",
+    "react": "^18.3.1",
     "react-docgen-typescript": "^2.2.2",
-    "react-dom": "^18.1.0",
+    "react-dom": "^18.3.1",
     "react-router-dom": "6.27.0",
     "rimraf": "^4.1.1",
     "standard-version": "9.5.0",
@@ -85,7 +85,7 @@
     "yargs": "^17.7.2"
   },
   "resolutions": {
-    "@types/react": "18.0.25",
+    "@types/react": "18.3.12",
     "styled-components": "5.3.9",
     "@typescript-eslint/parser": "^6.21.0"
   }
