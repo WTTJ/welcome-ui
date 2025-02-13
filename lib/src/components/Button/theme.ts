@@ -175,6 +175,7 @@ export const getButtons = (theme: ThemeValues): ThemeButtons => {
       ai: {
         primary: {
           backgroundColor: colors['violet-40'],
+          borderColor: colors['violet-40'],
         },
         tertiary: {
           backgroundColor: colors['violet-30'],
