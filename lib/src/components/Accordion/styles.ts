@@ -20,7 +20,7 @@ export const Icon = styled.divBox`
   height: 32;
   color: inherit;
   display: flex;
-  border-radius: 12;
+  border-radius: 16;
 
   & *:first-child {
     margin: auto;
