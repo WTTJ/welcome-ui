@@ -72,19 +72,13 @@ export default function Root() {
 yarn
 ```
 
-2. Start a watch on all packages to rebuild them easily
+2. Start documentation website
 
 ```bash
 yarn start
 ```
 
-3. Start documentation website
-
-```bash
-yarn website
-```
-
-4. and go to http://localhost:3020
+3. and go to http://localhost:3020
 
 ## How to release
 
