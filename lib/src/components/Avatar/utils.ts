@@ -1,6 +1,6 @@
-import { Theme } from '@xstyled/styled-components'
+import { ThemeColorTokens } from './theme'
 
-export function getColorByLength(colors: Theme['colors'], text = ''): string {
+export function getColorByLength(colors: ThemeColorTokens, text = ''): string {
   const colorKeys = Object.keys(colors).filter(color => color.startsWith('secondary-'))
   const subColorIndex = text.length % colorKeys.length
 
