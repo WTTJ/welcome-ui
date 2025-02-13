@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 
 import * as S from './styles'
 
@@ -26,12 +26,25 @@ export interface TextOptions {
   lines?: number
   variant?: Variant
   withDash?: boolean
+  wordBreak?: CSSProperties['wordBreak']
 }
 
 export type TextProps = CreateWuiProps<'p', TextOptions>
 
 export const Text = forwardRef<'p', TextProps>(
-  ({ as, children, dataTestId, lines, variant = 'md', withDash, ...rest }, ref) => {
+  (
+    {
+      as,
+      children,
+      dataTestId,
+      lines,
+      variant = 'md',
+      withDash,
+      wordBreak = 'break-word',
+      ...rest
+    },
+    ref
+  ) => {
     const tagName = as || TAG_NAMES[variant]
     const className = rest.className || ''
 
@@ -43,6 +56,7 @@ export const Text = forwardRef<'p', TextProps>(
         ref={ref}
         variant={variant}
         withDash={withDash}
+        wordBreak={wordBreak}
         {...rest}
         className={`${className} wui-text`}
       >

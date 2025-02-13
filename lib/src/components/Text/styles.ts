@@ -24,7 +24,7 @@ const getBlockHeight = (lines: number) => css`
   word-break: ${lines === 1 ? 'break-all' : null};
 `
 
-export const Text = styled.p<TextOptions>(({ lines, theme, variant, withDash }) => {
+export const Text = styled.p<TextOptions>(({ lines, theme, variant, withDash, wordBreak }) => {
   const mobileVariant = MOBILE_VARIANTS[variant as keyof typeof MOBILE_VARIANTS]
   const isHeading = variant?.startsWith('h')
   // only add lineHeight fixer styles when these conditions are fulfilled
@@ -36,6 +36,7 @@ export const Text = styled.p<TextOptions>(({ lines, theme, variant, withDash }) 
 
   return css`
     ${th(`texts.${mobileVariant || variant}`)};
+    word-break: ${wordBreak};
 
     /* Start fallback for non-webkit */
     display: block;
