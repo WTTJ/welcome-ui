@@ -16,11 +16,11 @@ export const Icon = styled.divBox`
   ${th('accordions.icon')};
   transform: rotate3d(0);
   transition: medium;
-  width: 24;
-  height: 24;
+  width: 32;
+  height: 32;
   color: inherit;
   display: flex;
-  border-radius: 12;
+  border-radius: 16;
 
   & *:first-child {
     margin: auto;
@@ -36,7 +36,7 @@ export const Disclosure = styled(Ariakit.Disclosure)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: xxl;
+  gap: lg;
 
   &[aria-expanded='true'] {
     ${Icon} {
