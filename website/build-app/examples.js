@@ -223,7 +223,6 @@ export default {
   "/Text/docs/examples/overwrite.tsx": dynamic(() => import("../../lib/src/components/Text/docs/examples/overwrite.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/truncation.tsx": dynamic(() => import("../../lib/src/components/Text/docs/examples/truncation.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/withDash.tsx": dynamic(() => import("../../lib/src/components/Text/docs/examples/withDash.tsx").then(mod => mod), { ssr: false }),
-  "/Text/docs/examples/wordBreak.tsx": dynamic(() => import("../../lib/src/components/Text/docs/examples/wordBreak.tsx").then(mod => mod), { ssr: false }),
   "/Textarea/docs/examples/field.tsx": dynamic(() => import("../../lib/src/components/Textarea/docs/examples/field.tsx").then(mod => mod), { ssr: false }),
   "/Textarea/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Textarea/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/TimePicker/docs/examples/icon.tsx": dynamic(() => import("../../lib/src/components/TimePicker/docs/examples/icon.tsx").then(mod => mod), { ssr: false }),

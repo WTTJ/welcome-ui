@@ -112,7 +112,9 @@
         }
       },
       "wordBreak": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "break-word"
+        },
         "description": "",
         "name": "wordBreak",
         "parent": {
@@ -131,10 +133,10 @@
           "raw": "WordBreak",
           "value": [
             {
-              "value": "\"inherit\""
+              "value": "\"-moz-initial\""
             },
             {
-              "value": "\"-moz-initial\""
+              "value": "\"inherit\""
             },
             {
               "value": "\"initial\""

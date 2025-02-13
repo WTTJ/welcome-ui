@@ -32,7 +32,19 @@ export interface TextOptions {
 export type TextProps = CreateWuiProps<'p', TextOptions>
 
 export const Text = forwardRef<'p', TextProps>(
-  ({ as, children, dataTestId, lines, variant = 'md', withDash, ...rest }, ref) => {
+  (
+    {
+      as,
+      children,
+      dataTestId,
+      lines,
+      variant = 'md',
+      withDash,
+      wordBreak = 'break-word',
+      ...rest
+    },
+    ref
+  ) => {
     const tagName = as || TAG_NAMES[variant]
     const className = rest.className || ''
 
@@ -44,6 +56,7 @@ export const Text = forwardRef<'p', TextProps>(
         ref={ref}
         variant={variant}
         withDash={withDash}
+        wordBreak={wordBreak}
         {...rest}
         className={`${className} wui-text`}
       >
