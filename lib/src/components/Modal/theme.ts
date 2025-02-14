@@ -2,7 +2,7 @@ import { CSSObject } from '@xstyled/styled-components'
 
 import { ThemeValues } from '@/theme'
 
-type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
+export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
 export type ThemeModals = {
   backdrop: CSSObject
@@ -12,7 +12,7 @@ export type ThemeModals = {
   footer: CSSObject
   gutter: string
   header: CSSObject
-  sizes: Record<Sizes, { width?: string }>
+  sizes: Record<Size, { width?: string }>
 }
 
 export const getModals = (theme: ThemeValues): ThemeModals => {
