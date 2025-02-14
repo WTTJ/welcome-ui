@@ -2,11 +2,10 @@ import React from 'react'
 import { CSSObject } from '@xstyled/styled-components'
 
 import * as S from './styles'
+import { Size } from './theme'
 
 import { Box } from '@/Box'
-import { CreateWuiProps, ExtraSize, forwardRef } from '@/System'
-
-type Size = 'xs' | 'sm' | 'md' | 'lg' | ExtraSize
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface LoaderOptions {
   color?: CSSObject['color']

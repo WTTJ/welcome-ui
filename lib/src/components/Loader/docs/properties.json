@@ -600,10 +600,22 @@
           "raw": "Size",
           "value": [
             {
-              "value": "string"
+              "value": "\"xs\""
             },
             {
-              "value": "number"
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "string & Record<never, never>"
+            },
+            {
+              "value": "number & Record<never, never>"
             }
           ]
         }

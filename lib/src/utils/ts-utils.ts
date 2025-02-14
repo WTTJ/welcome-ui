@@ -13,5 +13,7 @@
  * // would be interpreted as
  * type color = 'red' | 'blue' | 'green'
  * // While still allowing any literal string
+ * const bg: color = 'yellow'
+ * const bg: color = '#FFF'
  */
 export type LiteralUnion<T, U = string> = T | (U & Record<never, never>)
