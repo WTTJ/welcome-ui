@@ -1,11 +1,11 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
 
+import { Size } from './theme'
+
 import { ToggleOptions } from './index'
 
 import { shouldForwardProp } from '@/System'
-
-type Size = 'xs' | 'sm' | 'md'
 
 export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })<ToggleOptions>(
   ({ order = '-1', size }) => css`
