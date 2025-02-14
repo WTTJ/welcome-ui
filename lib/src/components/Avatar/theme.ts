@@ -1,10 +1,10 @@
 import type { CSSObject } from '@xstyled/styled-components'
 
 import type { ThemeColorTokens, ThemeValues } from '@/theme'
-import type { LiteralStringUnion } from '@/utils'
+import type { LiteralUnion } from '@/utils'
 
 export type Size = 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
-export type AvatarColors = LiteralStringUnion<ThemeColorTokens>
+export type AvatarColors = LiteralUnion<ThemeColorTokens>
 
 export type ThemeAvatars = {
   sizes: Record<Size, string>

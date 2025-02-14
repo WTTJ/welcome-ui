@@ -21,9 +21,6 @@
           "raw": "AvatarColors",
           "value": [
             {
-              "value": "string & Record<never, never>"
-            },
-            {
               "value": "\"yellow-10\""
             },
             {
@@ -367,6 +364,9 @@
             },
             {
               "value": "\"violet-90\""
+            },
+            {
+              "value": "string & Record<never, never>"
             }
           ]
         }

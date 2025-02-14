@@ -8,10 +8,10 @@
  * // would be interpreted as
  * type color = string
  *
- * // Using LiteralStringUnion<T>
- * type color = LiteralStringUnion<'red' | 'blue' | 'green'>
+ * // Using LiteralUnion<T>
+ * type color = LiteralUnion<'red' | 'blue' | 'green'>
  * // would be interpreted as
  * type color = 'red' | 'blue' | 'green'
  * // While still allowing any literal string
  */
-export type LiteralStringUnion<T> = T | (string & Record<never, never>)
+export type LiteralUnion<T, U = string> = T | (U & Record<never, never>)
