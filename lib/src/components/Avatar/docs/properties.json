@@ -17,7 +17,358 @@
         ],
         "required": false,
         "type": {
-          "name": "any"
+          "name": "enum",
+          "raw": "AvatarColors",
+          "value": [
+            {
+              "value": "string & Record<never, never>"
+            },
+            {
+              "value": "\"yellow-10\""
+            },
+            {
+              "value": "\"yellow-20\""
+            },
+            {
+              "value": "\"yellow-30\""
+            },
+            {
+              "value": "\"yellow-40\""
+            },
+            {
+              "value": "\"yellow-50\""
+            },
+            {
+              "value": "\"yellow-60\""
+            },
+            {
+              "value": "\"yellow-70\""
+            },
+            {
+              "value": "\"yellow-80\""
+            },
+            {
+              "value": "\"yellow-90\""
+            },
+            {
+              "value": "\"blue-40\""
+            },
+            {
+              "value": "\"green-30\""
+            },
+            {
+              "value": "\"red-orange-40\""
+            },
+            {
+              "value": "\"pink-40\""
+            },
+            {
+              "value": "\"teal-40\""
+            },
+            {
+              "value": "\"violet-40\""
+            },
+            {
+              "value": "\"primary-10\""
+            },
+            {
+              "value": "\"primary-20\""
+            },
+            {
+              "value": "\"primary-30\""
+            },
+            {
+              "value": "\"primary-40\""
+            },
+            {
+              "value": "\"primary-50\""
+            },
+            {
+              "value": "\"primary-60\""
+            },
+            {
+              "value": "\"primary-70\""
+            },
+            {
+              "value": "\"primary-80\""
+            },
+            {
+              "value": "\"primary-90\""
+            },
+            {
+              "value": "\"secondary-blue\""
+            },
+            {
+              "value": "\"secondary-green\""
+            },
+            {
+              "value": "\"secondary-orange\""
+            },
+            {
+              "value": "\"secondary-pink\""
+            },
+            {
+              "value": "\"secondary-teal\""
+            },
+            {
+              "value": "\"secondary-violet\""
+            },
+            {
+              "value": "\"overlay\""
+            },
+            {
+              "value": "\"beige-10\""
+            },
+            {
+              "value": "\"beige-20\""
+            },
+            {
+              "value": "\"beige-30\""
+            },
+            {
+              "value": "\"beige-40\""
+            },
+            {
+              "value": "\"beige-50\""
+            },
+            {
+              "value": "\"beige-60\""
+            },
+            {
+              "value": "\"beige-70\""
+            },
+            {
+              "value": "\"beige-80\""
+            },
+            {
+              "value": "\"beige-90\""
+            },
+            {
+              "value": "\"blue-10\""
+            },
+            {
+              "value": "\"blue-20\""
+            },
+            {
+              "value": "\"blue-30\""
+            },
+            {
+              "value": "\"blue-50\""
+            },
+            {
+              "value": "\"blue-60\""
+            },
+            {
+              "value": "\"blue-70\""
+            },
+            {
+              "value": "\"blue-80\""
+            },
+            {
+              "value": "\"blue-90\""
+            },
+            {
+              "value": "\"green-10\""
+            },
+            {
+              "value": "\"green-20\""
+            },
+            {
+              "value": "\"green-40\""
+            },
+            {
+              "value": "\"green-50\""
+            },
+            {
+              "value": "\"green-60\""
+            },
+            {
+              "value": "\"green-70\""
+            },
+            {
+              "value": "\"green-80\""
+            },
+            {
+              "value": "\"green-90\""
+            },
+            {
+              "value": "\"neutral-10\""
+            },
+            {
+              "value": "\"neutral-20\""
+            },
+            {
+              "value": "\"neutral-30\""
+            },
+            {
+              "value": "\"neutral-40\""
+            },
+            {
+              "value": "\"neutral-50\""
+            },
+            {
+              "value": "\"neutral-60\""
+            },
+            {
+              "value": "\"neutral-70\""
+            },
+            {
+              "value": "\"neutral-80\""
+            },
+            {
+              "value": "\"neutral-90\""
+            },
+            {
+              "value": "\"orange-10\""
+            },
+            {
+              "value": "\"orange-20\""
+            },
+            {
+              "value": "\"orange-30\""
+            },
+            {
+              "value": "\"orange-40\""
+            },
+            {
+              "value": "\"orange-50\""
+            },
+            {
+              "value": "\"orange-60\""
+            },
+            {
+              "value": "\"orange-70\""
+            },
+            {
+              "value": "\"orange-80\""
+            },
+            {
+              "value": "\"orange-90\""
+            },
+            {
+              "value": "\"pink-10\""
+            },
+            {
+              "value": "\"pink-20\""
+            },
+            {
+              "value": "\"pink-30\""
+            },
+            {
+              "value": "\"pink-50\""
+            },
+            {
+              "value": "\"pink-60\""
+            },
+            {
+              "value": "\"pink-70\""
+            },
+            {
+              "value": "\"pink-80\""
+            },
+            {
+              "value": "\"pink-90\""
+            },
+            {
+              "value": "\"red-10\""
+            },
+            {
+              "value": "\"red-20\""
+            },
+            {
+              "value": "\"red-30\""
+            },
+            {
+              "value": "\"red-40\""
+            },
+            {
+              "value": "\"red-50\""
+            },
+            {
+              "value": "\"red-60\""
+            },
+            {
+              "value": "\"red-70\""
+            },
+            {
+              "value": "\"red-80\""
+            },
+            {
+              "value": "\"red-90\""
+            },
+            {
+              "value": "\"red-orange-10\""
+            },
+            {
+              "value": "\"red-orange-20\""
+            },
+            {
+              "value": "\"red-orange-30\""
+            },
+            {
+              "value": "\"red-orange-50\""
+            },
+            {
+              "value": "\"red-orange-60\""
+            },
+            {
+              "value": "\"red-orange-70\""
+            },
+            {
+              "value": "\"red-orange-80\""
+            },
+            {
+              "value": "\"red-orange-90\""
+            },
+            {
+              "value": "\"teal-10\""
+            },
+            {
+              "value": "\"teal-20\""
+            },
+            {
+              "value": "\"teal-30\""
+            },
+            {
+              "value": "\"teal-50\""
+            },
+            {
+              "value": "\"teal-60\""
+            },
+            {
+              "value": "\"teal-70\""
+            },
+            {
+              "value": "\"teal-80\""
+            },
+            {
+              "value": "\"teal-90\""
+            },
+            {
+              "value": "\"violet-10\""
+            },
+            {
+              "value": "\"violet-20\""
+            },
+            {
+              "value": "\"violet-30\""
+            },
+            {
+              "value": "\"violet-50\""
+            },
+            {
+              "value": "\"violet-60\""
+            },
+            {
+              "value": "\"violet-70\""
+            },
+            {
+              "value": "\"violet-80\""
+            },
+            {
+              "value": "\"violet-90\""
+            }
+          ]
         }
       },
       "getInitials": {

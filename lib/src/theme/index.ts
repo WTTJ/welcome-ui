@@ -179,6 +179,8 @@ export type ThemeFontsUrl =
   | 'https://cdn.welcometothejungle.com/fonts'
   | string
 
+export type ThemeColorTokens = keyof ThemeColors
+
 export type ThemeProps = {
   [param: string]: unknown
   defaultFontFamily?: string

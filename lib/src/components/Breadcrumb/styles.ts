@@ -1,13 +1,13 @@
 import styled, { css, th, Theme } from '@xstyled/styled-components'
 
-import { hexToRGBA } from '../../utils/hex-to-rgba'
-
 import { BreadcrumbOptions } from './index'
+
+import { hexToRGBA } from '@/utils'
 
 export const StartGradient = styled.spanBox<Pick<BreadcrumbOptions, 'gradientBackground'>>(
   ({ gradientBackground, theme }) => css`
     left: 0;
-    background-image: ${gradient(theme as Theme, gradientBackground)};
+    background-image: ${gradient(theme, gradientBackground)};
     transform-origin: left;
   `
 )
@@ -15,7 +15,7 @@ export const StartGradient = styled.spanBox<Pick<BreadcrumbOptions, 'gradientBac
 export const EndGradient = styled.spanBox<Pick<BreadcrumbOptions, 'gradientBackground'>>(
   ({ gradientBackground, theme }) => css`
     right: 0;
-    background-image: ${gradient(theme as Theme, gradientBackground, 'left')};
+    background-image: ${gradient(theme, gradientBackground, 'left')};
     transform-origin: right;
   `
 )
@@ -49,7 +49,7 @@ export const List = styled.olBox`
 
 const gradient = (
   theme: Theme,
-  gradientBackground: Pick<BreadcrumbOptions, 'gradientBackground'>,
+  gradientBackground: BreadcrumbOptions['gradientBackground'],
   position = 'right'
 ) => {
   const gradientColor = th(`colors.${gradientBackground}`)({ theme }) as string
