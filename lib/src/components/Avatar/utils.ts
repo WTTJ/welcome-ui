@@ -1,4 +1,4 @@
-import { ThemeColorTokens } from './theme'
+import { ThemeColorTokens } from '@/theme'
 
 export function getColorByLength(colors: ThemeColorTokens, text = ''): string {
   const colorKeys = Object.keys(colors).filter(color => color.startsWith('secondary-'))
