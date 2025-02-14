@@ -1,6 +1,7 @@
 import React from 'react'
 
 import * as S from './styles'
+import { ToastVariant } from './theme'
 
 import { Box } from '@/Box'
 import { Button, ButtonProps } from '@/Button'
@@ -15,11 +16,10 @@ export interface SnackbarOptions {
   hasCloseButton?: boolean
   icon?: JSX.Element | null
   onClose?: () => void
-  variant?: 'default' | 'info' | 'success' | 'danger' | 'warning'
+  variant?: ToastVariant
 }
 
 export type SnackbarProps = CreateWuiProps<'div', SnackbarOptions>
-
 /**
  * @name Toast.Snackbar
  */

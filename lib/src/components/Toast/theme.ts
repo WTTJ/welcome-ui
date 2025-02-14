@@ -4,6 +4,8 @@ import { getTexts } from '../../theme/typography'
 
 import { ThemeValues } from '@/theme'
 
+export type ToastVariant = 'default' | 'info' | 'success' | 'danger' | 'warning'
+
 export type ThemeToasts = {
   bottom: CSSObject
   default: CSSObject

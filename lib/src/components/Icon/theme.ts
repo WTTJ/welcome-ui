@@ -1,13 +1,11 @@
 import { ThemeValues } from '@/theme'
+import { LiteralUnion } from '@/utils'
 
-export type ThemeIcons = {
-  lg: string
-  md: string
-  sm: string
-  xl: string
-  xs: string
-  xxl: string
-}
+type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+
+export type Size = LiteralUnion<IconSize, number | string>
+
+export type ThemeIcons = Record<IconSize, string>
 
 export const getIcons = ({ toRem }: ThemeValues): ThemeIcons => ({
   xs: toRem(12),

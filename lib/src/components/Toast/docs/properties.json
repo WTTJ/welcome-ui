@@ -107,7 +107,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"default\" | \"info\" | \"success\" | \"danger\" | \"warning\"",
+          "raw": "ToastVariant",
           "value": [
             {
               "value": "\"default\""

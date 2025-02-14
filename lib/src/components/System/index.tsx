@@ -156,5 +156,3 @@ export const forwardRef = <Component extends As, Props = {}>(
 ): CreateWuiComponent<Component, Props> => {
   return React.forwardRef(component) as unknown as CreateWuiComponent<Component, Props>
 }
-
-export type ExtraSize = number | string

@@ -6,6 +6,7 @@ import { ThemeValues } from '@/theme'
 const XS_LINE_HEIGHT_ADJUSTMENTS = '0.32rem !important'
 const SM_LINE_HEIGHT_ADJUSTMENTS = '0.12rem ! important'
 
+export type Size = 'xs' | 'sm' | 'md'
 type State = 'default' | 'checked' | 'disabled' | 'sizes'
 
 export type ThemeToggles = {

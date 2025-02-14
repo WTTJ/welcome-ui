@@ -1,11 +1,10 @@
 import React from 'react'
 
 import * as S from './styles'
+import { Size } from './theme'
 
 import { Checkbox, CheckboxProps } from '@/Checkbox'
 import { CreateWuiProps, forwardRef } from '@/System'
-
-type Size = 'xs' | 'sm' | 'md'
 
 export type ToggleOptions = Omit<
   CheckboxProps,

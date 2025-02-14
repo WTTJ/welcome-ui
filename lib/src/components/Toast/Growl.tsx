@@ -1,6 +1,7 @@
 import React from 'react'
 
 import * as S from './styles'
+import { ToastVariant } from './theme'
 
 import { CloseButton } from '@/CloseButton'
 import { CreateWuiProps, forwardRef } from '@/System'
@@ -10,7 +11,7 @@ export interface GrowlOptions {
   hasCloseButton?: boolean
   icon?: JSX.Element | null
   onClose?: () => void
-  variant?: 'default' | 'info' | 'success' | 'danger' | 'warning'
+  variant?: ToastVariant
 }
 
 export type GrowlProps = CreateWuiProps<'div', GrowlOptions>

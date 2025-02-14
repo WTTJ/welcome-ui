@@ -1,6 +1,7 @@
 import React from 'react'
 
 import * as S from './styles'
+import { Size } from './theme'
 
 import { CreateWuiProps, forwardRef } from '@/System'
 
@@ -12,8 +13,6 @@ type IconContent = {
   viewBox?: string
   width?: number
 }
-
-type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | number | string
 
 export interface IconOptions {
   content?: IconContent
