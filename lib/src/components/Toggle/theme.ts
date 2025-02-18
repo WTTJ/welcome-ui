@@ -7,12 +7,12 @@ const XS_LINE_HEIGHT_ADJUSTMENTS = '0.32rem !important'
 const SM_LINE_HEIGHT_ADJUSTMENTS = '0.12rem ! important'
 
 export type Size = 'xs' | 'sm' | 'md'
-type State = 'default' | 'checked' | 'disabled' | 'sizes'
+type State = 'default' | 'checked' | 'disabled'
 
 export type ThemeToggles = {
-  after: Record<State, CSSObject>
+  after: Record<State | 'sizes', CSSObject>
   icon: Record<'sizes' | 'position', CSSObject>
-  item: Record<State, CSSObject>
+  item: Record<State | 'sizes', CSSObject>
 }
 
 export const getToggles = (theme: ThemeValues): ThemeToggles => {
