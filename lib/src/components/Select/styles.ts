@@ -97,20 +97,14 @@ export const Menu = styled.ul`
   }
 `
 
-export const Item = styled.li(
-  ({
-    allowUnselectFromList,
-    isDisabled,
-    isHighlighted,
-    isMultiple,
-    isSelected,
-  }: {
-    allowUnselectFromList: boolean
-    isDisabled?: boolean
-    isHighlighted: boolean
-    isMultiple: boolean
-    isSelected: boolean
-  }) => css`
+export const Item = styled.li<{
+  allowUnselectFromList: boolean
+  isDisabled?: boolean
+  isHighlighted: boolean
+  isMultiple: boolean
+  isSelected: boolean
+}>(
+  ({ allowUnselectFromList, isDisabled, isHighlighted, isMultiple, isSelected }) => css`
     color: beige-70;
     ${isHighlighted && th('defaultFields.select.highlighted')};
     ${isSelected && !isMultiple && th('defaultFields.select.selected')};
