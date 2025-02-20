@@ -110,6 +110,60 @@
             }
           ]
         }
+      },
+      "wordBreak": {
+        "defaultValue": {
+          "value": "break-word"
+        },
+        "description": "",
+        "name": "wordBreak",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Text/index.tsx",
+          "name": "TextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Text/index.tsx",
+            "name": "TextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "WordBreak",
+          "value": [
+            {
+              "value": "\"-moz-initial\""
+            },
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"initial\""
+            },
+            {
+              "value": "\"revert\""
+            },
+            {
+              "value": "\"revert-layer\""
+            },
+            {
+              "value": "\"unset\""
+            },
+            {
+              "value": "\"break-all\""
+            },
+            {
+              "value": "\"break-word\""
+            },
+            {
+              "value": "\"keep-all\""
+            },
+            {
+              "value": "\"normal\""
+            }
+          ]
+        }
       }
     }
   }
