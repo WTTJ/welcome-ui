@@ -1,18 +1,17 @@
 import React, { memo } from 'react'
-import { Theme, useTheme } from '@xstyled/styled-components'
+import { useTheme } from '@xstyled/styled-components'
 
 import { getInitials as defaultGetInitials, getColorByLength } from './utils'
 import * as S from './styles'
+import type { AvatarColors, Size } from './theme'
 
-import { ShapeOptions } from '@/Shape'
-import { CreateWuiProps, forwardRef } from '@/System'
+import type { ShapeOptions } from '@/Shape'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 import { Box } from '@/Box'
 
-type SubColor = Theme['colors']
-type Size = 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
-
 export interface AvatarOptions {
-  color?: string | SubColor
+  color?: AvatarColors
   getInitials?: (name: string) => string
   name: string
   size?: Size

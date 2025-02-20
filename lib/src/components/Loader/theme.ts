@@ -1,11 +1,10 @@
 import { ThemeValues } from '@/theme'
+import { LiteralUnion } from '@/utils'
 
-export type ThemeLoaders = {
-  lg: string
-  md: string
-  sm: string
-  xs: string
-}
+type LoaderSize = 'xs' | 'sm' | 'md' | 'lg'
+export type Size = LiteralUnion<LoaderSize, string | number>
+
+export type ThemeLoaders = Record<LoaderSize, string>
 
 export const getLoaders = ({ toRem }: ThemeValues): ThemeLoaders => ({
   xs: toRem(8),

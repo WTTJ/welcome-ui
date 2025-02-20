@@ -7,12 +7,11 @@ import { Header } from './Header'
 import { Footer } from './Footer'
 import { Content } from './Content'
 import { Assets } from './Assets'
+import { Size } from './theme'
 
 import { As, CreateWuiProps, forwardRef } from '@/System'
 import { BoxProps } from '@/Box'
 import { Shape, ShapeProps } from '@/Shape'
-
-type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
 export interface ModalOptions extends Omit<Ariakit.DialogOptions<'div'>, 'as'> {
   ariaLabel: string
