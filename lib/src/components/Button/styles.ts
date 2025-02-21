@@ -1,4 +1,4 @@
-import styled, { css, system, th, Theme } from '@xstyled/styled-components'
+import styled, { css, CSSScalar, system, th, Theme } from '@xstyled/styled-components'
 import { Button as AriakitButton } from '@ariakit/react'
 
 import { hideFocusRingsDataAttribute } from '../../utils/hide-focus-rings-root'
@@ -27,15 +27,30 @@ const getButtonSize = (size: ComposedSize, theme: Theme) => {
   //Build the media queries style
   const sizeResponsiveStyles = Object.entries(size).reduce((acc, [breakpoint, sizeValue]) => {
     const sizeThemeValues = th(`buttons.sizes.${sizeValue}`)({ theme })
-    const sizeStyles = Object.entries(sizeThemeValues).reduce(
+
+    // Convert to valid CSS using css helper
+    // Works if returned as is
+    // won't work if added in an interpolated string
+    // const styles = css`
+    //   ${sizeThemeValues}
+    // `
+
+    //FIXME styles are still in camelCase
+    // const sizeStyles = Object.entries(sizeThemeValues).reduce(
+    //   (style, [key, value]) => (value ? style + `${key}: ${value};` : style),
+    //   ''
+    // )
+
+    // Convert camelCase to kebab-case, seems reliable
+    const convertedStyles = convertCssProperties(sizeThemeValues)
+    const inlineConvertedStyles = Object.entries(convertedStyles).reduce(
       (style, [key, value]) => (value ? style + `${key}: ${value};` : style),
       ''
     )
-    //FIXME styles are still in camelCase
+
     acc += `
       @media (min-width: ${breakpoint}) {
-        border: 1px solid red;
-        ${sizeStyles}
+        ${inlineConvertedStyles}
       }
     `
     return acc
@@ -139,3 +154,14 @@ export const Button = styled(AriakitButton).withConfig({ shouldForwardProp })<Bu
     }
   `
 )
+
+const convertCamelToKebab = (str: string) => {
+  return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+}
+
+const convertCssProperties = (cssScalar: CSSScalar) => {
+  return Object.entries(cssScalar).reduce((acc, [key, value]) => {
+    const kebabKey = convertCamelToKebab(key)
+    return { ...acc, [kebabKey]: value }
+  }, {})
+}
