@@ -1,7 +1,9 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, system, th, Theme } from '@xstyled/styled-components'
 import { Button as AriakitButton } from '@ariakit/react'
 
 import { hideFocusRingsDataAttribute } from '../../utils/hide-focus-rings-root'
+
+import { ComposedSize } from './theme'
 
 import { ButtonOptions } from './index'
 
@@ -16,8 +18,34 @@ const shapeStyles = (size: ButtonOptions['size'], shape: ButtonOptions['shape'] 
   `};
 `
 
+const getButtonSize = (size: ComposedSize, theme: Theme) => {
+  //Early return if size is a base value
+  if (typeof size === 'string') {
+    return th(`buttons.sizes.${size}`)
+  }
+
+  //Build the media queries style
+  const sizeResponsiveStyles = Object.entries(size).reduce((acc, [breakpoint, sizeValue]) => {
+    const sizeThemeValues = th(`buttons.sizes.${sizeValue}`)({ theme })
+    const sizeStyles = Object.entries(sizeThemeValues).reduce(
+      (style, [key, value]) => (value ? style + `${key}: ${value};` : style),
+      ''
+    )
+    //FIXME styles are still in camelCase
+    acc += `
+      @media (min-width: ${breakpoint}) {
+        border: 1px solid red;
+        ${sizeStyles}
+      }
+    `
+    return acc
+  }, '')
+
+  return sizeResponsiveStyles
+}
+
 export const Button = styled(AriakitButton).withConfig({ shouldForwardProp })<ButtonOptions>(
-  ({ ai, danger, disabled, shape, size = 'md', variant = 'primary' }) => css`
+  ({ ai, danger, disabled, shape, size = 'md', theme, variant = 'primary' }) => css`
     ${th(`buttons.${variant}`)};
     ${ai &&
     css`
@@ -32,7 +60,7 @@ export const Button = styled(AriakitButton).withConfig({ shouldForwardProp })<Bu
     align-items: center;
     justify-content: center;
     width: auto;
-    ${th(`buttons.sizes.${size}`)};
+    ${getButtonSize(size, theme)};
     text-decoration: none;
     text-align: center;
     white-space: nowrap;

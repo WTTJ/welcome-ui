@@ -13,6 +13,9 @@ export type Variant = 'primary' | 'secondary' | 'tertiary' | 'ghost'
 export type Size = 'xs' | 'sm' | 'md' | 'lg'
 type Icon = 'only' | 'default'
 
+export type ResponsiveSize = { [key in keyof ThemeValues['screens']]?: Size }
+export type ComposedSize = Size | ResponsiveSize
+
 export type ThemeButtons = Record<Variant | 'danger' | 'ai', CommonAttributesButton> &
   Record<'hover', Record<Variant | 'danger' | 'ai', CommonAttributesButton>> &
   Record<'focus', Record<Variant | 'danger' | 'ai', unknown>> &

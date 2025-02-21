@@ -1,7 +1,7 @@
 import React from 'react'
 
 import * as S from './styles'
-import { Size, Variant } from './theme'
+import { ComposedSize, Variant } from './theme'
 
 import { Loader } from '@/Loader'
 import { CreateWuiProps, forwardRef } from '@/System'
@@ -18,7 +18,7 @@ export interface ButtonOptions {
   disabled?: boolean
   isLoading?: boolean
   shape?: 'circle' | 'square'
-  size?: Size
+  size?: ComposedSize
   variant?: Variant
 }
 

@@ -1,6 +1,4 @@
 export type ThemeScreens = {
-  [key: string]: number
-  [key: number]: number
   '3xl': number
   '4xl': number
   lg: number
