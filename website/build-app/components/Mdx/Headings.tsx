@@ -51,3 +51,19 @@ export const H4 = ({ children, mt = 'xl' }: HeadingsProps) => {
     </Text>
   )
 }
+
+export const H5 = ({ children, mt = 'lg' }: HeadingsProps) => {
+  return (
+    <Text as="h5" id={`${kebabCase(children?.toString())}`} mb="sm" mt={mt} variant="h6">
+      {children}
+    </Text>
+  )
+}
+
+export const H6 = ({ children, mt = 'lg' }: HeadingsProps) => {
+  return (
+    <Text id={`${kebabCase(children?.toString())}`} mb="sm" mt={mt} variant="h6">
+      {children}
+    </Text>
+  )
+}

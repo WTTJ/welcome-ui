@@ -1,47 +1,44 @@
-# Version 7: Back to mono-package
+# Version 8: XStyled and styled-component upgrades
 
-Welcome UI V7 brings back everything into a mono-package: `welcome-ui`
+Welcome UI V8 upgrade `@xstyled` to `v4` and `styled-components` to `v6`. This upgrade is a major version because it includes breaking changes.
 
-![Version 7 illustration](https://github.com/user-attachments/assets/cef3758f-1b87-4d4c-af04-89df91571a4a)
+![Version 8 illustration](todo)
 
 ## Upgrade steps
 
-### 1. Script to migrate
+### 1. Upgrade your dependencies
 
-In your project, run this script to rename all `@welcome-ui/*` imports to `welcome-ui/*` with CamelCase:
-
-```bash
-yarn migrate "../your-project/src/**/**.*{ts,tsx}"
-```
-
-### 2. Update your dependencies
-
-In your project, remove all `@welcome-ui` packages:
+Upgrade `@xstyled/styled-components` and `styled-component` packages:
 
 ```bash
-yarn remove $(grep -o "@welcome-ui/[.a-zA-Z0-9-]*" package.json | sort | uniq)
+yarn upgrade @xstyled/styled-components@^4.0.0" styled-components@^6.1.5
 ```
 
-And add new package:
+### 2. Remove useless dependency
+
+Remove `@types/styled-components` package:
 
 ```bash
-yarn add welcome-ui
+yarn remove @types/styled-components
 ```
 
-### 4. Other changes
+### 3. Script to migrate
 
-1. `WuiTheme` becomes `ThemeValues`
-2. `WuiProvider` is now exported from `welcome-ui/WuiProvider`
-3. Import for IconsFont is now
+In your project, run this script to
+
+- move typescript on styled component
 
 ```diff
-- import { Icons } from '@welcome-ui/icons.font'
-+ import { IconsFont } from 'welcome-ui/IconsFont'
++ export const Component = styled.divBox<{ property: string }>(
++ ({ spropertyize }) => css`
+- export const Component = styled.divBox(
+-   ({ property }: {property: string }) => css`
 ```
 
-4. Import for cardStyles is now
+- transform system with xBox component
 
 ```diff
-- import { cardStyles } from '@welcome-ui/utils'
-+ ${th('cards.default')}'
++ export const Component = styled.spanBox`
+- export const Component = styled.span`
+-   ${system}
 ```
