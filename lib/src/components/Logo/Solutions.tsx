@@ -5,7 +5,7 @@ import * as S from './styles'
 
 import { LogoProps } from '.'
 
-export const SolutionsSymbol = forwardRef<'svg', LogoProps>((props, ref) => {
+export const SolutionsSymbol = forwardRef<SVGSVGElement, LogoProps>((props, ref) => {
   const theme = useTheme()
 
   return (

@@ -1,113 +1,65 @@
-const fs = require('fs').promises
-const path = require('path')
+/* eslint-disable @typescript-eslint/no-var-requires */
+const fs = require('fs')
+
+const glob = require('glob')
+
+const [pattern = ''] = process.argv.slice(2)
 
 // Transformation function for styled components
 const transformStyledComponent = code => {
-  // Match styled component with type definition inside the function parameter
+  let transformed = code
+
+  // Original regex for basic styled components
   const regex = /styled\.(\w+)\(\s*\(\{([^}]+)\}:\s*(\{[^}]+\})\)\s*=>\s*css`([\s\S]*?)`\s*\)/g
 
-  return code.replace(regex, (match, component, params, types, styles) => {
-    // Clean up the params by removing type annotations
+  // New regex for withConfig styled components
+  const withConfigRegex =
+    /styled\.(\w+)\.withConfig\(\{([^}]+)\}\)\(\s*\(\{([^}]+)\}:\s*(\{[^}]+\})\)\s*=>\s*css`([\s\S]*?)`\s*\)/g
+
+  // Transform withConfig components
+  transformed = transformed.replace(
+    withConfigRegex,
+    (match, component, config, params, types, styles) => {
+      const cleanParams = params
+        .split(',')
+        .map(param => param.trim().split(':')[0].trim())
+        .join(', ')
+
+      // Remove ${system}; from styles
+      const cleanStyles = styles.replace(/\${system};?\s*/g, '')
+
+      return `styled.${component}.withConfig({${config}})<${types}>(\n  ({ ${cleanParams} }) => css\`${cleanStyles}\`\n)`
+    }
+  )
+
+  // Transform regular styled components
+  transformed = transformed.replace(regex, (match, component, params, types, styles) => {
     const cleanParams = params
       .split(',')
-      .map(param => {
-        return param.trim().split(':')[0].trim()
-      })
+      .map(param => param.trim().split(':')[0].trim())
       .join(', ')
 
-    // Build the new styled component string
-    return `styled.${component}<${types}>(\n  ({ ${cleanParams} }) => css\`${styles}\`\n)`
+    // Remove ${system}; from styles
+    const cleanStyles = styles.replace(/\${system};?\s*/g, '')
+
+    return `styled.${component}<${types}>(\n  ({ ${cleanParams} }) => css\`${cleanStyles}\`\n)`
   })
-}
 
-// Function to transform file content
-const transformFile = content => {
-  let transformedContent = content
-  let lastTransformedContent
-
-  // Keep transforming until no more changes are made
-  // This handles nested or multiple styled components in the same file
-  do {
-    lastTransformedContent = transformedContent
-    transformedContent = transformStyledComponent(transformedContent)
-  } while (transformedContent !== lastTransformedContent)
-
-  return transformedContent
-}
-
-// Function to find all ts/tsx files recursively
-async function findTypeScriptFiles(dir) {
-  const files = await fs.readdir(dir)
-  const typeScriptFiles = []
-
-  for (const file of files) {
-    const filePath = path.join(dir, file)
-    const stat = await fs.stat(filePath)
-
-    if (stat.isDirectory()) {
-      if (file === 'node_modules' || file === '.git') continue
-      typeScriptFiles.push(...(await findTypeScriptFiles(filePath)))
-    } else if (file.endsWith('.ts') || file.endsWith('.tsx')) {
-      typeScriptFiles.push(filePath)
-    }
-  }
-
-  return typeScriptFiles
-}
-
-// Function to process a single file
-async function processFile(filePath) {
-  try {
-    const content = await fs.readFile(filePath, 'utf8')
-
-    // Check if file contains styled components
-    if (!content.includes('styled.')) {
-      return
-    }
-
-    const transformedContent = transformFile(content)
-
-    if (content !== transformedContent) {
-      await fs.writeFile(filePath, transformedContent)
-      console.log(`✓ Transformed ${filePath}`)
-      return true
-    }
-    return false
-  } catch (error) {
-    console.error(`Error processing ${filePath}:`, error)
-    return false
-  }
+  return transformed
 }
 
 // Main function to run the script
-async function main() {
-  try {
-    const target = process.argv[2] || process.cwd()
-    console.log(`Processing target: ${target}`)
+const files = glob.sync(pattern, {
+  ignore: ['**/node_modules/**', '**/dist/**', '**/*.d.ts'],
+})
 
-    let files = []
-    const stat = await fs.stat(target)
+files.forEach(file => {
+  const content = fs.readFileSync(file, 'utf8')
+  const newContent = transformStyledComponent(content)
 
-    if (stat.isDirectory()) {
-      files = await findTypeScriptFiles(target)
-    } else if (target.endsWith('.ts') || target.endsWith('.tsx')) {
-      files = [target]
-    }
-
-    console.log(`Found ${files.length} TypeScript file(s)`)
-
-    let transformedCount = 0
-    for (const file of files) {
-      const wasTransformed = await processFile(file)
-      if (wasTransformed) transformedCount++
-    }
-
-    console.log('\nTransformation complete!')
-    console.log(`Transformed ${transformedCount} files`)
-  } catch (error) {
-    console.error('Error:', error)
-    process.exit(1)
+  if (content !== newContent) {
+    fs.writeFileSync(file, newContent)
+    // eslint-disable-next-line no-console
+    console.log(`Updated ${file}`)
   }
-}
-
-main()
+})

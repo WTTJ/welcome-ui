@@ -4,7 +4,6 @@ import { ReactDatePickerProps } from 'react-datepicker'
 import { CreateWuiProps, forwardRef } from '@/System'
 import {
   CustomHeader,
-  CustomHeaderOptions,
   CustomHeaderProps,
   CustomInput,
   CustomInputOptions,
@@ -29,8 +28,8 @@ export interface DatePickerOptions {
 export type DatePickerProps = CreateWuiProps<
   typeof StyledDatePicker,
   Omit<ReactDatePickerProps, keyof DatePickerOptions | 'locale'> &
-    Partial<Pick<CustomHeaderOptions, 'endYear' | 'startYear'>> &
-    Pick<CustomHeaderOptions, 'locale'> &
+    Partial<Pick<CustomHeaderProps, 'endYear' | 'startYear'>> &
+    Pick<CustomHeaderProps, 'locale'> &
     Omit<CustomInputOptions, 'handleBlur' | 'handleFocus' | 'onReset' | 'focused' | 'value'> &
     DatePickerOptions
 >
@@ -126,6 +125,8 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
     }
 
     return (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       <StyledDatePicker
         autoComplete="off"
         calendarClassName="date-picker-popper"

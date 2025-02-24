@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 
 import { defaultFieldStyles } from '../../utils/field-styles'
 import { overflowEllipsis } from '../../utils/overflow-ellipsis'
@@ -8,21 +8,19 @@ import { SearchOptions } from './index'
 import { shouldForwardProp } from '@/System'
 import { StyledIcon } from '@/Icon'
 
-export const Wrapper = styled('div').withConfig({ shouldForwardProp })`
+export const Wrapper = styled.divBox.withConfig({ shouldForwardProp })`
   position: relative;
-  ${system};
 `
 
 export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled('input').withConfig({ shouldForwardProp })<SearchOptions>(
+export const Input = styled.inputBox.withConfig({ shouldForwardProp })<SearchOptions>(
   ({ iconPlacement, size, transparent, variant }) => css`
     position: relative;
     ${defaultFieldStyles({ iconPlacement, size, variant, transparent, isClearable: true })};
     ${overflowEllipsis};
-    ${system};
 
     br {
       display: none;
@@ -75,7 +73,10 @@ export const Indicators = styled.div`
   display: flex;
 `
 
-export const DropDownIndicator = styled.button<{ isOpen?: boolean; size: SearchOptions['size'] }>(
+export const DropDownIndicator = styled.buttonBox<{
+  isOpen?: boolean
+  size: SearchOptions['size']
+}>(
   ({ isOpen, size }) => css`
     position: relative;
     height: 100%;

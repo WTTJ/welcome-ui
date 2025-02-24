@@ -1,6 +1,6 @@
-import styled, { system, th } from '@xstyled/styled-components'
+import styled, { th } from '@xstyled/styled-components'
 
-export const Item = styled.button`
+export const Item = styled.buttonBox`
   ${th('dropdownMenu.item')};
   display: flex;
   align-items: center;
@@ -15,6 +15,4 @@ export const Item = styled.button`
   &:focus {
     outline: none !important; /* important for firefox */
   }
-
-  ${system};
 `

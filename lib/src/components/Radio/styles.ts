@@ -5,7 +5,6 @@ import { defaultFieldStyles } from '../../utils/field-styles'
 
 import { RadioProps } from './index'
 
-import { Box } from '@/Box'
 import { shouldForwardProp } from '@/System'
 import { Label as WUILabel } from '@/Label'
 
@@ -58,17 +57,16 @@ export const Label = styled(WUILabel)`
   max-width: 100%;
   /** we need to reset margin-bottom from Label component */
   margin-bottom: 0 !important;
-  ${system};
 `
 
-export const Input = styled.div`
+export const Input = styled.divBox`
   flex-shrink: 0;
   position: relative;
   align-items: center;
   display: flex;
 `
 
-export const Wrapper = styled(Box)`
+export const Wrapper = styled.divBox`
   display: flex;
   align-items: flex-start;
   gap: sm;

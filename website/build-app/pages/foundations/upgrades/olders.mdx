@@ -1,14 +1,62 @@
 # Upgrading
 
+## v7
+
+Welcome UI V7 brings back everything into a mono-package: `welcome-ui`
+
+![Version 7 illustration](https://github.com/user-attachments/assets/cef3758f-1b87-4d4c-af04-89df91571a4a)
+
+### Upgrade steps
+
+### 1. Script to migrate
+
+In your project, run this script to rename all `@welcome-ui/*` imports to `welcome-ui/*` with CamelCase:
+
+```bash
+yarn migrate "../your-project/src/**/**.*{ts,tsx}"
+```
+
+### 2. Update your dependencies
+
+In your project, remove all `@welcome-ui` packages:
+
+```bash
+yarn remove $(grep -o "@welcome-ui/[.a-zA-Z0-9-]*" package.json | sort | uniq)
+```
+
+And add new package:
+
+```bash
+yarn add welcome-ui
+```
+
+### 4. Other changes
+
+1. `WuiTheme` becomes `ThemeValues`
+2. `WuiProvider` is now exported from `welcome-ui/WuiProvider`
+3. Import for IconsFont is now
+
+```diff
+- import { Icons } from '@welcome-ui/icons.font'
++ import { IconsFont } from 'welcome-ui/IconsFont'
+```
+
+4. Import for cardStyles is now
+
+```diff
+- import { cardStyles } from '@welcome-ui/utils'
++ ${th('cards.default')}'
+```
+
 ## v6
 
 Welcome UI V6 focuses on the rebranding of our **colors** and **tokens**, and we add a **Logo** component.
 
 ![Version 6 illustration](https://github.com/user-attachments/assets/34259431-1bc3-4d97-84b7-e2048c7208da)
 
-#### Upgrade steps
+### Upgrade steps
 
-###### 1. Update your dependencies
+##### 1. Update your dependencies
 
 Make sure you update all `@welcome-ui` packages to v6:
 
@@ -35,7 +83,7 @@ And replace by:
 $1"6.0.0"
 ```
 
-###### 2. Script to migrate
+##### 2. Script to migrate
 
 We reworked our theme's colors and variants name. Use the migration script to migrate easily to V6 on a welcome-ui project.
 
@@ -190,7 +238,7 @@ Then:
 node ./your_file "./yourProject/src/**/**.{tsx,ts,js,mdx}"
 ```
 
-###### 3. Remove `welcomeTheme` & `welcomeDarkTheme`
+##### 3. Remove `welcomeTheme` & `welcomeDarkTheme`
 
 To simplify our developements, we removed the 2 welcome themes. Now the default have primary colors from welcome ui brand:
 
@@ -214,50 +262,50 @@ and remove also from your `packages.json`:
 - "@welcome-ui/themes.welcome-dark": "^5.22.1"
 ```
 
-###### 4. Change variant `error` to `danger` on:
+##### 4. Change variant `error` to `danger` on:
 
-######## Alert
+###### Alert
 
 ```diff
 - <Alert variant="error">
 + <Alert variant="danger">
 ```
 
-######## Table
+###### Table
 
 ```diff
 - <Table.Tr variant="error">
 + <Table.Tr variant="danger">
 ```
 
-######## Tag
+###### Tag
 
 ```diff
 - <Tag variant="error">
 + <Tag variant="danger">
 ```
 
-######## Hint
+###### Hint
 
 ```diff
 - <Hint variant="error">
 + <Hint variant="danger">
 ```
 
-######## Label
+###### Label
 
 ```diff
 - <Label variant="error">
 + <Label variant="danger">
 ```
 
-#### Colors
+### Colors
 
 We reworked our colors to prepare the next steps for tokenization.
 
 [Discover our brand new colors](/foundations/theming/basics##colors)
 
-###### Range
+##### Range
 
 Now the range is `color-10` to `color-90`.
 
@@ -266,7 +314,7 @@ Now the range is `color-10` to `color-90`.
 + primary-10
 ```
 
-###### Neutral replace Dark and Light
+##### Neutral replace Dark and Light
 
 We merged Dark and Light colors in a Neutral new one, without opacity.
 
@@ -277,11 +325,11 @@ We merged Dark and Light colors in a Neutral new one, without opacity.
 + neutral-90
 ```
 
-###### New colors
+##### New colors
 
 Hello `green` `teal` `blue` `violet` `pink` `red` `red-orange` `orange` and `yellow` 🥰
 
-###### Beige instead of Nude
+##### Beige instead of Nude
 
 The nude naming is changed for beige.
 
@@ -290,7 +338,7 @@ The nude naming is changed for beige.
 + beige-10
 ```
 
-###### State colors removed
+##### State colors removed
 
 We've removed the state colors `danger`, `success`, `warning` and `info`. They'll be replaced with new tokens in the future.
 
@@ -299,7 +347,7 @@ We've removed the state colors `danger`, `success`, `warning` and `info`. They'l
 + red-10
 ```
 
-###### Secondary
+##### Secondary
 
 Sub colors replaced by 6 new colors for the secondary palette:
 
@@ -334,7 +382,7 @@ Sub colors replaced by 6 new colors for the secondary palette:
 + secondary-violet
 ```
 
-#### Dark mode
+### Dark mode
 
 Dark mode is still on Beta 🚨 and will be released in a few minor versions.
 
@@ -344,9 +392,9 @@ import { createTheme, darkTheme } from '@welcome-ui/core'
 const theme = createTheme(darkTheme)
 ```
 
-#### Components
+### Components
 
-###### Logo
+##### Logo
 
 A new [Logo](/components/logo) component is available, with svg export of:
 
@@ -361,7 +409,7 @@ return <Logo w={100} />
 - <strong>SolutionsSymbol</strong>: Welcome to the solution new logo with symbol
 - <strong>WelcomeUILogo</strong>: Welcome UI new logo
 
-###### Icons & IconsFont
+##### Icons & IconsFont
 
 - New icon Symbol on [Icons](/components/icon##welcome)
 
@@ -375,7 +423,7 @@ return <Logo w={100} />
 <Icons.Symbol />
 ```
 
-###### Fields
+##### Fields
 
 On the fields we removed the `info` variant property:
 
@@ -383,7 +431,7 @@ On the fields we removed the `info` variant property:
 - Labels
 - Hints
 
-###### Button
+##### Button
 
 We removed some variants property on states and add danger property for red button.
 
@@ -404,7 +452,7 @@ We removed some variants property on states and add danger property for red butt
 + <Button variant="ghost" danger>Ghost danger</Button>
 ```
 
-###### Badge
+##### Badge
 
 We removed `shape` property on Badge component, now you will only have rounded badge.
 
@@ -413,7 +461,7 @@ We removed `shape` property on Badge component, now you will only have rounded b
 + <Badge>Name</Badge>
 ```
 
-###### Tag
+##### Tag
 
 We removed the `secondary` variant and replaced the `sub-*` variants. To use the `secondary` color please use the `Badge` component instead.
 
@@ -431,9 +479,9 @@ We removed the `secondary` variant and replaced the `sub-*` variants. To use the
 
 Welcome UI V5 focuses on the rework of our **foundations** and moving from reakit to **ariakit** (_reakit v2)_.
 
-#### Upgrade steps
+### Upgrade steps
 
-###### 1. Update your dependencies
+##### 1. Update your dependencies
 
 Make sure you update all `@welcome-ui` packages and `styled-components` packages:
 
@@ -448,7 +496,7 @@ Make sure you update all `@welcome-ui` packages and `styled-components` packages
 }
 ```
 
-###### 2. Migrate foundations
+##### 2. Migrate foundations
 
 We reworked our theme's colors, spacing, typography, and many other properties. Use the migration script to migrate easily to V5 on a welcome-ui project.
 
@@ -456,7 +504,7 @@ We reworked our theme's colors, spacing, typography, and many other properties. 
 yarn migrate:v5 "../yourProject/src/**/**.**(tsx|ts|js)"
 ```
 
-###### 3. Migrate Reakit to Ariakit
+##### 3. Migrate Reakit to Ariakit
 
 We also migrated to the new **[Ariakit](https://ariakit.org)** library _(reakit v2)_ on some of our components. To migrate easily, you can find components migration below.
 
@@ -489,9 +537,9 @@ To resume:
 + const isOpen = drawer.useState('open')
 ```
 
-#### Theme
+### Theme
 
-###### Colors
+##### Colors
 
 We changed our colors dark and light to be fully compatible with the coming dark mode (in beta). Now dark are black rgba with transparency, and light white rgba with transparency.
 
@@ -528,7 +576,7 @@ We rework some colors:
 - new color black (get the dark.900 for dark mode)
 - the color for html is now neutral-60
 
-###### Spacing
+##### Spacing
 
 We rework our spacing:
 
@@ -546,7 +594,7 @@ We rework our spacing:
 - 6xl (128px) -> new size
 - 7xl (192px) -> new size
 
-###### Typography
+##### Typography
 
 We change the name of variants to `xs` `s` `m` `lg` and remove useless variants.
 
@@ -558,9 +606,9 @@ We change the name of variants to `xs` `s` `m` `lg` and remove useless variants.
 - subtitle1 become `subtitle-md`
 - subtitle2 become `subtitle-sm`
 
-#### Components
+### Components
 
-###### Accordion
+##### Accordion
 
 We migrated to Ariakit and added an `useAccordion` hook to play with the component's store.
 
@@ -573,7 +621,7 @@ We migrated to Ariakit and added an `useAccordion` hook to play with the compone
 = </Accordion>
 ```
 
-###### Alert / Toast / Growl
+##### Alert / Toast / Growl
 
 - **All components**
 
@@ -592,11 +640,11 @@ We migrated to Ariakit and added an `useAccordion` hook to play with the compone
   - The `useToast` hook is deprecated. Instead, you can directly use `toast` function.
   - The props `icon` is now given to **Toast.Growl** / **Toast.Snackbar** component and not to **Toast.Title**.
 
-###### Badges
+##### Badges
 
 - rework `Badge` component [now rounded](/components/badge)
 
-###### Buttons
+##### Buttons
 
 - We have adjusted colors and spacing.
 - The `xl` size has been removed.
@@ -604,7 +652,7 @@ We migrated to Ariakit and added an `useAccordion` hook to play with the compone
 - The `quaternary` variant is now named `ghost`.
 - The icon size now adjusts to the size of the button.
 
-###### Drawer
+##### Drawer
 
 We migrated to Ariakit. We now pass the component's state from `useDrawer` to the `store` property:
 
@@ -623,7 +671,7 @@ We replace props by:
 - `hideOnClickOutside` become `hideOnInteractOutside`
 - `<Drawer.Backdrop>` is removed and replace by a property `withBackdrop`. You can personalize your backdrop with the `backdrop` property.
 
-###### DropdownMenu
+##### DropdownMenu
 
 We migrated to Ariakit. Now we pass the component's state from `useDropdownMenu` to the `store` property:
 
@@ -653,7 +701,7 @@ If you want to not close DropdownMenu item on click please add a `hideOnClose={f
 </DropdownMenu.Item>
 ```
 
-###### EmojiPicker
+##### EmojiPicker
 
 We migrated to Ariakit. Now we pass the component's state from `useEmojiPicker` on the `store` property:
 
@@ -671,7 +719,7 @@ We migrated to Ariakit. Now we pass the component's state from `useEmojiPicker` 
 
 and `defaultTabState` becomes ` defaultTabStore`
 
-###### FileDrop
+##### FileDrop
 
 `accept` property changed on v14 of react-dropzone:
 
@@ -680,7 +728,7 @@ and `defaultTabState` becomes ` defaultTabStore`
 
 See more about [showOpenFilePicker](https://developer.mozilla.org/en-US/docs/Web/API/window/showOpenFilePicker##examples) and [media type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
-###### Icons
+##### Icons
 
 We rework our icon size:
 
@@ -712,11 +760,11 @@ We renamed some icons:
 - `<SalaryIcon>` become `<EuroCurrencyIcon>`
 - new `<SalaryIcon>` icon
 
-###### Link
+##### Link
 
 - the `isExternalLink` become `isExternal`
 
-###### Modal
+##### Modal
 
 - We have adjusted colors and spacing.
 - **Modal.Title** is now named **Modal.Header** and has props `title` (mandatory) and `subtitle` (optional).
@@ -743,7 +791,7 @@ We renamed some icons:
 = </Modal>
 ```
 
-###### Popover
+##### Popover
 
 - We migrated to Ariakit and added a `usePopover` hook to play with the component store.
 
@@ -761,11 +809,11 @@ We renamed some icons:
 = </Popover>
 ```
 
-###### RadioGroup
+##### RadioGroup
 
 We removed the check icon on radio input and changed the style of it. We also reworked accessibility.
 
-###### Tabs
+##### Tabs
 
 We migrated to Ariakit. Now we pass the component state from `useTab` on the `store` property:
 
@@ -788,18 +836,18 @@ We migrated to Ariakit. Now we pass the component state from `useTab` on the `st
 
 and `selectedId` become ` defaultSelectedId`
 
-###### Tag
+##### Tag
 
 - We have adjusted colors and spacing.
 - The `lg` size has been removed.
 - The `shape` prop has been removed.
 - The icon size now adjusts to the size of the tag.
 
-###### Tooltip
+##### Tooltip
 
 We added a div around the Children of the tooltip when the children has a disabled prop otherwise the tooltip does not trigger. We removed popper.js and only use Ariakit for fixed or not fixed tooltip.
 
-###### Swiper
+##### Swiper
 
 We rework the swiper component:
 
@@ -823,13 +871,13 @@ Now we pass the component state from `useSwiper` on the `store` property:
 
 Version 4: Welcome to Typescript!
 
-#### Typescript!
+### Typescript!
 
 We are so excited to add Typescript on Welcome UI 😍
 
-#### Breaking Changes
+### Breaking Changes
 
-###### xStyled
+##### xStyled
 
 We upgraded xStyled core libraries to V3.
 
@@ -838,9 +886,9 @@ We upgraded xStyled core libraries to V3.
 
 Check the migration here: [Changelog of xstyled v3](https://xstyled.dev/docs/upgrade-guide/)
 
-###### Theme
+##### Theme
 
-######## Colors
+###### Colors
 
 - `theme.colors.success[500]` becomes `theme.colors.success[700]`
 - `theme.colors.success[200]` becomes `theme.colors.success[500]`
@@ -853,12 +901,12 @@ Check the migration here: [Changelog of xstyled v3](https://xstyled.dev/docs/upg
   - `theme.colors.success[200]` has been changed for the new color `##7EC784`
   - `theme.colors.info[200]` has been changed for the new color `##6696DF`
 
-######## textsTextTransform
+###### textsTextTransform
 
 - removed uppercase on `h0`
 - add uppercase on `subtitle1` and `subtitle2`
 
-###### Icons
+##### Icons
 
 - 1 icon deleted (doublon with `EditIcon`)
   - `pen`
@@ -878,7 +926,7 @@ Check the migration here: [Changelog of xstyled v3](https://xstyled.dev/docs/upg
   - `screenshare_off`
   - `screenshare_on`
 
-###### Text component
+##### Text component
 
 We reduced the size (and variant) of headings on mobile:
 
@@ -889,29 +937,29 @@ We reduced the size (and variant) of headings on mobile:
 - h4 > h5
 - h5 > h6
 
-###### Components
+##### Components
 
-######## Drawer
+###### Drawer
 
 The Drawer component has to be wrapped with a Backdrop component, visible by default. If you don't want the Backdrop to be visible, you can pass it a `backdropVisible` prop set to `false`.
 
 This decision was made for browser compatibility purpose.
 
-######## ConnectedField
+###### ConnectedField
 
 The ConnectedField component was built to work with react-final-form and was not generic enough so we have decided to remove it on v4.
 
-######## Field
+###### Field
 
 The Field component will not accept `component` prop anymore but wrap your input directly, this makes it possible to give styled props to the Wrapper **and** the Input component. For more information on the new syntax, [check the documentation](/components/field)
 
 You can also [check an example](components/hook-form) with React Hook Form.
 
-######## Group
+###### Group
 
 `Group` component become `ButtonGroup`
 
-######## New components
+###### New components
 
 - new `AspectRatio` component [show more](/components/aspect-ratio)
 - new `Flex` component [show more](/components/flex)
@@ -930,7 +978,7 @@ We upgraded some core libraries:
 - DatePicker: 3.6.0
 - Downshift: 6.1.0
 
-###### Breaking Changes
+##### Breaking Changes
 
 After the upgrade to xStyled 2 there are some breaking changes:
 
@@ -949,14 +997,14 @@ After the upgrade to xStyled 2 there are some breaking changes:
 
 We have changed the core theme on this new version of Welcome UI, and created our new theme `Welcome`.
 
-#### Typography
+### Typography
 
 - Added new font: Work Sans on texts and it's now a variable font
 - Reworked Text components with new sizes for Headings
 - Added default line height and letter spacing
 - Now all our fonts are on our cnd.welcome-ui.com
 
-#### Colors
+### Colors
 
 - Added
   - Primary: 800 / 900
@@ -967,17 +1015,17 @@ We have changed the core theme on this new version of Welcome UI, and created ou
   - Secondary colors
   - Nude: 300 / 400 / 600
 
-#### Spacing
+### Spacing
 
 - `xxl` is smaller (now 20) and `3xl` replaces the old `xxl`
 - Added `3xl` and `4xl`
 
-#### Buttons
+### Buttons
 
 - secondary have become tertiary style and vice versa
 - Added tertiary-negative
 
-#### Icons
+### Icons
 
 - Added
   - ExpandText
@@ -993,31 +1041,31 @@ We have changed the core theme on this new version of Welcome UI, and created ou
 - Removed
   - WelcomeKit
 
-#### Modal
+### Modal
 
 - Added animation on open/close
 - Added `Modal.Title` component
 - Changed the way of use trigger: before `<Button as={Modal.Trigger} {...modal}>` and now `<Modal.Trigger as={Button} {...modal}>`
 
-#### Link
+### Link
 
 Removed underline for Text component on a Link, and fixed animation
 
-#### Tabs
+### Tabs
 
 Removed the `::before` border element on theme and added the ability to remove the border on tab item from style props
 
-#### Swiper
+### Swiper
 
 Completely changed the way the Swiper works (now uses hooks)
 
-#### Other theming
+### Other theming
 
 - Added global focus on `theme.focus()`
 - Added global card style on `theme.defaultCards`
 - Added global fields style on `theme.defaultFields`
 
-#### styled-components
+### styled-components
 
 Added shouldForwardProps from styled components v5.1
 
