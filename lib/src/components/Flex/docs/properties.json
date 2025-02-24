@@ -21,6 +21,9 @@
           "raw": "SystemProp<AlignItems, Theme>",
           "value": [
             {
+              "value": "\"center\""
+            },
+            {
               "value": "\"-moz-initial\""
             },
             {
@@ -37,9 +40,6 @@
             },
             {
               "value": "\"unset\""
-            },
-            {
-              "value": "\"center\""
             },
             {
               "value": "\"end\""
@@ -247,6 +247,9 @@
           "raw": "SystemProp<JustifyContent, Theme>",
           "value": [
             {
+              "value": "\"center\""
+            },
+            {
               "value": "\"right\""
             },
             {
@@ -269,9 +272,6 @@
             },
             {
               "value": "\"unset\""
-            },
-            {
-              "value": "\"center\""
             },
             {
               "value": "\"end\""

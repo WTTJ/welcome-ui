@@ -27,7 +27,7 @@ export const InputWrapper = styled.div`
   position: relative;
 `
 
-export const Input = styled('div').withConfig({ shouldForwardProp })<{
+export const Input = styled.divBox.withConfig({ shouldForwardProp })<{
   iconPlacement?: 'both' | 'right'
   isClearable?: boolean
   size: SelectOptions['size']
@@ -131,8 +131,10 @@ export const Indicators = styled.divBox<{ size: DefaultFieldStylesProps['size'] 
   `
 )
 
-export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })(
-  ({ isOpen }: { isOpen?: boolean }) => css`
+export const DropDownIndicator = styled.button.withConfig({ shouldForwardProp })<{
+  isOpen?: boolean
+}>(
+  ({ isOpen }) => css`
     position: relative;
     height: 100%;
     padding: 0;

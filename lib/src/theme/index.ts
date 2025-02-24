@@ -283,6 +283,15 @@ export const createTheme = (options: ThemeProps = {}): ThemeValues => {
 
   // states
   theme.states = defaultTheme.states
+  theme.durations = defaultTheme.durations
+  theme.gridTemplateColumns = defaultTheme.gridTemplateColumns
+  theme.gridTemplateRows = defaultTheme.gridTemplateRows
+  theme.ringWidths = defaultTheme.ringWidths
+  theme.borders = defaultTheme.borders
+  theme.transitionProperties = defaultTheme.transitionProperties
+  theme.timingFunctions = defaultTheme.timingFunctions
+  theme.animations = defaultTheme.animations
+  theme.xstyled = defaultTheme.xstyled
 
   theme = merge(theme, rest) as ThemeValues
 

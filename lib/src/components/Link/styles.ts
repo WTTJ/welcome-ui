@@ -1,4 +1,4 @@
-import styled, { css, system, th, typography } from '@xstyled/styled-components'
+import styled, { css, th, typography } from '@xstyled/styled-components'
 
 import { LinkOptions } from './index'
 
@@ -44,8 +44,6 @@ export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<
       }
       pointer-events: none;
     }
-
-    ${system};
 
     & > *:not(:only-child):not(:last-child) {
       margin-right: xs;

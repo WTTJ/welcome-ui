@@ -1,4 +1,4 @@
-import styled, { system, th } from '@xstyled/styled-components'
+import styled, { th } from '@xstyled/styled-components'
 
 import { shouldForwardProp } from '@/System'
 
@@ -9,7 +9,6 @@ export const FieldGroup = styled.fieldsetBox.withConfig({ shouldForwardProp })`
   margin: 0;
   padding: 0;
   ${th('defaultFields.fieldset')};
-  ${system};
 
   > * {
     margin-bottom: md;

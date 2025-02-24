@@ -1,110 +1,13 @@
 {
-  "Icon": {
+  "IconsFontStyled": {
     "props": {
-      "content": {
+      "theme": {
         "defaultValue": null,
         "description": "",
-        "name": "content",
-        "parent": {
-          "fileName": "Icon/src/index.tsx",
-          "name": "IconOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Icon/src/index.tsx",
-            "name": "IconOptions"
-          }
-        ],
+        "name": "theme",
         "required": false,
         "type": {
-          "name": "IconContent"
-        }
-      },
-      "name": {
-        "defaultValue": null,
-        "description": "",
-        "name": "name",
-        "parent": {
-          "fileName": "Icon/src/index.tsx",
-          "name": "IconOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Icon/src/index.tsx",
-            "name": "IconOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
-      "onClick": {
-        "defaultValue": null,
-        "description": "",
-        "name": "onClick",
-        "parent": {
-          "fileName": "Icon/src/index.tsx",
-          "name": "IconOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Icon/src/index.tsx",
-            "name": "IconOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "(event: MouseEvent<SVGSVGElement, MouseEvent>) => void"
-        }
-      },
-      "size": {
-        "defaultValue": {
-          "value": "md"
-        },
-        "description": "",
-        "name": "size",
-        "parent": {
-          "fileName": "Icon/src/index.tsx",
-          "name": "IconOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Icon/src/index.tsx",
-            "name": "IconOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "Size",
-          "value": [
-            {
-              "value": "string"
-            },
-            {
-              "value": "number"
-            }
-          ]
-        }
-      },
-      "title": {
-        "defaultValue": null,
-        "description": "",
-        "name": "title",
-        "parent": {
-          "fileName": "Icon/src/index.tsx",
-          "name": "IconOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "Icon/src/index.tsx",
-            "name": "IconOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
+          "name": "DefaultTheme"
         }
       }
     }

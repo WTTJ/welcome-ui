@@ -8,6 +8,7 @@ import * as S from './styles'
 import { CreateWuiProps, forwardRef } from '@/System'
 import { ClearButton } from '@/ClearButton'
 import { IconGroupWrapper, IconWrapper } from '@/Field'
+import { Box } from '@/Box'
 
 export interface InputTextOptions extends DefaultFieldStylesProps {
   autoFocus?: boolean
@@ -65,7 +66,7 @@ export const InputText = forwardRef<'input', InputTextProps>(
     }
 
     return (
-      <S.Wrapper>
+      <Box position="relative">
         <S.InputText
           autoFocus={autoFocus}
           data-testid={dataTestId}
@@ -99,7 +100,7 @@ export const InputText = forwardRef<'input', InputTextProps>(
               React.cloneElement(icon, { ...icon.props, size: iconSize })}
           </IconGroupWrapper>
         )}
-      </S.Wrapper>
+      </Box>
     )
   }
 )

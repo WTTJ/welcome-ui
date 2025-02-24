@@ -1,5 +1,5 @@
 'use client'
-import { useTheme } from '@xstyled/styled-components'
+import { Theme, useTheme } from '@xstyled/styled-components'
 
 import { Alert } from '@/Alert'
 import { Box } from '@/Box'
@@ -7,7 +7,7 @@ import { ThemeValues } from '@/theme'
 import { Grid } from '@/Grid'
 import { Text } from '@/Text'
 
-const getColors = (name: string, theme: ThemeValues) => {
+const getColors = (name: string, theme: Theme) => {
   const themeColors = theme.colors as ThemeValues['colors']
   const endByALetter = name === 'secondary'
   const pattern = endByALetter
