@@ -119,8 +119,8 @@ export const Item = styled.li<{
   `
 )
 
-export const Indicators = styled.divBox(
-  ({ size }: { size: DefaultFieldStylesProps['size'] }) => css`
+export const Indicators = styled.divBox<{ size: DefaultFieldStylesProps['size'] }>(
+  ({ size }) => css`
     position: absolute;
     padding: 0;
     top: 0;

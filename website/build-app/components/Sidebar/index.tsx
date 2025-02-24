@@ -41,7 +41,7 @@ export const Sidebar = ({ display = 'flex', isSubPage, menu, onClick }: SidebarP
       display={display}
       gap="3xl"
       h="calc(100vh - 5.5rem)"
-      overflowY="scroll"
+      overflowY="auto"
       position="sticky"
       pt="3xl"
       ref={ref}
