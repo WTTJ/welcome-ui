@@ -1,6 +1,1458 @@
 {
   "Icon": {
     "props": {
+      "accentHeight": {
+        "defaultValue": null,
+        "description": "",
+        "name": "accentHeight",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "accumulate": {
+        "defaultValue": null,
+        "description": "",
+        "name": "accumulate",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"none\" | \"sum\"",
+          "value": [
+            {
+              "value": "\"none\""
+            },
+            {
+              "value": "\"sum\""
+            }
+          ]
+        }
+      },
+      "additive": {
+        "defaultValue": null,
+        "description": "",
+        "name": "additive",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"replace\" | \"sum\"",
+          "value": [
+            {
+              "value": "\"replace\""
+            },
+            {
+              "value": "\"sum\""
+            }
+          ]
+        }
+      },
+      "alignmentBaseline": {
+        "defaultValue": null,
+        "description": "",
+        "name": "alignmentBaseline",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"alphabetic\" | \"hanging\" | \"ideographic\" | \"mathematical\" | \"inherit\" | \"auto\" | \"baseline\" | \"middle\" | \"after-edge\" | \"before-edge\" | \"central\" | \"text-after-edge\" | \"text-before-edge\"",
+          "value": [
+            {
+              "value": "\"alphabetic\""
+            },
+            {
+              "value": "\"hanging\""
+            },
+            {
+              "value": "\"ideographic\""
+            },
+            {
+              "value": "\"mathematical\""
+            },
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"auto\""
+            },
+            {
+              "value": "\"baseline\""
+            },
+            {
+              "value": "\"middle\""
+            },
+            {
+              "value": "\"after-edge\""
+            },
+            {
+              "value": "\"before-edge\""
+            },
+            {
+              "value": "\"central\""
+            },
+            {
+              "value": "\"text-after-edge\""
+            },
+            {
+              "value": "\"text-before-edge\""
+            }
+          ]
+        }
+      },
+      "allowReorder": {
+        "defaultValue": null,
+        "description": "",
+        "name": "allowReorder",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"no\" | \"yes\"",
+          "value": [
+            {
+              "value": "\"no\""
+            },
+            {
+              "value": "\"yes\""
+            }
+          ]
+        }
+      },
+      "alphabetic": {
+        "defaultValue": null,
+        "description": "",
+        "name": "alphabetic",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "amplitude": {
+        "defaultValue": null,
+        "description": "",
+        "name": "amplitude",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "arabicForm": {
+        "defaultValue": null,
+        "description": "",
+        "name": "arabicForm",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"initial\" | \"medial\" | \"terminal\" | \"isolated\"",
+          "value": [
+            {
+              "value": "\"initial\""
+            },
+            {
+              "value": "\"medial\""
+            },
+            {
+              "value": "\"terminal\""
+            },
+            {
+              "value": "\"isolated\""
+            }
+          ]
+        }
+      },
+      "aria-activedescendant": {
+        "defaultValue": null,
+        "description": "Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application.",
+        "name": "aria-activedescendant",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-atomic": {
+        "defaultValue": null,
+        "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute.",
+        "name": "aria-atomic",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-autocomplete": {
+        "defaultValue": null,
+        "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made.",
+        "name": "aria-autocomplete",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"none\" | \"both\" | \"inline\" | \"list\"",
+          "value": [
+            {
+              "value": "\"none\""
+            },
+            {
+              "value": "\"both\""
+            },
+            {
+              "value": "\"inline\""
+            },
+            {
+              "value": "\"list\""
+            }
+          ]
+        }
+      },
+      "aria-braillelabel": {
+        "defaultValue": null,
+        "description": "Defines a string value that labels the current element, which is intended to be converted into Braille.\n@see aria-label.",
+        "name": "aria-braillelabel",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-brailleroledescription": {
+        "defaultValue": null,
+        "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille.\n@see aria-roledescription.",
+        "name": "aria-brailleroledescription",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-busy": {
+        "defaultValue": null,
+        "description": "",
+        "name": "aria-busy",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-checked": {
+        "defaultValue": null,
+        "description": "Indicates the current \"checked\" state of checkboxes, radio buttons, and other widgets.\n@see aria-pressed\n@see aria-selected.",
+        "name": "aria-checked",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean | \"mixed\" | \"false\" | \"true\"",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"mixed\""
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-colcount": {
+        "defaultValue": null,
+        "description": "Defines the total number of columns in a table, grid, or treegrid.\n@see aria-colindex.",
+        "name": "aria-colcount",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "aria-colindex": {
+        "defaultValue": null,
+        "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid.\n@see aria-colcount\n@see aria-colspan.",
+        "name": "aria-colindex",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "aria-colindextext": {
+        "defaultValue": null,
+        "description": "Defines a human readable text alternative of aria-colindex.\n@see aria-rowindextext.",
+        "name": "aria-colindextext",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-colspan": {
+        "defaultValue": null,
+        "description": "Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid.\n@see aria-colindex\n@see aria-rowspan.",
+        "name": "aria-colspan",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "aria-controls": {
+        "defaultValue": null,
+        "description": "Identifies the element (or elements) whose contents or presence are controlled by the current element.\n@see aria-owns.",
+        "name": "aria-controls",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-current": {
+        "defaultValue": null,
+        "description": "Indicates the element that represents the current item within a container or set of related elements.",
+        "name": "aria-current",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean | \"time\" | \"page\" | \"false\" | \"true\" | \"step\" | \"location\" | \"date\"",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"time\""
+            },
+            {
+              "value": "\"page\""
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            },
+            {
+              "value": "\"step\""
+            },
+            {
+              "value": "\"location\""
+            },
+            {
+              "value": "\"date\""
+            }
+          ]
+        }
+      },
+      "aria-describedby": {
+        "defaultValue": null,
+        "description": "Identifies the element (or elements) that describes the object.\n@see aria-labelledby",
+        "name": "aria-describedby",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-description": {
+        "defaultValue": null,
+        "description": "Defines a string value that describes or annotates the current element.\n@see related aria-describedby.",
+        "name": "aria-description",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-details": {
+        "defaultValue": null,
+        "description": "Identifies the element that provides a detailed, extended description for the object.\n@see aria-describedby.",
+        "name": "aria-details",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-disabled": {
+        "defaultValue": null,
+        "description": "Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable.\n@see aria-hidden\n@see aria-readonly.",
+        "name": "aria-disabled",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-dropeffect": {
+        "defaultValue": null,
+        "description": "Indicates what functions can be performed when a dragged object is released on the drop target.\n@deprecated in ARIA 1.1",
+        "name": "aria-dropeffect",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"link\" | \"none\" | \"copy\" | \"move\" | \"execute\" | \"popup\"",
+          "value": [
+            {
+              "value": "\"link\""
+            },
+            {
+              "value": "\"none\""
+            },
+            {
+              "value": "\"copy\""
+            },
+            {
+              "value": "\"move\""
+            },
+            {
+              "value": "\"execute\""
+            },
+            {
+              "value": "\"popup\""
+            }
+          ]
+        }
+      },
+      "aria-errormessage": {
+        "defaultValue": null,
+        "description": "Identifies the element that provides an error message for the object.\n@see aria-invalid\n@see aria-describedby.",
+        "name": "aria-errormessage",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-expanded": {
+        "defaultValue": null,
+        "description": "Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed.",
+        "name": "aria-expanded",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-flowto": {
+        "defaultValue": null,
+        "description": "Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion,\nallows assistive technology to override the general default of reading in document source order.",
+        "name": "aria-flowto",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-grabbed": {
+        "defaultValue": null,
+        "description": "Indicates an element's \"grabbed\" state in a drag-and-drop operation.\n@deprecated in ARIA 1.1",
+        "name": "aria-grabbed",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-haspopup": {
+        "defaultValue": null,
+        "description": "Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element.",
+        "name": "aria-haspopup",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean | \"dialog\" | \"menu\" | \"listbox\" | \"grid\" | \"false\" | \"true\" | \"tree\"",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"dialog\""
+            },
+            {
+              "value": "\"menu\""
+            },
+            {
+              "value": "\"listbox\""
+            },
+            {
+              "value": "\"grid\""
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            },
+            {
+              "value": "\"tree\""
+            }
+          ]
+        }
+      },
+      "aria-hidden": {
+        "defaultValue": null,
+        "description": "Indicates whether the element is exposed to an accessibility API.\n@see aria-disabled.",
+        "name": "aria-hidden",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-invalid": {
+        "defaultValue": null,
+        "description": "Indicates the entered value does not conform to the format expected by the application.\n@see aria-errormessage.",
+        "name": "aria-invalid",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean | \"false\" | \"true\" | \"grammar\" | \"spelling\"",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            },
+            {
+              "value": "\"grammar\""
+            },
+            {
+              "value": "\"spelling\""
+            }
+          ]
+        }
+      },
+      "aria-keyshortcuts": {
+        "defaultValue": null,
+        "description": "Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element.",
+        "name": "aria-keyshortcuts",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-label": {
+        "defaultValue": null,
+        "description": "Defines a string value that labels the current element.\n@see aria-labelledby.",
+        "name": "aria-label",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-labelledby": {
+        "defaultValue": null,
+        "description": "Identifies the element (or elements) that labels the current element.\n@see aria-describedby.",
+        "name": "aria-labelledby",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-level": {
+        "defaultValue": null,
+        "description": "Defines the hierarchical level of an element within a structure.",
+        "name": "aria-level",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "aria-live": {
+        "defaultValue": null,
+        "description": "Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region.",
+        "name": "aria-live",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"off\" | \"assertive\" | \"polite\"",
+          "value": [
+            {
+              "value": "\"off\""
+            },
+            {
+              "value": "\"assertive\""
+            },
+            {
+              "value": "\"polite\""
+            }
+          ]
+        }
+      },
+      "aria-modal": {
+        "defaultValue": null,
+        "description": "Indicates whether an element is modal when displayed.",
+        "name": "aria-modal",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-multiline": {
+        "defaultValue": null,
+        "description": "Indicates whether a text box accepts multiple lines of input or only a single line.",
+        "name": "aria-multiline",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-multiselectable": {
+        "defaultValue": null,
+        "description": "Indicates that the user may select more than one item from the current selectable descendants.",
+        "name": "aria-multiselectable",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-orientation": {
+        "defaultValue": null,
+        "description": "Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous.",
+        "name": "aria-orientation",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"horizontal\" | \"vertical\"",
+          "value": [
+            {
+              "value": "\"horizontal\""
+            },
+            {
+              "value": "\"vertical\""
+            }
+          ]
+        }
+      },
+      "aria-owns": {
+        "defaultValue": null,
+        "description": "Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship\nbetween DOM elements where the DOM hierarchy cannot be used to represent the relationship.\n@see aria-controls.",
+        "name": "aria-owns",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-placeholder": {
+        "defaultValue": null,
+        "description": "Defines a short hint (a word or short phrase) intended to aid the user with data entry when the control has no value.\nA hint could be a sample value or a brief description of the expected format.",
+        "name": "aria-placeholder",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-posinset": {
+        "defaultValue": null,
+        "description": "Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM.\n@see aria-setsize.",
+        "name": "aria-posinset",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "aria-pressed": {
+        "defaultValue": null,
+        "description": "Indicates the current \"pressed\" state of toggle buttons.\n@see aria-checked\n@see aria-selected.",
+        "name": "aria-pressed",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean | \"mixed\" | \"false\" | \"true\"",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"mixed\""
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-readonly": {
+        "defaultValue": null,
+        "description": "Indicates that the element is not editable, but is otherwise operable.\n@see aria-disabled.",
+        "name": "aria-readonly",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-relevant": {
+        "defaultValue": null,
+        "description": "Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified.\n@see aria-atomic.",
+        "name": "aria-relevant",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"text\" | \"all\" | \"additions\" | \"additions removals\" | \"additions text\" | \"removals\" | \"removals additions\" | \"removals text\" | \"text additions\" | \"text removals\"",
+          "value": [
+            {
+              "value": "\"text\""
+            },
+            {
+              "value": "\"all\""
+            },
+            {
+              "value": "\"additions\""
+            },
+            {
+              "value": "\"additions removals\""
+            },
+            {
+              "value": "\"additions text\""
+            },
+            {
+              "value": "\"removals\""
+            },
+            {
+              "value": "\"removals additions\""
+            },
+            {
+              "value": "\"removals text\""
+            },
+            {
+              "value": "\"text additions\""
+            },
+            {
+              "value": "\"text removals\""
+            }
+          ]
+        }
+      },
+      "aria-required": {
+        "defaultValue": null,
+        "description": "Indicates that user input is required on the element before a form may be submitted.",
+        "name": "aria-required",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-roledescription": {
+        "defaultValue": null,
+        "description": "Defines a human-readable, author-localized description for the role of an element.",
+        "name": "aria-roledescription",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-rowcount": {
+        "defaultValue": null,
+        "description": "Defines the total number of rows in a table, grid, or treegrid.\n@see aria-rowindex.",
+        "name": "aria-rowcount",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "aria-rowindex": {
+        "defaultValue": null,
+        "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid.\n@see aria-rowcount\n@see aria-rowspan.",
+        "name": "aria-rowindex",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "aria-rowindextext": {
+        "defaultValue": null,
+        "description": "Defines a human readable text alternative of aria-rowindex.\n@see aria-colindextext.",
+        "name": "aria-rowindextext",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "aria-rowspan": {
+        "defaultValue": null,
+        "description": "Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid.\n@see aria-rowindex\n@see aria-colspan.",
+        "name": "aria-rowspan",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "aria-selected": {
+        "defaultValue": null,
+        "description": "Indicates the current \"selected\" state of various widgets.\n@see aria-checked\n@see aria-pressed.",
+        "name": "aria-selected",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "aria-setsize": {
+        "defaultValue": null,
+        "description": "Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM.\n@see aria-posinset.",
+        "name": "aria-setsize",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "aria-sort": {
+        "defaultValue": null,
+        "description": "Indicates if items in a table or grid are sorted in ascending or descending order.",
+        "name": "aria-sort",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"none\" | \"ascending\" | \"descending\" | \"other\"",
+          "value": [
+            {
+              "value": "\"none\""
+            },
+            {
+              "value": "\"ascending\""
+            },
+            {
+              "value": "\"descending\""
+            },
+            {
+              "value": "\"other\""
+            }
+          ]
+        }
+      },
+      "aria-valuemax": {
+        "defaultValue": null,
+        "description": "Defines the maximum allowed value for a range widget.",
+        "name": "aria-valuemax",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "aria-valuemin": {
+        "defaultValue": null,
+        "description": "Defines the minimum allowed value for a range widget.",
+        "name": "aria-valuemin",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "aria-valuenow": {
+        "defaultValue": null,
+        "description": "Defines the current value for a range widget.\n@see aria-valuetext.",
+        "name": "aria-valuenow",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "aria-valuetext": {
+        "defaultValue": null,
+        "description": "Defines the human readable text alternative of aria-valuenow for a range widget.",
+        "name": "aria-valuetext",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "ascent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "ascent",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "attributeName": {
+        "defaultValue": null,
+        "description": "",
+        "name": "attributeName",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "attributeType": {
+        "defaultValue": null,
+        "description": "",
+        "name": "attributeType",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "autoReverse": {
+        "defaultValue": null,
+        "description": "",
+        "name": "autoReverse",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "azimuth": {
+        "defaultValue": null,
+        "description": "",
+        "name": "azimuth",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "baseFrequency": {
+        "defaultValue": null,
+        "description": "",
+        "name": "baseFrequency",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "baseProfile": {
+        "defaultValue": null,
+        "description": "",
+        "name": "baseProfile",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "baselineShift": {
+        "defaultValue": null,
+        "description": "",
+        "name": "baselineShift",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "bbox": {
+        "defaultValue": null,
+        "description": "",
+        "name": "bbox",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "begin": {
+        "defaultValue": null,
+        "description": "",
+        "name": "begin",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "bias": {
+        "defaultValue": null,
+        "description": "",
+        "name": "bias",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "by": {
+        "defaultValue": null,
+        "description": "",
+        "name": "by",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "calcMode": {
+        "defaultValue": null,
+        "description": "",
+        "name": "calcMode",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "capHeight": {
+        "defaultValue": null,
+        "description": "",
+        "name": "capHeight",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "className": {
+        "defaultValue": null,
+        "description": "",
+        "name": "className",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "clip": {
+        "defaultValue": null,
+        "description": "",
+        "name": "clip",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "clipPath": {
+        "defaultValue": null,
+        "description": "",
+        "name": "clipPath",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "clipPathUnits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "clipPathUnits",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "clipRule": {
+        "defaultValue": null,
+        "description": "",
+        "name": "clipRule",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "colorInterpolation": {
+        "defaultValue": null,
+        "description": "",
+        "name": "colorInterpolation",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "colorInterpolationFilters": {
+        "defaultValue": null,
+        "description": "",
+        "name": "colorInterpolationFilters",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"inherit\" | \"auto\" | \"linearRGB\" | \"sRGB\"",
+          "value": [
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"auto\""
+            },
+            {
+              "value": "\"linearRGB\""
+            },
+            {
+              "value": "\"sRGB\""
+            }
+          ]
+        }
+      },
+      "colorProfile": {
+        "defaultValue": null,
+        "description": "",
+        "name": "colorProfile",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "colorRendering": {
+        "defaultValue": null,
+        "description": "",
+        "name": "colorRendering",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
       "content": {
         "defaultValue": null,
         "description": "",
@@ -18,6 +1470,1479 @@
         "required": false,
         "type": {
           "name": "IconContent"
+        }
+      },
+      "contentScriptType": {
+        "defaultValue": null,
+        "description": "",
+        "name": "contentScriptType",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "contentStyleType": {
+        "defaultValue": null,
+        "description": "",
+        "name": "contentStyleType",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "crossOrigin": {
+        "defaultValue": null,
+        "description": "",
+        "name": "crossOrigin",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "CrossOrigin",
+          "value": [
+            {
+              "value": "\"\""
+            },
+            {
+              "value": "\"anonymous\""
+            },
+            {
+              "value": "\"use-credentials\""
+            }
+          ]
+        }
+      },
+      "cx": {
+        "defaultValue": null,
+        "description": "",
+        "name": "cx",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "cy": {
+        "defaultValue": null,
+        "description": "",
+        "name": "cy",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "d": {
+        "defaultValue": null,
+        "description": "",
+        "name": "d",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "dangerouslySetInnerHTML": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dangerouslySetInnerHTML",
+        "required": false,
+        "type": {
+          "name": "{ __html: string | TrustedHTML; }"
+        }
+      },
+      "decelerate": {
+        "defaultValue": null,
+        "description": "",
+        "name": "decelerate",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "descent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "descent",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "diffuseConstant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "diffuseConstant",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "direction": {
+        "defaultValue": null,
+        "description": "",
+        "name": "direction",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "divisor": {
+        "defaultValue": null,
+        "description": "",
+        "name": "divisor",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "dominantBaseline": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dominantBaseline",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "dur": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dur",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "dx": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dx",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "dy": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dy",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "edgeMode": {
+        "defaultValue": null,
+        "description": "",
+        "name": "edgeMode",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "elevation": {
+        "defaultValue": null,
+        "description": "",
+        "name": "elevation",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "enableBackground": {
+        "defaultValue": null,
+        "description": "",
+        "name": "enableBackground",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "end": {
+        "defaultValue": null,
+        "description": "",
+        "name": "end",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "exponent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "exponent",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "externalResourcesRequired": {
+        "defaultValue": null,
+        "description": "",
+        "name": "externalResourcesRequired",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "fillOpacity": {
+        "defaultValue": null,
+        "description": "",
+        "name": "fillOpacity",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "fillRule": {
+        "defaultValue": null,
+        "description": "",
+        "name": "fillRule",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"inherit\" | \"evenodd\" | \"nonzero\"",
+          "value": [
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"evenodd\""
+            },
+            {
+              "value": "\"nonzero\""
+            }
+          ]
+        }
+      },
+      "filter": {
+        "defaultValue": null,
+        "description": "",
+        "name": "filter",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "filterRes": {
+        "defaultValue": null,
+        "description": "",
+        "name": "filterRes",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "filterUnits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "filterUnits",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "floodColor": {
+        "defaultValue": null,
+        "description": "",
+        "name": "floodColor",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "floodOpacity": {
+        "defaultValue": null,
+        "description": "",
+        "name": "floodOpacity",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "focusable": {
+        "defaultValue": null,
+        "description": "",
+        "name": "focusable",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"auto\" | Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"auto\""
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "fontSizeAdjust": {
+        "defaultValue": null,
+        "description": "",
+        "name": "fontSizeAdjust",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "fontStretch": {
+        "defaultValue": null,
+        "description": "",
+        "name": "fontStretch",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "format": {
+        "defaultValue": null,
+        "description": "",
+        "name": "format",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "fr": {
+        "defaultValue": null,
+        "description": "",
+        "name": "fr",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "from": {
+        "defaultValue": null,
+        "description": "",
+        "name": "from",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "fx": {
+        "defaultValue": null,
+        "description": "",
+        "name": "fx",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "fy": {
+        "defaultValue": null,
+        "description": "",
+        "name": "fy",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "g1": {
+        "defaultValue": null,
+        "description": "",
+        "name": "g1",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "g2": {
+        "defaultValue": null,
+        "description": "",
+        "name": "g2",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "glyphName": {
+        "defaultValue": null,
+        "description": "",
+        "name": "glyphName",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "glyphOrientationHorizontal": {
+        "defaultValue": null,
+        "description": "",
+        "name": "glyphOrientationHorizontal",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "glyphOrientationVertical": {
+        "defaultValue": null,
+        "description": "",
+        "name": "glyphOrientationVertical",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "glyphRef": {
+        "defaultValue": null,
+        "description": "",
+        "name": "glyphRef",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "gradientTransform": {
+        "defaultValue": null,
+        "description": "",
+        "name": "gradientTransform",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "gradientUnits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "gradientUnits",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "hanging": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hanging",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "height": {
+        "defaultValue": null,
+        "description": "",
+        "name": "height",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "horizAdvX": {
+        "defaultValue": null,
+        "description": "",
+        "name": "horizAdvX",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "horizOriginX": {
+        "defaultValue": null,
+        "description": "",
+        "name": "horizOriginX",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "href": {
+        "defaultValue": null,
+        "description": "",
+        "name": "href",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "id": {
+        "defaultValue": null,
+        "description": "",
+        "name": "id",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "ideographic": {
+        "defaultValue": null,
+        "description": "",
+        "name": "ideographic",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "imageRendering": {
+        "defaultValue": null,
+        "description": "",
+        "name": "imageRendering",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "in": {
+        "defaultValue": null,
+        "description": "",
+        "name": "in",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "in2": {
+        "defaultValue": null,
+        "description": "",
+        "name": "in2",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "intercept": {
+        "defaultValue": null,
+        "description": "",
+        "name": "intercept",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "k": {
+        "defaultValue": null,
+        "description": "",
+        "name": "k",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "k1": {
+        "defaultValue": null,
+        "description": "",
+        "name": "k1",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "k2": {
+        "defaultValue": null,
+        "description": "",
+        "name": "k2",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "k3": {
+        "defaultValue": null,
+        "description": "",
+        "name": "k3",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "k4": {
+        "defaultValue": null,
+        "description": "",
+        "name": "k4",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "kernelMatrix": {
+        "defaultValue": null,
+        "description": "",
+        "name": "kernelMatrix",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "kernelUnitLength": {
+        "defaultValue": null,
+        "description": "",
+        "name": "kernelUnitLength",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "kerning": {
+        "defaultValue": null,
+        "description": "",
+        "name": "kerning",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "key": {
+        "defaultValue": null,
+        "description": "",
+        "name": "key",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Key",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            },
+            {
+              "value": "bigint"
+            }
+          ]
+        }
+      },
+      "keyPoints": {
+        "defaultValue": null,
+        "description": "",
+        "name": "keyPoints",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "keySplines": {
+        "defaultValue": null,
+        "description": "",
+        "name": "keySplines",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "keyTimes": {
+        "defaultValue": null,
+        "description": "",
+        "name": "keyTimes",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "lang": {
+        "defaultValue": null,
+        "description": "",
+        "name": "lang",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "lengthAdjust": {
+        "defaultValue": null,
+        "description": "",
+        "name": "lengthAdjust",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "lightingColor": {
+        "defaultValue": null,
+        "description": "",
+        "name": "lightingColor",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "limitingConeAngle": {
+        "defaultValue": null,
+        "description": "",
+        "name": "limitingConeAngle",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "local": {
+        "defaultValue": null,
+        "description": "",
+        "name": "local",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "markerEnd": {
+        "defaultValue": null,
+        "description": "",
+        "name": "markerEnd",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "markerHeight": {
+        "defaultValue": null,
+        "description": "",
+        "name": "markerHeight",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "markerMid": {
+        "defaultValue": null,
+        "description": "",
+        "name": "markerMid",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "markerStart": {
+        "defaultValue": null,
+        "description": "",
+        "name": "markerStart",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "markerUnits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "markerUnits",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "markerWidth": {
+        "defaultValue": null,
+        "description": "",
+        "name": "markerWidth",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "mask": {
+        "defaultValue": null,
+        "description": "",
+        "name": "mask",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "maskContentUnits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "maskContentUnits",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "maskUnits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "maskUnits",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "mathematical": {
+        "defaultValue": null,
+        "description": "",
+        "name": "mathematical",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "max": {
+        "defaultValue": null,
+        "description": "",
+        "name": "max",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "media": {
+        "defaultValue": null,
+        "description": "",
+        "name": "media",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "method": {
+        "defaultValue": null,
+        "description": "",
+        "name": "method",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "min": {
+        "defaultValue": null,
+        "description": "",
+        "name": "min",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "mode": {
+        "defaultValue": null,
+        "description": "",
+        "name": "mode",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
         }
       },
       "name": {
@@ -39,6 +2964,222 @@
           "name": "string"
         }
       },
+      "numOctaves": {
+        "defaultValue": null,
+        "description": "",
+        "name": "numOctaves",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "offset": {
+        "defaultValue": null,
+        "description": "",
+        "name": "offset",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "onAbort": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onAbort",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onAbortCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onAbortCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onAnimationEnd": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onAnimationEnd",
+        "required": false,
+        "type": {
+          "name": "AnimationEventHandler<SVGSVGElement>"
+        }
+      },
+      "onAnimationEndCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onAnimationEndCapture",
+        "required": false,
+        "type": {
+          "name": "AnimationEventHandler<SVGSVGElement>"
+        }
+      },
+      "onAnimationIteration": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onAnimationIteration",
+        "required": false,
+        "type": {
+          "name": "AnimationEventHandler<SVGSVGElement>"
+        }
+      },
+      "onAnimationIterationCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onAnimationIterationCapture",
+        "required": false,
+        "type": {
+          "name": "AnimationEventHandler<SVGSVGElement>"
+        }
+      },
+      "onAnimationStart": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onAnimationStart",
+        "required": false,
+        "type": {
+          "name": "AnimationEventHandler<SVGSVGElement>"
+        }
+      },
+      "onAnimationStartCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onAnimationStartCapture",
+        "required": false,
+        "type": {
+          "name": "AnimationEventHandler<SVGSVGElement>"
+        }
+      },
+      "onAuxClick": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onAuxClick",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onAuxClickCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onAuxClickCapture",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onBeforeInput": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onBeforeInput",
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<SVGSVGElement>"
+        }
+      },
+      "onBeforeInputCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onBeforeInputCapture",
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<SVGSVGElement>"
+        }
+      },
+      "onBlur": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onBlur",
+        "required": false,
+        "type": {
+          "name": "FocusEventHandler<SVGSVGElement>"
+        }
+      },
+      "onBlurCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onBlurCapture",
+        "required": false,
+        "type": {
+          "name": "FocusEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCanPlay": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCanPlay",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCanPlayCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCanPlayCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCanPlayThrough": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCanPlayThrough",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCanPlayThroughCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCanPlayThroughCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<SVGSVGElement>"
+        }
+      },
+      "onChangeCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChangeCapture",
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<SVGSVGElement>"
+        }
+      },
       "onClick": {
         "defaultValue": null,
         "description": "",
@@ -56,6 +3197,2091 @@
         "required": false,
         "type": {
           "name": "(event: MouseEvent<SVGSVGElement, MouseEvent>) => void"
+        }
+      },
+      "onClickCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onClickCapture",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCompositionEnd": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCompositionEnd",
+        "required": false,
+        "type": {
+          "name": "CompositionEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCompositionEndCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCompositionEndCapture",
+        "required": false,
+        "type": {
+          "name": "CompositionEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCompositionStart": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCompositionStart",
+        "required": false,
+        "type": {
+          "name": "CompositionEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCompositionStartCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCompositionStartCapture",
+        "required": false,
+        "type": {
+          "name": "CompositionEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCompositionUpdate": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCompositionUpdate",
+        "required": false,
+        "type": {
+          "name": "CompositionEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCompositionUpdateCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCompositionUpdateCapture",
+        "required": false,
+        "type": {
+          "name": "CompositionEventHandler<SVGSVGElement>"
+        }
+      },
+      "onContextMenu": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onContextMenu",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onContextMenuCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onContextMenuCapture",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCopy": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCopy",
+        "required": false,
+        "type": {
+          "name": "ClipboardEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCopyCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCopyCapture",
+        "required": false,
+        "type": {
+          "name": "ClipboardEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCut": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCut",
+        "required": false,
+        "type": {
+          "name": "ClipboardEventHandler<SVGSVGElement>"
+        }
+      },
+      "onCutCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCutCapture",
+        "required": false,
+        "type": {
+          "name": "ClipboardEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDoubleClick": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDoubleClick",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDoubleClickCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDoubleClickCapture",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDrag": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDrag",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragCapture",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragEnd": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragEnd",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragEndCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragEndCapture",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragEnter": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragEnter",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragEnterCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragEnterCapture",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragExit": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragExit",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragExitCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragExitCapture",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragLeave": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragLeave",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragLeaveCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragLeaveCapture",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragOver": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragOver",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragOverCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragOverCapture",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragStart": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragStart",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDragStartCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDragStartCapture",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDrop": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDrop",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDropCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDropCapture",
+        "required": false,
+        "type": {
+          "name": "DragEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDurationChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDurationChange",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onDurationChangeCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onDurationChangeCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onEmptied": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onEmptied",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onEmptiedCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onEmptiedCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onEncrypted": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onEncrypted",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onEncryptedCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onEncryptedCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onEnded": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onEnded",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onEndedCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onEndedCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onError": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onError",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onErrorCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onErrorCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onFocus": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onFocus",
+        "required": false,
+        "type": {
+          "name": "FocusEventHandler<SVGSVGElement>"
+        }
+      },
+      "onFocusCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onFocusCapture",
+        "required": false,
+        "type": {
+          "name": "FocusEventHandler<SVGSVGElement>"
+        }
+      },
+      "onGotPointerCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onGotPointerCapture",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onGotPointerCaptureCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onGotPointerCaptureCapture",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onInput": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onInput",
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<SVGSVGElement>"
+        }
+      },
+      "onInputCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onInputCapture",
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<SVGSVGElement>"
+        }
+      },
+      "onInvalid": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onInvalid",
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<SVGSVGElement>"
+        }
+      },
+      "onInvalidCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onInvalidCapture",
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<SVGSVGElement>"
+        }
+      },
+      "onKeyDown": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onKeyDown",
+        "required": false,
+        "type": {
+          "name": "KeyboardEventHandler<SVGSVGElement>"
+        }
+      },
+      "onKeyDownCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onKeyDownCapture",
+        "required": false,
+        "type": {
+          "name": "KeyboardEventHandler<SVGSVGElement>"
+        }
+      },
+      "onKeyPress": {
+        "defaultValue": null,
+        "description": "@deprecated Use `onKeyUp` or `onKeyDown` instead",
+        "name": "onKeyPress",
+        "required": false,
+        "type": {
+          "name": "KeyboardEventHandler<SVGSVGElement>"
+        }
+      },
+      "onKeyPressCapture": {
+        "defaultValue": null,
+        "description": "@deprecated Use `onKeyUpCapture` or `onKeyDownCapture` instead",
+        "name": "onKeyPressCapture",
+        "required": false,
+        "type": {
+          "name": "KeyboardEventHandler<SVGSVGElement>"
+        }
+      },
+      "onKeyUp": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onKeyUp",
+        "required": false,
+        "type": {
+          "name": "KeyboardEventHandler<SVGSVGElement>"
+        }
+      },
+      "onKeyUpCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onKeyUpCapture",
+        "required": false,
+        "type": {
+          "name": "KeyboardEventHandler<SVGSVGElement>"
+        }
+      },
+      "onLoad": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onLoad",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onLoadCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onLoadCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onLoadStart": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onLoadStart",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onLoadStartCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onLoadStartCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onLoadedData": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onLoadedData",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onLoadedDataCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onLoadedDataCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onLoadedMetadata": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onLoadedMetadata",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onLoadedMetadataCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onLoadedMetadataCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onLostPointerCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onLostPointerCapture",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onLostPointerCaptureCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onLostPointerCaptureCapture",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onMouseDown": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onMouseDown",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onMouseDownCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onMouseDownCapture",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onMouseEnter": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onMouseEnter",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onMouseLeave": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onMouseLeave",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onMouseMove": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onMouseMove",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onMouseMoveCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onMouseMoveCapture",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onMouseOut": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onMouseOut",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onMouseOutCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onMouseOutCapture",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onMouseOver": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onMouseOver",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onMouseOverCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onMouseOverCapture",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onMouseUp": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onMouseUp",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onMouseUpCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onMouseUpCapture",
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPaste": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPaste",
+        "required": false,
+        "type": {
+          "name": "ClipboardEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPasteCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPasteCapture",
+        "required": false,
+        "type": {
+          "name": "ClipboardEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPause": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPause",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPauseCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPauseCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPlay": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPlay",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPlayCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPlayCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPlaying": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPlaying",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPlayingCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPlayingCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerCancel": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerCancel",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerCancelCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerCancelCapture",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerDown": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerDown",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerDownCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerDownCapture",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerEnter": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerEnter",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerLeave": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerLeave",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerMove": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerMove",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerMoveCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerMoveCapture",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerOut": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerOut",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerOutCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerOutCapture",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerOver": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerOver",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerOverCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerOverCapture",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerUp": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerUp",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onPointerUpCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onPointerUpCapture",
+        "required": false,
+        "type": {
+          "name": "PointerEventHandler<SVGSVGElement>"
+        }
+      },
+      "onProgress": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onProgress",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onProgressCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onProgressCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onRateChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onRateChange",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onRateChangeCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onRateChangeCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onReset": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onReset",
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<SVGSVGElement>"
+        }
+      },
+      "onResetCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onResetCapture",
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<SVGSVGElement>"
+        }
+      },
+      "onResize": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onResize",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onResizeCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onResizeCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onScroll": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onScroll",
+        "required": false,
+        "type": {
+          "name": "UIEventHandler<SVGSVGElement>"
+        }
+      },
+      "onScrollCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onScrollCapture",
+        "required": false,
+        "type": {
+          "name": "UIEventHandler<SVGSVGElement>"
+        }
+      },
+      "onSeeked": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onSeeked",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onSeekedCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onSeekedCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onSeeking": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onSeeking",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onSeekingCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onSeekingCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onSelect": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onSelect",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onSelectCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onSelectCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onStalled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onStalled",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onStalledCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onStalledCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onSubmit": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onSubmit",
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<SVGSVGElement>"
+        }
+      },
+      "onSubmitCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onSubmitCapture",
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<SVGSVGElement>"
+        }
+      },
+      "onSuspend": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onSuspend",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onSuspendCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onSuspendCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onTimeUpdate": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onTimeUpdate",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onTimeUpdateCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onTimeUpdateCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onTouchCancel": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onTouchCancel",
+        "required": false,
+        "type": {
+          "name": "TouchEventHandler<SVGSVGElement>"
+        }
+      },
+      "onTouchCancelCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onTouchCancelCapture",
+        "required": false,
+        "type": {
+          "name": "TouchEventHandler<SVGSVGElement>"
+        }
+      },
+      "onTouchEnd": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onTouchEnd",
+        "required": false,
+        "type": {
+          "name": "TouchEventHandler<SVGSVGElement>"
+        }
+      },
+      "onTouchEndCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onTouchEndCapture",
+        "required": false,
+        "type": {
+          "name": "TouchEventHandler<SVGSVGElement>"
+        }
+      },
+      "onTouchMove": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onTouchMove",
+        "required": false,
+        "type": {
+          "name": "TouchEventHandler<SVGSVGElement>"
+        }
+      },
+      "onTouchMoveCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onTouchMoveCapture",
+        "required": false,
+        "type": {
+          "name": "TouchEventHandler<SVGSVGElement>"
+        }
+      },
+      "onTouchStart": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onTouchStart",
+        "required": false,
+        "type": {
+          "name": "TouchEventHandler<SVGSVGElement>"
+        }
+      },
+      "onTouchStartCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onTouchStartCapture",
+        "required": false,
+        "type": {
+          "name": "TouchEventHandler<SVGSVGElement>"
+        }
+      },
+      "onTransitionEnd": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onTransitionEnd",
+        "required": false,
+        "type": {
+          "name": "TransitionEventHandler<SVGSVGElement>"
+        }
+      },
+      "onTransitionEndCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onTransitionEndCapture",
+        "required": false,
+        "type": {
+          "name": "TransitionEventHandler<SVGSVGElement>"
+        }
+      },
+      "onVolumeChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onVolumeChange",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onVolumeChangeCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onVolumeChangeCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onWaiting": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onWaiting",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onWaitingCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onWaitingCapture",
+        "required": false,
+        "type": {
+          "name": "ReactEventHandler<SVGSVGElement>"
+        }
+      },
+      "onWheel": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onWheel",
+        "required": false,
+        "type": {
+          "name": "WheelEventHandler<SVGSVGElement>"
+        }
+      },
+      "onWheelCapture": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onWheelCapture",
+        "required": false,
+        "type": {
+          "name": "WheelEventHandler<SVGSVGElement>"
+        }
+      },
+      "operator": {
+        "defaultValue": null,
+        "description": "",
+        "name": "operator",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "orient": {
+        "defaultValue": null,
+        "description": "",
+        "name": "orient",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "orientation": {
+        "defaultValue": null,
+        "description": "",
+        "name": "orientation",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "defaultValue": null,
+        "description": "",
+        "name": "origin",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "overlinePosition": {
+        "defaultValue": null,
+        "description": "",
+        "name": "overlinePosition",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "overlineThickness": {
+        "defaultValue": null,
+        "description": "",
+        "name": "overlineThickness",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "paintOrder": {
+        "defaultValue": null,
+        "description": "",
+        "name": "paintOrder",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "panose1": {
+        "defaultValue": null,
+        "description": "",
+        "name": "panose1",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "path": {
+        "defaultValue": null,
+        "description": "",
+        "name": "path",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "pathLength": {
+        "defaultValue": null,
+        "description": "",
+        "name": "pathLength",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "patternContentUnits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "patternContentUnits",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "patternTransform": {
+        "defaultValue": null,
+        "description": "",
+        "name": "patternTransform",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "patternUnits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "patternUnits",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "points": {
+        "defaultValue": null,
+        "description": "",
+        "name": "points",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "pointsAtX": {
+        "defaultValue": null,
+        "description": "",
+        "name": "pointsAtX",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "pointsAtY": {
+        "defaultValue": null,
+        "description": "",
+        "name": "pointsAtY",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "pointsAtZ": {
+        "defaultValue": null,
+        "description": "",
+        "name": "pointsAtZ",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "preserveAlpha": {
+        "defaultValue": null,
+        "description": "",
+        "name": "preserveAlpha",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Booleanish",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "\"false\""
+            },
+            {
+              "value": "\"true\""
+            }
+          ]
+        }
+      },
+      "preserveAspectRatio": {
+        "defaultValue": null,
+        "description": "",
+        "name": "preserveAspectRatio",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "primitiveUnits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "primitiveUnits",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "r": {
+        "defaultValue": null,
+        "description": "",
+        "name": "r",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "radius": {
+        "defaultValue": null,
+        "description": "",
+        "name": "radius",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "ref": {
+        "defaultValue": null,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null`\n(or call the ref with `null` if you passed a callback ref).\n@see {@link https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom React Docs}",
+        "name": "ref",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "LegacyRef<SVGSVGElement>",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "(instance: SVGSVGElement) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "RefObject<SVGSVGElement>",
+              "description": "A readonly ref container where {@link current} cannot be mutated.\n\nCreated by {@link createRef}, or {@link useRef} when passed `null`.",
+              "fullComment": "A readonly ref container where {@link current} cannot be mutated.\n\nCreated by {@link createRef}, or {@link useRef} when passed `null`.\n@template T The type of the ref's value.\n@example ```tsx\nconst ref = createRef<HTMLDivElement>();\n\nref.current = document.createElement('div'); // Error\n```",
+              "tags": {
+                "template": "T The type of the ref's value.",
+                "example": "```tsx\nconst ref = createRef<HTMLDivElement>();\n\nref.current = document.createElement('div'); // Error\n```"
+              }
+            }
+          ]
+        }
+      },
+      "refX": {
+        "defaultValue": null,
+        "description": "",
+        "name": "refX",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "refY": {
+        "defaultValue": null,
+        "description": "",
+        "name": "refY",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "renderingIntent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "renderingIntent",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "repeatCount": {
+        "defaultValue": null,
+        "description": "",
+        "name": "repeatCount",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "repeatDur": {
+        "defaultValue": null,
+        "description": "",
+        "name": "repeatDur",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "requiredExtensions": {
+        "defaultValue": null,
+        "description": "",
+        "name": "requiredExtensions",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "requiredFeatures": {
+        "defaultValue": null,
+        "description": "",
+        "name": "requiredFeatures",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "restart": {
+        "defaultValue": null,
+        "description": "",
+        "name": "restart",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "result": {
+        "defaultValue": null,
+        "description": "",
+        "name": "result",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "role": {
+        "defaultValue": null,
+        "description": "",
+        "name": "role",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "AriaRole",
+          "value": [
+            {
+              "value": "\"article\""
+            },
+            {
+              "value": "\"button\""
+            },
+            {
+              "value": "\"dialog\""
+            },
+            {
+              "value": "\"figure\""
+            },
+            {
+              "value": "\"form\""
+            },
+            {
+              "value": "\"img\""
+            },
+            {
+              "value": "\"link\""
+            },
+            {
+              "value": "\"main\""
+            },
+            {
+              "value": "\"menu\""
+            },
+            {
+              "value": "\"menuitem\""
+            },
+            {
+              "value": "\"option\""
+            },
+            {
+              "value": "\"search\""
+            },
+            {
+              "value": "\"table\""
+            },
+            {
+              "value": "\"switch\""
+            },
+            {
+              "value": "\"row\""
+            },
+            {
+              "value": "string & {}"
+            },
+            {
+              "value": "\"none\""
+            },
+            {
+              "value": "\"checkbox\""
+            },
+            {
+              "value": "\"listbox\""
+            },
+            {
+              "value": "\"radio\""
+            },
+            {
+              "value": "\"region\""
+            },
+            {
+              "value": "\"cell\""
+            },
+            {
+              "value": "\"grid\""
+            },
+            {
+              "value": "\"listitem\""
+            },
+            {
+              "value": "\"menubar\""
+            },
+            {
+              "value": "\"progressbar\""
+            },
+            {
+              "value": "\"separator\""
+            },
+            {
+              "value": "\"tab\""
+            },
+            {
+              "value": "\"tabpanel\""
+            },
+            {
+              "value": "\"toolbar\""
+            },
+            {
+              "value": "\"tooltip\""
+            },
+            {
+              "value": "\"treeitem\""
+            },
+            {
+              "value": "\"scrollbar\""
+            },
+            {
+              "value": "\"list\""
+            },
+            {
+              "value": "\"alert\""
+            },
+            {
+              "value": "\"alertdialog\""
+            },
+            {
+              "value": "\"application\""
+            },
+            {
+              "value": "\"banner\""
+            },
+            {
+              "value": "\"columnheader\""
+            },
+            {
+              "value": "\"combobox\""
+            },
+            {
+              "value": "\"complementary\""
+            },
+            {
+              "value": "\"contentinfo\""
+            },
+            {
+              "value": "\"definition\""
+            },
+            {
+              "value": "\"directory\""
+            },
+            {
+              "value": "\"document\""
+            },
+            {
+              "value": "\"feed\""
+            },
+            {
+              "value": "\"gridcell\""
+            },
+            {
+              "value": "\"group\""
+            },
+            {
+              "value": "\"heading\""
+            },
+            {
+              "value": "\"log\""
+            },
+            {
+              "value": "\"marquee\""
+            },
+            {
+              "value": "\"math\""
+            },
+            {
+              "value": "\"menuitemcheckbox\""
+            },
+            {
+              "value": "\"menuitemradio\""
+            },
+            {
+              "value": "\"navigation\""
+            },
+            {
+              "value": "\"note\""
+            },
+            {
+              "value": "\"presentation\""
+            },
+            {
+              "value": "\"radiogroup\""
+            },
+            {
+              "value": "\"rowgroup\""
+            },
+            {
+              "value": "\"rowheader\""
+            },
+            {
+              "value": "\"searchbox\""
+            },
+            {
+              "value": "\"slider\""
+            },
+            {
+              "value": "\"spinbutton\""
+            },
+            {
+              "value": "\"status\""
+            },
+            {
+              "value": "\"tablist\""
+            },
+            {
+              "value": "\"term\""
+            },
+            {
+              "value": "\"textbox\""
+            },
+            {
+              "value": "\"timer\""
+            },
+            {
+              "value": "\"tree\""
+            },
+            {
+              "value": "\"treegrid\""
+            }
+          ]
+        }
+      },
+      "rx": {
+        "defaultValue": null,
+        "description": "",
+        "name": "rx",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "ry": {
+        "defaultValue": null,
+        "description": "",
+        "name": "ry",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "seed": {
+        "defaultValue": null,
+        "description": "",
+        "name": "seed",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "shapeRendering": {
+        "defaultValue": null,
+        "description": "",
+        "name": "shapeRendering",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
         }
       },
       "size": {
@@ -106,6 +5332,594 @@
           ]
         }
       },
+      "slope": {
+        "defaultValue": null,
+        "description": "",
+        "name": "slope",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "spacing": {
+        "defaultValue": null,
+        "description": "",
+        "name": "spacing",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "specularConstant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "specularConstant",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "specularExponent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "specularExponent",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "speed": {
+        "defaultValue": null,
+        "description": "",
+        "name": "speed",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "spreadMethod": {
+        "defaultValue": null,
+        "description": "",
+        "name": "spreadMethod",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "startOffset": {
+        "defaultValue": null,
+        "description": "",
+        "name": "startOffset",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "stdDeviation": {
+        "defaultValue": null,
+        "description": "",
+        "name": "stdDeviation",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "stemh": {
+        "defaultValue": null,
+        "description": "",
+        "name": "stemh",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "stemv": {
+        "defaultValue": null,
+        "description": "",
+        "name": "stemv",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "stitchTiles": {
+        "defaultValue": null,
+        "description": "",
+        "name": "stitchTiles",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "stopColor": {
+        "defaultValue": null,
+        "description": "",
+        "name": "stopColor",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "stopOpacity": {
+        "defaultValue": null,
+        "description": "",
+        "name": "stopOpacity",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "strikethroughPosition": {
+        "defaultValue": null,
+        "description": "",
+        "name": "strikethroughPosition",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "strikethroughThickness": {
+        "defaultValue": null,
+        "description": "",
+        "name": "strikethroughThickness",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "string": {
+        "defaultValue": null,
+        "description": "",
+        "name": "string",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "strokeDasharray": {
+        "defaultValue": null,
+        "description": "",
+        "name": "strokeDasharray",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "strokeDashoffset": {
+        "defaultValue": null,
+        "description": "",
+        "name": "strokeDashoffset",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "strokeLinecap": {
+        "defaultValue": null,
+        "description": "",
+        "name": "strokeLinecap",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"inherit\" | \"round\" | \"butt\" | \"square\"",
+          "value": [
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"round\""
+            },
+            {
+              "value": "\"butt\""
+            },
+            {
+              "value": "\"square\""
+            }
+          ]
+        }
+      },
+      "strokeLinejoin": {
+        "defaultValue": null,
+        "description": "",
+        "name": "strokeLinejoin",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"inherit\" | \"round\" | \"bevel\" | \"miter\"",
+          "value": [
+            {
+              "value": "\"inherit\""
+            },
+            {
+              "value": "\"round\""
+            },
+            {
+              "value": "\"bevel\""
+            },
+            {
+              "value": "\"miter\""
+            }
+          ]
+        }
+      },
+      "strokeMiterlimit": {
+        "defaultValue": null,
+        "description": "",
+        "name": "strokeMiterlimit",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "strokeOpacity": {
+        "defaultValue": null,
+        "description": "",
+        "name": "strokeOpacity",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "strokeWidth": {
+        "defaultValue": null,
+        "description": "",
+        "name": "strokeWidth",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "style": {
+        "defaultValue": null,
+        "description": "",
+        "name": "style",
+        "required": false,
+        "type": {
+          "name": "CSSProperties"
+        }
+      },
+      "suppressHydrationWarning": {
+        "defaultValue": null,
+        "description": "",
+        "name": "suppressHydrationWarning",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "surfaceScale": {
+        "defaultValue": null,
+        "description": "",
+        "name": "surfaceScale",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "systemLanguage": {
+        "defaultValue": null,
+        "description": "",
+        "name": "systemLanguage",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "tabIndex": {
+        "defaultValue": null,
+        "description": "",
+        "name": "tabIndex",
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "tableValues": {
+        "defaultValue": null,
+        "description": "",
+        "name": "tableValues",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "target": {
+        "defaultValue": null,
+        "description": "",
+        "name": "target",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "targetX": {
+        "defaultValue": null,
+        "description": "",
+        "name": "targetX",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "targetY": {
+        "defaultValue": null,
+        "description": "",
+        "name": "targetY",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "textAnchor": {
+        "defaultValue": null,
+        "description": "",
+        "name": "textAnchor",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "textLength": {
+        "defaultValue": null,
+        "description": "",
+        "name": "textLength",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "textRendering": {
+        "defaultValue": null,
+        "description": "",
+        "name": "textRendering",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
       "title": {
         "defaultValue": null,
         "description": "",
@@ -120,6 +5934,717 @@
             "name": "IconOptions"
           }
         ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "to": {
+        "defaultValue": null,
+        "description": "",
+        "name": "to",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "type": {
+        "defaultValue": null,
+        "description": "",
+        "name": "type",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "u1": {
+        "defaultValue": null,
+        "description": "",
+        "name": "u1",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "u2": {
+        "defaultValue": null,
+        "description": "",
+        "name": "u2",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "underlinePosition": {
+        "defaultValue": null,
+        "description": "",
+        "name": "underlinePosition",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "underlineThickness": {
+        "defaultValue": null,
+        "description": "",
+        "name": "underlineThickness",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "unicode": {
+        "defaultValue": null,
+        "description": "",
+        "name": "unicode",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "unicodeBidi": {
+        "defaultValue": null,
+        "description": "",
+        "name": "unicodeBidi",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "unicodeRange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "unicodeRange",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "unitsPerEm": {
+        "defaultValue": null,
+        "description": "",
+        "name": "unitsPerEm",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "vAlphabetic": {
+        "defaultValue": null,
+        "description": "",
+        "name": "vAlphabetic",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "vHanging": {
+        "defaultValue": null,
+        "description": "",
+        "name": "vHanging",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "vIdeographic": {
+        "defaultValue": null,
+        "description": "",
+        "name": "vIdeographic",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "vMathematical": {
+        "defaultValue": null,
+        "description": "",
+        "name": "vMathematical",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "values": {
+        "defaultValue": null,
+        "description": "",
+        "name": "values",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "vectorEffect": {
+        "defaultValue": null,
+        "description": "",
+        "name": "vectorEffect",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "version": {
+        "defaultValue": null,
+        "description": "",
+        "name": "version",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "vertAdvY": {
+        "defaultValue": null,
+        "description": "",
+        "name": "vertAdvY",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "vertOriginX": {
+        "defaultValue": null,
+        "description": "",
+        "name": "vertOriginX",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "vertOriginY": {
+        "defaultValue": null,
+        "description": "",
+        "name": "vertOriginY",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "viewBox": {
+        "defaultValue": null,
+        "description": "",
+        "name": "viewBox",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "viewTarget": {
+        "defaultValue": null,
+        "description": "",
+        "name": "viewTarget",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "width": {
+        "defaultValue": null,
+        "description": "",
+        "name": "width",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "widths": {
+        "defaultValue": null,
+        "description": "",
+        "name": "widths",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "wordSpacing": {
+        "defaultValue": null,
+        "description": "",
+        "name": "wordSpacing",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "writingMode": {
+        "defaultValue": null,
+        "description": "",
+        "name": "writingMode",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "x": {
+        "defaultValue": null,
+        "description": "",
+        "name": "x",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "x1": {
+        "defaultValue": null,
+        "description": "",
+        "name": "x1",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "x2": {
+        "defaultValue": null,
+        "description": "",
+        "name": "x2",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "xChannelSelector": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xChannelSelector",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "xHeight": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xHeight",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "xlinkActuate": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xlinkActuate",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "xlinkArcrole": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xlinkArcrole",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "xlinkHref": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xlinkHref",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "xlinkRole": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xlinkRole",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "xlinkShow": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xlinkShow",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "xlinkTitle": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xlinkTitle",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "xlinkType": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xlinkType",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "xmlBase": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xmlBase",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "xmlLang": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xmlLang",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "xmlSpace": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xmlSpace",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "xmlns": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xmlns",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "xmlnsXlink": {
+        "defaultValue": null,
+        "description": "",
+        "name": "xmlnsXlink",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "y": {
+        "defaultValue": null,
+        "description": "",
+        "name": "y",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "y1": {
+        "defaultValue": null,
+        "description": "",
+        "name": "y1",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "y2": {
+        "defaultValue": null,
+        "description": "",
+        "name": "y2",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "yChannelSelector": {
+        "defaultValue": null,
+        "description": "",
+        "name": "yChannelSelector",
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "z": {
+        "defaultValue": null,
+        "description": "",
+        "name": "z",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "zoomAndPan": {
+        "defaultValue": null,
+        "description": "",
+        "name": "zoomAndPan",
         "required": false,
         "type": {
           "name": "string"

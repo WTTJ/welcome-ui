@@ -1,5 +1,3 @@
-import styled, { system } from '@xstyled/styled-components'
+import styled from '@xstyled/styled-components'
 
-export const Svg = styled.svg`
-  ${system}
-`
+export const Svg = styled.svgBox``

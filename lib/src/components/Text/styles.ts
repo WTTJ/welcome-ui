@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 
 import { TextOptions } from './index'
 
@@ -24,7 +24,7 @@ const getBlockHeight = (lines: number) => css`
   word-break: ${lines === 1 ? 'break-all' : null};
 `
 
-export const Text = styled.p<TextOptions>(({ lines, theme, variant, withDash }) => {
+export const Text = styled.pBox<TextOptions>(({ lines, theme, variant, withDash }) => {
   const mobileVariant = MOBILE_VARIANTS[variant as keyof typeof MOBILE_VARIANTS]
   const isHeading = variant?.startsWith('h')
   // only add lineHeight fixer styles when these conditions are fulfilled
@@ -61,7 +61,6 @@ export const Text = styled.p<TextOptions>(({ lines, theme, variant, withDash }) 
 
     @media (min-width: lg) {
       ${th(`texts.${variant}`)};
-      ${system};
     }
 
     ${shouldFixHeadingsLineHeight &&
@@ -70,7 +69,5 @@ export const Text = styled.p<TextOptions>(({ lines, theme, variant, withDash }) 
         line-height: 1.4;
       }
     `}
-
-    ${system};
   `
 })

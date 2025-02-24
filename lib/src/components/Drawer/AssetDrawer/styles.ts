@@ -9,8 +9,8 @@ export const Content = styled.divBox`
   width: 100%;
 `
 
-export const IconBlock = styled.divBox(
-  ({ size }: Pick<IconBlockProps, 'size'>) => css`
+export const IconBlock = styled.divBox<Pick<IconBlockProps, 'size'>>(
+  ({ size }) => css`
     display: flex;
     align-items: center;
     justify-content: center;

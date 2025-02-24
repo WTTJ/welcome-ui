@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
 
 import { defaultFieldStyles, DefaultFieldStylesProps } from '../../utils/field-styles'
@@ -42,7 +42,7 @@ const rowStyles = css`
   }
 `
 
-export const Label = styled.label<
+export const Label = styled.labelBox<
   {
     checked?: boolean
     disabled?: boolean
@@ -73,7 +73,6 @@ export const Label = styled.label<
     `};
     ${flexDirection === 'column' && columnStyles};
     ${flexDirection === 'row' && rowStyles};
-    ${system};
     padding-top: 0;
     padding-bottom: 0;
   `
