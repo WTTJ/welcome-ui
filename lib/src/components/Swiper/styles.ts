@@ -3,7 +3,6 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import { UseSwiper } from '.'
 
 import { Button } from '@/Button'
-import { CreateWuiProps } from '@/System'
 
 const getSlideWidth = (slidesPerView = 3, spaceBetween: number, toRem: (px: number) => void) => {
   if (spaceBetween === 0) {
@@ -16,7 +15,7 @@ const getSlideWidth = (slidesPerView = 3, spaceBetween: number, toRem: (px: numb
   return `calc(${100 / slidesPerView}% - ${spaceCss})`
 }
 
-export const Swiper = styled.div<CreateWuiProps<'div'>>`
+export const Swiper = styled.div`
   overflow-y: hidden;
   position: relative;
   width: 100%;

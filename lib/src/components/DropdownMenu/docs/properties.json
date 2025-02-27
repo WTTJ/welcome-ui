@@ -515,7 +515,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "boolean | ReactElement<Pick<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, \"key\" | keyof HTMLAttributes<...>> & { ...; }, string | JSXElementConstructor<...>> | ElementType<...>",
+          "raw": "boolean | ReactElement<Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, \"ref\"> & { ...; }, string | JSXElementConstructor<...>> | ElementType<...>",
           "value": [
             {
               "value": "false"
@@ -549,6 +549,9 @@
             },
             {
               "value": "\"caption\""
+            },
+            {
+              "value": "\"center\""
             },
             {
               "value": "\"cite\""
@@ -659,6 +662,9 @@
               "value": "\"samp\""
             },
             {
+              "value": "\"search\""
+            },
+            {
               "value": "\"section\""
             },
             {
@@ -692,22 +698,31 @@
               "value": "\"webview\""
             },
             {
-              "value": "ReactElement<Pick<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, \"key\" | keyof HTMLAttributes<HTMLDivElement>> & { ...; }, string | JSXElementConstructor<...>>",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
+              "value": "ReactElement<Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, \"ref\"> & { ref?: Ref<...>; }, string | JSXElementConstructor<...>>",
+              "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+              "fullComment": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.\n@template P The type of the props object\n@template T The type of the component or tag\n@example ```tsx\nconst element: ReactElement = <div />;\n```",
+              "tags": {
+                "template": "P The type of the props object\nT The type of the component or tag",
+                "example": "```tsx\nconst element: ReactElement = <div />;\n```"
+              }
             },
             {
-              "value": "ComponentClass<Pick<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, \"key\" | keyof HTMLAttributes<HTMLDivElement>> & { ...; }, any>",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
+              "value": "ComponentClass<Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, \"ref\"> & { ref?: Ref<...>; }, any>",
+              "description": "Represents a component class in React.",
+              "fullComment": "Represents a component class in React.\n@template P The props the component accepts.\n@template S The internal state of the component.",
+              "tags": {
+                "template": "P The props the component accepts.\nS The internal state of the component."
+              }
             },
             {
-              "value": "FunctionComponent<Pick<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, \"key\" | keyof HTMLAttributes<HTMLDivElement>> & { ...; }>",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
+              "value": "FunctionComponent<Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, \"ref\"> & { ref?: Ref<...>; }>",
+              "description": "Represents the type of a function component. Can optionally\nreceive a type argument that represents the props the component\naccepts.",
+              "fullComment": "Represents the type of a function component. Can optionally\nreceive a type argument that represents the props the component\naccepts.\n@template P The props the component accepts.\n@see {@link https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components React TypeScript Cheatsheet}\n@example ```tsx\n// With props:\ntype Props = { name: string }\n\nconst MyComponent: FunctionComponent<Props> = (props) => {\n return <div>{props.name}</div>\n}\n```\n@example ```tsx\n// Without props:\nconst MyComponentWithoutProps: FunctionComponent = () => {\n  return <div>MyComponentWithoutProps</div>\n}\n```",
+              "tags": {
+                "template": "P The props the component accepts.",
+                "see": "{@link https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components React TypeScript Cheatsheet}",
+                "example": "```tsx\n// With props:\ntype Props = { name: string }\n\nconst MyComponent: FunctionComponent<Props> = (props) => {\n return <div>{props.name}</div>\n}\n```\n```tsx\n// Without props:\nconst MyComponentWithoutProps: FunctionComponent = () => {\n  return <div>MyComponentWithoutProps</div>\n}\n```"
+              }
             }
           ]
         }
@@ -835,9 +850,12 @@
             },
             {
               "value": "RefObject<HTMLElement>",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
+              "description": "A readonly ref container where {@link current} cannot be mutated.\n\nCreated by {@link createRef}, or {@link useRef} when passed `null`.",
+              "fullComment": "A readonly ref container where {@link current} cannot be mutated.\n\nCreated by {@link createRef}, or {@link useRef} when passed `null`.\n@template T The type of the ref's value.\n@example ```tsx\nconst ref = createRef<HTMLDivElement>();\n\nref.current = document.createElement('div'); // Error\n```",
+              "tags": {
+                "template": "T The type of the ref's value.",
+                "example": "```tsx\nconst ref = createRef<HTMLDivElement>();\n\nref.current = document.createElement('div'); // Error\n```"
+              }
             }
           ]
         }
@@ -1196,9 +1214,12 @@
             },
             {
               "value": "RefObject<HTMLElement>",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
+              "description": "A readonly ref container where {@link current} cannot be mutated.\n\nCreated by {@link createRef}, or {@link useRef} when passed `null`.",
+              "fullComment": "A readonly ref container where {@link current} cannot be mutated.\n\nCreated by {@link createRef}, or {@link useRef} when passed `null`.\n@template T The type of the ref's value.\n@example ```tsx\nconst ref = createRef<HTMLDivElement>();\n\nref.current = document.createElement('div'); // Error\n```",
+              "tags": {
+                "template": "T The type of the ref's value.",
+                "example": "```tsx\nconst ref = createRef<HTMLDivElement>();\n\nref.current = document.createElement('div'); // Error\n```"
+              }
             }
           ]
         }
@@ -1603,9 +1624,12 @@
           "value": [
             {
               "value": "ReactElement<any, string | JSXElementConstructor<any>>",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
+              "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+              "fullComment": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.\n@template P The type of the props object\n@template T The type of the component or tag\n@example ```tsx\nconst element: ReactElement = <div />;\n```",
+              "tags": {
+                "template": "P The type of the props object\nT The type of the component or tag",
+                "example": "```tsx\nconst element: ReactElement = <div />;\n```"
+              }
             },
             {
               "value": "RenderProp<HTMLAttributes<any> & { ref?: Ref<any>; }>",

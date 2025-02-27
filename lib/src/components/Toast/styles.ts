@@ -57,7 +57,7 @@ export const Snackbar = styled(Alert)`
   }
 `
 
-export const SnackbarSeparator = styled.box<{ variant: SnackbarProps['variant'] }>(
+export const SnackbarSeparator = styled.divBox<{ variant: SnackbarProps['variant'] }>(
   ({ variant }) => css`
     ${th('toasts.snackbar.separator.default')};
     ${th(`toasts.snackbar.separator.${variant}`)};

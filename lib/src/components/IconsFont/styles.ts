@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 
 import unicodeMap from './unicode.json'
 
@@ -17,13 +17,13 @@ function getIconContentByName(name: StyledIconProps['name']) {
   return null
 }
 
-export const Icon = styled.i<StyledIconProps>(
+export const Icon = styled.iBox<StyledIconProps>(
   ({ name, size = 'md' }) => css`
     display: inline-block;
     /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
     font-family: icons;
     font-size: ${th(`icons.${size}`)};
-    ${system};
+
     &::before {
       content: '${getIconContentByName(name)}';
       display: block;

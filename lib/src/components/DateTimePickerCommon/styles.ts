@@ -9,7 +9,6 @@ import { StyledIcon } from '@/Icon'
 import { IconGroupWrapper, IconWrapper } from '@/Field'
 import { StyledSelect } from '@/Select'
 import { StyledButton } from '@/Button'
-import { shouldForwardProp } from '@/System'
 
 // Workaround to this issue: https://github.com/Hacker0x01/react-datepicker/issues/3834
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -36,20 +35,18 @@ export const StyledTimePicker = styled(
   `
 )
 
-export const CustomInput = styled('div').withConfig({ shouldForwardProp })(
-  ({ focused }: { focused: Focused }) => {
-    return css`
-      position: relative;
+export const CustomInput = styled.div<{ focused: Focused }>(
+  ({ focused }) => css`
+    position: relative;
 
-      ${IconGroupWrapper} {
-        z-index: ${focused ? 1 : null};
-      }
+    ${IconGroupWrapper} {
+      z-index: ${focused ? 1 : null};
+    }
 
-      ${IconWrapper} {
-        z-index: ${focused ? 1 : null};
-      }
-    `
-  }
+    ${IconWrapper} {
+      z-index: ${focused ? 1 : null};
+    }
+  `
 )
 
 export const CustomHeader = styled.div`

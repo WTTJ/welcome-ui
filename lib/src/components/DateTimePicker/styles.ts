@@ -1,4 +1,4 @@
-import styled, { css, system } from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
 
 import { StyledDatePicker, StyledTimePicker } from '@/DateTimePickerCommon'
 
@@ -39,6 +39,4 @@ export const DateTimePicker = styled.divBox`
   .react-datepicker {
     font-family: inherit;
   }
-
-  ${system};
 `

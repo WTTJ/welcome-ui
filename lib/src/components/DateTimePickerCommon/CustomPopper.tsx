@@ -4,11 +4,7 @@ import styled, { css, CSSObject, th } from '@xstyled/styled-components'
 import { datePickerStyles } from './datePickerStyles'
 import { fixAriaMessageStyle } from './styles'
 
-export const CustomPopper = ({
-  children,
-}: {
-  children: React.ReactElement
-}): React.ReactElement => {
+export const CustomPopper = ({ children }: { children: React.ReactElement }) => {
   if (!children) {
     return null
   }
@@ -18,8 +14,8 @@ export const CustomPopper = ({
   return <StyledCustomPopper popperStyles={popperProps}>{children}</StyledCustomPopper>
 }
 
-const StyledCustomPopper = styled.divBox(
-  ({ popperStyles }: { popperStyles: CSSObject }) => css`
+const StyledCustomPopper = styled.divBox<{ popperStyles: CSSObject }>(
+  ({ popperStyles }) => css`
     ${datePickerStyles};
     ${fixAriaMessageStyle};
     .react-datepicker-popper {
