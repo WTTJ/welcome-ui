@@ -1,6 +1,6 @@
 import styled, { css } from '@xstyled/styled-components'
 
-import { IconOptions } from './index'
+import { IconContent, IconOptions } from './index'
 
 import { WuiProps } from '@/System'
 import { ThemeValues } from '@/theme'
@@ -21,7 +21,7 @@ const iconSvgFilledStyles = css`
 `
 
 type StyledIconProps = Pick<IconOptions, 'size'> &
-  Pick<IconOptions['content'], 'isFlag' | 'stroked'> &
+  Pick<IconContent, 'isFlag' | 'stroked'> &
   WuiProps &
   Partial<{ alt: string; title: string }>
 
