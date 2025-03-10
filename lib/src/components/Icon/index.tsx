@@ -5,7 +5,7 @@ import { Size } from './theme'
 
 import { CreateWuiProps, forwardRef } from '@/System'
 
-type IconContent = {
+export type IconContent = {
   block?: string
   height?: number
   isFlag?: boolean
