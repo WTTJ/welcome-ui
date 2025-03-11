@@ -1,4 +1,4 @@
-import styled, { css, th } from '@xstyled/styled-components'
+import styled, { css, system, th } from '@xstyled/styled-components'
 
 import { TextOptions } from './index'
 
@@ -62,6 +62,7 @@ export const Text = styled.pBox<TextOptions>(({ lines, theme, variant, withDash,
 
     @media (min-width: lg) {
       ${th(`texts.${variant}`)};
+      ${system}
     }
 
     ${shouldFixHeadingsLineHeight &&
