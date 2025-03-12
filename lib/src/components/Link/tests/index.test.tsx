@@ -1,4 +1,5 @@
 import React from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { Link } from '../'
 import { render } from '../../../../tests'
@@ -11,7 +12,7 @@ describe('<Link>', () => {
     const link = getByTestId('link')
 
     expect(link).toHaveTextContent(content)
-    expect(link).toHaveStyleRule('color', 'inherit')
+    expect(link).toHaveStyle({ color: 'inherit' })
   })
 
   it('should render correctly with a target blank', () => {

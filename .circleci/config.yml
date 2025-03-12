@@ -96,7 +96,7 @@ jobs:
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
-      - run: cd lib && yarn jest --detectOpenHandles $(circleci tests glob "./**/*.test.{ts,js,tsx}" | circleci tests split | xargs)
+      - run: cd lib && circleci tests glob "src/**/*.test.{ts,tsx}" | circleci tests run --command="xargs yarn test --fileParallelism=false"
 
   release_icon_font:
     <<: *default

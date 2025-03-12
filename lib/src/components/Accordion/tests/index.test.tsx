@@ -1,5 +1,6 @@
 import React from 'react'
-import { act, renderHook, screen } from '@testing-library/react'
+import { renderHook, screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 
 import { render } from '../../../../tests'
 import { Accordion, useAccordion } from '../'
@@ -27,7 +28,7 @@ describe('<Accordion />', () => {
     expect(children).toHaveTextContent(content)
     expect(children).toHaveAttribute('hidden')
 
-    await act(() => user.click(button))
+    await user.click(button)
 
     expect(button).toHaveAttribute('aria-expanded', 'true')
     expect(children).not.toHaveAttribute('hidden')

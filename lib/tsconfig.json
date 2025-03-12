@@ -11,5 +11,6 @@
       "@/*": ["./src/components/*"]
     }
   },
-  "exclude": ["**/*.json"]
+  "exclude": ["**/*.json"],
+  "types": ["vitest/globals", "@testing-library/jest-dom"]
 }

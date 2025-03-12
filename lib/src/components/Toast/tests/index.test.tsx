@@ -1,4 +1,5 @@
 import React from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { render } from '../../../../tests'
 import { Toast } from '../'
@@ -11,7 +12,7 @@ describe('<Title>', () => {
     const title = getByTestId('growl-title')
 
     expect(title).toHaveTextContent(content)
-    expect(title).toHaveStyleRule('color', '#000000')
+    expect(title).toHaveStyle({ color: '#000000' })
   })
 
   it('should render correctly with a state', () => {
@@ -19,6 +20,6 @@ describe('<Title>', () => {
     const title = getByTestId('growl-title')
 
     expect(title).toHaveTextContent(content)
-    expect(title).toHaveStyleRule('color', '#000000')
+    expect(title).toHaveStyle({ color: '#000000' })
   })
 })

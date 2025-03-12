@@ -1,4 +1,6 @@
 import React from 'react'
+import { describe, expect, it } from 'vitest'
+import { screen } from '@testing-library/react'
 
 import { Label } from '../'
 import { render } from '../../../../tests'
@@ -38,22 +40,21 @@ describe('<Label>', () => {
     })
   })
 
-  describe.skip('should render correctly when is disabled', () => {
-    it('default', () => {
-      const { container } = render(<Label disabled>{content}</Label>)
-      const icon = container.querySelector('[title="SpecialPipeline"]')
+  it('should render correctly when is disabled', () => {
+    render(<Label disabled>{content}</Label>)
 
-      expect(icon).not.toBeNull()
-    })
+    const icon = screen.getByRole('img')
 
-    it('with custom icon', () => {
-      const { container } = render(
-        <Label disabled disabledIcon={<span>disabledIcon</span>}>
-          {content}
-        </Label>
-      )
+    expect(icon).toHaveAttribute('alt', 'Lock')
+  })
 
-      expect(container).toHaveTextContent('disabledIcon')
-    })
+  it('should render correctly when is disabled with custom icon', () => {
+    const { container } = render(
+      <Label disabled disabledIcon={<span>disabledIcon</span>}>
+        {content}
+      </Label>
+    )
+
+    expect(container).toHaveTextContent('disabledIcon')
   })
 })

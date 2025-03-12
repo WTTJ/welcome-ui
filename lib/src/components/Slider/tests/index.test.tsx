@@ -1,19 +1,20 @@
 import React from 'react'
+import { describe, expect, it, vi } from 'vitest'
 import { fireEvent } from '@testing-library/react'
 
 import { render } from '../../../../tests'
 import { Slider } from '../'
 
 describe('<Slider> test', () => {
-  test('should render correctly <Slider>', () => {
-    const handleChange = jest.fn()
+  it('should render correctly <Slider>', () => {
+    const handleChange = vi.fn()
     const { container } = render(<Slider max={100} min={0} onChange={handleChange} value={50} />)
 
     expect(container)
   })
 
-  test('should change localValue & trigger onChange', async () => {
-    const handleChange = jest.fn()
+  it('should change value & trigger onChange when slider is moved', async () => {
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider max={100} min={0} onChange={handleChange} value={50} w={100} />
     )
@@ -24,12 +25,12 @@ describe('<Slider> test', () => {
     fireEvent.change(slider, { target: { value: 70 } })
     fireEvent.mouseUp(slider)
 
-    expect(handleChange.mock.calls.length).toBe(1)
-    expect(handleChange.mock.calls[0][0]).toBe(70)
+    expect(handleChange).toHaveBeenCalledTimes(1)
+    expect(handleChange).toHaveBeenCalledWith(70)
   })
 
-  test('ensure min value is respected', () => {
-    const handleChange = jest.fn()
+  it('ensure min value is respected', () => {
+    const handleChange = vi.fn()
     const min = 0
     const { container } = render(
       <Slider max={100} min={min} onChange={handleChange} value={50} w={100} />
@@ -45,8 +46,8 @@ describe('<Slider> test', () => {
     expect(handleChange.mock.calls[0][0]).toBe(min)
   })
 
-  test('ensure max value is respected', () => {
-    const handleChange = jest.fn()
+  it('ensure max value is respected', () => {
+    const handleChange = vi.fn()
     const max = 100
     const { container } = render(
       <Slider max={max} min={0} onChange={handleChange} value={50} w={100} />
@@ -62,8 +63,8 @@ describe('<Slider> test', () => {
     expect(handleChange.mock.calls[0][0]).toBe(max)
   })
 
-  test('ensure inputText value is a number', () => {
-    const handleChange = jest.fn()
+  it('ensure inputText value is a number', () => {
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider max={100} min={0} onChange={handleChange} type="right-field" value={50} w={100} />
     )
@@ -78,8 +79,8 @@ describe('<Slider> test', () => {
     expect(handleChange.mock.calls[0][0]).toBe(0)
   })
 
-  test('ensure value is rounded to the < value when there is a step', () => {
-    const handleChange = jest.fn()
+  it('ensure value is rounded to the < value when there is a step', () => {
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider
         max={100}
@@ -98,8 +99,8 @@ describe('<Slider> test', () => {
     expect(slider).toMatchObject({ value: '10' })
   })
 
-  test('ensure value is rounded to the > value when there is a step', () => {
-    const handleChange = jest.fn()
+  it('ensure value is rounded to the > value when there is a step', () => {
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider
         max={100}
@@ -118,8 +119,8 @@ describe('<Slider> test', () => {
     expect(slider).toMatchObject({ value: '60' })
   })
 
-  test('Slider and left field should be disabled', () => {
-    const handleChange = jest.fn()
+  it('Slider and left field should be disabled', () => {
+    const handleChange = vi.fn()
     const value = 30
     const { container } = render(
       <Slider
@@ -142,8 +143,8 @@ describe('<Slider> test', () => {
     expect(numberInput).toBeDisabled()
   })
 
-  test('Slider and right field should be disabled', () => {
-    const handleChange = jest.fn()
+  it('Slider and right field should be disabled', () => {
+    const handleChange = vi.fn()
     const value = 30
     const { container } = render(
       <Slider
@@ -168,8 +169,8 @@ describe('<Slider> test', () => {
 })
 
 describe('<Slider.Range> test', () => {
-  test('should render correctly <Slider.Range>', () => {
-    const handleChange = jest.fn()
+  it('should render correctly <Slider.Range>', () => {
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range max={100} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
@@ -177,8 +178,8 @@ describe('<Slider.Range> test', () => {
     expect(container)
   })
 
-  test('should change minValue and maxValue & trigger onChange', () => {
-    const handleChange = jest.fn()
+  it('should change minValue and maxValue & trigger onChange', () => {
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range max={100} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
@@ -195,8 +196,8 @@ describe('<Slider.Range> test', () => {
     expect(handleChange.mock.calls[1][0]).toMatchObject({ min: 10, max: 80 })
   })
 
-  test('ensure minValue is respected', () => {
-    const handleChange = jest.fn()
+  it('ensure minValue is respected', () => {
+    const handleChange = vi.fn()
     const min = 0
     const { container } = render(
       <Slider.Range max={100} min={min} onChange={handleChange} value={{ min: 20, max: 50 }} />
@@ -211,8 +212,8 @@ describe('<Slider.Range> test', () => {
     expect(handleChange.mock.calls[0][0]).toMatchObject({ min: min, max: 50 })
   })
 
-  test('ensure maxValue is respected', () => {
-    const handleChange = jest.fn()
+  it('ensure maxValue is respected', () => {
+    const handleChange = vi.fn()
     const max = 100
     const { container } = render(
       <Slider.Range max={max} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
@@ -227,8 +228,8 @@ describe('<Slider.Range> test', () => {
     expect(handleChange.mock.calls[0][0]).toMatchObject({ min: 20, max: max })
   })
 
-  test("ensure minValue can't be > maxValue", () => {
-    const handleChange = jest.fn()
+  it("ensure minValue can't be > maxValue", () => {
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range max={100} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
@@ -245,8 +246,8 @@ describe('<Slider.Range> test', () => {
     expect(handleChange.mock.calls[0][0]).toMatchObject({ min: 49, max: 50 })
   })
 
-  test("ensure maxValue can't be < minValue", () => {
-    const handleChange = jest.fn()
+  it("ensure maxValue can't be < minValue", () => {
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range max={100} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
@@ -263,8 +264,8 @@ describe('<Slider.Range> test', () => {
     expect(handleChange.mock.calls[0][0]).toMatchObject({ min: 49, max: 50 })
   })
 
-  test('ensure inputText value is a number', () => {
-    const handleChange = jest.fn()
+  it('ensure inputText value is a number', () => {
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range
         max={100}
@@ -287,8 +288,8 @@ describe('<Slider.Range> test', () => {
     expect(handleChange.mock.calls[1][0]).toMatchObject({ min: 0, max: 1 })
   })
 
-  test('ensure step value is respected', () => {
-    const handleChange = jest.fn()
+  it('ensure step value is respected', () => {
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range
         max={100}
@@ -305,8 +306,8 @@ describe('<Slider.Range> test', () => {
     expect(slider[1]).toMatchObject({ value: '20' })
   })
 
-  test('ensure inputText value respect the step', () => {
-    const handleChange = jest.fn()
+  it('ensure inputText value respect the step', () => {
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range
         max={100}
@@ -330,8 +331,8 @@ describe('<Slider.Range> test', () => {
     expect(handleChange.mock.calls[1][0]).toMatchObject({ min: 20, max: 30 })
   })
 
-  test('Slider.Range and fields should be disabled', () => {
-    const handleChange = jest.fn()
+  it('Slider.Range and fields should be disabled', () => {
+    const handleChange = vi.fn()
     const { container } = render(
       <Slider.Range
         disabled

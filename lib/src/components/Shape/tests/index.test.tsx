@@ -1,4 +1,5 @@
 import React from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { render } from '../../../../tests'
 import { Shape } from '../'
@@ -24,7 +25,7 @@ describe('<Shape>', () => {
     )
     const shape = getByTestId('shape')
 
-    expect(shape).toHaveStyleRule('border-radius', '0.5rem')
+    expect(shape).toHaveStyle({ 'border-radius': '0.5rem' })
   })
 
   it('using shape with unequal width / height props should use biggest value', () => {
@@ -35,9 +36,9 @@ describe('<Shape>', () => {
     )
     const shape = getByTestId('shape')
 
-    expect(shape).toHaveStyleRule('width', '100px')
-    expect(shape).toHaveStyleRule('height', '100px')
-    expect(shape).toHaveStyleRule('border-radius', '50%')
+    expect(shape).toHaveStyle({ width: '100px' })
+    expect(shape).toHaveStyle({ height: '100px' })
+    expect(shape).toHaveStyle({ 'border-radius': '50%' })
   })
 
   it('should render a circle shape', () => {
@@ -48,6 +49,6 @@ describe('<Shape>', () => {
     )
     const shape = getByTestId('shape')
 
-    expect(shape).toHaveStyleRule('border-radius', '50%')
+    expect(shape).toHaveStyle({ 'border-radius': '50%' })
   })
 })

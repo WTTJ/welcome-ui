@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { act, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 
 import { InputText, InputTextOptions } from '../'
 import { render } from '../../../../tests'
@@ -16,34 +17,36 @@ const InputTextWrapper: React.FC<InputTextOptions> = props => {
   )
 }
 
-test('<InputText> displays given value', () => {
-  const { getByTestId } = render(<InputTextWrapper />)
+describe('<InputText />', () => {
+  it('displays given value', () => {
+    const { getByTestId } = render(<InputTextWrapper />)
 
-  const input = getByTestId('input') as HTMLInputElement
-  expect(input.value).toBe('test')
-})
+    const input = getByTestId('input') as HTMLInputElement
+    expect(input.value).toBe('test')
+  })
 
-test("<InputText> can't remove value", () => {
-  const { getByTestId, queryByRole } = render(<InputTextWrapper />)
+  it("can't remove value", () => {
+    const { getByTestId, queryByRole } = render(<InputTextWrapper />)
 
-  const input = getByTestId('input') as HTMLInputElement
+    const input = getByTestId('input') as HTMLInputElement
 
-  // Use `queryByTitle` to expect no close button
-  const clearButton = queryByRole('button')
-  expect(clearButton).toBeNull()
+    // Use `queryByTitle` to expect no close button
+    const clearButton = queryByRole('button')
+    expect(clearButton).toBeNull()
 
-  expect(input.value).toBe('test')
-})
+    expect(input.value).toBe('test')
+  })
 
-test('<InputText isClearable> can remove value', async () => {
-  const { user } = render(<InputTextWrapper isClearable />)
+  it('can remove value', async () => {
+    const { user } = render(<InputTextWrapper isClearable />)
 
-  const input = screen.getByTestId('input') as HTMLInputElement
-  expect(input.value).toBe('test')
+    const input = screen.getByTestId('input') as HTMLInputElement
+    expect(input.value).toBe('test')
 
-  const clearButton = screen.getByRole('button')
+    const clearButton = screen.getByRole('button')
 
-  await act(() => user.click(clearButton))
+    await user.click(clearButton)
 
-  expect(input.value).toBe('')
+    expect(input.value).toBe('')
+  })
 })

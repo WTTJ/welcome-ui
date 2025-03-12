@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { act, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 
 import { Modal, UseModal, useModal } from '../'
 import { render } from '../../../../tests'
@@ -23,7 +24,7 @@ describe('<Modal>', () => {
 
     expect(screen.queryByRole('dialog')).toBeNull()
 
-    await act(() => user.click(screen.getByText('open')))
+    await user.click(screen.getByText('open'))
 
     expect(screen.queryByRole('dialog')).toHaveTextContent('Modal open')
   })
@@ -49,7 +50,7 @@ describe('<Modal>', () => {
 
     const { user } = render(<ModalTest />)
 
-    await act(() => user.click(screen.getByText('open')))
+    await user.click(screen.getByText('open'))
 
     expect(screen.queryByRole('dialog')).not.toHaveTextContent('Modal.Body exist?')
   })
@@ -89,7 +90,7 @@ describe('<Modal>', () => {
 
     expect(screen.queryByRole('dialog')).toBeNull()
 
-    await act(() => user.click(screen.getByText('open')))
+    await user.click(screen.getByText('open'))
 
     expect(screen.queryByRole('dialog')).toHaveTextContent('Modal open')
     expect(screen.queryByRole('dialog')).toHaveAttribute('data-dialog')

@@ -1,11 +1,13 @@
 import React from 'react'
-import { act, screen, waitFor } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
+import { vi } from 'vitest'
 
 import { Shape } from '../../Shape'
 import { render } from '../../../../tests'
 import { Search } from '../'
 
-import { Icon } from '@/Icon'
+import { AvatarIcon } from '@/Icons'
 
 type Item = {
   poster?: string
@@ -54,148 +56,150 @@ const defaultProps = {
   },
 }
 
-test('<Search> has default attributes', () => {
-  render(<Search dataTestId="search" name="search" {...defaultProps} />)
+describe('<Search>', () => {
+  it('<Search> has default attributes', () => {
+    render(<Search dataTestId="search" name="search" {...defaultProps} />)
 
-  const search = screen.getByTestId('search')
+    const search = screen.getByTestId('search')
 
-  expect(search.getAttribute('placeholder')).toBe('Search…')
-  expect(search).toHaveTextContent('')
-})
+    expect(search.getAttribute('placeholder')).toBe('Search…')
+    expect(search).toHaveTextContent('')
+  })
 
-test('<Search> shows options when searching', async () => {
-  const { user } = render(<Search dataTestId="search" name="search" {...defaultProps} />)
+  it('<Search> shows options when searching', async () => {
+    const { user } = render(<Search dataTestId="search" name="search" {...defaultProps} />)
 
-  const search = screen.getByTestId('search')
-  await act(() => user.type(search, 'fish'))
+    const search = screen.getByTestId('search')
+    await user.type(search, 'fish')
 
-  const options = await waitFor(() => screen.getByRole('listbox').querySelectorAll('li'))
+    const options = await waitFor(() => screen.getByRole('listbox').querySelectorAll('li'))
 
-  expect(options.length).toBe(4)
-  expect(options[0]).toHaveTextContent(results[0].title)
-})
+    expect(options.length).toBe(4)
+    expect(options[0]).toHaveTextContent(results[0].title)
+  })
 
-test('<Search> can choose option', async () => {
-  const { user } = render(<Search dataTestId="search" name="search" {...defaultProps} />)
+  it('<Search> can choose option', async () => {
+    const { user } = render(<Search dataTestId="search" name="search" {...defaultProps} />)
 
-  const search = screen.getByTestId('search') as HTMLInputElement
+    const search = screen.getByTestId('search') as HTMLInputElement
 
-  await act(() => user.type(search, 'fish'))
+    await user.type(search, 'fish')
 
-  const options = await waitFor(() => screen.getByRole('listbox').querySelectorAll('li'))
+    const options = await waitFor(() => screen.getByRole('listbox').querySelectorAll('li'))
 
-  await act(() => user.click(options[1]))
+    await user.click(options[1])
 
-  expect(search.value).toEqual(results[1].title)
-})
+    expect(search.value).toEqual(results[1].title)
+  })
 
-test('<Search> calls onChange with correct (object) values', async () => {
-  const handleChange = jest.fn()
-  const { user } = render(
-    <Search dataTestId="search" name="search" {...defaultProps} onChange={handleChange} />
-  )
+  it('<Search> calls onChange with correct (object) values', async () => {
+    const handleChange = vi.fn()
+    const { user } = render(
+      <Search dataTestId="search" name="search" {...defaultProps} onChange={handleChange} />
+    )
 
-  const search = screen.getByTestId('search')
+    const search = screen.getByTestId('search')
 
-  await act(() => user.type(search, 'fish'))
+    await user.type(search, 'fish')
 
-  const options = await waitFor(() => screen.getByRole('listbox').querySelectorAll('li'))
+    const options = await waitFor(() => screen.getByRole('listbox').querySelectorAll('li'))
 
-  await act(() => user.click(options[1]))
+    await user.click(options[1])
 
-  expect(handleChange).toHaveBeenCalledTimes(1)
-  expect(handleChange).toHaveBeenCalledWith(
-    results[1],
-    expect.objectContaining({
-      target: { name: 'search', value: results[1] },
-    }) // Ignore preventDefault
-  )
-})
-
-test('<Search> formats items', async () => {
-  const { user } = render(<Search dataTestId="search" name="search" {...defaultProps} />)
-
-  const search = screen.getByTestId('search')
-
-  await act(() => user.type(search, 'fish'))
-
-  const options = await waitFor(() => screen.getByRole('listbox').querySelectorAll('li'))
-  const image = options[0].querySelector('img')
-
-  expect(image.getAttribute('src')).toBe('big-fish.jpg')
-})
-
-test.skip('<Search icon> shows icon', () => {
-  const { container } = render(
-    <Search
-      dataTestId="search"
-      icon={<Icon color="neutral-80" name="avatar" />}
-      name="search"
-      value="february"
-      {...defaultProps}
-    />
-  )
-
-  const icon = container.querySelector('[title="avatar"]')
-
-  expect(icon).toBeInTheDocument()
-})
-
-test("<Search> doesn't show list if no results", async () => {
-  const { user } = render(<Search dataTestId="search" name="search" {...defaultProps} />)
-
-  const search = screen.getByTestId('search')
-
-  await act(() => user.type(search, 'Fish'))
-
-  const options = screen.queryByRole('listbox')
-  expect(options).toBeNull()
-})
-
-test('<Search groupsEnabled> shows groups header', async () => {
-  const { user } = render(
-    <Search
-      dataTestId="select"
-      groupsEnabled
-      name="search"
-      renderGroupHeader={({ label, options }) => (
-        <div data-testid="group-header">
-          <h4>{label}</h4>
-          <span>{options.length}</span>
-        </div>
-      )}
-      {...defaultProps}
-      search={() => Promise.resolve(opt_group_results)}
-    />
-  )
-
-  const search = screen.getByTestId('select')
-
-  await act(() => user.type(search, 'Fish'))
-
-  const headers = await waitFor(() => screen.getAllByTestId('group-header'))
-
-  expect(headers.length).toBe(opt_group_results.length)
-
-  headers.forEach((header, i) => {
-    expect(header.querySelector('h4')).toHaveTextContent(opt_group_results[i].label)
-    expect(header.querySelector('span')).toHaveTextContent(
-      opt_group_results[i].options.length.toString()
+    expect(handleChange).toHaveBeenCalledTimes(1)
+    expect(handleChange).toHaveBeenCalledWith(
+      results[1],
+      expect.objectContaining({
+        target: { name: 'search', value: results[1] },
+      }) // Ignore preventDefault
     )
   })
-})
 
-test('<Search> shows options with minChars to 0', async () => {
-  const { user } = render(
-    <Search dataTestId="search" minChars={0} name="search" {...defaultProps} />
-  )
+  it('<Search> formats items', async () => {
+    const { user } = render(<Search dataTestId="search" name="search" {...defaultProps} />)
 
-  const search = screen.getByTestId('search')
+    const search = screen.getByTestId('search')
 
-  await act(() => user.click(search))
+    await user.type(search, 'fish')
 
-  const options = await waitFor(() => screen.getByRole('listbox').querySelectorAll('li'))
+    const options = await waitFor(() => screen.getByRole('listbox').querySelectorAll('li'))
+    const image = options[0].querySelector('img')
 
-  expect(options.length).toBe(results.length)
-  expect(options[0]).toHaveTextContent(results[0].title)
+    expect(image.getAttribute('src')).toBe('big-fish.jpg')
+  })
+
+  it('<Search icon> shows icon', () => {
+    render(
+      <Search
+        dataTestId="search"
+        icon={<AvatarIcon color="neutral-80" dataTestId="avatar" />}
+        name="search"
+        value="february"
+        {...defaultProps}
+      />
+    )
+
+    const icon = screen.getByTestId('icon-avatar')
+
+    expect(icon).toBeInTheDocument()
+  })
+
+  it("<Search> doesn't show list if no results", async () => {
+    const { user } = render(<Search dataTestId="search" name="search" {...defaultProps} />)
+
+    const search = screen.getByTestId('search')
+
+    await user.type(search, 'Fish')
+
+    const options = screen.queryByRole('listbox')
+    expect(options).toBeNull()
+  })
+
+  it('<Search groupsEnabled> shows groups header', async () => {
+    const { user } = render(
+      <Search
+        dataTestId="select"
+        groupsEnabled
+        name="search"
+        renderGroupHeader={({ label, options }) => (
+          <div data-testid="group-header">
+            <h4>{label}</h4>
+            <span>{options.length}</span>
+          </div>
+        )}
+        {...defaultProps}
+        search={() => Promise.resolve(opt_group_results)}
+      />
+    )
+
+    const search = screen.getByTestId('select')
+
+    await user.type(search, 'Fish')
+
+    const headers = await waitFor(() => screen.getAllByTestId('group-header'))
+
+    expect(headers.length).toBe(opt_group_results.length)
+
+    headers.forEach((header, i) => {
+      expect(header.querySelector('h4')).toHaveTextContent(opt_group_results[i].label)
+      expect(header.querySelector('span')).toHaveTextContent(
+        opt_group_results[i].options.length.toString()
+      )
+    })
+  })
+
+  it('<Search> shows options with minChars to 0', async () => {
+    const { user } = render(
+      <Search dataTestId="search" minChars={0} name="search" {...defaultProps} />
+    )
+
+    const search = screen.getByTestId('search')
+
+    await user.click(search)
+
+    const options = await waitFor(() => screen.getByRole('listbox').querySelectorAll('li'))
+
+    expect(options.length).toBe(results.length)
+    expect(options[0]).toHaveTextContent(results[0].title)
+  })
 })

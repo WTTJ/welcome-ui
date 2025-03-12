@@ -1,4 +1,5 @@
 import React from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { Alert } from '../'
 import { render } from '../../../../tests'
@@ -23,7 +24,7 @@ describe('<Alert>', () => {
 
     expect(container).toHaveTextContent(content)
     expect(container.getElementsByTagName('svg')[0]).toHaveAttribute('alt', 'Promote')
-    expect(alertTitle).toHaveStyleRule('margin-bottom', '0.25rem')
+    expect(alertTitle).toHaveStyle({ 'margin-bottom': '0.25rem' })
   })
 
   it('should render correctly md size', () => {
@@ -36,7 +37,7 @@ describe('<Alert>', () => {
     const alertTitle = getByTestId('alert-title')
 
     expect(container).toHaveTextContent(content)
-    expect(alertTitle).toHaveStyleRule('margin-bottom', '0.5rem')
+    expect(alertTitle).toHaveStyle({ 'margin-bottom': '0.5rem' })
   })
 
   it('should render correctly success alert', () => {

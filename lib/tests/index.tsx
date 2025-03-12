@@ -1,13 +1,11 @@
 import React from 'react'
 import { RenderOptions, render as rtlRender } from '@testing-library/react'
-import { ThemeProvider } from '@xstyled/styled-components'
 import userEvent, { UserEvent } from '@testing-library/user-event'
 import { BrowserRouter } from 'react-router-dom'
 
-import '@testing-library/jest-dom'
-import 'jest-styled-components'
-
 import { createTheme } from '../src/theme'
+
+import { WuiProvider } from '@/WuiProvider'
 
 type ProviderProps = {
   children?: React.ReactNode
@@ -17,9 +15,9 @@ const Provider: React.FC<ProviderProps> = ({ children }) => {
   const theme = createTheme()
 
   return (
-    <ThemeProvider theme={theme}>
+    <WuiProvider hasGlobalStyle theme={theme}>
       <BrowserRouter>{children}</BrowserRouter>
-    </ThemeProvider>
+    </WuiProvider>
   )
 }
 

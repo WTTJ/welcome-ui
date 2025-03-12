@@ -26,7 +26,7 @@
   "scripts": {
     "start": "vite build --watch",
     "build": "vite build",
-    "test": "yarn jest"
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
@@ -51,8 +51,8 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.15",
-    "@juggle/resize-observer": "^3.4.0",
     "@emotion/is-prop-valid": "^1.3.1",
+    "@juggle/resize-observer": "^3.4.0",
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^4.1.0",
     "downshift": "^7.4.1",
@@ -81,7 +81,6 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
-    "@types/jest": "^29.5.13",
     "@types/lodash.capitalize": "^4.2.9",
     "@types/lodash.debounce": "^4.0.6",
     "@types/lodash.range": "^3.2.9",
@@ -91,23 +90,21 @@
     "@types/react-datepicker": "^4.15.0",
     "@types/react-dom": "18.3.1",
     "@xstyled/styled-components": "^4.0.0",
-    "babel-jest": "^29.7.0",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-plugin-styled-components": "^2.1.4",
     "babel-plugin-transform-async-to-promises": "^0.8.18",
     "babel-preset-vite": "^1.1.3",
-    "jest": "29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "jest-styled-components": "7.2.0",
+    "jsdom": "^26.0.0",
     "ramda": "^0.30.1",
     "react": "^18.3.1",
     "release-it": "^18.1.2",
     "rollup-preserve-directives": "^1.1.3",
     "styled-components": "^6.1.15",
     "typescript": "^5.6.3",
-    "vite": "^5.4.10",
-    "vite-plugin-dts": "^4.3.0",
-    "vite-plugin-static-copy": "^2.2.0",
+    "vite": "^6.2.1",
+    "vite-plugin-dts": "^4.5.3",
+    "vite-plugin-static-copy": "^2.3.0",
+    "vitest": "^3.0.8",
     "wttj-config": "^3.0.1"
   },
   "peerDependencies": {

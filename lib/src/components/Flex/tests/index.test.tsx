@@ -1,4 +1,5 @@
 import React from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { Flex } from '../'
 import { render } from '../../../../tests'
@@ -15,6 +16,6 @@ describe('<Flex>', () => {
     const element = getByTestId('flex')
 
     expect(element).toHaveTextContent(content)
-    expect(element).toHaveStyleRule('display', 'flex')
+    expect(element).toHaveStyle({ display: 'flex' })
   })
 })

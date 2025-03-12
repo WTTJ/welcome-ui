@@ -1,2 +1,2 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-window.focus = () => {}
+import '@testing-library/jest-dom/vitest'

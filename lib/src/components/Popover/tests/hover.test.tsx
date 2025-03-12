@@ -1,5 +1,6 @@
 import React from 'react'
-import { act, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 
 import { PopoverHover, usePopoverHover } from '../'
 import { render } from '../../../../tests'
@@ -32,7 +33,7 @@ describe('<PopoverHover>', () => {
     expect(dialog).toHaveAttribute('hidden')
     expect(dialog).toBeInTheDocument()
 
-    await act(() => user.hover(button))
+    await user.hover(button)
 
     /** we need to wait the showTimeout from component */
     setTimeout(() => {

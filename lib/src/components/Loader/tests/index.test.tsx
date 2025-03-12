@@ -1,4 +1,5 @@
 import React from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { createTheme } from '../../../theme'
 import { Loader } from '../'
@@ -19,8 +20,8 @@ describe('<Loader>', () => {
     const loader = getByTestId('loader')
     const dot = loader.firstChild
 
-    expect(dot).toHaveStyleRule('width', theme.loaders.sm)
-    expect(dot).toHaveStyleRule('height', theme.loaders.sm)
+    expect(dot).toHaveStyle({ width: theme.loaders.sm })
+    expect(dot).toHaveStyle({ height: theme.loaders.sm })
   })
 
   it('should have width and height when using the size prop with px value', () => {
@@ -28,8 +29,8 @@ describe('<Loader>', () => {
     const loader = getByTestId('loader')
     const dot = loader.firstChild
 
-    expect(dot).toHaveStyleRule('width', '10px')
-    expect(dot).toHaveStyleRule('height', '10px')
+    expect(dot).toHaveStyle({ width: '10px' })
+    expect(dot).toHaveStyle({ height: '10px' })
   })
 
   it('should have width and height when using the size prop with no value', () => {
@@ -37,7 +38,7 @@ describe('<Loader>', () => {
     const loader = getByTestId('loader')
     const dot = loader.firstChild
 
-    expect(dot).toHaveStyleRule('width', theme.toRem(16))
-    expect(dot).toHaveStyleRule('height', theme.toRem(16))
+    expect(dot).toHaveStyle({ width: theme.toRem(16) })
+    expect(dot).toHaveStyle({ height: theme.toRem(16) })
   })
 })

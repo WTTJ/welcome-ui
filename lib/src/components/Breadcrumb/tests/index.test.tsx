@@ -1,30 +1,31 @@
 import React from 'react'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import { Breadcrumb } from '../'
 import { render } from '../../../../tests'
 
-beforeEach(() => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-extra-semi
-  ;(window as any).MutationObserver = function () {
-    return {
-      disconnect: () => {
-        return {}
-      },
-      observe: () => {
-        return {}
-      },
-      takeRecords: () => {
-        return {}
-      },
-    }
-  }
-})
-
-afterEach(() => {
-  delete window.MutationObserver
-})
-
 describe('<Breadcrumb>', () => {
+  beforeEach(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-extra-semi
+    ;(window as any).MutationObserver = function () {
+      return {
+        disconnect: () => {
+          return {}
+        },
+        observe: () => {
+          return {}
+        },
+        takeRecords: () => {
+          return {}
+        },
+      }
+    }
+  })
+
+  afterEach(() => {
+    delete window.MutationObserver
+  })
+
   it('should render correctly', () => {
     const { container } = render(
       <Breadcrumb>

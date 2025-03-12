@@ -1,5 +1,6 @@
 import React from 'react'
-import { act, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 
 import { AssetDrawer, Drawer, useDrawer } from '..'
 import { render } from '../../../../tests'
@@ -23,7 +24,7 @@ describe('<Drawer>', () => {
 
     expect(screen.queryByRole('dialog')).toBeNull()
 
-    await act(() => user.click(screen.getByText('open')))
+    await user.click(screen.getByText('open'))
 
     expect(screen.queryByRole('dialog')).toHaveTextContent('test')
   })
@@ -44,15 +45,15 @@ describe('<Drawer>', () => {
 
     const { user } = render(<Test />)
 
-    await act(() => user.click(screen.getByText('open')))
+    await user.click(screen.getByText('open'))
 
-    expect(screen.queryByRole('dialog')).toHaveStyleRule('height', '50%')
+    expect(screen.queryByRole('dialog')).toHaveStyle({ height: '50%' })
   })
 
   it('should render "as" correctly', async () => {
     const Test = () => {
       const drawer = useDrawer()
-      const onClick = jest.fn()
+      const onClick = vi.fn()
 
       return (
         <>
@@ -70,7 +71,7 @@ describe('<Drawer>', () => {
 
     expect(screen.queryByRole('dialog')).toBeNull()
 
-    await act(() => user.click(screen.getByText('open')))
+    await user.click(screen.getByText('open'))
 
     expect(screen.queryByRole('dialog')).toHaveTextContent('test')
   })
@@ -94,7 +95,7 @@ describe('<Drawer>', () => {
 
     expect(screen.queryByRole('dialog')).toBeNull()
 
-    await act(() => user.click(screen.getByText('open')))
+    await user.click(screen.getByText('open'))
 
     expect(screen.queryByRole('dialog')).toHaveTextContent('test')
 
