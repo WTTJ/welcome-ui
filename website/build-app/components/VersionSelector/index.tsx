@@ -4,8 +4,11 @@ import lib from '../../../../lib/package.json'
 
 import { Select } from '@/Select'
 
+const VERSION = 'v8'
+
 const versions = [
-  { value: 'v7', label: `v${lib.version}` },
+  { value: VERSION, label: `v${lib.version}` },
+  { value: 'v7', label: 'v7' },
   { value: 'v6', label: 'v6' },
   { value: 'v5', label: 'v5' },
   { value: 'v4', label: 'v4' },
@@ -14,7 +17,7 @@ const versions = [
 
 export const VersionSelector = () => {
   const handleChange = (value: unknown) => {
-    if (value === 'v7') return
+    if (value === VERSION) return
     window.open(`http://welcome-ui.com/${value}`, '_self')
   }
 
@@ -25,7 +28,7 @@ export const VersionSelector = () => {
       onChange={handleChange}
       options={versions}
       size="sm"
-      value="v7"
+      value={VERSION}
     />
   )
 }
