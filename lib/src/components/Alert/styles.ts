@@ -31,7 +31,6 @@ export const Alert = styled.divBox<AlertOptions>(({ icon, isFullWidth, size, var
     ${th('alerts.default')};
     ${th(`alerts.${variant}`)};
     ${th(`alerts.sizes.${size}`)};
-    ${system};
 
     ${icon !== null &&
     size === 'sm' &&

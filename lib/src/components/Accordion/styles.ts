@@ -1,9 +1,8 @@
-import styled, { system, th } from '@xstyled/styled-components'
+import styled, { th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
 
-export const Accordion = styled.div`
+export const Accordion = styled.divBox`
   ${th('accordions.wrapper')};
-  ${system};
   transition: medium;
 
   &:hover {

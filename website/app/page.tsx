@@ -1,11 +1,11 @@
 import NextLink from 'next/link'
 import React from 'react'
+
 import { GithubIcon, HeartIcon, RightIcon } from '@/Icons'
 import { Box } from '@/Box'
 import { Text } from '@/Text'
 import { Button } from '@/Button'
 import { Logo, Symbol } from '@/Logo'
-
 import { Components } from '~/build-app/components/Homepage/Components'
 import { Stats } from '~/build-app/components/Homepage/Stats'
 import { Expectations } from '~/build-app/components/Homepage/Expectations'

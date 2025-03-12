@@ -5,7 +5,7 @@ import { Size } from './theme'
 
 import { CreateWuiProps, forwardRef } from '@/System'
 
-type IconContent = {
+export type IconContent = {
   block?: string
   height?: number
   isFlag?: boolean
@@ -27,6 +27,7 @@ export type IconProps = CreateWuiProps<typeof S.Icon, IconOptions>
 export const Icon = forwardRef<'svg', IconProps>(
   ({ content, dataTestId, size = 'md', title, ...props }, ref) => {
     const className = props.className || ''
+
     if (!content) {
       return null
     }

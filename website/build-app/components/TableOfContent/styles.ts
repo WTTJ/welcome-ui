@@ -1,12 +1,12 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-export const Nav = styled.navBox(
-  ({ isSubPage }: { isSubPage?: boolean }) => css`
+export const Nav = styled.navBox<{ isSubPage?: boolean }>(
+  ({ isSubPage }) => css`
     box-shadow: ${th('colors.neutral-30')} 1px 0px 0px inset;
     position: sticky;
     top: calc(4.375rem + 3rem);
     max-height: calc(100vh - 12rem);
-    overflow-y: scroll;
+    overflow-y: auto;
     z-index: 1;
 
     ${isSubPage &&

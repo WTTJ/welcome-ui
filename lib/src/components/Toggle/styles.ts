@@ -60,13 +60,13 @@ export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })
   `
 )
 
-export const Wrapper = styled.box<{ onClick: React.MouseEventHandler<HTMLInputElement> }>`
+export const Wrapper = styled.divBox<{ onClick: React.MouseEventHandler<HTMLInputElement> }>`
   position: relative;
   display: inline-block;
   cursor: pointer;
 `
 
-export const IconWrapper = styled.box.withConfig({ shouldForwardProp })<{
+export const IconWrapper = styled.divBox.withConfig({ shouldForwardProp })<{
   checked: boolean
   size: Size
 }>(

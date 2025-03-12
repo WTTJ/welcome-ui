@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 
 import { DefaultFieldIconSize } from '../../utils/field-styles'
 
@@ -19,7 +19,7 @@ type StyledFieldProps = {
   withHintText?: boolean
 }
 
-export const Field = styled('div').withConfig({ shouldForwardProp })<StyledFieldProps>(
+export const Field = styled.divBox.withConfig({ shouldForwardProp })<StyledFieldProps>(
   ({ checked, isCheckable, isRadioGroup, withHintText }) => css`
     ${isCheckable &&
     css`
@@ -40,7 +40,6 @@ export const Field = styled('div').withConfig({ shouldForwardProp })<StyledField
         margin-bottom: md;
       `}
     }
-    ${system};
   `
 )
 
@@ -50,7 +49,7 @@ export const Label = styled.div`
   gap: sm;
 `
 
-export const LabelWithHint = styled.div`
+export const LabelWithHint = styled.divBox`
   display: flex;
   flex-direction: column;
 `
@@ -74,7 +73,6 @@ export const IconWrapper = styled.divBox<IconWrapperProps>(
     transition: medium;
     transition-timing-function: primary;
     color: neutral-90;
-    ${system};
 
     /* for button action */
     & > button {
@@ -91,8 +89,8 @@ export const IconWrapper = styled.divBox<IconWrapperProps>(
   `
 )
 
-export const IconGroupWrapper = styled.divBox(
-  ({ size }: { size: DefaultFieldIconSize }) => css`
+export const IconGroupWrapper = styled.divBox<{ size: DefaultFieldIconSize }>(
+  ({ size }) => css`
     position: absolute;
     padding: 0;
     top: 0;

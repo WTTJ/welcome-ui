@@ -1,8 +1,8 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 
 import { shouldForwardProp } from '@/System'
 
-export const Label = styled('label').withConfig({ shouldForwardProp })<{
+export const Label = styled.labelBox.withConfig({ shouldForwardProp })<{
   required: boolean
 }>(
   ({ required }) => css`
@@ -13,7 +13,6 @@ export const Label = styled('label').withConfig({ shouldForwardProp })<{
     align-items: center;
     line-height: lg;
     ${th('labels')};
-    ${system};
     user-select: none;
 
     > * {

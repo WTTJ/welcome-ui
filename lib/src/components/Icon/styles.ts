@@ -1,8 +1,9 @@
-import styled, { css, system, Theme } from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
 
-import { IconOptions } from './index'
+import { IconContent, IconOptions } from './index'
 
 import { WuiProps } from '@/System'
+import { ThemeValues } from '@/theme'
 
 const iconSvgStrokedStyles = css`
   g,
@@ -20,16 +21,15 @@ const iconSvgFilledStyles = css`
 `
 
 type StyledIconProps = Pick<IconOptions, 'size'> &
-  Pick<IconOptions['content'], 'isFlag' | 'stroked'> &
+  Pick<IconContent, 'isFlag' | 'stroked'> &
   WuiProps &
   Partial<{ alt: string; title: string }>
 
-export const Icon = styled('svg')<StyledIconProps>(({ isFlag, size = 'md', stroked, theme }) => {
-  const formattedSize = theme.icons[size as keyof Theme['icons']] || size
+export const Icon = styled.svgBox<StyledIconProps>(({ isFlag, size = 'md', stroked, theme }) => {
+  const formattedSize = theme.icons[size as keyof ThemeValues['icons']] || size
   return css`
     ${!isFlag && (stroked ? iconSvgStrokedStyles : iconSvgFilledStyles)};
     width: ${formattedSize};
     height: ${formattedSize};
-    ${system};
   `
 })

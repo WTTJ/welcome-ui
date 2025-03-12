@@ -1,4 +1,4 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 
 import { VariantIconOptions } from '.'
 
@@ -8,7 +8,5 @@ export const VariantIcon = styled.divBox<{ variant: VariantIconOptions['variant'
     ${th(`variantIcon.${variant}`)}
     flex-shrink: 0;
     align-self: center;
-
-    ${system};
   `
 )

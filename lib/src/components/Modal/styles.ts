@@ -1,4 +1,4 @@
-import styled, { css, system, th, up } from '@xstyled/styled-components'
+import styled, { css, th, up } from '@xstyled/styled-components'
 
 import { BackdropProps } from './Assets/Backdrop'
 
@@ -19,7 +19,6 @@ export const Backdrop = styled.divBox.withConfig({
     bottom: 0;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
-    ${system};
 
     ${hideOnInteractOutside &&
     css`

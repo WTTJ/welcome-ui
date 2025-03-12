@@ -7,7 +7,7 @@ import { Blockquote } from './Blockquote'
 import { Paragraph } from './Paragraph'
 import { Code } from './Code'
 import { Div } from './Div'
-import { H2, H3, H4 } from './Headings'
+import { H2, H3, H4, H5, H6 } from './Headings'
 import { A } from './A'
 import { Image } from './Image'
 
@@ -20,6 +20,8 @@ const components = {
   h2: H2,
   h3: H3,
   h4: H4,
+  h5: H5,
+  h6: H6,
   a: A,
   ul: ({ children }: { children: React.ReactElement }) => (
     <Box as="ul" listStyleType="disc" mt="sm">

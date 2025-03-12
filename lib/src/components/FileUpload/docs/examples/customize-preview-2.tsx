@@ -31,9 +31,7 @@ const Example = () => {
 
                 return (
                   <Button key={preview} onClick={() => onRemoveFile(file)}>
-                    <>
-                      {getFileIcon(file)} Click to remove {name}
-                    </>
+                    {React.createElement(getFileIcon(file))} Click to remove {name}
                   </Button>
                 )
               })}
