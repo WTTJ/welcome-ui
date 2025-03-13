@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
 
 import { Modal, UseModal, useModal } from '../'
 import { render } from '../../../../tests'

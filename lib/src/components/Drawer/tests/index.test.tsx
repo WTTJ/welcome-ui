@@ -1,6 +1,5 @@
 import React from 'react'
 import { screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
 
 import { AssetDrawer, Drawer, useDrawer } from '..'
 import { render } from '../../../../tests'

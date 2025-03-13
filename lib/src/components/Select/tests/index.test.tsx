@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import capitalize from 'lodash.capitalize'
 import { act, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
 
 import { AvatarIcon, DateIcon } from '../../Icons'
 import { render } from '../../../../tests'

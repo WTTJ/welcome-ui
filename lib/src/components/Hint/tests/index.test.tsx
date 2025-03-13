@@ -1,6 +1,4 @@
 import React from 'react'
-import { describe, expect } from 'vitest'
-import { it } from 'vitest'
 
 import { Hint } from '../'
 import { colors } from '../../../theme/colors'

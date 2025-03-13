@@ -9,8 +9,8 @@
       "@/theme": ["./src/theme"],
       "@/fonts/*": ["./src/components/IconsFont/fonts/*"],
       "@/*": ["./src/components/*"]
-    }
+    },
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
-  "exclude": ["**/*.json"],
-  "types": ["vitest/globals", "@testing-library/jest-dom"]
+  "exclude": ["**/*.json"]
 }

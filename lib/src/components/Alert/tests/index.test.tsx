@@ -1,5 +1,4 @@
 import React from 'react'
-import { describe, expect, it } from 'vitest'
 
 import { Alert } from '../'
 import { render } from '../../../../tests'

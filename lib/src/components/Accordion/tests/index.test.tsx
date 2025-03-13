@@ -1,6 +1,5 @@
 import React from 'react'
 import { renderHook, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
 
 import { render } from '../../../../tests'
 import { Accordion, useAccordion } from '../'

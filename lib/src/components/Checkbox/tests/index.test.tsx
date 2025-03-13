@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
 
 import { Checkbox, CheckboxOptions } from '../'
 import { render } from '../../../../tests'

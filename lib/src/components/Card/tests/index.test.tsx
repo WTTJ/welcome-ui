@@ -1,5 +1,4 @@
 import React from 'react'
-import { describe, expect, it } from 'vitest'
 
 import { Card } from '../'
 import { render } from '../../../../tests'

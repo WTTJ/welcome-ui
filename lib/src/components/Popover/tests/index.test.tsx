@@ -1,6 +1,5 @@
 import React from 'react'
 import { screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
 
 import { Popover, usePopover } from '../'
 import { render } from '../../../../tests'

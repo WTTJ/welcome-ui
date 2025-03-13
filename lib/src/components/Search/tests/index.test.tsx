@@ -1,7 +1,5 @@
 import React from 'react'
 import { screen, waitFor } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
-import { vi } from 'vitest'
 
 import { Shape } from '../../Shape'
 import { render } from '../../../../tests'

@@ -1,5 +1,4 @@
 import React from 'react'
-import { describe, expect, it, vi } from 'vitest'
 import { fireEvent } from '@testing-library/react'
 
 import { render } from '../../../../tests'

@@ -1,6 +1,4 @@
 import React from 'react'
-import { beforeAll, describe, expect, it, vi } from 'vitest'
-import { afterEach } from 'vitest'
 
 import { render } from '../../../../tests'
 import { Swiper, useSwiper } from '../'

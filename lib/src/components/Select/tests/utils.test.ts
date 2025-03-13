@@ -1,5 +1,4 @@
 import capitalize from 'lodash.capitalize'
-import { describe, expect, it } from 'vitest'
 
 import { SelectValue } from '../'
 import {

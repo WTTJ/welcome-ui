@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { fireEvent, renderHook, screen, waitFor } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
 
 import { DropdownMenu, type DropdownMenuProps, useDropdownMenu } from '../'
 import { render } from '../../../../tests'

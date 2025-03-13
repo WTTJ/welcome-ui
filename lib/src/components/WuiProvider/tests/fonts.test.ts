@@ -1,5 +1,3 @@
-import { describe, expect, it } from 'vitest'
-
 import { getSource } from '../font'
 
 describe('getSource', () => {

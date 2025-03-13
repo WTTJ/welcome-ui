@@ -1,5 +1,4 @@
 import React from 'react'
-import { describe, expect, it } from 'vitest'
 
 import { render } from '../../../../tests'
 import { Toast } from '../'

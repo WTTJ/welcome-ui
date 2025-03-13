@@ -1,6 +1,5 @@
 import React from 'react'
 import { renderHook, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
 
 import { Pagination } from '../'
 import { usePages } from '../utils'

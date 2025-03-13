@@ -1,6 +1,4 @@
 import React from 'react'
-import { describe, expect, vi } from 'vitest'
-import { it } from 'vitest'
 
 import { render } from '../../../../tests'
 import { IconsFont } from '../'

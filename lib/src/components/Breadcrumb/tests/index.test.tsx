@@ -1,5 +1,4 @@
 import React from 'react'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import { Breadcrumb } from '../'
 import { render } from '../../../../tests'
