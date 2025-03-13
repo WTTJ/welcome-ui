@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import { Pagination, PaginationProps } from '@/Pagination'
 
 const Example = () => {

@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Accordion, useAccordion } from '@/Accordion'
 import { PlayIcon } from '@/Icons'
 

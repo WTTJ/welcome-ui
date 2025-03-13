@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./*"],
+      "@/utils": ["../lib/src/utils"],
+      "@/theme": ["../lib/src/theme"],
+      "@/fonts/*": ["../lib/src/components/IconsFont/fonts/*"],
+      "@/*": ["../lib/src/components/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  }
+}
