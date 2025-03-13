@@ -66,6 +66,7 @@
     "husky": "8.0.3",
     "lodash.difference": "^4.5.0",
     "minimist": "1.2.8",
+    "prettier": "3.5.3",
     "react": "^18.3.1",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.3.1",

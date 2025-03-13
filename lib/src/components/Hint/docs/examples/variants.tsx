@@ -1,4 +1,3 @@
-import * as React from 'react'
 
 import { Hint } from '@/Hint'
 import { Stack } from '@/Stack'

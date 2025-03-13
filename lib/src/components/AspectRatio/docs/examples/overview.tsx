@@ -1,4 +1,3 @@
-import * as React from 'react'
 
 import { AspectRatio } from '@/AspectRatio'
 import { Box } from '@/Box'

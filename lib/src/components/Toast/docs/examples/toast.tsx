@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-curly-newline */
-import * as React from 'react'
 import { ToastPosition } from 'react-hot-toast/headless'
 
 import { toast } from '@/Toast'

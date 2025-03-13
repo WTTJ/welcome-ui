@@ -1,4 +1,3 @@
-import * as React from 'react'
 
 import { AssetModal, Modal, useModal } from '@/Modal'
 import { Button } from '@/Button'

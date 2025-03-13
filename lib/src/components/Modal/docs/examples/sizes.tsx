@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import { Modal, ModalProps, useModal } from '@/Modal'
 import { Button } from '@/Button'
 

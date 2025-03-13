@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import { FileUpload, FileUploadPreviewProps } from '@/FileUpload'
 import { Button } from '@/Button'
 import { getFileIcon, getFileName, getFileSize } from '@/Files'

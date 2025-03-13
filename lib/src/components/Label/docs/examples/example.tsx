@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import { Label } from '@/Label'
 import { Checkbox } from '@/Checkbox'
 import { Link } from '@/Link'
