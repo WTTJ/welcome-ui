@@ -1,5 +1,3 @@
-/* eslint-disable react/iframe-missing-sandbox */
-
 import { AspectRatio } from '@/AspectRatio'
 
 const Example = () => {

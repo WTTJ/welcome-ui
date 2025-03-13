@@ -25,9 +25,6 @@ const options = [
 const Example = () => {
   const [value, setValue] = React.useState('edit')
 
-  // TODO: fix typescript
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   const handleChange = event => {
     setValue(event.target.value)
   }

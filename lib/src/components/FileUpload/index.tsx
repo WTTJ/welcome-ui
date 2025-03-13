@@ -74,7 +74,6 @@ export const FileUpload = forwardRef<'input', FileUploadProps>(
       children,
       dataTestId,
       disabled,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       draggable,
       handleAddFile,
       handleRemoveFile,
@@ -83,7 +82,6 @@ export const FileUpload = forwardRef<'input', FileUploadProps>(
       name,
       onBlur,
       onChange,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       onError,
       preview: Preview = DefaultPreview,
       value = [],

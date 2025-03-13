@@ -1,4 +1,3 @@
-
 import { toast, Toast } from '@/Toast'
 import { Button } from '@/Button'
 
@@ -9,16 +8,14 @@ const Example = () => {
 
   return (
     <Button
-      onClick={
-        () =>
-          toast(
-            <Toast.Growl>
-              <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
-              Class aptent taciti sociosqu ad
-            </Toast.Growl>,
-            { onClose }
-          )
-        // eslint-disable-next-line react/jsx-curly-newline
+      onClick={() =>
+        toast(
+          <Toast.Growl>
+            <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
+            Class aptent taciti sociosqu ad
+          </Toast.Growl>,
+          { onClose }
+        )
       }
     >
       Open

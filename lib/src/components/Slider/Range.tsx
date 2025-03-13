@@ -221,7 +221,6 @@ export const Range = forwardRef<'div', RangeProps>(
           setInputMaxValue(validValue)
         }
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     return (
@@ -343,7 +342,6 @@ export const Range = forwardRef<'div', RangeProps>(
                   .reduce((prev, acc) => (prev.includes(acc) ? prev : [...prev, acc]), [])
                   .filter(v => v >= min && v <= max)
                   .map((el, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
                     <S.Thick key={`${el}-${index}`} left={`${getPercent(el)}%`}>
                       <S.ThickLabel>{el}</S.ThickLabel>
                     </S.Thick>

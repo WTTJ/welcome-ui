@@ -18,7 +18,6 @@ describe('<Slider> test', () => {
       <Slider max={100} min={0} onChange={handleChange} value={50} w={100} />
     )
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const slider = container.querySelector<HTMLInputElement>('input[type="range"]')!
 
     fireEvent.change(slider, { target: { value: 70 } })
@@ -35,7 +34,6 @@ describe('<Slider> test', () => {
       <Slider max={100} min={min} onChange={handleChange} value={50} w={100} />
     )
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const slider = container.querySelector<HTMLInputElement>('input[type="range"]')!
 
     fireEvent.change(slider, { target: { value: -10 } })
@@ -52,7 +50,6 @@ describe('<Slider> test', () => {
       <Slider max={max} min={0} onChange={handleChange} value={50} w={100} />
     )
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const slider = container.querySelector<HTMLInputElement>('input[type="range"]')!
 
     fireEvent.change(slider, { target: { value: 200 } })
@@ -68,7 +65,6 @@ describe('<Slider> test', () => {
       <Slider max={100} min={0} onChange={handleChange} type="right-field" value={50} w={100} />
     )
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const slider = container.querySelector<HTMLInputElement>('input[type="number"]')!
 
     fireEvent.change(slider, { target: { value: 'NaN' } })
@@ -92,7 +88,6 @@ describe('<Slider> test', () => {
       />
     )
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const slider = container.querySelector<HTMLInputElement>('input[type="range"]')!
 
     expect(slider).toMatchObject({ value: '10' })
@@ -112,7 +107,6 @@ describe('<Slider> test', () => {
       />
     )
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const slider = container.querySelector<HTMLInputElement>('input[type="range"]')!
 
     expect(slider).toMatchObject({ value: '60' })
@@ -133,10 +127,8 @@ describe('<Slider> test', () => {
       />
     )
 
-    /* eslint-disable @typescript-eslint/no-non-null-assertion */
     const slider = container.querySelector<HTMLInputElement>('input[type="range"]')!
     const numberInput = container.querySelector<HTMLInputElement>('input[type="number"]')!
-    /* eslint-enable @typescript-eslint/no-non-null-assertion */
 
     expect(slider).toBeDisabled()
     expect(numberInput).toBeDisabled()
@@ -157,10 +149,8 @@ describe('<Slider> test', () => {
       />
     )
 
-    /* eslint-disable @typescript-eslint/no-non-null-assertion */
     const slider = container.querySelector<HTMLInputElement>('input[type="range"]')!
     const numberInput = container.querySelector<HTMLInputElement>('input[type="number"]')!
-    /* eslint-enable @typescript-eslint/no-non-null-assertion */
 
     expect(slider).toBeDisabled()
     expect(numberInput).toBeDisabled()
@@ -182,7 +172,7 @@ describe('<Slider.Range> test', () => {
     const { container } = render(
       <Slider.Range max={100} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
     const slider = container.querySelectorAll('input[type="range"]')!
 
     fireEvent.change(slider[0], { target: { value: 10 } })
@@ -201,7 +191,7 @@ describe('<Slider.Range> test', () => {
     const { container } = render(
       <Slider.Range max={100} min={min} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
     const slider = container.querySelectorAll('input[type="range"]')!
 
     fireEvent.change(slider[0], { target: { value: -10 } })
@@ -217,7 +207,7 @@ describe('<Slider.Range> test', () => {
     const { container } = render(
       <Slider.Range max={max} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
     const slider = container.querySelectorAll('input[type="range"]')!
 
     fireEvent.change(slider[1], { target: { value: 200 } })
@@ -232,7 +222,7 @@ describe('<Slider.Range> test', () => {
     const { container } = render(
       <Slider.Range max={100} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
     const slider = container.querySelectorAll('input[type="range"]')!
 
     fireEvent.change(slider[0], { target: { value: 51 } })
@@ -250,7 +240,7 @@ describe('<Slider.Range> test', () => {
     const { container } = render(
       <Slider.Range max={100} min={0} onChange={handleChange} value={{ min: 20, max: 50 }} />
     )
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
     const slider = container.querySelectorAll('input[type="range"]')!
 
     fireEvent.change(slider[0], { target: { value: 50 } })
@@ -275,7 +265,6 @@ describe('<Slider.Range> test', () => {
       />
     )
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const inputSlider = container.querySelectorAll<HTMLInputElement>('input[type="number"]')!
     fireEvent.change(inputSlider[0], { target: { value: 'NaN' } })
     fireEvent.keyDown(inputSlider[0], { key: 'Enter', code: 'Enter', charCode: 13 })
@@ -298,7 +287,7 @@ describe('<Slider.Range> test', () => {
         value={{ min: 12, max: 17 }}
       />
     )
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
     const slider = container.querySelectorAll('input[type="range"]')!
 
     expect(slider[0]).toMatchObject({ value: '10' })
@@ -318,7 +307,6 @@ describe('<Slider.Range> test', () => {
       />
     )
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const inputSlider = container.querySelectorAll<HTMLInputElement>('input[type="number"]')!
     fireEvent.change(inputSlider[0], { target: { value: '16' } })
     fireEvent.keyDown(inputSlider[0], { key: 'Enter', code: 'Enter', charCode: 13 })
@@ -343,10 +331,8 @@ describe('<Slider.Range> test', () => {
         value={{ min: 20, max: 50 }}
       />
     )
-    /* eslint-disable @typescript-eslint/no-non-null-assertion */
     const inputSlider = container.querySelector<HTMLInputElement>('input[type="number"]')!
     const fields = container.querySelectorAll<HTMLInputElement>('input[type="number"]')!
-    /* eslint-enable @typescript-eslint/no-non-null-assertion */
 
     expect(inputSlider).toBeDisabled()
     expect(fields[0]).toBeDisabled()

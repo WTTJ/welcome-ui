@@ -9,7 +9,6 @@ export const CustomPopper = ({ children }: { children: React.ReactElement }) => 
     return null
   }
   // Get any styles passed via `popperProps`
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { children: nested, modifiers, placement, ...popperProps } = children.props
   return <StyledCustomPopper popperStyles={popperProps}>{children}</StyledCustomPopper>
 }
