@@ -1,6 +1,0 @@
-{
-  "extends": "wttj-config/lib/tsconfig/tsconfig.json",
-  "compilerOptions": {
-    "rootDir": "."
-  }
-}
