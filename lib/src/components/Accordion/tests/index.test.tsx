@@ -1,4 +1,3 @@
-import React from 'react'
 import { renderHook, screen } from '@testing-library/react'
 
 import { render } from '../../../../tests'

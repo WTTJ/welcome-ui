@@ -178,7 +178,6 @@ export const Search = forwardRef<'input', SearchProps>(
             tabIndex: 0,
             variant: isOpen ? 'focused' : variant,
             ...rest,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
           }) as any
           const iconSize = FIELD_ICON_SIZE[size]
 
@@ -200,7 +199,6 @@ export const Search = forwardRef<'input', SearchProps>(
                       (acc, result, resultIndex) => {
                         if (groupsEnabled) {
                           acc.itemsToRender.push(
-                            // eslint-disable-next-line react/no-array-index-key
                             <Fragment key={resultIndex}>
                               {renderGroupHeader(result as SearchOptionGroup)}
                               {(result as SearchOptionGroup).options &&
@@ -208,7 +206,6 @@ export const Search = forwardRef<'input', SearchProps>(
                                   const index = acc.itemIndex++
                                   return (
                                     <S.Item
-                                      // eslint-disable-next-line react/no-array-index-key
                                       key={optionIndex}
                                       {...getItemProps({
                                         index,
@@ -228,7 +225,6 @@ export const Search = forwardRef<'input', SearchProps>(
                         } else {
                           acc.itemsToRender.push(
                             <S.Item
-                              // eslint-disable-next-line react/no-array-index-key
                               key={resultIndex}
                               {...getItemProps({
                                 index: resultIndex,

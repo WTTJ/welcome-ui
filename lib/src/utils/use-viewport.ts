@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { useIsomorphicLayoutEffect } from './use-isomorphic-layout-effect'
 
 type Size = {
-  height: number
-  width: number
+  height: number | undefined
+  width: number | undefined
 }
 
 export function useViewportSize(): Size {

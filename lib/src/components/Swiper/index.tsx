@@ -1,12 +1,4 @@
-import React, {
-  Children,
-  cloneElement,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
+import { Children, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import debounce from 'lodash.debounce'
 import { useTheme } from '@xstyled/styled-components'
 
@@ -278,7 +270,6 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
 
   useEffect(() => {
     goTo(firstPageToShow, true)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   /** if the childrens changed we need to check again the arrow states */

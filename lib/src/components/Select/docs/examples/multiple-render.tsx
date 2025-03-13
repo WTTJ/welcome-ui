@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import { Select, SelectOption, SelectProps } from '@/Select'
 import { Tag } from '@/Tag'
 import { Text } from '@/Text'
@@ -24,28 +23,25 @@ const Example = () => {
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
-      renderMultiple={
-        (values, handleRemove) => (
-          <>
-            {values.map(option => {
-              return (
-                <Tag
-                  key={option.value}
-                  mr="sm"
-                  mt="sm"
-                  onRemove={() => handleRemove(option.value as string)}
-                  size="sm"
-                >
-                  <Text m="0" variant="sm">
-                    {option.label}
-                  </Text>
-                </Tag>
-              )
-            })}
-          </>
-        )
-        // eslint-disable-next-line react/jsx-curly-newline
-      }
+      renderMultiple={(values, handleRemove) => (
+        <>
+          {values.map(option => {
+            return (
+              <Tag
+                key={option.value}
+                mr="sm"
+                mt="sm"
+                onRemove={() => handleRemove(option.value as string)}
+                size="sm"
+              >
+                <Text m="0" variant="sm">
+                  {option.label}
+                </Text>
+              </Tag>
+            )
+          })}
+        </>
+      )}
       value={value}
     />
   )

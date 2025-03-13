@@ -339,7 +339,6 @@ export const Select = forwardRef<'input', SelectProps>(
             isClearable,
             transparent,
             ...rest,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
           }) as any
           const iconSize = FIELD_ICON_SIZE[size]
 
@@ -372,8 +371,6 @@ export const Select = forwardRef<'input', SelectProps>(
                       ) => {
                         if (groupsEnabled && 'options' in result) {
                           acc.itemsToRender.push(
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
                             <Fragment key={result.label}>
                               {renderGroupHeader(result)}
                               {result.options &&

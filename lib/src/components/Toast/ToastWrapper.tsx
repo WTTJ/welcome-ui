@@ -27,7 +27,6 @@ export const ToastWrapper: React.FC<ToastWrapperProps> = ({
   updateHeight,
 }) => {
   if (typeof toast.message === 'string') {
-    // eslint-disable-next-line no-console
     console.warn('You must pass a React component or a HTML element.')
     return null
   }

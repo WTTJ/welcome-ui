@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Search } from '@/Search'
 import { Box } from '@/Box'
 import { Text } from '@/Text'
@@ -32,9 +30,6 @@ const Example = () => {
   }
 
   return (
-    // TODO: fix typescript
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     <Search
       groupsEnabled
       itemToString={(item: Item) => item && item.Title}

@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Tooltip } from '@/Tooltip'
 import { Button } from '@/Button'
 

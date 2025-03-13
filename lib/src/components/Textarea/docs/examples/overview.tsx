@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Textarea } from '@/Textarea'
 
 const Example = () => {

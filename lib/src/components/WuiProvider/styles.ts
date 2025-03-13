@@ -260,7 +260,7 @@ export const normalizeStyle = css`
   [type='button'],
   [type='reset'],
   [type='submit'] {
-    appearance: button;
+    appearance: auto;
     -webkit-appearance: button;
   }
 

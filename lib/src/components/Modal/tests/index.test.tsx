@@ -56,7 +56,6 @@ describe('<Modal>', () => {
 
   it('should render with data-enter attribute', async () => {
     const Test = () => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const [count, setCount] = useState(1)
       const modal = useModal()
 

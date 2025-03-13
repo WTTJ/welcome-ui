@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import { unified } from 'unified'
 import rehypeParse from 'rehype-parse'
 import { marked } from 'marked'
@@ -54,8 +52,6 @@ export function getPageTree(content: string, isOverview?: boolean) {
 
       if (!parentHeading) return
 
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       const title = node.children[0].value
       const id = kebabCase(title)
 

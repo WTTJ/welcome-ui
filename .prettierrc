@@ -1,0 +1,12 @@
+{
+  "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "insertPragma": false,
+  "printWidth": 100,
+  "proseWrap": "never",
+  "requirePragma": false,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "useTabs": false
+}

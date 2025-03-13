@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Search } from '@/Search'
 
 type Item = { Title: string }
@@ -12,9 +10,6 @@ const Example = () => {
   }
 
   return (
-    // TODO: fix typescript
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     <Search
       itemToString={(item: Item) => item && item.Title}
       name="movies"

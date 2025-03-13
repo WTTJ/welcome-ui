@@ -8,7 +8,6 @@ export function getFilesFromDirectory(dir: string) {
   const directory = `build-app/pages/${dir}`
   const folder = join(process.cwd(), directory)
   const folderExist = existsSync(folder)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const files = [] as any[]
 
   if (!folderExist) return files

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { wrapChildren } from '../../utils/wrap-children'
 
 import * as S from './styles'
