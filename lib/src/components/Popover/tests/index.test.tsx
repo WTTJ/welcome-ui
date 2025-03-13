@@ -1,5 +1,5 @@
 import React from 'react'
-import { act, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 
 import { Popover, usePopover } from '../'
 import { render } from '../../../../tests'
@@ -32,7 +32,7 @@ describe('<Popover>', () => {
     expect(button).toHaveAttribute('aria-expanded', 'false')
     expect(dialog).toBeInTheDocument()
 
-    await act(() => user.click(button))
+    await user.click(button)
 
     expect(button).toHaveAttribute('aria-expanded', 'true')
   })

@@ -1,5 +1,5 @@
 import React from 'react'
-import { act, renderHook, screen } from '@testing-library/react'
+import { renderHook, screen } from '@testing-library/react'
 
 import { Pagination } from '../'
 import { usePages } from '../utils'
@@ -7,8 +7,8 @@ import { render } from '../../../../tests'
 
 describe('<Pagination>', () => {
   it('should render correctly', async () => {
-    const onChange = jest.fn()
-    const getHref = jest.fn()
+    const onChange = vi.fn()
+    const getHref = vi.fn()
 
     const { user } = render(
       <Pagination
@@ -32,19 +32,19 @@ describe('<Pagination>', () => {
     expect(nextPage).toHaveAttribute('aria-current', 'false')
 
     /** Click on next button */
-    await act(() => user.click(nextButton))
+    await user.click(nextButton)
 
     expect(onChange).toHaveBeenCalledWith(2)
 
     /** Click on a page 3 button */
-    await act(() => user.click(screen.getByText('3')))
+    await user.click(screen.getByText('3'))
 
     expect(onChange).toHaveBeenCalledWith(3)
   })
 
   it('should render correctly with prev Button', async () => {
-    const onChange = jest.fn()
-    const getHref = jest.fn()
+    const onChange = vi.fn()
+    const getHref = vi.fn()
 
     const { user } = render(
       <Pagination
@@ -68,18 +68,18 @@ describe('<Pagination>', () => {
     expect(prevPage).toHaveAttribute('aria-current', 'false')
 
     /** Click on prev button */
-    await act(() => user.click(prevButton))
+    await user.click(prevButton)
 
     expect(onChange).toHaveBeenCalledWith(9)
 
     /** Click on a page 3 button */
-    await act(() => user.click(screen.getByText('10')))
+    await user.click(screen.getByText('10'))
 
     expect(onChange).toHaveBeenCalledWith(10)
   })
 
   it('should render correctly without href url', async () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     const { user } = render(
       <Pagination
@@ -102,12 +102,12 @@ describe('<Pagination>', () => {
     expect(prevPage).toHaveAttribute('aria-current', 'false')
 
     /** Click on prev button */
-    await act(() => user.click(prevButton))
+    await user.click(prevButton)
 
     expect(onChange).toHaveBeenCalledWith(9)
 
     /** Click on a page 3 button */
-    await act(() => user.click(screen.getByText('10')))
+    await user.click(screen.getByText('10'))
 
     expect(onChange).toHaveBeenCalledWith(10)
   })

@@ -1,19 +1,7 @@
 import React from 'react'
-import { act } from '@testing-library/react'
 
 import { render } from '../../../../tests'
 import { Swiper, useSwiper } from '../'
-
-const scrollToSpy = jest.fn()
-beforeAll(() => {
-  Element.prototype.scrollTo = scrollToSpy
-})
-
-afterEach(() => {
-  Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { configurable: true, value: 0 })
-  Object.defineProperty(HTMLElement.prototype, 'scrollLeft', { configurable: true, value: 0 })
-  Object.defineProperty(HTMLElement.prototype, 'scrollWidth', { configurable: true, value: 0 })
-})
 
 const TestSwiper = () => {
   const swiper = useSwiper()
@@ -54,6 +42,18 @@ const TestSwiperWithLoop = () => {
 // test 3 slides with 2 slides per view
 
 describe('<Swiper>', () => {
+  const scrollToSpy = vi.fn()
+
+  beforeAll(() => {
+    Element.prototype.scrollTo = scrollToSpy
+  })
+
+  afterEach(() => {
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { configurable: true, value: 0 })
+    Object.defineProperty(HTMLElement.prototype, 'scrollLeft', { configurable: true, value: 0 })
+    Object.defineProperty(HTMLElement.prototype, 'scrollWidth', { configurable: true, value: 0 })
+  })
+
   it('should render correctly with no props', () => {
     const { container } = render(<TestSwiper />)
 
@@ -127,41 +127,41 @@ describe('<Swiper>', () => {
     const pagination = container.querySelectorAll('[role=tab]')
 
     // Act
-    await act(() => user.click(pagination[2]))
+    await user.click(pagination[2])
 
     // Assert
     expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 40, top: 0 })
 
     // Act
-    await act(() => user.click(pagination[1]))
+    await user.click(pagination[1])
 
     // Assert
     expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 20, top: 0 })
   })
-})
 
-describe('<SwiperWithLoop>', () => {
-  it('should have arrow buttons enabled and call scrollTo when clicking on it', async () => {
-    const { getByTestId, user } = render(<TestSwiperWithLoop />)
+  describe('with loop', () => {
+    it('should have arrow buttons enabled and call scrollTo when clicking on it', async () => {
+      const { getByTestId, user } = render(<TestSwiperWithLoop />)
 
-    // Arrange
-    const prevButton = getByTestId('swiper-prev-button')
-    const nextButton = getByTestId('swiper-next-button')
+      // Arrange
+      const prevButton = getByTestId('swiper-prev-button')
+      const nextButton = getByTestId('swiper-next-button')
 
-    // Assert
-    expect(prevButton).toBeEnabled()
-    expect(nextButton).toBeEnabled()
+      // Assert
+      expect(prevButton).toBeEnabled()
+      expect(nextButton).toBeEnabled()
 
-    // Act
-    await act(() => user.click(prevButton))
+      // Act
+      await user.click(prevButton)
 
-    // Assert
-    expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 40, top: 0 })
+      // Assert
+      expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 40, top: 0 })
 
-    // Act
-    await act(() => user.click(nextButton))
+      // Act
+      await user.click(nextButton)
 
-    // Assert
-    expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 20, top: 0 })
+      // Assert
+      expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 20, top: 0 })
+    })
   })
 })

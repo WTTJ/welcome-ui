@@ -1,5 +1,5 @@
 import React from 'react'
-import { act, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 
 import { SunIcon } from '../../Icons'
 import { Link } from '../../Link'
@@ -9,24 +9,24 @@ import { render } from '../../../../tests'
 import { createTheme } from '../../../theme'
 
 const content = 'Jungle'
+const theme = createTheme()
 
 describe('<Button />', () => {
   it('should render correctly', () => {
-    const theme = createTheme()
-
     render(<Button dataTestId="button">{content}</Button>)
 
     const button = screen.getByTestId('button')
 
+    // need to remove active state, it's a bug
+    button.focus()
+
     expect(button).toHaveTextContent(content)
     expect(button).not.toBeDisabled()
-    expect(button).toHaveStyleRule('background-color', theme.colors['primary-40'])
-    expect(button).toHaveStyleRule('height', theme.buttons.sizes.md.height)
+    expect(button).toHaveStyle({ 'background-color': theme.colors['primary-40'] })
+    expect(button).toHaveStyle({ height: theme.buttons.sizes.md.height })
   })
 
   it('should render a danger button', () => {
-    const theme = createTheme()
-
     render(
       <Button danger dataTestId="button">
         {content}
@@ -35,13 +35,16 @@ describe('<Button />', () => {
 
     const button = screen.getByTestId('button')
 
+    // need to remove active state, it's a bug
+    button.focus()
+
     expect(button).toHaveTextContent(content)
     expect(button).not.toBeDisabled()
-    expect(button).toHaveStyleRule('background-color', theme.colors['red-70'])
+    expect(button).toHaveStyle({ 'background-color': theme.colors['red-70'] })
   })
 
   it('should call onClick property', async () => {
-    const onClick = jest.fn()
+    const onClick = vi.fn()
 
     const { user } = render(
       <Button dataTestId="button" onClick={onClick}>
@@ -51,14 +54,12 @@ describe('<Button />', () => {
 
     const eventElement = screen.getByText(content)
 
-    await act(() => user.click(eventElement))
+    await user.click(eventElement)
 
     expect(onClick).toHaveBeenCalledTimes(1)
   })
 
   it('should look like a square', () => {
-    const theme = createTheme()
-
     render(
       <Button dataTestId="button" shape="square" size="sm">
         {content}
@@ -66,13 +67,11 @@ describe('<Button />', () => {
     )
     const button = screen.getByTestId('button')
 
-    expect(button).toHaveStyleRule('width', theme.buttons.sizes.sm.height)
-    expect(button).toHaveStyleRule('height', theme.buttons.sizes.sm.height)
+    expect(button).toHaveStyle({ width: theme.buttons.sizes.sm.height })
+    expect(button).toHaveStyle({ height: theme.buttons.sizes.sm.height })
   })
 
   it('should have correct size', () => {
-    const theme = createTheme()
-
     render(
       <Button dataTestId="button" size="sm">
         {content}
@@ -80,12 +79,12 @@ describe('<Button />', () => {
     )
     const button = screen.getByTestId('button')
 
-    expect(button).toHaveStyleRule('height', theme.buttons.sizes.sm.height)
+    expect(button).toHaveStyle({ height: theme.buttons.sizes.sm.height })
   })
 
   describe('disabled', () => {
     it('should not call onClick property', async () => {
-      const onClick = jest.fn()
+      const onClick = vi.fn()
 
       render(
         <Button dataTestId="button" disabled onClick={onClick}>
@@ -99,8 +98,6 @@ describe('<Button />', () => {
     })
 
     it('should have disabled attribute', () => {
-      const theme = createTheme()
-
       render(
         <Button dataTestId="button" disabled>
           {content}
@@ -110,8 +107,8 @@ describe('<Button />', () => {
       const button = screen.getByTestId('button')
 
       expect(button).toBeDisabled()
-      expect(button).toHaveStyleRule('background-color', theme.colors['beige-40'])
-      expect(button).toHaveStyleRule('border-color', theme.colors['beige-40'])
+      expect(button).toHaveStyle({ 'background-color': theme.colors['beige-40'] })
+      expect(button).toHaveStyle({ 'border-color': theme.colors['beige-40'] })
     })
   })
 
@@ -155,8 +152,6 @@ describe('<Button />', () => {
   })
 
   it('should have correct Icon size with Icon and text', () => {
-    const theme = createTheme()
-
     render(
       <Button dataTestId="button" size="sm">
         <SunIcon dataTestId="sun" />
@@ -167,7 +162,7 @@ describe('<Button />', () => {
     const button = screen.getByTestId('button')
     const icon = screen.getByTestId('icon-sun')
 
-    expect(button).toHaveStyleRule('height', theme.buttons.sizes.sm.height)
+    expect(button).toHaveStyle({ height: theme.buttons.sizes.sm.height })
     expect(icon).toHaveStyle({
       width: theme.buttons.icon.default.sm,
       height: theme.buttons.icon.default.sm,
@@ -176,8 +171,6 @@ describe('<Button />', () => {
   })
 
   it('should have correct Icon size with Icon only', () => {
-    const theme = createTheme()
-
     render(
       <Button dataTestId="button" size="md">
         <SunIcon dataTestId="sun" />
@@ -187,7 +180,7 @@ describe('<Button />', () => {
     const button = screen.getByTestId('button')
     const icon = screen.getByTestId('icon-sun')
 
-    expect(button).toHaveStyleRule('height', theme.buttons.sizes.md.height)
+    expect(button).toHaveStyle({ height: theme.buttons.sizes.md.height })
     expect(icon).toHaveStyle({
       width: theme.buttons.icon.only.md,
       height: theme.buttons.icon.only.md,
@@ -196,8 +189,6 @@ describe('<Button />', () => {
   })
 
   it('should have correct IconsFont size with IconsFont and text', () => {
-    const theme = createTheme()
-
     render(
       <Button dataTestId="button" size="sm">
         <IconsFont.Sun dataTestId="sun" />
@@ -208,7 +199,7 @@ describe('<Button />', () => {
     const button = screen.getByTestId('button')
     const icon = screen.getByTestId('icon-font-sun')
 
-    expect(button).toHaveStyleRule('height', theme.buttons.sizes.sm.height)
+    expect(button).toHaveStyle({ height: theme.buttons.sizes.sm.height })
     expect(icon).toHaveStyle({
       width: theme.buttons.icon.default.sm,
       height: theme.buttons.icon.default.sm,
@@ -217,8 +208,6 @@ describe('<Button />', () => {
   })
 
   it('should have correct IconsFont size with IconsFont only', () => {
-    const theme = createTheme()
-
     render(
       <Button dataTestId="button" size="md">
         <IconsFont.Sun dataTestId="sun" />
@@ -228,7 +217,7 @@ describe('<Button />', () => {
     const button = screen.getByTestId('button')
     const icon = screen.getByTestId('icon-font-sun')
 
-    expect(button).toHaveStyleRule('height', theme.buttons.sizes.md.height)
+    expect(button).toHaveStyle({ height: theme.buttons.sizes.md.height })
     expect(icon).toHaveStyle({
       width: theme.buttons.icon.only.md,
       height: theme.buttons.icon.only.md,

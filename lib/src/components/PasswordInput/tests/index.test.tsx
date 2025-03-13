@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { act, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 
 import { PasswordInput, PasswordInputOptions } from '../'
 import { render } from '../../../../tests'
@@ -23,7 +23,7 @@ const PasswordInputWrapper: React.FC<PasswordInputOptions> = props => {
 }
 
 describe('<PasswordInput>', () => {
-  test('should display given value', () => {
+  it('should display given value', () => {
     render(<PasswordInputWrapper />)
 
     const input = screen.getByTestId('input') as HTMLInputElement
@@ -31,7 +31,7 @@ describe('<PasswordInput>', () => {
     expect(input.value).toBe('test')
   })
 
-  test('should have password attribute', () => {
+  it('should have password attribute', () => {
     render(<PasswordInputWrapper />)
 
     const input = screen.getByTestId('input')
@@ -41,13 +41,13 @@ describe('<PasswordInput>', () => {
     expect(input).toHaveAttribute('type', 'password')
   })
 
-  test('should have text attribute', async () => {
+  it('should have text attribute', async () => {
     const { user } = render(<PasswordInputWrapper />)
 
     const input = screen.getByTestId('input')
     const button = screen.getByTestId('input-action')
 
-    await act(() => user.click(button))
+    await user.click(button)
 
     expect(button).toHaveAttribute('aria-expanded', 'true')
     expect(input).toHaveAttribute('type', 'text')

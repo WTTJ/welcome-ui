@@ -12,7 +12,7 @@ describe('<Hint>', () => {
     const hint = getByTestId('hint')
 
     expect(hint).toHaveTextContent(content)
-    expect(hint).toHaveStyleRule('font-size', '0.75rem')
+    expect(hint).toHaveStyle({ 'font-size': '0.75rem' })
   })
 
   it('should render correctly with a state', () => {
@@ -24,6 +24,6 @@ describe('<Hint>', () => {
     const hint = getByTestId('hint')
 
     expect(hint).toHaveTextContent(content)
-    expect(hint).toHaveStyleRule('color', colors['red-70'])
+    expect(hint).toHaveStyle({ color: colors['red-70'] })
   })
 })

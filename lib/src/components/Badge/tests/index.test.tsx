@@ -23,7 +23,7 @@ describe('<Badge>', () => {
     )
     const badge = getByTestId('badge')
 
-    expect(badge).toHaveStyleRule('padding', theme.badges.sizes.sm.padding)
+    expect(badge).toHaveStyle({ padding: theme.badges.sizes.sm.padding })
   })
 
   it('should have correct primary variant color', () => {
@@ -34,8 +34,8 @@ describe('<Badge>', () => {
     )
     const badge = getByTestId('badge')
 
-    expect(badge).toHaveStyleRule('background-color', theme.colors['primary-40'])
-    expect(badge).toHaveStyleRule('color', '#000000')
+    expect(badge).toHaveStyle({ 'background-color': theme.colors['primary-40'] })
+    expect(badge).toHaveStyle({ color: '#000000' })
   })
 
   it('should have correct primary variant color if disabled', () => {
@@ -46,7 +46,7 @@ describe('<Badge>', () => {
     )
     const badge = getByTestId('badge')
 
-    expect(badge).toHaveStyleRule('background-color', theme.colors['primary-50'])
-    expect(badge).toHaveStyleRule('color', theme.colors['primary-80'])
+    expect(badge).toHaveStyle({ 'background-color': theme.colors['primary-50'] })
+    expect(badge).toHaveStyle({ color: theme.colors['primary-80'] })
   })
 })

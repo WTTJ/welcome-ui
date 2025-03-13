@@ -16,9 +16,9 @@ describe('<Tag>', () => {
     const tag = getByTestId('tag')
 
     expect(tag).toHaveTextContent(content)
-    expect(tag).toHaveStyleRule('background-color', theme.colors['beige-20'])
-    expect(tag).toHaveStyleRule('color', theme.colors['beige-90'])
-    expect(tag).toHaveStyleRule('padding', theme.tags.sizes.md.padding)
+    expect(tag).toHaveStyle({ 'background-color': theme.colors['beige-20'] })
+    expect(tag).toHaveStyle({ color: theme.colors['beige-90'] })
+    expect(tag).toHaveStyle({ padding: theme.tags.sizes.md.padding })
   })
 
   it('should have correct size', () => {
@@ -29,7 +29,7 @@ describe('<Tag>', () => {
     )
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('padding', theme.tags.sizes.md.padding)
+    expect(tag).toHaveStyle({ padding: theme.tags.sizes.md.padding })
   })
 
   it('should have correct color for success variant', () => {
@@ -40,7 +40,7 @@ describe('<Tag>', () => {
     )
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('background-color', theme.colors['green-10'])
+    expect(tag).toHaveStyle({ 'background-color': theme.colors['green-10'] })
   })
 
   it('should have correct color for sub variant', () => {
@@ -51,7 +51,7 @@ describe('<Tag>', () => {
     )
     const tag = getByTestId('tag')
 
-    expect(tag).toHaveStyleRule('background-color', theme.colors['secondary-teal'])
+    expect(tag).toHaveStyle({ 'background-color': theme.colors['secondary-teal'] })
   })
 
   describe('should have correct size with only one character', () => {
@@ -59,27 +59,27 @@ describe('<Tag>', () => {
       const { getByTestId } = render(<Tag dataTestId="tag">1</Tag>)
       const tag = getByTestId('tag')
 
-      expect(tag).toHaveStyleRule('width', heightTagMd)
-      expect(tag).toHaveStyleRule('height', heightTagMd)
-      expect(tag).toHaveStyleRule('padding', '0')
+      expect(tag).toHaveStyle({ width: heightTagMd })
+      expect(tag).toHaveStyle({ height: heightTagMd })
+      expect(tag).toHaveStyle({ padding: '0' })
     })
 
     it('with integer', () => {
       const { getByTestId } = render(<Tag dataTestId="tag">{1}</Tag>)
       const tag = getByTestId('tag')
 
-      expect(tag).toHaveStyleRule('width', heightTagMd)
-      expect(tag).toHaveStyleRule('height', heightTagMd)
-      expect(tag).toHaveStyleRule('padding', '0')
+      expect(tag).toHaveStyle({ width: heightTagMd })
+      expect(tag).toHaveStyle({ height: heightTagMd })
+      expect(tag).toHaveStyle({ padding: '0' })
     })
 
     it('with zero', () => {
       const { getByTestId } = render(<Tag dataTestId="tag">{0}</Tag>)
       const tag = getByTestId('tag')
 
-      expect(tag).toHaveStyleRule('width', heightTagMd)
-      expect(tag).toHaveStyleRule('height', heightTagMd)
-      expect(tag).toHaveStyleRule('padding', '0')
+      expect(tag).toHaveStyle({ width: heightTagMd })
+      expect(tag).toHaveStyle({ height: heightTagMd })
+      expect(tag).toHaveStyle({ padding: '0' })
     })
   })
 })

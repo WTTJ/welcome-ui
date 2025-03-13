@@ -1,6 +1,5 @@
 import React, { HTMLInputTypeAttribute } from 'react'
 import { screen } from '@testing-library/react'
-import { act } from '@testing-library/react'
 
 import { Field } from '../'
 import { render } from '../../../../tests'
@@ -153,7 +152,7 @@ describe('<Field />', () => {
     expect(label?.htmlFor).toBe('field')
     expect(label?.htmlFor).toBe(input?.id)
 
-    await act(() => user.click(label))
+    await user.click(label)
 
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)
@@ -173,7 +172,7 @@ describe('<Field />', () => {
     expect(label?.htmlFor).toBe('field')
     expect(label?.htmlFor).toBe(input?.id)
 
-    await act(() => user.click(label))
+    await user.click(label)
 
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)
@@ -193,7 +192,7 @@ describe('<Field />', () => {
     expect(label?.htmlFor).toContain('wui-field-')
     expect(label?.htmlFor).toBe(input?.id)
 
-    await act(() => user.click(label))
+    await user.click(label)
 
     expect(input).toHaveFocus()
     expect(document.activeElement).toBe(input)

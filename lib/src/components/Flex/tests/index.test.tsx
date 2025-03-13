@@ -15,6 +15,6 @@ describe('<Flex>', () => {
     const element = getByTestId('flex')
 
     expect(element).toHaveTextContent(content)
-    expect(element).toHaveStyleRule('display', 'flex')
+    expect(element).toHaveStyle({ display: 'flex' })
   })
 })

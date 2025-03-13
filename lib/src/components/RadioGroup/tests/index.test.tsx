@@ -1,5 +1,5 @@
 import React from 'react'
-import { act, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 
 import { render } from '../../../../tests'
 import { RadioGroup } from '../'
@@ -15,7 +15,7 @@ const name = 'radio-group'
 
 describe('<RadioGroup />', () => {
   it('should render correctly', async () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     const { user } = render(
       <RadioGroup dataTestId={name} name={name} onChange={onChange} options={options} />
@@ -28,14 +28,14 @@ describe('<RadioGroup />', () => {
     expect(radio3).toHaveAttribute('id', 'radio-group.value3')
     expect(label).toHaveTextContent('label3')
 
-    await act(() => user.click(radio3))
+    await user.click(radio3)
 
     expect(radio3).toHaveAttribute('aria-checked', 'true')
     expect(onChange).toBeCalledWith('value3')
   })
 
   it('should render correctly with specific id', () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     render(
       <RadioGroup
@@ -53,7 +53,7 @@ describe('<RadioGroup />', () => {
   })
 
   it('should render correctly with default value', () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     render(
       <RadioGroup
@@ -71,7 +71,7 @@ describe('<RadioGroup />', () => {
   })
 
   it('should render correctly with hint', () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     render(
       <RadioGroup
@@ -92,7 +92,7 @@ describe('<RadioGroup />', () => {
   })
 
   it('should render correctly with a renderOption component', async () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     const { user } = render(
       <RadioGroup
@@ -110,7 +110,7 @@ describe('<RadioGroup />', () => {
     expect(input).toHaveAttribute('value', 'value3')
     expect(radio).toHaveTextContent('label3')
 
-    await act(() => user.click(radio))
+    await user.click(radio)
 
     expect(input).toHaveAttribute('aria-checked', 'true')
     expect(onChange).toBeCalledWith('value3')

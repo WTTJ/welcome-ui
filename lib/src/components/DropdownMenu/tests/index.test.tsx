@@ -50,7 +50,7 @@ const DropdownRenderer: React.FC<DropdownMenuProps> = () => {
 }
 
 describe('<DropdownMenu>', () => {
-  test('should render correctly', () => {
+  it('should render correctly', () => {
     const dataTestId = 'dropdownMenu'
     const {
       result: { current: dropdownMenu },
@@ -67,22 +67,22 @@ describe('<DropdownMenu>', () => {
     expect(dropdown).toHaveTextContent(content)
   })
 
-  test('should handle click item', async () => {
+  it('should handle click item', async () => {
     render(<DropdownRenderer />)
 
     const trigger = screen.getByTestId(triggerDataTestId)
+
     await fireEvent.click(trigger)
 
     const dropdownMenuItemToDropdown = screen.getByRole('menuitem', { name: 'four' })
     expect(dropdownMenuItemToDropdown).toBeInTheDocument()
 
-    // Why fireEvent ? https://github.com/testing-library/user-event/discussions/1156
     await fireEvent.click(dropdownMenuItemToDropdown)
 
     expect(trigger).toHaveTextContent('four')
   })
 
-  test.each([
+  it.each([
     ['md', 12],
     ['xxl', 32],
     [10, 10],
@@ -105,7 +105,7 @@ describe('<DropdownMenu>', () => {
     const trigger = screen.getByTestId(triggerDataTestId)
     const dropdown = screen.getByTestId(dropdownDataTestId)
 
-    fireEvent.click(trigger)
+    await fireEvent.click(trigger)
 
     await waitFor(() => {
       const { transform } = getComputedStyle(dropdown.parentElement as HTMLElement)
