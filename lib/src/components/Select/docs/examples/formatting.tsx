@@ -21,8 +21,6 @@ const Example = () => {
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       renderItem={(item: SelectOption) => (
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <WttjIcon mr="sm" size="xs" />

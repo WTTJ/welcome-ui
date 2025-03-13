@@ -1,5 +1,3 @@
-/* eslint-disable react/iframe-missing-sandbox */
-
 import { AssetModal, Modal, useModal } from '@/Modal'
 import { Swiper, useSwiper } from '@/Swiper'
 import { Button } from '@/Button'

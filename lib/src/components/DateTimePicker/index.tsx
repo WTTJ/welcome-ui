@@ -49,7 +49,6 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
     // format date at component mount
     useEffect(() => {
       onChange && handleChange(formatDate(value))
-      //eslint-disable-next-line
     }, [])
 
     // Ensure values are controlled by parent
@@ -59,7 +58,6 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
         handleChange(formattedDate)
       }
       setDate(formattedDate)
-      //eslint-disable-next-line
     }, [value])
 
     return (
@@ -67,7 +65,6 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
         {children &&
           Children.map(children, (child: React.ReactElement, i) =>
             cloneElement(child, {
-              // eslint-disable-next-line react/no-array-index-key
               key: i,
               onChange: handleChange,
               // give ref only to the first child

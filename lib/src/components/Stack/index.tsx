@@ -32,7 +32,6 @@ export const Stack = forwardRef<'div', StackProps>(
             key: `stack-item-${i}`,
           }
 
-          // eslint-disable-next-line react/jsx-key
           return <Box {...childProps}>{child}</Box>
         })}
       </Box>

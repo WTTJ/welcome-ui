@@ -87,7 +87,6 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
           </S.Item>
           {pages.map((iPage: string | number, i: number) =>
             iPage === '-' ? (
-              // eslint-disable-next-line react/no-array-index-key
               <S.Item key={`${i}-`}>
                 <S.Dots>...</S.Dots>
               </S.Item>

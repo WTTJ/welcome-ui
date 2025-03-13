@@ -1,11 +1,8 @@
-import React from 'react'
-
 import { Breadcrumb } from '../'
 import { render } from '../../../../tests'
 
 describe('<Breadcrumb>', () => {
   beforeEach(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-extra-semi
     ;(window as any).MutationObserver = function () {
       return {
         disconnect: () => {
