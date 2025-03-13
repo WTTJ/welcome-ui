@@ -65,6 +65,8 @@
     "husky": "8.0.3",
     "lodash.difference": "^4.5.0",
     "minimist": "1.2.8",
+    "postcss": "^8.5.3",
+    "postcss-styled-syntax": "^0.7.1",
     "prettier": "3.5.3",
     "react": "^18.3.1",
     "react-docgen-typescript": "^2.2.2",
@@ -72,6 +74,8 @@
     "react-router-dom": "6.27.0",
     "standard-version": "9.5.0",
     "styled-components": "^6.1.15",
+    "stylelint": "^16.15.0",
+    "stylelint-config-recommended": "^15.0.0",
     "svgo": "^3.0.1",
     "typescript": "^5.8.2",
     "yargs": "^17.7.2"
