@@ -28,8 +28,6 @@ const Example = () => {
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       renderItem={(item: SelectOption, selected?: boolean) => (
         <Box display="flex" justifyContent="space-between">
           {item.label}

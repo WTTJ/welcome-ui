@@ -55,8 +55,6 @@ const Backdrop = forwardRef<'div', BackdropProps>(
       return <S.Backdrop hideOnInteractOutside={hideOnInteractOutside} ref={ref} {...rest} />
     }
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     return cloneElement(backdrop, { hideOnInteractOutside, ref, ...rest })
   }
 )

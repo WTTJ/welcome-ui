@@ -10,7 +10,6 @@ type Parent = 'components'
 
 export function getFilesFromPackages(selectedParent: Parent) {
   const folder = join(process.cwd(), '../lib/src/components')
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const files = [] as any[]
 
   const folders = readdirSync(folder)

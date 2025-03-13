@@ -15,7 +15,6 @@ export function useCreatePortal(disable = false) {
 
   return useMemo(() => {
     if (disable) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return (children: React.ReactNode) => children as any
     }
 

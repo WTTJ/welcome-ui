@@ -61,7 +61,6 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
     // format date at component mount
     useEffect(() => {
       onChange && onChange(formatDate(value))
-      //eslint-disable-next-line
     }, [])
 
     // Ensure values are controlled by parent
@@ -71,7 +70,6 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
         onChange(formattedDate)
       }
       setDate(formattedDate)
-      //eslint-disable-next-line
     }, [value])
 
     const handleFocus: CustomInputOptions['handleFocus'] = e => {
