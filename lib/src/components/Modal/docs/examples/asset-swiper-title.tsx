@@ -1,5 +1,4 @@
 /* eslint-disable react/iframe-missing-sandbox */
-import * as React from 'react'
 
 import { AssetModal, Modal, useModal } from '@/Modal'
 import { Swiper, useSwiper } from '@/Swiper'

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ReactDatePickerProps } from 'react-datepicker'
 
 import * as S from './styles'

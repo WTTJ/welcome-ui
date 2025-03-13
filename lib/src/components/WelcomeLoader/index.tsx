@@ -1,4 +1,3 @@
-import React from 'react'
 import { useLottie } from 'lottie-light-react'
 
 import loader from './loader.json'

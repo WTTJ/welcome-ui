@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { render } from '../../../../tests'
 import { Tag } from '../'
 import { createTheme } from '../../../theme'

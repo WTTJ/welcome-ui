@@ -1,4 +1,3 @@
-import * as React from 'react'
 
 import { Search } from '@/Search'
 import { Box } from '@/Box'

@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react'
+import { cloneElement } from 'react'
 import * as Ariakit from '@ariakit/react'
 
 import * as S from './styles'
