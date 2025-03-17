@@ -1,5 +1,6 @@
 export * from './format-bytes'
 export * from './hex-to-rgba'
+export * from './hex-to-rgb'
 export * from './field-styles'
 export * from './overflow-ellipsis'
 export * from './throttle'

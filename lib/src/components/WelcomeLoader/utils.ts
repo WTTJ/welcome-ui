@@ -1,13 +1,17 @@
-import { hexToRGBA } from '@/utils'
+import { hexToRGB } from '@/utils'
 
 export const convertHexToVectorColor = (hex: string) => {
   try {
-    const newColor = hexToRGBA(hex)
+    const rgb = hexToRGB(hex)
+
+    if (!rgb) {
+      return undefined
+    }
+
+    return rgb
       .split(',')
       .map(c => parseFloat(c) / 255)
       .join(',')
-
-    return newColor
   } catch (error) {
     return undefined
   }
