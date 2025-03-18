@@ -1,14 +1,15 @@
 import React from 'react'
 
-import * as S from './Item.styles'
-
-import { CreateWuiProps, forwardRef } from '@/System'
 import { Box } from '@/Box'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import * as S from './Item.styles'
 
 export interface ItemOptions {
   children: React.ReactNode
   isActive?: boolean
-  separator?: string | React.ReactNode
+  separator?: React.ReactNode | string
   /* useful for react-router */
   to?: string
 }

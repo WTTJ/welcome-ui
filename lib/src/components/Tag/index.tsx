@@ -1,10 +1,11 @@
-import { wrapChildren } from '../../utils/wrap-children'
-
-import * as S from './styles'
-import { Size, Variant } from './theme'
-
-import { CreateWuiProps, forwardRef } from '@/System'
 import { CrossIcon } from '@/Icons'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import type { Size, Variant } from './theme'
+
+import { wrapChildren } from '../../utils/wrap-children'
+import * as S from './styles'
 
 export interface TagOptions {
   href?: string

@@ -1,21 +1,25 @@
+import type { DownshiftProps, GetRootPropsOptions } from 'downshift'
+
+import DownshiftImport from 'downshift'
 import React, { Fragment, useCallback, useMemo, useState } from 'react'
-import DownshiftImport, { DownshiftProps, GetRootPropsOptions } from 'downshift'
 
-import { createEvent } from '../../utils/create-event'
-import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '../../utils/field-styles'
-import { throttle as handleThrottle } from '../../utils/throttle'
-
-import * as S from './styles'
-
-import { CreateWuiProps, forwardRef } from '@/System'
 import { ClearButton } from '@/ClearButton'
 import { IconWrapper } from '@/Field'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+
+import { createEvent } from '../../utils/create-event'
+import { FIELD_ICON_SIZE } from '../../utils/field-styles'
+import { throttle as handleThrottle } from '../../utils/throttle'
+import * as S from './styles'
 
 const EMPTY_STRING = ''
 
+export type Item = SearchOption | SearchOptionGroup | string | unknown
 export type SearchOption = { label: string; value: string }
 export type SearchOptionGroup = { label: string; options: SearchOption[] }
-export type Item = SearchOption | SearchOptionGroup | string | unknown
 
 export interface SearchOptions extends DefaultFieldStylesProps {
   groupsEnabled?: boolean
@@ -32,7 +36,7 @@ export interface SearchOptions extends DefaultFieldStylesProps {
 
 export type SearchProps = CreateWuiProps<
   'input',
-  SearchOptions & Omit<DownshiftProps<SearchOption>, keyof SearchOptions>
+  Omit<DownshiftProps<SearchOption>, keyof SearchOptions> & SearchOptions
 >
 
 // because of this issue: https://github.com/downshift-js/downshift/issues/1505
@@ -96,7 +100,8 @@ export const Search = forwardRef<'input', SearchProps>(
     // Send event to parent when value(s) changes
     const handleChange = (value?: Item) => {
       const event = createEvent({ name, value })
-      onChange && onChange(value, event)
+
+      onChange?.(value, event)
     }
 
     const handleSelect = (result?: Item) => {
@@ -143,20 +148,22 @@ export const Search = forwardRef<'input', SearchProps>(
           selectedItem,
           toggleMenu,
         }) => {
+          const isShowMenu = isOpen && results.length > 0
+
           const handleClearClick = () => {
             setResults([])
             handleChange()
             clearSelection()
           }
-          const isShowMenu = isOpen && results.length > 0
 
           const DeleteIcon = (
             <S.DropDownIndicator as="div" size={size}>
               <ClearButton onClick={handleClearClick} />
             </S.DropDownIndicator>
           )
+
           const handleInputFocus = (event: React.FocusEvent<HTMLInputElement>) => {
-            onFocus && onFocus(event)
+            onFocus?.(event)
             handleInputChange('')
             toggleMenu()
           }
@@ -178,7 +185,9 @@ export const Search = forwardRef<'input', SearchProps>(
             tabIndex: 0,
             variant: isOpen ? 'focused' : variant,
             ...rest,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
           }) as any
+
           const iconSize = FIELD_ICON_SIZE[size]
 
           return (
@@ -199,8 +208,10 @@ export const Search = forwardRef<'input', SearchProps>(
                       (acc, result, resultIndex) => {
                         if (groupsEnabled) {
                           acc.itemsToRender.push(
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-expect-error
                             <Fragment key={resultIndex}>
-                              {renderGroupHeader(result as SearchOptionGroup)}
+                              {renderGroupHeader?.(result as SearchOptionGroup)}
                               {(result as SearchOptionGroup).options &&
                                 (result as SearchOptionGroup).options.map((option, optionIndex) => {
                                   const index = acc.itemIndex++
@@ -209,9 +220,10 @@ export const Search = forwardRef<'input', SearchProps>(
                                       key={optionIndex}
                                       {...getItemProps({
                                         index,
-                                        isSelected:
+                                        isSelected: Boolean(
                                           selectedItem &&
-                                          itemToString(selectedItem) === itemToString(option),
+                                            itemToString(selectedItem) === itemToString(option)
+                                        ),
                                         item: option,
                                       })}
                                       isHighlighted={highlightedIndex === index}
@@ -224,13 +236,16 @@ export const Search = forwardRef<'input', SearchProps>(
                           )
                         } else {
                           acc.itemsToRender.push(
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-expect-error
                             <S.Item
                               key={resultIndex}
                               {...getItemProps({
                                 index: resultIndex,
-                                isSelected:
+                                isSelected: Boolean(
                                   selectedItem &&
-                                  itemToString(selectedItem) === itemToString(result),
+                                    itemToString(selectedItem) === itemToString(result)
+                                ),
                                 item: result,
                               })}
                               isHighlighted={highlightedIndex === resultIndex}
@@ -242,7 +257,7 @@ export const Search = forwardRef<'input', SearchProps>(
 
                         return acc
                       },
-                      { itemsToRender: [], itemIndex: 0 }
+                      { itemIndex: 0, itemsToRender: [] }
                     ).itemsToRender
                   }
                 </S.Menu>

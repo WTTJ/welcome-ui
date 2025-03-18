@@ -1,13 +1,16 @@
 import React, { Children, cloneElement } from 'react'
 
-import { Title } from './Title'
-import * as S from './styles'
-import { Size, Variant } from './theme'
-
-import { CloseButton } from '@/CloseButton'
-import { Button, ButtonProps } from '@/Button'
-import { CreateWuiProps, forwardRef } from '@/System'
 import { Box } from '@/Box'
+import type { ButtonProps } from '@/Button'
+import { Button } from '@/Button'
+import { CloseButton } from '@/CloseButton'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import type { Size, Variant } from './theme'
+
+import * as S from './styles'
+import { Title } from './Title'
 
 export interface AlertOptions {
   closeButtonDataTestId?: string
@@ -26,7 +29,7 @@ export type AlertProps = CreateWuiProps<'div', AlertOptions>
 
 type CloneActionsReturns = React.ReactElement<
   unknown,
-  string | React.JSXElementConstructor<AlertProps>
+  React.JSXElementConstructor<AlertProps> | string
 >
 
 const AlertComponent = forwardRef<'div', AlertProps>(
@@ -60,15 +63,15 @@ const AlertComponent = forwardRef<'div', AlertProps>(
         if (child.type === AlertButton) {
           // If Alert variant is ai, we override the CTA Buttons to use the AI sub-variants
           return cloneElement<ButtonProps>(child, {
-            size,
             ai: withAiButton,
+            size,
             variant: withAiButton ? 'primary' : undefined,
           })
         }
         if (child.type === AlertSecondaryButton) {
           return cloneElement<ButtonProps>(child, {
-            size,
             ai: withAiButton,
+            size,
           })
         }
 
@@ -134,7 +137,7 @@ const AlertSecondaryButton = forwardRef<'button', Omit<ButtonProps, 'size'>>(
 )
 
 export const Alert = Object.assign(AlertComponent, {
-  Title,
   Button: AlertButton,
   SecondaryButton: AlertSecondaryButton,
+  Title,
 })

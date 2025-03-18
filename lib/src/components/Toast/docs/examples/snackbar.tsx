@@ -1,5 +1,5 @@
-import { toast, Toast } from '@/Toast'
 import { Button } from '@/Button'
+import { Toast, toast } from '@/Toast'
 
 const Example = () => {
   return (

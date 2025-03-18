@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { Toggle } from '@/Toggle'
+
 import { Field } from '@/Field'
 import { Stack } from '@/Stack'
+import { Toggle } from '@/Toggle'
 
 const Example = () => {
   const [toggle, setToggle] = React.useState(false)

@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { FileUpload } from '@/FileUpload'
+
 import { Button } from '@/Button'
 import { getFileIcon } from '@/Files'
+import { FileUpload } from '@/FileUpload'
 import { Stack } from '@/Stack'
 
 const Example = () => {

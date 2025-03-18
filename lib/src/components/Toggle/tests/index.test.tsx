@@ -1,5 +1,5 @@
-import { render } from '../../../../tests'
 import { Toggle } from '../'
+import { render } from '../../../../tests'
 
 describe('<Toggle>', () => {
   it('should render correctly', () => {

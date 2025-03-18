@@ -1,23 +1,25 @@
 import * as React from 'react'
-import { Select, SelectProps } from '@/Select'
+
 import { Box } from '@/Box'
-import { Text } from '@/Text'
+import type { SelectProps } from '@/Select'
+import { Select } from '@/Select'
 import { Tag } from '@/Tag'
+import { Text } from '@/Text'
 
 export const GROUP_ITEMS = [
   {
     label: 'Group 1',
     options: [
-      { value: 'bold', label: 'Bold' },
-      { value: 'italic', label: 'Italic' },
+      { label: 'Bold', value: 'bold' },
+      { label: 'Italic', value: 'italic' },
     ],
   },
   {
     label: 'Group 2',
     options: [
-      { value: 'strikethrough', label: 'Strikethrough' },
-      { value: 'underline', label: 'Underline' },
-      { value: 'heading', label: 'Heading' },
+      { label: 'Strikethrough', value: 'strikethrough' },
+      { label: 'Underline', value: 'underline' },
+      { label: 'Heading', value: 'heading' },
     ],
   },
 ]

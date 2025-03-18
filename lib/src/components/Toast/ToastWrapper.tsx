@@ -1,9 +1,15 @@
 /* eslint-disable no-console */
+import type { Toast, ToastPosition } from 'react-hot-toast/headless'
+
 import React, { cloneElement } from 'react'
-import toastRHT, { Toast, ToastPosition } from 'react-hot-toast/headless'
+import toastRHT from 'react-hot-toast/headless'
 
 import * as S from './styles'
 import { POSITION_STYLE } from './utils'
+
+type CustomToastOptions = {
+  onClose?: () => void
+}
 
 type ToastWrapperProps = {
   calculateOffset: (
@@ -14,12 +20,8 @@ type ToastWrapperProps = {
       reverseOrder?: boolean
     }
   ) => number
-  toast: Toast & CustomToastOptions
+  toast: CustomToastOptions & Toast
   updateHeight: (toastId: string, height: number) => void
-}
-
-type CustomToastOptions = {
-  onClose?: () => void
 }
 
 export const ToastWrapper: React.FC<ToastWrapperProps> = ({
@@ -32,7 +34,7 @@ export const ToastWrapper: React.FC<ToastWrapperProps> = ({
     return null
   }
 
-  const offset = calculateOffset(toast, { reverseOrder: false, gutter: 0 })
+  const offset = calculateOffset(toast, { gutter: 0, reverseOrder: false })
 
   const ref = (element: HTMLElement | null) => {
     if (element && typeof toast.height !== 'number') {

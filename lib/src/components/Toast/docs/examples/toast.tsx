@@ -1,8 +1,8 @@
-import { ToastPosition } from 'react-hot-toast/headless'
+import type { ToastPosition } from 'react-hot-toast/headless'
 
-import { toast } from '@/Toast'
 import { Box } from '@/Box'
 import { Button } from '@/Button'
+import { toast } from '@/Toast'
 
 const Element = () => (
   <Box
@@ -34,7 +34,7 @@ const Example = () => {
         <Button
           key={position}
           onClick={() =>
-            toast(<Element />, { position: position as ToastPosition, duration: 6000 })
+            toast(<Element />, { duration: 6000, position: position as ToastPosition })
           }
         >
           {position}

@@ -1,8 +1,8 @@
-import * as S from './styles'
-
-import { Text } from '@/Text'
-import { BoxProps } from '@/Box'
+import type { BoxProps } from '@/Box'
 import { forwardRef } from '@/System'
+import { Text } from '@/Text'
+
+import * as S from './styles'
 
 export interface FooterOptions {
   information?: {
@@ -11,7 +11,7 @@ export interface FooterOptions {
   }
 }
 
-export type FooterProps = FooterOptions & BoxProps
+export type FooterProps = BoxProps & FooterOptions
 
 /**
  * @name Modal.Footer

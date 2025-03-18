@@ -1,12 +1,11 @@
-import React from 'react'
 import { screen } from '@testing-library/react'
 
-import { SunIcon } from '../../Icons'
-import { Link } from '../../Link'
-import { IconsFont } from '../../IconsFont'
 import { Button } from '../'
 import { render } from '../../../../tests'
 import { createTheme } from '../../../theme'
+import { SunIcon } from '../../Icons'
+import { IconsFont } from '../../IconsFont'
+import { Link } from '../../Link'
 
 const content = 'Jungle'
 const theme = createTheme()
@@ -164,9 +163,9 @@ describe('<Button />', () => {
 
     expect(button).toHaveStyle({ height: theme.buttons.sizes.sm.height })
     expect(icon).toHaveStyle({
-      width: theme.buttons.icon.default.sm,
-      height: theme.buttons.icon.default.sm,
       'font-size': theme.buttons.icon.default.sm,
+      height: theme.buttons.icon.default.sm,
+      width: theme.buttons.icon.default.sm,
     })
   })
 
@@ -182,9 +181,9 @@ describe('<Button />', () => {
 
     expect(button).toHaveStyle({ height: theme.buttons.sizes.md.height })
     expect(icon).toHaveStyle({
-      width: theme.buttons.icon.only.md,
-      height: theme.buttons.icon.only.md,
       'font-size': theme.buttons.icon.only.md,
+      height: theme.buttons.icon.only.md,
+      width: theme.buttons.icon.only.md,
     })
   })
 
@@ -201,9 +200,9 @@ describe('<Button />', () => {
 
     expect(button).toHaveStyle({ height: theme.buttons.sizes.sm.height })
     expect(icon).toHaveStyle({
-      width: theme.buttons.icon.default.sm,
-      height: theme.buttons.icon.default.sm,
       'font-size': theme.buttons.icon.default.sm,
+      height: theme.buttons.icon.default.sm,
+      width: theme.buttons.icon.default.sm,
     })
   })
 
@@ -219,9 +218,9 @@ describe('<Button />', () => {
 
     expect(button).toHaveStyle({ height: theme.buttons.sizes.md.height })
     expect(icon).toHaveStyle({
-      width: theme.buttons.icon.only.md,
-      height: theme.buttons.icon.only.md,
       'font-size': theme.buttons.icon.only.md,
+      height: theme.buttons.icon.only.md,
+      width: theme.buttons.icon.only.md,
     })
   })
 

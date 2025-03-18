@@ -1,7 +1,8 @@
 import * as React from 'react'
+
+import { EditIcon, PencilIcon } from '@/Icons'
 import { Picker } from '@/Picker'
 import { Shape } from '@/Shape'
-import { EditIcon, PencilIcon } from '@/Icons'
 
 const options = [
   {

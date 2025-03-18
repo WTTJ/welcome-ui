@@ -1,14 +1,22 @@
-import React, { Fragment, useEffect, useMemo, useState } from 'react'
-import DownshiftImport, {
-  ControllerStateAndHelpers,
-  DownshiftProps,
-  GetRootPropsOptions,
-} from 'downshift'
+import type { ControllerStateAndHelpers, DownshiftProps, GetRootPropsOptions } from 'downshift'
+
+import DownshiftImport from 'downshift'
 import { matchSorter } from 'match-sorter'
+import React, { Fragment, useEffect, useMemo, useState } from 'react'
 
-import { CreateEvent, createEvent } from '../../utils/create-event'
-import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '../../utils/field-styles'
+import { ClearButton } from '@/ClearButton'
+import { DownIcon } from '@/Icons'
+import type { InputTextProps } from '@/InputText'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
+import type { CreateEvent } from '../../utils/create-event'
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+
+import { createEvent } from '../../utils/create-event'
+import { FIELD_ICON_SIZE } from '../../utils/field-styles'
+import { multipleSelections } from './multipleSelections'
+import * as S from './styles'
 import {
   getInputValue,
   getNewOptions,
@@ -20,14 +28,7 @@ import {
   itemToString,
   kebabCase,
 } from './utils'
-import { multipleSelections } from './multipleSelections'
-import * as S from './styles'
 
-import { CreateWuiProps, forwardRef } from '@/System'
-import { ClearButton } from '@/ClearButton'
-import { DownIcon } from '@/Icons'
-
-export type SelectOptionValue = string | number
 export type SelectOption = {
   disabled?: boolean
   icon?: React.ReactElement
@@ -36,14 +37,6 @@ export type SelectOption = {
 }
 export type SelectOptionGroup = { label: string; options: SelectOption[] }
 export type SelectOptionItem = SelectOption | SelectOptionGroup
-export type SelectOptionsType = Array<SelectOption | SelectOptionGroup>
-export type SelectValue =
-  | string
-  | number
-  | string[]
-  | SelectOption
-  | (string | number | SelectOption)[]
-
 export interface SelectOptions extends DefaultFieldStylesProps {
   allowUnselectFromList?: boolean
   /** We need to add `autoComplete` off to avoid select UI issues when is an input */
@@ -68,7 +61,7 @@ export interface SelectOptions extends DefaultFieldStylesProps {
   placeholder?: string
   renderCreateItem?: (inputValue: SelectValue) => void
   renderGroupHeader?: (option: SelectOptionGroup) => React.ReactNode
-  renderItem?: (item: SelectOption, isItemSelected?: boolean) => string | React.ReactElement
+  renderItem?: (item: SelectOption, isItemSelected?: boolean) => React.ReactElement | string
   renderMultiple?: (
     values: SelectOption[],
     handleRemove: (value: string) => void
@@ -76,10 +69,19 @@ export interface SelectOptions extends DefaultFieldStylesProps {
   transparent?: boolean
   value?: SelectValue
 }
+export type SelectOptionsType = Array<SelectOption | SelectOptionGroup>
+export type SelectOptionValue = number | string
+
 export type SelectProps = CreateWuiProps<
   'input',
-  SelectOptions & Omit<DownshiftProps<SelectOption>, keyof SelectOptions | 'children'>
+  Omit<DownshiftProps<SelectOption>, 'children' | keyof SelectOptions> & SelectOptions
 >
+export type SelectValue =
+  | (number | SelectOption | string)[]
+  | number
+  | SelectOption
+  | string
+  | string[]
 
 // because of this issue: https://github.com/downshift-js/downshift/issues/1505
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -147,7 +149,10 @@ export const Select = forwardRef<'input', SelectProps>(
     useEffect(() => {
       if (autoFocus) {
         ref?.current?.focus()
-        isSearchable && setIsOpen(true)
+
+        if (isSearchable) {
+          setIsOpen(true)
+        }
       }
     }, [isSearchable, autoFocus, ref])
 
@@ -200,13 +205,14 @@ export const Select = forwardRef<'input', SelectProps>(
       const value = isMultiple ? values : values[0]
       const event = createEvent({ name, value: isMultiple ? options : options[0] })
 
-      onChange && onChange(value, event)
+      onChange?.(value, event)
 
       // If there are newly-created options, call `onCreate`
       if (isCreatable) {
         const newOptions = getNewOptions(options, defaultOptions)
+
         if (newOptions.length) {
-          onCreate && onCreate(newOptions[0].label, event)
+          onCreate?.(newOptions[0].label, event)
         }
       }
     }
@@ -226,10 +232,14 @@ export const Select = forwardRef<'input', SelectProps>(
         isClearInput = isMultiple
       }
 
-      isClearInput && setInputValue('')
+      if (isClearInput) {
+        setInputValue('')
+      }
+
       setOptions(defaultOptions)
       setSelected(newItems)
       handleChange(newItems)
+
       if (!disableCloseOnSelect) {
         setIsOpen(false)
       }
@@ -256,8 +266,8 @@ export const Select = forwardRef<'input', SelectProps>(
 
     const inputContent = getInputValue({
       inputValue,
-      isMultiple,
-      isSearchable,
+      isMultiple: isMultiple ?? false,
+      isSearchable: isSearchable ?? false,
       options: defaultOptions as SelectOption[],
       renderItem,
     })
@@ -313,7 +323,7 @@ export const Select = forwardRef<'input', SelectProps>(
           )
 
           const handleInputClick = (e: React.MouseEvent<HTMLElement>) => {
-            onClick && onClick(e)
+            onClick?.(e)
             setIsOpen(!isOpen)
           }
 
@@ -326,6 +336,7 @@ export const Select = forwardRef<'input', SelectProps>(
             disabled,
             iconPlacement: icon ? 'both' : 'right',
             id,
+            isClearable,
             name,
             onBlur,
             onClick: disabled ? undefined : handleInputClick,
@@ -335,11 +346,10 @@ export const Select = forwardRef<'input', SelectProps>(
             ref,
             size,
             tabIndex: 0,
-            variant: isOpen ? 'focused' : variant,
-            isClearable,
             transparent,
+            variant: isOpen ? 'focused' : variant,
             ...rest,
-          }) as any
+          }) as InputTextProps
           const iconSize = FIELD_ICON_SIZE[size]
 
           return (
@@ -372,7 +382,7 @@ export const Select = forwardRef<'input', SelectProps>(
                         if (groupsEnabled && 'options' in result) {
                           acc.itemsToRender.push(
                             <Fragment key={result.label}>
-                              {renderGroupHeader(result)}
+                              {renderGroupHeader?.(result)}
                               {result.options &&
                                 result.options.map(option => {
                                   const index = acc.itemIndex++
@@ -418,7 +428,7 @@ export const Select = forwardRef<'input', SelectProps>(
 
                         return acc
                       },
-                      { itemsToRender: [], itemIndex: 0 }
+                      { itemIndex: 0, itemsToRender: [] }
                     ).itemsToRender
                   }
                   {isShowCreate && inputValue.length && (
@@ -428,8 +438,8 @@ export const Select = forwardRef<'input', SelectProps>(
                       {...getItemProps({
                         index: options.length,
                         item: {
-                          value: kebabCase(inputValue),
                           label: inputValue,
+                          value: kebabCase(inputValue),
                         },
                       })}
                     >

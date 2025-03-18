@@ -1,8 +1,8 @@
-import { Link } from '@/Link'
-import { Text } from '@/Text'
-import { Stack } from '@/Stack'
-import { Box } from '@/Box'
 import { Avatar } from '@/Avatar'
+import { Box } from '@/Box'
+import { Link } from '@/Link'
+import { Stack } from '@/Stack'
+import { Text } from '@/Text'
 
 const Example = () => {
   return (

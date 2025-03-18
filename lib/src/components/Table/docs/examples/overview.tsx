@@ -1,6 +1,6 @@
-import { Table } from '@/Table'
 import { Button } from '@/Button'
 import { SettingsIcon } from '@/Icons'
+import { Table } from '@/Table'
 
 const Example = () => {
   return (

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Card } from '../'
 import { render } from '../../../../tests'
 

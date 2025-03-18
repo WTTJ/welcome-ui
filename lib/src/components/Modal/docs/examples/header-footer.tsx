@@ -1,7 +1,7 @@
-import { Modal, useModal } from '@/Modal'
-import { Button } from '@/Button'
 import { Box } from '@/Box'
+import { Button } from '@/Button'
 import { ActionsIcon } from '@/Icons'
+import { Modal, useModal } from '@/Modal'
 
 const Example = () => {
   const modal = useModal()
@@ -11,9 +11,9 @@ const Example = () => {
   const subtitle = 'Praesent sit amet quam ac velit faucibus dapibus, quisque sapien ligula.'
   const icon = <ActionsIcon color="neutral-90" h={40} w={40} />
   const informations = {
-    title: 'Donec id tellus',
     subtitle:
       'Sed lorem lacus, hendrerit non sodales id, consectetur quis magna. Mauris auctor blandit porta. In imperdiet rutrum nunc.',
+    title: 'Donec id tellus',
   }
 
   return (

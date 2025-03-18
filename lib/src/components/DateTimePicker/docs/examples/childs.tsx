@@ -1,7 +1,7 @@
-import { DateTimePicker } from '@/DateTimePicker'
 import { DatePicker } from '@/DatePicker'
-import { TimePicker } from '@/TimePicker'
+import { DateTimePicker } from '@/DateTimePicker'
 import { WttjIcon } from '@/Icons'
+import { TimePicker } from '@/TimePicker'
 
 const Example = () => {
   return (

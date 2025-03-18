@@ -1,4 +1,5 @@
-import React, { HTMLInputTypeAttribute } from 'react'
+import type { HTMLInputTypeAttribute } from 'react'
+
 import { screen } from '@testing-library/react'
 
 import { Field } from '../'

@@ -1,18 +1,19 @@
+import type { ReactDatePickerProps } from 'react-datepicker'
+
 import { useEffect, useState } from 'react'
-import { ReactDatePickerProps } from 'react-datepicker'
 
-import * as S from './styles'
-
+import type { CustomInputOptions, Focused } from '@/DateTimePickerCommon'
 import {
   CustomInput,
-  CustomInputOptions,
   CustomPopper,
   DEFAULT_DATE,
-  Focused,
   getDate,
   StyledTimePicker,
 } from '@/DateTimePickerCommon'
-import { CreateWuiProps, forwardRef } from '@/System'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import * as S from './styles'
 
 export interface TimePickerOptions {
   onBlur?: CustomInputOptions['handleBlur']
@@ -20,13 +21,13 @@ export interface TimePickerOptions {
   onFocus?: CustomInputOptions['handleFocus']
   placeholder?: ReactDatePickerProps['placeholderText']
   transparent?: boolean
-  value: string | Date
+  value: Date | string
 }
 
 export type TimePickerProps = CreateWuiProps<
   typeof StyledTimePicker,
   Omit<ReactDatePickerProps, keyof TimePickerOptions> &
-    Pick<CustomInputOptions, 'size' | 'icon' | 'iconPlacement'> &
+    Pick<CustomInputOptions, 'icon' | 'iconPlacement' | 'size'> &
     TimePickerOptions
 >
 
@@ -52,15 +53,15 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
     },
     ref
   ) => {
-    const formatDate: (date: string | number | Date) => Date = date => getDate(date, timeIntervals)
+    const formatDate: (date: Date | number | string) => Date = date => getDate(date, timeIntervals)
     const placeholderText = placeholder || rest.placeholderText
 
     const [focused, setFocused] = useState<Focused>((autoFocus && 'time') || null)
-    const [date, setDate] = useState(formatDate(value))
+    const [date, setDate] = useState<Date | null>(formatDate(value))
 
     // format date at component mount
     useEffect(() => {
-      onChange && onChange(formatDate(value))
+      onChange?.(formatDate(value))
     }, [])
 
     // Ensure values are controlled by parent
@@ -74,18 +75,18 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
 
     const handleFocus: CustomInputOptions['handleFocus'] = e => {
       setFocused('time')
-      onFocus && onFocus(e)
+      onFocus?.(e)
     }
 
     const handleBlur: CustomInputOptions['handleBlur'] = e => {
       setFocused(null)
-      onBlur && onBlur(e)
+      onBlur?.(e)
     }
 
     const handleReset: CustomInputOptions['onReset'] = e => {
       e.preventDefault()
       setDate(null)
-      onChange && onChange()
+      onChange?.()
     }
 
     const handleChange: TimePickerOptions['onChange'] = newDate => {
@@ -94,7 +95,7 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
 
       newDate.setFullYear(date.getFullYear(), date.getMonth(), date.getDate())
       setDate(newDate)
-      onChange && onChange(new Date(newDate))
+      onChange?.(new Date(newDate))
     }
 
     return (

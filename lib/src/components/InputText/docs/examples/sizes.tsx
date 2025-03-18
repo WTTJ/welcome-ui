@@ -1,5 +1,5 @@
-import { InputText } from '@/InputText'
 import { AvatarIcon } from '@/Icons'
+import { InputText } from '@/InputText'
 
 const Example = () => {
   return (

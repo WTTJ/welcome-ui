@@ -1,5 +1,5 @@
-import { PasswordInput } from '@/PasswordInput'
 import { Field } from '@/Field'
+import { PasswordInput } from '@/PasswordInput'
 
 const Example = () => {
   return (

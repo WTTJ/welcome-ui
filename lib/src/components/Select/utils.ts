@@ -1,6 +1,6 @@
-import React from 'react'
+import type React from 'react'
 
-import {
+import type {
   SelectOption,
   SelectOptionGroup,
   SelectOptionItem,
@@ -11,7 +11,7 @@ import {
 
 const EMPTY_STRING = ''
 
-export const kebabCase = (str: string | number | SelectOption): string => {
+export const kebabCase = (str: number | SelectOption | string): string => {
   if (typeof str === 'number') {
     return String(str)
   } else if (typeof str === 'string') {
@@ -47,7 +47,7 @@ export const isValueSelected = (value: SelectOptionValue, options: SelectOption[
   !!options.find(item => item.value === value)
 
 export const getOption = (
-  value: string | number | SelectOption,
+  value: number | SelectOption | string,
   options: SelectOptionsType = []
 ): SelectOption => {
   const option = options.find(
@@ -56,7 +56,7 @@ export const getOption = (
       (option as SelectOption).value === ((value as SelectOption).value || value)
   )
   // Create the option if it doesn't exist
-  return (option as SelectOption) || ({ value: kebabCase(value), label: value } as SelectOption)
+  return (option as SelectOption) || ({ label: value, value: kebabCase(value) } as SelectOption)
 }
 
 export const getOptionsFromSelected = (
@@ -117,8 +117,8 @@ export const getInputValue = ({
   isMultiple: boolean
   isSearchable: boolean
   options: SelectOption[]
-  renderItem: (option: SelectOption) => string | React.ReactElement
-}): string | React.ReactElement => {
+  renderItem: (option: SelectOption) => React.ReactElement | string
+}): React.ReactElement | string => {
   const option = getOption(inputValue, options)
 
   if (isMultiple) {

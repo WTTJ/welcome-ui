@@ -1,26 +1,27 @@
-import range from 'lodash.range'
-import { Locale } from 'date-fns'
+import type { Locale } from 'date-fns'
 
-import { SelectOption, SelectOptions } from '@/Select'
+import range from 'lodash.range'
+
+import type { SelectOption, SelectOptions } from '@/Select'
 
 const MONTHS = [
-  { value: 0, label: 'January' },
-  { value: 1, label: 'February' },
-  { value: 2, label: 'March' },
-  { value: 3, label: 'April' },
-  { value: 4, label: 'May' },
-  { value: 5, label: 'June' },
-  { value: 6, label: 'July' },
-  { value: 7, label: 'August' },
-  { value: 8, label: 'September' },
-  { value: 9, label: 'October' },
-  { value: 10, label: 'November' },
-  { value: 11, label: 'December' },
+  { label: 'January', value: 0 },
+  { label: 'February', value: 1 },
+  { label: 'March', value: 2 },
+  { label: 'April', value: 3 },
+  { label: 'May', value: 4 },
+  { label: 'June', value: 5 },
+  { label: 'July', value: 6 },
+  { label: 'August', value: 7 },
+  { label: 'September', value: 8 },
+  { label: 'October', value: 9 },
+  { label: 'November', value: 10 },
+  { label: 'December', value: 11 },
 ]
 
 export const DEFAULT_DATE = new Date()
 
-export const getDate = (date: string | number | Date, interval = 15): Date => {
+export const getDate = (date: Date | number | string, interval = 15): Date => {
   if (!date) {
     return null
   }

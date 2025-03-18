@@ -1,14 +1,15 @@
-import React, { memo } from 'react'
 import { useTheme } from '@xstyled/styled-components'
+import React, { memo } from 'react'
 
-import { getInitials as defaultGetInitials, getColorByLength } from './utils'
-import * as S from './styles'
-import type { AvatarColors, Size } from './theme'
-
+import { Box } from '@/Box'
 import type { ShapeOptions } from '@/Shape'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
-import { Box } from '@/Box'
+
+import type { AvatarColors, Size } from './theme'
+
+import * as S from './styles'
+import { getInitials as defaultGetInitials, getColorByLength } from './utils'
 
 export interface AvatarOptions {
   color?: AvatarColors
