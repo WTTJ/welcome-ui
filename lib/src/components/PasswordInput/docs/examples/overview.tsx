@@ -1,4 +1,3 @@
-
 import { PasswordInput } from '@/PasswordInput'
 
 const Example = () => {

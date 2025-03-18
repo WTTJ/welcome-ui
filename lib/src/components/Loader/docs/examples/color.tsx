@@ -1,4 +1,3 @@
-
 import { Loader } from '@/Loader'
 
 const Example = () => {

@@ -1,4 +1,3 @@
-
 import { Breadcrumb } from '@/Breadcrumb'
 
 const Example = () => {

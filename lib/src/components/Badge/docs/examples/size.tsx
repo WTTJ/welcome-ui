@@ -1,4 +1,3 @@
-
 import { Badge } from '@/Badge'
 
 const Example = () => {

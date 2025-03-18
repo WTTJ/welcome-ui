@@ -1,4 +1,3 @@
-
 import { Hint } from '@/Hint'
 
 const Example = () => {

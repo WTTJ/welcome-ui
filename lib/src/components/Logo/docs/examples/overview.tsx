@@ -1,4 +1,3 @@
-
 import { Logo } from '@/Logo'
 
 const Example = () => {

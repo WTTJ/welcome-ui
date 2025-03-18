@@ -1,4 +1,3 @@
-
 import { Link } from '@/Link'
 
 const Example = () => {

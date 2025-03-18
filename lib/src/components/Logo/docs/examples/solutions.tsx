@@ -1,4 +1,3 @@
-
 import { SolutionsSymbol } from '@/Logo'
 
 const Example = () => {

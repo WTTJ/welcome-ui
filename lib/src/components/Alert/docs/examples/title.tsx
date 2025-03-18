@@ -1,4 +1,3 @@
-
 import { Alert } from '@/Alert'
 
 const Example = () => {

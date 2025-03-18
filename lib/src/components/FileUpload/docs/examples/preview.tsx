@@ -1,4 +1,3 @@
-
 import { FileUpload } from '@/FileUpload'
 
 const Example = () => {

@@ -1,4 +1,3 @@
-
 import { Table } from '@/Table'
 import { Button } from '@/Button'
 import { SettingsIcon } from '@/Icons'

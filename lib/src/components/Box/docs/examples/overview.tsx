@@ -1,4 +1,3 @@
-
 import { Box } from '@/Box'
 
 const Example = () => {

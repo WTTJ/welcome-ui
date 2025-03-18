@@ -1,4 +1,3 @@
-
 import { Swiper, useSwiper } from '@/Swiper'
 
 const Example = () => {
