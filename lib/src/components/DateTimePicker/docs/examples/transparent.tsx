@@ -1,4 +1,3 @@
-
 import { DateTimePicker } from '@/DateTimePicker'
 
 const Example = () => {

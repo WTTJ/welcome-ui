@@ -1,4 +1,3 @@
-
 import { AddIcon, AttachmentIcon, DownIcon, TrashIcon, UpIcon } from '@/Icons'
 import { Box } from '@/Box'
 import { Button } from '@/Button'

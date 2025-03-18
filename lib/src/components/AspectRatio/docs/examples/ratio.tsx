@@ -1,4 +1,3 @@
-
 import { AspectRatio } from '@/AspectRatio'
 
 const Example = () => {

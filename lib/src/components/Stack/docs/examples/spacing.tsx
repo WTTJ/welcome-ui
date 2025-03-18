@@ -1,4 +1,3 @@
-
 import { Stack } from '@/Stack'
 
 const Example = () => {

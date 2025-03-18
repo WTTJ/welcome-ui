@@ -1,4 +1,3 @@
-
 import { Grid } from '@/Grid'
 
 const Example = () => {

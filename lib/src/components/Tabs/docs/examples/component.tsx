@@ -1,4 +1,3 @@
-
 import { Tab, useTab } from '@/Tabs'
 
 const Example = () => {

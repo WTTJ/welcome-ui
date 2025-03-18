@@ -1,4 +1,3 @@
-
 import { RangeType, Slider } from '@/Slider'
 
 const Example = () => {

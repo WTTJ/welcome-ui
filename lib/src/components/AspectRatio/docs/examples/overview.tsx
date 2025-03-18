@@ -1,4 +1,3 @@
-
 import { AspectRatio } from '@/AspectRatio'
 import { Box } from '@/Box'
 

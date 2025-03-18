@@ -1,4 +1,3 @@
-
 import { Symbol } from '@/Logo'
 
 const Example = () => {

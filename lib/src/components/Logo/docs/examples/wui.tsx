@@ -1,4 +1,3 @@
-
 import { WelcomeUILogo } from '@/Logo'
 
 const Example = () => {

@@ -1,4 +1,3 @@
-
 import { Shape } from '@/Shape'
 
 const Example = () => {

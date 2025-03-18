@@ -1,4 +1,3 @@
-
 import { PositiveStraightIcon } from '@/Icons'
 
 const Example = () => {

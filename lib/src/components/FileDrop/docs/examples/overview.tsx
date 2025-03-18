@@ -1,4 +1,3 @@
-
 import { FileDrop } from '@/FileDrop'
 
 const Example = () => {

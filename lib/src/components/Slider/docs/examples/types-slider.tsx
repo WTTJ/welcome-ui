@@ -1,4 +1,3 @@
-
 import { Slider } from '@/Slider'
 
 const Example = () => {

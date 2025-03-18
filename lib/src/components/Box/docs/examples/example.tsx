@@ -1,4 +1,3 @@
-
 import { Box } from '@/Box'
 import { Badge } from '@/Badge'
 import { StarIcon } from '@/Icons'

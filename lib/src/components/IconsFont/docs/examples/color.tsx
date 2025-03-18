@@ -1,4 +1,3 @@
-
 import { IconsFont } from '@/IconsFont'
 
 const Example = () => {
