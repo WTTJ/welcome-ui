@@ -1,7 +1,7 @@
-import { Flex } from '@/Flex'
-import { Avatar } from '@/Avatar'
-import { Text } from '@/Text'
 import { Accordion, useAccordion } from '@/Accordion'
+import { Avatar } from '@/Avatar'
+import { Flex } from '@/Flex'
+import { Text } from '@/Text'
 
 const Example = () => {
   const accordion = useAccordion()

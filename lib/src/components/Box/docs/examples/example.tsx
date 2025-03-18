@@ -1,5 +1,5 @@
-import { Box } from '@/Box'
 import { Badge } from '@/Badge'
+import { Box } from '@/Box'
 import { StarIcon } from '@/Icons'
 import { Text } from '@/Text'
 

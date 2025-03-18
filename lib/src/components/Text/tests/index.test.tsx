@@ -1,5 +1,5 @@
-import { render } from '../../../../tests'
 import { Text } from '../'
+import { render } from '../../../../tests'
 
 const content = 'Jungle'
 const longContent =

@@ -1,6 +1,8 @@
 import * as React from 'react'
-import { Drawer, DrawerProps, useDrawer } from '@/Drawer'
+
 import { Button } from '@/Button'
+import type { DrawerProps } from '@/Drawer'
+import { Drawer, useDrawer } from '@/Drawer'
 import { Flex } from '@/Flex'
 
 const Example = () => {

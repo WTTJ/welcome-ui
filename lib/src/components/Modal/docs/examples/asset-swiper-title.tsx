@@ -1,6 +1,6 @@
+import { Button } from '@/Button'
 import { AssetModal, Modal, useModal } from '@/Modal'
 import { Swiper, useSwiper } from '@/Swiper'
-import { Button } from '@/Button'
 
 const Example = () => {
   const modal = useModal()

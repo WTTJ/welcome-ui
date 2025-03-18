@@ -1,32 +1,32 @@
 import React from 'react'
 
-import { useIsomorphicLayoutEffect } from '../../utils/use-isomorphic-layout-effect'
-
-import * as S from './styles'
-import { forwardedProps, generateRandomId, getBaseType, getVariant } from './utils'
-
-import { VariantIcon } from '@/VariantIcon'
 import { Hint } from '@/Hint'
 import { Label } from '@/Label'
-import { CreateWuiProps, forwardRef } from '@/System'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+import { VariantIcon } from '@/VariantIcon'
 
-type VariantProps = {
-  error?: string | JSX.Element
-  success?: string | JSX.Element
-  warning?: string | JSX.Element
-}
+import { useIsomorphicLayoutEffect } from '../../utils/use-isomorphic-layout-effect'
+import * as S from './styles'
+import { forwardedProps, generateRandomId, getBaseType, getVariant } from './utils'
 
 export interface FieldOptions extends VariantProps {
   children: JSX.Element
   disabled?: boolean
   disabledIcon?: JSX.Element
-  hint?: string | JSX.Element
-  label?: string | JSX.Element
+  hint?: JSX.Element | string
+  label?: JSX.Element | string
   required?: boolean
   transparent?: boolean
 }
 
 export type FieldProps = CreateWuiProps<'div', FieldOptions>
+
+type VariantProps = {
+  error?: JSX.Element | string
+  success?: JSX.Element | string
+  warning?: JSX.Element | string
+}
 
 export const Field = forwardRef<'div', FieldProps>(
   (
@@ -56,7 +56,7 @@ export const Field = forwardRef<'div', FieldProps>(
     const isCheckable = isRadio || isCheckbox || isToggle
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
     const isGroup = isFieldGroup || isRadioGroup
-    const variant = getVariant({ error, warning, success })
+    const variant = getVariant({ error, success, warning })
     const hintText = variant ? error || warning || success : hint
     const withHintText = !!hintText
     const htmlFor = children.props.id || children.props.name || generateRandomId()
@@ -65,8 +65,8 @@ export const Field = forwardRef<'div', FieldProps>(
       disabled,
       id: htmlFor,
       required,
-      variant,
       transparent,
+      variant,
       ...(isGroup ? { flexDirection: layout } : {}),
     })
 

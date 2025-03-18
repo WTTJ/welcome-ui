@@ -1,13 +1,15 @@
 import * as React from 'react'
-import { Select, SelectOption, SelectProps } from '@/Select'
+
+import type { SelectOption, SelectProps } from '@/Select'
+import { Select } from '@/Select'
 import { Tag } from '@/Tag'
 import { Text } from '@/Text'
 
 export const ITEMS: SelectOption[] = [
-  { value: 'bold', label: 'Bold' },
-  { value: 'italic', label: 'Italic' },
-  { value: 'strikethrough', label: 'Strikethrough' },
-  { value: 'underline', label: 'Underline' },
+  { label: 'Bold', value: 'bold' },
+  { label: 'Italic', value: 'italic' },
+  { label: 'Strikethrough', value: 'strikethrough' },
+  { label: 'Underline', value: 'underline' },
 ]
 
 const Example = () => {

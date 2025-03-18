@@ -1,3 +1,4 @@
+import { ResizeObserver } from '@juggle/resize-observer'
 import React, {
   Children,
   cloneElement,
@@ -7,17 +8,16 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { ResizeObserver } from '@juggle/resize-observer'
+
+import { RightIcon } from '@/Icons'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+import type { ThemeColorTokens } from '@/theme'
 
 import { clamp } from '../../utils/clamp'
 import { throttle } from '../../utils/throttle'
-
 import { Item } from './Item'
 import * as S from './styles'
-
-import { CreateWuiProps, forwardRef } from '@/System'
-import { RightIcon } from '@/Icons'
-import { ThemeColorTokens } from '@/theme'
 
 export interface BreadcrumbOptions {
   children: React.ReactNode | React.ReactNode[]
@@ -25,7 +25,7 @@ export interface BreadcrumbOptions {
   gradientBackground?: ThemeColorTokens
   /** set clickable or not the last child */
   lastChildNotClickable?: boolean
-  separator?: string | React.ReactNode
+  separator?: React.ReactNode | string
 }
 
 export type BreadcrumbProps = CreateWuiProps<'div', BreadcrumbOptions>
@@ -55,9 +55,9 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
       const isActive = isLastChild && lastChildNotClickable
 
       return cloneElement(child, {
+        isActive,
         key: `breadcrumb-${index}`,
         separator: isLastChild ? undefined : separator,
-        isActive,
         ...child.props,
       })
     })

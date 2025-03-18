@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { DefaultFieldStylesProps } from '../../utils/field-styles'
+import { Hint } from '@/Hint'
+import type { LabelOptions } from '@/Label'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
 
 import * as S from './styles'
-
-import { Hint } from '@/Hint'
-import { CreateWuiProps, forwardRef } from '@/System'
-import { LabelOptions } from '@/Label'
 
 export type RadioOptions = {
   hint?: string
@@ -15,7 +16,7 @@ export type RadioOptions = {
   onClick?: (event: React.MouseEvent<HTMLLabelElement>) => void
 } & DefaultFieldStylesProps
 
-export type RadioProps = CreateWuiProps<'input', RadioOptions & LabelOptions>
+export type RadioProps = CreateWuiProps<'input', LabelOptions & RadioOptions>
 
 export const Radio = forwardRef<'input', RadioProps>(
   (
@@ -36,8 +37,9 @@ export const Radio = forwardRef<'input', RadioProps>(
   ) => {
     const handleClick = (event: React.MouseEvent<HTMLLabelElement>) => {
       event.stopPropagation()
-      onClick && onClick(event)
-      onChange && onChange(event)
+
+      onClick?.(event)
+      onChange?.(event)
     }
 
     return (

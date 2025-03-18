@@ -1,6 +1,7 @@
-import * as S from './styles'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
-import { CreateWuiProps, forwardRef } from '@/System'
+import * as S from './styles'
 
 export interface HintOptions {
   checkableField?: boolean

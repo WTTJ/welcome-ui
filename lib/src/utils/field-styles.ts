@@ -1,7 +1,7 @@
 import { css, th } from '@xstyled/styled-components'
 
 export type DefaultFieldIconSize = 'sm' | 'xs'
-export type Size = 'xs' | 'sm' | 'md' | 'lg'
+export type Size = 'lg' | 'md' | 'sm' | 'xs'
 
 export const FIELD_ICON_SIZE: {
   [key in Size]: DefaultFieldIconSize
@@ -14,7 +14,7 @@ export const FIELD_ICON_SIZE: {
 
 export type DefaultFieldStylesProps = Partial<{
   hasIcon?: boolean
-  iconPlacement?: 'right' | 'left' | 'both'
+  iconPlacement?: 'both' | 'left' | 'right'
   isClearable?: boolean
   size: Size
   transparent?: boolean

@@ -1,5 +1,5 @@
-import { FileUpload } from '@/FileUpload'
 import { Button } from '@/Button'
+import { FileUpload } from '@/FileUpload'
 import { UploadIcon } from '@/Icons'
 
 const Example = () => {

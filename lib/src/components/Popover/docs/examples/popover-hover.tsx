@@ -1,5 +1,5 @@
-import { PopoverHover, usePopoverHover } from '@/Popover'
 import { Button } from '@/Button'
+import { PopoverHover, usePopoverHover } from '@/Popover'
 
 const Example = () => {
   const popover = usePopoverHover()

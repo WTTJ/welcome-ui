@@ -1,9 +1,11 @@
 import React from 'react'
 
-import * as S from './styles'
+import type { LabelOptions } from '@/Label'
+import { Label } from '@/Label'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
-import { Label, LabelOptions } from '@/Label'
-import { CreateWuiProps, forwardRef } from '@/System'
+import * as S from './styles'
 
 export interface FieldGroupOptions {
   // specific to fieldset, we need to override children

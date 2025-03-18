@@ -1,5 +1,5 @@
-import styled, { system } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
+import styled, { system } from '@xstyled/styled-components'
 
 import { shouldForwardProp } from '@/System'
 

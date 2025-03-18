@@ -1,5 +1,5 @@
-import { render } from '../../../../tests'
 import { Tag } from '../'
+import { render } from '../../../../tests'
 import { createTheme } from '../../../theme'
 
 const content = 'Jungle'

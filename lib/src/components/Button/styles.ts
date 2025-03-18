@@ -1,11 +1,11 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
 import { Button as AriakitButton } from '@ariakit/react'
-
-import { hideFocusRingsDataAttribute } from '../../utils/hide-focus-rings-root'
-
-import { ButtonOptions } from './index'
+import styled, { css, system, th } from '@xstyled/styled-components'
 
 import { shouldForwardProp } from '@/System'
+
+import type { ButtonOptions } from './index'
+
+import { hideFocusRingsDataAttribute } from '../../utils/hide-focus-rings-root'
 
 const shapeStyles = (size: ButtonOptions['size'], shape: ButtonOptions['shape'] = 'square') => css`
   width: ${th(`buttons.sizes.${size}.height`)};

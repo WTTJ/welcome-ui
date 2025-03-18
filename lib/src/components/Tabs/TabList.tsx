@@ -1,20 +1,29 @@
 import React, { cloneElement, useRef, useState } from 'react'
 import reactFlattenChildren from 'react-flatten-children'
 
-import { useForkRef } from '../../utils/use-fork-ref'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
+import type { UseTab, UseTabState } from '.'
+
+import { useForkRef } from '../../utils/use-fork-ref'
 import { ActiveBar } from './ActiveBar'
 import * as S from './styles'
-
-import { UseTab, UseTabState } from '.'
-
-import { CreateWuiProps, forwardRef } from '@/System'
 
 // because of the compatibility of esm standard. Since this lib is no longer maintained, no issue was created
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const flattenChildren = reactFlattenChildren.default || reactFlattenChildren
 
+export interface SizeOptions {
+  size?: 'md' | 'sm'
+}
+
+export type TabListOptions = {
+  store: UseTab
+} & SizeOptions
+
+export type TabListProps = CreateWuiProps<'div', TabListOptions>
 function useTrackActiveTabs(
   selectedId: UseTabState['selectedId'],
   children: React.ReactNode
@@ -29,15 +38,6 @@ function useTrackActiveTabs(
   })
   return [tabs, activeTab]
 }
-
-export interface SizeOptions {
-  size?: 'sm' | 'md'
-}
-
-export type TabListOptions = SizeOptions & {
-  store: UseTab
-}
-export type TabListProps = CreateWuiProps<'div', TabListOptions>
 
 /**
  * @name Tabs.TabList

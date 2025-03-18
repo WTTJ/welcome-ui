@@ -1,5 +1,5 @@
-import { Tag } from '@/Tag'
 import { Stack } from '@/Stack'
+import { Tag } from '@/Tag'
 
 const Example = () => {
   return (

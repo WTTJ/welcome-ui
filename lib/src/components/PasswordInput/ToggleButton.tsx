@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { HideIcon, ShowIcon } from '@/Icons'
 import { Button } from '@/Button'
-import { CreateWuiProps } from '@/System'
+import { HideIcon, ShowIcon } from '@/Icons'
+import type { CreateWuiProps } from '@/System'
 
 interface ToggleButtonOptions {
   isHidden: boolean

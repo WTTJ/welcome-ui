@@ -1,9 +1,10 @@
 import { useLottie } from 'lottie-light-react'
 
-import loader from './loader.json'
-
+import type { BoxProps } from '@/Box'
+import { Box } from '@/Box'
 import { forwardRef } from '@/System'
-import { Box, BoxProps } from '@/Box'
+
+import loader from './loader.json'
 
 export const WelcomeLoader = forwardRef<'div', BoxProps>(({ w = 150, ...props }, ref) => {
   const options = {

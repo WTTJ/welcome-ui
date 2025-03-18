@@ -1,5 +1,5 @@
-import { Card } from '@/Card'
 import { Box } from '@/Box'
+import { Card } from '@/Card'
 import { Text } from '@/Text'
 
 const Example = () => {

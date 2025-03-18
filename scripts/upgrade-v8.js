@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs')
-
 const glob = require('glob')
 const [pattern] = process.argv.slice(2)
 

@@ -15,7 +15,7 @@ const Example = () => {
       name="movies"
       placeholder="Search a movie"
       renderItem={(item: Item) => (
-        <div style={{ display: 'flex', alignItems: 'center' }}>{item.Title}</div>
+        <div style={{ alignItems: 'center', display: 'flex' }}>{item.Title}</div>
       )}
       search={searchFunction}
     />
