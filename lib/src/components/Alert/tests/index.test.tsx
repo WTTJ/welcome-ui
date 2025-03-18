@@ -50,11 +50,13 @@ describe('<Alert>', () => {
   })
 
   it('should render correctly with CTA', () => {
+    const condition = false
+
     const { getByTestId, queryByTestId } = render(
       <Alert
         cta={
           <>
-            {false && <Alert.Button dataTestId="button" />}
+            {condition && <Alert.Button dataTestId="button" />}
             <Alert.SecondaryButton dataTestId="secondary-button" />
           </>
         }

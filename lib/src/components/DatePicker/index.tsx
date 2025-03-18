@@ -67,12 +67,12 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
     const placeholderText = placeholder || rest.placeholderText
 
     const [focused, setFocused] = useState<Focused>((autoFocus && 'date') || null)
-    const [date, setDate] = useState(formatDate(value))
+    const [date, setDate] = useState<Date | null>(formatDate(value))
     const inputRef = useRef<HTMLInputElement>()
 
     // format date at component mount
     useEffect(() => {
-      onChange && onChange(formatDate(value))
+      onChange?.(formatDate(value))
     }, [])
 
     // Ensure values are controlled by parent
@@ -92,12 +92,12 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
 
     const handleFocus: CustomInputOptions['handleFocus'] = e => {
       setFocused('date')
-      onFocus && onFocus(e)
+      onFocus?.(e)
     }
 
     const handleBlur: CustomInputOptions['handleBlur'] = e => {
       setFocused(null)
-      onBlur && onBlur(e)
+      onBlur?.(e)
     }
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -110,7 +110,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
       e.preventDefault()
       blur()
       setDate(null)
-      onChange && onChange(null)
+      onChange?.(null)
     }
 
     const handleChange = (newDate: Date) => {
@@ -119,7 +119,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
 
       newDate.setHours(date.getHours(), date.getMinutes())
       setDate(newDate)
-      onChange && onChange(new Date(newDate))
+      onChange?.(new Date(newDate))
     }
 
     return (

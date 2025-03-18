@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs')
 
 const glob = require('glob')
@@ -55,7 +56,7 @@ files.forEach(file => {
 
   if (content !== newContent) {
     fs.writeFileSync(file, newContent)
-    // eslint-disable-next-line no-console
+
     console.log(`Updated ${file} ✅`)
   }
 })

@@ -39,16 +39,16 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
     const formatDate: (date: DateTimePickerProps['value']) => ReturnType<typeof getDate> = date =>
       getDate(date, timeIntervals)
 
-    const [date, setDate] = useState(formatDate(value))
+    const [date, setDate] = useState<Date | null>(formatDate(value))
 
     const handleChange: DateTimePickerProps['onChange'] = newDate => {
       setDate(newDate || null)
-      onChange && onChange(newDate && new Date(newDate))
+      onChange?.(newDate && new Date(newDate))
     }
 
     // format date at component mount
     useEffect(() => {
-      onChange && handleChange(formatDate(value))
+      if (onChange) handleChange(formatDate(value))
     }, [])
 
     // Ensure values are controlled by parent

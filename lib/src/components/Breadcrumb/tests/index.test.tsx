@@ -3,7 +3,7 @@ import { render } from '../../../../tests'
 
 describe('<Breadcrumb>', () => {
   beforeEach(() => {
-    ;(window as any).MutationObserver = function () {
+    window.MutationObserver = function () {
       return {
         disconnect: () => {
           return {}
