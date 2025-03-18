@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { cloneElement } from 'react'
 import toastRHT, { Toast, ToastPosition } from 'react-hot-toast/headless'
 

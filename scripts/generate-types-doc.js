@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/no-var-requires */
-
+/* eslint-disable @typescript-eslint/no-require-imports */
 const { join, resolve } = require('path')
 const { accessSync, existsSync, readdirSync, writeFileSync } = require('fs')
 
@@ -118,7 +117,6 @@ async function generateTypesDoc() {
 
   // Get all files in each component folder
   componentDirs.map(async dirent => {
-    // eslint-disable-next-line no-console
     console.log('Generating properties.json for', dirent)
     const componentDir = resolve(parentDirectory, 'lib/src/components', dirent)
     const files = await getComponentFiles(componentDir)

@@ -34,7 +34,7 @@ export const Checkbox = forwardRef<'input', CheckboxProps>(
   ) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       e.target.checked = !e.target.checked
-      onChange && onChange(e)
+      onChange?.(e)
     }
 
     return (
