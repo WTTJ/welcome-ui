@@ -17,29 +17,11 @@ export const Blockquote = ({ children }: { children: JSX.Element[] }) => {
   }
 
   const childFormatted = child.reduce((prev: JSX.Element[], item: JSX.Element) => {
-    const itemStringify = JSON.stringify(item)
-
-    const isTypeFromSupernova =
-      itemStringify.includes('Yay') ||
-      itemStringify.includes('Some extra info') ||
-      itemStringify.includes('Please note')
-
-    const isDo = itemStringify.includes('DO')
-    const isDont = itemStringify.includes("DON'T")
-
     const startOfArray = prev.length === 0
     const isBr = item?.type === 'br'
 
-    if (isTypeFromSupernova) {
+    if (startOfArray && isBr) {
       return prev
-    } else if (startOfArray && isBr) {
-      return prev
-    } else if (isDont) {
-      title = 'Don’t'
-      prev.push(item.replace("*DON'T\n*", ''))
-    } else if (isDo) {
-      title = 'Do'
-      prev.push(item.replace('*DO\n*', ''))
     } else {
       prev.push(item)
     }

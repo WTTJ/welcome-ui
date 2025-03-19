@@ -1,5 +1,4 @@
 'use client'
-import NextLink from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { Box } from '@/Box'
@@ -42,7 +41,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
         return top - Number.parseInt(scrollMarginTop) - 40 <= 0
       })
 
-      setActiveId(activeId ?? '')
+      return setActiveId(activeId ?? '')
     }
 
     onScroll()
@@ -63,9 +62,8 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
             <Flex as="li" direction="column" gap="sm" key={item.href}>
               <S.Link
                 aria-current={`#${activeId}` === item.href ? 'page' : undefined}
-                as={NextLink}
                 href={item.href}
-                pl="lg"
+                paddingLeft="lg"
               >
                 {item.title}
               </S.Link>
@@ -75,9 +73,8 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
                     <Box as="li" key={child.href}>
                       <S.Link
                         aria-current={`#${activeId}` === child.href ? 'page' : undefined}
-                        as={NextLink}
                         href={child.href}
-                        pl="xxl"
+                        paddingLeft="xxl"
                       >
                         {child.title}
                       </S.Link>
