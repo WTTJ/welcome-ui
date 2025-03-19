@@ -36,6 +36,8 @@ const getPlacementStyle = (placement: DrawerOptions['placement']) => {
         top: '0 !important',
         transform: 'translateY(-100%)',
       }
+    default:
+      return {}
   }
 }
 
@@ -45,7 +47,7 @@ const getSizeStyle = (size: DrawerOptions['size'], placement: DrawerOptions['pla
   switch (placement) {
     case 'bottom':
     case 'top':
-      if (SIZES.includes(size)) {
+      if (size && SIZES.includes(size)) {
         return th(`drawers.sizes.vertical.${size}`)
       }
       return {
@@ -53,12 +55,14 @@ const getSizeStyle = (size: DrawerOptions['size'], placement: DrawerOptions['pla
       }
     case 'left':
     case 'right':
-      if (SIZES.includes(size)) {
+      if (size && SIZES.includes(size)) {
         return th(`drawers.sizes.horizontal.${size}`)
       }
       return {
         width: size,
       }
+    default:
+      return {}
   }
 }
 

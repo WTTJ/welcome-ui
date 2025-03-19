@@ -94,6 +94,7 @@ export const Field = forwardRef<'div', FieldProps>(
             {label && (
               <Label
                 checkableField={isCheckable}
+                dataTestId={dataTestId ? `${dataTestId}-label` : undefined}
                 disabled={disabled}
                 disabledIcon={disabledIcon}
                 htmlFor={htmlFor}

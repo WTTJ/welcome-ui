@@ -51,8 +51,9 @@ const AlertComponent = forwardRef<'div', AlertProps>(
     const defaultVariantIcon = variant === 'beige' ? 'default' : variant
     const withAiButton = variant === 'ai'
 
-    const content = Children.toArray(children).map((child: React.ReactElement) => {
-      if (child.type === Title) return cloneElement(child, { variant: size })
+    const content = Children.toArray(children).map(child => {
+      if (React.isValidElement<{ variant?: Size }>(child) && child.type === Title)
+        return cloneElement(child, { variant: size })
 
       return child
     })

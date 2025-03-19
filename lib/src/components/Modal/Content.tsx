@@ -41,15 +41,15 @@ export const Content = forwardRef<'div', ContentProps>(
         }),
       [children]
     )
-    const shouldShowCloseButton = !components.includes('Header') && withClosingButton
+    const shouldShowCloseButton = !components?.includes('Header') && withClosingButton
 
     const getStyles = (name?: string) => {
       if (name === 'Header') {
         return {
           // if the Modal have a Body but not a Footer || have a Footer but not a Body
           pb:
-            (components.includes('Body') && !components.includes('Footer')) ||
-            (components.includes('Footer') && !components.includes('Body'))
+            (components?.includes('Body') && !components.includes('Footer')) ||
+            (components?.includes('Footer') && !components.includes('Body'))
               ? space.lg
               : space.xxl,
         }
@@ -57,15 +57,15 @@ export const Content = forwardRef<'div', ContentProps>(
 
       if (name === 'Body') {
         return {
-          pb: components.includes('Footer') ? space.lg : null,
-          pr: components.includes('Header') ? space.xxl : null,
+          pb: components?.includes('Footer') ? space.lg : null,
+          pr: components?.includes('Header') ? space.xxl : null,
         }
       }
 
       if (name === 'Footer') {
         return {
           borderWidth: borderOnFooter ? borderWidths.sm : '0',
-          pt: components.includes('Header') || components.includes('Body') ? null : space.lg,
+          pt: components?.includes('Header') || components?.includes('Body') ? null : space.lg,
         }
       }
 

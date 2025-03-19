@@ -146,12 +146,11 @@ describe('<Field />', () => {
       </Field>
     )
 
-    const field = screen.getByTestId('field')
-    const label = field.querySelector('label')
+    const label = screen.getByTestId('field-label')
     const input = screen.getByTestId('input')
 
-    expect(label?.htmlFor).toBe('field')
-    expect(label?.htmlFor).toBe(input?.id)
+    expect(label).toHaveAttribute('for', 'field')
+    expect(label).toHaveAttribute('for', input?.id)
 
     await user.click(label)
 
@@ -166,12 +165,11 @@ describe('<Field />', () => {
       </Field>
     )
 
-    const field = screen.getByTestId('field')
-    const label = field.querySelector('label')
+    const label = screen.getByTestId('field-label')
     const input = screen.getByTestId('input')
 
-    expect(label?.htmlFor).toBe('field')
-    expect(label?.htmlFor).toBe(input?.id)
+    expect(label).toHaveAttribute('for', 'field')
+    expect(label).toHaveAttribute('for', input?.id)
 
     await user.click(label)
 
@@ -186,12 +184,11 @@ describe('<Field />', () => {
       </Field>
     )
 
-    const field = screen.getByTestId('field')
-    const label = field.querySelector('label')
+    const label = screen.getByTestId('field-label')
     const input = screen.getByTestId('input')
 
-    expect(label?.htmlFor).toContain('wui-field-')
-    expect(label?.htmlFor).toBe(input?.id)
+    expect(label.getAttribute('for')).toMatch(/^wui-field-/)
+    expect(label).toHaveAttribute('for', input?.id)
 
     await user.click(label)
 

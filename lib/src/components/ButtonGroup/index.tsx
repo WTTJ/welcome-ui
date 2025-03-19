@@ -24,13 +24,16 @@ export const ButtonGroup = forwardRef<'div', ButtonGroupProps>(
     function setGlobalProps(children: ChildrenProps) {
       return Children.toArray(children)
         .filter(Boolean)
-        .map((child: React.ReactElement<ButtonProps>) => {
-          return cloneElement(child, {
-            ...child.props,
-            disabled: disabled || child.props.disabled,
-            size: size || child.props.size,
-            variant: variant || child.props.variant,
-          })
+        .map(child => {
+          if (React.isValidElement<ButtonProps>(child)) {
+            return cloneElement(child, {
+              ...child.props,
+              disabled: disabled || child.props.disabled,
+              size: size || child.props.size,
+              variant: variant || child.props.variant,
+            })
+          }
+          return child
         })
     }
 

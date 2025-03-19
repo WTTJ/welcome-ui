@@ -42,27 +42,31 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
     ref
   ) => {
     const listRef = useRef<HTMLOListElement>(null)
-    const startGradient = useRef()
-    const endGradient = useRef()
+    const startGradient = useRef<HTMLElement>(null)
+    const endGradient = useRef<HTMLElement>(null)
     const [isOverflowing, setIsOverflowing] = useState(false)
     const [initialOffset, setInitialOffset] = useState(0)
     /** removed null child */
     const childrenFiltered = Children.toArray(children).filter(Boolean)
     const childrenLength = childrenFiltered.length
 
-    const clones = childrenFiltered.map((child: React.ReactElement, index) => {
+    const clones = childrenFiltered.map((child, index) => {
       const isLastChild = childrenLength === 1 || childrenLength === index + 1
       const isActive = isLastChild && lastChildNotClickable
 
-      return cloneElement(child, {
-        isActive,
-        key: `breadcrumb-${index}`,
-        separator: isLastChild ? undefined : separator,
-        ...child.props,
-      })
+      // Check if child is a React element before using cloneElement
+      if (React.isValidElement(child)) {
+        return cloneElement(child, {
+          isActive,
+          key: `breadcrumb-${index}`,
+          separator: isLastChild ? undefined : separator,
+          ...child.props,
+        })
+      }
+      return child
     })
 
-    function translate(element: HTMLElement, value: number) {
+    function translate(element: HTMLElement | null, value: number) {
       if (!element) return
       element.style.transform = `scale3d(${value}, 1, 1)`
     }
@@ -74,9 +78,10 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
     }, [])
 
     const onListScroll = useCallback(() => {
-      const {
-        current: { offsetWidth, scrollLeft, scrollWidth },
-      } = listRef
+      const { current } = listRef
+      if (!current) return
+
+      const { offsetWidth, scrollLeft, scrollWidth } = current
       const diff = scrollWidth - offsetWidth
       const scroll = clamp(Math.abs(scrollLeft - initialOffset), 0, diff)
       // scroll completion Ratio between 0 (not scrolled) and 1 (fully scrolled)
@@ -84,10 +89,11 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
       updateGradients(completionRatio)
     }, [initialOffset, updateGradients])
 
-    const handleResize = useMemo<(entries: ResizeObserverEntry[]) => void>(
+    const handleResize = useMemo<(...args: unknown[]) => void>(
       () =>
         throttle(
-          (entries: ResizeObserverEntry[]) => {
+          (...args: unknown[]) => {
+            const entries = args[0] as ResizeObserverEntry[]
             const [
               {
                 // Is offsetWidth really needed ?
@@ -110,7 +116,7 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
 
     useEffect(() => {
       const resizeObserver = new ResizeObserver(handleResize)
-      resizeObserver.observe(listRef.current)
+      if (listRef.current) resizeObserver.observe(listRef.current)
       return () => resizeObserver.disconnect()
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
