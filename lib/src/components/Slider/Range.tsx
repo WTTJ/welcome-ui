@@ -239,6 +239,7 @@ export const Range = forwardRef<'div', RangeProps>(
           setInputMaxValue(validValue)
         }
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     return (

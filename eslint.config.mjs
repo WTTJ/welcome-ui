@@ -2,6 +2,7 @@ import eslint from '@eslint/js'
 import perfectionist from 'eslint-plugin-perfectionist'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import react from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
 import { globalIgnores } from 'eslint/config'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
@@ -10,8 +11,9 @@ export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.recommended,
   eslintPluginPrettierRecommended,
+  reactHooks.configs['recommended-latest'],
   perfectionist.configs['recommended-alphabetical'],
-  globalIgnores(['lib/dist']),
+  globalIgnores(['lib/dist', 'website/.next', 'website/out']),
   {
     languageOptions: {
       ecmaVersion: 'latest',

@@ -1,19 +1,19 @@
-import { unified } from 'unified'
-import rehypeParse from 'rehype-parse'
-import { marked } from 'marked'
-import { visit } from 'unist-util-visit'
 import kebabCase from 'lodash/kebabCase'
+import { marked } from 'marked'
+import rehypeParse from 'rehype-parse'
+import { unified } from 'unified'
+import { visit } from 'unist-util-visit'
 
-import { PropertiesProps } from '../components/Props'
+import type { PropertiesProps } from '../components/Props'
+
+export type Toc = {
+  children?: TocItem[]
+} & TocItem
 
 export type TocItem = {
   href: string
   id: string
   title: string
-}
-
-export type Toc = TocItem & {
-  children?: TocItem[]
 }
 
 export function getPageTree(content: string, isOverview?: boolean) {
@@ -26,16 +26,16 @@ export function getPageTree(content: string, isOverview?: boolean) {
   const tableOfContents = [] as Toc[]
 
   if (isOverview) {
-    tableOfContents.push({ id: 'definition', title: 'Definition', href: '#' })
+    tableOfContents.push({ href: '#', id: 'definition', title: 'Definition' })
     tableOfContents.push({
+      href: '#installation',
       id: 'installation',
       title: 'Installation',
-      href: '#installation',
     })
     tableOfContents.push({
+      href: '#examples',
       id: 'examples',
       title: 'Examples',
-      href: '#examples',
     })
   }
 
@@ -44,7 +44,7 @@ export function getPageTree(content: string, isOverview?: boolean) {
       const title = node.children[0]?.value
       const id = kebabCase(title)
 
-      tableOfContents.push({ id, title, href: `#${id}` })
+      tableOfContents.push({ href: `#${id}`, id, title })
     }
 
     if (node.tagName === 'h3') {
@@ -56,7 +56,7 @@ export function getPageTree(content: string, isOverview?: boolean) {
       const id = kebabCase(title)
 
       parentHeading.children = parentHeading.children || []
-      parentHeading.children.push({ id, title, href: `#${id}` })
+      parentHeading.children.push({ href: `#${id}`, id, title })
     }
   })
 
@@ -70,14 +70,14 @@ export function getPropertiesTree(content: PropertiesProps['items']) {
 
   Object.entries(content).map(([name, props]) => {
     const id = kebabCase(name)
-    const childProperty = { id, title: name, href: `#${id}`, children: [] } as Toc
+    const childProperty = { children: [], href: `#${id}`, id, title: name } as Toc
 
     const properties = props.props
 
     Object.entries(properties).map(([childName]) => {
       const childId = kebabCase(`${id}-${childName}`)
 
-      childProperty?.children?.push({ id: childId, title: childName, href: `#${childId}` })
+      childProperty?.children?.push({ href: `#${childId}`, id: childId, title: childName })
     })
 
     tableOfContents.push(childProperty)

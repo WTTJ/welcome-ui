@@ -112,6 +112,7 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
       const resizeObserver = new ResizeObserver(handleResize)
       resizeObserver.observe(listRef.current)
       return () => resizeObserver.disconnect()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {

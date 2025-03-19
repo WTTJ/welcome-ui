@@ -273,6 +273,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
 
   useEffect(() => {
     goTo(firstPageToShow, true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   /** if the childrens changed we need to check again the arrow states */

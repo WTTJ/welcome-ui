@@ -52,6 +52,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
     // format date at component mount
     useEffect(() => {
       if (onChange) handleChange(formatDate(value))
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // Ensure values are controlled by parent
@@ -61,6 +62,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
         handleChange(formattedDate)
       }
       setDate(formattedDate)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     return (

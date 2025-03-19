@@ -1,13 +1,14 @@
 'use client'
-import { useEffect, useState } from 'react'
 import NextLink from 'next/link'
-
-import * as S from './styles'
+import { useEffect, useState } from 'react'
 
 import { Box } from '@/Box'
-import { Text } from '@/Text'
 import { Flex } from '@/Flex'
-import { Toc } from '~/build-app/utils/page-tree'
+import { Text } from '@/Text'
+
+import type { Toc } from '~/build-app/utils/page-tree'
+
+import * as S from './styles'
 
 type TableOfContentProps = {
   isSubPage?: boolean

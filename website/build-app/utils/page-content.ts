@@ -1,7 +1,6 @@
 import { existsSync, readFileSync } from 'fs'
-import { join } from 'path'
-
 import matter from 'gray-matter'
+import { join } from 'path'
 
 import { getPageTree } from './page-tree'
 
