@@ -73,6 +73,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
     // format date at component mount
     useEffect(() => {
       onChange?.(formatDate(value))
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // Ensure values are controlled by parent
@@ -86,6 +87,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
         onChange(formattedDate)
       }
       setDate(formattedDate)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     const blur = () => inputRef.current?.blur()

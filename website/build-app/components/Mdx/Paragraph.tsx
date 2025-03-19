@@ -1,7 +1,7 @@
 'use client'
-import { Tokens } from './Tokens'
-
 import { Text } from '@/Text'
+
+import { Tokens } from './Tokens'
 
 export const Paragraph = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   const isDoDont = children?.props?.children === 'Do' || children?.props?.children === "Don't"

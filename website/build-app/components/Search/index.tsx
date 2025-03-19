@@ -1,9 +1,10 @@
 'use client'
-import { useEffect, useState } from 'react'
 import { DocSearchModal } from '@docsearch/react'
+import { useEffect, useState } from 'react'
 
-import { InputText } from '@/InputText'
 import { IconsFont } from '@/IconsFont'
+import { InputText } from '@/InputText'
+
 import '@docsearch/css'
 
 export const Search = () => {

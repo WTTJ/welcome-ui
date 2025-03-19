@@ -1,8 +1,13 @@
 'use client'
-import React from 'react'
 import { camelCase, startCase } from 'lodash'
+import React from 'react'
 
-import * as S from './styles'
+import { Box } from '@/Box'
+import * as Icons from '@/Icons'
+import { IconsFont } from '@/IconsFont'
+import { Text } from '@/Text'
+import { Toast, toast } from '@/Toast'
+
 import {
   actions,
   arrows,
@@ -17,28 +22,23 @@ import {
   welcome,
   wtf,
 } from './icons'
-
-import { IconsFont } from '@/IconsFont'
-import * as Icons from '@/Icons'
-import { Box } from '@/Box'
-import { Text } from '@/Text'
-import { Toast, toast } from '@/Toast'
+import * as S from './styles'
 
 export type IconListProps = {
   isIconsFont?: boolean
   name:
-    | 'arrows'
     | 'actions'
+    | 'arrows'
+    | 'avatar'
+    | 'brands'
+    | 'files'
+    | 'flags'
+    | 'markdown'
     | 'miscellaneous'
     | 'player'
-    | 'avatar'
-    | 'wtf'
-    | 'files'
-    | 'markdown'
     | 'table'
-    | 'brands'
     | 'welcome'
-    | 'flags'
+    | 'wtf'
 }
 
 const handleClickToCopy = (componentName: string) => {
@@ -57,22 +57,22 @@ const handleClickToCopy = (componentName: string) => {
 
 export const IconsList = ({ isIconsFont, name }: IconListProps) => {
   const iconsByName = {
-    arrows: arrows,
     actions: actions,
+    arrows: arrows,
+    avatar: avatar,
+    brands: brands,
+    files: files,
+    flags: flags,
+    markdown: markdown,
     miscellaneous: miscellaneous,
     player: player,
-    avatar: avatar,
-    wtf: wtf,
-    files: files,
-    markdown: markdown,
     table: table,
-    brands: brands,
     welcome: welcome,
-    flags: flags,
+    wtf: wtf,
   }
 
   return (
-    <Box display="grid" gap="lg" gridTemplateColumns={{ xs: '1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}>
+    <Box display="grid" gap="lg" gridTemplateColumns={{ lg: '1fr 1fr 1fr 1fr', xs: '1fr 1fr' }}>
       {iconsByName[name]?.map(key => {
         const name = startCase(camelCase(key)).replace(/ /g, '')
         const componentName = isIconsFont ? `IconsFont.${name}` : `${name}Icon`

@@ -1,30 +1,33 @@
 import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
-
-import { Pre } from './Pre'
-import { Blockquote } from './Blockquote'
-import { Paragraph } from './Paragraph'
-import { Code } from './Code'
-import { Div } from './Div'
-import { H2, H3, H4, H5, H6 } from './Headings'
-import { A } from './A'
-import { Image } from './Image'
+import remarkGfm from 'remark-gfm'
 
 import { Box } from '@/Box'
 
+import { A } from './A'
+import { Blockquote } from './Blockquote'
+import { Code } from './Code'
+import { Div } from './Div'
+import { H2, H3, H4, H5, H6 } from './Headings'
+import { Image } from './Image'
+import { Paragraph } from './Paragraph'
+import { Pre } from './Pre'
+
 const components = {
-  pre: Pre,
+  a: A,
+  blockquote: Blockquote,
+  code: Code,
+  div: Div,
   h1: (): null => null,
-  hr: (): null => null,
   h2: H2,
   h3: H3,
   h4: H4,
   h5: H5,
   h6: H6,
-  a: A,
-  ul: ({ children }: { children: React.ReactElement }) => (
-    <Box as="ul" listStyleType="disc" mt="sm">
+  hr: (): null => null,
+  img: Image,
+  li: ({ children }: { children: React.ReactElement }) => (
+    <Box as="li" ml="xxl" mt="xs">
       {children}
     </Box>
   ),
@@ -33,18 +36,15 @@ const components = {
       {children}
     </Box>
   ),
-  li: ({ children }: { children: React.ReactElement }) => (
-    <Box as="li" ml="xxl" mt="xs">
+  p: Paragraph,
+  pre: Pre,
+  strong: ({ children }: { children: React.ReactElement }) => (
+    <Box as="strong" color="neutral-90" fontWeight="500">
       {children}
     </Box>
   ),
-  code: Code,
-  blockquote: Blockquote,
-  p: Paragraph,
-  img: Image,
-  div: Div,
-  strong: ({ children }: { children: React.ReactElement }) => (
-    <Box as="strong" color="neutral-90" fontWeight="500">
+  ul: ({ children }: { children: React.ReactElement }) => (
+    <Box as="ul" listStyleType="disc" mt="sm">
       {children}
     </Box>
   ),

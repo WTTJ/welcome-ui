@@ -1,8 +1,8 @@
 import { snakeCase } from 'lodash'
 
-import { Text } from '@/Text'
 import { Card } from '@/Card'
 import { Flex } from '@/Flex'
+import { Text } from '@/Text'
 
 export const Tokens = ({ children }: { children: React.ReactNode[] }) => {
   const tokenName = children

@@ -1,5 +1,6 @@
 'use client'
-import { Alert, AlertProps } from '@/Alert'
+import type { AlertProps } from '@/Alert'
+import { Alert } from '@/Alert'
 
 export const Blockquote = ({ children }: { children: JSX.Element[] }) => {
   const type = children[1].props.children[0]

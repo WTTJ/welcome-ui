@@ -1,14 +1,21 @@
 import { existsSync, readdirSync, statSync } from 'fs'
 import { join } from 'path'
 
-import { PageTree } from '../types'
+import type { PageTree } from '../types'
+
 import { replaceMdxRegex } from '../constants/regex'
+
+type Files = {
+  category?: string
+  pages: { id: string; parent?: string }[]
+  parent: string
+}
 
 export function getFilesFromDirectory(dir: string) {
   const directory = `build-app/pages/${dir}`
   const folder = join(process.cwd(), directory)
   const folderExist = existsSync(folder)
-  const files = [] as any[]
+  const files = [] as Files[]
 
   if (!folderExist) return files
 
@@ -22,9 +29,9 @@ export function getFilesFromDirectory(dir: string) {
       const fileList = readdirSync(path)
 
       const filesDirection = {
-        parent: dir,
         category: relativePath,
         pages: [] as { id: string; parent: string }[],
+        parent: dir,
       }
 
       for (const file of fileList) {
@@ -43,8 +50,8 @@ export function getFilesFromDirectory(dir: string) {
           files[dirParentIndex].pages.push({ id: relativePath })
         } else {
           files.push({
-            parent: dir,
             pages: [{ id: relativePath }],
+            parent: dir,
           })
         }
       }
@@ -52,6 +59,15 @@ export function getFilesFromDirectory(dir: string) {
   }
 
   return files
+}
+
+/**
+ * Gets the pages tree from pages folder
+ */
+export function getPages(folder: string) {
+  const filesFromDirectory = getFilesFromDirectory(folder)
+
+  return filesFromDirectory
 }
 
 export function getStaticParams(pages: PageTree) {
@@ -78,13 +94,4 @@ export function getStaticParamsSubPage(pages: PageTree) {
     },
     [] as { id?: string; subPage?: string }[]
   )
-}
-
-/**
- * Gets the pages tree from supernova export
- */
-export function getPages(folder: string) {
-  const filesFromDirectory = getFilesFromDirectory(folder)
-
-  return filesFromDirectory
 }
