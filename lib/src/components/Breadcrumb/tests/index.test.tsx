@@ -3,23 +3,23 @@ import { render } from '../../../../tests'
 
 describe('<Breadcrumb>', () => {
   beforeEach(() => {
-    window.MutationObserver = function () {
-      return {
-        disconnect: () => {
-          return {}
-        },
-        observe: () => {
-          return {}
-        },
-        takeRecords: () => {
-          return {}
-        },
+    window.MutationObserver = class MutationObserver {
+      constructor() {}
+      disconnect() {
+        return {}
       }
-    }
+      observe() {
+        return {}
+      }
+      takeRecords() {
+        return {}
+      }
+    } as unknown as typeof MutationObserver
   })
 
   afterEach(() => {
-    delete window.MutationObserver
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    delete (window as any).MutationObserver
   })
 
   it('should render correctly', () => {

@@ -22,7 +22,7 @@ export type DropdownMenuProps = CreateWuiProps<'div', DropdownMenuOptions>
 const DropdownMenuComponent = forwardRef<'div', DropdownMenuProps>(
   ({ children, dataTestId, gutter = 'xs', innerProps = {}, store, ...rest }, ref) => {
     const theme = useTheme()
-    const arrowElement = store.useState('arrowElement')
+    const arrowElement = store?.useState('arrowElement')
 
     let parsedGutter = gutter
     if (typeof parsedGutter === 'string') {

@@ -16,7 +16,7 @@ export type ArrowProps = CreateWuiProps<'div', Ariakit.MenuArrowProps>
 
 export const Arrow = forwardRef<'div', ArrowProps>(({ store }, ref) => {
   const currentPlacement = store?.useState('currentPlacement')
-  const [placement] = currentPlacement.split('-')
+  const [placement] = currentPlacement?.split('-') || ['bottom']
 
   return (
     <Ariakit.MenuArrow ref={ref} render={<S.Arrow />}>

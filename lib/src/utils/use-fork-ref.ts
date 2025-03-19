@@ -21,8 +21,9 @@ export function useForkRef(
    */
   return useMemo(() => {
     if (refA == null && refB == null) {
-      return null
+      return () => {}
     }
+
     return instance => {
       setRef(refA, instance)
       setRef(refB, instance)
