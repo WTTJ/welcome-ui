@@ -39,9 +39,10 @@ export function getPageTree(content: string, isOverview?: boolean) {
     })
   }
 
-  visit(tree, 'element', (node: Element) => {
+  visit(tree, 'element', node => {
     if (node.tagName === 'h2') {
-      const title = node.children[0]?.value
+      const child = node.children[0]
+      const title = child && 'value' in child ? child.value : ''
       const id = kebabCase(title)
 
       tableOfContents.push({ href: `#${id}`, id, title })
@@ -52,7 +53,8 @@ export function getPageTree(content: string, isOverview?: boolean) {
 
       if (!parentHeading) return
 
-      const title = node.children[0].value
+      const child = node.children[0]
+      const title = child && 'value' in child ? child.value : ''
       const id = kebabCase(title)
 
       parentHeading.children = parentHeading.children || []
