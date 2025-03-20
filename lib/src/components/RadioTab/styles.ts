@@ -1,11 +1,13 @@
-import styled, { css, th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
+import styled, { css, th } from '@xstyled/styled-components'
 
-import { defaultFieldStyles, DefaultFieldStylesProps } from '../../utils/field-styles'
-import { overflowEllipsis } from '../../utils/overflow-ellipsis'
-
+import type { WuiProps } from '@/System'
 import { shouldForwardProp } from '@/System'
-import { WuiProps } from '@/System'
+
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+
+import { defaultFieldStyles } from '../../utils/field-styles'
+import { overflowEllipsis } from '../../utils/overflow-ellipsis'
 
 export const Radio = styled(Ariakit.Radio).withConfig({ shouldForwardProp })`
   position: absolute;

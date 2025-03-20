@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
 import { screen } from '@testing-library/react'
+import { useState } from 'react'
 
-import { Checkbox, CheckboxOptions } from '../'
+import type { CheckboxOptions } from '../'
+
+import { Checkbox } from '../'
 import { render } from '../../../../tests'
 
 const CheckboxWrapper = (props: CheckboxOptions) => {

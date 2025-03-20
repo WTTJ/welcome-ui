@@ -1,10 +1,10 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import { defaultFieldStyles } from '../../utils/field-styles'
-
-import { TextareaOptions } from './index'
-
 import { shouldForwardProp } from '@/System'
+
+import type { TextareaOptions } from './index'
+
+import { defaultFieldStyles } from '../../utils/field-styles'
 
 export const Textarea = styled.textareaBox.withConfig({ shouldForwardProp })<TextareaOptions>(
   ({ size, variant }) => css`

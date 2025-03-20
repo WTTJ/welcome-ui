@@ -2,9 +2,7 @@
   "AspectRatio": {
     "props": {
       "ratio": {
-        "defaultValue": {
-          "value": "4 / 3"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "ratio",
         "parent": {
@@ -19,7 +17,13 @@
         ],
         "required": false,
         "type": {
-          "name": "number"
+          "name": "enum",
+          "raw": "number",
+          "value": [
+            {
+              "value": "number"
+            }
+          ]
         }
       }
     }

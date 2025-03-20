@@ -1,14 +1,7 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
 
-import { DefaultFieldStylesProps } from '../utils/field-styles'
-
-import { ThemeValues } from '.'
-
-type VariantsTheme = {
-  danger: CSSObject
-  success: CSSObject
-  warning: CSSObject
-}
+import type { ThemeValues } from '.'
+import type { Size } from '../utils/field-styles'
 
 export type ThemeDefaultFields = {
   checkableField: {
@@ -22,11 +15,11 @@ export type ThemeDefaultFields = {
   default: CSSObject
   disabled: CSSObject
   fieldset: CSSObject
-  focused: VariantsTheme & {
+  focused: {
     default: CSSObject
-  }
+  } & VariantsTheme
   hover: CSSObject
-  iconPlacement: Record<DefaultFieldStylesProps['size'], CSSObject>
+  iconPlacement: Record<Size, CSSObject>
   placeholder: CSSObject
   select: {
     default: CSSObject
@@ -36,26 +29,64 @@ export type ThemeDefaultFields = {
     selected: CSSObject
     selectedAndHighlighted: CSSObject
   }
-  sizes: Record<DefaultFieldStylesProps['size'], CSSObject>
+  sizes: Record<Size, CSSObject>
   variants: VariantsTheme
+}
+
+type VariantsTheme = {
+  danger: CSSObject
+  success: CSSObject
+  warning: CSSObject
 }
 
 export const getDefaultFields = (theme: ThemeValues): ThemeDefaultFields => {
   const { borderWidths, colors, focus, fontSizes, fontWeights, radii, space, toRem } = theme
 
   return {
+    checkableField: {
+      checked: {
+        color: 'neutral-90', // not hex color, only color from browser because is on a content svg
+      },
+      disabled: {
+        opacity: 0.4,
+      },
+    },
+    checkablelabel: {
+      checked: {
+        '-webkit-text-stroke': '0.04em',
+        color: colors['neutral-90'],
+      },
+      default: {},
+    },
     default: {
-      color: colors['neutral-90'],
-      fontSize: fontSizes.sm,
-      /* Can't use 16 because that's a valid line-height value (16em) */
-      lineHeight: '1rem',
-      fontWeight: fontWeights.regular,
       backgroundColor: colors['neutral-10'],
       borderColor: colors['neutral-30'],
-      borderWidth: borderWidths.sm,
-      borderStyle: 'solid',
-      outline: 'none',
       borderRadius: radii.md,
+      borderStyle: 'solid',
+      borderWidth: borderWidths.sm,
+      color: colors['neutral-90'],
+      fontSize: fontSizes.sm,
+      fontWeight: fontWeights.regular,
+      /* Can't use 16 because that's a valid line-height value (16em) */
+      lineHeight: '1rem',
+      outline: 'none',
+    },
+    disabled: {
+      backgroundColor: colors['beige-40'],
+      color: colors['beige-70'],
+      cursor: 'not-allowed',
+    },
+    fieldset: {
+      'border-width': '0',
+    },
+    focused: {
+      danger: { ...focus(colors['red-30']) },
+      default: {
+        ...focus(colors['primary-20']),
+        borderColor: colors['primary-40'],
+      },
+      success: { ...focus(colors['green-30']) },
+      warning: { ...focus(colors['orange-20']) },
     },
     hover: {
       default: {
@@ -63,6 +94,82 @@ export const getDefaultFields = (theme: ThemeValues): ThemeDefaultFields => {
       },
       transparency: {
         borderColor: colors['neutral-20'],
+      },
+    },
+    iconPlacement: {
+      lg: {
+        left: toRem(12),
+        right: toRem(12),
+      },
+      md: {
+        left: toRem(12),
+        right: toRem(12),
+      },
+      sm: {
+        left: toRem(12),
+        right: toRem(12),
+      },
+      xs: {
+        left: toRem(8),
+        right: toRem(8),
+      },
+    },
+    placeholder: {
+      color: colors['neutral-50'],
+    },
+    select: {
+      default: {
+        borderRadius: radii.md,
+        maxHeight: toRem(155),
+      },
+      disabled: {
+        color: colors['beige-60'],
+        cursor: 'not-allowed',
+      },
+      existing: {
+        color: colors['beige-40'],
+        cursor: 'not-allowed',
+      },
+      highlighted: {
+        backgroundColor: colors['beige-20'],
+        cursor: 'default',
+      },
+      selected: {
+        color: colors['neutral-90'],
+        fontWeight: fontWeights.bold,
+      },
+      selectedAndHighlighted: {
+        backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%)',
+      },
+    },
+    sizes: {
+      lg: {
+        height: toRem(48),
+        paddingBottom: space.lg,
+        paddingLeft: space.md,
+        paddingRight: space.md,
+        paddingTop: space.lg,
+      },
+      md: {
+        height: toRem(40),
+        paddingBottom: space.md,
+        paddingLeft: space.md,
+        paddingRight: space.md,
+        paddingTop: space.md,
+      },
+      sm: {
+        height: toRem(32),
+        paddingBottom: space.sm,
+        paddingLeft: space.md,
+        paddingRight: space.md,
+        paddingTop: space.sm,
+      },
+      xs: {
+        height: toRem(24),
+        paddingBottom: space.xs,
+        paddingLeft: space.sm,
+        paddingRight: space.sm,
+        paddingTop: space.xs,
       },
     },
     variants: {
@@ -75,114 +182,6 @@ export const getDefaultFields = (theme: ThemeValues): ThemeDefaultFields => {
       warning: {
         borderColor: colors['orange-60'],
       },
-    },
-    focused: {
-      default: {
-        ...focus(colors['primary-20']),
-        borderColor: colors['primary-40'],
-      },
-      danger: { ...focus(colors['red-30']) },
-      warning: { ...focus(colors['orange-20']) },
-      success: { ...focus(colors['green-30']) },
-    },
-    sizes: {
-      xs: {
-        height: toRem(24),
-        paddingTop: space.xs,
-        paddingRight: space.sm,
-        paddingBottom: space.xs,
-        paddingLeft: space.sm,
-      },
-      sm: {
-        height: toRem(32),
-        paddingTop: space.sm,
-        paddingRight: space.md,
-        paddingBottom: space.sm,
-        paddingLeft: space.md,
-      },
-      md: {
-        height: toRem(40),
-        paddingTop: space.md,
-        paddingRight: space.md,
-        paddingBottom: space.md,
-        paddingLeft: space.md,
-      },
-      lg: {
-        height: toRem(48),
-        paddingTop: space.lg,
-        paddingRight: space.md,
-        paddingBottom: space.lg,
-        paddingLeft: space.md,
-      },
-    },
-    iconPlacement: {
-      xs: {
-        left: toRem(8),
-        right: toRem(8),
-      },
-      sm: {
-        left: toRem(12),
-        right: toRem(12),
-      },
-      md: {
-        left: toRem(12),
-        right: toRem(12),
-      },
-      lg: {
-        left: toRem(12),
-        right: toRem(12),
-      },
-    },
-    checkableField: {
-      checked: {
-        color: 'neutral-90', // not hex color, only color from browser because is on a content svg
-      },
-      disabled: {
-        opacity: 0.4,
-      },
-    },
-    disabled: {
-      backgroundColor: colors['beige-40'],
-      color: colors['beige-70'],
-      cursor: 'not-allowed',
-    },
-    placeholder: {
-      color: colors['neutral-50'],
-    },
-    checkablelabel: {
-      default: {},
-      checked: {
-        color: colors['neutral-90'],
-        '-webkit-text-stroke': '0.04em',
-      },
-    },
-    select: {
-      default: {
-        maxHeight: toRem(155),
-        borderRadius: radii.md,
-      },
-      existing: {
-        color: colors['beige-40'],
-        cursor: 'not-allowed',
-      },
-      highlighted: {
-        backgroundColor: colors['beige-20'],
-        cursor: 'default',
-      },
-      selectedAndHighlighted: {
-        backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) 100%)',
-      },
-      selected: {
-        color: colors['neutral-90'],
-        fontWeight: fontWeights.bold,
-      },
-      disabled: {
-        color: colors['beige-60'],
-        cursor: 'not-allowed',
-      },
-    },
-    fieldset: {
-      'border-width': '0',
     },
   }
 }

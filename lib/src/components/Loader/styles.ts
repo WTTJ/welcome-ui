@@ -1,9 +1,11 @@
-import styled, { css, keyframes, system, Theme } from '@xstyled/styled-components'
+import type { Theme } from '@xstyled/styled-components'
 
-import { LoaderOptions } from '.'
+import styled, { css, keyframes, system } from '@xstyled/styled-components'
 
 import { Shape } from '@/Shape'
 import { shouldForwardProp } from '@/System'
+
+import type { LoaderOptions } from '.'
 
 const animation = keyframes`
   0%, 100% {

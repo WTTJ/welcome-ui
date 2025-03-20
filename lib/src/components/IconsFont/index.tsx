@@ -1,9 +1,9 @@
-import React from 'react'
+import type { IconProps } from '@/Icon'
 
-import { Icon, StyledIconProps } from './styles'
+import type { StyledIconProps } from './styles'
+
+import { Icon } from './styles'
 import unicodeJson from './unicode.json'
-
-import { IconProps } from '@/Icon'
 
 export type IconsFontProps = StyledIconProps
 export const IconsFontStyled = Icon
@@ -22,7 +22,7 @@ export type IconKeyFormatted = FormatIconJSX<Capitalize<IconKey>>
 export type IconsType = Record<IconKeyFormatted, (props: IconProps) => JSX.Element>
 
 const toPascalCase = (str: string) => {
-  const camelCase = str.replace(/_(\w)/g, ($, $1) => $1.toUpperCase())
+  const camelCase = str.replace(/_(\w)/g, (_, $1) => $1.toUpperCase())
   return `${camelCase.charAt(0).toUpperCase()}${camelCase.substr(1)}`
 }
 

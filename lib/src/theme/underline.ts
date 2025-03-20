@@ -1,6 +1,6 @@
 import { css } from '@xstyled/styled-components'
 
-import { ThemeColors } from './colors'
+import type { ThemeColors } from './colors'
 
 export type ThemeUnderline = {
   default: ReturnType<typeof css>

@@ -1,11 +1,11 @@
-import React from 'react'
+import { Box } from '@/Box'
+import { Loader } from '@/Loader'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import type { Size, Variant } from './theme'
 
 import * as S from './styles'
-import { Size, Variant } from './theme'
-
-import { Loader } from '@/Loader'
-import { CreateWuiProps, forwardRef } from '@/System'
-import { Box } from '@/Box'
 
 export interface ButtonOptions {
   /** AI button with 3 variants: primary / tertiary / ghost */

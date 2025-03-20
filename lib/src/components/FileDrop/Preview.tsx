@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { ImagePreview } from './styles'
-import { Message } from './Message'
-import { FilePreview } from './FilePreview'
-
-import { FileDropChildren } from './index'
-
 import { NegativeIcon, PositiveIcon } from '@/Icons'
+
+import type { FileDropChildren } from './index'
+
+import { FilePreview } from './FilePreview'
+import { Message } from './Message'
+import { ImagePreview } from './styles'
 
 export const Preview: React.FC<FileDropChildren> = ({
   disabled,

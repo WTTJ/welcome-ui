@@ -1,16 +1,16 @@
 import React from 'react'
 
-import { FileDropChildren } from './index'
-
-import { Text } from '@/Text'
 import { Button } from '@/Button'
+import { Text } from '@/Text'
+
+import type { FileDropChildren } from './index'
 
 export interface MessageProps {
   disabled?: boolean
   openFile?: FileDropChildren['openFile']
 }
 
-export const Message: React.FC<MessageProps & FileDropChildren['wordings']> = ({
+export const Message: React.FC<FileDropChildren['wordings'] & MessageProps> = ({
   disabled,
   fileButtonText = 'Browse file',
   hint = 'Drag & drop a file here or',

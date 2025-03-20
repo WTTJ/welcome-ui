@@ -1,6 +1,6 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '@/theme'
+import type { ThemeValues } from '@/theme'
 
 export type ThemeDropdownMenu = {
   inner: CSSObject
@@ -14,18 +14,16 @@ export const getDropdownMenu = (theme: ThemeValues): ThemeDropdownMenu => {
 
   return {
     inner: {
+      borderRadius: radii.md,
       fontSize: fontSizes.sm,
       minWidth: toRem(130),
-      borderRadius: radii.md,
     },
     item: {
-      backgroundColor: 'transparent',
-      color: colors['beige-70'],
-      '&:hover': {
+      '&:focus': {
         backgroundColor: colors['beige-30'],
         color: colors['neutral-90'],
       },
-      '&:focus': {
+      '&:hover': {
         backgroundColor: colors['beige-30'],
         color: colors['neutral-90'],
       },
@@ -34,6 +32,8 @@ export const getDropdownMenu = (theme: ThemeValues): ThemeDropdownMenu => {
         color: colors['beige-40'],
         cursor: 'not-allowed',
       },
+      backgroundColor: 'transparent',
+      color: colors['beige-70'],
     },
     separator: {
       backgroundColor: borderColor,

@@ -73,7 +73,13 @@
         ],
         "required": false,
         "type": {
-          "name": "number"
+          "name": "enum",
+          "raw": "number",
+          "value": [
+            {
+              "value": "number"
+            }
+          ]
         }
       },
       "minRows": {
@@ -94,7 +100,13 @@
         ],
         "required": false,
         "type": {
-          "name": "number"
+          "name": "enum",
+          "raw": "number",
+          "value": [
+            {
+              "value": "number"
+            }
+          ]
         }
       },
       "name": {
@@ -113,7 +125,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "onBlur": {
@@ -132,7 +150,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: FocusEvent<HTMLTextAreaElement, Element>) => void"
+          "name": "enum",
+          "raw": "((event: FocusEvent<HTMLTextAreaElement, Element>) => void)",
+          "value": [
+            {
+              "value": "(event: FocusEvent<HTMLTextAreaElement, Element>) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onChange": {
@@ -151,7 +178,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: ChangeEvent<HTMLTextAreaElement>) => void"
+          "name": "enum",
+          "raw": "((event: ChangeEvent<HTMLTextAreaElement>) => void)",
+          "value": [
+            {
+              "value": "(event: ChangeEvent<HTMLTextAreaElement>) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onFocus": {
@@ -170,7 +206,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: FocusEvent<HTMLTextAreaElement, Element>) => void"
+          "name": "enum",
+          "raw": "((event: FocusEvent<HTMLTextAreaElement, Element>) => void)",
+          "value": [
+            {
+              "value": "(event: FocusEvent<HTMLTextAreaElement, Element>) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onKeyDown": {
@@ -189,7 +234,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: KeyboardEvent<HTMLTextAreaElement>) => void"
+          "name": "enum",
+          "raw": "((event: KeyboardEvent<HTMLTextAreaElement>) => void)",
+          "value": [
+            {
+              "value": "(event: KeyboardEvent<HTMLTextAreaElement>) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "placeholder": {
@@ -208,7 +262,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "value": {
@@ -227,7 +287,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       }
     }

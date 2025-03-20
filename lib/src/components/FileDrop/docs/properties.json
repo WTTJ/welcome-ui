@@ -23,7 +23,16 @@
         ],
         "required": false,
         "type": {
-          "name": "Accept"
+          "name": "enum",
+          "raw": "Accept",
+          "value": [
+            {
+              "value": "Accept",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "fileName": {
@@ -42,7 +51,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "forceFileType": {
@@ -92,7 +107,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: DropEvent | CreateEvent) => void"
+          "name": "enum",
+          "raw": "((event: DropEvent | CreateEvent) => void)",
+          "value": [
+            {
+              "value": "(event: DropEvent | CreateEvent) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "handleRemoveFile": {
@@ -111,7 +135,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: DropEvent | CreateEvent) => void"
+          "name": "enum",
+          "raw": "((event: DropEvent | CreateEvent) => void)",
+          "value": [
+            {
+              "value": "(event: DropEvent | CreateEvent) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "isClearable": {
@@ -186,7 +219,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "onBlur": {
@@ -205,7 +244,16 @@
         ],
         "required": false,
         "type": {
-          "name": "() => void"
+          "name": "enum",
+          "raw": "(() => void)",
+          "value": [
+            {
+              "value": "() => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onChange": {
@@ -224,7 +272,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: DropEvent | CreateEvent) => void"
+          "name": "enum",
+          "raw": "((event: DropEvent | CreateEvent) => void)",
+          "value": [
+            {
+              "value": "(event: DropEvent | CreateEvent) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onError": {
@@ -247,7 +304,13 @@
         ],
         "required": false,
         "type": {
-          "name": "((event?: string) => void) & ((err: Error) => void)"
+          "name": "enum",
+          "raw": "(((event?: string) => void) & ((err: Error) => void)) | undefined",
+          "value": [
+            {
+              "value": "((event?: string | undefined) => void) & ((err: Error) => void)"
+            }
+          ]
         }
       },
       "value": {
@@ -297,7 +360,16 @@
         ],
         "required": false,
         "type": {
-          "name": "WordingsType"
+          "name": "enum",
+          "raw": "WordingsType",
+          "value": [
+            {
+              "value": "WordingsType",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       }
     }

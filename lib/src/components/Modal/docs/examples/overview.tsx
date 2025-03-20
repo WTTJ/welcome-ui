@@ -1,7 +1,5 @@
-import * as React from 'react'
-
-import { Modal, useModal } from '@/Modal'
 import { Button } from '@/Button'
+import { Modal, useModal } from '@/Modal'
 
 const Example = () => {
   const modal = useModal()

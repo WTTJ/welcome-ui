@@ -1,8 +1,8 @@
 import * as React from 'react'
 
+import { EditIcon, PencilIcon } from '@/Icons'
 import { Picker } from '@/Picker'
 import { Shape } from '@/Shape'
-import { EditIcon, PencilIcon } from '@/Icons'
 
 const options = [
   {
@@ -26,11 +26,8 @@ const options = [
 const Example = () => {
   const [value, setValue] = React.useState('edit')
 
-  // TODO: fix typescript
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const handleChange = event => {
-    setValue(event.target.value)
+  const handleChange: React.MouseEventHandler<HTMLLabelElement> = event => {
+    setValue(event.currentTarget.children[0].getAttribute('value') || 'edit')
   }
 
   return <Picker name="icon" onChange={handleChange} options={options} value={value} />

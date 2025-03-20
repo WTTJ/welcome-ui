@@ -1,15 +1,16 @@
-import { Tabs } from './tabs'
-
-import { Text } from '@/Text'
-import { Flex } from '@/Flex'
 import { Button } from '@/Button'
+import { Flex } from '@/Flex'
 import { GithubIcon } from '@/Icons'
+import { Text } from '@/Text'
+
+import { PrevNextPage } from '~/build-app/components/PrevNextPage'
 import { Sidebar } from '~/build-app/components/Sidebar'
 import * as Documentation from '~/build-app/layouts/Documentation'
+import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getRepository } from '~/build-app/utils/transform-name'
-import { getPageContent } from '~/build-app/utils/page-content'
-import { PrevNextPage } from '~/build-app/components/PrevNextPage'
+
+import { Tabs } from './tabs'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -28,8 +29,8 @@ export async function generateMetadata({ params }: { params: { [key: string]: st
   const description = data?.description
 
   return {
-    title: `Welcome UI - ${title}`,
     description: description,
+    title: `Welcome UI - ${title}`,
   }
 }
 

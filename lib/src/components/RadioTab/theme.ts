@@ -1,6 +1,6 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '@/theme'
+import type { ThemeValues } from '@/theme'
 
 export type ThemeRadioTabs = {
   checked: CSSObject
@@ -11,17 +11,17 @@ export const getRadioTabs = (theme: ThemeValues): ThemeRadioTabs => {
   const { colors } = theme
 
   return {
+    checked: {
+      '&:hover': {
+        backgroundColor: colors['primary-30'],
+      },
+      backgroundColor: colors['primary-40'],
+      borderColor: colors['primary-40'],
+      color: theme.colors['neutral-90'],
+    },
     default: {
       '&:hover': {
         backgroundColor: colors['beige-30'],
-      },
-    },
-    checked: {
-      backgroundColor: colors['primary-40'],
-      color: theme.colors['neutral-90'],
-      borderColor: colors['primary-40'],
-      '&:hover': {
-        backgroundColor: colors['primary-30'],
       },
     },
   }

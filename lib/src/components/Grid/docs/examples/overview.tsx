@@ -1,7 +1,5 @@
-import * as React from 'react'
-
-import { Grid } from '@/Grid'
 import { Box } from '@/Box'
+import { Grid } from '@/Grid'
 
 const Example = () => {
   return (

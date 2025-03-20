@@ -1,7 +1,5 @@
-import * as React from 'react'
-
-import { Drawer, useDrawer } from '@/Drawer'
 import { Button } from '@/Button'
+import { Drawer, useDrawer } from '@/Drawer'
 
 const Example = () => {
   const drawer = useDrawer()

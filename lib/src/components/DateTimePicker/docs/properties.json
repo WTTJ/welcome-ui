@@ -56,7 +56,13 @@
         ],
         "required": false,
         "type": {
-          "name": "((date?: Date) => void) & ((date?: Date) => void)"
+          "name": "enum",
+          "raw": "(((date?: Date) => void) & ((date?: Date | undefined) => void)) | undefined",
+          "value": [
+            {
+              "value": "((date?: Date | undefined) => void) & ((date?: Date | undefined) => void)"
+            }
+          ]
         }
       },
       "size": {
@@ -85,16 +91,16 @@
           "raw": "Size",
           "value": [
             {
-              "value": "\"xs\""
-            },
-            {
-              "value": "\"sm\""
+              "value": "\"lg\""
             },
             {
               "value": "\"md\""
             },
             {
-              "value": "\"lg\""
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xs\""
             }
           ]
         }

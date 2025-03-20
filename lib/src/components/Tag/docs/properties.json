@@ -17,7 +17,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "onClick": {
@@ -36,7 +42,16 @@
         ],
         "required": false,
         "type": {
-          "name": "() => void"
+          "name": "enum",
+          "raw": "(() => void)",
+          "value": [
+            {
+              "value": "() => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onRemove": {
@@ -55,7 +70,16 @@
         ],
         "required": false,
         "type": {
-          "name": "() => void"
+          "name": "enum",
+          "raw": "(() => void)",
+          "value": [
+            {
+              "value": "() => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "size": {
@@ -80,13 +104,13 @@
           "raw": "Size",
           "value": [
             {
-              "value": "\"xs\""
+              "value": "\"md\""
             },
             {
               "value": "\"sm\""
             },
             {
-              "value": "\"md\""
+              "value": "\"xs\""
             }
           ]
         }
@@ -107,7 +131,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "variant": {
@@ -132,6 +162,27 @@
           "raw": "Variant",
           "value": [
             {
+              "value": "\"ai\""
+            },
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"default\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"primary\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            },
+            {
               "value": "\"blue\""
             },
             {
@@ -148,27 +199,6 @@
             },
             {
               "value": "\"violet\""
-            },
-            {
-              "value": "\"default\""
-            },
-            {
-              "value": "\"danger\""
-            },
-            {
-              "value": "\"info\""
-            },
-            {
-              "value": "\"success\""
-            },
-            {
-              "value": "\"warning\""
-            },
-            {
-              "value": "\"primary\""
-            },
-            {
-              "value": "\"ai\""
             }
           ]
         }

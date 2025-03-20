@@ -3,8 +3,8 @@ import type { CSSObject } from '@xstyled/styled-components'
 import type { ThemeColorTokens, ThemeValues } from '@/theme'
 import type { LiteralUnion } from '@/utils'
 
-export type Size = 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 export type AvatarColors = LiteralUnion<ThemeColorTokens>
+export type Size = 'lg' | 'md' | 'sm' | 'xl' | 'xxl'
 
 export type ThemeAvatars = {
   sizes: Record<Size, string>
@@ -16,9 +16,9 @@ export const getAvatars = (theme: ThemeValues): ThemeAvatars => {
 
   return {
     sizes: {
-      sm: toRem(20),
-      md: toRem(30),
       lg: toRem(40),
+      md: toRem(30),
+      sm: toRem(20),
       xl: toRem(50),
       xxl: toRem(60),
     },

@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
 import { screen } from '@testing-library/react'
+import React, { useState } from 'react'
 
-import { PasswordInput, PasswordInputOptions } from '../'
+import type { PasswordInputOptions } from '../'
+
+import { PasswordInput } from '../'
 import { render } from '../../../../tests'
 
 const PasswordInputWrapper: React.FC<PasswordInputOptions> = props => {

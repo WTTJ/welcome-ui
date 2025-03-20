@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable perfectionist/sort-imports */
+/* eslint-disable perfectionist/sort-objects */
 import { screen } from '@testing-library/react'
 
 import { SunIcon } from '../../Icons'

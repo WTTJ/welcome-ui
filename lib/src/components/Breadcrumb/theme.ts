@@ -1,6 +1,6 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '@/theme'
+import type { ThemeValues } from '@/theme'
 
 export type ThemeBreadcrumbs = {
   item: {
@@ -16,11 +16,10 @@ export const getBreadcrumbs = (theme: ThemeValues): ThemeBreadcrumbs => {
   const { colors, space, texts } = theme
 
   return {
-    list: {
-      ...texts['subtitle-sm'],
-      padding: `${space.sm} 0`,
-    },
     item: {
+      active: {
+        color: colors['neutral-70'],
+      },
       default: {
         color: colors['neutral-50'],
         textDecoration: 'none',
@@ -28,13 +27,14 @@ export const getBreadcrumbs = (theme: ThemeValues): ThemeBreadcrumbs => {
       hover: {
         color: colors['neutral-70'],
       },
-      active: {
-        color: colors['neutral-70'],
-      },
+    },
+    list: {
+      ...texts['subtitle-sm'],
+      padding: `${space.sm} 0`,
     },
     separator: {
-      padding: `0 ${space.xs}`,
       color: colors['neutral-50'],
+      padding: `0 ${space.xs}`,
     },
   }
 }

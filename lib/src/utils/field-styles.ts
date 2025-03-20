@@ -1,7 +1,7 @@
 import { css, th } from '@xstyled/styled-components'
 
 export type DefaultFieldIconSize = 'sm' | 'xs'
-export type Size = 'xs' | 'sm' | 'md' | 'lg'
+export type Size = 'lg' | 'md' | 'sm' | 'xs'
 
 export const FIELD_ICON_SIZE: {
   [key in Size]: DefaultFieldIconSize
@@ -12,14 +12,14 @@ export const FIELD_ICON_SIZE: {
   xs: 'xs',
 }
 
-export type DefaultFieldStylesProps = Partial<{
+export type DefaultFieldStylesProps = {
   hasIcon?: boolean
-  iconPlacement?: 'right' | 'left' | 'both'
+  iconPlacement?: 'both' | 'left' | 'right'
   isClearable?: boolean
-  size: Size
+  size?: Size
   transparent?: boolean
-  variant: 'danger' | 'success' | 'warning'
-}>
+  variant?: 'danger' | 'success' | 'warning'
+}
 type DefaultFieldStyles = (args: DefaultFieldStylesProps) => ReturnType<typeof css>
 
 export const defaultFieldStyles: DefaultFieldStyles = ({
@@ -29,7 +29,7 @@ export const defaultFieldStyles: DefaultFieldStyles = ({
   transparent,
   variant,
 }) => {
-  const iconSize = FIELD_ICON_SIZE[size]
+  const iconSize = FIELD_ICON_SIZE[size || 'md']
 
   return css`
     ${th('defaultFields.default')};

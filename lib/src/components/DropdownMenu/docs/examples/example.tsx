@@ -1,10 +1,8 @@
-import * as React from 'react'
-
-import { AddIcon, AttachmentIcon, DownIcon, TrashIcon, UpIcon } from '@/Icons'
 import { Box } from '@/Box'
 import { Button } from '@/Button'
 import { ButtonGroup } from '@/ButtonGroup'
 import { DropdownMenu, useDropdownMenu } from '@/DropdownMenu'
+import { AddIcon, AttachmentIcon, DownIcon, TrashIcon, UpIcon } from '@/Icons'
 
 const Example = () => {
   const dropdownMenu = useDropdownMenu({ placement: 'bottom-end' })

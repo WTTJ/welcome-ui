@@ -66,6 +66,9 @@
               "value": "\"violet-40\""
             },
             {
+              "value": "\"overlay\""
+            },
+            {
               "value": "\"primary-10\""
             },
             {
@@ -109,9 +112,6 @@
             },
             {
               "value": "\"secondary-violet\""
-            },
-            {
-              "value": "\"overlay\""
             },
             {
               "value": "\"beige-10\""
@@ -366,7 +366,7 @@
               "value": "\"violet-90\""
             },
             {
-              "value": "string & Record<never, never>"
+              "value": "Record<never, never> & string"
             }
           ]
         }
@@ -387,7 +387,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(name: string) => string"
+          "name": "enum",
+          "raw": "((name: string) => string)",
+          "value": [
+            {
+              "value": "(name: string) => string",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "name": {
@@ -410,7 +419,9 @@
         }
       },
       "shape": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "circle"
+        },
         "description": "",
         "name": "shape",
         "parent": {
@@ -438,7 +449,9 @@
         }
       },
       "size": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "md"
+        },
         "description": "",
         "name": "size",
         "parent": {
@@ -457,13 +470,13 @@
           "raw": "Size",
           "value": [
             {
-              "value": "\"sm\""
+              "value": "\"lg\""
             },
             {
               "value": "\"md\""
             },
             {
-              "value": "\"lg\""
+              "value": "\"sm\""
             },
             {
               "value": "\"xl\""
@@ -490,7 +503,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       }
     }

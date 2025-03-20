@@ -1,6 +1,6 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeProps, ThemeValues } from '.'
+import type { ThemeProps, ThemeValues } from '.'
 
 export type ThemeFontSizes = {
   [key: number]: string
@@ -66,7 +66,6 @@ export const getLineHeights = ({
   toRem: (value: number) => string
 }): ThemeLineHeights => {
   return {
-    html: defaultLineHeight,
     h0: toRem(72),
     h1: toRem(48),
     h2: toRem(40),
@@ -74,12 +73,13 @@ export const getLineHeights = ({
     h4: toRem(24),
     h5: toRem(18),
     h6: toRem(16),
+    html: defaultLineHeight,
     lg: toRem(24),
     md: toRem(18),
     sm: toRem(18),
-    xs: toRem(14),
     'subtitle-md': defaultLineHeight,
     'subtitle-sm': defaultLineHeight,
+    xs: toRem(14),
   }
 }
 
@@ -91,9 +91,9 @@ export type ThemeFontWeights = {
 }
 
 export const fontWeights: ThemeFontWeights = {
-  regular: 400,
-  medium: 500,
   bold: 600,
+  medium: 500,
+  regular: 400,
 }
 
 export type ThemeLetterSpacings = {
@@ -122,7 +122,6 @@ export const getLetterSpacings = ({
   toRem: (value: number) => string
 }): ThemeLetterSpacings => {
   return {
-    html: defaultLetterSpacing,
     h0: toRem(-1.7),
     h1: toRem(-1.2),
     h2: toRem(-1),
@@ -130,12 +129,13 @@ export const getLetterSpacings = ({
     h4: toRem(-0.6),
     h5: toRem(-0.5),
     h6: toRem(-0.5),
+    html: defaultLetterSpacing,
     lg: defaultLetterSpacing,
     md: defaultLetterSpacing,
     sm: defaultLetterSpacing,
-    xs: toRem(-0.2),
     'subtitle-md': toRem(-0.2),
     'subtitle-sm': toRem(-0.2),
+    xs: toRem(-0.2),
   }
 }
 
@@ -272,10 +272,10 @@ export const getTexts = (theme: ThemeValues): ThemeTexts => {
       [key]: {
         color: textsFontColors[key as keyof ThemeTextsFontColors],
         fontFamily: textsFontFamily[key as keyof ThemeTextsFontFamily] || undefined,
-        fontWeight: textsFontWeights[key as keyof ThemeTextsFontFamily],
         fontSize: fontSizes[key as keyof ThemeFontSizes],
-        lineHeight: lineHeights[key as keyof ThemeLineHeights] || lineHeights.lg,
+        fontWeight: textsFontWeights[key as keyof ThemeTextsFontFamily],
         letterSpacing: letterSpacings[key as keyof ThemeLetterSpacings] || undefined,
+        lineHeight: lineHeights[key as keyof ThemeLineHeights] || lineHeights.lg,
         textTransform: textsTextTransform[key as keyof ThemeTextsTextTransform] || undefined,
       },
     }
@@ -284,7 +284,7 @@ export const getTexts = (theme: ThemeValues): ThemeTexts => {
 
 export type ThemeFonts = {
   headings: string
-  icons: string
+  icons?: string
   texts: string
 }
 
@@ -294,8 +294,8 @@ export const getFonts = (
   iconFontFamily: ThemeProps['iconFontFamily']
 ): ThemeFonts => {
   return {
-    texts: [defaultFontFamily, 'sans-serif'].join(', '),
     headings: [headingFontFamily, 'sans-serif'].join(', '),
     icons: iconFontFamily,
+    texts: [defaultFontFamily, 'sans-serif'].join(', '),
   }
 }

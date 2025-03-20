@@ -1,3 +1,4 @@
+/* eslint-disable perfectionist/sort-objects */
 export type ThemeBorderWidths = {
   lg: string
   md: string

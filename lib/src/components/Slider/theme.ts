@@ -1,6 +1,6 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '@/theme'
+import type { ThemeValues } from '@/theme'
 
 export type ThemeSliders = {
   default: CSSObject
@@ -18,13 +18,14 @@ export const getSliders = (theme: ThemeValues): ThemeSliders => {
       backgroundColor: colors['beige-40'],
       backgroundImage: `linear-gradient(${colors['primary-40']}, ${colors['primary-40']})`,
     },
-    selector: {
-      backgroundColor: colors['neutral-90'],
-      borderRadius: '50%',
-      border: `${borderWidths.md} solid`,
+    disabled: {
+      backgroundImage: `linear-gradient(${colors['beige-60']}, ${colors['beige-60']})`,
+    },
+    focused: {
       disabled: {
-        backgroundColor: colors['beige-60'],
+        outline: 'none',
       },
+      outline: `${borderWidths.md} solid ${colors['primary-40']}`,
     },
     output: {
       tooltip: {
@@ -33,16 +34,15 @@ export const getSliders = (theme: ThemeValues): ThemeSliders => {
         color: colors['neutral-10'],
       },
     },
-    focused: {
-      outline: `${borderWidths.md} solid ${colors['primary-40']}`,
+    rangeInput: {
       disabled: {
-        outline: 'none',
+        backgroundColor: colors['beige-60'],
       },
     },
-    disabled: {
-      backgroundImage: `linear-gradient(${colors['beige-60']}, ${colors['beige-60']})`,
-    },
-    rangeInput: {
+    selector: {
+      backgroundColor: colors['neutral-90'],
+      border: `${borderWidths.md} solid`,
+      borderRadius: '50%',
       disabled: {
         backgroundColor: colors['beige-60'],
       },

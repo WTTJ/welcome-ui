@@ -7,12 +7,14 @@ export const throttle = <T extends (...args: unknown[]) => unknown>(
   wait?: number,
   leading = true
 ): ThrottledFunc<T> => {
-  let timeout: ReturnType<typeof setTimeout> = null
-  let lastArgs: unknown[] = null
+  let timeout: null | ReturnType<typeof setTimeout> = null
+  let lastArgs: null | unknown[] = null
 
   return (...args) => {
     const next = () => {
-      callback(...lastArgs)
+      if (lastArgs) {
+        callback(...lastArgs)
+      }
       timeout = null
     }
     lastArgs = args

@@ -1,3 +1,4 @@
+/* eslint-disable perfectionist/sort-objects */
 export type ThemeShadows = {
   md: string
   sm: string

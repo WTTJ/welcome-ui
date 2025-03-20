@@ -1,8 +1,9 @@
-import { ThemeValues } from '.'
+/* eslint-disable perfectionist/sort-objects */
+import type { ThemeValues } from '.'
 
 export type ThemeSpace = {
-  [key: string]: string
   [key: number]: string
+  [key: string]: string
   '3xl': string
   '4xl': string
   '5xl': string

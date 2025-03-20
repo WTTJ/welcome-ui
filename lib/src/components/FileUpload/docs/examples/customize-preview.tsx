@@ -1,11 +1,12 @@
 import * as React from 'react'
 
-import { FileUpload, FileUploadPreviewProps } from '@/FileUpload'
+import { Box } from '@/Box'
 import { Button } from '@/Button'
 import { getFileIcon, getFileName, getFileSize } from '@/Files'
+import type { FileUploadPreviewProps } from '@/FileUpload'
+import { FileUpload } from '@/FileUpload'
 import { CrossIcon } from '@/Icons'
 import { Tag } from '@/Tag'
-import { Box } from '@/Box'
 
 const Example = () => {
   const handleChange = () => {

@@ -1,11 +1,12 @@
-/* eslint-disable no-console, @typescript-eslint/no-var-requires */
-const path = require('path')
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs')
+const path = require('path')
 const util = require('util')
 
 const argv = require('yargs').argv
-const difference = require('lodash.difference')
 const webfontsGenerator = require('@vusion/webfonts-generator')
+const difference = require('lodash.difference')
 require('colors')
 
 const { FLAG_ICONS, readIconsFromAssets } = require('./utils')
@@ -51,15 +52,15 @@ const writeIconsFont = files => {
   // Generate web fonts
   webfontsGenerator(
     {
-      files: filteredFiles.map(file => `${INPUT_PATH}/${file.key}.svg`),
-      dest: `${ICON_FONT_PATH}/fonts`,
-      fontName: FONT_NAME,
       codepoints: newUnicodeMap,
-      types: ['woff', 'woff2'],
+      dest: `${ICON_FONT_PATH}/fonts`,
+      files: filteredFiles.map(file => `${INPUT_PATH}/${file.key}.svg`),
+      fontName: FONT_NAME,
       templateOptions: {
-        classPrefix: 'wui-icon-',
         baseSelector: 'i',
+        classPrefix: 'wui-icon-',
       },
+      types: ['woff', 'woff2'],
     },
     error => {
       if (error) {

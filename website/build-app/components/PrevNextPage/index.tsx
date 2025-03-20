@@ -2,9 +2,11 @@
 import Link from 'next/link'
 
 import { Button } from '@/Button'
-import { LeftIcon, RightIcon } from '@/Icons'
 import { Flex } from '@/Flex'
-import { PageTree } from '~/build-app/types'
+import { LeftIcon, RightIcon } from '@/Icons'
+
+import type { PageTree } from '~/build-app/types'
+
 import { getName } from '~/build-app/utils/transform-name'
 
 type PrevNextPageProps = {

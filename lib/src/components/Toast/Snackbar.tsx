@@ -1,12 +1,13 @@
-import React from 'react'
+import { Box } from '@/Box'
+import type { ButtonProps } from '@/Button'
+import { Button } from '@/Button'
+import { CloseButton } from '@/CloseButton'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import type { ToastVariant } from './theme'
 
 import * as S from './styles'
-import { ToastVariant } from './theme'
-
-import { Box } from '@/Box'
-import { Button, ButtonProps } from '@/Button'
-import { CloseButton } from '@/CloseButton'
-import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface SnackbarOptions {
   /** add correct separator for call to action

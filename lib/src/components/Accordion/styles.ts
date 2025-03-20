@@ -1,5 +1,5 @@
-import styled, { th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
+import styled, { th } from '@xstyled/styled-components'
 
 export const Accordion = styled.divBox`
   ${th('accordions.wrapper')};

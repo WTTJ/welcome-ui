@@ -1,6 +1,6 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import { HintOptions } from '.'
+import type { HintOptions } from '.'
 
 export const Hint = styled.divBox<{ variant: HintOptions['variant'] }>(
   ({ variant }) => css`

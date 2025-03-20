@@ -17,7 +17,16 @@
         ],
         "required": false,
         "type": {
-          "name": "Element"
+          "name": "enum",
+          "raw": "Element",
+          "value": [
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "hasCloseButton": {
@@ -66,7 +75,19 @@
         ],
         "required": false,
         "type": {
-          "name": "Element"
+          "name": "enum",
+          "raw": "Element | null",
+          "value": [
+            {
+              "value": "null"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onClose": {
@@ -85,7 +106,16 @@
         ],
         "required": false,
         "type": {
-          "name": "() => void"
+          "name": "enum",
+          "raw": "(() => void)",
+          "value": [
+            {
+              "value": "() => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "variant": {
@@ -110,6 +140,9 @@
           "raw": "ToastVariant",
           "value": [
             {
+              "value": "\"danger\""
+            },
+            {
               "value": "\"default\""
             },
             {
@@ -117,9 +150,6 @@
             },
             {
               "value": "\"success\""
-            },
-            {
-              "value": "\"danger\""
             },
             {
               "value": "\"warning\""

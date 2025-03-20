@@ -1,6 +1,6 @@
-import React from 'react'
+import type React from 'react'
 
-import {
+import type {
   SelectOption,
   SelectOptionGroup,
   SelectOptionItem,
@@ -11,13 +11,15 @@ import {
 
 const EMPTY_STRING = ''
 
-export const kebabCase = (str: string | number | SelectOption): string => {
+export const kebabCase = (str: number | SelectOption | string): string | undefined => {
   if (typeof str === 'number') {
     return String(str)
   } else if (typeof str === 'string') {
     const match = str.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-    return match && match.map(x => x.toLowerCase()).join('-')
+    return (match && match.map(x => x.toLowerCase()).join('-')) || undefined
   }
+
+  return undefined
 }
 
 export const itemToString = (item: SelectOption): string => (item ? item.label : EMPTY_STRING)
@@ -47,7 +49,7 @@ export const isValueSelected = (value: SelectOptionValue, options: SelectOption[
   !!options.find(item => item.value === value)
 
 export const getOption = (
-  value: string | number | SelectOption,
+  value: number | SelectOption | string,
   options: SelectOptionsType = []
 ): SelectOption => {
   const option = options.find(
@@ -56,16 +58,22 @@ export const getOption = (
       (option as SelectOption).value === ((value as SelectOption).value || value)
   )
   // Create the option if it doesn't exist
-  return (option as SelectOption) || ({ value: kebabCase(value), label: value } as SelectOption)
+  return (option as SelectOption) || ({ label: value, value: kebabCase(value) } as SelectOption)
 }
 
-export const getOptionsFromSelected = (
-  selected: SelectValue,
-  options: SelectOptionsType,
-  groupsEnabled = false
-): SelectOption[] => {
+export const getOptionsFromSelected = ({
+  groupsEnabled = false,
+  options,
+  selected,
+}: {
+  groupsEnabled?: boolean
+  options: SelectOptionsType
+  selected?: SelectValue
+}): SelectOption[] => {
   const availableOptions = groupsEnabled
-    ? options.flatMap((group: SelectOptionGroup) => group.options)
+    ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      options.flatMap((group: SelectOptionGroup) => group.options)
     : options
 
   if (!selected && selected !== 0) {
@@ -78,6 +86,8 @@ export const getOptionsFromSelected = (
 }
 
 const getIsExisting = (option: SelectOption, options: SelectOptionsType): boolean =>
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   !!options.find((item: SelectOption) => item.value === option.value)
 
 const getValue = (option: SelectOption, options: SelectOptionsType): SelectOptionValue =>
@@ -86,9 +96,9 @@ const getValue = (option: SelectOption, options: SelectOptionsType): SelectOptio
 export const getValuesFromOptions = (
   selected: SelectOption[],
   options: SelectOptionsType
-): SelectOptionValue[] => {
+): null | SelectOptionValue[] => {
   if (!selected) {
-    return
+    return null
   }
   return selected.map(selected => getValue(selected, options))
 }
@@ -96,12 +106,14 @@ export const getValuesFromOptions = (
 export const getNewOptions = (
   selected: SelectOption[],
   options: SelectOptionsType
-): SelectOption[] => {
+): null | SelectOption[] => {
   if (!selected) {
-    return
+    return null
   }
   // Find selected items that aren't in original items
   return selected.filter(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     item => !options.find((option: SelectOption) => option.value === item.value)
   )
 }
@@ -117,8 +129,8 @@ export const getInputValue = ({
   isMultiple: boolean
   isSearchable: boolean
   options: SelectOption[]
-  renderItem: (option: SelectOption) => string | React.ReactElement
-}): string | React.ReactElement => {
+  renderItem: (option: SelectOption) => React.ReactElement | string
+}): React.ReactElement | string => {
   const option = getOption(inputValue, options)
 
   if (isMultiple) {
