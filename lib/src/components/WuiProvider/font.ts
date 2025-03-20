@@ -23,14 +23,14 @@ export function getSource(
   isVariable: FontVariation['isVariable']
 ) {
   /** variable icon font */
-  if (isVariable) {
+  if (isVariable && extensions) {
     return extensions
       .map((extension: string) => `url('${url}.${extension}') format('${extension}-variations')`)
       .join(', ')
   }
 
   return extensions
-    .map((extension: string) => `url('${url}.${extension}') format('${extension}')`)
+    ?.map((extension: string) => `url('${url}.${extension}') format('${extension}')`)
     .join(', ')
 }
 
@@ -48,8 +48,11 @@ function getFont({
 }: Font) {
   return css`
     @font-face {
-      font-family: ${name};
+      /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
+      font-family: ${String(name)};
+      /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
       src: ${getSource(url, extensions, isVariable)};
+      /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
       font-display: ${display};
       ${weight &&
       css`
@@ -67,12 +70,10 @@ function getFont({
   `
 }
 
-export const fonts =
-  () =>
-  ({ theme }: { theme: ThemeValues }): ReturnType<typeof css> => {
-    if (!theme || !theme.fontFaces) return null
+export const fonts = (theme: ThemeValues): null | ReturnType<typeof css> => {
+  if (!theme || !theme.fontFaces) return null
 
-    return Object.entries(theme.fontFaces).map(([name, variations]) =>
-      variations.map(variation => getFont({ name, variation }))
-    )
-  }
+  return Object.entries(theme.fontFaces).map(([name, variations]) =>
+    variations.map(variation => getFont({ name, variation }))
+  )
+}

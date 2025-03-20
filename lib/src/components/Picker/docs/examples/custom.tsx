@@ -33,8 +33,8 @@ const options = [
 const Example = () => {
   const [value, setValue] = React.useState('1')
 
-  const handleChange = event => {
-    setValue(event.target.value)
+  const handleChange: React.MouseEventHandler<HTMLLabelElement> = event => {
+    setValue(event.currentTarget.children[0].getAttribute('value') || '1')
   }
 
   return <Picker name="icon" onChange={handleChange} options={options} value={value} />

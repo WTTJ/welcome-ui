@@ -26,8 +26,8 @@ const options = [
 const Example = () => {
   const [value, setValue] = React.useState('edit')
 
-  const handleChange = event => {
-    setValue(event.target.value)
+  const handleChange: React.MouseEventHandler<HTMLLabelElement> = event => {
+    setValue(event.currentTarget.children[0].getAttribute('value') || 'edit')
   }
 
   return <Picker name="icon" onChange={handleChange} options={options} value={value} />

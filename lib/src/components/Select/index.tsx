@@ -6,7 +6,6 @@ import React, { Fragment, useEffect, useMemo, useState } from 'react'
 
 import { ClearButton } from '@/ClearButton'
 import { DownIcon } from '@/Icons'
-import type { InputTextProps } from '@/InputText'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
@@ -59,7 +58,7 @@ export interface SelectOptions extends DefaultFieldStylesProps {
   onFocus?: () => void
   options: SelectOptionsType
   placeholder?: string
-  renderCreateItem?: (inputValue: SelectValue) => void
+  renderCreateItem?: (inputValue: string) => React.ReactNode
   renderGroupHeader?: (option: SelectOptionGroup) => React.ReactNode
   renderItem?: (item: SelectOption, isItemSelected?: boolean) => React.ReactElement | string
   renderMultiple?: (
@@ -122,11 +121,16 @@ export const Select = forwardRef<'input', SelectProps>(
       value: defaultSelected,
       variant,
       ...rest
-    }: SelectProps,
-    ref: React.MutableRefObject<HTMLInputElement>
+    },
+    ref
   ): JSX.Element => {
     const defaultSelecteds = useMemo(
-      () => getOptionsFromSelected(defaultSelected, defaultOptions, groupsEnabled),
+      () =>
+        getOptionsFromSelected({
+          groupsEnabled,
+          options: defaultOptions,
+          selected: defaultSelected,
+        }),
       [defaultSelected, defaultOptions, groupsEnabled]
     )
     const selectedItem = (!isMultiple && defaultSelecteds[0]) || null
@@ -148,7 +152,9 @@ export const Select = forwardRef<'input', SelectProps>(
     // Autofocus
     useEffect(() => {
       if (autoFocus) {
-        ref?.current?.focus()
+        if (typeof ref === 'object' && ref?.current) {
+          ref.current.focus()
+        }
 
         if (isSearchable) {
           setIsOpen(true)
@@ -194,12 +200,15 @@ export const Select = forwardRef<'input', SelectProps>(
       let values: SelectOptionValue[] = []
 
       if (groupsEnabled) {
-        values = getValuesFromOptions(
-          options,
-          defaultOptions.flatMap((group: SelectOptionGroup) => group.options)
-        )
+        values =
+          getValuesFromOptions(
+            options,
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            defaultOptions.flatMap((group: SelectOptionGroup) => group.options)
+          ) || []
       } else {
-        values = getValuesFromOptions(options, defaultOptions)
+        values = getValuesFromOptions(options, defaultOptions) || []
       }
 
       const value = isMultiple ? values : values[0]
@@ -211,7 +220,7 @@ export const Select = forwardRef<'input', SelectProps>(
       if (isCreatable) {
         const newOptions = getNewOptions(options, defaultOptions)
 
-        if (newOptions.length) {
+        if (newOptions?.length) {
           onCreate?.(newOptions[0].label, event)
         }
       }
@@ -239,7 +248,6 @@ export const Select = forwardRef<'input', SelectProps>(
       setOptions(defaultOptions)
       setSelected(newItems)
       handleChange(newItems)
-
       if (!disableCloseOnSelect) {
         setIsOpen(false)
       }
@@ -273,6 +281,8 @@ export const Select = forwardRef<'input', SelectProps>(
     })
 
     return (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       <Downshift
         id={id}
         inputValue={isSearchable ? (inputContent as string) : ''}
@@ -349,7 +359,8 @@ export const Select = forwardRef<'input', SelectProps>(
             transparent,
             variant: isOpen ? 'focused' : variant,
             ...rest,
-          }) as InputTextProps
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          }) as any
           const iconSize = FIELD_ICON_SIZE[size]
 
           return (
@@ -381,6 +392,8 @@ export const Select = forwardRef<'input', SelectProps>(
                       ) => {
                         if (groupsEnabled && 'options' in result) {
                           acc.itemsToRender.push(
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
                             <Fragment key={result.label}>
                               {renderGroupHeader?.(result)}
                               {result.options &&
@@ -439,7 +452,7 @@ export const Select = forwardRef<'input', SelectProps>(
                         index: options.length,
                         item: {
                           label: inputValue,
-                          value: kebabCase(inputValue),
+                          value: kebabCase(inputValue) || '',
                         },
                       })}
                     >

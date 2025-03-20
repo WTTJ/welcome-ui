@@ -32,7 +32,7 @@ const Example = () => {
   return (
     <Search
       groupsEnabled
-      itemToString={(item: Item) => item && item.Title}
+      itemToString={item => (item as Item)?.Title || ''}
       name="movies"
       placeholder="Search a movie"
       renderGroupHeader={({ label, options }) => (
@@ -46,8 +46,8 @@ const Example = () => {
           {options.length === 0 && <Text>No results found</Text>}
         </Box>
       )}
-      renderItem={(item: Item) => (
-        <div style={{ alignItems: 'center', display: 'flex' }}>{item.Title}</div>
+      renderItem={item => (
+        <div style={{ alignItems: 'center', display: 'flex' }}>{(item as Item).Title}</div>
       )}
       search={searchFunction}
     />

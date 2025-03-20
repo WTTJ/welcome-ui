@@ -147,7 +147,7 @@ export type ThemeProps = {
   iconFontFamily?: string
 }
 
-export interface ThemeValues extends StyledComponentsTheme, XStyledTheme {
+export interface ThemeValues extends Omit<XStyledTheme, 'transitions'>, StyledComponentsTheme {
   accordions: ThemeAccordions
   alerts: ThemeAlerts
   avatars: ThemeAvatars

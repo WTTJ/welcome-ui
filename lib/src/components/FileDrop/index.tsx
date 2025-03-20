@@ -35,10 +35,10 @@ const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
 
 export type FileDropChildren = {
   disabled?: boolean
-  error?: string
-  file?: FileType
+  error?: null | string
+  file?: FileType | null
   fileName?: string
-  fileUrl?: FileUrlType
+  fileUrl?: FileUrlType | null
   forceFileType?: ForceFileType
   isAnImage?: boolean
   isHoverAccept?: DropzoneState['isDragAccept']

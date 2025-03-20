@@ -93,7 +93,8 @@ export const Search = forwardRef<'input', SearchProps>(
     )
 
     const handleInputChange = useMemo(
-      () => handleThrottle(searchResults, throttle, false),
+      () =>
+        handleThrottle((...args: unknown[]) => searchResults(args[0] as string), throttle, false),
       [searchResults, throttle]
     )
 

@@ -31,20 +31,21 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
     { focused, handleBlur, handleFocus, icon, iconPlacement, onReset, size, value, ...rest },
     ref
   ) => {
-    const iconSize = FIELD_ICON_SIZE[size]
+    const iconSize = FIELD_ICON_SIZE[size || 'md']
 
     return (
       <S.CustomInput focused={focused} onBlur={handleBlur} onFocus={handleFocus}>
-        <input value={value} {...rest} ref={ref} />
+        <input value={value || ''} {...rest} ref={ref} />
         {icon && iconPlacement !== 'right' && (
-          <IconWrapper iconPlacement={iconPlacement} size={iconSize}>
+          <IconWrapper iconPlacement={iconPlacement || 'left'} size={iconSize}>
             {React.cloneElement(icon, { ...icon.props, size: iconSize })}
           </IconWrapper>
         )}
         {value && (
           <IconGroupWrapper size={iconSize}>
             <ClearButton aria-label="clear date" onClick={onReset} />
-            {iconPlacement === 'right' &&
+            {icon &&
+              iconPlacement === 'right' &&
               React.cloneElement(icon, { ...icon.props, size: iconSize })}
           </IconGroupWrapper>
         )}

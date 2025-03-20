@@ -8,7 +8,8 @@ export const isAnImage = (file: FileDropChildren['file']): boolean => {
   if (!file) return false
 
   if (typeof file === 'string') {
-    return !!getFileName(file).match(match)
+    const fileName = getFileName(file)
+    return !!fileName && !!fileName.match(match)
   } else {
     return file.name ? !!file.name.match(match) : false
   }

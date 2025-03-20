@@ -284,7 +284,7 @@ export const getTexts = (theme: ThemeValues): ThemeTexts => {
 
 export type ThemeFonts = {
   headings: string
-  icons: string
+  icons?: string
   texts: string
 }
 

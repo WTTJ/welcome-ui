@@ -23,7 +23,7 @@ export const DEFAULT_DATE = new Date()
 
 export const getDate = (date: Date | number | string, interval = 15): Date => {
   if (!date) {
-    return null
+    return new Date()
   }
 
   // If invalid date, use today
@@ -38,14 +38,14 @@ export const getDate = (date: Date | number | string, interval = 15): Date => {
   return new Date(newDate.setMinutes(nextInterval, 0, 0))
 }
 
-export const getMonths = (locale: Locale): SelectOptions['options'] => {
+export const getMonths = (locale?: Locale): SelectOptions['options'] => {
   if (!locale) {
     return MONTHS
   }
 
   return MONTHS.map((item, index) => ({
     ...item,
-    label: locale.localize.month(index),
+    label: locale?.localize?.month(index),
   }))
 }
 

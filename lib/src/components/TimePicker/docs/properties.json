@@ -22,7 +22,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "(string | ReactElement<any, string | JSXElementConstructor<any>>) & Element",
+          "raw": "((string | ReactElement<any, string | JSXElementConstructor<any>>) & Element)",
           "value": [
             {
               "value": "string & Element"
@@ -79,7 +79,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: FocusEvent<HTMLDivElement, Element>) => void"
+          "name": "enum",
+          "raw": "((event: FocusEvent<HTMLDivElement, Element>) => void)",
+          "value": [
+            {
+              "value": "(event: FocusEvent<HTMLDivElement, Element>) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onChange": {
@@ -98,7 +107,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(date?: Date) => void"
+          "name": "enum",
+          "raw": "((date?: Date) => void) | undefined",
+          "value": [
+            {
+              "value": "(date?: Date | undefined) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onFocus": {
@@ -117,7 +135,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: FocusEvent<HTMLDivElement, Element>) => void"
+          "name": "enum",
+          "raw": "((event: FocusEvent<HTMLDivElement, Element>) => void)",
+          "value": [
+            {
+              "value": "(event: FocusEvent<HTMLDivElement, Element>) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "placeholder": {
@@ -136,7 +163,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "size": {
@@ -161,16 +194,16 @@
           "raw": "Size",
           "value": [
             {
-              "value": "\"xs\""
-            },
-            {
-              "value": "\"sm\""
+              "value": "\"lg\""
             },
             {
               "value": "\"md\""
             },
             {
-              "value": "\"lg\""
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xs\""
             }
           ]
         }

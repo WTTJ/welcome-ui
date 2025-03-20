@@ -49,16 +49,16 @@
           "raw": "Size",
           "value": [
             {
-              "value": "\"xs\""
-            },
-            {
-              "value": "\"sm\""
+              "value": "\"lg\""
             },
             {
               "value": "\"md\""
             },
             {
-              "value": "\"lg\""
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xs\""
             }
           ]
         }
@@ -83,6 +83,9 @@
           "raw": "Variant",
           "value": [
             {
+              "value": "\"ghost\""
+            },
+            {
               "value": "\"primary\""
             },
             {
@@ -90,9 +93,6 @@
             },
             {
               "value": "\"tertiary\""
-            },
-            {
-              "value": "\"ghost\""
             }
           ]
         }

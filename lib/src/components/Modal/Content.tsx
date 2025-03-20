@@ -2,23 +2,23 @@ import { useTheme } from '@xstyled/styled-components'
 import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
 
 import { Box } from '@/Box'
+import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
 import type { UseModal } from '.'
 
 import { Close } from './Close'
 
-export interface ContentOptions {
-  children: React.ReactNode
-}
-
-export type ContentProps = {
+export type ContentOptions = {
+  children: JSX.Element | JSX.Element[]
   store: UseModal
   /**
    * show or hide the closing button
    */
   withClosingButton?: boolean
-} & ContentOptions
+}
+
+export type ContentProps = CreateWuiProps<'div', ContentOptions>
 
 /**
  * @name Modal.Content
