@@ -10,7 +10,6 @@ import type { UseModal } from '.'
 import { Close } from './Close'
 
 export type ContentOptions = {
-  children: JSX.Element | JSX.Element[]
   store: UseModal
   /**
    * show or hide the closing button
@@ -80,6 +79,8 @@ export const Content = forwardRef<'div', ContentProps>(
         setBorderOnFooter(contentElement.scrollHeight > contentElement.offsetHeight)
       }
     }, [store, open, contentElement])
+
+    if (!React.isValidElement(children)) return null
 
     return (
       <Box ref={ref} {...rest}>
