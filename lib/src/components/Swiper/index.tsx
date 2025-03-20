@@ -65,7 +65,7 @@ export const useSwiper = (options: UseSwiperProps = {}) => {
   const [currentPage, setCurrentPage] = useState(0)
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(false)
-  const ref = useRef<HTMLUListElement>()
+  const ref = useRef<HTMLUListElement | null>(null)
   const { screens } = useTheme()
 
   const currentSlidesPerView = useMemo(() => {
@@ -217,7 +217,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
   const goTo = useCallback(
     (page: number, isFirstInit = false) => {
       const sliderContainer = ref?.current
-      const childWidth = sliderContainer?.children?.[0]?.getBoundingClientRect()?.width
+      const childWidth = sliderContainer?.children?.[0]?.getBoundingClientRect()?.width || 0
 
       sliderContainer?.scrollTo({
         // We don't want to have a scroll effect when we first render the swiper
@@ -252,7 +252,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
         goNext()
       }
     },
-    autoplay ? duration : null
+    autoplay ? duration : 0
   )
 
   useEffect(() => {

@@ -58,7 +58,16 @@ const Backdrop = forwardRef<'div', BackdropProps>(
       return <S.Backdrop hideOnInteractOutside={hideOnInteractOutside} ref={ref} {...rest} />
     }
 
-    return cloneElement(backdrop, { hideOnInteractOutside, ref, ...rest })
+    // Make sure backdrop is a valid React element before cloning it
+    if (React.isValidElement(backdrop)) {
+      return cloneElement(backdrop, {
+        hideOnInteractOutside,
+        ref,
+        ...rest,
+      } as React.HTMLAttributes<HTMLElement>)
+    }
+
+    return null
   }
 )
 

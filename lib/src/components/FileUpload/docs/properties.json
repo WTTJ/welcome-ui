@@ -19,7 +19,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "handleAddFile": {
@@ -38,7 +44,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(files: FileWithPreviewType | FileWithPreviewType[]) => void"
+          "name": "enum",
+          "raw": "((files: FileWithPreviewType | FileWithPreviewType[]) => void)",
+          "value": [
+            {
+              "value": "(files: FileWithPreviewType | FileWithPreviewType[]) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "handleRemoveFile": {
@@ -57,7 +72,16 @@
         ],
         "required": false,
         "type": {
-          "name": "HandleRemoveType"
+          "name": "enum",
+          "raw": "HandleRemoveType",
+          "value": [
+            {
+              "value": "HandleRemoveType",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "maxSize": {
@@ -78,7 +102,13 @@
         ],
         "required": false,
         "type": {
-          "name": "number"
+          "name": "enum",
+          "raw": "number",
+          "value": [
+            {
+              "value": "number"
+            }
+          ]
         }
       },
       "onBlur": {
@@ -97,7 +127,16 @@
         ],
         "required": false,
         "type": {
-          "name": "() => void"
+          "name": "enum",
+          "raw": "(() => void)",
+          "value": [
+            {
+              "value": "() => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onChange": {
@@ -116,7 +155,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: { preventDefault: () => void; target: Record<string, unknown>; }) => void"
+          "name": "enum",
+          "raw": "((event: { preventDefault: () => void; target: Record<string, unknown>; }) => void)",
+          "value": [
+            {
+              "value": "(event: { preventDefault: () => void; target: Record<string, unknown>; }) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "preview": {
@@ -135,7 +183,20 @@
         ],
         "required": false,
         "type": {
-          "name": "FC<FileUploadPreviewProps>"
+          "name": "enum",
+          "raw": "FC<FileUploadPreviewProps>",
+          "value": [
+            {
+              "value": "FC<FileUploadPreviewProps>",
+              "description": "Represents the type of a function component. Can optionally\nreceive a type argument that represents the props the component\naccepts.",
+              "fullComment": "Represents the type of a function component. Can optionally\nreceive a type argument that represents the props the component\naccepts.\n@template P The props the component accepts.\n@see {@link https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components React TypeScript Cheatsheet}\n@example ```tsx\n// With props:\ntype Props = { name: string }\n\nconst MyComponent: FunctionComponent<Props> = (props) => {\n return <div>{props.name}</div>\n}\n```\n@example ```tsx\n// Without props:\nconst MyComponentWithoutProps: FunctionComponent = () => {\n  return <div>MyComponentWithoutProps</div>\n}\n```",
+              "tags": {
+                "template": "P The props the component accepts.",
+                "see": "{@link https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components React TypeScript Cheatsheet}",
+                "example": "```tsx\n// With props:\ntype Props = { name: string }\n\nconst MyComponent: FunctionComponent<Props> = (props) => {\n return <div>{props.name}</div>\n}\n```\n```tsx\n// Without props:\nconst MyComponentWithoutProps: FunctionComponent = () => {\n  return <div>MyComponentWithoutProps</div>\n}\n```"
+              }
+            }
+          ]
         }
       }
     }

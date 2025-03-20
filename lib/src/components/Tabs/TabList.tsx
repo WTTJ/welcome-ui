@@ -27,8 +27,8 @@ export type TabListProps = CreateWuiProps<'div', TabListOptions>
 function useTrackActiveTabs(
   selectedId: UseTabState['selectedId'],
   children: React.ReactNode
-): [ReturnType<typeof flattenChildren>, HTMLElement] {
-  const [activeTab, setActiveTab] = useState<HTMLElement>(null)
+): [ReturnType<typeof flattenChildren>, HTMLElement | null] {
+  const [activeTab, setActiveTab] = useState<HTMLElement | null>(null)
 
   const tabs = flattenChildren(children).map((child: React.ReactElement) => {
     if (child.props.id === selectedId) {

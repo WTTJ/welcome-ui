@@ -73,7 +73,16 @@
         ],
         "required": false,
         "type": {
-          "name": "Element"
+          "name": "enum",
+          "raw": "Element",
+          "value": [
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "iconPlacement": {
@@ -150,7 +159,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "onBlur": {
@@ -169,7 +184,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: FocusEvent<HTMLInputElement, Element>) => void"
+          "name": "enum",
+          "raw": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+          "value": [
+            {
+              "value": "(event: FocusEvent<HTMLInputElement, Element>) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onChange": {
@@ -188,7 +212,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: ChangeEvent<HTMLInputElement>) => void"
+          "name": "enum",
+          "raw": "((event: ChangeEvent<HTMLInputElement>) => void)",
+          "value": [
+            {
+              "value": "(event: ChangeEvent<HTMLInputElement>) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onFocus": {
@@ -207,7 +240,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: FocusEvent<HTMLInputElement, Element>) => void"
+          "name": "enum",
+          "raw": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+          "value": [
+            {
+              "value": "(event: FocusEvent<HTMLInputElement, Element>) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onKeyDown": {
@@ -226,7 +268,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: KeyboardEvent<HTMLInputElement>) => void"
+          "name": "enum",
+          "raw": "((event: KeyboardEvent<HTMLInputElement>) => void)",
+          "value": [
+            {
+              "value": "(event: KeyboardEvent<HTMLInputElement>) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "placeholder": {
@@ -245,7 +296,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "transparent": {
@@ -294,7 +351,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "value": {
@@ -313,7 +376,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       }
     }

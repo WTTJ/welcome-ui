@@ -33,7 +33,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
     const TimePickerNode =
       Children.count(children) > 1 &&
       Children.toArray(children).find(
-        (child: JSX.Element): boolean => child.type.displayName === 'TimePicker'
+        child => React.isValidElement(child) && child.type === TimePicker
       )
     const timeIntervals = React.isValidElement(TimePickerNode)
       ? TimePickerNode.props.timeIntervals
@@ -68,18 +68,23 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
     return (
       <S.DateTimePicker data-testid={dataTestId}>
         {children &&
-          Children.map(children, (child: React.ReactElement, i) =>
-            cloneElement(child, {
-              // give ref only to the first child
-              inputRef: i < 1 ? ref : null,
-              key: i,
-              locale: locale,
-              onChange: handleChange,
-              timeIntervals,
-              transparent,
-              value: date,
-            })
-          )}
+          Children.map(children, (child, i) => {
+            if (React.isValidElement(child)) {
+              return cloneElement(child, {
+                // give ref only to the first child
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
+                inputRef: i < 1 ? ref : null,
+                key: i,
+                locale: locale,
+                onChange: handleChange,
+                timeIntervals,
+                transparent,
+                value: date,
+              })
+            }
+            return child
+          })}
         {!children && (
           <>
             <DatePicker

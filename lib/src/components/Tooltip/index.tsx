@@ -65,6 +65,8 @@ export const Tooltip = forwardRef<'div', TooltipProps>(
           anchorElement.removeEventListener('mousemove', onMouseMove)
         }
       }
+
+      return undefined // Explicit return for the case when anchorElement is falsy or fixed is true
     }, [render, fixed, anchorElement])
 
     // If no content, simply return the children

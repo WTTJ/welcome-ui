@@ -291,7 +291,7 @@ describe('<Select>', () => {
 
     const removeButton = tags[1].querySelector('[title=Remove]')
 
-    await user.click(removeButton)
+    if (removeButton) await user.click(removeButton)
 
     tags = screen.getAllByRole('listitem')
 
@@ -467,7 +467,7 @@ describe('<Select>', () => {
     expect(option).toHaveTextContent(`Create "${firstItem.label}"`)
 
     // Click on 'Create' item
-    await user.click(option)
+    if (option) await user.click(option)
 
     // Expect `onCreate` callback to be called
     expect(handleCreate).toHaveBeenCalledTimes(1)
@@ -493,7 +493,7 @@ describe('<Select>', () => {
     expect(option).toHaveTextContent(`Create "${secondItem.label}"`)
 
     // Click on 'Create' item
-    await user.click(option)
+    if (option) await user.click(option)
 
     // Expect `onCreate` callback to be called
     expect(handleCreate).toHaveBeenCalledTimes(2)
@@ -529,7 +529,7 @@ describe('<Select>', () => {
     // Click on 'Create' item
     const option = screen.getByRole('listbox').querySelector('li')
 
-    await user.click(option)
+    if (option) await user.click(option)
 
     // Expect `onCreate` callback to be called
     expect(handleCreate).toHaveBeenCalledTimes(1)
@@ -574,7 +574,7 @@ describe('<Select>', () => {
     expect(option).toHaveTextContent('October')
 
     // Click on 'Create' item
-    await user.click(option)
+    if (option) await user.click(option)
 
     // Expect `onCreate` callback not to be called
     expect(handleCreate).toHaveBeenCalledTimes(0)

@@ -27,6 +27,7 @@ type StyledIconProps = Partial<{ alt: string; title: string }> &
 
 export const Icon = styled.svgBox<StyledIconProps>(({ isFlag, size = 'md', stroked, theme }) => {
   const formattedSize = theme.icons[size as keyof ThemeValues['icons']] || size
+
   return css`
     ${!isFlag && (stroked ? iconSvgStrokedStyles : iconSvgFilledStyles)};
     width: ${formattedSize};

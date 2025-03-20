@@ -30,10 +30,12 @@ function fill(length: number, transform: (arg: number) => number): number[] {
   return Array.from({ length }, (_, i) => transform(i))
 }
 
-function getPosition(page: number, pageCount: number): Position {
+function getPosition(page: number, pageCount: number): null | Position {
   if (page < RANGE) return 'before'
   if (page >= RANGE && page <= pageCount - RANGE + 1) return 'center'
   if (page > pageCount - RANGE + 1) return 'after'
+
+  return null
 }
 
 function joinArrays(arrays: number[][], separator: string): Array<number | string> {

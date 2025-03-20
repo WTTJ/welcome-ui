@@ -68,7 +68,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
 
     const [focused, setFocused] = useState<Focused>((autoFocus && 'date') || null)
     const [date, setDate] = useState<Date | null>(formatDate(value))
-    const inputRef = useRef<HTMLInputElement>()
+    const inputRef = useRef<HTMLInputElement | null>(null)
 
     // format date at component mount
     useEffect(() => {
@@ -147,7 +147,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
               // for external use
               if (typeof ref === 'function') {
                 ref(instance)
-              } else {
+              } else if (ref) {
                 ref.current = instance
               }
             }}
@@ -165,11 +165,12 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
         popperProps={popperProps}
         renderCustomHeader={(props: CustomHeaderProps) => (
           <CustomHeader
-            endYear={endYear}
             isMonthYearPicker={showMonthYearPicker}
             locale={locale}
-            startYear={startYear}
             {...props}
+            // Override props values with our custom ones
+            endYear={endYear}
+            startYear={startYear}
           />
         )}
         selected={date}

@@ -33,9 +33,13 @@ export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = tru
   const onMouseEnter = pauseOnHover ? startPause : undefined
   const onMouseLeave = pauseOnHover ? endPause : undefined
 
+  if (toasts.length === 0) {
+    return null
+  }
+
   return (
-    <ThemeProvider theme={themeContext}>
-      {toasts.length > 0 &&
+    <ThemeProvider theme={themeContext || {}}>
+      {
         createPortal(
           <div data-wui-persistent onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             {toasts.map(toast => (
@@ -47,7 +51,8 @@ export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = tru
               />
             ))}
           </div>
-        )}
+        ) as React.ReactNode
+      }
     </ThemeProvider>
   )
 }

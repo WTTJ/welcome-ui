@@ -16,7 +16,7 @@ export interface RadioTabsOptions extends DefaultFieldStylesProps {
   disabledIcon?: React.ReactElement
   label: React.ReactElement
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  value: Ariakit.RadioStoreState['value']
+  value: Ariakit.RadioProps['value']
 }
 
 export type RadioTabsProps = CreateWuiProps<'input', RadioTabsOptions>

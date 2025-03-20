@@ -11,7 +11,7 @@
     "lint:css": "stylelint '**/styles.ts'",
     "lint:js": "yarn eslint scripts lib website --max-warnings 0",
     "lint:mdx": "prettier --parser mdx --write '**/docs/index.mdx'",
-    "lint:ts": "cd lib && tsc --noEmit",
+    "lint:ts": "cd lib && tsc --noEmit && cd ../website && tsc --noEmit",
     "lint:website": "cd website && yarn lint",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:ts && yarn lint:mdx",
     "migrate": "node ./scripts/upgrade-v8.js",

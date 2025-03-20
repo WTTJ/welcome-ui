@@ -55,12 +55,12 @@ export const ToastWrapper: React.FC<ToastWrapperProps> = ({
   const toastStyle = {
     opacity: toast.visible ? 1 : 0,
     transform: `translate(${center ? '-50%' : '0'}, ${offset * (top ? 1 : -1)}px)`,
-    ...POSITION_STYLE[toast.position],
+    ...POSITION_STYLE[toast.position || 'top-center'],
   }
 
   return (
     <S.ToastWrapper
-      isBottom={bottom}
+      isBottom={bottom || false}
       opacity={toastStyle.opacity}
       ref={ref}
       style={toastStyle}

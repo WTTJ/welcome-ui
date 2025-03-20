@@ -1,7 +1,5 @@
 import capitalize from 'lodash.capitalize'
 
-import type { SelectValue } from '../'
-
 import {
   getInputValue,
   getNewOptions,
@@ -121,32 +119,36 @@ describe('<Select>', () => {
   })
 
   it('getOptionsFromSelected returns correct options', () => {
-    const options = getOptionsFromSelected('february', OPTIONS)
+    const options = getOptionsFromSelected({ options: OPTIONS, selected: 'february' })
     expect(options).toStrictEqual([OPTIONS[1]])
   })
 
   it('getOptionsFromSelected returns empty array if SELECTED not passed', () => {
-    const options = getOptionsFromSelected(undefined as unknown as SelectValue, OPTIONS)
+    const options = getOptionsFromSelected({ options: OPTIONS })
     expect(options).toStrictEqual([])
   })
 
   it('getOptionsFromSelected returns empty array if no SELECTED', () => {
-    const options = getOptionsFromSelected([], OPTIONS)
+    const options = getOptionsFromSelected({ options: OPTIONS, selected: [] })
     expect(options).toStrictEqual([])
   })
 
   it('getOptionsFromSelected returns empty array if no SELECTED', () => {
-    const options = getOptionsFromSelected('', OPTIONS)
+    const options = getOptionsFromSelected({ options: OPTIONS, selected: '' })
     expect(options).toStrictEqual([])
   })
 
   it('getOptionsFromSelected returns empty array if no SELECTED', () => {
-    const options = getOptionsFromSelected(0, OPTIONS)
+    const options = getOptionsFromSelected({ options: OPTIONS, selected: 0 })
     expect(options).toStrictEqual([{ label: 0, value: '0' }])
   })
 
   it('getOptionsFromSelected return correct options (with groupsEnabled)', () => {
-    const options = getOptionsFromSelected('github', OPT_GROUP, true)
+    const options = getOptionsFromSelected({
+      groupsEnabled: true,
+      options: OPT_GROUP,
+      selected: 'github',
+    })
     expect(options).toStrictEqual([{ label: 'Github', value: 'github' }])
   })
 

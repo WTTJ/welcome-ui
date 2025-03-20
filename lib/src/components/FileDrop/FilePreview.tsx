@@ -20,6 +20,8 @@ export const FilePreview: React.FC<FileDropChildren['wordings'] & MessageProps> 
   forceFileType,
   previewButtonText = 'Preview',
 }) => {
+  if (!file) return null
+
   const isUrl = typeof file === 'string'
   const Icon = getFileIcon(file, forceFileType)
   const size = file instanceof File ? getFileSize(file) : null

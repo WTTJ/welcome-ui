@@ -8,8 +8,8 @@ import * as S from './styles'
 import { getParentScale } from './utils'
 
 export interface ActiveBarOptions {
-  activeTab: HTMLElement
-  listRef: React.MutableRefObject<undefined>
+  activeTab: HTMLElement | null
+  listRef: React.MutableRefObject<HTMLElement | undefined>
 }
 
 export type ActiveBarProps = ActiveBarOptions & Pick<UseTabState, 'orientation'>
@@ -21,8 +21,8 @@ export interface ActiveBarReturn {
 }
 
 function useActiveBar(
-  listRef: React.MutableRefObject<HTMLElement>,
-  activeTab: HTMLElement,
+  listRef: React.MutableRefObject<HTMLElement | undefined>,
+  activeTab: HTMLElement | null,
   orientation: UseTabState['orientation']
 ): ActiveBarReturn {
   const [state, setState] = useState({})

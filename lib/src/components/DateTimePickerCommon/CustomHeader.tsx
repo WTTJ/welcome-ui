@@ -39,8 +39,8 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
   locale,
   startYear,
 }) => {
-  const [month, setMonth] = useState(null)
-  const [year, setYear] = useState(null)
+  const [month, setMonth] = useState<null | string>(null)
+  const [year, setYear] = useState<null | number>(null)
 
   const months = useMemo(() => getMonths(locale), [locale])
   const years = useMemo(() => getYears(startYear, endYear), [startYear, endYear])
@@ -79,7 +79,7 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
             onChange={changeMonth}
             options={months}
             size="sm"
-            value={month}
+            value={month || ''}
           />
         )}
         <Select
@@ -88,7 +88,7 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
           onChange={changeYear}
           options={years}
           size="sm"
-          value={year}
+          value={year || ''}
         />
       </S.Selects>
       <Button

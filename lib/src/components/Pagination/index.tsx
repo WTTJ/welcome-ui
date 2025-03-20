@@ -45,10 +45,13 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
     const handlePrevious = useCallback(
       (event: React.MouseEvent) => {
         event.preventDefault()
+
         const previousPage = page - 1
-        if (previousPage === 1) {
+
+        if (previousPage === 1 && firstPageRef.current) {
           firstPageRef.current.focus()
         }
+
         onChange(previousPage)
       },
       [page, onChange]
@@ -57,10 +60,13 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
     const handleNext = useCallback(
       (event: React.MouseEvent) => {
         event.preventDefault()
+
         const nextPage = page + 1
-        if (nextPage === pageCount) {
+
+        if (nextPage === pageCount && lastPageRef.current) {
           lastPageRef.current.focus()
         }
+
         onChange(nextPage)
       },
       [page, pageCount, onChange]

@@ -19,7 +19,13 @@
         ],
         "required": false,
         "type": {
-          "name": "number"
+          "name": "enum",
+          "raw": "number",
+          "value": [
+            {
+              "value": "number"
+            }
+          ]
         }
       },
       "icon": {
@@ -27,29 +33,29 @@
         "description": "",
         "name": "icon",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
-          "name": "ReactDatePickerProps"
+          "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+          "name": "CustomInputOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
-            "name": "ReactDatePickerProps"
-          },
-          {
             "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
             "name": "CustomInputOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
+            "name": "ReactDatePickerProps"
           }
         ],
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "(string | ReactElement<any, string | JSXElementConstructor<any>>) & Element",
+          "raw": "(Element & (string | ReactElement<any, string | JSXElementConstructor<any>>))",
           "value": [
             {
-              "value": "string & Element"
+              "value": "Element & string"
             },
             {
-              "value": "ReactElement<any, string | JSXElementConstructor<any>> & Element"
+              "value": "Element & ReactElement<any, string | JSXElementConstructor<any>>"
             }
           ]
         }
@@ -100,7 +106,16 @@
         ],
         "required": false,
         "type": {
-          "name": "Locale"
+          "name": "enum",
+          "raw": "Locale",
+          "value": [
+            {
+              "value": "Locale",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onBlur": {
@@ -119,7 +134,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: FocusEvent<HTMLDivElement, Element>) => void"
+          "name": "enum",
+          "raw": "((event: FocusEvent<HTMLDivElement, Element>) => void)",
+          "value": [
+            {
+              "value": "(event: FocusEvent<HTMLDivElement, Element>) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onChange": {
@@ -138,7 +162,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(date?: Date) => void"
+          "name": "enum",
+          "raw": "((date?: Date) => void) | undefined",
+          "value": [
+            {
+              "value": "(date?: Date | undefined) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "onFocus": {
@@ -157,7 +190,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(event: FocusEvent<HTMLDivElement, Element>) => void"
+          "name": "enum",
+          "raw": "((event: FocusEvent<HTMLDivElement, Element>) => void)",
+          "value": [
+            {
+              "value": "(event: FocusEvent<HTMLDivElement, Element>) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "placeholder": {
@@ -176,7 +218,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "preventVirtualKeyboard": {
@@ -231,16 +279,16 @@
           "raw": "Size",
           "value": [
             {
-              "value": "\"xs\""
-            },
-            {
-              "value": "\"sm\""
+              "value": "\"lg\""
             },
             {
               "value": "\"md\""
             },
             {
-              "value": "\"lg\""
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xs\""
             }
           ]
         }
@@ -263,7 +311,13 @@
         ],
         "required": false,
         "type": {
-          "name": "number"
+          "name": "enum",
+          "raw": "number",
+          "value": [
+            {
+              "value": "number"
+            }
+          ]
         }
       },
       "transparent": {

@@ -38,15 +38,18 @@ export const opt_group_results = [
 ]
 
 const defaultProps = {
-  itemToString: (item: Item) => item.title,
-  renderItem: (item: Item) => (
-    <div style={{ alignItems: 'center', display: 'flex' }}>
-      <Shape mr="xs" w="20px">
-        <img src={item.poster} />
-      </Shape>
-      <span>{item.title}</span>
-    </div>
-  ),
+  itemToString: (item: unknown) => (item as Item)?.title || '',
+  renderItem: (item: unknown) => {
+    const typedItem = item as Item
+    return (
+      <div style={{ alignItems: 'center', display: 'flex' }}>
+        <Shape mr="xs" w="20px">
+          <img src={typedItem.poster} />
+        </Shape>
+        <span>{typedItem.title}</span>
+      </div>
+    )
+  },
   search: async function asyncSearch(q: string) {
     await new Promise(resolve => setTimeout(resolve, 100))
     return results.filter(result => result.title.toLowerCase().indexOf(q) > -1)
@@ -122,7 +125,7 @@ describe('<Search>', () => {
     const options = await waitFor(() => screen.getByRole('listbox').querySelectorAll('li'))
     const image = options[0].querySelector('img')
 
-    expect(image.getAttribute('src')).toBe('big-fish.jpg')
+    expect(image?.getAttribute('src')).toBe('big-fish.jpg')
   })
 
   it('<Search icon> shows icon', () => {

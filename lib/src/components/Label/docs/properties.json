@@ -73,7 +73,16 @@
         ],
         "required": false,
         "type": {
-          "name": "Element"
+          "name": "enum",
+          "raw": "Element",
+          "value": [
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "htmlFor": {
@@ -92,7 +101,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "icon": {
@@ -111,7 +126,16 @@
         ],
         "required": false,
         "type": {
-          "name": "Element"
+          "name": "enum",
+          "raw": "Element",
+          "value": [
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "required": {
@@ -159,13 +183,13 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"success\" | \"danger\" | \"warning\"",
+          "raw": "\"danger\" | \"success\" | \"warning\"",
           "value": [
             {
-              "value": "\"success\""
+              "value": "\"danger\""
             },
             {
-              "value": "\"danger\""
+              "value": "\"success\""
             },
             {
               "value": "\"warning\""

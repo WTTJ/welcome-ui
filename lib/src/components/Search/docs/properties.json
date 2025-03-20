@@ -45,7 +45,19 @@
         ],
         "required": false,
         "type": {
-          "name": "ReactElement<any, string | JSXElementConstructor<any>>"
+          "name": "enum",
+          "raw": "ReactElement<any, string | JSXElementConstructor<any>>",
+          "value": [
+            {
+              "value": "ReactElement<any, string | JSXElementConstructor<any>>",
+              "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+              "fullComment": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.\n@template P The type of the props object\n@template T The type of the component or tag\n@example ```tsx\nconst element: ReactElement = <div />;\n```",
+              "tags": {
+                "template": "P The type of the props object\nT The type of the component or tag",
+                "example": "```tsx\nconst element: ReactElement = <div />;\n```"
+              }
+            }
+          ]
         }
       },
       "itemToString": {
@@ -85,7 +97,13 @@
         ],
         "required": false,
         "type": {
-          "name": "number"
+          "name": "enum",
+          "raw": "number",
+          "value": [
+            {
+              "value": "number"
+            }
+          ]
         }
       },
       "onChange": {
@@ -104,7 +122,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(item: unknown, event: { preventDefault: () => void; target: Record<string, unknown>; }) => void"
+          "name": "enum",
+          "raw": "((item: unknown, event: { preventDefault: () => void; target: Record<string, unknown>; }) => void)",
+          "value": [
+            {
+              "value": "(item: unknown, event: { preventDefault: () => void; target: Record<string, unknown>; }) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "renderGroupHeader": {
@@ -123,7 +150,16 @@
         ],
         "required": false,
         "type": {
-          "name": "(result: SearchOptionGroup) => ReactElement<any, string | JSXElementConstructor<any>>"
+          "name": "enum",
+          "raw": "((result: SearchOptionGroup) => ReactElement<any, string | JSXElementConstructor<any>>)",
+          "value": [
+            {
+              "value": "(result: SearchOptionGroup) => ReactElement<any, string | JSXElementConstructor<any>>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "renderItem": {
@@ -182,7 +218,13 @@
         ],
         "required": false,
         "type": {
-          "name": "number"
+          "name": "enum",
+          "raw": "number",
+          "value": [
+            {
+              "value": "number"
+            }
+          ]
         }
       },
       "value": {

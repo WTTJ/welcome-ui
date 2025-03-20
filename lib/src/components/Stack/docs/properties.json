@@ -50,28 +50,28 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"xxs\" | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | \"xxl\"",
+          "raw": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\" | \"xxl\" | \"xxs\"",
           "value": [
             {
-              "value": "\"xxs\""
-            },
-            {
-              "value": "\"xs\""
-            },
-            {
-              "value": "\"sm\""
+              "value": "\"lg\""
             },
             {
               "value": "\"md\""
             },
             {
-              "value": "\"lg\""
+              "value": "\"sm\""
             },
             {
               "value": "\"xl\""
             },
             {
+              "value": "\"xs\""
+            },
+            {
               "value": "\"xxl\""
+            },
+            {
+              "value": "\"xxs\""
             }
           ]
         }

@@ -67,7 +67,7 @@ export function getFileIcon(file: FileType, forceFileType?: ForceFileType): Reac
   }
 }
 
-export function getFileName(file: FileType): string {
+export function getFileName(file: FileType): string | undefined {
   if (typeof file === 'string') {
     return removeQueryString(file).split('/').pop()
   } else {
@@ -75,14 +75,15 @@ export function getFileName(file: FileType): string {
   }
 }
 
-export function getFileSize(file: FileType): string {
+export function getFileSize(file: FileType): null | string {
   return file instanceof File && file.size ? formatBytes(file.size, 0) : null
 }
 
-export function getMimeType(file: FileType): string {
+export function getMimeType(file: FileType): null | string {
   if (typeof file === 'string') {
-    const fileName = getFileName(file).split('.').pop()
-    return types[fileName] || null
+    const fileName = getFileName(file)
+    const extension = fileName ? fileName.split('.').pop() : undefined
+    return (extension && types[extension]) || null
   } else {
     return file.type
   }
