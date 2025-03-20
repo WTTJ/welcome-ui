@@ -80,12 +80,10 @@ export const Content = forwardRef<'div', ContentProps>(
       }
     }, [store, open, contentElement])
 
-    if (!React.isValidElement(children)) return null
-
     return (
       <Box ref={ref} {...rest}>
         {shouldShowCloseButton ? <Close /> : null}
-        {Children.map(children, (child: JSX.Element) => {
+        {Children.map(children as React.ReactElement, (child: JSX.Element) => {
           if (!child) return null
           const name = child?.type?.displayName || child?.type?.name
 
