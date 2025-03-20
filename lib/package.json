@@ -1,6 +1,6 @@
 {
   "name": "welcome-ui",
-  "version": "8.1.0-alpha.1",
+  "version": "8.1.0-alpha.2",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "files": [
     "dist"
