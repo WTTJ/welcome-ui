@@ -61,7 +61,7 @@
     "lodash.range": "^3.2.0",
     "lottie-light-react": "^2.4.0",
     "match-sorter": "^8.0.0",
-    "react-datepicker": "^4.16.0",
+    "react-datepicker": "^8.2.1",
     "react-dropzone": "^14.3.5",
     "react-flatten-children": "^1.0.0",
     "react-hot-toast": "^2.4.1"
