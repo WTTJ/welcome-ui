@@ -66,7 +66,7 @@
     "eslint-plugin-typescript-sort-keys": "^3.3.0",
     "esm": "^3.2.25",
     "glob": "^11.0.0",
-    "husky": "8.0.3",
+    "husky": "9.1.7",
     "lodash.difference": "^4.5.0",
     "minimist": "1.2.8",
     "onchange": "^7.0.2",
