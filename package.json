@@ -85,6 +85,7 @@
   "resolutions": {
     "@types/react": "18.3.12",
     "@typescript-eslint/parser": "^6.21.0",
-    "@typescript-eslint/utils": "^8.8.1"
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "eslint-plugin-react-hooks": "4.6.0"
   }
 }
