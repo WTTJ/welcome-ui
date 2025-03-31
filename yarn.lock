@@ -12373,10 +12373,10 @@ ws@^8.18.0:
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.18.1.tgz#ea131d3784e1dfdff91adb0a4a116b127515e3cb"
   integrity sha512-RKW2aJZMXeMxVpnZ6bck+RswznaxmzdULiBr6KY7XkTnW8uvt0iT9H5DkHUChXrc+uurzwa0rVI16n/Xzjdz1w==
 
-wttj-config@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/wttj-config/-/wttj-config-3.0.1.tgz#da74ab867ec95e6b412b17f640ad9f635b36b60b"
-  integrity sha512-5ZsxXIHOxcxMVT3PU4Y4LmMTIUAFS47XpxhqNAK+IoxWuimu62H1RqDch5qyFOJlK0wb5N8RVpZ9vUy9j8cHEA==
+wttj-config@3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/wttj-config/-/wttj-config-3.1.2.tgz#0eadf98b08435f105e648b6637253f0fb5fae01b"
+  integrity sha512-GZvKY74g3cF82Zktq7aY+ht2c77aajmuYIH+7qR92SHo0jGZNCp2oM+k4IpqInv1pzb/ptLnBAtNKwwIxYNJ1A==
   dependencies:
     "@babel/eslint-parser" "^7.23.10"
     "@babel/plugin-syntax-flow" "^7.23.3"
