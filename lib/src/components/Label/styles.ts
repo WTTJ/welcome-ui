@@ -20,7 +20,7 @@ export const Label = styled.labelBox.withConfig({ shouldForwardProp })<{
         margin-right: sm;
       }
 
-      :last-child {
+      &:last-child {
         ${required && requiredStyles};
       }
     }
