@@ -1,6 +1,6 @@
 {
   "name": "welcome-ui",
-  "version": "8.0.1",
+  "version": "8.0.2-alpha.0",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "files": [
     "dist"
@@ -105,7 +105,7 @@
     "vite-plugin-dts": "^4.5.3",
     "vite-plugin-static-copy": "^2.3.0",
     "vitest": "^3.0.8",
-    "wttj-config": "^3.0.1"
+    "wttj-config": "3.1.2"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^4.0.0",
