@@ -17,6 +17,9 @@
       "import": "./dist/utils.mjs",
       "require": "./dist/utils.mjs"
     },
+    "./*.d.ts": {
+      "types": "./*.d.ts"
+    },
     "./*": {
       "types": "./dist/types/components/*/index.d.ts",
       "import": "./dist/*.mjs",
