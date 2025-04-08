@@ -3,11 +3,8 @@ import styled, { css, th, typography } from '@xstyled/styled-components'
 import { LinkOptions } from './index'
 
 import { UniversalLink } from '@/UniversalLink'
-import { shouldForwardProp } from '@/System'
 
-export const Link = styled(UniversalLink).withConfig({ shouldForwardProp })<
-  Pick<LinkOptions, 'isExternal' | 'variant'>
->(
+export const Link = styled(UniversalLink)<Pick<LinkOptions, 'isExternal' | 'variant'>>(
   ({ isExternal, variant = 'primary' }) => css`
     display: inline-flex;
     flex-direction: row;
