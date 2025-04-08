@@ -58,6 +58,7 @@
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "@vitest/eslint-plugin": "^1.1.37",
+    "@typescript-eslint/utils": "^8.24.0",
     "@vusion/webfonts-generator": "^0.8.0",
     "@xstyled/styled-components": "^4.0.0",
     "aws-sdk": "^2.1691.0",
