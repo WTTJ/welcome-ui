@@ -34,7 +34,7 @@ export default tseslint.config(
           prefer: 'type-imports',
         },
       ],
-      'no-console': 'warn',
+      'no-console': 'error',
       'perfectionist/sort-imports': [
         'warn',
         {

@@ -470,13 +470,13 @@
           "raw": "Size",
           "value": [
             {
-              "value": "\"lg\""
+              "value": "\"sm\""
             },
             {
               "value": "\"md\""
             },
             {
-              "value": "\"sm\""
+              "value": "\"lg\""
             },
             {
               "value": "\"xl\""

@@ -104,19 +104,19 @@
           "raw": "Size",
           "value": [
             {
-              "value": "\"lg\""
-            },
-            {
-              "value": "\"md\""
+              "value": "\"xs\""
             },
             {
               "value": "\"sm\""
             },
             {
-              "value": "\"xl\""
+              "value": "\"md\""
             },
             {
-              "value": "\"xs\""
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"xl\""
             },
             {
               "value": "\"xxl\""

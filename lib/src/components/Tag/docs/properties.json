@@ -104,13 +104,13 @@
           "raw": "Size",
           "value": [
             {
-              "value": "\"md\""
+              "value": "\"xs\""
             },
             {
               "value": "\"sm\""
             },
             {
-              "value": "\"xs\""
+              "value": "\"md\""
             }
           ]
         }
